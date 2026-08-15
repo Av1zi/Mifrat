@@ -59,12 +59,11 @@ Known gaps:
   part.
 
 ## TODO before first real run
-1. ToS skim.
-2. Resolve the product-URL gap (see above).
-3. Confirm windows-1255 decoding is correct across the full response (the
+1. Resolve the product-URL gap (see above) — this is now the main blocker.
+2. Confirm windows-1255 decoding is correct across the full response (the
    sample decoded fine but hasn't been checked against the full catalog for
    mojibake in less-common characters).
-4. Decide whether to filter this spider's output to PC-hardware-relevant
+3. Decide whether to filter this spider's output to PC-hardware-relevant
    categories at scrape time, or let normalize_and_match.py do that
    filtering downstream (§8) — currently deferring to the latter.
 """

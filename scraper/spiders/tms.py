@@ -40,11 +40,11 @@ This is by far the best raw data of the four vendors: real in-stock boolean,
 manufacturer, socket, model/SKU, price, and canonical product URL, no HTML
 parsing needed at all.
 
-Confirmed category_id so far: **10001 = CPUs**. Only this one has been
-captured — the other component categories (GPU, motherboard, RAM, PSU,
-case, cooler) need the same Network-tab capture (open the configurator,
-expand each section, note the category_id in the resulting request) before
-this spider covers the full component set the compatibility engine needs.
+Confirmed category_ids (Aug 2026, captured directly from TMS's PC
+configurator Network tab): CPU (10001), CPU cooler (10073), motherboard
+(10000), RAM (10020), case (10002), case fans (10074), PSU (10050), GPU
+(10033), SSD (10028), hard drive (10024). All 10 categories the
+compatibility engine needs are now covered — see the CATEGORIES dict below.
 
 `attribute_value_id`, `heightForCoolerCase`, and `memory_type_value_id` look
 like compatibility filters (matching a previously-selected socket/cooler
@@ -53,14 +53,13 @@ to return the full unfiltered category list, but this hasn't been
 independently confirmed for other categories yet.
 
 ## TODO before first real run
-1. ToS skim (https://tms.co.il/terms_conditions) — this is now the actually
-   load-bearing check, since robots.txt is no longer a self-imposed limit.
-2. Capture category_id for GPU, motherboard, RAM, PSU, case, CPU cooler the
-   same way CPU (10001) was found.
-3. Confirm `stock` (bool) maps cleanly to the shared ListingItem.in_stock
+1. ToS skim — noted for completeness; per the project owner's Aug 2026
+   decision (see pc-parts-il-plan.md §17), scraping is proceeding regardless
+   with a take-down-on-request posture, so this is no longer a blocking step.
+2. Confirm `stock` (bool) maps cleanly to the shared ListingItem.in_stock
    field, and whether `stock_status` carries anything extra worth keeping
    (currently dropped).
-4. Confirm pagination — the one captured response wasn't confirmed to be a
+3. Confirm pagination — the captured responses weren't confirmed to be a
    complete category or just a first page; check for a total-count field or
    whether category size ever exceeds what one call returns.
 """
@@ -77,12 +76,15 @@ CONFIGURATOR_URL = "https://tms.co.il/index.php"
 # per TODO #2 above.
 CATEGORIES = {
     10001: "cpu",
-    # "gpu": TODO,
-    # "motherboard": TODO,
-    # "ram": TODO,
-    # "psu": TODO,
-    # "cpu_cooler": TODO,
-    # "case": TODO,
+    10073: "cpu_cooler",
+    10000: "motherboard",
+    10020: "ram",
+    10002: "case",
+    10074: "case_fans",
+    10050: "psu",
+    10033: "gpu",
+    10028: "ssd",
+    10024: "harddrive",
 }
 
 
