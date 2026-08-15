@@ -1,0 +1,13 @@
+name: weekly-downsample
+# Phase 4 task (§12/§16) — not active yet. Collapses daily history older than
+# ~90 days into weekly/monthly aggregates, as its own scheduled step separate
+# from the daily sync. Build scraper/downsample.py before enabling this.
+on:
+  workflow_dispatch: {}
+  # schedule:
+  #   - cron: '0 5 * * 0'  # weekly, after Sunday's daily sync
+jobs:
+  downsample:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Not implemented yet — Phase 4. See §12 of the plan."
