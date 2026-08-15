@@ -13,7 +13,14 @@ AUTOTHROTTLE_ENABLED = True
 AUTOTHROTTLE_START_DELAY = 1.0
 AUTOTHROTTLE_TARGET_CONCURRENCY = 1.5
 
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+# Decision (Aug 2026, see pc-parts-il-plan.md §17 decision log): the project
+# owner has explicitly chosen to disregard robots.txt Disallow rules after
+# weighing the tradeoffs — see the decision log entry for the reasoning and
+# caveats. This is a deliberate, documented choice, not an oversight.
+# Rate-limiting below is even more important now that we're not
+# self-restricting via robots.txt — don't loosen DOWNLOAD_DELAY/
+# CONCURRENT_REQUESTS_PER_DOMAIN as a result of this change.
 
 # §7 step 3: some older Israeli retail sites still serve Windows-1255 instead
 # of UTF-8 for Hebrew text. Scrapy usually auto-detects from the response's

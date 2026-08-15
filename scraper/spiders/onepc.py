@@ -3,20 +3,71 @@
 
 Recon so far (Aug 2026):
 - Site is genuinely bilingual at the URL level: /he/... and /en/... paths
-  both exist (e.g. https://1pc.co.il/en/pc-hardware), which is convenient
-  since the site itself is going to be bilingual (Hebrew + English) per the
-  project's language decision — scraping the /en/ path may give cleaner
-  English product names for free instead of needing translation later.
-  Worth comparing /he/ vs /en/ output for the same product to see if pricing
-  or stock differs before picking one as canonical.
-- Category example: https://1pc.co.il/en/pc-hardware
-- No JSON API observed yet — needs the same Network-tab check as the others.
+  both exist, which is convenient since the site itself is going to be
+  bilingual (Hebrew + English) per the project's language decision.
+- robots.txt CONFIRMED: blocks the usual transactional stuff (cart,
+  checkout, account, wishlist, search?, .aspx pages) under root and the
+  /he/, /en/, /ru/ prefixes. The PCBuilder path used below is NOT in the
+  disallow list — allowed.
 
-TODO before first real run (§7):
-1. Check https://1pc.co.il/robots.txt and https://1pc.co.il/he/תקנון-האתר
-   (terms of service — note the ToS page itself is at a Hebrew-slug URL).
-2. Decide: scrape /he/ or /en/ paths (or both, and cross-check)?
-3. Confirm pagination + full category list for PC-hardware-relevant sections.
+## The real find: PCBuilder/CategoryViewData
+
+1PC's site has a "PC Builder" tool (https://1pc.co.il/en/pcbuilder). Opening
+it and clicking a component type (e.g. CPU) fires:
+
+  POST https://1pc.co.il/en/PCBuilder/CategoryViewData
+  Content-Type: application/x-www-form-urlencoded
+  Body: categoryId=158&attributeId=90&dependAttributeId=0&includeChildren=False&pageNumber=0
+
+This does NOT return JSON — it returns an HTML *fragment* (product tiles
+only, no page chrome), which is actually easier to parse reliably than the
+full category page:
+
+  <div class="pc-product-item" data-productid="121957">
+    <a class="product-link" href="/en/product-121957-amd_ryzen_5_5600x...">
+    <img class="picture-img" src="https://1pc.co.il/images/thumbs/....jpeg">
+    <span class="product-title" data-id="121957" data-price="685.00003000">
+        AMD Ryzen 5 5600X AM4 processor color tray.
+    </span>
+    <span class="price actual-price">₪685</span>
+  </div>
+  ...
+  <div class="next-page" data-page="1"></div>   <!-- pagination cue -->
+
+This gives vendor_sku (data-productid), title, a full-precision price
+(data-price — prefer this over the rounded ₪685 display text), product URL,
+and an image, per page, with a `next-page` marker for pagination
+(0-indexed `pageNumber`; stop once a response contains 0 product tiles or
+no next-page marker with a new value).
+
+Confirmed categoryIds (Aug 2026, captured directly from PCBuilder's Network
+tab — see the CATEGORIES dict below for the exact attributeId/
+dependAttributeId pairing per category, kept as captured rather than
+guessed): CPU (158), CPU cooling (429), motherboard (167), memory (45),
+case (118), PSU (88), case fans (428), GPU (192), SSD (358), hard drive
+(356). That covers all the categories the compatibility engine (§6) cares
+about — this is now the most complete vendor recon of the four.
+
+Interesting side note for later (§8/§6): the attributeId/dependAttributeId
+values chain across categories (CPU's attributeId=90 == motherboard's
+dependAttributeId=90; motherboard's attributeId=49 == memory's
+dependAttributeId=49). That's the PC Builder's own compatibility filtering
+(socket, then memory type) — a hint 1PC already encodes some compatibility
+relationships server-side, which might be worth mining later rather than
+only rebuilding compatibility rules from scratch in Phase 3.
+
+## TODO before first real run
+1. ToS skim (https://1pc.co.il/he/תקנון-האתר).
+2. Confirm whether GET with querystring works as an alternative to POST
+   form data (simpler for Scrapy either way, but worth knowing).
+3. Confirm in_stock isn't present in this endpoint's response — if not,
+   may need a lightweight follow-up request per product, or accept
+   in_stock=None for 1PC in Phase 1 and revisit later.
+4. Confirm pagination stop condition empirically (does the last page still
+   include a next-page div with a stale/same page number, or is it absent?).
+5. Verify the captured attributeId/dependAttributeId values return the FULL
+   category rather than a pre-filtered subset — if item counts look low
+   compared to browsing the category manually, try attributeId="" instead.
 """
 import scrapy
 from datetime import datetime, timezone
@@ -24,18 +75,108 @@ from scraper.items import ListingItem
 
 VENDOR_ID = "1pc"
 
-START_CATEGORIES = [
-    "https://1pc.co.il/en/pc-hardware",
-]
+# categoryId -> human label. Only CPU confirmed so far; fill in the rest
+# per TODO #2 above before this spider can cover the full component set.
+CATEGORIES = {
+    # categoryId: (attributeId, dependAttributeId, label)
+    # Captured directly from https://1pc.co.il/en/pcbuilder Network tab (Aug 2026).
+    # attributeId/dependAttributeId kept exactly as captured per category —
+    # note the CPU->motherboard->memory chain (CPU attributeId=90 feeds
+    # motherboard's dependAttributeId=90; motherboard attributeId=49 feeds
+    # memory's dependAttributeId=49). That chain is presumably how the PC
+    # Builder filters compatible parts step-by-step — worth keeping in mind
+    # for §8 matching later, but for a full unfiltered category scrape we
+    # just replay the captured values as-is; TODO confirm this still returns
+    # the FULL category rather than an already-filtered subset (test with
+    # attributeId="" too if item counts look suspiciously low).
+    158: ("90", "0", "cpu"),
+    429: ("", "0", "cpu_cooling"),
+    167: ("49", "90", "motherboard"),
+    45: ("", "49", "memory"),
+    118: ("", "0", "case"),
+    88: ("", "0", "psu"),
+    428: ("", "0", "case_fans"),
+    192: ("", "0", "gpu"),
+    358: ("", "0", "ssd"),
+    356: ("", "0", "harddrive"),
+}
+
+CATEGORY_VIEW_DATA_URL = "https://1pc.co.il/en/PCBuilder/CategoryViewData"
 
 
 class OnePcSpider(scrapy.Spider):
     name = "onepc"
     allowed_domains = ["1pc.co.il"]
-    start_urls = START_CATEGORIES
 
-    def parse(self, response):
-        raise NotImplementedError(
-            "1PC spider not yet built — confirm selectors against the live "
-            "category page DOM first."
-        )
+    def start_requests(self):
+        for category_id, (attribute_id, depend_attribute_id, label) in CATEGORIES.items():
+            yield scrapy.FormRequest(
+                url=CATEGORY_VIEW_DATA_URL,
+                formdata={
+                    "categoryId": str(category_id),
+                    "attributeId": attribute_id,
+                    "dependAttributeId": depend_attribute_id,
+                    "includeChildren": "False",
+                    "pageNumber": "0",
+                },
+                callback=self.parse_category_page,
+                meta={
+                    "category_id": category_id,
+                    "category_label": label,
+                    "attribute_id": attribute_id,
+                    "depend_attribute_id": depend_attribute_id,
+                    "page_number": 0,
+                },
+            )
+
+    def parse_category_page(self, response):
+        category_id = response.meta["category_id"]
+        category_label = response.meta["category_label"]
+        attribute_id = response.meta["attribute_id"]
+        depend_attribute_id = response.meta["depend_attribute_id"]
+        page_number = response.meta["page_number"]
+
+        tiles = response.css("div.pc-product-item")
+        if not tiles:
+            # Empty page — either category is exhausted or categoryId/params
+            # need adjusting. Either way, stop paginating this category.
+            return
+
+        for tile in tiles:
+            title_node = tile.css("span.product-title")
+            yield ListingItem(
+                vendor_id=VENDOR_ID,
+                vendor_sku=tile.attrib.get("data-productid"),
+                title_raw=(title_node.css("::text").get() or "").strip(),
+                url=response.urljoin(tile.css("a.product-link::attr(href)").get() or ""),
+                # Prefer the full-precision data-price over the rounded ₪NNN
+                # display text.
+                price_ils=title_node.attrib.get("data-price"),
+                in_stock=None,  # TODO: not present in this endpoint's response — see TODO #4
+                category_guess=category_label,
+                scraped_at=datetime.now(timezone.utc).isoformat(),
+            )
+
+        next_page_node = response.css("div.next-page::attr(data-page)").get()
+        if next_page_node is not None:
+            next_page_number = int(next_page_node)
+            # Guard against a stuck/repeating page number looping forever.
+            if next_page_number != page_number:
+                yield scrapy.FormRequest(
+                    url=CATEGORY_VIEW_DATA_URL,
+                    formdata={
+                        "categoryId": str(category_id),
+                        "attributeId": attribute_id,
+                        "dependAttributeId": depend_attribute_id,
+                        "includeChildren": "False",
+                        "pageNumber": str(next_page_number),
+                    },
+                    callback=self.parse_category_page,
+                    meta={
+                        "category_id": category_id,
+                        "category_label": category_label,
+                        "attribute_id": attribute_id,
+                        "depend_attribute_id": depend_attribute_id,
+                        "page_number": next_page_number,
+                    },
+                )

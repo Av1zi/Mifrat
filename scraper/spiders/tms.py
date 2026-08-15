@@ -1,66 +1,124 @@
 """
 TMS (tms.co.il) spider.
 
-Recon so far (Aug 2026, via search/fetch — verify against live robots.txt/ToS
-yourself before running, see README "Phase 0 checklist"):
-- Platform: OpenCart. Category URLs are clean and server-rendered, e.g.
-  https://tms.co.il/computer-hardware-components/video-cards
-  https://tms.co.il/computer-hardware-components/processor/amd-cpu
-- No JSON/XHR API observed in the page source fetched — looks like classic
-  OpenCart server-rendered HTML, not a JS/React frontend. Plain
-  scrapy.Request + Selector should be enough; scrapy-playwright likely NOT
-  needed for this vendor. Re-verify with the Network tab per §7 step 2
-  before committing to that assumption.
-- Product tiles include SKU (e.g. "N5080AORUSM16GD"), price in ₪, and a
-  manufacturer logo/name — good structured signals for the matcher (§8).
-- Site is Hebrew (RTL) only, per <meta og:locale> = he-IL.
-- Sale/clearance prices ("קניה מהירה" tiles) sit alongside catalog pages —
-  make sure the category-page parser doesn't only rely on scraping the
-  homepage promo carousels, which aren't representative of the full catalog.
+## robots.txt: NOT observed for this project (see pc-parts-il-plan.md §17
+decision log, Aug 2026). This spider deliberately hits a path that TMS's
+robots.txt disallows (`Disallow: /*configurator`) — that's an intentional,
+documented decision, not an oversight. See settings.py (ROBOTSTXT_OBEY =
+False) and the plan's decision log for the reasoning/caveats.
 
-TODO before first real run:
-1. Check https://tms.co.il/robots.txt and https://tms.co.il/terms_conditions.
-2. Confirm category page pagination pattern (URL param, infinite scroll, etc).
-3. Get one product's full field set from its detail page (spec table) to see
-   what structured attributes (socket, wattage, etc.) TMS exposes directly.
+## The data source: product/configurator/getProductByCategory
+
+TMS's PC configurator (https://tms.co.il/index.php?route=product/configurator)
+calls, per category:
+
+  GET https://tms.co.il/index.php?route=product/configurator/getProductByCategory
+      &category_id=10001&attribute_value_id=0&sort_type=1
+      &heightForCoolerCase=0&memory_type_value_id=0
+
+...and gets back a clean JSON payload, one object per product:
+
+  {
+    "products": [
+      {
+        "product_id": "105950",
+        "category_id": 10001,
+        "socket": "1200",
+        "manufacturer": "Intel",
+        "name": "Intel Core i3 10105F / 1200 Box ",
+        "stock": false,
+        "model": "C10105FB",
+        "price": 188,
+        "href": "https://tms.co.il/intel-core-i3-10105f-1200-box",
+        ...
+      },
+      ...
+    ]
+  }
+
+This is by far the best raw data of the four vendors: real in-stock boolean,
+manufacturer, socket, model/SKU, price, and canonical product URL, no HTML
+parsing needed at all.
+
+Confirmed category_id so far: **10001 = CPUs**. Only this one has been
+captured — the other component categories (GPU, motherboard, RAM, PSU,
+case, cooler) need the same Network-tab capture (open the configurator,
+expand each section, note the category_id in the resulting request) before
+this spider covers the full component set the compatibility engine needs.
+
+`attribute_value_id`, `heightForCoolerCase`, and `memory_type_value_id` look
+like compatibility filters (matching a previously-selected socket/cooler
+clearance/RAM type) — using 0 for all of them, as in the CPU capture, seems
+to return the full unfiltered category list, but this hasn't been
+independently confirmed for other categories yet.
+
+## TODO before first real run
+1. ToS skim (https://tms.co.il/terms_conditions) — this is now the actually
+   load-bearing check, since robots.txt is no longer a self-imposed limit.
+2. Capture category_id for GPU, motherboard, RAM, PSU, case, CPU cooler the
+   same way CPU (10001) was found.
+3. Confirm `stock` (bool) maps cleanly to the shared ListingItem.in_stock
+   field, and whether `stock_status` carries anything extra worth keeping
+   (currently dropped).
+4. Confirm pagination — the one captured response wasn't confirmed to be a
+   complete category or just a first page; check for a total-count field or
+   whether category size ever exceeds what one call returns.
 """
+import json
 import scrapy
 from datetime import datetime, timezone
 from scraper.items import ListingItem
 
 VENDOR_ID = "tms"
 
-# Start with a couple of the categories the compatibility engine cares about
-# most (CPU, GPU, motherboard, PSU) rather than the whole site on day one.
-START_CATEGORIES = [
-    "https://tms.co.il/computer-hardware-components/processor",
-    "https://tms.co.il/computer-hardware-components/video-cards",
-    "https://tms.co.il/computer-hardware-components/motherboards",
-    "https://tms.co.il/computer-hardware-components/power-supplies",
-]
+CONFIGURATOR_URL = "https://tms.co.il/index.php"
+
+# category_id -> human label. Only CPU confirmed so far; fill in the rest
+# per TODO #2 above.
+CATEGORIES = {
+    10001: "cpu",
+    # "gpu": TODO,
+    # "motherboard": TODO,
+    # "ram": TODO,
+    # "psu": TODO,
+    # "cpu_cooler": TODO,
+    # "case": TODO,
+}
 
 
 class TmsSpider(scrapy.Spider):
     name = "tms"
     allowed_domains = ["tms.co.il"]
-    start_urls = START_CATEGORIES
 
-    def parse(self, response):
-        # TODO: replace selectors with real ones once you've inspected the
-        # live category page DOM — these are placeholders based on the tile
-        # structure implied by the homepage fetch (product link + SKU + price).
-        for product in response.css("div.product-thumb"):  # placeholder selector
-            yield ListingItem(
-                vendor_id=VENDOR_ID,
-                vendor_sku=product.css("::attr(data-sku)").get(),
-                title_raw=product.css("a.product-title::text").get(),
-                url=response.urljoin(product.css("a::attr(href)").get()),
-                price_ils=product.css("span.price::text").get(),
-                in_stock=None,  # TODO: find stock indicator on the page
-                category_guess=response.url.rsplit("/", 1)[-1],
-                scraped_at=datetime.now(timezone.utc).isoformat(),
+    def start_requests(self):
+        for category_id, label in CATEGORIES.items():
+            url = (
+                f"{CONFIGURATOR_URL}?route=product/configurator/getProductByCategory"
+                f"&category_id={category_id}&attribute_value_id=0&sort_type=1"
+                f"&heightForCoolerCase=0&memory_type_value_id=0"
+            )
+            yield scrapy.Request(
+                url=url,
+                callback=self.parse_category,
+                meta={"category_label": label},
             )
 
-        next_page = response.css("a.next::attr(href)").get()  # placeholder
-        if next_page:
-            yield response.follow(next_page, callback=self.parse)
+    def parse_category(self, response):
+        category_label = response.meta["category_label"]
+        try:
+            data = json.loads(response.text)
+        except json.JSONDecodeError:
+            self.logger.warning(f"Non-JSON response for category '{category_label}': {response.url}")
+            return
+
+        for product in data.get("products", []):
+            yield ListingItem(
+                vendor_id=VENDOR_ID,
+                vendor_sku=product.get("model") or product.get("product_id"),
+                title_raw=(product.get("name") or "").strip(),
+                url=product.get("href"),
+                price_ils=product.get("price"),
+                in_stock=product.get("stock"),  # already a bool in this API
+                category_guess=category_label,
+                scraped_at=datetime.now(timezone.utc).isoformat(),
+            )

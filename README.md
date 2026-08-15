@@ -4,7 +4,7 @@ See `pc-parts-il-plan.md` in the project docs for the full plan — this repo
 implements it. This README tracks live status; the plan doc stays the
 source of truth for *why* decisions were made (per its own §0/§17).
 
-## Status: Phase 0 (recon), in progress
+## Status: Phase 0 (recon), nearly done — moving into Phase 1
 
 ### Decisions locked in (Aug 2026)
 - **Language:** Bilingual, Hebrew + English (affects RTL layout work and
@@ -17,44 +17,77 @@ source of truth for *why* decisions were made (per its own §0/§17).
 - **KSP:** Out of scope for v1, per the plan (§10/§16). `spiders/ksp.py`
   exists only as an isolated, disabled stub.
 
-### Phase 0 checklist — what's done vs. what needs 5 minutes of your time
+### Phase 0 checklist — status
 
-Domains confirmed via search (Aug 2026):
+Domains confirmed (Aug 2026):
 | Vendor | Domain | Platform/notes |
 |---|---|---|
-| TMS | tms.co.il | OpenCart, clean server-rendered category URLs, no JSON API spotted in the fetched homepage HTML |
-| Ivory | ivory.co.il (or www.ivory.co.il) | Broad electronics retailer, not PC-only — scope category crawl carefully |
-| 1PC | 1pc.co.il | Has parallel /he/ and /en/ paths — worth comparing before picking one |
-| Plonter | plonter.co.il **and** plonter.com/main.tmpl both surfaced — confirm which is canonical | |
+| TMS | tms.co.il | OpenCart, clean server-rendered category URLs |
+| Ivory | ivory.co.il | Broad electronics retailer, not PC-only — scope category crawl carefully |
+| 1PC | 1pc.co.il | Has parallel /he/ and /en/ paths |
+| Plonter | plonter.co.il confirmed as canonical (see below) | |
 
-**I could not check robots.txt/ToS or inspect the Network tab from inside
-this environment** — my web tools can only fetch URLs that already surfaced
-via search, and my sandboxed bash has no network access to `.il` domains.
-This is a genuinely 5-minute manual task per vendor for you:
+**robots.txt: checked for all four (Aug 2026) — see each spider's docstring
+for the full breakdown.** Summary:
+- **TMS, Ivory, Plonter**: category/product browsing is allowed; disallow
+  rules only target checkout/account/filter-query-params/admin paths. Plain
+  HTML scraping via Scrapy is fine per robots.txt.
+- **1PC**: same pattern (transactional paths blocked, browsing allowed) —
+  *and* a genuinely useful internal endpoint was found:
+  `POST /en/PCBuilder/CategoryViewData` returns clean HTML product-tile
+  fragments (SKU, title, precise price, URL) instead of full rendered pages.
+  See `spiders/onepc.py` docstring for the full request/response shape.
+  This is a materially better foundation than parsing rendered category
+  pages — **1PC is now the strongest first-vendor candidate**, alongside TMS.
+- **Plonter domain resolved**: robots.txt was fetched for `plonter.co.il`,
+  confirming that's the live/checked domain. `plonter.com/main.tmpl` still
+  needs a quick manual check to see if it's a redirect or a genuinely
+  separate site before fully ruling it out.
+- Noise to ignore in all four vendors' Network tabs: Google Analytics
+  `google-analytics.com/mp/collect` pings (measurement only), and for
+  Plonter specifically, `db.access4u.co.il/api/isValidScript` (an
+  accessibility-compliance widget check-in, unrelated to product data).
 
-1. Open each of these directly in a browser:
-   - https://tms.co.il/robots.txt
-   - https://www.ivory.co.il/robots.txt
-   - https://1pc.co.il/robots.txt
-   - https://www.plonter.co.il/robots.txt (and check whether plonter.com
-     redirects to it or is a separate live site)
-2. Skim each site's Terms of Service page for any explicit
-   automated-access prohibition (linked from each homepage footer).
-3. On one category page per vendor: open DevTools → Network tab → filter
-   to XHR/Fetch → reload the page. If you see a JSON response with product
-   data, note the endpoint URL in that spider's docstring — it's much more
-   stable to hit directly than parsing rendered HTML (§7 step 2).
-4. **Submit the KSP official API enrollment application now** (§10/§16) —
-   this is non-blocking but approval timing is unknown, so starting the
-   clock costs nothing.
-5. Set up the Zyte Scrapy Cloud account via the GitHub Education Pack and
+**Still outstanding (your 5-minute manual tasks):**
+1. ToS skim for all four (linked from each homepage footer) — robots.txt
+   being permissive doesn't rule out an explicit ToS prohibition.
+2. For 1PC: capture the `categoryId` for GPU, motherboard, RAM, storage,
+   PSU, and case the same way CPU (`categoryId=158`) was found — open
+   https://1pc.co.il/en/pcbuilder, click each component type, watch the
+   Network tab for the `CategoryViewData` request, note the `categoryId`.
+   `spiders/onepc.py` has a `CATEGORIES` dict ready for these.
+3. For Ivory: confirm via **view-source** (not DevTools Elements, which
+   shows the post-JS DOM) whether product tiles exist in the raw HTML —
+   determines plain Scrapy vs. needing scrapy-playwright.
+4. Resolve plonter.com vs plonter.co.il for real (redirect vs. separate site).
+5. **Submit the KSP official API enrollment application now** (§10/§16) —
+   non-blocking, but approval timing is unknown, so starting the clock costs
+   nothing.
+6. Set up the Zyte Scrapy Cloud account via the GitHub Education Pack and
    deploy an empty test project to confirm the free unit + periodic-job
    scheduling work as expected.
 
-Update the docstring at the top of each spider file in `scraper/spiders/`
-with what you find — that's where this project keeps per-vendor recon notes
-(§0 of the plan: "add to the decision log / doc rather than letting the
-reasoning live only in a commit message").
+Per-vendor recon notes live in each spider file's docstring (§0 of the
+plan: "add to the decision log / doc rather than letting the reasoning
+live only in a commit message") — that's the up-to-date source, more
+detailed than this summary table.
+
+### ⚠️ robots.txt policy (Aug 2026)
+
+This project does **not** observe robots.txt (`ROBOTSTXT_OBEY = False` in
+`scraper/settings.py`) — an explicit, informed decision by the project
+owner, not an oversight. See `pc-parts-il-plan.md` §17 decision log for the
+full reasoning and caveats. Two endpoints in particular are used
+specifically *because* of this decision (both are excellent data sources
+that sit on robots.txt-disallowed paths):
+- **TMS**: `route=product/configurator/getProductByCategory` — clean JSON,
+  see `spiders/tms.py`.
+- **Plonter**: `/pnp/alon.tmpl` — full-catalog feed, see `spiders/plonter.py`.
+
+This does **not** extend to KSP's active bot-management/WAF — that's a
+different category of obstacle (technical countermeasure vs. stated
+preference) and the plan's existing "don't build anything to defeat
+CAPTCHA/spoof detection" stance (§10) is unchanged.
 
 ## Repo layout
 
@@ -82,10 +115,13 @@ reasoning live only in a commit message").
 
 ## Next steps (Phase 1, per plan §16)
 
-1. Finish the Phase 0 checklist above.
-2. Pick the 2 easiest-looking vendors (TMS is a strong first candidate given
-   what's already confirmed) and get one spider fully working end to end
-   against real selectors.
+1. Finish the Phase 0 checklist above (ToS skims, TMS's remaining category
+   IDs, Plonter's product-URL gap).
+2. Pick the 2 easiest-looking vendors — **TMS and Plonter are now the
+   strongest candidates** given the JSON/full-feed sources found (see the
+   robots.txt policy note above), with 1PC close behind (fully-mapped
+   category IDs, just needs a real test run). Ivory remains HTML-scraping
+   only for now.
 3. Deploy to Scrapy Cloud, set up a Periodic Job.
 4. Wire up `sync-and-deploy.yml` with real `SHUB_APIKEY`/`SHUB_PROJECT_ID`
    secrets and confirm the loop runs unattended.

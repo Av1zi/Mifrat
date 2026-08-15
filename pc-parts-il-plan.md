@@ -193,6 +193,8 @@ Flagged as hard for a reason — larger Israeli e-commerce sites commonly run WA
 
 Bottom line, matching what you said: don't build anything for KSP yet. Get the other four vendors working end to end first.
 
+**Note (Aug 2026, see §17 decision log):** the robots.txt-disregard decision for TMS/Ivory/1PC/Plonter does NOT extend to KSP's bot-management/WAF defenses. Those are two different categories of obstacle — robots.txt is a stated policy preference with no technical enforcement, while a WAF is an active technical countermeasure. §10's guidance above (don't build anything to defeat CAPTCHA/spoof detection) still stands unchanged.
+
 ## 11. Legal & ethical considerations (not legal advice)
 
 - Check each vendor's `robots.txt` and Terms of Service before scraping it. Scraping publicly visible prices for a comparison site is a well-established model (Zap does exactly this), but individual sites' ToS can still explicitly prohibit automated access — a real risk factor to weigh, not a formality.
@@ -200,6 +202,7 @@ Bottom line, matching what you said: don't build anything for KSP yet. Get the o
 - Only store and display what's needed (price, availability, spec, link back to the vendor's product page). Linking out to buy, rather than trying to replace the vendor's own page, is what keeps this in "comparison site" territory.
 - If a vendor formally asks you to stop, stop for that vendor.
 - None of this is legal advice specific to Israeli law — if this grows past a personal side project (ads, paid features, real traffic), a short consult with someone who practices in this area is worth it.
+- **See §17 decision log (Aug 2026) for the project owner's explicit decision to disregard robots.txt Disallow rules for TMS/Ivory/1PC/Plonter.** This note is left here rather than rewritten, since the original caution above ("a real risk factor to weigh, not a formality") is still accurate context for that decision, not outdated advice to delete.
 
 ## 12. Data growth & retention
 
@@ -269,9 +272,19 @@ Note: Scrapy Cloud's 120-day job-data retention is not your long-term store — 
 
 **Why is KSP out of scope for now?** Explicit instruction: get the pipeline solid on easier vendors first. Its official partner API (enrollment pending approval) is the preferred long-term integration path over scraping around its bot defenses; the application was moved to Phase 0 purely because submitting it costs nothing and approval timing is unknown, not because KSP work starts now.
 
+**Phase 0 robots.txt/ToS audit results (Aug 2026).** All four MVP vendors' robots.txt were checked manually:
+- TMS, Ivory, Plonter: category/product browsing paths are allowed; disallow rules target checkout/account/admin/filter-query-params only.
+- 1PC: same pattern, plus a genuinely useful internal endpoint, `POST /en/PCBuilder/CategoryViewData`, which returns clean per-category HTML product-tile fragments (all 10 relevant category IDs captured: CPU, CPU cooling, motherboard, memory, case, PSU, case fans, GPU, SSD, hard drive).
+- Two additional endpoints were found that sit on disallowed paths: TMS's `route=product/configurator/getProductByCategory` (matched by `Disallow: /*configurator`) and Plonter's `/pnp/alon.tmpl` full-catalog feed (matched by `Disallow: /pnp/`). Both return excellent structured data — see the decision immediately below for how they're being used regardless.
+- plonter.com/main.tmpl was checked and appears to be a separate, non-redirecting site serving the same content as plonter.co.il. Only plonter.co.il has been characterized (robots.txt, feed endpoint); plonter.com is out of scope until independently checked.
+
+**Decision: robots.txt is not being observed for this project (Aug 2026).** The project owner made an explicit, informed choice to disregard `Disallow` rules for TMS, Ivory, 1PC, and Plonter — `ROBOTSTXT_OBEY` is set to `False` in `scraper/settings.py`, and the two endpoints noted above (TMS's configurator JSON API, Plonter's `alon.tmpl` full-catalog feed) are used deliberately despite being robots.txt-disallowed. Reasoning given: robots.txt is a stated preference with no technical enforcement, and case law (e.g. *hiQ v. LinkedIn* in the US) has found that scraping publicly-accessible data doesn't violate the CFAA merely for ignoring robots.txt. Caveats worth keeping in view rather than treating this as fully settled: that holding is specific to one US criminal statute and doesn't rule out separate contract/ToS-based claims, doesn't obviously transfer to Israeli law (these are `.co.il` sites), and general "courts have ruled in favor of scraping" framing understates how outcome-dependent this area of law actually is. This is not legal advice, and if the project moves beyond personal-project scope (§11), a real legal consult is worth it before that transition.
+
+This decision is explicitly scoped to **robots.txt only** — it does not extend to KSP's active bot-management/WAF defenses (§10), which remain a hard no per the plan's existing anti-CAPTCHA-circumvention stance. Rate-limiting (§11, `settings.py`) remains unchanged and arguably matters more now, since robots.txt is no longer functioning as a self-imposed backstop on request volume.
+
 ## 18. Open questions for you to decide
 
-- Full site in Hebrew, English, or bilingual? (Affects RTL layout work and title-parsing language handling.)
-- Do you want user accounts/saved builds (pushes toward Option B sooner), or is a shareable-link build good enough?
-- Is KSP actually required for v1, or a nice-to-have contingent on the API approval?
+- Full site in Hebrew, English, or bilingual? (Affects RTL layout work and title-parsing language handling.) **Resolved (Aug 2026): bilingual.**
+- Do you want user accounts/saved builds (pushes toward Option B sooner), or is a shareable-link build good enough? **Resolved (Aug 2026): shareable link for v1; accounts are a real want for later, revisit Option B when prioritized.**
+- Is KSP actually required for v1, or a nice-to-have contingent on the API approval? **Resolved (Aug 2026): not required for v1, per the plan's existing default.**
 - Who's maintaining scraper selectors when a vendor redesigns their site? (This will happen — budget for it as ongoing maintenance, not a one-time build.)
