@@ -90,7 +90,8 @@ from datetime import datetime, timezone
 from scraper.items import ListingItem
 
 VENDOR_ID = "tms"
-CONFIGURATOR_URL = "https://tms.co.il/index.php?route=product/configurator"
+# MUST be just the base PHP file.
+CONFIGURATOR_URL = "https://tms.co.il/index.php" 
 
 # category_id -> human label. Only CPU confirmed so far; fill in the rest
 # per TODO #2 above.
@@ -124,17 +125,18 @@ class TmsSpider(scrapy.Spider):
         yield from self._build_requests()
 
     def _build_requests(self):
-        for category_id, label in CATEGORIES.items():
-            url = (
-                f"{CONFIGURATOR_URL}?route=product/configurator/getProductByCategory"
-                f"&category_id={category_id}&attribute_value_id=0&sort_type=1"
-                f"&heightForCoolerCase=0&memory_type_value_id=0"
-            )
-            yield scrapy.Request(
-                url=url,
-                callback=self.parse_category,
-                meta={"category_label": label},
-            )
+            for category_id, label in CATEGORIES.items():
+                # This correctly creates exactly ONE question mark
+                url = (
+                    f"{CONFIGURATOR_URL}?route=product/configurator/getProductByCategory"
+                    f"&category_id={category_id}&attribute_value_id=0&sort_type=1"
+                    f"&heightForCoolerCase=0&memory_type_value_id=0"
+                )
+                yield scrapy.Request(
+                    url=url,
+                    callback=self.parse_category,
+                    meta={"category_label": label},
+                )
 
     def parse_category(self, response):
         # --- NEW: Catch 403 Forbidden errors explicitly ---

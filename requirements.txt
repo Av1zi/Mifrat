@@ -1,6 +1,7 @@
 setuptools
 wheel
 scrapy>=2.11
+brotli>=1.1.0
 scrapy-playwright
 scrapinghub
 rapidfuzz
