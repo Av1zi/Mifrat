@@ -116,6 +116,28 @@ CAPTCHA/spoof detection" stance (§10) is unchanged.
   weekly-downsample.yml         # Phase 4, disabled stub
 ```
 
+### Known issue: Scrapy Cloud deploy build failure (Aug 2026)
+
+`shub deploy` may fail at the `shub-build-egg` build step with
+`ModuleNotFoundError: No module named 'setuptools'`, even though
+`requirements.txt` lists `setuptools`. This looks like it happens in a
+build-container step that runs before/outside the `pip install -r
+requirements.txt` step, so listing `setuptools` in requirements.txt may not
+actually fix it — genuinely uncertain without visibility into Zyte's
+current build tooling. Two things already added to try to route around it:
+- `setup.py` at repo root (so Scrapy Cloud doesn't auto-generate one from
+  its own template — "setup.py is not found, creating it from template"
+  in the failing build log).
+- `scrapinghub.yml` pinning the stack explicitly to `scrapy:2.17` (fill in
+  your numeric project ID at the top of that file first).
+
+If the error persists after both of those, this looks like a Zyte-side
+build-image issue rather than something fixable from the repo — worth a
+support ticket to Zyte with the build log. In the meantime, the plan's own
+§9 "fallback path" (running spiders directly inside a GitHub Actions job,
+no Scrapy Cloud dependency) is a way to keep testing the pipeline
+end-to-end without being blocked on this.
+
 ## Next steps (Phase 1, per plan §16)
 
 1. Finish the Phase 0 checklist above (ToS skims, TMS's remaining category
