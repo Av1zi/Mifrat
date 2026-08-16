@@ -79,6 +79,24 @@ behavior: .5 and above rounds up) via `_round_price()` below, using
 `Decimal` rather than Python's built-in `round()` specifically because
 `round()` uses banker's-rounding (round-half-to-even), which can disagree
 with round-half-up exactly at .50 boundaries landing on an odd integer.
+
+## TODO before first real run
+1. ToS skim (https://1pc.co.il/he/תקנון-האתר) — noted for completeness; per
+   the project owner's Aug 2026 decision (pc-parts-il-plan.md §17), scraping
+   proceeds regardless with a take-down-on-request posture.
+2. Confirm whether GET with querystring works as an alternative to POST
+   form data (simpler for Scrapy either way, but worth knowing).
+3. in_stock confirmed NOT present anywhere in this endpoint's response
+   (Aug 2026 test run) — stays None until a real signal is found (a
+   follow-up per-product request, maybe). Do NOT default this to True just
+   because most catalog items happen to be orderable — an unverified
+   assumption baked in as fact is worse than an honest "unknown," same
+   reasoning as the TMS `stock` field fix in spiders/tms.py.
+4. Confirm pagination stop condition empirically (does the last page still
+   include a next-page div with a stale/same page number, or is it absent?).
+5. Verify the captured attributeId/dependAttributeId values return the FULL
+   category rather than a pre-filtered subset — if item counts look low
+   compared to browsing the category manually, try attributeId="" instead.
 """
 import scrapy
 from datetime import datetime, timezone
