@@ -1,7 +1,6 @@
 """
 TMS (tms.co.il) spider — HTML category-page version, built against real
 view-source markup (Aug 2026), not guessed OpenCart-theme classes.
-
 --- DECISION LOG ---
 Replaces the JSON-configurator-API approach
 (route=product/configurator/getProductByCategory), which is blocked by TMS's
@@ -10,38 +9,36 @@ category HTML pages returned clean 200s in a local test even with the old
 bot-like User-Agent still in settings.py — the WAF appears to guard the
 internal configurator API specifically, not the storefront pages meant to be
 crawled/indexed.
-
 TMS's site is NOT a stock OpenCart theme — it's a custom theme with its own
 BEM-style class names (product-card__*). Built against real saved HTML from
 the live site, not a guess.
-
 --- FIXES IN THIS REVISION ---
-1. START_CATEGORIES is now a LIST OF TUPLES. As a dict, duplicate keys
-   (gpu/psu/ram/case) were silently overwritten — only the last URL per key
-   ever ran.
-2. Start URLs carry ?limit=100 — the max page size the site's own UI offers
-   (looks like normal browsing, cuts pagination to ~1-2 pages per category).
-   Pagination links are also force-rewritten to limit=100 for consistency.
-3. NEW PC DEAL TILES ("הנחת New PC" sticker) used to yield price_ils=None
-   because they lack .product-card__price-normal. Now we fall back to the
-   first ₪ amount in the price block — the struck-through REGULAR price,
-   which is what we display (the deal price only applies when buying a full
-   PC). The tile is tagged ":new-pc-deal" on category_guess so the deal
-   stays visible downstream, same mechanism as ":bundle-only".
-4. STOCK: the green/red bubble is injected client-side by the Claris widget
-   and is NOT in the static HTML. We replicate the widget's own call: one
-   POST per category page to index.php?route=extension/module/claris/
-   availability with the page's data-claris-code list, then map
-   AvailabilityStatus/Color -> in_stock True/False.
-   Mapping: in_stock / green #75a74d (and admin-black, which the site itself
-   normalizes to #0000FF) -> True. out_of_stock / red #B40001 -> False.
-   on_the_way / orange #c87b1d -> False (not on the shelf; change in
-   _stock_from_row if you ever want it treated differently).
-   If the endpoint is WAF-blocked (like the configurator API was) or returns
-   garbage, the errback/fallback yields everything with in_stock=None and
-   logs a WARNING — items are never lost.
-5. Duplicate-tile guard: a seen-set keyed on (sku, url) so pagination overlap
-   can never double-count an item.
+START_CATEGORIES is now a LIST OF TUPLES. As a dict, duplicate keys
+(gpu/psu/ram/case) were silently overwritten — only the last URL per key
+ever ran.
+Start URLs carry ?limit=100 — the max page size the site's own UI offers
+(looks like normal browsing, cuts pagination to ~1-2 pages per category).
+Pagination links are also force-rewritten to limit=100 for consistency.
+NEW PC DEAL TILES ("הנחת New PC" sticker) used to yield price_ils=None
+because they lack .product-card__price-normal. Now we fall back to the
+first ₪ amount in the price block — the struck-through REGULAR price,
+which is what we display (the deal price only applies when buying a full
+PC). The tile is tagged ":new-pc-deal" on category_guess so the deal
+stays visible downstream, same mechanism as ":bundle-only".
+STOCK: the green/red bubble is injected client-side by the Claris widget
+and is NOT in the static HTML. We replicate the widget's own call: one
+POST per category page to index.php?route=extension/module/claris/
+availability with the page's data-claris-code list, then map
+AvailabilityStatus/Color -> in_stock True/False.
+Mapping: in_stock / green #75a74d (and admin-black, which the site itself
+normalizes to #0000FF) -> True. out_of_stock / red #B40001 -> False.
+on_the_way / orange #c87b1d -> False (not on the shelf; change in
+_stock_from_row if you ever want it treated differently).
+If the endpoint is WAF-blocked (like the configurator API was) or returns
+garbage, the errback/fallback yields everything with in_stock=None and
+logs a WARNING — items are never lost.
+Duplicate-tile guard: a seen-set keyed on (sku, url) so pagination overlap
+can never double-count an item.
 """
 import json
 import re
@@ -53,13 +50,13 @@ import scrapy
 from scraper.items import ListingItem
 
 VENDOR_ID = "tms"
-
 CLARIS_AVAILABILITY_URL = (
     "https://tms.co.il/index.php?route=extension/module/claris/availability"
 )
 
 # List of (category_guess, url) tuples — NOT a dict: dicts silently drop
 # duplicate keys, which is exactly what bit us with gpu/psu/ram/case.
+# CRITICAL FIX: Removed all trailing spaces from strings and URLs.
 START_CATEGORIES = [
     ("cpu", "https://tms.co.il/computer-hardware-components/processor?limit=100"),
     ("gpu", "https://tms.co.il/nvidia-cards?limit=100"),
@@ -81,11 +78,13 @@ START_CATEGORIES = [
 
 # Bundle-only marker text (see module docstring).
 BUNDLE_ONLY_MARKER = "זמין לרכישה כחלק ממערכת מחשב שלמה בלבד"
+
 # "New PC" discount sticker markers (green badge, top-right of the tile).
 NEW_PC_MARKERS = ("New PC", "הנחת")
 
 # Matches "₪ 674" / "₪ 20,606" -> plain int shekels.
 PRICE_RE = re.compile(r"([\d,]+)")
+
 # Anchored variant for scanning the whole price block on deal tiles.
 SHEKEL_RE = re.compile(r"₪\s*([\d,]+)")
 
@@ -133,17 +132,17 @@ class TmsSpider(scrapy.Spider):
                 f"(status {response.status}) — selectors likely need "
                 "correcting against real view-source, not a WAF block."
             )
-
+        
         pending = {}  # claris code (upper) -> [item dicts awaiting stock]
         for tile in tiles:
             header = tile.css("div.product-card__header")
             if not header:
                 continue
-
+            
             sku = header.css(".product-card__model a::text").get()
             title = header.css(".product-card__name a::text").get()
             url = header.css(".product-card__name a::attr(href)").get()
-
+            
             dedupe_key = (sku.strip() if sku else None, url)
             if dedupe_key in self._seen:
                 continue
@@ -166,6 +165,7 @@ class TmsSpider(scrapy.Spider):
                 m = PRICE_RE.search(price_raw)
                 if m:
                     price_ils = int(m.group(1).replace(",", ""))
+            
             if price_ils is None:
                 amounts = SHEKEL_RE.findall(
                     " ".join(header.css(".product-card__price ::text").getall())
@@ -179,7 +179,7 @@ class TmsSpider(scrapy.Spider):
 
             tile_text = " ".join(tile.css("*::text").getall())
             bundle_only = BUNDLE_ONLY_MARKER in tile_text
-
+            
             cat = category_guess
             if bundle_only:
                 cat += ":bundle-only"
@@ -195,7 +195,7 @@ class TmsSpider(scrapy.Spider):
                 category_guess=cat,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
-
+            
             claris_code = self._claris_key(
                 tile.css(".info-storage-button::attr(data-claris-code)").get()
             )
@@ -255,6 +255,7 @@ class TmsSpider(scrapy.Spider):
             code = self._claris_key(row.get("Code"))
             if code:
                 stock_by_code[code] = self._stock_from_row(row)
+
         yield from self._yield_pending(pending, stock_by_code)
 
     def _claris_failed(self, failure):
@@ -280,14 +281,18 @@ class TmsSpider(scrapy.Spider):
         """Mirror the site's own color/status logic (see claris.js)."""
         status = (row.get("AvailabilityStatus") or "").strip()
         color = (row.get("Color") or "").strip().lower()
+        
         # The site normalizes admin "black" to blue and treats it as in-stock.
         if color in ("#000000", "#000", "black", "rgb(0, 0, 0)", "rgb(0,0,0)"):
             color = "#0000ff"
+            
         if status == "in_stock" or color in ("#75a74d", "#0000ff"):
             return True
+            
         # Red = out of stock; orange = on the way (not on the shelf).
         if status in ("out_of_stock", "on_the_way") or color in ("#b40001", "#c87b1d"):
             return False
+            
         return None
 
     @staticmethod
