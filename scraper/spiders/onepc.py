@@ -56,13 +56,42 @@ dependAttributeId=49). That's the PC Builder's own compatibility filtering
 relationships server-side, which might be worth mining later rather than
 only rebuilding compatibility rules from scratch in Phase 3.
 
+## Gotcha hit during first test run (Aug 2026)
+Scrapy >=2.13 moved to an `async def start(self)` entrypoint
+(`StartSpiderMiddleware` handles it) and by 2.17 the old-style
+`start_requests()` override wasn't being called at all — spider opened,
+found nothing to crawl, closed instantly with 0 requests/0 items, no error.
+Fixed by defining both `start()` (new entrypoint) and `start_requests()`
+(fallback for <2.13), sharing the same request-building logic
+(`_build_requests()`), per Scrapy's own migration guidance. If you see a
+spider open-and-immediately-close with zero requests again, this is the
+first thing to check. (Same fix applied to spiders/tms.py.)
+
+## Gotcha hit during first real test run (Aug 2026)
+The `data-price` attribute (e.g. "1148.99998400" for a real ₪1149 item,
+"1327.50000000" for a real ₪1328 item) is NOT more precise than the
+rounded ₪NNN shown on-site — it's floating-point noise from whatever
+currency/conversion math 1PC does server-side. The rounded price IS the
+real, charged price. Originally this spider preferred the raw data-price
+string on the (wrong) assumption it was more accurate; fixed to round to
+the nearest shekel with standard round-half-up (matches observed site
+behavior: .5 and above rounds up) via `_round_price()` below, using
+`Decimal` rather than Python's built-in `round()` specifically because
+`round()` uses banker's-rounding (round-half-to-even), which can disagree
+with round-half-up exactly at .50 boundaries landing on an odd integer.
+
 ## TODO before first real run
-1. ToS skim (https://1pc.co.il/he/תקנון-האתר).
+1. ToS skim (https://1pc.co.il/he/תקנון-האתר) — noted for completeness; per
+   the project owner's Aug 2026 decision (pc-parts-il-plan.md §17), scraping
+   proceeds regardless with a take-down-on-request posture.
 2. Confirm whether GET with querystring works as an alternative to POST
    form data (simpler for Scrapy either way, but worth knowing).
-3. Confirm in_stock isn't present in this endpoint's response — if not,
-   may need a lightweight follow-up request per product, or accept
-   in_stock=None for 1PC in Phase 1 and revisit later.
+3. in_stock confirmed NOT present anywhere in this endpoint's response
+   (Aug 2026 test run) — stays None until a real signal is found (a
+   follow-up per-product request, maybe). Do NOT default this to True just
+   because most catalog items happen to be orderable — an unverified
+   assumption baked in as fact is worse than an honest "unknown," same
+   reasoning as the TMS `stock` field fix in spiders/tms.py.
 4. Confirm pagination stop condition empirically (does the last page still
    include a next-page div with a stale/same page number, or is it absent?).
 5. Verify the captured attributeId/dependAttributeId values return the FULL
@@ -71,6 +100,7 @@ only rebuilding compatibility rules from scratch in Phase 3.
 """
 import scrapy
 from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from scraper.items import ListingItem
 
 VENDOR_ID = "1pc"
@@ -104,11 +134,36 @@ CATEGORIES = {
 CATEGORY_VIEW_DATA_URL = "https://1pc.co.il/en/PCBuilder/CategoryViewData"
 
 
+def _round_price(raw_price):
+    """
+    1PC's data-price attribute carries stray floating-point noise from
+    server-side currency handling — round to the nearest whole shekel with
+    round-half-up (not Python's banker's-rounding round()) to match the
+    real, displayed/charged price. Returns an int, or None if unparseable.
+    """
+    if not raw_price:
+        return None
+    try:
+        return int(Decimal(raw_price).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
+    except (InvalidOperation, ValueError):
+        return None
+
+
 class OnePcSpider(scrapy.Spider):
     name = "onepc"
     allowed_domains = ["1pc.co.il"]
 
     def start_requests(self):
+        # Fallback for Scrapy <2.13, which doesn't call start() at all.
+        yield from self._build_requests()
+
+    async def start(self):
+        # Scrapy >=2.13 entrypoint (StartSpiderMiddleware calls this, not
+        # start_requests() anymore — see the note near the top of this file).
+        for request in self._build_requests():
+            yield request
+
+    def _build_requests(self):
         for category_id, (attribute_id, depend_attribute_id, label) in CATEGORIES.items():
             yield scrapy.FormRequest(
                 url=CATEGORY_VIEW_DATA_URL,
@@ -149,10 +204,11 @@ class OnePcSpider(scrapy.Spider):
                 vendor_sku=tile.attrib.get("data-productid"),
                 title_raw=(title_node.css("::text").get() or "").strip(),
                 url=response.urljoin(tile.css("a.product-link::attr(href)").get() or ""),
-                # Prefer the full-precision data-price over the rounded ₪NNN
-                # display text.
-                price_ils=title_node.attrib.get("data-price"),
-                in_stock=None,  # TODO: not present in this endpoint's response — see TODO #4
+                # Round-half-up to the nearest shekel — see _round_price()
+                # docstring for why the raw data-price string is NOT used
+                # directly (it's noisier than the real price, not more precise).
+                price_ils=_round_price(title_node.attrib.get("data-price")),
+                in_stock=None,  # not present in this endpoint's response — see TODO #3
                 category_guess=category_label,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )

@@ -92,18 +92,21 @@ CAPTCHA/spoof detection" stance (§10) is unchanged.
 ## Repo layout
 
 ```
+/scrapy.cfg                  # NOTE: lives at repo root, not inside /scraper —
+                              # Scrapy needs this to import scraper.settings
+                              # correctly. Run `scrapy crawl <name>` from
+                              # here (the repo root), not from inside /scraper.
 /scraper                    # Scrapy project (skeleton in place)
   /spiders
-    tms.py                   # stub — selectors need real DOM inspection
-    ivory.py                 # stub — needs Network-tab JSON API check
-    onepc.py                 # stub — needs /he/ vs /en/ decision
-    plonter.py                # stub — needs canonical-domain resolution
+    tms.py                   # configurator JSON API, all 10 categories mapped
+    ivory.py                 # stub — HTML scraping confirmed viable (view-source check), selectors still TODO
+    onepc.py                 # PCBuilder/CategoryViewData, all 10 categories mapped
+    plonter.py                # alon.tmpl full-catalog feed — missing product URLs, see TODO
     ksp.py                    # disabled stub, Phase 5 only, do not build yet
   items.py                    # shared Item schema — stable, don't churn this
-  settings.py                  # rate limiting, robots.txt obey, encoding notes
+  settings.py                  # rate limiting, robots.txt (intentionally NOT obeyed, see below), encoding notes
   sync_from_scrapy_cloud.py    # pulls latest job items via Scrapy Cloud API
   normalize_and_match.py       # Phase 1: passthrough. Phase 2: real matching (§8)
-  scrapy.cfg
 /data
   catalog.json                 # empty placeholder for now
   history/                      # daily snapshots, once retention (§12) is built

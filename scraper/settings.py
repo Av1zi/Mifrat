@@ -39,3 +39,10 @@ ITEM_PIPELINES = {
 # no extra config needed here for that part.
 
 LOG_LEVEL = "INFO"
+
+# Makes .jsonl output human-readable (real Hebrew characters, ® ™ etc.)
+# instead of Scrapy's default \uXXXX-escaped JSON for non-ASCII text. Purely
+# cosmetic — json.loads() decodes \uXXXX escapes correctly either way, so
+# this doesn't change the actual data, just how it looks when you open the
+# file yourself.
+FEED_EXPORT_ENCODING = "utf-8"

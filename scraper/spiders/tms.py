@@ -52,13 +52,40 @@ clearance/RAM type) — using 0 for all of them, as in the CPU capture, seems
 to return the full unfiltered category list, but this hasn't been
 independently confirmed for other categories yet.
 
+## Gotcha hit during first test run (Aug 2026): Scrapy start() entrypoint
+Scrapy >=2.13 moved to an `async def start(self)` entrypoint
+(`StartSpiderMiddleware` handles it) and by 2.17 the old-style
+`start_requests()` override wasn't being called at all — spider opened,
+found nothing to crawl, closed instantly with 0 requests/0 items, no error.
+Fixed by defining both `start()` (new entrypoint) and `start_requests()`
+(fallback for <2.13), sharing the same request-building logic, per Scrapy's
+own migration guidance. If you see a spider open-and-immediately-close with
+zero requests again, this is the first thing to check.
+
+## Gotcha hit during first real test run (Aug 2026): `stock` field is unreliable
+The `stock` boolean came back `false` for every product in a real test run,
+including items confirmed purchasable on the live site — so this field
+does NOT reliably indicate purchasability from this endpoint (possibly it
+reflects literal physical-warehouse stock only, distinct from
+"orderable," or is simply not populated by this particular endpoint; the
+separate per-branch `claris/availability` endpoint noted above might be
+the real signal, but that's a per-product/per-branch call, not a
+category-level one). Rather than confidently report a value we know is
+sometimes wrong, `in_stock` is set to `None` (unknown) here instead of
+passing `stock` through — a wrong "definitely out of stock" is worse than
+an honest "unknown," especially for a price-comparison site where a false
+out-of-stock reading actively steers someone away from a real option.
+`stock_status` is captured in the raw JSON but not yet mapped to anything;
+worth a look if a real in_stock signal is needed later.
+
 ## TODO before first real run
 1. ToS skim — noted for completeness; per the project owner's Aug 2026
    decision (see pc-parts-il-plan.md §17), scraping is proceeding regardless
    with a take-down-on-request posture, so this is no longer a blocking step.
-2. Confirm `stock` (bool) maps cleanly to the shared ListingItem.in_stock
-   field, and whether `stock_status` carries anything extra worth keeping
-   (currently dropped).
+2. Find a reliable in_stock signal — `stock` is confirmed unreliable (see
+   above). Candidates: the product detail page itself, or the per-branch
+   `claris/availability` endpoint (would need one call per product/SKU,
+   not per category — a real cost tradeoff to weigh before adopting it).
 3. Confirm pagination — the captured responses weren't confirmed to be a
    complete category or just a first page; check for a total-count field or
    whether category size ever exceeds what one call returns.
@@ -92,7 +119,19 @@ class TmsSpider(scrapy.Spider):
     name = "tms"
     allowed_domains = ["tms.co.il"]
 
+    async def start(self):
+        # Scrapy >=2.13 entrypoint (StartSpiderMiddleware calls this, not
+        # start_requests() anymore — see the note at the top of this file).
+        for request in self._build_requests():
+            yield request
+
     def start_requests(self):
+        # Fallback for Scrapy <2.13, which doesn't call start() at all.
+        # Shares the same request-building logic as start() above so the
+        # two can't drift out of sync.
+        yield from self._build_requests()
+
+    def _build_requests(self):
         for category_id, label in CATEGORIES.items():
             url = (
                 f"{CONFIGURATOR_URL}?route=product/configurator/getProductByCategory"
@@ -120,7 +159,7 @@ class TmsSpider(scrapy.Spider):
                 title_raw=(product.get("name") or "").strip(),
                 url=product.get("href"),
                 price_ils=product.get("price"),
-                in_stock=product.get("stock"),  # already a bool in this API
+                in_stock=None,  # `stock` field confirmed unreliable — see docstring gotcha
                 category_guess=category_label,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
