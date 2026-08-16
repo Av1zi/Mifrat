@@ -3,7 +3,39 @@ __pycache__/
 .venv/
 venv/
 node_modules/
+
+# Secrets / credentials — never commit real values. See .env.example for
+# the variable names this project expects; copy it to .env locally and
+# fill in real values there (which stays ignored).
 .env
-data/listings_latest.jsonl
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Scrapy Cloud / shub
+scrapinghub.yml.local
+shub_deploy_*.log
+*.egg-info/
+build/
 dist/
+
+# Local test artifacts (e.g. `scrapy crawl tms -o tms_test.jsonl` while
+# developing) — not meant for version control, and may contain a full local
+# snapshot of scraped data that has no reason to be duplicated into git
+# history on every test run.
+*_test.jsonl
+*_test.json
+scrapy.log
+*.log
+
+# Sync pipeline output — data/catalog.json IS meant to be committed (it's
+# the "database" per the Option A architecture), but the raw intermediate
+# pull from Scrapy Cloud is not.
+data/listings_latest.jsonl
+
+# OS / editor cruft
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
