@@ -28,6 +28,7 @@ dist/
 *_test.json
 scrapy.log
 *.log
+tmp/
 
 # Sync pipeline output — data/catalog.json IS meant to be committed (it's
 # the "database" per the Option A architecture), but the raw intermediate
