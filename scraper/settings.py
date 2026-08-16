@@ -11,7 +11,7 @@ DOWNLOAD_DELAY = 1.5
 RANDOMIZE_DOWNLOAD_DELAY = True
 CONCURRENT_REQUESTS_PER_DOMAIN = 2
 AUTOTHROTTLE_ENABLED = True
-AUTOTHROTTLE_START_DELAY = 1.0
+AUTOTHROTTLE_START_DELAY = 0.5
 AUTOTHROTTLE_TARGET_CONCURRENCY = 1.5
 DOWNLOAD_TIMEOUT = 60
 
@@ -20,7 +20,8 @@ DOWNLOAD_TIMEOUT = 60
 # weighing the tradeoffs — see the decision log entry for the reasoning and
 # caveats. This is a deliberate, documented choice, not an oversight.
 # Rate-limiting below is even more important now that we're not
-# self-restricting via robots.txt.
+# self-restricting via robots.txt — don't loosen DOWNLOAD_DELAY/
+# CONCURRENT_REQUESTS_PER_DOMAIN as a result of this change.
 ROBOTSTXT_OBEY = False
 
 # §7 step 3: some older Israeli retail sites still serve Windows-1255 instead
@@ -37,11 +38,9 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 
-# Generic, well-formed browser headers for ALL vendors. 
-# CRITICAL FIX: 
-# 1. Removed trailing spaces from keys (e.g. "Accept " -> "Accept")
-# 2. Fixed the broken wildcard ("/ " -> "*/*")
-# 3. Removed vendor-specific Referer (handled per-request if needed)
+# Generic, well-formed browser headers for ALL vendors.
+# CRITICAL FIX: Removed trailing spaces from keys/values and fixed */* wildcard.
+# NO vendor-specific Referer hardcoded here.
 DEFAULT_REQUEST_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
     "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -61,5 +60,8 @@ ITEM_PIPELINES = {
 LOG_LEVEL = "INFO"
 
 # Makes .jsonl output human-readable (real Hebrew characters, ® ™ etc.)
-# instead of Scrapy's default \uXXXX-escaped JSON for non-ASCII text.
+# instead of Scrapy's default \uXXXX-escaped JSON for non-ASCII text. Purely
+# cosmetic — json.loads() decodes \uXXXX escapes correctly either way, so
+# this doesn't change the actual data, just how it looks when you open the
+# file yourself.
 FEED_EXPORT_ENCODING = "utf-8"

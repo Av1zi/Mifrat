@@ -1,6 +1,7 @@
 """
 TMS (tms.co.il) spider — HTML category-page version, built against real
 view-source markup (Aug 2026), not guessed OpenCart-theme classes.
+
 --- DECISION LOG ---
 Replaces the JSON-configurator-API approach
 (route=product/configurator/getProductByCategory), which is blocked by TMS's
@@ -9,34 +10,42 @@ category HTML pages returned clean 200s in a local test even with the old
 bot-like User-Agent still in settings.py — the WAF appears to guard the
 internal configurator API specifically, not the storefront pages meant to be
 crawled/indexed.
+
 TMS's site is NOT a stock OpenCart theme — it's a custom theme with its own
 BEM-style class names (product-card__*). Built against real saved HTML from
 the live site, not a guess.
+
 --- FIXES IN THIS REVISION ---
 START_CATEGORIES is now a LIST OF TUPLES. As a dict, duplicate keys
 (gpu/psu/ram/case) were silently overwritten — only the last URL per key
 ever ran.
+
 Start URLs carry ?limit=100 — the max page size the site's own UI offers
 (looks like normal browsing, cuts pagination to ~1-2 pages per category).
 Pagination links are also force-rewritten to limit=100 for consistency.
+
 NEW PC DEAL TILES ("הנחת New PC" sticker) used to yield price_ils=None
 because they lack .product-card__price-normal. Now we fall back to the
 first ₪ amount in the price block — the struck-through REGULAR price,
 which is what we display (the deal price only applies when buying a full
 PC). The tile is tagged ":new-pc-deal" on category_guess so the deal
 stays visible downstream, same mechanism as ":bundle-only".
+
 STOCK: the green/red bubble is injected client-side by the Claris widget
 and is NOT in the static HTML. We replicate the widget's own call: one
 POST per category page to index.php?route=extension/module/claris/
 availability with the page's data-claris-code list, then map
 AvailabilityStatus/Color -> in_stock True/False.
+
 Mapping: in_stock / green #75a74d (and admin-black, which the site itself
 normalizes to #0000FF) -> True. out_of_stock / red #B40001 -> False.
 on_the_way / orange #c87b1d -> False (not on the shelf; change in
 _stock_from_row if you ever want it treated differently).
+
 If the endpoint is WAF-blocked (like the configurator API was) or returns
 garbage, the errback/fallback yields everything with in_stock=None and
 logs a WARNING — items are never lost.
+
 Duplicate-tile guard: a seen-set keyed on (sku, url) so pagination overlap
 can never double-count an item.
 """
