@@ -1,0 +1,17 @@
+[Unit]
+Description=Scrape TMS for the PC Part Picker (IL) pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Dedicated low-privilege user (§4) — do not run this as root or your
+# everyday user. Create it during setup: `sudo useradd -m pcparts`.
+User=pcparts
+WorkingDirectory=/home/pcparts/pc-parts-il
+ExecStart=/home/pcparts/pc-parts-il/nano/run_tms.sh
+# No log file — journald captures stdout/stderr; view with
+# `journalctl -u pc-parts-il-tms.service`. Keeps SD card writes to the one
+# daily git commit (§4).
+StandardOutput=journal
+StandardError=journal

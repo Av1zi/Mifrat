@@ -1,0 +1,34 @@
+name: scrape-cloud
+# Cloud-safe vendors only (§2/§6/§8 of pc-parts-il-plan.md). TMS is NOT
+# here — it blocks datacenter IPs and runs on the Jetson Nano instead
+# (nano/README.md). Spiders themselves are location-agnostic; this file is
+# the only place that decides which vendors run in the cloud.
+#
+# Ivory joins the matrix below in Phase 2 (§16), once its spider is built —
+# until then it's simply absent, not disabled.
+on:
+  schedule:
+    - cron: '30 3 * * *'   # ~03:30 UTC daily — GitHub cron is UTC-only (§3)
+  workflow_dispatch: {}
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    strategy:
+      # One vendor failing must not kill the others' scrapes (§10).
+      fail-fast: false
+      matrix:
+        spider: [onepc, plonter]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt --break-system-packages
+      - run: python scraper/run_spider.py ${{ matrix.spider }}
+      - run: |
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          bash scripts/git_commit_push.sh \
+            "scrape(${{ matrix.spider }}): $(date -u +%F)" \
+            data/raw/

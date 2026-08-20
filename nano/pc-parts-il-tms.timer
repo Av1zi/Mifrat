@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily trigger for the TMS scrape (~06:00 UTC + jitter, §8)
+
+[Timer]
+OnCalendar=*-*-* 06:00:00 UTC
+# Up to 45 min jitter — "never at an exact predictable time" (§7 rule 4).
+RandomizedDelaySec=45min
+# Catch up after downtime instead of silently skipping a day (§4/§10).
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -2,27 +2,63 @@
 TMS (tms.co.il) spider — HTML category-page version, built against real
 view-source markup (Aug 2026), not guessed OpenCart-theme classes.
 
+Runs on the Jetson Nano only (rev. 2 hybrid architecture, see
+pc-parts-il-plan.md §2/§4) — TMS blocks datacenter/scraping-infra IPs, so
+this is the one spider that can't run in GitHub Actions.
+
 --- DECISION LOG ---
 Replaces the JSON-configurator-API approach
-(route=product/configurator/getProductByCategory), which is blocked by TMS's
-WAF from Scrapy Cloud (confirmed HTTP 403, see HANDOFF.md). The public
-category HTML pages returned clean 200s in a local test even with the old
-bot-like User-Agent still in settings.py — the WAF appears to guard the
-internal configurator API specifically, not the storefront pages meant to be
+(route=product/configurator/getProductByCategory), which is WAF-blocked
+regardless of source IP (confirmed 403 from both Scrapy Cloud and the Nano
+— see tmp/tms_api.py for the abandoned version). The public category HTML
+pages return clean 200s — the WAF appears to guard the internal
+configurator API specifically, not the storefront pages meant to be
 crawled/indexed.
 
 TMS's site is NOT a stock OpenCart theme — it's a custom theme with its own
 BEM-style class names (product-card__*). Built against real saved HTML from
 the live site, not a guess.
 
---- FIXES IN THIS REVISION ---
-START_CATEGORIES is now a LIST OF TUPLES. As a dict, duplicate keys
-(gpu/psu/ram/case) were silently overwritten — only the last URL per key
-ever ran.
+--- ROBOTS.TXT FIX (Aug 2026, see DECISIONS.md) ---
+Previous revision forced `?limit=100` onto every start URL and every
+pagination link to cut request counts. That's exactly what TMS's
+`Disallow: /*?limit` rule blocks — this spider was violating robots.txt on
+its own home-IP scrape while believing (per the old decision log) that
+category browsing was fully allowed. Fixed by dropping the forced limit
+entirely: start URLs are now bare category pages, and pagination follows
+the site's own pagination links (`?page=2`, `?page=3`, ...) verbatim,
+never rewritten. This also means more requests per category than before —
+acceptable, since §7's whole point is favoring a slower, more realistic
+request pattern over a faster one.
 
-Start URLs carry ?limit=100 — the max page size the site's own UI offers
-(looks like normal browsing, cuts pagination to ~1-2 pages per category).
-Pagination links are also force-rewritten to limit=100 for consistency.
+`custom_settings` now sets `ROBOTSTXT_OBEY = True`, overriding the global
+`False` in settings.py — per DECISIONS.md, robots.txt is followed for
+locally-run scrapers (currently just this one, on the Nano) and ignored
+only for the cloud-run vendors (1PC, Plonter, later Ivory), where there's
+no home connection at risk if that calculus is ever revisited.
+
+Note for whoever runs this next: a set of Aug 16 test logs (tmp/, gitignored,
+not committed) show ALL 16 requests 403'ing on a run against these same
+bare-ish category endpoints, not just the configurator API — so dropping
+`?limit` fixes the robots.txt violation but does NOT by itself confirm the
+WAF has stopped blocking category pages too. Re-verify with a real
+low-volume run before trusting this spider unattended; if category pages
+are blocked now as well, that's §7 rule 7 territory (de-escalate: try even
+slower, and if still blocked, this vendor may need to be dropped), not a
+signal to fight the WAF harder.
+
+--- WARM-UP + HARD-STOP (§7) ---
+`start()` now issues one request to the homepage first and only proceeds
+to category pages from its callback, with `Referer` set to the homepage —
+"warm up like a human" (§7 rule 2), and it means one wasted category
+request is never spent before confirming we're not already blocked for
+the day.
+
+`handle_httpstatus_list = [403, 429]` makes block responses reach our
+code instead of being silently dropped by Scrapy's default
+HttpErrorMiddleware — needed because §7 rule 6 ("two block responses in
+one run close the spider") can't be implemented against responses we never
+see. `_register_block()` is the single choke point for that rule.
 
 NEW PC DEAL TILES ("הנחת New PC" sticker) used to yield price_ils=None
 because they lack .product-card__price-normal. Now we fall back to the
@@ -42,9 +78,10 @@ normalizes to #0000FF) -> True. out_of_stock / red #B40001 -> False.
 on_the_way / orange #c87b1d -> False (not on the shelf; change in
 _stock_from_row if you ever want it treated differently).
 
-If the endpoint is WAF-blocked (like the configurator API was) or returns
-garbage, the errback/fallback yields everything with in_stock=None and
-logs a WARNING — items are never lost.
+If the endpoint is WAF-blocked or returns garbage, the errback/fallback
+yields everything with in_stock=None and logs a WARNING — items are never
+lost over a stock-signal failure alone (that's still just one block
+response, not two — see hard-stop above).
 
 Duplicate-tile guard: a seen-set keyed on (sku, url) so pagination overlap
 can never double-count an item.
@@ -52,37 +89,40 @@ can never double-count an item.
 import json
 import re
 from datetime import datetime, timezone
-from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 import scrapy
+from scrapy.exceptions import CloseSpider
 
 from scraper.items import ListingItem
 
 VENDOR_ID = "tms"
+HOMEPAGE_URL = "https://tms.co.il/"
 CLARIS_AVAILABILITY_URL = (
     "https://tms.co.il/index.php?route=extension/module/claris/availability"
 )
 
 # List of (category_guess, url) tuples — NOT a dict: dicts silently drop
 # duplicate keys, which is exactly what bit us with gpu/psu/ram/case.
-# CRITICAL FIX: Removed all trailing spaces from strings and URLs.
+# No ?limit=100 — see the robots.txt fix in the module docstring. These are
+# plain category landing pages; pagination is followed from the page's own
+# links, never constructed.
 START_CATEGORIES = [
-    ("cpu", "https://tms.co.il/computer-hardware-components/processor?limit=100"),
-    ("gpu", "https://tms.co.il/nvidia-cards?limit=100"),
-    ("gpu", "https://tms.co.il/amd-cards?limit=100"),
-    ("gpu", "https://tms.co.il/intel-video-cards?limit=100"),
-    ("gpu", "https://tms.co.il/professional-cards?limit=100"),
-    ("motherboard", "https://tms.co.il/computer-hardware-components/motherboards?limit=100"),
-    ("psu", "https://tms.co.il/desktop-psu?limit=100"),
-    ("psu", "https://tms.co.il/server-psu?limit=100"),
-    ("ram", "https://tms.co.il/desktop-ram?limit=100"),
-    ("ram", "https://tms.co.il/servers-ram?limit=100"),
-    ("ssd", "https://tms.co.il/ssd-drives?limit=100"),
-    ("hdd", "https://tms.co.il/hard-drives?limit=100"),
-    ("cpu cooler", "https://tms.co.il/cpu-cooling?limit=100"),
-    ("case fans", "https://tms.co.il/case-fans?limit=100"),
-    ("case", "https://tms.co.il/desktop-pc-cases?limit=100"),
-    ("case", "https://tms.co.il/industrial-cases?limit=100"),
+    ("cpu", "https://tms.co.il/computer-hardware-components/processor"),
+    ("gpu", "https://tms.co.il/nvidia-cards"),
+    ("gpu", "https://tms.co.il/amd-cards"),
+    ("gpu", "https://tms.co.il/intel-video-cards"),
+    ("gpu", "https://tms.co.il/professional-cards"),
+    ("motherboard", "https://tms.co.il/computer-hardware-components/motherboards"),
+    ("psu", "https://tms.co.il/desktop-psu"),
+    ("psu", "https://tms.co.il/server-psu"),
+    ("ram", "https://tms.co.il/desktop-ram"),
+    ("ram", "https://tms.co.il/servers-ram"),
+    ("ssd", "https://tms.co.il/ssd-drives"),
+    ("hdd", "https://tms.co.il/hard-drives"),
+    ("cpu cooler", "https://tms.co.il/cpu-cooling"),
+    ("case fans", "https://tms.co.il/case-fans"),
+    ("case", "https://tms.co.il/desktop-pc-cases"),
+    ("case", "https://tms.co.il/industrial-cases"),
 ]
 
 # Bundle-only marker text (see module docstring).
@@ -97,43 +137,74 @@ PRICE_RE = re.compile(r"([\d,]+)")
 # Anchored variant for scanning the whole price block on deal tiles.
 SHEKEL_RE = re.compile(r"₪\s*([\d,]+)")
 
+# §7 rule 6: two block responses in one run closes the spider. Applies to
+# both category pages and the Claris availability call — a block is a
+# block regardless of which endpoint it hit.
+MAX_BLOCKS_PER_RUN = 2
+BLOCK_STATUS_CODES = {403, 429}
+
 
 class TmsSpider(scrapy.Spider):
     name = "tms"
     allowed_domains = ["tms.co.il"]
+    # Block responses must reach our code (see _register_block) instead of
+    # being silently dropped by the default HttpErrorMiddleware.
+    handle_httpstatus_list = list(BLOCK_STATUS_CODES)
     custom_settings = {
-        # Gentle pace regardless of global settings — this is the vendor
-        # whose WAF already flagged the JSON API once.
+        # Robots.txt IS followed here, unlike the cloud vendors — see the
+        # module docstring's robots.txt fix section and DECISIONS.md.
+        "ROBOTSTXT_OBEY": True,
+        # Gentle pace regardless of global settings — home IP, §7.
         "DOWNLOAD_DELAY": 2.0,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
-        # limit=100 pages are big; give the server time to render them.
         "DOWNLOAD_TIMEOUT": 60,
     }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._seen = set()
+        self._block_count = 0
 
     async def start(self):
         # Project convention: Scrapy 2.13+ deprecated start_requests() in
         # favor of async start(). Using the old-style method silently
         # produces zero requests under StartSpiderMiddleware on 2.17 — it
         # doesn't error, it just never runs.
-        for request in self._build_requests():
-            yield request
+        yield scrapy.Request(
+            HOMEPAGE_URL,
+            callback=self._after_warmup,
+            errback=self._warmup_failed,
+        )
 
-    def _build_requests(self):
+    # ------------------------------------------------------------------ #
+    # Warm-up (§7 rule 2: establish a session before hitting real pages)
+    # ------------------------------------------------------------------ #
+    def _after_warmup(self, response):
+        if self._register_block(response):
+            return
         for category_guess, url in START_CATEGORIES:
             yield scrapy.Request(
                 url,
                 callback=self.parse,
+                headers={"Referer": HOMEPAGE_URL},
                 cb_kwargs={"category_guess": category_guess},
             )
+
+    def _warmup_failed(self, failure):
+        self.logger.error(
+            "[tms] homepage warm-up request failed outright (%s) — "
+            "stopping for the day rather than hitting category pages cold.",
+            failure.value,
+        )
+        raise CloseSpider("warmup_failed")
 
     # ------------------------------------------------------------------ #
     # Category pages
     # ------------------------------------------------------------------ #
     def parse(self, response, category_guess):
+        if self._register_block(response):
+            return
+
         tiles = response.css("div.product-card")
         if not tiles:
             self.logger.warning(
@@ -141,17 +212,17 @@ class TmsSpider(scrapy.Spider):
                 f"(status {response.status}) — selectors likely need "
                 "correcting against real view-source, not a WAF block."
             )
-        
+
         pending = {}  # claris code (upper) -> [item dicts awaiting stock]
         for tile in tiles:
             header = tile.css("div.product-card__header")
             if not header:
                 continue
-            
+
             sku = header.css(".product-card__model a::text").get()
             title = header.css(".product-card__name a::text").get()
             url = header.css(".product-card__name a::attr(href)").get()
-            
+
             dedupe_key = (sku.strip() if sku else None, url)
             if dedupe_key in self._seen:
                 continue
@@ -174,7 +245,7 @@ class TmsSpider(scrapy.Spider):
                 m = PRICE_RE.search(price_raw)
                 if m:
                     price_ils = int(m.group(1).replace(",", ""))
-            
+
             if price_ils is None:
                 amounts = SHEKEL_RE.findall(
                     " ".join(header.css(".product-card__price ::text").getall())
@@ -188,7 +259,7 @@ class TmsSpider(scrapy.Spider):
 
             tile_text = " ".join(tile.css("*::text").getall())
             bundle_only = BUNDLE_ONLY_MARKER in tile_text
-            
+
             cat = category_guess
             if bundle_only:
                 cat += ":bundle-only"
@@ -204,7 +275,7 @@ class TmsSpider(scrapy.Spider):
                 category_guess=cat,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
-            
+
             claris_code = self._claris_key(
                 tile.css(".info-storage-button::attr(data-claris-code)").get()
             )
@@ -221,19 +292,24 @@ class TmsSpider(scrapy.Spider):
                 CLARIS_AVAILABILITY_URL,
                 method="POST",
                 body=json.dumps({"models": sorted(pending)}),
-                headers={"Content-Type": "application/json; charset=UTF-8"},
+                headers={
+                    "Content-Type": "application/json; charset=UTF-8",
+                    "Referer": response.url,
+                },
                 callback=self.parse_availability,
                 errback=self._claris_failed,
                 meta={"pending": pending},
             )
 
-        # Pagination: li immediately after the active one. Force limit=100
-        # so page 2+ stays the same page size as page 1.
+        # Pagination: li immediately after the active one, followed exactly
+        # as the site presents it — no query-param rewriting (robots.txt
+        # fix, see module docstring).
         next_page = response.css("ul.pagination li.active + li a::attr(href)").get()
         if next_page:
             yield response.follow(
-                self._force_limit(next_page),
+                next_page,
                 callback=self.parse,
+                headers={"Referer": response.url},
                 cb_kwargs={"category_guess": category_guess},
             )
 
@@ -242,6 +318,12 @@ class TmsSpider(scrapy.Spider):
     # ------------------------------------------------------------------ #
     def parse_availability(self, response):
         pending = response.meta["pending"]
+        if self._register_block(response):
+            # Still yield the items we already have — a blocked stock call
+            # costs us the stock signal, never the listings themselves.
+            yield from self._yield_pending(pending, {})
+            return
+
         stock_by_code = {}
         rows = []
         try:
@@ -285,23 +367,50 @@ class TmsSpider(scrapy.Spider):
             for item in items:
                 yield ListingItem(in_stock=stock, **item)
 
+    # ------------------------------------------------------------------ #
+    # §7 rule 6: hard stop on blocks
+    # ------------------------------------------------------------------ #
+    def _register_block(self, response) -> bool:
+        """Returns True if this response was a block AND the spider is now
+        closing because of it (caller should stop processing this response
+        immediately). Returns False for a normal response."""
+        if response.status not in BLOCK_STATUS_CODES:
+            return False
+
+        self._block_count += 1
+        self.logger.error(
+            "[tms] blocked (status %s) on %s — block %d/%d this run",
+            response.status,
+            response.url,
+            self._block_count,
+            MAX_BLOCKS_PER_RUN,
+        )
+        if self._block_count >= MAX_BLOCKS_PER_RUN:
+            self.logger.error(
+                "[tms] %d block responses this run — stopping per §7 rule 6. "
+                "No retries against a block, no automatic re-run today.",
+                self._block_count,
+            )
+            raise CloseSpider(f"blocked_{self._block_count}x")
+        return True
+
     @staticmethod
     def _stock_from_row(row):
         """Mirror the site's own color/status logic (see claris.js)."""
         status = (row.get("AvailabilityStatus") or "").strip()
         color = (row.get("Color") or "").strip().lower()
-        
+
         # The site normalizes admin "black" to blue and treats it as in-stock.
         if color in ("#000000", "#000", "black", "rgb(0, 0, 0)", "rgb(0,0,0)"):
             color = "#0000ff"
-            
+
         if status == "in_stock" or color in ("#75a74d", "#0000ff"):
             return True
-            
+
         # Red = out of stock; orange = on the way (not on the shelf).
         if status in ("out_of_stock", "on_the_way") or color in ("#b40001", "#c87b1d"):
             return False
-            
+
         return None
 
     @staticmethod
@@ -313,10 +422,3 @@ class TmsSpider(scrapy.Spider):
         cleaned = re.sub(r"&lrm;|&#8206;|&#x200E;", "", cleaned, flags=re.I)
         cleaned = cleaned.strip().upper()
         return cleaned or None
-
-    @staticmethod
-    def _force_limit(url, limit="100"):
-        parts = urlparse(url)
-        query = [(k, v) for k, v in parse_qsl(parts.query) if k != "limit"]
-        query.append(("limit", limit))
-        return urlunparse(parts._replace(query=urlencode(query)))

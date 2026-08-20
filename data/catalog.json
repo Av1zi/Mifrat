@@ -1,5 +1,5 @@
 {
   "listings": [],
   "products": [],
-  "_note": "Empty placeholder. Populated by scraper/normalize_and_match.py after the first successful sync."
+  "_note": "Empty placeholder. Populated by scraper/normalize_and_match.py after the first successful run of the rev. 2 pipeline (data/raw/YYYY-MM-DD/<vendor>.jsonl -> catalog.json)."
 }

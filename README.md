@@ -1,156 +1,124 @@
 # PC Part Picker (Israel)
 
-See `pc-parts-il-plan.md` in the project docs for the full plan — this repo
-implements it. This README tracks live status; the plan doc stays the
-source of truth for *why* decisions were made (per its own §0/§17).
+See `pc-parts-il-plan.md` for the full plan — this repo implements it. This
+README tracks live status; the plan doc is the source of truth for *why*
+decisions were made (per its own §0).
 
-## Status: Phase 0 (recon), nearly done — moving into Phase 1
+`DECISIONS.md` (untracked, local-only — see "About decisions.md" below)
+has the fuller running log this README summarizes.
 
-### Decisions locked in (Aug 2026)
-- **Language:** Bilingual, Hebrew + English (affects RTL layout work and
-  title-parsing — normalize_and_match.py will eventually need to handle
-  both languages per product).
-- **Accounts:** Not for v1. Shareable build links are enough for now.
-  Staying on **Option A** (git-as-database) architecture. Accounts are a
-  real want *eventually* — when that's prioritized, revisit Option B (§4/§17
-  of the plan) rather than over-building for it now.
-- **KSP:** Out of scope for v1, per the plan (§10/§16). `spiders/ksp.py`
-  exists only as an isolated, disabled stub.
+## Status: Phase 1 (hybrid pipeline MVP), in progress
 
-### Phase 0 checklist — status
+### Architecture: hybrid cloud + local (rev. 2)
 
-Domains confirmed (Aug 2026):
-| Vendor | Domain | Platform/notes |
-|---|---|---|
-| TMS | tms.co.il | OpenCart, clean server-rendered category URLs |
-| Ivory | ivory.co.il | Broad electronics retailer, not PC-only — scope category crawl carefully |
-| 1PC | 1pc.co.il | Has parallel /he/ and /en/ paths |
-| Plonter | plonter.co.il confirmed as canonical (see below) | |
+Zyte Scrapy Cloud was abandoned after repeated deploy/runtime failures (see
+`pc-parts-il-plan.md` §3). The pipeline now runs in two places:
 
-**robots.txt: checked for all four (Aug 2026) — see each spider's docstring
-for the full breakdown.** Summary:
-- **TMS, Ivory, Plonter**: category/product browsing is allowed; disallow
-  rules only target checkout/account/filter-query-params/admin paths. Plain
-  HTML scraping via Scrapy is fine per robots.txt.
-- **1PC**: same pattern (transactional paths blocked, browsing allowed) —
-  *and* a genuinely useful internal endpoint was found:
-  `POST /en/PCBuilder/CategoryViewData` returns clean HTML product-tile
-  fragments (SKU, title, precise price, URL) instead of full rendered pages.
-  See `spiders/onepc.py` docstring for the full request/response shape.
-  This is a materially better foundation than parsing rendered category
-  pages — **1PC is now the strongest first-vendor candidate**, alongside TMS.
-- **Plonter domain resolved**: robots.txt was fetched for `plonter.co.il`,
-  confirming that's the live/checked domain. `plonter.com/main.tmpl` still
-  needs a quick manual check to see if it's a redirect or a genuinely
-  separate site before fully ruling it out.
-- Noise to ignore in all four vendors' Network tabs: Google Analytics
-  `google-analytics.com/mp/collect` pings (measurement only), and for
-  Plonter specifically, `db.access4u.co.il/api/isValidScript` (an
-  accessibility-compliance widget check-in, unrelated to product data).
+- **GitHub Actions** — 1PC and Plonter (Ivory joins in Phase 2, §16).
+  Scheduled `scrape-cloud.yml`, ~03:30 UTC.
+- **Jetson Nano at home** — TMS only, since it blocks datacenter IPs.
+  See `nano/README.md` for setup. Scheduled via a systemd timer, ~06:00 UTC
+  + up to 45 min jitter.
+- Both write dated raw snapshots to `data/raw/YYYY-MM-DD/<vendor>.jsonl`
+  and push them to this repo.
+- `normalize-and-deploy.yml` (GitHub Actions, ~09:00 UTC) reads the latest
+  snapshots — falling back to the most recent prior day per vendor if
+  today's is missing (stale-forward, §5) — and builds `data/catalog.json`.
+- Cloudflare Pages auto-deploys on every push to `main`. No separate
+  deploy step.
 
-**Still outstanding (your 5-minute manual tasks):**
-1. ToS skim for all four (linked from each homepage footer) — robots.txt
-   being permissive doesn't rule out an explicit ToS prohibition.
-2. For 1PC: capture the `categoryId` for GPU, motherboard, RAM, storage,
-   PSU, and case the same way CPU (`categoryId=158`) was found — open
-   https://1pc.co.il/en/pcbuilder, click each component type, watch the
-   Network tab for the `CategoryViewData` request, note the `categoryId`.
-   `spiders/onepc.py` has a `CATEGORIES` dict ready for these.
-3. For Ivory: confirm via **view-source** (not DevTools Elements, which
-   shows the post-JS DOM) whether product tiles exist in the raw HTML —
-   determines plain Scrapy vs. needing scrapy-playwright.
-4. Resolve plonter.com vs plonter.co.il for real (redirect vs. separate site).
-5. **Submit the KSP official API enrollment application now** (§10/§16) —
-   non-blocking, but approval timing is unknown, so starting the clock costs
-   nothing.
-6. Set up the Zyte Scrapy Cloud account via the GitHub Education Pack and
-   deploy an empty test project to confirm the free unit + periodic-job
-   scheduling work as expected.
+Spiders stay location-agnostic; moving a vendor between the Nano and
+GitHub Actions is a scheduling change (which workflow/timer calls it), not
+a rewrite.
 
-Per-vendor recon notes live in each spider file's docstring (§0 of the
-plan: "add to the decision log / doc rather than letting the reasoning
-live only in a commit message") — that's the up-to-date source, more
-detailed than this summary table.
+### Repo hygiene: Zyte artifacts removed (Aug 2026)
 
-### ⚠️ robots.txt policy (Aug 2026)
+`scrapy.cfg`'s `[deploy]` section, `scrapinghub.yml`,
+`scraper/sync_from_scrapy_cloud.py`, the old single `sync-and-deploy.yml`
+workflow, the `scrapinghub` dependency, and the `SHUB_*` env vars are all
+gone. The cloud scraping workflow needs **zero secrets**. See
+`pc-parts-il-plan.md` §9.
 
-This project does **not** observe robots.txt (`ROBOTSTXT_OBEY = False` in
-`scraper/settings.py`) — an explicit, informed decision by the project
-owner, not an oversight. See `pc-parts-il-plan.md` §17 decision log for the
-full reasoning and caveats. Two endpoints in particular are used
-specifically *because* of this decision (both are excellent data sources
-that sit on robots.txt-disallowed paths):
-- **TMS**: `route=product/configurator/getProductByCategory` — clean JSON,
-  see `spiders/tms.py`.
-- **Plonter**: `/pnp/alon.tmpl` — full-catalog feed, see `spiders/plonter.py`.
+### TMS robots.txt fix (Aug 2026)
 
-This does **not** extend to KSP's active bot-management/WAF — that's a
-different category of obstacle (technical countermeasure vs. stated
-preference) and the plan's existing "don't build anything to defeat
-CAPTCHA/spoof detection" stance (§10) is unchanged.
+The previous TMS spider forced `?limit=100` on every request, which
+violates TMS's own `Disallow: /*?limit` rule — a real compliance gap
+despite the project's general robots.txt-disregard decision (which never
+covered this; see below). Fixed: `scraper/spiders/tms.py` no longer
+constructs page-size query params; it follows the site's own pagination
+links verbatim. The spider also now runs with `ROBOTSTXT_OBEY = True`
+(overriding the global `False`), does a homepage warm-up request before
+hitting category pages, and hard-stops after 2 block responses in one run
+— see the file's docstring and `pc-parts-il-plan.md` §7.
+
+**Open question, not yet re-verified:** old test logs (`tmp/`, gitignored)
+show TMS's HTML category pages themselves 403'ing on every request in a
+run from Aug 16 — not just the old configurator JSON API. Dropping
+`?limit` fixes the robots.txt violation but hasn't been confirmed to fix
+that blocking. Run the Nano once by hand (`nano/README.md` step 6) and
+check `journalctl` before trusting this unattended.
+
+### Decisions locked in
+- **Language:** Bilingual, Hebrew + English.
+- **Accounts:** Not for v1 — shareable build links only. Git-as-database
+  (Option A) until a real write path is needed.
+- **KSP:** Out of scope for v1 (`spiders/ksp.py` stays an isolated, Phase
+  5 stub). API application submitted, approval pending.
+- **robots.txt:** Ignored for cloud-run vendors (1PC, Plonter, Ivory);
+  **followed** for locally-run vendors (currently TMS on the Nano) — see
+  `pc-parts-il-plan.md` §14 and `DECISIONS.md`. Never extended to KSP's
+  active WAF/bot-management defenses either way.
+
+### About `decisions.md`
+
+It's gitignored and stays local-only rather than pushed to the public
+repo — it's the working log, more candid/detailed than this README, and
+covers the home-IP protection rules in more depth than belongs in a public
+file. `pc-parts-il-plan.md` remains the tracked, public source of truth for
+architecture and reasoning. If you're picking this repo up without that
+file, `pc-parts-il-plan.md` has everything needed.
 
 ## Repo layout
 
 ```
-/scrapy.cfg                  # NOTE: lives at repo root, not inside /scraper —
-                              # Scrapy needs this to import scraper.settings
-                              # correctly. Run `scrapy crawl <name>` from
-                              # here (the repo root), not from inside /scraper.
-/scraper                    # Scrapy project (skeleton in place)
+/scrapy.cfg                   # settings pointer only — no Zyte [deploy] section
+/scraper
   /spiders
-    tms.py                   # configurator JSON API, all 10 categories mapped
-    ivory.py                 # stub — HTML scraping confirmed viable (view-source check), selectors still TODO
-    onepc.py                 # PCBuilder/CategoryViewData, all 10 categories mapped
+    tms.py                    # HTML category pages + Claris stock POST — Nano only
+    onepc.py                  # PCBuilder/CategoryViewData, all 10 categories mapped
     plonter.py                # alon.tmpl full-catalog feed — missing product URLs, see TODO
-    ksp.py                    # disabled stub, Phase 5 only, do not build yet
-  items.py                    # shared Item schema — stable, don't churn this
-  settings.py                  # rate limiting, robots.txt (intentionally NOT obeyed, see below), encoding notes
-  sync_from_scrapy_cloud.py    # pulls latest job items via Scrapy Cloud API
-  normalize_and_match.py       # Phase 1: passthrough. Phase 2: real matching (§8)
+    ivory.py                  # stub — Phase 2
+    ksp.py                    # disabled stub, Phase 5 only
+  items.py                    # shared Item schema
+  settings.py                 # rate limiting, robots.txt (global default), encoding
+  run_spider.py                # shared entrypoint: runs one spider, writes
+                                # data/raw/<today>/<spider>.jsonl — used by
+                                # both GitHub Actions and the Nano
+  normalize_and_match.py       # Phase 1: stale-forward passthrough. Phase 2: real matching
+/scripts
+  git_commit_push.sh           # shared commit+push-with-rebase-retry (§10)
+/nano                          # Jetson Nano setup for TMS (§4/§7/§9)
+  README.md
+  run_tms.sh
+  pc-parts-il-tms.service
+  pc-parts-il-tms.timer
 /data
-  catalog.json                 # empty placeholder for now
-  history/                      # daily snapshots, once retention (§12) is built
-/site                          # Astro/Next.js app — not started yet (Phase 1)
+  raw/YYYY-MM-DD/<vendor>.jsonl  # daily raw snapshots, one file per vendor
+  catalog.json                   # built by normalize_and_match.py — the "database"
 /.github/workflows
-  sync-and-deploy.yml           # implements §9 exactly
+  scrape-cloud.yml              # 1PC + Plonter, ~03:30 UTC
+  normalize-and-deploy.yml      # build catalog.json, ~09:00 UTC
   weekly-downsample.yml         # Phase 4, disabled stub
 ```
 
-### Known issue: Scrapy Cloud deploy build failure (Aug 2026)
-
-`shub deploy` may fail at the `shub-build-egg` build step with
-`ModuleNotFoundError: No module named 'setuptools'`, even though
-`requirements.txt` lists `setuptools`. This looks like it happens in a
-build-container step that runs before/outside the `pip install -r
-requirements.txt` step, so listing `setuptools` in requirements.txt may not
-actually fix it — genuinely uncertain without visibility into Zyte's
-current build tooling. Two things already added to try to route around it:
-- `setup.py` at repo root (so Scrapy Cloud doesn't auto-generate one from
-  its own template — "setup.py is not found, creating it from template"
-  in the failing build log).
-- `scrapinghub.yml` pinning the stack explicitly to `scrapy:2.17` (fill in
-  your numeric project ID at the top of that file first).
-
-If the error persists after both of those, this looks like a Zyte-side
-build-image issue rather than something fixable from the repo — worth a
-support ticket to Zyte with the build log. In the meantime, the plan's own
-§9 "fallback path" (running spiders directly inside a GitHub Actions job,
-no Scrapy Cloud dependency) is a way to keep testing the pipeline
-end-to-end without being blocked on this.
-
 ## Next steps (Phase 1, per plan §16)
 
-1. Finish the Phase 0 checklist above (ToS skims, TMS's remaining category
-   IDs, Plonter's product-URL gap).
-2. Pick the 2 easiest-looking vendors — **TMS and Plonter are now the
-   strongest candidates** given the JSON/full-feed sources found (see the
-   robots.txt policy note above), with 1PC close behind (fully-mapped
-   category IDs, just needs a real test run). Ivory remains HTML-scraping
-   only for now.
-3. Deploy to Scrapy Cloud, set up a Periodic Job.
-4. Wire up `sync-and-deploy.yml` with real `SHUB_APIKEY`/`SHUB_PROJECT_ID`
-   secrets and confirm the loop runs unattended.
-5. Scaffold `/site` (Astro or Next.js static export) with a bare-bones page
-   that just lists whatever's in `data/catalog.json` — no matching or
-   compatibility logic yet, per the plan's explicit Phase 1 scope.
-6. Prove the whole loop runs unattended for a week before starting Phase 2.
+1. Run the Nano once by hand and confirm TMS actually still works against
+   the robots.txt-compliant pagination (see the open question above).
+2. Confirm `scrape-cloud.yml` and `normalize-and-deploy.yml` run clean on
+   a real push (no secrets needed, but worth watching the first few runs).
+3. Scaffold `/site` (Astro or Next.js static export) with a bare-bones page
+   listing whatever's in `data/catalog.json` — no matching/compatibility
+   logic yet, per the plan's explicit Phase 1 scope.
+4. Prove the whole loop runs unattended for a week before starting Phase 2
+   (Ivory, real matching).

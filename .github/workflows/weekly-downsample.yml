@@ -1,7 +1,8 @@
 name: weekly-downsample
-# Phase 4 task (§12/§16) — not active yet. Collapses daily history older than
-# ~90 days into weekly/monthly aggregates, as its own scheduled step separate
-# from the daily sync. Build scraper/downsample.py before enabling this.
+# Phase 4 task (§16) — not active yet. Collapses data/raw/ history older
+# than ~90 days into weekly/monthly aggregates, as its own scheduled step
+# separate from the daily scrape/normalize jobs. Build
+# scraper/downsample.py before enabling this.
 on:
   workflow_dispatch: {}
   # schedule:

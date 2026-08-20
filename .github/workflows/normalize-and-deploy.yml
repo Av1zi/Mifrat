@@ -1,0 +1,28 @@
+name: normalize-and-deploy
+# Runs after both scrapes are expected to be done (§8): scrape-cloud.yml at
+# ~03:30 UTC, the Nano's TMS scrape at ~06:00 UTC + jitter, this at
+# ~09:00 UTC. Reads whatever's in data/raw/ (today's snapshots plus the
+# stale-forward fallback in scraper/normalize_and_match.py for any vendor
+# missing today) and writes data/catalog.json. No separate deploy step —
+# Cloudflare Pages rebuilds automatically on the push this job makes.
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt --break-system-packages
+      - run: python scraper/normalize_and_match.py
+      - run: |
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          bash scripts/git_commit_push.sh \
+            "normalize: catalog for $(date -u +%F)" \
+            data/catalog.json
