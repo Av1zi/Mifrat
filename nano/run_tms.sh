@@ -17,8 +17,7 @@ mkdir -p "$OUT_DIR"
 
 echo "[run_tms] starting spider at $(date -Iseconds)"
 "$SCRAPY" crawl tms \
-    -s "FEEDS={\"$OUT_FILE\":{\"format\":\"jsonl\",\"encoding\":\"utf-8\"}}" \
-    -s ROBOTSTXT_OBEY=False
+    -s "FEEDS={\"$OUT_FILE\":{\"format\":\"jsonl\",\"encoding\":\"utf-8\"}}"
 
 ITEM_COUNT="$(wc -l < "$OUT_FILE")"
 echo "[run_tms] spider done — $ITEM_COUNT items written to $OUT_FILE"
