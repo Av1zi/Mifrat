@@ -65,7 +65,7 @@ Fixed by defining both `start()` (new entrypoint) and `start_requests()`
 (fallback for <2.13), sharing the same request-building logic
 (`_build_requests()`), per Scrapy's own migration guidance. If you see a
 spider open-and-immediately-close with zero requests again, this is the
-first thing to check. (Same fix applied to spiders/tms.py.)
+first thing to check. (Same fix applied to spiders/tms.py and ivory.py.)
 
 ## Gotcha hit during first real test run (Aug 2026)
 The `data-price` attribute (e.g. "1148.99998400" for a real ₪1149 item,
@@ -82,10 +82,13 @@ with round-half-up exactly at .50 boundaries landing on an odd integer.
 
 ## TODO before first real run
 1. ToS skim (https://1pc.co.il/he/תקנון-האתר) — noted for completeness; per
-   the project owner's Aug 2026 decision (pc-parts-il-plan.md §17), scraping
-   proceeds regardless with a take-down-on-request posture.
+   the project owner's decision (decisions.md), scraping proceeds
+   regardless with a take-down-on-request posture.
 2. Confirm whether GET with querystring works as an alternative to POST
-   form data (simpler for Scrapy either way, but worth knowing).
+   form data (simpler for Scrapy either way, but worth knowing) — likely
+   yes, per Ivory's ws/get endpoint turning out to accept GET+querystring
+   for the same kind of PC-builder data; not yet re-tested against 1PC
+   specifically.
 3. in_stock confirmed NOT present anywhere in this endpoint's response
    (Aug 2026 test run) — stays None until a real signal is found (a
    follow-up per-product request, maybe). Do NOT default this to True just
@@ -94,9 +97,9 @@ with round-half-up exactly at .50 boundaries landing on an odd integer.
    reasoning as the TMS `stock` field fix in spiders/tms.py.
 4. Confirm pagination stop condition empirically (does the last page still
    include a next-page div with a stale/same page number, or is it absent?).
-5. Verify the captured attributeId/dependAttributeId values return the FULL
-   category rather than a pre-filtered subset — if item counts look low
-   compared to browsing the category manually, try attributeId="" instead.
+5. RESOLVED (Aug 2026, owner-confirmed): the captured attributeId/
+   dependAttributeId values DO return the full, unfiltered category — not
+   a pre-filtered subset. No need to try attributeId="" as an alternative.
 """
 import scrapy
 from datetime import datetime, timezone
@@ -105,8 +108,7 @@ from scraper.items import ListingItem
 
 VENDOR_ID = "1pc"
 
-# categoryId -> human label. Only CPU confirmed so far; fill in the rest
-# per TODO #2 above before this spider can cover the full component set.
+# categoryId -> human label.
 CATEGORIES = {
     # categoryId: (attributeId, dependAttributeId, label)
     # Captured directly from https://1pc.co.il/en/pcbuilder Network tab (Aug 2026).
@@ -115,10 +117,8 @@ CATEGORIES = {
     # motherboard's dependAttributeId=90; motherboard attributeId=49 feeds
     # memory's dependAttributeId=49). That chain is presumably how the PC
     # Builder filters compatible parts step-by-step — worth keeping in mind
-    # for §8 matching later, but for a full unfiltered category scrape we
-    # just replay the captured values as-is; TODO confirm this still returns
-    # the FULL category rather than an already-filtered subset (test with
-    # attributeId="" too if item counts look suspiciously low).
+    # for §8 matching later. CONFIRMED (see TODO #5) these values return
+    # the full category as-is, not a filtered subset.
     158: ("90", "0", "cpu"),
     429: ("", "0", "cpu_cooling"),
     167: ("49", "90", "motherboard"),
