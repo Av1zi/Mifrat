@@ -134,6 +134,8 @@ BRAND_ALIASES = {
     "havn": "HAVN",
     "cougar": "Cougar",
     "1stplayer": "1stPlayer",
+    "nzxt": "NZXT",
+    "thermaltake": "Thermaltake",
     "ivory": "Ivory",
 
     # Memory
@@ -141,6 +143,7 @@ BRAND_ALIASES = {
     "fury": "Kingston Fury",
     "patriot": "Patriot",
     "viper": "Patriot Viper",
+    "g.skill": "G.Skill",
 
     # PSU
     "seasonic": "Seasonic",
@@ -191,6 +194,10 @@ MPN_PATTERNS = [
 ]
 
 
+# --------------------------------------------------------------------------
+# Basic normalization
+# --------------------------------------------------------------------------
+
 def _compact_key(value: str | None) -> str:
     return re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
 
@@ -236,12 +243,8 @@ def normalize_price(value):
     """
     Coerce vendor price to integer ILS.
 
-    Handles:
-    - int
-    - float
-    - string numbers
-    - 1PC floating-point noise
-    - Plonter string prices
+    Handles int, float, string numbers, 1PC floating-point noise,
+    and Plonter string prices.
     """
     if value is None or value == "":
         return None
@@ -258,6 +261,10 @@ def normalize_price(value):
     except Exception:
         return None
 
+
+# --------------------------------------------------------------------------
+# Category normalization
+# --------------------------------------------------------------------------
 
 def _category_from_title(title_clean: str) -> str | None:
     """
@@ -332,13 +339,18 @@ def canonical_category(guess: str | None, title: str = "") -> str:
     return category
 
 
+# --------------------------------------------------------------------------
+# Listing identity
+# --------------------------------------------------------------------------
+
 def listing_key(listing: dict) -> str:
     """
     Build a stable unique key for a vendor listing.
 
     Special handling:
-    - 1PC product URLs contain stable numeric product IDs.
-    - Ivory can repeat vendor_sku across multiple catalog IDs, so prefer URL id.
+    - 1PC product URLs contain stable numeric product IDs; 1PC vendor_sku is
+      NOT unique (Hebrew color slugs repeat across products).
+    - Ivory can repeat `barcode` across catalog IDs, so prefer URL id.
     """
     vendor = canonical_vendor_id(listing.get("vendor_id"))
     sku = str(listing.get("vendor_sku", "") or "").strip()
@@ -372,7 +384,7 @@ def normalize_sku(value: str | None) -> str:
     """
     Normalize vendor SKU for exact SKU matching.
 
-    This decodes URL-encoded Hebrew SKUs and removes non-alphanumerics.
+    Decodes URL-encoded Hebrew SKUs and removes non-alphanumerics.
     """
     s = unquote(str(value or ""))
     s = html.unescape(s)
@@ -428,6 +440,10 @@ def extract_mpn(text: str) -> str | None:
     return re.sub(r"[^A-Z0-9]", "", mpn)
 
 
+# --------------------------------------------------------------------------
+# Enrichment
+# --------------------------------------------------------------------------
+
 def enrich_listing(listing: dict) -> dict:
     """
     Add Phase 2 matching metadata to a raw listing.
@@ -453,9 +469,6 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["bundle_only"] = "bundle-only" in str(listing.get("category_guess", "")).lower()
 
-    # Phase 2B: structured compatibility attributes (socket, chipset,
-    # memory type, form factor, wattage...), parsed from match_text only -
-    # see extractors.py docstring for why this doesn't touch vendor payloads.
     enriched["attributes"] = extract_attributes(enriched)
 
     return enriched
@@ -466,9 +479,7 @@ def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
     Deduplicate listings with the same listing_key.
 
     If the same listing_key appears multiple times, keep the best offer:
-    - lowest known price
-    - in stock preferred
-    - non-stale preferred
+    lowest known price, in-stock preferred, non-stale preferred.
     """
     best: dict[str, dict] = {}
 
@@ -497,31 +508,15 @@ def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
     return list(best.values())
 
 
-def load_manual(path: Path | str | None) -> tuple[dict[str, str], dict[str, dict], set[frozenset[str]]]:
+# --------------------------------------------------------------------------
+# Manual merge ledger
+# --------------------------------------------------------------------------
+
+def load_manual(path: Path | str | None):
     """
     Load manual product merges.
 
-    Expected file format:
-
-    {
-      "products": [
-        {
-          "product_id": "case:antec:st20m",
-          "canonical_name": "Antec ST20M",
-          "category": "case",
-          "brand": "Antec",
-          "model": "ST20M",
-          "attributes": {},
-          "listing_keys": [
-            "1pc:216305",
-            "tms:ST20M"
-          ]
-        }
-      ],
-      "blocked_pairs": [
-        ["listing_key_a", "listing_key_b"]
-      ]
-    }
+    Returns (key_to_product, products, blocked_pairs).
     """
     if not path:
         return {}, {}, set()
@@ -549,6 +544,10 @@ def load_manual(path: Path | str | None) -> tuple[dict[str, str], dict[str, dict
 
     return key_to_product, products, blocked_pairs
 
+
+# --------------------------------------------------------------------------
+# Product building
+# --------------------------------------------------------------------------
 
 def offer_from_listing(enriched: dict) -> dict:
     return {
@@ -595,13 +594,13 @@ def best_name(enriched_listings: list[dict]) -> str:
 
     chosen = sorted(enriched_listings, key=sort_key)[0]
 
-    match_text = chosen.get("match_text")
-    if isinstance(match_text, str) and match_text.strip():
-        return match_text.strip()
+    match_text_value = chosen.get("match_text")
+    if isinstance(match_text_value, str) and match_text_value.strip():
+        return match_text_value.strip()
 
-    listing_key = chosen.get("listing_key")
-    if isinstance(listing_key, str) and listing_key.strip():
-        return listing_key.strip()
+    listing_key_value = chosen.get("listing_key")
+    if isinstance(listing_key_value, str) and listing_key_value.strip():
+        return listing_key_value.strip()
 
     return "unknown"
 
@@ -631,18 +630,17 @@ def choose_best_offer(offers: list[dict]) -> dict | None:
     )
 
 
-def merge_offer_attributes(group: list[dict]) -> tuple[dict, dict]:
+def merge_offer_attributes(enriched_listings: list[dict]) -> tuple[dict, dict]:
     """
-    Union attributes across a product's offers.
+    Union of attributes across all offers of one product.
 
     If offers disagree on a field, keep the majority value and record the
-    disagreement in `conflicts` - a conflict is also a signal the merge
-    itself might be wrong (e.g. two different chipsets grouped as one
-    product), worth spot-checking, not just data noise to average away.
+    disagreement in `conflicts` — an attribute conflict is also a signal
+    that the merge itself may be wrong.
     """
     tallies: dict[str, dict[str, list]] = {}
 
-    for e in group:
+    for e in enriched_listings:
         for k, v in (e.get("attributes") or {}).items():
             if v in (None, ""):
                 continue
@@ -721,8 +719,8 @@ def match_listings(
 
     # 3. Exact normalized vendor SKU matches.
     #
-    # This helps when multiple vendors use the same model code, e.g.
-    # Lian Li O11DMIV2W.
+    # This helps when multiple vendors use the same model code,
+    # e.g. Lian Li O11DMIV2W.
     sku_groups: dict[str, list[dict]] = {}
 
     for enriched in enriched_listings:
@@ -794,8 +792,6 @@ def match_listings(
 
         category = meta.get("category") or group[0].get("category_normalized", "other")
 
-        # Phase 2B: union offer-level attributes into the product, with
-        # majority-vote conflict detection (see merge_offer_attributes).
         merged_attributes, attribute_conflicts = merge_offer_attributes(group)
 
         mpns = {e.get("mpn") for e in group if e.get("mpn")}
@@ -840,12 +836,15 @@ def match_listings(
     }
 
 
+# --------------------------------------------------------------------------
+# Optional fuzzy review suggestions
+# --------------------------------------------------------------------------
+
 def extract_critical_attributes(text: str) -> dict:
     """
     Very rough critical attribute extraction.
 
     This is only used to prevent obvious bad fuzzy merges.
-    Phase 2B should replace this with proper per-category extractors.
     """
     t = _clean(text).lower()
     compact = re.sub(r"\s+", "", t)
@@ -888,27 +887,21 @@ def critical_conflict(a: dict, b: dict) -> bool:
     ca = extract_critical_attributes(a.get("match_text", ""))
     cb = extract_critical_attributes(b.get("match_text", ""))
 
-    # Different DDR generation is almost always a bad match.
     if ca["ddr"] and cb["ddr"] and ca["ddr"] != cb["ddr"]:
         return True
 
-    # Different RAM total capacity is bad for memory products.
     if ca["total_gb"] and cb["total_gb"] and ca["total_gb"] != cb["total_gb"]:
         return True
 
-    # Different RAM speed is bad for memory products.
     if ca["speed_mhz"] and cb["speed_mhz"] and ca["speed_mhz"] != cb["speed_mhz"]:
         return True
 
-    # Different PSU wattage is bad.
     if ca["wattage"] and cb["wattage"] and ca["wattage"] != cb["wattage"]:
         return True
 
-    # Different fan pack size is usually important.
     if ca["pack_size"] and cb["pack_size"] and ca["pack_size"] != cb["pack_size"]:
         return True
 
-    # Different hardware revisions, e.g. V2 vs V3.
     if ca["revs"] and cb["revs"] and not set(ca["revs"]) & set(cb["revs"]):
         return True
 
@@ -970,7 +963,11 @@ def suggest_fuzzy_matches(
                 if not a.get("match_text") or not b.get("match_text"):
                     continue
 
-                if assignments and assignments.get(a_key) and assignments.get(a_key) == assignments.get(b_key):
+                if (
+                    assignments
+                    and assignments.get(a_key)
+                    and assignments.get(a_key) == assignments.get(b_key)
+                ):
                     continue
 
                 # If both are already in multi-vendor merged products, skip.
