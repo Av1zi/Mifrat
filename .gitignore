@@ -17,12 +17,8 @@ node_modules/
 build/
 dist/
 
-# decisions.md is a local-only running log, deliberately not pushed to the
-# public repo (see the note in README's status section). pc-parts-il-plan.md
-# stays TRACKED (it already was before this line existed) — this entry only
-# stops it from being re-added if it's ever untracked on purpose; that's a
-# separate decision to make explicitly, not a side effect of this line.
 decisions.md
+pc-parts-il-plan.md
 
 # Local test artifacts (e.g. `scrapy crawl tms -o tms_test.jsonl` while
 # developing) — not meant for version control, and may contain a full local

@@ -1,47 +1,152 @@
 """
 Ivory (ivory.co.il) spider.
 
-Recon so far: broad electronics retailer (computers, mobile, home appliances —
-not PC-parts-only like TMS/1PC/Plonter), so category scoping matters more
-here — don't crawl the whole catalog, only PC-hardware-relevant sections.
+## robots.txt CONFIRMED: remarkably permissive — only two rules for
+User-agent: * — Disallow: /files/banners/ and Disallow: /catalog_compare.php.
+Nothing this spider hits is disallowed; the project's robots.txt-disregard
+decision isn't even needed here.
 
-- robots.txt CONFIRMED (Aug 2026): remarkably permissive, only two rules for
-  User-agent: * — Disallow: /files/banners/ and Disallow: /catalog_compare.php.
-  Category/product crawling is wide open as far as robots.txt is concerned.
-- Manual Network-tab check done: Google Analytics `mp/collect` pings, plus
-  a JSON response that DOES exist but reads as unstructured/minified
-  gibberish rather than clean product data (unlike TMS's configurator JSON
-  or 1PC's category-tile HTML) — not usable as-is. Not pursuing this further
-  for now; flag if a clearer look at it later reveals it's decodable.
-- **view-source confirmed (Aug 2026): product tiles ARE present in the raw
-  HTML** (checked via View Source, not DevTools Elements, so this reflects
-  the actual server response, not post-JS DOM). This settles the
-  playwright question: plain scrapy.Request + Selector is enough for
-  Ivory, same as TMS/Plonter. scrapy-playwright NOT needed.
+## The API (Aug 2026, see IvoryFindings.md + owner confirmation)
 
-TODO before first real run (§7):
-1. Still need: ToS skim (linked from ivory.co.il footer).
-2. Confirm the site's category URL structure for PC components
-   (processors, motherboards, GPUs, PSUs, cases) — not yet verified.
-3. Watch for Windows-1255 encoding (§7 step 3) — check response headers.
+Ivory's PC-builder tool exposes an internal JSON API, same pattern as
+TMS's configurator and 1PC's CategoryViewData — CONFIRMED as a plain GET
+with query params (not POST form data as originally assumed):
+
+  GET https://www.ivory.co.il/computer/{platform}/ws/get
+      ?source_parent={id}&selectedProds=%5B%5D
+
+  platform: "intel" or "amd" — BOTH confirmed directly (Intel from the
+  original recon, AMD confirmed by owner: source_parent=2675 works at
+  computer/amd/ws/get exactly like the Intel endpoint).
+
+`selectedProds=[]` CONFIRMED (owner tested) to return the full unfiltered
+category on both Ivory and 1PC — not a narrowed default view. No more
+guessing on that front.
+
+Response is JSON: `Build.categories[]`, each category has a `products`
+dict keyed `"itm-<id>"`, e.g.:
+
+  {
+    "id": 43970, "title": "מעבד Intel® Core™ i3-12100...",
+    "barcode": "I3-12100", "parent": 2674, "price": 499,
+    "picture": "files/catalog/reg/....webp", "cuts": [...], ...
+  }
+
+`barcode` CONFIRMED to just be the vendor SKU (owner checked — not some
+separate internal code). `id` is the numeric product id, and CONFIRMED
+(owner checked view-source) to be exactly what resolves the product page:
+
+  https://www.ivory.co.il/catalog.php?id={id}
+
+## Shared categories — only request once, not per platform
+
+Cooling, RAM, storage, GPU, PSU, case, and case fans use the SAME
+source_parent regardless of platform and CONFIRMED (owner checked) to
+return the identical full set either way — no need to hit them under both
+intel and amd. Only CPU and motherboard are genuinely platform-specific
+(different socket, different source_parent). CATEGORIES below reflects
+this: shared categories appear once, arbitrarily under the "intel" URL
+since that's just where they happen to live, not because they're
+Intel-specific data.
+
+## Still open
+- in_stock is not present in this payload — left None, same as 1PC.
+- ToS skim, per §7 checklist — still outstanding for Ivory.
 """
-import scrapy
+import json
 from datetime import datetime, timezone
+from urllib.parse import urlencode
+
+import scrapy
+
 from scraper.items import ListingItem
 
 VENDOR_ID = "ivory"
+
+WS_GET_URL = "https://www.ivory.co.il/computer/{platform}/ws/get"
+PRODUCT_URL_TEMPLATE = "https://www.ivory.co.il/catalog.php?id={id}"
+
+# (category_guess, platform, source_parent)
+# CPU/motherboard are genuinely platform-specific (different socket).
+# Everything else is shared across platforms — requested once, not twice.
+CATEGORIES = [
+    ("cpu", "intel", 2674),
+    ("cpu", "amd", 2675),
+    ("motherboard", "intel", 2653),
+    ("motherboard", "amd", 2676),
+    ("cpu_cooler_air", "intel", 6083),
+    ("cpu_cooler_aio", "intel", 11656),
+    ("ram", "intel", 2649),
+    ("ssd", "intel", 2672),
+    ("hdd", "intel", 2720),
+    ("gpu", "intel", 2652),
+    ("psu", "intel", 5347),
+    ("case", "intel", 2628),
+    ("case_fans", "intel", 6084),
+]
 
 
 class IvorySpider(scrapy.Spider):
     name = "ivory"
     allowed_domains = ["ivory.co.il"]
-    # TODO: replace with real PC-hardware category URLs once confirmed
-    start_urls = [
-        "https://www.ivory.co.il/",
-    ]
 
-    def parse(self, response):
-        raise NotImplementedError(
-            "Ivory spider not yet built — do the Phase 0 recon in the "
-            "module docstring first (JSON API check is the priority here)."
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._seen_ids = set()  # defensive — categories shouldn't overlap now, but cheap to keep
+
+    async def start(self):
+        for request in self._build_requests():
+            yield request
+
+    def start_requests(self):
+        # Fallback for Scrapy <2.13 — see onepc.py/tms.py for why both
+        # entrypoints are defined; the async start() one is what actually
+        # runs on 2.17.
+        yield from self._build_requests()
+
+    def _build_requests(self):
+        for category_guess, platform, source_parent in CATEGORIES:
+            qs = urlencode({"source_parent": source_parent, "selectedProds": "[]"})
+            url = f"{WS_GET_URL.format(platform=platform)}?{qs}"
+            yield scrapy.Request(
+                url,
+                callback=self.parse,
+                cb_kwargs={"category_guess": category_guess, "platform": platform},
+                errback=self._request_failed,
+            )
+
+    def parse(self, response, category_guess, platform):
+        try:
+            data = json.loads(response.text)
+        except json.JSONDecodeError:
+            self.logger.warning(
+                "[ivory] non-JSON response for %s/%s (status %s) — skipping",
+                platform, category_guess, response.status,
+            )
+            return
+
+        categories = (data.get("Build") or {}).get("categories") or []
+        for cat in categories:
+            products = cat.get("products") or {}
+            for prod in products.values():
+                pid = prod.get("id")
+                if pid is None or pid in self._seen_ids:
+                    continue
+                self._seen_ids.add(pid)
+
+                yield ListingItem(
+                    vendor_id=VENDOR_ID,
+                    vendor_sku=prod.get("barcode"),
+                    title_raw=prod.get("title"),
+                    url=PRODUCT_URL_TEMPLATE.format(id=pid),
+                    price_ils=prod.get("price"),
+                    in_stock=None,  # not present in this payload — see docstring
+                    category_guess=category_guess,
+                    scraped_at=datetime.now(timezone.utc).isoformat(),
+                )
+
+    def _request_failed(self, failure):
+        self.logger.warning(
+            "[ivory] request failed: %s — that category's items are "
+            "skipped, nothing else is affected", failure.value,
         )
