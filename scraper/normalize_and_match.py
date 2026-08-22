@@ -1,52 +1,57 @@
 """
 Normalizer + matcher: reads today's + recent raw per-vendor snapshots from
-data/raw/YYYY-MM-DD/<vendor>.jsonl (§5) and builds data/catalog.json.
+data/raw/YYYY-MM-DD/<vendor>.jsonl and builds data/catalog.json.
 
-This is still a Phase 1 passthrough (§16) — no product-level matching yet,
-just reshaping raw listings for the bare-bones static page. Real matching
-(brand/model extraction, fuzzy fallback, manual-merge review) is Phase 2
-(§12) and belongs in this file when that starts.
+Phase 2:
+- enriches listings with stable listing keys
+- normalizes prices/categories
+- builds canonical products
+- writes optional fuzzy review queue to data/review_queue.json
 
-## Stale-forward rule (§5)
+Stale-forward rule:
+If a vendor's raw snapshot is missing today, use the most recent snapshot
+within the lookback window and mark those listings stale.
 
-A vendor's raw snapshot can be missing for today for ordinary operational
-reasons (Nano down, a spider broke, a site blocked us for the day) — that
-must never wipe the vendor's listings off the site. So for each vendor
-independently:
-  1. Look for today's data/raw/<today>/<vendor>.jsonl.
-  2. If missing, walk backwards through recent date folders and use the
-     most recent one that has this vendor's file instead.
-  3. Every listing carries `last_seen` (the date of the snapshot it
-     actually came from) and `stale` (True if that date isn't today) — the
-     frontend is expected to show staleness visibly rather than silently
-     presenting old prices as current.
-  4. A vendor with NO snapshot in the lookback window at all (never
-     scraped yet, e.g. Ivory pre-Phase-2) is skipped entirely, not treated
-     as an error — onboarding a new vendor is normal, not a failure.
-
-Usage:
-  python scraper/normalize_and_match.py
+Usage (from the repo root):
+python -m scraper.normalize_and_match
 """
+
 import json
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+try:
+    from scraper.matching import (
+        dedupe_enriched_listings,
+        enrich_listing,
+        match_listings,
+        suggest_fuzzy_matches,
+    )
+except ImportError:
+    from matching import (
+        dedupe_enriched_listings,
+        enrich_listing,
+        match_listings,
+        suggest_fuzzy_matches,
+    )
+
+
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 RAW_DIR = DATA_DIR / "raw"
 OUTPUT_PATH = DATA_DIR / "catalog.json"
+REVIEW_PATH = DATA_DIR / "review_queue.json"
+MANUAL_PATH = DATA_DIR / "matching" / "manual_products.json"
 
-# Vendors currently wired into the pipeline. Ivory joins here in Phase 2
-# once its spider is built (§16) — adding it is a one-line change, and
-# until then it's simply absent from raw/, which the stale-forward lookup
-# already treats as "not onboarded yet" rather than an error.
-VENDOR_SPIDER_NAMES = ["tms", "onepc", "plonter"]
+# Ivory is now included. If its raw file is missing, it is skipped gracefully.
+VENDOR_SPIDER_NAMES = ["tms", "onepc", "plonter", "ivory"]
 
-# How many days back to look for a vendor's most recent snapshot before
-# giving up on it for this run. Generous on purpose — a vendor down for a
-# long weekend shouldn't vanish from the site; if it's down for longer than
-# this, that's a real problem the count-check / Sentry alerting (§9) should
-# have already surfaced well before this window closes.
+# Supports either onepc.jsonl or 1pc.jsonl.
+VENDOR_FILE_ALIASES = {
+    "onepc": ["onepc", "1pc"],
+    "1pc": ["1pc", "onepc"],
+}
+
 STALE_LOOKBACK_DAYS = 14
 
 
@@ -54,30 +59,73 @@ def _date_str(d: datetime) -> str:
     return d.strftime("%Y-%m-%d")
 
 
-def find_latest_snapshot(vendor_spider_name: str, today: datetime) -> tuple[Path, str] | None:
-    """Return (path, date_str) for the most recent available raw file for
-    this vendor within the lookback window, or None if there isn't one."""
+def find_latest_snapshot(vendor_spider_name: str, today: datetime):
+    """
+    Return (path, date_str) for the most recent available raw file for
+    this vendor within the lookback window, or None if there isn't one.
+    """
+    base_names = VENDOR_FILE_ALIASES.get(vendor_spider_name, [vendor_spider_name])
+
     for offset in range(STALE_LOOKBACK_DAYS + 1):
         day = today - timedelta(days=offset)
         day_str = _date_str(day)
-        candidate = RAW_DIR / day_str / f"{vendor_spider_name}.jsonl"
-        if candidate.exists():
-            return candidate, day_str
+
+        for name in base_names:
+            candidate = RAW_DIR / day_str / f"{name}.jsonl"
+            if candidate.exists():
+                return candidate, day_str
+
     return None
 
 
 def load_listings(path: Path) -> list[dict]:
-    with open(path, encoding="utf-8") as f:
-        return [json.loads(line) for line in f if line.strip()]
+    """
+    Load JSONL listings.
+
+    This also tries to recover from concatenated JSON objects on one line,
+    which can happen when copy/pasting raw output.
+    """
+    listings = []
+    decoder = json.JSONDecoder()
+
+    with open(path, encoding="utf-8-sig") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+
+            try:
+                listings.append(json.loads(line))
+                continue
+            except json.JSONDecodeError:
+                idx = 0
+
+                while idx < len(line):
+                    while idx < len(line) and line[idx] not in "{[":
+                        idx += 1
+
+                    if idx >= len(line):
+                        break
+
+                    try:
+                        obj, end = decoder.raw_decode(line[idx:])
+                        listings.append(obj)
+                        idx += end
+                    except json.JSONDecodeError:
+                        break
+
+    return listings
 
 
-def build_catalog(today: datetime) -> dict:
+def build_catalog(today: datetime):
     today_str = _date_str(today)
+
     all_listings = []
     skipped_vendors = []
 
     for vendor_spider_name in VENDOR_SPIDER_NAMES:
         found = find_latest_snapshot(vendor_spider_name, today)
+
         if found is None:
             skipped_vendors.append(vendor_spider_name)
             print(
@@ -90,40 +138,91 @@ def build_catalog(today: datetime) -> dict:
 
         path, snapshot_date = found
         is_stale = snapshot_date != today_str
+
         listings = load_listings(path)
+
         for listing in listings:
             listing["last_seen"] = snapshot_date
             listing["stale"] = is_stale
 
+            if not listing.get("vendor_id"):
+                listing["vendor_id"] = (
+                    "1pc" if vendor_spider_name == "onepc" else vendor_spider_name
+                )
+
         level = "warn" if is_stale else "ok"
-        print(f"[{level}] {vendor_spider_name}: {len(listings)} listings from {snapshot_date}"
-              + (" (stale)" if is_stale else ""))
+        print(
+            f"[{level}] {vendor_spider_name}: {len(listings)} listings from {snapshot_date}"
+            + (" (stale)" if is_stale else "")
+        )
+
         all_listings.extend(listings)
 
-    return {
+    enriched = [enrich_listing(listing) for listing in all_listings]
+    enriched = dedupe_enriched_listings(enriched)
+
+    # Stable output ordering.
+    enriched.sort(key=lambda e: (e.get("vendor_id", ""), e.get("listing_key", "")))
+
+    match_result = match_listings(enriched, manual_path=MANUAL_PATH)
+
+    assignments = match_result["assignments"]
+    product_sizes = match_result["product_sizes"]
+
+    for e in enriched:
+        e["product_id"] = assignments.get(e["listing_key"])
+
+    exclude_multi_keys = {
+        listing_key_value
+        for listing_key_value, pid in assignments.items()
+        if product_sizes.get(pid, 0) > 1
+    }
+
+    review_queue = suggest_fuzzy_matches(
+        enriched,
+        manual_path=MANUAL_PATH,
+        threshold=88,
+        exclude_multi_keys=exclude_multi_keys,
+        assignments=assignments,
+    )
+
+    catalog = {
         "generated_at": today.isoformat(),
-        "listings": all_listings,
-        "products": [],  # Phase 2 (§12): canonical matched products go here
+        "listings": enriched,
+        "products": match_result["products"],
+        "review_queue_count": len(review_queue),
         "skipped_vendors": skipped_vendors,
     }
+
+    return catalog, review_queue
 
 
 def main():
     today = datetime.now(timezone.utc)
-    catalog = build_catalog(today)
+
+    catalog, review_queue = build_catalog(today)
 
     DATA_DIR.mkdir(exist_ok=True)
+    MANUAL_PATH.parent.mkdir(parents=True, exist_ok=True)
+
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
 
-    # §10 count-check: zero listings across every vendor means the whole
-    # pipeline is broken (not just one vendor having a bad day), so fail
-    # loudly rather than commit an empty catalog.
+    with open(REVIEW_PATH, "w", encoding="utf-8") as f:
+        json.dump(review_queue, f, ensure_ascii=False, indent=2)
+
+    # Count-check: zero listings across every vendor means the whole
+    # pipeline is broken, so fail loudly rather than commit an empty catalog.
     if not catalog["listings"]:
         print("[error] zero listings across all vendors — failing the job", file=sys.stderr)
         sys.exit(1)
 
-    print(f"[ok] wrote {len(catalog['listings'])} total listings to {OUTPUT_PATH}")
+    print(
+        f"[ok] wrote {len(catalog['listings'])} listings, "
+        f"{len(catalog['products'])} products, "
+        f"{len(review_queue)} review candidates "
+        f"to {OUTPUT_PATH}"
+    )
 
 
 if __name__ == "__main__":

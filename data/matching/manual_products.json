@@ -1,0 +1,119 @@
+{
+  "products": [
+    {
+      "product_id": "case:antec:st20m",
+      "canonical_name": "Antec ST20M",
+      "category": "case",
+      "brand": "Antec",
+      "model": "ST20M",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:216305",
+        "tms:ST20M"
+      ]
+    },
+    {
+      "product_id": "case:antec:df700-flux",
+      "canonical_name": "Antec DF700 Flux",
+      "category": "case",
+      "brand": "Antec",
+      "model": "DF700 Flux",
+      "attributes": {
+        "upc": "0761345800709"
+      },
+      "listing_keys": [
+        "1pc:96955",
+        "tms:0-761345-80070-9"
+      ]
+    },
+    {
+      "product_id": "case:antec:flux",
+      "canonical_name": "Antec Flux",
+      "category": "case",
+      "brand": "Antec",
+      "model": "Flux",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:171578",
+        "tms:FLUX"
+      ]
+    },
+    {
+      "product_id": "motherboard:maxsun:b760m-i-cafe-d4",
+      "canonical_name": "MAXSUN B760M I-CAFE D4",
+      "category": "motherboard",
+      "brand": "MAXSUN",
+      "model": "B760M I-CAFE D4",
+      "attributes": {
+        "memory_type": "DDR4",
+        "form_factor": "mATX"
+      },
+      "listing_keys": [
+        "1pc:218520",
+        "tms:MS-B760MI-CAFED4"
+      ]
+    },
+    {
+      "product_id": "motherboard:asus:b860m-max-gaming-ax",
+      "canonical_name": "ASUS B860M MAX GAMING AX",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "model": "B860M MAX GAMING AX",
+      "attributes": {
+        "socket": "LGA1851",
+        "form_factor": "mATX",
+        "memory_type": "DDR5",
+        "wireless": true
+      },
+      "listing_keys": [
+        "1pc:214814",
+        "ivory:169318"
+      ]
+    },
+    {
+      "product_id": "case:lian-li:a4-h2o-silver",
+      "canonical_name": "Lian Li A4-H2O Silver",
+      "category": "case",
+      "brand": "Lian Li",
+      "model": "A4-H2O",
+      "attributes": {
+        "color": "silver",
+        "form_factor": "Mini-ITX"
+      },
+      "listing_keys": [
+        "1pc:218342",
+        "tms:PC-A4H2OA4"
+      ]
+    },
+    {
+      "product_id": "case:fractal-design:torrent-compact-white-tg-clear-tint",
+      "canonical_name": "Fractal Design Torrent Compact White TG Clear Tint",
+      "category": "case",
+      "brand": "Fractal Design",
+      "model": "Torrent Compact",
+      "attributes": {
+        "color": "white",
+        "window": "TG"
+      },
+      "listing_keys": [
+        "1pc:111378",
+        "tms:FD-C-TOR1C-03"
+      ]
+    },
+    {
+      "product_id": "case:lian-li:o11-dynamic-mini-v2-white",
+      "canonical_name": "Lian Li O11 Dynamic Mini V2 White",
+      "category": "case",
+      "brand": "Lian Li",
+      "model": "O11 Dynamic Mini V2",
+      "attributes": {
+        "color": "white"
+      },
+      "listing_keys": [
+        "tms:O11DMIV2W",
+        "ivory:147541"
+      ]
+    }
+  ],
+  "blocked_pairs": []
+}

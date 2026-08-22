@@ -11,8 +11,8 @@ import scrapy
 
 class ListingItem(scrapy.Item):
     # Identity of this raw listing
-    vendor_id = scrapy.Field()       # e.g. "tms", "ivory", "1pc", "plonter"
-    vendor_sku = scrapy.Field()      # vendor's own SKU/model code if exposed (prefer over title matching)
+    vendor_id = scrapy.Field()  # e.g. "tms", "ivory", "1pc", "plonter"
+    vendor_sku = scrapy.Field()  # vendor's own SKU/model code if exposed (prefer over title matching)
     url = scrapy.Field()
 
     # Raw signal — do NOT try to clean/parse this in the spider.
@@ -29,5 +29,12 @@ class ListingItem(scrapy.Item):
     # after matching — this is just a hint for the matcher.
     category_guess = scrapy.Field()
 
+    # Optional structured specs harvested from vendor payloads (Phase 2B).
+    # Ivory's PC-builder API carries per-product compatibility/features data
+    # (description, parent, qty, cuts, properCuts); spiders may attach the raw
+    # subset here for the extractor to prefer over title parsing.
+    # Additive + optional: the schema-stability rule stands.
+    vendor_meta = scrapy.Field()
+
     # Bookkeeping
-    scraped_at = scrapy.Field()      # ISO 8601 UTC timestamp, set by the spider/pipeline
+    scraped_at = scrapy.Field()  # ISO 8601 UTC timestamp, set by the spider/pipeline

@@ -4,3 +4,4 @@ scrapy>=2.11
 scrapy-playwright
 rapidfuzz
 sentry-sdk
+rapidfuzz>=3.0,<4.0

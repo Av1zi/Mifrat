@@ -1,0 +1,5 @@
+check if it worked:
+python -c "import json; from pathlib import Path; catalog=json.loads(Path('data/catalog.json').read_text(encoding='utf-8')); print('listings:', len(catalog['listings'])); print('products:', len(catalog['products'])); print('skipped vendors:', catalog['skipped_vendors'])"
+
+Look at multi-vendor matches
+python -c "import json; from pathlib import Path; catalog=json.loads(Path('data/catalog.json').read_text(encoding='utf-8')); [print(p['product_id'], '-', p['canonical_name'], '-', p['vendor_count'], 'vendors') for p in catalog['products'] if p['vendor_count'] > 1]"
