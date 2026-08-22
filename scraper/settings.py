@@ -1,7 +1,9 @@
+# MUST be at the very top of the file, before ANY other imports or settings
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
 BOT_NAME = "pc_parts_il"
 SPIDER_MODULES = ["scraper.spiders"]
 NEWSPIDER_MODULE = "scraper.spiders"
-
 
 # --- Global Settings ---
 DOWNLOAD_DELAY = 1.5
@@ -12,14 +14,9 @@ AUTOTHROTTLE_START_DELAY = 0.5
 AUTOTHROTTLE_TARGET_CONCURRENCY = 1.5
 DOWNLOAD_TIMEOUT = 60
 
-# Default for cloud-run vendors (1PC, Plonter, later Ivory) — see
-# pc-parts-il-plan.md §14 and DECISIONS.md. TMS overrides this to True in
-# its own custom_settings (scraper/spiders/tms.py) since it's the one
-# spider that runs on the Nano, where robots.txt IS followed.
+# Default for cloud-run vendors (1PC, Plonter, later Ivory)
 ROBOTSTXT_OBEY = False
 
-# Cloudflare/WAFs 403 self-declared bots from datacenter IPs.
-# Present as an ordinary Chrome browser instead.
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
@@ -39,6 +36,16 @@ ITEM_PIPELINES = {
     # "scraper.pipelines.ValidationPipeline": 100,
 }
 
-LOG_LEVEL = "INFO"
+# --- scrapy-playwright (required for Plonter) ---
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+PLAYWRIGHT_BROWSER_TYPE = "chromium"
+PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 60000  # 60s to allow JS challenges to complete
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "headless": True,
+}
 
+LOG_LEVEL = "INFO"
 FEED_EXPORT_ENCODING = "utf-8"

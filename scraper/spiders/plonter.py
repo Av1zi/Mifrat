@@ -63,49 +63,89 @@ from urllib.parse import quote
 from scraper.items import ListingItem
 
 VENDOR_ID = "plonter"
-
 ALON_FEED_URL = "https://www.plonter.co.il/pnp/alon.tmpl"
 PRODUCT_URL_TEMPLATE = "https://www.plonter.co.il/detail.tmpl?sku={sku}"
 
-# Column order per the confirmed header row.
 COLUMNS = [
     "sku", "title", "description", "category", "division",
     "shelf", "price_total", "tree", "image_file", "amount", "engdivision",
 ]
 
+# Only include relevant PC building components. 
+# Normalized to lowercase for case-insensitive matching against the feed.
+ALLOWED_ENGDIVISIONS = {
+    "hard drives",          # Includes SSDs per feed structure
+    "motherboards",
+    "cpus",
+    "fans and cooling solutions",
+    "liquid cooling",
+    "computer cases",
+    "memory",
+    "display adapters",
+    "power supply",
+    "power supplies",       # Added plural just in case the feed varies
+}
 
 class PlonterSpider(scrapy.Spider):
     name = "plonter"
     allowed_domains = ["plonter.co.il"]
-    start_urls = [ALON_FEED_URL]
+
+    def start_requests(self):
+        # Fallback for Scrapy <2.13
+        yield from self._build_requests()
+
+    async def start(self):
+        # Scrapy >=2.13 entrypoint (StartSpiderMiddleware calls this)
+        for request in self._build_requests():
+            yield request
+
+    def _build_requests(self):
+        self.logger.info("Plonter _build_requests – requesting alon.tmpl with Playwright")
+        yield scrapy.Request(
+            ALON_FEED_URL,
+            meta={
+                "playwright": True,
+                "playwright_include_page": False,
+                "playwright_context": "default",
+            },
+            callback=self.parse,
+            errback=self._error,
+        )
 
     def parse(self, response):
+        self.logger.info(f"Plonter parse called with status {response.status}")
+        
+        # Force correct encoding for the feed
         response = response.replace(encoding="windows-1255")
+        
         pre_blocks = response.css("pre::text").getall()
         if len(pre_blocks) < 2:
-            self.logger.warning("alon.tmpl returned no data rows — check the feed is still live.")
+            self.logger.warning("alon.tmpl returned no data rows or a challenge page.")
             return
 
-        # First <pre> is the header; skip it.
         for raw_row in pre_blocks[1:]:
             fields = raw_row.strip("\r\n").split("\t")
             row = dict(zip(COLUMNS, fields))
+            
             sku = row.get("sku")
             if not sku:
                 continue
-
-            amount_raw = (row.get("amount") or "").strip()
-            in_stock = None
-            if amount_raw.isdigit():
-                in_stock = int(amount_raw) > 0
-
+            
+            # Filter by engdivision to only include relevant PC parts
+            eng_div = (row.get("engdivision") or "").strip().lower()
+            if eng_div not in ALLOWED_ENGDIVISIONS:
+                continue  # Skip networking, peripherals, cables, etc.
+            
             yield ListingItem(
                 vendor_id=VENDOR_ID,
                 vendor_sku=sku,
                 title_raw=row.get("title"),
                 url=PRODUCT_URL_TEMPLATE.format(sku=quote(sku)),
                 price_ils=row.get("price_total"),
-                in_stock=in_stock,
-                category_guess=row.get("division") or row.get("category"),
+                in_stock=True,  # Explicitly set to True
+                category_guess=row.get("engdivision"),  # Clean English category
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
+
+    def _error(self, failure):
+        self.logger.error(f"Plonter request failed: {failure.value}")

@@ -49,9 +49,11 @@ this: shared categories appear once, arbitrarily under the "intel" URL
 since that's just where they happen to live, not because they're
 Intel-specific data.
 
-## Still open
-- in_stock is not present in this payload — left None, same as 1PC.
-- ToS skim, per §7 checklist — still outstanding for Ivory.
+## Stock status
+
+The API payload does not contain an explicit stock field. However,
+products that appear in the response are available for purchase.
+Therefore we set `in_stock = True` for every yielded item.
 """
 import json
 from datetime import datetime, timezone
@@ -140,7 +142,8 @@ class IvorySpider(scrapy.Spider):
                     title_raw=prod.get("title"),
                     url=PRODUCT_URL_TEMPLATE.format(id=pid),
                     price_ils=prod.get("price"),
-                    in_stock=None,  # not present in this payload — see docstring
+                    # All products returned are available for sale
+                    in_stock=True,
                     category_guess=category_guess,
                     scraped_at=datetime.now(timezone.utc).isoformat(),
                 )

@@ -1,5 +1,6 @@
 """
 1PC (1pc.co.il) spider.
+(See pc-parts-il-plan.md and decisions.md for full context)
 
 Recon so far (Aug 2026):
 - Site is genuinely bilingual at the URL level: /he/... and /en/... paths
@@ -108,17 +109,8 @@ from scraper.items import ListingItem
 
 VENDOR_ID = "1pc"
 
-# categoryId -> human label.
+# categoryId -> (attributeId, dependAttributeId, label)
 CATEGORIES = {
-    # categoryId: (attributeId, dependAttributeId, label)
-    # Captured directly from https://1pc.co.il/en/pcbuilder Network tab (Aug 2026).
-    # attributeId/dependAttributeId kept exactly as captured per category —
-    # note the CPU->motherboard->memory chain (CPU attributeId=90 feeds
-    # motherboard's dependAttributeId=90; motherboard attributeId=49 feeds
-    # memory's dependAttributeId=49). That chain is presumably how the PC
-    # Builder filters compatible parts step-by-step — worth keeping in mind
-    # for §8 matching later. CONFIRMED (see TODO #5) these values return
-    # the full category as-is, not a filtered subset.
     158: ("90", "0", "cpu"),
     429: ("", "0", "cpu_cooling"),
     167: ("49", "90", "motherboard"),
@@ -133,13 +125,10 @@ CATEGORIES = {
 
 CATEGORY_VIEW_DATA_URL = "https://1pc.co.il/en/PCBuilder/CategoryViewData"
 
-
 def _round_price(raw_price):
     """
-    1PC's data-price attribute carries stray floating-point noise from
-    server-side currency handling — round to the nearest whole shekel with
-    round-half-up (not Python's banker's-rounding round()) to match the
-    real, displayed/charged price. Returns an int, or None if unparseable.
+    1PC's data-price attribute carries stray floating-point noise.
+    Round to the nearest whole shekel with round-half-up.
     """
     if not raw_price:
         return None
@@ -148,18 +137,14 @@ def _round_price(raw_price):
     except (InvalidOperation, ValueError):
         return None
 
-
 class OnePcSpider(scrapy.Spider):
     name = "onepc"
     allowed_domains = ["1pc.co.il"]
 
     def start_requests(self):
-        # Fallback for Scrapy <2.13, which doesn't call start() at all.
         yield from self._build_requests()
 
     async def start(self):
-        # Scrapy >=2.13 entrypoint (StartSpiderMiddleware calls this, not
-        # start_requests() anymore — see the note near the top of this file).
         for request in self._build_requests():
             yield request
 
@@ -190,25 +175,28 @@ class OnePcSpider(scrapy.Spider):
         attribute_id = response.meta["attribute_id"]
         depend_attribute_id = response.meta["depend_attribute_id"]
         page_number = response.meta["page_number"]
-
+        
         tiles = response.css("div.pc-product-item")
         if not tiles:
-            # Empty page — either category is exhausted or categoryId/params
-            # need adjusting. Either way, stop paginating this category.
             return
 
         for tile in tiles:
+            product_url = response.urljoin(tile.css("a.product-link::attr(href)").get() or "")
+            
+            # Just use the internal numeric ID as the vendor_sku.
+            # The Phase 2 matcher will handle linking this to the real product.
+            sku = tile.attrib.get("data-productid")
+            if not sku:
+                continue
+            
             title_node = tile.css("span.product-title")
             yield ListingItem(
                 vendor_id=VENDOR_ID,
-                vendor_sku=tile.attrib.get("data-productid"),
+                vendor_sku=sku,
                 title_raw=(title_node.css("::text").get() or "").strip(),
-                url=response.urljoin(tile.css("a.product-link::attr(href)").get() or ""),
-                # Round-half-up to the nearest shekel — see _round_price()
-                # docstring for why the raw data-price string is NOT used
-                # directly (it's noisier than the real price, not more precise).
+                url=product_url,
                 price_ils=_round_price(title_node.attrib.get("data-price")),
-                in_stock=None,  # not present in this endpoint's response — see TODO #3
+                in_stock=True,
                 category_guess=category_label,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
@@ -216,7 +204,6 @@ class OnePcSpider(scrapy.Spider):
         next_page_node = response.css("div.next-page::attr(data-page)").get()
         if next_page_node is not None:
             next_page_number = int(next_page_node)
-            # Guard against a stuck/repeating page number looping forever.
             if next_page_number != page_number:
                 yield scrapy.FormRequest(
                     url=CATEGORY_VIEW_DATA_URL,
