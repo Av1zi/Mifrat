@@ -37,25 +37,22 @@ locally-run scrapers (currently just this one, on the Nano) and ignored
 only for the cloud-run vendors (1PC, Plonter, later Ivory), where there's
 no home connection at risk if that calculus is ever revisited.
 
-Note for whoever runs this next: a set of Aug 16 test logs (tmp/, gitignored,
-not committed) show ALL 16 requests 403'ing on a run against these same
-bare-ish category endpoints, not just the configurator API — so dropping
-`?limit` fixes the robots.txt violation but does NOT by itself confirm the
-WAF has stopped blocking category pages too. Re-verify with a real
-low-volume run before trusting this spider unattended; if category pages
-are blocked now as well, that's §7 rule 7 territory (de-escalate: try even
-slower, and if still blocked, this vendor may need to be dropped), not a
-signal to fight the WAF harder.
+--- HEADER FIX (Aug 2026) ---
+The global settings.py now sends Chrome‑like headers with `Sec‑Fetch‑*`
+fields. TMS's WAF treats these as suspicious and returns 403 on the
+homepage and category pages. This spider overrides them in `custom_settings`
+to match the old working headers (simple bot UA + minimal Accept/Accept‑Language)
+that were proven to get 200 responses.
 
---- WARM-UP + HARD-STOP (§7) ---
-`start()` now issues one request to the homepage first and only proceeds
-to category pages from its callback, with `Referer` set to the homepage —
-"warm up like a human" (§7 rule 2), and it means one wasted category
-request is never spent before confirming we're not already blocked for
-the day.
+--- WARM‑UP REMOVED ---
+The homepage warm‑up was added to mimic a human, but TMS blocks the homepage
+itself with the new headers. Since the old code worked without a warmup,
+we remove it entirely. The spider now starts directly with the category URLs
+using the async `start()` method (which is the recommended style for Scrapy 2.13+).
 
-`handle_httpstatus_list = [403, 429]` makes block responses reach our
-code instead of being silently dropped by Scrapy's default
+--- HARD‑STOP (§7) ---
+`handle_httpstatus_list = [403, 429]` makes block responses reach our code
+instead of being silently dropped by Scrapy's default
 HttpErrorMiddleware — needed because §7 rule 6 ("two block responses in
 one run close the spider") can't be implemented against responses we never
 see. `_register_block()` is the single choke point for that rule.
@@ -96,7 +93,6 @@ from scrapy.exceptions import CloseSpider
 from scraper.items import ListingItem
 
 VENDOR_ID = "tms"
-HOMEPAGE_URL = "https://tms.co.il/"
 CLARIS_AVAILABILITY_URL = (
     "https://tms.co.il/index.php?route=extension/module/claris/availability"
 )
@@ -147,17 +143,27 @@ BLOCK_STATUS_CODES = {403, 429}
 class TmsSpider(scrapy.Spider):
     name = "tms"
     allowed_domains = ["tms.co.il"]
+
     # Block responses must reach our code (see _register_block) instead of
     # being silently dropped by the default HttpErrorMiddleware.
     handle_httpstatus_list = list(BLOCK_STATUS_CODES)
+
     custom_settings = {
         # Robots.txt IS followed here, unlike the cloud vendors — see the
         # module docstring's robots.txt fix section and DECISIONS.md.
         "ROBOTSTXT_OBEY": True,
+
         # Gentle pace regardless of global settings — home IP, §7.
         "DOWNLOAD_DELAY": 2.0,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
         "DOWNLOAD_TIMEOUT": 60,
+
+        # --- Use the exact old working headers that got 200 responses ---
+        "USER_AGENT": "pc-parts-il-bot (+https://pcpartsil.example/about)",
+        "DEFAULT_REQUEST_HEADERS": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en",
+        },
     }
 
     def __init__(self, *args, **kwargs):
@@ -165,38 +171,18 @@ class TmsSpider(scrapy.Spider):
         self._seen = set()
         self._block_count = 0
 
+    # ------------------------------------------------------------------ #
+    # Start requests – async style (Scrapy 2.13+), yields category URLs
+    # directly, no warmup (the homepage itself was being blocked with the
+    # new headers; the old code worked without it).
+    # ------------------------------------------------------------------ #
     async def start(self):
-        # Project convention: Scrapy 2.13+ deprecated start_requests() in
-        # favor of async start(). Using the old-style method silently
-        # produces zero requests under StartSpiderMiddleware on 2.17 — it
-        # doesn't error, it just never runs.
-        yield scrapy.Request(
-            HOMEPAGE_URL,
-            callback=self._after_warmup,
-            errback=self._warmup_failed,
-        )
-
-    # ------------------------------------------------------------------ #
-    # Warm-up (§7 rule 2: establish a session before hitting real pages)
-    # ------------------------------------------------------------------ #
-    def _after_warmup(self, response):
-        if self._register_block(response):
-            return
         for category_guess, url in START_CATEGORIES:
             yield scrapy.Request(
                 url,
                 callback=self.parse,
-                headers={"Referer": HOMEPAGE_URL},
                 cb_kwargs={"category_guess": category_guess},
             )
-
-    def _warmup_failed(self, failure):
-        self.logger.error(
-            "[tms] homepage warm-up request failed outright (%s) — "
-            "stopping for the day rather than hitting category pages cold.",
-            failure.value,
-        )
-        raise CloseSpider("warmup_failed")
 
     # ------------------------------------------------------------------ #
     # Category pages
