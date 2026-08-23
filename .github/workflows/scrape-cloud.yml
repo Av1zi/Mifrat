@@ -12,6 +12,9 @@ on:
     - cron: '30 3 * * *'   # ~03:30 UTC daily — GitHub cron is UTC-only (§3)
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
