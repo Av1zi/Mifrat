@@ -4,8 +4,9 @@ name: scrape-cloud
 # (nano/README.md). Spiders themselves are location-agnostic; this file is
 # the only place that decides which vendors run in the cloud.
 #
-# Ivory joins the matrix below in Phase 2 (§16), once its spider is built —
-# until then it's simply absent, not disabled.
+# Ivory added to the matrix (Aug 2026) — spider is built and owner-confirmed
+# (see DECISIONS.md). KSP stays absent: Phase 5 stretch goal, gated on the
+# API application, see scraper/spiders/ksp.py.
 on:
   schedule:
     - cron: '30 3 * * *'   # ~03:30 UTC daily — GitHub cron is UTC-only (§3)
@@ -18,13 +19,19 @@ jobs:
       # One vendor failing must not kill the others' scrapes (§10).
       fail-fast: false
       matrix:
-        spider: [onepc, plonter]
+        spider: [onepc, plonter, ivory]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
+      # Plonter's WAF bypass needs the actual Chromium binary — pip
+      # installing the scrapy-playwright package alone does NOT provide it.
+      # This was missing entirely before (Aug 2026 fix, see DECISIONS.md);
+      # only onepc/ivory don't need it, but installing unconditionally is
+      # simpler and harmless than a per-matrix-entry conditional.
+      - run: python -m playwright install --with-deps chromium
       - run: python scraper/run_spider.py ${{ matrix.spider }}
       - run: |
           git config user.email "bot@users.noreply.github.com"
