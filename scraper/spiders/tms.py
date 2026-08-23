@@ -86,6 +86,7 @@ can never double-count an item.
 import json
 import re
 from datetime import datetime, timezone
+from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 
 import scrapy
 from scrapy.exceptions import CloseSpider
@@ -132,6 +133,11 @@ PRICE_RE = re.compile(r"([\d,]+)")
 
 # Anchored variant for scanning the whole price block on deal tiles.
 SHEKEL_RE = re.compile(r"₪\s*([\d,]+)")
+
+# TMS's own results footer, e.g. "תוצאות 1 - 30 מתוך 205 (7 עמודים)"
+# ("results 1-30 of 205 (7 pages)") — plain visible text, present on every
+# category page regardless of pagination-widget markup details.
+PAGE_COUNT_RE = re.compile(r"\((\d+)\s*עמודים\)")
 
 # §7 rule 6: two block responses in one run closes the spider. Applies to
 # both category pages and the Claris availability call — a block is a
@@ -287,13 +293,29 @@ class TmsSpider(scrapy.Spider):
                 meta={"pending": pending},
             )
 
-        # Pagination: li immediately after the active one, followed exactly
-        # as the site presents it — no query-param rewriting (robots.txt
-        # fix, see module docstring).
-        next_page = response.css("ul.pagination li.active + li a::attr(href)").get()
-        if next_page:
+        # Pagination (Aug 2026 fix — see DECISIONS.md): the previous
+        # `ul.pagination li.active + li a` selector never matched real TMS
+        # pages (page 1's "1" renders as plain text, not necessarily inside
+        # an `.active`-classed <li> we can rely on) — every category was
+        # silently stopping after page 1 in production (~417 items total
+        # across 16 category URLs) while a manual run against saved single
+        # pages never exercised pagination at all, hiding the gap.
+        #
+        # Fixed by reading TMS's own results-count text directly
+        # ("X - Y מתוך Z (N עמודים)") to get total pages, then constructing
+        # the next page URL ourselves — same `?page=N` param the site's own
+        # links use, never touching `?limit` (robots.txt fix, see module
+        # docstring). Falls back to the old selector only if that text is
+        # ever missing from a page.
+        next_url = self._next_page_url(response)
+        if not next_url:
+            next_url = response.css(
+                "ul.pagination li.active + li a::attr(href)"
+            ).get()
+
+        if next_url:
             yield response.follow(
-                next_page,
+                next_url,
                 callback=self.parse,
                 headers={"Referer": response.url},
                 cb_kwargs={"category_guess": category_guess},
@@ -352,6 +374,30 @@ class TmsSpider(scrapy.Spider):
             stock = stock_by_code.get(code)  # None if Claris didn't answer for it
             for item in items:
                 yield ListingItem(in_stock=stock, **item)
+
+    @staticmethod
+    def _next_page_url(response):
+        """
+        Compute the next category page URL from TMS's own results-count
+        text ("X - Y מתוך Z (N עמודים)") instead of guessing at pagination
+        widget markup. Returns None if the count text isn't found (caller
+        falls back to the old selector) or if we're already on the last
+        page. Only ever sets `page` — never touches `limit`.
+        """
+        m = PAGE_COUNT_RE.search(response.text)
+        if not m:
+            return None
+
+        total_pages = int(m.group(1))
+        parsed = urlparse(response.url)
+        query = parse_qs(parsed.query)
+        current_page = int((query.get("page") or ["1"])[0])
+
+        if current_page >= total_pages:
+            return None
+
+        query["page"] = [str(current_page + 1)]
+        return urlunparse(parsed._replace(query=urlencode(query, doseq=True)))
 
     # ------------------------------------------------------------------ #
     # §7 rule 6: hard stop on blocks

@@ -1,0 +1,1063 @@
+{
+  "cuts": {
+    "3972": {
+      "cpu_tier": "Intel Core i3"
+    },
+    "3973": {
+      "cpu_tier": "Intel Core i5"
+    },
+    "3974": {
+      "cpu_tier": "Intel Core i7"
+    },
+    "5945": {
+      "cpu_tier": "Intel Core i9"
+    },
+    "26767": {
+      "cpu_tier": "Intel Core Ultra 5"
+    },
+    "26769": {
+      "cpu_tier": "Intel Core Ultra 7"
+    },
+    "26771": {
+      "cpu_tier": "Intel Core Ultra 9"
+    },
+    "5200": {
+      "cores": 4
+    },
+    "5201": {
+      "cores": 6
+    },
+    "5307": {
+      "cores": 10
+    },
+    "6043": {
+      "cores": 12
+    },
+    "6222": {
+      "cores": 18
+    },
+    "6439": {
+      "cores": 14
+    },
+    "8814": {
+      "cores": 24
+    },
+    "21251": {
+      "cores": 20
+    },
+    "5209": {
+      "cache_mb": 20
+    },
+    "5306": {
+      "cache_mb": 25
+    },
+    "6119": {
+      "cache_mb": 12
+    },
+    "11607": {
+      "cache_mb": 30
+    },
+    "11815": {
+      "cache_mb": 18
+    },
+    "15947": {
+      "cache_mb": 24
+    },
+    "15956": {
+      "cache_mb": 36
+    },
+    "21260": {
+      "cache_mb": 33
+    },
+    "11606": {
+      "cpu_generation": "Gen 12 Alder Lake 12th Gen"
+    },
+    "21266": {
+      "cpu_generation": "Gen 14 Raptor Lake 14th Gen"
+    },
+    "26775": {
+      "cpu_generation": "Gen Intel Core Ultra Series 2"
+    },
+    "21798": {
+      "integrated_graphics": "Intel UHD Graphics 770"
+    },
+    "21801": {
+      "integrated_graphics": "Intel UHD Graphics 730"
+    },
+    "21804": {
+      "integrated_graphics": "None"
+    },
+    "26777": {
+      "integrated_graphics": "Intel Graphics"
+    },
+    "1160": {
+      "brand": "ASUS"
+    },
+    "1161": {
+      "brand": "Gigabyte"
+    },
+    "1163": {
+      "brand": "MSI"
+    },
+    "31679": {
+      "brand": "MAXSUN"
+    },
+    "1959": {
+      "form_factor": "Micro ATX"
+    },
+    "1960": {
+      "form_factor": "ATX"
+    },
+    "4989": {
+      "memory_type": "DDR4"
+    },
+    "11612": {
+      "memory_type": "DDR5"
+    },
+    "4991": {
+      "display_outputs": "VGA"
+    },
+    "4992": {
+      "display_outputs": "DVI"
+    },
+    "4993": {
+      "display_outputs": "HDMI"
+    },
+    "4994": {
+      "display_outputs": "DisplayPort"
+    },
+    "11613": {
+      "display_outputs": "Thunderbolt (Type-C)"
+    },
+    "23652": {
+      "display_outputs": "USB Type-C"
+    },
+    "7561": {
+      "usb_ports": "USB 2.0 (Type-A)"
+    },
+    "7562": {
+      "usb_ports": "USB 3.1 (Type-A)"
+    },
+    "7563": {
+      "usb_ports": "USB 3.2 (Type-C)"
+    },
+    "7568": {
+      "usb_ports": "USB 3.0 (Type-A)"
+    },
+    "9317": {
+      "usb_ports": "USB 3.2 (Type-A)"
+    },
+    "10749": {
+      "usb_ports": "Thunderbolt 4 (Type-C)"
+    },
+    "19628": {
+      "usb_ports": "USB 4.0 (Type-C)"
+    },
+    "32356": {
+      "usb_ports": "USB 5Gbps (Type-A)"
+    },
+    "32359": {
+      "usb_ports": "USB 10Gbps (Type-A)"
+    },
+    "32371": {
+      "usb_ports": "USB 20Gbps (Type-C)"
+    },
+    "7565": {
+      "connectivity": "Bluetooth"
+    },
+    "7567": {
+      "connectivity": "Wired LAN only"
+    },
+    "22725": {
+      "connectivity": "Wi-Fi 6"
+    },
+    "22728": {
+      "connectivity": "Wi-Fi 6E"
+    },
+    "22731": {
+      "connectivity": "Wi-Fi 7"
+    },
+    "11820": {
+      "chipset": "Intel H610"
+    },
+    "15935": {
+      "chipset": "Intel Z790"
+    },
+    "16833": {
+      "chipset": "Intel B760"
+    },
+    "26753": {
+      "chipset": "Intel Z890"
+    },
+    "28908": {
+      "chipset": "Intel B860"
+    },
+    "30645": {
+      "chipset": "Intel H810"
+    },
+    "21714": {
+      "color": "White"
+    },
+    "21717": {
+      "color": "Black"
+    },
+    "21720": {
+      "color": "Black/Silver"
+    },
+    "28935": {
+      "audio_connectors": "2x 3.5mm Audio Jack"
+    },
+    "28938": {
+      "audio_connectors": "3x 3.5mm Audio Jack"
+    },
+    "28941": {
+      "audio_connectors": "5x 3.5mm Audio Jack"
+    },
+    "28944": {
+      "audio_connectors": "6x 3.5mm Audio Jack"
+    },
+    "28947": {
+      "audio_connectors": "Optical Audio"
+    },
+    "2572": {
+      "brand": "ARCTIC"
+    },
+    "2576": {
+      "brand": "Noctua"
+    },
+    "8624": {
+      "brand": "Antec"
+    },
+    "9183": {
+      "brand": "Be Quiet"
+    },
+    "9952": {
+      "brand": "CORSAIR"
+    },
+    "19988": {
+      "brand": "Ivory"
+    },
+    "31089": {
+      "brand": "THERMALRIGHT"
+    },
+    "7491": {
+      "lighting": "RGB"
+    },
+    "7495": {
+      "lighting": "None"
+    },
+    "9650": {
+      "lighting": "ARGB"
+    },
+    "20957": {
+      "cooler_display": "LCD Display"
+    },
+    "23895": {
+      "cooler_display": "Temperature Display"
+    },
+    "22044": {
+      "color": "Brown"
+    },
+    "22566": {
+      "cooler_height_mm": 160
+    },
+    "22569": {
+      "cooler_height_mm": 170
+    },
+    "22578": {
+      "cooler_height_mm": 140
+    },
+    "22584": {
+      "cooler_height_mm": 80
+    },
+    "22587": {
+      "cooler_height_mm": 70
+    },
+    "22593": {
+      "cooler_height_mm": 90
+    },
+    "22599": {
+      "cooler_height_mm": 110
+    },
+    "22995": {
+      "cooler_height_mm": 130
+    },
+    "3822": {
+      "brand": "CORSAIR"
+    },
+    "3826": {
+      "brand": "Zalman"
+    },
+    "5129": {
+      "brand": "ARCTIC"
+    },
+    "9274": {
+      "brand": "Cougar"
+    },
+    "24635": {
+      "brand": "Jonsbo"
+    },
+    "31086": {
+      "brand": "THERMALRIGHT"
+    },
+    "32827": {
+      "brand": "Lian Li"
+    },
+    "4841": {
+      "fan_size_mm": 120
+    },
+    "4842": {
+      "fan_size_mm": 140
+    },
+    "7003": {
+      "radiator_size_mm": 240
+    },
+    "7004": {
+      "radiator_size_mm": 360
+    },
+    "19979": {
+      "radiator_size_mm": 420
+    },
+    "3122": {
+      "brand": "Kingston"
+    },
+    "3125": {
+      "brand": "CORSAIR"
+    },
+    "3129": {
+      "brand": "Patriot"
+    },
+    "3385": {
+      "brand": "Crucial"
+    },
+    "21708": {
+      "brand": "XPG"
+    },
+    "23529": {
+      "brand": "Team Group"
+    },
+    "34504": {
+      "brand": "OSCOO"
+    },
+    "3134": {
+      "capacity_label": "8GB"
+    },
+    "3137": {
+      "capacity_label": "16GB (2x8GB)"
+    },
+    "4917": {
+      "capacity_label": "32GB (2x16GB)"
+    },
+    "5175": {
+      "capacity_label": "16GB"
+    },
+    "8873": {
+      "capacity_label": "32GB"
+    },
+    "13001": {
+      "capacity_label": "64GB (2x32GB)"
+    },
+    "20918": {
+      "capacity_label": "48GB"
+    },
+    "21167": {
+      "capacity_label": "48GB (2x24GB)"
+    },
+    "4232": {
+      "memory_type": "DDR4"
+    },
+    "11603": {
+      "memory_type": "DDR5"
+    },
+    "5174": {
+      "speed_mhz": 3200
+    },
+    "5191": {
+      "speed_mhz": 3600
+    },
+    "11799": {
+      "speed_mhz": 5200
+    },
+    "11800": {
+      "speed_mhz": 5600
+    },
+    "11801": {
+      "speed_mhz": 6000
+    },
+    "21170": {
+      "speed_mhz": 6400
+    },
+    "28245": {
+      "speed_mhz": 7000
+    },
+    "32392": {
+      "color": "Gray"
+    },
+    "27954": {
+      "cas_latency": 16
+    },
+    "27957": {
+      "cas_latency": 22
+    },
+    "27960": {
+      "cas_latency": 38
+    },
+    "27963": {
+      "cas_latency": 40
+    },
+    "27966": {
+      "cas_latency": 18
+    },
+    "27969": {
+      "cas_latency": 17
+    },
+    "27975": {
+      "cas_latency": 36
+    },
+    "27981": {
+      "cas_latency": 46
+    },
+    "30588": {
+      "clearance_item": true
+    },
+    "32335": {
+      "overclock_support": "Intel XMP"
+    },
+    "32338": {
+      "overclock_support": "AMD EXPO"
+    },
+    "32389": {
+      "overclock_support": "JEDEC only (no OC)"
+    },
+    "2530": {
+      "capacity_gb": 240
+    },
+    "3096": {
+      "capacity_gb": 480
+    },
+    "3338": {
+      "capacity_gb": 1000
+    },
+    "5274": {
+      "capacity_gb": 2000
+    },
+    "9287": {
+      "capacity_gb": 4000
+    },
+    "22740": {
+      "capacity_gb": 256
+    },
+    "22743": {
+      "capacity_gb": 500
+    },
+    "22746": {
+      "capacity_gb": 512
+    },
+    "2538": {
+      "brand": "Crucial"
+    },
+    "2740": {
+      "brand": "SanDisk"
+    },
+    "2783": {
+      "brand": "Samsung"
+    },
+    "3089": {
+      "brand": "Kingston"
+    },
+    "3827": {
+      "brand": "ADATA"
+    },
+    "5543": {
+      "brand": "Western Digital"
+    },
+    "23637": {
+      "brand": "Team Group"
+    },
+    "33424": {
+      "brand": "KIOXIA"
+    },
+    "34303": {
+      "brand": "Acer"
+    },
+    "34840": {
+      "brand": "Lexar"
+    },
+    "34855": {
+      "brand": "Intenso"
+    },
+    "4396": {
+      "form_factor": "2.5-inch"
+    },
+    "4398": {
+      "form_factor": "M.2 2280"
+    },
+    "5076": {
+      "interface": "SATA"
+    },
+    "5077": {
+      "interface": "PCIe NVMe"
+    },
+    "34858": {
+      "interface": "M.2 SATA"
+    },
+    "20822": {
+      "pcie_gen": "PCIe Gen 3.0"
+    },
+    "20825": {
+      "pcie_gen": "PCIe Gen 4.0"
+    },
+    "20828": {
+      "pcie_gen": "PCIe Gen 5.0"
+    },
+    "2509": {
+      "capacity_gb": 1000
+    },
+    "2511": {
+      "capacity_gb": 2000
+    },
+    "3038": {
+      "capacity_gb": 4000
+    },
+    "4151": {
+      "capacity_gb": 6000
+    },
+    "4336": {
+      "capacity_gb": 8000
+    },
+    "6274": {
+      "capacity_gb": 10000
+    },
+    "17328": {
+      "capacity_gb": 20000
+    },
+    "27063": {
+      "capacity_gb": 24000
+    },
+    "2761": {
+      "brand": "Western Digital WD"
+    },
+    "2762": {
+      "brand": "Seagate"
+    },
+    "22116": {
+      "brand": "Toshiba"
+    },
+    "7128": {
+      "rpm": 5400
+    },
+    "7129": {
+      "rpm": 7200
+    },
+    "7131": {
+      "cache_mb": 64
+    },
+    "7132": {
+      "cache_mb": 128
+    },
+    "7133": {
+      "cache_mb": 256
+    },
+    "9749": {
+      "cache_mb": 512
+    },
+    "34717": {
+      "cache_mb": 1024
+    },
+    "30885": {
+      "drive_use_case": "NAS"
+    },
+    "30888": {
+      "drive_use_case": "DVR/NVR"
+    },
+    "1258": {
+      "gpu_vendor": "Nvidia GeForce"
+    },
+    "1259": {
+      "gpu_vendor": "AMD Radeon"
+    },
+    "5361": {
+      "gpu_vendor": "Nvidia Quadro"
+    },
+    "17712": {
+      "gpu_vendor": "Intel ARC"
+    },
+    "2517": {
+      "brand": "ASUS"
+    },
+    "2518": {
+      "brand": "Gigabyte"
+    },
+    "2519": {
+      "brand": "SAPPHIRE"
+    },
+    "2520": {
+      "brand": "MSI"
+    },
+    "2521": {
+      "brand": "Gainward"
+    },
+    "2798": {
+      "brand": "PNY"
+    },
+    "3149": {
+      "brand": "Zotac"
+    },
+    "17715": {
+      "brand": "Intel"
+    },
+    "30666": {
+      "brand": "Sparkle"
+    },
+    "31670": {
+      "brand": "MAXSUN"
+    },
+    "5339": {
+      "vram_gb": 2
+    },
+    "5341": {
+      "vram_gb": 8
+    },
+    "5342": {
+      "vram_gb": 12
+    },
+    "5343": {
+      "vram_gb": 6
+    },
+    "7760": {
+      "vram_gb": 16
+    },
+    "9790": {
+      "vram_gb": 10
+    },
+    "29334": {
+      "vram_gb": 32
+    },
+    "6883": {
+      "gpu_chip": "Nvidia GeForce GT 1030"
+    },
+    "8399": {
+      "gpu_chip": "Nvidia GeForce GT 710"
+    },
+    "8617": {
+      "gpu_chip": "Nvidia GeForce GT 730"
+    },
+    "11802": {
+      "gpu_chip": "Nvidia GeForce RTX 3050"
+    },
+    "29115": {
+      "gpu_chip": "Nvidia GeForce RTX 5080"
+    },
+    "29331": {
+      "gpu_chip": "Nvidia GeForce RTX 5090"
+    },
+    "29352": {
+      "gpu_chip": "AMD Radeon RX 9070"
+    },
+    "29361": {
+      "gpu_chip": "Nvidia GeForce RTX 5070 Ti"
+    },
+    "29601": {
+      "gpu_chip": "Nvidia GeForce RTX 5070"
+    },
+    "29625": {
+      "gpu_chip": "Intel ARC B580"
+    },
+    "30306": {
+      "gpu_chip": "Nvidia RTX 2000"
+    },
+    "30312": {
+      "gpu_chip": "Nvidia GeForce RTX 5060"
+    },
+    "30315": {
+      "gpu_chip": "Nvidia GeForce RTX 5060 Ti"
+    },
+    "30744": {
+      "gpu_chip": "AMD Radeon RX 9060 XT"
+    },
+    "31673": {
+      "gpu_chip": "Intel ARC B570"
+    },
+    "34936": {
+      "gpu_chip": "Intel ARC Pro B50"
+    },
+    "8745": {
+      "hdmi_ports": "3x HDMI"
+    },
+    "8746": {
+      "hdmi_ports": "2x HDMI"
+    },
+    "8747": {
+      "hdmi_ports": "1x HDMI"
+    },
+    "10548": {
+      "hdmi_ports": "4x HDMI"
+    },
+    "8748": {
+      "dvi_ports": "DVI"
+    },
+    "8750": {
+      "vga_ports": "VGA"
+    },
+    "8751": {
+      "mini_displayport_ports": "3x Mini DisplayPort"
+    },
+    "8756": {
+      "mini_displayport_ports": "4x Mini DisplayPort"
+    },
+    "22755": {
+      "mini_displayport_ports": "2x Mini DisplayPort"
+    },
+    "22758": {
+      "mini_displayport_ports": "1x Mini DisplayPort"
+    },
+    "8753": {
+      "displayport_ports": "3x DisplayPort"
+    },
+    "8754": {
+      "displayport_ports": "2x DisplayPort"
+    },
+    "8755": {
+      "displayport_ports": "1x DisplayPort"
+    },
+    "21723": {
+      "color": "Black/Red"
+    },
+    "21726": {
+      "color": "Black/Gold"
+    },
+    "30669": {
+      "color": "Blue"
+    },
+    "30420": {
+      "lighting": "RGB"
+    },
+    "30423": {
+      "lighting": "None"
+    },
+    "30426": {
+      "cooling_type": "Passive"
+    },
+    "30837": {
+      "cooling_type": "Liquid"
+    },
+    "31365": {
+      "cooling_type": "Air"
+    },
+    "30429": {
+      "fan_count": 1
+    },
+    "30432": {
+      "fan_count": 2
+    },
+    "30435": {
+      "fan_count": 3
+    },
+    "30681": {
+      "gpu_features": "Low Profile"
+    },
+    "1590": {
+      "brand": "CORSAIR"
+    },
+    "1592": {
+      "brand": "FSP"
+    },
+    "1594": {
+      "brand": "Seasonic"
+    },
+    "29076": {
+      "brand": "Razer"
+    },
+    "2542": {
+      "modular": "Full Modular"
+    },
+    "3431": {
+      "modular": "Semi Modular"
+    },
+    "2658": {
+      "efficiency": "80PLUS Bronze"
+    },
+    "2660": {
+      "efficiency": "80PLUS Gold"
+    },
+    "2661": {
+      "efficiency": "80PLUS Platinum"
+    },
+    "2662": {
+      "efficiency": "80PLUS"
+    },
+    "32575": {
+      "efficiency": "Cybenetics Platinum"
+    },
+    "33373": {
+      "efficiency": "Cybenetics Gold"
+    },
+    "21840": {
+      "wattage_w": 450
+    },
+    "21843": {
+      "wattage_w": 550
+    },
+    "21846": {
+      "wattage_w": 650
+    },
+    "21849": {
+      "wattage_w": 750
+    },
+    "21852": {
+      "wattage_w": 850
+    },
+    "21855": {
+      "wattage_w": 1000
+    },
+    "21858": {
+      "wattage_w": 1200
+    },
+    "21864": {
+      "wattage_w": 700
+    },
+    "21867": {
+      "wattage_w": 1500
+    },
+    "21876": {
+      "wattage_w": 800
+    },
+    "31197": {
+      "wattage_w": 1650
+    },
+    "21882": {
+      "sata_connectors": 3
+    },
+    "21885": {
+      "sata_connectors": 4
+    },
+    "21888": {
+      "sata_connectors": 6
+    },
+    "21891": {
+      "sata_connectors": 8
+    },
+    "21894": {
+      "sata_connectors": 9
+    },
+    "21897": {
+      "sata_connectors": 10
+    },
+    "21900": {
+      "sata_connectors": 12
+    },
+    "21987": {
+      "sata_connectors": 7
+    },
+    "21990": {
+      "sata_connectors": 5
+    },
+    "21993": {
+      "sata_connectors": 14
+    },
+    "22008": {
+      "sata_connectors": 16
+    },
+    "21909": {
+      "pcie_power_connectors": "2x PCIe 6+2"
+    },
+    "21912": {
+      "pcie_power_connectors": "3x PCIe 6+2"
+    },
+    "21915": {
+      "pcie_power_connectors": "4x PCIe 6+2"
+    },
+    "21918": {
+      "pcie_power_connectors": "6x PCIe 6+2"
+    },
+    "21954": {
+      "pcie_power_connectors": "1x 12VHPWR"
+    },
+    "21957": {
+      "pcie_power_connectors": "2x 12VHPWR"
+    },
+    "22002": {
+      "pcie_power_connectors": "8x PCIe 6+2"
+    },
+    "23715": {
+      "pcie_power_connectors": "5x PCIe 6+2"
+    },
+    "21924": {
+      "cpu_power_connectors": "1x CPU 4+4-pin"
+    },
+    "21927": {
+      "cpu_power_connectors": "2x CPU 4+4-pin"
+    },
+    "21930": {
+      "cpu_power_connectors": "1x CPU 8-pin ,1x CPU 4+4-pin"
+    },
+    "22005": {
+      "cpu_power_connectors": "3x CPU 4+4-pin"
+    },
+    "1110": {
+      "brand": "Thermaltake"
+    },
+    "1114": {
+      "brand": "Antec"
+    },
+    "1117": {
+      "brand": "NZXT"
+    },
+    "1383": {
+      "brand": "CORSAIR"
+    },
+    "1385": {
+      "brand": "Lian Li"
+    },
+    "8378": {
+      "brand": "Cougar"
+    },
+    "8894": {
+      "brand": "Be Quiet"
+    },
+    "9964": {
+      "brand": "ASUS"
+    },
+    "19802": {
+      "brand": "IVORY"
+    },
+    "23889": {
+      "brand": "FSP"
+    },
+    "24429": {
+      "brand": "Jonsbo"
+    },
+    "29799": {
+      "brand": "HYTE"
+    },
+    "32227": {
+      "brand": "THERMALRIGHT"
+    },
+    "5101": {
+      "color": "Black"
+    },
+    "5102": {
+      "color": "White"
+    },
+    "5105": {
+      "color": "Green"
+    },
+    "8895": {
+      "color": "Gray"
+    },
+    "26845": {
+      "color": "Wood"
+    },
+    "7192": {
+      "side_panel": "Windowed"
+    },
+    "11736": {
+      "side_panel": "No Window"
+    },
+    "28764": {
+      "side_panel": "Includes Screen"
+    },
+    "22899": {
+      "optical_drive_support": "Optical Bay Included"
+    },
+    "22902": {
+      "optical_drive_support": "None"
+    },
+    "28641": {
+      "front_io": "2x USB 2.0"
+    },
+    "28644": {
+      "front_io": "1x USB 2.0"
+    },
+    "28647": {
+      "front_io": "2x USB 3.0"
+    },
+    "28650": {
+      "front_io": "1x USB 3.0"
+    },
+    "28653": {
+      "front_io": "2x USB-C"
+    },
+    "28656": {
+      "front_io": "1x USB-C"
+    },
+    "28659": {
+      "front_io": "3x USB 3.0"
+    },
+    "28662": {
+      "front_io": "4x USB 3.0"
+    },
+    "33199": {
+      "front_io": "3x USB-C"
+    },
+    "1845": {
+      "fan_size_mm": 80
+    },
+    "1846": {
+      "fan_size_mm": 120
+    },
+    "1848": {
+      "fan_size_mm": 140
+    },
+    "3055": {
+      "fan_size_mm": 92
+    },
+    "2995": {
+      "brand": "CORSAIR"
+    },
+    "2997": {
+      "brand": "Noctua"
+    },
+    "3002": {
+      "brand": "ARCTIC"
+    },
+    "9561": {
+      "brand": "Be Quiet"
+    },
+    "21185": {
+      "brand": "Ivory"
+    },
+    "24674": {
+      "brand": "Jonsbo"
+    },
+    "30738": {
+      "brand": "Lian Li"
+    },
+    "32305": {
+      "brand": "THERMALRIGHT"
+    },
+    "5854": {
+      "lighting": "RGB"
+    },
+    "10531": {
+      "lighting": "ARGB"
+    },
+    "30924": {
+      "fans_per_pack": 3
+    },
+    "30927": {
+      "fans_per_pack": 1
+    },
+    "33265": {
+      "fans_per_pack": 2
+    },
+    "32425": {
+      "blade_design": "Standard"
+    },
+    "32428": {
+      "blade_design": "Reverse"
+    },
+    "32434": {
+      "fan_features": "Built-in Display"
+    },
+    "32437": {
+      "fan_features": "Daisy-chainable"
+    },
+    "32440": {
+      "fan_features": "Zero-RPM Mode"
+    },
+    "32443": {
+      "fan_features": "Infinity Mirror"
+    }
+  }
+}

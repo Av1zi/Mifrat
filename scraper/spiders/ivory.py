@@ -145,6 +145,14 @@ class IvorySpider(scrapy.Spider):
                     # All products returned are available for sale
                     in_stock=True,
                     category_guess=category_guess,
+                    vendor_meta={
+                        "description": prod.get("description"),
+                        "parent": prod.get("parent"),
+                        # Builder's per-product compatibility/feature tags —
+                        # decoded downstream via data/ivory_cut_labels.json
+                        # (see IvoryFindings.md, scraper/build_ivory_cut_labels.py).
+                        "cuts": prod.get("cuts"),
+                    },
                     scraped_at=datetime.now(timezone.utc).isoformat(),
                 )
 

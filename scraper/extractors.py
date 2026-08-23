@@ -229,9 +229,13 @@ _LABELS_CACHE = None
 
 def _load_cut_labels() -> dict:
     """
-    Labels for Ivory's opaque builder IDs, learned by
-    scraper/learn_ivory_labels.py from correlation with title-derived
-    attributes. Empty until you run the learner once.
+    Labels for Ivory's opaque builder `cuts` IDs, transcribed directly
+    from IvoryFindings.md (owner-collected from the site's own filter UI)
+    by scraper/build_ivory_cut_labels.py — ground truth, not a statistical
+    guess. IvoryFindings.md itself lives in tmp/ (gitignored) and never
+    reaches GitHub Actions; only this committed JSON does. Regenerate it
+    locally after updating the findings doc; nothing here re-parses it
+    at pipeline runtime.
     """
     global _LABELS_CACHE
     if _LABELS_CACHE is None:
@@ -455,6 +459,114 @@ _PARSERS = {
 
 
 # --------------------------------------------------------------------------
+# Plonter `tree` field — static ID->attribute table
+# --------------------------------------------------------------------------
+# Transcribed directly from PlonterFindings.md's "ID Prefixes and Meanings"
+# tables. Unlike Ivory's opaque numeric `cuts`, Plonter's tree IDs are
+# already human-readable prefixes, so no learning/bootstrapping step is
+# needed — this table is the whole story. Only compatibility-relevant
+# categories are covered (CPU/board/memory/storage/cooling/case/PSU/GPU);
+# peripheral/networking/software IDs are skipped since ALLOWED_ENGDIVISIONS
+# in plonter.py already filters those rows out before they reach here.
+PLONTER_TREE_LABELS: dict[str, dict] = {
+    # CPU sockets
+    "ACAM4": {"socket": "AM4", "brand": "AMD"},
+    "ACAM5": {"socket": "AM5", "brand": "AMD"},
+    "AC1700": {"socket": "LGA1700", "brand": "Intel"},
+    "AC1851": {"socket": "LGA1851", "brand": "Intel"},
+    "ACsTR5": {"socket": "sTR5", "brand": "AMD"},
+    "AC4677": {"socket": "LGA4677", "brand": "Intel"},
+    "AC3647": {"socket": "LGA3647", "brand": "Intel"},
+    "ACSP3": {"socket": "SP3", "brand": "AMD"},
+    "ACSP5": {"socket": "SP5", "brand": "AMD"},
+    # Motherboards
+    "BAM4BOARD": {"socket": "AM4", "brand": "AMD"},
+    "BAM5BOARD": {"socket": "AM5", "brand": "AMD"},
+    "B1700D5ATX": {"socket": "LGA1700", "memory_type": "DDR5", "form_factor": "ATX"},
+    "B1700D4ATX": {"socket": "LGA1700", "memory_type": "DDR4", "form_factor": "ATX"},
+    "B1700D5ITX": {"socket": "LGA1700", "memory_type": "DDR5", "form_factor": "Mini-ITX"},
+    "B1700D4ITX": {"socket": "LGA1700", "memory_type": "DDR4", "form_factor": "Mini-ITX"},
+    "B1851ATX": {"socket": "LGA1851", "form_factor": "ATX"},
+    "B1851MATX": {"socket": "LGA1851", "form_factor": "mATX"},
+    "B1851ITX": {"socket": "LGA1851", "form_factor": "Mini-ITX"},
+    "BsTR5BOARD": {"socket": "sTR5", "brand": "AMD"},
+    "B4677ATX": {"socket": "LGA4677", "form_factor": "ATX"},
+    "BSP3BOARD": {"socket": "SP3", "brand": "AMD"},
+    "BSP5BOARD": {"socket": "SP5", "brand": "AMD"},
+    "B1151v2ATX": {"socket": "LGA1151", "form_factor": "ATX"},
+    "B11514ATX": {"socket": "LGA1151", "form_factor": "ATX"},
+    "B1200ATX": {"socket": "LGA1200", "form_factor": "ATX"},
+    "B20113ATX": {"socket": "LGA2011-v3", "form_factor": "ATX"},
+    # Memory
+    "CDDR5D": {"memory_type": "DDR5"},
+    "CDDR5DRDECC": {"memory_type": "DDR5", "ecc": True, "registered": True},
+    "DDR5SODIM": {"memory_type": "DDR5", "form_factor": "SODIMM"},
+    "CDDR4D": {"memory_type": "DDR4"},
+    "CDDR4LRDIMM": {"memory_type": "DDR4", "ecc": True, "registered": True},
+    "DDR4SODIM": {"memory_type": "DDR4", "form_factor": "SODIMM"},
+    "CDDR3D": {"memory_type": "DDR3"},
+    "CDDR3LD": {"memory_type": "DDR3L"},
+    "3DDR3L": {"memory_type": "DDR3L", "form_factor": "SODIMM"},
+    # Storage
+    "CHDD35": {"drive_form_factor": "3.5-inch"},
+    "CHDD35NAS": {"drive_form_factor": "3.5-inch", "drive_use_case": "NAS"},
+    "CHDD25": {"drive_form_factor": "2.5-inch"},
+    "SATA": {"interface": "SATA"},
+    "SAS": {"interface": "SAS"},
+    "DSSDM2NVMe": {"drive_form_factor": "M.2", "interface": "NVMe"},
+    "DSSDM2SATA": {"drive_form_factor": "M.2", "interface": "SATA"},
+    "DSSD25": {"drive_form_factor": "2.5-inch", "interface": "SATA"},
+    "DSSENTD25": {"drive_form_factor": "2.5-inch", "drive_use_case": "Enterprise"},
+    # Cooling — socket compatibility + radiator size
+    "ZFANAM4": {"socket_compat": "AM4"},
+    "ZFAN1700": {"socket_compat": "LGA1700"},
+    "ZFANTR4": {"socket_compat": "TR4"},
+    "ZFANS4677": {"socket_compat": "LGA4677"},
+    "ZFANSP3": {"socket_compat": "SP3"},
+    "120mm": {"radiator_size_mm": 120},
+    "240mm": {"radiator_size_mm": 240},
+    "280mm": {"radiator_size_mm": 280},
+    "360mm": {"radiator_size_mm": 360},
+    "420mm": {"radiator_size_mm": 420},
+    # Power supply
+    "EATXPSU": {"form_factor": "ATX"},
+    "ESFXPSU": {"form_factor": "SFX"},
+    # Case
+    "EATXC": {"form_factor": "ATX"},
+    "EITXC": {"form_factor": "Mini-ITX"},
+    "EHTPC": {"form_factor": "HTPC"},
+    "MINISTX": {"form_factor": "Mini-STX"},
+}
+
+# A few documented tree values are multi-word ("AMD Radeon", "NVIDIA
+# GeForce") and wouldn't survive a plain whitespace split reliably — matched
+# separately as a substring pass over the raw tree string.
+PLONTER_TREE_SUBSTRING_LABELS: dict[str, dict] = {
+    "AMD Radeon": {"gpu_vendor": "AMD Radeon"},
+    "NVIDIA GeForce": {"gpu_vendor": "NVIDIA GeForce"},
+    "Intel ARC": {"gpu_vendor": "Intel ARC"},
+    "Tesla": {"gpu_vendor": "NVIDIA Tesla"},
+}
+
+
+def _parse_plonter_tree(tree_raw) -> dict:
+    a: dict = {}
+    if not isinstance(tree_raw, str) or not tree_raw.strip():
+        return a
+
+    for token in tree_raw.split():
+        for k, v in PLONTER_TREE_LABELS.get(token, {}).items():
+            a.setdefault(k, v)
+
+    for marker, attrs in PLONTER_TREE_SUBSTRING_LABELS.items():
+        if marker in tree_raw:
+            for k, v in attrs.items():
+                a.setdefault(k, v)
+
+    return a
+
+
+# --------------------------------------------------------------------------
 # Plonter-style dash-separated spec fragments
 # --------------------------------------------------------------------------
 
@@ -535,6 +647,10 @@ def extract_attributes(listing: dict) -> dict:
     for k, v in _parse_fragments(listing.get("title_raw")).items():
         attrs.setdefault(k, v)
 
+    # Plonter's `tree` field, when present (static table, see above).
+    for k, v in _parse_plonter_tree(meta.get("tree")).items():
+        attrs.setdefault(k, v)
+
     # Hebrew description facts (mostly CPUs).
     raw_desc = meta.get("description")
     if isinstance(raw_desc, str) and raw_desc:
@@ -550,17 +666,14 @@ def extract_attributes(listing: dict) -> dict:
     if parent not in (None, "", 0):
         attrs["ivory_parent"] = parent
 
-    # Apply learned labels for opaque Ivory IDs (second pass onwards).
+    # Decode opaque Ivory `cuts` IDs via the static ground-truth table.
+    # (No parent->category lookup needed: category_guess from the spider
+    # already gives category_normalized deterministically — see ivory.py's
+    # CATEGORIES table, one source_parent per category.)
     labels = _load_cut_labels()
     if labels:
         for cut in attrs.get("ivory_cuts", []):
             for k, v in (labels.get("cuts", {}).get(str(cut)) or {}).items():
                 attrs.setdefault(k, v)
-
-        parent_label = (
-            labels.get("parents", {}).get(str(attrs.get("ivory_parent")), {})
-        ).get("category")
-        if parent_label:
-            attrs.setdefault("ivory_category", parent_label)
 
     return attrs
