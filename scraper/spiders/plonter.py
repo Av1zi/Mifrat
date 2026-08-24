@@ -32,14 +32,14 @@ Entire catalog in one response — no pagination.
 Confirmed directly from Plonter's own recon doc, not guessed. Previously
 this spider shipped with url=None; that gap is closed below.
 
-## `tree` field (not yet used downstream, worth keeping)
+## `tree` field (Aug 2026: now wired into vendor_meta)
 
 Space-separated list of internal category IDs per listing (e.g. `ACAM4`
 for AMD AM4 CPUs, `B1700D5ATX` for Intel LGA1700 DDR5 ATX boards) — a much
-finer-grained taxonomy than `category`/`division`. PlonterFindings.md has
-the full ID->meaning table. Not consumed by this spider yet; flagged here
-so normalize_and_match.py (§8/matching) can use `tree` as a strong
-category/attribute signal instead of re-deriving it from title text.
+finer-grained taxonomy than `category`/`division`. Passed through as
+vendor_meta["tree"]; scraper/extractors.py's PLONTER_TREE_LABELS decodes
+it into socket/chipset/memory_type/form_factor attributes instead of
+re-deriving them from title text alone.
 
 ## Known gaps (still open)
 - `amount` blank in several sampled rows — unclear whether blank means
@@ -144,6 +144,13 @@ class PlonterSpider(scrapy.Spider):
                 price_ils=row.get("price_total"),
                 in_stock=True,  # Explicitly set to True
                 category_guess=row.get("engdivision"),  # Clean English category
+                vendor_meta={
+                    # Space-separated internal taxonomy IDs (e.g. "ACAM4",
+                    # "B1700D5ATX") — decoded downstream via the static
+                    # PLONTER_TREE_LABELS table in extractors.py (see
+                    # PlonterFindings.md). Finer-grained than engdivision.
+                    "tree": row.get("tree"),
+                },
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
 

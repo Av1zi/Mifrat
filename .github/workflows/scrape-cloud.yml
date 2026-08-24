@@ -7,6 +7,11 @@ name: scrape-cloud
 # Ivory added to the matrix (Aug 2026) — spider is built and owner-confirmed
 # (see DECISIONS.md). KSP stays absent: Phase 5 stretch goal, gated on the
 # API application, see scraper/spiders/ksp.py.
+#
+# `permissions: contents: write` (Aug 2026 fix, see DECISIONS.md): the
+# default GITHUB_TOKEN is read-only on repos where the repo-level
+# "Workflow permissions" setting defaults to read-only — commits succeed
+# locally, then push 403s. Same fix as normalize-and-deploy.yml.
 on:
   schedule:
     - cron: '30 3 * * *'   # ~03:30 UTC daily — GitHub cron is UTC-only (§3)
@@ -24,8 +29,8 @@ jobs:
       matrix:
         spider: [onepc, plonter, ivory]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
