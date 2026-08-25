@@ -29,6 +29,8 @@ pc-parts-il-plan.md
 scrapy.log
 *.log
 tmp/
+compare_tms_scrapes.py
+diagnose_tms_coverage.py
 
 # data/raw/**/*.jsonl and data/catalog.json ARE meant to be committed — see
 # §5 of the plan. Nothing to ignore under data/ anymore now that the old

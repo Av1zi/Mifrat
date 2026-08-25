@@ -5,14 +5,19 @@ name: normalize-and-deploy
 # rebuilds automatically on the push this job makes.
 #
 # Trigger (Aug 2026 rework, see DECISIONS.md): previously a fixed
-# `cron: 0 9 * * *`, picked as "probably after both scrapers." In practice
-# the Nano and scrape-cloud finish at very different, sometimes
-# unpredictable times (manual runs, cron drift, TMS's own throttling), so
-# a fixed clock time left hours of dead air between the last scrape
-# landing and the catalog actually rebuilding. Switched to reacting
-# directly to new raw snapshots being pushed instead — from EITHER source,
-# since both the cloud bot and the Nano's deploy key push straight to
-# data/raw/ on main.
+# `cron: 0 9 * * *`, then switched to `on: push: paths: data/raw/**` to
+# react directly to new snapshots. That worked for the Nano (SSH deploy
+# key push) but NOT for scrape-cloud.yml — GitHub Actions never fires
+# on:push for commits pushed using the default GITHUB_TOKEN (built-in
+# loop-prevention), so the cloud vendors' pushes were silently invisible
+# to this trigger and normalize only ever ran for them via the 11:00 UTC
+# fallback cron — an up-to-~8-hour dead gap. Fixed by adding a
+# `workflow_run` trigger on scrape-cloud's completion — workflow_run fires
+# regardless of which token pushed, so no PAT/secret is needed (keeps
+# §9's zero-secrets rule intact for scrape-cloud.yml). It also naturally
+# collapses scrape-cloud's 3 matrix-job pushes into one trigger
+# (workflow_run fires once when the whole run finishes), which the
+# concurrency block below was only approximating before.
 #
 # This revisits the plan's original "no push-triggered workflows, avoids
 # recursion questions" stance (pc-parts-il-plan.md §8) — that concern
@@ -20,11 +25,6 @@ name: normalize-and-deploy
 # which this job's own commit (catalog.json + review_queue.json, both
 # directly under data/, never data/raw/) can never match. No self-trigger
 # is possible.
-#
-# scrape-cloud's 3 matrix jobs each push separately, which would otherwise
-# mean 3 near-simultaneous triggers; the concurrency block below collapses
-# that down to "run the one that's active, then run one more against
-# whatever's latest" rather than 3 redundant back-to-back rebuilds.
 #
 # `permissions: contents: write` (Aug 2026 fix, see DECISIONS.md): without
 # this, the default GITHUB_TOKEN is read-only on repos where the
@@ -36,19 +36,19 @@ on:
     branches: [main]
     paths:
       - 'data/raw/**'
+  workflow_run:
+    # Fires when scrape-cloud.yml finishes, success or failure — one
+    # vendor failing shouldn't block normalizing the others' fresh data
+    # (or stale-forwarding the failed one). Only skip on 'cancelled'.
+    workflows: ["scrape-cloud"]
+    types: [completed]
   schedule:
-    # Safety net only, in case a push trigger is ever missed — deliberately
-    # later than the old 09:00 UTC guess, since the push trigger is now the
-    # normal path and this should rarely if ever fire in practice.
+    # Safety net only, in case both triggers above are ever missed.
     - cron: '0 11 * * *'
   workflow_dispatch: {}
 
 concurrency:
   group: normalize-and-deploy
-  # Let an in-flight run finish rather than killing half-done work; if
-  # several pushes queue up behind it, GitHub keeps only the most recently
-  # queued one and drops the rest, so we still end up running once more
-  # against the latest data/raw/ state rather than once per push.
   cancel-in-progress: false
 
 permissions:
@@ -57,6 +57,9 @@ permissions:
 jobs:
   normalize:
     runs-on: ubuntu-latest
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion != 'cancelled'
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -67,11 +70,6 @@ jobs:
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
-          # Both files normalize_and_match.py writes each run — leaving
-          # review_queue.json off this list (Aug 2026 bug, see DECISIONS.md)
-          # meant it sat modified-but-uncommitted in the working tree,
-          # which aborts git_commit_push.sh's rebase-retry path the moment
-          # any push needs a retry (exactly what happened with the 403).
           bash scripts/git_commit_push.sh \
             "normalize: catalog for $(date -u +%F)" \
             data/catalog.json data/review_queue.json
