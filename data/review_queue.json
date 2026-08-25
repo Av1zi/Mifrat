@@ -727,17 +727,6 @@
   },
   {
     "score": 100,
-    "category": "memory",
-    "brand": "Kingston",
-    "listing_a": "ivory:112839",
-    "listing_b": "ivory:171715",
-    "title_a": "זכרון למחשב Kingston ValueRAM 32GB DDR5 5600MHz KVR56U46BD8-32 DIMM",
-    "title_b": "מציאון - זכרון למחשב Kingston ValueRAM 32GB DDR5 5600MHz KVR56U46BD8-32 DIMM - מוחדש",
-    "match_text_a": "KVR56U46BD8-32 Kingston ValueRAM 32GB DDR5 5600MHz KVR56U46BD8-32 DIMM",
-    "match_text_b": "KVR56U46BD8-32P - Kingston ValueRAM 32GB DDR5 5600MHz KVR56U46BD8-32 DIMM -"
-  },
-  {
-    "score": 100,
     "category": "psu",
     "brand": "FSP",
     "listing_a": "1pc:48817",
@@ -966,17 +955,6 @@
     "title_b": "מעבד Intel Core Ultra 5 250K Plus 30M Cache, up to 5.30GHz Box",
     "match_text_a": "ULTRA-5-250KFB Intel Core Ultra 5 250KF Plus 30M Cache up to 5.30GHz Box",
     "match_text_b": "ULTRA-5-250KB Intel Core Ultra 5 250K Plus 30M Cache up to 5.30GHz Box"
-  },
-  {
-    "score": 98,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ivory:85509",
-    "listing_b": "ivory:85515",
-    "title_a": "מעבד Intel Core i5-14400F up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "title_b": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "match_text_a": "I5-14400F Intel Core i5-14400F up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "match_text_b": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray"
   },
   {
     "score": 98,
@@ -2553,17 +2531,6 @@
   },
   {
     "score": 96,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:210593",
-    "listing_b": "1pc:210595",
-    "title_a": "Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
-    "title_b": "Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
-    "match_text_a": "210593 Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
-    "match_text_b": "210595 Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
-  },
-  {
-    "score": 96,
     "category": "case_fan",
     "brand": "Noctua",
     "listing_a": "ivory:158068",
@@ -2572,6 +2539,17 @@
     "title_b": "2 מאווררים למארז 14 ס&#39;&#39;מ Noctua NF-A14x25r G2 PWM chromax.black – צבע שחור",
     "match_text_a": "FNT1-FN1-0128 14 Noctua NF-A14x25r G2 PWM chromax.black",
     "match_text_b": "FNT1-FN1-0129 2 14 Noctua NF-A14x25r G2 PWM chromax.black"
+  },
+  {
+    "score": 96,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:210593",
+    "listing_b": "1pc:210595",
+    "title_a": "Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
+    "title_b": "Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
+    "match_text_a": "210593 Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
+    "match_text_b": "210595 Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
   },
   {
     "score": 96,
@@ -2748,17 +2726,6 @@
     "title_b": "MSI B860M GAMING PLUS WIFI Motherboard.",
     "match_text_a": "179924 MSI B860 GAMING PLUS WIFI Motherboard.",
     "match_text_b": "179925 MSI B860M GAMING PLUS WIFI Motherboard."
-  },
-  {
-    "score": 96,
-    "category": "case_fan",
-    "brand": "Lian Li",
-    "listing_a": "ivory:127857",
-    "listing_b": "ivory:169105",
-    "title_a": "3 מאווררים למארז 12 ס&#39;&#39;מ Lian Li UNI FAN SL V2 – צבע שחור – תאורת RGB",
-    "title_b": "מציאון - 3 מאווררים למארז 12 ס&#39;&#39;מ Lian Li UNI FAN SL V2 – צבע שחור – תאורת RGB - מוחדש",
-    "match_text_a": "UF-SL120V2-3B 3 12 Lian Li UNI FAN SL V2 RGB",
-    "match_text_b": "UF-SL120V2-3BP - 3 12 Lian Li UNI FAN SL V2 RGB -"
   },
   {
     "score": 96,
@@ -4104,28 +4071,6 @@
   },
   {
     "score": 95,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:188186",
-    "listing_b": "1pc:188187",
-    "title_a": "Corsair MP700 PRO SE 2TB SSD with NVMe Gen5x4 M.2 air cooling.",
-    "title_b": "Corsair 4.0TB MP700 PRO SE SSD with NVMe Gen5x4 M.2 air cooling.",
-    "match_text_a": "188186 Corsair MP700 PRO SE 2TB SSD with NVMe Gen5x4 M.2 air cooling.",
-    "match_text_b": "188187 Corsair 4.0TB MP700 PRO SE SSD with NVMe Gen5x4 M.2 air cooling."
-  },
-  {
-    "score": 95,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:210591",
-    "listing_b": "1pc:210593",
-    "title_a": "Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
-    "title_b": "Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
-    "match_text_a": "210591 Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
-    "match_text_b": "210593 Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
-  },
-  {
-    "score": 95,
     "category": "case_fan",
     "brand": "Noctua",
     "listing_a": "ivory:112283",
@@ -4167,6 +4112,28 @@
     "title_b": "Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM",
     "match_text_a": "NF-S12BDUX1200 Noctua NF-S12B Redux-1200 120mm Fan 1200 RPM",
     "match_text_b": "NF-S12BDUX1200P Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM"
+  },
+  {
+    "score": 95,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:188186",
+    "listing_b": "1pc:188187",
+    "title_a": "Corsair MP700 PRO SE 2TB SSD with NVMe Gen5x4 M.2 air cooling.",
+    "title_b": "Corsair 4.0TB MP700 PRO SE SSD with NVMe Gen5x4 M.2 air cooling.",
+    "match_text_a": "188186 Corsair MP700 PRO SE 2TB SSD with NVMe Gen5x4 M.2 air cooling.",
+    "match_text_b": "188187 Corsair 4.0TB MP700 PRO SE SSD with NVMe Gen5x4 M.2 air cooling."
+  },
+  {
+    "score": 95,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:210591",
+    "listing_b": "1pc:210593",
+    "title_a": "Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
+    "title_b": "Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
+    "match_text_a": "210591 Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
+    "match_text_b": "210593 Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
   },
   {
     "score": 95,
@@ -4299,17 +4266,6 @@
     "title_b": "מארז מחשב NZXT H210i Matte Black",
     "match_text_a": "CA-H210B-B1 NZXT H210 Matte Black",
     "match_text_b": "CA-H210I-B1 NZXT H210i Matte Black"
-  },
-  {
-    "score": 95,
-    "category": "motherboard",
-    "brand": "MSI",
-    "listing_a": "1pc:179922",
-    "listing_b": "1pc:179924",
-    "title_a": "MSI B840 GAMING PLUS WIFI Motherboard.",
-    "title_b": "MSI B860 GAMING PLUS WIFI Motherboard.",
-    "match_text_a": "179922 MSI B840 GAMING PLUS WIFI Motherboard.",
-    "match_text_b": "179924 MSI B860 GAMING PLUS WIFI Motherboard."
   },
   {
     "score": 95,
@@ -4832,23 +4788,23 @@
     "score": 95,
     "category": "gpu",
     "brand": "Sapphire",
-    "listing_a": "tms:11348-01-20G",
-    "listing_b": "tms:11349-01-20G",
-    "title_a": "Sapphire NITRO+ RX 9070 XT GAMING OC 16GB",
-    "title_b": "Sapphire NITRO+ RX 9070 GAMING OC 16GB",
-    "match_text_a": "11348-01-20G Sapphire NITRO+ RX 9070 XT GAMING OC 16GB",
-    "match_text_b": "11349-01-20G Sapphire NITRO+ RX 9070 GAMING OC 16GB"
+    "listing_a": "ivory:124404",
+    "listing_b": "ivory:124413",
+    "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
+    "match_text_a": "11348-02-20G SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "match_text_b": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6"
   },
   {
     "score": 95,
     "category": "gpu",
     "brand": "Sapphire",
-    "listing_a": "tms:11350-02-20G",
-    "listing_b": "tms:11350-03-20G",
-    "title_a": "Sapphire PURE Radeon RX 9060 XT GAMING OC 16GB",
-    "title_b": "Sapphire PULSE Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_a": "11350-02-20G Sapphire PURE Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_b": "11350-03-20G Sapphire PULSE Radeon RX 9060 XT GAMING OC 16GB"
+    "listing_a": "ivory:133692",
+    "listing_b": "ivory:147157",
+    "title_a": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 8GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT 8GB GDDR6",
+    "match_text_a": "11350-04-20G SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 8GB GDDR6",
+    "match_text_b": "11350-05-20G SAPPHIRE PULSE AMD Radeon RX 9060 XT 8GB GDDR6"
   },
   {
     "score": 95,
@@ -5289,6 +5245,17 @@
     "title_b": "מארז מחשב FSP M541 ARGB – צבע לבן",
     "match_text_a": "M541-BA FSP M541 ARGB",
     "match_text_b": "M541-WA FSP M541 ARGB"
+  },
+  {
+    "score": 95,
+    "category": "motherboard",
+    "brand": "Sapphire",
+    "listing_a": "ivory:148825",
+    "listing_b": "ivory:148828",
+    "title_a": "לוח אם SAPPHIRE PULSE B850M WIFI 6 mATX AM5 AMD",
+    "title_b": "לוח אם SAPPHIRE PURE B850M WIFI 6 mATX AM5 AMD",
+    "match_text_a": "52123-04-40G SAPPHIRE PULSE B850M WIFI 6 mATX AM5 AMD",
+    "match_text_b": "52123-02-40G SAPPHIRE PURE B850M WIFI 6 mATX AM5 AMD"
   },
   {
     "score": 95,
@@ -6152,17 +6119,6 @@
     "score": 94,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "ivory:117526",
-    "listing_b": "ivory:68042",
-    "title_a": "זכרון למחשב CORSAIR VENGEANCE DDR5 – מהירות 5600MT/s – נפח 2x16GB – זמן אחזור CL40",
-    "title_b": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5600MT/s – נפח 2x16GB – זמן אחזור CL40 – תאורת RGB",
-    "match_text_a": "CMK32GX5M2B5600C40 CORSAIR VENGEANCE DDR5 5600MT/s 2x16GB CL40",
-    "match_text_b": "CMH32GX5M2B5600C40K CORSAIR VENGEANCE RGB DDR5 5600MT/s 2x16GB CL40 RGB"
-  },
-  {
-    "score": 94,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "tms:CMH64GX5M2B5600C36",
     "listing_b": "tms:CMH64GX5M2B5600C40",
     "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0",
@@ -6293,17 +6249,6 @@
   },
   {
     "score": 94,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "tms:CSSD-F4000GBMP600PRO",
-    "listing_b": "tms:CSSD-F4000GBMP600PXT",
-    "title_a": "Corsair SSD 4TB MP600 PRO NVMe PCIe4 x4 M.2",
-    "title_b": "Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2",
-    "match_text_a": "CSSD-F4000GBMP600PRO Corsair SSD 4TB MP600 PRO NVMe PCIe4 x4 M.2",
-    "match_text_b": "CSSD-F4000GBMP600PXT Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2"
-  },
-  {
-    "score": 94,
     "category": "case_fan",
     "brand": "Arctic",
     "listing_a": "ivory:145145",
@@ -6356,6 +6301,17 @@
     "title_b": "מאוורר למארז 12 ס&#39;&#39;מ ARCTIC P12 Pro A-RGB – צבע לבן",
     "match_text_a": "ACFAN00309A 12 ARCTIC P12 Pro A-RGB",
     "match_text_b": "ACFAN00311A 12 ARCTIC P12 Pro A-RGB"
+  },
+  {
+    "score": 94,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "tms:CSSD-F4000GBMP600PRO",
+    "listing_b": "tms:CSSD-F4000GBMP600PXT",
+    "title_a": "Corsair SSD 4TB MP600 PRO NVMe PCIe4 x4 M.2",
+    "title_b": "Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2",
+    "match_text_a": "CSSD-F4000GBMP600PRO Corsair SSD 4TB MP600 PRO NVMe PCIe4 x4 M.2",
+    "match_text_b": "CSSD-F4000GBMP600PXT Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2"
   },
   {
     "score": 94,
@@ -6449,17 +6405,6 @@
     "score": 94,
     "category": "motherboard",
     "brand": "MSI",
-    "listing_a": "1pc:179922",
-    "listing_b": "1pc:179925",
-    "title_a": "MSI B840 GAMING PLUS WIFI Motherboard.",
-    "title_b": "MSI B860M GAMING PLUS WIFI Motherboard.",
-    "match_text_a": "179922 MSI B840 GAMING PLUS WIFI Motherboard.",
-    "match_text_b": "179925 MSI B860M GAMING PLUS WIFI Motherboard."
-  },
-  {
-    "score": 94,
-    "category": "motherboard",
-    "brand": "MSI",
     "listing_a": "1pc:179930",
     "listing_b": "1pc:179934",
     "title_a": "MSI PRO B840-P WIFI motherboard.",
@@ -6510,17 +6455,6 @@
     "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan",
     "match_text_a": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
     "match_text_b": "12RSLLCD1W1W Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan"
-  },
-  {
-    "score": 94,
-    "category": "case_fan",
-    "brand": "Lian Li",
-    "listing_a": "ivory:127860",
-    "listing_b": "ivory:169105",
-    "title_a": "3 מאווררים למארז 12 ס&#39;&#39;מ Lian Li UNI FAN SL V2 – צבע לבן – תאורת RGB",
-    "title_b": "מציאון - 3 מאווררים למארז 12 ס&#39;&#39;מ Lian Li UNI FAN SL V2 – צבע שחור – תאורת RGB - מוחדש",
-    "match_text_a": "UF-SL120V2-3W 3 12 Lian Li UNI FAN SL V2 RGB",
-    "match_text_b": "UF-SL120V2-3BP - 3 12 Lian Li UNI FAN SL V2 RGB -"
   },
   {
     "score": 94,
@@ -9142,17 +9076,6 @@
   },
   {
     "score": 93,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:207636",
-    "listing_b": "1pc:207638",
-    "title_a": "Antec CX800 ARGB computer case in black color.",
-    "title_b": "Antec AX1000 ARGB computer case in black color.",
-    "match_text_a": "207636 Antec CX800 ARGB computer case in black color.",
-    "match_text_b": "207638 Antec AX1000 ARGB computer case in black color."
-  },
-  {
-    "score": 93,
     "category": "memory",
     "brand": "Corsair",
     "listing_a": "1pc:138317",
@@ -9340,50 +9263,6 @@
   },
   {
     "score": 93,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:151970",
-    "listing_b": "tms:CSSD-F8000GBMP600PLP",
-    "title_a": "Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP",
-    "title_b": "Corsair SSD 8TB MP600 PRO LPX NVMe PCIEx4 M.2",
-    "match_text_a": "151970 Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP",
-    "match_text_b": "CSSD-F8000GBMP600PLP Corsair SSD 8TB MP600 PRO LPX NVMe PCIEx4 M.2"
-  },
-  {
-    "score": 93,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:152934",
-    "listing_b": "tms:CSSD-F2000GBMP700PNH",
-    "title_a": "Corsair SSD 2.0TB MP700 PNH NVMe PCIE5x4 M.2 CSSD-F2000GBMP700PNH",
-    "title_b": "Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2",
-    "match_text_a": "152934 Corsair SSD 2.0TB MP700 PNH NVMe PCIE5x4 M.2 CSSD-F2000GBMP700PNH",
-    "match_text_b": "CSSD-F2000GBMP700PNH Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2"
-  },
-  {
-    "score": 93,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:210591",
-    "listing_b": "1pc:210595",
-    "title_a": "Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
-    "title_b": "Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
-    "match_text_a": "210591 Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
-    "match_text_b": "210595 Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
-  },
-  {
-    "score": 93,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "tms:CSSD-F2000GBMP700PRO",
-    "listing_b": "tms:CSSD-F2000GBMP700PROS",
-    "title_a": "Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2 with Air Cooler",
-    "title_b": "Corsair SSD 2TB MP700 PRO SE NVMe Gen5x4 M.2 with Air Cooler",
-    "match_text_a": "CSSD-F2000GBMP700PRO Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2 with Air Cooler",
-    "match_text_b": "CSSD-F2000GBMP700PROS Corsair SSD 2TB MP700 PRO SE NVMe Gen5x4 M.2 with Air Cooler"
-  },
-  {
-    "score": 93,
     "category": "case_fan",
     "brand": "Noctua",
     "listing_a": "1pc:77751",
@@ -9447,6 +9326,50 @@
     "title_b": "Arctic F12 PWM PST CO Black 12cm Ball Bearing Case Fan",
     "match_text_a": "ACFAN00206A Arctic F8 PWM PST CO Black 8cm Ball Bearing Case Fan",
     "match_text_b": "ACFAN00210A Arctic F12 PWM PST CO Black 12cm Ball Bearing Case Fan"
+  },
+  {
+    "score": 93,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:151970",
+    "listing_b": "tms:CSSD-F8000GBMP600PLP",
+    "title_a": "Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP",
+    "title_b": "Corsair SSD 8TB MP600 PRO LPX NVMe PCIEx4 M.2",
+    "match_text_a": "151970 Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP",
+    "match_text_b": "CSSD-F8000GBMP600PLP Corsair SSD 8TB MP600 PRO LPX NVMe PCIEx4 M.2"
+  },
+  {
+    "score": 93,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:152934",
+    "listing_b": "tms:CSSD-F2000GBMP700PNH",
+    "title_a": "Corsair SSD 2.0TB MP700 PNH NVMe PCIE5x4 M.2 CSSD-F2000GBMP700PNH",
+    "title_b": "Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2",
+    "match_text_a": "152934 Corsair SSD 2.0TB MP700 PNH NVMe PCIE5x4 M.2 CSSD-F2000GBMP700PNH",
+    "match_text_b": "CSSD-F2000GBMP700PNH Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2"
+  },
+  {
+    "score": 93,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:210591",
+    "listing_b": "1pc:210595",
+    "title_a": "Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
+    "title_b": "Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
+    "match_text_a": "210591 Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
+    "match_text_b": "210595 Corsair MP700 MICRO 4TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
+  },
+  {
+    "score": 93,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "tms:CSSD-F2000GBMP700PRO",
+    "listing_b": "tms:CSSD-F2000GBMP700PROS",
+    "title_a": "Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2 with Air Cooler",
+    "title_b": "Corsair SSD 2TB MP700 PRO SE NVMe Gen5x4 M.2 with Air Cooler",
+    "match_text_a": "CSSD-F2000GBMP700PRO Corsair SSD 2TB MP700 PRO NVMe PCIE5x4 M.2 with Air Cooler",
+    "match_text_b": "CSSD-F2000GBMP700PROS Corsair SSD 2TB MP700 PRO SE NVMe Gen5x4 M.2 with Air Cooler"
   },
   {
     "score": 93,
@@ -10715,14 +10638,14 @@
   },
   {
     "score": 93,
-    "category": "case_fan",
-    "brand": "Ivory",
-    "listing_a": "ivory:124272",
-    "listing_b": "ivory:124278",
-    "title_a": "מאוורר למארז 12 ס&#39;&#39;מ Ivory Gaming GT120 ARGB - צבע שחור",
-    "title_b": "3 מאווררים למארז 12 ס&#39;&#39;מ עם בקר מאווררים ותאורה Ivory Gaming GT120 ARGB - צבע שחור",
-    "match_text_a": "GT120-BLACK 12 Ivory Gaming GT120 ARGB -",
-    "match_text_b": "GT120-BLACK-KIT 3 12 Ivory Gaming GT120 ARGB -"
+    "category": "psu",
+    "brand": "FSP",
+    "listing_a": "ivory:136254",
+    "listing_b": "ivory:136257",
+    "title_a": "ספק כוח למחשב מודולרי 850W בצבע לבן – FSP VITA GM – נצילות 80 PLUS GOLD",
+    "title_b": "ספק כוח למחשב מודולרי 850W בצבע שחור – FSP VITA GM – נצילות 80 PLUS GOLD",
+    "match_text_a": "VITA-850GM-WHITE 850W FSP VITA GM 80 PLUS GOLD",
+    "match_text_b": "VITA-850GM 850W FSP VITA GM 80 PLUS GOLD"
   },
   {
     "score": 93,
@@ -11377,17 +11300,6 @@
     "score": 92,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "1pc:212341",
-    "listing_b": "1pc:212343",
-    "title_a": "Gigabyte B840 EAGLE WiFi6E motherboard.",
-    "title_b": "Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "match_text_a": "212341 Gigabyte B840 EAGLE WiFi6E motherboard.",
-    "match_text_b": "212343 Gigabyte B650E EAGLE WiFi6E motherboard."
-  },
-  {
-    "score": 92,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "ivory:112789",
     "listing_b": "ivory:112791",
     "title_a": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE ATX AM5 AMD",
@@ -11735,28 +11647,6 @@
     "title_b": "מעבד Intel Core Ultra 5 250K Plus 30M Cache, up to 5.30GHz Tray",
     "match_text_a": "ULTRA-5-250KFB Intel Core Ultra 5 250KF Plus 30M Cache up to 5.30GHz Box",
     "match_text_b": "ULTRA-5-250K Intel Core Ultra 5 250K Plus 30M Cache up to 5.30GHz Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ivory:85503",
-    "listing_b": "ivory:85515",
-    "title_a": "מעבד Intel Core i3-14100 up to 4.70GHz 12MB Cache Raptor Lake Tray",
-    "title_b": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "match_text_a": "I3-14100 Intel Core i3-14100 up to 4.70GHz 12MB Cache Raptor Lake Tray",
-    "match_text_b": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ivory:85515",
-    "listing_b": "ivory:85518",
-    "title_a": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "title_b": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Box",
-    "match_text_a": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "match_text_b": "I5-14400B Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Box"
   },
   {
     "score": 92,
@@ -12873,17 +12763,6 @@
     "score": 92,
     "category": "case",
     "brand": "Antec",
-    "listing_a": "1pc:205263",
-    "listing_b": "1pc:207636",
-    "title_a": "Antec CX60M ARGB computer case in black color.",
-    "title_b": "Antec CX800 ARGB computer case in black color.",
-    "match_text_a": "205263 Antec CX60M ARGB computer case in black color.",
-    "match_text_b": "207636 Antec CX800 ARGB computer case in black color."
-  },
-  {
-    "score": 92,
-    "category": "case",
-    "brand": "Antec",
     "listing_a": "1pc:217700",
     "listing_b": "1pc:217703",
     "title_a": "Antec C6 Curve Air computer case in black.",
@@ -13102,6 +12981,17 @@
   },
   {
     "score": 92,
+    "category": "case_fan",
+    "brand": "Noctua",
+    "listing_a": "tms:NF-A14IPPC2000",
+    "listing_b": "tms:NF-F12IPPC2000",
+    "title_a": "Noctua NF-A14IPPC-2000 140mm Industrial 2000 RPM Fan",
+    "title_b": "Noctua NF-F12IPPC-2000 120mm Industrial Fan 2000 RPM",
+    "match_text_a": "NF-A14IPPC2000 Noctua NF-A14IPPC-2000 140mm Industrial 2000 RPM Fan",
+    "match_text_b": "NF-F12IPPC2000 Noctua NF-F12IPPC-2000 120mm Industrial Fan 2000 RPM"
+  },
+  {
+    "score": 92,
     "category": "storage",
     "brand": "Corsair",
     "listing_a": "1pc:152934",
@@ -13132,17 +13022,6 @@
     "title_b": "Corsair SSD 4TB MP700 PRO SE with Air Cooler NVMe Gen5 x4 M.2",
     "match_text_a": "CSSD-F4000GBMP700PRO Corsair SSD 4TB MP700 PRO NVMe PCIE5x4 M.2 with Air Cooler",
     "match_text_b": "CSSD-F4000GBMP700PROS Corsair SSD 4TB MP700 PRO SE with Air Cooler NVMe Gen5 x4 M.2"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "tms:NF-A14IPPC2000",
-    "listing_b": "tms:NF-F12IPPC2000",
-    "title_a": "Noctua NF-A14IPPC-2000 140mm Industrial 2000 RPM Fan",
-    "title_b": "Noctua NF-F12IPPC-2000 120mm Industrial Fan 2000 RPM",
-    "match_text_a": "NF-A14IPPC2000 Noctua NF-A14IPPC-2000 140mm Industrial 2000 RPM Fan",
-    "match_text_b": "NF-F12IPPC2000 Noctua NF-F12IPPC-2000 120mm Industrial Fan 2000 RPM"
   },
   {
     "score": 92,
@@ -15689,12 +15568,12 @@
     "score": 92,
     "category": "gpu",
     "brand": "Sapphire",
-    "listing_a": "tms:11348-02-20G",
-    "listing_b": "tms:11348-03-20G",
-    "title_a": "Sapphire PURE RX 9070 XT GAMING OC 16GB",
-    "title_b": "Sapphire PULSE RX 9070 XT GAMING 16GB",
-    "match_text_a": "11348-02-20G Sapphire PURE RX 9070 XT GAMING OC 16GB",
-    "match_text_b": "11348-03-20G Sapphire PULSE RX 9070 XT GAMING 16GB"
+    "listing_a": "ivory:124413",
+    "listing_b": "ivory:133686",
+    "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6",
+    "match_text_a": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
+    "match_text_b": "11350-02-20G SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6"
   },
   {
     "score": 92,
@@ -18074,83 +17953,6 @@
   },
   {
     "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:140888",
-    "listing_b": "tms:CSSD-F8000GBMP600PXT",
-    "title_a": "Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
-    "title_b": "Corsair SSD 8TB MP600 Pro XT NVMe PCIe4 x4 M.2",
-    "match_text_a": "140888 Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
-    "match_text_b": "CSSD-F8000GBMP600PXT Corsair SSD 8TB MP600 Pro XT NVMe PCIe4 x4 M.2"
-  },
-  {
-    "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:156993",
-    "listing_b": "tms:CSSD-F4000GBMP600PXT",
-    "title_a": "Corsair SSD 4.0TB MP600 PRO XT NVMe PCIe 4 x4 M.2 CSSD-F4000GBMP600PXT drive.",
-    "title_b": "Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2",
-    "match_text_a": "156993 Corsair SSD 4.0TB MP600 PRO XT NVMe PCIe 4 x4 M.2 CSSD-F4000GBMP600PXT drive.",
-    "match_text_b": "CSSD-F4000GBMP600PXT Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2"
-  },
-  {
-    "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:172016",
-    "listing_b": "tms:CSSD-F4000GBMP700PNH",
-    "title_a": "Corsair 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2 SSD Drive CSSD-F4000GBMP700PNH.",
-    "title_b": "Corsair SSD 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2",
-    "match_text_a": "172016 Corsair 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2 SSD Drive CSSD-F4000GBMP700PNH.",
-    "match_text_b": "CSSD-F4000GBMP700PNH Corsair SSD 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2"
-  },
-  {
-    "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:188182",
-    "listing_b": "1pc:188184",
-    "title_a": "Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "title_b": "Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "match_text_a": "188182 Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "match_text_b": "188184 Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling."
-  },
-  {
-    "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:188182",
-    "listing_b": "1pc:210592",
-    "title_a": "Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "title_b": "Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling.",
-    "match_text_a": "188182 Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "match_text_b": "210592 Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling."
-  },
-  {
-    "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:188184",
-    "listing_b": "1pc:210592",
-    "title_a": "Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "title_b": "Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling.",
-    "match_text_a": "188184 Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
-    "match_text_b": "210592 Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling."
-  },
-  {
-    "score": 91,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:209190",
-    "listing_b": "1pc:209192",
-    "title_a": "Corsair MP700 PRO XT 1TB PCIe 5.0 NVMe M.2 SSD Drive.",
-    "title_b": "Corsair MP700 PRO XT 4TB PCIe 5.0 NVMe M.2 SSD Drive.",
-    "match_text_a": "209190 Corsair MP700 PRO XT 1TB PCIe 5.0 NVMe M.2 SSD Drive.",
-    "match_text_b": "209192 Corsair MP700 PRO XT 4TB PCIe 5.0 NVMe M.2 SSD Drive."
-  },
-  {
-    "score": 91,
     "category": "case",
     "brand": "Fractal Design",
     "listing_a": "1pc:176975",
@@ -18250,6 +18052,83 @@
   },
   {
     "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:140888",
+    "listing_b": "tms:CSSD-F8000GBMP600PXT",
+    "title_a": "Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
+    "title_b": "Corsair SSD 8TB MP600 Pro XT NVMe PCIe4 x4 M.2",
+    "match_text_a": "140888 Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
+    "match_text_b": "CSSD-F8000GBMP600PXT Corsair SSD 8TB MP600 Pro XT NVMe PCIe4 x4 M.2"
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:156993",
+    "listing_b": "tms:CSSD-F4000GBMP600PXT",
+    "title_a": "Corsair SSD 4.0TB MP600 PRO XT NVMe PCIe 4 x4 M.2 CSSD-F4000GBMP600PXT drive.",
+    "title_b": "Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2",
+    "match_text_a": "156993 Corsair SSD 4.0TB MP600 PRO XT NVMe PCIe 4 x4 M.2 CSSD-F4000GBMP600PXT drive.",
+    "match_text_b": "CSSD-F4000GBMP600PXT Corsair SSD 4TB MP600 PRO XT NVMe PCIe4 x4 M.2"
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:172016",
+    "listing_b": "tms:CSSD-F4000GBMP700PNH",
+    "title_a": "Corsair 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2 SSD Drive CSSD-F4000GBMP700PNH.",
+    "title_b": "Corsair SSD 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2",
+    "match_text_a": "172016 Corsair 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2 SSD Drive CSSD-F4000GBMP700PNH.",
+    "match_text_b": "CSSD-F4000GBMP700PNH Corsair SSD 4TB MP700 PRO PCIe Gen5 x4 NVMe 2.0 M.2"
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:188182",
+    "listing_b": "1pc:188184",
+    "title_a": "Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "title_b": "Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "match_text_a": "188182 Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "match_text_b": "188184 Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling."
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:188182",
+    "listing_b": "1pc:210592",
+    "title_a": "Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "title_b": "Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling.",
+    "match_text_a": "188182 Corsair MP700 ELITE 1.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "match_text_b": "210592 Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling."
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:188184",
+    "listing_b": "1pc:210592",
+    "title_a": "Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "title_b": "Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling.",
+    "match_text_a": "188184 Corsair MP700 ELITE 2.0TB SSD drive with NVMe Gen5x4 M.2 cooling.",
+    "match_text_b": "210592 Corsair MP700 ELITE 4TB Gen5x4 NVMe M.2 SSD drive with cooling."
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:209190",
+    "listing_b": "1pc:209192",
+    "title_a": "Corsair MP700 PRO XT 1TB PCIe 5.0 NVMe M.2 SSD Drive.",
+    "title_b": "Corsair MP700 PRO XT 4TB PCIe 5.0 NVMe M.2 SSD Drive.",
+    "match_text_a": "209190 Corsair MP700 PRO XT 1TB PCIe 5.0 NVMe M.2 SSD Drive.",
+    "match_text_b": "209192 Corsair MP700 PRO XT 4TB PCIe 5.0 NVMe M.2 SSD Drive."
+  },
+  {
+    "score": 91,
     "category": "motherboard",
     "brand": "ASUS",
     "listing_a": "1pc:126961",
@@ -18324,6 +18203,17 @@
     "title_b": "ASUS TUF GAMING B650-E WIFI Motherboard.",
     "match_text_a": "175323 ASUS TUF GAMING B650-E WIFI Motherboard.",
     "match_text_b": "195917 ASUS TUF GAMING B650-E WIFI Motherboard."
+  },
+  {
+    "score": 91,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "1pc:178606",
+    "listing_b": "1pc:179733",
+    "title_a": "ASUS TUF GAMING B850M-PLUS Motherboard.",
+    "title_b": "ASUS TUF GAMING B850M-PLUS WIFI Gaming Motherboard.",
+    "match_text_a": "178606 ASUS TUF GAMING B850M-PLUS Motherboard.",
+    "match_text_b": "179733 ASUS TUF GAMING B850M-PLUS WIFI Gaming Motherboard."
   },
   {
     "score": 91,
@@ -20241,17 +20131,6 @@
   },
   {
     "score": 91,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:193818",
-    "listing_b": "1pc:193819",
-    "title_a": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "title_b": "ASUS PRIME GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "match_text_a": "193818 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "match_text_b": "193819 ASUS PRIME GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card."
-  },
-  {
-    "score": 91,
     "category": "case",
     "brand": "HAVN",
     "listing_a": "1pc:173305",
@@ -20293,17 +20172,6 @@
     "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
     "match_text_a": "11349-01-20G SAPPHIRE NITRO+ AMD Radeon RX 9070 OC 16GB GDDR6",
     "match_text_b": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6"
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "Sapphire",
-    "listing_a": "tms:11350-01-20G",
-    "listing_b": "tms:11350-02-20G",
-    "title_a": "Sapphire NITRO+ Radeon RX 9060 XT GAMING OC 16GB",
-    "title_b": "Sapphire PURE Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_a": "11350-01-20G Sapphire NITRO+ Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_b": "11350-02-20G Sapphire PURE Radeon RX 9060 XT GAMING OC 16GB"
   },
   {
     "score": 91,
@@ -21734,17 +21602,6 @@
     "title_b": "Gigabyte X870E AORUS MASTER X3D ICE motherboard.",
     "match_text_a": "207715 Gigabyte X870 AORUS ELITE X3D ICE motherboard.",
     "match_text_b": "207718 Gigabyte X870E AORUS MASTER X3D ICE motherboard."
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:212343",
-    "listing_b": "1pc:216444",
-    "title_a": "Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "title_b": "Gigabyte B650E EAGLE motherboard.",
-    "match_text_a": "212343 Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "match_text_b": "216444 Gigabyte B650E EAGLE motherboard."
   },
   {
     "score": 90,
@@ -23609,17 +23466,6 @@
     "score": 90,
     "category": "case",
     "brand": "Antec",
-    "listing_a": "1pc:207636",
-    "listing_b": "1pc:207640",
-    "title_a": "Antec CX800 ARGB computer case in black color.",
-    "title_b": "Antec VX320 ARGB computer case in black color.",
-    "match_text_a": "207636 Antec CX800 ARGB computer case in black color.",
-    "match_text_b": "207640 Antec VX320 ARGB computer case in black color."
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Antec",
     "listing_a": "tms:C3ARGB",
     "listing_b": "tms:C5ARGB",
     "title_a": "מארז מחשב Antec C3 ARGB",
@@ -23813,17 +23659,6 @@
     "title_b": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5600MT/s – נפח 2x24GB – זמן אחזור CL40 – תאורת RGB",
     "match_text_a": "CMH48GX5M2B5200C38 CORSAIR VENGEANCE RGB DDR5 5200MT/s 2x24GB CL38 RGB",
     "match_text_b": "CMH48GX5M2B5600C40 CORSAIR VENGEANCE RGB DDR5 5600MT/s 2x24GB CL40 RGB"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "ivory:166597",
-    "listing_b": "ivory:68042",
-    "title_a": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5200MT/s – נפח 16GB – זמן אחזור CL40 – תאורת RGB",
-    "title_b": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5600MT/s – נפח 2x16GB – זמן אחזור CL40 – תאורת RGB",
-    "match_text_a": "CMH16GX5M1B5200C40 CORSAIR VENGEANCE RGB DDR5 5200MT/s 16GB CL40 RGB",
-    "match_text_b": "CMH32GX5M2B5600C40K CORSAIR VENGEANCE RGB DDR5 5600MT/s 2x16GB CL40 RGB"
   },
   {
     "score": 90,
@@ -24223,17 +24058,6 @@
   },
   {
     "score": 90,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "tms:CSSD-F1000GBMP700EHS",
-    "listing_b": "tms:CSSD-F1000GBMP700PNH",
-    "title_a": "Corsair SSD 1TB MP700 ELITE NVMe Gen5x4 M.2 עם גוף קירור",
-    "title_b": "Corsair SSD 1TB MP700 PRO NVMe Gen5x4 M.2",
-    "match_text_a": "CSSD-F1000GBMP700EHS Corsair SSD 1TB MP700 ELITE NVMe Gen5x4 M.2",
-    "match_text_b": "CSSD-F1000GBMP700PNH Corsair SSD 1TB MP700 PRO NVMe Gen5x4 M.2"
-  },
-  {
-    "score": 90,
     "category": "case",
     "brand": "Fractal Design",
     "listing_a": "1pc:215502",
@@ -24242,6 +24066,17 @@
     "title_b": "Fractal Design Pop 2 Air TG RGB computer case in black.",
     "match_text_a": "215502 Fractal Design Pop 2 Air TG computer case in black color.",
     "match_text_b": "215503 Fractal Design Pop 2 Air TG RGB computer case in black."
+  },
+  {
+    "score": 90,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "tms:CSSD-F1000GBMP700EHS",
+    "listing_b": "tms:CSSD-F1000GBMP700PNH",
+    "title_a": "Corsair SSD 1TB MP700 ELITE NVMe Gen5x4 M.2 עם גוף קירור",
+    "title_b": "Corsair SSD 1TB MP700 PRO NVMe Gen5x4 M.2",
+    "match_text_a": "CSSD-F1000GBMP700EHS Corsair SSD 1TB MP700 ELITE NVMe Gen5x4 M.2",
+    "match_text_b": "CSSD-F1000GBMP700PNH Corsair SSD 1TB MP700 PRO NVMe Gen5x4 M.2"
   },
   {
     "score": 90,
@@ -24412,6 +24247,17 @@
     "score": 90,
     "category": "motherboard",
     "brand": "ASUS",
+    "listing_a": "1pc:178606",
+    "listing_b": "1pc:178616",
+    "title_a": "ASUS TUF GAMING B850M-PLUS Motherboard.",
+    "title_b": "ASUS TUF GAMING B860M-PLUS WIFI Motherboard.",
+    "match_text_a": "178606 ASUS TUF GAMING B850M-PLUS Motherboard.",
+    "match_text_b": "178616 ASUS TUF GAMING B860M-PLUS WIFI Motherboard."
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "ASUS",
     "listing_a": "1pc:178608",
     "listing_b": "1pc:178609",
     "title_a": "ASUS PRIME B860M-A-CSM Motherboard.",
@@ -24440,17 +24286,6 @@
     "title_b": "ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard.",
     "match_text_a": "179736 ASUS ROG STRIX B850-A GAMING WIFI Motherboard.",
     "match_text_b": "179737 ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard."
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "1pc:214771",
-    "listing_b": "1pc:214825",
-    "title_a": "ASUS Prime A620M-K motherboard, black color.",
-    "title_b": "ASUS Prime A520M-R motherboard, black color.",
-    "match_text_a": "214771 ASUS Prime A620M-K motherboard black color.",
-    "match_text_b": "214825 ASUS Prime A520M-R motherboard black color."
   },
   {
     "score": 90,
@@ -26467,17 +26302,6 @@
   },
   {
     "score": 90,
-    "category": "gpu",
-    "brand": "Sapphire",
-    "listing_a": "tms:11348-01-20G",
-    "listing_b": "tms:11348-02-20G",
-    "title_a": "Sapphire NITRO+ RX 9070 XT GAMING OC 16GB",
-    "title_b": "Sapphire PURE RX 9070 XT GAMING OC 16GB",
-    "match_text_a": "11348-01-20G Sapphire NITRO+ RX 9070 XT GAMING OC 16GB",
-    "match_text_b": "11348-02-20G Sapphire PURE RX 9070 XT GAMING OC 16GB"
-  },
-  {
-    "score": 90,
     "category": "case",
     "brand": "1stPlayer",
     "listing_a": "tms:PB8-BK-2FH7R-1FH7",
@@ -27261,6 +27085,17 @@
     "score": 90,
     "category": "motherboard",
     "brand": "Sapphire",
+    "listing_a": "ivory:148828",
+    "listing_b": "ivory:148831",
+    "title_a": "לוח אם SAPPHIRE PURE B850M WIFI 6 mATX AM5 AMD",
+    "title_b": "לוח אם SAPPHIRE NITRO+ B850M WIFI 6 mATX AM5 AMD",
+    "match_text_a": "52123-02-40G SAPPHIRE PURE B850M WIFI 6 mATX AM5 AMD",
+    "match_text_b": "52123-01-40G SAPPHIRE NITRO+ B850M WIFI 6 mATX AM5 AMD"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Sapphire",
     "listing_a": "ivory:148834",
     "listing_b": "ivory:156820",
     "title_a": "לוח אם SAPPHIRE PURE B850A WIFI 7 ATX AM5 AMD",
@@ -27949,17 +27784,6 @@
     "title_b": "Gigabyte X870 AORUS STEALTH motherboard.",
     "match_text_a": "209505 Gigabyte B850 AORUS STEALTH motherboard.",
     "match_text_b": "210669 Gigabyte X870 AORUS STEALTH motherboard."
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:212343",
-    "listing_b": "1pc:214842",
-    "title_a": "Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "title_b": "Gigabyte B550 EAGLE WiFi6 motherboard.",
-    "match_text_a": "212343 Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "match_text_b": "214842 Gigabyte B550 EAGLE WiFi6 motherboard."
   },
   {
     "score": 89,
@@ -29349,6 +29173,28 @@
   },
   {
     "score": 89,
+    "category": "case_fan",
+    "brand": "Noctua",
+    "listing_a": "1pc:49921",
+    "listing_b": "1pc:49924",
+    "title_a": "Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
+    "title_b": "Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color.",
+    "match_text_a": "49921 Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
+    "match_text_b": "49924 Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color."
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Noctua",
+    "listing_a": "tms:NF-P14SDUX1200P",
+    "listing_b": "tms:NF-S12BDUX1200P",
+    "title_a": "Noctua NF-P14S Redux-1200P 140mm 1200 RPM PWM Fan",
+    "title_b": "Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM",
+    "match_text_a": "NF-P14SDUX1200P Noctua NF-P14S Redux-1200P 140mm 1200 RPM PWM Fan",
+    "match_text_b": "NF-S12BDUX1200P Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM"
+  },
+  {
+    "score": 89,
     "category": "storage",
     "brand": "Corsair",
     "listing_a": "1pc:152935",
@@ -29393,28 +29239,6 @@
   },
   {
     "score": 89,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "1pc:49921",
-    "listing_b": "1pc:49924",
-    "title_a": "Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
-    "title_b": "Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color.",
-    "match_text_a": "49921 Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
-    "match_text_b": "49924 Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color."
-  },
-  {
-    "score": 89,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "tms:NF-P14SDUX1200P",
-    "listing_b": "tms:NF-S12BDUX1200P",
-    "title_a": "Noctua NF-P14S Redux-1200P 140mm 1200 RPM PWM Fan",
-    "title_b": "Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM",
-    "match_text_a": "NF-P14SDUX1200P Noctua NF-P14S Redux-1200P 140mm 1200 RPM PWM Fan",
-    "match_text_b": "NF-S12BDUX1200P Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM"
-  },
-  {
-    "score": 89,
     "category": "motherboard",
     "brand": "ASUS",
     "listing_a": "1pc:126961",
@@ -29456,6 +29280,17 @@
     "title_b": "Asus ROG STRIX B650-A GAMING WIFI motherboard in black color.",
     "match_text_a": "146315 Asus ROG STRIX B550-F GAMING motherboard black color.",
     "match_text_b": "146339 Asus ROG STRIX B650-A GAMING WIFI motherboard in black color."
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "1pc:147025",
+    "listing_b": "1pc:178606",
+    "title_a": "ASUS TUF GAMING B650M-PLUS motherboard.",
+    "title_b": "ASUS TUF GAMING B850M-PLUS Motherboard.",
+    "match_text_a": "147025 ASUS TUF GAMING B650M-PLUS motherboard.",
+    "match_text_b": "178606 ASUS TUF GAMING B850M-PLUS Motherboard."
   },
   {
     "score": 89,
@@ -33069,12 +32904,12 @@
     "score": 89,
     "category": "gpu",
     "brand": "Sapphire",
-    "listing_a": "tms:11350-01-20G",
-    "listing_b": "tms:11350-03-20G",
-    "title_a": "Sapphire NITRO+ Radeon RX 9060 XT GAMING OC 16GB",
-    "title_b": "Sapphire PULSE Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_a": "11350-01-20G Sapphire NITRO+ Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_b": "11350-03-20G Sapphire PULSE Radeon RX 9060 XT GAMING OC 16GB"
+    "listing_a": "ivory:124407",
+    "listing_b": "ivory:124413",
+    "title_a": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
+    "match_text_a": "11348-03-20G SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "match_text_b": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6"
   },
   {
     "score": 89,
@@ -33724,17 +33559,6 @@
     "title_b": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0",
     "match_text_a": "6400J3239G16GX2-TZ5RK G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400 CL32 XMP 3.0",
     "match_text_b": "7600J3646G16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0"
-  },
-  {
-    "score": 89,
-    "category": "case_fan",
-    "brand": "Ivory",
-    "listing_a": "ivory:124278",
-    "listing_b": "ivory:124281",
-    "title_a": "3 מאווררים למארז 12 ס&#39;&#39;מ עם בקר מאווררים ותאורה Ivory Gaming GT120 ARGB - צבע שחור",
-    "title_b": "3 מאווררים למארז 12 ס&#39;&#39;מ עם בקר מאווררים ותאורה Ivory Gaming GT120 ARGB - צבע לבן",
-    "match_text_a": "GT120-BLACK-KIT 3 12 Ivory Gaming GT120 ARGB -",
-    "match_text_b": "GT120-WHITE-KIT 3 12 Ivory Gaming GT120 ARGB -"
   },
   {
     "score": 89,
@@ -34587,17 +34411,6 @@
     "score": 88,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "1pc:212343",
-    "listing_b": "1pc:216438",
-    "title_a": "Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "title_b": "Gigabyte B850M EAGLE WiFi7 motherboard.",
-    "match_text_a": "212343 Gigabyte B650E EAGLE WiFi6E motherboard.",
-    "match_text_b": "216438 Gigabyte B850M EAGLE WiFi7 motherboard."
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "1pc:212535",
     "listing_b": "1pc:216442",
     "title_a": "Gigabyte B840M H Motherboard.",
@@ -35247,17 +35060,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "ivory:85515",
-    "listing_b": "ivory:85536",
-    "title_a": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "title_b": "מעבד Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray",
-    "match_text_a": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
-    "match_text_b": "I7-14700 Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "plonter:AT80768063F6",
     "listing_b": "plonter:AT8076806410",
     "title_a": "Intel Core Ultra 5 235 Processor (series 2) - LGA1851 - 14 cores (6 P-cores + 8 E-cores) 24M Cache,up to 5.0 GHz - Core Ultra 200S Series - Tray",
@@ -35863,17 +35665,6 @@
     "score": 88,
     "category": "case",
     "brand": "Antec",
-    "listing_a": "1pc:207636",
-    "listing_b": "1pc:207639",
-    "title_a": "Antec CX800 ARGB computer case in black color.",
-    "title_b": "Antec C5 CURVE ARGB computer case in black color.",
-    "match_text_a": "207636 Antec CX800 ARGB computer case in black color.",
-    "match_text_b": "207639 Antec C5 CURVE ARGB computer case in black color."
-  },
-  {
-    "score": 88,
-    "category": "case",
-    "brand": "Antec",
     "listing_a": "1pc:212105",
     "listing_b": "1pc:214257",
     "title_a": "Antec VCX300 ARGB computer case.",
@@ -35968,17 +35759,6 @@
     "title_b": "Corsair DDR4 64G RAM (16Gx4) 3200 black color.",
     "match_text_a": "104970 Corsair DDR4 64GB RAM (32GBx2) 3200 in black color.",
     "match_text_b": "104977 Corsair DDR4 64G RAM (16Gx4) 3200 black color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "1pc:145054",
-    "listing_b": "1pc:151533",
-    "title_a": "Corsair DDR5 64GB (32GBx2) 6000 CL30 Vengeance RGB CMH64GX5M2B6000Z30 memory.",
-    "title_b": "Corsair Vengeance RGB White CMH64GX5M2B6000C40W DDR5 64GB (32GBx2) 6000 CL40 Memory.",
-    "match_text_a": "145054 Corsair DDR5 64GB (32GBx2) 6000 CL30 Vengeance RGB CMH64GX5M2B6000Z30 memory.",
-    "match_text_b": "151533 Corsair Vengeance RGB White CMH64GX5M2B6000C40W DDR5 64GB (32GBx2) 6000 CL40 Memory."
   },
   {
     "score": 88,
@@ -36422,17 +36202,6 @@
   },
   {
     "score": 88,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:140888",
-    "listing_b": "1pc:151970",
-    "title_a": "Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
-    "title_b": "Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP",
-    "match_text_a": "140888 Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
-    "match_text_b": "151970 Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP"
-  },
-  {
-    "score": 88,
     "category": "case_fan",
     "brand": "Noctua",
     "listing_a": "ivory:85068",
@@ -36507,6 +36276,17 @@
     "title_b": "מאוורר למארז 12 ס&#39;&#39;מ ARCTIC P12 Pro A-RGB – צבע לבן",
     "match_text_a": "ACFAN00321A 3 14 ARCTIC P14 Pro A-RGB",
     "match_text_b": "ACFAN00311A 12 ARCTIC P12 Pro A-RGB"
+  },
+  {
+    "score": 88,
+    "category": "storage",
+    "brand": "Corsair",
+    "listing_a": "1pc:140888",
+    "listing_b": "1pc:151970",
+    "title_a": "Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
+    "title_b": "Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP",
+    "match_text_a": "140888 Corsair SSD 8.0TB MP600 Pro XT NVMe PCIE4x4 M.2 CSSD-F8000GBMP600PXT",
+    "match_text_b": "151970 Corsair SSD 8.0TB MP600 Pro LPX NVMe PCIEx4 M.2 CSSD-F8000GBMP600PLP"
   },
   {
     "score": 88,
@@ -36738,17 +36518,6 @@
     "title_b": "ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming.",
     "match_text_a": "179737 ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard.",
     "match_text_b": "179738 ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming."
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "1pc:216770",
-    "listing_b": "1pc:218744",
-    "title_a": "Motherboard Asus TUF GAMING A520M-PLUS WiFi.",
-    "title_b": "Motherboard Asus TUF GAMING A520M-PLUS II.",
-    "match_text_a": "216770 Motherboard Asus TUF GAMING A520M-PLUS WiFi.",
-    "match_text_b": "218744 Motherboard Asus TUF GAMING A520M-PLUS II."
   },
   {
     "score": 88,
@@ -39645,17 +39414,6 @@
   },
   {
     "score": 88,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:193818",
-    "listing_b": "1pc:205316",
-    "title_a": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "title_b": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition graphics card in white color.",
-    "match_text_a": "193818 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "match_text_b": "205316 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition graphics card in white color."
-  },
-  {
-    "score": 88,
     "category": "psu",
     "brand": "1stPlayer",
     "listing_a": "1pc:171712",
@@ -39746,23 +39504,12 @@
     "score": 88,
     "category": "gpu",
     "brand": "Sapphire",
-    "listing_a": "tms:11348-01-20G",
-    "listing_b": "tms:11350-01-20G",
-    "title_a": "Sapphire NITRO+ RX 9070 XT GAMING OC 16GB",
-    "title_b": "Sapphire NITRO+ Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_a": "11348-01-20G Sapphire NITRO+ RX 9070 XT GAMING OC 16GB",
-    "match_text_b": "11350-01-20G Sapphire NITRO+ Radeon RX 9060 XT GAMING OC 16GB"
-  },
-  {
-    "score": 88,
-    "category": "gpu",
-    "brand": "Sapphire",
-    "listing_a": "tms:11348-02-20G",
-    "listing_b": "tms:11350-02-20G",
-    "title_a": "Sapphire PURE RX 9070 XT GAMING OC 16GB",
-    "title_b": "Sapphire PURE Radeon RX 9060 XT GAMING OC 16GB",
-    "match_text_a": "11348-02-20G Sapphire PURE RX 9070 XT GAMING OC 16GB",
-    "match_text_b": "11350-02-20G Sapphire PURE Radeon RX 9060 XT GAMING OC 16GB"
+    "listing_a": "ivory:124413",
+    "listing_b": "ivory:133689",
+    "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6",
+    "match_text_a": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
+    "match_text_b": "11350-03-20G SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6"
   },
   {
     "score": 88,
