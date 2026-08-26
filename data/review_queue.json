@@ -455,6 +455,17 @@
     "category": "case",
     "brand": "Antec",
     "listing_a": "tms:FLUX",
+    "listing_b": "tms:FLUX-SE",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז מחשב Antec FLUX SE",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-SE Antec FLUX SE"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
     "listing_b": "tms:FLUX-W",
     "title_a": "מארז מחשב Antec FLUX",
     "title_b": "מארז מחשב Antec FLUX White",
@@ -960,6 +971,17 @@
     "score": 98,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "ivory:85509",
+    "listing_b": "ivory:85515",
+    "title_a": "מעבד Intel Core i5-14400F up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "match_text_a": "I5-14400F Intel Core i5-14400F up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "match_text_b": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray"
+  },
+  {
+    "score": 98,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "plonter:AT807680640F",
     "listing_b": "plonter:AT8076806414",
     "title_a": "Intel Core Ultra 5 245K Processor (series 2) - LGA1851 - 14 cores (6 P-cores + 8 E-cores) up to 5.2 GHz - Core Ultra 200S Series - Tray",
@@ -1010,17 +1032,6 @@
     "title_b": "Intel Core i9-12900F - Box - (Alder Lake Series)",
     "match_text_a": "BX8071512900 Intel Core i9-12900 - Box - (Alder Lake Series)",
     "match_text_b": "BX8071512900F Intel Core i9-12900F - Box - (Alder Lake Series)"
-  },
-  {
-    "score": 98,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900K",
-    "listing_b": "plonter:BX8071513900KS",
-    "title_a": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "title_b": "Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency: 3.2 GHz E-core Base Frequency: 2.4 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "match_text_a": "BX8071513900K Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box",
-    "match_text_b": "BX8071513900KS Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency 3.2 GHz E-core Base Frequency 2.4 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box"
   },
   {
     "score": 98,
@@ -3388,6 +3399,17 @@
     "match_text_b": "PK8071305129200 Intel Xeon W3-2423 Processor (15M Cache 2.10 GHz) LGA4677 FC-LGA16A 130/156W TDP Tray - Sapphire Rapids - PK8071305129200 S RM9K"
   },
   {
+    "score": 96,
+    "category": "memory",
+    "brand": "Patriot Viper",
+    "listing_a": "plonter:PVV532G600C36K",
+    "listing_b": "plonter:PVVR532G600C36K",
+    "title_a": "32GB (2x16GB) 6000MHz DDR5 CL36 1.25V - Viper Venom",
+    "title_b": "32GB (2x16GB) 6000MHz DDR5 CL36 1.25V - Viper Venom RGB",
+    "match_text_a": "PVV532G600C36K 32GB (2x16GB) 6000MHz DDR5 CL36 1.25V - Viper Venom",
+    "match_text_b": "PVVR532G600C36K 32GB (2x16GB) 6000MHz DDR5 CL36 1.25V - Viper Venom RGB"
+  },
+  {
     "score": 95,
     "category": "case_fan",
     "brand": "be quiet!",
@@ -3628,28 +3650,6 @@
     "title_b": "Intel Core Ultra 5 (U5+) processor 250KF Plus - Tray - LGA1851 - Core Ultra 200S Plus Arrow Lake-S Refresh Series",
     "match_text_a": "AT807683B9B4884 Intel Core Ultra 7 (U7+) processor 270K Plus - Tray - LGA1851 - Core Ultra 200S Plus Arrow Lake-S Refresh Series",
     "match_text_b": "AT807683B9B4887 Intel Core Ultra 5 (U5+) processor 250KF Plus - Tray - LGA1851 - Core Ultra 200S Plus Arrow Lake-S Refresh Series"
-  },
-  {
-    "score": 95,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900K",
-    "listing_b": "plonter:BX8071513900KF",
-    "title_a": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "title_b": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "match_text_a": "BX8071513900K Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box",
-    "match_text_b": "BX8071513900KF Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box"
-  },
-  {
-    "score": 95,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900K",
-    "listing_b": "plonter:CM8071505094011",
-    "title_a": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "title_b": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray",
-    "match_text_a": "BX8071513900K Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box",
-    "match_text_b": "CM8071505094011 Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray"
   },
   {
     "score": 95,
@@ -3914,17 +3914,6 @@
     "title_b": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5200MT/s – נפח 2x24GB – זמן אחזור CL38 – תאורת RGB",
     "match_text_a": "CMK48GX5M2B5200C38 CORSAIR VENGEANCE DDR5 5200MT/s 2x24GB CL38",
     "match_text_b": "CMH48GX5M2B5200C38 CORSAIR VENGEANCE RGB DDR5 5200MT/s 2x24GB CL38 RGB"
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "ivory:148384",
-    "listing_b": "ivory:148387",
-    "title_a": "זכרון למחשב CORSAIR VENGEANCE DDR5 – מהירות 5600MT/s – נפח 2x24GB – זמן אחזור CL40",
-    "title_b": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5600MT/s – נפח 2x24GB – זמן אחזור CL40 – תאורת RGB",
-    "match_text_a": "CMK48GX5M2B5600C40 CORSAIR VENGEANCE DDR5 5600MT/s 2x24GB CL40",
-    "match_text_b": "CMH48GX5M2B5600C40 CORSAIR VENGEANCE RGB DDR5 5600MT/s 2x24GB CL40 RGB"
   },
   {
     "score": 95,
@@ -5910,17 +5899,6 @@
     "score": 94,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "plonter:BX8071513900KF",
-    "listing_b": "plonter:CM8071505094012",
-    "title_a": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "title_b": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray",
-    "match_text_a": "BX8071513900KF Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "match_text_b": "CM8071505094012 Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray"
-  },
-  {
-    "score": 94,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "plonter:BX8071514100F",
     "listing_b": "plonter:BX8071514400",
     "title_a": "Intel Core i3 14100F 14th Gen Raptor Lake (12M Cache, up to 4.70 GHz) FC-LGA16A, Box",
@@ -6037,17 +6015,6 @@
     "title_b": "Intel Core i9-14900K Processor - LGA1700 - 14th Gen Raptor Lake-R 24-Core (8P+16E) - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray",
     "match_text_a": "CM8071504820721 Intel Core i7-14700K Processor - LGA1700 - 14th Gen Raptor Lake-R 20-Core (8P+12E) - Base Power 125W Maximum Turbo Power 253W - 33MB Intel Smart Cache - Tray",
     "match_text_b": "CM8071505094017 Intel Core i9-14900K Processor - LGA1700 - 14th Gen Raptor Lake-R 24-Core (8P+16E) - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray"
-  },
-  {
-    "score": 94,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:CM8071505094011",
-    "listing_b": "plonter:CM8071505094012",
-    "title_a": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray",
-    "title_b": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray",
-    "match_text_a": "CM8071505094011 Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray",
-    "match_text_b": "CM8071505094012 Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray"
   },
   {
     "score": 94,
@@ -6422,17 +6389,6 @@
     "title_b": "MSI GeForce RTX 5060 Ti 8G VENTUS 2X OC PLUS graphics card in black and silver color.",
     "match_text_a": "194054 MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS graphics card in black and silver color.",
     "match_text_b": "203123 MSI GeForce RTX 5060 Ti 8G VENTUS 2X OC PLUS graphics card in black and silver color."
-  },
-  {
-    "score": 94,
-    "category": "gpu",
-    "brand": "MSI",
-    "listing_a": "1pc:203121",
-    "listing_b": "1pc:203122",
-    "title_a": "MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "title_b": "MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
-    "match_text_a": "203121 MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "match_text_b": "203122 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black."
   },
   {
     "score": 94,
@@ -8572,6 +8528,17 @@
     "score": 93,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "ivory:80276",
+    "listing_b": "ivory:80279",
+    "title_a": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
+    "match_text_a": "I9-14900KF Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "match_text_b": "I9-14900KFB Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "plonter:AT807680640F",
     "listing_b": "plonter:AT8076806419",
     "title_a": "Intel Core Ultra 5 245K Processor (series 2) - LGA1851 - 14 cores (6 P-cores + 8 E-cores) up to 5.2 GHz - Core Ultra 200S Series - Tray",
@@ -8732,17 +8699,6 @@
     "title_b": "Intel Core i9-12900F - Box - (Alder Lake Series)",
     "match_text_a": "BX8071512400 Intel Core i5-12400 - Box - (Alder Lake Series)",
     "match_text_b": "BX8071512900F Intel Core i9-12900F - Box - (Alder Lake Series)"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900KF",
-    "listing_b": "plonter:BX8071513900KS",
-    "title_a": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "title_b": "Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency: 3.2 GHz E-core Base Frequency: 2.4 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "match_text_a": "BX8071513900KF Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "match_text_b": "BX8071513900KS Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency 3.2 GHz E-core Base Frequency 2.4 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box"
   },
   {
     "score": 93,
@@ -11223,17 +11179,6 @@
     "score": 92,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "1pc:172012",
-    "listing_b": "1pc:172013",
-    "title_a": "Gigabyte Z890 AORUS ELITE WiFi7 Motherboard.",
-    "title_b": "Gigabyte Z890 AORUS ELITE WiFi7 ICE motherboard.",
-    "match_text_a": "172012 Gigabyte Z890 AORUS ELITE WiFi7 Motherboard.",
-    "match_text_b": "172013 Gigabyte Z890 AORUS ELITE WiFi7 ICE motherboard."
-  },
-  {
-    "score": 92,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "1pc:177646",
     "listing_b": "1pc:177652",
     "title_a": "Gigabyte B850 AORUS ELITE WIFI7 ICE Motherboard.",
@@ -11674,6 +11619,28 @@
     "score": 92,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "ivory:85503",
+    "listing_b": "ivory:85515",
+    "title_a": "מעבד Intel Core i3-14100 up to 4.70GHz 12MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "match_text_a": "I3-14100 Intel Core i3-14100 up to 4.70GHz 12MB Cache Raptor Lake Tray",
+    "match_text_b": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "ivory:85515",
+    "listing_b": "ivory:85518",
+    "title_a": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Box",
+    "match_text_a": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "match_text_b": "I5-14400B Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Box"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "plonter:AT80768063F6",
     "listing_b": "plonter:AT807680640F",
     "title_a": "Intel Core Ultra 5 235 Processor (series 2) - LGA1851 - 14 cores (6 P-cores + 8 E-cores) 24M Cache,up to 5.0 GHz - Core Ultra 200S Series - Tray",
@@ -11845,28 +11812,6 @@
     "title_b": "Intel Xeon Silver 4214R (12 Cores, 16.5M Cache, 2.40 GHz), LGA3647, Tray - Scalable Processors Series Skylake-SP",
     "match_text_a": "BX806954214R Intel Xeon Silver 4214R (12 Cores 16.5M Cache 2.40 GHz) LGA3647 Box - Scalable Processors Series Skylake-SP",
     "match_text_b": "CD8069504343701 Intel Xeon Silver 4214R (12 Cores 16.5M Cache 2.40 GHz) LGA3647 Tray - Scalable Processors Series Skylake-SP"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900",
-    "listing_b": "plonter:BX8071513900F",
-    "title_a": "Intel Core i9-13900 36M Cache, up to 2.00GHz - LGA1700 - 13th Gen Raptor Lake - Box",
-    "title_b": "Intel Core i9-13900F 36M Cache, up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Box",
-    "match_text_a": "BX8071513900 Intel Core i9-13900 36M Cache up to 2.00GHz - LGA1700 - 13th Gen Raptor Lake - Box",
-    "match_text_b": "BX8071513900F Intel Core i9-13900F 36M Cache up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Box"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900KS",
-    "listing_b": "plonter:CM8071505094011",
-    "title_a": "Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency: 3.2 GHz E-core Base Frequency: 2.4 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "title_b": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray",
-    "match_text_a": "BX8071513900KS Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency 3.2 GHz E-core Base Frequency 2.4 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box",
-    "match_text_b": "CM8071505094011 Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray"
   },
   {
     "score": 92,
@@ -16932,17 +16877,6 @@
     "score": 91,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "1pc:172004",
-    "listing_b": "1pc:172012",
-    "title_a": "Gigabyte Z890M AORUS ELITE WiFi7 ICE Motherboard.",
-    "title_b": "Gigabyte Z890 AORUS ELITE WiFi7 Motherboard.",
-    "match_text_a": "172004 Gigabyte Z890M AORUS ELITE WiFi7 ICE Motherboard.",
-    "match_text_b": "172012 Gigabyte Z890 AORUS ELITE WiFi7 Motherboard."
-  },
-  {
-    "score": 91,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "1pc:172010",
     "listing_b": "1pc:174181",
     "title_a": "Gigabyte Z890 AORUS MASTER motherboard.",
@@ -17537,28 +17471,6 @@
     "score": 91,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "plonter:BX8071513900K",
-    "listing_b": "plonter:CM8071505094012",
-    "title_a": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "title_b": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray",
-    "match_text_a": "BX8071513900K Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box",
-    "match_text_b": "CM8071505094012 Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900KF",
-    "listing_b": "plonter:CM8071505094011",
-    "title_a": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "title_b": "Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray",
-    "match_text_a": "BX8071513900KF Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Box",
-    "match_text_b": "CM8071505094011 Intel Core i9-13900K Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "plonter:BX8071514100F",
     "listing_b": "plonter:BX8071514700",
     "title_a": "Intel Core i3 14100F 14th Gen Raptor Lake (12M Cache, up to 4.70 GHz) FC-LGA16A, Box",
@@ -17994,6 +17906,17 @@
     "title_b": "מארז מחשב CoolerMaster MasterBox NR600P",
     "match_text_a": "MCB-NR200P-WGNN-S00 CoolerMaster MasterBox NR200P",
     "match_text_b": "MCB-NR600P-KNNN-S00 CoolerMaster MasterBox NR600P"
+  },
+  {
+    "score": 91,
+    "category": "gpu",
+    "brand": "ASUS",
+    "listing_a": "1pc:193818",
+    "listing_b": "1pc:193819",
+    "title_a": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
+    "title_b": "ASUS PRIME GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
+    "match_text_a": "193818 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
+    "match_text_b": "193819 ASUS PRIME GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card."
   },
   {
     "score": 91,
@@ -20029,17 +19952,6 @@
     "title_b": "Gigabyte C102 Glass Case",
     "match_text_a": "207734 Gigabyte C102 Glass GB-C102G computer case in black color.",
     "match_text_b": "GB-C102G Gigabyte C102 Glass Case"
-  },
-  {
-    "score": 91,
-    "category": "psu",
-    "brand": "Corsair",
-    "listing_a": "1pc:179078",
-    "listing_b": "1pc:188433",
-    "title_a": "Corsair RM750x 750W ATX 3.1 Gold Modular Power Supply.",
-    "title_b": "Corsair RM750e 750W ATX 3.1 Gold Modular Power Supply.",
-    "match_text_a": "179078 Corsair RM750x 750W ATX 3.1 Gold Modular Power Supply.",
-    "match_text_b": "188433 Corsair RM750e 750W ATX 3.1 Gold Modular Power Supply."
   },
   {
     "score": 91,
@@ -22366,17 +22278,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "plonter:BX8071513900F",
-    "listing_b": "plonter:CM8071504820606",
-    "title_a": "Intel Core i9-13900F 36M Cache, up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Box",
-    "title_b": "Intel Core i9-13900F 36M Cache, up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Tray",
-    "match_text_a": "BX8071513900F Intel Core i9-13900F 36M Cache up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Box",
-    "match_text_b": "CM8071504820606 Intel Core i9-13900F 36M Cache up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "plonter:BX8071514400",
     "listing_b": "plonter:CM8071505093012",
     "title_a": "Intel Core i5 14400 14th Gen Raptor Lake (20M Cache, up to 4.70 GHz) FC-LGA16A, Box",
@@ -22526,17 +22427,6 @@
     "title_b": "Intel Core i5-12400F - Tray - (Alder Lake Series)",
     "match_text_a": "CM8071504549318 Intel Core i9-12900F - Tray - (Alder Lake Series)",
     "match_text_b": "CM8071504650609 Intel Core i5-12400F - Tray - (Alder Lake Series)"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:CM8071504820605",
-    "listing_b": "plonter:CM8071504820606",
-    "title_a": "Intel Core i9-13900 36M Cache, up to 5.60GHz - LGA1700 - 13th Gen Raptor Lake - Tray",
-    "title_b": "Intel Core i9-13900F 36M Cache, up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Tray",
-    "match_text_a": "CM8071504820605 Intel Core i9-13900 36M Cache up to 5.60GHz - LGA1700 - 13th Gen Raptor Lake - Tray",
-    "match_text_b": "CM8071504820606 Intel Core i9-13900F 36M Cache up to 2.00GHz - LGA1700 - No Graphics - 13th Gen Raptor Lake - Tray"
   },
   {
     "score": 90,
@@ -24358,6 +24248,17 @@
     "category": "motherboard",
     "brand": "ASUS",
     "listing_a": "1pc:214771",
+    "listing_b": "1pc:214825",
+    "title_a": "ASUS Prime A620M-K motherboard, black color.",
+    "title_b": "ASUS Prime A520M-R motherboard, black color.",
+    "match_text_a": "214771 ASUS Prime A620M-K motherboard black color.",
+    "match_text_b": "214825 ASUS Prime A520M-R motherboard black color."
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "1pc:214771",
     "listing_b": "1pc:216411",
     "title_a": "ASUS Prime A620M-K motherboard, black color.",
     "title_b": "ASUS Prime H810M-K motherboard, black color.",
@@ -24528,17 +24429,6 @@
     "title_b": "MSI PRO B860-P WIFI motherboard.",
     "match_text_a": "179933 MSI PRO B860-P motherboard.",
     "match_text_b": "179934 MSI PRO B860-P WIFI motherboard."
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "MSI",
-    "listing_a": "1pc:203119",
-    "listing_b": "1pc:203121",
-    "title_a": "MSI GeForce RTX 5070 12G SHADOW 3X OC graphics card in black.",
-    "title_b": "MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "match_text_a": "203119 MSI GeForce RTX 5070 12G SHADOW 3X OC graphics card in black.",
-    "match_text_b": "203121 MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black."
   },
   {
     "score": 90,
@@ -27756,17 +27646,6 @@
     "score": 89,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "1pc:172012",
-    "listing_b": "1pc:206281",
-    "title_a": "Gigabyte Z890 AORUS ELITE WiFi7 Motherboard.",
-    "title_b": "Gigabyte X870M AORUS ELITE WiFi7 Motherboard.",
-    "match_text_a": "172012 Gigabyte Z890 AORUS ELITE WiFi7 Motherboard.",
-    "match_text_b": "206281 Gigabyte X870M AORUS ELITE WiFi7 Motherboard."
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "1pc:176978",
     "listing_b": "1pc:216073",
     "title_a": "Gigabyte B550M K motherboard.",
@@ -28367,17 +28246,6 @@
     "title_b": "Intel Core i9-12900KF 16C/24T cores 12th Gen CPU - 3.2 GHz - Max Turbo Frequency 5.2 GHz - No Graphics - Socket LGA1700 - 10nm - 30MB cache - 125-241W TDP - Tray - (Alder Lake Series)",
     "match_text_a": "BX8071512900K Intel Core i9-12900K 16C/24T 12th Gen CPU - 3.2 GHz - Max Turbo Frequency 5.2 GHz - Intel UHD Graphics 770 - Socket LGA1700 - 10nm - 30MB cache - 125-241W TDP - Box - (Alder Lake Series)",
     "match_text_b": "CM8071504549231 Intel Core i9-12900KF 16C/24T cores 12th Gen CPU - 3.2 GHz - Max Turbo Frequency 5.2 GHz - No Graphics - Socket LGA1700 - 10nm - 30MB cache - 125-241W TDP - Tray - (Alder Lake Series)"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "plonter:BX8071513900KS",
-    "listing_b": "plonter:CM8071505094012",
-    "title_a": "Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency: 3.2 GHz E-core Base Frequency: 2.4 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intelֲ® UHD Graphics 770 - Box",
-    "title_b": "Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency: 3.0 GHz E-core Base Frequency: 2.2 GHz - Base Power 125W, Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray",
-    "match_text_a": "BX8071513900KS Intel Core i9-13900KS Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P 16E) P-core Base Frequency 3.2 GHz E-core Base Frequency 2.4 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Intel UHD Graphics 770 - Box",
-    "match_text_b": "CM8071505094012 Intel Core i9-13900KF Processor - LGA1700 - 13th Gen Raptor Lake 24-Core (8P+16E) P-core Base Frequency 3.0 GHz E-core Base Frequency 2.2 GHz - Base Power 125W Maximum Turbo Power 253W - 36MB Intel Smart Cache - Tray"
   },
   {
     "score": 89,
@@ -29472,17 +29340,6 @@
     "score": 89,
     "category": "gpu",
     "brand": "MSI",
-    "listing_a": "1pc:194054",
-    "listing_b": "1pc:203128",
-    "title_a": "MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS graphics card in black and silver color.",
-    "title_b": "MSI RTX 5070 Ti 16G VENTUS 3X OC graphics card in black silver color.",
-    "match_text_a": "194054 MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS graphics card in black and silver color.",
-    "match_text_b": "203128 MSI RTX 5070 Ti 16G VENTUS 3X OC graphics card in black silver color."
-  },
-  {
-    "score": 89,
-    "category": "gpu",
-    "brand": "MSI",
     "listing_a": "1pc:203118",
     "listing_b": "1pc:203119",
     "title_a": "MSI GeForce RTX 5070 12G VENTUS 2X OC graphics card in black.",
@@ -29500,17 +29357,6 @@
     "title_b": "MSI RTX 5080 16G SHADOW 3X OC graphics card in black.",
     "match_text_a": "203119 MSI GeForce RTX 5070 12G SHADOW 3X OC graphics card in black.",
     "match_text_b": "203129 MSI RTX 5080 16G SHADOW 3X OC graphics card in black."
-  },
-  {
-    "score": 89,
-    "category": "gpu",
-    "brand": "MSI",
-    "listing_a": "1pc:203121",
-    "listing_b": "1pc:203127",
-    "title_a": "MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "title_b": "MSI GeForce RTX 5060 Ti 16G SHADOW OC PLUS graphics card in black.",
-    "match_text_a": "203121 MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "match_text_b": "203127 MSI GeForce RTX 5060 Ti 16G SHADOW OC PLUS graphics card in black."
   },
   {
     "score": 89,
@@ -34214,17 +34060,6 @@
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "1pc:170331",
-    "listing_b": "1pc:172012",
-    "title_a": "Gigabyte X870 AORUS ELITE WIFI7 Motherboard.",
-    "title_b": "Gigabyte Z890 AORUS ELITE WiFi7 Motherboard.",
-    "match_text_a": "170331 Gigabyte X870 AORUS ELITE WIFI7 Motherboard.",
-    "match_text_b": "172012 Gigabyte Z890 AORUS ELITE WiFi7 Motherboard."
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:170331",
     "listing_b": "1pc:177647",
     "title_a": "Gigabyte X870 AORUS ELITE WIFI7 Motherboard.",
     "title_b": "Gigabyte B850 AORUS ELITE WIFI7 Motherboard.",
@@ -35104,11 +34939,33 @@
     "score": 88,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "ivory:80276",
+    "listing_b": "ivory:85536",
+    "title_a": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray",
+    "match_text_a": "I9-14900KF Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "match_text_b": "I7-14700 Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "ivory:85503",
     "listing_b": "ivory:85536",
     "title_a": "מעבד Intel Core i3-14100 up to 4.70GHz 12MB Cache Raptor Lake Tray",
     "title_b": "מעבד Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray",
     "match_text_a": "I3-14100 Intel Core i3-14100 up to 4.70GHz 12MB Cache Raptor Lake Tray",
+    "match_text_b": "I7-14700 Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "ivory:85515",
+    "listing_b": "ivory:85536",
+    "title_a": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray",
+    "match_text_a": "I5-14400 Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
     "match_text_b": "I7-14700 Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray"
   },
   {
@@ -35638,17 +35495,6 @@
     "title_b": "Antec FLUX computer case.",
     "match_text_a": "171577 Antec FLUX White computer case.",
     "match_text_b": "171578 Antec FLUX computer case."
-  },
-  {
-    "score": 88,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:171582",
-    "listing_b": "1pc:171584",
-    "title_a": "Antec CX800 Wood ARGB computer case.",
-    "title_b": "Antec CX700 ARGB computer case.",
-    "match_text_a": "171582 Antec CX800 Wood ARGB computer case.",
-    "match_text_b": "171584 Antec CX700 ARGB computer case."
   },
   {
     "score": 88,
@@ -36246,6 +36092,17 @@
   },
   {
     "score": 88,
+    "category": "gpu",
+    "brand": "ASUS",
+    "listing_a": "1pc:193818",
+    "listing_b": "1pc:205316",
+    "title_a": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
+    "title_b": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition graphics card in white color.",
+    "match_text_a": "193818 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
+    "match_text_b": "205316 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition graphics card in white color."
+  },
+  {
+    "score": 88,
     "category": "case_fan",
     "brand": "Noctua",
     "listing_a": "ivory:85068",
@@ -36562,6 +36419,17 @@
     "title_b": "ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming.",
     "match_text_a": "179737 ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard.",
     "match_text_b": "179738 ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming."
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "1pc:216770",
+    "listing_b": "1pc:218744",
+    "title_a": "Motherboard Asus TUF GAMING A520M-PLUS WiFi.",
+    "title_b": "Motherboard Asus TUF GAMING A520M-PLUS II.",
+    "match_text_a": "216770 Motherboard Asus TUF GAMING A520M-PLUS WiFi.",
+    "match_text_b": "218744 Motherboard Asus TUF GAMING A520M-PLUS II."
   },
   {
     "score": 88,
