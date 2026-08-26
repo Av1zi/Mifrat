@@ -9,12 +9,12 @@ import {
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
-import { esc } from "../utils";
+import { displayName, esc } from "../utils";
 import { closeDetail, openDetail } from "./detail";
 
 const PAGE_SIZE = 60;
-// Added "vendor" to priority list
 const ATTR_PRIORITY = ["brand", "socket", "chipset", "memory_type", "form_factor", "color", "wifi", "vendor"];
+const MAX_SPEC_COLUMNS = 4;
 
 function computeFilterableAttributes(products: Product[]): Map<string, Array<[string, number]>> {
   const counts = new Map<string, Map<string, number>>();
@@ -25,17 +25,16 @@ function computeFilterableAttributes(products: Product[]): Map<string, Array<[st
       const values = counts.get(key)!;
       values.set(value, (values.get(value) ?? 0) + 1);
     }
-    // Add vendors to filterable attributes
-    const vendors = new Set(p.offers.map(o => o.vendor));
+    const vendors = new Set(p.offers.map((o) => o.vendor));
     for (const v of vendors) {
-      if (!counts.has('vendor')) counts.set('vendor', new Map());
-      const values = counts.get('vendor')!;
+      if (!counts.has("vendor")) counts.set("vendor", new Map());
+      const values = counts.get("vendor")!;
       values.set(v, (values.get(v) ?? 0) + 1);
     }
   }
   const filterable = new Map<string, Array<[string, number]>>();
   for (const [key, values] of counts) {
-    const maxValues = key === 'vendor' ? 30 : 20;
+    const maxValues = key === "vendor" ? 30 : 40;
     if (values.size < 2 || values.size > maxValues) continue;
     filterable.set(key, Array.from(values.entries()).sort((a, b) => b[1] - a[1]));
   }
@@ -60,9 +59,8 @@ function applyFilters(products: Product[], params: CategoryParams): Product[] {
     }
     for (const [key, values] of Object.entries(params.filters)) {
       if (values.length === 0) continue;
-      if (key === 'vendor') {
-        // For vendor filter, check if ANY offer matches the selected shops
-        if (!p.offers.some(o => values.includes(o.vendor))) return false;
+      if (key === "vendor") {
+        if (!p.offers.some((o) => values.includes(o.vendor))) return false;
       } else {
         if (!values.includes(p.attributes[key])) return false;
       }
@@ -110,6 +108,12 @@ export async function renderCategory(
   let localQuery = params.q;
   let visibleCount = PAGE_SIZE;
 
+  // Computed once from ALL products — options are never hidden while filtering.
+  const filterableAttrs = computeFilterableAttributes(products);
+  const specColumns = Array.from(filterableAttrs.keys()).slice(0, MAX_SPEC_COLUMNS);
+  const specColDefs = specColumns.map(() => "minmax(110px, 1fr)").join(" ");
+  const plCols = `minmax(230px, 2.4fr) ${specColDefs} minmax(110px, 1.1fr) minmax(110px, 1fr) minmax(128px, auto)`.replace(/\s{2,}/g, " ");
+
   container.innerHTML = `
     <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
     <h1 class="category-title">${categoryLabel(category, lang)}</h1>
@@ -129,9 +133,9 @@ export async function renderCategory(
           <div id="active-filters"></div>
           <div id="results-count"></div>
         </div>
-        <div class="product-grid" id="product-grid"></div>
+        <div class="product-list" id="product-list"></div>
         <div style="text-align:center; margin-top:20px;">
-          <button class="clear-filters" id="load-more" type="button" style="display:none; width:auto; padding:10px 20px;"></button>
+          <button class="btn-primary" id="load-more" type="button" style="display:none;"></button>
         </div>
       </div>
     </div>`;
@@ -146,14 +150,14 @@ export async function renderCategory(
     const chips: string[] = [];
     for (const [key, values] of Object.entries(params.filters)) {
       for (const v of values) {
-        const label = key === 'vendor' ? vendorLabel(v) : v;
+        const label = key === "vendor" ? vendorLabel(v) : v;
         chips.push(`<button class="active-filter-chip" data-key="${esc(key)}" data-value="${esc(v)}" type="button">
           ${esc(attributeLabel(key, lang))}: ${esc(label)} <span class="chip-remove">✕</span>
         </button>`);
       }
     }
-    if (chips.length === 0) return '';
-    return `<div class="active-filters">${chips.join('')}</div>`;
+    if (chips.length === 0) return "";
+    return `<div class="active-filters">${chips.join("")}</div>`;
   }
 
   function syncAndRerender(): void {
@@ -162,35 +166,45 @@ export async function renderCategory(
     renderGrid();
   }
 
-  function cardHtml(p: Product): string {
-    const chips = Object.entries(p.attributes)
-      .filter(([, v]) => typeof v === "string" && v.trim() !== "")
-      .slice(0, 3)
-      .map(([, v]) => `<span class="chip">${esc(v)}</span>`)
+  function headerHtml(): string {
+    const specHeaders = specColumns
+      .map((key) => `<div class="pl-cell">${esc(attributeLabel(key, lang))}</div>`)
+      .join("");
+    return `<div class="pl-header">
+      <div class="pl-cell">${t(lang, "sortName")}</div>
+      ${specHeaders}
+      <div class="pl-cell">${t(lang, "availability")}</div>
+      <div class="pl-cell">${t(lang, "priceHeading")}</div>
+      <div class="pl-cell"></div>
+    </div>`;
+  }
+
+  function rowHtml(p: Product): string {
+    const specCells = specColumns
+      .map((key) => {
+        const text = key === "vendor" ? vendorsCount(lang, p.vendor_count) : (p.attributes[key] ?? "");
+        return `<div class="pl-cell spec">${text ? esc(text) : "—"}</div>`;
+      })
       .join("");
     return `
-      <button class="product-card" type="button" data-id="${esc(p.id)}">
-        <div class="p-brand">${esc(p.brand ?? "")}</div>
-        <div class="p-name">${esc(p.name)}</div>
-        <div class="chip-row">${chips}</div>
-        <div class="p-footer">
-          <span class="p-price"><span class="status-dot ${p.in_stock ? "in" : "out"}"></span>${formatPrice(p.min_price, currency, lang)}</span>
-          <span class="p-vendors">${vendorsCount(lang, p.vendor_count)}</span>
+      <button class="pl-row" type="button" data-id="${esc(p.id)}">
+        <div class="pl-cell pl-name">
+          <span class="pl-title">${esc(displayName(p))}</span>
+          ${p.brand ? `<span class="pl-brand">${esc(p.brand)}</span>` : ""}
         </div>
-      </button>
-    `;
+        ${specCells}
+        <div class="pl-cell pl-stock"><span class="status-dot ${p.in_stock ? "in" : "out"}"></span>${p.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}</div>
+        <div class="pl-cell pl-price">${formatPrice(p.min_price, currency, lang)}</div>
+        <div class="pl-cell pl-action"><span class="btn-small">${t(lang, "viewOffers")}</span></div>
+      </button>`;
   }
 
   function renderGrid(): void {
     const filtered = currentFiltered();
-    // Compute sidebar options based on CURRENTLY filtered products (Cascading Filters)
-    const unsortedFiltered = applyFilters(products, { ...params, q: localQuery });
-    const filterableAttrs = computeFilterableAttributes(unsortedFiltered);
 
-    // Render Active Filters Chips
     const activeFiltersEl = container.querySelector("#active-filters")!;
     activeFiltersEl.innerHTML = activeFiltersHtml();
-    activeFiltersEl.querySelectorAll(".active-filter-chip").forEach(el => {
+    activeFiltersEl.querySelectorAll(".active-filter-chip").forEach((el) => {
       el.addEventListener("click", () => {
         const key = (el as HTMLElement).dataset.key!;
         const value = (el as HTMLElement).dataset.value!;
@@ -204,13 +218,14 @@ export async function renderCategory(
 
     container.querySelector("#results-count")!.textContent = resultsCount(lang, filtered.length);
 
-    const gridEl = container.querySelector("#product-grid")!;
+    const listEl = container.querySelector("#product-list") as HTMLElement;
+    listEl.style.setProperty("--pl-cols", plCols);
     const visible = filtered.slice(0, visibleCount);
     if (visible.length === 0) {
-      gridEl.innerHTML = `<div class="empty-state">${t(lang, "noResults")}</div>`;
+      listEl.innerHTML = `<div class="empty-state">${t(lang, "noResults")}</div>`;
     } else {
-      gridEl.innerHTML = visible.map(cardHtml).join("");
-      gridEl.querySelectorAll(".product-card").forEach((el) => {
+      listEl.innerHTML = headerHtml() + visible.map(rowHtml).join("");
+      listEl.querySelectorAll(".pl-row").forEach((el) => {
         el.addEventListener("click", () => {
           const id = (el as HTMLElement).dataset.id!;
           navigate(categoryHash(category, { ...params, q: localQuery, productId: id }));
@@ -229,27 +244,23 @@ export async function renderCategory(
     } else {
       loadMoreBtn.style.display = "none";
     }
-
-    renderFilterRail(filterableAttrs);
   }
 
-  function renderFilterRail(filterableAttrs: Map<string, Array<[string, number]>>): void {
+  function renderFilterRail(): void {
     const rail = container.querySelector("#filter-rail")!;
     const groups = Array.from(filterableAttrs.entries())
       .map(([key, values]) => {
         const selected = new Set(params.filters[key] ?? []);
         const options = values
-          .map(
-            ([value, count]) => {
-              const displayValue = key === 'vendor' ? vendorLabel(value) : value;
-              return `
-                <label class="filter-option">
-                  <input type="checkbox" data-attr="${esc(key)}" value="${esc(value)}" ${selected.has(value) ? "checked" : ""} />
-                  ${esc(displayValue)} <span style="color:var(--ink-dim)">(${count})</span>
-                </label>
-              `;
-            }
-          )
+          .map(([value, count]) => {
+            const displayValue = key === "vendor" ? vendorLabel(value) : value;
+            return `
+              <label class="filter-option">
+                <input type="checkbox" data-attr="${esc(key)}" value="${esc(value)}" ${selected.has(value) ? "checked" : ""} />
+                ${esc(displayValue)} <span class="fo-count">(${count})</span>
+              </label>
+            `;
+          })
           .join("");
         return `<details class="filter-group" open><summary>${esc(attributeLabel(key, lang))}</summary>${options}</details>`;
       })
@@ -286,6 +297,7 @@ export async function renderCategory(
     });
   }
 
+  renderFilterRail();
   renderGrid();
 
   const searchInput = container.querySelector("#search-input") as HTMLInputElement;

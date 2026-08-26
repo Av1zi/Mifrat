@@ -1,7 +1,7 @@
 import { formatPrice } from "../format";
 import { attributeLabel, t, vendorLabel } from "../i18n";
 import type { Currency, Lang, Product } from "../types";
-import { esc } from "../utils";
+import { displayName, esc, skuOf } from "../utils";
 
 let dismiss: (() => void) | null = null;
 
@@ -42,14 +42,13 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
     })
     .join("");
 
-  // Fallback to ID if model is missing
-  const sku = product.model || product.id;
+  const sku = skuOf(product);
 
   panel.innerHTML = `
     <button class="overlay-close" type="button">${t(lang, "close")} ✕</button>
-    <div class="overlay-title">${esc(product.name)}</div>
+    <div class="overlay-title">${esc(displayName(product))}</div>
     <div class="overlay-brand">${esc(product.brand ?? "")}</div>
-    ${sku ? `<div class="overlay-sku">${t(lang, "skuLabel")}: ${esc(sku)}</div>` : ''}
+    ${sku ? `<div class="overlay-sku">SKU: ${esc(sku)}</div>` : ""}
     ${specRows ? `<table class="spec-table">${specRows}</table>` : ""}
     <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-dim); margin-bottom:10px;">
       ${t(lang, "offersHeading")}

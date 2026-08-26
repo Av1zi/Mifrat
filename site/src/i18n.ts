@@ -74,6 +74,8 @@ export function attributeLabel(key: string, lang: Lang): string {
 
 const STRINGS = {
   he: {
+    availability: "זמינות",
+    priceHeading: "מחיר",
     skuLabel: "מק״ט",
     appName: "מפרט",
     tagline: "השוואת מחירים לרכיבי מחשב מהחנויות המובילות בישראל",
@@ -104,6 +106,8 @@ const STRINGS = {
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
   en: {
+    availability: "Availability",
+    priceHeading: "Price",
     skuLabel: "SKU",
     appName: "Mifrat",
     tagline: "Price comparison for PC parts across Israeli vendors",
