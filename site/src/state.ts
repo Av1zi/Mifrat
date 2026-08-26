@@ -2,21 +2,36 @@ import type { Currency, Lang, SortKey } from "./types";
 
 const LANG_KEY = "mifrat:lang";
 const CURRENCY_KEY = "mifrat:currency";
+const BUILD_KEY = "mifrat:build";
 
 export function getLang(): Lang {
   return localStorage.getItem(LANG_KEY) === "en" ? "en" : "he";
 }
-
 export function setLang(lang: Lang): void {
   localStorage.setItem(LANG_KEY, lang);
 }
-
 export function getCurrency(): Currency {
   return localStorage.getItem(CURRENCY_KEY) === "USD" ? "USD" : "ILS";
 }
-
 export function setCurrency(currency: Currency): void {
   localStorage.setItem(CURRENCY_KEY, currency);
+}
+
+/** Draft build (slot id -> product id), survives reloads; shared URLs override it. */
+export function getStoredBuild(): Record<string, string> {
+  try {
+    const raw = localStorage.getItem(BUILD_KEY);
+    if (raw) {
+      const parsed: unknown = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") return parsed as Record<string, string>;
+    }
+  } catch {
+    // corrupt entry — start fresh
+  }
+  return {};
+}
+export function setStoredBuild(build: Record<string, string>): void {
+  localStorage.setItem(BUILD_KEY, JSON.stringify(build));
 }
 
 export interface CategoryParams {
@@ -31,6 +46,7 @@ export interface CategoryParams {
 
 export type Route =
   | { view: "home" }
+  | { view: "build"; shared: Record<string, string> | null }
   | { view: "category"; category: string; params: CategoryParams };
 
 function defaultCategoryParams(): CategoryParams {
@@ -43,15 +59,22 @@ export function parseRoute(): Route {
   const raw = location.hash.replace(/^#/, "");
   const [path, queryStr] = raw.split("?");
 
+  if (path === "/build" || path === "/build/") {
+    const search = new URLSearchParams(queryStr ?? "");
+    const shared: Record<string, string> = {};
+    for (const [key, value] of search.entries()) {
+      if (value) shared[key] = value;
+    }
+    return { view: "build", shared: Object.keys(shared).length ? shared : null };
+  }
+
   const match = /^\/c\/([^/]+)/.exec(path ?? "");
   if (!match) {
     return { view: "home" };
   }
-
   const category = decodeURIComponent(match[1]);
   const params = defaultCategoryParams();
   const search = new URLSearchParams(queryStr ?? "");
-
   params.q = search.get("q") ?? "";
   const sort = search.get("sort");
   if (sort && (VALID_SORTS as string[]).includes(sort)) {
@@ -59,32 +82,37 @@ export function parseRoute(): Route {
   }
   params.stockOnly = search.get("stock") === "1";
   params.productId = search.get("p");
-
   for (const [key, value] of search.entries()) {
     if (key.startsWith("f.")) {
       const attrKey = key.slice(2);
       params.filters[attrKey] = value.split("|").filter(Boolean);
     }
   }
-
   return { view: "category", category, params };
 }
 
 export function categoryHash(category: string, params: Partial<CategoryParams> = {}): string {
   const merged: CategoryParams = { ...defaultCategoryParams(), ...params };
   const search = new URLSearchParams();
-
   if (merged.q) search.set("q", merged.q);
   if (merged.sort !== "price_asc") search.set("sort", merged.sort);
   if (merged.stockOnly) search.set("stock", "1");
   if (merged.productId) search.set("p", merged.productId);
-
   for (const [key, values] of Object.entries(merged.filters)) {
     if (values.length > 0) search.set(`f.${key}`, values.join("|"));
   }
-
   const query = search.toString();
   return `#/c/${encodeURIComponent(category)}${query ? `?${query}` : ""}`;
+}
+
+/** The build IS the URL — shareable with no backend, per decisions.md. */
+export function buildHash(build: Record<string, string>): string {
+  const search = new URLSearchParams();
+  for (const [slot, id] of Object.entries(build)) {
+    if (id) search.set(slot, id);
+  }
+  const query = search.toString();
+  return `#/build${query ? `?${query}` : ""}`;
 }
 
 export function homeHash(): string {
@@ -97,10 +125,10 @@ export function navigate(hash: string): void {
 }
 
 /**
- * In-page state changes (search/sort/filters/stock toggle): updates the
- * address bar for shareability without adding a history entry per click,
- * and deliberately does NOT fire 'hashchange' — callers re-render locally.
- */
+In-page state changes (search/sort/filters/stock toggle): updates the
+address bar for shareability without adding a history entry per click,
+and deliberately does NOT fire 'hashchange' — callers re-render locally.
+*/
 export function replaceRoute(hash: string): void {
   history.replaceState(null, "", hash);
 }

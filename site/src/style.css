@@ -257,3 +257,80 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
 .offer-link:hover { background: var(--good-dark); }
 .offer-row.is-out .offer-price { color: var(--ink-dim); }
 .tag-stale { color: var(--bad); }
+
+/* ---------- builder ---------- */
+.nav-build {
+  color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem;
+  background: #21242b; border: 1px solid var(--header-line);
+  padding: 8px 14px; border-radius: var(--radius-sm);
+}
+.nav-build:hover { border-color: var(--gold); color: var(--gold); }
+
+.build-hero { padding: 28px 16px; }
+
+.build-share { display: flex; gap: 10px; margin: 16px 0 12px; }
+.share-input {
+  flex: 1; background: var(--bg-panel); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 9px 12px;
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-dim);
+}
+
+.compat-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.compat-banner { flex: 1; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 0.85rem; font-weight: 600; }
+.compat-banner.ok { background: var(--good); color: #fff; }
+.compat-banner.bad { background: var(--bad); color: #fff; }
+.compat-banner.idle { background: var(--bg-panel); border: 1px solid var(--line); color: var(--ink-dim); font-weight: 400; }
+.watt-badge {
+  background: var(--accent); color: #fff; border-radius: var(--radius-sm);
+  padding: 10px 14px; font-size: 0.85rem; font-weight: 600; white-space: nowrap;
+}
+
+.build-table { background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.build-head, .build-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr minmax(90px, auto) minmax(90px, auto) minmax(90px, auto);
+  align-items: center;
+}
+.build-head {
+  background: var(--bg-panel-raised); border-bottom: 1px solid var(--line);
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--ink-dim); font-weight: 700;
+}
+.bh-cell { padding: 10px 12px; min-width: 0; }
+.build-row { border-bottom: 1px solid var(--line-soft); min-height: 58px; }
+.build-row:last-child { border-bottom: none; }
+.bs-slot { font-weight: 600; color: var(--accent); font-size: 0.85rem; }
+.bs-selection { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.bs-part-name { font-weight: 600; font-size: 0.88rem; }
+.bs-part-brand { font-size: 0.7rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.bs-remove { background: none; border: none; color: var(--ink-dim); cursor: pointer; font-size: 0.9rem; padding: 4px 8px; }
+.bs-remove:hover { color: var(--bad); }
+.btn-choose {
+  background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm);
+  padding: 7px 14px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.btn-choose:hover { background: var(--accent-dark); }
+.bs-price { font-family: var(--font-mono); font-weight: 700; color: var(--good); }
+.bs-stock { font-size: 0.8rem; color: var(--ink-dim); }
+.build-total { display: flex; justify-content: flex-end; align-items: baseline; gap: 10px; padding: 16px 4px; }
+.build-total strong { font-family: var(--font-mono); font-size: 1.2rem; }
+
+.add-to-build { margin: 0 0 14px; }
+
+.picker-search { margin: 10px 0; width: 100%; }
+.picker-list { display: flex; flex-direction: column; gap: 6px; max-height: 60vh; overflow-y: auto; }
+.picker-item {
+  display: flex; justify-content: space-between; gap: 10px;
+  background: var(--bg-panel-raised); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 8px 10px; cursor: pointer;
+  text-align: start; font: inherit; color: inherit;
+}
+.picker-item:hover { border-color: var(--accent); }
+.picker-name { font-size: 0.85rem; font-weight: 500; }
+.picker-price { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-dim); white-space: nowrap; }
+
+@media (max-width: 800px) {
+  .build-head { display: none; }
+  .build-row { display: flex; flex-wrap: wrap; gap: 6px 12px; }
+  .bs-slot, .bs-selection { flex: 1 1 100%; }
+}

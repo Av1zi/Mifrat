@@ -1,5 +1,7 @@
+import { slotForCategory } from "../build";
 import { formatPrice } from "../format";
 import { attributeLabel, t, vendorLabel } from "../i18n";
+import { buildHash, getStoredBuild, navigate, setStoredBuild } from "../state";
 import type { Currency, Lang, Product } from "../types";
 import { displayName, esc, skuOf } from "../utils";
 
@@ -43,12 +45,14 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
     .join("");
 
   const sku = skuOf(product);
+  const slot = slotForCategory(product.category);
 
   panel.innerHTML = `
     <button class="overlay-close" type="button">${t(lang, "close")} ✕</button>
     <div class="overlay-title">${esc(displayName(product))}</div>
     <div class="overlay-brand">${esc(product.brand ?? "")}</div>
     ${sku ? `<div class="overlay-sku">SKU: ${esc(sku)}</div>` : ""}
+    ${slot ? `<button class="btn-primary add-to-build" type="button">+ ${t(lang, "addToBuild")}</button>` : ""}
     ${specRows ? `<table class="spec-table">${specRows}</table>` : ""}
     <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-dim); margin-bottom:10px;">
       ${t(lang, "offersHeading")}
@@ -58,6 +62,17 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
   backdrop.appendChild(panel);
   document.body.appendChild(backdrop);
   document.body.style.overflow = "hidden";
+
+  const addBtn = panel.querySelector(".add-to-build");
+  if (addBtn && slot) {
+    addBtn.addEventListener("click", () => {
+      const build = getStoredBuild();
+      build[slot.id] = product.id;
+      setStoredBuild(build);
+      closeDetail();
+      navigate(buildHash(build));
+    });
+  }
 
   const cleanup = () => {
     document.body.style.overflow = "";
