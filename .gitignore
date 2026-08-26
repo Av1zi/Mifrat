@@ -35,6 +35,7 @@ diagnose_tms_coverage.py
 # data/raw/**/*.jsonl and data/catalog.json ARE meant to be committed — see
 # §5 of the plan. Nothing to ignore under data/ anymore now that the old
 # Scrapy-Cloud intermediate file (data/listings_latest.jsonl) is gone.
+data/pcpartdb/raw/
 
 # OS / editor cruft
 .DS_Store
