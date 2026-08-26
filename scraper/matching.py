@@ -89,6 +89,43 @@ CATEGORY_ALIASES = {
     "storage": "storage",
     "harddrives": "storage",
     "ssd": "storage",
+
+        # --- storage gaps (1PC "harddrive", TMS/Ivory "hdd") ---
+    "hdd": "storage",
+    "harddrive": "storage",
+    "solidstatedrive": "storage",
+    "solidstatedrives": "storage",
+    "nvme": "storage",
+    "m2": "storage",
+    # --- CPU-cooling gaps (TMS "cpu cooler", 1PC "cpu_cooling",
+    #     Ivory "cpu_cooler_air" / "cpu_cooler_aio") ---
+    "cpucooler": "cooling",
+    "cpucoolers": "cooling",
+    "cpucoling": "cooling",
+    "cpucooling": "cooling",
+    "cpucoolerair": "cooler_air",
+    "aircooler": "cooler_air",
+    "aircoolers": "cooler_air",
+    "cpucooleraio": "aio",
+    "liquidcooler": "aio",
+    "liquidcoolers": "aio",
+    "watercooler": "aio",
+    "allinonecooler": "aio",
+    # --- PSU / GPU variants ---
+    "psus": "psu",
+    "powersupplyunit": "psu",
+    "powersupplyunits": "psu",
+    "videocard": "gpu",
+    "videocards": "gpu",
+    "graphicscards": "gpu",
+    "gpus": "gpu",
+    # --- not build parts -> other ---
+    "monitor": "other",
+    "monitors": "other",
+    "laptop": "other",
+    "laptops": "other",
+    "tablet": "other",
+    "tablets": "other",
 }
 
 
@@ -266,59 +303,97 @@ def normalize_price(value):
 # Category normalization
 # --------------------------------------------------------------------------
 
+AIO_TITLE_RE = re.compile(
+    r"\b(aio|all-in-one|liquid|watercool|water cool|radiator|hydro|"
+    r"kraken|eisbaer|eiswolf|nucleus|masterliquid|silent loop|ryujin|ryuo|"
+    r"liquid freezer|galahad|ek-aio|coolit|alphacool)\b"
+)
+AIR_TITLE_RE = re.compile(
+    r"\b(cpu cooler|air cooler|tower cooler|heatsink|heat sink|"
+    r"peerless assassin|phantom spirit|assassin x|assassin spirit|"
+    r"ak400|ak620|nh-d|nh-u|nh-l|nh-p|nh-a|dark rock|pure rock|shadow rock|"
+    r"hyper 212|freezer 3[46]|freezer i|freezer e|big shuriken|katana|"
+    r"grandis|ta-?120|ps120|pa120|axp90|ax120)\b"
+)
+
+
 def _category_from_title(title_clean: str) -> str | None:
-    """
-    Strong title-based hints for sub-classifying messy cooling/accessory listings.
-    """
+    """Strong title-based hints for sub-classifying messy listings."""
     if not title_clean:
         return None
-
-    if "thermal paste" in title_clean or "thermal grease" in title_clean:
+    t = title_clean
+    if "thermal paste" in t or "thermal grease" in t:
         return "thermal_paste"
-
-    if "mounting kit" in title_clean and "cooler not included" in title_clean:
+    if "mounting kit" in t and "cooler not included" in t:
         return "cooler_accessory"
-
-    if "fan controller" in title_clean or "fan hub" in title_clean:
+    if "fan controller" in t or "fan hub" in t:
         return "fan_controller"
-
-    if "splitter" in title_clean and (
-        "fan" in title_clean or "rgb" in title_clean or "argb" in title_clean
-    ):
+    if "splitter" in t and ("fan" in t or "rgb" in t or "argb" in t):
         return "fan_controller"
-
-    if (
-        "light strip" in title_clean
-        or "light strips" in title_clean
-        or "rgb led" in title_clean
-    ):
+    if "light strip" in t or "light strips" in t or "rgb led" in t:
         return "rgb_lighting"
-
-    if "starter kit" in title_clean and "fan" in title_clean:
+    if "starter kit" in t and "fan" in t:
         return "case_fan"
-
-    if "expansion kit" in title_clean and "fan" in title_clean:
+    if "expansion kit" in t and "fan" in t:
         return "case_fan"
-
-    if re.search(r"\b\d{2,3}\s*mm\b", title_clean) and re.search(r"\bfans?\b", title_clean):
+    if re.search(r"\b\d{2,3}\s*mm\b", t) and re.search(r"\bfans?\b", t):
         return "case_fan"
-
-    if "liquid cooling" in title_clean or "aio" in title_clean:
+    # AIO check must run before the air-cooler check ("Liquid Freezer" etc.)
+    if AIO_TITLE_RE.search(t):
         return "aio"
-
-    if "cpu cooler" in title_clean or "air cooler" in title_clean:
+    if AIR_TITLE_RE.search(t):
         return "cooler_air"
-
+    # --- broad fallbacks, used only when the vendor guess is missing/unknown ---
+    if re.search(r"\b(ssd|solid state|nvme|m\.2)\b", t):
+        return "storage"
+    if re.search(r"\bddr[345]\b", t) and re.search(
+        r"\b(ram|memory|dimms?|vengeance|trident|ripjaws|fury|predator)\b|\d+\s?gb\b", t
+    ):
+        return "memory"
+    if re.search(r"\b(geforce|radeon|quadro|arc a|arc b|rtx \d|rx \d)\b", t):
+        return "gpu"
+    if re.search(r"\b(power supply|psu|80 plus|80\+|cybenetics)\b", t) and re.search(
+        r"\b\d{3,4}\s?w\b", t
+    ):
+        return "psu"
+    if re.search(r"\b(case|chassis|tower)\b", t) and re.search(
+        r"\b(atx|micro-atx|matx|mini-itx|itx|e-atx)\b", t
+    ):
+        return "case"
     return None
 
 
+RISER_RE = re.compile(
+    r"\b(risers?|pci-?e?\s?(riser|extender|extension|splitter)|ver00\d{1,2}[a-z]?|"
+    r"mining\s?(frame|rig|bundle)|gpu\s?(riser|extender|splitter))\b",
+    re.I,
+)
+# "mining/crypto" CARDS are junk, but mining *motherboards* stay boards.
+MINING_CARD_RE = re.compile(
+    r"\b(crypto|bitcoin|btc|ethereum|mining|miner)\b(?!.{0,24}\b(motherboard|board)\b)",
+    re.I,
+)
+MONITOR_RE = re.compile(r"\b(monitor|television|led tv)\b", re.I)
+
+def _is_junk_listing(title_clean: str) -> bool:
+    return bool(RISER_RE.search(title_clean) or MINING_CARD_RE.search(title_clean))
+
+
+def _reclassify(category: str, title_clean: str) -> str:
+    if category == "gpu" and MONITOR_RE.search(title_clean):
+        return "other"
+    return category
+
 def canonical_category(guess: str | None, title: str = "") -> str:
-    """
-    Map vendor category guesses into canonical categories.
-    """
-    # TMS uses things like case:bundle-only / motherboard:bundle-only.
+    """Map vendor category guesses into canonical categories."""
     raw_key = _compact_key(guess).replace("bundleonly", "")
     title_clean = _clean(title).lower()
+
+    # Hard blacklist: risers / mining cards never enter a build category —
+    # dump them into "other" (owner decision, Aug 2026).
+    if _is_junk_listing(title_clean):
+        return "other"
+
     title_cat = _category_from_title(title_clean)
 
     if raw_key in CATEGORY_ALIASES:
@@ -326,17 +401,20 @@ def canonical_category(guess: str | None, title: str = "") -> str:
     elif raw_key.startswith("case") and "fan" not in raw_key:
         category = "case"
     else:
-        category = "other"
+        # No usable vendor guess — fall back to title detection before "other".
+        category = title_cat or "other"
 
     # Plonter sometimes puts accessory items under COMPUTER CASES.
     if category == "case" and title_cat in ACCESSORY_CATEGORIES:
         return title_cat
 
-    # Plonter's "Fans and Cooling solutions" is ambiguous.
+    # Ambiguous cooling guesses ("Fans and Cooling solutions", "cpu cooler").
     if category == "cooling":
-        return title_cat or "cooling_other"
+        if title_cat in ("aio", "cooler_air", "case_fan"):
+            return title_cat
+        return "cooling_other"
 
-    return category
+    return _reclassify(category, title_clean)
 
 
 # --------------------------------------------------------------------------
@@ -569,39 +647,54 @@ def offer_from_listing(enriched: dict) -> dict:
     }
 
 
-def best_name(enriched_listings: list[dict]) -> str:
-    """
-    Choose a display name.
+TITLE_NOISE_RE = re.compile(
+    r"\b(free shipping|ship(?:s|ping)? worldwide|brand new|new in (?:sealed )?box|"
+    r"open box|b-?stock|refurbished|used|best price|cheap|wholesale|"
+    r"bulk (?:pack|order)|with (?:heatsink|fan|rgb lighting)|color tray|tray|"
+    r"oem(?: (?:box|packaging))?|retail (?:box|packaging)|warranty included|"
+    r"\d+(?:-| )?years? (?:warranty|warr)|incl\.? (?:vat|ma'am)|vat included)\b",
+    re.I,
+)
 
-    Manual overrides should provide canonical_name for important merged products.
-    """
+
+def display_title(text: str, max_len: int = 120) -> str:
+    """Trim marketing noise and hard-cap display names."""
+    s = re.sub(r"\s+", " ", str(text or "")).strip()
+    if not s:
+        return s
+    s = TITLE_NOISE_RE.sub(" ", s)
+    s = re.sub(r"^[\s\-–—|·,;:]+", "", s)
+    s = re.sub(r"[\s\-–—|·,;:]+$", "", s)
+    s = re.sub(r"\s{2,}", " ", s).strip()
+    if len(s) > max_len:
+        cut = s[:max_len]
+        if " " in cut:
+            cut = cut.rsplit(" ", 1)[0]
+        s = cut.rstrip(" -–—|·,;:") + "…"
+    return s or "unknown"
+
+
+def best_name(enriched_listings: list[dict]) -> str:
+    """Choose a display name, preferring branded, model-bearing, sane-length titles."""
     if not enriched_listings:
         return "unknown"
-
-    vendor_preference = {
-        "tms": 0,
-        "1pc": 1,
-        "ivory": 2,
-        "plonter": 3,
-    }
+    vendor_preference = {"tms": 0, "1pc": 1, "ivory": 2, "plonter": 3}
 
     def sort_key(e: dict):
         vendor_rank = vendor_preference.get(canonical_vendor_id(e.get("vendor_id")), 9)
+        text = e.get("match_text", "") or ""
         has_brand_penalty = 0 if e.get("brand") else 1
-        text_len = len(e.get("match_text", ""))
-        too_long_penalty = 1 if text_len > 150 else 0
-        return (has_brand_penalty, too_long_penalty, vendor_rank, -text_len)
+        too_long_penalty = 1 if len(text) > 110 else 0
+        has_model_bonus = 0 if re.search(r"\d{3,}", text) else 1
+        return (has_brand_penalty, too_long_penalty, has_model_bonus, vendor_rank, -len(text))
 
     chosen = sorted(enriched_listings, key=sort_key)[0]
-
     match_text_value = chosen.get("match_text")
     if isinstance(match_text_value, str) and match_text_value.strip():
-        return match_text_value.strip()
-
+        return display_title(match_text_value)
     listing_key_value = chosen.get("listing_key")
     if isinstance(listing_key_value, str) and listing_key_value.strip():
-        return listing_key_value.strip()
-
+        return display_title(listing_key_value)
     return "unknown"
 
 
