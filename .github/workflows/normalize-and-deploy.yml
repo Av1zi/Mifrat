@@ -72,4 +72,4 @@ jobs:
           git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh \
             "normalize: catalog for $(date -u +%F)" \
-            data/catalog.json data/review_queue.json
+            data/catalog.json data/review_queue.json data/site

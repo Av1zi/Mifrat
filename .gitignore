@@ -41,3 +41,11 @@ diagnose_tms_coverage.py
 Thumbs.db
 .vscode/
 .idea/
+
+
+node_modules/
+dist/
+# Copied from ../data/site by scripts/copy-data.mjs on every dev/build run —
+# regenerated, not a source file.
+public/data/
+tsconfig.tsbuildinfo

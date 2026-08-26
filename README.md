@@ -78,6 +78,18 @@ file. `pc-parts-il-plan.md` remains the tracked, public source of truth for
 architecture and reasoning. If you're picking this repo up without that
 file, `pc-parts-il-plan.md` has everything needed.
 
+## The site (Aug 2026)
+
+`/site` is a static Vite + TypeScript frontend (no framework, no backend,
+no database) reading `data/site/<category>.json` + `data/site/meta.json` —
+small, per-category files written by `scraper/site_data.py` alongside
+`data/catalog.json`, so browsers fetch only the category they're viewing
+instead of the full ~20MB catalog. See `site/README.md` for local dev and
+the exact Cloudflare Pages dashboard settings (root directory, build
+command, output directory — those live in Cloudflare's UI, not a repo
+file). Deploys automatically on every push to `main`, same as the rest of
+the pipeline.
+
 ## Repo layout
 
 ```

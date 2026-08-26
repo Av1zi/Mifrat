@@ -28,6 +28,7 @@ try:
         match_listings,
         suggest_fuzzy_matches,
     )
+    from scraper.site_data import write_site_data
 except ImportError:
     from matching import (
         dedupe_enriched_listings,
@@ -35,6 +36,7 @@ except ImportError:
         match_listings,
         suggest_fuzzy_matches,
     )
+    from site_data import write_site_data
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -42,6 +44,7 @@ RAW_DIR = DATA_DIR / "raw"
 OUTPUT_PATH = DATA_DIR / "catalog.json"
 REVIEW_PATH = DATA_DIR / "review_queue.json"
 MANUAL_PATH = DATA_DIR / "matching" / "manual_products.json"
+SITE_DIR = DATA_DIR / "site"
 
 # Ivory is now included. If its raw file is missing, it is skipped gracefully.
 VENDOR_SPIDER_NAMES = ["tms", "onepc", "plonter", "ivory"]
@@ -222,6 +225,14 @@ def main():
         f"{len(catalog['products'])} products, "
         f"{len(review_queue)} review candidates "
         f"to {OUTPUT_PATH}"
+    )
+
+    # Sharded, client-optimized data for the static site (data/site/*.json)
+    # — see scraper/site_data.py for why this is separate from catalog.json.
+    site_meta = write_site_data(catalog, SITE_DIR)
+    print(
+        f"[ok] wrote site data: {len(site_meta['categories'])} category files "
+        f"to {SITE_DIR}"
     )
 
 
