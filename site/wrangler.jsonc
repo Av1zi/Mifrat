@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Matches the Worker name already created (mifrat.ziv-avivi-28-11.workers.dev)
+  // — keep this the same so deploys update it in place.
+  "name": "mifrat",
+  "compatibility_date": "2026-08-25",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    // The BUILT output, not the source folder. Root directory in the
+    // Workers Builds dashboard is set to "site", so this resolves to
+    // site/dist — only exists after `npm run build` actually runs.
+    "directory": "./dist"
+  }
+}
