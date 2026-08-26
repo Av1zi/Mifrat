@@ -531,3 +531,44 @@ html[dir="rtl"] .overlay-panel {
 .tag-stale {
   color: var(--bad);
 }
+
+/* ---------- active filters breadcrumbs ---------- */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.active-filter-chip {
+  background: var(--bg-panel-raised);
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.active-filter-chip:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.chip-remove {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* ---------- detail overlay sku ---------- */
+.overlay-sku {
+  color: var(--ink-dim);
+  font-size: 0.8rem;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+}

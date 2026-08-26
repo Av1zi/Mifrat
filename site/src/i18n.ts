@@ -57,6 +57,7 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   color: { he: "צבע", en: "Color" },
   brand: { he: "מותג", en: "Brand" },
   model: { he: "דגם", en: "Model" },
+  vendor: { he: "חנות", en: "Shop" },
 };
 
 export function categoryLabel(id: string, lang: Lang): string {
@@ -73,6 +74,7 @@ export function attributeLabel(key: string, lang: Lang): string {
 
 const STRINGS = {
   he: {
+    skuLabel: "מק״ט",
     appName: "מפרט",
     tagline: "השוואת מחירים לרכיבי מחשב מהחנויות המובילות בישראל",
     searchPlaceholder: "חיפוש לפי שם או מותג…",
@@ -99,9 +101,10 @@ const STRINGS = {
     loadError: "שגיאה בטעינת הנתונים. נסו לרענן את הדף.",
     sourceLinkLabel: "קוד המקור בגיטהאב",
     disclaimer:
-      "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה — מפרט אינו מוכר דבר בעצמו.",
+      "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
   en: {
+    skuLabel: "SKU",
     appName: "Mifrat",
     tagline: "Price comparison for PC parts across Israeli vendors",
     searchPlaceholder: "Search by name or brand…",
