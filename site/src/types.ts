@@ -14,6 +14,7 @@ export interface Product {
   category: string;
   brand: string | null;
   model: string | null;
+  image?: string | null;
   attributes: Record<string, string>;
   vendor_count: number;
   min_price: number | null;

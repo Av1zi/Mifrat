@@ -854,171 +854,432 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   .bs-selection { flex: 1 1 100%; }
 }
 
-/* ---------- builder table (PCPartPicker style) ---------- */
-.partlist--edit table {
+/* ============================================================
+   Improved builder + part picker
+   ============================================================ */
+
+.picker-panel {
+  width: min(760px, 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-panel .overlay-title {
+  margin: 8px 0 0;
+  clear: none;
+}
+
+.picker-search {
   width: 100%;
-  border-collapse: collapse;
+  margin: 14px 0 10px;
+}
+
+.picker-status {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.picker-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+  padding: 10px 12px;
+  cursor: pointer;
+  text-align: start;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.picker-item:hover {
+  border-color: var(--blue);
+  background: var(--bg-hover);
+}
+
+.picker-name {
+  font-size: 0.9rem;
+  min-width: 0;
+}
+
+.picker-price {
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.build-hero {
+  padding: 20px 0 8px;
+}
+
+.build-share {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.share-input {
+  flex: 1;
+}
+
+.compat-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 18px;
+}
+
+.build-table {
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
 }
-.partlist--edit th,
-.partlist--edit td {
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--border-light);
-  text-align: left;
-  vertical-align: middle;
+
+.build-head,
+.build-row {
+  display: grid;
+  grid-template-columns:
+    minmax(120px, 170px)
+    minmax(240px, 1fr)
+    minmax(110px, auto)
+    minmax(120px, auto)
+    minmax(110px, auto);
+  align-items: center;
 }
-.partlist--edit th {
+
+.build-head {
   background: var(--bg-stripe);
+  border-bottom: 1px solid var(--border);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-dim);
   font-weight: 700;
-  border-bottom: 1px solid var(--border);
 }
-.partlist--edit .td__component {
+
+.build-row {
+  border-bottom: 1px solid var(--border-light);
+  min-height: 64px;
+}
+
+.build-row:last-child {
+  border-bottom: none;
+}
+
+.bh-cell {
+  padding: 12px 14px;
+  min-width: 0;
+}
+
+.bs-slot {
   font-weight: 600;
-  color: var(--accent);
-  width: 80px;
+  color: var(--blue);
+  font-size: 0.9rem;
 }
-.partlist--edit .td__image {
-  width: 60px;
+
+.bs-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.partlist--edit .td__image img {
-  max-width: 50px;
-  max-height: 50px;
+
+.bs-part {
+  min-width: 0;
 }
-.partlist--edit .td__name {
-  min-width: 180px;
-}
-.partlist--edit .td__name a {
+
+.bs-part-name {
   font-weight: 600;
-  color: var(--ink);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.bs-part-brand {
+  margin-top: 2px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.bs-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bs-remove {
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-dim);
+  border-radius: var(--radius-sm);
+  padding: 3px 9px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.bs-remove:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.bs-price {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.bs-stock {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.bs-buy .offer-link {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+}
+
+.build-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 12px;
+  padding: 18px 4px 8px;
+}
+
+.build-total strong {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  color: var(--green);
+}
+
+@media (max-width: 900px) {
+  .build-head {
+    display: none;
+  }
+
+  .build-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    padding: 14px 0;
+  }
+
+  .bs-slot {
+    flex: 1 1 100%;
+  }
+
+  .bs-selection {
+    flex: 1 1 100%;
+  }
+
+  .bs-price {
+    margin-inline-start: auto;
+  }
+}
+
+/* ============================================================
+   Category picker mode
+   ============================================================ */
+
+.pick-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  background: var(--blue-bg);
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin: 0 0 16px;
+}
+
+.pick-label {
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+.pick-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pick-tabs a {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  background: var(--bg-panel);
+  color: var(--text);
   text-decoration: none;
 }
-.partlist--edit .td__name a:hover {
-  color: var(--accent);
-  text-decoration: underline;
+
+.pick-tabs a:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }
-.partlist--edit .td__brand {
-  font-size: 0.7rem;
+
+.pick-tabs a.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.pick-cancel {
+  margin-inline-start: auto;
   color: var(--text-dim);
-  text-transform: uppercase;
-}
-.partlist--edit .td__base,
-.partlist--edit .td__promo,
-.partlist--edit .td__shipping,
-.partlist--edit .td__tax,
-.partlist--edit .td__price {
-  font-family: var(--font-mono);
   font-size: 0.85rem;
 }
-.partlist--edit .td__availability--inStock {
-  color: var(--good);
+
+.pick-cancel:hover {
+  color: var(--red);
 }
-.partlist--edit .td__availability--outOfStock {
-  color: var(--bad);
-}
-.partlist--edit .td__where img {
-  max-height: 20px;
-  max-width: 60px;
-  vertical-align: middle;
-}
-.partlist--edit .td__addComponent {
-  text-align: center;
-  padding: 16px;
-}
-.partlist--edit .td__addComponent .button {
-  background: var(--accent-soft);
-  color: var(--accent-dark);
-  border: 1px dashed var(--accent);
-  padding: 8px 20px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  transition: all 0.15s;
-}
-.partlist--edit .td__addComponent .button:hover {
-  background: var(--accent);
+
+.btn-add,
+.pl-row--pick .pl-action .btn-small {
+  background: var(--green);
   color: #fff;
-  border-color: var(--accent);
 }
-.partlist--edit .td__removeButton .button,
-.partlist--edit .td__settingsButton .button {
-  background: none;
+
+.pl-row--pick .pl-action .btn-small:hover {
+  background: var(--green-dark);
+}
+
+/* Builder selected-part actions */
+
+.bs-part {
+  min-width: 0;
+}
+
+.bs-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.bs-remove {
   border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  background: none;
+  cursor: pointer;
   color: var(--text-dim);
-  padding: 2px 10px;
-  font-size: 0.7rem;
 }
-.partlist--edit .td__removeButton .button:hover {
-  background: var(--bad);
-  color: #fff;
-  border-color: var(--bad);
+
+.bs-remove:hover {
+  border-color: var(--red);
+  color: var(--red);
 }
-.partlist--edit .td__settingsButton .button:hover {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+
+/* ============================================================
+   Builder picker mode + compatibility picker
+   ============================================================ */
+
+.pick-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  background: var(--blue-bg);
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin: 0 0 16px;
 }
-.partlist--edit .td__remove {
-  text-align: center;
+
+.pick-label {
+  font-weight: 700;
+  color: var(--blue-dark);
 }
-.partlist--edit .td__remove a {
-  color: var(--text-dim);
+
+.pick-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pick-tabs a {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  background: var(--bg-panel);
+  color: var(--text);
   text-decoration: none;
 }
-.partlist--edit .td__remove a:hover {
-  color: var(--bad);
+
+.pick-tabs a:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }
-.partlist--edit .tr__total td {
-  font-weight: 700;
-  border-top: 2px solid var(--border);
+
+.pick-tabs a.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
 }
-.partlist--edit .tr__total .td__price {
-  font-size: 1.2rem;
-  color: var(--good);
+
+.pick-note {
+  color: var(--text-dim);
+  font-size: 0.8rem;
 }
-/* responsive adjustments */
-@media (max-width: 800px) {
-  .partlist--edit table,
-  .partlist--edit thead,
-  .partlist--edit tbody,
-  .partlist--edit th,
-  .partlist--edit td,
-  .partlist--edit tr {
-    display: block;
-  }
-  .partlist--edit thead {
-    display: none;
-  }
-  .partlist--edit tr {
-    margin-bottom: 12px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 8px;
-  }
-  .partlist--edit td {
-    border: none;
-    padding: 4px 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .partlist--edit td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: var(--text-dim);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .partlist--edit .td__component,
-  .partlist--edit .td__image,
-  .partlist--edit .td__addComponent,
-  .partlist--edit .td__remove {
-    display: none;
-  }
+
+.pick-cancel {
+  margin-inline-start: auto;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.pick-cancel:hover {
+  color: var(--red);
+}
+
+.btn-add,
+.pl-row--pick .pl-action .btn-small {
+  background: var(--green);
+  color: #fff;
+}
+
+.pl-row--pick .pl-action .btn-small:hover {
+  background: var(--green-dark);
+}
+
+.bs-part {
+  min-width: 0;
+}
+
+.bs-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.bs-remove {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  background: none;
+  cursor: pointer;
+  color: var(--text-dim);
+}
+
+.bs-remove:hover {
+  border-color: var(--red);
+  color: var(--red);
 }

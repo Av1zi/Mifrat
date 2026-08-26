@@ -1,60 +1,22 @@
-// src/views/builder.ts
 import { loadCategory } from "../api";
-import { BUILD_SLOTS, checkCompatibility, estimateWattage, type BuildSlot } from "../build";
+import {
+  BUILD_SLOTS,
+  checkCompatibility,
+  estimateWattage,
+  type BuildSlot,
+} from "../build";
 import { formatPrice } from "../format";
 import { t, vendorLabel } from "../i18n";
-import { buildHash, getStoredBuild, replaceRoute, setStoredBuild } from "../state";
+import {
+  buildHash,
+  categoryHash,
+  getStoredBuild,
+  replaceRoute,
+  setStoredBuild,
+} from "../state";
 import type { Currency, Lang, Offer, Product } from "../types";
 import { displayName, esc } from "../utils";
 import { closeDetail } from "./detail";
-
-// ============================================================================
-//  State for merchant preferences per part (stored in localStorage)
-// ============================================================================
-
-const MERCHANT_PREF_KEY = "mifrat:merchant_prefs";
-
-type MerchantPrefs = Record<string, { merchant: string; customPrice: number | null }>;
-
-function getMerchantPrefs(): MerchantPrefs {
-  try {
-    const raw = localStorage.getItem(MERCHANT_PREF_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-function setMerchantPrefs(prefs: MerchantPrefs): void {
-  localStorage.setItem(MERCHANT_PREF_KEY, JSON.stringify(prefs));
-}
-
-// ============================================================================
-//  Helper: get the best offer for a product, optionally preferring a merchant
-// ============================================================================
-
-function getBestOffer(product: Product, preferredMerchant?: string): Offer | null {
-  // filter to in-stock with price
-  let candidates = product.offers.filter(o => o.in_stock && o.price !== null);
-  if (candidates.length === 0) {
-    // fallback: any offer with price (even out of stock)
-    candidates = product.offers.filter(o => o.price !== null);
-  }
-  if (candidates.length === 0) return null;
-
-  // if preferred merchant is given and has an offer, use it
-  if (preferredMerchant) {
-    const pref = candidates.find(o => o.vendor === preferredMerchant);
-    if (pref) return pref;
-  }
-
-  // otherwise cheapest
-  return candidates.reduce((a, b) => (a.price! < b.price! ? a : b));
-}
-
-// ============================================================================
-//  Main render function
-// ============================================================================
 
 export async function renderBuilder(
   container: HTMLElement,
@@ -64,357 +26,327 @@ export async function renderBuilder(
 ): Promise<void> {
   closeDetail();
 
-  const validSlots = new Set(BUILD_SLOTS.map(s => s.id));
-  let buildIds: Record<string, string> = Object.fromEntries(
-    Object.entries(shared ?? getStoredBuild())
-      .filter(([k, v]) => validSlots.has(k) && typeof v === "string" && v)
-  );
-  let parts: Record<string, Product> = {};
-  let merchantPrefs = getMerchantPrefs();
+  const validSlots = new Set(BUILD_SLOTS.map((slot) => slot.id));
+
+  const build: Record<string, string> = {};
+  const source = shared ?? getStoredBuild();
+
+  for (const [slotId, productId] of Object.entries(source)) {
+    if (validSlots.has(slotId) && productId) {
+      build[slotId] = productId;
+    }
+  }
+
+  if (shared) {
+    setStoredBuild(build);
+  }
+
+  const parts = new Map<
+    string,
+    {
+      product: Product;
+      slot: BuildSlot;
+    }
+  >();
 
   container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
 
-  // ----- helper to get offer for a slot -----
-  function getOfferForSlot(slotId: string): Offer | null {
-    const product = parts[slotId];
-    if (!product) return null;
-    const prefs = merchantPrefs[slotId];
-    const preferredMerchant = prefs?.merchant || null;
-    const offer = getBestOffer(product, preferredMerchant || undefined);
-    return offer;
-  }
-
-  // ----- render the table -----
-  function render(): void {
-    const estWatts = estimateWattage(parts);
-    const issues = checkCompatibility(parts, estWatts, lang);
-    const hasParts = Object.keys(parts).length > 0;
-    const total = Object.values(parts).reduce((sum, p) => sum + (p.min_price ?? 0), 0);
-    const shareUrl = location.origin + location.pathname + buildHash(buildIds);
-
-    // Build rows for each slot
-    const rowsHtml = BUILD_SLOTS.map(slot => {
-      const product = parts[slot.id];
-      const offer = product ? getOfferForSlot(slot.id) : null;
-
-      if (!product) {
-        // Empty slot: show "Choose A ..." button
-        return `
-          <tr class="tr__product">
-            <td class="td__component">${esc(slot.label[lang])}</td>
-            <td class="td__placement--empty"></td>
-            <td class="td__addComponent" colspan="14">
-              <a href="#/c/${slot.categories[0]}" class="button button--icon button--small choose-part" data-slot="${slot.id}">
-                <svg class="icon shape-add"><use xlink:href="#shape-add"></use></svg>
-                + ${esc(slot.choose[lang])}
-              </a>
-            </td>
-          </tr>
-        `;
+  async function refreshParts(): Promise<void> {
+    const next = new Map<
+      string,
+      {
+        product: Product;
+        slot: BuildSlot;
       }
+    >();
 
-      // Build the row for a filled slot
-      const img = product.attributes.image || "";
-      const name = displayName(product);
-      const brand = product.brand || "";
-      const basePrice = offer?.price ?? null;
-      const availability = product.in_stock ? t(lang, "inStock") : t(lang, "outOfStock");
-      const totalPrice = basePrice;
+    const invalidSlots: string[] = [];
 
-      // Merchant info
-      const merchant = offer ? vendorLabel(offer.vendor) : "";
-      const merchantLogo = offer ? `/img/merchants/${offer.vendor}.png` : "";
-      const buyUrl = offer?.url || "#";
-
-      // Determine if we have a custom price override
-      const prefs = merchantPrefs[slot.id];
-      const customPrice = prefs?.customPrice ?? null;
-      const displayedPrice = customPrice !== null ? customPrice : totalPrice;
-
-      return `
-        <tr class="tr__product" data-slot="${slot.id}">
-          <td class="td__component">${esc(slot.label[lang])}</td>
-          <td class="td__placement--empty"></td>
-          <td class="td__image">
-            ${img ? `<img src="${esc(img)}" alt="${esc(name)}" />` : ""}
-          </td>
-          <td class="td__name">
-            <a href="#/c/${slot.categories[0]}?p=${encodeURIComponent(product.id)}">${esc(name)}</a>
-            ${brand ? `<div class="td__brand">${esc(brand)}</div>` : ""}
-          </td>
-          <td class="td__base"><h6 class="xs-block md-hide">Base</h6>${basePrice !== null ? formatPrice(basePrice, currency, lang) : "—"}</td>
-          <td class="td__promo td--empty"><h6 class="xs-block md-hide">Promo</h6></td>
-          <td class="td__shipping"><h6 class="xs-block md-hide">Shipping</h6>FREE</td>
-          <td class="td__tax td--empty"><h6 class="xs-block md-hide">Tax</h6></td>
-          <td class="td__availability ${product.in_stock ? "td__availability--inStock" : "td__availability--outOfStock"}">
-            <h6 class="xs-block md-hide">Availability</h6>${availability}
-          </td>
-          <td class="td__price">
-            <h6 class="xs-block md-hide">Price</h6>
-            ${displayedPrice !== null ? formatPrice(displayedPrice, currency, lang) : "—"}
-          </td>
-          <td class="td__where">
-            <h6 class="xs-block md-hide">Where</h6>
-            ${offer ? `<a href="${esc(buyUrl)}" target="_blank" rel="nofollow"><img src="${esc(merchantLogo)}" alt="${esc(merchant)}" /></a>` : ""}
-          </td>
-          <td class="td__buy">
-            ${offer ? `<a href="${esc(buyUrl)}" target="_blank" rel="nofollow" class="button button--small button--success">Buy</a>` : ""}
-          </td>
-          <td class="td__settingsButton">
-            <a href="#" class="button button--secondary button--neutral button--icon button--small configure-part" data-slot="${slot.id}">
-              <svg class="icon shape-settings"><use xlink:href="#shape-settings"></use></svg>
-              Configure
-            </a>
-          </td>
-          <td class="td__removeButton">
-            <a href="#" class="button button--secondary button--icon button--neutral button--small remove-part" data-slot="${slot.id}">
-              <svg class="icon shape-delete"><use xlink:href="#shape-delete"></use></svg>
-              Remove
-            </a>
-          </td>
-          <td class="td__remove">
-            <a href="#" class="remove-part" data-slot="${slot.id}">
-              <svg class="icon shape-delete"><use xlink:href="#shape-delete"></use></svg>
-            </a>
-          </td>
-        </tr>
-      `;
-    }).join("");
-
-    // Add "Add Additional Storage" row after storage if storage is present
-    const storageRow = (() => {
-      if (!parts.storage) return "";
-      return `
-        <tr class="tr__product tr__product--another">
-          <td class="td__addBlank"></td>
-          <td></td>
-          <td class="td__addComponent" colspan="14">
-            <a href="#/c/storage" class="button button--icon button--small choose-part" data-slot="storage_extra">
-              <svg class="icon shape-add"><use xlink:href="#shape-add"></use></svg>
-              Add Additional Storage
-            </a>
-          </td>
-        </tr>
-      `;
-    })();
-
-    // Total row
-    const totalRow = `
-      <tr class="tr__total tr__total--final">
-        <td class="td__label" colspan="10">Total:</td>
-        <td class="td__price">${formatPrice(total, currency, lang)}</td>
-        <td colspan="5"></td>
-      </tr>
-    `;
-
-    // Compatibility notes
-    let compatHtml = "";
-    if (hasParts) {
-      if (issues.length) {
-        compatHtml = `<div class="compat-banner bad">⚠ ${esc(issues.join(" · "))}</div>`;
-      } else {
-        compatHtml = `<div class="compat-banner ok">✓ ${t(lang, "compatibilityOk")}</div>`;
-      }
-    } else {
-      compatHtml = `<div class="compat-banner idle">${t(lang, "compatibilityIdle")}</div>`;
-    }
-
-    // Estimated wattage
-    const wattHtml = estWatts > 0 ? `<div class="watt-badge">⚡ ${t(lang, "estimatedWattage")} ${estWatts}W</div>` : "";
-
-    // Build full HTML
-    container.innerHTML = `
-      <div class="hero build-hero"><h1>${t(lang, "builderTitle")}</h1></div>
-      <div class="build-share">
-        <input class="share-input" id="share-link" type="text" readonly dir="ltr" value="${esc(shareUrl)}" />
-        <button class="btn-primary" id="copy-link" type="button">${t(lang, "copyLink")}</button>
-      </div>
-      <div class="compat-row">
-        ${compatHtml}
-        ${wattHtml}
-      </div>
-      <div class="block partlist partlist--edit partlist--edit-2025 clearfix">
-        <table class="xs-col-12">
-          <thead>
-            <tr>
-              <th class="th__component">Component</th>
-              <th></th>
-              <th class="th__image">Image</th>
-              <th class="th__selection">Selection</th>
-              <th class="th__base">Base</th>
-              <th class="th__promo">Promo</th>
-              <th class="th__shipping">Shipping</th>
-              <th class="th__tax">Tax</th>
-              <th class="th__availability">Availability</th>
-              <th class="th__price">Price</th>
-              <th class="th__where">Where</th>
-              <th class="th__buy"></th>
-              <th class="th__settingsButton"></th>
-              <th class="th__removeButton"></th>
-              <th class="th__remove"></th>
-            </tr>
-          </thead>
-          <tbody>
-            ${rowsHtml}
-            ${storageRow}
-            ${totalRow}
-          </tbody>
-        </table>
-      </div>
-    `;
-
-    // ----- Event listeners -----
-    // Choose part buttons
-    container.querySelectorAll(".choose-part").forEach(el => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
-        const slotId = (el as HTMLElement).dataset.slot!;
-        // For storage extra, we might want to open the storage category; we'll just navigate.
-        const slot = BUILD_SLOTS.find(s => s.id === slotId);
-        if (slot) {
-          location.hash = `#/c/${slot.categories[0]}`;
-        } else if (slotId === "storage_extra") {
-          location.hash = "#/c/storage";
-        }
-      });
-    });
-
-    // Remove buttons
-    container.querySelectorAll(".remove-part").forEach(el => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
-        const slotId = (el as HTMLElement).dataset.slot!;
-        delete buildIds[slotId];
-        delete merchantPrefs[slotId];
-        setMerchantPrefs(merchantPrefs);
-        void refresh();
-      });
-    });
-
-    // Configure buttons
-    container.querySelectorAll(".configure-part").forEach(el => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
-        const slotId = (el as HTMLElement).dataset.slot!;
-        const product = parts[slotId];
-        if (!product) return;
-        openConfigureDialog(lang, currency, slotId, product, (newPrefs) => {
-          merchantPrefs[slotId] = newPrefs;
-          setMerchantPrefs(merchantPrefs);
-          void refresh();
-        });
-      });
-    });
-
-    // Copy link
-    const copyBtn = container.querySelector("#copy-link") as HTMLButtonElement;
-    copyBtn.addEventListener("click", () => {
-      const input = container.querySelector("#share-link") as HTMLInputElement;
-      input.select();
-      navigator.clipboard?.writeText(input.value).catch(() => {});
-      copyBtn.textContent = t(lang, "copied");
-      window.setTimeout(() => {
-        copyBtn.textContent = t(lang, "copyLink");
-      }, 1500);
-    });
-  }
-
-  // ----- Refresh function (fetch products and re-render) -----
-  async function refresh(): Promise<void> {
-    setStoredBuild(buildIds);
-    replaceRoute(buildHash(buildIds));
-    const next: Record<string, Product> = {};
     await Promise.all(
       BUILD_SLOTS.map(async (slot) => {
-        const id = buildIds[slot.id];
-        if (!id) return;
-        const list = await loadCategory(slot.categories[0]).catch(() => []);
-        const found = list.find(p => p.id === id);
-        if (found) next[slot.id] = found;
-        else delete buildIds[slot.id];
+        const productId = build[slot.id];
+        if (!productId) return;
+
+        for (const category of slot.categories) {
+          try {
+            const products = await loadCategory(category);
+            const found = products.find((p) => p.id === productId);
+
+            if (found) {
+              next.set(slot.id, {
+                product: found,
+                slot,
+              });
+
+              return;
+            }
+          } catch {
+            // Try next category.
+          }
+        }
+
+        invalidSlots.push(slot.id);
       })
     );
-    parts = next;
-    render();
+
+    if (invalidSlots.length > 0) {
+      for (const slotId of invalidSlots) {
+        delete build[slotId];
+      }
+
+      persist();
+    }
+
+    parts.clear();
+
+    for (const [slotId, entry] of next.entries()) {
+      parts.set(slotId, entry);
+    }
   }
 
-  await refresh();
-}
+  function persist(): void {
+    setStoredBuild(build);
+    replaceRoute(buildHash(build));
+  }
 
-// ============================================================================
-//  Configure Dialog (Modal)
-// ============================================================================
+  function bestOffer(product: Product): Offer | null {
+    const offers = product.offers ?? [];
 
-function openConfigureDialog(
-  lang: Lang,
-  currency: Currency,
-  slotId: string,
-  product: Product,
-  onSave: (prefs: { merchant: string; customPrice: number | null }) => void
-): void {
-  // Create backdrop and panel
-  const backdrop = document.createElement("div");
-  backdrop.className = "overlay-backdrop";
-  const panel = document.createElement("div");
-  panel.className = "overlay-panel";
-  panel.setAttribute("role", "dialog");
-  panel.setAttribute("aria-modal", "true");
+    const priced = offers.filter((offer) => typeof offer.price === "number");
+    if (priced.length === 0) return null;
 
-  // Get current prefs
-  const prefs = getMerchantPrefs()[slotId] || { merchant: "", customPrice: null };
+    const inStock = priced.filter((offer) => offer.in_stock);
+    const pool = inStock.length > 0 ? inStock : priced;
 
-  // Build list of merchants with offers
-  const offers = product.offers.filter(o => o.price !== null);
-  const merchantOptions = offers.map(o => `
-    <option value="${esc(o.vendor)}" ${o.vendor === prefs.merchant ? "selected" : ""}>
-      ${esc(vendorLabel(o.vendor))} (${formatPrice(o.price, currency, lang)})
-    </option>
-  `).join("");
+    return (
+      pool.slice().sort((a, b) => (a.price ?? 0) - (b.price ?? 0))[0] ?? null
+    );
+  }
 
-  panel.innerHTML = `
-    <button class="overlay-close" type="button">${t(lang, "close")} ✕</button>
-    <div class="overlay-title">${t(lang, "configurePrice") || "Configure Price"}</div>
-    <div class="overlay-body">
-      <p><strong>${esc(displayName(product))}</strong></p>
-      <div class="form-group">
-        <label for="merchant-select">${t(lang, "selectMerchant") || "Select Merchant"}</label>
-        <select id="merchant-select" class="select">
-          <option value="">${t(lang, "cheapest") || "Cheapest"}</option>
-          ${merchantOptions}
-        </select>
+  function effectivePrice(product: Product): number | null {
+    return bestOffer(product)?.price ?? product.min_price;
+  }
+
+  function chooseUrl(slot: BuildSlot): string {
+    return categoryHash(slot.categories[0], {
+      pick: slot.id,
+    });
+  }
+
+  function rowHtml(slot: BuildSlot): string {
+    const entry = parts.get(slot.id);
+
+    if (!entry) {
+      return `
+        <div class="build-row">
+          <div class="bh-cell bs-slot">${esc(slot.label[lang])}</div>
+
+          <div class="bh-cell bs-selection">
+            <a class="btn-choose" href="${chooseUrl(slot)}">
+              ${esc(slot.choose[lang])}
+            </a>
+          </div>
+
+          <div class="bh-cell bs-price">—</div>
+          <div class="bh-cell bs-stock"></div>
+          <div class="bh-cell bs-buy"></div>
+        </div>
+      `;
+    }
+
+    const product = entry.product;
+    const offer = bestOffer(product);
+    const price = effectivePrice(product);
+
+    const buyHtml = offer
+      ? `
+          <a
+            class="offer-link"
+            href="${esc(offer.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${esc(vendorLabel(offer.vendor))}
+          </a>
+        `
+      : `<span>—</span>`;
+
+    return `
+      <div class="build-row">
+        <div class="bh-cell bs-slot">${esc(slot.label[lang])}</div>
+
+        <div class="bh-cell bs-selection">
+          <div class="bs-part">
+            <div class="bs-part-name">${esc(displayName(product))}</div>
+            ${
+              product.brand
+                ? `<div class="bs-part-brand">${esc(product.brand)}</div>`
+                : ""
+            }
+          </div>
+
+          <div class="bs-actions">
+            <a class="btn-small" href="${chooseUrl(slot)}">
+              ${lang === "he" ? "החלפה" : "Change"}
+            </a>
+
+            <button
+              class="bs-remove"
+              type="button"
+              data-action="remove"
+              data-slot="${esc(slot.id)}"
+              aria-label="${esc(t(lang, "removePart"))}"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <div class="bh-cell bs-price">
+          ${price === null ? "—" : esc(formatPrice(price, currency, lang))}
+        </div>
+
+        <div class="bh-cell bs-stock">
+          <span class="status-dot ${product.in_stock ? "in" : "out"}"></span>
+          ${product.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}
+        </div>
+
+        <div class="bh-cell bs-buy">${buyHtml}</div>
       </div>
-      <div class="form-group">
-        <label for="custom-price-input">${t(lang, "customPrice") || "Custom Price"}</label>
-        <input id="custom-price-input" type="number" step="0.01" min="0" value="${prefs.customPrice ?? ""}" placeholder="${t(lang, "enterPrice") || "Enter price"}" />
+    `;
+  }
+
+  function render(): void {
+    const records: Record<string, Product> = {};
+
+    for (const [slotId, entry] of parts.entries()) {
+      records[slotId] = entry.product;
+    }
+
+    const estWatts = estimateWattage(records);
+    const issues = checkCompatibility(records, estWatts, lang);
+    const hasParts = parts.size > 0;
+
+    const total = Array.from(parts.values()).reduce((sum, entry) => {
+      return sum + (effectivePrice(entry.product) ?? 0);
+    }, 0);
+
+    const shareUrl = `${location.origin}${location.pathname}${buildHash(build)}`;
+
+    const compatibility = !hasParts
+      ? `<div class="compat-banner idle">${t(lang, "compatibilityIdle")}</div>`
+      : issues.length > 0
+        ? `<div class="compat-banner bad">⚠ ${esc(issues.join(" · "))}</div>`
+        : `<div class="compat-banner ok">✓ ${t(lang, "compatibilityOk")}</div>`;
+
+    const wattage =
+      estWatts > 0
+        ? `
+            <div class="watt-badge">
+              ⚡ ${t(lang, "estimatedWattage")} ${estWatts}W
+            </div>
+          `
+        : "";
+
+    const rows = BUILD_SLOTS.map((slot) => rowHtml(slot)).join("");
+
+    container.innerHTML = `
+      <div class="hero build-hero">
+        <h1>${t(lang, "builderTitle")}</h1>
       </div>
-    </div>
-    <div class="form-actions">
-      <button class="btn-primary" id="save-config">${t(lang, "save") || "Save"}</button>
-      <button class="btn-secondary" id="cancel-config">${t(lang, "cancel") || "Cancel"}</button>
-    </div>
-  `;
 
-  backdrop.appendChild(panel);
-  document.body.appendChild(backdrop);
-  document.body.style.overflow = "hidden";
+      <div class="build-share">
+        <input
+          class="share-input"
+          id="builder-share-link"
+          type="text"
+          readonly
+          dir="ltr"
+          value="${esc(shareUrl)}"
+        />
 
-  const close = () => {
-    document.body.style.overflow = "";
-    backdrop.remove();
-  };
+        <button
+          class="btn-primary"
+          id="builder-copy-link"
+          type="button"
+        >
+          ${t(lang, "copyLink")}
+        </button>
+      </div>
 
-  backdrop.addEventListener("click", (e) => {
-    if (e.target === backdrop) close();
-  });
-  panel.querySelector("#cancel-config")!.addEventListener("click", close);
-  panel.querySelector(".overlay-close")!.addEventListener("click", close);
+      <div class="compat-row">
+        ${compatibility}
+        ${wattage}
+      </div>
 
-  panel.querySelector("#save-config")!.addEventListener("click", () => {
-    const merchantSelect = panel.querySelector("#merchant-select") as HTMLSelectElement;
-    const customPriceInput = panel.querySelector("#custom-price-input") as HTMLInputElement;
-    const merchant = merchantSelect.value;
-    const customPrice = customPriceInput.value ? parseFloat(customPriceInput.value) : null;
-    onSave({ merchant, customPrice });
-    close();
-  });
+      <div class="build-table">
+        <div class="build-head">
+          <div class="bh-cell">${t(lang, "componentHeading")}</div>
+          <div class="bh-cell">${t(lang, "selectionHeading")}</div>
+          <div class="bh-cell">${t(lang, "priceHeading")}</div>
+          <div class="bh-cell">${t(lang, "availability")}</div>
+          <div class="bh-cell"></div>
+        </div>
+
+        ${rows}
+      </div>
+
+      <div class="build-total">
+        <span>${t(lang, "totalLabel")}</span>
+        <strong>${esc(formatPrice(total, currency, lang))}</strong>
+      </div>
+    `;
+
+    const copyButton =
+      container.querySelector<HTMLButtonElement>("#builder-copy-link");
+
+    const shareInput =
+      container.querySelector<HTMLInputElement>("#builder-share-link");
+
+    if (copyButton && shareInput) {
+      copyButton.addEventListener("click", () => {
+        shareInput.select();
+
+        const done = () => {
+          copyButton.textContent = t(lang, "copied");
+
+          window.setTimeout(() => {
+            copyButton.textContent = t(lang, "copyLink");
+          }, 1200);
+        };
+
+        if (
+          navigator.clipboard &&
+          typeof navigator.clipboard.writeText === "function"
+        ) {
+          navigator.clipboard
+            .writeText(shareInput.value)
+            .then(done)
+            .catch(done);
+        } else {
+          done();
+        }
+      });
+    }
+
+    container
+      .querySelectorAll<HTMLElement>("[data-action='remove']")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          const slotId = button.dataset.slot;
+          if (!slotId) return;
+
+          delete build[slotId];
+
+          persist();
+
+          void refreshParts().then(() => {
+            render();
+          });
+        });
+      });
+  }
+
+  await refreshParts();
+  render();
 }
