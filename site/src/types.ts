@@ -5,6 +5,7 @@ export interface Offer {
   in_stock: boolean;
   last_seen: string;
   stale: boolean;
+  shipping?: number | null; // optional
 }
 
 export interface Product {

@@ -74,6 +74,13 @@ export function attributeLabel(key: string, lang: Lang): string {
 
 const STRINGS = {
   he: {
+    configurePrice: "התאמת מחיר",
+    selectMerchant: "בחירת חנות",
+    cheapest: "הזול ביותר",
+    customPrice: "מחיר מותאם אישית",
+    enterPrice: "הכנס מחיר",
+    save: "שמור",
+    cancel: "ביטול",
     availability: "זמין",
     priceHeading: "מחיר",
     builderNav: "בניית מחשב",
@@ -118,6 +125,13 @@ const STRINGS = {
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
   en: {
+    configurePrice: "Configure Price",
+    selectMerchant: "Select Merchant",
+    cheapest: "Cheapest",
+    customPrice: "Custom Price",
+    enterPrice: "Enter Price",
+    save: "Save",
+    cancel: "Cancel",
     availability: "Availability",
     priceHeading: "Price",
     builderNav: "Builder",
