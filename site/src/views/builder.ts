@@ -1,11 +1,11 @@
 // src/views/builder.ts
 import { loadCategory } from "../api";
 import { BUILD_SLOTS, checkCompatibility, estimateWattage, type BuildSlot } from "../build";
-import { formatPrice, canConvertToUsd } from "../format";
-import { t, vendorLabel, categoryLabel } from "../i18n";
+import { formatPrice } from "../format";
+import { t, vendorLabel } from "../i18n";
 import { buildHash, getStoredBuild, replaceRoute, setStoredBuild } from "../state";
 import type { Currency, Lang, Offer, Product } from "../types";
-import { displayName, esc, skuOf } from "../utils";
+import { displayName, esc } from "../utils";
 import { closeDetail } from "./detail";
 
 // ============================================================================
@@ -72,16 +72,7 @@ export async function renderBuilder(
   let parts: Record<string, Product> = {};
   let merchantPrefs = getMerchantPrefs();
 
-  // We'll store per-slot selected offer (merchant) and custom price
-  // We'll also keep a set of products for storage slots to allow multiple.
-
-  // For storage, we allow multiple items. We'll treat it as an array in buildIds?
-  // We'll keep it simple: only one storage for now, but we can extend later.
-  // The PCPP builder has "Add Additional Storage" – we'll implement that later.
-
   container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
-
-  const slotById = (id: string): BuildSlot => BUILD_SLOTS.find(s => s.id === id)!;
 
   // ----- helper to get offer for a slot -----
   function getOfferForSlot(slotId: string): Offer | null {
@@ -105,7 +96,6 @@ export async function renderBuilder(
     const rowsHtml = BUILD_SLOTS.map(slot => {
       const product = parts[slot.id];
       const offer = product ? getOfferForSlot(slot.id) : null;
-      const isStorage = slot.id === "storage"; // we'll handle extra later
 
       if (!product) {
         // Empty slot: show "Choose A ..." button
@@ -124,19 +114,16 @@ export async function renderBuilder(
       }
 
       // Build the row for a filled slot
-      const img = product.attributes.image || ""; // placeholder if we have image
+      const img = product.attributes.image || "";
       const name = displayName(product);
       const brand = product.brand || "";
       const basePrice = offer?.price ?? null;
-      // shipping not in data – show FREE
-      const shipping = null;
-      const tax = 0; // not in data
       const availability = product.in_stock ? t(lang, "inStock") : t(lang, "outOfStock");
-      const totalPrice = basePrice; // we'll add shipping+tax later if we have them
+      const totalPrice = basePrice;
 
       // Merchant info
       const merchant = offer ? vendorLabel(offer.vendor) : "";
-      const merchantLogo = offer ? `/img/merchants/${offer.vendor}.png` : ""; // placeholder
+      const merchantLogo = offer ? `/img/merchants/${offer.vendor}.png` : "";
       const buyUrl = offer?.url || "#";
 
       // Determine if we have a custom price override
@@ -283,8 +270,6 @@ export async function renderBuilder(
         e.preventDefault();
         const slotId = (el as HTMLElement).dataset.slot!;
         // For storage extra, we might want to open the storage category; we'll just navigate.
-        // In a real implementation, we'd open a picker modal.
-        // For simplicity, we'll navigate to the category page.
         const slot = BUILD_SLOTS.find(s => s.id === slotId);
         if (slot) {
           location.hash = `#/c/${slot.categories[0]}`;
