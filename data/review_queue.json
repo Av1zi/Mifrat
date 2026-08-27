@@ -760,17 +760,6 @@
   },
   {
     "score": 100,
-    "category": "case",
-    "brand": "Cooler Master",
-    "listing_a": "1pc:110333",
-    "listing_b": "tms:TD300-WGNN-S00",
-    "title_a": "CoolerMaster MasterBox TD300 Mesh White TD300-WGNN-S00",
-    "title_b": "מארז מחשב CoolerMaster MasterBox TD300 Mesh White",
-    "match_text_a": "110333 CoolerMaster MasterBox TD300 Mesh White TD300-WGNN-S00",
-    "match_text_b": "TD300-WGNN-S00 CoolerMaster MasterBox TD300 Mesh White"
-  },
-  {
-    "score": 100,
     "category": "cooler_air",
     "brand": "Antec",
     "listing_a": "ivory:80024",
@@ -1461,6 +1450,39 @@
     "title_b": "3 מאווררים הפוכים למארז 12 ס&#39;&#39;מ Lian Li UNI FAN SL-INF REVERSE BLADE – צבע שחור – תאורת ARGB – להבים הפוכים",
     "match_text_a": "12RSLIN1W3W 3 12 Lian Li UNI FAN SL-INF REVERSE BLADE ARGB",
     "match_text_b": "12RSLIN1W3B 3 12 Lian Li UNI FAN SL-INF REVERSE BLADE ARGB"
+  },
+  {
+    "score": 98,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTL1F3B",
+    "listing_b": "tms:12RTL1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack לבן",
+    "match_text_a": "12RTL1F3B Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTL1F3W Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack"
+  },
+  {
+    "score": 98,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTLLCD1F3B",
+    "listing_b": "tms:12RTLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+    "match_text_a": "12RTLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
+  },
+  {
+    "score": 98,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12TLLCD1F3B",
+    "listing_b": "tms:12TLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack לבן",
+    "match_text_a": "12TLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack",
+    "match_text_b": "12TLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack"
   },
   {
     "score": 98,
@@ -2286,6 +2308,17 @@
     "title_b": "מאוורר הפוך למארז 12 ס&#39;&#39;מ עם מסך Lian Li UNI FAN TL Wireless – צבע לבן – תאורת ARGB – ללא בקר – להבים הפוכים",
     "match_text_a": "12RTLLCD1W1B 12 Lian Li UNI FAN TL Wireless ARGB",
     "match_text_b": "12RTLLCD1W1W 12 Lian Li UNI FAN TL Wireless ARGB"
+  },
+  {
+    "score": 97,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12TLLCD1F1B",
+    "listing_b": "tms:12TLLCD1F1W",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX לבן",
+    "match_text_a": "12TLLCD1F1B Lian-Li 120mm UNI FAN TL LCD FLEX",
+    "match_text_b": "12TLLCD1F1W Lian-Li 120mm UNI FAN TL LCD FLEX"
   },
   {
     "score": 97,
@@ -4662,6 +4695,17 @@
     "title_b": "Gigabyte GP-AORUS WATERFORCE X II 360 Liquid Cooler",
     "match_text_a": "GP-AORUSWII360I Gigabyte GP-AORUS WATERFORCE II 360 ICE Liquid Cooler",
     "match_text_b": "GP-AORUSWXII360 Gigabyte GP-AORUS WATERFORCE X II 360 Liquid Cooler"
+  },
+  {
+    "score": 95,
+    "category": "case",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:110333",
+    "listing_b": "tms:TD300-WGNN-S00",
+    "title_a": "CoolerMaster MasterBox TD300 Mesh White TD300-WGNN-S00",
+    "title_b": "מארז CoolerMaster MasterBox TD300 Mesh White Case",
+    "match_text_a": "110333 CoolerMaster MasterBox TD300 Mesh White TD300-WGNN-S00",
+    "match_text_b": "TD300-WGNN-S00 CoolerMaster MasterBox TD300 Mesh White Case"
   },
   {
     "score": 95,
@@ -7269,6 +7313,28 @@
     "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White x3 Fans",
     "match_text_a": "12RSL1W3W Lian-Li UNI SL Wireless 120mm Reverse White x3 Fans",
     "match_text_b": "12RSLLCD1W3W Lian-Li UNI SL Wireless LCD 120mm Reverse White x3 Fans"
+  },
+  {
+    "score": 94,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTL1F3B",
+    "listing_b": "tms:12RTLLCD1F3B",
+    "title_a": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+    "match_text_a": "12RTL1F3B Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
+  },
+  {
+    "score": 94,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTL1F3W",
+    "listing_b": "tms:12RTLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack לבן",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+    "match_text_a": "12RTL1F3W Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
   },
   {
     "score": 94,
@@ -11179,6 +11245,28 @@
     "score": 93,
     "category": "motherboard",
     "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B850M-K",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B850M-K",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B850M-K MAXSUN Challenger B850M-K"
+  },
+  {
+    "score": 93,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B860M-K",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B860M-K",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B860M-K MAXSUN Challenger B860M-K"
+  },
+  {
+    "score": 93,
+    "category": "motherboard",
+    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B650MKWIFI",
     "listing_b": "tms:MS-CHA-B850M-K-WIFI",
     "title_a": "MAXSUN Challenger B650M-K WiFi",
@@ -14573,6 +14661,39 @@
     "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans",
     "match_text_a": "12CL1W3W Lian-Li 120mm UNI FAN CL Wireless White x3 Fans",
     "match_text_b": "12RCL1W3W Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans"
+  },
+  {
+    "score": 92,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTL1F3B",
+    "listing_b": "tms:12RTLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+    "match_text_a": "12RTL1F3B Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
+  },
+  {
+    "score": 92,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTL1F3W",
+    "listing_b": "tms:12RTLLCD1F3B",
+    "title_a": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack לבן",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+    "match_text_a": "12RTL1F3W Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
+  },
+  {
+    "score": 92,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTLLCD1F1B",
+    "listing_b": "tms:12RTLLCD1F3B",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+    "match_text_a": "12RTLLCD1F1B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade",
+    "match_text_b": "12RTLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
   },
   {
     "score": 92,
@@ -19143,17 +19264,6 @@
     "score": 91,
     "category": "case",
     "brand": "Antec",
-    "listing_a": "tms:CX200MRGBELITEW",
-    "listing_b": "tms:CX700RGBELITE-W",
-    "title_a": "מארז מחשב Antec CX200M RGB Elite White",
-    "title_b": "מארז מחשב Antec CX700 RGB Elite White",
-    "match_text_a": "CX200MRGBELITEW Antec CX200M RGB Elite White",
-    "match_text_b": "CX700RGBELITE-W Antec CX700 RGB Elite White"
-  },
-  {
-    "score": 91,
-    "category": "case",
-    "brand": "Antec",
     "listing_a": "tms:CX300ARGB-W",
     "listing_b": "tms:CX500MARGB-W",
     "title_a": "מארז מחשב Antec CX300 ARGB White",
@@ -20084,6 +20194,17 @@
     "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan",
     "match_text_a": "12RSL1W3W Lian-Li UNI SL Wireless 120mm Reverse White x3 Fans",
     "match_text_b": "12RSLLCD1W1W Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RTLLCD1F1B",
+    "listing_b": "tms:12RTLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+    "match_text_a": "12RTLLCD1F1B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade",
+    "match_text_b": "12RTLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack"
   },
   {
     "score": 91,
@@ -26357,17 +26478,6 @@
   },
   {
     "score": 90,
-    "category": "case",
-    "brand": "NZXT",
-    "listing_a": "tms:CC-H51FW-01",
-    "listing_b": "tms:CM-H91FW-01",
-    "title_a": "מארז מחשב NZXT H5 Flow White",
-    "title_b": "מארז מחשב NZXT H9 Flow White",
-    "match_text_a": "CC-H51FW-01 NZXT H5 Flow White",
-    "match_text_b": "CM-H91FW-01 NZXT H9 Flow White"
-  },
-  {
-    "score": 90,
     "category": "case_fan",
     "brand": "SilverStone",
     "listing_a": "tms:SST-AN120B-ARGB-3PK",
@@ -26668,11 +26778,33 @@
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "tms:12RCL1W1B",
+    "listing_b": "tms:12RCL1W1W",
+    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
+    "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
+    "match_text_a": "12RCL1W1B Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
+    "match_text_b": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RCL1W1B",
     "listing_b": "tms:12RCL1W3B",
     "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
     "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3 Fans",
     "match_text_a": "12RCL1W1B Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
     "match_text_b": "12RCL1W3B Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3 Fans"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12RCL1W1W",
+    "listing_b": "tms:12RCL1W3W",
+    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
+    "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans",
+    "match_text_a": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
+    "match_text_b": "12RCL1W3W Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans"
   },
   {
     "score": 90,
@@ -26761,6 +26893,28 @@
     "title_b": "Lian-Li TL120 UNI Wireless LCD 120mm White 3xFans",
     "match_text_a": "12TL1W3W Lian-Li TL120 UNI Wireless LED White 3xFans",
     "match_text_b": "12TLLCD1W3W Lian-Li TL120 UNI Wireless LCD 120mm White 3xFans"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12TLLCD1F1B",
+    "listing_b": "tms:12TLLCD1F3B",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack שחור",
+    "match_text_a": "12TLLCD1F1B Lian-Li 120mm UNI FAN TL LCD FLEX",
+    "match_text_b": "12TLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12TLLCD1F1W",
+    "listing_b": "tms:12TLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX לבן",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack לבן",
+    "match_text_a": "12TLLCD1F1W Lian-Li 120mm UNI FAN TL LCD FLEX",
+    "match_text_b": "12TLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack"
   },
   {
     "score": 90,
@@ -28042,6 +28196,28 @@
     "score": 90,
     "category": "motherboard",
     "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B450M",
+    "listing_b": "tms:MS-CHA-B650MK",
+    "title_a": "MAXSUN Challenger B450M",
+    "title_b": "MAXSUN Challenger B650M-K",
+    "match_text_a": "MS-CHA-B450M MAXSUN Challenger B450M",
+    "match_text_b": "MS-CHA-B650MK MAXSUN Challenger B650M-K"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B650MV2",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B650M V2",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B650MV2 MAXSUN Challenger B650M V2"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B650MKWIFI",
     "listing_b": "tms:MS-CHA-B760M-HWIFI",
     "title_a": "MAXSUN Challenger B650M-K WiFi",
@@ -29134,7 +29310,7 @@
     "listing_a": "1pc:94884",
     "listing_b": "tms:UCACO-P0900-CSB01",
     "title_a": "ARCTIC Freezer Xtreme UCACO-P0900-CSB01 fan in black color.",
-    "title_b": "Arctic Freezer Xtreme",
+    "title_b": "קירור למעבד Arctic Freezer Xtreme",
     "match_text_a": "94884 ARCTIC Freezer Xtreme UCACO-P0900-CSB01 fan in black color.",
     "match_text_b": "UCACO-P0900-CSB01 Arctic Freezer Xtreme"
   },
@@ -30933,28 +31109,6 @@
   },
   {
     "score": 89,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "tms:AX65ARGB",
-    "listing_b": "tms:AX85-ARGB",
-    "title_a": "מארז מחשב Antec AX65 ARGB",
-    "title_b": "מארז מחשב Antec AX85 ARGB",
-    "match_text_a": "AX65ARGB Antec AX65 ARGB",
-    "match_text_b": "AX85-ARGB Antec AX85 ARGB"
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "tms:CX700RGBELITE",
-    "listing_b": "tms:CX700RGBELITE-W",
-    "title_a": "מארז מחשב Antec CX700 RGB Elite",
-    "title_b": "מארז מחשב Antec CX700 RGB Elite White",
-    "match_text_a": "CX700RGBELITE Antec CX700 RGB Elite",
-    "match_text_b": "CX700RGBELITE-W Antec CX700 RGB Elite White"
-  },
-  {
-    "score": 89,
     "category": "memory",
     "brand": "Corsair",
     "listing_a": "1pc:138317",
@@ -31821,6 +31975,17 @@
     "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3 Fans",
     "match_text_a": "208005 Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3.",
     "match_text_b": "12RCL1W3B Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3 Fans"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:208026",
+    "listing_b": "tms:12RCL1W1W",
+    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3.",
+    "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
+    "match_text_a": "208026 Lian-Li 120mm UNI FAN CL Wireless Reverse White x3.",
+    "match_text_b": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White"
   },
   {
     "score": 89,
@@ -35038,6 +35203,17 @@
     "score": 89,
     "category": "motherboard",
     "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B650MKWIFI",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B650M-K WiFi",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B650MKWIFI",
     "listing_b": "tms:MS-CHA-B760M-F-WIFI",
     "title_a": "MAXSUN Challenger B650M-K WiFi",
@@ -36892,6 +37068,17 @@
     "title_b": "Gigabyte B860M DS3H WIFI6E",
     "match_text_a": "GB840MDS3HWIFI6 Gigabyte B840M DS3H WiFi6",
     "match_text_b": "GB860MDS3HWIFI6E Gigabyte B860M DS3H WIFI6E"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB850AORUSELITE-PICE",
+    "listing_b": "tms:GB850AORUSELITEWF7ICE",
+    "title_a": "Gigabyte B850 AORUS ELITE-P ICE",
+    "title_b": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
+    "match_text_a": "GB850AORUSELITE-PICE Gigabyte B850 AORUS ELITE-P ICE",
+    "match_text_b": "GB850AORUSELITEWF7ICE Gigabyte B850 AORUS ELITE WIFI7 ICE"
   },
   {
     "score": 88,
@@ -39372,6 +39559,17 @@
     "score": 88,
     "category": "case_fan",
     "brand": "Lian Li",
+    "listing_a": "tms:12RCL1W1W",
+    "listing_b": "tms:12RSL1W1W",
+    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
+    "title_b": "Lian-Li UNI SL Wireless 120mm Reverse White Fan",
+    "match_text_a": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
+    "match_text_b": "12RSL1W1W Lian-Li UNI SL Wireless 120mm Reverse White Fan"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
     "listing_a": "tms:12RSL1W1B",
     "listing_b": "tms:12SL1W3B",
     "title_a": "Lian-Li UNI SL Wireless 120mm Reverse Black Fan",
@@ -39394,12 +39592,45 @@
     "score": 88,
     "category": "case_fan",
     "brand": "Lian Li",
+    "listing_a": "tms:12RTL1F3B",
+    "listing_b": "tms:12RTLLCD1F1B",
+    "title_a": "Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+    "match_text_a": "12RTL1F3B Lian-Li 120mm UNI FAN TL FLEX Reverse Blade 3-Pack",
+    "match_text_b": "12RTLLCD1F1B Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
     "listing_a": "tms:12SLIN1W1B",
     "listing_b": "tms:12SLIN1W1W",
     "title_a": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
     "title_b": "Lian-Li 120mm UNI FAN SL-INF Wireless White",
     "match_text_a": "12SLIN1W1B Lian-Li 120mm UNI FAN SL-INF Wireless Black",
     "match_text_b": "12SLIN1W1W Lian-Li 120mm UNI FAN SL-INF Wireless White"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12TLLCD1F1B",
+    "listing_b": "tms:12TLLCD1F3W",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX שחור",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack לבן",
+    "match_text_a": "12TLLCD1F1B Lian-Li 120mm UNI FAN TL LCD FLEX",
+    "match_text_b": "12TLLCD1F3W Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "tms:12TLLCD1F1W",
+    "listing_b": "tms:12TLLCD1F3B",
+    "title_a": "Lian-Li 120mm UNI FAN TL LCD FLEX לבן",
+    "title_b": "Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack שחור",
+    "match_text_a": "12TLLCD1F1W Lian-Li 120mm UNI FAN TL LCD FLEX",
+    "match_text_b": "12TLLCD1F3B Lian-Li 120mm UNI FAN TL LCD FLEX 3-Pack"
   },
   {
     "score": 88,
@@ -41968,6 +42199,17 @@
     "score": 88,
     "category": "motherboard",
     "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-A520M-K",
+    "listing_b": "tms:MS-CHA-B650MK",
+    "title_a": "MAXSUN Challenger A520M-K",
+    "title_b": "MAXSUN Challenger B650M-K",
+    "match_text_a": "MS-CHA-A520M-K MAXSUN Challenger A520M-K",
+    "match_text_b": "MS-CHA-B650MK MAXSUN Challenger B650M-K"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-A520M-K-WIFI",
     "listing_b": "tms:MS-CHA-B850M-K-WIFI",
     "title_a": "MAXSUN Challenger A520M-K WIFI",
@@ -41996,6 +42238,39 @@
     "title_b": "MAXSUN Challenger B650M V2",
     "match_text_a": "MS-CHA-B450M MAXSUN Challenger B450M",
     "match_text_b": "MS-CHA-B650MV2 MAXSUN Challenger B650M V2"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B760M-F",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B760M-F",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B760M-F MAXSUN Challenger B760M-F"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B760M-H",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B760M-H",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B760M-H MAXSUN Challenger B760M-H"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B860M-F",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B860M-F",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B860M-F MAXSUN Challenger B860M-F"
   },
   {
     "score": 88,
@@ -42106,6 +42381,17 @@
     "title_b": "MAXSUN Terminator B860M WiFi",
     "match_text_a": "MS-TER-B650MWIFIICE MAXSUN Terminator B650M WiFi ICE",
     "match_text_b": "MS-TER-B860MWIFI MAXSUN Terminator B860M WiFi"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-TER-Z890-A",
+    "listing_b": "tms:MS-TER-Z890-A-WIFI",
+    "title_a": "MAXSUN Terminator Z890-A",
+    "title_b": "MAXSUN Terminator Z890-A WIFI",
+    "match_text_a": "MS-TER-Z890-A MAXSUN Terminator Z890-A",
+    "match_text_b": "MS-TER-Z890-A-WIFI MAXSUN Terminator Z890-A WIFI"
   },
   {
     "score": 88,
