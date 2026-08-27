@@ -19,6 +19,7 @@ import hashlib
 import html
 import json
 import re
+import sys
 import unicodedata
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
@@ -33,6 +34,21 @@ try:
     from scraper.extractors import extract_attributes
 except ImportError:
     from extractors import extract_attributes
+
+# Optional: docyx/pc-part-dataset reference specs (Aug 2026, see
+# DECISIONS.md). Never required for the core pipeline — if it can't be
+# imported (or the index hasn't been built), enrich_products_with_pcpartdb()
+# below skips itself entirely and the catalog builds exactly as before.
+try:
+    from scraper.pcpartdb import find_matches as _pcpartdb_find_matches
+    from scraper.pcpartdb import load_index as _pcpartdb_load_index
+except ImportError:
+    try:
+        from pcpartdb import find_matches as _pcpartdb_find_matches
+        from pcpartdb import load_index as _pcpartdb_load_index
+    except ImportError:
+        _pcpartdb_find_matches = None
+        _pcpartdb_load_index = None
 
 
 HEBREW = re.compile(r"[\u0590-\u05FF]+")
@@ -754,6 +770,149 @@ def merge_offer_attributes(enriched_listings: list[dict]) -> tuple[dict, dict]:
 
     return merged, conflicts
 
+# --------------------------------------------------------------------------
+# pcpartdb reference-spec enrichment (Aug 2026, see DECISIONS.md)
+#
+# Attaches a small, separately-namespaced "pcpartdb" block to products in
+# categories the MIT-licensed docyx/pc-part-dataset covers. Deliberately
+# conservative:
+#   - Stored under its own "pcpartdb" key on the product, never merged into
+#     the vendor-derived "attributes" blob. Things like GPU length or CPU
+#     TDP are per-exact-SKU facts; a fuzzy name match is a reference figure
+#     for "a product like this", not a verified measurement of the vendor's
+#     exact listing. The site is responsible for labeling it as such.
+#   - Only attaches on a near-exact model-name match (see
+#     PCPARTDB_MATCH_THRESHOLD) — a loose match would be worse than no data.
+#   - Never raises and never required: if the index hasn't been built
+#     (missing rapidfuzz, first-time checkout, a network hiccup in CI), this
+#     silently no-ops and the core catalog is completely unaffected.
+# --------------------------------------------------------------------------
+
+# Our canonical category -> pcpartdb's internal category id (see
+# scraper/pcpartdb.py's PCPP_TO_OURS). Categories already well covered by
+# extractors.py's deterministic knowledge maps (motherboard, memory, psu,
+# storage) are intentionally left out here — a fuzzy dataset match would
+# only add risk, not new information, for those.
+OUR_CATEGORY_TO_PCPARTDB = {
+    "cpu": "cpu",
+    "cooler_air": "cooler",
+    "aio": "cooler",
+    "gpu": "gpu",
+    "case": "case",
+    "case_fan": "case_fan",
+    "fan_controller": "fan_controller",
+    "thermal_paste": "thermal_paste",
+}
+
+# Per-category match confidence floor. GPU physical specs vary the most
+# between AIB variants sharing similar names, so it gets the highest bar;
+# accessory categories (fan controllers, thermal paste) are low-stakes
+# informational specs, so a slightly looser bar is fine.
+PCPARTDB_MATCH_THRESHOLD = {
+    "gpu": 92,
+    "cpu": 90,
+    "case": 90,
+    "cooler_air": 90,
+    "aio": 90,
+    "case_fan": 88,
+    "fan_controller": 85,
+    "thermal_paste": 85,
+}
+
+
+def _pcpartdb_query(product: dict, category: str) -> str:
+    """
+    Build the cleanest available query text for a product.
+
+    CPU and GPU get a purpose-built query from extractors.py's already
+    clean brand/model fields (e.g. "AMD Ryzen 7 7800X3D") when available —
+    far less noisy than the raw vendor title. Everything else falls back to
+    the product's display name.
+    """
+    attrs = product.get("attributes") or {}
+
+    if category == "cpu":
+        brand = attrs.get("brand") or product.get("brand") or ""
+        model = attrs.get("model") or ""
+        combined = f"{brand} {model}".strip()
+        if combined:
+            return combined
+
+    if category == "gpu":
+        brand = product.get("brand") or ""
+        chip = attrs.get("gpu_chip") or ""
+        combined = f"{brand} {chip}".strip()
+        if combined:
+            return combined
+
+    return str(product.get("canonical_name") or "")
+
+
+def enrich_products_with_pcpartdb(products: list[dict]) -> None:
+    """
+    Mutates `products` in place, adding a `pcpartdb` block where a
+    confident match is found. See module note above for the safety
+    reasoning; this function is intentionally impossible to crash the
+    pipeline with.
+    """
+    if _pcpartdb_find_matches is None or _pcpartdb_load_index is None:
+        return
+
+    try:
+        # Touch the index once up front so a missing/unbuilt index prints
+        # exactly one warning instead of one per product.
+        _pcpartdb_load_index()
+    except Exception as exc:
+        print(f"[pcpartdb] skipping enrichment (index unavailable): {exc}", file=sys.stderr)
+        return
+
+    matched = 0
+
+    for product in products:
+        category = product.get("category")
+        if not category:
+            # No category means nothing to look up against — also happens
+            # to be what fixes the type checker's complaint below: without
+            # this guard, `category` is `str | None` and every dict lookup
+            # keyed on it (OUR_CATEGORY_TO_PCPARTDB, PCPARTDB_MATCH_THRESHOLD)
+            # and the call into _pcpartdb_query() are typed to require `str`.
+            continue
+
+        pcpp_category = OUR_CATEGORY_TO_PCPARTDB.get(category)
+        if not pcpp_category:
+            continue
+
+        query = _pcpartdb_query(product, category)
+        if not query:
+            continue
+
+        threshold = PCPARTDB_MATCH_THRESHOLD.get(category, 90)
+
+        try:
+            results = _pcpartdb_find_matches(
+                query, category=pcpp_category, threshold=threshold, limit=1
+            )
+        except Exception as exc:
+            print(f"[pcpartdb] lookup failed for {query!r}: {exc}", file=sys.stderr)
+            continue
+
+        if not results:
+            continue
+
+        score, part = results[0]
+        specs = part.get("specs") or {}
+        if not specs:
+            continue
+
+        product["pcpartdb"] = {
+            "name": part.get("name"),
+            "score": round(score, 1),
+            "specs": specs,
+        }
+        matched += 1
+
+    print(f"[pcpartdb] enriched {matched}/{len(products)} products with reference specs")
+
 
 def match_listings(
     enriched_listings: list[dict],
@@ -919,6 +1078,8 @@ def match_listings(
 
         product["best_offer"] = choose_best_offer(offers)
         products.append(product)
+
+    enrich_products_with_pcpartdb(products)
 
     products.sort(key=lambda p: p.get("product_id", ""))
 

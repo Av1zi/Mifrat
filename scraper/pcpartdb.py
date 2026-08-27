@@ -42,10 +42,13 @@ PCPP_TO_OURS = {
     "case": "case",
     "power-supply": "psu",
     "case-fan": "case_fan",
+    "fan-controller": "fan_controller",
+    "thermal-paste": "thermal_paste",
 }
 
 # Keep only the specs we actually care about.
 SPEC_KEYS = {
+    
     "cpu": [
         "core_count",
         "core_clock",
@@ -115,6 +118,16 @@ SPEC_KEYS = {
         "noise_level",
         "pwm",
     ],
+        "fan-controller": [
+        "channels",
+        "channel_wattage",
+        "pwm",
+        "form_factor",
+        "color",
+    ],
+    "thermal-paste": [
+        "amount",
+    ],
 }
 
 # These should never become build parts.
@@ -166,6 +179,21 @@ def cmd_download() -> None:
 
     print("[pcpartdb] download complete")
     print("[pcpartdb] next: python -m scraper.pcpartdb build")
+
+
+def cmd_refresh() -> None:
+    """
+    download + build in one call.
+
+    This is what CI and local dev should actually run — the dataset is
+    treated as regenerable, not committed (see .gitignore / DECISIONS.md,
+    Aug 2026): re-fetching ~7MB from GitHub's raw CDN on every normalize
+    run is cheap and always current, versus committing a 16MB static
+    mirror that grows the repo every time someone rebuilds it.
+    """
+    cmd_download()
+    cmd_build()
+
 
 
 def _clean_specs(slug: str, row: dict) -> dict:
@@ -267,15 +295,21 @@ def cmd_build() -> None:
 def load_index() -> dict:
     global _INDEX_CACHE
 
-    if _INDEX_CACHE is None:
+    # Narrow through a local rather than the global directly — a type
+    # checker can't reliably carry the "is None" narrowing on a `global`
+    # all the way to the `return` below, so it still sees `dict | None`
+    # there even after the assignment. A local has no such issue.
+    cache = _INDEX_CACHE
+    if cache is None:
         if not INDEX_PATH.exists():
             raise FileNotFoundError(
                 f"{INDEX_PATH} missing — run download and build first"
             )
 
-        _INDEX_CACHE = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+        cache = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+        _INDEX_CACHE = cache
 
-    return _INDEX_CACHE
+    return cache
 
 
 def _tokens(value: str) -> set[str]:
@@ -400,6 +434,9 @@ def main() -> None:
 
     subparsers.add_parser("download", help="Download dataset JSON files")
     subparsers.add_parser("build", help="Build deduped local index")
+    subparsers.add_parser(
+        "refresh", help="download + build in one step (what CI/normalize should call)"
+    )
 
     lookup_parser = subparsers.add_parser("lookup", help="Query the local index")
     lookup_parser.add_argument("query")
@@ -413,6 +450,8 @@ def main() -> None:
         cmd_download()
     elif args.command == "build":
         cmd_build()
+    elif args.command == "refresh":
+        cmd_refresh()
     elif args.command == "lookup":
         cmd_lookup(
             args.query,

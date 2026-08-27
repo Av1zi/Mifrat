@@ -353,6 +353,15 @@ function knownPartWattage(slotId: string, p: Product): number {
   // PSU supplies power; it does not consume system wattage.
   if (slotId === "psu") return 0;
 
+  // CPU TDP is a per-model official spec (not per-SKU like GPU length), so
+  // a confident pcpartdb match (see types.ts's PcPartDbRef) is trustworthy
+  // here — and it's the only source of CPU wattage we have, since vendor
+  // titles essentially never state TDP themselves.
+  if (slotId === "cpu") {
+    const tdp = p.pcpartdb?.specs?.tdp;
+    if (typeof tdp === "number") return Math.round(tdp);
+  }
+
   const watts = numAttr(p, [
     "tdp",
     "power",

@@ -1091,6 +1091,13 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   }
 }
 
+.reference-note {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin: -10px 0 20px;
+  line-height: 1.4;
+}
+
 /* ============================================================
    Category picker mode
    ============================================================ */

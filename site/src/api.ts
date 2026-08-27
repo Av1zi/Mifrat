@@ -29,6 +29,17 @@ export function loadCategory(category: string): Promise<Product[]> {
   if (!promise) {
     promise = fetchJson<Product[]>(`${DATA_BASE}/${category}.json`);
     categoryPromises.set(category, promise);
+
+    // A transient failure (offline, a slow deploy mid-fetch) would
+    // otherwise cache the *rejected* promise forever — every future call
+    // for this category would keep re-throwing the same stale error for
+    // the rest of the session, even once the network recovers. Evict on
+    // failure so the next call retries instead.
+    promise.catch(() => {
+      if (categoryPromises.get(category) === promise) {
+        categoryPromises.delete(category);
+      }
+    });
   }
   return promise;
 }

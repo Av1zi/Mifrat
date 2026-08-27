@@ -58,6 +58,28 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   brand: { he: "מותג", en: "Brand" },
   model: { he: "דגם", en: "Model" },
   vendor: { he: "חנות", en: "Shop" },
+
+  // pcpartdb reference specs (site/src/types.ts's PcPartDbRef) — shown in
+  // detail.ts's separate "reference specs" section, so these only ever
+  // need labels, never merge into the vendor-attribute filter rail above.
+  core_count: { he: "מספר ליבות", en: "Cores" },
+  core_clock: { he: "תדר בסיס", en: "Base Clock" },
+  boost_clock: { he: "תדר מוגבר", en: "Boost Clock" },
+  microarchitecture: { he: "ארכיטקטורה", en: "Microarchitecture" },
+  tdp: { he: "צריכת חשמל (TDP)", en: "TDP" },
+  graphics: { he: "גרפיקה משולבת", en: "Integrated Graphics" },
+  length: { he: "אורך", en: "Length" },
+  memory: { he: "זיכרון וידאו", en: "Video Memory" },
+  external_volume: { he: "נפח חיצוני", en: "External Volume" },
+  internal_35_bays: { he: "תאי 3.5 אינץ'", en: "3.5\" Bays" },
+  side_panel: { he: "פאנל צד", en: "Side Panel" },
+  type: { he: "סוג", en: "Type" },
+  rpm: { he: "סל\"ד", en: "RPM" },
+  noise_level: { he: "רמת רעש", en: "Noise Level" },
+  airflow: { he: "ספיקת אוויר", en: "Airflow" },
+  pwm: { he: "PWM", en: "PWM" },
+  channels: { he: "ערוצים", en: "Channels" },
+  amount: { he: "כמות", en: "Amount" },
 };
 
 export function categoryLabel(id: string, lang: Lang): string {
@@ -74,6 +96,8 @@ export function attributeLabel(key: string, lang: Lang): string {
 
 const STRINGS = {
   he: {
+    referenceSpecsHeading: "מפרט לדוגמה",
+    referenceSpecsNote: "מבוסס על מאגר נתונים אחר, המוצר עלול להיות מדגם שונה",
     configurePrice: "התאמת מחיר",
     selectMerchant: "בחירת חנות",
     cheapest: "הזול ביותר",
@@ -125,6 +149,8 @@ const STRINGS = {
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
   en: {
+        referenceSpecsHeading: "Reference specs",
+    referenceSpecsNote:"Based on a similar product in an external dataset, the exact model sold here may differ slightly.",
     configurePrice: "Configure Price",
     selectMerchant: "Select Merchant",
     cheapest: "Cheapest",

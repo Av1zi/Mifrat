@@ -41,7 +41,7 @@ def _trim_product(product: dict) -> dict:
     any_prices = [o["price"] for o in offers if o["price"] is not None]
     min_price = min(in_stock_prices) if in_stock_prices else (min(any_prices) if any_prices else None)
 
-    return {
+    trimmed = {
         "id": product["product_id"],
         "name": product.get("canonical_name"),
         "category": product["category"],
@@ -53,6 +53,18 @@ def _trim_product(product: dict) -> dict:
         "in_stock": any(o["in_stock"] for o in offers),
         "offers": offers,
     }
+
+    # Optional pcpartdb reference-spec block (scraper/matching.py's
+    # enrich_products_with_pcpartdb, Aug 2026). Only present on products
+    # that got a confident match, so most products don't carry this key at
+    # all — cheap to include, and this is exactly the kind of field that's
+    # easy to forget here since _trim_product() is an explicit whitelist,
+    # not a passthrough.
+    pcpartdb = product.get("pcpartdb")
+    if pcpartdb:
+        trimmed["pcpartdb"] = pcpartdb
+
+    return trimmed
 
 
 def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:

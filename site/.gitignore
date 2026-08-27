@@ -4,3 +4,16 @@ dist/
 # regenerated, not a source file.
 public/data/
 tsconfig.tsbuildinfo
+
+# data/raw/**/*.jsonl and data/catalog.json ARE meant to be committed — see
+# §5 of the plan. Nothing to ignore under data/ anymore now that the old
+# Scrapy-Cloud intermediate file (data/listings_latest.jsonl) is gone.
+
+# docyx/pc-part-dataset mirror + index (Aug 2026, see DECISIONS.md).
+# Treated as regenerable, not source data: normalize-and-deploy.yml runs
+# `python -m scraper.pcpartdb refresh` before each normalize run, so this
+# is always rebuilt fresh from GitHub's raw CDN (~7MB, a few seconds).
+# Committing it was a one-time mistake that added 16MB to history for a
+# feature that wasn't even wired in yet — don't recommit it. If you ever
+# need it locally: `python -m scraper.pcpartdb refresh`.
+data/pcpartdb/

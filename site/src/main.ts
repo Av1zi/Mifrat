@@ -1,4 +1,3 @@
-// @ts-expect-error CSS is resolved by the bundler at build time.
 import "./style.css";
 import { ensureFxRate } from "./format";
 import { t } from "./i18n";

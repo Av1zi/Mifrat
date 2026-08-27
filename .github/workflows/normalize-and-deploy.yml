@@ -66,6 +66,16 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
+      - name: Refresh pcpartdb reference-spec index (Aug 2026, see DECISIONS.md)
+        # Optional enrichment, not core data — data/pcpartdb/ is gitignored
+        # and rebuilt fresh here every run (~7MB from GitHub's raw CDN, a
+        # few seconds) rather than committed. matching.py's
+        # enrich_products_with_pcpartdb() already degrades gracefully if
+        # this index is missing, so a transient failure here (e.g. GitHub's
+        # raw CDN having a bad moment) must not block the daily catalog
+        # update — hence continue-on-error.
+        run: python -m scraper.pcpartdb refresh
+        continue-on-error: true
       - run: python scraper/normalize_and_match.py
       - run: |
           git config user.email "bot@users.noreply.github.com"
