@@ -97,6 +97,13 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   cooler_height_mm: { he: "גובה קירור (ממ)", en: "Cooler Height (mm)" },
   radiator_size_mm: { he: "גודל רדיאטור (ממ)", en: "Radiator Size (mm)" },
   fan_size_mm: { he: "גודל מאוורר (ממ)", en: "Fan Size (mm)" },
+  gpu_length_mm: { he: "אורך כרטיס מסך (ממ)", en: "GPU Length (mm)" },
+  length_mm: { he: "אורך (ממ)", en: "Length (mm)" },
+  memory_clock_mhz: { he: "תדר זיכרון (MHz)", en: "Memory Clock (MHz)" },
+  efficiency: { he: "יעילות", en: "Efficiency" },
+  interface: { he: "ממשק", en: "Interface" },
+  timings: { he: "תזמונים", en: "Timings" },
+  integrated_graphics: { he: "גרפיקה משולבת", en: "Integrated Graphics" },
 };
 
 export function categoryLabel(id: string, lang: Lang): string {

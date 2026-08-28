@@ -716,6 +716,9 @@ def best_name(enriched_listings: list[dict]) -> str:
         return (has_brand_penalty, too_long_penalty, has_model_bonus, vendor_rank, -len(text))
 
     chosen = sorted(enriched_listings, key=sort_key)[0]
+    title_value = chosen.get("title_raw")
+    if isinstance(title_value, str) and title_value.strip():
+        return display_title(title_value)
     match_text_value = chosen.get("match_text")
     if isinstance(match_text_value, str) and match_text_value.strip():
         return display_title(match_text_value)
@@ -829,6 +832,64 @@ PCPARTDB_MATCH_THRESHOLD = {
     "fan_controller": 85,
     "thermal_paste": 85,
 }
+
+PCKOMBO_SPEC_KEYS = {
+    "Cache | Cache": "cache_mb",
+    "Clock | Base Clock": "base_clock_ghz",
+    "Clock | Turbo Clock": "boost_clock_ghz",
+    "Core | Cache": "cache_mb",
+    "Core | Chipset": "chipset",
+    "Core | Clock": "base_clock_ghz",
+    "Core | Efficiency Rating": "efficiency",
+    "Core | Cores": "cores",
+    "Core | Form Factor": "form_factor",
+    "Core | NAND": "nand",
+    "Core | Protocol": "interface",
+    "Core | Ram Type": "memory_type",
+    "Core | RPM": "rpm",
+    "Core | Socket": "socket",
+    "Core | TDP": "tdp",
+    "Core | Timings": "timings",
+    "Core | Unlocked": "unlocked",
+    "Core | Watt": "wattage_w",
+    "Cores | Cores": "cores",
+    "Cores | Threads": "threads",
+    "Dimensions | Length": "length_mm",
+    "Dimensions | Slots": "slots",
+    "Dimensions | Supported GPU length": "gpu_length_mm",
+    "Memory | Memory Capacity": "capacity_gb",
+    "Memory | Memory Type": "memory_type",
+    "Memory | Supported Ramspeeds": "speed_mhz",
+    "Misc | Color": "color",
+    "Misc | Form Factor": "form_factor",
+    "Misc | Integrated graphics": "integrated_graphics",
+    "Misc | Socket": "socket",
+    "Misc | TDP": "tdp",
+    "Performance | Boost Clock": "boost_clock_ghz",
+    "Performance | Memory Clock": "memory_clock_mhz",
+    "Performance | Vram": "vram_gb",
+}
+
+
+def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str]:
+    """Convert PC Kombo's grouped headers into our canonical filter keys."""
+    normalized: dict[str, str] = {}
+    for raw_key, value in specs.items():
+        key = PCKOMBO_SPEC_KEYS.get(raw_key)
+        if not key or not value or "Notices" in raw_key:
+            continue
+        if key in normalized:
+            continue
+        if key in {
+            "cores", "threads", "cache_mb", "capacity_gb", "speed_mhz",
+            "vram_gb", "wattage_w", "length_mm", "gpu_length_mm",
+            "memory_clock_mhz", "rpm",
+        }:
+            match = re.search(r"\d+(?:\.\d+)?", value)
+            if match:
+                value = match.group(0)
+        normalized[key] = value
+    return normalized
 
 
 def _pcpartdb_query(product: dict, category: str) -> str:
@@ -952,10 +1013,16 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
         if not rows:
             continue
         row, _ = max(rows, key=lambda item: len(item[0]["specs"]))
+        normalized_specs = normalize_pckombo_specs(row["specs"])
+        product["attributes"].update(
+            (key, value)
+            for key, value in normalized_specs.items()
+            if key not in product["attributes"]
+        )
         product["pckombo"] = {
             "mpn": row["mpn"],
             "url": row["url"],
-            "specs": row["specs"],
+            "specs": normalized_specs,
         }
         matched += 1
 
