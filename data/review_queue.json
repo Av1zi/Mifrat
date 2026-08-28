@@ -848,17 +848,6 @@
   },
   {
     "score": 100,
-    "category": "storage",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:55730",
-    "listing_b": "tms:GPGSTFS31480GNTD",
-    "title_a": "Gigabyte SSD 480GB 2.5\" SATA3 GPGSTFS31480GNTD",
-    "title_b": "Gigabyte SSD 480GB 2.5\" SATA3",
-    "match_text_a": "55730 Gigabyte SSD 480GB 2.5 SATA3 GPGSTFS31480GNTD",
-    "match_text_b": "GPGSTFS31480GNTD Gigabyte SSD 480GB 2.5 SATA3"
-  },
-  {
-    "score": 100,
     "category": "psu",
     "brand": "Gigabyte",
     "listing_a": "1pc:157397",
@@ -955,6 +944,17 @@
     "title_b": "ספק כוח FSP Twins 700W Redundant",
     "match_text_a": "48817 FSP Twins 700W Redundant Power Supply Model FSP700-50RGHBE1 in red color.",
     "match_text_b": "FSP700-50RGHBE1 FSP Twins 700W Redundant"
+  },
+  {
+    "score": 100,
+    "category": "storage",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:55730",
+    "listing_b": "tms:GPGSTFS31480GNTD",
+    "title_a": "Gigabyte SSD 480GB 2.5\" SATA3 GPGSTFS31480GNTD",
+    "title_b": "Gigabyte SSD 480GB 2.5\" SATA3",
+    "match_text_a": "55730 Gigabyte SSD 480GB 2.5 SATA3 GPGSTFS31480GNTD",
+    "match_text_b": "GPGSTFS31480GNTD Gigabyte SSD 480GB 2.5 SATA3"
   },
   {
     "score": 100,
@@ -1109,17 +1109,6 @@
     "title_b": "Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX",
     "match_text_a": "ROG-STRIX-Z890-F-GAMING-WIFI Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX",
     "match_text_b": "ROG-STRIX-Z890-H-GAMING-WIFI Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX"
-  },
-  {
-    "score": 98,
-    "category": "aio",
-    "brand": "be quiet!",
-    "listing_a": "1pc:218657",
-    "listing_b": "1pc:218659",
-    "title_a": "Liquid cooling be quiet! LIGHT LOOP IO LCD 360mm.",
-    "title_b": "Liquid cooling be quiet! LIGHT LOOP IO LCD 360mm.",
-    "match_text_a": "218657 Liquid cooling be quiet LIGHT LOOP IO LCD 360mm.",
-    "match_text_b": "218659 Liquid cooling be quiet LIGHT LOOP IO LCD 360mm."
   },
   {
     "score": 98,
@@ -3633,28 +3622,6 @@
     "score": 96,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200243",
-    "listing_b": "1pc:200256",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_a": "200243 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color."
-  },
-  {
-    "score": 96,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200244",
-    "listing_b": "1pc:200268",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in black color.",
-    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "match_text_b": "200268 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in black color."
-  },
-  {
-    "score": 96,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200246",
     "listing_b": "1pc:200248",
     "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
@@ -5358,6 +5325,17 @@
   },
   {
     "score": 95,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:215462",
+    "listing_b": "1pc:215463",
+    "title_a": "Corsair RM850x Shift 80 PLUS Gold Fully Modular ATX power supply in black.",
+    "title_b": "Corsair RM1000x Shift 80 PLUS Gold Fully Modular ATX power supply in black.",
+    "match_text_a": "215462 Corsair RM850x Shift 80 PLUS Gold Fully Modular ATX power supply in black.",
+    "match_text_b": "215463 Corsair RM1000x Shift 80 PLUS Gold Fully Modular ATX power supply in black."
+  },
+  {
+    "score": 95,
     "category": "motherboard",
     "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B760M-F",
@@ -5569,17 +5547,6 @@
     "score": 95,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200250",
-    "listing_b": "1pc:200256",
-    "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_a": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color.",
-    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200251",
     "listing_b": "1pc:200261",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in silver color.",
@@ -5701,34 +5668,12 @@
     "score": 95,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:201284",
-    "listing_b": "1pc:201725",
-    "title_a": "G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in silver color.",
-    "title_b": "G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6400 CL32 in silver color.",
-    "match_text_a": "201284 G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in silver color.",
-    "match_text_b": "201725 G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6400 CL32 in silver color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:201724",
     "listing_b": "1pc:207657",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
     "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_b": "207657 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:207661",
-    "listing_b": "1pc:207667",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_a": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_b": "207667 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color."
   },
   {
     "score": 95,
@@ -9991,17 +9936,6 @@
     "score": 93,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "1pc:138319",
-    "listing_b": "1pc:138320",
-    "title_a": "Corsair Vengeance RGB DDR5 Memory 64G (16Gx4) 6400 CL32.",
-    "title_b": "Corsair Vengeance DDR5 Memory 64GB (16x4) 6400 CL32.",
-    "match_text_a": "138319 Corsair Vengeance RGB DDR5 Memory 64G (16Gx4) 6400 CL32.",
-    "match_text_b": "138320 Corsair Vengeance DDR5 Memory 64GB (16x4) 6400 CL32."
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "1pc:161864",
     "listing_b": "tms:CMH48GX5M2X8200C40",
     "title_a": "Corsair Vengeance RGB DDR5 48GB (24GBx2) 8200 CL40 CMH48GX5M2X8200C40 computer memory.",
@@ -11388,17 +11322,6 @@
     "score": 93,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200244",
-    "listing_b": "1pc:200249",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "match_text_b": "200249 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color."
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200249",
     "listing_b": "1pc:200268",
     "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
@@ -11537,17 +11460,6 @@
     "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_b": "201770 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:205725",
-    "listing_b": "1pc:207669",
-    "title_a": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color.",
-    "match_text_a": "205725 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color.",
-    "match_text_b": "207669 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color."
   },
   {
     "score": 93,
@@ -12373,17 +12285,6 @@
     "title_b": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White",
     "match_text_a": "GSK850 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
     "match_text_b": "GSK850V2-W Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White"
-  },
-  {
-    "score": 92,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:150765",
-    "listing_b": "1pc:156765",
-    "title_a": "Gigabyte B760M DS3H Motherboard.",
-    "title_b": "Gigabyte B650M D3HP Motherboard.",
-    "match_text_a": "150765 Gigabyte B760M DS3H Motherboard.",
-    "match_text_b": "156765 Gigabyte B650M D3HP Motherboard."
   },
   {
     "score": 92,
@@ -17119,28 +17020,6 @@
     "score": 92,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200243",
-    "listing_b": "1pc:200244",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "match_text_a": "200243 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "match_text_b": "200244 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200243",
-    "listing_b": "1pc:200250",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color.",
-    "match_text_a": "200243 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "match_text_b": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200245",
     "listing_b": "1pc:200247",
     "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black.",
@@ -17246,17 +17125,6 @@
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color.",
     "match_text_a": "200254 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
     "match_text_b": "205729 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200256",
-    "listing_b": "1pc:200268",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in black color.",
-    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_b": "200268 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in black color."
   },
   {
     "score": 92,
@@ -17394,34 +17262,12 @@
     "score": 92,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200268",
-    "listing_b": "1pc:207661",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_a": "200268 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in black color.",
-    "match_text_b": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200269",
     "listing_b": "1pc:201283",
     "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
     "match_text_a": "200269 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
     "match_text_b": "201283 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:201284",
-    "listing_b": "1pc:201726",
-    "title_a": "G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in silver color.",
-    "title_b": "G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in gold color.",
-    "match_text_a": "201284 G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in silver color.",
-    "match_text_b": "201726 G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in gold color."
   },
   {
     "score": 92,
@@ -22014,17 +21860,6 @@
     "score": 91,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200235",
-    "listing_b": "1pc:200241",
-    "title_a": "G.Skill Aegis 5 DDR5 64GB (2x32GB) 5200 CL40 memory in black color.",
-    "title_b": "G.Skill Aegis 5 DDR5 64GB (2x32GB) 6000 CL36 memory in black color.",
-    "match_text_a": "200235 G.Skill Aegis 5 DDR5 64GB (2x32GB) 5200 CL40 memory in black color.",
-    "match_text_b": "200241 G.Skill Aegis 5 DDR5 64GB (2x32GB) 6000 CL36 memory in black color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200238",
     "listing_b": "1pc:200262",
     "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
@@ -22069,17 +21904,6 @@
     "score": 91,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200249",
-    "listing_b": "1pc:200250",
-    "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color.",
-    "match_text_a": "200249 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "match_text_b": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200254",
     "listing_b": "1pc:200264",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
@@ -22108,28 +21932,6 @@
     "title_b": "G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL28 XMP 3.0 in black color.",
     "match_text_a": "200255 G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_b": "207664 G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL28 XMP 3.0 in black color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200256",
-    "listing_b": "1pc:205725",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color.",
-    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_b": "205725 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200256",
-    "listing_b": "1pc:207669",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color.",
-    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_b": "207669 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color."
   },
   {
     "score": 91,
@@ -22218,28 +22020,6 @@
     "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL36 in black color.",
     "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_b": "207673 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL36 in black color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:201725",
-    "listing_b": "1pc:201726",
-    "title_a": "G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6400 CL32 in silver color.",
-    "title_b": "G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in gold color.",
-    "match_text_a": "201725 G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6400 CL32 in silver color.",
-    "match_text_b": "201726 G.Skill Trident Z5 Royal DDR5 Memory 64GB (2x32GB) 6000 CL28 in gold color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:207661",
-    "listing_b": "1pc:207670",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6800 CL34 XMP 3.0 in black color.",
-    "match_text_a": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_b": "207670 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6800 CL34 XMP 3.0 in black color."
   },
   {
     "score": 91,
@@ -23373,28 +23153,6 @@
     "title_b": "Gigabyte B760 DS3H AX motherboard black color.",
     "match_text_a": "132738 Gigabyte B760M DS3H motherboard black color.",
     "match_text_b": "135933 Gigabyte B760 DS3H AX motherboard black color."
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:150765",
-    "listing_b": "1pc:206539",
-    "title_a": "Gigabyte B760M DS3H Motherboard.",
-    "title_b": "Gigabyte B760M DS3H GEN5 Motherboard.",
-    "match_text_a": "150765 Gigabyte B760M DS3H Motherboard.",
-    "match_text_b": "206539 Gigabyte B760M DS3H GEN5 Motherboard."
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:150765",
-    "listing_b": "1pc:206664",
-    "title_a": "Gigabyte B760M DS3H Motherboard.",
-    "title_b": "Gigabyte B760M DS3H WIFI6E GEN5 Motherboard.",
-    "match_text_a": "150765 Gigabyte B760M DS3H Motherboard.",
-    "match_text_b": "206664 Gigabyte B760M DS3H WIFI6E GEN5 Motherboard."
   },
   {
     "score": 90,
@@ -25589,17 +25347,6 @@
     "score": 90,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "1pc:138319",
-    "listing_b": "1pc:138329",
-    "title_a": "Corsair Vengeance RGB DDR5 Memory 64G (16Gx4) 6400 CL32.",
-    "title_b": "Corsair Vengeance RGB DDR5 Memory 32GB (16GBx2) 6400 CL36.",
-    "match_text_a": "138319 Corsair Vengeance RGB DDR5 Memory 64G (16Gx4) 6400 CL32.",
-    "match_text_b": "138329 Corsair Vengeance RGB DDR5 Memory 32GB (16GBx2) 6400 CL36."
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "ivory:148381",
     "listing_b": "ivory:148387",
     "title_a": "זכרון למחשב CORSAIR VENGEANCE RGB DDR5 – מהירות 5200MT/s – נפח 2x24GB – זמן אחזור CL38 – תאורת RGB",
@@ -26126,6 +25873,50 @@
   },
   {
     "score": 90,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:219393",
+    "listing_b": "tms:FD-C-EPO1A-05",
+    "title_a": "מארז מחשב Fractal Design Epoch White TG RGB",
+    "title_b": "מארז מחשב Fractal Design Epoch White TG RGB Clear Tint",
+    "match_text_a": "219393 Fractal Design Epoch White TG RGB",
+    "match_text_b": "FD-C-EPO1A-05 Fractal Design Epoch White TG RGB Clear Tint"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:219393",
+    "listing_b": "tms:FD-C-EPO1X-05",
+    "title_a": "מארז מחשב Fractal Design Epoch White TG RGB",
+    "title_b": "מארז מחשב Fractal Design Epoch XL White TG RGB Clear Tint",
+    "match_text_a": "219393 Fractal Design Epoch White TG RGB",
+    "match_text_b": "FD-C-EPO1X-05 Fractal Design Epoch XL White TG RGB Clear Tint"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:219394",
+    "listing_b": "tms:FD-C-EPO1A-04",
+    "title_a": "מארז מחשב Fractal Design Epoch Black TG RGB",
+    "title_b": "מארז מחשב Fractal Design Epoch Black TG RGB Light Tint",
+    "match_text_a": "219394 Fractal Design Epoch Black TG RGB",
+    "match_text_b": "FD-C-EPO1A-04 Fractal Design Epoch Black TG RGB Light Tint"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:219394",
+    "listing_b": "tms:FD-C-EPO1X-04",
+    "title_a": "מארז מחשב Fractal Design Epoch Black TG RGB",
+    "title_b": "מארז מחשב Fractal Design Epoch XL Black TG RGB Light Tint",
+    "match_text_a": "219394 Fractal Design Epoch Black TG RGB",
+    "match_text_b": "FD-C-EPO1X-04 Fractal Design Epoch XL Black TG RGB Light Tint"
+  },
+  {
+    "score": 90,
     "category": "storage",
     "brand": "Corsair",
     "listing_a": "tms:CSSD-F1000GBMP700EHS",
@@ -26343,17 +26134,6 @@
     "title_b": "ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard.",
     "match_text_a": "179736 ASUS ROG STRIX B850-A GAMING WIFI Motherboard.",
     "match_text_b": "179737 ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard."
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "1pc:214771",
-    "listing_b": "1pc:214825",
-    "title_a": "ASUS Prime A620M-K motherboard, black color.",
-    "title_b": "ASUS Prime A520M-R motherboard, black color.",
-    "match_text_a": "214771 ASUS Prime A620M-K motherboard black color.",
-    "match_text_b": "214825 ASUS Prime A520M-R motherboard black color."
   },
   {
     "score": 90,
@@ -28064,17 +27844,6 @@
     "score": 90,
     "category": "aio",
     "brand": "Lian Li",
-    "listing_a": "1pc:218348",
-    "listing_b": "1pc:218350",
-    "title_a": "Lian-Li HydroShift II OLED Curved 360TL liquid cooling in black.",
-    "title_b": "Lian-Li HydroShift II OLED Curved 360P28 Liquid Cooling in black.",
-    "match_text_a": "218348 Lian-Li HydroShift II OLED Curved 360TL liquid cooling in black.",
-    "match_text_b": "218350 Lian-Li HydroShift II OLED Curved 360P28 Liquid Cooling in black."
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Lian Li",
     "listing_a": "tms:GA2P36B",
     "listing_b": "tms:GA2P36W",
     "title_a": "Lian-Li Galahad II Trinity Performance 360 Liquid Cooler Black",
@@ -28636,17 +28405,6 @@
     "score": 90,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200244",
-    "listing_b": "1pc:200256",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color."
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200245",
     "listing_b": "1pc:200246",
     "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black.",
@@ -28906,28 +28664,6 @@
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_a": "201283 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
     "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:205724",
-    "listing_b": "1pc:205725",
-    "title_a": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 XMP 3.0 in black color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color.",
-    "match_text_a": "205724 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 XMP 3.0 in black color.",
-    "match_text_b": "205725 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color."
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:205724",
-    "listing_b": "1pc:207661",
-    "title_a": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 XMP 3.0 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_a": "205724 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 XMP 3.0 in black color.",
-    "match_text_b": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color."
   },
   {
     "score": 90,
@@ -35445,28 +35181,6 @@
     "score": 89,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200243",
-    "listing_b": "1pc:205725",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color.",
-    "match_text_a": "200243 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
-    "match_text_b": "205725 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 5600 CL36 in white color."
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200244",
-    "listing_b": "1pc:207661",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in black color.",
-    "match_text_b": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color."
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200246",
     "listing_b": "1pc:207665",
     "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
@@ -35495,39 +35209,6 @@
     "title_b": "G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL32 in white color.",
     "match_text_a": "200248 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL28 in white color.",
     "match_text_b": "207665 G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL32 in white color."
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200249",
-    "listing_b": "1pc:200256",
-    "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color.",
-    "match_text_a": "200249 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL32 in white color."
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200249",
-    "listing_b": "1pc:207661",
-    "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "title_b": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_a": "200249 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in black color.",
-    "match_text_b": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color."
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200250",
-    "listing_b": "1pc:207669",
-    "title_a": "G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color.",
-    "match_text_a": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 Memory 64GB (2x32GB) 6000 CL28 in white color.",
-    "match_text_b": "207669 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color."
   },
   {
     "score": 89,
@@ -36573,28 +36254,6 @@
     "title_b": "ספק כוח Antec PSU 850W HCG850 (ATX3.1) PRO Platinum",
     "match_text_a": "165980 Power Supply Unit Antec PSU 850W HCG850 (ATX3.1) PRO Platinum HCG850PROP.",
     "match_text_b": "HCG850PROP Antec PSU 850W HCG850 (ATX3.1) PRO Platinum"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:150765",
-    "listing_b": "1pc:155069",
-    "title_a": "Gigabyte B760M DS3H Motherboard.",
-    "title_b": "Gigabyte B650M S2H Motherboard.",
-    "match_text_a": "150765 Gigabyte B760M DS3H Motherboard.",
-    "match_text_b": "155069 Gigabyte B650M S2H Motherboard."
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:150765",
-    "listing_b": "1pc:215047",
-    "title_a": "Gigabyte B760M DS3H Motherboard.",
-    "title_b": "Gigabyte B860M D3W Motherboard.",
-    "match_text_a": "150765 Gigabyte B760M DS3H Motherboard.",
-    "match_text_b": "215047 Gigabyte B860M D3W Motherboard."
   },
   {
     "score": 88,
@@ -38250,28 +37909,6 @@
     "score": 88,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "1pc:145056",
-    "listing_b": "tms:CMT64GX5M2B6000Z30",
-    "title_a": "Corsair DDR5 64GB (32x2) 6000 CL30 Dominator Platinum RGB CMT64GX5M2B6000Z30.",
-    "title_b": "Corsair Dominator Platinum RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
-    "match_text_a": "145056 Corsair DDR5 64GB (32x2) 6000 CL30 Dominator Platinum RGB CMT64GX5M2B6000Z30.",
-    "match_text_b": "CMT64GX5M2B6000Z30 Corsair Dominator Platinum RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "1pc:151973",
-    "listing_b": "tms:CMH48GX5M2B5600C40",
-    "title_a": "Corsair DDR 5 64G (32Gx2) 5600 CL40 Vengeance RGB CMH64GX5M2B5600C40",
-    "title_b": "Corsair DDR5 48G (24Gx2) 5600 CL40 Vengeance RGB זיכרון למחשב",
-    "match_text_a": "151973 Corsair DDR 5 64G (32Gx2) 5600 CL40 Vengeance RGB CMH64GX5M2B5600C40",
-    "match_text_b": "CMH48GX5M2B5600C40 Corsair DDR5 48G (24Gx2) 5600 CL40 Vengeance RGB"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "tms:CMH32GX5M2B5200C40W",
     "listing_b": "tms:CMH32GX5M2B6000C30W",
     "title_a": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 5200 CL40 XMP 3.0",
@@ -38875,17 +38512,6 @@
   },
   {
     "score": 88,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:193818",
-    "listing_b": "1pc:205316",
-    "title_a": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "title_b": "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition graphics card in white color.",
-    "match_text_a": "193818 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC graphics card.",
-    "match_text_b": "205316 ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition graphics card in white color."
-  },
-  {
-    "score": 88,
     "category": "case_fan",
     "brand": "Noctua",
     "listing_a": "ivory:85068",
@@ -39202,17 +38828,6 @@
     "title_b": "ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming.",
     "match_text_a": "179737 ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard.",
     "match_text_b": "179738 ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming."
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "1pc:216770",
-    "listing_b": "1pc:218744",
-    "title_a": "Motherboard Asus TUF GAMING A520M-PLUS WiFi.",
-    "title_b": "Motherboard Asus TUF GAMING A520M-PLUS II.",
-    "match_text_a": "216770 Motherboard Asus TUF GAMING A520M-PLUS WiFi.",
-    "match_text_b": "218744 Motherboard Asus TUF GAMING A520M-PLUS II."
   },
   {
     "score": 88,
@@ -42100,17 +41715,6 @@
     "score": 88,
     "category": "aio",
     "brand": "Lian Li",
-    "listing_a": "1pc:218350",
-    "listing_b": "1pc:218353",
-    "title_a": "Lian-Li HydroShift II OLED Curved 360P28 Liquid Cooling in black.",
-    "title_b": "Lian-Li HydroShift II OLED Curved 360P28 liquid cooling in white.",
-    "match_text_a": "218350 Lian-Li HydroShift II OLED Curved 360P28 Liquid Cooling in black.",
-    "match_text_b": "218353 Lian-Li HydroShift II OLED Curved 360P28 liquid cooling in white."
-  },
-  {
-    "score": 88,
-    "category": "aio",
-    "brand": "Lian Li",
     "listing_a": "ivory:147550",
     "listing_b": "ivory:160360",
     "title_a": "קירור נוזלי למעבד עם מסך Lian Li HydroShift II LCD-S 360 TL – גודל 360 מ&#39;&#39;מ – תאורת RGB – צבע לבן",
@@ -42716,17 +42320,6 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200242",
-    "listing_b": "1pc:200271",
-    "title_a": "G.Skill Trident Z5 Neo DDR5 64GB (2x32GB) 6000 CL30 in black.",
-    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 in silver color.",
-    "match_text_a": "200242 G.Skill Trident Z5 Neo DDR5 64GB (2x32GB) 6000 CL30 in black.",
-    "match_text_b": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 in silver color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200243",
     "listing_b": "1pc:207669",
     "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6400 CL32 in white color.",
@@ -43173,17 +42766,6 @@
     "title_b": "G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
     "match_text_a": "207657 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
     "match_text_b": "207663 G.Skill Ripjaws S5 DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:207661",
-    "listing_b": "1pc:207669",
-    "title_a": "G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "title_b": "G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color.",
-    "match_text_a": "207661 G.Skill Ripjaws M5 RGB DDR5 Memory 64GB (2x32GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_b": "207669 G.Skill Ripjaws S5 DDR5 Memory 64GB (2x32GB) 6000 CL30 in white color."
   },
   {
     "score": 88,
