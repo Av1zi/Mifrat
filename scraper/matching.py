@@ -50,6 +50,17 @@ except ImportError:
         _pcpartdb_find_matches = None
         _pcpartdb_load_index = None
 
+try:
+    from scraper.pckombo import find_by_mpn as _pckombo_find_by_mpn
+    from scraper.pckombo import load_index as _pckombo_load_index
+except ImportError:
+    try:
+        from pckombo import find_by_mpn as _pckombo_find_by_mpn
+        from pckombo import load_index as _pckombo_load_index
+    except ImportError:
+        _pckombo_find_by_mpn = None
+        _pckombo_load_index = None
+
 
 HEBREW = re.compile(r"[\u0590-\u05FF]+")
 
@@ -914,6 +925,43 @@ def enrich_products_with_pcpartdb(products: list[dict]) -> None:
     print(f"[pcpartdb] enriched {matched}/{len(products)} products with reference specs")
 
 
+def enrich_products_with_pckombo(products: list[dict]) -> None:
+    """Attach PC Kombo specs using exact MPN matches only."""
+    if _pckombo_find_by_mpn is None or _pckombo_load_index is None:
+        return
+
+    try:
+        _pckombo_load_index()
+    except (OSError, ValueError) as exc:
+        print(f"[pckombo] skipping enrichment (dataset unavailable): {exc}", file=sys.stderr)
+        return
+
+    matched = 0
+    for product in products:
+        mpns = {
+            value
+            for offer in product.get("offers", [])
+            for value in (offer.get("mpn"), offer.get("vendor_sku"))
+            if value
+        }
+        mpns.update(
+            value for value in [product.get("attributes", {}).get("mpn")] if value
+        )
+        rows = [(_pckombo_find_by_mpn(mpn), mpn) for mpn in mpns]
+        rows = [(row, mpn) for row, mpn in rows if row and row.get("specs")]
+        if not rows:
+            continue
+        row, _ = max(rows, key=lambda item: len(item[0]["specs"]))
+        product["pckombo"] = {
+            "mpn": row["mpn"],
+            "url": row["url"],
+            "specs": row["specs"],
+        }
+        matched += 1
+
+    print(f"[pckombo] enriched {matched}/{len(products)} products with exact MPN specs")
+
+
 def match_listings(
     enriched_listings: list[dict],
     manual_path: Path | str | None = None,
@@ -1080,6 +1128,7 @@ def match_listings(
         products.append(product)
 
     enrich_products_with_pcpartdb(products)
+    enrich_products_with_pckombo(products)
 
     products.sort(key=lambda p: p.get("product_id", ""))
 

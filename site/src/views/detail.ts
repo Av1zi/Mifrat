@@ -30,8 +30,11 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
   // product in an external dataset", not a fact scraped from this exact
   // vendor listing, so they get their own heading + a visible disclaimer.
   // Keys already shown in specRows are skipped to avoid duplicate rows.
-  const pcpartdbSpecs = product.pcpartdb?.specs ?? {};
-  const referenceRows = Object.entries(pcpartdbSpecs)
+  const referenceSpecs = {
+    ...(product.pcpartdb?.specs ?? {}),
+    ...(product.pckombo?.specs ?? {}),
+  };
+  const referenceRows = Object.entries(referenceSpecs)
     .filter(([key, value]) => value !== null && value !== undefined && value !== "" && !(key in product.attributes))
     .map(([key, value]) => `<tr><td>${esc(attributeLabel(key, lang))}</td><td>${esc(value)}</td></tr>`)
     .join("");
@@ -42,7 +45,7 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
         ${t(lang, "referenceSpecsHeading")}
       </h3>
       <table class="spec-table">${referenceRows}</table>
-      <p class="reference-note">${t(lang, "referenceSpecsNote")}</p>
+      <p class="reference-note">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>
     `
     : "";
 
