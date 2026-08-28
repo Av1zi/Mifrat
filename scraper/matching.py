@@ -654,6 +654,44 @@ def load_manual(path: Path | str | None):
 # Product building
 # --------------------------------------------------------------------------
 
+# Categories where a (brand, model) pair fully and unambiguously identifies
+# the physical part, so leftover listings can be merged across vendors on the
+# model name alone (see the model-merge tier in match_listings). Deliberately
+# conservative: GPUs/memory/etc. have model names that don't uniquely pin the
+# part (two AIB cards can share a chip; two kits can share a name at different
+# speeds), so they stay on MPN/SKU matching only.
+MODEL_MERGE_CATEGORIES = {"cpu"}
+
+
+def model_identity(enriched: dict) -> tuple | None:
+    """
+    Return a (category, brand, normalized_model) merge key for listings where
+    the model name uniquely identifies the part, else None.
+
+    Only categories in MODEL_MERGE_CATEGORIES participate. The key normalizes
+    away case/whitespace/punctuation so "Core I7 14700K" and "core_i7-14700K"
+    collide, but keeps distinct model numbers (14700K vs 14700KF) apart.
+    """
+    category = enriched.get("category_normalized")
+    if category not in MODEL_MERGE_CATEGORIES:
+        return None
+
+    attrs = enriched.get("attributes") or {}
+    brand = attrs.get("brand") or enriched.get("brand")
+    model = attrs.get("model") or enriched.get("model") or enriched.get("name")
+
+    if not brand or not model:
+        return None
+
+    brand_key = re.sub(r"[^a-z0-9]+", "", str(brand).lower())
+    model_key = re.sub(r"[^a-z0-9]+", "", str(model).lower())
+
+    if not brand_key or not model_key:
+        return None
+
+    return (category, brand_key, model_key)
+
+
 def offer_from_listing(enriched: dict) -> dict:
     return {
         "vendor_id": enriched.get("vendor_id"),
@@ -783,6 +821,64 @@ def merge_offer_attributes(enriched_listings: list[dict]) -> tuple[dict, dict]:
             conflicts[k] = [opt[1] for opt in options.values()]
 
     return merged, conflicts
+
+
+_CPU_TIER_ALIASES = {
+    "intel core i3": "I3",
+    "intel core i5": "I5",
+    "intel core i7": "I7",
+    "intel core i9": "I9",
+    "intel core ultra 3": "Ultra 3",
+    "intel core ultra 5": "Ultra 5",
+    "intel core ultra 7": "Ultra 7",
+    "intel core ultra 9": "Ultra 9",
+    "amd ryzen 3": "Ryzen 3",
+    "amd ryzen 5": "Ryzen 5",
+    "amd ryzen 7": "Ryzen 7",
+    "amd ryzen 9": "Ryzen 9",
+}
+
+_CPU_GEN_REWRITES = [
+    ("intel core ultra series", "Ultra Series"),
+    ("core ultra series", "Ultra Series"),
+]
+
+
+def normalize_cpu_legacy_attrs(attributes: dict) -> None:
+    """
+    Reconcile the legacy Ivory-style CPU attribute keys (``cpu_tier`` /
+    ``cpu_generation``, verbose values like "Intel Core i5" / "Gen 12
+    Alder Lake 12th Gen") with the canonical short-form keys that
+    ``extractors._parse_cpu`` produces (``tier`` = "I5", ``generation`` =
+    "Gen 12").
+
+    This keeps exactly ONE set of tier/generation values per product so the
+    filter rail doesn't show two overlapping generation/tier groups with
+    inconsistent values. It mutates the dict in place and runs after all
+    vendor attributes are merged, before the product is built.
+    """
+    legacy_gen = attributes.pop("cpu_generation", None)
+    legacy_tier = attributes.pop("cpu_tier", None)
+
+    if legacy_gen and not attributes.get("generation"):
+        g = str(legacy_gen).strip()
+        m = re.match(r"^Gen\s+([0-9]+)", g)
+        if m:
+            attributes["generation"] = f"Gen {m.group(1)}"
+        else:
+            gl = g.lower()
+            for pat, repl in _CPU_GEN_REWRITES:
+                if pat in gl:
+                    attributes["generation"] = repl
+                    break
+
+    if legacy_tier and not attributes.get("tier"):
+        t = str(legacy_tier).strip().lower()
+        for alias, canonical in _CPU_TIER_ALIASES.items():
+            if t.startswith(alias):
+                attributes["tier"] = canonical
+                break
+
 
 # --------------------------------------------------------------------------
 # pcpartdb reference-spec enrichment (Aug 2026, see DECISIONS.md)
@@ -1058,7 +1154,66 @@ def match_listings(
             meta.setdefault("matched_by", "manual")
             product_meta.setdefault(pid, meta)
 
-    # 2. Exact MPN matches.
+    # 2. Model-based merges.
+    #
+    # The same physical part sold by different vendors carries a different
+    # SKU / product id at each vendor, so MPN/SKU matching can never link
+    # them — which is exactly why "the same CPU from three vendors" shows up
+    # as three separate one-vendor products instead of one product with three
+    # offers. For categories where the model name alone unambiguously
+    # identifies the part (CPU: a model number *is* the CPU — packaging is
+    # cosmetic), merge on (category, brand, model) BEFORE the MPN/SKU tiers so
+    # a cross-vendor model match wins over each vendor's own SKU/MPN product.
+    #
+    # Guarded two ways so we never silently merge the wrong thing:
+    #   - Only categories/keys we explicitly trust (see MODEL_MERGE_CATEGORIES).
+    #   - Listings that disagree on a critical attribute (DDR generation,
+    #     capacity, speed, wattage, etc.) are kept apart.
+    model_groups: dict[tuple, list[dict]] = {}
+
+    for enriched in enriched_listings:
+        if enriched["listing_key"] in assignments:
+            continue
+
+        ident = model_identity(enriched)
+        if ident is None:
+            continue
+
+        model_groups.setdefault(ident, []).append(enriched)
+
+    for ident, group in list(model_groups.items()):
+        # A single listing isn't a merge; leave it for the MPN/SKU/singleton
+        # tiers.
+        if len(group) < 2:
+            continue
+
+        # Critical-attribute guard: if any two listings in the prospective
+        # merge disagree on a spec that changes the part (e.g. a CPU sold as
+        # both 65W and 125W TDP), it's not the same part — drop the whole
+        # group and let each remain separate.
+        if any(
+            critical_conflict(a, b)
+            for i, a in enumerate(group)
+            for b in group[i + 1 :]
+        ):
+            continue
+
+        category = ident[0]
+        slug_part = re.sub(r"[^a-z0-9]+", "-", ident[2]).strip("-")
+        pid = f"model:{category}:{slug_part}"
+
+        for enriched in group:
+            assignments[enriched["listing_key"]] = pid
+
+        product_meta.setdefault(
+            pid,
+            {
+                "product_id": pid,
+                "matched_by": "model",
+            },
+        )
+
+    # 3. Exact MPN matches.
     mpn_groups: dict[str, list[dict]] = {}
 
     for enriched in enriched_listings:
@@ -1084,7 +1239,7 @@ def match_listings(
             },
         )
 
-    # 3. Exact normalized vendor SKU matches.
+    # 4. Exact normalized vendor SKU matches.
     #
     # This helps when multiple vendors use the same model code,
     # e.g. Lian Li O11DMIV2W.
@@ -1118,7 +1273,7 @@ def match_listings(
             },
         )
 
-    # 4. Singletons.
+    # 5. Singletons.
     for enriched in enriched_listings:
         if enriched["listing_key"] in assignments:
             continue
@@ -1172,6 +1327,7 @@ def match_listings(
             **merged_attributes,
             **meta.get("attributes", {}),
         }
+        normalize_cpu_legacy_attrs(attributes)
 
         product = {
             "product_id": meta.get("product_id", pid),

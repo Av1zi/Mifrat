@@ -767,10 +767,6 @@ export async function renderCategory(
 
     const pricingBody = `
       <div class="group__content" style="padding:8px 0">
-        <label class="filter-option" style="padding:4px 0">
-          <input type="checkbox" id="pricing-rebates" checked disabled />
-          ${lang === "he" ? "כולל הנחות" : "Include mail-in rebates"}
-        </label>
         <label class="checkbox-row" style="margin-top:8px; border-top:none; padding-top:6px">
           <input type="checkbox" id="stock-checkbox" ${params.stockOnly ? "checked" : ""} />
           ${t(lang, "inStockOnly")}

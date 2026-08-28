@@ -25,11 +25,13 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
     .map(([key, value]) => `<tr><td>${esc(attributeLabel(key, lang))}</td><td>${esc(value)}</td></tr>`)
     .join("");
 
-  // pcpartdb reference specs (types.ts's PcPartDbRef): kept in their own
-  // table, never mixed into specRows above — these describe "a similar
+  // Reference specs from the external pcpartdb / pckombo datasets
+  // (types.ts's PcPartDbRef / PcKomboRef). These describe "a similar
   // product in an external dataset", not a fact scraped from this exact
-  // vendor listing, so they get their own heading + a visible disclaimer.
-  // Keys already shown in specRows are skipped to avoid duplicate rows.
+  // vendor listing — but they're still shown in the SAME table as the
+  // vendor attributes so there's one clean spec list, with a single note
+  // disclaiming the external data. Keys already shown above are skipped to
+  // avoid duplicate rows.
   const referenceSpecs = {
     ...(product.pcpartdb?.specs ?? {}),
     ...(product.pckombo?.specs ?? {}),
@@ -38,16 +40,9 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
     .filter(([key, value]) => value !== null && value !== undefined && value !== "" && !(key in product.attributes))
     .map(([key, value]) => `<tr><td>${esc(attributeLabel(key, lang))}</td><td>${esc(value)}</td></tr>`)
     .join("");
+  const hasReferenceSpecs = referenceRows.length > 0;
 
-  const referenceSection = referenceRows
-    ? `
-      <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:10px;">
-        ${t(lang, "referenceSpecsHeading")}
-      </h3>
-      <table class="spec-table">${referenceRows}</table>
-      <p class="reference-note">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>
-    `
-    : "";
+  const allSpecRows = specRows + referenceRows;
 
   const offerRows = product.offers
     .map((offer) => {
@@ -81,8 +76,8 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
     <div class="overlay-brand">${esc(product.brand ?? "")}</div>
     ${sku ? `<div class="overlay-sku">SKU: ${esc(sku)}</div>` : ""}
     ${slot ? `<button class="btn-primary add-to-build" type="button">+ ${t(lang, "addToBuild")}</button>` : ""}
-    ${specRows ? `<table class="spec-table">${specRows}</table>` : ""}
-    ${referenceSection}
+    ${allSpecRows ? `<table class="spec-table">${allSpecRows}</table>` : ""}
+    ${hasReferenceSpecs ? `<p class="reference-note">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>` : ""}
     <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:10px;">
       ${t(lang, "offersHeading")}
     </h3>

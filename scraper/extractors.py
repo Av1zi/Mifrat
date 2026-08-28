@@ -458,8 +458,6 @@ def _parse_cpu(text: str, meta) -> dict:
     if tdp:
         val = int(tdp.group(1))
         if 10 <= val <= 300:
-            a["tdp_w"] = val
-            # Also expose as tdp for filters
             a["tdp"] = f"{val}W"
 
     m = AMD_CPU_RE.search(text)
@@ -479,6 +477,41 @@ def _parse_cpu(text: str, meta) -> dict:
             if m:
                 a["brand"] = "Intel"
                 a["model"] = f"Xeon {m.group(1).replace(' ', '')}"
+
+    # Generation + tier, so the UI can offer them as filters the way
+    # PCPartPicker does. These are derived from the model number we just
+    # extracted.
+    brand = a.get("brand")
+    model = a.get("model")
+
+    if brand == "AMD":
+        tier_m = re.search(r"\bRyzen\s?([3-9])\b", model or "", re.I)
+        if tier_m:
+            a["tier"] = f"Ryzen {tier_m.group(1)}"
+        # AMD "series" = the thousands digit of the 4-digit model (5600X -> 5).
+        series_m = re.search(r"\bRyzen\s?[3-9]\s?(\d)\d{3}", model or "", re.I)
+        if series_m:
+            a["generation"] = f"Ryzen {series_m.group(1)}000"
+    elif brand == "Intel":
+        if "Xeon" in (model or ""):
+            xe_m = re.search(r"\bXeon\s?([A-Z]{1,3})\s?(\d{4})", model or "", re.I)
+            if xe_m:
+                a["tier"] = f"Xeon {xe_m.group(1).upper()}"
+                a["generation"] = f"Xeon Gen {int(xe_m.group(2)[0])}"
+        else:
+            tier_m = re.search(r"\b(Ultra\s?\d|I[3579])\b", model or "", re.I)
+            if tier_m:
+                a["tier"] = re.sub(r"\s+", "", tier_m.group(1).upper())
+            gen_m = re.search(r"\bI[3579]\s?(\d{4,5})", model or "", re.I)
+            if gen_m:
+                digits = re.sub(r"[^0-9]", "", gen_m.group(1))
+                gen = int(digits[:2]) if len(digits) >= 5 else int(digits[0])
+                a["generation"] = f"Gen {gen}"
+            else:
+                ultra_m = re.search(r"\bUltra\s?\d\s?(\d{3})", model or "", re.I)
+                if ultra_m:
+                    gen = int(ultra_m.group(1)[:2]) if len(ultra_m.group(1)) >= 3 else int(ultra_m.group(1))
+                    a["generation"] = f"Gen {gen}"
 
     # Integrated graphics detection (Intel UHD / AMD Radeon)
     if re.search(r"\bUHD\s*7[37]0\b", text, re.I):
@@ -550,7 +583,6 @@ def _parse_gpu(text: str, meta) -> dict:
             # Prefer not to overwrite wattage_w which is PSU; use tdp
             if "tdp" not in a:
                 a["tdp"] = f"{val}W"
-                a["tdp_w"] = val
             break
 
     # Length in mm (GPUs often 200-400mm)
