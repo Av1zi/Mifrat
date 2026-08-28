@@ -8,6 +8,14 @@ plan (§7) adding/removing a vendor should never require touching this file.
 """
 import scrapy
 
+class DetailItem(scrapy.Item):
+    vendor_id = scrapy.Field()
+    vendor_sku = scrapy.Field()
+    url = scrapy.Field()
+    specs = scrapy.Field()        # dict[str, str]
+    image_url = scrapy.Field()    # source URL, downloaded separately
+    scraped_at = scrapy.Field()
+    extra = scrapy.Field()        # optional, vendor-specific bonus fields
 
 class ListingItem(scrapy.Item):
     # Identity of this raw listing
