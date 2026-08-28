@@ -117,6 +117,7 @@ the pipeline.
 /data
   raw/YYYY-MM-DD/<vendor>.jsonl  # daily raw snapshots, one file per vendor
   catalog.json                   # built by normalize_and_match.py — the "database"
+  pckombo/dataset.csv            # PC Kombo specs, looked up by exact MPN/SKU
 /.github/workflows
   scrape-cloud.yml              # 1PC + Plonter, ~03:30 UTC
   normalize-and-deploy.yml      # build catalog.json, ~09:00 UTC

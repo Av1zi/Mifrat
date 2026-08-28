@@ -115,6 +115,7 @@ const STRINGS = {
   he: {
     referenceSpecsHeading: "מפרט לדוגמה",
     referenceSpecsNote: "מבוסס על מאגר נתונים אחר, המוצר עלול להיות מדגם שונה",
+    pckomboReferenceNote: "מפרט לפי מספר דגם זהה במאגר PC Kombo",
     configurePrice: "התאמת מחיר",
     selectMerchant: "בחירת חנות",
     cheapest: "הזול ביותר",
@@ -171,6 +172,7 @@ const STRINGS = {
   en: {
         referenceSpecsHeading: "Reference specs",
     referenceSpecsNote:"Based on a similar product in an external dataset, the exact model sold here may differ slightly.",
+    pckomboReferenceNote: "Specs matched by the exact MPN in the PC Kombo dataset.",
     configurePrice: "Configure Price",
     selectMerchant: "Select Merchant",
     cheapest: "Cheapest",

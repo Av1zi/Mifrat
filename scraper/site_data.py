@@ -64,6 +64,10 @@ def _trim_product(product: dict) -> dict:
     if pcpartdb:
         trimmed["pcpartdb"] = pcpartdb
 
+    pckombo = product.get("pckombo")
+    if pckombo:
+        trimmed["pckombo"] = pckombo
+
     return trimmed
 
 

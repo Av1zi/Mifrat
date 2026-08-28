@@ -25,6 +25,12 @@ export interface PcPartDbRef {
   specs: Record<string, string | number | boolean>;
 }
 
+export interface PcKomboRef {
+  mpn: string;
+  url: string;
+  specs: Record<string, string>;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -38,6 +44,7 @@ export interface Product {
   in_stock: boolean;
   offers: Offer[];
   pcpartdb?: PcPartDbRef;
+  pckombo?: PcKomboRef;
 }
 
 export interface CategoryMeta {
