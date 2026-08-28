@@ -36,12 +36,33 @@ const ATTR_PRIORITY = [
   "vendor",
 ];
 
+const NUMERIC_ATTRS = new Set([
+  "price",
+  "cores",
+  "threads",
+  "cache_mb",
+  "base_clock_ghz",
+  "boost_clock_ghz",
+  "tdp",
+  "vram_gb",
+  "wattage_w",
+  "capacity_gb",
+  "rpm",
+  "cooler_height_mm",
+  "radiator_size_mm",
+  "fan_size_mm",
+  "speed_mhz",
+  "cas_latency",
+  "pcie_gen",
+]);
+
 const MAX_SPEC_COLUMNS = 4;
 
 function computeFilterableAttributes(
   products: Product[]
 ): Map<string, Array<[string, number]>> {
   const counts = new Map<string, Map<string, number>>();
+  const numericRanges = new Map<string, { min: number; max: number }>();
 
   for (const p of products) {
     for (const [key, value] of Object.entries(p.attributes)) {
@@ -50,6 +71,16 @@ function computeFilterableAttributes(
       if (!counts.has(key)) counts.set(key, new Map());
       const values = counts.get(key)!;
       values.set(value, (values.get(value) ?? 0) + 1);
+
+      if (NUMERIC_ATTRS.has(key)) {
+        const num = parseNumericAttr(value);
+        if (num !== null) {
+          const range = numericRanges.get(key) ?? { min: Infinity, max: -Infinity };
+          range.min = Math.min(range.min, num);
+          range.max = Math.max(range.max, num);
+          numericRanges.set(key, range);
+        }
+      }
     }
 
     const vendors = new Set(p.offers.map((o) => o.vendor));
@@ -57,6 +88,13 @@ function computeFilterableAttributes(
       if (!counts.has("vendor")) counts.set("vendor", new Map());
       const values = counts.get("vendor")!;
       values.set(v, (values.get(v) ?? 0) + 1);
+    }
+
+    if (p.min_price !== null) {
+      const range = numericRanges.get("price") ?? { min: Infinity, max: -Infinity };
+      range.min = Math.min(range.min, p.min_price);
+      range.max = Math.max(range.max, p.min_price);
+      numericRanges.set("price", range);
     }
   }
 
@@ -86,6 +124,49 @@ function computeFilterableAttributes(
   return new Map(orderedKeys.map((k) => [k, filterable.get(k)!]));
 }
 
+function parseNumericAttr(value: string | undefined): number | null {
+  if (!value) return null;
+  const m = /(\d+(?:\.\d+)?)/.exec(value);
+  return m ? parseFloat(m[1]) : null;
+}
+
+function computeNumericRanges(
+  products: Product[]
+): Map<string, { min: number; max: number }> {
+  const numericRanges = new Map<string, { min: number; max: number }>();
+
+  for (const p of products) {
+    for (const [key, value] of Object.entries(p.attributes)) {
+      if (!value) continue;
+
+      if (NUMERIC_ATTRS.has(key)) {
+        const num = parseNumericAttr(value);
+        if (num !== null) {
+          const range = numericRanges.get(key) ?? { min: Infinity, max: -Infinity };
+          range.min = Math.min(range.min, num);
+          range.max = Math.max(range.max, num);
+          numericRanges.set(key, range);
+        }
+      }
+    }
+
+    if (p.min_price !== null) {
+      const range = numericRanges.get("price") ?? { min: Infinity, max: -Infinity };
+      range.min = Math.min(range.min, p.min_price);
+      range.max = Math.max(range.max, p.min_price);
+      numericRanges.set("price", range);
+    }
+  }
+
+  for (const [key, range] of numericRanges) {
+    if (range.min === Infinity || range.max === -Infinity) {
+      numericRanges.delete(key);
+    }
+  }
+
+  return numericRanges;
+}
+
 function applyFilters(
   products: Product[],
   params: CategoryParams
@@ -110,8 +191,41 @@ function applyFilters(
       }
     }
 
+    for (const [key, range] of Object.entries(params.ranges)) {
+      const value = getNumericValue(p, key);
+      if (value === null) return false;
+      if (range.min !== null && value < range.min) return false;
+      if (range.max !== null && value > range.max) return false;
+    }
+
     return true;
   });
+}
+
+function getNumericValue(p: Product, key: string): number | null {
+  switch (key) {
+    case "price":
+      return p.min_price;
+    case "cores":
+    case "threads":
+    case "cache_mb":
+    case "base_clock_ghz":
+    case "boost_clock_ghz":
+    case "tdp":
+    case "vram_gb":
+    case "wattage_w":
+    case "capacity_gb":
+    case "rpm":
+    case "cooler_height_mm":
+    case "radiator_size_mm":
+    case "fan_size_mm":
+    case "speed_mhz":
+    case "cas_latency":
+    case "pcie_gen":
+      return parseNumericAttr(p.attributes[key]);
+    default:
+      return parseNumericAttr(p.attributes[key]);
+  }
 }
 
 function sortProducts(products: Product[], sort: SortKey): Product[] {
@@ -312,6 +426,7 @@ export async function renderCategory(
 
       <div>
         <div class="toolbar">
+          <span class="toolbar-label">${t(lang, "searchPlaceholder")}</span>
           <input
             class="search-input"
             id="search-input"
@@ -320,6 +435,7 @@ export async function renderCategory(
             value="${esc(localQuery)}"
           />
 
+          <span class="toolbar-label">${t(lang, "sortLabel")}</span>
           <select class="sort-select" id="sort-select">
             <option value="price_asc">${t(lang, "sortPriceAsc")}</option>
             <option value="price_desc">${t(lang, "sortPriceDesc")}</option>
@@ -372,6 +488,31 @@ export async function renderCategory(
             type="button"
           >
             ${esc(attributeLabel(key, lang))}: ${esc(label)}
+            <span class="chip-remove">✕</span>
+          </button>`
+        );
+      }
+    }
+
+    for (const [key, range] of Object.entries(params.ranges)) {
+      if (range.min !== null || range.max !== null) {
+        const label = attributeLabel(key, lang);
+        let display = "";
+        if (range.min !== null && range.max !== null) {
+          display = `${range.min} – ${range.max}`;
+        } else if (range.min !== null) {
+          display = `${t(lang, "min")}: ${range.min}`;
+        } else if (range.max !== null) {
+          display = `${t(lang, "max")}: ${range.max}`;
+        }
+
+        chips.push(
+          `<button
+            class="active-filter-chip"
+            data-range-key="${esc(key)}"
+            type="button"
+          >
+            ${esc(label)}: ${esc(display)}
             <span class="chip-remove">✕</span>
           </button>`
         );
@@ -463,6 +604,13 @@ export async function renderCategory(
       .querySelectorAll(".active-filter-chip")
       .forEach((el) => {
         el.addEventListener("click", () => {
+          const rangeKey = (el as HTMLElement).dataset.rangeKey;
+          if (rangeKey) {
+            delete params.ranges[rangeKey];
+            syncAndRerender();
+            return;
+          }
+
           const key = (el as HTMLElement).dataset.key!;
           const value = (el as HTMLElement).dataset.value!;
 
@@ -531,9 +679,18 @@ export async function renderCategory(
 
   function renderFilterRail(): void {
     const rail = container.querySelector("#filter-rail")!;
+    const numericRanges = computeNumericRanges(compatibleProducts);
 
-    const groups = Array.from(filterableAttrs.entries())
-      .map(([key, values]) => {
+    const checkboxAttrs = new Set(filterableAttrs.keys());
+    for (const key of NUMERIC_ATTRS) {
+      checkboxAttrs.delete(key);
+    }
+    checkboxAttrs.delete("price");
+
+    const checkboxGroups = Array.from(checkboxAttrs)
+      .filter((key) => filterableAttrs.has(key))
+      .map((key) => {
+        const values = filterableAttrs.get(key)!;
         const selected = new Set(params.filters[key] ?? []);
 
         const options = values
@@ -556,13 +713,86 @@ export async function renderCategory(
           .join("");
 
         return `
-          <details class="filter-group" open>
+          <details class="filter-group">
             <summary>${esc(attributeLabel(key, lang))}</summary>
             ${options}
           </details>
         `;
       })
       .join("");
+
+    const sliderGroups: string[] = [];
+
+    if (numericRanges.has("price")) {
+      const range = numericRanges.get("price")!;
+      const currentMin = params.ranges.price?.min ?? range.min;
+      const currentMax = params.ranges.price?.max ?? range.max;
+      const step = Math.max(1, Math.floor((range.max - range.min) / 100));
+      const minPct = ((currentMin - range.min) / (range.max - range.min)) * 100;
+      const maxPct = ((currentMax - range.min) / (range.max - range.min)) * 100;
+
+      sliderGroups.push(`
+        <details class="filter-group">
+          <summary>${t(lang, "priceRange") || "Price"}</summary>
+          <div class="filter-slider">
+            <div class="filter-slider-row">
+              <span>${t(lang, "min") || "Min"}</span>
+              <div class="filter-slider-inputs">
+                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
+                <span>${currency === "ILS" ? "₪" : "$"}</span>
+              </div>
+            </div>
+            <div class="filter-slider-row">
+              <span>${t(lang, "max") || "Max"}</span>
+              <div class="filter-slider-inputs">
+                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
+                <span>${currency === "ILS" ? "₪" : "$"}</span>
+              </div>
+            </div>
+            <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="price-track">
+              <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
+              <input type="range" class="range-slider" id="price-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
+            </div>
+          </div>
+        </details>
+      `);
+    }
+
+    for (const [key, range] of numericRanges) {
+      if (key === "price") continue;
+      if (!NUMERIC_ATTRS.has(key)) continue;
+
+      const label = attributeLabel(key, lang);
+      const currentMin = params.ranges[key]?.min ?? range.min;
+      const currentMax = params.ranges[key]?.max ?? range.max;
+      const step = key.includes("ghz") || key.includes("clock") ? 0.1 : 1;
+      const minPct = ((currentMin - range.min) / (range.max - range.min)) * 100;
+      const maxPct = ((currentMax - range.min) / (range.max - range.min)) * 100;
+
+      sliderGroups.push(`
+        <details class="filter-group">
+          <summary>${esc(label)}</summary>
+          <div class="filter-slider">
+            <div class="filter-slider-row">
+              <span>${t(lang, "min") || "Min"}</span>
+              <div class="filter-slider-inputs">
+                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
+              </div>
+            </div>
+            <div class="filter-slider-row">
+              <span>${t(lang, "max") || "Max"}</span>
+              <div class="filter-slider-inputs">
+                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
+              </div>
+            </div>
+            <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="${key}-track">
+              <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
+              <input type="range" class="range-slider" id="${key}-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
+            </div>
+          </div>
+        </details>
+      `);
+    }
 
     rail.innerHTML = `
       <h3>${t(lang, "filtersHeading")}</h3>
@@ -576,7 +806,9 @@ export async function renderCategory(
         ${t(lang, "inStockOnly")}
       </label>
 
-      ${groups}
+      ${sliderGroups.join("")}
+
+      ${checkboxGroups}
 
       <button
         class="clear-filters"
@@ -611,10 +843,93 @@ export async function renderCategory(
       });
     });
 
+    for (const key of numericRanges.keys()) {
+      if (key === "price") {
+        const minInput = rail.querySelector("#price-min") as HTMLInputElement;
+        const maxInput = rail.querySelector("#price-max") as HTMLInputElement;
+        const minSlider = rail.querySelector("#price-min-slider") as HTMLInputElement;
+        const maxSlider = rail.querySelector("#price-max-slider") as HTMLInputElement;
+        const track = rail.querySelector("#price-track") as HTMLElement;
+
+        const updatePriceRange = () => {
+          const min = minInput.value ? parseFloat(minInput.value) : null;
+          const max = maxInput.value ? parseFloat(maxInput.value) : null;
+          params.ranges.price = { min, max };
+          syncAndRerender();
+        };
+
+        const updateTrack = () => {
+          if (!track) return;
+          const range = numericRanges.get("price")!;
+          const minPct = ((Number(minSlider.value) - range.min) / (range.max - range.min)) * 100;
+          const maxPct = ((Number(maxSlider.value) - range.min) / (range.max - range.min)) * 100;
+          track.style.setProperty("--range-start", `${minPct}%`);
+          track.style.setProperty("--range-end", `${100 - maxPct}%`);
+        };
+
+        minInput.addEventListener("change", updatePriceRange);
+        maxInput.addEventListener("change", updatePriceRange);
+
+        minSlider.addEventListener("input", () => {
+          minInput.value = minSlider.value;
+          maxSlider.min = minSlider.value;
+          updateTrack();
+        });
+        minSlider.addEventListener("change", updatePriceRange);
+
+        maxSlider.addEventListener("input", () => {
+          maxInput.value = maxSlider.value;
+          minSlider.max = maxSlider.value;
+          updateTrack();
+        });
+        maxSlider.addEventListener("change", updatePriceRange);
+      } else {
+        const minInput = rail.querySelector(`#${key}-min`) as HTMLInputElement;
+        const maxInput = rail.querySelector(`#${key}-max`) as HTMLInputElement;
+        const minSlider = rail.querySelector(`#${key}-min-slider`) as HTMLInputElement;
+        const maxSlider = rail.querySelector(`#${key}-max-slider`) as HTMLInputElement;
+        const track = rail.querySelector(`#${key}-track`) as HTMLElement;
+
+        const updateRange = () => {
+          const min = minInput.value ? parseFloat(minInput.value) : null;
+          const max = maxInput.value ? parseFloat(maxInput.value) : null;
+          params.ranges[key] = { min, max };
+          syncAndRerender();
+        };
+
+        const updateTrack = () => {
+          if (!track) return;
+          const range = numericRanges.get(key)!;
+          const minPct = ((Number(minSlider.value) - range.min) / (range.max - range.min)) * 100;
+          const maxPct = ((Number(maxSlider.value) - range.min) / (range.max - range.min)) * 100;
+          track.style.setProperty("--range-start", `${minPct}%`);
+          track.style.setProperty("--range-end", `${100 - maxPct}%`);
+        };
+
+        minInput.addEventListener("change", updateRange);
+        maxInput.addEventListener("change", updateRange);
+
+        minSlider.addEventListener("input", () => {
+          minInput.value = minSlider.value;
+          maxSlider.min = minSlider.value;
+          updateTrack();
+        });
+        minSlider.addEventListener("change", updateRange);
+
+        maxSlider.addEventListener("input", () => {
+          maxInput.value = maxSlider.value;
+          minSlider.max = maxSlider.value;
+          updateTrack();
+        });
+        maxSlider.addEventListener("change", updateRange);
+      }
+    }
+
     rail
       .querySelector("#clear-filters-btn")!
       .addEventListener("click", () => {
         params.filters = {};
+        params.ranges = {};
         params.stockOnly = false;
         syncAndRerender();
       });

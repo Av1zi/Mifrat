@@ -80,6 +80,23 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   pwm: { he: "PWM", en: "PWM" },
   channels: { he: "ערוצים", en: "Channels" },
   amount: { he: "כמות", en: "Amount" },
+
+  // Numeric filter attributes
+  price: { he: "מחיר", en: "Price" },
+  cores: { he: "ליבות", en: "Cores" },
+  threads: { he: "נימים", en: "Threads" },
+  cache_mb: { he: "זיכרון מטמון (MB)", en: "Cache (MB)" },
+  base_clock_ghz: { he: "תדר בסיס (GHz)", en: "Base Clock (GHz)" },
+  boost_clock_ghz: { he: "תדר מוגבר (GHz)", en: "Boost Clock (GHz)" },
+  vram_gb: { he: "זיכרון וידאו (GB)", en: "VRAM (GB)" },
+  wattage_w: { he: "הספק (W)", en: "Wattage (W)" },
+  capacity_gb: { he: "נפח (GB)", en: "Capacity (GB)" },
+  speed_mhz: { he: "מהירות (MHz)", en: "Speed (MHz)" },
+  cas_latency: { he: "זמן השהיה (CL)", en: "CAS Latency" },
+  pcie_gen: { he: "דור PCIe", en: "PCIe Gen" },
+  cooler_height_mm: { he: "גובה קירור (ממ)", en: "Cooler Height (mm)" },
+  radiator_size_mm: { he: "גודל רדיאטור (ממ)", en: "Radiator Size (mm)" },
+  fan_size_mm: { he: "גודל מאוורר (ממ)", en: "Fan Size (mm)" },
 };
 
 export function categoryLabel(id: string, lang: Lang): string {
@@ -145,6 +162,9 @@ const STRINGS = {
     loading: "טוען…",
     loadError: "שגיאה בטעינת הנתונים. נסו לרענן את הדף.",
     sourceLinkLabel: "קוד המקור בגיטהאב",
+    min: "מינימום",
+    max: "מקסימום",
+    priceRange: "טווח מחירים",
     disclaimer:
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
@@ -198,6 +218,9 @@ const STRINGS = {
     loading: "Loading…",
     loadError: "Couldn't load data. Try refreshing the page.",
     sourceLinkLabel: "Source on GitHub",
+    min: "Min",
+    max: "Max",
+    priceRange: "Price Range",
     disclaimer:
       "Prices are scraped daily from each vendor's site. Links go to the vendor to buy — Mifrat doesn't sell anything itself.",
   },

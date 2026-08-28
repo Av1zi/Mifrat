@@ -45,6 +45,7 @@ export interface CategoryParams {
   sort: SortKey;
   stockOnly: boolean;
   filters: Record<string, string[]>;
+  ranges: Record<string, { min: number | null; max: number | null }>;
   productId: string | null;
 
   /**
@@ -65,6 +66,7 @@ function defaultCategoryParams(): CategoryParams {
     sort: "price_asc",
     stockOnly: false,
     filters: {},
+    ranges: {},
     productId: null,
     pick: null,
   };
@@ -119,6 +121,16 @@ export function parseRoute(): Route {
     if (key.startsWith("f.")) {
       const attrKey = key.slice(2);
       params.filters[attrKey] = value.split("|").filter(Boolean);
+    } else if (key.startsWith("r.")) {
+      const attrKey = key.slice(2);
+      const [minStr, maxStr] = value.split(",");
+      const min = minStr ? parseFloat(minStr) : null;
+      const max = maxStr ? parseFloat(maxStr) : null;
+      const minValid = min !== null && !isNaN(min);
+      const maxValid = max !== null && !isNaN(max);
+      if (minValid || maxValid) {
+        params.ranges[attrKey] = { min: minValid ? min : null, max: maxValid ? max : null };
+      }
     }
   }
 
@@ -144,6 +156,12 @@ export function categoryHash(
 
   for (const [key, values] of Object.entries(merged.filters)) {
     if (values.length > 0) search.set(`f.${key}`, values.join("|"));
+  }
+
+  for (const [key, range] of Object.entries(merged.ranges)) {
+    const minStr = range.min !== null ? String(range.min) : "";
+    const maxStr = range.max !== null ? String(range.max) : "";
+    if (minStr || maxStr) search.set(`r.${key}`, `${minStr},${maxStr}`);
   }
 
   const query = search.toString();

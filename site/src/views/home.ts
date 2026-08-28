@@ -17,8 +17,8 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
 
   const byId = new Map(meta.categories.map((c) => [c.id, c]));
   const orderedIds = [
-    ...CATEGORY_ORDER.filter((id) => byId.has(id)),
-    ...meta.categories.map((c) => c.id).filter((id) => !(CATEGORY_ORDER as readonly string[]).includes(id)),
+    ...CATEGORY_ORDER.filter((id) => byId.has(id) && id !== "other"),
+    ...meta.categories.map((c) => c.id).filter((id) => !(CATEGORY_ORDER as readonly string[]).includes(id) && id !== "other"),
   ];
 
   const cards = orderedIds
