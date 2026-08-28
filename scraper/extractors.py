@@ -128,7 +128,15 @@ MEMORY_MAX_RE = re.compile(r"\b(\d+)\s?GB\s*(?:MAX|Maximum)\b", re.I)
 M2_SLOTS_RE = re.compile(r"\b(\d+)\s?X\s?M\.?2\b", re.I)
 SATA_PORTS_RE = re.compile(r"\b(\d+)\s?X\s?SATA\b", re.I)
 
-AMD_CPU_RE = re.compile(r"\bRYZEN\s?(\d)\s?(\d{4}[A-Z0-9]*)", re.I)
+AMD_RYZEN_RE = re.compile(r"\bRYZEN\s?(\d)\s?(\d{4}[A-Z0-9]*)", re.I)
+AMD_THREADRIPPER_RE = re.compile(r"\bTHREADRIPPER\s?(PRO\s?)?(\d{4}[A-Z0-9]*)", re.I)
+# Pre-Ryzen AMD lines still show up in vendor feeds (A-series APUs, FX,
+# Athlon). These never had brand/model extracted before, which is why
+# cross-vendor listings of the same chip never reached the CPU model-merge
+# tier in matching.py (Aug 2026 fix — see decisions.md).
+AMD_APU_RE = re.compile(r"\bA(4|6|8|9|10|12)\s?-?\s?(\d{4}[A-Z]{0,2})\b", re.I)
+AMD_FX_RE = re.compile(r"\bFX\s?-?\s?(\d{4}[A-Z]?)\b", re.I)
+AMD_ATHLON_RE = re.compile(r"\bATHLON\s?(?:64\s?)?(X\d)?\s?-?\s?(\d{3,4}[A-Z]{0,2})\b", re.I)
 INTEL_CPU_RE = re.compile(
     r"\bCORE\s?(ULTRA\s?\d|I\d)[\s-]?(\d{4,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
 )
@@ -358,7 +366,7 @@ def _parse_motherboard(text: str, meta) -> dict:
 
     chipset_m = CHIPSET_RE.search(text)
     chipset = chipset_m.group(1).upper() if chipset_m else None
-    if chipset:
+    if chipset_m:
         # Normalize: strip trailing letters already captured? group1 is base, group2 optional letter already separated
         # For X570S, group1 captures X570S? Need handle X570S variant
         raw_chip = chipset_m.group(0).upper().replace(" ", "")
@@ -460,23 +468,45 @@ def _parse_cpu(text: str, meta) -> dict:
         if 10 <= val <= 300:
             a["tdp"] = f"{val}W"
 
-    m = AMD_CPU_RE.search(text)
+    m = AMD_RYZEN_RE.search(text)
     if m:
         a["brand"] = "AMD"
         a["model"] = f"Ryzen {m.group(1)} {m.group(2).upper()}"
     else:
-        m = INTEL_CPU_RE.search(text)
+        m = AMD_THREADRIPPER_RE.search(text)
         if m:
-            a["brand"] = "Intel"
-            fam = re.sub(r"\s+", " ", m.group(1).upper())
-            # Fix truncation: keep full number (4-5 digits + suffix)
-            num = m.group(2).upper().strip()
-            a["model"] = f"Core {fam} {num}"
+            a["brand"] = "AMD"
+            pro = "PRO " if m.group(1) else ""
+            a["model"] = f"Threadripper {pro}{m.group(2).upper()}".strip()
         else:
-            m = XEON_RE.search(text)
+            m = AMD_APU_RE.search(text)
             if m:
-                a["brand"] = "Intel"
-                a["model"] = f"Xeon {m.group(1).replace(' ', '')}"
+                a["brand"] = "AMD"
+                a["model"] = f"A{m.group(1)}-{m.group(2).upper()}"
+            else:
+                m = AMD_FX_RE.search(text)
+                if m:
+                    a["brand"] = "AMD"
+                    a["model"] = f"FX-{m.group(1).upper()}"
+                else:
+                    m = AMD_ATHLON_RE.search(text)
+                    if m:
+                        a["brand"] = "AMD"
+                        variant = f"{m.group(1).upper()} " if m.group(1) else ""
+                        a["model"] = f"Athlon {variant}{m.group(2).upper()}".strip()
+                    else:
+                        m = INTEL_CPU_RE.search(text)
+                        if m:
+                            a["brand"] = "Intel"
+                            fam = re.sub(r"\s+", " ", m.group(1).upper())
+                            # Fix truncation: keep full number (4-5 digits + suffix)
+                            num = m.group(2).upper().strip()
+                            a["model"] = f"Core {fam} {num}"
+                        else:
+                            m = XEON_RE.search(text)
+                            if m:
+                                a["brand"] = "Intel"
+                                a["model"] = f"Xeon {m.group(1).replace(' ', '')}"
 
     # Generation + tier, so the UI can offer them as filters the way
     # PCPartPicker does. These are derived from the model number we just

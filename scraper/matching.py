@@ -201,6 +201,8 @@ BRAND_ALIASES = {
     "nzxt": "NZXT",
     "thermaltake": "Thermaltake",
     "ivory": "Ivory",
+    "arktek": "ARKTEK",
+    "biostar": "Biostar",
 
     # Memory
     "kingston": "Kingston",
@@ -715,9 +717,19 @@ def offer_from_listing(enriched: dict) -> dict:
 TITLE_NOISE_RE = re.compile(
     r"\b(free shipping|ship(?:s|ping)? worldwide|brand new|new in (?:sealed )?box|"
     r"open box|b-?stock|refurbished|used|best price|cheap|wholesale|"
-    r"bulk (?:pack|order)|with (?:heatsink|fan|rgb lighting)|color tray|tray|"
+    r"bulk (?:pack|order)|with (?:heatsink|fan|rgb lighting)|color tray|"
+    r"flat color|flat|tray|"
     r"oem(?: (?:box|packaging))?|retail (?:box|packaging)|warranty included|"
     r"\d+(?:-| )?years? (?:warranty|warr)|incl\.? (?:vat|ma'am)|vat included)\b",
+    re.I,
+)
+
+# Generic part-type words vendors prepend to titles ("Motherboard ARKTEK...",
+# "Processor AMD..."). These add nothing once the product already has a
+# category, so strip them from the front of a display name only.
+LEADING_CATEGORY_WORD_RE = re.compile(
+    r"^(motherboard|processor|cpu|graphics card|video card|power supply|"
+    r"memory|ram|case|chassis|cooler)\b[\s:.-]*",
     re.I,
 )
 
@@ -727,9 +739,10 @@ def display_title(text: str, max_len: int = 120) -> str:
     s = re.sub(r"\s+", " ", str(text or "")).strip()
     if not s:
         return s
+    s = LEADING_CATEGORY_WORD_RE.sub("", s)
     s = TITLE_NOISE_RE.sub(" ", s)
     s = re.sub(r"^[\s\-–—|·,;:]+", "", s)
-    s = re.sub(r"[\s\-–—|·,;:]+$", "", s)
+    s = re.sub(r"[\s\-–—|·,;:.]+$", "", s)
     s = re.sub(r"\s{2,}", " ", s).strip()
     if len(s) > max_len:
         cut = s[:max_len]
@@ -737,6 +750,25 @@ def display_title(text: str, max_len: int = 120) -> str:
             cut = cut.rsplit(" ", 1)[0]
         s = cut.rstrip(" -–—|·,;:") + "…"
     return s or "unknown"
+
+
+def name_from_attributes(category: str, attributes: dict) -> str | None:
+    """
+    For categories where extractors.py already produces a clean brand+model
+    (currently just CPU), prefer "<brand> <model>" over any raw vendor
+    title. Raw titles carry marketing noise ("processor flat color", vendor
+    SKU fragments) that no amount of noise-stripping fully cleans up, while
+    brand+model is already the exact canonical identity used for matching.
+    Returns None to fall back to best_name() when brand/model aren't both
+    available (e.g. every non-CPU category today).
+    """
+    if category != "cpu":
+        return None
+    brand = attributes.get("brand")
+    model = attributes.get("model")
+    if not brand or not model:
+        return None
+    return f"{brand} {model}".strip()
 
 
 def best_name(enriched_listings: list[dict]) -> str:
@@ -1331,7 +1363,11 @@ def match_listings(
 
         product = {
             "product_id": meta.get("product_id", pid),
-            "canonical_name": meta.get("canonical_name") or best_name(group),
+            "canonical_name": (
+                meta.get("canonical_name")
+                or name_from_attributes(category, merged_attributes)
+                or best_name(group)
+            ),
             "category": category,
             "brand": meta.get("brand") or next(
                 (e.get("brand") for e in group if e.get("brand")),
