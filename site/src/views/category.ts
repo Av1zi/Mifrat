@@ -345,7 +345,8 @@ export async function renderCategory(
     .map(() => "minmax(110px, 1fr)")
     .join(" ");
 
-  const plCols = `minmax(230px, 2.4fr) ${specColDefs} minmax(110px, 1.1fr) minmax(110px, 1fr) minmax(128px, auto)`.replace(
+  // +56px thumb column at start, spiced distinct
+  const plCols = `56px minmax(220px, 2.2fr) ${specColDefs} minmax(108px, 1fr) minmax(110px, 1fr) minmax(112px, auto)`.replace(
     /\s{2,}/g,
     " "
   );
@@ -530,6 +531,11 @@ export async function renderCategory(
     renderGrid();
   }
 
+  function thumbLabel(p: Product): string {
+    const s = (p.brand ?? p.name).trim();
+    return s.slice(0, 2).toUpperCase() || "•";
+  }
+
   function headerHtml(): string {
     const specHeaders = specColumns
       .map(
@@ -538,12 +544,17 @@ export async function renderCategory(
       )
       .join("");
 
+    // Price header is sortable — clicking toggles low→high / high→low
+    const priceSort = params.sort === "price_asc" ? "price_desc" : "price_asc";
+    const priceArrow = params.sort === "price_asc" ? "↑" : params.sort === "price_desc" ? "↓" : "↕";
+
     return `
       <div class="pl-header">
+        <div class="pl-cell" aria-hidden="true"></div>
         <div class="pl-cell">${t(lang, "sortName")}</div>
         ${specHeaders}
         <div class="pl-cell">${t(lang, "availability")}</div>
-        <div class="pl-cell">${t(lang, "priceHeading")}</div>
+        <div class="pl-cell" style="cursor:pointer" data-sort="${esc(priceSort)}" title="${t(lang, "sortLabel")}">${t(lang, "priceHeading")} <span style="font-weight:800">${priceArrow}</span></div>
         <div class="pl-cell"></div>
       </div>
     `;
@@ -571,6 +582,9 @@ export async function renderCategory(
         type="button"
         data-id="${esc(p.id)}"
       >
+        <div class="pl-cell" style="display:flex; align-items:center; justify-content:center;">
+          <span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span>
+        </div>
         <div class="pl-cell pl-name">
           <span class="pl-title">${esc(displayName(p))}</span>
           ${p.brand ? `<span class="pl-brand">${esc(p.brand)}</span>` : ""}
@@ -639,6 +653,17 @@ export async function renderCategory(
     } else {
       listEl.innerHTML = headerHtml() + visible.map(rowHtml).join("");
 
+      const sortEl = listEl.querySelector<HTMLElement>("[data-sort]");
+      if (sortEl) {
+        sortEl.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const next = sortEl.dataset.sort as SortKey;
+          params.sort = next;
+          (container.querySelector("#sort-select") as HTMLSelectElement).value = next;
+          syncAndRerender();
+        });
+      }
+
       listEl.querySelectorAll(".pl-row").forEach((el) => {
         el.addEventListener("click", () => {
           const id = (el as HTMLElement).dataset.id!;
@@ -681,11 +706,81 @@ export async function renderCategory(
     const rail = container.querySelector("#filter-rail")!;
     const numericRanges = computeNumericRanges(compatibleProducts);
 
+    // ---- Mini Part List card (like PP's top-left) ----
+    const buildCount = Object.keys(storedBuild).length;
+    // Total/wattage: try to compute from loaded buildParts (when picking), otherwise show dashes
+    let totalStr = formatPrice(0, currency, lang);
+    let wattStr = "0W";
+    if (buildCount > 0 && Object.keys(buildParts).length > 0) {
+      // Estimate from currently loaded buildParts
+      let sum = 0;
+      let estW = 0;
+      // We don't have product objects for all slots without async load, so keep placeholder.
+      // Use compatibleProducts not needed — will be refreshed after pick.
+      for (const p of Object.values(buildParts)) {
+        sum += p.min_price ?? 0;
+      }
+      // Simple wattage sum for mini card: sum of tdp-like attrs if present
+      for (const p of Object.values(buildParts)) {
+        const w = p.attributes["tdp"] || p.attributes["wattage_w"] || "";
+        const m = /(\d+)/.exec(w);
+        if (m) estW += parseInt(m[1], 10);
+      }
+      totalStr = formatPrice(sum, currency, lang);
+      wattStr = estW + "W";
+    }
+    const miniCard = `
+      <div class="miniPart">
+        <div class="miniPart-head">
+          <span class="miniPart-title">Part <span class="miniPart-icon">◈</span> List</span>
+        </div>
+        <label class="miniPart-compat">
+          <input type="checkbox" checked disabled />
+          <span>${lang === "he" ? "מסנן תאימות" : "Compatibility Filter"}</span>
+        </label>
+        <div class="miniPart-stats">
+          <div><span class="miniPart-label">PARTS</span><span class="miniPart-value">${buildCount}</span></div>
+          <div><span class="miniPart-label">TOTAL</span><span class="miniPart-value miniPart-total">${totalStr}</span></div>
+          <div><span class="miniPart-label">ESTIMATED WATTAGE</span><span class="miniPart-value miniPart-watt">${wattStr}</span></div>
+        </div>
+      </div>
+    `;
+
+    // ---- Merchants / Pricing (mirrors PP) ----
+    const vendorValues = filterableAttrs.get("vendor") ?? [];
+    const merchantsBody = vendorValues.length
+      ? `
+        <div class="group__content" id="merchants-content" style="display:none">
+          <label class="filter-option"><input type="checkbox" data-merchant-all /> All</label>
+          ${vendorValues.map(([v,cnt]) => `
+            <label class="filter-option">
+              <input type="checkbox" data-attr="vendor" value="${esc(v)}" ${ (params.filters["vendor"] ?? []).includes(v) ? "checked" : "" } />
+              ${esc(vendorLabel(v))} <span class="fo-count">(${cnt})</span>
+            </label>
+          `).join("")}
+        </div>
+      `
+      : `<div class="group__content" style="display:none; padding:6px 0; font-size:0.82rem; color:var(--text-dim)">No vendor data</div>`;
+
+    const pricingBody = `
+      <div class="group__content" style="padding:8px 0">
+        <label class="filter-option" style="padding:4px 0">
+          <input type="checkbox" id="pricing-rebates" checked disabled />
+          ${lang === "he" ? "כולל הנחות" : "Include mail-in rebates"}
+        </label>
+        <label class="checkbox-row" style="margin-top:8px; border-top:none; padding-top:6px">
+          <input type="checkbox" id="stock-checkbox" ${params.stockOnly ? "checked" : ""} />
+          ${t(lang, "inStockOnly")}
+        </label>
+      </div>
+    `;
+
     const checkboxAttrs = new Set(filterableAttrs.keys());
     for (const key of NUMERIC_ATTRS) {
       checkboxAttrs.delete(key);
     }
     checkboxAttrs.delete("price");
+    checkboxAttrs.delete("vendor");
 
     const checkboxGroups = Array.from(checkboxAttrs)
       .filter((key) => filterableAttrs.has(key))
@@ -695,7 +790,7 @@ export async function renderCategory(
 
         const options = values
           .map(([value, count]) => {
-            const displayValue = key === "vendor" ? vendorLabel(value) : value;
+            const displayValue = value;
 
             return `
               <label class="filter-option">
@@ -714,8 +809,8 @@ export async function renderCategory(
 
         return `
           <details class="filter-group">
-            <summary>${esc(attributeLabel(key, lang))}</summary>
-            ${options}
+            <summary><span>${esc(attributeLabel(key, lang))}</span><span class="collapse-toggle">+</span></summary>
+            <div class="group__content">${options}</div>
           </details>
         `;
       })
@@ -733,25 +828,18 @@ export async function renderCategory(
 
       sliderGroups.push(`
         <details class="filter-group">
-          <summary>${t(lang, "priceRange") || "Price"}</summary>
-          <div class="filter-slider">
-            <div class="filter-slider-row">
-              <span>${t(lang, "min") || "Min"}</span>
-              <div class="filter-slider-inputs">
-                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
-                <span>${currency === "ILS" ? "₪" : "$"}</span>
+          <summary><span>${t(lang, "priceRange") || "Price"}</span><span class="collapse-toggle">+</span></summary>
+          <div class="group__content">
+            <div class="filter-slider">
+              <div class="price-label-row"><span>$${range.min}</span><span>$${range.max}</span></div>
+              <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="price-track">
+                <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
+                <input type="range" class="range-slider" id="price-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
               </div>
-            </div>
-            <div class="filter-slider-row">
-              <span>${t(lang, "max") || "Max"}</span>
-              <div class="filter-slider-inputs">
-                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
-                <span>${currency === "ILS" ? "₪" : "$"}</span>
+              <div style="display:flex; gap:6px; margin-top:8px">
+                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
+                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
               </div>
-            </div>
-            <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="price-track">
-              <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
-              <input type="range" class="range-slider" id="price-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
             </div>
           </div>
         </details>
@@ -771,23 +859,18 @@ export async function renderCategory(
 
       sliderGroups.push(`
         <details class="filter-group">
-          <summary>${esc(label)}</summary>
-          <div class="filter-slider">
-            <div class="filter-slider-row">
-              <span>${t(lang, "min") || "Min"}</span>
-              <div class="filter-slider-inputs">
-                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
+          <summary><span>${esc(label)}</span><span class="collapse-toggle">+</span></summary>
+          <div class="group__content">
+            <div class="filter-slider">
+              <div class="price-label-row"><span>${range.min}</span><span>${range.max}</span></div>
+              <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="${key}-track">
+                <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
+                <input type="range" class="range-slider" id="${key}-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
               </div>
-            </div>
-            <div class="filter-slider-row">
-              <span>${t(lang, "max") || "Max"}</span>
-              <div class="filter-slider-inputs">
-                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
+              <div style="display:flex; gap:6px; margin-top:8px">
+                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
+                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
               </div>
-            </div>
-            <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="${key}-track">
-              <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
-              <input type="range" class="range-slider" id="${key}-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
             </div>
           </div>
         </details>
@@ -795,28 +878,35 @@ export async function renderCategory(
     }
 
     rail.innerHTML = `
-      <h3>${t(lang, "filtersHeading")}</h3>
+      ${miniCard}
 
-      <label class="checkbox-row">
-        <input
-          type="checkbox"
-          id="stock-checkbox"
-          ${params.stockOnly ? "checked" : ""}
-        />
-        ${t(lang, "inStockOnly")}
-      </label>
+      <div class="railSection">
+        <h3 class="railSectionTitle">Merchants / Pricing</h3>
+        <div class="group group--filter">
+          <h3 class="group__title group__title--trigger js-trigger-filter" data-toggle="merchants">MERCHANTS<span class="collapse-toggle">+</span></h3>
+          ${merchantsBody}
+        </div>
+        <div class="group group--filter">
+          <h3 class="group__title group__title--trigger js-trigger-filter" data-toggle="pricing">PRICING OPTIONS<span class="collapse-toggle">+</span></h3>
+          ${pricingBody}
+        </div>
+      </div>
 
-      ${sliderGroups.join("")}
+      <div class="railSection">
+        <h3 class="railSectionTitle">Filters</h3>
 
-      ${checkboxGroups}
+        ${sliderGroups.join("")}
 
-      <button
-        class="clear-filters"
-        id="clear-filters-btn"
-        type="button"
-      >
-        ${t(lang, "clearFilters")}
-      </button>
+        ${checkboxGroups}
+
+        <button
+          class="clear-filters"
+          id="clear-filters-btn"
+          type="button"
+        >
+          ${t(lang, "clearFilters")}
+        </button>
+      </div>
     `;
 
     rail
@@ -923,6 +1013,44 @@ export async function renderCategory(
         });
         maxSlider.addEventListener("change", updateRange);
       }
+    }
+
+    // PP-style collapsible headers (MERCHANTS / PRICING OPTIONS / Filters groups)
+    rail.querySelectorAll<HTMLHeadingElement>(".group__title--trigger").forEach((h) => {
+      h.addEventListener("click", () => {
+        const content = h.nextElementSibling as HTMLElement | null;
+        if (!content) return;
+        const isOpen = content.style.display !== "none";
+        content.style.display = isOpen ? "none" : "block";
+        const tog = h.querySelector<HTMLElement>(".collapse-toggle");
+        if (tog) tog.textContent = isOpen ? "+" : "−";
+      });
+    });
+    rail.querySelectorAll<HTMLDetailsElement>(".filter-group").forEach((d) => {
+      const tog = d.querySelector<HTMLElement>(".collapse-toggle");
+      d.addEventListener("toggle", () => {
+        if (tog) tog.textContent = d.open ? "−" : "+";
+      });
+    });
+    const stockEl = rail.querySelector<HTMLInputElement>("#stock-checkbox");
+    if (stockEl) {
+      // already wired below, but keep here for pricing section duplicate
+    }
+    const merchantAll = rail.querySelector<HTMLInputElement>("[data-merchant-all]");
+    if (merchantAll) {
+      merchantAll.addEventListener("change", () => {
+        const checked = merchantAll.checked;
+        rail.querySelectorAll<HTMLInputElement>('input[data-attr="vendor"]').forEach((el) => {
+          el.checked = checked;
+          const key = "vendor";
+          const set = new Set(params.filters[key] ?? []);
+          if (checked) set.add(el.value);
+          else set.delete(el.value);
+          params.filters[key] = Array.from(set);
+          if (params.filters[key].length === 0) delete params.filters[key];
+        });
+        syncAndRerender();
+      });
     }
 
     rail

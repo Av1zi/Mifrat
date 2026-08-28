@@ -38,7 +38,7 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
 
   const referenceSection = referenceRows
     ? `
-      <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-dim); margin-bottom:10px;">
+      <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:10px;">
         ${t(lang, "referenceSpecsHeading")}
       </h3>
       <table class="spec-table">${referenceRows}</table>
@@ -68,15 +68,19 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
   const sku = skuOf(product);
   const slot = slotForCategory(product.category);
 
+  const initials = (product.brand ?? product.name).slice(0,2).toUpperCase();
+  const placeholder = `<div style="width:72px; height:72px; border-radius:12px; border:1px dashed #cbd5e1; background: linear-gradient(135deg, #ecfdf5, #f0fdfa); display:grid; place-items:center; font-weight:800; color:var(--blue-dark); margin-bottom:12px;">${esc(initials)}</div>`;
+
   panel.innerHTML = `
     <button class="overlay-close" type="button">${t(lang, "close")} ✕</button>
+    ${placeholder}
     <div class="overlay-title">${esc(displayName(product))}</div>
     <div class="overlay-brand">${esc(product.brand ?? "")}</div>
     ${sku ? `<div class="overlay-sku">SKU: ${esc(sku)}</div>` : ""}
     ${slot ? `<button class="btn-primary add-to-build" type="button">+ ${t(lang, "addToBuild")}</button>` : ""}
     ${specRows ? `<table class="spec-table">${specRows}</table>` : ""}
     ${referenceSection}
-    <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-dim); margin-bottom:10px;">
+    <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:10px;">
       ${t(lang, "offersHeading")}
     </h3>
     ${offerRows}`;
