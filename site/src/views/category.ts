@@ -829,7 +829,7 @@ export async function renderCategory(
         <details class="filter-group">
           <summary><span>${t(lang, "priceRange") || "Price"}</span><span class="collapse-toggle">+</span></summary>
           <div class="group__content">
-            <div class="filter-slider">
+            <div class="filter-slider" dir="ltr">
               <div class="price-label-row"><span>$${range.min}</span><span>$${range.max}</span></div>
               <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="price-track">
                 <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
@@ -860,7 +860,7 @@ export async function renderCategory(
         <details class="filter-group">
           <summary><span>${esc(label)}</span><span class="collapse-toggle">+</span></summary>
           <div class="group__content">
-            <div class="filter-slider">
+            <div class="filter-slider" dir="ltr">
               <div class="price-label-row"><span>${range.min}</span><span>${range.max}</span></div>
               <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="${key}-track">
                 <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
