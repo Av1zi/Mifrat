@@ -25873,50 +25873,6 @@
   },
   {
     "score": 90,
-    "category": "case",
-    "brand": "Fractal Design",
-    "listing_a": "1pc:219393",
-    "listing_b": "tms:FD-C-EPO1A-05",
-    "title_a": "מארז מחשב Fractal Design Epoch White TG RGB",
-    "title_b": "מארז מחשב Fractal Design Epoch White TG RGB Clear Tint",
-    "match_text_a": "219393 Fractal Design Epoch White TG RGB",
-    "match_text_b": "FD-C-EPO1A-05 Fractal Design Epoch White TG RGB Clear Tint"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Fractal Design",
-    "listing_a": "1pc:219393",
-    "listing_b": "tms:FD-C-EPO1X-05",
-    "title_a": "מארז מחשב Fractal Design Epoch White TG RGB",
-    "title_b": "מארז מחשב Fractal Design Epoch XL White TG RGB Clear Tint",
-    "match_text_a": "219393 Fractal Design Epoch White TG RGB",
-    "match_text_b": "FD-C-EPO1X-05 Fractal Design Epoch XL White TG RGB Clear Tint"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Fractal Design",
-    "listing_a": "1pc:219394",
-    "listing_b": "tms:FD-C-EPO1A-04",
-    "title_a": "מארז מחשב Fractal Design Epoch Black TG RGB",
-    "title_b": "מארז מחשב Fractal Design Epoch Black TG RGB Light Tint",
-    "match_text_a": "219394 Fractal Design Epoch Black TG RGB",
-    "match_text_b": "FD-C-EPO1A-04 Fractal Design Epoch Black TG RGB Light Tint"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Fractal Design",
-    "listing_a": "1pc:219394",
-    "listing_b": "tms:FD-C-EPO1X-04",
-    "title_a": "מארז מחשב Fractal Design Epoch Black TG RGB",
-    "title_b": "מארז מחשב Fractal Design Epoch XL Black TG RGB Light Tint",
-    "match_text_a": "219394 Fractal Design Epoch Black TG RGB",
-    "match_text_b": "FD-C-EPO1X-04 Fractal Design Epoch XL Black TG RGB Light Tint"
-  },
-  {
-    "score": 90,
     "category": "storage",
     "brand": "Corsair",
     "listing_a": "tms:CSSD-F1000GBMP700EHS",
@@ -31293,6 +31249,17 @@
     "title_b": "Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM",
     "match_text_a": "NF-P14SDUX1200P Noctua NF-P14S Redux-1200P 140mm 1200 RPM PWM Fan",
     "match_text_b": "NF-S12BDUX1200P Noctua NF-S12B Redux-1200P 120mm Fan 1200 RPM PWM"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:219393",
+    "listing_b": "1pc:219394",
+    "title_a": "Fractal Design Epoch White TG RGB computer case.",
+    "title_b": "Fractal Design Epoch Black TG RGB computer case.",
+    "match_text_a": "219393 Fractal Design Epoch White TG RGB computer case.",
+    "match_text_b": "219394 Fractal Design Epoch Black TG RGB computer case."
   },
   {
     "score": 89,
