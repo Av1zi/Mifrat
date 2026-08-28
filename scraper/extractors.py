@@ -1301,14 +1301,10 @@ def extract_attributes(listing: dict) -> dict:
         for k, v in _parse_hebrew_description(raw_desc).items():
             attrs.setdefault(k, v)
 
-    # Structural builder data.
+    # Structural builder data is used only to decode Ivory's filter cuts.
+    # Do not expose opaque IDs or internal parent IDs as product specs.
     cuts = meta.get("cuts")
-    if isinstance(cuts, list) and cuts:
-        attrs["ivory_cuts"] = sorted(int(c) for c in cuts if str(c).isdigit())
-
-    parent = meta.get("parent")
-    if parent not in (None, "", 0):
-        attrs["ivory_parent"] = parent
+    cut_ids = [int(c) for c in cuts if str(c).isdigit()] if isinstance(cuts, list) else []
 
     # Decode opaque Ivory `cuts` IDs via the static ground-truth table.
     # (No parent->category lookup needed: category_guess from the spider
@@ -1316,7 +1312,7 @@ def extract_attributes(listing: dict) -> dict:
     # CATEGORIES table, one source_parent per category.)
     labels = _load_cut_labels()
     if labels:
-        for cut in attrs.get("ivory_cuts", []):
+        for cut in cut_ids:
             for k, v in (labels.get("cuts", {}).get(str(cut)) or {}).items():
                 attrs.setdefault(k, v)
 
