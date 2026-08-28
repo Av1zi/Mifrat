@@ -94,6 +94,8 @@ the pipeline.
 
 ```
 /scrapy.cfg                   # settings pointer only — no Zyte [deploy] section
+/wrangler.jsonc               # Workers Builds config (assets come from site/dist)
+/package.json                 # root build command used by Workers Builds
 /scraper
   /spiders
     tms.py                    # HTML category pages + Claris stock POST — Nano only

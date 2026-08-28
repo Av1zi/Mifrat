@@ -1,0 +1,10 @@
+{
+  "name": "mifrat",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix site ci && npm --prefix site run build"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
