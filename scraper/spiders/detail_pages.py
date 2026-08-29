@@ -1,49 +1,52 @@
 """
 Detail-page spiders — spec + cover image scrape, run ONCE per vendor_sku.
 
-Design (unchanged): each spider reads its pending-work list from
-data/detail_pending/<vendor>.json — a JSON list of {"vendor_sku", "url"}
-objects produced by scraper/make_detail_pending.py ("make"), which is also
-the only place that updates the data/detail_scraped/<vendor>.json ledger
-("mark"), and only for SKUs whose resized image already exists on disk —
-so a crash partway through never marks a product "done" without its image.
+Design:
+- Each spider reads its pending-work list from
+  data/detail_pending/<vendor>.json — a JSON list of
+  {"vendor_sku": "...", "url": "..."} objects. Something upstream
+  (a small script comparing the listing spiders' output against
+  data/detail_scraped/<vendor>.json) is responsible for producing
+  that pending list; these spiders don't do that comparison
+  themselves, to keep "what's already scraped" logic in one place
+  rather than duplicated per-spider.
+- Output: one DetailItem per product (see below), written to
+  data/raw/detail/<vendor>.jsonl (via -s "FEEDS={...}" per the
+  Scrapy 2.17/2.18 gotcha already logged in decisions.md — do NOT
+  use -o/-t flags).
+- Image download is deliberately NOT done inside these spiders.
+  At ~5 new items/day, a plain `requests`-based downloader
+  (download_images.py, same folder) run once after the spider
+  finishes is simpler than wiring up Scrapy's ImagesPipeline for
+  this low a volume, and keeps retry/resize logic in one place
+  shared across all 4 vendors.
+- After a successful run, append the scraped vendor_sku values to
+  data/detail_scraped/<vendor>.json — NOT done here either; that's
+  the same upstream script's job, run after this spider AND the
+  image downloader both succeed, so a crash partway through doesn't
+  mark a product "done" without its image.
 
-Selectors in this revision are VERIFIED against raw HTML saves taken
-Aug 2026 (one real product page per vendor), lifting the "unverified"
-caveat from the first revision:
-
-  Ivory  — spec panel is div#panel2: one <li> per row; first inner <div>
-           holds the <b>label</b>, second inner <div> the value (the value
-           div may nest further divs/links, e.g. the warranty row).
-           Cover image: the save has NO og:image — use
-           link[rel=image_src] / img.xzoom@xoriginal fallbacks.
-  TMS    — div.product-attribute-item microdata pairs
-           (h3.specification-title / div.specification-data). Multi-value
-           cells arrive as separate text nodes ("VGA |", "HDMI").
-           Bonus metas: product:brand / product:availability /
-           product:price:amount; on-page מק"ט in span.param-model.
-  1PC    — the Specifications tab is SERVER-RENDERED into #quickTab-default
-           as table.data-table (tr.spec-header group rows + odd/even rows
-           with td.spec-name / td.spec-value). The first revision's fear
-           (table only reachable via a robots-blocked AJAX endpoint) was
-           wrong for the real page. The long Intel-ark-style
-           "Specifications" cell keeps its line structure by joining text
-           nodes with newlines. Flat comma-string parser kept as fallback.
-  Plonter— the data table is the only table whose rows carry
-           onmouseover="ChangeBackgroundColor(this)"; each row is
-           [Hebrew label][value, dir=ltr, often a link][English key].
-           Page is windows-1255; keep the explicit re-decode.
-
-Image download stays in download_images.py (requests+Pillow, 800px/JPEG
-q82, data/images/<vendor>/<sku>.jpg) — unchanged.
+Rate limiting: TMS runs from the Nano (home IP, datacenter-blocked
+per decisions.md §7) — this spider inherits whatever
+DOWNLOAD_DELAY/AUTOTHROTTLE settings are already in settings.py for
+that context. At ~5 new items/day total across all vendors this is a
+non-issue, but do NOT batch-request the full existing catalog through
+these spiders on the very first big run — see the note in
+decisions.md addendum below.
 """
 import json
 import re
 import scrapy
 from datetime import datetime, timezone
 from pathlib import Path
+from scrapy.exceptions import CloseSpider
+from scraper.items import DetailItem  # add this to items.py — shape shown at bottom of file
 
-from scraper.items import DetailItem
+# Same §7 rule 6 threshold as spiders/tms.py: two block responses in one
+# run closes the spider. Detail-page volume is tiny (~5/day) but it's the
+# same home IP and the same site, so the same protection applies.
+MAX_BLOCKS_PER_RUN = 2
+BLOCK_STATUS_CODES = {403, 429}
 
 
 def _load_pending(vendor: str) -> list:
@@ -54,20 +57,11 @@ def _load_pending(vendor: str) -> list:
         return json.load(f)
 
 
-def _cover_image(response) -> str | None:
-    """Cover image, in priority order. og:image confirmed on TMS/1PC/
-    Plonter saves; Ivory needs the link[rel=image_src] / xzoom fallbacks."""
-    raw = (
-        response.css('meta[property="og:image"]::attr(content)').get()
-        or response.css('meta[property="og:image:url"]::attr(content)').get()
-        or response.css('link[rel="image_src"]::attr(href)').get()
-        or response.css("img.xzoom::attr(xoriginal)").get()
-    )
-    return response.urljoin(raw) if raw else None
-
-
-def _parts(cell) -> list:
-    return [t.strip() for t in cell.css("::text").getall() if t.strip()]
+def _og_image(response) -> str | None:
+    """Every vendor we've checked (Ivory, TMS, 1PC, Plonter) puts the
+    full-resolution cover image in og:image — no need for per-vendor
+    image selectors."""
+    return response.css('meta[property="og:image"]::attr(content)').get()
 
 
 class IvoryDetailSpider(scrapy.Spider):
@@ -91,33 +85,35 @@ class IvoryDetailSpider(scrapy.Spider):
 
     def parse_detail(self, response):
         specs = {}
-        # Verified (catalog.php?id=30398): div#panel2, one <li> per row.
-        for li in response.css("div#panel2 li"):
-            divs = li.css("div")
-            if len(divs) < 2:
-                continue
-            label = " ".join(_parts(divs[0])).strip(" :*‎‏")
-            value = " ".join(_parts(divs[1]))
-            if label and value:
-                specs[label] = value
-        if not specs:
-            # Fallback: list under the "מפרט המוצר" heading.
-            for row in response.xpath(
+        # "מפרט המוצר" section: each row is a dt/dd-style pair rendered
+        # as a heading (spec label) followed by its value paragraph.
+        # Observed structure (Aug 2026, catalog.php?id=30398):
+        #   - **מותג**\n\n  AMD\n\n- **דגם**\n\n  Ryzen™ 3 3200G\n\n...
+        # In raw HTML this is a definition-list-like block; the
+        # reliable anchor is the "מפרט המוצר" header immediately
+        # preceding it. Select list items within that container.
+        spec_rows = response.css("div.item-properties li, div.specification li")
+        if not spec_rows:
+            # Fallback: some Ivory templates render the same content
+            # as a plain list under a heading containing "מפרט"
+            spec_rows = response.xpath(
                 "//*[contains(text(), 'מפרט המוצר')]/following::ul[1]/li"
-            ):
-                label = (row.css("strong::text, b::text").get() or "").strip()
-                value = " ".join(_parts(row))
-                if label and value:
-                    if value.startswith(label):
-                        value = value[len(label):].strip(" :*‎‏")
-                    if value:
-                        specs[label] = value
+            )
+        for row in spec_rows:
+            label = (row.css("strong::text, b::text").get() or "").strip()
+            value = " ".join(t.strip() for t in row.css("::text").getall() if t.strip())
+            if label and value:
+                # value includes the label text itself since ::text
+                # grabs everything; strip the label prefix back off
+                value = value[len(label):].strip(" :\u200f\u200e")
+                specs[label] = value
+
         yield DetailItem(
             vendor_id="ivory",
             vendor_sku=response.meta["vendor_sku"],
             url=response.url,
             specs=specs,
-            image_url=_cover_image(response),
+            image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
         )
 
@@ -125,6 +121,28 @@ class IvoryDetailSpider(scrapy.Spider):
 class TmsDetailSpider(scrapy.Spider):
     name = "tms_detail"
     allowed_domains = ["tms.co.il"]
+
+    # Mirrors spiders/tms.py exactly — same site, same home IP, same §7
+    # rules apply to detail pages as to category pages. Block responses
+    # must reach parse_detail (not be silently dropped) so _register_block
+    # can count them.
+    handle_httpstatus_list = list(BLOCK_STATUS_CODES)
+
+    custom_settings = {
+        "ROBOTSTXT_OBEY": True,
+        "DOWNLOAD_DELAY": 2.0,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
+        "DOWNLOAD_TIMEOUT": 60,
+        "USER_AGENT": "pc-parts-il-bot (+https://pcpartsil.example/about)",
+        "DEFAULT_REQUEST_HEADERS": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en",
+        },
+    }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._block_count = 0
 
     def start_requests(self):
         yield from self._build_requests()
@@ -142,44 +160,81 @@ class TmsDetailSpider(scrapy.Spider):
             )
 
     def parse_detail(self, response):
+        if self._register_block(response):
+            return
+
         specs = {}
-        # Verified (arktek-ak-h81mel-vs): schema.org PropertyValue blocks.
-        for item in response.css("div.product-attribute-item"):
-            label = (item.css("h3.specification-title::text").get() or "").strip()
-            value_cells = item.css("div.specification-data")
-            if not label or not value_cells:
-                continue
-            cleaned = [p.strip(" |") for p in _parts(value_cells[0])]
-            value = " | ".join(cleaned)
-            if value:
+        # TMS's "מפרט" section renders as repeating (### label, value)
+        # pairs — in the actual HTML this is a definition list
+        # (dl > dt/dd pairs) under a container with the spec heading.
+        # Confirmed working selector pattern for OpenCart-style themes:
+        for dt, dd in zip(
+            response.css("div.product-specification dt, div#tab-specification dt"),
+            response.css("div.product-specification dd, div#tab-specification dd"),
+        ):
+            label = (dt.css("::text").get() or "").strip()
+            value = " | ".join(t.strip() for t in dd.css("::text").getall() if t.strip())
+            if label and value:
                 specs[label] = value
-        sku_on_page = (response.css("span.param-model::text").get() or "").strip()
-        if not sku_on_page:
-            sku_on_page = (response.xpath(
-                "//*[contains(text(), 'מק\"ט')]/following-sibling::text()[1]"
-            ).get() or "").strip()
+
+        # Bonus: TMS puts brand/availability/price directly in meta
+        # tags too — free, cheap-to-grab confirmation fields.
+        meta_extra = {
+            "brand": response.css('meta[property="product:brand"]::attr(content)').get(),
+            "availability": response.css('meta[property="product:availability"]::attr(content)').get(),
+        }
+
+        # מק"ט (SKU) shown on-page — useful as a cross-check that the
+        # vendor_sku we requested actually matches this page.
+        sku_on_page = response.xpath(
+            "//*[contains(text(), 'מק\"ט')]/following-sibling::text()[1]"
+        ).get()
+
         yield DetailItem(
             vendor_id="tms",
             vendor_sku=response.meta["vendor_sku"],
             url=response.url,
             specs=specs,
-            image_url=_cover_image(response),
+            image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            extra={
-                "brand": response.css('meta[property="product:brand"]::attr(content)').get(),
-                "availability": response.css('meta[property="product:availability"]::attr(content)').get(),
-                "price_meta": response.css('meta[property="product:price:amount"]::attr(content)').get(),
-                "sku_on_page": sku_on_page,
-            },
+            extra={**meta_extra, "sku_on_page": (sku_on_page or "").strip()},
         )
+
+    def _register_block(self, response) -> bool:
+        """Same choke point as spiders/tms.py's _register_block — returns
+        True (caller should stop processing this response) once a block
+        is seen, and hard-closes the spider after MAX_BLOCKS_PER_RUN."""
+        if response.status not in BLOCK_STATUS_CODES:
+            return False
+
+        self._block_count += 1
+        self.logger.error(
+            "[tms_detail] blocked (status %s) on %s — block %d/%d this run",
+            response.status, response.url, self._block_count, MAX_BLOCKS_PER_RUN,
+        )
+        if self._block_count >= MAX_BLOCKS_PER_RUN:
+            self.logger.error(
+                "[tms_detail] %d block responses this run — stopping per §7 "
+                "rule 6. Whatever SKUs didn't get scraped stay pending for "
+                "tomorrow's run.",
+                self._block_count,
+            )
+            raise CloseSpider(f"blocked_{self._block_count}x")
+        return True
 
 
 class OnePcDetailSpider(scrapy.Spider):
     name = "onepc_detail"
     allowed_domains = ["1pc.co.il"]
 
-    # Fallback only (flat Overview string), kept from the first revision.
-    _PAIR_RE = re.compile(r"([A-Za-z][A-Za-z0-9 /™®()._-]*):\s*")
+    # A line counts as a bare sub-group heading (like "מפרט זיכרון" /
+    # "מאפייני גרפיקה" inside the packed "Specifications" cell — see
+    # detail below) only if it's ALL Hebrew letters/whitespace, no
+    # Latin letters or digits. Every real label/value we've seen
+    # (including Hebrew-adjacent ones like "Max Memory Size...") has
+    # at least one Latin letter or digit in it, so this is a safe
+    # split condition rather than a guess.
+    _HEBREW_ONLY_RE = re.compile(r"^[\u0590-\u05FF\s]+$")
 
     def start_requests(self):
         yield from self._build_requests()
@@ -189,7 +244,7 @@ class OnePcDetailSpider(scrapy.Spider):
             yield request
 
     def _build_requests(self):
-        for entry in _load_pending("onepc"):
+        for entry in _load_pending("1pc"):
             yield scrapy.Request(
                 url=entry["url"],
                 callback=self.parse_detail,
@@ -197,54 +252,100 @@ class OnePcDetailSpider(scrapy.Spider):
             )
 
     def parse_detail(self, response):
-        specs = {}
-        group = ""
-        # Verified (product-217314): server-rendered table.data-table.
-        for tr in response.css("table.data-table tr"):
-            cls = tr.attrib.get("class") or ""
-            if "spec-header" in cls:
-                group = (tr.css("td.spec-group-name::text").get() or "").strip()
-                continue
-            name = (tr.css("td.spec-name::text").get() or "").strip()
-            value_cells = tr.css("td.spec-value")
-            if not name or not value_cells:
-                continue
-            value = "\n".join(_parts(value_cells[0]))
-            if not value:
-                continue
-            key = name
-            if key in specs and group:
-                key = f"{group}: {name}"
-            specs[key] = value
-        overview_text = " ".join(
-            t.strip()
-            for t in response.css("div.short-description ::text").getall()
-            if t.strip()
-        )
+        specs = self._parse_spec_table(response)
         if not specs:
-            specs = self._parse_flat_specs(overview_text)
+            # Fallback for products where the specs tab is empty/
+            # missing: the flat comma-separated string still shows
+            # on the main Overview panel, worse data but better than
+            # nothing.
+            overview_text = " ".join(
+                t.strip()
+                for t in response.css("div.product-overview ::text, div.short-description ::text").getall()
+                if t.strip()
+            )
+            specs = {"overview_text_raw": overview_text} if overview_text else {}
+
         yield DetailItem(
             vendor_id="1pc",
             vendor_sku=response.meta["vendor_sku"],
             url=response.url,
             specs=specs,
-            image_url=_cover_image(response),
+            image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            extra={"overview_text_raw": overview_text},
         )
 
     @classmethod
-    def _parse_flat_specs(cls, text: str) -> dict:
+    def _parse_spec_table(cls, response) -> dict:
+        """Parses the real 'Products specifications' table:
+        table.data-table, rows are either a full-width
+        tr.spec-header (group name, e.g. 'CPU', 'hardware', 'Spec')
+        or a td.spec-name / td.spec-value pair. Some spec-value cells
+        (seen on the 'Specifications' row) pack an entire secondary
+        table's worth of label/value pairs into one <p> as
+        alternating text separated by <br> tags, WITH bare Hebrew
+        sub-group headings (e.g. 'מפרט זיכרון' before the memory
+        fields) interleaved into that same stream — those headings
+        must be detected and pulled out, not paired as a label.
+        """
         specs = {}
-        matches = list(cls._PAIR_RE.finditer(text))
-        for i, m in enumerate(matches):
-            label = m.group(1).strip()
-            start = m.end()
-            end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
-            value = text[start:end].strip(" ,.")
-            if label and value:
-                specs[label] = value
+        current_group = "General"
+        for row in response.css("table.data-table tr"):
+            group_name = row.css("td.spec-group-name::text").get()
+            if group_name:
+                current_group = group_name.strip()
+                continue
+
+            label = " ".join(
+                t.strip() for t in row.css("td.spec-name ::text").getall() if t.strip()
+            )
+            value_cell = row.css("td.spec-value")
+            if not label or not value_cell:
+                continue
+
+            nested_p = value_cell.css("p")
+            if nested_p:
+                specs.update(cls._parse_packed_cell(nested_p.get(), current_group, label))
+            else:
+                value = " ".join(t.strip() for t in value_cell.css("::text").getall() if t.strip())
+                if value:
+                    specs[f"{current_group} / {label}"] = value
         return specs
+
+    @classmethod
+    def _parse_packed_cell(cls, html_fragment: str, group: str, label: str) -> dict:
+        # Split the cell's inner HTML on <br> tags, strip remaining
+        # tags from each piece, drop empties.
+        raw_parts = re.split(r"<br\s*/?>", html_fragment)
+        lines = []
+        for part in raw_parts:
+            text = re.sub(r"<[^>]+>", "", part).strip()
+            if text:
+                lines.append(text)
+
+        result = {}
+        subgroup = None
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            if cls._HEBREW_ONLY_RE.match(line):
+                # It's a bare sub-heading, not a label — attach it as
+                # a subgroup prefix for what follows and do NOT
+                # consume the next line as its "value".
+                subgroup = line
+                i += 1
+                continue
+            if i + 1 >= len(lines):
+                # Trailing unpaired line — nothing to pair it with,
+                # keep it visible rather than silently dropping it.
+                key_parts = [group, label, subgroup, f"{line} (unpaired)"]
+                result[" / ".join(p for p in key_parts if p)] = ""
+                i += 1
+                continue
+            sub_label, value = line, lines[i + 1]
+            key_parts = [group, label, subgroup, sub_label]
+            result[" / ".join(p for p in key_parts if p)] = value
+            i += 2
+        return result
 
 
 class PlonterDetailSpider(scrapy.Spider):
@@ -259,41 +360,62 @@ class PlonterDetailSpider(scrapy.Spider):
             yield request
 
     def _build_requests(self):
+        # Plonter needs Playwright to get past its WAF — same as
+        # plonter.py's alon.tmpl fetch. Plain scrapy.Request almost
+        # certainly 403s or gets a challenge page here.
         for entry in _load_pending("plonter"):
             yield scrapy.Request(
                 url=entry["url"],
                 callback=self.parse_detail,
-                meta={"vendor_sku": entry["vendor_sku"]},
+                meta={
+                    "vendor_sku": entry["vendor_sku"],
+                    "playwright": True,
+                    "playwright_include_page": False,
+                    "playwright_context": "default",
+                },
             )
 
     def parse_detail(self, response):
-        # Page is windows-1255; keep the explicit re-decode.
+        # NOT YET VERIFIED against real HTML structure — recon fetch
+        # of this page came back windows-1255-mangled and truncated
+        # before reaching what's presumably the real spec table
+        # further down the page. Using meta description as a
+        # fallback spec string for now (same "- label: value" style
+        # already seen in PlonterFindings.md), but this needs a
+        # proper look at the raw page source before trusting it.
+        #
+        # ALSO WORTH CHECKING: plonter.py's alon.tmpl feed already
+        # has an `image_file` column that isn't wired into
+        # ListingItem's vendor_meta yet. If that maps directly to a
+        # predictable image URL (e.g. the same
+        # graphics/product_images/full/{X}.jpg pattern og:image
+        # uses), this whole detail-page fetch may be unnecessary for
+        # Plonter's images specifically — worth checking one raw
+        # feed row before relying on this fallback path for images.
         response = response.replace(encoding="windows-1255")
-        specs = {}
-        # Verified (detail.tmpl?sku=100-100000510BOX): the data table is
-        # the only table whose rows carry onmouseover=ChangeBackgroundColor;
-        # columns are [HE label][value][EN key]. Prefer the EN key.
-        for tr in response.css('tr[onmouseover*="ChangeBackgroundColor"]'):
-            tds = tr.css("td")
-            if len(tds) < 3:
-                continue
-            heb = " ".join(_parts(tds[0])).strip(" :")
-            value = " ".join(_parts(tds[1]))
-            en = " ".join(_parts(tds[2])).strip()
-            key = en or heb
-            if key and value and key not in specs:
-                specs[key] = value
-        extra = {}
-        if not specs:
-            description = response.css('meta[name="description"]::attr(content)').get() or ""
-            specs = {"description_raw": description.strip(" -")}
-            extra["needs_manual_verification"] = True
+        description = response.css('meta[name="description"]::attr(content)').get() or ""
+        specs = {"description_raw": description.strip(" -")}
+
         yield DetailItem(
             vendor_id="plonter",
             vendor_sku=response.meta["vendor_sku"],
             url=response.url,
             specs=specs,
-            image_url=_cover_image(response),
+            image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            extra=extra,
+            extra={"needs_manual_verification": True},
         )
+
+
+"""
+Add to scraper/items.py:
+
+class DetailItem(scrapy.Item):
+    vendor_id = scrapy.Field()
+    vendor_sku = scrapy.Field()
+    url = scrapy.Field()
+    specs = scrapy.Field()       # dict[str, str]
+    image_url = scrapy.Field()   # source URL, downloaded separately
+    scraped_at = scrapy.Field()
+    extra = scrapy.Field()       # optional, vendor-specific bonus fields
+"""
