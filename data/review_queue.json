@@ -815,6 +815,17 @@
   },
   {
     "score": 100,
+    "category": "motherboard",
+    "brand": "ARKTEK",
+    "listing_a": "1pc:158839",
+    "listing_b": "tms:AK-B760MEG-DDR4",
+    "title_a": "ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4 is a motherboard.",
+    "title_b": "ARKTEK B760 DDR4 AK-B760M EG",
+    "match_text_a": "158839 ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4 is a motherboard.",
+    "match_text_b": "AK-B760MEG-DDR4 ARKTEK B760 DDR4 AK-B760M EG"
+  },
+  {
+    "score": 100,
     "category": "psu",
     "brand": "Gigabyte",
     "listing_a": "1pc:157397",
@@ -2280,17 +2291,6 @@
     "score": 96,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "tms:GB760DS3H",
-    "listing_b": "tms:GB760MDS3H",
-    "title_a": "Gigabyte B760 DS3H",
-    "title_b": "Gigabyte B760M DS3H",
-    "match_text_a": "GB760DS3H Gigabyte B760 DS3H",
-    "match_text_b": "GB760MDS3H Gigabyte B760M DS3H"
-  },
-  {
-    "score": 96,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "tms:GB760GAMINGXD4GEN5",
     "listing_b": "tms:GB760MGAMINGXDDR4GEN5",
     "title_a": "Gigabyte B760 GAMING X DDR4 GEN5",
@@ -2715,6 +2715,17 @@
     "title_b": "2 מאווררים למארז 14 ס&#39;&#39;מ Noctua NF-A14x25r G2 PWM chromax.black – צבע שחור",
     "match_text_a": "FNT1-FN1-0128 14 Noctua NF-A14x25r G2 PWM chromax.black",
     "match_text_b": "FNT1-FN1-0129 2 14 Noctua NF-A14x25r G2 PWM chromax.black"
+  },
+  {
+    "score": 96,
+    "category": "gpu",
+    "brand": "ARKTEK",
+    "listing_a": "1pc:124124",
+    "listing_b": "tms:AKN610D3S2GL1",
+    "title_a": "ARKTEK GT610 2G DDR3 64Bit Low Profile AKN610D3S2GL1",
+    "title_b": "ARKTEK GT610 2GB DDR3 64Bit Low Profile",
+    "match_text_a": "124124 ARKTEK GT610 2G DDR3 64Bit Low Profile AKN610D3S2GL1",
+    "match_text_b": "AKN610D3S2GL1 ARKTEK GT610 2GB DDR3 64Bit Low Profile"
   },
   {
     "score": 96,
@@ -3422,17 +3433,6 @@
   },
   {
     "score": 96,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:F4-3200C16D-32GTZR",
-    "listing_b": "tms:F4-3600C16D-32GTZRC",
-    "title_a": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
-    "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0",
-    "match_text_a": "F4-3200C16D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
-    "match_text_b": "F4-3600C16D-32GTZRC G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0"
-  },
-  {
-    "score": 96,
     "category": "aio",
     "brand": "1stPlayer",
     "listing_a": "1pc:218340",
@@ -3952,17 +3952,6 @@
     "score": 95,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600C36",
-    "listing_b": "tms:CMH64GX5M2B5600Z36K",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600C36 Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0",
-    "match_text_b": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "tms:CMH64GX5M2B6000C30W",
     "listing_b": "tms:CMH64GX5M2B6000Z30W",
     "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
@@ -3991,17 +3980,6 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
     "match_text_a": "CMH64GX5M2B6000Z30 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
     "match_text_b": "CMH64GX5M2B6000Z30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMN64GX4M2Z3200C16",
-    "listing_b": "tms:CMW64GX4M2E3200C16",
-    "title_a": "Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
-    "title_b": "Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
-    "match_text_a": "CMN64GX4M2Z3200C16 Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
-    "match_text_b": "CMW64GX4M2E3200C16 Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0"
   },
   {
     "score": 95,
@@ -4200,6 +4178,17 @@
     "title_b": "Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive.",
     "match_text_a": "210591 Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD Drive.",
     "match_text_b": "210593 Corsair MP700 MICRO 2TB PCIe 5.0 NVMe M.2 2242 SSD Drive."
+  },
+  {
+    "score": 95,
+    "category": "gpu",
+    "brand": "ARKTEK",
+    "listing_a": "tms:AKN730D3S4GL1",
+    "listing_b": "tms:AKN740D3S4GL1",
+    "title_a": "כרטיס מסך ARKTEK GT730 4G DDR3 128Bit Low Profile",
+    "title_b": "ARKTEK GT740 4GB DDR3 128Bit Low Profile",
+    "match_text_a": "AKN730D3S4GL1 ARKTEK GT730 4G DDR3 128Bit Low Profile",
+    "match_text_b": "AKN740D3S4GL1 ARKTEK GT740 4GB DDR3 128Bit Low Profile"
   },
   {
     "score": 95,
@@ -6158,28 +6147,6 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL42 XMP 3.0",
     "match_text_a": "CMH64GX5M2B5600C40 Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL40 XMP 3.0",
     "match_text_b": "CMH64GX5M2B6400C42 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL42 XMP 3.0"
-  },
-  {
-    "score": 94,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMH64GX5M2B6000Z30",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMH64GX5M2B6000Z30 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0"
-  },
-  {
-    "score": 94,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMH64GX5M4B5600Z36",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMH64GX5M4B5600Z36 Corsair Vengeance RGB DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0"
   },
   {
     "score": 94,
@@ -8474,33 +8441,11 @@
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "tms:GB760MD3HP",
-    "listing_b": "tms:GB760MDS3H",
-    "title_a": "Gigabyte B760M D3HP",
-    "title_b": "Gigabyte B760M DS3H",
-    "match_text_a": "GB760MD3HP Gigabyte B760M D3HP",
-    "match_text_b": "GB760MDS3H Gigabyte B760M DS3H"
-  },
-  {
-    "score": 93,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "tms:GB760MD3HP",
     "listing_b": "tms:GB860MD3HP",
     "title_a": "Gigabyte B760M D3HP",
     "title_b": "Gigabyte B860M D3HP",
     "match_text_a": "GB760MD3HP Gigabyte B760M D3HP",
     "match_text_b": "GB860MD3HP Gigabyte B860M D3HP"
-  },
-  {
-    "score": 93,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "tms:GB760MDS3H",
-    "listing_b": "tms:GB860MDS3H",
-    "title_a": "Gigabyte B760M DS3H",
-    "title_b": "Gigabyte B860M DS3H",
-    "match_text_a": "GB760MDS3H Gigabyte B760M DS3H",
-    "match_text_b": "GB860MDS3H Gigabyte B860M DS3H"
   },
   {
     "score": 93,
@@ -9494,6 +9439,17 @@
   },
   {
     "score": 93,
+    "category": "motherboard",
+    "brand": "ARKTEK",
+    "listing_a": "tms:AK-H110MEG",
+    "listing_b": "tms:AK-H510MEG",
+    "title_a": "ARKTEK AK-H110M EG",
+    "title_b": "ARKTEK AK-H510M EG",
+    "match_text_a": "AK-H110MEG ARKTEK AK-H110M EG",
+    "match_text_b": "AK-H510MEG ARKTEK AK-H510M EG"
+  },
+  {
+    "score": 93,
     "category": "case",
     "brand": "be quiet!",
     "listing_a": "1pc:207606",
@@ -10294,17 +10250,6 @@
     "title_b": "MAXSUN Challenger B860M-K",
     "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
     "match_text_b": "MS-CHA-B860M-K MAXSUN Challenger B860M-K"
-  },
-  {
-    "score": 93,
-    "category": "motherboard",
-    "brand": "MAXSUN",
-    "listing_a": "tms:MS-CHA-B650MKWIFI",
-    "listing_b": "tms:MS-CHA-B850M-K-WIFI",
-    "title_a": "MAXSUN Challenger B650M-K WiFi",
-    "title_b": "MAXSUN Challenger B850M-K WiFi",
-    "match_text_a": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi",
-    "match_text_b": "MS-CHA-B850M-K-WIFI MAXSUN Challenger B850M-K WiFi"
   },
   {
     "score": 93,
@@ -12516,17 +12461,6 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6600 CL32 XMP 3.0",
     "match_text_a": "CMH64GX5M2B5600C40 Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL40 XMP 3.0",
     "match_text_b": "CMH64GX5M2B6600C32 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6600 CL32 XMP 3.0"
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMH64GX5M2B6000Z28",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMH64GX5M2B6000Z28 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO/XMP 3.0"
   },
   {
     "score": 92,
@@ -17411,17 +17345,6 @@
     "title_b": "Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
     "match_text_a": "CMG64GX4M4E3200C16 Corsair Vengeance RGB RS DDR4 64GB (4x16GB) 3200 CL16 XMP 2.0",
     "match_text_b": "CMN64GX4M2Z3200C16 Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0"
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMG64GX4M4E3200C16",
-    "listing_b": "tms:CMW64GX4M2E3200C16",
-    "title_a": "Corsair Vengeance RGB RS DDR4 64GB (4x16GB) 3200 CL16 XMP 2.0",
-    "title_b": "Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
-    "match_text_a": "CMG64GX4M4E3200C16 Corsair Vengeance RGB RS DDR4 64GB (4x16GB) 3200 CL16 XMP 2.0",
-    "match_text_b": "CMW64GX4M2E3200C16 Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0"
   },
   {
     "score": 91,
@@ -22862,17 +22785,6 @@
     "category": "memory",
     "brand": "Corsair",
     "listing_a": "tms:CMH64GX5M2B5600C40",
-    "listing_b": "tms:CMH64GX5M2B5600Z36K",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL40 XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600C40 Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL40 XMP 3.0",
-    "match_text_b": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600C40",
     "listing_b": "tms:CMH64GX5M2B6000C30W",
     "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL40 XMP 3.0",
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
@@ -22889,50 +22801,6 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
     "match_text_a": "CMH64GX5M2B5600C40 Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL40 XMP 3.0",
     "match_text_b": "CMH64GX5M2B6000Z30 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMH64GX5M2B6000Z30W",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMH64GX5M2B6000Z30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMH64GX5M2B6400C32",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMH64GX5M2B6400C32 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMH64GX5M2B6600C32",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6600 CL32 XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMH64GX5M2B6600C32 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6600 CL32 XMP 3.0"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMK64GX5M4B5600Z36",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMK64GX5M4B5600Z36 Corsair Vengeance DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0"
   },
   {
     "score": 90,
@@ -25292,17 +25160,6 @@
     "score": 90,
     "category": "motherboard",
     "brand": "MAXSUN",
-    "listing_a": "tms:MS-CHA-B650MKWIFI",
-    "listing_b": "tms:MS-CHA-B760M-HWIFI",
-    "title_a": "MAXSUN Challenger B650M-K WiFi",
-    "title_b": "MAXSUN Challenger B760M-H WiFi",
-    "match_text_a": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi",
-    "match_text_b": "MS-CHA-B760M-HWIFI MAXSUN Challenger B760M-H WiFi"
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B650MV2",
     "listing_b": "tms:MS-CHA-B650MWIFIV2",
     "title_a": "MAXSUN Challenger B650M V2",
@@ -27234,17 +27091,6 @@
     "title_b": "Gigabyte B860M DS3H",
     "match_text_a": "GB760DS3H Gigabyte B760 DS3H",
     "match_text_b": "GB860MDS3H Gigabyte B860M DS3H"
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "tms:GB760MDS3H",
-    "listing_b": "tms:GB860DS3H",
-    "title_a": "Gigabyte B760M DS3H",
-    "title_b": "Gigabyte B860 DS3H",
-    "match_text_a": "GB760MDS3H Gigabyte B760M DS3H",
-    "match_text_b": "GB860DS3H Gigabyte B860 DS3H"
   },
   {
     "score": 89,
@@ -31947,28 +31793,6 @@
     "score": 89,
     "category": "motherboard",
     "brand": "MAXSUN",
-    "listing_a": "tms:MS-CHA-B650MK",
-    "listing_b": "tms:MS-CHA-B650MKWIFI",
-    "title_a": "MAXSUN Challenger B650M-K",
-    "title_b": "MAXSUN Challenger B650M-K WiFi",
-    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
-    "match_text_b": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi"
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "MAXSUN",
-    "listing_a": "tms:MS-CHA-B650MKWIFI",
-    "listing_b": "tms:MS-CHA-B760M-F-WIFI",
-    "title_a": "MAXSUN Challenger B650M-K WiFi",
-    "title_b": "MAXSUN Challenger B760M-F WiFi",
-    "match_text_a": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi",
-    "match_text_b": "MS-CHA-B760M-F-WIFI MAXSUN Challenger B760M-F WiFi"
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B650MWIFIICEV2",
     "listing_b": "tms:MS-CHA-B650MWIFIV2",
     "title_a": "MAXSUN Challenger B650M WiFi ICE V2",
@@ -32734,17 +32558,6 @@
     "title_b": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0",
     "match_text_a": "6400J3239G16GX2-TZ5RK G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400 CL32 XMP 3.0",
     "match_text_b": "7600J3646G16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0"
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:F4-3200C16D-32GTZR",
-    "listing_b": "tms:F4-3600C18D-32GTZR",
-    "title_a": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
-    "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL18",
-    "match_text_a": "F4-3200C16D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
-    "match_text_b": "F4-3600C18D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL18"
   },
   {
     "score": 89,
@@ -33663,17 +33476,6 @@
     "score": 88,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "tms:GB760DS3HAX",
-    "listing_b": "tms:GB760MDS3H",
-    "title_a": "Gigabyte B760 DS3H AX",
-    "title_b": "Gigabyte B760M DS3H",
-    "match_text_a": "GB760DS3HAX Gigabyte B760 DS3H AX",
-    "match_text_b": "GB760MDS3H Gigabyte B760M DS3H"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "tms:GB760GAMINGXGEN5",
     "listing_b": "tms:GB760MGAMINGXDDR4GEN5",
     "title_a": "Gigabyte B760 GAMING X GEN5",
@@ -34565,17 +34367,6 @@
     "score": 88,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B5600Z36K",
-    "listing_b": "tms:CMK64GX5M2B6000Z30W",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B5600Z36K Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 EXPO/XMP 3.0",
-    "match_text_b": "CMK64GX5M2B6000Z30W Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "tms:CMH64GX5M2B6000C30W",
     "listing_b": "tms:CMH64GX5M2B6400C42",
     "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
@@ -35429,6 +35220,28 @@
     "title_b": "ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming.",
     "match_text_a": "179737 ASUS ROG STRIX B850-F GAMING WIFI Gaming Motherboard.",
     "match_text_b": "179738 ASUS ROG STRIX B850-E GAMING WIFI motherboard for gaming."
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "ARKTEK",
+    "listing_a": "tms:AK-H610MEG-VS",
+    "listing_b": "tms:AK-H610MSEG",
+    "title_a": "ARKTEK H610M EG VS",
+    "title_b": "ARKTEK H610M EG",
+    "match_text_a": "AK-H610MEG-VS ARKTEK H610M EG VS",
+    "match_text_b": "AK-H610MSEG ARKTEK H610M EG"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "ARKTEK",
+    "listing_a": "tms:AK-H610MSEG",
+    "listing_b": "tms:AKH310MEG",
+    "title_a": "ARKTEK H610M EG",
+    "title_b": "ARKTEK H310M EG",
+    "match_text_a": "AK-H610MSEG ARKTEK H610M EG",
+    "match_text_b": "AKH310MEG ARKTEK H310M EG"
   },
   {
     "score": 88,
@@ -38575,17 +38388,6 @@
     "title_b": "MAXSUN Terminator B860M WiFi",
     "match_text_a": "MS-TER-B650MWIFIICE MAXSUN Terminator B650M WiFi ICE",
     "match_text_b": "MS-TER-B860MWIFI MAXSUN Terminator B860M WiFi"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "MAXSUN",
-    "listing_a": "tms:MS-TER-Z890-A",
-    "listing_b": "tms:MS-TER-Z890-A-WIFI",
-    "title_a": "MAXSUN Terminator Z890-A",
-    "title_b": "MAXSUN Terminator Z890-A WIFI",
-    "match_text_a": "MS-TER-Z890-A MAXSUN Terminator Z890-A",
-    "match_text_b": "MS-TER-Z890-A-WIFI MAXSUN Terminator Z890-A WIFI"
   },
   {
     "score": 88,
