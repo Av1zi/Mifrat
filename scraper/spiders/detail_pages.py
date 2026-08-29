@@ -49,7 +49,14 @@ MAX_BLOCKS_PER_RUN = 2
 BLOCK_STATUS_CODES = {403, 429}
 
 
+def _normalize_vendor(vendor: str) -> str:
+    """Keep the on-disk vendor keys stable even when callers pass either
+    legacy '1pc' or the newer 'onepc' spelling."""
+    return "onepc" if vendor == "1pc" else vendor
+
+
 def _load_pending(vendor: str) -> list:
+    vendor = _normalize_vendor(vendor)
     path = Path(f"data/detail_pending/{vendor}.json")
     if not path.exists():
         return []

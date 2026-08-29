@@ -27,14 +27,62 @@ import sys
 from pathlib import Path
 
 VENDORS = ["onepc", "plonter", "ivory", "tms"]
+VENDOR_ALIASES = {
+    "onepc": ["onepc", "1pc"],
+    "1pc": ["1pc", "onepc"],
+}
 
 
-def _listing(v): return Path(f"data/raw/{v}.jsonl")
-def _pending(v): return Path(f"data/detail_pending/{v}.json")
-def _ledger(v):  return Path(f"data/detail_scraped/{v}.json")
-def _detail(v):  return Path(f"data/raw/detail/{v}.jsonl")
-def _image(v, sku): return Path(f"data/images/{v}/{sku}.jpg")
+def _normalize_vendor(v: str) -> str:
+    return "onepc" if v in {"1pc", "onepc"} else v
 
+
+def _candidate_names(v: str) -> list[str]:
+    v = _normalize_vendor(v)
+    return VENDOR_ALIASES.get(v, [v])
+
+
+def _latest_listing_path(v: str) -> Path:
+    names = _candidate_names(v)
+    flat = Path(f"data/raw/{_normalize_vendor(v)}.jsonl")
+    if flat.exists():
+        return flat
+
+    raw_root = Path("data/raw")
+    newest = None
+    for child in sorted(raw_root.glob("*"), reverse=True):
+        if not child.is_dir():
+            continue
+        for name in names:
+            candidate = child / f"{name}.jsonl"
+            if candidate.exists():
+                newest = candidate
+                break
+        if newest:
+            break
+    return newest or flat
+
+
+def _listing(v):
+    return _latest_listing_path(v)
+
+
+def _pending(v):
+    v = _normalize_vendor(v)
+    return Path(f"data/detail_pending/{v}.json")
+
+
+def _ledger(v):
+    v = _normalize_vendor(v)
+    return Path(f"data/detail_scraped/{v}.json")
+
+def _detail(v):
+    v = _normalize_vendor(v)
+    return Path(f"data/raw/detail/{v}.jsonl")
+
+def _image(v, sku):
+    v = _normalize_vendor(v)
+    return Path(f"data/images/{v}/{sku}.jpg")
 
 def _load_jsonl(path: Path) -> list:
     if not path.exists():
