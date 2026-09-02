@@ -66,12 +66,13 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
   const sku = skuOf(product);
   const slot = slotForCategory(product.category);
 
-  const initials = (product.brand ?? product.name).slice(0,2).toUpperCase();
-  const placeholder = `<div style="width:72px; height:72px; border-radius:12px; border:1px dashed #cbd5e1; background: linear-gradient(135deg, #ecfdf5, #f0fdfa); display:grid; place-items:center; font-weight:800; color:var(--blue-dark); margin-bottom:12px;">${esc(initials)}</div>`;
+  const imageHtml = product.image
+    ? `<img src="${esc(product.image)}" alt="${esc(displayName(product))}" style="width:120px; height:120px; object-fit:contain; border-radius:12px; border:1px solid var(--border); background:#fff; margin-bottom:12px;" loading="lazy">`
+    : `<div style="width:72px; height:72px; border-radius:12px; border:1px dashed #cbd5e1; background: linear-gradient(135deg, #ecfdf5, #f0fdfa); display:grid; place-items:center; font-weight:800; color:var(--blue-dark); margin-bottom:12px;">${esc((product.brand ?? product.name).slice(0,2).toUpperCase())}</div>`;
 
   panel.innerHTML = `
     <button class="overlay-close" type="button">${t(lang, "close")} ✕</button>
-    ${placeholder}
+    ${imageHtml}
     <div class="overlay-title">${esc(displayName(product))}</div>
     <div class="overlay-brand">${esc(product.brand ?? "")}</div>
     ${sku ? `<div class="overlay-sku">SKU: ${esc(sku)}</div>` : ""}

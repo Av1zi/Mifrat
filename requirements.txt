@@ -4,3 +4,5 @@ scrapy>=2.11
 scrapy-playwright
 rapidfuzz>=3.0,<4.0
 sentry-sdk
+Pillow>=10.0
+requests>=2.31

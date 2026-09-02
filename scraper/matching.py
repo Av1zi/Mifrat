@@ -1380,6 +1380,16 @@ def match_listings(
             "offers": offers,
         }
 
+        # Propagate cover image URL from any offer that has one.
+        # Only one image per product is needed — take the first
+        # available (detail-scraped images are the most reliable).
+        img_url = next(
+            (e.get("image_url") for e in group if e.get("image_url")),
+            None,
+        )
+        if img_url:
+            product["image_url"] = img_url
+
         if attribute_conflicts:
             product["attribute_conflicts"] = attribute_conflicts
 

@@ -28,6 +28,7 @@ try:
         match_listings,
         suggest_fuzzy_matches,
     )
+    from scraper.extractors import extract_attributes
     from scraper.site_data import write_site_data
 except ImportError:
     from matching import (
@@ -36,6 +37,7 @@ except ImportError:
         match_listings,
         suggest_fuzzy_matches,
     )
+    from extractors import extract_attributes
     from site_data import write_site_data
 
 
@@ -120,6 +122,63 @@ def load_listings(path: Path) -> list[dict]:
     return listings
 
 
+def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
+    """Load detail-scraped specs from data/raw/detail/<vendor>.jsonl and
+    merge into each enriched listing's vendor_meta under a 'detail_specs'
+    key.  The extractors consume this via _from_vendor_meta() so the
+    structured specs from vendor product pages feed into the attributes
+    blob alongside title-parsed and vendor_meta-parsed attributes."""
+    vendors = set(e.get("vendor_id") for e in enriched)
+    detail_index: dict[str, dict] = {}
+    image_index: dict[str, str] = {}
+    for vendor in vendors:
+        norm = "onepc" if vendor in ("1pc", "onepc") else vendor
+        path = RAW_DIR / "detail" / f"{norm}.jsonl"
+        if not path.exists():
+            continue
+        with path.open(encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                item = json.loads(line)
+                sku = item.get("vendor_sku")
+                specs = item.get("specs")
+                image_url = item.get("image_url")
+                if sku and specs:
+                    detail_index[sku] = specs
+                if sku and image_url:
+                    image_index[sku] = image_url
+
+    if not detail_index and not image_index:
+        return enriched
+
+    merged_specs = 0
+    merged_images = 0
+    for e in enriched:
+        sku = e.get("vendor_sku")
+        if not sku:
+            continue
+        if sku in detail_index:
+            meta = e.setdefault("vendor_meta", {})
+            meta["detail_specs"] = detail_index[sku]
+            # Re-extract attributes so the newly-merged detail specs feed
+            # into the attributes blob (enrich_listing already ran before
+            # this point, so without this the detail specs would never make
+            # it out of vendor_meta into parsed attributes).
+            e["attributes"] = extract_attributes(e)
+            merged_specs += 1
+        if sku in image_index:
+            e["image_url"] = image_index[sku]
+            merged_images += 1
+
+    if merged_specs:
+        print(f"  merged detail specs for {merged_specs} listings")
+    if merged_images:
+        print(f"  merged detail images for {merged_images} listings")
+    return enriched
+
+
 def build_catalog(today: datetime):
     today_str = _date_str(today)
 
@@ -163,6 +222,7 @@ def build_catalog(today: datetime):
 
     enriched = [enrich_listing(listing) for listing in all_listings]
     enriched = dedupe_enriched_listings(enriched)
+    enriched = _merge_detail_specs(enriched)
 
     # Stable output ordering.
     enriched.sort(key=lambda e: (e.get("vendor_id", ""), e.get("listing_key", "")))

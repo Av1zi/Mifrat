@@ -47,3 +47,39 @@ jobs:
           bash scripts/git_commit_push.sh \
             "scrape(${{ matrix.spider }}): $(date -u +%F)" \
             data/raw/
+
+  # Detail-page scrape: runs after all listing spiders succeed.
+  # Fetches each vendor's product detail pages for structured specs
+  # and cover images.  ~5 new items/day across all vendors; at this
+  # volume the whole job takes <5 min.  Images are downloaded as
+  # resized JPEG and committed to the repo (plan §7 — trivial repo
+  # growth at this rate).
+  detail-scrape:
+    needs: scrape
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt --break-system-packages
+      - run: python -m playwright install --with-deps chromium
+      # Build pending lists: diff listing output vs the detail_scraped ledger
+      # (TMS excluded — it's not cloud-run; the Nano handles it)
+      - run: python -m scraper.make_detail_pending make ivory onepc plonter
+      # Run detail spiders (plain HTTP for ivory/onepc; Playwright for plonter)
+      - run: scrapy crawl ivory_detail -O data/raw/detail/ivory.jsonl:jsonlines
+      - run: scrapy crawl onepc_detail -O data/raw/detail/onepc.jsonl:jsonlines
+      - run: scrapy crawl plonter_detail -O data/raw/detail/plonter.jsonl:jsonlines
+      # Download and resize cover images
+      - run: python -m scraper.download_images data/raw/detail/ivory.jsonl ivory
+      - run: python -m scraper.download_images data/raw/detail/onepc.jsonl onepc
+      - run: python -m scraper.download_images data/raw/detail/plonter.jsonl plonter
+      # Mark completed items in the ledger (only after images exist on disk)
+      - run: python -m scraper.make_detail_pending mark
+      - run: |
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          bash scripts/git_commit_push.sh \
+            "detail-scrape: $(date -u +%F)" \
+            data/detail_pending/ data/raw/detail/ data/images/ data/detail_scraped/

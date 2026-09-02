@@ -138,8 +138,10 @@ export async function renderBuilder(
       const initials = slot.id.slice(0, 3).toUpperCase();
       return `<div class="thumb" aria-hidden="true"><span>${esc(initials)}</span></div>`;
     }
+    if (product.image) {
+      return `<div class="thumb has-part" aria-hidden="true"><img src="${esc(product.image)}" alt="${esc(displayName(product))}" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>`;
+    }
     const label = (product.brand ?? product.name).slice(0, 2).toUpperCase() || "•";
-    // geometric placeholder — no real photos yet
     return `<div class="thumb has-part" aria-hidden="true"><span>${esc(label)}</span></div>`;
   }
 

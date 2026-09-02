@@ -156,4 +156,7 @@ if __name__ == "__main__":
         limit = int(args[i + 1])
         del args[i:i + 2]
     vendors = args or VENDORS
-    (make if cmd == "make" else mark)(vendors, limit) if cmd == "make" else mark(vendors)
+    if cmd == "make":
+        make(vendors, limit)
+    else:
+        mark(vendors)

@@ -586,7 +586,9 @@ export async function renderCategory(
         data-id="${esc(p.id)}"
       >
         <div class="pl-cell" style="display:flex; align-items:center; justify-content:center;">
-          <span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span>
+          ${p.image
+            ? `<img class="plThumb" src="${esc(p.image)}" alt="${esc(displayName(p))}" loading="lazy" style="object-fit:contain; background:#fff;">`
+            : `<span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span>`}
         </div>
         <div class="pl-cell pl-name">
           <span class="pl-title">${esc(displayName(p))}</span>

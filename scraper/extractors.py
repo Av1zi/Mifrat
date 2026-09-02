@@ -307,6 +307,17 @@ def _from_vendor_meta(meta) -> dict:
                 if isinstance(item, dict) and "name" in item and "value" in item:
                     out.setdefault(_norm_key_name(item["name"]), item["value"])
 
+    # Detail-scraped specs from vendor product pages (vendor_sku-level).
+    # These are the most authoritative source for structured specs —
+    # scraped directly from the vendor's own spec table, not parsed
+    # from a listing title.  Additive only: never override attributes
+    # already set by scalar keys or the block harvest above.
+    detail = meta.get("detail_specs")
+    if isinstance(detail, dict):
+        for k, v in detail.items():
+            if v not in (None, "", [], {}):
+                out.setdefault(_norm_key_name(k), v)
+
     return out
 
 

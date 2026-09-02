@@ -11,9 +11,10 @@ Design:
   themselves, to keep "what's already scraped" logic in one place
   rather than duplicated per-spider.
 - Output: one DetailItem per product (see below), written to
-  data/raw/detail/<vendor>.jsonl (via -s "FEEDS={...}" per the
-  Scrapy 2.17/2.18 gotcha already logged in decisions.md — do NOT
-  use -o/-t flags).
+  data/raw/detail/<vendor>.jsonl via `-O <path>:jsonlines` (Scrapy's
+  modern colon syntax) — simpler and less quoting-fragile than the
+  `-s "FEEDS={...}"` form used elsewhere in this project, e.g.:
+      scrapy crawl tms_detail -O data/raw/detail/tms.jsonl:jsonlines
 - Image download is deliberately NOT done inside these spiders.
   At ~5 new items/day, a plain `requests`-based downloader
   (download_images.py, same folder) run once after the spider
@@ -34,6 +35,7 @@ non-issue, but do NOT batch-request the full existing catalog through
 these spiders on the very first big run — see the note in
 decisions.md addendum below.
 """
+import html as _html
 import json
 import re
 import scrapy
@@ -48,15 +50,26 @@ from scraper.items import DetailItem  # add this to items.py — shape shown at 
 MAX_BLOCKS_PER_RUN = 2
 BLOCK_STATUS_CODES = {403, 429}
 
-
-def _normalize_vendor(vendor: str) -> str:
-    """Keep the on-disk vendor keys stable even when callers pass either
-    legacy '1pc' or the newer 'onepc' spelling."""
-    return "onepc" if vendor == "1pc" else vendor
+# Forces plain HTTP(S) downloading regardless of what settings.py registers
+# globally. Only PlonterDetailSpider (and Ivory/TMS/1PC's *listing* spiders
+# never having needed this either) should ever launch a browser — Ivory,
+# TMS, and 1PC's detail pages are static HTML. Without this override, if
+# settings.py registers scrapy-playwright's handler project-wide (which
+# it appears to, since a Playwright crash took down a `tms_detail` run
+# that never sends a single playwright=True request), EVERY spider pays
+# the cost of starting a Playwright browser at crawl-open, and on the
+# Nano specifically that browser can't even launch (no Chromium build for
+# ubuntu18.04-arm64) — so it doesn't just slow things down, it hard-crashes
+# spiders that should have nothing to do with Playwright at all.
+NON_PLAYWRIGHT_DOWNLOAD_HANDLERS = {
+    "DOWNLOAD_HANDLERS": {
+        "http": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
+        "https": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
+    },
+}
 
 
 def _load_pending(vendor: str) -> list:
-    vendor = _normalize_vendor(vendor)
     path = Path(f"data/detail_pending/{vendor}.json")
     if not path.exists():
         return []
@@ -74,6 +87,7 @@ def _og_image(response) -> str | None:
 class IvoryDetailSpider(scrapy.Spider):
     name = "ivory_detail"
     allowed_domains = ["ivory.co.il"]
+    custom_settings = {**NON_PLAYWRIGHT_DOWNLOAD_HANDLERS}
 
     def start_requests(self):
         yield from self._build_requests()
@@ -136,6 +150,7 @@ class TmsDetailSpider(scrapy.Spider):
     handle_httpstatus_list = list(BLOCK_STATUS_CODES)
 
     custom_settings = {
+        **NON_PLAYWRIGHT_DOWNLOAD_HANDLERS,
         "ROBOTSTXT_OBEY": True,
         "DOWNLOAD_DELAY": 2.0,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
@@ -233,6 +248,7 @@ class TmsDetailSpider(scrapy.Spider):
 class OnePcDetailSpider(scrapy.Spider):
     name = "onepc_detail"
     allowed_domains = ["1pc.co.il"]
+    custom_settings = {**NON_PLAYWRIGHT_DOWNLOAD_HANDLERS}
 
     # A line counts as a bare sub-group heading (like "מפרט זיכרון" /
     # "מאפייני גרפיקה" inside the packed "Specifications" cell — see
@@ -383,25 +399,55 @@ class PlonterDetailSpider(scrapy.Spider):
             )
 
     def parse_detail(self, response):
-        # NOT YET VERIFIED against real HTML structure — recon fetch
-        # of this page came back windows-1255-mangled and truncated
-        # before reaching what's presumably the real spec table
-        # further down the page. Using meta description as a
-        # fallback spec string for now (same "- label: value" style
-        # already seen in PlonterFindings.md), but this needs a
-        # proper look at the raw page source before trusting it.
-        #
-        # ALSO WORTH CHECKING: plonter.py's alon.tmpl feed already
-        # has an `image_file` column that isn't wired into
-        # ListingItem's vendor_meta yet. If that maps directly to a
-        # predictable image URL (e.g. the same
-        # graphics/product_images/full/{X}.jpg pattern og:image
-        # uses), this whole detail-page fetch may be unnecessary for
-        # Plonter's images specifically — worth checking one raw
-        # feed row before relying on this fallback path for images.
         response = response.replace(encoding="windows-1255")
-        description = response.css('meta[name="description"]::attr(content)').get() or ""
-        specs = {"description_raw": description.strip(" -")}
+        specs = {}
+
+        # Plonter's spec table: <table width="100%"> rows with 3 <td> cells:
+        #   cell 0 — Hebrew label (often bare ":" when no translation exists)
+        #   cell 1 — value in <td dir="ltr">, sometimes wrapped in <a> whose
+        #            href has attcode=Key and att=Value params (most reliable)
+        #   cell 2 — English attribute key in <td align="left">
+        #
+        # Verified against real saved HTML (AMD 100-100000510BOX detail page,
+        # lines ~7825-8044 of the saved view-source). The only rows with
+        # 3+ cells are the real spec rows; header/section rows have fewer cells
+        # or use colspan, so len(cells) < 3 is a reliable skip condition.
+        for row in response.css("table > tbody > tr"):
+            cells = row.css("td")
+            if len(cells) < 3:
+                continue
+
+            value_cell = cells[1]
+            key_cell = cells[2]
+
+            key = (key_cell.css("::text").get() or "").strip()
+            if not key:
+                continue
+
+            # Prefer the att= URL param from the value link (machine-readable,
+            # never mangled by encoding). Fall back to plain cell text.
+            link = value_cell.css("a[href*='stores_word/mainatt.tmpl']")
+            if link:
+                href = link.attrib.get("href", "")
+                att_match = re.search(r"att=([^&]+)", href)
+                value = (
+                    _html.unescape(att_match.group(1)).strip()
+                    if att_match
+                    else " ".join(
+                        t.strip()
+                        for t in link.css("::text").getall()
+                        if t.strip()
+                    )
+                )
+            else:
+                value = " ".join(
+                    t.strip()
+                    for t in value_cell.css("::text").getall()
+                    if t.strip()
+                )
+
+            if key and value:
+                specs[key] = value
 
         yield DetailItem(
             vendor_id="plonter",
@@ -410,7 +456,6 @@ class PlonterDetailSpider(scrapy.Spider):
             specs=specs,
             image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            extra={"needs_manual_verification": True},
         )
 
 

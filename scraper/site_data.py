@@ -47,6 +47,7 @@ def _trim_product(product: dict) -> dict:
         "category": product["category"],
         "brand": product.get("brand"),
         "model": product.get("model"),
+        "image": product.get("image_url"),
         "attributes": product.get("attributes", {}),
         "vendor_count": product.get("vendor_count", len(offers)),
         "min_price": min_price,
