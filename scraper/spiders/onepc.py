@@ -182,13 +182,20 @@ class OnePcSpider(scrapy.Spider):
 
         for tile in tiles:
             product_url = response.urljoin(tile.css("a.product-link::attr(href)").get() or "")
-            
+
             # Just use the internal numeric ID as the vendor_sku.
             # The Phase 2 matcher will handle linking this to the real product.
             sku = tile.attrib.get("data-productid")
             if not sku:
                 continue
-            
+
+            # Listing tile carries a thumbnail for every product — free
+            # photo coverage without opening the detail page. The detail
+            # spider's full-resolution og:image still wins when present
+            # (see _merge_detail_specs), but this takes image coverage
+            # from detail-only (~10%) to near-100%.
+            thumb = tile.css("img.picture-img::attr(src)").get()
+
             title_node = tile.css("span.product-title")
             yield ListingItem(
                 vendor_id=VENDOR_ID,
@@ -198,6 +205,7 @@ class OnePcSpider(scrapy.Spider):
                 price_ils=_round_price(title_node.attrib.get("data-price")),
                 in_stock=True,
                 category_guess=category_label,
+                image_url=response.urljoin(thumb) if thumb else None,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
 

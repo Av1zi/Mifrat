@@ -44,5 +44,13 @@ class ListingItem(scrapy.Item):
     # Additive + optional: the schema-stability rule stands.
     vendor_meta = scrapy.Field()
 
+    # Optional listing-level cover image harvested without opening the
+    # product page (1PC tile <img>, Ivory API `picture`, Plonter feed
+    # `image_file`, TMS tile <img>). Detail-scraped og:image (see
+    # _merge_detail_specs) wins when both exist — it is full-resolution
+    # while listing thumbnails are small — but this fallback takes photo
+    # coverage from ~10% (detail-only) to near-100% for free.
+    image_url = scrapy.Field()
+
     # Bookkeeping
     scraped_at = scrapy.Field()  # ISO 8601 UTC timestamp, set by the spider/pipeline

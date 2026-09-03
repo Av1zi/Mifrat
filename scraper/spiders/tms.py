@@ -279,6 +279,20 @@ class TmsSpider(scrapy.Spider):
             tile_text = " ".join(tile.css("*::text").getall())
             bundle_only = BUNDLE_ONLY_MARKER in tile_text
 
+            # Best-effort tile thumbnail: prefer an explicit product image
+            # (<img> with data-src for lazy-loading, else src), skipping
+            # tracking pixels / svg placeholders. Free photo coverage for
+            # every listing; detail og:image still wins when present.
+            image_url = None
+            for img_src in tile.css(
+                "img::attr(data-src), img::attr(data-srcset), img::attr(src)"
+            ).getall():
+                src = (img_src or "").strip().split(" ")[0]
+                if not src or src.startswith("data:") or src.endswith(".svg"):
+                    continue
+                image_url = response.urljoin(src)
+                break
+
             cat = category_guess
             if bundle_only:
                 cat += ":bundle-only"
@@ -292,6 +306,7 @@ class TmsSpider(scrapy.Spider):
                 url=response.urljoin(url) if url else None,
                 price_ils=price_ils,
                 category_guess=cat,
+                image_url=image_url,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
 

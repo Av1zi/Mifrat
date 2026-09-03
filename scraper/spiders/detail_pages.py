@@ -78,10 +78,24 @@ def _load_pending(vendor: str) -> list:
 
 
 def _og_image(response) -> str | None:
-    """Every vendor we've checked (Ivory, TMS, 1PC, Plonter) puts the
-    full-resolution cover image in og:image — no need for per-vendor
-    image selectors."""
-    return response.css('meta[property="og:image"]::attr(content)').get()
+    """Cover image from meta tags. Vendors disagree on the exact property
+    name — Plonter uses og:image:url (not plain og:image), so try the
+    common variants plus link[rel=image_src] and twitter:image before
+    giving up. Returns an absolute URL as-is (may be relative on some
+    templates — callers urljoin it)."""
+    for prop in ("og:image", "og:image:url", "og:image:secure_url"):
+        url = response.css(f'meta[property="{prop}"]::attr(content)').get()
+        if url:
+            return response.urljoin(url.strip())
+    for sel in (
+        'link[rel="image_src"]::attr(href)',
+        'meta[name="twitter:image"]::attr(content)',
+        'meta[property="twitter:image"]::attr(content)',
+    ):
+        url = response.css(sel).get()
+        if url:
+            return response.urljoin(url.strip())
+    return None
 
 
 class IvoryDetailSpider(scrapy.Spider):
@@ -106,27 +120,35 @@ class IvoryDetailSpider(scrapy.Spider):
 
     def parse_detail(self, response):
         specs = {}
-        # "מפרט המוצר" section: each row is a dt/dd-style pair rendered
-        # as a heading (spec label) followed by its value paragraph.
-        # Observed structure (Aug 2026, catalog.php?id=30398):
-        #   - **מותג**\n\n  AMD\n\n- **דגם**\n\n  Ryzen™ 3 3200G\n\n...
-        # In raw HTML this is a definition-list-like block; the
-        # reliable anchor is the "מפרט המוצר" header immediately
-        # preceding it. Select list items within that container.
-        spec_rows = response.css("div.item-properties li, div.specification li")
+        # Real structure (verified against catalog.php?id=30398, Ryzen 3
+        # 3200G): the "מפרט המוצר" tab is div#panel2 inside
+        # div.contentproducttable; each spec is
+        #   <li class="col-md-12 col-12">
+        #     <div ...><b>LABEL</b></div>
+        #     <div ...>VALUE</div>
+        # Labels are Hebrew, usually with an English hint in parens —
+        # e.g. "ליבות (Cores)", "תושבת (Socket)", "מהירות שעון (Clock)".
+        # The old selectors (div.item-properties li / div.specification
+        # li) matched nothing on real pages, so every Ivory detail item
+        # came back with empty specs. Keys stay raw here (Hebrew
+        # included); extractors.py's IVORY_HEBREW_LABELS translates them
+        # to canonical keys at normalize time.
+        spec_rows = response.css("div#panel2 li, div.contentproducttable li")
         if not spec_rows:
-            # Fallback: some Ivory templates render the same content
-            # as a plain list under a heading containing "מפרט"
+            # Fallback: some templates render the same content as a plain
+            # list under a heading containing "מפרט".
             spec_rows = response.xpath(
                 "//*[contains(text(), 'מפרט המוצר')]/following::ul[1]/li"
             )
         for row in spec_rows:
-            label = (row.css("strong::text, b::text").get() or "").strip()
-            value = " ".join(t.strip() for t in row.css("::text").getall() if t.strip())
+            divs = row.css("div")
+            if len(divs) < 2:
+                continue
+            label = (divs[0].css("b::text").get() or divs[0].css("::text").get() or "").strip()
+            value = " ".join(
+                t.strip() for t in divs[1].css("::text").getall() if t.strip()
+            )
             if label and value:
-                # value includes the label text itself since ::text
-                # grabs everything; strip the label prefix back off
-                value = value[len(label):].strip(" :\u200f\u200e")
                 specs[label] = value
 
         yield DetailItem(
@@ -267,12 +289,47 @@ class OnePcDetailSpider(scrapy.Spider):
             yield request
 
     def _build_requests(self):
-        for entry in _load_pending("1pc"):
+        # NOTE: the pending file is data/detail_pending/onepc.json
+        # (make_detail_pending normalizes "1pc" -> "onepc"). A previous
+        # version read _load_pending("1pc") which matched no file, so the
+        # spider silently crawled zero pages and wrote a 0-byte output.
+        for entry in _load_pending("onepc"):
             yield scrapy.Request(
                 url=entry["url"],
                 callback=self.parse_detail,
                 meta={"vendor_sku": entry["vendor_sku"]},
             )
+
+    def _real_sku_and_brand(self, response) -> dict:
+        """The listing spider only knows 1PC's internal numeric product id
+        (e.g. 126902) — not a real SKU. The detail page carries the actual
+        manufacturer part number twice: as
+        <div class="sku"><span class="value" id="sku-NNN">REAL-SKU</span>
+        and inside the JSON-LD Product block ("mpn", plus "brand"). Grab
+        both so normalize_and_match can surface the real MPN on offers
+        instead of the internal numeric id."""
+        extra: dict = {}
+        sku = response.css("div.sku span.value::text").get()
+        if sku and sku.strip():
+            extra["real_sku"] = sku.strip()
+        for blob in response.css('script[type="application/ld+json"]::text').getall():
+            try:
+                data = json.loads(blob.strip())
+            except (json.JSONDecodeError, ValueError):
+                continue
+            items = data if isinstance(data, list) else [data]
+            for item in items:
+                if not isinstance(item, dict):
+                    continue
+                mpn = item.get("mpn")
+                if mpn and not extra.get("mpn"):
+                    extra["mpn"] = str(mpn).strip()
+                brand = item.get("brand")
+                if isinstance(brand, dict):
+                    brand = brand.get("name")
+                if brand and not extra.get("brand"):
+                    extra["brand"] = str(brand).strip()
+        return extra
 
     def parse_detail(self, response):
         specs = self._parse_spec_table(response)
@@ -295,6 +352,7 @@ class OnePcDetailSpider(scrapy.Spider):
             specs=specs,
             image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
+            extra=self._real_sku_and_brand(response),
         )
 
     @classmethod
@@ -399,20 +457,29 @@ class PlonterDetailSpider(scrapy.Spider):
             )
 
     def parse_detail(self, response):
-        response = response.replace(encoding="windows-1255")
+        # Do NOT force windows-1255 here. The listing feed (alon.tmpl) is
+        # raw windows-1255 bytes, but THESE pages arrive via Playwright:
+        # Chromium already decoded the declared windows-1255 charset into
+        # Unicode and page.content() re-serializes as UTF-8. Forcing
+        # windows-1255 re-interprets those UTF-8 bytes and every Hebrew
+        # string turns into GERESH-run mojibake
+        # ('יצרן' -> '׳™׳¦׳¨׳�'). Scrapy's own charset handling is correct
+        # as-is. (This mojibake poisoned data/raw/detail/plonter.jsonl
+        # before the fix; the normalize-time sanitizer in extractors.py
+        # drops those rows so a catalog rebuild stays clean even before
+        # a full re-scrape.)
         specs = {}
 
-        # Plonter's spec table: <table width="100%"> rows with 3 <td> cells:
-        #   cell 0 — Hebrew label (often bare ":" when no translation exists)
-        #   cell 1 — value in <td dir="ltr">, sometimes wrapped in <a> whose
-        #            href has attcode=Key and att=Value params (most reliable)
-        #   cell 2 — English attribute key in <td align="left">
-        #
-        # Verified against real saved HTML (AMD 100-100000510BOX detail page,
-        # lines ~7825-8044 of the saved view-source). The only rows with
-        # 3+ cells are the real spec rows; header/section rows have fewer cells
-        # or use colspan, so len(cells) < 3 is a reliable skip condition.
-        for row in response.css("table > tbody > tr"):
+        # The REAL spec table is the only one whose rows carry
+        # onmouseover="ChangeBackgroundColor(this)". The page is full of
+        # other 3-cell tables (search box, mega-menu, footer nav like
+        # "מעבדים קונים בפלונטר / AMD Socket - AM4 קונים בפלונטר") that the
+        # old bare `table > tbody > tr` selector also matched — that's where
+        # junk keys like `amd_socket_am4` with Hebrew values came from.
+        # Row shape: cell 0 = Hebrew label, cell 1 = value in
+        # <td dir="ltr"> (sometimes an <a> with attcode=/att= params, most
+        # reliable), cell 2 = English key in <td align="left">.
+        for row in response.css("tr[onmouseover]"):
             cells = row.css("td")
             if len(cells) < 3:
                 continue

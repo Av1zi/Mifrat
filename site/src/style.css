@@ -1374,6 +1374,153 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   color: var(--red);
 }
 
+/* ============================================================
+   Professional polish pass — curated specs & photo coverage
+   (appended override block; earlier rules stay intact)
+   ============================================================ */
+
+/* ---- detail overlay: product header ---- */
+.overlay-panel {
+  box-shadow: -18px 0 50px rgba(15, 27, 46, 0.22);
+  padding: 22px 26px 40px;
+}
+.overlay-title {
+  font-size: 1.28rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.overlay-sku {
+  display: inline-block;
+  background: var(--bg-stripe);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 2px 12px;
+  margin-bottom: 16px;
+}
+
+/* ---- detail overlay: spec table ---- */
+.spec-table {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin: 14px 0 10px;
+}
+.spec-table td {
+  padding: 7px 12px;
+}
+.spec-table tr:nth-child(even) td {
+  background: var(--bg-stripe);
+}
+.spec-table td:first-child {
+  width: 42%;
+  font-weight: 600;
+}
+.spec-table td:last-child {
+  text-align: end;
+  overflow-wrap: anywhere;
+}
+.spec-more-toggle {
+  display: inline-block;
+  margin: 2px 0 18px;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-panel);
+  color: var(--blue-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.spec-more-toggle:hover {
+  border-color: var(--blue);
+  background: var(--blue-bg);
+}
+
+/* ---- product rows: photo thumbs ---- */
+img.plThumb {
+  display: block;
+  object-fit: contain;
+  background: #fff;
+}
+.pl-row {
+  transition: background 0.12s, box-shadow 0.12s;
+}
+.pl-row:hover {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.pl-price {
+  color: var(--blue-dark);
+}
+
+/* ---- stale badge as a pill, not bare red text ---- */
+.tag-stale {
+  display: inline-block;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  color: #92400e;
+  border-radius: var(--radius-pill);
+  padding: 0 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ---- filter rail: sticky card ---- */
+.filter-rail {
+  position: sticky;
+  top: calc(var(--header-h) + 16px);
+  align-self: start;
+  max-height: calc(100vh - var(--header-h) - 32px);
+  overflow-y: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.filter-group summary {
+  cursor: pointer;
+  list-style: none;
+}
+.filter-group summary:hover {
+  color: var(--blue-dark);
+}
+.filter-option {
+  border-radius: var(--radius-sm);
+  padding: 3px 6px;
+  margin: 0 -6px;
+}
+.filter-option:hover {
+  background: var(--bg-hover);
+}
+
+/* ---- toolbar + section titles ---- */
+.toolbar {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.category-title {
+  letter-spacing: -0.02em;
+}
+
+/* ---- offer rows: hairline cards ---- */
+.offer-row {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+.offer-row.is-out {
+  opacity: 0.75;
+}
+.reference-note {
+  border-inline-start: 3px solid var(--amber-border);
+  background: var(--amber-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 8px 12px;
+}
+
 /* ---------- PP EXACT FILTER SIDEBAR (screenshots) ---------- */
 .filter-rail{
   background: transparent;

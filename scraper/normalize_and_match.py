@@ -127,10 +127,20 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     merge into each enriched listing's vendor_meta under a 'detail_specs'
     key.  The extractors consume this via _from_vendor_meta() so the
     structured specs from vendor product pages feed into the attributes
-    blob alongside title-parsed and vendor_meta-parsed attributes."""
+    blob alongside title-parsed and vendor_meta-parsed attributes.
+
+    Also merges:
+    - `extra` (real MPN/brand surfaced by the 1PC detail spider — the
+      listing spider only knows 1PC's internal numeric id, so without
+      this offers display meaningless ids like "126902"),
+    - `image_url`, where the full-resolution detail og:image wins but a
+      listing-level thumbnail (captured by every listing spider) is kept
+      as fallback so photo coverage doesn't depend on the detail scrape.
+    """
     vendors = set(e.get("vendor_id") for e in enriched)
     detail_index: dict[str, dict] = {}
     image_index: dict[str, str] = {}
+    extra_index: dict[str, dict] = {}
     for vendor in vendors:
         norm = "onepc" if vendor in ("1pc", "onepc") else vendor
         path = RAW_DIR / "detail" / f"{norm}.jsonl"
@@ -145,17 +155,21 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 sku = item.get("vendor_sku")
                 specs = item.get("specs")
                 image_url = item.get("image_url")
+                extra = item.get("extra")
                 if sku and specs:
                     detail_index[sku] = specs
                 if sku and image_url:
                     image_index[sku] = image_url
-
-    if not detail_index and not image_index:
-        return enriched
+                if sku and isinstance(extra, dict) and extra:
+                    extra_index[sku] = extra
 
     merged_specs = 0
     merged_images = 0
+    merged_extra = 0
     for e in enriched:
+        # NOTE: listing-level image_url thumbnails (captured by every
+        # listing spider) already ride along on the enriched dict — the
+        # detail image below overwrites them only when present.
         sku = e.get("vendor_sku")
         if not sku:
             continue
@@ -168,6 +182,15 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             # it out of vendor_meta into parsed attributes).
             e["attributes"] = extract_attributes(e)
             merged_specs += 1
+        if sku in extra_index:
+            extra = extra_index[sku]
+            meta = e.setdefault("vendor_meta", {})
+            real_mpn = extra.get("mpn") or extra.get("real_sku")
+            if real_mpn and not e.get("mpn"):
+                e["mpn"] = str(real_mpn).strip()
+                merged_extra += 1
+            if extra.get("brand") and not e.get("brand"):
+                e["brand"] = str(extra["brand"]).strip()
         if sku in image_index:
             e["image_url"] = image_index[sku]
             merged_images += 1
@@ -176,6 +199,8 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         print(f"  merged detail specs for {merged_specs} listings")
     if merged_images:
         print(f"  merged detail images for {merged_images} listings")
+    if merged_extra:
+        print(f"  merged real MPNs for {merged_extra} listings")
     return enriched
 
 

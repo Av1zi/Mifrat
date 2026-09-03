@@ -48,8 +48,8 @@ re-deriving them from title text alone.
 - Content spans well beyond PC-hardware (storage controllers, USB devices,
   etc.) — no filtering applied here; normalize_and_match.py should expect
   out-of-scope rows and filter by category/division/tree downstream.
-- windows-1255 decoding confirmed fine on sampled rows, not yet checked
-  against the full catalog for mojibake in less-common characters.
+  (Encoding: this feed arrives via Playwright as decoded Unicode — do NOT
+  force windows-1255 on the response; that mojibakes Hebrew. See parse().)
 
 ## Also available, not yet wired in
 `/pnp/alonDT.tmpl` returns the category tree as JSON
@@ -114,10 +114,14 @@ class PlonterSpider(scrapy.Spider):
 
     def parse(self, response):
         self.logger.info(f"Plonter parse called with status {response.status}")
-        
-        # Force correct encoding for the feed
-        response = response.replace(encoding="windows-1255")
-        
+
+        # NOTE: no response.replace(encoding="windows-1255") here. The feed
+        # arrives via Playwright, which hands us already-decoded Unicode
+        # re-serialized as UTF-8; forcing windows-1255 re-interprets those
+        # UTF-8 bytes and mojibakes every Hebrew string (same bug that
+        # poisoned the detail scrape — see detail_pages.py). Scrapy's
+        # default decoding is correct as-is.
+
         pre_blocks = response.css("pre::text").getall()
         if len(pre_blocks) < 2:
             self.logger.warning("alon.tmpl returned no data rows or a challenge page.")
@@ -135,7 +139,19 @@ class PlonterSpider(scrapy.Spider):
             eng_div = (row.get("engdivision") or "").strip().lower()
             if eng_div not in ALLOWED_ENGDIVISIONS:
                 continue  # Skip networking, peripherals, cables, etc.
-            
+
+            # The feed's image_file is a filename (e.g. MG07ACA12TE.jpg);
+            # full-size images live under graphics/product_images/full/
+            # (same path as the detail pages' og:image:url). Free photo
+            # coverage for every listing; detail og:image still wins when
+            # present (see _merge_detail_specs).
+            image_file = (row.get("image_file") or "").strip()
+            image_url = (
+                f"https://www.plonter.co.il/graphics/product_images/full/{image_file}"
+                if image_file
+                else None
+            )
+
             yield ListingItem(
                 vendor_id=VENDOR_ID,
                 vendor_sku=sku,
@@ -144,6 +160,7 @@ class PlonterSpider(scrapy.Spider):
                 price_ils=row.get("price_total"),
                 in_stock=True,  # Explicitly set to True
                 category_guess=row.get("engdivision"),  # Clean English category
+                image_url=image_url,
                 vendor_meta={
                     # Space-separated internal taxonomy IDs (e.g. "ACAM4",
                     # "B1700D5ATX") — decoded downstream via the static

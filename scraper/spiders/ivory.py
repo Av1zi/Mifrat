@@ -136,6 +136,17 @@ class IvorySpider(scrapy.Spider):
                     continue
                 self._seen_ids.add(pid)
 
+                # The builder API returns a per-product `picture` path
+                # (e.g. "files/catalog/reg/....webp") — free photo coverage
+                # for every listing without opening the detail page. Detail
+                # og:image still wins when present (see _merge_detail_specs).
+                picture = prod.get("picture")
+                image_url = (
+                    response.urljoin(picture)
+                    if picture
+                    else None
+                )
+
                 yield ListingItem(
                     vendor_id=VENDOR_ID,
                     vendor_sku=prod.get("barcode"),
@@ -145,6 +156,7 @@ class IvorySpider(scrapy.Spider):
                     # All products returned are available for sale
                     in_stock=True,
                     category_guess=category_guess,
+                    image_url=image_url,
                     vendor_meta={
                         "description": prod.get("description"),
                         "parent": prod.get("parent"),

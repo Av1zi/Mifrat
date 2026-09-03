@@ -126,6 +126,33 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   bundle_only: { he: "נמכר כמארז", en: "Bundle only" },
   cooler_included: { he: "כולל קירור", en: "Cooler included" },
 
+  // CPU core specs (detail-scraped canonical keys)
+  smt: { he: "SMT", en: "SMT" },
+  l2_cache: { he: "מטמון L2", en: "L2 Cache" },
+  l3_cache: { he: "מטמון L3", en: "L3 Cache" },
+  series: { he: "סדרה", en: "Series" },
+  core_family: { he: "משפחת ליבות", en: "Core Family" },
+  codename: { he: "שם קוד", en: "Codename" },
+  manufacturing_process: { he: "ליטוגרפיה", en: "Lithography" },
+  launch: { he: "השקה", en: "Launch" },
+  stepping: { he: "סטפינג", en: "Stepping" },
+  memory_controller: { he: "בקר זיכרון", en: "Memory Controller" },
+  memory_max: { he: "זיכרון מקסימלי", en: "Max Memory" },
+  memory_bandwidth: { he: "רוחב פס זיכרון", en: "Memory Bandwidth" },
+  memory_compatibility: { he: "תאימות זיכרון", en: "Memory Compatibility" },
+  pcie_lanes: { he: "ערוצי PCIe", en: "PCIe Lanes" },
+  chipset_suitability: { he: "ערכות שבבים תואמות", en: "Chipset Support" },
+  chipset_interface: { he: "ממשק ערכת שבבים", en: "Chipset Interface" },
+  scope_of_delivery: { he: "תכולת האריזה", en: "Box Contents" },
+  max_temperature: { he: "טמפרטורה מקסימלית", en: "Max Temperature" },
+  thermal_interface_material: { he: "משחה תרמית", en: "Thermal Interface" },
+  cpu_features: { he: "תכונות CPU", en: "CPU Features" },
+  cpu_compatibility: { he: "תאימות CPU", en: "CPU Compatibility" },
+  clock: { he: "תדר שעון", en: "Clock" },
+  base_clock: { he: "תדר בסיס", en: "Base Clock" },
+  turbo_clock: { he: "תדר מוגבר", en: "Turbo Clock" },
+  tdp_tgp: { he: "צריכת חשמל (W)", en: "TDP (W)" },
+
   // GPU
   gpu_chip: { he: "שבב", en: "GPU Chip" },
   gpu_vendor: { he: "יצרן שבב", en: "GPU Vendor" },
@@ -219,6 +246,13 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   fan_features: { he: "תכונות מאוורר", en: "Fan Features" },
   cooler_display: { he: "תצוגה", en: "Display" },
   socket_compat: { he: "תאימות סוקט", en: "Socket Compat" },
+  special_features: { he: "תכונות מיוחדות", en: "Special Features" },
+  miscellaneous_interfaces: { he: "ממשקים נוספים", en: "Misc Interfaces" },
+  power_connections: { he: "חיבורי חשמל", en: "Power Connections" },
+  power_consumption: { he: "צריכת חשמל", en: "Power Consumption" },
+  power_supply: { he: "ספק כוח", en: "Power Supply" },
+  total_height: { he: "גובה כולל", en: "Total Height" },
+  modules_height: { he: "גובה מודולים", en: "Module Height" },
 };
 
 export function categoryLabel(id: string, lang: Lang): string {

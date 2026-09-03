@@ -9,6 +9,7 @@ import {
   vendorLabel,
   vendorsCount,
 } from "../i18n";
+import { filterAllowlist, sortSpecKeys } from "../specs";
 import {
   buildHash,
   categoryHash,
@@ -44,8 +45,10 @@ const NUMERIC_ATTRS = new Set([
   "base_clock_ghz",
   "boost_clock_ghz",
   "tdp",
+  "tdp_w",
   "vram_gb",
   "wattage_w",
+  "wattage",
   "capacity_gb",
   "rpm",
   "cooler_height_mm",
@@ -61,9 +64,16 @@ const NUMERIC_ATTRS = new Set([
 
 const MAX_SPEC_COLUMNS = 4;
 
+// Minimum share of products that must carry a key before it becomes a
+// table column — keeps one-off trivia rows from producing near-empty
+// columns.
+const MIN_COLUMN_COVERAGE = 0.05;
+
 function computeFilterableAttributes(
-  products: Product[]
+  products: Product[],
+  category: string
 ): Map<string, Array<[string, number]>> {
+  const allowlist = filterAllowlist(category);
   const counts = new Map<string, Map<string, number>>();
   const numericRanges = new Map<string, { min: number; max: number }>();
 
@@ -104,6 +114,12 @@ function computeFilterableAttributes(
   const filterable = new Map<string, Array<[string, number]>>();
 
   for (const [key, values] of counts) {
+    // Curated filters per category: only allowlisted keys (plus vendor)
+    // become checkbox filters. Deep-trivia keys (mosfet phases, exact
+    // port counts) stay visible on the detail page but never clutter the
+    // rail. Categories without a curated list keep the old behavior.
+    if (key !== "vendor" && allowlist && !allowlist.includes(key)) continue;
+
     const maxValues = key === "vendor" ? 30 : 40;
     if (values.size < 2 || values.size > maxValues) continue;
 
@@ -338,11 +354,27 @@ export async function renderCategory(
   let localQuery = params.q;
   let visibleCount = PAGE_SIZE;
 
-  const filterableAttrs = computeFilterableAttributes(compatibleProducts);
-  const specColumns = Array.from(filterableAttrs.keys()).slice(
-    0,
-    MAX_SPEC_COLUMNS
-  );
+  const filterableAttrs = computeFilterableAttributes(compatibleProducts, category);
+
+  // Table columns follow the curated per-category priority (not "whatever
+  // filters exist"): the important specs first, skipping keys too sparse
+  // to make a useful column.
+  const specColumns = (() => {
+    const coverage = new Map<string, number>();
+    for (const p of compatibleProducts) {
+      for (const key of Object.keys(p.attributes)) {
+        if (p.attributes[key]) coverage.set(key, (coverage.get(key) ?? 0) + 1);
+      }
+    }
+    const n = Math.max(1, compatibleProducts.length);
+    const candidates = sortSpecKeys(
+      category,
+      Array.from(coverage.keys()).filter(
+        (k) => k !== "brand" && k !== "model" && (coverage.get(k) ?? 0) / n >= MIN_COLUMN_COVERAGE
+      )
+    );
+    return candidates.slice(0, MAX_SPEC_COLUMNS);
+  })();
 
   const specColDefs = specColumns
     .map(() => "minmax(110px, 1fr)")

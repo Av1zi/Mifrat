@@ -271,6 +271,247 @@ def _norm_key_name(name: str) -> str:
 
 
 # --------------------------------------------------------------------------
+# Detail-spec sanitization — drops the garbage rows users kept seeing
+# (mojibake Hebrew, empty keys, nav-breadcrumb junk) and aliases vendor
+# spec keys to the canonical attribute names the filters/site expect.
+#
+# Background on each rule:
+# - Mojibake (GERESH runs / U+FFFD): Plonter detail pages arrive via
+#   Playwright as decoded Unicode; an old response.replace(encoding=
+#   "windows-1255") re-interpreted the UTF-8 bytes and garbled every
+#   Hebrew string ('יצרן' -> '׳™׳¦׳¨׳�'). Fixed at the spider, but the
+#   already-scraped data/raw/detail/plonter.jsonl is still poisoned, so
+#   tainted rows are dropped here — a catalog rebuild stays clean even
+#   before a full re-scrape.
+# - Empty normalized keys: Ivory's Hebrew labels ('מותג') and Plonter's
+#   Hebrew header cells both normalize to '' and used to collapse into a
+#   single garbage '' attribute. Ivory labels are translated first
+#   (IVORY_HEBREW_LABELS); anything still empty is dropped.
+# - Hebrew-only keys from non-Ivory vendors: Plonter's footer nav tables
+#   ("... קונים בפלונטר") leaked keys like `amd_socket_am4` with Hebrew
+#   values. Real Plonter spec keys are always English, so Hebrew keys
+#   from other vendors are nav junk. (Fixed at the spider too via the
+#   tr[onmouseover] selector; this is the backstop for old scrapes.)
+# - Blacklisted keys: vendor boilerplate and server trivia nobody filters
+#   on (segment, scalability, remote-management, NAME/SKU dupes of the
+#   title and vendor_sku we already store).
+# - Noise values: "not available" / "n/a" / "-" placeholder cells.
+# --------------------------------------------------------------------------
+
+_GERESH = "\u05f3"  # Hebrew punctuation geresh — mojibake hallmark
+_REPLACEMENT_CHAR = "\ufffd"
+_HEBREW_CHAR_RE = re.compile(r"[\u0590-\u05FF]")
+_LATIN_ALNUM_RE = re.compile(r"[A-Za-z0-9]")
+_PAREN_HINT_RE = re.compile(r"\(([^)]+)\)")
+_NUMERIC_HEBREW_VALUE_RE = re.compile(r"^\s*([\d.,]+)\s*[\u0590-\u05FF\s]+$")
+
+# Normalized detail keys that are never real specs.
+DETAIL_KEY_BLACKLIST = frozenset({
+    "name",               # 1PC packed-cell dupe of the product title
+    "sku",                # dupe of vendor_sku (real MPN lives in `mpn`)
+    "segment",            # "desktop (Mainstream)" — trivia, explicitly unwanted
+    "scalability",        # "1 socket" — server trivia
+    "remote_management",  # "no" on every desktop CPU — noise
+    "remote_manageability",
+    "type",               # redundant shadow of memory_type / form_factor /
+                          # drive_type ("DDR5", "ATX", "SSD") under a
+                          # meaningless key name
+    "not_available",      # 1PC packed-cell artifact: bare label became a key
+})
+
+# Placeholder cell values — the vendor explicitly says "no data".
+DETAIL_NOISE_VALUES = frozenset({
+    "not available", "n/a", "na", "none", "-", "--", "—", "...",
+    "no info", "no information", "unknown",
+})
+
+# Normalized Plonter/1PC detail key -> canonical attribute key.
+# (Most vendor keys already normalize to the canonical name; only the
+# mismatches live here.)
+DETAIL_KEY_ALIASES = {
+    "base_clock": "base_clock_ghz",
+    "turbo_clock": "boost_clock_ghz",
+    "boost_clock": "boost_clock_ghz",
+    "max_boost_clock": "boost_clock_ghz",
+    "max_turbo_clock": "boost_clock_ghz",
+    "architecture": "microarchitecture",
+    "lithography": "manufacturing_process",
+    "manufacturing_technology": "manufacturing_process",
+    "process": "manufacturing_process",
+}
+
+# Yes/No canonicalization for boolean-ish spec keys. Vendors disagree on
+# representation ('yes' vs True vs 'true'); without this the filter rail
+# shows both "True" and "yes" as separate options for the same thing.
+YES_NO_KEYS = frozenset({
+    "smt", "ecc", "ecc_support", "unlocked", "cooler_included",
+    "registered", "nvme", "nvme_flag", "heat_spreader",
+    "integrated_graphics", "graphics",
+})
+
+_YES_VALUES = frozenset({"yes", "y", "true", "1", "included", "with"})
+_NO_VALUES = frozenset({"no", "n", "false", "0", "not included", "without"})
+
+
+def _is_mojibake_text(s) -> bool:
+    t = str(s)
+    return _GERESH in t or _REPLACEMENT_CHAR in t
+
+
+def _has_hebrew(s) -> bool:
+    return bool(_HEBREW_CHAR_RE.search(str(s)))
+
+
+def _has_latin_alnum(s) -> bool:
+    return bool(_LATIN_ALNUM_RE.search(str(s)))
+
+
+# Ivory detail labels are Hebrew, usually with an English hint in parens
+# ("Cores" etc.). The hint is the primary key source; the small map below
+# covers the hint-less labels seen on real pages. Unknown Hebrew labels
+# return None (dropped) -- an untranslated label would normalize to ''
+# and collide with every other untranslated label in one garbage key.
+# (Hebrew literals below are \u-escaped so no raw Hebrew lands in source.)
+IVORY_HEBREW_LABELS = {
+    "\u05de\u05d5\u05ea\u05d2": "brand",
+    "\u05d3\u05d2\u05dd": "model",
+    "\u05d0\u05e8\u05d9\u05d6\u05d4": "packaging",
+}
+
+# Normalized English paren-hint -> canonical key. "clock_range" is special:
+# values like "3.6GHz - 4GHz" are split into base/boost clocks. None means
+# "drop this row" (e.g. warranty -- not a spec anyone filters on).
+IVORY_HINT_ALIASES = {
+    "cores": "cores",
+    "threads": "threads",
+    "clock": "clock_range",
+    "cache": "cache_mb",
+    "socket": "socket",
+    "brand": "brand",
+    "model": "model",
+    "packing": "packaging",
+    "packaging": "packaging",
+    "chipset": "chipset",
+    "memory": "memory",
+    "speed": "speed_mhz",
+    "warranty": None,
+}
+
+
+def _ivory_label_to_key(label: str):
+    """Translate one Ivory detail label to a canonical attribute key."""
+    t = str(label).strip()
+    hint_m = _PAREN_HINT_RE.search(t)
+    if hint_m:
+        hint = _norm_key_name(hint_m.group(1))
+        if not hint:
+            return None
+        if hint in IVORY_HINT_ALIASES:
+            return IVORY_HINT_ALIASES[hint]
+        return hint
+    base = re.sub(r"\s*\(.*?\)\s*", "", t).strip()
+    if base in IVORY_HEBREW_LABELS:
+        return IVORY_HEBREW_LABELS[base]
+    return None
+
+
+def _canonicalize_yes_no(key: str, value):
+    """Map True/'true'/'yes' -> 'Yes', False/'false'/'no' -> 'No' for the
+    boolean-ish keys in YES_NO_KEYS. Returns the (possibly unchanged) value."""
+    if key not in YES_NO_KEYS:
+        return value
+    if isinstance(value, bool):
+        return "Yes" if value else "No"
+    low = str(value).strip().lower()
+    if low in _YES_VALUES:
+        return "Yes"
+    if low in _NO_VALUES:
+        return "No"
+    return value
+
+
+def _clean_detail_value(value):
+    """Strip Hebrew suffix words off numeric values ('4 XXXX' -> '4')."""
+    if isinstance(value, bool):
+        return value
+    s = str(value).strip()
+    m = _NUMERIC_HEBREW_VALUE_RE.match(s)
+    if m:
+        return m.group(1).replace(",", "")
+    return s
+
+
+def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
+    """Validate + canonicalize one detail-spec row.
+
+    Returns (key, value) ready for the attributes blob, or None to drop
+    the row. Ivory rows go through Hebrew-label translation; every other
+    vendor's keys must already be usable English.
+    """
+    if raw_value in (None, "", [], {}):
+        return None
+    if isinstance(raw_value, str) and raw_value.strip().lower() in DETAIL_NOISE_VALUES:
+        return None
+    if _is_mojibake_text(raw_key) or _is_mojibake_text(raw_value):
+        return None
+
+    v = _clean_detail_value(raw_value)
+    if isinstance(v, str) and not v.strip():
+        return None
+
+    norm_vendor = "onepc" if vendor in ("1pc", "onepc") else (vendor or "")
+
+    if norm_vendor == "ivory":
+        key = _ivory_label_to_key(raw_key)
+        if not key:
+            return None
+    else:
+        if _has_hebrew(raw_key):
+            return None
+        key = _norm_key_name(raw_key)
+        if not key:
+            return None
+        if key in DETAIL_KEY_BLACKLIST:
+            return None
+        key = DETAIL_KEY_ALIASES.get(key, key)
+
+    if isinstance(v, str):
+        vs = v.strip()
+        # Hebrew-only values are nav breadcrumbs, not specs.
+        if _has_hebrew(vs) and not _has_latin_alnum(vs):
+            return None
+        if not vs or vs.lower() in DETAIL_NOISE_VALUES:
+            return None
+        v = vs
+
+    # Socket values like "AMD AM4" collapse to the canonical "AM4" so they
+    # merge with the tree/title-derived socket instead of conflicting.
+    if key == "socket" and isinstance(v, str):
+        short = _socket_from_text(v)
+        if short:
+            v = short
+
+    # Pure-digit core/thread counts become ints for consistent merging.
+    if key in ("cores", "threads") and isinstance(v, str) and v.isdigit():
+        v = int(v)
+
+    v = _canonicalize_yes_no(key, v)
+    return key, v
+
+
+def _split_clock_range(value: str):
+    """'3.6GHz - 4GHz' -> (3.6, 4.0). Returns None when not a range."""
+    m = re.search(
+        r"(\d+(?:\.\d+)?)\s*ghz\s*-\s*(\d+(?:\.\d+)?)\s*ghz?",
+        str(value),
+        re.I,
+    )
+    if m:
+        return float(m.group(1)), float(m.group(2))
+    return None
+
+
+# --------------------------------------------------------------------------
 # vendor_meta harvesting (Ivory builder payload etc.)
 # --------------------------------------------------------------------------
 
@@ -281,12 +522,15 @@ _META_SCALAR_KEYS = {
 }
 
 
-def _from_vendor_meta(meta) -> dict:
+def _from_vendor_meta(meta, vendor=None) -> dict:
     """
     Defensive harvester for structured vendor specs.
 
     Accepts either flat keys (socket=..., chipset=...) or nested
     name/value spec blocks (specs / features / compatibility / data).
+    Detail-page specs additionally pass through _sanitize_detail_pair,
+    which drops mojibake/nav-junk rows and aliases vendor key names to
+    the canonical attribute keys.
     """
     out: dict = {}
     if not isinstance(meta, dict):
@@ -315,8 +559,29 @@ def _from_vendor_meta(meta) -> dict:
     detail = meta.get("detail_specs")
     if isinstance(detail, dict):
         for k, v in detail.items():
-            if v not in (None, "", [], {}):
-                out.setdefault(_norm_key_name(k), v)
+            if v in (None, "", [], {}):
+                continue
+            clean = _sanitize_detail_pair(k, v, vendor=vendor)
+            if not clean:
+                continue
+            ck, cv = clean
+            if ck == "clock_range":
+                # Ivory "3.6GHz - 4GHz" style range -> base + boost clocks.
+                split = _split_clock_range(cv) if isinstance(cv, str) else None
+                if split:
+                    out.setdefault("base_clock_ghz", split[0])
+                    out.setdefault("boost_clock_ghz", split[1])
+                else:
+                    out.setdefault("boost_clock_ghz", cv)
+                continue
+            out.setdefault(ck, cv)
+            if ck == "scope_of_delivery" and isinstance(cv, str):
+                # "with CPU cooler (AMD Wraith Stealth...)" -> cooler signal.
+                low = cv.lower()
+                if "cooler" in low or "fan included" in low:
+                    out.setdefault("cooler_included", "Yes")
+                elif "without" in low and "cooler" in low:
+                    out.setdefault("cooler_included", "No")
 
     return out
 
@@ -1354,7 +1619,7 @@ def extract_attributes(listing: dict) -> dict:
     if extra:
         text = f"{text} {clean_text(extra)}"
 
-    attrs = _from_vendor_meta(meta)
+    attrs = _from_vendor_meta(meta, vendor=listing.get("vendor_id"))
 
     parser = _PARSERS.get(category)
     if parser:
@@ -1396,6 +1661,72 @@ def extract_attributes(listing: dict) -> dict:
     if "capacity_gb" in attrs and "capacity" not in attrs:
         cap = attrs["capacity_gb"]
         attrs["capacity"] = f"{cap}GB" if cap < 1000 else f"{cap//1000}TB"
+
+    # Boolean-ish specs to canonical Yes/No so the filter rail never shows
+    # both "True" and "yes" for the same thing (detail values arrive as
+    # 'yes'/'no', Hebrew-desc/tree values as True/False).
+    for yk in ("cooler_included", "ecc", "registered", "nvme", "nvme_flag",
+               "heat_spreader", "smt", "ecc_support", "unlocked",
+               "integrated_graphics", "graphics", "rgb", "argb", "pwm",
+               "wireless"):
+        if yk in attrs:
+            attrs[yk] = _canonicalize_yes_no(yk, attrs[yk])
+
+    # CPU-only dedupe: Plonter's detail "Graphics" row and the title parser's
+    # "integrated_graphics" are the same signal ("no" iGPU vs "Radeon").
+    # Keep integrated_graphics (nicer label, the one filters use).
+    if category == "cpu" and "graphics" in attrs and "integrated_graphics" in attrs:
+        del attrs["graphics"]
+
+    # Cross-vendor dupe consolidation: different spiders/parsers produce
+    # different keys for the same fact (British vs US spelling, unit-suffixed
+    # vs bare, per-vendor variants). Fold them into one canonical key so the
+    # site shows a single row / single filter instead of two or three.
+    _DUPE_ALIASES = (
+        ("colour", "color"),
+        ("dimensions_wxhxd", "dimensions"),
+        ("voltage_v", "voltage"),
+        ("cas", "cas_latency"),
+        ("cas_latency_cl", "cas_latency"),
+        ("shape_factor", "drive_form_factor"),
+        ("first_word_latency", "first_word_latency_ns"),
+        ("nvme_flag", "nvme"),
+        ("ecc", "ecc_support"),
+        ("igpu", "integrated_graphics"),
+        ("tdp_tgp", "tdp"),
+    )
+    for old_k, new_k in _DUPE_ALIASES:
+        if old_k in attrs and new_k not in attrs:
+            attrs[new_k] = attrs.pop(old_k)
+        elif old_k in attrs:
+            del attrs[old_k]
+
+    # Vendor capacity variants: Plonter emits CapacityGB (already GB) and
+    # CapacityTB alongside capacity_gb. Fold into capacity_gb as ints.
+    if "capacity_gb" not in attrs:
+        if "capacitygb" in attrs:
+            try:
+                attrs["capacity_gb"] = int(float(str(attrs.pop("capacitygb"))))
+            except (ValueError, TypeError):
+                pass
+        elif "capacitytb" in attrs:
+            try:
+                attrs["capacity_gb"] = int(float(str(attrs.pop("capacitytb"))) * 1000)
+            except (ValueError, TypeError):
+                pass
+    else:
+        attrs.pop("capacitygb", None)
+        attrs.pop("capacitytb", None)
+
+    # Generic cache ("4MB", "16MB (1x 16MB)") -> cache_mb int when the
+    # specific key is missing, so cache filters/columns have one source.
+    if "cache_mb" not in attrs and "cache" in attrs:
+        m = re.search(r"(\d+(?:\.\d+)?)\s*mb", str(attrs["cache"]), re.I)
+        if m:
+            try:
+                attrs["cache_mb"] = int(float(m.group(1)))
+            except (ValueError, TypeError):
+                pass
 
     # GPU memory alias
     if "vram_gb" in attrs and "memory" not in attrs:

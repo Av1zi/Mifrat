@@ -1,9 +1,13 @@
 import { slotForCategory } from "../build";
 import { formatPrice } from "../format";
 import { attributeLabel, t, vendorLabel } from "../i18n";
+import { sortSpecKeys, specPriority } from "../specs";
 import { buildHash, getStoredBuild, navigate, setStoredBuild } from "../state";
 import type { Currency, Lang, Product } from "../types";
 import { displayName, esc, skuOf } from "../utils";
+
+// How many spec rows show before the rest collapse behind "show all".
+const PRIMARY_SPEC_COUNT = 12;
 
 let dismiss: (() => void) | null = null;
 
@@ -20,10 +24,38 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-modal", "true");
 
-  const specRows = Object.entries(product.attributes)
-    .filter(([, value]) => value)
-    .map(([key, value]) => `<tr><td>${esc(attributeLabel(key, lang))}</td><td>${esc(value)}</td></tr>`)
+  // Vendor specs, ordered by the curated per-category priority so the
+  // important stuff (cores, socket, wattage…) comes first and trivia
+  // (mosfet phases, exact port counts) drops behind a show-more toggle
+  // instead of burying the lede.
+  const orderedKeys = sortSpecKeys(
+    product.category,
+    Object.keys(product.attributes).filter((k) => product.attributes[k])
+  );
+  const prioritySet = new Set(specPriority(product.category));
+  const primaryKeys = orderedKeys.filter((k) => prioritySet.has(k));
+  const secondaryKeys = orderedKeys.filter((k) => !prioritySet.has(k));
+  const shownKeys = [...primaryKeys, ...secondaryKeys];
+
+  const rowFor = (key: string, value: string, extra = false) =>
+    `<tr${extra ? ' class="spec-extra" style="display:none"' : ""}><td>${esc(attributeLabel(key, lang))}</td><td>${esc(value)}</td></tr>`;
+
+  const primaryRows = shownKeys
+    .slice(0, PRIMARY_SPEC_COUNT)
+    .map((k) => rowFor(k, product.attributes[k]))
     .join("");
+  const overflowRows = shownKeys
+    .slice(PRIMARY_SPEC_COUNT)
+    .map((k) => rowFor(k, product.attributes[k], true))
+    .join("");
+  const specRows = primaryRows + overflowRows;
+  const moreToggle = overflowRows
+    ? `<button class="spec-more-toggle" type="button" data-more="${
+        lang === "he" ? "הצג את כל המפרט" : "Show all specs"
+      }" data-less="${lang === "he" ? "הצג פחות" : "Show less"}">${
+        lang === "he" ? "הצג את כל המפרט" : "Show all specs"
+      } (${shownKeys.length - PRIMARY_SPEC_COUNT})</button>`
+    : "";
 
   // Reference specs from the external pcpartdb / pckombo datasets
   // (types.ts's PcPartDbRef / PcKomboRef). These describe "a similar
@@ -77,7 +109,7 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
     <div class="overlay-brand">${esc(product.brand ?? "")}</div>
     ${sku ? `<div class="overlay-sku">SKU: ${esc(sku)}</div>` : ""}
     ${slot ? `<button class="btn-primary add-to-build" type="button">+ ${t(lang, "addToBuild")}</button>` : ""}
-    ${allSpecRows ? `<table class="spec-table">${allSpecRows}</table>` : ""}
+    ${allSpecRows ? `<table class="spec-table">${allSpecRows}</table>${moreToggle}` : ""}
     ${hasReferenceSpecs ? `<p class="reference-note">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>` : ""}
     <h3 style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:10px;">
       ${t(lang, "offersHeading")}
@@ -96,6 +128,19 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
       setStoredBuild(build);
       closeDetail();
       navigate(buildHash(build));
+    });
+  }
+
+  const moreBtn = panel.querySelector(".spec-more-toggle");
+  if (moreBtn) {
+    moreBtn.addEventListener("click", () => {
+      const expanded = panel.classList.toggle("specs-expanded");
+      panel
+        .querySelectorAll("tr.spec-extra")
+        .forEach((row) => ((row as HTMLElement).style.display = expanded ? "" : "none"));
+      moreBtn.textContent = expanded
+        ? (moreBtn as HTMLElement).dataset.less!
+        : `${(moreBtn as HTMLElement).dataset.more} (${shownKeys.length - PRIMARY_SPEC_COUNT})`;
     });
   }
 

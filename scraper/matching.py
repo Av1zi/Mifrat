@@ -543,8 +543,15 @@ def extract_mpn(text: str) -> str | None:
 
     # Prefer longer MPNs; usually more specific.
     found.sort(key=len, reverse=True)
-    mpn = found[0]
-    return re.sub(r"[^A-Z0-9]", "", mpn)
+    for cand in found:
+        mpn = re.sub(r"[^A-Z0-9]", "", cand)
+        # Pure-digit strings of 12+ chars are GTIN/EAN barcodes, not
+        # manufacturer part numbers (e.g. 4711377028363). Accepting them
+        # as MPNs produced products literally named after their barcode.
+        if mpn.isdigit() and len(mpn) >= 12:
+            continue
+        return mpn
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -709,6 +716,7 @@ def offer_from_listing(enriched: dict) -> dict:
         "category_normalized": enriched.get("category_normalized"),
         "brand": enriched.get("brand"),
         "mpn": enriched.get("mpn"),
+        "image_url": enriched.get("image_url"),
         "bundle_only": enriched.get("bundle_only", False),
         "attributes": enriched.get("attributes", {}),
     }
@@ -1352,6 +1360,14 @@ def match_listings(
         if len(mpns) == 1:
             merged_attributes["mpn"] = next(iter(mpns))
 
+        # Surface the real manufacturer part number as the product model so
+        # the site shows "AK-H81MEL-VS" instead of a vendor-internal id
+        # ("126902") or a product-id slug. Attributes' own model (parsed
+        # from titles, e.g. "Ryzen 3 4100") wins when present.
+        model = meta.get("model") or merged_attributes.get("model")
+        if not model and len(mpns) == 1:
+            model = next(iter(mpns))
+
         if any(e.get("bundle_only") for e in group):
             merged_attributes["bundle_only"] = True
 
@@ -1373,7 +1389,7 @@ def match_listings(
                 (e.get("brand") for e in group if e.get("brand")),
                 None,
             ),
-            "model": meta.get("model"),
+            "model": model,
             "attributes": attributes,
             "matched_by": meta.get("matched_by", "auto"),
             "vendor_count": len({o.get("vendor_id") for o in offers if o.get("vendor_id")}),
