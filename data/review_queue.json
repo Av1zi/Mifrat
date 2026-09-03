@@ -300,17 +300,6 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
-    "listing_a": "1pc:165970",
-    "listing_b": "tms:C8ARGB",
-    "title_a": "Antec C8 ARGB C8ARGB computer case.",
-    "title_b": "מארז מחשב Antec C8 ARGB",
-    "match_text_a": "165970 Antec C8 ARGB C8ARGB computer case.",
-    "match_text_b": "C8ARGB Antec C8 ARGB"
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "Antec",
     "listing_a": "1pc:171575",
     "listing_b": "tms:FLUX",
     "title_a": "Antec FLUX PRO White computer case.",
@@ -5845,6 +5834,17 @@
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "1pc:189653",
+    "listing_b": "1pc:189656",
+    "title_a": "Intel Core Ultra 5 225 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_a": "189653 Intel Core Ultra 5 225 1851 Tray processor.",
+    "match_text_b": "189656 Intel Core Ultra 7 265 1851 Tray processor."
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:189653",
     "listing_b": "1pc:189659",
     "title_a": "Intel Core Ultra 5 225 1851 Tray processor.",
     "title_b": "Intel Core Ultra 9 285 1851 Tray processor.",
@@ -5861,6 +5861,17 @@
     "title_b": "Intel Core Ultra 7 265KF processor socket 1851.",
     "match_text_a": "189655 Intel Core Ultra 5 245KF processor socket 1851.",
     "match_text_b": "189658 Intel Core Ultra 7 265KF processor socket 1851."
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:189656",
+    "listing_b": "1pc:189659",
+    "title_a": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 9 285 1851 Tray processor.",
+    "match_text_a": "189656 Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_b": "189659 Intel Core Ultra 9 285 1851 Tray processor."
   },
   {
     "score": 94,
@@ -6436,17 +6447,6 @@
   },
   {
     "score": 94,
-    "category": "gpu",
-    "brand": "MSI",
-    "listing_a": "1pc:203121",
-    "listing_b": "1pc:203122",
-    "title_a": "MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "title_b": "MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
-    "match_text_a": "203121 MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
-    "match_text_b": "203122 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black."
-  },
-  {
-    "score": 94,
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "1pc:180217",
@@ -6455,6 +6455,17 @@
     "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan",
     "match_text_a": "180217 Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
     "match_text_b": "12RSLLCD1W1B Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan"
+  },
+  {
+    "score": 94,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180218",
+    "listing_b": "tms:12RSLLCD1W1W",
+    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan",
+    "match_text_a": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "match_text_b": "12RSLLCD1W1W Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan"
   },
   {
     "score": 94,
@@ -7390,17 +7401,6 @@
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in white color.",
     "match_text_a": "200261 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in silver color.",
     "match_text_b": "200263 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in white color."
-  },
-  {
-    "score": 94,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200272",
-    "listing_b": "1pc:200274",
-    "title_a": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 memory in silver color.",
-    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 memory in gold color.",
-    "match_text_a": "200272 G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 memory in silver color.",
-    "match_text_b": "200274 G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 memory in gold color."
   },
   {
     "score": 94,
@@ -9480,6 +9480,17 @@
     "title_b": "Lian-Li UNI SL Wireless 120mm Reverse Black Fan",
     "match_text_a": "180211 Lian-Li UNI SL Wireless 120mm Reverse Black Fan 12RSL1W1B.",
     "match_text_b": "12RSL1W1B Lian-Li UNI SL Wireless 120mm Reverse Black Fan"
+  },
+  {
+    "score": 93,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180212",
+    "listing_b": "1pc:180218",
+    "title_a": "Lian-Li UNI SL Wireless 120mm Reverse White Fan 12RSL1W1W.",
+    "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "match_text_a": "180212 Lian-Li UNI SL Wireless 120mm Reverse White Fan 12RSL1W1W.",
+    "match_text_b": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W."
   },
   {
     "score": 93,
@@ -12802,6 +12813,17 @@
     "title_b": "Corsair iCUE LINK TITAN 240 RX LCD AIO Liquid CPU Cooler",
     "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
     "match_text_b": "CW-9061022-WW Corsair iCUE LINK TITAN 240 RX LCD AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 92,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180203",
+    "listing_b": "1pc:180219",
+    "title_a": "Lian-Li TL120 UNI Wireless LCD 120mm White Fans 3xFans 12TLLCD1W3W.",
+    "title_b": "Lian-Li UNI SL Wireless LCD 120mm White Fans 3xFans 12SLLCD1W3W.",
+    "match_text_a": "180203 Lian-Li TL120 UNI Wireless LCD 120mm White Fans 3xFans 12TLLCD1W3W.",
+    "match_text_b": "180219 Lian-Li UNI SL Wireless LCD 120mm White Fans 3xFans 12SLLCD1W3W."
   },
   {
     "score": 92,
@@ -16921,6 +16943,17 @@
     "score": 91,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:189656",
+    "listing_b": "1pc:190072",
+    "title_a": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 7 265F 1851 Tray processor.",
+    "match_text_a": "189656 Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_b": "190072 Intel Core Ultra 7 265F 1851 Tray processor."
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "1pc:189657",
     "listing_b": "1pc:189994",
     "title_a": "Intel Core Ultra 7 265K processor in socket 1851.",
@@ -18005,17 +18038,6 @@
     "title_b": "MSI PRO B860M-A WIFI motherboard.",
     "match_text_a": "179930 MSI PRO B840-P WIFI motherboard.",
     "match_text_b": "179932 MSI PRO B860M-A WIFI motherboard."
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "MSI",
-    "listing_a": "1pc:203122",
-    "listing_b": "1pc:203127",
-    "title_a": "MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
-    "title_b": "MSI GeForce RTX 5060 Ti 16G SHADOW OC PLUS graphics card in black.",
-    "match_text_a": "203122 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
-    "match_text_b": "203127 MSI GeForce RTX 5060 Ti 16G SHADOW OC PLUS graphics card in black."
   },
   {
     "score": 91,
@@ -19941,17 +19963,6 @@
     "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_a": "200239 G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 7600 CL36 in black color.",
     "match_text_b": "201770 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200240",
-    "listing_b": "1pc:200272",
-    "title_a": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 memory in silver color.",
-    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 memory in silver color.",
-    "match_text_a": "200240 G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 memory in silver color.",
-    "match_text_b": "200272 G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 memory in silver color."
   },
   {
     "score": 91,
@@ -22883,6 +22894,17 @@
     "score": 90,
     "category": "cooler_air",
     "brand": "Noctua",
+    "listing_a": "1pc:171813",
+    "listing_b": "1pc:171817",
+    "title_a": "Noctua NH-L9x65 Chromax Black CPU Cooler.",
+    "title_b": "Noctua NH-D12L Chromax Black CPU Cooler.",
+    "match_text_a": "171813 Noctua NH-L9x65 Chromax Black CPU Cooler.",
+    "match_text_b": "171817 Noctua NH-D12L Chromax Black CPU Cooler."
+  },
+  {
+    "score": 90,
+    "category": "cooler_air",
+    "brand": "Noctua",
     "listing_a": "tms:NH-D15SCH-BK",
     "listing_b": "tms:NH-U12SCH.BK",
     "title_a": "Noctua NH-D15S chromax.black CPU Cooler",
@@ -23400,6 +23422,28 @@
     "score": 90,
     "category": "case_fan",
     "brand": "Lian Li",
+    "listing_a": "1pc:180203",
+    "listing_b": "1pc:180209",
+    "title_a": "Lian-Li TL120 UNI Wireless LCD 120mm White Fans 3xFans 12TLLCD1W3W.",
+    "title_b": "Lian-Li TL120 UNI Wireless LED White Fans 3xFans 12TL1W3W.",
+    "match_text_a": "180203 Lian-Li TL120 UNI Wireless LCD 120mm White Fans 3xFans 12TLLCD1W3W.",
+    "match_text_b": "180209 Lian-Li TL120 UNI Wireless LED White Fans 3xFans 12TL1W3W."
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180203",
+    "listing_b": "tms:12TLLCD1W3W",
+    "title_a": "Lian-Li TL120 UNI Wireless LCD 120mm White Fans 3xFans 12TLLCD1W3W.",
+    "title_b": "Lian-Li TL120 UNI Wireless LCD 120mm White 3xFans",
+    "match_text_a": "180203 Lian-Li TL120 UNI Wireless LCD 120mm White Fans 3xFans 12TLLCD1W3W.",
+    "match_text_b": "12TLLCD1W3W Lian-Li TL120 UNI Wireless LCD 120mm White 3xFans"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
     "listing_a": "1pc:180207",
     "listing_b": "tms:12TL1W3B",
     "title_a": "Lian-Li TL120 UNI Wireless LED Fans 1Black 3xFans 12TL1W3B.",
@@ -23434,11 +23478,44 @@
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "1pc:180217",
+    "listing_b": "1pc:180218",
+    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
+    "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "match_text_a": "180217 Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
+    "match_text_b": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W."
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180217",
     "listing_b": "tms:12RSL1W1B",
     "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
     "title_b": "Lian-Li UNI SL Wireless 120mm Reverse Black Fan",
     "match_text_a": "180217 Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
     "match_text_b": "12RSL1W1B Lian-Li UNI SL Wireless 120mm Reverse Black Fan"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180218",
+    "listing_b": "tms:12RSL1W1W",
+    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "title_b": "Lian-Li UNI SL Wireless 120mm Reverse White Fan",
+    "match_text_a": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "match_text_b": "12RSL1W1W Lian-Li UNI SL Wireless 120mm Reverse White Fan"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180218",
+    "listing_b": "tms:12RSLLCD1W3W",
+    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse White x3 Fans",
+    "match_text_a": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "match_text_b": "12RSLLCD1W3W Lian-Li UNI SL Wireless LCD 120mm Reverse White x3 Fans"
   },
   {
     "score": 90,
@@ -27712,28 +27789,6 @@
     "score": 89,
     "category": "case",
     "brand": "Lian Li",
-    "listing_a": "1pc:207996",
-    "listing_b": "1pc:207998",
-    "title_a": "Lian-Li O11 Dynamic Mini V2 computer case in white.",
-    "title_b": "Lian-Li O11 Dynamic Mini V2 computer case in black.",
-    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2 computer case in white.",
-    "match_text_b": "207998 Lian-Li O11 Dynamic Mini V2 computer case in black."
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "Lian Li",
-    "listing_a": "1pc:207997",
-    "listing_b": "1pc:207998",
-    "title_a": "Lian-Li O11 Dynamic Mini V2 Flow computer case in black color.",
-    "title_b": "Lian-Li O11 Dynamic Mini V2 computer case in black.",
-    "match_text_a": "207997 Lian-Li O11 Dynamic Mini V2 Flow computer case in black color.",
-    "match_text_b": "207998 Lian-Li O11 Dynamic Mini V2 computer case in black."
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "Lian Li",
     "listing_a": "ivory:127386",
     "listing_b": "ivory:138123",
     "title_a": "מארז מחשב ליאן לי Lian Li LANCOOL 216 - צבע לבן עם תאורת ARGB",
@@ -27905,17 +27960,6 @@
     "title_b": "מארז מחשב CoolerMaster HAF 700 EVO White",
     "match_text_a": "H500-WGNN-S00 CoolerMaster HAF 500 White",
     "match_text_b": "H700E-WGNN-S00 CoolerMaster HAF 700 EVO White"
-  },
-  {
-    "score": 89,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "1pc:49921",
-    "listing_b": "1pc:49924",
-    "title_a": "Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
-    "title_b": "Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color.",
-    "match_text_a": "49921 Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
-    "match_text_b": "49924 Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color."
   },
   {
     "score": 89,
@@ -33509,6 +33553,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:189656",
+    "listing_b": "tms:C265T",
+    "title_a": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 7 265 / 1851 Tray",
+    "match_text_a": "189656 Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_b": "C265T Intel Core Ultra 7 265 / 1851 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "1pc:189659",
     "listing_b": "tms:C285T",
     "title_a": "Intel Core Ultra 9 285 1851 Tray processor.",
@@ -33823,17 +33878,6 @@
     "title_b": "ANTEC NX240 computer case in black color.",
     "match_text_a": "125049 ANTEC NX290 computer case in black color.",
     "match_text_b": "77758 ANTEC NX240 computer case in black color."
-  },
-  {
-    "score": 88,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:164629",
-    "listing_b": "1pc:165970",
-    "title_a": "Antec C3 ARGB C3ARGB computer case.",
-    "title_b": "Antec C8 ARGB C8ARGB computer case.",
-    "match_text_a": "164629 Antec C3 ARGB C3ARGB computer case.",
-    "match_text_b": "165970 Antec C8 ARGB C8ARGB computer case."
   },
   {
     "score": 88,
@@ -34340,17 +34384,6 @@
     "title_b": "מארז מחשב Lian-Li A3 White",
     "match_text_a": "180226 Lian-Li A3 Wood White A3W-WD Computer Case.",
     "match_text_b": "A3W Lian-Li A3 White"
-  },
-  {
-    "score": 88,
-    "category": "case",
-    "brand": "Lian Li",
-    "listing_a": "1pc:207996",
-    "listing_b": "1pc:207999",
-    "title_a": "Lian-Li O11 Dynamic Mini V2 computer case in white.",
-    "title_b": "Lian-Li O11 Dynamic Mini V2 Flow computer case in white color.",
-    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2 computer case in white.",
-    "match_text_b": "207999 Lian-Li O11 Dynamic Mini V2 Flow computer case in white color."
   },
   {
     "score": 88,
@@ -35165,6 +35198,17 @@
     "title_b": "Lian-Li UNI SL Wireless 120mm Reverse White x3 Fans",
     "match_text_a": "180212 Lian-Li UNI SL Wireless 120mm Reverse White Fan 12RSL1W1W.",
     "match_text_b": "12RSL1W3W Lian-Li UNI SL Wireless 120mm Reverse White x3 Fans"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180218",
+    "listing_b": "1pc:180219",
+    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "title_b": "Lian-Li UNI SL Wireless LCD 120mm White Fans 3xFans 12SLLCD1W3W.",
+    "match_text_a": "180218 Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
+    "match_text_b": "180219 Lian-Li UNI SL Wireless LCD 120mm White Fans 3xFans 12SLLCD1W3W."
   },
   {
     "score": 88,
