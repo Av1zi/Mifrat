@@ -741,17 +741,75 @@ LEADING_CATEGORY_WORD_RE = re.compile(
     re.I,
 )
 
+# Extra filler phrases scrubbed from display names (beyond TITLE_NOISE_RE,
+# which targets match-text). All case-insensitive, applied to raw titles.
+NAME_FILLER_RE = re.compile(
+    r"\b(processor|processors|graphics card|video card|motherboard|power supply|"
+    r"with integrated graphics|color tray|flat color|\bdimm\b)\b",
+    re.I,
+)
+
+HEBREW_RUN_RE = re.compile(r"[\u0590-\u05FF]+")
+TRADEMARK_RE = re.compile(r"[®™©℗ªº]")
+# "(series 2)" is identity, not noise (disambiguates same-numbered Intel
+# parts) — hoisted out before the generic paren-drop below.
+SERIES_PAREN_RE = re.compile(r"\(\s*series\s?(\d{1,2})\s*\)", re.I)
+PAREN_RE = re.compile(r"\([^)]*\)")
+DASH_RUN_RE = re.compile(r"\s*(?:[–—|·]|-(?:\s*-)+|-)\s*")
+
+
+def _scrub_title(text: str) -> str:
+    """Aggressive display-name scrub for raw vendor titles.
+
+    Hebrew runs, trademark symbols, parentheticals (except Intel series
+    tags), dash-runs ("- -"), filler phrases ("graphics card", "color
+    tray"), duplicated words ("Intel Intel") and trailing MPN tails
+    ("HX318LC11FB/8") all go. Returns "" when nothing salvageable remains.
+    """
+    s = re.sub(r"\s+", " ", str(text or "")).strip()
+    if not s:
+        return ""
+    s = HEBREW_RUN_RE.sub(" ", s)
+    s = TRADEMARK_RE.sub("", s)
+    sm = SERIES_PAREN_RE.search(s)
+    series_tag = f" series {sm.group(1)}" if sm else ""
+    s = SERIES_PAREN_RE.sub(" ", s)
+    s = PAREN_RE.sub(" ", s)
+    s = LEADING_CATEGORY_WORD_RE.sub("", s)
+    s = TITLE_NOISE_RE.sub(" ", s)
+    s = NAME_FILLER_RE.sub(" ", s)
+    # Split on dash separators, drop empties (kills "- -" artifacts), rejoin.
+    parts = [p.strip(" ,;:|·") for p in DASH_RUN_RE.split(s)]
+    parts = [p for p in parts if p]
+    s = " ".join(parts)
+    # Trailing MPN tail: token with a slash ("HX318LC11FB/8") or a long
+    # digit-letter jumble at the very end. Board model numbers survive
+    # because they rarely end the title after spec tokens... conservative:
+    # only slash-tokens and 12+ char all-caps jumbles go.
+    toks = s.split(" ")
+    while toks and (
+        "/" in toks[-1]
+        or (len(toks[-1]) >= 12 and re.fullmatch(r"[A-Z0-9-]+", toks[-1]) and re.search(r"\d", toks[-1]) and re.search(r"[A-Z]", toks[-1]))
+    ):
+        toks.pop()
+    s = " ".join(toks)
+    # Dedupe consecutive duplicate words ("Intel Intel", "DDR4 DDR4").
+    words = s.split(" ")
+    deduped = [words[0]] if words else []
+    for w in words[1:]:
+        if w.lower() != deduped[-1].lower():
+            deduped.append(w)
+    s = re.sub(r"\s{2,}", " ", " ".join(deduped)).strip(" -–—|·,;:")
+    if series_tag and series_tag.strip().lower() not in s.lower():
+        s = f"{s}{series_tag}"
+    return s
+
 
 def display_title(text: str, max_len: int = 120) -> str:
     """Trim marketing noise and hard-cap display names."""
-    s = re.sub(r"\s+", " ", str(text or "")).strip()
+    s = _scrub_title(text)
     if not s:
-        return s
-    s = LEADING_CATEGORY_WORD_RE.sub("", s)
-    s = TITLE_NOISE_RE.sub(" ", s)
-    s = re.sub(r"^[\s\-–—|·,;:]+", "", s)
-    s = re.sub(r"[\s\-–—|·,;:.]+$", "", s)
-    s = re.sub(r"\s{2,}", " ", s).strip()
+        return "unknown"
     if len(s) > max_len:
         cut = s[:max_len]
         if " " in cut:
@@ -760,23 +818,253 @@ def display_title(text: str, max_len: int = 120) -> str:
     return s or "unknown"
 
 
-def name_from_attributes(category: str, attributes: dict) -> str | None:
+def _memory_canonical_name(group: list[dict], attributes: dict) -> str | None:
+    """'Kingston DDR4 8GB 3200 CL22' from structured parts + title tokens.
+
+    Brand: first matching combo below (word-boundary, title order across
+    the group). Model: first digit-bearing token after the brand span that
+    isn't itself a spec token (capacity/speed/CL/JEDEC/voltage/DIMM/color).
+    Specs (capacity/type/speed/CAS) come from attributes, so Hebrew filler
+    and MPN tails never survive.
     """
-    For categories where extractors.py already produces a clean brand+model
-    (currently just CPU), prefer "<brand> <model>" over any raw vendor
-    title. Raw titles carry marketing noise ("processor flat color", vendor
-    SKU fragments) that no amount of noise-stripping fully cleans up, while
-    brand+model is already the exact canonical identity used for matching.
-    Returns None to fall back to best_name() when brand/model aren't both
-    available (e.g. every non-CPU category today).
+    cap = attributes.get("capacity_gb") or attributes.get("total_gb")
+    try:
+        cap = int(cap) if cap is not None else None
+    except (ValueError, TypeError):
+        cap = None
+    mem_type = attributes.get("memory_type")
+    speed = attributes.get("speed_mhz")
+    try:
+        speed = int(speed) if speed is not None else None
+    except (ValueError, TypeError):
+        speed = None
+    cas = attributes.get("cas_latency")
+    try:
+        cas = int(cas) if cas is not None else None
+    except (ValueError, TypeError):
+        cas = None
+    if not cap or not mem_type or not speed:
+        return None
+
+    titles = [str(e.get("title_raw") or "") for e in group]
+    blob = " | ".join(titles)
+    clean = HEBREW_RUN_RE.sub(" ", blob)
+    # Normalize look-alike dashes (en/em dashes, Hebrew maqaf) to ASCII
+    # hyphens for tokenizing only — display keeps clean ASCII. (Never in
+    # clean_text/match_text: that would re-key every existing product.)
+    clean = re.sub(r"[‐‑‒–—―־]", "-", clean)
+    low = clean.lower()
+
+    brand = None
+    brand_end = 0
+    for key, canon in MEMORY_NAME_BRANDS:
+        m = re.search(rf"\b{re.escape(key)}\b", low)
+        if m:
+            brand = canon
+            brand_end = m.end()
+            break
+    if not brand:
+        return None
+
+    # Speed unit follows the vendor's own wording (MT/s vs MHz).
+    unit = "MT/s" if re.search(r"\b\d+\s*MT/?s\b", clean, re.I) else "MHz"
+
+    # Model token: first digit-bearing token after the brand that isn't a
+    # spec token itself — searched only BEFORE the first capacity mention
+    # in the whole title ("OSCOO OSC-P200 DDR4 … 8GB" -> OSC-P200). When
+    # the brand sits after all specs ("… HyperX Fury Series - Black -
+    # HX318LC11FB/8") the region is empty and no model is emitted, which
+    # keeps trailing MPN tails from ever becoming the "model". Pure
+    # numbers (speeds, years) are never models.
+    model = ""
+    after = clean[brand_end:]
+    cap_all = re.search(r"\d+\s?GB", clean, re.I)
+    if cap_all and cap_all.start() > brand_end:
+        region = clean[brand_end:cap_all.start()]
+    elif cap_all:
+        region = ""
+    else:
+        region = after[:80]
+    for tok in re.findall(r"[A-Za-z0-9][A-Za-z0-9.+-]*", region):
+        up = tok.upper()
+        if re.fullmatch(r"(DDR\dL?|PC\d+\S*|\d+G(B)?|\d+MHZ|\d+MT/S|CL\d+|1\.\d+V?|DIMM|SODIMM|RGB|ARGB|BLACK|WHITE|GREY|GRAY|RED|BLUE|GREEN)", up, re.I):
+            continue
+        if tok.isdigit():
+            continue
+        if re.search(r"\d", tok) and len(tok) >= 4 and "/" not in tok:
+            model = tok.upper()
+            break
+
+    parts = [brand]
+    if model:
+        # With an explicit model code the type reads naturally right after
+        # it ("OSC-P200 DDR4 8GB…"); without one the capacity leads
+        # ("HyperX Fury 8GB DDR3L…").
+        parts.append(model)
+        parts.append(str(mem_type).upper())
+        parts.append(f"{cap}GB")
+    else:
+        parts.append(f"{cap}GB")
+        parts.append(str(mem_type).upper())
+    parts.append(f"{speed}{unit}")
+    if cas:
+        parts.append(f"CL{cas}")
+    return " ".join(parts)
+
+
+def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
+    """'ASUS GeForce GT 710 2GB EVO' from brand + chip + VRAM + edition.
+
+    Memory type (GDDR5/SDDR3), bus width and MPN tails are deliberately
+    dropped — the canonical name carries identity, the attributes carry
+    the rest.
     """
-    if category != "cpu":
+    brand = attributes.get("brand") or next(
+        (e.get("brand") for e in group if e.get("brand")), None
+    )
+    chip = attributes.get("gpu_chip") or attributes.get("chipset")
+    vram = attributes.get("vram_gb")
+    try:
+        vram = int(vram) if vram is not None else None
+    except (ValueError, TypeError):
+        vram = None
+    if not brand or not chip:
         return None
-    brand = attributes.get("brand")
-    model = attributes.get("model")
-    if not brand or not model:
-        return None
-    return f"{brand} {model}".strip()
+
+    cu = re.sub(r"\s+", " ", str(chip).upper()).strip()
+    if cu.startswith("GEFORCE "):
+        family, core = "GeForce", cu[len("GEFORCE "):].strip()
+    elif cu.startswith("RADEON "):
+        family, core = "Radeon", cu[len("RADEON "):].strip()
+    elif cu.startswith("ARC "):
+        family, core = "Arc", cu[len("ARC "):].strip()
+    elif re.match(r"^(RTX|RX|GTX|GT|GTS|R[579]|HD)\b", cu):
+        fam_word = "Radeon" if re.match(r"^(RX|R[579]|HD)\b", cu) else "GeForce"
+        family, core = fam_word, cu
+    else:
+        family, core = "", cu
+
+    # Edition: "Low Profile" phrase wins; else trailing all-caps tokens
+    # after the VRAM token (EVO, LP, OC…), excluding memory-type words,
+    # bus widths and digit-bearing MPN tails.
+    edition = ""
+    titles = [str(e.get("title_raw") or "") for e in group]
+    blob = HEBREW_RUN_RE.sub(" ", " | ".join(titles))
+    if re.search(r"\blow profile\b", blob, re.I):
+        edition = "Low Profile"
+    else:
+        for t in titles:
+            tc = HEBREW_RUN_RE.sub(" ", t)
+            vm = re.search(r"\b\d{1,2}\s?GB?\b", tc, re.I)
+            tail = tc[vm.end():] if vm else tc
+            toks = re.findall(r"[A-Za-z][A-Za-z0-9.+-]*", tail)
+            picks = []
+            for tok in toks:
+                up = tok.upper()
+                # Skip memory-type / bus-width tokens to reach the real
+                # edition word behind them ("SDDR3 LP", "GDDR5 EVO").
+                if up in ("GDDR", "SDDR", "DDR", "HBM", "BIT", "PCI", "RGB", "ARGB", "LED"):
+                    continue
+                if re.fullmatch(r"(G|S)?DDR\dX?|HBM\d?|\d+BIT", up):
+                    continue
+                if re.fullmatch(r"[A-Z]{2,4}s?", up):
+                    picks.append(up)
+                    if len(picks) == 2:
+                        break
+                    continue
+                break
+            if picks:
+                edition = " ".join(picks)
+                break
+
+    parts = [brand]
+    if family:
+        parts.append(family)
+    parts.append(core)
+    if vram:
+        parts.append(f"{vram}GB")
+    if edition:
+        parts.append(edition)
+    return " ".join(parts)
+
+
+# Memory brand combos for canonical names, first-match-wins on the
+# lowercased title (multi-word lines before their parents).
+MEMORY_NAME_BRANDS = [
+    ("hyperx fury", "HyperX Fury"),
+    ("kingston fury", "Kingston Fury"),
+    ("kingston beast", "Kingston Beast"),
+    ("g.skill", "G.Skill"),
+    ("gskill", "G.Skill"),
+    ("ripjaws", "G.Skill"),
+    ("trident", "G.Skill"),
+    ("flare", "G.Skill"),
+    ("corsair vengeance", "Corsair Vengeance"),
+    ("corsair", "Corsair"),
+    ("vengeance", "Corsair"),
+    ("kingston", "Kingston"),
+    ("hyperx", "HyperX"),
+    ("fury", "Kingston Fury"),
+    ("beast", "Kingston"),
+    ("teamgroup", "TeamGroup"),
+    ("t-force", "TeamGroup"),
+    ("tforce", "TeamGroup"),
+    ("delta", "TeamGroup"),
+    ("silicon power", "Silicon Power"),
+    ("siliconpower", "Silicon Power"),
+    ("adata", "ADATA"),
+    ("xpg", "ADATA"),
+    ("samsung", "Samsung"),
+    ("crucial", "Crucial"),
+    ("ballistix", "Crucial"),
+    ("sk hynix", "SK Hynix"),
+    ("hynix", "SK Hynix"),
+    ("patriot", "Patriot"),
+    ("viper", "Patriot"),
+    ("pny", "PNY"),
+    ("oscoo", "OSCOO"),
+    ("klevv", "Klevv"),
+    ("apacer", "Apacer"),
+    ("transcend", "Transcend"),
+    ("timetec", "Timetec"),
+    ("thermaltake", "Thermaltake"),
+    ("gloway", "Gloway"),
+]
+
+
+def name_from_attributes(
+    category: str, attributes: dict, group: list | None = None
+) -> str | None:
+    """
+    Canonical display names built from structured data, not scrubbed titles:
+    - cpu: "<brand> <model>" (+ "Dual Core" for 2-core parts, "+ series N"
+      for Intel series-tagged parts).
+    - memory: "<brand> [model] <type> <cap>GB <speed><unit> [CLnn]".
+    - gpu: "<brand> <family> <chip> <vram>GB [edition]".
+    Returns None to fall back to best_name() when the parts aren't there.
+    """
+    group = group or []
+    if category == "cpu":
+        brand = attributes.get("brand")
+        model = attributes.get("model")
+        if not brand or not model:
+            return None
+        name = f"{brand} {model}".strip()
+        try:
+            cores = int(attributes.get("cores")) if attributes.get("cores") is not None else None
+        except (ValueError, TypeError):
+            cores = None
+        if cores == 2:
+            name += " Dual Core"
+        series = attributes.get("series")
+        if series and f"series {series}" not in name.lower():
+            name += f" series {series}"
+        return name
+    if category == "memory":
+        return _memory_canonical_name(group, attributes)
+    if category == "gpu":
+        return _gpu_canonical_name(group, attributes)
+    return None
 
 
 def best_name(enriched_listings: list[dict]) -> str:
@@ -1381,7 +1669,7 @@ def match_listings(
             "product_id": meta.get("product_id", pid),
             "canonical_name": (
                 meta.get("canonical_name")
-                or name_from_attributes(category, merged_attributes)
+                or name_from_attributes(category, merged_attributes, group)
                 or best_name(group)
             ),
             "category": category,

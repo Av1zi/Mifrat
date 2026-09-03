@@ -12,6 +12,15 @@ if ! timedatectl status | grep -q "synchronized: yes"; then
 fi
 
 cd "$REPO_DIR"
+
+# Recover from a previously interrupted run (leftover rebase state blocks
+# `git pull --rebase` forever — every subsequent run would die here and the
+# Nano would go silently stale, as happened late Aug 2026).
+if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+    echo "[warn] stale rebase state found — aborting it to recover" >&2
+    git rebase --abort || true
+fi
+
 git pull --rebase --autostash
 mkdir -p "$OUT_DIR"
 
@@ -54,18 +63,42 @@ if [ "$PENDING_COUNT" -gt 0 ]; then
     echo "[run_tms] marking detail-scraped items..."
     "$PYTHON" -m scraper.make_detail_pending mark tms
 
-    git add data/detail_pending/ data/raw/detail/ data/images/ data/detail_scraped/
-    git diff --cached --quiet || git commit -m "tms detail $TODAY"
+    # TMS-only paths: never `git add` a shared directory here — same
+    # stale-checkout deletion hazard as the cloud matrix jobs (Sep 2026).
+    # Only stage paths that exist (first-ever run has no ledger/images yet).
+    TMS_PATHS=()
+    for p in data/detail_pending/tms.json data/raw/detail/tms.jsonl \
+             data/detail_scraped/tms.json data/images/tms/; do
+        if [ -e "$p" ]; then
+            TMS_PATHS+=("$p")
+        fi
+    done
+    if [ "${#TMS_PATHS[@]}" -gt 0 ]; then
+        git add "${TMS_PATHS[@]}"
+        git diff --cached --quiet || git commit -m "tms detail $TODAY"
+    fi
 else
     echo "[run_tms] no pending detail items"
 fi
 
+PUSHED=0
 for attempt in 1 2 3; do
     if git push; then
         echo "[run_tms] pushed successfully"
+        PUSHED=1
         break
     fi
     echo "[warn] push failed (attempt $attempt), retrying..." >&2
     sleep $((RANDOM % 15 + 5))
-    git pull --rebase
+    git pull --rebase || true
 done
+
+if [ "$PUSHED" -eq 0 ]; then
+    # A silent push failure looks exactly like "the Nano stopped working"
+    # (late Aug 2026). Fail loudly so the timer unit reports failed and the
+    # journal shows it — and leave the commits in place for the next run.
+    echo "[error] push failed after 3 attempts — commits retained locally, will retry tomorrow" >&2
+    git log --oneline -3 >&2
+    git status --short >&2 || true
+    exit 1
+fi

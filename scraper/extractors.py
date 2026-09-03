@@ -102,7 +102,7 @@ NUMERIC_SOCKET = {
     "1366": "LGA1366", "2066": "LGA2066", "2011": "LGA2011",
 }
 
-DDR_RE = re.compile(r"\bDDR\s?([345])\b", re.I)
+DDR_RE = re.compile(r"\bDDR\s?([345]L?)\b", re.I)
 WIFI_STD_RE = re.compile(r"\bWIFI\s?([67])\s?(E)?\b", re.I)
 WIFI_RE = re.compile(r"\bWIFI\b|\bWI-?FI\b|\bWIRELESS\b", re.I)
 
@@ -128,7 +128,7 @@ MEMORY_MAX_RE = re.compile(r"\b(\d+)\s?GB\s*(?:MAX|Maximum)\b", re.I)
 M2_SLOTS_RE = re.compile(r"\b(\d+)\s?X\s?M\.?2\b", re.I)
 SATA_PORTS_RE = re.compile(r"\b(\d+)\s?X\s?SATA\b", re.I)
 
-AMD_RYZEN_RE = re.compile(r"\bRYZEN\s?(\d)\s?(\d{4}[A-Z0-9]*)", re.I)
+AMD_RYZEN_RE = re.compile(r"\bRYZEN\s?(\d)\s?(?:(PRO)\s?)?(\d{4}[A-Z0-9]*)", re.I)
 AMD_THREADRIPPER_RE = re.compile(r"\bTHREADRIPPER\s?(PRO\s?)?(\d{4}[A-Z0-9]*)", re.I)
 # Pre-Ryzen AMD lines still show up in vendor feeds (A-series APUs, FX,
 # Athlon). These never had brand/model extracted before, which is why
@@ -137,22 +137,60 @@ AMD_THREADRIPPER_RE = re.compile(r"\bTHREADRIPPER\s?(PRO\s?)?(\d{4}[A-Z0-9]*)", 
 AMD_APU_RE = re.compile(r"\bA(4|6|8|9|10|12)\s?-?\s?(\d{4}[A-Z]{0,2})\b", re.I)
 AMD_FX_RE = re.compile(r"\bFX\s?-?\s?(\d{4}[A-Z]?)\b", re.I)
 AMD_ATHLON_RE = re.compile(r"\bATHLON\s?(?:64\s?)?(X\d)?\s?-?\s?(\d{3,4}[A-Z]{0,2})\b", re.I)
+# Budget Intel lines (Celeron G6900, Pentium Gold G7400) — no "Core" in the
+# name, so INTEL_CPU_RE never fires and these fell back to raw titles.
+INTEL_CELERON_RE = re.compile(r"\bCELERON\s?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
+INTEL_PENTIUM_RE = re.compile(r"\bPENTIUM\s?(?:GOLD\s?|SILVER\s?)?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
 INTEL_CPU_RE = re.compile(
-    r"\bCORE\s?(ULTRA\s?\d|I\d)[\s-]?(\d{4,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
+    r"\bCORE\s?(ULTRA\s?\d|I\d)[\s-]?(\d{3,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
 )
 XEON_RE = re.compile(r"\bXEON\s?([A-Z]{1,3}\s?\d{4}[A-Z]?)", re.I)
 
 # Expanded GPU chip: covers GeForce RTX (incl. xx50 Ti, xx60 Ti), RTX PRO/A-series,
-# Radeon RX (inc. GRE), Quadro, Tesla, ARC
+# Radeon RX (inc. GRE), Quadro, Tesla, ARC — plus legacy GT/GTS/GTX and
+# Radeon HD/R5/R7 lines still sold as budget cards (GT 710/610, HD 5450…).
+# The legacy alternation requires a 3-4 digit number so plain words never match.
 GPU_CHIP_RE = re.compile(
     r"\b(GEFORCE\s?RTX\s?\d{3,4}(?:\s?(?:TI|SUPER))?|"
     r"RTX\s?PRO\s?\d{3,4}[A-Z]?|RTX\s*A\d{3,4}|RTX\s?\d{3,4}(?:\s?(?:TI|SUPER))?|"
     r"RX\s?\d{3,4}(?:\s?(?:XT|GRE|XTX))?|QUADRO\s?[A-Z0-9]+|TESLA\s?[A-Z0-9]+|FIREPRO\s?[A-Z0-9]+|"
-    r"ARC\s?PRO\s?[A-Z]\d+|ARC\s?[A-Z]\d{2,3})\b",
+    r"ARC\s?PRO\s?[A-Z]\d+|ARC\s?[A-Z]\d{2,3}|"
+    r"GEFORCE\s?GTX?\s?\d{3,4}(?:\s?TI)?|GTX?\s?\d{3,4}(?:\s?TI)?|GTS?\s?\d{3,4}|"
+    r"RADEON\s?(?:HD\s?)?\d{3,4}|R[579]\s?\d{3})\b",
     re.I,
 )
-VRAM_RE = re.compile(r"\b(\d{1,2})\s?GB\b")
-GMEM_RE = re.compile(r"\bGDDR([567]X?)\b", re.I)
+# GPU board partners, longest-first so "ZOTAC GAMING" hits before bare words.
+GPU_BRANDS = {
+    "asus": "ASUS", "gigabyte": "Gigabyte", "aorus": "Gigabyte",
+    "msi": "MSI", "inno3d": "Inno3D", "inno3": "Inno3D",
+    "arktek": "ARKTEK", "zotac": "ZOTAC", "pny": "PNY",
+    "sapphire": "Sapphire", "xfx": "XFX", "asrock": "ASRock",
+    "palit": "Palit", "gainward": "Gainward", "evga": "EVGA",
+    "galax": "GALAX", "kfa2": "KFA2", "leadtek": "Leadtek",
+    "maxsun": "Maxsun", "colorful": "Colorful",
+}
+
+# Memory brands incl. sub-lines, for canonical memory names.
+MEMORY_BRANDS = {
+    "g.skill": "G.Skill", "gskill": "G.Skill", "ripjaws": "G.Skill",
+    "trident": "G.Skill", "flare": "G.Skill",
+    "corsair": "Corsair", "vengeance": "Corsair",
+    "kingston": "Kingston", "fury": "Kingston", "beast": "Kingston",
+    "hyperx": "Kingston",
+    "samsung": "Samsung", "crucial": "Crucial", "ballistix": "Crucial",
+    "micron": "Crucial", "adata": "ADATA", "xpg": "ADATA",
+    "teamgroup": "TeamGroup", "t-force": "TeamGroup", "tforce": "TeamGroup",
+    "delta": "TeamGroup",
+    "silicon power": "Silicon Power", "siliconpower": "Silicon Power",
+    "patriot": "Patriot", "viper": "Patriot",
+    "sk hynix": "SK Hynix", "hynix": "SK Hynix",
+    "klevv": "Klevv", "apacer": "Apacer", "transcend": "Transcend",
+    "pny": "PNY", "oscoo": "OSCOO", "gloway": "Gloway",
+    "thermaltake": "Thermaltake", "timetec": "Timetec",
+}
+
+VRAM_RE = re.compile(r"\b(\d{1,2})\s?G(?:B)?\b")
+GMEM_RE = re.compile(r"\bS?DDR([345]X?)\b|\bGDDR([567]X?)\b|\bHBM(\d?)\b", re.I)
 
 # GPU clocks / TDP / length
 CORE_CLOCK_RE = re.compile(r"\b(\d{3,4})\s?MHZ\b", re.I)
@@ -173,8 +211,11 @@ LENGTH_MM_RE = re.compile(r"\b(\d{2,3})\s?MM\b", re.I)
 FANLESS_RE = re.compile(r"\bFANLESS\b", re.I)
 
 KIT_RE = re.compile(r"\((\d)\s?X\s?(\d{1,3})\s?(?:GB)?\)", re.I)
-SPEED_RE = re.compile(r"\b(\d{3,4})\s?MHZ\b", re.I)
-SPEED_DDR_RE = re.compile(r"\bDDR[345][-\s]*(\d{3,4})\b", re.I)
+# Vendors write DDR5 speeds either way ("6000MHz", "6000MT/s").
+# NOTE: no \b between the digits and the unit — "3200MT/s" has none
+# (both word chars), so the unit alternation must abut the digits.
+SPEED_RE = re.compile(r"\b(\d{3,4})\s?(?:MHZ|MT/S)\b", re.I)
+SPEED_DDR_RE = re.compile(r"\bDDR[345]L?[-\s]*(\d{3,4})\b", re.I)
 CL_RE = re.compile(r"\bCL\s?(\d{1,2})\b", re.I)
 VOLTAGE_RE = re.compile(r"\b(\d+\.\d+)\s?V\b", re.I)
 TIMING_RE = re.compile(r"\b(\d{1,2}-\d{1,2}-\d{1,2}-\d{1,3})\b")
@@ -246,7 +287,13 @@ def _wifi(text: str) -> tuple[bool | None, str | None]:
 
 def _ddr(text: str) -> str | None:
     m = DDR_RE.search(text)
-    return f"DDR{m.group(1)}" if m else None
+    return f"DDR{m.group(1).upper()}" if m else None
+
+
+def _ddr_gen(memory_type) -> str:
+    """Generation digit for DDR speed strings ('DDR3L' -> '3')."""
+    m = re.search(r"[345]", str(memory_type or ""))
+    return m.group(0) if m else ""
 
 
 def _revision(text: str) -> str | None:
@@ -318,6 +365,10 @@ DETAIL_KEY_BLACKLIST = frozenset({
                           # meaningless key name
     "not_available",      # 1PC packed-cell artifact: bare label became a key
 })
+# NOTE: folded dupe keys (cas/colour/capacitygb/...) are NOT blacklisted —
+# _sanitize_detail_pair lets them through and the post-process in
+# extract_attributes folds them into their canonical target, so detail
+# values like "CAS-Latency CL: 11" still land on cas_latency.
 
 # Placeholder cell values — the vendor explicitly says "no data".
 DETAIL_NOISE_VALUES = frozenset({
@@ -744,10 +795,22 @@ def _parse_cpu(text: str, meta) -> dict:
         if 10 <= val <= 300:
             a["tdp"] = f"{val}W"
 
+    # Core count from explicit text ("Dual Core", "10 cores"). Leftmost
+    # match wins — totals precede the P-core/E-core breakdown in parens.
+    if re.search(r"\bdual[-\s]?core\b", text, re.I):
+        a["cores"] = 2
+    else:
+        cm = re.search(r"\b(\d{1,3})\s*-?\s*cores?\b", text, re.I)
+        if cm and 2 <= int(cm.group(1)) <= 128:
+            # Guard: "P-cores"/"E-cores" fragments ("6 P-cores") must not
+            # register as the total — require the word "core(s)" itself.
+            a["cores"] = int(cm.group(1))
+
     m = AMD_RYZEN_RE.search(text)
     if m:
         a["brand"] = "AMD"
-        a["model"] = f"Ryzen {m.group(1)} {m.group(2).upper()}"
+        pro = "PRO " if m.group(2) else ""
+        a["model"] = f"Ryzen {m.group(1)} {pro}{m.group(3).upper()}".strip()
     else:
         m = AMD_THREADRIPPER_RE.search(text)
         if m:
@@ -774,8 +837,10 @@ def _parse_cpu(text: str, meta) -> dict:
                         m = INTEL_CPU_RE.search(text)
                         if m:
                             a["brand"] = "Intel"
-                            fam = re.sub(r"\s+", " ", m.group(1).upper())
-                            # Fix truncation: keep full number (4-5 digits + suffix)
+                            raw_fam = re.sub(r"\s+", " ", m.group(1).strip())
+                            # "ULTRA 5" -> "Ultra 5", "I7" stays "I7".
+                            fam = raw_fam.title() if raw_fam.upper().startswith("ULTRA") else raw_fam.upper()
+                            # Fix truncation: keep full number (3-5 digits + suffix)
                             num = m.group(2).upper().strip()
                             a["model"] = f"Core {fam} {num}"
                         else:
@@ -783,6 +848,16 @@ def _parse_cpu(text: str, meta) -> dict:
                             if m:
                                 a["brand"] = "Intel"
                                 a["model"] = f"Xeon {m.group(1).replace(' ', '')}"
+                            else:
+                                m = INTEL_CELERON_RE.search(text)
+                                if m:
+                                    a["brand"] = "Intel"
+                                    a["model"] = f"Celeron {m.group(1).upper()}"
+                                else:
+                                    m = INTEL_PENTIUM_RE.search(text)
+                                    if m:
+                                        a["brand"] = "Intel"
+                                        a["model"] = f"Pentium {m.group(1).upper()}"
 
     # Generation + tier, so the UI can offer them as filters the way
     # PCPartPicker does. These are derived from the model number we just
@@ -795,7 +870,7 @@ def _parse_cpu(text: str, meta) -> dict:
         if tier_m:
             a["tier"] = f"Ryzen {tier_m.group(1)}"
         # AMD "series" = the thousands digit of the 4-digit model (5600X -> 5).
-        series_m = re.search(r"\bRyzen\s?[3-9]\s?(\d)\d{3}", model or "", re.I)
+        series_m = re.search(r"\bRyzen\s?[3-9]\s?(?:PRO\s?)?(\d)\d{3}", model or "", re.I)
         if series_m:
             a["generation"] = f"Ryzen {series_m.group(1)}000"
     elif brand == "Intel":
@@ -827,11 +902,23 @@ def _parse_cpu(text: str, meta) -> dict:
     elif re.search(r"\bRADEON\b", text, re.I) and "AMD" in a.get("brand", ""):
         a["integrated_graphics"] = "Radeon"
 
+    # Intel "series" tag — "(series 2)" / "Series 2" on Ultra parts.
+    # Disambiguates same-numbered parts across series (225 vs 225 series 2)
+    # and feeds the canonical CPU name ("... 225F series 2").
+    sm = re.search(r"\(?\bseries\s?(\d{1,2})\)?\b", text, re.I)
+    if sm and a.get("brand") == "Intel" and 1 <= int(sm.group(1)) <= 4:
+        a["series"] = sm.group(1)
+
     return a
 
 
 def _parse_gpu(text: str, meta) -> dict:
     a: dict = {}
+
+    for token, canon in GPU_BRANDS.items():
+        if re.search(rf"\b{re.escape(token)}\b", text, re.I):
+            a["brand"] = canon
+            break
 
     m = GPU_CHIP_RE.search(text)
     if m:
@@ -850,9 +937,16 @@ def _parse_gpu(text: str, meta) -> dict:
 
     g = GMEM_RE.search(text)
     if g:
-        a["memory_type"] = f"GDDR{g.group(1).upper()}"
-        if "X" in g.group(1).upper():
-            a["memory_type"] = a["memory_type"].replace("X", "X")
+        # Groups are (SDDRn / GDDRn / HBMn) — exactly one participates.
+        kind, gen = None, ""
+        if g.group(1):
+            kind, gen = "SDDR", g.group(1).upper()
+        elif g.group(2):
+            kind, gen = "GDDR", g.group(2).upper()
+        elif g.group(3) is not None:
+            kind, gen = "HBM", (g.group(3) or "2")
+        if kind:
+            a["memory_type"] = f"{kind}{gen}"
 
     # Core / Boost clock
     clocks = CORE_CLOCK_RE.findall(text)
@@ -1001,18 +1095,17 @@ def _parse_psu(text: str, meta) -> dict:
         # Explicit fan present -> fanless=False could be inferred but keep only True for filter
         pass
 
-    # Form factor / Type: ATX, SFX, SFX-L etc
+    # Form factor / Type: ATX, SFX, SFX-L etc.
+    # (No separate `type` key — it only ever shadowed form_factor under a
+    # meaningless name; filters use form_factor directly.)
     if re.search(r"\bSFX[-\s]?L\b", text, re.I):
         a["form_factor"] = "SFX-L"
-        a["type"] = "SFX-L"
     elif re.search(r"\bSFX\b", text, re.I):
         a["form_factor"] = "SFX"
-        a["type"] = "SFX"
     elif re.search(r"\bATX\b", text, re.I):
         # Could be ATX but not to override existing more specific; default ATX
         if "form_factor" not in a:
             a["form_factor"] = "ATX"
-            a["type"] = "ATX"
 
     # Color
     for color in COLOR_WORDS:
@@ -1049,7 +1142,6 @@ def _parse_memory(text: str, meta) -> dict:
     ddr = _ddr(text)
     if ddr:
         a["memory_type"] = ddr
-        a["type"] = ddr  # PCPP alias
 
     # FIX: use word-boundary search on cleaned text, not compact stripping
     # Avoid sku contamination (e.g. 104968 + 16GB -> 416GB)
@@ -1118,13 +1210,21 @@ def _parse_memory(text: str, meta) -> dict:
     s = SPEED_RE.search(text)
     if s:
         a["speed_mhz"] = int(s.group(1))
-        a["speed"] = f"DDR{a.get('memory_type','')[-1] if a.get('memory_type') else ''}-{s.group(1)}" if a.get("memory_type") else f"{s.group(1)}"
+        a["speed"] = f"DDR{_ddr_gen(a.get('memory_type'))}-{s.group(1)}" if a.get("memory_type") else f"{s.group(1)}"
     else:
         # Fallback DDR-XXXX without MHz
         sd = SPEED_DDR_RE.search(text)
         if sd:
             a["speed_mhz"] = int(sd.group(1))
-            a["speed"] = f"DDR{a.get('memory_type','')[-1] if a.get('memory_type') else ''}-{sd.group(1)}"
+            a["speed"] = f"DDR{_ddr_gen(a.get('memory_type'))}-{sd.group(1)}"
+        else:
+            # Bare 4-digit speed after capacity ("Kingston DDR4 8GB 3200"):
+            # in memory context a 1600-8533 number right after GB is MT/s.
+            # (No leading \b: "8GB" has no boundary between 8 and G.)
+            bs = re.search(r"GB\s+(\d{4})\b", text, re.I)
+            if bs and 1600 <= int(bs.group(1)) <= 8533:
+                a["speed_mhz"] = int(bs.group(1))
+                a["speed"] = f"{bs.group(1)}"
 
     c = CL_RE.search(text)
     if c:
@@ -1189,17 +1289,18 @@ def _parse_memory(text: str, meta) -> dict:
 def _parse_case(text: str, meta) -> dict:
     a: dict = {}
 
-    # Form factor / Type (ATX Mid Tower etc)
+    # Form factor / tower type (ATX Mid Tower etc). Stored as case_type —
+    # PCPP's case TYPE filter — alongside form_factor, never as bare `type`.
     cf = _case_form_factor(text)
     if cf:
         a["form_factor"] = cf
-        a["type"] = cf
+        a["case_type"] = cf
     else:
         # Fallback generic ATX etc
         ff = _form_factor(text)
         if ff:
             a["form_factor"] = ff
-            a["type"] = ff
+            a["case_type"] = ff
 
     for color in COLOR_WORDS:
         if re.search(rf"\b{color}\b", text, re.I):
@@ -1292,9 +1393,9 @@ def _parse_storage(text: str, meta) -> dict:
         # Also expose as total_gb for pcpp-like capacity filter
         a["total_gb"] = cap
 
-    # Type: SSD vs HDD distinction
+    # Type: SSD vs HDD distinction (canonical key is drive_type; the old
+    # bare `type` shadow is gone — see the PSU/case/memory notes).
     if re.search(r"\bSSD\b", text, re.I):
-        a["type"] = "SSD"
         a["drive_type"] = "SSD"
         # NVMe flag
         if re.search(r"\bNVME\b", text, re.I):
@@ -1304,11 +1405,10 @@ def _parse_storage(text: str, meta) -> dict:
             a["nvme"] = False
             a["nvme_flag"] = "No"
     elif re.search(r"\bHDD\b", text, re.I):
-        a["type"] = "HDD"
         a["drive_type"] = "HDD"
         a["nvme"] = False
     elif re.search(r"\bSSHD\b", text, re.I):
-        a["type"] = "SSHD"
+        a["drive_type"] = "SSHD"
 
     # Form factor
     ff = FORM_FACTOR_STORAGE_RE.search(text)

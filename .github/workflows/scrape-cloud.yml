@@ -41,12 +41,16 @@ jobs:
       # simpler and harmless than a per-matrix-entry conditional.
       - run: python -m playwright install --with-deps chromium
       - run: python scraper/run_spider.py ${{ matrix.spider }}
+      # Commit ONLY this job's own snapshot file. Never `data/raw/` — the
+      # matrix jobs run in parallel on stale checkouts, and `git add` on a
+      # shared directory stages the siblings' files as DELETED (Sep 2026
+      # wiped 5 days of plonter/ivory snapshots exactly this way).
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh \
             "scrape(${{ matrix.spider }}): $(date -u +%F)" \
-            data/raw/
+            "data/raw/$(date -u +%F)/${{ matrix.spider }}.jsonl"
 
   # Detail-page scrape: runs after all listing spiders succeed.
   # Fetches each vendor's product detail pages for structured specs
@@ -76,10 +80,16 @@ jobs:
       - run: python -m scraper.download_images data/raw/detail/onepc.jsonl onepc
       - run: python -m scraper.download_images data/raw/detail/plonter.jsonl plonter
       # Mark completed items in the ledger (only after images exist on disk)
-      - run: python -m scraper.make_detail_pending mark
+      - run: python -m scraper.make_detail_pending mark ivory onepc plonter
+      # NOTE: per-vendor paths only (see the scrape job above for why shared
+      # directories are forbidden here). data/images/<vendor>/ holds only
+      # that vendor's downloaded covers, so those three dirs are safe.
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh \
             "detail-scrape: $(date -u +%F)" \
-            data/detail_pending/ data/raw/detail/ data/images/ data/detail_scraped/
+            data/detail_pending/ivory.json data/detail_pending/onepc.json data/detail_pending/plonter.json \
+            data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl data/raw/detail/plonter.jsonl \
+            data/detail_scraped/ivory.json data/detail_scraped/onepc.json data/detail_scraped/plonter.json \
+            data/images/ivory/ data/images/onepc/ data/images/plonter/
