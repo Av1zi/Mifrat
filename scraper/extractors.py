@@ -38,6 +38,12 @@ def clean_text(value) -> str:
     if value is None:
         return ""
     s = _html.unescape(str(value))
+    # Same 1PC JSON-bleed guard as matching._clean (keep in sync).
+    s = s.split('",')[0]
+    # Trademark symbols MUST go before NFKC: NFKC folds ™->TM / ®->R,
+    # gluing them onto the previous word ("Ryzen™" -> "RYZENTM") and
+    # breaking every \b-anchored model regex after it.
+    s = re.sub(r"[®™©℗]", " ", s)
     s = unicodedata.normalize("NFKC", s)
     s = HEBREW.sub(" ", s)
     s = re.sub(r"[^A-Za-z0-9#+/.&()-]+", " ", s)
@@ -139,12 +145,17 @@ AMD_FX_RE = re.compile(r"\bFX\s?-?\s?(\d{4}[A-Z]?)\b", re.I)
 AMD_ATHLON_RE = re.compile(r"\bATHLON\s?(?:64\s?)?(X\d)?\s?-?\s?(\d{3,4}[A-Z]{0,2})\b", re.I)
 # Budget Intel lines (Celeron G6900, Pentium Gold G7400) — no "Core" in the
 # name, so INTEL_CPU_RE never fires and these fell back to raw titles.
-INTEL_CELERON_RE = re.compile(r"\bCELERON\s?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
-INTEL_PENTIUM_RE = re.compile(r"\bPENTIUM\s?(?:GOLD\s?|SILVER\s?)?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
+# TMS writes the core-count infix ("Pentium Dual Core G4400").
+INTEL_CELERON_RE = re.compile(r"\bCELERON\s?(?:DUAL\s?CORE\s?)?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
+INTEL_PENTIUM_RE = re.compile(r"\bPENTIUM\s?(?:GOLD\s?|SILVER\s?|DUAL\s?CORE\s?)?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
 INTEL_CPU_RE = re.compile(
-    r"\bCORE\s?(ULTRA\s?\d|I\d)[\s-]?(\d{3,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
+    r"\b(?:CORE\s?)?(ULTRA\s?\d|I\d)[\s-]?(\d{3,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
 )
-XEON_RE = re.compile(r"\bXEON\s?([A-Z]{1,3}\s?\d{4}[A-Z]?)", re.I)
+XEON_RE = re.compile(
+    r"\bXEON\s?(?:(SILVER|BRONZE|GOLD|PLATINUM|W\d?|E\d?)\s?-?\s?)?(\d{3,5}[A-Z]{0,2})\b", re.I)
+# Server AMD: "EPYC 7763", "EPYC 4th Gen 9454". The "Nth Gen" prefix is
+# skipped here (parsed separately for the generation filter below).
+EPYC_RE = re.compile(r"\bEPYC\s?(?:\d+(?:TH|ST|ND|RD)\s?GEN\s?)?(\d{3,4}[A-Z]{0,2})\b", re.I)
 
 # Expanded GPU chip: covers GeForce RTX (incl. xx50 Ti, xx60 Ti), RTX PRO/A-series,
 # Radeon RX (inc. GRE), Quadro, Tesla, ARC — plus legacy GT/GTS/GTX and
@@ -168,6 +179,7 @@ GPU_BRANDS = {
     "palit": "Palit", "gainward": "Gainward", "evga": "EVGA",
     "galax": "GALAX", "kfa2": "KFA2", "leadtek": "Leadtek",
     "maxsun": "Maxsun", "colorful": "Colorful",
+    "powercolor": "PowerColor", "nvidia": "NVIDIA",
 }
 
 # Memory brands incl. sub-lines, for canonical memory names.
@@ -187,6 +199,7 @@ MEMORY_BRANDS = {
     "klevv": "Klevv", "apacer": "Apacer", "transcend": "Transcend",
     "pny": "PNY", "oscoo": "OSCOO", "gloway": "Gloway",
     "thermaltake": "Thermaltake", "timetec": "Timetec",
+    "lexar": "Lexar",
 }
 
 VRAM_RE = re.compile(r"\b(\d{1,2})\s?G(?:B)?\b")
@@ -838,8 +851,13 @@ def _parse_cpu(text: str, meta) -> dict:
                         if m:
                             a["brand"] = "Intel"
                             raw_fam = re.sub(r"\s+", " ", m.group(1).strip())
-                            # "ULTRA 5" -> "Ultra 5", "I7" stays "I7".
-                            fam = raw_fam.title() if raw_fam.upper().startswith("ULTRA") else raw_fam.upper()
+                            # "ULTRA 5" -> "Ultra 5", "I7" -> "i7" (PCPP style).
+                            if raw_fam.upper().startswith("ULTRA"):
+                                fam = raw_fam.title()
+                            elif re.fullmatch(r"I[3579]", raw_fam.upper()):
+                                fam = "i" + raw_fam[-1]
+                            else:
+                                fam = raw_fam.upper()
                             # Fix truncation: keep full number (3-5 digits + suffix)
                             num = m.group(2).upper().strip()
                             a["model"] = f"Core {fam} {num}"
@@ -847,17 +865,28 @@ def _parse_cpu(text: str, meta) -> dict:
                             m = XEON_RE.search(text)
                             if m:
                                 a["brand"] = "Intel"
-                                a["model"] = f"Xeon {m.group(1).replace(' ', '')}"
-                            else:
-                                m = INTEL_CELERON_RE.search(text)
-                                if m:
-                                    a["brand"] = "Intel"
-                                    a["model"] = f"Celeron {m.group(1).upper()}"
+                                tier, num = (m.group(1) or "").upper(), m.group(2).upper()
+                                if re.fullmatch(r"[WE]\d?", tier):
+                                    a["model"] = f"Xeon {tier}-{num}"
+                                elif tier:
+                                    a["model"] = f"Xeon {tier.title()} {num}"
                                 else:
-                                    m = INTEL_PENTIUM_RE.search(text)
+                                    a["model"] = f"Xeon {num}"
+                            else:
+                                m = EPYC_RE.search(text)
+                                if m:
+                                    a["brand"] = "AMD"
+                                    a["model"] = f"EPYC {m.group(1).upper()}"
+                                else:
+                                    m = INTEL_CELERON_RE.search(text)
                                     if m:
                                         a["brand"] = "Intel"
-                                        a["model"] = f"Pentium {m.group(1).upper()}"
+                                        a["model"] = f"Celeron {m.group(1).upper()}"
+                                    else:
+                                        m = INTEL_PENTIUM_RE.search(text)
+                                        if m:
+                                            a["brand"] = "Intel"
+                                            a["model"] = f"Pentium {m.group(1).upper()}"
 
     # Generation + tier, so the UI can offer them as filters the way
     # PCPartPicker does. These are derived from the model number we just
@@ -1225,6 +1254,18 @@ def _parse_memory(text: str, meta) -> dict:
             if bs and 1600 <= int(bs.group(1)) <= 8533:
                 a["speed_mhz"] = int(bs.group(1))
                 a["speed"] = f"{bs.group(1)}"
+            else:
+                # Last resort: a bare JEDEC speed anywhere in the title
+                # ("Corsair DDR4 16GB RAM (8GBx2) 3200"). Whitelist-only so
+                # years (2024/2025) and MPN fragments never match; the \b
+                # guards keep MPN-embedded runs ("AD4U320032G22") out.
+                jb = re.search(
+                    r"\b(1600|1866|2133|2400|2666|2933|3200|3400|3600|4000|"
+                    r"4133|4400|4800|5200|5400|5600|6000|6200|6400|6600|"
+                    r"6800|7200|7600|8000|8200|8400|8533)\b", text)
+                if jb:
+                    a["speed_mhz"] = int(jb.group(1))
+                    a["speed"] = f"{jb.group(1)}"
 
     c = CL_RE.search(text)
     if c:

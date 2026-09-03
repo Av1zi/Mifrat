@@ -174,6 +174,11 @@ BRAND_ALIASES = {
     "maxsun": "MAXSUN",
     "afox": "AFOX",
     "zotac": "ZOTAC",
+    "inno3d": "Inno3D",
+    "powercolor": "PowerColor",
+    "nvidia": "NVIDIA",
+    "palit": "Palit",
+    "xfx": "XFX",
     "intel": "Intel",
     "amd": "AMD",
 
@@ -210,6 +215,13 @@ BRAND_ALIASES = {
     "patriot": "Patriot",
     "viper": "Patriot Viper",
     "g.skill": "G.Skill",
+    "gskill": "G.Skill",
+    "lexar": "Lexar",
+    "adata": "ADATA",
+    "pny": "PNY",
+    "silicon power": "Silicon Power",
+    "teamgroup": "TeamGroup",
+    "t-force": "TeamGroup",
 
     # PSU
     "seasonic": "Seasonic",
@@ -281,6 +293,16 @@ def _clean(value: str | None) -> str:
         return ""
 
     s = html.unescape(str(value))
+    # 1PC's malformed title spans bleed JSON key/value fragments into the
+    # title ('NX420 ... Black", "product_short_description": ...'). The real
+    # name always precedes the first '",' — cut there (already-poisoned
+    # snapshots are cleaned by this; the spider truncates going forward).
+    s = s.split('",')[0]
+    # Trademark symbols MUST go before NFKC: NFKC folds ™->TM / ®->R,
+    # gluing them onto the previous word ("Ryzen™" -> "RYZENTM") and
+    # breaking every \b-anchored model regex after it. (Mirrors
+    # extractors.clean_text — keep the two in sync.)
+    s = re.sub(r"[®™©℗]", " ", s)
     s = unicodedata.normalize("NFKC", s)
 
     # Common mojibake / trademark noise seen in some feeds.
@@ -725,8 +747,10 @@ def offer_from_listing(enriched: dict) -> dict:
 TITLE_NOISE_RE = re.compile(
     r"\b(free shipping|ship(?:s|ping)? worldwide|brand new|new in (?:sealed )?box|"
     r"open box|b-?stock|refurbished|used|best price|cheap|wholesale|"
-    r"bulk (?:pack|order)|with (?:heatsink|fan|rgb lighting)|color tray|"
-    r"flat color|flat|tray|"
+     r"bulk (?:pack|order)|with (?:heatsink|fan|rgb lighting)|color tray|"
+     r"with (?:lcd|oled|digital)\s+displays?|"
+     r"with (?:a\s+)?(?:[\d.]+\s?-?inch\s+)?(?:lcd|oled)\s+(?:screen|display)|"
+     r"flat color|flat|tray|"
     r"oem(?: (?:box|packaging))?|retail (?:box|packaging)|warranty included|"
     r"\d+(?:-| )?years? (?:warranty|warr)|incl\.? (?:vat|ma'am)|vat included)\b",
     re.I,
@@ -736,8 +760,10 @@ TITLE_NOISE_RE = re.compile(
 # "Processor AMD..."). These add nothing once the product already has a
 # category, so strip them from the front of a display name only.
 LEADING_CATEGORY_WORD_RE = re.compile(
-    r"^(motherboard|processor|cpu|graphics card|video card|power supply|"
-    r"memory|ram|case|chassis|cooler)\b[\s:.-]*",
+    r"^((water|liquid)\s+(cooling|cooler)\s+(system\s+)?for\s+(the\s+|cpu\s+)?|"
+    r"motherboard|processor|cpu|graphics card|video card|power supply|"
+    # "Cooler Master" is a brand, not the category word — guard it.
+    r"memory|ram|case|chassis|for|with|cooler(?!\s+master))\b[\s:.-]*",
     re.I,
 )
 
@@ -745,15 +771,20 @@ LEADING_CATEGORY_WORD_RE = re.compile(
 # which targets match-text). All case-insensitive, applied to raw titles.
 NAME_FILLER_RE = re.compile(
     r"\b(processor|processors|graphics card|video card|motherboard|power supply|"
-    r"with integrated graphics|color tray|flat color|\bdimm\b)\b",
+    r"with integrated graphics|color tray|flat color|\bdimm\b|"
+    r"laptop memory|desktop memory|blister pack|\bram\b|\bmemory\b|"
+    r"computer case|liquid cooling|liquid cooler|water cooling|water cooler|"
+    r"air cooler|cpu cooler|\bfans?\b|\bcase\b)\b",
     re.I,
 )
 
 HEBREW_RUN_RE = re.compile(r"[\u0590-\u05FF]+")
 TRADEMARK_RE = re.compile(r"[®™©℗ªº]")
 # "(series 2)" is identity, not noise (disambiguates same-numbered Intel
-# parts) — hoisted out before the generic paren-drop below.
+# parts) — hoisted out before the generic paren-drop below. Same for model
+# years ("Corsair RM850x (2024)" vs "(2021)" are different products).
 SERIES_PAREN_RE = re.compile(r"\(\s*series\s?(\d{1,2})\s*\)", re.I)
+YEAR_PAREN_RE = re.compile(r"\(\s*((?:19|20)\d{2})\s*\)")
 PAREN_RE = re.compile(r"\([^)]*\)")
 DASH_RUN_RE = re.compile(r"\s*(?:[–—|·]|-(?:\s*-)+|-)\s*")
 
@@ -769,39 +800,203 @@ def _scrub_title(text: str) -> str:
     s = re.sub(r"\s+", " ", str(text or "")).strip()
     if not s:
         return ""
+    # 1PC JSON-bleed guard (mirrors _clean — the raw title hits this path).
+    s = s.split('",')[0]
     s = HEBREW_RUN_RE.sub(" ", s)
     s = TRADEMARK_RE.sub("", s)
     sm = SERIES_PAREN_RE.search(s)
     series_tag = f" series {sm.group(1)}" if sm else ""
     s = SERIES_PAREN_RE.sub(" ", s)
+    ym = YEAR_PAREN_RE.search(s)
+    year_tag = f" ({ym.group(1)})" if ym else ""
+    s = YEAR_PAREN_RE.sub(" ", s)
     s = PAREN_RE.sub(" ", s)
-    s = LEADING_CATEGORY_WORD_RE.sub("", s)
+    # Lone unbalanced parens ("...x4) M.2...") survive the pair-drop above.
+    s = re.sub(r"[()]", " ", s)
+    # Comma-separated spec clauses ("..., 15th generation, socket 1851
+    # BOX."): identity lives in the first segment; later segments that are
+    # pure packaging/generation/socket noise go, real continuations stay.
+    if "," in s:
+        segs = [p.strip() for p in s.split(",")]
+        kept = [segs[0]] if segs[0] else []
+        for seg in segs[1:]:
+            if re.fullmatch(
+                r"(?:BOX\.?|TRAY|WOF|OEM|.*\bgeneration\b|socket\s+\S+|"
+                r".*\bcompatible\b.*|(?:intel|amd)?\s*(?:LGA\s?[\d/]+|AM\s?\d\S*|sockets?).*|"
+                r".*\bwith\s+\d+\s*$|"
+                r"LGA\s*\d*|retail.*|bulk.*)",
+                seg, re.I,
+            ):
+                continue
+            kept.append(seg)
+        s = ", ".join(kept)
+    # Comma color-variant tails ("COOLDEX ST4 CPU, white" -> "...ST4 CPU").
+    s = re.sub(
+        r",\s*(black|white|red|blue|green|gr[ae]y|silver|brown|pink|"
+        r"purple|orange|beige)\s*$", "", s, flags=re.I)
+    # Trailing bare "CPU" on the identity segment ("...AIO CPU, LCD" ->
+    # "...AIO, LCD"); the whole-string strip below can't reach it.
+    s = re.sub(r"\s+CPU\s*(?=,)", " ", s)
+    # Loop: layered prefixes peel one at a time ("Cooler for CPU Coolleo"
+    # -> "for CPU Coolleo" -> "CPU Coolleo" -> "Coolleo").
+    for _ in range(3):
+        s2 = LEADING_CATEGORY_WORD_RE.sub("", s)
+        if s2 == s:
+            break
+        s = s2
     s = TITLE_NOISE_RE.sub(" ", s)
+    # "U-DIMM"/"U DIMM" shorthand -> UDIMM before the filler pass sees it.
+    s = re.sub(r"\bU[-\s]?DIMM\b", "UDIMM", s, flags=re.I)
     s = NAME_FILLER_RE.sub(" ", s)
+    # Spec tokens that belong in attributes, never in a name: pin counts
+    # ("260pin"), rail voltages ("1.2V"), JEDEC codes ("PC3-12800").
+    s = re.sub(r"\b\d{3}\s?pin\b", " ", s, flags=re.I)
+    s = re.sub(r"\b\d\.\d+\s?V\b", " ", s)
+    s = re.sub(r"\bPC\d+-\d+\b", " ", s, flags=re.I)
+    # Unit casing / shorthand normalization (display-only).
+    s = re.sub(r"(\d)\s?[mM][hH][zZ]\b", r"\1MHz", s)
+    s = re.sub(r"\bU\s+(?=DDR)", "UDIMM ", s)
     # Split on dash separators, drop empties (kills "- -" artifacts), rejoin.
     parts = [p.strip(" ,;:|·") for p in DASH_RUN_RE.split(s)]
     parts = [p for p in parts if p]
     s = " ".join(parts)
-    # Trailing MPN tail: token with a slash ("HX318LC11FB/8") or a long
-    # digit-letter jumble at the very end. Board model numbers survive
-    # because they rarely end the title after spec tokens... conservative:
-    # only slash-tokens and 12+ char all-caps jumbles go.
+    # Second filler pass: the dash-split can expose filler words that were
+    # hyphen-joined before ("U-DIMM" -> "U DIMM" -> "U").
+    s = NAME_FILLER_RE.sub(" ", s)
+    s = re.sub(r"\s{2,}", " ", s).strip()
+    # Trailing dots/spaces shield every $-anchored tail rule below
+    # ("...in green color."), so they go first. Only literal trailing
+    # "./space runs — "Gen 3.0"/"v2.0" end in digits and survive.
+    s = re.sub(r"[.\s]+$", "", s)
+    # The word "color(s)" is never identity ("Blue Color 140mm" -> "Blue
+    # 140mm"); the adjective stays, the attribute column carries the rest.
+    s = re.sub(r"\s+colou?rs?\b", "", s, flags=re.I)
+    # Dangling "in <color...>" tails ("...in white", "...in charcoal gray",
+    # "...in white with 4 ARGB" after the with-clause rule below exposes it).
+    s = re.sub(r"\s+in\s+[A-Za-z/]+(?:\s+[A-Za-z/]+){0,2}\s*$", "", s)
+    # Mid-title "in <color>" ("BS 2 in black BK...") — the color adjective
+    # is kept in attributes; inline it only obscures the model.
+    s = re.sub(
+        r"\s+in\s+((?:charcoal|midnight|light|dark)\s+)?"
+        r"(black|white|red|blue|green|gr[ae]y|silver|brown|pink|"
+        r"purple|orange|beige)(?![A-Za-z])",
+        " ", s, flags=re.I)
+    # SKU tails ("...White SKU: BL090") and controller-remote tails
+    # ("...with black remote") — accessories, not identity.
+    s = re.sub(r"\s*\bSKU\s*:?\s*\S+\s*$", "", s, flags=re.I)
+    s = re.sub(r"\s+with\s+[A-Za-z]+\s+remote\s*$", "", s, flags=re.I)
+    # Bare model years ("AF140 LED 2018"). Paren-years were hoisted above;
+    # a bare 19xx/20xx token mid-title is a revision marker, never identity
+    # (speeds are 3-4 digits by whitelist, core counts carry "cores").
+    s = re.sub(r"\b(?:19|20)\d{2}\b", " ", s)
+    # "support 14th/13th/12th Generation Intel Core" clauses on workstation
+    # boards — chipset identity lives elsewhere in the title.
+    s = re.sub(r"\s*\bsupport\s+[\w/]+\s+generation\b[^,]*,?", " ", s, flags=re.I)
+    # "with N ARGB" clauses ("...in white with 4 ARGB" -> "...in white",
+    # which the in-tail rule above then takes).
+    s = re.sub(r"\s+with\s+\d+\s+ARGB\w*\b", " ", s, flags=re.I)
+    # Socket-compat tails on non-CPU fallback titles ("...for AM5 Socket",
+    # "...with LGA1851 socket", "...for Socket LGA 1700", "...for the CPU").
+    # CPU/cooler templates never reach this path, so no identity is lost.
+    s = re.sub(
+        r"\s+(for|with)\s+(the\s+)?(socket\s+)?(AM\s?\d|LGA\s?\d+|sTRX4|TR4|SP3|CPU)\b(\s+socket)?\.?\s*$",
+        "", s, flags=re.I)
+    # Mid-title lone "CPU" between model tokens ("TS4 360 CPU TS4-360").
+    # Grep over 2026-09-03 snapshots: zero non-cooler/fan/cpu titles contain
+    # " CPU ", so this is cooler-vendor filler, never identity.
+    s = re.sub(r"\s+CPU\s+(?=[A-Za-z0-9])", " ", s)
+    # Trailing bare "CPU" is never identity — real CPU names end in model
+    # numbers, and a snapshot grep shows zero non-CPU titles end in "CPU"
+    # except cooler filler ("Symphony 240 ARGB CPU").
+    s = re.sub(r"\s+CPU\s*$", "", s)
+    # Wraith-style revision / blade-count tails ("...Rev E 7 Blades").
+    s = re.sub(r"\s+Rev\s+[A-Z]\b", " ", s)
+    s = re.sub(r"\s+\d+\s+Blades\b", " ", s, flags=re.I)
+    # Packaging / color tails vendors append after the real name ("...BOX.",
+    # "...black color.", "...memory in green color."). Trailing-only, so
+    # genuine mid-title words never match. These run BEFORE the MPN pop
+    # below — a color tail would otherwise shield the MPN behind it.
+    s = re.sub(r"\s*\bBOX\.?\s*$", "", s)
+    s = re.sub(r"\s+in\s+[A-Za-z]+(?:\s+[A-Za-z]+)?\s+colou?rs?\.?\s*$", "", s, flags=re.I)
+    s = re.sub(
+        r"\s+(black|white|green|red|blue|grey|gray|silver|brown|pink|"
+        r"purple|orange|beige)\s+colou?rs?\.?\s*$", "", s, flags=re.I)
+    # Trailing MPN tail: token with a slash ("HX318LC11FB/8") or an
+    # all-caps digit-letter jumble ("AD4U320032G22", "B3200GSST"). The
+    # dash-split above can sever an MPN from its suffix ("...G22-SGN" ->
+    # "...G22 SGN"), so after the jumbles allow one short all-caps suffix
+    # ("SGN"). Genuine board/CPU models survive: they are short ("B550M"),
+    # lack digits, or sit mid-title — and edition words ("EVO", "OC") are
+    # only reachable after a jumble pop, which never precedes them.
     toks = s.split(" ")
-    while toks and (
-        "/" in toks[-1]
-        or (len(toks[-1]) >= 12 and re.fullmatch(r"[A-Z0-9-]+", toks[-1]) and re.search(r"\d", toks[-1]) and re.search(r"[A-Z]", toks[-1]))
+
+    def _is_jumble(tok: str) -> bool:
+        return (
+            len(tok) >= 8
+            and re.fullmatch(r"[A-Z0-9-]+", tok) is not None
+            and re.search(r"\d", tok) is not None
+            and re.search(r"[A-Z]", tok) is not None
+        )
+
+    # A dash-severed MPN suffix ("...G22-SGN" -> "...G22 SGN"): drop the
+    # short all-caps tail when it sits right behind a jumble/slash token —
+    # or behind a long pure-digit token (Corsair "CW-9061001-WW" ->
+    # "CW 9061001 WW"). Edition words ("EVO", "OC") never qualify — no
+    # jumble precedes them.
+    if (
+        len(toks) >= 2
+        and re.fullmatch(r"[A-Z]{2,5}", toks[-1]) is not None
+        and ("/" in toks[-2] or _is_jumble(toks[-2])
+             or (toks[-2].isdigit() and len(toks[-2]) >= 6))
     ):
         toks.pop()
+    while toks and ("/" in toks[-1] or _is_jumble(toks[-1])
+                    or (toks[-1].isdigit() and len(toks[-1]) >= 6)):
+        toks.pop()
+    # Severed Corsair SKU prefix left behind by the pops above
+    # ("...420mm Liquid CW").
+    s = re.sub(r"\s+\bC[WC]\b\s*$", "", " ".join(toks))
+    # End pass: later steps (color-word drop, clause removals) expose new
+    # tails the early pass couldn't see ("..., white color." -> "..., white"
+    # -> "" ; "...ST4 CPU" -> "...ST4"). Idempotent — safe to repeat.
+    s = re.sub(
+        r",\s*(black|white|red|blue|green|gr[ae]y|silver|brown|pink|"
+        r"purple|orange|beige)\s*$", "", s, flags=re.I)
+    s = re.sub(r"\s+CPU\s*(?=,)", " ", s)
+    s = re.sub(r"\s+CPU\s*$", "", s)
+    toks = s.split(" ")
     s = " ".join(toks)
-    # Dedupe consecutive duplicate words ("Intel Intel", "DDR4 DDR4").
-    words = s.split(" ")
+    # Dedupe consecutive duplicate words ("Intel Intel", "DDR4 DDR4") and
+    # repeated adjacent bigrams ("TS4 360 TS4 360" from dash-split models).
+    # Also normalize " ," artifacts from dropped clauses.
+    s = re.sub(r"\s+,", ",", s)
+    # Empty tokens from clause removals would break adjacency checks below.
+    words = [w for w in s.split(" ") if w]
     deduped = [words[0]] if words else []
     for w in words[1:]:
         if w.lower() != deduped[-1].lower():
             deduped.append(w)
-    s = re.sub(r"\s{2,}", " ", " ".join(deduped)).strip(" -–—|·,;:")
+    # Adjacent bigram repeats ("TS4 360 TS4 360 WH" -> "TS4 360 WH").
+    merged: list[str] = []
+    i = 0
+    while i < len(deduped):
+        if (
+            i + 3 < len(deduped)
+            and deduped[i].lower() == deduped[i + 2].lower()
+            and deduped[i + 1].lower() == deduped[i + 3].lower()
+            and re.fullmatch(r"[A-Za-z0-9]+", deduped[i])
+            and re.fullmatch(r"[A-Za-z0-9]+", deduped[i + 1])
+        ):
+            merged.extend([deduped[i], deduped[i + 1]])
+            i += 4
+        else:
+            merged.append(deduped[i])
+            i += 1
+    s = re.sub(r"\s{2,}", " ", " ".join(merged)).strip(" -–—|·,;:. ")
     if series_tag and series_tag.strip().lower() not in s.lower():
         s = f"{s}{series_tag}"
+    if year_tag and ym.group(1) not in s:
+        s = f"{s}{year_tag}"
     return s
 
 
@@ -814,7 +1009,7 @@ def display_title(text: str, max_len: int = 120) -> str:
         cut = s[:max_len]
         if " " in cut:
             cut = cut.rsplit(" ", 1)[0]
-        s = cut.rstrip(" -–—|·,;:") + "…"
+        s = cut.rstrip(" -–—|·,;:. ") + "…"
     return s or "unknown"
 
 
@@ -922,6 +1117,11 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
     brand = attributes.get("brand") or next(
         (e.get("brand") for e in group if e.get("brand")), None
     )
+    if not brand:
+        # Last resort: scan the raw titles against the global brand
+        # aliases (some vendors' board-partner names never reached attrs).
+        blob_all = " | ".join(str(e.get("title_raw") or "") for e in group)
+        brand = detect_brand(blob_all)
     chip = attributes.get("gpu_chip") or attributes.get("chipset")
     vram = attributes.get("vram_gb")
     try:
@@ -1013,6 +1213,7 @@ MEMORY_NAME_BRANDS = [
     ("silicon power", "Silicon Power"),
     ("siliconpower", "Silicon Power"),
     ("adata", "ADATA"),
+    ("a data", "ADATA"),
     ("xpg", "ADATA"),
     ("samsung", "Samsung"),
     ("crucial", "Crucial"),
@@ -1023,6 +1224,7 @@ MEMORY_NAME_BRANDS = [
     ("viper", "Patriot"),
     ("pny", "PNY"),
     ("oscoo", "OSCOO"),
+    ("lexar", "Lexar"),
     ("klevv", "Klevv"),
     ("apacer", "Apacer"),
     ("transcend", "Transcend"),

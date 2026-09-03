@@ -197,10 +197,15 @@ class OnePcSpider(scrapy.Spider):
             thumb = tile.css("img.picture-img::attr(src)").get()
 
             title_node = tile.css("span.product-title")
+            raw_title = (title_node.css("::text").get() or "").strip()
+            # A few 1PC tiles bleed an escaped JSON blob into the title
+            # span ('NX420 ... Black", "product_short_description": ...').
+            # The real name always precedes the first '",' fragment.
+            raw_title = raw_title.split('",')[0].strip()
             yield ListingItem(
                 vendor_id=VENDOR_ID,
                 vendor_sku=sku,
-                title_raw=(title_node.css("::text").get() or "").strip(),
+                title_raw=raw_title,
                 url=product_url,
                 price_ils=_round_price(title_node.attrib.get("data-price")),
                 in_stock=True,
