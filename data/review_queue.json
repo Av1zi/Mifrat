@@ -267,6 +267,17 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
+    "listing_a": "1pc:157902",
+    "listing_b": "tms:C8",
+    "title_a": "Antec C8 White Case C8W.",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "157902 Antec C8 White Case C8W.",
+    "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
     "listing_a": "1pc:157903",
     "listing_b": "tms:NX416L",
     "title_a": "Antec NX416L Case.",
@@ -312,11 +323,33 @@
     "category": "case",
     "brand": "Antec",
     "listing_a": "1pc:165970",
+    "listing_b": "tms:C8",
+    "title_a": "Antec C8 ARGB C8ARGB computer case.",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "165970 Antec C8 ARGB C8ARGB computer case.",
+    "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:165970",
     "listing_b": "tms:C8ARGB",
     "title_a": "Antec C8 ARGB C8ARGB computer case.",
     "title_b": "מארז מחשב Antec C8 ARGB",
     "match_text_a": "165970 Antec C8 ARGB C8ARGB computer case.",
     "match_text_b": "C8ARGB Antec C8 ARGB"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167982",
+    "listing_b": "tms:C8",
+    "title_a": "Antec C8 Wood computer case.",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "167982 Antec C8 Wood computer case.",
+    "match_text_b": "C8 Antec C8"
   },
   {
     "score": 100,
@@ -339,6 +372,17 @@
     "title_b": "מארז מחשב Antec FLUX",
     "match_text_a": "171577 Antec FLUX White computer case.",
     "match_text_b": "FLUX Antec FLUX"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:174943",
+    "listing_b": "tms:C8",
+    "title_a": "Antec C8 Curve Wood Computer Case.",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "174943 Antec C8 Curve Wood Computer Case.",
+    "match_text_b": "C8 Antec C8"
   },
   {
     "score": 100,
@@ -416,6 +460,50 @@
     "title_b": "מארז מחשב Antec NX800",
     "match_text_a": "0-761345-81082-1 Antec NX800 White",
     "match_text_b": "NX800 Antec NX800"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "tms:C8ARGB",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז מחשב Antec C8 ARGB",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8ARGB Antec C8 ARGB"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "tms:C8CURVEWOOD",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז מחשב Antec C8 Curve Wood",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8CURVEWOOD Antec C8 Curve Wood"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "tms:C8W",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז מחשב Antec C8 White",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8W Antec C8 White"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "tms:C8WOOD",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז מחשב Antec C8 Wood",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8WOOD Antec C8 Wood"
   },
   {
     "score": 100,
@@ -1620,23 +1708,23 @@
     "score": 97,
     "category": "motherboard",
     "brand": "Gigabyte",
-    "listing_a": "tms:GB760DS3HGEN5",
-    "listing_b": "tms:GB760MDS3HGEN5",
-    "title_a": "Gigabyte B760 DS3H GEN5",
-    "title_b": "Gigabyte B760M DS3H GEN5",
-    "match_text_a": "GB760DS3HGEN5 Gigabyte B760 DS3H GEN5",
-    "match_text_b": "GB760MDS3HGEN5 Gigabyte B760M DS3H GEN5"
-  },
-  {
-    "score": 97,
-    "category": "motherboard",
-    "brand": "Gigabyte",
     "listing_a": "tms:GB840GAMINGXWIFI6E",
     "listing_b": "tms:GB840MGAMINGXWIFI6E",
     "title_a": "Gigabyte B840 GAMING X WiFi6E",
     "title_b": "Gigabyte B840M GAMING X WiFi6E",
     "match_text_a": "GB840GAMINGXWIFI6E Gigabyte B840 GAMING X WiFi6E",
     "match_text_b": "GB840MGAMINGXWIFI6E Gigabyte B840M GAMING X WiFi6E"
+  },
+  {
+    "score": 97,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB850AORUSSTEALTH",
+    "listing_b": "tms:GB850MAORUSSTEALTH",
+    "title_a": "Gigabyte B850 AORUS STEALTH",
+    "title_b": "לוח אם Gigabyte B850M AORUS STEALTH",
+    "match_text_a": "GB850AORUSSTEALTH Gigabyte B850 AORUS STEALTH",
+    "match_text_b": "GB850MAORUSSTEALTH Gigabyte B850M AORUS STEALTH"
   },
   {
     "score": 97,
@@ -2731,17 +2819,6 @@
     "score": 96,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B6000Z30W",
-    "listing_b": "tms:CMK64GX5M2B6000Z30W",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B6000Z30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_b": "CMK64GX5M2B6000Z30W Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
-  },
-  {
-    "score": 96,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "tms:CMH64GX5M4B5600Z36",
     "listing_b": "tms:CMK64GX5M4B5600Z36",
     "title_a": "Corsair Vengeance RGB DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0",
@@ -2770,17 +2847,6 @@
     "title_b": "Corsair Vengeance DDR5 96GB (2x48GB) 5200 CL38 XMP 3.0",
     "match_text_a": "CMH96GX5M2B5200C38 Corsair Vengeance RGB DDR5 96GB (2x48GB) 5200 CL38 XMP 3.0",
     "match_text_b": "CMK96GX5M2B5200C38 Corsair Vengeance DDR5 96GB (2x48GB) 5200 CL38 XMP 3.0"
-  },
-  {
-    "score": 96,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMP32GX5M2X7200C34",
-    "listing_b": "tms:CMP32GX5M2X7200C34W",
-    "title_a": "Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 7200 CL34 XMP 3.0",
-    "title_b": "Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 7200 CL34 White XMP 3.0",
-    "match_text_a": "CMP32GX5M2X7200C34 Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 7200 CL34 XMP 3.0",
-    "match_text_b": "CMP32GX5M2X7200C34W Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 7200 CL34 White XMP 3.0"
   },
   {
     "score": 96,
@@ -3250,7 +3316,7 @@
     "brand": "MAXSUN",
     "listing_a": "tms:MS-TER-B760MD4WIFI6EV2",
     "listing_b": "tms:MS-TER-B760MD4WIFIV2",
-    "title_a": "MAXSUN Terminator B760M D4 WiFi6E V2",
+    "title_a": "לוח אם MAXSUN Terminator B760M D4 WiFi6E V2",
     "title_b": "MAXSUN Terminator B760M D4 WiFi V2",
     "match_text_a": "MS-TER-B760MD4WIFI6EV2 MAXSUN Terminator B760M D4 WiFi6E V2",
     "match_text_b": "MS-TER-B760MD4WIFIV2 MAXSUN Terminator B760M D4 WiFi V2"
@@ -3474,6 +3540,17 @@
     "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 White XMP 3.0",
     "match_text_a": "6000J3238G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0",
     "match_text_b": "6400J3239G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 White XMP 3.0"
+  },
+  {
+    "score": 96,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "tms:F4-3200C16D-32GTZR",
+    "listing_b": "tms:F4-3600C16D-32GTZRC",
+    "title_a": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
+    "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0",
+    "match_text_a": "F4-3200C16D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
+    "match_text_b": "F4-3600C16D-32GTZRC G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0"
   },
   {
     "score": 96,
@@ -4436,6 +4513,17 @@
     "score": 95,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB550MAORUSE",
+    "listing_b": "tms:GB550MXAORUSEL",
+    "title_a": "Gigabyte B550M AORUS ELITE",
+    "title_b": "לוח אם Gigabyte B550M X AORUS ELITE",
+    "match_text_a": "GB550MAORUSE Gigabyte B550M AORUS ELITE",
+    "match_text_b": "GB550MXAORUSEL Gigabyte B550M X AORUS ELITE"
+  },
+  {
+    "score": 95,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB650AORUSELITEAXICE",
     "listing_b": "tms:GB650EAORUSELITEXICE",
     "title_a": "Gigabyte B650 AORUS ELITE AX ICE",
@@ -4728,6 +4816,17 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
     "match_text_a": "CMH64GX5M2B6000Z30 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
     "match_text_b": "CMH64GX5M2B6000Z30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
+  },
+  {
+    "score": 95,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "tms:CMN64GX4M2Z3200C16",
+    "listing_b": "tms:CMW64GX4M2E3200C16",
+    "title_a": "Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
+    "title_b": "Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
+    "match_text_a": "CMN64GX4M2Z3200C16 Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
+    "match_text_b": "CMW64GX4M2E3200C16 Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0"
   },
   {
     "score": 95,
@@ -7769,6 +7868,28 @@
     "score": 94,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:189653",
+    "listing_b": "1pc:189656",
+    "title_a": "Intel Core Ultra 5 225 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_a": "189653 Intel Core Ultra 5 225 1851 Tray processor.",
+    "match_text_b": "189656 Intel Core Ultra 7 265 1851 Tray processor."
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:189656",
+    "listing_b": "1pc:189659",
+    "title_a": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 9 285 1851 Tray processor.",
+    "match_text_a": "189656 Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_b": "189659 Intel Core Ultra 9 285 1851 Tray processor."
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "plonter:BX8071514400",
     "listing_b": "plonter:BX8071514500",
     "title_a": "Intel Core i5 14400 14th Gen Raptor Lake (20M Cache, up to 4.70 GHz) FC-LGA16A, Box",
@@ -8732,17 +8853,6 @@
     "title_b": "G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
     "match_text_a": "6000J3040G32GX2-RS5K G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0",
     "match_text_b": "6000J3040G32GX2-RS5W G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0"
-  },
-  {
-    "score": 94,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:6400J3039G16GX2-TR5NG",
-    "listing_b": "tms:6400J3039G16GX2-TR5NS",
-    "title_a": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Gold EXPO",
-    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Silver EXPO",
-    "match_text_a": "6400J3039G16GX2-TR5NG G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Gold EXPO",
-    "match_text_b": "6400J3039G16GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Silver EXPO"
   },
   {
     "score": 94,
@@ -10429,6 +10539,17 @@
   },
   {
     "score": 93,
+    "category": "psu",
+    "brand": "Cooler Master",
+    "listing_a": "tms:MPE-8501-AFAAG-3WO",
+    "listing_b": "tms:MPE-8501-AFAAG-WO",
+    "title_a": "CoolerMaster MWE GOLD 850W - V2 Full Modular ATX3.0",
+    "title_b": "CoolerMaster MWE GOLD 850W - V2 Full Modular",
+    "match_text_a": "MPE-8501-AFAAG-3WO CoolerMaster MWE GOLD 850W - V2 Full Modular ATX3.0",
+    "match_text_b": "MPE-8501-AFAAG-WO CoolerMaster MWE GOLD 850W - V2 Full Modular"
+  },
+  {
+    "score": 93,
     "category": "aio",
     "brand": "be quiet!",
     "listing_a": "1pc:100158",
@@ -10508,23 +10629,23 @@
     "score": 93,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB550AORUSEWF7",
+    "listing_b": "tms:GB550MXAORUSELWF7",
+    "title_a": "לוח אם Gigabyte B550 AORUS ELITE WIFI7",
+    "title_b": "לוח אם Gigabyte B550M X AORUS ELITE WIFI7",
+    "match_text_a": "GB550AORUSEWF7 Gigabyte B550 AORUS ELITE WIFI7",
+    "match_text_b": "GB550MXAORUSELWF7 Gigabyte B550M X AORUS ELITE WIFI7"
+  },
+  {
+    "score": 93,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB550EAGLE",
     "listing_b": "tms:GB650EAGLE",
     "title_a": "Gigabyte B550 EAGLE",
     "title_b": "Gigabyte B650 EAGLE",
     "match_text_a": "GB550EAGLE Gigabyte B550 EAGLE",
     "match_text_b": "GB650EAGLE Gigabyte B650 EAGLE"
-  },
-  {
-    "score": 93,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "tms:GB550MDS3HACR2",
-    "listing_b": "tms:GB550MDS3HR2",
-    "title_a": "Gigabyte B550M DS3H AC R2",
-    "title_b": "Gigabyte B550M DS3H R2",
-    "match_text_a": "GB550MDS3HACR2 Gigabyte B550M DS3H AC R2",
-    "match_text_b": "GB550MDS3HR2 Gigabyte B550M DS3H R2"
   },
   {
     "score": 93,
@@ -11020,17 +11141,6 @@
     "title_b": "Corsair Vengeance DDR5 32GB (2x16GB) 6400 CL32 XMP 3.0",
     "match_text_a": "CMH32GX5M2B6400C36 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6400 CL36 XMP 3.0",
     "match_text_b": "CMK32GX5M2B6400C32 Corsair Vengeance DDR5 32GB (2x16GB) 6400 CL32 XMP 3.0"
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B6000Z30",
-    "listing_b": "tms:CMK64GX5M2B6000Z30W",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B6000Z30 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 EXPO/XMP 3.0",
-    "match_text_b": "CMK64GX5M2B6000Z30W Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
   },
   {
     "score": 93,
@@ -11663,12 +11773,12 @@
     "score": 93,
     "category": "motherboard",
     "brand": "MAXSUN",
-    "listing_a": "tms:MS-ESP-B650MWIFI6ICE",
-    "listing_b": "tms:MS-ESP-B850MWIFIICE",
-    "title_a": "MAXSUN eSport B650M WiFi6 ICE",
-    "title_b": "MAXSUN eSport B850M WiFi ICE",
-    "match_text_a": "MS-ESP-B650MWIFI6ICE MAXSUN eSport B650M WiFi6 ICE",
-    "match_text_b": "MS-ESP-B850MWIFIICE MAXSUN eSport B850M WiFi ICE"
+    "listing_a": "tms:MS-CHA-B650MKWIFI",
+    "listing_b": "tms:MS-CHA-B850M-K-WIFI",
+    "title_a": "MAXSUN Challenger B650M-K WiFi",
+    "title_b": "MAXSUN Challenger B850M-K WiFi",
+    "match_text_a": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi",
+    "match_text_b": "MS-CHA-B850M-K-WIFI MAXSUN Challenger B850M-K WiFi"
   },
   {
     "score": 93,
@@ -11757,6 +11867,17 @@
     "title_b": "1StPlayer FT12DSL-6 White CPU Cooler",
     "match_text_a": "FB12DS-6-WH 1StPlayer FB12DS-6 White CPU Cooler",
     "match_text_b": "FT12DSL-6-WH 1StPlayer FT12DSL-6 White CPU Cooler"
+  },
+  {
+    "score": 93,
+    "category": "gpu",
+    "brand": "Sapphire",
+    "listing_a": "ivory:124404",
+    "listing_b": "ivory:124407",
+    "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "match_text_a": "11348-02-20G SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "match_text_b": "11348-03-20G SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6"
   },
   {
     "score": 93,
@@ -13588,6 +13709,17 @@
     "score": 92,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GX870AORUSSTEALTH",
+    "listing_b": "tms:GX870AORUSSTEALTHICE",
+    "title_a": "Gigabyte X870 AORUS STEALTH",
+    "title_b": "Gigabyte X870 AORUS STEALTH ICE",
+    "match_text_a": "GX870AORUSSTEALTH Gigabyte X870 AORUS STEALTH",
+    "match_text_b": "GX870AORUSSTEALTHICE Gigabyte X870 AORUS STEALTH ICE"
+  },
+  {
+    "score": 92,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GX870EAORUSELITEWIFI7",
     "listing_b": "tms:GX870MAORUSELITEWIFI7I",
     "title_a": "Gigabyte X870E AORUS ELITE WiFi7",
@@ -13808,6 +13940,17 @@
     "score": 92,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "tms:C13700KFT",
+    "listing_b": "tms:C14700KT",
+    "title_a": "Intel Core i7 13700KF / 1700 Tray",
+    "title_b": "Intel Core i7 14700K / 1700 Tray",
+    "match_text_a": "C13700KFT Intel Core i7 13700KF / 1700 Tray",
+    "match_text_b": "C14700KT Intel Core i7 14700K / 1700 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "tms:C3240T-P",
     "listing_b": "tms:C4170T-P",
     "title_a": "Intel Core i3 3240 with Graphics Tray Pull",
@@ -13962,17 +14105,6 @@
     "score": 92,
     "category": "memory",
     "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B6000C30W",
-    "listing_b": "tms:CMK64GX5M2B6000Z30W",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
-    "title_b": "Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B6000C30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
-    "match_text_b": "CMK64GX5M2B6000Z30W Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "Corsair",
     "listing_a": "tms:CMH64GX5M2B6400C42",
     "listing_b": "tms:CMH64GX5M4B6400C32",
     "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL42 XMP 3.0",
@@ -13990,17 +14122,6 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (4x16GB) 6400 CL32 XMP 3.0",
     "match_text_a": "CMH64GX5M2B6600C32 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6600 CL32 XMP 3.0",
     "match_text_b": "CMH64GX5M4B6400C32 Corsair Vengeance RGB DDR5 64GB (4x16GB) 6400 CL32 XMP 3.0"
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMP32GX5M2B6000C30W",
-    "listing_b": "tms:CMP32GX5M2X7200C34W",
-    "title_a": "Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 6000 CL30 White XMP 3.0",
-    "title_b": "Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 7200 CL34 White XMP 3.0",
-    "match_text_a": "CMP32GX5M2B6000C30W Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 6000 CL30 White XMP 3.0",
-    "match_text_b": "CMP32GX5M2X7200C34W Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 7200 CL34 White XMP 3.0"
   },
   {
     "score": 92,
@@ -14754,6 +14875,17 @@
     "score": 92,
     "category": "gpu",
     "brand": "Sapphire",
+    "listing_a": "ivory:124407",
+    "listing_b": "ivory:133689",
+    "title_a": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6",
+    "match_text_a": "11348-03-20G SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "match_text_b": "11350-03-20G SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 92,
+    "category": "gpu",
+    "brand": "Sapphire",
     "listing_a": "ivory:124413",
     "listing_b": "ivory:133686",
     "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
@@ -15200,17 +15332,6 @@
     "title_b": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
     "match_text_a": "6000J2836G16GX2-RS5K G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL28 XMP 3.0",
     "match_text_b": "6000J3040F16GX2-RS5K G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0"
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:6000J2836G16GX2-TR5NS",
-    "listing_b": "tms:6400J3039G16GX2-TR5NS",
-    "title_a": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6000 CL28 Silver EXPO",
-    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Silver EXPO",
-    "match_text_a": "6000J2836G16GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6000 CL28 Silver EXPO",
-    "match_text_b": "6400J3039G16GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Silver EXPO"
   },
   {
     "score": 92,
@@ -16306,17 +16427,6 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "plonter:100-000001443",
-    "listing_b": "plonter:100-000001554",
-    "title_a": "AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/",
-    "title_b": "AMD EPYC 5th Gen (Zen5) 9575F - 64/128 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
-    "match_text_a": "100-000001443 AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/",
-    "match_text_b": "100-000001554 AMD EPYC 5th Gen (Zen5) 9575F - 64/128 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "plonter:100-000001443",
     "listing_b": "plonter:100-000001563",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/",
     "title_b": "AMD EPYC 5th Gen (Zen5) 9455P - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -16591,6 +16701,17 @@
     "score": 91,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB550MAORUSELITEAX",
+    "listing_b": "tms:GB760MAORUSELITEAX",
+    "title_a": "Gigabyte B550M AORUS ELITE AX",
+    "title_b": "Gigabyte B760M AORUS ELITE AX",
+    "match_text_a": "GB550MAORUSELITEAX Gigabyte B550M AORUS ELITE AX",
+    "match_text_b": "GB760MAORUSELITEAX Gigabyte B760M AORUS ELITE AX"
+  },
+  {
+    "score": 91,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB550MGAMINGXWIFI6",
     "listing_b": "tms:GB850GAMINGXWIFI6E",
     "title_a": "Gigabyte B550M GAMING X WIFI6",
@@ -16811,6 +16932,17 @@
     "score": 91,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:189656",
+    "listing_b": "1pc:190072",
+    "title_a": "Intel Core Ultra 7 265 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 7 265F 1851 Tray processor.",
+    "match_text_a": "189656 Intel Core Ultra 7 265 1851 Tray processor.",
+    "match_text_b": "190072 Intel Core Ultra 7 265F 1851 Tray processor."
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "ivory:80276",
     "listing_b": "ivory:80285",
     "title_a": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
@@ -16921,6 +17053,17 @@
     "score": 91,
     "category": "case",
     "brand": "Antec",
+    "listing_a": "tms:CX200MRGBELITEW",
+    "listing_b": "tms:CX700RGBELITE-W",
+    "title_a": "מארז מחשב Antec CX200M RGB Elite White",
+    "title_b": "מארז מחשב Antec CX700 RGB Elite White",
+    "match_text_a": "CX200MRGBELITEW Antec CX200M RGB Elite White",
+    "match_text_b": "CX700RGBELITE-W Antec CX700 RGB Elite White"
+  },
+  {
+    "score": 91,
+    "category": "case",
+    "brand": "Antec",
     "listing_a": "tms:CX300ARGB-W",
     "listing_b": "tms:CX500MARGB-W",
     "title_a": "מארז מחשב Antec CX300 ARGB White",
@@ -16982,6 +17125,17 @@
     "title_b": "Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
     "match_text_a": "CMG64GX4M4E3200C16 Corsair Vengeance RGB RS DDR4 64GB (4x16GB) 3200 CL16 XMP 2.0",
     "match_text_b": "CMN64GX4M2Z3200C16 Corsair Vengeance RGB RT DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "tms:CMG64GX4M4E3200C16",
+    "listing_b": "tms:CMW64GX4M2E3200C16",
+    "title_a": "Corsair Vengeance RGB RS DDR4 64GB (4x16GB) 3200 CL16 XMP 2.0",
+    "title_b": "Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0",
+    "match_text_a": "CMG64GX4M4E3200C16 Corsair Vengeance RGB RS DDR4 64GB (4x16GB) 3200 CL16 XMP 2.0",
+    "match_text_b": "CMW64GX4M2E3200C16 Corsair Vengeance RGB PRO DDR4 64GB (2x32GB) 3200 CL16 XMP 2.0"
   },
   {
     "score": 91,
@@ -18373,17 +18527,6 @@
     "score": 91,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "tms:6000J3038F16GX2-TZ5N",
-    "listing_b": "tms:6000J3636F16GX2-TZ5N",
-    "title_a": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_a": "6000J3038F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "tms:6000J3040F16GX2-TZ5K",
     "listing_b": "tms:6000J3040F16GX2-TZ5RS",
     "title_a": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
@@ -18428,23 +18571,23 @@
     "score": 91,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "tms:6400J3039G16GX2-TR5NS",
-    "listing_b": "tms:6400J3239G16GX2-TR5S",
-    "title_a": "G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Silver EXPO",
-    "title_b": "G.Skill Trident Z5 Royal DDR5 32GB (2x16GB) 6400 CL32 Silver XMP 3.0",
-    "match_text_a": "6400J3039G16GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 32GB (2x16GB) 6400 CL30 Silver EXPO",
-    "match_text_b": "6400J3239G16GX2-TR5S G.Skill Trident Z5 Royal DDR5 32GB (2x16GB) 6400 CL32 Silver XMP 3.0"
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "tms:F4-3600C16D-32GTZRC",
     "listing_b": "tms:F4-3600C18D-32GTZR",
     "title_a": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0",
     "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL18",
     "match_text_a": "F4-3600C16D-32GTZRC G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0",
     "match_text_b": "F4-3600C18D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL18"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "V-Color",
+    "listing_a": "tms:TMXSAL1664832KWK",
+    "listing_b": "tms:TMXSAL1664832WWK",
+    "title_a": "v-color Manta XSky RGB DDR5 32GB (2x16GB) 6400 CL32 Black EXPO",
+    "title_b": "v-color Manta XSky RGB DDR5 32GB (2x16GB) 6400 CL32 White EXPO",
+    "match_text_a": "TMXSAL1664832KWK v-color Manta XSky RGB DDR5 32GB (2x16GB) 6400 CL32 Black EXPO",
+    "match_text_b": "TMXSAL1664832WWK v-color Manta XSky RGB DDR5 32GB (2x16GB) 6400 CL32 White EXPO"
   },
   {
     "score": 91,
@@ -19812,6 +19955,17 @@
   },
   {
     "score": 90,
+    "category": "psu",
+    "brand": "be quiet!",
+    "listing_a": "1pc:143612",
+    "listing_b": "tms:BN330",
+    "title_a": "Power supply be quiet! SYSTEM POWER 10 850W black color.",
+    "title_b": "be quiet! SYSTEM POWER 10 850W",
+    "match_text_a": "143612 Power supply be quiet SYSTEM POWER 10 850W black color.",
+    "match_text_b": "BN330 be quiet SYSTEM POWER 10 850W"
+  },
+  {
+    "score": 90,
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "1pc:132738",
@@ -20067,12 +20221,34 @@
     "score": 90,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB550GAMINGXV2",
+    "listing_b": "tms:GB550XGAMING",
+    "title_a": "Gigabyte B550 GAMING X V2",
+    "title_b": "לוח אם Gigabyte B550 X GAMING",
+    "match_text_a": "GB550GAMINGXV2 Gigabyte B550 GAMING X V2",
+    "match_text_b": "GB550XGAMING Gigabyte B550 X GAMING"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB550MAORUSE",
     "listing_b": "tms:GB650MAORUSELITE",
     "title_a": "Gigabyte B550M AORUS ELITE",
     "title_b": "Gigabyte B650M AORUS ELITE",
     "match_text_a": "GB550MAORUSE Gigabyte B550M AORUS ELITE",
     "match_text_b": "GB650MAORUSELITE Gigabyte B650M AORUS ELITE"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB550MAORUSELITEAX",
+    "listing_b": "tms:GB550MXAORUSEL",
+    "title_a": "Gigabyte B550M AORUS ELITE AX",
+    "title_b": "לוח אם Gigabyte B550M X AORUS ELITE",
+    "match_text_a": "GB550MAORUSELITEAX Gigabyte B550M AORUS ELITE AX",
+    "match_text_b": "GB550MXAORUSEL Gigabyte B550M X AORUS ELITE"
   },
   {
     "score": 90,
@@ -20106,6 +20282,28 @@
     "title_b": "Gigabyte B850 GAMING WIFI6",
     "match_text_a": "GB550MGAMINGXWIFI6 Gigabyte B550M GAMING X WIFI6",
     "match_text_b": "GB850GAMINGWIFI6 Gigabyte B850 GAMING WIFI6"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB550MXAORUSEL",
+    "listing_b": "tms:GB550MXAORUSELWF7",
+    "title_a": "לוח אם Gigabyte B550M X AORUS ELITE",
+    "title_b": "לוח אם Gigabyte B550M X AORUS ELITE WIFI7",
+    "match_text_a": "GB550MXAORUSEL Gigabyte B550M X AORUS ELITE",
+    "match_text_b": "GB550MXAORUSELWF7 Gigabyte B550M X AORUS ELITE WIFI7"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB650MAORUSELITE",
+    "listing_b": "tms:GB760MAORUSELITEAX",
+    "title_a": "Gigabyte B650M AORUS ELITE",
+    "title_b": "Gigabyte B760M AORUS ELITE AX",
+    "match_text_a": "GB650MAORUSELITE Gigabyte B650M AORUS ELITE",
+    "match_text_b": "GB760MAORUSELITEAX Gigabyte B760M AORUS ELITE AX"
   },
   {
     "score": 90,
@@ -20177,12 +20375,34 @@
     "score": 90,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB840MGAMINGPLUSWIFI6E",
+    "listing_b": "tms:GB840MGAMINGXWIFI6E",
+    "title_a": "Gigabyte B840M GAMING PLUS WiFi6E",
+    "title_b": "Gigabyte B840M GAMING X WiFi6E",
+    "match_text_a": "GB840MGAMINGPLUSWIFI6E Gigabyte B840M GAMING PLUS WiFi6E",
+    "match_text_b": "GB840MGAMINGXWIFI6E Gigabyte B840M GAMING X WiFi6E"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB840MGAMINGXWIFI6E",
     "listing_b": "tms:GB860MGAMINGWIFI6",
     "title_a": "Gigabyte B840M GAMING X WiFi6E",
     "title_b": "Gigabyte B860M GAMING WiFi6",
     "match_text_a": "GB840MGAMINGXWIFI6E Gigabyte B840M GAMING X WiFi6E",
     "match_text_b": "GB860MGAMINGWIFI6 Gigabyte B860M GAMING WiFi6"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB850AORUSSTEALTHICE",
+    "listing_b": "tms:GB850MAORUSSTEALTH",
+    "title_a": "Gigabyte B850 AORUS STEALTH ICE",
+    "title_b": "לוח אם Gigabyte B850M AORUS STEALTH",
+    "match_text_a": "GB850AORUSSTEALTHICE Gigabyte B850 AORUS STEALTH ICE",
+    "match_text_b": "GB850MAORUSSTEALTH Gigabyte B850M AORUS STEALTH"
   },
   {
     "score": 90,
@@ -20447,6 +20667,17 @@
     "title_b": "Intel Core i7 13700KF / 1700 Tray",
     "match_text_a": "C12700T Intel Core i7 12700 / 1700 Tray",
     "match_text_b": "C13700KFT Intel Core i7 13700KF / 1700 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "tms:C13700FT",
+    "listing_b": "tms:C14700KT",
+    "title_a": "Intel Core i7 13700F / 1700 Tray",
+    "title_b": "Intel Core i7 14700K / 1700 Tray",
+    "match_text_a": "C13700FT Intel Core i7 13700F / 1700 Tray",
+    "match_text_b": "C14700KT Intel Core i7 14700K / 1700 Tray"
   },
   {
     "score": 90,
@@ -21143,6 +21374,17 @@
   },
   {
     "score": 90,
+    "category": "case_fan",
+    "brand": "Noctua",
+    "listing_a": "tms:NF-A12X15PWM",
+    "listing_b": "tms:NF-A12X25G2PWM",
+    "title_a": "Noctua NF-A12x15 PWM 120MM Fan",
+    "title_b": "Noctua NF-A12x25 G2 PWM 120MM Fan",
+    "match_text_a": "NF-A12X15PWM Noctua NF-A12x15 PWM 120MM Fan",
+    "match_text_b": "NF-A12X25G2PWM Noctua NF-A12x25 G2 PWM 120MM Fan"
+  },
+  {
+    "score": 90,
     "category": "case",
     "brand": "Fractal Design",
     "listing_a": "1pc:215502",
@@ -21795,33 +22037,11 @@
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "tms:12RCL1W1B",
-    "listing_b": "tms:12RCL1W1W",
-    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
-    "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
-    "match_text_a": "12RCL1W1B Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
-    "match_text_b": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White"
-  },
-  {
-    "score": 90,
-    "category": "case_fan",
-    "brand": "Lian Li",
-    "listing_a": "tms:12RCL1W1B",
     "listing_b": "tms:12RCL1W3B",
     "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
     "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3 Fans",
     "match_text_a": "12RCL1W1B Lian-Li 120mm UNI FAN CL Wireless Reverse Blade Black",
     "match_text_b": "12RCL1W3B Lian-Li 120mm UNI FAN CL Wireless Reverse Black x3 Fans"
-  },
-  {
-    "score": 90,
-    "category": "case_fan",
-    "brand": "Lian Li",
-    "listing_a": "tms:12RCL1W1W",
-    "listing_b": "tms:12RCL1W3W",
-    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
-    "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans",
-    "match_text_a": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
-    "match_text_b": "12RCL1W3W Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans"
   },
   {
     "score": 90,
@@ -22152,6 +22372,17 @@
     "title_b": "MAXSUN Challenger B650M V2",
     "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
     "match_text_b": "MS-CHA-B650MV2 MAXSUN Challenger B650M V2"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MKWIFI",
+    "listing_b": "tms:MS-CHA-B760M-HWIFI",
+    "title_a": "MAXSUN Challenger B650M-K WiFi",
+    "title_b": "MAXSUN Challenger B760M-H WiFi",
+    "match_text_a": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi",
+    "match_text_b": "MS-CHA-B760M-HWIFI MAXSUN Challenger B760M-H WiFi"
   },
   {
     "score": 90,
@@ -23862,17 +24093,6 @@
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "plonter:100-000001443",
-    "listing_b": "plonter:100-000001522",
-    "title_a": "AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/",
-    "title_b": "AMD EPYC 5th Gen (Zen5) 9655P - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
-    "match_text_a": "100-000001443 AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/",
-    "match_text_b": "100-000001522 AMD EPYC 5th Gen (Zen5) 9655P - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "plonter:100-000001845",
     "listing_b": "plonter:100-100001015BOX",
     "title_a": "AMD Zen4 Ryzen5 7400F 6 Core/12 Threads - Base Clock: 3.7GHz - Max Boost Clock: 4.7GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
@@ -24247,6 +24467,17 @@
     "score": 89,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB550AORUSEWF7",
+    "listing_b": "tms:GB850AORUSELITEWIFI7",
+    "title_a": "לוח אם Gigabyte B550 AORUS ELITE WIFI7",
+    "title_b": "Gigabyte B850 AORUS ELITE WIFI7",
+    "match_text_a": "GB550AORUSEWF7 Gigabyte B550 AORUS ELITE WIFI7",
+    "match_text_b": "GB850AORUSELITEWIFI7 Gigabyte B850 AORUS ELITE WIFI7"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB550GAMINGXV2",
     "listing_b": "tms:GB650GAMINGXAXV2",
     "title_a": "Gigabyte B550 GAMING X V2",
@@ -24281,11 +24512,33 @@
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "tms:GB550MGAMINGXWIFI6",
+    "listing_b": "tms:GB550XGAMINGWF7",
+    "title_a": "Gigabyte B550M GAMING X WIFI6",
+    "title_b": "לוח אם Gigabyte B550 X GAMING WIFI7",
+    "match_text_a": "GB550MGAMINGXWIFI6 Gigabyte B550M GAMING X WIFI6",
+    "match_text_b": "GB550XGAMINGWF7 Gigabyte B550 X GAMING WIFI7"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB550MGAMINGXWIFI6",
     "listing_b": "tms:GB860MGAMINGXWIFI6E",
     "title_a": "Gigabyte B550M GAMING X WIFI6",
     "title_b": "Gigabyte B860M GAMING X WIFI6E",
     "match_text_a": "GB550MGAMINGXWIFI6 Gigabyte B550M GAMING X WIFI6",
     "match_text_b": "GB860MGAMINGXWIFI6E Gigabyte B860M GAMING X WIFI6E"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB550XEAGLEWF6E",
+    "listing_b": "tms:GB850EAGLEWIFI6E",
+    "title_a": "לוח אם Gigabyte B550 X EAGLE WIFI6E",
+    "title_b": "Gigabyte B850 EAGLE WIFI6E",
+    "match_text_a": "GB550XEAGLEWF6E Gigabyte B550 X EAGLE WIFI6E",
+    "match_text_b": "GB850EAGLEWIFI6E Gigabyte B850 EAGLE WIFI6E"
   },
   {
     "score": 89,
@@ -24297,6 +24550,17 @@
     "title_b": "Gigabyte B650E EAGLE",
     "match_text_a": "GB650EAGLEAX Gigabyte B650 EAGLE AX",
     "match_text_b": "GB650EEAGLE Gigabyte B650E EAGLE"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB650MAORUSELITEAXICE",
+    "listing_b": "tms:GB760MAORUSELITEAX",
+    "title_a": "Gigabyte B650M AORUS ELITE AX ICE",
+    "title_b": "Gigabyte B760M AORUS ELITE AX",
+    "match_text_a": "GB650MAORUSELITEAXICE Gigabyte B650M AORUS ELITE AX ICE",
+    "match_text_b": "GB760MAORUSELITEAX Gigabyte B760M AORUS ELITE AX"
   },
   {
     "score": 89,
@@ -24682,6 +24946,28 @@
     "title_b": "מארז מחשב Antec NX420",
     "match_text_a": "0-761345-81041-8 Antec NX410",
     "match_text_b": "0-761345-81046-3 Antec NX420"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:AX65ARGB",
+    "listing_b": "tms:AX85-ARGB",
+    "title_a": "מארז מחשב Antec AX65 ARGB",
+    "title_b": "מארז מחשב Antec AX85 ARGB",
+    "match_text_a": "AX65ARGB Antec AX65 ARGB",
+    "match_text_b": "AX85-ARGB Antec AX85 ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:CX700RGBELITE",
+    "listing_b": "tms:CX700RGBELITE-W",
+    "title_a": "מארז מחשב Antec CX700 RGB Elite",
+    "title_b": "מארז מחשב Antec CX700 RGB Elite White",
+    "match_text_a": "CX700RGBELITE Antec CX700 RGB Elite",
+    "match_text_b": "CX700RGBELITE-W Antec CX700 RGB Elite White"
   },
   {
     "score": 89,
@@ -25590,17 +25876,6 @@
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "1pc:208026",
-    "listing_b": "tms:12RCL1W1W",
-    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3.",
-    "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
-    "match_text_a": "208026 Lian-Li 120mm UNI FAN CL Wireless Reverse White x3.",
-    "match_text_b": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White"
-  },
-  {
-    "score": 89,
-    "category": "case_fan",
-    "brand": "Lian Li",
-    "listing_a": "1pc:208026",
     "listing_b": "tms:12RCL1W3W",
     "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3.",
     "title_b": "Lian-Li 120mm UNI FAN CL Wireless Reverse White x3 Fans",
@@ -25864,6 +26139,28 @@
     "score": 89,
     "category": "motherboard",
     "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MK",
+    "listing_b": "tms:MS-CHA-B650MKWIFI",
+    "title_a": "MAXSUN Challenger B650M-K",
+    "title_b": "MAXSUN Challenger B650M-K WiFi",
+    "match_text_a": "MS-CHA-B650MK MAXSUN Challenger B650M-K",
+    "match_text_b": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-CHA-B650MKWIFI",
+    "listing_b": "tms:MS-CHA-B760M-F-WIFI",
+    "title_a": "MAXSUN Challenger B650M-K WiFi",
+    "title_b": "MAXSUN Challenger B760M-F WiFi",
+    "match_text_a": "MS-CHA-B650MKWIFI MAXSUN Challenger B650M-K WiFi",
+    "match_text_b": "MS-CHA-B760M-F-WIFI MAXSUN Challenger B760M-F WiFi"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "MAXSUN",
     "listing_a": "tms:MS-CHA-B650MWIFIICEV2",
     "listing_b": "tms:MS-CHA-B650MWIFIV2",
     "title_a": "MAXSUN Challenger B650M WiFi ICE V2",
@@ -26002,17 +26299,6 @@
     "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
     "match_text_a": "11348-03-20G SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
     "match_text_b": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6"
-  },
-  {
-    "score": 89,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "tms:NE7507T019T2-GB2031U",
-    "listing_b": "tms:NE75080019T2-GB2031A",
-    "title_a": "Palit GeForce RTX 5070 Ti GamingPro-S 16GB",
-    "title_b": "Palit GeForce RTX 5080 GamingPro 16GB",
-    "match_text_a": "NE7507T019T2-GB2031U Palit GeForce RTX 5070 Ti GamingPro-S 16GB",
-    "match_text_b": "NE75080019T2-GB2031A Palit GeForce RTX 5080 GamingPro 16GB"
   },
   {
     "score": 89,
@@ -26640,6 +26926,28 @@
     "title_b": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0",
     "match_text_a": "6400J3239G16GX2-TZ5RK G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400 CL32 XMP 3.0",
     "match_text_b": "7600J3646G16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "tms:F4-3200C16D-32GTZR",
+    "listing_b": "tms:F4-3600C18D-32GTZR",
+    "title_a": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
+    "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL18",
+    "match_text_a": "F4-3200C16D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
+    "match_text_b": "F4-3600C18D-32GTZR G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL18"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "V-Color",
+    "listing_a": "tms:TMXSAL1660830KWK",
+    "listing_b": "tms:TMXSAL1664832WWK",
+    "title_a": "v-color Manta XSky RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+    "title_b": "v-color Manta XSky RGB DDR5 32GB (2x16GB) 6400 CL32 White EXPO",
+    "match_text_a": "TMXSAL1660830KWK v-color Manta XSky RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+    "match_text_b": "TMXSAL1664832WWK v-color Manta XSky RGB DDR5 32GB (2x16GB) 6400 CL32 White EXPO"
   },
   {
     "score": 89,
@@ -27471,17 +27779,6 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "plonter:100-000001234",
-    "listing_b": "plonter:100-000001443",
-    "title_a": "AMD EPYC 4th Gen (Zen4) 9754 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
-    "title_b": "AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/",
-    "match_text_a": "100-000001234 AMD EPYC 4th Gen (Zen4) 9754 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
-    "match_text_b": "100-000001443 AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "plonter:100-000001234",
     "listing_b": "plonter:100-000001448",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9754 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "title_b": "AMD EPYC 5th Gen (Zen5) 9365 - 36/72 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -27663,6 +27960,17 @@
     "title_b": "Gigabyte GeForce RTX 5070 Ti WINDFORCE OC SFF 16G graphics card.",
     "match_text_a": "180839 Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G graphics card.",
     "match_text_b": "180842 Gigabyte GeForce RTX 5070 Ti WINDFORCE OC SFF 16G graphics card."
+  },
+  {
+    "score": 88,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "tms:R9070XTGAMING16GD",
+    "listing_b": "tms:R907XGAMINGOCICE16GD",
+    "title_a": "Gigabyte Radeon RX 9070 XT GAMING 16G",
+    "title_b": "Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G",
+    "match_text_a": "R9070XTGAMING16GD Gigabyte Radeon RX 9070 XT GAMING 16G",
+    "match_text_b": "R907XGAMINGOCICE16GD Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G"
   },
   {
     "score": 88,
@@ -28053,6 +28361,28 @@
     "score": 88,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "tms:GB550MXAORUSEL",
+    "listing_b": "tms:GB650MAORUSELITE",
+    "title_a": "לוח אם Gigabyte B550M X AORUS ELITE",
+    "title_b": "Gigabyte B650M AORUS ELITE",
+    "match_text_a": "GB550MXAORUSEL Gigabyte B550M X AORUS ELITE",
+    "match_text_b": "GB650MAORUSELITE Gigabyte B650M AORUS ELITE"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB550XGAMING",
+    "listing_b": "tms:GB550XGAMINGWF7",
+    "title_a": "לוח אם Gigabyte B550 X GAMING",
+    "title_b": "לוח אם Gigabyte B550 X GAMING WIFI7",
+    "match_text_a": "GB550XGAMING Gigabyte B550 X GAMING",
+    "match_text_b": "GB550XGAMINGWF7 Gigabyte B550 X GAMING WIFI7"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "tms:GB650EEAGLEWIFI6E",
     "listing_b": "tms:GB840EAGLEWIFI6E",
     "title_a": "Gigabyte B650E EAGLE WiFi6E",
@@ -28092,6 +28422,17 @@
     "title_b": "Gigabyte B840M D3HP WiFi6E",
     "match_text_a": "GB760MD3HPWIFI6 Gigabyte B760M D3HP WiFi6",
     "match_text_b": "GB840MD3HPWIFI6E Gigabyte B840M D3HP WiFi6E"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "tms:GB840GAMINGXWIFI6E",
+    "listing_b": "tms:GB840MGAMINGPLUSWIFI6E",
+    "title_a": "Gigabyte B840 GAMING X WiFi6E",
+    "title_b": "Gigabyte B840M GAMING PLUS WiFi6E",
+    "match_text_a": "GB840GAMINGXWIFI6E Gigabyte B840 GAMING X WiFi6E",
+    "match_text_b": "GB840MGAMINGPLUSWIFI6E Gigabyte B840M GAMING PLUS WiFi6E"
   },
   {
     "score": 88,
@@ -28785,17 +29126,6 @@
     "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL42 XMP 3.0",
     "match_text_a": "CMH64GX5M2B6000C30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
     "match_text_b": "CMH64GX5M2B6400C42 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6400 CL42 XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "tms:CMH64GX5M2B6000Z28",
-    "listing_b": "tms:CMK64GX5M2B6000Z30W",
-    "title_a": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO/XMP 3.0",
-    "title_b": "Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
-    "match_text_a": "CMH64GX5M2B6000Z28 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO/XMP 3.0",
-    "match_text_b": "CMK64GX5M2B6000Z30W Corsair Vengeance DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
   },
   {
     "score": 88,
@@ -29956,17 +30286,6 @@
     "score": 88,
     "category": "case_fan",
     "brand": "Lian Li",
-    "listing_a": "tms:12RCL1W1W",
-    "listing_b": "tms:12RSL1W1W",
-    "title_a": "Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
-    "title_b": "Lian-Li UNI SL Wireless 120mm Reverse White Fan",
-    "match_text_a": "12RCL1W1W Lian-Li 120mm UNI FAN CL Wireless Reverse Blade White",
-    "match_text_b": "12RSL1W1W Lian-Li UNI SL Wireless 120mm Reverse White Fan"
-  },
-  {
-    "score": 88,
-    "category": "case_fan",
-    "brand": "Lian Li",
     "listing_a": "tms:12RSL1W1B",
     "listing_b": "tms:12SL1W3B",
     "title_a": "Lian-Li UNI SL Wireless 120mm Reverse Black Fan",
@@ -30372,6 +30691,17 @@
   },
   {
     "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "tms:MS-TER-Z890-A",
+    "listing_b": "tms:MS-TER-Z890-A-WIFI",
+    "title_a": "MAXSUN Terminator Z890-A",
+    "title_b": "MAXSUN Terminator Z890-A WIFI",
+    "match_text_a": "MS-TER-Z890-A MAXSUN Terminator Z890-A",
+    "match_text_b": "MS-TER-Z890-A-WIFI MAXSUN Terminator Z890-A WIFI"
+  },
+  {
+    "score": 88,
     "category": "psu",
     "brand": "1stPlayer",
     "listing_a": "1pc:171712",
@@ -30462,6 +30792,17 @@
     "score": 88,
     "category": "gpu",
     "brand": "Sapphire",
+    "listing_a": "ivory:124407",
+    "listing_b": "ivory:133686",
+    "title_a": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6",
+    "match_text_a": "11348-03-20G SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
+    "match_text_b": "11350-02-20G SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 88,
+    "category": "gpu",
+    "brand": "Sapphire",
     "listing_a": "ivory:124413",
     "listing_b": "ivory:133689",
     "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
@@ -30479,17 +30820,6 @@
     "title_b": "1StPlayer BV5 Mini Tower computer case in black.",
     "match_text_a": "214352 1StPlayer BV7 Mid Tower black computer case.",
     "match_text_b": "214353 1StPlayer BV5 Mini Tower computer case in black."
-  },
-  {
-    "score": 88,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "tms:NE7507T019T2-GB2031U",
-    "listing_b": "tms:NE75080S19T2-GB2031A",
-    "title_a": "Palit GeForce RTX 5070 Ti GamingPro-S 16GB",
-    "title_b": "Palit GeForce RTX 5080 GamingPro OC 16GB",
-    "match_text_a": "NE7507T019T2-GB2031U Palit GeForce RTX 5070 Ti GamingPro-S 16GB",
-    "match_text_b": "NE75080S19T2-GB2031A Palit GeForce RTX 5080 GamingPro OC 16GB"
   },
   {
     "score": 88,
@@ -31276,17 +31606,6 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "tms:6000J2636H16GX2-TZ5NR",
-    "listing_b": "tms:6000J3636F16GX2-TZ5N",
-    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 EXPO",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_a": "6000J2636H16GX2-TZ5NR G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 EXPO",
-    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "tms:6000J2636H16GX2-TZ5NRW",
     "listing_b": "tms:6000J3038F16GX2-TZ5NR",
     "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 White EXPO",
@@ -31463,17 +31782,6 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "tms:6000J3038F16GX2-TZ5NR",
-    "listing_b": "tms:6000J3636F16GX2-TZ5N",
-    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_a": "6000J3038F16GX2-TZ5NR G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "tms:6000J3040F16GX2-RS5K",
     "listing_b": "tms:6000J3040F16GX2-TZ5K",
     "title_a": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
@@ -31491,17 +31799,6 @@
     "title_b": "G.Skill DDR5 32GB (2x16GB) 6400 CL36 Ripjaws S5 White XMP 3.0",
     "match_text_a": "6000J3040F16GX2-RS5K G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
     "match_text_b": "6400J3648F16GX2-RS5W G.Skill DDR5 32GB (2x16GB) 6400 CL36 Ripjaws S5 White XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:6000J3040F16GX2-TZ5K",
-    "listing_b": "tms:6000J3636F16GX2-TZ5N",
-    "title_a": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_a": "6000J3040F16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
   },
   {
     "score": 88,
@@ -31568,28 +31865,6 @@
     "title_b": "G.Skill Aegis 5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
     "match_text_a": "6000J3636F16GX2-FX5 G.Skill Flare X5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
     "match_text_b": "6000J3636F16GX2-IS G.Skill Aegis 5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:6000J3636F16GX2-FX5",
-    "listing_b": "tms:6000J3636F16GX2-TZ5N",
-    "title_a": "G.Skill Flare X5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_a": "6000J3636F16GX2-FX5 G.Skill Flare X5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "tms:6000J3636F16GX2-TZ5N",
-    "listing_b": "tms:7600J3646G16GX2-TZ5K",
-    "title_a": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "title_b": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0",
-    "match_text_a": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_b": "7600J3646G16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0"
   },
   {
     "score": 88,
