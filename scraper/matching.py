@@ -32,8 +32,10 @@ except ImportError:
 
 try:
     from scraper.extractors import extract_attributes
+    from scraper.extractors import _canonicalize_filter_values
 except ImportError:
     from extractors import extract_attributes
+    from extractors import _canonicalize_filter_values
 
 # Optional: docyx/pc-part-dataset reference specs (Aug 2026, see
 # DECISIONS.md). Never required for the core pipeline — if it can't be
@@ -211,10 +213,20 @@ BRAND_ALIASES = {
 
     # Memory
     "kingston": "Kingston",
-    "fury": "Kingston Fury",
+    "fury": "Kingston",
     "patriot": "Patriot",
-    "viper": "Patriot Viper",
+    "viper": "Patriot",
     "g.skill": "G.Skill",
+    "gskill": "G.Skill",
+    "lexar": "Lexar",
+    "geil": "GeIL",
+    "v-color": "V-Color",
+    "vcolor": "V-Color",
+    "adata": "ADATA",
+    "pny": "PNY",
+    "silicon power": "Silicon Power",
+    "teamgroup": "TeamGroup",
+    "t-force": "TeamGroup",
     "gskill": "G.Skill",
     "lexar": "Lexar",
     "adata": "ADATA",
@@ -607,6 +619,32 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["attributes"] = extract_attributes(enriched)
 
+    # Attribute-level brand: the title parsers only set brand for some
+    # categories (cpu/gpu/...), but the offer-level detect_brand above
+    # fires everywhere — propagate it so brand filters/columns work for
+    # memory/cases/etc. too. Runs before the motherboard rule below.
+    _attrs = enriched["attributes"]
+    if "brand" not in _attrs and enriched.get("brand"):
+        _attrs["brand"] = enriched["brand"]
+
+    # Chip-vendor cleanup: "AMD"/"Intel"/"NVIDIA" as a motherboard brand
+    # (Plonter generics like "AMD A520 AM4" with no board partner) or a
+    # memory brand ("compatible with AMD EXPO" sticks with no maker named)
+    # is chipset bleed, not a brand — a wrong facet is worse than none.
+    # (CPUs/GPUs keep theirs: AMD/NVIDIA really make those.)
+    if enriched.get("category_normalized") in ("motherboard", "memory"):
+        if _attrs.get("brand") in ("AMD", "Intel", "NVIDIA"):
+            del _attrs["brand"]
+        if enriched.get("brand") in ("AMD", "Intel", "NVIDIA"):
+            enriched["brand"] = None
+
+    # "Sapphire Rapids" (Intel codename) in a CPU title wins longest-match
+    # brand detection over "Intel" — but Sapphire only makes GPUs. (Attrs
+    # level is fixed in _canonicalize_filter_values; this is offer level.)
+    if enriched.get("category_normalized") == "cpu":
+        if enriched.get("brand") == "Sapphire":
+            enriched["brand"] = "Intel"
+
     return enriched
 
 
@@ -964,6 +1002,9 @@ def _scrub_title(text: str) -> str:
         r"purple|orange|beige)\s*$", "", s, flags=re.I)
     s = re.sub(r"\s+CPU\s*(?=,)", " ", s)
     s = re.sub(r"\s+CPU\s*$", "", s)
+    # Trailing dangling prepositions from dropped clauses ("...EPYC Series
+    # Without", left by "...Without Cooler").
+    s = re.sub(r"\s*\b(Without|With)\s*$", "", s, flags=re.I)
     toks = s.split(" ")
     s = " ".join(toks)
     # Dedupe consecutive duplicate words ("Intel Intel", "DDR4 DDR4") and
@@ -1225,6 +1266,8 @@ MEMORY_NAME_BRANDS = [
     ("pny", "PNY"),
     ("oscoo", "OSCOO"),
     ("lexar", "Lexar"),
+    ("geil", "GeIL"),
+    ("v-color", "V-Color"),
     ("klevv", "Klevv"),
     ("apacer", "Apacer"),
     ("transcend", "Transcend"),
@@ -1645,6 +1688,14 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
             for key, value in normalized_specs.items()
             if key not in product["attributes"]
         )
+        # PC Kombo rows are raw German vendor specs ("65 W", "2542 MHz",
+        # "256" for board max-memory) — run the same value canonicalization
+        # the title parsers get, or the rail shows dupes ("65W" + "65 W").
+        try:
+            _canonicalize_filter_values(
+                product["attributes"], product.get("category") or "")
+        except Exception:
+            pass
         product["pckombo"] = {
             "mpn": row["mpn"],
             "url": row["url"],

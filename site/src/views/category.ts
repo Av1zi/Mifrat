@@ -60,6 +60,12 @@ const NUMERIC_ATTRS = new Set([
   "speed_mhz",
   "cas_latency",
   "pcie_gen",
+  "l2_cache",
+  "l3_cache",
+  "first_word_latency_ns",
+  "memory_max",
+  "max_gpu_length_mm",
+  "m2_slots",
 ]);
 
 const MAX_SPEC_COLUMNS = 4;
@@ -78,8 +84,12 @@ function computeFilterableAttributes(
   const numericRanges = new Map<string, { min: number; max: number }>();
 
   for (const p of products) {
-    for (const [key, value] of Object.entries(p.attributes)) {
-      if (!value) continue;
+    for (const [key, rawValue] of Object.entries(p.attributes)) {
+      if (rawValue === undefined || rawValue === null || rawValue === "") continue;
+      // Attribute values arrive as mixed ints/strings across vendors
+      // (m2_slots: 2 vs "2"). Stringify once so checkbox values, URL
+      // params and strict-equality matching all speak one type.
+      const value = String(rawValue);
 
       if (!counts.has(key)) counts.set(key, new Map());
       const values = counts.get(key)!;
@@ -206,7 +216,8 @@ function applyFilters(
       if (key === "vendor") {
         if (!p.offers.some((o) => values.includes(o.vendor))) return false;
       } else {
-        if (!values.includes(p.attributes[key])) return false;
+        const actual = p.attributes[key];
+        if (!values.includes(actual === undefined || actual === null ? actual : String(actual))) return false;
       }
     }
 

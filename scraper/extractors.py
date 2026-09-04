@@ -153,9 +153,16 @@ INTEL_CPU_RE = re.compile(
 )
 XEON_RE = re.compile(
     r"\bXEON\s?(?:(SILVER|BRONZE|GOLD|PLATINUM|W\d?|E\d?)\s?-?\s?)?(\d{3,5}[A-Z]{0,2})\b", re.I)
+# First-gen EPYC naming ("Naples 7551P") — codename + number, no EPYC word.
+AMD_EPYC_CODENAME_RE = re.compile(r"\b(NAPLES|ROME|MILAN|GENOA)\s?(\d{4}[A-Z]?)\b", re.I)
 # Server AMD: "EPYC 7763", "EPYC 4th Gen 9454". The "Nth Gen" prefix is
 # skipped here (parsed separately for the generation filter below).
-EPYC_RE = re.compile(r"\bEPYC\s?(?:\d+(?:TH|ST|ND|RD)\s?GEN\s?)?(\d{3,4}[A-Z]{0,2})\b", re.I)
+# A trailing "Series" is also skipped ("EPYC 9004 Series" names the lineup,
+# not the chip — matching it merged 18 different SKUs into one product).
+# The Gen prefix tolerates a codename paren ("4th Gen (Zen4) 9354").
+EPYC_RE = re.compile(
+    r"\bEPYC\s?(?:\d+(?:TH|ST|ND|RD)\s?GEN\s?(?:\([^)]*\)\s?)?)?"
+    r"(\d{3,4}[A-Z]{0,2})(?!\s*Series\b)", re.I)
 
 # Expanded GPU chip: covers GeForce RTX (incl. xx50 Ti, xx60 Ti), RTX PRO/A-series,
 # Radeon RX (inc. GRE), Quadro, Tesla, ARC — plus legacy GT/GTS/GTX and
@@ -199,7 +206,8 @@ MEMORY_BRANDS = {
     "klevv": "Klevv", "apacer": "Apacer", "transcend": "Transcend",
     "pny": "PNY", "oscoo": "OSCOO", "gloway": "Gloway",
     "thermaltake": "Thermaltake", "timetec": "Timetec",
-    "lexar": "Lexar",
+    "lexar": "Lexar", "geil": "GeIL",
+    "v-color": "V-Color", "vcolor": "V-Color",
 }
 
 VRAM_RE = re.compile(r"\b(\d{1,2})\s?G(?:B)?\b")
@@ -244,7 +252,7 @@ STORAGE_TYPE_RE = re.compile(r"\b(SSD|HDD|SSHD|NVME)\b", re.I)
 FORM_FACTOR_STORAGE_RE = re.compile(r"\b(2\.5[\"'’]*|3\.5[\"'’]*|M\.2\s*22\d{2}|M\.2|U\.2)\b", re.I)
 INTERFACE_RE = re.compile(r"\b(SATA|NVME|PCIE|SAS)\b", re.I)
 PCIE_GEN_RE = re.compile(r"PCIE\s*GEN\s*([345])(?:\.0)?(?:\s*X\s*4)?", re.I)
-CACHE_RE = re.compile(r"\b(\d+)\s?MB\s*(?:CACHE|DRAM)?\b", re.I)
+CACHE_RE = re.compile(r"\b(\d+)\s?MB\s*(?:CACHE|DRAM)?\b(?!/s)", re.I)
 RPM_RE = re.compile(r"\b(\d{3,4})\s?RPM\b", re.I)
 
 COLOR_WORDS = [
@@ -411,10 +419,11 @@ YES_NO_KEYS = frozenset({
     "smt", "ecc", "ecc_support", "unlocked", "cooler_included",
     "registered", "nvme", "nvme_flag", "heat_spreader",
     "integrated_graphics", "graphics",
+    "rgb", "argb", "pwm", "wireless", "fanless",
 })
 
-_YES_VALUES = frozenset({"yes", "y", "true", "1", "included", "with"})
-_NO_VALUES = frozenset({"no", "n", "false", "0", "not included", "without"})
+_YES_VALUES = frozenset({"yes", "y", "true", "1", "included", "with", "ja"})
+_NO_VALUES = frozenset({"no", "n", "false", "0", "not included", "without", "nein"})
 
 
 def _is_mojibake_text(s) -> bool:
@@ -487,6 +496,11 @@ def _canonicalize_yes_no(key: str, value):
     if isinstance(value, bool):
         return "Yes" if value else "No"
     low = str(value).strip().lower()
+    # Detail rows qualify their answer ("yes (Intel Hyper-Threading)",
+    # "No, not included") — decide on the leading word.
+    m = re.match(r"^(yes|no|true|false)\b", low)
+    if m:
+        low = m.group(1)
     if low in _YES_VALUES:
         return "Yes"
     if low in _NO_VALUES:
@@ -808,16 +822,32 @@ def _parse_cpu(text: str, meta) -> dict:
         if 10 <= val <= 300:
             a["tdp"] = f"{val}W"
 
-    # Core count from explicit text ("Dual Core", "10 cores"). Leftmost
-    # match wins — totals precede the P-core/E-core breakdown in parens.
-    if re.search(r"\bdual[-\s]?core\b", text, re.I):
-        a["cores"] = 2
+    # Core count from explicit text ("Dual Core", "10 cores"). Server
+    # listings write "32/64 Cores" (cores/threads) — take both numbers.
+    # Leftmost match wins otherwise — totals precede the P-core/E-core
+    # breakdown in parens.
+    ct = re.search(r"\b(\d{1,3})\s*/\s*(\d{1,3})\s*cores?\b", text, re.I)
+    if ct and 2 <= int(ct.group(1)) <= 256 and 2 <= int(ct.group(2)) <= 512:
+        a["cores"] = int(ct.group(1))
+        a["threads"] = int(ct.group(2))
     else:
-        cm = re.search(r"\b(\d{1,3})\s*-?\s*cores?\b", text, re.I)
-        if cm and 2 <= int(cm.group(1)) <= 128:
-            # Guard: "P-cores"/"E-cores" fragments ("6 P-cores") must not
-            # register as the total — require the word "core(s)" itself.
-            a["cores"] = int(cm.group(1))
+        ct2 = re.search(r"\b(\d{1,3})\s*cores?\s*/\s*(\d{1,3})\s*threads?\b", text, re.I)
+        if ct2 and 2 <= int(ct2.group(1)) <= 256 and 2 <= int(ct2.group(2)) <= 512:
+            a["cores"] = int(ct2.group(1))
+            a["threads"] = int(ct2.group(2))
+    if "cores" not in a:
+        if re.search(r"\bdual[-\s]?core\b", text, re.I):
+            a["cores"] = 2
+        else:
+            cm = re.search(r"\b(\d{1,3})\s*-?\s*cores?\b", text, re.I)
+            if cm and 2 <= int(cm.group(1)) <= 128:
+                # Guard: "P-cores"/"E-cores" fragments ("6 P-cores") must not
+                # register as the total — require the word "core(s)" itself.
+                a["cores"] = int(cm.group(1))
+    if "threads" not in a:
+        tm = re.search(r"\b(\d{1,3})\s*threads?\b", text, re.I)
+        if tm and 2 <= int(tm.group(1)) <= 512:
+            a["threads"] = int(tm.group(1))
 
     m = AMD_RYZEN_RE.search(text)
     if m:
@@ -847,46 +877,51 @@ def _parse_cpu(text: str, meta) -> dict:
                         variant = f"{m.group(1).upper()} " if m.group(1) else ""
                         a["model"] = f"Athlon {variant}{m.group(2).upper()}".strip()
                     else:
-                        m = INTEL_CPU_RE.search(text)
+                        m = AMD_EPYC_CODENAME_RE.search(text)
                         if m:
-                            a["brand"] = "Intel"
-                            raw_fam = re.sub(r"\s+", " ", m.group(1).strip())
-                            # "ULTRA 5" -> "Ultra 5", "I7" -> "i7" (PCPP style).
-                            if raw_fam.upper().startswith("ULTRA"):
-                                fam = raw_fam.title()
-                            elif re.fullmatch(r"I[3579]", raw_fam.upper()):
-                                fam = "i" + raw_fam[-1]
-                            else:
-                                fam = raw_fam.upper()
-                            # Fix truncation: keep full number (3-5 digits + suffix)
-                            num = m.group(2).upper().strip()
-                            a["model"] = f"Core {fam} {num}"
+                            a["brand"] = "AMD"
+                            a["model"] = f"EPYC {m.group(2).upper()}"
                         else:
-                            m = XEON_RE.search(text)
+                            m = INTEL_CPU_RE.search(text)
                             if m:
                                 a["brand"] = "Intel"
-                                tier, num = (m.group(1) or "").upper(), m.group(2).upper()
-                                if re.fullmatch(r"[WE]\d?", tier):
-                                    a["model"] = f"Xeon {tier}-{num}"
-                                elif tier:
-                                    a["model"] = f"Xeon {tier.title()} {num}"
+                                raw_fam = re.sub(r"\s+", " ", m.group(1).strip())
+                                # "ULTRA 5" -> "Ultra 5", "I7" -> "i7" (PCPP style).
+                                if raw_fam.upper().startswith("ULTRA"):
+                                    fam = raw_fam.title()
+                                elif re.fullmatch(r"I[3579]", raw_fam.upper()):
+                                    fam = "i" + raw_fam[-1]
                                 else:
-                                    a["model"] = f"Xeon {num}"
+                                    fam = raw_fam.upper()
+                                # Fix truncation: keep full number (3-5 digits + suffix)
+                                num = m.group(2).upper().strip()
+                                a["model"] = f"Core {fam} {num}"
                             else:
-                                m = EPYC_RE.search(text)
+                                m = XEON_RE.search(text)
                                 if m:
-                                    a["brand"] = "AMD"
-                                    a["model"] = f"EPYC {m.group(1).upper()}"
-                                else:
-                                    m = INTEL_CELERON_RE.search(text)
-                                    if m:
-                                        a["brand"] = "Intel"
-                                        a["model"] = f"Celeron {m.group(1).upper()}"
+                                    a["brand"] = "Intel"
+                                    tier, num = (m.group(1) or "").upper(), m.group(2).upper()
+                                    if re.fullmatch(r"[WE]\d?", tier):
+                                        a["model"] = f"Xeon {tier}-{num}"
+                                    elif tier:
+                                        a["model"] = f"Xeon {tier.title()} {num}"
                                     else:
-                                        m = INTEL_PENTIUM_RE.search(text)
+                                        a["model"] = f"Xeon {num}"
+                                else:
+                                    m = EPYC_RE.search(text)
+                                    if m:
+                                        a["brand"] = "AMD"
+                                        a["model"] = f"EPYC {m.group(1).upper()}"
+                                    else:
+                                        m = INTEL_CELERON_RE.search(text)
                                         if m:
                                             a["brand"] = "Intel"
-                                            a["model"] = f"Pentium {m.group(1).upper()}"
+                                            a["model"] = f"Celeron {m.group(1).upper()}"
+                                        else:
+                                            m = INTEL_PENTIUM_RE.search(text)
+                                            if m:
+                                                a["brand"] = "Intel"
+                                                a["model"] = f"Pentium {m.group(1).upper()}"
 
     # Generation + tier, so the UI can offer them as filters the way
     # PCPartPicker does. These are derived from the model number we just
@@ -1103,6 +1138,20 @@ def _parse_psu(text: str, meta) -> dict:
         cy = CYBENETICS_RE.search(text)
         if cy:
             a["efficiency"] = f"Cybenetics {cy.group(1).title()}"
+        else:
+            # "80+" shorthand ("850W Gold 80+") or a bare cert metal
+            # ("NeoECO Gold"). In PSU titles a metal word is always the
+            # efficiency tier, never the paint — real gold/silver PSUs
+            # effectively don't exist. (WHITE excluded: white PSUs are
+            # common, so bare "White" stays a color.)
+            m80 = re.search(
+                r"\b80\s?\+\s?(GOLD|SILVER|BRONZE|PLATINUM|TITANIUM)\b", text, re.I)
+            if m80:
+                a["efficiency"] = "80 PLUS " + m80.group(1).title()
+            else:
+                mb = re.search(r"\b(GOLD|SILVER|BRONZE|PLATINUM|TITANIUM)\b", text, re.I)
+                if mb:
+                    a["efficiency"] = "80 PLUS " + mb.group(1).title()
 
     m = MOD_RE.search(text)
     if m:
@@ -1136,9 +1185,19 @@ def _parse_psu(text: str, meta) -> dict:
         if "form_factor" not in a:
             a["form_factor"] = "ATX"
 
-    # Color
+    # Color. Blank efficiency phrases first: "80 PLUS Gold" contains the
+    # color word "Gold" but is a certification, not a paint job (this
+    # produced 189 bogus color=Gold PSUs). Real metal-trim colors on other
+    # categories (GPU "Black/Gold") are unaffected — this is PSU-only.
+    # Additionally, bare cert metals never count as PSU colors at all (see
+    # the efficiency fallback above: they always mean the tier).
+    color_text = re.sub(
+        r"\b80\s?PLUS\b(\s+[A-Za-z]+)?|\bCYBENETICS\b(\s+[A-Za-z]+)?",
+        " ", text, flags=re.I)
     for color in COLOR_WORDS:
-        if re.search(rf"\b{color}\b", text, re.I):
+        if color in ("gold", "silver", "bronze", "platinum", "titanium"):
+            continue
+        if re.search(rf"\b{color}\b", color_text, re.I):
             a["color"] = color.title()
             break
 
@@ -1274,7 +1333,7 @@ def _parse_memory(text: str, meta) -> dict:
         # First word latency calc if speed present
         if "speed_mhz" in a:
             try:
-                fwl = round((int(c.group(1)) * 2000) / int(a["speed_mhz"]), 3)
+                fwl = round((int(c.group(1)) * 2000) / int(a["speed_mhz"]), 1)
                 a["first_word_latency_ns"] = fwl
                 a["first_word_latency"] = f"{fwl} ns"
             except ZeroDivisionError:
@@ -1805,11 +1864,9 @@ def extract_attributes(listing: dict) -> dict:
 
     # Boolean-ish specs to canonical Yes/No so the filter rail never shows
     # both "True" and "yes" for the same thing (detail values arrive as
-    # 'yes'/'no', Hebrew-desc/tree values as True/False).
-    for yk in ("cooler_included", "ecc", "registered", "nvme", "nvme_flag",
-               "heat_spreader", "smt", "ecc_support", "unlocked",
-               "integrated_graphics", "graphics", "rgb", "argb", "pwm",
-               "wireless"):
+    # 'yes'/'no', Hebrew-desc/tree values as True/False, pckombo rows as
+    # JSON booleans). Single source of truth: YES_NO_KEYS.
+    for yk in YES_NO_KEYS:
         if yk in attrs:
             attrs[yk] = _canonicalize_yes_no(yk, attrs[yk])
 
@@ -1876,7 +1933,368 @@ def extract_attributes(listing: dict) -> dict:
     if "gpu_chip" in attrs and "chipset" not in attrs:
         attrs["chipset"] = attrs["gpu_chip"]
 
+    # Value canonicalization for filter parity (PCPP-style rails need a
+    # small set of distinct values — "65W"/"65 W"/"65W (Base Power)" must
+    # not become three filter options). All idempotent string->string/int
+    # normalizations; safe to run on re-extracts.
+    _canonicalize_filter_values(attrs, category)
+
     # Price per GB for storage (if price available on listing, compute here? listing price may be missing at this stage)
     # Will be enriched later in matching if price present.
 
     return attrs
+
+
+# Motherboard memory-max sizes worth offering as a filter (GB). Anything
+# outside this set came from a misparsed title ("2000", "1", "2") and is
+# dropped instead of becoming a bogus filter option.
+_MOBO_MAX_MEM_GB = {32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048}
+
+# Brand spelling canonical map (lowercased input -> display). Detail-spec
+# rows SHOUT ("CORSAIR", "THERMALRIGHT", "Team Group") while title parsing
+# whispers canonical names — without this the brand rail shows both.
+# Sub-lines fold into their parent ("Kingston Fury" -> "Kingston").
+_BRAND_CANON = {
+    "corsair": "Corsair", "thermalright": "Thermalright", "arctic": "Arctic",
+    "hyte": "HYTE", "team group": "TeamGroup", "teamgroup": "TeamGroup",
+    "be quiet": "be quiet!", "western digital wd": "Western Digital",
+    "western digital": "Western Digital", "ivory": "Ivory",
+    "maxsun": "MAXSUN", "kingston fury": "Kingston", "fury": "Kingston",
+    "patriot viper": "Patriot", "viper": "Patriot",
+    "sandisk": "SanDisk", "lexar": "Lexar", "adata": "ADATA", "xpg": "XPG",
+    "geil": "GeIL", "v-color": "V-Color", "vcolor": "V-Color",
+    "g.skill": "G.Skill", "gskill": "G.Skill", "ripjaws": "G.Skill",
+    "trident": "G.Skill", "flare": "G.Skill", "beast": "Kingston",
+    "klevv": "Klevv", "apacer": "Apacer", "transcend": "Transcend",
+    "silicon power": "Silicon Power", "siliconpower": "Silicon Power",
+    "sk hynix": "SK Hynix", "hynix": "SK Hynix", "samsung": "Samsung",
+    "crucial": "Crucial", "ballistix": "Crucial", "micron": "Crucial",
+    "kingston": "Kingston", "patriot": "Patriot", "pny": "PNY",
+    "seasonic": "Seasonic", "fsp": "FSP", "antec": "Antec",
+    "coolermaster": "Cooler Master", "cooler master": "Cooler Master",
+    "fractal design": "Fractal Design", "fractal": "Fractal Design",
+    "lian li": "Lian Li", "lian-li": "Lian Li", "nzxt": "NZXT",
+    "thermaltake": "Thermaltake", "zalman": "Zalman", "cougar": "Cougar",
+    "gamdias": "GAMDIAS", "supermicro": "Supermicro",
+    "silverstone": "SilverStone", "noctua": "Noctua", "deepcool": "Deepcool",
+    "asus": "ASUS", "gigabyte": "Gigabyte", "msi": "MSI", "asrock": "ASRock",
+    "inno3d": "Inno3D", "powercolor": "PowerColor", "nvidia": "NVIDIA",
+    "palit": "Palit", "xfx": "XFX", "sapphire": "Sapphire", "zotac": "ZOTAC",
+    "toshiba": "Toshiba", "kioxia": "KIOXIA", "seagate": "Seagate",
+    "1stplayer": "1stPlayer", "biostar": "Biostar",
+    "afox": "AFOX", "evga": "EVGA", "arktek": "ARKTEK", "jonsbo": "Jonsbo",
+}
+
+# Legacy low-end cards are sold as "SDDR3" (vendor shorthand for the DDR3
+# on sub-$50 cards like the GT 710) — fold into DDR3/4/5 for the filter.
+_SDDR_RE = re.compile(r"(?i)\bSDDR([345])\b")
+
+
+def _canonicalize_filter_values(attrs: dict, category: str) -> None:
+    """Normalize attribute VALUES (not keys) so filters stay compact."""
+    # Yes/No sweep first: downstream sources (pckombo JSON booleans,
+    # German "Ja"/qualified answers) skip the extract-time loop.
+    for yk in YES_NO_KEYS:
+        if yk in attrs:
+            attrs[yk] = _canonicalize_yes_no(yk, attrs[yk])
+    # TDP: "65 W", "65W (Processor Base Power), 219W (...)" -> "65W".
+    # Leading number + W is always the headline figure.
+    tdp = attrs.get("tdp")
+    if isinstance(tdp, str):
+        m = re.match(r"\s*(\d+)\s?W\b", tdp)
+        if m:
+            attrs["tdp"] = f"{m.group(1)}W"
+
+    # Efficiency: "GOLD" -> "80 PLUS Gold", "80PLUS[ Gold]" -> "80 PLUS[ Gold]".
+    # Bare "GOLD" in a PSU title/detail row means 80 PLUS Gold (the metal
+    # alone is never any other cert); "Cybenetics X" stays as-is.
+    eff = attrs.get("efficiency")
+    if isinstance(eff, str):
+        e = re.sub(r"(?i)\b80\s?plus\b\s*", "80 PLUS ", eff).strip()
+        e = re.sub(r"\s+", " ", e)
+        if re.fullmatch(r"(?i)(gold|silver|bronze|platinum|titanium|white)", e):
+            e = "80 PLUS " + e.title()
+        attrs["efficiency"] = e
+
+    # Modular: case variants ("FULL MODULAR" vs "Full Modular") -> one
+    # canonical word. Bare "MODULAR" (vendor didn't specify) -> "Yes".
+    mod = attrs.get("modular")
+    if isinstance(mod, str):
+        mu = mod.upper()
+        if "FULL" in mu:
+            attrs["modular"] = "Full"
+        elif "SEMI" in mu:
+            attrs["modular"] = "Semi"
+        elif "NON" in mu:
+            attrs["modular"] = "No"
+        elif "MODULAR" in mu:
+            attrs["modular"] = "Yes"
+
+    # Color: title-case ("black" -> "Black") and drop ", inside X"
+    # qualifiers ("black, inside black" -> "Black").
+    col = attrs.get("color")
+    if isinstance(col, str):
+        col = re.sub(r",?\s*inside\s+\w+\s*$", "", col, flags=re.I).strip()
+        if col:
+            attrs["color"] = col.title()
+
+    # GHz clocks -> float ("3.80GHz" -> 3.8, "2542 MHz" -> 2.542, unparseable
+    # detail fragments like bare "MHz" are dropped). Powers the sliders.
+    for ck in ("base_clock_ghz", "boost_clock_ghz"):
+        cv = attrs.get(ck)
+        if isinstance(cv, str):
+            m = re.search(r"(\d+(?:\.\d+)?)\s?GHz", cv, re.I)
+            if m:
+                attrs[ck] = float(m.group(1))
+                continue
+            m = re.search(r"(\d+(?:\.\d+)?)\s?MHz", cv, re.I)
+            if m:
+                attrs[ck] = round(float(m.group(1)) / 1000, 3)
+                continue
+            del attrs[ck]
+
+    # Caches: "8MB (8x 1MB)" / "8MiB (8x 1MiB)" -> "8MB".
+    for kk in ("l2_cache", "l3_cache"):
+        kv = attrs.get(kk)
+        if isinstance(kv, str):
+            kv = re.sub(r"\s*\(.*$", "", kv).strip()
+            kv = re.sub(r"(?i)MiB", "MB", kv)
+            attrs[kk] = kv
+
+    # iGPU: "None" and "No" are the same answer.
+    ig = attrs.get("integrated_graphics")
+    if isinstance(ig, str) and ig.strip().lower() == "none":
+        attrs["integrated_graphics"] = "No"
+
+    # Kit/modules: "1x 16GB" -> "1x16GB" (spacing variants split filters).
+    for mk in ("modules", "kit"):
+        mv = attrs.get(mk)
+        if isinstance(mv, str):
+            attrs[mk] = re.sub(r"(\d)\s*x\s*(\d+\s?GB)", r"\1x\2", mv, flags=re.I)
+
+    # First-word latency: round to 0.1ns ("16.429" -> 16.4) so the rail
+    # shows a dozen options, not dozens.
+    fwl = attrs.get("first_word_latency_ns")
+    if fwl is not None:
+        try:
+            attrs["first_word_latency_ns"] = round(float(str(fwl).split()[0]), 1)
+        except (ValueError, TypeError):
+            pass
+
+    # Voltage: "1.1V (JEDEC-Normspannung)" -> "1.1V".
+    vv = attrs.get("voltage")
+    if isinstance(vv, str):
+        attrs["voltage"] = re.sub(r"\s*\(.*\)\s*$", "", vv).strip()
+
+    # Registered implies ECC: a Registered DIMM without an explicit ECC
+    # row must still match the ECC filter.
+    if attrs.get("ecc_registered") and not attrs.get("ecc_support"):
+        attrs["ecc_support"] = "Yes"
+
+    # PSU catch-all (any source: title, detail rows, pckombo): a cert
+    # metal as "color" is always the efficiency tier, never paint.
+    if category == "psu":
+        pcol = attrs.get("color")
+        if isinstance(pcol, str) and re.fullmatch(
+                r"(?i)(gold|silver|bronze|platinum|titanium)", pcol.strip()):
+            if not attrs.get("efficiency"):
+                attrs["efficiency"] = "80 PLUS " + pcol.strip().title()
+            attrs.pop("color", None)
+
+    # Case dupe: _parse_case stores the same value in form_factor AND
+    # case_type (both are the board-compat "ATX", not PCPP's tower Type).
+    # Keep form_factor (the filtered key), drop the twin.
+    if category == "case" and attrs.get("case_type") == attrs.get("form_factor"):
+        attrs.pop("case_type", None)
+
+    # Case max-GPU-length: "max. 400mm" (graphics_cards detail row) -> int
+    # into max_gpu_length_mm (the filtered/slider key).
+    if category == "case" and "max_gpu_length_mm" not in attrs:
+        gc = attrs.get("graphics_cards")
+        if isinstance(gc, str):
+            m = re.search(r"max\.\s?(\d+)\s?mm", gc, re.I)
+            if m:
+                attrs["max_gpu_length_mm"] = int(m.group(1))
+
+    # Case PSU bay: "ATX (max. 200mm deep)" -> "ATX" (depth lives in the
+    # detail row; the filter only needs the standard).
+    if category == "case":
+        ps = attrs.get("power_supply")
+        if isinstance(ps, str):
+            m = re.match(r"\s*(ATX|SFX-L|SFX|TFX|FLEX\s?ATX)\b", ps, re.I)
+            if m:
+                attrs["power_supply"] = m.group(1).upper().replace(" ", "")
+
+    # Motherboard memory-max: capacity_gb here is really "max. NNNGB".
+    # Whitelisted sizes become memory_max ("256GB"); junk ("1", "2000")
+    # is dropped so it never distorts the slider or the rail. The generic
+    # capacity/capacity_gb/total_gb aliases above are meaningless for
+    # boards, so they go too (a junk "2TB capacity" row is worse than none).
+    if category == "motherboard":
+        cap = attrs.get("capacity_gb")
+        if cap is not None:
+            try:
+                n = int(cap)
+            except (ValueError, TypeError):
+                n = None
+            if n in _MOBO_MAX_MEM_GB:
+                attrs["memory_max"] = f"{n}GB"
+            attrs.pop("capacity_gb", None)
+            attrs.pop("capacity", None)
+            attrs.pop("total_gb", None)
+
+    # Motherboard RAM slots: ram_slots is a German sentence
+    # ("4x DDR5 DIMM, ..., max. 256GB (UDIMM)") while memory_slots is the
+    # clean int. Harvest count + max from the sentence, then drop it.
+    rs = attrs.get("ram_slots")
+    if isinstance(rs, str):
+        if "memory_slots" not in attrs:
+            m = re.match(r"\s*(\d+)\s*x\b", rs)
+            if m:
+                attrs["memory_slots"] = int(m.group(1))
+        if "memory_max" not in attrs:
+            for m in re.finditer(r"max\.\s?(\d+)\s?GB", rs, re.I):
+                if int(m.group(1)) in _MOBO_MAX_MEM_GB:
+                    attrs["memory_max"] = f"{m.group(1)}GB"
+                    break
+        attrs.pop("ram_slots", None)
+
+    # Motherboard M.2 count: verbose German enumerations
+    # ("1x M.2 ..., 2x M.2 ...") -> total int; plain ints pass through.
+    m2 = attrs.get("m2_slots")
+    if isinstance(m2, str) and "M.2" in m2:
+        total = sum(int(n) for n in re.findall(r"(\d+)\s*x\s*M\.?2", m2, re.I))
+        if total:
+            attrs["m2_slots"] = total
+
+    # GPU external power: "1x 12V-2x6 (via adapter: ...)" -> "1x 12V-2x6".
+    pc = attrs.get("power_connections")
+    if isinstance(pc, str):
+        attrs["power_connections"] = re.sub(r"\s*\(.*\)\s*$", "", pc).strip()
+
+    # Connector lists: "1x CPU 8-pin ,1x CPU 4+4-pin" -> tidy comma spacing.
+    for ck in ("cpu_power_connectors", "pcie_power_connectors",
+               "sata_connectors", "power_connections"):
+        cv = attrs.get(ck)
+        if isinstance(cv, str):
+            attrs[ck] = re.sub(r"\s*,\s*", ", ", cv).strip()
+
+    # Brand spelling: detail rows shout ("CORSAIR", "THERMALRIGHT") while
+    # titles whisper ("Corsair") — one canonical spelling per brand or the
+    # rail shows both. Unknown brands pass through untouched.
+    # Chip vendors never make boards or DIMMs: an "AMD"/"Intel" brand on a
+    # motherboard (Plonter generics like "AMD A520 AM4") or memory ("for
+    # AMD Ryzen") is chipset bleed, not a brand — drop it. (CPUs/GPUs keep
+    # theirs: AMD/NVIDIA really make those.)
+    br = attrs.get("brand")
+    if isinstance(br, str):
+        canon = _BRAND_CANON.get(br.strip().lower())
+        if canon:
+            attrs["brand"] = canon
+            br = canon
+    if category in ("motherboard", "memory") and attrs.get("brand") in ("AMD", "Intel", "NVIDIA"):
+        attrs.pop("brand", None)
+
+    # Timings must look like timings ("16-18-18-38"). Bare numbers ("36")
+    # are CAS values leaked from detail rows — the cas_latency filter
+    # already covers them.
+    tm = attrs.get("timings")
+    if isinstance(tm, str) and not re.search(r"\d+\s*-\s*\d+", tm):
+        attrs.pop("timings", None)
+
+    # Form factor spelling: "mATX"/"Micro ATX" (title regex / detail rows)
+    # vs "Micro-ATX"; "E-ATX" vs "EATX". One spelling each.
+    ff = attrs.get("form_factor")
+    if isinstance(ff, str):
+        flu = ff.strip().lower()
+        if flu in ("matx", "micro atx"):
+            attrs["form_factor"] = "Micro-ATX"
+        elif flu == "e-atx":
+            attrs["form_factor"] = "EATX"
+
+    # Socket spelling: "STR5" vs "sTR5" (Threadripper); "Intel 4677" detail
+    # rows vs "LGA4677"; "3647 (LGA)" detail rows vs "LGA3647".
+    sk = attrs.get("socket")
+    if isinstance(sk, str):
+        sku = sk.strip()
+        if sku.upper() == "STR5":
+            attrs["socket"] = "sTR5"
+        else:
+            m = re.match(r"(?i)^intel\s+(\d{4})$", sku)
+            if m:
+                attrs["socket"] = f"LGA{m.group(1)}"
+            else:
+                m = re.match(r"^(\d{3,4})\s*\(LGA\)$", sku)
+                if m:
+                    attrs["socket"] = f"LGA{m.group(1)}"
+
+    # Cores/threads: "24 (24C)" detail suffixes -> plain ints (the slider
+    # parses leading numbers anyway, but checkboxes/columns shouldn't show
+    # the suffix).
+    for ctk in ("cores", "threads"):
+        cv = attrs.get(ctk)
+        if isinstance(cv, str):
+            m = re.match(r"\s*(\d+)", cv)
+            if m:
+                try:
+                    attrs[ctk] = int(m.group(1))
+                except (ValueError, TypeError):
+                    pass
+
+    # "Sapphire" is a GPU board partner — except when Intel's codename
+    # ("Sapphire Rapids") leaks into a CPU title and wins longest-match.
+    # CPUs branded Sapphire are always that leak; real Sapphire cards are
+    # GPUs and never reach this branch.
+    if category == "cpu" and attrs.get("brand") == "Sapphire":
+        attrs["brand"] = "Intel"
+
+    # Storage interface: all SATA revisions are SATA 6Gb/s for filtering
+    # ("SATA 6.0 Gb/s" vs "SATA 6Gb/s" vs bare "SATA").
+    itf = attrs.get("interface")
+    if isinstance(itf, str):
+        if re.match(r"(?i)^\s*SATA\b", itf):
+            attrs["interface"] = "SATA 6 Gb/s"
+        else:
+            attrs["interface"] = re.sub(r"\bX(\d)", r"x\1", itf)
+
+    # Case PSU bay: an "internal ..." value means the case SHIPS WITH a
+    # PSU (PCPP's "Included"), not a bay standard.
+    if category == "case":
+        ps2 = attrs.get("power_supply")
+        if isinstance(ps2, str) and re.match(r"(?i)^\s*internal\b", ps2):
+            attrs["power_supply"] = "Included"
+
+    # Microarchitecture: squash detail-row whitespace ("Lion Cove (P-Core)
+    #   Skymont (E-Core)") and fix sentence-case ("golden Cove").
+    ma = attrs.get("microarchitecture")
+    if isinstance(ma, str):
+        ma = re.sub(r"\s+", " ", ma).strip()
+        if ma[:1].islower():
+            ma = ma[:1].upper() + ma[1:]
+        attrs["microarchitecture"] = ma
+
+    # iGPU naming: "Intel UHD Graphics 770" vs "Intel UHD 770" (same iGPU,
+    # two spellings across title/detail sources).
+    ig2 = attrs.get("integrated_graphics")
+    if isinstance(ig2, str):
+        attrs["integrated_graphics"] = re.sub(
+            r"(?i)\bIntel\s+UHD\s+Graphics\s+(\d+)",
+            r"Intel UHD \1", ig2)
+
+    # GPU memory type: vendor "SDDR3" -> "DDR3" (see _SDDR_RE note).
+    if category == "gpu":
+        gm = attrs.get("memory_type")
+        if isinstance(gm, str):
+            attrs["memory_type"] = _SDDR_RE.sub(r"DDR\1", gm)
+
+    # SSD/HDD DRAM cache plausibility: real sizes are powers of two up to
+    # 8GB — anything else ("7500" from a "7500 MB/s" speed row) is a
+    # misparse and is dropped instead of becoming a filter option.
+    cb = attrs.get("cache_mb")
+    if cb is not None:
+        try:
+            n = int(float(str(cb).split()[0]))
+            if n not in (8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192):
+                attrs.pop("cache_mb", None)
+        except (ValueError, TypeError):
+            attrs.pop("cache_mb", None)

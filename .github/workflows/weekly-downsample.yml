@@ -1,14 +1,48 @@
 name: weekly-downsample
-# Phase 4 task (§16) — not active yet. Collapses data/raw/ history older
-# than ~90 days into weekly/monthly aggregates, as its own scheduled step
-# separate from the daily scrape/normalize jobs. Build
-# scraper/downsample.py before enabling this.
+# Retention enforcement for data/raw/ (pc-parts-il-plan.md §11 "90-day raw
+# retention plus later downsampling", scraper/downsample.py for the policy).
+# Day-dirs older than 90 days collapse to one-per-ISO-week (older than a
+# year: one-per-month). The normalizer only reads the last 14 days, so
+# nothing removed here was ever read by it. Nothing is truly lost either:
+# git history keeps every blob — this caps the CHECKOUT size (~2.3MB/day
+# unbounded otherwise), not the clone size.
+#
+# Side effect: this job's push matches normalize-and-deploy's
+# `data/raw/**` path filter, so normalize re-runs afterwards and pushes a
+# (content-identical) catalog refresh. Harmless — and a free weekly
+# pipeline health check.
 on:
+  schedule:
+    - cron: '0 5 * * 0'   # weekly Sunday 05:00 UTC, after the daily sync
   workflow_dispatch: {}
-  # schedule:
-  #   - cron: '0 5 * * 0'  # weekly, after Sunday's daily sync
+
+concurrency:
+  group: weekly-downsample
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   downsample:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Not implemented yet — Phase 4. See §12 of the plan."
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      # downsample.py is stdlib-only — no requirements install needed.
+      - name: Remove downsampled day-dirs
+        run: |
+          python scraper/downsample.py | tee downsample.log
+          grep '^data/raw/' downsample.log > removed.txt || true
+          if [ -s removed.txt ]; then
+            git config user.email "bot@users.noreply.github.com"
+            git config user.name "pc-parts-il-bot"
+            # shellcheck disable=SC2046
+            bash scripts/git_commit_push.sh \
+              "downsample: collapse old raw snapshots to weekly" \
+              $(cat removed.txt)
+          else
+            echo "nothing downsampled — no commit"
+          fi
