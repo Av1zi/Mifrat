@@ -176,6 +176,18 @@ class TmsSpider(scrapy.Spider):
     handle_httpstatus_list = list(BLOCK_STATUS_CODES)
 
     custom_settings = {
+        # Plain HTTP(S) — never Playwright. settings.py registers
+        # scrapy-playwright's handler project-wide for Plonter, which makes
+        # EVERY spider launch a browser at crawl-open even if it never sends
+        # a playwright=True request. On the Nano that browser can't even
+        # launch (Playwright's node needs GLIBC_2.28, the Jetson image has
+        # 2.27) — so without this override the TMS run hard-crashes before
+        # the first request. Same pattern as NON_PLAYWRIGHT_DOWNLOAD_HANDLERS
+        # in scraper/spiders/detail_pages.py.
+        "DOWNLOAD_HANDLERS": {
+            "http": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
+            "https": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
+        },
         # Robots.txt IS followed here, unlike the cloud vendors — see the
         # module docstring's robots.txt fix section and DECISIONS.md.
         "ROBOTSTXT_OBEY": True,
