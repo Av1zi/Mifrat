@@ -16,10 +16,33 @@ is built, so it never has to re-parse the 20MB file.
 """
 
 import json
+import os
+import tempfile
+import time
 from collections import defaultdict
 from pathlib import Path
 
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
+
+
+def _write_json_atomic(path: Path, value: object) -> None:
+    """Replace derived output atomically so transient file locks do not truncate it."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temp_name = tempfile.mkstemp(prefix=f".{path.stem}.", suffix=".tmp", dir=path.parent)
+    temp_path = Path(temp_name)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(value, f, ensure_ascii=False, separators=(",", ":"))
+        for attempt in range(3):
+            try:
+                os.replace(temp_path, path)
+                return
+            except OSError:
+                if attempt == 2:
+                    raise
+                time.sleep(0.2 * (attempt + 1))
+    finally:
+        temp_path.unlink(missing_ok=True)
 
 
 def _trim_offer(offer: dict) -> dict:
@@ -92,8 +115,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
         items.sort(key=lambda x: (x["min_price"] is None, x["min_price"]))
 
         out_path = site_dir / f"{category}.json"
-        with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(items, f, ensure_ascii=False, separators=(",", ":"))
+        _write_json_atomic(out_path, items)
 
         prices = [x["min_price"] for x in items if x["min_price"] is not None]
         categories_meta.append(
@@ -113,8 +135,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
         "categories": categories_meta,
     }
 
-    with open(site_dir / "meta.json", "w", encoding="utf-8") as f:
-        json.dump(meta, f, ensure_ascii=False, separators=(",", ":"))
+    _write_json_atomic(site_dir / "meta.json", meta)
 
     # Categories that existed before this run but no longer do (e.g. a
     # category emptied out) would otherwise leave a stale, orphaned file

@@ -588,6 +588,39 @@ def extract_mpn(text: str) -> str | None:
     return None
 
 
+def sku_as_mpn(vendor_sku: str | None) -> str | None:
+    """Fallback MPN for listing spiders that carry the manufacturer part
+    number as their SKU (TMS/Plonter/Ivory all do) without it matching any
+    MPN_PATTERNS brand prefix — e.g. ARKTEK's "AK-H81MEL-VS", a bare
+    Supermicro "MZ73-LM0", Gigabyte "GB550MAORUSE".
+
+    Guard rails (all must hold, else None):
+    - must contain BOTH letters and digits (pure digits are vendor ids like
+      1PC's "217314" or bar codes; pure letters are generic slugs),
+    - 4-22 alphanumeric chars,
+    - at least one dash OR 6+ compact chars — real product names like
+      "H81" (socket) or "PRO" must never qualify.
+
+    Returns the mpn in normalized (compact) form so it merges with detail
+    scrapes and other vendors' identical part numbers regardless of how they
+    hyphenate.
+    """
+    if not vendor_sku:
+        return None
+    mpn = re.sub(r"[^A-Za-z0-9]", "", str(vendor_sku))
+    if not mpn:
+        return None
+    if len(mpn) < 4 or len(mpn) > 22:
+        return None
+    if not re.search(r"[A-Za-z]", mpn) or not re.search(r"\d", mpn):
+        return None
+    if re.fullmatch(r"\d+([A-Z]+\d*)*", mpn):
+        return None
+    if "-" not in str(vendor_sku) and len(mpn) < 6:
+        return None
+    return mpn.upper()
+
+
 # --------------------------------------------------------------------------
 # Enrichment
 # --------------------------------------------------------------------------
@@ -613,7 +646,9 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["match_text"] = match_text(listing)
     enriched["brand"] = detect_brand(enriched["match_text"])
-    enriched["mpn"] = extract_mpn(enriched["match_text"])
+    enriched["mpn"] = extract_mpn(enriched["match_text"]) or sku_as_mpn(
+        listing.get("vendor_sku")
+    )
 
     enriched["bundle_only"] = "bundle-only" in str(listing.get("category_guess", "")).lower()
 
@@ -812,7 +847,7 @@ NAME_FILLER_RE = re.compile(
     r"with integrated graphics|color tray|flat color|\bdimm\b|"
     r"laptop memory|desktop memory|blister pack|\bram\b|\bmemory\b|"
     r"computer case|liquid cooling|liquid cooler|water cooling|water cooler|"
-    r"air cooler|cpu cooler|\bfans?\b|\bcase\b)\b",
+    r"air cooler|cpu cooler|\bcpu\b|\bgpu\b|\bfans?\b|\bcase\b)\b",
     re.I,
 )
 
@@ -897,10 +932,24 @@ def _scrub_title(text: str) -> str:
     # Split on dash separators, drop empties (kills "- -" artifacts), rejoin.
     parts = [p.strip(" ,;:|·") for p in DASH_RUN_RE.split(s)]
     parts = [p for p in parts if p]
+    # Echo-clause drop: spec-dump titles (server/workstation boards)
+    # restate the brand+model in a later clause ("AMD EPYC 9004 DP Server
+    # Board - AMD EPYC 9004 series processor family - ..."). A clause whose
+    # first three tokens repeat the first clause's is marketing echo, never
+    # new identity — drop it.
+    if len(parts) > 1:
+        def _lead3(p: str) -> tuple:
+            return tuple(re.findall(r"[A-Za-z0-9]+", p.lower())[:3])
+        lead = _lead3(parts[0])
+        if len(lead) >= 3:
+            parts = [parts[0]] + [p for p in parts[1:] if _lead3(p) != lead]
     s = " ".join(parts)
     # Second filler pass: the dash-split can expose filler words that were
     # hyphen-joined before ("U-DIMM" -> "U DIMM" -> "U").
     s = NAME_FILLER_RE.sub(" ", s)
+    # Collapse empty comma segments left by filler removal ("CPU Air Cooler"
+    # -> ", ,") and any resulting double-whitespace.
+    s = re.sub(r",\s*,", ",", s)
     s = re.sub(r"\s{2,}", " ", s).strip()
     # Trailing dots/spaces shield every $-anchored tail rule below
     # ("...in green color."), so they go first. Only literal trailing
@@ -1047,9 +1096,24 @@ def display_title(text: str, max_len: int = 120) -> str:
     if not s:
         return "unknown"
     if len(s) > max_len:
-        cut = s[:max_len]
-        if " " in cut:
-            cut = cut.rsplit(" ", 1)[0]
+        # Clause-aware truncation: prefer a comma boundary within the first
+        # 60% of max_len (keeps identity visible) over a mid-word cut.
+        first_comma = s.find(",")
+        if 25 <= first_comma <= int(max_len * 0.7):
+            cut = s[:first_comma]
+        else:
+            cut = s[:max_len]
+            if " " in cut:
+                cut = cut.rsplit(" ", 1)[0]
+        # Strip trailing dangling spec fragments that the word-cut may leave
+        # behind ("… DIMMs 24x", "… ports 1x", "… audio 2.1") and
+        # technology/category words left by echo-clause removal ("Dual",
+        # "5nm").
+        cut = re.sub(
+            r"(?:\s+(?:\d+[xX]?|\d+nm\b|[:/,;]|and|or|with|for|to|of|in|up|max|min"
+            r"|support|supports|channel|ports?|slots?|Dual|Quad|Single|Octa))+$",
+            "", cut, flags=re.I,
+        )
         s = cut.rstrip(" -–—|·,;:. ") + "…"
     return s or "unknown"
 
@@ -1805,7 +1869,13 @@ def match_listings(
         category = enriched.get("category_normalized")
 
         if mpn and category not in ("other", "", None):
-            pid = f"mpn:{category}:{mpn.lower()}"
+            # Key on the normalized MPN (strip dashes/spaces) so identical
+            # part numbers match regardless of where each side got it from:
+            # 1PC's detail-page extra yields "AK-H81MEL-VS" (dashed), the
+            # sku_as_mpn fallback yields "AKH81MELVS" — both must land on
+            # the same product.
+            mpn_key = re.sub(r"[^a-z0-9]+", "", mpn.lower())
+            pid = f"mpn:{category}:{mpn_key}"
             mpn_groups.setdefault(pid, []).append(enriched)
 
     for pid, group in mpn_groups.items():
