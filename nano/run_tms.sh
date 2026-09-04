@@ -69,7 +69,14 @@ DETAIL_FILE="$DETAIL_DIR/tms.jsonl"
 
 echo "[run_tms] building detail pending list..."
 cd "$REPO_DIR"
-"$PYTHON" -m scraper.make_detail_pending make tms --limit 50
+TMS_DETAIL_LIMIT="${TMS_DETAIL_LIMIT:-50}"
+if [ "${TMS_DETAIL_FULL_BACKFILL:-0}" = "1" ]; then
+    # Explicit one-time backfill only. Keep the normal daily run small because
+    # TMS is tied to the home IP and blocks bursty/high-volume traffic.
+    TMS_DETAIL_LIMIT=0
+    echo "[run_tms] FULL TMS detail backfill explicitly enabled"
+fi
+"$PYTHON" -m scraper.make_detail_pending make tms --limit "$TMS_DETAIL_LIMIT"
 
 # The detail chain needs Pillow + requests, which this lean ARM64 venv may
 # not have (they were added for the cloud detail job later). A missing dep

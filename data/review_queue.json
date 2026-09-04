@@ -12904,17 +12904,6 @@
   },
   {
     "score": 88,
-    "category": "cooling_other",
-    "brand": "Intel",
-    "listing_a": "plonter:E41997-002",
-    "listing_b": "plonter:Intel-Original-All-Black",
-    "title_a": "original Intel Fan - LGA1150, 1151, 1155, 1156 ",
-    "title_b": "original Intel Fan Black - LGA1150, 1151, 1155, 1156, 1200 ",
-    "match_text_a": "E41997-002 original Intel Fan - LGA1150 1151 1155 1156",
-    "match_text_b": "Intel-Original-All-Black original Intel Fan Black - LGA1150 1151 1155 1156 1200"
-  },
-  {
-    "score": 88,
     "category": "aio",
     "brand": "Intel",
     "listing_a": "plonter:Elite-Vision-360-Black-ARGB",
@@ -12934,5 +12923,16 @@
     "title_b": "360mm Black Liquid AIO CPU Water Cooler, Wonder Vision 360 UB ARGB BLACK, 2K 60HZ Curved Screen with 2400x1080 Resolution LCD, Black - Compatible with AMD AM4/AM5,Intel LGA1851/1700/1150/1151/2011",
     "match_text_a": "Trofeo-Vision-360-ARGB-Black 360mm Black Liquid AIO CPU Water Cooler LCD Black - Compatible with AMD AM4/AM5 Intel LGA1851/1700/1150/1151/2011",
     "match_text_b": "Wonder-Vision-360-UB-ARGB-Black 360mm Black Liquid AIO CPU Water Cooler Wonder Vision 360 UB ARGB BLACK 2K 60HZ Curved Screen with 2400x1080 Resolution LCD Black - Compatible with AMD AM4/AM5 Intel LGA1851/1700/1150/1151/2011"
+  },
+  {
+    "score": 88,
+    "category": "cooling_other",
+    "brand": "Intel",
+    "listing_a": "plonter:E41997-002",
+    "listing_b": "plonter:Intel-Original-All-Black",
+    "title_a": "original Intel Fan - LGA1150, 1151, 1155, 1156 ",
+    "title_b": "original Intel Fan Black - LGA1150, 1151, 1155, 1156, 1200 ",
+    "match_text_a": "E41997-002 original Intel Fan - LGA1150 1151 1155 1156",
+    "match_text_b": "Intel-Original-All-Black original Intel Fan Black - LGA1150 1151 1155 1156 1200"
   }
 ]

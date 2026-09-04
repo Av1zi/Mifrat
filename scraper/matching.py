@@ -377,6 +377,7 @@ AIR_TITLE_RE = re.compile(
     r"\b(cpu cooler|air cooler|tower cooler|low[- ]profile cooler|"
     r"heatsink|heat sink|"
     r"cnps[\w-]+|burst assassin|"
+    r"masterair|a115|twin tower|"
     r"peerless assassin|phantom spirit|assassin x|assassin spirit|"
     r"ak400|ak620|nh-d|nh-u|nh-l|nh-p|nh-a|dark rock|pure rock|shadow rock|"
     r"hyper 212|freezer 3[46]|freezer i|freezer e|big shuriken|katana|"
@@ -424,6 +425,12 @@ def _category_from_title(title_clean: str) -> str | None:
         and not re.search(r"\b(?:cooler|radiator|socket|lga|am[45])\b", t)
     ):
         return "case_fan"
+    if (
+        re.search(r"\bcooler\b", t)
+        and re.search(r"\b\d{2,3}\s*mm\b", t)
+        and not re.search(r"\b(?:tdp|heatsink|heat\s*pipe|socket|lga|am[45])\b", t)
+    ):
+        return "case_fan"
     # AIO check must run before the air-cooler check ("Liquid Freezer" etc.)
     if AIO_TITLE_RE.search(t):
         return "aio"
@@ -432,7 +439,7 @@ def _category_from_title(title_clean: str) -> str | None:
     if (
         re.search(r"\btdp\s*:?\s*\d+\s*w\b", t)
         or re.search(r"\b\d+\s*w\s*tdp\b", t)
-    ) and re.search(r"\b(?:LGA\s*\d+|AM[45])\b", t):
+    ) and re.search(r"\b(?:lga\s*\d+|am[45])\b", t):
         return "cooler_air"
     if re.search(r"\bcooler\b", t):
         return "cooler_air"
@@ -548,6 +555,15 @@ def canonical_category(guess: str | None, title: str = "") -> str:
         "cooler_accessory",
     ):
         return title_cat
+
+    if category == "case_fan" and title_cat in ("cooler_air", "aio"):
+        return title_cat
+
+    if category == "cooler_air" and title_cat == "case_fan":
+        return title_cat
+
+    if category in ("fan_controller", "rgb_lighting") and title_cat == "case":
+        return "case"
 
     # Accessory words in a case title describe bundled lighting/fans, not the
     # product's primary type.
@@ -2046,6 +2062,21 @@ def match_listings(
         )
 
         category = meta.get("category") or group[0].get("category_normalized", "other")
+        title_categories = {
+            _category_from_title(
+                _clean(
+                    f"{e.get('title_raw', '')} {e.get('match_text', '')}"
+                ).lower()
+            )
+            for e in group
+        }
+        if category in ("case_fan", "cooling_other"):
+            if "aio" in title_categories:
+                category = "aio"
+            elif "cooler_air" in title_categories:
+                category = "cooler_air"
+            elif "case_fan" in title_categories:
+                category = "case_fan"
 
         merged_attributes, attribute_conflicts = merge_offer_attributes(group)
 

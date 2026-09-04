@@ -401,6 +401,18 @@ DETAIL_NOISE_VALUES = frozenset({
 # (Most vendor keys already normalize to the canonical name; only the
 # mismatches live here.)
 DETAIL_KEY_ALIASES = {
+    "manufacturer": "brand",
+    "product_type": "product_type",
+    "model_number": "mpn",
+    "memory_support": "memory_type",
+    "format": "form_factor",
+    "cpu_model": "chipset",
+    "cpu_frequency": "boost_clock_ghz",
+    "internal_memory_capacity": "max_memory",
+    "usb_connections": "usb_ports",
+    "sata_connections": "sata_ports",
+    "connectivity": "connectivity",
+    "graphics_cards": "expansion_slots",
     "base_clock": "base_clock_ghz",
     "turbo_clock": "boost_clock_ghz",
     "boost_clock": "boost_clock_ghz",
@@ -517,6 +529,22 @@ def _clean_detail_value(value):
     if m:
         return m.group(1).replace(",", "")
     return s
+
+
+def _parse_overview_fields(value: str) -> dict[str, str]:
+    """Split 1PC's comma-packed English overview into label/value fields."""
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    parts = re.split(r",\s+(?=[A-Za-z][A-Za-z0-9 /()-]{1,48}:)", text)
+    out = {}
+    for part in parts:
+        match = re.match(r"^\s*([^:]{2,48}):\s*(.+?)\s*$", part)
+        if not match:
+            continue
+        label, field_value = match.groups()
+        field_value = field_value.strip(" ,")
+        if label.strip() and field_value:
+            out[label.strip()] = field_value
+    return out
 
 
 def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
@@ -638,6 +666,15 @@ def _from_vendor_meta(meta, vendor=None) -> dict:
     if isinstance(detail, dict):
         for k, v in detail.items():
             if v in (None, "", [], {}):
+                continue
+            if k == "overview_text_raw":
+                overview = _parse_overview_fields(v)
+                for overview_key, overview_value in overview.items():
+                    clean = _sanitize_detail_pair(
+                        overview_key, overview_value, vendor=vendor
+                    )
+                    if clean:
+                        out.setdefault(*clean)
                 continue
             clean = _sanitize_detail_pair(k, v, vendor=vendor)
             if not clean:

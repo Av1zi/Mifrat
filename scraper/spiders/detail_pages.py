@@ -236,6 +236,34 @@ class TmsDetailSpider(scrapy.Spider):
             if label and value:
                 specs[label] = value
 
+        # TMS has used both definition lists and two-column tables over time.
+        # Keep the strict selectors above, but accept a row only when it has
+        # exactly one plausible label/value pair so navigation tables cannot
+        # flood the catalog with unrelated text.
+        if not specs:
+            for row in response.css(
+                "table.product-specification tr, table#tab-specification tr, "
+                "div.product-specification tr"
+            ):
+                cells = row.css("th, td")
+                if len(cells) != 2:
+                    continue
+                label = " ".join(t.strip() for t in cells[0].css("::text").getall() if t.strip())
+                value = " ".join(t.strip() for t in cells[1].css("::text").getall() if t.strip())
+                if label and value and len(label) <= 80:
+                    specs[label] = value
+
+        if not specs:
+            for row in response.css("[data-spec-name], [data-spec-key]"):
+                label = (
+                    row.attrib.get("data-spec-name")
+                    or row.attrib.get("data-spec-key")
+                    or ""
+                ).strip()
+                value = " ".join(t.strip() for t in row.css("::text").getall() if t.strip())
+                if label and value:
+                    specs[label] = value
+
         # Bonus: TMS puts brand/availability/price directly in meta
         # tags too — free, cheap-to-grab confirmation fields.
         meta_extra = {
@@ -358,7 +386,7 @@ class OnePcDetailSpider(scrapy.Spider):
                 for t in response.css("div.product-overview ::text, div.short-description ::text").getall()
                 if t.strip()
             )
-            specs = {"overview_text_raw": overview_text} if overview_text else {}
+            specs = self._parse_overview_text(overview_text)
 
         yield DetailItem(
             vendor_id="1pc",
@@ -369,6 +397,31 @@ class OnePcDetailSpider(scrapy.Spider):
             scraped_at=datetime.now(timezone.utc).isoformat(),
             extra=self._real_sku_and_brand(response),
         )
+
+    @staticmethod
+    def _parse_overview_text(text: str) -> dict:
+        """Parse 1PC's comma-packed English overview into label/value rows."""
+        if not text:
+            return {}
+        text = _html.unescape(re.sub(r"\s+", " ", text)).strip()
+        parts = re.split(r",\s+(?=[A-Za-z][A-Za-z0-9 /()-]{1,48}:)", text)
+        specs = {"overview_text_raw": text}
+        for part in parts:
+            match = re.match(r"^\s*([^:]{2,48}):\s*(.+?)\s*$", part)
+            if not match:
+                continue
+            label, value = match.groups()
+            label = re.sub(r"\s+", " ", label).strip()
+            value = re.sub(r"\s+", " ", value).strip(" ,")
+            if label and value:
+                key = label
+                if key in specs:
+                    suffix = 2
+                    while f"{key} {suffix}" in specs:
+                        suffix += 1
+                    key = f"{key} {suffix}"
+                specs[key] = value
+        return specs
 
     @classmethod
     def _parse_spec_table(cls, response) -> dict:

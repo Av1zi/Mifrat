@@ -109,6 +109,21 @@ journalctl -u pc-parts-il-tms.service --since today
 Nothing is written to a log file on disk — journald only (§4, SD card
 health).
 
+## One-time TMS detail backfill
+
+After deploying a parser change, run the full existing TMS detail queue once
+from the Nano home connection (never from a datacenter checkout):
+
+```bash
+cd ~/pc-parts-il
+TMS_DETAIL_FULL_BACKFILL=1 ./nano/run_tms.sh
+```
+
+This temporarily removes the normal 50-item daily cap. The spider still keeps
+one request at a time, a two-second delay, robots compliance, and the hard stop
+after two block responses. If it stops, leave the remaining SKUs pending and
+resume on a later day rather than retrying through a block.
+
 ## If TMS starts blocking the Nano too
 
 That's §7 rule 7: pause several days, try slowing down further
