@@ -54,10 +54,10 @@ jobs:
 
   # Detail-page scrape: runs after all listing spiders succeed.
   # Fetches each vendor's product detail pages for structured specs
-  # and cover images.  ~5 new items/day across all vendors; at this
-  # volume the whole job takes <5 min.  Images are downloaded as
-  # resized JPEG and committed to the repo (plan §7 — trivial repo
-  # growth at this rate).
+  # and cover images. Steady state is a handful of new items/day; the
+  # first runs after a ledger fix backfill in --limit chunks. Images are
+  # downloaded as resized JPEG and committed to the repo (plan §7 —
+  # trivial repo growth at this rate).
   detail-scrape:
     needs: scrape
     runs-on: ubuntu-latest
@@ -69,27 +69,54 @@ jobs:
       - run: pip install -r requirements.txt --break-system-packages
       - run: python -m playwright install --with-deps chromium
       # Build pending lists: diff listing output vs the detail_scraped ledger
-      # (TMS excluded — it's not cloud-run; the Nano handles it)
-      - run: python -m scraper.make_detail_pending make ivory onepc plonter
-      # Run detail spiders (plain HTTP for ivory/onepc; Playwright for plonter)
-      - run: scrapy crawl ivory_detail -O data/raw/detail/ivory.jsonl:jsonlines
-      - run: scrapy crawl onepc_detail -O data/raw/detail/onepc.jsonl:jsonlines
-      - run: scrapy crawl plonter_detail -O data/raw/detail/plonter.jsonl:jsonlines
-      # Download and resize cover images
+      # (TMS excluded — it's not cloud-run; the Nano handles it).
+      # --limit caps the post-ledger-fix backfill so the first runs don't
+      # hammer Plonter with thousands of Playwright page loads at once.
+      - run: python -m scraper.make_detail_pending make ivory onepc plonter --limit 200
+      # Run detail spiders, skipping vendors with nothing pending. `-o`
+      # APPENDS — never `-O` overwrite: the committed detail file holds
+      # the full history, and a small nightly chunk must not wipe it
+      # (an -O + tiny-pending run would destroy thousands of rows).
+      - run: |
+          for v in ivory onepc plonter; do
+            n=$(python -c "import json;print(len(json.load(open('data/detail_pending/$v.json'))))")
+            if [ "$n" -gt 0 ]; then
+              echo "$v: $n pending — scraping"
+              scrapy crawl "${v}_detail" -o "data/raw/detail/$v.jsonl:jsonlines"
+            else
+              echo "$v: nothing pending — keeping existing detail file"
+            fi
+          done
+      # Download and resize cover images (files already on disk are
+      # skipped, missing ones retried, imageless products skipped quietly)
       - run: python -m scraper.download_images data/raw/detail/ivory.jsonl ivory
       - run: python -m scraper.download_images data/raw/detail/onepc.jsonl onepc
       - run: python -m scraper.download_images data/raw/detail/plonter.jsonl plonter
-      # Mark completed items in the ledger (only after images exist on disk)
+      # Mark spec-scraped items in the ledger. Image presence does NOT
+      # gate marking (see make_detail_pending): imageless products would
+      # otherwise re-scrape every day forever.
       - run: python -m scraper.make_detail_pending mark ivory onepc plonter
       # NOTE: per-vendor paths only (see the scrape job above for why shared
       # directories are forbidden here). data/images/<vendor>/ holds only
       # that vendor's downloaded covers, so those three dirs are safe.
+      # Commit only paths that EXIST: a vendor with zero new rows has no
+      # ledger file, and that must not fail the other vendors' commit
+      # (Sep 2026: static path list + missing onepc ledger = exit 128,
+      # losing the whole run's detail commit).
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
+          PATHS=(
+            data/detail_pending/ivory.json data/detail_pending/onepc.json data/detail_pending/plonter.json
+            data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl data/raw/detail/plonter.jsonl
+            data/detail_scraped/ivory.json data/detail_scraped/onepc.json data/detail_scraped/plonter.json
+            data/images/ivory/ data/images/onepc/ data/images/plonter/
+          )
+          EXISTING=()
+          for p in "${PATHS[@]}"; do
+            if [ -e "$p" ]; then EXISTING+=("$p"); fi
+          done
+          if [ "${#EXISTING[@]}" -eq 0 ]; then echo "nothing to commit"; exit 0; fi
           bash scripts/git_commit_push.sh \
             "detail-scrape: $(date -u +%F)" \
-            data/detail_pending/ivory.json data/detail_pending/onepc.json data/detail_pending/plonter.json \
-            data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl data/raw/detail/plonter.jsonl \
-            data/detail_scraped/ivory.json data/detail_scraped/onepc.json data/detail_scraped/plonter.json \
-            data/images/ivory/ data/images/onepc/ data/images/plonter/
+            "${EXISTING[@]}"

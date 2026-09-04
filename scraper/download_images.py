@@ -19,6 +19,7 @@ import json
 import sys
 from io import BytesIO
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 from PIL import Image
@@ -26,6 +27,18 @@ from PIL import Image
 MAX_DIMENSION = 800
 JPEG_QUALITY = 82
 REQUEST_TIMEOUT = 15
+
+
+def _has_basename(url: str) -> bool:
+    """Same guard as the spiders' _og_image and the normalizer's
+    _has_image_basename: a bare ".../full/" directory URL is not an image
+    (Plonter emits these for imageless products). Keep the three in sync."""
+    try:
+        if not url:
+            return False
+        return bool(urlparse(str(url)).path.rsplit("/", 1)[-1])
+    except Exception:
+        return False
 
 
 def download_and_save(image_url: str, dest_path: Path) -> bool:
@@ -52,7 +65,7 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
         print(f"No such file: {input_path}")
         sys.exit(1)
 
-    succeeded, failed = [], []
+    succeeded, failed, skipped = [], [], []
     with input_path.open(encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -61,8 +74,15 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
             item = json.loads(line)
             sku = item.get("vendor_sku")
             image_url = item.get("image_url")
-            if not sku or not image_url:
-                failed.append(sku or "<unknown sku>")
+            if not sku:
+                failed.append("<unknown sku>")
+                continue
+            if not image_url or not _has_basename(image_url):
+                # No photo on the vendor side (Plonter emits a bare
+                # directory URL for these). Quiet skip — NOT a failure:
+                # specs are still marked done and the listing thumbnail
+                # covers the product photo.
+                skipped.append(sku)
                 continue
 
             dest = Path(f"data/images/{vendor}/{sku}.jpg")
@@ -77,12 +97,13 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
             else:
                 failed.append(sku)
 
-    print(f"\n{vendor}: {len(succeeded)} images ok, {len(failed)} failed")
+    print(f"\n{vendor}: {len(succeeded)} images ok, {len(failed)} failed, "
+          f"{len(skipped)} skipped (no vendor photo)")
     if failed:
         print(f"Failed SKUs: {failed}")
-        print("These SKUs should NOT be added to data/detail_scraped/<vendor>.json")
-        print("until their image succeeds on a re-run — keeps 'scraped' meaning")
-        print("'fully scraped, spec + image both present'.")
+        print("No image file was saved for these — they are retried")
+        print("automatically on the next run (files already on disk are")
+        print("skipped, so only the missing ones are re-attempted).")
 
 
 if __name__ == "__main__":

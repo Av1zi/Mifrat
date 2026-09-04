@@ -87,7 +87,9 @@ if [ "$PENDING_COUNT" -gt 0 ]; then
     {
     echo "[run_tms] running tms_detail spider ($PENDING_COUNT pending items)..."
     mkdir -p "$DETAIL_DIR"
-    "$SCRAPY" crawl tms_detail -O "$DETAIL_FILE:jsonlines"
+    # `-o` APPENDS — never `-O` overwrite: the committed detail file
+    # holds the full history, and a 50-item chunk must not wipe it.
+    "$SCRAPY" crawl tms_detail -o "$DETAIL_FILE:jsonlines"
 
     echo "[run_tms] downloading cover images..."
     "$PYTHON" -m scraper.download_images "$DETAIL_FILE" tms

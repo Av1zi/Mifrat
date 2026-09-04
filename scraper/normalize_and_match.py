@@ -20,6 +20,7 @@ import json
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 try:
     from scraper.matching import (
@@ -122,6 +123,18 @@ def load_listings(path: Path) -> list[dict]:
     return listings
 
 
+def _has_image_basename(url: str) -> bool:
+    """True when a (possibly relative) image URL points at an actual file,
+    not a bare directory. Shared guard with the detail spiders' _og_image
+    and the image downloader — keep the three in sync."""
+    try:
+        if not url:
+            return False
+        return bool(urlparse(str(url)).path.rsplit("/", 1)[-1])
+    except Exception:
+        return False
+
+
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     """Load detail-scraped specs from data/raw/detail/<vendor>.jsonl and
     merge into each enriched listing's vendor_meta under a 'detail_specs'
@@ -158,7 +171,12 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 extra = item.get("extra")
                 if sku and specs:
                     detail_index[sku] = specs
-                if sku and image_url:
+                # Basename-less image URLs (a bare ".../full/" directory —
+                # Plonter emits these for imageless products) must never
+                # reach the index: line 195 below would overwrite the good
+                # listing-level thumbnail with an unfetchable directory URL
+                # (Sep 2026: 116 products showed broken images this way).
+                if sku and image_url and _has_image_basename(image_url):
                     image_index[sku] = image_url
                 if sku and isinstance(extra, dict) and extra:
                     extra_index[sku] = extra

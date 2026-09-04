@@ -41,7 +41,17 @@ fi
 # per-vendor image folder) — never shared trees like data/raw/.
 for p in "${PATHS[@]}"; do
   if [ -d "$p" ]; then
-    echo "[warn] git_commit_push.sh: directory path '$p' — must contain only this job's outputs (see header)" >&2
+    # Exempt: data/images/<vendor>/ is written exclusively by the job
+    # committing it (cloud detail job per vendor dir; Nano for tms/) —
+    # no sibling job can stage deletions through it, so the stale-
+    # checkout hazard below does not apply.
+    case "$p" in
+      data/images/*/)
+        ;;
+      *)
+        echo "[warn] git_commit_push.sh: directory path '$p' — must contain only this job's outputs (see header)" >&2
+        ;;
+    esac
   fi
 done
 

@@ -13,10 +13,18 @@ Usage:
         never batch-request the whole catalog in one run, §7).
     python -m scraper.make_detail_pending mark [vendor ...]
         Append to the ledger every vendor_sku that appears in
-        data/raw/detail/<vendor>.jsonl AND whose resized image already
-        exists at data/images/<vendor>/<sku>.jpg. Run ONLY after the
-        detail spider AND download_images both succeeded — a crash
-        partway through must not mark a product done without its image.
+        data/raw/detail/<vendor>.jsonl. Run ONLY after the detail spider
+        succeeds — a crash partway through must not mark products whose
+        spec rows were never written.
+
+        NOTE (Sep 2026): the ledger means "specs scraped", NOT "specs +
+        image". Image presence deliberately does NOT gate marking: products
+        with no vendor photo (Plonter emits a bare directory URL for
+        these), 404s and truncated files would otherwise stay pending
+        forever and burn a Playwright page load every single day. Photos
+        resolve independently — download_images.py retries missing files
+        on every run (it skips files already on disk), and the normalizer
+        falls back to the listing thumbnail when no detail image exists.
 
 Vendor keys everywhere here: onepc / plonter / ivory / tms (matches the
 spider names and the _load_pending() keys in detail_pages.py; run
@@ -131,8 +139,6 @@ def mark(vendors: list) -> None:
             sku = item.get("vendor_sku")
             if not sku or sku in done:
                 continue
-            if not _image(v, sku).exists():
-                continue  # scraped but no image on disk => not done yet
             done.add(sku)
             added += 1
         if added:

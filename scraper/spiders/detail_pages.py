@@ -41,6 +41,7 @@ import re
 import scrapy
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 from scrapy.exceptions import CloseSpider
 from scraper.items import DetailItem  # add this to items.py — shape shown at bottom of file
 
@@ -82,11 +83,18 @@ def _og_image(response) -> str | None:
     name — Plonter uses og:image:url (not plain og:image), so try the
     common variants plus link[rel=image_src] and twitter:image before
     giving up. Returns an absolute URL as-is (may be relative on some
-    templates — callers urljoin it)."""
+    templates — callers urljoin it).
+
+    Rejects URLs with an empty basename: Plonter emits a bare
+    ".../product_images/full/" directory URL for products without photos,
+    and accepting it made the downloader fetch a directory listing as if
+    it were a JPEG (Sep 2026: ~100 FAILED lines per run). No basename —
+    no image, full stop."""
+    candidates: list[str] = []
     for prop in ("og:image", "og:image:url", "og:image:secure_url"):
         url = response.css(f'meta[property="{prop}"]::attr(content)').get()
         if url:
-            return response.urljoin(url.strip())
+            candidates.append(url.strip())
     for sel in (
         'link[rel="image_src"]::attr(href)',
         'meta[name="twitter:image"]::attr(content)',
@@ -94,7 +102,14 @@ def _og_image(response) -> str | None:
     ):
         url = response.css(sel).get()
         if url:
-            return response.urljoin(url.strip())
+            candidates.append(url.strip())
+    for url in candidates:
+        if not url:
+            continue
+        absolute = response.urljoin(url)
+        basename = urlparse(absolute).path.rsplit("/", 1)[-1]
+        if basename:
+            return absolute
     return None
 
 
