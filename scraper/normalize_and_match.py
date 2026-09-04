@@ -151,11 +151,15 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
       as fallback so photo coverage doesn't depend on the detail scrape.
     """
     vendors = set(e.get("vendor_id") for e in enriched)
-    detail_index: dict[str, dict] = {}
-    image_index: dict[str, str] = {}
-    extra_index: dict[str, dict] = {}
+    # SKUs are vendor-scoped.  The same manufacturer SKU can legitimately
+    # occur on multiple sites; indexing by SKU alone lets whichever detail
+    # file is read last overwrite another vendor's specs/image/extra.
+    detail_index: dict[tuple[str, str], dict] = {}
+    image_index: dict[tuple[str, str], str] = {}
+    extra_index: dict[tuple[str, str], dict] = {}
     for vendor in vendors:
         norm = "onepc" if vendor in ("1pc", "onepc") else vendor
+        vendor_key = norm
         path = RAW_DIR / "detail" / f"{norm}.jsonl"
         if not path.exists():
             continue
@@ -165,21 +169,21 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 if not line:
                     continue
                 item = json.loads(line)
-                sku = item.get("vendor_sku")
+                sku = str(item.get("vendor_sku") or "").strip()
                 specs = item.get("specs")
                 image_url = item.get("image_url")
                 extra = item.get("extra")
                 if sku and specs:
-                    detail_index[sku] = specs
+                    detail_index[(vendor_key, sku)] = specs
                 # Basename-less image URLs (a bare ".../full/" directory —
                 # Plonter emits these for imageless products) must never
                 # reach the index: line 195 below would overwrite the good
                 # listing-level thumbnail with an unfetchable directory URL
                 # (Sep 2026: 116 products showed broken images this way).
                 if sku and image_url and _has_image_basename(image_url):
-                    image_index[sku] = image_url
+                    image_index[(vendor_key, sku)] = image_url
                 if sku and isinstance(extra, dict) and extra:
-                    extra_index[sku] = extra
+                    extra_index[(vendor_key, sku)] = extra
 
     merged_specs = 0
     merged_images = 0
@@ -188,20 +192,23 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         # NOTE: listing-level image_url thumbnails (captured by every
         # listing spider) already ride along on the enriched dict — the
         # detail image below overwrites them only when present.
-        sku = e.get("vendor_sku")
+        sku = str(e.get("vendor_sku") or "").strip()
         if not sku:
             continue
-        if sku in detail_index:
+        vendor = e.get("vendor_id")
+        vendor_key = "onepc" if vendor in ("1pc", "onepc") else vendor
+        key = (vendor_key, sku)
+        if key in detail_index:
             meta = e.setdefault("vendor_meta", {})
-            meta["detail_specs"] = detail_index[sku]
+            meta["detail_specs"] = detail_index[key]
             # Re-extract attributes so the newly-merged detail specs feed
             # into the attributes blob (enrich_listing already ran before
             # this point, so without this the detail specs would never make
             # it out of vendor_meta into parsed attributes).
             e["attributes"] = extract_attributes(e)
             merged_specs += 1
-        if sku in extra_index:
-            extra = extra_index[sku]
+        if key in extra_index:
+            extra = extra_index[key]
             meta = e.setdefault("vendor_meta", {})
             real_mpn = extra.get("mpn") or extra.get("real_sku")
             if real_mpn and not e.get("mpn"):
@@ -209,8 +216,8 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 merged_extra += 1
             if extra.get("brand") and not e.get("brand"):
                 e["brand"] = str(extra["brand"]).strip()
-        if sku in image_index:
-            e["image_url"] = image_index[sku]
+        if key in image_index:
+            e["image_url"] = image_index[key]
             merged_images += 1
 
     if merged_specs:

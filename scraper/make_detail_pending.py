@@ -25,6 +25,10 @@ Usage:
         resolve independently ΓÇö download_images.py retries missing files
         on every run (it skips files already on disk), and the normalizer
         falls back to the listing thumbnail when no detail image exists.
+        A detail row is marked only when it contains at least one spec.
+        Empty rows are commonly challenge/error pages or selector misses;
+        leaving them pending allows a later run (or a parser fix) to retry
+        them instead of permanently losing specification coverage.
 
 Vendor keys everywhere here: onepc / plonter / ivory / tms (matches the
 spider names and the _load_pending() keys in detail_pages.py; run
@@ -141,13 +145,25 @@ def mark(vendors: list) -> None:
     for v in vendors:
         done = _load_ledger(v)
         added = 0
+        failed = set()
         for item in _load_jsonl(_detail(v)):
             sku = item.get("vendor_sku")
-            if not sku or sku in done:
+            if not sku:
+                continue
+            # A DetailItem can still be emitted for a challenge/error page
+            # or a page whose specification selector matched nothing. Such
+            # rows must remain pending so they can be retried.
+            if not isinstance(item.get("specs"), dict) or not item["specs"]:
+                failed.add(sku)
+                continue
+            if sku in done:
                 continue
             done.add(sku)
             added += 1
-        if added:
+        done.difference_update(failed)
+        if failed:
+            added -= len(failed & done)
+        if added or failed:
             _ledger(v).parent.mkdir(parents=True, exist_ok=True)
             _ledger(v).write_text(
                 json.dumps(sorted(done), ensure_ascii=False, indent=1),

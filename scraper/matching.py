@@ -110,6 +110,8 @@ CATEGORY_ALIASES = {
     "fans": "cooling",
     "fan": "cooling",
     "cooling": "cooling",
+    "coolingother": "cooling_other",
+    "othercooling": "cooling_other",
 
     # Thermal paste
     "thermalpaste": "thermal_paste",
@@ -128,10 +130,10 @@ CATEGORY_ALIASES = {
     "m2": "storage",
     # --- CPU-cooling gaps (TMS "cpu cooler", 1PC "cpu_cooling",
     #     Ivory "cpu_cooler_air" / "cpu_cooler_aio") ---
-    "cpucooler": "cooling",
-    "cpucoolers": "cooling",
-    "cpucoling": "cooling",
-    "cpucooling": "cooling",
+    "cpucooler": "cooler_air",
+    "cpucoolers": "cooler_air",
+    "cpucoling": "cooler_air",
+    "cpucooling": "cooler_air",
     "cpucoolerair": "cooler_air",
     "aircooler": "cooler_air",
     "aircoolers": "cooler_air",
@@ -372,7 +374,9 @@ AIO_TITLE_RE = re.compile(
     r"liquid freezer|galahad|ek-aio|coolit|alphacool)\b"
 )
 AIR_TITLE_RE = re.compile(
-    r"\b(cpu cooler|air cooler|tower cooler|heatsink|heat sink|"
+    r"\b(cpu cooler|air cooler|tower cooler|low[- ]profile cooler|"
+    r"heatsink|heat sink|"
+    r"cnps[\w-]+|burst assassin|"
     r"peerless assassin|phantom spirit|assassin x|assassin spirit|"
     r"ak400|ak620|nh-d|nh-u|nh-l|nh-p|nh-a|dark rock|pure rock|shadow rock|"
     r"hyper 212|freezer 3[46]|freezer i|freezer e|big shuriken|katana|"
@@ -389,22 +393,48 @@ def _category_from_title(title_clean: str) -> str | None:
         return "thermal_paste"
     if "mounting kit" in t and "cooler not included" in t:
         return "cooler_accessory"
+    if re.search(r"\b(?:backplate|mounting bracket|retention bracket)\b", t) and re.search(
+        r"\b(?:am[45]|lga\s*\d+|intel|amd)\b", t
+    ):
+        return "cooler_accessory"
     if "fan controller" in t or "fan hub" in t:
         return "fan_controller"
     if "splitter" in t and ("fan" in t or "rgb" in t or "argb" in t):
         return "fan_controller"
-    if "light strip" in t or "light strips" in t or "rgb led" in t:
+    if re.search(r"\b(?:rgb\s+)?(?:led|light)\s+strips?\b", t):
+        return "rgb_lighting"
+    if re.search(r"\b(?:rgb\s+light|led\s+light|lighting node)\b", t):
         return "rgb_lighting"
     if "starter kit" in t and "fan" in t:
         return "case_fan"
     if "expansion kit" in t and "fan" in t:
         return "case_fan"
-    if re.search(r"\b\d{2,3}\s*mm\b", t) and re.search(r"\bfans?\b", t):
+    if (
+        re.search(r"\b\d{2,3}\s*mm\b", t)
+        and re.search(r"\bfans?\b", t)
+        and not re.search(r"\b(?:cooler|heatsink|heat\s*pipe|radiator)\b", t)
+    ):
+        return "case_fan"
+    # Many vendor feeds omit the word "fan" from model-style titles
+    # ("NF-A14 140MM PWM", "120mm ... RPM").  Do not let radiators,
+    # coolers, or socket-compatible parts fall into case_fan.
+    if (
+        re.search(r"\b\d{2,3}\s*mm\b", t)
+        and re.search(r"\b(?:pwm|rpm|airflow)\b", t)
+        and not re.search(r"\b(?:cooler|radiator|socket|lga|am[45])\b", t)
+    ):
         return "case_fan"
     # AIO check must run before the air-cooler check ("Liquid Freezer" etc.)
     if AIO_TITLE_RE.search(t):
         return "aio"
     if AIR_TITLE_RE.search(t):
+        return "cooler_air"
+    if (
+        re.search(r"\btdp\s*:?\s*\d+\s*w\b", t)
+        or re.search(r"\b\d+\s*w\s*tdp\b", t)
+    ) and re.search(r"\b(?:LGA\s*\d+|AM[45])\b", t):
+        return "cooler_air"
+    if re.search(r"\bcooler\b", t):
         return "cooler_air"
     # --- broad fallbacks, used only when the vendor guess is missing/unknown ---
     if re.search(r"\b(ssd|solid state|nvme|m\.2)\b", t):
@@ -469,13 +499,65 @@ def canonical_category(guess: str | None, title: str = "") -> str:
 
     # Plonter sometimes puts accessory items under COMPUTER CASES.
     if category == "case" and title_cat in ACCESSORY_CATEGORIES:
-        return title_cat
+        # "COMPUTER CASES" is a noisy Plonter parent category.  It also
+        # contains genuine cases whose marketing copy mentions bundled RGB
+        # strips/controllers, so only peel off unambiguous accessory-only
+        # titles (splitters, hubs, strips, kits, or thermal paste).
+        accessory_only = (
+            title_cat == "thermal_paste"
+            or title_cat == "cooler_accessory"
+            or re.search(
+                r"\b(?:fan\s+controller|controller\s+hub|splitter|"
+                r"(?:rgb\s+)?(?:led|light)\s+strips?|starter\s+kit)\b",
+                title_clean,
+            )
+            and not re.search(
+                r"\b(?:tower|chassis|atx|e-?atx|m-?atx|itx)\b|"
+                r"\b\d+x\s*(?:80|92|120|140|170|200)\s*mm\b",
+                title_clean,
+            )
+        )
+        if accessory_only:
+            return title_cat
+        return "case"
 
     # Ambiguous cooling guesses ("Fans and Cooling solutions", "cpu cooler").
     if category == "cooling":
-        if title_cat in ("aio", "cooler_air", "case_fan"):
+        if title_cat in (
+            "aio",
+            "cooler_air",
+            "case_fan",
+            "fan_controller",
+            "rgb_lighting",
+            "thermal_paste",
+            "cooler_accessory",
+        ):
             return title_cat
         return "cooling_other"
+
+    # Vendor feeds also use "cooling_other" for CPU coolers and fan hubs.
+    # Re-run the title classifier for this broad bucket instead of exposing
+    # those products under an undifferentiated category.
+    if category == "cooling_other" and title_cat in (
+        "aio",
+        "cooler_air",
+        "case_fan",
+        "fan_controller",
+        "rgb_lighting",
+        "thermal_paste",
+        "cooler_accessory",
+    ):
+        return title_cat
+
+    # Accessory words in a case title describe bundled lighting/fans, not the
+    # product's primary type.
+    if category in ("fan_controller", "rgb_lighting") and re.search(
+        r"\b(?:tower|chassis|case|atx|e-?atx|m-?atx|itx)\b", title_clean
+    ):
+        return "case"
+
+    if category in ("cooler_air", "aio") and title_cat in ("cooler_air", "aio"):
+        return title_cat
 
     return _reclassify(category, title_clean)
 

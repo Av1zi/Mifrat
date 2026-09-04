@@ -388,12 +388,45 @@
     "score": 100,
     "category": "cooler_air",
     "brand": "Antec",
+    "listing_a": "1pc:59364",
+    "listing_b": "tms:C400",
+    "title_a": "Antec C400 CPU cooler black.",
+    "title_b": "מאוורר למעבד Antec C400",
+    "match_text_a": "59364 Antec C400 CPU cooler black.",
+    "match_text_b": "C400 Antec C400"
+  },
+  {
+    "score": 100,
+    "category": "cooler_air",
+    "brand": "Antec",
+    "listing_a": "1pc:64408",
+    "listing_b": "tms:A40P",
+    "title_a": "Antec A40 Pro A40P CPU cooler in black color.",
+    "title_b": "מאוורר למעבד Antec A40 Pro",
+    "match_text_a": "64408 Antec A40 Pro A40P CPU cooler in black color.",
+    "match_text_b": "A40P Antec A40 Pro"
+  },
+  {
+    "score": 100,
+    "category": "cooler_air",
+    "brand": "Antec",
     "listing_a": "ivory:80024",
     "listing_b": "plonter:T120",
     "title_a": "קירור למעבד Antec T120 RGB",
     "title_b": "Antec T120 RGB CPU Cooler 65W",
     "match_text_a": "T120 Antec T120 RGB",
     "match_text_b": "T120 Antec T120 RGB CPU Cooler 65W"
+  },
+  {
+    "score": 100,
+    "category": "cooler_air",
+    "brand": "Antec",
+    "listing_a": "plonter:C400",
+    "listing_b": "tms:C400",
+    "title_a": "Antec C400 Elite Performance Cooper tiger Quad Heatpipe CPU Air Cooler - PWM 120mm blue LED fan - for Intel/AMD CPU",
+    "title_b": "מאוורר למעבד Antec C400",
+    "match_text_a": "C400 Antec C400 Elite Performance Cooper tiger Quad Heatpipe CPU Air Cooler - PWM 120mm blue LED fan - for Intel/AMD CPU",
+    "match_text_b": "C400 Antec C400"
   },
   {
     "score": 100,
@@ -859,7 +892,7 @@
   },
   {
     "score": 97,
-    "category": "cooling_other",
+    "category": "cooler_accessory",
     "brand": "Intel",
     "listing_a": "plonter:603005440-GP",
     "listing_b": "plonter:603005450-GP",
@@ -10803,6 +10836,17 @@
   },
   {
     "score": 89,
+    "category": "cooler_air",
+    "brand": "1stPlayer",
+    "listing_a": "1pc:171715",
+    "listing_b": "tms:PS130",
+    "title_a": "1StPlayer PS-130 ARGB PWM CPU Cooler Fan.",
+    "title_b": "מאוורר למעבד 1StPlayer PS-130 ARGB PWM",
+    "match_text_a": "171715 1StPlayer PS-130 ARGB PWM CPU Cooler Fan.",
+    "match_text_b": "PS130 1StPlayer PS-130 ARGB PWM"
+  },
+  {
+    "score": 89,
     "category": "gpu",
     "brand": "Sapphire",
     "listing_a": "ivory:124407",
@@ -12147,6 +12191,17 @@
     "score": 88,
     "category": "cooler_air",
     "brand": "Antec",
+    "listing_a": "plonter:C400",
+    "listing_b": "tms:C40",
+    "title_a": "Antec C400 Elite Performance Cooper tiger Quad Heatpipe CPU Air Cooler - PWM 120mm blue LED fan - for Intel/AMD CPU",
+    "title_b": "Antec C40 CPU Cooler",
+    "match_text_a": "C400 Antec C400 Elite Performance Cooper tiger Quad Heatpipe CPU Air Cooler - PWM 120mm blue LED fan - for Intel/AMD CPU",
+    "match_text_b": "C40 Antec C40 CPU Cooler"
+  },
+  {
+    "score": 88,
+    "category": "cooler_air",
+    "brand": "Antec",
     "listing_a": "plonter:T120",
     "listing_b": "tms:C40",
     "title_a": "Antec T120 RGB CPU Cooler 65W",
@@ -12816,17 +12871,6 @@
   },
   {
     "score": 88,
-    "category": "cooling_other",
-    "brand": "Intel",
-    "listing_a": "plonter:E41997-002",
-    "listing_b": "plonter:Intel-Original-All-Black",
-    "title_a": "original Intel Fan - LGA1150, 1151, 1155, 1156 ",
-    "title_b": "original Intel Fan Black - LGA1150, 1151, 1155, 1156, 1200 ",
-    "match_text_a": "E41997-002 original Intel Fan - LGA1150 1151 1155 1156",
-    "match_text_b": "Intel-Original-All-Black original Intel Fan Black - LGA1150 1151 1155 1156 1200"
-  },
-  {
-    "score": 88,
     "category": "psu",
     "brand": "Seasonic",
     "listing_a": "tms:12102GXAFS",
@@ -12857,6 +12901,17 @@
     "title_b": "ASUS TUF Gaming GT502 Plus White ATX Mid-Tower Case",
     "match_text_a": "TUF-Gaming-GT502-PLUS ASUS TUF Gaming GT502 Plus Black ATX Mid-Tower Case",
     "match_text_b": "TUF-Gaming-GT502-PLUS-White ASUS TUF Gaming GT502 Plus White ATX Mid-Tower Case"
+  },
+  {
+    "score": 88,
+    "category": "cooling_other",
+    "brand": "Intel",
+    "listing_a": "plonter:E41997-002",
+    "listing_b": "plonter:Intel-Original-All-Black",
+    "title_a": "original Intel Fan - LGA1150, 1151, 1155, 1156 ",
+    "title_b": "original Intel Fan Black - LGA1150, 1151, 1155, 1156, 1200 ",
+    "match_text_a": "E41997-002 original Intel Fan - LGA1150 1151 1155 1156",
+    "match_text_b": "Intel-Original-All-Black original Intel Fan Black - LGA1150 1151 1155 1156 1200"
   },
   {
     "score": 88,
