@@ -10816,6 +10816,17 @@
     "score": 93,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "ivory:80282",
+    "listing_b": "ivory:80285",
+    "title_a": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "title_b": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box",
+    "match_text_a": "I9-14900K Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "match_text_b": "I9-14900KB Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "plonter:BX8071514400F",
     "listing_b": "plonter:BX8071514500",
     "title_a": "Intel Core i5 14400F 14th Gen Raptor Lake (20M Cache, up to 4.70 GHz) FC-LGA16A, Box",
@@ -16806,6 +16817,17 @@
     "title_b": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box",
     "match_text_a": "I9-14900KF Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
     "match_text_b": "I9-14900KB Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "ivory:80279",
+    "listing_b": "ivory:80282",
+    "title_a": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
+    "title_b": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Tray",
+    "match_text_a": "I9-14900KFB Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
+    "match_text_b": "I9-14900K Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Tray"
   },
   {
     "score": 91,
