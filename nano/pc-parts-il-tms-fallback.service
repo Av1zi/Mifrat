@@ -1,0 +1,14 @@
+[Unit]
+Description=Retry TMS scrape if the overnight run did not complete
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=avizi
+WorkingDirectory=/home/avizi/pc-parts-il
+Environment=RUN_TMS_FALLBACK=1
+ExecStart=/home/avizi/pc-parts-il/nano/run_tms.sh
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=1800

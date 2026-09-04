@@ -14,14 +14,37 @@ name: scrape-cloud
 # locally, then push 403s. Same fix as normalize-and-deploy.yml.
 on:
   schedule:
-    - cron: '30 3 * * *'   # ~03:30 UTC daily — GitHub cron is UTC-only (§3)
+    - cron: '59 20 * * *'  # Randomized gate opens at 23:59 Israel time (UTC+3)
+    - cron: '0 7 * * *'    # 10:00 Israel-time fallback check (UTC+3)
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 jobs:
+  schedule-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      fallback: ${{ steps.mode.outputs.fallback }}
+    steps:
+      - id: mode
+        shell: bash
+        env:
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ "$SCHEDULE" = "0 7 * * *" ]; then
+            echo "fallback=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "fallback=false" >> "$GITHUB_OUTPUT"
+          # Spread load across the overnight window. This is for reliability
+          # and load distribution, not for bypassing site defenses.
+          # Leave headroom for the matrix/detail jobs before the 6-hour
+          # Actions job limit.
+          sleep "$((RANDOM % 18000))"
+
   scrape:
+    needs: schedule-gate
     runs-on: ubuntu-latest
     strategy:
       # One vendor failing must not kill the others' scrapes (§10).
@@ -40,7 +63,16 @@ jobs:
       # only onepc/ivory don't need it, but installing unconditionally is
       # simpler and harmless than a per-matrix-entry conditional.
       - run: python -m playwright install --with-deps chromium
-      - run: python scraper/run_spider.py ${{ matrix.spider }}
+      - name: Scrape vendor unless today's fallback artifact exists
+        env:
+          FALLBACK: ${{ needs.schedule-gate.outputs.fallback }}
+        run: |
+          output="data/raw/$(date -u +%F)/${{ matrix.spider }}.jsonl"
+          if [ "$FALLBACK" = "true" ] && [ -s "$output" ]; then
+            echo "${{ matrix.spider }} already has a current snapshot; skipping fallback"
+            exit 0
+          fi
+          python scraper/run_spider.py "${{ matrix.spider }}"
       # Commit ONLY this job's own snapshot file. Never `data/raw/` — the
       # matrix jobs run in parallel on stale checkouts, and `git add` on a
       # shared directory stages the siblings' files as DELETED (Sep 2026
@@ -59,7 +91,7 @@ jobs:
   # downloaded as resized JPEG and committed to the repo (plan §7 —
   # trivial repo growth at this rate).
   detail-scrape:
-    needs: scrape
+    needs: [schedule-gate, scrape]
     # A single vendor failing (e.g. Ivory 403-blocking datacenter IPs, Sep
     # 2026) must not cancel everyone else's detail scrape: without this,
     # `needs` requires ALL matrix legs to succeed, so one vendor's block

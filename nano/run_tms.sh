@@ -6,12 +6,19 @@ SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
 TODAY="$(date +%F)"
 OUT_DIR="$REPO_DIR/data/raw/$TODAY"
 OUT_FILE="$OUT_DIR/tms.jsonl"
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
+SUCCESS_MARKER="$STATE_DIR/tms-$TODAY.success"
 
 if ! timedatectl status | grep -q "synchronized: yes"; then
     echo "[warn] system clock not NTP-synchronized" >&2
 fi
 
 cd "$REPO_DIR"
+
+if [ "${RUN_TMS_FALLBACK:-0}" = "1" ] && [ -f "$SUCCESS_MARKER" ]; then
+    echo "[run_tms] overnight scrape already completed; fallback is not needed"
+    exit 0
+fi
 
 update_repo() {
     # Recover from interrupted rebases before every scrape phase.
@@ -157,3 +164,7 @@ if [ "$DETAIL_OK" -eq 0 ]; then
     echo "[error] run finished with detail-step failures (snapshot is safe upstream)" >&2
     exit 1
 fi
+
+mkdir -p "$STATE_DIR"
+touch "$SUCCESS_MARKER"
+find "$STATE_DIR" -name 'tms-*.success' -type f -mtime +14 -delete

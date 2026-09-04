@@ -82,14 +82,16 @@ clock isn't synchronized — wrong dates poison the daily-history data.
 
 ```bash
 sudo cp nano/pc-parts-il-tms.service nano/pc-parts-il-tms.timer /etc/systemd/system/
+sudo cp nano/pc-parts-il-tms-fallback.service nano/pc-parts-il-tms-fallback.timer /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now pc-parts-il-tms.timer
+sudo systemctl enable --now pc-parts-il-tms-fallback.timer
 ```
 
 Check it's scheduled and see the next run time:
 
 ```bash
-systemctl list-timers pc-parts-il-tms.timer
+systemctl list-timers pc-parts-il-tms.timer pc-parts-il-tms-fallback.timer
 ```
 
 Run it once by hand to confirm the whole chain works before trusting the

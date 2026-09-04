@@ -2,10 +2,10 @@
 Description=Daily timer for the TMS scraper (PC Part Picker IL)
 
 [Timer]
-# Fire at ~06:00 IDT (03:00 UTC) with up to 45 minutes of random jitter,
-# so it never hits at an exactly predictable time (§7 rule 4).
-OnCalendar=*-*-* 03:00:00 UTC
-RandomizedDelaySec=2700
+# Start at 23:59 Israel time (20:59 UTC during daylight saving) and spread
+# the run across the overnight window until 06:00 Israel time (03:00 UTC).
+OnCalendar=*-*-* 20:59:00 UTC
+RandomizedDelaySec=21660
 # Catch up if the box was off when the timer was due.
 Persistent=true
 
