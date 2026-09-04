@@ -60,6 +60,12 @@ jobs:
   # trivial repo growth at this rate).
   detail-scrape:
     needs: scrape
+    # A single vendor failing (e.g. Ivory 403-blocking datacenter IPs, Sep
+    # 2026) must not cancel everyone else's detail scrape: without this,
+    # `needs` requires ALL matrix legs to succeed, so one vendor's block
+    # silently kills onepc/plonter detail + the whole detail commit.
+    # The failed vendor is covered by normalize's 14-day stale-forward.
+    if: "!cancelled()"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5

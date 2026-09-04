@@ -95,6 +95,8 @@ class IvorySpider(scrapy.Spider):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._seen_ids = set()  # defensive — categories shouldn't overlap now, but cheap to keep
+        self._requests = len(CATEGORIES)
+        self._failed_403 = 0
 
     async def start(self):
         for request in self._build_requests():
@@ -169,7 +171,25 @@ class IvorySpider(scrapy.Spider):
                 )
 
     def _request_failed(self, failure):
+        status = getattr(getattr(failure.value, "response", None), "status", None)
+        if status == 403:
+            self._failed_403 += 1
         self.logger.warning(
             "[ivory] request failed: %s — that category's items are "
             "skipped, nothing else is affected", failure.value,
         )
+
+    def closed(self, reason):
+        # Uniform 403 = datacenter-IP block, not flaky categories. Say so
+        # explicitly: the per-category warnings above bury this, and the
+        # run_spider zero-items error that follows doesn't name the cause.
+        # Policy (same class as TMS §7 / KSP WAF): do NOT retry against it,
+        # do not add proxies — stale-forward covers 14 days, just wait.
+        if self._requests and self._failed_403 >= self._requests:
+            self.logger.error(
+                "[ivory] ALL %d requests got 403 — Ivory is blocking this "
+                "IP (datacenter ban). Nothing is broken on our side; the "
+                "catalog stale-forwards Ivory for up to 14 days. "
+                "Do not retry/proxy — check back in a few days.",
+                self._requests,
+            )
