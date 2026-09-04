@@ -311,6 +311,17 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
+    "listing_a": "1pc:165970",
+    "listing_b": "tms:C8ARGB",
+    "title_a": "Antec C8 ARGB C8ARGB computer case.",
+    "title_b": "מארז מחשב Antec C8 ARGB",
+    "match_text_a": "165970 Antec C8 ARGB C8ARGB computer case.",
+    "match_text_b": "C8ARGB Antec C8 ARGB"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
     "listing_a": "1pc:171575",
     "listing_b": "tms:FLUX",
     "title_a": "Antec FLUX PRO White computer case.",
@@ -1851,23 +1862,12 @@
     "score": 97,
     "category": "motherboard",
     "brand": "ASUS",
-    "listing_a": "1pc:178616",
-    "listing_b": "1pc:178617",
-    "title_a": "ASUS TUF GAMING B860M-PLUS WIFI Motherboard.",
-    "title_b": "ASUS TUF GAMING B860-PLUS WIFI Motherboard.",
-    "match_text_a": "178616 ASUS TUF GAMING B860M-PLUS WIFI Motherboard.",
-    "match_text_b": "178617 ASUS TUF GAMING B860-PLUS WIFI Motherboard."
-  },
-  {
-    "score": 97,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "1pc:179733",
-    "listing_b": "1pc:179734",
-    "title_a": "ASUS TUF GAMING B850M-PLUS WIFI Gaming Motherboard.",
-    "title_b": "ASUS TUF GAMING B850-PLUS WIFI Gaming Motherboard.",
-    "match_text_a": "179733 ASUS TUF GAMING B850M-PLUS WIFI Gaming Motherboard.",
-    "match_text_b": "179734 ASUS TUF GAMING B850-PLUS WIFI Gaming Motherboard."
+    "listing_a": "1pc:216406",
+    "listing_b": "1pc:216407",
+    "title_a": "ASUS Prime B850M-F WIFI motherboard, black color.",
+    "title_b": "ASUS Prime B850-F WIFI motherboard, black color.",
+    "match_text_a": "216406 ASUS Prime B850M-F WIFI motherboard black color.",
+    "match_text_b": "216407 ASUS Prime B850-F WIFI motherboard black color."
   },
   {
     "score": 97,
@@ -2220,17 +2220,6 @@
     "title_b": "קירור נוזלי למעבד Lian-Li HydroShift II LCD-S 360TL Black",
     "match_text_a": "GHS2LCD36TB Lian-Li HydroShift II LCD-C 360TL Black",
     "match_text_b": "GHS2LCDS36TB Lian-Li HydroShift II LCD-S 360TL Black"
-  },
-  {
-    "score": 96,
-    "category": "case_fan",
-    "brand": "be quiet!",
-    "listing_a": "1pc:143620",
-    "listing_b": "1pc:143621",
-    "title_a": "be quiet! Silent Wings Pro 4 140mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_a": "143620 be quiet Silent Wings Pro 4 140mm PWM fan black color.",
-    "match_text_b": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color."
   },
   {
     "score": 96,
@@ -5108,17 +5097,6 @@
     "category": "memory",
     "brand": "G.Skill",
     "listing_a": "1pc:200238",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200238 G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200238",
     "listing_b": "1pc:201770",
     "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
@@ -5217,28 +5195,6 @@
     "score": 95,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200260",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200260 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in black color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200264",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200264 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200264",
     "listing_b": "1pc:201770",
     "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
@@ -5256,17 +5212,6 @@
     "title_b": "G.Skill Trident Z5 Royal DDR5 Memory 32GB (2x16GB) 6000 CL28 in silver color.",
     "match_text_a": "200270 G.Skill Trident Z5 Royal Neo DDR5 Memory 32GB (2x16GB) 6000 CL28 in silver color.",
     "match_text_b": "201727 G.Skill Trident Z5 Royal DDR5 Memory 32GB (2x16GB) 6000 CL28 in silver color."
-  },
-  {
-    "score": 95,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:201724",
-    "listing_b": "1pc:207657",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
-    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_b": "207657 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color."
   },
   {
     "score": 95,
@@ -5756,17 +5701,6 @@
     "score": 94,
     "category": "case_fan",
     "brand": "be quiet!",
-    "listing_a": "1pc:143621",
-    "listing_b": "1pc:143624",
-    "title_a": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings 4 120mm PWM fan black color.",
-    "match_text_a": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_b": "143624 be quiet Silent Wings 4 120mm PWM fan black color."
-  },
-  {
-    "score": 94,
-    "category": "case_fan",
-    "brand": "be quiet!",
     "listing_a": "1pc:207587",
     "listing_b": "1pc:207589",
     "title_a": "be quiet! Light Wings LX 120mm PWM Reverse fan in black color.",
@@ -6048,6 +5982,17 @@
     "title_b": "מארז מחשב Antec CX700 ARGB White",
     "match_text_a": "CX300ARGB-W Antec CX300 ARGB White",
     "match_text_b": "CX700ARGB-W Antec CX700 ARGB White"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "1pc:161183",
+    "listing_b": "1pc:161184",
+    "title_a": "ADATA XPG Lancer Customizable RGB DDR5 U-DIMM AX5U6000C3032G-CLARBK desktop computer memory.",
+    "title_b": "ADATA XPG Lancer Customizable RGB DDR5 U-DIMM AX5U6400C3232G-CLARWH desktop computer memory.",
+    "match_text_a": "161183 ADATA XPG Lancer Customizable RGB DDR5 U-DIMM AX5U6000C3032G-CLARBK desktop computer memory.",
+    "match_text_b": "161184 ADATA XPG Lancer Customizable RGB DDR5 U-DIMM AX5U6400C3232G-CLARWH desktop computer memory."
   },
   {
     "score": 94,
@@ -6425,6 +6370,17 @@
   },
   {
     "score": 94,
+    "category": "gpu",
+    "brand": "MSI",
+    "listing_a": "1pc:203121",
+    "listing_b": "1pc:203122",
+    "title_a": "MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
+    "title_b": "MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
+    "match_text_a": "203121 MSI GeForce RTX 5060 8G SHADOW 2X OC graphics card in black.",
+    "match_text_b": "203122 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black."
+  },
+  {
+    "score": 94,
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "1pc:180217",
@@ -6521,17 +6477,6 @@
     "title_b": "Lian-Li TL120 UNI Wireless LED 1Black 3xFans",
     "match_text_a": "12TL1W1B Lian-Li TL120 UNI Wireless LED Black Fan",
     "match_text_b": "12TL1W3B Lian-Li TL120 UNI Wireless LED 1Black 3xFans"
-  },
-  {
-    "score": 94,
-    "category": "aio",
-    "brand": "MSI",
-    "listing_a": "1pc:151938",
-    "listing_b": "1pc:163231",
-    "title_a": "Liquid cooling for the MSI MAG CORELIQUID E360 processor.",
-    "title_b": "Liquid cooling for the MSI MAG CORELIQUID E360 WHITE processor.",
-    "match_text_a": "151938 Liquid cooling for the MSI MAG CORELIQUID E360 processor.",
-    "match_text_b": "163231 Liquid cooling for the MSI MAG CORELIQUID E360 WHITE processor."
   },
   {
     "score": 94,
@@ -8044,17 +7989,6 @@
     "score": 93,
     "category": "case_fan",
     "brand": "be quiet!",
-    "listing_a": "1pc:143621",
-    "listing_b": "1pc:143622",
-    "title_a": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings 4 140mm PWM fan black color.",
-    "match_text_a": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_b": "143622 be quiet Silent Wings 4 140mm PWM fan black color."
-  },
-  {
-    "score": 93,
-    "category": "case_fan",
-    "brand": "be quiet!",
     "listing_a": "1pc:207588",
     "listing_b": "1pc:207590",
     "title_a": "be quiet! Light Wings LX 120mm PWM Reverse fan in white color.",
@@ -9099,17 +9033,6 @@
   {
     "score": 93,
     "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "1pc:178617",
-    "listing_b": "1pc:179057",
-    "title_a": "ASUS TUF GAMING B860-PLUS WIFI Motherboard.",
-    "title_b": "ASUS TUF GAMING B860M-PLUS WIFI Motherboard.",
-    "match_text_a": "178617 ASUS TUF GAMING B860-PLUS WIFI Motherboard.",
-    "match_text_b": "179057 ASUS TUF GAMING B860M-PLUS WIFI Motherboard."
-  },
-  {
-    "score": 93,
-    "category": "motherboard",
     "brand": "ARKTEK",
     "listing_a": "tms:AK-H110MEG",
     "listing_b": "tms:AK-H510MEG",
@@ -10112,17 +10035,6 @@
     "score": 93,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200252",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200252 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in black color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200254",
     "listing_b": "1pc:200261",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
@@ -10217,17 +10129,6 @@
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
     "match_text_a": "200264 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_b": "207657 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color."
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:201724",
-    "listing_b": "1pc:201770",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_b": "201770 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
   },
   {
     "score": 93,
@@ -10855,17 +10756,6 @@
     "title_b": "be quiet! Silent Wings Pro 4 140mm PWM",
     "match_text_a": "143620 be quiet Silent Wings Pro 4 140mm PWM fan black color.",
     "match_text_b": "BL099 be quiet Silent Wings Pro 4 140mm PWM"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "be quiet!",
-    "listing_a": "1pc:143621",
-    "listing_b": "tms:BL098",
-    "title_a": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings Pro 4 120mm PWM",
-    "match_text_a": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_b": "BL098 be quiet Silent Wings Pro 4 120mm PWM"
   },
   {
     "score": 92,
@@ -11691,17 +11581,6 @@
     "title_b": "Antec FLUX White computer case.",
     "match_text_a": "171575 Antec FLUX PRO White computer case.",
     "match_text_b": "171577 Antec FLUX White computer case."
-  },
-  {
-    "score": 92,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:217700",
-    "listing_b": "1pc:217703",
-    "title_a": "Antec C6 Curve Air computer case in black.",
-    "title_b": "Antec C6 Curve ARGB computer case in black.",
-    "match_text_a": "217700 Antec C6 Curve Air computer case in black.",
-    "match_text_b": "217703 Antec C6 Curve ARGB computer case in black."
   },
   {
     "score": 92,
@@ -14931,17 +14810,6 @@
     "category": "memory",
     "brand": "G.Skill",
     "listing_a": "1pc:200254",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200254 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200254",
     "listing_b": "1pc:205729",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color.",
@@ -15024,17 +14892,6 @@
     "title_b": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_a": "200262 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
     "match_text_b": "200264 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200262",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200262 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
   },
   {
     "score": 92,
@@ -15662,17 +15519,6 @@
     "title_b": "be quiet! Silent Wings 4 140mm PWM",
     "match_text_a": "143620 be quiet Silent Wings Pro 4 140mm PWM fan black color.",
     "match_text_b": "BL096 be quiet Silent Wings 4 140mm PWM"
-  },
-  {
-    "score": 91,
-    "category": "case_fan",
-    "brand": "be quiet!",
-    "listing_a": "1pc:143621",
-    "listing_b": "tms:BL093",
-    "title_a": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings 4 120mm PWM",
-    "match_text_a": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_b": "BL093 be quiet Silent Wings 4 120mm PWM"
   },
   {
     "score": 91,
@@ -16388,17 +16234,6 @@
     "title_b": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box",
     "match_text_a": "I9-14900KF Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Tray",
     "match_text_b": "I9-14900KB Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ivory:85533",
-    "listing_b": "ivory:85536",
-    "title_a": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
-    "title_b": "מעבד Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray",
-    "match_text_a": "I7-14700FB Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
-    "match_text_b": "I7-14700 Intel Core i7-14700 up to 5.40GHz 33MB Cache Raptor Lake Tray"
   },
   {
     "score": 91,
@@ -17367,6 +17202,17 @@
     "title_b": "לוח אם MSI MPG X870E EDGE TI WIFI 7 ATX AM5 AMD",
     "match_text_a": "4711377290616 MSI MPG B850 EDGE TI WIFI 7 ATX AM5 AMD",
     "match_text_b": "4711377290630 MSI MPG X870E EDGE TI WIFI 7 ATX AM5 AMD"
+  },
+  {
+    "score": 91,
+    "category": "gpu",
+    "brand": "MSI",
+    "listing_a": "1pc:203122",
+    "listing_b": "1pc:203127",
+    "title_a": "MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
+    "title_b": "MSI GeForce RTX 5060 Ti 16G SHADOW OC PLUS graphics card in black.",
+    "match_text_a": "203122 MSI GeForce RTX 5060 Ti 8G SHADOW 2X OC PLUS graphics card in black.",
+    "match_text_b": "203127 MSI GeForce RTX 5060 Ti 16G SHADOW OC PLUS graphics card in black."
   },
   {
     "score": 91,
@@ -19287,17 +19133,6 @@
     "category": "memory",
     "brand": "G.Skill",
     "listing_a": "1pc:200239",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 7600 CL36 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200239 G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 7600 CL36 in black color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200239",
     "listing_b": "1pc:201770",
     "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 7600 CL36 in black color.",
     "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
@@ -19386,17 +19221,6 @@
     "category": "memory",
     "brand": "G.Skill",
     "listing_a": "1pc:200269",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200269 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200269",
     "listing_b": "1pc:201770",
     "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
     "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
@@ -19413,17 +19237,6 @@
     "title_b": "G.Skill Trident Z5 Royal DDR5 Memory 32GB (2x16GB) 6400 CL32 in silver color.",
     "match_text_a": "200270 G.Skill Trident Z5 Royal Neo DDR5 Memory 32GB (2x16GB) 6000 CL28 in silver color.",
     "match_text_b": "201728 G.Skill Trident Z5 Royal DDR5 Memory 32GB (2x16GB) 6400 CL32 in silver color."
-  },
-  {
-    "score": 91,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:201724",
-    "listing_b": "1pc:207673",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL36 in black color.",
-    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_b": "207673 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL36 in black color."
   },
   {
     "score": 91,
@@ -21211,28 +21024,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "ivory:80264",
-    "listing_b": "ivory:85533",
-    "title_a": "מעבד Intel Core i7-14700KF up to 5.50GHz 33MB Cache Raptor Lake Tray",
-    "title_b": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
-    "match_text_a": "I7-14700KF Intel Core i7-14700KF up to 5.50GHz 33MB Cache Raptor Lake Tray",
-    "match_text_b": "I7-14700FB Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ivory:80279",
-    "listing_b": "ivory:85533",
-    "title_a": "מעבד Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
-    "title_b": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
-    "match_text_a": "I9-14900KFB Intel Core i9-14900KF up to 5.60GHz 36MB Cache Raptor Lake Box",
-    "match_text_b": "I7-14700FB Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "plonter:CM8071504821018",
     "listing_b": "plonter:CM8071505093011",
     "title_a": "Intel Core i5 14600 14th Gen Raptor Lake (24M Cache, up to 5.20 GHz) FC-LGA16A, Tray",
@@ -22427,6 +22218,17 @@
     "title_b": "MSI PRO B860-P WIFI motherboard.",
     "match_text_a": "179933 MSI PRO B860-P motherboard.",
     "match_text_b": "179934 MSI PRO B860-P WIFI motherboard."
+  },
+  {
+    "score": 90,
+    "category": "gpu",
+    "brand": "MSI",
+    "listing_a": "1pc:192587",
+    "listing_b": "1pc:194055",
+    "title_a": "MSI RTX 5070 12G TRIO OC graphics card in black + RGB.",
+    "title_b": "MSI GeForce RTX 5070 Ti 16G TRIO OC graphics card in black + RGB.",
+    "match_text_a": "192587 MSI RTX 5070 12G TRIO OC graphics card in black + RGB.",
+    "match_text_b": "194055 MSI GeForce RTX 5070 Ti 16G TRIO OC graphics card in black + RGB."
   },
   {
     "score": 90,
@@ -24786,17 +24588,6 @@
     "score": 90,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:201283",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "201283 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:207657",
     "listing_b": "1pc:207673",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
@@ -26920,6 +26711,17 @@
     "score": 89,
     "category": "case_fan",
     "brand": "Noctua",
+    "listing_a": "1pc:49921",
+    "listing_b": "1pc:49924",
+    "title_a": "Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
+    "title_b": "Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color.",
+    "match_text_a": "49921 Noctua NF-A14IPPC-2000 industrial fan 140MM in black color.",
+    "match_text_b": "49924 Noctua NF-A14IPPC-2000 IP67 140MM industrial fan in gray color."
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Noctua",
     "listing_a": "tms:NF-P14SDUX1200P",
     "listing_b": "tms:NF-S12BDUX1200P",
     "title_a": "Noctua NF-P14S Redux-1200P 140mm 1200 RPM PWM Fan",
@@ -27201,6 +27003,17 @@
     "title_b": "MSI B850M GAMING PLUS WIFI Motherboard.",
     "match_text_a": "179925 MSI B860M GAMING PLUS WIFI Motherboard.",
     "match_text_b": "204258 MSI B850M GAMING PLUS WIFI Motherboard."
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "MSI",
+    "listing_a": "1pc:194054",
+    "listing_b": "1pc:203128",
+    "title_a": "MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS graphics card in black and silver color.",
+    "title_b": "MSI RTX 5070 Ti 16G VENTUS 3X OC graphics card in black silver color.",
+    "match_text_a": "194054 MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC PLUS graphics card in black and silver color.",
+    "match_text_b": "203128 MSI RTX 5070 Ti 16G VENTUS 3X OC graphics card in black silver color."
   },
   {
     "score": 89,
@@ -30669,6 +30482,17 @@
   },
   {
     "score": 89,
+    "category": "cooling_other",
+    "brand": "Noctua",
+    "listing_a": "1pc:219543",
+    "listing_b": "1pc:219544",
+    "title_a": "קירור נוזלי Noctua NL-LC1-24 240mm",
+    "title_b": "קירור נוזלי Noctua NL-LC1-42 420mm",
+    "match_text_a": "219543 Noctua NL-LC1-24 240mm",
+    "match_text_b": "219544 Noctua NL-LC1-42 420mm"
+  },
+  {
+    "score": 89,
     "category": "case",
     "brand": "HAVN",
     "listing_a": "1pc:173304",
@@ -30985,17 +30809,6 @@
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
     "match_text_a": "200258 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in black.",
     "match_text_b": "200262 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color."
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:200258",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in black.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200258 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in black.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
   },
   {
     "score": 89,
@@ -31617,28 +31430,6 @@
     "score": 88,
     "category": "case_fan",
     "brand": "be quiet!",
-    "listing_a": "1pc:143621",
-    "listing_b": "1pc:59372",
-    "title_a": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings 3 120mm PWM fan BL066 in black color.",
-    "match_text_a": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_b": "59372 be quiet Silent Wings 3 120mm PWM fan BL066 in black color."
-  },
-  {
-    "score": 88,
-    "category": "case_fan",
-    "brand": "be quiet!",
-    "listing_a": "1pc:143621",
-    "listing_b": "tms:BL066",
-    "title_a": "be quiet! Silent Wings Pro 4 120mm PWM fan black color.",
-    "title_b": "be quiet! Silent Wings 3 120mm PWM",
-    "match_text_a": "143621 be quiet Silent Wings Pro 4 120mm PWM fan black color.",
-    "match_text_b": "BL066 be quiet Silent Wings 3 120mm PWM"
-  },
-  {
-    "score": 88,
-    "category": "case_fan",
-    "brand": "be quiet!",
     "listing_a": "1pc:143624",
     "listing_b": "tms:BL066",
     "title_a": "be quiet! Silent Wings 4 120mm PWM fan black color.",
@@ -32057,6 +31848,17 @@
     "score": 88,
     "category": "motherboard",
     "brand": "Gigabyte",
+    "listing_a": "1pc:176979",
+    "listing_b": "1pc:216444",
+    "title_a": "Gigabyte B650 EAGLE motherboard.",
+    "title_b": "Gigabyte B650E EAGLE motherboard.",
+    "match_text_a": "176979 Gigabyte B650 EAGLE motherboard.",
+    "match_text_b": "216444 Gigabyte B650E EAGLE motherboard."
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
     "listing_a": "1pc:177647",
     "listing_b": "1pc:177652",
     "title_a": "Gigabyte B850 AORUS ELITE WIFI7 Motherboard.",
@@ -32206,6 +32008,17 @@
     "title_b": "Gigabyte B840M D3HP Motherboard.",
     "match_text_a": "212535 Gigabyte B840M H Motherboard.",
     "match_text_b": "216442 Gigabyte B840M D3HP Motherboard."
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:216075",
+    "listing_b": "1pc:216444",
+    "title_a": "Gigabyte B550 EAGLE motherboard.",
+    "title_b": "Gigabyte B650E EAGLE motherboard.",
+    "match_text_a": "216075 Gigabyte B550 EAGLE motherboard.",
+    "match_text_b": "216444 Gigabyte B650E EAGLE motherboard."
   },
   {
     "score": 88,
@@ -32574,17 +32387,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "ivory:80285",
-    "listing_b": "ivory:85533",
-    "title_a": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box",
-    "title_b": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
-    "match_text_a": "I9-14900KB Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box",
-    "match_text_b": "I7-14700FB Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "plonter:AT807683B9B4886",
     "listing_b": "plonter:BX80768250KF",
     "title_a": "Intel Core Ultra 5 (U5+) processor 250K Plus - Tray - LGA1851 - Core Ultra 200S Plus Arrow Lake-S Refresh Series",
@@ -32646,6 +32448,17 @@
     "title_b": "ANTEC NX240 computer case in black color.",
     "match_text_a": "125049 ANTEC NX290 computer case in black color.",
     "match_text_b": "77758 ANTEC NX240 computer case in black color."
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:164629",
+    "listing_b": "1pc:165970",
+    "title_a": "Antec C3 ARGB C3ARGB computer case.",
+    "title_b": "Antec C8 ARGB C8ARGB computer case.",
+    "match_text_a": "164629 Antec C3 ARGB C3ARGB computer case.",
+    "match_text_b": "165970 Antec C8 ARGB C8ARGB computer case."
   },
   {
     "score": 88,
@@ -33630,17 +33443,6 @@
     "score": 88,
     "category": "motherboard",
     "brand": "ASUS",
-    "listing_a": "1pc:158239",
-    "listing_b": "1pc:178617",
-    "title_a": "ASUS TUF GAMING B760-PLUS WIFI motherboard.",
-    "title_b": "ASUS TUF GAMING B860-PLUS WIFI Motherboard.",
-    "match_text_a": "158239 ASUS TUF GAMING B760-PLUS WIFI motherboard.",
-    "match_text_b": "178617 ASUS TUF GAMING B860-PLUS WIFI Motherboard."
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "ASUS",
     "listing_a": "1pc:158773",
     "listing_b": "1pc:178608",
     "title_a": "ASUS PRIME B760M-A-CSM Motherboard.",
@@ -33999,6 +33801,17 @@
     "title_b": "Corsair iCUE LINK H100i RGB AIO 240mm White Liquid CPU Cooler",
     "match_text_a": "CW-9061004-WW Corsair iCUE LINK H170i RGB AIO 420mm Liquid CPU Cooler Black",
     "match_text_b": "CW-9061005-WW Corsair iCUE LINK H100i RGB AIO 240mm White Liquid CPU Cooler"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MSI",
+    "listing_a": "1pc:142812",
+    "listing_b": "1pc:212399",
+    "title_a": "MSI PRO B760M-E motherboard in black color.",
+    "title_b": "MSI PRO H810M-E motherboard in black color.",
+    "match_text_a": "142812 MSI PRO B760M-E motherboard in black color.",
+    "match_text_b": "212399 MSI PRO H810M-E motherboard in black color."
   },
   {
     "score": 88,
@@ -37436,17 +37249,6 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200251",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in silver color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200251 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in silver color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200252",
     "listing_b": "1pc:200261",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in black color.",
@@ -37579,17 +37381,6 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200257",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in silver color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200257 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in silver color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200258",
     "listing_b": "1pc:200264",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in black.",
@@ -37667,17 +37458,6 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
-    "listing_a": "1pc:200261",
-    "listing_b": "1pc:201724",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in silver color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "match_text_a": "200261 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in silver color.",
-    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
     "listing_a": "1pc:200262",
     "listing_b": "1pc:201770",
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
@@ -37749,17 +37529,6 @@
     "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
     "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color.",
     "match_text_a": "201283 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
-    "match_text_b": "205729 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color."
-  },
-  {
-    "score": 88,
-    "category": "memory",
-    "brand": "G.Skill",
-    "listing_a": "1pc:201724",
-    "listing_b": "1pc:205729",
-    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
-    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color.",
-    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
     "match_text_b": "205729 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color."
   },
   {
