@@ -109,6 +109,11 @@ journalctl -u pc-parts-il-tms.service --since today
 Nothing is written to a log file on disk — journald only (§4, SD card
 health).
 
+`run_tms.sh` refreshes the checkout with `git pull --rebase --autostash`
+before both the listing crawl and the detail crawl. Each phase commits and
+pushes its generated files immediately, so a later detail failure cannot
+delay publication of the daily listing snapshot.
+
 ## One-time TMS detail backfill
 
 After deploying a parser change, run the full existing TMS detail queue once

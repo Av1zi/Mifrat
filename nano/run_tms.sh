@@ -13,15 +13,18 @@ fi
 
 cd "$REPO_DIR"
 
-# Recover from a previously interrupted run (leftover rebase state blocks
-# `git pull --rebase` forever — every subsequent run would die here and the
-# Nano would go silently stale, as happened late Aug 2026).
-if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
-    echo "[warn] stale rebase state found — aborting it to recover" >&2
-    git rebase --abort || true
-fi
+update_repo() {
+    # Recover from interrupted rebases before every scrape phase.
+    if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+        echo "[warn] stale rebase state found — aborting it to recover" >&2
+        git rebase --abort || true
+    fi
+    echo "[run_tms] updating checkout before $1..."
+    git pull --rebase --autostash
+    echo "[run_tms] code revision: $(git rev-parse --short HEAD)"
+}
 
-git pull --rebase --autostash
+update_repo "listing scrape"
 mkdir -p "$OUT_DIR"
 
 echo "[run_tms] starting spider at $(date -Iseconds)"
@@ -69,6 +72,7 @@ DETAIL_FILE="$DETAIL_DIR/tms.jsonl"
 
 echo "[run_tms] building detail pending list..."
 cd "$REPO_DIR"
+update_repo "detail scrape"
 TMS_DETAIL_LIMIT="${TMS_DETAIL_LIMIT:-50}"
 if [ "${TMS_DETAIL_FULL_BACKFILL:-0}" = "1" ]; then
     # Explicit one-time backfill only. Keep the normal daily run small because
