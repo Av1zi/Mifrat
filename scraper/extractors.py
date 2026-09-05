@@ -446,6 +446,12 @@ DETAIL_KEY_ALIASES = {
     "number_of_processor_threads": "threads",
     "processor_threads": "threads",
     "thread_count": "threads",
+    # Plonter's raw PSU detail-spec key is literally "WATT" — normalizes
+    # to "watt", which was never aliased, so it survived as a duplicate
+    # of wattage_w (same fact, e.g. watt=1200 + wattage_w=1200) and split
+    # the PSU wattage filter into two rails (confirmed in 66 products,
+    # Sep 2026).
+    "watt": "wattage_w",
 }
 
 # Yes/No canonicalization for boolean-ish spec keys. Vendors disagree on
@@ -643,8 +649,11 @@ def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
         elif re.search(r"\bbox(?:ed)?\b|\bretail\b", v, re.I):
             v = "Box"
 
-    # Pure-digit core/thread counts become ints for consistent merging.
-    if key in ("cores", "threads") and isinstance(v, str) and v.isdigit():
+    # Pure-digit core/thread/wattage counts become ints for consistent
+    # merging — otherwise the same fact from different sources ("1200" from
+    # a detail row vs 1200 from title parsing) can tally as two distinct
+    # values under one key.
+    if key in ("cores", "threads", "wattage_w") and isinstance(v, str) and v.isdigit():
         v = int(v)
 
     v = _canonicalize_yes_no(key, v)
@@ -772,6 +781,31 @@ def _load_cut_labels() -> dict:
         except Exception:
             _LABELS_CACHE = {}
     return _LABELS_CACHE
+
+
+# Ivory's own filter UI occasionally uses a full marketing paragraph (with
+# a call-to-action, e.g. an upsell for "recommended cooling") as a filter
+# option's *label* instead of a short spec value — this is UI copy, not a
+# spec, and IvoryFindings.md/build_ivory_cut_labels.py transcribe it
+# verbatim since they have no way to distinguish it from a real label.
+# Previously only the CPU "packaging" key got a Tray/Box regex cleanup at
+# the end of extract_attributes(), so a promo label under any OTHER cut
+# key (or a future new cut) sailed straight into `attributes` untouched.
+# This is a general guard applied at the point every cut label is read, so
+# it protects every category/key, not just packaging.
+_IVORY_PROMO_LABEL_RE = re.compile(
+    r"\u05dc\u05d7\u05e5/\u05d9|\u05dc\u05e8\u05db\u05d9\u05e9\u05d4|"  # לחץ/י | לרכישה
+    r"\u05de\u05d5\u05de\u05dc\u05e5|\u05dc\u05e7\u05e8\u05e8"          # מומלץ | לקרר
+)
+
+
+def _is_ivory_promo_label(v) -> bool:
+    if not isinstance(v, str):
+        return False
+    s = v.strip()
+    if len(s) > 40:
+        return True
+    return bool(_IVORY_PROMO_LABEL_RE.search(s))
 
 
 def _parse_hebrew_description(desc: str) -> dict:
@@ -1940,6 +1974,8 @@ def extract_attributes(listing: dict) -> dict:
     if labels:
         for cut in cut_ids:
             for k, v in (labels.get("cuts", {}).get(str(cut)) or {}).items():
+                if _is_ivory_promo_label(v):
+                    continue
                 attrs.setdefault(k, v)
 
     # Post-process: ensure aliases for PCPP parity

@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from typing import Any
 from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ DECISIONS_PATH = ROOT / "data" / "matching" / "review_decisions.json"
 PORT = 8765
 
 
-def load_data() -> tuple[list[dict], dict[str, dict]]:
+def load_data() -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
     queue = json.loads(QUEUE_PATH.read_text(encoding="utf-8"))
     decisions = (
         json.loads(DECISIONS_PATH.read_text(encoding="utf-8"))
@@ -30,7 +31,7 @@ def load_data() -> tuple[list[dict], dict[str, dict]]:
     return queue, decisions
 
 
-def listing_index() -> dict[str, dict]:
+def listing_index() -> dict[str, dict[str, Any]]:
     catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     return {
         item["listing_key"]: item
@@ -45,8 +46,8 @@ def render_page() -> bytes:
     rows = []
     for index, item in enumerate(queue):
         decision = decisions.get(str(index), {}).get("decision")
-        a = listings.get(item.get("listing_a"), {})
-        b = listings.get(item.get("listing_b"), {})
+        a = listings.get(str(item.get("listing_a") or ""), {})
+        b = listings.get(str(item.get("listing_b") or ""), {})
         rows.append(
             f"""<article class="card" data-index="{index}">
 <div><b>#{index}</b> {item.get("category","")} · score {item.get("score","")}</div>
@@ -98,7 +99,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(204)
         self.end_headers()
 
-    def log_message(self, *_args):
+    def log_message(self, format: str, *args: Any) -> None:
         return
 
 

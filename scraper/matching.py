@@ -23,6 +23,7 @@ import sys
 import unicodedata
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
+from typing import Any
 from urllib.parse import unquote
 
 try:
@@ -229,13 +230,6 @@ BRAND_ALIASES = {
     "silicon power": "Silicon Power",
     "teamgroup": "TeamGroup",
     "t-force": "TeamGroup",
-    "gskill": "G.Skill",
-    "lexar": "Lexar",
-    "adata": "ADATA",
-    "pny": "PNY",
-    "silicon power": "Silicon Power",
-    "teamgroup": "TeamGroup",
-    "t-force": "TeamGroup",
 
     # PSU
     "seasonic": "Seasonic",
@@ -428,7 +422,7 @@ def _category_from_title(title_clean: str) -> str | None:
     if (
         re.search(r"\bcooler\b", t)
         and re.search(r"\b\d{2,3}\s*mm\b", t)
-        and not re.search(r"\b(?:tdp|heatsink|heat\s*pipe|socket|lga|am[45])\b", t)
+        and not re.search(r"\b(?:tdp|heatsink|heat\s*pipe|socket|lga|am[45]|cpu|processor)\b", t)
     ):
         return "case_fan"
     # AIO check must run before the air-cooler check ("Liquid Freezer" etc.)
@@ -1192,7 +1186,7 @@ def _scrub_title(text: str) -> str:
     s = re.sub(r"\s{2,}", " ", " ".join(merged)).strip(" -–—|·,;:. ")
     if series_tag and series_tag.strip().lower() not in s.lower():
         s = f"{s}{series_tag}"
-    if year_tag and ym.group(1) not in s:
+    if year_tag and ym is not None and ym.group(1) not in s:
         s = f"{s}{year_tag}"
     return s
 
@@ -1234,18 +1228,18 @@ def _memory_canonical_name(group: list[dict], attributes: dict) -> str | None:
     Specs (capacity/type/speed/CAS) come from attributes, so Hebrew filler
     and MPN tails never survive.
     """
-    cap = attributes.get("capacity_gb") or attributes.get("total_gb")
+    cap: Any = attributes.get("capacity_gb") or attributes.get("total_gb")
     try:
         cap = int(cap) if cap is not None else None
     except (ValueError, TypeError):
         cap = None
     mem_type = attributes.get("memory_type")
-    speed = attributes.get("speed_mhz")
+    speed: Any = attributes.get("speed_mhz")
     try:
         speed = int(speed) if speed is not None else None
     except (ValueError, TypeError):
         speed = None
-    cas = attributes.get("cas_latency")
+    cas: Any = attributes.get("cas_latency")
     try:
         cas = int(cas) if cas is not None else None
     except (ValueError, TypeError):
@@ -1335,7 +1329,7 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
         blob_all = " | ".join(str(e.get("title_raw") or "") for e in group)
         brand = detect_brand(blob_all)
     chip = attributes.get("gpu_chip") or attributes.get("chipset")
-    vram = attributes.get("vram_gb")
+    vram: Any = attributes.get("vram_gb")
     try:
         vram = int(vram) if vram is not None else None
     except (ValueError, TypeError):
@@ -1466,8 +1460,9 @@ def name_from_attributes(
         if not brand or not model:
             return None
         name = f"{brand} {model}".strip()
+        cores_raw: Any = attributes.get("cores")
         try:
-            cores = int(attributes.get("cores")) if attributes.get("cores") is not None else None
+            cores = int(cores_raw) if cores_raw is not None else None
         except (ValueError, TypeError):
             cores = None
         if cores == 2:
@@ -1886,8 +1881,11 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
         mpns.update(
             value for value in [product.get("attributes", {}).get("mpn")] if value
         )
-        rows = [(_pckombo_find_by_mpn(mpn), mpn) for mpn in mpns]
-        rows = [(row, mpn) for row, mpn in rows if row and row.get("specs")]
+        candidates = [(_pckombo_find_by_mpn(mpn), mpn) for mpn in mpns]
+        rows: list[tuple[dict, Any]] = [
+            (row, mpn) for row, mpn in candidates
+            if row is not None and row.get("specs")
+        ]
         if not rows:
             continue
         row, _ = max(rows, key=lambda item: len(item[0]["specs"]))
@@ -2208,7 +2206,7 @@ def extract_critical_attributes(text: str) -> dict:
     t = _clean(text).lower()
     compact = re.sub(r"\s+", "", t)
 
-    out = {
+    out: dict = {
         "ddr": None,
         "total_gb": None,
         "speed_mhz": None,

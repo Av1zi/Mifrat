@@ -1146,7 +1146,9 @@ export async function renderCategory(
       btn.addEventListener("click", () => {
         const extra = btn.previousElementSibling as HTMLElement | null;
         if (!extra) return;
-        const willShow = extra.hidden;
+        // `.hidden` can be "until-found" (newer lib.dom) — normalize to a
+        // plain boolean for classList.toggle's `force` parameter.
+        const willShow = extra.hidden !== false;
         extra.hidden = !willShow;
         btn.textContent = willShow ? btn.dataset.less! : `${btn.dataset.more}`;
         btn.classList.toggle("open", willShow);

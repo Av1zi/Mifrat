@@ -152,7 +152,7 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
       listing-level thumbnail (captured by every listing spider) is kept
       as fallback so photo coverage doesn't depend on the detail scrape.
     """
-    vendors = set(e.get("vendor_id") for e in enriched)
+    vendors = set(str(e.get("vendor_id") or "") for e in enriched)
     # SKUs are vendor-scoped.  The same manufacturer SKU can legitimately
     # occur on multiple sites; indexing by SKU alone lets whichever detail
     # file is read last overwrite another vendor's specs/image/extra.
@@ -197,8 +197,8 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         sku = str(e.get("vendor_sku") or "").strip()
         if not sku:
             continue
-        vendor = e.get("vendor_id")
-        vendor_key = "onepc" if vendor in ("1pc", "onepc") else vendor
+        vendor_id = e.get("vendor_id")
+        vendor_key = "onepc" if vendor_id in ("1pc", "onepc") else str(vendor_id or "")
         key = (vendor_key, sku)
         detail_extra = extra_index.get(key)
         if vendor_key == "onepc" and isinstance(detail_extra, dict):
