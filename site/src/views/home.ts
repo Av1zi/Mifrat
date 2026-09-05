@@ -18,8 +18,8 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
 
   const byId = new Map(meta.categories.map((c) => [c.id, c]));
   const orderedIds = [
-    ...CATEGORY_ORDER.filter((id) => byId.has(id) && id !== "other"),
-    ...meta.categories.map((c) => c.id).filter((id) => !(CATEGORY_ORDER as readonly string[]).includes(id) && id !== "other"),
+    ...CATEGORY_ORDER.filter((id) => byId.has(id)),
+    ...meta.categories.map((c) => c.id).filter((id) => !(CATEGORY_ORDER as readonly string[]).includes(id)),
   ];
 
   const cards = orderedIds
@@ -28,7 +28,7 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
     .map((cat) => {
       const range =
         cat.min_price !== null && cat.max_price !== null
-          ? `${formatPrice(cat.min_price, currency, lang)} – ${formatPrice(cat.max_price, currency, lang)}`
+          ? `${formatPrice(cat.min_price, currency, lang)} - ${formatPrice(cat.max_price, currency, lang)}`
           : "";
       return `
         <a class="category-card" href="${categoryHash(cat.id)}">

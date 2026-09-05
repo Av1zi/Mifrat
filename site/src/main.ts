@@ -2,7 +2,7 @@ import "./style.css";
 import { loadCategory, loadMeta } from "./api";
 import { ensureFxRate, formatPrice } from "./format";
 import { categoryLabel, t } from "./i18n";
-import { icon } from "./icons";
+import { icon, type IconName } from "./icons";
 import {
   applyStoredTheme,
   getCurrency,
@@ -47,10 +47,20 @@ const POPULAR_CATS = [
 const COOLING_CATS = ["aio", "cooler_air", "cooling_other", "case_fan", "fan_controller"];
 const ACCESSORY_CATS = ["cooler_accessory", "thermal_paste", "rgb_lighting", "other"];
 
+const TILE_ICONS: Record<string, IconName> = {
+  cpu: "chip",
+  cooler_air: "cooler",
+  motherboard: "motherboard",
+  memory: "memory",
+  storage: "storage",
+  gpu: "gpu",
+  psu: "psu",
+  case: "case",
+};
+
 function catTile(id: string): string {
   const label = categoryLabel(id, lang);
-  const initials = label.replace(/[^A-Za-z\u0590-\u05FF]/g, "").slice(0, 2) || label.slice(0, 2);
-  return `<a class="mega-tile" href="#/c/${id}"><span class="mega-tile-mark" aria-hidden="true">${esc(initials)}</span><span>${esc(label)}</span></a>`;
+  return `<a class="mega-tile" href="#/c/${id}"><span class="mega-tile-mark" aria-hidden="true">${icon(TILE_ICONS[id] ?? "chip", 22)}</span><span>${esc(label)}</span></a>`;
 }
 
 function catLink(id: string): string {

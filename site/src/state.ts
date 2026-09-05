@@ -40,14 +40,42 @@ export function setCurrency(currency: Currency): void {
   localStorage.setItem(CURRENCY_KEY, currency);
 }
 
-/** Draft build (slot id -> product id), survives reloads; shared URLs override it. */
-export function getStoredBuild(): Record<string, string> {
+/**
+ * Draft build (slot id -> product ids), survives reloads; shared URLs
+ * override it. Memory, storage, GPU and PSU slots can hold several parts
+ * (repeated URL params, e.g. ?memory=a&memory=b); every other slot holds
+ * at most one and replacing is the norm there.
+ */
+export type BuildMap = Record<string, string[]>;
+
+export const MULTI_SLOTS: ReadonlySet<string> = new Set([
+  "memory",
+  "storage",
+  "gpu",
+  "psu",
+]);
+
+export function getStoredBuild(): BuildMap {
   try {
     const raw = localStorage.getItem(BUILD_KEY);
     if (raw) {
       const parsed: unknown = JSON.parse(raw);
       if (parsed && typeof parsed === "object") {
-        return parsed as Record<string, string>;
+        const out: BuildMap = {};
+        for (const [key, value] of Object.entries(
+          parsed as Record<string, unknown>
+        )) {
+          if (Array.isArray(value)) {
+            const ids = value.filter(
+              (v): v is string => typeof v === "string" && v.length > 0
+            );
+            if (ids.length > 0) out[key] = ids;
+          } else if (typeof value === "string" && value) {
+            // Migrate pre-multi entries stored as a bare id string.
+            out[key] = [value];
+          }
+        }
+        return out;
       }
     }
   } catch {
@@ -56,8 +84,37 @@ export function getStoredBuild(): Record<string, string> {
   return {};
 }
 
-export function setStoredBuild(build: Record<string, string>): void {
+export function setStoredBuild(build: BuildMap): void {
   localStorage.setItem(BUILD_KEY, JSON.stringify(build));
+}
+
+/** Append (multi slots) or replace (single slots), skipping duplicates. */
+export function addToBuild(
+  build: BuildMap,
+  slotId: string,
+  productId: string
+): void {
+  const list = build[slotId] ?? [];
+  if (MULTI_SLOTS.has(slotId)) {
+    if (!list.includes(productId)) list.push(productId);
+    build[slotId] = list;
+  } else {
+    build[slotId] = [productId];
+  }
+}
+
+export function removeFromBuild(
+  build: BuildMap,
+  slotId: string,
+  productId: string
+): void {
+  const list = (build[slotId] ?? []).filter((id) => id !== productId);
+  if (list.length > 0) build[slotId] = list;
+  else delete build[slotId];
+}
+
+export function buildItemCount(build: BuildMap): number {
+  return Object.values(build).reduce((n, ids) => n + ids.length, 0);
 }
 
 export interface CategoryParams {
@@ -77,7 +134,7 @@ export interface CategoryParams {
 
 export type Route =
   | { view: "home" }
-  | { view: "build"; shared: Record<string, string> | null }
+  | { view: "build"; shared: BuildMap | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
 
@@ -106,10 +163,12 @@ export function parseRoute(): Route {
 
   if (path === "/build" || path === "/build/") {
     const search = new URLSearchParams(queryStr ?? "");
-    const shared: Record<string, string> = {};
+    const shared: BuildMap = {};
 
-    for (const [key, value] of search.entries()) {
-      if (value) shared[key] = value;
+    // getAll keeps repeated params (?memory=a&memory=b) as multi picks.
+    for (const key of new Set(search.keys())) {
+      const ids = search.getAll(key).filter(Boolean);
+      if (ids.length > 0) shared[key] = ids;
     }
 
     return {
@@ -204,11 +263,13 @@ export function productHash(category: string, productId: string): string {
 }
 
 /** The build IS the URL — shareable with no backend. */
-export function buildHash(build: Record<string, string>): string {
+export function buildHash(build: BuildMap): string {
   const search = new URLSearchParams();
 
-  for (const [slot, id] of Object.entries(build)) {
-    if (id) search.set(slot, id);
+  for (const [slot, ids] of Object.entries(build)) {
+    for (const id of ids) {
+      if (id) search.append(slot, id);
+    }
   }
 
   const query = search.toString();

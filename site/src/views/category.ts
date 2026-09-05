@@ -1,5 +1,12 @@
 import { loadCategory } from "../api";
-import { BUILD_SLOTS, isProductCompatibleWithBuild } from "../build";
+import {
+  BUILD_SLOTS,
+  estimateWattage,
+  impliedFilterValues,
+  isProductCompatibleWithBuild,
+  optionMatchesTokens,
+  slotForCategory,
+} from "../build";
 import { formatPrice } from "../format";
 import {
   attributeLabel,
@@ -11,6 +18,7 @@ import {
 } from "../i18n";
 import { filterAllowlist, sortSpecKeys } from "../specs";
 import {
+  addToBuild,
   buildHash,
   categoryHash,
   getStoredBuild,
@@ -19,6 +27,7 @@ import {
   productHash,
   replaceRoute,
   setStoredBuild,
+  type BuildMap,
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
@@ -288,33 +297,39 @@ function sortProducts(products: Product[], sort: SortKey): Product[] {
   return arr;
 }
 
-async function loadBuildParts(
-  build: Record<string, string>
-): Promise<Record<string, Product>> {
-  const result: Record<string, Product> = {};
+interface LoadedBuild {
+  /** First picked product per slot (for compatibility checks + wattage). */
+  first: Record<string, Product>;
+  /** Every picked product (for totals). */
+  items: Array<{ slotId: string; product: Product }>;
+}
+
+async function loadBuildParts(build: BuildMap): Promise<LoadedBuild> {
+  const first: Record<string, Product> = {};
+  const items: Array<{ slotId: string; product: Product }> = [];
 
   await Promise.all(
     BUILD_SLOTS.map(async (slot) => {
-      const productId = build[slot.id];
-      if (!productId) return;
+      for (const productId of build[slot.id] ?? []) {
+        for (const category of slot.categories) {
+          try {
+            const products = await loadCategory(category);
+            const found = products.find((p) => p.id === productId);
 
-      for (const category of slot.categories) {
-        try {
-          const products = await loadCategory(category);
-          const found = products.find((p) => p.id === productId);
-
-          if (found) {
-            result[slot.id] = found;
-            return;
+            if (found) {
+              items.push({ slotId: slot.id, product: found });
+              if (!first[slot.id]) first[slot.id] = found;
+              break;
+            }
+          } catch {
+            // Ignore category load failures.
           }
-        } catch {
-          // Ignore category load failures.
         }
       }
     })
   );
 
-  return result;
+  return { first, items };
 }
 
 export async function renderCategory(
@@ -341,11 +356,20 @@ export async function renderCategory(
 
   const storedBuild = getStoredBuild();
 
-  let buildParts: Record<string, Product> = {};
+  // Always resolve the current build: the Parts List card shows live
+  // totals, and the compatibility filter needs the picked parts.
+  const loadedBuild = await loadBuildParts(storedBuild);
+  const buildParts = loadedBuild.first;
 
-  if (pickSlot) {
-    buildParts = await loadBuildParts(storedBuild);
-  }
+  // The slot this category fills (for implied compat values), if any.
+  const targetSlot = slotForCategory(category);
+  const targetSlotId = pickSlot ? pickSlot.id : targetSlot?.id ?? null;
+
+  // Compatibility filter starts on when there is something to be
+  // compatible with; the checkbox in the Parts List card toggles it.
+  let compatOn = loadedBuild.items.length > 0 && targetSlotId !== null;
+  // Filter keys the compat logic applied itself (removed when toggled off).
+  const compatAutoKeys = new Set<string>();
 
   let compatibleProducts = products;
   let hiddenIncompatible = 0;
@@ -402,7 +426,7 @@ export async function renderCategory(
     if (!pickSlot.categories.includes(product.category)) return;
 
     const build = getStoredBuild();
-    build[pickSlot.id] = product.id;
+    addToBuild(build, pickSlot.id, product.id);
     setStoredBuild(build);
 
     navigate(buildHash(build));
@@ -541,7 +565,7 @@ export async function renderCategory(
         const label = attributeLabel(key, lang);
         let display = "";
         if (range.min !== null && range.max !== null) {
-          display = `${range.min} – ${range.max}`;
+          display = `${range.min} - ${range.max}`;
         } else if (range.min !== null) {
           display = `${t(lang, "min")}: ${range.min}`;
         } else if (range.max !== null) {
@@ -609,7 +633,7 @@ export async function renderCategory(
             ? vendorsCount(lang, p.vendor_count)
             : p.attributes[key] ?? "";
 
-        return `<div class="pl-cell spec">${text ? esc(text) : "—"}</div>`;
+        return `<div class="pl-cell spec">${text ? esc(text) : "-"}</div>`;
       })
       .join("");
 
@@ -693,6 +717,9 @@ export async function renderCategory(
           params.filters[key] = Array.from(set);
           if (params.filters[key].length === 0) delete params.filters[key];
 
+          // The user took over this key; compat no longer owns it.
+          compatAutoKeys.delete(key);
+
           syncAndRerender();
         });
       });
@@ -768,45 +795,108 @@ export async function renderCategory(
     const rail = container.querySelector("#filter-rail")!;
     const numericRanges = computeNumericRanges(compatibleProducts);
 
-    // ---- Mini Part List card (like PP's top-left) ----
-    const buildCount = Object.keys(storedBuild).length;
-    // Total/wattage: try to compute from loaded buildParts (when picking), otherwise show dashes
-    let totalStr = formatPrice(0, currency, lang);
-    let wattStr = "0W";
-    if (buildCount > 0 && Object.keys(buildParts).length > 0) {
-      // Estimate from currently loaded buildParts
-      let sum = 0;
-      let estW = 0;
-      // We don't have product objects for all slots without async load, so keep placeholder.
-      // Use compatibleProducts not needed — will be refreshed after pick.
-      for (const p of Object.values(buildParts)) {
-        sum += p.min_price ?? 0;
-      }
-      // Simple wattage sum for mini card: sum of tdp-like attrs if present
-      for (const p of Object.values(buildParts)) {
-        const w = p.attributes["tdp"] || p.attributes["wattage_w"] || "";
-        const m = /(\d+)/.exec(w);
-        if (m) estW += parseInt(m[1], 10);
-      }
-      totalStr = formatPrice(sum, currency, lang);
-      wattStr = estW + "W";
+    // ---- Parts List card: live builder totals, hidden when empty ----
+    let buildSum = 0;
+    for (const { product } of loadedBuild.items) {
+      buildSum += product.min_price ?? 0;
     }
-    const miniCard = `
+    const buildCount = loadedBuild.items.length;
+    const buildWatts = estimateWattage(buildParts);
+    const showCompatToggle = buildCount > 0 && targetSlotId !== null;
+    const miniCard =
+      buildCount === 0
+        ? ""
+        : `
       <div class="miniPart">
         <div class="miniPart-head">
-          <span class="miniPart-title">Part <span class="miniPart-icon">◈</span> List</span>
+          <span class="miniPart-title">Parts List</span>
         </div>
-        <label class="miniPart-compat">
-          <input type="checkbox" checked disabled />
+        ${
+          showCompatToggle
+            ? `
+        <label class="miniPart-compat" title="${
+          lang === "he"
+            ? "הצגת ערכים תואמים בלבד"
+            : "Grey out options that conflict with the picked parts"
+        }">
+          <input type="checkbox" id="compat-checkbox" ${compatOn ? "checked" : ""} />
           <span>${lang === "he" ? "מסנן תאימות" : "Compatibility Filter"}</span>
-        </label>
+        </label>`
+            : ""
+        }
         <div class="miniPart-stats">
           <div><span class="miniPart-label">PARTS</span><span class="miniPart-value">${buildCount}</span></div>
-          <div><span class="miniPart-label">TOTAL</span><span class="miniPart-value miniPart-total">${totalStr}</span></div>
-          <div><span class="miniPart-label">ESTIMATED WATTAGE</span><span class="miniPart-value miniPart-watt">${wattStr}</span></div>
+          <div><span class="miniPart-label">TOTAL</span><span class="miniPart-value miniPart-total">${esc(formatPrice(buildSum, currency, lang))}</span></div>
+          <div><span class="miniPart-label">ESTIMATED WATTAGE</span><span class="miniPart-value miniPart-watt">${buildWatts}W</span></div>
         </div>
       </div>
     `;
+
+    // ---- Compatibility: pre-select build-implied values (AM5 etc.) ----
+    if (compatOn && targetSlotId) {
+      const implied = impliedFilterValues(targetSlotId, buildParts);
+      let applied = false;
+      for (const [key, tokens] of Object.entries(implied)) {
+        if ((params.filters[key] ?? []).length > 0) continue;
+        const candidates = filterableAttrs.get(key) ?? [];
+        const matched = candidates
+          .map(([value]) => value)
+          .filter((value) => optionMatchesTokens(value, tokens));
+        if (matched.length > 0) {
+          params.filters[key] = matched;
+          compatAutoKeys.add(key);
+          applied = true;
+        }
+      }
+      if (applied) {
+        replaceRoute(categoryHash(category, { ...params, q: localQuery }));
+      }
+    }
+
+    // ---- Per-option compatibility: values no compatible product carries ----
+    // Rendered greyed-out (and locked while the filter is on); when the
+    // filter is off they stay visible, only slightly muted, and clickable.
+    const goodByOption = new Map<string, Set<string>>();
+    if (buildCount > 0 && targetSlotId) {
+      for (const p of compatibleProducts) {
+        if (!isProductCompatibleWithBuild(p, targetSlotId, buildParts)) {
+          continue;
+        }
+        for (const key of filterableAttrs.keys()) {
+          let set = goodByOption.get(key);
+          if (!set) {
+            set = new Set<string>();
+            goodByOption.set(key, set);
+          }
+          if (key === "vendor") {
+            for (const offer of p.offers) set.add(offer.vendor);
+          } else if (p.attributes[key]) {
+            set.add(String(p.attributes[key]));
+          }
+        }
+      }
+    }
+    const optionDead = (key: string, value: string): boolean =>
+      goodByOption.size > 0 && !(goodByOption.get(key)?.has(value) ?? false);
+
+    const optionHtml = (key: string, value: string, count: number): string => {
+      const selected = new Set(params.filters[key] ?? []);
+      const dead = optionDead(key, value);
+      const stateClass = dead ? (compatOn ? "is-off" : "is-soft-off") : "";
+      return `
+        <label class="filter-option ${stateClass}">
+          <input
+            type="checkbox"
+            data-attr="${esc(key)}"
+            value="${esc(value)}"
+            ${selected.has(value) ? "checked" : ""}
+            ${dead && compatOn ? "disabled" : ""}
+          />
+          ${key === "vendor" ? esc(vendorLabel(value)) : esc(value)}
+          <span class="fo-count">(${count})</span>
+        </label>
+      `;
+    };
 
     // ---- Merchants / Pricing (mirrors PP) ----
     const vendorValues = filterableAttrs.get("vendor") ?? [];
@@ -814,12 +904,7 @@ export async function renderCategory(
       ? `
         <div class="group__content" id="merchants-content" style="display:none">
           <label class="filter-option"><input type="checkbox" data-merchant-all /> All</label>
-          ${vendorValues.map(([v,cnt]) => `
-            <label class="filter-option">
-              <input type="checkbox" data-attr="vendor" value="${esc(v)}" ${ (params.filters["vendor"] ?? []).includes(v) ? "checked" : "" } />
-              ${esc(vendorLabel(v))} <span class="fo-count">(${cnt})</span>
-            </label>
-          `).join("")}
+          ${vendorValues.map(([v, cnt]) => optionHtml("vendor", v, cnt)).join("")}
         </div>
       `
       : `<div class="group__content" style="display:none; padding:6px 0; font-size:0.82rem; color:var(--text-dim)">No vendor data</div>`;
@@ -840,35 +925,31 @@ export async function renderCategory(
     checkboxAttrs.delete("price");
     checkboxAttrs.delete("vendor");
 
+    // Long option lists collapse behind a Show more toggle (PCPP style).
+    const MAX_VISIBLE_OPTIONS = 6;
+
     const checkboxGroups = Array.from(checkboxAttrs)
       .filter((key) => filterableAttrs.has(key))
       .map((key) => {
         const values = filterableAttrs.get(key)!;
-        const selected = new Set(params.filters[key] ?? []);
+        const shown = values.slice(0, MAX_VISIBLE_OPTIONS);
+        const extra = values.slice(MAX_VISIBLE_OPTIONS);
 
-        const options = values
-          .map(([value, count]) => {
-            const displayValue = value;
-
-            return `
-              <label class="filter-option">
-                <input
-                  type="checkbox"
-                  data-attr="${esc(key)}"
-                  value="${esc(value)}"
-                  ${selected.has(value) ? "checked" : ""}
-                />
-                ${esc(displayValue)}
-                <span class="fo-count">(${count})</span>
-              </label>
-            `;
-          })
+        const shownHtml = shown
+          .map(([value, count]) => optionHtml(key, value, count))
           .join("");
+        const extraHtml =
+          extra.length > 0
+            ? `<span class="extra-opts" hidden>${extra
+                .map(([value, count]) => optionHtml(key, value, count))
+                .join("")}</span>
+              <button class="moreless" type="button" data-more="${esc(t(lang, "showMore"))} (${extra.length})" data-less="${esc(t(lang, "showLess"))}">${esc(t(lang, "showMore"))} (${extra.length})</button>`
+            : "";
 
         return `
           <details class="filter-group">
             <summary><span>${esc(attributeLabel(key, lang))}</span><span class="collapse-toggle">+</span></summary>
-            <div class="group__content">${options}</div>
+            <div class="group__content">${shownHtml}${extraHtml}</div>
           </details>
         `;
       })
@@ -987,7 +1068,34 @@ export async function renderCategory(
         params.filters[key] = Array.from(set);
         if (params.filters[key].length === 0) delete params.filters[key];
 
+        // The user took over this key; compat no longer owns it.
+        compatAutoKeys.delete(key);
+
         syncAndRerender();
+      });
+    });
+
+    const compatBox = rail.querySelector<HTMLInputElement>("#compat-checkbox");
+    if (compatBox) {
+      compatBox.addEventListener("change", () => {
+        compatOn = compatBox.checked;
+        if (!compatOn) {
+          for (const key of compatAutoKeys) delete params.filters[key];
+          compatAutoKeys.clear();
+        }
+        renderFilterRail();
+        syncAndRerender();
+      });
+    }
+
+    rail.querySelectorAll<HTMLButtonElement>(".moreless").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const extra = btn.previousElementSibling as HTMLElement | null;
+        if (!extra) return;
+        const willShow = extra.hidden;
+        extra.hidden = !willShow;
+        btn.textContent = willShow ? btn.dataset.less! : `${btn.dataset.more}`;
+        btn.classList.toggle("open", willShow);
       });
     });
 
@@ -1117,6 +1225,8 @@ export async function renderCategory(
         params.filters = {};
         params.ranges = {};
         params.stockOnly = false;
+        compatAutoKeys.clear();
+        renderFilterRail();
         syncAndRerender();
       });
   }

@@ -4,6 +4,7 @@ import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, t, vendorLabel } from "../i18n";
 import { sortSpecKeys } from "../specs";
 import {
+  addToBuild,
   buildHash,
   categoryHash,
   getStoredBuild,
@@ -217,7 +218,7 @@ export async function renderProduct(
       const total = (offer.price ?? 0) + (offer.shipping ?? 0);
       const shipping =
         offer.shipping === null || offer.shipping === undefined
-          ? `<span class="dim">—</span>`
+          ? `<span class="dim">-</span>`
           : offer.shipping === 0
             ? `<span class="free-ship">+${t(lang, "freeShipping")}</span>`
             : esc(formatPrice(offer.shipping, currency, lang));
@@ -227,10 +228,10 @@ export async function renderProduct(
       return `
       <tr class="${offer.in_stock ? "" : "is-out"}">
         <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}</td>
-        <td class="pt-num">${offer.price === null ? "—" : esc(formatPrice(offer.price, currency, lang))}</td>
+        <td class="pt-num">${offer.price === null ? "-" : esc(formatPrice(offer.price, currency, lang))}</td>
         <td class="pt-ship">${shipping}</td>
         <td class="pt-avail"><span class="status-dot ${offer.in_stock ? "in" : "out"}"></span>${offer.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}${stale}</td>
-        <td class="pt-total">${offer.price === null ? "—" : esc(formatPrice(total, currency, lang))}</td>
+        <td class="pt-total">${offer.price === null ? "-" : esc(formatPrice(total, currency, lang))}</td>
         <td class="pt-buy"><a class="offer-link" href="${esc(offer.url)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a></td>
       </tr>`;
     })
@@ -283,7 +284,7 @@ export async function renderProduct(
 
         <div class="pdp-card">
           <h2 class="pdp-card-title">${t(lang, "specsHeading")}</h2>
-          <div class="spec-list">${specRows || `<span class="dim">—</span>`}</div>
+          <div class="spec-list">${specRows || `<span class="dim">-</span>`}</div>
           ${
             referenceKeys.length > 0
               ? `<p class="reference-note" style="margin:10px 0 0">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>`
@@ -329,7 +330,7 @@ export async function renderProduct(
   if (addBtn && slot) {
     addBtn.addEventListener("click", () => {
       const build = getStoredBuild();
-      build[slot.id] = product.id;
+      addToBuild(build, slot.id, product.id);
       setStoredBuild(build);
       navigate(buildHash(build));
     });

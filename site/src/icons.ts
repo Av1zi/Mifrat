@@ -17,7 +17,14 @@ export type IconName =
   | "bolt"
   | "close"
   | "globe"
-  | "coin";
+  | "coin"
+  | "cooler"
+  | "motherboard"
+  | "memory"
+  | "storage"
+  | "gpu"
+  | "psu"
+  | "case";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -46,6 +53,20 @@ const PATHS: Record<IconName, string> = {
     '<circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 8h12M8 2c-3.5 3.5-3.5 8.5 0 12 3.5-3.5 3.5-8.5 0-12z" fill="none" stroke="currentColor" stroke-width="1.3"/>',
   coin:
     '<circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v6M6 6.5h3.2a1.3 1.3 0 0 1 0 2.6H6.8a1.3 1.3 0 0 0 0 2.6H10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  cooler:
+    '<circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 8V3.2M8 8l4.2 2.4M8 8l-4.2 2.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+  motherboard:
+    '<rect x="2.5" y="2.5" width="11" height="11" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="4.8" y="4.8" width="3.2" height="3.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M9.8 4.8v3.2M9.8 6.4h3.7M4.8 10.2h8.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  memory:
+    '<rect x="1.8" y="4.5" width="12.4" height="5.5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V10M4 10v2M6.5 10v2M9.5 10v2M12 10v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  storage:
+    '<rect x="2" y="4" width="12" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5" cy="8" r="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 8h4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  gpu:
+    '<rect x="1.5" y="4.5" width="10.5" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 4.5V2.8M14 4.5V2.8M12 11.5v1.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  psu:
+    '<rect x="2" y="3.5" width="12" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3.8 5.3h1.6M3.8 10.7h1.6M10.6 5.3h1.6M10.6 10.7h1.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>',
+  case:
+    '<rect x="4.5" y="1.8" width="7" height="12.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 5.2h7M4.5 11h7" stroke="currentColor" stroke-width="1.3"/><circle cx="9.7" cy="3.5" r="0.7" fill="currentColor"/>',
 };
 
 export function icon(name: IconName, size = 15): string {

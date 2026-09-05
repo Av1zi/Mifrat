@@ -352,6 +352,8 @@ const STRINGS = {
     partsCount: "חלקים",
     expansionOther: "קירור / אחר",
     chooseCategory: "בחירה לפי קטגוריה",
+    showMore: "הצג עוד",
+    showLess: "הצג פחות",
     disclaimer:
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
@@ -439,8 +441,10 @@ const STRINGS = {
     partsCount: "parts",
     expansionOther: "Cooling / Other",
     chooseCategory: "Browse by category",
+    showMore: "Show more",
+    showLess: "Show less",
     disclaimer:
-      "Prices are scraped daily from each vendor's site. Links go to the vendor to buy — Mifrat doesn't sell anything itself.",
+      "Prices are scraped daily from each vendor's site. Links go to the vendor to buy. Mifrat doesn't sell anything itself.",
   },
 } satisfies Record<Lang, Record<string, string>>;
 

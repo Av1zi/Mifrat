@@ -273,7 +273,7 @@ function inferCpuSockets(p: Product): string[] {
   return [];
 }
 
-function cpuSocketsForProduct(p: Product): string[] {
+export function cpuSocketsForProduct(p: Product): string[] {
   const fromAttrs = socketTokensFromAttributes(p, [
     "socket",
     "cpu_socket",
@@ -288,7 +288,7 @@ function cpuSocketsForProduct(p: Product): string[] {
   return inferCpuSockets(p);
 }
 
-function motherboardSocketsForProduct(p: Product): string[] {
+export function motherboardSocketsForProduct(p: Product): string[] {
   const fromAttrs = socketTokensFromAttributes(p, [
     "socket",
     "cpu_socket",
@@ -309,7 +309,7 @@ function motherboardSocketsForProduct(p: Product): string[] {
   return socketTokensFromText(`${p.name} ${p.model ?? ""}`);
 }
 
-function coolerSocketsForProduct(p: Product): string[] {
+export function coolerSocketsForProduct(p: Product): string[] {
   const fromAttrs = socketTokensFromAttributes(p, [
     "socket",
     "socket_compat",
@@ -322,7 +322,7 @@ function coolerSocketsForProduct(p: Product): string[] {
   return unique([...fromAttrs, ...fromText]);
 }
 
-function memoryTypeForProduct(p: Product): string | null {
+export function memoryTypeForProduct(p: Product): string | null {
   const source = [
     p.attributes.memory_type ?? "",
     p.attributes.memory ?? "",
@@ -469,6 +469,54 @@ export function checkCompatibility(
   }
 
   return issues;
+}
+
+/*
+============================================================================
+Implied filter values for already-selected build parts.
+
+When the compatibility filter is on and e.g. an AM5 CPU is picked, opening
+the motherboard list should pre-select the AM5 socket option and lock the
+rest. This maps a target slot to the attribute tokens the current build
+implies for it (socket tokens like AM5, memory types like DDR5).
+============================================================================
+*/
+
+export function impliedFilterValues(
+  slotId: string,
+  parts: Record<string, Product>
+): Record<string, string[]> {
+  if (slotId === "motherboard" && parts.cpu) {
+    const tokens = cpuSocketsForProduct(parts.cpu);
+    if (tokens.length > 0) return { socket: tokens };
+  }
+
+  if (slotId === "cpu" && parts.motherboard) {
+    const tokens = motherboardSocketsForProduct(parts.motherboard);
+    if (tokens.length > 0) return { socket: tokens };
+  }
+
+  if (slotId === "memory" && parts.motherboard) {
+    const mem = memoryTypeForProduct(parts.motherboard);
+    if (mem) return { memory_type: [mem] };
+  }
+
+  if (slotId === "cooler" && parts.cpu) {
+    const tokens = cpuSocketsForProduct(parts.cpu);
+    if (tokens.length > 0) return { socket: tokens };
+  }
+
+  return {};
+}
+
+/** True when an option value matches one of the implied tokens. */
+export function optionMatchesTokens(value: string, tokens: string[]): boolean {
+  const compact = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (!compact) return false;
+  return tokens.some((token) => {
+    const t = token.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    return t.length >= 3 && (compact.includes(t) || t.includes(compact));
+  });
 }
 
 /*
