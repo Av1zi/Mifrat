@@ -439,6 +439,9 @@ YES_NO_KEYS = frozenset({
     "registered", "nvme", "nvme_flag", "heat_spreader",
     "integrated_graphics", "graphics",
     "rgb", "argb", "pwm", "wireless", "fanless",
+    # Same boolean signal under longer key names ("Yes" vs "yes" split
+    # the filter rail without this).
+    "rgb_lighting", "pwm_technology",
 })
 
 _YES_VALUES = frozenset({"yes", "y", "true", "1", "included", "with", "ja"})
@@ -1945,6 +1948,12 @@ def extract_attributes(listing: dict) -> dict:
         ("ecc", "ecc_support"),
         ("igpu", "integrated_graphics"),
         ("tdp_tgp", "tdp"),
+        # 1PC detail rows say "RAM | RAM Type" while every other source
+        # says memory_type — without this the same DDR generation lands
+        # under two keys and the memory_type filter misses 1PC-only
+        # products (e.g. GPUs whose GDDR generation is only known from
+        # the 1PC detail scrape).
+        ("ram_ram_type", "memory_type"),
     )
     for old_k, new_k in _DUPE_ALIASES:
         if old_k in attrs and new_k not in attrs:
@@ -2093,12 +2102,14 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
 
     # GHz clocks -> float ("3.80GHz" -> 3.8, "2542 MHz" -> 2.542, unparseable
     # detail fragments like bare "MHz" are dropped). Powers the sliders.
+    # Rounded to 3 decimals: upstream datasets carry float artifacts like
+    # "5.300000000000001 GHz" that must never reach the catalog as-is.
     for ck in ("base_clock_ghz", "boost_clock_ghz"):
         cv = attrs.get(ck)
         if isinstance(cv, str):
             m = re.search(r"(\d+(?:\.\d+)?)\s?GHz", cv, re.I)
             if m:
-                attrs[ck] = float(m.group(1))
+                attrs[ck] = round(float(m.group(1)), 3)
                 continue
             m = re.search(r"(\d+(?:\.\d+)?)\s?MHz", cv, re.I)
             if m:
@@ -2265,13 +2276,16 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
         elif flu == "e-atx":
             attrs["form_factor"] = "EATX"
 
-    # Socket spelling: "STR5" vs "sTR5" (Threadripper); "Intel 4677" detail
-    # rows vs "LGA4677"; "3647 (LGA)" detail rows vs "LGA3647".
+    # Socket spelling: "STR5" vs "sTR5" (Threadripper); "SWRX8" vs
+    # "sWRX8"; "Intel 4677" detail rows vs "LGA4677"; "3647 (LGA)"
+    # detail rows vs "LGA3647".
     sk = attrs.get("socket")
     if isinstance(sk, str):
         sku = sk.strip()
         if sku.upper() == "STR5":
             attrs["socket"] = "sTR5"
+        elif sku.upper() == "SWRX8":
+            attrs["socket"] = "sWRX8"
         else:
             m = re.match(r"(?i)^intel\s+(\d{4})$", sku)
             if m:
@@ -2302,12 +2316,15 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
         attrs["brand"] = "Intel"
 
     # Storage interface: all SATA revisions are SATA 6Gb/s for filtering
-    # ("SATA 6.0 Gb/s" vs "SATA 6Gb/s" vs bare "SATA").
+    # ("SATA 6.0 Gb/s" vs "SATA 6Gb/s" vs bare "SATA"). "PCI Express"
+    # and "PCIe" are the same bus; "x 16" spacing variants collapse.
     itf = attrs.get("interface")
     if isinstance(itf, str):
         if re.match(r"(?i)^\s*SATA\b", itf):
             attrs["interface"] = "SATA 6 Gb/s"
         else:
+            itf = re.sub(r"(?i)\bPCI Express\b", "PCIe", itf)
+            itf = re.sub(r"\bx\s+(\d)", r"x\1", itf)
             attrs["interface"] = re.sub(r"\bX(\d)", r"x\1", itf)
 
     # Case PSU bay: an "internal ..." value means the case SHIPS WITH a
@@ -2335,10 +2352,49 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
             r"Intel UHD \1", ig2)
 
     # GPU memory type: vendor "SDDR3" -> "DDR3" (see _SDDR_RE note).
+    # Runs before the generic memory_type cleanup below, which then sees
+    # the already-folded "DDR3" and leaves it alone.
     if category == "gpu":
         gm = attrs.get("memory_type")
         if isinstance(gm, str):
             attrs["memory_type"] = _SDDR_RE.sub(r"DDR\1", gm)
+
+    # Memory type: detail rows leak sentences ("DDR5, PCIe 5.0 NVMe SSD
+    # Support: Yes"), suffixes ("DDR4-SDRAM", "DDR5.") and bare "DDR7"
+    # into the canonical key. Reduce to the DDR token so the same fact
+    # from different vendors becomes one filter checkbox. Multi-token
+    # values ("DDR5 or DDR4") are genuinely dual and stay as-is, as do
+    # values with no DDR token at all. Bare DDR6/7 on a GPU is GDDR6/7
+    # (system DRAM stops at DDR5 — one vendor's "DDR7" is another's
+    # "GDDR7" for the same RTX 5070).
+    mt = attrs.get("memory_type")
+    if isinstance(mt, str):
+        tokens = {
+            f"{p.upper()}{g}{l.upper()}"
+            for p, g, l in re.findall(r"(?i)\b(GDDR|DDR)([34567])(L)?\b", mt)
+        }
+        if category == "gpu":
+            tokens = {re.sub(r"^DDR([67])$", r"GDDR\1", c) for c in tokens}
+        if len(tokens) == 1:
+            attrs["memory_type"] = next(iter(tokens))
+        elif tokens == {"DDR4", "DDR5"}:
+            # Combo boards / dual-support CPUs ("DDR5 DDR4", "DDR5 or
+            # DDR4") are one fact in two wordings — one checkbox.
+            attrs["memory_type"] = "DDR4+DDR5"
+
+    # RGB lighting values: "Aura Sync." vs "Aura Sync" (trailing-dot
+    # variants split the filter rail). The Yes/yes half is already
+    # handled by the YES_NO sweep above.
+    rl = attrs.get("rgb_lighting")
+    if isinstance(rl, str):
+        attrs["rgb_lighting"] = rl.strip().rstrip(".").strip()
+
+    # Cooling kind: single-word lowercase ("passive") vs title case
+    # ("Passive") split the GPU cooling filter. Only bare single words
+    # are touched — long German detail sentences pass through.
+    co = attrs.get("cooling")
+    if isinstance(co, str) and re.fullmatch(r"[a-z]+", co):
+        attrs["cooling"] = co.title()
 
     # SSD/HDD DRAM cache plausibility: real sizes are powers of two up to
     # 8GB — anything else ("7500" from a "7500 MB/s" speed row) is a

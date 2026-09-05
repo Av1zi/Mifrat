@@ -364,6 +364,7 @@ export async function renderCategory(
 
   let localQuery = params.q;
   let visibleCount = PAGE_SIZE;
+  let gridObserver: IntersectionObserver | null = null;
 
   const filterableAttrs = computeFilterableAttributes(compatibleProducts, category);
 
@@ -498,14 +499,10 @@ export async function renderCategory(
 
         <div class="product-list" id="product-list"></div>
 
-        <div style="text-align:center; margin-top:20px;">
-          <button
-            class="btn-primary"
-            id="load-more"
-            type="button"
-            style="display:none;"
-          ></button>
-        </div>
+        <div
+          id="infinite-sentinel"
+          style="text-align:center; margin-top:20px; min-height:32px; display:none;"
+        ></div>
       </div>
     </div>
   `;
@@ -733,20 +730,32 @@ export async function renderCategory(
       });
     }
 
-    const loadMoreBtn = container.querySelector(
-      "#load-more"
-    ) as HTMLButtonElement;
+    const sentinel = container.querySelector(
+      "#infinite-sentinel"
+    ) as HTMLElement;
+
+    if (gridObserver) {
+      gridObserver.disconnect();
+      gridObserver = null;
+    }
 
     if (filtered.length > visibleCount) {
-      loadMoreBtn.style.display = "inline-block";
-      loadMoreBtn.textContent = lang === "he" ? "טען עוד" : "Load more";
+      sentinel.style.display = "block";
+      sentinel.textContent = t(lang, "loading");
 
-      loadMoreBtn.onclick = () => {
-        visibleCount += PAGE_SIZE;
-        renderGrid();
-      };
+      gridObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            visibleCount += PAGE_SIZE;
+            renderGrid();
+          }
+        },
+        { rootMargin: "600px" }
+      );
+      gridObserver.observe(sentinel);
     } else {
-      loadMoreBtn.style.display = "none";
+      sentinel.style.display = "none";
+      sentinel.textContent = "";
     }
   }
 

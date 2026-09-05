@@ -1711,6 +1711,26 @@ PCKOMBO_SPEC_KEYS = {
 }
 
 
+def _scrub_float_noise(value: str) -> str:
+    """Collapse float-arithmetic artifacts in scraped spec strings.
+
+    The PC Kombo dataset carries values like "5.300000000000001 GHz"
+    (produced by float math upstream). Round every decimal token to at
+    most 3 places and strip trailing zeros, so "5.300000000000001 GHz"
+    becomes "5.3 GHz" while clean values ("16GB", "3.8GHz") pass through
+    unchanged.
+    """
+
+    def _fix(m: re.Match) -> str:
+        try:
+            rounded = round(float(m.group(0)), 3)
+        except (ValueError, OverflowError):
+            return m.group(0)
+        return f"{rounded:.3f}".rstrip("0").rstrip(".")
+
+    return re.sub(r"\d+\.\d+", _fix, value)
+
+
 def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str]:
     """Convert PC Kombo's grouped headers into our canonical filter keys."""
     normalized: dict[str, str] = {}
@@ -1720,6 +1740,7 @@ def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str]:
             continue
         if key in normalized:
             continue
+        value = _scrub_float_noise(value)
         if key in {
             "cores", "threads", "cache_mb", "capacity_gb", "speed_mhz",
             "vram_gb", "wattage_w", "length_mm", "gpu_length_mm",
