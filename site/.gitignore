@@ -1,8 +1,9 @@
 node_modules/
 dist/
-# Copied from ../data/site by scripts/copy-data.mjs on every dev/build run —
-# regenerated, not a source file.
+# Copied from ../data/site + referenced ../data/images by scripts/copy-data.mjs
+# on every dev/build run — regenerated, not a source file.
 public/data/
+public/images/
 tsconfig.tsbuildinfo
 
 # data/raw/**/*.jsonl and data/catalog.json ARE meant to be committed — see

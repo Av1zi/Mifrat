@@ -31,7 +31,7 @@ import {
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
-import { displayName, esc } from "../utils";
+import { displayName, errorPanel, esc } from "../utils";
 import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
@@ -346,8 +346,12 @@ export async function renderCategory(
 
   try {
     products = await loadCategory(category);
-  } catch {
-    container.innerHTML = `<div class="empty-state"><p style="margin-bottom:14px;">${t(lang, "loadError")}</p><button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button></div>`;
+  } catch (err) {
+    container.innerHTML = errorPanel(
+      t(lang, "loadError"),
+      t(lang, "retry"),
+      err
+    );
     return;
   }
 

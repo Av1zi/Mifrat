@@ -187,8 +187,9 @@ const CHIPSET_TOKENS = Object.keys(CHIPSET_SOCKET).sort(
   (a, b) => b.length - a.length
 );
 
-function upperCompact(value?: string | null): string {
-  return (value ?? "")
+function upperCompact(value: unknown): string {
+  if (value === undefined || value === null) return "";
+  return String(value)
     .toUpperCase()
     .replace(/[^A-Z0-9]/g, "");
 }
@@ -235,7 +236,9 @@ function socketTokensFromAttributes(
   const values: string[] = [];
 
   for (const key of keys) {
-    values.push(...socketTokensFromText(p.attributes[key]));
+    const raw: unknown = p.attributes[key];
+    if (raw === undefined || raw === null) continue;
+    values.push(...socketTokensFromText(String(raw)));
   }
 
   return unique(values);
@@ -575,11 +578,11 @@ export function impliedFilterValues(
 }
 
 /** True when an option value matches one of the implied tokens. */
-export function optionMatchesTokens(value: string, tokens: string[]): boolean {
-  const compact = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+export function optionMatchesTokens(value: unknown, tokens: unknown[]): boolean {
+  const compact = upperCompact(value);
   if (!compact) return false;
   return tokens.some((token) => {
-    const t = token.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    const t = upperCompact(token);
     return t.length >= 3 && (compact.includes(t) || t.includes(compact));
   });
 }

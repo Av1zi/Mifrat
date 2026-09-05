@@ -4,6 +4,7 @@ import { CATEGORY_ORDER, categoryLabel, t } from "../i18n";
 import { icon } from "../icons";
 import { buildHash, categoryHash } from "../state";
 import type { Currency, Lang } from "../types";
+import { errorPanel } from "../utils";
 
 export async function renderHome(container: HTMLElement, lang: Lang, currency: Currency): Promise<void> {
   container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
@@ -11,8 +12,12 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
   let meta;
   try {
     meta = await loadMeta();
-  } catch {
-    container.innerHTML = `<div class="empty-state"><p style="margin-bottom:14px;">${t(lang, "loadError")}</p><button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button></div>`;
+  } catch (err) {
+    container.innerHTML = errorPanel(
+      t(lang, "loadError"),
+      t(lang, "retry"),
+      err
+    );
     return;
   }
 

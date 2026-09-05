@@ -661,6 +661,18 @@ img.plThumb, img.plThumb { display: block; object-fit: contain; background: #fff
 }
 
 .empty-state { padding: 48px 16px; text-align: center; color: var(--text-dim); }
+.err-details { margin-top: 14px; font-size: 0.76rem; }
+.err-details summary { cursor: pointer; color: var(--text-dim); }
+.err-details code {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: var(--bg-stripe);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  direction: ltr;
+}
 
 @media (max-width: 900px) {
   .pl-header, .plHeader { display: none; }

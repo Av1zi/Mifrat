@@ -17,7 +17,7 @@ import {
   type Theme,
 } from "./state";
 import type { Currency, Lang, Product } from "./types";
-import { displayName, esc } from "./utils";
+import { displayName, errorPanel, esc } from "./utils";
 import { renderBuilder } from "./views/builder";
 import { renderCategory } from "./views/category";
 import { renderHome } from "./views/home";
@@ -304,12 +304,8 @@ window.addEventListener("hashchange", () => {
   renderRoute();
 });
 
-function routeError(main: HTMLElement): void {
-  main.innerHTML = `
-    <div class="empty-state">
-      <p style="margin-bottom:14px;">${t(lang, "loadError")}</p>
-      <button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button>
-    </div>`;
+function routeError(main: HTMLElement, err: unknown): void {
+  main.innerHTML = errorPanel(t(lang, "loadError"), t(lang, "retry"), err);
 }
 
 function renderRoute(): void {
@@ -327,7 +323,7 @@ function renderRoute(): void {
           : renderCategory(main, lang, currency, route.category, route.params);
   task.catch((err) => {
     console.error("[route]", err);
-    routeError(main);
+    routeError(main, err);
   });
 }
 

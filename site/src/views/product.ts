@@ -14,7 +14,7 @@ import {
   setStoredBuild,
 } from "../state";
 import type { Currency, Lang, Product } from "../types";
-import { displayName, esc, skuOf } from "../utils";
+import { displayName, errorPanel, esc, skuOf } from "../utils";
 
 // Attribute keys that make good "series" variant groups (PCPP's
 // "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
@@ -57,6 +57,12 @@ interface VariantGroup {
   values: Array<{ value: string; productId: string; active: boolean }>;
 }
 
+/** Scraped attribute values arrive as mixed ints/strings/bools. */
+function attrText(value: unknown): string {
+  if (value === undefined || value === null) return "";
+  return String(value);
+}
+
 function computeVariantGroups(
   product: Product,
   sameBrand: Product[]
@@ -65,11 +71,13 @@ function computeVariantGroups(
   const groups: VariantGroup[] = [];
 
   for (const key of VARIANT_KEY_PRIORITY) {
-    const current = product.attributes[key];
+    // Attribute values are mixed types across vendors (850 vs "850 W"),
+    // so normalize to strings before comparing, sorting, or rendering.
+    const current = attrText(product.attributes[key]);
     if (!current) continue;
     const distinct = new Map<string, Product[]>();
     for (const p of sameBrand) {
-      const v = p.attributes[key];
+      const v = attrText(p.attributes[key]);
       if (!v) continue;
       const list = distinct.get(v) ?? [];
       list.push(p);
@@ -85,7 +93,7 @@ function computeVariantGroups(
         let score = 0;
         for (const [k, v] of Object.entries(product.attributes)) {
           if (NOISE_KEYS.has(k)) continue;
-          if (cand.attributes[k] === v) score++;
+          if (attrText(cand.attributes[k]) === attrText(v)) score++;
         }
         if (score > bestScore) {
           bestScore = score;
@@ -137,8 +145,12 @@ export async function renderProduct(
   let products: Product[];
   try {
     products = await loadCategory(category);
-  } catch {
-    container.innerHTML = `<div class="empty-state"><p style="margin-bottom:14px;">${t(lang, "loadError")}</p><button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button></div>`;
+  } catch (err) {
+    container.innerHTML = errorPanel(
+      t(lang, "loadError"),
+      t(lang, "retry"),
+      err
+    );
     return;
   }
 

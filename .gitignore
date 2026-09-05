@@ -57,7 +57,8 @@ node_modules/
 dist/
 # Copied from ../data/site + referenced ../data/images by scripts/copy-data.mjs
 # on every dev/build run — regenerated, not a source file.
-public/data/
-public/images/
+# (Site-level .gitignore covers these; kept here as a backstop.)
+site/public/data/
+site/public/images/
 tsconfig.tsbuildinfo
 

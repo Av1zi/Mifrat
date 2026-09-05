@@ -15,6 +15,28 @@ export function esc(value: unknown): string {
     .replace(/'/g, "&#39;");
 }
 
+/**
+ * Failure panel for data views: friendly message, a retry button, and the
+ * technical reason tucked into a details element so a bug report can
+ * include the exact error instead of "it didn't load".
+ */
+export function errorPanel(
+  message: string,
+  retryLabel: string,
+  err: unknown
+): string {
+  const detail =
+    err instanceof Error && err.message
+      ? `<details class="err-details"><summary>Details</summary><code>${esc(err.message)}</code></details>`
+      : "";
+  return `
+    <div class="empty-state">
+      <p style="margin-bottom:14px;">${esc(message)}</p>
+      <button class="btn-small" type="button" onclick="location.reload()">${esc(retryLabel)}</button>
+      ${detail}
+    </div>`;
+}
+
 export function skuOf(p: Product): string {
   if (p.model) return p.model;
   return p.id.split(":").pop() || p.id;
