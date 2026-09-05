@@ -20,7 +20,6 @@ import { displayName, errorPanel, esc, skuOf } from "../utils";
 // "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
 const VARIANT_KEY_PRIORITY = [
   "wattage_w",
-  "wattage",
   "tdp_w",
   "tdp",
   "capacity_gb",

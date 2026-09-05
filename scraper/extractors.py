@@ -406,6 +406,14 @@ DETAIL_KEY_ALIASES = {
     "hardware_mother_board_form_factor": "form_factor",
     "hardware_form_factor": "form_factor",
     "spec_form_factor": "form_factor",
+    "motherboard_form_factor": "form_factor",
+    "mainboard_form_factor": "form_factor",
+    "board_form_factor": "form_factor",
+    "motherboard_size": "form_factor",
+    "motherboard_format": "form_factor",
+    "board_size": "form_factor",
+    "board_format": "form_factor",
+    "mainboard_size": "form_factor",
     "spec_interface_connectivity": "connectivity",
     "spec_network_card": "network_card",
     "manufacturer": "brand",
@@ -429,6 +437,15 @@ DETAIL_KEY_ALIASES = {
     "lithography": "manufacturing_process",
     "manufacturing_technology": "manufacturing_process",
     "process": "manufacturing_process",
+    "number_of_cores": "cores",
+    "number_of_processor_cores": "cores",
+    "processor_cores": "cores",
+    "core_count": "cores",
+    "cpu_cores": "cores",
+    "number_of_threads": "threads",
+    "number_of_processor_threads": "threads",
+    "processor_threads": "threads",
+    "thread_count": "threads",
 }
 
 # Yes/No canonicalization for boolean-ish spec keys. Vendors disagree on
@@ -611,6 +628,20 @@ def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
         ff = _form_factor(v)
         if ff:
             v = ff
+        else:
+            dims = re.search(r"\b(\d{3})\s*[x×]\s*(\d{3})\s*(?:mm)?\b", v, re.I)
+            if dims:
+                size = tuple(sorted((int(dims.group(1)), int(dims.group(2)))))
+                if size in ((244, 244), (244, 305)):
+                    v = "mATX" if size == (244, 244) else "ATX"
+                elif size == (170, 170):
+                    v = "Mini-ITX"
+
+    if key == "packaging" and isinstance(v, str):
+        if re.search(r"\btray\b", v, re.I):
+            v = "Tray"
+        elif re.search(r"\bbox(?:ed)?\b|\bretail\b", v, re.I):
+            v = "Box"
 
     # Pure-digit core/thread counts become ints for consistent merging.
     if key in ("cores", "threads") and isinstance(v, str) and v.isdigit():
@@ -895,11 +926,12 @@ def _parse_cpu(text: str, meta) -> dict:
         if re.search(r"\bdual[-\s]?core\b", text, re.I):
             a["cores"] = 2
         else:
-            cm = re.search(r"\b(\d{1,3})\s*-?\s*cores?\b", text, re.I)
-            if cm and 2 <= int(cm.group(1)) <= 128:
+            cm = re.search(r"\b(\d{1,3})\s*-?\s*cores?\b|\b(\d{1,3})\s*C\b", text, re.I)
+            core_value = cm.group(1) or cm.group(2) if cm else None
+            if core_value and 2 <= int(core_value) <= 128:
                 # Guard: "P-cores"/"E-cores" fragments ("6 P-cores") must not
                 # register as the total — require the word "core(s)" itself.
-                a["cores"] = int(cm.group(1))
+                a["cores"] = int(core_value)
     if "threads" not in a:
         tm = re.search(r"\b(\d{1,3})\s*threads?\b", text, re.I)
         if tm and 2 <= int(tm.group(1)) <= 512:
@@ -1926,6 +1958,15 @@ def extract_attributes(listing: dict) -> dict:
         if yk in attrs:
             attrs[yk] = _canonicalize_yes_no(yk, attrs[yk])
 
+    if category == "cpu" and isinstance(attrs.get("packaging"), str):
+        packaging = attrs["packaging"]
+        if re.search(r"\btray\b", packaging, re.I):
+            attrs["packaging"] = "Tray"
+        elif re.search(r"\bbox(?:ed)?\b|\bretail\b", packaging, re.I):
+            attrs["packaging"] = "Box"
+        else:
+            attrs.pop("packaging", None)
+
     # CPU-only dedupe: Plonter's detail "Graphics" row and the title parser's
     # "integrated_graphics" are the same signal ("no" iGPU vs "Radeon").
     # Keep integrated_graphics (nicer label, the one filters use).
@@ -1954,6 +1995,7 @@ def extract_attributes(listing: dict) -> dict:
         # products (e.g. GPUs whose GDDR generation is only known from
         # the 1PC detail scrape).
         ("ram_ram_type", "memory_type"),
+        ("wattage", "wattage_w"),
     )
     for old_k, new_k in _DUPE_ALIASES:
         if old_k in attrs and new_k not in attrs:

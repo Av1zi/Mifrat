@@ -121,7 +121,7 @@ export const SPEC_PRIORITY: Record<string, string[]> = {
     "model",
   ],
   psu: [
-    "wattage",
+    "wattage_w",
     "efficiency",
     "modular",
     "form_factor",

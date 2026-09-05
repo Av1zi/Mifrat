@@ -1604,6 +1604,23 @@ def normalize_cpu_legacy_attrs(attributes: dict) -> None:
     legacy_gen = attributes.pop("cpu_generation", None)
     legacy_tier = attributes.pop("cpu_tier", None)
 
+    for legacy_key, canonical_key in (
+        ("number_of_cores", "cores"),
+        ("number_of_processor_cores", "cores"),
+        ("processor_cores", "cores"),
+        ("core_count", "cores"),
+        ("number_of_threads", "threads"),
+        ("number_of_processor_threads", "threads"),
+        ("processor_threads", "threads"),
+        ("thread_count", "threads"),
+    ):
+        legacy_value = attributes.pop(legacy_key, None)
+        if legacy_value is not None and not attributes.get(canonical_key):
+            try:
+                attributes[canonical_key] = int(str(legacy_value).split()[0])
+            except (ValueError, TypeError):
+                pass
+
     if legacy_gen and not attributes.get("generation"):
         g = str(legacy_gen).strip()
         m = re.match(r"^Gen\s+([0-9]+)", g)
