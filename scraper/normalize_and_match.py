@@ -198,6 +198,18 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         vendor = e.get("vendor_id")
         vendor_key = "onepc" if vendor in ("1pc", "onepc") else vendor
         key = (vendor_key, sku)
+        detail_extra = extra_index.get(key)
+        if vendor_key == "onepc" and isinstance(detail_extra, dict):
+            real_sku = str(
+                detail_extra.get("real_sku") or detail_extra.get("mpn") or ""
+            ).strip()
+            # 1PC listing IDs are numeric database keys. Replace them with
+            # the manufacturer SKU found on the product page before matching
+            # so exact SKU/MPN matching can join the same item across vendors.
+            if real_sku and not real_sku.isdigit() and real_sku != sku:
+                e["vendor_sku"] = real_sku
+                e["mpn"] = real_sku
+                sku = real_sku
         if key in detail_index:
             meta = e.setdefault("vendor_meta", {})
             meta["detail_specs"] = detail_index[key]
@@ -207,11 +219,11 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             # it out of vendor_meta into parsed attributes).
             e["attributes"] = extract_attributes(e)
             merged_specs += 1
-        if key in extra_index:
-            extra = extra_index[key]
+        if detail_extra:
+            extra = detail_extra
             meta = e.setdefault("vendor_meta", {})
             real_mpn = extra.get("mpn") or extra.get("real_sku")
-            if real_mpn and not e.get("mpn"):
+            if real_mpn and (vendor_key != "onepc" or not e.get("mpn")):
                 e["mpn"] = str(real_mpn).strip()
                 merged_extra += 1
             if extra.get("brand") and not e.get("brand"):

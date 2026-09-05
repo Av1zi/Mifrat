@@ -373,7 +373,11 @@ class OnePcDetailSpider(scrapy.Spider):
         both so normalize_and_match can surface the real MPN on offers
         instead of the internal numeric id."""
         extra: dict = {}
-        sku = response.css("div.sku span.value::text").get()
+        sku = response.css('meta[itemprop="sku"]::attr(content)').get()
+        if not sku:
+            sku = response.css('meta[itemprop="mpn"]::attr(content)').get()
+        if not sku:
+            sku = response.css("div.sku span.value::text").get()
         if sku and sku.strip():
             extra["real_sku"] = sku.strip()
         for blob in response.css('script[type="application/ld+json"]::text').getall():
