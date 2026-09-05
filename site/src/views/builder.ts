@@ -6,17 +6,30 @@ import {
   type BuildSlot,
 } from "../build";
 import { formatPrice } from "../format";
-import { t, vendorLabel } from "../i18n";
+import { categoryLabel, t, vendorLabel } from "../i18n";
+import { icon } from "../icons";
 import {
   buildHash,
   categoryHash,
   getStoredBuild,
+  productHash,
   replaceRoute,
   setStoredBuild,
 } from "../state";
 import type { Currency, Lang, Offer, Product } from "../types";
 import { displayName, esc } from "../utils";
-import { closeDetail } from "./detail";
+
+// Categories that aren't builder slots get a trailing link row,
+// like PCPP's Expansion / Peripherals / Accessories rows.
+const EXTRA_CATS = [
+  "case_fan",
+  "cooling_other",
+  "cooler_accessory",
+  "fan_controller",
+  "thermal_paste",
+  "rgb_lighting",
+  "other",
+];
 
 export async function renderBuilder(
   container: HTMLElement,
@@ -24,8 +37,6 @@ export async function renderBuilder(
   currency: Currency,
   shared: Record<string, string> | null
 ): Promise<void> {
-  closeDetail();
-
   const validSlots = new Set(BUILD_SLOTS.map((slot) => slot.id));
 
   const build: Record<string, string> = {};
@@ -133,101 +144,125 @@ export async function renderBuilder(
     });
   }
 
-  function thumbPlaceholder(slot: BuildSlot, product?: Product): string {
+  function thumbHtml(slot: BuildSlot, product?: Product): string {
     if (!product) {
       const initials = slot.id.slice(0, 3).toUpperCase();
       return `<div class="thumb" aria-hidden="true"><span>${esc(initials)}</span></div>`;
     }
+    const href = productHash(product.category, product.id);
     if (product.image) {
-      return `<div class="thumb has-part" aria-hidden="true"><img src="${esc(product.image)}" alt="${esc(displayName(product))}" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>`;
+      return `<a class="thumb has-part" href="${href}" aria-hidden="true" tabindex="-1"><img src="${esc(product.image)}" alt="" loading="lazy"></a>`;
     }
     const label = (product.brand ?? product.name).slice(0, 2).toUpperCase() || "•";
-    return `<div class="thumb has-part" aria-hidden="true"><span>${esc(label)}</span></div>`;
+    return `<a class="thumb has-part" href="${href}" tabindex="-1"><span>${esc(label)}</span></a>`;
   }
 
-  function rowHtml(slot: BuildSlot): string {
-    const entry = parts.get(slot.id);
-
-    if (!entry) {
-      return `
-        <div class="buildRow is-empty">
-          <div class="bhCell">
-            <div class="buildSlotLabel">${esc(slot.label[lang])}<small>${esc(slot.id)}</small></div>
-          </div>
-          <div class="bhCell">${thumbPlaceholder(slot)}</div>
-          <div class="bhCell">
-            <a class="btn-choose" href="${chooseUrl(slot)}">+ ${esc(slot.choose[lang])}</a>
-          </div>
-          <div class="bhCell bsPrice">—</div>
-          <div class="bhCell bsWhere"><span style="color:var(--text-dim)">—</span></div>
-          <div class="bhCell bsStock"><span style="color:var(--text-dim)">—</span></div>
-          <div class="bhCell"></div>
-        </div>
-      `;
-    }
-
-    const product = entry.product;
+  function filledRow(slot: BuildSlot, product: Product): string {
     const offer = bestOffer(product);
     const price = effectivePrice(product);
-
-    const whereHtml = offer
-      ? `<span class="bsWhere">${esc(vendorLabel(offer.vendor))}</span>`
-      : `<span style="color:var(--text-dim)">—</span>`;
-
-    const buyHtml = offer
-      ? `
-          <a
-            class="offer-link"
-            href="${esc(offer.url)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ${lang === "he" ? "קנייה" : "Buy"}
-          </a>
-        `
-      : `<span style="color:var(--text-dim)">—</span>`;
+    const href = productHash(product.category, product.id);
+    const priceHtml =
+      price === null || !offer
+        ? `<span class="dim">—</span>`
+        : `<a class="price-link" href="${esc(offer.url)}" target="_blank" rel="noopener noreferrer">${esc(formatPrice(price, currency, lang))}</a>`;
 
     return `
       <div class="buildRow">
+        <div class="bhCell"><a class="slot-link" href="${categoryHash(slot.categories[0])}">${esc(slot.label[lang])}</a></div>
+        <div class="bhCell">${thumbHtml(slot, product)}</div>
         <div class="bhCell">
-          <div class="buildSlotLabel">${esc(slot.label[lang])}</div>
+          <a class="bs-part-name" href="${href}">${esc(displayName(product))}</a>
+          ${product.brand ? `<div class="bs-part-brand">${esc(product.brand)}</div>` : ""}
         </div>
-        <div class="bhCell">${thumbPlaceholder(slot, product)}</div>
-        <div class="bhCell">
-          <div class="bs-part">
-            <div class="bs-part-name">${esc(displayName(product))}</div>
-            ${
-              product.brand
-                ? `<div class="bs-part-brand">${esc(product.brand)}</div>`
-                : ""
-            }
-          </div>
-          <div class="bs-actions">
-            <a class="btn-small" href="${chooseUrl(slot)}">
-              ${lang === "he" ? "החלפה" : "Change"}
-            </a>
-            <button
-              class="bs-remove"
-              type="button"
-              data-action="remove"
-              data-slot="${esc(slot.id)}"
-              aria-label="${esc(t(lang, "removePart"))}"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-        <div class="bhCell bsPrice">
-          ${price === null ? "—" : esc(formatPrice(price, currency, lang))}
-        </div>
-        <div class="bhCell">${whereHtml}</div>
+        <div class="bhCell bsBase">${price === null ? "—" : esc(formatPrice(price, currency, lang))}</div>
+        <div class="bhCell bsShip"><span class="dim">—</span></div>
         <div class="bhCell bsStock">
           <span class="status-dot ${product.in_stock ? "in" : "out"}"></span>
           ${product.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}
         </div>
-        <div class="bhCell">${buyHtml}</div>
+        <div class="bhCell bsPrice">${priceHtml}</div>
+        <div class="bhCell bsWhere">${offer ? esc(vendorLabel(offer.vendor)) : `<span class="dim">—</span>`}</div>
+        <div class="bhCell">${offer ? `<a class="offer-link" href="${esc(offer.url)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>` : `<span class="dim">—</span>`}</div>
+        <div class="bhCell bsRemove">
+          <button class="icon-btn" type="button" data-action="remove" data-slot="${esc(slot.id)}" aria-label="${esc(t(lang, "removePart"))}" title="${esc(t(lang, "removePart"))}">
+            ${icon("trash", 15)}
+          </button>
+        </div>
       </div>
     `;
+  }
+
+  function emptyRow(slot: BuildSlot): string {
+    return `
+      <div class="buildRow is-empty">
+        <div class="bhCell"><a class="slot-link" href="${categoryHash(slot.categories[0])}">${esc(slot.label[lang])}</a></div>
+        <div class="bhCell">${thumbHtml(slot)}</div>
+        <div class="bhCell bsChoose" style="grid-column: 3 / -1;">
+          <a class="btn-choose" href="${chooseUrl(slot)}">${icon("plus", 13)}<span>${esc(slot.choose[lang])}</span></a>
+        </div>
+      </div>
+    `;
+  }
+
+  function markupLines(mode: "markdown" | "text"): string {
+    const origin = location.origin + location.pathname;
+    const lines: string[] = [];
+    if (mode === "markdown") {
+      lines.push("Type|Item|Price", ":----|:----|:----");
+    }
+    for (const slot of BUILD_SLOTS) {
+      const entry = parts.get(slot.id);
+      if (!entry) continue;
+      const { product } = entry;
+      const offer = bestOffer(product);
+      const price = effectivePrice(product);
+      const priceStr = price === null ? "—" : formatPrice(price, currency, lang);
+      const url = origin + productHash(product.category, product.id);
+      if (mode === "markdown") {
+        const where = offer ? ` @ ${vendorLabel(offer.vendor)}` : "";
+        lines.push(`**${slot.label.en}** | [${displayName(product)}](${url}) | ${priceStr}${where}`);
+      } else {
+        lines.push(`${slot.label.en}: ${displayName(product)} — ${priceStr}`);
+      }
+    }
+    const total = Array.from(parts.values()).reduce(
+      (sum, entry) => sum + (effectivePrice(entry.product) ?? 0),
+      0
+    );
+    if (mode === "markdown") {
+      lines.push(` | **Total** | **${formatPrice(total, currency, lang)}**`);
+    } else {
+      lines.push(`${t(lang, "totalLabel")} ${formatPrice(total, currency, lang)}`);
+    }
+    return lines.join("\n");
+  }
+
+  async function copyText(text: string, btn: HTMLButtonElement): Promise<void> {
+    const done = (ok: boolean) => {
+      btn.classList.toggle("copied", ok);
+      const prev = btn.innerHTML;
+      btn.innerHTML = ok ? `${icon("copy", 13)}<span>${esc(t(lang, "markupCopied"))}</span>` : prev;
+      window.setTimeout(() => {
+        btn.classList.remove("copied");
+        btn.innerHTML = prev;
+      }, 1400);
+    };
+    try {
+      await navigator.clipboard.writeText(text);
+      done(true);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        done(true);
+      } catch {
+        done(false);
+      }
+      ta.remove();
+    }
   }
 
   function render(): void {
@@ -253,23 +288,28 @@ export async function renderBuilder(
       : issues.length > 0
         ? issues.join(" · ")
         : t(lang, "compatibilityOk");
-    const compatIcon = !hasParts ? "○" : issues.length > 0 ? "⚠" : "✓";
 
-    const rows = BUILD_SLOTS.map((slot) => rowHtml(slot)).join("");
+    const rows = BUILD_SLOTS.map((slot) => {
+      const entry = parts.get(slot.id);
+      return entry ? filledRow(slot, entry.product) : emptyRow(slot);
+    }).join("");
+
+    const extraRow = `
+      <div class="buildRow buildRow--links">
+        <div class="bhCell"><span class="slot-link slot-link--static">${t(lang, "expansionOther")}</span></div>
+        <div class="bhCell bsChoose" style="grid-column: 2 / -1;">
+          ${EXTRA_CATS.map((c) => `<a href="${categoryHash(c)}">${esc(categoryLabel(c, lang))}</a>`).join("<span class='link-sep'>, </span>")}
+        </div>
+      </div>`;
 
     container.innerHTML = `
-      <div class="wrapperPageTitle">
-        <h1 class="pageTitle">${t(lang, "builderTitle")}</h1>
-        <p class="pageTitle-sub">${t(lang, "tagline")}</p>
-        <nav class="tabsGroup" aria-label="builder tabs">
-          <a class="active" href="${buildHash(build)}">${lang === "he" ? "סקירה" : "Overview"}</a>
-          <a href="#prices">${lang === "he" ? "מחירים לפי חנות" : "Prices by merchant"}</a>
-        </nav>
+      <div class="title-band">
+        <h1>${t(lang, "builderTitle")}</h1>
       </div>
 
       <div class="actionBoxGroup">
         <div class="permalink">
-          <button class="btn-small" id="builder-copy-link" type="button" title="Copy link">⎘</button>
+          <button class="btn-small btn-icon" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 13)}</button>
           <input
             class="share-input"
             id="builder-share-link"
@@ -279,25 +319,20 @@ export async function renderBuilder(
             value="${esc(shareUrl)}"
           />
         </div>
-        <div class="markup" aria-hidden="true">
-          <span title="PCPP">◈</span>
-          <span title="Reddit">⬢</span>
-          <span title="HTML">&lt;/&gt;</span>
-          <span title="Text">≡</span>
+        <div class="markup">
+          <span class="markup-label">Markup:</span>
+          <button type="button" id="markup-md" title="${esc(t(lang, "copyMarkdown"))}">PCPP</button>
+          <button type="button" id="markup-text" title="${esc(t(lang, "copyText"))}">TXT</button>
         </div>
         <div class="options">
-          <button type="button" id="builder-start-new">↺ ${lang === "he" ? "התחלה חדשה" : "Start new"}</button>
-          <span style="font-size:0.75rem; color:var(--text-dim); align-self:center;">${parts.size} / ${BUILD_SLOTS.length}</span>
+          <span class="parts-count">${parts.size} / ${BUILD_SLOTS.length} ${t(lang, "partsCount")}</span>
+          <button type="button" id="builder-start-new">${icon("plus", 13)}<span>${t(lang, "startNew")}</span></button>
         </div>
       </div>
 
       <div class="partlistMetrics">
-        <div class="compatBanner ${compatClass}">${esc(compatIcon)} ${esc(compatText)}</div>
-        ${
-          estWatts > 0
-            ? `<div class="wattBlock">⚡ <span>${t(lang, "estimatedWattage")}</span> <b>${estWatts}W</b></div>`
-            : `<div class="wattBlock" style="opacity:0.6">⚡ ${t(lang, "estimatedWattage")} 0W</div>`
-        }
+        <div class="compatBanner ${compatClass}"><span class="compat-dot" aria-hidden="true"></span><span>${esc(compatText)}</span></div>
+        <div class="wattBlock">${icon("bolt", 14)}<span>${t(lang, "estimatedWattage")}</span><b>${estWatts}W</b></div>
       </div>
 
       <div class="buildTableWrap">
@@ -305,18 +340,24 @@ export async function renderBuilder(
           <div class="bhCell">${t(lang, "componentHeading")}</div>
           <div class="bhCell"></div>
           <div class="bhCell">${t(lang, "selectionHeading")}</div>
-          <div class="bhCell">${t(lang, "priceHeading")}</div>
-          <div class="bhCell">${lang === "he" ? "חנות" : "Store"}</div>
+          <div class="bhCell">${t(lang, "baseHeading")}</div>
+          <div class="bhCell">${t(lang, "shippingHeading")}</div>
           <div class="bhCell">${t(lang, "availability")}</div>
+          <div class="bhCell">${t(lang, "priceHeading")}</div>
+          <div class="bhCell">${t(lang, "merchantHeading")}</div>
+          <div class="bhCell"></div>
           <div class="bhCell"></div>
         </div>
         ${rows}
+        ${extraRow}
+        <div class="buildRow buildTotalRow">
+          <div class="bhCell buildTotalLabel" style="grid-column: 1 / 7;">${t(lang, "totalLabel")}</div>
+          <div class="bhCell bsPrice">${esc(formatPrice(total, currency, lang))}</div>
+          <div class="bhCell" style="grid-column: 8 / -1;"></div>
+        </div>
       </div>
 
-      <div class="build-total">
-        <span>${t(lang, "totalLabel")}</span>
-        <strong>${esc(formatPrice(total, currency, lang))}</strong>
-      </div>
+      <p class="pdp-disclaimer">* ${t(lang, "disclaimer")}</p>
 
       <div class="compatNote">
         <b>${lang === "he" ? "הערת תאימות:" : "Compatibility note:"}</b>
@@ -324,42 +365,29 @@ export async function renderBuilder(
           ? "בדיקת התאימות מבוססת על נתונים ידועים בלבד. אישורים פיזיים כמו מרווח לקירור לא נבדקים אוטומטית."
           : "Some physical constraints (RAM clearance, cooler height, GPU length) are not automatically checked — verify case fit manually."}
       </div>
-
-      <p style="margin-top:14px; font-size:0.76rem; color:var(--text-dim);">
-        * ${t(lang, "disclaimer")}
-      </p>
     `;
 
     const copyButton =
       container.querySelector<HTMLButtonElement>("#builder-copy-link");
-
     const shareInput =
       container.querySelector<HTMLInputElement>("#builder-share-link");
 
     if (copyButton && shareInput) {
       copyButton.addEventListener("click", () => {
-        shareInput.select();
+        void copyText(shareInput.value, copyButton);
+      });
+    }
 
-        const done = () => {
-          const prev = copyButton.textContent;
-          copyButton.textContent = t(lang, "copied");
-
-          window.setTimeout(() => {
-            copyButton.textContent = prev;
-          }, 1200);
-        };
-
-        if (
-          navigator.clipboard &&
-          typeof navigator.clipboard.writeText === "function"
-        ) {
-          navigator.clipboard
-            .writeText(shareInput.value)
-            .then(done)
-            .catch(done);
-        } else {
-          done();
-        }
+    const mdBtn = container.querySelector<HTMLButtonElement>("#markup-md");
+    if (mdBtn) {
+      mdBtn.addEventListener("click", () => {
+        void copyText(markupLines("markdown"), mdBtn);
+      });
+    }
+    const txtBtn = container.querySelector<HTMLButtonElement>("#markup-text");
+    if (txtBtn) {
+      txtBtn.addEventListener("click", () => {
+        void copyText(markupLines("text"), txtBtn);
       });
     }
 

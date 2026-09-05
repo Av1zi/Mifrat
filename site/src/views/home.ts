@@ -1,6 +1,7 @@
 import { loadMeta } from "../api";
 import { formatPrice } from "../format";
 import { CATEGORY_ORDER, categoryLabel, t } from "../i18n";
+import { icon } from "../icons";
 import { buildHash, categoryHash } from "../state";
 import type { Currency, Lang } from "../types";
 
@@ -42,7 +43,7 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
     <div class="hero">
       <h1>${t(lang, "heroTitle")}</h1>
       <p>${t(lang, "heroSub")}</p>
-      <a class="btn-primary" href="${buildHash({})}">🔧 ${t(lang, "startBuild")}</a>
+      <a class="btn-primary btn-icon" href="${buildHash({})}">${icon("wrench", 15)}<span>${t(lang, "startBuild")}</span></a>
     </div>
     <h2 class="section-title">${t(lang, "browseParts")}</h2>
     <div class="category-grid">${cards}</div>

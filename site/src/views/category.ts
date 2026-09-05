@@ -16,13 +16,13 @@ import {
   getStoredBuild,
   homeHash,
   navigate,
+  productHash,
   replaceRoute,
   setStoredBuild,
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
 import { displayName, esc } from "../utils";
-import { closeDetail, openDetail } from "./detail";
 
 const PAGE_SIZE = 60;
 
@@ -126,7 +126,7 @@ function computeFilterableAttributes(
   for (const [key, values] of counts) {
     // Curated filters per category: only allowlisted keys (plus vendor)
     // become checkbox filters. Deep-trivia keys (mosfet phases, exact
-    // port counts) stay visible on the detail page but never clutter the
+    // port counts) stay visible on the product page but never clutter the
     // rail. Categories without a curated list keep the old behavior.
     if (key !== "vendor" && allowlist && !allowlist.includes(key)) continue;
 
@@ -324,8 +324,6 @@ export async function renderCategory(
   category: string,
   params: CategoryParams
 ): Promise<void> {
-  closeDetail();
-
   container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
 
   let products: Product[];
@@ -619,12 +617,10 @@ export async function renderCategory(
       ? `<span class="btn-small btn-add">${t(lang, "addToBuild")}</span>`
       : `<span class="btn-small">${t(lang, "viewOffers")}</span>`;
 
-    return `
-      <button
-        class="pl-row${pickSlot ? " pl-row--pick" : ""}"
-        type="button"
-        data-id="${esc(p.id)}"
-      >
+    // Shared inner cells for both modes; only the wrapper differs:
+    // plain product rows are real links to the product page, while
+    // picker rows are buttons that add the part to the build.
+    const inner = `
         <div class="pl-cell" style="display:flex; align-items:center; justify-content:center;">
           ${p.image
             ? `<img class="plThumb" src="${esc(p.image)}" alt="${esc(displayName(p))}" loading="lazy" style="object-fit:contain; background:#fff;">`
@@ -648,9 +644,27 @@ export async function renderCategory(
 
         <div class="pl-cell pl-action">
           ${actionCell}
-        </div>
-      </button>
-    `;
+        </div>`;
+
+    if (!pickSlot) {
+      return `
+      <a
+        class="pl-row"
+        data-id="${esc(p.id)}"
+        href="${productHash(category, p.id)}"
+      >
+        ${inner}
+      </a>`;
+    }
+
+    return `
+      <button
+        class="pl-row pl-row--pick"
+        type="button"
+        data-id="${esc(p.id)}"
+      >
+        ${inner}
+      </button>`;
   }
 
   function renderGrid(): void {
@@ -709,23 +723,14 @@ export async function renderCategory(
         });
       }
 
-      listEl.querySelectorAll(".pl-row").forEach((el) => {
+      // Picker rows are <button>s that add to the build; plain rows
+      // are <a> links and navigate natively (middle-click safe).
+      listEl.querySelectorAll("button.pl-row").forEach((el) => {
         el.addEventListener("click", () => {
+          if (!pickSlot) return;
           const id = (el as HTMLElement).dataset.id!;
-
-          if (pickSlot) {
-            const product = productById.get(id);
-            if (product) addPartToBuild(product);
-            return;
-          }
-
-          navigate(
-            categoryHash(category, {
-              ...params,
-              q: localQuery,
-              productId: id,
-            })
-          );
+          const product = productById.get(id);
+          if (product) addPartToBuild(product);
         });
       });
     }
@@ -1145,21 +1150,13 @@ export async function renderCategory(
     syncAndRerender();
   });
 
+  // Legacy ?p=<id> links (from before per-product pages existed)
+  // redirect to the dedicated product page.
   if (!pickSlot && params.productId) {
     const product = products.find((p) => p.id === params.productId);
-
     if (product) {
-      openDetail(lang, currency, product, () => {
-        if (history.length > 1) history.back();
-        else
-          replaceRoute(
-            categoryHash(category, {
-              ...params,
-              q: localQuery,
-              productId: null,
-            })
-          );
-      });
+      navigate(productHash(category, product.id));
+      return;
     }
   }
 }

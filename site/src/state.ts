@@ -78,7 +78,8 @@ export interface CategoryParams {
 export type Route =
   | { view: "home" }
   | { view: "build"; shared: Record<string, string> | null }
-  | { view: "category"; category: string; params: CategoryParams };
+  | { view: "category"; category: string; params: CategoryParams }
+  | { view: "product"; category: string; productId: string };
 
 function defaultCategoryParams(): CategoryParams {
   return {
@@ -114,6 +115,15 @@ export function parseRoute(): Route {
     return {
       view: "build",
       shared: Object.keys(shared).length ? shared : null,
+    };
+  }
+
+  const productMatch = /^\/p\/([^/]+)\/([^/]+)/.exec(path ?? "");
+  if (productMatch) {
+    return {
+      view: "product",
+      category: decodeURIComponent(productMatch[1]),
+      productId: decodeURIComponent(productMatch[2]),
     };
   }
 
@@ -186,6 +196,11 @@ export function categoryHash(
 
   const query = search.toString();
   return `#/c/${encodeURIComponent(category)}${query ? `?${query}` : ""}`;
+}
+
+/** Shareable per-product page: #/p/<category>/<productId>. */
+export function productHash(category: string, productId: string): string {
+  return `#/p/${encodeURIComponent(category)}/${encodeURIComponent(productId)}`;
 }
 
 /** The build IS the URL — shareable with no backend. */
