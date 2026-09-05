@@ -733,6 +733,15 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["vendor_id"] = canonical_vendor_id(listing.get("vendor_id"))
     enriched["listing_key"] = listing_key(listing)
+    if enriched["vendor_id"] == "ivory" and enriched.get("image_url"):
+        image_url = str(enriched["image_url"])
+        image_url = re.sub(
+            r"^(https?://[^/]+/)?computer/[^/]+/ws/",
+            "https://www.ivory.co.il/",
+            image_url.lstrip("/"),
+        )
+        if image_url.startswith("https://www.ivory.co.il/"):
+            enriched["image_url"] = image_url
 
     enriched["price_ils_raw"] = listing.get("price_ils")
     enriched["price_ils"] = normalize_price(listing.get("price_ils"))

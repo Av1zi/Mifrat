@@ -57,7 +57,8 @@ Therefore we set `in_stock = True` for every yielded item.
 """
 import json
 from datetime import datetime, timezone
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urljoin
+import re
 
 import scrapy
 
@@ -143,8 +144,12 @@ class IvorySpider(scrapy.Spider):
                 # for every listing without opening the detail page. Detail
                 # og:image still wins when present (see _merge_detail_specs).
                 picture = prod.get("picture")
+                picture_path = str(picture or "").lstrip("/")
+                # The builder API returns its request mount point as part of
+                # the image path; public images live at the Ivory root.
+                picture_path = re.sub(r"^computer/[^/]+/ws/", "", picture_path)
                 image_url = (
-                    response.urljoin(picture)
+                    urljoin("https://www.ivory.co.il/", picture_path)
                     if picture
                     else None
                 )

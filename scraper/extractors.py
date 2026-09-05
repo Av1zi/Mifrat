@@ -401,6 +401,13 @@ DETAIL_NOISE_VALUES = frozenset({
 # (Most vendor keys already normalize to the canonical name; only the
 # mismatches live here.)
 DETAIL_KEY_ALIASES = {
+    "hardware_socket": "socket",
+    "hardware_chipset": "chipset",
+    "hardware_mother_board_form_factor": "form_factor",
+    "hardware_form_factor": "form_factor",
+    "spec_form_factor": "form_factor",
+    "spec_interface_connectivity": "connectivity",
+    "spec_network_card": "network_card",
     "manufacturer": "brand",
     "product_type": "product_type",
     "model_number": "mpn",
@@ -597,6 +604,11 @@ def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
         if short:
             v = short
 
+    if key == "form_factor" and isinstance(v, str):
+        ff = _form_factor(v)
+        if ff:
+            v = ff
+
     # Pure-digit core/thread counts become ints for consistent merging.
     if key in ("cores", "threads") and isinstance(v, str) and v.isdigit():
         v = int(v)
@@ -651,11 +663,15 @@ def _from_vendor_meta(meta, vendor=None) -> dict:
         if isinstance(block, dict):
             for k, v in block.items():
                 if v not in (None, "", [], {}):
-                    out.setdefault(_norm_key_name(k), v)
+                    key = _norm_key_name(k)
+                    key = DETAIL_KEY_ALIASES.get(key, key)
+                    out.setdefault(key, v)
         elif isinstance(block, list):
             for item in block:
                 if isinstance(item, dict) and "name" in item and "value" in item:
-                    out.setdefault(_norm_key_name(item["name"]), item["value"])
+                    key = _norm_key_name(item["name"])
+                    key = DETAIL_KEY_ALIASES.get(key, key)
+                    out.setdefault(key, item["value"])
 
     # Detail-scraped specs from vendor product pages (vendor_sku-level).
     # These are the most authoritative source for structured specs —

@@ -264,6 +264,27 @@ class TmsDetailSpider(scrapy.Spider):
                 if label and value:
                     specs[label] = value
 
+        # Some TMS pages expose the specification payload in JSON-LD rather
+        # than visible HTML. Preserve named additionalProperty rows when the
+        # page template has no rendered table.
+        if not specs:
+            for blob in response.css('script[type="application/ld+json"]::text').getall():
+                try:
+                    data = json.loads(blob.strip())
+                except (json.JSONDecodeError, ValueError):
+                    continue
+                objects = data if isinstance(data, list) else [data]
+                for obj in objects:
+                    if not isinstance(obj, dict):
+                        continue
+                    for row in obj.get("additionalProperty", []) or []:
+                        if not isinstance(row, dict):
+                            continue
+                        label = str(row.get("name") or "").strip()
+                        value = str(row.get("value") or "").strip()
+                        if label and value:
+                            specs[label] = value
+
         # Bonus: TMS puts brand/availability/price directly in meta
         # tags too — free, cheap-to-grab confirmation fields.
         meta_extra = {
