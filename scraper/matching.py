@@ -696,8 +696,8 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
     - must contain BOTH letters and digits (pure digits are vendor ids like
       1PC's "217314" or bar codes; pure letters are generic slugs),
     - 4-22 alphanumeric chars,
-    - at least one dash OR 6+ compact chars — real product names like
-      "H81" (socket) or "PRO" must never qualify.
+    - at least one dash OR 4+ compact chars — short vendor codes such as
+      "BL114" are still valid when they contain both letters and digits.
 
     Returns the mpn in normalized (compact) form so it merges with detail
     scrapes and other vendors' identical part numbers regardless of how they
@@ -714,7 +714,7 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
         return None
     if re.fullmatch(r"\d+([A-Z]+\d*)*", mpn):
         return None
-    if "-" not in str(vendor_sku) and len(mpn) < 6:
+    if "-" not in str(vendor_sku) and len(mpn) < 4:
         return None
     return mpn.upper()
 
