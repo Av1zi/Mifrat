@@ -1,7 +1,7 @@
 import "./style.css";
 import { ensureFxRate } from "./format";
 import { t } from "./i18n";
-import { getCurrency, getLang, homeHash, parseRoute, setCurrency, setLang } from "./state";
+import { applyStoredTheme, getCurrency, getLang, getTheme, homeHash, parseRoute, setCurrency, setLang, setTheme, type Theme } from "./state";
 import type { Currency, Lang } from "./types";
 import { closeDetail } from "./views/detail";
 import { renderBuilder } from "./views/builder";
@@ -10,6 +10,7 @@ import { renderHome } from "./views/home";
 
 let lang: Lang = getLang();
 let currency: Currency = getCurrency();
+let theme: Theme = applyStoredTheme();
 const app = document.getElementById("app")!;
 
 function applyDocumentLang(): void {
@@ -17,38 +18,58 @@ function applyDocumentLang(): void {
   document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
 }
 
+const CATS: Array<{ id: string; he: string; en: string }> = [
+  { id: "cpu", he: "מעבדים", en: "CPU" },
+  { id: "motherboard", he: "לוחות אם", en: "Motherboard" },
+  { id: "memory", he: "זיכרון", en: "Memory" },
+  { id: "gpu", he: "כרטיסי מסך", en: "GPU" },
+  { id: "storage", he: "אחסון", en: "Storage" },
+  { id: "psu", he: "ספקי כוח", en: "PSU" },
+  { id: "case", he: "מארזים", en: "Case" },
+];
+
+function themeIcon(name: Theme): string {
+  return name === "dark" ? "◐" : "○";
+}
+
 function renderShell(): void {
   applyDocumentLang();
+  document.documentElement.dataset.theme = theme;
   const isBuild = location.hash.startsWith("#/build");
   const isHome = !location.hash || location.hash === "#/" || location.hash === "#";
+  const catLinks = CATS.map(
+    (c) =>
+      `<a class="nav-link" href="#/c/${c.id}">${lang === "he" ? c.he : c.en}</a>`
+  ).join("");
   app.innerHTML = `
     <header class="site-header">
-      <a class="brand" href="${homeHash()}">
-        ${t(lang, "appName")}
-        <small>${lang === "he" ? "Mifrat" : "מפרט"}</small>
-      </a>
-      <nav style="display:flex; gap:8px; align-items:center; z-index:1">
-        <a class="nav-build ${isBuild ? "active" : ""}" href="#/build">🔧 ${t(lang, "builderNav")}</a>
-        <a class="nav-link ${isHome ? "active" : ""}" href="${homeHash()}" style="${isHome ? "" : "opacity:0.9"}">${t(lang, "home")}</a>
-      </nav>
-      <div class="header-spacer"></div>
-      <button class="icon-toggle" id="currency-toggle" type="button" title="${t(lang, "currencyToggle")}">
-        ${currency === "ILS" ? "₪ → $" : "$ → ₪"}
-      </button>
-      <button class="icon-toggle" id="lang-toggle" type="button">${t(lang, "langToggle")}</button>
-    </header>
-    <div style="background: var(--bg-panel); border-bottom:1px solid var(--border);">
-      <div style="max-width:1320px; margin:0 auto; padding:8px 20px; display:flex; gap:8px; overflow:auto; scrollbar-width:none;">
-        <span style="font-size:0.72rem; font-weight:800; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.07em; white-space:nowrap; padding:6px 0;">${lang==="he" ? "קטגוריות" : "Browse"}:</span>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/cpu">CPU</a>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/motherboard">${lang==="he" ? "לוח אם" : "Motherboard"}</a>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/memory">${lang==="he" ? "זיכרון" : "Memory"}</a>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/gpu">${lang==="he" ? "כרטיס מסך" : "GPU"}</a>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/storage">${lang==="he" ? "אחסון" : "Storage"}</a>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/psu">PSU</a>
-        <a class="nav-link" style="background: var(--bg); border-color: var(--border); color: var(--text); padding:5px 12px; font-size:0.78rem;" href="#/c/case">${lang==="he" ? "מארז" : "Case"}</a>
+      <div class="header-top">
+        <a class="brand" href="${homeHash()}">
+          <span class="brand-mark">◈</span>
+          ${t(lang, "appName")}
+          <small>${lang === "he" ? "Mifrat" : "מפרט"}</small>
+        </a>
+        <div class="header-spacer"></div>
+        <div class="header-actions">
+          <div class="theme-switch" role="group" aria-label="${t(lang, "themeDark")}">
+            <button type="button" data-theme-btn="light" aria-pressed="${theme === "light"}">${themeIcon("light")} ${lang === "he" ? "בהיר" : "Light"}</button>
+            <button type="button" data-theme-btn="dark" aria-pressed="${theme === "dark"}">${themeIcon("dark")} ${lang === "he" ? "כהה" : "Dark"}</button>
+          </div>
+          <button class="icon-toggle" id="currency-toggle" type="button" title="${t(lang, "currencyToggle")}">
+            ${currency === "ILS" ? "₪ → $" : "$ → ₪"}
+          </button>
+          <button class="icon-toggle" id="lang-toggle" type="button">${t(lang, "langToggle")}</button>
+        </div>
       </div>
-    </div>
+      <nav class="header-nav" aria-label="main">
+        <div class="header-nav-inner">
+          <a class="nav-build ${isBuild ? "active" : ""}" href="#/build">🔧 ${t(lang, "builderNav")}</a>
+          <a class="nav-link ${isHome ? "active" : ""}" href="${homeHash()}">${t(lang, "home")}</a>
+          <span class="nav-sep">${lang === "he" ? "קטגוריות" : "Parts"}</span>
+          ${catLinks}
+        </div>
+      </nav>
+    </header>
     <main id="main-content"></main>
     <footer class="site-footer">
       <p>${t(lang, "disclaimer")}</p>
@@ -63,6 +84,13 @@ function renderShell(): void {
     currency = currency === "ILS" ? "USD" : "ILS";
     setCurrency(currency);
     renderShell();
+  });
+  app.querySelectorAll("[data-theme-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      theme = (btn as HTMLElement).dataset.themeBtn as Theme;
+      setTheme(theme);
+      renderShell();
+    });
   });
   renderRoute();
 }
@@ -82,4 +110,11 @@ function renderRoute(): void {
 
 window.addEventListener("hashchange", renderRoute);
 void ensureFxRate();
+// Keep theme in sync if OS preference changes and user never picked one.
+window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
+  if (!localStorage.getItem("mifrat:theme")) {
+    theme = getTheme();
+    renderShell();
+  }
+});
 renderShell();

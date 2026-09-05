@@ -99,8 +99,8 @@ export function openDetail(lang: Lang, currency: Currency, product: Product, onC
   const slot = slotForCategory(product.category);
 
   const imageHtml = product.image
-    ? `<img src="${esc(product.image)}" alt="${esc(displayName(product))}" style="width:120px; height:120px; object-fit:contain; border-radius:12px; border:1px solid var(--border); background:#fff; margin-bottom:12px;" loading="lazy">`
-    : `<div style="width:72px; height:72px; border-radius:12px; border:1px dashed #cbd5e1; background: linear-gradient(135deg, #ecfdf5, #f0fdfa); display:grid; place-items:center; font-weight:800; color:var(--blue-dark); margin-bottom:12px;">${esc((product.brand ?? product.name).slice(0,2).toUpperCase())}</div>`;
+    ? `<img src="${esc(product.image)}" alt="${esc(displayName(product))}" style="width:120px; height:120px; object-fit:contain; border-radius:8px; border:1px solid var(--border); background:#fff; margin-bottom:12px;" loading="lazy">`
+    : `<div class="thumb" style="width:72px; height:72px; margin-bottom:12px;">${esc((product.brand ?? product.name).slice(0,2).toUpperCase())}</div>`;
 
   panel.innerHTML = `
     <button class="overlay-close" type="button">${t(lang, "close")} ✕</button>

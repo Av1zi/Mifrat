@@ -3,6 +3,26 @@ import type { Currency, Lang, SortKey } from "./types";
 const LANG_KEY = "mifrat:lang";
 const CURRENCY_KEY = "mifrat:currency";
 const BUILD_KEY = "mifrat:build";
+const THEME_KEY = "mifrat:theme";
+
+export type Theme = "light" | "dark";
+
+export function getTheme(): Theme {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved === "dark" || saved === "light") return saved;
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+export function setTheme(theme: Theme): void {
+  localStorage.setItem(THEME_KEY, theme);
+  document.documentElement.dataset.theme = theme;
+}
+
+export function applyStoredTheme(): Theme {
+  const theme = getTheme();
+  document.documentElement.dataset.theme = theme;
+  return theme;
+}
 
 export function getLang(): Lang {
   return localStorage.getItem(LANG_KEY) === "en" ? "en" : "he";
