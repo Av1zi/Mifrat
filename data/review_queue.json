@@ -58,6 +58,17 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "ivory:129267",
+    "listing_b": "tms:100-000000719",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
+    "title_b": "AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
+    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "ivory:72257",
     "listing_b": "tms:100-000000591",
     "title_a": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
@@ -10178,6 +10189,28 @@
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "ivory:129267",
+    "listing_b": "ivory:150286",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
+    "title_b": "מעבד AMD Ryzen 9 9950X Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
+    "match_text_b": "100-000001277 AMD Ryzen 9 9950X Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:129267",
+    "listing_b": "ivory:155827",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
+    "title_b": "מעבד AMD Ryzen 7 9850X3D Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
+    "match_text_b": "100-000001973 AMD Ryzen 7 9850X3D Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000478",
     "listing_b": "plonter:100-000000694",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -11295,6 +11328,17 @@
     "title_b": "be quiet! Pure Wings 3 140mm PWM Black 3-Pack",
     "match_text_a": "BL137 be quiet Pure Wings 3 120mm PWM Reverse Black 3-Pack",
     "match_text_b": "BL139 be quiet Pure Wings 3 140mm PWM Black 3-Pack"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:129267",
+    "listing_b": "plonter:100-000000719",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
+    "title_b": "AMD Zen5 Ryzen9 9950X3D 16 Core/32 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
+    "match_text_b": "100-000000719 AMD Zen5 Ryzen9 9950X3D 16 Core/32 Threads - Base Clock 4.3GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray"
   },
   {
     "score": 88,
