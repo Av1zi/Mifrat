@@ -351,9 +351,9 @@ export async function renderBuilder(
         </div>
         ${rows}
         <div class="buildRow buildTotalRow">
-          <div class="bhCell buildTotalLabel" style="grid-column: 1 / 7;">${t(lang, "totalLabel")}</div>
+          <div class="bhCell buildTotalLabel">${t(lang, "totalLabel")}</div>
           <div class="bhCell bsPrice">${esc(formatPrice(total, currency, lang))}</div>
-          <div class="bhCell" style="grid-column: 8 / -1;"></div>
+          <div class="bhCell buildTotalSpacer"></div>
         </div>
       </div>
 

@@ -299,7 +299,7 @@ export async function renderProduct(
           <div class="spec-list">${specRows || `<span class="dim">-</span>`}</div>
           ${
             referenceKeys.length > 0
-              ? `<p class="reference-note" style="margin:10px 0 0">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>`
+              ? `<p class="reference-note reference-note--compact">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>`
               : ""
           }
         </div>
@@ -511,7 +511,7 @@ async function renderPriceHistory(
     host.hidden = false;
     host.innerHTML = `
       <div class="pdp-card-head">
-        <h2 class="pdp-card-title" style="border:none; padding:0; margin:0;">${t(lang, "priceHistory")}</h2>
+        <h2 class="pdp-card-title pdp-card-title--plain">${t(lang, "priceHistory")}</h2>
         <select class="sort-select ph-range" aria-label="${t(lang, "priceHistory")}">
           ${rangeOptions}
         </select>
