@@ -67,6 +67,7 @@ export type SortKey = "price_asc" | "price_desc" | "vendors_desc" | "name";
 /** data/site/history/<category>.json (see scraper/build_price_history.py). */
 export type PriceHistoryFile = {
   dates: string[];
+  timestamps?: string[];
 } & Record<string, { v: Record<string, Array<number | null>> } | string[]>;
 
 export interface PriceSeries {

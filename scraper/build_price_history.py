@@ -54,12 +54,18 @@ def _snapshot_dates(limit: int = 120) -> list[str]:
     return dates[-limit:]
 
 
-def _load_snapshot_prices(dates: list[str]) -> dict[str, dict[tuple[str, str], float | int | None]]:
+def _load_snapshot_prices(
+    dates: list[str],
+) -> tuple[
+    dict[str, dict[tuple[str, str], float | int | None]],
+    dict[str, str],
+]:
     """
     Per date: (norm_vendor, identity) -> price, where identity is both the
     vendor_sku key and the url key for every listing.
     """
     per_date: dict[str, dict[tuple[str, str], float | int | None]] = {}
+    scrape_times: dict[str, str] = {}
     for date in dates:
         index: dict[tuple[str, str], float | int | None] = {}
         for vendor_file in SNAPSHOT_VENDORS:
@@ -77,8 +83,16 @@ def _load_snapshot_prices(dates: list[str]) -> dict[str, dict[tuple[str, str], f
                         continue
                     vendor = _norm_vendor(item.get("vendor_id") or vendor_file)
                     price = item.get("price_ils")
+                    if isinstance(price, str):
+                        try:
+                            price = float(price.replace(",", "").strip())
+                        except ValueError:
+                            continue
                     if not isinstance(price, (int, float)):
                         continue
+                    scraped_at = item.get("scraped_at")
+                    if date not in scrape_times and isinstance(scraped_at, str) and scraped_at:
+                        scrape_times[date] = scraped_at
                     sku = str(item.get("vendor_sku") or "").strip()
                     url = str(item.get("url") or "").strip()
                     if sku:
@@ -86,7 +100,7 @@ def _load_snapshot_prices(dates: list[str]) -> dict[str, dict[tuple[str, str], f
                     if url:
                         index.setdefault((vendor, f"url:{url}"), price)
         per_date[date] = index
-    return per_date
+    return per_date, scrape_times
 
 
 def _offer_price(
@@ -111,7 +125,7 @@ def build_price_history(
     dates = _snapshot_dates(limit_days)
     if not dates:
         print("[warn] no raw snapshots found — writing empty history", file=sys.stderr)
-    per_date = _load_snapshot_prices(dates)
+    per_date, scrape_times = _load_snapshot_prices(dates)
 
     by_category: dict[str, dict[str, dict]] = defaultdict(dict)
 
@@ -134,7 +148,10 @@ def build_price_history(
     history_dir.mkdir(parents=True, exist_ok=True)
     counts: dict[str, int] = {}
     for category, items in by_category.items():
-        payload = {"dates": dates}
+        payload = {
+            "dates": dates,
+            "timestamps": [scrape_times.get(date, f"{date}T00:00:00Z") for date in dates],
+        }
         payload.update(items)
         out = history_dir / f"{category}.json"
         tmp = out.with_suffix(".json.tmp")

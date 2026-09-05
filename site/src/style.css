@@ -1157,7 +1157,9 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 }
 .ph-legend-item { display: inline-flex; align-items: center; gap: 7px; }
 .ph-swatch { width: 24px; height: 4px; border-radius: 2px; display: inline-block; }
-.ph-chart { width: 100%; height: auto; display: block; }
+.ph-chart { width: 100%; height: auto; min-height: 300px; display: block; overflow: visible; }
+.ph-point { opacity: 0; cursor: crosshair; transition: opacity 0.12s ease, r 0.12s ease; }
+.ph-point:hover, .ph-point:focus { opacity: 1; }
 .ph-grid { stroke: var(--border-light); stroke-width: 1; }
 .ph-tick { fill: var(--text-dim); font-size: 11px; font-family: var(--font-mono); }
 .ph-range { padding: 6px 10px; font-size: 0.8rem; }

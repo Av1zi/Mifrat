@@ -392,6 +392,7 @@ async function renderPriceHistory(
 
   const dates = Array.isArray(file.dates) ? file.dates : [];
   if (dates.length < 2) return;
+  const timestamps = Array.isArray(file.timestamps) ? file.timestamps : [];
   let vendors: string[];
   try {
     vendors = Object.keys(entry.v).filter(
@@ -432,14 +433,16 @@ async function renderPriceHistory(
       lo = Math.max(0, lo - 1);
       hi = hi + 1;
     }
-    const pad = (hi - lo) * 0.12;
+    // Keep enough breathing room around spikes so normal price changes remain
+    // readable instead of filling the entire plot.
+    const pad = Math.max((hi - lo) * 0.22, 5);
     lo = Math.max(0, lo - pad);
     hi = hi + pad;
 
-    const W = 640;
-    const H = 260;
-    const L = 64;
-    const R = 12;
+    const W = 1000;
+    const H = 320;
+    const L = 84;
+    const R = 18;
     const T = 12;
     const B = 30;
     const n = visDates.length;
@@ -465,6 +468,17 @@ async function renderPriceHistory(
       )
       .join("");
 
+    const formatTimestamp = (index: number): string => {
+      const raw = timestamps[start + index] ?? visDates[index];
+      const parsed = new Date(raw);
+      if (Number.isNaN(parsed.getTime())) return raw;
+      return new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-US", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        timeZone: "Asia/Jerusalem",
+      }).format(parsed);
+    };
+
     const paths = vendors
       .map((vendor) => {
         const points = entry.v[vendor].slice(start, end);
@@ -487,6 +501,19 @@ async function renderPriceHistory(
         }
         if (!d) return "";
         return `<path d="${d}" fill="none" stroke="${colorOf(vendor)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><title>${esc(vendorLabel(vendor))}</title></path>`;
+      })
+      .join("");
+
+    const points = vendors
+      .map((vendor) => {
+        const pointsForVendor = entry.v[vendor].slice(start, end);
+        return pointsForVendor
+          .map((price, i) =>
+            price === null || price === undefined
+              ? ""
+              : `<circle class="ph-point" tabindex="0" cx="${x(i).toFixed(1)}" cy="${y(price).toFixed(1)}" r="6" fill="${colorOf(vendor)}"><title>${esc(`${vendorLabel(vendor)} · ${formatTimestamp(i)} · ${formatPrice(price, currency, lang)}`)}</title></circle>`
+          )
+          .join("");
       })
       .join("");
 
@@ -520,6 +547,7 @@ async function renderPriceHistory(
       <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
         ${grid}
         ${paths}
+        ${points}
         ${xLabels}
       </svg>
     `;
