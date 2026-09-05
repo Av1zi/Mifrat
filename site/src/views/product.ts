@@ -1,4 +1,4 @@
-import { loadCategory } from "../api";
+import { loadCategory, loadHistory } from "../api";
 import { slotForCategory } from "../build";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, t, vendorLabel } from "../i18n";
@@ -138,7 +138,7 @@ export async function renderProduct(
   try {
     products = await loadCategory(category);
   } catch {
-    container.innerHTML = `<div class="empty-state">${t(lang, "loadError")}</div>`;
+    container.innerHTML = `<div class="empty-state"><p style="margin-bottom:14px;">${t(lang, "loadError")}</p><button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button></div>`;
     return;
   }
 
@@ -314,6 +314,8 @@ export async function renderProduct(
           <p class="pdp-disclaimer">* ${t(lang, "disclaimer")}</p>
         </div>
 
+        <div class="pdp-card" id="pdp-history" hidden></div>
+
         ${
           similarHtml
             ? `<div class="pdp-card">
@@ -335,4 +337,190 @@ export async function renderProduct(
       navigate(buildHash(build));
     });
   }
+
+  const historyHost = container.querySelector<HTMLElement>("#pdp-history");
+  if (historyHost) {
+    void renderPriceHistory(historyHost, lang, currency, category, product.id);
+  }
+}
+
+// Flat step-line palette, readable on light and dark cards.
+const HISTORY_COLORS = [
+  "#ca8a04",
+  "#0284c7",
+  "#dc2626",
+  "#16a34a",
+  "#9333ea",
+  "#ea580c",
+  "#0d9488",
+  "#db2777",
+];
+
+async function renderPriceHistory(
+  host: HTMLElement,
+  lang: Lang,
+  currency: Currency,
+  category: string,
+  productId: string
+): Promise<void> {
+  let file;
+  try {
+    file = await loadHistory(category);
+  } catch {
+    return;
+  }
+  if (!file) return;
+  let entry;
+  try {
+    entry = file[productId];
+  } catch {
+    return;
+  }
+  if (!entry || Array.isArray(entry)) return;
+
+  const dates = Array.isArray(file.dates) ? file.dates : [];
+  if (dates.length < 2) return;
+  let vendors: string[];
+  try {
+    vendors = Object.keys(entry.v).filter(
+      (v) =>
+        Array.isArray(entry.v[v]) &&
+        entry.v[v].some((p) => p !== null && p !== undefined)
+    );
+  } catch {
+    return;
+  }
+  if (vendors.length === 0) return;
+
+  let dayWindow = dates.length;
+  const colorOf = (vendor: string): string =>
+    HISTORY_COLORS[vendors.indexOf(vendor) % HISTORY_COLORS.length];
+
+  const shortDate = (iso: string): string => {
+    const parts = iso.split("-");
+    return parts.length === 3 ? `${parts[2]}.${parts[1]}` : iso;
+  };
+
+  const draw = (): void => {
+    const end = dates.length;
+    const start = Math.max(0, end - dayWindow);
+    const visDates = dates.slice(start, end);
+
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const v of vendors) {
+      for (const p of entry.v[v].slice(start, end)) {
+        if (p === null || p === undefined) continue;
+        if (p < lo) lo = p;
+        if (p > hi) hi = p;
+      }
+    }
+    if (!Number.isFinite(lo) || !Number.isFinite(hi)) return;
+    if (lo === hi) {
+      lo = Math.max(0, lo - 1);
+      hi = hi + 1;
+    }
+    const pad = (hi - lo) * 0.12;
+    lo = Math.max(0, lo - pad);
+    hi = hi + pad;
+
+    const W = 640;
+    const H = 260;
+    const L = 64;
+    const R = 12;
+    const T = 12;
+    const B = 30;
+    const n = visDates.length;
+    const x = (i: number): number =>
+      n === 1 ? (L + W - R) / 2 : L + (W - L - R) * (i / (n - 1));
+    const y = (v: number): number =>
+      T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+
+    const ticks = 4;
+    let grid = "";
+    for (let g = 0; g <= ticks; g++) {
+      const value = lo + ((hi - lo) * g) / ticks;
+      const gy = y(value);
+      grid += `<line x1="${L}" y1="${gy}" x2="${W - R}" y2="${gy}" class="ph-grid"/>`;
+      grid += `<text x="${L - 8}" y="${gy + 4}" text-anchor="end" class="ph-tick">${esc(formatPrice(Math.round(value), currency, lang))}</text>`;
+    }
+
+    const xLabels = [0, Math.floor((n - 1) / 2), n - 1]
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .map(
+        (i) =>
+          `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="ph-tick">${esc(shortDate(visDates[i]))}</text>`
+      )
+      .join("");
+
+    const paths = vendors
+      .map((vendor) => {
+        const points = entry.v[vendor].slice(start, end);
+        let d = "";
+        let penDown = false;
+        for (let i = 0; i < points.length; i++) {
+          const p = points[i];
+          if (p === null || p === undefined) {
+            penDown = false;
+            continue;
+          }
+          const cx = x(i);
+          const cy = y(p);
+          if (!penDown) {
+            d += `M ${cx.toFixed(1)} ${cy.toFixed(1)}`;
+            penDown = true;
+          } else {
+            d += ` H ${cx.toFixed(1)} V ${cy.toFixed(1)}`;
+          }
+        }
+        if (!d) return "";
+        return `<path d="${d}" fill="none" stroke="${colorOf(vendor)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><title>${esc(vendorLabel(vendor))}</title></path>`;
+      })
+      .join("");
+
+    const legend = vendors
+      .map(
+        (vendor) =>
+          `<span class="ph-legend-item"><span class="ph-swatch" style="background:${colorOf(vendor)}"></span>${esc(vendorLabel(vendor))}</span>`
+      )
+      .join("");
+
+    const rangeOptions = [7, 14, 30, 120]
+      .filter((days, i, arr) => days < dates.length || i === arr.length - 1)
+      .map((days) => {
+        const label =
+          days >= dates.length
+            ? t(lang, "historyAll")
+            : `${Math.min(days, dates.length)} ${t(lang, "historyDays")}`;
+        return `<option value="${days}" ${dayWindow === (days >= dates.length ? dates.length : days) ? "selected" : ""}>${esc(label)}</option>`;
+      })
+      .join("");
+
+    host.hidden = false;
+    host.innerHTML = `
+      <div class="pdp-card-head">
+        <h2 class="pdp-card-title" style="border:none; padding:0; margin:0;">${t(lang, "priceHistory")}</h2>
+        <select class="sort-select ph-range" aria-label="${t(lang, "priceHistory")}">
+          ${rangeOptions}
+        </select>
+      </div>
+      <div class="ph-legend">${legend}</div>
+      <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
+        ${grid}
+        ${paths}
+        ${xLabels}
+      </svg>
+    `;
+
+    host.querySelector(".ph-range")!.addEventListener("change", (e) => {
+      const days = Number((e.target as HTMLSelectElement).value);
+      dayWindow =
+        Number.isFinite(days) && days > 0
+          ? Math.min(days, dates.length)
+          : dates.length;
+      draw();
+    });
+  };
+
+  draw();
 }

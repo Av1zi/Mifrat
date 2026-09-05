@@ -12,7 +12,7 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
   try {
     meta = await loadMeta();
   } catch {
-    container.innerHTML = `<div class="empty-state">${t(lang, "loadError")}</div>`;
+    container.innerHTML = `<div class="empty-state"><p style="margin-bottom:14px;">${t(lang, "loadError")}</p><button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button></div>`;
     return;
   }
 

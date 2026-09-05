@@ -56,6 +56,20 @@ export const BUILD_SLOTS: BuildSlot[] = [
     label: { he: "ספק כוח", en: "Power Supply" },
     choose: { he: "בחירת ספק כוח", en: "Choose A Power Supply" },
   },
+  {
+    id: "extras",
+    categories: [
+      "case_fan",
+      "cooling_other",
+      "cooler_accessory",
+      "fan_controller",
+      "thermal_paste",
+      "rgb_lighting",
+      "other",
+    ],
+    label: { he: "תוספות", en: "Accessories" },
+    choose: { he: "בחירת תוספת", en: "Choose Accessories" },
+  },
 ];
 
 export function slotForCategory(category: string): BuildSlot | null {
@@ -340,6 +354,38 @@ function hasCommonValue(a: string[], b: string[]): boolean {
   return a.some((value) => b.includes(value));
 }
 
+function gpuLengthForProduct(p: Product): number | null {
+  return numAttr(p, ["gpu_length_mm", "length_mm"]);
+}
+
+function caseMaxGpuLength(p: Product): number | null {
+  return numAttr(p, ["max_gpu_length_mm", "maximum_video_card_length"]);
+}
+
+function memoryCapacityGb(p: Product): number | null {
+  return numAttr(p, ["capacity_gb", "total_gb"]);
+}
+
+function boardMemoryMaxGb(p: Product): number | null {
+  return numAttr(p, ["memory_max"]);
+}
+
+/** GPU too long for the case (or vice versa) when both sizes are known. */
+function gpuFitsCase(gpu: Product, case_: Product): boolean {
+  const card = gpuLengthForProduct(gpu);
+  const max = caseMaxGpuLength(case_);
+  if (card === null || max === null) return true;
+  return card <= max;
+}
+
+/** Memory kit within the board's max capacity when both are known. */
+function memoryFitsBoard(memory: Product, board: Product): boolean {
+  const kit = memoryCapacityGb(memory);
+  const max = boardMemoryMaxGb(board);
+  if (kit === null || max === null) return true;
+  return kit <= max;
+}
+
 /*
 ============================================================================
 Wattage.
@@ -349,7 +395,7 @@ If nothing is known, estimated wattage is 0.
 ============================================================================
 */
 
-function knownPartWattage(slotId: string, p: Product): number {
+export function knownPartWattage(slotId: string, p: Product): number {
   // PSU supplies power; it does not consume system wattage.
   if (slotId === "psu") return 0;
 
@@ -430,6 +476,25 @@ export function checkCompatibility(
           : `Memory type (${memMemory}) does not match motherboard memory type (${boardMemory})`
       );
     }
+
+    if (!memoryFitsBoard(memory, motherboard)) {
+      issues.push(
+        lang === "he"
+          ? "נפח הזיכרון חורג מהמקסימום של לוח האם"
+          : "Memory kit exceeds the motherboard maximum capacity"
+      );
+    }
+  }
+
+  const gpu = parts.gpu;
+  const case_ = parts.case;
+
+  if (gpu && case_ && !gpuFitsCase(gpu, case_)) {
+    issues.push(
+      lang === "he"
+        ? "כרטיס המסך ארוך מדי למארז הנבחר"
+        : "Graphics card is longer than the selected case supports"
+    );
   }
 
   if (cpu && cooler) {
@@ -565,6 +630,21 @@ export function isProductCompatibleWithBuild(
         return false;
       }
     }
+
+    const memory = parts.memory;
+
+    if (memory) {
+      const boardMemory = memoryTypeForProduct(product);
+      const memMemory = memoryTypeForProduct(memory);
+
+      if (boardMemory && memMemory && boardMemory !== memMemory) {
+        return false;
+      }
+
+      if (!memoryFitsBoard(memory, product)) {
+        return false;
+      }
+    }
   }
 
   if (slotId === "memory") {
@@ -577,6 +657,22 @@ export function isProductCompatibleWithBuild(
       if (boardMemory && productMemory && boardMemory !== productMemory) {
         return false;
       }
+
+      if (!memoryFitsBoard(product, motherboard)) {
+        return false;
+      }
+    }
+  }
+
+  if (slotId === "gpu" && parts.case) {
+    if (!gpuFitsCase(product, parts.case)) {
+      return false;
+    }
+  }
+
+  if (slotId === "case" && parts.gpu) {
+    if (!gpuFitsCase(parts.gpu, product)) {
+      return false;
     }
   }
 

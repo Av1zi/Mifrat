@@ -21,8 +21,54 @@ import tempfile
 import time
 from collections import defaultdict
 from pathlib import Path
+from urllib.parse import quote
 
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
+IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
+
+
+def _image_vendor_key(vendor_id: str | None) -> str:
+    """Same normalization as the image downloader's folders on disk."""
+    return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
+
+
+def _local_image_path(vendor_id: str | None, vendor_sku: str | None) -> str | None:
+    """Same-origin /images/... URL when the scraped file exists on disk."""
+    if not vendor_sku:
+        return None
+    filename = f"{vendor_sku}.jpg"
+    if (IMAGES_DIR / _image_vendor_key(vendor_id) / filename).is_file():
+        return f"/images/{_image_vendor_key(vendor_id)}/{quote(filename)}"
+    return None
+
+
+def _resolve_image(product: dict, offers: list[dict]) -> str | None:
+    """
+    Prefer our own hosted copy (data/images/<vendor>/<sku>.jpg, served from
+    /images/...) so vendor hosts can't break our photos by moving theirs.
+    The offer that supplied the current image_url wins; otherwise the first
+    offer with a downloaded file; otherwise the remote URL as fallback.
+    """
+    current = product.get("image_url")
+    raw_offers = product.get("offers", [])
+
+    if current:
+        for offer in raw_offers:
+            if offer.get("image_url") == current:
+                local = _local_image_path(
+                    offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
+                )
+                if local:
+                    return local
+
+    for offer in raw_offers:
+        local = _local_image_path(
+            offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
+        )
+        if local:
+            return local
+
+    return current
 
 
 def _write_json_atomic(path: Path, value: object) -> None:
@@ -70,7 +116,7 @@ def _trim_product(product: dict) -> dict:
         "category": product["category"],
         "brand": product.get("brand"),
         "model": product.get("model"),
-        "image": product.get("image_url"),
+        "image": _resolve_image(product, product.get("offers", [])),
         "attributes": product.get("attributes", {}),
         "vendor_count": product.get("vendor_count", len(offers)),
         "min_price": min_price,

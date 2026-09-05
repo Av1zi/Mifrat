@@ -1,9 +1,9 @@
 import { loadCategory } from "../api";
 import {
   BUILD_SLOTS,
-  estimateWattage,
   impliedFilterValues,
   isProductCompatibleWithBuild,
+  knownPartWattage,
   optionMatchesTokens,
   slotForCategory,
 } from "../build";
@@ -32,6 +32,7 @@ import {
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
 import { displayName, esc } from "../utils";
+import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
 
@@ -346,7 +347,7 @@ export async function renderCategory(
   try {
     products = await loadCategory(category);
   } catch {
-    container.innerHTML = `<div class="empty-state">${t(lang, "loadError")}</div>`;
+    container.innerHTML = `<div class="empty-state"><p style="margin-bottom:14px;">${t(lang, "loadError")}</p><button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button></div>`;
     return;
   }
 
@@ -543,8 +544,24 @@ export async function renderCategory(
     const chips: string[] = [];
 
     for (const [key, values] of Object.entries(params.filters)) {
+      // Compat-applied tags stay locked while the filter is on; turn it
+      // off to edit them.
+      const locked = compatOn && compatAutoKeys.has(key);
+
       for (const v of values) {
         const label = key === "vendor" ? vendorLabel(v) : v;
+
+        if (locked) {
+          chips.push(
+            `<span
+              class="active-filter-chip is-locked"
+              title="${esc(t(lang, "compatLocked"))}"
+            >
+              ${esc(attributeLabel(key, lang))}: ${esc(label)}
+            </span>`
+          );
+          continue;
+        }
 
         chips.push(
           `<button
@@ -639,7 +656,7 @@ export async function renderCategory(
 
     const actionCell = pickSlot
       ? `<span class="btn-small btn-add">${t(lang, "addToBuild")}</span>`
-      : `<span class="btn-small">${t(lang, "viewOffers")}</span>`;
+      : `<button type="button" class="btn-small btn-quickadd" data-quickadd="${esc(p.id)}">${t(lang, "quickAdd")}</button>`;
 
     // Shared inner cells for both modes; only the wrapper differs:
     // plain product rows are real links to the product page, while
@@ -698,7 +715,7 @@ export async function renderCategory(
     activeFiltersEl.innerHTML = activeFiltersHtml();
 
     activeFiltersEl
-      .querySelectorAll(".active-filter-chip")
+      .querySelectorAll("button.active-filter-chip")
       .forEach((el) => {
         el.addEventListener("click", () => {
           const rangeKey = (el as HTMLElement).dataset.rangeKey;
@@ -760,6 +777,30 @@ export async function renderCategory(
           if (product) addPartToBuild(product);
         });
       });
+
+      // Quick-add drops the part straight into the builder without
+      // leaving the list; the row itself still links to the product.
+      listEl.querySelectorAll("[data-quickadd]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const id = (btn as HTMLElement).dataset.quickadd!;
+          const product = productById.get(id);
+          if (!product) return;
+          const slot = slotForCategory(product.category);
+          if (!slot) return;
+          const build = getStoredBuild();
+          addToBuild(build, slot.id, product.id);
+          setStoredBuild(build);
+          const el = btn as HTMLButtonElement;
+          el.classList.add("is-added");
+          el.innerHTML = `${icon("check", 13)}<span>${esc(t(lang, "addedLabel"))}</span>`;
+          window.setTimeout(() => {
+            el.classList.remove("is-added");
+            el.textContent = t(lang, "quickAdd");
+          }, 1300);
+        });
+      });
     }
 
     const sentinel = container.querySelector(
@@ -801,7 +842,10 @@ export async function renderCategory(
       buildSum += product.min_price ?? 0;
     }
     const buildCount = loadedBuild.items.length;
-    const buildWatts = estimateWattage(buildParts);
+    let buildWatts = 0;
+    for (const { slotId, product } of loadedBuild.items) {
+      buildWatts += knownPartWattage(slotId, product);
+    }
     const showCompatToggle = buildCount > 0 && targetSlotId !== null;
     const miniCard =
       buildCount === 0
@@ -1060,6 +1104,12 @@ export async function renderCategory(
         const input = e.target as HTMLInputElement;
         const key = input.dataset.attr!;
 
+        // Compat-owned values can't be toggled while the filter is on.
+        if (compatOn && compatAutoKeys.has(key)) {
+          input.checked = (params.filters[key] ?? []).includes(input.value);
+          return;
+        }
+
         const set = new Set(params.filters[key] ?? []);
 
         if (input.checked) set.add(input.value);
@@ -1099,86 +1149,97 @@ export async function renderCategory(
       });
     });
 
+    // Dual-handle sliders: the thumbs may cross freely while dragging
+    // (values are ordered, never clamped against each other), the track
+    // repaints live, and the filter commits once on release or box edit.
+    // A full-span selection clears the constraint instead of storing it.
+    const wireRange = (key: string, prefix: string): void => {
+      const range = numericRanges.get(key)!;
+      const span = range.max - range.min;
+      const minInput = rail.querySelector(`#${prefix}-min`) as HTMLInputElement | null;
+      const maxInput = rail.querySelector(`#${prefix}-max`) as HTMLInputElement | null;
+      const minSlider = rail.querySelector(`#${prefix}-min-slider`) as HTMLInputElement | null;
+      const maxSlider = rail.querySelector(`#${prefix}-max-slider`) as HTMLInputElement | null;
+      const track = rail.querySelector(`#${prefix}-track`) as HTMLElement | null;
+      if (!minInput || !maxInput || !minSlider || !maxSlider) return;
+
+      const paint = (lo: number, hi: number): void => {
+        if (!track || span <= 0) return;
+        const clampPct = (v: number): number =>
+          Math.max(0, Math.min(100, ((v - range.min) / span) * 100));
+        track.style.setProperty("--range-start", `${clampPct(lo)}%`);
+        track.style.setProperty("--range-end", `${100 - clampPct(hi)}%`);
+      };
+
+      const ordered = (a: number, b: number): [number, number] =>
+        a <= b ? [a, b] : [b, a];
+
+      const commit = (lo: number, hi: number): void => {
+        if (lo <= range.min && hi >= range.max) {
+          delete params.ranges[key];
+        } else {
+          params.ranges[key] = { min: lo, max: hi };
+        }
+        syncAndRerender();
+      };
+
+      const readSliders = (): [number, number] => {
+        let lo = Number(minSlider.value);
+        let hi = Number(maxSlider.value);
+        if (Number.isNaN(lo)) lo = range.min;
+        if (Number.isNaN(hi)) hi = range.max;
+        return ordered(lo, hi);
+      };
+
+      minSlider.addEventListener("input", () => {
+        const [lo, hi] = readSliders();
+        minInput.value = String(lo);
+        maxInput.value = String(hi);
+        paint(lo, hi);
+      });
+      maxSlider.addEventListener("input", () => {
+        const [lo, hi] = readSliders();
+        minInput.value = String(lo);
+        maxInput.value = String(hi);
+        paint(lo, hi);
+      });
+      minSlider.addEventListener("change", () => {
+        const [lo, hi] = readSliders();
+        commit(lo, hi);
+      });
+      maxSlider.addEventListener("change", () => {
+        const [lo, hi] = readSliders();
+        commit(lo, hi);
+      });
+
+      const commitFromBoxes = (): void => {
+        const clampBox = (raw: string, fallback: number): number => {
+          if (raw.trim() === "") return fallback;
+          const n = Number(raw);
+          if (Number.isNaN(n)) return fallback;
+          return Math.max(range.min, Math.min(range.max, n));
+        };
+        const [lo, hi] = ordered(
+          clampBox(minInput.value, range.min),
+          clampBox(maxInput.value, range.max)
+        );
+        minSlider.value = String(lo);
+        maxSlider.value = String(hi);
+        minInput.value = String(lo);
+        maxInput.value = String(hi);
+        paint(lo, hi);
+        commit(lo, hi);
+      };
+
+      minInput.addEventListener("change", commitFromBoxes);
+      maxInput.addEventListener("change", commitFromBoxes);
+
+      const [lo0, hi0] = readSliders();
+      paint(lo0, hi0);
+    };
+
     for (const key of numericRanges.keys()) {
-      if (key === "price") {
-        const minInput = rail.querySelector("#price-min") as HTMLInputElement;
-        const maxInput = rail.querySelector("#price-max") as HTMLInputElement;
-        const minSlider = rail.querySelector("#price-min-slider") as HTMLInputElement;
-        const maxSlider = rail.querySelector("#price-max-slider") as HTMLInputElement;
-        const track = rail.querySelector("#price-track") as HTMLElement;
-
-        const updatePriceRange = () => {
-          const min = minInput.value ? parseFloat(minInput.value) : null;
-          const max = maxInput.value ? parseFloat(maxInput.value) : null;
-          params.ranges.price = { min, max };
-          syncAndRerender();
-        };
-
-        const updateTrack = () => {
-          if (!track) return;
-          const range = numericRanges.get("price")!;
-          const minPct = ((Number(minSlider.value) - range.min) / (range.max - range.min)) * 100;
-          const maxPct = ((Number(maxSlider.value) - range.min) / (range.max - range.min)) * 100;
-          track.style.setProperty("--range-start", `${minPct}%`);
-          track.style.setProperty("--range-end", `${100 - maxPct}%`);
-        };
-
-        minInput.addEventListener("change", updatePriceRange);
-        maxInput.addEventListener("change", updatePriceRange);
-
-        minSlider.addEventListener("input", () => {
-          minInput.value = minSlider.value;
-          maxSlider.min = minSlider.value;
-          updateTrack();
-        });
-        minSlider.addEventListener("change", updatePriceRange);
-
-        maxSlider.addEventListener("input", () => {
-          maxInput.value = maxSlider.value;
-          minSlider.max = maxSlider.value;
-          updateTrack();
-        });
-        maxSlider.addEventListener("change", updatePriceRange);
-      } else {
-        const minInput = rail.querySelector(`#${key}-min`) as HTMLInputElement;
-        const maxInput = rail.querySelector(`#${key}-max`) as HTMLInputElement;
-        const minSlider = rail.querySelector(`#${key}-min-slider`) as HTMLInputElement;
-        const maxSlider = rail.querySelector(`#${key}-max-slider`) as HTMLInputElement;
-        const track = rail.querySelector(`#${key}-track`) as HTMLElement;
-
-        const updateRange = () => {
-          const min = minInput.value ? parseFloat(minInput.value) : null;
-          const max = maxInput.value ? parseFloat(maxInput.value) : null;
-          params.ranges[key] = { min, max };
-          syncAndRerender();
-        };
-
-        const updateTrack = () => {
-          if (!track) return;
-          const range = numericRanges.get(key)!;
-          const minPct = ((Number(minSlider.value) - range.min) / (range.max - range.min)) * 100;
-          const maxPct = ((Number(maxSlider.value) - range.min) / (range.max - range.min)) * 100;
-          track.style.setProperty("--range-start", `${minPct}%`);
-          track.style.setProperty("--range-end", `${100 - maxPct}%`);
-        };
-
-        minInput.addEventListener("change", updateRange);
-        maxInput.addEventListener("change", updateRange);
-
-        minSlider.addEventListener("input", () => {
-          minInput.value = minSlider.value;
-          maxSlider.min = minSlider.value;
-          updateTrack();
-        });
-        minSlider.addEventListener("change", updateRange);
-
-        maxSlider.addEventListener("input", () => {
-          maxInput.value = maxSlider.value;
-          minSlider.max = maxSlider.value;
-          updateTrack();
-        });
-        maxSlider.addEventListener("change", updateRange);
-      }
+      wireRange(key, key);
     }
 
     // PP-style collapsible headers (MERCHANTS / PRICING OPTIONS / Filters groups)

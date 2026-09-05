@@ -58,9 +58,11 @@ const TILE_ICONS: Record<string, IconName> = {
   case: "case",
 };
 
-function catTile(id: string): string {
+function catTile(id: string, current: string | null): string {
   const label = categoryLabel(id, lang);
-  return `<a class="mega-tile" href="#/c/${id}"><span class="mega-tile-mark" aria-hidden="true">${icon(TILE_ICONS[id] ?? "chip", 22)}</span><span>${esc(label)}</span></a>`;
+  const here = current === id ? " current" : "";
+  const hereAttr = current === id ? ' aria-current="page"' : "";
+  return `<a class="mega-tile${here}" href="#/c/${id}"${hereAttr}><span class="mega-tile-mark" aria-hidden="true">${icon(TILE_ICONS[id] ?? "chip", 22)}</span><span>${esc(label)}</span></a>`;
 }
 
 function catLink(id: string): string {
@@ -74,6 +76,12 @@ function renderShell(): void {
   const isBuild = route.view === "build";
   const isHome = route.view === "home";
   const isProducts = route.view === "category" || route.view === "product";
+  const currentCategory =
+    route.view === "category"
+      ? route.category
+      : route.view === "product"
+        ? route.category
+        : null;
 
   app.innerHTML = `
     <header class="site-header">
@@ -107,13 +115,13 @@ function renderShell(): void {
       </div>
       <nav class="header-nav" aria-label="main">
         <div class="header-nav-inner">
-          <a class="nav-build ${isBuild ? "active" : ""}" href="#/build">${icon("wrench", 14)}<span>${t(lang, "builderNav")}</span></a>
+          <a class="nav-build ${isBuild ? "active" : ""}" href="#/build"${isBuild ? ' aria-current="page"' : ""}>${icon("wrench", 15)}<span>${t(lang, "builderNav")}</span></a>
           <div class="nav-products">
-            <button class="nav-link nav-products-btn ${isProducts ? "active" : ""}" id="products-btn" type="button" aria-expanded="false" aria-haspopup="true">
-              ${icon("chip", 14)}<span>${t(lang, "productsMenu")}</span>${icon("chevron", 12)}
+            <button class="nav-link nav-products-btn ${isProducts ? "active" : ""}" id="products-btn" type="button" aria-expanded="false" aria-haspopup="true"${isProducts ? ' aria-current="true"' : ""}>
+              ${icon("chip", 15)}<span>${t(lang, "productsMenu")}</span>${icon("chevron", 13)}
             </button>
           </div>
-          <a class="nav-link ${isHome ? "active" : ""}" href="${homeHash()}">${t(lang, "home")}</a>
+          <a class="nav-link ${isHome ? "active" : ""}" href="${homeHash()}"${isHome ? ' aria-current="page"' : ""}>${t(lang, "home")}</a>
           <span class="nav-search-spacer"></span>
           <button class="nav-link nav-search-btn" id="search-btn" type="button" aria-label="${t(lang, "searchLabel")}" aria-expanded="false">
             ${icon("search", 15)}
@@ -122,7 +130,7 @@ function renderShell(): void {
         <div class="mega-menu" id="mega-menu" hidden>
           <div class="mega-inner">
             <div class="mega-popular">
-              ${POPULAR_CATS.map(catTile).join("")}
+              ${POPULAR_CATS.map((id) => catTile(id, currentCategory)).join("")}
             </div>
             <div class="mega-groups">
               <div class="mega-col">
@@ -296,18 +304,31 @@ window.addEventListener("hashchange", () => {
   renderRoute();
 });
 
+function routeError(main: HTMLElement): void {
+  main.innerHTML = `
+    <div class="empty-state">
+      <p style="margin-bottom:14px;">${t(lang, "loadError")}</p>
+      <button class="btn-small" type="button" onclick="location.reload()">${t(lang, "retry")}</button>
+    </div>`;
+}
+
 function renderRoute(): void {
   const main = document.getElementById("main-content")!;
   const route = parseRoute();
-  if (route.view === "home") {
-    void renderHome(main, lang, currency);
-  } else if (route.view === "build") {
-    void renderBuilder(main, lang, currency, route.shared);
-  } else if (route.view === "product") {
-    void renderProduct(main, lang, currency, route.category, route.productId);
-  } else {
-    void renderCategory(main, lang, currency, route.category, route.params);
-  }
+  // Any failure after the loading state (stalled fetch, corrupt data,
+  // unexpected shape) lands here instead of hanging on "loading" forever.
+  const task =
+    route.view === "home"
+      ? renderHome(main, lang, currency)
+      : route.view === "build"
+        ? renderBuilder(main, lang, currency, route.shared)
+        : route.view === "product"
+          ? renderProduct(main, lang, currency, route.category, route.productId)
+          : renderCategory(main, lang, currency, route.category, route.params);
+  task.catch((err) => {
+    console.error("[route]", err);
+    routeError(main);
+  });
 }
 
 void ensureFxRate();

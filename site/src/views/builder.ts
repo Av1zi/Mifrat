@@ -2,11 +2,11 @@ import { loadCategory } from "../api";
 import {
   BUILD_SLOTS,
   checkCompatibility,
-  estimateWattage,
+  knownPartWattage,
   type BuildSlot,
 } from "../build";
 import { formatPrice } from "../format";
-import { categoryLabel, t, vendorLabel } from "../i18n";
+import { t, vendorLabel } from "../i18n";
 import { icon } from "../icons";
 import {
   buildHash,
@@ -22,18 +22,6 @@ import {
 } from "../state";
 import type { Currency, Lang, Offer, Product } from "../types";
 import { displayName, esc } from "../utils";
-
-// Categories that aren't builder slots get a trailing link row,
-// like PCPP's Expansion / Peripherals / Accessories rows.
-const EXTRA_CATS = [
-  "case_fan",
-  "cooling_other",
-  "cooler_accessory",
-  "fan_controller",
-  "thermal_paste",
-  "rgb_lighting",
-  "other",
-];
 
 export async function renderBuilder(
   container: HTMLElement,
@@ -281,7 +269,12 @@ export async function renderBuilder(
       if (list[0]) records[slotId] = list[0];
     }
 
-    const estWatts = estimateWattage(records);
+    let estWatts = 0;
+    for (const [slotId, list] of parts.entries()) {
+      for (const product of list) {
+        estWatts += knownPartWattage(slotId, product);
+      }
+    }
     const issues = checkCompatibility(records, estWatts, lang);
     const itemCount = buildItemCount(build);
     const hasParts = itemCount > 0;
@@ -309,14 +302,6 @@ export async function renderBuilder(
       const extra = MULTI_SLOTS.has(slot.id) ? addAdditionalRow(slot) : "";
       return itemRows + extra;
     }).join("");
-
-    const extraRow = `
-      <div class="buildRow buildRow--links">
-        <div class="bhCell"><span class="slot-link slot-link--static">${t(lang, "expansionOther")}</span></div>
-        <div class="bhCell bsChoose" style="grid-column: 2 / -1;">
-          ${EXTRA_CATS.map((c) => `<a href="${categoryHash(c)}">${esc(categoryLabel(c, lang))}</a>`).join("<span class='link-sep'>, </span>")}
-        </div>
-      </div>`;
 
     container.innerHTML = `
       <div class="title-band">
@@ -365,7 +350,6 @@ export async function renderBuilder(
           <div class="bhCell"></div>
         </div>
         ${rows}
-        ${extraRow}
         <div class="buildRow buildTotalRow">
           <div class="bhCell buildTotalLabel" style="grid-column: 1 / 7;">${t(lang, "totalLabel")}</div>
           <div class="bhCell bsPrice">${esc(formatPrice(total, currency, lang))}</div>

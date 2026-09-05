@@ -53,6 +53,7 @@ export const MULTI_SLOTS: ReadonlySet<string> = new Set([
   "storage",
   "gpu",
   "psu",
+  "extras",
 ]);
 
 export function getStoredBuild(): BuildMap {
@@ -88,27 +89,32 @@ export function setStoredBuild(build: BuildMap): void {
   localStorage.setItem(BUILD_KEY, JSON.stringify(build));
 }
 
-/** Append (multi slots) or replace (single slots), skipping duplicates. */
+/**
+ * Append (multi slots) or replace (single slots). Multi slots allow the
+ * same part twice on purpose (two identical M.2 drives); single slots
+ * replace whatever was there.
+ */
 export function addToBuild(
   build: BuildMap,
   slotId: string,
   productId: string
 ): void {
-  const list = build[slotId] ?? [];
   if (MULTI_SLOTS.has(slotId)) {
-    if (!list.includes(productId)) list.push(productId);
-    build[slotId] = list;
+    build[slotId] = [...(build[slotId] ?? []), productId];
   } else {
     build[slotId] = [productId];
   }
 }
 
+/** Removes a single instance (so twin drives are removed one at a time). */
 export function removeFromBuild(
   build: BuildMap,
   slotId: string,
   productId: string
 ): void {
-  const list = (build[slotId] ?? []).filter((id) => id !== productId);
+  const list = [...(build[slotId] ?? [])];
+  const at = list.indexOf(productId);
+  if (at !== -1) list.splice(at, 1);
   if (list.length > 0) build[slotId] = list;
   else delete build[slotId];
 }

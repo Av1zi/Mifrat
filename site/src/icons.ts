@@ -1,7 +1,8 @@
 /**
- * Minimal inline SVG icon set (stroke = currentColor, flat, no emoji).
- * Keeps the header/nav/builder chrome looking like PCPP's icon + label
- * nav items without pulling in an icon font or image assets.
+ * Inline SVG icon set. All icons are Lucide (ISC licensed,
+ * https://lucide.dev) in its 24px grid style, except `gpu` which is
+ * drawn in the same stroke style because Lucide ships no GPU glyph.
+ * No emoji, no icon fonts, no external requests.
  */
 
 export type IconName =
@@ -18,6 +19,7 @@ export type IconName =
   | "close"
   | "globe"
   | "coin"
+  | "check"
   | "cooler"
   | "motherboard"
   | "memory"
@@ -28,47 +30,49 @@ export type IconName =
 
 const PATHS: Record<IconName, string> = {
   wrench:
-    '<path d="M14.5 6.5a3.5 3.5 0 0 0-4.6-3.3L4 9.1a1.8 1.8 0 1 0 2.5 2.5l5.9-5.9a3.5 3.5 0 0 0 2.1.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="3.6" cy="12.4" r="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+    '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />',
   chip:
-    '<rect x="4.5" y="4.5" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 1.8v2M9.5 1.8v2M6.5 12.2v2M9.5 12.2v2M1.8 6.5h2M1.8 9.5h2M12.2 6.5h2M12.2 9.5h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    '<rect width="16" height="16" x="4" y="4" rx="2" /><rect width="6" height="6" x="9" y="9" rx="1" /><path d="M15 2v2" /><path d="M15 20v2" /><path d="M2 15h2" /><path d="M2 9h2" /><path d="M20 15h2" /><path d="M20 9h2" /><path d="M9 2v2" /><path d="M9 20v2" />',
   search:
-    '<circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 10.5 15 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+    '<circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />',
   chevron:
-    '<path d="M3.5 6 8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+    '<path d="m6 9 6 6 6-6" />',
   sun:
-    '<circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M12.6 3.4l-1.3 1.3M4.7 11.3 3.4 12.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    '<circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />',
   moon:
-    '<path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />',
   copy:
-    '<rect x="5.5" y="5.5" width="8" height="8" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 3.5v-1h-7v9h1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    '<rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />',
   plus:
-    '<path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+    '<path d="M5 12h14" /><path d="M12 5v14" />',
   trash:
-    '<path d="M2.5 4h11M6.5 4V2.8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V4M4 4l.7 9.2a1 1 0 0 0 1 .8h4.6a1 1 0 0 0 1-.8L12 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 6.5v5M9.5 6.5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+    '<path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" />',
   bolt:
-    '<path d="M9 1.5 3.5 9H7l-1 5.5L11.5 7H8l1-5.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
+    '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />',
   close:
-    '<path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+    '<path d="M18 6 6 18" /><path d="m6 6 12 12" />',
   globe:
-    '<circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 8h12M8 2c-3.5 3.5-3.5 8.5 0 12 3.5-3.5 3.5-8.5 0-12z" fill="none" stroke="currentColor" stroke-width="1.3"/>',
+    '<circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />',
   coin:
-    '<circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v6M6 6.5h3.2a1.3 1.3 0 0 1 0 2.6H6.8a1.3 1.3 0 0 0 0 2.6H10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    '<circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" />',
+  check:
+    '<path d="M20 6 9 17l-5-5" />',
   cooler:
-    '<circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 8V3.2M8 8l4.2 2.4M8 8l-4.2 2.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+    '<path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z" /><path d="M12 12v.01" />',
   motherboard:
-    '<rect x="2.5" y="2.5" width="11" height="11" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="4.8" y="4.8" width="3.2" height="3.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M9.8 4.8v3.2M9.8 6.4h3.7M4.8 10.2h8.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    '<rect width="18" height="18" x="3" y="3" rx="2" /><path d="M11 9h4a2 2 0 0 0 2-2V3" /><circle cx="9" cy="9" r="2" /><path d="M7 21v-4a2 2 0 0 1 2-2h4" /><circle cx="15" cy="15" r="2" />',
   memory:
-    '<rect x="1.8" y="4.5" width="12.4" height="5.5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V10M4 10v2M6.5 10v2M9.5 10v2M12 10v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    '<path d="M6 19v-3" /><path d="M10 19v-3" /><path d="M14 19v-3" /><path d="M18 19v-3" /><path d="M8 11V9" /><path d="M16 11V9" /><path d="M12 11V9" /><path d="M2 15h20" /><path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" />',
   storage:
-    '<rect x="2" y="4" width="12" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="5" cy="8" r="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 8h4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    '<line x1="22" x2="2" y1="12" y2="12" /><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /><line x1="6" x2="6.01" y1="16" y2="16" /><line x1="10" x2="10.01" y1="16" y2="16" />',
   gpu:
-    '<rect x="1.5" y="4.5" width="10.5" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 4.5V2.8M14 4.5V2.8M12 11.5v1.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+    '<rect width="15" height="11" x="2" y="6" rx="2" /><circle cx="8.5" cy="11.5" r="2.5" /><path d="M17 6v11" /><path d="M6 17v2" /><path d="M11 17v2" />',
   psu:
-    '<rect x="2" y="3.5" width="12" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3.8 5.3h1.6M3.8 10.7h1.6M10.6 5.3h1.6M10.6 10.7h1.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>',
+    '<path d="M12 2v10" /><path d="M18.4 6.6a9 9 0 1 1-12.77.04" />',
   case:
-    '<rect x="4.5" y="1.8" width="7" height="12.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 5.2h7M4.5 11h7" stroke="currentColor" stroke-width="1.3"/><circle cx="9.7" cy="3.5" r="0.7" fill="currentColor"/>',
+    '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />',
 };
 
-export function icon(name: IconName, size = 15): string {
-  return `<svg class="ic ic-${name}" width="${size}" height="${size}" viewBox="0 0 16 16" aria-hidden="true" focusable="false">${PATHS[name]}</svg>`;
+export function icon(name: IconName, size = 16): string {
+  return `<svg class="ic ic-${name}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PATHS[name]}</svg>`;
 }

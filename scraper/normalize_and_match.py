@@ -31,6 +31,7 @@ try:
     )
     from scraper.extractors import extract_attributes
     from scraper.site_data import write_site_data
+    from scraper.build_price_history import build_price_history
 except ImportError:
     from matching import (
         dedupe_enriched_listings,
@@ -40,6 +41,7 @@ except ImportError:
     )
     from extractors import extract_attributes
     from site_data import write_site_data
+    from build_price_history import build_price_history
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -356,6 +358,10 @@ def main():
         f"[ok] wrote site data: {len(site_meta['categories'])} category files "
         f"to {SITE_DIR}"
     )
+
+    # Per-category price history for the product pages' charts
+    # (data/site/history/*.json) — see scraper/build_price_history.py.
+    build_price_history(catalog)
 
 
 if __name__ == "__main__":
