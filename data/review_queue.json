@@ -1884,6 +1884,17 @@
     "score": 95,
     "category": "gpu",
     "brand": "Sapphire",
+    "listing_a": "ivory:124404",
+    "listing_b": "ivory:133686",
+    "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6",
+    "match_text_a": "11348-02-20G SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "match_text_b": "11350-02-20G SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 95,
+    "category": "gpu",
+    "brand": "Sapphire",
     "listing_a": "ivory:133692",
     "listing_b": "ivory:147157",
     "title_a": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 8GB GDDR6",
@@ -6295,6 +6306,17 @@
     "score": 92,
     "category": "gpu",
     "brand": "Sapphire",
+    "listing_a": "ivory:124401",
+    "listing_b": "ivory:124404",
+    "title_a": "כרטיס מסך SAPPHIRE NITRO+ AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "match_text_a": "11348-01-20G SAPPHIRE NITRO+ AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "match_text_b": "11348-02-20G SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 92,
+    "category": "gpu",
+    "brand": "Sapphire",
     "listing_a": "ivory:124407",
     "listing_b": "ivory:133689",
     "title_a": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
@@ -7307,6 +7329,17 @@
     "score": 91,
     "category": "gpu",
     "brand": "Sapphire",
+    "listing_a": "ivory:124404",
+    "listing_b": "ivory:133689",
+    "title_a": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "title_b": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6",
+    "match_text_a": "11348-02-20G SAPPHIRE PURE AMD Radeon RX 9070 XT OC 16GB GDDR6",
+    "match_text_b": "11350-03-20G SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 91,
+    "category": "gpu",
+    "brand": "Sapphire",
     "listing_a": "ivory:124410",
     "listing_b": "ivory:124413",
     "title_a": "כרטיס מסך SAPPHIRE NITRO+ AMD Radeon RX 9070 OC 16GB GDDR6",
@@ -7390,6 +7423,17 @@
     "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
     "match_text_a": "6000J3036F16GX2-TZ5NRW G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO",
     "match_text_b": "6000J3038F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "tms:6000J3038F16GX2-TZ5N",
+    "listing_b": "tms:6000J3636F16GX2-TZ5N",
+    "title_a": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "6000J3038F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
   },
   {
     "score": 91,
@@ -10926,6 +10970,17 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
+    "listing_a": "tms:6000J2636H16GX2-TZ5NR",
+    "listing_b": "tms:6000J3636F16GX2-TZ5N",
+    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 EXPO",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "6000J2636H16GX2-TZ5NR G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 EXPO",
+    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
     "listing_a": "tms:6000J2636H16GX2-TZ5NRW",
     "listing_b": "tms:6000J3038F16GX2-TZ5NR",
     "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 White EXPO",
@@ -11102,6 +11157,17 @@
     "score": 88,
     "category": "memory",
     "brand": "G.Skill",
+    "listing_a": "tms:6000J3038F16GX2-TZ5NR",
+    "listing_b": "tms:6000J3636F16GX2-TZ5N",
+    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "6000J3038F16GX2-TZ5NR G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
     "listing_a": "tms:6000J3040F16GX2-RS5K",
     "listing_b": "tms:6000J3040F16GX2-TZ5K",
     "title_a": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
@@ -11119,6 +11185,17 @@
     "title_b": "G.Skill DDR5 32GB (2x16GB) 6400 CL36 Ripjaws S5 White XMP 3.0",
     "match_text_a": "6000J3040F16GX2-RS5K G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
     "match_text_b": "6400J3648F16GX2-RS5W G.Skill DDR5 32GB (2x16GB) 6400 CL36 Ripjaws S5 White XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "tms:6000J3040F16GX2-TZ5K",
+    "listing_b": "tms:6000J3636F16GX2-TZ5N",
+    "title_a": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "6000J3040F16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
+    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
   },
   {
     "score": 88,
@@ -11185,6 +11262,28 @@
     "title_b": "G.Skill Aegis 5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
     "match_text_a": "6000J3636F16GX2-FX5 G.Skill Flare X5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
     "match_text_b": "6000J3636F16GX2-IS G.Skill Aegis 5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "tms:6000J3636F16GX2-FX5",
+    "listing_b": "tms:6000J3636F16GX2-TZ5N",
+    "title_a": "G.Skill Flare X5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "6000J3636F16GX2-FX5 G.Skill Flare X5 DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_b": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "tms:6000J3636F16GX2-TZ5N",
+    "listing_b": "tms:7600J3646G16GX2-TZ5K",
+    "title_a": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "title_b": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0",
+    "match_text_a": "6000J3636F16GX2-TZ5N G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_b": "7600J3646G16GX2-TZ5K G.Skill Trident Z5 DDR5 32GB (2x16GB) 7600 CL36 XMP 3.0"
   },
   {
     "score": 88,
