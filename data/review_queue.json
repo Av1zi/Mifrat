@@ -3,17 +3,6 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "ivory:129267",
-    "listing_b": "tms:100-000000719",
-    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
-    "title_b": "AMD Ryzen 9 9950X3D AM5 Tray",
-    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
-    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "ivory:72257",
     "listing_b": "tms:100-000000591",
     "title_a": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
@@ -1906,6 +1895,50 @@
     "score": 95,
     "category": "memory",
     "brand": "G.Skill",
+    "listing_a": "1pc:200238",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200238 G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 95,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200260",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200260 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in black color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 95,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200264",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200264 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 95,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201724",
+    "listing_b": "1pc:207657",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color.",
+    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_b": "207657 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 XMP 3.0 in black color."
+  },
+  {
+    "score": 95,
+    "category": "memory",
+    "brand": "G.Skill",
     "listing_a": "tms:6000J2636H16GX2-TZ5NR",
     "listing_b": "tms:6000J2636H16GX2-TZ5NRW",
     "title_a": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL26 EXPO",
@@ -3697,14 +3730,14 @@
   },
   {
     "score": 94,
-    "category": "case_fan",
-    "brand": "Lian Li",
-    "listing_a": "1pc:180217",
-    "listing_b": "tms:12RSLLCD1W1B",
-    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
-    "title_b": "Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan",
-    "match_text_a": "180217 Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
-    "match_text_b": "12RSLLCD1W1B Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan"
+    "category": "gpu",
+    "brand": "PowerColor",
+    "listing_a": "1pc:203368",
+    "listing_b": "1pc:203371",
+    "title_a": "PowerColor Reaper RX 9070 XT 16GB GDDR6 Graphics Card RX9070XT16G-A.",
+    "title_b": "PowerColor Reaper RX 9060 XT 16GB GDDR6 Graphics Card RX9060XT16G-A.",
+    "match_text_a": "203368 PowerColor Reaper RX 9070 XT 16GB GDDR6 Graphics Card RX9070XT16G-A.",
+    "match_text_b": "203371 PowerColor Reaper RX 9060 XT 16GB GDDR6 Graphics Card RX9060XT16G-A."
   },
   {
     "score": 94,
@@ -5426,6 +5459,28 @@
     "score": 93,
     "category": "memory",
     "brand": "G.Skill",
+    "listing_a": "1pc:200252",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200252 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in black color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201724",
+    "listing_b": "1pc:201770",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_b": "201770 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
     "listing_a": "tms:5600J3636C16GX2-RS5K",
     "listing_b": "tms:6000J3036F16GX2-RS5K",
     "title_a": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 5600 CL36 XMP 3.0",
@@ -6216,6 +6271,17 @@
   },
   {
     "score": 92,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:217700",
+    "listing_b": "1pc:217703",
+    "title_a": "Antec C6 Curve Air computer case in black.",
+    "title_b": "Antec C6 Curve ARGB computer case in black.",
+    "match_text_a": "217700 Antec C6 Curve Air computer case in black.",
+    "match_text_b": "217703 Antec C6 Curve ARGB computer case in black."
+  },
+  {
+    "score": 92,
     "category": "gpu",
     "brand": "NVIDIA",
     "listing_a": "tms:900-5G132-2240-000",
@@ -6323,6 +6389,28 @@
     "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6",
     "match_text_a": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
     "match_text_b": "11350-02-20G SAPPHIRE PURE AMD Radeon RX 9060 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200254",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200254 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in silver color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200262",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200262 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in black color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
   },
   {
     "score": 92,
@@ -7340,6 +7428,39 @@
     "score": 91,
     "category": "memory",
     "brand": "G.Skill",
+    "listing_a": "1pc:200239",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 7600 CL36 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200239 G.Skill Trident Z5 DDR5 Memory 32GB (2x16GB) 7600 CL36 in black color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200269",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200269 G.Skill Trident Z5 Neo RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in white color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201724",
+    "listing_b": "1pc:207673",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL36 in black color.",
+    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_b": "207673 G.Skill Trident Z5 Neo DDR5 Memory 32GB (2x16GB) 6000 CL36 in black color."
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "G.Skill",
     "listing_a": "tms:5600J3636C16GX2-TZ5RK",
     "listing_b": "tms:6000J3040F16GX2-TZ5RK",
     "title_a": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 5600 CL36 XMP 3.0",
@@ -8143,17 +8264,6 @@
     "score": 90,
     "category": "case_fan",
     "brand": "Lian Li",
-    "listing_a": "1pc:180217",
-    "listing_b": "tms:12RSL1W1B",
-    "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
-    "title_b": "Lian-Li UNI SL Wireless 120mm Reverse Black Fan",
-    "match_text_a": "180217 Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B.",
-    "match_text_b": "12RSL1W1B Lian-Li UNI SL Wireless 120mm Reverse Black Fan"
-  },
-  {
-    "score": 90,
-    "category": "case_fan",
-    "brand": "Lian Li",
     "listing_a": "1pc:180218",
     "listing_b": "tms:12RSL1W1W",
     "title_a": "Lian-Li UNI SL Wireless LCD 120mm Reverse White Fan 12RSLLCD1W1W.",
@@ -8369,6 +8479,17 @@
     "title_b": "AMD Radeon PRO W7800 Professional Graphics Card - RDNA3 - 32GB GDDR6",
     "match_text_a": "100-300000075 AMD Radeon PRO W7800 Professional Graphics Card - RDNA3 - 32GB GDDR6",
     "match_text_b": "W7800-AI-TOP-32G AMD Radeon PRO W7800 Professional Graphics Card - RDNA3 - 32GB GDDR6"
+  },
+  {
+    "score": 90,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201283",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "201283 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL30 in white color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
   },
   {
     "score": 90,
@@ -8710,28 +8831,6 @@
     "title_b": "360mm Black Liquid AIO CPU Water Cooler, LCD, Black - Compatible with AMD AM4/AM5,Intel LGA1851/1700/1150/1151/2011",
     "match_text_a": "Elite-Vision-360-White-ARGB 360mm White Liquid AIO CPU Water Cooler LCD Black - Compatible with AMD AM4/AM5 Intel LGA1851/1700/1150/1151/2011",
     "match_text_b": "Trofeo-Vision-360-ARGB-Black 360mm Black Liquid AIO CPU Water Cooler LCD Black - Compatible with AMD AM4/AM5 Intel LGA1851/1700/1150/1151/2011"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:129267",
-    "listing_b": "ivory:150286",
-    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
-    "title_b": "מעבד AMD Ryzen 9 9950X Tray",
-    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
-    "match_text_b": "100-000001277 AMD Ryzen 9 9950X Tray"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:129267",
-    "listing_b": "ivory:155827",
-    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
-    "title_b": "מעבד AMD Ryzen 7 9850X3D Tray",
-    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
-    "match_text_b": "100-000001973 AMD Ryzen 7 9850X3D Tray"
   },
   {
     "score": 89,
@@ -9219,6 +9318,17 @@
   },
   {
     "score": 89,
+    "category": "gpu",
+    "brand": "PowerColor",
+    "listing_a": "1pc:203367",
+    "listing_b": "1pc:203368",
+    "title_a": "PowerColor Red Devil RX 9070 XT 16GB GDDR6 Graphics Card RX9070XT16G-EOC.",
+    "title_b": "PowerColor Reaper RX 9070 XT 16GB GDDR6 Graphics Card RX9070XT16G-A.",
+    "match_text_a": "203367 PowerColor Red Devil RX 9070 XT 16GB GDDR6 Graphics Card RX9070XT16G-EOC.",
+    "match_text_b": "203368 PowerColor Reaper RX 9070 XT 16GB GDDR6 Graphics Card RX9070XT16G-A."
+  },
+  {
+    "score": 89,
     "category": "case_fan",
     "brand": "Lian Li",
     "listing_a": "1pc:180208",
@@ -9403,6 +9513,17 @@
     "title_b": "כרטיס מסך SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
     "match_text_a": "11348-03-20G SAPPHIRE PULSE AMD Radeon RX 9070 XT 16GB GDDR6",
     "match_text_b": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200258",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in black.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200258 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in black.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
   },
   {
     "score": 89,
@@ -9667,17 +9788,6 @@
     "title_b": "AIO ARGB CPU Liquid Cooler - 360mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 360",
     "match_text_a": "MAG-CORELIQUID-A13-240-WHITE AIO ARGB CPU Liquid Cooler - White - 240mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 240",
     "match_text_b": "MAG-CORELIQUID-A13-360 AIO ARGB CPU Liquid Cooler - 360mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 360"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:129267",
-    "listing_b": "plonter:100-000000719",
-    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
-    "title_b": "AMD Zen5 Ryzen9 9950X3D 16 Core/32 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray",
-    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
-    "match_text_b": "100-000000719 AMD Zen5 Ryzen9 9950X3D 16 Core/32 Threads - Base Clock 4.3GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray"
   },
   {
     "score": 88,
@@ -10789,6 +10899,50 @@
     "title_b": "כרטיס מסך SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6",
     "match_text_a": "11349-02-20G SAPPHIRE PURE AMD Radeon RX 9070 OC 16GB GDDR6",
     "match_text_b": "11350-03-20G SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB GDDR6"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200251",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in silver color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200251 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5600 CL36 in silver color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200257",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in silver color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200257 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6400 CL32 in silver color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200261",
+    "listing_b": "1pc:201724",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in silver color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_a": "200261 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 7200 CL34 in silver color.",
+    "match_text_b": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color."
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201724",
+    "listing_b": "1pc:205729",
+    "title_a": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "title_b": "G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color.",
+    "match_text_a": "201724 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 6000 CL30 in black color.",
+    "match_text_b": "205729 G.Skill Trident Z5 RGB DDR5 Memory 32GB (2x16GB) 5200 CL40 in silver color."
   },
   {
     "score": 88,
