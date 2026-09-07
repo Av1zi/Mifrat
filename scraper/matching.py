@@ -1954,7 +1954,11 @@ def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str]:
         }:
             match = re.search(r"\d+(?:\.\d+)?", value)
             if match:
-                value = match.group(0)
+                num = float(match.group(0))
+                # Match our own parsers' types (ints for counts/sizes):
+                # a merged "395" next to our 395 would render the same
+                # but split strict-equality paths — one type per fact.
+                value = int(num) if num.is_integer() else round(num, 3)
         normalized[key] = value
     return normalized
 
@@ -2275,16 +2279,23 @@ def match_listings(
             mpn_groups.setdefault(pid, []).append(enriched)
 
     for pid, group in mpn_groups.items():
-        for enriched in group:
-            assignments[enriched["listing_key"]] = pid
+        # Box vs Tray is NEVER merged (same rule as the model tier): a
+        # retail-box CPU and its tray twin share the MPN but are different
+        # items (mpn:cpu:c7500tp shipped one mixed product before this
+        # split existed). Box keeps the base pid (it is the unmarked
+        # default); the Tray subgroup becomes pid-tray.
+        for pack_key, sub in _split_packaging_subgroups(group):
+            sub_pid = f"{pid}-tray" if pack_key == "Tray" else pid
+            for enriched in sub:
+                assignments[enriched["listing_key"]] = sub_pid
 
-        product_meta.setdefault(
-            pid,
-            {
-                "product_id": pid,
-                "matched_by": "mpn",
-            },
-        )
+            product_meta.setdefault(
+                sub_pid,
+                {
+                    "product_id": sub_pid,
+                    "matched_by": "mpn",
+                },
+            )
 
     # 4. Exact normalized vendor SKU matches.
     #
@@ -2315,16 +2326,20 @@ def match_listings(
             sku_groups.setdefault(pid, []).append(enriched)
 
     for pid, group in sku_groups.items():
-        for enriched in group:
-            assignments[enriched["listing_key"]] = pid
+        # Same Box/Tray split as the MPN tier: one vendor SKU covering
+        # both packagings must still yield two products.
+        for pack_key, sub in _split_packaging_subgroups(group):
+            sub_pid = f"{pid}-tray" if pack_key == "Tray" else pid
+            for enriched in sub:
+                assignments[enriched["listing_key"]] = sub_pid
 
-        product_meta.setdefault(
-            pid,
-            {
-                "product_id": pid,
-                "matched_by": "sku",
-            },
-        )
+            product_meta.setdefault(
+                sub_pid,
+                {
+                    "product_id": sub_pid,
+                    "matched_by": "sku",
+                },
+            )
 
     # 4b. MPN/SKU unification.
     #

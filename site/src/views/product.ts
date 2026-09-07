@@ -120,10 +120,12 @@ function computeVariantGroups(
       return { value, productId: best.id, active: value === current };
     });
 
+    // Stable order, value-only: the active pill keeps its position when
+    // navigating between variants (clicking DDR5 must not swap it with
+    // the DDR4 pill). Active is only a marker, never a sort key.
     values.sort((a, b) =>
-      Number(a.active) - Number(b.active) || a.value.localeCompare(b.value, undefined, { numeric: true })
+      a.value.localeCompare(b.value, undefined, { numeric: true })
     );
-    // Active last like PCPP? PCPP lists in order; keep numeric order with active marked.
     groups.push({ key, values });
     if (groups.length >= 4) break;
   }
@@ -197,12 +199,15 @@ export async function renderProduct(
     ...(product.pcpartdb?.specs ?? {}),
     ...(product.pckombo?.specs ?? {}),
   };
-  const referenceKeys = Object.keys(referenceSpecs).filter(
-    (k) =>
-      referenceSpecs[k] !== null &&
-      referenceSpecs[k] !== undefined &&
-      referenceSpecs[k] !== "" &&
-      !(k in product.attributes)
+  const referenceKeys = sortSpecKeys(
+    product.category,
+    Object.keys(referenceSpecs).filter(
+      (k) =>
+        referenceSpecs[k] !== null &&
+        referenceSpecs[k] !== undefined &&
+        referenceSpecs[k] !== "" &&
+        !(k in product.attributes)
+    )
   );
 
   const specRows =

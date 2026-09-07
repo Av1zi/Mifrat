@@ -2908,6 +2908,19 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
                 continue
             del attrs[ck]
 
+    # Measure/count keys must contain a digit: detail-row fragments like
+    # bare "MHz"/"mm" or prose ("not applicable to this product") are not
+    # facts — drop them rather than show a junk filter option or column.
+    for nk in (
+        "cores", "threads", "cache_mb", "capacity_gb", "speed_mhz",
+        "vram_gb", "wattage_w", "tdp_w", "length_mm", "gpu_length_mm",
+        "max_gpu_length_mm", "memory_clock_mhz", "rpm", "fan_size_mm",
+        "radiator_size_mm", "cooler_height_mm",
+    ):
+        nv = attrs.get(nk)
+        if isinstance(nv, str) and not re.search(r"\d", nv):
+            del attrs[nk]
+
     # Caches: "8MB (8x 1MB)" / "8MiB (8x 1MiB)" -> "8MB".
     for kk in ("l2_cache", "l3_cache"):
         kv = attrs.get(kk)

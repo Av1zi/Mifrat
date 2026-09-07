@@ -638,6 +638,9 @@ main { flex: 1; width: 100%; max-width: 1560px; margin: 0 auto; padding: 28px 32
 
 .pl-cell.spec, .plCell.spec, .plCell { color: var(--text-dim); font-size: 0.8rem; }
 .plCell.spec, .pl-cell.spec { font-family: var(--font-mono); }
+/* Reference-spec fallback cell (views/category.ts cellSpec): dataset value,
+   not scraped — dotted underline + help cursor, full note in the tooltip. */
+.pl-cell.spec-ref, .plCell.spec-ref { border-bottom: 1px dotted var(--border); cursor: help; }
 .pl-name .pl-title, .pl-name .plTitle { font-family: var(--font-sans); }
 .pl-stock, .bsStock { font-size: 0.8rem; color: var(--text-dim); display: flex; align-items: center; gap: 6px; }
 .pl-price, .bsPrice { font-family: var(--font-mono); font-weight: 700; font-size: 0.9rem; }

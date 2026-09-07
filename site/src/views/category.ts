@@ -80,6 +80,85 @@ const NUMERIC_ATTRS = new Set([
 
 const MAX_SPEC_COLUMNS = 4;
 
+// pcpartdb foreign key -> our canonical attribute key, for DISPLAY ONLY.
+// The product page already appends these specs with a "reference" warning
+// (views/product.ts), but this table only read `attributes`, so columns
+// whose values mostly come from the dataset rendered as dashes. A cell
+// may now fall back to the reference value, visibly marked (spec-ref).
+//
+// Deliberately never merged into attributes: pcpartdb matches are fuzzy
+// (a 9070 XT once matched "RX 7900 XT" at 95.2), so reference values must
+// stay out of filters, variant signatures, and compat checks — cells only.
+// Keys with no canonical equivalent (case "type" is tower size, not our
+// board-size form_factor) are left out.
+const PCPARTDB_DISPLAY_MAP: Record<string, string> = {
+  core_count: "cores",
+  core_clock: "base_clock_ghz",
+  boost_clock: "boost_clock_ghz",
+  microarchitecture: "microarchitecture",
+  tdp: "tdp",
+  graphics: "integrated_graphics",
+  chipset: "gpu_chip",
+  memory: "vram_gb",
+  color: "color",
+  length: "length_mm",
+  size: "fan_size_mm",
+  rpm: "rpm",
+  airflow: "airflow",
+  noise_level: "noise_level",
+  pwm: "pwm",
+  side_panel: "side_panel",
+};
+
+/** Render a raw dataset value in our canonical display shape. */
+function formatRefValue(canonKey: string, raw: unknown): string {
+  if (typeof raw === "boolean") return raw ? "Yes" : "No";
+  if (Array.isArray(raw)) {
+    const parts = raw.map((v) => String(v));
+    const range =
+      parts.length > 1
+        ? `${parts[0]}-${parts[parts.length - 1]}`
+        : (parts[0] ?? "");
+    if (!range) return "";
+    if (canonKey === "airflow") return `${range} CFM`;
+    if (canonKey === "noise_level") return `${range} dB`;
+    return range;
+  }
+  if (typeof raw === "number") {
+    if (canonKey === "base_clock_ghz" || canonKey === "boost_clock_ghz") {
+      // Mixed units upstream: GPU clocks arrive as MHz ints (2000),
+      // CPU clocks as GHz floats (5.7).
+      const ghz = raw >= 100 ? raw / 1000 : raw;
+      return String(Math.round(ghz * 1000) / 1000);
+    }
+    if (canonKey === "tdp") return `${raw}W`;
+    return String(raw);
+  }
+  if (typeof raw === "string") {
+    if (canonKey === "tdp" && /^\d+(\.\d+)?$/.test(raw.trim())) {
+      return `${raw.trim()}W`;
+    }
+    return raw;
+  }
+  return "";
+}
+
+/** Table cell value: scraped attribute first, marked reference fallback. */
+function cellSpec(p: Product, key: string): { text: string; ref: boolean } {
+  const own = p.attributes[key];
+  if (own !== undefined && own !== null && own !== "") {
+    return { text: String(own), ref: false };
+  }
+  const specs = p.pcpartdb?.specs ?? {};
+  for (const [foreign, raw] of Object.entries(specs)) {
+    if (PCPARTDB_DISPLAY_MAP[foreign] !== key) continue;
+    if (raw === null || raw === undefined || raw === "") continue;
+    const text = formatRefValue(key, raw);
+    if (text) return { text, ref: true };
+  }
+  return { text: "", ref: false };
+}
+
 // Minimum share of products that must carry a key before it becomes a
 // table column — keeps one-off trivia rows from producing near-empty
 // columns.
@@ -407,6 +486,14 @@ export async function renderCategory(
       for (const key of Object.keys(p.attributes)) {
         if (p.attributes[key]) coverage.set(key, (coverage.get(key) ?? 0) + 1);
       }
+      // Reference-backed values count toward candidacy (marked per-cell),
+      // or dataset-heavy columns would never appear at all.
+      for (const foreign of Object.keys(p.pcpartdb?.specs ?? {})) {
+        const canon = PCPARTDB_DISPLAY_MAP[foreign];
+        if (canon && (p.attributes[canon] ?? "") === "") {
+          coverage.set(canon, (coverage.get(canon) ?? 0) + 1);
+        }
+      }
     }
     const n = Math.max(1, compatibleProducts.length);
     const candidates = sortSpecKeys(
@@ -650,14 +737,19 @@ export async function renderCategory(
   }
 
   function rowHtml(p: Product): string {
+    const refNote = t(
+      lang,
+      p.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote"
+    );
     const specCells = specColumns
       .map((key) => {
-        const text =
-          key === "vendor"
-            ? vendorsCount(lang, p.vendor_count)
-            : p.attributes[key] ?? "";
-
-        return `<div class="pl-cell spec">${text ? esc(text) : "-"}</div>`;
+        if (key === "vendor") {
+          return `<div class="pl-cell">${esc(vendorsCount(lang, p.vendor_count))}</div>`;
+        }
+        const cell = cellSpec(p, key);
+        if (!cell.text) return `<div class="pl-cell spec">-</div>`;
+        if (!cell.ref) return `<div class="pl-cell spec">${esc(cell.text)}</div>`;
+        return `<div class="pl-cell spec spec-ref" title="${esc(refNote)}">${esc(cell.text)}</div>`;
       })
       .join("");
 
