@@ -82,7 +82,21 @@
       },
       "listing_keys": [
         "1pc:218342",
-        "tms:PC-A4H2OA4"
+        "tms:A4H2OA5"
+      ]
+    },
+    {
+      "product_id": "case:lian-li:a4-h2o-pcie4",
+      "canonical_name": "Lian Li A4-H2O PCIe 4.0",
+      "category": "case",
+      "brand": "Lian Li",
+      "model": "A4-H2O",
+      "attributes": {
+        "form_factor": "Mini-ITX"
+      },
+      "listing_keys": [
+        "tms:PC-A4H2OA4",
+        "1pc:112349"
       ]
     },
     {
@@ -112,6 +126,22 @@
       "listing_keys": [
         "tms:O11DMIV2W",
         "ivory:147541"
+      ]
+    },
+    {
+      "product_id": "cpu:amd:ryzen-9-9950x3d",
+      "canonical_name": "AMD Ryzen 9 9950X3D",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 9 9950X3D",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:187970",
+        "ivory:128577",
+        "plonter:100-000000719",
+        "plonter:100-100000719WOF",
+        "tms:100-000000719",
+        "ivory:129267"
       ]
     }
   ],

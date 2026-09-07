@@ -276,7 +276,11 @@ HE_NO_COOLER_RE = re.compile(r"ללא\s*מאוורר|בלי\s*מאוורר")
 def _socket_from_text(text: str) -> str | None:
     m = SOCKET_RE.search(text)
     if m:
-        return m.group(1).upper().replace(" ", "")
+        sock = m.group(1).upper().replace(" ", "")
+        # Vendors write SP3's pin count as a socket ("LGA4094 (SP3)").
+        if sock == "LGA4094":
+            return "SP3"
+        return sock
     m = re.search(r"\b(1700|1851|1200|1151|1150|1155|1366|2066|2011)\b", text)
     if m:
         return NUMERIC_SOCKET.get(m.group(1))
@@ -426,8 +430,9 @@ DETAIL_KEY_ALIASES = {
     "internal_memory_capacity": "max_memory",
     "usb_connections": "usb_ports",
     "sata_connections": "sata_ports",
-    "connectivity": "connectivity",
-    "graphics_cards": "expansion_slots",
+    # NOTE: no "graphics_cards" alias — case detail rows named that way hold
+    # max-GPU-length strings ("max. 400mm"), harvested directly into
+    # max_gpu_length_mm below. An alias into expansion_slots mislabeled them.
     "base_clock": "base_clock_ghz",
     "turbo_clock": "boost_clock_ghz",
     "boost_clock": "boost_clock_ghz",
@@ -751,11 +756,14 @@ def _from_vendor_meta(meta, vendor=None) -> dict:
             out.setdefault(ck, cv)
             if ck == "scope_of_delivery" and isinstance(cv, str):
                 # "with CPU cooler (AMD Wraith Stealth...)" -> cooler signal.
+                # The negation check runs FIRST: "without CPU cooler"
+                # contains "cooler" too, so testing it second is dead code
+                # that marks cooler-less CPUs as cooler-included.
                 low = cv.lower()
-                if "cooler" in low or "fan included" in low:
-                    out.setdefault("cooler_included", "Yes")
-                elif "without" in low and "cooler" in low:
+                if "without" in low and "cooler" in low:
                     out.setdefault("cooler_included", "No")
+                elif "cooler" in low or "fan included" in low:
+                    out.setdefault("cooler_included", "Yes")
 
     return out
 
@@ -1429,10 +1437,10 @@ def _parse_memory(text: str, meta) -> dict:
             a["speed"] = f"DDR{_ddr_gen(a.get('memory_type'))}-{sd.group(1)}"
         else:
             # Bare 4-digit speed after capacity ("Kingston DDR4 8GB 3200"):
-            # in memory context a 1600-8533 number right after GB is MT/s.
+            # in memory context a 1600-9000 number right after GB is MT/s.
             # (No leading \b: "8GB" has no boundary between 8 and G.)
             bs = re.search(r"GB\s+(\d{4})\b", text, re.I)
-            if bs and 1600 <= int(bs.group(1)) <= 8533:
+            if bs and 1600 <= int(bs.group(1)) <= 9000:
                 a["speed_mhz"] = int(bs.group(1))
                 a["speed"] = f"{bs.group(1)}"
             else:
@@ -1443,7 +1451,7 @@ def _parse_memory(text: str, meta) -> dict:
                 jb = re.search(
                     r"\b(1600|1866|2133|2400|2666|2933|3200|3400|3600|4000|"
                     r"4133|4400|4800|5200|5400|5600|6000|6200|6400|6600|"
-                    r"6800|7200|7600|8000|8200|8400|8533)\b", text)
+                    r"6800|7200|7600|8000|8200|8400|8533|8800|9000)\b", text)
                 if jb:
                     a["speed_mhz"] = int(jb.group(1))
                     a["speed"] = f"{jb.group(1)}"
@@ -1486,12 +1494,22 @@ def _parse_memory(text: str, meta) -> dict:
     # Heat spreader
     if HEAT_SPREADER_RE.search(text):
         a["heat_spreader"] = True
-    elif re.search(r"\bRGB\b|\bARGB\b", text, re.I):
-        # RGB often implies heat spreader but not explicit; check vendor_meta lighting?
-        pass
 
-    # Form factor for memory (DIMM vs SODIMM)
-    if re.search(r"\bSODIMM\b", text, re.I):
+    # RGB lighting (memory): feeds the lighting filter + canonical names
+    # ("Trident Z5 RGB" vs the non-RGB twin). Previously a no-op stub, so
+    # RGB kits were indistinguishable from plain ones.
+    if re.search(r"\bARGB\b", text, re.I):
+        a["lighting"] = "ARGB"
+        a["argb"] = True
+    elif re.search(r"\bRGB\b", text, re.I):
+        a["lighting"] = "RGB"
+        a["rgb"] = True
+
+    # Form factor for memory (DIMM vs SODIMM). SO-DIMM is hyphenated in
+    # half the vendor titles — match it before bare DIMM, or "SO-DIMM"
+    # misfiles as desktop DIMM (same-MPN merges then show DIMM+SODIMM
+    # conflicts for one SODIMM stick).
+    if re.search(r"\bSO-?DIMM\b", text, re.I):
         a["form_factor"] = "SODIMM"
     elif re.search(r"\bDIMM\b", text, re.I):
         a["form_factor"] = "DIMM"
@@ -1619,8 +1637,14 @@ def _parse_storage(text: str, meta) -> dict:
     # bare `type` shadow is gone — see the PSU/case/memory notes).
     if re.search(r"\bSSD\b", text, re.I):
         a["drive_type"] = "SSD"
-        # NVMe flag
+        # NVMe flag. "PCIe Gen4 M.2" without the literal NVMe word is still
+        # NVMe (a PCIe M.2 SSD is NVMe by definition) — without this, drives
+        # whose titles omit the word get nvme=False and split the filter.
         if re.search(r"\bNVME\b", text, re.I):
+            a["nvme"] = True
+            a["nvme_flag"] = "Yes"
+        elif re.search(r"\bPCI\s*E\b", text, re.I) and re.search(
+                r"\bM\.?2\b", text, re.I):
             a["nvme"] = True
             a["nvme_flag"] = "Yes"
         else:
@@ -1919,6 +1943,611 @@ def _parse_fragments(title_raw) -> dict:
 
 
 # --------------------------------------------------------------------------
+# Cross-vendor attribute unification (Sep 2026)
+#
+# Different spiders/parsers/detail rows produce different keys for the same
+# fact ("RAM | RAM Capacity" vs title-parsed capacity_gb, "WATT" vs
+# wattage_w, "2.5" vs internal_25_bays, "max. 400mm" under expansion_slots
+# vs max_gpu_length_mm...). Without folding, the same fact lands under 2-6
+# keys: the site shows duplicate spec rows, the filter rail splits one
+# checkbox group into several, and variant pills repeat.
+#
+# Canonical targets match site/src/specs.ts FILTER_ALLOWLIST plus the
+# fallback key lists in site/src/build.ts (memoryCapacityGb reads
+# capacity_gb first, gpuLengthForProduct reads length_mm first, etc.), so
+# every fold keeps the builder/compat layer working. All folds are
+# setdefault-style — the first (richest) source wins, the rest are dropped —
+# and a source key is only dropped once its fact is safely stored (or is
+# provably junk), so no information is silently lost.
+# --------------------------------------------------------------------------
+
+def _gb_int(value) -> int | None:
+    """'32GB', '32GB (2x16GB)', '16 GB', '8TB', or a bare int -> int GB."""
+    s = str(value).strip()
+    m = re.search(r"(\d+(?:\.\d+)?)\s?TB\b", s, re.I)
+    if m:
+        try:
+            gb = int(float(m.group(1)) * 1000)
+        except (ValueError, TypeError):
+            return None
+        return gb if 1 <= gb <= 30000 else None
+    m = re.search(r"(\d{1,5})\s?GB\b", s, re.I)
+    if m and 1 <= int(m.group(1)) <= 30000:
+        return int(m.group(1))
+    # Bare ints from detail rows ("Total GB: 16"-style values).
+    if re.fullmatch(r"\d{1,5}", s) and 1 <= int(s) <= 30000:
+        return int(s)
+    return None
+
+
+def _mhz_int(value, lo: int = 100, hi: int = 9000) -> int | None:
+    m = re.search(r"(\d{3,5})\s?MHz", str(value), re.I)
+    if m and lo <= int(m.group(1)) <= hi:
+        return int(m.group(1))
+    return None
+
+
+def _leading_int(value) -> int | None:
+    m = re.match(r"\s*(\d+)", str(value))
+    return int(m.group(1)) if m else None
+
+
+def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
+    """Fold duplicate/junk attribute keys into one canonical key per fact.
+
+    Mutates `attrs` in place. Runs inside extract_attributes() after the
+    trivial _DUPE_ALIASES renames but before _canonicalize_filter_values(),
+    so folded values still get the standard value cleanup (color casing,
+    brand spelling, DDR reduction...).
+    """
+    if not isinstance(attrs, dict):
+        return
+
+    def _take(target: str, *sources: str, parse=None) -> None:
+        """Set attrs[target] from the first source that parses (when the
+        target is missing), then drop every source that is now redundant —
+        i.e. parsed fine, or the target already holds the fact."""
+        if attrs.get(target) is None:
+            for src in sources:
+                if src in attrs and src != target:
+                    try:
+                        v = parse(attrs[src]) if parse else attrs[src]
+                    except (ValueError, TypeError):
+                        v = None
+                    if v is not None:
+                        attrs[target] = v
+                        break
+        if attrs.get(target) is not None:
+            for src in sources:
+                if src != target:
+                    if parse is None or src not in attrs:
+                        continue
+                    try:
+                        parsed = parse(attrs[src])
+                    except (ValueError, TypeError):
+                        parsed = None
+                    if parsed is not None:
+                        attrs.pop(src, None)
+
+    def _drop(*keys: str) -> None:
+        for k in keys:
+            attrs.pop(k, None)
+
+    # -- Capacity: one int key per category. String twins ("16GB"), vendor
+    # detail rows ("RAM | RAM Capacity", "Memory Capacity: 16GB (8GBx2)"),
+    # and cross-category leaks all fold in.
+    if category == "memory":
+        _take("capacity_gb", "total_gb", "capacity", "memory",
+              "ram_ram_capacity", "ram_ram_size", "capacity_label",
+              "memory_capacity", "storage_storage_capacity", parse=_gb_int)
+        for k in ("total_gb", "capacity", "memory", "ram_ram_capacity",
+                  "ram_ram_size", "capacity_label", "memory_capacity",
+                  "storage_storage_capacity"):
+            attrs.pop(k, None)
+        # Compat mentions, not specs: a DDR5 DIMM "for AM5" has no AM5
+        # socket, and board-max leaks ("max. 256GB") describe boards.
+        _drop("socket", "max_memory")
+        # 1PC "Case: heatspreader" describes the heat spreader, not a case.
+        case_v = attrs.get("case")
+        if isinstance(case_v, str) and case_v.strip().lower() == "heatspreader":
+            attrs.setdefault("heat_spreader", "Yes")
+        _drop("case")
+    elif category == "storage":
+        _take("capacity_gb", "total_gb", "capacity",
+              "storage_storage_capacity", parse=_gb_int)
+        for k in ("total_gb", "capacity", "storage_storage_capacity"):
+            attrs.pop(k, None)
+        # "Max Memory: 1TB" rows on drive pages describe the drive itself.
+        _take("capacity_gb", "max_memory", parse=_gb_int)
+        attrs.pop("max_memory", None)
+        # "7200/min" style RPM leaks under a speed key.
+        _take("rpm", "speed", parse=lambda v: _leading_int(v)
+              if 3000 <= (_leading_int(v) or 0) <= 15000 else None)
+        attrs.pop("speed", None)
+        _take("rpm", "spindle_speed", parse=lambda v: _leading_int(v)
+              if 3000 <= (_leading_int(v) or 0) <= 15000 else None)
+        attrs.pop("spindle_speed", None)
+        # "NVMe"/"AHCI" protocol rows: harvest the filterable half, drop.
+        proto = attrs.get("protocol")
+        if isinstance(proto, str):
+            if "nvme" in proto.lower():
+                attrs.setdefault("nvme", "Yes")
+            elif "ahci" in proto.lower():
+                attrs.setdefault("interface", "SATA 6 Gb/s")
+            _drop("protocol")
+        # 'HDD'/'SSD'/'NVMe*' type rows -> drive_type (+nvme flag).
+        stype = attrs.get("storage_storage_type")
+        if isinstance(stype, str):
+            low = stype.lower()
+            if "nvme" in low:
+                attrs.setdefault("drive_type", "SSD")
+                attrs.setdefault("nvme", "Yes")
+            elif "ssd" in low:
+                attrs.setdefault("drive_type", "SSD")
+            elif "hdd" in low:
+                attrs.setdefault("drive_type", "HDD")
+            elif "sshd" in low:
+                attrs.setdefault("drive_type", "SSHD")
+            _drop("storage_storage_type")
+        _take("drive_form_factor", "storage_drive_form_factor",
+              "shape_factor")
+        attrs.pop("storage_drive_form_factor", None)
+        # form_factor duplicates drive_form_factor in another spelling
+        # ('2.5"' vs '2.5-inch'); the filtered key is drive_form_factor.
+        if attrs.get("drive_form_factor") is not None:
+            _drop("form_factor")
+        # Generic cache ("512MB") already derived into cache_mb above; drop
+        # the twin, but keep real "SLC-Cache" flags and drop "not specified".
+        cache_v = attrs.get("cache")
+        if isinstance(cache_v, str):
+            if "not specified" in cache_v.lower():
+                _drop("cache")
+            elif attrs.get("cache_mb") is not None:
+                _drop("cache")
+    elif category == "gpu":
+        # 1PC "RAM | RAM Capacity" rows on GPUs describe VRAM.
+        _take("vram_gb", "ram_ram_capacity", "ram_ram_size",
+              "storage_storage_capacity", "memory_capacity", parse=_gb_int)
+        attrs.pop("ram_ram_capacity", None)
+        attrs.pop("ram_ram_size", None)
+        attrs.pop("storage_storage_capacity", None)
+        attrs.pop("memory_capacity", None)
+        _take("vram_gb", "memory", parse=_gb_int)
+        # build.ts memoryTypeForProduct() reads attributes.memory, but only
+        # for DDR hints — a "16 GB" string carries none (memory_type + the
+        # product name cover it), so the twin goes once folded.
+        if attrs.get("vram_gb") is not None:
+            _drop("memory")
+        # "GPU Graphics Card Model: GeForce RTX 5070" duplicates gpu_chip.
+        gmodel = attrs.get("gpu_graphics_card_model")
+        if isinstance(gmodel, str):
+            if attrs.get("gpu_chip") is None and "\ufffd" not in gmodel:
+                chip = re.sub(r"\s+", " ", gmodel).strip().upper()
+                if chip:
+                    attrs["gpu_chip"] = chip
+            _drop("gpu_graphics_card_model")
+        _drop("gpu_graphics_card_model_brand")
+        # German detail clock rows ("2407MHz (Standard-Profile), ...").
+        _take("core_clock_mhz", "clock_base",
+              parse=lambda v: _mhz_int(v, 500, 3500))
+        attrs.pop("clock_base", None)
+        _take("boost_clock_mhz", "clock_boost",
+              parse=lambda v: _mhz_int(v, 500, 3500))
+        attrs.pop("clock_boost", None)
+        # Effective memory clock ("7000MHz") joins memory_clock_mhz.
+        _take("memory_clock_mhz", "memory_frequency",
+              parse=lambda v: _mhz_int(v, 1000, 25000))
+        attrs.pop("memory_frequency", None)
+        # PCIe slot rows mislabeled as socket ("PCI-E 5.0 x16").
+        _sock = attrs.get("socket")
+        if isinstance(_sock, str) and "pci" in _sock.lower():
+            attrs.setdefault("interface", "PCIe x16")
+            _drop("socket")
+        # GDDR/HBM type rows under vendor storage keys ("GDDR7") join the
+        # filtered memory_type; bus rows ("PCI-E 5.0 x16") join interface.
+        st_g = attrs.get("storage_storage_type")
+        if isinstance(st_g, str):
+            m = re.search(r"\b((?:G|S)?DDR\dX?|HBM\d?)\b", st_g, re.I)
+            if m and attrs.get("memory_type") is None:
+                attrs["memory_type"] = m.group(1).upper()
+                _drop("storage_storage_type")
+            elif re.search(r"PCI", st_g, re.I):
+                attrs.setdefault("interface", "PCIe x16")
+                _drop("storage_storage_type")
+            else:
+                _drop("storage_storage_type")
+        # chipset duplicates gpu_chip verbatim on GPUs (the title parser
+        # sets both from one match) — one filter group, not two. Kept only
+        # when it genuinely differs (detail-row extra info).
+        if (isinstance(attrs.get("chipset"), str)
+                and isinstance(attrs.get("gpu_chip"), str)
+                and attrs["chipset"].strip().lower()
+                == attrs["gpu_chip"].strip().lower()):
+            _drop("chipset")
+        # Length twin: parser emits length_mm (int) + length ("240 mm").
+        _take("length_mm", "length", parse=lambda v: _leading_int(v)
+              if 50 <= (_leading_int(v) or 0) <= 600 else None)
+        attrs.pop("length", None)
+
+    # -- Motherboard: vendor RAM/storage rows join the canonical board keys.
+    if category == "motherboard":
+        # "RAM | RAM Capacity: 256GB" is board max-memory (whitelisted).
+        for _rk in ("ram_ram_capacity", "ram_ram_size"):
+            _rv = attrs.get(_rk)
+            if isinstance(_rv, str):
+                _g = _gb_int(_rv)
+                if (_g is not None and attrs.get("memory_max") is None
+                        and _g in _MOBO_MAX_MEM_GB):
+                    attrs["memory_max"] = f"{_g}GB"
+            attrs.pop(_rk, None)
+        # "Max Memory: Up to 128GB DDR4" — same fact, other wording.
+        _mm = attrs.get("max_memory")
+        if isinstance(_mm, str):
+            _g2 = _gb_int(_mm)
+            if (_g2 is not None and attrs.get("memory_max") is None
+                    and _g2 in _MOBO_MAX_MEM_GB):
+                attrs["memory_max"] = f"{_g2}GB"
+            _dt = _ddr(_mm)
+            if _dt and attrs.get("memory_type") is None:
+                attrs["memory_type"] = _dt
+            _drop("max_memory")
+        # "4 M.2 slots (PCIe 5.0 and 4.0)." -> m2_slots count.
+        _ssc = attrs.get("storage_storage_capacity")
+        if isinstance(_ssc, str):
+            if "m.2" in _ssc.lower() and attrs.get("m2_slots") is None:
+                _n = _leading_int(_ssc)
+                if _n is not None and 1 <= _n <= 8:
+                    attrs["m2_slots"] = _n
+            _drop("storage_storage_capacity")
+        # iGPU/display rows: display outputs join display_outputs, the rest
+        # ("Radeon Graphics" board marketing) goes.
+        _mg = attrs.get("gpu_graphics_card_model")
+        if isinstance(_mg, str):
+            if re.search(r"HDMI|DisplayPort|DP-Alt|USB-C|VGA|DVI", _mg, re.I):
+                if attrs.get("display_outputs") is None:
+                    attrs["display_outputs"] = re.sub(
+                        r"\s+", " ", _mg).strip(" .")
+            _drop("gpu_graphics_card_model")
+        _drop("gpu_graphics_card_model_brand")
+
+    # -- CPU: detail iGPU rows join integrated_graphics; capacity keys are
+    # board-max leaks, not CPU specs.
+    if category == "cpu":
+        _cg = attrs.get("gpu_graphics_card_model")
+        if isinstance(_cg, str):
+            if attrs.get("integrated_graphics") is None:
+                if "without" in _cg.lower():
+                    attrs["integrated_graphics"] = "No"
+                elif re.fullmatch(r"(?i)AMD\s+Radeon(\s+Graphics)?", _cg.strip()):
+                    # Title parser emits bare "Radeon" for the same iGPU.
+                    attrs["integrated_graphics"] = "Radeon"
+                else:
+                    attrs["integrated_graphics"] = re.sub(
+                        r"\s+", " ", _cg).strip(" .")
+            _drop("gpu_graphics_card_model")
+        _drop("gpu_graphics_card_model_brand")
+        _drop("ram_ram_capacity", "max_memory")
+
+    # -- Memory speed: one int (speed_mhz). `memory_clock` ("450MHz
+    # internal") is the DRAM chip clock — a different fact, never folded.
+    if category == "memory":
+        if attrs.get("speed_mhz") is None:
+            for src in ("speed", "memory_frequency", "frequency", "clock"):
+                raw = attrs.get(src)
+                v = _mhz_int(raw) if raw is not None else None
+                if v is None and raw is not None:
+                    # Parser-style "DDR5-6000" / bare "6000" (no MHz unit).
+                    m = re.search(r"(\d{4})\b", str(raw))
+                    if m and 1600 <= int(m.group(1)) <= 9000:
+                        v = int(m.group(1))
+                if v is not None and 1600 <= v <= 9000:
+                    attrs["speed_mhz"] = v
+                    break
+        # String speeds from detail rows ("3200MHz") -> int for one type.
+        if isinstance(attrs.get("speed_mhz"), str):
+            v = _mhz_int(attrs["speed_mhz"], 1600, 9000)
+            if v is not None:
+                attrs["speed_mhz"] = v
+            else:
+                m = re.search(r"(\d{4})\b", attrs["speed_mhz"])
+                if m and 1600 <= int(m.group(1)) <= 9000:
+                    attrs["speed_mhz"] = int(m.group(1))
+        for k in ("speed", "memory_frequency", "frequency", "clock",
+                  "memory_clock"):
+            attrs.pop(k, None)
+        # CAS twins: detail "CL: 36" / trailing-dot "40." -> int.
+        def _cl_int(v) -> int | None:
+            m = re.search(r"(\d{1,2})", str(v))
+            if m and 5 <= int(m.group(1)) <= 60:
+                return int(m.group(1))
+            return None
+        _take("cas_latency", "cl", "cas_latency_cl", parse=_cl_int)
+        attrs.pop("cl", None)
+        attrs.pop("cas_latency_cl", None)
+        # Bare "CL22"/"C40" timing fragments -> CAS when parseable.
+        timing_v = attrs.get("timing")
+        if isinstance(timing_v, str):
+            m = re.fullmatch(r"\s*C\s*L?\s*(\d{1,2})\s*\.?\s*", timing_v, re.I)
+            if m and attrs.get("cas_latency") is None and 5 <= int(m.group(1)) <= 60:
+                attrs["cas_latency"] = int(m.group(1))
+            _drop("timing")
+        # kit/modules twins ("2x16GB") — the filtered key is modules.
+        _take("modules", "kit")
+        attrs.pop("kit", None)
+        # First-word-latency string twin ("16.4 ns") -> float.
+        fwl_s = attrs.get("first_word_latency")
+        if fwl_s is not None:
+            if attrs.get("first_word_latency_ns") is None:
+                try:
+                    attrs["first_word_latency_ns"] = round(
+                        float(str(fwl_s).split()[0]), 1)
+                except (ValueError, TypeError):
+                    pass
+            _drop("first_word_latency")
+        # voltage_v float (1.2) vs voltage string ("1.2V").
+        vv = attrs.get("voltage_v")
+        if vv is not None:
+            if attrs.get("voltage") is None:
+                try:
+                    attrs["voltage"] = f"{float(str(vv).split()[0]):g}V"
+                except (ValueError, TypeError):
+                    pass
+            _drop("voltage_v")
+        # ECC/registered family -> single ecc_support flag.
+        if attrs.get("ecc_support") is None:
+            for src in ("ecc", "ecc_registered", "registered"):
+                v = attrs.get(src)
+                if v in ("Yes", True) or (
+                        isinstance(v, str) and v.strip().lower() == "ecc"):
+                    attrs["ecc_support"] = "Yes"
+                    break
+        _drop("ecc", "ecc_registered", "registered")
+        # "Bulk" packaging rows under a storage key.
+        st_m = attrs.get("storage_storage_type")
+        if isinstance(st_m, str):
+            if re.search(r"bulk|tray|oem|retail|box", st_m, re.I):
+                m = re.search(r"(bulk|tray|oem|retail|box)", st_m, re.I)
+                if m and attrs.get("packaging") is None:
+                    attrs["packaging"] = m.group(1).title()
+            _drop("storage_storage_type")
+
+    # -- PSU wattage: bare ints ("750") and "750W" strings -> wattage_w int.
+    # (The old plain wattage->wattage_w alias moved "750W" strings verbatim,
+    # splitting the filter into "750" and "750W" options.)
+    if category == "psu":
+        def _watts(v) -> int | None:
+            m = re.search(r"(\d{3,4})", str(v))
+            if m and 100 <= int(m.group(1)) <= 3000:
+                return int(m.group(1))
+            return None
+        _take("wattage_w", "watt", "wattage", parse=_watts)
+        attrs.pop("watt", None)
+        attrs.pop("wattage", None)
+        cap_v = attrs.get("capacity")
+        if isinstance(cap_v, str):
+            w = _watts(cap_v)
+            if w is not None and attrs.get("wattage_w") is None:
+                attrs["wattage_w"] = w
+            _drop("capacity")
+        # PSU length twin ("140mm" vs length_mm int).
+        _take("length_mm", "length", parse=lambda v: _leading_int(v)
+              if 50 <= (_leading_int(v) or 0) <= 600 else None)
+        attrs.pop("length", None)
+        # ATX spec version ("ATX 3.0") is filter-worthy — keep it under a
+        # real key instead of the meaningless "specification".
+        spec_v = attrs.get("specification")
+        if isinstance(spec_v, str):
+            m = re.search(r"ATX\s?[\d.]+", spec_v, re.I)
+            if m and attrs.get("atx_version") is None:
+                attrs["atx_version"] = re.sub(r"\s+", " ",
+                                              m.group(0).upper().strip())
+            _drop("specification")
+
+    # -- Cooling (aio / cooler_air / case_fan): single-word detail socket
+    # rows ("AM4") join the filtered socket_compat; size_mm joins the
+    # category-canonical size key.
+    if category in ("aio", "cooler_air", "case_fan"):
+        _take("socket_compat", "socket")
+        attrs.pop("socket", None)
+        if category == "aio":
+            _take("radiator_size_mm", "size_mm", parse=_leading_int)
+        else:
+            _take("fan_size_mm", "size_mm", parse=_leading_int)
+        attrs.pop("size_mm", None)
+    if category in ("cooler_air", "case_fan"):
+        # Parser echoes the fan size into radiator_size_mm too — the fan
+        # key is canonical for non-liquid coolers.
+        attrs.pop("radiator_size_mm", None)
+    if category == "case_fan":
+        # Plonter tree cooler-mount tags, not case-fan specs.
+        attrs.pop("socket_compat", None)
+        # Bare RPM strings ("2000 RPM") join the rpm key.
+        _take("rpm", "speed", parse=lambda v: _leading_int(v)
+              if 300 <= (_leading_int(v) or 0) <= 5000 else None)
+        attrs.pop("speed", None)
+        # RGB rows under a storage key ("ARGB", "RGB double-sided").
+        _sfs = attrs.get("storage_storage_type")
+        if isinstance(_sfs, str):
+            if attrs.get("lighting") is None and re.search(
+                    r"rgb|argb", _sfs, re.I):
+                attrs["lighting"] = _sfs
+            _drop("storage_storage_type")
+    # Connector rows ("4-Pin PWM", "3-Pin") feed the pwm flag, then go.
+    if category in ("aio", "cooler_air", "case_fan"):
+        conn = attrs.get("connector")
+        if isinstance(conn, str):
+            if attrs.get("pwm") is None:
+                if "pwm" in conn.lower():
+                    attrs["pwm"] = "Yes"
+                elif "pin" in conn.lower():
+                    attrs["pwm"] = "No"
+            _drop("connector")
+        # German fan-spec blobs ("3x 120x120x25mm, 2150rpm, ...") — the
+        # structured keys (fan_size_mm/rpm/airflow/noise_level) carry this.
+        _drop("fan_s")
+        # AIO trivia rows (cold-plate metal, pump trivia, "radiator: ...").
+        if category == "aio":
+            _drop("cooling_blocks", "pump", "radiator")
+    if category == "psu":
+        _drop("fan_s")
+    # Categorically-wrong key: product-type prose ("AIO (All-in-One)")
+    # under a storage label — the category already says what it is.
+    if category == "aio":
+        _drop("storage_storage_type")
+    # `design` is a real spec only for air coolers ("Tower cooler").
+    if category != "cooler_air":
+        _drop("design")
+    # Cases have no socket; CPUs/fans don't have board-max memory.
+    if category == "case":
+        _drop("socket")
+    if category in ("cpu", "case_fan"):
+        _drop("max_memory")
+
+    # -- Case GPU clearance: detail rows mislabeled as expansion_slots
+    # ("max. 400mm") or gpu_length_mm ("400", sometimes bare "mm").
+    if category == "case":
+        exp_v = attrs.get("expansion_slots")
+        if isinstance(exp_v, str):
+            m = re.search(r"max\.\s?(\d+)\s?mm", exp_v, re.I)
+            if m and attrs.get("max_gpu_length_mm") is None:
+                try:
+                    attrs["max_gpu_length_mm"] = int(m.group(1))
+                except (ValueError, TypeError):
+                    pass
+                _drop("expansion_slots")
+        _take("expansion_slots", "pci_slots", parse=lambda v: _leading_int(v)
+              if 1 <= (_leading_int(v) or 0) <= 20 else None)
+        attrs.pop("pci_slots", None)
+        _take("max_gpu_length_mm", "gpu_length_mm", parse=lambda v: (
+            _leading_int(v) if 100 <= (_leading_int(v) or 0) <= 600 else None))
+        attrs.pop("gpu_length_mm", None)
+        mvc_v = attrs.get("maximum_video_card_length")
+        if isinstance(mvc_v, str):
+            m = re.search(r"(\d{2,4})\s?mm", mvc_v, re.I)
+            if m and attrs.get("max_gpu_length_mm") is None:
+                try:
+                    attrs["max_gpu_length_mm"] = int(m.group(1))
+                except (ValueError, TypeError):
+                    pass
+            # build.ts falls back to this key, but max_gpu_length_mm is
+            # first and always set when this parses — the twin goes.
+            if attrs.get("max_gpu_length_mm") is not None:
+                _drop("maximum_video_card_length")
+        # Case volume ("48.13l") -> the slider key.
+        cap_c = attrs.get("capacity")
+        if cap_c is not None:
+            if attrs.get("external_volume_l") is None:
+                m = re.search(r"(\d+(?:\.\d+)?)\s?l\b", str(cap_c), re.I)
+                if m:
+                    try:
+                        attrs["external_volume_l"] = float(m.group(1))
+                    except (ValueError, TypeError):
+                        pass
+            _drop("capacity")
+        # "2.5" bay-count rows join the parsed bay keys; the "2.5/3.5"
+        # combo rows count for 3.5" first (shared bays).
+        _take("internal_25_bays", "2_5", parse=_leading_int)
+        attrs.pop("2_5", None)
+        b35 = attrs.get("2_5_3_5")
+        if b35 is not None:
+            n = _leading_int(b35)
+            if n is not None:
+                if attrs.get("internal_35_bays") is None:
+                    attrs["internal_35_bays"] = n
+                elif attrs.get("internal_25_bays") is None:
+                    attrs["internal_25_bays"] = n
+            _drop("2_5_3_5")
+        # Per-side panel prose ("front: closed, glass") — side_panel covers it.
+        _drop("above", "aft", "below", "front", "left", "right",
+              "motherboard", "supported_motherboards")
+        # Detail rows literally named "Graphics Cards" hold max-GPU-length
+        # strings ("max. 400mm") — harvest, then drop the mislabeled key.
+        # (The old DETAIL_KEY_ALIASES entry for this is gone; the
+        # _canonicalize harvest below is the backstop.)
+        gc2 = attrs.get("graphics_cards")
+        if isinstance(gc2, str):
+            m = re.search(r"max\.\s?(\d+)\s?mm", gc2, re.I)
+            if m:
+                if attrs.get("max_gpu_length_mm") is None:
+                    try:
+                        attrs["max_gpu_length_mm"] = int(m.group(1))
+                    except (ValueError, TypeError):
+                        pass
+                _drop("graphics_cards")
+            else:
+                # Unharvestable ("compatibility list pay attention") — a
+                # mislabeled key holding no clearance fact goes.
+                _drop("graphics_cards")
+        # Drive-bay rows under a storage key ('2x 3.5" + 1x 2.5"').
+        _ssc2 = attrs.get("storage_storage_capacity")
+        if isinstance(_ssc2, str):
+            for _n, _u in re.findall(r"(\d+)\s?x\s?(2\.5|3\.5)", _ssc2):
+                try:
+                    _ni = int(_n)
+                except (ValueError, TypeError):
+                    continue
+                if _u == "3.5" and attrs.get("internal_35_bays") is None:
+                    attrs["internal_35_bays"] = _ni
+                elif _u == "2.5" and attrs.get("internal_25_bays") is None:
+                    attrs["internal_25_bays"] = _ni
+            _drop("storage_storage_capacity")
+            _drop("storage_storage_type")
+        # Bare fan blob (the fan_s_* mount rows carry the real data).
+        _drop("fan_s")
+
+    # -- Cooling-type twin ("Air" vs cooling) in any category.
+    _take("cooling", "cooling_type")
+    attrs.pop("cooling_type", None)
+    # Board-partner dupe of brand, everywhere but GPUs (handled above).
+    _drop("gpu_graphics_card_model_brand")
+    # Stray model info under the GPU-model key on non-GPU/CPU/motherboard
+    # products (the three categories with dedicated folds above keep theirs):
+    # an AIO's own model ("CHIONE E4-360 WH") belongs in `model`.
+    if category not in ("gpu", "cpu", "motherboard"):
+        _gm = attrs.get("gpu_graphics_card_model")
+        if isinstance(_gm, str):
+            if attrs.get("model") is None and len(_gm) <= 80:
+                attrs["model"] = re.sub(r"\s+", " ", _gm).strip()
+            _drop("gpu_graphics_card_model")
+
+    # -- Lighting: bucket vendor prose into one of RGB / ARGB / No so the
+    # filter rail shows three options instead of dozens ("None" vs "No" vs
+    # "without Illumination" vs full German header sentences).
+    li = attrs.get("lighting")
+    if isinstance(li, str):
+        low = li.lower()
+        if "argb" in low:
+            attrs["lighting"] = "ARGB"
+        elif re.search(r"\brgb\b", low):
+            attrs["lighting"] = "RGB"
+        elif (low.strip() in ("none", "no", "n/a", "-", "ohne beleuchtung")
+              or ("without" in low and "illumin" in low)):
+            attrs["lighting"] = "No"
+
+    # -- Color detail rows ("White.", "Black, silver.") -> color.
+    sc = attrs.get("spec_color")
+    if isinstance(sc, str):
+        first = re.split(r"[,/;]", sc)[0].strip().rstrip(".").strip()
+        if first and attrs.get("color") is None:
+            attrs["color"] = first
+        attrs.pop("spec_color", None)
+
+    # -- Vendor boilerplate / junk-drawer keys: never filtered, never
+    # compatible data, just noise on the product page.
+    _drop("warranty_importer", "warranty_warranty_type", "warranty",
+          "spec_specifications", "spec_designed_for_gaming", "product_type",
+          "special_features", "additional_features", "transmission",
+          "connectivity", "vorstellung_series")
+    # Case PSU bay: anything outside the known standards is a misparse
+    # ("Strong") — a wrong bay fact is worse than none.
+    if category == "case":
+        ps_v = attrs.get("power_supply")
+        if isinstance(ps_v, str) and not re.match(
+                r"(?i)^\s*(ATX|SFX-L|SFXL|SFX|TFX|FLEX|None|Included)\b", ps_v):
+            _drop("power_supply")
+
+
+# --------------------------------------------------------------------------
 # Entry point
 # --------------------------------------------------------------------------
 
@@ -2013,14 +2642,15 @@ def extract_attributes(listing: dict) -> dict:
     # different keys for the same fact (British vs US spelling, unit-suffixed
     # vs bare, per-vendor variants). Fold them into one canonical key so the
     # site shows a single row / single filter instead of two or three.
+    # NOTE: only value-identical renames live here. Anything needing value
+    # parsing (unit strings -> ints, "750W" -> 750) is handled by
+    # _unify_duplicate_attributes() below, which runs right after.
     _DUPE_ALIASES = (
         ("colour", "color"),
         ("dimensions_wxhxd", "dimensions"),
-        ("voltage_v", "voltage"),
         ("cas", "cas_latency"),
         ("cas_latency_cl", "cas_latency"),
         ("shape_factor", "drive_form_factor"),
-        ("first_word_latency", "first_word_latency_ns"),
         ("nvme_flag", "nvme"),
         ("ecc", "ecc_support"),
         ("igpu", "integrated_graphics"),
@@ -2031,13 +2661,16 @@ def extract_attributes(listing: dict) -> dict:
         # products (e.g. GPUs whose GDDR generation is only known from
         # the 1PC detail scrape).
         ("ram_ram_type", "memory_type"),
-        ("wattage", "wattage_w"),
     )
     for old_k, new_k in _DUPE_ALIASES:
         if old_k in attrs and new_k not in attrs:
             attrs[new_k] = attrs.pop(old_k)
         elif old_k in attrs:
             del attrs[old_k]
+
+    # Full cross-vendor key unification (Sep 2026): one canonical key per
+    # fact, junk detail rows dropped. See the function for the full map.
+    _unify_duplicate_attributes(attrs, category)
 
     # Vendor capacity variants: Plonter emits CapacityGB (already GB) and
     # CapacityTB alongside capacity_gb. Fold into capacity_gb as ints.
@@ -2066,9 +2699,6 @@ def extract_attributes(listing: dict) -> dict:
             except (ValueError, TypeError):
                 pass
 
-    # GPU memory alias
-    if "vram_gb" in attrs and "memory" not in attrs:
-        attrs["memory"] = f"{attrs['vram_gb']} GB"
     # Ensure chipset alias for GPU (gpu_chip -> chipset for filter parity)
     if "gpu_chip" in attrs and "chipset" not in attrs:
         attrs["chipset"] = attrs["gpu_chip"]
@@ -2147,14 +2777,22 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
 
     # Efficiency: "GOLD" -> "80 PLUS Gold", "80PLUS[ Gold]" -> "80 PLUS[ Gold]".
     # Bare "GOLD" in a PSU title/detail row means 80 PLUS Gold (the metal
-    # alone is never any other cert); "Cybenetics X" stays as-is.
+    # alone is never any other cert); "Cybenetics X" stays as-is. A bare
+    # "80 PLUS" with no metal is not a filterable fact — drop it rather
+    # than show a meaningless option next to the real tiers.
     eff = attrs.get("efficiency")
     if isinstance(eff, str):
-        e = re.sub(r"(?i)\b80\s?plus\b\s*", "80 PLUS ", eff).strip()
+        # NB: no \b after \+ — "+" is a non-word char, so \b never matches
+        # between "+" and a following space ("80+ Platinum" survived exactly
+        # this way).
+        e = re.sub(r"(?i)\b80\s?(?:plus\b|\+)\s*", "80 PLUS ", eff).strip()
         e = re.sub(r"\s+", " ", e)
         if re.fullmatch(r"(?i)(gold|silver|bronze|platinum|titanium|white)", e):
             e = "80 PLUS " + e.title()
-        attrs["efficiency"] = e
+        if re.fullmatch(r"(?i)80 PLUS", e):
+            attrs.pop("efficiency", None)
+        else:
+            attrs["efficiency"] = e
 
     # Modular: case variants ("FULL MODULAR" vs "Full Modular") -> one
     # canonical word. Bare "MODULAR" (vendor didn't specify) -> "Yes".
@@ -2171,10 +2809,14 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
             attrs["modular"] = "Yes"
 
     # Color: title-case ("black" -> "Black") and drop ", inside X"
-    # qualifiers ("black, inside black" -> "Black").
+    # qualifiers ("black, inside black" -> "Black"). Finish words are not
+    # colors ("Matte Black" -> "Black") — they split the rail otherwise.
     col = attrs.get("color")
     if isinstance(col, str):
         col = re.sub(r",?\s*inside\s+\w+\s*$", "", col, flags=re.I).strip()
+        # "Grey" vs "Gray" split the color rail — one spelling.
+        col = re.sub(r"(?i)\bgrey\b", "Gray", col)
+        col = re.sub(r"(?i)\b(matte|glossy|gloss)\b\s*", "", col).strip()
         if col:
             attrs["color"] = col.title()
 
@@ -2287,7 +2929,12 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
 
     # Motherboard RAM slots: ram_slots is a German sentence
     # ("4x DDR5 DIMM, ..., max. 256GB (UDIMM)") while memory_slots is the
-    # clean int. Harvest count + max from the sentence, then drop it.
+    # clean int. Harvest count + max from the sentence, then drop it. The
+    # same sentences arrive under a bare "RAM" key from other vendors.
+    if "ram_slots" not in attrs and isinstance(attrs.get("ram"), str):
+        attrs["ram_slots"] = attrs.pop("ram")
+    else:
+        attrs.pop("ram", None)
     rs = attrs.get("ram_slots")
     if isinstance(rs, str):
         if "memory_slots" not in attrs:
@@ -2314,6 +2961,23 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
     if isinstance(pc, str):
         attrs["power_connections"] = re.sub(r"\s*\(.*\)\s*$", "", pc).strip()
 
+    # GPU bus: "PCIe 5.0 x16" vs "PCIe x16" split the interface rail — the
+    # generation lives in pcie_gen, the bus stays bare.
+    if category == "gpu":
+        gi = attrs.get("interface")
+        if isinstance(gi, str):
+            m = re.match(r"(?i)^\s*PCIe\s+(\d(?:\.\d)?)\s*(x\d+)\s*$", gi)
+            if m:
+                if attrs.get("pcie_gen") is None:
+                    attrs["pcie_gen"] = f"PCIe {m.group(1)}.0" if "." not in m.group(1) else f"PCIe {m.group(1)}"
+                attrs["interface"] = f"PCIe {m.group(2)}"
+
+    # "M.2 2280" is the default M.2 size — fold it so one drive doesn't
+    # list under both "M.2" and "M.2 2280". Odd sizes (2230/2242) stay.
+    dff = attrs.get("drive_form_factor")
+    if isinstance(dff, str) and re.fullmatch(r"(?i)M\.?\s*2\s*2280", dff.strip()):
+        attrs["drive_form_factor"] = "M.2"
+
     # Connector lists: "1x CPU 8-pin ,1x CPU 4+4-pin" -> tidy comma spacing.
     for ck in ("cpu_power_connectors", "pcie_power_connectors",
                "sata_connectors", "power_connections"):
@@ -2330,10 +2994,13 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
     # theirs: AMD/NVIDIA really make those.)
     br = attrs.get("brand")
     if isinstance(br, str):
-        canon = _BRAND_CANON.get(br.strip().lower())
+        canon = _BRAND_CANON.get(br.strip().rstrip(".").strip().lower())
         if canon:
             attrs["brand"] = canon
             br = canon
+        elif br != br.strip().rstrip(".").strip():
+            attrs["brand"] = br.strip().rstrip(".").strip()
+            br = attrs["brand"]
     if category in ("motherboard", "memory") and attrs.get("brand") in ("AMD", "Intel", "NVIDIA"):
         attrs.pop("brand", None)
 
@@ -2402,6 +3069,9 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
             attrs["interface"] = "SATA 6 Gb/s"
         else:
             itf = re.sub(r"(?i)\bPCI Express\b", "PCIe", itf)
+            # "M.2/M-Key (PCIe 4.0 x4)" -> "M.2 PCIe 4.0 x4" (the form the
+            # title parser emits — one label per bus, not two).
+            itf = re.sub(r"(?i)M\.2/M-Key\s*\((PCIe[^)]*)\)", r"M.2 \1", itf)
             itf = re.sub(r"\bx\s+(\d)", r"x\1", itf)
             attrs["interface"] = re.sub(r"\bX(\d)", r"x\1", itf)
 
@@ -2471,8 +3141,87 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
     # ("Passive") split the GPU cooling filter. Only bare single words
     # are touched — long German detail sentences pass through.
     co = attrs.get("cooling")
-    if isinstance(co, str) and re.fullmatch(r"[a-z]+", co):
-        attrs["cooling"] = co.title()
+    if isinstance(co, str):
+        if re.fullmatch(r"[a-z]+", co):
+            attrs["cooling"] = co.title()
+        else:
+            # Vendor cooler prose ("3x Axial-fan ...", "Passivkhlung",
+            # "Komplettwasserkhlung (AiO) ...") buckets into Air / Liquid /
+            # Passive so the filter shows three options, not forty.
+            low = co.lower()
+            if "passiv" in low:
+                attrs["cooling"] = "Passive"
+            elif ("wasser" in low or "liquid" in low
+                    or re.search(r"\baio\b", low)):
+                attrs["cooling"] = "Liquid"
+            elif re.search(r"axial|radial|\bfan\b", low):
+                attrs["cooling"] = "Air"
+
+    # GPU chip: "GEFORCE RTX 5070" vs "RTX 5070" vs "RTX5070" split one chip
+    # into three filter options. Strip the family vendor word (the product
+    # name builder re-derives it) and normalize letter/digit spacing.
+    for _ck in ("gpu_chip", "chipset"):
+        cv = attrs.get(_ck)
+        if not isinstance(cv, str):
+            continue
+        if _ck == "gpu_chip" or category != "motherboard":
+            cu = re.sub(r"^(GEFORCE|RADEON)\s+", "", cv.strip(), flags=re.I)
+            cu = re.sub(r"\s+", " ", cu).strip()
+            # \b would fail on unspaced codes ("RTX5060TI" has no boundary
+            # between X and 5) — lookahead for space/digit/end instead.
+            if re.match(r"^(RTX|RX|GTX|GT|GTS|R[579]|HD)(?=[\s\d]|$)", cu, re.I):
+                # Multi-letter runs split from digits ("RTX5070" -> "RTX
+                # 5070"); single letters don't ("RTX A6000" stays whole —
+                # splitting it made "RTX A 6000", a phantom third label).
+                cu = re.sub(r"([A-Z]{2,})(\d)", r"\1 \2", cu)
+                cu = re.sub(r"(\d)([A-Z])", r"\1 \2", cu)
+                # Rejoin previously-split workstation models ("RTX A 6000").
+                cu = re.sub(r"\b([A-Z]) (\d{3,4})\b", r"\1\2", cu)
+                cu = re.sub(r"\s+", " ", cu).strip().upper()
+                attrs[_ck] = cu
+            elif cu != cv:
+                attrs[_ck] = re.sub(r"\s+", " ", cu).strip()
+    # Post-normalization twin drop: detail "RTX 5070" vs title "GEFORCE RTX
+    # 5070" only become equal HERE (the pre-normalization drop in
+    # _unify_duplicate_attributes can't see it).
+    if (category == "gpu" and isinstance(attrs.get("chipset"), str)
+            and isinstance(attrs.get("gpu_chip"), str)
+            and attrs["chipset"].strip().lower()
+            == attrs["gpu_chip"].strip().lower()):
+        attrs.pop("chipset", None)
+
+    # Motherboard chipset: detail rows carry vendor prefixes ("AMD B650"),
+    # socket tails ("AM5"), " Chipset" words, ® marks, revision suffixes
+    # ("X870EA") and doubled values ("Z890 Intel Z890") — all one chipset.
+    if category == "motherboard":
+        ch = attrs.get("chipset")
+        if isinstance(ch, str):
+            cc = re.sub(r"[®™©]", " ", ch)
+            cc = re.sub(r"\(.*?\)", " ", cc)
+            cc = re.sub(r"(?i)\bchipset\b", " ", cc)
+            cc = re.sub(r"(?i)\b(AMD|Intel)\b", " ", cc)
+            cc = re.sub(r"(?i)\b(AM[45]|LGA\s?\d+|sTR5)\b", " ", cc)
+            toks = [t.upper() for t in re.findall(r"[A-Z0-9]+", cc)]
+            # Dedupe repeats ("Z890 Intel Z890" -> Z890), keep first order.
+            seen: list[str] = []
+            for t in toks:
+                if t not in seen:
+                    seen.append(t)
+            if seen:
+                cand = seen[0]
+                # Revision / form-factor suffixes ("X870EA" -> X870E,
+                # "B760M" -> B760) when the base is a known chipset — a bare
+                # unknown token stays untouched.
+                while (cand not in CHIPSET_INFO and len(cand) > 3
+                        and cand[-1] in "AMIE" and cand[:-1] in CHIPSET_INFO):
+                    cand = cand[:-1]
+                # Implausible tokens are board models, not chipsets
+                # ("GZ690IAORUSULTRA", lone "N") — a wrong chipset breaks
+                # socket inference downstream, worse than none.
+                if cand in CHIPSET_INFO or 2 <= len(cand) <= 6:
+                    attrs["chipset"] = cand
+                else:
+                    attrs.pop("chipset", None)
 
     # SSD/HDD DRAM cache plausibility: real sizes are powers of two up to
     # 8GB — anything else ("7500" from a "7500 MB/s" speed row) is a
@@ -2485,3 +3234,18 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
                 attrs.pop("cache_mb", None)
         except (ValueError, TypeError):
             attrs.pop("cache_mb", None)
+
+    # Drive capacity: vendors mix decimal ("1TB" -> 1000) and binary
+    # ("1024GB") for the same drive — one label per size, decimal wins
+    # (matches the parser, which multiplies TB by 1000). Enterprise
+    # usable sizes (1920GB/7680GB) join their marketed class the same way.
+    if category == "storage":
+        cg = attrs.get("capacity_gb")
+        try:
+            _cgi = int(cg) if cg is not None else None
+        except (ValueError, TypeError):
+            _cgi = None
+        if _cgi in (1024, 1920, 2048, 4096, 7680, 8192, 16384):
+            attrs["capacity_gb"] = {1024: 1000, 1920: 2000, 2048: 2000,
+                                    4096: 4000, 7680: 8000, 8192: 8000,
+                                    16384: 16000}[_cgi]

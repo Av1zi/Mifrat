@@ -103,6 +103,7 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   efficiency: { he: "יעילות", en: "Efficiency" },
   interface: { he: "ממשק", en: "Interface" },
   timings: { he: "תזמונים", en: "Timings" },
+  atx_version: { he: "תקן ATX", en: "ATX Version" },
   integrated_graphics: { he: "גרפיקה משולבת", en: "Integrated Graphics" },
 
   // CPU generation / tier (extractors.py)

@@ -34,9 +34,11 @@ except ImportError:
 try:
     from scraper.extractors import extract_attributes
     from scraper.extractors import _canonicalize_filter_values
+    from scraper.extractors import _unify_duplicate_attributes
 except ImportError:
     from extractors import extract_attributes
     from extractors import _canonicalize_filter_values
+    from extractors import _unify_duplicate_attributes
 
 # Optional: docyx/pc-part-dataset reference specs (Aug 2026, see
 # DECISIONS.md). Never required for the core pipeline — if it can't be
@@ -680,6 +682,70 @@ def extract_mpn(text: str) -> str | None:
     return None
 
 
+def _strip_gv_prefix(key: str) -> str:
+    """Strip Gigabyte's vendor prefix for cross-vendor keying.
+
+    Gigabyte cards are listed as "GV-N5070AERO OC-12GD" by some vendors and
+    "N5070AEROOC12GD" by others (likewise "GV-R9070..." vs "R9070...") — the
+    same card. The normalized part key drops the leading GV so both land on
+    one product. Only applies when the remainder still looks like a part
+    number (3+ chars with a digit).
+    """
+    if len(key) > 5 and key.startswith("gv"):
+        rest = key[2:]
+        if len(rest) >= 3 and re.search(r"\d", rest):
+            return rest
+    return key
+
+
+def mpn_part_key(mpn: str | None) -> str:
+    """Normalized lookup key for an MPN/SKU part number (tiers 3+4 share
+    this so a part reached via its MPN meets the same part reached via its
+    vendor SKU)."""
+    return _strip_gv_prefix(_compact_key(mpn))
+
+
+def mpn_affix_related(a: str | None, b: str | None) -> bool:
+    """True when two MPN candidates are the same code at different
+    truncation levels (one compact form affixes the other, modulo the GV
+    vendor prefix) — e.g. "GVN5070AERO" vs "N5070AEROOC12GD", "KFGX" vs
+    "WD161KFGX". Used to tell truncation apart from true conflicts."""
+    if not a or not b:
+        return False
+    c = _strip_gv_prefix(_compact_key(a))
+    n = _strip_gv_prefix(_compact_key(b))
+    if not c or not n or c == n:
+        return bool(c and n)
+    return (n.startswith(c) or n.endswith(c)
+            or c.startswith(n) or c.endswith(n))
+
+
+def prefer_longer_mpn(current: str | None, candidate: str | None) -> str | None:
+    """Reconcile two MPN candidates for one listing.
+
+    Pattern extraction truncates at spaces/slashes ("GV-N5070AERO" out of
+    "GV-N5070AERO OC-12GD", "KF432C16BBK2" out of "KF432C16BBK2/16",
+    "BW029" out of "BW029EU") while the vendor SKU — or a detail scrape —
+    carries the full code; conversely a detail row sometimes carries only
+    the tail ("KFGX" for "WD161KFGX"). When one compact candidate extends
+    the other (affix, modulo the GV vendor prefix), the longer one is the
+    full part number — take it. Unrelated candidates (different parts)
+    resolve to `current` (status quo: the earlier/authoritative source
+    wins over fallback/detail sources).
+    """
+    if not current:
+        return candidate
+    if not candidate or _compact_key(current) == _compact_key(candidate):
+        return current
+    c = _strip_gv_prefix(_compact_key(current))
+    n = _strip_gv_prefix(_compact_key(candidate))
+    if c == n:
+        return current if len(str(current)) >= len(str(candidate)) else candidate
+    if n.startswith(c) or n.endswith(c) or c.startswith(n) or c.endswith(n):
+        return candidate if len(n) > len(c) else current
+    return current
+
+
 def sku_as_mpn(vendor_sku: str | None) -> str | None:
     """Fallback MPN for listing spiders that carry the manufacturer part
     number as their SKU (TMS/Plonter/Ivory all do) without it matching any
@@ -706,10 +772,12 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
         return None
     if not re.search(r"[A-Za-z]", mpn) or not re.search(r"\d", mpn):
         return None
-    if re.fullmatch(r"\d+([A-Z]+\d*)*", mpn):
-        return None
-    if "-" not in str(vendor_sku) and len(mpn) < 4:
-        return None
+    # NOTE: no digit-leading rejection here. The letters+digits requirement
+    # above already excludes pure-numeric vendor ids ("217314") and pure
+    # slugs, while digit-leading MPNs are legitimate and common (G.Skill
+    # "5600J3636C16GX2-RS5K", Lenovo "4X71M23186x2"). A previous
+    # fullmatch guard for `\d+([A-Z]+\d*)*` rejected exactly those and split
+    # same-SKU cross-vendor listings into duplicate products (Sep 2026).
     return mpn.upper()
 
 
@@ -747,8 +815,12 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["match_text"] = match_text(listing)
     enriched["brand"] = detect_brand(enriched["match_text"])
-    enriched["mpn"] = extract_mpn(enriched["match_text"]) or sku_as_mpn(
-        listing.get("vendor_sku")
+    # Prefix-aware pick: pattern extraction truncates at spaces/slashes
+    # ("GV-N5070AERO" out of "GV-N5070AERO OC-12GD") while the vendor SKU
+    # carries the full code — take the longer when one extends the other.
+    enriched["mpn"] = prefer_longer_mpn(
+        extract_mpn(enriched["match_text"]),
+        sku_as_mpn(listing.get("vendor_sku")),
     )
 
     enriched["bundle_only"] = "bundle-only" in str(listing.get("category_guess", "")).lower()
@@ -946,7 +1018,7 @@ LEADING_CATEGORY_WORD_RE = re.compile(
 NAME_FILLER_RE = re.compile(
     r"\b(processor|processors|graphics card|video card|motherboard|power supply|"
     r"with integrated graphics|color tray|flat color|\bdimm\b|"
-    r"laptop memory|desktop memory|blister pack|\bram\b|\bmemory\b|"
+    r"laptop memory|desktop memory|blister pack|\bram\b|\bmemory\b|\bmodel\b|"
     r"computer case|liquid cooling|liquid cooler|water cooling|water cooler|"
     r"air cooler|cpu cooler|\bcpu\b|\bgpu\b|\bfans?\b|\bcase\b)\b",
     re.I,
@@ -1258,12 +1330,25 @@ def _memory_canonical_name(group: list[dict], attributes: dict) -> str | None:
 
     brand = None
     brand_end = 0
+    brand_in_title = False
+    brand_key = ""
     for key, canon in MEMORY_NAME_BRANDS:
         m = re.search(rf"\b{re.escape(key)}\b", low)
         if m:
             brand = canon
             brand_end = m.end()
+            brand_in_title = True
+            brand_key = key
             break
+    if not brand:
+        # Brand-less titles ("32GB ... SODIMM") often carry the maker in
+        # the vendor SKU (ADATA's "AD5S560016G-Sx2") — search those too.
+        sku_blob = " | ".join(str(e.get("vendor_sku") or "") for e in group)
+        sku_low = sku_blob.lower()
+        for key, canon in MEMORY_NAME_BRANDS:
+            if re.search(rf"\b{re.escape(key)}", sku_low):
+                brand = canon
+                break
     if not brand:
         return None
 
@@ -1277,18 +1362,26 @@ def _memory_canonical_name(group: list[dict], attributes: dict) -> str | None:
     # HX318LC11FB/8") the region is empty and no model is emitted, which
     # keeps trailing MPN tails from ever becoming the "model". Pure
     # numbers (speeds, years) are never models.
+    #
+    # Series words use a wider region: unlike model codes they come from a
+    # closed whitelist ("Beast", "Vengeance"), so a post-brand search is
+    # safe even when the brand trails the specs ("… CL40 - FURY Beast
+    # Black Series" -> Beast).
     model = ""
-    after = clean[brand_end:]
+    after = clean[brand_end:] if brand_in_title else clean
     cap_all = re.search(r"\d+\s?GB", clean, re.I)
-    if cap_all and cap_all.start() > brand_end:
+    if cap_all and brand_in_title and cap_all.start() > brand_end:
         region = clean[brand_end:cap_all.start()]
-    elif cap_all:
+        series_region = region
+    elif cap_all and brand_in_title:
         region = ""
+        series_region = after[:80]
     else:
         region = after[:80]
+        series_region = region
     for tok in re.findall(r"[A-Za-z0-9][A-Za-z0-9.+-]*", region):
         up = tok.upper()
-        if re.fullmatch(r"(DDR\dL?|PC\d+\S*|\d+G(B)?|\d+MHZ|\d+MT/S|CL\d+|1\.\d+V?|DIMM|SODIMM|RGB|ARGB|BLACK|WHITE|GREY|GRAY|RED|BLUE|GREEN)", up, re.I):
+        if re.fullmatch(r"(DDR\dL?|PC\d+\S*|\d+G(B)?|\d+MHZ|\d+MT/S|CL\d+|1\.\d+V?|DIMM|SODIMM|RGB|ARGB|BLACK|WHITE|GREY|GRAY|RED|BLUE|GREEN|\d+X\d+GB)", up, re.I):
             continue
         if tok.isdigit():
             continue
@@ -1297,20 +1390,89 @@ def _memory_canonical_name(group: list[dict], attributes: dict) -> str | None:
             break
 
     parts = [brand]
+    # The matched brand key itself can be the series ("VENGEANCE" titles
+    # match brand "Corsair" via the vengeance key) — hunt it too.
+    series = _memory_series(f"{brand_key} {series_region}", brand)
+    # Overlap join: brand "Kingston Fury" + series "Fury Beast" must become
+    # "Kingston Fury Beast", not "Kingston Fury Fury Beast"; a series fully
+    # inside the brand adds nothing.
+    if series:
+        last = brand.split()[-1].lower() if brand.split() else ""
+        if series.lower() in (brand.lower(), last):
+            series = ""
+        elif last and series.lower().startswith(last + " "):
+            series = series[len(last) + 1:].strip()
+    if series:
+        parts.append(series)
+    lighting = attributes.get("lighting")
+    if isinstance(lighting, str) and lighting.upper() in ("RGB", "ARGB"):
+        parts.append(lighting.upper())
     if model:
-        # With an explicit model code the type reads naturally right after
-        # it ("OSC-P200 DDR4 8GB…"); without one the capacity leads
-        # ("HyperX Fury 8GB DDR3L…").
         parts.append(model)
+    # With an explicit model/series the type reads naturally right after
+    # it ("OSC-P200 DDR4 8GB…", "Trident Z5 DDR5 32GB…"); without either
+    # the capacity leads ("HyperX Fury 8GB DDR3L…").
+    if model or series:
         parts.append(str(mem_type).upper())
         parts.append(f"{cap}GB")
     else:
         parts.append(f"{cap}GB")
         parts.append(str(mem_type).upper())
+    # Kit config disambiguates same-total twins ("64GB (2x32GB)" vs
+    # "64GB (4x16GB)" — different MPNs, different prices).
+    modules = attributes.get("modules") or attributes.get("kit")
+    if isinstance(modules, str) and re.fullmatch(
+            r"\d+x\d+GB", modules.strip(), re.I):
+        parts.append(f"({modules.strip()})")
     parts.append(f"{speed}{unit}")
     if cas:
         parts.append(f"CL{cas}")
     return " ".join(parts)
+
+
+# Memory product lines (heatsink series). Without these, every same-spec
+# kit from one brand collapses to one identical display name ("G.Skill 32GB
+# DDR5 6000MHz CL30" x27) even though the MPNs — and prices — differ.
+MEMORY_SERIES_WORDS = (
+    "ripjaws", "trident", "flare", "vengeance", "predator", "viper",
+    "beast", "ballistix", "dominator", "aegis", "spectrix", "delta",
+    "fury", "t-force", "tforce",
+)
+
+# Bare suffix tokens that belong to the series ("Ripjaws S5", "Trident Z5",
+# "Vengeance LPX"). RGB/ARGB/DDR/DIMM/CL are lighting/specs, never suffixes.
+_MEMORY_SERIES_SUFFIX_RE = re.compile(
+    r"^(?:[A-Z]{1,4}\d{1,2}[A-Z]{0,2}|LPX|RS|SL|PRO|GT|XT)$")
+
+
+def _memory_series(region: str, brand: str = "") -> str:
+    """'Ripjaws S5' / 'Trident Z5' from the title region. Words already in
+    the brand are skipped ("Kingston Fury Beast" with brand "Kingston
+    Fury" yields "Beast" — the caller overlap-joins it back). Returns ''
+    when no known series word is present."""
+    brand_words = set(re.findall(r"[a-z0-9]+", brand.lower()))
+    toks = re.findall(r"[A-Za-z][A-Za-z0-9.+-]*", region)
+    lows = [t.lower() for t in toks]
+    for i, low in enumerate(lows):
+        norm = low.replace("-", "")
+        if norm in ("tforce",):
+            norm = "t-force"
+        if norm not in MEMORY_SERIES_WORDS:
+            continue
+        if norm in brand_words:
+            continue
+        series = toks[i].title()
+        if norm == "t-force":
+            series = "T-Force"
+        # Optional second word: a short model suffix ("S5", "LPX") or a
+        # second series word ("T-Force Delta", "Kingston Fury Beast").
+        if i + 1 < len(lows):
+            nxt, nxt_low = toks[i + 1], lows[i + 1]
+            if (nxt_low in MEMORY_SERIES_WORDS
+                    or _MEMORY_SERIES_SUFFIX_RE.match(nxt.upper())):
+                series += f" {nxt.upper() if _MEMORY_SERIES_SUFFIX_RE.match(nxt.upper()) else nxt.title()}"
+        return series
+    return ""
 
 
 def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
@@ -1420,6 +1582,9 @@ MEMORY_NAME_BRANDS = [
     ("siliconpower", "Silicon Power"),
     ("adata", "ADATA"),
     ("a data", "ADATA"),
+    # ADATA OEM SODIMM prefixes (brand-less titles, maker only in SKU).
+    ("ad5s", "ADATA"),
+    ("ad4s", "ADATA"),
     ("xpg", "ADATA"),
     ("samsung", "Samsung"),
     ("crucial", "Crucial"),
@@ -1439,6 +1604,19 @@ MEMORY_NAME_BRANDS = [
     ("timetec", "Timetec"),
     ("thermaltake", "Thermaltake"),
     ("gloway", "Gloway"),
+    # OEM/server lines: brand-less titles whose maker hides in the vendor
+    # SKU (Crucial "CT8G4...", Kingston ValueRAM "KVR...", Lexar "LD4AS...").
+    # The short SKU prefixes never match whole title words (the title pass
+    # needs a trailing boundary); the four below match in titles too and
+    # are unambiguous maker signals there as well.
+    ("ct", "Crucial"),
+    ("kvr", "Kingston"),
+    ("ld4", "Lexar"),
+    ("ld5", "Lexar"),
+    ("thinkpad", "Lenovo"),
+    ("lenovo", "Lenovo"),
+    ("jetram", "Transcend"),
+    ("ktl", "Kingston"),
 ]
 
 
@@ -1548,6 +1726,14 @@ def merge_offer_attributes(enriched_listings: list[dict]) -> tuple[dict, dict]:
             slot = tallies.setdefault(str(k), {}).setdefault(norm, [0, v])
             slot[0] += 1
 
+    # Values so vague they lose to any specific rival on the same product:
+    # a vendor saying merely "modular" must not outvote "Full Modular"; a
+    # gen-less "M.2 PCIe NVMe" must not outvote "M.2 PCIe 4.0 x4".
+    VAGUE_VALUES: dict[str, set[str]] = {
+        "modular": {"yes"},
+        "interface": {"m.2 pcie nvme", "pcie", "nvme"},
+    }
+
     merged: dict = {}
     conflicts: dict = {}
 
@@ -1555,8 +1741,11 @@ def merge_offer_attributes(enriched_listings: list[dict]) -> tuple[dict, dict]:
         if len(options) == 1:
             merged[k] = next(iter(options.values()))[1]
         else:
-            best = max(options, key=lambda n: options[n][0])
-            merged[k] = options[best][1]
+            vague = VAGUE_VALUES.get(k, set())
+            specific = {n: opt for n, opt in options.items() if n not in vague}
+            pool = specific or options
+            best = max(pool, key=lambda n: pool[n][0])
+            merged[k] = pool[best][1]
             conflicts[k] = [opt[1] for opt in options.values()]
 
     return merged, conflicts
@@ -1898,7 +2087,14 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
         # PC Kombo rows are raw German vendor specs ("65 W", "2542 MHz",
         # "256" for board max-memory) — run the same value canonicalization
         # the title parsers get, or the rail shows dupes ("65W" + "65 W").
+        # _unify_duplicate_attributes folds keys pckombo introduces under
+        # legacy names ("gpu_length_mm" vs our max_gpu_length_mm) — without
+        # this the same fact lands under two keys again, one level up.
         try:
+            _canonicalize_filter_values(
+                product["attributes"], product.get("category") or "")
+            _unify_duplicate_attributes(
+                product["attributes"], product.get("category") or "")
             _canonicalize_filter_values(
                 product["attributes"], product.get("category") or "")
         except Exception:
@@ -2016,8 +2212,9 @@ def match_listings(
             # part numbers match regardless of where each side got it from:
             # 1PC's detail-page extra yields "AK-H81MEL-VS" (dashed), the
             # sku_as_mpn fallback yields "AKH81MELVS" — both must land on
-            # the same product.
-            mpn_key = re.sub(r"[^a-z0-9]+", "", mpn.lower())
+            # the same product. Gigabyte's "GV-" vendor prefix is stripped
+            # too ("GV-N5070AERO OC-12GD" == "N5070AEROOC12GD").
+            mpn_key = mpn_part_key(mpn)
             pid = f"mpn:{category}:{mpn_key}"
             mpn_groups.setdefault(pid, []).append(enriched)
 
@@ -2049,10 +2246,16 @@ def match_listings(
         if (
             sku_norm
             and len(sku_norm) >= 5
-            and not sku_norm.isdigit()
+            # Pure-numeric vendor ids (1PC's "217314") are database keys, not
+            # part numbers — never merge on them. Long all-digit codes are
+            # UPC/EAN/GTINs vendors use as the SKU itself (Antec's
+            # "0-761345-10090-8"), so those MAY merge.
+            and not (sku_norm.isdigit() and len(sku_norm) < 12)
             and category not in ("other", "", None)
         ):
-            pid = f"sku:{category}:{sku_norm.lower()}"
+            # Same GV-strip as the MPN tier so "GV-N5070WF3OC-12GD" (vendor
+            # SKU) meets "N5070WF3OC12GD" (detail MPN) on one product.
+            pid = f"sku:{category}:{_strip_gv_prefix(sku_norm.lower())}"
             sku_groups.setdefault(pid, []).append(enriched)
 
     for pid, group in sku_groups.items():
@@ -2066,6 +2269,39 @@ def match_listings(
                 "matched_by": "sku",
             },
         )
+
+    # 4b. MPN/SKU unification.
+    #
+    # Both tiers above normalize to the same keyspace (strip all
+    # non-alphanumerics, lowercase) but emit different pid prefixes, so one
+    # vendor reaching a part via its MPN while another reaches the identical
+    # part number via its SKU produced two one-vendor products for the same
+    # physical part (e.g. 1PC's detail-scraped "5600J3636C16GX2-RS5K" MPN vs
+    # TMS's identical vendor SKU while sku_as_mpn rejected digit-leading
+    # codes; Antec UPC SKUs vs their MPN-tier twins). An identical normalized
+    # part number in the same category is exactly as strong as a within-tier
+    # match, so reunite them — preferring the `mpn:` pid as survivor for
+    # URL/history stability. Runs before singletons so merged-away pids leave
+    # no trace.
+    suffix_to_pids: dict[str, list[str]] = {}
+    for pid in list(product_meta):
+        m = re.match(r"^(?:mpn|sku):([^:]+):(.+)$", pid)
+        if m:
+            suffix_to_pids.setdefault(f"{m.group(1)}:{m.group(2)}", []).append(pid)
+
+    for suffix, pids in suffix_to_pids.items():
+        if len(pids) < 2:
+            continue
+        survivor = next(
+            (p for p in sorted(pids) if p.startswith("mpn:")), sorted(pids)[0]
+        )
+        for pid in pids:
+            if pid == survivor:
+                continue
+            for enriched in enriched_listings:
+                if assignments.get(enriched["listing_key"]) == pid:
+                    assignments[enriched["listing_key"]] = survivor
+            product_meta.pop(pid, None)
 
     # 5. Singletons.
     for enriched in enriched_listings:

@@ -140,7 +140,10 @@ function computeFilterableAttributes(
     // rail. Categories without a curated list keep the old behavior.
     if (key !== "vendor" && allowlist && !allowlist.includes(key)) continue;
 
-    const maxValues = key === "vendor" ? 30 : 40;
+    // Genuine chipset/GPU-chip variety runs past 40 options; long lists
+    // collapse behind Show more anyway, so the cap only needs to stop
+    // runaway free-text keys (which the allowlist already excludes).
+    const maxValues = key === "vendor" ? 30 : 70;
     if (values.size < 2 || values.size > maxValues) continue;
 
     filterable.set(

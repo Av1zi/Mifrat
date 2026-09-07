@@ -24,9 +24,11 @@ from urllib.parse import urlparse
 
 try:
     from scraper.matching import (
+        _compact_key,
         dedupe_enriched_listings,
         enrich_listing,
         match_listings,
+        mpn_affix_related,
         suggest_fuzzy_matches,
     )
     from scraper.extractors import extract_attributes
@@ -34,9 +36,11 @@ try:
     from scraper.build_price_history import build_price_history
 except ImportError:
     from matching import (
+        _compact_key,
         dedupe_enriched_listings,
         enrich_listing,
         match_listings,
+        mpn_affix_related,
         suggest_fuzzy_matches,
     )
     from extractors import extract_attributes
@@ -210,7 +214,18 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             # so exact SKU/MPN matching can join the same item across vendors.
             if real_sku and not real_sku.isdigit() and real_sku != sku:
                 e["vendor_sku"] = real_sku
-                e["mpn"] = real_sku
+                cur_mpn = e.get("mpn")
+                if not cur_mpn:
+                    e["mpn"] = real_sku
+                elif mpn_affix_related(cur_mpn, real_sku):
+                    # Page code truncated ("R9070XTGAMINGOC16") vs full
+                    # pattern MPN from the title
+                    # ("GV-R9070XTGAMING-OC-16GD") — keep the longer full
+                    # part number so the cross-vendor match lands.
+                    if len(_compact_key(real_sku)) > len(_compact_key(cur_mpn)):
+                        e["mpn"] = real_sku
+                else:
+                    e["mpn"] = real_sku
                 sku = real_sku
         if key in detail_index:
             meta = e.setdefault("vendor_meta", {})
@@ -226,8 +241,19 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             meta = e.setdefault("vendor_meta", {})
             real_mpn = extra.get("mpn") or extra.get("real_sku")
             if real_mpn and (vendor_key != "onepc" or not e.get("mpn")):
-                e["mpn"] = str(real_mpn).strip()
-                merged_extra += 1
+                # Reconcile, don't blindly overwrite: detail rows sometimes
+                # carry only the tail ("KFGX" for "WD161KFGX") while enrich
+                # holds the full code — keep the longer on affix relations.
+                # On true conflicts the detail value wins (status quo: the
+                # vendor's own product page is authoritative).
+                cur_mpn = e.get("mpn")
+                new_mpn = str(real_mpn).strip()
+                if (cur_mpn and new_mpn and mpn_affix_related(cur_mpn, new_mpn)
+                        and len(new_mpn) < len(str(cur_mpn))):
+                    pass
+                elif new_mpn != cur_mpn:
+                    e["mpn"] = new_mpn
+                    merged_extra += 1
             if extra.get("brand") and not e.get("brand"):
                 e["brand"] = str(extra["brand"]).strip()
         if key in image_index:
