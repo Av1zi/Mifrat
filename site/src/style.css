@@ -106,7 +106,7 @@ img { max-width: 100%; }
   gap: 12px;
   height: var(--header-h);
   width: 100%;
-  padding: 0 16px;
+  padding: 0 24px;
 }
 .brand {
   display: flex;
@@ -186,7 +186,7 @@ img { max-width: 100%; }
 }
 .header-nav-inner {
   width: 100%;
-  padding: 0 16px;
+  padding: 0 24px;
   display: flex;
   align-items: stretch;
   gap: 2px;
@@ -222,11 +222,11 @@ img { max-width: 100%; }
   white-space: nowrap;
 }
 
-main { flex: 1; width: 100%; max-width: none; margin: 0; padding: 28px 16px 64px; }
+main { flex: 1; width: 100%; max-width: none; margin: 0; padding: 28px 24px 64px; }
 
 .site-footer {
   border-top: 1px solid var(--border);
-  padding: 18px 16px;
+  padding: 18px 24px;
   text-align: center;
   color: var(--text-dim);
   font-size: 0.79rem;
@@ -1231,7 +1231,7 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 .mega-inner {
   max-width: none;
   margin: 0;
-  padding: 18px 16px 22px;
+  padding: 18px 24px 22px;
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   gap: 24px;
@@ -1355,7 +1355,7 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
   .theme-btn { padding: 5px 9px; }
   .nav-select select { max-width: 78px; }
   .nav-select { padding: 4px 6px; }
-  main { padding: 18px 12px 48px; }
+  main { padding: 16px 16px 40px; }
   .hero { padding: 44px 18px 38px; }
   .title-band { padding: 18px; }
 }
@@ -1378,6 +1378,7 @@ a.bs-part-name:hover { color: var(--blue); }
 .bsBase { font-family: var(--font-mono); font-size: 0.83rem; color: var(--text-dim); }
 .bsShip { font-size: 0.83rem; }
 .bsChoose { display: flex; align-items: center; }
+.buildRow.is-empty .bsChoose, .buildRow--add .bsChoose { grid-column: 3 / -1; }
 .buildRow--links { min-height: 0; }
 .buildRow--links .bhCell { padding-top: 8px; padding-bottom: 8px; font-size: 0.82rem; }
 .link-sep { color: var(--text-dim); }
@@ -1425,10 +1426,12 @@ a.bs-part-name:hover { color: var(--blue); }
   .buildHead { display: none; }
   .buildRow {
     grid-template-columns: 56px 1fr;
-    gap: 6px 12px;
+    gap: 10px 16px;
     padding: 12px;
+    align-items: center;
   }
   .buildRow .bhCell { padding: 0; }
   .buildRow .bhCell:nth-child(1) { grid-column: 1 / -1; }
-  .buildRow .bhCell:nth-child(2) { grid-row: 2 / 4; }
+  .buildRow .bhCell:nth-child(2) { grid-row: 2 / 4; align-self: center; }
+  .buildRow.is-empty .bsChoose, .buildRow--add .bsChoose { grid-column: 2 / -1; align-self: center; }
 }

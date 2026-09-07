@@ -181,7 +181,7 @@ export async function renderBuilder(
       <div class="buildRow is-empty">
         <div class="bhCell"><a class="slot-link" href="${categoryHash(slot.categories[0])}">${esc(slot.label[lang])}</a></div>
         <div class="bhCell">${thumbHtml(slot)}</div>
-        <div class="bhCell bsChoose" style="grid-column: 3 / -1;">
+        <div class="bhCell bsChoose">
           <a class="btn-choose" href="${chooseUrl(slot)}">${icon("plus", 13)}<span>${esc(slot.choose[lang])}</span></a>
         </div>
       </div>
@@ -195,7 +195,7 @@ export async function renderBuilder(
       <div class="buildRow buildRow--add">
         <div class="bhCell"></div>
         <div class="bhCell"></div>
-        <div class="bhCell bsChoose" style="grid-column: 3 / -1;">
+        <div class="bhCell bsChoose">
           <a class="btn-choose btn-choose--ghost" href="${chooseUrl(slot)}">${icon("plus", 13)}<span>${label}</span></a>
         </div>
       </div>
