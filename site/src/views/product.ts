@@ -79,6 +79,8 @@ function computeVariantGroups(
     // identical in all other dimensions (same model line, same specs).
     // Without this a "DDR4/DDR5" pill jumps across chipsets and sockets,
     // and same-brand different-line products pose as close variants.
+    // Unit separator (U+0001): can never occur inside scraped attribute
+    // text, so joined signatures cannot collide the way " " or "|" could.
     const SEP = "";
     const sigOf = (p: Product): string =>
       [
