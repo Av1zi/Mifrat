@@ -91,7 +91,8 @@ def plan_removals(today: date, keep_daily: int, keep_weekly: int) -> tuple[list[
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    description = next(iter((__doc__ or "").splitlines()), "")
+    ap = argparse.ArgumentParser(description=description)
     ap.add_argument("--dry-run", action="store_true",
                     help="print what would be removed without deleting")
     ap.add_argument("--keep-daily", type=int, default=90)

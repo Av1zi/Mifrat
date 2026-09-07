@@ -30,6 +30,7 @@ const VARIANT_KEY_PRIORITY = [
   "speed_mhz",
   "speed",
   "cores",
+  "packaging",
   "length_mm",
   "color",
   "form_factor",
@@ -74,8 +75,23 @@ function computeVariantGroups(
     // so normalize to strings before comparing, sorting, or rendering.
     const current = attrText(product.attributes[key]);
     if (!current) continue;
+    // Signature = everything EXCEPT the candidate key: variants must be
+    // identical in all other dimensions (same model line, same specs).
+    // Without this a "DDR4/DDR5" pill jumps across chipsets and sockets,
+    // and same-brand different-line products pose as close variants.
+    const SEP = "";
+    const sigOf = (p: Product): string =>
+      [
+        p.brand ?? "",
+        p.model ?? "",
+        ...VARIANT_KEY_PRIORITY.filter((k) => k !== key).map((k) =>
+          attrText(p.attributes[k])
+        ),
+      ].join(SEP);
+    const mySig = sigOf(product);
     const distinct = new Map<string, Product[]>();
     for (const p of sameBrand) {
+      if (sigOf(p) !== mySig) continue;
       const v = attrText(p.attributes[key]);
       if (!v) continue;
       const list = distinct.get(v) ?? [];

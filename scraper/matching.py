@@ -1648,6 +1648,11 @@ def name_from_attributes(
         series = attributes.get("series")
         if series and f"series {series}" not in name.lower():
             name += f" series {series}"
+        # Tray CPUs are separate products from boxed ones (different
+        # items, prices, warranties) — the suffix tells them apart in
+        # lists; Box is the unmarked default.
+        if attributes.get("packaging") == "Tray":
+            name += " Tray"
         return name
     if category == "memory":
         return _memory_canonical_name(group, attributes)
@@ -2109,6 +2114,38 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
     print(f"[pckombo] enriched {matched}/{len(products)} products with exact MPN specs")
 
 
+def _split_packaging_subgroups(
+    group: list[dict],
+) -> list[tuple[str, list[dict]]]:
+    """Split a model-merge group into (packaging, members) subgroups.
+
+    Box and Tray listings of one model are different items (different
+    prices, coolers, warranties) and must never share a product. Listings
+    with unknown packaging ride along with the majority subgroup (ties go
+    to Box, deterministic); a group with fewer than two KNOWN packagings
+    is returned whole. The subgroup key is "" when nothing is known.
+    """
+    known: dict[str, list[dict]] = {}
+    unknown: list[dict] = []
+
+    for e in group:
+        pack = (e.get("attributes") or {}).get("packaging")
+        if pack in ("Box", "Tray"):
+            known.setdefault(pack, []).append(e)
+        else:
+            unknown.append(e)
+
+    if len(known) < 2:
+        only = next(iter(known)) if known else ""
+        return [(only, group)]
+
+    order = sorted(known, key=lambda p: (-len(known[p]), p))
+    subs = {p: list(members) for p, members in known.items()}
+    for e in unknown:
+        subs[order[0]].append(e)
+    return [(p, subs[p]) for p in order]
+
+
 def match_listings(
     enriched_listings: list[dict],
     manual_path: Path | str | None = None,
@@ -2145,14 +2182,19 @@ def match_listings(
     # them — which is exactly why "the same CPU from three vendors" shows up
     # as three separate one-vendor products instead of one product with three
     # offers. For categories where the model name alone unambiguously
-    # identifies the part (CPU: a model number *is* the CPU — packaging is
-    # cosmetic), merge on (category, brand, model) BEFORE the MPN/SKU tiers so
-    # a cross-vendor model match wins over each vendor's own SKU/MPN product.
+    # identifies the part, merge on (category, brand, model) BEFORE the
+    # MPN/SKU tiers so a cross-vendor model match wins over each vendor's
+    # own SKU/MPN product.
     #
-    # Guarded two ways so we never silently merge the wrong thing:
+    # Guarded three ways so we never silently merge the wrong thing:
     #   - Only categories/keys we explicitly trust (see MODEL_MERGE_CATEGORIES).
     #   - Listings that disagree on a critical attribute (DDR generation,
     #     capacity, speed, wattage, etc.) are kept apart.
+    #   - Box vs Tray packaging is NEVER merged: a boxed CPU (retail,
+    #     cooler, warranty) and a tray CPU (OEM, bare) are different items
+    #     with different prices — merging them defeats the packaging
+    #     filter. Each (model, packaging) pair becomes its own product;
+    #     listings with unknown packaging join the majority subgroup.
     model_groups: dict[tuple, list[dict]] = {}
 
     for enriched in enriched_listings:
@@ -2171,31 +2213,45 @@ def match_listings(
         if len(group) < 2:
             continue
 
-        # Critical-attribute guard: if any two listings in the prospective
-        # merge disagree on a spec that changes the part (e.g. a CPU sold as
-        # both 65W and 125W TDP), it's not the same part — drop the whole
-        # group and let each remain separate.
-        if any(
-            critical_conflict(a, b)
-            for i, a in enumerate(group)
-            for b in group[i + 1 :]
-        ):
+        subgroups = _split_packaging_subgroups(group)
+        if not subgroups:
             continue
 
         category = ident[0]
         slug_part = re.sub(r"[^a-z0-9]+", "-", ident[2]).strip("-")
-        pid = f"model:{category}:{slug_part}"
 
-        for enriched in group:
-            assignments[enriched["listing_key"]] = pid
+        for pack_key, sub in subgroups:
+            # A lone listing isn't a merge (e.g. the only Tray offer of a
+            # model otherwise sold boxed) — leave it for the MPN/SKU tiers
+            # instead of minting a one-offer "model" product.
+            if len(sub) < 2:
+                continue
 
-        product_meta.setdefault(
-            pid,
-            {
-                "product_id": pid,
-                "matched_by": "model",
-            },
-        )
+            # Critical-attribute guard: if any two listings in the
+            # prospective merge disagree on a spec that changes the part
+            # (e.g. a CPU sold as both 65W and 125W TDP), it's not the same
+            # part — drop the subgroup and let each remain separate.
+            if any(
+                critical_conflict(a, b)
+                for i, a in enumerate(sub)
+                for b in sub[i + 1 :]
+            ):
+                continue
+
+            pid = f"model:{category}:{slug_part}"
+            if pack_key == "Tray":
+                pid += "-tray"
+
+            for enriched in sub:
+                assignments[enriched["listing_key"]] = pid
+
+            product_meta.setdefault(
+                pid,
+                {
+                    "product_id": pid,
+                    "matched_by": "model",
+                },
+            )
 
     # 3. Exact MPN matches.
     mpn_groups: dict[str, list[dict]] = {}

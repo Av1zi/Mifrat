@@ -377,6 +377,17 @@
     "score": 96,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000651",
+    "listing_b": "plonter:100-100000651POF",
+    "title_a": "AMD Zen3 Ryzen7 5800X3D 10th Anniversary with IcePad - 8 Core/16 Threads - Base Clock: 3.4GHz - Max Boost Clock: 4.5GHz - Without Fan - 105W TDP - Zen 5000 Series - Tray",
+    "title_b": "AMD Zen3 Ryzen7 5800X3D 10th Anniversary with IcePad - 8 Core/16 Threads - Base Clock: 3.4GHz - Max Boost Clock: 4.5GHz - Without Fan - 105W TDP - Zen 5000 Series - Box",
+    "match_text_a": "100-000000651 AMD Zen3 Ryzen7 5800X3D 10th Anniversary with IcePad - 8 Core/16 Threads - Base Clock 3.4GHz - Max Boost Clock 4.5GHz - Without Fan - 105W TDP - Zen 5000 Series - Tray",
+    "match_text_b": "100-100000651POF AMD Zen3 Ryzen7 5800X3D 10th Anniversary with IcePad - 8 Core/16 Threads - Base Clock 3.4GHz - Max Boost Clock 4.5GHz - Without Fan - 105W TDP - Zen 5000 Series - Box"
+  },
+  {
+    "score": 96,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000674",
     "listing_b": "plonter:100-000001461",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9655 - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -649,6 +660,17 @@
     "match_text_b": "100-000001563 AMD EPYC 5th Gen (Zen5) 9455P - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
   },
   {
+    "score": 96,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-1000001084",
+    "listing_b": "plonter:100-1000001084WOF",
+    "title_a": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box",
+    "match_text_a": "100-1000001084 AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "match_text_b": "100-1000001084WOF AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box"
+  },
+  {
     "score": 95,
     "category": "cpu",
     "brand": "AMD",
@@ -658,6 +680,17 @@
     "title_b": "AMD EPYC 4th Gen (Zen4) 9654 - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000478 AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000000789 AMD EPYC 4th Gen (Zen4) 9654 - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 95,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000514",
+    "listing_b": "plonter:100-100000514WOF",
+    "title_a": "AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock: 4.5GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock: 4.5GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000514 AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock 4.5GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000514WOF AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock 4.5GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 95,
@@ -702,6 +735,17 @@
     "title_b": "AMD EPYC 5th Gen (Zen5) 9355 - 32/64 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000694 AMD EPYC 5th Gen (Zen5) 9255 - 24/48 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001148 AMD EPYC 5th Gen (Zen5) 9355 - 32/64 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 95,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000743",
+    "listing_b": "plonter:100-100000743BOX",
+    "title_a": "AMD Zen3 Ryzen7 5700 8 Core/16 Threads - Base Clock: 3.7GHz - Max Boost Clock: 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Tray",
+    "title_b": "AMD Zen3 Ryzen7 5700 8 Core/16 Threads - Base Clock: 3.7GHz - Max Boost Clock: 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Box",
+    "match_text_a": "100-000000743 AMD Zen3 Ryzen7 5700 8 Core/16 Threads - Base Clock 3.7GHz - Max Boost Clock 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Tray",
+    "match_text_b": "100-100000743BOX AMD Zen3 Ryzen7 5700 8 Core/16 Threads - Base Clock 3.7GHz - Max Boost Clock 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Box"
   },
   {
     "score": 95,
@@ -1312,6 +1356,17 @@
     "score": 95,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001404",
+    "listing_b": "plonter:100-100001404WOF",
+    "title_a": "AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.5GHz - Without Fan - 65W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box",
+    "match_text_a": "100-000001404 AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.5GHz - Without Fan - 65W TDP - 9000 Series - Tray",
+    "match_text_b": "100-100001404WOF AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 95,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001447",
     "listing_b": "plonter:100-000001448",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9565 - 72/144 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -1442,6 +1497,28 @@
   },
   {
     "score": 95,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000453",
+    "listing_b": "tms:100-000000723",
+    "title_a": "AMD Ryzen Threadripper PRO 7975WX 32-core Tray",
+    "title_b": "AMD Ryzen Threadripper PRO 9975WX 32-core Tray",
+    "match_text_a": "100-000000453 AMD Ryzen Threadripper PRO 7975WX 32-core Tray",
+    "match_text_b": "100-000000723 AMD Ryzen Threadripper PRO 9975WX 32-core Tray"
+  },
+  {
+    "score": 95,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000908",
+    "listing_b": "tms:100-000000909",
+    "title_a": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 95,
     "category": "memory",
     "brand": "G.Skill",
     "listing_a": "1pc:200238",
@@ -1494,6 +1571,28 @@
     "title_b": "AIO ARGB CPU Liquid Cooler - White - 360mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 360",
     "match_text_a": "MAG-CORELIQUID-A13-240-WHITE AIO ARGB CPU Liquid Cooler - White - 240mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 240",
     "match_text_b": "MAG-CORELIQUID-A13-360-WHITE AIO ARGB CPU Liquid Cooler - White - 360mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 360"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000453",
+    "listing_b": "plonter:100-100000453WOF",
+    "title_a": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000453 Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000453WOF Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000454",
+    "listing_b": "plonter:100-100000454WOF",
+    "title_a": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000454 Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000454WOF Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
   },
   {
     "score": 94,
@@ -1604,6 +1703,39 @@
     "title_b": "AMD EPYC 4th Gen (Zen4) 9754 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000478 AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001234 AMD EPYC 4th Gen (Zen4) 9754 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-000000592",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.3GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000000592 AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.3GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000592",
+    "listing_b": "plonter:100-000001015",
+    "title_a": "AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.3GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000592 AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.3GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000597",
+    "listing_b": "plonter:100-000001015",
+    "title_a": "AMD Zen4 Ryzen5 7500F 6 Core/12 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000597 AMD Zen4 Ryzen5 7500F 6 Core/12 Threads - Base Clock 3.7GHz - Max Boost Clock 5GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray"
   },
   {
     "score": 94,
@@ -2170,6 +2302,28 @@
     "score": 94,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000884",
+    "listing_b": "plonter:100-100000884WOF",
+    "title_a": "Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000884 Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000884WOF Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000885",
+    "listing_b": "plonter:100-100000885WOF",
+    "title_a": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000885 Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000885WOF Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000976",
     "listing_b": "plonter:100-000001197",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -2198,6 +2352,17 @@
     "title_b": "AMD EPYC 5th Gen (Zen5) 9645 - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000976 AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001461 AMD EPYC 5th Gen (Zen5) 9645 - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001015",
+    "listing_b": "plonter:100-100001015BOX",
+    "title_a": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100001015BOX AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 94,
@@ -2764,6 +2929,17 @@
     "score": 94,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001352",
+    "listing_b": "plonter:100-100001352WOF",
+    "title_a": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "title_b": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001352 Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "match_text_b": "100-100001352WOF Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001371",
     "listing_b": "plonter:100-000001460",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9754S - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -3092,6 +3268,83 @@
   },
   {
     "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001555",
+    "listing_b": "plonter:100-100001555WOF",
+    "title_a": "AMD EPYC 4245P (6/12 - AM5 - 3.9 / 5.4Hz - Default TDP: 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4245P (6/12 - AM5 - 3.9 / 5.4Hz - Default TDP: 65W - 32GB Cache - EPYC GRADO 4005 Series - Box",
+    "match_text_a": "100-000001555 AMD EPYC 4245P (6/12 - AM5 - 3.9 / 5.4Hz - Default TDP 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-100001555WOF AMD EPYC 4245P (6/12 - AM5 - 3.9 / 5.4Hz - Default TDP 65W - 32GB Cache - EPYC GRADO 4005 Series - Box"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001556",
+    "listing_b": "plonter:100-100001556WOF",
+    "title_a": "AMD EPYC 4345P (8/16) - AM5 - 3.8 / 5.5Hz - Default TDP: 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4345P (8/16) - AM5 - 3.8 / 5.5Hz - Default TDP: 65W - 32GB Cache - EPYC GRADO 4005 Series - Box",
+    "match_text_a": "100-000001556 AMD EPYC 4345P (8/16) - AM5 - 3.8 / 5.5Hz - Default TDP 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-100001556WOF AMD EPYC 4345P (8/16) - AM5 - 3.8 / 5.5Hz - Default TDP 65W - 32GB Cache - EPYC GRADO 4005 Series - Box"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001558",
+    "listing_b": "plonter:100-100001558WOF",
+    "title_a": "AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Box",
+    "match_text_a": "100-000001558 AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-100001558WOF AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Box"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001559",
+    "listing_b": "plonter:100-100001559WOF",
+    "title_a": "AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP: 170W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP: 170W - 64GB Cache - EPYC GRADO 4005 Series - Box",
+    "match_text_a": "100-000001559 AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP 170W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-100001559WOF AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP 170W - 64GB Cache - EPYC GRADO 4005 Series - Box"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001561",
+    "listing_b": "plonter:100-100001561WOF",
+    "title_a": "AMD EPYC 4585PX (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP: 170W - 128GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4585PX (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP: 170W - 128GB Cache - EPYC GRADO 4005 Series - Box",
+    "match_text_a": "100-000001561 AMD EPYC 4585PX (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP 170W - 128GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-100001561WOF AMD EPYC 4585PX (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP 170W - 128GB Cache - EPYC GRADO 4005 Series - Box"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001764",
+    "listing_b": "plonter:100-100001764WOF",
+    "title_a": "AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Box",
+    "match_text_a": "100-000001764 AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-100001764WOF AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Box"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001351",
+    "listing_b": "tms:100-000001352",
+    "title_a": "AMD Ryzen Threadripper 7970X 32-core Tray",
+    "title_b": "AMD Ryzen Threadripper 7960X 24-core Tray",
+    "match_text_a": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray",
+    "match_text_b": "100-000001352 AMD Ryzen Threadripper 7960X 24-core Tray"
+  },
+  {
+    "score": 94,
     "category": "gpu",
     "brand": "PowerColor",
     "listing_a": "1pc:203368",
@@ -3144,6 +3397,17 @@
     "title_b": "AMD EPYC 4th Gen (Zen4) 9174F - 16/32 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000478 AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000000796 AMD EPYC 4th Gen (Zen4) 9174F - 16/32 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-000001015",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray"
   },
   {
     "score": 93,
@@ -4183,6 +4447,39 @@
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001236",
+    "listing_b": "plonter:100-100001236BOX",
+    "title_a": "AMD Ryzen 7 8700G  8 Core/16 Threads - Base Clock: 4.2GHz - Max Boost Clock: 5.1GHz - Radeon 780M GPU with 768 stream processors and 12 ray tracing cores - 65W TDP - Tray",
+    "title_b": "AMD Ryzen 7 8700G  8 Core/16 Threads - Base Clock: 4.2GHz - Max Boost Clock: 5.1GHz - Radeon 780M GPU with 768 stream processors and 12 ray tracing cores - 65W TDP - Wraith Spire Cooler - Box",
+    "match_text_a": "100-000001236 AMD Ryzen 7 8700G 8 Core/16 Threads - Base Clock 4.2GHz - Max Boost Clock 5.1GHz - Radeon 780M GPU with 768 stream processors and 12 ray tracing cores - 65W TDP - Tray",
+    "match_text_b": "100-100001236BOX AMD Ryzen 7 8700G 8 Core/16 Threads - Base Clock 4.2GHz - Max Boost Clock 5.1GHz - Radeon 780M GPU with 768 stream processors and 12 ray tracing cores - 65W TDP - Wraith Spire Cooler - Box"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001350",
+    "listing_b": "plonter:100-100001350WOF",
+    "title_a": "Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001350 Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100001350WOF Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001351",
+    "listing_b": "plonter:100-100001352WOF",
+    "title_a": "Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001351 Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100001352WOF Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001447",
     "listing_b": "plonter:100-000001460",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9565 - 72/144 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -4401,6 +4698,28 @@
   },
   {
     "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001555",
+    "listing_b": "plonter:100-000001556",
+    "title_a": "AMD EPYC 4245P (6/12 - AM5 - 3.9 / 5.4Hz - Default TDP: 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4345P (8/16) - AM5 - 3.8 / 5.5Hz - Default TDP: 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_a": "100-000001555 AMD EPYC 4245P (6/12 - AM5 - 3.9 / 5.4Hz - Default TDP 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-000001556 AMD EPYC 4345P (8/16) - AM5 - 3.8 / 5.5Hz - Default TDP 65W - 32GB Cache - EPYC GRADO 4005 Series - Tray"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001558",
+    "listing_b": "plonter:100-000001764",
+    "title_a": "AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_a": "100-000001558 AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-000001764 AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray"
+  },
+  {
+    "score": 93,
     "category": "gpu",
     "brand": "NVIDIA",
     "listing_a": "plonter:GeForce-RTX-5070-Ti-16G-GAMING-TRIO-OC",
@@ -4442,6 +4761,17 @@
     "title_b": "COUGAR OmnyX Mid-Tower ATX Panoramic Gaming Case – 4x 160mm Fans – 3 Sides Tempered Glass – Full Reverse Connector – White",
     "match_text_a": "OMNYX-BL COUGAR OmnyX Mid-Tower ATX Panoramic Gaming Case 4x 160mm Fans 3 Sides Tempered Glass Full Reverse Connector Black",
     "match_text_b": "OMNYX-WT COUGAR OmnyX Mid-Tower ATX Panoramic Gaming Case 4x 160mm Fans 3 Sides Tempered Glass Full Reverse Connector White"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-000000597",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7500F 6 Core/12 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000000597 AMD Zen4 Ryzen5 7500F 6 Core/12 Threads - Base Clock 3.7GHz - Max Boost Clock 5GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray"
   },
   {
     "score": 92,
@@ -4590,6 +4920,17 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000743",
+    "listing_b": "plonter:100-100000926WOF",
+    "title_a": "AMD Zen3 Ryzen7 5700 8 Core/16 Threads - Base Clock: 3.7GHz - Max Boost Clock: 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Tray",
+    "title_b": "AMD Zen3 Ryzen7 5700X 8 Core/16 Threads - Base Clock: 3.4GHz - Max Boost Clock: 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Box",
+    "match_text_a": "100-000000743 AMD Zen3 Ryzen7 5700 8 Core/16 Threads - Base Clock 3.7GHz - Max Boost Clock 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Tray",
+    "match_text_b": "100-100000926WOF AMD Zen3 Ryzen7 5700X 8 Core/16 Threads - Base Clock 3.4GHz - Max Boost Clock 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Box"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000792",
     "listing_b": "plonter:100-000000804",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9374F - 32/64 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -4706,6 +5047,17 @@
     "title_b": "AMD EPYC 5th Gen (Zen5) 9455P - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000837 AMD EPYC 5th Gen (Zen5) 9825 - 144/288 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001563 AMD EPYC 5th Gen (Zen5) 9455P - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000884",
+    "listing_b": "plonter:100-000000885",
+    "title_a": "Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000884 Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-000000885 Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series"
   },
   {
     "score": 92,
@@ -5025,6 +5377,83 @@
     "title_b": "AMD EPYC 4124P (4/8) - Default TDP: 65W - EPYC 4004 Series - Tray",
     "match_text_a": "100-000001480 AMD EPYC 4244P (6/12) - Default TDP 65W - EPYC 4004 Series - Tray",
     "match_text_b": "100-000001570 AMD EPYC 4124P (4/8) - Default TDP 65W - EPYC 4004 Series - Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001973",
+    "listing_b": "plonter:100-1000001084WOF",
+    "title_a": "AMD Zen5 Ryzen7 9850X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.6GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box",
+    "match_text_a": "100-000001973 AMD Zen5 Ryzen7 9850X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.6GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "match_text_b": "100-1000001084WOF AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000589",
+    "listing_b": "tms:100-000000909",
+    "title_a": "AMD Ryzen 9 7900X AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000591",
+    "listing_b": "tms:100-000000593",
+    "title_a": "מעבד AMD Ryzen 7 7700X AM5 Tray",
+    "title_b": "AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5 Tray",
+    "match_text_b": "100-000000593 AMD Ryzen 5 7600X AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000593",
+    "listing_b": "tms:100-000000597",
+    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000593",
+    "listing_b": "tms:100-000001405",
+    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
+    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000719",
+    "listing_b": "tms:100-000000908",
+    "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001350",
+    "listing_b": "tms:100-000001351",
+    "title_a": "AMD Ryzen Threadripper 7980X 64-core Tray",
+    "title_b": "AMD Ryzen Threadripper 7970X 32-core Tray",
+    "match_text_a": "100-000001350 AMD Ryzen Threadripper 7980X 64-core Tray",
+    "match_text_b": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray"
   },
   {
     "score": 92,
@@ -5448,6 +5877,17 @@
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000926",
+    "listing_b": "plonter:100-100000926WOF",
+    "title_a": "AMD Zen3 Ryzen7 5700X 8 Core/16 Threads - Base Clock: 3.4GHz - Max Boost Clock: 4.6GHz - 65W TDP - Zen 5000 Series - Tray",
+    "title_b": "AMD Zen3 Ryzen7 5700X 8 Core/16 Threads - Base Clock: 3.4GHz - Max Boost Clock: 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Box",
+    "match_text_a": "100-000000926 AMD Zen3 Ryzen7 5700X 8 Core/16 Threads - Base Clock 3.4GHz - Max Boost Clock 4.6GHz - 65W TDP - Zen 5000 Series - Tray",
+    "match_text_b": "100-100000926WOF AMD Zen3 Ryzen7 5700X 8 Core/16 Threads - Base Clock 3.4GHz - Max Boost Clock 4.6GHz - Without Fan - 65W TDP - Zen 5000 Series - Box"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000976",
     "listing_b": "plonter:100-000001143",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -5591,6 +6031,39 @@
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001351",
+    "listing_b": "plonter:100-100000453WOF",
+    "title_a": "Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001351 Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000453WOF Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001351",
+    "listing_b": "plonter:100-100001350WOF",
+    "title_a": "Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001351 Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100001350WOF Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001352",
+    "listing_b": "plonter:100-100000885WOF",
+    "title_a": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "title_b": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001352 Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "match_text_b": "100-100000885WOF Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001371",
     "listing_b": "plonter:100-000001443",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9754S - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -5710,6 +6183,17 @@
   },
   {
     "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000592",
+    "listing_b": "tms:100-000000593",
+    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
+    "title_b": "AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_b": "100-000000593 AMD Ryzen 5 7600X AM5 Tray"
+  },
+  {
+    "score": 91,
     "category": "gpu",
     "brand": "NVIDIA",
     "listing_a": "plonter:GeForce-RTX-5060-Ti-8G-VENTUS-2X-OC-PLUS",
@@ -5784,6 +6268,28 @@
     "title_b": "ASUS TUF Gaming GT502 White ATX Mid-Tower Case with Add on 3 120mm ARGB Fans by Thermalright, USB 3.2 Type-C and 2X USB 3.0 Ports - Max GPU Length 400mm - 285 x 450 x 446 mm",
     "match_text_a": "TUF-Gaming-GT502-White ASUS TUF Gaming GT502 White ATX Mid-Tower Case USB 3.2 Type-C and 2X USB 3.0 Ports - Max GPU Length 400mm - 285 x 450 x 446 mm",
     "match_text_b": "TUF-Gaming-GT502-White-3Fans ASUS TUF Gaming GT502 White ATX Mid-Tower Case with Add on 3 120mm ARGB Fans by Thermalright USB 3.2 Type-C and 2X USB 3.0 Ports - Max GPU Length 400mm - 285 x 450 x 446 mm"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000453",
+    "listing_b": "plonter:100-000000884",
+    "title_a": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000453 Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-000000884 Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000454",
+    "listing_b": "plonter:100-000000884",
+    "title_a": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000454 Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-000000884 Ryzen Threadripper Pro 7995WX - 96/192 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series"
   },
   {
     "score": 90,
@@ -6207,6 +6713,28 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001237",
+    "listing_b": "plonter:100-100001237BOX",
+    "title_a": "AMD Ryzen 5 8600G  6 Core/12 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.0GHz - Radeon 760M GPU - 65W TDP - Tray",
+    "title_b": "AMD Ryzen 5 8600G  6 Core/12 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.0GHz - Radeon 760M GPU - 65W TDP - Wraith Stealth Cooler - Box",
+    "match_text_a": "100-000001237 AMD Ryzen 5 8600G 6 Core/12 Threads - Base Clock 4.3GHz - Max Boost Clock 5.0GHz - Radeon 760M GPU - 65W TDP - Tray",
+    "match_text_b": "100-100001237BOX AMD Ryzen 5 8600G 6 Core/12 Threads - Base Clock 4.3GHz - Max Boost Clock 5.0GHz - Radeon 760M GPU - 65W TDP - Wraith Stealth Cooler - Box"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001352",
+    "listing_b": "plonter:100-100001350WOF",
+    "title_a": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "title_b": "Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001352 Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "match_text_b": "100-100001350WOF Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001371",
     "listing_b": "plonter:100-000001448",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9754S - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -6315,6 +6843,105 @@
   },
   {
     "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-100000908WOF",
+    "listing_b": "plonter:100-100001904",
+    "title_a": "AMD Zen4 Ryzen9 7950X3D 16 Core/32 Threads - Base Clock: 4.2Ghz - Max Boost Clock: 5.7GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-100000908WOF AMD Zen4 Ryzen9 7950X3D 16 Core/32 Threads - Base Clock 4.2Ghz - Max Boost Clock 5.7GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_b": "100-100001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-100000909WOF",
+    "listing_b": "plonter:100-100001904",
+    "title_a": "AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock: 4.4Ghz - Max Boost Clock: 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-100000909WOF AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock 4.4Ghz - Max Boost Clock 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_b": "100-100001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000514",
+    "listing_b": "tms:100-000000908",
+    "title_a": "AMD Ryzen 9 7950X AM5 Tray",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000000514 AMD Ryzen 9 7950X AM5 Tray",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000589",
+    "listing_b": "tms:100-000000593",
+    "title_a": "AMD Ryzen 9 7900X AM5 Tray",
+    "title_b": "AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_b": "100-000000593 AMD Ryzen 5 7600X AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000589",
+    "listing_b": "tms:100-000000908",
+    "title_a": "AMD Ryzen 9 7900X AM5 Tray",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000593",
+    "listing_b": "tms:100-100000065",
+    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
+    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000719",
+    "listing_b": "tms:100-000000909",
+    "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000723",
+    "listing_b": "tms:100-000000885",
+    "title_a": "AMD Ryzen Threadripper PRO 9975WX 32-core Tray",
+    "title_b": "AMD Ryzen Threadripper PRO 7965WX 24-core Tray",
+    "match_text_a": "100-000000723 AMD Ryzen Threadripper PRO 9975WX 32-core Tray",
+    "match_text_b": "100-000000885 AMD Ryzen Threadripper PRO 7965WX 24-core Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000909",
+    "listing_b": "tms:100-000000910",
+    "title_a": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 7800X3D AM5 Tray",
+    "match_text_a": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_b": "100-000000910 AMD Ryzen 7 7800X3D AM5 Tray"
+  },
+  {
+    "score": 90,
     "category": "gpu",
     "brand": "NVIDIA",
     "listing_a": "plonter:GeForce-RTX-5060-Ti-8G-VENTUS-2X-OC-PLUS",
@@ -6372,6 +6999,28 @@
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000453",
+    "listing_b": "plonter:100-100000885WOF",
+    "title_a": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000453 Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000885WOF Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000457",
+    "listing_b": "plonter:100-100000457BOX",
+    "title_a": "AMD Zen3 Ryzen5 5500 6 Core/12 Threads - Base Clock: 3.6GHz - Max Boost Clock: 4.2GHz - Fan Not Included - 65W TDP - Zen 5000 Series - Tray",
+    "title_b": "AMD Zen3 Ryzen5 5500 6 Core/12 Threads - Base Clock: 3.6GHz - Max Boost Clock: 4.2GHz - Wraith Stealth Fan - 65W TDP - Zen 5000 Series - Box",
+    "match_text_a": "100-000000457 AMD Zen3 Ryzen5 5500 6 Core/12 Threads - Base Clock 3.6GHz - Max Boost Clock 4.2GHz - Fan Not Included - 65W TDP - Zen 5000 Series - Tray",
+    "match_text_b": "100-100000457BOX AMD Zen3 Ryzen5 5500 6 Core/12 Threads - Base Clock 3.6GHz - Max Boost Clock 4.2GHz - Wraith Stealth Fan - 65W TDP - Zen 5000 Series - Box"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000478",
     "listing_b": "plonter:100-000000694",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -6400,6 +7049,50 @@
     "title_b": "AMD EPYC 5th Gen (Zen5) 9745 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000478 AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001460 AMD EPYC 5th Gen (Zen5) 9745 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000589",
+    "listing_b": "plonter:100-000000590",
+    "title_a": "AMD Zen4 Ryzen9 7900X 12 Core/24 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.6GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000589 AMD Zen4 Ryzen9 7900X 12 Core/24 Threads - Base Clock 4.7GHz - Max Boost Clock 5.6GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000589",
+    "listing_b": "plonter:100-100000514WOF",
+    "title_a": "AMD Zen4 Ryzen9 7900X 12 Core/24 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.6GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock: 4.5GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000589 AMD Zen4 Ryzen9 7900X 12 Core/24 Threads - Base Clock 4.7GHz - Max Boost Clock 5.6GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000514WOF AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock 4.5GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-000001904",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-100000909WOF",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock: 4.4Ghz - Max Boost Clock: 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000909WOF AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock 4.4Ghz - Max Boost Clock 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 89,
@@ -6636,12 +7329,34 @@
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000885",
+    "listing_b": "plonter:100-100000453WOF",
+    "title_a": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000885 Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000453WOF Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001015",
     "listing_b": "plonter:100-000001900",
     "title_a": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
     "title_b": "AMD Zen4 Ryzen5 7400 6 Core/12 Threads - Base Clock: 3.3GHz - Max Boost Clock: 4.3GHz - Without Fan - 65W TDP - Zen 7000 Series - Tray",
     "match_text_a": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
     "match_text_b": "100-000001900 AMD Zen4 Ryzen5 7400 6 Core/12 Threads - Base Clock 3.3GHz - Max Boost Clock 4.3GHz - Without Fan - 65W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001015",
+    "listing_b": "plonter:100-000001904",
+    "title_a": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray"
   },
   {
     "score": 89,
@@ -6746,6 +7461,39 @@
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001277",
+    "listing_b": "plonter:100-100000514WOF",
+    "title_a": "AMD Zen5 Ryzen9 9950X 16 Core/32 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock: 4.5GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000001277 AMD Zen5 Ryzen9 9950X 16 Core/32 Threads - Base Clock 4.3GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray",
+    "match_text_b": "100-100000514WOF AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock 4.5GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001350",
+    "listing_b": "plonter:100-100000454WOF",
+    "title_a": "Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001350 Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000454WOF Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001350",
+    "listing_b": "plonter:100-100001352WOF",
+    "title_a": "Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001350 Ryzen Threadripper 7980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100001352WOF Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001371",
     "listing_b": "plonter:100-000001447",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9754S - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -6785,6 +7533,28 @@
     "title_b": "AMD Zen4 Ryzen5 7400 6 Core/12 Threads - Base Clock: 3.3GHz - Max Boost Clock: 4.3GHz - Without Fan - 65W TDP - Zen 7000 Series - Tray",
     "match_text_a": "100-000001404 AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.5GHz - Without Fan - 65W TDP - 9000 Series - Tray",
     "match_text_b": "100-000001900 AMD Zen4 Ryzen5 7400 6 Core/12 Threads - Base Clock 3.3GHz - Max Boost Clock 4.3GHz - Without Fan - 65W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001405",
+    "listing_b": "plonter:100-100001404WOF",
+    "title_a": "AMD Zen5 Ryzen5 9600X 6 Core/12 Threads - Base Clock: 3.9GHz - Max Boost Clock: 5.4GHz - Without Fan - 65W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box",
+    "match_text_a": "100-000001405 AMD Zen5 Ryzen5 9600X 6 Core/12 Threads - Base Clock 3.9GHz - Max Boost Clock 5.4GHz - Without Fan - 65W TDP - 9000 Series - Tray",
+    "match_text_b": "100-100001404WOF AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001559",
+    "listing_b": "plonter:100-000001764",
+    "title_a": "AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP: 170W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_a": "100-000001559 AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP 170W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-000001764 AMD EPYC 4545P (16/32) - AM5 - 3.0 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray"
   },
   {
     "score": 89,
@@ -6856,6 +7626,39 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000453",
+    "listing_b": "plonter:100-100000454WOF",
+    "title_a": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000453 Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000454WOF Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000454",
+    "listing_b": "plonter:100-100000453WOF",
+    "title_a": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000454 Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000453WOF Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000454",
+    "listing_b": "plonter:100-100000885WOF",
+    "title_a": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000454 Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000885WOF Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000478",
     "listing_b": "plonter:100-000000837",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -6895,6 +7698,39 @@
     "title_b": "AMD EPYC 5th Gen (Zen5) 9845 - 160/320 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000478 AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001458 AMD EPYC 5th Gen (Zen5) 9845 - 160/320 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-000000910",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-100000590BOX",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - AMD Wraith Prism cooler with RGB LED lighting - 65W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000590BOX AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - AMD Wraith Prism cooler with RGB LED lighting - 65W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000590",
+    "listing_b": "plonter:100-100000592BOX",
+    "title_a": "AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.3GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000590 AMD Zen4 Ryzen9 7900 12 Core/24 Threads - Base Clock 3.7GHz - Max Boost Clock 5.4GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000592BOX AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.3GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 88,
@@ -6972,6 +7808,17 @@
     "title_b": "AMD EPYC 4th Gen (Zen4) 9354P - 32/64 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000694 AMD EPYC 5th Gen (Zen5) 9255 - 24/48 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000000805 AMD EPYC 4th Gen (Zen4) 9354P - 32/64 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000719",
+    "listing_b": "plonter:100-100000514WOF",
+    "title_a": "AMD Zen5 Ryzen9 9950X3D 16 Core/32 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock: 4.5GHz - Max Boost Clock: 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000719 AMD Zen5 Ryzen9 9950X3D 16 Core/32 Threads - Base Clock 4.3GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - 9000 Series - Tray",
+    "match_text_b": "100-100000514WOF AMD Zen4 Ryzen9 7950X 16 Core/32 Threads - Base Clock 4.5GHz - Max Boost Clock 5.7GHz - Without Fan - 170W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 88,
@@ -7340,12 +8187,45 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000885",
+    "listing_b": "plonter:100-100000454WOF",
+    "title_a": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000000885 Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000454WOF Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000000910",
+    "listing_b": "plonter:100-100000909WOF",
+    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock: 4.4Ghz - Max Boost Clock: 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000909WOF AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock 4.4Ghz - Max Boost Clock 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000976",
     "listing_b": "plonter:100-000001443",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "title_b": "AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/",
     "match_text_a": "100-000000976 AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000001443 AMD EPYC 5th Gen (Zen5) 9755 - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU) TSMC 6nm (I/"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001015",
+    "listing_b": "plonter:100-100000592BOX",
+    "title_a": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.3GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000001015 AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000592BOX AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.3GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 88,
@@ -7505,6 +8385,39 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001351",
+    "listing_b": "plonter:100-100000885WOF",
+    "title_a": "Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "title_b": "Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001351 Ryzen Threadripper 7970X - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_b": "100-100000885WOF Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001352",
+    "listing_b": "plonter:100-100000453WOF",
+    "title_a": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "title_b": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001352 Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "match_text_b": "100-100000453WOF Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001352",
+    "listing_b": "plonter:100-100000454WOF",
+    "title_a": "Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "title_b": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
+    "match_text_a": "100-000001352 Ryzen Threadripper 7960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series - Tray",
+    "match_text_b": "100-100000454WOF Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001371",
     "listing_b": "plonter:100-000001522",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9754S - 128/256 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -7538,6 +8451,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000001406",
+    "listing_b": "plonter:100-100001404WOF",
+    "title_a": "AMD Zen5 Ryzen5 9500F 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5Hz - Without Fan - 65W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box",
+    "match_text_a": "100-000001406 AMD Zen5 Ryzen5 9500F 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5Hz - Without Fan - 65W TDP - 9000 Series - Tray",
+    "match_text_b": "100-100001404WOF AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001476",
     "listing_b": "plonter:100-000001478",
     "title_a": "AMD EPYC 4564P (16/32) - Default TDP: 170W - EPYC 4004 Series - Tray",
@@ -7566,6 +8490,149 @@
     "title_b": "AMD EPYC 4484PX (12/24) - Default TDP: 120W - EPYC 4004 Series - Tray",
     "match_text_a": "100-000001480 AMD EPYC 4244P (6/12) - Default TDP 65W - EPYC 4004 Series - Tray",
     "match_text_b": "100-000001482 AMD EPYC 4484PX (12/24) - Default TDP 120W - EPYC 4004 Series - Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001558",
+    "listing_b": "plonter:100-000001559",
+    "title_a": "AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP: 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "title_b": "AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP: 170W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_a": "100-000001558 AMD EPYC 4465P (12/24) - AM5 - 3.4 / 5.4Hz - Default TDP 65W - 64GB Cache - EPYC GRADO 4005 Series - Tray",
+    "match_text_b": "100-000001559 AMD EPYC 4565P (16/32) - AM5 - 4.3 / 5.7Hz - Default TDP 170W - 64GB Cache - EPYC GRADO 4005 Series - Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-1000001084",
+    "listing_b": "plonter:100-100001404WOF",
+    "title_a": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box",
+    "match_text_a": "100-1000001084 AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "match_text_b": "100-100001404WOF AMD Zen5 Ryzen7 9700X 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.5GHz - Without Fan - 65W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000453",
+    "listing_b": "tms:100-000001351",
+    "title_a": "AMD Ryzen Threadripper PRO 7975WX 32-core Tray",
+    "title_b": "AMD Ryzen Threadripper 7970X 32-core Tray",
+    "match_text_a": "100-000000453 AMD Ryzen Threadripper PRO 7975WX 32-core Tray",
+    "match_text_b": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000454",
+    "listing_b": "tms:100-000000723",
+    "title_a": "AMD Ryzen Threadripper PRO 7985WX 64-core Tray",
+    "title_b": "AMD Ryzen Threadripper PRO 9975WX 32-core Tray",
+    "match_text_a": "100-000000454 AMD Ryzen Threadripper PRO 7985WX 64-core Tray",
+    "match_text_b": "100-000000723 AMD Ryzen Threadripper PRO 9975WX 32-core Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000593",
+    "listing_b": "tms:100-000000927",
+    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000908",
+    "listing_b": "tms:100-000000910",
+    "title_a": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 7800X3D AM5 Tray",
+    "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_b": "100-000000910 AMD Ryzen 7 7800X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000908",
+    "listing_b": "tms:100-000001084",
+    "title_a": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_b": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000908",
+    "listing_b": "tms:100-000001368",
+    "title_a": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000908",
+    "listing_b": "tms:100-000001904",
+    "title_a": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000908",
+    "listing_b": "tms:100-000001973",
+    "title_a": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 9850X3D AM5 Tray",
+    "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_b": "100-000001973 AMD Ryzen 7 9850X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000909",
+    "listing_b": "tms:100-000001084",
+    "title_a": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_a": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_b": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000909",
+    "listing_b": "tms:100-000001368",
+    "title_a": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_a": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000909",
+    "listing_b": "tms:100-000001904",
+    "title_a": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_a": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
   },
   {
     "score": 88,

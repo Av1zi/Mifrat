@@ -50,7 +50,7 @@ def download_and_save(image_url: str, dest_path: Path) -> bool:
         })
         resp.raise_for_status()
         img = Image.open(BytesIO(resp.content)).convert("RGB")
-        img.thumbnail((MAX_DIMENSION, MAX_DIMENSION), Image.LANCZOS)
+        img.thumbnail((MAX_DIMENSION, MAX_DIMENSION), Image.Resampling.LANCZOS)
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         img.save(dest_path, "JPEG", quality=JPEG_QUALITY, optimize=True)
         return True

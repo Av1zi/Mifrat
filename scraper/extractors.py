@@ -466,7 +466,7 @@ YES_NO_KEYS = frozenset({
     "smt", "ecc", "ecc_support", "unlocked", "cooler_included",
     "registered", "nvme", "nvme_flag", "heat_spreader",
     "integrated_graphics", "graphics",
-    "rgb", "argb", "pwm", "wireless", "fanless",
+    "rgb", "argb", "pwm", "wireless", "fanless", "wifi",
     # Same boolean signal under longer key names ("Yes" vs "yes" split
     # the filter rail without this).
     "rgb_lighting", "pwm_technology",
@@ -876,6 +876,11 @@ def _parse_motherboard(text: str, meta) -> dict:
     ff = _form_factor(text)
     if ff:
         a["form_factor"] = ff
+    elif chipset_m and chipset_m.group(2) in ("M", "I"):
+        # Vendor board suffixes ("B760M", "Z790I") when no explicit size
+        # words are present: M = micro-ATX, I = mini-ITX. (E/S/A suffixes
+        # are chipset variants, not sizes — ignored.)
+        a["form_factor"] = "mATX" if chipset_m.group(2) == "M" else "Mini-ITX"
 
     wifi, std = _wifi(text)
     if wifi is not None:
@@ -1656,6 +1661,20 @@ def _parse_storage(text: str, meta) -> dict:
     elif re.search(r"\bSSHD\b", text, re.I):
         a["drive_type"] = "SSHD"
 
+    # Type inference when the title names no drive type ("Samsung 990 PRO
+    # 2TB PCIe"): NVMe/PCIe/M.2 implies SSD (no M.2 HDDs exist); an RPM
+    # figure implies HDD. SATA alone stays unknown (SSD and HDD share it).
+    if "drive_type" not in a:
+        if re.search(r"\bNVME\b", text, re.I):
+            a["drive_type"] = "SSD"
+        elif re.search(r"\bM\.?2\b", text, re.I):
+            a["drive_type"] = "SSD"
+        elif re.search(r"\bPCI\s*E\b", text, re.I) and re.search(
+                r"\b(NVME|GEN\s?[345]|X4)\b", text, re.I):
+            a["drive_type"] = "SSD"
+        elif RPM_RE.search(text):
+            a["drive_type"] = "HDD"
+
     # Form factor
     ff = FORM_FACTOR_STORAGE_RE.search(text)
     if ff:
@@ -1741,6 +1760,19 @@ def _parse_fan_or_aio(text: str, meta) -> dict:
         a["size_mm"] = int(s.group(1))
         a["fan_size_mm"] = int(s.group(1))
         a["radiator_size_mm"] = int(s.group(1))
+    else:
+        # Bare sizes without units ("MAG CORELIQUID E360", "Skeleton 360"):
+        # in cooler/fan titles these can only be fan/radiator sizes (RPM
+        # runs 4-digit+, model prefixes like H100i never hit the set).
+        # Letter-prefixed forms ("E240", "I360") match too; digit-runs
+        # ("2400MHz") and short codes ("A13") can never match.
+        b = re.search(
+            r"(?:(?<=[A-Z])|(?<![\w]))(120|140|240|280|360|420)(?![\w])",
+            text)
+        if b:
+            a["size_mm"] = int(b.group(1))
+            a["fan_size_mm"] = int(b.group(1))
+            a["radiator_size_mm"] = int(b.group(1))
 
     if re.search(r"\bARGB\b", text, re.I):
         a["argb"] = True
@@ -2134,6 +2166,15 @@ def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
         _take("boost_clock_mhz", "clock_boost",
               parse=lambda v: _mhz_int(v, 500, 3500))
         attrs.pop("clock_boost", None)
+        # GHz twin for the category column: detail rows give GHz floats
+        # while titles give MHz ints — one numeric column, not dashes.
+        _gb = attrs.get("boost_clock_ghz")
+        _mb = attrs.get("boost_clock_mhz")
+        if _gb is None and isinstance(_mb, (int, float)):
+            try:
+                attrs["boost_clock_ghz"] = round(float(_mb) / 1000, 3)
+            except (ValueError, TypeError):
+                pass
         # Effective memory clock ("7000MHz") joins memory_clock_mhz.
         _take("memory_clock_mhz", "memory_frequency",
               parse=lambda v: _mhz_int(v, 1000, 25000))
@@ -2244,12 +2285,13 @@ def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
                     attrs["speed_mhz"] = v
                     break
         # String speeds from detail rows ("3200MHz") -> int for one type.
-        if isinstance(attrs.get("speed_mhz"), str):
-            v = _mhz_int(attrs["speed_mhz"], 1600, 9000)
+        speed_mhz = attrs.get("speed_mhz")
+        if isinstance(speed_mhz, str):
+            v = _mhz_int(speed_mhz, 1600, 9000)
             if v is not None:
                 attrs["speed_mhz"] = v
             else:
-                m = re.search(r"(\d{4})\b", attrs["speed_mhz"])
+                m = re.search(r"(\d{4})\b", speed_mhz)
                 if m and 1600 <= int(m.group(1)) <= 9000:
                     attrs["speed_mhz"] = int(m.group(1))
         for k in ("speed", "memory_frequency", "frequency", "clock",
@@ -2537,7 +2579,36 @@ def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
     _drop("warranty_importer", "warranty_warranty_type", "warranty",
           "spec_specifications", "spec_designed_for_gaming", "product_type",
           "special_features", "additional_features", "transmission",
-          "connectivity", "vorstellung_series")
+          "connectivity", "vorstellung_series",
+          "operating_system", "spec_operating_system",
+          "spec_battery_capacity", "spec_generation_communication")
+    # spec_specifications_* blobs ("..._capacity", "..._interface") and
+    # audio-codec rows hide under vendor prefixes — fold the real ones,
+    # drop the blobs.
+    for _sk in [k for k in list(attrs) if k.startswith("spec_specifications")]:
+        _drop(_sk)
+    _sb = attrs.get("spec_built_in_speakers")
+    if isinstance(_sb, str):
+        if attrs.get("audio") is None:
+            _aud = _sb.strip().rstrip(".").strip()
+            if _aud:
+                attrs["audio"] = _aud
+        _drop("spec_built_in_speakers")
+    _sd = attrs.get("spec_dimensions")
+    if isinstance(_sd, str):
+        if attrs.get("dimensions") is None:
+            attrs["dimensions"] = _sd.strip()
+        _drop("spec_dimensions")
+    # Long Wi-Fi sentences ("Wi-Fi 7 (WLAN ..., 2x2), Bluetooth ..."):
+    # harvest the standard, the blob itself never filters.
+    if category == "motherboard":
+        _wl = attrs.get("wireless")
+        if isinstance(_wl, str):
+            _wm = re.search(r"Wi-?Fi\s?(\d)\s?(E)?\b", _wl, re.I)
+            if _wm and attrs.get("wifi_standard") is None:
+                attrs["wifi_standard"] = (
+                    "WIFI" + _wm.group(1) + (_wm.group(2) or "")).upper()
+                _drop("wireless")
     # Case PSU bay: anything outside the known standards is a misparse
     # ("Strong") — a wrong bay fact is worse than none.
     if category == "case":
