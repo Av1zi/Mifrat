@@ -18,7 +18,7 @@ import {
 } from "./state";
 import type { Currency, Lang, Product } from "./types";
 import { displayName, errorPanel, esc } from "./utils";
-import { renderBuilder } from "./views/builder";
+import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
 import { renderHome } from "./views/home";
 import { renderProduct } from "./views/product";
@@ -317,7 +317,9 @@ function renderRoute(): void {
     route.view === "home"
       ? renderHome(main, lang, currency)
       : route.view === "build"
-        ? renderBuilder(main, lang, currency, route.shared)
+        ? route.listId
+          ? renderListRoute(main, lang, currency, route.listId)
+          : renderBuilder(main, lang, currency, route.shared, null)
         : route.view === "product"
           ? renderProduct(main, lang, currency, route.category, route.productId)
           : renderCategory(main, lang, currency, route.category, route.params);

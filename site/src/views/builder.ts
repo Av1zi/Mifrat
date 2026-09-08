@@ -9,9 +9,16 @@ import { formatPrice } from "../format";
 import { t, vendorLabel } from "../i18n";
 import { icon } from "../icons";
 import {
+  createListLink,
+  fetchListBuild,
+  isValidListId,
+  listUrl,
+} from "../lists";
+import {
   buildHash,
   buildItemCount,
   categoryHash,
+  exitListRoute,
   getStoredBuild,
   MULTI_SLOTS,
   productHash,
@@ -27,9 +34,16 @@ export async function renderBuilder(
   container: HTMLElement,
   lang: Lang,
   currency: Currency,
-  shared: BuildMap | null
+  shared: BuildMap | null,
+  listId: string | null
 ): Promise<void> {
   const validSlots = new Set(BUILD_SLOTS.map((slot) => slot.id));
+  // After opening a /list/<id> link, the first draft change leaves the
+  // /list path (see exitListRoute) so reloads stop refetching the snapshot.
+  let activeListId = listId;
+  // Short link created for the exact build currently shown (reset by
+  // re-render whenever the build changes — a link is a permanent snapshot).
+  let shortUrlFor: { key: string; url: string } | null = null;
 
   const build: BuildMap = {};
   const source = shared ?? getStoredBuild();
@@ -93,7 +107,12 @@ export async function renderBuilder(
 
   function persist(): void {
     setStoredBuild(build);
-    replaceRoute(buildHash(build));
+    if (activeListId) {
+      exitListRoute(buildHash(build));
+      activeListId = null;
+    } else {
+      replaceRoute(buildHash(build));
+    }
   }
 
   function bestOffer(product: Product): Offer | null {
@@ -285,6 +304,11 @@ export async function renderBuilder(
     }
 
     const shareUrl = `${location.origin}${location.pathname}${buildHash(build)}`;
+    const buildKey = JSON.stringify(build);
+    const shownUrl =
+      shortUrlFor && shortUrlFor.key === buildKey
+        ? shortUrlFor.url
+        : shareUrl;
 
     const compatClass = !hasParts ? "idle" : issues.length > 0 ? "bad" : "ok";
     const compatText = !hasParts
@@ -310,6 +334,7 @@ export async function renderBuilder(
 
       <div class="actionBoxGroup">
         <div class="permalink">
+          <button class="btn-small btn-icon" id="builder-short-link" type="button" title="${esc(t(lang, "shortLink"))}">${icon("link", 13)}</button>
           <button class="btn-small btn-icon" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 13)}</button>
           <input
             class="share-input"
@@ -317,7 +342,7 @@ export async function renderBuilder(
             type="text"
             readonly
             dir="ltr"
-            value="${esc(shareUrl)}"
+            value="${esc(shownUrl)}"
           />
         </div>
         <div class="markup">
@@ -371,10 +396,43 @@ export async function renderBuilder(
       container.querySelector<HTMLButtonElement>("#builder-copy-link");
     const shareInput =
       container.querySelector<HTMLInputElement>("#builder-share-link");
+    const shortButton =
+      container.querySelector<HTMLButtonElement>("#builder-short-link");
 
     if (copyButton && shareInput) {
       copyButton.addEventListener("click", () => {
         void copyText(shareInput.value, copyButton);
+      });
+    }
+
+    if (shortButton && shareInput) {
+      shortButton.addEventListener("click", () => {
+        const key = JSON.stringify(build);
+        // Already shortened this exact build — just copy it again.
+        if (shortUrlFor && shortUrlFor.key === key) {
+          void copyText(shortUrlFor.url, shortButton);
+          return;
+        }
+        if (buildItemCount(build) === 0) return;
+        shortButton.disabled = true;
+        shortButton.title = t(lang, "creatingLink");
+        createListLink(build).then(
+          (id) => {
+            const url = listUrl(id);
+            shortUrlFor = { key, url };
+            shareInput.value = url;
+            shortButton.disabled = false;
+            shortButton.title = t(lang, "shortLink");
+            // Copy it straight away — creating the link means sharing it.
+            void copyText(url, shortButton);
+          },
+          () => {
+            // API unreachable (offline, `vite dev` without the Worker):
+            // the long URL already in the input still shares fine.
+            shortButton.disabled = false;
+            shortButton.title = t(lang, "shortLink");
+          }
+        );
       });
     }
 
@@ -422,4 +480,39 @@ export async function renderBuilder(
 
   await refreshParts();
   render();
+}
+
+/**
+ * Opens a short /list/<id> link: resolves the stored build (live lookup
+ * against today's catalog — unknown ids are pruned like any stale link),
+ * then hands off to the regular builder. Unknown/malformed ids get an
+ * in-app panel instead of a dead page.
+ */
+export async function renderListRoute(
+  container: HTMLElement,
+  lang: Lang,
+  currency: Currency,
+  listId: string
+): Promise<void> {
+  if (!isValidListId(listId)) {
+    container.innerHTML = unknownListPanel(lang);
+    return;
+  }
+  container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
+  let shared: BuildMap;
+  try {
+    shared = await fetchListBuild(listId);
+  } catch {
+    container.innerHTML = unknownListPanel(lang);
+    return;
+  }
+  await renderBuilder(container, lang, currency, shared, listId);
+}
+
+function unknownListPanel(lang: Lang): string {
+  return `
+    <div class="empty-state">
+      <p style="margin-bottom:14px;">${esc(t(lang, "unknownList"))}</p>
+      <a class="btn-small" style="text-decoration:none;" href="#/build">${esc(t(lang, "backToBuilder"))}</a>
+    </div>`;
 }

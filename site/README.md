@@ -1,8 +1,10 @@
 # Mifrat site
 
 Static frontend for the catalog in `data/site/*.json` (written by
-`scraper/site_data.py`, called from `normalize_and_match.py`). No backend,
-no database, no build-time API calls — everything runs in the browser.
+`scraper/site_data.py`, called from `normalize_and_match.py`), plus a tiny
+Cloudflare Worker for short build links only (`worker.ts` + D1 table
+`lists` — see "Build sharing" below). No build-time API calls; catalog
+reads, compatibility and filtering all run in the browser.
 
 Vite + TypeScript, no UI framework. The whole app is ~16KB of JS
 (~6.5KB gzipped).
@@ -16,9 +18,11 @@ Vite + TypeScript, no UI framework. The whole app is ~16KB of JS
   `fetch()` calls to same-origin relative paths (`/data/site/meta.json`
   etc). It never talks to GitHub, a database, or any server — it's a
   static file that reads static files.
-- Compatibility rules, if/when Phase 3 happens, belong as a plain TS
-  module operating on `attributes` already in this data — no separate
-  backend or graph database. See the project's `decisions.md` for why.
+- Compatibility rules belong as a plain TS module operating on
+  `attributes` already in this data — no separate backend or graph
+  database. See the project's `decisions.md` for why. (The one exception:
+  short build-link storage, which mathematically requires a server-side
+  table — see "What's intentionally not here yet".)
 
 ## Local development
 
@@ -70,9 +74,14 @@ on this repo's side.
 
 ## What's intentionally not here yet
 
-- **Build sharing** (Phase 3+): not implemented. When it lands, encode the
-  selected product IDs into the URL itself (no backend/DB needed) —
-  see `decisions.md` for why a backend + database was rejected for this.
+- **Build sharing**: implemented as short permanent links (`/list/<id>`,
+  6 chars) backed by a minimal Worker + D1 table (`worker.ts`,
+  `migrations/0001_lists.sql`, shared codec in `src/lists.ts`). A full
+  build carries ~110 bits of entropy, so fixed <=8-char ids REQUIRE a
+  server-side lookup — stateless URL encoding cannot do it (see
+  `decisions.md` 2026-09-08). Legacy `#/build?...` links keep working.
+  First-time setup (create the D1 database, apply the migration) is in
+  `../SHORT_LINKS_SETUP.md`.
 - **Compatibility checking** (Phase 3): not implemented. `attributes` on
   each product (socket, chipset, memory_type, form_factor, …) already has
   what a plain client-side rules module would need.

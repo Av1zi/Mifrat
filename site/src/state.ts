@@ -140,7 +140,7 @@ export interface CategoryParams {
 
 export type Route =
   | { view: "home" }
-  | { view: "build"; shared: BuildMap | null }
+  | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
 
@@ -180,6 +180,7 @@ export function parseRoute(): Route {
     return {
       view: "build",
       shared: Object.keys(shared).length ? shared : null,
+      listId: null,
     };
   }
 
@@ -194,6 +195,20 @@ export function parseRoute(): Route {
 
   const match = /^\/c\/([^/]+)/.exec(path ?? "");
   if (!match) {
+    // No hash route — maybe a clean short-link path (/list/<id>), served
+    // by the Worker's SPA fallback. Hash wins over path on purpose: once a
+    // /list page gains a hash (in-app navigation, draft persistence), the
+    // hash is the live route and the path is just where we landed.
+    const listMatch = /^\/list\/([^/]+)\/?$/.exec(location.pathname);
+    if (listMatch) {
+      let listId = listMatch[1];
+      try {
+        listId = decodeURIComponent(listId);
+      } catch {
+        // keep the raw segment; the resolver shows "unknown link" for it
+      }
+      return { view: "build", shared: null, listId };
+    }
     return { view: "home" };
   }
 
@@ -268,7 +283,12 @@ export function productHash(category: string, productId: string): string {
   return `#/p/${encodeURIComponent(category)}/${encodeURIComponent(productId)}`;
 }
 
-/** The build IS the URL — shareable with no backend. */
+/**
+ * Legacy shareable build URL (#/build?...). Still fully supported: it is the
+ * offline fallback when the short-link API is unreachable, and old links
+ * keep working forever. New shares should use short /list/<id> links
+ * (see src/lists.ts) — same build, ~6 chars instead of ~300.
+ */
 export function buildHash(build: BuildMap): string {
   const search = new URLSearchParams();
 
@@ -297,4 +317,15 @@ Does NOT fire hashchange — callers re-render locally.
 */
 export function replaceRoute(hash: string): void {
   history.replaceState(null, "", hash);
+}
+
+/**
+ * First draft change after opening a /list/<id> link: the opened snapshot
+ * stays permanent server-side, but the address bar must leave the /list
+ * path — otherwise every later in-app hash would pile onto it
+ * (/list/<id>#/c/cpu) and reloads would keep refetching the stale snapshot
+ * instead of the edited draft. Result: clean /#/build?... at root path.
+ */
+export function exitListRoute(hash: string): void {
+  history.replaceState(null, "", `/${hash}`);
 }
