@@ -1,31 +1,34 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  // Matches the Worker name already created (mifrat.ziv-avivi-28-11.workers.dev)
-  // — keep this the same so deploys update it in place.
-  "name": "mifrat",
-  "compatibility_date": "2026-08-25",
-  // Worker entrypoint: short build-link API + /list/* SPA fallback.
-  // Static assets still serve directly; only these routes invoke the Worker.
-  "main": "./worker.ts",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    // The BUILT output, not the source folder. Root directory in the
-    // Workers Builds dashboard is set to "site", so this resolves to
-    // site/dist — only exists after `npm run build` actually runs.
-    "directory": "./dist",
-    "binding": "ASSETS",
-    "run_worker_first": ["/api/*", "/list/*"]
-  },
-  // D1 table `lists` (site/migrations/0001_lists.sql): short-id -> build
-  // mapping. database_id is filled in by SHORT_LINKS_SETUP.md step 1 —
-  // `wrangler deploy` fails until then, which is intentional.
-  "d1_databases": [
-    {
-      "binding": "LISTS_DB",
-      "database_name": "mifrat-lists",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
-    }
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	// Matches the Worker name already created (mifrat.ziv-avivi-28-11.workers.dev)
+	// — keep this the same so deploys update it in place.
+	"name": "mifrat",
+	"compatibility_date": "2026-08-25",
+	// Worker entrypoint: short build-link API + /list/* SPA fallback.
+	// Static assets still serve directly; only these routes invoke the Worker.
+	"main": "./worker.ts",
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		// The BUILT output, not the source folder. Root directory in the
+		// Workers Builds dashboard is set to "site", so this resolves to
+		// site/dist — only exists after `npm run build` actually runs.
+		"directory": "./dist",
+		"binding": "ASSETS",
+		"run_worker_first": [
+			"/api/*",
+			"/list/*"
+		]
+	},
+	// D1 table `lists` (site/migrations/0001_lists.sql): short-id -> build
+	// mapping. database_id is filled in by SHORT_LINKS_SETUP.md step 1 —
+	// `wrangler deploy` fails until then, which is intentional.
+	"d1_databases": [
+		{
+			"binding": "LISTS_DB",
+			"database_name": "mifrat-lists",
+			"database_id": "883187e2-7208-44a1-9aec-e9866e2cc4c9"
+		}
+	]
 }
