@@ -41,9 +41,51 @@ export async function renderBuilder(
   // After opening a /list/<id> link, the first draft change leaves the
   // /list path (see exitListRoute) so reloads stop refetching the snapshot.
   let activeListId = listId;
-  // Short link created for the exact build currently shown (reset by
-  // re-render whenever the build changes — a link is a permanent snapshot).
+  // Short link for the exact build currently shown. It generates itself
+  // (debounced POST, deduped server-side): the input always displays the
+  // short URL once known, falling back to the long URL while pending or
+  // offline. A link is a permanent snapshot — a changed build gets a new one.
   let shortUrlFor: { key: string; url: string } | null = null;
+  let pendingKey: string | null = null;
+  let debounceTimer: number | undefined;
+
+  function ensureShortLink(key: string): void {
+    if (
+      buildItemCount(build) === 0 ||
+      shortUrlFor?.key === key ||
+      pendingKey === key
+    ) {
+      return;
+    }
+    pendingKey = key;
+    window.clearTimeout(debounceTimer);
+    debounceTimer = window.setTimeout(() => {
+      // Build moved on while waiting — the next render() reschedules.
+      if (JSON.stringify(build) !== key) {
+        pendingKey = null;
+        return;
+      }
+      createListLink(build).then(
+        (id) => {
+          pendingKey = null;
+          // Another render may have replaced the input since; only fill
+          // the live one, and only if it still shows this exact build.
+          if (JSON.stringify(build) !== key) return;
+          const url = listUrl(id);
+          shortUrlFor = { key, url };
+          const el = container.querySelector<HTMLInputElement>(
+            "#builder-share-link"
+          );
+          if (el) el.value = url;
+        },
+        () => {
+          // API unreachable (offline, `vite dev` without the Worker):
+          // the long URL already in the input still shares fine.
+          pendingKey = null;
+        }
+      );
+    }, 900);
+  }
 
   const build: BuildMap = {};
   const source = shared ?? getStoredBuild();
@@ -334,7 +376,6 @@ export async function renderBuilder(
 
       <div class="actionBoxGroup">
         <div class="permalink">
-          <button class="btn-small btn-icon" id="builder-short-link" type="button" title="${esc(t(lang, "shortLink"))}">${icon("link", 13)}</button>
           <button class="btn-small btn-icon" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 13)}</button>
           <input
             class="share-input"
@@ -396,8 +437,6 @@ export async function renderBuilder(
       container.querySelector<HTMLButtonElement>("#builder-copy-link");
     const shareInput =
       container.querySelector<HTMLInputElement>("#builder-share-link");
-    const shortButton =
-      container.querySelector<HTMLButtonElement>("#builder-short-link");
 
     if (copyButton && shareInput) {
       copyButton.addEventListener("click", () => {
@@ -405,36 +444,9 @@ export async function renderBuilder(
       });
     }
 
-    if (shortButton && shareInput) {
-      shortButton.addEventListener("click", () => {
-        const key = JSON.stringify(build);
-        // Already shortened this exact build — just copy it again.
-        if (shortUrlFor && shortUrlFor.key === key) {
-          void copyText(shortUrlFor.url, shortButton);
-          return;
-        }
-        if (buildItemCount(build) === 0) return;
-        shortButton.disabled = true;
-        shortButton.title = t(lang, "creatingLink");
-        createListLink(build).then(
-          (id) => {
-            const url = listUrl(id);
-            shortUrlFor = { key, url };
-            shareInput.value = url;
-            shortButton.disabled = false;
-            shortButton.title = t(lang, "shortLink");
-            // Copy it straight away — creating the link means sharing it.
-            void copyText(url, shortButton);
-          },
-          () => {
-            // API unreachable (offline, `vite dev` without the Worker):
-            // the long URL already in the input still shares fine.
-            shortButton.disabled = false;
-            shortButton.title = t(lang, "shortLink");
-          }
-        );
-      });
-    }
+    // The input always shows the short link: kick off (debounced) creation
+    // for this render's build; the callback fills the live input on arrival.
+    ensureShortLink(buildKey);
 
     const mdBtn = container.querySelector<HTMLButtonElement>("#markup-md");
     if (mdBtn) {

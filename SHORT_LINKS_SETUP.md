@@ -118,8 +118,10 @@ size already, this adds rate limiting):
 ## Step 5 — test on production
 
 1. Open `https://mifrat.net/#/build`, add 2–3 parts.
-2. Click the new **link icon** (⛓) next to the copy button. The share box
-   should swap to a short `https://mifrat.net/list/xxxxxx` URL and copy it.
+2. Wait ~1 second: the share box swaps by itself from the long URL to a
+   short `https://mifrat.net/list/xxxxxx` URL (no button to press — it
+   generates automatically, debounced, and identical builds reuse one id).
+   The copy button next to it copies whatever is shown.
 3. Open that URL in an incognito window — the same parts must load with
    current prices.
 4. Open an old long `#/build?cpu=...` link — it must still work (kept
@@ -142,7 +144,7 @@ size already, this adds rate limiting):
 | Symptom | Cause / fix |
 |---|---|
 | Deploy fails mentioning `database_id` | Placeholder not replaced (step 1) |
-| Short-link button does nothing, long URL stays | Worker not deployed or D1 missing — POST returns 500, client keeps the working long URL |
+| Share box never swaps to a short URL (stays long) | Worker not deployed or D1 missing — auto-POST fails silently, client keeps the working long URL. Check dashboard Deployments + bindings |
 | `/list/xxxxxx` shows "link wasn't found" right after creating it | Migration not applied to the **remote** DB (step 2 needs `--remote`) |
 | Whole site down after push | Unrelated to links would be surprising (static assets serve without the Worker), but `git revert` the commit and push — the previous deploy stays live until the new one succeeds |
 

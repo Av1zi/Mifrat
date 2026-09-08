@@ -12,6 +12,14 @@ node_modules/
 !.env.example
 *.pem
 *.key
+# Wrangler local state (login session, dev D1/sqlite, deploy cache) and
+# local-only secret overrides — never commit. Safe to commit: wrangler.jsonc
+# (worker name, D1 database_id/name and binding names are public resource
+# IDENTIFIERS, useless without your Cloudflare API token, which lives only
+# in `wrangler login`'s OS-keychain session and must never be pasted anywhere).
+.wrangler/
+.dev.vars
+.dev.vars.*
 
 *.egg-info/
 build/
