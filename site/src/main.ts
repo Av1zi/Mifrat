@@ -12,6 +12,7 @@ import { categoryLabel, t } from "./i18n";
 import { icon, type IconName } from "./icons";
 import {
   applyStoredTheme,
+  cookiesHash,
   getCurrency,
   getLang,
   getTheme,
@@ -22,15 +23,18 @@ import {
   setCurrency,
   setLang,
   setTheme,
+  termsHash,
   type Theme,
 } from "./state";
 import type { Currency, Lang, Product } from "./types";
 import { displayName, errorPanel, esc, safeImageUrl } from "./utils";
 import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
+import { renderCookies } from "./views/cookies";
 import { renderHome } from "./views/home";
 import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
+import { renderTerms } from "./views/terms";
 
 let lang: Lang = getLang();
 let currency: Currency = getCurrency();
@@ -167,6 +171,8 @@ function renderShell(): void {
       <p>${t(lang, "disclaimer")}</p>
       <a href="https://github.com/Av1zi/Mifrat" target="_blank" rel="noopener noreferrer">${t(lang, "sourceLinkLabel")}</a>
       <span aria-hidden="true"> · </span><a href="${privacyHash()}">${t(lang, "privacyTitle")}</a>
+      <span aria-hidden="true"> · </span><a href="${termsHash()}">${t(lang, "termsTitle")}</a>
+      <span aria-hidden="true"> · </span><a href="${cookiesHash()}">${t(lang, "cookiesTitle")}</a>
     </footer>`;
 
   (document.getElementById("lang-select") as HTMLSelectElement).addEventListener("change", (e) => {
@@ -330,6 +336,16 @@ function renderRoute(): void {
   if (route.view === "privacy") {
     try {
       renderPrivacy(main, lang);
+    } catch (err) {
+      console.error("[route]", err);
+      routeError(main, err);
+    }
+    return;
+  }
+  if (route.view === "terms" || route.view === "cookies") {
+    try {
+      if (route.view === "terms") renderTerms(main, lang);
+      else renderCookies(main, lang);
     } catch (err) {
       console.error("[route]", err);
       routeError(main, err);

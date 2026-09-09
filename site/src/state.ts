@@ -141,6 +141,8 @@ export interface CategoryParams {
 export type Route =
   | { view: "home" }
   | { view: "privacy" }
+  | { view: "terms" }
+  | { view: "cookies" }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -170,6 +172,14 @@ export function parseRoute(): Route {
 
   if (path === "/privacy" || path === "/privacy/") {
     return { view: "privacy" };
+  }
+
+  if (path === "/terms" || path === "/terms/") {
+    return { view: "terms" };
+  }
+
+  if (path === "/cookies" || path === "/cookies/") {
+    return { view: "cookies" };
   }
 
   if (path === "/build" || path === "/build/") {
@@ -313,6 +323,14 @@ export function homeHash(): string {
 
 export function privacyHash(): string {
   return "#/privacy";
+}
+
+export function termsHash(): string {
+  return "#/terms";
+}
+
+export function cookiesHash(): string {
+  return "#/cookies";
 }
 
 /** Real navigation: adds a history entry. */

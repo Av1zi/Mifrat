@@ -587,7 +587,8 @@ main { flex: 1; width: 100%; max-width: none; margin: 0; padding: 28px 24px 64px
 .active-filter-chip.is-locked { cursor: default; border-style: dashed; }
 .active-filter-chip.is-locked:hover { background: var(--blue-bg); color: var(--blue-dark); }
 .btn-quickadd { display: inline-flex; align-items: center; gap: 6px; }
-.btn-quickadd.is-added { background: var(--green); border-color: var(--green); }
+.btn-quickadd.is-added { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+[data-theme="dark"] .btn-quickadd.is-added { color: #0b0e13; }
 [data-theme="dark"] .active-filter-chip:hover { color: #0b0e13; }
 .chip-remove { font-size: 0.7rem; opacity: 0.8; }
 
@@ -766,8 +767,8 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
 .offer-status { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
 .offer-price { font-family: var(--font-mono); font-weight: 700; }
 .offer-link {
-  background: var(--green);
-  border: 1px solid var(--green);
+  background: var(--green-dark);
+  border: 1px solid var(--green-dark);
   color: #fff;
   text-decoration: none;
   padding: 6px 16px;
@@ -777,6 +778,10 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   white-space: nowrap;
 }
 .offer-link:hover { background: var(--green-dark); border-color: var(--green-dark); text-decoration: none; color: #fff; }
+/* White-on-green fails contrast in dark theme (green is brighter there),
+   so dark-theme green buttons use near-black text — same pattern as the
+   active-filter-chip / pick-tabs overrides below. */
+[data-theme="dark"] .offer-link, [data-theme="dark"] .offer-link:hover { color: #0b0e13; }
 .add-to-build { margin: 0 0 14px; }
 .reference-note {
   font-size: 0.76rem;
@@ -982,8 +987,9 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
 .pick-cancel { margin-inline-start: auto; color: var(--text-dim); font-size: 0.84rem; }
 .pick-cancel:hover { color: var(--red); }
 .btn-add, .pl-row--pick .pl-action .btn-small, .plRow--pick .pl-action .btn-small {
-  background: var(--green); border-color: var(--green); color: #fff;
+  background: var(--green-dark); border-color: var(--green-dark); color: #fff;
 }
+[data-theme="dark"] .btn-add, [data-theme="dark"] .pl-row--pick .pl-action .btn-small, [data-theme="dark"] .plRow--pick .pl-action .btn-small { color: #0b0e13; }
 .pl-row--pick .pl-action .btn-small:hover, .plRow--pick .pl-action .btn-small:hover { background: var(--green-dark); border-color: var(--green-dark); }
 
 .picker-panel { width: min(760px, 100%); display: flex; flex-direction: column; }
@@ -1215,7 +1221,7 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
   padding: 0;
   max-width: 110px;
 }
-.nav-select select:focus { outline: none; }
+.nav-select select:focus { outline: none; box-shadow: 0 0 0 3px rgba(27, 120, 183, 0.35); border-radius: 4px; }
 .nav-select select option { color: #111; background: #fff; }
 .theme-btn { display: inline-flex; align-items: center; gap: 6px; }
 
@@ -1338,7 +1344,7 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
   font-size: 0.9rem;
 }
 .nav-search-inner input::placeholder { color: rgba(255, 255, 255, 0.45); }
-.nav-search-inner input:focus { outline: none; border-color: #f2a900; }
+.nav-search-inner input:focus { outline: none; border-color: #f2a900; box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.35); }
 .global-results {
   max-width: 720px;
   margin: 0 auto;
@@ -1393,7 +1399,7 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 .slot-link { font-weight: 700; color: var(--blue); font-size: 0.84rem; }
 .slot-link--static { color: var(--text); cursor: default; }
 .slot-link--static:hover { text-decoration: none; }
-.price-link { font-family: var(--font-mono); font-weight: 700; color: var(--green); font-size: 0.86rem; }
+.price-link { font-family: var(--font-mono); font-weight: 700; color: var(--green-dark); font-size: 0.86rem; }
 .bs-part-name { font-weight: 600; font-size: 0.88rem; color: var(--text); overflow-wrap: anywhere; }
 a.bs-part-name:hover { color: var(--blue); }
 .bsBase { font-family: var(--font-mono); font-size: 0.83rem; color: var(--text-dim); }
