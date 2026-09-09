@@ -140,6 +140,7 @@ export interface CategoryParams {
 
 export type Route =
   | { view: "home" }
+  | { view: "privacy" }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -166,6 +167,10 @@ const VALID_SORTS: SortKey[] = [
 export function parseRoute(): Route {
   const raw = location.hash.replace(/^#/, "");
   const [path, queryStr] = raw.split("?");
+
+  if (path === "/privacy" || path === "/privacy/") {
+    return { view: "privacy" };
+  }
 
   if (path === "/build" || path === "/build/") {
     const search = new URLSearchParams(queryStr ?? "");
@@ -304,6 +309,10 @@ export function buildHash(build: BuildMap): string {
 
 export function homeHash(): string {
   return "#/";
+}
+
+export function privacyHash(): string {
+  return "#/privacy";
 }
 
 /** Real navigation: adds a history entry. */

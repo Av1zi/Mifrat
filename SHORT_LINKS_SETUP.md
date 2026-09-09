@@ -110,10 +110,15 @@ will deploy the Worker automatically — just confirm these two things:
 Custom domain: nothing to change. `mifrat.net/list/*` is served by the same
 Worker that now also answers `/api/*`.
 
-Optional but recommended — abuse protection (the API validates + caps body
-size already, this adds rate limiting):
+## Step 4b — REQUIRED abuse protection (do not skip)
+
+The Worker already validates + caps body size, throttles to 20 POSTs /
+minute / IP in code, and refuses new rows past 50k total — but in-memory
+throttling is per-isolate (best-effort), so the dashboard rule is the
+real enforcement. Create it now:
 **Security → Rate Limiting → Create rule** matching
-`mifrat.net/api/lists` with POST, e.g. 20 requests / 10 minutes / IP.
+`mifrat.net/api/lists` with POST, e.g. 20 requests / 10 minutes / IP,
+action Block.
 
 ## Step 5 — test on production
 

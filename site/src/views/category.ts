@@ -31,7 +31,7 @@ import {
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
-import { displayName, errorPanel, esc } from "../utils";
+import { displayName, errorPanel, esc, safeImageUrl } from "../utils";
 import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
@@ -762,9 +762,12 @@ export async function renderCategory(
     // picker rows are buttons that add the part to the build.
     const inner = `
         <div class="pl-cell" style="display:flex; align-items:center; justify-content:center;">
-          ${p.image
-            ? `<img class="plThumb" src="${esc(p.image)}" alt="${esc(displayName(p))}" loading="lazy" style="object-fit:contain; background:#fff;">`
-            : `<span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span>`}
+          ${(() => {
+            const img = safeImageUrl(p.image);
+            return img
+              ? `<img class="plThumb" src="${esc(img)}" alt="${esc(displayName(p))}" loading="lazy" style="object-fit:contain; background:#fff;">`
+              : `<span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span>`;
+          })()}
         </div>
         <div class="pl-cell pl-name">
           <span class="pl-title">${esc(displayName(p))}</span>

@@ -16,6 +16,36 @@ export function esc(value: unknown): string {
 }
 
 /**
+ * URL scheme allowlist for scraped href/src sinks (audit §2.2).
+ *
+ * esc() neutralizes <>"'& but `href="javascript:..."` needs no special
+ * chars — so every offer.url / product.image goes through here first.
+ * Buy links allow https/http + same-origin paths + fragments; anything
+ * else (javascript:, data:, vbscript:, file:) returns null and the caller
+ * must skip the link.
+ */
+export function safeUrl(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const v = raw.trim();
+  if (/^(https?:\/\/|\/[^/]|#)/i.test(v)) return v;
+  return null;
+}
+
+/**
+ * Stricter variant for <img> sinks: same-origin /images/... only.
+ * Combined with the local-only image policy in scraper/site_data.py
+ * (no remote fallback), the Network tab shows zero vendor-host image
+ * requests. Remote URLs — even https: — return null so the caller
+ * renders the initials-thumb fallback instead of hotlinking.
+ */
+export function safeImageUrl(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const v = raw.trim();
+  if (v.startsWith("/images/")) return v;
+  return null;
+}
+
+/**
  * Failure panel for data views: friendly message, a retry button, and the
  * technical reason tucked into a details element so a bug report can
  * include the exact error instead of "it didn't load".

@@ -48,15 +48,59 @@ const SLOT_ORDER = BUILD_SLOTS.map((s) => s.id);
 const VALID_SLOTS = new Set<string>(SLOT_ORDER);
 const MAX_BODY_CHARS = 8192;
 const ID_ATTEMPTS = 5;
+// Abuse guards (audit §2.1): the dashboard rate-limit rule (see
+// SHORT_LINKS_SETUP.md step 4) is the primary defense; these in-worker
+// checks are defense-in-depth so one misconfigured dashboard never means
+// unbounded D1 growth.
+const MAX_ROWS = 50000;
+const MAX_POSTS_PER_IP_PER_MIN = 20;
+const ipHits = new Map<string, number[]>();
+
+function clientIp(request: Request): string {
+  return (
+    request.headers.get("cf-connecting-ip") ??
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "unknown"
+  );
+}
+
+function isRateLimited(ip: string, now: number): boolean {
+  const windowStart = now - 60_000;
+  const hits = (ipHits.get(ip) ?? []).filter((t) => t > windowStart);
+  hits.push(now);
+  ipHits.set(ip, hits);
+  // Bound memory: drop stale entries opportunistically.
+  if (ipHits.size > 5000) {
+    for (const [k, v] of ipHits) {
+      if (v.length === 0 || v[v.length - 1]! <= windowStart) ipHits.delete(k);
+    }
+  }
+  return hits.length > MAX_POSTS_PER_IP_PER_MIN;
+}
 
 function json(data: unknown, status = 200, cacheImmutable = false): Response {
-  const headers: Record<string, string> = { "content-type": "application/json" };
+  const headers: Record<string, string> = {
+    "content-type": "application/json",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "strict-origin-when-cross-origin",
+  };
   if (cacheImmutable) {
     // Rows are insert-only: a stored build never changes, so a fetched one
     // can be cached at the edge (and in the browser) indefinitely.
     headers["cache-control"] = "public, max-age=31536000, immutable";
   }
   return new Response(JSON.stringify(data), { status, headers });
+}
+
+function withSecurityHeaders(res: Response): Response {
+  const headers = new Headers(res.headers);
+  headers.set("x-content-type-options", "nosniff");
+  headers.set("referrer-policy", "strict-origin-when-cross-origin");
+  return new Response(res.body, {
+    status: res.status,
+    statusText: res.statusText,
+    headers,
+  });
 }
 
 function isUniqueViolation(err: unknown): boolean {
@@ -78,6 +122,10 @@ async function handleCreate(request: Request, env: Env): Promise<Response> {
     return json({ error: "storage unavailable" }, 500);
   }
 
+  if (isRateLimited(clientIp(request), Date.now())) {
+    return json({ error: "try again later" }, 429);
+  }
+
   let text: string;
   try {
     text = await request.text();
@@ -97,6 +145,19 @@ async function handleCreate(request: Request, env: Env): Promise<Response> {
 
   const validated = validateListBuild(parsed, VALID_SLOTS);
   if (!validated.ok) return json({ error: validated.error }, 400);
+
+  // Global growth guard: insert-only table with no TTL — refuse new rows
+  // past the cap rather than filling D1 silently under abuse.
+  try {
+    const count = await env.LISTS_DB.prepare(
+      "SELECT COUNT(*) AS c FROM lists"
+    ).first<{ c: number }>();
+    if (count && typeof count.c === "number" && count.c >= MAX_ROWS) {
+      return json({ error: "try again later" }, 429);
+    }
+  } catch {
+    return json({ error: "storage unavailable" }, 500);
+  }
 
   const canonical = canonicalizeListBuild(validated.build, SLOT_ORDER);
   const canonicalJson = JSON.stringify(canonical);
@@ -192,14 +253,27 @@ export default {
     // for garbage/unknown ids.
     if (path === "/list" || path.startsWith("/list/")) {
       if (request.method !== "GET") {
-        return new Response("Method not allowed", { status: 405 });
+        return new Response("Method not allowed", {
+          status: 405,
+          headers: {
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+          },
+        });
       }
       const indexUrl = new URL("/index.html", url.origin);
-      return env.ASSETS.fetch(
+      const res = await env.ASSETS.fetch(
         new Request(indexUrl.toString(), { headers: request.headers })
       );
+      return withSecurityHeaders(res);
     }
 
-    return new Response("Not found", { status: 404 });
+    return new Response("Not found", {
+      status: 404,
+      headers: {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+      },
+    });
   },
 };

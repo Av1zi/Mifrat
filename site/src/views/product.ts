@@ -14,7 +14,7 @@ import {
   setStoredBuild,
 } from "../state";
 import type { Currency, Lang, Product } from "../types";
-import { displayName, errorPanel, esc, skuOf } from "../utils";
+import { displayName, errorPanel, esc, safeImageUrl, safeUrl, skuOf } from "../utils";
 
 // Attribute keys that make good "series" variant groups (PCPP's
 // "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
@@ -259,6 +259,10 @@ export async function renderProduct(
       const stale = offer.stale
         ? ` <span class="tag-stale">${t(lang, "staleData")}</span>`
         : "";
+      const buyUrl = safeUrl(offer.url);
+      const buyCell = buyUrl
+        ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>`
+        : `<span class="dim">-</span>`;
       return `
       <tr class="${offer.in_stock ? "" : "is-out"}">
         <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}</td>
@@ -266,24 +270,26 @@ export async function renderProduct(
         <td class="pt-ship">${shipping}</td>
         <td class="pt-avail"><span class="status-dot ${offer.in_stock ? "in" : "out"}"></span>${offer.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}${stale}</td>
         <td class="pt-total">${offer.price === null ? "-" : esc(formatPrice(total, currency, lang))}</td>
-        <td class="pt-buy"><a class="offer-link" href="${esc(offer.url)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a></td>
+        <td class="pt-buy">${buyCell}</td>
       </tr>`;
     })
     .join("");
 
-  const imageHtml = product.image
-    ? `<img class="pdp-image" src="${esc(product.image)}" alt="${esc(name)}" loading="eager">`
+  const mainImg = safeImageUrl(product.image);
+  const imageHtml = mainImg
+    ? `<img class="pdp-image" src="${esc(mainImg)}" alt="${esc(name)}" loading="eager">`
     : `<div class="thumb thumb-lg">${esc((product.brand ?? name).slice(0, 2).toUpperCase())}</div>`;
 
   const similarHtml = similar
-    .map(
-      (p) => `
+    .map((p) => {
+      const simImg = safeImageUrl(p.image);
+      return `
       <a class="pdp-similar-card" href="${productHash(p.category, p.id)}">
-        ${p.image ? `<img src="${esc(p.image)}" alt="${esc(displayName(p))}" loading="lazy">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
+        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
         <span class="pdp-similar-name">${esc(displayName(p))}</span>
         <span class="pdp-similar-price">${formatPrice(p.min_price, currency, lang)}</span>
-      </a>`
-    )
+      </a>`;
+    })
     .join("");
 
   container.innerHTML = `

@@ -28,7 +28,7 @@ import {
   type BuildMap,
 } from "../state";
 import type { Currency, Lang, Offer, Product } from "../types";
-import { displayName, esc } from "../utils";
+import { displayName, esc, safeImageUrl, safeUrl } from "../utils";
 
 export async function renderBuilder(
   container: HTMLElement,
@@ -187,8 +187,9 @@ export async function renderBuilder(
       return `<div class="thumb" aria-hidden="true"><span>${esc(initials)}</span></div>`;
     }
     const href = productHash(product.category, product.id);
-    if (product.image) {
-      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(product.image)}" alt="" loading="lazy"></a>`;
+    const img = safeImageUrl(product.image);
+    if (img) {
+      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy"></a>`;
     }
     const label = (product.brand ?? product.name).slice(0, 2).toUpperCase() || "-";
     return `<a class="thumb has-part" href="${href}" tabindex="-1"><span>${esc(label)}</span></a>`;
@@ -202,10 +203,11 @@ export async function renderBuilder(
     const offer = bestOffer(product);
     const price = effectivePrice(product);
     const href = productHash(product.category, product.id);
+    const buyUrl = offer ? safeUrl(offer.url) : null;
     const priceHtml =
-      price === null || !offer
+      price === null || !offer || !buyUrl
         ? `<span class="dim">-</span>`
-        : `<a class="price-link" href="${esc(offer.url)}" target="_blank" rel="noopener noreferrer">${esc(formatPrice(price, currency, lang))}</a>`;
+        : `<a class="price-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${esc(formatPrice(price, currency, lang))}</a>`;
 
     return `
       <div class="buildRow">
@@ -227,7 +229,7 @@ export async function renderBuilder(
         </div>
         <div class="bhCell bsPrice">${priceHtml}</div>
         <div class="bhCell bsWhere">${offer ? esc(vendorLabel(offer.vendor)) : `<span class="dim">-</span>`}</div>
-        <div class="bhCell">${offer ? `<a class="offer-link" href="${esc(offer.url)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>` : `<span class="dim">-</span>`}</div>
+        <div class="bhCell">${buyUrl ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>` : `<span class="dim">-</span>`}</div>
         <div class="bhCell bsRemove">
           <button class="icon-btn" type="button" data-action="remove" data-slot="${esc(slot.id)}" data-id="${esc(product.id)}" aria-label="${esc(t(lang, "removePart"))}" title="${esc(t(lang, "removePart"))}">
             ${icon("trash", 15)}

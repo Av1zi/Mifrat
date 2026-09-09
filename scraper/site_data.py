@@ -42,12 +42,22 @@ def _local_image_path(vendor_id: str | None, vendor_sku: str | None) -> str | No
     return None
 
 
+# Remotes dropped by _resolve_image during the current write_site_data()
+# run — reported once per run so listing-thumbnail coverage gaps stay
+# visible until backfilled (see download_images --from-catalog).
+_DROPPED_REMOTES: list[str] = []
+
+
 def _resolve_image(product: dict, offers: list[dict]) -> str | None:
     """
-    Prefer our own hosted copy (data/images/<vendor>/<sku>.jpg, served from
-    /images/...) so vendor hosts can't break our photos by moving theirs.
-    The offer that supplied the current image_url wins; otherwise the first
-    offer with a downloaded file; otherwise the remote URL as fallback.
+    Local-only: return our own hosted copy
+    (data/images/<vendor>/<sku>.jpg, served from /images/...) or None.
+
+    No remote-vendor fallback — hotlinking leaks visitor IPs to vendor
+    hosts, breaks when vendors move their images, and defeats the
+    frontend's same-origin image policy (see safeImageUrl). Products
+    without a local photo fall back to the existing initials thumb in
+    the UI (thumbHtml/thumbLabel), so None is a safe, renderable state.
     """
     current = product.get("image_url")
     raw_offers = product.get("offers", [])
@@ -68,7 +78,10 @@ def _resolve_image(product: dict, offers: list[dict]) -> str | None:
         if local:
             return local
 
-    return current
+    _dropped_remote = product.get("image_url")
+    if _dropped_remote and isinstance(_dropped_remote, str) and _dropped_remote.startswith("http"):
+        _DROPPED_REMOTES.append(str(_dropped_remote))
+    return None
 
 
 def _write_json_atomic(path: Path, value: object) -> None:
@@ -148,6 +161,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
     Returns the meta dict that was written, mainly so callers can log a
     summary without re-reading the file.
     """
+    _DROPPED_REMOTES.clear()
     by_category: dict[str, list[dict]] = defaultdict(list)
 
     for product in catalog["products"]:
@@ -191,4 +205,48 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
         if existing.name != "meta.json" and existing.name not in current_files:
             existing.unlink()
 
+    # Local-only regression guard: no built site JSON may reference a
+    # remote http(s) image. _resolve_image() already returns None instead
+    # of a remote fallback, so any hit here means a new code path is
+    # leaking vendor URLs — fail loudly rather than shipping hotlinks.
+    remote_hits = _count_remote_images(site_dir)
+    total_products = sum(len(v) for v in by_category.values())
+    with_local = sum(
+        1 for v in by_category.values() for p in v if p.get("image")
+    )
+    print(
+        f"[images] local {with_local}/{total_products} products have a photo; "
+        f"{len(_DROPPED_REMOTES)} remotes dropped (no local file yet — "
+        f"backfill with: python -m scraper.download_images --from-catalog)"
+    )
+    if remote_hits:
+        raise RuntimeError(
+            f"[images] {remote_hits} remote \"image\":\"http\" references in "
+            f"{site_dir} — local-only policy violated"
+        )
+
     return meta
+
+
+def _count_remote_images(site_dir: Path) -> int:
+    """Post-write scan: count built files containing a remote image URL."""
+    hits = 0
+    for path in site_dir.glob("*.json"):
+        if path.name == "meta.json":
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        hits += text.count('"image":"http')
+    history_dir = site_dir / "history"
+    if history_dir.is_dir():
+        for path in history_dir.glob("*.json"):
+            try:
+                text = path.read_text(encoding="utf-8")
+            except OSError:
+                continue
+            # History files carry no image fields today; guard anyway so a
+            # future field can't reintroduce hotlinks silently.
+            hits += text.count('"image":"http')
+    return hits

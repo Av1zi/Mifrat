@@ -8,6 +8,7 @@ resize/compress step in one place shared across all 4 vendors.
 
 Usage:
     python -m scraper.download_images data/raw/detail/tms.jsonl tms
+    python -m scraper.download_images --from-catalog [--limit 200]
 
 Saves to data/images/<vendor>/<vendor_sku>.jpg, resized so the long
 edge is at most 800px and re-encoded as JPEG quality 82 — keeps each
@@ -106,8 +107,98 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
         print("skipped, so only the missing ones are re-attempted).")
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python -m scraper.download_images <jsonl_path> <vendor>")
+def _vendor_folder(vendor_id: str) -> str:
+    """Same normalization as site_data._image_vendor_key: 1pc -> onepc."""
+    return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
+
+
+def _backfill_from_catalog(limit: int = 200) -> None:
+    """Download listing-thumbnail images for catalog offers that have no
+    local file yet. Covers listing-only products (no detail row, so no
+    og:image) — exactly the gap that forced the old remote-URL fallback.
+
+    Politeness: sequential, MifratBot UA (see download_and_save), 15s
+    timeout, skips files already on disk, capped at --limit new
+    downloads per run (~200/day). Never raises — image gaps must never
+    block the pipeline; missing photos render as initials thumbs.
+    """
+    catalog_path = Path("data/catalog.json")
+    if not catalog_path.exists():
+        print(f"No such file: {catalog_path} — run normalize first")
         sys.exit(1)
-    process_jsonl(sys.argv[1], sys.argv[2])
+
+    with catalog_path.open(encoding="utf-8") as f:
+        catalog = json.load(f)
+
+    # Collect one (vendor, sku, url) per offer missing its local file.
+    pending: list[tuple[str, str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    for product in catalog.get("products", []):
+        for offer in product.get("offers", []) or []:
+            vendor = str(offer.get("vendor_id") or "")
+            sku = str(offer.get("vendor_sku") or "").strip()
+            url = offer.get("image_url")
+            if not vendor or not sku or not url:
+                continue
+            if not _has_basename(str(url)):
+                continue
+            folder = _vendor_folder(vendor)
+            key = (folder, sku)
+            if key in seen:
+                continue
+            seen.add(key)
+            dest = Path(f"data/images/{folder}/{sku}.jpg")
+            if dest.exists():
+                continue
+            pending.append((folder, sku, str(url)))
+
+    print(f"[backfill] {len(pending)} offers missing a local image")
+    if not pending:
+        return
+
+    batch = pending[:limit]
+    succeeded, failed = 0, 0
+    for folder, sku, url in batch:
+        dest = Path(f"data/images/{folder}/{sku}.jpg")
+        if download_and_save(url, dest):
+            succeeded += 1
+        else:
+            failed += 1
+
+    print(
+        f"[backfill] downloaded {succeeded}/{len(batch)} "
+        f"({len(pending) - len(batch)} remaining for future runs)"
+    )
+    if failed:
+        print(f"[backfill] {failed} failed — retried automatically next run")
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Download product cover images")
+    parser.add_argument("jsonl_path", nargs="?", help="detail jsonl to process")
+    parser.add_argument("vendor", nargs="?", help="vendor folder under data/images/")
+    parser.add_argument(
+        "--from-catalog",
+        action="store_true",
+        help="backfill listing thumbnails from data/catalog.json offers "
+        "(covers listing-only products with no detail row)",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=200,
+        help="max new downloads per --from-catalog run (politeness cap)",
+    )
+    args = parser.parse_args()
+
+    if args.from_catalog:
+        _backfill_from_catalog(limit=args.limit)
+    elif args.jsonl_path and args.vendor:
+        process_jsonl(args.jsonl_path, args.vendor)
+    else:
+        parser.print_usage()
+        print("Usage: python -m scraper.download_images <jsonl_path> <vendor>")
+        print("   or: python -m scraper.download_images --from-catalog [--limit 200]")
+        sys.exit(1)

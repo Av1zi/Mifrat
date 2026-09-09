@@ -1,4 +1,11 @@
 import "./style.css";
+import "@fontsource/ibm-plex-sans-hebrew/400.css";
+import "@fontsource/ibm-plex-sans-hebrew/500.css";
+import "@fontsource/ibm-plex-sans-hebrew/600.css";
+import "@fontsource/ibm-plex-sans-hebrew/700.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/600.css";
 import { loadCategory, loadMeta } from "./api";
 import { ensureFxRate, formatPrice } from "./format";
 import { categoryLabel, t } from "./i18n";
@@ -10,6 +17,7 @@ import {
   getTheme,
   homeHash,
   parseRoute,
+  privacyHash,
   productHash,
   setCurrency,
   setLang,
@@ -17,10 +25,11 @@ import {
   type Theme,
 } from "./state";
 import type { Currency, Lang, Product } from "./types";
-import { displayName, errorPanel, esc } from "./utils";
+import { displayName, errorPanel, esc, safeImageUrl } from "./utils";
 import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
 import { renderHome } from "./views/home";
+import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
 
 let lang: Lang = getLang();
@@ -157,6 +166,7 @@ function renderShell(): void {
     <footer class="site-footer">
       <p>${t(lang, "disclaimer")}</p>
       <a href="https://github.com/Av1zi/Mifrat" target="_blank" rel="noopener noreferrer">${t(lang, "sourceLinkLabel")}</a>
+      <span aria-hidden="true"> · </span><a href="${privacyHash()}">${t(lang, "privacyTitle")}</a>
     </footer>`;
 
   (document.getElementById("lang-select") as HTMLSelectElement).addEventListener("change", (e) => {
@@ -167,6 +177,9 @@ function renderShell(): void {
   (document.getElementById("currency-select") as HTMLSelectElement).addEventListener("change", (e) => {
     currency = (e.target as HTMLSelectElement).value as Currency;
     setCurrency(currency);
+    // FX fetch is opt-in via currency selection (audit §3.1): ILS mode
+    // makes zero external requests; USD fetches at most once per day.
+    if (currency === "USD") void ensureFxRate();
     renderShell();
   });
   document.getElementById("theme-toggle")!.addEventListener("click", () => {
@@ -263,8 +276,9 @@ async function runGlobalSearch(query: string): Promise<void> {
     }
     box.innerHTML = hits
       .map(({ product }) => {
-        const thumb = product.image
-          ? `<img src="${esc(product.image)}" alt="" loading="lazy">`
+        const img = safeImageUrl(product.image);
+        const thumb = img
+          ? `<img src="${esc(img)}" alt="" loading="lazy">`
           : `<span class="plThumb" aria-hidden="true">${esc((product.brand ?? product.name).slice(0, 2).toUpperCase())}</span>`;
         return `
           <a class="global-hit" href="${productHash(product.category, product.id)}">
@@ -313,6 +327,15 @@ function renderRoute(): void {
   const route = parseRoute();
   // Any failure after the loading state (stalled fetch, corrupt data,
   // unexpected shape) lands here instead of hanging on "loading" forever.
+  if (route.view === "privacy") {
+    try {
+      renderPrivacy(main, lang);
+    } catch (err) {
+      console.error("[route]", err);
+      routeError(main, err);
+    }
+    return;
+  }
   const task =
     route.view === "home"
       ? renderHome(main, lang, currency)
@@ -329,7 +352,11 @@ function renderRoute(): void {
   });
 }
 
-void ensureFxRate();
+void (async () => {
+  // FX is opt-in: only USD display needs the frankfurter rate (audit
+  // §3.1). ILS-default visitors make zero third-party requests on load.
+  if (getCurrency() === "USD") await ensureFxRate();
+})();
 // Keep theme in sync if OS preference changes and user never picked one.
 window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
   if (!localStorage.getItem("mifrat:theme")) {

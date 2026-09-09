@@ -364,6 +364,10 @@ const STRINGS = {
     historyAll: "הכל",
     historyDays: "ימים",
     retry: "נסה שוב",
+    privacyTitle: "פרטיות",
+    privacyLocalTitle: "מה נשמר בדפדפן שלך",
+    privacyLocalBody: "אין עוגיות מעקב, אין חשבונות ואין אנליטיקס. רק אחסון מקומי תפקודי (localStorage), שנשאר במכשיר שלך:",
+    privacyThirdTitle: "שירותי צד שלישי",
     disclaimer:
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
   },
@@ -462,6 +466,10 @@ const STRINGS = {
     historyAll: "All",
     historyDays: "days",
     retry: "Retry",
+    privacyTitle: "Privacy",
+    privacyLocalTitle: "What stays in your browser",
+    privacyLocalBody: "No tracking cookies, no accounts, no analytics. Only functional localStorage, kept on your device:",
+    privacyThirdTitle: "Third-party services",
     disclaimer:
       "Prices are scraped daily from each vendor's site. Links go to the vendor to buy. Mifrat doesn't sell anything itself.",
   },
