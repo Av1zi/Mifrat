@@ -44,7 +44,13 @@ def _has_basename(url: str) -> bool:
 
 def download_and_save(image_url: str, dest_path: Path) -> bool:
     """Returns True on success. Never raises — a failed image download
-    should not block the rest of the batch; log and move on."""
+    should not block the rest of the batch; log and move on.
+
+    Sets LAST_HTTP_STATUS (None on non-HTTP failures) so batch loops can
+    implement block detection (see _backfill_from_catalog).
+    """
+    global LAST_HTTP_STATUS
+    LAST_HTTP_STATUS = None
     try:
         resp = requests.get(image_url, timeout=REQUEST_TIMEOUT, headers={
             "User-Agent": "Mozilla/5.0 (compatible; MifratBot/1.0)"
@@ -56,8 +62,17 @@ def download_and_save(image_url: str, dest_path: Path) -> bool:
         img.save(dest_path, "JPEG", quality=JPEG_QUALITY, optimize=True)
         return True
     except Exception as exc:
+        try:
+            LAST_HTTP_STATUS = exc.response.status_code  # type: ignore[attr-defined]
+        except Exception:
+            pass
         print(f"  FAILED {image_url} -> {dest_path}: {exc}")
         return False
+
+
+# HTTP status of the most recent download_and_save call (None when the
+# failure wasn't HTTP, or the last call succeeded).
+LAST_HTTP_STATUS: int | None = None
 
 
 def process_jsonl(jsonl_path: str, vendor: str) -> None:
@@ -112,16 +127,36 @@ def _vendor_folder(vendor_id: str) -> str:
     return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
 
 
-def _backfill_from_catalog(limit: int = 200) -> None:
-    """Download listing-thumbnail images for catalog offers that have no
-    local file yet. Covers listing-only products (no detail row, so no
-    og:image) — exactly the gap that forced the old remote-URL fallback.
+def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
+                         sleep_secs: float = 1.0) -> None:
+    """Download listing-thumbnail images for catalog PRODUCTS that currently
+    have no local photo (one image per product — the minimal set that
+    closes the visible gap). Covers listing-only products (no detail row,
+    so no og:image) — exactly the gap that forced the old remote-URL
+    fallback.
+
+    A product "has a photo" by the same rule site_data._resolve_image
+    uses (an offer whose image file exists on disk); photoless products
+    get their product.image_url's offer (else their first usable offer).
+    Products whose offers carry no usable image URL at all (~86) can never
+    have photos and are skipped — they render as initials thumbs.
 
     Politeness: sequential, MifratBot UA (see download_and_save), 15s
-    timeout, skips files already on disk, capped at --limit new
-    downloads per run (~200/day). Never raises — image gaps must never
-    block the pipeline; missing photos render as initials thumbs.
+    timeout, `sleep_secs` pause between downloads, skips files already on
+    disk, capped at `limit` new downloads per run. Never raises — image
+    gaps must never block the pipeline; missing photos render as initials
+    thumbs.
+
+    TMS binding (see AGENTS.md): TMS blocks datacenter IPs and rate-limits
+    aggressively, so consecutive 403/429s are a stop signal, not a retry
+    cue — abort the run after 2 in a row to protect the daily listing
+    scrape, which matters far more than photos.
     """
+    try:
+        from scraper.site_data import _local_image_path
+    except ImportError:
+        from site_data import _local_image_path  # type: ignore[no-redef]
+
     catalog_path = Path("data/catalog.json")
     if not catalog_path.exists():
         print(f"No such file: {catalog_path} — run normalize first")
@@ -130,44 +165,87 @@ def _backfill_from_catalog(limit: int = 200) -> None:
     with catalog_path.open(encoding="utf-8") as f:
         catalog = json.load(f)
 
-    # Collect one (vendor, sku, url) per offer missing its local file.
+    def _usable_offer(offer: dict) -> bool:
+        sku = str(offer.get("vendor_sku") or "").strip()
+        return bool(sku) and bool(offer.get("image_url")) and _has_basename(
+            str(offer.get("image_url"))
+        )
+
+    def _has_photo(product: dict) -> bool:
+        for offer in product.get("offers", []) or []:
+            if not _usable_offer(offer):
+                continue
+            if _local_image_path(
+                offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
+            ):
+                return True
+        return False
+
+    # One target per photoless product: prefer the offer behind the
+    # product's current image_url (keeps catalog ↔ site choice stable),
+    # else the first usable offer.
     pending: list[tuple[str, str, str]] = []
     seen: set[tuple[str, str]] = set()
+    skipped_no_url = 0
     for product in catalog.get("products", []):
-        for offer in product.get("offers", []) or []:
-            vendor = str(offer.get("vendor_id") or "")
-            sku = str(offer.get("vendor_sku") or "").strip()
-            url = offer.get("image_url")
-            if not vendor or not sku or not url:
-                continue
-            if not _has_basename(str(url)):
-                continue
-            folder = _vendor_folder(vendor)
-            key = (folder, sku)
-            if key in seen:
-                continue
-            seen.add(key)
-            dest = Path(f"data/images/{folder}/{sku}.jpg")
-            if dest.exists():
-                continue
-            pending.append((folder, sku, str(url)))
+        if _has_photo(product):
+            continue
+        offers = [o for o in product.get("offers", []) or [] if _usable_offer(o)]
+        if not offers:
+            skipped_no_url += 1
+            continue
+        current = product.get("image_url")
+        chosen = next(
+            (o for o in offers if o.get("image_url") == current), offers[0]
+        )
+        vendor = str(chosen.get("vendor_id") or "")
+        folder = _vendor_folder(vendor)
+        if vendors and folder not in vendors and vendor not in vendors:
+            continue
+        sku = str(chosen.get("vendor_sku") or "").strip()
+        key = (folder, sku)
+        if key in seen:
+            continue
+        seen.add(key)
+        dest = Path(f"data/images/{folder}/{sku}.jpg")
+        if dest.exists():
+            continue
+        pending.append((folder, sku, str(chosen.get("image_url"))))
 
-    print(f"[backfill] {len(pending)} offers missing a local image")
+    print(f"[backfill] {len(pending)} photoless products need an image "
+          f"({skipped_no_url} have no usable vendor photo at all)")
     if not pending:
         return
 
+    import time
+
     batch = pending[:limit]
     succeeded, failed = 0, 0
+    blocked_streak = 0
     for folder, sku, url in batch:
         dest = Path(f"data/images/{folder}/{sku}.jpg")
         if download_and_save(url, dest):
             succeeded += 1
+            blocked_streak = 0
         else:
             failed += 1
+            if LAST_HTTP_STATUS in (403, 429):
+                blocked_streak += 1
+                if blocked_streak >= 2:
+                    print(
+                        f"[backfill] STOP: 2 consecutive {LAST_HTTP_STATUS}s — "
+                        f"treating as a block signal (photos must never "
+                        f"endanger the listing scrape). "
+                        f"{len(pending) - succeeded - failed} remaining."
+                    )
+                    break
+            else:
+                blocked_streak = 0
+        time.sleep(sleep_secs)
 
     print(
         f"[backfill] downloaded {succeeded}/{len(batch)} "
-        f"({len(pending) - len(batch)} remaining for future runs)"
+        f"({len(pending) - succeeded - failed} remaining for future runs)"
     )
     if failed:
         print(f"[backfill] {failed} failed — retried automatically next run")
@@ -191,10 +269,25 @@ if __name__ == "__main__":
         default=200,
         help="max new downloads per --from-catalog run (politeness cap)",
     )
+    parser.add_argument(
+        "--vendor",
+        dest="only_vendor",
+        action="append",
+        default=None,
+        help="only backfill this vendor folder (e.g. --vendor tms); "
+        "repeatable. Default: all vendors.",
+    )
+    parser.add_argument(
+        "--sleep",
+        type=float,
+        default=1.0,
+        help="seconds to pause between downloads (default 1.0)",
+    )
     args = parser.parse_args()
 
     if args.from_catalog:
-        _backfill_from_catalog(limit=args.limit)
+        _backfill_from_catalog(limit=args.limit, vendors=args.only_vendor,
+                               sleep_secs=args.sleep)
     elif args.jsonl_path and args.vendor:
         process_jsonl(args.jsonl_path, args.vendor)
     else:
