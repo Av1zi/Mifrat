@@ -496,17 +496,6 @@ async function renderPriceHistory(
       )
       .join("");
 
-    const formatTimestamp = (index: number): string => {
-      const raw = timestamps[start + index] ?? visDates[index];
-      const parsed = new Date(raw);
-      if (Number.isNaN(parsed.getTime())) return raw;
-      return new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-US", {
-        dateStyle: "medium",
-        timeStyle: "short",
-        timeZone: "Asia/Jerusalem",
-      }).format(parsed);
-    };
-
     const paths = vendors
       .map((vendor) => {
         const points = entry.v[vendor].slice(start, end);
@@ -529,19 +518,6 @@ async function renderPriceHistory(
         }
         if (!d) return "";
         return `<path d="${d}" fill="none" stroke="${colorOf(vendor)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><title>${esc(vendorLabel(vendor))}</title></path>`;
-      })
-      .join("");
-
-    const points = vendors
-      .map((vendor) => {
-        const pointsForVendor = entry.v[vendor].slice(start, end);
-        return pointsForVendor
-          .map((price, i) =>
-            price === null || price === undefined
-              ? ""
-              : `<circle class="ph-point" tabindex="0" cx="${x(i).toFixed(1)}" cy="${y(price).toFixed(1)}" r="6" fill="${colorOf(vendor)}"><title>${esc(`${vendorLabel(vendor)} · ${formatTimestamp(i)} · ${formatPrice(price, currency, lang)}`)}</title></circle>`
-          )
-          .join("");
       })
       .join("");
 
@@ -572,13 +548,71 @@ async function renderPriceHistory(
         </select>
       </div>
       <div class="ph-legend">${legend}</div>
-      <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
-        ${grid}
-        ${paths}
-        ${points}
-        ${xLabels}
-      </svg>
+      <div class="ph-wrap">
+        <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
+          ${grid}
+          ${paths}
+          <line class="ph-cross" y1="${T}" y2="${H - B}" hidden />
+          ${xLabels}
+        </svg>
+        <div class="ph-tip" hidden></div>
+      </div>
     `;
+
+    const wrap = host.querySelector(".ph-wrap") as HTMLElement;
+    const svg = wrap.querySelector(".ph-chart") as SVGSVGElement;
+    const tip = wrap.querySelector(".ph-tip") as HTMLElement;
+    const cross = svg.querySelector(".ph-cross") as SVGLineElement;
+    const series = vendors.map((v) => entry.v[v].slice(start, end));
+    const fmtDay = (index: number): string => {
+      const raw = timestamps[start + index] ?? visDates[index];
+      const d = new Date(raw);
+      if (!Number.isNaN(d.getTime()))
+        return new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-US", { day: "numeric", month: "numeric", year: "numeric" }).format(d);
+      return shortDate(visDates[index]);
+    };
+    svg.addEventListener("mousemove", (e) => {
+      const rect = svg.getBoundingClientRect();
+      const px = ((e.clientX - rect.left) / rect.width) * W;
+      let best = 0;
+      let bestDist = Infinity;
+      for (let i = 0; i < n; i++) {
+        const d = Math.abs(x(i) - px);
+        if (d < bestDist) { bestDist = d; best = i; }
+      }
+      const rows = vendors
+        .map((vendor, vi) => ({ vendor, price: series[vi][best] as number | null }))
+        .filter((r) => r.price !== null && r.price !== undefined);
+      if (rows.length === 0) { tip.hidden = true; cross.setAttribute("hidden", ""); return; }
+      const cheapest = Math.min(...rows.map((r) => r.price as number));
+      cross.removeAttribute("hidden");
+      cross.setAttribute("x1", x(best).toFixed(1));
+      cross.setAttribute("x2", x(best).toFixed(1));
+      tip.innerHTML = `<div class="ph-tip-date">${esc(fmtDay(best))}</div>` + rows
+        .map(({ vendor, price }) => {
+          const vi = vendors.indexOf(vendor);
+          return `<div class="ph-tip-row${(price as number) === cheapest ? " cheapest" : ""}"><span class="ph-tip-swatch" style="background:${HISTORY_COLORS[vi % HISTORY_COLORS.length]}"></span><span class="ph-tip-vendor">${esc(vendorLabel(vendor))}</span><span class="ph-tip-price">${esc(formatPrice(price as number, currency, lang))}</span></div>`;
+        })
+        .join("");
+      tip.hidden = false;
+      // Position near cursor, flip when close to the right edge.
+      const wrapRect = wrap.getBoundingClientRect();
+      let lx = e.clientX - wrapRect.left + 14;
+      let ly = e.clientY - wrapRect.top - 10;
+      tip.style.visibility = "hidden";
+      tip.style.left = "0px";
+      const tw = tip.offsetWidth;
+      const th = tip.offsetHeight;
+      if (lx + tw + 8 > wrapRect.width) lx = e.clientX - wrapRect.left - tw - 14;
+      ly = Math.max(4, Math.min(ly, wrapRect.height - th - 4));
+      tip.style.left = `${lx}px`;
+      tip.style.top = `${ly}px`;
+      tip.style.visibility = "";
+    });
+    svg.addEventListener("mouseleave", () => {
+      tip.hidden = true;
+      cross.setAttribute("hidden", "");
+    });
 
     host.querySelector(".ph-range")!.addEventListener("change", (e) => {
       const days = Number((e.target as HTMLSelectElement).value);

@@ -1056,7 +1056,7 @@ export async function renderCategory(
       : `<div class="group__content" style="display:none; padding:6px 0; font-size:0.82rem; color:var(--text-dim)">No vendor data</div>`;
 
     const pricingBody = `
-      <div class="group__content" style="padding:8px 0">
+      <div class="group__content" id="pricing-content" style="display:none; padding:8px 0">
         <label class="checkbox-row" style="margin-top:8px; border-top:none; padding-top:6px">
           <input type="checkbox" id="stock-checkbox" ${params.stockOnly ? "checked" : ""} />
           ${t(lang, "inStockOnly")}
@@ -1363,10 +1363,6 @@ export async function renderCategory(
         if (tog) tog.textContent = d.open ? "−" : "+";
       });
     });
-    const stockEl = rail.querySelector<HTMLInputElement>("#stock-checkbox");
-    if (stockEl) {
-      // already wired below, but keep here for pricing section duplicate
-    }
     const merchantAll = rail.querySelector<HTMLInputElement>("[data-merchant-all]");
     if (merchantAll) {
       merchantAll.addEventListener("change", () => {
