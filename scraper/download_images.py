@@ -101,7 +101,7 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
                 skipped.append(sku)
                 continue
 
-            dest = Path(f"data/images/{vendor}/{sku}.jpg")
+            dest = _dest_for(vendor, sku)
             if dest.exists():
                 # Already downloaded (e.g. a re-run after a partial
                 # failure) — skip re-fetching.
@@ -125,6 +125,18 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
 def _vendor_folder(vendor_id: str) -> str:
     """Same normalization as site_data._image_vendor_key: 1pc -> onepc."""
     return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
+
+
+def _dest_for(vendor_folder: str, sku: str) -> Path:
+    """On-disk destination for a downloaded cover. The filename goes
+    through site_data._safe_image_stem (strips invisible Cf/Cc chars that
+    would otherwise produce uncommittable/unfetchable files) — both sides
+    must agree, so never build this path from the raw SKU directly."""
+    try:
+        from scraper.site_data import _safe_image_stem
+    except ImportError:
+        from site_data import _safe_image_stem  # type: ignore[no-redef]
+    return Path(f"data/images/{vendor_folder}/{_safe_image_stem(sku)}.jpg")
 
 
 def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
@@ -203,11 +215,11 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
         if vendors and folder not in vendors and vendor not in vendors:
             continue
         sku = str(chosen.get("vendor_sku") or "").strip()
-        key = (folder, sku)
+        dest = _dest_for(folder, sku)
+        key = (folder, dest.name)
         if key in seen:
             continue
         seen.add(key)
-        dest = Path(f"data/images/{folder}/{sku}.jpg")
         if dest.exists():
             continue
         pending.append((folder, sku, str(chosen.get("image_url"))))
@@ -223,7 +235,7 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
     succeeded, failed = 0, 0
     blocked_streak = 0
     for folder, sku, url in batch:
-        dest = Path(f"data/images/{folder}/{sku}.jpg")
+        dest = _dest_for(folder, sku)
         if download_and_save(url, dest):
             succeeded += 1
             blocked_streak = 0

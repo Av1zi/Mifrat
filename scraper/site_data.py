@@ -32,11 +32,31 @@ def _image_vendor_key(vendor_id: str | None) -> str:
     return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
 
 
+def _safe_image_stem(vendor_sku: str) -> str:
+    """Filename stem for a vendor SKU with invisible/dangerous characters
+    stripped. Scraped SKUs occasionally carry Unicode bidi marks or other
+    format/control characters (Sep 2026: a TMS SKU starting with U+200E
+    LEFT-TO-RIGHT MARK). Such names survive on one OS but become
+    uncommittable/unfetchable elsewhere — git silently skipped the file
+    entirely, so the product 404'd on every platform except the machine
+    that downloaded it. Stripping Cf/Cc keeps the name byte-stable for
+    every normal SKU (no churn) while making odd ones portable.
+
+    MUST stay in sync with the downloader: both sides derive the on-disk
+    path through this helper, never from the raw SKU.
+    """
+    import unicodedata
+
+    return "".join(
+        ch for ch in vendor_sku if unicodedata.category(ch) not in ("Cf", "Cc")
+    )
+
+
 def _local_image_path(vendor_id: str | None, vendor_sku: str | None) -> str | None:
     """Same-origin /images/... URL when the scraped file exists on disk."""
     if not vendor_sku:
         return None
-    filename = f"{vendor_sku}.jpg"
+    filename = f"{_safe_image_stem(vendor_sku)}.jpg"
     if (IMAGES_DIR / _image_vendor_key(vendor_id) / filename).is_file():
         return f"/images/{_image_vendor_key(vendor_id)}/{quote(filename)}"
     return None
