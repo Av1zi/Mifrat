@@ -13,8 +13,10 @@ import {
   productHash,
   setStoredBuild,
 } from "../state";
+import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { displayName, errorPanel, esc, safeImageUrl, safeUrl, skuOf } from "../utils";
+import { renderNotFound } from "./notfound";
 
 // Attribute keys that make good "series" variant groups (PCPP's
 // "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
@@ -175,12 +177,10 @@ export async function renderProduct(
 
   const product = products.find((p) => p.id === productId);
   if (!product) {
-    container.innerHTML = `
-      <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
-      <div class="empty-state">${t(lang, "productNotFound")}</div>
-    `;
+    renderNotFound(container, lang);
     return;
   }
+  setPageTitle(lang, displayName(product));
 
   const sameBrand = product.brand
     ? products.filter((p) => p.brand === product.brand)

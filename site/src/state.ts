@@ -140,6 +140,7 @@ export interface CategoryParams {
 
 export type Route =
   | { view: "home" }
+  | { view: "notfound" }
   | { view: "privacy" }
   | { view: "terms" }
   | { view: "cookies" }
@@ -224,7 +225,11 @@ export function parseRoute(): Route {
       }
       return { view: "build", shared: null, listId };
     }
-    return { view: "home" };
+    // Empty hash is the home page. Anything else we do not recognize
+    // gets the custom 404 page instead of silently showing home.
+    const clean = (path ?? "").replace(/\/+$/, "");
+    if (clean === "" || clean === "/") return { view: "home" };
+    return { view: "notfound" };
   }
 
   const category = decodeURIComponent(match[1]);

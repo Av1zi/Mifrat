@@ -1462,3 +1462,225 @@ a.bs-part-name:hover { color: var(--blue); }
   .buildRow .bhCell:nth-child(2) { grid-row: 2 / 4; align-self: center; }
   .buildRow.is-empty .bsChoose, .buildRow--add .bsChoose { grid-column: 2 / -1; align-self: center; }
 }
+
+/* ============================================================
+   Legal pages (privacy / terms / cookies): centered narrow
+   column with comfortable reading rhythm.
+   ============================================================ */
+.legal-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.title-band--center { text-align: center; }
+.legal-card {
+  line-height: 1.75;
+}
+.legal-card h2.pdp-card-title {
+  margin-top: 22px;
+}
+.legal-card h2.pdp-card-title:first-child {
+  margin-top: 0;
+}
+.legal-card p { margin: 0 0 12px; }
+.legal-card p:last-child { margin-bottom: 0; }
+.legal-card ul {
+  margin: 0 0 12px;
+  padding-inline-start: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.legal-card code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  background: var(--bg-stripe);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 1px 6px;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* ============================================================
+   Landing page (home): hero extras, steps, features
+   ============================================================ */
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 10px;
+}
+.hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.btn-ghost {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 24px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--bg-panel);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  text-decoration: none;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-light);
+}
+.hero-stats > div { min-width: 120px; }
+.hero-stats dt {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.hero-stats dd {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+.landing-section { margin: 34px 0; }
+.section-title--center { text-align: center; }
+.landing-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.landing-step {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 20px 18px;
+  text-align: center;
+}
+.landing-step h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 10px 0 6px;
+}
+.landing-step p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.step-num {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--blue-bg);
+  border: 1px solid var(--blue);
+  color: var(--blue-dark);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.landing-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.landing-feature {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 20px 18px;
+  text-align: center;
+}
+.landing-feature h3 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin: 10px 0 6px;
+}
+.landing-feature p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.feat-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--bg-stripe);
+  border: 1px solid var(--border-light);
+  color: var(--blue);
+}
+.landing-trust { text-align: center; }
+
+@media (max-width: 900px) {
+  .landing-steps { grid-template-columns: 1fr; }
+  .landing-features { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .landing-features { grid-template-columns: 1fr; }
+  .hero-stats { gap: 18px; }
+}
+
+/* ============================================================
+   404 page: centered card, big code, clear way back
+   ============================================================ */
+.notfound-wrap {
+  max-width: 620px;
+  margin: 48px auto;
+}
+.notfound-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 48px 32px;
+  text-align: center;
+}
+.notfound-code {
+  font-family: var(--font-mono);
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: var(--blue);
+  line-height: 1;
+  margin: 0 0 10px;
+}
+.notfound-card h1 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+}
+.notfound-card p {
+  margin: 0 0 22px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.notfound-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.notfound-actions .btn-primary { text-decoration: none; }
+.notfound-actions .btn-primary:hover { text-decoration: none; }

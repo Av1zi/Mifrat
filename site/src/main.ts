@@ -32,9 +32,11 @@ import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
 import { renderCookies } from "./views/cookies";
 import { renderHome } from "./views/home";
+import { renderNotFound } from "./views/notfound";
 import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
 import { renderTerms } from "./views/terms";
+import { setPageTitle } from "./titles";
 
 let lang: Lang = getLang();
 let currency: Currency = getCurrency();
@@ -351,6 +353,23 @@ function renderRoute(): void {
       routeError(main, err);
     }
     return;
+  }
+  if (route.view === "notfound") {
+    try {
+      renderNotFound(main, lang);
+    } catch (err) {
+      console.error("[route]", err);
+      routeError(main, err);
+    }
+    return;
+  }
+  if (route.view === "build") {
+    const shared = route.listId !== null || route.shared !== null;
+    setPageTitle(lang, lang === "he" ? (shared ? "רשימת חלקים" : "בניית מחשב") : shared ? "Shared Build" : "PC Builder");
+  } else if (route.view === "category") {
+    setPageTitle(lang, categoryLabel(route.category, lang));
+  } else if (route.view === "product") {
+    setPageTitle(lang, lang === "he" ? "מוצר" : "Product");
   }
   const task =
     route.view === "home"
