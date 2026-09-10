@@ -1265,32 +1265,33 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 }
 .ph-legend-item { display: inline-flex; align-items: center; gap: 7px; }
 .ph-swatch { width: 24px; height: 4px; border-radius: 2px; display: inline-block; }
-.ph-chart { width: 100%; height: auto; min-height: 300px; display: block; overflow: visible; }
-.ph-point { opacity: 0; cursor: crosshair; transition: opacity 0.12s ease, r 0.12s ease; }
-.ph-point:hover, .ph-point:focus { opacity: 1; }
+.ph-chart { width: 100%; height: auto; min-height: 300px; display: block; overflow: visible; cursor: crosshair; }
 .ph-grid { stroke: var(--border-light); stroke-width: 1; }
 .ph-tick { fill: var(--text-dim); font-size: 11px; font-family: var(--font-mono); }
-.ph-range { padding: 6px 10px; font-size: 0.8rem; }
-.ph-tooltip {
-  position: fixed;
-  z-index: 200;
-  transform: translate(-50%, calc(-100% - 12px));
-  background: #101828;
-  color: #f5f7fb;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  line-height: 1.3;
-  padding: 6px 10px;
+.ph-cross { stroke: var(--text-dim); stroke-width: 1; opacity: 0.6; }
+.ph-wrap { position: relative; }
+.ph-tip {
+  position: absolute;
+  z-index: 5;
+  min-width: 170px;
+  max-width: 230px;
+  background: #161a23;
+  color: #eef1f6;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  padding: 8px 0 4px;
+  font-size: 0.72rem;
+  line-height: 1.4;
   pointer-events: none;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.1s ease;
 }
-.ph-tooltip.is-visible { opacity: 1; visibility: visible; }
+.ph-tip-date { padding: 0 10px 6px; color: #b9c2d0; font-size: 0.68rem; }
+.ph-tip-row { display: flex; align-items: center; gap: 8px; padding: 3px 10px; color: #c9d1de; }
+.ph-tip-row.cheapest { color: #fff; font-weight: 700; }
+.ph-tip-swatch { width: 16px; height: 16px; border-radius: 3px; flex: none; }
+.ph-tip-vendor { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ph-tip-price { font-family: var(--font-mono); white-space: nowrap; }
+[data-theme="light"] .ph-tip { background: #161a23; color: #eef1f6; }
+.ph-range { padding: 6px 10px; font-size: 0.8rem; }
 
 /* ============================================================
    Icons, nav selects, mega menu, global search
