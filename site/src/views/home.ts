@@ -1,7 +1,7 @@
 import { loadMeta } from "../api";
 import { formatPrice } from "../format";
 import { CATEGORY_ORDER, categoryLabel, t } from "../i18n";
-import { icon } from "../icons";
+import { CATEGORY_ICONS, icon } from "../icons";
 import { buildHash, categoryHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
@@ -44,8 +44,11 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
           : "";
       return `
         <a class="category-card" href="${categoryHash(cat.id)}">
-          <div class="cat-name">${categoryLabel(cat.id, lang)}</div>
-          <div class="cat-meta">${cat.count} · ${range}</div>
+          <span class="category-card-icon">${icon(CATEGORY_ICONS[cat.id] ?? "grid", 20)}</span>
+          <span class="category-card-body">
+            <span class="cat-name">${categoryLabel(cat.id, lang)}</span>
+            <span class="cat-meta">${cat.count} · ${range}</span>
+          </span>
         </a>
       `;
     })

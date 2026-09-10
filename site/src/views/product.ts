@@ -13,10 +13,8 @@ import {
   productHash,
   setStoredBuild,
 } from "../state";
-import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { displayName, errorPanel, esc, safeImageUrl, safeUrl, skuOf } from "../utils";
-import { renderNotFound } from "./notfound";
 
 // Attribute keys that make good "series" variant groups (PCPP's
 // "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
@@ -177,10 +175,12 @@ export async function renderProduct(
 
   const product = products.find((p) => p.id === productId);
   if (!product) {
-    renderNotFound(container, lang);
+    container.innerHTML = `
+      <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
+      <div class="empty-state">${t(lang, "productNotFound")}</div>
+    `;
     return;
   }
-  setPageTitle(lang, displayName(product));
 
   const sameBrand = product.brand
     ? products.filter((p) => p.brand === product.brand)
@@ -247,22 +247,6 @@ export async function renderProduct(
     return (a.price ?? Infinity) - (b.price ?? Infinity);
   });
 
-  const vendorCounts = new Map<string, number>();
-  for (const o of sortedOffers) {
-    vendorCounts.set(o.vendor, (vendorCounts.get(o.vendor) ?? 0) + 1);
-  }
-  const dupVendors = new Set(product.duplicate_vendors ?? []);
-  const dupWarningHtml =
-    dupVendors.size > 0
-      ? `<div class="dup-warning" role="note">${[...dupVendors]
-          .map((v) =>
-            esc(
-              t(lang, "dupWarning").replace("{vendor}", vendorLabel(v))
-            )
-          )
-          .join("<br>")}</div>`
-      : "";
-
   const priceRows = sortedOffers
     .map((offer) => {
       const total = (offer.price ?? 0) + (offer.shipping ?? 0);
@@ -279,22 +263,13 @@ export async function renderProduct(
       const buyCell = buyUrl
         ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>`
         : `<span class="dim">-</span>`;
-      const promoCell =
-        offer.promo_price === null || offer.promo_price === undefined
-          ? `<span class="dim">–</span>`
-          : `${esc(formatPrice(offer.promo_price, currency, lang))} <span class="promo-info" title="${esc(t(lang, "promoNewPcNote"))}">ⓘ</span>`;
-      const dupTag =
-        dupVendors.has(offer.vendor) && (vendorCounts.get(offer.vendor) ?? 0) > 1
-          ? ` <span class="tag-dup">${esc(t(lang, "dupTag"))}</span>`
-          : "";
       return `
       <tr class="${offer.in_stock ? "" : "is-out"}">
-        <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}${dupTag}</td>
+        <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}</td>
         <td class="pt-num">${offer.price === null ? "-" : esc(formatPrice(offer.price, currency, lang))}</td>
         <td class="pt-ship">${shipping}</td>
         <td class="pt-avail"><span class="status-dot ${offer.in_stock ? "in" : "out"}"></span>${offer.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}${stale}</td>
         <td class="pt-total">${offer.price === null ? "-" : esc(formatPrice(total, currency, lang))}</td>
-        <td class="pt-promo">${promoCell}</td>
         <td class="pt-buy">${buyCell}</td>
       </tr>`;
     })
@@ -361,7 +336,6 @@ export async function renderProduct(
       <div class="pdp-main">
         <div class="pdp-card">
           <h2 class="pdp-card-title">${t(lang, "pricesHeading")}</h2>
-          ${dupWarningHtml}
           <div class="price-table-wrap">
             <table class="price-table">
               <thead>
@@ -371,7 +345,6 @@ export async function renderProduct(
                   <th>${t(lang, "shippingHeading")}</th>
                   <th>${t(lang, "availability")}</th>
                   <th>${t(lang, "totalHeading")}</th>
-                  <th>${t(lang, "promoHeading")}</th>
                   <th></th>
                 </tr>
               </thead>
@@ -422,6 +395,23 @@ const HISTORY_COLORS = [
   "#0d9488",
   "#db2777",
 ];
+
+let historyResizeObserver: ResizeObserver | null = null;
+
+// Single shared tooltip element (dark popover) reused across chart
+// redraws/navigations instead of relying on the native <title> tooltip,
+// which is slow to appear and can't be styled.
+function ensureHistoryTooltip(): HTMLDivElement {
+  let el = document.getElementById("ph-tooltip") as HTMLDivElement | null;
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "ph-tooltip";
+    el.className = "ph-tooltip";
+    el.setAttribute("role", "tooltip");
+    document.body.appendChild(el);
+  }
+  return el;
+}
 
 async function renderPriceHistory(
   host: HTMLElement,
@@ -494,9 +484,18 @@ async function renderPriceHistory(
     lo = Math.max(0, lo - pad);
     hi = hi + pad;
 
-    const W = 1000;
-    const H = 320;
-    const L = 84;
+    // Match the viewBox to the card's real pixel width so 1 SVG user-unit
+    // stays ~1 CSS pixel. Previously this was a fixed 1000x320 viewBox
+    // stretched to fill much wider cards via CSS width:100% — the browser
+    // scales everything inside proportionally, including CSS font-size,
+    // which is why the axis labels rendered oversized on wide screens.
+    const measuredWidth =
+      host.clientWidth > 0
+        ? host.clientWidth
+        : Math.max(320, (host.parentElement?.clientWidth ?? 940) - 44);
+    const W = Math.max(320, Math.min(1400, Math.round(measuredWidth)));
+    const H = Math.max(200, Math.min(340, Math.round(W * 0.32)));
+    const L = 88;
     const R = 18;
     const T = 12;
     const B = 30;
@@ -523,6 +522,17 @@ async function renderPriceHistory(
       )
       .join("");
 
+    const formatTimestamp = (index: number): string => {
+      const raw = timestamps[start + index] ?? visDates[index];
+      const parsed = new Date(raw);
+      if (Number.isNaN(parsed.getTime())) return raw;
+      return new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-US", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        timeZone: "Asia/Jerusalem",
+      }).format(parsed);
+    };
+
     const paths = vendors
       .map((vendor) => {
         const points = entry.v[vendor].slice(start, end);
@@ -545,6 +555,19 @@ async function renderPriceHistory(
         }
         if (!d) return "";
         return `<path d="${d}" fill="none" stroke="${colorOf(vendor)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><title>${esc(vendorLabel(vendor))}</title></path>`;
+      })
+      .join("");
+
+    const points = vendors
+      .map((vendor) => {
+        const pointsForVendor = entry.v[vendor].slice(start, end);
+        return pointsForVendor
+          .map((price, i) => {
+            if (price === null || price === undefined) return "";
+            const label = `${vendorLabel(vendor)} · ${formatTimestamp(i)} · ${formatPrice(price, currency, lang)}`;
+            return `<circle class="ph-point" tabindex="0" cx="${x(i).toFixed(1)}" cy="${y(price).toFixed(1)}" r="6" fill="${colorOf(vendor)}" data-ph-label="${esc(label)}"></circle>`;
+          })
+          .join("");
       })
       .join("");
 
@@ -575,71 +598,13 @@ async function renderPriceHistory(
         </select>
       </div>
       <div class="ph-legend">${legend}</div>
-      <div class="ph-wrap">
-        <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
-          ${grid}
-          ${paths}
-          <line class="ph-cross" y1="${T}" y2="${H - B}" hidden />
-          ${xLabels}
-        </svg>
-        <div class="ph-tip" hidden></div>
-      </div>
+      <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
+        ${grid}
+        ${paths}
+        ${points}
+        ${xLabels}
+      </svg>
     `;
-
-    const wrap = host.querySelector(".ph-wrap") as HTMLElement;
-    const svg = wrap.querySelector(".ph-chart") as SVGSVGElement;
-    const tip = wrap.querySelector(".ph-tip") as HTMLElement;
-    const cross = svg.querySelector(".ph-cross") as SVGLineElement;
-    const series = vendors.map((v) => entry.v[v].slice(start, end));
-    const fmtDay = (index: number): string => {
-      const raw = timestamps[start + index] ?? visDates[index];
-      const d = new Date(raw);
-      if (!Number.isNaN(d.getTime()))
-        return new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-US", { day: "numeric", month: "numeric", year: "numeric" }).format(d);
-      return shortDate(visDates[index]);
-    };
-    svg.addEventListener("mousemove", (e) => {
-      const rect = svg.getBoundingClientRect();
-      const px = ((e.clientX - rect.left) / rect.width) * W;
-      let best = 0;
-      let bestDist = Infinity;
-      for (let i = 0; i < n; i++) {
-        const d = Math.abs(x(i) - px);
-        if (d < bestDist) { bestDist = d; best = i; }
-      }
-      const rows = vendors
-        .map((vendor, vi) => ({ vendor, price: series[vi][best] as number | null }))
-        .filter((r) => r.price !== null && r.price !== undefined);
-      if (rows.length === 0) { tip.hidden = true; cross.setAttribute("hidden", ""); return; }
-      const cheapest = Math.min(...rows.map((r) => r.price as number));
-      cross.removeAttribute("hidden");
-      cross.setAttribute("x1", x(best).toFixed(1));
-      cross.setAttribute("x2", x(best).toFixed(1));
-      tip.innerHTML = `<div class="ph-tip-date">${esc(fmtDay(best))}</div>` + rows
-        .map(({ vendor, price }) => {
-          const vi = vendors.indexOf(vendor);
-          return `<div class="ph-tip-row${(price as number) === cheapest ? " cheapest" : ""}"><span class="ph-tip-swatch" style="background:${HISTORY_COLORS[vi % HISTORY_COLORS.length]}"></span><span class="ph-tip-vendor">${esc(vendorLabel(vendor))}</span><span class="ph-tip-price">${esc(formatPrice(price as number, currency, lang))}</span></div>`;
-        })
-        .join("");
-      tip.hidden = false;
-      // Position near cursor, flip when close to the right edge.
-      const wrapRect = wrap.getBoundingClientRect();
-      let lx = e.clientX - wrapRect.left + 14;
-      let ly = e.clientY - wrapRect.top - 10;
-      tip.style.visibility = "hidden";
-      tip.style.left = "0px";
-      const tw = tip.offsetWidth;
-      const th = tip.offsetHeight;
-      if (lx + tw + 8 > wrapRect.width) lx = e.clientX - wrapRect.left - tw - 14;
-      ly = Math.max(4, Math.min(ly, wrapRect.height - th - 4));
-      tip.style.left = `${lx}px`;
-      tip.style.top = `${ly}px`;
-      tip.style.visibility = "";
-    });
-    svg.addEventListener("mouseleave", () => {
-      tip.hidden = true;
-      cross.setAttribute("hidden", "");
-    });
 
     host.querySelector(".ph-range")!.addEventListener("change", (e) => {
       const days = Number((e.target as HTMLSelectElement).value);
@@ -649,7 +614,44 @@ async function renderPriceHistory(
           : dates.length;
       draw();
     });
+
+    const tooltip = ensureHistoryTooltip();
+    const showTooltip = (label: string, clientX: number, clientY: number): void => {
+      tooltip.textContent = label;
+      tooltip.style.left = `${clientX}px`;
+      tooltip.style.top = `${clientY}px`;
+      tooltip.classList.add("is-visible");
+    };
+    const hideTooltip = (): void => tooltip.classList.remove("is-visible");
+    host.querySelectorAll<SVGCircleElement>(".ph-point").forEach((pt) => {
+      const label = pt.getAttribute("data-ph-label") ?? "";
+      pt.addEventListener("mouseenter", (e) => showTooltip(label, (e as MouseEvent).clientX, (e as MouseEvent).clientY));
+      pt.addEventListener("mousemove", (e) => showTooltip(label, (e as MouseEvent).clientX, (e as MouseEvent).clientY));
+      pt.addEventListener("mouseleave", hideTooltip);
+      pt.addEventListener("focus", () => {
+        const rect = pt.getBoundingClientRect();
+        showTooltip(label, rect.left + rect.width / 2, rect.top);
+      });
+      pt.addEventListener("blur", hideTooltip);
+    });
   };
+
+  // Redraw when the card's width changes (window resize, sidebar
+  // collapse, etc.) so the chart stays sized to real pixels — see the
+  // measuredWidth comment above.
+  historyResizeObserver?.disconnect();
+  if (typeof ResizeObserver !== "undefined" && host.parentElement) {
+    let pending = false;
+    historyResizeObserver = new ResizeObserver(() => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        draw();
+      });
+    });
+    historyResizeObserver.observe(host.parentElement);
+  }
 
   draw();
 }

@@ -26,7 +26,9 @@ export type IconName =
   | "storage"
   | "gpu"
   | "psu"
-  | "case";
+  | "case"
+  | "droplet"
+  | "grid";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -71,6 +73,35 @@ const PATHS: Record<IconName, string> = {
     '<path d="M12 2v10" /><path d="M18.4 6.6a9 9 0 1 1-12.77.04" />',
   case:
     '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />',
+  droplet:
+    '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z" />',
+  grid:
+    '<rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" />',
+};
+
+/**
+ * Icon for every catalog category (not just the 8 "popular" tiles in the
+ * mega menu) — used on the homepage grid so every card gets a matching
+ * glyph instead of a bare text link. Cooling-family categories share the
+ * "cooler" mark deliberately; they're visually a family.
+ */
+export const CATEGORY_ICONS: Record<string, IconName> = {
+  cpu: "chip",
+  motherboard: "motherboard",
+  memory: "memory",
+  storage: "storage",
+  gpu: "gpu",
+  psu: "psu",
+  case: "case",
+  cooler_air: "cooler",
+  aio: "cooler",
+  cooling_other: "cooler",
+  case_fan: "cooler",
+  fan_controller: "cooler",
+  cooler_accessory: "wrench",
+  thermal_paste: "droplet",
+  rgb_lighting: "bolt",
+  other: "grid",
 };
 
 export function icon(name: IconName, size = 16): string {
