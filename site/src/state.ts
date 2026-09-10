@@ -144,6 +144,7 @@ export type Route =
   | { view: "privacy" }
   | { view: "terms" }
   | { view: "cookies" }
+  | { view: "qa" }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -181,6 +182,10 @@ export function parseRoute(): Route {
 
   if (path === "/cookies" || path === "/cookies/") {
     return { view: "cookies" };
+  }
+
+  if (path === "/qa" || path === "/qa/") {
+    return { view: "qa" };
   }
 
   if (path === "/build" || path === "/build/") {
@@ -336,6 +341,10 @@ export function termsHash(): string {
 
 export function cookiesHash(): string {
   return "#/cookies";
+}
+
+export function qaHash(): string {
+  return "#/qa";
 }
 
 /** Real navigation: adds a history entry. */

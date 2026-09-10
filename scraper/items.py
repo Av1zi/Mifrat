@@ -32,6 +32,14 @@ class ListingItem(scrapy.Item):
     price_ils = scrapy.Field()
     in_stock = scrapy.Field()
 
+    # Conditional promo side-price (TMS "new PC" deal tiles): price_ils stays
+    # the standalone regular price; price_promo_ils is the whole-PC-
+    # conditional deal amount. Downstream min_price/sorting/history must use
+    # the regular price only.
+    price_promo_ils = scrapy.Field()
+    promo_kind = scrapy.Field()
+    promo_text_raw = scrapy.Field()
+
     # Best-effort category guess from the vendor's own site structure
     # (breadcrumb / URL path). The canonical `category` lives in products.json
     # after matching — this is just a hint for the matcher.

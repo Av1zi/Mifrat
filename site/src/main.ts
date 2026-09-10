@@ -20,6 +20,7 @@ import {
   parseRoute,
   privacyHash,
   productHash,
+  qaHash,
   setCurrency,
   setLang,
   setTheme,
@@ -35,6 +36,7 @@ import { renderHome } from "./views/home";
 import { renderNotFound } from "./views/notfound";
 import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
+import { renderQa } from "./views/qa";
 import { renderTerms } from "./views/terms";
 import { setPageTitle } from "./titles";
 
@@ -59,8 +61,8 @@ const POPULAR_CATS = [
   "psu",
   "case",
 ];
-const COOLING_CATS = ["aio", "cooler_air", "cooling_other", "case_fan", "fan_controller"];
-const ACCESSORY_CATS = ["cooler_accessory", "thermal_paste", "rgb_lighting", "other"];
+const COOLING_CATS = ["aio", "cooler_air", "cooling_other", "case_fan"];
+const ACCESSORY_CATS = ["accessories", "other"];
 
 const TILE_ICONS: Record<string, IconName> = {
   cpu: "chip",
@@ -175,6 +177,7 @@ function renderShell(): void {
       <span aria-hidden="true"> · </span><a href="${privacyHash()}">${t(lang, "privacyTitle")}</a>
       <span aria-hidden="true"> · </span><a href="${termsHash()}">${t(lang, "termsTitle")}</a>
       <span aria-hidden="true"> · </span><a href="${cookiesHash()}">${t(lang, "cookiesTitle")}</a>
+      <span aria-hidden="true"> · </span><a href="${qaHash()}">${t(lang, "qaTitle")}</a>
     </footer>`;
 
   (document.getElementById("lang-select") as HTMLSelectElement).addEventListener("change", (e) => {
@@ -352,6 +355,14 @@ function renderRoute(): void {
       console.error("[route]", err);
       routeError(main, err);
     }
+    return;
+  }
+  if (route.view === "qa") {
+    setPageTitle(lang, t(lang, "qaTitle"));
+    renderQa(main, lang, currency).catch((err) => {
+      console.error("[route]", err);
+      routeError(main, err);
+    });
     return;
   }
   if (route.view === "notfound") {

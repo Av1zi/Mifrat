@@ -6,6 +6,9 @@ export interface Offer {
   last_seen: string;
   stale: boolean;
   shipping?: number | null; // optional
+  /** Conditional side-price (e.g. TMS whole-PC deal). Never the min price. */
+  promo_price?: number | null;
+  promo_kind?: string;
 }
 
 /**
@@ -45,6 +48,26 @@ export interface Product {
   offers: Offer[];
   pcpartdb?: PcPartDbRef;
   pckombo?: PcKomboRef;
+  /** Vendors with ≥2 distinct listings on this product (under review). */
+  duplicate_vendors?: string[];
+}
+
+export interface QaCase {
+  kind: "duplicate_vendor";
+  product_id: string;
+  category: string;
+  vendor: string;
+  offers: Array<{
+    listing_key: string;
+    vendor_sku: string | null;
+    title: string | null;
+    price: number | null;
+  }>;
+}
+
+export interface QaFile {
+  generated_at: string;
+  cases: QaCase[];
 }
 
 export interface CategoryMeta {

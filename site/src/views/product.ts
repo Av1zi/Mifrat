@@ -247,6 +247,22 @@ export async function renderProduct(
     return (a.price ?? Infinity) - (b.price ?? Infinity);
   });
 
+  const vendorCounts = new Map<string, number>();
+  for (const o of sortedOffers) {
+    vendorCounts.set(o.vendor, (vendorCounts.get(o.vendor) ?? 0) + 1);
+  }
+  const dupVendors = new Set(product.duplicate_vendors ?? []);
+  const dupWarningHtml =
+    dupVendors.size > 0
+      ? `<div class="dup-warning" role="note">${[...dupVendors]
+          .map((v) =>
+            esc(
+              t(lang, "dupWarning").replace("{vendor}", vendorLabel(v))
+            )
+          )
+          .join("<br>")}</div>`
+      : "";
+
   const priceRows = sortedOffers
     .map((offer) => {
       const total = (offer.price ?? 0) + (offer.shipping ?? 0);
@@ -263,13 +279,22 @@ export async function renderProduct(
       const buyCell = buyUrl
         ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>`
         : `<span class="dim">-</span>`;
+      const promoCell =
+        offer.promo_price === null || offer.promo_price === undefined
+          ? `<span class="dim">–</span>`
+          : `${esc(formatPrice(offer.promo_price, currency, lang))} <span class="promo-info" title="${esc(t(lang, "promoNewPcNote"))}">ⓘ</span>`;
+      const dupTag =
+        dupVendors.has(offer.vendor) && (vendorCounts.get(offer.vendor) ?? 0) > 1
+          ? ` <span class="tag-dup">${esc(t(lang, "dupTag"))}</span>`
+          : "";
       return `
       <tr class="${offer.in_stock ? "" : "is-out"}">
-        <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}</td>
+        <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}${dupTag}</td>
         <td class="pt-num">${offer.price === null ? "-" : esc(formatPrice(offer.price, currency, lang))}</td>
         <td class="pt-ship">${shipping}</td>
         <td class="pt-avail"><span class="status-dot ${offer.in_stock ? "in" : "out"}"></span>${offer.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}${stale}</td>
         <td class="pt-total">${offer.price === null ? "-" : esc(formatPrice(total, currency, lang))}</td>
+        <td class="pt-promo">${promoCell}</td>
         <td class="pt-buy">${buyCell}</td>
       </tr>`;
     })
@@ -336,6 +361,7 @@ export async function renderProduct(
       <div class="pdp-main">
         <div class="pdp-card">
           <h2 class="pdp-card-title">${t(lang, "pricesHeading")}</h2>
+          ${dupWarningHtml}
           <div class="price-table-wrap">
             <table class="price-table">
               <thead>
@@ -345,6 +371,7 @@ export async function renderProduct(
                   <th>${t(lang, "shippingHeading")}</th>
                   <th>${t(lang, "availability")}</th>
                   <th>${t(lang, "totalHeading")}</th>
+                  <th>${t(lang, "promoHeading")}</th>
                   <th></th>
                 </tr>
               </thead>

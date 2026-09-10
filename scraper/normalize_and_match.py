@@ -27,7 +27,9 @@ try:
         _compact_key,
         dedupe_enriched_listings,
         enrich_listing,
+        find_duplicate_vendor_cases,
         match_listings,
+        match_text,
         mpn_affix_related,
         suggest_fuzzy_matches,
     )
@@ -39,7 +41,9 @@ except ImportError:
         _compact_key,
         dedupe_enriched_listings,
         enrich_listing,
+        find_duplicate_vendor_cases,
         match_listings,
+        match_text,
         mpn_affix_related,
         suggest_fuzzy_matches,
     )
@@ -227,6 +231,15 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 else:
                     e["mpn"] = real_sku
                 sku = real_sku
+                # The pre-detail match_text was built from the numeric id
+                # ("189654 Intel…") so packaging codes in the real SKU
+                # (C225FT=Tray) were invisible to the parsers. Rebuild the
+                # match text and re-extract so _packaging_from_codes sees it.
+                try:
+                    e["match_text"] = match_text(e)
+                    e["attributes"] = extract_attributes(e)
+                except Exception:
+                    pass
         if key in detail_index:
             meta = e.setdefault("vendor_meta", {})
             meta["detail_specs"] = detail_index[key]
@@ -338,6 +351,15 @@ def build_catalog(today: datetime):
         exclude_multi_keys=exclude_multi_keys,
         assignments=assignments,
     )
+    # Public duplicate-vendor QA cases ride along in the same queue file
+    # (local review tool) and are also emitted as data/site/qa.json for the
+    # public #/qa page (see site_data.write_site_data).
+    try:
+        review_queue = list(review_queue) + find_duplicate_vendor_cases(
+            match_result["products"]
+        )
+    except Exception:
+        pass
 
     catalog = {
         "generated_at": today.isoformat(),

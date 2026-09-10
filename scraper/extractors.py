@@ -936,6 +936,35 @@ def _parse_motherboard(text: str, meta) -> dict:
     return a
 
 
+def _packaging_from_codes(text: str) -> str | None:
+    """CPU packaging from words first, then Intel/vendor code patterns.
+
+    Words win over codes. Codes handled:
+    - BX… (Intel boxed) -> Box, AT… (Intel tray) -> Tray,
+    - TMS short codes C…T / C…B (C225FT=Tray, C225FB=Box, C225T=Tray),
+    - Ivory ULTRA-…B SKUs (ULTRA-5-225FB / ULTRA-5-225B) -> Box.
+    A trailing F alone (225F = no-iGPU suffix) never decides packaging.
+    """
+    if re.search(r"\bTRAY\b", text, re.I):
+        return "Tray"
+    if re.search(r"\bBOX\b|\bWOF\b", text, re.I):
+        return "Box"
+    if re.search(r"\bAT[0-9A-Z-]{3,}\b", text, re.I):
+        return "Tray"
+    if re.search(r"\bBX[0-9A-Z-]{3,}\b", text, re.I):
+        return "Box"
+    m = re.search(r"\bC\d{2,5}[A-Z]*\b", text)
+    if m:
+        code = m.group(0).upper()
+        if code.endswith("T"):
+            return "Tray"
+        if code.endswith("B"):
+            return "Box"
+    if re.search(r"\bULTRA(?:-[A-Z0-9]+)*B\b", text):
+        return "Box"
+    return None
+
+
 def _parse_cpu(text: str, meta) -> dict:
     a: dict = {}
 
@@ -943,10 +972,9 @@ def _parse_cpu(text: str, meta) -> dict:
     if socket:
         a["socket"] = socket
 
-    if re.search(r"\bTRAY\b", text, re.I):
-        a["packaging"] = "Tray"
-    elif re.search(r"\bBOX\b|\bWOF\b", text, re.I):
-        a["packaging"] = "Box"
+    pack = _packaging_from_codes(text)
+    if pack:
+        a["packaging"] = pack
 
     # TDP from explicit W near CPU: e.g. 65W, 125W
     tdp = re.search(r"\b(\d{2,3})\s?W\b", text)

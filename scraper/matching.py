@@ -446,7 +446,12 @@ def _category_from_title(title_clean: str) -> str | None:
         r"\b(ram|memory|dimms?|vengeance|trident|ripjaws|fury|predator)\b|\d+\s?gb\b", t
     ):
         return "memory"
-    if re.search(r"\b(geforce|radeon|quadro|arc a|arc b|rtx \d|rx \d)\b", t):
+    if re.search(r"\b(?:geforce|radeon|quadro)\b", t):
+        return "gpu"
+    # \b after a single digit can never match real cards (RX 7600, RTX 5060Ti
+    # — a digit follows the digit). Match 3-4 digit model numbers instead;
+    # no trailing \b so Ti/Super/XT suffixes and spaceless "RTX5060" still hit.
+    if re.search(r"\b(?:rtx\s?\d{3,4}|rx\s?\d{3,4}|arc\s?[ab]\s?\d{3})", t):
         return "gpu"
     if re.search(r"\b(power supply|psu|80 plus|80\+|cybenetics)\b", t) and re.search(
         r"\b\d{3,4}\s?w\b", t
@@ -466,13 +471,93 @@ RISER_RE = re.compile(
 )
 # "mining/crypto" CARDS are junk, but mining *motherboards* stay boards.
 MINING_CARD_RE = re.compile(
-    r"\b(crypto|bitcoin|btc|ethereum|mining|miner)\b(?!.{0,24}\b(motherboard|board)\b)",
+    r"\b(crypto|bitcoin|btc|ethereum|mining|miner)\b",
     re.I,
 )
+BOARD_EVIDENCE_RE = re.compile(r"\b(motherboard|board)\b", re.I)
 MONITOR_RE = re.compile(r"\b(monitor|television|led tv)\b", re.I)
 
-def _is_junk_listing(title_clean: str) -> bool:
-    return bool(RISER_RE.search(title_clean) or MINING_CARD_RE.search(title_clean))
+# GPU support brackets / holders / anti-sag stands are accessories, never GPUs.
+# Checked before the vendor-guess win so a "gpu" guess can't keep them as cards.
+# Verified against current snapshots: no real GPU title contains these words.
+# Bare "holder"/"bracket" alone also matches cooler mounting brackets, so those
+# only count with GPU context (gpu/vga/graphics); anti-sag phrases are
+# unambiguous on their own.
+GPU_HOLDER_SPECIFIC_RE = re.compile(
+    r"\b(support\s+brace|anti[\s-]?sag|sag\s+holder|gpu\s+stand)\b",
+    re.I,
+)
+GPU_HOLDER_GENERIC_RE = re.compile(
+    r"\b(holders?|brackets?)\b",
+    re.I,
+)
+GPU_CONTEXT_RE = re.compile(r"\b(gpu|vga|graphics|video\s*cards?)\b", re.I)
+
+# Back-compat alias: the union of both holder patterns.
+GPU_HOLDER_RE = re.compile(
+    r"\b(holders?|brackets?|support\s+brace|anti[\s-]?sag|sag\s+holder|gpu\s+stand)\b",
+    re.I,
+)
+
+
+def _is_gpu_holder(title_clean: str) -> bool:
+    if GPU_HOLDER_SPECIFIC_RE.search(title_clean):
+        return True
+    return bool(
+        GPU_HOLDER_GENERIC_RE.search(title_clean)
+        and GPU_CONTEXT_RE.search(title_clean)
+    )
+
+TMS_FLAG_SUFFIXES = ("bundle-only", "new-pc-deal")
+
+
+def _split_category_flags(guess: str | None) -> tuple[str, set[str]]:
+    """Split a vendor category_guess into (base, flags).
+
+    TMS appends ":bundle-only" / ":new-pc-deal" to the guess (tms.py).
+    The base alone is looked up in CATEGORY_ALIASES; the flags ride along
+    as offer attributes. Never looks up the suffixed string.
+    """
+    raw = str(guess or "")
+    parts = raw.split(":")
+    base = (parts[0] or "").strip()
+    flags: set[str] = set()
+    for part in parts[1:]:
+        key = part.strip().lower()
+        if key in TMS_FLAG_SUFFIXES:
+            flags.add(key)
+    # Legacy safety: a guess that already embeds the flag without a colon
+    # (should not happen from the spider, but old snapshots exist).
+    compact = _compact_key(base)
+    if "bundleonly" in compact:
+        flags.add("bundle-only")
+    if "newpcdeal" in compact:
+        flags.add("new-pc-deal")
+    return base, flags
+
+
+def _is_junk_listing(
+    title_clean: str,
+    category_guess_base: str = "",
+    url: str = "",
+) -> bool:
+    if RISER_RE.search(title_clean):
+        return True
+    m = MINING_CARD_RE.search(title_clean)
+    if not m:
+        return False
+    # Mining motherboards stay boards: accept board-evidence from the title
+    # (within a wider window, either direction), the vendor category guess,
+    # or the product URL — real board titles never contain the literal word
+    # "motherboard"/"board" right after the keyword.
+    window = title_clean[max(0, m.start() - 40):m.end() + 40]
+    if BOARD_EVIDENCE_RE.search(window):
+        return False
+    if _compact_key(category_guess_base) in ("motherboard", "motherboards"):
+        return False
+    if re.search(r"motherboard|/board", str(url or "").lower()):
+        return False
+    return True
 
 
 def _reclassify(category: str, title_clean: str) -> str:
@@ -480,14 +565,30 @@ def _reclassify(category: str, title_clean: str) -> str:
         return "other"
     return category
 
-def canonical_category(guess: str | None, title: str = "") -> str:
-    """Map vendor category guesses into canonical categories."""
-    raw_key = _compact_key(guess).replace("bundleonly", "")
+def canonical_category(
+    guess: str | None, title: str = "", url: str = ""
+) -> str:
+    """Map vendor category guesses into canonical categories.
+
+    TMS flag suffixes (":bundle-only", ":new-pc-deal") are split off first —
+    only the base is ever looked up in CATEGORY_ALIASES.
+    """
+    guess_base, _flags = _split_category_flags(guess)
+    raw_key = _compact_key(guess_base).replace("bundleonly", "").replace(
+        "newpcdeal", ""
+    )
     title_clean = _clean(title).lower()
 
+    # GPU holders / brackets / anti-sag stands are accessories, never GPUs —
+    # re-routed before the vendor guess can win. Bare holder/bracket needs
+    # GPU context so cooler mounting brackets are not hijacked.
+    if _is_gpu_holder(title_clean):
+        return "accessories"
+
     # Hard blacklist: risers / mining cards never enter a build category —
-    # dump them into "other" (owner decision, Aug 2026).
-    if _is_junk_listing(title_clean):
+    # dump them into "other" (owner decision, Aug 2026). Mining motherboards
+    # stay boards via board-evidence (title window, category guess, or URL).
+    if _is_junk_listing(title_clean, guess_base, url):
         return "other"
 
     title_cat = _category_from_title(title_clean)
@@ -499,6 +600,12 @@ def canonical_category(guess: str | None, title: str = "") -> str:
     else:
         # No usable vendor guess — fall back to title detection before "other".
         category = title_cat or "other"
+
+    # Single umbrella Accessories category: the old granular accessory ids
+    # (thermal_paste / fan_controller / rgb_lighting / cooler_accessory) merge
+    # here; the old value is preserved in attributes.accessory_type.
+    if category in ACCESSORY_CATEGORIES:
+        return "accessories"
 
     # Plonter sometimes puts accessory items under COMPUTER CASES.
     if category == "case" and title_cat in ACCESSORY_CATEGORIES:
@@ -521,7 +628,7 @@ def canonical_category(guess: str | None, title: str = "") -> str:
             )
         )
         if accessory_only:
-            return title_cat
+            return "accessories"
         return "case"
 
     # Ambiguous cooling guesses ("Fans and Cooling solutions", "cpu cooler").
@@ -535,7 +642,7 @@ def canonical_category(guess: str | None, title: str = "") -> str:
             "thermal_paste",
             "cooler_accessory",
         ):
-            return title_cat
+            return "accessories" if title_cat in ACCESSORY_CATEGORIES else title_cat
         return "cooling_other"
 
     # Vendor feeds also use "cooling_other" for CPU coolers and fan hubs.
@@ -550,7 +657,7 @@ def canonical_category(guess: str | None, title: str = "") -> str:
         "thermal_paste",
         "cooler_accessory",
     ):
-        return title_cat
+        return "accessories" if title_cat in ACCESSORY_CATEGORIES else title_cat
 
     if category == "case_fan" and title_cat in ("cooler_air", "aio"):
         return title_cat
@@ -785,6 +892,31 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
 # Enrichment
 # --------------------------------------------------------------------------
 
+# Vendor-guess fallback for accessory subtypes when the title carries no
+# granular hint. Keys are compacted guess bases (see _split_category_flags).
+_GUESS_ACCESSORY_SUBTYPE = {
+    "thermalpaste": "thermal_paste",
+}
+
+
+def _accessory_subtype(title: str, title_cat: str | None) -> str:
+    """Subtype for the umbrella `accessories` category."""
+    t = _clean(title).lower()
+    if _is_gpu_holder(t):
+        return "gpu_holder"
+    if title_cat == "thermal_paste":
+        return "thermal_paste"
+    if title_cat == "rgb_lighting":
+        return "rgb_lighting"
+    if title_cat == "fan_controller":
+        return "fan_controller"
+    if title_cat == "cooler_accessory":
+        return "cooler_accessory"
+    if re.search(r"\bfan\b", t):
+        return "fan_accessory"
+    return "other_accessory"
+
+
 def enrich_listing(listing: dict) -> dict:
     """
     Add Phase 2 matching metadata to a raw listing.
@@ -808,9 +940,13 @@ def enrich_listing(listing: dict) -> dict:
     enriched["price_ils_raw"] = listing.get("price_ils")
     enriched["price_ils"] = normalize_price(listing.get("price_ils"))
 
+    _guess_base, _guess_flags = _split_category_flags(
+        listing.get("category_guess")
+    )
     enriched["category_normalized"] = canonical_category(
         listing.get("category_guess"),
         listing.get("title_raw", ""),
+        str(listing.get("url") or ""),
     )
 
     enriched["match_text"] = match_text(listing)
@@ -823,9 +959,31 @@ def enrich_listing(listing: dict) -> dict:
         sku_as_mpn(listing.get("vendor_sku")),
     )
 
-    enriched["bundle_only"] = "bundle-only" in str(listing.get("category_guess", "")).lower()
+    enriched["bundle_only"] = "bundle-only" in _guess_flags
+    enriched["new_pc_deal"] = "new-pc-deal" in _guess_flags
+    # TMS promo side-column (Phase 1): regular price stays price_ils; the
+    # conditional deal price rides along and must never set min/sorting.
+    if listing.get("price_promo_ils") is not None:
+        enriched["price_promo_ils"] = normalize_price(listing.get("price_promo_ils"))
+    if listing.get("promo_kind"):
+        enriched["promo_kind"] = str(listing.get("promo_kind"))
+    if listing.get("promo_text_raw"):
+        enriched["promo_text_raw"] = str(listing.get("promo_text_raw"))
 
     enriched["attributes"] = extract_attributes(enriched)
+
+    if enriched.get("category_normalized") == "accessories":
+        _tc = _category_from_title(_clean(listing.get("title_raw", "")).lower())
+        if _tc not in ACCESSORY_CATEGORIES:
+            # Title gives no granular hint (e.g. "Kryonaut 1g" without the
+            # words "thermal paste") — fall back to the vendor guess itself,
+            # which may be the old granular id ("thermal paste").
+            _tc = _GUESS_ACCESSORY_SUBTYPE.get(
+                _compact_key(_guess_base), _tc)
+        enriched["attributes"].setdefault(
+            "accessory_type",
+            _accessory_subtype(str(listing.get("title_raw") or ""), _tc),
+        )
 
     # Attribute-level brand: the title parsers only set brand for some
     # categories (cpu/gpu/...), but the offer-level detect_brand above
@@ -942,12 +1100,17 @@ MODEL_MERGE_CATEGORIES = {"cpu"}
 
 def model_identity(enriched: dict) -> tuple | None:
     """
-    Return a (category, brand, normalized_model) merge key for listings where
-    the model name uniquely identifies the part, else None.
+    Return a (category, brand, normalized_model[, series]) merge key for
+    listings where the model name uniquely identifies the part, else None.
 
     Only categories in MODEL_MERGE_CATEGORIES participate. The key normalizes
     away case/whitespace/punctuation so "Core I7 14700K" and "core_i7-14700K"
     collide, but keeps distinct model numbers (14700K vs 14700KF) apart.
+    Intel `series` ("225" vs "225 series 2") is part of identity: listings
+    with different series never share a key. A missing series ("", e.g. a
+    vendor that omits the tag) also differs — the MPN tier still joins
+    same-SKU parts across vendors, so strictness here only avoids the wrong
+    model merge, never the right MPN one.
     """
     category = enriched.get("category_normalized")
     if category not in MODEL_MERGE_CATEGORIES:
@@ -966,11 +1129,13 @@ def model_identity(enriched: dict) -> tuple | None:
     if not brand_key or not model_key:
         return None
 
-    return (category, brand_key, model_key)
+    series_key = re.sub(r"[^a-z0-9]+", "", str(attrs.get("series") or "").lower())
+
+    return (category, brand_key, model_key, series_key)
 
 
 def offer_from_listing(enriched: dict) -> dict:
-    return {
+    offer = {
         "vendor_id": enriched.get("vendor_id"),
         "vendor_sku": enriched.get("vendor_sku"),
         "listing_key": enriched.get("listing_key"),
@@ -988,6 +1153,15 @@ def offer_from_listing(enriched: dict) -> dict:
         "bundle_only": enriched.get("bundle_only", False),
         "attributes": enriched.get("attributes", {}),
     }
+    if enriched.get("price_promo_ils") is not None:
+        offer["price_promo_ils"] = enriched.get("price_promo_ils")
+    if enriched.get("promo_kind"):
+        offer["promo_kind"] = enriched.get("promo_kind")
+    if enriched.get("promo_text_raw"):
+        offer["promo_text_raw"] = enriched.get("promo_text_raw")
+    if enriched.get("new_pc_deal"):
+        offer["new_pc_deal"] = True
+    return offer
 
 
 TITLE_NOISE_RE = re.compile(
@@ -1937,29 +2111,34 @@ def _scrub_float_noise(value: str) -> str:
     return re.sub(r"\d+\.\d+", _fix, value)
 
 
-def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str]:
-    """Convert PC Kombo's grouped headers into our canonical filter keys."""
-    normalized: dict[str, str] = {}
-    for raw_key, value in specs.items():
+def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str | int | float]:
+    """Convert PC Kombo's grouped headers into our canonical filter keys.
+
+    Count/size keys come back as real numbers (matching our own parsers'
+    types), everything else stays a string — hence the union value type.
+    """
+    normalized: dict[str, str | int | float] = {}
+    for raw_key, raw_value in specs.items():
         key = PCKOMBO_SPEC_KEYS.get(raw_key)
-        if not key or not value or "Notices" in raw_key:
+        if not key or not raw_value or "Notices" in raw_key:
             continue
         if key in normalized:
             continue
-        value = _scrub_float_noise(value)
+        cleaned = _scrub_float_noise(raw_value)
+        parsed: str | int | float = cleaned
         if key in {
             "cores", "threads", "cache_mb", "capacity_gb", "speed_mhz",
             "vram_gb", "wattage_w", "length_mm", "gpu_length_mm",
             "memory_clock_mhz", "rpm",
         }:
-            match = re.search(r"\d+(?:\.\d+)?", value)
+            match = re.search(r"\d+(?:\.\d+)?", cleaned)
             if match:
                 num = float(match.group(0))
                 # Match our own parsers' types (ints for counts/sizes):
                 # a merged "395" next to our 395 would render the same
                 # but split strict-equality paths — one type per fact.
-                value = int(num) if num.is_integer() else round(num, 3)
-        normalized[key] = value
+                parsed = int(num) if num.is_integer() else round(num, 3)
+        normalized[key] = parsed
     return normalized
 
 
@@ -2118,6 +2297,17 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
     print(f"[pckombo] enriched {matched}/{len(products)} products with exact MPN specs")
 
 
+def _mpn_keys(e: dict) -> set[str]:
+    """Compact MPN/SKU identity keys carried by one listing."""
+    keys: set[str] = set()
+    for raw in (e.get("mpn"), e.get("vendor_sku")):
+        if raw:
+            k = re.sub(r"[^A-Z0-9]", "", str(raw).upper())
+            if k:
+                keys.add(k)
+    return keys
+
+
 def _split_packaging_subgroups(
     group: list[dict],
 ) -> list[tuple[str, list[dict]]]:
@@ -2126,8 +2316,12 @@ def _split_packaging_subgroups(
     Box and Tray listings of one model are different items (different
     prices, coolers, warranties) and must never share a product. Listings
     with unknown packaging ride along with the majority subgroup (ties go
-    to Box, deterministic); a group with fewer than two KNOWN packagings
-    is returned whole. The subgroup key is "" when nothing is known.
+    to Box, deterministic) — EXCEPT unknown-packaging listings carrying a
+    distinct MPN/SKU unseen among the known-packaging members: those stay
+    separate so the MPN tier can place them by their part number instead of
+    majority-joining the wrong packaging. A group with fewer than two KNOWN
+    packagings is returned whole. The subgroup key is "" when nothing is
+    known.
     """
     known: dict[str, list[dict]] = {}
     unknown: list[dict] = []
@@ -2143,11 +2337,35 @@ def _split_packaging_subgroups(
         only = next(iter(known)) if known else ""
         return [(only, group)]
 
+    known_keys: set[str] = set()
+    for members in known.values():
+        for e in members:
+            known_keys |= _mpn_keys(e)
+
+    joinable: list[dict] = []
+    distinct: list[dict] = []
+    for e in unknown:
+        keys = _mpn_keys(e)
+        if keys and known_keys and keys.isdisjoint(known_keys):
+            distinct.append(e)
+        else:
+            joinable.append(e)
+
     order = sorted(known, key=lambda p: (-len(known[p]), p))
     subs = {p: list(members) for p, members in known.items()}
-    for e in unknown:
+    for e in joinable:
         subs[order[0]].append(e)
-    return [(p, subs[p]) for p in order]
+    out = [(p, subs[p]) for p in order]
+    # Distinct-MPN unknowns stay out of the model merge: group same-MPN
+    # ones together, singletons alone — downstream the len<2 guard leaves
+    # them for the MPN tier.
+    by_mpn: dict[str, list[dict]] = {}
+    for e in distinct:
+        keys = sorted(_mpn_keys(e))
+        by_mpn.setdefault(keys[0] if keys else "", []).append(e)
+    for _k in sorted(by_mpn):
+        out.append(("", by_mpn[_k]))
+    return out
 
 
 def match_listings(
@@ -2485,6 +2703,24 @@ def match_listings(
         if attribute_conflicts:
             product["attribute_conflicts"] = attribute_conflicts
 
+        # Duplicate-vendor flag (public): one vendor contributing ≥2 offers
+        # with different vendor_skus to the same product (e.g. 1PC Box+Tay
+        # twins landing together). Same-SKU dedupe in
+        # dedupe_enriched_listings stays unflagged — only genuinely distinct
+        # listings trip this.
+        dup_vendors: list[str] = []
+        by_vendor: dict[str, list[dict]] = {}
+        for o in offers:
+            by_vendor.setdefault(str(o.get("vendor_id") or ""), []).append(o)
+        for vendor, olist in by_vendor.items():
+            if not vendor or len(olist) < 2:
+                continue
+            skus = {str(o.get("vendor_sku") or "").strip() for o in olist}
+            if len(skus) > 1:
+                dup_vendors.append(vendor)
+        if dup_vendors:
+            product["duplicate_vendors"] = sorted(dup_vendors)
+
         product["best_offer"] = choose_best_offer(offers)
         products.append(product)
 
@@ -2498,6 +2734,43 @@ def match_listings(
         "assignments": assignments,
         "product_sizes": product_sizes,
     }
+
+
+def find_duplicate_vendor_cases(products: list[dict]) -> list[dict]:
+    """Public QA cases for products with duplicate same-vendor listings.
+
+    One entry per (product, vendor) with ≥2 offers under different
+    vendor_skus. Entries carry kind="duplicate_vendor" so the #/qa page can
+    filter them; legacy fuzzy entries have no kind and are unaffected.
+    """
+    cases: list[dict] = []
+    for product in products:
+        dup_vendors = product.get("duplicate_vendors") or []
+        if not dup_vendors:
+            continue
+        by_vendor: dict[str, list[dict]] = {}
+        for o in product.get("offers", []):
+            by_vendor.setdefault(str(o.get("vendor_id") or ""), []).append(o)
+        for vendor in sorted(dup_vendors):
+            olist = by_vendor.get(vendor, [])
+            cases.append(
+                {
+                    "kind": "duplicate_vendor",
+                    "product_id": product.get("product_id"),
+                    "category": product.get("category"),
+                    "vendor": vendor,
+                    "offers": [
+                        {
+                            "listing_key": o.get("listing_key"),
+                            "vendor_sku": o.get("vendor_sku"),
+                            "title": o.get("title_raw"),
+                            "price": o.get("price_ils"),
+                        }
+                        for o in olist
+                    ],
+                }
+            )
+    return cases
 
 
 # --------------------------------------------------------------------------

@@ -175,6 +175,14 @@ export const SPEC_PRIORITY: Record<string, string[]> = {
     "brand",
     "model",
   ],
+  accessories: [
+    "accessory_type",
+    "brand",
+    "color",
+    "lighting",
+    "socket_compat",
+    "model",
+  ],
 };
 
 /**
@@ -260,6 +268,7 @@ export const FILTER_ALLOWLIST: Record<string, string[]> = {
   case_fan: ["brand", "fan_size_mm", "pwm", "lighting", "color"],
   aio: ["brand", "radiator_size_mm", "socket_compat", "lighting", "color"],
   cooler_air: ["brand", "socket_compat", "lighting", "color"],
+  accessories: ["brand", "accessory_type", "color", "lighting", "socket_compat"],
 };
 
 export function specPriority(category: string): string[] {

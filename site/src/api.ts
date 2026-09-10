@@ -1,4 +1,4 @@
-import type { PriceHistoryFile, Product, SiteMeta } from "./types";
+import type { PriceHistoryFile, Product, QaFile, SiteMeta } from "./types";
 
 // Same-origin relative paths — works in `vite dev` and in the built site
 // alike, because scripts/copy-data.mjs copies data/site/*.json into
@@ -31,6 +31,7 @@ async function fetchJson<T>(path: string): Promise<T> {
 }
 
 let metaPromise: Promise<SiteMeta> | null = null;
+let qaPromise: Promise<QaFile> | null = null;
 const categoryPromises = new Map<string, Promise<Product[]>>();
 const historyPromises = new Map<string, Promise<PriceHistoryFile | null>>();
 
@@ -39,6 +40,13 @@ export function loadMeta(): Promise<SiteMeta> {
     metaPromise = fetchJson<SiteMeta>(`${DATA_BASE}/meta.json`);
   }
   return metaPromise;
+}
+
+export function loadQa(): Promise<QaFile> {
+  if (!qaPromise) {
+    qaPromise = fetchJson<QaFile>(`${DATA_BASE}/qa.json`);
+  }
+  return qaPromise;
 }
 
 export function loadCategory(category: string): Promise<Product[]> {

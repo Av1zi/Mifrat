@@ -125,7 +125,9 @@ def _write_json_atomic(path: Path, value: object) -> None:
 
 
 def _trim_offer(offer: dict) -> dict:
-    return {
+    # min_price/sorting use the regular price only — promo_price is a
+    # conditional side-column (whole-PC deal) and must never set the min.
+    trimmed = {
         "vendor": offer.get("vendor_id"),
         "url": offer.get("url"),
         "price": offer.get("price_ils"),
@@ -133,6 +135,19 @@ def _trim_offer(offer: dict) -> dict:
         "last_seen": offer.get("last_seen"),
         "stale": bool(offer.get("stale")),
     }
+    # Local first so the None-guard narrows the type for the checker
+    # (a second offer.get() call cannot be narrowed).
+    promo_raw = offer.get("price_promo_ils")
+    if promo_raw is not None:
+        try:
+            trimmed["promo_price"] = int(
+                float(str(promo_raw).replace(",", "").strip())
+            )
+        except (TypeError, ValueError):
+            pass
+    if offer.get("promo_kind"):
+        trimmed["promo_kind"] = str(offer.get("promo_kind"))
+    return trimmed
 
 
 def _trim_product(product: dict) -> dict:
@@ -170,6 +185,9 @@ def _trim_product(product: dict) -> dict:
     pckombo = product.get("pckombo")
     if pckombo:
         trimmed["pckombo"] = pckombo
+
+    if product.get("duplicate_vendors"):
+        trimmed["duplicate_vendors"] = sorted(product["duplicate_vendors"])
 
     return trimmed
 
@@ -217,12 +235,53 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
 
     _write_json_atomic(site_dir / "meta.json", meta)
 
+    # Public QA list for the #/qa page: duplicate same-vendor listings under
+    # review. Built from the trimmed products (not review_queue.json, which
+    # is never shipped to the site). copy-data.mjs copies the whole
+    # directory, so no script change is needed.
+    qa_cases: list[dict] = []
+    for product in catalog["products"]:
+        dup_vendors = product.get("duplicate_vendors") or []
+        if not dup_vendors:
+            continue
+        by_vendor: dict[str, list[dict]] = {}
+        for o in product.get("offers", []):
+            by_vendor.setdefault(str(o.get("vendor_id") or ""), []).append(o)
+        for vendor in sorted(dup_vendors):
+            olist = by_vendor.get(vendor, [])
+            qa_cases.append(
+                {
+                    "kind": "duplicate_vendor",
+                    "product_id": product.get("product_id"),
+                    "category": product.get("category"),
+                    "vendor": vendor,
+                    "offers": [
+                        {
+                            "listing_key": o.get("listing_key"),
+                            "vendor_sku": o.get("vendor_sku"),
+                            "title": o.get("title_raw"),
+                            "price": o.get("price_ils"),
+                        }
+                        for o in olist
+                    ],
+                }
+            )
+    qa_cases.sort(
+        key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
+    )
+    _write_json_atomic(
+        site_dir / "qa.json",
+        {"generated_at": catalog["generated_at"], "cases": qa_cases},
+    )
+
     # Categories that existed before this run but no longer do (e.g. a
     # category emptied out) would otherwise leave a stale, orphaned file
     # behind forever since we only ever write, never clean up.
     current_files = {f"{c['id']}.json" for c in categories_meta}
     for existing in site_dir.glob("*.json"):
-        if existing.name != "meta.json" and existing.name not in current_files:
+        if existing.name in ("meta.json", "qa.json"):
+            continue
+        if existing.name not in current_files:
             existing.unlink()
 
     # Local-only regression guard: no built site JSON may reference a

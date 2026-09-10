@@ -14,10 +14,7 @@ export const CATEGORY_ORDER = [
   "aio",
   "cooler_air",
   "cooling_other",
-  "cooler_accessory",
-  "rgb_lighting",
-  "fan_controller",
-  "thermal_paste",
+  "accessories",
   "other",
 ] as const;
 
@@ -33,10 +30,7 @@ export const CATEGORY_LABELS: Record<string, { he: string; en: string }> = {
   aio: { he: "קירור נוזלי", en: "Liquid Coolers" },
   cooler_air: { he: "קירור אוויר", en: "Air Coolers" },
   cooling_other: { he: "קירור אחר", en: "Other Cooling" },
-  cooler_accessory: { he: "אביזרי קירור", en: "Cooler Accessories" },
-  rgb_lighting: { he: "תאורת RGB", en: "RGB Lighting" },
-  fan_controller: { he: "בקרי מאווררים", en: "Fan Controllers" },
-  thermal_paste: { he: "משחת תרמית", en: "Thermal Paste" },
+  accessories: { he: "אביזרים", en: "Accessories" },
   other: { he: "רכיבים אחרים", en: "Other Components" },
 };
 
@@ -50,6 +44,7 @@ export const VENDOR_LABELS: Record<string, string> = {
 
 export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   socket: { he: "סוקט", en: "Socket" },
+  accessory_type: { he: "סוג אביזר", en: "Accessory Type" },
   chipset: { he: "ערכת שבבים", en: "Chipset" },
   memory_type: { he: "סוג זיכרון", en: "Memory Type" },
   form_factor: { he: "פורמט", en: "Form Factor" },
@@ -336,6 +331,8 @@ const STRINGS = {
     baseHeading: "בסיס",
     shippingHeading: "משלוח",
     totalHeading: "סה״כ",
+    promoHeading: "מבצע",
+    promoNewPcNote: "המחיר המוזל בתוקף רק ברכישת מחשב שלם מ-TMS.",
     buyLabel: "קנייה",
     specsHeading: "מפרט",
     similarHeading: "מוצרים דומים",
@@ -372,6 +369,11 @@ const STRINGS = {
     privacyThirdTitle: "שירותי צד שלישי",
     disclaimer:
       "המחירים נאספים אוטומטית מדי יום מאתרי הספקים. הקישורים מובילים לאתר הספק לרכישה - מפרט אינו מוכר דבר בעצמו.",
+    dupWarning: "⚠ רישומים כפולים מ-{vendor} — בבדיקה",
+    dupTag: "כפול",
+    qaTitle: "בקרת איכות",
+    qaEmpty: "אין רישומים כפולים בבדיקה כרגע.",
+    qaHeading: "רישומים כפולים בבדיקה",
   },
   en: {
         referenceSpecsHeading: "Reference specs",
@@ -440,6 +442,8 @@ const STRINGS = {
     baseHeading: "Base",
     shippingHeading: "Shipping",
     totalHeading: "Total",
+    promoHeading: "Promo",
+    promoNewPcNote: "Discounted price valid only when buying a whole PC from TMS.",
     buyLabel: "Buy",
     specsHeading: "Specifications",
     similarHeading: "Similar products",
@@ -476,6 +480,11 @@ const STRINGS = {
     privacyThirdTitle: "Third-party services",
     disclaimer:
       "Prices are scraped daily from each vendor's site. Links go to the vendor to buy. Mifrat doesn't sell anything itself.",
+    dupWarning: "⚠ Duplicate listings from {vendor} — under review",
+    dupTag: "dup",
+    qaTitle: "Quality Review",
+    qaEmpty: "No duplicate listings under review right now.",
+    qaHeading: "Duplicate listings under review",
   },
 } satisfies Record<Lang, Record<string, string>>;
 

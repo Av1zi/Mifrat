@@ -782,7 +782,7 @@ export async function renderCategory(
         </div>
 
         <div class="pl-cell pl-price">
-          ${formatPrice(p.min_price, currency, lang)}
+          ${formatPrice(p.min_price, currency, lang)}${p.offers?.some((o) => o.promo_price !== null && o.promo_price !== undefined) ? ` <span class="promo-dot" title="${esc(t(lang, "promoNewPcNote"))}" aria-label="${esc(t(lang, "promoHeading"))}">•</span>` : ""}
         </div>
 
         <div class="pl-cell pl-action">

@@ -61,10 +61,7 @@ export const BUILD_SLOTS: BuildSlot[] = [
     categories: [
       "case_fan",
       "cooling_other",
-      "cooler_accessory",
-      "fan_controller",
-      "thermal_paste",
-      "rgb_lighting",
+      "accessories",
       "other",
     ],
     label: { he: "תוספות", en: "Accessories" },
