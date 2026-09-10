@@ -28,7 +28,15 @@ export type IconName =
   | "psu"
   | "case"
   | "droplet"
-  | "grid";
+  | "grid"
+  | "arrow-right"
+  | "board"
+  | "drive"
+  | "graphics"
+  | "power"
+  | "tower"
+  | "fan"
+  | "file-text";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -77,6 +85,22 @@ const PATHS: Record<IconName, string> = {
     '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z" />',
   grid:
     '<rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" />',
+  "arrow-right":
+    '<path d="M5 12h14" /><path d="m13 6 6 6-6 6" />',
+  board:
+    '<rect x="3" y="3" width="18" height="18" rx="1.5" /><path d="M7 7h4v4H7zM13 13h4v4h-4zM11 9h3M9 11v4" />',
+  drive:
+    '<rect x="3" y="5" width="18" height="14" rx="2" /><path d="M7 9h10M7 13h6" /><circle cx="17" cy="14" r="1" />',
+  graphics:
+    '<rect x="2.5" y="6" width="19" height="12" rx="1.5" /><path d="M6 18v3M18 18v3M2 10h4M18 10h4" /><circle cx="11" cy="12" r="3" /><path d="M11 9v6M8 12h6" />',
+  power:
+    '<path d="M12 2v9" /><path d="M18.4 6.6a9 9 0 1 1-12.8 0" /><path d="M8 19h8" />',
+  tower:
+    '<rect x="6" y="2" width="12" height="20" rx="1.5" /><path d="M9 5h6v5H9zM9 14h2M13 14h2M9 18h2M13 18h2" />',
+  fan:
+    '<circle cx="12" cy="12" r="2.5" /><path d="M12 9c-1-4 2-6 4-5s1 4-2 6M15 12c4-1 6 2 5 4s-4 1-6-2M12 15c1 4-2 6-4 5s-1-4 2-6M9 12c-4 1-6-2-5-4s4-1 6 2" />',
+  "file-text":
+    '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h6" />',
 };
 
 /**
@@ -87,17 +111,17 @@ const PATHS: Record<IconName, string> = {
  */
 export const CATEGORY_ICONS: Record<string, IconName> = {
   cpu: "chip",
-  motherboard: "motherboard",
+  motherboard: "board",
   memory: "memory",
-  storage: "storage",
-  gpu: "gpu",
-  psu: "psu",
-  case: "case",
-  cooler_air: "cooler",
+  storage: "drive",
+  gpu: "graphics",
+  psu: "power",
+  case: "tower",
+  cooler_air: "fan",
   aio: "cooler",
   cooling_other: "cooler",
-  case_fan: "cooler",
-  fan_controller: "cooler",
+  case_fan: "fan",
+  fan_controller: "fan",
   cooler_accessory: "wrench",
   thermal_paste: "droplet",
   rgb_lighting: "bolt",

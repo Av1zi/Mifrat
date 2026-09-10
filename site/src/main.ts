@@ -13,6 +13,7 @@ import { icon, type IconName } from "./icons";
 import {
   applyStoredTheme,
   cookiesHash,
+  categoriesHash,
   getCurrency,
   getLang,
   getTheme,
@@ -31,6 +32,7 @@ import type { Currency, Lang, Product } from "./types";
 import { displayName, errorPanel, esc, safeImageUrl } from "./utils";
 import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
+import { renderCategories } from "./views/categories";
 import { renderCookies } from "./views/cookies";
 import { renderHome } from "./views/home";
 import { renderNotFound } from "./views/notfound";
@@ -66,13 +68,13 @@ const ACCESSORY_CATS = ["accessories", "other"];
 
 const TILE_ICONS: Record<string, IconName> = {
   cpu: "chip",
-  cooler_air: "cooler",
-  motherboard: "motherboard",
+  cooler_air: "fan",
+  motherboard: "board",
   memory: "memory",
-  storage: "storage",
-  gpu: "gpu",
-  psu: "psu",
-  case: "case",
+  storage: "drive",
+  gpu: "graphics",
+  psu: "power",
+  case: "tower",
 };
 
 function catTile(id: string, current: string | null): string {
@@ -92,7 +94,7 @@ function renderShell(): void {
   const route = parseRoute();
   const isBuild = route.view === "build";
   const isHome = route.view === "home";
-  const isProducts = route.view === "category" || route.view === "product";
+  const isProducts = route.view === "categories" || route.view === "category" || route.view === "product";
   const currentCategory =
     route.view === "category"
       ? route.category
@@ -104,7 +106,7 @@ function renderShell(): void {
     <header class="site-header">
       <div class="header-top">
         <a class="brand" href="${homeHash()}">
-          <span class="brand-mark">◈</span>
+          <span class="brand-mark">${icon("chip", 16)}</span>
           ${t(lang, "appName")}
           <small>${lang === "he" ? "Mifrat" : "מפרט"}</small>
         </a>
@@ -146,6 +148,7 @@ function renderShell(): void {
         </div>
         <div class="mega-menu" id="mega-menu" hidden>
           <div class="mega-inner">
+            <a class="mega-all-link" href="${categoriesHash()}">${lang === "he" ? "כל הקטגוריות" : "Browse all categories"} ${icon("arrow-right", 14)}</a>
             <div class="mega-popular">
               ${POPULAR_CATS.map((id) => catTile(id, currentCategory)).join("")}
             </div>
@@ -360,6 +363,14 @@ function renderRoute(): void {
   if (route.view === "qa") {
     setPageTitle(lang, t(lang, "qaTitle"));
     renderQa(main, lang, currency).catch((err) => {
+      console.error("[route]", err);
+      routeError(main, err);
+    });
+    return;
+  }
+  if (route.view === "categories") {
+    setPageTitle(lang, lang === "he" ? "כל הקטגוריות" : "All categories");
+    renderCategories(main, lang, currency).catch((err) => {
       console.error("[route]", err);
       routeError(main, err);
     });

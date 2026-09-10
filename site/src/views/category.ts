@@ -21,8 +21,8 @@ import {
   addToBuild,
   buildHash,
   categoryHash,
+  categoriesHash,
   getStoredBuild,
-  homeHash,
   navigate,
   productHash,
   replaceRoute,
@@ -579,7 +579,7 @@ export async function renderCategory(
 
   container.innerHTML = `
     <div class="crumbs">
-      <a href="${homeHash()}">← ${t(lang, "backToCategories")}</a>
+      <a href="${categoriesHash()}">← ${t(lang, "backToCategories")}</a>
     </div>
 
     <h1 class="category-title">${categoryLabel(category, lang)}</h1>
@@ -592,13 +592,16 @@ export async function renderCategory(
       <div>
         <div class="toolbar">
           <span class="toolbar-label">${t(lang, "searchPlaceholder")}</span>
-          <input
-            class="search-input"
-            id="search-input"
-            type="search"
-            placeholder="${esc(t(lang, "searchPlaceholder"))}"
-            value="${esc(localQuery)}"
-          />
+          <label class="search-field">
+            ${icon("search", 16)}
+            <input
+              class="search-input"
+              id="search-input"
+              type="search"
+              placeholder="${esc(t(lang, "searchPlaceholder"))}"
+              value="${esc(localQuery)}"
+            />
+          </label>
 
           <span class="toolbar-label">${t(lang, "sortLabel")}</span>
           <select class="sort-select" id="sort-select">

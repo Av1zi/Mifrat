@@ -378,7 +378,7 @@ export async function renderBuilder(
 
       <div class="actionBoxGroup">
         <div class="permalink">
-          <button class="btn-small btn-icon" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 13)}</button>
+          <button class="btn-small btn-icon builder-copy-link" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 16)}<span>${lang === "he" ? "העתקת קישור" : "Copy link"}</span></button>
           <input
             class="share-input"
             id="builder-share-link"
@@ -389,9 +389,9 @@ export async function renderBuilder(
           />
         </div>
         <div class="markup">
-          <span class="markup-label">Markup:</span>
-          <button type="button" id="markup-md" title="${esc(t(lang, "copyMarkdown"))}">PCPP</button>
-          <button type="button" id="markup-text" title="${esc(t(lang, "copyText"))}">TXT</button>
+          <span class="markup-label">${lang === "he" ? "סימון:" : "Markup:"}</span>
+          <button class="markup-action" type="button" id="markup-md" title="${esc(t(lang, "copyMarkdown"))}">${icon("grid", 16)}<span>${lang === "he" ? "טבלה" : "Table"}</span></button>
+          <button class="markup-action" type="button" id="markup-text" title="${esc(t(lang, "copyText"))}">${icon("file-text", 16)}<span>${lang === "he" ? "טקסט" : "Text"}</span></button>
         </div>
         <div class="options">
           <span class="parts-count">${itemCount} / ${BUILD_SLOTS.length} ${t(lang, "partsCount")}</span>

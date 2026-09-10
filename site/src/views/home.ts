@@ -1,13 +1,13 @@
 import { loadMeta } from "../api";
-import { formatPrice } from "../format";
-import { CATEGORY_ORDER, categoryLabel, t } from "../i18n";
-import { CATEGORY_ICONS, icon } from "../icons";
-import { buildHash, categoryHash } from "../state";
+import { t } from "../i18n";
+import { icon } from "../icons";
+import { buildHash, categoriesHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
 import { errorPanel } from "../utils";
 
 export async function renderHome(container: HTMLElement, lang: Lang, currency: Currency): Promise<void> {
+  void currency;
   const he = lang === "he";
   setPageTitle(lang, he ? "השוואת מחירי רכיבי מחשב" : "Compare PC Part Prices in Israel");
 
@@ -25,34 +25,8 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
     return;
   }
 
-  const byId = new Map(meta.categories.map((c) => [c.id, c]));
-  const orderedIds = [
-    ...CATEGORY_ORDER.filter((id) => byId.has(id)),
-    ...meta.categories.map((c) => c.id).filter((id) => !(CATEGORY_ORDER as readonly string[]).includes(id)),
-  ];
-
   const totalParts = meta.categories.reduce((n, c) => n + c.count, 0);
   const categoryCount = meta.categories.filter((c) => c.count > 0).length;
-
-  const cards = orderedIds
-    .map((id) => byId.get(id)!)
-    .filter((cat) => cat.count > 0)
-    .map((cat) => {
-      const range =
-        cat.min_price !== null && cat.max_price !== null
-          ? `${formatPrice(cat.min_price, currency, lang)} - ${formatPrice(cat.max_price, currency, lang)}`
-          : "";
-      return `
-        <a class="category-card" href="${categoryHash(cat.id)}">
-          <span class="category-card-icon">${icon(CATEGORY_ICONS[cat.id] ?? "grid", 20)}</span>
-          <span class="category-card-body">
-            <span class="cat-name">${categoryLabel(cat.id, lang)}</span>
-            <span class="cat-meta">${cat.count} · ${range}</span>
-          </span>
-        </a>
-      `;
-    })
-    .join("");
 
   const copy = he
     ? {
@@ -77,8 +51,6 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
         feat3Body: "כל בנייה מקבלת קישור קבוע שאפשר לשלוח לכל אחד.",
         feat4Title: "בלי חשבון ובלי עוגיות",
         feat4Body: "אין הרשמה, אין מעקב ואין באנרים. פשוט בונים.",
-        catsTitle: "עיון לפי קטגוריה",
-        trustNote: "המחירים נאספים אוטומטית ומומלץ לוודא את המחיר הסופי באתר הספק לפני הקנייה.",
       }
     : {
         eyebrow: "Price comparison for PC parts in Israel",
@@ -102,8 +74,6 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
         feat3Body: "Every build gets a permanent link you can send to anyone.",
         feat4Title: "No account and no cookies",
         feat4Body: "No signup, no tracking and no banners. Just build.",
-        catsTitle: "Browse by category",
-        trustNote: "Prices are collected automatically. Please verify the final price on the vendor site before buying.",
       };
 
   container.innerHTML = `
@@ -113,7 +83,7 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
       <p>${t(lang, "heroSub")}</p>
       <div class="hero-cta">
         <a class="btn-primary btn-icon" href="${buildHash({})}">${icon("wrench", 15)}<span>${t(lang, "startBuild")}</span></a>
-        <button class="btn-ghost" type="button" id="browse-cats">${copy.browseCta}</button>
+        <a class="btn-ghost" href="${categoriesHash()}">${copy.browseCta}</a>
       </div>
       <dl class="hero-stats">
         <div><dt>${totalParts.toLocaleString(he ? "he-IL" : "en-US")}</dt><dd>${copy.statsPartsLabel}</dd></div>
@@ -140,13 +110,5 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
         <div class="landing-feature"><span class="feat-mark">${icon("chip", 18)}</span><h3>${copy.feat4Title}</h3><p>${copy.feat4Body}</p></div>
       </div>
     </section>
-
-    <h2 class="section-title" id="landing-categories">${copy.catsTitle}</h2>
-    <div class="category-grid">${cards}</div>
-    <p class="pdp-disclaimer landing-trust">* ${copy.trustNote}</p>
   `;
-
-  container.querySelector("#browse-cats")?.addEventListener("click", () => {
-    container.querySelector("#landing-categories")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
 }

@@ -140,6 +140,7 @@ export interface CategoryParams {
 
 export type Route =
   | { view: "home" }
+  | { view: "categories" }
   | { view: "notfound" }
   | { view: "privacy" }
   | { view: "terms" }
@@ -186,6 +187,10 @@ export function parseRoute(): Route {
 
   if (path === "/qa" || path === "/qa/") {
     return { view: "qa" };
+  }
+
+  if (path === "/categories" || path === "/categories/") {
+    return { view: "categories" };
   }
 
   if (path === "/build" || path === "/build/") {
@@ -270,6 +275,10 @@ export function parseRoute(): Route {
   }
 
   return { view: "category", category, params };
+}
+
+export function categoriesHash(): string {
+  return "#/categories";
 }
 
 export function categoryHash(
