@@ -145,6 +145,19 @@ def _has_image_basename(url: str) -> bool:
         return False
 
 
+def _reextract_attributes(e: dict) -> None:
+    """Re-run attribute extraction, preserving enrich-time accessory_type.
+
+    extract_attributes() knows nothing about the umbrella `accessories`
+    category, so a plain re-extract would drop the subtype enrich_listing()
+    assigned — carry it across instead.
+    """
+    kept = (e.get("attributes") or {}).get("accessory_type")
+    e["attributes"] = extract_attributes(e)
+    if kept:
+        e["attributes"].setdefault("accessory_type", kept)
+
+
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     """Load detail-scraped specs from data/raw/detail/<vendor>.jsonl and
     merge into each enriched listing's vendor_meta under a 'detail_specs'
@@ -237,7 +250,7 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 # match text and re-extract so _packaging_from_codes sees it.
                 try:
                     e["match_text"] = match_text(e)
-                    e["attributes"] = extract_attributes(e)
+                    _reextract_attributes(e)
                 except Exception:
                     pass
         if key in detail_index:
@@ -247,7 +260,7 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             # into the attributes blob (enrich_listing already ran before
             # this point, so without this the detail specs would never make
             # it out of vendor_meta into parsed attributes).
-            e["attributes"] = extract_attributes(e)
+            _reextract_attributes(e)
             merged_specs += 1
         if detail_extra:
             extra = detail_extra

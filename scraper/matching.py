@@ -1100,17 +1100,17 @@ MODEL_MERGE_CATEGORIES = {"cpu"}
 
 def model_identity(enriched: dict) -> tuple | None:
     """
-    Return a (category, brand, normalized_model[, series]) merge key for
-    listings where the model name uniquely identifies the part, else None.
+    Return a (category, brand, normalized_model) merge key for listings where
+    the model name uniquely identifies the part, else None.
 
     Only categories in MODEL_MERGE_CATEGORIES participate. The key normalizes
     away case/whitespace/punctuation so "Core I7 14700K" and "core_i7-14700K"
     collide, but keeps distinct model numbers (14700K vs 14700KF) apart.
-    Intel `series` ("225" vs "225 series 2") is part of identity: listings
-    with different series never share a key. A missing series ("", e.g. a
-    vendor that omits the tag) also differs — the MPN tier still joins
-    same-SKU parts across vendors, so strictness here only avoids the wrong
-    model merge, never the right MPN one.
+    Intel `series` ("225" vs "225 series 2") is handled one step down in
+    _split_series_subgroups(): explicit series conflicts split the group,
+    while listings whose vendor omits the tag ride with the majority — a
+    strict series element in this key would fragment every same-part
+    cross-vendor merge whenever a single vendor omits the tag.
     """
     category = enriched.get("category_normalized")
     if category not in MODEL_MERGE_CATEGORIES:
@@ -1129,9 +1129,7 @@ def model_identity(enriched: dict) -> tuple | None:
     if not brand_key or not model_key:
         return None
 
-    series_key = re.sub(r"[^a-z0-9]+", "", str(attrs.get("series") or "").lower())
-
-    return (category, brand_key, model_key, series_key)
+    return (category, brand_key, model_key)
 
 
 def offer_from_listing(enriched: dict) -> dict:
@@ -2308,6 +2306,35 @@ def _mpn_keys(e: dict) -> set[str]:
     return keys
 
 
+def _split_series_subgroups(group: list[dict]) -> list[list[dict]]:
+    """Split a model-merge group on explicit Intel series conflicts.
+
+    Listings tagged "series 1" vs "series 2" are different parts and must
+    never share a product. Listings whose vendor omits the tag ride along
+    with the majority explicit series (ties go to the lowest series value,
+    deterministic); a group with fewer than two DISTINCT KNOWN series is
+    returned whole.
+    """
+    known: dict[str, list[dict]] = {}
+    unknown: list[dict] = []
+
+    for e in group:
+        series = str((e.get("attributes") or {}).get("series") or "").strip()
+        if series:
+            known.setdefault(series, []).append(e)
+        else:
+            unknown.append(e)
+
+    if len(known) < 2:
+        return [group]
+
+    order = sorted(known, key=lambda s: (-len(known[s]), s))
+    subs = {s: list(members) for s, members in known.items()}
+    for e in unknown:
+        subs[order[0]].append(e)
+    return [subs[s] for s in order]
+
+
 def _split_packaging_subgroups(
     group: list[dict],
 ) -> list[tuple[str, list[dict]]]:
@@ -2408,10 +2435,12 @@ def match_listings(
     # MPN/SKU tiers so a cross-vendor model match wins over each vendor's
     # own SKU/MPN product.
     #
-    # Guarded three ways so we never silently merge the wrong thing:
+    # Guarded four ways so we never silently merge the wrong thing:
     #   - Only categories/keys we explicitly trust (see MODEL_MERGE_CATEGORIES).
     #   - Listings that disagree on a critical attribute (DDR generation,
     #     capacity, speed, wattage, etc.) are kept apart.
+    #   - Explicit Intel series tags are NEVER merged across ("225" vs
+    #     "225 series 2"); listings with no series tag ride with the majority.
     #   - Box vs Tray packaging is NEVER merged: a boxed CPU (retail,
     #     cooler, warranty) and a tray CPU (OEM, bare) are different items
     #     with different prices — merging them defeats the packaging
@@ -2435,45 +2464,49 @@ def match_listings(
         if len(group) < 2:
             continue
 
-        subgroups = _split_packaging_subgroups(group)
-        if not subgroups:
-            continue
-
         category = ident[0]
         slug_part = re.sub(r"[^a-z0-9]+", "-", ident[2]).strip("-")
 
-        for pack_key, sub in subgroups:
-            # A lone listing isn't a merge (e.g. the only Tray offer of a
-            # model otherwise sold boxed) — leave it for the MPN/SKU tiers
-            # instead of minting a one-offer "model" product.
-            if len(sub) < 2:
+        # Explicit Intel series conflicts split first ("225" vs
+        # "225 series 2" never share a product); packaging splits each
+        # series subgroup after that.
+        for series_group in _split_series_subgroups(group):
+            subgroups = _split_packaging_subgroups(series_group)
+            if not subgroups:
                 continue
 
-            # Critical-attribute guard: if any two listings in the
-            # prospective merge disagree on a spec that changes the part
-            # (e.g. a CPU sold as both 65W and 125W TDP), it's not the same
-            # part — drop the subgroup and let each remain separate.
-            if any(
-                critical_conflict(a, b)
-                for i, a in enumerate(sub)
-                for b in sub[i + 1 :]
-            ):
-                continue
+            for pack_key, sub in subgroups:
+                # A lone listing isn't a merge (e.g. the only Tray offer of a
+                # model otherwise sold boxed) — leave it for the MPN/SKU tiers
+                # instead of minting a one-offer "model" product.
+                if len(sub) < 2:
+                    continue
 
-            pid = f"model:{category}:{slug_part}"
-            if pack_key == "Tray":
-                pid += "-tray"
+                # Critical-attribute guard: if any two listings in the
+                # prospective merge disagree on a spec that changes the part
+                # (e.g. a CPU sold as both 65W and 125W TDP), it's not the same
+                # part — drop the subgroup and let each remain separate.
+                if any(
+                    critical_conflict(a, b)
+                    for i, a in enumerate(sub)
+                    for b in sub[i + 1 :]
+                ):
+                    continue
 
-            for enriched in sub:
-                assignments[enriched["listing_key"]] = pid
+                pid = f"model:{category}:{slug_part}"
+                if pack_key == "Tray":
+                    pid += "-tray"
 
-            product_meta.setdefault(
-                pid,
-                {
-                    "product_id": pid,
-                    "matched_by": "model",
-                },
-            )
+                for enriched in sub:
+                    assignments[enriched["listing_key"]] = pid
+
+                product_meta.setdefault(
+                    pid,
+                    {
+                        "product_id": pid,
+                        "matched_by": "model",
+                    },
+                )
 
     # 3. Exact MPN matches.
     mpn_groups: dict[str, list[dict]] = {}
