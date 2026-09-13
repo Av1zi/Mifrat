@@ -590,6 +590,11 @@ export async function renderCategory(
       <aside class="filter-rail" id="filter-rail"></aside>
 
       <div>
+        <div class="results-meta">
+          <div id="results-count"></div>
+          <div id="active-filters"></div>
+        </div>
+
         <div class="toolbar">
           <span class="toolbar-label">${t(lang, "searchPlaceholder")}</span>
           <label class="search-field">
@@ -610,11 +615,6 @@ export async function renderCategory(
             <option value="vendors_desc">${t(lang, "sortVendorsDesc")}</option>
             <option value="name">${t(lang, "sortName")}</option>
           </select>
-        </div>
-
-        <div class="results-meta">
-          <div id="active-filters"></div>
-          <div id="results-count"></div>
         </div>
 
         <div class="product-list" id="product-list"></div>
