@@ -1124,9 +1124,9 @@ export async function renderCategory(
                 <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
                 <input type="range" class="range-slider" id="price-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
               </div>
-              <div style="display:flex; gap:6px; margin-top:8px">
-                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
-                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
+              <div class="filter-slider-inputs">
+                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
+                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
               </div>
             </div>
           </div>
@@ -1155,9 +1155,9 @@ export async function renderCategory(
                 <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
                 <input type="range" class="range-slider" id="${key}-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
               </div>
-              <div style="display:flex; gap:6px; margin-top:8px">
-                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
-                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" style="flex:1; border:1px solid var(--border); border-radius:6px; padding:4px 6px; font-size:0.78rem" />
+              <div class="filter-slider-inputs">
+                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
+                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
               </div>
             </div>
           </div>
