@@ -15,6 +15,7 @@ import {
 } from "../state";
 import type { Currency, Lang, Product } from "../types";
 import { displayName, errorPanel, esc, safeImageUrl, safeUrl, skuOf } from "../utils";
+import { icon } from "../icons";
 
 // Attribute keys that make good "series" variant groups (PCPP's
 // "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
@@ -123,8 +124,9 @@ function computeVariantGroups(
     // Stable order, value-only: the active pill keeps its position when
     // navigating between variants (clicking DDR5 must not swap it with
     // the DDR4 pill). Active is only a marker, never a sort key.
+    // Explicit locale for determinism across browsers.
     values.sort((a, b) =>
-      a.value.localeCompare(b.value, undefined, { numeric: true })
+      a.value.localeCompare(b.value, "en", { numeric: true })
     );
     groups.push({ key, values });
     if (groups.length >= 4) break;
@@ -141,7 +143,8 @@ function similarProducts(product: Product, all: Product[]): Product[] {
     if (p.brand && product.brand && p.brand === product.brand) score += 5;
     for (const [k, v] of Object.entries(product.attributes)) {
       if (NOISE_KEYS.has(k)) continue;
-      if (p.attributes[k] === v) score += 1;
+      // Normalize to strings: 850 vs "850 W" must match.
+      if (attrText(p.attributes[k]) === attrText(v) && attrText(v) !== "") score += 1;
     }
     scored.push({ p, score });
   }
@@ -149,7 +152,9 @@ function similarProducts(product: Product, all: Product[]): Product[] {
     (a, b) =>
       b.score - a.score || (a.p.min_price ?? Infinity) - (b.p.min_price ?? Infinity)
   );
-  return scored.slice(0, 8).map((s) => s.p);
+  // Min-score threshold: unrelated items must not fill all 8 slots.
+  const relevant = scored.filter((s) => s.score >= 3);
+  return relevant.slice(0, 8).map((s) => s.p);
 }
 
 export async function renderProduct(
@@ -176,7 +181,7 @@ export async function renderProduct(
   const product = products.find((p) => p.id === productId);
   if (!product) {
     container.innerHTML = `
-      <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
+      <div class="crumbs"><a href="${homeHash()}">${icon("arrow-right", 14)} ${t(lang, "backToCategories")}</a></div>
       <div class="empty-state">${t(lang, "productNotFound")}</div>
     `;
     return;
@@ -228,12 +233,12 @@ export async function renderProduct(
     .map(
       (g) => `
       <div class="variant-group">
-        <h3>${esc(attributeLabel(g.key, lang))}: ${esc(product.attributes[g.key])}</h3>
+        <h3>${esc(attributeLabel(g.key, lang))}: ${esc(attrText(product.attributes[g.key]))}</h3>
         <div class="variant-pills">
           ${g.values
             .map((v) =>
               v.active
-                ? `<span class="variant-pill active">${esc(v.value)}</span>`
+                ? `<button type="button" class="variant-pill active" aria-current="true" data-variant="${esc(v.productId)}">${esc(v.value)}</button>`
                 : `<a class="variant-pill" href="${productHash(category, v.productId)}">${esc(v.value)}</a>`
             )
             .join("")}
@@ -277,24 +282,24 @@ export async function renderProduct(
 
   const mainImg = safeImageUrl(product.image);
   const imageHtml = mainImg
-    ? `<img class="pdp-image" src="${esc(mainImg)}" alt="${esc(name)}" loading="eager">`
-    : `<div class="thumb thumb-lg">${esc((product.brand ?? name).slice(0, 2).toUpperCase())}</div>`;
+    ? `<img class="pdp-image" src="${esc(mainImg)}" alt="${esc(name)}" loading="eager" fetchpriority="high" width="600" height="600" style="object-fit:contain;background:#fff;">`
+    : `<div class="thumb thumb-lg" aria-hidden="true">${esc((product.brand ?? name).slice(0, 2).toUpperCase())}</div>`;
 
   const similarHtml = similar
     .map((p) => {
       const simImg = safeImageUrl(p.image);
       return `
       <a class="pdp-similar-card" href="${productHash(p.category, p.id)}">
-        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
+        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy" width="200" height="200" style="object-fit:contain;background:#fff;">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
         <span class="pdp-similar-name">${esc(displayName(p))}</span>
-        <span class="pdp-similar-price">${formatPrice(p.min_price, currency, lang)}</span>
+        <span class="pdp-similar-price">${p.min_price === null ? "-" : esc(formatPrice(p.min_price, currency, lang))}</span>
       </a>`;
     })
     .join("");
 
   container.innerHTML = `
     <div class="crumbs">
-      <a href="${homeHash()}">← ${t(lang, "backToCategories")}</a>
+      <a href="${homeHash()}">${icon("arrow-right", 14)} ${t(lang, "backToCategories")}</a>
       &nbsp;·&nbsp;
       <a href="${categoryHash(category)}">${esc(categoryLabel(category, lang))}</a>
     </div>
@@ -340,12 +345,12 @@ export async function renderProduct(
             <table class="price-table">
               <thead>
                 <tr>
-                  <th>${t(lang, "merchantHeading")}</th>
-                  <th>${t(lang, "baseHeading")}</th>
-                  <th>${t(lang, "shippingHeading")}</th>
-                  <th>${t(lang, "availability")}</th>
-                  <th>${t(lang, "totalHeading")}</th>
-                  <th></th>
+                  <th scope="col">${t(lang, "merchantHeading")}</th>
+                  <th scope="col">${t(lang, "baseHeading")}</th>
+                  <th scope="col">${t(lang, "shippingHeading")}</th>
+                  <th scope="col">${t(lang, "availability")}</th>
+                  <th scope="col">${t(lang, "totalHeading")}</th>
+                  <th scope="col"><span class="visually-hidden">${esc(t(lang, "buyHeaderLabel"))}</span><span aria-hidden="true"></span></th>
                 </tr>
               </thead>
               <tbody>${priceRows}</tbody>
@@ -439,12 +444,17 @@ async function renderPriceHistory(
   const colorOf = (vendor: string): string =>
     HISTORY_COLORS[vendors.indexOf(vendor) % HISTORY_COLORS.length];
 
+  const locale = lang === "he" ? "he-IL" : "en-GB";
   const shortDate = (iso: string): string => {
+    const d = new Date(iso);
+    if (!Number.isNaN(d.getTime()))
+      return new Intl.DateTimeFormat(locale, { day: "numeric", month: "numeric" }).format(d);
     const parts = iso.split("-");
     return parts.length === 3 ? `${parts[2]}.${parts[1]}` : iso;
   };
 
-  const draw = (): void => {
+  let lastDrawnWidth = 0;
+  const draw = (restoreFocusId?: string): void => {
     const end = dates.length;
     const start = Math.max(0, end - dayWindow);
     const visDates = dates.slice(start, end);
@@ -539,8 +549,11 @@ async function renderPriceHistory(
       )
       .join("");
 
-    const rangeOptions = [7, 14, 30, 120]
-      .filter((days, i, arr) => days < dates.length || i === arr.length - 1)
+    const rangeDefs = [7, 14, 30, 120].filter(
+      (days, i, arr) => days < dates.length || i === arr.length - 1
+    );
+    const singleAll = rangeDefs.length === 1 && rangeDefs[0] >= dates.length;
+    const rangeOptions = rangeDefs
       .map((days) => {
         const label =
           days >= dates.length
@@ -549,26 +562,38 @@ async function renderPriceHistory(
         return `<option value="${days}" ${dayWindow === (days >= dates.length ? dates.length : days) ? "selected" : ""}>${esc(label)}</option>`;
       })
       .join("");
+    const rangeControl = singleAll
+      ? `<span class="parts-count">${esc(t(lang, "historyAll"))}</span>`
+      : `<label class="visually-hidden" for="ph-range-select">${esc(t(lang, "priceHistory"))}</label><select class="sort-select ph-range" id="ph-range-select">${rangeOptions}</select>`;
 
+    // Preserve focus across redraws (range select keeps keyboard context).
+    const activeId =
+      restoreFocusId ??
+      (host.contains(document.activeElement)
+        ? (document.activeElement as HTMLElement).id || ""
+        : "");
     host.hidden = false;
     host.innerHTML = `
       <div class="pdp-card-head">
         <h2 class="pdp-card-title pdp-card-title--plain">${t(lang, "priceHistory")}</h2>
-        <select class="sort-select ph-range" aria-label="${t(lang, "priceHistory")}">
-          ${rangeOptions}
-        </select>
+        ${rangeControl}
       </div>
       <div class="ph-legend">${legend}</div>
       <div class="ph-wrap">
-        <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}">
+        <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t(lang, "priceHistory"))}" tabindex="0">
           ${grid}
           ${paths}
-          <line class="ph-cross" y1="${T}" y2="${H - B}" hidden />
+          <line class="ph-cross" y1="${T}" y2="${H - B}" visibility="hidden" />
           ${xLabels}
         </svg>
         <div class="ph-tip" hidden></div>
       </div>
     `;
+    if (activeId) {
+      const el = host.querySelector<HTMLElement>(`#${activeId}`);
+      if (el) el.focus({ preventScroll: true });
+    }
+    lastDrawnWidth = W;
 
     const wrap = host.querySelector(".ph-wrap") as HTMLElement;
     const svg = wrap.querySelector(".ph-chart") as SVGSVGElement;
@@ -579,8 +604,57 @@ async function renderPriceHistory(
       const raw = timestamps[start + index] ?? visDates[index];
       const d = new Date(raw);
       if (!Number.isNaN(d.getTime()))
-        return new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-US", { day: "numeric", month: "numeric", year: "numeric" }).format(d);
+        return new Intl.DateTimeFormat(locale, { day: "numeric", month: "numeric", year: "numeric" }).format(d);
       return shortDate(visDates[index]);
+    };
+    let focusIdx = n - 1;
+    const showAt = (best: number, anchorX?: number, anchorY?: number): void => {
+      const rows = vendors
+        .map((vendor, vi) => ({ vendor, price: series[vi][best] as number | null }))
+        .filter((r) => r.price !== null && r.price !== undefined);
+      if (rows.length === 0) {
+        tip.hidden = true;
+        cross.setAttribute("visibility", "hidden");
+        return;
+      }
+      const cheapest = Math.min(...rows.map((r) => r.price as number));
+      cross.setAttribute("visibility", "visible");
+      cross.setAttribute("x1", x(best).toFixed(1));
+      cross.setAttribute("x2", x(best).toFixed(1));
+      tip.innerHTML =
+        `<div class="ph-tip-date">${esc(fmtDay(best))}</div>` +
+        rows
+          .map(({ vendor, price }) => {
+            const vi = vendors.indexOf(vendor);
+            return `<div class="ph-tip-row${(price as number) === cheapest ? " cheapest" : ""}"><span class="ph-tip-swatch" style="background:${HISTORY_COLORS[vi % HISTORY_COLORS.length]}"></span><span class="ph-tip-vendor">${esc(vendorLabel(vendor))}</span><span class="ph-tip-price">${esc(formatPrice(price as number, currency, lang))}</span></div>`;
+          })
+          .join("");
+      tip.hidden = false;
+      const wrapRect = wrap.getBoundingClientRect();
+      let lx: number;
+      let ly: number;
+      if (anchorX !== undefined && anchorY !== undefined) {
+        lx = anchorX - wrapRect.left + 14;
+        ly = anchorY - wrapRect.top - 10;
+      } else {
+        const r = svg.getBoundingClientRect();
+        lx = ((x(best) / W) * r.width) / (r.width / wrapRect.width);
+        lx = (x(best) / W) * wrapRect.width;
+        ly = 20;
+      }
+      tip.style.visibility = "hidden";
+      tip.style.left = "0px";
+      const tw = tip.offsetWidth;
+      const th = tip.offsetHeight;
+      if (anchorX !== undefined) {
+        if (lx + tw + 8 > wrapRect.width) lx = anchorX - wrapRect.left - tw - 14;
+      } else if (lx + tw + 8 > wrapRect.width) {
+        lx = lx - tw - 28;
+      }
+      ly = Math.max(4, Math.min(ly, wrapRect.height - th - 4));
+      tip.style.left = `${lx}px`;
+      tip.style.top = `${ly}px`;
+      tip.style.visibility = "";
     };
     svg.addEventListener("mousemove", (e) => {
       const rect = svg.getBoundingClientRect();
@@ -591,62 +665,68 @@ async function renderPriceHistory(
         const d = Math.abs(x(i) - px);
         if (d < bestDist) { bestDist = d; best = i; }
       }
-      const rows = vendors
-        .map((vendor, vi) => ({ vendor, price: series[vi][best] as number | null }))
-        .filter((r) => r.price !== null && r.price !== undefined);
-      if (rows.length === 0) { tip.hidden = true; cross.setAttribute("hidden", ""); return; }
-      const cheapest = Math.min(...rows.map((r) => r.price as number));
-      cross.removeAttribute("hidden");
-      cross.setAttribute("x1", x(best).toFixed(1));
-      cross.setAttribute("x2", x(best).toFixed(1));
-      tip.innerHTML = `<div class="ph-tip-date">${esc(fmtDay(best))}</div>` + rows
-        .map(({ vendor, price }) => {
-          const vi = vendors.indexOf(vendor);
-          return `<div class="ph-tip-row${(price as number) === cheapest ? " cheapest" : ""}"><span class="ph-tip-swatch" style="background:${HISTORY_COLORS[vi % HISTORY_COLORS.length]}"></span><span class="ph-tip-vendor">${esc(vendorLabel(vendor))}</span><span class="ph-tip-price">${esc(formatPrice(price as number, currency, lang))}</span></div>`;
-        })
-        .join("");
-      tip.hidden = false;
-      // Position near cursor, flip when close to the right edge.
-      const wrapRect = wrap.getBoundingClientRect();
-      let lx = e.clientX - wrapRect.left + 14;
-      let ly = e.clientY - wrapRect.top - 10;
-      tip.style.visibility = "hidden";
-      tip.style.left = "0px";
-      const tw = tip.offsetWidth;
-      const th = tip.offsetHeight;
-      if (lx + tw + 8 > wrapRect.width) lx = e.clientX - wrapRect.left - tw - 14;
-      ly = Math.max(4, Math.min(ly, wrapRect.height - th - 4));
-      tip.style.left = `${lx}px`;
-      tip.style.top = `${ly}px`;
-      tip.style.visibility = "";
+      focusIdx = best;
+      showAt(best, e.clientX, e.clientY);
     });
     svg.addEventListener("mouseleave", () => {
       tip.hidden = true;
-      cross.setAttribute("hidden", "");
+      cross.setAttribute("visibility", "hidden");
+    });
+    // Touch + keyboard: focus the chart and arrow through points.
+    svg.addEventListener("touchstart", (e) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      const rect = svg.getBoundingClientRect();
+      const px = ((touch.clientX - rect.left) / rect.width) * W;
+      let best = 0;
+      let bestDist = Infinity;
+      for (let i = 0; i < n; i++) {
+        const d = Math.abs(x(i) - px);
+        if (d < bestDist) { bestDist = d; best = i; }
+      }
+      focusIdx = best;
+      showAt(best, touch.clientX, touch.clientY);
+    }, { passive: true });
+    svg.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
+      e.preventDefault();
+      if (e.key === "ArrowLeft") focusIdx = Math.max(0, focusIdx - 1);
+      else if (e.key === "ArrowRight") focusIdx = Math.min(n - 1, focusIdx + 1);
+      else if (e.key === "Home") focusIdx = 0;
+      else focusIdx = n - 1;
+      showAt(focusIdx);
+    });
+    svg.addEventListener("blur", () => {
+      tip.hidden = true;
+      cross.setAttribute("visibility", "hidden");
     });
 
-    host.querySelector(".ph-range")!.addEventListener("change", (e) => {
+    host.querySelector(".ph-range")?.addEventListener("change", (e) => {
       const days = Number((e.target as HTMLSelectElement).value);
       dayWindow =
         Number.isFinite(days) && days > 0
           ? Math.min(days, dates.length)
           : dates.length;
-      draw();
+      draw("ph-range-select");
     });
   };
 
   // Redraw when the card's width changes (window resize, sidebar
   // collapse, etc.) so the chart stays sized to real pixels — see the
-  // measuredWidth comment above.
+  // measuredWidth comment above. Guarded by width so draws don't loop.
   historyResizeObserver?.disconnect();
   if (typeof ResizeObserver !== "undefined" && host.parentElement) {
     let pending = false;
     historyResizeObserver = new ResizeObserver(() => {
       if (pending) return;
+      const w = host.clientWidth || 0;
+      if (Math.abs(w - lastDrawnWidth) < 24) return;
       pending = true;
       requestAnimationFrame(() => {
         pending = false;
-        draw();
+        const w2 = host.clientWidth || 0;
+        if (Math.abs(w2 - lastDrawnWidth) < 24) return;
+        draw(document.activeElement?.id);
       });
     });
     historyResizeObserver.observe(host.parentElement);

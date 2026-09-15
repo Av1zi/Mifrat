@@ -12,7 +12,7 @@ export async function renderCategories(
   lang: Lang,
   currency: Currency
 ): Promise<void> {
-  setPageTitle(lang, lang === "he" ? "כל הקטגוריות" : "All categories");
+  setPageTitle(lang, t(lang, "allCategoriesTitle"));
   container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
 
   let meta;
@@ -47,11 +47,11 @@ export async function renderCategories(
     .join("");
 
   container.innerHTML = `
-    <div class="crumbs"><a href="${homeHash()}">← ${lang === "he" ? "חזרה לדף הבית" : "Back to home"}</a></div>
+    <div class="crumbs"><a href="${homeHash()}">${icon("arrow-right", 14)} ${esc(t(lang, "backToHome"))}</a></div>
     <section class="categories-intro">
-      <p class="hero-eyebrow">${lang === "he" ? "קטלוג רכיבי מחשב" : "PC component catalog"}</p>
-      <h1>${lang === "he" ? "כל הקטגוריות" : "All categories"}</h1>
-      <p>${lang === "he" ? "בחרו קטגוריה כדי להשוות מחירים, מפרטים וזמינות." : "Choose a category to compare prices, specifications, and availability."}</p>
+      <p class="hero-eyebrow">${esc(t(lang, "categoriesEyebrow"))}</p>
+      <h1>${esc(t(lang, "allCategoriesTitle"))}</h1>
+      <p>${esc(t(lang, "categoriesIntro"))}</p>
     </section>
     <div class="category-grid categories-page-grid">${cards}</div>
   `;

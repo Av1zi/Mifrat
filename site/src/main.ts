@@ -12,6 +12,7 @@ import { categoryLabel, t } from "./i18n";
 import { icon, type IconName } from "./icons";
 import {
   applyStoredTheme,
+  categoryHash,
   cookiesHash,
   categoriesHash,
   getCurrency,
@@ -53,17 +54,28 @@ function applyDocumentLang(): void {
 }
 
 // Mirrors PCPP's browse-products dropdown: 8 popular tiles + grouped links.
+// Popular tiles are core shortcuts; groups cover core + cooling + extras
+// with no duplicated ids between tiles and groups.
 const POPULAR_CATS = [
   "cpu",
-  "cooler_air",
   "motherboard",
   "memory",
-  "storage",
   "gpu",
+  "storage",
+  "psu",
+  "case",
+  "cooler_air",
+];
+const CORE_CATS = [
+  "cpu",
+  "motherboard",
+  "memory",
+  "gpu",
+  "storage",
   "psu",
   "case",
 ];
-const COOLING_CATS = ["aio", "cooler_air", "cooling_other", "case_fan"];
+const COOLING_CATS = ["aio", "cooling_other", "case_fan"];
 const ACCESSORY_CATS = ["accessories", "other"];
 
 const TILE_ICONS: Record<string, IconName> = {
@@ -81,11 +93,11 @@ function catTile(id: string, current: string | null): string {
   const label = categoryLabel(id, lang);
   const here = current === id ? " current" : "";
   const hereAttr = current === id ? ' aria-current="page"' : "";
-  return `<a class="mega-tile${here}" href="#/c/${id}"${hereAttr}><span class="mega-tile-mark" aria-hidden="true">${icon(TILE_ICONS[id] ?? "chip", 22)}</span><span>${esc(label)}</span></a>`;
+  return `<a class="mega-tile${here}" href="${categoryHash(id)}"${hereAttr}><span class="mega-tile-mark" aria-hidden="true">${icon(TILE_ICONS[id] ?? "chip", 22)}</span><span>${esc(label)}</span></a>`;
 }
 
 function catLink(id: string): string {
-  return `<a href="#/c/${id}">${esc(categoryLabel(id, lang))}</a>`;
+  return `<a href="${categoryHash(id)}">${esc(categoryLabel(id, lang))}</a>`;
 }
 
 function renderShell(): void {
@@ -108,7 +120,7 @@ function renderShell(): void {
         <a class="brand" href="${homeHash()}">
           <span class="brand-mark">${icon("chip", 16)}</span>
           ${t(lang, "appName")}
-          <small>${lang === "he" ? "Mifrat" : "מפרט"}</small>
+          <small>${esc(lang === "he" ? t("en", "appName") : t("he", "appName"))}</small>
         </a>
         <div class="header-spacer"></div>
         <div class="header-actions">
@@ -126,33 +138,37 @@ function renderShell(): void {
               <option value="en" ${lang === "en" ? "selected" : ""}>English</option>
             </select>
           </label>
-          <button class="icon-toggle theme-btn" id="theme-toggle" type="button" title="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}">
+          <button class="icon-toggle theme-btn" id="theme-toggle" type="button" title="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}" aria-label="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}">
             ${icon(theme === "light" ? "moon" : "sun", 14)}
-            <span>${theme === "light" ? (lang === "he" ? "כהה" : "Dark") : (lang === "he" ? "בהיר" : "Light")}</span>
+            <span>${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}</span>
           </button>
         </div>
       </div>
       <nav class="header-nav" aria-label="main">
         <div class="header-nav-inner">
-          <a class="nav-build ${isBuild ? "active" : ""}" href="#/build"${isBuild ? ' aria-current="page"' : ""}>${icon("wrench", 15)}<span>${t(lang, "builderNav")}</span></a>
+          <a class="nav-build ${isBuild ? "active" : ""}" data-nav="build" href="#/build"${isBuild ? ' aria-current="page"' : ""}>${icon("wrench", 15)}<span>${t(lang, "builderNav")}</span></a>
           <div class="nav-products">
-            <button class="nav-link nav-products-btn ${isProducts ? "active" : ""}" id="products-btn" type="button" aria-expanded="false" aria-haspopup="true"${isProducts ? ' aria-current="true"' : ""}>
+            <button class="nav-link nav-products-btn ${isProducts ? "active" : ""}" data-nav="products" id="products-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="mega-menu"${isProducts ? ' aria-current="page"' : ""}>
               ${icon("chip", 15)}<span>${t(lang, "productsMenu")}</span>${icon("chevron", 13)}
             </button>
           </div>
-          <a class="nav-link ${isHome ? "active" : ""}" href="${homeHash()}"${isHome ? ' aria-current="page"' : ""}>${t(lang, "home")}</a>
+          <a class="nav-link ${isHome ? "active" : ""}" data-nav="home" href="${homeHash()}"${isHome ? ' aria-current="page"' : ""}>${t(lang, "home")}</a>
           <span class="nav-search-spacer"></span>
-          <button class="nav-link nav-search-btn" id="search-btn" type="button" aria-label="${t(lang, "searchLabel")}" aria-expanded="false">
+          <button class="nav-link nav-search-btn" id="search-btn" type="button" aria-label="${t(lang, "searchLabel")}" aria-expanded="false" aria-controls="search-panel">
             ${icon("search", 15)}
           </button>
         </div>
-        <div class="mega-menu" id="mega-menu" hidden>
+        <div class="mega-menu" id="mega-menu" hidden role="menu" aria-label="${esc(t(lang, "productsMenu"))}">
           <div class="mega-inner">
-            <a class="mega-all-link" href="${categoriesHash()}">${lang === "he" ? "כל הקטגוריות" : "Browse all categories"} ${icon("arrow-right", 14)}</a>
+            <a class="mega-all-link" href="${categoriesHash()}">${esc(t(lang, "browseAllCategories"))} ${icon("arrow-right", 14)}</a>
             <div class="mega-popular">
               ${POPULAR_CATS.map((id) => catTile(id, currentCategory)).join("")}
             </div>
             <div class="mega-groups">
+              <div class="mega-col">
+                <h3>${t(lang, "componentHeading")}</h3>
+                ${CORE_CATS.map(catLink).join("")}
+              </div>
               <div class="mega-col">
                 <h3>${t(lang, "coolingHeading")}</h3>
                 ${COOLING_CATS.map(catLink).join("")}
@@ -167,9 +183,9 @@ function renderShell(): void {
         <div class="nav-search-panel" id="search-panel" hidden>
           <div class="nav-search-inner">
             ${icon("search", 15)}
-            <input id="global-search" type="search" placeholder="${esc(t(lang, "searchLabel"))}" autocomplete="off" aria-label="${t(lang, "searchLabel")}">
+            <input id="global-search" type="search" placeholder="${esc(t(lang, "searchLabel"))}" autocomplete="off" aria-label="${t(lang, "searchLabel")}" role="combobox" aria-expanded="false" aria-controls="global-results" aria-autocomplete="list">
           </div>
-          <div class="global-results" id="global-results"></div>
+          <div class="global-results" id="global-results" role="listbox" aria-live="polite"></div>
         </div>
       </nav>
     </header>
@@ -237,17 +253,64 @@ function renderShell(): void {
   });
 
   let debounce: number | undefined;
+  let searchSeq = 0;
   searchInput.addEventListener("input", () => {
     window.clearTimeout(debounce);
+    const q = searchInput.value.trim();
+    searchInput.setAttribute("aria-expanded", q.length >= 2 ? "true" : "false");
     debounce = window.setTimeout(() => {
-      void runGlobalSearch(searchInput.value.trim());
+      const mySeq = ++searchSeq;
+      void runGlobalSearch(q, mySeq);
     }, 220);
   });
   searchInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenus();
+    else if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter") {
+      const box = document.getElementById("global-results");
+      const hits = box ? Array.from(box.querySelectorAll<HTMLElement>(".global-hit")) : [];
+      if (hits.length === 0) return;
+      e.preventDefault();
+      let idx = hits.findIndex((h) => h.classList.contains("is-active"));
+      if (e.key === "ArrowDown") idx = idx < hits.length - 1 ? idx + 1 : 0;
+      else if (e.key === "ArrowUp") idx = idx > 0 ? idx - 1 : hits.length - 1;
+      else if (e.key === "Enter") {
+        const target = idx >= 0 ? hits[idx] : hits[0];
+        (target as HTMLAnchorElement).click();
+        return;
+      }
+      hits.forEach((h, i) => {
+        const on = i === idx;
+        h.classList.toggle("is-active", on);
+        h.setAttribute("aria-selected", on ? "true" : "false");
+        if (on) h.scrollIntoView({ block: "nearest" });
+      });
+    }
   });
 
   renderRoute();
+  updateNavActive();
+}
+
+export function updateNavActive(): void {
+  const route = parseRoute();
+  const isBuild = route.view === "build";
+  const isHome = route.view === "home";
+  const isProducts =
+    route.view === "categories" ||
+    route.view === "category" ||
+    route.view === "product";
+  const buildLink = document.querySelector('[data-nav="build"]');
+  const homeLink = document.querySelector('[data-nav="home"]');
+  const productsBtn = document.getElementById("products-btn");
+  buildLink?.classList.toggle("active", isBuild);
+  homeLink?.classList.toggle("active", isHome);
+  productsBtn?.classList.toggle("active", isProducts);
+  if (isBuild) buildLink?.setAttribute("aria-current", "page");
+  else buildLink?.removeAttribute("aria-current");
+  if (isHome) homeLink?.setAttribute("aria-current", "page");
+  else homeLink?.removeAttribute("aria-current");
+  if (isProducts) productsBtn?.setAttribute("aria-current", "page");
+  else productsBtn?.removeAttribute("aria-current");
 }
 
 interface SearchEntry {
@@ -256,54 +319,90 @@ interface SearchEntry {
 }
 
 let searchIndex: SearchEntry[] | null = null;
+let searchSeqLive = 0;
 
-async function ensureSearchIndex(): Promise<SearchEntry[]> {
-  if (searchIndex) return searchIndex;
-  const meta = await loadMeta();
-  const lists = await Promise.all(
-    meta.categories.map((c) =>
-      loadCategory(c.id).catch(() => [] as Product[])
-    )
-  );
-  searchIndex = lists.flat().map((product) => ({
-    product,
-    haystack: `${product.name} ${product.brand ?? ""} ${product.model ?? ""}`.toLowerCase(),
-  }));
-  return searchIndex;
+function normHay(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/["'`׳״־–—]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-async function runGlobalSearch(query: string): Promise<void> {
+async function ensureSearchIndex(mySeq: number): Promise<SearchEntry[]> {
+  if (searchIndex) return searchIndex;
+  const meta = await loadMeta();
+  const ids = meta.categories
+    .filter((c) => c.count > 0)
+    .map((c) => c.id);
+  const out: SearchEntry[] = [];
+  // Sequential lazy load (no Promise.all spike); abortable via seq.
+  for (const id of ids) {
+    if (mySeq !== searchSeqLive) throw new Error("aborted");
+    try {
+      const list = await loadCategory(id);
+      for (const product of list) {
+        const sku = (product as { sku?: unknown }).sku;
+        out.push({
+          product,
+          haystack: normHay(
+            `${product.name} ${product.brand ?? ""} ${product.model ?? ""} ${typeof sku === "string" ? sku : ""} ${product.category} ${categoryLabel(product.category, lang)}`
+          ),
+        });
+      }
+      // Publish partial index progressively so first hits appear fast.
+      searchIndex = out.slice();
+    } catch {
+      // Ignore per-category failures.
+    }
+    // Yield to keep typing responsive while backfilling.
+    await new Promise((r) => setTimeout(r, 0));
+  }
+  searchIndex = out;
+  return out;
+}
+
+async function runGlobalSearch(query: string, mySeq: number): Promise<void> {
+  searchSeqLive = mySeq;
   const box = document.getElementById("global-results");
   if (!box) return;
   if (query.length < 2) {
     box.innerHTML = "";
     return;
   }
-  box.innerHTML = `<div class="global-status">${t(lang, "loading")}</div>`;
+  box.innerHTML = `<div class="global-status" role="status">${t(lang, "loading")}</div>`;
   try {
-    const index = await ensureSearchIndex();
-    const q = query.toLowerCase();
+    const index = await ensureSearchIndex(mySeq);
+    if (mySeq !== searchSeqLive) return;
+    const q = normHay(query);
     const hits = index.filter((e) => e.haystack.includes(q)).slice(0, 8);
     if (hits.length === 0) {
-      box.innerHTML = `<div class="global-status">${t(lang, "noResults")}</div>`;
+      box.innerHTML = `<div class="global-status" role="status">${t(lang, "noResults")}</div>`;
       return;
     }
     box.innerHTML = hits
       .map(({ product }) => {
         const img = safeImageUrl(product.image);
+        const name = displayName(product);
         const thumb = img
-          ? `<img src="${esc(img)}" alt="" loading="lazy">`
+          ? `<img src="${esc(img)}" alt="${esc(name)}" loading="lazy" width="40" height="40">`
           : `<span class="plThumb" aria-hidden="true">${esc((product.brand ?? product.name).slice(0, 2).toUpperCase())}</span>`;
+        const price =
+          product.min_price === null || product.min_price === undefined
+            ? "-"
+            : formatPrice(product.min_price, currency, lang);
         return `
-          <a class="global-hit" href="${productHash(product.category, product.id)}">
+          <a class="global-hit" role="option" aria-selected="false" href="${productHash(product.category, product.id)}">
             ${thumb}
-            <span class="global-hit-name">${esc(displayName(product))}</span>
-            <span class="global-hit-price">${formatPrice(product.min_price, currency, lang)}</span>
+            <span class="global-hit-name">${esc(name)}<span class="global-hit-cat"> · ${esc(categoryLabel(product.category, lang))}</span></span>
+            <span class="global-hit-price">${esc(price)}</span>
           </a>`;
       })
       .join("");
-  } catch {
-    box.innerHTML = `<div class="global-status">${t(lang, "loadError")}</div>`;
+  } catch (err) {
+    if ((err as Error)?.message === "aborted") return;
+    box.innerHTML = `<div class="global-status" role="status">${t(lang, "loadError")}</div>`;
   }
 }
 
@@ -330,6 +429,7 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("hashchange", () => {
   closeOpenMenus();
   renderRoute();
+  updateNavActive();
 });
 
 function routeError(main: HTMLElement, err: unknown): void {
@@ -348,6 +448,7 @@ function renderRoute(): void {
       console.error("[route]", err);
       routeError(main, err);
     }
+    updateNavActive();
     return;
   }
   if (route.view === "terms" || route.view === "cookies") {
@@ -358,6 +459,7 @@ function renderRoute(): void {
       console.error("[route]", err);
       routeError(main, err);
     }
+    updateNavActive();
     return;
   }
   if (route.view === "qa") {
@@ -366,14 +468,16 @@ function renderRoute(): void {
       console.error("[route]", err);
       routeError(main, err);
     });
+    updateNavActive();
     return;
   }
   if (route.view === "categories") {
-    setPageTitle(lang, lang === "he" ? "כל הקטגוריות" : "All categories");
+    setPageTitle(lang, t(lang, "allCategoriesTitle"));
     renderCategories(main, lang, currency).catch((err) => {
       console.error("[route]", err);
       routeError(main, err);
     });
+    updateNavActive();
     return;
   }
   if (route.view === "notfound") {
@@ -383,15 +487,16 @@ function renderRoute(): void {
       console.error("[route]", err);
       routeError(main, err);
     }
+    updateNavActive();
     return;
   }
   if (route.view === "build") {
     const shared = route.listId !== null || route.shared !== null;
-    setPageTitle(lang, lang === "he" ? (shared ? "רשימת חלקים" : "בניית מחשב") : shared ? "Shared Build" : "PC Builder");
+    setPageTitle(lang, shared ? t(lang, "sharedBuildTitle") : t(lang, "builderPageTitle"));
   } else if (route.view === "category") {
     setPageTitle(lang, categoryLabel(route.category, lang));
   } else if (route.view === "product") {
-    setPageTitle(lang, lang === "he" ? "מוצר" : "Product");
+    setPageTitle(lang, t(lang, "productPageTitle"));
   }
   const task =
     route.view === "home"
@@ -407,6 +512,7 @@ function renderRoute(): void {
     console.error("[route]", err);
     routeError(main, err);
   });
+  updateNavActive();
 }
 
 void (async () => {

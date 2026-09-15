@@ -31,7 +31,7 @@ import {
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
-import { displayName, errorPanel, esc, safeImageUrl } from "../utils";
+import { displayName, errorPanel, esc, safeImageUrl, skuOf } from "../utils";
 import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
@@ -111,8 +111,8 @@ const PCPARTDB_DISPLAY_MAP: Record<string, string> = {
 };
 
 /** Render a raw dataset value in our canonical display shape. */
-function formatRefValue(canonKey: string, raw: unknown): string {
-  if (typeof raw === "boolean") return raw ? "Yes" : "No";
+function formatRefValue(canonKey: string, raw: unknown, lang: Lang): string {
+  if (typeof raw === "boolean") return raw ? t(lang, "yesLabel") : t(lang, "noLabel");
   if (Array.isArray(raw)) {
     const parts = raw.map((v) => String(v));
     const range =
@@ -144,7 +144,7 @@ function formatRefValue(canonKey: string, raw: unknown): string {
 }
 
 /** Table cell value: scraped attribute first, marked reference fallback. */
-function cellSpec(p: Product, key: string): { text: string; ref: boolean } {
+function cellSpec(p: Product, key: string, lang: Lang): { text: string; ref: boolean } {
   const own = p.attributes[key];
   if (own !== undefined && own !== null && own !== "") {
     return { text: String(own), ref: false };
@@ -153,7 +153,7 @@ function cellSpec(p: Product, key: string): { text: string; ref: boolean } {
   for (const [foreign, raw] of Object.entries(specs)) {
     if (PCPARTDB_DISPLAY_MAP[foreign] !== key) continue;
     if (raw === null || raw === undefined || raw === "") continue;
-    const text = formatRefValue(key, raw);
+    const text = formatRefValue(key, raw, lang);
     if (text) return { text, ref: true };
   }
   return { text: "", ref: false };
@@ -298,7 +298,11 @@ function applyFilters(
     if (params.stockOnly && !p.in_stock) return false;
 
     if (q) {
-      const haystack = `${p.name} ${p.brand ?? ""} ${p.model ?? ""}`.toLowerCase();
+      // Display-only extension: SKU/MPN join the name haystack. Filter
+      // logic (attribute checkboxes/ranges) is untouched.
+      const mpn = p.attributes["mpn"] ?? p.pckombo?.mpn ?? "";
+      const haystack =
+        `${p.name} ${p.brand ?? ""} ${p.model ?? ""} ${skuOf(p)} ${mpn}`.toLowerCase();
       if (!haystack.includes(q)) return false;
     }
 
@@ -373,7 +377,8 @@ function sortProducts(products: Product[], sort: SortKey): Product[] {
       break;
 
     case "name":
-      arr.sort((a, b) => a.name.localeCompare(b.name));
+      // Explicit locale: stable across browsers (spec §7 variant rule).
+      arr.sort((a, b) => a.name.localeCompare(b.name, "en", { numeric: true }));
       break;
   }
 
@@ -509,22 +514,29 @@ export async function renderCategory(
     .map(() => "minmax(110px, 1fr)")
     .join(" ");
 
-  // +56px thumb column at start, spiced distinct
-  const plCols = `56px minmax(220px, 2.2fr) ${specColDefs} minmax(108px, 1fr) minmax(110px, 1fr) minmax(112px, auto)`.replace(
+  // 72px square thumb column at start.
+  const plCols = `72px minmax(220px, 2.2fr) ${specColDefs} minmax(108px, 1fr) minmax(110px, 1fr) minmax(112px, auto)`.replace(
     /\s{2,}/g,
     " "
   );
 
-  function addPartToBuild(product: Product): void {
-    if (!pickSlot) return;
+  function addPartToBuild(product: Product): boolean {
+    if (!pickSlot) return false;
 
-    if (!pickSlot.categories.includes(product.category)) return;
+    if (!pickSlot.categories.includes(product.category)) {
+      const note = container.querySelector(".pick-note");
+      if (note) {
+        note.textContent = `${displayName(product)} — ${t(lang, "pickMismatch")}`;
+      }
+      return false;
+    }
 
     const build = getStoredBuild();
     addToBuild(build, pickSlot.id, product.id);
     setStoredBuild(build);
 
     navigate(buildHash(build));
+    return true;
   }
 
   function pickBannerHtml(): string {
@@ -555,15 +567,11 @@ export async function renderCategory(
     const hiddenNote =
       hiddenIncompatible > 0
         ? `
-            <span class="pick-note">
-              ${
-                lang === "he"
-                  ? `${hiddenIncompatible} לא תואמים הוסתרו`
-                  : `${hiddenIncompatible} known-incompatible hidden`
-              }
+            <span class="pick-note" role="status">
+              ${hiddenIncompatible} ${t(lang, "hiddenIncompatible")}
             </span>
           `
-        : "";
+        : `<span class="pick-note" role="status" hidden></span>`;
 
     return `
       <div class="pick-banner">
@@ -579,24 +587,23 @@ export async function renderCategory(
 
   container.innerHTML = `
     <div class="crumbs">
-      <a href="${categoriesHash()}">← ${t(lang, "backToCategories")}</a>
+      <a href="${categoriesHash()}">${icon("arrow-right", 14)} ${t(lang, "backToCategories")}</a>
     </div>
 
-    <h1 class="category-title">${categoryLabel(category, lang)}</h1>
+    <h1 class="category-title">${esc(categoryLabel(category, lang))}</h1>
 
     ${pickBannerHtml()}
 
     <div class="category-layout">
-      <aside class="filter-rail" id="filter-rail"></aside>
+      <aside class="filter-rail" id="filter-rail" aria-label="${esc(t(lang, "filtersHeading"))}"></aside>
 
       <div>
         <div class="results-meta">
-          <div id="results-count"></div>
+          <div id="results-count" role="status"></div>
           <div id="active-filters"></div>
         </div>
 
         <div class="toolbar">
-          <span class="toolbar-label">${t(lang, "searchPlaceholder")}</span>
           <label class="search-field">
             ${icon("search", 16)}
             <input
@@ -604,12 +611,12 @@ export async function renderCategory(
               id="search-input"
               type="search"
               placeholder="${esc(t(lang, "searchPlaceholder"))}"
+              aria-label="${esc(t(lang, "searchAriaLabel"))}"
               value="${esc(localQuery)}"
             />
           </label>
 
-          <span class="toolbar-label">${t(lang, "sortLabel")}</span>
-          <select class="sort-select" id="sort-select">
+          <select class="sort-select" id="sort-select" aria-label="${esc(t(lang, "sortAriaLabel"))}">
             <option value="price_asc">${t(lang, "sortPriceAsc")}</option>
             <option value="price_desc">${t(lang, "sortPriceDesc")}</option>
             <option value="vendors_desc">${t(lang, "sortVendorsDesc")}</option>
@@ -618,9 +625,12 @@ export async function renderCategory(
         </div>
 
         <div class="product-list" id="product-list"></div>
+        <div id="quickadd-status" role="status" aria-live="polite" class="pick-note" style="min-height:1.2em;"></div>
 
         <div
           id="infinite-sentinel"
+          role="status"
+          aria-live="polite"
           style="text-align:center; margin-top:20px; min-height:32px; display:none;"
         ></div>
       </div>
@@ -704,9 +714,57 @@ export async function renderCategory(
     return `<div class="active-filters">${chips.join("")}</div>`;
   }
 
+  function refreshRailStates(): void {
+    // Lightweight rail refresh: compat dead-states + merchant All,
+    // without rebuilding <details> (preserves open sections).
+    const rail = container.querySelector("#filter-rail");
+    if (!rail) return;
+    const good = new Map<string, Set<string>>();
+    if (loadedBuild.items.length > 0 && targetSlotId) {
+      for (const p of compatibleProducts) {
+        if (!isProductCompatibleWithBuild(p, targetSlotId, buildParts)) continue;
+        for (const key of filterableAttrs.keys()) {
+          let set = good.get(key);
+          if (!set) {
+            set = new Set<string>();
+            good.set(key, set);
+          }
+          if (key === "vendor") {
+            for (const offer of p.offers) set.add(offer.vendor);
+          } else if (p.attributes[key]) {
+            set.add(String(p.attributes[key]));
+          }
+        }
+      }
+    }
+    rail.querySelectorAll<HTMLInputElement>("input[data-attr]").forEach((input) => {
+      const key = input.dataset.attr!;
+      const dead =
+        good.size > 0 && !(good.get(key)?.has(input.value) ?? false);
+      const label = input.closest(".filter-option");
+      label?.classList.toggle("is-off", dead && compatOn);
+      label?.classList.toggle("is-soft-off", dead && !compatOn);
+      if (dead && compatOn) input.disabled = true;
+      else input.disabled = false;
+      input.checked = (params.filters[key] ?? []).includes(input.value);
+    });
+    const all = rail.querySelector<HTMLInputElement>("[data-merchant-all]");
+    if (all) {
+      const vals = filterableAttrs.get("vendor") ?? [];
+      const sel = new Set(params.filters["vendor"] ?? []);
+      const total = vals.length;
+      const checked = vals.filter(([v]) => sel.has(v)).length;
+      all.checked = total > 0 && checked === total;
+      all.indeterminate = checked > 0 && checked < total;
+    }
+    const stock = rail.querySelector<HTMLInputElement>("#stock-checkbox");
+    if (stock) stock.checked = params.stockOnly;
+  }
+
   function syncAndRerender(): void {
     visibleCount = PAGE_SIZE;
     replaceRoute(categoryHash(category, { ...params, q: localQuery }));
+    refreshRailStates();
     renderGrid();
   }
 
@@ -723,9 +781,15 @@ export async function renderCategory(
       )
       .join("");
 
-    // Price header is sortable — clicking toggles low→high / high→low
+    // Price header is sortable — keyboard-operable, toggles low→high / high→low.
     const priceSort = params.sort === "price_asc" ? "price_desc" : "price_asc";
     const priceArrow = params.sort === "price_asc" ? "↑" : params.sort === "price_desc" ? "↓" : "↕";
+    const ariaSort =
+      params.sort === "price_asc"
+        ? "ascending"
+        : params.sort === "price_desc"
+          ? "descending"
+          : "none";
 
     return `
       <div class="pl-header">
@@ -733,7 +797,7 @@ export async function renderCategory(
         <div class="pl-cell">${t(lang, "sortName")}</div>
         ${specHeaders}
         <div class="pl-cell">${t(lang, "availability")}</div>
-        <div class="pl-cell" style="cursor:pointer" data-sort="${esc(priceSort)}" title="${t(lang, "sortLabel")}">${t(lang, "priceHeading")} <span style="font-weight:800">${priceArrow}</span></div>
+        <div class="pl-cell" role="button" tabindex="0" data-sort="${esc(priceSort)}" aria-sort="${ariaSort}" title="${esc(t(lang, "sortLabel"))}">${t(lang, "priceHeading")} <span style="font-weight:800" aria-hidden="true">${priceArrow}</span></div>
         <div class="pl-cell"></div>
       </div>
     `;
@@ -749,38 +813,41 @@ export async function renderCategory(
         if (key === "vendor") {
           return `<div class="pl-cell">${esc(vendorsCount(lang, p.vendor_count))}</div>`;
         }
-        const cell = cellSpec(p, key);
+        const cell = cellSpec(p, key, lang);
         if (!cell.text) return `<div class="pl-cell spec">-</div>`;
         if (!cell.ref) return `<div class="pl-cell spec">${esc(cell.text)}</div>`;
         return `<div class="pl-cell spec spec-ref" title="${esc(refNote)}">${esc(cell.text)}</div>`;
       })
       .join("");
 
-    const actionCell = pickSlot
-      ? `<span class="btn-small btn-add">${t(lang, "addToBuild")}</span>`
-      : `<button type="button" class="btn-small btn-quickadd" data-quickadd="${esc(p.id)}">${t(lang, "quickAdd")}</button>`;
+    const href = productHash(category, p.id);
+    const name = displayName(p);
+    const thumb = (() => {
+      const img = safeImageUrl(p.image);
+      return img
+        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" width="72" height="72" style="object-fit:contain; background:#fff;"></a>`
+        : `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span></a>`;
+    })();
 
-    // Shared inner cells for both modes; only the wrapper differs:
-    // plain product rows are real links to the product page, while
-    // picker rows are buttons that add the part to the build.
+    const actionCell = pickSlot
+      ? `<button type="button" class="btn-small btn-add" data-pickadd="${esc(p.id)}">${t(lang, "addToBuild")}</button>`
+      : `<button type="button" class="btn-small btn-quickadd" data-quickadd="${esc(p.id)}" aria-label="${esc(t(lang, "quickAdd"))}: ${esc(name)}">${icon("plus", 13)}<span>${esc(t(lang, "quickAdd"))}</span></button>`;
+
+    // No nested buttons: row is a div, title/thumb link explicitly,
+    // quick-add is a separate sibling button. Whole-row click via JS.
     const inner = `
         <div class="pl-cell" style="display:flex; align-items:center; justify-content:center;">
-          ${(() => {
-            const img = safeImageUrl(p.image);
-            return img
-              ? `<img class="plThumb" src="${esc(img)}" alt="${esc(displayName(p))}" loading="lazy" style="object-fit:contain; background:#fff;">`
-              : `<span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span>`;
-          })()}
+          ${thumb}
         </div>
         <div class="pl-cell pl-name">
-          <span class="pl-title">${esc(displayName(p))}</span>
+          <a class="pl-title-link" href="${href}"><span class="pl-title">${esc(name)}</span></a>
           ${p.brand ? `<span class="pl-brand">${esc(p.brand)}</span>` : ""}
         </div>
 
         ${specCells}
 
         <div class="pl-cell pl-stock">
-          <span class="status-dot ${p.in_stock ? "in" : "out"}"></span>
+          <span class="status-dot ${p.in_stock ? "in" : "out"}" aria-hidden="true"></span>
           ${p.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}
         </div>
 
@@ -794,23 +861,24 @@ export async function renderCategory(
 
     if (!pickSlot) {
       return `
-      <a
+      <div
         class="pl-row"
         data-id="${esc(p.id)}"
-        href="${productHash(category, p.id)}"
+        data-href="${href}"
       >
         ${inner}
-      </a>`;
+      </div>`;
     }
 
+    // Picker: article with selectable text + explicit add button (valid
+    // semantics, no button-wrapping-divs).
     return `
-      <button
+      <div
         class="pl-row pl-row--pick"
-        type="button"
         data-id="${esc(p.id)}"
       >
         ${inner}
-      </button>`;
+      </div>`;
   }
 
   function renderGrid(): void {
@@ -863,21 +931,39 @@ export async function renderCategory(
 
       const sortEl = listEl.querySelector<HTMLElement>("[data-sort]");
       if (sortEl) {
-        sortEl.addEventListener("click", (e) => {
-          e.stopPropagation();
+        const activateSort = (): void => {
           const next = sortEl.dataset.sort as SortKey;
           params.sort = next;
           (container.querySelector("#sort-select") as HTMLSelectElement).value = next;
           syncAndRerender();
+        };
+        sortEl.addEventListener("click", (e) => {
+          e.stopPropagation();
+          activateSort();
+        });
+        sortEl.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            activateSort();
+          }
         });
       }
 
-      // Picker rows are <button>s that add to the build; plain rows
-      // are <a> links and navigate natively (middle-click safe).
-      listEl.querySelectorAll("button.pl-row").forEach((el) => {
-        el.addEventListener("click", () => {
+      // Whole-row click navigates via JS; title/thumb links preserve
+      // middle-click/open-in-tab natively.
+      listEl.querySelectorAll("div.pl-row[data-href]").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          if ((e.target as HTMLElement).closest("button, a")) return;
+          const href = (el as HTMLElement).dataset.href!;
+          navigate(href);
+        });
+      });
+
+      // Picker add buttons (valid semantics, selectable row text).
+      listEl.querySelectorAll("[data-pickadd]").forEach((btn) => {
+        btn.addEventListener("click", () => {
           if (!pickSlot) return;
-          const id = (el as HTMLElement).dataset.id!;
+          const id = (btn as HTMLElement).dataset.pickadd!;
           const product = productById.get(id);
           if (product) addPartToBuild(product);
         });
@@ -889,6 +975,8 @@ export async function renderCategory(
         btn.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
+          const el = btn as HTMLButtonElement;
+          if (el.disabled) return;
           const id = (btn as HTMLElement).dataset.quickadd!;
           const product = productById.get(id);
           if (!product) return;
@@ -897,12 +985,16 @@ export async function renderCategory(
           const build = getStoredBuild();
           addToBuild(build, slot.id, product.id);
           setStoredBuild(build);
-          const el = btn as HTMLButtonElement;
+          el.disabled = true;
           el.classList.add("is-added");
+          const original = `${icon("plus", 13)}<span>${esc(t(lang, "quickAdd"))}</span>`;
           el.innerHTML = `${icon("check", 13)}<span>${esc(t(lang, "addedLabel"))}</span>`;
+          const status = container.querySelector("#quickadd-status");
+          if (status) status.textContent = `${displayName(product)} — ${t(lang, "quickAddStatus")}`;
           window.setTimeout(() => {
+            el.disabled = false;
             el.classList.remove("is-added");
-            el.textContent = t(lang, "quickAdd");
+            el.innerHTML = original;
           }, 1300);
         });
       });
@@ -912,28 +1004,29 @@ export async function renderCategory(
       "#infinite-sentinel"
     ) as HTMLElement;
 
-    if (gridObserver) {
-      gridObserver.disconnect();
-      gridObserver = null;
-    }
-
     if (filtered.length > visibleCount) {
       sentinel.style.display = "block";
       sentinel.textContent = t(lang, "loading");
 
-      gridObserver = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((entry) => entry.isIntersecting)) {
-            visibleCount += PAGE_SIZE;
-            renderGrid();
-          }
-        },
-        { rootMargin: "600px" }
-      );
+      // Reuse a single observer; only observe the live sentinel.
+      if (!gridObserver) {
+        gridObserver = new IntersectionObserver(
+          (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+              visibleCount += PAGE_SIZE;
+              renderGrid();
+            }
+          },
+          { rootMargin: "320px" }
+        );
+      } else {
+        gridObserver.disconnect();
+      }
       gridObserver.observe(sentinel);
     } else {
       sentinel.style.display = "none";
       sentinel.textContent = "";
+      gridObserver?.disconnect();
     }
   }
 
@@ -958,25 +1051,21 @@ export async function renderCategory(
         : `
       <div class="miniPart">
         <div class="miniPart-head">
-          <span class="miniPart-title">Parts List</span>
+          <span class="miniPart-title">${esc(t(lang, "partsListTitle"))}</span>
         </div>
         ${
           showCompatToggle
             ? `
-        <label class="miniPart-compat" title="${
-          lang === "he"
-            ? "הצגת ערכים תואמים בלבד"
-            : "Grey out options that conflict with the picked parts"
-        }">
+        <label class="miniPart-compat" title="${esc(t(lang, "compatFilterHint"))}">
           <input type="checkbox" id="compat-checkbox" ${compatOn ? "checked" : ""} />
-          <span>${lang === "he" ? "מסנן תאימות" : "Compatibility Filter"}</span>
+          <span>${esc(t(lang, "compatFilterLabel"))}</span>
         </label>`
             : ""
         }
         <div class="miniPart-stats">
-          <div><span class="miniPart-label">PARTS</span><span class="miniPart-value">${buildCount}</span></div>
-          <div><span class="miniPart-label">TOTAL</span><span class="miniPart-value miniPart-total">${esc(formatPrice(buildSum, currency, lang))}</span></div>
-          <div><span class="miniPart-label">ESTIMATED WATTAGE</span><span class="miniPart-value miniPart-watt">${buildWatts}W</span></div>
+          <div><span class="miniPart-label">${esc(t(lang, "partsShort"))}</span><span class="miniPart-value">${buildCount}</span></div>
+          <div><span class="miniPart-label">${esc(t(lang, "totalShort"))}</span><span class="miniPart-value miniPart-total">${esc(formatPrice(buildSum, currency, lang))}</span></div>
+          <div><span class="miniPart-label">${esc(t(lang, "wattageShort"))}</span><span class="miniPart-value miniPart-watt">${buildWatts}W</span></div>
         </div>
       </div>
     `;
@@ -1052,11 +1141,11 @@ export async function renderCategory(
     const merchantsBody = vendorValues.length
       ? `
         <div class="group__content" id="merchants-content" style="display:none">
-          <label class="filter-option"><input type="checkbox" data-merchant-all /> All</label>
+          <label class="filter-option"><input type="checkbox" data-merchant-all aria-label="${esc(t(lang, "allLabel"))}" /> ${esc(t(lang, "allLabel"))}</label>
           ${vendorValues.map(([v, cnt]) => optionHtml("vendor", v, cnt)).join("")}
         </div>
       `
-      : `<div class="group__content" style="display:none; padding:6px 0; font-size:0.82rem; color:var(--text-dim)">No vendor data</div>`;
+      : `<div class="group__content" style="display:none; padding:6px 0; font-size:0.82rem; color:var(--text-dim)">${esc(t(lang, "noVendorData"))}</div>`;
 
     const pricingBody = `
       <div class="group__content" id="pricing-content" style="display:none; padding:8px 0">
@@ -1108,25 +1197,28 @@ export async function renderCategory(
 
     if (numericRanges.has("price")) {
       const range = numericRanges.get("price")!;
+      const span = range.max - range.min;
       const currentMin = params.ranges.price?.min ?? range.min;
       const currentMax = params.ranges.price?.max ?? range.max;
-      const step = Math.max(1, Math.floor((range.max - range.min) / 100));
-      const minPct = ((currentMin - range.min) / (range.max - range.min)) * 100;
-      const maxPct = ((currentMax - range.min) / (range.max - range.min)) * 100;
+      const step = Math.max(1, Math.floor(span / 100));
+      const pct = (v: number): number =>
+        span <= 0 ? 0 : ((v - range.min) / span) * 100;
+      const minPct = pct(currentMin);
+      const maxPct = pct(currentMax);
 
       sliderGroups.push(`
         <details class="filter-group">
-          <summary><span>${t(lang, "priceRange") || "Price"}</span><span class="collapse-toggle">+</span></summary>
+          <summary><span>${esc(t(lang, "priceRange"))}</span><span class="collapse-toggle">+</span></summary>
           <div class="group__content">
             <div class="filter-slider" dir="ltr">
-              <div class="price-label-row"><span>$${range.min}</span><span>$${range.max}</span></div>
+              <div class="price-label-row"><span>${esc(formatPrice(range.min, currency, lang))}</span><span>${esc(formatPrice(range.max, currency, lang))}</span></div>
               <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="price-track">
-                <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
-                <input type="range" class="range-slider" id="price-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
+                <input type="range" class="range-slider" id="price-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" aria-label="${esc(t(lang, "priceMinAria"))}" />
+                <input type="range" class="range-slider" id="price-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" aria-label="${esc(t(lang, "priceMaxAria"))}" />
               </div>
               <div class="filter-slider-inputs">
-                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
-                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
+                <input type="number" id="price-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" aria-label="${esc(t(lang, "priceMinAria"))}" />
+                <input type="number" id="price-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" aria-label="${esc(t(lang, "priceMaxAria"))}" />
               </div>
             </div>
           </div>
@@ -1139,11 +1231,14 @@ export async function renderCategory(
       if (!NUMERIC_ATTRS.has(key)) continue;
 
       const label = attributeLabel(key, lang);
+      const span = range.max - range.min;
       const currentMin = params.ranges[key]?.min ?? range.min;
       const currentMax = params.ranges[key]?.max ?? range.max;
       const step = key.includes("ghz") || key.includes("clock") ? 0.1 : 1;
-      const minPct = ((currentMin - range.min) / (range.max - range.min)) * 100;
-      const maxPct = ((currentMax - range.min) / (range.max - range.min)) * 100;
+      const pct = (v: number): number =>
+        span <= 0 ? 0 : ((v - range.min) / span) * 100;
+      const minPct = pct(currentMin);
+      const maxPct = pct(currentMax);
 
       sliderGroups.push(`
         <details class="filter-group">
@@ -1152,12 +1247,12 @@ export async function renderCategory(
             <div class="filter-slider" dir="ltr">
               <div class="price-label-row"><span>${range.min}</span><span>${range.max}</span></div>
               <div class="range-slider-track" style="--range-start: ${minPct}%; --range-end: ${100 - maxPct}%;" id="${key}-track">
-                <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" />
-                <input type="range" class="range-slider" id="${key}-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" />
+                <input type="range" class="range-slider" id="${key}-min-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMin}" aria-label="${esc(label)} ${esc(t(lang, "min"))}" />
+                <input type="range" class="range-slider" id="${key}-max-slider" min="${range.min}" max="${range.max}" step="${step}" value="${currentMax}" aria-label="${esc(label)} ${esc(t(lang, "max"))}" />
               </div>
               <div class="filter-slider-inputs">
-                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" />
-                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" />
+                <input type="number" id="${key}-min" value="${currentMin}" min="${range.min}" max="${range.max}" step="${step}" aria-label="${esc(label)} ${esc(t(lang, "min"))}" />
+                <input type="number" id="${key}-max" value="${currentMax}" min="${range.min}" max="${range.max}" step="${step}" aria-label="${esc(label)} ${esc(t(lang, "max"))}" />
               </div>
             </div>
           </div>
@@ -1165,27 +1260,42 @@ export async function renderCategory(
       `);
     }
 
+    // Open the first filter group by default instead of all-closed.
+    let firstOpened = false;
+    const openFirst = (html: string): string => {
+      if (firstOpened) return html;
+      firstOpened = true;
+      return html.replace(
+        '<details class="filter-group">',
+        '<details class="filter-group" open>'
+      );
+    };
+    const sliderHtml = sliderGroups.map(openFirst).join("");
+    const checkboxHtml = checkboxGroups
+      ? openFirst(checkboxGroups)
+      : checkboxGroups;
+
     rail.innerHTML = `
       ${miniCard}
 
       <div class="railSection">
-        <h3 class="railSectionTitle">Merchants / Pricing</h3>
+        <h3 class="railSectionTitle">${esc(t(lang, "merchantsPricingTitle"))}</h3>
         <div class="group group--filter">
-          <h3 class="group__title group__title--trigger js-trigger-filter" data-toggle="merchants">MERCHANTS<span class="collapse-toggle">+</span></h3>
+          <button class="group__title group__title--trigger js-trigger-filter" data-toggle="merchants" aria-expanded="false" aria-controls="merchants-content" type="button"><span>${esc(t(lang, "merchantsTitle"))}</span><span class="collapse-toggle" aria-hidden="true">+</span></button>
           ${merchantsBody}
         </div>
         <div class="group group--filter">
-          <h3 class="group__title group__title--trigger js-trigger-filter" data-toggle="pricing">PRICING OPTIONS<span class="collapse-toggle">+</span></h3>
+          <button class="group__title group__title--trigger js-trigger-filter" data-toggle="pricing" aria-expanded="false" aria-controls="pricing-content" type="button"><span>${esc(t(lang, "pricingOptionsTitle"))}</span><span class="collapse-toggle" aria-hidden="true">+</span></button>
           ${pricingBody}
         </div>
       </div>
 
       <div class="railSection">
-        <h3 class="railSectionTitle">Filters</h3>
+        <h3 class="railSectionTitle">${esc(t(lang, "filtersHeading"))}</h3>
 
-        ${sliderGroups.join("")}
+        ${sliderHtml}
 
-        ${checkboxGroups}
+        ${checkboxHtml}
 
         <button
           class="clear-filters"
@@ -1349,14 +1459,15 @@ export async function renderCategory(
       wireRange(key, key);
     }
 
-    // PP-style collapsible headers (MERCHANTS / PRICING OPTIONS / Filters groups)
-    rail.querySelectorAll<HTMLHeadingElement>(".group__title--trigger").forEach((h) => {
-      h.addEventListener("click", () => {
-        const content = h.nextElementSibling as HTMLElement | null;
+    // Collapsible headers are real buttons (aria-expanded, keyboard native).
+    rail.querySelectorAll<HTMLButtonElement>(".group__title--trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling as HTMLElement | null;
         if (!content) return;
         const isOpen = content.style.display !== "none";
         content.style.display = isOpen ? "none" : "block";
-        const tog = h.querySelector<HTMLElement>(".collapse-toggle");
+        btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+        const tog = btn.querySelector<HTMLElement>(".collapse-toggle");
         if (tog) tog.textContent = isOpen ? "+" : "−";
       });
     });
@@ -1383,9 +1494,28 @@ export async function renderCategory(
       });
     }
 
+    // Merchant All reflects/indeterminate state.
+    const syncMerchantAll = (): void => {
+      const all = rail.querySelector<HTMLInputElement>("[data-merchant-all]");
+      if (!all) return;
+      const vals = filterableAttrs.get("vendor") ?? [];
+      const sel = new Set(params.filters["vendor"] ?? []);
+      const checked = vals.filter(([v]) => sel.has(v)).length;
+      all.checked = vals.length > 0 && checked === vals.length;
+      all.indeterminate = checked > 0 && checked < vals.length;
+    };
+    syncMerchantAll();
+
     rail
       .querySelector("#clear-filters-btn")!
       .addEventListener("click", () => {
+        // Don't instant-restore compat-implied values: clearing turns the
+        // compat filter off (explicit user intent to see everything).
+        if (compatOn) {
+          compatOn = false;
+          const box = rail.querySelector<HTMLInputElement>("#compat-checkbox");
+          if (box) box.checked = false;
+        }
         params.filters = {};
         params.ranges = {};
         params.stockOnly = false;
@@ -1404,15 +1534,21 @@ export async function renderCategory(
 
   let debounceTimer: number | undefined;
 
+  // Single debounce drives grid + URL together (no 400ms divergence).
   searchInput.addEventListener("input", () => {
-    localQuery = searchInput.value;
-    visibleCount = PAGE_SIZE;
-    renderGrid();
-
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(() => {
+      localQuery = searchInput.value;
+      visibleCount = PAGE_SIZE;
       replaceRoute(categoryHash(category, { ...params, q: localQuery }));
-    }, 400);
+      refreshRailStates();
+      renderGrid();
+    }, 220);
+  });
+
+  // Disconnect the infinite observer when leaving the route.
+  window.addEventListener("hashchange", () => gridObserver?.disconnect(), {
+    once: true,
   });
 
   const sortSelect = container.querySelector(

@@ -58,16 +58,20 @@ export async function renderBuilder(
       return;
     }
     pendingKey = key;
+    const status = container.querySelector("#short-status");
+    if (status) status.textContent = t(lang, "shorteningLabel");
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(() => {
       // Build moved on while waiting — the next render() reschedules.
       if (JSON.stringify(build) !== key) {
         pendingKey = null;
+        if (status) status.textContent = "";
         return;
       }
       createListLink(build).then(
         (id) => {
           pendingKey = null;
+          if (status) status.textContent = "";
           // Another render may have replaced the input since; only fill
           // the live one, and only if it still shows this exact build.
           if (JSON.stringify(build) !== key) return;
@@ -82,6 +86,7 @@ export async function renderBuilder(
           // API unreachable (offline, `vite dev` without the Worker):
           // the long URL already in the input still shares fine.
           pendingKey = null;
+          if (status) status.textContent = "";
         }
       );
     }, 900);
@@ -189,7 +194,7 @@ export async function renderBuilder(
     const href = productHash(product.category, product.id);
     const img = safeImageUrl(product.image);
     if (img) {
-      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy"></a>`;
+      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy" width="64" height="64" style="object-fit:contain;background:#fff;"></a>`;
     }
     const label = (product.brand ?? product.name).slice(0, 2).toUpperCase() || "-";
     return `<a class="thumb has-part" href="${href}" tabindex="-1"><span>${esc(label)}</span></a>`;
@@ -221,14 +226,14 @@ export async function renderBuilder(
           <a class="bs-part-name" href="${href}">${esc(displayName(product))}</a>
           ${product.brand ? `<div class="bs-part-brand">${esc(product.brand)}</div>` : ""}
         </div>
-        <div class="bhCell bsBase">${price === null ? "-" : esc(formatPrice(price, currency, lang))}</div>
-        <div class="bhCell bsShip"><span class="dim">-</span></div>
-        <div class="bhCell bsStock">
-          <span class="status-dot ${product.in_stock ? "in" : "out"}"></span>
+        <div class="bhCell bsBase" data-label="${esc(t(lang, "baseHeading"))}">${price === null ? "-" : esc(formatPrice(price, currency, lang))}</div>
+        <div class="bhCell bsShip" data-label="${esc(t(lang, "shippingHeading"))}"><span class="dim">-</span></div>
+        <div class="bhCell bsStock" data-label="${esc(t(lang, "availability"))}">
+          <span class="status-dot ${product.in_stock ? "in" : "out"}" aria-hidden="true"></span>
           ${product.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}
         </div>
-        <div class="bhCell bsPrice">${priceHtml}</div>
-        <div class="bhCell bsWhere">${offer ? esc(vendorLabel(offer.vendor)) : `<span class="dim">-</span>`}</div>
+        <div class="bhCell bsPrice" data-label="${esc(t(lang, "priceHeading"))}">${priceHtml}</div>
+        <div class="bhCell bsWhere" data-label="${esc(t(lang, "merchantHeading"))}">${offer ? esc(vendorLabel(offer.vendor)) : `<span class="dim">-</span>`}</div>
         <div class="bhCell">${buyUrl ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>` : `<span class="dim">-</span>`}</div>
         <div class="bhCell bsRemove">
           <button class="icon-btn" type="button" data-action="remove" data-slot="${esc(slot.id)}" data-id="${esc(product.id)}" aria-label="${esc(t(lang, "removePart"))}" title="${esc(t(lang, "removePart"))}">
@@ -252,8 +257,7 @@ export async function renderBuilder(
   }
 
   function addAdditionalRow(slot: BuildSlot): string {
-    const label =
-      lang === "he" ? `הוספת ${esc(slot.label[lang])} נוסף` : `Add Additional ${esc(slot.label[lang])}`;
+    const label = `${esc(t(lang, "addAdditionalLabel"))} ${esc(slot.label[lang])}`;
     return `
       <div class="buildRow buildRow--add">
         <div class="bhCell"></div>
@@ -279,9 +283,9 @@ export async function renderBuilder(
         const url = origin + productHash(product.category, product.id);
         if (mode === "markdown") {
           const where = offer ? ` @ ${vendorLabel(offer.vendor)}` : "";
-          lines.push(`**${slot.label.en}** | [${displayName(product)}](${url}) | ${priceStr}${where}`);
+          lines.push(`**${slot.label[lang]}** | [${displayName(product)}](${url}) | ${priceStr}${where}`);
         } else {
-          lines.push(`${slot.label.en}: ${displayName(product)} - ${priceStr}`);
+          lines.push(`${slot.label[lang]}: ${displayName(product)} - ${priceStr}`);
         }
       }
     }
@@ -297,11 +301,15 @@ export async function renderBuilder(
     return lines.join("\n");
   }
 
-  async function copyText(text: string, btn: HTMLButtonElement): Promise<void> {
+  async function copyText(
+    text: string,
+    btn: HTMLButtonElement,
+    okLabel: string
+  ): Promise<void> {
     const original = btn.innerHTML;
     const done = (ok: boolean) => {
       btn.innerHTML = ok
-        ? `${icon("copy", 13)}<span>${esc(t(lang, "markupCopied"))}</span>`
+        ? `${icon("copy", 13)}<span>${esc(okLabel)}</span>`
         : original;
       window.setTimeout(() => {
         btn.innerHTML = original;
@@ -355,11 +363,11 @@ export async function renderBuilder(
         : shareUrl;
 
     const compatClass = !hasParts ? "idle" : issues.length > 0 ? "bad" : "ok";
-    const compatText = !hasParts
-      ? t(lang, "compatibilityIdle")
+    const compatHtml = !hasParts
+      ? esc(t(lang, "compatibilityIdle"))
       : issues.length > 0
-        ? issues.join(" - ")
-        : t(lang, "compatibilityOk");
+        ? `<ul>${issues.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`
+        : esc(t(lang, "compatibilityOk"));
 
     const rows = BUILD_SLOTS.map((slot) => {
       const list = parts.get(slot.id) ?? [];
@@ -378,20 +386,22 @@ export async function renderBuilder(
 
       <div class="actionBoxGroup">
         <div class="permalink">
-          <button class="btn-small btn-icon builder-copy-link" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 16)}<span>${lang === "he" ? "העתקת קישור" : "Copy link"}</span></button>
+          <button class="btn-small btn-icon builder-copy-link" id="builder-copy-link" type="button" title="${esc(t(lang, "copyLink"))}">${icon("copy", 16)}<span>${esc(t(lang, "copyLink"))}</span></button>
           <input
             class="share-input"
             id="builder-share-link"
             type="text"
             readonly
             dir="ltr"
+            aria-label="${esc(t(lang, "shareLinkAria"))}"
             value="${esc(shownUrl)}"
           />
+          <span id="short-status" role="status" aria-live="polite" class="parts-count"></span>
         </div>
         <div class="markup">
-          <span class="markup-label">${lang === "he" ? "סימון:" : "Markup:"}</span>
-          <button class="markup-action" type="button" id="markup-md" title="${esc(t(lang, "copyMarkdown"))}">${icon("grid", 16)}<span>${lang === "he" ? "טבלה" : "Table"}</span></button>
-          <button class="markup-action" type="button" id="markup-text" title="${esc(t(lang, "copyText"))}">${icon("file-text", 16)}<span>${lang === "he" ? "טקסט" : "Text"}</span></button>
+          <span class="markup-label">${esc(t(lang, "markupLabel"))}</span>
+          <button class="markup-action" type="button" id="markup-md" title="${esc(t(lang, "copyMarkdown"))}">${icon("grid", 16)}<span>${esc(t(lang, "tableLabel"))}</span></button>
+          <button class="markup-action" type="button" id="markup-text" title="${esc(t(lang, "copyText"))}">${icon("file-text", 16)}<span>${esc(t(lang, "textLabel"))}</span></button>
         </div>
         <div class="options">
           <span class="parts-count">${itemCount} / ${BUILD_SLOTS.length} ${t(lang, "partsCount")}</span>
@@ -400,8 +410,8 @@ export async function renderBuilder(
       </div>
 
       <div class="partlistMetrics">
-        <div class="compatBanner ${compatClass}"><span class="compat-dot" aria-hidden="true"></span><span>${esc(compatText)}</span></div>
-        <div class="wattBlock">${icon("bolt", 14)}<span>${t(lang, "estimatedWattage")}</span><b>${estWatts}W</b></div>
+        <div class="compatBanner ${compatClass}" role="status"><span class="compat-dot" aria-hidden="true"></span><span>${compatHtml}</span></div>
+        ${hasParts ? `<div class="wattBlock">${icon("bolt", 14)}<span>${esc(t(lang, "estimatedWattage"))}</span><b>${estWatts}W</b></div>` : ""}
       </div>
 
       <div class="buildTableWrap">
@@ -428,10 +438,8 @@ export async function renderBuilder(
       <p class="pdp-disclaimer">* ${t(lang, "disclaimer")}</p>
 
       <div class="compatNote">
-        <b>${lang === "he" ? "הערת תאימות:" : "Compatibility note:"}</b>
-        ${lang === "he"
-          ? "בדיקת התאימות מבוססת על נתונים ידועים בלבד. אישורים פיזיים כמו מרווח לקירור לא נבדקים אוטומטית."
-          : "Some physical constraints (RAM clearance, cooler height, GPU length) are not automatically checked. Verify case fit manually."}
+        <b>${esc(t(lang, "compatNoteTitle"))}</b>
+        ${esc(t(lang, "compatNoteBody"))}
       </div>
     `;
 
@@ -442,8 +450,9 @@ export async function renderBuilder(
 
     if (copyButton && shareInput) {
       copyButton.addEventListener("click", () => {
-        void copyText(shareInput.value, copyButton);
+        void copyText(shareInput.value, copyButton, t(lang, "linkCopied"));
       });
+      shareInput.addEventListener("click", () => shareInput.select());
     }
 
     // The input always shows the short link: kick off (debounced) creation
@@ -453,13 +462,13 @@ export async function renderBuilder(
     const mdBtn = container.querySelector<HTMLButtonElement>("#markup-md");
     if (mdBtn) {
       mdBtn.addEventListener("click", () => {
-        void copyText(markupLines("markdown"), mdBtn);
+        void copyText(markupLines("markdown"), mdBtn, t(lang, "markupTableCopied"));
       });
     }
     const txtBtn = container.querySelector<HTMLButtonElement>("#markup-text");
     if (txtBtn) {
       txtBtn.addEventListener("click", () => {
-        void copyText(markupLines("text"), txtBtn);
+        void copyText(markupLines("text"), txtBtn, t(lang, "markupTextCopied"));
       });
     }
 

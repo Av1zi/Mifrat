@@ -1,6 +1,6 @@
 /**
  * Inline SVG icon set. All icons are Lucide (ISC licensed,
- * https://lucide.dev) in its 24px grid style, except `gpu` which is
+ * https://lucide.dev) in its 24px grid style, except `graphics` which is
  * drawn in the same stroke style because Lucide ships no GPU glyph.
  * No emoji, no icon fonts, no external requests.
  */
@@ -20,13 +20,7 @@ export type IconName =
   | "globe"
   | "coin"
   | "check"
-  | "cooler"
-  | "motherboard"
   | "memory"
-  | "storage"
-  | "gpu"
-  | "psu"
-  | "case"
   | "droplet"
   | "grid"
   | "arrow-right"
@@ -36,6 +30,7 @@ export type IconName =
   | "power"
   | "tower"
   | "fan"
+  | "accessories"
   | "file-text";
 
 const PATHS: Record<IconName, string> = {
@@ -67,22 +62,12 @@ const PATHS: Record<IconName, string> = {
     '<circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" />',
   check:
     '<path d="M20 6 9 17l-5-5" />',
-  cooler:
-    '<path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z" /><path d="M12 12v.01" />',
-  motherboard:
-    '<rect width="18" height="18" x="3" y="3" rx="2" /><path d="M11 9h4a2 2 0 0 0 2-2V3" /><circle cx="9" cy="9" r="2" /><path d="M7 21v-4a2 2 0 0 1 2-2h4" /><circle cx="15" cy="15" r="2" />',
   memory:
     '<path d="M6 19v-3" /><path d="M10 19v-3" /><path d="M14 19v-3" /><path d="M18 19v-3" /><path d="M8 11V9" /><path d="M16 11V9" /><path d="M12 11V9" /><path d="M2 15h20" /><path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" />',
-  storage:
-    '<line x1="22" x2="2" y1="12" y2="12" /><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /><line x1="6" x2="6.01" y1="16" y2="16" /><line x1="10" x2="10.01" y1="16" y2="16" />',
-  gpu:
-    '<rect width="15" height="11" x="2" y="6" rx="2" /><circle cx="8.5" cy="11.5" r="2.5" /><path d="M17 6v11" /><path d="M6 17v2" /><path d="M11 17v2" />',
-  psu:
-    '<path d="M12 2v10" /><path d="M18.4 6.6a9 9 0 1 1-12.77.04" />',
-  case:
-    '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />',
   droplet:
     '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z" />',
+  accessories:
+    '<rect x="3" y="7" width="18" height="13" rx="1.5" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" />',
   grid:
     '<rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" />',
   "arrow-right":
@@ -107,7 +92,7 @@ const PATHS: Record<IconName, string> = {
  * Icon for every catalog category (not just the 8 "popular" tiles in the
  * mega menu) — used on the homepage grid so every card gets a matching
  * glyph instead of a bare text link. Cooling-family categories share the
- * "cooler" mark deliberately; they're visually a family.
+ * "fan" mark deliberately; they're visually a family.
  */
 export const CATEGORY_ICONS: Record<string, IconName> = {
   cpu: "chip",
@@ -118,13 +103,17 @@ export const CATEGORY_ICONS: Record<string, IconName> = {
   psu: "power",
   case: "tower",
   cooler_air: "fan",
-  aio: "cooler",
-  cooling_other: "cooler",
+  aio: "fan",
+  cooling_other: "fan",
   case_fan: "fan",
+  fan: "fan",
   fan_controller: "fan",
   cooler_accessory: "wrench",
   thermal_paste: "droplet",
+  thermal: "droplet",
   rgb_lighting: "bolt",
+  rgb: "bolt",
+  accessories: "accessories",
   other: "grid",
 };
 
