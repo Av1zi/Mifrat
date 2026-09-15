@@ -6,7 +6,7 @@ import "@fontsource/ibm-plex-sans-hebrew/700.css";
 import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/jetbrains-mono/600.css";
-import { loadCategory, loadMeta } from "./api";
+import { loadCategory, loadCategoryRepImage, loadMeta } from "./api";
 import { ensureFxRate, formatPrice } from "./format";
 import { categoryLabel, t } from "./i18n";
 import { icon, type IconName } from "./icons";
@@ -93,15 +93,161 @@ function catTile(id: string, current: string | null): string {
   const label = categoryLabel(id, lang);
   const here = current === id ? " current" : "";
   const hereAttr = current === id ? ' aria-current="page"' : "";
-  return `<a class="mega-tile${here}" href="${categoryHash(id)}"${hereAttr}><span class="mega-tile-mark" aria-hidden="true">${icon(TILE_ICONS[id] ?? "chip", 22)}</span><span>${esc(label)}</span></a>`;
+  // Photo band fills in async via fillMegaPhotos(); the icon fallback
+  // keeps a fixed-size, no-shift placeholder until the photo arrives.
+  return `<a class="mega-tile${here}" href="${categoryHash(id)}"${hereAttr}><span class="mega-tile-photo" data-mega-photo="${esc(id)}" aria-hidden="true"><img alt="" loading="lazy" width="192" height="112" hidden><span class="mega-tile-fallback">${icon(TILE_ICONS[id] ?? "chip", 26)}</span></span><span class="mega-tile-label">${esc(label)}</span></a>`;
+}
+
+/**
+ * Upgrade mega-menu tiles from icon fallback to real product photos.
+ * Idempotent per tile (dataset.filled); failed/missing photos simply
+ * keep the icon. Safe to call on every renderShell — resolved promises
+ * settle instantly thanks to the api.ts cache.
+ */
+function fillMegaPhotos(): void {
+  const slots = document.querySelectorAll<HTMLElement>("[data-mega-photo]");
+  for (const slot of slots) {
+    if (slot.dataset.filled) continue;
+    slot.dataset.filled = "1";
+    const id = slot.dataset.megaPhoto;
+    if (!id) continue;
+    void loadCategoryRepImage(id).then((src) => {
+      if (!src || !slot.isConnected) return;
+      const img = slot.querySelector("img");
+      if (!img) return;
+      img.addEventListener("error", () => img.remove(), { once: true });
+      img.src = src;
+      img.hidden = false;
+      slot.querySelector(".mega-tile-fallback")?.remove();
+    });
+  }
 }
 
 function catLink(id: string): string {
   return `<a href="${categoryHash(id)}">${esc(categoryLabel(id, lang))}</a>`;
 }
 
+// The currently expanded header dropdown (currency/lang), if any. Module
+// level so the once-registered document handlers below can close it after
+// renderShell() has replaced the header DOM.
+let openDropdownRoot: HTMLElement | null = null;
+
+function closeDropdown(root: HTMLElement): void {
+  const btn = root.querySelector(".nav-select-btn");
+  const list = root.querySelector(".nav-select-list");
+  if (list instanceof HTMLElement) list.hidden = true;
+  btn?.setAttribute("aria-expanded", "false");
+  root.querySelectorAll(".is-active").forEach((el) => el.classList.remove("is-active"));
+  if (openDropdownRoot === root) openDropdownRoot = null;
+}
+
+/**
+ * Custom listbox dropdown (currency / language). The whole button is the
+ * hitbox — icon, value and chevron all toggle it — so there is no dead
+ * padding and no chevron-over-text overlap in either direction: the
+ * chevron is a trailing flex icon, not an absolutely-positioned glyph.
+ */
+function wireDropdown(root: HTMLElement, onPick: (value: string) => void): void {
+  const btn = root.querySelector<HTMLButtonElement>(".nav-select-btn")!;
+  const list = root.querySelector<HTMLElement>(".nav-select-list")!;
+  const options = Array.from(list.querySelectorAll<HTMLElement>('[role="option"]'));
+  if (options.length === 0) return;
+  let hl = Math.max(
+    0,
+    options.findIndex((o) => o.getAttribute("aria-selected") === "true")
+  );
+
+  const paint = (): void => {
+    options.forEach((o, i) => o.classList.toggle("is-active", i === hl));
+  };
+  const isOpen = (): boolean => !list.hidden;
+  const setOpen = (open: boolean): void => {
+    if (open && openDropdownRoot && openDropdownRoot !== root) {
+      closeDropdown(openDropdownRoot);
+    }
+    if (open) openDropdownRoot = root;
+    else if (openDropdownRoot === root) openDropdownRoot = null;
+    list.hidden = !open;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) paint();
+  };
+  const focusOpt = (i: number): void => {
+    hl = ((i % options.length) + options.length) % options.length;
+    paint();
+    options[hl].focus();
+  };
+  const pick = (i: number): void => {
+    const value = options[i]?.dataset.value;
+    if (value) onPick(value);
+  };
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setOpen(!isOpen());
+  });
+
+  btn.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (!isOpen()) {
+        setOpen(true);
+        focusOpt(hl);
+      } else {
+        focusOpt(hl + 1);
+      }
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!isOpen()) {
+        setOpen(true);
+        focusOpt(hl);
+      } else {
+        focusOpt(hl - 1);
+      }
+    } else if ((e.key === "Enter" || e.key === " ") && isOpen()) {
+      e.preventDefault();
+      pick(hl);
+    } else if (e.key === "Escape" && isOpen()) {
+      e.stopPropagation();
+      setOpen(false);
+    } else if (e.key === "Tab" && isOpen()) {
+      setOpen(false);
+    }
+  });
+
+  options.forEach((opt, i) => {
+    opt.tabIndex = -1;
+    opt.addEventListener("click", (e) => {
+      e.stopPropagation();
+      pick(i);
+    });
+    opt.addEventListener("mouseenter", () => {
+      hl = i;
+      paint();
+    });
+    opt.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        focusOpt(i + 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        focusOpt(i - 1);
+      } else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        pick(i);
+      } else if (e.key === "Escape") {
+        e.stopPropagation();
+        setOpen(false);
+        btn.focus();
+      } else if (e.key === "Tab") {
+        setOpen(false);
+      }
+    });
+  });
+}
+
 function renderShell(): void {
   applyDocumentLang();
+  openDropdownRoot = null;
   document.documentElement.dataset.theme = theme;
   const route = parseRoute();
   const isBuild = route.view === "build";
@@ -124,21 +270,29 @@ function renderShell(): void {
         </a>
         <div class="header-spacer"></div>
         <div class="header-actions">
-          <label class="nav-select" title="${t(lang, "currencyToggle")}">
-            ${icon("coin", 14)}
-            <select id="currency-select" aria-label="${t(lang, "currencyToggle")}">
-              <option value="ILS" ${currency === "ILS" ? "selected" : ""}>ILS (₪)</option>
-              <option value="USD" ${currency === "USD" ? "selected" : ""}>USD ($)</option>
-            </select>
-          </label>
-          <label class="nav-select" title="${t(lang, "langToggle")}">
-            ${icon("globe", 14)}
-            <select id="lang-select" aria-label="${t(lang, "langToggle")}">
-              <option value="he" ${lang === "he" ? "selected" : ""}>עברית</option>
-              <option value="en" ${lang === "en" ? "selected" : ""}>English</option>
-            </select>
-          </label>
-          <button class="icon-toggle theme-btn" id="theme-toggle" type="button" title="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}" aria-label="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}">
+          <div class="nav-select" data-dropdown="currency">
+            <button type="button" class="nav-select-btn" id="currency-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="${esc(t(lang, "currencyToggle"))}" title="${esc(t(lang, "currencyToggle"))}">
+              ${icon("coin", 14)}
+              <span class="nav-select-value">${currency === "ILS" ? "ILS (₪)" : "USD ($)"}</span>
+              ${icon("chevron", 13)}
+            </button>
+            <ul class="nav-select-list" role="listbox" aria-label="${esc(t(lang, "currencyToggle"))}" hidden>
+              <li role="option" id="currency-opt-ils" data-value="ILS" aria-selected="${currency === "ILS" ? "true" : "false"}">ILS (₪)</li>
+              <li role="option" id="currency-opt-usd" data-value="USD" aria-selected="${currency === "USD" ? "true" : "false"}">USD ($)</li>
+            </ul>
+          </div>
+          <div class="nav-select" data-dropdown="lang">
+            <button type="button" class="nav-select-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="${esc(t(lang, "langToggle"))}" title="${esc(t(lang, "langToggle"))}">
+              ${icon("globe", 14)}
+              <span class="nav-select-value">${lang === "he" ? "עברית" : "English"}</span>
+              ${icon("chevron", 13)}
+            </button>
+            <ul class="nav-select-list" role="listbox" aria-label="${esc(t(lang, "langToggle"))}" hidden>
+              <li role="option" id="lang-opt-he" data-value="he" aria-selected="${lang === "he" ? "true" : "false"}">עברית</li>
+              <li role="option" id="lang-opt-en" data-value="en" aria-selected="${lang === "en" ? "true" : "false"}">English</li>
+            </ul>
+          </div>
+          <button class="theme-btn" id="theme-toggle" type="button" title="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}" aria-label="${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}">
             ${icon(theme === "light" ? "moon" : "sun", 14)}
             <span>${theme === "light" ? t(lang, "themeDark") : t(lang, "themeLight")}</span>
           </button>
@@ -199,19 +353,25 @@ function renderShell(): void {
       <span aria-hidden="true"> · </span><a href="${qaHash()}">${t(lang, "qaTitle")}</a>
     </footer>`;
 
-  (document.getElementById("lang-select") as HTMLSelectElement).addEventListener("change", (e) => {
-    lang = (e.target as HTMLSelectElement).value as Lang;
-    setLang(lang);
-    renderShell();
-  });
-  (document.getElementById("currency-select") as HTMLSelectElement).addEventListener("change", (e) => {
-    currency = (e.target as HTMLSelectElement).value as Currency;
-    setCurrency(currency);
-    // FX fetch is opt-in via currency selection (audit §3.1): ILS mode
-    // makes zero external requests; USD fetches at most once per day.
-    if (currency === "USD") void ensureFxRate();
-    renderShell();
-  });
+  wireDropdown(
+    document.querySelector('[data-dropdown="lang"]')!,
+    (value) => {
+      lang = value as Lang;
+      setLang(lang);
+      renderShell();
+    }
+  );
+  wireDropdown(
+    document.querySelector('[data-dropdown="currency"]')!,
+    (value) => {
+      currency = value as Currency;
+      setCurrency(currency);
+      // FX fetch is opt-in via currency selection (audit §3.1): ILS mode
+      // makes zero external requests; USD fetches at most once per day.
+      if (currency === "USD") void ensureFxRate();
+      renderShell();
+    }
+  );
   document.getElementById("theme-toggle")!.addEventListener("click", () => {
     theme = theme === "light" ? "dark" : "light";
     setTheme(theme);
@@ -235,9 +395,11 @@ function renderShell(): void {
     e.stopPropagation();
     const willOpen = mega.hidden;
     closeMenus();
+    if (openDropdownRoot) closeDropdown(openDropdownRoot);
     if (willOpen) {
       mega.hidden = false;
       productsBtn.setAttribute("aria-expanded", "true");
+      fillMegaPhotos();
     }
   });
 
@@ -245,6 +407,7 @@ function renderShell(): void {
     e.stopPropagation();
     const willOpen = panel.hidden;
     closeMenus();
+    if (openDropdownRoot) closeDropdown(openDropdownRoot);
     if (willOpen) {
       panel.hidden = false;
       searchBtn.setAttribute("aria-expanded", "true");
@@ -286,6 +449,20 @@ function renderShell(): void {
       });
     }
   });
+
+  // Warm the mega-menu photos in the background (skipped for
+  // data-saver users); opening the menu fills them regardless.
+  const saveData =
+    typeof navigator !== "undefined" &&
+    (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection?.saveData === true;
+  if (!saveData) {
+    const idle =
+      (window as Window & {
+        requestIdleCallback?: (cb: () => void) => void;
+      }).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 2500));
+    idle(() => fillMegaPhotos());
+  }
 
   renderRoute();
   updateNavActive();
@@ -422,9 +599,15 @@ function closeOpenMenus(): void {
 document.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (!target.closest(".header-nav")) closeOpenMenus();
+  if (openDropdownRoot && !target.closest(".nav-select")) {
+    closeDropdown(openDropdownRoot);
+  }
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeOpenMenus();
+  if (e.key === "Escape") {
+    closeOpenMenus();
+    if (openDropdownRoot) closeDropdown(openDropdownRoot);
+  }
 });
 window.addEventListener("hashchange", () => {
   closeOpenMenus();

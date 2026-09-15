@@ -1,4 +1,5 @@
 import type { PriceHistoryFile, Product, QaFile, SiteMeta } from "./types";
+import { safeImageUrl } from "./utils";
 
 // Same-origin relative paths — works in `vite dev` and in the built site
 // alike, because scripts/copy-data.mjs copies data/site/*.json into
@@ -34,6 +35,7 @@ let metaPromise: Promise<SiteMeta> | null = null;
 let qaPromise: Promise<QaFile> | null = null;
 const categoryPromises = new Map<string, Promise<Product[]>>();
 const historyPromises = new Map<string, Promise<PriceHistoryFile | null>>();
+const repImagePromises = new Map<string, Promise<string | null>>();
 
 export function loadMeta(): Promise<SiteMeta> {
   if (!metaPromise) {
@@ -65,6 +67,31 @@ export function loadCategory(category: string): Promise<Product[]> {
         categoryPromises.delete(category);
       }
     });
+  }
+  return promise;
+}
+
+/**
+ * Representative product photo per category (mega-menu tiles, category
+ * cards). First listing with a local /images/... photo; cached per
+ * session. Reuses the same cached loadCategory() fetch the category
+ * pages themselves make, so tiles/cards upgrade from the icon fallback
+ * to a real photo without any extra request beyond that one JSON.
+ */
+export function loadCategoryRepImage(category: string): Promise<string | null> {
+  let promise = repImagePromises.get(category);
+  if (!promise) {
+    promise = loadCategory(category).then(
+      (products) => {
+        for (const p of products) {
+          const img = safeImageUrl(p.image);
+          if (img) return img;
+        }
+        return null;
+      },
+      () => null
+    );
+    repImagePromises.set(category, promise);
   }
   return promise;
 }

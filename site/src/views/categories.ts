@@ -1,4 +1,4 @@
-import { loadMeta } from "../api";
+import { loadCategoryRepImage, loadMeta } from "../api";
 import { formatPrice } from "../format";
 import { CATEGORY_ORDER, categoryLabel, t } from "../i18n";
 import { CATEGORY_ICONS, icon } from "../icons";
@@ -35,8 +35,10 @@ export async function renderCategories(
       const range = cat.min_price !== null && cat.max_price !== null
         ? `${formatPrice(cat.min_price, currency, lang)} - ${formatPrice(cat.max_price, currency, lang)}`
         : "";
+      // Fixed-size square photo box fills in async; the icon fallback
+      // holds the exact same box so there is no layout shift.
       return `<a class="category-card categories-page-card" href="${categoryHash(cat.id)}">
-        <span class="category-card-icon">${icon(CATEGORY_ICONS[cat.id] ?? "grid", 24)}</span>
+        <span class="category-card-photo" data-cat-photo="${esc(cat.id)}" aria-hidden="true"><img alt="" loading="lazy" width="168" height="168" hidden><span class="category-card-fallback">${icon(CATEGORY_ICONS[cat.id] ?? "grid", 28)}</span></span>
         <span class="category-card-body">
           <span class="cat-name">${esc(categoryLabel(cat.id, lang))}</span>
           <span class="cat-meta">${cat.count} · ${range}</span>
@@ -55,4 +57,22 @@ export async function renderCategories(
     </section>
     <div class="category-grid categories-page-grid">${cards}</div>
   `;
+
+  // Upgrade each card to its real product photo as it arrives; missing
+  // photos keep the icon fallback.
+  for (const id of orderedIds) {
+    void loadCategoryRepImage(id).then((src) => {
+      if (!src || !container.isConnected) return;
+      const slot = container.querySelector(
+        `[data-cat-photo="${CSS.escape(id)}"]`
+      );
+      if (!slot) return;
+      const img = slot.querySelector("img");
+      if (!img) return;
+      img.addEventListener("error", () => img.remove(), { once: true });
+      img.src = src;
+      img.hidden = false;
+      slot.querySelector(".category-card-fallback")?.remove();
+    });
+  }
 }

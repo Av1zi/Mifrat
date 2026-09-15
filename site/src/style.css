@@ -184,20 +184,6 @@ img { max-width: 100%; }
   color: #101014;
 }
 
-.icon-toggle {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.85);
-  border-radius: var(--radius-sm);
-  padding: 5px 13px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  white-space: nowrap;
-}
-.icon-toggle:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
-
 .header-nav {
   background: var(--header-nav);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -430,19 +416,32 @@ main { flex: 1; /* Width/padding live in the single fluid container rule below. 
   background: var(--bg-hover);
   text-decoration: none;
 }
-.category-card-icon {
+/* Unified square product photo per category card; the icon fallback
+   occupies the exact same box until the photo loads (no shift). */
+.category-card-photo {
+  position: relative;
   flex: none;
-  width: 22px;
-  height: 22px;
+  width: 84px;
+  height: 84px;
+  aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
-  border-radius: 0;
-  background: transparent;
-  color: var(--blue);
-  transition: color 0.15s ease;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
 }
-.category-card:hover .category-card-icon, .categoryCard:hover .category-card-icon {
-  background: transparent;
+.category-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+.category-card-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--blue);
 }
 .category-card-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .category-card .cat-name, .categoryCard .cat-name {
@@ -1400,53 +1399,79 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 .btn-icon { display: inline-flex; align-items: center; gap: 8px; }
 .btn-choose { display: inline-flex; align-items: center; gap: 10px; }
 
-.nav-select {
-  position: relative;
+/* Header dropdowns (currency / language): custom listbox so the popup
+   follows the site theme in both modes — native <select> popups are
+   OS-rendered and ignore dark styling. The button is the whole hitbox;
+   the chevron is a trailing flex icon that can never overlap the text. */
+.nav-select { position: relative; display: inline-flex; }
+.nav-select-btn,
+.theme-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  min-height: 40px;
+  padding-block: var(--space-1);
+  padding-inline: 12px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius);
-  min-height: 40px;
-  padding-block: var(--space-1);
-  padding-inline: var(--space-2) 26px;
   color: rgba(255, 255, 255, 0.85);
-  transition: border-color 0.15s ease, background-color 0.15s ease;
-}
-html[dir="rtl"] .nav-select { padding-inline: 26px var(--space-2); }
-.nav-select::after {
-  content: "";
-  position: absolute;
-  inset-inline-end: 9px;
-  top: 50%;
-  width: 7px; height: 7px;
-  border-inline-end: 1.6px solid currentColor;
-  border-bottom: 1.6px solid currentColor;
-  transform: translateY(-70%) rotate(45deg);
-  pointer-events: none;
-  opacity: 0.8;
-}
-.nav-select:hover,
-.nav-select:focus-within {
-  border-color: var(--blue);
-  background: rgba(255, 255, 255, 0.13);
-}
-.nav-select select {
-  background: transparent;
-  border: none;
-  color: #fff;
   font-size: 0.76rem;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
-  padding: 0;
-  padding-inline-end: 4px;
-  max-width: 110px;
-  appearance: none;
-  -webkit-appearance: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-.nav-select select:focus { outline: none; }
-.nav-select select option,
+.nav-select-btn:hover,
+.nav-select-btn[aria-expanded="true"],
+.theme-btn:hover {
+  border-color: var(--blue);
+  background: rgba(255, 255, 255, 0.13);
+  color: #fff;
+}
+.nav-select-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+.nav-select-btn .ic-chevron {
+  margin-inline-start: auto;
+  flex: none;
+  transition: transform 0.15s ease;
+}
+.nav-select-btn[aria-expanded="true"] .ic-chevron { transform: rotate(180deg); }
+.nav-select-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-end: 0;
+  min-width: 100%;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--header-nav);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  box-shadow: none;
+  z-index: 30;
+}
+.nav-select-list [role="option"] {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: start;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+.nav-select-list [role="option"].is-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.nav-select-list [role="option"][aria-selected="true"] {
+  color: #fff;
+  font-weight: 800;
+}
 .sort-select option,
 .ph-range option {
   background: var(--bg-panel);
@@ -1467,8 +1492,6 @@ html[dir="rtl"] .nav-select { padding-inline: 26px var(--space-2); }
 html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   background-position-x: 10px;
 }
-.theme-btn { display: inline-flex; align-items: center; gap: 6px; }
-
 .nav-products { position: static; display: flex; }
 .nav-products-btn { cursor: pointer; }
 .nav-products-btn .ic-chevron { transition: transform 0.15s; }
@@ -1522,37 +1545,67 @@ html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   gap: 8px;
   align-content: start;
 }
+/* PCPP-style tiles: real product photo on a uniform white band (vendor
+   shots are white-background, so the band keeps mixed photos tidy on
+   the dark menu), label centered below. The whole tile is one link. */
 .mega-tile {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-height: 140px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: var(--radius-sm);
-  padding: 10px 12px;
+  padding: 0;
+  overflow: hidden;
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 .mega-tile:hover { border-color: var(--blue); color: #fff; text-decoration: none; }
 .mega-tile:hover {
   background: color-mix(in srgb, var(--blue) 20%, transparent);
 }
 .mega-tile.current { border-color: var(--blue); color: #fff; }
-.mega-tile-mark {
-  width: 34px;
-  height: 34px;
+.mega-tile-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 92px;
   flex: none;
+  background: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+}
+.mega-tile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+.mega-tile-fallback {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
-  background: rgba(242, 169, 0, 0.14);
-  border-radius: 0;
+  background: rgba(255, 255, 255, 0.04);
   color: var(--blue);
-  transition: background-color 0.15s ease, transform 0.15s ease;
 }
-.mega-tile:hover .mega-tile-mark { background: transparent; }
+/* Author display:block below would override the UA [hidden] rule. */
+.mega-tile-photo img[hidden],
+.category-card-photo img[hidden] { display: none; }
+.mega-tile-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  padding: 9px 10px;
+}
 .mega-groups { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 .global-hit-cat { color: rgba(255,255,255,0.55); font-weight: 400; font-size: 0.76rem; }
 .global-hit.is-active, .global-hit:focus-visible { background: rgba(255,255,255,0.10); outline: 2px solid var(--blue); outline-offset: -2px; }
@@ -1665,9 +1718,10 @@ html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   .categories-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {
-  .mega-popular { grid-template-columns: 1fr; }
+  .mega-popular { grid-template-columns: 1fr 1fr; }
   .mega-groups { grid-template-columns: 1fr; }
-  .mega-tile { padding: 8px 10px; }
+  .mega-tile { min-height: 120px; }
+  .mega-tile-photo { height: 72px; }
 }
 
 @media (max-width: 700px) {
@@ -1677,8 +1731,8 @@ html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   .brand small { display: none; }
   .theme-btn span { display: none; }
   .theme-btn { padding-block: 5px; padding-inline: 9px; }
-  .nav-select select { max-width: 78px; }
-  .nav-select { padding-block: 4px; padding-inline: 6px 22px; }
+  .nav-select-btn { padding-block: 5px; padding-inline: 9px; }
+  .nav-select-value { max-width: 64px; }
   main { padding-block: 16px 40px; padding-inline: 0; }
   .hero { padding: 44px 18px 38px; }
   .title-band { padding: 18px; }
@@ -1802,8 +1856,8 @@ a.bs-part-name:hover { color: var(--blue); }
 
 .theme-switch,
 .theme-switch button,
-.icon-toggle,
-.nav-select,
+.nav-select-btn,
+.theme-btn,
 .actionBoxGroup .options a,
 .actionBoxGroup .options button,
 .active-filter-chip,
@@ -2046,12 +2100,12 @@ html[dir="rtl"] .nav-search-inner {
   }
 }
 
-/* Single fluid container system: PC-first, centered. */
+/* Single fluid container system: desktop-wide with modest gutters. */
 main,
 .header-top,
 .header-nav-inner,
 .mega-inner {
-  width: min(1360px, 100% - 32px);
+  width: min(1760px, 100% - 40px);
   margin-inline: auto;
 }
 main {
@@ -2062,14 +2116,6 @@ main {
 .mega-inner {
   /* Keep mega grid layout; only center it like the header. */
   max-width: none;
-}
-@media (min-width: 1440px) {
-  main,
-  .header-top,
-  .header-nav-inner,
-  .mega-inner {
-    width: min(1560px, 100% - 48px);
-  }
 }
 @media (max-width: 700px) {
   main,
