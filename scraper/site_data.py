@@ -178,6 +178,14 @@ def _trim_product(product: dict) -> dict:
     # all — cheap to include, and this is exactly the kind of field that's
     # easy to forget here since _trim_product() is an explicit whitelist,
     # not a passthrough.
+    # Vendor spec prose (matching.build_description — the long Plonter
+    # dash-dump title the short canonical name was cut from). Only present
+    # when it adds information beyond the name; the product page renders it
+    # under the title.
+    description = product.get("description")
+    if isinstance(description, str) and description.strip():
+        trimmed["description"] = description.strip()
+
     pcpartdb = product.get("pcpartdb")
     if pcpartdb:
         trimmed["pcpartdb"] = pcpartdb

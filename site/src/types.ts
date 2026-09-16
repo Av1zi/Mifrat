@@ -37,6 +37,8 @@ export interface PcKomboRef {
 export interface Product {
   id: string;
   name: string;
+  /** Vendor spec prose (the long title the short name was cut from). */
+  description?: string | null;
   category: string;
   brand: string | null;
   model: string | null;

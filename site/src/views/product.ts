@@ -307,6 +307,7 @@ export async function renderProduct(
     <div class="title-band title-band--product">
       <div class="title-band-eyebrow">${esc(categoryLabel(category, lang))}</div>
       <h1>${esc(name)}</h1>
+      ${product.description ? `<p class="pdp-desc">${esc(product.description)}</p>` : ""}
       <p>${esc(product.brand ?? "")}${sku ? ` · SKU: ${esc(sku)}` : ""}</p>
     </div>
 

@@ -1211,6 +1211,12 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   text-transform: uppercase; color: var(--text-dim);
   margin-bottom: 6px;
 }
+/* Vendor spec prose under the product name (the long title the short
+   canonical name was cut from). Secondary, centered, wraps. */
+.pdp-desc {
+  font-size: 0.85rem; color: var(--text-dim);
+  max-width: 70ch; margin: 8px auto 0; line-height: 1.5;
+}
 
 .pdp-layout {
   display: grid;

@@ -133,10 +133,16 @@ CATEGORY_ALIASES = {
     "m2": "storage",
     # --- CPU-cooling gaps (TMS "cpu cooler", 1PC "cpu_cooling",
     #     Ivory "cpu_cooler_air" / "cpu_cooler_aio") ---
-    "cpucooler": "cooler_air",
-    "cpucoolers": "cooler_air",
-    "cpucoling": "cooler_air",
-    "cpucooling": "cooler_air",
+    # Generic umbrella guesses ("cpu cooler", "cpu cooling") stay ambiguous
+    # ("cooling") so the title classifier decides air vs liquid vs fan vs
+    # accessory per listing. Only explicit air/aio guesses map directly.
+    # (Mapping the umbrella straight to cooler_air misfiled every TMS/1PC
+    # liquid cooler whose title lacked an English liquid keyword — e.g.
+    # HydroShift Hebrew titles — as air.)
+    "cpucooler": "cooling",
+    "cpucoolers": "cooling",
+    "cpucoling": "cooling",
+    "cpucooling": "cooling",
     "cpucoolerair": "cooler_air",
     "aircooler": "cooler_air",
     "aircoolers": "cooler_air",
@@ -168,6 +174,10 @@ ACCESSORY_CATEGORIES = {
     "fan_controller",
     "rgb_lighting",
     "cooler_accessory",
+    # Case mods (LAN216 USB/ARGB modules, front-panel controls): own subtype
+    # so they filter separately from cooler mounts and fan hubs, while still
+    # living under the single `accessories` umbrella category.
+    "case_accessory",
 }
 
 
@@ -365,78 +375,333 @@ def normalize_price(value):
 # --------------------------------------------------------------------------
 
 AIO_TITLE_RE = re.compile(
-    r"\b(aio|all-in-one|liquid|watercool|water cool|radiator|hydro|"
-    r"kraken|eisbaer|eiswolf|nucleus|masterliquid|silent loop|ryujin|ryuo|"
-    r"liquid freezer|galahad|ek-aio|coolit|alphacool)\b"
+    # NOTE: bare "hydro" and bare "radiator" deliberately excluded.
+    # "Hydro Bearing"/"Fluid Dynamic Bearing" is a fan bearing type found on
+    # air coolers (AG400 etc.), and "Thermal Radiator"/"Twin Tower Radiator"
+    # is air-tower marketing (PH-TC14PE). Both used to false-positive every
+    # air cooler into `aio`. Bare "liquid" counts (AIO titles like "H100i
+    # ... Liquid" or "ML240 Vivid liquid" name no cool* word); known air
+    # families mislabeled "liquid cooling" by a vendor (BOREAS M2-51D) are
+    # rescued by checking AIR first. Spaceless "IllusionLiquid Cooler"
+    # still hits via the substring match. Explicit AIO model families listed.
+    r"(aio|all[\s\-]*in[\s\-]*one|liquid|water[\s\-]*cool|"
+    r"hydroshift|pure loop|kraken|eisbaer|eiswolf|nucleus|masterliquid|"
+    r"coreliquid|navis|levante|silent loop|ryujin|ryuo|liquid freezer|"
+    r"galahad|ek-aio|coolit|alphacool)",
+    re.I,
 )
 AIR_TITLE_RE = re.compile(
-    r"\b(cpu cooler|air cooler|tower cooler|low[- ]profile cooler|"
-    r"heatsink|heat sink|"
+    # NOTE: the generic "CPU/air/tower cooler" phrases are deliberately NOT
+    # here — they appear in AIO titles too ("H100i ... Liquid CPU Cooler")
+    # and live in _GENERIC_COOLER_PHRASE_RE (checked after AIO) instead.
+    # Everything below never appears on a liquid cooler: heatsinks,
+    # heatpipes, towers, and air-only model families.
+    r"\b(heatsink|heat sinks?|"
+    # Plural-aware: "4x 6mm Heat Pipes" must match, not just singular.
+    r"heat\s*pipes?|heatpipes?|"
+    r"dual tower|twin tower|single tower|"
     r"cnps[\w-]+|burst assassin|"
-    r"masterair|a115|twin tower|"
+    r"masterair|gammaxx|boreas|a115|"
     r"peerless assassin|phantom spirit|assassin x|assassin spirit|"
-    r"ak400|ak620|nh-d|nh-u|nh-l|nh-p|nh-a|dark rock|pure rock|shadow rock|"
-    r"hyper 212|freezer 3[46]|freezer i|freezer e|big shuriken|katana|"
-    r"grandis|ta-?120|ps120|pa120|axp90|ax120)\b"
+    # Model families with suffixes: the trailing model letters are part of
+    # the alternative itself ("NH-U9S", "AG400", "AK500S" must all hit) so
+    # the pattern keeps its trailing \b — without it, "freezer i" matches
+    # inside the AIO "freezer iii" ("Liquid Freezer III" -> cooler_air).
+    r"ak\d{3}[a-z]*|ag\d{3}[a-z]*|aero\s?cool|tjmax|"
+    r"nh-[dulp][a-z0-9]*|dark rock|pure rock|shadow rock|"
+    r"hyper 212|freezer 3[46]|freezer i\b|freezer e|big shuriken|katana|"
+    # ID-Cooling's air line is "Frozn A410/A610" (Frozn + A-series number).
+    # Bare "frozen" would also catch Thermalright's Frozen Magic/Warframe/
+    # Notte AIOs — those stay liquid.
+    r"grandis|ta-?120|ps120|pa120|axp90|ax120|tc14pe|frozn[\s\-]*a\d{3})\b",
+    re.I,
 )
+# Generic cooler phrases shared by air AND liquid titles ("Liquid CPU
+# Cooler" is an AIO) — checked only after the AIO pass, so liquid wins.
+_GENERIC_COOLER_PHRASE_RE = re.compile(
+    r"\b(cpu cooler|air cooler|tower cooler|low[- ]profile cooler)\b", re.I)
+
+# A bare "tower" also appears in case titles ("Mid Tower"), so tower alone
+# is never a cooler signal — it only counts with cooler internals nearby.
+_TOWER_COOLER_RE = re.compile(
+    r"\btowers?\b.{0,60}\b(heat\s*pipes?|heatsink|tdp|cpu|lga|am[45])\b"
+    r"|\b(heat\s*pipes?|heatsink|tdp)\b.{0,60}\btowers?\b",
+    re.I,
+)
+# Cooler internals that never appear on a bare case fan: any of these makes
+# a listing a CPU cooler, full stop (used to guard the case_fan heuristics
+# and the backplate accessory rule below).
+_COOLER_INTERNALS_RE = re.compile(
+    r"\b(heat\s*pipes?|heatpipes?|heatsinks?|heat\s*sinks?|tower|tdp|"
+    r"socket|lga\s*\d+|am[45]|processor|cpu\s*(cooler|fan|cooling))\b",
+    re.I,
+)
+# Corsair's "FRAME 4000D/4500X/5000D" is a case line, not a fan frame.
+_CORSAIR_FRAME_CASE_RE = re.compile(
+    r"\bframe\s*(4000d|4500x|5000d)\b|\bframe\b.{0,30}\b(case|tower|chassis|atx)\b",
+    re.I,
+)
+# Fan telemetry glued to digits ("1200rpm", "2200RPM") has no word boundary
+# before the unit — \brpm\b never matches it. Match digit-glued RPM too.
+_RPM_RE = r"(?:pwm|cfm|airflow|\d\s*rpm|\brpm\b)"
+# Fan-BUNDLE signals (strict): a hub/controller/remote bundled WITH a sized
+# or packed set of fans is still fans ("RX120 120mm PWM ... Requires Hub",
+# "Prizm 120 ... 3 in 1 Pack ... Controller", "4x 120mm Trio Ring ... with
+# Controller"). Sized/packed evidence only — a bare "fan" word is NOT enough
+# here, or every pure port-count splitter ("5-Way 4-pin PWM Fan Splitter",
+# "sleeved 3-Way ... to 3 fans") poses as a fan kit. (The looser fan-word
+# test lives only in the connector-rule guard below, where over-blocking
+# merely falls through to the normal fan branches.)
+_FAN_KIT_RE = re.compile(
+    r"\b\d{2,3}\s*mm\b"
+    r"|\b\d+\s*x\s*fans?\b|\bfans?\b.{0,20}\bx\s*[2-9]\b"
+    r"|\b\d+\s*in\s*1\b"
+    r"|\b(pack|kit|bundle)\b",
+    re.I,
+)
+# Case signals for the accessory peel-off: form factors/towers, fan arrays,
+# glass/windows, and WxHxD case dimensions ("770x225x595mm").
+_CASE_LOOK_RE = re.compile(
+    r"\b(?:tower|chassis|atx|e-?atx|m-?atx|itx)\b|"
+    r"\b\d+x\s*(?:80|92|120|140|170|200)\s*mm\b|"
+    r"\bglass\b|\bwindows?\b|"
+    r"\b\d{3,4}\s*x\s*\d{3,4}\s*x\s*\d{2,4}\b",
+    re.I,
+)
+_FRAME_ACCESSORY_RE = re.compile(r"\bframes?\b", re.I)
+_FAN_LED_RE = re.compile(r"\b(fans?|led|rgb|argb|halo)\b", re.I)
+# Generic small-part words: connectors, cables, adapters, control modules.
+# Guarded by _BOARD_SIGNAL_RE so board/case spec prose never trips it.
+_CONNECTOR_RE = re.compile(
+    r"\b(connectors?|cables?|adapters?|extenders?|extensions?|modules?|"
+    r"controls?(?:ler)?s?|splitters?)\b",
+    re.I,
+)
+_BOARD_SIGNAL_RE = re.compile(
+    r"\b(motherboards?|boards?|chipsets?|sockets?|lga\s*\d+|am[45]|"
+    r"ddr[345]l?|atx|m[\s\-]?atx|e[\s\-]?atx|mini[\s\-]?itx|itx|"
+    r"pcie\s*x?\d*|m\.?2|sata|usb\s*\d|hdmi|displayport)\b",
+    re.I,
+)
+_CHIPSETISH_RE = re.compile(
+    r"\b([abh]x\d{3}[a-z]?|z\d{3}[a-z]?|x\d{3}[a-z]?|b\d{3}[a-z]?|"
+    r"h\d{3}[a-z]?|w\d{3}|trx50|wrx90)\b",
+    re.I,
+)
+
+# Hebrew category hints (TMS/1PC/Ivory titles carry the category in Hebrew;
+# _clean strips Hebrew entirely, so check the raw title first).
+_HEBREW_LIQUID_RE = re.compile(r"נוזלי")
+_HEBREW_CASE_FAN_RE = re.compile(r"מארז")
+_HEBREW_CPU_COOLER_RE = re.compile(r"קירור\s*למעבד|קירור\s*מעבד")
+_HEBREW_THERMAL_RE = re.compile(r"משחה\s*תרמית|גריז\s*תרמי|משחה")
+
+
+def _hebrew_category_hint(title_raw: str) -> str | None:
+    """Coarse category from Hebrew words in the raw (pre-clean) title."""
+    if not title_raw:
+        return None
+    if _HEBREW_THERMAL_RE.search(title_raw):
+        return "thermal_paste"
+    # Liquid check first: "קירור נוזלי למעבד" contains both liquid and the
+    # generic CPU-cooler phrase — liquid wins.
+    if _HEBREW_LIQUID_RE.search(title_raw):
+        return "aio"
+    if _HEBREW_CASE_FAN_RE.search(title_raw):
+        return "case_fan"
+    if _HEBREW_CPU_COOLER_RE.search(title_raw):
+        return "cooler_air"
+    return None
 
 
 def _category_from_title(title_clean: str) -> str | None:
-    """Strong title-based hints for sub-classifying messy listings."""
+    """Strong title-based hints for sub-classifying messy listings.
+
+    Priority order is load-bearing (verified against 2026-09-16 snapshots):
+    cooler internals (heatpipes/tower/TDP/socket) and liquid phrases beat
+    the generic mm+fan heuristics — otherwise every tower cooler with a fan
+    spec ("MasterAir MA612 Dual Tower 2x120mm ... LGA1700", "AK500S ...
+    120mm PWM fan") falls into case_fan, and every "Hydro Bearing" air
+    cooler falls into aio.
+    """
     if not title_clean:
         return None
     t = title_clean
     if "thermal paste" in t or "thermal grease" in t:
         return "thermal_paste"
+    # A kit explicitly sold WITHOUT the cooler is never the cooler itself —
+    # checked before the model-family regexes (kit titles list compatible
+    # cooler models like "NH-U14S, NH-U12A" which would otherwise trip AIR).
     if "mounting kit" in t and "cooler not included" in t:
         return "cooler_accessory"
-    if re.search(r"\b(?:backplate|mounting bracket|retention bracket)\b", t) and re.search(
-        r"\b(?:am[45]|lga\s*\d+|intel|amd)\b", t
-    ):
-        return "cooler_accessory"
-    if "fan controller" in t or "fan hub" in t:
-        return "fan_controller"
-    if "splitter" in t and ("fan" in t or "rgb" in t or "argb" in t):
-        return "fan_controller"
-    if re.search(r"\b(?:rgb\s+)?(?:led|light)\s+strips?\b", t):
-        return "rgb_lighting"
-    if re.search(r"\b(?:rgb\s+light|led\s+light|lighting node)\b", t):
-        return "rgb_lighting"
-    if "starter kit" in t and "fan" in t:
-        return "case_fan"
-    if "expansion kit" in t and "fan" in t:
-        return "case_fan"
-    if (
-        re.search(r"\b\d{2,3}\s*mm\b", t)
-        and re.search(r"\bfans?\b", t)
-        and not re.search(r"\b(?:cooler|heatsink|heat\s*pipe|radiator)\b", t)
-    ):
-        return "case_fan"
-    # Many vendor feeds omit the word "fan" from model-style titles
-    # ("NF-A14 140MM PWM", "120mm ... RPM").  Do not let radiators,
-    # coolers, or socket-compatible parts fall into case_fan.
-    if (
-        re.search(r"\b\d{2,3}\s*mm\b", t)
-        and re.search(r"\b(?:pwm|rpm|airflow)\b", t)
-        and not re.search(r"\b(?:cooler|radiator|socket|lga|am[45])\b", t)
-    ):
-        return "case_fan"
-    if (
-        re.search(r"\bcooler\b", t)
-        and re.search(r"\b\d{2,3}\s*mm\b", t)
-        and not re.search(r"\b(?:tdp|heatsink|heat\s*pipe|socket|lga|am[45]|cpu|processor)\b", t)
-    ):
-        return "case_fan"
-    # AIO check must run before the air-cooler check ("Liquid Freezer" etc.)
+    # Mounting ADAPTERS for a socket ("Adapter to LGA1700 for SHADOW ROCK
+    # 3...") name compatible cooler lines, which is exactly what trips AIR
+    # ("shadow rock") — but an adapter has no heatpipes/tower/TDP/fan/liquid
+    # of its own, so it is an accessory all the same.
+    if ("adapter" in t or "adaptor" in t) and re.search(
+            r"\b(lga\s*\d+|am[45]|socket|mounting|bracket)\b", t):
+        if not re.search(
+                r"\b(heat\s*pipes?|heatpipes?|heatsinks?|tower|tdp|"
+                r"radiator|pump|liquid|water[\s\-]*cool)\b", t):
+            if not re.search(r"\bfans?\b", t):
+                return "cooler_accessory"
+    # --- Strong cooler signals first (beat fan/mm heuristics below) ---
+    # Air internals and air-only model families never appear on a liquid
+    # cooler, so they beat everything below — including a bare vendor
+    # "liquid" word (1PC mislabels the air tower BOREAS M2-51D as "liquid
+    # cooling": model identity wins over the generic word). The generic
+    # "CPU cooler" phrase is NOT in this set (it appears in AIO titles too:
+    # "H100i ... Liquid CPU Cooler") — it is checked after the AIO pass.
+    # Air internals: heatpipes/heatsinks/towers never appear on bare fans.
+    if AIR_TITLE_RE.search(t) or _TOWER_COOLER_RE.search(t):
+        return "cooler_air"
+    # An LCD/OLED screen on a 240mm+ part is a pump-cap display (AIO), not a
+    # fan: air-tower screens pair with 92-140mm fan sizes and never with a
+    # socket-compat list ("Frozr-O II 360 LCD ... 3x120mm ARGB" is liquid).
+    # Case-insensitive: title_clean is already lowercased here.
+    if (re.search(r"\b(240|280|360|420)\s?mm\b", t)
+            and re.search(r"\b(lcd|oled)\b", t)):
+        return "aio"
+    # be quiet!'s "Light Loop" AIO line vs Corsair's "Light Loop" (LL120)
+    # FANS: the name alone decides nothing — a 240mm+ radiator or an
+    # explicit liquid word makes it the AIO ("LIGHT LOOP 240mm" from a
+    # Hebrew TMS title that lost its liquid word to Hebrew-stripping).
+    if re.search(r"light loop", t) and (
+            re.search(r"\b(240|280|360|420)\s?mm\b", t)
+            or re.search(r"(liquid|water[\s\-]*cool|aio)", t)):
+        return "aio"
+    # AIO liquids: "Liquid ...", "Water Cooler", HydroShift, Kraken, etc.
     if AIO_TITLE_RE.search(t):
         return "aio"
-    if AIR_TITLE_RE.search(t):
+    # Generic cooler phrases, only when no liquid signal claimed the title.
+    if _GENERIC_COOLER_PHRASE_RE.search(t):
         return "cooler_air"
     if (
         re.search(r"\btdp\s*:?\s*\d+\s*w\b", t)
         or re.search(r"\b\d+\s*w\s*tdp\b", t)
     ) and re.search(r"\b(?:lga\s*\d+|am[45])\b", t):
         return "cooler_air"
+    # --- Accessories (guarded: never when cooler internals present) ---
+    # A cooler mentioning its bracket ("NH-U9S ... backplate required") is
+    # still a cooler — standalone brackets have no cooler/fan/tower/TDP.
+    if (
+        re.search(r"\b(?:backplate|mounting bracket|retention bracket)\b", t)
+        and re.search(r"\b(?:am[45]|lga\s*\d+|intel|amd)\b", t)
+        and not _COOLER_INTERNALS_RE.search(t)
+        and "cooler" not in t
+        and not re.search(r"\bfans?\b", t)
+    ):
+        return "cooler_accessory"
+    # Fan frames (Phanteks Halos ... Frame) are accessories, not fans.
+    # Corsair "FRAME 4000D/4500X/5000D" is a case line — excluded.
+    if (
+        _FRAME_ACCESSORY_RE.search(t)
+        and _FAN_LED_RE.search(t)
+        and not _CORSAIR_FRAME_CASE_RE.search(t)
+        and not _COOLER_INTERNALS_RE.search(t)
+    ):
+        return "cooler_accessory"
+    # A fan bundle that SHIPS WITH its controller ("Prizm 120 ... 3 in 1
+    # Pack With Fan Controller") is fans, not a controller — but only with
+    # bundle words (pack/kit/bundle): a pure controller counting its ports
+    # ("5 x 4 Pin PWM connectors") has none and stays a controller.
+    if ("fan controller" in t or "fan hub" in t):
+        if re.search(r"\b(pack|kit|bundle|box|set)\b", t) and _FAN_KIT_RE.search(t):
+            return "case_fan"
+        return "fan_controller"
+    # "Hub mounted" is a fan design phrase (NZXT F140 Hub-Mounted RGB), not
+    # a hub product — excluded from the hub rule outright.
+    _hub_product = ("hub" in t and "hub mounted" not in t
+                    and "hub-mounted" not in t)
+    # Hub/splitter kits (PWM/SATA power, RGB) are fan controllers even when
+    # the title omits the word "fan" ("10Way 4pin PWM Controller Hub
+    # Splitter with Sata Power connector") — unless they ARE a fan kit
+    # ("RX120 ... Expansion Requires Hub" with 120mm PWM is fans).
+    if ("splitter" in t or _hub_product) and (
+        "fan" in t or "rgb" in t or "argb" in t
+        or "pwm" in t or "controller" in t
+    ):
+        if _FAN_KIT_RE.search(t):
+            return "case_fan"
+        return "fan_controller"
+    # "Light Tint" is tinted glass (Fractal Epoch TG RGB Light Tint), not
+    # lighting — excluded from both lighting rules.
+    _light_tint = "light tint" in t
+    if not _light_tint and re.search(r"\b(?:rgb\s+)?(?:led|light)\s+strips?\b", t):
+        return "rgb_lighting"
+    # A fan kit that SHIPS WITH a controller ("3x SP120 ... with Lighting
+    # Node CORE", "LL120 ... with Lighting Node PRO", "Prizm 120 ... with
+    # Controller") is still fans — only a standalone controller/strip with
+    # no fan is lighting.
+    if not _light_tint and re.search(
+            r"\b(?:rgb\s+light|led\s+light|lighting node|controller|remote)\b", t):
+        if _FAN_KIT_RE.search(t):
+            return "case_fan"
+        return "rgb_lighting"
+    # Generic small parts (connectors/cables/adapters/modules) with no
+    # board/case/cooler/fan signals: RGB-Connector, LAN216 USB modules, etc.
+    # Board-identity guard is deliberately narrow (board/chipset/socket/DDR/
+    # form-factor words only): interface words like SATA/USB/PCIe/M.2 also
+    # appear in accessory titles ("SATA power connector", "USB module") and
+    # must not block them — real boards always name a chipset/socket too.
+    # Fan-kit and case guards come first: a fan's own connectors ("4 pin PWM
+    # connector" on a 120mm PWM fan) and a case's bundled controller ("5x RGB
+    # Fans ... Glass Windows ... 770x225x595mm") are not accessories.
+    if (
+        _CONNECTOR_RE.search(t)
+        and not _FAN_KIT_RE.search(t)
+        and not _CASE_LOOK_RE.search(t)
+        and not re.search(
+            r"\b(motherboards?|boards?|chipsets?|sockets?|lga\s*\d+|am[45]|"
+            r"ddr[345]l?|atx|m[\s\-]?atx|e[\s\-]?atx|mini[\s\-]?itx)\b", t)
+        and not _CHIPSETISH_RE.search(t)
+        and not _COOLER_INTERNALS_RE.search(t)
+        and not re.search(r"\b(motherboards?|cases?|chassis|towers?)\b", t)
+    ):
+        # Fan-hub wording ("controller hub splitter with SATA power") is a
+        # fan controller; case mods (USB/ARGB/front-panel modules) get their
+        # own subtype; plain connectors are cooler accessories (all land in
+        # the `accessories` umbrella downstream).
+        if re.search(r"\b(hub|controller)\b", t) and not re.search(
+                r"\b(module|lan\d+|lancool|front\s*panel)\b", t):
+            return "fan_controller"
+        if re.search(r"\b(module|lan\d+|lancool|front\s*panel)\b", t):
+            return "case_accessory"
+        return "cooler_accessory"
+    if "starter kit" in t and "fan" in t:
+        return "case_fan"
+    if "expansion kit" in t and "fan" in t:
+        return "case_fan"
+    # Hub-mounted-LED fans (NZXT F140 Hub-Mounted RGB): the hub is the LED
+    # mount design, the product is a sized fan.
+    if "hub mounted" in t or "hub-mounted" in t:
+        if re.search(r"\b\d{2,3}\s*mm\b", t):
+            return "case_fan"
+    # --- Case fans (all branches exclude cooler internals) ---
+    if (
+        re.search(r"\b\d{2,3}\s*mm\b", t)
+        and re.search(r"\bfans?\b", t)
+        and not _COOLER_INTERNALS_RE.search(t)
+        and "cooler" not in t
+    ):
+        return "case_fan"
+    # Many vendor feeds omit the word "fan" from model-style titles
+    # ("NF-A14 140MM PWM", "120mm ... RPM", "CFD 120mm ... 1200rpm").  Do
+    # not let coolers or socket-compatible parts fall into case_fan.
+    if (
+        re.search(r"\b\d{2,3}\s*mm\b", t)
+        and re.search(_RPM_RE, t)
+        and not _COOLER_INTERNALS_RE.search(t)
+        and "cooler" not in t
+        and "radiator" not in t
+    ):
+        return "case_fan"
+    if (
+        re.search(r"\bcooler\b", t)
+        and re.search(r"\b\d{2,3}\s*mm\b", t)
+        and not _COOLER_INTERNALS_RE.search(t)
+    ):
+        return "case_fan"
     if re.search(r"\bcooler\b", t):
         return "cooler_air"
     # --- broad fallbacks, used only when the vendor guess is missing/unknown ---
@@ -546,14 +811,23 @@ def _is_junk_listing(
     m = MINING_CARD_RE.search(title_clean)
     if not m:
         return False
-    # Mining motherboards stay boards: accept board-evidence from the title
-    # (within a wider window, either direction), the vendor category guess,
-    # or the product URL — real board titles never contain the literal word
-    # "motherboard"/"board" right after the keyword.
+    # Mining motherboards stay boards, mining CARDS go to "other".
+    # A bare motherboard guess is not enough: Plonter misfiles its crypto
+    # expansion card (DCBTC2 "Crypto Mining Card") under Motherboards, so a
+    # motherboard guess only protects titles with real board signals
+    # (board words, chipset, socket, DDR, or form factor). Real mining
+    # boards (B250 MINING EXPERT etc.) always carry at least one.
     window = title_clean[max(0, m.start() - 40):m.end() + 40]
     if BOARD_EVIDENCE_RE.search(window):
         return False
+    if _BOARD_SIGNAL_RE.search(title_clean) or _CHIPSETISH_RE.search(title_clean):
+        return False
     if _compact_key(category_guess_base) in ("motherboard", "motherboards"):
+        # Guess says board but the title has zero board signals and names a
+        # card/adapter/riser/extender — trust the title, it is a card.
+        if re.search(r"\b(cards?|adapters?|risers?|extenders?|expansions?)\b",
+                     title_clean):
+            return True
         return False
     if re.search(r"motherboard|/board", str(url or "").lower()):
         return False
@@ -577,7 +851,8 @@ def canonical_category(
     raw_key = _compact_key(guess_base).replace("bundleonly", "").replace(
         "newpcdeal", ""
     )
-    title_clean = _clean(title).lower()
+    raw_title = str(title or "")
+    title_clean = _clean(raw_title).lower()
 
     # GPU holders / brackets / anti-sag stands are accessories, never GPUs —
     # re-routed before the vendor guess can win. Bare holder/bracket needs
@@ -587,11 +862,41 @@ def canonical_category(
 
     # Hard blacklist: risers / mining cards never enter a build category —
     # dump them into "other" (owner decision, Aug 2026). Mining motherboards
-    # stay boards via board-evidence (title window, category guess, or URL).
+    # stay boards via board-evidence (title window, board signals, or URL).
     if _is_junk_listing(title_clean, guess_base, url):
         return "other"
 
+    # Hebrew-first: TMS/Ivory titles carry the category in Hebrew
+    # ("קירור נוזלי"=liquid, "מארז"=enclosure, "קירור למעבד"=CPU cooler).
+    # _clean strips Hebrew entirely, so consult the raw title before the
+    # English classifier. The Hebrew hint is authoritative for the coarse
+    # fan-vs-air-vs-liquid split; the English pass below still refines
+    # accessories (frames, hubs, strips) which Hebrew never names.
+    hebrew_cat = _hebrew_category_hint(raw_title)
     title_cat = _category_from_title(title_clean)
+    if hebrew_cat in ("aio", "cooler_air", "case_fan", "thermal_paste"):
+        # English accessory evidence (a real hub/strip/frame/bracket title)
+        # still wins over a coarse Hebrew cooler/fan hint — e.g. a Hebrew
+        # "מאוורר למארז" fan kit titled "... with Lighting Node" is decided
+        # by the fan+controller rule above, not here. But a Hebrew liquid
+        # hint beats an English miss (model-only titles like HydroShift with
+        # no English liquid word).
+        if title_cat in ACCESSORY_CATEGORIES and hebrew_cat in (
+            "aio", "cooler_air", "case_fan"):
+            pass
+        elif title_cat in ("aio", "cooler_air", "case_fan",
+                           "thermal_paste") and title_cat != hebrew_cat:
+            # Both sides claim a primary type but disagree: trust Hebrew for
+            # the vendor's own storefront language (TMS "קירור נוזלי למעבד
+            # ... HydroShift" has no English liquid word — English says
+            # nothing/air, Hebrew says liquid), unless English found cooler
+            # internals Hebrew cannot see (heatpipes/TDP/tower in English).
+            if _COOLER_INTERNALS_RE.search(title_clean) and hebrew_cat == "case_fan":
+                pass
+            else:
+                title_cat = hebrew_cat
+        elif title_cat is None:
+            title_cat = hebrew_cat
 
     if raw_key in CATEGORY_ALIASES:
         category = CATEGORY_ALIASES[raw_key]
@@ -602,30 +907,28 @@ def canonical_category(
         category = title_cat or "other"
 
     # Single umbrella Accessories category: the old granular accessory ids
-    # (thermal_paste / fan_controller / rgb_lighting / cooler_accessory) merge
-    # here; the old value is preserved in attributes.accessory_type.
+    # (thermal_paste / fan_controller / rgb_lighting / cooler_accessory /
+    # case_accessory) merge here; the old value is preserved in
+    # attributes.accessory_type.
     if category in ACCESSORY_CATEGORIES:
         return "accessories"
 
-    # Plonter sometimes puts accessory items under COMPUTER CASES.
+    # Plonter sometimes puts accessory items under COMPUTER CASES (and 1PC
+    # files case mods like the LAN216 USB/ARGB modules under `case`).
+    # Peel off accessory-only titles, but never a genuine case: cases name a
+    # form factor/tower/chassis, a fan array (Nx120mm), glass/windows, or
+    # WxHxD dimensions — accessories never do.
     if category == "case" and title_cat in ACCESSORY_CATEGORIES:
         # "COMPUTER CASES" is a noisy Plonter parent category.  It also
         # contains genuine cases whose marketing copy mentions bundled RGB
         # strips/controllers, so only peel off unambiguous accessory-only
-        # titles (splitters, hubs, strips, kits, or thermal paste).
+        # titles (splitters, hubs, strips, kits, connectors, modules, frames,
+        # or thermal paste).
+        looks_like_case = bool(_CASE_LOOK_RE.search(title_clean))
         accessory_only = (
-            title_cat == "thermal_paste"
-            or title_cat == "cooler_accessory"
-            or re.search(
-                r"\b(?:fan\s+controller|controller\s+hub|splitter|"
-                r"(?:rgb\s+)?(?:led|light)\s+strips?|starter\s+kit)\b",
-                title_clean,
-            )
-            and not re.search(
-                r"\b(?:tower|chassis|atx|e-?atx|m-?atx|itx)\b|"
-                r"\b\d+x\s*(?:80|92|120|140|170|200)\s*mm\b",
-                title_clean,
-            )
+            title_cat in ("thermal_paste", "cooler_accessory",
+                          "case_accessory", "fan_controller", "rgb_lighting")
+            and not looks_like_case
         )
         if accessory_only:
             return "accessories"
@@ -641,6 +944,7 @@ def canonical_category(
             "rgb_lighting",
             "thermal_paste",
             "cooler_accessory",
+            "case_accessory",
         ):
             return "accessories" if title_cat in ACCESSORY_CATEGORIES else title_cat
         return "cooling_other"
@@ -656,14 +960,25 @@ def canonical_category(
         "rgb_lighting",
         "thermal_paste",
         "cooler_accessory",
+        "case_accessory",
     ):
         return "accessories" if title_cat in ACCESSORY_CATEGORIES else title_cat
 
     if category == "case_fan" and title_cat in ("cooler_air", "aio"):
         return title_cat
 
+    # Explicit fan buckets holding an accessory (frames, standalone hubs):
+    # the title is authoritative over the vendor bucket.
+    if category == "case_fan" and title_cat in ACCESSORY_CATEGORIES:
+        return "accessories"
+
     if category == "cooler_air" and title_cat == "case_fan":
         return title_cat
+
+    # Explicit cooler buckets holding a pure accessory (mounting kit filed
+    # under cpu cooling): same rule, opposite direction.
+    if category in ("cooler_air", "aio") and title_cat in ACCESSORY_CATEGORIES:
+        return "accessories"
 
     if category in ("fan_controller", "rgb_lighting") and title_cat == "case":
         return "case"
@@ -912,6 +1227,8 @@ def _accessory_subtype(title: str, title_cat: str | None) -> str:
         return "fan_controller"
     if title_cat == "cooler_accessory":
         return "cooler_accessory"
+    if title_cat == "case_accessory":
+        return "case_accessory"
     if re.search(r"\bfan\b", t):
         return "fan_accessory"
     return "other_accessory"
@@ -1220,6 +1537,11 @@ def _scrub_title(text: str) -> str:
         return ""
     # 1PC JSON-bleed guard (mirrors _clean — the raw title hits this path).
     s = s.split('",')[0]
+    # Ivory titles carry HTML entities ("12 ס&#39;&#39;מ"); without decoding
+    # they leak verbatim into display names.
+    s = html.unescape(s)
+    # Inch-mark artifacts ("12 ''", '12 ""') never carry identity.
+    s = re.sub(r"['`\"’‘]{1,2}", "", s)
     s = HEBREW_RUN_RE.sub(" ", s)
     s = TRADEMARK_RE.sub("", s)
     sm = SERIES_PAREN_RE.search(s)
@@ -1728,6 +2050,1289 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
     return " ".join(parts)
 
 
+# --------------------------------------------------------------------------
+# Short canonical names for the remaining categories (Sep 2026).
+#
+# Plonter titles are dash-separated spec dumps ("AMD B550 (Ryzen AM4) ROG
+# STRIX ATX - 4x DDR4 - ...", "Z10 Black Mid Tower Case - 4x 120mm Fans -
+# ...") and TMS/1PC titles append paint/packaging tails — without builders
+# these products inherit the whole dump as their display name (see
+# site_names dumps: "AMD A520 AM4 4x DDR4 DVI Displayport HDMI ...",
+# "Flux Black Wood 3x 120mm PWM in front ... 530x245x545mm"). The builders
+# below compose identity-only names ("Brand Model [key specs]") from
+# structured attributes + first-clause title/SKU tokens; the dropped spec
+# clauses already live in `attributes` (filters/spec table) and the full
+# vendor title is preserved verbatim as product `description`
+# (build_description). Every builder returns None when its essentials are
+# missing so the caller falls back to best_name() — and a length gate there
+# guarantees a built name never exceeds the scrubbed-title fallback.
+# --------------------------------------------------------------------------
+
+# Plonter dash-clause separator: hyphens with whitespace on BOTH sides, so
+# intra-word hyphens in models/SKUs ("Sneaker-X", "B550M-DS3H") survive.
+_CLAUSE_SPLIT_RE = re.compile(r"\s+[–—-]\s+")
+
+_COLOR_WORDS_NAME = (
+    "black", "white", "silver", "gray", "grey", "red", "blue", "green",
+    "pink", "purple", "orange", "beige", "brown", "gold",
+)
+
+
+def _display_token(tok: str) -> str:
+    """Display casing for one name token: digit-bearing codes, short codes
+    and known acronyms stay upper ("DS3H", "WIFI6", "X", "TG", "ARGB"),
+    plain words title-case ("Gaming", "Eagle", "Strix"). Hyphenated
+    compounds are cased per part ("Sneaker-X", "Trio-Ring") instead of
+    collapsing to "Sneaker-x"."""
+    t = str(tok or "").strip(".,;:|·\"'()")
+    if not t:
+        return ""
+
+    def _one(part: str) -> str:
+        if not part:
+            return ""
+        if part.upper() in _ACRONYMS:
+            return part.upper()
+        if re.search(r"\d", part):
+            return part.upper()
+        if len(part) <= 3:
+            return part.upper()
+        return part[:1].upper() + part[1:].lower()
+
+    return "-".join(_one(p) for p in t.split("-"))
+
+
+# Industry acronyms that must never title-case ("Argb" / "M.2" would be
+# wrong; "Strix" is a line name and correctly title-cases).
+_ACRONYMS = frozenset({
+    "ARGB", "RGB", "LED", "LCD", "OLED", "WIFI", "WIFI6", "WIFI6E", "WIFI7",
+    "USB", "USBC", "HDMI", "DP", "VGA", "DVI", "PWM", "RPM", "CFM",
+    "ATX", "MATX", "EATX", "ITX", "SFX", "DDR3", "DDR4", "DDR5",
+    "NVME", "SATA", "SAS", "SSD", "HDD", "M2", "M.2", "PSU", "CPU", "GPU",
+    "AIO", "TDP", "RAM", "GB", "TB", "MB", "MHZ", "GHZ",
+})
+
+
+def _tok_drop(low: str, drop: set[str]) -> bool:
+    """Stop-word test that also sees through hyphen compounds: "Mid-tower"
+    drops via its "mid"/"tower" parts, while "Sneaker-X" survives (neither
+    part is a stop word)."""
+    if low in drop:
+        return True
+    if "-" in low:
+        return any(p in drop for p in low.split("-") if p)
+    return False
+
+
+def _clause_tokens(clause: str, strip_mpn_tail: bool = True) -> list[str]:
+    """Word-ish tokens of a title clause with edge punctuation stripped.
+    The token regex admits interior dots ("M.2", "5+C") so trailing dots
+    ("Fans.") and dashes ("V2-") must be stripped here — otherwise "Fans."
+    never equals the "fans" stop word and leaks into names everywhere.
+    Slashes always split ("LGA2066/2011/1200" socket lists must not glue
+    into one unmatchable token that then poses as a model word).
+    A trailing vendor part-number tail ("...Single Fan CO-9050097-WW",
+    "...338mm 90DC00G0-B39010", "...Cooler GP-AORUSWXII360I") is never
+    identity — that lives in the model words and the SKU paths — so it
+    goes. Narrow on purpose: a 4-digit run alone is not enough ("RM1000e"
+    is the model), it needs a dash or jumble length with it."""
+    toks = []
+    for raw in re.findall(r"[A-Za-z0-9][A-Za-z0-9+.-]*", clause):
+        t = raw.strip(".,;:-")
+        if t:
+            toks.append(t)
+    if strip_mpn_tail and toks:
+        last = toks[-1]
+        if (re.search(r"\d{5,}", last)
+                or (re.search(r"\d{4,}", last)
+                    and ("-" in last or len(last) > 12))):
+            toks.pop()
+    return toks
+
+
+# Color abbreviations vendors bake into model tokens ("AG400 BK ARGB",
+# "CC-9011257-WW").
+_TOKEN_COLORS = {
+    "bk": "Black", "blk": "Black", "wh": "White", "wt": "White",
+    "wht": "White", "ww": "White", "gry": "Gray", "gr": "Gray",
+}
+
+# Edition markers worth merging from a SKU when the accepted title model
+# omits them ("SE" in Alpha2-SE-A24-WHITE). Closed set on purpose: an
+# open merge pulled vendor-code fragments ("GHS", "MAP") into names.
+_EDITION_WORDS = frozenset({
+    "SE", "PRO", "MAX", "PLUS", "ULTRA", "LITE", "MINI", "NANO", "XT",
+    "EVO", "II", "III", "IV", "V2", "R2",
+})
+
+
+def _compact_alnum(s: str) -> str:
+    """Lowercase alphanumeric fold for equality checks ("A-RGB" == "ARGB",
+    "B550M" == "b550m")."""
+    return re.sub(r"[^a-z0-9]", "", str(s or "").lower())
+
+
+# Lighting/display suffixes glued onto model words in compact vendor codes
+# ("MATRIXARGB", "SLINFARGB"): split off so they filter as specs instead
+# of fusing into phantom model words ("Matrixargb").
+_SPLIT_SUFFIXES = ("ARGB", "RGB", "LED", "PWM", "LCD", "OLED")
+
+
+def _split_compact_sku(tok: str) -> list[str]:
+    """Split a dash-less vendor code into runs ("OMNI240ARGB" ->
+    ["OMNI", "240", "ARGB"]) so model words hidden in compact TMS SKUs
+    still match title words and gate tokens. Only for fully-glued
+    letter/digit runs; dashed tokens arrive pre-split. Short codes ("E4",
+    "P2", "X3") stay whole — only long glued runs ("OMNI240ARGB") split."""
+    t = str(tok or "")
+    if len(t) < 6:
+        return [t]
+    if not re.fullmatch(r"[A-Za-z0-9]+", t):
+        return [t]
+    if not (re.search(r"[A-Za-z]", t) and re.search(r"\d", t)):
+        return [t]
+    if re.search(r"[^A-Za-z0-9]", t):
+        return [t]
+    parts = re.findall(r"[A-Za-z]+|\d+", t)
+    out: list[str] = []
+    for part in parts:
+        up = part.upper()
+        split_done = False
+        for suffix in _SPLIT_SUFFIXES:
+            if (len(up) > len(suffix) and up.endswith(suffix)
+                    and not up == suffix):
+                head = part[:len(part) - len(suffix)]
+                if len(head) >= 2:
+                    out.extend([head, part[len(head):]])
+                    split_done = True
+                    break
+        if not split_done:
+            out.append(part)
+    return out if len(out) > 1 else [t]
+
+
+def _first_clause(text: str) -> str:
+    """Identity head of a spec-dump title: text before the first dash/comma
+    clause separator ("Z10 Black Mid Tower Case - 4x ..." -> "Z10 Black Mid
+    Tower Case")."""
+    s = re.sub(r"\s+", " ", str(text or "")).strip()
+    if not s:
+        return ""
+    s = HEBREW_RUN_RE.sub(" ", s)
+    head = _CLAUSE_SPLIT_RE.split(s)[0]
+    head = head.split(",")[0]
+    return head.strip(" ,;:|·")
+
+
+def _last_clause(text: str) -> str:
+    """Trailing series clause of a spec-dump title ("... - MP600 ELITE
+    Series" -> "MP600 ELITE Series"). Trailing pure-measurement clauses
+    ("7100/6000" speeds after the series) are skipped — the series names
+    the product, the speeds don't."""
+    s = re.sub(r"\s+", " ", str(text or "")).strip()
+    if not s:
+        return ""
+    s = HEBREW_RUN_RE.sub(" ", s)
+    parts = [p.strip(" ,;:|·") for p in _CLAUSE_SPLIT_RE.split(s)]
+    parts = [p for p in parts if p]
+    for part in reversed(parts):
+        # Pure-measurement tails ("7100/6000" speeds, "3 Years Warranty")
+        # name nothing — the series clause sits just before them.
+        if re.fullmatch(r"[\d\s/x.,-]+", part):
+            continue
+        if re.search(r"\bwarrant|\byears?\b|\btbw\b|\bmtbf\b", part, re.I):
+            continue
+        return part
+    return parts[-1] if parts else ""
+
+
+def _brand_words(brand: str | None) -> set[str]:
+    """Normalized brand vocabulary for token comparison: punctuation-free
+    lowercase words, so "quiet!" in "be quiet!" actually matches the title
+    word "Quiet" (a naive .split() compares "quiet" against "quiet!" and
+    leaks brand echo into names: "be quiet! Quiet Pure Base 501")."""
+    return set(
+        re.sub(r"[^a-z0-9]+", " ", str(brand or "").lower()).split())
+
+
+def _is_brand_word(low: str, brand: str | None) -> bool:
+    """Brand-word test that sees through hyphen compounds: title token
+    "Lian-Li" matches brand "Lian Li" via its parts (exact match alone
+    compares "lian-li" against {"lian", "li"} and doubles the brand:
+    "Lian Li Lian-LI TL120 ...")."""
+    if not brand:
+        return False
+    words = _brand_words(brand)
+    if low in words:
+        return True
+    if "-" in low:
+        return any(p in words for p in low.split("-") if p)
+    return False
+
+
+def _group_brand(
+    attributes: dict, group: list, exclude: tuple[str, ...] = ()
+) -> str | None:
+    brand = attributes.get("brand") or next(
+        (e.get("brand") for e in group if e.get("brand")), None)
+    if brand:
+        return str(brand)
+    blob = " | ".join(
+        f"{e.get('vendor_sku', '')} {e.get('title_raw', '')}" for e in group)
+    found = detect_brand(blob)
+    if found and found in exclude:
+        return None
+    return found
+
+
+_CHIP_BRANDS = ("AMD", "Intel", "NVIDIA")
+
+# Genuine chip-maker cooling products: bundled stock coolers ("AMD Wraith
+# Stealth", "Intel Stock Cooler", "Laminar"). Anything else wearing a chip
+# brand ("... for Intel LGA1700 ...", "... compatible with AMD AM4") is
+# socket-compat prose, not a maker.
+_STOCK_COOLER_RE = re.compile(r"\b(stock|wraith|prism|spire|laminar)\b", re.I)
+
+# Bare CPU-line words: a "name" made only of these ("Ryzen Threadripper"
+# for a generic TR4 cooler) is marketing echo, not identity.
+_CPU_LINE_WORDS = frozenset({
+    "ryzen", "threadripper", "epyc", "athlon", "core", "celeron", "pentium",
+    "xeon", "processor", "processors",
+})
+
+
+def _cooler_fan_brand(attributes: dict, group: list, blob: str) -> str | None:
+    """Maker for cooler/fan builders: chip brands count only on genuine
+    bundled stock coolers, otherwise they are socket-compat bleed."""
+    brand = _group_brand(attributes, group)
+    if brand in _CHIP_BRANDS and not _STOCK_COOLER_RE.search(blob):
+        return None
+    return brand
+
+
+def _title_color(group: list, attributes: dict, text: str | None = None) -> str:
+    col = attributes.get("color")
+    if isinstance(col, str) and col.strip():
+        return _display_token(col.split(",")[0].split("/")[0])
+    # Blob scan is first-clause-only when the caller passes one: a full-text
+    # scan mistakes spec prose for paint ("850W Gold" efficiency, "RGB Gold"
+    # trim) and appends phantom colors.
+    blob = text if text is not None else " | ".join(
+        str(e.get("title_raw") or "") for e in group)
+    m = re.search(
+        r"\b(black|white|silver|gray|grey|red|blue|green|pink|purple|orange|beige|brown)\b",
+        blob, re.I)
+    if m:
+        return _display_token(m.group(1))
+    # TMS/Ivory Hebrew titles carry the paint in Hebrew (לבן/שחור/...).
+    for stem, canon in (
+        ("שחור", "Black"), ("לבן", "White"), ("אדום", "Red"),
+        ("כחול", "Blue"), ("אפור", "Gray"), ("ירוק", "Green"),
+        ("ורוד", "Pink"), ("סגול", "Purple"), ("כתום", "Orange"),
+    ):
+        if stem in blob:
+            return canon
+    # Bare color abbreviations in model tails ("... Vision 360 BK",
+    # "... LAN216-1W").
+    m = re.search(r"\b(BK|BLK)\b", blob, re.I)
+    if m:
+        return "Black"
+    m = re.search(r"\b(WT|WH|WHT)\b", blob, re.I)
+    if m:
+        return "White"
+    return ""
+
+
+def _pure_number(tok: str, max_keep_digits: int = 0) -> bool:
+    """Bare numeric token with more than `max_keep_digits` digits ("1600",
+    "1.4", "9020"). Short numbers ("4", "12") are usually model parts
+    ("DARK ROCK 4", "PRO 12") and are kept."""
+    m = re.fullmatch(r"(\d+)(?:\.\d+)?", tok)
+    return bool(m) and len(m.group(1)) > max_keep_digits
+
+
+def _longest_title(group: list) -> str:
+    titles = [str(e.get("title_raw") or "") for e in group]
+    titles = [t for t in titles if t.strip()]
+    return max(titles, key=len) if titles else ""
+
+
+def _sku_display_tokens(group: list) -> list[str]:
+    """De-dashed vendor-SKU tokens of the most model-like SKU in the group
+    ("A520M-DS3H" -> ["A520M", "DS3H"]). Skips numeric vendor ids (1PC) and
+    digit-leading internal codes (ASUS "90MB...") — those are not models."""
+    best: list[str] = []
+    for e in group:
+        toks = re.sub(r"[^A-Za-z0-9]+", " ",
+                      str(e.get("vendor_sku") or "")).split()
+        if not toks or not toks[0][:1].isalpha():
+            continue
+        if not re.search(r"[A-Za-z]", " ".join(toks)):
+            continue
+        if len(" ".join(toks)) > len(" ".join(best)):
+            best = toks
+    return best
+
+
+# Storage brand overlay (first-match-wins, longest names first). Lines map
+# to their makers; bare series words ("Barracuda" -> Seagate) included since
+# Plonter storage titles rarely name the vendor.
+STORAGE_NAME_BRANDS = [
+    ("western digital", "WD"), ("san disk", "SanDisk"), ("sandisk", "SanDisk"),
+    ("ultrastar", "WD"), ("hgst", "WD"), ("seagate", "Seagate"),
+    ("barracuda", "Seagate"), ("firecuda", "Seagate"), ("ironwolf", "Seagate"),
+    ("skyhawk", "Seagate"), ("toshiba", "Toshiba"), ("kioxia", "KIOXIA"),
+    ("sk hynix", "SK Hynix"), ("hynix", "SK Hynix"), ("samsung", "Samsung"),
+    ("crucial", "Crucial"), ("micron", "Crucial"), ("kingston", "Kingston"),
+    ("fury", "Kingston"), ("adata", "ADATA"), ("xpg", "ADATA"),
+    ("pny", "PNY"), ("lexar", "Lexar"), ("silicon power", "Silicon Power"),
+    ("siliconpower", "Silicon Power"), ("teamgroup", "TeamGroup"),
+    ("t-force", "TeamGroup"), ("tforce", "TeamGroup"), ("patriot", "Patriot"),
+    ("viper", "Patriot"), ("apacer", "Apacer"), ("transcend", "Transcend"),
+    ("corsair", "Corsair"), ("gigabyte", "Gigabyte"), ("aorus", "Gigabyte"),
+    ("msi", "MSI"), ("sabrent", "Sabrent"), ("solidigm", "Solidigm"),
+    ("geil", "GeIL"), ("v-color", "V-Color"), ("netac", "Netac"),
+    ("fanxiang", "Fanxiang"), ("oscoo", "OSCOO"),
+]
+
+
+def _storage_brand(blob: str) -> str | None:
+    low = f" {blob.lower()} "
+    for key, canon in STORAGE_NAME_BRANDS:
+        if f" {key} " in low or f" {key}-" in low or f" {key}/" in low:
+            return canon
+    return None
+
+
+# Vendor-exclusive board line prefixes in Plonter SKUs ("ROG-STRIX-B650-A"
+# is always ASUS; "B850M-DS3H" always Gigabyte). Conservative: only lines a
+# single maker uses. Used to brand otherwise anonymous spec-dump boards.
+BOARD_SKU_BRANDS = (
+    ("rog", "ASUS"), ("strix", "ASUS"), ("tuf", "ASUS"), ("prime", "ASUS"),
+    ("aorus", "Gigabyte"), ("eagle", "Gigabyte"), ("ds3h", "Gigabyte"),
+    ("d3hp", "Gigabyte"),
+    ("mag", "MSI"), ("mpg", "MSI"), ("meg", "MSI"), ("tomahawk", "MSI"),
+    ("mortar", "MSI"),
+    ("taichi", "ASRock"),
+    ("mbd", "Supermicro"),
+)
+
+# WiFi-bearing SKU fragments and their canonical tag. "AC"/"AX" are Intel
+# WiFi generations board makers bake into model names ("DS3H AC",
+# "GAMING X AX" — kept verbatim as model words); WF6/WF6E/WF7 are
+# Gigabyte's shorthand, normalized so the WiFi-tag dedupe below sees them.
+_BOARD_WIFI_FRAGMENTS = {
+    "WIFI": "WIFI", "WIFI6": "WIFI6", "WIFI6E": "WIFI6E", "WIFI7": "WIFI7",
+    "WF6": "WIFI6", "WF6E": "WIFI6E", "WF7": "WIFI7",
+}
+
+
+def _board_sku_model(group: list) -> tuple[list[str], str]:
+    """Model tokens from the most structured dashed SKU in the group.
+
+    Plonter board SKUs ARE the model ("ROG-STRIX-B650-A-GAMING-WIFI"),
+    while board titles are pure spec dumps with no model words at all.
+    Only bare numbers go ("V2-1_4" tails); DDR/GEN markers stay — they
+    tell twins apart ("DS3H DDR4" vs "DS3H GEN5"). Returns (tokens,
+    wifi_tag). Empty when no usable SKU exists (numeric 1PC ids,
+    digit-leading internal codes)."""
+    toks = _sku_display_tokens(group)
+    if not toks:
+        return [], ""
+    model: list[str] = []
+    wifi_tag = ""
+    for tok in toks:
+        up = tok.upper()
+        if _pure_number(tok):
+            continue
+        norm_wifi = _BOARD_WIFI_FRAGMENTS.get(up)
+        if norm_wifi:
+            wifi_tag = norm_wifi
+            model.append(norm_wifi)
+            continue
+        model.append(_display_token(tok))
+        if len(model) >= 5:
+            break
+    return model, wifi_tag
+
+
+def _board_sku_brand(sku_toks: list[str]) -> str | None:
+    low = [t.lower() for t in sku_toks]
+    for key, canon in BOARD_SKU_BRANDS:
+        if key in low:
+            return canon
+    return None
+
+
+def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
+    """'Gigabyte B850 Gaming WIFI6' / 'ASUS ROG STRIX B650-A GAMING WIFI' /
+    'A520M DS3H' from brand + chipset + model.
+
+    Plonter board titles are pure spec dumps with no model words
+    ("Socket AM5 - AMD B850 Chipset - 4x DDR5 - WIFI - ATX"), so the model
+    comes from the vendor SKU (which for boards IS the model), while
+    TMS/1PC/Ivory titles carry the model in prose ("Gigabyte B850M DS3H")
+    and are read from the first clause. The spec clauses
+    (socket/DDR/form factor/ports) stay in attributes; WiFi/DDR markers
+    ride along only to tell twins apart (EAGLE vs EAGLE WIFI6E, DS3H DDR4
+    vs DS3H)."""
+    chipset = attributes.get("chipset")
+    if not isinstance(chipset, str) or not chipset.strip():
+        return None
+    chipset = chipset.strip().upper()
+    # Chip vendors never make boards: an "AMD"/"Intel" hit on a motherboard
+    # title is chipset bleed, not a brand (mirrors the enrich_listing rule).
+    brand = _group_brand(attributes, group, exclude=("AMD", "Intel", "NVIDIA"))
+
+    wifi_tag = ""
+    std = attributes.get("wifi_standard")
+    if isinstance(std, str) and re.fullmatch(r"WIFI\s?\dE?", std.strip(), re.I):
+        wifi_tag = re.sub(r"\s+", "", std.strip().upper())
+    elif attributes.get("wifi") is True or str(
+            attributes.get("wifi") or "").strip().lower() in ("yes", "true"):
+        wifi_tag = "WiFi"
+
+    sku_toks = _sku_display_tokens(group)
+    if not brand:
+        brand = _board_sku_brand(sku_toks)
+    sku_model, sku_wifi = _board_sku_model(group)
+    if sku_wifi and not wifi_tag:
+        wifi_tag = sku_wifi
+
+    stop = {
+        "motherboard", "motherboards", "mainboard", "desktop", "support",
+        "supports", "with", "for", "and", "the", "in", "on", "at",
+        "is", "are", "was", "were", "be", "it", "its",
+        "this", "that", "these", "those", "has", "have", "had",
+        "processor", "processors",
+        "family", "generation", "ryzen", "core", "chipset", "chipsets",
+        "socket", "sockets", "memory", "memories", "series", "atx", "matx",
+        "microatx", "micro-atx", "eatx", "e-atx", "itx", "mini-itx",
+        "miniitx", "amd", "intel", "ddr3", "ddr3l", "ddr4", "ddr5", "board",
+        "boards", "ddr", "pcie", "m.2", "m2", "sata", "usb", "hdmi",
+        "digital", "solution", "solutions", "design", "smart", "rev",
+        "revision", "version", "ver",
+        # "Gaming" stays: weak alone but real identity ("B550 Gaming").
+        # Lone lowercase "a" goes, but uppercase "A"/"X" stay ("B650-A",
+        # "GAMING X" need them) — hence the stop holds "a", matched
+        # case-insensitively below only for lowercase tokens.
+    }
+    kept: list[str] = []
+    seen: set[str] = set()
+
+    def _take(clause: str) -> None:
+        for tok in _clause_tokens(clause):
+            if len(kept) >= 4:
+                return
+            up = tok.upper()
+            low = tok.lower()
+            # Articles only when lowercase ("is a motherboard"); uppercase
+            # single letters are variants ("B650-A", "GAMING X").
+            if low in ("a", "an") and tok.islower():
+                continue
+            if _tok_drop(low, stop):
+                continue
+            if re.fullmatch(r"(AM[45]|LGA\s?\d+|STR5|SWRX8|TR4)", up):
+                continue
+            if re.sub(r"[^A-Z0-9]", "", up) == re.sub(r"[^A-Z0-9]", "", chipset):
+                continue
+            if re.fullmatch(
+                    r"(DDR[345]L?|PCIE?(\d|X\d*)?|M\.?2|SATA|USB|HDMI|WIFI\d?E?|BT)",
+                    up, re.I):
+                continue
+            if low in ("wi-fi", "wifi") or low.startswith("wifi"):
+                continue
+            if _pure_number(tok):
+                continue
+            if _is_brand_word(low, brand):
+                continue
+            key = re.sub(r"[^a-z0-9]", "", low)
+            if not key or key in seen:
+                continue
+            # A longer token restating a kept one ("AK-B760MEG-DDR4" over
+            # "AK-B760M") adds nothing — skip, don't double.
+            if any(key.startswith(k) or k.startswith(key)
+                   for k in seen if len(k) >= 4 and len(key) >= 4):
+                continue
+            seen.add(key)
+            kept.append(_display_token(tok))
+
+    # Branded prose titles (TMS/1PC/Ivory: "Gigabyte B850M DS3H") carry the
+    # model in words — use them when they yield 2+ tokens, else the SKU.
+    if brand:
+        for e in group:
+            _take(_first_clause(e.get("title_raw") or ""))
+            if len(kept) >= 4:
+                break
+    if len(kept) < 2 and sku_model:
+        kept = sku_model[:5]
+    if not kept:
+        return None
+    # Bare revision tokens ("V2") lose to real model words ("Gaming").
+    if any(len(re.sub(r"[^A-Za-z]", "", k)) >= 4 for k in kept):
+        filtered = [k for k in kept
+                    if not re.fullmatch(r"(V|R|REV)\d*(\.\d+)?", k.upper())]
+        if filtered:
+            kept = filtered
+
+    parts: list[str] = []
+    if brand:
+        parts.append(str(brand))
+    if not any(chipset in re.sub(r"[^A-Z0-9]", "", p.upper()) for p in parts + kept):
+        parts.append(chipset)
+    parts.extend(kept)
+    if wifi_tag and not any("WIFI" in p.upper() or p.upper() in ("AC", "AX")
+                           for p in parts):
+        parts.append(wifi_tag)
+    name = re.sub(r"\s+", " ", " ".join(parts)).strip()
+    return name or None
+
+
+def _psu_canonical_name(group: list, attributes: dict) -> str | None:
+    """'Corsair RM1000e 1000W 80 PLUS Gold White' from brand + series tokens
+    + wattage + efficiency. Spec clauses (ATX version, fan size, PCIe 5.1)
+    stay in attributes."""
+    watts: Any = attributes.get("wattage_w")
+    try:
+        watts = int(watts) if watts is not None else None
+    except (ValueError, TypeError):
+        watts = None
+    if not watts:
+        return None
+    brand = _group_brand(attributes, group)
+    eff = attributes.get("efficiency")
+    eff = str(eff).strip() if isinstance(eff, str) and eff.strip() else ""
+
+    drop = {
+        # "power" stays: "DARK POWER PRO 12", "SYSTEM POWER 10" need it
+        # ("supply"/"supplies" still go).
+        "psu", "supply", "supplies", "active", "pfc", "modular",
+        "semi", "full", "non", "atx", "sfx", "sfx-l", "sfxl", "tfx",
+        "fan", "fans", "silent", "silence", "noise", "low-noise", "hdb",
+        "series", "edition", "version", "rev", "revision", "model",
+        "cables", "cable", "sleeved", "white", "black", "plus", "80",
+        "gold", "silver", "bronze", "platinum", "titanium", "cybenetics",
+        "fully", "certified", "eu", "uk", "cable-free", "zero",
+        "in", "on", "at",
+    }
+    kept: list[str] = []
+    seen: set[str] = set()
+    clause = _first_clause(_longest_title(group))
+    for tok in _clause_tokens(clause):
+        up = tok.upper()
+        low = tok.lower()
+        if re.fullmatch(r"P?\d+\s*W", up):
+            continue
+        if re.fullmatch(r"\d+\s?(MM|CM)\b", up, re.I):
+            continue
+        if low in ("mm", "cm"):
+            continue
+        # Short numbers are series parts ("PRO 12", "POWER 10"); 3+ digit
+        # runs are wattage/version noise.
+        if _pure_number(tok, max_keep_digits=2):
+            continue
+        if _tok_drop(low, drop):
+            continue
+        if _is_brand_word(low, brand):
+            continue
+        key = re.sub(r"[^a-z0-9]", "", low)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        kept.append(_display_token(tok))
+        if len(kept) >= 4:
+            break
+
+    if not kept:
+        # Spec-only title ("550W 80 Plus Bronze"): the SKU is the series
+        # ("ATLAS-550" -> "ATLAS 550").
+        kept = [_display_token(t) for t in _sku_display_tokens(group)[:2]
+                if not re.fullmatch(r"\d+", t)]
+        if not kept:
+            return None
+    parts: list[str] = []
+    if brand:
+        parts.append(str(brand))
+    parts.extend(kept)
+    parts.append(f"{watts}W")
+    if eff:
+        parts.append(eff)
+    color = _title_color(group, attributes)
+    if color and color.lower() not in {p.lower() for p in parts}:
+        parts.append(color)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
+
+
+def _tb_str(cap_gb: int) -> str:
+    """1024/2048/4096/8192 (binary) and round 1000s display as TB."""
+    table = {512: "512GB", 1024: "1TB", 2048: "2TB", 4096: "4TB", 8192: "8TB"}
+    if cap_gb in table:
+        return table[cap_gb]
+    if cap_gb >= 1000 and cap_gb % 1000 == 0:
+        return f"{cap_gb // 1000}TB"
+    return f"{cap_gb}GB"
+
+
+def _storage_canonical_name(group: list, attributes: dict) -> str | None:
+    """'XPG GAMMIX S70 Blade 1TB NVMe Gen4 M.2' from brand + trailing series
+    clause + capacity + interface. Speeds/warranty/NAND trivia stay in
+    attributes."""
+    cap: Any = attributes.get("capacity_gb")
+    try:
+        cap = int(cap) if cap is not None else None
+    except (ValueError, TypeError):
+        cap = None
+    if not cap:
+        return None
+
+    blob = " | ".join(
+        f"{e.get('vendor_sku', '')} {e.get('title_raw', '')}" for e in group)
+    brand = attributes.get("brand") or _storage_brand(blob)
+
+    dtype = attributes.get("drive_type")
+    dtype = str(dtype).upper() if isinstance(dtype, str) else ""
+    iface = attributes.get("interface")
+    iface = str(iface) if isinstance(iface, str) else ""
+    gen = ""
+    gm = re.search(r"Gen\s?([345])", attributes.get("pcie_gen") or iface or "")
+    if gm:
+        gen = f"Gen{gm.group(1)}"
+    form = attributes.get("drive_form_factor")
+    form = str(form).strip() if isinstance(form, str) else ""
+    if re.fullmatch(r"M\.?\s*2(\s*2280)?", form, re.I):
+        form = "M.2"
+
+    drop = {
+        "series", "ssd", "hdd", "sshd", "nvme", "sata", "sas", "pcie",
+        "warranty", "warranties", "years", "year", "tlc", "qlc", "nand",
+        "3d", "cache", "dram", "heatsink", "w", "with", "without",
+        "oem", "bulk", "tray", "retail", "box",
+    }
+    iface_pat = re.compile(
+        r"(SATA\d*|NVME|PCIE\d*|GEN\d|M\.?2|2280|2260|2242|2230)$", re.I)
+    series: list[str] = []
+    seen: set[str] = set()
+    tail = _last_clause(_longest_title(group))
+    for tok in _clause_tokens(tail):
+        up = tok.upper()
+        low = tok.lower()
+        if re.fullmatch(r"\d+\s?(GB|TB|MB/S|G|MM)\b", up, re.I):
+            continue
+        if re.fullmatch(r"\d+(\.\d+)?", tok):
+            continue
+        if re.search(r"\d", tok) and "/" in tok:
+            continue
+        # Interface fragments inside the series clause ("SATA3 6GB/s")
+        # describe the bus, not the product line.
+        if iface_pat.search(re.sub(r"[^A-Za-z0-9]", "", up)):
+            continue
+        if re.search(r"[GM]B/S", up):
+            continue
+        if low in drop:
+            continue
+        if _is_brand_word(low, brand):
+            continue
+        key = re.sub(r"[^a-z0-9]", "", low)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        series.append(_display_token(tok))
+        if len(series) >= 4:
+            break
+
+    parts: list[str] = []
+    if brand:
+        parts.append(str(brand))
+    parts.extend(series)
+    if not series and not brand:
+        return None
+    parts.append(_tb_str(cap))
+    if "NVME" in iface.upper() or dtype == "SSD" and gen:
+        parts.append("NVMe")
+        if gen:
+            parts.append(gen)
+        if form:
+            parts.append(form)
+        elif dtype:
+            parts.append(dtype.title())
+    elif dtype == "SSD" and "SATA" in iface.upper():
+        parts.append("SATA")
+        parts.append("SSD")
+        if form:
+            parts.append(form)
+    elif dtype in ("SSD", "HDD", "SSHD"):
+        if form:
+            parts.append(form)
+        parts.append(dtype.title() if dtype != "SSHD" else "SSHD")
+        if gen:
+            parts.append(gen)
+    elif form:
+        parts.append(form)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
+
+
+# Vendor-exclusive case prefixes in SKUs. Corsair's own part numbers all
+# open CC-9011 ("CC-9011257-WW" = Corsair 6500X); without this, compat
+# prose naming other makers ("...supports ASUS BTF motherboards") wins
+# brand detection and the case is misbranded ("ASUS CC WW Black").
+_CASE_SKU_BRANDS = (
+    ("cc-901", "Corsair"), ("cs-hyte", "HYTE"),
+)
+
+
+def _case_canonical_name(group: list, attributes: dict) -> str | None:
+    """'ASUS Prime AP201 Black' / 'Z10 Black' from brand + first-clause model
+    + color. Fan arrays, dimensions, GPU clearance stay in attributes."""
+    # SKU evidence first: it beats title prose (compat text naming other
+    # makers must never win brand detection).
+    brand: str | None = None
+    for e in group:
+        sku = re.sub(r"[^a-z0-9]+", "-", str(e.get("vendor_sku") or "").lower())
+        for prefix, canon in _CASE_SKU_BRANDS:
+            if sku.startswith(prefix):
+                brand = canon
+                break
+        if brand:
+            break
+    if not brand:
+        brand = _group_brand(attributes, group)
+    # Bundle titles ("Sneaker-X + 850W + Liquid Cooler"): identity is the
+    # segment before the first plus — color is read from the first two
+    # segments, never from the bundle tail ("850W Gold" efficiency is not
+    # paint; metals only count in the identity segment).
+    longest = _longest_title(group)
+    s_long = re.sub(r"\s+", " ", longest).strip()
+    clauses_all = [p.strip(" ,;:|·")
+                   for p in _CLAUSE_SPLIT_RE.split(HEBREW_RUN_RE.sub(" ", s_long))]
+    clause = _first_clause(longest).split("+")[0]
+    color = _title_color(group, attributes, text=clause)
+    if not color and len(clauses_all) > 1:
+        m2 = re.search(
+            r"\b(black|white|red|blue|green|pink|purple|orange|beige|brown|gray|grey)\b",
+            clauses_all[1], re.I)
+        if m2:
+            color = _display_token(m2.group(1))
+
+    drop = {
+        "tower", "towers", "case", "cases", "chassis", "computer", "pc",
+        "gaming", "atx", "matx", "microatx", "micro-atx", "eatx", "e-atx",
+        "itx", "mini-itx", "miniitx", "with", "without", "window", "windows",
+        "glass", "tempered", "mesh", "mid", "full", "mini", "dual",
+        "chamber", "series", "for", "support", "supports", "offer", "offers",
+        "offered", "radiator", "radiators", "graphics", "card", "cards",
+        "clean", "cable", "cables", "management", "options", "option",
+        "color", "colors", "colour", "colours", "two", "up", "to", "and",
+        "or", "the", "a", "max", "maximum", "height", "length", "size",
+        "sizes", "fits", "fit", "compatible", "compatibility", "includes",
+        "included", "including", "panel", "side", "front", "silent",
+        "sound", "dampening", "foam", "fan", "fans", "nps", "in", "on",
+        "at",
+        # "Elite"/"Pro" stay: line names ("ARGUS E4 Elite"; dropping costs
+        # more than keeping).
+    }
+    model: list[str] = []
+    seen: set[str] = set()
+    prev_kept = False
+    for tok in _clause_tokens(clause):
+        low = tok.lower()
+        if _tok_drop(low, drop) or low in _COLOR_WORDS_NAME:
+            prev_kept = False
+            continue
+        if low in ("mm", "cm", "inch", "inches"):
+            prev_kept = False
+            continue
+        if _pure_number(tok, max_keep_digits=1):
+            # A short number directly extending a kept model word is the
+            # model ("Elite 301", "GT502"); standalone counts ("360 mm"
+            # of radiator support) are specs.
+            if not (prev_kept and re.fullmatch(r"\d{2,3}", tok)):
+                prev_kept = False
+                continue
+        if re.fullmatch(r"\d+\s?(MM|CM)\b", tok, re.I):
+            prev_kept = False
+            continue
+        # Pack counts are single digits ("5x"); multi-digit x-tails are
+        # model numbers ("6500X", "4500X") and must survive.
+        if re.fullmatch(r"[2-9]\s*x\b|\bx\s*[2-9]\b", low):
+            prev_kept = False
+            continue
+        if _is_brand_word(low, brand):
+            prev_kept = False
+            continue
+        key = re.sub(r"[^a-z0-9]", "", low)
+        if not key or key in seen:
+            prev_kept = False
+            continue
+        seen.add(key)
+        model.append(_display_token(tok))
+        prev_kept = True
+        if len(model) >= 4:
+            break
+
+    if len(model) < 2:
+        # Thin title model ("5x RGB Fans", "C8"): the SKU carries the line
+        # ("VCX200-RGB-ELITE", "C8-Aluminum-White"). Digit-bearing line
+        # tokens lead ("VCX200 RGB Elite", not "RGB Elite VCX200"); colors
+        # and NPS ride as themselves, not model words.
+        # Hyphen-parts of kept compounds join `seen` first, so a dashed
+        # SKU restating the title ("ATHENA-M6-LITE" over title token
+        # "Athena-M6-Lite") adds nothing instead of doubling it.
+        for m in list(model):
+            for part in re.split(r"[-]", m.lower()):
+                key = _compact_alnum(part)
+                if len(key) >= 2:
+                    seen.add(key)
+        sku_toks = _sku_display_tokens(group)
+        extra: list[str] = []
+
+        def _sku_ok(t: str) -> bool:
+            low = t.lower()
+            if (low in drop or low in _COLOR_WORDS_NAME
+                    or low in _TOKEN_COLORS):
+                return False
+            if _tok_drop(low, drop):
+                return False
+            if low in ("mm", "cm", "nps"):
+                return False
+            # 2-letter vendor prefixes ("CC" in CC-9011257) are not models.
+            if re.fullmatch(r"[a-z]{2}", low):
+                return False
+            if _pure_number(t, max_keep_digits=1) and not (
+                    model and re.fullmatch(r"\d{2,3}", t)):
+                return False
+            key = _compact_alnum(t)
+            if not key or key in seen:
+                return False
+            # Affix dupes of the title model ("C8W" over title "C8") are
+            # skipped, not doubled ("Antec C8 C8W White").
+            if any(key.startswith(k) or k.startswith(key)
+                   for k in seen if len(k) >= 2 and len(key) >= 2):
+                return False
+            return True
+
+        for t in sku_toks:
+            if re.search(r"\d", t) and _sku_ok(t):
+                seen.add(_compact_alnum(t))
+                extra.append(_display_token(t))
+        for t in sku_toks:
+            if not re.search(r"\d", t) and _sku_ok(t):
+                seen.add(_compact_alnum(t))
+                extra.append(_display_token(t))
+        # Line-leading SKU tokens ("VCX200") go first only when the title
+        # left no digit-bearing model ("RGB"); otherwise ("C8") they would
+        # scramble the title order ("ARGB C8").
+        if any(re.search(r"\d", m) for m in model):
+            model = (model + extra)[:4]
+        else:
+            model = (extra + model)[:4]
+    if not model:
+        return None
+
+    parts: list[str] = []
+    if brand:
+        parts.append(str(brand))
+    parts.extend(model)
+    if color and color.lower() not in {p.lower() for p in parts}:
+        parts.append(color)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
+
+
+def _cooler_canonical_name(
+    group: list, attributes: dict, category: str
+) -> str | None:
+    """Air: 'AG400 BK ARGB [95W]'. AIO: 'H100i ELITE CAPELLIX XT 240mm
+    [ARGB] [LCD]'. Model = first-clause tokens minus spec words; the
+    radiator size (AIO) or TDP (air) tells same-model twins apart."""
+    blob = _longest_title(group)
+    brand = (_cooler_fan_brand(attributes, group, blob)
+             or _cooler_sku_brand(group))
+
+    tdp = ""
+    lighting = ""
+    if category == "cooler_air":
+        m = re.search(r"(\d{2,3})\s?W\s*TDP|TDP[^\d]{0,10}(\d{2,3})\s?W", blob, re.I)
+        if m:
+            tdp = f"{m.group(1) or m.group(2)}W"
+    li = attributes.get("lighting")
+    if isinstance(li, str) and li.upper() in ("ARGB", "RGB"):
+        lighting = li.upper()
+    elif re.search(r"\bARGB\b", blob, re.I):
+        lighting = "ARGB"
+    elif re.search(r"\bRGB\b", blob, re.I):
+        lighting = "RGB"
+
+    size = ""
+    if category == "aio":
+        rad: Any = attributes.get("radiator_size_mm") or attributes.get(
+            "fan_size_mm")
+        try:
+            rad = int(rad) if rad is not None else None
+        except (ValueError, TypeError):
+            rad = None
+        if rad not in (120, 140, 240, 280, 360, 420):
+            m = re.search(r"\b(120|140|240|280|360|420)\s?MM\b", blob, re.I)
+            rad = int(m.group(1)) if m else None
+        if rad:
+            size = f"{rad}mm"
+
+    # Air fan size ("Bloody Tiger 92mm") when no TDP was parsed: same-model
+    # twins are told apart by something, and the size is the next best fact.
+    air_size = ""
+    if category == "cooler_air" and not tdp:
+        m = re.search(r"\b(92|120|140|170|200)\s?MM\b", blob, re.I)
+        if m:
+            air_size = f"{m.group(1)}mm"
+
+    drop = {
+        "liquid", "water", "cooler", "coolers", "cooling", "cpu", "processor",
+        "processors", "thermal", "radiator", "radiators", "heatsink",
+        "heatsinks", "tower", "towers", "twin", "dual", "with", "without",
+        "for", "and", "all-in-one", "aio", "system", "series", "socket",
+        "sockets", "fan", "fans", "recommend", "recommended", "in", "on",
+        "at", "weight", "weights", "lxwxh", "dimensions", "dimension",
+        "amd", "intel", "nvidia", "display", "displays", "screen", "screens",
+        "lcd", "oled", "color", "colors", "colour", "colours", "icue",
+        "link",
+    }
+    model: list[str] = []
+    seen: set[str] = set()
+    clause = _first_clause(blob)
+    for tok in _clause_tokens(clause):
+        up = tok.upper()
+        low = tok.lower()
+        if _tok_drop(low, drop):
+            continue
+        if low in ("mm", "cm"):
+            continue
+        # Ranges and decimals with units ("600-2200RPM", "103.7x86.6x126mm").
+        if re.fullmatch(r"[\d.x-]+\s?(MM|CM|G|GR|KG|RPM|DBA?|CFM|W)\b", up, re.I):
+            continue
+        if re.fullmatch(r"\d+(\.\d+)?x\d+(\.\d+)?(x\d+(\.\d+)?)?(MM)?", up, re.I):
+            continue
+        # Short numbers are model parts ("DARK ROCK 4"); long runs are
+        # weights/speeds ("3100", "2200").
+        if _pure_number(tok, max_keep_digits=1):
+            continue
+        if re.fullmatch(r"(AM[45]|LGA\s?\d+|PWM|ARGB|RGB|LED|TDP)", up):
+            continue
+        if _is_brand_word(low, brand):
+            continue
+        key = re.sub(r"[^a-z0-9]", "", low)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        model.append(_display_token(tok))
+        # Cap 5, not 4: cooler lines carry edition tails that matter
+        # ("WATERFORCE X II" + "ICE" are different products). The length
+        # gate still rejects runaway models against the scrubbed title.
+        if len(model) >= 5:
+            break
+
+    # Split compact vendor codes once for both SKU paths below
+    # ("OMNI240ARGB" -> OMNI/240/ARGB). Long-number neighbors mark
+    # vendor-internal codes: "CW" in "CW-9061018-WW" is Corsair's prefix,
+    # not a model — while "SE" in "Alpha2-SE-A24-WHITE" (surrounded by
+    # model words) is the edition.
+    raw_toks: list[str] = []
+    for t in _sku_display_tokens(group):
+        raw_toks.extend(_split_compact_sku(t))
+    long_idx = {i for i, t in enumerate(raw_toks)
+                if re.fullmatch(r"\d{4,}", t)}
+    neighbor_of_long = {i - 1 for i in long_idx} | {i + 1 for i in long_idx}
+
+    if not model or not _has_model_id(model):
+        # Spec-prose titles ("360mm ARGB Liquid Cooler With Real-time
+        # Digital Display") yield word-only models: the SKU carries the
+        # real model ("CHIONE-E4-360"). Short numbers are model parts here
+        # ("SE-914-XT": 914 tells the 914/207/214 apart); long runs are
+        # internal codes, and the size itself ("360" next to "360mm") is
+        # redundant.
+        rad_num = ""
+        msz = re.fullmatch(r"(\d+)mm", size)
+        if msz:
+            rad_num = msz.group(1)
+
+        def _sku_num_ok(t: str) -> bool:
+            # Long runs are internal codes ("000052"); the size itself
+            # ("360" next to "360mm") is redundant; short numbers are
+            # model parts ("SE-914-XT").
+            if not _pure_number(t):
+                return True
+            if rad_num and t == rad_num:
+                return False
+            return bool(re.fullmatch(r"\d{2,3}", t))
+
+        sku_toks = [t for i, t in enumerate(raw_toks)
+                    if _sku_num_ok(t)
+                    and i not in neighbor_of_long
+                    and len(t) > 1
+                    and t.lower() not in drop
+                    and t.lower() not in _COLOR_WORDS_NAME
+                    and t.lower() not in _TOKEN_COLORS
+                    and t.upper() not in ("ARGB", "RGB", "LED", "PWM")]
+        sku_model = [_display_token(t) for t in sku_toks[:3]]
+        # A digit-bearing or multi-token SKU model beats spec prose
+        # ("CHIONE E4" over "Real-Time Digital Display"); a lone
+        # abbreviation ("CW") never does.
+        if sku_model and (any(re.search(r"\d", m) for m in sku_model)
+                          or len(sku_model) >= 2):
+            model = sku_model
+    elif model:
+        # Title model accepted, but the SKU may carry an edition marker
+        # the title omits ("SE" in Alpha2-SE-A24-WHITE vs the plain A24,
+        # whose titles are otherwise identical). Only known edition words
+        # merge — vendor-code fragments ("GHS"/"SB"/"TW" in TMS's glued
+        # "GHS2LCDS36CB", "MAP"/"T6PS" in "MAP-T6PS-218PK-R1") must never
+        # sneak in, which an open-ended merge did (HydroShift/AG400 names
+        # regressed). Appended after the title model, capped with it.
+        for t in raw_toks:
+            if len(model) >= 5:
+                break
+            if t.upper() not in _EDITION_WORDS:
+                continue
+            key = _compact_alnum(t)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            model.append(_display_token(t))
+    if not model:
+        return None
+
+    # A bare brand ("AMD Ryzen") is not a name — let the scrubbed title
+    # speak instead (it carries the edition/dims). Same for a model made
+    # only of CPU-line echo ("Ryzen Threadripper" for a generic TR4 unit).
+    # A single digit-bearing token ("NH-U9S") is a complete model, though.
+    if (len(model) < 2 and not size and not tdp and not air_size
+            and not lighting and not any(re.search(r"\d", m) for m in model)):
+        return None
+    if not brand and model and all(
+            m.lower() in _CPU_LINE_WORDS for m in model):
+        return None
+
+    parts: list[str] = []
+    if brand and brand.lower() not in {p.lower() for p in model}:
+        parts.append(str(brand))
+    parts.extend(model)
+    if size:
+        parts.append(size)
+    if category == "cooler_air":
+        if tdp:
+            parts.append(tdp)
+        elif air_size:
+            parts.append(air_size)
+    if lighting and _compact_alnum(lighting) not in {
+            _compact_alnum(p) for p in parts}:
+        parts.append(lighting)
+    if category == "aio" and re.search(r"\b(LCD|OLED|DISPLAY|SCREEN)\b", blob, re.I):
+        if "LCD" not in {p.upper() for p in parts}:
+            parts.append("LCD")
+    color = _title_color(group, attributes)
+    # A model token may already carry the color as an abbreviation
+    # ("AG400 BK ARGB" is already black — don't append "Black").
+    if color and color.lower() not in {p.lower() for p in parts}:
+        if not any(_TOKEN_COLORS.get(re.sub(r"[^a-z]", "", p.lower())) == color
+                   for p in parts):
+            parts.append(color)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
+
+
+# Vendor-exclusive prefixes in SKUs ("ZM-AF120R" is always Zalman; "NF-"
+# always Noctua; Noctua's AIO line is "NL-LC1"). Tight: bare model numbers
+# never qualify. The cooler map rescues brand-less AIO titles whose maker
+# lives only in the SKU ("420mm Quiet All-in-One Water Cooler" is a
+# Noctua NL-LC1).
+_FAN_SKU_BRANDS = (
+    ("zm-", "Zalman"), ("nf-", "Noctua"),
+)
+
+_COOLER_SKU_BRANDS = (
+    ("nl-lc", "Noctua"),
+)
+
+
+def _cooler_sku_brand(group: list) -> str | None:
+    for e in group:
+        sku = re.sub(r"[^a-z0-9]+", "-", str(e.get("vendor_sku") or "").lower())
+        for prefix, canon in _COOLER_SKU_BRANDS:
+            if sku.startswith(prefix):
+                return canon
+    return None
+
+
+def _fan_sku_brand(group: list) -> str | None:
+    for e in group:
+        sku = re.sub(r"[^a-z0-9]+", "-", str(e.get("vendor_sku") or "").lower())
+        for prefix, canon in _FAN_SKU_BRANDS:
+            if sku.startswith(prefix):
+                return canon
+    return None
+
+
+def _fan_canonical_name(group: list, attributes: dict) -> str | None:
+    """'Antec 120mm ARGB x3' / 'NF-F12 IndustrialPPC-2000 120mm PWM' from
+    brand + model + size + PWM + lighting + pack count."""
+    blob = _longest_title(group)
+    brand = (_group_brand(attributes, group) or _fan_sku_brand(group))
+    if brand in _CHIP_BRANDS and not _STOCK_COOLER_RE.search(blob):
+        brand = None
+
+
+    size = ""
+    fsz: Any = attributes.get("fan_size_mm")
+    try:
+        fsz = int(fsz) if fsz is not None else None
+    except (ValueError, TypeError):
+        fsz = None
+    blob = _longest_title(group)
+    if fsz not in (40, 60, 80, 92, 120, 140, 170, 200):
+        m = re.search(r"\b(40|60|80|92|120|140|170|200)\s?MM\b", blob, re.I)
+        fsz = int(m.group(1)) if m else None
+    if fsz:
+        size = f"{fsz}mm"
+
+    pwm = attributes.get("pwm") == "Yes" or bool(
+        re.search(r"\bPWM\b", blob, re.I))
+    li = attributes.get("lighting")
+    lighting = ""
+    if isinstance(li, str) and li.upper() in ("ARGB", "RGB"):
+        lighting = li.upper()
+    elif re.search(r"\bARGB\b", blob, re.I):
+        lighting = "ARGB"
+    elif re.search(r"\bRGB\b", blob, re.I):
+        lighting = "RGB"
+
+    pack = ""
+    # Hebrew pack counts ("3 מאווררים" = 3 fans) for Ivory/TMS kit titles.
+    # No inner word boundary on the x-count: glued "3xFans" is the common
+    # vendor spelling ("\bx\b" between x and F never matches).
+    m = re.search(r"\b([2-9])\s*x|\bx\s*([2-9])\b|\b([2-9])\s*in\s*1\b|\b([2-9])\s*(?:fan\s*)?pack\b",
+                  blob, re.I)
+    if not m:
+        m = re.search(r"([2-9])\s*מאוורר", blob)
+    if m:
+        pack = f"x{next(g for g in m.groups() if g)}"
+    if not pack:
+        # Word packs in kit/pack context ("Triple Starter Kit", "Dual Fan
+        # Kit"). Bare "dual" alone is excluded — it usually means dual-loop
+        # lighting ("Dual Light Loop"), not two fans — and digit counts
+        # above already won where present. "Single" maps to nothing
+        # (singles are the unmarked default).
+        wm = re.search(
+            r"\b(dual|triple|trio|quad)\s+(?:fans?\s+)?(?:kit|pack)\b",
+            blob, re.I)
+        if wm:
+            pack = {"dual": "x2", "triple": "x3", "trio": "x3", "quad": "x4"}[
+                wm.group(1).lower()]
+    drop = {
+        "fan", "fans", "case", "computer", "pc", "pwm", "argb", "rgb", "led",
+        "kit", "kits", "pack", "packs", "bulk", "oem", "triple", "quad",
+        "with", "without", "for", "and", "performance", "series",
+        "edition", "sold", "as", "connected", "each", "other", "requires",
+        "controller", "controllers", "remote",
+        "control", "in", "on", "at", "amd", "intel", "nvidia",
+        "color", "colors", "colour", "colours", "icue", "link",
+        # Bearing types are specs ("FDB", "Hydro Bearing"), never model
+        # words — the size + lighting already tell fans apart.
+        "fdb", "hdb", "rifle", "hydro", "sleeve", "ball", "fluid",
+        "dynamic", "magnetic", "levitation", "bearing", "bearings",
+        # "single"/"dual" stay: they tell kit twins apart ("Single
+        # Expansion" vs "Dual Starter Kit") once xN packs are normalized.
+        # "starter"/"expansion"/"trio" stay for the same reason ("Trio" is
+        # also Cougar's line name).
+    }
+    model: list[str] = []
+    seen: set[str] = set()
+
+    def _take(clause: str) -> None:
+        for tok in _clause_tokens(clause):
+            if len(model) >= 3:
+                return
+            up = tok.upper()
+            low = tok.lower()
+            if _tok_drop(low, drop) or low in _COLOR_WORDS_NAME:
+                continue
+            if low in ("mm", "cm"):
+                continue
+            if re.fullmatch(r"\d+\s?(MM|CM|RPM|DBA?|CFM)\b", up, re.I):
+                continue
+            # Bare telemetry units ("...1500 RPM 120MM...") are specs, not
+            # model words.
+            if re.fullmatch(r"(RPM|DBA?|CFM)", up):
+                continue
+            if re.fullmatch(r"\d+(\.\d+)?", tok):
+                continue
+            # Single-digit pack counts only ("3x"); model tails ("6500X").
+            if re.fullmatch(r"[2-9]\s*x\b|\bx\s*[2-9]\b", low):
+                continue
+            if _is_brand_word(low, brand):
+                continue
+            key = re.sub(r"[^a-z0-9]", "", low)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            model.append(_display_token(tok))
+
+    _take(_first_clause(blob))
+    if not model:
+        # Model lives in a later clause ("120mm PWM Case Fan - F12 RACING
+        # ARGB"): scan two more before falling back to the SKU.
+        s = re.sub(r"\s+", " ", blob).strip()
+        clauses = [p.strip(" ,;:|·")
+                   for p in _CLAUSE_SPLIT_RE.split(HEBREW_RUN_RE.sub(" ", s))]
+        for clause in clauses[1:3]:
+            _take(clause)
+            if model:
+                break
+    if not model:
+        # De-dashed SKU ("AEOLUS-P2-1201" -> "AEOLUS P2 1201"): dedupes the
+        # otherwise identical "120mm PWM ARGB" generics. Vendor prefixes
+        # ("ZM"), single letters ("W" white-abbrev, "R") and colors ride
+        # as brand/color, not model words. Compact codes split first
+        # ("F12RARGB" -> F12/R/ARGB) the same way.
+        brand_prefixes = {p.rstrip("-") for p, _ in _FAN_SKU_BRANDS}
+        raw_toks: list[str] = []
+        for t in _sku_display_tokens(group):
+            raw_toks.extend(_split_compact_sku(t))
+        sku_model = [t for t in raw_toks
+                     if len(t) > 1
+                     and t.lower() not in drop
+                     and t.lower() not in _COLOR_WORDS_NAME
+                     and t.lower() not in brand_prefixes
+                     and not re.fullmatch(r"\d+\s?(MM|CM|RPM|DBA?|CFM)",
+                                          t, re.I)]
+        model = [_display_token(t) for t in sku_model[:3]]
+        if not model:
+            return None
+
+    parts: list[str] = []
+    if brand:
+        parts.append(str(brand))
+    parts.extend(model)
+    if size:
+        parts.append(size)
+    if pwm:
+        parts.append("PWM")
+    if lighting and _compact_alnum(lighting) not in {
+            _compact_alnum(p) for p in parts}:
+        parts.append(lighting)
+    # A screen tells screen twins apart ("UNI SL Wireless LCD" vs the
+    # plain "UNI SL Wireless") the same way lighting does.
+    if re.search(r"\b(LCD|OLED)\b", blob, re.I):
+        if "LCD" not in {p.upper() for p in parts}:
+            parts.append("LCD")
+    if pack:
+        parts.append(pack)
+    # Color variants share everything else ("DF120 BLACK" vs "DF120 WHITE").
+    color = _title_color(group, attributes)
+    if color and color.lower() not in {p.lower() for p in parts}:
+        if not any(_TOKEN_COLORS.get(re.sub(r"[^a-z]", "", p.lower())) == color
+                   for p in parts):
+            parts.append(color)
+    if len(parts) <= (1 if brand else 0) and not size:
+        return None
+    return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
+
+
 # Memory brand combos for canonical names, first-match-wins on the
 # lowercased title (multi-word lines before their parents).
 MEMORY_NAME_BRANDS = [
@@ -1792,6 +3397,88 @@ MEMORY_NAME_BRANDS = [
 ]
 
 
+_GATE_STRIP_RE = re.compile(
+    r"\b(black|white|silver|gray|grey|red|blue|green|pink|purple|orange|"
+    r"beige|brown|gold|argb|rgb|led|lcd|oled|wifi\d?e?|liquid|"
+    r"water|cooler|cooling|fan|fans|cpu|aio|system|blade|blades|design|"
+    r"icue|link|fdb|hdb|rifle|hydro|sleeve|ball|fluid|dynamic|magnetic|"
+    r"levitation|bearings?)\b"
+    # Units glued to digits ("1600RPM", "120mm", "1500W") need no leading
+    # boundary — \brpm\b never matches inside "1600RPM".
+    r"|\b\d+\s?(mm|cm|rpm|dba?|cfm|w|gb|tb|mhz|ghz|pwm)\b"
+    r"|\b(rpm|pwm|dba?|cfm)\b",
+    re.I,
+)
+
+
+_ROMAN_MODEL_RE = re.compile(r"^(II|III|IV|VI|VII|VIII|IX|X|XI|XII)$", re.I)
+
+
+def _has_model_id(model: list[str]) -> bool:
+    """True when a model token list carries real identity: a digit-bearing
+    token ("NH-U9S", "AG400") or a roman-numeral revision ("Freezer III"
+    vs "Freezer III Pro" — without this, word-only models always lose to
+    the SKU fallback and "ACFRE00150A" becomes "Acfre A")."""
+    return any(
+        re.search(r"\d", m) or _ROMAN_MODEL_RE.fullmatch(m)
+        for m in model)
+
+
+def _gate_toks(name: str) -> set[str]:
+    """Identity tokens of a name minus paint/lighting/size/category trivia
+    ("360mm Black Liquid AIO, LCD" carries no identity at all). Single
+    letters ("A" from a split "A-RGB") and bare numbers ("3", "12" from
+    Hebrew pack/size prose) are scrub artifacts, never identity."""
+    s = _GATE_STRIP_RE.sub(" ", str(name or ""))
+    toks = re.sub(r"[^a-z0-9]+", " ", s.lower()).split()
+    return {t for t in toks if len(t) > 1 and not t.isdigit()}
+
+
+def _shorter_than_fallback(built: str | None, group: list) -> str | None:
+    """Length gate for the speculative builders below: a structured name is
+    only an improvement when it is actually shorter than the scrubbed-title
+    fallback (ties go to the structured form — deterministic casing beats
+    vendor shout-case). A built name that is a strict informational
+    SUPERSET of the fallback (same identity + color/lighting/size the
+    scrubber ate, e.g. "CHIONE E4-420 Black" vs "CHIONE E4 420") also wins
+    within a small premium — otherwise color twins collapse onto one
+    colorless name. Returns the winner or None."""
+    if not built:
+        return None
+    built = re.sub(r"\s+", " ", built).strip()
+    if not built:
+        return None
+    fallback = best_name(group)
+    if len(built) <= len(fallback):
+        return built
+    if (_gate_toks(fallback) <= _gate_toks(built)
+            and len(built) <= len(fallback) + 25):
+        return built
+    return None
+
+
+def build_description(group: list) -> str | None:
+    """Vendor spec prose for the product page: the most spec-dense raw title
+    in the group (Plonter's dash-dump titles carry the full clause list),
+    whitespace-collapsed and capped. The short canonical name carries
+    identity; this preserves everything the scrub drops. Returns None when
+    there is nothing worth keeping."""
+    titles = [(e.get("vendor_id"), str(e.get("title_raw") or ""))
+              for e in group]
+    titles = [(v, t) for v, t in titles if t.strip()]
+    if not titles:
+        return None
+    plonter = [t for v, t in titles
+               if canonical_vendor_id(v) == "plonter"]
+    src = max(plonter or [t for _, t in titles], key=len)
+    s = html.unescape(src).split('",')[0]
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) > 500:
+        cut = s[:500].rsplit(" ", 1)[0]
+        s = (cut or s[:500]).rstrip(" ,;:-") + "…"
+    return s or None
+
+
 def name_from_attributes(
     category: str, attributes: dict, group: list | None = None
 ) -> str | None:
@@ -1801,6 +3488,12 @@ def name_from_attributes(
       for Intel series-tagged parts).
     - memory: "<brand> [model] <type> <cap>GB <speed><unit> [CLnn]".
     - gpu: "<brand> <family> <chip> <vram>GB [edition]".
+    - motherboard: "<brand> <chipset> <model...> [WIFI tag]".
+    - psu: "<brand> <series...> <watts>W <efficiency> [color]".
+    - storage: "<brand> <series...> <cap> <type/interface>".
+    - case: "<brand> <model...> [color]".
+    - cooler_air/aio: "<brand> <model...> [size|tdp] [lighting] [LCD] [color]".
+    - case_fan: "<brand> <model...> <size>mm [PWM] [lighting] [xN]".
     Returns None to fall back to best_name() when the parts aren't there.
     """
     group = group or []
@@ -1830,6 +3523,24 @@ def name_from_attributes(
         return _memory_canonical_name(group, attributes)
     if category == "gpu":
         return _gpu_canonical_name(group, attributes)
+    if category == "motherboard":
+        return _shorter_than_fallback(
+            _motherboard_canonical_name(group, attributes), group)
+    if category == "psu":
+        return _shorter_than_fallback(
+            _psu_canonical_name(group, attributes), group)
+    if category == "storage":
+        return _shorter_than_fallback(
+            _storage_canonical_name(group, attributes), group)
+    if category == "case":
+        return _shorter_than_fallback(
+            _case_canonical_name(group, attributes), group)
+    if category in ("cooler_air", "aio"):
+        return _shorter_than_fallback(
+            _cooler_canonical_name(group, attributes, category), group)
+    if category == "case_fan":
+        return _shorter_than_fallback(
+            _fan_canonical_name(group, attributes), group)
     return None
 
 
@@ -2611,6 +4322,11 @@ def match_listings(
         if m:
             suffix_to_pids.setdefault(f"{m.group(1)}:{m.group(2)}", []).append(pid)
 
+    # Indexed reassignment (was O(pids × listings) with a full scan per
+    # merged pid — same result, linear time).
+    _pid_members: dict[str, list[str]] = {}
+    for _lk, _pid in assignments.items():
+        _pid_members.setdefault(_pid, []).append(_lk)
     for suffix, pids in suffix_to_pids.items():
         if len(pids) < 2:
             continue
@@ -2620,9 +4336,9 @@ def match_listings(
         for pid in pids:
             if pid == survivor:
                 continue
-            for enriched in enriched_listings:
-                if assignments.get(enriched["listing_key"]) == pid:
-                    assignments[enriched["listing_key"]] = survivor
+            for _lk in _pid_members.pop(pid, []):
+                assignments[_lk] = survivor
+                _pid_members.setdefault(survivor, []).append(_lk)
             product_meta.pop(pid, None)
 
     # 5. Singletons.
@@ -2644,12 +4360,19 @@ def match_listings(
             },
         )
 
-    # Build product objects.
+    # Build product objects (indexed once — was a full listings scan per
+    # product, i.e. O(products × listings)).
     products = []
     product_sizes: dict[str, int] = {}
+    _by_listing_key = {e["listing_key"]: e for e in enriched_listings}
+    _groups: dict[str, list[dict]] = {}
+    for _lk, _pid in assignments.items():
+        _e = _by_listing_key.get(_lk)
+        if _e is not None:
+            _groups.setdefault(_pid, []).append(_e)
 
     for pid, meta in product_meta.items():
-        group = [e for e in enriched_listings if assignments[e["listing_key"]] == pid]
+        group = _groups.get(pid, [])
         product_sizes[pid] = len(group)
 
         if not group:
@@ -2665,15 +4388,36 @@ def match_listings(
         )
 
         category = meta.get("category") or group[0].get("category_normalized", "other")
+        # Title-only vote: match_text carries the vendor SKU, and SKUs name
+        # whole model lines ("Frozen-Warframe-...") that collide with the
+        # air-cooler families — e.g. Thermalright Frozen (AIO) vs ID-Cooling
+        # Frozn (air). The per-listing pass already folded any SKU-only
+        # signal it trusts into category_normalized; re-voting with the SKU
+        # here only reintroduces the collision.
         title_categories = {
             _category_from_title(
-                _clean(
-                    f"{e.get('title_raw', '')} {e.get('match_text', '')}"
-                ).lower()
+                _clean(e.get("title_raw", "")).lower()
             )
             for e in group
         }
-        if category in ("case_fan", "cooling_other"):
+        # Product-level backstop: every offer's title re-voted after the
+        # per-listing pass, so a stale vendor bucket cannot hold a product
+        # in the wrong cooling family (e.g. TMS HydroShift singletons filed
+        # as cooler_air before the Hebrew/liquid fixes, or a Plonter air
+        # cooler that slipped into aio via one bad title). Only fires when
+        # the titled offers unanimously agree — mixed groups keep the
+        # matched (MPN/SKU) category.
+        _mapped_titles = {
+            ("accessories" if tc in ACCESSORY_CATEGORIES else tc)
+            for tc in title_categories if tc
+        }
+        if category in ("case_fan", "cooler_air", "aio", "cooling_other",
+                        "accessories") and len(_mapped_titles) == 1:
+            _voted = next(iter(_mapped_titles))
+            if _voted in ("case_fan", "cooler_air", "aio", "accessories",
+                          "cooling_other") and _voted != category:
+                category = _voted
+        elif category in ("case_fan", "cooling_other"):
             if "aio" in title_categories:
                 category = "aio"
             elif "cooler_air" in title_categories:
@@ -2704,13 +4448,22 @@ def match_listings(
         }
         normalize_cpu_legacy_attrs(attributes)
 
+        canonical_name = (
+            meta.get("canonical_name")
+            or name_from_attributes(category, merged_attributes, group)
+            or best_name(group)
+        )
+        # Vendor spec prose (Plonter's dash-dump title when present): kept
+        # only when it adds information beyond the name, so the site payload
+        # doesn't pay ~bytes for an echo of the title.
+        description = build_description(group)
+        if description and len(description) <= len(canonical_name or "") + 30:
+            description = None
+
         product = {
             "product_id": meta.get("product_id", pid),
-            "canonical_name": (
-                meta.get("canonical_name")
-                or name_from_attributes(category, merged_attributes, group)
-                or best_name(group)
-            ),
+            "canonical_name": canonical_name,
+            "description": description,
             "category": category,
             "brand": meta.get("brand") or next(
                 (e.get("brand") for e in group if e.get("brand")),
