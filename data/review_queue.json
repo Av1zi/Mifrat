@@ -553,6 +553,17 @@
     "score": 96,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000910",
+    "listing_b": "plonter:100-100000910WOF",
+    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000910WOF AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 96,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001143",
     "listing_b": "plonter:100-000001144",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9475F - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -5360,6 +5371,17 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-100000910WOF",
+    "listing_b": "plonter:100-100001904",
+    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-100000910WOF AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_b": "100-100001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "tms:100-000000589",
     "listing_b": "tms:100-000000909",
     "title_a": "AMD Ryzen 9 7900X AM5 Tray",
@@ -7489,6 +7511,17 @@
     "title_b": "AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.1GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box",
     "match_text_a": "100-000001845 AMD Zen4 Ryzen5 7400F 6 Core/12 Threads - Base Clock 3.7GHz - Max Boost Clock 4.7GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
     "match_text_b": "100-100001015BOX AMD Zen4 Ryzen5 7600 6 Core/12 Threads - Base Clock 3.8GHz - Max Boost Clock 5.1GHz - AMD Radeon Graphics - With Fan - 65W TDP - Zen 7000 Series - Box"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001904",
+    "listing_b": "plonter:100-100000910WOF",
+    "title_a": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "title_b": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
+    "match_text_a": "100-000001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
+    "match_text_b": "100-100000910WOF AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 89,
