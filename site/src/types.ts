@@ -43,6 +43,8 @@ export interface Product {
   brand: string | null;
   model: string | null;
   image?: string | null;
+  /** 128px list-thumbnail derivative of image (list rows use this). */
+  thumb?: string | null;
   attributes: Record<string, string>;
   vendor_count: number;
   min_price: number | null;
@@ -55,10 +57,12 @@ export interface Product {
 }
 
 export interface QaCase {
-  kind: "duplicate_vendor";
+  kind: "duplicate_vendor" | "naming_conflict";
   product_id: string;
   category: string;
   vendor: string;
+  /** Conflicting offer titles (naming_conflict only). */
+  titles?: string[];
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;
@@ -71,6 +75,19 @@ export interface QaFile {
   generated_at: string;
   cases: QaCase[];
 }
+
+/**
+ * One row of data/site/index.json: [id, category, min_price, brand,
+ * name]. Compact global lookup — match searches and resolve build-part
+ * categories without fetching any per-category file.
+ */
+export type IndexRow = [
+  id: string,
+  category: string,
+  min_price: number | null,
+  brand: string | null,
+  name: string | null,
+];
 
 export interface CategoryMeta {
   id: string;

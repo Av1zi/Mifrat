@@ -77,6 +77,12 @@ jobs:
         run: python -m scraper.pcpartdb refresh
         continue-on-error: true
       - run: python scraper/normalize_and_match.py
+      - name: Site payload size guard (Phase 8, see DECISIONS.md)
+        # Anti-regression lock for the data-trust + performance phases:
+        # fail the job (no commit, no deploy) when a category/index file
+        # exceeds 1MB or the category payload grows >15% without
+        # proportional product growth. Pure stdlib, no deps.
+        run: python scraper/check_site_size.py
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"

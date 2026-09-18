@@ -1,4 +1,10 @@
-import type { PriceHistoryFile, Product, QaFile, SiteMeta } from "./types";
+import type {
+  IndexRow,
+  PriceHistoryFile,
+  Product,
+  QaFile,
+  SiteMeta,
+} from "./types";
 import { safeImageUrl } from "./utils";
 
 // Same-origin relative paths — works in `vite dev` and in the built site
@@ -33,6 +39,7 @@ async function fetchJson<T>(path: string): Promise<T> {
 
 let metaPromise: Promise<SiteMeta> | null = null;
 let qaPromise: Promise<QaFile> | null = null;
+let indexPromise: Promise<IndexRow[]> | null = null;
 const categoryPromises = new Map<string, Promise<Product[]>>();
 const historyPromises = new Map<string, Promise<PriceHistoryFile | null>>();
 const repImagePromises = new Map<string, Promise<string | null>>();
@@ -49,6 +56,28 @@ export function loadQa(): Promise<QaFile> {
     qaPromise = fetchJson<QaFile>(`${DATA_BASE}/qa.json`);
   }
   return qaPromise;
+}
+
+/**
+ * Compact global lookup (data/site/index.json): one [id, category,
+ * min_price, brand, name] row per product. Cached per session with the
+ * same evict-on-failure pattern as loadCategory — a failed first fetch
+ * retries instead of poisoning every later search.
+ */
+export function loadIndex(): Promise<IndexRow[]> {
+  if (!indexPromise) {
+    const promise = fetchJson<IndexRow[]>(`${DATA_BASE}/index.json`);
+    indexPromise = promise;
+
+    // Same evict-on-failure as loadCategory: a transient failure must
+    // retry on the next search instead of failing forever.
+    promise.catch(() => {
+      if (indexPromise === promise) {
+        indexPromise = null;
+      }
+    });
+  }
+  return indexPromise;
 }
 
 export function loadCategory(category: string): Promise<Product[]> {
@@ -77,6 +106,7 @@ export function loadCategory(category: string): Promise<Product[]> {
  * session. Reuses the same cached loadCategory() fetch the category
  * pages themselves make, so tiles/cards upgrade from the icon fallback
  * to a real photo without any extra request beyond that one JSON.
+ * Prefers the 128px thumb derivative (tiles render ≤192px).
  */
 export function loadCategoryRepImage(category: string): Promise<string | null> {
   let promise = repImagePromises.get(category);
@@ -84,7 +114,7 @@ export function loadCategoryRepImage(category: string): Promise<string | null> {
     promise = loadCategory(category).then(
       (products) => {
         for (const p of products) {
-          const img = safeImageUrl(p.image);
+          const img = safeImageUrl(p.thumb ?? p.image);
           if (img) return img;
         }
         return null;

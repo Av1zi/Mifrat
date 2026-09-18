@@ -46,10 +46,19 @@ export async function renderQa(
           <span class="qa-price">${o.price === null || o.price === undefined ? "-" : esc(formatPrice(o.price, currency, lang))}</span></li>`
         )
         .join("");
+      const kindLabel = esc(
+        t(lang, c.kind === "naming_conflict" ? "qaKindNaming" : "qaKindDuplicate")
+      );
+      const vendorBit = c.vendor ? ` · ${esc(vendorLabel(c.vendor))}` : "";
+      const titlesBit =
+        c.kind === "naming_conflict" && c.titles && c.titles.length > 0
+          ? `<p class="qa-titles">${c.titles.map((x) => esc(x)).join("<br>")}</p>`
+          : "";
       return `
       <article class="qa-case">
         <h2><a href="${productHash(c.category, c.product_id)}">${esc(c.product_id)}</a></h2>
-        <p class="qa-meta">${esc(categoryLabel(c.category, lang))} · ${esc(vendorLabel(c.vendor))} · <a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a></p>
+        <p class="qa-meta"><span class="qa-kind">${kindLabel}</span>${esc(categoryLabel(c.category, lang))}${vendorBit} · <a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a></p>
+        ${titlesBit}
         <ul class="qa-offers">${offers}</ul>
       </article>`;
     })

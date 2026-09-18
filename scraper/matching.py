@@ -2517,10 +2517,7 @@ def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
         # "GAMING X" need them) — hence the stop holds "a", matched
         # case-insensitively below only for lowercase tokens.
     }
-    kept: list[str] = []
-    seen: set[str] = set()
-
-    def _take(clause: str) -> None:
+    def _take_into(clause: str, kept: list[str], seen: set[str]) -> None:
         for tok in _clause_tokens(clause):
             if len(kept) >= 4:
                 return
@@ -2557,13 +2554,56 @@ def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
             seen.add(key)
             kept.append(_display_token(tok))
 
+    def _candidate_for_clause(clause: str) -> list[str]:
+        c_kept: list[str] = []
+        c_seen: set[str] = set()
+        _take_into(clause, c_kept, c_seen)
+        return c_kept
+
     # Branded prose titles (TMS/1PC/Ivory: "Gigabyte B850M DS3H") carry the
     # model in words — use them when they yield 2+ tokens, else the SKU.
+    # Per-offer voting (chimera fix 2026-09-18): the old code accumulated
+    # tokens across offers into one shared kept list, so same-MPN offers
+    # with disagreeing titles (1PC B850-F vs TMS/Ivory B850M-F) concatenated
+    # into one phantom name. Now each offer votes one candidate; majority
+    # wins, ties prefer branded prose (TMS/1PC/Ivory) over spec-dump/SKU
+    # sources, then longest, then alphabetical (deterministic).
+    kept: list[str] = []
     if brand:
+        _BRANDED_VENDORS = {"tms", "1pc", "ivory"}
+        _votes: dict[tuple[str, ...], dict] = {}
         for e in group:
-            _take(_first_clause(e.get("title_raw") or ""))
-            if len(kept) >= 4:
-                break
+            cand = _candidate_for_clause(
+                _first_clause(e.get("title_raw") or ""))
+            if not cand:
+                continue
+            fold = tuple(_compact_alnum(t) for t in cand)
+            if not any(fold):
+                continue
+            entry = _votes.setdefault(
+                fold, {"count": 0, "branded": False, "rep": cand})
+            entry["count"] += 1
+            try:
+                v = canonical_vendor_id(e.get("vendor_id"))
+            except Exception:
+                v = str(e.get("vendor_id") or "").lower()
+            if v in _BRANDED_VENDORS:
+                entry["branded"] = True
+        if _votes:
+            def _vote_rank(item: tuple[tuple[str, ...], dict]):
+                fold, entry = item
+                rep = entry["rep"]
+                label = " ".join(rep)
+                return (
+                    -entry["count"],
+                    0 if entry["branded"] else 1,
+                    -len(rep),
+                    label,
+                )
+            _winner_fold, _winner = sorted(
+                _votes.items(), key=_vote_rank)[0]
+            if len(_winner["rep"]) >= 2:
+                kept = list(_winner["rep"])
     if len(kept) < 2 and sku_model:
         kept = sku_model[:5]
     if not kept:
@@ -4106,6 +4146,64 @@ def _split_packaging_subgroups(
     return out
 
 
+_MODEL_TOKEN_RE = re.compile(r"[A-Z]*\d{3,4}[A-Z]*")
+
+
+def _offer_model_tokens(enriched: dict) -> set[str]:
+    """Digit-bearing model tokens of one offer's title ("B850M",
+    "5070", "X870E"). Title-only: vendor SKUs name whole model lines
+    that collide with cooler families (see the product-level category
+    re-vote in match_listings)."""
+    try:
+        text = _clean(enriched.get("title_raw") or "").upper()
+    except Exception:
+        return set()
+    if not text:
+        return set()
+    return set(_MODEL_TOKEN_RE.findall(text))
+
+
+# Unit suffixes stripped before model-token comparison ("5600MT" vs
+# "5600MHZ" is unit phrasing for one speed, not a model conflict).
+_CONFLICT_UNIT_SUFFIXES = (
+    "MHZ", "GHZ", "KHZ", "HZ", "MT", "GT",
+    "GB", "TB", "MB", "KB", "PB", "MM", "CM", "RPM", "DB",
+)
+
+
+def _model_token_conflict(sets: list[set[str]]) -> bool:
+    """True when two offers' token sets disagree on one model slot:
+    tokens that normalize differently but share a core ("B850" vs
+    "B850M"). Mere presence/absence (SKU codes one vendor prints and
+    another omits: {120MM,BL066} vs {120MM}) and unit phrasing
+    ("5600MT" vs "5600MHZ") are not conflicts. Both sides need a
+    letter, so bare measurements ("500", "360") never trip this."""
+    def _norm(tok: str) -> str:
+        for unit in _CONFLICT_UNIT_SUFFIXES:
+            if (len(tok) > len(unit) and tok.endswith(unit)
+                    and tok[:-len(unit)][-1].isdigit()):
+                return tok[:-len(unit)]
+        if len(tok) > 1 and tok[-1] in "WV" and tok[-2].isdigit():
+            return tok[:-1]
+        return tok
+
+    def _core(tok: str) -> str:
+        return re.sub(r"[A-Z]+$", "", tok)
+
+    def _has_letter(tok: str) -> bool:
+        return bool(re.search(r"[A-Z]", tok))
+
+    for i in range(len(sets)):
+        for j in range(i + 1, len(sets)):
+            for a in sets[i]:
+                for b in sets[j]:
+                    na, nb = _norm(a), _norm(b)
+                    if (na != nb and _has_letter(na) and _has_letter(nb)
+                            and _core(na) and _core(na) == _core(nb)):
+                        return True
+    return False
+
+
 def match_listings(
     enriched_listings: list[dict],
     manual_path: Path | str | None = None,
@@ -4119,10 +4217,21 @@ def match_listings(
     - Exact normalized vendor SKU matches third
     - Everything else becomes a singleton product
     """
-    manual_key_to_pid, manual_products, _ = load_manual(manual_path)
+    manual_key_to_pid, manual_products, blocked_pairs = load_manual(manual_path)
 
     assignments: dict[str, str] = {}
     product_meta: dict[str, dict] = {}
+
+    def _is_blocked_pair(lk1: str | None, lk2: str | None) -> bool:
+        """Human not_match verdict: these two listings must never share
+        a product (Sep 2026). Manual merges override (explicit human
+        merge wins over an older veto)."""
+        if not lk1 or not lk2 or lk1 == lk2:
+            return False
+        try:
+            return frozenset((lk1, lk2)) in blocked_pairs
+        except TypeError:
+            return False
 
     # 1. Manual merges.
     for enriched in enriched_listings:
@@ -4193,6 +4302,20 @@ def match_listings(
                 if len(sub) < 2:
                     continue
 
+                # Blocked-pair veto: a human not_match verdict keeps these
+                # apart. Vetoed listings fall through to the MPN/SKU tiers
+                # instead of merging here.
+                accepted = []
+                for enriched in sub:
+                    if any(_is_blocked_pair(
+                            enriched["listing_key"], a["listing_key"])
+                            for a in accepted):
+                        continue
+                    accepted.append(enriched)
+                if len(accepted) < 2:
+                    continue
+                sub = accepted
+
                 # Critical-attribute guard: if any two listings in the
                 # prospective merge disagree on a spec that changes the part
                 # (e.g. a CPU sold as both 65W and 125W TDP), it's not the same
@@ -4249,6 +4372,14 @@ def match_listings(
         for pack_key, sub in _split_packaging_subgroups(group):
             sub_pid = f"{pid}-tray" if pack_key == "Tray" else pid
             for enriched in sub:
+                # Blocked-pair veto (human not_match): the vetoed listing
+                # falls through to the SKU tier instead of joining here.
+                _members = [
+                    lk for lk, ap in assignments.items() if ap == sub_pid
+                ]
+                if any(_is_blocked_pair(enriched["listing_key"], lk)
+                       for lk in _members):
+                    continue
                 assignments[enriched["listing_key"]] = sub_pid
 
             product_meta.setdefault(
@@ -4293,6 +4424,14 @@ def match_listings(
         for pack_key, sub in _split_packaging_subgroups(group):
             sub_pid = f"{pid}-tray" if pack_key == "Tray" else pid
             for enriched in sub:
+                # Blocked-pair veto, same as the MPN tier: vetoed listings
+                # fall through to singletons.
+                _members = [
+                    lk for lk, ap in assignments.items() if ap == sub_pid
+                ]
+                if any(_is_blocked_pair(enriched["listing_key"], lk)
+                       for lk in _members):
+                    continue
                 assignments[enriched["listing_key"]] = sub_pid
 
             product_meta.setdefault(
@@ -4336,10 +4475,87 @@ def match_listings(
         for pid in pids:
             if pid == survivor:
                 continue
+            # Blocked-pair veto: never reunite two pids across a human
+            # not_match verdict — the vetoed pid stays separate.
+            try:
+                _cross_blocked = any(
+                    _is_blocked_pair(a, b)
+                    for a in _pid_members.get(pid, [])
+                    for b in _pid_members.get(survivor, [])
+                )
+            except Exception:
+                _cross_blocked = False
+            if _cross_blocked:
+                continue
             for _lk in _pid_members.pop(pid, []):
                 assignments[_lk] = survivor
                 _pid_members.setdefault(survivor, []).append(_lk)
             product_meta.pop(pid, None)
+
+    # 4c. Merge consistency guard (Sep 2026): never auto-merge across a
+    # hard spec conflict, and flag same-MPN title disagreements instead
+    # of silently concatenating them (see the Phase-1 chimera fix).
+    # Runs on MPN/SKU-tier groups only — manual and model-tier merges
+    # are human/explicit and out of scope.
+    # - Naming conflict: offers disagree on one model slot (same core,
+    #   different token: 1PC "B850-F" vs TMS/Ivory "B850M-F" on
+    #   90MB1N90-M0EAY0) with one identical compact MPN. Kept merged
+    #   (user decision) but flagged: attribute_conflicts["model_titles"]
+    #   + product["naming_conflict"] + a naming_conflict QA case.
+    #   Presence/absence (a SKU code one vendor prints) and unit
+    #   phrasing ("5600MT" vs "5600MHZ") never flag — see
+    #   _model_token_conflict.
+    # - Split: differing compact MPNs inside one group PLUS a
+    #   critical_conflict (extended: board size letter, WiFi) between
+    #   the pair — those listings fall through to singletons.
+    _naming_flagged: dict[str, list[str]] = {}
+    _e_by_lk = {e["listing_key"]: e for e in enriched_listings}
+    _auto_pids = {
+        pid for pid, meta in product_meta.items()
+        if meta.get("matched_by") in ("mpn", "sku")
+    }
+    _guard_members: dict[str, list[str]] = {}
+    for _lk, _pid in assignments.items():
+        if _pid in _auto_pids:
+            _guard_members.setdefault(_pid, []).append(_lk)
+    for _pid, _members in list(_guard_members.items()):
+        if len(_members) < 2:
+            continue
+        _mes = [_e_by_lk[lk] for lk in _members if lk in _e_by_lk]
+        if len(_mes) < 2:
+            continue
+        _to_split: set[str] = set()
+        for _i, _a in enumerate(_mes):
+            for _b in _mes[_i + 1:]:
+                _ma, _mb = _a.get("mpn"), _b.get("mpn")
+                if (_ma and _mb
+                        and mpn_part_key(_ma) != mpn_part_key(_mb)
+                        and critical_conflict(_a, _b)):
+                    _to_split.add(_a["listing_key"])
+                    _to_split.add(_b["listing_key"])
+        for _lk in _to_split:
+            assignments.pop(_lk, None)
+        _survivors = [lk for lk in _members if lk not in _to_split]
+        if not _survivors:
+            product_meta.pop(_pid, None)
+            continue
+        if _to_split:
+            _mes = [_e_by_lk[lk] for lk in _survivors if lk in _e_by_lk]
+            if len(_mes) < 2:
+                continue
+        _mpns = {e.get("mpn") for e in _mes if e.get("mpn")}
+        if _mpns and len({mpn_part_key(m) for m in _mpns}) == 1:
+            _sets = []
+            for e in _mes:
+                _toks = _offer_model_tokens(e)
+                if _toks:
+                    _sets.append(_toks)
+            if len(_sets) >= 2 and _model_token_conflict(_sets):
+                _naming_flagged[_pid] = sorted({
+                    str(e.get("title_raw") or "").strip()
+                    for e in _mes
+                    if str(e.get("title_raw") or "").strip()
+                })
 
     # 5. Singletons.
     for enriched in enriched_listings:
@@ -4428,16 +4644,36 @@ def match_listings(
         merged_attributes, attribute_conflicts = merge_offer_attributes(group)
 
         mpns = {e.get("mpn") for e in group if e.get("mpn")}
-        if len(mpns) == 1:
-            merged_attributes["mpn"] = next(iter(mpns))
+        # Dash-variant twins ("90MB1N90-M0EAY0" vs "90MB1N90M0EAY0") match
+        # identically via mpn_part_key but compare as 2 raw strings, which
+        # left model None. Fold via mpn_part_key; when all compact forms
+        # agree, keep the dashed-preferred form (prefer "-", then longest,
+        # then lexicographic) so display MPN/model and cellSpec readers see
+        # one canonical value.
+        mpn_chosen: str | None = None
+        if mpns:
+            if len(mpns) == 1:
+                mpn_chosen = next(iter(mpns))
+            else:
+                try:
+                    compact_forms = {mpn_part_key(m) for m in mpns}
+                except Exception:
+                    compact_forms = set()
+                if len(compact_forms) == 1:
+                    def _mpn_rank(m: str):
+                        s = str(m)
+                        return (0 if "-" in s else 1, -len(s), s)
+                    mpn_chosen = sorted(mpns, key=_mpn_rank)[0]
+            if mpn_chosen is not None:
+                merged_attributes["mpn"] = mpn_chosen
 
         # Surface the real manufacturer part number as the product model so
         # the site shows "AK-H81MEL-VS" instead of a vendor-internal id
         # ("126902") or a product-id slug. Attributes' own model (parsed
         # from titles, e.g. "Ryzen 3 4100") wins when present.
         model = meta.get("model") or merged_attributes.get("model")
-        if not model and len(mpns) == 1:
-            model = next(iter(mpns))
+        if not model and mpn_chosen is not None:
+            model = mpn_chosen
 
         if any(e.get("bundle_only") for e in group):
             merged_attributes["bundle_only"] = True
@@ -4486,6 +4722,9 @@ def match_listings(
         if img_url:
             product["image_url"] = img_url
 
+        if pid in _naming_flagged:
+            attribute_conflicts.setdefault(
+                "model_titles", _naming_flagged[pid])
         if attribute_conflicts:
             product["attribute_conflicts"] = attribute_conflicts
 
@@ -4506,6 +4745,12 @@ def match_listings(
                 dup_vendors.append(vendor)
         if dup_vendors:
             product["duplicate_vendors"] = sorted(dup_vendors)
+
+        # Merge-consistency flag (see tier 4c): same compact MPN, but
+        # the offers' titles disagree on the model. Kept merged by
+        # decision; surfaced for human review via qa.json.
+        if pid in _naming_flagged:
+            product["naming_conflict"] = True
 
         product["best_offer"] = choose_best_offer(offers)
         products.append(product)
@@ -4559,6 +4804,40 @@ def find_duplicate_vendor_cases(products: list[dict]) -> list[dict]:
     return cases
 
 
+def find_naming_conflict_cases(products: list[dict]) -> list[dict]:
+    """Public QA cases for same-MPN products whose offer titles disagree
+    on the model (tier-4c flag). One entry per product; same offer shape
+    as find_duplicate_vendor_cases plus the conflicting titles, so the
+    #/qa page renders both kinds uniformly.
+    """
+    cases: list[dict] = []
+    for product in products:
+        if not product.get("naming_conflict"):
+            continue
+        cases.append(
+            {
+                "kind": "naming_conflict",
+                "product_id": product.get("product_id"),
+                "category": product.get("category"),
+                "vendor": "",
+                "titles": list(
+                    (product.get("attribute_conflicts") or {}).get(
+                        "model_titles", [])
+                ),
+                "offers": [
+                    {
+                        "listing_key": o.get("listing_key"),
+                        "vendor_sku": o.get("vendor_sku"),
+                        "title": o.get("title_raw"),
+                        "price": o.get("price_ils"),
+                    }
+                    for o in product.get("offers", [])
+                ],
+            }
+        )
+    return cases
+
+
 # --------------------------------------------------------------------------
 # Optional fuzzy review suggestions
 # --------------------------------------------------------------------------
@@ -4606,6 +4885,32 @@ def extract_critical_attributes(text: str) -> dict:
     return out
 
 
+def _board_wifi_signals(enriched: dict) -> tuple[list[str], bool | None]:
+    """Title-only board identity signals for the tier-4c split check.
+
+    Letter-led digit tokens ("B850M", "X870E") plus a WiFi mention flag.
+    Title-only on purpose: match_text carries vendor SKU/box codes
+    (Intel "BX80715..." vs tray codes) that differ across vendors for
+    one chip and must never split a merge. CPU digit-led models
+    ("14700K", "5600X") yield no board tokens by construction, so the
+    CPU model tier is untouched.
+    """
+    try:
+        up = _clean(enriched.get("title_raw") or "").upper()
+    except Exception:
+        return [], None
+    boards = sorted({
+        tok for tok in _MODEL_TOKEN_RE.findall(up)
+        if re.match(r"^[A-Z]+\d", tok)
+    })
+    wifi: bool | None = None
+    if re.search(r"\bWI-?FI(\dE?)?\b", up):
+        wifi = True
+    elif boards:
+        wifi = False
+    return boards, wifi
+
+
 def critical_conflict(a: dict, b: dict) -> bool:
     ca = extract_critical_attributes(a.get("match_text", ""))
     cb = extract_critical_attributes(b.get("match_text", ""))
@@ -4627,6 +4932,18 @@ def critical_conflict(a: dict, b: dict) -> bool:
 
     if ca["revs"] and cb["revs"] and not set(ca["revs"]) & set(cb["revs"]):
         return True
+
+    # Motherboard form-factor letter ("B850M" vs "B850") and WiFi
+    # presence: different boards that must never auto-merge. Title-only
+    # signals (see _board_wifi_signals) — the CPU model tier only ever
+    # pairs digit-led CPU models, which yield no board tokens.
+    ba, wa = _board_wifi_signals(a)
+    bb, wb = _board_wifi_signals(b)
+    if ba and bb:
+        if not set(ba) & set(bb):
+            return True
+        if wa is not None and wb is not None and wa != wb:
+            return True
 
     return False
 

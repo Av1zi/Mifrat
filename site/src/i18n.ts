@@ -445,6 +445,8 @@ const STRINGS = {
     qaTitle: "בקרת איכות",
     qaEmpty: "אין רישומים כפולים בבדיקה כרגע.",
     qaHeading: "רישומים כפולים בבדיקה",
+    qaKindDuplicate: "רישום כפול",
+    qaKindNaming: "סתירת שמות",
   },
   en: {
         referenceSpecsHeading: "Reference specs",
@@ -620,6 +622,8 @@ const STRINGS = {
     qaTitle: "Quality Review",
     qaEmpty: "No duplicate listings under review right now.",
     qaHeading: "Duplicate listings under review",
+    qaKindDuplicate: "Duplicate listing",
+    qaKindNaming: "Naming conflict",
   },
 } satisfies Record<Lang, Record<string, string>>;
 

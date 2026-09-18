@@ -2,7 +2,7 @@ import { loadCategory, loadHistory } from "../api";
 import { slotForCategory } from "../build";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, t, vendorLabel } from "../i18n";
-import { sortSpecKeys } from "../specs";
+import { sortSpecKeys, specPriority, VARIANT_IDENTITY_KEYS } from "../specs";
 import {
   addToBuild,
   buildHash,
@@ -18,18 +18,16 @@ import { displayName, errorPanel, esc, safeImageUrl, safeUrl, skuOf } from "../u
 import { icon } from "../icons";
 
 // Attribute keys that make good "series" variant groups (PCPP's
-// "Wattage: 850 W / 750 W / 1000 W" pills), most useful first.
+// "Wattage: 850 W / 750 W / 1000 W" pills), most useful first. Only keys
+// the pipeline actually emits — folded-away twins (tdp_w, total_gb,
+// capacity, memory, speed, type) never match anything and only dilute
+// signatures.
 const VARIANT_KEY_PRIORITY = [
   "wattage_w",
-  "tdp_w",
   "tdp",
   "capacity_gb",
-  "total_gb",
-  "capacity",
   "vram_gb",
-  "memory",
   "speed_mhz",
-  "speed",
   "cores",
   "packaging",
   "length_mm",
@@ -38,7 +36,6 @@ const VARIANT_KEY_PRIORITY = [
   "memory_type",
   "efficiency",
   "modular",
-  "type",
 ];
 
 const NOISE_KEYS = new Set([
@@ -69,6 +66,15 @@ function computeVariantGroups(
   sameBrand: Product[]
 ): VariantGroup[] {
   if (sameBrand.length < 2) return [];
+  // Identity gate: no variant pills without identity. A missing model —
+  // or a missing category identity key (chipset/socket on boards,
+  // gpu_chip on GPUs, ...) — means same-brand different-line products
+  // would pose as close variants.
+  if (!product.model) return [];
+  const identityKeys = VARIANT_IDENTITY_KEYS[product.category] ?? [];
+  for (const k of identityKeys) {
+    if (!attrText(product.attributes[k])) return [];
+  }
   const groups: VariantGroup[] = [];
 
   for (const key of VARIANT_KEY_PRIORITY) {
@@ -76,17 +82,21 @@ function computeVariantGroups(
     // so normalize to strings before comparing, sorting, or rendering.
     const current = attrText(product.attributes[key]);
     if (!current) continue;
-    // Signature = everything EXCEPT the candidate key: variants must be
-    // identical in all other dimensions (same model line, same specs).
-    // Without this a "DDR4/DDR5" pill jumps across chipsets and sockets,
-    // and same-brand different-line products pose as close variants.
+    // Signature = brand + model + identity + everything EXCEPT the
+    // candidate key: variants must be identical in all other dimensions
+    // (same model line, same specs). Identity values ride along so
+    // same-brand/different-chipset products can never share a signature
+    // even when their priority dims are all empty. Without this a
+    // "DDR4/DDR5" pill jumps across chipsets and sockets, and same-brand
+    // different-line products pose as close variants.
     // Unit separator (U+0001): can never occur inside scraped attribute
     // text, so joined signatures cannot collide the way " " or "|" could.
-    const SEP = "";
+    const SEP = "";
     const sigOf = (p: Product): string =>
       [
         p.brand ?? "",
         p.model ?? "",
+        ...identityKeys.map((k) => attrText(p.attributes[k])),
         ...VARIANT_KEY_PRIORITY.filter((k) => k !== key).map((k) =>
           attrText(p.attributes[k])
         ),
@@ -102,6 +112,21 @@ function computeVariantGroups(
       distinct.set(v, list);
     }
     if (distinct.size < 2 || distinct.size > 8) continue;
+
+    // Belt-and-braces: a color pill must never span chipsets
+    // (same-brand different-line boards could otherwise share a
+    // signature when identity dims are missing upstream). Skip color
+    // groups whose members carry >1 distinct chipset.
+    if (key === "color") {
+      const chips = new Set<string>();
+      for (const owners of distinct.values()) {
+        for (const p of owners) {
+          const chip = attrText(p.attributes["chipset"]);
+          if (chip) chips.add(chip);
+        }
+      }
+      if (chips.size > 1) continue;
+    }
 
     const values = Array.from(distinct.entries()).map(([value, owners]) => {
       // Prefer the owner sharing the most attribute values with current.
@@ -136,15 +161,25 @@ function computeVariantGroups(
 }
 
 function similarProducts(product: Product, all: Product[]): Product[] {
+  // Score only curated spec keys: shared trivia rows (motherboards carry
+  // hundreds of attribute keys) used to fill all 8 slots with unrelated
+  // items. Identity keys weigh triple so same-chipset/socket/chip parts
+  // surface first.
+  const priority = specPriority(product.category);
+  const identity = new Set<string>(
+    VARIANT_IDENTITY_KEYS[product.category] ?? []
+  );
   const scored: Array<{ p: Product; score: number }> = [];
   for (const p of all) {
     if (p.id === product.id) continue;
     let score = 0;
     if (p.brand && product.brand && p.brand === product.brand) score += 5;
-    for (const [k, v] of Object.entries(product.attributes)) {
+    for (const k of priority) {
       if (NOISE_KEYS.has(k)) continue;
       // Normalize to strings: 850 vs "850 W" must match.
-      if (attrText(p.attributes[k]) === attrText(v) && attrText(v) !== "") score += 1;
+      if (attrText(p.attributes[k]) === attrText(product.attributes[k]) && attrText(product.attributes[k]) !== "") {
+        score += identity.has(k) ? 3 : 1;
+      }
     }
     scored.push({ p, score });
   }
@@ -153,7 +188,7 @@ function similarProducts(product: Product, all: Product[]): Product[] {
       b.score - a.score || (a.p.min_price ?? Infinity) - (b.p.min_price ?? Infinity)
   );
   // Min-score threshold: unrelated items must not fill all 8 slots.
-  const relevant = scored.filter((s) => s.score >= 3);
+  const relevant = scored.filter((s) => s.score >= 6);
   return relevant.slice(0, 8).map((s) => s.p);
 }
 
@@ -200,6 +235,14 @@ export async function renderProduct(
     product.category,
     Object.keys(product.attributes).filter((k) => product.attributes[k])
   );
+  const prioritySet = new Set<string>(specPriority(product.category));
+  const topSpecKeys = orderedSpecKeys.filter((k) => prioritySet.has(k));
+  // Everything else (minus noise) hides behind "show more": the raw
+  // attributeLabel fallback can only appear in there, never in the
+  // curated card.
+  const moreSpecKeys = orderedSpecKeys.filter(
+    (k) => !prioritySet.has(k) && !NOISE_KEYS.has(k)
+  );
   const referenceSpecs: Record<string, string | number | boolean> = {
     ...(product.pcpartdb?.specs ?? {}),
     ...(product.pckombo?.specs ?? {}),
@@ -216,12 +259,22 @@ export async function renderProduct(
   );
 
   const specRows =
-    orderedSpecKeys
+    topSpecKeys
       .map(
         (k) =>
           `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(product.attributes[k])}</span></div>`
       )
       .join("") +
+    (moreSpecKeys.length > 0
+      ? `<details class="spec-more"><summary>${esc(t(lang, "showMore"))}</summary>` +
+        moreSpecKeys
+          .map(
+            (k) =>
+              `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(product.attributes[k])}</span></div>`
+          )
+          .join("") +
+        `</details>`
+      : "") +
     referenceKeys
       .map(
         (k) =>

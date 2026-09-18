@@ -98,7 +98,7 @@ export const SPEC_PRIORITY: Record<string, string[]> = {
     "interface",
     "length_mm",
     "tdp",
-    "slots",
+    "slot_width",
     "power_connections",
     "cooling",
     "color",
@@ -238,7 +238,7 @@ export const FILTER_ALLOWLIST: Record<string, string[]> = {
     "vram_gb",
     "memory_type",
     "interface",
-    "slots",
+    "slot_width",
     "power_connections",
     "cooling",
     "color",
@@ -292,3 +292,25 @@ export function sortSpecKeys(category: string, keys: string[]): string[] {
     return a.localeCompare(b);
   });
 }
+
+/**
+ * Identity keys for variant grouping (PDP pills). A product needs all of
+ * these (plus a non-empty model) before it may show variant pills — without
+ * identity, whole brand lines collapse into phantom "variants" (MSI H610M
+ * vs B550M vs B760M as color variants, RTX 5060 vs 5060 Ti as VRAM
+ * variants). The same keys also anchor variant signatures and weight
+ * similar-product scoring.
+ */
+export const VARIANT_IDENTITY_KEYS: Record<string, string[]> = {
+  motherboard: ["chipset", "socket"],
+  gpu: ["gpu_chip"],
+  memory: ["memory_type", "capacity_gb"],
+  psu: ["wattage_w"],
+  cpu: [],
+  storage: [],
+  case: [],
+  case_fan: [],
+  aio: [],
+  cooler_air: [],
+  accessories: [],
+};

@@ -787,6 +787,9 @@ html[dir="rtl"] .filter-slider-inputs input[type="number"] { text-align: center;
   min-height: 88px;
 }
 div.pl-row { cursor: default; }
+/* Skip off-screen row rendering (list pages render 60+ rows). The
+ * intrinsic size reserves ~one row so the scrollbar doesn't jump. */
+.pl-row { content-visibility: auto; contain-intrinsic-size: auto 84px; }
 div.pl-row .pl-title-link { color: inherit; text-decoration: none; }
 div.pl-row .pl-title-link:hover .pl-title { color: var(--blue); }
 .pl-action { padding-inline-end: 4px; }

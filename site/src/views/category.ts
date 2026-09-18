@@ -1,4 +1,4 @@
-import { loadCategory } from "../api";
+import { loadCategory, loadIndex } from "../api";
 import {
   BUILD_SLOTS,
   impliedFilterValues,
@@ -245,6 +245,36 @@ function computeFilterableAttributes(
   return new Map(orderedKeys.map((k) => [k, filterable.get(k)!]));
 }
 
+// Memo for computeFilterableAttributes below: rail rebuilds are the
+// per-navigation cost alongside renderGrid's innerHTML, and the inputs
+// are usually identical across back/forward visits (same cached product
+// array, same compat state). Keyed on (category, length, compatOn) with
+// an array-identity guard, so a mid-session data refresh (new array,
+// same length) still recomputes instead of serving a stale rail.
+let filterableMemo: {
+  key: string;
+  products: Product[];
+  result: Map<string, Array<[string, number]>>;
+} | null = null;
+
+function memoizedFilterableAttributes(
+  products: Product[],
+  category: string,
+  compatOn: boolean
+): Map<string, Array<[string, number]>> {
+  const key = `${category}|${products.length}|${compatOn ? 1 : 0}`;
+  if (
+    filterableMemo &&
+    filterableMemo.key === key &&
+    filterableMemo.products === products
+  ) {
+    return filterableMemo.result;
+  }
+  const result = computeFilterableAttributes(products, category);
+  filterableMemo = { key, products, result };
+  return result;
+}
+
 function parseNumericAttr(value: string | undefined): number | null {
   if (!value) return null;
   const m = /(\d+(?:\.\d+)?)/.exec(value);
@@ -395,6 +425,72 @@ interface LoadedBuild {
 async function loadBuildParts(build: BuildMap): Promise<LoadedBuild> {
   const first: Record<string, Product> = {};
   const items: Array<{ slotId: string; product: Product }> = [];
+  const wanted: Array<{ slotId: string; productId: string }> = [];
+  for (const slot of BUILD_SLOTS) {
+    for (const productId of build[slot.id] ?? []) {
+      wanted.push({ slotId: slot.id, productId });
+    }
+  }
+  if (wanted.length === 0) return { first, items };
+
+  const record = (slotId: string, product: Product): void => {
+    items.push({ slotId, product });
+    if (!first[slotId]) first[slotId] = product;
+  };
+
+  // Fast path: resolve each id's category via index.json, then fetch
+  // only those category files (typically 1-3, all cached). Behavior
+  // downstream (compat + mini-card) is unchanged.
+  try {
+    const index = await loadIndex();
+    const catOf = new Map(index.map((row) => [row[0], row[1]]));
+    const byCategory = new Map<string, typeof wanted>();
+    const unknown = wanted.filter((w) => {
+      const cat = catOf.get(w.productId);
+      if (!cat) return true;
+      const list = byCategory.get(cat) ?? [];
+      list.push(w);
+      byCategory.set(cat, list);
+      return false;
+    });
+    await Promise.all(
+      [...byCategory].map(async ([category, list]) => {
+        let products: Product[];
+        try {
+          products = await loadCategory(category);
+        } catch {
+          return;
+        }
+        for (const w of list) {
+          const found = products.find((p) => p.id === w.productId);
+          if (found) record(w.slotId, found);
+        }
+      })
+    );
+    // Stale ids (shared links to removed products) fall through to the
+    // legacy fan-out below and simply resolve to nothing, as before.
+    for (const w of unknown) {
+      for (const slot of BUILD_SLOTS) {
+        if (slot.id !== w.slotId) continue;
+        for (const category of slot.categories) {
+          try {
+            const products = await loadCategory(category);
+            const found = products.find((p) => p.id === w.productId);
+            if (found) {
+              record(w.slotId, found);
+              break;
+            }
+          } catch {
+            // Ignore category load failures.
+          }
+        }
+      }
+    }
+    return { first, items };
+  } catch {
+    // Index unavailable (old deploy): legacy fan-out across every
+    // slot x category, exactly as before.
+  }
 
   await Promise.all(
     BUILD_SLOTS.map(async (slot) => {
@@ -480,7 +576,11 @@ export async function renderCategory(
   let visibleCount = PAGE_SIZE;
   let gridObserver: IntersectionObserver | null = null;
 
-  const filterableAttrs = computeFilterableAttributes(compatibleProducts, category);
+  const filterableAttrs = memoizedFilterableAttributes(
+    compatibleProducts,
+    category,
+    compatOn
+  );
 
   // Table columns follow the curated per-category priority (not "whatever
   // filters exist"): the important specs first, skipping keys too sparse
@@ -823,9 +923,11 @@ export async function renderCategory(
     const href = productHash(category, p.id);
     const name = displayName(p);
     const thumb = (() => {
-      const img = safeImageUrl(p.image);
+      // List rows serve the 128px derivative (~4KB), not the 800px
+      // cover (~35KB); image is the fallback until thumbs backfill.
+      const img = safeImageUrl(p.thumb ?? p.image);
       return img
-        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" width="72" height="72" style="object-fit:contain; background:#fff;"></a>`
+        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" decoding="async" width="72" height="72" style="object-fit:contain; background:#fff;"></a>`
         : `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span></a>`;
     })();
 

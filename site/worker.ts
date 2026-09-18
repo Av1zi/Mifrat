@@ -96,6 +96,17 @@ function withSecurityHeaders(res: Response): Response {
   const headers = new Headers(res.headers);
   headers.set("x-content-type-options", "nosniff");
   headers.set("referrer-policy", "strict-origin-when-cross-origin");
+  // Parity with the static responses (site/public/_headers does not
+  // apply to Worker-generated /list/* HTML): same framing policy and
+  // CSP. Keep the two in sync when either changes.
+  headers.set("x-frame-options", "DENY");
+  headers.set(
+    "content-security-policy",
+    "default-src 'self'; img-src 'self' data:; font-src 'self'; " +
+      "style-src 'self' 'unsafe-inline'; connect-src 'self' " +
+      "https://api.frankfurter.dev; script-src 'self'; object-src 'none'; " +
+      "base-uri 'self'; frame-ancestors 'none'"
+  );
   return new Response(res.body, {
     status: res.status,
     statusText: res.statusText,

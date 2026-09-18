@@ -15,6 +15,11 @@ edge is at most 800px and re-encoded as JPEG quality 82 — keeps each
 file in the ~20-50KB range, which at 5 new items/day is a trivial,
 slow-growing addition to the git repo (nothing like the pcpartdb
 16MB-of-text problem that forced that data to be gitignored).
+
+Every cover additionally yields data/images/<vendor>/thumbs/<sku>.jpg
+(128px long edge, quality 70, ~3-5KB) for list-page rows — same
+download, second save. --thumbs-only regenerates missing thumbs
+from the covers on disk with no network.
 """
 import json
 import sys
@@ -29,6 +34,13 @@ MAX_DIMENSION = 800
 JPEG_QUALITY = 82
 REQUEST_TIMEOUT = 15
 
+# List-thumbnail derivative (Sep 2026): list pages render ~35KB 800px
+# files as 72px thumbs (~2MB per 60 rows). The 128px/q70 thumb (~3-5KB)
+# serves those rows instead — same download, second save, no new deps.
+THUMB_MAX_DIMENSION = 128
+THUMB_QUALITY = 70
+THUMB_SUBDIR = "thumbs"
+
 
 def _has_basename(url: str) -> bool:
     """Same guard as the spiders' _og_image and the normalizer's
@@ -42,9 +54,13 @@ def _has_basename(url: str) -> bool:
         return False
 
 
-def download_and_save(image_url: str, dest_path: Path) -> bool:
+def download_and_save(image_url: str, dest_path: Path,
+                      thumb_path: Path | None = None) -> bool:
     """Returns True on success. Never raises — a failed image download
     should not block the rest of the batch; log and move on.
+
+    When thumb_path is given, the same download additionally yields the
+    128px list-thumbnail derivative (no second request).
 
     Sets LAST_HTTP_STATUS (None on non-HTTP failures) so batch loops can
     implement block detection (see _backfill_from_catalog).
@@ -60,6 +76,11 @@ def download_and_save(image_url: str, dest_path: Path) -> bool:
         img.thumbnail((MAX_DIMENSION, MAX_DIMENSION), Image.Resampling.LANCZOS)
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         img.save(dest_path, "JPEG", quality=JPEG_QUALITY, optimize=True)
+        if thumb_path is not None:
+            img.thumbnail((THUMB_MAX_DIMENSION, THUMB_MAX_DIMENSION),
+                          Image.Resampling.LANCZOS)
+            thumb_path.parent.mkdir(parents=True, exist_ok=True)
+            img.save(thumb_path, "JPEG", quality=THUMB_QUALITY, optimize=True)
         return True
     except Exception as exc:
         try:
@@ -67,6 +88,21 @@ def download_and_save(image_url: str, dest_path: Path) -> bool:
         except Exception:
             pass
         print(f"  FAILED {image_url} -> {dest_path}: {exc}")
+        return False
+
+
+def write_thumb_from_file(full_path: Path, thumb_path: Path) -> bool:
+    """(Re)generate a list thumbnail from an already-downloaded cover.
+    No network — safe to run over the whole archive in one go."""
+    try:
+        img = Image.open(full_path).convert("RGB")
+        img.thumbnail((THUMB_MAX_DIMENSION, THUMB_MAX_DIMENSION),
+                      Image.Resampling.LANCZOS)
+        thumb_path.parent.mkdir(parents=True, exist_ok=True)
+        img.save(thumb_path, "JPEG", quality=THUMB_QUALITY, optimize=True)
+        return True
+    except Exception as exc:
+        print(f"  THUMB FAILED {full_path} -> {thumb_path}: {exc}")
         return False
 
 
@@ -102,13 +138,20 @@ def process_jsonl(jsonl_path: str, vendor: str) -> None:
                 continue
 
             dest = _dest_for(vendor, sku)
+            thumb = _dest_for(vendor, sku, thumb=True)
             if dest.exists():
                 # Already downloaded (e.g. a re-run after a partial
-                # failure) — skip re-fetching.
-                succeeded.append(sku)
+                # failure) — skip re-fetching, but still ensure the
+                # list-thumbnail derivative exists (no network).
+                if thumb.exists():
+                    succeeded.append(sku)
+                elif write_thumb_from_file(dest, thumb):
+                    succeeded.append(sku)
+                else:
+                    failed.append(sku)
                 continue
 
-            if download_and_save(image_url, dest):
+            if download_and_save(image_url, dest, thumb):
                 succeeded.append(sku)
             else:
                 failed.append(sku)
@@ -127,16 +170,24 @@ def _vendor_folder(vendor_id: str) -> str:
     return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
 
 
-def _dest_for(vendor_folder: str, sku: str) -> Path:
+def _dest_for(vendor_folder: str, sku: str, thumb: bool = False) -> Path:
     """On-disk destination for a downloaded cover. The filename goes
     through site_data._safe_image_stem (strips invisible Cf/Cc chars that
     would otherwise produce uncommittable/unfetchable files) — both sides
-    must agree, so never build this path from the raw SKU directly."""
+    must agree, so never build this path from the raw SKU directly.
+
+    thumb=True addresses the 128px list-thumbnail derivative under
+    data/images/<vendor>/thumbs/ (same per-vendor tree, so the existing
+    commit-script exemption for data/images/<vendor>/ keeps applying).
+    """
     try:
         from scraper.site_data import _safe_image_stem
     except ImportError:
         from site_data import _safe_image_stem  # type: ignore[no-redef]
-    return Path(f"data/images/{vendor_folder}/{_safe_image_stem(sku)}.jpg")
+    stem = _safe_image_stem(sku)
+    if thumb:
+        return Path(f"data/images/{vendor_folder}/{THUMB_SUBDIR}/{stem}.jpg")
+    return Path(f"data/images/{vendor_folder}/{stem}.jpg")
 
 
 def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
@@ -216,15 +267,16 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
             continue
         sku = str(chosen.get("vendor_sku") or "").strip()
         dest = _dest_for(folder, sku)
+        thumb = _dest_for(folder, sku, thumb=True)
         key = (folder, dest.name)
         if key in seen:
             continue
         seen.add(key)
-        if dest.exists():
+        if dest.exists() and thumb.exists():
             continue
         pending.append((folder, sku, str(chosen.get("image_url"))))
 
-    print(f"[backfill] {len(pending)} photoless products need an image "
+    print(f"[backfill] {len(pending)} products need an image or thumbnail "
           f"({skipped_no_url} have no usable vendor photo at all)")
     if not pending:
         return
@@ -236,7 +288,15 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
     blocked_streak = 0
     for folder, sku, url in batch:
         dest = _dest_for(folder, sku)
-        if download_and_save(url, dest):
+        thumb = _dest_for(folder, sku, thumb=True)
+        if dest.exists():
+            # Full already on disk — only the thumbnail is missing.
+            if write_thumb_from_file(dest, thumb):
+                succeeded += 1
+            else:
+                failed += 1
+            continue
+        if download_and_save(url, dest, thumb):
             succeeded += 1
             blocked_streak = 0
         else:
@@ -263,6 +323,43 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
         print(f"[backfill] {failed} failed — retried automatically next run")
 
 
+def _backfill_thumbs_only(vendors: list[str] | None = None) -> None:
+    """Regenerate every missing list thumbnail from the full-size covers
+    already in data/images/<vendor>/. Pure local resampling — no network,
+    no politeness cap, no block risk. Thumbs live in the per-vendor
+    thumbs/ subdir, so the commit-script data/images/<vendor>/ exemption
+    keeps applying (commit per vendor, off-peak).
+    """
+    base = Path("data/images")
+    if not base.is_dir():
+        print(f"No such directory: {base}")
+        sys.exit(1)
+    folders = sorted(p for p in base.iterdir() if p.is_dir())
+    if vendors:
+        wanted = set(vendors)
+        folders = [p for p in folders
+                   if p.name in wanted or _vendor_folder(p.name) in wanted]
+    made, skipped, failed = 0, 0, 0
+    for folder in folders:
+        # Recursive: covers the legacy ivory per-SKU subdirs
+        # (data/images/ivory/<SKU>/<file>.jpg, from slash-bearing SKUs),
+        # mirrored 1:1 under thumbs/ — the same layout _dest_for and
+        # site_data._local_image_path derive for such SKUs.
+        for full in sorted(folder.rglob("*.jpg")):
+            if THUMB_SUBDIR in full.relative_to(folder).parts:
+                continue
+            thumb = folder / THUMB_SUBDIR / full.relative_to(folder)
+            if thumb.exists():
+                skipped += 1
+                continue
+            if write_thumb_from_file(full, thumb):
+                made += 1
+            else:
+                failed += 1
+    print(f"[thumbs-only] {made} generated, {skipped} already present"
+          + (f", {failed} failed" if failed else ""))
+
+
 if __name__ == "__main__":
     import argparse
 
@@ -274,6 +371,13 @@ if __name__ == "__main__":
         action="store_true",
         help="backfill listing thumbnails from data/catalog.json offers "
         "(covers listing-only products with no detail row)",
+    )
+    parser.add_argument(
+        "--thumbs-only",
+        action="store_true",
+        help="regenerate missing 128px list thumbnails from the full-size "
+        "files already on disk. No network — safe to run over the whole "
+        "archive in one go.",
     )
     parser.add_argument(
         "--limit",
@@ -297,7 +401,9 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if args.from_catalog:
+    if args.thumbs_only:
+        _backfill_thumbs_only(vendors=args.only_vendor)
+    elif args.from_catalog:
         _backfill_from_catalog(limit=args.limit, vendors=args.only_vendor,
                                sleep_secs=args.sleep)
     elif args.jsonl_path and args.vendor:
@@ -306,4 +412,5 @@ if __name__ == "__main__":
         parser.print_usage()
         print("Usage: python -m scraper.download_images <jsonl_path> <vendor>")
         print("   or: python -m scraper.download_images --from-catalog [--limit 200]")
+        print("   or: python -m scraper.download_images --thumbs-only [--vendor tms]")
         sys.exit(1)

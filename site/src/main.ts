@@ -6,7 +6,7 @@ import "@fontsource/ibm-plex-sans-hebrew/700.css";
 import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/jetbrains-mono/600.css";
-import { loadCategory, loadCategoryRepImage, loadMeta } from "./api";
+import { loadCategory, loadCategoryRepImage, loadIndex } from "./api";
 import { ensureFxRate, formatPrice } from "./format";
 import { categoryLabel, t } from "./i18n";
 import { icon, type IconName } from "./icons";
@@ -29,7 +29,7 @@ import {
   termsHash,
   type Theme,
 } from "./state";
-import type { Currency, Lang, Product } from "./types";
+import type { Currency, IndexRow, Lang, Product } from "./types";
 import { displayName, errorPanel, esc, safeImageUrl } from "./utils";
 import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
@@ -490,12 +490,12 @@ export function updateNavActive(): void {
   else productsBtn?.removeAttribute("aria-current");
 }
 
-interface SearchEntry {
-  product: Product;
+interface IndexHit {
+  row: IndexRow;
   haystack: string;
 }
 
-let searchIndex: SearchEntry[] | null = null;
+let indexHaystacks: IndexHit[] | null = null;
 let searchSeqLive = 0;
 
 function normHay(s: string): string {
@@ -507,37 +507,57 @@ function normHay(s: string): string {
     .trim();
 }
 
-async function ensureSearchIndex(mySeq: number): Promise<SearchEntry[]> {
-  if (searchIndex) return searchIndex;
-  const meta = await loadMeta();
-  const ids = meta.categories
-    .filter((c) => c.count > 0)
-    .map((c) => c.id);
-  const out: SearchEntry[] = [];
-  // Sequential lazy load (no Promise.all spike); abortable via seq.
-  for (const id of ids) {
-    if (mySeq !== searchSeqLive) throw new Error("aborted");
-    try {
-      const list = await loadCategory(id);
-      for (const product of list) {
-        const sku = (product as { sku?: unknown }).sku;
-        out.push({
-          product,
-          haystack: normHay(
-            `${product.name} ${product.brand ?? ""} ${product.model ?? ""} ${typeof sku === "string" ? sku : ""} ${product.category} ${categoryLabel(product.category, lang)}`
-          ),
-        });
-      }
-      // Publish partial index progressively so first hits appear fast.
-      searchIndex = out.slice();
-    } catch {
-      // Ignore per-category failures.
-    }
-    // Yield to keep typing responsive while backfilling.
-    await new Promise((r) => setTimeout(r, 0));
-  }
-  searchIndex = out;
-  return out;
+/**
+ * Global search over index.json (~500KB, one cached fetch) instead of
+ * every category file (~4.4MB on first keystroke). Matching covers
+ * name/brand/category/id; the displayed hits are then lazy-enriched
+ * with their full products (photos) by fetching only their categories.
+ * Abortable via seq; the 220ms debounce on the input is untouched.
+ */
+async function ensureSearchIndex(mySeq: number): Promise<IndexHit[]> {
+  if (indexHaystacks) return indexHaystacks;
+  const rows = await loadIndex();
+  if (mySeq !== searchSeqLive) throw new Error("aborted");
+  indexHaystacks = rows.map((row) => ({
+    row,
+    haystack: normHay(
+      `${row[4] ?? ""} ${row[3] ?? ""} ${row[0]} ${row[1]} ${categoryLabel(row[1], lang)}`
+    ),
+  }));
+  return indexHaystacks;
+}
+
+function interimHitHtml(row: IndexRow): string {
+  const name = row[4] ?? row[0];
+  const brand = row[3] ?? "";
+  const price =
+    row[2] === null || row[2] === undefined
+      ? "-"
+      : formatPrice(row[2], currency, lang);
+  return `
+    <a class="global-hit" role="option" aria-selected="false" href="${productHash(row[1], row[0])}">
+      <span class="plThumb" aria-hidden="true">${esc((brand || name).slice(0, 2).toUpperCase())}</span>
+      <span class="global-hit-name">${esc(name)}<span class="global-hit-cat"> · ${esc(categoryLabel(row[1], lang))}</span></span>
+      <span class="global-hit-price">${esc(price)}</span>
+    </a>`;
+}
+
+function fullHitHtml(product: Product): string {
+  const img = safeImageUrl(product.thumb ?? product.image);
+  const name = displayName(product);
+  const thumb = img
+    ? `<img src="${esc(img)}" alt="${esc(name)}" loading="lazy" decoding="async" width="40" height="40">`
+    : `<span class="plThumb" aria-hidden="true">${esc((product.brand ?? product.name).slice(0, 2).toUpperCase())}</span>`;
+  const price =
+    product.min_price === null || product.min_price === undefined
+      ? "-"
+      : formatPrice(product.min_price, currency, lang);
+  return `
+    <a class="global-hit" role="option" aria-selected="false" href="${productHash(product.category, product.id)}">
+      ${thumb}
+      <span class="global-hit-name">${esc(name)}<span class="global-hit-cat"> · ${esc(categoryLabel(product.category, lang))}</span></span>
+      <span class="global-hit-price">${esc(price)}</span>
+    </a>`;
 }
 
 async function runGlobalSearch(query: string, mySeq: number): Promise<void> {
@@ -558,23 +578,35 @@ async function runGlobalSearch(query: string, mySeq: number): Promise<void> {
       box.innerHTML = `<div class="global-status" role="status">${t(lang, "noResults")}</div>`;
       return;
     }
+    box.innerHTML = hits.map((h) => interimHitHtml(h.row)).join("");
+    // Lazy-enrich the displayed hits with their full products (photos):
+    // only their categories are fetched (all cached after first use).
+    const byCategory = new Map<string, IndexRow[]>();
+    for (const h of hits) {
+      const list = byCategory.get(h.row[1]) ?? [];
+      list.push(h.row);
+      byCategory.set(h.row[1], list);
+    }
+    const found = new Map<string, Product>();
+    await Promise.all(
+      [...byCategory].map(async ([category, rows]) => {
+        if (mySeq !== searchSeqLive) return;
+        try {
+          const products = await loadCategory(category);
+          for (const row of rows) {
+            const p = products.find((x) => x.id === row[0]);
+            if (p) found.set(row[0], p);
+          }
+        } catch {
+          // Keep the interim rows on per-category failure.
+        }
+      })
+    );
+    if (mySeq !== searchSeqLive) return;
     box.innerHTML = hits
-      .map(({ product }) => {
-        const img = safeImageUrl(product.image);
-        const name = displayName(product);
-        const thumb = img
-          ? `<img src="${esc(img)}" alt="${esc(name)}" loading="lazy" width="40" height="40">`
-          : `<span class="plThumb" aria-hidden="true">${esc((product.brand ?? product.name).slice(0, 2).toUpperCase())}</span>`;
-        const price =
-          product.min_price === null || product.min_price === undefined
-            ? "-"
-            : formatPrice(product.min_price, currency, lang);
-        return `
-          <a class="global-hit" role="option" aria-selected="false" href="${productHash(product.category, product.id)}">
-            ${thumb}
-            <span class="global-hit-name">${esc(name)}<span class="global-hit-cat"> · ${esc(categoryLabel(product.category, lang))}</span></span>
-            <span class="global-hit-price">${esc(price)}</span>
-          </a>`;
+      .map((h) => {
+        const p = found.get(h.row[0]);
+        return p ? fullHitHtml(p) : interimHitHtml(h.row);
       })
       .join("");
   } catch (err) {

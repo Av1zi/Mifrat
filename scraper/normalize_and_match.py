@@ -28,6 +28,7 @@ try:
         dedupe_enriched_listings,
         enrich_listing,
         find_duplicate_vendor_cases,
+        find_naming_conflict_cases,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -42,6 +43,7 @@ except ImportError:
         dedupe_enriched_listings,
         enrich_listing,
         find_duplicate_vendor_cases,
+        find_naming_conflict_cases,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -366,11 +368,12 @@ def build_catalog(today: datetime):
     )
     # Public duplicate-vendor QA cases ride along in the same queue file
     # (local review tool) and are also emitted as data/site/qa.json for the
-    # public #/qa page (see site_data.write_site_data).
+    # public #/qa page (see site_data.write_site_data). Naming-conflict
+    # cases (tier-4c flags) ride along the same way.
     try:
         review_queue = list(review_queue) + find_duplicate_vendor_cases(
             match_result["products"]
-        )
+        ) + find_naming_conflict_cases(match_result["products"])
     except Exception:
         pass
 

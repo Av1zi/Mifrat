@@ -52,13 +52,23 @@ def _safe_image_stem(vendor_sku: str) -> str:
     )
 
 
-def _local_image_path(vendor_id: str | None, vendor_sku: str | None) -> str | None:
-    """Same-origin /images/... URL when the scraped file exists on disk."""
+def _local_image_path(vendor_id: str | None, vendor_sku: str | None,
+                      thumb: bool = False) -> str | None:
+    """Same-origin /images/... URL when the scraped file exists on disk.
+
+    thumb=True addresses the 128px list-thumbnail derivative under
+    data/images/<vendor>/thumbs/ (served from /images/<vendor>/thumbs/).
+    """
     if not vendor_sku:
         return None
     filename = f"{_safe_image_stem(vendor_sku)}.jpg"
-    if (IMAGES_DIR / _image_vendor_key(vendor_id) / filename).is_file():
-        return f"/images/{_image_vendor_key(vendor_id)}/{quote(filename)}"
+    vendor = _image_vendor_key(vendor_id)
+    if thumb:
+        if (IMAGES_DIR / vendor / "thumbs" / filename).is_file():
+            return f"/images/{vendor}/thumbs/{quote(filename)}"
+        return None
+    if (IMAGES_DIR / vendor / filename).is_file():
+        return f"/images/{vendor}/{quote(filename)}"
     return None
 
 
@@ -68,10 +78,12 @@ def _local_image_path(vendor_id: str | None, vendor_sku: str | None) -> str | No
 _DROPPED_REMOTES: list[str] = []
 
 
-def _resolve_image(product: dict, offers: list[dict]) -> str | None:
+def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str | None]:
     """
-    Local-only: return our own hosted copy
-    (data/images/<vendor>/<sku>.jpg, served from /images/...) or None.
+    Local-only: return (image, thumb) — our own hosted cover
+    (data/images/<vendor>/<sku>.jpg, served from /images/...) plus its
+    128px list-thumbnail derivative (data/images/<vendor>/thumbs/,
+    served from /images/<vendor>/thumbs/), or None for either.
 
     No remote-vendor fallback — hotlinking leaks visitor IPs to vendor
     hosts, breaks when vendors move their images, and defeats the
@@ -82,6 +94,7 @@ def _resolve_image(product: dict, offers: list[dict]) -> str | None:
     current = product.get("image_url")
     raw_offers = product.get("offers", [])
 
+    chosen: dict | None = None
     if current:
         for offer in raw_offers:
             if offer.get("image_url") == current:
@@ -89,19 +102,29 @@ def _resolve_image(product: dict, offers: list[dict]) -> str | None:
                     offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
                 )
                 if local:
-                    return local
+                    chosen = offer
+                    break
+    if chosen is None:
+        for offer in raw_offers:
+            local = _local_image_path(
+                offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
+            )
+            if local:
+                chosen = offer
+                break
 
-    for offer in raw_offers:
-        local = _local_image_path(
-            offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
-        )
-        if local:
-            return local
+    if chosen is not None:
+        image = _local_image_path(
+            chosen.get("vendor_id"), str(chosen.get("vendor_sku") or ""))
+        thumb = _local_image_path(
+            chosen.get("vendor_id"), str(chosen.get("vendor_sku") or ""),
+            thumb=True)
+        return image, thumb
 
     _dropped_remote = product.get("image_url")
     if _dropped_remote and isinstance(_dropped_remote, str) and _dropped_remote.startswith("http"):
         _DROPPED_REMOTES.append(str(_dropped_remote))
-    return None
+    return None, None
 
 
 def _write_json_atomic(path: Path, value: object) -> None:
@@ -158,19 +181,25 @@ def _trim_product(product: dict) -> dict:
     any_prices = [o["price"] for o in offers if o["price"] is not None]
     min_price = min(in_stock_prices) if in_stock_prices else (min(any_prices) if any_prices else None)
 
+    # 128px list-thumbnail derivative (local-only, like image above).
+    # Omitted when the thumb file hasn't been generated yet — callers
+    # fall back to image.
+    _image, _thumb = _resolve_image(product, product.get("offers", []))
     trimmed = {
         "id": product["product_id"],
         "name": product.get("canonical_name"),
         "category": product["category"],
         "brand": product.get("brand"),
         "model": product.get("model"),
-        "image": _resolve_image(product, product.get("offers", [])),
+        "image": _image,
         "attributes": product.get("attributes", {}),
         "vendor_count": product.get("vendor_count", len(offers)),
         "min_price": min_price,
         "in_stock": any(o["in_stock"] for o in offers),
         "offers": offers,
     }
+    if _thumb:
+        trimmed["thumb"] = _thumb
 
     # Optional pcpartdb reference-spec block (scraper/matching.py's
     # enrich_products_with_pcpartdb, Aug 2026). Only present on products
@@ -235,6 +264,25 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
 
     categories_meta.sort(key=lambda c: c["id"])
 
+    # Lightweight global lookup (Phase 6): [id, category, min_price,
+    # brand, name] per product (~500KB minified vs ~4.4MB of category
+    # JSON). Powers instant global search (match on id/brand/category/
+    # name without fetching any category file) and build-part resolution
+    # (group wanted ids by category, fetch only those files). Built from
+    # the trimmed rows so min_price matches the site exactly.
+    index_rows: list[list] = []
+    for category, items in by_category.items():
+        for item in items:
+            index_rows.append([
+                item["id"],
+                category,
+                item["min_price"],
+                item.get("brand"),
+                item.get("name"),
+            ])
+    index_rows.sort(key=lambda row: str(row[0]))
+    _write_json_atomic(site_dir / "index.json", index_rows)
+
     meta = {
         "generated_at": catalog["generated_at"],
         "skipped_vendors": catalog.get("skipped_vendors", []),
@@ -274,6 +322,33 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
                     ],
                 }
             )
+    # Naming-conflict cases (tier-4c flags): same compact MPN, but the
+    # offers' titles disagree on the model. Same offer shape plus the
+    # conflicting titles, so #/qa renders both kinds uniformly.
+    for product in catalog["products"]:
+        if not product.get("naming_conflict"):
+            continue
+        qa_cases.append(
+            {
+                "kind": "naming_conflict",
+                "product_id": product.get("product_id"),
+                "category": product.get("category"),
+                "vendor": "",
+                "titles": list(
+                    (product.get("attribute_conflicts") or {}).get(
+                        "model_titles", [])
+                ),
+                "offers": [
+                    {
+                        "listing_key": o.get("listing_key"),
+                        "vendor_sku": o.get("vendor_sku"),
+                        "title": o.get("title_raw"),
+                        "price": o.get("price_ils"),
+                    }
+                    for o in product.get("offers", [])
+                ],
+            }
+        )
     qa_cases.sort(
         key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
     )
@@ -287,7 +362,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
     # behind forever since we only ever write, never clean up.
     current_files = {f"{c['id']}.json" for c in categories_meta}
     for existing in site_dir.glob("*.json"):
-        if existing.name in ("meta.json", "qa.json"):
+        if existing.name in ("meta.json", "qa.json", "index.json"):
             continue
         if existing.name not in current_files:
             existing.unlink()
@@ -326,6 +401,7 @@ def _count_remote_images(site_dir: Path) -> int:
         except OSError:
             continue
         hits += text.count('"image":"http')
+        hits += text.count('"thumb":"http')
     history_dir = site_dir / "history"
     if history_dir.is_dir():
         for path in history_dir.glob("*.json"):
@@ -336,4 +412,5 @@ def _count_remote_images(site_dir: Path) -> int:
             # History files carry no image fields today; guard anyway so a
             # future field can't reintroduce hotlinks silently.
             hits += text.count('"image":"http')
+            hits += text.count('"thumb":"http')
     return hits

@@ -280,6 +280,10 @@ def _socket_from_text(text: str) -> str | None:
         # Vendors write SP3's pin count as a socket ("LGA4094 (SP3)").
         if sock == "LGA4094":
             return "SP3"
+        # Same for SP5: Plonter titles say "AMD SP5 (LGA6096) socket"
+        # (6096 = pin count). The canonical server-socket name is SP5.
+        if sock == "LGA6096":
+            return "SP5"
         return sock
     m = re.search(r"\b(1700|1851|1200|1151|1150|1155|1366|2066|2011)\b", text)
     if m:
@@ -457,6 +461,16 @@ DETAIL_KEY_ALIASES = {
     # the PSU wattage filter into two rails (confirmed in 66 products,
     # Sep 2026).
     "watt": "wattage_w",
+    # Detail "CPU" rows on motherboards are compat paragraphs, not specs
+    # ("Pentium / i3 / ...", Hebrew Ryzen-series lists) — renamed so the
+    # motherboard branch of _unify_duplicate_attributes can drop the
+    # sentences while keeping real token lists. (Sep 2026.)
+    "cpu": "cpu_compatibility",
+    # Detail/pckombo "Slots" rows on GPUs are the card's slot width
+    # ("2"/"2.5") — the parser's slot_width key is canonical; the GPU
+    # branch of _unify_duplicate_attributes folds the string twin into
+    # a float and drops this. (Sep 2026.)
+    "slots": "slot_width",
 }
 
 # Yes/No canonicalization for boolean-ish spec keys. Vendors disagree on
@@ -623,6 +637,22 @@ def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
         vs = v.strip()
         # Hebrew-only values are nav breadcrumbs, not specs.
         if _has_hebrew(vs) and not _has_latin_alnum(vs):
+            return None
+        # Compat paragraphs, not specs: detail rows whose VALUE is a
+        # slash-separated compat list or a long multi-clause sentence
+        # ("Pentium / i3 / i5 ...", Hebrew Ryzen-series lists). The
+        # Hebrew literals are \u-escaped per the file convention.
+        if "/" in vs and re.search(
+                r"series|\u05e1\u05d3\u05e8\u05d4|\u05de\u05e2\u05d1\u05d3"
+                r"|\u05de\u05e1\u05d3\u05e8\u05d5\u05ea|generation|socket"
+                r"|compatible|\u05ea\u05d5\u05de\u05da",
+                vs, re.I):
+            return None
+        if len(vs) > 60 and vs.count(",") >= 2:
+            return None
+        # Hebrew mixed with slash-lists is the same compat paragraph
+        # with Latin tokens (the Hebrew-only case is caught above).
+        if _has_hebrew(vs) and "/" in vs:
             return None
         if not vs or vs.lower() in DETAIL_NOISE_VALUES:
             return None
@@ -1116,10 +1146,14 @@ def _parse_cpu(text: str, meta) -> dict:
                 gen = int(digits[:2]) if len(digits) >= 5 else int(digits[0])
                 a["generation"] = f"Gen {gen}"
             else:
-                ultra_m = re.search(r"\bUltra\s?\d\s?(\d{3})", model or "", re.I)
-                if ultra_m:
-                    gen = int(ultra_m.group(1)[:2]) if len(ultra_m.group(1)) >= 3 else int(ultra_m.group(1))
-                    a["generation"] = f"Gen {gen}"
+                # Ultra parts carry no numeric generation: the 3-digit
+                # model (245/265/285) is not a generation — the old code
+                # took its first two digits ("Gen 26") and split one chip
+                # line into Gen 22-28. Ultras are grouped as "Ultra
+                # Series" (the `series` attribute keeps Series 1 vs 2
+                # apart), matching the legacy cpu_generation rewrite.
+                if re.search(r"\bUltra\s?\d\s?\d{3}", model or "", re.I):
+                    a["generation"] = "Ultra Series"
 
     # Integrated graphics detection (Intel UHD / AMD Radeon)
     if re.search(r"\bUHD\s*7[37]0\b", text, re.I):
@@ -2237,6 +2271,39 @@ def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
         _take("length_mm", "length", parse=lambda v: _leading_int(v)
               if 50 <= (_leading_int(v) or 0) <= 600 else None)
         attrs.pop("length", None)
+        # Slot-width twin: pckombo "Dimensions | Slots" ("2"/"2.5") and
+        # detail "Slots" rows (aliased to slot_width in _sanitize) join
+        # the parser's slot_width float. Raw quirks ("5.55", "6" — no
+        # consumer card is 5+ slots wide) are dropped by the 1-4
+        # half-slot grid so the rail shows ~6 real widths, not ~20.
+        def _slot_float(v) -> float | None:
+            try:
+                m = re.search(r"(\d+(?:\.\d+)?)", str(v))
+                if not m:
+                    return None
+                f = round(float(m.group(1)) * 2) / 2
+            except (ValueError, TypeError):
+                return None
+            return f if 1 <= f <= 4 else None
+        _take("slot_width", "slots", parse=_slot_float)
+        attrs.pop("slots", None)
+        _sw = attrs.get("slot_width")
+        if isinstance(_sw, bool):
+            attrs.pop("slot_width", None)
+        elif isinstance(_sw, (int, float, str)):
+            _snapped = _slot_float(_sw)
+            if _snapped is None:
+                attrs.pop("slot_width", None)
+            else:
+                attrs["slot_width"] = _snapped
+        # Parser sets slot_width + total_slot_width together — one key.
+        _tt = attrs.get("total_slot_width")
+        if _tt is not None:
+            if attrs.get("slot_width") is None:
+                _ts = _slot_float(_tt)
+                if _ts is not None:
+                    attrs["slot_width"] = _ts
+            attrs.pop("total_slot_width", None)
 
     # -- Motherboard: vendor RAM/storage rows join the canonical board keys.
     if category == "motherboard":
@@ -2644,6 +2711,31 @@ def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
         if isinstance(ps_v, str) and not re.match(
                 r"(?i)^\s*(ATX|SFX-L|SFXL|SFX|TFX|FLEX|None|Included)\b", ps_v):
             _drop("power_supply")
+
+    # Cross-category compat-prose guard (any category): detail "CPU" rows
+    # (aliased to cpu_compatibility) are compat paragraphs ("Pentium /
+    # i3 / ...", Hebrew series lists), not specs. Slash-lists, Hebrew
+    # text, bare yes/no and long multi-clause sentences go; plain token
+    # lists ("Ryzen 7000", "Ryzen 7000, Ryzen 8000G, Ryzen 9000, ...")
+    # render fine in show-all and stay.
+    _cc = attrs.get("cpu_compatibility")
+    if isinstance(_cc, str):
+        _cs = _cc.strip()
+        if (not _cs or _cs.lower() in DETAIL_NOISE_VALUES
+                or _cs.lower() in ("yes", "no", "y", "n",
+                                    "true", "false")
+                or "/" in _cs or _has_hebrew(_cs)
+                or (len(_cs) > 60 and _cs.count(",") >= 2)):
+            attrs.pop("cpu_compatibility", None)
+
+    # Bare `slots` / `slot_width` outside GPUs is always prose
+    # (motherboard PCIe-slot sentences from detail rows, e.g. "1x PCI
+    # Express x16 slot, running at x16 ..."). Structured counts live
+    # under pcie_x16_slots / memory_slots / m2_slots; the GPU branch
+    # above folds real card widths. Everywhere else both keys go.
+    if category != "gpu":
+        attrs.pop("slots", None)
+        attrs.pop("slot_width", None)
 
 
 # --------------------------------------------------------------------------
@@ -3074,11 +3166,13 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
         attrs["power_connections"] = re.sub(r"\s*\(.*\)\s*$", "", pc).strip()
 
     # GPU bus: "PCIe 5.0 x16" vs "PCIe x16" split the interface rail — the
-    # generation lives in pcie_gen, the bus stays bare.
+    # generation lives in pcie_gen, the bus stays bare. The optional
+    # "(x8)"/"(x4)" suffix is the lane count actually wired (bifurcated
+    # cards) — the slot stays x16 mechanical, so it folds the same way.
     if category == "gpu":
         gi = attrs.get("interface")
         if isinstance(gi, str):
-            m = re.match(r"(?i)^\s*PCIe\s+(\d(?:\.\d)?)\s*(x\d+)\s*$", gi)
+            m = re.match(r"(?i)^\s*PCIe\s+(\d(?:\.\d)?)\s*(x\d+)\s*(?:\(x\d+\)\s*)?$", gi)
             if m:
                 if attrs.get("pcie_gen") is None:
                     attrs["pcie_gen"] = f"PCIe {m.group(1)}.0" if "." not in m.group(1) else f"PCIe {m.group(1)}"
@@ -3164,6 +3258,44 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
                     attrs[ctk] = int(m.group(1))
                 except (ValueError, TypeError):
                     pass
+
+    # CPU generation whitelist: the title parser derived Ultra "Gen 24/26"
+    # from 3-digit model numbers (fixed at the source to "Ultra Series",
+    # but old rows and strays still arrive). Only real generations pass:
+    # Intel Gen 1-15, Ryzen 1000-9000, Ultra Series, Xeon Gen N.
+    # Anything else ("Gen 26", prose) is dropped, never filtered on.
+    if category == "cpu":
+        gv = attrs.get("generation")
+        if isinstance(gv, str):
+            gs = gv.strip()
+            _gen_ok = (
+                re.fullmatch(r"Gen\s+(?:[1-9]|1[0-5])", gs) is not None
+                or re.fullmatch(r"Ryzen\s+[1-9]000", gs) is not None
+                or gs == "Ultra Series"
+                or re.fullmatch(r"Xeon\s+Gen\s+\d+", gs) is not None
+            )
+            if not _gen_ok:
+                _gm = re.match(r"Gen\s+(\d+)", gs)
+                if (_gm is not None and 1 <= int(_gm.group(1)) <= 15
+                        and re.fullmatch(r"Gen\s+\d+.*", gs)):
+                    attrs["generation"] = f"Gen {_gm.group(1)}"
+                else:
+                    attrs.pop("generation", None)
+        # CPU socket whitelist: only real socket names pass. (LGA6096 is
+        # the SP5 pin count, mapped to SP5 in _socket_from_text; a stray
+        # that still arrives here is pin-count bleed, not a socket.)
+        sv = attrs.get("socket")
+        if isinstance(sv, str):
+            ss = sv.strip()
+            if ss == "LGA6096":
+                # Backstop for values bypassing _socket_from_text
+                # (cut/tree labels): SP5 is the canonical name.
+                attrs["socket"] = "SP5"
+                ss = "SP5"
+            if re.fullmatch(
+                    r"(AM[45]|LGA\d{3,4}(?:-\w+)?|sTR5|sWRX8|sTRX4|TR4"
+                    r"|SP[35]|LGA4677)", ss) is None:
+                attrs.pop("socket", None)
 
     # "Sapphire" is a GPU board partner — except when Intel's codename
     # ("Sapphire Rapids") leaks into a CPU title and wins longest-match.
