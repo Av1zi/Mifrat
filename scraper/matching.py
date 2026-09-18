@@ -326,7 +326,7 @@ def _clean(value: str | None) -> str:
     s = unicodedata.normalize("NFKC", s)
 
     # Common mojibake / trademark noise seen in some feeds.
-    s = s.replace("Ö²Â®", " ")
+    s = s.replace("Ö²Â®", " ").replace("\ufffd", " ")
 
     # Hebrew characters are useful for UI, but usually noise for model matching.
     s = HEBREW.sub(" ", s)
@@ -1098,6 +1098,9 @@ def normalize_sku(value: str | None) -> str:
     """
     s = unquote(str(value or ""))
     s = html.unescape(s)
+    # Replacement characters are already-lossy vendor encoding artifacts,
+    # never part of a product identity.
+    s = s.replace("\ufffd", " ")
     s = unicodedata.normalize("NFKC", s)
     s = HEBREW.sub(" ", s)
     s = re.sub(r"[^A-Za-z0-9]", "", s)
@@ -1612,6 +1615,7 @@ def _scrub_title(text: str) -> str:
     # Ivory titles carry HTML entities ("12 ס&#39;&#39;מ"); without decoding
     # they leak verbatim into display names.
     s = html.unescape(s)
+    s = s.replace("\ufffd", " ")
     # Inch-mark artifacts ("12 ''", '12 ""') never carry identity.
     s = re.sub(r"['`\"’‘]{1,2}", "", s)
     s = HEBREW_RUN_RE.sub(" ", s)
@@ -3725,7 +3729,15 @@ def best_name(enriched_listings: list[dict]) -> str:
     chosen = sorted(enriched_listings, key=sort_key)[0]
     title_value = chosen.get("title_raw")
     if isinstance(title_value, str) and title_value.strip():
-        return display_title(title_value)
+        raw_title = title_value.strip()
+        # Plonter's board and server feeds often put the identity first and
+        # then append every port, slot, and compatibility sentence with
+        # " - ". If no structured builder won, keep that identity clause
+        # instead of truncating a feature dump at an arbitrary word.
+        clauses = re.split(r"\s+-\s+", raw_title)
+        if len(raw_title) > 120 and len(clauses) >= 3 and len(clauses[0]) >= 16:
+            raw_title = clauses[0]
+        return display_title(raw_title)
     match_text_value = chosen.get("match_text")
     if isinstance(match_text_value, str) and match_text_value.strip():
         return display_title(match_text_value)

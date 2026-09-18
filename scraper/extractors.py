@@ -45,6 +45,7 @@ def clean_text(value) -> str:
     # breaking every \b-anchored model regex after it.
     s = re.sub(r"[®™©℗]", " ", s)
     s = unicodedata.normalize("NFKC", s)
+    s = s.replace("\ufffd", " ")
     s = HEBREW.sub(" ", s)
     s = re.sub(r"[^A-Za-z0-9#+/.&()-]+", " ", s)
     return re.sub(r"\s+", " ", s).strip()
@@ -3031,6 +3032,20 @@ def extract_attributes(listing: dict) -> dict:
     # not become three filter options). All idempotent string->string/int
     # normalizations; safe to run on re-extracts.
     _canonicalize_filter_values(attrs, category)
+
+    # Detail pages occasionally expose notes, warranty prose, or malformed
+    # vendor labels as if they were structured specs. Those values are not
+    # useful filters and make the product page unreadable, so keep only
+    # compact, normalized display values in the public attribute blob.
+    for key in list(attrs):
+        value = attrs[key]
+        if not isinstance(value, str):
+            continue
+        value = re.sub(r"\s+", " ", value.replace("\ufffd", " ")).strip()
+        if not value or len(value) > 160:
+            del attrs[key]
+        else:
+            attrs[key] = value
 
     # Price per GB for storage (if price available on listing, compute here? listing price may be missing at this stage)
     # Will be enriched later in matching if price present.
