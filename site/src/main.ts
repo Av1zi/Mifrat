@@ -450,19 +450,11 @@ function renderShell(): void {
     }
   });
 
-  // Warm the mega-menu photos in the background (skipped for
-  // data-saver users); opening the menu fills them regardless.
-  const saveData =
-    typeof navigator !== "undefined" &&
-    (navigator as Navigator & { connection?: { saveData?: boolean } })
-      .connection?.saveData === true;
-  if (!saveData) {
-    const idle =
-      (window as Window & {
-        requestIdleCallback?: (cb: () => void) => void;
-      }).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 2500));
-    idle(() => fillMegaPhotos());
-  }
+  // Mega-menu photos load on first menu open (fillMegaPhotos) and on
+  // the categories page (one rep image per card) — never prefetched on
+  // landing. Warming every category JSON (~4MB) on the homepage just to
+  // pre-fill hover tiles burned the very first impression for zero
+  // visible gain; the icon fallback covers the brief load on open.
 
   renderRoute();
   updateNavActive();

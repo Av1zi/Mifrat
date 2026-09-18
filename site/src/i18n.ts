@@ -231,6 +231,12 @@ export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   front_io: { he: "מחברים קדמיים", en: "Front I/O" },
   connectivity: { he: "קישוריות", en: "Connectivity" },
   display_outputs: { he: "יציאות תצוגה", en: "Display Outputs" },
+  fan_headers: { he: "מחברי מאווררים", en: "Fan Headers" },
+  vrm_phases: { he: "שלבֵי VRM", en: "VRM Phases" },
+  audio: { he: "שמע", en: "Audio" },
+  bios: { he: "BIOS", en: "BIOS" },
+  raid_level: { he: "RAID", en: "RAID" },
+  buttons_switches: { he: "כפתורים", en: "Buttons" },
 
   // Case
   internal_25_bays: { he: "תאי 2.5 אינץ'", en: "2.5\" Bays" },

@@ -129,7 +129,7 @@ CASE_FORM_FACTOR_PATTERNS = [
 ]
 
 LAN_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?G\s?LAN\b", re.I)
-SLOTS_RE = re.compile(r"\b(\d)\s?X\s?DDR[345]\b", re.I)
+SLOTS_RE = re.compile(r"\b(\d{1,2})\s?X\s?DDR[345]\b", re.I)
 MEMORY_MAX_RE = re.compile(r"\b(\d+)\s?GB\s*(?:MAX|Maximum)\b", re.I)
 M2_SLOTS_RE = re.compile(r"\b(\d+)\s?X\s?M\.?2\b", re.I)
 SATA_PORTS_RE = re.compile(r"\b(\d+)\s?X\s?SATA\b", re.I)
@@ -648,7 +648,14 @@ def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
                 r"|compatible|\u05ea\u05d5\u05de\u05da",
                 vs, re.I):
             return None
-        if len(vs) > 60 and vs.count(",") >= 2:
+        # Long multi-clause sentences are compat prose — except RAM
+        # sentences ("8x DDR5 DIMM, octa ..., max. 2TB"), which have
+        # their own harvester downstream (memory_slots + memory_max).
+        # Dropping them here would starve it (Sep 2026: lost memory_slots
+        # on PRO WS W790E-SAGE-SE).
+        if len(vs) > 60 and vs.count(",") >= 2 and key not in (
+                "ram", "ram_slots", "memory", "memory_slots",
+                "max_memory"):
             return None
         # Hebrew mixed with slash-lists is the same compat paragraph
         # with Latin tokens (the Hebrew-only case is caught above).
@@ -922,10 +929,20 @@ def _parse_motherboard(text: str, meta) -> dict:
     lan = LAN_RE.search(text)
     if lan:
         a["lan"] = f"{lan.group(1)}G"
+    else:
+        # Server phrasing ("2x 10Gb/s BASE-T LAN ports").
+        baset = re.search(r"\b(\d+(?:\.\d+)?)\s?Gb/s\s?BASE-T\b", text, re.I)
+        if baset:
+            a["lan"] = f"{baset.group(1)}G"
 
     slots = SLOTS_RE.search(text)
     if slots:
         a["memory_slots"] = int(slots.group(1))
+    else:
+        # Server-board phrasing without a DDR word ("24x DIMMs").
+        dimms = re.search(r"\b(\d{1,2})\s?X\s?DIMMs?\b", text, re.I)
+        if dimms and 1 <= int(dimms.group(1)) <= 32:
+            a["memory_slots"] = int(dimms.group(1))
 
     # Memory max (e.g. 128GB, 256GB)
     mm = MEMORY_MAX_RE.search(text)
@@ -940,9 +957,10 @@ def _parse_motherboard(text: str, meta) -> dict:
     if sata_p:
         a["sata_ports"] = int(sata_p.group(1))
 
-    # PCIe x16 slots
-    pcie_x16 = re.search(r"\b(\d)\s?X\s?PCIE\s?X?16\b", text, re.I)
-    if pcie_x16:
+    # PCIe x16 slots ("4x PCIe Gen5 x16" — the GEN infix is the bus
+    # generation, not part of the count).
+    pcie_x16 = re.search(r"\b(\d{1,2})\s?X\s?PCIE\s?(?:GEN\d\s?)?X?16\b", text, re.I)
+    if pcie_x16 and 1 <= int(pcie_x16.group(1)) <= 8:
         a["pcie_x16_slots"] = int(pcie_x16.group(1))
 
     pcie_x1 = re.search(r"\b(\d)\s?X\s?PCIE\s?X?1\b", text, re.I)
@@ -2346,6 +2364,120 @@ def _unify_duplicate_attributes(attrs: dict, category: str) -> None:
             _drop("gpu_graphics_card_model")
         _drop("gpu_graphics_card_model_brand")
 
+        def _count_int(key: str) -> int | None:
+            """Small-int detail count ("4", 4) or None when unparseable."""
+            try:
+                raw = attrs.get(key)
+                if isinstance(raw, bool):
+                    return None
+                m = re.match(r"\s*(\d+)", str(raw))
+                if m and 0 <= int(m.group(1)) <= 64:
+                    return int(m.group(1))
+            except (ValueError, TypeError, AttributeError):
+                pass
+            return None
+
+        # Workstation/detail header dumps (ASUS PRO WS style rows): counts
+        # fold into canonical slot/port keys, prose and single-header
+        # trivia go. Without this the product page shows 50 rows of
+        # `m_2_e_key: 1` noise.
+        _m2 = [_count_int(k) for k in ("m_2_e_key", "m_2_m_key")]
+        if any(v is not None for v in _m2) and attrs.get("m2_slots") is None:
+            attrs["m2_slots"] = sum(v for v in _m2 if v is not None)
+        _drop("m_2_e_key", "m_2_m_key")
+        # M.2 length-support flags ("22110_2280_2260_2242", "2230") and
+        # other all-digit key names are never filterable facts.
+        for _dk in [k for k in list(attrs) if re.fullmatch(r"[\d_]+", k)]:
+            _drop(_dk)
+        # Rear USB counts join usb_ports; internal headers are trivia.
+        _usb = [_count_int(k) for k in (
+            "usb_2_0", "usb_3_0", "usb_a_2_0", "usb_a_3_1",
+            "usb_c_3_1", "usb_c_3_2")]
+        if any(v is not None for v in _usb) \
+                and attrs.get("usb_ports") is None:
+            attrs["usb_ports"] = sum(v for v in _usb if v is not None)
+        _drop("usb_2_0", "usb_3_0", "usb_a_2_0", "usb_a_3_1",
+              "usb_c_3_1", "usb_c_3_2", "usb_2_0_header", "usb_3_0_header",
+              "usb_c_3_2_key_a_header")
+        # "PCIe 5.0 x16: 7" style lane rows join the slot counts.
+        for _pk in [k for k in list(attrs)
+                    if re.fullmatch(r"pcie_\d+_\d+_x\d+", k)]:
+            _pv = _count_int(_pk)
+            _lanes = re.search(r"_x(\d+)$", _pk)
+            if _pv is not None and _lanes:
+                _target = (f"pcie_x{_lanes.group(1)}_slots"
+                           if _lanes.group(1) in ("16", "1") else None)
+                if _target and attrs.get(_target) is None:
+                    attrs[_target] = _pv
+            _drop(_pk)
+        _sata = _count_int("sata_6gb_s")
+        if _sata is not None and attrs.get("sata_ports") is None:
+            attrs["sata_ports"] = _sata
+        _drop("sata_6gb_s")
+        # Fan/pump header counts join one readable row.
+        _fans = [_count_int(k) for k in (
+            "fan_4_pin", "cpu_fan_4_pin", "pump_4_pin")]
+        if any(v is not None for v in _fans) \
+                and attrs.get("fan_headers") is None:
+            attrs["fan_headers"] = sum(v for v in _fans if v is not None)
+        _drop("fan_4_pin", "cpu_fan_4_pin", "pump_4_pin")
+        # VRM "15 virtual phases (14+1)" -> phase count.
+        _vrm = attrs.get("vrm")
+        if isinstance(_vrm, str):
+            _vm = re.match(r"\s*(\d+)", _vrm)
+            if _vm and 2 <= int(_vm.group(1)) <= 40:
+                attrs["vrm_phases"] = int(_vm.group(1))
+            _drop("vrm")
+        # Onboard graphics ("iGPU" / "ASPEED AST2600 - onboard") joins
+        # integrated_graphics; bare yes is content-free.
+        _gfx = attrs.get("graphics")
+        if isinstance(_gfx, str):
+            _gl = _gfx.strip().lower()
+            if _gl in ("yes", "true", "y", "1", "integrated", "igpu"):
+                if attrs.get("integrated_graphics") is None:
+                    attrs["integrated_graphics"] = "Yes"
+            elif _gl not in ("no", "none", "n/a"):
+                if attrs.get("integrated_graphics") is None:
+                    attrs["integrated_graphics"] = re.sub(
+                        r"\s+", " ", _gfx).strip(" .")
+            _drop("graphics")
+        # Bare "Yes" audio says nothing; real codec/channel rows stay.
+        _aud = attrs.get("audio")
+        if isinstance(_aud, str) and _aud.strip().lower() in (
+                "yes", "true", "y", "1", "none"):
+            _drop("audio")
+        # Button/switch laundry lists are unreadable; short feature rows
+        # ("USB BIOS Flashback (external)") stay.
+        _btn = attrs.get("buttons_switches")
+        if isinstance(_btn, str) and (len(_btn) > 80 or _btn.count(",") >= 3):
+            _drop("buttons_switches")
+        # Single-header/LED/sensor trivia and value-fragment keys.
+        _drop("tpm_header", "serial", "thermal_sensor", "toslink", "vga",
+              "vga_header", "card_reader", "sff_8654_x4", "vroc_header",
+              "smbus_header", "i2c_header", "location_led",
+              "location_button_header", "message_led_header",
+              "lan_led_header", "bmc_led", "bmctsensor_header",
+              "front_panel_location_led_header", "gb_lan5", "10gbase_t",
+              "w790", "x8")
+        # Detail "Drive Form Factor" rows on boards name the BOARD size
+        # ("E-ATX (SSI EEB), 305x330mm, 12", mojibake "µATX") — reduce to
+        # the standard and join form_factor (already the filtered key).
+        _dff = attrs.get("drive_form_factor")
+        if isinstance(_dff, str):
+            _du = _dff.upper().replace("µ", "MICRO").replace("Μ", "MICRO")
+            _dm: str | None = None
+            for _pat, _canon in (
+                    ("E-ATX", "EATX"), ("EATX", "EATX"), ("SSI", "EATX"),
+                    ("MICRO", "Micro-ATX"), ("MATX", "Micro-ATX"),
+                    ("MINI-ITX", "Mini-ITX"), ("MINIITX", "Mini-ITX"),
+                    ("ITX", "Mini-ITX"), ("ATX", "ATX")):
+                if _pat in _du:
+                    _dm = _canon
+                    break
+            if _dm is not None and attrs.get("form_factor") is None:
+                attrs["form_factor"] = _dm
+            _drop("drive_form_factor")
+
     # -- CPU: detail iGPU rows join integrated_graphics; capacity keys are
     # board-max leaks, not CPU specs.
     if category == "cpu":
@@ -3380,6 +3512,12 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
     rl = attrs.get("rgb_lighting")
     if isinstance(rl, str):
         attrs["rgb_lighting"] = rl.strip().rstrip(".").strip()
+
+    # RAID levels: "0/1/10 (A520)" vs "0/1/10" split one fact — the
+    # chipset paren adds nothing (the product's chipset is its own row).
+    rlv = attrs.get("raid_level")
+    if isinstance(rlv, str):
+        attrs["raid_level"] = re.sub(r"\s*\(.*\)\s*$", "", rlv).strip()
 
     # Cooling kind: single-word lowercase ("passive") vs title case
     # ("Passive") split the GPU cooling filter. Only bare single words

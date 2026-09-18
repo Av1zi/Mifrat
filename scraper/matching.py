@@ -629,6 +629,22 @@ def _category_from_title(title_clean: str) -> str | None:
     _light_tint = "light tint" in t
     if not _light_tint and re.search(r"\b(?:rgb\s+)?(?:led|light)\s+strips?\b", t):
         return "rgb_lighting"
+    # LED starter kits / light bars ("Digital RGB LED Starter Kit") are
+    # lighting even without the word "strip". The fan guard is real fan
+    # evidence (fan words/sizes/RPM), not _FAN_KIT_RE — that also matches
+    # a bare "kit", which every starter kit has by definition. Same
+    # case/board/cooler guards as the connector rule.
+    if (not _light_tint and re.search(r"\bled\b", t)
+            and re.search(r"\bstarter\s*kits?\b|\blight\s*bars?\b", t)
+            and not re.search(r"\bfans?\b|\b\d{2,3}\s*mm\b|\brpm\b", t)
+            and not _CASE_LOOK_RE.search(t)
+            and not re.search(
+                r"\b(motherboards?|boards?|chipsets?|sockets?|lga\s*\d+|am[45]|"
+                r"ddr[345]l?|atx|m[\s\-]?atx|e[\s\-]?atx|mini[\s\-]?itx)\b", t)
+            and not _CHIPSETISH_RE.search(t)
+            and not _COOLER_INTERNALS_RE.search(t)
+            and not re.search(r"\b(motherboards?|cases?|chassis|towers?)\b", t)):
+        return "rgb_lighting"
     # A fan kit that SHIPS WITH a controller ("3x SP120 ... with Lighting
     # Node CORE", "LL120 ... with Lighting Node PRO", "Prizm 120 ... with
     # Controller") is still fans — only a standalone controller/strip with
@@ -667,6 +683,23 @@ def _category_from_title(title_clean: str) -> str | None:
             return "fan_controller"
         if re.search(r"\b(module|lan\d+|lancool|front\s*panel)\b", t):
             return "case_accessory"
+        return "cooler_accessory"
+    # Splitter semantics without the word ("4 pin - female to two
+    # females - 30cm"): pin + male/female ends + length is a cable or
+    # splitter, never a case/fan/board. The fan guard is real fan
+    # evidence (see the LED rule above), not bare-"kit" matching.
+    if (
+        re.search(r"\bfemales?\b|\bmales?\b", t)
+        and re.search(r"\b\d+\s*pins?\b|\bpins?\b", t)
+        and not re.search(r"\bfans?\b|\b\d{2,3}\s*mm\b|\brpm\b", t)
+        and not _CASE_LOOK_RE.search(t)
+        and not re.search(
+            r"\b(motherboards?|boards?|chipsets?|sockets?|lga\s*\d+|am[45]|"
+            r"ddr[345]l?|atx|m[\s\-]?atx|e[\s\-]?atx|mini[\s\-]?itx)\b", t)
+        and not _CHIPSETISH_RE.search(t)
+        and not _COOLER_INTERNALS_RE.search(t)
+        and not re.search(r"\b(motherboards?|cases?|chassis|towers?)\b", t)
+    ):
         return "cooler_accessory"
     if "starter kit" in t and "fan" in t:
         return "case_fan"
@@ -840,12 +873,17 @@ def _reclassify(category: str, title_clean: str) -> str:
     return category
 
 def canonical_category(
-    guess: str | None, title: str = "", url: str = ""
+    guess: str | None, title: str = "", url: str = "", sku: str = ""
 ) -> str:
     """Map vendor category guesses into canonical categories.
 
     TMS flag suffixes (":bundle-only", ":new-pc-deal") are split off first —
     only the base is ever looked up in CATEGORY_ALIASES.
+
+    `sku` is consulted ONLY as accessory evidence in the case-peel below
+    (vendor SKUs like "RGB-Extender" name the part when the title is a
+    bare spec fragment). It never drives primary classification — SKU
+    tokens name whole model lines that collide with product families.
     """
     guess_base, _flags = _split_category_flags(guess)
     raw_key = _compact_key(guess_base).replace("bundleonly", "").replace(
@@ -933,6 +971,21 @@ def canonical_category(
         if accessory_only:
             return "accessories"
         return "case"
+
+    # Same peel on SKU-only evidence: the title can be a bare spec
+    # fragment ("4 pin - female to two females - 30cm") while the vendor
+    # SKU names the part ("RGB-Extender"). Only when the title says
+    # nothing decidable (title_cat None) and nothing looks like a case —
+    # a conflicting primary title verdict always wins.
+    if category == "case" and title_cat is None and sku:
+        try:
+            sku_cat = _category_from_title(_clean(str(sku)))
+        except Exception:
+            sku_cat = None
+        if sku_cat in ("thermal_paste", "cooler_accessory",
+                       "case_accessory", "fan_controller", "rgb_lighting") \
+                and not _CASE_LOOK_RE.search(title_clean):
+            return "accessories"
 
     # Ambiguous cooling guesses ("Fans and Cooling solutions", "cpu cooler").
     if category == "cooling":
@@ -1264,6 +1317,7 @@ def enrich_listing(listing: dict) -> dict:
         listing.get("category_guess"),
         listing.get("title_raw", ""),
         str(listing.get("url") or ""),
+        str(listing.get("vendor_sku") or ""),
     )
 
     enriched["match_text"] = match_text(listing)
@@ -1320,6 +1374,24 @@ def enrich_listing(listing: dict) -> dict:
             del _attrs["brand"]
         if enriched.get("brand") in ("AMD", "Intel", "NVIDIA"):
             enriched["brand"] = None
+
+    # Server-board SKU brands: spec-dump titles name no maker ("AMD EPYC
+    # 9004 DP Server Board"), but the SKU does (MZ73-LM0 = Gigabyte,
+    # MBD-H12SSL = Supermicro). Without this backstop these boards have
+    # no brand facet at all (no rail entry, no PDP brand, no variants).
+    # Runs after the chip-vendor cleanup so it only fills true gaps.
+    if enriched.get("category_normalized") == "motherboard" \
+            and not enriched.get("brand"):
+        try:
+            _stoks = re.sub(
+                r"[^A-Za-z0-9]+", " ",
+                str(listing.get("vendor_sku") or "")).split()
+            _sb = _board_sku_brand(_stoks)
+        except Exception:
+            _sb = None
+        if _sb:
+            enriched["brand"] = _sb
+            _attrs.setdefault("brand", _sb)
 
     # "Sapphire Rapids" (Intel codename) in a CPU title wins longest-match
     # brand detection over "Intel" — but Sapphire only makes GPUs. (Attrs
@@ -2461,7 +2533,43 @@ def _board_sku_brand(sku_toks: list[str]) -> str | None:
     for key, canon in BOARD_SKU_BRANDS:
         if key in low:
             return canon
+    # Gigabyte server lines (MZ73-LM0, MZ31-AR0, MZ01-CE1 EPYC boards):
+    # the line prefix carries digits, so exact-token matching above
+    # never fires — prefix-match instead. No other maker uses MZ\d.
+    if any(re.fullmatch(r"mz\d+", t) for t in low):
+        return "Gigabyte"
     return None
+
+
+def _server_board_name(group: list, attributes: dict) -> str | None:
+    """Short fallback for chipset-less (server) boards: brand +
+    de-dashed SKU model + server socket ("Gigabyte MZ73 LM0 SP5",
+    "Supermicro H12SSL CO SP3").
+
+    Only fires on server sockets — a consumer board whose chipset parse
+    merely failed keeps today's best_name() fallback (its prose title is
+    usually a fine name). Returns None when even the SKU yields nothing,
+    preserving the old fallback chain.
+    """
+    socket = attributes.get("socket")
+    socket = str(socket or "").strip()
+    if socket not in ("SP3", "SP5", "sTR5", "sWRX8", "sTRX4", "TR4"):
+        return None
+    brand = _group_brand(attributes, group, exclude=("AMD", "Intel", "NVIDIA"))
+    sku_toks = _sku_display_tokens(group)
+    if not brand:
+        brand = _board_sku_brand(sku_toks)
+    if not brand:
+        return None
+    model, _ = _board_sku_model(group)
+    # "MBD" is Supermicro's literal board prefix, not a line name —
+    # drop the leading token so it doesn't echo the brand.
+    if model and model[0].upper() == "MBD":
+        model = model[1:]
+    if not model:
+        return None
+    parts = [str(brand), *model[:4], socket]
+    return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
 
 
 def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
@@ -2475,10 +2583,14 @@ def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
     and are read from the first clause. The spec clauses
     (socket/DDR/form factor/ports) stay in attributes; WiFi/DDR markers
     ride along only to tell twins apart (EAGLE vs EAGLE WIFI6E, DS3H DDR4
-    vs DS3H)."""
+    vs DS3H).
+
+    Server boards (EPYC/Xeon-SP) have no chipset — they take a short
+    fallback instead of the full title: brand + de-dashed SKU model +
+    socket ("Gigabyte MZ73 LM0 SP5")."""
     chipset = attributes.get("chipset")
     if not isinstance(chipset, str) or not chipset.strip():
-        return None
+        return _server_board_name(group, attributes)
     chipset = chipset.strip().upper()
     # Chip vendors never make boards: an "AMD"/"Intel" hit on a motherboard
     # title is chipset bleed, not a brand (mirrors the enrich_listing rule).
@@ -2878,6 +2990,12 @@ def _case_canonical_name(group: list, attributes: dict) -> str | None:
         if _tok_drop(low, drop) or low in _COLOR_WORDS_NAME:
             prev_kept = False
             continue
+        # Bare single digits are counts in case titles ("4 Built-in 120mm
+        # fans"), never models — without this they fill the model slots
+        # and block the SKU rescue below ("4 ARGB PWM" for ATLAS-M4).
+        if re.fullmatch(r"\d", tok):
+            prev_kept = False
+            continue
         if low in ("mm", "cm", "inch", "inches"):
             prev_kept = False
             continue
@@ -2909,8 +3027,13 @@ def _case_canonical_name(group: list, attributes: dict) -> str | None:
         if len(model) >= 4:
             break
 
-    if len(model) < 2:
-        # Thin title model ("5x RGB Fans", "C8"): the SKU carries the line
+    if len(model) < 2 or (
+        # Spec-word title model ("ARGB PWM" — no digit-bearing token)
+        # with a model-like SKU ("ATLAS-M4"): the SKU names the line.
+        not any(re.search(r"\d", m) for m in model)
+        and any(re.search(r"\d", t)
+                for t in _sku_display_tokens(group))):
+        # Thin title model ("5x RGB Fans", "C8", "ARGB PWM"): the SKU
         # ("VCX200-RGB-ELITE", "C8-Aluminum-White"). Digit-bearing line
         # tokens lead ("VCX200 RGB Elite", not "RGB Elite VCX200"); colors
         # and NPS ride as themselves, not model words.
@@ -2950,14 +3073,15 @@ def _case_canonical_name(group: list, attributes: dict) -> str | None:
                 return False
             return True
 
+        # Single ordered pass: vendor SKUs are already line-leading
+        # ("ATLAS-M4", "VCX200-RGB-ELITE"), so SKU order IS model order.
+        # (An earlier two-pass version put digit-bearing tokens first and
+        # scrambled "ATLAS M4" into "M4 ATLAS".)
         for t in sku_toks:
-            if re.search(r"\d", t) and _sku_ok(t):
-                seen.add(_compact_alnum(t))
-                extra.append(_display_token(t))
-        for t in sku_toks:
-            if not re.search(r"\d", t) and _sku_ok(t):
-                seen.add(_compact_alnum(t))
-                extra.append(_display_token(t))
+            if not _sku_ok(t):
+                continue
+            seen.add(_compact_alnum(t))
+            extra.append(_display_token(t))
         # Line-leading SKU tokens ("VCX200") go first only when the title
         # left no digit-bearing model ("RGB"); otherwise ("C8") they would
         # scramble the title order ("ARGB C8").
