@@ -23,6 +23,11 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
 
+try:
+    from scraper.display_specs import build_display_specs
+except ImportError:
+    from display_specs import build_display_specs
+
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
 IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
 
@@ -147,6 +152,59 @@ def _write_json_atomic(path: Path, value: object) -> None:
         temp_path.unlink(missing_ok=True)
 
 
+# Attribute keys the browser actually consumes: checkbox filters and table
+# columns (site/src/specs.ts FILTER_ALLOWLIST/SPEC_PRIORITY), variant pills
+# (views/product.ts VARIANT_KEY_PRIORITY + VARIANT_IDENTITY_KEYS) and the
+# compatibility engine (site/src/build.ts). When a curated display_specs
+# sheet exists (scraper/display_specs.py), the raw blob is trimmed to this
+# set so data/site/*.json doesn't ship the same facts twice plus hundreds
+# of deep-trivia keys (Sep 2026: motherboard.json blew past the 1MB size
+# guard with both copies at full width). catalog.json always keeps the
+# complete blob — this trim is site-JSON only.
+_SITE_ATTR_KEYS = frozenset({
+    # identity / QA
+    "brand", "model", "mpn", "upc", "bundle_only",
+    # cpu
+    "cores", "threads", "base_clock_ghz", "boost_clock_ghz", "l2_cache",
+    "l3_cache", "tdp", "tdp_w", "socket", "generation", "tier",
+    "microarchitecture", "integrated_graphics", "smt", "ecc_support",
+    "cooler_included", "packaging", "codename", "manufacturing_process",
+    "launch", "series", "unlocked",
+    # memory / shared
+    "memory_type", "memory_slots", "memory_max", "capacity_gb", "total_gb",
+    "modules", "module_count", "module_size_gb", "speed_mhz", "cas_latency",
+    "timings", "first_word_latency_ns", "voltage", "heat_spreader",
+    "modules_height", "registered", "memory",
+    # motherboard
+    "chipset", "wifi", "wifi_standard", "lan", "usb_ports", "m2_slots",
+    "sata_ports", "pcie_x16_slots", "display_outputs", "fan_headers",
+    "raid_level",
+    # gpu
+    "gpu_chip", "gpu_vendor", "vram_gb", "interface", "pcie_gen",
+    "length_mm", "gpu_length_mm", "slot_width", "power_connections",
+    "cooling", "fan_count", "hdmi_ports", "displayport_ports", "dvi_ports",
+    "core_clock_mhz", "memory_clock_mhz", "boost_clock_mhz",
+    # storage
+    "drive_type", "drive_form_factor", "nvme", "rpm", "read", "write",
+    "cache_mb", "tbw", "nand", "controller",
+    # psu
+    "wattage", "wattage_w", "efficiency", "modular", "atx_version",
+    "fanless", "sata_connectors", "pcie_power_connectors",
+    "cpu_power_connectors",
+    # case / cooling
+    "side_panel", "power_supply", "max_gpu_length_mm",
+    "maximum_video_card_length", "supported_radiator_mm", "radiator_size_mm",
+    "cooler_height_mm", "fan_size_mm", "airflow", "noise_level", "pwm",
+    "fans_per_pack", "socket_compat", "internal_25_bays", "internal_35_bays",
+    "front_io", "external_volume_l", "dimensions", "weight",
+    # compat extras (build.ts reads these off attributes)
+    "cpu_socket", "sockets", "power_consumption", "max_power",
+    "rated_power", "total_power",
+    # generic
+    "accessory_type", "form_factor", "color", "lighting", "argb", "rgb",
+})
+
+
 def _trim_offer(offer: dict) -> dict:
     # min_price/sorting use the regular price only — promo_price is a
     # conditional side-column (whole-PC deal) and must never set the min.
@@ -185,6 +243,18 @@ def _trim_product(product: dict) -> dict:
     # Omitted when the thumb file hasn't been generated yet — callers
     # fall back to image.
     _image, _thumb = _resolve_image(product, product.get("offers", []))
+
+    # Curated spec sheet first: when present, the raw attribute blob is
+    # trimmed to the keys the browser uses (filters/columns/variants/
+    # compat) so the payload doesn't carry the full ~800-key blob plus a
+    # formatted copy of it.
+    display_specs = build_display_specs(
+        product.get("category", ""), product.get("attributes", {}))
+    attributes = product.get("attributes", {})
+    if display_specs:
+        attributes = {k: v for k, v in attributes.items()
+                      if k in _SITE_ATTR_KEYS}
+
     trimmed = {
         "id": product["product_id"],
         "name": product.get("canonical_name"),
@@ -192,7 +262,7 @@ def _trim_product(product: dict) -> dict:
         "brand": product.get("brand"),
         "model": product.get("model"),
         "image": _image,
-        "attributes": product.get("attributes", {}),
+        "attributes": attributes,
         "vendor_count": product.get("vendor_count", len(offers)),
         "min_price": min_price,
         "in_stock": any(o["in_stock"] for o in offers),
@@ -225,6 +295,12 @@ def _trim_product(product: dict) -> dict:
 
     if product.get("duplicate_vendors"):
         trimmed["duplicate_vendors"] = sorted(product["duplicate_vendors"])
+
+    # Curated spec sheet — computed at the top of this function so the raw
+    # `attributes` blob could be trimmed against it; attached here so the
+    # trimmed dict field order stays stable.
+    if display_specs:
+        trimmed["display_specs"] = display_specs
 
     return trimmed
 

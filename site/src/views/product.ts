@@ -231,18 +231,30 @@ export async function renderProduct(
   const sku = skuOf(product);
   const name = displayName(product);
 
+  // Curated spec sheet (scraper/display_specs.py) when the pipeline
+  // emitted one: already distilled, formatted and ordered — raw trivia
+  // keys never reach the card. Fallback for old data: the raw attribute
+  // blob with the historical priority/show-more split.
+  const curatedSpecs = product.display_specs ?? null;
   const orderedSpecKeys = sortSpecKeys(
     product.category,
-    Object.keys(product.attributes).filter((k) => product.attributes[k])
+    Object.keys(curatedSpecs ?? product.attributes).filter((k) =>
+      curatedSpecs ? curatedSpecs[k] : product.attributes[k]
+    )
   );
+  const specValue = (k: string): string =>
+    curatedSpecs ? curatedSpecs[k] ?? "" : attrText(product.attributes[k]);
   const prioritySet = new Set<string>(specPriority(product.category));
-  const topSpecKeys = orderedSpecKeys.filter((k) => prioritySet.has(k));
-  // Everything else (minus noise) hides behind "show more": the raw
-  // attributeLabel fallback can only appear in there, never in the
-  // curated card.
-  const moreSpecKeys = orderedSpecKeys.filter(
-    (k) => !prioritySet.has(k) && !NOISE_KEYS.has(k)
-  );
+  const topSpecKeys = curatedSpecs
+    ? orderedSpecKeys
+    : orderedSpecKeys.filter((k) => prioritySet.has(k));
+  // Everything else (minus noise) hides behind "show more" — only in
+  // fallback mode; curated sheets are already the complete readable set.
+  const moreSpecKeys = curatedSpecs
+    ? []
+    : orderedSpecKeys.filter(
+        (k) => !prioritySet.has(k) && !NOISE_KEYS.has(k)
+      );
   const referenceSpecs: Record<string, string | number | boolean> = {
     ...(product.pcpartdb?.specs ?? {}),
     ...(product.pckombo?.specs ?? {}),
@@ -254,33 +266,22 @@ export async function renderProduct(
         referenceSpecs[k] !== null &&
         referenceSpecs[k] !== undefined &&
         referenceSpecs[k] !== "" &&
-        !(k in product.attributes)
+        !(k in product.attributes) &&
+        !(curatedSpecs && k in curatedSpecs)
     )
   );
 
+  const specRowHtml = (k: string, value: unknown): string =>
+    `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(attrText(value))}</span></div>`;
+
   const specRows =
-    topSpecKeys
-      .map(
-        (k) =>
-          `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(product.attributes[k])}</span></div>`
-      )
-      .join("") +
+    topSpecKeys.map((k) => specRowHtml(k, specValue(k))).join("") +
     (moreSpecKeys.length > 0
       ? `<details class="spec-more"><summary>${esc(t(lang, "showMore"))}</summary>` +
-        moreSpecKeys
-          .map(
-            (k) =>
-              `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(product.attributes[k])}</span></div>`
-          )
-          .join("") +
+        moreSpecKeys.map((k) => specRowHtml(k, specValue(k))).join("") +
         `</details>`
       : "") +
-    referenceKeys
-      .map(
-        (k) =>
-          `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(referenceSpecs[k])}</span></div>`
-      )
-      .join("");
+    referenceKeys.map((k) => specRowHtml(k, referenceSpecs[k])).join("");
 
   const variantHtml = variantGroups
     .map(

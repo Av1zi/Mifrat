@@ -46,6 +46,13 @@ export interface Product {
   /** 128px list-thumbnail derivative of image (list rows use this). */
   thumb?: string | null;
   attributes: Record<string, string>;
+  /**
+   * Curated spec sheet for the product page (scraper/display_specs.py):
+   * the raw attribute blob above distilled into readable, ordered rows.
+   * Filters/table columns/compat keep using `attributes`; this is purely
+   * the human-facing view.
+   */
+  display_specs?: Record<string, string>;
   vendor_count: number;
   min_price: number | null;
   in_stock: boolean;

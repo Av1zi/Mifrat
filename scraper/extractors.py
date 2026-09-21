@@ -397,7 +397,25 @@ DETAIL_KEY_BLACKLIST = frozenset({
 })
 # NOTE: folded dupe keys (cas/colour/capacitygb/...) are NOT blacklisted —
 # _sanitize_detail_pair lets them through and the post-process in
-# extract_attributes folds them into their canonical target, so detail
+# extract_attributes folds them into their canonical target
+
+# Brand/chipset words that mark a detail key as a product-model echo
+# (row label split on the wrong cell: "ASUS Prime B550M-K | SKU" ->
+# asus_prime_b550m_k_sku, "AMD X870E" -> x870e). Real spec rows never
+# carry these words in their KEY; checked per underscore token.
+_MODEL_NOISE_TOKENS = frozenset({
+    "asus", "gigabyte", "msi", "asrock", "biostar", "arktek", "afox",
+    "supermicro", "prime", "aorus", "rog", "strix", "tuf", "proart",
+    "a320", "b350", "x370", "a520", "b450", "x470", "b550", "x570",
+    "x570s", "a620", "b650", "b650e", "x670", "x670e", "x870", "x870e",
+    "b840", "b850", "trx50", "wrx90", "h110", "b150", "h170", "z170",
+    "b250", "h270", "z270", "h310", "b360", "h370", "z370", "b365",
+    "z390", "h410", "b460", "h470", "z490", "w480", "h510", "b560",
+    "h570", "z590", "h610", "b660", "h670", "z690", "h770", "b760",
+    "z790", "h810", "b860", "z890", "w680", "w790", "intel",
+})
+# extract_attributes folds dupe keys (cas/colour/capacitygb/...) into their
+# canonical target, so detail
 # values like "CAS-Latency CL: 11" still land on cas_latency.
 
 # Placeholder cell values — the vendor explicitly says "no data".
@@ -631,6 +649,27 @@ def _sanitize_detail_pair(raw_key, raw_value, vendor=None):
         if not key:
             return None
         if key in DETAIL_KEY_BLACKLIST:
+            return None
+        # Wild label shapes that are never real specs (Sep 2026): the
+        # Plonter detail table's German rows decompose into garbage keys
+        # that used to flow straight into the attributes blob and onto the
+        # product page's "show more" section:
+        # - product-model echoes ("ASUS Prime B550M-K | SKU" ->
+        #   asus_prime_b550m_k_sku, "x870e", "intel") — the label parser
+        #   split on the wrong cell and kept the board's own name;
+        # - truncated connector rows ("USB 3.0)" -> usb_3_0) whose real
+        #   text lives in the complete key variants;
+        # - bare digits ("1x" -> x1) — the leftover of "1x PCIe 3.0"
+        #   rows whose connector word was eaten by the label cell.
+        # These carry no filter/display value (display_specs.py distills
+        # the real connector rows into readable aggregates), so they are
+        # dropped here at the source.
+        if any(t in _MODEL_NOISE_TOKENS for t in key.split("_")):
+            return None
+        if re.fullmatch(r"x\d+", key):
+            return None
+        if re.fullmatch(r"(usb|sata|displayport|hdmi|pcie|lan|sas|s_pdif)"
+                        r"_[\d_]+", key):
             return None
         key = DETAIL_KEY_ALIASES.get(key, key)
 
@@ -3112,6 +3151,20 @@ def _canonicalize_filter_values(attrs: dict, category: str) -> None:
         m = re.match(r"\s*(\d+)\s?W\b", tdp)
         if m:
             attrs["tdp"] = f"{m.group(1)}W"
+
+    # Wi-Fi standard: "WIFI7"/"wifi 6e" -> "Wi-Fi 7"/"Wi-Fi 6E" so the
+    # filter rail and spec card show one human spelling (Sep 2026: the raw
+    # Plonter forms leaked into both).
+    wstd = attrs.get("wifi_standard")
+    if isinstance(wstd, str):
+        wm = re.match(r"(?i)^\s*wi-?fi\s?(\d)\s?(e)?\s*$", wstd)
+        if wm:
+            attrs["wifi_standard"] = (
+                f"Wi-Fi {wm.group(1)}{'E' if wm.group(2) else ''}")
+
+    # Form factor: "EATX"/"mATX" style canonicalization already lives
+    # further down in this function (the `flu in ("matx", ...)` block);
+    # no second pass needed here.
 
     # Efficiency: "GOLD" -> "80 PLUS Gold", "80PLUS[ Gold]" -> "80 PLUS[ Gold]".
     # Bare "GOLD" in a PSU title/detail row means 80 PLUS Gold (the metal
