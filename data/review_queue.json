@@ -1125,6 +1125,17 @@
     "score": 95,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "plonter:100-000000931",
+    "listing_b": "plonter:100-000001237",
+    "title_a": "AMD Ryzen 5 8500G  6 Core/12 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.0GHz - Radeon 740M GPU - 65W TDP - Tray",
+    "title_b": "AMD Ryzen 5 8600G  6 Core/12 Threads - Base Clock: 4.3GHz - Max Boost Clock: 5.0GHz - Radeon 760M GPU - 65W TDP - Tray",
+    "match_text_a": "100-000000931 AMD Ryzen 5 8500G 6 Core/12 Threads - Base Clock 4.3GHz - Max Boost Clock 5.0GHz - Radeon 740M GPU - 65W TDP - Tray",
+    "match_text_b": "100-000001237 AMD Ryzen 5 8600G 6 Core/12 Threads - Base Clock 4.3GHz - Max Boost Clock 5.0GHz - Radeon 760M GPU - 65W TDP - Tray"
+  },
+  {
+    "score": 95,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000001142",
     "listing_b": "plonter:100-000001144",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9555 - 64/128 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
