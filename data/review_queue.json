@@ -7,7 +7,7 @@
     "listing_b": "tms:C8",
     "title_a": "Antec C8 Case.",
     "title_b": "מארז מחשב Antec C8",
-    "match_text_a": "157901 Antec C8 Case.",
+    "match_text_a": "C8 Antec C8 Case.",
     "match_text_b": "C8 Antec C8"
   },
   {
@@ -53,28 +53,6 @@
     "title_b": "מארז מחשב Antec C8",
     "match_text_a": "C8WOOD Antec C8 Wood computer case.",
     "match_text_b": "C8 Antec C8"
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:171576",
-    "listing_b": "1pc:171578",
-    "title_a": "Antec FLUX PRO computer case.",
-    "title_b": "Antec FLUX computer case.",
-    "match_text_a": "171576 Antec FLUX PRO computer case.",
-    "match_text_b": "FLUX Antec FLUX computer case."
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:171576",
-    "listing_b": "tms:FLUX",
-    "title_a": "Antec FLUX PRO computer case.",
-    "title_b": "מארז מחשב Antec FLUX",
-    "match_text_a": "171576 Antec FLUX PRO computer case.",
-    "match_text_b": "FLUX Antec FLUX"
   },
   {
     "score": 100,
@@ -7294,17 +7272,6 @@
   },
   {
     "score": 90,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:105384",
-    "listing_b": "tms:NE850PLATINUM",
-    "title_a": "Antec ANTEC PSU 850W NE850 NeoECO Platinum Modular NE850PLATINUM",
-    "title_b": "ANTEC PSU 850W NE850 NeoECO ATX3.1 Platinum Full Modular",
-    "match_text_a": "105384 Antec ANTEC PSU 850W NE850 NeoECO Platinum Modular NE850PLATINUM",
-    "match_text_b": "NE850PLATINUM ANTEC PSU 850W NE850 NeoECO ATX3.1 Platinum Full Modular"
-  },
-  {
-    "score": 90,
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "plonter:B860M-AORUS-ELITE-WIFI6E-ICE",
@@ -7984,17 +7951,6 @@
     "title_b": "Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX",
     "match_text_a": "B860M-AORUS-ELITE-WIFI6E-ICE B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX",
     "match_text_b": "Z890-AORUS-ELITE-WIFI7-ICE Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX"
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:171575",
-    "listing_b": "1pc:171576",
-    "title_a": "Antec FLUX PRO White computer case.",
-    "title_b": "Antec FLUX PRO computer case.",
-    "match_text_a": "FLUX-PRO-W Antec FLUX PRO White computer case.",
-    "match_text_b": "171576 Antec FLUX PRO computer case."
   },
   {
     "score": 89,
@@ -10115,6 +10071,30 @@
         "vendor_sku": "NE850GM-ATX3.0",
         "title": "ANTEC PSU 850W NE850G M (ATX 3.0) NeoECO Gold Modular",
         "price": 525
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
+    "product_id": "mpn:psu:ne850platinum",
+    "category": "psu",
+    "vendor": "",
+    "titles": [
+      "ANTEC PSU 850W NE850 NeoECO ATX3.1 Platinum Full Modular",
+      "Antec ANTEC PSU 850W NE850 NeoECO Platinum Modular NE850PLATINUM"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:105384",
+        "vendor_sku": "NE850PLATINUM",
+        "title": "Antec ANTEC PSU 850W NE850 NeoECO Platinum Modular NE850PLATINUM",
+        "price": 519
+      },
+      {
+        "listing_key": "tms:NE850PLATINUM",
+        "vendor_sku": "NE850PLATINUM",
+        "title": "ANTEC PSU 850W NE850 NeoECO ATX3.1 Platinum Full Modular",
+        "price": 481
       }
     ]
   },
