@@ -89,6 +89,17 @@
   },
   {
     "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:178028",
+    "listing_b": "tms:C245T",
+    "title_a": "Intel Core Ultra 5 245 / 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 5 245 / 1851 Tray",
+    "match_text_a": "C245T Intel Core Ultra 5 245 / 1851 Tray processor.",
+    "match_text_b": "C245T Intel Core Ultra 5 245 / 1851 Tray"
+  },
+  {
+    "score": 100,
     "category": "case",
     "brand": "Antec",
     "listing_a": "1pc:157901",
@@ -548,39 +559,6 @@
     "title_b": "B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX",
     "match_text_a": "B860M-AORUS-ELITE-WIFI6E B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX",
     "match_text_b": "B860M-AORUS-ELITE-WIFI6E-ICE B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX"
-  },
-  {
-    "score": 97,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:189653",
-    "listing_b": "tms:C225T",
-    "title_a": "Intel Core Ultra 5 225 1851 Tray processor.",
-    "title_b": "Intel Core Ultra 5 225 / 1851 Tray",
-    "match_text_a": "C225T Intel Core Ultra 5 225 1851 Tray processor.",
-    "match_text_b": "C225T Intel Core Ultra 5 225 / 1851 Tray"
-  },
-  {
-    "score": 97,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:189659",
-    "listing_b": "tms:C285T",
-    "title_a": "Intel Core Ultra 9 285 1851 Tray processor.",
-    "title_b": "Intel Core Ultra 9 285 / 1851 Tray",
-    "match_text_a": "C285T Intel Core Ultra 9 285 1851 Tray processor.",
-    "match_text_b": "C285T Intel Core Ultra 9 285 / 1851 Tray"
-  },
-  {
-    "score": 97,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:218557",
-    "listing_b": "tms:C225FB",
-    "title_a": "Intel Core Ultra 5 225F 1851 Box processor.",
-    "title_b": "Intel Core Ultra 5 225F / 1851 Box",
-    "match_text_a": "C225FB Intel Core Ultra 5 225F 1851 Box processor.",
-    "match_text_b": "C225FB Intel Core Ultra 5 225F / 1851 Box"
   },
   {
     "score": 97,
@@ -6752,17 +6730,6 @@
     "title_b": "B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX",
     "match_text_a": "B860M-AORUS-ELITE-WIFI6E-ICE B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX",
     "match_text_b": "B860M-DS3H-WIFI6E B860 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - mATX"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:197601",
-    "listing_b": "tms:C285B",
-    "title_a": "Intel® Core™ Ultra 9 285 processor, 15th generation, socket 1851 BOX.",
-    "title_b": "Intel Core Ultra 9 285 / 1851 Box",
-    "match_text_a": "C285B Intel Core Ultra 9 285 processor 15th generation socket 1851 BOX.",
-    "match_text_b": "C285B Intel Core Ultra 9 285 / 1851 Box"
   },
   {
     "score": 91,
