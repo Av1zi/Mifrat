@@ -16,7 +16,14 @@ import {
   vendorLabel,
   vendorsCount,
 } from "../i18n";
-import { filterAllowlist, sortSpecKeys } from "../specs";
+import {
+  filterableSpecs,
+  formatSpecValue,
+  isNumericSpec,
+  specFieldMap,
+  specFields,
+  specValue,
+} from "../specs";
 import {
   addToBuild,
   buildHash,
@@ -36,127 +43,20 @@ import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
 
-const ATTR_PRIORITY = [
-  "brand",
-  "socket",
-  "chipset",
-  "memory_type",
-  "form_factor",
-  "color",
-  "wifi",
-  "vendor",
-];
-
-const NUMERIC_ATTRS = new Set([
-  "price",
-  "cores",
-  "threads",
-  "cache_mb",
-  "base_clock_ghz",
-  "boost_clock_ghz",
-  "tdp",
-  "tdp_w",
-  "vram_gb",
-  "wattage_w",
-  "wattage",
-  "capacity_gb",
-  "rpm",
-  "cooler_height_mm",
-  "radiator_size_mm",
-  "fan_size_mm",
-  "gpu_length_mm",
-  "length_mm",
-  "memory_clock_mhz",
-  "speed_mhz",
-  "cas_latency",
-  "pcie_gen",
-  "l2_cache",
-  "l3_cache",
-  "first_word_latency_ns",
-  "memory_max",
-  "max_gpu_length_mm",
-  "m2_slots",
-]);
-
 const MAX_SPEC_COLUMNS = 4;
 
-// pcpartdb foreign key -> our canonical attribute key, for DISPLAY ONLY.
-// The product page already appends these specs with a "reference" warning
-// (views/product.ts), but this table only read `attributes`, so columns
-// whose values mostly come from the dataset rendered as dashes. A cell
-// may now fall back to the reference value, visibly marked (spec-ref).
-//
-// Deliberately never merged into attributes: pcpartdb matches are fuzzy
-// (a 9070 XT once matched "RX 7900 XT" at 95.2), so reference values must
-// stay out of filters, variant signatures, and compat checks — cells only.
-// Keys with no canonical equivalent (case "type" is tower size, not our
-// board-size form_factor) are left out.
-const PCPARTDB_DISPLAY_MAP: Record<string, string> = {
-  core_count: "cores",
-  core_clock: "base_clock_ghz",
-  boost_clock: "boost_clock_ghz",
-  microarchitecture: "microarchitecture",
-  tdp: "tdp",
-  graphics: "integrated_graphics",
-  chipset: "gpu_chip",
-  memory: "vram_gb",
-  color: "color",
-  length: "length_mm",
-  size: "fan_size_mm",
-  rpm: "rpm",
-  airflow: "airflow",
-  noise_level: "noise_level",
-  pwm: "pwm",
-  side_panel: "side_panel",
-};
-
-/** Render a raw dataset value in our canonical display shape. */
-function formatRefValue(canonKey: string, raw: unknown, lang: Lang): string {
-  if (typeof raw === "boolean") return raw ? t(lang, "yesLabel") : t(lang, "noLabel");
-  if (Array.isArray(raw)) {
-    const parts = raw.map((v) => String(v));
-    const range =
-      parts.length > 1
-        ? `${parts[0]}-${parts[parts.length - 1]}`
-        : (parts[0] ?? "");
-    if (!range) return "";
-    if (canonKey === "airflow") return `${range} CFM`;
-    if (canonKey === "noise_level") return `${range} dB`;
-    return range;
-  }
-  if (typeof raw === "number") {
-    if (canonKey === "base_clock_ghz" || canonKey === "boost_clock_ghz") {
-      // Mixed units upstream: GPU clocks arrive as MHz ints (2000),
-      // CPU clocks as GHz floats (5.7).
-      const ghz = raw >= 100 ? raw / 1000 : raw;
-      return String(Math.round(ghz * 1000) / 1000);
-    }
-    if (canonKey === "tdp") return `${raw}W`;
-    return String(raw);
-  }
-  if (typeof raw === "string") {
-    if (canonKey === "tdp" && /^\d+(\.\d+)?$/.test(raw.trim())) {
-      return `${raw.trim()}W`;
-    }
-    return raw;
-  }
-  return "";
+/**
+ * Canonical (lang-independent) text of one typed spec value — the filter key
+ * and checkbox value, so URL params, strict equality and labels agree.
+ * Booleans render as Yes/No, as the legacy attributes view always did.
+ */
+function canonicalSpecText(product: Product, field: string): string {
+  return formatSpecValue(specValue(product, field), "en");
 }
 
-/** Table cell value: scraped attribute first, marked reference fallback. */
-function cellSpec(p: Product, key: string, lang: Lang): { text: string; ref: boolean } {
-  const own = p.attributes[key];
-  if (own !== undefined && own !== null && own !== "") {
-    return { text: String(own), ref: false };
-  }
-  const specs = p.pcpartdb?.specs ?? {};
-  for (const [foreign, raw] of Object.entries(specs)) {
-    if (PCPARTDB_DISPLAY_MAP[foreign] !== key) continue;
-    if (raw === null || raw === undefined || raw === "") continue;
-    const text = formatRefValue(key, raw, lang);
-    if (text) return { text, ref: true };
-  }
-  return { text: "", ref: false };
+/** Localized display text for a table cell ("" when unknown). */
+function specCellText(product: Product, field: string, lang: Lang): string {
+  return formatSpecValue(specValue(product, field), lang);
 }
 
 // Minimum share of products that must carry a key before it becomes a
@@ -168,81 +68,47 @@ function computeFilterableAttributes(
   products: Product[],
   category: string
 ): Map<string, Array<[string, number]>> {
-  const allowlist = filterAllowlist(category);
+  const fields = specFieldMap(category);
   const counts = new Map<string, Map<string, number>>();
-  const numericRanges = new Map<string, { min: number; max: number }>();
 
+  // Schema order IS rail order (fields are grouped identity -> core ->
+  // power -> physical -> io), so there is no separate priority list. Only
+  // fields the schema flags `filterable` become checkbox filters.
   for (const p of products) {
-    for (const [key, rawValue] of Object.entries(p.attributes)) {
-      if (rawValue === undefined || rawValue === null || rawValue === "") continue;
-      // Attribute values arrive as mixed ints/strings across vendors
-      // (m2_slots: 2 vs "2"). Stringify once so checkbox values, URL
-      // params and strict-equality matching all speak one type.
-      const value = String(rawValue);
-
-      if (!counts.has(key)) counts.set(key, new Map());
-      const values = counts.get(key)!;
-      values.set(value, (values.get(value) ?? 0) + 1);
-
-      if (NUMERIC_ATTRS.has(key)) {
-        const num = parseNumericAttr(value);
-        if (num !== null) {
-          const range = numericRanges.get(key) ?? { min: Infinity, max: -Infinity };
-          range.min = Math.min(range.min, num);
-          range.max = Math.max(range.max, num);
-          numericRanges.set(key, range);
-        }
+    for (const field of filterableSpecs(category)) {
+      // Numeric fields become range sliders, never checkbox groups.
+      if (isNumericSpec(fields.get(field))) continue;
+      const value = canonicalSpecText(p, field);
+      if (!value) continue;
+      let values = counts.get(field);
+      if (!values) {
+        values = new Map();
+        counts.set(field, values);
       }
+      values.set(value, (values.get(value) ?? 0) + 1);
     }
 
     const vendors = new Set(p.offers.map((o) => o.vendor));
+    if (vendors.size > 0 && !counts.has("vendor")) counts.set("vendor", new Map());
     for (const v of vendors) {
-      if (!counts.has("vendor")) counts.set("vendor", new Map());
       const values = counts.get("vendor")!;
       values.set(v, (values.get(v) ?? 0) + 1);
-    }
-
-    if (p.min_price !== null) {
-      const range = numericRanges.get("price") ?? { min: Infinity, max: -Infinity };
-      range.min = Math.min(range.min, p.min_price);
-      range.max = Math.max(range.max, p.min_price);
-      numericRanges.set("price", range);
     }
   }
 
   const filterable = new Map<string, Array<[string, number]>>();
-
   for (const [key, values] of counts) {
-    // Curated filters per category: only allowlisted keys (plus vendor)
-    // become checkbox filters. Deep-trivia keys (mosfet phases, exact
-    // port counts) stay visible on the product page but never clutter the
-    // rail. Categories without a curated list keep the old behavior.
-    if (key !== "vendor" && allowlist && !allowlist.includes(key)) continue;
-
     // Genuine chipset/GPU-chip variety runs past 40 options; long lists
     // collapse behind Show more anyway, so the cap only needs to stop
-    // runaway free-text keys (which the allowlist already excludes).
+    // runaway free-text keys (which the schema's filterable flag excludes).
     const maxValues = key === "vendor" ? 30 : 70;
     if (values.size < 2 || values.size > maxValues) continue;
-
     filterable.set(
       key,
       Array.from(values.entries()).sort((a, b) => b[1] - a[1])
     );
   }
-
-  const orderedKeys = Array.from(filterable.keys()).sort((a, b) => {
-    const ai = ATTR_PRIORITY.indexOf(a);
-    const bi = ATTR_PRIORITY.indexOf(b);
-
-    if (ai === -1 && bi === -1) return a.localeCompare(b);
-    if (ai === -1) return 1;
-    if (bi === -1) return -1;
-
-    return ai - bi;
-  });
-
-  return new Map(orderedKeys.map((k) => [k, filterable.get(k)!]));
+  return filterable;
 }
 
 // Memo for computeFilterableAttributes below: rail rebuilds are the
@@ -275,30 +141,25 @@ function memoizedFilterableAttributes(
   return result;
 }
 
-function parseNumericAttr(value: string | undefined): number | null {
-  if (!value) return null;
-  const m = /(\d+(?:\.\d+)?)/.exec(value);
-  return m ? parseFloat(m[1]) : null;
-}
-
 function computeNumericRanges(
-  products: Product[]
+  products: Product[],
+  category: string
 ): Map<string, { min: number; max: number }> {
+  const fields = specFieldMap(category);
+  // Filterable numeric fields become range sliders (schema order).
+  const numericFields = filterableSpecs(category).filter((field) =>
+    isNumericSpec(fields.get(field))
+  );
   const numericRanges = new Map<string, { min: number; max: number }>();
 
   for (const p of products) {
-    for (const [key, value] of Object.entries(p.attributes)) {
-      if (!value) continue;
-
-      if (NUMERIC_ATTRS.has(key)) {
-        const num = parseNumericAttr(value);
-        if (num !== null) {
-          const range = numericRanges.get(key) ?? { min: Infinity, max: -Infinity };
-          range.min = Math.min(range.min, num);
-          range.max = Math.max(range.max, num);
-          numericRanges.set(key, range);
-        }
-      }
+    for (const field of numericFields) {
+      const value = specValue(p, field);
+      if (typeof value !== "number" || !Number.isFinite(value)) continue;
+      const range = numericRanges.get(field) ?? { min: Infinity, max: -Infinity };
+      range.min = Math.min(range.min, value);
+      range.max = Math.max(range.max, value);
+      numericRanges.set(field, range);
     }
 
     if (p.min_price !== null) {
@@ -328,9 +189,9 @@ function applyFilters(
     if (params.stockOnly && !p.in_stock) return false;
 
     if (q) {
-      // Display-only extension: SKU/MPN join the name haystack. Filter
-      // logic (attribute checkboxes/ranges) is untouched.
-      const mpn = p.attributes["mpn"] ?? p.pckombo?.mpn ?? "";
+      // Display-only extension: SKU/MPN join the name haystack.
+      const partNumbers = specValue(p, "part_numbers");
+      const mpn = Array.isArray(partNumbers) ? partNumbers.join(" ") : "";
       const haystack =
         `${p.name} ${p.brand ?? ""} ${p.model ?? ""} ${skuOf(p)} ${mpn}`.toLowerCase();
       if (!haystack.includes(q)) return false;
@@ -341,9 +202,8 @@ function applyFilters(
 
       if (key === "vendor") {
         if (!p.offers.some((o) => values.includes(o.vendor))) return false;
-      } else {
-        const actual = p.attributes[key];
-        if (!values.includes(actual === undefined || actual === null ? actual : String(actual))) return false;
+      } else if (!values.includes(canonicalSpecText(p, key))) {
+        return false;
       }
     }
 
@@ -358,30 +218,10 @@ function applyFilters(
   });
 }
 
-function getNumericValue(p: Product, key: string): number | null {
-  switch (key) {
-    case "price":
-      return p.min_price;
-    case "cores":
-    case "threads":
-    case "cache_mb":
-    case "base_clock_ghz":
-    case "boost_clock_ghz":
-    case "tdp":
-    case "vram_gb":
-    case "wattage_w":
-    case "capacity_gb":
-    case "rpm":
-    case "cooler_height_mm":
-    case "radiator_size_mm":
-    case "fan_size_mm":
-    case "speed_mhz":
-    case "cas_latency":
-    case "pcie_gen":
-      return parseNumericAttr(p.attributes[key]);
-    default:
-      return parseNumericAttr(p.attributes[key]);
-  }
+function getNumericValue(p: Product, field: string): number | null {
+  if (field === "price") return p.min_price;
+  const value = specValue(p, field);
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
 function sortProducts(products: Product[], sort: SortKey): Product[] {
@@ -585,29 +425,25 @@ export async function renderCategory(
   // Table columns follow the curated per-category priority (not "whatever
   // filters exist"): the important specs first, skipping keys too sparse
   // to make a useful column.
+  // Table columns follow the schema order (identity -> core -> power -> ...):
+  // the first fields with enough coverage, skipping identity columns the name
+  // cell already carries.
   const specColumns = (() => {
+    const skip = new Set(["manufacturer", "model", "part_numbers"]);
+    const candidates = specFields(category).filter((field) => !skip.has(field.name));
+    const n = Math.max(1, compatibleProducts.length);
     const coverage = new Map<string, number>();
     for (const p of compatibleProducts) {
-      for (const key of Object.keys(p.attributes)) {
-        if (p.attributes[key]) coverage.set(key, (coverage.get(key) ?? 0) + 1);
-      }
-      // Reference-backed values count toward candidacy (marked per-cell),
-      // or dataset-heavy columns would never appear at all.
-      for (const foreign of Object.keys(p.pcpartdb?.specs ?? {})) {
-        const canon = PCPARTDB_DISPLAY_MAP[foreign];
-        if (canon && (p.attributes[canon] ?? "") === "") {
-          coverage.set(canon, (coverage.get(canon) ?? 0) + 1);
+      for (const field of candidates) {
+        if (canonicalSpecText(p, field.name)) {
+          coverage.set(field.name, (coverage.get(field.name) ?? 0) + 1);
         }
       }
     }
-    const n = Math.max(1, compatibleProducts.length);
-    const candidates = sortSpecKeys(
-      category,
-      Array.from(coverage.keys()).filter(
-        (k) => k !== "brand" && k !== "model" && (coverage.get(k) ?? 0) / n >= MIN_COLUMN_COVERAGE
-      )
-    );
-    return candidates.slice(0, MAX_SPEC_COLUMNS);
+    return candidates
+      .filter((field) => (coverage.get(field.name) ?? 0) / n >= MIN_COLUMN_COVERAGE)
+      .slice(0, MAX_SPEC_COLUMNS)
+      .map((field) => field.name);
   })();
 
   const specColDefs = specColumns
@@ -831,8 +667,9 @@ export async function renderCategory(
           }
           if (key === "vendor") {
             for (const offer of p.offers) set.add(offer.vendor);
-          } else if (p.attributes[key]) {
-            set.add(String(p.attributes[key]));
+          } else {
+            const value = canonicalSpecText(p, key);
+            if (value) set.add(value);
           }
         }
       }
@@ -904,19 +741,14 @@ export async function renderCategory(
   }
 
   function rowHtml(p: Product): string {
-    const refNote = t(
-      lang,
-      p.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote"
-    );
     const specCells = specColumns
       .map((key) => {
         if (key === "vendor") {
           return `<div class="pl-cell">${esc(vendorsCount(lang, p.vendor_count))}</div>`;
         }
-        const cell = cellSpec(p, key, lang);
-        if (!cell.text) return `<div class="pl-cell spec">-</div>`;
-        if (!cell.ref) return `<div class="pl-cell spec">${esc(cell.text)}</div>`;
-        return `<div class="pl-cell spec spec-ref" title="${esc(refNote)}">${esc(cell.text)}</div>`;
+        const text = specCellText(p, key, lang);
+        if (!text) return `<div class="pl-cell spec">-</div>`;
+        return `<div class="pl-cell spec">${esc(text)}</div>`;
       })
       .join("");
 
@@ -1134,7 +966,7 @@ export async function renderCategory(
 
   function renderFilterRail(): void {
     const rail = container.querySelector("#filter-rail")!;
-    const numericRanges = computeNumericRanges(compatibleProducts);
+    const numericRanges = computeNumericRanges(compatibleProducts, category);
 
     // ---- Parts List card: live builder totals, hidden when empty ----
     let buildSum = 0;
@@ -1210,8 +1042,9 @@ export async function renderCategory(
           }
           if (key === "vendor") {
             for (const offer of p.offers) set.add(offer.vendor);
-          } else if (p.attributes[key]) {
-            set.add(String(p.attributes[key]));
+          } else {
+            const value = canonicalSpecText(p, key);
+            if (value) set.add(value);
           }
         }
       }
@@ -1259,8 +1092,9 @@ export async function renderCategory(
     `;
 
     const checkboxAttrs = new Set(filterableAttrs.keys());
-    for (const key of NUMERIC_ATTRS) {
-      checkboxAttrs.delete(key);
+    const specFieldsOfCategory = specFieldMap(category);
+    for (const key of Array.from(checkboxAttrs)) {
+      if (isNumericSpec(specFieldsOfCategory.get(key))) checkboxAttrs.delete(key);
     }
     checkboxAttrs.delete("price");
     checkboxAttrs.delete("vendor");
@@ -1330,7 +1164,6 @@ export async function renderCategory(
 
     for (const [key, range] of numericRanges) {
       if (key === "price") continue;
-      if (!NUMERIC_ATTRS.has(key)) continue;
 
       const label = attributeLabel(key, lang);
       const span = range.max - range.min;

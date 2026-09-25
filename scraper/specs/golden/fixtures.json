@@ -1,0 +1,215 @@
+{
+  "_comment": [
+    "Hand-verified spec fixtures for the typed spec system (plan Phase 5).",
+    "Each case names a real product id in data/catalog.json and the values the",
+    "pipeline MUST produce. check_golden.py asserts them after a normalize run.",
+    "",
+    "expect            — asserted always (title/vendor-sourced, deterministic).",
+    "expect_reference  — asserted only when the optional pcpartdb reference",
+    "                    index exists (data/pcpartdb/index.json is a rebuilt,",
+    "                    git-ignored cache; without it Tier 0 is off by design).",
+    "expect_null       — fields that must be UNKNOWN (null/absent). This is how",
+    "                    a wrong value is pinned as a regression: e.g. an air",
+    "                    cooler must never claim water_cooled/radiator_size_mm.",
+    "Values are in the schema's canonical unit (units live in the field name)."
+  ],
+  "schema_version": 1,
+  "cases": [
+    {
+      "product_id": "model:cpu:ryzen79800x3d-tray",
+      "category": "cpu",
+      "name": "AMD Ryzen 7 9800X3D Tray",
+      "expect": {
+        "manufacturer": "AMD",
+        "model": "Ryzen 7 9800X3D",
+        "socket": "AM5",
+        "thread_count": 16,
+        "packaging": "tray",
+        "series": "Ryzen 7",
+        "smt": true,
+        "unlocked": true,
+        "includes_cooler": false,
+        "max_memory_gb": 192,
+        "lithography_nm": 4,
+        "l2_cache_mb": 8
+      },
+      "expect_reference": {
+        "core_count": 8,
+        "base_clock_ghz": 4.7,
+        "boost_clock_ghz": 5.2,
+        "tdp_w": 120,
+        "microarchitecture": "Zen 5",
+        "integrated_graphics": "Radeon"
+      }
+    },
+    {
+      "product_id": "model:cpu:ryzen77800x3d-tray",
+      "category": "cpu",
+      "name": "AMD Ryzen 7 7800X3D Tray",
+      "expect": {
+        "manufacturer": "AMD",
+        "model": "Ryzen 7 7800X3D",
+        "socket": "AM5",
+        "packaging": "tray",
+        "includes_cooler": false,
+        "part_numbers": ["100-000000910"],
+        "series": "Ryzen 7",
+        "smt": true,
+        "unlocked": true,
+        "max_memory_gb": 192,
+        "lithography_nm": 5,
+        "l2_cache_mb": 8
+      },
+      "expect_reference": {
+        "core_count": 8,
+        "base_clock_ghz": 4.2,
+        "boost_clock_ghz": 5.0,
+        "tdp_w": 120,
+        "microarchitecture": "Zen 4"
+      }
+    },
+    {
+      "product_id": "mpn:storage:mzv9p2t0bw",
+      "category": "storage",
+      "name": "Samsung 2TB 990 PRO NVMe M.2 SSD",
+      "expect": {
+        "manufacturer": "Samsung",
+        "capacity_gb": 2000,
+        "type": "SSD",
+        "nvme": true,
+        "pcie_gen": 4,
+        "part_numbers": ["MZ-V9P2T0BW"]
+      },
+      "expect_reference": {
+        "form_factor": "M.2-2280",
+        "interface": "M.2 PCIe 4.0 x4"
+      }
+    },
+    {
+      "product_id": "mpn:storage:mzv9p1t0bw",
+      "category": "storage",
+      "name": "Samsung 1TB 990 PRO NVMe M.2 SSD",
+      "expect": {
+        "manufacturer": "Samsung",
+        "capacity_gb": 1000,
+        "type": "SSD",
+        "nvme": true,
+        "pcie_gen": 4,
+        "part_numbers": ["MZ-V9P1T0BW"]
+      }
+    },
+    {
+      "product_id": "mpn:memory:6000j2836g16gx2fx5",
+      "category": "memory",
+      "name": "G.Skill Flare X5 DDR5 32GB (2x16GB) 6000MHz CL28",
+      "expect": {
+        "manufacturer": "G.Skill",
+        "memory_type": "DDR5",
+        "speed": "DDR5-6000",
+        "speed_mhz": 6000,
+        "module_count": 2,
+        "module_size_gb": 16,
+        "total_gb": 32,
+        "cas_latency": 28,
+        "part_numbers": ["6000J2836G16GX2-FX5"]
+      }
+    },
+    {
+      "product_id": "mpn:motherboard:4711377290623",
+      "category": "motherboard",
+      "name": "MSI MAG B850 Tomahawk MAX WiFi",
+      "expect": {
+        "manufacturer": "MSI",
+        "chipset": "B850",
+        "memory_type": "DDR5",
+        "part_numbers": ["4711377290623"]
+      },
+      "expect_reference": {
+        "socket": "AM5",
+        "form_factor": "ATX",
+        "memory_slots": 4,
+        "memory_max_gb": 256
+      }
+    },
+    {
+      "product_id": "mpn:storage:49354",
+      "category": "storage",
+      "name": "Verbatim VI550 S3 2TB 2.5\" SSD",
+      "_pins": "TB -> GB scaling: the vendor cell reads '2TB', so a naive number parse shipped 2GB (and the <16GB guard then dropped it).",
+      "expect": {
+        "capacity_gb": 2000,
+        "type": "SSD"
+      }
+    },
+    {
+      "product_id": "mpn:gpu:4711377303927",
+      "category": "gpu",
+      "name": "MSI GeForce RTX 5070 12GB TRIO OC",
+      "_pins": "GPU chipset canonical form. The board rule for chipset used to reject every multi-word GPU chip, which was 87% of the catalogue.",
+      "expect": {
+        "manufacturer": "MSI",
+        "chipset": "GeForce RTX 5070",
+        "memory_gb": 12
+      }
+    },
+    {
+      "product_id": "model:cpu:threadripper7960x-tray",
+      "category": "cpu",
+      "name": "AMD Threadripper 7960X Tray",
+      "_pins": "Socket canonicalization: vendors print 'AMD STR5 (LGA4844)', which used to be dropped (or, worse, read as the package name in the parentheses).",
+      "expect": {
+        "socket": "sTR5",
+        "series": "Ryzen Threadripper",
+        "includes_cooler": false
+      }
+    },
+    {
+      "product_id": "mpn:cooler_air:a40pro",
+      "category": "cooler_air",
+      "name": "A40 PRO 92mm",
+      "_pins": "Cooler socket lists ship as vendor groupings ('1150/1151/1155/1156/1200'); each real socket must appear once, in canonical form.",
+      "expect": {
+        "sockets": ["AM4", "FM1", "FM2", "LGA775"],
+        "fan_size_mm": 92
+      }
+    },
+    {
+      "product_id": "sku:cooler_air:814256022132",
+      "category": "cooler_air",
+      "name": "Thermalright Peerless Assassin Vision MAX Black ARGB",
+      "expect": {
+        "manufacturer": "Thermalright",
+        "fan_rpm_max": 2150,
+        "height_mm": 170,
+        "lighting": "ARGB",
+        "color": "Black"
+      },
+      "expect_null": ["water_cooled", "radiator_size_mm"]
+    },
+    {
+      "product_id": "sku:cooler_air:peerlessassassin120digitalargbwhite",
+      "category": "cooler_air",
+      "name": "Peerless Assassin 120 ARGB White",
+      "expect": {
+        "fan_size_mm": 120,
+        "lighting": "ARGB"
+      }
+    },
+    {
+      "product_id": "mpn:psu:cp9020251eu",
+      "category": "psu",
+      "name": "Corsair RM750x SHIFT 80 PLUS Gold Fully Modular ATX",
+      "expect": {
+        "part_numbers": ["CP9020251EU"],
+        "type": "ATX",
+        "efficiency": "80+ Gold",
+        "modular": "full",
+        "atx_version": "ATX 3.0",
+        "pcie16_connectors": 1
+      },
+      "expect_reference": {
+        "wattage_w": 750
+      }
+    }
+  ]
+}

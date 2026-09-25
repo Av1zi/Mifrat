@@ -34,7 +34,7 @@ try:
         mpn_affix_related,
         suggest_fuzzy_matches,
     )
-    from scraper.extractors import extract_attributes
+    from scraper.specs import build_product_specs, extract_attributes
     from scraper.site_data import write_site_data
     from scraper.build_price_history import build_price_history
 except ImportError:
@@ -49,7 +49,7 @@ except ImportError:
         mpn_affix_related,
         suggest_fuzzy_matches,
     )
-    from extractors import extract_attributes
+    from specs import build_product_specs, extract_attributes
     from site_data import write_site_data
     from build_price_history import build_price_history
 
@@ -353,6 +353,12 @@ def build_catalog(today: datetime):
     for e in enriched:
         e["product_id"] = assignments.get(e["listing_key"])
 
+    # Specs: merge every offer's typed facts with the Tier-0 reference data,
+    # manual overrides and cross-field validation, then re-derive the legacy
+    # `attributes` view from the merged sheet (scraper/specs/). Products end
+    # up with `specs` (fixed key set, nulls included) + `spec_sources`.
+    spec_report = build_product_specs(match_result["products"], enriched)
+
     exclude_multi_keys = {
         listing_key_value
         for listing_key_value, pid in assignments.items()
@@ -385,13 +391,13 @@ def build_catalog(today: datetime):
         "skipped_vendors": skipped_vendors,
     }
 
-    return catalog, review_queue
+    return catalog, review_queue, spec_report
 
 
 def main():
     today = datetime.now(timezone.utc)
 
-    catalog, review_queue = build_catalog(today)
+    catalog, review_queue, spec_report = build_catalog(today)
 
     DATA_DIR.mkdir(exist_ok=True)
     MANUAL_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -417,7 +423,7 @@ def main():
 
     # Sharded, client-optimized data for the static site (data/site/*.json)
     # — see scraper/site_data.py for why this is separate from catalog.json.
-    site_meta = write_site_data(catalog, SITE_DIR)
+    site_meta = write_site_data(catalog, SITE_DIR, spec_report=spec_report)
     print(
         f"[ok] wrote site data: {len(site_meta['categories'])} category files "
         f"to {SITE_DIR}"

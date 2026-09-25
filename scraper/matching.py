@@ -31,29 +31,28 @@ try:
 except ImportError:
     fuzz = None
 
+# The spec system owns attribute extraction (scraper/specs/). These names are
+# kept so the rest of this module reads exactly as before: extract_attributes()
+# now returns the DERIVED view of the typed spec sheet (specs/legacy.py), and
+# the two canonicalization helpers moved with it.
 try:
-    from scraper.extractors import extract_attributes
-    from scraper.extractors import _canonicalize_filter_values
-    from scraper.extractors import _unify_duplicate_attributes
+    from scraper.specs.api import extract_attributes
+    from scraper.specs.api import canonicalize_filter_values as _canonicalize_filter_values
+    from scraper.specs.api import unify_duplicate_attributes as _unify_duplicate_attributes
 except ImportError:
-    from extractors import extract_attributes
-    from extractors import _canonicalize_filter_values
-    from extractors import _unify_duplicate_attributes
+    from specs.api import extract_attributes
+    from specs.api import canonicalize_filter_values as _canonicalize_filter_values
+    from specs.api import unify_duplicate_attributes as _unify_duplicate_attributes
 
 # Optional: docyx/pc-part-dataset reference specs (Aug 2026, see
 # DECISIONS.md). Never required for the core pipeline — if it can't be
-# imported (or the index hasn't been built), enrich_products_with_pcpartdb()
+# imported (or the index hasn't been built), Tier 0 is skipped with a loud warning
 # below skips itself entirely and the catalog builds exactly as before.
-try:
-    from scraper.pcpartdb import find_matches as _pcpartdb_find_matches
-    from scraper.pcpartdb import load_index as _pcpartdb_load_index
-except ImportError:
-    try:
-        from pcpartdb import find_matches as _pcpartdb_find_matches
-        from pcpartdb import load_index as _pcpartdb_load_index
-    except ImportError:
-        _pcpartdb_find_matches = None
-        _pcpartdb_load_index = None
+# Reference specs (docyx/pc-part-dataset + PC Kombo) are merged into
+# `product["specs"]` by scraper/specs/build.py, which matches with a strict
+# per-category anchor cross-check. matching.py no longer attaches reference
+# data itself: a score-only fuzzy attach was exactly the wrong-spec risk the
+# spec overhaul removed.
 
 try:
     from scraper.pckombo import find_by_mpn as _pckombo_find_by_mpn
@@ -3890,53 +3889,10 @@ def normalize_cpu_legacy_attrs(attributes: dict) -> None:
 
 
 # --------------------------------------------------------------------------
-# pcpartdb reference-spec enrichment (Aug 2026, see DECISIONS.md)
-#
-# Attaches a small, separately-namespaced "pcpartdb" block to products in
-# categories the MIT-licensed docyx/pc-part-dataset covers. Deliberately
-# conservative:
-#   - Stored under its own "pcpartdb" key on the product, never merged into
-#     the vendor-derived "attributes" blob. Things like GPU length or CPU
-#     TDP are per-exact-SKU facts; a fuzzy name match is a reference figure
-#     for "a product like this", not a verified measurement of the vendor's
-#     exact listing. The site is responsible for labeling it as such.
-#   - Only attaches on a near-exact model-name match (see
-#     PCPARTDB_MATCH_THRESHOLD) — a loose match would be worse than no data.
-#   - Never raises and never required: if the index hasn't been built
-#     (missing rapidfuzz, first-time checkout, a network hiccup in CI), this
-#     silently no-ops and the core catalog is completely unaffected.
+# Reference specs (pcpartdb + PC Kombo) are merged into product[specs] by
+# scraper/specs/build.py with a strict per-category anchor cross-check.
+# See scraper/specs/README.md (Tier 0).
 # --------------------------------------------------------------------------
-
-# Our canonical category -> pcpartdb's internal category id (see
-# scraper/pcpartdb.py's PCPP_TO_OURS). Categories already well covered by
-# extractors.py's deterministic knowledge maps (motherboard, memory, psu,
-# storage) are intentionally left out here — a fuzzy dataset match would
-# only add risk, not new information, for those.
-OUR_CATEGORY_TO_PCPARTDB = {
-    "cpu": "cpu",
-    "cooler_air": "cooler",
-    "aio": "cooler",
-    "gpu": "gpu",
-    "case": "case",
-    "case_fan": "case_fan",
-    "fan_controller": "fan_controller",
-    "thermal_paste": "thermal_paste",
-}
-
-# Per-category match confidence floor. GPU physical specs vary the most
-# between AIB variants sharing similar names, so it gets the highest bar;
-# accessory categories (fan controllers, thermal paste) are low-stakes
-# informational specs, so a slightly looser bar is fine.
-PCPARTDB_MATCH_THRESHOLD = {
-    "gpu": 92,
-    "cpu": 90,
-    "case": 90,
-    "cooler_air": 90,
-    "aio": 90,
-    "case_fan": 88,
-    "fan_controller": 85,
-    "thermal_paste": 85,
-}
 
 PCKOMBO_SPEC_KEYS = {
     "Cache | Cache": "cache_mb",
@@ -3996,6 +3952,17 @@ def _scrub_float_noise(value: str) -> str:
     return re.sub(r"\d+\.\d+", _fix, value)
 
 
+# PC Kombo values carry units and the target field's unit lives in its NAME
+# ("_gb", "_mb"), so numbers must be converted, never just extracted. Without
+# this a "2 TB" drive landed as capacity_gb=2 and a "1 GB" DRAM cache as
+# cache_mb=1 — Tier-0/1 numbers that are simply wrong (Sep 2026).
+_PCKOMBO_UNIT_FACTORS: dict[str, dict[str, float]] = {
+    "capacity_gb": {"tb": 1000.0, "t": 1000.0},
+    "cache_mb": {"gb": 1000.0, "g": 1000.0},
+    "vram_gb": {"mb": 1.0 / 1000.0},
+}
+
+
 def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str | int | float]:
     """Convert PC Kombo's grouped headers into our canonical filter keys.
 
@@ -4019,106 +3986,17 @@ def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str | int | floa
             match = re.search(r"\d+(?:\.\d+)?", cleaned)
             if match:
                 num = float(match.group(0))
+                factors = _PCKOMBO_UNIT_FACTORS.get(key)
+                if factors:
+                    unit = re.search(r"[A-Za-z]+", cleaned[match.end():])
+                    if unit:
+                        num *= factors.get(unit.group(0).lower(), 1.0)
                 # Match our own parsers' types (ints for counts/sizes):
                 # a merged "395" next to our 395 would render the same
                 # but split strict-equality paths — one type per fact.
-                parsed = int(num) if num.is_integer() else round(num, 3)
+                parsed = int(num) if float(num).is_integer() else round(num, 3)
         normalized[key] = parsed
     return normalized
-
-
-def _pcpartdb_query(product: dict, category: str) -> str:
-    """
-    Build the cleanest available query text for a product.
-
-    CPU and GPU get a purpose-built query from extractors.py's already
-    clean brand/model fields (e.g. "AMD Ryzen 7 7800X3D") when available —
-    far less noisy than the raw vendor title. Everything else falls back to
-    the product's display name.
-    """
-    attrs = product.get("attributes") or {}
-
-    if category == "cpu":
-        brand = attrs.get("brand") or product.get("brand") or ""
-        model = attrs.get("model") or ""
-        combined = f"{brand} {model}".strip()
-        if combined:
-            return combined
-
-    if category == "gpu":
-        brand = product.get("brand") or ""
-        chip = attrs.get("gpu_chip") or ""
-        combined = f"{brand} {chip}".strip()
-        if combined:
-            return combined
-
-    return str(product.get("canonical_name") or "")
-
-
-def enrich_products_with_pcpartdb(products: list[dict]) -> None:
-    """
-    Mutates `products` in place, adding a `pcpartdb` block where a
-    confident match is found. See module note above for the safety
-    reasoning; this function is intentionally impossible to crash the
-    pipeline with.
-    """
-    if _pcpartdb_find_matches is None or _pcpartdb_load_index is None:
-        return
-
-    try:
-        # Touch the index once up front so a missing/unbuilt index prints
-        # exactly one warning instead of one per product.
-        _pcpartdb_load_index()
-    except Exception as exc:
-        print(f"[pcpartdb] skipping enrichment (index unavailable): {exc}", file=sys.stderr)
-        return
-
-    matched = 0
-
-    for product in products:
-        category = product.get("category")
-        if not category:
-            # No category means nothing to look up against — also happens
-            # to be what fixes the type checker's complaint below: without
-            # this guard, `category` is `str | None` and every dict lookup
-            # keyed on it (OUR_CATEGORY_TO_PCPARTDB, PCPARTDB_MATCH_THRESHOLD)
-            # and the call into _pcpartdb_query() are typed to require `str`.
-            continue
-
-        pcpp_category = OUR_CATEGORY_TO_PCPARTDB.get(category)
-        if not pcpp_category:
-            continue
-
-        query = _pcpartdb_query(product, category)
-        if not query:
-            continue
-
-        threshold = PCPARTDB_MATCH_THRESHOLD.get(category, 90)
-
-        try:
-            results = _pcpartdb_find_matches(
-                query, category=pcpp_category, threshold=threshold, limit=1
-            )
-        except Exception as exc:
-            print(f"[pcpartdb] lookup failed for {query!r}: {exc}", file=sys.stderr)
-            continue
-
-        if not results:
-            continue
-
-        score, part = results[0]
-        specs = part.get("specs") or {}
-        if not specs:
-            continue
-
-        product["pcpartdb"] = {
-            "name": part.get("name"),
-            "score": round(score, 1),
-            "specs": specs,
-        }
-        matched += 1
-
-    print(f"[pcpartdb] enriched {matched}/{len(products)} products with reference specs")
 
 
 def enrich_products_with_pckombo(products: list[dict]) -> None:
@@ -4891,7 +4769,8 @@ def match_listings(
         product["best_offer"] = choose_best_offer(offers)
         products.append(product)
 
-    enrich_products_with_pcpartdb(products)
+    # Reference specs are merged by scraper/specs/build.py (Tier 0)
+    # inside build_product_specs(); nothing to attach here anymore.
     enrich_products_with_pckombo(products)
 
     products.sort(key=lambda p: p.get("product_id", ""))

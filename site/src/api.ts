@@ -1,9 +1,12 @@
+import { SPEC_FIELDS } from "./specSchema.generated";
 import type {
   IndexRow,
   PriceHistoryFile,
   Product,
+  ProductSpecs,
   QaFile,
   SiteMeta,
+  SpecReport,
 } from "./types";
 import { safeImageUrl } from "./utils";
 
@@ -37,8 +40,29 @@ async function fetchJson<T>(path: string): Promise<T> {
   }
 }
 
+/**
+ * The site JSON elides null spec values (a motherboard carries ~30 fields and
+ * most are null; shipping them all, ~4 bytes each, is what pushed the files
+ * past the size guard). Re-expand from the generated schema so downstream code
+ * always sees the FULL, fixed per-category key set — unknown = `null`.
+ */
+function expandSpecs(category: string, specs: ProductSpecs | undefined): ProductSpecs {
+  const out: ProductSpecs = {};
+  for (const field of SPEC_FIELDS[category] ?? []) {
+    out[field.name] = specs && field.name in specs ? specs[field.name] : null;
+  }
+  // Any extra keys (shouldn't happen: one schema) are kept rather than hidden.
+  if (specs) {
+    for (const [key, value] of Object.entries(specs)) {
+      if (!(key in out)) out[key] = value;
+    }
+  }
+  return out;
+}
+
 let metaPromise: Promise<SiteMeta> | null = null;
 let qaPromise: Promise<QaFile> | null = null;
+let specReportPromise: Promise<SpecReport | null> | null = null;
 let indexPromise: Promise<IndexRow[]> | null = null;
 const categoryPromises = new Map<string, Promise<Product[]>>();
 const historyPromises = new Map<string, Promise<PriceHistoryFile | null>>();
@@ -56,6 +80,20 @@ export function loadQa(): Promise<QaFile> {
     qaPromise = fetchJson<QaFile>(`${DATA_BASE}/qa.json`);
   }
   return qaPromise;
+}
+
+/**
+ * Spec coverage dashboard for the current run (data/site/spec_report.json).
+ * Resolves null when the file is absent (an older deploy) so a page can hide
+ * the panel instead of erroring.
+ */
+export function loadSpecReport(): Promise<SpecReport | null> {
+  if (!specReportPromise) {
+    specReportPromise = fetchJson<SpecReport>(`${DATA_BASE}/spec_report.json`).catch(
+      () => null
+    );
+  }
+  return specReportPromise;
 }
 
 /**
@@ -83,7 +121,13 @@ export function loadIndex(): Promise<IndexRow[]> {
 export function loadCategory(category: string): Promise<Product[]> {
   let promise = categoryPromises.get(category);
   if (!promise) {
-    promise = fetchJson<Product[]>(`${DATA_BASE}/${category}.json`);
+    promise = fetchJson<Product[]>(`${DATA_BASE}/${category}.json`).then(
+      (products) =>
+        products.map((product) => ({
+          ...product,
+          specs: expandSpecs(product.category || category, product.specs),
+        }))
+    );
     categoryPromises.set(category, promise);
 
     // A transient failure (offline, a slow deploy mid-fetch) would

@@ -73,17 +73,25 @@ export function slotForCategory(category: string): BuildSlot | null {
   return BUILD_SLOTS.find((s) => s.categories.includes(category)) ?? null;
 }
 
-/** First number found in any of the given attributes ("650W" -> 650). */
-export function numAttr(p: Product, keys: string[]): number | null {
-  for (const key of keys) {
-    const raw = p.attributes[key];
-    if (!raw) continue;
-
-    const m = /(\d+(?:\.\d+)?)/.exec(raw);
-    if (m) return parseFloat(m[1]);
+/**
+ * Typed-spec reads. Units live in the field name (`tdp_w`, `length_mm`, ...),
+ * so these need no string parsing — the compatibility engine reads the same
+ * schema fields the pipeline writes.
+ */
+export function numSpec(p: Product, fields: string[]): number | null {
+  for (const field of fields) {
+    const value = p.specs?.[field];
+    if (typeof value === "number" && Number.isFinite(value)) return value;
   }
-
   return null;
+}
+
+/** Scalar spec as display text ("" for a missing/complex value). */
+export function specText(p: Product, field: string): string {
+  const value = p.specs?.[field];
+  if (value === null || value === undefined) return "";
+  if (typeof value === "object") return "";
+  return String(value);
 }
 
 /*
@@ -226,18 +234,16 @@ function chipsetSocketFromText(text?: string | null): string | null {
   return null;
 }
 
-function socketTokensFromAttributes(
-  p: Product,
-  keys: string[]
-): string[] {
+/** Socket tokens from typed spec fields (string or `sockets: list[str]`). */
+function socketTokensFromSpec(p: Product, fields: string[]): string[] {
   const values: string[] = [];
-
-  for (const key of keys) {
-    const raw: unknown = p.attributes[key];
-    if (raw === undefined || raw === null) continue;
-    values.push(...socketTokensFromText(String(raw)));
+  for (const field of fields) {
+    const value = p.specs?.[field];
+    if (typeof value === "string") values.push(...socketTokensFromText(value));
+    else if (Array.isArray(value)) {
+      for (const item of value) values.push(...socketTokensFromText(String(item)));
+    }
   }
-
   return unique(values);
 }
 
@@ -288,13 +294,8 @@ function inferCpuSockets(p: Product): string[] {
 }
 
 export function cpuSocketsForProduct(p: Product): string[] {
-  const fromAttrs = socketTokensFromAttributes(p, [
-    "socket",
-    "cpu_socket",
-    "sockets",
-  ]);
-
-  if (fromAttrs.length > 0) return fromAttrs;
+  const fromSpecs = socketTokensFromSpec(p, ["socket"]);
+  if (fromSpecs.length > 0) return fromSpecs;
 
   const fromText = socketTokensFromText(`${p.name} ${p.model ?? ""}`);
   if (fromText.length > 0) return fromText;
@@ -303,15 +304,10 @@ export function cpuSocketsForProduct(p: Product): string[] {
 }
 
 export function motherboardSocketsForProduct(p: Product): string[] {
-  const fromAttrs = socketTokensFromAttributes(p, [
-    "socket",
-    "cpu_socket",
-    "sockets",
-  ]);
+  const fromSpecs = socketTokensFromSpec(p, ["socket"]);
+  if (fromSpecs.length > 0) return fromSpecs;
 
-  if (fromAttrs.length > 0) return fromAttrs;
-
-  const fromChipsetAttr = chipsetSocketFromText(p.attributes.chipset);
+  const fromChipsetAttr = chipsetSocketFromText(specText(p, "chipset"));
   if (fromChipsetAttr) return [fromChipsetAttr];
 
   const fromTextChipset = chipsetSocketFromText(
@@ -324,25 +320,18 @@ export function motherboardSocketsForProduct(p: Product): string[] {
 }
 
 export function coolerSocketsForProduct(p: Product): string[] {
-  const fromAttrs = socketTokensFromAttributes(p, [
-    "socket",
-    "socket_compat",
-    "sockets",
-    "cpu_socket",
-  ]);
+  const fromSpecs = socketTokensFromSpec(p, ["sockets", "socket"]);
 
   const fromText = socketTokensFromText(`${p.name} ${p.model ?? ""}`);
 
-  return unique([...fromAttrs, ...fromText]);
+  return unique([...fromSpecs, ...fromText]);
 }
 
 export function memoryTypeForProduct(p: Product): string | null {
-  const source = [
-    p.attributes.memory_type ?? "",
-    p.attributes.memory ?? "",
-    p.name,
-    p.model ?? "",
-  ]
+  const fromSpecs = specText(p, "memory_type").match(/DDR\s?([345])/i);
+  if (fromSpecs) return `DDR${fromSpecs[1]}`;
+
+  const source = [p.name, p.model ?? ""]
     .join(" ")
     .toUpperCase();
 
@@ -355,19 +344,19 @@ function hasCommonValue(a: string[], b: string[]): boolean {
 }
 
 function gpuLengthForProduct(p: Product): number | null {
-  return numAttr(p, ["gpu_length_mm", "length_mm"]);
+  return numSpec(p, ["length_mm"]);
 }
 
 function caseMaxGpuLength(p: Product): number | null {
-  return numAttr(p, ["max_gpu_length_mm", "maximum_video_card_length"]);
+  return numSpec(p, ["max_gpu_length_mm"]);
 }
 
 function memoryCapacityGb(p: Product): number | null {
-  return numAttr(p, ["capacity_gb", "total_gb"]);
+  return numSpec(p, ["total_gb"]);
 }
 
 function boardMemoryMaxGb(p: Product): number | null {
-  return numAttr(p, ["memory_max"]);
+  return numSpec(p, ["memory_max_gb"]);
 }
 
 /** GPU too long for the case (or vice versa) when both sizes are known. */
@@ -400,23 +389,15 @@ export function knownPartWattage(slotId: string, p: Product): number {
   if (slotId === "psu") return 0;
 
   // CPU TDP is a per-model official spec (not per-SKU like GPU length), so
-  // a confident pcpartdb match (see types.ts's PcPartDbRef) is trustworthy
-  // here — and it's the only source of CPU wattage we have, since vendor
-  // titles essentially never state TDP themselves.
+  // the Tier-0 reference value merged into `specs` is trustworthy here — and
+  // it is often the only source of CPU wattage, since vendor titles rarely
+  // state TDP themselves.
   if (slotId === "cpu") {
-    const tdp = p.pcpartdb?.specs?.tdp;
-    if (typeof tdp === "number") return Math.round(tdp);
+    const tdp = numSpec(p, ["tdp_w"]);
+    if (tdp !== null) return Math.round(tdp);
   }
 
-  const watts = numAttr(p, [
-    "tdp",
-    "power",
-    "power_consumption",
-    "wattage",
-    "wattage_w",
-    "max_power",
-    "rated_power",
-  ]);
+  const watts = numSpec(p, ["tdp_w", "wattage_w"]);
 
   if (watts === null) return 0;
 
@@ -515,14 +496,7 @@ export function checkCompatibility(
   }
 
   if (psu && estWatts > 0) {
-    const capacity = numAttr(psu, [
-      "wattage_w",
-      "wattage",
-      "power",
-      "total_power",
-      "max_power",
-      "rated_power",
-    ]);
+    const capacity = numSpec(psu, ["wattage_w"]);
 
     if (capacity !== null && capacity < estWatts) {
       issues.push(
@@ -697,14 +671,7 @@ export function isProductCompatibleWithBuild(
     const estWatts = estimateWattage(parts);
 
     if (estWatts > 0) {
-      const capacity = numAttr(product, [
-        "wattage_w",
-        "wattage",
-        "power",
-        "total_power",
-        "max_power",
-        "rated_power",
-      ]);
+      const capacity = numSpec(product, ["wattage_w"]);
 
       if (capacity !== null && capacity < estWatts) {
         return false;

@@ -42,92 +42,92 @@ PCPP_TO_OURS = {
     "case": "case",
     "power-supply": "psu",
     "case-fan": "case_fan",
-    "fan-controller": "fan_controller",
-    "thermal-paste": "thermal_paste",
 }
 
-# Keep only the specs we actually care about.
-SPEC_KEYS = {
-    
-    "cpu": [
-        "core_count",
-        "core_clock",
-        "boost_clock",
-        "microarchitecture",
-        "tdp",
-        "graphics",
-        "smt",
-    ],
-    "cpu-cooler": [
-        "rpm",
-        "noise_level",
-        "color",
-        "size",
-    ],
-    "motherboard": [
-        "socket",
-        "form_factor",
-        "max_memory",
-        "memory_slots",
-        "color",
-    ],
-    "memory": [
-        "speed",
-        "modules",
-        "price_per_gb",
-        "color",
-        "first_word_latency",
-        "cas_latency",
-    ],
-    "internal-hard-drive": [
-        "capacity",
-        "price_per_gb",
-        "type",
-        "cache",
-        "form_factor",
-        "interface",
-    ],
-    "video-card": [
-        "chipset",
-        "memory",
-        "core_clock",
-        "boost_clock",
-        "color",
-        "length",
-    ],
-    "case": [
-        "type",
-        "color",
-        "psu",
-        "side_panel",
-        "external_volume",
-        "internal_35_bays",
-    ],
-    "power-supply": [
-        "type",
-        "efficiency",
-        "wattage",
-        "modular",
-        "color",
-    ],
-    "case-fan": [
-        "size",
-        "color",
-        "rpm",
-        "airflow",
-        "noise_level",
-        "pwm",
-    ],
-        "fan-controller": [
-        "channels",
-        "channel_wattage",
-        "pwm",
-        "form_factor",
-        "color",
-    ],
-    "thermal-paste": [
-        "amount",
-    ],
+# Reference spec mapping: dataset key -> (schema field, transform).
+#
+# Two facts about this dataset shape the whole mapping (verified against the
+# raw files, Sep 2026):
+#   1. It is SPARSE — 5-8 fields per category, nothing more. There are no part
+#      numbers/MPNs at all, which is why identity matching in
+#      specs/resolvers/reference.py is name-based with a hard anchor check
+#      instead of MPN-exact.
+#   2. Values arrive as bare numbers, [gen, mhz] / [count, size] pairs, bools
+#      or marketing strings ("ATX Mid Tower"), so every entry needs a small
+#      transform into the schema's unit-bearing field names.
+#
+# The mapping covers EVERY field the dataset actually carries, so Tier 0 is
+# as wide as the data allows and nothing is silently dropped.
+
+INDEX_SCHEMA_VERSION = 2
+
+SPEC_MAP: dict[str, dict[str, object]] = {
+    "cpu": {
+        "core_count": "core_count",
+        "core_clock": "base_clock_ghz",
+        "boost_clock": "boost_clock_ghz",
+        "microarchitecture": "microarchitecture",
+        "tdp": "tdp_w",
+        "graphics": "integrated_graphics",
+    },
+    "motherboard": {
+        "socket": "socket",
+        "form_factor": "form_factor",
+        "max_memory": "memory_max_gb",
+        "memory_slots": "memory_slots",
+        "color": "color",
+    },
+    "memory": {
+        "speed": "memory_speed_pair",
+        "modules": "memory_modules_pair",
+        "cas_latency": "cas_latency",
+        "first_word_latency": "first_word_latency_ns",
+        "color": "color",
+    },
+    "internal-hard-drive": {
+        "capacity": "capacity_gb",
+        "type": "type",
+        "cache": "cache_mb",
+        "form_factor": "form_factor",
+        "interface": "interface",
+    },
+    "video-card": {
+        "chipset": "chipset",
+        "memory": "memory_gb",
+        "core_clock": "core_clock_mhz",
+        "boost_clock": "boost_clock_mhz",
+        "length": "length_mm",
+        "color": "color",
+    },
+    "case": {
+        "type": "type",
+        "color": "color",
+        "psu": "psu_included",
+        "side_panel": "side_panel",
+        "external_volume": "volume_l",
+        "internal_35_bays": "drive_bays_35",
+    },
+    "power-supply": {
+        "type": "type",
+        "efficiency": "efficiency",
+        "wattage": "wattage_w",
+        "modular": "modular",
+        "color": "color",
+    },
+    "case-fan": {
+        "size": "size_mm",
+        "color": "color",
+        "rpm": "fan_rpm_pair",
+        "airflow": "range_max:airflow_cfm",
+        "noise_level": "range_max:noise_db",
+        "pwm": "pwm",
+    },
+    "cpu-cooler": {
+        "rpm": "cooler_rpm_pair",
+        "noise_level": "range_max:noise_db",
+        "color": "color",
+        "size": "cooler_size",
+    },
 }
 
 # These should never become build parts.
@@ -196,14 +196,88 @@ def cmd_refresh() -> None:
 
 
 
-def _clean_specs(slug: str, row: dict) -> dict:
-    out = {}
-    for key in SPEC_KEYS.get(slug, []):
-        value = row.get(key)
-        if value in (None, "", [], {}):
+def _range_max(value):
+    """Dataset ranges arrive as [min, max] (case fans) or a bare number."""
+    if isinstance(value, (list, tuple)) and len(value) >= 2:
+        try:
+            return max(float(value[0]), float(value[1]))
+        except (TypeError, ValueError):
+            return None
+    return value
+
+
+def _doc_to_specs(slug: str, row: dict) -> dict:
+    """Map one dataset row onto schema-named, schema-typed spec values.
+
+    Transform names are the small DSL in SPEC_MAP; anything unrecognized is
+    skipped rather than guessed. Values are still schema-checked later by
+    specs/values.coerce(), so a malformed dataset value can never reach a
+    product.
+    """
+    mapping = SPEC_MAP.get(slug) or {}
+    out: dict = {}
+
+    for key, transform in mapping.items():
+        raw = row.get(key)
+        if raw in (None, "", [], {}):
             continue
-        out[key] = value
+
+        if transform == "memory_speed_pair":
+            if isinstance(raw, (list, tuple)) and len(raw) >= 2:
+                generation, mhz = raw[0], raw[1]
+                out["memory_type"] = f"DDR{int(generation)}"
+                out["speed_mhz"] = int(mhz)
+                out["speed"] = f"DDR{int(generation)}-{int(mhz)}"
+        elif transform == "memory_modules_pair":
+            if isinstance(raw, (list, tuple)) and len(raw) >= 2:
+                count, size = int(raw[0]), int(raw[1])
+                out["module_count"] = count
+                out["module_size_gb"] = size
+                out["total_gb"] = count * size
+        elif transform == "fan_rpm_pair":
+            if isinstance(raw, (list, tuple)) and len(raw) >= 2:
+                out["rpm_min"] = int(raw[0])
+                out["rpm_max"] = int(raw[1])
+            else:
+                out["rpm_max"] = raw
+        elif transform == "cooler_rpm_pair":
+            if isinstance(raw, (list, tuple)) and len(raw) >= 2:
+                out["fan_rpm_min"] = int(raw[0])
+                out["fan_rpm_max"] = int(raw[1])
+            else:
+                out["fan_rpm_max"] = raw
+        elif transform == "cooler_size":
+            # The dataset's cooler "size" is a radiator size for AIOs and
+            # null for air coolers.
+            try:
+                size = int(raw)
+            except (TypeError, ValueError):
+                continue
+            if size >= 120:
+                out["radiator_size_mm"] = size
+                out["water_cooled"] = True
+            else:
+                out["fan_size_mm"] = size
+        elif isinstance(transform, str) and transform.startswith("range_max:"):
+            field = transform.split(":", 1)[1]
+            value = _range_max(raw)
+            if value not in (None, ""):
+                out[field] = value
+        else:
+            out[str(transform)] = True if raw is True else raw
+
+    if slug == "power-supply" and "modular" in out:
+        # False means a non-modular unit; True means fully modular.
+        out["modular"] = "full" if out["modular"] is True else "no"
+    if slug == "internal-hard-drive":
+        interface = str(out.get("interface") or "")
+        if "NVME" in interface.upper() or "PCIE" in interface.upper():
+            out["nvme"] = True
     return out
+
+
+def _clean_specs(slug: str, row: dict) -> dict:
+    return _doc_to_specs(slug, row)
 
 
 def cmd_build() -> None:
@@ -236,6 +310,10 @@ def cmd_build() -> None:
                 continue
 
             specs = _clean_specs(slug, row)
+            if not specs:
+                # Nothing usable (e.g. a row with only a price): the index
+                # exists to serve specs, so skip it instead of carrying it.
+                continue
 
             dedupe_key = (
                 ours,
@@ -277,6 +355,7 @@ def cmd_build() -> None:
     index = {
         "source": "docyx/pc-part-dataset",
         "license": "MIT",
+        "schema": INDEX_SCHEMA_VERSION,
         "counts": counts,
         "parts": parts,
     }

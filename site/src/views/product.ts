@@ -2,7 +2,14 @@ import { loadCategory, loadHistory } from "../api";
 import { slotForCategory } from "../build";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, t, vendorLabel } from "../i18n";
-import { sortSpecKeys, specPriority, VARIANT_IDENTITY_KEYS } from "../specs";
+import {
+  displaySpecFields,
+  formatSpecValue,
+  specPriority,
+  specValue,
+  VARIANT_IDENTITY_KEYS,
+  VARIANT_KEY_PRIORITY,
+} from "../specs";
 import {
   addToBuild,
   buildHash,
@@ -13,41 +20,16 @@ import {
   productHash,
   setStoredBuild,
 } from "../state";
-import type { Currency, Lang, Product } from "../types";
+import type { Currency, Lang, Product, SpecValue } from "../types";
 import { displayName, errorPanel, esc, safeImageUrl, safeUrl, skuOf } from "../utils";
 import { icon } from "../icons";
 
-// Attribute keys that make good "series" variant groups (PCPP's
-// "Wattage: 850 W / 750 W / 1000 W" pills), most useful first. Only keys
-// the pipeline actually emits — folded-away twins (tdp_w, total_gb,
-// capacity, memory, speed, type) never match anything and only dilute
-// signatures.
-const VARIANT_KEY_PRIORITY = [
-  "wattage_w",
-  "tdp",
-  "capacity_gb",
-  "vram_gb",
-  "speed_mhz",
-  "cores",
-  "packaging",
-  "length_mm",
-  "color",
-  "form_factor",
-  "memory_type",
-  "efficiency",
-  "modular",
-];
-
+/** Schema fields with no discriminating power for similarity scoring. */
 const NOISE_KEYS = new Set([
-  "brand",
+  "manufacturer",
   "model",
-  "vendor",
-  "mpn",
-  "upc",
+  "part_numbers",
   "packaging",
-  "bundle_only",
-  "clearance_item",
-  "revision",
 ]);
 
 interface VariantGroup {
@@ -55,9 +37,12 @@ interface VariantGroup {
   values: Array<{ value: string; productId: string; active: boolean }>;
 }
 
-/** Scraped attribute values arrive as mixed ints/strings/bools. */
-function attrText(value: unknown): string {
+/** Lang-independent text form of a typed spec value (for comparisons). */
+function rawText(value: SpecValue | undefined): string {
   if (value === undefined || value === null) return "";
+  if (typeof value === "boolean") return value ? "yes" : "no";
+  if (Array.isArray(value)) return value.join(", ");
+  if (typeof value === "object") return JSON.stringify(value);
   return String(value);
 }
 
@@ -73,14 +58,14 @@ function computeVariantGroups(
   if (!product.model) return [];
   const identityKeys = VARIANT_IDENTITY_KEYS[product.category] ?? [];
   for (const k of identityKeys) {
-    if (!attrText(product.attributes[k])) return [];
+    if (!rawText(specValue(product, k))) return [];
   }
   const groups: VariantGroup[] = [];
 
   for (const key of VARIANT_KEY_PRIORITY) {
     // Attribute values are mixed types across vendors (850 vs "850 W"),
     // so normalize to strings before comparing, sorting, or rendering.
-    const current = attrText(product.attributes[key]);
+    const current = rawText(specValue(product, key));
     if (!current) continue;
     // Signature = brand + model + identity + everything EXCEPT the
     // candidate key: variants must be identical in all other dimensions
@@ -96,16 +81,16 @@ function computeVariantGroups(
       [
         p.brand ?? "",
         p.model ?? "",
-        ...identityKeys.map((k) => attrText(p.attributes[k])),
+        ...identityKeys.map((k) => rawText(specValue(p, k))),
         ...VARIANT_KEY_PRIORITY.filter((k) => k !== key).map((k) =>
-          attrText(p.attributes[k])
+          rawText(specValue(p, k))
         ),
       ].join(SEP);
     const mySig = sigOf(product);
     const distinct = new Map<string, Product[]>();
     for (const p of sameBrand) {
       if (sigOf(p) !== mySig) continue;
-      const v = attrText(p.attributes[key]);
+      const v = rawText(specValue(p, key));
       if (!v) continue;
       const list = distinct.get(v) ?? [];
       list.push(p);
@@ -121,7 +106,7 @@ function computeVariantGroups(
       const chips = new Set<string>();
       for (const owners of distinct.values()) {
         for (const p of owners) {
-          const chip = attrText(p.attributes["chipset"]);
+          const chip = rawText(specValue(p, "chipset"));
           if (chip) chips.add(chip);
         }
       }
@@ -134,9 +119,9 @@ function computeVariantGroups(
       let bestScore = -1;
       for (const cand of owners) {
         let score = 0;
-        for (const [k, v] of Object.entries(product.attributes)) {
+        for (const k of [...VARIANT_KEY_PRIORITY, ...identityKeys]) {
           if (NOISE_KEYS.has(k)) continue;
-          if (attrText(cand.attributes[k]) === attrText(v)) score++;
+          if (rawText(specValue(cand, k)) === rawText(specValue(product, k))) score++;
         }
         if (score > bestScore) {
           bestScore = score;
@@ -176,8 +161,8 @@ function similarProducts(product: Product, all: Product[]): Product[] {
     if (p.brand && product.brand && p.brand === product.brand) score += 5;
     for (const k of priority) {
       if (NOISE_KEYS.has(k)) continue;
-      // Normalize to strings: 850 vs "850 W" must match.
-      if (attrText(p.attributes[k]) === attrText(product.attributes[k]) && attrText(product.attributes[k]) !== "") {
+      const value = rawText(specValue(product, k));
+      if (value !== "" && rawText(specValue(p, k)) === value) {
         score += identity.has(k) ? 3 : 1;
       }
     }
@@ -231,63 +216,26 @@ export async function renderProduct(
   const sku = skuOf(product);
   const name = displayName(product);
 
-  // Curated spec sheet (scraper/display_specs.py) when the pipeline
-  // emitted one: already distilled, formatted and ordered — raw trivia
-  // keys never reach the card. Fallback for old data: the raw attribute
-  // blob with the historical priority/show-more split.
-  const curatedSpecs = product.display_specs ?? null;
-  const orderedSpecKeys = sortSpecKeys(
-    product.category,
-    Object.keys(curatedSpecs ?? product.attributes).filter((k) =>
-      curatedSpecs ? curatedSpecs[k] : product.attributes[k]
-    )
-  );
-  const specValue = (k: string): string =>
-    curatedSpecs ? curatedSpecs[k] ?? "" : attrText(product.attributes[k]);
-  const prioritySet = new Set<string>(specPriority(product.category));
-  const topSpecKeys = curatedSpecs
-    ? orderedSpecKeys
-    : orderedSpecKeys.filter((k) => prioritySet.has(k));
-  // Everything else (minus noise) hides behind "show more" — only in
-  // fallback mode; curated sheets are already the complete readable set.
-  const moreSpecKeys = curatedSpecs
-    ? []
-    : orderedSpecKeys.filter(
-        (k) => !prioritySet.has(k) && !NOISE_KEYS.has(k)
-      );
-  const referenceSpecs: Record<string, string | number | boolean> = {
-    ...(product.pcpartdb?.specs ?? {}),
-    ...(product.pckombo?.specs ?? {}),
-  };
-  const referenceKeys = sortSpecKeys(
-    product.category,
-    Object.keys(referenceSpecs).filter(
-      (k) =>
-        referenceSpecs[k] !== null &&
-        referenceSpecs[k] !== undefined &&
-        referenceSpecs[k] !== "" &&
-        !(k in product.attributes) &&
-        !(curatedSpecs && k in curatedSpecs)
-    )
-  );
-
-  const specRowHtml = (k: string, value: unknown): string =>
-    `<div class="spec-row"><span class="spec-key">${esc(attributeLabel(k, lang))}</span><span class="spec-val">${esc(attrText(value))}</span></div>`;
-
-  const specRows =
-    topSpecKeys.map((k) => specRowHtml(k, specValue(k))).join("") +
-    (moreSpecKeys.length > 0
-      ? `<details class="spec-more"><summary>${esc(t(lang, "showMore"))}</summary>` +
-        moreSpecKeys.map((k) => specRowHtml(k, specValue(k))).join("") +
-        `</details>`
-      : "") +
-    referenceKeys.map((k) => specRowHtml(k, referenceSpecs[k])).join("");
+  // Typed spec sheet (scraper/specs/): render the schema's own field order.
+  // Every schema field is present by construction; `null` (nothing any source
+  // could supply) renders as a muted "Unknown". Reference-dataset values are
+  // merged upstream at Tier 0, so there is no separate reference sidebox.
+  const specRows = displaySpecFields(product.category)
+    .map((field) => {
+      const text = formatSpecValue(specValue(product, field.name), lang);
+      return `<div class="spec-row"><span class="spec-key">${esc(
+        attributeLabel(field.name, lang)
+      )}</span><span class="${text ? "spec-val" : "spec-val is-unknown"}">${esc(
+        text || t(lang, "unknownValue")
+      )}</span></div>`;
+    })
+    .join("");
 
   const variantHtml = variantGroups
     .map(
       (g) => `
       <div class="variant-group">
-        <h3>${esc(attributeLabel(g.key, lang))}: ${esc(attrText(product.attributes[g.key]))}</h3>
+        <h3>${esc(attributeLabel(g.key, lang))}: ${esc(formatSpecValue(specValue(product, g.key), lang))}</h3>
         <div class="variant-pills">
           ${g.values
             .map((v) =>
@@ -385,11 +333,6 @@ export async function renderProduct(
         <div class="pdp-card">
           <h2 class="pdp-card-title">${t(lang, "specsHeading")}</h2>
           <div class="spec-list">${specRows || `<span class="dim">-</span>`}</div>
-          ${
-            referenceKeys.length > 0
-              ? `<p class="reference-note reference-note--compact">${t(lang, product.pckombo ? "pckomboReferenceNote" : "referenceSpecsNote")}</p>`
-              : ""
-          }
         </div>
       </aside>
 

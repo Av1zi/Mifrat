@@ -66,17 +66,28 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
-      - name: Refresh pcpartdb reference-spec index (Aug 2026, see DECISIONS.md)
-        # Optional enrichment, not core data — data/pcpartdb/ is gitignored
-        # and rebuilt fresh here every run (~7MB from GitHub's raw CDN, a
-        # few seconds) rather than committed. matching.py's
-        # enrich_products_with_pcpartdb() already degrades gracefully if
-        # this index is missing, so a transient failure here (e.g. GitHub's
-        # raw CDN having a bad moment) must not block the daily catalog
-        # update — hence continue-on-error.
+      - name: Spec schema <-> frontend drift check
+        # scraper/specs/schema.py is the single source of truth for spec
+        # field names/types/units. Fails when the generated TS
+        # (site/src/specSchema.generated.ts) is stale or a hand-written
+        # frontend spec key no longer exists in the schema.
+        run: python scripts/check_spec_sync.py
+      - name: Refresh pcpartdb reference-spec index (spec system Tier 0)
+        # Optional reference data, not core data — data/pcpartdb/ is
+        # gitignored and rebuilt fresh here every run (~7MB from GitHub's
+        # raw CDN, a few seconds) rather than committed. specs/resolvers/
+        # reference.py degrades gracefully if this index is missing (Tier 0
+        # disabled + a loud warning + the coverage report shows it), so a
+        # transient failure here (e.g. GitHub's raw CDN having a bad moment)
+        # must not block the daily catalog update — hence continue-on-error.
         run: python -m scraper.pcpartdb refresh
         continue-on-error: true
       - run: python scraper/normalize_and_match.py
+      - name: Spec golden fixtures (see scraper/specs/README.md)
+        # Hand-verified specs for known products must match the catalog the
+        # run just wrote. Tier-0 assertions are skipped automatically when
+        # the optional reference index above failed to refresh.
+        run: python -m scraper.specs.golden.check_golden
       - name: Site payload size guard (Phase 8, see DECISIONS.md)
         # Anti-regression lock for the data-trust + performance phases:
         # fail the job (no commit, no deploy) when a category/index file

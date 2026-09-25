@@ -12,27 +12,30 @@ export interface Offer {
 }
 
 /**
- * Reference specs from the MIT-licensed docyx/pc-part-dataset (Aug 2026,
- * see DECISIONS.md), attached server-side by scraper/matching.py's
- * enrich_products_with_pcpartdb() when a confident name match is found.
+ * One typed spec value. Units live in the field name (`_ghz`, `_mm`, `_w`,
+ * ...) so every number here is already in its final unit — see
+ * scraper/specs/schema.py (the single source of truth) and
+ * ./specSchema.generated.ts (the field list, generated from it).
  *
- * Deliberately separate from `attributes`: these are specs for "a product
- * like this one" from a third-party dataset, not something scraped from
- * this exact vendor listing. `score` is the match confidence (0-100) —
- * the UI should label this block as a reference, not present it as a
- * verified fact about the listing.
+ * `null` is a first-class value meaning "unknown": the schema is fixed, so a
+ * missing fact is null, never an absent key and never a guess.
  */
-export interface PcPartDbRef {
-  name: string;
-  score: number;
-  specs: Record<string, string | number | boolean>;
-}
+export type SpecValue =
+  | string
+  | number
+  | boolean
+  | string[]
+  | number[]
+  | Record<string, number>
+  | null;
 
-export interface PcKomboRef {
-  mpn: string;
-  url: string;
-  specs: Record<string, string>;
-}
+/**
+ * The typed spec sheet shipped per product (scraper/specs/). Keyed by schema
+ * field name; site/src/api.ts re-expands the full per-category key set from
+ * SPEC_FIELDS so a product always carries every field, with `null` for what no
+ * source could supply.
+ */
+export type ProductSpecs = Record<string, SpecValue>;
 
 export interface Product {
   id: string;
@@ -45,31 +48,36 @@ export interface Product {
   image?: string | null;
   /** 128px list-thumbnail derivative of image (list rows use this). */
   thumb?: string | null;
-  attributes: Record<string, string>;
   /**
-   * Curated spec sheet for the product page (scraper/display_specs.py):
-   * the raw attribute blob above distilled into readable, ordered rows.
-   * Filters/table columns/compat keep using `attributes`; this is purely
-   * the human-facing view.
+   * Typed, validated, fixed-key spec sheet (scraper/specs/). Every consumer
+   * (PDP, category filters/columns, variant pills, compatibility) reads this;
+   * the transitional `attributes` blob stays server-side in catalog.json and
+   * is never shipped to the browser.
    */
-  display_specs?: Record<string, string>;
+  specs?: ProductSpecs;
   vendor_count: number;
   min_price: number | null;
   in_stock: boolean;
   offers: Offer[];
-  pcpartdb?: PcPartDbRef;
-  pckombo?: PcKomboRef;
   /** Vendors with ≥2 distinct listings on this product (under review). */
   duplicate_vendors?: string[];
 }
 
 export interface QaCase {
-  kind: "duplicate_vendor" | "naming_conflict";
+  kind: "duplicate_vendor" | "naming_conflict" | "spec_conflict";
   product_id: string;
   category: string;
   vendor: string;
   /** Conflicting offer titles (naming_conflict only). */
   titles?: string[];
+  /** spec_conflict: the schema field two sources disagreed on. */
+  field?: string;
+  /** spec_conflict: the value the merge kept (higher tier/confidence). */
+  kept?: unknown;
+  /** spec_conflict: the value that lost and was discarded. */
+  dropped?: unknown;
+  /** spec_conflict: human-readable detail (cross-field drops). */
+  detail?: string;
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;
@@ -81,6 +89,40 @@ export interface QaCase {
 export interface QaFile {
   generated_at: string;
   cases: QaCase[];
+}
+
+/**
+ * data/site/spec_report.json — the spec coverage dashboard for one normalize
+ * run (scraper/specs/report.py, compacted by scraper/site_data.py). Numbers
+ * are integer percentages; `tier0` is the share filled by the reference
+ * dataset, `reference_matches` the share matched to a Tier-0 row at all.
+ */
+export interface SpecReportCategory {
+  products: number;
+  reference_matches: number;
+  fields: Record<string, { filled: number; tier0: number }>;
+}
+
+export interface SpecReport {
+  products: number;
+  reference: Record<string, number>;
+  categories: Record<string, SpecReportCategory>;
+  counts: { conflicts: number; invalid: number; issues: number };
+  invalid_reasons: Record<string, number>;
+  conflicts: Array<{
+    product_id: string;
+    category: string;
+    field: string;
+    kept: unknown;
+    dropped: unknown;
+  }>;
+  issues: Array<{
+    product_id: string;
+    category: string;
+    kind: string;
+    field?: string;
+    detail?: string;
+  }>;
 }
 
 /**

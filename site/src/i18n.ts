@@ -1,3 +1,4 @@
+import { SPEC_LABELS } from "./specSchema.generated";
 import type { Lang } from "./types";
 
 // Fixed build order (not alphabetical) — mirrors how someone actually plans
@@ -290,7 +291,10 @@ export function vendorLabel(id: string): string {
 }
 
 export function attributeLabel(key: string, lang: Lang): string {
-  return ATTRIBUTE_LABELS[key]?.[lang] ?? key;
+  // Schema labels first (one entry per field, generated from
+  // scraper/specs/schema.py); the hand list below still covers the
+  // transitional derived/alias keys the filter rail reads from attributes.
+  return SPEC_LABELS[key]?.[lang] ?? ATTRIBUTE_LABELS[key]?.[lang] ?? key;
 }
 
 const STRINGS = {
@@ -429,6 +433,10 @@ const STRINGS = {
     promoNewPcNote: "המחיר המוזל בתוקף רק ברכישת מחשב שלם מ-TMS.",
     buyLabel: "קנייה",
     specsHeading: "מפרט",
+    unknownValue: "לא ידוע",
+    qaKindSpec: "סתירת מפרט",
+    qaSpecKept: "נשמר",
+    qaSpecDropped: "נפסל",
     similarHeading: "מוצרים דומים",
     variantsHeading: "דגמים קרובים",
     addToPartList: "הוספה לרשימת החלקים",
@@ -606,6 +614,10 @@ const STRINGS = {
     promoNewPcNote: "Discounted price valid only when buying a whole PC from TMS.",
     buyLabel: "Buy",
     specsHeading: "Specifications",
+    unknownValue: "Unknown",
+    qaKindSpec: "Spec conflict",
+    qaSpecKept: "Kept",
+    qaSpecDropped: "Dropped",
     similarHeading: "Similar products",
     variantsHeading: "Close variants",
     addToPartList: "Add to Part List",

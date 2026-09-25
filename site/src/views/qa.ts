@@ -1,6 +1,6 @@
 import { loadQa } from "../api";
 import { formatPrice } from "../format";
-import { categoryLabel, resultsCount, t, vendorLabel } from "../i18n";
+import { attributeLabel, categoryLabel, resultsCount, t, vendorLabel } from "../i18n";
 import { productHash, homeHash, categoryHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
@@ -36,6 +36,14 @@ export async function renderQa(
     return;
   }
 
+  /** Render a spec-conflict value (kept/dropped) as short text. */
+  const specValueText = (value: unknown): string => {
+    if (value === null || value === undefined || value === "") return "—";
+    if (Array.isArray(value)) return value.map((item) => String(item)).join(", ");
+    if (typeof value === "object") return JSON.stringify(value);
+    return String(value);
+  };
+
   const rows = cases
     .map((c) => {
       const offers = c.offers
@@ -47,19 +55,43 @@ export async function renderQa(
         )
         .join("");
       const kindLabel = esc(
-        t(lang, c.kind === "naming_conflict" ? "qaKindNaming" : "qaKindDuplicate")
+        t(
+          lang,
+          c.kind === "naming_conflict"
+            ? "qaKindNaming"
+            : c.kind === "spec_conflict"
+              ? "qaKindSpec"
+              : "qaKindDuplicate"
+        )
       );
       const vendorBit = c.vendor ? ` · ${esc(vendorLabel(c.vendor))}` : "";
       const titlesBit =
         c.kind === "naming_conflict" && c.titles && c.titles.length > 0
           ? `<p class="qa-titles">${c.titles.map((x) => esc(x)).join("<br>")}</p>`
           : "";
+      // Spec conflict (scraper/specs/merge.py): two sources disagreed on one
+      // schema field. Shows the field plus the value kept and the one dropped.
+      const specBit =
+        c.kind === "spec_conflict"
+          ? `<p class="qa-spec">${
+              c.field
+                ? `<span class="qa-field">${esc(attributeLabel(c.field, lang))}</span> · `
+                : ""
+            }${
+              c.detail
+                ? esc(c.detail)
+                : `${esc(t(lang, "qaSpecKept"))}: ${esc(specValueText(c.kept))} · ${esc(
+                    t(lang, "qaSpecDropped")
+                  )}: ${esc(specValueText(c.dropped))}`
+            }</p>`
+          : "";
       return `
       <article class="qa-case">
         <h2><a href="${productHash(c.category, c.product_id)}">${esc(c.product_id)}</a></h2>
         <p class="qa-meta"><span class="qa-kind">${kindLabel}</span>${esc(categoryLabel(c.category, lang))}${vendorBit} · <a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a></p>
         ${titlesBit}
-        <ul class="qa-offers">${offers}</ul>
+        ${specBit}
+        ${offers ? `<ul class="qa-offers">${offers}</ul>` : ""}
       </article>`;
     })
     .join("");

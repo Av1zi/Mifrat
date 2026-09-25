@@ -1,0 +1,12 @@
+{
+  "_comment": [
+    "Manual spec overrides — the escape hatch when a wrong value is spotted in",
+    "production. Keyed by product id (data/catalog.json -> products[].product_id),",
+    "then by schema field name (see scraper/specs/schema.py). Overrides are the",
+    "highest tier: they beat reference data, vendor payloads, titles and prose.",
+    "Values are validated like any other source, so a typo is dropped, not shipped.",
+    "Use one entry per corrected product, e.g.:",
+    "  \"products\": { \"abc123def\": { \"tdp_w\": 120, \"socket\": \"AM5\" } }"
+  ],
+  "products": {}
+}

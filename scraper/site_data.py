@@ -23,10 +23,7 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
 
-try:
-    from scraper.display_specs import build_display_specs
-except ImportError:
-    from display_specs import build_display_specs
+from .specs.report import qa_cases as spec_qa_cases
 
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
 IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
@@ -152,58 +149,6 @@ def _write_json_atomic(path: Path, value: object) -> None:
         temp_path.unlink(missing_ok=True)
 
 
-# Attribute keys the browser actually consumes: checkbox filters and table
-# columns (site/src/specs.ts FILTER_ALLOWLIST/SPEC_PRIORITY), variant pills
-# (views/product.ts VARIANT_KEY_PRIORITY + VARIANT_IDENTITY_KEYS) and the
-# compatibility engine (site/src/build.ts). When a curated display_specs
-# sheet exists (scraper/display_specs.py), the raw blob is trimmed to this
-# set so data/site/*.json doesn't ship the same facts twice plus hundreds
-# of deep-trivia keys (Sep 2026: motherboard.json blew past the 1MB size
-# guard with both copies at full width). catalog.json always keeps the
-# complete blob — this trim is site-JSON only.
-_SITE_ATTR_KEYS = frozenset({
-    # identity / QA
-    "brand", "model", "mpn", "upc", "bundle_only",
-    # cpu
-    "cores", "threads", "base_clock_ghz", "boost_clock_ghz", "l2_cache",
-    "l3_cache", "tdp", "tdp_w", "socket", "generation", "tier",
-    "microarchitecture", "integrated_graphics", "smt", "ecc_support",
-    "cooler_included", "packaging", "codename", "manufacturing_process",
-    "launch", "series", "unlocked",
-    # memory / shared
-    "memory_type", "memory_slots", "memory_max", "capacity_gb", "total_gb",
-    "modules", "module_count", "module_size_gb", "speed_mhz", "cas_latency",
-    "timings", "first_word_latency_ns", "voltage", "heat_spreader",
-    "modules_height", "registered", "memory",
-    # motherboard
-    "chipset", "wifi", "wifi_standard", "lan", "usb_ports", "m2_slots",
-    "sata_ports", "pcie_x16_slots", "display_outputs", "fan_headers",
-    "raid_level",
-    # gpu
-    "gpu_chip", "gpu_vendor", "vram_gb", "interface", "pcie_gen",
-    "length_mm", "gpu_length_mm", "slot_width", "power_connections",
-    "cooling", "fan_count", "hdmi_ports", "displayport_ports", "dvi_ports",
-    "core_clock_mhz", "memory_clock_mhz", "boost_clock_mhz",
-    # storage
-    "drive_type", "drive_form_factor", "nvme", "rpm", "read", "write",
-    "cache_mb", "tbw", "nand", "controller",
-    # psu
-    "wattage", "wattage_w", "efficiency", "modular", "atx_version",
-    "fanless", "sata_connectors", "pcie_power_connectors",
-    "cpu_power_connectors",
-    # case / cooling
-    "side_panel", "power_supply", "max_gpu_length_mm",
-    "maximum_video_card_length", "supported_radiator_mm", "radiator_size_mm",
-    "cooler_height_mm", "fan_size_mm", "airflow", "noise_level", "pwm",
-    "fans_per_pack", "socket_compat", "internal_25_bays", "internal_35_bays",
-    "front_io", "external_volume_l", "dimensions", "weight",
-    # compat extras (build.ts reads these off attributes)
-    "cpu_socket", "sockets", "power_consumption", "max_power",
-    "rated_power", "total_power",
-    # generic
-    "accessory_type", "form_factor", "color", "lighting", "argb", "rgb",
-})
-
 
 def _trim_offer(offer: dict) -> dict:
     # min_price/sorting use the regular price only — promo_price is a
@@ -244,16 +189,18 @@ def _trim_product(product: dict) -> dict:
     # fall back to image.
     _image, _thumb = _resolve_image(product, product.get("offers", []))
 
-    # Curated spec sheet first: when present, the raw attribute blob is
-    # trimmed to the keys the browser uses (filters/columns/variants/
-    # compat) so the payload doesn't carry the full ~800-key blob plus a
-    # formatted copy of it.
-    display_specs = build_display_specs(
-        product.get("category", ""), product.get("attributes", {}))
-    attributes = product.get("attributes", {})
-    if display_specs:
-        attributes = {k: v for k, v in attributes.items()
-                      if k in _SITE_ATTR_KEYS}
+    # Typed spec sheet (scraper/specs/): ships with nulls elided because the
+    # frontend knows the full per-category field list from
+    # site/src/specSchema.generated.ts and re-expands it in site/src/api.ts
+    # (unit-aware values, "Unknown" for what no source supplied).
+    #
+    # The transitional `attributes` blob is NOT shipped to the browser: the
+    # category rail, table columns, variant pills and the compatibility engine
+    # now read `specs` directly. catalog.json still carries it (matching/naming
+    # read it there) — the frontend no longer does, which is what keeps the
+    # payload from doubling (Sep 2026: shipping both tripped the size guard at
+    # 1526KB motherboard.json / +32% growth).
+    specs = product.get("specs") or {}
 
     trimmed = {
         "id": product["product_id"],
@@ -262,12 +209,14 @@ def _trim_product(product: dict) -> dict:
         "brand": product.get("brand"),
         "model": product.get("model"),
         "image": _image,
-        "attributes": attributes,
         "vendor_count": product.get("vendor_count", len(offers)),
         "min_price": min_price,
         "in_stock": any(o["in_stock"] for o in offers),
         "offers": offers,
     }
+    covered = {key: value for key, value in specs.items() if value is not None}
+    if covered:
+        trimmed["specs"] = covered
     if _thumb:
         trimmed["thumb"] = _thumb
 
@@ -285,32 +234,70 @@ def _trim_product(product: dict) -> dict:
     if isinstance(description, str) and description.strip():
         trimmed["description"] = description.strip()
 
-    pcpartdb = product.get("pcpartdb")
-    if pcpartdb:
-        trimmed["pcpartdb"] = pcpartdb
-
-    pckombo = product.get("pckombo")
-    if pckombo:
-        trimmed["pckombo"] = pckombo
+    # The pcpartdb/pckombo reference sidecars no longer exist: their specs are
+    # merged into `specs` (Tier 0) by scraper/specs/build.py, and the PDP shows
+    # the merged sheet instead of a separate "reference specs" box.
 
     if product.get("duplicate_vendors"):
         trimmed["duplicate_vendors"] = sorted(product["duplicate_vendors"])
 
-    # Curated spec sheet — computed at the top of this function so the raw
-    # `attributes` blob could be trimmed against it; attached here so the
-    # trimmed dict field order stays stable.
-    if display_specs:
-        trimmed["display_specs"] = display_specs
-
     return trimmed
 
 
-def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
+def _trim_spec_report(report: dict) -> dict:
+    """Compact the spec coverage report for the browser (data/site/spec_report.json).
+
+    The raw report carries one entry per dropped value and per conflict, which
+    is great for a local run and too big to ship. The site only needs the
+    dashboard numbers plus the conflict list the #/qa page renders.
+    """
+    categories: dict[str, dict] = {}
+    for category, bucket in (report.get("categories") or {}).items():
+        products = bucket.get("products") or 0
+        if not products:
+            continue
+        fields = {}
+        for field, slot in (bucket.get("fields") or {}).items():
+            percent = round(slot.get("filled", 0) * 100 / products)
+            fields[field] = {
+                "filled": percent,
+                "tier0": round(slot.get("tier0", 0) * 100 / products),
+            }
+        categories[category] = {
+            "products": products,
+            "reference_matches": round(bucket.get("tier0", 0) * 100 / products),
+            "fields": fields,
+        }
+    invalid_reasons: dict[str, int] = {}
+    for entry in report.get("invalid") or []:
+        reason = str(entry.get("reason") or "")
+        key = reason.split(":")[0][:60]
+        invalid_reasons[key] = invalid_reasons.get(key, 0) + 1
+    return {
+        "products": report.get("products", 0),
+        "reference": report.get("reference", {}),
+        "categories": categories,
+        "counts": {
+            "conflicts": len(report.get("conflicts") or []),
+            "invalid": len(report.get("invalid") or []),
+            "issues": len(report.get("issues") or []),
+        },
+        "invalid_reasons": invalid_reasons,
+        "conflicts": (report.get("conflicts") or [])[:500],
+        "issues": (report.get("issues") or [])[:500],
+    }
+
+
+def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
+                    spec_report: dict | None = None) -> dict:
     """
     Writes data/site/<category>.json + data/site/meta.json from an
     already-built catalog dict (as returned by normalize_and_match.build_catalog).
     Returns the meta dict that was written, mainly so callers can log a
     summary without re-reading the file.
+
+    `spec_report` (scraper/specs/report.py) adds data/site/spec_report.json —
+    the spec coverage dashboard — and its conflict cases to qa.json.
     """
     _DROPPED_REMOTES.clear()
     by_category: dict[str, list[dict]] = defaultdict(list)
@@ -428,6 +415,15 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
     qa_cases.sort(
         key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
     )
+
+    # Spec-QA: cross-tier/equal-tier spec conflicts and cross-field drops from
+    # the spec merge (scraper/specs/report.py). Same public page, new kind.
+    if spec_report:
+        qa_cases.extend(spec_qa_cases(spec_report))
+        qa_cases.sort(
+            key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
+        )
+        _write_json_atomic(site_dir / "spec_report.json", _trim_spec_report(spec_report))
     _write_json_atomic(
         site_dir / "qa.json",
         {"generated_at": catalog["generated_at"], "cases": qa_cases},
@@ -438,7 +434,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR) -> dict:
     # behind forever since we only ever write, never clean up.
     current_files = {f"{c['id']}.json" for c in categories_meta}
     for existing in site_dir.glob("*.json"):
-        if existing.name in ("meta.json", "qa.json", "index.json"):
+        if existing.name in ("meta.json", "qa.json", "index.json", "spec_report.json"):
             continue
         if existing.name not in current_files:
             existing.unlink()
