@@ -209,7 +209,7 @@ def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:
             computed = count * size
             if total is None:
                 specs["total_gb"] = computed
-                sources["total_gb"] = sources.get("module_count", "vendor")
+                sources["total_gb"] = "derived:memory.module_arithmetic"
             elif total != computed:
                 modules_rank = max(_tier_rank(sources, "module_count"),
                                    _tier_rank(sources, "module_size_gb"))
@@ -224,6 +224,46 @@ def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:
                     sources["total_gb"] = sources.get("module_count", "vendor")
                 else:
                     drop("total_gb", f"{count}x{size}GB != {total}GB", "module_count")
+
+    if category == "storage":
+        interface = str(specs.get("interface") or "")
+        nvme_interface = bool(re.search(r"\bnvme\b|pcie", interface, re.I))
+        sata_interface = bool(re.search(r"\bsata\b", interface, re.I))
+
+        def drop_weaker(left: str, right: str, detail: str,
+                            *, prefer: str | None = None) -> None:
+                """Drop the contradictory claim, retaining the stronger source."""
+                if specs.get(left) is None or specs.get(right) is None:
+                    return
+                left_rank, right_rank = _tier_rank(sources, left), _tier_rank(sources, right)
+                if left_rank < right_rank:
+                    drop(right, detail, left)
+                elif right_rank < left_rank:
+                    drop(left, detail, right)
+                else:
+                    keep = prefer or right
+                    drop(left if keep == right else right, detail, keep)
+                if specs.get("interface") is None and specs.get("pcie_gen") is not None and (
+                        sources.get("pcie_gen", "").startswith("derived:storage.interface_")):
+                    drop("pcie_gen", "PCIe generation depends on discarded interface",
+                         keep if keep != "interface" else "type")
+
+        if nvme_interface and specs.get("nvme") is False:
+                drop_weaker("nvme", "interface",
+                            "NVMe/PCIe interface contradicts nvme=false",
+                            prefer="interface")
+        if sata_interface and specs.get("nvme") is True:
+                drop_weaker("nvme", "interface",
+                            "SATA interface contradicts nvme=true",
+                            prefer="interface")
+        if nvme_interface and specs.get("type") == "HDD":
+                drop_weaker("type", "interface",
+                            "NVMe/PCIe storage is solid-state, not HDD",
+                            prefer="interface")
+        if specs.get("nvme") is True and specs.get("type") == "HDD":
+                drop_weaker("type", "nvme",
+                            "NVMe storage is solid-state, not HDD",
+                            prefer="nvme")
 
     if category == "cpu" and specs.get("packaging") == "tray" and specs.get("includes_cooler"):
         drop("includes_cooler", "tray CPUs never include a cooler", "packaging")
@@ -278,6 +318,30 @@ def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:
     return issues
 
 
+def revalidate_derived(category: str | None, specs: dict, sources: dict) -> list[dict]:
+    """Validate rule output as data, not as trusted input.
+
+    Inference runs after merging, so inferred values did not pass through
+    ``merge_facts``.  Re-run the same field validators and remove any value
+    that a schema change or an arithmetic edge case makes invalid.
+    """
+    issues: list[dict] = []
+    for field, source in list(sources.items()):
+        if not source.startswith("derived:") or specs.get(field) is None:
+            continue
+        field_spec = schema.field_map(category).get(field)
+        reason = validate_fact(category, field_spec, specs[field]) if field_spec else "unknown field"
+        if reason:
+            issues.append({
+                "kind": "spec_conflict", "field": field,
+                "detail": f"derived value rejected: {reason}",
+                "dropped": specs[field],
+            })
+            specs[field] = None
+            sources.pop(field, None)
+    return issues
+
+
 def fill_derived(category: str | None, specs: dict, sources: dict) -> None:
     """Fill fields that follow logically from higher-priority ones.
 
@@ -291,4 +355,4 @@ def fill_derived(category: str | None, specs: dict, sources: dict) -> None:
         memory = schema.SOCKET_MEMORY.get(str(specs["socket"]).upper())
         if memory and str(specs["socket"]).upper() != "LGA1700":
             specs["memory_type"] = memory
-            sources["memory_type"] = "vendor"
+            sources["memory_type"] = "derived:motherboard.socket_memory"

@@ -261,11 +261,18 @@ def _trim_spec_report(report: dict) -> dict:
             percent = round(slot.get("filled", 0) * 100 / products)
             fields[field] = {
                 "filled": percent,
+                "null": round(slot.get("null", products - slot.get("filled", 0))
+                              * 100 / products),
                 "tier0": round(slot.get("tier0", 0) * 100 / products),
+                "sources": dict(slot.get("source_distribution") or {}),
+                "unknown_reasons": dict(slot.get("unknown_reasons") or {}),
             }
         categories[category] = {
             "products": products,
             "reference_matches": round(bucket.get("tier0", 0) * 100 / products),
+            "derived": bucket.get("derived", 0),
+            "unknown": bucket.get("unknown", 0),
+            "sources": dict(bucket.get("source_distribution") or {}),
             "fields": fields,
         }
     invalid_reasons: dict[str, int] = {}
@@ -276,11 +283,19 @@ def _trim_spec_report(report: dict) -> dict:
     return {
         "products": report.get("products", 0),
         "reference": report.get("reference", {}),
+        "derived": report.get("derived", 0),
+        "sources": dict(report.get("source_distribution") or {}),
+        # Keep these explainable, but bounded: the full product report remains
+        # available from the normalizer's in-memory output.
+        "unknown": (report.get("unknown") or [])[:5000],
+        "core_gaps": (report.get("core_gaps") or [])[:5000],
         "categories": categories,
         "counts": {
             "conflicts": len(report.get("conflicts") or []),
             "invalid": len(report.get("invalid") or []),
             "issues": len(report.get("issues") or []),
+            "unknown": len(report.get("unknown") or []),
+            "core_gaps": len(report.get("core_gaps") or []),
         },
         "invalid_reasons": invalid_reasons,
         "conflicts": (report.get("conflicts") or [])[:500],

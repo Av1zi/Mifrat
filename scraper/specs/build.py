@@ -27,7 +27,7 @@ from . import text as text_module
 from .derive import infer_specs
 from .merge import TIER_REFERENCE, Fact, merge_facts
 from .resolvers import reference, title_parse, vendor_struct, weak_vendor
-from .validate import cross_check, fill_derived
+from .validate import cross_check, fill_derived, revalidate_derived
 
 
 def listing_text(listing: dict) -> str:
@@ -156,6 +156,11 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         # fields cross_check drops, so nothing it writes is checked afterwards.
         issues = cross_check(category, merged.specs, merged.sources)
         derived_fields = infer_specs(category, merged.specs, merged.sources)
+        # Inference is intentionally untrusted output: validate both its
+        # individual values and any new cross-field relationships.
+        issues.extend(revalidate_derived(
+            category, merged.specs, merged.sources))
+        issues.extend(cross_check(category, merged.specs, merged.sources))
         derived_total += len(derived_fields)
 
         product["specs"] = merged.specs
@@ -183,5 +188,5 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         report.print_summary()
         if derived_total:
             print(f"[specs] {derived_total} field(s) filled by rule-based "
-                  "inference (source=derived)")
+                  "inference (source=derived:<rule>)")
     return report.to_dict()

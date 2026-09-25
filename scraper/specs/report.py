@@ -27,6 +27,10 @@ class CoverageReport:
         self.issues: list[dict] = []
         self.reference: dict[str, int] = {"exact-name": 0, "fuzzy+anchor": 0,
                                           "other": 0, "unmatched": 0}
+        self.derived = 0
+        self.source_distribution: dict[str, int] = {}
+        self.unknown: list[dict] = []
+        self.core_gaps: list[dict] = []
 
     # -- collection --------------------------------------------------------
 
@@ -34,8 +38,10 @@ class CoverageReport:
                     sources: dict, conflicts: list[dict], invalid: list[dict],
                     reference: dict, issues: list[dict]) -> None:
         self.total += 1
+        category = category or ""
         bucket = self.per_category.setdefault(
-            category or "", {"products": 0, "fields": {}, "tier0": 0, "core": {}})
+            category, {"products": 0, "fields": {}, "tier0": 0, "core": {},
+                       "source_distribution": {}, "derived": 0, "unknown": 0})
 
         bucket["products"] += 1
         if reference.get("matched"):
@@ -45,13 +51,43 @@ class CoverageReport:
         else:
             self.reference["unmatched"] += 1
 
+        invalid_fields = {str(item.get("field")) for item in invalid}
+        issue_fields = {str(item.get("field")) for item in issues if item.get("field")}
         for field in schema.field_names(category):
+            slot = bucket["fields"].setdefault(
+                field, {"filled": 0, "null": 0, "tier0": 0,
+                        "source_distribution": {}, "unknown_reasons": {}})
+            source = sources.get(field)
             if specs.get(field) is None:
+                slot["null"] += 1
+                bucket["unknown"] += 1
+                reason = ("invalid" if field in invalid_fields else
+                          "consistency" if field in issue_fields else
+                          "reference_unmatched" if not reference.get("matched")
+                          else "no_source")
+                slot["unknown_reasons"][reason] = (
+                    slot["unknown_reasons"].get(reason, 0) + 1)
+                self.unknown.append({"product_id": product_id, "category": category,
+                                     "field": field, "reason": reason})
+                if field in CORE_FIELDS:
+                    self.core_gaps.append({"product_id": product_id,
+                                           "category": category, "field": field,
+                                           "reason": reason})
                 continue
-            slot = bucket["fields"].setdefault(field, {"filled": 0, "tier0": 0})
             slot["filled"] += 1
-            if sources.get(field) == "reference":
+            source_group = ("derived" if str(source or "").startswith("derived:")
+                            else source or "unknown")
+            slot["source_distribution"][source_group] = (
+                slot["source_distribution"].get(source_group, 0) + 1)
+            bucket["source_distribution"][source_group] = (
+                bucket["source_distribution"].get(source_group, 0) + 1)
+            if source == "reference":
                 slot["tier0"] += 1
+            if str(source or "").startswith("derived"):
+                self.derived += 1
+                bucket["derived"] += 1
+            self.source_distribution[source_group] = (
+                self.source_distribution.get(source_group, 0) + 1)
         for field in CORE_FIELDS:
             if specs.get(field) is not None:
                 bucket["core"][field] = bucket["core"].get(field, 0) + 1
@@ -73,6 +109,10 @@ class CoverageReport:
             "products": self.total,
             "categories": self.per_category,
             "reference": dict(self.reference),
+            "derived": self.derived,
+            "source_distribution": dict(self.source_distribution),
+            "unknown": self.unknown,
+            "core_gaps": self.core_gaps,
             "conflicts": self.conflicts,
             "invalid": self.invalid,
             "issues": self.issues,
@@ -82,10 +122,13 @@ class CoverageReport:
         """% of products per core field, across all categories."""
         totals: dict[str, int] = {}
         filled: dict[str, int] = {}
-        for bucket in self.per_category.values():
-            for field, count in (bucket.get("core") or {}).items():
+        for category, bucket in self.per_category.items():
+            for field in CORE_FIELDS:
+                if field not in schema.field_names(category):
+                    continue
                 totals[field] = totals.get(field, 0) + bucket["products"]
-                filled[field] = filled.get(field, 0) + count
+                filled[field] = filled.get(field, 0) + (
+                    bucket.get("fields", {}).get(field, {}).get("filled", 0))
         return {field: (filled.get(field, 0) / totals[field])
                 for field in totals if totals[field]}
 
@@ -106,14 +149,18 @@ class CoverageReport:
                 if percent >= 60:
                     lines.append(f"{name}={percent}%")
             print(f"  {category:<14} n={bucket['products']:<5} "
-                  f"ref={bucket['tier0'] * 100 // products:>3}%  "
+                  f"ref={bucket['tier0'] * 100 // products:>3}% "
+                  f"unknown={bucket.get('unknown', 0):<4} "
+                  f"derived={bucket.get('derived', 0):<4} "
                   + " ".join(lines[:8]))
         core = self.core_coverage()
         if core:
             print("[specs] core compat coverage: " + "  ".join(
                 f"{field}={value * 100:.0f}%" for field, value in sorted(core.items())))
         print(f"[specs] conflicts={len(self.conflicts)} "
-              f"invalid={len(self.invalid)} issues={len(self.issues)}")
+              f"invalid={len(self.invalid)} issues={len(self.issues)} "
+              f"unknown={len(self.unknown)} core_gaps={len(self.core_gaps)} "
+              f"derived={self.derived}")
 
 
 def _bare_value(payload):

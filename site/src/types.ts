@@ -100,14 +100,41 @@ export interface QaFile {
 export interface SpecReportCategory {
   products: number;
   reference_matches: number;
-  fields: Record<string, { filled: number; tier0: number }>;
+  derived?: number;
+  unknown?: number;
+  sources?: Record<string, number>;
+  fields: Record<
+    string,
+    {
+      filled: number;
+      null?: number;
+      tier0: number;
+      sources?: Record<string, number>;
+      unknown_reasons?: Record<string, number>;
+    }
+  >;
 }
 
 export interface SpecReport {
   products: number;
   reference: Record<string, number>;
+  derived?: number;
+  sources?: Record<string, number>;
   categories: Record<string, SpecReportCategory>;
-  counts: { conflicts: number; invalid: number; issues: number };
+  counts: {
+    conflicts: number;
+    invalid: number;
+    issues: number;
+    unknown?: number;
+    core_gaps?: number;
+  };
+  unknown?: Array<{ product_id: string; category: string; field: string; reason: string }>;
+  core_gaps?: Array<{
+    product_id: string;
+    category: string;
+    field: string;
+    reason: string;
+  }>;
   invalid_reasons: Record<string, number>;
   conflicts: Array<{
     product_id: string;

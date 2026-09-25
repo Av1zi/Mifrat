@@ -25,10 +25,10 @@ Usage:
         resolve independently ΓÇö download_images.py retries missing files
         on every run (it skips files already on disk), and the normalizer
         falls back to the listing thumbnail when no detail image exists.
-        A detail row is marked only when it contains at least one spec.
-        Empty rows are commonly challenge/error pages or selector misses;
-        leaving them pending allows a later run (or a parser fix) to retry
-        them instead of permanently losing specification coverage.
+        A detail row is marked only when it contains usable specs. Empty
+        rows and common challenge/error payloads are rejected; leaving them
+        pending allows a later run (or a parser fix) to retry them instead
+        of permanently losing specification coverage.
 
 Vendor keys everywhere here: onepc / plonter / ivory / tms (matches the
 spider names and the _load_pending() keys in detail_pages.py; run
@@ -36,6 +36,7 @@ download_images with the same key so image paths line up).
 """
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 VENDORS = ["onepc", "plonter", "ivory", "tms"]
@@ -114,6 +115,73 @@ def _load_jsonl(path: Path) -> list:
     return out
 
 
+def _core_gap_priorities() -> dict[tuple[str, str], int]:
+    """Return listing URL priorities for products with missing core specs.
+
+    The normalized site payload is the only persisted join between a product
+    id in spec_report.json and the vendor listing URL.  Missing or stale
+    reports are deliberately treated as advisory: normal pending generation
+    still works, it just falls back to listing order.
+    """
+    report_path = Path("data/site/spec_report.json")
+    if not report_path.exists():
+        return {}
+    try:
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        gaps = report.get("core_gaps") or []
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return {}
+    gap_counts = Counter(
+        str(gap.get("product_id") or "")
+        for gap in gaps
+        if isinstance(gap, dict) and gap.get("product_id")
+    )
+    if not gap_counts:
+        return {}
+
+    priorities: dict[tuple[str, str], int] = {}
+    for path in sorted(Path("data/site").glob("*.json")):
+        if path.name in {"spec_report.json", "qa.json", "meta.json", "index.json"}:
+            continue
+        try:
+            products = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not isinstance(products, list):
+            continue
+        for product in products:
+            if not isinstance(product, dict):
+                continue
+            score = gap_counts.get(str(product.get("id") or ""), 0)
+            if not score:
+                continue
+            for offer in product.get("offers") or []:
+                if not isinstance(offer, dict) or not offer.get("url"):
+                    continue
+                vendor = _normalize_vendor(str(offer.get("vendor") or ""))
+                if vendor:
+                    priorities[(vendor, str(offer["url"]))] = score
+    return priorities
+
+
+_CHALLENGE_MARKERS = (
+    "access denied", "captcha", "challenge", "cloudflare", "forbidden",
+    "incapsula", "just a moment", "robot check", "verify you are human",
+    "temporarily blocked", "too many requests", "403", "429",
+)
+
+
+def _usable_specs(specs) -> bool:
+    """Reject empty, whitespace-only, and common block-page payloads."""
+    if not isinstance(specs, dict) or not specs:
+        return False
+    values = [str(value).strip() for value in specs.values() if value is not None]
+    if not any(values):
+        return False
+    text = " ".join(values).casefold()
+    return not any(marker in text for marker in _CHALLENGE_MARKERS)
+
+
 def _load_ledger(v: str) -> set:
     p = _ledger(v)
     if not p.exists():
@@ -122,30 +190,39 @@ def _load_ledger(v: str) -> set:
 
 
 def make(vendors: list, limit: int | None) -> None:
+    priorities = _core_gap_priorities()
     for v in vendors:
         done = _load_ledger(v)
         pending, seen = [], set()
+        prioritized = 0
         for item in _load_jsonl(_listing(v)):
             sku = item.get("vendor_sku")
             url = item.get("url")
             if not sku or not url or sku in done or sku in seen:
                 continue
             seen.add(sku)
-            pending.append({"vendor_sku": sku, "url": url})
-            if limit and len(pending) >= limit:
-                break
+            score = priorities.get((_normalize_vendor(v), str(url)), 0)
+            pending.append((score, {"vendor_sku": sku, "url": url}))
+        pending.sort(key=lambda entry: -entry[0])
+        if limit:
+            pending = pending[:limit]
+        prioritized = sum(1 for score, _ in pending if score)
+        pending_rows = [entry for _, entry in pending]
         _pending(v).parent.mkdir(parents=True, exist_ok=True)
         _pending(v).write_text(
-            json.dumps(pending, ensure_ascii=False, indent=1), encoding="utf-8"
+            json.dumps(pending_rows, ensure_ascii=False, indent=1), encoding="utf-8"
         )
-        print(f"{v}: {len(pending)} pending ({len(done)} already in ledger)")
+        print(
+            f"{v}: {len(pending_rows)} pending "
+            f"({prioritized} core-coverage priority, {len(done)} already in ledger)"
+        )
 
 
 def mark(vendors: list) -> None:
     for v in vendors:
         done = _load_ledger(v)
         added = 0
-        failed = set()
+        rejected = 0
         for item in _load_jsonl(_detail(v)):
             sku = item.get("vendor_sku")
             if not sku:
@@ -153,23 +230,23 @@ def mark(vendors: list) -> None:
             # A DetailItem can still be emitted for a challenge/error page
             # or a page whose specification selector matched nothing. Such
             # rows must remain pending so they can be retried.
-            if not isinstance(item.get("specs"), dict) or not item["specs"]:
-                failed.add(sku)
+            if not _usable_specs(item.get("specs")):
+                rejected += 1
                 continue
             if sku in done:
                 continue
             done.add(sku)
             added += 1
-        done.difference_update(failed)
-        if failed:
-            added -= len(failed & done)
-        if added or failed:
+        if added:
             _ledger(v).parent.mkdir(parents=True, exist_ok=True)
             _ledger(v).write_text(
                 json.dumps(sorted(done), ensure_ascii=False, indent=1),
                 encoding="utf-8",
             )
-        print(f"{v}: +{added} marked done ({len(done)} total in ledger)")
+        print(
+            f"{v}: +{added} marked done ({len(done)} total in ledger; "
+            f"{rejected} empty/challenge rows rejected)"
+        )
 
 
 if __name__ == "__main__":

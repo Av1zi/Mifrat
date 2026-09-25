@@ -5,6 +5,8 @@ This document explains every part of the Mifrat project in plain concepts, with 
 Related sources of truth:
 
 - pc-parts-il-plan.md — why the architecture looks this way
+- spec-overhaul-plan.md — why specs are a typed schema (Sep 2026 overhaul)
+- scraper/specs/README.md — how the spec pipeline works
 - decisions.md (local-only, not committed) — running log of decisions
 - README.md — short live status
 - nano/NANO_README.md — Nano setup
@@ -32,6 +34,8 @@ Non-goals for the current version:
 - No attempt to defeat serious bot protection. If a vendor actively blocks automated access, the project treats that as a stop signal for that source, not a challenge to work around, with one documented historical exception for Plonter described below.
 
 The site is bilingual, Hebrew and English, right-to-left by default in Hebrew and left-to-right in English. Prices are stored as whole Israeli shekels and can be displayed in shekels or converted to dollars for viewing only.
+
+Live scale (late Sep 2026 snapshot; moves daily): roughly 7,200 listings merged into ~4,900 products across 13 categories, with a ~900-item human review queue. Four vendors feed the pipeline: TMS (home), 1PC, Plonter, and Ivory (cloud).
 
 ## 2. Big picture — how the whole thing fits together
 
@@ -168,7 +172,7 @@ Lifecycle:
 - Download images for those detail results, creating a standard-size image and a small thumbnail, skipping items that already have images and skipping image addresses without a real filename.
 - Mark identifiers as done only if the detail result contained a non-empty specification table. An image alone does not count as done; an empty table means the page was likely a challenge or miss and stays pending for a future attempt.
 
-Per-vendor detail reading is tailored: one vendor uses labeled content rows with Hebrew label mapping, another uses definition and table structures plus structured metadata including brand, availability, and catalog number, another uses specification tables with subgroup handling plus real identifier and manufacturer number discovery from metadata and structured data, and Plonter uses browser automation over table rows with Hebrew labels and directional values. Everywhere, the detail main image is preferred over the listing thumbnail when present, and junk, empty, Hebrew-navigation, or mojibake-contaminated pairs are discarded.
+Per-vendor detail reading is tailored: one vendor uses labeled content rows with Hebrew label mapping, another uses definition and table structures plus structured metadata including brand, availability, and catalog number, another uses specification tables with subgroup handling plus real identifier and manufacturer number discovery from metadata and structured data, and Plonter uses browser automation over table rows with Hebrew labels and directional values. Everywhere, the detail main image is preferred over the listing thumbnail when present, and junk, empty, Hebrew-navigation, or mojibake-contaminated pairs are discarded. Detail tables are a Tier-1 source for the spec system (§6.5): they fill what reference data lacks but never override it.
 
 ## 6. Normalize and match — how raw listings become one catalog
 
@@ -198,11 +202,24 @@ Each listing starts with a rough vendor guess, but titles, addresses, identifier
 
 A normalized match text is built from identifier plus raw title after cleaning. Brand is detected by longest known alias match. Manufacturer numbers are extracted with patterns that understand common affixes and packaging hints, preferring longer and more specific forms and stripping known prefixes that would otherwise split identical products. Short numeric-only identifiers are not treated as manufacturer numbers unless they are long enough to plausibly be universal codes.
 
-### 6.5 Attribute extraction
+### 6.5 Spec system — one typed schema per category
 
-Attributes are structured facts like socket, chipset, memory type, form factor, wireless support, capacity, speed, wattage, dimensions, and similar. Extraction is text-only over the normalized match text so every vendor is treated uniformly. Vendor-specific extras such as internal cut labels, tree paths, and detail specification tables are only additive: they can fill gaps but never override what the title already says.
+Since the Sep 2026 overhaul, product facts live in a fixed, typed per-category schema (`scraper/specs/schema.py` is the single source of truth: field names, types, units baked into names like `_ghz`/`_mm`/`_w`, enums, ranges, which fields are filterable, display groups, and Hebrew/English labels). One product always carries one fixed key set for its category, with `null` for anything unknown — `null` is first-class ("Unknown" in the UI) and the system never guesses.
 
-Detail pairs are sanitized: mojibake artifacts, empty values, Hebrew navigation keys, blacklisted keys, and noise values meaning none or not applicable are dropped. Known label aliases are unified, yes-no values are normalized, clock ranges are split into base and boost, and socket, form-factor, and packaging wording is cleaned. Per-category parsers then handle motherboards, processors, graphics, memory, power supplies, storage, cases, and coolers, plus fragment parsing, tree-path parsing, Hebrew description parsing, and internal cut-label translation with promotion-label guards. Duplicates are unified, filter values are canonicalized, digit-less measure fragments are dropped, and overly long prose values are discarded so they cannot become filter labels.
+Facts are filled from a strict source-reliability hierarchy, higher tier always winning over lower:
+
+- Tier 0 — Reference: the pc-part-dataset index (PCPartPicker specs) plus a committed per-product override file for human corrections without a code deploy. Reference rows link by exact normalized-name equality first, then fuzzy name plus a hard anchor check (at least one structured field parsed from our own data must agree, and nothing anchored may contradict); ties or ambiguity mean no Tier-0 match. Wrong specs are treated as worse than missing specs. A second exact-match source keyed by manufacturer number adds specs the same way. When the reference index is missing, the pipeline degrades gracefully with Tier 0 disabled and a loud warning.
+- Tier 1 — Trusted vendor structure: Ivory cut labels and detail tables, TMS product fields, detail-page tables, and a post-match bridge of already-computed identity values.
+- Tier 2 — Title/SKU parsing: typed regexes over the normalized match text. This is the one place pattern-matching lives.
+- Tier 3 — Weak vendors: 1PC prose fragments and Plonter tree/dash dumps. Fill-only: a value contradicting an already-filled higher-tier field is discarded and logged, never merged.
+
+Rules: never overwrite a filled field with a lower tier; equal-tier conflicts keep the higher-confidence value and record both as a conflict case for the quality page; manual overrides are king. Per-value validators plus cross-field consistency checks run after merging (ranges, enums, socket-to-chipset coherence, kit math), and a small inference step fills only whole-lineup facts (Ryzen series to microarchitecture, tray packaging to no bundled cooler) while per-SKU facts like exact clocks stay `null` until a real source answers.
+
+The old flat `attributes` blob survives only as a transitional view *derived from* the typed specs, because the category filter rail, table columns, variant pills, and compatibility engine still read it. The product page already renders `specs` directly in schema order with typed values, and reference data merges invisibly — there is no separate reference sidebox anymore. The flat view is retired once the rail and compatibility logic finish migrating.
+
+Canonical forms keep the rail honest: socket spellings, GPU chip marketing names, form factors, and efficiency ratings each collapse to one spelling before type coercion, and unit scaling happens once at the boundary (a `_gb` field holding "2TB" becomes 2000).
+
+Presentation hygiene matters: raw titles and structured specs stay separate. Canonical names come from identity fields when available. Vendor feature prose belongs in specs or description, never in the name. Encoding artifacts are discarded during matching and spec-building so they cannot leak into the catalog or site.
 
 ### 6.6 Matching hierarchy — the hard part
 
@@ -215,7 +232,7 @@ In order:
 3. Exact manufacturer number. Listings with the same compact manufacturer key in the same category merge, still respecting packaging splits and conflict vetoes.
 4. Exact normalized vendor identifier. Same idea for vendor identifiers that are long and specific enough.
 5. Cross-key unification. If the manufacturer-number view and identifier view point at the same category and part, they unify under the manufacturer-number identity.
-6. Conflict guards. If compact numbers match but critical attributes conflict, the group splits into singletons. If compact numbers match and only model-title tokens differ, the group stays together but is flagged as a naming conflict with the differing titles preserved for review.
+6. Conflict guards. If compact numbers match but critical attributes conflict, the group splits into singletons. A merge-consistency guard applies the same idea across key types: differing compact manufacturer numbers plus an extended critical conflict also split, even when vendor identifiers agree. If compact numbers match and only model-title tokens differ, the group stays together but is flagged as a naming conflict with the differing titles preserved for review. Equal-tier spec disagreements that survive the tiered merge (§6.5) are likewise recorded as conflict cases rather than silently picked.
 7. Everything else becomes a singleton product unique to its listing key.
 
 After grouping, products get: a stable product identifier, a canonical name built from structured identity fields rather than vendor prose, a short description, category, brand, model, merged attributes with majority-vote conflict detection, how it was matched, vendor count, offers sorted for display, first available image, duplicate-vendor flags, naming-conflict flags, best offer selection preferring in-stock cheapest, and optional reference-spec blocks.
@@ -232,9 +249,11 @@ Near-matches are suggested by comparing listings within the same category and br
 
 A tiny local review tool can serve that queue for decisions. A promotion helper turns confirmed matches into new manual products and confirmed non-matches into blocked pairs, idempotently and in sorted order. Fuzzy logic never auto-merges.
 
-### 6.9 Reference-spec enrichment
+### 6.9 Reference-spec enrichment (spec Tier 0)
 
-An optional reference dataset can add physical facts the vendors rarely provide, such as processor power draw, graphics-card length, case volume and bay counts, and cooler noise and speed. The reference index is rebuilt fresh and is ignored by version control; the pipeline degrades gracefully when it is missing. Matching is name-based with per-category thresholds and only attaches a separate reference block — it never merges into vendor attributes and never drives filters, variants, or compatibility, because a wrong fuzzy reference match must not corrupt scraped facts. A second exact-match enrichment keyed by manufacturer number adds reference specs the same additive way.
+An external reference dataset supplies physical facts vendors rarely provide, such as processor power draw, graphics-card length, case volume and bay counts, and cooler noise and speed. The reference index is rebuilt fresh on every pipeline run and is ignored by version control; the pipeline degrades gracefully when it is missing (Tier 0 disabled, warning logged, coverage report shows it). Matching is exact-name first, then fuzzy-name plus a hard anchor check, with ties resolving to no match — a wrong fuzzy reference match must never corrupt scraped facts. A second exact-match enrichment keyed by manufacturer number adds reference specs the same way.
+
+Tier 0 is authoritative: it wins every conflict and merges invisibly into the product spec sheet (no separate sidecar block in the UI). The production escape hatch is a committed per-product override file keyed by product identifier plus field — a human correction with no code deploy. A coverage report is written every run (per category and field: share filled, share from reference, conflicts, dropped-invalid counts), which is the regression signal for spec health. The frontend never discovers spec keys: display order, filter allowlist, and labels are generated from the schema into a TypeScript module, and a drift check fails the pipeline if the generated module goes stale.
 
 ### 6.10 Price history
 
@@ -244,31 +263,34 @@ Old raw snapshots are periodically thinned: recent days are kept daily, older mo
 
 ### 6.11 Images
 
-Detail main images win over listing thumbnails. Image addresses without a real filename are rejected. Real identifier replacements rebuild search text and attributes so names stay correct. Downloads create a web-sized image and a small thumbnail per vendor and identifier, skipping existing files. The public site uses local image paths only and never hotlinks vendor hosts at runtime; missing images fall back to an initials-style placeholder. The build fails if any public product still references a remote image, which enforces the local-only rule.
+Detail main images win over listing thumbnails. Image addresses without a real filename are rejected. Real identifier replacements rebuild search text and specs so names stay correct. Downloads create a web-sized image plus a small thumbnail per vendor and identifier (thumbnails live under per-vendor `thumbs/` folders and average a few kilobytes, so category rows load them instead of full covers), skipping existing files. The public site uses local image paths only and never hotlinks vendor hosts at runtime; missing images fall back to an initials-style placeholder. The build fails if any public product still references a remote image, which enforces the local-only rule.
 
 ### 6.12 Public site files
 
-The full internal catalog is sharded into small client-optimized files: one trimmed file per category with only the fields the frontend needs, sorted by current best price; a tiny search index of identifier, category, price, brand, and name; a metadata summary with generation time, skipped vendors, and per-category counts and price ranges; per-category price history; and a quality-report file with duplicate-vendor and naming-conflict cases. A trimming allowlist must explicitly include any new field the frontend needs or it is silently dropped before it reaches the browser. Files are written atomically and orphaned files are cleaned up. A size guard fails the build if any public file grows too large or a category grows disproportionately without product growth.
+The full internal catalog is sharded into small client-optimized files: one trimmed file per category carrying the typed `specs` (with `null`s elided to save bytes and re-expanded on load), thumbnail plus image, and only the fields the frontend needs, sorted by current best price; a tiny search index of identifier, category, price, brand, and name (the name field is load-bearing — without it model queries match nothing until a category file loads); a metadata summary with generation time, skipped vendors, and per-category counts and price ranges; per-category price history; a spec-coverage report with per-field fill rates and conflicts; and a quality-report file with duplicate-vendor, naming-conflict, and spec-conflict cases. A trimming allowlist must explicitly include any new field the frontend needs or it is silently dropped before it reaches the browser. Files are written atomically and orphaned files are cleaned up. A size guard fails the build if any public file grows too large or a category grows disproportionately without product growth.
 
 ### 6.13 Triggers and guards
 
-After cloud scraping finishes, detail enrichment runs for a bounded chunk per vendor, appending detail results, downloading images, marking completed identifiers, and committing narrowly per vendor. The home machine does the same for its vendor with a smaller chunk. The normalize-and-deploy pipeline triggers on new raw data pushes, on cloud-scrape completion (needed because automation-token pushes do not fire push triggers), on a midday fallback schedule, or manually. It allows concurrent runs to queue rather than cancel, refreshes the optional reference index on a best-effort basis, builds the catalog and site files, checks sizes, and commits the catalog, review queue, and public site files. Hosting then redeploys automatically.
+After cloud scraping finishes, detail enrichment runs for a bounded chunk per vendor (capped per run so the first runs after a ledger fix do not hammer vendors), appending detail results, downloading images, marking completed identifiers, and committing narrowly per vendor. The home machine does the same for its vendor with a smaller chunk. The normalize-and-deploy pipeline triggers on new raw data pushes, on cloud-scrape completion (needed because automation-token pushes do not fire push triggers), on a midday fallback schedule, or manually. It allows concurrent runs to queue rather than cancel, then runs a fixed gate sequence: schema-to-frontend drift check (the generated TypeScript must match the schema), best-effort reference-index refresh, catalog and site-file build, hand-verified golden spec fixtures, and payload size checks — any gate fails the run before anything commits. It commits the catalog, review queue, and public site files. Hosting then redeploys automatically.
 
 ## 7. Data artifacts — what each file means
 
 - Raw snapshots: the ground truth of what each vendor showed on a given day. One file per vendor per day. Used only by the normalizer and history builder, never directly by the browser.
-- Full catalog: the internal database. Every enriched listing with its assigned product, plus every product with offers, attributes, images, flags, and reference blocks. Used by the history builder and by the site-file writer.
+- Full catalog: the internal database. Every enriched listing with its assigned product, plus every product with offers, typed specs plus source tiers, the derived attribute view, images, flags, and descriptions. Used by the history builder and by the site-file writer.
 - Review queue: uncertain near-matches plus quality cases for humans. Never drives the site.
 - Manual products ledger: committed human decisions about what belongs together and what must stay apart. Highest priority in matching.
-- Public category files: what the browser actually reads. Trimmed, sorted, minified, one per category.
-- Search index: tiny table for fast global search without downloading every category.
+- Spec overrides: committed per-product field corrections, the human escape hatch above even reference data. No code deploy needed.
+- Public category files: what the browser actually reads. Trimmed, sorted, minified, one per category, carrying typed specs with nulls elided.
+- Search index: tiny table (identifier, category, price, brand, name) for fast global search without downloading every category.
 - Metadata file: generation time, skipped vendors, and per-category counts and price extremes. Powers home and category-overview pages.
 - History files: per-category date arrays plus per-product per-vendor price series. Powers product price charts.
-- Quality file: duplicate-vendor and naming-conflict cases with titles and offers. Powers the data-quality page.
+- Spec-coverage report: per category and field, share filled, share from reference, conflicts, and dropped-invalid counts. The regression signal for spec health.
+- Quality file: duplicate-vendor, naming-conflict, and spec-conflict cases with titles and offers. Powers the data-quality page.
 - Detail files and ledgers: append-only detail results plus pending and completed identifier tracking.
-- Images: local vendor-scoped standard images and thumbnails, only for referenced products.
+- Images: local vendor-scoped standard images plus small thumbnails, only for referenced products.
 - Label files: committed translation tables for opaque internal cut identifiers.
-- Reference index: ignored, rebuilt cache for optional enrichment.
+- Reference index: ignored, rebuilt cache that powers Tier-0 spec enrichment.
+- Golden fixtures: hand-verified expected specs for known products, checked on every pipeline run.
 
 ## 8. Website — how the storefront works
 
@@ -320,11 +342,11 @@ Contents: breadcrumbs, category title, an optional picker banner when opened for
 How it works:
 
 - It downloads the one category file for the current category and caches it.
-- It computes which attributes are actually useful as filters: only allowlisted attributes per category, with a reasonable number of distinct values, stringified consistently, including vendor names from offers.
-- It computes numeric ranges for measure-like attributes.
-- Filtering supports stock-only, free-text search over name, brand, model, identifier, and manufacturer number, checkbox filters for vendor and attributes, and min-max ranges.
+- Filter and column choices come from the spec schema, not discovered from data: only schema fields flagged filterable become checkbox filters, with a reasonable number of distinct values, including vendor names from offers. Values arrive already typed, so nothing parses strings.
+- It computes numeric ranges for measure-like spec fields.
+- Filtering supports stock-only, free-text search over name, brand, model, identifier, and manufacturer number, checkbox filters for vendor and specs, and min-max ranges.
 - Sorting supports price low-to-high, high-to-low, vendor count, and name.
-- Specification columns are chosen by coverage so the table shows the most informative columns for that category without overwhelming the row.
+- Specification columns are the schema's priority fields by coverage so the table shows the most informative columns for that category without overwhelming the row.
 - Compatibility awareness: when opened as a picker for a build slot, the page can hide or dim options incompatible with the current partial build and show how many were hidden. Compatible auto-selection can pre-check locked values implied by the build, such as socket. Individual options can appear dead or soft-off with explanation when they conflict.
 - Clicking a row opens the product. Quick-add adds the item to the local build without leaving the page. In picker mode the action returns to the builder.
 
@@ -332,13 +354,13 @@ How it works:
 
 Purpose: answer whether this is the right part and where to buy it cheapest right now.
 
-Layout: breadcrumbs, a title band with category eyebrow, display name, description, and brand plus identifier; a side column with large image, add-to-build action, variant selectors, specification card with show-more, and reference-spec block when available; and a main column with the offer table, stale markers, disclaimer, price-history chart, and similar products.
+Layout: breadcrumbs, a title band with category eyebrow, display name, description, and brand plus identifier; a side column with large image, add-to-build action, variant selectors, and specification card with show-more; and a main column with the offer table, stale markers, disclaimer, price-history chart, and similar products. The spec card renders the typed schema in schema order with "Unknown" for nulls; reference data is merged invisibly, with no separate reference block.
 
 Offer table: one row per vendor offer with merchant name, base price, shipping if known, availability, total, and buy link. Rows sort in-stock first then by price. Stale offers are tagged. No vendor hosts are contacted except when the visitor clicks a buy link.
 
-Variants: when the same conceptual family differs along a small set of dimensions (for example memory type and capacity, or chipset and socket, or graphics chip, or wattage), the page shows pill selectors. Groups are identity-gated and value-sorted with stable order so selectors never jump sides when navigating.
+Variants: when the same conceptual family differs along a small set of dimensions (for example memory type and capacity, or chipset and socket, or graphics chip, or wattage), the page shows pill selectors. Groups are identity-gated (same chipset and socket, same graphics chip, same memory type and capacity — never across them) and value-sorted with stable order so selectors never jump sides when navigating. Products without a model plus full identity never get pills.
 
-Similar products: up to a handful of cards chosen by curated per-category specification priority with extra weight for identity matches and a minimum score threshold.
+Similar products: up to eight cards scored on schema-priority specs only, with extra weight for identity matches and a minimum score threshold.
 
 Price history: a simple chart built from the per-category history file showing per-vendor series over time with gaps for absent days. If no history exists, the chart is hidden rather than showing an empty box.
 
@@ -370,7 +392,7 @@ First-time setup (creating the database, applying the migration, wiring bindings
 
 Purpose: be transparent about uncertain data.
 
-Contents: articles for vendor-duplicate cases (same vendor appearing twice under different identifiers in one product) and naming-conflict cases (same compact number with differing model-title tokens), each with product reference, category, vendor, titles, and offer details including listing key, identifier, title, and price.
+Contents: articles for vendor-duplicate cases (same vendor appearing twice under different identifiers in one product), naming-conflict cases (same compact number with differing model-title tokens), and spec-conflict cases (equal-tier sources disagreeing on one field, with kept versus dropped values), each with product reference, category, vendor, titles, and offer details including listing key, identifier, title, and price.
 
 ### 8.10 Legal and utility pages
 
@@ -378,15 +400,15 @@ Privacy, terms, and cookies pages are static bilingual cards explaining local pr
 
 ### 8.11 Data access in the browser
 
-The browser only uses same-origin fetches with a timeout: metadata for home and overviews, the tiny index for search and build-part resolution, one category file at a time with retry on failure, history files for charts, and the quality file for the quality page. Representative images come from the already-cached category data. Types distinguish products, offers, index rows, category and site metadata, quality cases, history files, language, currency, and sort keys.
+The browser only uses same-origin fetches with a timeout: metadata for home and overviews, the tiny index for search and build-part resolution (matching index rows first for instant interim hits, then lazily enriching the displayed few with their category files for photos and prices), one category file at a time with retry on failure, history files for charts, and the quality file for the quality page. Representative images come from the already-cached category data. Types distinguish products, offers, typed spec values, index rows, category and site metadata, quality cases, history files, language, currency, and sort keys. Spec display metadata (field order, filter flags, labels) is generated from the pipeline schema into a TypeScript module, so the frontend never hardcodes spec keys.
 
 ### 8.12 Images in the site
 
-Only referenced images are copied to the public folder. List rows use small thumbnails; product and similar-card views use larger images. Images use contain-fit on a white background with lazy loading except the main product image, which loads eagerly. A URL sanitizer only allows local image paths; remote addresses resolve to nothing so the browser never contacts vendor hosts for images, falling back to a placeholder. Link addresses are allowlisted to safe web, local, or hash targets.
+Only referenced images are copied to the public folder. List rows, search hits, and menu tiles use small thumbnails with full-image fallback; product and similar-card views use larger images. Images use contain-fit on a white background with lazy loading except the main product image, which loads eagerly. A URL sanitizer only allows local image paths; remote addresses resolve to nothing so the browser never contacts vendor hosts for images, falling back to a placeholder. Link addresses are allowlisted to safe web, local, or hash targets.
 
 ### 8.13 Internationalization, currency, icons, and page titles
 
-Translations live in one module with category order, localized category, vendor, and attribute labels, plus well over a hundred interface strings addressed by key. Language, currency, and theme persist locally with system-theme fallback. Prices format per locale and currency; dollar mode fetches a daily exchange rate from a public rate API, caches it for a day, and silently stays on shekels if the fetch fails, so shekel mode makes zero external requests. Icons are inline stroke icons with per-category mapping and no emoji, icon fonts, or content-delivery networks. Page titles combine the current page with the site name in the active language. Utilities handle HTML escaping, error panels, identifier extraction, and display-name cleanup that strips duplicated model tokens.
+Translations live in one module with category order, localized category, vendor, and spec-field labels, plus well over a hundred interface strings addressed by key. Spec-field labels themselves are generated from the schema (edit the schema, regenerate, and the drift check enforces they stay in sync). Language, currency, and theme persist locally with system-theme fallback. Prices format per locale and currency; dollar mode fetches a daily exchange rate from a public rate API, caches it for a day, and silently stays on shekels if the fetch fails, so shekel mode makes zero external requests. Icons are inline stroke icons with per-category mapping and no emoji, icon fonts, or content-delivery networks. Page titles combine the current page with the site name in the active language. Utilities handle HTML escaping, error panels, identifier extraction, and display-name cleanup that strips duplicated model tokens.
 
 ### 8.14 Deployment
 
@@ -396,7 +418,7 @@ Dashboard settings point at the site folder, build with the site build command, 
 
 Cloud scraping is a scheduled matrix over the three cloud-safe vendors with no fast failure, late-night primary plus morning fallback that skips already-present outputs, manual dispatch, write permission, dependency and browser-binary installation, per-vendor runs, and narrow per-file commits.
 
-Normalize-and-deploy triggers on new raw-data pushes, on cloud-scrape completion (because automation-token pushes do not fire push triggers), on a midday fallback schedule, or manually. It never cancels in-progress runs, refreshes the optional reference index on a best-effort basis, builds the catalog and site files, checks sizes, and commits the catalog, review queue, and public site files. Hosting redeploys on that push.
+Normalize-and-deploy triggers on new raw-data pushes, on cloud-scrape completion (because automation-token pushes do not fire push triggers), on a midday fallback schedule, or manually. It never cancels in-progress runs, then runs the fixed gate sequence (§6.13): drift check, best-effort reference refresh, build, golden fixtures, size checks — and commits the catalog, review queue, and public site files. Hosting redeploys on that push. A detail-scrape job runs after the listing spiders (bounded pending chunk per vendor, append-only, exist-guarded narrow commit) so one vendor failing never cancels the others.
 
 Weekly cleanup thins old raw snapshots to weekly beyond three months and monthly beyond a year, never touching detail files. The normalizer only reads the last two weeks, while git history preserves older blobs.
 
@@ -412,17 +434,20 @@ Secrets hygiene: zero secrets in automation and git, ever. Environment examples,
 - Every spider keeps both entry methods sharing one request builder for version compatibility.
 - Robots handling is split: ignore globally, obey for the home-run vendor. Never construct page-size URLs for that vendor; follow pagination links or page numbers derived from the results-count footer.
 - Home-IP rules are binding: one run per day, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion. The Plonter browser-automation feed is the one documented exception.
-- Matching stays strict: manual merges, then exact manufacturer number, then exact identifier, then singleton. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
-- Attribute extraction is additive only: vendor extras fill gaps but never override title-derived facts.
+- Matching stays strict: manual merges, then CPU model identity, then exact manufacturer number, then exact identifier, then singleton — with packaging splits (boxed versus tray stay apart in every tier), a merge-consistency guard that splits same-identifier groups with conflicting manufacturer numbers, and human blocked-pairs vetoing every tier. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
+- Specs merge by tier, not by accidents of call order: reference wins, then trusted vendor structure, then title parsing, then weak vendors fill-only; equal-tier conflicts are logged, never silently picked. `null` means unknown — never guess a value to fill a gap.
+- The schema is the single source of truth for specs: add or change a field there, regenerate the frontend metadata, teach a resolver to emit it — nothing else needs editing. The drift check fails the pipeline if the generated module goes stale. Per-product overrides fix data without a code deploy.
 - Any new frontend field must be allowlisted in the site-file trimmer or it is silently dropped before reaching the browser.
-- Compatibility stays client-side as plain rules over attributes. The only server-side piece is short-link storage, which is mathematically required for fixed short identifiers. Legacy long links keep working.
+- Compatibility stays client-side as plain rules over specs (via the transitional attribute view until the rail and builder finish migrating). The only server-side piece is short-link storage, which is mathematically required for fixed short identifiers. Legacy long links keep working.
 
 ## 11. How to verify changes without a test suite
 
 There is no automated test suite. Verification is:
 
 - Run one vendor test crawl to an ignored test file and confirm items look sane.
-- Run the normalizer locally and confirm the catalog, review queue, public files, and history build without failures or size-guard violations.
+- Run the schema-to-frontend drift check and confirm the generated spec module is in sync.
+- Run the normalizer locally and confirm the catalog, review queue, public files, spec-coverage report, and history build without failures, golden-fixture mismatches, or size-guard violations.
+- Run the golden spec fixtures and the payload size guard explicitly when touching specs or site data.
 - Build the site locally and confirm it renders with fresh data.
 
 Dependency setup is a Python package install plus a separate browser-binary install before running the browser-driven vendor. The site needs a package install before development or build. If public data is missing, run the normalizer or pull latest before starting the site.
@@ -436,11 +461,12 @@ Dependency setup is a Python package install plus a separate browser-binary inst
 - Offer: one vendor price and availability for a product, with last-seen date and stale flag.
 - Stale: data reused from a previous day because today snapshot was missing. Visible to visitors, never hidden.
 - Skipped vendor: a vendor with no usable snapshot in the lookback window for that run.
-- Match text: cleaned searchable text built from identifier plus title, used for brand, number, and attribute work.
+- Match text: cleaned searchable text built from identifier plus title, used for brand, number, and spec work.
 - Manufacturer number: the maker part code used to recognize the same product across vendors.
 - Manual merge: a human decision that two listing keys belong together, stored in a committed ledger.
 - Blocked pair: a human decision that two listings must never merge, checked at every matching tier.
 - Singleton: a product with only one listing because nothing else matched it confidently.
-- Reference specs: optional physical facts from an external dataset, kept separate from scraped facts and never used for filtering or compatibility.
+- Reference specs: physical facts from an external dataset (spec Tier 0). Authoritative when matched — exact-name first, fuzzy only with an anchor — and merged invisibly into the product sheet.
+- Spec conflict: two same-tier sources disagreeing on one field. The higher-confidence value ships; both are recorded for the quality page.
 - Detail enrichment: deeper specification tables and better images collected from product pages for a bounded daily chunk.
 - Short link: a fixed short identifier that maps to a full build via server-side storage because pure URL encoding cannot fit a build in that few characters.

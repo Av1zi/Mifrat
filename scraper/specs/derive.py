@@ -20,7 +20,7 @@ Three things live here:
    holds for a whole architecture or platform is a derivation ("every Zen 5 part
    is 4nm", "a tray CPU ships without a cooler"); "this model has 96MB of L3" is
    a per-SKU fact and stays null unless a real source supplies it. Inferred
-   values are marked `derived` and only ever fill nulls, so any real value from
+   values are marked `derived:<rule>` and only ever fill nulls, so any real value from
    any tier always wins. It runs AFTER cross_check (build.py) so a rule can also
    answer for a field a consistency check just emptied.
 """
@@ -267,20 +267,21 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
     model = specs.get("model")
     model_text = str(model or "")
 
-    def fill(field: str, value) -> None:
+    def fill(field: str, value, rule: str) -> None:
         if value in (None, "") or specs.get(field) is not None:
             return
         specs[field] = value
-        sources[field] = "derived"
+        sources[field] = f"derived:{rule}"
         filled.append(field)
 
-    fill("series", cpu_series(model))
+    fill("series", cpu_series(model), "cpu.model_series")
 
     is_amd = bool(re.search(r"\bRyzen\b|\bThreadripper\b|\bEPYC\b", model_text, re.I))
     is_intel = bool(_INTEL_PREFIX.search(model_text))
 
     # -- microarchitecture, when no source supplied it ----------------------
-    fill("microarchitecture", expected_microarchitecture(model))
+    fill("microarchitecture", expected_microarchitecture(model),
+         "cpu.model_microarchitecture")
 
     # Read it back: the fill above is itself a valid source for the
     # architecture-wide facts below (node, per-core L2).
@@ -292,33 +293,83 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
         # EPYC; Ryzen 3 mixes 4C/4T (3200G) with 4C/8T (3300X), so it is left
         # to a real source rather than assumed.
         if _AMD_SMT_SERIES.search(model_text):
-            fill("smt", True)
+            fill("smt", True, "cpu.lineup_smt")
             if isinstance(cores, int) and cores > 0:
-                fill("thread_count", cores * 2)
+                fill("thread_count", cores * 2, "cpu.smt_core_math")
         if re.search(r"\bRyzen\b|\bThreadripper\b", model_text, re.I):
-            fill("unlocked", True)
+            fill("unlocked", True, "cpu.amd_lineup_unlocked")
     elif is_intel and _INTEL_UNLOCKED_SUFFIX.search(re.sub(r"[^A-Za-z0-9]", "", model_text)):
-        fill("unlocked", True)
+        fill("unlocked", True, "cpu.intel_unlocked_suffix")
 
     amd_uarch = _amd_uarch(microarch)
     if is_amd and amd_uarch:
-        fill("lithography_nm", amd_uarch[0])
+        fill("lithography_nm", amd_uarch[0], "cpu.architecture_node")
         if isinstance(cores, int) and cores > 0:
             l2 = cores * amd_uarch[1]
-            fill("l2_cache_mb", int(l2) if float(l2).is_integer() else round(l2, 3))
+            fill("l2_cache_mb", int(l2) if float(l2).is_integer() else round(l2, 3),
+                 "cpu.architecture_l2_math")
 
     intel_uarch = _intel_uarch(microarch)
     if intel_uarch and not is_amd:
-        fill("core_family", intel_uarch[0])
-        fill("lithography_nm", intel_uarch[1])
+        fill("core_family", intel_uarch[0], "cpu.architecture_family")
+        fill("lithography_nm", intel_uarch[1], "cpu.architecture_node")
 
     # A tray CPU ships without a cooler by definition.
     if specs.get("packaging") == "tray":
-        fill("includes_cooler", False)
+        fill("includes_cooler", False, "cpu.tray_packaging")
 
     socket = str(specs.get("socket") or "").upper()
-    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket))
 
+    # Desktop platform facts are safe only for model families with a
+    # one-to-one socket relationship.  Mobile suffixes and EPYC are excluded;
+    # no SKU-specific chipset or board compatibility is guessed here.
+    if not socket and not _EPYC.search(model_text) and not _AMD_MOBILE_SUFFIX.search(model_text):
+        generation = _generation_number(model)
+        platform_socket = None
+        if is_amd and not re.search(r"\bThreadripper\b", model_text, re.I) and generation in {1, 2, 3, 4, 5}:
+            platform_socket = "AM4"
+        elif is_amd and not re.search(r"\bThreadripper\b", model_text, re.I) and generation in {7, 8, 9}:
+            platform_socket = "AM5"
+        elif is_intel and generation in {6, 7, 8, 9}:
+            platform_socket = "LGA1151"
+        elif is_intel and generation in {10, 11}:
+            platform_socket = "LGA1200"
+        elif is_intel and generation in {12, 13, 14}:
+            platform_socket = "LGA1700"
+        fill("socket", platform_socket, "cpu.desktop_platform_socket")
+
+    socket = str(specs.get("socket") or "").upper()
+    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket),
+         "cpu.socket_memory_platform")
+
+    return filled
+
+
+def _infer_memory(specs: dict, sources: dict) -> list[str]:
+    """Complete only unambiguous RAM kit arithmetic.
+
+    A product may expose any two of count, per-module size and total size.
+    Division must be exact; we never invent a kit layout from a single total.
+    """
+    filled: list[str] = []
+
+    def fill(field: str, value, rule: str) -> None:
+        if value in (None, "") or specs.get(field) is not None:
+            return
+        if not isinstance(value, int) or value <= 0:
+            return
+        specs[field] = value
+        sources[field] = f"derived:{rule}"
+        filled.append(field)
+
+    count, size, total = (specs.get("module_count"), specs.get("module_size_gb"),
+                          specs.get("total_gb"))
+    if isinstance(count, int) and isinstance(size, int):
+        fill("total_gb", count * size, "memory.module_arithmetic")
+    elif isinstance(total, int) and isinstance(count, int) and count and total % count == 0:
+        fill("module_size_gb", total // count, "memory.module_arithmetic")
+    elif isinstance(total, int) and isinstance(size, int) and size and total % size == 0:
+        fill("module_count", total // size, "memory.module_arithmetic")
     return filled
 
 
@@ -331,23 +382,23 @@ def _infer_storage(specs: dict, sources: dict) -> list[str]:
     filled: list[str] = []
     interface = str(specs.get("interface") or "")
 
-    def fill(field: str, value) -> None:
+    def fill(field: str, value, rule: str) -> None:
         if value in (None, "") or specs.get(field) is not None:
             return
         specs[field] = value
-        sources[field] = "derived"
+        sources[field] = f"derived:{rule}"
         filled.append(field)
 
     if not interface:
         return filled
     if re.search(r"\bnvme\b", interface, re.I) or re.search(r"pcie", interface, re.I):
-        fill("nvme", True)
-        fill("type", "SSD")
+        fill("nvme", True, "storage.interface_nvme")
+        fill("type", "SSD", "storage.interface_ssd")
         if re.match(r"\s*m\.?2", interface, re.I):
-            fill("form_factor", "M.2")
+            fill("form_factor", "M.2", "storage.interface_form_factor")
     generation = re.search(r"pcie\s?([345])(?:\.0)?\b", interface, re.I)
     if generation:
-        fill("pcie_gen", int(generation.group(1)))
+        fill("pcie_gen", int(generation.group(1)), "storage.interface_pcie_generation")
     return filled
 
 
@@ -359,6 +410,8 @@ def infer_specs(category: str | None, specs: dict, sources: dict) -> list[str]:
     """
     if category == "cpu":
         return _infer_cpu(specs, sources)
+    if category == "memory":
+        return _infer_memory(specs, sources)
     if category == "storage":
         return _infer_storage(specs, sources)
     return []

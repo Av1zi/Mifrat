@@ -1,4 +1,4 @@
-import { loadQa } from "../api";
+import { loadQa, loadSpecReport } from "../api";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, resultsCount, t, vendorLabel } from "../i18n";
 import { productHash, homeHash, categoryHash } from "../state";
@@ -16,8 +16,9 @@ export async function renderQa(
   container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
 
   let qa;
+  let specReport;
   try {
-    qa = await loadQa();
+    [qa, specReport] = await Promise.all([loadQa(), loadSpecReport()]);
   } catch (err) {
     container.innerHTML = errorPanel(
       t(lang, "loadError"),
@@ -28,10 +29,28 @@ export async function renderQa(
   }
 
   const cases = qa.cases ?? [];
+  const reportPanel = specReport
+    ? `
+      <section class="qa-case">
+        <h2>${esc(lang === "he" ? "כיסוי מפרטים" : "Spec coverage")}</h2>
+        <p class="qa-spec">
+          ${esc(lang === "he" ? "מוצרים" : "Products")}: ${specReport.products}
+          · ${esc(lang === "he" ? "פערי ליבה" : "Core gaps")}: ${specReport.counts.core_gaps ?? 0}
+          · ${esc(lang === "he" ? "לא ידוע" : "Unknown fields")}: ${specReport.counts.unknown ?? 0}
+          · ${esc(lang === "he" ? "הסקות בטוחות" : "Safe inferences")}: ${specReport.derived ?? 0}
+        </p>
+        <p class="qa-spec">
+          ${esc(lang === "he"
+            ? "ערכים חסרים נשארים לא ידועים בכוונה כאשר אין מקור אמין."
+            : "Unknown values remain unknown intentionally when no reliable source exists.")}
+        </p>
+      </section>`
+    : "";
   if (cases.length === 0) {
     container.innerHTML = `
       <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
       <div class="title-band"><h1>${esc(t(lang, "qaHeading"))}</h1></div>
+      ${reportPanel}
       <div class="empty-state">${esc(t(lang, "qaEmpty"))}</div>`;
     return;
   }
@@ -99,5 +118,6 @@ export async function renderQa(
   container.innerHTML = `
     <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
     <div class="title-band"><h1>${esc(t(lang, "qaHeading"))}</h1><p>${esc(resultsCount(lang, cases.length))}</p></div>
+    ${reportPanel}
     <div class="qa-list">${rows}</div>`;
 }
