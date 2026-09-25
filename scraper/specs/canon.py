@@ -33,6 +33,23 @@ COLOR_WORDS = (
 )
 _COLOR_DISPLAY = {"grey": "Gray", "charcoal": "Charcoal", "midnight": "Midnight"}
 
+# Israeli vendors write colors in Hebrew ("שחור | כסוף"). Translating the word
+# to its English equivalent first means one color vocabulary downstream, and
+# `specs.labels` reuses the same table when cleaning Hebrew detail values.
+HE_COLOR_WORDS = {
+    "שחור": "black", "לבן": "white", "כסוף": "silver", "אפור": "gray",
+    "אדום": "red", "כחול": "blue", "ירוק": "green", "ורוד": "pink",
+    "כתום": "orange", "צהוב": "yellow", "סגול": "purple", "חום": "brown",
+    "זהב": "gold", "טיטניום": "titanium", "שקוף": "transparent",
+}
+
+
+def translate_hebrew_colors(text: str) -> str:
+    for hebrew, english in HE_COLOR_WORDS.items():
+        if hebrew in text:
+            text = text.replace(hebrew, english)
+    return text
+
 
 def canon_color(value) -> str:
     """Recognized color words in a value ('Black / Silver' -> 'Black / Silver').
@@ -40,7 +57,7 @@ def canon_color(value) -> str:
     A two-tone case really is two colors, so both are kept (canonical order)
     instead of splitting the filter into two extra single-color options.
     """
-    text = str(value).strip()
+    text = translate_hebrew_colors(str(value).strip())
     words = re.findall(r"[A-Za-z]+", text.lower())
     found: list[str] = []
     for word in words:
@@ -147,6 +164,21 @@ def canon_storage_form_factor(value) -> str:
     return _STORAGE_FORM_FACTORS.get(key, str(value).strip())
 
 
+# Vendor pages print the manufacturer inside the lineup name ("AMD EPYC",
+# "Intel Core i5"); the site's `series` facet is vendor-free ("EPYC",
+# "Core i5"), so a TMS detail row must not fork the filter into two entries.
+_SERIES_VENDOR_WORDS = ("AMD", "INTEL", "NVIDIA", "ASUS", "MSI", "GIGABYTE",
+                        "ASROCK", "ASROCK RACK")
+
+
+def canon_series(value) -> str:
+    text = re.sub(r"\s+", " ", str(value).strip())
+    for word in _SERIES_VENDOR_WORDS:
+        if text.upper().startswith(f"{word} "):
+            return text[len(word) + 1:].strip()
+    return text
+
+
 def canon_form_factor_memory(value) -> str:
     key = str(value).strip().lower()
     if "so" in key and "dimm" in key:
@@ -189,11 +221,23 @@ _EFFICIENCY_CANON = {
     "80plus titanium": "80+ Titanium",
 }
 
+# The tier word inside a longer certification blob ("80 PLUS Gold (according
+# to manufacturer, 115V)"). Requires the 80 PLUS lead so a bare "platinum"
+# (a legit spelling on its own) still takes the plain-key path.
+_EFFICIENCY_TIER_RE = re.compile(
+    r"80\s?\+?\s*(?:plus\s*)?(white|bronze|silver|gold|platinum|titanium)\b", re.I)
+
 
 def canon_efficiency(value) -> str:
-    key = re.sub(r"\s+", " ", str(value).strip().lower())
+    text = re.sub(r"\s+", " ", str(value).strip())
+    # "80 PLUS Gold (according to manufacturer, 115V), ETA-Gold (…)" — Plonter
+    # wraps the tier in vendor commentary; the tier word is the fact.
+    tier = _EFFICIENCY_TIER_RE.search(text)
+    if tier:
+        return _EFFICIENCY_CANON.get(tier.group(1).lower(), text)
+    key = text.lower()
     key = re.sub(r"^80\s?\+?\s*", "80+ ", key) if key.startswith("80") else key
-    return _EFFICIENCY_CANON.get(key, str(value).strip())
+    return _EFFICIENCY_CANON.get(key, text)
 
 
 def canon_modular(value) -> str:
@@ -232,6 +276,18 @@ _STORAGE_TYPE_CANON = {
     "hdd": "HDD", "hard drive": "HDD", "hard disk": "HDD",
     "sshd": "Hybrid", "hybrid": "Hybrid",
 }
+
+# TMS case drive-bay shorthand: "2+2" = 2 dedicated + 2 shared bays -> 4
+# (a bay sold as shared can still take a drive, so the sum is the fact).
+_BAY_SUM_RE = re.compile(r"^(\d)\s*\+\s*(\d)$")
+
+
+def canon_bay_count(value):
+    if isinstance(value, str):
+        match = _BAY_SUM_RE.match(value.strip())
+        if match:
+            return int(match.group(1)) + int(match.group(2))
+    return value
 
 
 def canon_storage_type(value) -> str:
@@ -367,6 +423,16 @@ def canon_chipset(value) -> str:
     for candidate in _chipset_candidates(text):
         if candidate in CHIPSET_INFO:
             return candidate
+    # Vendors concatenate the supported-chipset list into one cell
+    # ("AMDB850AMDX670", "INTELH810INTELH610", "Z890INTELZ890",
+    # "C612PCH", "B760EXPRESS"). Split on the glued brand/suffix words and
+    # take the first segment that is a known chipset — a board carries one,
+    # and vendors list the board's own chipset first.
+    segments = re.split(r"AMD|INTEL|ASUS|MSI|EXPRESS|PCH", text)
+    for segment in segments:
+        for candidate in _chipset_candidates(segment):
+            if candidate in CHIPSET_INFO:
+                return candidate
     return text
 
 
@@ -491,6 +557,7 @@ def canon_speed_string(generation: int | str | None, mhz: int | float | None) ->
 _GENERIC_RULES = {
     "manufacturer": canon_brand,
     "color": canon_color,
+    "series": canon_series,
     "socket": canon_socket,
     "efficiency": canon_efficiency,
     "modular": canon_modular,
@@ -513,6 +580,8 @@ _CATEGORY_RULES = {
     ("storage", "interface"): canon_storage_interface,
     ("storage", "memory_type"): canon_memory_type,
     ("accessories", "lighting"): canon_lighting,
+    ("case", "drive_bays_35"): canon_bay_count,
+    ("case", "drive_bays_25"): canon_bay_count,
 }
 
 

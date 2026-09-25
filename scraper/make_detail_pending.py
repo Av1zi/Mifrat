@@ -11,6 +11,9 @@ Usage:
         data/detail_pending/<vendor>.json. --limit N caps the list so the
         initial backfill can be chunked (important for TMS on the Nano ΓÇö
         never batch-request the whole catalog in one run, ┬º7).
+        A SKU is skipped only when the ledger says done AND its specs are still
+        present in the current detail file; a ledger entry whose rows are gone
+        goes back on the queue instead of being stranded forever.
     python -m scraper.make_detail_pending mark [vendor ...]
         Append to the ledger every vendor_sku that appears in
         data/raw/detail/<vendor>.jsonl. Run ONLY after the detail spider
@@ -189,18 +192,44 @@ def _load_ledger(v: str) -> set:
     return set(json.loads(p.read_text(encoding="utf-8")))
 
 
+def _usable_spec_skus(v: str) -> set:
+    """vendor_skus in the CURRENT detail file that still carry usable specs.
+
+    The ledger means "we scraped this SKU's specs once"; the detail file is the
+    only place those specs actually live. When a file is rebuilt, truncated, or
+    an append never lands, ledger entries survive pointing at rows that no
+    longer exist — and, before this check, such products stayed pending-free and
+    permanently empty (Sep 2026: 622 ivory SKUs, 134 detail rows on disk).
+    Re-fetching them is cheap; losing them silently is not.
+    """
+    skus: set[str] = set()
+    for item in _load_jsonl(_detail(v)):
+        sku = str(item.get("vendor_sku") or "").strip()
+        if sku and _usable_specs(item.get("specs")):
+            skus.add(sku)
+    return skus
+
+
 def make(vendors: list, limit: int | None) -> None:
     priorities = _core_gap_priorities()
     for v in vendors:
         done = _load_ledger(v)
+        have_specs = _usable_spec_skus(v)
         pending, seen = [], set()
-        prioritized = 0
+        requeued = 0
         for item in _load_jsonl(_listing(v)):
             sku = item.get("vendor_sku")
             url = item.get("url")
-            if not sku or not url or sku in done or sku in seen:
+            if not sku or not url or sku in seen:
                 continue
             seen.add(sku)
+            # Ledger-marked AND still on disk with usable specs = done.
+            # Anything else is pending, including a ledger entry whose specs
+            # are missing from the current detail file (re-queued below).
+            if sku in done and sku in have_specs:
+                continue
+            if sku in done:
+                requeued += 1
             score = priorities.get((_normalize_vendor(v), str(url)), 0)
             pending.append((score, {"vendor_sku": sku, "url": url}))
         pending.sort(key=lambda entry: -entry[0])
@@ -214,7 +243,8 @@ def make(vendors: list, limit: int | None) -> None:
         )
         print(
             f"{v}: {len(pending_rows)} pending "
-            f"({prioritized} core-coverage priority, {len(done)} already in ledger)"
+            f"({prioritized} core-coverage priority, {len(done)} in ledger, "
+            f"{requeued} re-queued: ledger says done but no usable specs on disk)"
         )
 
 
@@ -223,6 +253,8 @@ def mark(vendors: list) -> None:
         done = _load_ledger(v)
         added = 0
         rejected = 0
+        empty_pages = 0
+        unmapped_pages = 0
         for item in _load_jsonl(_detail(v)):
             sku = item.get("vendor_sku")
             if not sku:
@@ -232,6 +264,14 @@ def mark(vendors: list) -> None:
             # rows must remain pending so they can be retried.
             if not _usable_specs(item.get("specs")):
                 rejected += 1
+                # Separating "the page had no spec rows" from "the page had
+                # rows we could not map" is the difference between a broken
+                # selector and an incomplete label vocabulary.
+                extra = item.get("extra") if isinstance(item.get("extra"), dict) else {}
+                if extra.get("spec_rows"):
+                    unmapped_pages += 1
+                else:
+                    empty_pages += 1
                 continue
             if sku in done:
                 continue
@@ -245,7 +285,8 @@ def mark(vendors: list) -> None:
             )
         print(
             f"{v}: +{added} marked done ({len(done)} total in ledger; "
-            f"{rejected} empty/challenge rows rejected)"
+            f"{rejected} rows rejected: {empty_pages} with no spec rows, "
+            f"{unmapped_pages} with rows that mapped to nothing)"
         )
 
 

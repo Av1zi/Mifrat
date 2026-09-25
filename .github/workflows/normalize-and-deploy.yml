@@ -88,6 +88,12 @@ jobs:
         # run just wrote. Tier-0 assertions are skipped automatically when
         # the optional reference index above failed to refresh.
         run: python -m scraper.specs.golden.check_golden
+      - name: Vendor detail-page regressions (offline fixtures)
+        # Scraped vendor markup + the label vocabulary it feeds. No network:
+        # the fixtures live in scraper/specs/golden/tms_pages/. This is the
+        # gate that would have caught the TMS selector that matched nothing
+        # and silently shipped 2,254 products with an empty spec sheet.
+        run: python scripts/check_tms_detail.py
       - name: Site payload size guard (Phase 8, see DECISIONS.md)
         # Anti-regression lock for the data-trust + performance phases:
         # fail the job (no commit, no deploy) when a category/index file

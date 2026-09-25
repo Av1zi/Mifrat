@@ -112,8 +112,12 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "A620": ("AM5", "DDR5"), "B650": ("AM5", "DDR5"), "B650E": ("AM5", "DDR5"),
     "X670": ("AM5", "DDR5"), "X670E": ("AM5", "DDR5"), "X870": ("AM5", "DDR5"),
     "X870E": ("AM5", "DDR5"), "B840": ("AM5", "DDR5"), "B850": ("AM5", "DDR5"),
-    # AMD sTR5 / WRX90
-    "TRX50": ("sTR5", "DDR5"), "WRX90": ("sWRX8", "DDR5"),
+    # AMD sTR5 / WRX90. WRX90 is Threadripper PRO 7000 (sTR5); sWRX8 is the
+    # older WRX80 line. The Sep 2026 TMS detail audit caught the map claiming
+    # sWRX8 for WRX90 boards while the vendor page showed תושבת מעבד = sTR5,
+    # so the title parse was inheriting a wrong socket from this table.
+    "TRX50": ("sTR5", "DDR5"), "WRX90": ("sTR5", "DDR5"),
+    "WRX80": ("sWRX8", "DDR4"),
     # Intel LGA1151 / DDR4
     "H110": ("LGA1151", "DDR4"), "B150": ("LGA1151", "DDR4"),
     "H170": ("LGA1151", "DDR4"), "Z170": ("LGA1151", "DDR4"),
@@ -140,12 +144,15 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "X399": ("TR4", "DDR4"), "TRX40": ("sTRX4", "DDR4"),
     "C422": ("LGA2066", "DDR4"), "C621": ("LGA3647", "DDR4"),
     "W790": ("LGA4677", "DDR5"),
+    # Server chipsets (Sep 2026: seen on TMS server-board details;
+    # canon_chipset recovers these from concatenated vendor cells).
+    "C602": ("LGA2011", "DDR3"), "C612": ("LGA2011-v3", "DDR4"),
 }
 
 # Socket -> memory generation. Used by validate.py's cross-field checks and by
 # the reference resolver's anchor cross-check (not as a spec source itself).
 SOCKET_MEMORY: dict[str, str] = {
-    "AM4": "DDR4", "AM5": "DDR5", "sTR5": "DDR5", "sWRX8": "DDR5",
+    "AM4": "DDR4", "AM5": "DDR5", "sTR5": "DDR5", "sWRX8": "DDR4",
     "TR4": "DDR4", "sTRX4": "DDR4",
     "LGA1151": "DDR4", "LGA1200": "DDR4", "LGA2066": "DDR4",
     "LGA2011": "DDR4", "LGA2011-v3": "DDR4", "LGA3647": "DDR4",

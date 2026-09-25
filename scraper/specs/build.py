@@ -44,9 +44,10 @@ def listing_text(listing: dict) -> str:
     return text_value.strip()
 
 
-def listing_facts(category: str | None, listing: dict) -> dict[str, list[Fact]]:
-    """Every tier 1-3 fact for one listing."""
-    facts = vendor_struct.parse_vendor_struct(category, listing)
+def listing_facts(category: str | None, listing: dict,
+                  gaps: dict[str, int] | None = None) -> dict[str, list[Fact]]:
+    """Every tier 1-3 fact for one listing (gaps: vendor labels -> count)."""
+    facts = vendor_struct.parse_vendor_struct(category, listing, gaps=gaps)
     for key, value in title_parse.parse_title(category, listing_text(listing)).items():
         facts.setdefault(key, []).extend(value)
     for key, value in weak_vendor.parse_weak(category, listing).items():
@@ -118,8 +119,9 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         category = product.get("category")
         facts: dict[str, list[Fact]] = {}
 
+        label_gaps: dict[str, int] = {}
         for listing in by_product.get(str(product.get("product_id")), []):
-            for key, value in listing_facts(category, listing).items():
+            for key, value in listing_facts(category, listing, gaps=label_gaps).items():
                 facts.setdefault(key, []).extend(value)
 
         # Post-match bridge: `attributes` computed during matching (brand,
@@ -182,6 +184,8 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
                        "score": round(score, 1) if score is not None else None,
                        "name": (reference_row or {}).get("name")},
             issues=issues,
+            label_gaps=[{"label": label, "count": count} for label, count
+                        in sorted(label_gaps.items(), key=lambda item: -item[1])],
         )
 
     if verbose:

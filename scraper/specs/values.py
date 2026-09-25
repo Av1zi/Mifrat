@@ -191,7 +191,13 @@ def to_str(value) -> str:
 
 def _split_list(value) -> list[str]:
     if isinstance(value, (list, tuple)):
-        parts = [str(v) for v in value]
+        parts: list[str] = []
+        for v in value:
+            # One vendor ships the list as tokens, another comma-glues it
+            # into a single cell ("ATX, Micro ATX, Mini ITX"); splitting
+            # inside elements makes both spellings converge instead of
+            # recording 500 phantom conflicts per run (Sep 2026).
+            parts.extend(re.split(r"\s*[,;|]\s*|\s{2,}", str(v)))
     else:
         parts = re.split(r"\s*[,;|]\s*|\s{2,}", str(value))
     return [p.strip() for p in parts if p and p.strip()]

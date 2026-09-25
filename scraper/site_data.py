@@ -297,6 +297,9 @@ def _trim_spec_report(report: dict) -> dict:
         # available from the normalizer's in-memory output.
         "unknown": (report.get("unknown") or [])[:5000],
         "core_gaps": (report.get("core_gaps") or [])[:5000],
+        # Vendor labels that mapped to no schema field, by frequency — the
+        # evidence queue for specs/labels.py.
+        "label_gaps": (report.get("label_gaps") or [])[:300],
         "categories": categories,
         "counts": {
             "conflicts": len(report.get("conflicts") or []),

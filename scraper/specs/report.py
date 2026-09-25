@@ -31,12 +31,17 @@ class CoverageReport:
         self.source_distribution: dict[str, int] = {}
         self.unknown: list[dict] = []
         self.core_gaps: list[dict] = []
+        # (category, vendor label) -> {count, sample product ids}: vendor
+        # vocabulary that mapped to no schema field. This is the queue for
+        # specs/labels.py, kept in the report so growth is evidence-driven.
+        self.label_gaps: dict[tuple[str, str], dict] = {}
 
     # -- collection --------------------------------------------------------
 
     def add_product(self, *, product_id: str, category: str | None, specs: dict,
                     sources: dict, conflicts: list[dict], invalid: list[dict],
-                    reference: dict, issues: list[dict]) -> None:
+                    reference: dict, issues: list[dict],
+                    label_gaps: list[dict] | None = None) -> None:
         self.total += 1
         category = category or ""
         bucket = self.per_category.setdefault(
@@ -92,6 +97,17 @@ class CoverageReport:
             if specs.get(field) is not None:
                 bucket["core"][field] = bucket["core"].get(field, 0) + 1
 
+        for gap in label_gaps or []:
+            label = str(gap.get("label") or "").strip()
+            if not label:
+                continue
+            slot = self.label_gaps.setdefault(
+                (category, label),
+                {"category": category, "label": label, "count": 0, "products": []})
+            slot["count"] += int(gap.get("count") or 0)
+            if len(slot["products"]) < 5 and product_id not in slot["products"]:
+                slot["products"].append(product_id)
+
         for conflict in conflicts:
             self.conflicts.append({"product_id": product_id, "category": category,
                                    **conflict})
@@ -116,6 +132,8 @@ class CoverageReport:
             "conflicts": self.conflicts,
             "invalid": self.invalid,
             "issues": self.issues,
+            "label_gaps": sorted(self.label_gaps.values(),
+                                 key=lambda slot: -slot["count"]),
         }
 
     def core_coverage(self) -> dict[str, float]:
@@ -157,6 +175,11 @@ class CoverageReport:
         if core:
             print("[specs] core compat coverage: " + "  ".join(
                 f"{field}={value * 100:.0f}%" for field, value in sorted(core.items())))
+        if self.label_gaps:
+            top = sorted(self.label_gaps.values(), key=lambda slot: -slot["count"])[:8]
+            print("[specs] unmapped vendor labels (candidates for specs/labels.py): "
+                  + "  ".join(f"{slot['category']}:{slot['label']}={slot['count']}"
+                              for slot in top))
         print(f"[specs] conflicts={len(self.conflicts)} "
               f"invalid={len(self.invalid)} issues={len(self.issues)} "
               f"unknown={len(self.unknown)} core_gaps={len(self.core_gaps)} "

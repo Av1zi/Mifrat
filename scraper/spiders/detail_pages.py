@@ -222,69 +222,11 @@ class TmsDetailSpider(scrapy.Spider):
         if self._register_block(response):
             return
 
-        specs = {}
-        # TMS's "מפרט" section renders as repeating (### label, value)
-        # pairs — in the actual HTML this is a definition list
-        # (dl > dt/dd pairs) under a container with the spec heading.
-        # Confirmed working selector pattern for OpenCart-style themes:
-        for dt, dd in zip(
-            response.css("div.product-specification dt, div#tab-specification dt"),
-            response.css("div.product-specification dd, div#tab-specification dd"),
-        ):
-            label = (dt.css("::text").get() or "").strip()
-            value = " | ".join(t.strip() for t in dd.css("::text").getall() if t.strip())
-            if label and value:
-                specs[label] = value
-
-        # TMS has used both definition lists and two-column tables over time.
-        # Keep the strict selectors above, but accept a row only when it has
-        # exactly one plausible label/value pair so navigation tables cannot
-        # flood the catalog with unrelated text.
-        if not specs:
-            for row in response.css(
-                "table.product-specification tr, table#tab-specification tr, "
-                "div.product-specification tr"
-            ):
-                cells = row.css("th, td")
-                if len(cells) != 2:
-                    continue
-                label = " ".join(t.strip() for t in cells[0].css("::text").getall() if t.strip())
-                value = " ".join(t.strip() for t in cells[1].css("::text").getall() if t.strip())
-                if label and value and len(label) <= 80:
-                    specs[label] = value
-
-        if not specs:
-            for row in response.css("[data-spec-name], [data-spec-key]"):
-                label = (
-                    row.attrib.get("data-spec-name")
-                    or row.attrib.get("data-spec-key")
-                    or ""
-                ).strip()
-                value = " ".join(t.strip() for t in row.css("::text").getall() if t.strip())
-                if label and value:
-                    specs[label] = value
-
-        # Some TMS pages expose the specification payload in JSON-LD rather
-        # than visible HTML. Preserve named additionalProperty rows when the
-        # page template has no rendered table.
-        if not specs:
-            for blob in response.css('script[type="application/ld+json"]::text').getall():
-                try:
-                    data = json.loads(blob.strip())
-                except (json.JSONDecodeError, ValueError):
-                    continue
-                objects = data if isinstance(data, list) else [data]
-                for obj in objects:
-                    if not isinstance(obj, dict):
-                        continue
-                    for row in obj.get("additionalProperty", []) or []:
-                        if not isinstance(row, dict):
-                            continue
-                        label = str(row.get("name") or "").strip()
-                        value = str(row.get("value") or "").strip()
-                        if label and value:
-                            specs[label] = value
-
+        # Every spec row of a TMS product page, plus which selector matched and
+        # how many rows it saw (see _parse_specs: the previous selector set
+        # matched nothing on any page, which is why every TMS product shipped
+        # with an empty spec sheet).
+        specs, selector, row_count = self._parse_specs(response)
         # Bonus: TMS puts brand/availability/price directly in meta
         # tags too — free, cheap-to-grab confirmation fields.
         meta_extra = {
@@ -305,8 +247,129 @@ class TmsDetailSpider(scrapy.Spider):
             specs=specs,
             image_url=_og_image(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            extra={**meta_extra, "sku_on_page": (sku_on_page or "").strip()},
+            extra={**meta_extra, "sku_on_page": (sku_on_page or "").strip(),
+                   "spec_selector": selector, "spec_rows": row_count},
         )
+
+    # TMS renders the "מפרט" block as one element per spec row:
+    #
+    #   <div class="product-attribute-item" itemprop="additionalProperty"
+    #        itemscope itemtype="https://schema.org/PropertyValue">
+    #     <h3 class="specification-title" itemprop="name">תושבת מעבד</h3>
+    #     <div class="specification-data" itemprop="value">sTR5</div>
+    #   </div>
+    #
+    # Verified against live pages (Sep 2026). This is the fix for the empty TMS
+    # spec sheets: every earlier selector set here (dl/dt/dd, two-column
+    # tables, [data-spec-name], JSON-LD additionalProperty) matches NOTHING on
+    # these pages — all 1,051 pages scraped before this produced specs={}, the
+    # ledger correctly refused them, and the pending queue never drained. The
+    # itemprop names are the durable part of the row; the class names are kept
+    # as the fast path.
+    _SPEC_ROW = ("div.product-attribute-item, "
+                 "[itemprop='additionalProperty'][itemtype*='PropertyValue'], "
+                 "[itemprop='additionalProperty']")
+    _SPEC_LABEL = "h3.specification-title, [itemprop='name']"
+    _SPEC_VALUE = "div.specification-data, [itemprop='value']"
+
+    @staticmethod
+    def _row_text(node) -> str:
+        # The theme indents value divs heavily; collapse the whitespace here so
+        # the stored row reads like the page and the JSONL stays small.
+        raw = " ".join(t.strip() for t in node.css("::text").getall() if t.strip())
+        return re.sub(r"\s+", " ", raw).strip()
+
+    def _parse_specs(self, response):
+        """(specs, selector_name, row_count) for one TMS product page.
+
+        `selector_name` and `row_count` ride along in `extra`, so a page that
+        yielded no rows is distinguishable from a page whose rows are all
+        unmappable — that difference is what tells a template change apart from
+        an incomplete label vocabulary.
+        """
+        rows = response.css(self._SPEC_ROW)
+        if rows:
+            specs = {}
+            for row in rows:
+                label = self._row_text(row.css(self._SPEC_LABEL))
+                value = self._row_text(row.css(self._SPEC_VALUE)) or self._row_text(row)
+                if label and value:
+                    specs[label] = value
+            if specs:
+                return specs, "attribute-item", len(rows)
+
+        # Older templates: definition lists.
+        dt_nodes = response.css(
+            "div.product-specification dt, div#tab-specification dt")
+        dd_nodes = response.css(
+            "div.product-specification dd, div#tab-specification dd")
+        if dt_nodes and dd_nodes:
+            specs = {}
+            for dt, dd in zip(dt_nodes, dd_nodes):
+                label = (dt.css("::text").get() or "").strip()
+                value = " | ".join(t.strip() for t in dd.css("::text").getall()
+                                   if t.strip())
+                if label and value:
+                    specs[label] = value
+            if specs:
+                return specs, "definition-list", len(dt_nodes)
+
+        # Two-column tables. Accept a row only when it has exactly one
+        # plausible label/value pair so navigation tables cannot flood the
+        # catalog with unrelated text.
+        table_rows = response.css(
+            "table.product-specification tr, table#tab-specification tr, "
+            "div.product-specification tr")
+        specs = {}
+        for row in table_rows:
+            cells = row.css("th, td")
+            if len(cells) != 2:
+                continue
+            label = self._row_text(cells[0])
+            value = self._row_text(cells[1])
+            if label and value and len(label) <= 80:
+                specs[label] = value
+        if specs:
+            return specs, "table", len(table_rows)
+
+        # Data attributes.
+        data_rows = response.css("[data-spec-name], [data-spec-key]")
+        specs = {}
+        for row in data_rows:
+            label = (row.attrib.get("data-spec-name")
+                     or row.attrib.get("data-spec-key") or "").strip()
+            value = self._row_text(row)
+            if label and value:
+                specs[label] = value
+        if specs:
+            return specs, "data-attr", len(data_rows)
+
+        # Last resort: a JSON-LD Product carrying additionalProperty rows.
+        specs = self._parse_json_ld_specs(response)
+        if specs:
+            return specs, "json-ld", len(specs)
+        return {}, "none", len(rows)
+
+    @staticmethod
+    def _parse_json_ld_specs(response) -> dict:
+        specs = {}
+        for blob in response.css('script[type="application/ld+json"]::text').getall():
+            try:
+                data = json.loads(blob.strip())
+            except (json.JSONDecodeError, ValueError):
+                continue
+            objects = data if isinstance(data, list) else [data]
+            for obj in objects:
+                if not isinstance(obj, dict):
+                    continue
+                for row in obj.get("additionalProperty", []) or []:
+                    if not isinstance(row, dict):
+                        continue
+                    label = str(row.get("name") or "").strip()
+                    value = str(row.get("value") or "").strip()
+                    if label and value:
+                        specs[label] = value
+        return specs
 
     def _register_block(self, response) -> bool:
         """Same choke point as spiders/tms.py's _register_block — returns
