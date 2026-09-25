@@ -180,6 +180,32 @@ emptied, which it could not do while that wrong value was still present.
 dataset lists Threadripper 7960X as Zen 2). They land in
 `data/site/spec_report.json` under `issues` with `kind: spec_note`.
 
+## Identity-scoped reference join (`identity+anchor`)
+
+Name similarity alone cannot match products whose index row is named by
+the *board model* ("MSI VENTUS 3X OC") while our query names the *chip*
+("GeForce RTX 5070 Ti"): the chip is only in the row's `specs.chipset`.
+The identity-scoped join closes that gap without weakening the ambiguity
+rules (plan §5):
+
+1. slice the index pool by exact identity-field equality
+   (`IDENTITY_FIELDS`: gpu chipset+VRAM, memory type/count/size, PSU
+   wattage, storage capacity, motherboard/CPU socket);
+2. strip identity/physical tokens from the query (chip words, VRAM,
+   kit notation, CL, MHz, category keywords) leaving board-model words;
+3. require at least one *distinctive* residual token (non-brand,
+   non-`_GENERIC_TOKENS`) and require the winning row name to contain
+   every one — 'Patriot VP4300 Lite' cannot fall onto 'Patriot P400 Lite';
+4. brand gate: residual brand must not contradict the row's brand
+   (`_brand_agrees`; an Antec G650 never joins a Rosewill G650);
+5. anchor re-check + the same tie refusal as the fuzzy path (tied rows of
+   different names are refused; same-name variants intersect).
+
+Precision beats recall: the first prototype scored ~415 joins, the
+shipped version 180-200 — the dropped ones were exactly the unverifiable
+brand-only residuals. Method string `identity+anchor` flows into the
+coverage report like the others.
+
 ## Spelling folds and shared Hebrew (Sep 2026 coverage pass)
 
 - `normalize_label` folds זיכרון -> זכרון: vendors mix full and defective

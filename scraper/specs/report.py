@@ -26,6 +26,7 @@ class CoverageReport:
         self.invalid: list[dict] = []
         self.issues: list[dict] = []
         self.reference: dict[str, int] = {"exact-name": 0, "fuzzy+anchor": 0,
+                                          "identity+anchor": 0,
                                           "other": 0, "unmatched": 0}
         self.derived = 0
         self.source_distribution: dict[str, int] = {}
@@ -157,6 +158,7 @@ class CoverageReport:
         print(f"[specs] {self.total} products; reference matches: "
               f"{self.reference.get('exact-name', 0)} exact-name, "
               f"{self.reference.get('fuzzy+anchor', 0)} fuzzy+anchor, "
+              f"{self.reference.get('identity+anchor', 0)} identity+anchor, "
               f"{self.reference.get('unmatched', 0)} none")
         for category in sorted(self.per_category):
             bucket = self.per_category[category]

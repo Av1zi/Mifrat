@@ -29,6 +29,7 @@ Tier 0; the pipeline continues on tiers 1-3 and the coverage report shows it.
 from __future__ import annotations
 
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -83,6 +84,56 @@ INDEX_CAT: dict[str, str] = {
     "cooling_other": "cooler",
 }
 
+# --------------------------------------------------------------------------
+# Identity-scoped join (Sep 2026): many unmatched products DO exist in the
+# index, but the index names boards by board-model ("MSI VENTUS 3X OC") with
+# the chip only in specs.chipset, so name-similarity never sees the chip.
+# For those, slice the index pool by exact identity-field equality (chip,
+# wattage, capacity, socket, module shape), strip the identity tokens from
+# the query, and fuzzy-match the residual board-model words — with a brand
+# gate, an anchor re-check and the usual tie refusal. Plan §5: multiple
+# independent anchors before a fuzzy join; ambiguity is refused, not guessed.
+# --------------------------------------------------------------------------
+
+# Exact-equality slice keys per category (all must be present on both sides).
+# These are the variant-determining fields: two rows with the same identity
+# but different board models are genuine model candidates, not variants.
+IDENTITY_FIELDS: dict[str, tuple[str, ...]] = {
+    "gpu": ("chipset", "memory_gb"),
+    "memory": ("memory_type", "module_count", "module_size_gb"),
+    "psu": ("wattage_w",),
+    "storage": ("capacity_gb",),
+    "motherboard": ("socket",),
+    "cpu": ("socket",),
+}
+
+# Query tokens contributed by identity/physical facts rather than the board
+# model: stripped before residual scoring so a 12GB chip's VRAM or a kit's
+# 2x16GB does not water down the model-name match.
+_RESIDUAL_STRIP_RE = re.compile(
+    r"\b\d+(?:\.\d+)?\s?(?:tb|gb|mb|w)\b"
+    r"|\b\d+\s?x\s?\d+\s?gb\b|\bcl\s?\d+\b|\b\d{4,5}\s?(?:mhz|mt/s)\b"
+    r"|\b80\s?\+\s?(?:plus\s*)?(?:white|bronze|silver|gold|platinum|titanium)\b"
+    r"|\bddr[345]\b|\bnvme\b|\bm\.?2\b|\bsata\b|\bssd\b|\bhdd\b|\bdrive\b"
+    r"|\bgeforce\b|\brtx\b|\bgtx\b|\bradeon\b|\barc\b|\brx\b|\br\d{1,2}\b"
+    r"|\bti\b|\bxtx?\b|\bsuper\b|\bintel\b|\bamd\b|\bcore\b|\bryzen\b",
+    re.I,
+)
+
+# Brands the brand gate must treat as the same company (sub-brands and
+# merged/resold lines). Keys are already-normalized tokens.
+_BRAND_ALIASES = {
+    "seasonic": "seasonic",
+    "wd": "western digital", "western": "western digital",
+    "westerndigital": "western digital", "western digital": "western digital",
+    "g": "g skill", "gskill": "g skill", "g skill": "g skill",
+    "kingston": "kingston", "fury": "kingston",
+    "crucial": "crucial", "micron": "crucial",
+    "hp": "hp", "hpe": "hp", "hewlett": "hp",
+    "coolermaster": "cooler master", "master": "cooler master",
+    "cooler": "cooler master",
+}
+
 
 def index_cat(category: str | None) -> str | None:
     """Index `cat` pool for one of our category ids (None when unknown)."""
@@ -91,6 +142,181 @@ def index_cat(category: str | None) -> str | None:
     if category in INDEX_CAT:
         return INDEX_CAT[category]
     return category
+
+
+def _norm_text(value) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def _identity_key(category: str, specs: dict):
+    """Tuple of identity-field values (None when any member is unknown)."""
+    fields = IDENTITY_FIELDS.get(category)
+    if not fields:
+        return None
+    values = []
+    for name in fields:
+        value = specs.get(name)
+        if value is None:
+            return None
+        values.append(_norm_text(value) if isinstance(value, str) else value)
+    return tuple(values)
+
+
+def _identity_slice(category: str, key) -> list[dict]:
+    """Index rows whose identity fields equal `key` (built once)."""
+    module, index = _load_reference()
+    if module is None or index is None:
+        return []
+    cache_key = (category, json.dumps(key, sort_keys=True, default=str))
+    cached = _IDENTITY_SLICE_CACHE.get(cache_key)
+    if cached is None:
+        want = index_cat(category)
+        fields = IDENTITY_FIELDS.get(category, ())
+        rows: list[dict] = []
+        for part in index["parts"]:
+            if part.get("cat") != want:
+                continue
+            row_key = _identity_key(category, part.get("specs") or {})
+            if row_key == key:
+                rows.append(part)
+        _IDENTITY_SLICE_CACHE[cache_key] = rows
+        cached = rows
+    return cached
+
+
+_IDENTITY_SLICE_CACHE: dict[tuple, list[dict]] = {}
+
+
+def _residual_query(category: str, query: str, specs: dict) -> str:
+    """Query with identity tokens removed, leaving board-model words.
+
+    'MSI GeForce RTX 5070 Ti 16GB VENTUS 3X OC' -> 'msi ventus 3x oc'
+    (chipset tokens are removed individually so 'RTX 5070 Ti' disappears as
+    a unit; VRAM/capacity/wattage and category keywords go too).
+    """
+    text = _norm_text(query)
+    chipset = specs.get("chipset")
+    if category == "gpu" and chipset:
+        for token in _norm_text(chipset).split():
+            if token:
+                text = re.sub(rf"\b{re.escape(token)}\b", " ", text)
+    text = _RESIDUAL_STRIP_RE.sub(" ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+# Words that carry no board-model identity (marketing/physical/protocol
+# boilerplate a reseller title adds). A token outside this set and outside
+# the brand slots is a *distinctive model token* the winning row must
+# contain — this is what keeps 'Patriot VP4300 Lite' away from
+# 'Patriot P400 Lite' while letting 'MSI MPG Carbon WiFi' reach
+# 'MSI MPG Z890 CARBON WIFI'.
+_GENERIC_TOKENS = frozenset({
+    "pro", "max", "plus", "wifi", "gaming", "oc", "rgb", "argb",
+    "black", "white", "ultra", "edition", "atx", "matx", "itx", "mini",
+    "micro", "power", "unit", "psu", "drives", "drive", "series", "system",
+    "tower", "gen", "express", "usb", "type", "lan", "card", "graphics",
+    "internal", "original", "official", "warranty", "importer", "new",
+    "core", "color", "e", "s", "a", "b", "c", "g", "m", "x", "v2", "v3",
+})
+
+
+def _distinctive_tokens(text: str) -> set[str]:
+    """Non-brand, non-generic tokens a matching row name must contain."""
+    tokens = [t for t in _norm_text(text).split() if len(t) >= 2]
+    if not tokens:
+        return set()
+    return {t for t in tokens[1:]  # tokens[0] is the brand slot
+            if t not in _GENERIC_TOKENS and t not in _BRAND_ALIASES}
+
+
+def _brand_tokens(text: str) -> set[str]:
+    """First-word brand candidates from a normalized string."""
+    words = text.split()
+    if not words:
+        return set()
+    first = words[0]
+    return {first, _BRAND_ALIASES.get(first, first)}
+
+
+def _brand_agrees(query: str, row: dict) -> bool:
+    """Brand gate: residual tokens must not name a brand the row contradicts.
+
+    Prevents the model-token false positive where an Antec 'G650' matched a
+    Rosewill 'G650' and a Lenovo kit matched a Corsair one: a reseller title
+    always carries the maker, and the index names carry it too. A row whose
+    first word is not a brand word at all ('Ultra', 'PULSE') passes — the
+    gate only rejects, never invents agreement.
+    """
+    q_brands = _brand_tokens(query)
+    r_brands = _brand_tokens(_norm_text(row.get("name") or ""))
+    if not q_brands or not r_brands:
+        return True
+    if q_brands & r_brands:
+        return True
+    # 'asus'/'gigabyte'/'msi' titles never name a row of another known brand.
+    known = {"asus", "msi", "gigabyte", "asrock", "sapphire", "powercolor",
+             "xfx", "zotac", "pny", "gainward", "palit", "corsair",
+             "kingston", "g skill", "crucial", "adata", "patriot", "lexar",
+             "samsung", "wd", "seagate", "seasonic", "antec", "be quiet",
+             "coolermaster", "cooler", "master", "thermaltake", "lian li",
+             "nzxt", "fractal", "deepcool", "noctua", "arctic", "fsp",
+             "superflower", "evga", "leadtek", "sparkle", "intel", "amd"}
+    return not (q_brands & known) and not (r_brands & known)
+
+
+def _identity_join(category: str, query: str, specs: dict, anchors):
+    """The Sep 2026 identity-scoped join; same contract as the fuzzy path."""
+    module, _ = _load_reference()
+    if module is None:
+        return None
+    key = _identity_key(category, specs)
+    if key is None:
+        return None
+    rows = _identity_slice(category, key)
+    if not rows:
+        return None
+    residual = _residual_query(category, query, specs)
+    if not residual:
+        return None
+
+    distinctive = _distinctive_tokens(residual)
+    if not distinctive:
+        # A brand-only residual ('Sapphire Radeon RX 9060 XT' after chip
+        # stripping) cannot identify a board model: every same-brand row in
+        # the slice scores alike. Refuse rather than pick one.
+        return None
+
+    scored: list[tuple[float, dict]] = []
+    for row in rows:
+        if not _brand_agrees(residual, row):
+            continue
+        name = _norm_text(row.get("name") or "")
+        if not distinctive <= set(name.split()):
+            continue
+        score = module._score(_norm_text(residual), row)
+        if score < 88.0:
+            continue
+        agrees, contradicts = _anchor_check(category, anchors, row)
+        if contradicts or not agrees:
+            continue
+        scored.append((float(score), row))
+    if not scored:
+        return None
+
+    scored.sort(key=lambda item: (-item[0], item[1].get("name") or ""))
+    best_score, best_row = scored[0]
+    if len(scored) > 1 and abs(best_score - scored[1][0]) <= _TIE_MARGIN:
+        tied = [row for score, row in scored
+                if abs(score - best_score) <= _TIE_MARGIN]
+        names = {_norm_text(row.get("name")) for row in tied}
+        if len(names) > 1:
+            # Genuinely different board models score alike -> refuse.
+            return None
+        shared = _intersect_rows(tied)
+        if shared.get("specs"):
+            return shared, best_score, "identity+anchor"
+        return None
+    return best_row, best_score, "identity+anchor"
 
 _OVERRIDES_CACHE: dict | None = None
 _INDEX_WARNED = False
@@ -296,6 +522,13 @@ def match_reference_row(category: str | None, query: str, known: dict):
         # No structured identity of our own -> fuzzy-only matching may not
         # pick a reference row (plan §5: no anchor, no match).
         return None
+
+    # 2) identity-scoped join: chip/wattage/capacity/socket slice + residual
+    #    board-model fuzzy. Catches products whose index row is named by the
+    #    board model while our query names the chip ("GeForce RTX 5070 Ti").
+    joined = _identity_join(category, query, known, anchors)
+    if joined is not None:
+        return joined
 
     threshold = THRESHOLD.get(category, 90.0)
     candidates = module.find_matches(query, category=want,
