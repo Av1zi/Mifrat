@@ -23,7 +23,15 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
 
-from .specs.report import qa_cases as spec_qa_cases
+try:
+    from scraper.specs.report import qa_cases as spec_qa_cases
+except ImportError:
+    # Script-path invocation (`python scraper/normalize_and_match.py` puts
+    # scraper/ — not the repo root — on sys.path, so `scraper.*` fails and
+    # site_data loads as a top-level module): import via the top-level
+    # `specs` package instead. A bare relative `from .specs...` breaks that
+    # path with "attempted relative import with no known parent package".
+    from specs.report import qa_cases as spec_qa_cases
 
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
 IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"

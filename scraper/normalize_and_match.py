@@ -22,6 +22,13 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
+# Script-path invocation (`python scraper/normalize_and_match.py`, used by
+# normalize-and-deploy.yml) puts scraper/ — not the repo root — on sys.path,
+# so `from scraper...` fails and the fallback below loads site_data as a
+# top-level module. Insert the repo root so the absolute imports work from
+# both entrypoints (`python scraper/...` and `python -m scraper....`).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 try:
     from scraper.matching import (
         _compact_key,

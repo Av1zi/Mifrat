@@ -4657,7 +4657,9 @@ def match_listings(
 
         merged_attributes, attribute_conflicts = merge_offer_attributes(group)
 
-        mpns = {e.get("mpn") for e in group if e.get("mpn")}
+        mpns: set[str] = {
+            mpn for e in group if (mpn := e.get("mpn"))
+        }
         # Dash-variant twins ("90MB1N90-M0EAY0" vs "90MB1N90M0EAY0") match
         # identically via mpn_part_key but compare as 2 raw strings, which
         # left model None. Fold via mpn_part_key; when all compact forms
@@ -4674,7 +4676,7 @@ def match_listings(
                 except Exception:
                     compact_forms = set()
                 if len(compact_forms) == 1:
-                    def _mpn_rank(m: str):
+                    def _mpn_rank(m: object) -> tuple[int, int, str]:
                         s = str(m)
                         return (0 if "-" in s else 1, -len(s), s)
                     mpn_chosen = sorted(mpns, key=_mpn_rank)[0]
