@@ -478,6 +478,8 @@ const STRINGS = {
     qaHeading: "רישומים כפולים בבדיקה",
     qaKindDuplicate: "רישום כפול",
     qaKindNaming: "סתירת שמות",
+    qaKindCore: "חסרי מפרט ליבה",
+    qaMissingFields: "שדות חסרים",
   },
   en: {
         referenceSpecsHeading: "Reference specs",
@@ -659,6 +661,8 @@ const STRINGS = {
     qaHeading: "Duplicate listings under review",
     qaKindDuplicate: "Duplicate listing",
     qaKindNaming: "Naming conflict",
+    qaKindCore: "Missing core specs",
+    qaMissingFields: "Missing fields",
   },
 } satisfies Record<Lang, Record<string, string>>;
 

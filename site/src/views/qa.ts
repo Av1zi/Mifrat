@@ -80,7 +80,9 @@ export async function renderQa(
             ? "qaKindNaming"
             : c.kind === "spec_conflict"
               ? "qaKindSpec"
-              : "qaKindDuplicate"
+              : c.kind === "core_gap"
+                ? "qaKindCore"
+                : "qaKindDuplicate"
         )
       );
       const vendorBit = c.vendor ? ` · ${esc(vendorLabel(c.vendor))}` : "";
@@ -104,12 +106,26 @@ export async function renderQa(
                   )}: ${esc(specValueText(c.dropped))}`
             }</p>`
           : "";
+      // Core-compat gap (scraper/specs/report.py): the product cannot answer
+      // "will it fit" for the listed fields. Rendered as field chips.
+      const coreBit =
+        c.kind === "core_gap" && c.fields && c.fields.length > 0
+          ? `<p class="qa-spec"><span class="qa-field">${esc(
+              t(lang, "qaMissingFields")
+            )}</span> ${c.fields
+              .map(
+                (f) =>
+                  `<span class="qa-field">${esc(attributeLabel(f, lang))}</span>`
+              )
+              .join(" ")}</p>`
+          : "";
       return `
       <article class="qa-case">
         <h2><a href="${productHash(c.category, c.product_id)}">${esc(c.product_id)}</a></h2>
         <p class="qa-meta"><span class="qa-kind">${kindLabel}</span>${esc(categoryLabel(c.category, lang))}${vendorBit} · <a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a></p>
         ${titlesBit}
         ${specBit}
+        ${coreBit}
         ${offers ? `<ul class="qa-offers">${offers}</ul>` : ""}
       </article>`;
     })

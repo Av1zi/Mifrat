@@ -197,7 +197,7 @@ def _bare_value(payload):
 
 
 def qa_cases(report_dict: dict, limit: int = 200) -> list[dict]:
-    """spec_conflict cases for data/site/qa.json (public #/qa page)."""
+    """spec_conflict + core_gap cases for data/site/qa.json (public #/qa page)."""
     cases: list[dict] = []
     for conflict in report_dict.get("conflicts", []):
         cases.append({
@@ -225,6 +225,28 @@ def qa_cases(report_dict: dict, limit: int = 200) -> list[dict]:
             "detail": issue.get("detail"),
             "offers": [],
         })
+
+    # Core-compatibility gaps (plan todo #7): one case per product, listing
+    # every missing core field. These are the products that cannot answer
+    # "will it fit/work with the rest of my build" — the ones a human should
+    # look at first, ahead of value conflicts.
+    by_product: dict[tuple, dict] = {}
+    for gap in report_dict.get("core_gaps", []):
+        key = (str(gap.get("product_id") or ""), str(gap.get("category") or ""))
+        slot = by_product.setdefault(key, {
+            "kind": "core_gap",
+            "product_id": gap.get("product_id"),
+            "category": gap.get("category"),
+            "vendor": "",
+            "titles": [],
+            "fields": [],
+            "offers": [],
+        })
+        field = str(gap.get("field") or "")
+        if field and field not in slot["fields"]:
+            slot["fields"].append(field)
+    cases.extend(by_product.values())
+
     cases.sort(key=lambda c: (str(c.get("category") or ""),
                               str(c.get("product_id") or "")))
     return cases[:limit]

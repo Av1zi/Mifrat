@@ -64,7 +64,7 @@ export interface Product {
 }
 
 export interface QaCase {
-  kind: "duplicate_vendor" | "naming_conflict" | "spec_conflict";
+  kind: "duplicate_vendor" | "naming_conflict" | "spec_conflict" | "core_gap";
   product_id: string;
   category: string;
   vendor: string;
@@ -78,6 +78,8 @@ export interface QaCase {
   dropped?: unknown;
   /** spec_conflict: human-readable detail (cross-field drops). */
   detail?: string;
+  /** core_gap: every missing core-compatibility field of the product. */
+  fields?: string[];
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;

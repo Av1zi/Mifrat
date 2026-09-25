@@ -444,7 +444,14 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
 
     # Spec-QA: cross-tier/equal-tier spec conflicts and cross-field drops from
     # the spec merge (scraper/specs/report.py). Same public page, new kind.
+    # Core-gap cases are extended separately and first so the spec_conflict
+    # limit=200 inside qa_cases() can never crowd them out of the page.
     if spec_report:
+        core_gap_cases = [
+            c for c in spec_qa_cases(spec_report, limit=10_000)
+            if c.get("kind") == "core_gap"
+        ][:300]
+        qa_cases.extend(core_gap_cases)
         qa_cases.extend(spec_qa_cases(spec_report))
         qa_cases.sort(
             key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
