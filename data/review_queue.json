@@ -771,6 +771,17 @@
   },
   {
     "score": 96,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-1000001084",
+    "listing_b": "plonter:100-1000001084WOF",
+    "title_a": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box",
+    "match_text_a": "100-1000001084 AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "match_text_b": "100-1000001084WOF AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 96,
     "category": "motherboard",
     "brand": "ASUS",
     "listing_a": "plonter:ROG-STRIX-B860-A-GAMING-WIFI",
@@ -5575,6 +5586,17 @@
     "title_b": "AMD EPYC 4124P (4/8) - Default TDP: 65W - EPYC 4004 Series - Tray",
     "match_text_a": "100-000001480 AMD EPYC 4244P (6/12) - Default TDP 65W - EPYC 4004 Series - Tray",
     "match_text_b": "100-000001570 AMD EPYC 4124P (4/8) - Default TDP 65W - EPYC 4004 Series - Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "plonter:100-000001973",
+    "listing_b": "plonter:100-1000001084WOF",
+    "title_a": "AMD Zen5 Ryzen7 9850X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.6GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "title_b": "AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box",
+    "match_text_a": "100-000001973 AMD Zen5 Ryzen7 9850X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.6GHz - Without Fan - 120W TDP - 9000 Series - Tray",
+    "match_text_b": "100-1000001084WOF AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Box"
   },
   {
     "score": 92,
