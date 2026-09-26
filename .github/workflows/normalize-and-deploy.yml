@@ -124,7 +124,9 @@ jobs:
         with:
           path: ~/.u2net
           key: rembg-isnet-general-use-v1
-      - run: python -m scraper.process_images --vendor tms --limit 200 --list-out tmp/renders.txt
+      # 400/run at ~5-10s/image is ~25-45 min of CPU, well under the 6h
+      # job limit; halves the backfill drain vs the original 200.
+      - run: python -m scraper.process_images --vendor tms --limit 400 --list-out tmp/renders.txt
         continue-on-error: true
       - name: Commit transparent TMS renders (narrow paths only)
         # NEVER `git add data/images/tms/` from here: this job does not own that

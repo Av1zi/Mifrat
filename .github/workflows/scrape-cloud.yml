@@ -142,8 +142,12 @@ jobs:
         with:
           path: ~/.u2net
           key: rembg-isnet-general-use-v1
+      # 400/run total at ~5-10s/image is ~25-45 min of CPU, well under the
+      # 6h job limit; halves the backfill drain vs the original 200. The
+      # detail Playwright scrape above dominates this job's wall-clock, so
+      # the extra matting is marginal.
       - run: >-
-          python -m scraper.process_images --limit 200
+          python -m scraper.process_images --limit 400
           --vendor ivory --vendor onepc --vendor plonter
         continue-on-error: true
       # Mark spec-scraped items in the ledger. Image presence does NOT
