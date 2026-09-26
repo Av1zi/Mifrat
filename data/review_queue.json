@@ -3,6 +3,17 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:154854",
+    "listing_b": "ivory:126060",
+    "title_a": "AMD Ryzen 5 7500F AM5 Tray Processor.",
+    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray Processor.",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:163368",
     "listing_b": "tms:100-000000927",
     "title_a": "AMD Ryzen 5 5600 AM4 Tray Processor.",
@@ -53,6 +64,28 @@
     "title_b": "AMD Ryzen 5 8400F AM5 Tray",
     "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray processor.",
     "match_text_b": "100-000001591 AMD Ryzen 5 8400F AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:126060",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:72257",
+    "listing_b": "tms:100-000000591",
+    "title_a": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
+    "title_b": "מעבד AMD Ryzen 7 7700X AM5 Tray",
+    "match_text_a": "100-000000591 AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
+    "match_text_b": "100-000000591 AMD Ryzen 7 7700X AM5 Tray"
   },
   {
     "score": 100,
@@ -713,17 +746,6 @@
     "title_b": "AMD EPYC 4th Gen (Zen4) 9554P - 64/128 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
     "match_text_a": "100-000000803 AMD EPYC 4th Gen (Zen4) 9654P - 96/192 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray",
     "match_text_b": "100-000000804 AMD EPYC 4th Gen (Zen4) 9554P - 64/128 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU) TSMC 6nm (I/ O) - Tray"
-  },
-  {
-    "score": 96,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "plonter:100-000000910",
-    "listing_b": "plonter:100-100000910WOF",
-    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "title_b": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
-    "match_text_a": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "match_text_b": "100-100000910WOF AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 96,
@@ -1868,6 +1890,17 @@
     "title_b": "מעבד AMD Ryzen 9 9950X3D2 Dual Edition Tray",
     "match_text_a": "100-000001978 Processor AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
     "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Tray"
+  },
+  {
+    "score": 94,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:109844",
+    "listing_b": "tms:100-000000589",
+    "title_a": "מעבד AMD Ryzen 9 7900X 4.7GHz Tray",
+    "title_b": "AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X 4.7GHz Tray",
+    "match_text_b": "100-000000589 AMD Ryzen 9 7900X AM5 Tray"
   },
   {
     "score": 94,
@@ -4370,17 +4403,6 @@
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "plonter:100-000000910",
-    "listing_b": "plonter:100-000001904",
-    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "match_text_a": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "match_text_b": "100-000001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "plonter:100-000000976",
     "listing_b": "plonter:100-000001147",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -6867,17 +6889,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "plonter:100-000000592",
-    "listing_b": "plonter:100-000000910",
-    "title_a": "AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock: 3.8GHz - Max Boost Clock: 5.3GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
-    "title_b": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "match_text_a": "100-000000592 AMD Zen4 Ryzen7 7700 8 Core/16 Threads - Base Clock 3.8GHz - Max Boost Clock 5.3GHz - AMD Radeon Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
-    "match_text_b": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "plonter:100-000000597",
     "listing_b": "plonter:100-000001900",
     "title_a": "AMD Zen4 Ryzen5 7500F 6 Core/12 Threads - Base Clock: 3.7GHz - Max Boost Clock: 5GHz - No Graphics - Without Fan - 65W TDP - Zen 7000 Series - Tray",
@@ -7263,17 +7274,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "plonter:100-000000910",
-    "listing_b": "plonter:100-100001904",
-    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "title_b": "AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock: 4 GHz - Max Boost Clock: 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
-    "match_text_a": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "match_text_b": "100-100001904 AMD Zen4 Ryzen5 7500X3D 6 Core/12 Threads - Base Clock 4 GHz - Max Boost Clock 4.5GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "plonter:100-000000976",
     "listing_b": "plonter:100-000001371",
     "title_a": "AMD EPYC 5th Gen (Zen5) 9965 - 192/384 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9005 Series (Turin) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -7632,6 +7632,17 @@
     "title_b": "360mm Black Liquid AIO CPU Water Cooler, LCD, Black - Compatible with AMD AM4/AM5,Intel LGA1851/1700/1150/1151/2011",
     "match_text_a": "Elite-Vision-360-White-ARGB 360mm White Liquid AIO CPU Water Cooler LCD Black - Compatible with AMD AM4/AM5 Intel LGA1851/1700/1150/1151/2011",
     "match_text_b": "Trofeo-Vision-360-ARGB-Black 360mm Black Liquid AIO CPU Water Cooler LCD Black - Compatible with AMD AM4/AM5 Intel LGA1851/1700/1150/1151/2011"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:109844",
+    "listing_b": "plonter:100-000000589",
+    "title_a": "מעבד AMD Ryzen 9 7900X 4.7GHz Tray",
+    "title_b": "AMD Zen4 Ryzen9 7900X 12 Core/24 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.6GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X 4.7GHz Tray",
+    "match_text_b": "100-000000589 AMD Zen4 Ryzen9 7900X 12 Core/24 Threads - Base Clock 4.7GHz - Max Boost Clock 5.6GHz - Without Fan - 170W TDP - Zen 7000 Series - Tray"
   },
   {
     "score": 89,
@@ -8319,6 +8330,39 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "ivory:126060",
+    "listing_b": "ivory:154048",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "מעבד AMD Ryzen 5 8400F Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:126060",
+    "listing_b": "tms:100-000000457",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:126060",
+    "listing_b": "tms:100-000000927",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "plonter:100-000000453",
     "listing_b": "plonter:100-100000454WOF",
     "title_a": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
@@ -8886,17 +8930,6 @@
     "title_b": "Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series",
     "match_text_a": "100-000000885 Ryzen Threadripper Pro 7965WX - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
     "match_text_b": "100-100000454WOF Ryzen Threadripper Pro 7985WX - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - BOX - Ryzen Threadripper 7000 Series"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "plonter:100-000000910",
-    "listing_b": "plonter:100-100000909WOF",
-    "title_a": "AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock: 4.2 GHz - Max Boost Clock: 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "title_b": "AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock: 4.4Ghz - Max Boost Clock: 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box",
-    "match_text_a": "100-000000910 AMD Zen4 Ryzen7 7800X3D 8 Core/16 Threads - Base Clock 4.2 GHz - Max Boost Clock 5.0GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Tray",
-    "match_text_b": "100-100000909WOF AMD Zen4 Ryzen9 7900X3D 12 Core/24 Threads - Base Clock 4.4Ghz - Max Boost Clock 5.6GHz - AMD Radeon Graphics - Without Fan - 120W TDP - Zen 7000 Series - Box"
   },
   {
     "score": 88,
@@ -10014,7 +10047,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:ryzen97900x-tray",
+    "product_id": "model:cpu:ryzen97900x",
     "category": "cpu",
     "vendor": "1pc",
     "offers": [
