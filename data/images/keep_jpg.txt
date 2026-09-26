@@ -47,3 +47,8 @@ plonter/KF556R28RBE2K4-128
 plonter/KCS-UC426-16G
 plonter/H610MHP
 plonter/B760M-DS3H-GEN5
+# 2026-09-27: two white boards the model vaporized ENTIRELY (0 opaque pixels,
+# bbox None — this closed a hole in the speck guard, which only refused tiny
+# non-empty masks). Pinned to .jpg.
+plonter/PRO-B860M-A-WIFI
+plonter/ROG-STRIX-B860-G-GAMING-WIFI
