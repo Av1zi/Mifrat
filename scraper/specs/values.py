@@ -189,6 +189,40 @@ def to_str(value) -> str:
     return text
 
 
+# Shape of a manufacturer part number rather than a model name —
+# "100-1000001084WOF", "MZ-V9P2T0BW", "SR3XW". Deliberately narrow, because
+# a false positive demotes a real model name:
+#   - no spaces (vendor names are written with spaces: "Ryzen 7 9800X3D");
+#   - either a separated code whose later groups are 4+ characters (so
+#     "100-1000001084WOF" matches while board-style names like "B650M-A"
+#     survive: the trailing group is 1 character) or one unbroken run of 10+.
+_PART_NUMBER_SEP_RE = re.compile(r"^[A-Z0-9]{2,}(?:[-/][A-Z0-9]{4,}){1,3}$", re.I)
+_PART_NUMBER_LONG_RE = re.compile(r"^[A-Z0-9]{10,}$", re.I)
+
+
+def looks_like_part_number(value) -> bool:
+    """True when a `model`-shaped string is really a manufacturer code.
+
+    Why this exists (Sep 2026): Ivory's product pages put the manufacturer
+    part number in their "דגם" (model) row — a Ryzen 7 9800X3D page carries
+    "100-1000001084WOF". That vendor-tier fact outranked the title-derived
+    lineup name, so the site showed "model: 100-1000001084WOF", and the
+    product's identity key flipped from model:cpu:ryzen79800x3d-tray to
+    sku:cpu:100000001084-tray (the golden fixture caught exactly that).
+    Used by merge.py to order a name ahead of a code for the `model` field.
+
+    Errs toward False: a value that could plausibly be a name is left alone.
+    """
+    if not isinstance(value, str):
+        return False
+    text = value.strip()
+    if not text or " " in text:
+        return False
+    if _PART_NUMBER_SEP_RE.match(text):
+        return True
+    return bool(_PART_NUMBER_LONG_RE.match(text))
+
+
 def _split_list(value) -> list[str]:
     if isinstance(value, (list, tuple)):
         parts: list[str] = []

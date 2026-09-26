@@ -26,6 +26,7 @@ The merge never mutates its inputs: it returns a fresh fixed-key spec dict.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from dataclasses import field as _dc_field
 from typing import Any
@@ -107,6 +108,17 @@ class MergeResult:
         return [f.as_dict() for f in self.invalid]
 
 
+def model_name_preference(fact: "Fact") -> int:
+    """Sort key for the `model` field: 0 for a name, 1 for a part number.
+
+    Kept as a named helper so the rule is greppable from values.py and the
+    golden fixture that pinned the bug (model:cpu:ryzen79800x3d-tray).
+    """
+    from .values import looks_like_part_number
+
+    return 1 if looks_like_part_number(fact.value) else 0
+
+
 def same_value(a, b) -> bool:
     """Value equality that ignores representation noise ('65W' == '65 w',
     ['A','B'] == ['B','A'] for lists)."""
@@ -123,7 +135,15 @@ def same_value(a, b) -> bool:
         return sorted(map(str, a.items())) == sorted(map(str, b.items()))
     if isinstance(a, (list, tuple)) and isinstance(b, (list, tuple)):
         return sorted(map(str, a)) == sorted(map(str, b))
-    return str(a).strip().lower() == str(b).strip().lower()
+    # Whitespace is presentation, not content: "65 w" and "65W" are the same
+    # claim, and treating them as different wrote a phantom conflict for every
+    # product whose two sources spell the unit differently (the docstring has
+    # promised this since the overhaul; Sep 2026 made the code match it).
+    return _eq_key(a) == _eq_key(b)
+
+
+def _eq_key(value) -> str:
+    return re.sub(r"\s+", "", str(value)).lower()
 
 
 def _rank(fact: Fact, order: int) -> tuple:
@@ -164,6 +184,18 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
 
         if not accepted:
             continue
+
+        # `model` is a name, not a code. When several sources answer, a value
+        # that is really a manufacturer part number (Ivory's detail page keeps
+        # the MPN in its "דגם" row: 100-1000001084WOF for a Ryzen 7 9800X3D)
+        # must not outrank a real name just because it arrived at a higher
+        # tier — that showed an MPN as the model AND flipped the product's
+        # identity key. Stable sort: tier/confidence still order values of the
+        # same kind, and a product whose only model value IS a part number
+        # keeps it (nothing is dropped, the loser is recorded as a conflict).
+        if name == "model" and len(accepted) > 1 and any(
+                model_name_preference(fact) == 0 for fact in accepted):
+            accepted.sort(key=model_name_preference)
 
         winner = accepted[0]
         result.specs[name] = winner.value
