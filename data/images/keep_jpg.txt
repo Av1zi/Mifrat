@@ -18,3 +18,9 @@
 # 0.998). process_images now refuses speck masks outright, but this entry pins
 # the .jpg so no future --force run can resurrect the invisible render.
 tms/FF3D516G5600HC40BBK
+# 2026-09-26: ivory speck-collapses caught by the new guard on the first real
+# run (two black-background tiles like the TMS one above; BL.9BWWA.107 is
+# white-cornered but still collapsed to kept 0.032). Pinned to .jpg.
+ivory/7E34-001R
+ivory/7E32-001R
+ivory/BL.9BWWA.107
