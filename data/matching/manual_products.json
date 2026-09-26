@@ -153,6 +153,30 @@
         "tms:100-000000719",
         "ivory:129267"
       ]
+    },
+    {
+      "product_id": "model:cpu:ryzen79800x3d-tray",
+      "canonical_name": "AMD Ryzen 7 9800X3D Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 9800X3D",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:119039",
+        "tms:100-000001084"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen77800x3d-tray",
+      "canonical_name": "AMD Ryzen 7 7800X3D Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 7800X3D",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:139919",
+        "tms:100-000000910"
+      ]
     }
   ],
   "blocked_pairs": []
