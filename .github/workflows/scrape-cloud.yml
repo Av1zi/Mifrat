@@ -150,6 +150,17 @@ jobs:
           python -m scraper.process_images --limit 400
           --vendor ivory --vendor onepc --vendor plonter
         continue-on-error: true
+      # Chewed-matte quarantine (Sep 2026, see scraper/detect_chewed.py):
+      # isnet occasionally eats product interior (silver IHS, white boards)
+      # instead of just the background. This deletes those renders and pins
+      # their SKUs in data/images/keep_jpg.txt so the .jpg stays served and
+      # no future run re-mattes them. Scans only this job's own three trees
+      # (never tms — the Nano owns that tree), and this job is the ONLY
+      # writer of keep_jpg.txt, so no cross-job conflict is possible.
+      - run: >-
+          python -m scraper.detect_chewed --quarantine
+          --vendor ivory --vendor onepc --vendor plonter
+        continue-on-error: true
       # Mark spec-scraped items in the ledger. Image presence does NOT
       # gate marking (see make_detail_pending): imageless products would
       # otherwise re-scrape every day forever.
@@ -169,6 +180,7 @@ jobs:
             data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl data/raw/detail/plonter.jsonl
             data/detail_scraped/ivory.json data/detail_scraped/onepc.json data/detail_scraped/plonter.json
             data/images/ivory/ data/images/onepc/ data/images/plonter/
+            data/images/keep_jpg.txt
           )
           EXISTING=()
           for p in "${PATHS[@]}"; do

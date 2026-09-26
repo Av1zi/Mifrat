@@ -128,6 +128,13 @@ jobs:
       # job limit; halves the backfill drain vs the original 200.
       - run: python -m scraper.process_images --vendor tms --limit 400 --list-out tmp/renders.txt
         continue-on-error: true
+      - name: Drop chewed mattes before commit (Sep 2026, see scraper/detect_chewed.py)
+        # isnet occasionally eats product interior (silver IHS, white boards)
+        # instead of just the background. The detector drops those paths from
+        # the narrow-path list so a chewed render never enters the repo; the
+        # .jpg stays served. Best-effort like the matting itself.
+        run: python -m scraper.detect_chewed --filter-list tmp/renders.txt
+        continue-on-error: true
       - name: Commit transparent TMS renders (narrow paths only)
         # NEVER `git add data/images/tms/` from here: this job does not own that
         # tree (the Nano writes it), and a stale checkout would stage the
