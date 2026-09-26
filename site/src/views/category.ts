@@ -759,7 +759,7 @@ export async function renderCategory(
       // cover (~35KB); image is the fallback until thumbs backfill.
       const img = safeImageUrl(p.thumb ?? p.image);
       return img
-        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" decoding="async" width="72" height="72" style="object-fit:contain; background:#fff;"></a>`
+        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" decoding="async" width="72" height="72" style="object-fit:contain; background:transparent;"></a>`
         : `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span></a>`;
     })();
 

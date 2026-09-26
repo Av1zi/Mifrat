@@ -44,6 +44,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from scrapy.exceptions import CloseSpider
 from scraper.items import DetailItem  # add this to items.py — shape shown at bottom of file
+from scraper.image_urls import candidate_urls, is_probably_not_a_photo, photo_key
 
 # Same §7 rule 6 threshold as spiders/tms.py: two block responses in one
 # run closes the spider. Detail-page volume is tiny (~5/day) but it's the
@@ -113,6 +114,88 @@ def _og_image(response) -> str | None:
     return None
 
 
+# Gallery selectors per live-markup verification (Sep 2026), best-first:
+#
+#   TMS (OpenCart)  a[href*='/image/catalog/products/']  — the popup anchor.
+#                   Points at the ORIGINAL (verified 1500x1500) while the
+#                   visible <img id="product-main-image"> is the cached
+#                   -1000x1000 render and the thumb strip is -74x74/-222x222.
+#   1PC (CS-Cart)   [data-full-image-url] / a.cloudzoom-gallery — both carry
+#                   the unsuffixed /images/thumbs/<id>_<slug>.jpeg.
+#   Ivory           img.product__mainImg (data-original-picture) and the zoom
+#                   copy; the page repeats one image, there is no gallery.
+#   Plonter         product_images anchors — UNVERIFIED markup (its detail
+#                   pages need Playwright), so these are intentionally loose
+#                   selectors around the known /product_images/ URL space;
+#                   og:image already points at graphics/product_images/full/.
+_GALLERY_SELECTORS = (
+    "a[href*='/image/catalog/products/']::attr(href)",
+    "[data-full-image-url]::attr(data-full-image-url)",
+    "a.cloudzoom-gallery::attr(href)",
+    "a.cm-image-preview::attr(href)",
+    "a[href*='/files/catalog/']::attr(href)",
+    "a[href*='product_images']::attr(href)",
+    "#product-main-image::attr(src)",
+    "img[id^='product-main-image']::attr(src)",
+    "img.product__mainImg::attr(data-original-picture)",
+    "img.product__mainImg::attr(src)",
+    "img.btn-zoom::attr(src)",
+    "div.picture-wrapper img::attr(src)",
+    "img.ty-pict::attr(data-src)",
+    "div.product-image img::attr(src)",
+    "img[id^='product-image']::attr(src)",
+)
+
+# Enough to choose from (a hero shot plus its siblings) without letting a
+# 20-image gallery bloat every jsonl line.
+MAX_GALLERY_CANDIDATES = 8
+
+
+def _gallery_images(response) -> list[str]:
+    """Ordered, deduped photo candidates for one detail page.
+
+    og:image/meta candidates come first (the vendor's declared hero shot, and
+    on TMS/1PC/Ivory the *original* file), then the gallery selectors above.
+    Every URL is urljoined, vetoed by image_urls.is_probably_not_a_photo
+    (logos, flags, banners, svg), expanded through image_urls.candidate_urls
+    (so a cached -1000x1000 URL also brings its unsuffixed original along),
+    and deduped by photo identity so a page repeating one image eight times
+    yields one candidate.
+
+    Callers keep _og_image()'s return value as image_url: this list is
+    additive (see the DetailItem comment in items.py).
+    """
+    raw: list[str] = []
+    for prop in ("og:image", "og:image:url", "og:image:secure_url"):
+        value = response.css(f'meta[property="{prop}"]::attr(content)').get()
+        if value:
+            raw.append(value.strip())
+    for sel in ('meta[name="twitter:image"]::attr(content)',
+                'link[rel="image_src"]::attr(href)'):
+        value = response.css(sel).get()
+        if value:
+            raw.append(value.strip())
+    for sel in _GALLERY_SELECTORS:
+        raw.extend(v.strip() for v in response.css(sel).getall() if v and v.strip())
+
+    out: list[str] = []
+    seen: set[str] = set()
+    for value in raw:
+        absolute = response.urljoin(value)
+        if is_probably_not_a_photo(absolute):
+            continue
+        for url in candidate_urls(absolute):
+            key = photo_key(url)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            out.append(url)
+            break
+        if len(out) >= MAX_GALLERY_CANDIDATES:
+            break
+    return out
+
+
 class IvoryDetailSpider(scrapy.Spider):
     name = "ivory_detail"
     allowed_domains = ["ivory.co.il"]
@@ -172,6 +255,7 @@ class IvoryDetailSpider(scrapy.Spider):
             url=response.url,
             specs=specs,
             image_url=_og_image(response),
+            image_urls=_gallery_images(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
         )
 
@@ -246,6 +330,7 @@ class TmsDetailSpider(scrapy.Spider):
             url=response.url,
             specs=specs,
             image_url=_og_image(response),
+            image_urls=_gallery_images(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
             extra={**meta_extra, "sku_on_page": (sku_on_page or "").strip(),
                    "spec_selector": selector, "spec_rows": row_count},
@@ -482,6 +567,7 @@ class OnePcDetailSpider(scrapy.Spider):
             url=response.url,
             specs=specs,
             image_url=_og_image(response),
+            image_urls=_gallery_images(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
             extra=self._real_sku_and_brand(response),
         )
@@ -678,6 +764,7 @@ class PlonterDetailSpider(scrapy.Spider):
             url=response.url,
             specs=specs,
             image_url=_og_image(response),
+            image_urls=_gallery_images(response),
             scraped_at=datetime.now(timezone.utc).isoformat(),
         )
 

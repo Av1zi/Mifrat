@@ -14,6 +14,14 @@ class DetailItem(scrapy.Item):
     url = scrapy.Field()
     specs = scrapy.Field()        # dict[str, str]
     image_url = scrapy.Field()    # source URL, downloaded separately
+    # Ordered photo candidates from the same page: og:image first, then the
+    # gallery elements (best-first). image_url stays the primary, back-compat
+    # choice; this list is what the picker chooses *from* — an audited 657 TMS
+    # covers on disk were 228px listing tiles while the product page carried a
+    # 1500x1500 original that the old single-URL shape could not express.
+    # Additive + optional (schema-stability rule): old rows without it keep
+    # working (see normalize_and_match._merge_detail_specs).
+    image_urls = scrapy.Field()
     scraped_at = scrapy.Field()
     extra = scrapy.Field()        # optional, vendor-specific bonus fields
 

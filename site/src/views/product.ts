@@ -284,7 +284,7 @@ export async function renderProduct(
 
   const mainImg = safeImageUrl(product.image);
   const imageHtml = mainImg
-    ? `<img class="pdp-image" src="${esc(mainImg)}" alt="${esc(name)}" loading="eager" fetchpriority="high" width="600" height="600" style="object-fit:contain;background:#fff;">`
+    ? `<img class="pdp-image" src="${esc(mainImg)}" alt="${esc(name)}" loading="eager" fetchpriority="high" width="600" height="600" style="object-fit:contain;background:transparent;">`
     : `<div class="thumb thumb-lg" aria-hidden="true">${esc((product.brand ?? name).slice(0, 2).toUpperCase())}</div>`;
 
   const similarHtml = similar
@@ -292,7 +292,7 @@ export async function renderProduct(
       const simImg = safeImageUrl(p.image);
       return `
       <a class="pdp-similar-card" href="${productHash(p.category, p.id)}">
-        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy" width="200" height="200" style="object-fit:contain;background:#fff;">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
+        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy" width="200" height="200" style="object-fit:contain;background:transparent;">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
         <span class="pdp-similar-name">${esc(displayName(p))}</span>
         <span class="pdp-similar-price">${p.min_price === null ? "-" : esc(formatPrice(p.min_price, currency, lang))}</span>
       </a>`;

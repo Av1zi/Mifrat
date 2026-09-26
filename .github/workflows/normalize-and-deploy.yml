@@ -94,12 +94,54 @@ jobs:
         # gate that would have caught the TMS selector that matched nothing
         # and silently shipped 2,254 products with an empty spec sheet.
         run: python scripts/check_tms_detail.py
+      - name: Spec merge-layer regressions (offline, Sep 2026)
+        # Pins the merge RULES the golden fixtures cannot: tier order, the
+        # "model is a name, not a part number" rule (Ivory's דגם row shipped an
+        # MPN as the model and flipped a product's identity key), validation
+        # drops, and the value-equality helpers.
+        run: python scripts/check_spec_merge.py
+      - name: Photo pipeline regressions (offline, Sep 2026)
+        # Candidate derivation, scoring/picking, the refetch rule, the
+        # transparent-render pass and site-side resolution — all offline, no
+        # network, no real corpus. This is the gate that would have caught the
+        # 228px-tile covers (a download that skipped every existing file) and
+        # the v1 scoring bug where 1PC's native URL shape read as a downgrade.
+        run: python scripts/check_image_pick.py
       - name: Site payload size guard (Phase 8, see DECISIONS.md)
         # Anti-regression lock for the data-trust + performance phases:
         # fail the job (no commit, no deploy) when a category/index file
         # exceeds 1MB or the category payload grows >15% without
         # proportional product growth. Pure stdlib, no deps.
         run: python scraper/check_site_size.py
+      # Transparent renders for TMS (Sep 2026, see scraper/process_images.py).
+      # TMS is scraped by the Nano, which must not carry an onnxruntime
+      # dependency (ARM64, and the snapshot matters far more than photos), so
+      # its covers are matted here in the cloud instead. Both steps are
+      # best-effort: photos never block the data deploy.
+      - run: pip install -r requirements-images.txt --break-system-packages
+        continue-on-error: true
+      - uses: actions/cache@v4
+        with:
+          path: ~/.u2net
+          key: rembg-isnet-general-use-v1
+      - run: python -m scraper.process_images --vendor tms --limit 200 --list-out tmp/renders.txt
+        continue-on-error: true
+      - name: Commit transparent TMS renders (narrow paths only)
+        # NEVER `git add data/images/tms/` from here: this job does not own that
+        # tree (the Nano writes it), and a stale checkout would stage the
+        # Nano's files as DELETED — the Sep 2026 wipeout hazard. The matting
+        # run writes the exact files it produced, so we stage those.
+        run: |
+          if [ ! -s tmp/renders.txt ]; then
+            echo "[images] no new renders this run"
+            exit 0
+          fi
+          mapfile -t RENDERS < tmp/renders.txt
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          bash scripts/git_commit_push.sh \
+            "images: transparent TMS renders $(date -u +%F)" \
+            "${RENDERS[@]}"
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"

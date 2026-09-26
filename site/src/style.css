@@ -427,7 +427,10 @@ main { flex: 1; /* Width/padding live in the single fluid container rule below. 
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #fff;
+  /* Transparent covers (Sep 2026): the photo carries its own alpha now, so
+     the box must not paint white behind it — that was the "white box"
+     symptom in dark mode. The border keeps the tile's edge visible. */
+  background: transparent;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
 }
@@ -436,7 +439,7 @@ main { flex: 1; /* Width/padding live in the single fluid container rule below. 
   height: 100%;
   object-fit: contain;
   display: block;
-  background: #fff;
+  background: transparent;
 }
 .category-card-fallback {
   display: grid;
@@ -827,7 +830,7 @@ div.pl-row .pl-title-link:hover .pl-title { color: var(--blue); }
   object-fit: contain;
   max-width: 100%;
 }
-img.plThumb { display: block; width: 72px; height: 72px; object-fit: contain; background: #fff; }
+img.plThumb { display: block; width: 72px; height: 72px; object-fit: contain; background: transparent; }
 /* PDP similar fallback shares the same square thumb shape. */
 .pdp-similar-card .plThumb { width: 100%; height: auto; aspect-ratio: 1; }
 
@@ -1106,8 +1109,8 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   overflow: hidden;
   flex: none;
 }
-.thumb.has-part { border-color: var(--border); background: #fff; color: var(--blue); }
-.thumb img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.thumb.has-part { border-color: var(--border); background: transparent; color: var(--blue); }
+.thumb img { width: 100%; height: 100%; object-fit: contain; background: transparent; }
 
 .buildSlotLabel { font-weight: 800; font-size: 0.86rem; }
 .buildSlotLabel small { display: block; font-weight: 600; font-size: 0.66rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
@@ -1251,7 +1254,7 @@ html[dir="rtl"] .overlay-panel { --slide-from: -24px; }
   aspect-ratio: 1;
   max-height: none;
   object-fit: contain;
-  background: #fff;
+  background: transparent;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   padding: 12px;
@@ -1339,7 +1342,7 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 .pdp-similar-card:hover { border-color: var(--blue); text-decoration: none; }
 .pdp-similar-card img {
   width: 100%; height: 100%; aspect-ratio: 1; object-fit: contain;
-  background: #fff; border: 1px solid var(--border-light);
+  background: transparent; border: 1px solid var(--border-light);
   border-radius: 8px; padding: 8px;
 }
 .pdp-similar-name { font-size: 0.76rem; font-weight: 600; line-height: 1.35; }
@@ -1585,7 +1588,7 @@ html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   width: 100%;
   height: 92px;
   flex: none;
-  background: #fff;
+  background: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.09);
   overflow: hidden;
 }
@@ -1594,7 +1597,7 @@ html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   height: 100%;
   object-fit: contain;
   display: block;
-  background: #fff;
+  background: transparent;
 }
 .mega-tile-fallback {
   position: absolute;
@@ -1715,7 +1718,7 @@ html[dir="rtl"] .sort-select, html[dir="rtl"] .ph-range {
   text-decoration: none;
 }
 .global-hit:hover { background: rgba(255, 255, 255, 0.06); text-decoration: none; }
-.global-hit img { width: 40px; height: 40px; object-fit: contain; background: #fff; border-radius: 5px; flex: none; }
+.global-hit img { width: 40px; height: 40px; object-fit: contain; background: transparent; border-radius: 5px; flex: none; }
 .global-hit .plThumb { width: 40px; height: 40px; }
 .global-hit-name { color: rgba(255, 255, 255, 0.9); font-size: 0.85rem; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .global-hit-price { color: var(--blue); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; font-variant-numeric: tabular-nums; }

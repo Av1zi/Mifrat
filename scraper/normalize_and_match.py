@@ -44,6 +44,7 @@ try:
     from scraper.specs import build_product_specs, extract_attributes
     from scraper.site_data import write_site_data
     from scraper.build_price_history import build_price_history
+    from scraper.image_urls import best_of, candidate_urls
 except ImportError:
     from matching import (
         _compact_key,
@@ -58,6 +59,7 @@ except ImportError:
     )
     from specs import build_product_specs, extract_attributes
     from site_data import write_site_data
+    from image_urls import best_of, candidate_urls  # type: ignore[no-redef]
     from build_price_history import build_price_history
 
 
@@ -187,7 +189,11 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     # occur on multiple sites; indexing by SKU alone lets whichever detail
     # file is read last overwrite another vendor's specs/image/extra.
     detail_index: dict[tuple[str, str], dict] = {}
-    image_index: dict[tuple[str, str], str] = {}
+    # Values are best-first candidate URL lists (a detail page yields several:
+    # og:image, the gallery, and the unsuffixed original derived from a cached
+    # render). The old shape was a single URL, which forced "og:image wins"
+    # even when it was a 74x74 gallery thumb.
+    image_index: dict[tuple[str, str], list[str]] = {}
     extra_index: dict[tuple[str, str], dict] = {}
     for vendor in vendors:
         norm = "onepc" if vendor in ("1pc", "onepc") else vendor
@@ -209,11 +215,18 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                     detail_index[(vendor_key, sku)] = specs
                 # Basename-less image URLs (a bare ".../full/" directory —
                 # Plonter emits these for imageless products) must never
-                # reach the index: line 195 below would overwrite the good
-                # listing-level thumbnail with an unfetchable directory URL
-                # (Sep 2026: 116 products showed broken images this way).
-                if sku and image_url and _has_image_basename(image_url):
-                    image_index[(vendor_key, sku)] = image_url
+                # reach the index: the listing-level thumbnail would be
+                # overwritten with an unfetchable directory URL (Sep 2026:
+                # 116 products showed broken images this way).
+                candidates: list[str] = []
+                for url in [*(item.get("image_urls") or []), image_url]:
+                    if not url or not _has_image_basename(str(url)):
+                        continue
+                    for expanded in candidate_urls(str(url)) or [str(url)]:
+                        if expanded not in candidates:
+                            candidates.append(expanded)
+                if sku and candidates:
+                    image_index[(vendor_key, sku)] = candidates
                 if sku and isinstance(extra, dict) and extra:
                     extra_index[(vendor_key, sku)] = extra
 
@@ -292,7 +305,17 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             if extra.get("brand") and not e.get("brand"):
                 e["brand"] = str(extra["brand"]).strip()
         if key in image_index:
-            e["image_url"] = image_index[key]
+            # Detail candidates + the listing tile compete on URL shape: the
+            # vendor's original (TMS /image/catalog/products/<sku>/<hash>.jpg)
+            # beats a cached render (-1000x1000) which beats the 228px listing
+            # tile, whichever order they arrived in. The listing tile stays in
+            # the list as the last resort so photo coverage never drops.
+            merged: list[str] = []
+            for url in [*(e.get("image_url") and [e["image_url"]] or []),
+                        *image_index[key]]:
+                if url and str(url) not in merged:
+                    merged.append(str(url))
+            e["image_url"] = best_of(merged)
             merged_images += 1
 
     if merged_specs:

@@ -1,0 +1,14 @@
+# Covers whose transparent render is WORSE than the original JPEG.
+#
+# scraper/process_images.py reads this list and skips those files, so
+# site_data._local_image_path keeps serving the .jpg (no alpha) for them. Use
+# it for white-on-white products where the matte eats part of the product
+# (white GPU shroud, white case, white fan blades) or where the shot has a
+# background that the model removes badly.
+#
+# One entry per line. Accepted forms, case-sensitive on the file name:
+#   tms/100-000001443          (vendor/filename, no extension)
+#   tms/100-000001443.jpg      (extension optional)
+#   100-000001443              (bare SKU — matches in any vendor folder)
+# Lines starting with # and blank lines are ignored. Deleting a line lets the
+# next process_images run render the cover again.

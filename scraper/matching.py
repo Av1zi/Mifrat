@@ -31,6 +31,16 @@ try:
 except ImportError:
     fuzz = None
 
+# Photo picking (Sep 2026): which offer's image becomes the product cover was
+# previously "the first offer with any URL" — see scraper/image_score.py for
+# the scoring that replaced it.
+try:
+    from scraper.image_score import pick_image
+    from scraper.image_urls import candidate_urls
+except ImportError:
+    from image_score import pick_image  # type: ignore[no-redef]
+    from image_urls import candidate_urls  # type: ignore[no-redef]
+
 # The spec system owns attribute extraction (scraper/specs/). These names are
 # kept so the rest of this module reads exactly as before: extract_attributes()
 # now returns the DERIVED view of the typed spec sheet (specs/legacy.py), and
@@ -4728,15 +4738,25 @@ def match_listings(
             "offers": offers,
         }
 
-        # Propagate cover image URL from any offer that has one.
-        # Only one image per product is needed — take the first
-        # available (detail-scraped images are the most reliable).
-        img_url = next(
-            (e.get("image_url") for e in group if e.get("image_url")),
-            None,
-        )
-        if img_url:
-            product["image_url"] = img_url
+        # Cover photo: the best candidate across the group's offers, not the
+        # first one that carries any URL. See scraper/image_score.py — an
+        # audited 657 TMS covers on disk were 228px listing tiles because
+        # "first" won, while the same product page served a 1500px original,
+        # and the offer list order is not a quality signal in any case.
+        # Deterministic scoring means the pick only moves when the data does.
+        # No local-file metrics here on purpose: the matcher must never touch
+        # data/images (the download step runs after it).
+        image_candidates: list[dict] = []
+        for e in group:
+            for url in candidate_urls(str(e.get("image_url") or "")):
+                image_candidates.append({
+                    "url": url,
+                    "vendor": e.get("vendor_id"),
+                    "in_stock": bool(e.get("in_stock")),
+                })
+        img = pick_image(image_candidates, category=str(category))
+        if img:
+            product["image_url"] = img["url"]
 
         if pid in _naming_flagged:
             attribute_conflicts.setdefault(

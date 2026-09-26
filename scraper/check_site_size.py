@@ -34,6 +34,17 @@ MAX_GROWTH = 0.15
 
 SKIP_NAMES = {"meta.json", "qa.json"}
 
+# Image payload (Sep 2026, transparent-cover rework). The repo ships every
+# cover and its thumbnail, and a transparent .webp render sits beside each
+# JPEG that has one — so the image tree is the largest thing in git and grows
+# with every download. The ceiling is generous on purpose (the corpus was
+# 307MB / 14.7k files when this was added, and a full matting backfill adds
+# roughly a third on top); its job is to make the number visible in every CI
+# log and to stop the silent slide past a gigabyte, not to police a few MB.
+IMAGES_DIR = ROOT / "data" / "images"
+MAX_IMAGE_BYTES = 900 * 1024 * 1024
+IMAGE_SUFFIXES = {".jpg", ".jpeg", ".webp", ".png"}
+
 
 def _git_show_head(rel_path: str) -> bytes | None:
     try:
@@ -121,6 +132,26 @@ def main() -> int:
     else:
         print("[size-guard] no committed baseline to compare; "
               "absolute caps only")
+
+    if IMAGES_DIR.is_dir():
+        image_bytes = 0
+        image_files = 0
+        for path in IMAGES_DIR.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in IMAGE_SUFFIXES:
+                continue
+            try:
+                image_bytes += path.stat().st_size
+            except OSError:
+                continue
+            image_files += 1
+        print(f"[size-guard] image payload "
+              f"{image_bytes // (1024 * 1024)}MB over {image_files} files "
+              f"(ceiling {MAX_IMAGE_BYTES // (1024 * 1024)}MB)")
+        if image_bytes > MAX_IMAGE_BYTES:
+            failures.append(
+                f"data/images holds {image_bytes // (1024 * 1024)}MB "
+                f"(>{MAX_IMAGE_BYTES // (1024 * 1024)}MB)"
+            )
 
     if failures:
         for failure in failures:

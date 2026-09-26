@@ -194,7 +194,7 @@ export async function renderBuilder(
     const href = productHash(product.category, product.id);
     const img = safeImageUrl(product.image);
     if (img) {
-      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy" width="64" height="64" style="object-fit:contain;background:#fff;"></a>`;
+      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy" width="64" height="64" style="object-fit:contain;background:transparent;"></a>`;
     }
     const label = (product.brand ?? product.name).slice(0, 2).toUpperCase() || "-";
     return `<a class="thumb has-part" href="${href}" tabindex="-1"><span>${esc(label)}</span></a>`;

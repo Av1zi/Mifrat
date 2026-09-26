@@ -1,0 +1,18 @@
+# Background removal for product covers (Sep 2026, "transparent photos").
+#
+# Deliberately NOT in requirements.txt:
+#   - the Nano (ARM64, TMS-only) must not carry an onnxruntime dependency it
+#     can never run, and cups the daily scrape with ~200MB of wheels;
+#   - scrape jobs that only fetch JPEGs do not need it either.
+#
+# Installed only by the jobs that produce transparent renders
+# (.github/workflows/scrape-cloud.yml for ivory/onepc/plonter,
+# .github/workflows/normalize-and-deploy.yml for tms). Both install steps are
+# continue-on-error: photos must never block the data pipeline, and the site
+# falls back to the .jpg covers whenever no .webp render exists.
+#
+# Pinned to the same standard as the rest of the repo (one version everywhere,
+# see AGENTS.md). First run downloads the isnet-general-use model (~170MB) into
+# ~/.u2net; CI caches that directory.
+rembg[cpu]==2.0.85
+onnxruntime==1.30.0

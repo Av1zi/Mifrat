@@ -24,6 +24,11 @@ from pathlib import Path
 from urllib.parse import quote
 
 try:
+    from scraper.image_urls import candidate_urls
+except ImportError:
+    from image_urls import candidate_urls  # type: ignore[no-redef]
+
+try:
     from scraper.specs.report import qa_cases as spec_qa_cases
 except ImportError:
     # Script-path invocation (`python scraper/normalize_and_match.py` puts
@@ -68,17 +73,22 @@ def _local_image_path(vendor_id: str | None, vendor_sku: str | None,
 
     thumb=True addresses the 128px list-thumbnail derivative under
     data/images/<vendor>/thumbs/ (served from /images/<vendor>/thumbs/).
+
+    Prefers the transparent .webp derivative (scraper/process_images.py) over
+    the original .jpg: same pixels, alpha background, fewer bytes. The .jpg
+    stays on disk as the source of truth — matting can chew a white-on-white
+    product (see data/images/keep_jpg.txt) — so it remains the fallback
+    whenever no .webp has been produced yet.
     """
     if not vendor_sku:
         return None
-    filename = f"{_safe_image_stem(vendor_sku)}.jpg"
+    stem = _safe_image_stem(vendor_sku)
     vendor = _image_vendor_key(vendor_id)
-    if thumb:
-        if (IMAGES_DIR / vendor / "thumbs" / filename).is_file():
-            return f"/images/{vendor}/thumbs/{quote(filename)}"
-        return None
-    if (IMAGES_DIR / vendor / filename).is_file():
-        return f"/images/{vendor}/{quote(filename)}"
+    subdir = "thumbs/" if thumb else ""
+    for ext in ("webp", "jpg"):
+        rel = f"{vendor}/{subdir}{stem}.{ext}"
+        if (IMAGES_DIR / rel).is_file():
+            return f"/images/{vendor}/{subdir}{quote(stem)}.{ext}"
     return None
 
 
@@ -104,32 +114,36 @@ def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str |
     current = product.get("image_url")
     raw_offers = product.get("offers", [])
 
-    chosen: dict | None = None
+    # Candidate list, in order of preference:
+    #   1. the offer URL behind the stored cover (the matcher's scored pick —
+    #      the site has been showing it, so it leads: a cover only changes for
+    #      a reason), plus that URL's same-photo originals,
+    #   2. every other offer's image and its originals (image_urls.
+    #      candidate_urls turns a 228px listing tile into the vendor's
+    #      original file, which is often already on disk).
+    # The first candidate whose local file exists wins; a candidate with no
+    # file (a tile never downloaded, a vendor original that 404'd) simply
+    # falls through to the next instead of blanking the product.
+    ordered: list[tuple[str, str, str]] = []
+    seen: set[tuple[str, str, str]] = set()
+    for offer in raw_offers:
+        offer_url = offer.get("image_url")
+        sku = str(offer.get("vendor_sku") or "").strip()
+        if not offer_url or not sku:
+            continue
+        vendor = str(offer.get("vendor_id") or "")
+        for candidate in candidate_urls(str(offer_url)) or [str(offer_url)]:
+            key = (candidate, vendor, sku)
+            if key not in seen:
+                seen.add(key)
+                ordered.append(key)
     if current:
-        for offer in raw_offers:
-            if offer.get("image_url") == current:
-                local = _local_image_path(
-                    offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
-                )
-                if local:
-                    chosen = offer
-                    break
-    if chosen is None:
-        for offer in raw_offers:
-            local = _local_image_path(
-                offer.get("vendor_id"), str(offer.get("vendor_sku") or "")
-            )
-            if local:
-                chosen = offer
-                break
+        ordered.sort(key=lambda entry: 0 if entry[0] == current else 1)
 
-    if chosen is not None:
-        image = _local_image_path(
-            chosen.get("vendor_id"), str(chosen.get("vendor_sku") or ""))
-        thumb = _local_image_path(
-            chosen.get("vendor_id"), str(chosen.get("vendor_sku") or ""),
-            thumb=True)
-        return image, thumb
+    for _url, vendor, sku in ordered:
+        image = _local_image_path(vendor, sku)
+        if image:
+            return image, _local_image_path(vendor, sku, thumb=True)
 
     _dropped_remote = product.get("image_url")
     if _dropped_remote and isinstance(_dropped_remote, str) and _dropped_remote.startswith("http"):
