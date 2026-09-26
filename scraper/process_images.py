@@ -228,20 +228,21 @@ def _render_cover(cover: Path, session, force: bool = False) -> dict | None:
     if removed >= MIN_REMOVED_SHARE:
         matted, cropped = _crop_to_product(matted)
 
-    # A mask that collapsed to a speck is a failed matte, not a tight crop
-    # (seen Sep 2026: a 228px black-background tile the model read as
-    # backdrop — 99.8% removed, 80 opaque pixels left). Writing it would ship
+    # A mask that collapsed to a speck — or vanished entirely (bbox None,
+    # Sep 2026: two white Plonter boards the model vaporized to 0 opaque
+    # pixels) — is a failed matte, not a tight crop. Writing it would ship
     # an invisible product, because the site prefers .webp whenever one
     # exists. Fail safe instead: serve the .jpg, log loudly so QA notices.
     # Same MIN_KEPT_AREA_SHARE tripwire _crop_to_product uses above.
     bbox = matted.getchannel("A").getbbox()
+    kept_share = 0.0
     if bbox is not None:
         kept_share = ((bbox[2] - bbox[0]) * (bbox[3] - bbox[1])) / max(
             1, matted.size[0] * matted.size[1])
-        if kept_share < MIN_KEPT_AREA_SHARE:
-            print(f"  [speck] matte collapsed on {cover} "
-                  f"(kept {kept_share:.3f}) — leaving the .jpg")
-            return None
+    if kept_share < MIN_KEPT_AREA_SHARE:
+        print(f"  [speck] matte collapsed on {cover} "
+              f"(kept {kept_share:.3f}) — leaving the .jpg")
+        return None
 
     try:
         render.parent.mkdir(parents=True, exist_ok=True)
