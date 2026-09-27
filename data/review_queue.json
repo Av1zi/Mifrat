@@ -5127,6 +5127,17 @@
   },
   {
     "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000050",
+    "listing_b": "tms:100-000000158",
+    "title_a": "AMD Ryzen 5 3500 AM4 Tray",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
+  },
+  {
+    "score": 93,
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "plonter:B860-AORUS-ELITE-WIFI7-ICE",
@@ -5817,6 +5828,17 @@
     "title_b": "AMD Zen5 Ryzen7 9850X3D 8 Core/16 Threads - Base Clock: 4.7GHz - Max Boost Clock: 5.6GHz - Without Fan - 120W TDP - 9000 Series - Box",
     "match_text_a": "100-1000001084 AMD Zen5 Ryzen7 9800X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.2GHz - Without Fan - 120W TDP - 9000 Series - Tray",
     "match_text_b": "100-100001973WOF AMD Zen5 Ryzen7 9850X3D 8 Core/16 Threads - Base Clock 4.7GHz - Max Boost Clock 5.6GHz - Without Fan - 120W TDP - 9000 Series - Box"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000158",
+    "listing_b": "tms:100-100000065",
+    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
+    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
+    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
   },
   {
     "score": 92,
@@ -6702,6 +6724,17 @@
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "tms:100-000000158",
+    "listing_b": "tms:100-000000457",
+    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
+    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "tms:100-000000457",
     "listing_b": "tms:100-000001504",
     "title_a": "AMD Ryzen 5 5500 AM4 Tray",
@@ -7456,6 +7489,17 @@
     "title_b": "Ryzen Threadripper 9980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Zen5 - BOX - Ryzen Threadripper 9000 Series (Shimada Peak)",
     "match_text_a": "100-000001595 Ryzen Threadripper 9960X - 24/48 Cores - AMD sTR5 (LGA4844) TRX50 - Zen5 - Tray - Ryzen Threadripper 9000 Series (Shimada Peak)",
     "match_text_b": "100-100001593WOF Ryzen Threadripper 9980X - 64/128 Cores - AMD sTR5 (LGA4844) TRX50 - Zen5 - BOX - Ryzen Threadripper 9000 Series (Shimada Peak)"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000158",
+    "listing_b": "tms:100-000000159",
+    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
+    "title_b": "AMD Ryzen 3 3300X AM4 Tray",
+    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_b": "100-000000159 AMD Ryzen 3 3300X AM4 Tray"
   },
   {
     "score": 90,
@@ -9238,6 +9282,28 @@
     "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
     "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
     "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000158",
+    "listing_b": "tms:100-000000927",
+    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
+    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000158",
+    "listing_b": "tms:100-000001488",
+    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
+    "title_b": "AMD Ryzen 5 5600GT AM4 Tray",
+    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_b": "100-000001488 AMD Ryzen 5 5600GT AM4 Tray"
   },
   {
     "score": 88,
