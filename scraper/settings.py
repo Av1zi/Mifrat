@@ -45,6 +45,17 @@ PLAYWRIGHT_BROWSER_TYPE = "chromium"
 PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 60000  # 60s to allow JS challenges to complete
 PLAYWRIGHT_LAUNCH_OPTIONS = {
     "headless": True,
+    # `channel: "chromium"` selects Playwright's *full* Chromium build instead
+    # of the headless *shell* it otherwise launches. Plonter sits behind
+    # Imperva Incapsula, and the shell is detected by it: every navigation
+    # comes back as the JS-challenge page (Sep 2026 — the 403/zero-item
+    # scrape-cloud failure). Verified 2026-09-28: the shell returned 0 <pre>
+    # rows on every attempt while the full build returned the 5,654-row feed
+    # on the first try. `playwright install chromium` (what both workflows
+    # run) installs BOTH builds, so no extra install step is needed; spiders
+    # that never set playwright=True (TMS on the Nano, onepc, ivory) are
+    # unaffected — no browser is launched for them.
+    "channel": "chromium",
 }
 
 LOG_LEVEL = "INFO"

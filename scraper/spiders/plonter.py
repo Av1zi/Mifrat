@@ -41,6 +41,25 @@ vendor_meta["tree"]; scraper/extractors.py's PLONTER_TREE_LABELS decodes
 it into socket/chipset/memory_type/form_factor attributes instead of
 re-deriving them from title text alone.
 
+## WAF (Imperva Incapsula) — read this before changing the fetch
+
+Plonter fronts the whole site with Imperva Incapsula. An unrecognized client
+gets a JS-challenge page instead of the feed — and *which* build of Chromium
+we ask for decides whether that challenge ever clears:
+
+  - Playwright's default headless **shell** is detected: every navigation
+    returns the challenge (Sep 2026 status 200 with an `_Incapsula_Resource`
+    iframe, or 403 from the CI datacenter IP), so the spider yielded zero
+    items and scrape-cloud's §10 count-check failed the job.
+  - The full Chromium build (`channel: "chromium"` in settings.py) solves the
+    challenge and gets the real feed.
+
+Even so, the *first* response can still be the challenge page while the
+solved cookie is being set, so `parse()` re-requests the feed a bounded
+number of times (MAX_FEED_ATTEMPTS) before giving up loudly. Cookies live on
+the shared `default` Playwright context, so the retry is what makes the
+solved challenge stick.
+
 ## Known gaps (still open)
 - `amount` blank in several sampled rows — unclear whether blank means
   "in stock, quantity not tracked" or "out of stock, 0 suppressed."
@@ -66,6 +85,14 @@ VENDOR_ID = "plonter"
 ALON_FEED_URL = "https://www.plonter.co.il/pnp/alon.tmpl"
 PRODUCT_URL_TEMPLATE = "https://www.plonter.co.il/detail.tmpl?sku={sku}"
 
+# Incapsula answers an unrecognized client with 403 (CI) or a 200-status
+# challenge body.
+BLOCK_STATUS_CODES = {403, 429}
+# The challenge clears on a subsequent request against the same browser
+# context, so a couple of extra tries is all this needs — this is not a
+# "keep hammering a blocking WAF" loop (see the module docstring).
+MAX_FEED_ATTEMPTS = 4
+
 COLUMNS = [
     "sku", "title", "description", "category", "division",
     "shelf", "price_total", "tree", "image_file", "amount", "engdivision",
@@ -89,6 +116,10 @@ ALLOWED_ENGDIVISIONS = {
 class PlonterSpider(scrapy.Spider):
     name = "plonter"
     allowed_domains = ["plonter.co.il"]
+    # Let a blocked response reach parse() instead of Scrapy's
+    # HttpErrorMiddleware swallowing it as "Ignoring non-200 response"
+    # before anything can retry the challenge.
+    handle_httpstatus_list = sorted(BLOCK_STATUS_CODES)
 
     def start_requests(self):
         # Fallback for Scrapy <2.13
@@ -101,18 +132,26 @@ class PlonterSpider(scrapy.Spider):
 
     def _build_requests(self):
         self.logger.info("Plonter _build_requests – requesting alon.tmpl with Playwright")
-        yield scrapy.Request(
+        yield self._feed_request(1)
+
+    def _feed_request(self, attempt: int):
+        return scrapy.Request(
             ALON_FEED_URL,
             meta={
                 "playwright": True,
                 "playwright_include_page": False,
                 "playwright_context": "default",
+                "plonter_attempt": attempt,
             },
             callback=self.parse,
             errback=self._error,
+            # The challenge retry re-requests an already-seen URL, which the
+            # duplicate filter would otherwise drop.
+            dont_filter=True,
         )
 
     def parse(self, response):
+        attempt = int(response.meta.get("plonter_attempt") or 1)
         self.logger.info(f"Plonter parse called with status {response.status}")
 
         # NOTE: no response.replace(encoding="windows-1255") here. The feed
@@ -123,8 +162,24 @@ class PlonterSpider(scrapy.Spider):
         # default decoding is correct as-is.
 
         pre_blocks = response.css("pre::text").getall()
-        if len(pre_blocks) < 2:
-            self.logger.warning("alon.tmpl returned no data rows or a challenge page.")
+        if response.status in BLOCK_STATUS_CODES or len(pre_blocks) < 2:
+            if attempt < MAX_FEED_ATTEMPTS:
+                self.logger.warning(
+                    f"Plonter feed attempt {attempt}/{MAX_FEED_ATTEMPTS} got a "
+                    f"blocked/challenge page (status {response.status}, "
+                    f"{len(pre_blocks)} <pre> block(s)) - retrying; the "
+                    "Incapsula challenge clears on the next request once the "
+                    "browser has run its JS."
+                )
+                yield self._feed_request(attempt + 1)
+                return
+            self.logger.error(
+                f"Plonter feed still blocked after {MAX_FEED_ATTEMPTS} attempts "
+                f"(status {response.status}) - Plonter's WAF is refusing this "
+                "client/IP. Zero items are written, so run_spider.py's "
+                "count-check (section 10) fails the job instead of shipping an "
+                "empty day."
+            )
             return
 
         for raw_row in pre_blocks[1:]:
@@ -172,4 +227,13 @@ class PlonterSpider(scrapy.Spider):
             )
 
     def _error(self, failure):
+        """Network/HTTP failure (403/429 are handled in parse() instead)."""
+        request = getattr(failure, "request", None)
+        attempt = int((request.meta.get("plonter_attempt") if request else 0) or 1)
         self.logger.error(f"Plonter request failed: {failure.value}")
+        if attempt < MAX_FEED_ATTEMPTS:
+            self.logger.warning(
+                f"Plonter feed attempt {attempt}/{MAX_FEED_ATTEMPTS} failed "
+                "— retrying"
+            )
+            yield self._feed_request(attempt + 1)

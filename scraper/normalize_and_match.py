@@ -31,7 +31,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 try:
     from scraper.matching import (
-        _compact_key,
         dedupe_enriched_listings,
         enrich_listing,
         find_duplicate_vendor_cases,
@@ -39,6 +38,7 @@ try:
         match_listings,
         match_text,
         mpn_affix_related,
+        prefer_longer_mpn,
         suggest_fuzzy_matches,
     )
     from scraper.specs import build_product_specs, extract_attributes
@@ -47,7 +47,6 @@ try:
     from scraper.image_urls import best_of, candidate_urls
 except ImportError:
     from matching import (
-        _compact_key,
         dedupe_enriched_listings,
         enrich_listing,
         find_duplicate_vendor_cases,
@@ -55,6 +54,7 @@ except ImportError:
         match_listings,
         match_text,
         mpn_affix_related,
+        prefer_longer_mpn,
         suggest_fuzzy_matches,
     )
     from specs import build_product_specs, extract_attributes
@@ -254,17 +254,18 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             if real_sku and not real_sku.isdigit() and real_sku != sku:
                 e["vendor_sku"] = real_sku
                 cur_mpn = e.get("mpn")
-                if not cur_mpn:
+                if not cur_mpn or not mpn_affix_related(cur_mpn, real_sku):
+                    # Nothing to reconcile, or the two are different parts:
+                    # the vendor's own product page is authoritative.
                     e["mpn"] = real_sku
-                elif mpn_affix_related(cur_mpn, real_sku):
-                    # Page code truncated ("R9070XTGAMINGOC16") vs full
-                    # pattern MPN from the title
-                    # ("GV-R9070XTGAMING-OC-16GD") — keep the longer full
-                    # part number so the cross-vendor match lands.
-                    if len(_compact_key(real_sku)) > len(_compact_key(cur_mpn)):
-                        e["mpn"] = real_sku
                 else:
-                    e["mpn"] = real_sku
+                    # Same part at different truncation levels — page code
+                    # truncated ("R9070XTGAMINGOC16") vs the full pattern MPN
+                    # from the title ("GV-R9070XTGAMING-OC-16GD"): keep the
+                    # longer full part number so the cross-vendor match lands,
+                    # and the printed spelling when the two agree on the code
+                    # (prefer_longer_mpn).
+                    e["mpn"] = prefer_longer_mpn(cur_mpn, real_sku)
                 sku = real_sku
                 # The pre-detail match_text was built from the numeric id
                 # ("189654 Intel…") so packaging codes in the real SKU
@@ -296,12 +297,21 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 # vendor's own product page is authoritative).
                 cur_mpn = e.get("mpn")
                 new_mpn = str(real_mpn).strip()
-                if (cur_mpn and new_mpn and mpn_affix_related(cur_mpn, new_mpn)
-                        and len(new_mpn) < len(str(cur_mpn))):
-                    pass
-                elif new_mpn != cur_mpn:
-                    e["mpn"] = new_mpn
-                    merged_extra += 1
+                if not cur_mpn or not mpn_affix_related(cur_mpn, new_mpn):
+                    # Nothing to reconcile, or a true conflict (status quo:
+                    # the vendor's own product page is authoritative).
+                    if new_mpn != cur_mpn:
+                        e["mpn"] = new_mpn
+                        merged_extra += 1
+                else:
+                    # Affix relation (detail rows sometimes carry only the
+                    # tail, "KFGX" for "WD161KFGX") or the same code spelled
+                    # differently — prefer_longer_mpn keeps the fuller code
+                    # and the printed spelling.
+                    reconciled = prefer_longer_mpn(cur_mpn, new_mpn)
+                    if reconciled != cur_mpn:
+                        e["mpn"] = reconciled
+                        merged_extra += 1
             if extra.get("brand") and not e.get("brand"):
                 e["brand"] = str(extra["brand"]).strip()
         if key in image_index:

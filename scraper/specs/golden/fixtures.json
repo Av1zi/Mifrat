@@ -72,6 +72,7 @@
       "product_id": "mpn:storage:mzv9p2t0bw",
       "category": "storage",
       "name": "Samsung 2TB 990 PRO NVMe M.2 SSD",
+      "_pins": "Printed MPN spelling. Samsung/Plonter print 'MZ-V9P2T0BW'; the product id stays the compact key (mzv9p2t0bw). This case used to be reproducible only while a 1PC listing that carried a printed MPN existed — Plonter's 403 day (Sep 2026) dropped it and the piped value flipped to 'MZV9P2T0BW', which is exactly the flake this pins down.",
       "expect": {
         "manufacturer": "Samsung",
         "capacity_gb": 2000,
@@ -199,8 +200,9 @@
       "product_id": "mpn:psu:cp9020251eu",
       "category": "psu",
       "name": "Corsair RM750x SHIFT 80 PLUS Gold Fully Modular ATX",
+      "_pins": "part_numbers is the part number AS PRINTED (punctuation kept), not a compacted key. This case used to pin 'CP9020251EU' because no vendor page supplied a printed one — the spelling was decided by whichever vendor's detail row happened to exist that day. Identity keys are still compact (`mpn:psu:cp9020251eu` here); only the displayed/`part_numbers` value carries the dashes.",
       "expect": {
-        "part_numbers": ["CP9020251EU"],
+        "part_numbers": ["CP-9020251-EU"],
         "type": "ATX",
         "efficiency": "80+ Gold",
         "modular": "full",

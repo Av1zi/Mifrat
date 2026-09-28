@@ -1144,8 +1144,14 @@ def extract_mpn(text: str) -> str | None:
     """
     Extract likely manufacturer part number from SKU/title.
 
-    Normalized MPN removes dashes and uppercase:
-    FD-C-POV2A-02 => FDCPOV2A02
+    The token is returned **as printed** (uppercased, punctuation kept:
+    "FD-C-POV2A-02"). Punctuation is part of the part number and this value
+    is what ships as the product's `part_numbers` / display MPN, so stripping
+    it here made the displayed form depend on which vendor happened to print
+    the dashes — a product only showed "MZ-V9P2T0BW" while some vendor's
+    detail page supplied one, and "MZV9P2T0BW" otherwise (the Sep 2026 golden
+    fixture flake). Identity keys are compacted separately (mpn_part_key), so
+    matching is unaffected by the spelling kept here.
     """
     t = _clean(text).upper()
     found = []
@@ -1159,13 +1165,13 @@ def extract_mpn(text: str) -> str | None:
     # Prefer longer MPNs; usually more specific.
     found.sort(key=len, reverse=True)
     for cand in found:
-        mpn = re.sub(r"[^A-Z0-9]", "", cand)
+        compact = re.sub(r"[^A-Z0-9]", "", cand)
         # Pure-digit strings of 12+ chars are GTIN/EAN barcodes, not
         # manufacturer part numbers (e.g. 4711377028363). Accepting them
         # as MPNs produced products literally named after their barcode.
-        if mpn.isdigit() and len(mpn) >= 12:
+        if compact.isdigit() and len(compact) >= 12:
             continue
-        return mpn
+        return cand.strip("-")
     return None
 
 
@@ -1207,6 +1213,22 @@ def mpn_affix_related(a: str | None, b: str | None) -> bool:
             or c.startswith(n) or c.endswith(n))
 
 
+def _prefer_printed(*values: str) -> str:
+    """Pick one spelling among equivalent part-number variants.
+
+    Punctuation-bearing first (that is how the manufacturer/vendor prints a
+    part number: "MZ-V9P2T0BW", not "MZV9P2T0BW"), then the longer, then
+    lexicographic so the choice is deterministic no matter which source
+    answered first. Feeds the display/`part_numbers` value only — every
+    match key goes through mpn_part_key().
+    """
+    def rank(value: str) -> tuple[int, int, str]:
+        text = str(value)
+        return (0 if re.search(r"[^A-Za-z0-9]", text) else 1, -len(text), text)
+
+    return min((str(value) for value in values), key=rank)
+
+
 def prefer_longer_mpn(current: str | None, candidate: str | None) -> str | None:
     """Reconcile two MPN candidates for one listing.
 
@@ -1219,15 +1241,21 @@ def prefer_longer_mpn(current: str | None, candidate: str | None) -> str | None:
     full part number — take it. Unrelated candidates (different parts)
     resolve to `current` (status quo: the earlier/authoritative source
     wins over fallback/detail sources).
+
+    Two spellings of the SAME part number (same compact key) resolve to the
+    printed one (see _prefer_printed) rather than to whichever source
+    answered first, so the displayed part number is stable run to run.
     """
     if not current:
         return candidate
-    if not candidate or _compact_key(current) == _compact_key(candidate):
+    if not candidate:
         return current
+    if _compact_key(current) == _compact_key(candidate):
+        return _prefer_printed(current, candidate)
     c = _strip_gv_prefix(_compact_key(current))
     n = _strip_gv_prefix(_compact_key(candidate))
     if c == n:
-        return current if len(str(current)) >= len(str(candidate)) else candidate
+        return _prefer_printed(current, candidate)
     if n.startswith(c) or n.endswith(c) or c.startswith(n) or c.endswith(n):
         return candidate if len(n) > len(c) else current
     return current
@@ -1246,18 +1274,21 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
     - at least one dash OR 4+ compact chars — short vendor codes such as
       "BL114" are still valid when they contain both letters and digits.
 
-    Returns the mpn in normalized (compact) form so it merges with detail
-    scrapes and other vendors' identical part numbers regardless of how they
-    hyphenate.
+    Returns the SKU in the form the vendor printed it (uppercased, internal
+    whitespace collapsed, punctuation kept: "MZ-V9P2T0BW"). The compact form
+    is only the *key* (mpn_part_key) — merging with detail scrapes and other
+    vendors' identical part numbers happens on that key regardless of how
+    each side hyphenates, while `part_numbers` keeps a canonical printed
+    spelling instead of whichever source answered first.
     """
     if not vendor_sku:
         return None
-    mpn = re.sub(r"[^A-Za-z0-9]", "", str(vendor_sku))
-    if not mpn:
+    compact = re.sub(r"[^A-Za-z0-9]", "", str(vendor_sku))
+    if not compact:
         return None
-    if len(mpn) < 4 or len(mpn) > 22:
+    if len(compact) < 4 or len(compact) > 22:
         return None
-    if not re.search(r"[A-Za-z]", mpn) or not re.search(r"\d", mpn):
+    if not re.search(r"[A-Za-z]", compact) or not re.search(r"\d", compact):
         return None
     # NOTE: no digit-leading rejection here. The letters+digits requirement
     # above already excludes pure-numeric vendor ids ("217314") and pure
@@ -1265,7 +1296,7 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
     # "5600J3636C16GX2-RS5K", Lenovo "4X71M23186x2"). A previous
     # fullmatch guard for `\d+([A-Z]+\d*)*` rejected exactly those and split
     # same-SKU cross-vendor listings into duplicate products (Sep 2026).
-    return mpn.upper()
+    return re.sub(r"\s+", "", str(vendor_sku)).upper()
 
 
 # --------------------------------------------------------------------------
@@ -5054,8 +5085,11 @@ def suggest_fuzzy_matches(
                 if frozenset((a_key, b_key)) in blocked_pairs:
                     continue
 
-                # If both have MPNs and they differ, do not suggest.
-                if a.get("mpn") and b.get("mpn") and a["mpn"] != b["mpn"]:
+                # If both have MPNs and they differ, do not suggest. Compared
+                # on the compact key: "MZ-V9P2T0BW" vs "MZV9P2T0BW" is one
+                # part number spelled two ways, not a conflict.
+                if (a.get("mpn") and b.get("mpn")
+                        and mpn_part_key(a["mpn"]) != mpn_part_key(b["mpn"])):
                     continue
 
                 if critical_conflict(a, b):
