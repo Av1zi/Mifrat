@@ -3,23 +3,23 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:154854",
-    "listing_b": "ivory:126060",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray Processor.",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray Processor.",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:163368",
     "listing_b": "tms:100-000000927",
     "title_a": "AMD Ryzen 5 5600 AM4 Tray Processor.",
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
     "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray Processor.",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:164657",
+    "listing_b": "tms:100-100000651WOF",
+    "title_a": "AMD Ryzen 7 5800X3D AM4 Box Processor.",
+    "title_b": "AMD Ryzen 7 5800X3D AM4 Box",
+    "match_text_a": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box Processor.",
+    "match_text_b": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box"
   },
   {
     "score": 100,
@@ -69,17 +69,6 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "ivory:72257",
     "listing_b": "tms:100-000000591",
     "title_a": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
@@ -119,17 +108,6 @@
     "title_b": "Intel Core i9 14900KS / 1700 Tray",
     "match_text_a": "C14900KST Intel Core i9 14900KS / 1700 Tray",
     "match_text_b": "C14900KST Intel Core i9 14900KS / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:178028",
-    "listing_b": "tms:C245T",
-    "title_a": "Intel Core Ultra 5 245 / 1851 Tray processor.",
-    "title_b": "Intel Core Ultra 5 245 / 1851 Tray",
-    "match_text_a": "C245T Intel Core Ultra 5 245 / 1851 Tray processor.",
-    "match_text_b": "C245T Intel Core Ultra 5 245 / 1851 Tray"
   },
   {
     "score": 100,
@@ -944,17 +922,6 @@
     "title_b": "Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX",
     "match_text_a": "ROG-STRIX-Z890-A-GAMING-WIFI Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX - White",
     "match_text_b": "ROG-STRIX-Z890-H-GAMING-WIFI Z890 - LGA1851 - Supports Intel Core Ultra Processors (Series 2) - DDR5 - ATX"
-  },
-  {
-    "score": 95,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215497",
-    "listing_b": "tms:100-000001978",
-    "title_a": "Processor AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
-    "title_b": "AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray",
-    "match_text_a": "100-000001978 Processor AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
-    "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray"
   },
   {
     "score": 95,
@@ -1879,17 +1846,6 @@
     "title_b": "AIO ARGB CPU Liquid Cooler - White - 360mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 360",
     "match_text_a": "MAG-CORELIQUID-A13-240-WHITE AIO ARGB CPU Liquid Cooler - White - 240mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 240",
     "match_text_b": "MAG-CORELIQUID-A13-360-WHITE AIO ARGB CPU Liquid Cooler - White - 360mm - AMD and Intel Socket Compatible - MAG CORELIQUID A13 360"
-  },
-  {
-    "score": 94,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215497",
-    "listing_b": "ivory:161527",
-    "title_a": "Processor AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
-    "title_b": "מעבד AMD Ryzen 9 9950X3D2 Dual Edition Tray",
-    "match_text_a": "100-000001978 Processor AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
-    "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Tray"
   },
   {
     "score": 94,
@@ -3765,28 +3721,6 @@
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:214851",
-    "listing_b": "tms:100-000001183",
-    "title_a": "AMD Ryzen™ 5 PRO 8500G AM5 processor with integrated graphics Tray.",
-    "title_b": "AMD Ryzen 5 PRO 8500G AM5 Tray",
-    "match_text_a": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 processor with integrated graphics Tray.",
-    "match_text_b": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 Tray"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215496",
-    "listing_b": "tms:100-000001504",
-    "title_a": "Processor AMD Ryzen 5 5500X3D AM4 Tray.",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000001504 Processor AMD Ryzen 5 5500X3D AM4 Tray.",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "plonter:100-000000478",
     "listing_b": "plonter:100-000000796",
     "title_a": "AMD EPYC 4th Gen (Zen4) 9454 - 48/96 Cores - AMD SP5 (LGA6096) socket - AMD EPYC 9004 Series (Genoa) - TSMC 5nm (CPU), TSMC 6nm (I/​O) - Tray",
@@ -5179,17 +5113,6 @@
     "title_b": "COUGAR OmnyX Mid-Tower ATX Panoramic Gaming Case – 4x 160mm Fans – 3 Sides Tempered Glass – Full Reverse Connector – White",
     "match_text_a": "OMNYX-BL COUGAR OmnyX Mid-Tower ATX Panoramic Gaming Case 4x 160mm Fans 3 Sides Tempered Glass Full Reverse Connector Black",
     "match_text_b": "OMNYX-WT COUGAR OmnyX Mid-Tower ATX Panoramic Gaming Case 4x 160mm Fans 3 Sides Tempered Glass Full Reverse Connector White"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:169701",
-    "listing_b": "ivory:109058",
-    "title_a": "AMD Ryzen™ 5 9600X AM5 Processor - TRAY.",
-    "title_b": "מעבד AMD Ryzen 5 9600X Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Processor - TRAY.",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Tray"
   },
   {
     "score": 92,
@@ -8374,39 +8297,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "ivory:154048",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "מעבד AMD Ryzen 5 8400F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000457",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000927",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "plonter:100-000000453",
     "listing_b": "plonter:100-100000454WOF",
     "title_a": "Ryzen Threadripper Pro 7975WX - 32/64 Cores - AMD sTR5 (LGA4844) TRX50 - Tray - Ryzen Threadripper 7000 Series",
@@ -9759,62 +9649,10 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:amdryzen5processor",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:215082",
-        "vendor_sku": "100-100000718BOX",
-        "title": "Processor AMD Ryzen™ 5 9600 AM5 BOX with Wraith Stealth cooler.",
-        "price": 992
-      },
-      {
-        "listing_key": "1pc:214173",
-        "vendor_sku": "100-100001904WOF",
-        "title": "Processor AMD Ryzen 5 7500X3D 4.0GHz AM5 - Box.",
-        "price": 1034
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:amdryzen5processor-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:214851",
-        "vendor_sku": "100-000001183",
-        "title": "AMD Ryzen™ 5 PRO 8500G AM5 processor with integrated graphics Tray.",
-        "price": 618
-      },
-      {
-        "listing_key": "1pc:154854",
-        "vendor_sku": "100-000000597",
-        "title": "AMD Ryzen 5 7500F AM5 Tray Processor.",
-        "price": 627
-      },
-      {
-        "listing_key": "1pc:215496",
-        "vendor_sku": "100-000001504",
-        "title": "Processor AMD Ryzen 5 5500X3D AM4 Tray.",
-        "price": 888
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:cpu:amdryzen7processor-tray",
     "category": "cpu",
     "vendor": "1pc",
     "offers": [
-      {
-        "listing_key": "1pc:207742",
-        "vendor_sku": "100-000001590",
-        "title": "AMD Ryzen 7 8700F AM5 Tray processor.",
-        "price": 702
-      },
       {
         "listing_key": "1pc:155626",
         "vendor_sku": "100-000000592",
@@ -9826,12 +9664,6 @@
         "vendor_sku": "100-000001084",
         "title": "AMD Ryzen™ 7 9800X3D AM5 Tray processor.",
         "price": 2117
-      },
-      {
-        "listing_key": "1pc:212384",
-        "vendor_sku": "100-000001973",
-        "title": "Processor AMD Ryzen 7 9850X3D AM5.",
-        "price": 2125
       }
     ]
   },
@@ -9944,46 +9776,6 @@
         "vendor_sku": "C14900KST",
         "title": "Intel Core i9 14900KS / 1700 Tray",
         "price": 3449
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcoreultraprocessor5-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:216287",
-        "vendor_sku": "C250KPLUST",
-        "title": "Intel® Core™ Ultra 5 250K Plus processor, FCLGA1851 socket - Tray.",
-        "price": 1034
-      },
-      {
-        "listing_key": "1pc:178028",
-        "vendor_sku": "C245T",
-        "title": "Intel Core Ultra 5 245 / 1851 Tray processor.",
-        "price": 1385
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcoreultraprocessor5intelcoreultraprocessor5",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:189654",
-        "vendor_sku": "C225FT",
-        "title": "Intel Core Ultra 5 225F processor model 1851.",
-        "price": 553
-      },
-      {
-        "listing_key": "1pc:189655",
-        "vendor_sku": "C245KFT",
-        "title": "Intel Core Ultra 5 245KF processor socket 1851.",
-        "price": 865
       }
     ]
   },
@@ -10289,30 +10081,6 @@
   },
   {
     "kind": "naming_conflict",
-    "product_id": "mpn:case:gbc102g",
-    "category": "case",
-    "vendor": "",
-    "titles": [
-      "Gigabyte C102 Glass Case",
-      "Gigabyte C102 Glass GB-C102G computer case in black color."
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:207734",
-        "vendor_sku": "GB-C102G",
-        "title": "Gigabyte C102 Glass GB-C102G computer case in black color.",
-        "price": 303
-      },
-      {
-        "listing_key": "tms:GB-C102G",
-        "vendor_sku": "GB-C102G",
-        "title": "Gigabyte C102 Glass Case",
-        "price": 287
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
     "product_id": "mpn:case:gbc301gwv2",
     "category": "case",
     "vendor": "",
@@ -10464,61 +10232,6 @@
   },
   {
     "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:90mb1lt0m0eay0",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "ASUS TUF GAMING B650-E WIFI Motherboard.",
-      "Asus TUF GAMING B650E-E WiFi"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:195917",
-        "vendor_sku": "90MB1LT0-M0EAY0",
-        "title": "ASUS TUF GAMING B650-E WIFI Motherboard.",
-        "price": 1109
-      },
-      {
-        "listing_key": "tms:90MB1LT0-M0EAY0",
-        "vendor_sku": "90MB1LT0-M0EAY0",
-        "title": "Asus TUF GAMING B650E-E WiFi",
-        "price": 999
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:90mb1n90m0eay0",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "ASUS Prime B850-F WIFI motherboard, black color.",
-      "Asus PRIME B850M-F",
-      "לוח אם ASUS PRIME B850M-F mATX AM5 AMD"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:216407",
-        "vendor_sku": "90MB1N90-M0EAY0",
-        "title": "ASUS Prime B850-F WIFI motherboard, black color.",
-        "price": 722
-      },
-      {
-        "listing_key": "ivory:173290",
-        "vendor_sku": "90MB1N90-M0EAY0",
-        "title": "לוח אם ASUS PRIME B850M-F mATX AM5 AMD",
-        "price": 649
-      },
-      {
-        "listing_key": "tms:90MB1N90-M0EAY0",
-        "vendor_sku": "90MB1N90-M0EAY0",
-        "title": "Asus PRIME B850M-F",
-        "price": 693
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
     "product_id": "mpn:motherboard:akb760megddr4",
     "category": "motherboard",
     "vendor": "",
@@ -10658,54 +10371,6 @@
         "vendor_sku": "B850M-DS3H",
         "title": "Socket AM5 - AMD B850 Chipset - 4x DDR5 - mATX",
         "price": 658
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:mschab760md5wifi",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "MAXSUN Challenger B760M D5 WiFi",
-      "MAXSUN Challenger B760M D5 WiFi Motherboard MS-CHA-B760MD5WIFI."
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:207682",
-        "vendor_sku": "MS-CHA-B760MD5WIFI",
-        "title": "MAXSUN Challenger B760M D5 WiFi Motherboard MS-CHA-B760MD5WIFI.",
-        "price": 453
-      },
-      {
-        "listing_key": "tms:MS-CHA-B760MD5WIFI",
-        "vendor_sku": "MS-CHA-B760MD5WIFI",
-        "title": "MAXSUN Challenger B760M D5 WiFi",
-        "price": 429
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:msterb760mgkd5dark",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "MAXSUN Terminator B760M GKD5 DARK",
-      "MAXSUN Terminator B760M GKD5 DARK Motherboard MS-TER-B760MGKD5DARK."
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:207681",
-        "vendor_sku": "MS-TER-B760MGKD5DARK",
-        "title": "MAXSUN Terminator B760M GKD5 DARK Motherboard MS-TER-B760MGKD5DARK.",
-        "price": 563
-      },
-      {
-        "listing_key": "tms:MS-TER-B760MGKD5DARK",
-        "vendor_sku": "MS-TER-B760MGKD5DARK",
-        "title": "MAXSUN Terminator B760M GKD5 DARK",
-        "price": 537
       }
     ]
   },
@@ -10929,7 +10594,7 @@
         "listing_key": "1pc:158633",
         "vendor_sku": "LNM790X001T-RNNNG",
         "title": "Lexar SSD LNM-790 1TB M.2 NVMe High Speed PCIe Gen4X4 LNM790X001T-RNNNG",
-        "price": 849
+        "price": 855
       },
       {
         "listing_key": "plonter:LNM790X001T-RNNNG",
@@ -10953,7 +10618,7 @@
         "listing_key": "1pc:158630",
         "vendor_sku": "LNM790X004T-RNNNG",
         "title": "Lexar SSD LNM790 4TB m.2 NVME PCIe4X4 LNM790X004T-RNNNG",
-        "price": 2148
+        "price": 2162
       },
       {
         "listing_key": "plonter:LNM790X004T-RNNNG",
@@ -10977,7 +10642,7 @@
         "listing_key": "1pc:187991",
         "vendor_sku": "LNM790X008T-RNNNG",
         "title": "Lexar LNM-790 8TB M.2 NVMe PCIe Gen4X4 SSD Drive in black LNM790X008T-RNNNG.",
-        "price": 5425
+        "price": 5460
       },
       {
         "listing_key": "plonter:LNM790X008T-RNNNG",
@@ -11001,7 +10666,7 @@
         "listing_key": "1pc:213997",
         "vendor_sku": "LNQ790X512G-RNNNG",
         "title": "Lexar LNQ-790 M.2 2280 512GB PCIe Gen4x4 SSD drive in black LNQ790X512G-RNNNG.",
-        "price": 514
+        "price": 518
       },
       {
         "listing_key": "plonter:LNQ790X512G-RNNNG",
