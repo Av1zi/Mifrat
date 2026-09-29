@@ -1,5 +1,12 @@
 """
-Plonter spider.
+Plonter spider — DROPPED 2026-09-29, UNSCHEDULED (owner decision, see
+decisions.md: datacenter IP-class Incapsula block, two consecutive CI
+failures Sep 28-29). Removed from the scrape-cloud matrix, the detail-scrape
+loops, and VENDOR_SPIDER_NAMES, so no Plonter listing enters the catalog.
+This file (+ settings.py Playwright config, extractors/matching support
+code, raw/detail history, images) is deliberately KEPT for a possible future
+re-scrape — do not delete it, and do not re-schedule it without re-verifying
+the WAF posture from a CI runner first.
 
 ## robots.txt: NOT observed for this project (see decisions.md). This
 spider deliberately hits a path (`/pnp/alon.tmpl`) that Plonter's

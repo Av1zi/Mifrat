@@ -177,6 +177,347 @@
         "1pc:139919",
         "tms:100-000000910"
       ]
+    },
+    {
+      "product_id": "model:cpu:corei512400-tray",
+      "canonical_name": "Intel Core i5 12400 Tray",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i5 12400",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:43093"
+      ]
+    },
+    {
+      "product_id": "model:cpu:corei512400f-tray",
+      "canonical_name": "Intel Core i5 12400F series Core i5 Tray",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i5 12400F",
+      "attributes": {},
+      "listing_keys": [
+        "tms:C12400FT"
+      ]
+    },
+    {
+      "product_id": "model:cpu:corei514600k-tray",
+      "canonical_name": "Intel Core i5 14600K series Core i5 Tray",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i5 14600K",
+      "attributes": {},
+      "listing_keys": [
+        "tms:C14600KT"
+      ]
+    },
+    {
+      "product_id": "model:cpu:corei712700f",
+      "canonical_name": "Intel Core i7 12700F series Core i7",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i7 12700F",
+      "attributes": {},
+      "listing_keys": [
+        "tms:C12700FB"
+      ]
+    },
+    {
+      "product_id": "model:cpu:corei714700kf-tray",
+      "canonical_name": "Intel Core i7 14700KF series Core i7 Tray",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i7 14700KF",
+      "attributes": {},
+      "listing_keys": [
+        "tms:C14700KFT"
+      ]
+    },
+    {
+      "product_id": "model:cpu:corei914900k-tray",
+      "canonical_name": "Intel Core i9 14900K series Core i9 Tray",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i9 14900K",
+      "attributes": {},
+      "listing_keys": [
+        "tms:C14900KT"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9334-tray",
+      "canonical_name": "AMD EPYC 9334 series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9334",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000800"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9554-tray",
+      "canonical_name": "AMD EPYC 9554 series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9554",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000790"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9575f-tray",
+      "canonical_name": "AMD EPYC 9575F series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9575F",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001554"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9654-tray",
+      "canonical_name": "AMD EPYC 9654 series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9654",
+      "attributes": {},
+      "listing_keys": [
+        "tms:EP9654"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9655p-tray",
+      "canonical_name": "AMD EPYC 9655P series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9655P",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001522"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9754-tray",
+      "canonical_name": "AMD EPYC 9754 series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9754",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001234"
+      ]
+    },
+    {
+      "product_id": "model:cpu:epyc9755-tray",
+      "canonical_name": "AMD EPYC 9755 series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 9755",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001443"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen55600-tray",
+      "canonical_name": "AMD Ryzen 5 5600 series Ryzen 5 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 5 5600",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000927"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen57500f-tray",
+      "canonical_name": "AMD Ryzen 5 7500F series Ryzen 5 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 5 7500F",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000597"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen57500x3d-tray",
+      "canonical_name": "AMD Ryzen 5 7500X3D series Ryzen 5 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 5 7500X3D",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001904"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen59500f-tray",
+      "canonical_name": "AMD Ryzen 5 9500F series Ryzen 5 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 5 9500F",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001406"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen59600x-tray",
+      "canonical_name": "AMD Ryzen 5 9600X series Ryzen 5 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 5 9600X",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001405"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen75700-tray",
+      "canonical_name": "AMD Ryzen 7 5700 series Ryzen 7 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 5700",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000743"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen75800x3d-tray",
+      "canonical_name": "AMD Ryzen 7 5800X3D series Ryzen 7 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 5800X3D",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000651"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen78700f-tray",
+      "canonical_name": "AMD Ryzen 7 8700F series Ryzen 7 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 8700F",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001590"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen79850x3d",
+      "canonical_name": "AMD Ryzen 7 9850X3D",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 9850X3D",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:155824"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen97900x-tray",
+      "canonical_name": "AMD Ryzen 9 7900X series Ryzen 9 Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 9 7900X",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000589"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen99900x3d",
+      "canonical_name": "AMD Ryzen 9 9900X3D",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 9 9900X3D",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:128574"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen99950x3d2",
+      "canonical_name": "AMD Ryzen 9 9950X3D2",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 9 9950X3D2",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:161530"
+      ]
+    },
+    {
+      "product_id": "model:cpu:threadripper7960x-tray",
+      "canonical_name": "AMD Threadripper 7960X series Ryzen Threadripper Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Threadripper 7960X",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001352"
+      ]
+    },
+    {
+      "product_id": "model:cpu:threadripper7980x-tray",
+      "canonical_name": "AMD Threadripper 7980X series Ryzen Threadripper Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Threadripper 7980X",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001350"
+      ]
+    },
+    {
+      "product_id": "model:cpu:threadripperpro7965wx-tray",
+      "canonical_name": "AMD Threadripper PRO 7965WX series Ryzen Threadripper Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Threadripper PRO 7965WX",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000885"
+      ]
+    },
+    {
+      "product_id": "model:cpu:threadripperpro7975wx-tray",
+      "canonical_name": "AMD Threadripper PRO 7975WX series Ryzen Threadripper Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Threadripper PRO 7975WX",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000453"
+      ]
+    },
+    {
+      "product_id": "model:cpu:threadripperpro7985wx-tray",
+      "canonical_name": "AMD Threadripper PRO 7985WX series Ryzen Threadripper Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Threadripper PRO 7985WX",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000000454"
+      ]
+    },
+    {
+      "product_id": "sku:cpu:100000001476-tray",
+      "canonical_name": "AMD AMD Radeon Graphics series EPYC Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "AMD Radeon Graphics",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001476"
+      ]
     }
   ],
   "blocked_pairs": []

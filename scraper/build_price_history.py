@@ -30,7 +30,11 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = REPO_ROOT / "data" / "raw"
 HISTORY_DIR = REPO_ROOT / "data" / "site" / "history"
 
-SNAPSHOT_VENDORS = ("tms", "onepc", "plonter", "ivory")
+# Plonter dropped 2026-09-29 (see decisions.md) — its series vanish from the
+# charts along with its catalog offers (series are catalog-offer-driven; this
+# tuple only controls which raw files get scanned). History files on disk keep
+# old plonter points until the next rebuild prunes them.
+SNAPSHOT_VENDORS = ("tms", "onepc", "ivory")
 
 
 def _norm_vendor(vendor_id: str | None) -> str:

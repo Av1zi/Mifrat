@@ -11,7 +11,13 @@
     "expect_null       — fields that must be UNKNOWN (null/absent). This is how",
     "                    a wrong value is pinned as a regression: e.g. an air",
     "                    cooler must never claim water_cooled/radiator_size_mm.",
-    "Values are in the schema's canonical unit (units live in the field name)."
+    "Values are in the schema's canonical unit (units live in the field name).",
+    "2026-09-29 Plonter drop removed 3 cases whose products left the catalog",
+    "(mpn:cooler_air:a40pro, sku:cooler_air:peerlessassassin120digitalargbwhite,",
+    "mpn:psu:cp9020251eu — all Plonter-only singletons). No surviving product",
+    "carries the same rich specs (0 cooler_air products with sockets+fan left),",
+    "so the socket-list and printed-part-number rules are unpinned until vendor",
+    "data exercises them again. The rules themselves are untouched."
   ],
   "schema_version": 1,
   "cases": [
@@ -165,16 +171,6 @@
       }
     },
     {
-      "product_id": "mpn:cooler_air:a40pro",
-      "category": "cooler_air",
-      "name": "A40 PRO 92mm",
-      "_pins": "Cooler socket lists ship as vendor groupings ('1150/1151/1155/1156/1200'); each real socket must appear once, in canonical form.",
-      "expect": {
-        "sockets": ["AM4", "FM1", "FM2", "LGA775"],
-        "fan_size_mm": 92
-      }
-    },
-    {
       "product_id": "sku:cooler_air:814256022132",
       "category": "cooler_air",
       "name": "Thermalright Peerless Assassin Vision MAX Black ARGB",
@@ -186,32 +182,6 @@
         "color": "Black"
       },
       "expect_null": ["water_cooled", "radiator_size_mm"]
-    },
-    {
-      "product_id": "sku:cooler_air:peerlessassassin120digitalargbwhite",
-      "category": "cooler_air",
-      "name": "Peerless Assassin 120 ARGB White",
-      "expect": {
-        "fan_size_mm": 120,
-        "lighting": "ARGB"
-      }
-    },
-    {
-      "product_id": "mpn:psu:cp9020251eu",
-      "category": "psu",
-      "name": "Corsair RM750x SHIFT 80 PLUS Gold Fully Modular ATX",
-      "_pins": "part_numbers is the part number AS PRINTED (punctuation kept), not a compacted key. This case used to pin 'CP9020251EU' because no vendor page supplied a printed one — the spelling was decided by whichever vendor's detail row happened to exist that day. Identity keys are still compact (`mpn:psu:cp9020251eu` here); only the displayed/`part_numbers` value carries the dashes.",
-      "expect": {
-        "part_numbers": ["CP-9020251-EU"],
-        "type": "ATX",
-        "efficiency": "80+ Gold",
-        "modular": "full",
-        "atx_version": "ATX 3.0",
-        "pcie16_connectors": 1
-      },
-      "expect_reference": {
-        "wattage_w": 750
-      }
     }
   ]
 }

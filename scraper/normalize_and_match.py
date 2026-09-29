@@ -71,7 +71,11 @@ MANUAL_PATH = DATA_DIR / "matching" / "manual_products.json"
 SITE_DIR = DATA_DIR / "site"
 
 # Ivory is now included. If its raw file is missing, it is skipped gracefully.
-VENDOR_SPIDER_NAMES = ["tms", "onepc", "plonter", "ivory"]
+# Plonter dropped 2026-09-29 (datacenter IP-class Incapsula block, two
+# consecutive CI failures; owner decision — see decisions.md). Its spider +
+# support code stay for a possible future re-scrape, but its listings no
+# longer enter the catalog. Raw/detail history under data/ is kept as-is.
+VENDOR_SPIDER_NAMES = ["tms", "onepc", "ivory"]
 
 # Supports either onepc.jsonl or 1pc.jsonl.
 VENDOR_FILE_ALIASES = {

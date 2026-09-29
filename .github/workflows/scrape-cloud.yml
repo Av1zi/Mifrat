@@ -50,28 +50,23 @@ jobs:
       # One vendor failing must not kill the others' scrapes (§10).
       fail-fast: false
       matrix:
-        spider: [onepc, plonter, ivory]
+        # Plonter dropped 2026-09-29 (datacenter IP-class Incapsula block;
+        # see decisions.md). Spider + support code stay for a possible
+        # future re-scrape — this matrix is the only thing unscheduling it.
+        spider: [onepc, ivory]
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
-      # Plonter's WAF bypass needs the actual Chromium binary — pip
-      # installing the scrapy-playwright package alone does NOT provide it.
-      # This was missing entirely before (Aug 2026 fix, see DECISIONS.md);
-      # only onepc/ivory don't need it, but installing unconditionally is
-      # simpler and harmless than a per-matrix-entry conditional.
+      # No scheduled vendor currently needs a browser (Plonter, the only
+      # Playwright user, was dropped 2026-09-29) — but pip installing the
+      # scrapy-playwright package alone does NOT provide the browser binary
+      # (Aug 2026 fix, see DECISIONS.md), so keep installing it
+      # unconditionally for a future Plonter return rather than re-learning
+      # this the hard way.
       - run: python -m playwright install --with-deps chromium
-      # Stagger Plonter off the onepc/ivory burst (Sep 2026 403x4: the
-      # three matrix legs fire concurrently from adjacent datacenter IPs,
-      # which correlates hardest for Incapsula risk-scoring). 2-12 min
-      # sleep on the plonter leg only — reliability/load distribution, not
-      # WAF evasion. Retry stays the 07:00 UTC fallback below (skips vendors
-      # with a current snapshot), never same-hour re-dispatch.
-      - name: Stagger Plonter off the concurrent burst
-        if: matrix.spider == 'plonter'
-        run: sleep $((RANDOM % 600 + 120))
       - name: Scrape vendor unless today's fallback artifact exists
         env:
           FALLBACK: ${{ needs.schedule-gate.outputs.fallback }}
@@ -104,8 +99,10 @@ jobs:
     # A single vendor failing (e.g. Ivory 403-blocking datacenter IPs, Sep
     # 2026) must not cancel everyone else's detail scrape: without this,
     # `needs` requires ALL matrix legs to succeed, so one vendor's block
-    # silently kills onepc/plonter detail + the whole detail commit.
+    # silently kills the other vendor's detail + the whole detail commit.
     # The failed vendor is covered by normalize's 14-day stale-forward.
+    # (Plonter dropped 2026-09-29 — its detail loop entries are removed
+    # below, but its committed detail file + images stay as history.)
     if: "!cancelled()"
     runs-on: ubuntu-latest
     steps:
@@ -116,16 +113,15 @@ jobs:
       - run: pip install -r requirements.txt --break-system-packages
       - run: python -m playwright install --with-deps chromium
       # Build pending lists: diff listing output vs the detail_scraped ledger
-      # (TMS excluded — it's not cloud-run; the Nano handles it).
-      # --limit caps the post-ledger-fix backfill so the first runs don't
-      # hammer Plonter with thousands of Playwright page loads at once.
-      - run: python -m scraper.make_detail_pending make ivory onepc plonter --limit 200
+      # (TMS excluded — it's not cloud-run; the Nano handles it. Plonter
+      # dropped 2026-09-29, see decisions.md).
+      - run: python -m scraper.make_detail_pending make ivory onepc --limit 200
       # Run detail spiders, skipping vendors with nothing pending. `-o`
       # APPENDS — never `-O` overwrite: the committed detail file holds
       # the full history, and a small nightly chunk must not wipe it
       # (an -O + tiny-pending run would destroy thousands of rows).
       - run: |
-          for v in ivory onepc plonter; do
+          for v in ivory onepc; do
             n=$(python -c "import json;print(len(json.load(open('data/detail_pending/$v.json'))))")
             if [ "$n" -gt 0 ]; then
               echo "$v: $n pending — scraping"
@@ -138,11 +134,11 @@ jobs:
       # skipped, missing ones retried, imageless products skipped quietly)
       - run: python -m scraper.download_images data/raw/detail/ivory.jsonl ivory
       - run: python -m scraper.download_images data/raw/detail/onepc.jsonl onepc
-      - run: python -m scraper.download_images data/raw/detail/plonter.jsonl plonter
       # Transparent renders (Sep 2026, see scraper/process_images.py): the job
       # that downloads the JPEGs mattes the new ones to alpha .webp right here,
-      # so both land in the single commit below (this job owns these three
-      # image trees). Optional dependency + continue-on-error on every step: a
+      # so both land in the single commit below (this job owns these two
+      # image trees — plonter's tree stays committed as history, untouched).
+      # Optional dependency + continue-on-error on every step: a
       # matting failure must never cost the run its detail data, and the site
       # falls back to the .jpg covers wherever no render exists.
       - run: pip install -r requirements-images.txt --break-system-packages
@@ -157,23 +153,24 @@ jobs:
       # the extra matting is marginal.
       - run: >-
           python -m scraper.process_images --limit 400
-          --vendor ivory --vendor onepc --vendor plonter
+          --vendor ivory --vendor onepc
         continue-on-error: true
       # Chewed-matte quarantine (Sep 2026, see scraper/detect_chewed.py):
       # isnet occasionally eats product interior (silver IHS, white boards)
       # instead of just the background. This deletes those renders and pins
       # their SKUs in data/images/keep_jpg.txt so the .jpg stays served and
-      # no future run re-mattes them. Scans only this job's own three trees
-      # (never tms — the Nano owns that tree), and this job is the ONLY
+      # no future run re-mattes them. Scans only this job's own two trees
+      # (never tms — the Nano owns that tree — and no longer plonter, whose
+      # tree is frozen history), and this job is the ONLY
       # writer of keep_jpg.txt, so no cross-job conflict is possible.
       - run: >-
           python -m scraper.detect_chewed --quarantine
-          --vendor ivory --vendor onepc --vendor plonter
+          --vendor ivory --vendor onepc
         continue-on-error: true
       # Mark spec-scraped items in the ledger. Image presence does NOT
       # gate marking (see make_detail_pending): imageless products would
       # otherwise re-scrape every day forever.
-      - run: python -m scraper.make_detail_pending mark ivory onepc plonter
+      - run: python -m scraper.make_detail_pending mark ivory onepc
       # NOTE: per-vendor paths only (see the scrape job above for why shared
       # directories are forbidden here). data/images/<vendor>/ holds only
       # that vendor's downloaded covers, so those three dirs are safe.
@@ -185,10 +182,10 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
           PATHS=(
-            data/detail_pending/ivory.json data/detail_pending/onepc.json data/detail_pending/plonter.json
-            data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl data/raw/detail/plonter.jsonl
-            data/detail_scraped/ivory.json data/detail_scraped/onepc.json data/detail_scraped/plonter.json
-            data/images/ivory/ data/images/onepc/ data/images/plonter/
+            data/detail_pending/ivory.json data/detail_pending/onepc.json
+            data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl
+            data/detail_scraped/ivory.json data/detail_scraped/onepc.json
+            data/images/ivory/ data/images/onepc/
             data/images/keep_jpg.txt
           )
           EXISTING=()

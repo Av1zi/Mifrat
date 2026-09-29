@@ -42,7 +42,11 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-VENDORS = ["onepc", "plonter", "ivory", "tms"]
+# Plonter dropped 2026-09-29 (see decisions.md) — no new plonter detail is
+# queued or marked. Explicit `plonter` args still work (no validation against
+# this list) for a possible future re-scrape; existing plonter ledgers/files
+# on disk are left untouched.
+VENDORS = ["onepc", "ivory", "tms"]
 VENDOR_ALIASES = {
     "onepc": ["onepc", "1pc"],
     "1pc": ["1pc", "onepc"],
