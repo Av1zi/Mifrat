@@ -63,6 +63,15 @@ jobs:
       # only onepc/ivory don't need it, but installing unconditionally is
       # simpler and harmless than a per-matrix-entry conditional.
       - run: python -m playwright install --with-deps chromium
+      # Stagger Plonter off the onepc/ivory burst (Sep 2026 403x4: the
+      # three matrix legs fire concurrently from adjacent datacenter IPs,
+      # which correlates hardest for Incapsula risk-scoring). 2-12 min
+      # sleep on the plonter leg only — reliability/load distribution, not
+      # WAF evasion. Retry stays the 07:00 UTC fallback below (skips vendors
+      # with a current snapshot), never same-hour re-dispatch.
+      - name: Stagger Plonter off the concurrent burst
+        if: matrix.spider == 'plonter'
+        run: sleep $((RANDOM % 600 + 120))
       - name: Scrape vendor unless today's fallback artifact exists
         env:
           FALLBACK: ${{ needs.schedule-gate.outputs.fallback }}

@@ -79,6 +79,7 @@ case the matcher wants richer category structure later.
 import scrapy
 from datetime import datetime, timezone
 from urllib.parse import quote
+from scrapy_playwright.page import PageMethod
 from scraper.items import ListingItem
 
 VENDOR_ID = "plonter"
@@ -131,6 +132,21 @@ class PlonterSpider(scrapy.Spider):
             yield request
 
     def _build_requests(self):
+        # Phase-0 verification (Sep 2026 403x4): the CI "Overridden settings"
+        # dump never shows PLAYWRIGHT_* keys because they are BASE settings,
+        # not overrides — log them once here so any job log proves which
+        # browser shape actually ran (full chromium vs headless shell, and
+        # the coherent he-IL desktop context).
+        try:
+            self.logger.info(
+                "Plonter PLAYWRIGHT_LAUNCH_OPTIONS=%r PLAYWRIGHT_CONTEXTS=%r "
+                "NAV_TIMEOUT=%r",
+                self.settings.get("PLAYWRIGHT_LAUNCH_OPTIONS"),
+                self.settings.get("PLAYWRIGHT_CONTEXTS"),
+                self.settings.get("PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT"),
+            )
+        except Exception:
+            pass
         self.logger.info("Plonter _build_requests – requesting alon.tmpl with Playwright")
         yield self._feed_request(1)
 
@@ -142,6 +158,16 @@ class PlonterSpider(scrapy.Spider):
                 "playwright_include_page": False,
                 "playwright_context": "default",
                 "plonter_attempt": attempt,
+                # Real challenge wait: the pre-fix spider resolved each
+                # attempt in ~7s total, so the Incapsula JS never had time to
+                # set its cookie before parse() judged the page. Waiting for
+                # the feed's own <pre> (30s) gives a solving challenge time
+                # to land; a hard IP-block still surfaces as a bounded
+                # wait-timeout via _error (distinct marker), never a loop —
+                # MAX_FEED_ATTEMPTS stays 4 (plan §7 spirit: no hammering).
+                "playwright_page_methods": [
+                    PageMethod("wait_for_selector", "pre", timeout=30000),
+                ],
             },
             callback=self.parse,
             errback=self._error,
@@ -152,7 +178,6 @@ class PlonterSpider(scrapy.Spider):
 
     def parse(self, response):
         attempt = int(response.meta.get("plonter_attempt") or 1)
-        self.logger.info(f"Plonter parse called with status {response.status}")
 
         # NOTE: no response.replace(encoding="windows-1255") here. The feed
         # arrives via Playwright, which hands us already-decoded Unicode
@@ -162,38 +187,95 @@ class PlonterSpider(scrapy.Spider):
         # default decoding is correct as-is.
 
         pre_blocks = response.css("pre::text").getall()
+        try:
+            body_len = len(response.body or b"")
+        except Exception:
+            body_len = -1
+        try:
+            incapsula = "_Incapsula_Resource" in (response.text or "")
+        except Exception:
+            incapsula = False
+        self.logger.info(
+            "plonter-attempt status=%s attempt=%s/%s pre=%s bytes=%s incapsula=%s",
+            response.status, attempt, MAX_FEED_ATTEMPTS,
+            len(pre_blocks), body_len, incapsula,
+        )
+
         if response.status in BLOCK_STATUS_CODES or len(pre_blocks) < 2:
+            kind = (
+                f"403x{attempt}" if response.status in BLOCK_STATUS_CODES
+                else f"200-but-{len(pre_blocks)}-pre"
+            )
             if attempt < MAX_FEED_ATTEMPTS:
                 self.logger.warning(
-                    f"Plonter feed attempt {attempt}/{MAX_FEED_ATTEMPTS} got a "
-                    f"blocked/challenge page (status {response.status}, "
-                    f"{len(pre_blocks)} <pre> block(s)) - retrying; the "
+                    f"plonter-retry {kind} "
+                    f"(status {response.status}, {len(pre_blocks)} <pre>, "
+                    f"{body_len} bytes, incapsula={incapsula}) - retrying; the "
                     "Incapsula challenge clears on the next request once the "
                     "browser has run its JS."
                 )
                 yield self._feed_request(attempt + 1)
                 return
+            # Terminal markers are greppable and distinct: 403x4 (IP-class
+            # block) vs 200-but-0/1-pre (challenge served, feed missing) vs
+            # parsed-N-filtered-0 below (feed parsed, filter ate everything).
             self.logger.error(
-                f"Plonter feed still blocked after {MAX_FEED_ATTEMPTS} attempts "
-                f"(status {response.status}) - Plonter's WAF is refusing this "
-                "client/IP. Zero items are written, so run_spider.py's "
-                "count-check (section 10) fails the job instead of shipping an "
-                "empty day."
+                f"plonter-terminal-{kind}-after-{MAX_FEED_ATTEMPTS} "
+                f"(status {response.status}, {len(pre_blocks)} <pre>, "
+                f"{body_len} bytes, incapsula={incapsula}) - Plonter's WAF is "
+                "refusing this client/IP. Zero items are written, so "
+                "run_spider.py's count-check (section 10) fails the job "
+                "instead of shipping an empty day."
             )
             return
 
+        # Header guard: pre_blocks[0] is the tab-separated header. COLUMNS is
+        # zipped positionally below, so a silent column add/reorder would
+        # misalign every field — log the header and fail loud per-row.
+        try:
+            header_fields = pre_blocks[0].strip("\r\n").split("\t")
+            self.logger.info(
+                "plonter-header cols=%s header=%r",
+                len(header_fields), pre_blocks[0][:200],
+            )
+            if len(header_fields) != len(COLUMNS):
+                self.logger.warning(
+                    f"plonter-header-mismatch got={len(header_fields)} "
+                    f"expected={len(COLUMNS)} — per-row misalignment guard "
+                    "will skip off-count rows"
+                )
+        except Exception as exc:
+            self.logger.warning(f"plonter-header-unparseable: {exc!r}")
+
+        n_rows = 0
+        n_kept = 0
+        n_filtered_engdiv = 0
+        n_skip_no_sku = 0
+        n_skip_col_mismatch = 0
         for raw_row in pre_blocks[1:]:
+            n_rows += 1
             fields = raw_row.strip("\r\n").split("\t")
+            if len(fields) != len(COLUMNS):
+                n_skip_col_mismatch += 1
+                if n_skip_col_mismatch <= 3:
+                    self.logger.warning(
+                        f"plonter-col-mismatch row {n_rows}: got={len(fields)} "
+                        f"expected={len(COLUMNS)} sku_field={fields[0] if fields else ''!r}"
+                    )
+                continue
             row = dict(zip(COLUMNS, fields))
-            
+
             sku = row.get("sku")
             if not sku:
+                n_skip_no_sku += 1
                 continue
-            
+
             # Filter by engdivision to only include relevant PC parts
             eng_div = (row.get("engdivision") or "").strip().lower()
             if eng_div not in ALLOWED_ENGDIVISIONS:
+                n_filtered_engdiv += 1
                 continue  # Skip networking, peripherals, cables, etc.
+            n_kept += 1
 
             # The feed's image_file is a filename (e.g. MG07ACA12TE.jpg);
             # full-size images live under graphics/product_images/full/
@@ -226,14 +308,52 @@ class PlonterSpider(scrapy.Spider):
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
 
+        # Kept-vs-filtered summary: distinguishes "feed shrank" from "filter
+        # ate everything" (parsed-N-filtered-0) from "blocked" above.
+        self.logger.info(
+            "plonter-rows total=%s kept=%s filtered_engdiv=%s skip_no_sku=%s "
+            "skip_col_mismatch=%s",
+            n_rows, n_kept, n_filtered_engdiv, n_skip_no_sku,
+            n_skip_col_mismatch,
+        )
+        if n_kept == 0:
+            self.logger.error(
+                f"plonter-terminal-parsed-{n_rows}-filtered-0 "
+                f"(filtered_engdiv={n_filtered_engdiv} "
+                f"skip_no_sku={n_skip_no_sku} "
+                f"skip_col_mismatch={n_skip_col_mismatch}) - feed parsed but "
+                "the engdivision filter kept nothing; suspect a feed format "
+                "change (new column order or fresh engdivision values), not "
+                "an IP block. Zero items are written, so run_spider.py's "
+                "count-check fails the job."
+            )
+
     def _error(self, failure):
-        """Network/HTTP failure (403/429 are handled in parse() instead)."""
+        """Network/Playwright failure (403/429 bodies go to parse() instead).
+
+        Terminal marker here means the browser itself never delivered a page
+        (launch crash, navigation timeout, <pre>-wait timeout) — distinct
+        from the WAF-block markers in parse().
+        """
         request = getattr(failure, "request", None)
         attempt = int((request.meta.get("plonter_attempt") if request else 0) or 1)
-        self.logger.error(f"Plonter request failed: {failure.value}")
+        err = repr(failure.value)
+        # The <pre>-wait timeout is the expected shape of a hard block under
+        # the new wait: the challenge never renders the feed. Name it so the
+        # log greps apart from launch crashes.
+        kind = (
+            "wait-timeout" if ("Timeout" in err or "timeout" in err) else "browser-launch-failure"
+        )
+        self.logger.error(f"plonter-{kind} attempt={attempt}/{MAX_FEED_ATTEMPTS}: {err}")
         if attempt < MAX_FEED_ATTEMPTS:
             self.logger.warning(
                 f"Plonter feed attempt {attempt}/{MAX_FEED_ATTEMPTS} failed "
-                "— retrying"
+                f"({kind}) — retrying"
             )
             yield self._feed_request(attempt + 1)
+        else:
+            self.logger.error(
+                f"plonter-terminal-{kind}-after-{MAX_FEED_ATTEMPTS} - browser "
+                "never delivered the feed. Zero items are written, so "
+                "run_spider.py's count-check fails the job."
+            )

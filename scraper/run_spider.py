@@ -31,6 +31,19 @@ from scrapy.utils.project import get_project_settings
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
+# Per-vendor minimum-item warning thresholds (plan §17 open item, Sep 2026).
+# Calibrated at ~80% of the Sep 20-27 steady-state baselines (tms ~2260,
+# onepc ~2000, plonter ~2310, ivory ~635) so a one-day degradation like
+# onepc's -26% drop on 2026-09-28 (2010 → 1486) warns in the job log BEFORE
+# it becomes a zero. Warning only — the zero-items hard failure below stays
+# the gate; a new-vendor onboarding day must never fail on a threshold.
+VENDOR_MIN_COUNTS = {
+    "tms": 1800,
+    "onepc": 1600,
+    "plonter": 1800,
+    "ivory": 500,
+}
+
 
 def build_output_path(spider_name: str, run_date: str) -> Path:
     out_dir = DATA_DIR / "raw" / run_date
@@ -80,6 +93,16 @@ def main():
 
     line_count = sum(1 for _ in output_path.open(encoding="utf-8"))
     print(f"[ok] {spider_name}: wrote {line_count} items to {output_path}")
+
+    floor = VENDOR_MIN_COUNTS.get(spider_name)
+    if floor and line_count < floor:
+        print(
+            f"[warn] {spider_name}: only {line_count} items (floor {floor}) — "
+            "possible feed degradation or partial block; check the spider log "
+            "(plonter markers: plonter-terminal-403x4 / 200-but-N-pre / "
+            "parsed-N-filtered-0 / wait-timeout).",
+            file=sys.stderr,
+        )
 
 
 if __name__ == "__main__":
