@@ -194,8 +194,8 @@ def check_scoring(c: Checks) -> None:
     c.lt(furniture, 0, "furniture is unpickable")
     c.lt(local_tile, tms_detail,
          "a 228px local file is penalised against a full-size one")
-    c.eq(image_score.priority_table().get("case"), ["tms", "plonter", "onepc", "ivory"],
-         "committed priority table is loaded for 'case'")
+    c.eq(image_score.priority_table().get("case"), ["tms", "onepc", "ivory", "plonter"],
+          "committed priority table is loaded for 'case' (plonter demoted last)")
 
     # Cross-vendor, same kind: the committed table decides (that is its job),
     # even when the lower-priority vendor's URL shape is nicer.
@@ -443,6 +443,111 @@ def check_chewed_detection(c: Checks) -> None:
         c.ok(detect_chewed.is_chewed(me, "psu"), "an empty render always flags")
 
 
+def check_matte_gates(c: Checks) -> None:
+    """Background gate + mask cleanup + carnage refusal (Sep 2026 defects).
+
+    Black-backdrop tiles must never reach rembg; floating dust islands and
+    noise holes are cleaned; shattered mattes are refused. _clean_mask needs
+    scipy — skipped with a note where it is missing (same pattern as the
+    chewed-detection group).
+    """
+    from scraper import detect_chewed
+    from scraper import process_images
+
+    c.eq(process_images.DARK_BORDER_LUM, detect_chewed.DARK_BORDER_LUM,
+         "gate and sweep share one dark-backdrop threshold")
+    c.eq(process_images.CARNAGE_FRAGS, detect_chewed.CARNAGE_FRAGS,
+         "render-time and sweep share one carnage threshold")
+
+    white = Image.new("RGB", (200, 200), (250, 250, 250))
+    black = Image.new("RGB", (200, 200), (5, 5, 5))
+    c.gt(detect_chewed._border_luminance(white), 240,
+         "a white seamless backdrop reads bright")
+    c.lt(detect_chewed._border_luminance(black), 10,
+         "a black tile reads dark")
+    c.ok(detect_chewed.source_is_dark(Path("nonexistent.webp")) is False,
+         "a missing source is never called dark")
+
+    try:
+        from scipy import ndimage  # noqa: F401
+    except ImportError:
+        c.ok(True, "scipy missing — cleanup checks skipped")
+        return
+
+    img = Image.new("RGBA", (200, 200), (0, 0, 0, 0))
+    for x in range(40, 160):
+        for y in range(40, 160):
+            img.putpixel((x, y), (200, 200, 200, 255))
+    img.putpixel((50, 50), (0, 0, 0, 0))
+    for x in range(180, 190):
+        for y in range(180, 190):
+            img.putpixel((x, y), (200, 200, 200, 255))
+    out, info = process_images._clean_mask(img)
+    c.gt(out.getchannel("A").getpixel((50, 50)), 200,
+         "a 1px dust hole is filled")
+    c.lt(out.getchannel("A").getpixel((185, 185)), 128,
+         "a floating island is dropped")
+    c.gt(out.getchannel("A").getpixel((100, 100)), 200,
+         "the product body survives cleanup")
+    c.eq(info["frags"], 1, "cleanup reports one surviving fragment")
+
+
+def check_dark_skip(c: Checks) -> None:
+    """Resolution skips dark-backdrop tiles for a white alternative.
+
+    Sep 2026: a black TMS tile kept winning on vendor priority over 1PC's
+    white shot of the same board. The matcher never touches disk by design,
+    so the fallback happens here at resolve time: first non-dark local
+    file wins, first hit overall stays the fallback (never blank).
+    """
+    from scraper import site_data
+
+    with tempfile.TemporaryDirectory() as tmp:
+        images = Path(tmp) / "images"
+        (images / "tms").mkdir(parents=True)
+        (images / "onepc").mkdir(parents=True)
+        Image.new("RGB", (200, 200), (8, 8, 8)).save(images / "tms" / "D.jpg")
+        Image.new("RGB", (200, 200), (250, 250, 250)).save(images / "onepc" / "W.jpg")
+
+        original = site_data.IMAGES_DIR
+        site_data.IMAGES_DIR = images
+        site_data._DARK_CACHE.clear()
+        try:
+            c.ok(site_data._url_is_dark("/images/tms/D.jpg"),
+                 "a black tile reads dark")
+            c.ok(not site_data._url_is_dark("/images/onepc/W.jpg"),
+                 "a white studio shot does not read dark")
+            c.ok(not site_data._url_is_dark("/images/tms/MISSING.jpg"),
+                 "an unreadable file fails open (served as before)")
+
+            product = {
+                "image_url": "https://tms.co.il/dark",
+                "offers": [
+                    {"vendor_id": "tms", "vendor_sku": "D",
+                     "image_url": "https://tms.co.il/dark"},
+                    {"vendor_id": "onepc", "vendor_sku": "W",
+                     "image_url": "https://1pc.co.il/white"},
+                ],
+            }
+            image, _thumb = site_data._resolve_image(product, product["offers"])
+            c.eq(image, "/images/onepc/W.jpg",
+                 "a white alternative displaces the dark incumbent pick")
+
+            dark_only = {
+                "image_url": "https://tms.co.il/dark",
+                "offers": [
+                    {"vendor_id": "tms", "vendor_sku": "D",
+                     "image_url": "https://tms.co.il/dark"},
+                ],
+            }
+            image, _thumb = site_data._resolve_image(dark_only, dark_only["offers"])
+            c.eq(image, "/images/tms/D.jpg",
+                 "an only-dark product still shows its cover, never initials")
+        finally:
+            site_data.IMAGES_DIR = original
+            site_data._DARK_CACHE.clear()
+
+
 def check_priority_file(c: Checks) -> None:
     path = ROOT / "data" / "matching" / "image_vendor_priority.json"
     c.ok(path.is_file(), "the committed priority table exists")
@@ -466,7 +571,7 @@ def main() -> int:
     for group in (check_url_vocabulary, check_gallery_capture, check_scoring,
                   check_refetch_rules, check_transparent_render,
                   check_site_resolution, check_chewed_detection,
-                  check_priority_file):
+                  check_matte_gates, check_dark_skip, check_priority_file):
         group(checks)
 
     if checks.failures:

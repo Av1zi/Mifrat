@@ -52,6 +52,21 @@ MIN_FRAG_SHARE = 0.001   # opaque component this big counts as a fragment
 BIG_HOLE_MIN = 0.002     # enclosed holes below this bbox share are pinholes
                          # (mesh/grilles/mounting holes), not bites
 
+# Same dark-backdrop gate the matting pass applies up front
+# (scraper/process_images.DARK_BORDER_LUM re-exports this): below this mean
+# border luminance the source is a dark tile, and any render of it is either
+# a black box or a speck-collapse — the sweep deletes those renders so the
+# .jpg stays served.
+DARK_BORDER_LUM = 100
+
+# Fragment-carnage rule for solid categories: 5+ significant shards with the
+# product filling under 45% of its own bbox is a shattered matte (Sep 2026:
+# SSD renders in 11-14 pieces the hole rule missed because the shards touch
+# the bbox edge). Memory kits stay safe: 2-4 sticks plus gaps read as
+# high-fill, few-fragment layouts.
+STRICT_FRAGS = 5
+STRICT_FILL = 0.45
+
 # Solid products: any real bite is chewing (a CPU IHS, an SSD PCB, a DIMM
 # stick and a motherboard have no legit percents-large see-through areas).
 STRICT_CATS = {"cpu", "memory", "storage", "motherboard"}
@@ -60,6 +75,44 @@ STRICT_BIG_HOLE = 0.01
 # and unmapped SKUs: only carnage-level damage is actionable automatically.
 LENIENT_BIG_HOLE = 0.12
 CARNAGE_FRAGS = 15       # backstop for every category
+
+
+def _border_luminance(img: Image.Image) -> float:
+    """Mean luminance of the frame's border band (PIL-only, no numpy).
+
+    The backdrop color of a studio shot: ~250 for white seamless, <100 for
+    dark tiles. Shared with scraper/process_images' up-front gate.
+    """
+    rgb = img.convert("RGB")
+    width, height = rgb.size
+    band = max(4, min(width, height) // 25)
+    px = rgb.load()
+    total = 0
+    count = 0
+    for x in range(width):
+        for y in list(range(band)) + list(range(height - band, height)):
+            r, g, b = px[x, y]
+            total += r + g + b
+            count += 1
+    for y in range(band, height - band):
+        for x in list(range(band)) + list(range(width - band, width)):
+            r, g, b = px[x, y]
+            total += r + g + b
+            count += 1
+    return (total / count / 3) if count else 255.0
+
+
+def source_is_dark(webp: Path) -> bool:
+    """True when the render's source JPEG is a dark-backdrop tile."""
+    src = webp.with_suffix(".jpg")
+    try:
+        if not src.is_file():
+            return False
+        with Image.open(src) as im:
+            im.load()
+            return _border_luminance(im) < DARK_BORDER_LUM
+    except Exception:
+        return False
 
 
 def analyze(webp: Path) -> dict | None:
@@ -101,7 +154,8 @@ def analyze(webp: Path) -> dict | None:
                     big_px += size
     return {"hole": hole_px / area, "big_hole": big_px / area,
             "fill": fill, "frags": frags,
-            "empty": False, "size": (w, h)}
+            "empty": False, "size": (w, h),
+            "dark_src": source_is_dark(webp)}
 
 
 def load_category_map() -> dict[tuple[str, str], str]:
@@ -155,7 +209,15 @@ def render_category(webp: Path, mapping: dict[tuple[str, str], str]) -> str:
 def is_chewed(m: dict, category: str = "") -> bool:
     if m.get("empty"):
         return True
+    if m.get("dark_src"):
+        # Retroactive background gate: a dark tile's render is a black box
+        # or a collapse — the .jpg serves better. Matches the up-front gate
+        # in scraper/process_images._render_cover.
+        return True
     if m["frags"] >= CARNAGE_FRAGS:
+        return True
+    if (category in STRICT_CATS and m["frags"] >= STRICT_FRAGS
+            and m["fill"] < STRICT_FILL):
         return True
     limit = STRICT_BIG_HOLE if category in STRICT_CATS else LENIENT_BIG_HOLE
     return m["big_hole"] > limit

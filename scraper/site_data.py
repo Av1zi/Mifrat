@@ -21,7 +21,20 @@ import tempfile
 import time
 from collections import defaultdict
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, unquote
+
+try:
+    from PIL import Image as _PILImage
+except ImportError:  # pragma: no cover - Pillow is a pinned core dep
+    _PILImage = None
+
+try:
+    from scraper.detect_chewed import DARK_BORDER_LUM
+except ImportError:  # pragma: no cover - script-path invocation
+    try:
+        from detect_chewed import DARK_BORDER_LUM  # type: ignore[no-redef]
+    except ImportError:
+        DARK_BORDER_LUM = 100
 
 try:
     from scraper.image_urls import candidate_urls
@@ -97,6 +110,50 @@ def _local_image_path(vendor_id: str | None, vendor_sku: str | None,
 # visible until backfilled (see download_images --from-catalog).
 _DROPPED_REMOTES: list[str] = []
 
+# Per-file dark-backdrop verdicts, so a shared cover is sampled once per
+# normalize run instead of once per product that references it.
+_DARK_CACHE: dict[str, bool] = {}
+
+
+def _url_is_dark(url: str | None) -> bool:
+    """True when a served /images/... file is a dark-backdrop tile.
+
+    Same DARK_BORDER_LUM tripwire the matting pass and the sweep share
+    (scraper/detect_chewed.py). Fail-open by design: an unreadable file is
+    served exactly as before — this gate must never blank a product, only
+    prefer a white-backdrop alternative when one exists. Sampling shrinks
+    the frame first, so a full normalize run pays seconds, not minutes.
+    """
+    if not url or not url.startswith("/images/"):
+        return False
+    if url in _DARK_CACHE:
+        return _DARK_CACHE[url]
+    dark = False
+    try:
+        rel = unquote(url[len("/images/"):])
+        path = IMAGES_DIR / rel
+        if _PILImage is not None and path.is_file():
+            with _PILImage.open(path) as im:
+                small = im.convert("RGB").resize((64, 64))
+                px = small.load()
+                total = 0
+                count = 0
+                for x in range(64):
+                    for y in list(range(4)) + list(range(60, 64)):
+                        r, g, b = px[x, y]
+                        total += r + g + b
+                        count += 1
+                for y in range(4, 60):
+                    for x in list(range(4)) + list(range(60, 64)):
+                        r, g, b = px[x, y]
+                        total += r + g + b
+                        count += 1
+                dark = (total / count / 3) < DARK_BORDER_LUM if count else False
+    except Exception:
+        dark = False
+    _DARK_CACHE[url] = dark
+    return dark
+
 
 def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str | None]:
     """
@@ -124,6 +181,11 @@ def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str |
     # The first candidate whose local file exists wins; a candidate with no
     # file (a tile never downloaded, a vendor original that 404'd) simply
     # falls through to the next instead of blanking the product.
+    # Dark-backdrop files are skipped in favor of a white-backdrop
+    # alternative (Sep 2026: a black TMS tile kept winning on vendor
+    # priority over 1PC's white shot of the same board) — but the first hit
+    # is kept as a fallback, so a product whose every photo is dark still
+    # shows its cover instead of initials.
     ordered: list[tuple[str, str, str]] = []
     seen: set[tuple[str, str, str]] = set()
     for offer in raw_offers:
@@ -140,10 +202,17 @@ def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str |
     if current:
         ordered.sort(key=lambda entry: 0 if entry[0] == current else 1)
 
+    fallback: tuple[str | None, str | None] | None = None
     for _url, vendor, sku in ordered:
         image = _local_image_path(vendor, sku)
-        if image:
+        if not image:
+            continue
+        if fallback is None:
+            fallback = (image, _local_image_path(vendor, sku, thumb=True))
+        if not _url_is_dark(image):
             return image, _local_image_path(vendor, sku, thumb=True)
+    if fallback is not None:
+        return fallback
 
     _dropped_remote = product.get("image_url")
     if _dropped_remote and isinstance(_dropped_remote, str) and _dropped_remote.startswith("http"):

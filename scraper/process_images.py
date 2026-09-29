@@ -51,7 +51,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageFilter
 
 try:
     from scraper.image_score import TILE_EDGE  # noqa: F401  (kept for callers)
@@ -60,6 +60,35 @@ except ImportError:  # pragma: no cover - script-path invocation
         from image_score import TILE_EDGE  # type: ignore[no-redef]  # noqa: F401
     except ImportError:
         TILE_EDGE = 300
+
+try:
+    # Shared thresholds live with the detector (one direction only —
+    # detect_chewed never imports this module, so no cycle).
+    from scraper.detect_chewed import (
+        CARNAGE_FRAGS,
+        DARK_BORDER_LUM,
+        _border_luminance,
+    )
+except ImportError:  # pragma: no cover - script-path invocation
+    try:
+        from detect_chewed import (  # type: ignore[no-redef]
+            CARNAGE_FRAGS,
+            DARK_BORDER_LUM,
+            _border_luminance,
+        )
+    except ImportError:
+        CARNAGE_FRAGS = 15
+        DARK_BORDER_LUM = 100
+
+        def _border_luminance(img):  # type: ignore[misc]
+            return 255.0
+
+try:
+    import numpy as np
+    from scipy import ndimage
+    _HAVE_SCI = True
+except ImportError:  # pragma: no cover - minimal envs (offline checks)
+    _HAVE_SCI = False
 
 try:
     from rembg import new_session, remove
@@ -90,6 +119,26 @@ MIN_REMOVED_SHARE = 0.02
 
 # A mask that collapses to a speck is a failed matte, not a tight crop.
 MIN_KEPT_AREA_SHARE = 0.05
+
+# A dark studio backdrop (mean border luminance below DARK_BORDER_LUM) is not
+# matted: isnet-general-use is trained on light shots and either keeps the
+# black as opaque or speck-collapses on it (see keep_jpg.txt). Dark-backdrop
+# shots look correct as JPEGs on dark cards and broken as mattes, so the
+# render is skipped and the .jpg stays served. Gray-zone shots (100-200)
+# still render — the yield cost of gating them outweighs the patchiness,
+# and the chewed-product detector (scraper/detect_chewed.py) watches output.
+# (Threshold + sampler live in detect_chewed; re-exported here.)
+
+# Mask cleanup (see _clean_mask): opaque components below this share of the
+# product area are floating dust/shadow islands, not product parts — printed
+# text and logos are connected to the product body, so they survive.
+KEEP_COMPONENT_SHARE = 0.02
+
+# Enclosed transparent holes at or below this many pixels are sensor/model
+# noise, not product structure — filled with the surrounding matte. Anything
+# bigger stays: mesh pinholes and motherboard mounting holes are genuine
+# see-through and must keep working on transparent cards.
+DUST_HOLE_PX = 9
 
 # Padding kept around the product after cropping to the alpha bounding box,
 # as a share of the shorter side (plus a couple of pixels so a hairline edge
@@ -159,6 +208,83 @@ def _iter_covers(vendors: list[str] | None = None):
         yield path
 
 
+def _clean_mask(img: Image.Image) -> tuple[Image.Image, dict]:
+    """De-splotch + feather the alpha matte (Pillow + scipy, no rembg).
+
+    - Drops floating opaque islands below KEEP_COMPONENT_SHARE of the
+      product area (shadow remnants, dust) while the product body and
+      anything substantial (multi-fan packs, kit boxes) survives.
+    - Fills enclosed transparent dust holes <= DUST_HOLE_PX pixels.
+    - Dilates the opaque mask 1px to regrow model-eroded thin structures
+      (AIO tubes, SSD edges, fan-blade tips), then feathers alpha 1px to
+      soften the cut edge instead of leaving a hard white fringe.
+    Returns (image, info) with dropped/dust/frags counts for the log.
+    Without scipy (offline-check environments) the image passes through
+    with feathering only — _render_cover never runs there anyway.
+    """
+    info = {"dropped": 0, "dust": 0, "frags": 0}
+    alpha = img.getchannel("A")
+    if not _HAVE_SCI:
+        soft = alpha.filter(ImageFilter.GaussianBlur(1))
+        out = img.copy()
+        out.putalpha(soft)
+        return out, info
+    grid = np.asarray(alpha, dtype=np.uint8)
+    opaque = grid >= 128
+    area = int(opaque.sum())
+    if not area:
+        return img, info
+    s = np.ones((3, 3), dtype=int)
+    lab_o, n_o = ndimage.label(opaque, structure=s)
+    if n_o:
+        sizes = np.bincount(lab_o.ravel())
+        # Largest component always survives; anything substantial joins it.
+        order = np.argsort(sizes[1:])[::-1]
+        keep = {int(order[0]) + 1}
+        for lbl in order[1:]:
+            if sizes[int(lbl) + 1] >= KEEP_COMPONENT_SHARE * area:
+                keep.add(int(lbl) + 1)
+        drop = np.ones(n_o + 1, dtype=bool)
+        drop[0] = False
+        for lbl in keep:
+            drop[lbl] = False
+        dropped = int(((lab_o > 0) & drop[lab_o]).sum())
+        if dropped:
+            opaque = opaque & ~drop[lab_o]
+            info["dropped"] = dropped
+    frags = 0
+    lab_o2, n_o2 = ndimage.label(opaque, structure=s)
+    if n_o2:
+        sizes2 = np.bincount(lab_o2.ravel())[1:]
+        frags = int((sizes2 >= 0.001 * max(1, int(opaque.sum()))).sum())
+    info["frags"] = frags
+    # Dust-hole fill (enclosed, tiny — mesh and mounting holes are bigger
+    # and stay see-through).
+    lab_t, n_t = ndimage.label(~opaque, structure=s)
+    if n_t:
+        edge = set(np.unique(np.concatenate(
+            [lab_t[0, :], lab_t[-1, :], lab_t[:, 0], lab_t[:, -1]]))) - {0}
+        fill = np.zeros_like(lab_t, dtype=bool)
+        dust = 0
+        for lbl in range(1, n_t + 1):
+            if lbl in edge:
+                continue
+            size = int((lab_t == lbl).sum())
+            if size <= DUST_HOLE_PX:
+                fill |= lab_t == lbl
+                dust += size
+        if dust:
+            opaque = opaque | fill
+            info["dust"] = dust
+    # Regrow eroded edges, then soften the cut.
+    grown = ndimage.maximum_filter(opaque.astype(np.uint8) * 255, size=3)
+    soft = Image.fromarray(grown.astype(np.uint8), mode="L")
+    soft = soft.filter(ImageFilter.GaussianBlur(1))
+    out = img.copy()
+    out.putalpha(soft)
+    return out, info
+
+
 def _removed_share(img: Image.Image) -> float:
     """Share of pixels the matte made (semi-)transparent. 0.0 = nothing done."""
     alpha = img.getchannel("A")
@@ -213,6 +339,16 @@ def _render_cover(cover: Path, session, force: bool = False) -> dict | None:
     if rgb.size[0] > MAX_DIMENSION or rgb.size[1] > MAX_DIMENSION:
         rgb.thumbnail((MAX_DIMENSION, MAX_DIMENSION), Image.Resampling.LANCZOS)
 
+    # Dark-backdrop gate (Sep 2026: black tiles either speck-collapsed or
+    # shipped as black boxes). The model is trained on light studio shots;
+    # a dark frame is served as-is — correct on dark cards, honest on light
+    # ones — instead of a broken matte.
+    border_lum = _border_luminance(rgb)
+    if border_lum < DARK_BORDER_LUM:
+        print(f"  [dark-bg] {cover} border luminance {border_lum:.0f} — "
+              f"leaving the .jpg")
+        return None
+
     try:
         matted = remove(rgb, session=session,
                         alpha_matting=False, post_process_mask=True)
@@ -222,6 +358,17 @@ def _render_cover(cover: Path, session, force: bool = False) -> dict | None:
     if not isinstance(matted, Image.Image):
         matted = Image.open(matted)
     matted = matted.convert("RGBA")
+
+    # Mask cleanup: drop floating shadow/dust islands, fill noise holes,
+    # regrow eroded thin structures, feather the cut edge.
+    matted, clean_info = _clean_mask(matted)
+
+    # Carnage refusal: a mask shattered into shards is a destroyed product
+    # (Sep 2026: SSD/box-art renders in a dozen pieces), not a tight crop.
+    if clean_info["frags"] >= CARNAGE_FRAGS:
+        print(f"  [carnage] matte shattered on {cover} "
+              f"({clean_info['frags']} fragments) — leaving the .jpg")
+        return None
 
     removed = _removed_share(matted)
     cropped = False
@@ -263,6 +410,7 @@ def _render_cover(cover: Path, session, force: bool = False) -> dict | None:
         "thumb": str(thumb),
         "removed": removed,
         "cropped": cropped,
+        "cleaned": bool(clean_info["dropped"] or clean_info["dust"]),
         "source_bytes": cover.stat().st_size if cover.is_file() else 0,
         "render_bytes": render.stat().st_size if render.is_file() else 0,
         "forced": force,
@@ -294,7 +442,9 @@ def _summarize(rows: list[dict], skipped: int, total_seen: int) -> None:
         mean_removed = sum(r["removed"] for r in transparent) / len(transparent)
         print(f"[process-images] mean removed area {round(mean_removed * 100)}%, "
               f"cropped to product in "
-              f"{sum(1 for r in transparent if r['cropped'])} of them")
+              f"{sum(1 for r in transparent if r['cropped'])} of them, "
+              f"mask cleanup touched "
+              f"{sum(1 for r in transparent if r.get('cleaned'))} of them")
     print(f"[process-images] bytes {source_bytes // 1024}KB -> "
           f"{render_bytes // 1024}KB ({saved}% smaller)")
 

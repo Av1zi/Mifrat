@@ -50,7 +50,9 @@ META_PATH = Path("data/images/meta.json")
 # 1PC's native files are ~500px, and Ivory's 500px shots are the least
 # white-backdrop-friendly (0.65 border-white vs 0.94+ for everyone else,
 # i.e. more boxed/lifestyle art that mattes badly).
-DEFAULT_ORDER = ("tms", "plonter", "onepc", "ivory")
+# Plonter sits last since 2026-09-29: vendor dropped after a datacenter IP
+# block (owner decision) — mirrors data/matching/image_vendor_priority.json.
+DEFAULT_ORDER = ("tms", "onepc", "ivory", "plonter")
 
 # Vendor ids on offers use "1pc"; image folders use "onepc".
 _VENDOR_FOLDER = {"1pc": "onepc", "onepc": "onepc"}

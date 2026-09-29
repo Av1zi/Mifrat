@@ -1,18 +1,83 @@
 {
-  "_note": "Which vendor's photo to prefer when the same product has offers from several vendors. Best first. Seeded from scripts/audit_images.py (Sep 2026): achievable resolution per vendor (tms 1500px originals, plonter 663 mean / 35% at 800+, onepc ~500, ivory ~500) plus matting suitability (share of near-white border pixels: onepc 0.99, tms 0.98, plonter 0.94, ivory 0.65 — ivory's lower number means more boxed/lifestyle art that mats badly). Edit any category's list to recalibrate without a code deploy; the picker reads this file at build time and falls back to its built-in default when a category is absent or the file is broken.",
+  "_note": "Which vendor photo to prefer when the same product has offers from several vendors. Best first. Seeded from scripts/audit_images.py (Sep 2026). Plonter demoted last 2026-09-29: vendor dropped after datacenter IP block (owner decision, 0 listings) — its orphaned files must never win a pick if it ever re-scrapes; restore only with a re-audit. Edit any list to recalibrate without a code deploy; the picker reads this file at build time and falls back to its built-in default when a category is absent or the file is broken.",
   "priority": {
-    "accessories": ["tms", "plonter", "onepc", "ivory"],
-    "aio": ["tms", "plonter", "onepc", "ivory"],
-    "case": ["tms", "plonter", "onepc", "ivory"],
-    "case_fan": ["tms", "plonter", "onepc", "ivory"],
-    "cooler_air": ["tms", "plonter", "onepc", "ivory"],
-    "cooling_other": ["tms", "plonter", "onepc", "ivory"],
-    "cpu": ["tms", "plonter", "onepc", "ivory"],
-    "gpu": ["tms", "plonter", "onepc", "ivory"],
-    "memory": ["tms", "plonter", "onepc", "ivory"],
-    "motherboard": ["tms", "plonter", "onepc", "ivory"],
-    "other": ["plonter", "tms", "onepc", "ivory"],
-    "psu": ["tms", "plonter", "onepc", "ivory"],
-    "storage": ["tms", "plonter", "onepc", "ivory"]
+    "accessories": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "aio": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "case": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "case_fan": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "cooler_air": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "cooling_other": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "cpu": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "gpu": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "memory": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "motherboard": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "other": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "psu": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ],
+    "storage": [
+      "tms",
+      "onepc",
+      "ivory",
+      "plonter"
+    ]
   }
 }
