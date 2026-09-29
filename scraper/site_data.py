@@ -28,13 +28,10 @@ try:
 except ImportError:  # pragma: no cover - Pillow is a pinned core dep
     _PILImage = None
 
-try:
-    from scraper.detect_chewed import DARK_BORDER_LUM
-except ImportError:  # pragma: no cover - script-path invocation
-    try:
-        from detect_chewed import DARK_BORDER_LUM  # type: ignore[no-redef]
-    except ImportError:
-        DARK_BORDER_LUM = 100
+# Dark-backdrop tripwire for _url_is_dark (kept after the Sep 2026 matte
+# revert: routing black tiles to a white-backdrop alternative is pure
+# JPEG-to-JPEG quality routing, no transparency involved).
+DARK_BORDER_LUM = 100
 
 try:
     from scraper.image_urls import candidate_urls
@@ -87,21 +84,18 @@ def _local_image_path(vendor_id: str | None, vendor_sku: str | None,
     thumb=True addresses the 128px list-thumbnail derivative under
     data/images/<vendor>/thumbs/ (served from /images/<vendor>/thumbs/).
 
-    Prefers the transparent .webp derivative (scraper/process_images.py) over
-    the original .jpg: same pixels, alpha background, fewer bytes. The .jpg
-    stays on disk as the source of truth — matting can chew a white-on-white
-    product (see data/images/keep_jpg.txt) — so it remains the fallback
-    whenever no .webp has been produced yet.
+    Serves the original vendor JPEG as-is (Sep 2026 transparency rework
+    reverted: background matting ate product interiors, so every render
+    was deleted and covers are the scraped files again).
     """
     if not vendor_sku:
         return None
     stem = _safe_image_stem(vendor_sku)
     vendor = _image_vendor_key(vendor_id)
     subdir = "thumbs/" if thumb else ""
-    for ext in ("webp", "jpg"):
-        rel = f"{vendor}/{subdir}{stem}.{ext}"
-        if (IMAGES_DIR / rel).is_file():
-            return f"/images/{vendor}/{subdir}{quote(stem)}.{ext}"
+    rel = f"{vendor}/{subdir}{stem}.jpg"
+    if (IMAGES_DIR / rel).is_file():
+        return f"/images/{vendor}/{subdir}{quote(stem)}.jpg"
     return None
 
 
@@ -118,11 +112,10 @@ _DARK_CACHE: dict[str, bool] = {}
 def _url_is_dark(url: str | None) -> bool:
     """True when a served /images/... file is a dark-backdrop tile.
 
-    Same DARK_BORDER_LUM tripwire the matting pass and the sweep share
-    (scraper/detect_chewed.py). Fail-open by design: an unreadable file is
-    served exactly as before — this gate must never blank a product, only
-    prefer a white-backdrop alternative when one exists. Sampling shrinks
-    the frame first, so a full normalize run pays seconds, not minutes.
+    Fail-open by design: an unreadable file is served exactly as before —
+    this gate must never blank a product, only prefer a white-backdrop
+    alternative when one exists. Sampling shrinks the frame first, so a
+    full normalize run pays seconds, not minutes.
     """
     if not url or not url.startswith("/images/"):
         return False

@@ -134,39 +134,6 @@ jobs:
       # skipped, missing ones retried, imageless products skipped quietly)
       - run: python -m scraper.download_images data/raw/detail/ivory.jsonl ivory
       - run: python -m scraper.download_images data/raw/detail/onepc.jsonl onepc
-      # Transparent renders (Sep 2026, see scraper/process_images.py): the job
-      # that downloads the JPEGs mattes the new ones to alpha .webp right here,
-      # so both land in the single commit below (this job owns these two
-      # image trees — plonter's tree stays committed as history, untouched).
-      # Optional dependency + continue-on-error on every step: a
-      # matting failure must never cost the run its detail data, and the site
-      # falls back to the .jpg covers wherever no render exists.
-      - run: pip install -r requirements-images.txt --break-system-packages
-        continue-on-error: true
-      - uses: actions/cache@v5
-        with:
-          path: ~/.u2net
-          key: rembg-isnet-general-use-v1
-      # 400/run total at ~5-10s/image is ~25-45 min of CPU, well under the
-      # 6h job limit; halves the backfill drain vs the original 200. The
-      # detail Playwright scrape above dominates this job's wall-clock, so
-      # the extra matting is marginal.
-      - run: >-
-          python -m scraper.process_images --limit 400
-          --vendor ivory --vendor onepc
-        continue-on-error: true
-      # Chewed-matte quarantine (Sep 2026, see scraper/detect_chewed.py):
-      # isnet occasionally eats product interior (silver IHS, white boards)
-      # instead of just the background. This deletes those renders and pins
-      # their SKUs in data/images/keep_jpg.txt so the .jpg stays served and
-      # no future run re-mattes them. Scans only this job's own two trees
-      # (never tms — the Nano owns that tree — and no longer plonter, whose
-      # tree is frozen history), and this job is the ONLY
-      # writer of keep_jpg.txt, so no cross-job conflict is possible.
-      - run: >-
-          python -m scraper.detect_chewed --quarantine
-          --vendor ivory --vendor onepc
-        continue-on-error: true
       # Mark spec-scraped items in the ledger. Image presence does NOT
       # gate marking (see make_detail_pending): imageless products would
       # otherwise re-scrape every day forever.
@@ -186,7 +153,6 @@ jobs:
             data/raw/detail/ivory.jsonl data/raw/detail/onepc.jsonl
             data/detail_scraped/ivory.json data/detail_scraped/onepc.json
             data/images/ivory/ data/images/onepc/
-            data/images/keep_jpg.txt
           )
           EXISTING=()
           for p in "${PATHS[@]}"; do

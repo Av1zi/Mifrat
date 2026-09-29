@@ -9,12 +9,8 @@ Covers, with no network and no dependency on the real image corpus:
 - scoring + best-photo picking + incumbent stability (scraper/image_score.py)
 - the refetch rule that fixes the audited 228px-tile covers
   (scraper/download_images.py)
-- the transparent-render pass: matte metrics, alpha crop, keep_jpg escape
-  hatch, mtime idempotency (scraper/process_images.py)
-- site-side resolution: transparent .webp preferred over .jpg, candidate
-  fallback, no image ever blanked (scraper/site_data.py)
-- chewed-product detection: bites out of the product, box-art shredding,
-  and the category-aware flag rule (scraper/detect_chewed.py)
+- site-side resolution: local JPEG covers, candidate fallback, dark-tile
+  rerouting, no image ever blanked (scraper/site_data.py)
 
 Run: python scripts/check_image_pick.py
 """
@@ -32,12 +28,6 @@ from PIL import Image  # noqa: E402
 
 from scraper import image_score, image_urls  # noqa: E402
 from scraper.download_images import _row_candidate_urls, _upgrade_low_res  # noqa: E402
-from scraper.process_images import (  # noqa: E402
-    _crop_to_product,
-    _needs_render,
-    _removed_share,
-    load_keep_jpg,
-)
 
 TMS_ORIGINAL = "https://tms.co.il/image/catalog/products/ST28000NM003K/D9kz8CXkiv.jpg"
 TMS_1000 = "https://tms.co.il/image/cache/catalog/products/ST28000NM003K/D9kz8CXkiv-1000x1000.jpg"
@@ -255,51 +245,6 @@ def check_refetch_rules(c: Checks) -> None:
          "a row without an image yields no target")
 
 
-def check_transparent_render(c: Checks) -> None:
-    rng = Image.new("RGB", (200, 200), "white")
-    for x in range(60, 140):
-        for y in range(60, 140):
-            rng.putpixel((x, y), (30, 30, 30))
-    matted = rng.convert("RGBA")
-    for x in range(200):
-        for y in range(200):
-            if not (60 <= x < 140 and 60 <= y < 140):
-                matted.putpixel((x, y), (0, 0, 0, 0))
-
-    removed = _removed_share(matted)
-    c.gt(removed, 0.6, "a cleared background counts as removed")
-    c.lt(removed, 1.0, "the product itself stays opaque")
-
-    cropped, did = _crop_to_product(matted)
-    c.ok(did, "a padded frame is cropped to the product")
-    c.lt(cropped.size[0], 200, "the crop is smaller than the frame")
-    c.gt(cropped.size[0], 80, "the crop keeps the product plus padding")
-
-    speck = Image.new("RGBA", (200, 200), (0, 0, 0, 0))
-    speck.putpixel((100, 100), (255, 255, 255, 255))
-    _out, did_speck = _crop_to_product(speck)
-    c.ok(not did_speck, "a collapsed mask is not trusted as a crop box")
-
-    opaque = Image.new("RGBA", (200, 200), (255, 255, 255, 255))
-    c.eq(_removed_share(opaque), 0.0, "an untouched image reports nothing removed")
-
-    with tempfile.TemporaryDirectory() as tmp:
-        cover = Path(tmp) / "data" / "images" / "tms" / "SKU.jpg"
-        cover.parent.mkdir(parents=True)
-        cover.write_bytes(b"x")
-        c.ok(_needs_render(cover, set()), "no render yet means it needs one")
-        render = cover.with_suffix(".webp")
-        render.write_bytes(b"y")
-        c.ok(not _needs_render(cover, set()),
-             "a fresh render is skipped (mtime idempotency)")
-        c.ok(not _needs_render(cover, {"SKU"}), "keep_jpg.txt exempts a bare SKU")
-        c.ok(not _needs_render(cover, {"tms/SKU.jpg"}),
-             "keep_jpg.txt exempts vendor/SKU.jpg")
-        c.ok(_needs_render(cover, set(), force=True), "--force ignores a fresh render")
-
-    c.ok(isinstance(load_keep_jpg(), set), "the keep_jpg list parses")
-
-
 def check_site_resolution(c: Checks) -> None:
     from scraper import site_data
 
@@ -307,7 +252,6 @@ def check_site_resolution(c: Checks) -> None:
         images = Path(tmp) / "images"
         (images / "tms").mkdir(parents=True)
         (images / "tms" / "A.jpg").write_bytes(b"j")
-        (images / "tms" / "A.webp").write_bytes(b"w")
         (images / "tms" / "B.jpg").write_bytes(b"j")
         (images / "plonter").mkdir(parents=True)
         (images / "plonter" / "C.jpg").write_bytes(b"j")
@@ -316,10 +260,8 @@ def check_site_resolution(c: Checks) -> None:
         site_data.IMAGES_DIR = images
         try:
             image, thumb = site_data._local_image_path("tms", "A"), None
-            c.eq(image, "/images/tms/A.webp",
-                 "the transparent render is preferred over the .jpg")
-            c.eq(site_data._local_image_path("tms", "B"), "/images/tms/B.jpg",
-                 "a cover with no render falls back to the .jpg")
+            c.eq(image, "/images/tms/A.jpg",
+                 "the scraped JPEG cover resolves")
             c.eq(site_data._local_image_path("tms", "ZZZ"), None,
                  "an unknown SKU resolves to nothing")
 
@@ -331,7 +273,7 @@ def check_site_resolution(c: Checks) -> None:
                 ],
             }
             image, _thumb = site_data._resolve_image(product, product["offers"])
-            c.eq(image, "/images/tms/A.webp",
+            c.eq(image, "/images/tms/A.jpg",
                  "resolution falls through to the first offer with a local file")
 
             ordered = {
@@ -355,141 +297,6 @@ def check_site_resolution(c: Checks) -> None:
                  "a product with no local file resolves to nothing, never a remote URL")
         finally:
             site_data.IMAGES_DIR = original
-
-
-def check_chewed_detection(c: Checks) -> None:
-    """Bites out of the product must flag; legit layouts must not.
-
-    Synthetic RGBA renders, no corpus needed. Needs numpy+scipy (the same
-    optional dependency detect_chewed itself requires) — skipped with a
-    note where it is missing, mirroring the Tier-0 degrade pattern.
-    """
-    try:
-        from scraper import detect_chewed
-    except Exception as exc:
-        c.ok(False, "detect_chewed imports", str(exc))
-        return
-    if not detect_chewed._HAVE_SCI:
-        c.ok(True, "scipy missing — chewed checks skipped (CI runs them after "
-                    "requirements-images.txt is installed)")
-        return
-
-    def render(opaque_boxes: list[tuple[int, int, int, int]],
-               size: tuple[int, int] = (200, 200)) -> Image.Image:
-        img = Image.new("RGBA", size, (0, 0, 0, 0))
-        for x0, y0, x1, y1 in opaque_boxes:
-            for x in range(x0, x1):
-                for y in range(y0, y1):
-                    img.putpixel((x, y), (200, 200, 200, 255))
-        return img
-
-    with tempfile.TemporaryDirectory() as tmp:
-        solid = Path(tmp) / "solid.webp"
-        render([(20, 20, 180, 180)]).save(solid, "WEBP")
-        m = detect_chewed.analyze(solid)
-        c.eq(m["big_hole"], 0.0, "a solid product has no big holes")
-        c.ok(not detect_chewed.is_chewed(m, "cpu"), "a solid CPU is clean")
-
-        bitten = Path(tmp) / "bitten.webp"
-        img = render([(20, 20, 180, 180)])
-        for x in range(60, 140):
-            for y in range(60, 140):
-                img.putpixel((x, y), (0, 0, 0, 0))  # IHS bite, fully enclosed
-        img.save(bitten, "WEBP")
-        mb = detect_chewed.analyze(bitten)
-        c.gt(mb["big_hole"], 0.2, "an IHS-sized bite dominates the bbox")
-        c.ok(detect_chewed.is_chewed(mb, "cpu"), "a bitten CPU flags (strict)")
-
-        nibbled = Path(tmp) / "nibbled.webp"  # 3.5% hole: strict flags it,
-        img = render([(20, 20, 180, 180)])    # lenient tolerates it (mesh?)
-        for x in range(60, 90):
-            for y in range(60, 90):
-                img.putpixel((x, y), (0, 0, 0, 0))
-        img.save(nibbled, "WEBP")
-        mn = detect_chewed.analyze(nibbled)
-        c.ok(detect_chewed.is_chewed(mn, "cpu"),
-             "a 3.5% hole still flags on a solid CPU")
-        c.ok(not detect_chewed.is_chewed(mn, "case"),
-             "the same holes in a mesh-prone category stay lenient")
-
-        kit = Path(tmp) / "kit.webp"  # two sticks, legit gap between them
-        render([(20, 40, 80, 160), (120, 40, 180, 160)]).save(kit, "WEBP")
-        mk = detect_chewed.analyze(kit)
-        c.eq(mk["big_hole"], 0.0, "an exterior-connected kit gap is no hole")
-        c.ok(not detect_chewed.is_chewed(mk, "memory"),
-             "a two-stick kit photo is not chewing")
-
-        mesh = Path(tmp) / "mesh.webp"  # pinholes below the size floor
-        img = render([(20, 20, 180, 180)])
-        for x in range(30, 170, 10):
-            for y in range(30, 170, 10):
-                img.putpixel((x, y), (0, 0, 0, 0))
-        img.save(mesh, "WEBP")
-        mm = detect_chewed.analyze(mesh)
-        c.eq(mm["big_hole"], 0.0, "mesh pinholes stay under the size floor")
-
-        shreds = Path(tmp) / "shreds.webp"  # box-art carnage: 20 shards
-        boxes = [(10 + 9 * i, 10 + 7 * i, 16 + 9 * i, 16 + 7 * i)
-                 for i in range(20)]
-        render(boxes).save(shreds, "WEBP")
-        ms = detect_chewed.analyze(shreds)
-        c.ok(detect_chewed.is_chewed(ms, "case"),
-             "shredded fragments flag even in a lenient category")
-
-        empty = Path(tmp) / "empty.webp"
-        Image.new("RGBA", (100, 100), (0, 0, 0, 0)).save(empty, "WEBP")
-        me = detect_chewed.analyze(empty)
-        c.ok(me["empty"], "a fully vaporized matte reports empty")
-        c.ok(detect_chewed.is_chewed(me, "psu"), "an empty render always flags")
-
-
-def check_matte_gates(c: Checks) -> None:
-    """Background gate + mask cleanup + carnage refusal (Sep 2026 defects).
-
-    Black-backdrop tiles must never reach rembg; floating dust islands and
-    noise holes are cleaned; shattered mattes are refused. _clean_mask needs
-    scipy — skipped with a note where it is missing (same pattern as the
-    chewed-detection group).
-    """
-    from scraper import detect_chewed
-    from scraper import process_images
-
-    c.eq(process_images.DARK_BORDER_LUM, detect_chewed.DARK_BORDER_LUM,
-         "gate and sweep share one dark-backdrop threshold")
-    c.eq(process_images.CARNAGE_FRAGS, detect_chewed.CARNAGE_FRAGS,
-         "render-time and sweep share one carnage threshold")
-
-    white = Image.new("RGB", (200, 200), (250, 250, 250))
-    black = Image.new("RGB", (200, 200), (5, 5, 5))
-    c.gt(detect_chewed._border_luminance(white), 240,
-         "a white seamless backdrop reads bright")
-    c.lt(detect_chewed._border_luminance(black), 10,
-         "a black tile reads dark")
-    c.ok(detect_chewed.source_is_dark(Path("nonexistent.webp")) is False,
-         "a missing source is never called dark")
-
-    try:
-        from scipy import ndimage  # noqa: F401
-    except ImportError:
-        c.ok(True, "scipy missing — cleanup checks skipped")
-        return
-
-    img = Image.new("RGBA", (200, 200), (0, 0, 0, 0))
-    for x in range(40, 160):
-        for y in range(40, 160):
-            img.putpixel((x, y), (200, 200, 200, 255))
-    img.putpixel((50, 50), (0, 0, 0, 0))
-    for x in range(180, 190):
-        for y in range(180, 190):
-            img.putpixel((x, y), (200, 200, 200, 255))
-    out, info = process_images._clean_mask(img)
-    c.gt(out.getchannel("A").getpixel((50, 50)), 200,
-         "a 1px dust hole is filled")
-    c.lt(out.getchannel("A").getpixel((185, 185)), 128,
-         "a floating island is dropped")
-    c.gt(out.getchannel("A").getpixel((100, 100)), 200,
-         "the product body survives cleanup")
-    c.eq(info["frags"], 1, "cleanup reports one surviving fragment")
 
 
 def check_dark_skip(c: Checks) -> None:
@@ -569,9 +376,8 @@ def check_priority_file(c: Checks) -> None:
 def main() -> int:
     checks = Checks()
     for group in (check_url_vocabulary, check_gallery_capture, check_scoring,
-                  check_refetch_rules, check_transparent_render,
-                  check_site_resolution, check_chewed_detection,
-                  check_matte_gates, check_dark_skip, check_priority_file):
+                  check_refetch_rules, check_site_resolution,
+                  check_dark_skip, check_priority_file):
         group(checks)
 
     if checks.failures:

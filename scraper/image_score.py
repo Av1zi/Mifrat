@@ -140,7 +140,7 @@ def priority_table(reload: bool = False) -> dict:
 def load_meta(reload: bool = False) -> dict:
     """Local file metrics index: {"<vendor>/<file>": {edge, bytes, ...}}.
 
-    Written by download_images.py and process_images.py. Optional — every
+    Written by download_images.py. Optional — every
     metric is a bonus, never a requirement.
     """
     global _meta_cache
