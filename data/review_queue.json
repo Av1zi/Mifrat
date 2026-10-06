@@ -221,6 +221,17 @@
   },
   {
     "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:178028",
+    "listing_b": "tms:C245T",
+    "title_a": "Intel Core Ultra 5 245 / 1851 Tray processor.",
+    "title_b": "Intel Core Ultra 5 245 / 1851 Tray",
+    "match_text_a": "C245T Intel Core Ultra 5 245 / 1851 Tray processor.",
+    "match_text_b": "C245T Intel Core Ultra 5 245 / 1851 Tray"
+  },
+  {
+    "score": 100,
     "category": "case",
     "brand": "Antec",
     "listing_a": "1pc:157901",
