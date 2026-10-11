@@ -12,14 +12,6 @@
   "url": "https://tms.co.il/computer-hardware-components/motherboards?product_id=114127"
  },
  {
-  "vendor_sku": "V535-005R",
-  "url": "https://tms.co.il/nvidia-cards?product_id=114164"
- },
- {
-  "vendor_sku": "NE75080019T2-GB2035S",
-  "url": "https://tms.co.il/nvidia-cards?product_id=114131"
- },
- {
   "vendor_sku": "90MB1NF0-M0EAY0",
   "url": "https://tms.co.il/computer-hardware-components/motherboards?product_id=114166"
  },
@@ -34,6 +26,10 @@
  {
   "vendor_sku": "D-314L-MATX",
   "url": "https://tms.co.il/industrial-cases/industrial-d-314l-matx"
+ },
+ {
+  "vendor_sku": "NX110",
+  "url": "https://tms.co.il/desktop-pc-cases/antec-nx110"
  },
  {
   "vendor_sku": "AX87ARGB",
@@ -52,6 +48,50 @@
   "url": "https://tms.co.il/desktop-psu?product_id=114118"
  },
  {
+  "vendor_sku": "MPE-7501-AFAAG-WO",
+  "url": "https://tms.co.il/desktop-psu/coolermaster-mpe-7501-afaag-wo"
+ },
+ {
+  "vendor_sku": "CMK32GX5M2B5600Z40-B",
+  "url": "https://tms.co.il/desktop-ram?product_id=114297"
+ },
+ {
+  "vendor_sku": "GAOG432GB3200C16BDC",
+  "url": "https://tms.co.il/desktop-ram?product_id=114298"
+ },
+ {
+  "vendor_sku": "F4-3200C16D-32GFX",
+  "url": "https://tms.co.il/desktop-ram/g-skill-f4-3200c16d-32gfx"
+ },
+ {
+  "vendor_sku": "F4-3200C16D-32GVK",
+  "url": "https://tms.co.il/desktop-ram/g-skill-f4-3200c16d-32gvk"
+ },
+ {
+  "vendor_sku": "F4-3200C16D-32GTZ",
+  "url": "https://tms.co.il/desktop-ram/g-skill-f4-3200c16d-32gtz"
+ },
+ {
+  "vendor_sku": "CMH16GX5M1D6000Z38",
+  "url": "https://tms.co.il/desktop-ram?product_id=114294"
+ },
+ {
+  "vendor_sku": "CMH16GX5M1D6000Z38W",
+  "url": "https://tms.co.il/desktop-ram?product_id=114295"
+ },
+ {
+  "vendor_sku": "5200J4040A16GX2-FX5",
+  "url": "https://tms.co.il/desktop-ram/g-skill-5200j4040a16gx2-fx5"
+ },
+ {
+  "vendor_sku": "5600J3636C16GX2-RS5W",
+  "url": "https://tms.co.il/desktop-ram/g-skill-5600j3636c16gx2-rs5w"
+ },
+ {
+  "vendor_sku": "CMK32GX5M2B5200C40",
+  "url": "https://tms.co.il/desktop-ram/corsair-ddr5-32g-5200-cl40-vengeance"
+ },
+ {
   "vendor_sku": "CXM3ARGB",
   "url": "https://tms.co.il/desktop-pc-cases?product_id=114120"
  },
@@ -61,39 +101,51 @@
  },
  {
   "vendor_sku": "OMNI240ARGB-W",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114144"
+  "url": "https://tms.co.il/cpu-cooling/antec-omni240argb-w"
  },
  {
   "vendor_sku": "OMNI360ARGB",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114143"
+  "url": "https://tms.co.il/cpu-cooling/antec-omni360argb"
  },
  {
   "vendor_sku": "ULTRA360ARGB",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114123"
+  "url": "https://tms.co.il/cpu-cooling/antec-ultra360argb"
  },
  {
   "vendor_sku": "NE1000P",
   "url": "https://tms.co.il/desktop-psu?product_id=114116"
  },
  {
+  "vendor_sku": "GAQSG532GB6000C36CDC",
+  "url": "https://tms.co.il/desktop-ram?product_id=114300"
+ },
+ {
+  "vendor_sku": "F4-3200C16D-64GVK",
+  "url": "https://tms.co.il/desktop-ram/g-skill-f4-3200c16d-64gvk"
+ },
+ {
   "vendor_sku": "OMNI360ARGB-W",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114145"
+  "url": "https://tms.co.il/cpu-cooling/antec-omni360argb-w"
  },
  {
   "vendor_sku": "OMNI360MATRIXARGB",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114146"
+  "url": "https://tms.co.il/cpu-cooling/antec-omni360matrixargb"
  },
  {
   "vendor_sku": "OMNI360MATRIXARGB-W",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114147"
+  "url": "https://tms.co.il/cpu-cooling/antec-omni360matrixargb-w"
  },
  {
   "vendor_sku": "ULTRA360ARGB-W",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114124"
+  "url": "https://tms.co.il/cpu-cooling/antec-ultra360argb-w"
  },
  {
   "vendor_sku": "NE1200P",
   "url": "https://tms.co.il/desktop-psu?product_id=114117"
+ },
+ {
+  "vendor_sku": "CP48G56C46U5",
+  "url": "https://tms.co.il/desktop-ram?product_id=114301"
  },
  {
   "vendor_sku": "C6WOOD",
@@ -116,67 +168,35 @@
   "url": "https://tms.co.il/cpu-cooling/be-quiet-bw031eu"
  },
  {
+  "vendor_sku": "CMK64GX5M2D6000Z40",
+  "url": "https://tms.co.il/desktop-ram?product_id=114296"
+ },
+ {
+  "vendor_sku": "CP2K32G60C40U5W",
+  "url": "https://tms.co.il/desktop-ram?product_id=114289"
+ },
+ {
+  "vendor_sku": "6800J3445G32GX2-RS5K",
+  "url": "https://tms.co.il/desktop-ram/g-skill-6800j3445g32gx2-rs5k"
+ },
+ {
+  "vendor_sku": "F4-3600C16D-16GTZRC",
+  "url": "https://tms.co.il/desktop-ram/g-skill-f4-3600c16d-16gtzrc"
+ },
+ {
+  "vendor_sku": "D432G3200SA3RD",
+  "url": "https://tms.co.il/desktop-ram/samsung-ddr4-32gb-3200-3rd-party"
+ },
+ {
+  "vendor_sku": "GAVSG516GB6000C36CSC",
+  "url": "https://tms.co.il/desktop-ram?product_id=114299"
+ },
+ {
+  "vendor_sku": "RX9070XT16G-LOCRES",
+  "url": "https://tms.co.il/amd-cards?product_id=114288"
+ },
+ {
   "vendor_sku": "90YV0L75-M0NA00",
-  "url": "https://tms.co.il/amd-cards?product_id=114173"
- },
- {
-  "vendor_sku": "90YV0LG3-M0NA00",
-  "url": "https://tms.co.il/amd-cards?product_id=114171"
- },
- {
-  "vendor_sku": "90YV0LG2-M0NA00",
-  "url": "https://tms.co.il/amd-cards?product_id=114170"
- },
- {
-  "vendor_sku": "90YV0MQ0-M0NA00",
-  "url": "https://tms.co.il/amd-cards?product_id=114167"
- },
- {
-  "vendor_sku": "90YV0L71-M0NA00",
-  "url": "https://tms.co.il/amd-cards?product_id=114104"
- },
- {
-  "vendor_sku": "90YV0NR0-M0NA00",
-  "url": "https://tms.co.il/nvidia-cards?product_id=114172"
- },
- {
-  "vendor_sku": "90YV0MP3-M0NA00",
-  "url": "https://tms.co.il/nvidia-cards?product_id=114169"
- },
- {
-  "vendor_sku": "90YV0M1G-M0NA00",
-  "url": "https://tms.co.il/nvidia-cards?product_id=114168"
- },
- {
-  "vendor_sku": "NE63060U19K9-PG190L",
-  "url": "https://tms.co.il/nvidia-cards?product_id=114132"
- },
- {
-  "vendor_sku": "CW-9061037-WW",
-  "url": "https://tms.co.il/cpu-cooling?product_id=114163"
- },
- {
-  "vendor_sku": "CO-9051061-WW",
-  "url": "https://tms.co.il/case-fans?product_id=114161"
- },
- {
-  "vendor_sku": "CO-9051062-WW",
-  "url": "https://tms.co.il/case-fans?product_id=114162"
- },
- {
-  "vendor_sku": "CO-9051059-WW",
-  "url": "https://tms.co.il/case-fans?product_id=114159"
- },
- {
-  "vendor_sku": "CO-9051060-WW",
-  "url": "https://tms.co.il/case-fans?product_id=114160"
- },
- {
-  "vendor_sku": "GB850MAORUSSTEALTH",
-  "url": "https://tms.co.il/computer-hardware-components/motherboards?product_id=114081"
- },
- {
-  "vendor_sku": "90MB1G50-M0EAY0",
-  "url": "https://tms.co.il/computer-hardware-components/motherboards?product_id=114165"
+  "url": "https://tms.co.il/amd-cards/asus-90yv0l75-m0na00"
  }
 ]
