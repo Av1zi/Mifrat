@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T03:39:46.961362+00:00",
+  "generated_at": "2026-10-12T03:44:15.901145+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -191233,9 +191233,39 @@
         "video_memory": 16,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "core_clock_mhz": 3010,
+        "core_clock": 3010,
+        "base_clock_mhz": 3010,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 312,
+        "gpu_length_mm": 312,
+        "card_length_mm": 312,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "312 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9070 XT",
+          "מהירות ליבה": "3010MHz",
+          "מהירות זכרון": "20Gbps​",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "256bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "312x130x50mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "750W with Power Connectors 3x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0l71m0na00"
     },
     {
@@ -191422,9 +191452,39 @@
         "video_memory": 16,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "core_clock_mhz": 3230,
+        "core_clock": 3230,
+        "base_clock_mhz": 3230,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 202,
+        "gpu_length_mm": 202,
+        "card_length_mm": 202,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "202 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9060 XT",
+          "מהירות ליבה": "3230MHz",
+          "מהירות זכרון": "20Gbps​",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "128bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "202x120x49mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "550W with Power Connectors 1x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0lg2m0na00"
     },
     {
@@ -191465,9 +191525,39 @@
         "video_memory": 16,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "core_clock_mhz": 3230,
+        "core_clock": 3230,
+        "base_clock_mhz": 3230,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 202,
+        "gpu_length_mm": 202,
+        "card_length_mm": 202,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "202 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9060 XT",
+          "מהירות ליבה": "3230MHz",
+          "מהירות זכרון": "20Gbps​",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "128bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "202x120x49mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "550W with Power Connectors 1x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0lg3m0na00"
     },
     {
@@ -192093,9 +192183,39 @@
         "video_memory": 12,
         "memory_type": "GDDR7",
         "vram_type": "GDDR7",
-        "gddr": "GDDR7"
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2572,
+        "core_clock": 2572,
+        "base_clock_mhz": 2572,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 305,
+        "gpu_length_mm": 305,
+        "card_length_mm": 305,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "305 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "NVIDIA RTX 5070",
+          "מהירות ליבה": "2572MHz",
+          "מהירות זכרון": "28Gbps",
+          "גודל זכרון כרטיס מסך": "12GB",
+          "סוג זכרון גרפי": "GDDR7",
+          "רוחב פס זכרון": "192bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "305x126x50mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "750W with Power Connectors 1x16-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0m1gm0na00"
     },
     {
@@ -192501,9 +192621,39 @@
         "video_memory": 8,
         "memory_type": "GDDR7",
         "vram_type": "GDDR7",
-        "gddr": "GDDR7"
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2602,
+        "core_clock": 2602,
+        "base_clock_mhz": 2602,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 229,
+        "gpu_length_mm": 229,
+        "card_length_mm": 229,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "229 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "NVIDIA RTX 5060 Ti",
+          "מהירות ליבה": "2602MHz",
+          "מהירות זכרון": "28Gbps",
+          "גודל זכרון כרטיס מסך": "8GB",
+          "סוג זכרון גרפי": "GDDR7",
+          "רוחב פס זכרון": "128bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "229x120x50mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "550W with Power Connectors 1x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0mp3m0na00"
     },
     {
@@ -192544,9 +192694,39 @@
         "video_memory": 16,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "core_clock_mhz": 2590,
+        "core_clock": 2590,
+        "base_clock_mhz": 2590,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 304,
+        "gpu_length_mm": 304,
+        "card_length_mm": 304,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "304 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9070",
+          "מהירות ליבה": "2590MHz",
+          "מהירות זכרון": "20Gbps​",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "256bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "304x126x50mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "650W with Power Connectors 2x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0mq0m0na00"
     },
     {
@@ -192733,9 +192913,39 @@
         "video_memory": 16,
         "memory_type": "GDDR7",
         "vram_type": "GDDR7",
-        "gddr": "GDDR7"
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2610,
+        "core_clock": 2610,
+        "base_clock_mhz": 2610,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 304,
+        "gpu_length_mm": 304,
+        "card_length_mm": 304,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "304 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "NVIDIA RTX 5070 Ti",
+          "מהירות ליבה": "2610MHz",
+          "מהירות זכרון": "28Gbps",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR7",
+          "רוחב פס זכרון": "256bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "304x126x50mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "850W with Power Connectors 1x16-pin"
+        }
+      },
       "product_id": "mpn:gpu:90yv0nr0m0na00"
     },
     {
@@ -216613,7 +216823,7 @@
       "price_ils": 5098,
       "in_stock": true,
       "category_guess": "ram",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/CMK64GX5M2B6000C40/0MJoGySfMK-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/CMK64GX5M2B6000C40/0MJoGySfMK.jpg",
       "scraped_at": "2026-10-12T03:36:32.079697+00:00",
       "last_seen": "2026-10-12",
       "stale": false,
@@ -216630,6 +216840,8 @@
         "brand": "Corsair",
         "maker": "Corsair",
         "vendor_brand": "Corsair",
+        "model": "Vengeance",
+        "model_name": "Vengeance",
         "part_numbers": "CMK64GX5M2B6000C40",
         "part_number": "CMK64GX5M2B6000C40",
         "mpn": "CMK64GX5M2B6000C40",
@@ -216657,7 +216869,26 @@
         "cas_latency": 40,
         "cas": 40,
         "cl": 40,
+        "voltage_v": 1.1,
+        "voltage": "1.1V",
+        "memory_voltage": 1.1,
+        "color": "Black",
+        "colour": "Black",
         "memory": "64GB"
+      },
+      "vendor_meta": {
+        "detail_specs": {
+          "סוג זכרון": "DDR5",
+          "גודל זיכרון (RAM)": "64GB",
+          "פרופיל זיכרון": "Intel XMP",
+          "ערכת זיכרון": "2x32GB",
+          "מהירות זיכרון (Max)": "6000",
+          "זמן איחזור": "CL40",
+          "מתח זיכרון": "1.1V",
+          "צבע": "שחור",
+          "סדרה": "Vengeance",
+          "אריזה": "Retail - קופסה"
+        }
       },
       "product_id": "mpn:memory:cmk64gx5m2b6000c40"
     },
@@ -221821,9 +222052,19 @@
         "part_numbers": "CO-9051059-WW",
         "part_number": "CO-9051059-WW",
         "mpn": "CO-9051059-WW",
+        "color": "Black",
+        "colour": "Black",
         "accessory_type": "cooler_accessory"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "גודל מאוורר": "120mm",
+          "סוג תאורה": "ARGB",
+          "מהירות מאוורר": "2100 RPM",
+          "צבע": "שחור",
+          "מסב מאוורר": "Magnetic Dome"
+        }
+      },
       "product_id": "mpn:accessories:co9051059ww"
     },
     {
@@ -221854,9 +222095,19 @@
         "part_numbers": "CO-9051060-WW",
         "part_number": "CO-9051060-WW",
         "mpn": "CO-9051060-WW",
+        "color": "White",
+        "colour": "White",
         "accessory_type": "cooler_accessory"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "גודל מאוורר": "120mm",
+          "סוג תאורה": "ARGB",
+          "מהירות מאוורר": "2100 RPM",
+          "צבע": "לבן",
+          "מסב מאוורר": "Magnetic Dome"
+        }
+      },
       "product_id": "mpn:accessories:co9051060ww"
     },
     {
@@ -221887,9 +222138,19 @@
         "part_numbers": "CO-9051061-WW",
         "part_number": "CO-9051061-WW",
         "mpn": "CO-9051061-WW",
+        "color": "Black",
+        "colour": "Black",
         "accessory_type": "cooler_accessory"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "גודל מאוורר": "120mm",
+          "סוג תאורה": "ARGB",
+          "מהירות מאוורר": "2100 RPM",
+          "צבע": "שחור",
+          "מסב מאוורר": "Magnetic Dome"
+        }
+      },
       "product_id": "mpn:accessories:co9051061ww"
     },
     {
@@ -221920,9 +222181,19 @@
         "part_numbers": "CO-9051062-WW",
         "part_number": "CO-9051062-WW",
         "mpn": "CO-9051062-WW",
+        "color": "White",
+        "colour": "White",
         "accessory_type": "cooler_accessory"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "גודל מאוורר": "120mm",
+          "סוג תאורה": "ARGB",
+          "מהירות מאוורר": "2100 RPM",
+          "צבע": "לבן",
+          "מסב מאוורר": "Magnetic Dome"
+        }
+      },
       "product_id": "mpn:accessories:co9051062ww"
     },
     {
@@ -227318,7 +227589,15 @@
         "lighting": "RGB",
         "led": "RGB"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "סוג קירור": "קירור מים",
+          "סוג תאורה": "ARGB",
+          "תושבת מעבד": "AM4 | 1700 | AM5 | 1851 | 1954",
+          "רדיאטורים": "3",
+          "מאוורר מובנה (ממ)": "120"
+        }
+      },
       "product_id": "mpn:aio:cw9061037ww"
     },
     {
@@ -284825,9 +285104,42 @@
         "memory_gb": 12,
         "vram_gb": 12,
         "memory": "12GB",
-        "video_memory": 12
+        "video_memory": 12,
+        "memory_type": "GDDR6",
+        "vram_type": "GDDR6",
+        "gddr": "GDDR6",
+        "core_clock_mhz": 1792,
+        "core_clock": 1792,
+        "base_clock_mhz": 1792,
+        "interface": "PCIe 4.0 x16",
+        "bus_interface": "PCIe 4.0 x16",
+        "length_mm": 247,
+        "gpu_length_mm": 247,
+        "card_length_mm": 247,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "247 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "NVIDIA RTX 3060",
+          "מהירות ליבה": "1792MHz",
+          "מהירות זכרון": "15Gbps",
+          "גודל זכרון כרטיס מסך": "12GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "192bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "247x112x41mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 4.0 x16",
+          "Recommended PSU": "550W with Power Connectors 1x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:ne63060u19k9pg190l"
     },
     {
@@ -285666,9 +285978,42 @@
         "memory_gb": 16,
         "vram_gb": 16,
         "memory": "16GB",
-        "video_memory": 16
+        "video_memory": 16,
+        "memory_type": "GDDR7",
+        "vram_type": "GDDR7",
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2617,
+        "core_clock": 2617,
+        "base_clock_mhz": 2617,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 332,
+        "gpu_length_mm": 332,
+        "card_length_mm": 332,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "332 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "NVIDIA RTX 5080",
+          "מהירות ליבה": "2617MHz",
+          "מהירות זכרון": "30Gbps",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR7",
+          "רוחב פס זכרון": "256bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "332x127x57mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "850W with Power Connectors 1x16-pin"
+        }
+      },
       "product_id": "mpn:gpu:ne75080019t2gb2035s"
     },
     {
@@ -309063,9 +309408,42 @@
         "memory_gb": 16,
         "vram_gb": 16,
         "memory": "16GB",
-        "video_memory": 16
+        "video_memory": 16,
+        "memory_type": "GDDR7",
+        "vram_type": "GDDR7",
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2602,
+        "core_clock": 2602,
+        "base_clock_mhz": 2602,
+        "interface": "PCIe 5.0 x8",
+        "bus_interface": "PCIe 5.0 x8",
+        "length_mm": 227,
+        "gpu_length_mm": 227,
+        "card_length_mm": 227,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "227 mm"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "NVIDIA RTX 5060 Ti",
+          "מהירות ליבה": "2602MHz",
+          "מהירות זכרון": "28Gbps",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR7",
+          "רוחב פס זכרון": "128bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "227x126x41mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x8",
+          "Recommended PSU": "600W with Power Cable 1x8-pin"
+        }
+      },
       "product_id": "mpn:gpu:v535005r"
     },
     {
@@ -342320,7 +342698,9 @@
         "part_number": "CO-9051059-WW",
         "mpn": "CO-9051059-WW",
         "accessory_type": "cooler_accessory",
-        "product_type": "cooler_accessory"
+        "product_type": "cooler_accessory",
+        "color": "Black",
+        "colour": "Black"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -342349,6 +342729,8 @@
             "part_numbers": "CO-9051059-WW",
             "part_number": "CO-9051059-WW",
             "mpn": "CO-9051059-WW",
+            "color": "Black",
+            "colour": "Black",
             "accessory_type": "cooler_accessory"
           }
         }
@@ -342378,6 +342760,8 @@
           "part_numbers": "CO-9051059-WW",
           "part_number": "CO-9051059-WW",
           "mpn": "CO-9051059-WW",
+          "color": "Black",
+          "colour": "Black",
           "accessory_type": "cooler_accessory"
         }
       },
@@ -342392,9 +342776,10 @@
         "connector": null,
         "length_mm": null,
         "lighting": null,
-        "color": null
+        "color": "Black"
       },
       "spec_sources": {
+        "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "accessory_type": "vendor"
@@ -342416,7 +342801,9 @@
         "part_number": "CO-9051060-WW",
         "mpn": "CO-9051060-WW",
         "accessory_type": "cooler_accessory",
-        "product_type": "cooler_accessory"
+        "product_type": "cooler_accessory",
+        "color": "White",
+        "colour": "White"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -342445,6 +342832,8 @@
             "part_numbers": "CO-9051060-WW",
             "part_number": "CO-9051060-WW",
             "mpn": "CO-9051060-WW",
+            "color": "White",
+            "colour": "White",
             "accessory_type": "cooler_accessory"
           }
         }
@@ -342474,6 +342863,8 @@
           "part_numbers": "CO-9051060-WW",
           "part_number": "CO-9051060-WW",
           "mpn": "CO-9051060-WW",
+          "color": "White",
+          "colour": "White",
           "accessory_type": "cooler_accessory"
         }
       },
@@ -342488,9 +342879,10 @@
         "connector": null,
         "length_mm": null,
         "lighting": null,
-        "color": null
+        "color": "White"
       },
       "spec_sources": {
+        "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "accessory_type": "vendor"
@@ -342512,7 +342904,9 @@
         "part_number": "CO-9051061-WW",
         "mpn": "CO-9051061-WW",
         "accessory_type": "cooler_accessory",
-        "product_type": "cooler_accessory"
+        "product_type": "cooler_accessory",
+        "color": "Black",
+        "colour": "Black"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -342541,6 +342935,8 @@
             "part_numbers": "CO-9051061-WW",
             "part_number": "CO-9051061-WW",
             "mpn": "CO-9051061-WW",
+            "color": "Black",
+            "colour": "Black",
             "accessory_type": "cooler_accessory"
           }
         }
@@ -342570,6 +342966,8 @@
           "part_numbers": "CO-9051061-WW",
           "part_number": "CO-9051061-WW",
           "mpn": "CO-9051061-WW",
+          "color": "Black",
+          "colour": "Black",
           "accessory_type": "cooler_accessory"
         }
       },
@@ -342584,9 +342982,10 @@
         "connector": null,
         "length_mm": null,
         "lighting": null,
-        "color": null
+        "color": "Black"
       },
       "spec_sources": {
+        "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "accessory_type": "vendor"
@@ -342608,7 +343007,9 @@
         "part_number": "CO-9051062-WW",
         "mpn": "CO-9051062-WW",
         "accessory_type": "cooler_accessory",
-        "product_type": "cooler_accessory"
+        "product_type": "cooler_accessory",
+        "color": "White",
+        "colour": "White"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -342637,6 +343038,8 @@
             "part_numbers": "CO-9051062-WW",
             "part_number": "CO-9051062-WW",
             "mpn": "CO-9051062-WW",
+            "color": "White",
+            "colour": "White",
             "accessory_type": "cooler_accessory"
           }
         }
@@ -342666,6 +343069,8 @@
           "part_numbers": "CO-9051062-WW",
           "part_number": "CO-9051062-WW",
           "mpn": "CO-9051062-WW",
+          "color": "White",
+          "colour": "White",
           "accessory_type": "cooler_accessory"
         }
       },
@@ -342680,9 +343085,10 @@
         "connector": null,
         "length_mm": null,
         "lighting": null,
-        "color": null
+        "color": "White"
       },
       "spec_sources": {
+        "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "accessory_type": "vendor"
@@ -569831,12 +570237,22 @@
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
         "gddr": "GDDR6",
+        "core_clock_mhz": 3010,
+        "core_clock": 3010,
+        "base_clock_mhz": 3010,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
         "length_mm": 312,
         "gpu_length_mm": 312,
         "card_length_mm": 312,
         "tdp_w": 304,
         "tdp": "304W",
         "power_consumption": 304,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
         "length": "312 mm"
       },
       "matched_by": "mpn",
@@ -569876,7 +570292,21 @@
             "video_memory": 16,
             "memory_type": "GDDR6",
             "vram_type": "GDDR6",
-            "gddr": "GDDR6"
+            "gddr": "GDDR6",
+            "core_clock_mhz": 3010,
+            "core_clock": 3010,
+            "base_clock_mhz": 3010,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 312,
+            "gpu_length_mm": 312,
+            "card_length_mm": 312,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "312 mm"
           }
         }
       ],
@@ -569915,7 +570345,21 @@
           "video_memory": 16,
           "memory_type": "GDDR6",
           "vram_type": "GDDR6",
-          "gddr": "GDDR6"
+          "gddr": "GDDR6",
+          "core_clock_mhz": 3010,
+          "core_clock": 3010,
+          "base_clock_mhz": 3010,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 312,
+          "gpu_length_mm": 312,
+          "card_length_mm": 312,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "312 mm"
         }
       },
       "specs": {
@@ -569927,28 +570371,36 @@
         "chipset": "Radeon RX 9070 XT",
         "memory_gb": 16,
         "memory_type": "GDDR6",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 3010,
         "boost_clock_mhz": null,
-        "interface": null,
+        "interface": "PCIe 5.0 x16",
         "length_mm": 312,
         "slot_width": null,
         "tdp_w": 304,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "reference",
         "memory_type": "vendor",
-        "part_numbers": "vendor",
         "length_mm": "reference",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
+        "part_numbers": "vendor",
         "tdp_w": "reference"
       }
     },
@@ -570362,6 +570814,9 @@
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
         "gddr": "GDDR6",
+        "core_clock_mhz": 3230,
+        "core_clock": 3230,
+        "base_clock_mhz": 3230,
         "interface": "PCI Express 5.0",
         "bus_interface": "PCI Express 5.0",
         "length_mm": 202,
@@ -570468,11 +570923,35 @@
             "video_memory": 16,
             "memory_type": "GDDR6",
             "vram_type": "GDDR6",
-            "gddr": "GDDR6"
+            "gddr": "GDDR6",
+            "core_clock_mhz": 3230,
+            "core_clock": 3230,
+            "base_clock_mhz": 3230,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 202,
+            "gpu_length_mm": 202,
+            "card_length_mm": 202,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "202 mm"
           }
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/90YV0LG2-M0NA00/zsTXzvBxaG.jpg",
+      "attribute_conflicts": {
+        "interface": [
+          "PCI Express 5.0",
+          "PCIe 5.0 x16"
+        ],
+        "bus_interface": [
+          "PCI Express 5.0",
+          "PCIe 5.0 x16"
+        ]
+      },
       "best_offer": {
         "vendor_id": "ivory",
         "vendor_sku": "90YV0LG2-M0NA00",
@@ -570532,7 +571011,7 @@
         "chipset": "Radeon RX 9060 XT",
         "memory_gb": 16,
         "memory_type": "GDDR6",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 3230,
         "boost_clock_mhz": null,
         "interface": "PCI Express 5.0",
         "length_mm": 202,
@@ -570563,6 +571042,7 @@
         "fan_count": "vendor",
         "memory_type": "vendor",
         "part_numbers": "vendor",
+        "core_clock_mhz": "vendor",
         "length_mm": "reference",
         "tdp_w": "reference"
       }
@@ -570593,12 +571073,22 @@
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
         "gddr": "GDDR6",
+        "core_clock_mhz": 3230,
+        "core_clock": 3230,
+        "base_clock_mhz": 3230,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
         "length_mm": 202,
         "gpu_length_mm": 202,
         "card_length_mm": 202,
         "tdp_w": 160,
         "tdp": "160W",
         "power_consumption": 160,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
         "length": "202 mm"
       },
       "matched_by": "mpn",
@@ -570638,7 +571128,21 @@
             "video_memory": 16,
             "memory_type": "GDDR6",
             "vram_type": "GDDR6",
-            "gddr": "GDDR6"
+            "gddr": "GDDR6",
+            "core_clock_mhz": 3230,
+            "core_clock": 3230,
+            "base_clock_mhz": 3230,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 202,
+            "gpu_length_mm": 202,
+            "card_length_mm": 202,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "202 mm"
           }
         }
       ],
@@ -570677,7 +571181,21 @@
           "video_memory": 16,
           "memory_type": "GDDR6",
           "vram_type": "GDDR6",
-          "gddr": "GDDR6"
+          "gddr": "GDDR6",
+          "core_clock_mhz": 3230,
+          "core_clock": 3230,
+          "base_clock_mhz": 3230,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 202,
+          "gpu_length_mm": 202,
+          "card_length_mm": 202,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "202 mm"
         }
       },
       "specs": {
@@ -570689,28 +571207,36 @@
         "chipset": "Radeon RX 9060 XT",
         "memory_gb": 16,
         "memory_type": "GDDR6",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 3230,
         "boost_clock_mhz": null,
-        "interface": null,
+        "interface": "PCIe 5.0 x16",
         "length_mm": 202,
         "slot_width": null,
         "tdp_w": 160,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "reference",
         "memory_type": "vendor",
-        "part_numbers": "vendor",
         "length_mm": "reference",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
+        "part_numbers": "vendor",
         "tdp_w": "reference"
       }
     },
@@ -572743,7 +573269,21 @@
         "video_memory": 12,
         "memory_type": "GDDR7",
         "vram_type": "GDDR7",
-        "gddr": "GDDR7"
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2572,
+        "core_clock": 2572,
+        "base_clock_mhz": 2572,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 305,
+        "gpu_length_mm": 305,
+        "card_length_mm": 305,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "305 mm"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -572782,7 +573322,21 @@
             "video_memory": 12,
             "memory_type": "GDDR7",
             "vram_type": "GDDR7",
-            "gddr": "GDDR7"
+            "gddr": "GDDR7",
+            "core_clock_mhz": 2572,
+            "core_clock": 2572,
+            "base_clock_mhz": 2572,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 305,
+            "gpu_length_mm": 305,
+            "card_length_mm": 305,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "305 mm"
           }
         }
       ],
@@ -572821,7 +573375,21 @@
           "video_memory": 12,
           "memory_type": "GDDR7",
           "vram_type": "GDDR7",
-          "gddr": "GDDR7"
+          "gddr": "GDDR7",
+          "core_clock_mhz": 2572,
+          "core_clock": 2572,
+          "base_clock_mhz": 2572,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 305,
+          "gpu_length_mm": 305,
+          "card_length_mm": 305,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "305 mm"
         }
       },
       "specs": {
@@ -572833,26 +573401,35 @@
         "chipset": "GeForce RTX 5070",
         "memory_gb": 12,
         "memory_type": "GDDR7",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 2572,
         "boost_clock_mhz": null,
-        "interface": null,
-        "length_mm": null,
+        "interface": "PCIe 5.0 x16",
+        "length_mm": 305,
         "slot_width": null,
         "tdp_w": null,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "vendor",
         "memory_type": "vendor",
+        "length_mm": "vendor",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
         "part_numbers": "vendor"
       }
     },
@@ -573995,12 +574572,22 @@
         "memory_type": "GDDR7",
         "vram_type": "GDDR7",
         "gddr": "GDDR7",
+        "core_clock_mhz": 2602,
+        "core_clock": 2602,
+        "base_clock_mhz": 2602,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
         "length_mm": 229,
         "gpu_length_mm": 229,
         "card_length_mm": 229,
         "tdp_w": 180,
         "tdp": "180W",
         "power_consumption": 180,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
         "length": "229 mm"
       },
       "matched_by": "mpn",
@@ -574040,7 +574627,21 @@
             "video_memory": 8,
             "memory_type": "GDDR7",
             "vram_type": "GDDR7",
-            "gddr": "GDDR7"
+            "gddr": "GDDR7",
+            "core_clock_mhz": 2602,
+            "core_clock": 2602,
+            "base_clock_mhz": 2602,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 229,
+            "gpu_length_mm": 229,
+            "card_length_mm": 229,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "229 mm"
           }
         }
       ],
@@ -574079,7 +574680,21 @@
           "video_memory": 8,
           "memory_type": "GDDR7",
           "vram_type": "GDDR7",
-          "gddr": "GDDR7"
+          "gddr": "GDDR7",
+          "core_clock_mhz": 2602,
+          "core_clock": 2602,
+          "base_clock_mhz": 2602,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 229,
+          "gpu_length_mm": 229,
+          "card_length_mm": 229,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "229 mm"
         }
       },
       "specs": {
@@ -574091,28 +574706,36 @@
         "chipset": "GeForce RTX 5060 Ti",
         "memory_gb": 8,
         "memory_type": "GDDR7",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 2602,
         "boost_clock_mhz": null,
-        "interface": null,
+        "interface": "PCIe 5.0 x16",
         "length_mm": 229,
         "slot_width": null,
         "tdp_w": 180,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "reference",
         "memory_type": "vendor",
-        "part_numbers": "vendor",
         "length_mm": "reference",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
+        "part_numbers": "vendor",
         "tdp_w": "reference"
       }
     },
@@ -574338,12 +574961,22 @@
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
         "gddr": "GDDR6",
+        "core_clock_mhz": 2590,
+        "core_clock": 2590,
+        "base_clock_mhz": 2590,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
         "length_mm": 304,
         "gpu_length_mm": 304,
         "card_length_mm": 304,
         "tdp_w": 220,
         "tdp": "220W",
         "power_consumption": 220,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
         "length": "304 mm"
       },
       "matched_by": "mpn",
@@ -574383,7 +575016,21 @@
             "video_memory": 16,
             "memory_type": "GDDR6",
             "vram_type": "GDDR6",
-            "gddr": "GDDR6"
+            "gddr": "GDDR6",
+            "core_clock_mhz": 2590,
+            "core_clock": 2590,
+            "base_clock_mhz": 2590,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 304,
+            "gpu_length_mm": 304,
+            "card_length_mm": 304,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "304 mm"
           }
         }
       ],
@@ -574422,7 +575069,21 @@
           "video_memory": 16,
           "memory_type": "GDDR6",
           "vram_type": "GDDR6",
-          "gddr": "GDDR6"
+          "gddr": "GDDR6",
+          "core_clock_mhz": 2590,
+          "core_clock": 2590,
+          "base_clock_mhz": 2590,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 304,
+          "gpu_length_mm": 304,
+          "card_length_mm": 304,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "304 mm"
         }
       },
       "specs": {
@@ -574434,28 +575095,36 @@
         "chipset": "Radeon RX 9070",
         "memory_gb": 16,
         "memory_type": "GDDR6",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 2590,
         "boost_clock_mhz": null,
-        "interface": null,
+        "interface": "PCIe 5.0 x16",
         "length_mm": 304,
         "slot_width": null,
         "tdp_w": 220,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "reference",
         "memory_type": "vendor",
-        "part_numbers": "vendor",
         "length_mm": "reference",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
+        "part_numbers": "vendor",
         "tdp_w": "reference"
       }
     },
@@ -575059,12 +575728,22 @@
         "memory_type": "GDDR7",
         "vram_type": "GDDR7",
         "gddr": "GDDR7",
+        "core_clock_mhz": 2610,
+        "core_clock": 2610,
+        "base_clock_mhz": 2610,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
         "length_mm": 304,
         "gpu_length_mm": 304,
         "card_length_mm": 304,
         "tdp_w": 300,
         "tdp": "300W",
         "power_consumption": 300,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
         "length": "304 mm"
       },
       "matched_by": "mpn",
@@ -575104,7 +575783,21 @@
             "video_memory": 16,
             "memory_type": "GDDR7",
             "vram_type": "GDDR7",
-            "gddr": "GDDR7"
+            "gddr": "GDDR7",
+            "core_clock_mhz": 2610,
+            "core_clock": 2610,
+            "base_clock_mhz": 2610,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 304,
+            "gpu_length_mm": 304,
+            "card_length_mm": 304,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "304 mm"
           }
         }
       ],
@@ -575143,7 +575836,21 @@
           "video_memory": 16,
           "memory_type": "GDDR7",
           "vram_type": "GDDR7",
-          "gddr": "GDDR7"
+          "gddr": "GDDR7",
+          "core_clock_mhz": 2610,
+          "core_clock": 2610,
+          "base_clock_mhz": 2610,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 304,
+          "gpu_length_mm": 304,
+          "card_length_mm": 304,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "304 mm"
         }
       },
       "specs": {
@@ -575155,28 +575862,36 @@
         "chipset": "GeForce RTX 5070 Ti",
         "memory_gb": 16,
         "memory_type": "GDDR7",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 2610,
         "boost_clock_mhz": null,
-        "interface": null,
+        "interface": "PCIe 5.0 x16",
         "length_mm": 304,
         "slot_width": null,
         "tdp_w": 300,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "reference",
         "memory_type": "vendor",
-        "part_numbers": "vendor",
         "length_mm": "reference",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
+        "part_numbers": "vendor",
         "tdp_w": "reference"
       }
     },
@@ -592992,8 +593707,14 @@
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
         "gddr": "GDDR6",
+        "core_clock_mhz": 1792,
+        "core_clock": 1792,
+        "base_clock_mhz": 1792,
         "interface": "PCI Express 4.0",
         "bus_interface": "PCI Express 4.0",
+        "length_mm": 247,
+        "gpu_length_mm": 247,
+        "card_length_mm": 247,
         "fan_count": 2,
         "fans": 2,
         "dp_outputs": "1x DisplayPort",
@@ -593002,7 +593723,8 @@
         "hdmi_outputs": "1x HDMI",
         "hdmi_ports": "1x HDMI",
         "color": "Black",
-        "colour": "Black"
+        "colour": "Black",
+        "length": "247 mm"
       },
       "matched_by": "mpn",
       "vendor_count": 2,
@@ -593088,11 +593810,38 @@
             "memory_gb": 12,
             "vram_gb": 12,
             "memory": "12GB",
-            "video_memory": 12
+            "video_memory": 12,
+            "memory_type": "GDDR6",
+            "vram_type": "GDDR6",
+            "gddr": "GDDR6",
+            "core_clock_mhz": 1792,
+            "core_clock": 1792,
+            "base_clock_mhz": 1792,
+            "interface": "PCIe 4.0 x16",
+            "bus_interface": "PCIe 4.0 x16",
+            "length_mm": 247,
+            "gpu_length_mm": 247,
+            "card_length_mm": 247,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "247 mm"
           }
         }
       ],
       "image_url": "https://tms.co.il/image/catalog/products/NE63060U19K9-PG190L/dMG4OwQ6jV.jpg",
+      "attribute_conflicts": {
+        "interface": [
+          "PCI Express 4.0",
+          "PCIe 4.0 x16"
+        ],
+        "bus_interface": [
+          "PCI Express 4.0",
+          "PCIe 4.0 x16"
+        ]
+      },
       "best_offer": {
         "vendor_id": "tms",
         "vendor_sku": "NE63060U19K9-PG190L",
@@ -593124,7 +593873,24 @@
           "memory_gb": 12,
           "vram_gb": 12,
           "memory": "12GB",
-          "video_memory": 12
+          "video_memory": 12,
+          "memory_type": "GDDR6",
+          "vram_type": "GDDR6",
+          "gddr": "GDDR6",
+          "core_clock_mhz": 1792,
+          "core_clock": 1792,
+          "base_clock_mhz": 1792,
+          "interface": "PCIe 4.0 x16",
+          "bus_interface": "PCIe 4.0 x16",
+          "length_mm": 247,
+          "gpu_length_mm": 247,
+          "card_length_mm": 247,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "247 mm"
         }
       },
       "specs": {
@@ -593136,10 +593902,10 @@
         "chipset": "GeForce RTX 3060",
         "memory_gb": 12,
         "memory_type": "GDDR6",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 1792,
         "boost_clock_mhz": null,
         "interface": "PCI Express 4.0",
-        "length_mm": null,
+        "length_mm": 247,
         "slot_width": null,
         "tdp_w": null,
         "cooling": null,
@@ -593166,7 +593932,9 @@
         "color": "vendor",
         "fan_count": "vendor",
         "memory_type": "vendor",
-        "part_numbers": "vendor"
+        "part_numbers": "vendor",
+        "core_clock_mhz": "vendor",
+        "length_mm": "vendor"
       }
     },
     {
@@ -596472,7 +597240,24 @@
         "memory_gb": 16,
         "vram_gb": 16,
         "memory": "16GB",
-        "video_memory": 16
+        "video_memory": 16,
+        "memory_type": "GDDR7",
+        "vram_type": "GDDR7",
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2617,
+        "core_clock": 2617,
+        "base_clock_mhz": 2617,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 332,
+        "gpu_length_mm": 332,
+        "card_length_mm": 332,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "332 mm"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -596508,7 +597293,24 @@
             "memory_gb": 16,
             "vram_gb": 16,
             "memory": "16GB",
-            "video_memory": 16
+            "video_memory": 16,
+            "memory_type": "GDDR7",
+            "vram_type": "GDDR7",
+            "gddr": "GDDR7",
+            "core_clock_mhz": 2617,
+            "core_clock": 2617,
+            "base_clock_mhz": 2617,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 332,
+            "gpu_length_mm": 332,
+            "card_length_mm": 332,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "332 mm"
           }
         }
       ],
@@ -596544,7 +597346,24 @@
           "memory_gb": 16,
           "vram_gb": 16,
           "memory": "16GB",
-          "video_memory": 16
+          "video_memory": 16,
+          "memory_type": "GDDR7",
+          "vram_type": "GDDR7",
+          "gddr": "GDDR7",
+          "core_clock_mhz": 2617,
+          "core_clock": 2617,
+          "base_clock_mhz": 2617,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 332,
+          "gpu_length_mm": 332,
+          "card_length_mm": 332,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "332 mm"
         }
       },
       "specs": {
@@ -596555,26 +597374,36 @@
         ],
         "chipset": "GeForce RTX 5080",
         "memory_gb": 16,
-        "memory_type": null,
-        "core_clock_mhz": null,
+        "memory_type": "GDDR7",
+        "core_clock_mhz": 2617,
         "boost_clock_mhz": null,
-        "interface": null,
-        "length_mm": null,
+        "interface": "PCIe 5.0 x16",
+        "length_mm": 332,
         "slot_width": null,
         "tdp_w": null,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "vendor",
+        "memory_type": "vendor",
+        "length_mm": "vendor",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
         "part_numbers": "vendor"
       }
     },
@@ -601887,7 +602716,24 @@
         "memory_gb": 16,
         "vram_gb": 16,
         "memory": "16GB",
-        "video_memory": 16
+        "video_memory": 16,
+        "memory_type": "GDDR7",
+        "vram_type": "GDDR7",
+        "gddr": "GDDR7",
+        "core_clock_mhz": 2602,
+        "core_clock": 2602,
+        "base_clock_mhz": 2602,
+        "interface": "PCIe 5.0 x8",
+        "bus_interface": "PCIe 5.0 x8",
+        "length_mm": 227,
+        "gpu_length_mm": 227,
+        "card_length_mm": 227,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "227 mm"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -601923,7 +602769,24 @@
             "memory_gb": 16,
             "vram_gb": 16,
             "memory": "16GB",
-            "video_memory": 16
+            "video_memory": 16,
+            "memory_type": "GDDR7",
+            "vram_type": "GDDR7",
+            "gddr": "GDDR7",
+            "core_clock_mhz": 2602,
+            "core_clock": 2602,
+            "base_clock_mhz": 2602,
+            "interface": "PCIe 5.0 x8",
+            "bus_interface": "PCIe 5.0 x8",
+            "length_mm": 227,
+            "gpu_length_mm": 227,
+            "card_length_mm": 227,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "227 mm"
           }
         }
       ],
@@ -601959,7 +602822,24 @@
           "memory_gb": 16,
           "vram_gb": 16,
           "memory": "16GB",
-          "video_memory": 16
+          "video_memory": 16,
+          "memory_type": "GDDR7",
+          "vram_type": "GDDR7",
+          "gddr": "GDDR7",
+          "core_clock_mhz": 2602,
+          "core_clock": 2602,
+          "base_clock_mhz": 2602,
+          "interface": "PCIe 5.0 x8",
+          "bus_interface": "PCIe 5.0 x8",
+          "length_mm": 227,
+          "gpu_length_mm": 227,
+          "card_length_mm": 227,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "227 mm"
         }
       },
       "specs": {
@@ -601970,26 +602850,36 @@
         ],
         "chipset": "GeForce RTX 5060 Ti",
         "memory_gb": 16,
-        "memory_type": null,
-        "core_clock_mhz": null,
+        "memory_type": "GDDR7",
+        "core_clock_mhz": 2602,
         "boost_clock_mhz": null,
-        "interface": null,
-        "length_mm": null,
+        "interface": "PCIe 5.0 x8",
+        "length_mm": 227,
         "slot_width": null,
         "tdp_w": null,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "vendor",
+        "memory_type": "vendor",
+        "length_mm": "vendor",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
         "part_numbers": "vendor"
       }
     },
@@ -641097,12 +641987,14 @@
       "description": null,
       "category": "memory",
       "brand": "Corsair",
-      "model": "CMK64GX5M2B6000C40",
+      "model": "Vengeance",
       "attributes": {
         "manufacturer": "Corsair",
         "brand": "Corsair",
         "maker": "Corsair",
         "vendor_brand": "Corsair",
+        "model": "Vengeance",
+        "model_name": "Vengeance",
         "part_numbers": "CMK64GX5M2B6000C40",
         "part_number": "CMK64GX5M2B6000C40",
         "mpn": "CMK64GX5M2B6000C40",
@@ -641130,6 +642022,9 @@
         "cas_latency": 30,
         "cas": 30,
         "cl": 30,
+        "voltage_v": 1.1,
+        "voltage": "1.1V",
+        "memory_voltage": 1.1,
         "color": "Black / Gray",
         "colour": "Black / Gray",
         "memory": "64GB"
@@ -641151,13 +642046,15 @@
           "category_normalized": "memory",
           "brand": "Corsair",
           "mpn": "CMK64GX5M2B6000C40",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/CMK64GX5M2B6000C40/0MJoGySfMK-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/CMK64GX5M2B6000C40/0MJoGySfMK.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "Corsair",
             "brand": "Corsair",
             "maker": "Corsair",
             "vendor_brand": "Corsair",
+            "model": "Vengeance",
+            "model_name": "Vengeance",
             "part_numbers": "CMK64GX5M2B6000C40",
             "part_number": "CMK64GX5M2B6000C40",
             "mpn": "CMK64GX5M2B6000C40",
@@ -641185,6 +642082,11 @@
             "cas_latency": 40,
             "cas": 40,
             "cl": 40,
+            "voltage_v": 1.1,
+            "voltage": "1.1V",
+            "memory_voltage": 1.1,
+            "color": "Black",
+            "colour": "Black",
             "memory": "64GB"
           }
         }
@@ -641204,13 +642106,15 @@
         "category_normalized": "memory",
         "brand": "Corsair",
         "mpn": "CMK64GX5M2B6000C40",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/CMK64GX5M2B6000C40/0MJoGySfMK-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/CMK64GX5M2B6000C40/0MJoGySfMK.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "Corsair",
           "brand": "Corsair",
           "maker": "Corsair",
           "vendor_brand": "Corsair",
+          "model": "Vengeance",
+          "model_name": "Vengeance",
           "part_numbers": "CMK64GX5M2B6000C40",
           "part_number": "CMK64GX5M2B6000C40",
           "mpn": "CMK64GX5M2B6000C40",
@@ -641238,12 +642142,17 @@
           "cas_latency": 40,
           "cas": 40,
           "cl": 40,
+          "voltage_v": 1.1,
+          "voltage": "1.1V",
+          "memory_voltage": 1.1,
+          "color": "Black",
+          "colour": "Black",
           "memory": "64GB"
         }
       },
       "specs": {
         "manufacturer": "Corsair",
-        "model": null,
+        "model": "Vengeance",
         "part_numbers": [
           "CMK64GX5M2B6000C40"
         ],
@@ -641257,7 +642166,7 @@
         "first_word_latency_ns": 10.0,
         "cas_latency": 30,
         "timing": null,
-        "voltage_v": null,
+        "voltage_v": 1.1,
         "ecc": null,
         "registered": null,
         "heat_spreader": null,
@@ -641266,16 +642175,18 @@
       },
       "spec_sources": {
         "memory_type": "reference",
+        "total_gb": "reference",
         "module_count": "reference",
         "module_size_gb": "reference",
-        "total_gb": "reference",
         "speed_mhz": "reference",
-        "speed": "reference",
         "cas_latency": "reference",
+        "voltage_v": "vendor",
+        "color": "reference",
+        "model": "vendor",
+        "speed": "reference",
         "first_word_latency_ns": "reference",
         "part_numbers": "vendor",
-        "manufacturer": "vendor",
-        "color": "reference"
+        "manufacturer": "vendor"
       }
     },
     {
