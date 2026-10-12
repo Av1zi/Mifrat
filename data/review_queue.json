@@ -168,6 +168,17 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:152191",
+    "listing_b": "tms:C14900KFT",
+    "title_a": "Intel Core i9 14900KF / 1700 Tray processor.",
+    "title_b": "Intel Core i9 14900KF / 1700 Tray",
+    "match_text_a": "C14900KFT Intel Core i9 14900KF / 1700 Tray processor.",
+    "match_text_b": "C14900KFT Intel Core i9 14900KF / 1700 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "1pc:157389",
     "listing_b": "tms:C14100T",
     "title_a": "Intel Core i3 14100 / 1700 Tray Processor.",
@@ -416,17 +427,6 @@
     "title_b": "AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray",
     "match_text_a": "100-000001978 Processor AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
     "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray"
-  },
-  {
-    "score": 95,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:108908",
-    "listing_b": "tms:100-000000910",
-    "title_a": "מעבד AMD Ryzen 7 7800X3D 8 Core Tray",
-    "title_b": "AMD Ryzen 7 7800X3D AM5 Tray",
-    "match_text_a": "100-000000910 AMD Ryzen 7 7800X3D 8 Core Tray",
-    "match_text_b": "100-000000910 AMD Ryzen 7 7800X3D AM5 Tray"
   },
   {
     "score": 95,
