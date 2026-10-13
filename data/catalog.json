@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T03:16:58.051441+00:00",
+  "generated_at": "2026-10-13T03:21:17.346434+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -293698,6 +293698,7 @@
         "gpu_chipset": "Radeon R9 700",
         "graphics_processor": "Radeon R9 700"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:r9700aitop32gd"
     },
     {
@@ -295960,7 +295961,7 @@
       "price_ils": 1971,
       "in_stock": true,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX9060XT8G-A/jd1GN1sObT-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX9060XT8G-A/jd1GN1sObT.jpg",
       "scraped_at": "2026-10-13T03:09:35.208401+00:00",
       "last_seen": "2026-10-13",
       "stale": false,
@@ -295990,7 +295991,38 @@
         "video_memory": 8,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "core_clock_mhz": 3130,
+        "core_clock": 3130,
+        "base_clock_mhz": 3130,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 200,
+        "gpu_length_mm": 200,
+        "card_length_mm": 200,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "200 mm"
+      },
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9060 XT",
+          "מהירות ליבה": "3130MHz",
+          "מהירות זכרון": "20Gbps",
+          "גודל זכרון כרטיס מסך": "8GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "128bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "200x100x39mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "500W with Power Connector 1x8-pin"
+        }
       },
       "product_id": "mpn:gpu:rx9060xt8ga"
     },
@@ -595363,7 +595395,21 @@
         "video_memory": 8,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "core_clock_mhz": 3130,
+        "core_clock": 3130,
+        "base_clock_mhz": 3130,
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "length_mm": 200,
+        "gpu_length_mm": 200,
+        "card_length_mm": 200,
+        "dp_outputs": "1x DisplayPort",
+        "displayport_ports": "1x DisplayPort",
+        "dp_ports": "1x DisplayPort",
+        "hdmi_outputs": "1x HDMI",
+        "hdmi_ports": "1x HDMI",
+        "length": "200 mm"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -595382,7 +595428,7 @@
           "category_normalized": "gpu",
           "brand": "PowerColor",
           "mpn": "RX9060XT8G-A",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX9060XT8G-A/jd1GN1sObT-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX9060XT8G-A/jd1GN1sObT.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "PowerColor",
@@ -595402,7 +595448,21 @@
             "video_memory": 8,
             "memory_type": "GDDR6",
             "vram_type": "GDDR6",
-            "gddr": "GDDR6"
+            "gddr": "GDDR6",
+            "core_clock_mhz": 3130,
+            "core_clock": 3130,
+            "base_clock_mhz": 3130,
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "length_mm": 200,
+            "gpu_length_mm": 200,
+            "card_length_mm": 200,
+            "dp_outputs": "1x DisplayPort",
+            "displayport_ports": "1x DisplayPort",
+            "dp_ports": "1x DisplayPort",
+            "hdmi_outputs": "1x HDMI",
+            "hdmi_ports": "1x HDMI",
+            "length": "200 mm"
           }
         }
       ],
@@ -595421,7 +595481,7 @@
         "category_normalized": "gpu",
         "brand": "PowerColor",
         "mpn": "RX9060XT8G-A",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX9060XT8G-A/jd1GN1sObT-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX9060XT8G-A/jd1GN1sObT.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "PowerColor",
@@ -595441,7 +595501,21 @@
           "video_memory": 8,
           "memory_type": "GDDR6",
           "vram_type": "GDDR6",
-          "gddr": "GDDR6"
+          "gddr": "GDDR6",
+          "core_clock_mhz": 3130,
+          "core_clock": 3130,
+          "base_clock_mhz": 3130,
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "length_mm": 200,
+          "gpu_length_mm": 200,
+          "card_length_mm": 200,
+          "dp_outputs": "1x DisplayPort",
+          "displayport_ports": "1x DisplayPort",
+          "dp_ports": "1x DisplayPort",
+          "hdmi_outputs": "1x HDMI",
+          "hdmi_ports": "1x HDMI",
+          "length": "200 mm"
         }
       },
       "specs": {
@@ -595453,26 +595527,35 @@
         "chipset": "Radeon RX 9060 XT",
         "memory_gb": 8,
         "memory_type": "GDDR6",
-        "core_clock_mhz": null,
+        "core_clock_mhz": 3130,
         "boost_clock_mhz": null,
-        "interface": null,
-        "length_mm": null,
+        "interface": "PCIe 5.0 x16",
+        "length_mm": 200,
         "slot_width": null,
         "tdp_w": null,
         "cooling": null,
         "fan_count": null,
         "external_power": null,
-        "dp_outputs": null,
-        "hdmi_outputs": null,
+        "dp_outputs": {
+          "DisplayPort": 1
+        },
+        "hdmi_outputs": {
+          "HDMI": 1
+        },
         "dvi_outputs": null,
         "frame_sync": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
         "memory_gb": "vendor",
         "memory_type": "vendor",
+        "length_mm": "vendor",
+        "dp_outputs": "vendor",
+        "hdmi_outputs": "vendor",
+        "interface": "vendor",
+        "manufacturer": "vendor",
         "part_numbers": "vendor"
       }
     },
