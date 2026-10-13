@@ -219,6 +219,8 @@ The old flat `attributes` blob survives only as a transitional view *derived fro
 
 Canonical forms keep the rail honest: socket spellings, GPU chip marketing names, form factors, and efficiency ratings each collapse to one spelling before type coercion, and unit scaling happens once at the boundary (a `_gb` field holding "2TB" becomes 2000).
 
+Coverage work (Oct 2026 pass): vendor facts already on disk were being dropped at label-map time, so the vocabulary grew without touching the schema — PSU connector spellings, cooler/AIO socket rows (Intel and AMD rows union into one list), case fan mounts and dimensions in Hebrew cm/mm, Ivory motherboard support cells (one cell expands to memory slots/type/max/speeds), and 1PC grouped cells routed per category (VRAM size/type, network card to Wi-Fi vs LAN). Result on the same snapshots: label-gap rows ~13k → ~4.6k, PSU fill 31→48%, air-cooler 26→44%, AIO 38→53%. A coverage gate fails the pipeline when gap rows exceed budget or a category/core fill drops below its floor; title/SKU mining was measured and deliberately skipped (no remaining low field has title evidence). Facts with no schema field (GPU bus width, storage speeds, Thunderbolt, side-fan mounts) stay visible as label-gap evidence for a future schema decision, never guessed.
+
 Presentation hygiene matters: raw titles and structured specs stay separate. Canonical names come from identity fields when available. Vendor feature prose belongs in specs or description, never in the name. Encoding artifacts are discarded during matching and spec-building so they cannot leak into the catalog or site.
 
 ### 6.6 Matching hierarchy — the hard part

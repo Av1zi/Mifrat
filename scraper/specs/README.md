@@ -132,7 +132,11 @@ are one value. `canon.py` owns that mapping and runs before type coercion:
   `LGA1851`). AMD prints its physical package in parentheses (`AMD SP5
   (LGA6096)`); reading that produced phantom sockets that ranked among the most
   common CPU sockets until Sep 2026. Cooler `sockets` lists are canonicalized
-  per element, splitting vendor groupings (`1150/1151/1155/1156/1200`).
+  per element, splitting vendor groupings (`1150/1151/1155/1156/1200`). The
+  Intel 115X family shorthand converges to one form (`115X`, `LGA 115X`,
+  `LGA115X` -> `LGA115X`), and unrecognized tokens return empty instead of
+  passing through — cut fragments (`\ 1954`) and typos used to ship as
+  sockets on cooler pages until Oct 2026. A wrong socket is worse than none.
 - `canon_gpu_chipset`: GPU chips are marketing names, canonicalized the way the
   reference data spells them (`GEFORCE RTX5070` -> `GeForce RTX 5070`,
   `RX9070XT` -> `Radeon RX 9070 XT`, `RTX A4000` stays prefixless). The board
@@ -227,12 +231,19 @@ coverage report like the others.
   coercion splits comma-glued elements so ["ATX, Micro ATX"] and
   ["ATX", "Micro ATX"] converge instead of conflicting.
 - Warranty / importer rows are `is_ignored_label` bookkeeping: they leave
-  `specs` AND the label-gap report, where they drowned real evidence.
-- Known unmapped labels left as evidence deliberately: 1PC's junk-drawer
-  "Spec / Interface Connectivity" (HDMI+USB+SATA in one cell), motherboard
-  ממשק אחסון (a storage-capability list with no schema field), case
-  עיצוב תרמי (vendor cooling gimmicks), PSU PFC. New fields require a
-  schema decision first (see "Adding or changing a spec field").
+  `specs` AND the label-gap report, where they drowned real evidence. The Oct
+  2026 pass added the same treatment for PSU `PFC`, case-fan bearing
+  (`מסב מאוורר`), memory XMP/EXPO profile (`פרופיל זיכרון`) and box-content
+  rows (`באריזה`, `אריזת`) — shop facts with no schema field, recorded as
+  deferred schema candidates instead of gap noise.
+- Known unmapped labels left as evidence deliberately: motherboard
+  ממשק אחסון (a storage-capability list with no schema field), GPU memory
+  bus width / DirectX/OpenGL / max-displays / Recommended-PSU, Thunderbolt,
+  case side-fan mounts and 5.25" bays, storage sequential speeds. 1PC's
+  junk-drawer "Spec / Interface Connectivity" is routed per category
+  (motherboard/storage/gpu); categories the router does not cover stay gaps
+  on purpose. New fields require a schema decision first (see "Adding or
+  changing a spec field").
 
 ## Vendor detail pages (`labels.py`) and the TMS selector bug
 
@@ -269,7 +280,23 @@ Two things were broken until Sep 2026, and both were invisible:
   `__gpu_outputs__`, `__raid__`, `__usb_count__:*`): `Base 2.7GHz | Max. 4.1GHz`
   becomes base+boost, `2x16GB` becomes count/size/total, `L3 512MB` becomes
   `l3_cache_mb` (the tier token's own digit is stripped first, or every cache
-  would ship as 3 MB), `450-500W` becomes the upper bound.
+  would ship as 3 MB), `450-500W` becomes the upper bound. The Oct 2026
+  coverage pass added a second family for cells that carry an existing-schema
+  fact in prose or a foreign unit (`__sockets_cell__` unions Ivory's split
+  Intel/AMD socket rows, `__memory_support__`/`__storage_support__` expand
+  Ivory support cells to four fields, `__connector_count__:*` reads PSU
+  connector counts, `__slot_count__:*` sums TMS per-type slot rows,
+  `__fan_mount_cell__:*` / `__length_mm__:*` / `__dims_cell__` normalize
+  Hebrew cm/mm cells, plus `__gpu_vram__`, `__network_card__`,
+  `__interface_connectivity__` routers for 1PC grouped cells). Parameterized
+  tokens carry their target after a colon and are recognized by
+  `labels._is_token()` — any gate that walks the vocabulary must use it,
+  not a hardcoded prefix list.
+- English labels get one relaxed lookup (`_relaxed_lookup`): filler words
+  (`connectors/pin/count/...`) are stripped and `pci-e` folds to `pcie`, so
+  `PCI-E Connectors 8 pin` matches the curated `8-pin pcie` key. Guards: the
+  curated key must be fully contained with >= 2 tokens, ties are refused, and
+  Hebrew labels are never relaxed — they must be curated explicitly.
 - `clean_detail_value(value)` removes Hebrew unit/noun words, translates Hebrew
   color/boolean words, and **drops the whole value** when Hebrew prose survives
   — `לא תואם AM5` would invert its meaning if the token were kept.
@@ -312,9 +339,12 @@ all come from the same definition.
 
 ```bash
 python scripts/check_spec_sync.py                 # schema <-> frontend drift
+python scripts/diagnose_spec_coverage.py          # offline gap/fill view (seconds, no normalize)
 python -m scraper.normalize_and_match             # rebuild catalog + site data
 python -m scraper.specs.golden.check_golden       # hand-verified fixtures
 python scripts/check_tms_detail.py                # vendor page fixtures (offline)
+python scripts/check_spec_merge.py                # merge-rule regressions
+python scripts/check_spec_coverage.py             # fill floors + gap budget (CI gate)
 python scraper/check_site_size.py                 # payload guard
 npm --prefix site run build                       # typecheck + bundle
 ```

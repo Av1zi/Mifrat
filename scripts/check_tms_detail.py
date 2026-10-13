@@ -309,6 +309,272 @@ PAIR_CASES = [
         },
         "expect_gaps": (),
     },
+    # --- Oct 2026 coverage pass: one case per new action token, rows shaped
+    # like the real vendor cells in data/raw/detail/*.jsonl. ---
+    {
+        "name": "psu TMS connector rows (Plan 2026-10-02: all four shipped 0%)",
+        "category": "psu",
+        "rows": {
+            "EPS 12V 8 pin": "2",
+            "PCI-E Connectors 8 pin": "2",
+            "Molex 4 pin": "3",
+            "חיבורי SATA": "5",
+            "חיבורי 12VHPWR": "1",
+            "חיבור לכרטיס מסך (PCIe)": "4 חיבורי PCIe 6+2-pin",
+        },
+        "expect_specs": {
+            "eps8_connectors": 2,
+            "pcie8_connectors": 2,
+            "molex4_connectors": 3,
+            "sata_connectors": 5,
+            "pcie12_connectors": 1,
+            "pcie62_connectors": 4,
+        },
+        "expect_gaps": (),
+    },
+    {
+        # 'קבוצת הספק' is the series family range ("650W - 1100W"), not this
+        # unit's wattage. It printed first in the vendor table and its low bound
+        # used to win the merge, so 143 PSUs shipped the family minimum (a 750W
+        # Antec displayed as 650W). It must stay a gap, never a wattage fact.
+        "name": "psu series range must not override the rated wattage",
+        "category": "psu",
+        "rows": {"קבוצת הספק": "650W - 1100W", "הספק": "700W"},
+        "expect_specs": {"wattage_w": 700},
+        "expect_gap": "קבוצת הספק",
+    },
+    {
+        "name": "cooler Ivory Intel+AMD socket rows union",
+        "category": "cooler_air",
+        "rows": {
+            "תאימות תושבות INTEL": "LGA 115X / 1200 / 1700 / 1851",
+            "תאימות תושבות AMD": "AM5 / AM4",
+            "גודל מאוורר כ-": '12 ס"מ',
+            "מהירות מקסימלית עד": "2150RPM ±10%",
+            "מידות כ-": 'גובה: 164 מ"מ רוחב: 110 מ"מ עומק: 125 מ"מ',
+            "סוג קירור": "קירור אוויר",
+        },
+        "expect_specs": {
+            "sockets": ["LGA115X", "LGA1200", "LGA1700", "LGA1851", "AM5", "AM4"],
+            "fan_size_mm": 120,
+            "fan_rpm_max": 2150,
+            "height_mm": 164,
+            "water_cooled": False,
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "aio radiator count x fan size arithmetic",
+        "category": "aio",
+        "rows": {
+            "רדיאטורים": "3",
+            "מאוורר מובנה (ממ)": "120",
+        },
+        "expect_specs": {
+            "fan_count": 3,
+            "fan_size_mm": 120,
+            "radiator_size_mm": 360,
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "case Ivory front-matter rows",
+        "category": "case",
+        "rows": {
+            "מידות כ-": "W=220 H=486 D=467mm",
+            "תאימות ללוח": "Mini ITX Micro ATX",
+            "מקום לכוננים": '• כונן אחד HDD (3.5") • כונן אחד SSD (2.5")',
+            "חיבורים בקדמת המארז": "USB 3.0 x2, USB Type-C, אוזניות, מיקרופון",
+            "חלון צד": "כולל",
+            "ספק כח": "PS2 (ATX) / Mini Redundant (לא כלול)",
+            "גודל כרטיס מסך מקסימלי": '31 ס"מ',
+            "גובה קירור למעבד מקסימלי": '175 מ"מ',
+            "מאוורר קידמי": '2 מאווררי 12 ס"מ ARGB',
+            "מאוורר עליון": "3x 140mm",
+            "תאימות קירור נוזלי (רדיאטור)": 'עליון: 120 / 240 מ"מ',
+            "סוג תאורה": "ARGB",
+        },
+        "expect_specs": {
+            "dimensions_mm": "W=220 H=486 D=467mm",
+            "mb_form_factors": ["Mini ITX", "Micro ATX"],
+            "drive_bays_35": 1,
+            "drive_bays_25": 1,
+            "front_usb": ["USB 3.0", "USB (Type-C)", "Microphone", "Headphone"],
+            "side_panel": "Windowed",
+            "psu_included": "Not included",
+            "max_gpu_length_mm": 310,
+            "max_cooler_height_mm": 175,
+            "fan_front": "2 x 120 mm ARGB",
+            "fan_top": "3 x 140 mm",
+            "radiator_support": {"120 mm": 1, "240 mm": 1},
+            "lighting": "ARGB",
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "motherboard Ivory support cells expand to four fields",
+        "category": "motherboard",
+        "rows": {
+            "תמיכה בזכרון (RAM)": '4 סלוטים DDR5, תומכים עד 256GB סה"כ מהירות נתמכת עד 9200MT/s',
+            "תמיכה באחסון": "4x M.2 slots, 4x SATA 6Gb/s, RAID 0/1",
+            "גודל לוח": "ATX",
+            "חיבורי USB": "2 חיבורי USB 10Gbps (Type-A)",
+            "חיבורים בלוח האם (בגב המחשב)": "HDMI | DisplayPort",
+            "חיבורים פנימיים בלוח האם": "2x מחבר מאוורר, 1x מחבר USB 2.0",
+            "קישוריות Wi-Fi": "Wi-Fi 7",
+            "כרטיס רשת קווי (LAN)": "Realtek 2.5Gb Ethernet",
+            "כרטיס קול": "Realtek 7.1",
+        },
+        "expect_specs": {
+            "memory_slots": 4,
+            "memory_type": "DDR5",
+            "memory_max_gb": 256,
+            "memory_speeds": ["9200"],
+            "m2_slots": ["4"],
+            "sata_ports": 4,
+            "raid_support": True,
+            "form_factor": "ATX",
+            "onboard_video": "DisplayPort | HDMI",
+            "wireless": "Wi-Fi 7",
+        },
+        "expect_gaps": (),
+    },
+    {
+        # Ivory prints SATA ports as '2 חיבורי SATA 6G' (116 rows on disk) —
+        # the Hebrew spelling; only the English '4x SATA 6Gb/s' shape was
+        # parsed before Oct 2026, so every one of those cells shipped a null.
+        "name": "SATA ports in the Hebrew 'N חיבורי SATA' spelling",
+        "category": "motherboard",
+        "rows": {
+            "תמיכה באחסון": "מנוהל לוח אם • M.2_1 – PCIe 4.0 x4 2 חיבורי SATA 6G",
+        },
+        "expect_specs": {"sata_ports": 2},
+        "expect_gaps": (),
+    },
+    {
+        # Some boards list SATA ports in the internal-header cell instead.
+        "name": "SATA ports living in the internal-header cell",
+        "category": "motherboard",
+        "rows": {
+            "חיבורים פנימיים בלוח האם":
+                "4 חיבורי SATA, 2x מחבר מאוורר, 1x USB 3.2 Gen 1 header",
+        },
+        "expect_specs": {"sata_ports": 4, "fan_headers": 2, "usb32_gen1_headers": 1},
+        "expect_gaps": (),
+    },
+    {
+        # The count leads the word: 'SATA 6Gb/s' puts the number after it and a
+        # junk-drawer cell prints 'PCIe 4.0 x4 / SATA mode'. Neither is a count.
+        "name": "SATA shapes that are not port counts stay unparsed",
+        "category": "motherboard",
+        "rows": {"תמיכה באחסון": "SATA 6Gb/s support, M.2 (PCIe 4.0 x4 / SATA mode)"},
+        "expect_absent": ("sata_ports",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "English-order support cell never reads the DDR generation",
+        "category": "motherboard",
+        "rows": {
+            "תמיכה בזכרון (RAM)": "2 DDR5 slots, up to 128GB, up to 8200MT/s",
+        },
+        "expect_specs": {
+            "memory_slots": 2,
+            "memory_type": "DDR5",
+            "memory_max_gb": 128,
+            "memory_speeds": ["8200"],
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "motherboard x16 slot rows sum, x1 rows sum",
+        "category": "motherboard",
+        "rows": {
+            "PCI-E x16": "2",
+            "PCI-E x16 (x4) Slot": "1",
+            "PCI-E x1": "2",
+        },
+        "expect_specs": {
+            "pcie_x16_slots": 3,
+            "pcie_x1_slots": 2,
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "gpu 1PC grouped VRAM rows + counted outputs",
+        "category": "gpu",
+        "rows": {
+            "RAM / RAM Size": "16GB",
+            "RAM / RAM type": "GDDR7",
+            "סוג קירור": "3 מאווררים",
+            "יציאות תצוגה בכרטיס המסך": "1x HDMI 2.1b 3x DisplayPort 2.1b",
+            "חיבורי ספק כח": "1x16-pin",
+        },
+        "expect_specs": {
+            "memory_gb": 16,
+            "memory_type": "GDDR7",
+            "cooling": "Air",
+            "dp_outputs": {"DisplayPort": 3},
+            "hdmi_outputs": {"HDMI": 1},
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "case_fan Hebrew counts + connector + tolerance rpm",
+        "category": "case_fan",
+        "rows": {
+            "מספר מאווררים": "3-Pack",
+            "סוג חיבור": "4pin PWM",
+            "מהירות סיבוב": "400RPM ~ 1850RPM ±10%",
+            "גודל כ-": '12 ס"מ',
+        },
+        "expect_specs": {
+            "quantity": 3,
+            "connector": "4-pin",
+            "pwm": True,
+            "rpm_min": 400,
+            "rpm_max": 1850,
+            "size_mm": 120,
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "storage grouped cells",
+        "category": "storage",
+        "rows": {
+            "Storage memory": "TLC | 3D/V NAND",
+            "גודל פיזי": "M.2 2280",
+            "Spec / Interface Connectivity": "PCIe Gen 4.0 x4",
+        },
+        "expect_specs": {
+            "nand": "3D NAND",
+            "form_factor": "M.2-2280",
+            "interface": "PCIe Gen 4.0 x4",
+            "pcie_gen": 4,
+        },
+        "expect_gaps": (),
+    },
+    {
+        "name": "1PC network card cell routes per radio, never to ethernet whole",
+        "category": "motherboard",
+        "rows": {"Spec / Network Card": "Wi-Fi 6"},
+        "expect_specs": {"wireless": "Wi-Fi 6"},
+        "expect_absent": ("ethernet",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "unseen English spelling still reaches the curated key",
+        "category": "psu",
+        "rows": {"PCI Express connectors 8pin": "3"},
+        "expect_specs": {"pcie8_connectors": 3},
+        "expect_gaps": (),
+    },
+    {
+        "name": "case 1PC front-panel USB routes to front_usb",
+        "category": "case",
+        "rows": {"Spec / Interface Connectivity": "USB 3.2, USB-C"},
+        "expect_specs": {"front_usb": ["USB 3.2", "USB-C"]},
+        "expect_gaps": (),
+    },
 ]
 
 NEGATIVE_CASES = [
@@ -342,6 +608,26 @@ NEGATIVE_CASES = [
         "rows": {"יכולת מיוחדת": "טכנולוגיה"},
         "expect_absent": ("socket", "core_count"),
         "expect_gap": "יכולת מיוחדת",
+    },
+    {
+        "name": "a novel Hebrew label is never relaxed-guessed",
+        "category": "psu",
+        "rows": {"חיבורי סאטה": "5"},
+        "expect_absent": ("sata_connectors",),
+        "expect_gap": "חיבורי סאטה",
+    },
+    {
+        "name": "a bus-width cell is evidence, never a VRAM size",
+        "category": "gpu",
+        "rows": {"Storage / Storage Type": "512-bit"},
+        "expect_no_facts": True,
+    },
+    {
+        "name": "an RPM tolerance is stripped, never read as a range",
+        "category": "case_fan",
+        "rows": {"מהירות סיבוב": "1500RPM ±10%"},
+        "expect_specs": {"rpm_max": 1500},
+        "expect_absent": ("rpm_min",),
     },
     {
         "name": "warranty rows are bookkeeping, not specs and not gaps",
@@ -487,6 +773,45 @@ def check_chipset_and_efficiency(failures: list[str]) -> int:
     return checked
 
 
+def check_socket_canon(failures: list[str]) -> int:
+    """Socket spellings converge; junk never reaches the site (Oct 2026).
+
+    The 115X family shorthand arrives in three spellings and must filter as
+    one; cut fragments and typos ('\\\\ 1954') are dropped, never displayed.
+    """
+    from scraper.specs.canon import canon_socket, canon_socket_list
+    checked = 0
+    for raw, expected in (
+        ("115X", "LGA115X"),
+        ("LGA 115X", "LGA115X"),
+        ("LGA115X", "LGA115X"),
+        ("1851", "LGA1851"),
+        ("AM5", "AM5"),
+        ("AMD AM5 (LGA1718)", "AM5"),
+        ("sTR5", "sTR5"),
+        ("LGA2011-3", "LGA2011-3"),
+        ("", ""),
+    ):
+        checked += 1
+        actual = canon_socket(raw)
+        if actual != expected:
+            failures.append(f"canon_socket({raw!r}) = {actual!r}, expected {expected!r}")
+    for raw, expected in (
+        ("\\ 1954", ""),
+        ("1954", ""),
+        ("\\ 1851", "LGA1851"),
+    ):
+        checked += 1
+        actual = canon_socket(raw)
+        if actual != expected:
+            failures.append(f"canon_socket({raw!r}) = {actual!r}, expected {expected!r}")
+    checked += 1
+    actual = canon_socket_list("Intel LGA 115X/1200/1700/1851, AMD AM4/AM5")
+    if actual != ["LGA115X", "LGA1200", "LGA1700", "LGA1851", "AM4", "AM5"]:
+        failures.append(f"canon_socket_list group = {actual!r}")
+    return checked
+
+
 def check_template_fallbacks(failures: list[str]) -> int:
     checked = 0
     spider = TmsDetailSpider()
@@ -529,12 +854,12 @@ def check_category_awareness(failures: list[str]) -> int:
 
 
 def check_mapped_fields_exist(failures: list[str]) -> int:
-    """Every label in the vocabulary must point at a real field."""
+    """Every label in the vocabulary must point at a real field or action token."""
     checked = 0
     for category, table in labels.CATEGORY_LABELS.items():
         fields = schema.field_map(category)
         for label, target in table.items():
-            if target in labels.SPECIAL_TOKENS or target.startswith(labels.USB_COUNT_PREFIX):
+            if labels._is_token(target):
                 continue
             if target not in fields and target not in labels._FIELD_FALLBACKS:
                 failures.append(
@@ -552,6 +877,7 @@ def main() -> int:
     checked += check_category_awareness(failures)
     checked += check_mapped_fields_exist(failures)
     checked += check_chipset_and_efficiency(failures)
+    checked += check_socket_canon(failures)
 
     if failures:
         print(f"[tms-detail] FAIL — {len(failures)} mismatch(es):")

@@ -174,10 +174,11 @@
       "product_id": "sku:cooler_air:814256022132",
       "category": "cooler_air",
       "name": "Thermalright Peerless Assassin Vision MAX Black ARGB",
+      "_pins": "Oct 2026 coverage pass: Ivory prints 'מידות כ-: גובה 164 רוחב 110 עומק 125' (consistent across scrapes since Sep 2026), which the new DIMS_CELL mapping reads as height_mm 164. The previous 170 came from no surviving source (title has no height, Tier-0 has no entry) and was stale.",
       "expect": {
         "manufacturer": "Thermalright",
         "fan_rpm_max": 2150,
-        "height_mm": 170,
+        "height_mm": 164,
         "lighting": "ARGB",
         "color": "Black"
       },

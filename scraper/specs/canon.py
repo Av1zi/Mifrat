@@ -357,7 +357,13 @@ def _canon_socket_token(raw: str) -> str:
 
 
 def canon_socket(value) -> str:
-    """One spelling per socket: 'AMD AM5 (LGA1718)' -> 'AM5', '1851' -> 'LGA1851'."""
+    """One spelling per socket: 'AMD AM5 (LGA1718)' -> 'AM5', '1851' -> 'LGA1851'.
+
+    Unknown tokens return '' (the fact is dropped downstream): vendors print
+    splinters and typos ('\\\\ 1954', a cut fragment, not a socket), and a
+    wrong socket on the product page is worse than none. The Intel 115X
+    family shorthand ('115X', 'LGA 115X', 'LGA115X') converges to 'LGA115X'.
+    """
     text = re.sub(r"\s+", " ", str(value).strip()).upper()
     if not text:
         return text
@@ -369,6 +375,10 @@ def canon_socket(value) -> str:
         text = text[count.end():]
     text = _SOCKET_FILLER_RE.sub(" ", re.sub(r"\([^)]*\)", " ", text))
     text = re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"\bLGA\s?115\s?X\b", "LGA115X", text)
+    text = re.sub(r"\b115\s?X\b", "LGA115X", text)
+    if re.search(r"\bLGA115X\b", text):
+        return prefix + "LGA115X"
     variant = _SOCKET_LGA_VARIANT_RE.search(text)
     if variant and variant.group(1) in NUMERIC_SOCKET:
         return f"{prefix}LGA{variant.group(1)}-{variant.group(2)}"
@@ -378,7 +388,7 @@ def canon_socket(value) -> str:
     digits = re.search(r"\b(\d{3,4})\b", text)
     if digits and digits.group(1) in NUMERIC_SOCKET:
         return prefix + NUMERIC_SOCKET[digits.group(1)]
-    return prefix + text
+    return ""
 
 
 def canon_socket_list(value) -> list[str]:

@@ -100,6 +100,13 @@ jobs:
         # MPN as the model and flipped a product's identity key), validation
         # drops, and the value-equality helpers.
         run: python scripts/check_spec_merge.py
+      - name: Spec coverage floors (offline, Oct 2026 coverage pass)
+        # Anti-regression lock for the spec-coverage work: fail the job when
+        # label-gap rows exceed the budget, a category's fill drops below its
+        # floor, or a core compat field regresses. Floors come from the
+        # post-fix baseline (see the script header); update them in the same
+        # commit when the catalog genuinely changes shape, never silently.
+        run: python scripts/check_spec_coverage.py
       - name: Photo pipeline regressions (offline, Sep 2026)
         # Candidate derivation, scoring/picking, the refetch rule and
         # site-side resolution — all offline, no network, no real corpus.
