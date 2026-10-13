@@ -3,11 +3,33 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:127415",
+    "listing_b": "ivory:72257",
+    "title_a": "מעבד AMD Ryzen 7 7700X AM5 צבע לא ידוע",
+    "title_b": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
+    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5",
+    "match_text_b": "100-000000591 AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:127416",
+    "listing_b": "tms:100-000000589",
+    "title_a": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
+    "title_b": "AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5",
+    "match_text_b": "100-000000589 AMD Ryzen 9 7900X AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:154854",
     "listing_b": "ivory:126060",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray Processor.",
+    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
     "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray Processor.",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
     "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
   },
   {
@@ -16,9 +38,9 @@
     "brand": "AMD",
     "listing_a": "1pc:154854",
     "listing_b": "tms:100-000000597",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray Processor.",
+    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
     "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray Processor.",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
     "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
   },
   {
@@ -27,10 +49,21 @@
     "brand": "AMD",
     "listing_a": "1pc:155626",
     "listing_b": "tms:100-000000592",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray Processor.",
+    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
     "title_b": "AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray Processor.",
+    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
     "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155797",
+    "listing_b": "tms:100-000000651",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
+    "title_b": "AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_b": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray"
   },
   {
     "score": 100,
@@ -38,9 +71,9 @@
     "brand": "AMD",
     "listing_a": "1pc:163368",
     "listing_b": "tms:100-000000927",
-    "title_a": "AMD Ryzen 5 5600 AM4 Tray Processor.",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray Processor.",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
   },
   {
@@ -49,9 +82,9 @@
     "brand": "AMD",
     "listing_a": "1pc:164657",
     "listing_b": "tms:100-100000651WOF",
-    "title_a": "AMD Ryzen 7 5800X3D AM4 Box Processor.",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Box",
     "title_b": "AMD Ryzen 7 5800X3D AM4 Box",
-    "match_text_a": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box Processor.",
+    "match_text_a": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box",
     "match_text_b": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box"
   },
   {
@@ -60,9 +93,9 @@
     "brand": "AMD",
     "listing_a": "1pc:188423",
     "listing_b": "ivory:154048",
-    "title_a": "AMD Ryzen 5 8400F AM5 Tray processor.",
+    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
     "title_b": "מעבד AMD Ryzen 5 8400F Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray processor.",
+    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
     "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
   },
   {
@@ -71,9 +104,9 @@
     "brand": "AMD",
     "listing_a": "1pc:188423",
     "listing_b": "tms:100-000001591",
-    "title_a": "AMD Ryzen 5 8400F AM5 Tray processor.",
+    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
     "title_b": "AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray processor.",
+    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
     "match_text_b": "100-000001591 AMD Ryzen 5 8400F AM5 Tray"
   },
   {
@@ -82,10 +115,43 @@
     "brand": "AMD",
     "listing_a": "1pc:207742",
     "listing_b": "tms:100-000001590",
-    "title_a": "AMD Ryzen 7 8700F AM5 Tray processor.",
+    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
     "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray processor.",
+    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
     "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:214851",
+    "listing_b": "tms:100-000001183",
+    "title_a": "מעבד AMD Ryzen™ 5 PRO 8500G AM5 עם גרפיקה מובנית Tray",
+    "title_b": "AMD Ryzen 5 PRO 8500G AM5 Tray",
+    "match_text_a": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 Tray",
+    "match_text_b": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:215496",
+    "listing_b": "tms:100-000001504",
+    "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
+    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:218573",
+    "listing_b": "tms:100-000000743",
+    "title_a": "מעבד AMD Ryzen 7 5700 AM4 Tray",
+    "title_b": "AMD Ryzen 7 5700 AM4 Tray",
+    "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
+    "match_text_b": "100-000000743 AMD Ryzen 7 5700 AM4 Tray"
   },
   {
     "score": 100,
@@ -122,11 +188,66 @@
   },
   {
     "score": 100,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:221402",
+    "listing_b": "tms:NE1000P",
+    "title_a": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular NE1000P",
+    "title_b": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
+    "match_text_a": "221402 ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular NE1000P",
+    "match_text_b": "NE1000P ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular"
+  },
+  {
+    "score": 100,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:221403",
+    "listing_b": "tms:NE1200P",
+    "title_a": "ANTEC NE1200 NeoECO PSU 1200W ATX3.1 Platinum Full Modular NE1200P",
+    "title_b": "ANTEC PSU 1200W NE1200 NeoECO ATX3.1 Platinum Full Modular",
+    "match_text_a": "221403 ANTEC NE1200 NeoECO PSU 1200W ATX3.1 Platinum Full Modular NE1200P",
+    "match_text_b": "NE1200P ANTEC PSU 1200W NE1200 NeoECO ATX3.1 Platinum Full Modular"
+  },
+  {
+    "score": 100,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221505",
+    "listing_b": "tms:GB550AORUSEWF7",
+    "title_a": "לוח אם Gigabyte B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
+    "title_b": "לוח אם Gigabyte B550 AORUS ELITE WiFi7",
+    "match_text_a": "221505 Gigabyte B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
+    "match_text_b": "GB550AORUSEWF7 Gigabyte B550 AORUS ELITE WiFi7"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:102820",
+    "listing_b": "tms:C10105FT",
+    "title_a": "מעבד Intel Core i3 10105F צבע טרי",
+    "title_b": "Intel Core i3 10105F / 1200 Tray",
+    "match_text_a": "C10105FT Intel Core i3 10105F",
+    "match_text_b": "C10105FT Intel Core i3 10105F / 1200 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:109579",
+    "listing_b": "tms:C12700FB",
+    "title_a": "מעבד Intel Core i7 12700F צבע שחור",
+    "title_b": "Intel Core i7 12700F / 1700 Box",
+    "match_text_a": "C12700FB Intel Core i7 12700F",
+    "match_text_b": "C12700FB Intel Core i7 12700F / 1700 Box"
+  },
+  {
+    "score": 100,
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "1pc:131314",
     "listing_b": "tms:C12400FT",
-    "title_a": "Intel Core i5 12400F / 1700 - Tray",
+    "title_a": "מעבד Intel Core i5 12400F / 1700 - Tray",
     "title_b": "Intel Core i5 12400F / 1700 Tray",
     "match_text_a": "C12400FT Intel Core i5 12400F / 1700 - Tray",
     "match_text_b": "C12400FT Intel Core i5 12400F / 1700 Tray"
@@ -137,7 +258,7 @@
     "brand": "Intel",
     "listing_a": "1pc:152181",
     "listing_b": "tms:C14600KT",
-    "title_a": "Intel Core i5 14600K / 1700 Tray",
+    "title_a": "מעבד Intel Core i5 14600K / 1700 Tray",
     "title_b": "Intel Core i5 14600K / 1700 Tray",
     "match_text_a": "C14600KT Intel Core i5 14600K / 1700 Tray",
     "match_text_b": "C14600KT Intel Core i5 14600K / 1700 Tray"
@@ -148,9 +269,9 @@
     "brand": "Intel",
     "listing_a": "1pc:152187",
     "listing_b": "tms:C14700KFT",
-    "title_a": "Intel Core i7 14700KF / 1700 Tray Processor.",
+    "title_a": "מעבד Intel Core i7 14700KF / 1700 Tray",
     "title_b": "Intel Core i7 14700KF / 1700 Tray",
-    "match_text_a": "C14700KFT Intel Core i7 14700KF / 1700 Tray Processor.",
+    "match_text_a": "C14700KFT Intel Core i7 14700KF / 1700 Tray",
     "match_text_b": "C14700KFT Intel Core i7 14700KF / 1700 Tray"
   },
   {
@@ -159,9 +280,9 @@
     "brand": "Intel",
     "listing_a": "1pc:152189",
     "listing_b": "tms:C14900KT",
-    "title_a": "Intel Core i9 14900K / 1700 Tray processor.",
+    "title_a": "מעבד Intel Core i9 14900K / 1700 Tray",
     "title_b": "Intel Core i9 14900K / 1700 Tray",
-    "match_text_a": "C14900KT Intel Core i9 14900K / 1700 Tray processor.",
+    "match_text_a": "C14900KT Intel Core i9 14900K / 1700 Tray",
     "match_text_b": "C14900KT Intel Core i9 14900K / 1700 Tray"
   },
   {
@@ -170,9 +291,9 @@
     "brand": "Intel",
     "listing_a": "1pc:152191",
     "listing_b": "tms:C14900KFT",
-    "title_a": "Intel Core i9 14900KF / 1700 Tray processor.",
+    "title_a": "מעבד Intel Core i9 14900KF / 1700 Tray",
     "title_b": "Intel Core i9 14900KF / 1700 Tray",
-    "match_text_a": "C14900KFT Intel Core i9 14900KF / 1700 Tray processor.",
+    "match_text_a": "C14900KFT Intel Core i9 14900KF / 1700 Tray",
     "match_text_b": "C14900KFT Intel Core i9 14900KF / 1700 Tray"
   },
   {
@@ -181,9 +302,9 @@
     "brand": "Intel",
     "listing_a": "1pc:157389",
     "listing_b": "tms:C14100T",
-    "title_a": "Intel Core i3 14100 / 1700 Tray Processor.",
+    "title_a": "מעבד Intel Core i3 14100 / 1700 Tray",
     "title_b": "Intel Core i3 14100 / 1700 Tray",
-    "match_text_a": "C14100T Intel Core i3 14100 / 1700 Tray Processor.",
+    "match_text_a": "C14100T Intel Core i3 14100 / 1700 Tray",
     "match_text_b": "C14100T Intel Core i3 14100 / 1700 Tray"
   },
   {
@@ -192,9 +313,9 @@
     "brand": "Intel",
     "listing_a": "1pc:157391",
     "listing_b": "tms:C14400T",
-    "title_a": "Intel Core i5 14400 / 1700 Tray Processor.",
+    "title_a": "מעבד Intel Core i5 14400 / 1700 Tray",
     "title_b": "Intel Core i5 14400 / 1700 Tray",
-    "match_text_a": "C14400T Intel Core i5 14400 / 1700 Tray Processor.",
+    "match_text_a": "C14400T Intel Core i5 14400 / 1700 Tray",
     "match_text_b": "C14400T Intel Core i5 14400 / 1700 Tray"
   },
   {
@@ -203,7 +324,7 @@
     "brand": "Intel",
     "listing_a": "1pc:160800",
     "listing_b": "tms:C14900KST",
-    "title_a": "Intel Core i9 14900KS / 1700 Tray",
+    "title_a": "מעבד Intel Core i9 14900KS / 1700 Tray",
     "title_b": "Intel Core i9 14900KS / 1700 Tray",
     "match_text_a": "C14900KST Intel Core i9 14900KS / 1700 Tray",
     "match_text_b": "C14900KST Intel Core i9 14900KS / 1700 Tray"
@@ -214,10 +335,43 @@
     "brand": "Intel",
     "listing_a": "1pc:178028",
     "listing_b": "tms:C245T",
-    "title_a": "Intel Core Ultra 5 245 / 1851 Tray processor.",
+    "title_a": "מעבד Intel Core Ultra 5 245 / 1851 Tray",
     "title_b": "Intel Core Ultra 5 245 / 1851 Tray",
-    "match_text_a": "C245T Intel Core Ultra 5 245 / 1851 Tray processor.",
+    "match_text_a": "C245T Intel Core Ultra 5 245 / 1851 Tray",
     "match_text_b": "C245T Intel Core Ultra 5 245 / 1851 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:189654",
+    "listing_b": "tms:C225FT",
+    "title_a": "מעבד Intel Core Ultra 5 225F דגם 1851",
+    "title_b": "Intel Core Ultra 5 225F / 1851 Tray",
+    "match_text_a": "C225FT Intel Core Ultra 5 225F 1851",
+    "match_text_b": "C225FT Intel Core Ultra 5 225F / 1851 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:189655",
+    "listing_b": "tms:C245KFT",
+    "title_a": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
+    "title_b": "Intel Core Ultra 5 245KF / 1851 Tray",
+    "match_text_a": "C245KFT Intel Core Ultra 5 245KF 1851",
+    "match_text_b": "C245KFT Intel Core Ultra 5 245KF / 1851 Tray"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:121876",
+    "listing_b": "tms:FLUX",
+    "title_a": "מארז מחשב Antec DP502 FLUX בצבע לבן",
+    "title_b": "מארז מחשב Antec FLUX",
+    "match_text_a": "0-761345-80051-8 Antec DP502 FLUX",
+    "match_text_b": "FLUX Antec FLUX"
   },
   {
     "score": 100,
@@ -225,9 +379,9 @@
     "brand": "Antec",
     "listing_a": "1pc:157901",
     "listing_b": "tms:C8",
-    "title_a": "Antec C8 Case.",
+    "title_a": "מארז Antec C8 Case",
     "title_b": "מארז מחשב Antec C8",
-    "match_text_a": "C8 Antec C8 Case.",
+    "match_text_a": "C8 Antec C8 Case",
     "match_text_b": "C8 Antec C8"
   },
   {
@@ -236,9 +390,9 @@
     "brand": "Antec",
     "listing_a": "1pc:157902",
     "listing_b": "tms:C8",
-    "title_a": "Antec C8 White Case C8W.",
+    "title_a": "מארז Antec C8 White Case C8W",
     "title_b": "מארז מחשב Antec C8",
-    "match_text_a": "C8W Antec C8 White Case C8W.",
+    "match_text_a": "C8W Antec C8 White Case C8W",
     "match_text_b": "C8 Antec C8"
   },
   {
@@ -247,9 +401,9 @@
     "brand": "Antec",
     "listing_a": "1pc:157902",
     "listing_b": "tms:C8W",
-    "title_a": "Antec C8 White Case C8W.",
+    "title_a": "מארז Antec C8 White Case C8W",
     "title_b": "מארז מחשב Antec C8 White",
-    "match_text_a": "C8W Antec C8 White Case C8W.",
+    "match_text_a": "C8W Antec C8 White Case C8W",
     "match_text_b": "C8W Antec C8 White"
   },
   {
@@ -258,9 +412,9 @@
     "brand": "Antec",
     "listing_a": "1pc:165970",
     "listing_b": "tms:C8",
-    "title_a": "Antec C8 ARGB C8ARGB computer case.",
+    "title_a": "מארז מחשב Antec C8 ARGB C8ARGB",
     "title_b": "מארז מחשב Antec C8",
-    "match_text_a": "C8ARGB Antec C8 ARGB C8ARGB computer case.",
+    "match_text_a": "C8ARGB Antec C8 ARGB C8ARGB",
     "match_text_b": "C8 Antec C8"
   },
   {
@@ -269,10 +423,43 @@
     "brand": "Antec",
     "listing_a": "1pc:167982",
     "listing_b": "tms:C8",
-    "title_a": "Antec C8 Wood computer case.",
+    "title_a": "מארז מחשב Antec C8 Wood",
     "title_b": "מארז מחשב Antec C8",
-    "match_text_a": "C8WOOD Antec C8 Wood computer case.",
+    "match_text_a": "C8WOOD Antec C8 Wood",
     "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:171575",
+    "listing_b": "tms:FLUX",
+    "title_a": "מארז מחשב Antec FLUX PRO White",
+    "title_b": "מארז מחשב Antec FLUX",
+    "match_text_a": "FLUX-PRO-W Antec FLUX PRO White",
+    "match_text_b": "FLUX Antec FLUX"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:171576",
+    "listing_b": "tms:FLUX",
+    "title_a": "מארז מחשב Antec FLUX PRO",
+    "title_b": "מארז מחשב Antec FLUX",
+    "match_text_a": "FLUX-PRO Antec FLUX PRO",
+    "match_text_b": "FLUX Antec FLUX"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:171577",
+    "listing_b": "tms:FLUX",
+    "title_a": "מארז מחשב Antec FLUX White",
+    "title_b": "מארז מחשב Antec FLUX",
+    "match_text_a": "FLUX-W Antec FLUX White",
+    "match_text_b": "FLUX Antec FLUX"
   },
   {
     "score": 100,
@@ -280,10 +467,21 @@
     "brand": "Antec",
     "listing_a": "1pc:174943",
     "listing_b": "tms:C8",
-    "title_a": "Antec C8 Curve Wood Computer Case.",
+    "title_a": "מארז מחשב Antec C8 Curve Wood",
     "title_b": "מארז מחשב Antec C8",
-    "match_text_a": "C8CURVEWOOD Antec C8 Curve Wood Computer Case.",
+    "match_text_a": "C8CURVEWOOD Antec C8 Curve Wood",
     "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:212106",
+    "listing_b": "tms:FLUX",
+    "title_a": "מארז מחשב Antec FLUX REAR",
+    "title_b": "מארז מחשב Antec FLUX",
+    "match_text_a": "FLUXREAR Antec FLUX REAR",
+    "match_text_b": "FLUX Antec FLUX"
   },
   {
     "score": 100,
@@ -291,9 +489,9 @@
     "brand": "Antec",
     "listing_a": "1pc:214249",
     "listing_b": "tms:P7S",
-    "title_a": "Antec P7 Silent computer case in black color.",
+    "title_a": "מארז מחשב Antec P7 Silent בצבע שחור",
     "title_b": "מארז מחשב Antec P7S",
-    "match_text_a": "P7S Antec P7 Silent computer case in black color.",
+    "match_text_a": "P7S Antec P7 Silent",
     "match_text_b": "P7S Antec P7S"
   },
   {
@@ -367,11 +565,44 @@
     "category": "case",
     "brand": "Antec",
     "listing_a": "tms:FLUX",
+    "listing_b": "tms:FLUX-PRO",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז מחשב Antec FLUX PRO",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-PRO Antec FLUX PRO"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "tms:FLUX-PRO-W",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז מחשב Antec FLUX PRO White",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-PRO-W Antec FLUX PRO White"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
     "listing_b": "tms:FLUX-SE",
     "title_a": "מארז מחשב Antec FLUX",
     "title_b": "מארז מחשב Antec FLUX SE",
     "match_text_a": "FLUX Antec FLUX",
     "match_text_b": "FLUX-SE Antec FLUX SE"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "tms:FLUX-W",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז מחשב Antec FLUX White",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-W Antec FLUX White"
   },
   {
     "score": 100,
@@ -387,12 +618,34 @@
   {
     "score": 100,
     "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "tms:FLUXREAR",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז מחשב Antec FLUX REAR",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUXREAR Antec FLUX REAR"
+  },
+  {
+    "score": 100,
+    "category": "aio",
+    "brand": "Antec",
+    "listing_a": "1pc:221407",
+    "listing_b": "tms:ULTRA360ARGB-W",
+    "title_a": "קירור נוזלי למעבד Antec Ultra 360 ARGB לבן ULTRA360ARGB-W",
+    "title_b": "קירור נוזלי למעבד Antec Ultra 360 ARGB לבן",
+    "match_text_a": "221407 Antec Ultra 360 ARGB ULTRA360ARGB-W",
+    "match_text_b": "ULTRA360ARGB-W Antec Ultra 360 ARGB"
+  },
+  {
+    "score": 100,
+    "category": "case",
     "brand": "Lian Li",
     "listing_a": "1pc:180224",
     "listing_b": "tms:A3X",
-    "title_a": "Lian-Li A3 Black A3X computer case.",
+    "title_a": "מארז מחשב Lian-Li A3 Black A3X",
     "title_b": "מארז מחשב Lian-Li A3 Black",
-    "match_text_a": "A3X Lian-Li A3 Black A3X computer case.",
+    "match_text_a": "A3X Lian-Li A3 Black A3X",
     "match_text_b": "A3X Lian-Li A3 Black"
   },
   {
@@ -401,10 +654,175 @@
     "brand": "Lian Li",
     "listing_a": "1pc:180225",
     "listing_b": "tms:A3W",
-    "title_a": "Lian-Li A3 White A3W Computer Case.",
+    "title_a": "מארז מחשב Lian-Li A3 White A3W",
     "title_b": "מארז מחשב Lian-Li A3 White",
-    "match_text_a": "A3W Lian-Li A3 White A3W Computer Case.",
+    "match_text_a": "A3W Lian-Li A3 White A3W",
     "match_text_b": "A3W Lian-Li A3 White"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:219287",
+    "listing_b": "tms:B4W",
+    "title_a": "מארז Lian-Li B4 Mesh בצבע לבן",
+    "title_b": "Lian-Li B4 Mesh White Case",
+    "match_text_a": "B4W Lian-Li B4 Mesh",
+    "match_text_b": "B4W Lian-Li B4 Mesh White Case"
+  },
+  {
+    "score": 100,
+    "category": "storage",
+    "brand": "Crucial",
+    "listing_a": "1pc:221457",
+    "listing_b": "tms:CT1000E100SSD8-T",
+    "title_a": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
+    "title_b": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 NVMe M.2 SSD Bulk",
+    "match_text_a": "221457 Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
+    "match_text_b": "CT1000E100SSD8-T Crucial 1TB E100 PCIe 4.0 Gen4 2280 NVMe M.2 SSD Bulk"
+  },
+  {
+    "score": 100,
+    "category": "memory",
+    "brand": "Samsung",
+    "listing_a": "1pc:221510",
+    "listing_b": "tms:M333R4GA3EB1-CCP",
+    "title_a": "Samsung DDR5 32GB 6400 CL52 CUDIMM M333R4GA3EB1-CCP",
+    "title_b": "Samsung DDR5 32GB 6400 CL52 CUDIMM",
+    "match_text_a": "221510 Samsung DDR5 32GB 6400 CL52 CUDIMM M333R4GA3EB1-CCP",
+    "match_text_b": "M333R4GA3EB1-CCP Samsung DDR5 32GB 6400 CL52 CUDIMM"
+  },
+  {
+    "score": 100,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:221408",
+    "listing_b": "tms:CP-9020336-EU",
+    "title_a": "ספק כוח Corsair RM850e ‏850W ATX 3.1 Cybenetics Platinum מודולרי מלא CP-9020336-EU",
+    "title_b": "ספק כוח Corsair RM850e ‏850W ATX 3.1 Cybenetics Platinum מודולרי מלא",
+    "match_text_a": "221408 Corsair RM850e 850W ATX 3.1 Cybenetics Platinum CP-9020336-EU",
+    "match_text_b": "CP-9020336-EU Corsair RM850e 850W ATX 3.1 Cybenetics Platinum"
+  },
+  {
+    "score": 100,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:221409",
+    "listing_b": "tms:CP-9020337-EU",
+    "title_a": "ספק כוח Corsair RM1000e ‏1000W ATX 3.1 Cybenetics Platinum מודולרי מלא CP-9020337-EU",
+    "title_b": "ספק כוח Corsair RM1000e ‏1000W ATX 3.1 Cybenetics Platinum מודולרי מלא",
+    "match_text_a": "221409 Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum CP-9020337-EU",
+    "match_text_b": "CP-9020337-EU Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum"
+  },
+  {
+    "score": 100,
+    "category": "gpu",
+    "brand": "Palit",
+    "listing_a": "1pc:221415",
+    "listing_b": "tms:NE63060U19K9-PG190L",
+    "title_a": "RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
+    "title_b": "Palit RTX 3060 Infinity 2 OC 12GB",
+    "match_text_a": "221415 RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
+    "match_text_b": "NE63060U19K9-PG190L Palit RTX 3060 Infinity 2 OC 12GB"
+  },
+  {
+    "score": 100,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221528",
+    "listing_b": "tms:KD5AGUA80-60B280V",
+    "title_a": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black KD5AGUA80-60B280V",
+    "title_b": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black",
+    "match_text_a": "221528 Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black KD5AGUA80-60B280V",
+    "match_text_b": "KD5AGUA80-60B280V Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black"
+  },
+  {
+    "score": 98,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222389",
+    "listing_b": "1pc:222398",
+    "title_a": "ספק כוח Corsair RM750e RMe Series - 750W - Fully Modular לבן",
+    "title_b": "ספק כוח Corsair RM750e RMe Series - 750W Fully Modular",
+    "match_text_a": "222389 Corsair RM750e RMe Series - 750W - Fully Modular",
+    "match_text_b": "222398 Corsair RM750e RMe Series - 750W Fully Modular"
+  },
+  {
+    "score": 98,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222390",
+    "listing_b": "1pc:222399",
+    "title_a": "ספק כוח Corsair RM850e RMe Series - 850W - Fully Modular לבן",
+    "title_b": "ספק כוח Corsair RM850e RMe Series - 850W Fully Modular",
+    "match_text_a": "222390 Corsair RM850e RMe Series - 850W - Fully Modular",
+    "match_text_b": "222399 Corsair RM850e RMe Series - 850W Fully Modular"
+  },
+  {
+    "score": 97,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:221842",
+    "listing_b": "1pc:221844",
+    "title_a": "מארז מחשב דגם 2800X RS-R ARGB Micro-ATX בצבע שחור מבית CORSAIR",
+    "title_b": "מארז מחשב דגם 2800X RS-R ARGB Micro-ATX בצבע לבן מבית CORSAIR",
+    "match_text_a": "221842 2800X RS-R ARGB Micro-ATX CORSAIR",
+    "match_text_b": "221844 2800X RS-R ARGB Micro-ATX CORSAIR"
+  },
+  {
+    "score": 97,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "1pc:222408",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "222408 Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 97,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222414",
+    "listing_b": "1pc:222415",
+    "title_a": "מארז מחשב Corsair FRAME 4000D - Mid-Tower שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D - Mid-Tower לבן",
+    "match_text_a": "222414 Corsair FRAME 4000D - Mid-Tower",
+    "match_text_b": "222415 Corsair FRAME 4000D - Mid-Tower"
+  },
+  {
+    "score": 97,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "1pc:222419",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "222419 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 97,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 97,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
   },
   {
     "score": 96,
@@ -418,14 +836,36 @@
     "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
   },
   {
+    "score": 96,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221790",
+    "listing_b": "1pc:221793",
+    "title_a": "קירור נוזלי למעבד NAUTILUS 240 RS ARGB – שחור",
+    "title_b": "קירור נוזלי למעבד NAUTILUS 240 RS ARGB – לבן",
+    "match_text_a": "221790 NAUTILUS 240 RS ARGB",
+    "match_text_b": "221793 NAUTILUS 240 RS ARGB"
+  },
+  {
+    "score": 96,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222326",
+    "listing_b": "1pc:222327",
+    "title_a": "כונן SSD SanDisk Optimus GX 7100 NVMe 1TB",
+    "title_b": "כונן SSD SanDisk NVMe Optimus GX 7100M 1TB",
+    "match_text_a": "222326 SSD SanDisk Optimus GX 7100 NVMe 1TB",
+    "match_text_b": "222327 SSD SanDisk NVMe Optimus GX 7100M 1TB"
+  },
+  {
     "score": 95,
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:215497",
     "listing_b": "tms:100-000001978",
-    "title_a": "Processor AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
+    "title_a": "מעבד AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
     "title_b": "AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray",
-    "match_text_a": "100-000001978 Processor AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
+    "match_text_a": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
     "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray"
   },
   {
@@ -451,14 +891,36 @@
     "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
   },
   {
+    "score": 95,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:157270",
+    "listing_b": "tms:C14700FT",
+    "title_a": "מעבד Intel i7 14700F/1700 Core Tray",
+    "title_b": "Intel Core i7 14700F / 1700 Tray",
+    "match_text_a": "C14700FT Intel i7 14700F/1700 Core Tray",
+    "match_text_b": "C14700FT Intel Core i7 14700F / 1700 Tray"
+  },
+  {
+    "score": 95,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:221405",
+    "listing_b": "1pc:221406",
+    "title_a": "מארז Antec C6 WOOD שחור",
+    "title_b": "מארז Antec C6 WOOD לבן",
+    "match_text_a": "221405 Antec C6 WOOD",
+    "match_text_b": "221406 Antec C6 WOOD"
+  },
+  {
     "score": 94,
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:215082",
     "listing_b": "tms:100-100000718BOX",
-    "title_a": "Processor AMD Ryzen™ 5 9600 AM5 BOX with Wraith Stealth cooler.",
+    "title_a": "מעבד מעבד AMD Ryzen™ 5 9600 AM5 BOX עם קירור Wraith Stealth",
     "title_b": "AMD Ryzen 5 9600 AM5 Box",
-    "match_text_a": "100-100000718BOX Processor AMD Ryzen 5 9600 AM5 BOX with Wraith Stealth cooler.",
+    "match_text_a": "100-100000718BOX AMD Ryzen 5 9600 AM5 BOX Wraith Stealth",
     "match_text_b": "100-100000718BOX AMD Ryzen 5 9600 AM5 Box"
   },
   {
@@ -467,9 +929,9 @@
     "brand": "AMD",
     "listing_a": "1pc:215497",
     "listing_b": "ivory:161527",
-    "title_a": "Processor AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
+    "title_a": "מעבד AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
     "title_b": "מעבד AMD Ryzen 9 9950X3D2 Dual Edition Tray",
-    "match_text_a": "100-000001978 Processor AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX.",
+    "match_text_a": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
     "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Tray"
   },
   {
@@ -517,15 +979,37 @@
     "match_text_b": "0-761345-10240-7 Antec AX1000 ARGB"
   },
   {
+    "score": 94,
+    "category": "memory",
+    "brand": "GeIL",
+    "listing_a": "1pc:221504",
+    "listing_b": "tms:GAMSG532GB5600C38ADC",
+    "title_a": "זיכרון GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition אפור",
+    "title_b": "זיכרון GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition אפור",
+    "match_text_a": "221504 GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition",
+    "match_text_b": "GAMSG532GB5600C38ADC GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221536",
+    "listing_b": "1pc:221538",
+    "title_a": "זיכרון Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black",
+    "title_b": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
+    "match_text_a": "221536 Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black",
+    "match_text_b": "221538 Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black"
+  },
+  {
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:127416",
-    "listing_b": "tms:100-000000589",
-    "title_a": "AMD Ryzen 9 7900X AM5 processor, fresh color.",
-    "title_b": "AMD Ryzen 9 7900X AM5 Tray",
-    "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5 processor fresh color.",
-    "match_text_b": "100-000000589 AMD Ryzen 9 7900X AM5 Tray"
+    "listing_b": "ivory:109844",
+    "title_a": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
+    "title_b": "מעבד AMD Ryzen 9 7900X 4.7GHz Tray",
+    "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5",
+    "match_text_b": "100-000000589 AMD Ryzen 9 7900X 4.7GHz Tray"
   },
   {
     "score": 93,
@@ -533,32 +1017,21 @@
     "brand": "AMD",
     "listing_a": "1pc:169701",
     "listing_b": "tms:100-000001405",
-    "title_a": "AMD Ryzen™ 5 9600X AM5 Processor - TRAY.",
+    "title_a": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
     "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Processor - TRAY.",
+    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 - TRAY",
     "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
   },
   {
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:214851",
-    "listing_b": "tms:100-000001183",
-    "title_a": "AMD Ryzen™ 5 PRO 8500G AM5 processor with integrated graphics Tray.",
-    "title_b": "AMD Ryzen 5 PRO 8500G AM5 Tray",
-    "match_text_a": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 processor with integrated graphics Tray.",
-    "match_text_b": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 Tray"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215496",
-    "listing_b": "tms:100-000001504",
-    "title_a": "Processor AMD Ryzen 5 5500X3D AM4 Tray.",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000001504 Processor AMD Ryzen 5 5500X3D AM4 Tray.",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+    "listing_a": "1pc:92773",
+    "listing_b": "tms:100-000000158",
+    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
   },
   {
     "score": 93,
@@ -603,6 +1076,171 @@
     "title_b": "AMD Ryzen Threadripper PRO 7965WX 24-core Tray",
     "match_text_a": "100-000000454 AMD Ryzen Threadripper PRO 7985WX 64-core Tray",
     "match_text_b": "100-000000885 AMD Ryzen Threadripper PRO 7965WX 24-core Tray"
+  },
+  {
+    "score": 93,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:221404",
+    "listing_b": "tms:GSK750V2",
+    "title_a": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
+    "title_b": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
+    "match_text_a": "221404 Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
+    "match_text_b": "GSK750V2 Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:216287",
+    "listing_b": "tms:C250KPLUST",
+    "title_a": "מעבד Intel® Core™ Ultra 5 250K Plus תושבת FCLGA1851 -  Tray",
+    "title_b": "Intel Core Ultra 5 250K Plus / 1851 Tray",
+    "match_text_a": "C250KPLUST Intel Core Ultra 5 250K Plus FCLGA1851 - Tray",
+    "match_text_b": "C250KPLUST Intel Core Ultra 5 250K Plus / 1851 Tray"
+  },
+  {
+    "score": 93,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221523",
+    "listing_b": "tms:CW-9061037-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
+  },
+  {
+    "score": 93,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222424",
+    "listing_b": "tms:CP-9020309-EU",
+    "title_a": "ספק כוח Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
+    "title_b": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "match_text_a": "222424 Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
+    "match_text_b": "CP-9020309-EU Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular"
+  },
+  {
+    "score": 93,
+    "category": "case",
+    "brand": "GAMDIAS",
+    "listing_a": "1pc:222502",
+    "listing_b": "1pc:222503",
+    "title_a": "מארז מחשב Gamdias AURA GC9M ELITE ARGB",
+    "title_b": "מארז מחשב Gamdias AURA GC9M ELITE WH ARGB",
+    "match_text_a": "222502 Gamdias AURA GC9M ELITE ARGB",
+    "match_text_b": "222503 Gamdias AURA GC9M ELITE WH ARGB"
+  },
+  {
+    "score": 93,
+    "category": "gpu",
+    "brand": "Palit",
+    "listing_a": "1pc:221415",
+    "listing_b": "ivory:175102",
+    "title_a": "RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
+    "title_b": "כרטיס מסך Palit GeForce RTX 3060 Infinity 2 OC 12GB",
+    "match_text_a": "221415 RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
+    "match_text_b": "NE63060U19K9-PG190L Palit GeForce RTX 3060 Infinity 2 OC 12GB"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "GeIL",
+    "listing_a": "1pc:222243",
+    "listing_b": "1pc:222244",
+    "title_a": "זיכרון למחשב נייח GeIL ORION DDR4 16GB (2x8GB) 3200 CL16 אפור",
+    "title_b": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
+    "match_text_a": "222243 GeIL ORION DDR4 16GB (2x8GB) 3200 CL16",
+    "match_text_b": "222244 GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221535",
+    "listing_b": "tms:KD5AGUA80-60A300J",
+    "title_a": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL30 CRAS V RGB White",
+    "title_b": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL30 CRAS V RGB White",
+    "match_text_a": "221535 Klevv DDR5 32GB (2x16GB) 6000 CL30 CRAS V RGB White",
+    "match_text_b": "KD5AGUA80-60A300J Klevv DDR5 32GB (2x16GB) 6000 CL30 CRAS V RGB White"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221536",
+    "listing_b": "tms:KD5BGUA80-60A300G",
+    "title_a": "זיכרון Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black",
+    "title_b": "זיכרון Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black",
+    "match_text_a": "221536 Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black",
+    "match_text_b": "KD5BGUA80-60A300G Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221538",
+    "listing_b": "tms:KD5BGUA80-64A320G",
+    "title_a": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
+    "title_b": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
+    "match_text_a": "221538 Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
+    "match_text_b": "KD5BGUA80-64A320G Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:112622",
+    "listing_b": "tms:100-000000927",
+    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
+    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-000000457",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:187970",
+    "listing_b": "tms:100-000000908",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:188423",
+    "listing_b": "tms:100-000001590",
+    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
+    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
+    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:215496",
+    "listing_b": "tms:100-000001904",
+    "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
+    "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
   },
   {
     "score": 92,
@@ -737,6 +1375,248 @@
     "match_text_b": "100-000001591 AMD Ryzen 5 8400F AM5 Tray"
   },
   {
+    "score": 92,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 92,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 92,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 92,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "GeIL",
+    "listing_a": "1pc:221502",
+    "listing_b": "tms:GASG532GB6000C36CDC",
+    "title_a": "זיכרון GEIL DDR5 32GB (2x16GB) 6000 CL36 Spear V אפור",
+    "title_b": "זיכרון GEIL DDR5 32GB (2x16GB) 6000 CL36 Spear V אפור",
+    "match_text_a": "221502 GEIL DDR5 32GB (2x16GB) 6000 CL36 Spear V",
+    "match_text_b": "GASG532GB6000C36CDC GEIL DDR5 32GB (2x16GB) 6000 CL36 Spear V"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "GeIL",
+    "listing_a": "1pc:222239",
+    "listing_b": "1pc:222240",
+    "title_a": "זיכרון למחשב נייח GeIL ORION V DDR5 32GB (2x16GB) 6000 CL36 אפור",
+    "title_b": "זיכרון למחשב נייח GeIL ORION V RGB DDR5 32GB (2x16GB) 6000 CL36 אפור",
+    "match_text_a": "222239 GeIL ORION V DDR5 32GB (2x16GB) 6000 CL36",
+    "match_text_b": "222240 GeIL ORION V RGB DDR5 32GB (2x16GB) 6000 CL36"
+  },
+  {
+    "score": 92,
+    "category": "gpu",
+    "brand": "XFX",
+    "listing_a": "1pc:221526",
+    "listing_b": "tms:RX-96TSW16BQ",
+    "title_a": "כרטיס מסך XFX Swift RX 9060 XT OC Gaming Edition 16GB",
+    "title_b": "כרטיס מסך XFX Swift RX 9060 XT OC Gaming Edition 16GB",
+    "match_text_a": "221526 XFX Swift RX 9060 XT OC Gaming Edition 16GB",
+    "match_text_b": "RX-96TSW16BQ XFX Swift RX 9060 XT OC Gaming Edition 16GB"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221527",
+    "listing_b": "1pc:221528",
+    "title_a": "Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB לבן",
+    "title_b": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black KD5AGUA80-60B280V",
+    "match_text_a": "221527 Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB",
+    "match_text_b": "221528 Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black KD5AGUA80-60B280V"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221527",
+    "listing_b": "tms:KD5AGUA80-60B280M",
+    "title_a": "Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB לבן",
+    "title_b": "Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB White",
+    "match_text_a": "221527 Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB",
+    "match_text_b": "KD5AGUA80-60B280M Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB White"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221527",
+    "listing_b": "tms:KD5AGUA80-60B280V",
+    "title_a": "Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB לבן",
+    "title_b": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black",
+    "match_text_a": "221527 Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB",
+    "match_text_b": "KD5AGUA80-60B280V Klevv DDR5 32GB (2x16GB) 6000 CL28 Urban V RGB Black"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Klevv",
+    "listing_a": "1pc:221534",
+    "listing_b": "tms:KD5AGUA80-60A300H",
+    "title_a": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
+    "title_b": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
+    "match_text_a": "221534 Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
+    "match_text_b": "KD5AGUA80-60A300H Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:112622",
+    "listing_b": "tms:100-000000158",
+    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:112622",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:112622",
+    "listing_b": "tms:100-000001504",
+    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
+    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:154854",
+    "listing_b": "tms:100-000000592",
+    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
+    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:154854",
+    "listing_b": "tms:100-000000927",
+    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
+    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155626",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155626",
+    "listing_b": "tms:100-000001590",
+    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
+    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-100000065",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:207742",
+    "listing_b": "tms:100-000000592",
+    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
+    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:218573",
+    "listing_b": "tms:100-000000926",
+    "title_a": "מעבד AMD Ryzen 7 5700 AM4 Tray",
+    "title_b": "AMD Ryzen 7 5700X AM4 Tray",
+    "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
+    "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
+  },
+  {
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
@@ -845,6 +1725,160 @@
     "title_b": "AMD Ryzen 5 5600X AM4 Tray",
     "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
     "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
+  },
+  {
+    "score": 91,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222408",
+    "listing_b": "1pc:222418",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "match_text_a": "222408 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "222418 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 91,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "1pc:222392",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "222392 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222325",
+    "listing_b": "1pc:222328",
+    "title_a": "כונן SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "title_b": "כונן SSD SanDisk Optimus 5100 NVMe 2TB",
+    "match_text_a": "222325 SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "match_text_b": "222328 SSD SanDisk Optimus 5100 NVMe 2TB"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "GeIL",
+    "listing_a": "1pc:221503",
+    "listing_b": "1pc:221504",
+    "title_a": "זיכרון GeIL DDR5 32GB (2x16GB) 5600 CL38 ORION V RGB AMD Edition אפור",
+    "title_b": "זיכרון GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition אפור",
+    "match_text_a": "221503 GeIL DDR5 32GB (2x16GB) 5600 CL38 ORION V RGB AMD Edition",
+    "match_text_b": "221504 GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:154854",
+    "listing_b": "tms:100-000001406",
+    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
+    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:154854",
+    "listing_b": "tms:100-000001590",
+    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
+    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155797",
+    "listing_b": "tms:100-000000910",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
+    "title_b": "AMD Ryzen 7 7800X3D AM5 Tray",
+    "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_b": "100-000000910 AMD Ryzen 7 7800X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155797",
+    "listing_b": "tms:100-000000926",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
+    "title_b": "AMD Ryzen 7 5700X AM4 Tray",
+    "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:175540",
+    "listing_b": "tms:100-000001904",
+    "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:187970",
+    "listing_b": "tms:100-000000909",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:188423",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000000662",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 9900X AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000000662 AMD Ryzen 9 9900X AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:207742",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:215496",
+    "listing_b": "tms:100-000000158",
+    "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
   },
   {
     "score": 90,
@@ -1004,6 +2038,28 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "tms:100-000000662",
+    "listing_b": "tms:100-000001277",
+    "title_a": "AMD Ryzen 9 9900X AM5 Tray",
+    "title_b": "AMD Ryzen 9 9950X AM5 Tray",
+    "match_text_a": "100-000000662 AMD Ryzen 9 9900X AM5 Tray",
+    "match_text_b": "100-000001277 AMD Ryzen 9 9950X AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000662",
+    "listing_b": "tms:100-000001368",
+    "title_a": "AMD Ryzen 9 9900X AM5 Tray",
+    "title_b": "AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_a": "100-000000662 AMD Ryzen 9 9900X AM5 Tray",
+    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "tms:100-000000719",
     "listing_b": "tms:100-000000909",
     "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
@@ -1100,6 +2156,479 @@
     "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
   },
   {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221508",
+    "listing_b": "tms:GB550MXAORUSELWF7",
+    "title_a": "לוח אם Gigabyte B550M X AORUS ELITE WiFi7",
+    "title_b": "לוח אם Gigabyte B550M X AORUS ELITE WiFi7",
+    "match_text_a": "221508 Gigabyte B550M X AORUS ELITE WiFi7",
+    "match_text_b": "GB550MXAORUSELWF7 Gigabyte B550M X AORUS ELITE WiFi7"
+  },
+  {
+    "score": 90,
+    "category": "storage",
+    "brand": "Samsung",
+    "listing_a": "1pc:221515",
+    "listing_b": "tms:MZ7LH960HAJR-00005",
+    "title_a": "כונן Samsung PM883 2.5\" SATA3 SSD בנפח 960GB",
+    "title_b": "כונן Samsung PM883 2.5\" SATA3 SSD בנפח 960GB",
+    "match_text_a": "221515 Samsung PM883 2.5 SATA3 SSD 960GB",
+    "match_text_b": "MZ7LH960HAJR-00005 Samsung PM883 2.5 SATA3 SSD 960GB"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:221784",
+    "listing_b": "1pc:222387",
+    "title_a": "מארז מחשב Corsair 3500X Mid-Tower – עם פאנלים מזכוכית ועיצוב מותאם לבנייה מודרנית",
+    "title_b": "מארז מחשב Corsair 3500X Mid-Tower לבן",
+    "match_text_a": "221784 Corsair 3500X Mid-Tower",
+    "match_text_b": "222387 Corsair 3500X Mid-Tower"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "1pc:221493",
+    "listing_b": "tms:90MB1P60-M0EAY0",
+    "title_a": "לוח אם Asus ProArt B850-CREATOR WiFi NEO",
+    "title_b": "לוח אם Asus ProArt B850-CREATOR WiFi NEO",
+    "match_text_a": "221493 Asus ProArt B850-CREATOR WiFi NEO",
+    "match_text_b": "90MB1P60-M0EAY0 Asus ProArt B850-CREATOR WiFi NEO"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172761",
+    "listing_b": "1pc:222383",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172761",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172762",
+    "listing_b": "1pc:222383",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172762",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172763",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172763",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206395",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206395",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221523",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221523",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "ivory:130950",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "ivory:130953",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "tms:CW-9061016-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "tms:CW-9061020-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "ivory:117271",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "ivory:117273",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061018-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061021-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061037-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "ivory:130950",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "ivory:130953",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "tms:CW-9061016-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "tms:CW-9061020-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "ivory:117271",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "ivory:117273",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061018-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061021-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061037-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
+  },
+  {
+    "score": 90,
+    "category": "storage",
+    "brand": "Crucial",
+    "listing_a": "1pc:221457",
+    "listing_b": "tms:CT1000E100SSD8",
+    "title_a": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
+    "title_b": "Crucial E100 1TB PCIe 4.0 Gen4 2280 NVMe M.2 SSD",
+    "match_text_a": "221457 Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
+    "match_text_b": "CT1000E100SSD8 Crucial E100 1TB PCIe 4.0 Gen4 2280 NVMe M.2 SSD"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "1pc:221410",
+    "listing_b": "tms:MS-TER-B760M-GKD5-WIFI",
+    "title_a": "MAXSUN Terminator B760M GKD5 WIFI",
+    "title_b": "MAXSUN Terminator B760M GKD5 WIFI",
+    "match_text_a": "221410 MAXSUN Terminator B760M GKD5 WIFI",
+    "match_text_b": "MS-TER-B760M-GKD5-WIFI MAXSUN Terminator B760M GKD5 WIFI"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "1pc:221411",
+    "listing_b": "tms:MS-TER-B760BKB-D5-WIFI",
+    "title_a": "MAXSUN Terminator B760BKB D5 WIFI",
+    "title_b": "MAXSUN Terminator B760BKB D5 WIFI",
+    "match_text_a": "221411 MAXSUN Terminator B760BKB D5 WIFI",
+    "match_text_b": "MS-TER-B760BKB-D5-WIFI MAXSUN Terminator B760BKB D5 WIFI"
+  },
+  {
+    "score": 90,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "1pc:221413",
+    "listing_b": "tms:MS-CHA-A520MKWIFIARGB",
+    "title_a": "MAXSUN Challenger A520M-K WiFi ARGB",
+    "title_b": "MAXSUN Challenger A520M-K WiFi ARGB",
+    "match_text_a": "221413 MAXSUN Challenger A520M-K WiFi ARGB",
+    "match_text_b": "MS-CHA-A520MKWIFIARGB MAXSUN Challenger A520M-K WiFi ARGB"
+  },
+  {
+    "score": 90,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222328",
+    "listing_b": "1pc:222329",
+    "title_a": "כונן SSD SanDisk Optimus 5100 NVMe 2TB",
+    "title_b": "כונן SSD SanDisk Optimus 5100 NVMe 500GB",
+    "match_text_a": "222328 SSD SanDisk Optimus 5100 NVMe 2TB",
+    "match_text_b": "222329 SSD SanDisk Optimus 5100 NVMe 500GB"
+  },
+  {
+    "score": 90,
+    "category": "storage",
+    "brand": "Western Digital",
+    "listing_a": "1pc:221513",
+    "listing_b": "tms:WDS400T5B0E-00CPE0",
+    "title_a": "כונן WD Blue SN5100 M.2 NVMe Gen 4.0 בנפח 4TB",
+    "title_b": "כונן WD Blue SN5100 M.2 NVMe Gen 4.0 בנפח 4TB",
+    "match_text_a": "221513 WD Blue SN5100 M.2 NVMe Gen 4.0 4TB",
+    "match_text_b": "WDS400T5B0E-00CPE0 WD Blue SN5100 M.2 NVMe Gen 4.0 4TB"
+  },
+  {
+    "score": 90,
+    "category": "storage",
+    "brand": "Western Digital",
+    "listing_a": "1pc:222482",
+    "listing_b": "tms:WDS200T4G0E-00CPS0",
+    "title_a": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
+    "title_b": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
+    "match_text_a": "222482 WD Green SN3000 M.2 NVMe SSD 2TB",
+    "match_text_b": "WDS200T4G0E-00CPS0 WD Green SN3000 M.2 NVMe SSD 2TB"
+  },
+  {
+    "score": 90,
+    "category": "gpu",
+    "brand": "ASRock",
+    "listing_a": "1pc:221525",
+    "listing_b": "tms:90-GA61ZZ-00UANF",
+    "title_a": "כרטיס מסך ASRock RX 9070 XT Challenger 16GB",
+    "title_b": "כרטיס מסך ASRock RX 9070 XT Challenger 16GB",
+    "match_text_a": "221525 ASRock RX 9070 XT Challenger 16GB",
+    "match_text_b": "90-GA61ZZ-00UANF ASRock RX 9070 XT Challenger 16GB"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:127415",
+    "listing_b": "tms:100-000000592",
+    "title_a": "מעבד AMD Ryzen 7 7700X AM5 צבע לא ידוע",
+    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5",
+    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-000000050",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 5 3500 AM4 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000050 AMD Ryzen 5 3500 AM4 Tray"
+  },
+  {
+    "score": 89,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:92773",
+    "listing_b": "tms:100-000000927",
+    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
+    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
@@ -1109,6 +2638,391 @@
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
     "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221470",
+    "listing_b": "tms:GB850AORUSELITE-PICE",
+    "title_a": "Gigabyte B850 AORUS ELITE-P ICE",
+    "title_b": "Gigabyte B850 AORUS ELITE-P ICE",
+    "match_text_a": "221470 Gigabyte B850 AORUS ELITE-P ICE",
+    "match_text_b": "GB850AORUSELITE-PICE Gigabyte B850 AORUS ELITE-P ICE"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214252",
+    "listing_b": "1pc:222407",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "match_text_a": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222407 Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214252",
+    "listing_b": "1pc:222408",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "match_text_a": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222408 Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214253",
+    "listing_b": "1pc:222407",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "match_text_a": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222407 Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214253",
+    "listing_b": "1pc:222408",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "match_text_a": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222408 Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "ivory:157417",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז מחשב עם מסך מגע Corsair FRAME 4000D LCD RS ARGB – צבע שחור",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "tms:CC-9011326-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - Black",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium - Black"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "tms:CC-9011327-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - White",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium - White"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222408",
+    "listing_b": "ivory:157417",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "title_b": "מארז מחשב עם מסך מגע Corsair FRAME 4000D LCD RS ARGB – צבע שחור",
+    "match_text_a": "222408 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222408",
+    "listing_b": "tms:CC-9011326-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - Black",
+    "match_text_a": "222408 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium - Black"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222408",
+    "listing_b": "tms:CC-9011327-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - White",
+    "match_text_a": "222408 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium - White"
+  },
+  {
+    "score": 89,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222391",
+    "listing_b": "1pc:222392",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "match_text_a": "222391 Corsair NAUTILUS 360 RS",
+    "match_text_b": "222392 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "Palit",
+    "listing_a": "1pc:221414",
+    "listing_b": "tms:NE75080019T2-GB2035S",
+    "title_a": "Palit RTX 5080 Infinity 3 16GB",
+    "title_b": "Palit RTX 5080 Infinity 3 16GB",
+    "match_text_a": "221414 Palit RTX 5080 Infinity 3 16GB",
+    "match_text_b": "NE75080019T2-GB2035S Palit RTX 5080 Infinity 3 16GB"
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "PNY",
+    "listing_a": "1pc:221469",
+    "listing_b": "tms:VCG5060T8DFXPB1-O",
+    "title_a": "PNY RTX 5060Ti 8GB OC Dual Fan",
+    "title_b": "PNY RTX 5060Ti 8GB OC Dual Fan",
+    "match_text_a": "221469 PNY RTX 5060Ti 8GB OC Dual Fan",
+    "match_text_b": "VCG5060T8DFXPB1-O PNY RTX 5060Ti 8GB OC Dual Fan"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:112622",
+    "listing_b": "ivory:126060",
+    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
+    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155626",
+    "listing_b": "tms:100-000000589",
+    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
+    "match_text_b": "100-000000589 AMD Ryzen 9 7900X AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155797",
+    "listing_b": "tms:100-000001084",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
+    "title_b": "AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_b": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155797",
+    "listing_b": "tms:100-000001504",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
+    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:158563",
+    "listing_b": "tms:100-000000158",
+    "title_a": "מעבד AMD Ryzen™ 5 5600GT AM4 Tray",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000001488 AMD Ryzen 5 5600GT AM4 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "ivory:126060",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-000000158",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-000000593",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000593 AMD Ryzen 5 7600X AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
+    "listing_b": "tms:100-000000926",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "AMD Ryzen 7 5700X AM4 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:175540",
+    "listing_b": "tms:100-000000651",
+    "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_b": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:175540",
+    "listing_b": "tms:100-000000908",
+    "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:175540",
+    "listing_b": "tms:100-000000909",
+    "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:175540",
+    "listing_b": "tms:100-000001504",
+    "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:187970",
+    "listing_b": "tms:100-000001904",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000000908",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000000909",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:215496",
+    "listing_b": "tms:100-000000651",
+    "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
+    "title_b": "AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_b": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:218573",
+    "listing_b": "tms:100-000001404",
+    "title_a": "מעבד AMD Ryzen 7 5700 AM4 Tray",
+    "title_b": "AMD Ryzen 7 9700X AM5 Tray",
+    "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
+    "match_text_b": "100-000001404 AMD Ryzen 7 9700X AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:221475",
+    "listing_b": "tms:100-000001406",
+    "title_a": "AMD Ryzen 5 9500F AM5 Tray",
+    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
+    "match_text_a": "221475 AMD Ryzen 5 9500F AM5 Tray",
+    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:92773",
+    "listing_b": "tms:100-000000597",
+    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
+    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:92773",
+    "listing_b": "tms:100-000001504",
+    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
+    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
+    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
+    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
   },
   {
     "score": 88,
@@ -1453,14 +3367,355 @@
   },
   {
     "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221494",
+    "listing_b": "tms:GB850MAORUSSTEALTH",
+    "title_a": "לוח אם Gigabyte B850M AORUS STEALTH",
+    "title_b": "לוח אם Gigabyte B850M AORUS STEALTH",
+    "match_text_a": "221494 Gigabyte B850M AORUS STEALTH",
+    "match_text_b": "GB850MAORUSSTEALTH Gigabyte B850M AORUS STEALTH"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221506",
+    "listing_b": "tms:GB550XGAMINGWF7",
+    "title_a": "Gigabyte B550 X GAMING WiFi7",
+    "title_b": "Gigabyte B550 X GAMING WiFi7",
+    "match_text_a": "221506 Gigabyte B550 X GAMING WiFi7",
+    "match_text_b": "GB550XGAMINGWF7 Gigabyte B550 X GAMING WiFi7"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221507",
+    "listing_b": "tms:GB550XEAGLEWF6E",
+    "title_a": "לוח אם Gigabyte B550 X EAGLE WIFI6E",
+    "title_b": "לוח אם Gigabyte B550 X EAGLE WIFI6E",
+    "match_text_a": "221507 Gigabyte B550 X EAGLE WIFI6E",
+    "match_text_b": "GB550XEAGLEWF6E Gigabyte B550 X EAGLE WIFI6E"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221509",
+    "listing_b": "tms:GB550MXAORUSEL",
+    "title_a": "לוח אם Gigabyte B550M X AORUS ELITE",
+    "title_b": "לוח אם Gigabyte B550M X AORUS ELITE",
+    "match_text_a": "221509 Gigabyte B550M X AORUS ELITE",
+    "match_text_b": "GB550MXAORUSEL Gigabyte B550M X AORUS ELITE"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:221524",
+    "listing_b": "tms:GX870AORUSINFINITY",
+    "title_a": "לוח אם Gigabyte X870 AORUS INFINITY",
+    "title_b": "לוח אם Gigabyte X870 AORUS INFINITY",
+    "match_text_a": "221524 Gigabyte X870 AORUS INFINITY",
+    "match_text_b": "GX870AORUSINFINITY Gigabyte X870 AORUS INFINITY"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:183243",
+    "listing_b": "tms:0-761345-10088-5",
+    "title_a": "מארז מחשב Antec Performance 1 M שחור",
+    "title_b": "מארז מחשב Antec Performance 1 FT",
+    "match_text_a": "0-761345-10168-4 Antec Performance 1 M",
+    "match_text_b": "0-761345-10088-5 Antec Performance 1 FT"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:188426",
+    "listing_b": "1pc:222418",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB מודולרי בצבע לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "match_text_a": "CC-9011297-WW Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "222418 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:188426",
+    "listing_b": "1pc:222419",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB מודולרי בצבע לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "match_text_a": "CC-9011297-WW Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "222419 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214252",
+    "listing_b": "1pc:222418",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "match_text_a": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222418 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214252",
+    "listing_b": "1pc:222419",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "match_text_a": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222419 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214253",
+    "listing_b": "1pc:222418",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "match_text_a": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222418 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:214253",
+    "listing_b": "1pc:222419",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "match_text_a": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium",
+    "match_text_b": "222419 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "1pc:222418",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "222418 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "1pc:222419",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "222419 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222408",
+    "listing_b": "1pc:222419",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "match_text_a": "222408 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "222419 Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "ivory:157417",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב עם מסך מגע Corsair FRAME 4000D LCD RS ARGB – צבע שחור",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "ivory:160657",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB – צבע שחור",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011296-WW Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "ivory:160660",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB – צבע לבן",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011297-WW Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "tms:CC-9011296-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011296-WW Corsair FRAME 4000D RS ARGB Modular Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "tms:CC-9011297-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011297-WW Corsair FRAME 4000D RS ARGB Modular White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "tms:CC-9011326-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - Black",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium - Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222418",
+    "listing_b": "tms:CC-9011327-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB שחור",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - White",
+    "match_text_a": "222418 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium - White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "ivory:157417",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב עם מסך מגע Corsair FRAME 4000D LCD RS ARGB – צבע שחור",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "ivory:160657",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB – צבע שחור",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011296-WW Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "ivory:160660",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB – צבע לבן",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011297-WW Corsair FRAME 4000D RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "tms:CC-9011296-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011296-WW Corsair FRAME 4000D RS ARGB Modular Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "tms:CC-9011297-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011297-WW Corsair FRAME 4000D RS ARGB Modular White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "tms:CC-9011326-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - Black",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011326-WW Corsair FRAME 4000D LCD RS ARGB Premium - Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "tms:CC-9011327-WW",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - White",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "CC-9011327-WW Corsair FRAME 4000D LCD RS ARGB Premium - White"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Antec",
+    "listing_a": "1pc:221407",
+    "listing_b": "tms:ULTRA360ARGB",
+    "title_a": "קירור נוזלי למעבד Antec Ultra 360 ARGB לבן ULTRA360ARGB-W",
+    "title_b": "קירור נוזלי למעבד Antec Ultra 360 ARGB",
+    "match_text_a": "221407 Antec Ultra 360 ARGB ULTRA360ARGB-W",
+    "match_text_b": "ULTRA360ARGB Antec Ultra 360 ARGB"
+  },
+  {
+    "score": 88,
     "category": "case",
     "brand": "Lian Li",
     "listing_a": "1pc:173503",
     "listing_b": "tms:A3X",
-    "title_a": "Lian-Li A3 Wood Black computer case.",
+    "title_a": "מארז מחשב Lian-Li A3 Wood Black",
     "title_b": "מארז מחשב Lian-Li A3 Black",
-    "match_text_a": "A3X-WD Lian-Li A3 Wood Black computer case.",
+    "match_text_a": "A3X-WD Lian-Li A3 Wood Black",
     "match_text_b": "A3X Lian-Li A3 Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:219287",
+    "listing_b": "tms:B4X",
+    "title_a": "מארז Lian-Li B4 Mesh בצבע לבן",
+    "title_b": "Lian-Li B4 Mesh Black Case",
+    "match_text_a": "B4W Lian-Li B4 Mesh",
+    "match_text_b": "B4X Lian-Li B4 Mesh Black Case"
   },
   {
     "score": 88,
@@ -1510,11 +3765,11 @@
     "score": 88,
     "category": "cooler_air",
     "brand": "Antec",
-    "listing_a": "1pc:108922",
+    "listing_a": "1pc:145922",
     "listing_b": "tms:C40",
-    "title_a": "Antec A30 1700 CPU Cooler Model A30-1700.",
+    "title_a": "מאורר למעבד Antec A30 Pro CPU Cooler",
     "title_b": "Antec C40 CPU Cooler",
-    "match_text_a": "A30-1700 Antec A30 1700 CPU Cooler Model A30-1700.",
+    "match_text_a": "A30-PRO Antec A30 Pro CPU Cooler",
     "match_text_b": "C40 Antec C40 CPU Cooler"
   },
   {
@@ -1540,6 +3795,204 @@
     "match_text_b": "C40 Antec C40 CPU Cooler"
   },
   {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206392",
+    "listing_b": "1pc:221795",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB בצבע שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "match_text_a": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "221795 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206392",
+    "listing_b": "1pc:222392",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB בצבע שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "match_text_a": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "222392 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206394",
+    "listing_b": "1pc:221795",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "match_text_a": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "221795 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206394",
+    "listing_b": "1pc:222392",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "match_text_a": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "222392 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "ivory:126585",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB 360mm בצבע שחור",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "ivory:126591",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB 360mm בצבע לבן",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "tms:CW-9060093-WW",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "tms:CW-9060095-WW",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB White",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB White"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "ivory:126585",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB 360mm בצבע שחור",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "ivory:126591",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB 360mm בצבע לבן",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "tms:CW-9060093-WW",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "tms:CW-9060095-WW",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB White",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB White"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222371",
+    "listing_b": "ivory:113511",
+    "title_a": "ספק כוח Corsair CX550 80 PLUS Bronze - 550W",
+    "title_b": "ספק כוח למחשב Corsair CX550 80 PLUS Bronze 550W",
+    "match_text_a": "222371 Corsair CX550 80 PLUS Bronze - 550W",
+    "match_text_b": "CP-9020277-EU Corsair CX550 80 PLUS Bronze 550W"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222372",
+    "listing_b": "ivory:86640",
+    "title_a": "ספק כוח Corsair CX650 80 PLUS Bronze - 650W",
+    "title_b": "ספק כוח למחשב Corsair CX650 80 PLUS Bronze 650W",
+    "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
+    "match_text_b": "CP-9020278-EU Corsair CX650 80 PLUS Bronze 650W"
+  },
+  {
+    "score": 88,
+    "category": "motherboard",
+    "brand": "MAXSUN",
+    "listing_a": "1pc:221412",
+    "listing_b": "tms:MS-ESP-B850M-WIFI6E",
+    "title_a": "MAXSUN eSport B850M WIFI6E",
+    "title_b": "MAXSUN eSport B850M WIFI6E",
+    "match_text_a": "221412 MAXSUN eSport B850M WIFI6E",
+    "match_text_b": "MS-ESP-B850M-WIFI6E MAXSUN eSport B850M WIFI6E"
+  },
+  {
+    "score": 88,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222324",
+    "listing_b": "1pc:222325",
+    "title_a": "כונן SSD SanDisk NVMe Optimus GX PRO 8100 4TB",
+    "title_b": "כונן SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "match_text_a": "222324 SSD SanDisk NVMe Optimus GX PRO 8100 4TB",
+    "match_text_b": "222325 SSD SanDisk Optimus GX 7100 NVMe 2TB"
+  },
+  {
+    "score": 88,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222325",
+    "listing_b": "1pc:222326",
+    "title_a": "כונן SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "title_b": "כונן SSD SanDisk Optimus GX 7100 NVMe 1TB",
+    "match_text_a": "222325 SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "match_text_b": "222326 SSD SanDisk Optimus GX 7100 NVMe 1TB"
+  },
+  {
+    "score": 88,
+    "category": "gpu",
+    "brand": "PowerColor",
+    "listing_a": "1pc:221471",
+    "listing_b": "tms:RX76008G-F-V2",
+    "title_a": "PowerColor RX 7600 8G-F/V2",
+    "title_b": "PowerColor RX 7600 8G-F/V2",
+    "match_text_a": "221471 PowerColor RX 7600 8G-F/V2",
+    "match_text_b": "RX76008G-F-V2 PowerColor RX 7600 8G-F/V2"
+  },
+  {
     "kind": "duplicate_vendor",
     "product_id": "model:cpu:amdryzen5processor",
     "category": "cpu",
@@ -1548,13 +4001,13 @@
       {
         "listing_key": "1pc:215082",
         "vendor_sku": "100-100000718BOX",
-        "title": "Processor AMD Ryzen™ 5 9600 AM5 BOX with Wraith Stealth cooler.",
+        "title": "מעבד מעבד AMD Ryzen™ 5 9600 AM5 BOX עם קירור Wraith Stealth",
         "price": 992
       },
       {
         "listing_key": "1pc:214173",
         "vendor_sku": "100-100001904WOF",
-        "title": "Processor AMD Ryzen 5 7500X3D 4.0GHz AM5 - Box.",
+        "title": "מעבד AMD Ryzen 5 7500X3D 4.0GHz AM5 - Box",
         "price": 1034
       }
     ]
@@ -1568,19 +4021,19 @@
       {
         "listing_key": "1pc:214851",
         "vendor_sku": "100-000001183",
-        "title": "AMD Ryzen™ 5 PRO 8500G AM5 processor with integrated graphics Tray.",
+        "title": "מעבד AMD Ryzen™ 5 PRO 8500G AM5 עם גרפיקה מובנית Tray",
         "price": 618
       },
       {
         "listing_key": "1pc:154854",
         "vendor_sku": "100-000000597",
-        "title": "AMD Ryzen 5 7500F AM5 Tray Processor.",
-        "price": 627
+        "title": "מעבד AMD Ryzen 5 7500F AM5 Tray",
+        "price": 622
       },
       {
         "listing_key": "1pc:215496",
         "vendor_sku": "100-000001504",
-        "title": "Processor AMD Ryzen 5 5500X3D AM4 Tray.",
+        "title": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
         "price": 888
       }
     ]
@@ -1594,26 +4047,26 @@
       {
         "listing_key": "1pc:207742",
         "vendor_sku": "100-000001590",
-        "title": "AMD Ryzen 7 8700F AM5 Tray processor.",
+        "title": "מעבד AMD Ryzen 7 8700F AM5 Tray",
         "price": 702
       },
       {
         "listing_key": "1pc:155626",
         "vendor_sku": "100-000000592",
-        "title": "AMD Ryzen 7 7700 AM5 Tray Processor.",
+        "title": "מעבד AMD Ryzen 7 7700 AM5 Tray",
         "price": 955
-      },
-      {
-        "listing_key": "1pc:175540",
-        "vendor_sku": "100-000001084",
-        "title": "AMD Ryzen™ 7 9800X3D AM5 Tray processor.",
-        "price": 2117
       },
       {
         "listing_key": "1pc:212384",
         "vendor_sku": "100-000001973",
-        "title": "Processor AMD Ryzen 7 9850X3D AM5.",
-        "price": 2282
+        "title": "מעבד AMD Ryzen 7 9850X3D AM5",
+        "price": 2010
+      },
+      {
+        "listing_key": "1pc:175540",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+        "price": 2117
       }
     ]
   },
@@ -1626,13 +4079,13 @@
       {
         "listing_key": "1pc:104846",
         "vendor_sku": "C10105FB",
-        "title": "Intel Core i3 10105F processor box packaging color.",
+        "title": "מעבד Intel Core i3 10105F צבע אריזת קופסה",
         "price": 242
       },
       {
         "listing_key": "1pc:102820",
         "vendor_sku": "C10105FT",
-        "title": "Intel Core i3 10105F processor, fresh color.",
+        "title": "מעבד Intel Core i3 10105F צבע טרי",
         "price": 250
       }
     ]
@@ -1646,13 +4099,13 @@
       {
         "listing_key": "1pc:109579",
         "vendor_sku": "C12700FB",
-        "title": "Intel Core i7 12700F processor, black color.",
+        "title": "מעבד Intel Core i7 12700F צבע שחור",
         "price": 1322
       },
       {
         "listing_key": "1pc:116096",
         "vendor_sku": "C12700FT",
-        "title": "Intel Core i7 12700F processor, black color.",
+        "title": "מעבד Intel Core i7 12700F צבע שחור",
         "price": 1333
       }
     ]
@@ -1666,13 +4119,13 @@
       {
         "listing_key": "1pc:131314",
         "vendor_sku": "C12400FT",
-        "title": "Intel Core i5 12400F / 1700 - Tray",
+        "title": "מעבד Intel Core i5 12400F / 1700 - Tray",
         "price": 676
       },
       {
         "listing_key": "1pc:152181",
         "vendor_sku": "C14600KT",
-        "title": "Intel Core i5 14600K / 1700 Tray",
+        "title": "מעבד Intel Core i5 14600K / 1700 Tray",
         "price": 1152
       }
     ]
@@ -1686,19 +4139,19 @@
       {
         "listing_key": "1pc:157270",
         "vendor_sku": "C14700FT",
-        "title": "Intel i7 14700F/1700 Core Tray Processor.",
+        "title": "מעבד Intel i7 14700F/1700 Core Tray",
         "price": 1387
       },
       {
         "listing_key": "1pc:152187",
         "vendor_sku": "C14700KFT",
-        "title": "Intel Core i7 14700KF / 1700 Tray Processor.",
+        "title": "מעבד Intel Core i7 14700KF / 1700 Tray",
         "price": 1475
       },
       {
         "listing_key": "1pc:152185",
         "vendor_sku": "C14700KT",
-        "title": "Intel Core i7 14700K / 1700 Tray processor.",
+        "title": "מעבד Intel Core i7 14700K / 1700 Tray",
         "price": 2049
       }
     ]
@@ -1712,20 +4165,20 @@
       {
         "listing_key": "1pc:152191",
         "vendor_sku": "C14900KFT",
-        "title": "Intel Core i9 14900KF / 1700 Tray processor.",
+        "title": "מעבד Intel Core i9 14900KF / 1700 Tray",
         "price": 2187
       },
       {
         "listing_key": "1pc:152189",
         "vendor_sku": "C14900KT",
-        "title": "Intel Core i9 14900K / 1700 Tray processor.",
+        "title": "מעבד Intel Core i9 14900K / 1700 Tray",
         "price": 2589
       },
       {
         "listing_key": "1pc:160800",
         "vendor_sku": "C14900KST",
-        "title": "Intel Core i9 14900KS / 1700 Tray",
-        "price": 3449
+        "title": "מעבד Intel Core i9 14900KS / 1700 Tray",
+        "price": 3477
       }
     ]
   },
@@ -1738,13 +4191,13 @@
       {
         "listing_key": "1pc:216287",
         "vendor_sku": "C250KPLUST",
-        "title": "Intel® Core™ Ultra 5 250K Plus processor, FCLGA1851 socket - Tray.",
+        "title": "מעבד Intel® Core™ Ultra 5 250K Plus תושבת FCLGA1851 -  Tray",
         "price": 1034
       },
       {
         "listing_key": "1pc:178028",
         "vendor_sku": "C245T",
-        "title": "Intel Core Ultra 5 245 / 1851 Tray processor.",
+        "title": "מעבד Intel Core Ultra 5 245 / 1851 Tray",
         "price": 1385
       }
     ]
@@ -1758,13 +4211,13 @@
       {
         "listing_key": "1pc:189654",
         "vendor_sku": "C225FT",
-        "title": "Intel Core Ultra 5 225F processor model 1851.",
+        "title": "מעבד Intel Core Ultra 5 225F דגם 1851",
         "price": 553
       },
       {
         "listing_key": "1pc:189655",
         "vendor_sku": "C245KFT",
-        "title": "Intel Core Ultra 5 245KF processor socket 1851.",
+        "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
         "price": 865
       }
     ]
@@ -1778,13 +4231,13 @@
       {
         "listing_key": "1pc:127416",
         "vendor_sku": "100-000000589",
-        "title": "AMD Ryzen 9 7900X AM5 processor, fresh color.",
+        "title": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
         "price": 1525
       },
       {
         "listing_key": "1pc:125818",
         "vendor_sku": "100-100000589WOF",
-        "title": "AMD Ryzen 9 7900X AM5 processor black color.",
+        "title": "מעבד AMD Ryzen 9 7900X AM5 צבע שחור",
         "price": 1560
       }
     ]
@@ -1815,14 +4268,14 @@
     "category": "case",
     "vendor": "",
     "titles": [
-      "Micro-ATX computer case INFINITY A500NCB in black color.",
-      "מארז INFINITY A500 Storage Case"
+      "מארז INFINITY A500 Storage Case",
+      "מארז מחשב Micro-ATX INFINITY A500NCB בצבע שחור"
     ],
     "offers": [
       {
         "listing_key": "1pc:47664",
         "vendor_sku": "A500NCB",
-        "title": "Micro-ATX computer case INFINITY A500NCB in black color.",
+        "title": "מארז מחשב Micro-ATX INFINITY A500NCB בצבע שחור",
         "price": 917
       },
       {
@@ -1839,15 +4292,15 @@
     "category": "case",
     "vendor": "",
     "titles": [
-      "NZXT H510 Computer Case Black/Red CA-H510B-BR.",
-      "מארז מחשב NZXT H510 Matte Black/Red"
+      "מארז מחשב NZXT H510 Matte Black/Red",
+      "מארז מחשב NZXT H510 צבע שחור/אדום CA-H510B-BR"
     ],
     "offers": [
       {
         "listing_key": "1pc:65370",
         "vendor_sku": "CA-H510B-BR",
-        "title": "NZXT H510 Computer Case Black/Red CA-H510B-BR.",
-        "price": 422
+        "title": "מארז מחשב NZXT H510 צבע שחור/אדום CA-H510B-BR",
+        "price": 542
       },
       {
         "listing_key": "tms:CA-H510B-BR",
@@ -1863,14 +4316,14 @@
     "category": "case",
     "vendor": "",
     "titles": [
-      "Antec CX200M RGB Elite White CX200MRGBELITEW computer case.",
-      "מארז Antec CX200M RGB Elite לבן"
+      "מארז Antec CX200M RGB Elite לבן",
+      "מארז מחשב Antec CX200M RGB Elite White CX200MRGBELITEW"
     ],
     "offers": [
       {
         "listing_key": "1pc:162134",
         "vendor_sku": "CX200MRGBELITEW",
-        "title": "Antec CX200M RGB Elite White CX200MRGBELITEW computer case.",
+        "title": "מארז מחשב Antec CX200M RGB Elite White CX200MRGBELITEW",
         "price": 280
       },
       {
@@ -1883,18 +4336,42 @@
   },
   {
     "kind": "naming_conflict",
+    "product_id": "mpn:case:cx300mrgb",
+    "category": "case",
+    "vendor": "",
+    "titles": [
+      "מארז מחשב Antec CX300M RGB",
+      "מארז מחשב Antec CX300M RGB CX300MRGB"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:165973",
+        "vendor_sku": "CX300MRGB",
+        "title": "מארז מחשב Antec CX300M RGB CX300MRGB",
+        "price": 215
+      },
+      {
+        "listing_key": "tms:CX300MRGB",
+        "vendor_sku": "CX300MRGB",
+        "title": "מארז מחשב Antec CX300M RGB",
+        "price": 199
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
     "product_id": "mpn:case:df800flux",
     "category": "case",
     "vendor": "",
     "titles": [
-      "Antec DF800FLUX computer case in black color.",
-      "מארז מחשב Antec DF800 Flux ARGB"
+      "מארז מחשב Antec DF800 Flux ARGB",
+      "מארז מחשב Antec DF800FLUX צבע שחור"
     ],
     "offers": [
       {
         "listing_key": "1pc:125046",
         "vendor_sku": "DF800FLUX",
-        "title": "Antec DF800FLUX computer case in black color.",
+        "title": "מארז מחשב Antec DF800FLUX צבע שחור",
         "price": 400
       },
       {
@@ -1912,13 +4389,13 @@
     "vendor": "",
     "titles": [
       "Gigabyte C102 Glass Case",
-      "Gigabyte C102 Glass GB-C102G computer case in black color."
+      "מארז מחשב Gigabyte C102 Glass GB-C102G בצבע שחור"
     ],
     "offers": [
       {
         "listing_key": "1pc:207734",
         "vendor_sku": "GB-C102G",
-        "title": "Gigabyte C102 Glass GB-C102G computer case in black color.",
+        "title": "מארז מחשב Gigabyte C102 Glass GB-C102G בצבע שחור",
         "price": 303
       },
       {
@@ -1935,14 +4412,14 @@
     "category": "case",
     "vendor": "",
     "titles": [
-      "Gigabyte C301G White V2 ATX Case GB-C301GW-V2 computer case.",
-      "מארז מחשב Gigabyte C301G V2 White"
+      "מארז מחשב Gigabyte C301G V2 White",
+      "מארז מחשב Gigabyte C301G White V2 ATX Case GB-C301GW-V2"
     ],
     "offers": [
       {
         "listing_key": "1pc:163357",
         "vendor_sku": "GB-C301GW-V2",
-        "title": "Gigabyte C301G White V2 ATX Case GB-C301GW-V2 computer case.",
+        "title": "מארז מחשב Gigabyte C301G White V2 ATX Case GB-C301GW-V2",
         "price": 453
       },
       {
@@ -1955,18 +4432,66 @@
   },
   {
     "kind": "naming_conflict",
+    "product_id": "mpn:case:pctu150wa",
+    "category": "case",
+    "vendor": "",
+    "titles": [
+      "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Silver PC-TU150WA",
+      "מארז מחשב Lian-Li PC-TU150 Aluminum Silver"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:93769",
+        "vendor_sku": "PC-TU150WA",
+        "title": "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Silver PC-TU150WA",
+        "price": 532
+      },
+      {
+        "listing_key": "tms:PC-TU150WA",
+        "vendor_sku": "PC-TU150WA",
+        "title": "מארז מחשב Lian-Li PC-TU150 Aluminum Silver",
+        "price": 532
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
+    "product_id": "mpn:case:pctu150wx",
+    "category": "case",
+    "vendor": "",
+    "titles": [
+      "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Black PC-TU150WX",
+      "מארז מחשב Lian-Li PC-TU150 Aluminum Black"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:93777",
+        "vendor_sku": "PC-TU150WX",
+        "title": "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Black PC-TU150WX",
+        "price": 532
+      },
+      {
+        "listing_key": "tms:PC-TU150WX",
+        "vendor_sku": "PC-TU150WX",
+        "title": "מארז מחשב Lian-Li PC-TU150 Aluminum Black",
+        "price": 532
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
     "product_id": "mpn:case_fan:rfc14sfw1",
     "category": "case_fan",
     "vendor": "",
     "titles": [
-      "NZXT F140 RGB Core 140mm White Case Fan.",
-      "NZXT F140RGB Core 140mm Hub-Mounted RGB Fan White"
+      "NZXT F140RGB Core 140mm Hub-Mounted RGB Fan White",
+      "מאוורר מארז NZXT F140 RGB Core 140mm לבן"
     ],
     "offers": [
       {
         "listing_key": "1pc:169178",
         "vendor_sku": "RF-C14SF-W1",
-        "title": "NZXT F140 RGB Core 140mm White Case Fan.",
+        "title": "מאוורר מארז NZXT F140 RGB Core 140mm לבן",
         "price": 105
       },
       {
@@ -1983,14 +4508,14 @@
     "category": "motherboard",
     "vendor": "",
     "titles": [
-      "MSI PRO B840-B AM5 Motherboard.",
+      "לוח אם MSI PRO B840-B AM5",
       "לוח אם MSI PRO B840M-B mATX AM5 AMD"
     ],
     "offers": [
       {
         "listing_key": "1pc:211711",
         "vendor_sku": "211711",
-        "title": "MSI PRO B840-B AM5 Motherboard.",
+        "title": "לוח אם MSI PRO B840-B AM5",
         "price": 404
       },
       {
@@ -2003,67 +4528,19 @@
   },
   {
     "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:90mb1d00m1eayc",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "ASUS PRIME B760M-A D4 Intel B760 LGA 1700 micro ATX",
-      "לוח אם ASUS PRIME B760M-A D4-CSM 1700 DDR4 mATX"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:156606",
-        "vendor_sku": "90MB1D00-M1EAYC",
-        "title": "ASUS PRIME B760M-A D4 Intel B760 LGA 1700 micro ATX",
-        "price": 658
-      },
-      {
-        "listing_key": "ivory:133386",
-        "vendor_sku": "90MB1D00-M1EAYC",
-        "title": "לוח אם ASUS PRIME B760M-A D4-CSM 1700 DDR4 mATX",
-        "price": 520
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:90mb1fi0m1eay0",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "ASUS PRIME B760M-K Intel LGA1700 B760 DDR5 Motherboard.",
-      "לוח אם ASUS PRIME B760M-K 1700 DDR5 mATX"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:158765",
-        "vendor_sku": "90MB1FI0-M1EAY0",
-        "title": "ASUS PRIME B760M-K Intel LGA1700 B760 DDR5 Motherboard.",
-        "price": 512
-      },
-      {
-        "listing_key": "ivory:88467",
-        "vendor_sku": "90MB1FI0-M1EAY0",
-        "title": "לוח אם ASUS PRIME B760M-K 1700 DDR5 mATX",
-        "price": 499
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
     "product_id": "mpn:motherboard:90mb1lt0m0eay0",
     "category": "motherboard",
     "vendor": "",
     "titles": [
-      "ASUS TUF GAMING B650-E WIFI Motherboard.",
-      "Asus TUF GAMING B650E-E WiFi"
+      "Asus TUF GAMING B650E-E WiFi",
+      "לוח אם ASUS TUF GAMING B650-E WIFI"
     ],
     "offers": [
       {
         "listing_key": "1pc:195917",
         "vendor_sku": "90MB1LT0-M0EAY0",
-        "title": "ASUS TUF GAMING B650-E WIFI Motherboard.",
-        "price": 1109
+        "title": "לוח אם ASUS TUF GAMING B650-E WIFI",
+        "price": 1100
       },
       {
         "listing_key": "tms:90MB1LT0-M0EAY0",
@@ -2079,15 +4556,15 @@
     "category": "motherboard",
     "vendor": "",
     "titles": [
-      "ASUS Prime B850-F WIFI motherboard, black color.",
       "Asus PRIME B850M-F",
-      "לוח אם ASUS PRIME B850M-F mATX AM5 AMD"
+      "לוח אם ASUS PRIME B850M-F mATX AM5 AMD",
+      "לוח אם ASUS Prime B850-F WIFI צבע שחור"
     ],
     "offers": [
       {
         "listing_key": "1pc:216407",
         "vendor_sku": "90MB1N90-M0EAY0",
-        "title": "ASUS Prime B850-F WIFI motherboard, black color.",
+        "title": "לוח אם ASUS Prime B850-F WIFI צבע שחור",
         "price": 722
       },
       {
@@ -2111,13 +4588,13 @@
     "vendor": "",
     "titles": [
       "ARKTEK B760 DDR4 AK-B760M EG",
-      "ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4 is a motherboard."
+      "לוח אם ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4"
     ],
     "offers": [
       {
         "listing_key": "1pc:158839",
         "vendor_sku": "AK-B760MEG-DDR4",
-        "title": "ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4 is a motherboard.",
+        "title": "לוח אם ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4",
         "price": 289
       },
       {
@@ -2135,13 +4612,13 @@
     "vendor": "",
     "titles": [
       "ARKTEK H610M EG VS",
-      "Motherboard ARKTEK H610M EG VS AK-H610MEG-VS."
+      "לוח אם ARKTEK H610M EG VS AK-H610MEG-VS"
     ],
     "offers": [
       {
         "listing_key": "1pc:197602",
         "vendor_sku": "AK-H610MEG-VS",
-        "title": "Motherboard ARKTEK H610M EG VS AK-H610MEG-VS.",
+        "title": "לוח אם ARKTEK H610M EG VS AK-H610MEG-VS",
         "price": 255
       },
       {
@@ -2158,14 +4635,14 @@
     "category": "motherboard",
     "vendor": "",
     "titles": [
-      "ARKTEK H610 AK-H610MS EG AK-H610MSEG motherboard.",
-      "ARKTEK H610M EG"
+      "ARKTEK H610M EG",
+      "לוח אם ARKTEK H610 AK-H610MS EG AK-H610MSEG"
     ],
     "offers": [
       {
         "listing_key": "1pc:157898",
         "vendor_sku": "AK-H610MSEG",
-        "title": "ARKTEK H610 AK-H610MS EG AK-H610MSEG motherboard.",
+        "title": "לוח אם ARKTEK H610 AK-H610MS EG AK-H610MSEG",
         "price": 215
       },
       {
@@ -2183,13 +4660,13 @@
     "vendor": "",
     "titles": [
       "MAXSUN Challenger B760M D5 WiFi",
-      "MAXSUN Challenger B760M D5 WiFi Motherboard MS-CHA-B760MD5WIFI."
+      "לוח אם MAXSUN Challenger B760M D5 WiFi MS-CHA-B760MD5WIFI"
     ],
     "offers": [
       {
         "listing_key": "1pc:207682",
         "vendor_sku": "MS-CHA-B760MD5WIFI",
-        "title": "MAXSUN Challenger B760M D5 WiFi Motherboard MS-CHA-B760MD5WIFI.",
+        "title": "לוח אם MAXSUN Challenger B760M D5 WiFi MS-CHA-B760MD5WIFI",
         "price": 453
       },
       {
@@ -2207,13 +4684,13 @@
     "vendor": "",
     "titles": [
       "MAXSUN Terminator B760M GKD5 DARK",
-      "MAXSUN Terminator B760M GKD5 DARK Motherboard MS-TER-B760MGKD5DARK."
+      "לוח אם MAXSUN Terminator B760M GKD5 DARK MS-TER-B760MGKD5DARK"
     ],
     "offers": [
       {
         "listing_key": "1pc:207681",
         "vendor_sku": "MS-TER-B760MGKD5DARK",
-        "title": "MAXSUN Terminator B760M GKD5 DARK Motherboard MS-TER-B760MGKD5DARK.",
+        "title": "לוח אם MAXSUN Terminator B760M GKD5 DARK MS-TER-B760MGKD5DARK",
         "price": 563
       },
       {
@@ -2230,14 +4707,14 @@
     "category": "psu",
     "vendor": "",
     "titles": [
-      "Antec PSU 1000W HCG1000 (ATX3.1) PRO Platinum HCG1000PROP Power Supply Unit.",
-      "ספק כוח Antec PSU 1000W HCG1000 (ATX3.1) PRO Platinum"
+      "ספק כוח Antec PSU 1000W HCG1000 (ATX3.1) PRO Platinum",
+      "ספק כוח Antec PSU 1000W HCG1000 (ATX3.1) PRO Platinum HCG1000PROP"
     ],
     "offers": [
       {
         "listing_key": "1pc:165978",
         "vendor_sku": "HCG1000PROP",
-        "title": "Antec PSU 1000W HCG1000 (ATX3.1) PRO Platinum HCG1000PROP Power Supply Unit.",
+        "title": "ספק כוח Antec PSU 1000W HCG1000 (ATX3.1) PRO Platinum HCG1000PROP",
         "price": 894
       },
       {
@@ -2254,14 +4731,14 @@
     "category": "psu",
     "vendor": "",
     "titles": [
-      "ANTEC PSU 1200W HCG1200 (ATX3.1) PRO Platinum HCG1200PROP Power Supply Unit.",
+      "ספק כוח ANTEC PSU 1200W HCG1200 (ATX3.1) PRO Platinum HCG1200PROP",
       "ספק כוח Antec PSU 1200W HCG1200 (ATX3.1) PRO Platinum"
     ],
     "offers": [
       {
         "listing_key": "1pc:165979",
         "vendor_sku": "HCG1200PROP",
-        "title": "ANTEC PSU 1200W HCG1200 (ATX3.1) PRO Platinum HCG1200PROP Power Supply Unit.",
+        "title": "ספק כוח ANTEC PSU 1200W HCG1200 (ATX3.1) PRO Platinum HCG1200PROP",
         "price": 1019
       },
       {
@@ -2278,14 +4755,14 @@
     "category": "psu",
     "vendor": "",
     "titles": [
-      "Power Supply Unit Antec PSU 850W HCG850 (ATX3.1) PRO Platinum HCG850PROP.",
-      "ספק כוח Antec PSU 850W HCG850 (ATX3.1) PRO Platinum"
+      "ספק כוח Antec PSU 850W HCG850 (ATX3.1) PRO Platinum",
+      "ספק כוח Antec PSU 850W HCG850 (ATX3.1) PRO Platinum HCG850PROP"
     ],
     "offers": [
       {
         "listing_key": "1pc:165980",
         "vendor_sku": "HCG850PROP",
-        "title": "Power Supply Unit Antec PSU 850W HCG850 (ATX3.1) PRO Platinum HCG850PROP.",
+        "title": "ספק כוח Antec PSU 850W HCG850 (ATX3.1) PRO Platinum HCG850PROP",
         "price": 678
       },
       {
@@ -2303,13 +4780,13 @@
     "vendor": "",
     "titles": [
       "ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White",
-      "ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White NE1000GM-W-ATX3.0 is the translation of the given text."
+      "ספק כח ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White NE1000GM-W-ATX3.0"
     ],
     "offers": [
       {
         "listing_key": "1pc:151066",
         "vendor_sku": "NE1000GM-W-ATX3.0",
-        "title": "ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White NE1000GM-W-ATX3.0 is the translation of the given text.",
+        "title": "ספק כח ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White NE1000GM-W-ATX3.0",
         "price": 625
       },
       {
@@ -2327,13 +4804,13 @@
     "vendor": "",
     "titles": [
       "ANTEC PSU 850W NE850G M NeoECO Gold Modular",
-      "Antec NeoECO Gold 850W Power Supply Model NE850GM."
+      "ספק כוח Antec NeoECO Gold 850W דגם NE850GM"
     ],
     "offers": [
       {
         "listing_key": "1pc:104191",
         "vendor_sku": "NE850GM",
-        "title": "Antec NeoECO Gold 850W Power Supply Model NE850GM.",
+        "title": "ספק כוח Antec NeoECO Gold 850W דגם NE850GM",
         "price": 510
       },
       {
@@ -2351,13 +4828,13 @@
     "vendor": "",
     "titles": [
       "ANTEC PSU 850W NE850G M (ATX 3.0) NeoECO Gold Modular",
-      "ANTEC PSU 850W NE850G M (ATX 3.0) NeoECO Gold Modular NE850GM-ATX3.0"
+      "ספק כוח ANTEC PSU 850W NE850G M (ATX 3.0) NeoECO Gold Modular NE850GM-ATX3.0"
     ],
     "offers": [
       {
         "listing_key": "1pc:145064",
         "vendor_sku": "NE850GM-ATX3.0",
-        "title": "ANTEC PSU 850W NE850G M (ATX 3.0) NeoECO Gold Modular NE850GM-ATX3.0",
+        "title": "ספק כוח ANTEC PSU 850W NE850G M (ATX 3.0) NeoECO Gold Modular NE850GM-ATX3.0",
         "price": 594
       },
       {
@@ -2398,14 +4875,14 @@
     "category": "storage",
     "vendor": "",
     "titles": [
-      "Lexar NM610PRO 500GB M.2 2280 SSD Drive LNM610P500G-RNNNG.",
-      "כונן Lexar NM610 PRO M.2 PCIe NVMe SSD – נפח 500GB – ממשק PCIe Gen 3.0"
+      "כונן Lexar NM610 PRO M.2 PCIe NVMe SSD – נפח 500GB – ממשק PCIe Gen 3.0",
+      "כונן SSD Lexar NM610PRO 500GB M.2 2280 LNM610P500G-RNNNG"
     ],
     "offers": [
       {
         "listing_key": "1pc:208338",
         "vendor_sku": "LNM610P500G-RNNNG",
-        "title": "Lexar NM610PRO 500GB M.2 2280 SSD Drive LNM610P500G-RNNNG.",
+        "title": "כונן SSD Lexar NM610PRO 500GB M.2 2280 LNM610P500G-RNNNG",
         "price": 490
       },
       {
