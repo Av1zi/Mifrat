@@ -137,6 +137,11 @@ _GALLERY_SELECTORS = (
     "a[href*='product_images']::attr(href)",
     "#product-main-image::attr(src)",
     "img[id^='product-main-image']::attr(src)",
+    # 1PC new storefront (Oct 2026): single hero <img class="pdp-hero"
+    # data-orig-src="..."> — og:image already carries the same file, this
+    # is belt-and-braces for pages where the meta tag is missing.
+    "img.pdp-hero::attr(data-orig-src)",
+    "img.pdp-hero::attr(src)",
     "img.product__mainImg::attr(data-original-picture)",
     "img.product__mainImg::attr(src)",
     "img.btn-zoom::attr(src)",
@@ -519,13 +524,22 @@ class OnePcDetailSpider(scrapy.Spider):
         <div class="sku"><span class="value" id="sku-NNN">REAL-SKU</span>
         and inside the JSON-LD Product block ("mpn", plus "brand"). Grab
         both so normalize_and_match can surface the real MPN on offers
-        instead of the internal numeric id."""
+        instead of the internal numeric id.
+
+        New storefront (Oct 2026, verified on /web/item/107265): the old
+        div.sku/meta[itemprop] markup is gone; the JSON-LD Product block
+        carries BOTH "mpn" and "sku" ("A10-9700T") plus brand
+        ({"@type": "Brand", "name": "AMD"}), and the buy form repeats it as
+        <form class="js-add-cart ... buy-row" data-sku="...">. The "sku"
+        key and the form attribute are fallbacks only — mpn wins."""
         extra: dict = {}
         sku = response.css('meta[itemprop="sku"]::attr(content)').get()
         if not sku:
             sku = response.css('meta[itemprop="mpn"]::attr(content)').get()
         if not sku:
             sku = response.css("div.sku span.value::text").get()
+        if not sku:
+            sku = response.css("form.js-add-cart::attr(data-sku)").get()
         if sku and sku.strip():
             extra["real_sku"] = sku.strip()
         for blob in response.css('script[type="application/ld+json"]::text').getall():
@@ -537,7 +551,7 @@ class OnePcDetailSpider(scrapy.Spider):
             for item in items:
                 if not isinstance(item, dict):
                     continue
-                mpn = item.get("mpn")
+                mpn = item.get("mpn") or item.get("sku")
                 if mpn and not extra.get("mpn"):
                     extra["mpn"] = str(mpn).strip()
                 brand = item.get("brand")
@@ -610,6 +624,14 @@ class OnePcDetailSpider(scrapy.Spider):
         fields) interleaved into that same stream — those headings
         must be detected and pulled out, not paired as a label.
         """
+        # New storefront (Oct 2026): a flat table.spec-table of
+        # <th scope="row">label</th><td class="spec-html">value</td> rows.
+        # The table.data-table markup below is gone from the live site but
+        # stays parsed, so archived pages that still serve it stay readable.
+        plain_rows = response.css("table.spec-table tr")
+        if plain_rows:
+            return cls._parse_plain_spec_table(plain_rows)
+
         specs = {}
         current_group = "General"
         for row in response.css("table.data-table tr"):
@@ -632,6 +654,35 @@ class OnePcDetailSpider(scrapy.Spider):
                 value = " ".join(t.strip() for t in value_cell.css("::text").getall() if t.strip())
                 if value:
                     specs[f"{current_group} / {label}"] = value
+        return specs
+
+    @classmethod
+    def _parse_plain_spec_table(cls, rows) -> dict:
+        """New-storefront spec table -> {label: value}.
+
+        The old table prefixed every label with its group ("Spec / Interface
+        Connectivity"); the new one prints the bare Hebrew label the TMS and
+        Ivory tables already use ('תושבת מעבד', 'סוג תאורה', 'ממשק אחסון'), so
+        the same vocabulary covers it.
+
+        Multi-token values are separated by a padded backslash ("USB 2.0 \\
+        USB 3.0", "1155 \\ 1150 \\ ...") where the old markup used '|'. That
+        is translated to '|' so the label layer's list splitting
+        (labels._emit_by_key, canon_socket_list) keeps working on the same
+        contract instead of learning a second separator.
+        """
+        specs = {}
+        for row in rows:
+            label = " ".join(
+                t.strip() for t in row.css("th ::text").getall() if t.strip()
+            )
+            value = " ".join(
+                t.strip() for t in row.css("td ::text").getall() if t.strip()
+            )
+            if not label or not value:
+                continue
+            value = re.sub(r"\s*\\\s*", " | ", value)
+            specs[label] = re.sub(r"\s+", " ", value).strip()
         return specs
 
     @classmethod

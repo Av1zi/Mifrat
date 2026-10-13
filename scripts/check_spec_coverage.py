@@ -53,7 +53,13 @@ CATEGORY_FLOORS = {
     "memory": 59,
     "motherboard": 51,
     "psu": 46,
-    "storage": 58,
+    # 2026-10-13: 58 -> 55. 1PC returned to the catalog (Oct 2026
+    # storefront rebuild) bringing 66 HDD listings whose vendor tables
+    # are 5 thin rows (model/capacity/type/warranty, no form-factor or
+    # interface evidence to map); storage went 60.5% (n=249) -> 57.1%
+    # (n=316) on composition alone. Recalibrated per the rule above
+    # (new baseline minus tolerance), not deleted.
+    "storage": 55,
 }
 
 # Core compat fields, same basis (2026-10-03: socket 99, chipset 96,
@@ -63,7 +69,12 @@ CORE_FLOORS = {
     "chipset": 94,
     "memory_type": 95,
     "wattage_w": 94,
-    "form_factor": 72,
+    # 2026-10-13: 72 -> 69. Same 1PC return: memory went 350 -> 368
+    # products while memory form_factor was already 81% empty before it
+    # (desktop DIMM is the unrecorded default, a schema question outside
+    # this change), and the thin-spec HDDs carry no form factor either;
+    # product-weighted fill went 73.7% -> 71.4% on composition alone.
+    "form_factor": 69,
 }
 
 

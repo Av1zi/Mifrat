@@ -149,10 +149,10 @@
       }
     },
     {
-      "product_id": "mpn:gpu:4711377303927",
+      "product_id": "mpn:gpu:4711377308175",
       "category": "gpu",
-      "name": "MSI GeForce RTX 5070 12GB TRIO OC",
-      "_pins": "GPU chipset canonical form. The board rule for chipset used to reject every multi-word GPU chip, which was 87% of the catalogue.",
+      "name": "MSI GeForce RTX 5070 12GB",
+      "_pins": "GPU chipset canonical form. The board rule for chipset used to reject every multi-word GPU chip, which was 87% of the catalogue. Same model/assertions as the original pin, which was mpn:gpu:4711377303927 (MSI RTX 5070 12G TRIO OC): that product is gone from the catalogue because 1PC's Oct 2026 builder lists only buildable items and its single offer is now sold out (the live page shows \u05d0\u05d6\u05dc \u05de\u05d4\u05de\u05dc\u05d0\u05d9, no schema.org availability). Its 1PC listing still reads 'MSI GeForce RTX 5070 12G VENTUS 2X OC', so the multi-word chip is still exercised.",
       "expect": {
         "manufacturer": "MSI",
         "chipset": "GeForce RTX 5070",

@@ -361,6 +361,15 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "זיכרון מקסימלי": "memory_max_gb",
         "מהירות זכרון": "memory_speeds",
         "מהירויות זכרון": "memory_speeds",
+        # 1PC's redesigned storefront (Oct 2026) spells the same board rows
+        # out in full ("תושבת המעבד" vs TMS's "תושבת מעבד", "ערכת שבבים של
+        # לוח האם" vs "ערכת שבבים"). Values verified against the live pages.
+        "תושבת המעבד": "socket",
+        "ערכת שבבים של לוח האם": "chipset",
+        "סוגי זיכרון נתמכים": "memory_type",
+        "מספר חריצי m.2 (m)": "m2_slots",
+        "מספר מחברי sata iii": "sata_ports",
+        "סוג ממשק ethernet": "ethernet",
     },
     "memory": {
         "סוג זכרון": "memory_type",
@@ -392,6 +401,15 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "ram / ram capacity": "total_gb",
         "frequency": "speed_mhz",
         "memory frequency": "speed_mhz",
+        # 1PC's redesigned storefront (Oct 2026): plain Hebrew spellings of
+        # rows TMS already prints under other names ("מהירות זכרון (max)",
+        # "זמן איחזור", "ערכת זיכרון"). Each maps to the same field.
+        "נפח זיכרון": "total_gb",
+        "תזמון cas": "cas_latency",
+        "תצורת ערכה": MEMORY_KIT,
+        "קצב העברת נתונים בזיכרון": "speed_mhz",
+        "קצב נתונים מרבי": "speed_mhz",
+        "מהירות זיכרון מרבית": "speed_mhz",
     },
     "storage": {
         "נפח דיסק": "capacity_gb",
@@ -419,6 +437,16 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "זכרון מטמון": "cache_mb",
         "גודל פיזי": STORAGE_FORM_FACTOR,
         "spec / interface connectivity": INTERFACE_CONNECTIVITY,
+        # 1PC's redesigned storefront (Oct 2026) prints its own storage rows;
+        # values are already in schema units ("480GB", "SSD", "M.2 2280"),
+        # which is why the capacity/type/form-factor trio is what these three
+        # labels fill. The read/write-speed rows stay gaps: no schema field.
+        "נפח אחסון": "capacity_gb",
+        "גודל האחסון": "capacity_gb",
+        "סוג האחסון": "type",
+        "סוג אחסון": "type",
+        "פקטור צורה": STORAGE_FORM_FACTOR,
+        "גודל הפיזי של הכונן": STORAGE_FORM_FACTOR,
     },
     "psu": {
         "הספק": "wattage_w",
@@ -531,6 +559,10 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מידות": "dimensions_mm",
         "נפח": "volume_l",
         "משקל": "weight_kg",
+        # 1PC's redesigned storefront (Oct 2026) prints the clearance rows as
+        # "תמיכה ב... mm" with a bare millimetre number ("280", "155").
+        "תמיכה בכרטיס מסך mm": "max_gpu_length_mm",
+        "תמיכה בקירור למעבד mm": "max_cooler_height_mm",
     },
     "cooler_air": {
         "גודל מאוורר": "fan_size_mm",
@@ -690,6 +722,19 @@ _IGNORED_LABELS = frozenset({
         "spec / built-in speakers", "spec / designed for gaming",
         "screen / resolution", "screen / screen size", "screen / screen type",
         "screen / screen refresh rate", "product type",
+        # ----- 1PC's redesigned storefront (Oct 2026) -----
+        # Same categories as the block above, in the Hebrew spellings the new
+        # pages use. The warranty pair is the importer's policy row ("יבואן
+        # רשמי" / "CD-LOG" / "שלוש שנים"), the rest is shop bookkeeping. The
+        # screen/OS/camera rows are the non-part facts the English ignores
+        # already cover: 1PC files some complete systems under its storage
+        # slot, and those pages print laptop facts no parts schema can hold
+        # (they stay visible in git history as evidence of the miscategorised
+        # listings — see decisions.md 2026-10-13).
+        "נותן האחריות", "תקופת ותנאי האחריות", "סוג האחריות", "ספק יבואן",
+        "סוג מוצר", "מוצרים נלווים", "כבלים כלולים", "מיועד לגיימינג",
+        "product name", "intel xmp", "גרסת intel xmp",
+        "מערכת הפעלה", "מסך", "גודל מסך באינצ'ים", "מצלמה", "מצלמת אינטרנט",
     )
 })
 

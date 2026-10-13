@@ -1076,7 +1076,10 @@ def listing_key(listing: dict) -> str:
     url = str(listing.get("url", "") or "").strip()
 
     if vendor == "1pc":
-        m = re.search(r"product-(\d+)", url)
+        # Pre-redesign /en/product-153876-slug, new /web/product/213835
+        # and canonical /web/item/107265 (JSON-LD url) — all carry the
+        # stable numeric product id.
+        m = re.search(r"(?:product-|/product/|/item/)(\d+)", url)
         if m:
             return f"1pc:{m.group(1)}"
         if sku:
@@ -1446,12 +1449,42 @@ def enrich_listing(listing: dict) -> dict:
     return enriched
 
 
+def _wins_title_tiebreak(new: dict, old: dict) -> bool:
+    """Same listing_key AND an identical best-offer rank — one product filed
+    under two vendor categories (seen live: 1PC's builder serves RTX 5070 Ti
+    213835 under both the `gpu` and the `motherboard` slots with identical
+    title/price/image). Keep the row whose vendor guess agrees with the
+    title-only classification; when neither or both agree, keep the
+    lexicographically smaller guess so the survivor is stable across runs
+    instead of depending on async crawl arrival order.
+
+    Runs only on exact rank ties (rare), so the extra classifications cost
+    nothing on the common path.
+    """
+    try:
+        new_title_cat = canonical_category(
+            None, new.get("title_raw", ""),
+            str(new.get("url") or ""), str(new.get("vendor_sku") or ""))
+        old_title_cat = canonical_category(
+            None, old.get("title_raw", ""),
+            str(old.get("url") or ""), str(old.get("vendor_sku") or ""))
+    except Exception:
+        return False
+    new_agrees = new.get("category_normalized") == new_title_cat
+    old_agrees = old.get("category_normalized") == old_title_cat
+    if new_agrees != old_agrees:
+        return new_agrees
+    return str(new.get("category_guess") or "") < str(old.get("category_guess") or "")
+
+
 def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
     """
     Deduplicate listings with the same listing_key.
 
     If the same listing_key appears multiple times, keep the best offer:
-    lowest known price, in-stock preferred, non-stale preferred.
+    lowest known price, in-stock preferred, non-stale preferred. Exact
+    rank ties (same product filed under two categories) fall through to
+    the title-agreement tiebreak so the survivor is deterministic.
     """
     best: dict[str, dict] = {}
 
@@ -1475,6 +1508,8 @@ def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
     for e in enriched_listings:
         k = e["listing_key"]
         if k not in best or rank(e) < rank(best[k]):
+            best[k] = e
+        elif rank(e) == rank(best[k]) and _wins_title_tiebreak(e, best[k]):
             best[k] = e
 
     return list(best.values())

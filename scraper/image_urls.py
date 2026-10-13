@@ -228,6 +228,10 @@ def url_shape_score(url: str) -> float:
     lowered = url.lower()
     if "/image/catalog/products/" in lowered or "/files/catalog/org/" in lowered:
         score += 2.5          # vendor original directories
+    if "/media/catalog/v1/" in lowered:
+        score += 2.5          # 1PC new storefront (Oct 2026) originals:
+                              # the pdp-hero data-orig-src file (og:image
+                              # points at /media/pictures/, the listing tile)
     if "/graphics/product_images/full/" in lowered:
         score += 2.5
     if "/images/thumbs/" in lowered:
