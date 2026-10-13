@@ -197,6 +197,30 @@ floors + 5 core floors at baseline-minus-2pp. README documents the new
 token family, `_is_token()` contract, relaxed lookup guards and the
 ignore/deferred split; overview §6.5 summarizes results.
 
+**Review pass, 2026-10-13 (101 new upstream commits, 1PC cloud-suspended).**
+Re-verifying the pass end to end on the current snapshots found two real
+defects; both are fixed here.
+
+- `קבוצת הספק` (the PSU *series* range, `650W - 1100W`) was mapped to
+  `wattage_w`. It prints first in the vendor table, so its low bound won the
+  merge ahead of the unit's own `הספק` row: 143 PSUs shipped the family
+  minimum (a 750W Antec displayed 650W, a 2800W Seasonic 1200W), and the
+  polluted value also drove the tier-0 identity slice, which then matched a
+  650W reference variant and "confirmed" the wrong number. The label is now
+  unmapped gap evidence for a future `series_wattage_range` field; 192 PSUs
+  store the vendor's rating and none store the family minimum.
+- Ivory prints SATA ports as `N חיבורי SATA` (116 rows); only the English
+  `4x SATA 6Gb/s` shape was parsed, so those boards shipped `sata_ports`
+  null even when `m2_slots` filled from the very same cell. Both spellings
+  now parse, including when a board lists its ports in the internal-header
+  cell (106/107 Ivory boards have `sata_ports`). A port count still never
+  comes from `SATA 6Gb/s` or `PCIe 4.0 x4 / SATA mode`.
+- Re-measured on the 2026-10-13 snapshots: label-gap rows 3,428 (budget
+  4,500), invalid 84, conflicts 9,666, core chipset 96% / memory_type 97% /
+  socket 99% / wattage_w 96% / form_factor 73%. All gates pass: spec-sync,
+  golden 81, spec-merge 33, tms-detail 492 (36 pair cases), coverage floors,
+  size guard (+2.2% bytes, +0.0% products), site build.
+
 ---
 
 ## 4. Targets (measured 2026-10-03, same snapshots pre/post)
@@ -263,6 +287,8 @@ Report-counter rows in the post-pass `spec_report.json` (top unmapped):
 | `דור המעבד` | cpu | 65 | generation, no field |
 | `פרופיל קירור` | cooler | 14 | Low Profile, no field |
 | `מאוורר צד` | case | 96 | side mounts, no `fan_side` field |
+| `קבוצת הספק` | psu | 194 | series wattage range (`650W - 1100W`), not the unit rating — see the 2026-10-13 review above |
+| `Storage / Storage capacity` | motherboard/gpu | 10/4 | 1PC cell: `4 slots` / `3x M.2, 6x SATA III` on boards, `16GB` on GPUs — mixed semantics per category, needs a decision |
 
 Deliberately ignored (bookkeeping, not facts): `PFC` (187), case-fan
 bearing `מסב מאוורר` (249), memory profile `פרופיל זיכרון` (170),

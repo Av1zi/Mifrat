@@ -241,8 +241,9 @@ coverage report like the others.
   bus width / DirectX/OpenGL / max-displays / Recommended-PSU, Thunderbolt,
   case side-fan mounts and 5.25" bays, storage sequential speeds. 1PC's
   junk-drawer "Spec / Interface Connectivity" is routed per category
-  (motherboard/storage/gpu); categories the router does not cover stay gaps
-  on purpose. New fields require a schema decision first (see "Adding or
+  (motherboard USBs, storage interface, GPU PCIe lane, case front-panel USB);
+  categories the router does not cover (PSU, fans, memory, CPU) stay gaps on
+  purpose. New fields require a schema decision first (see "Adding or
   changing a spec field").
 
 ## Vendor detail pages (`labels.py`) and the TMS selector bug
