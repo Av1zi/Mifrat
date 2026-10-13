@@ -300,6 +300,17 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
+    "listing_a": "ivory:111449",
+    "listing_b": "tms:C8",
+    "title_a": "מארז Antec C8 ARGB בצבע שחור",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "C8-ARGB-BLACK Antec C8 ARGB",
+    "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
     "listing_a": "ivory:43029",
     "listing_b": "tms:FLUX",
     "title_a": "מארז מחשב Antec DF800 FLUX בצבע שחור כולל חלון צד",
@@ -493,6 +504,17 @@
     "title_b": "AMD Ryzen Threadripper 7960X 24-core Tray",
     "match_text_a": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray",
     "match_text_b": "100-000001352 AMD Ryzen Threadripper 7960X 24-core Tray"
+  },
+  {
+    "score": 94,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "ivory:160780",
+    "listing_b": "tms:0-761345-10240-7",
+    "title_a": "מארז מחשב Antec AX1000 ARGB – כולל 4 מאווררים – צבע שחור",
+    "title_b": "מארז מחשב Antec AX1000 ARGB",
+    "match_text_a": "AX1000 Antec AX1000 ARGB 4",
+    "match_text_b": "0-761345-10240-7 Antec AX1000 ARGB"
   },
   {
     "score": 93,
@@ -2024,30 +2046,6 @@
         "vendor_sku": "90MB1FI0-M1EAY0",
         "title": "לוח אם ASUS PRIME B760M-K 1700 DDR5 mATX",
         "price": 499
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:90mb1ga0m0eay0",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "ASUS Prime H610M-K Intel H610 LGA 1700 micro ATX",
-      "לוח אם ASUS Prime H610M-K mATX 1700 DDR5"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:155473",
-        "vendor_sku": "90MB1GA0-M0EAY0",
-        "title": "ASUS Prime H610M-K Intel H610 LGA 1700 micro ATX",
-        "price": 428
-      },
-      {
-        "listing_key": "ivory:112965",
-        "vendor_sku": "90MB1GA0-M0EAY0",
-        "title": "לוח אם ASUS Prime H610M-K mATX 1700 DDR5",
-        "price": 369
       }
     ]
   },
