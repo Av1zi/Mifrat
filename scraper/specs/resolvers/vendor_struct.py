@@ -140,6 +140,16 @@ _NAMED_BOOST_RE = re.compile(
     r"(?i)(?:max|boost|turbo)[^0-9]{0,12}(\d+(?:[.,]\d+)?)\s*g?hz")
 _ANY_GHZ_RE = re.compile(r"(?i)(\d+(?:[.,]\d+)?)\s*g?hz")
 _TIER_RE = re.compile(r"(?i)\bL\s?([123])\b")
+# One tier of a combined CPU cache cell: "L2 16MB", "L3 - 128MB",
+# "L1 Cache 512KB", "Total L3 96MB". The tier token is mandatory — a bare
+# number is read by the fallback in _emit_cache_tier, never tiered here.
+_CACHE_SEGMENT_RE = re.compile(
+    r"(?i)\bL\s?([123])\b\s*(?:Cache\s*)?[-:]?\s*(\d+(?:[.,]\d+)?)\s*(KB|MB|GB)?\b"
+)
+# Intel's name for its shared L3 bucket ('6 MB SmartCache',
+# '36MB ... Intel Smart Cache'). Only consulted when no L3 segment
+# printed, so 'SmartCache 36MB | L2 32MB' still fills both tiers.
+_SMART_CACHE_RE = re.compile(r"(?i)smart\s*cache")
 _KIT_RE = re.compile(r"(?i)(\d{1,2})\s*[x×*]\s*(\d{1,4})\s*gb")
 _LENGTH_RE = re.compile(r"(?i)\bL\s*=\s*(\d+(?:[.,]\d+)?)")
 
@@ -209,23 +219,60 @@ def _emit_clock_range(facts: dict, category: str, value, source: str) -> None:
           float(numbers[1].replace(",", ".")), source, 0.8)
 
 
+def _cache_mb(number_text, unit_text):
+    """'16' + 'MB' -> 16.0; KB/GB units are converted, unitless stays MB."""
+    try:
+        size = float(str(number_text).replace(",", "."))
+    except (TypeError, ValueError):
+        return None
+    unit = str(unit_text or "MB").upper()
+    if unit == "KB":
+        size /= 1024
+    elif unit == "GB":
+        size *= 1024
+    return round(size, 3)
+
+
 def _emit_cache_tier(facts: dict, category: str, value, source: str) -> None:
-    """'L3 512MB' -> l3_cache_mb (the tier prefix is the only honest signal)."""
+    """'L1 1280KB | L2 16MB | L3 128MB' -> l2_cache_mb + l3_cache_mb.
+
+    Every tier segment is read independently. The old code read only the
+    FIRST tier token in the cell, so a combined cell either lost all three
+    tiers ('L1 ...' fell through to cache_mb, which cpu has no field for)
+    or kept only L2 (Ivory's 'L2 - 16MB L3 - 128MB' never reached L3).
+    L1 segments are skipped, not misfiled — the schema has no L1 field.
+
+    A bare number with no tier ('36MB') stays on the old fallback path:
+    vendors mix L3-only and L2+L3-total figures there (144MB total vs
+    128MB L3 on the same X3D class), so tiering it would invent facts.
+    """
     text = str(value or "")
-    tier = _TIER_RE.search(text)
-    # The tier token itself carries a digit ("L3 512MB") — drop it before
-    # reading the size, or every L2/L3 cache would ship as 2/3 MB.
+    l3_done = False
+    for match in _CACHE_SEGMENT_RE.finditer(text):
+        if match.group(1) not in ("2", "3"):
+            continue
+        size = _cache_mb(match.group(2), match.group(3))
+        if size is None:
+            continue
+        _emit(facts, category,
+              "l2_cache_mb" if match.group(1) == "2" else "l3_cache_mb",
+              size, source, 0.85)
+        if match.group(1) == "3":
+            l3_done = True
+    if l3_done:
+        return
+    if _SMART_CACHE_RE.search(text):
+        number = re.search(r"(\d+(?:[.,]\d+)?)\s*(KB|MB|GB)?\b", text)
+        if number:
+            size = _cache_mb(number.group(1), number.group(2))
+            if size is not None:
+                _emit(facts, category, "l3_cache_mb", size, source, 0.85)
+                return
+    # No tier printed: only a category that HAS a plain cache_mb field (a
+    # storage buffer) can take this without guessing which CPU cache it is.
     number = first_number(_TIER_RE.sub(" ", text))
     if number is None:
         return
-    if tier and tier.group(1) == "2":
-        _emit(facts, category, "l2_cache_mb", number, source, 0.85)
-        return
-    if tier and tier.group(1) == "3":
-        _emit(facts, category, "l3_cache_mb", number, source, 0.85)
-        return
-    # No tier printed: only a category that HAS a plain cache_mb field (a
-    # storage buffer) can take this without guessing which CPU cache it is.
     _emit(facts, category, "cache_mb", number, source, 0.8)
 
 

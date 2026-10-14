@@ -314,6 +314,71 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
         fill("core_family", intel_uarch[0], "cpu.architecture_family")
         fill("lithography_nm", intel_uarch[1], "cpu.architecture_node")
 
+    # SMT from the core/thread arithmetic, when the vendor printed counts
+    # but no SMT flag. 2 threads/core IS SMT on x86; a hybrid part can
+    # never land exactly on 2x (P-cores take 2 threads each, E-cores 1,
+    # so 2P+E != 2(P+E) whenever E > 0); threads == cores is a part
+    # without it. Hybrid 10C/16T shapes match neither and stay null.
+    threads = specs.get("thread_count")
+    model_alnum = re.sub(r"[^A-Za-z0-9]", "", model_text).upper()
+    if isinstance(cores, int) and isinstance(threads, int) and cores > 0:
+        if threads == cores:
+            fill("smt", False, "cpu.thread_math_no_smt")
+        elif threads == 2 * cores:
+            fill("smt", True, "cpu.thread_math_smt")
+    if re.search(r"\bCore\s?(i[3579]|Ultra\s?[3579])\b", model_text, re.I):
+        # Every desktop Core 12th-14th gen ships Hyper-Threading (the
+        # E-cores never take it away: T/S/F power and KS bins keep HT;
+        # HX rides along as desktop silicon in BGA, all of it HT).
+        # Mobile tails stay out — a generation number never pinned those.
+        if (not _INTEL_MOBILE_SUFFIX.search(model_alnum)
+                and _generation_number(model_text) in (12, 13, 14)):
+            fill("smt", True, "cpu.intel_gen_ht")
+        # Arrow Lake dropped SMT from the architecture itself (Lion Cove
+        # / Skymont have no Hyper-Threading on any SKU), so a desktop
+        # Ultra 200 part is False by definition, counts or no counts.
+        if (_ULTRA_ARROW_LAKE.search(model_text)
+                and not _INTEL_MOBILE_SUFFIX.search(model_alnum)):
+            fill("smt", False, "cpu.arrow_lake_no_ht")
+
+    # AMD's family facet is the Zen generation itself (there is no
+    # separate lake-style codename in the data): "Zen 4" microarch means
+    # "Zen 4" family. EPYC/mobile stay out — their microarch is None.
+    if _ZEN_TOKEN.match(str(microarch or "").strip()):
+        fill("core_family", str(microarch).strip(), "cpu.amd_family_is_uarch")
+
+    # Multiplier lock from the model suffix, when no source printed it.
+    # Server parts are locked (EPYC, Xeon — except workstation W...X,
+    # which Intel ships unlocked); Intel client is unlocked only on
+    # K/KF/KS/X/XE/HX/HK tails; the whole FX line is unlocked, A-series
+    # only on a K tail. Anything unparseable (order codes like BX807...,
+    # bare "Pentium G2030" is covered, opaque tray codes are not) stays
+    # null rather than guessed.
+    brand = str(specs.get("manufacturer") or "")
+    if _EPYC.search(model_text):
+        fill("unlocked", False, "cpu.server_locked")
+    elif re.search(r"\bXeon\b", model_text, re.I):
+        if re.search(r"\bW[\d\s]*\dX\b", model_text, re.I):
+            fill("unlocked", True, "cpu.xeon_w_x_unlocked")
+        else:
+            fill("unlocked", False, "cpu.server_locked")
+    elif re.search(r"\bFX\b", model_text):
+        fill("unlocked", True, "cpu.fx_line_unlocked")
+    elif re.search(r"\bA\d+\b", model_text) and not _AMD_PREFIX.search(model_text):
+        if re.search(r"K$", model_alnum):
+            fill("unlocked", True, "cpu.a_series_k_unlocked")
+        else:
+            fill("unlocked", False, "cpu.a_series_locked")
+    elif brand == "Intel" or _INTEL_PREFIX.search(model_text):
+        if _INTEL_UNLOCKED_SUFFIX.search(model_alnum) or re.search(
+                r"(HX|HK)$", model_alnum):
+            fill("unlocked", True, "cpu.intel_suffix_unlocked")
+        elif re.search(r"\b(Celeron|Pentium|Atom)\b", model_text, re.I):
+            fill("unlocked", False, "cpu.value_line_locked")
+        elif re.search(r"\b(Core|Ultra)\b", model_text, re.I):
+            fill("unlocked", False, "cpu.intel_locked_suffix")
+
+
     # A tray CPU ships without a cooler by definition.
     if specs.get("packaging") == "tray":
         fill("includes_cooler", False, "cpu.tray_packaging")

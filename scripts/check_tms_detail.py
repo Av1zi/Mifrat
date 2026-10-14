@@ -634,6 +634,36 @@ PAIR_CASES = [
         "expect_specs": {"type": "Full Tower", "psu_included": "Not included"},
         "expect_gaps": (),
     },
+    {
+        "name": "CPU cache tiers share one cell (TMS combined row)",
+        "category": "cpu",
+        "rows": {"זכרון מטמון במעבד": "L1 1280KB | L2 16MB | L3 128MB"},
+        "expect_specs": {"l2_cache_mb": 16, "l3_cache_mb": 128},
+        "expect_absent": ("cache_mb",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "CPU cache tiers without pipes (Ivory row)",
+        "category": "cpu",
+        "rows": {"זכרון מטמון (Cache)": "L2 - 8MB L3 - 96MB"},
+        "expect_specs": {"l2_cache_mb": 8, "l3_cache_mb": 96},
+        "expect_gaps": (),
+    },
+    {
+        "name": "CPU Intel Smart Cache bucket is L3",
+        "category": "cpu",
+        "rows": {"זכרון מטמון במעבד": "36MB Intel Smart Cache"},
+        "expect_specs": {"l3_cache_mb": 36},
+        "expect_absent": ("l2_cache_mb",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "CPU bare cache number stays untiered (L3-vs-total ambiguity)",
+        "category": "cpu",
+        "rows": {"זכרון מטמון במעבד": "144MB"},
+        "expect_absent": ("l2_cache_mb", "l3_cache_mb", "cache_mb"),
+        "expect_gaps": (),
+    },
 ]
 
 NEGATIVE_CASES = [
