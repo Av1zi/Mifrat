@@ -119,6 +119,19 @@ def model_name_preference(fact: "Fact") -> int:
     return 1 if looks_like_part_number(fact.value) else 0
 
 
+def model_number_preference(fact: "Fact") -> int:
+    """Secondary key inside names: 0 when the name carries a model number.
+
+    A vendor "דגם" row often prints the lineup instead of the model
+    ("AMD Ryzen 9 Processor"), which then outranks the title's precise
+    name ("Ryzen 9 9950X3D") on tier alone and ships a model with no
+    model in it. A 3+-digit token is the line: "Ryzen 9" stays
+    numberless (rightly — the 9 is the tier), "16GB"/"DDR5" stay
+    numberless, while 9950/5070/13600 count.
+    """
+    return 0 if re.search(r"\d{3,}", str(fact.value or "")) else 1
+
+
 def same_value(a, b) -> bool:
     """Value equality that ignores representation noise ('65W' == '65 w',
     ['A','B'] == ['B','A'] for lists)."""
@@ -193,9 +206,13 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
         # identity key. Stable sort: tier/confidence still order values of the
         # same kind, and a product whose only model value IS a part number
         # keeps it (nothing is dropped, the loser is recorded as a conflict).
+        # Same treatment one level down: a numberless lineup name ("AMD
+        # Ryzen 9 Processor") must not outrank a numbered precise name
+        # ("Ryzen 9 9950X3D") on tier alone.
         if name == "model" and len(accepted) > 1 and any(
                 model_name_preference(fact) == 0 for fact in accepted):
-            accepted.sort(key=model_name_preference)
+            accepted.sort(key=lambda fact: (model_name_preference(fact),
+                                            model_number_preference(fact)))
 
         winner = accepted[0]
         result.specs[name] = winner.value

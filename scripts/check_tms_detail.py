@@ -664,6 +664,30 @@ PAIR_CASES = [
         "expect_absent": ("l2_cache_mb", "l3_cache_mb", "cache_mb"),
         "expect_gaps": (),
     },
+    {
+        "name": "Fan lone RPM figure is a maximum, not a min==max part",
+        "category": "case_fan",
+        "rows": {"מהירות מאוורר": "2200 RPM"},
+        "expect_specs": {"rpm_max": 2200},
+        "expect_absent": ("rpm_min",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "1PC graphics-model row is the iGPU, not the model (cpu)",
+        "category": "cpu",
+        "rows": {"GPU / Graphics Card Model": "Intel UHD Graphics 770"},
+        "expect_specs": {"integrated_graphics": "Intel UHD Graphics 770"},
+        "expect_absent": ("model",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "1PC graphics absence row reads as no iGPU (cpu)",
+        "category": "cpu",
+        "rows": {"GPU / Graphics Card Model": "Without a graphics processor."},
+        "expect_specs": {"integrated_graphics": "no"},
+        "expect_absent": ("model",),
+        "expect_gaps": (),
+    },
 ]
 
 NEGATIVE_CASES = [

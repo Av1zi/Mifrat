@@ -174,6 +174,10 @@ _COMMON_RAW: dict[str, str] = {
     "brand": "manufacturer",
     "manufacturer": "manufacturer",
     "maker": "manufacturer",
+    # 1PC's flattened brand row ("GPU / Graphics Card Model Brand:
+    # ARKTEK"). Exact-matches before the relaxed subset rule can claim it
+    # for the chip field via the shorter "Graphics Card Model" entry.
+    "gpu / graphics card model brand": "manufacturer",
     "model": "model",
     "model name": "model",
     "memory type": "memory_type",
@@ -215,6 +219,11 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "threads #": "thread_count",
         "מעבד גרפי": "integrated_graphics",
         "גרפיקה משולבת": "integrated_graphics",
+        # 1PC's flattened twin of the row above ("GPU / Graphics Card
+        # Model: Intel UHD Graphics 770"). Without this the schema-alias
+        # suffix rule files it as `model` (it ends in "Model"), pooling
+        # every chip that shares an iGPU under one junk pid.
+        "gpu / graphics card model": "integrated_graphics",
         "מהירות מעבד": CLOCK_RANGE,
         "מהירות שעון": CLOCK_RANGE,
         "תדר": CLOCK_RANGE,
@@ -723,7 +732,10 @@ _HE_VALUE_WORDS = {
     "רגיל": "standard",
     "הפוך": "reverse",
 }
-_FALSE_PREFIXES = ("ללא", "אין")
+# False-by-prefix value openers ("ללא X" / "אין X" are never specs).
+# English "without" joins them: the only values it opens anywhere on disk
+# are five graphics-absence rows, mirroring the Hebrew twin exactly.
+_FALSE_PREFIXES = ("ללא", "אין", "without")
 _GERESH_STRIP = str.maketrans({"׳": "", "״": "", "'": "", '"': ""})
 
 # Vendor SKU / part-number rows on a *detail* page are the shop's own catalogue
@@ -807,9 +819,9 @@ def clean_detail_value(value) -> str | None:
     if _MOJIBAKE_RE.search(text) or _PROMO_RE.search(text):
         return None
 
-    # "ללא מעבד גרפי" / "ללא מאוורר" -> "no"
+    # "ללא מעבד גרפי" / "ללא מאוורר" / "Without a graphics processor." -> "no"
     for prefix in _FALSE_PREFIXES:
-        if text.startswith(prefix):
+        if text.lower().startswith(prefix):
             return "no"
 
     out: list[str] = []

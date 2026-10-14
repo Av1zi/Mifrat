@@ -111,6 +111,21 @@ def check_model_prefers_a_name(c: Checks) -> None:
     c.eq(two_names.specs.get("model"), "Ryzen 7 9800X3D series",
          "among names the better tier still wins")
 
+    # A numberless lineup name must not outrank a numbered precise name
+    # on tier alone (audited case: vendor "AMD Ryzen 9 Processor" beat
+    # title "Ryzen 9 9950X3D" and the product shipped a model with no
+    # model in it).
+    numbered = merge_facts("cpu", {
+        "model": [
+            Fact(value="AMD Ryzen 9 Processor", tier=TIER_VENDOR, source="vendor:detail"),
+            Fact(value="Ryzen 9 9950X3D", tier=TIER_TITLE, source="title"),
+        ]
+    })
+    c.eq(numbered.specs.get("model"), "Ryzen 9 9950X3D",
+         "a numbered name beats a numberless lineup name for `model`")
+    c.ok(any(conflict.field == "model" for conflict in numbered.conflicts),
+         "the displaced lineup name is still recorded as a conflict")
+
 
 def check_tier_order(c: Checks) -> None:
     merged = merge_facts("cpu", {

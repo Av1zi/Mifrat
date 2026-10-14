@@ -55,7 +55,10 @@ CATEGORY_FLOORS = {
     # are Yahav's, averaging 8.0 filled fields/product vs 9.0 for the rest
     # (its tables are ~5 rows), so mean fill went to 57.7% on composition
     # alone — measured, not a mapping regression (pair cases still pass).
-    "case_fan": 55,
+    # 2026-10-14 (same day): 55 -> 54. The lone-RPM bugfix (a lone
+    # "2200 RPM" filed as min==max) removed false rpm_min fills; the 55
+    # floor had been set on the inflated count.
+    "case_fan": 54,
     "cooler_air": 41,
     "cooling_other": 28,
     "cpu": 70,

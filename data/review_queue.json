@@ -26,11 +26,11 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:154854",
-    "listing_b": "tms:100-000000597",
+    "listing_b": "ivory:126060",
     "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
+    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
     "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
   },
   {
     "score": 100,
@@ -146,50 +146,6 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:207742",
-    "listing_b": "tms:100-000001590",
-    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:207742",
-    "listing_b": "yahav:10671",
-    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:214851",
-    "listing_b": "tms:100-000001183",
-    "title_a": "מעבד AMD Ryzen™ 5 PRO 8500G AM5 עם גרפיקה מובנית Tray",
-    "title_b": "AMD Ryzen 5 PRO 8500G AM5 Tray",
-    "match_text_a": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 Tray",
-    "match_text_b": "100-000001183 AMD Ryzen 5 PRO 8500G AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215496",
-    "listing_b": "tms:100-000001504",
-    "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:218573",
     "listing_b": "tms:100-000000743",
     "title_a": "מעבד AMD Ryzen 7 5700 AM4 Tray",
@@ -212,6 +168,17 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "ivory:126060",
+    "listing_b": "yahav:10325",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "ivory:72257",
     "listing_b": "tms:100-000000591",
     "title_a": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
@@ -223,34 +190,12 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000597",
-    "listing_b": "yahav:10325",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000927",
     "listing_b": "yahav:9797",
     "title_a": "AMD Ryzen 5 5600 AM4 Tray",
     "title_b": "מעבד חברת AMD דגם Ryzen 5 5600 3.5Ghz 4.4Ghz 32MB Cache AM4 Tray",
     "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 3.5Ghz 4.4Ghz 32MB Cache AM4 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001590",
-    "listing_b": "yahav:10671",
-    "title_a": "AMD Ryzen 7 8700F AM5 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray"
   },
   {
     "score": 100,
@@ -311,50 +256,6 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:152181",
-    "listing_b": "tms:C14600KT",
-    "title_a": "מעבד Intel Core i5 14600K / 1700 Tray",
-    "title_b": "Intel Core i5 14600K / 1700 Tray",
-    "match_text_a": "C14600KT Intel Core i5 14600K / 1700 Tray",
-    "match_text_b": "C14600KT Intel Core i5 14600K / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:152187",
-    "listing_b": "tms:C14700KFT",
-    "title_a": "מעבד Intel Core i7 14700KF / 1700 Tray",
-    "title_b": "Intel Core i7 14700KF / 1700 Tray",
-    "match_text_a": "C14700KFT Intel Core i7 14700KF / 1700 Tray",
-    "match_text_b": "C14700KFT Intel Core i7 14700KF / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:152189",
-    "listing_b": "tms:C14900KT",
-    "title_a": "מעבד Intel Core i9 14900K / 1700 Tray",
-    "title_b": "Intel Core i9 14900K / 1700 Tray",
-    "match_text_a": "C14900KT Intel Core i9 14900K / 1700 Tray",
-    "match_text_b": "C14900KT Intel Core i9 14900K / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:152191",
-    "listing_b": "tms:C14900KFT",
-    "title_a": "מעבד Intel Core i9 14900KF / 1700 Tray",
-    "title_b": "Intel Core i9 14900KF / 1700 Tray",
-    "match_text_a": "C14900KFT Intel Core i9 14900KF / 1700 Tray",
-    "match_text_b": "C14900KFT Intel Core i9 14900KF / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "1pc:157389",
     "listing_b": "tms:C14100T",
     "title_a": "מעבד Intel Core i3 14100 / 1700 Tray",
@@ -377,45 +278,12 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:160800",
-    "listing_b": "tms:C14900KST",
-    "title_a": "מעבד Intel Core i9 14900KS / 1700 Tray",
-    "title_b": "Intel Core i9 14900KS / 1700 Tray",
-    "match_text_a": "C14900KST Intel Core i9 14900KS / 1700 Tray",
-    "match_text_b": "C14900KST Intel Core i9 14900KS / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:178028",
-    "listing_b": "tms:C245T",
-    "title_a": "מעבד Intel Core Ultra 5 245 / 1851 Tray",
-    "title_b": "Intel Core Ultra 5 245 / 1851 Tray",
-    "match_text_a": "C245T Intel Core Ultra 5 245 / 1851 Tray",
-    "match_text_b": "C245T Intel Core Ultra 5 245 / 1851 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "1pc:189654",
     "listing_b": "tms:C225FT",
     "title_a": "מעבד Intel Core Ultra 5 225F דגם 1851",
     "title_b": "Intel Core Ultra 5 225F / 1851 Tray",
     "match_text_a": "C225FT Intel Core Ultra 5 225F 1851",
     "match_text_b": "C225FT Intel Core Ultra 5 225F / 1851 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:189655",
-    "listing_b": "tms:C245KFT",
-    "title_a": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
-    "title_b": "Intel Core Ultra 5 245KF / 1851 Tray",
-    "match_text_a": "C245KFT Intel Core Ultra 5 245KF 1851",
-    "match_text_b": "C245KFT Intel Core Ultra 5 245KF / 1851 Tray"
   },
   {
     "score": 100,
@@ -1026,17 +894,6 @@
     "score": 95,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:215497",
-    "listing_b": "tms:100-000001978",
-    "title_a": "מעבד AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
-    "title_b": "AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray",
-    "match_text_a": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
-    "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray"
-  },
-  {
-    "score": 95,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000453",
     "listing_b": "tms:100-000000723",
     "title_a": "AMD Ryzen Threadripper PRO 7975WX 32-core Tray",
@@ -1065,28 +922,6 @@
     "title_b": "מארז Antec C6 WOOD לבן",
     "match_text_a": "221405 Antec C6 WOOD",
     "match_text_b": "221406 Antec C6 WOOD"
-  },
-  {
-    "score": 94,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215082",
-    "listing_b": "tms:100-100000718BOX",
-    "title_a": "מעבד מעבד AMD Ryzen™ 5 9600 AM5 BOX עם קירור Wraith Stealth",
-    "title_b": "AMD Ryzen 5 9600 AM5 Box",
-    "match_text_a": "100-100000718BOX AMD Ryzen 5 9600 AM5 BOX Wraith Stealth",
-    "match_text_b": "100-100000718BOX AMD Ryzen 5 9600 AM5 Box"
-  },
-  {
-    "score": 94,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:215497",
-    "listing_b": "ivory:161527",
-    "title_a": "מעבד AMD Ryzen™ 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
-    "title_b": "מעבד AMD Ryzen 9 9950X3D2 Dual Edition Tray",
-    "match_text_a": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Desktop Processor AM5 BOX",
-    "match_text_b": "100-000001978 AMD Ryzen 9 9950X3D2 Dual Edition Tray"
   },
   {
     "score": 94,
@@ -1299,17 +1134,6 @@
   },
   {
     "score": 93,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:216287",
-    "listing_b": "tms:C250KPLUST",
-    "title_a": "מעבד Intel® Core™ Ultra 5 250K Plus תושבת FCLGA1851 -  Tray",
-    "title_b": "Intel Core Ultra 5 250K Plus / 1851 Tray",
-    "match_text_a": "C250KPLUST Intel Core Ultra 5 250K Plus FCLGA1851 - Tray",
-    "match_text_b": "C250KPLUST Intel Core Ultra 5 250K Plus / 1851 Tray"
-  },
-  {
-    "score": 93,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221523",
@@ -1510,17 +1334,6 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000593",
-    "listing_b": "tms:100-000000597",
-    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000719",
     "listing_b": "tms:100-000000908",
     "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
@@ -1549,17 +1362,6 @@
     "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
     "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
     "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001590",
-    "listing_b": "tms:100-000001591",
-    "title_a": "AMD Ryzen 7 8700F AM5 Tray",
-    "title_b": "AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F AM5 Tray"
   },
   {
     "score": 92,
@@ -1697,67 +1499,12 @@
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:112622",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:112622",
-    "listing_b": "tms:100-000001504",
-    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:154854",
     "listing_b": "tms:100-000000927",
     "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
     "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:155626",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:155626",
-    "listing_b": "tms:100-000001590",
-    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
   },
   {
     "score": 91,
@@ -1780,50 +1527,6 @@
     "title_b": "AMD Ryzen 5 5500 AM4 Tray",
     "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
     "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000457",
-    "listing_b": "tms:100-000000597",
-    "title_a": "AMD Ryzen 5 5500 AM4 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000457",
-    "listing_b": "tms:100-000001504",
-    "title_a": "AMD Ryzen 5 5500 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000592",
-    "listing_b": "tms:100-000000597",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000592",
-    "listing_b": "tms:100-000001590",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
   },
   {
     "score": 91,
@@ -1901,17 +1604,6 @@
     "title_b": "זיכרון GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition אפור",
     "match_text_a": "221503 GeIL DDR5 32GB (2x16GB) 5600 CL38 ORION V RGB AMD Edition",
     "match_text_b": "221504 GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:154854",
-    "listing_b": "tms:100-000001590",
-    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
   },
   {
     "score": 90,
@@ -2016,17 +1708,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:207742",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:215496",
     "listing_b": "tms:100-000000158",
     "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
@@ -2115,61 +1796,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000591",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 7 7700X AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000591",
-    "listing_b": "tms:100-000001590",
-    "title_a": "מעבד AMD Ryzen 7 7700X AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000597",
-    "listing_b": "tms:100-000001406",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000597",
-    "listing_b": "tms:100-000001590",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000597",
-    "listing_b": "tms:100-000001591",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000651",
     "listing_b": "tms:100-000000910",
     "title_a": "AMD Ryzen 7 5800X3D AM4 Tray",
@@ -2242,17 +1868,6 @@
     "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
     "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
     "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001404",
-    "listing_b": "tms:100-000001590",
-    "title_a": "AMD Ryzen 7 9700X AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
   },
   {
     "score": 90,
@@ -2918,6 +2533,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:112622",
+    "listing_b": "ivory:126060",
+    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
+    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:155626",
     "listing_b": "tms:100-000000589",
     "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
@@ -2963,6 +2589,17 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:163368",
+    "listing_b": "ivory:126060",
+    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:163368",
     "listing_b": "tms:100-000000158",
     "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
     "title_b": "AMD Ryzen 5 3500X AM4 Tray",
@@ -3001,17 +2638,6 @@
     "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
     "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
     "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:175540",
-    "listing_b": "tms:100-000001504",
-    "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
   },
   {
     "score": 88,
@@ -3083,23 +2709,23 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:92773",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
+    "listing_a": "ivory:126060",
+    "listing_b": "ivory:154048",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "מעבד AMD Ryzen 5 8400F Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
   },
   {
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:92773",
-    "listing_b": "tms:100-000001504",
-    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
+    "listing_a": "ivory:126060",
+    "listing_b": "tms:100-000000457",
+    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
+    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
+    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
   },
   {
     "score": 88,
@@ -3111,28 +2737,6 @@
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
     "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000050",
-    "listing_b": "tms:100-000000597",
-    "title_a": "AMD Ryzen 5 3500 AM4 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000050",
-    "listing_b": "tms:100-000001504",
-    "title_a": "AMD Ryzen 5 3500 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
   },
   {
     "score": 88,
@@ -3375,17 +2979,6 @@
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
     "match_text_a": "100-000000926 AMD Ryzen 7 5700X AM4 Tray",
     "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001084",
-    "listing_b": "tms:100-000001504",
-    "title_a": "AMD Ryzen 7 9800X3D AM5 Tray",
-    "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
-    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray",
-    "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
   },
   {
     "score": 88,
@@ -4082,84 +3675,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:amdryzen5processor",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:215082",
-        "vendor_sku": "100-100000718BOX",
-        "title": "מעבד מעבד AMD Ryzen™ 5 9600 AM5 BOX עם קירור Wraith Stealth",
-        "price": 992
-      },
-      {
-        "listing_key": "1pc:214173",
-        "vendor_sku": "100-100001904WOF",
-        "title": "מעבד AMD Ryzen 5 7500X3D 4.0GHz AM5 - Box",
-        "price": 1034
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:amdryzen5processor-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:214851",
-        "vendor_sku": "100-000001183",
-        "title": "מעבד AMD Ryzen™ 5 PRO 8500G AM5 עם גרפיקה מובנית Tray",
-        "price": 618
-      },
-      {
-        "listing_key": "1pc:154854",
-        "vendor_sku": "100-000000597",
-        "title": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-        "price": 622
-      },
-      {
-        "listing_key": "1pc:215496",
-        "vendor_sku": "100-000001504",
-        "title": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
-        "price": 888
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:amdryzen7processor-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:207742",
-        "vendor_sku": "100-000001590",
-        "title": "מעבד AMD Ryzen 7 8700F AM5 Tray",
-        "price": 702
-      },
-      {
-        "listing_key": "1pc:155626",
-        "vendor_sku": "100-000000592",
-        "title": "מעבד AMD Ryzen 7 7700 AM5 Tray",
-        "price": 955
-      },
-      {
-        "listing_key": "1pc:212384",
-        "vendor_sku": "100-000001973",
-        "title": "מעבד AMD Ryzen 7 9850X3D AM5",
-        "price": 2010
-      },
-      {
-        "listing_key": "1pc:175540",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 2117
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:cpu:corei310105f",
     "category": "cpu",
     "vendor": "1pc",
@@ -4200,99 +3715,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcorei5processor-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:131314",
-        "vendor_sku": "C12400FT",
-        "title": "מעבד Intel Core i5 12400F / 1700 - Tray",
-        "price": 676
-      },
-      {
-        "listing_key": "1pc:152181",
-        "vendor_sku": "C14600KT",
-        "title": "מעבד Intel Core i5 14600K / 1700 Tray",
-        "price": 1152
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcorei7processor-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:157270",
-        "vendor_sku": "C14700FT",
-        "title": "מעבד Intel i7 14700F/1700 Core Tray",
-        "price": 1387
-      },
-      {
-        "listing_key": "1pc:152187",
-        "vendor_sku": "C14700KFT",
-        "title": "מעבד Intel Core i7 14700KF / 1700 Tray",
-        "price": 1475
-      },
-      {
-        "listing_key": "1pc:152185",
-        "vendor_sku": "C14700KT",
-        "title": "מעבד Intel Core i7 14700K / 1700 Tray",
-        "price": 2049
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcorei9processor-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:152191",
-        "vendor_sku": "C14900KFT",
-        "title": "מעבד Intel Core i9 14900KF / 1700 Tray",
-        "price": 2187
-      },
-      {
-        "listing_key": "1pc:152189",
-        "vendor_sku": "C14900KT",
-        "title": "מעבד Intel Core i9 14900K / 1700 Tray",
-        "price": 2589
-      },
-      {
-        "listing_key": "1pc:160800",
-        "vendor_sku": "C14900KST",
-        "title": "מעבד Intel Core i9 14900KS / 1700 Tray",
-        "price": 3477
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcoreultraprocessor5-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:216287",
-        "vendor_sku": "C250KPLUST",
-        "title": "מעבד Intel® Core™ Ultra 5 250K Plus תושבת FCLGA1851 -  Tray",
-        "price": 1034
-      },
-      {
-        "listing_key": "1pc:178028",
-        "vendor_sku": "C245T",
-        "title": "מעבד Intel Core Ultra 5 245 / 1851 Tray",
-        "price": 1385
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:intelcoreultraprocessor5intelcoreultraprocessor5",
+    "product_id": "model:cpu:coreultra5225f",
     "category": "cpu",
     "vendor": "1pc",
     "offers": [
@@ -4303,10 +3726,10 @@
         "price": 553
       },
       {
-        "listing_key": "1pc:189655",
-        "vendor_sku": "C245KFT",
-        "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
-        "price": 865
+        "listing_key": "1pc:218557",
+        "vendor_sku": "C225FB",
+        "title": "מעבד Intel Core Ultra 5 225F 1851 Box",
+        "price": 702
       }
     ]
   },

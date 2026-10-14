@@ -213,10 +213,13 @@ def _emit_clock_range(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "base_clock_ghz",
               float(numbers[0].replace(",", ".")), source, 0.8)
         return
-    _emit(facts, category, "base_clock_ghz",
-          float(numbers[0].replace(",", ".")), source, 0.8)
-    _emit(facts, category, "boost_clock_ghz",
-          float(numbers[1].replace(",", ".")), source, 0.8)
+    # No keywords to anchor on (Ivory's '5.7GHz ~ 4.3GHz' prints MAX
+    # first): base is definitionally the smaller figure, boost the
+    # larger, whatever order the vendor printed them in. Reading them
+    # positionally shipped swapped clocks (9950X3D showed base 5.7).
+    ordered = sorted(float(n.replace(",", ".")) for n in numbers[:2])
+    _emit(facts, category, "base_clock_ghz", ordered[0], source, 0.8)
+    _emit(facts, category, "boost_clock_ghz", ordered[1], source, 0.8)
 
 
 def _cache_mb(number_text, unit_text):
@@ -294,11 +297,22 @@ def _emit_memory_kit(facts: dict, category: str, value, source: str) -> None:
 
 def _emit_rpm_range(facts: dict, category: str, value, source: str) -> None:
     """'600-1500 RPM' -> the fan speed fields; '_emit' skips what the
-    category does not have (cooler vs case fan spell them differently)."""
+    category does not have (cooler vs case fan spell them differently).
+
+    A degenerate span ('2200 RPM', which parse_range reports as
+    (2200, 2200)) is a lone maximum, not a min==max part — filing it as
+    min shipped inverted pairs once a second source supplied the real
+    max (be quiet! BL070: min 2200 over reference max 1500). Same lone-
+    as-max convention as _emit_fan_rpm_cell below.
+    """
     span = parse_range(value)
     if not span:
         return
     low, high = span
+    if low == high:
+        for name in ("fan_rpm_max", "rpm_max"):
+            _emit(facts, category, name, high, source, 0.75)
+        return
     for name in ("fan_rpm_min", "rpm_min"):
         _emit(facts, category, name, low, source, 0.85)
     for name in ("fan_rpm_max", "rpm_max"):
