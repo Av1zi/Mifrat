@@ -142,6 +142,12 @@ _GALLERY_SELECTORS = (
     # is belt-and-braces for pages where the meta tag is missing.
     "img.pdp-hero::attr(data-orig-src)",
     "img.pdp-hero::attr(src)",
+    # YahavPC (Oct 2026): no og:image on the product page at all, so these
+    # two ARE the source. The store serves one shot per product at three
+    # sizes — /img/p/<id>/xs1.png (listing tile), sm1, and g1 (full) — and
+    # both selectors below carry the full-size g1.
+    "img[itemprop='image']::attr(src)",
+    "div.p-img::attr(data-src)",
     "img.product__mainImg::attr(data-original-picture)",
     "img.product__mainImg::attr(src)",
     "img.btn-zoom::attr(src)",
@@ -720,6 +726,129 @@ class OnePcDetailSpider(scrapy.Spider):
             result[" / ".join(p for p in key_parts if p)] = value
             i += 2
         return result
+
+
+class YahavDetailSpider(scrapy.Spider):
+    """YahavPC product pages: the store's only structured spec source.
+
+    Verified against the live markup 2026-10-14 (/product/11270, an MSI
+    SPATIUM S270 SSD):
+
+      <h2 class=p-sn>מק"ט: SPATIUM-S270-480GB</h2>
+      <span itemprop=price content=400>400 ₪</span>
+      <div class=p-attr><h3>מאפיינים:</h3>
+        <span class=p-key>יצרן :</span> MSI
+        <span class=p-key>נפח אחסון :</span> 480GB-512GB
+        <span class=p-key>ממשק :</span> SATA III
+        ...
+      </div>
+
+    The p-attr block is a flat run of `span.p-key` labels each followed by
+    a bare text node holding its value — no table, no JSON-LD, no
+    meta[itemprop=mpn]. It is also the ONLY place the real manufacturer
+    part number appears; the listing feed knows just the numeric product
+    id. That number travels in `extra.real_sku` (and the raw part numbers
+    it carries are exact identifiers other vendors also print — GV-
+    N5080AORUSX-W-16GD, MZ-VAP8T0BW, BL066, 90DA0020-B08000), so it is
+    what lets this vendor match across the catalogue at all.
+
+    Two further differences from the other vendors, both deliberate:
+    - There is no availability signal anywhere on the page (no schema.org
+      availability, no "אזל מהמלאי" marker), and the listing feed only
+      lists buildable items, so nothing here downgrades `in_stock`.
+    - Spec labels and values are plain Hebrew, e.g. "חלון צד: כולל" /
+      "תאורה: ללא". Values are stored verbatim; translating them is
+      labels.py's job, same as every other vendor's.
+    """
+
+    name = "yahav_detail"
+    allowed_domains = ["yahavpc.co.il"]
+    custom_settings = {**NON_PLAYWRIGHT_DOWNLOAD_HANDLERS}
+
+    # "מק"ט" — the Hebrew catalogue-number label, printed as
+    # "מק"ט: <SKU>". The gershayim between ק and ט is U+05F4.
+    _SN_PREFIX_RE = re.compile(r'^\s*מק"ט\s*:\s*')
+
+    def start_requests(self):
+        yield from self._build_requests()
+
+    async def start(self):
+        for request in self._build_requests():
+            yield request
+
+    def _build_requests(self):
+        for entry in _load_pending("yahav"):
+            yield scrapy.Request(
+                url=entry["url"],
+                callback=self.parse_detail,
+                meta={"vendor_sku": entry["vendor_sku"]},
+            )
+
+    @classmethod
+    def _parse_attributes(cls, response) -> dict:
+        """The p-attr block as {label: value}.
+
+        The value is whatever node follows the label — a bare text node on
+        every page seen so far, but `following-sibling::node()[1]` plus
+        descendant-or-self::text() also reads an element-wrapped value
+        instead of silently producing an empty one.
+        """
+        specs: dict[str, str] = {}
+        keys = response.xpath(
+            "//div[contains(@class,'p-attr')]"
+            "//span[contains(@class,'p-key')]"
+        )
+        for key in keys:
+            label = " ".join(key.xpath(".//text()").getall())
+            label = re.sub(r"\s+", " ", label).strip().rstrip(":").strip()
+            if not label:
+                continue
+            value = "".join(
+                key.xpath("following-sibling::node()[1]/descendant-or-self::text()").getall()
+            )
+            value = re.sub(r"\s+", " ", _html.unescape(value)).strip()
+            if not value:
+                continue
+            # The same label can legitimately repeat (a board listing two
+            # memory types as separate rows); keep both like the other
+            # vendors do, rather than letting the last one win.
+            if label in specs and specs[label] != value:
+                label = f"{label} 2"
+            specs[label] = value
+        return specs
+
+    def _extra(self, response, specs: dict) -> dict:
+        extra: dict = {}
+        sn = " ".join(response.css("h2.p-sn ::text").getall())
+        sn = re.sub(r"\s+", " ", _html.unescape(sn)).strip()
+        sku = self._SN_PREFIX_RE.sub("", sn).strip()
+        if sku:
+            extra["real_sku"] = sku
+            extra["mpn"] = sku
+        brand = specs.get("יצרן")
+        if brand:
+            extra["brand"] = brand
+        # Lets make_detail_pending tell "the page had no spec rows at all"
+        # (a broken selector) from "it had rows whose labels we cannot map
+        # yet" (an incomplete vocabulary).
+        extra["spec_rows"] = len(specs)
+        return extra
+
+    def parse_detail(self, response):
+        specs = self._parse_attributes(response)
+        image = response.css("img[itemprop='image']::attr(src)").get()
+        if not image:
+            image = response.css("div.p-img::attr(data-src)").get()
+        yield DetailItem(
+            vendor_id="yahav",
+            vendor_sku=response.meta["vendor_sku"],
+            url=response.url,
+            specs=specs,
+            image_url=response.urljoin(image) if image else _og_image(response),
+            image_urls=_gallery_images(response),
+            scraped_at=datetime.now(timezone.utc).isoformat(),
+            extra=self._extra(response, specs),
+        )
 
 
 class PlonterDetailSpider(scrapy.Spider):

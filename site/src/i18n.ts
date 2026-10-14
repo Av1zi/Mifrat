@@ -48,6 +48,7 @@ export const VENDOR_LABELS: Record<string, string> = {
   "1pc": "1PC",
   plonter: "Plonter",
   ivory: "Ivory",
+  yahav: "YahavPC",
 };
 
 export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {

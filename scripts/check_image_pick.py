@@ -36,6 +36,8 @@ ONEPC_510 = "https://1pc.co.il/images/thumbs/0063041_antec-p20ce-case_510.jpeg"
 ONEPC_FULL = "https://1pc.co.il/images/thumbs/0063041_antec-p20ce-case.jpeg"
 PLONTER_FULL = "https://www.plonter.co.il/graphics/product_images/full/MG10SCA20TE.jpg"
 IVORY_ORG = "https://www.ivory.co.il/files/catalog/org/1770291675f75Lv.webp"
+# YahavPC serves one shot at three sizes: xs1/sm1 (listing) and g1 (full).
+YAHAV_FULL = "https://www.yahavpc.co.il/img/p/11270/g1.png"
 LOGO = "https://1pc.co.il/images/thumbs/0076482_logo.e8a255e0.png"
 MENU = "https://tms.co.il/catalog/view/theme/default/image/site/menu-sale.jpg"
 FLAG = "https://1pc.co.il/images/flags/il.png"
@@ -153,6 +155,22 @@ def check_gallery_capture(c: Checks) -> None:
     """
     ivory = _gallery_images(response(ivory_html, "https://www.ivory.co.il/catalog.php?id=1"))
     c.eq(ivory, [IVORY_ORG], "Ivory's repeated main image yields one candidate")
+
+    # YahavPC (Oct 2026) publishes no og:image at all, so the hero <img
+    # itemprop=image> + div.p-img[data-src] pair IS the source of the cover.
+    yahav_html = """
+    <html><head><title>product</title></head><body>
+      <div class="p-img product-image" data-src="/img/p/11270/g1.png">
+        <img itemprop="image" src="/img/p/11270/g1.png" alt="x">
+      </div>
+      <img src="https://www.yahavpc.co.il/assets/img/logo_dark.png">
+    </body></html>
+    """
+    yahav = _gallery_images(response(yahav_html, "https://www.yahavpc.co.il/product/11270"))
+    c.eq(yahav, [YAHAV_FULL],
+         "YahavPC's itemprop hero is captured and deduped to one candidate")
+    c.ok(image_urls.url_shape_score(YAHAV_FULL) > 0,
+         "YahavPC's full-size PNG scores as a photo")
 
 
 def check_scoring(c: Checks) -> None:

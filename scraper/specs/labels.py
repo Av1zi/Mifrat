@@ -195,6 +195,10 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סדרת מעבד": "series",
         "סדרת המעבד": "series",
         "משפחת מעבדים": "series",
+        # YahavPC prints the family as "processor type" — values are the
+        # vendor's own family names ("Threadripper", "Ryzen 9", "Ultra 9"),
+        # never a model, so this is the same fact as the rows above.
+        "סוג מעבד": "series",
         "ארכיטקטורה": "microarchitecture",
         "משפחת ליבות": "core_family",
         "שם קוד": "core_family",
@@ -276,6 +280,12 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "חיבור למחשב": "interface",
         "חיבור גרפי": GPU_OUTPUTS,
         "יציאות": GPU_OUTPUTS,
+        # YahavPC (Oct 2026) spells the card's outputs "display connections"
+        # ("3X Display Port, HDMI", "4X Mini Display Port") — same fact as the
+        # rows above.
+        "חיבורי תצוגה": GPU_OUTPUTS,
+        # ...and names the chip "graphics core" ("GeForce RTX 5090").
+        "ליבה גראפית": "chipset",
         "מספר מאווררים": "fan_count",
         "קירור": "cooling",
         "חיבורי חשמל": "external_power",
@@ -370,6 +380,17 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מספר חריצי m.2 (m)": "m2_slots",
         "מספר מחברי sata iii": "sata_ports",
         "סוג ממשק ethernet": "ethernet",
+        # YahavPC (Oct 2026) prints the board's networking as one cell that
+        # mixes radios ("Wi-Fi, Wired LAN, Bluetooth"), so it takes the same
+        # per-radio router 1PC's "Spec / Network Card" uses rather than
+        # landing whole in `ethernet` — a value carrying Bluetooth is a
+        # wireless row and the validator rejects it as ethernet.
+        "קישוריות": NETWORK_CARD,
+        # ...and its display row as "display connections", which mixes real
+        # video ports with USB-C/Thunderbolt ("2X USB Type C", "HDMI, 2x USB
+        # 4.0"). REAR_OUTPUTS keeps only the video ports and drops the rest,
+        # the same way the other vendors' rear-I/O cells are read.
+        "חיבורי תצוגה": REAR_OUTPUTS,
     },
     "memory": {
         "סוג זכרון": "memory_type",
@@ -410,6 +431,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "קצב העברת נתונים בזיכרון": "speed_mhz",
         "קצב נתונים מרבי": "speed_mhz",
         "מהירות זיכרון מרבית": "speed_mhz",
+        # YahavPC (Oct 2026) prints a bare "memory" row holding the kit
+        # capacity ("128GB"/"64GB"/"32GB") — the same fact as the rows above.
+        "זיכרון": "total_gb",
     },
     "storage": {
         "נפח דיסק": "capacity_gb",
@@ -436,6 +460,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "storage memory": NAND_CELL,
         "זכרון מטמון": "cache_mb",
         "גודל פיזי": STORAGE_FORM_FACTOR,
+        # YahavPC (Oct 2026) prints the drive's shape as a bare "size"
+        # ("3.5\"", "2.5\"", "Form Factor 2280").
+        "גודל": STORAGE_FORM_FACTOR,
         "spec / interface connectivity": INTERFACE_CONNECTIVITY,
         # 1PC's redesigned storefront (Oct 2026) prints its own storage rows;
         # values are already in schema units ("480GB", "SSD", "M.2 2280"),
@@ -544,6 +571,12 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "חיבורים בקדמת המארז": FRONT_IO,
         "חלון צד": SIDE_WINDOW,
         "ספק כח": PSU_INCLUDED_CELL,
+        # YahavPC (Oct 2026): the case's PSU slot as "watt / amp", printed
+        # "ללא" when the case ships without a unit.
+        "וואט / watt / אמפר": PSU_INCLUDED_CELL,
+        # ...and the size class as "case size" ("Full Tower", "Mid Tower") —
+        # the same value `סוג מארז` already puts in `type`.
+        "גודל מארז": "type",
         # 1PC grouped front-panel USB ("USB 3.2, USB-C") -> front_usb.
         "spec / interface connectivity": INTERFACE_CONNECTIVITY,
         "מאוורר קידמי": FAN_MOUNT_PREFIX + "fan_front",
@@ -567,6 +600,8 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
     "cooler_air": {
         "גודל מאוורר": "fan_size_mm",
         "גודל מאוורר כ-": FAN_SIZE,
+        # YahavPC prints the cooler's fan as a bare "size" ("120MM").
+        "גודל": "fan_size_mm",
         "גודל רדיאטור": "radiator_size_mm",
         "מספר מאווררים": "fan_count",
         "מאוורר מובנה (ממ)": FAN_SIZE,
@@ -589,6 +624,8 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מהירות מאוורר": RPM_RANGE,
         "רעש": "noise_db",
         "ספיקת אוויר": "airflow_cfm",
+        # YahavPC prints the cooler's fan as a bare "size": "120MM".
+        "גודל": "fan_size_mm",
         "גובה": "height_mm",
         "תושבת": SOCKETS_CELL,
         "פיזור חום": "tdp_w",
@@ -735,6 +772,11 @@ _IGNORED_LABELS = frozenset({
         "סוג מוצר", "מוצרים נלווים", "כבלים כלולים", "מיועד לגיימינג",
         "product name", "intel xmp", "גרסת intel xmp",
         "מערכת הפעלה", "מסך", "גודל מסך באינצ'ים", "מצלמה", "מצלמת אינטרנט",
+        # ----- YahavPC (Oct 2026) -----
+        # "Warranty duration" — the same importer-policy row the other
+        # vendors spell "תקופת אחריות"/"נותן האחריות". Values are plain
+        # durations ("36 חודשים"), and no schema field carries one.
+        "משך אחריות",
     )
 })
 

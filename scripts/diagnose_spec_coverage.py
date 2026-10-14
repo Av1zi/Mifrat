@@ -48,7 +48,7 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 
 # vendor_id as written in the raw detail files -> the catalog's spelling.
 VENDOR_KEY = {"onepc": "1pc", "1pc": "1pc", "tms": "tms", "ivory": "ivory",
-              "plonter": "plonter"}
+              "plonter": "plonter", "yahav": "yahav"}
 
 # Filler tokens a vendor label may carry that the curated tables do not.
 # Stripping them shows what a token-aware vocabulary would match; this is

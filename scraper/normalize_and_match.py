@@ -75,7 +75,13 @@ SITE_DIR = DATA_DIR / "site"
 # consecutive CI failures; owner decision — see decisions.md). Its spider +
 # support code stay for a possible future re-scrape, but its listings no
 # longer enter the catalog. Raw/detail history under data/ is kept as-is.
-VENDOR_SPIDER_NAMES = ["tms", "onepc", "ivory"]
+VENDOR_SPIDER_NAMES = ["tms", "onepc", "ivory", "yahav"]
+
+# Vendors whose listing feed exposes only an internal numeric product id
+# instead of a part number, and whose product pages therefore have to hand
+# the real SKU over through detail `extra` (see _merge_detail_specs).
+# 1PC: /web/builder/candidates ids. YahavPC: /api/BuildSearch ids.
+NUMERIC_ID_VENDORS = {"onepc", "yahav"}
 
 # Supports either onepc.jsonl or 1pc.jsonl.
 VENDOR_FILE_ALIASES = {
@@ -248,13 +254,14 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         vendor_key = "onepc" if vendor_id in ("1pc", "onepc") else str(vendor_id or "")
         key = (vendor_key, sku)
         detail_extra = extra_index.get(key)
-        if vendor_key == "onepc" and isinstance(detail_extra, dict):
+        if vendor_key in NUMERIC_ID_VENDORS and isinstance(detail_extra, dict):
             real_sku = str(
                 detail_extra.get("real_sku") or detail_extra.get("mpn") or ""
             ).strip()
-            # 1PC listing IDs are numeric database keys. Replace them with
-            # the manufacturer SKU found on the product page before matching
-            # so exact SKU/MPN matching can join the same item across vendors.
+            # 1PC and YahavPC listing IDs are numeric database keys. Replace
+            # them with the manufacturer SKU found on the product page before
+            # matching so exact SKU/MPN matching can join the same item
+            # across vendors.
             if real_sku and not real_sku.isdigit() and real_sku != sku:
                 e["vendor_sku"] = real_sku
                 cur_mpn = e.get("mpn")
@@ -293,7 +300,7 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
             extra = detail_extra
             meta = e.setdefault("vendor_meta", {})
             real_mpn = extra.get("mpn") or extra.get("real_sku")
-            if real_mpn and (vendor_key != "onepc" or not e.get("mpn")):
+            if real_mpn and (vendor_key not in NUMERIC_ID_VENDORS or not e.get("mpn")):
                 # Reconcile, don't blindly overwrite: detail rows sometimes
                 # carry only the tail ("KFGX" for "WD161KFGX") while enrich
                 # holds the full code — keep the longer on affix relations.

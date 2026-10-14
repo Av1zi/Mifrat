@@ -38,20 +38,34 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # Total label-gap rows in spec_report.json on 2026-10-03 (3,475) + ~30%
 # headroom for vendor-label churn. A vendor renaming a table or a broken
 # mapping shows up here first, long before category fill moves.
-LABEL_GAP_BUDGET = 4500
+# 2026-10-14: 4500 -> 6200. Yahav onboarded (1,079 rows, fifth Hebrew
+# vocabulary) carrying ~1,300 gap rows that are deliberate gap evidence,
+# not breakage: motherboard ממשק אחסון (M.2 per-slot interface, no field),
+# gpu מהירות זכרון/DirectX/OpenGL/רוחב פס זכרון (deferred-schema backlog),
+# psu קבוצת הספק (wattage already comes from the title). Same rule as the
+# baseline: new measured total (4,797) + ~30% headroom.
+LABEL_GAP_BUDGET = 6200
 
 # Mean field-fill % per category on 2026-10-03, minus 2pp tolerance.
 CATEGORY_FLOORS = {
     "accessories": 31,
     "aio": 51,
     "case": 42,
-    "case_fan": 60,
+    # 2026-10-14: 60 -> 55. Yahav onboarded: 201 of 471 case_fan products
+    # are Yahav's, averaging 8.0 filled fields/product vs 9.0 for the rest
+    # (its tables are ~5 rows), so mean fill went to 57.7% on composition
+    # alone — measured, not a mapping regression (pair cases still pass).
+    "case_fan": 55,
     "cooler_air": 41,
     "cooling_other": 28,
     "cpu": 70,
     "gpu": 52,
     "memory": 59,
-    "motherboard": 51,
+    # 2026-10-14: 51 -> 46. Same Yahav onboarding: 148 of 710 boards are
+    # Yahav's at 10.1 filled fields/product vs 16.9 for the rest (its
+    # boards carry ~5 Hebrew rows where 1PC/TMS carry full tables),
+    # dragging mean fill to 48.5% on composition alone.
+    "motherboard": 46,
     "psu": 46,
     # 2026-10-13: 58 -> 55. 1PC returned to the catalog (Oct 2026
     # storefront rebuild) bringing 66 HDD listings whose vendor tables

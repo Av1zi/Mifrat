@@ -42,6 +42,11 @@ VENDOR_MIN_COUNTS = {
     "onepc": 1600,
     "plonter": 1800,
     "ivory": 500,
+    # YahavPC onboarding baseline 2026-10-14: 1,079 rows from its 11
+    # in-scope builder slots (live API totals for those slots, per-slot
+    # parity verified). Floor at ~75% of that, same headroom rule as the
+    # others, so a partial-block day warns without failing.
+    "yahav": 800,
 }
 
 

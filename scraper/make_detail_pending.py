@@ -46,7 +46,7 @@ from pathlib import Path
 # queued or marked. Explicit `plonter` args still work (no validation against
 # this list) for a possible future re-scrape; existing plonter ledgers/files
 # on disk are left untouched.
-VENDORS = ["onepc", "ivory", "tms"]
+VENDORS = ["onepc", "ivory", "tms", "yahav"]
 VENDOR_ALIASES = {
     "onepc": ["onepc", "1pc"],
     "1pc": ["1pc", "onepc"],

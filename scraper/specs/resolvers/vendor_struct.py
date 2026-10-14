@@ -150,9 +150,12 @@ _LENGTH_RE = re.compile(r"(?i)\bL\s*=\s*(\d+(?:[.,]\d+)?)")
 # guessed. Both patterns are searched in order of specificity.
 _SATA_PORTS_RE = re.compile(r"(\d{1,2})\s*x\s*SATA", re.I)
 _SATA_PORTS_HE_RE = re.compile(r"(\d{1,2})\s*(?:x\s*)?חיבורי\s*SATA")
-_GPU_OUTPUTS = (("DisplayPort", "displayport", "dp_outputs"),
-                ("HDMI", "hdmi", "hdmi_outputs"),
-                ("DVI", "dvi", "dvi_outputs"))
+# (display label, regex the vendor spelling must match, field). The regex
+# form lets "DisplayPort"/"Display Port"/"Mini DisplayPort" all resolve to
+# the one port type (see _emit_gpu_outputs).
+_GPU_OUTPUTS = (("DisplayPort", r"display\s?port", "dp_outputs"),
+                ("HDMI", r"hdmi", "hdmi_outputs"),
+                ("DVI", r"dvi", "dvi_outputs"))
 
 
 def _sata_port_count(text) -> int | None:
@@ -274,12 +277,15 @@ def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
     text = str(value or "")
     tokens = [part.strip() for part in re.split(r"[|,;]", text) if part.strip()]
     for display, needle, field in _GPU_OUTPUTS:
+        # `needle` is a regex now: YahavPC spells the same port "Display
+        # Port" and prefixes it ("4X Mini Display Port"), which a literal
+        # "displayport" substring match never saw (Oct 2026).
         counts = [int(match.group(1)) for match in re.finditer(
-            r"(\d{1,2})\s*[x×]?\s*" + needle, text, re.I)]
+            r"(\d{1,2})\s*[x×]?\s*(?:mini\s+|micro\s+)?" + needle, text, re.I)]
         if counts:
             count = sum(counts)
         else:
-            count = sum(1 for token in tokens if needle in token.lower())
+            count = sum(1 for token in tokens if re.search(needle, token, re.I))
         if count:
             _emit(facts, category, field, {display: count}, source, 0.7)
 
@@ -626,6 +632,13 @@ def _emit_psu_included_cell(facts: dict, category: str, value, source: str) -> N
     text = str(value or "").strip()
     if not text:
         return
+    # A bare "ללא" is the vendor's shorthand for "none": YahavPC's case slot
+    # ("וואט / WATT / אמפר") prints it for the many cases sold without a unit
+    # (Oct 2026). Anchored to the whole cell on purpose — "ללא" inside a
+    # longer phrase ("ללא הגבלה") must not read as "no PSU".
+    if re.fullmatch(r"ללא", text):
+        _emit(facts, category, "psu_included", "Not included", source, 0.8)
+        return
     if re.search(r"לא כלול|לא נכלל|אינו כלול|not included", text, re.I):
         _emit(facts, category, "psu_included", "Not included", source, 0.8)
         return
@@ -768,7 +781,10 @@ def _emit_rear_outputs(facts: dict, category: str, value, source: str) -> None:
     """Rear video ports -> onboard_video ('HDMI | DisplayPort')."""
     text = str(value or "")
     found: list[str] = []
-    for pattern, label in ((r"DisplayPort", "DisplayPort"), (r"HDMI", "HDMI"),
+    # "Display Port" (two words) is YahavPC's spelling of DisplayPort and
+    # would otherwise be missed entirely (Oct 2026).
+    for pattern, label in ((r"Display\s?Port", "DisplayPort"),
+                           (r"HDMI", "HDMI"),
                            (r"DVI", "DVI"), (r"VGA", "VGA")):
         if re.search(pattern, text, re.I) and label not in found:
             found.append(label)
@@ -862,6 +878,12 @@ def _emit_network_card(facts: dict, category: str, value, source: str) -> None:
     if wifi:
         _emit(facts, category, "wireless", f"Wi-Fi {wifi.group(1)}"
               f"{(wifi.group(2) or '').upper()}", source, 0.85)
+    elif re.search(r"Wi-?Fi", text, re.I):
+        # A board that names Wi-Fi without a generation (YahavPC's
+        # "Wired LAN, Bluetooth, Wi-Fi", Oct 2026). canon_wireless turns
+        # the bare name into "Yes", so the board still reads as wireless
+        # instead of the whole cell being dropped into `ethernet`.
+        _emit(facts, category, "wireless", "Wi-Fi", source, 0.7)
     lan = re.search(r"\b(?:Ethernet|LAN)\b\s*([\d.]+)?\s*(?:Gb?)?", text, re.I)
     if lan:
         if lan.group(1):

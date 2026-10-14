@@ -70,6 +70,49 @@ UPGRADE_LEDGER = Path("data/images/upgrade_ledger.json")
 ORIGINAL_SHAPE_FLOOR = 7.0
 
 
+# ---------------------------------------------------------------------------
+# Per-host User-Agent overrides (YahavPC, 2026-10-14)
+#
+# Every vendor in this pipeline is crawled by Scrapy with a browser UA
+# (settings.py USER_AGENT) — that is the project-wide default and the reason
+# the listing and detail spiders talk to these sites at all. This downloader
+# is the one place that identifies itself instead as MifratBot, which is the
+# right default for a plain CDN fetch.
+#
+# YahavPC's nginx denies its own photos to that name. Measured on
+# /img/p/11270/g1.png: "Mozilla/5.0 (compatible; MifratBot/1.0)" -> 403,
+# "curl/8.0.1" -> 403, no UA at all -> 200, Chrome 126 -> 200, and adding a
+# Referer from the product page does not change any of it. The same 403 hits
+# the product HTML and /api/BuildInit, which the spiders fetch fine because
+# they send a browser UA.
+#
+# That is a static UA denylist matching on "bot"/"curl", not a challenge: the
+# identical file is served without negotiation to anything else, and one of
+# those UAs is already what this project uses for the vendor's HTML and API.
+# So the override aligns the photo fetch with the request that already works,
+# scoped to this host. It is deliberately NOT a retry loop, a proxy, a cookie
+# jar or a challenge solver — the KSP/Plonter "WAF answered = stop signal"
+# rule is untouched, and a real challenge here would still end the scrape.
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+)
+DEFAULT_UA = "Mozilla/5.0 (compatible; MifratBot/1.0)"
+UA_OVERRIDES = {"yahavpc.co.il": BROWSER_UA}
+
+
+def _user_agent_for(url: str) -> str:
+    """MifratBot, unless this host is known to deny that name."""
+    try:
+        host = (urlparse(str(url)).hostname or "").lower()
+    except Exception:
+        return DEFAULT_UA
+    for domain, ua in UA_OVERRIDES.items():
+        if host == domain or host.endswith("." + domain):
+            return ua
+    return DEFAULT_UA
+
+
 def _has_basename(url: str) -> bool:
     """Same guard as the spiders' _og_image and the normalizer's
     _has_image_basename: a bare ".../full/" directory URL is not an image
@@ -97,7 +140,7 @@ def download_and_save(image_url: str, dest_path: Path,
     LAST_HTTP_STATUS = None
     try:
         resp = requests.get(image_url, timeout=REQUEST_TIMEOUT, headers={
-            "User-Agent": "Mozilla/5.0 (compatible; MifratBot/1.0)"
+            "User-Agent": _user_agent_for(image_url)
         })
         resp.raise_for_status()
         img = Image.open(BytesIO(resp.content)).convert("RGB")

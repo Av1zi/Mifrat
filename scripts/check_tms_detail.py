@@ -575,6 +575,65 @@ PAIR_CASES = [
         "expect_specs": {"front_usb": ["USB 3.2", "USB-C"]},
         "expect_gaps": (),
     },
+    # ----- YahavPC (Oct 2026) -----
+    # Its product pages print five-ish Hebrew rows with no spelling overlap
+    # with the other vendors, so each one is pinned here against the live
+    # values (verified on /product pages 2026-10-14).
+    {
+        "name": "YahavPC CPU rows (bare-number socket, processor family)",
+        "category": "cpu",
+        "rows": {"תושבת": "1851", "מספר ליבות": "32", "סוג מעבד": "Ultra 9",
+                 "יצרן": "Intel", "משך אחריות": "36 חודשים"},
+        "expect_specs": {"socket": "LGA1851", "core_count": 32,
+                         "series": "Ultra 9", "manufacturer": "Intel"},
+        "expect_no_gap": ("משך אחריות",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "YahavPC case fan rows (size in MM, lighting yes/no)",
+        "category": "case_fan",
+        "rows": {"גודל": "120MM", "תאורה": "ללא", "יצרן": "NZXT"},
+        "expect_specs": {"size_mm": 120, "led": "no", "manufacturer": "NZXT"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "YahavPC motherboard connectivity splits into radios",
+        "category": "motherboard",
+        "rows": {"קישוריות": "Wired LAN, Bluetooth, Wi-Fi", "תושבת": "AM5",
+                 "ערכת שבבים": "AMD X870E", "חיבורי תצוגה": "Display Port"},
+        "expect_specs": {"wireless": "Yes", "ethernet": "Ethernet",
+                         "socket": "AM5", "chipset": "X870E",
+                         "onboard_video": "DisplayPort"},
+        # The cell names Bluetooth, so it must never become the LAN string.
+        "expect_no_gap": ("קישוריות",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "YahavPC GPU display rows count every port",
+        "category": "gpu",
+        "rows": {"ליבה גראפית": "GeForce RTX 5090",
+                 "חיבורי תצוגה": "3X Display Port, HDMI"},
+        "expect_specs": {"chipset": "GeForce RTX 5090",
+                         "dp_outputs": {"DisplayPort": 3},
+                         "hdmi_outputs": {"HDMI": 1}},
+        "expect_gaps": (),
+    },
+    {
+        "name": "YahavPC memory capacity row is the kit total",
+        "category": "memory",
+        "rows": {"זיכרון": "64GB", "מהירות זכרון": "6000Mhz",
+                 "סוג זיכרון": "DDR5"},
+        "expect_specs": {"total_gb": 64, "speed_mhz": 6000,
+                         "memory_type": "DDR5"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "YahavPC case rows (size class, PSU slot)",
+        "category": "case",
+        "rows": {"גודל מארז": "Full Tower", "וואט / WATT / אמפר": "ללא"},
+        "expect_specs": {"type": "Full Tower", "psu_included": "Not included"},
+        "expect_gaps": (),
+    },
 ]
 
 NEGATIVE_CASES = [

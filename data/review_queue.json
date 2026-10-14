@@ -26,33 +26,11 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:154854",
-    "listing_b": "ivory:126060",
-    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:154854",
     "listing_b": "tms:100-000000597",
     "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
     "title_b": "AMD Ryzen 5 7500F AM5 Tray",
     "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
     "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:155626",
-    "listing_b": "tms:100-000000592",
-    "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
   },
   {
     "score": 100,
@@ -91,6 +69,28 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:169701",
+    "listing_b": "yahav:9790",
+    "title_a": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
+    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 - TRAY",
+    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:169702",
+    "listing_b": "yahav:9794",
+    "title_a": "מעבד AMD Ryzen™ 7 9700X AM5 - TRAY",
+    "title_b": "מעבד חברת AMD דגם Ryzen 7 9700X Boost 5.5Ghz 32MB Cache AM5 TRAY - Without Cooler",
+    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 - TRAY",
+    "match_text_b": "100-000001404 AMD Ryzen 7 9700X Boost 5.5Ghz 32MB Cache AM5 TRAY - Without Cooler"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:188423",
     "listing_b": "ivory:154048",
     "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
@@ -113,12 +113,56 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:188423",
+    "listing_b": "yahav:11202",
+    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 8400F Boost 4.7Ghz 16MB Cache AM5 Tray",
+    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
+    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Boost 4.7Ghz 16MB Cache AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000001368",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "yahav:10457",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 9 9900X3D Boost 5.5Ghz 128MB L3 Cache AM5 Tray Thermal Solution Not Included",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D Boost 5.5Ghz 128MB L3 Cache AM5 Tray Thermal Solution Not Included"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:207742",
     "listing_b": "tms:100-000001590",
     "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
     "title_b": "AMD Ryzen 7 8700F AM5 Tray",
     "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
     "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:207742",
+    "listing_b": "yahav:10671",
+    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray",
+    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_b": "100-000001590 AMD Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray"
   },
   {
     "score": 100,
@@ -157,17 +201,6 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "ivory:109058",
-    "listing_b": "tms:100-000001405",
-    "title_a": "מעבד AMD Ryzen 5 9600X Tray",
-    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X Tray",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "ivory:126060",
     "listing_b": "tms:100-000000597",
     "title_a": "מעבד AMD Ryzen 5 7500F Tray",
@@ -185,6 +218,39 @@
     "title_b": "מעבד AMD Ryzen 7 7700X AM5 Tray",
     "match_text_a": "100-000000591 AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
     "match_text_b": "100-000000591 AMD Ryzen 7 7700X AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000597",
+    "listing_b": "yahav:10325",
+    "title_a": "AMD Ryzen 5 7500F AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray",
+    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
+    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000927",
+    "listing_b": "yahav:9797",
+    "title_a": "AMD Ryzen 5 5600 AM4 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 5600 3.5Ghz 4.4Ghz 32MB Cache AM4 Tray",
+    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
+    "match_text_b": "100-000000927 AMD Ryzen 5 5600 3.5Ghz 4.4Ghz 32MB Cache AM4 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001590",
+    "listing_b": "yahav:10671",
+    "title_a": "AMD Ryzen 7 8700F AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray",
+    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
+    "match_text_b": "100-000001590 AMD Ryzen 7 8700F Boost 5Ghz 16MB L3 Cache 8 Cores 16 Threads AM5 Tray"
   },
   {
     "score": 100,
@@ -240,17 +306,6 @@
     "title_b": "Intel Core i7 12700F / 1700 Box",
     "match_text_a": "C12700FB Intel Core i7 12700F",
     "match_text_b": "C12700FB Intel Core i7 12700F / 1700 Box"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:131314",
-    "listing_b": "tms:C12400FT",
-    "title_a": "מעבד Intel Core i5 12400F / 1700 - Tray",
-    "title_b": "Intel Core i5 12400F / 1700 Tray",
-    "match_text_a": "C12400FT Intel Core i5 12400F / 1700 - Tray",
-    "match_text_b": "C12400FT Intel Core i5 12400F / 1700 Tray"
   },
   {
     "score": 100,
@@ -553,6 +608,72 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "yahav:10008",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז חברת Antec דגם C8 Aluminum Constellation Series Full Tower צבע אלומניום לבן",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8-AL-W Antec C8 Aluminum Constellation Series Full Tower"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "yahav:10316",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז חברת Antec דגם C8 Curve Wood Constellation Series Full Tower צבע שחור עץ",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8-CURVE-WOOD Antec C8 Curve Wood Constellation Series Full Tower"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "yahav:9181",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז חברת Antec דגם C8 Constellation Series Full Tower צבע לבן",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8W Antec C8 Constellation Series Full Tower"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "yahav:9738",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז חברת Antec דגם C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower צבע שחור",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8-ARGB Antec C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "yahav:9739",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז חברת Antec דגם C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower צבע לבן",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8-WHITE-ARGB Antec C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
+    "listing_b": "yahav:9740",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "מארז חברת Antec דגם C8 Wood Constellation Series Full Tower צבע שחור עץ",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8WOOD Antec C8 Wood Constellation Series Full Tower"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
     "listing_a": "tms:FLUX",
     "listing_b": "tms:FLUX-PRO",
     "title_a": "מארז מחשב Antec FLUX",
@@ -614,6 +735,72 @@
     "title_b": "מארז מחשב Antec FLUX REAR",
     "match_text_a": "FLUX Antec FLUX",
     "match_text_b": "FLUXREAR Antec FLUX REAR"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "yahav:10034",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז חברת Antec דגם FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM צבע שחור",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-PRO Antec FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "yahav:10035",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז חברת Antec דגם FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM צבע לבן",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-PRO-WHITE Antec FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "yahav:10433",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז חברת Antec דגם FLUX Mid Tower 3X120MM + 120MM Reverse + 140MM Fans Included צבע שחור",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX Antec FLUX Mid Tower 3X120MM + 120MM Reverse + 140MM Fans Included"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "yahav:10909",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז חברת Antec דגם FLUX White Mid Tower 3X120MM + 120MM Reverse + 140MM Fans Included צבע לבן",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-W Antec FLUX White Mid Tower 3X120MM + 120MM Reverse + 140MM Fans Included"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "yahav:11391",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז חברת Antec דגם FLUX Rear Mid Tower 3x140 Argb Fans + 2x120MM Reverse  Included צבע שחור",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "FLUX-REAR Antec FLUX Rear Mid Tower 3x140 Argb Fans + 2x120MM Reverse Included"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:FLUX",
+    "listing_b": "yahav:5886",
+    "title_a": "מארז מחשב Antec FLUX",
+    "title_b": "מארז חברת Antec דגם P10 FLUX optional 5.25\" Drive Silent Mid Tower צבע שחור",
+    "match_text_a": "FLUX Antec FLUX",
+    "match_text_b": "P10Flux Antec P10 FLUX optional 5.25 Drive Silent Mid Tower"
   },
   {
     "score": 100,
@@ -815,17 +1002,6 @@
   },
   {
     "score": 96,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000591",
-    "listing_b": "tms:100-000000592",
-    "title_a": "מעבד AMD Ryzen 7 7700X AM5 Tray",
-    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5 Tray",
-    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
-  },
-  {
-    "score": 96,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221790",
@@ -878,17 +1054,6 @@
     "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
     "match_text_a": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray",
     "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
-  },
-  {
-    "score": 95,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:157270",
-    "listing_b": "tms:C14700FT",
-    "title_a": "מעבד Intel i7 14700F/1700 Core Tray",
-    "title_b": "Intel Core i7 14700F / 1700 Tray",
-    "match_text_a": "C14700FT Intel i7 14700F/1700 Core Tray",
-    "match_text_b": "C14700FT Intel Core i7 14700F / 1700 Tray"
   },
   {
     "score": 95,
@@ -1015,6 +1180,39 @@
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:169702",
+    "listing_b": "tms:100-000001404",
+    "title_a": "מעבד AMD Ryzen™ 7 9700X AM5 - TRAY",
+    "title_b": "AMD Ryzen 7 9700X AM5 Tray",
+    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 - TRAY",
+    "match_text_b": "100-000001404 AMD Ryzen 7 9700X AM5 Tray"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:174936",
+    "listing_b": "tms:100-000001277",
+    "title_a": "מעבד AMD Ryzen™ 9 9950X AM5 - TRAY",
+    "title_b": "AMD Ryzen 9 9950X AM5 Tray",
+    "match_text_a": "100-000001277 AMD Ryzen 9 9950X AM5 - TRAY",
+    "match_text_b": "100-000001277 AMD Ryzen 9 9950X AM5 Tray"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:187970",
+    "listing_b": "yahav:10512",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:92773",
     "listing_b": "tms:100-000000158",
     "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
@@ -1065,6 +1263,28 @@
     "title_b": "AMD Ryzen Threadripper PRO 7965WX 24-core Tray",
     "match_text_a": "100-000000454 AMD Ryzen Threadripper PRO 7985WX 64-core Tray",
     "match_text_b": "100-000000885 AMD Ryzen Threadripper PRO 7965WX 24-core Tray"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000719",
+    "listing_b": "yahav:10512",
+    "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001904",
+    "listing_b": "yahav:11002",
+    "title_a": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 7500X3D Boost 4.5Ghz 96MB Cache AM5 TRAY",
+    "match_text_a": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D Boost 4.5Ghz 96MB Cache AM5 TRAY"
   },
   {
     "score": 93,
@@ -1191,12 +1411,12 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-000000457",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
+    "listing_a": "1pc:169701",
+    "listing_b": "ivory:109058",
+    "title_a": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
+    "title_b": "מעבד AMD Ryzen 5 9600X Tray",
+    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 - TRAY",
+    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Tray"
   },
   {
     "score": 92,
@@ -1230,6 +1450,17 @@
     "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
     "match_text_a": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray",
     "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:129267",
+    "listing_b": "yahav:10512",
+    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included",
+    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
+    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included"
   },
   {
     "score": 92,
@@ -1290,17 +1521,6 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000593",
-    "listing_b": "tms:100-000001405",
-    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000719",
     "listing_b": "tms:100-000000908",
     "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
@@ -1318,28 +1538,6 @@
     "title_b": "AMD Ryzen Threadripper 7970X 32-core Tray",
     "match_text_a": "100-000001350 AMD Ryzen Threadripper 7980X 64-core Tray",
     "match_text_b": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001404",
-    "listing_b": "tms:100-000001405",
-    "title_a": "AMD Ryzen 7 9700X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001405",
-    "listing_b": "tms:100-000001406",
-    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
   },
   {
     "score": 92,
@@ -1522,17 +1720,6 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:154854",
-    "listing_b": "tms:100-000000592",
-    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:154854",
     "listing_b": "tms:100-000000927",
     "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
     "title_b": "AMD Ryzen 5 5600 AM4 Tray",
@@ -1571,28 +1758,6 @@
     "title_b": "AMD Ryzen 5 7500F AM5 Tray",
     "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
     "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-100000065",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:207742",
-    "listing_b": "tms:100-000000592",
-    "title_a": "מעבד AMD Ryzen 7 8700F AM5 Tray",
-    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_a": "100-000001590 AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
   },
   {
     "score": 91,
@@ -1643,33 +1808,11 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "tms:100-000000592",
-    "listing_b": "tms:100-000000593",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 5 7600X AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000000593 AMD Ryzen 5 7600X AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000592",
     "listing_b": "tms:100-000000597",
     "title_a": "AMD Ryzen 7 7700 AM5 Tray",
     "title_b": "AMD Ryzen 5 7500F AM5 Tray",
     "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
     "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000592",
-    "listing_b": "tms:100-000000926",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 7 5700X AM4 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
   },
   {
     "score": 91,
@@ -1764,17 +1907,6 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:154854",
-    "listing_b": "tms:100-000001406",
-    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:154854",
     "listing_b": "tms:100-000001590",
     "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
     "title_b": "AMD Ryzen 7 8700F AM5 Tray",
@@ -1802,6 +1934,17 @@
     "title_b": "AMD Ryzen 7 5700X AM4 Tray",
     "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
     "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:174936",
+    "listing_b": "yahav:9898",
+    "title_a": "מעבד AMD Ryzen™ 9 9950X AM5 - TRAY",
+    "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X Boost 5.7Ghz 64MB L3 Cache AM5 Tray",
+    "match_text_a": "100-000001277 AMD Ryzen 9 9950X AM5 - TRAY",
+    "match_text_b": "100-000001277 AMD Ryzen 9 9950X Boost 5.7Ghz 64MB L3 Cache AM5 Tray"
   },
   {
     "score": 90,
@@ -1846,6 +1989,28 @@
     "title_b": "AMD Ryzen 9 9900X AM5 Tray",
     "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
     "match_text_b": "100-000000662 AMD Ryzen 9 9900X AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000000719",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 9 9950X3D AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000001084",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 9800X3D AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray"
   },
   {
     "score": 90,
@@ -2027,28 +2192,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000662",
-    "listing_b": "tms:100-000001277",
-    "title_a": "AMD Ryzen 9 9900X AM5 Tray",
-    "title_b": "AMD Ryzen 9 9950X AM5 Tray",
-    "match_text_a": "100-000000662 AMD Ryzen 9 9900X AM5 Tray",
-    "match_text_b": "100-000001277 AMD Ryzen 9 9950X AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000662",
-    "listing_b": "tms:100-000001368",
-    "title_a": "AMD Ryzen 9 9900X AM5 Tray",
-    "title_b": "AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_a": "100-000000662 AMD Ryzen 9 9900X AM5 Tray",
-    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000719",
     "listing_b": "tms:100-000000909",
     "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
@@ -2105,17 +2248,6 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "tms:100-000001404",
-    "listing_b": "tms:100-000001406",
-    "title_a": "AMD Ryzen 7 9700X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
-    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001404",
     "listing_b": "tms:100-000001590",
     "title_a": "AMD Ryzen 7 9700X AM5 Tray",
     "title_b": "AMD Ryzen 7 8700F AM5 Tray",
@@ -2132,17 +2264,6 @@
     "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
     "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
     "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001405",
-    "listing_b": "tms:100-100000065",
-    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
   },
   {
     "score": 90,
@@ -2176,6 +2297,17 @@
     "title_b": "מארז מחשב Corsair 3500X Mid-Tower לבן",
     "match_text_a": "221784 Corsair 3500X Mid-Tower",
     "match_text_b": "222387 Corsair 3500X Mid-Tower"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "tms:PC-A4H2OA4",
+    "listing_b": "yahav:8454",
+    "title_a": "מארז מחשב LIAN-LI A4-H2O Mini-ITX Silver",
+    "title_b": "מארז חברת LIAN-LI דגם Lian Li A4-H2O Mini-ITX Case Aluminum PCIe 4.0 צבע כסוף",
+    "match_text_a": "PC-A4H2OA4 LIAN-LI A4-H2O Mini-ITX Silver",
+    "match_text_b": "PC-A4H2OA4 LIAN-LI Lian Li A4-H2O Mini-ITX Case Aluminum PCIe 4.0"
   },
   {
     "score": 90,
@@ -2588,28 +2720,6 @@
     "score": 89,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:127415",
-    "listing_b": "tms:100-000000592",
-    "title_a": "מעבד AMD Ryzen 7 7700X AM5 צבע לא ידוע",
-    "title_b": "AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5",
-    "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-000000050",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000050 AMD Ryzen 5 3500 AM4 Tray"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:92773",
     "listing_b": "tms:100-000000927",
     "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
@@ -2751,6 +2861,17 @@
   },
   {
     "score": 89,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "tms:O11DMIV2W",
+    "listing_b": "yahav:10969",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 White",
+    "title_b": "מארז חברת LIAN-LI דגם O11 Dynamic Mini V2 White Tower Case צבע לבן",
+    "match_text_a": "O11DMIV2W Lian-Li O11 Dynamic Mini V2 White",
+    "match_text_b": "O11DMIV2W LIAN-LI O11 Dynamic Mini V2 White Tower Case"
+  },
+  {
+    "score": 89,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:222391",
@@ -2783,15 +2904,15 @@
     "match_text_b": "VCG5060T8DFXPB1-O PNY RTX 5060Ti 8GB OC Dual Fan"
   },
   {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:112622",
-    "listing_b": "ivory:126060",
-    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
+    "score": 89,
+    "category": "gpu",
+    "brand": "PNY",
+    "listing_a": "1pc:221469",
+    "listing_b": "yahav:11053",
+    "title_a": "PNY RTX 5060Ti 8GB OC Dual Fan",
+    "title_b": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
+    "match_text_a": "221469 PNY RTX 5060Ti 8GB OC Dual Fan",
+    "match_text_b": "VCG5060T8DFXPB1-O-PC PNY Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP -"
   },
   {
     "score": 88,
@@ -2842,44 +2963,11 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:163368",
-    "listing_b": "ivory:126060",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
     "listing_b": "tms:100-000000158",
     "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
     "title_b": "AMD Ryzen 5 3500X AM4 Tray",
     "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
     "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-000000593",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 7600X AM5 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000593 AMD Ryzen 5 7600X AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-000000926",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 7 5700X AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
   },
   {
     "score": 88,
@@ -2962,6 +3050,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:189440",
+    "listing_b": "tms:100-000001973",
+    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
+    "title_b": "AMD Ryzen 7 9850X3D AM5 Tray",
+    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000001973 AMD Ryzen 7 9850X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "1pc:215496",
     "listing_b": "tms:100-000000651",
     "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
@@ -2984,17 +3083,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:221475",
-    "listing_b": "tms:100-000001406",
-    "title_a": "AMD Ryzen 5 9500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_a": "221475 AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:92773",
     "listing_b": "tms:100-000000597",
     "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
@@ -3012,28 +3100,6 @@
     "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
     "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
     "match_text_b": "100-000001504 AMD Ryzen 5 5500X3D AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "ivory:154048",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "מעבד AMD Ryzen 5 8400F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000457",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
   },
   {
     "score": 88,
@@ -3133,28 +3199,6 @@
     "title_b": "AMD Ryzen 7 7700 AM5 Tray",
     "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5 Tray",
     "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000592",
-    "listing_b": "tms:100-000000910",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 7 7800X3D AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000000910 AMD Ryzen 7 7800X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000592",
-    "listing_b": "tms:100-000001404",
-    "title_a": "AMD Ryzen 7 7700 AM5 Tray",
-    "title_b": "AMD Ryzen 7 9700X AM5 Tray",
-    "match_text_a": "100-000000592 AMD Ryzen 7 7700 AM5 Tray",
-    "match_text_b": "100-000001404 AMD Ryzen 7 9700X AM5 Tray"
   },
   {
     "score": 88,
@@ -3875,6 +3919,28 @@
     "score": 88,
     "category": "aio",
     "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "yahav:10404",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד חברת Corsair דגם NAUTILUS 360 RS ARGB 360mm 1700RPM 72.8CFM",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB 360mm 1700RPM 72.8CFM"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "yahav:10405",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי למעבד חברת Corsair דגם NAUTILUS 360 RS ARGB White 360mm 1700RPM 72.8CFM",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB White 360mm 1700RPM 72.8CFM"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
     "listing_a": "1pc:222392",
     "listing_b": "ivory:126585",
     "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
@@ -3917,6 +3983,28 @@
   },
   {
     "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "yahav:10404",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי למעבד חברת Corsair דגם NAUTILUS 360 RS ARGB 360mm 1700RPM 72.8CFM",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060093-WW Corsair NAUTILUS 360 RS ARGB 360mm 1700RPM 72.8CFM"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "yahav:10405",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי למעבד חברת Corsair דגם NAUTILUS 360 RS ARGB White 360mm 1700RPM 72.8CFM",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9060095-WW Corsair NAUTILUS 360 RS ARGB White 360mm 1700RPM 72.8CFM"
+  },
+  {
+    "score": 88,
     "category": "psu",
     "brand": "Corsair",
     "listing_a": "1pc:222371",
@@ -3936,6 +4024,17 @@
     "title_b": "ספק כוח למחשב Corsair CX650 80 PLUS Bronze 650W",
     "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
     "match_text_b": "CP-9020278-EU Corsair CX650 80 PLUS Bronze 650W"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222372",
+    "listing_b": "yahav:9151",
+    "title_a": "ספק כוח Corsair CX650 80 PLUS Bronze - 650W",
+    "title_b": "ספק כוח למחשב חברת Corsair דגם CX650 CX Series 650W 80 PLUS Bronze ACTIVE PFC כולל מאוורר 120MM",
+    "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
+    "match_text_b": "CP-9020278-EU Corsair CX650 CX Series 650W 80 PLUS Bronze ACTIVE PFC 120MM"
   },
   {
     "score": 88,
@@ -4213,6 +4312,46 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:cpu:ryzen79800x3d-tray",
+    "category": "cpu",
+    "vendor": "yahav",
+    "offers": [
+      {
+        "listing_key": "yahav:11569",
+        "vendor_sku": "100-1000001084-PC",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included - מבצע ברכישת מחשב שלם בלבד",
+        "price": 1620
+      },
+      {
+        "listing_key": "yahav:10143",
+        "vendor_sku": "100-1000001084",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
+        "price": 1650
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:ryzen79850x3d-tray",
+    "category": "cpu",
+    "vendor": "yahav",
+    "offers": [
+      {
+        "listing_key": "yahav:11464",
+        "vendor_sku": "100-000001973-PC",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9850X3D Boost 5.6Ghz 96MB Cache AM5 TRAY Thermal solution not included - מבצע ברכישת מחשב שלם בלבד",
+        "price": 1850
+      },
+      {
+        "listing_key": "yahav:11292",
+        "vendor_sku": "100-000001973",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9850X3D Boost 5.6Ghz 96MB Cache AM5 TRAY Thermal solution not included",
+        "price": 1920
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:cpu:ryzen97900x",
     "category": "cpu",
     "vendor": "1pc",
@@ -4329,6 +4468,7 @@
     "category": "case",
     "vendor": "",
     "titles": [
+      "מארז חברת Antec דגם CX Series CX300M RGB 3X120MM Fixed Mode RGB Mini Tower צבע שחור",
       "מארז מחשב Antec CX300M RGB",
       "מארז מחשב Antec CX300M RGB CX300MRGB"
     ],
@@ -4344,6 +4484,12 @@
         "vendor_sku": "CX300MRGB",
         "title": "מארז מחשב Antec CX300M RGB",
         "price": 199
+      },
+      {
+        "listing_key": "yahav:9789",
+        "vendor_sku": "CX300M-RGB",
+        "title": "מארז חברת Antec דגם CX Series CX300M RGB 3X120MM Fixed Mode RGB Mini Tower צבע שחור",
+        "price": 245
       }
     ]
   },
@@ -4401,6 +4547,7 @@
     "category": "case",
     "vendor": "",
     "titles": [
+      "מארז חברת Gigabyte דגם C301G White V2 4X120MM RGB Fans צבע לבן",
       "מארז מחשב Gigabyte C301G V2 White",
       "מארז מחשב Gigabyte C301G White V2 ATX Case GB-C301GW-V2"
     ],
@@ -4416,6 +4563,12 @@
         "vendor_sku": "GB-C301GW-V2",
         "title": "מארז מחשב Gigabyte C301G V2 White",
         "price": 437
+      },
+      {
+        "listing_key": "yahav:9398",
+        "vendor_sku": "GB-C301GW-V2",
+        "title": "מארז חברת Gigabyte דגם C301G White V2 4X120MM RGB Fans צבע לבן",
+        "price": 545
       }
     ]
   },
@@ -4426,6 +4579,7 @@
     "vendor": "",
     "titles": [
       "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Silver PC-TU150WA",
+      "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Silver צבע כסוף",
       "מארז מחשב Lian-Li PC-TU150 Aluminum Silver"
     ],
     "offers": [
@@ -4440,6 +4594,12 @@
         "vendor_sku": "PC-TU150WA",
         "title": "מארז מחשב Lian-Li PC-TU150 Aluminum Silver",
         "price": 532
+      },
+      {
+        "listing_key": "yahav:8446",
+        "vendor_sku": "PC-TU150WA",
+        "title": "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Silver צבע כסוף",
+        "price": 615
       }
     ]
   },
@@ -4450,6 +4610,7 @@
     "vendor": "",
     "titles": [
       "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Black PC-TU150WX",
+      "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Black צבע שחור",
       "מארז מחשב Lian-Li PC-TU150 Aluminum Black"
     ],
     "offers": [
@@ -4464,6 +4625,12 @@
         "vendor_sku": "PC-TU150WX",
         "title": "מארז מחשב Lian-Li PC-TU150 Aluminum Black",
         "price": 532
+      },
+      {
+        "listing_key": "yahav:8445",
+        "vendor_sku": "PC-TU150WX",
+        "title": "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Black צבע שחור",
+        "price": 615
       }
     ]
   },
@@ -4488,6 +4655,37 @@
         "vendor_sku": "RF-C14SF-W1",
         "title": "NZXT F140RGB Core 140mm Hub-Mounted RGB Fan White",
         "price": 87
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
+    "product_id": "mpn:case_fan:rfr14sfb1",
+    "category": "case_fan",
+    "vendor": "",
+    "titles": [
+      "NZXT F140RGB 140mm RGB Black Fan",
+      "NZXT F140RGB 140mm RGB Black Fan RF-R14SF-B1",
+      "מאוורר חברת NZXT דגם F140 RGB Black 140MM Single Pack Fan Retail 1800RPM 89CFM 120MM צבע שחור"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:140901",
+        "vendor_sku": "RF-R14SF-B1",
+        "title": "NZXT F140RGB 140mm RGB Black Fan RF-R14SF-B1",
+        "price": 135
+      },
+      {
+        "listing_key": "tms:RF-R14SF-B1",
+        "vendor_sku": "RF-R14SF-B1",
+        "title": "NZXT F140RGB 140mm RGB Black Fan",
+        "price": 115
+      },
+      {
+        "listing_key": "yahav:8479",
+        "vendor_sku": "RF-R14SF-B1",
+        "title": "מאוורר חברת NZXT דגם F140 RGB Black 140MM Single Pack Fan Retail 1800RPM 89CFM 120MM צבע שחור",
+        "price": 130
       }
     ]
   },
@@ -4769,6 +4967,7 @@
     "vendor": "",
     "titles": [
       "ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White",
+      "ספק כוח למחשב חברת Antec דגם NeoEco NE1000GM 1000W Gold Full Modular ATX 3.0 PCIE 5.0 READY ACTIVE PFC - צבע לבן",
       "ספק כח ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White NE1000GM-W-ATX3.0"
     ],
     "offers": [
@@ -4783,6 +4982,36 @@
         "vendor_sku": "NE1000GM-W-ATX3.0",
         "title": "ANTEC PSU 1000W NE1000G M (ATX 3.0) NeoECO Gold White",
         "price": 598
+      },
+      {
+        "listing_key": "yahav:8838",
+        "vendor_sku": "NE1000GM-W-ATX3.0",
+        "title": "ספק כוח למחשב חברת Antec דגם NeoEco NE1000GM 1000W Gold Full Modular ATX 3.0 PCIE 5.0 READY ACTIVE PFC - צבע לבן",
+        "price": 670
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
+    "product_id": "mpn:psu:ne1000p",
+    "category": "psu",
+    "vendor": "",
+    "titles": [
+      "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
+      "ספק כוח למחשב חברת Antec דגם NeoEco NE1000P 1000W Platinum Full Modular ATX 3.1 PCIE 5.1 READY ACTIVE PFC"
+    ],
+    "offers": [
+      {
+        "listing_key": "tms:NE1000P",
+        "vendor_sku": "NE1000P",
+        "title": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
+        "price": 555
+      },
+      {
+        "listing_key": "yahav:11516",
+        "vendor_sku": "NE1000P",
+        "title": "ספק כוח למחשב חברת Antec דגם NeoEco NE1000P 1000W Platinum Full Modular ATX 3.1 PCIE 5.1 READY ACTIVE PFC",
+        "price": 580
       }
     ]
   },
