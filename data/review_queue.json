@@ -421,17 +421,6 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
-    "listing_a": "ivory:43029",
-    "listing_b": "tms:FLUX",
-    "title_a": "מארז מחשב Antec DF800 FLUX בצבע שחור כולל חלון צד",
-    "title_b": "מארז מחשב Antec FLUX",
-    "match_text_a": "DF800F Antec DF800 FLUX",
-    "match_text_b": "FLUX Antec FLUX"
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "Antec",
     "listing_a": "tms:C8",
     "listing_b": "tms:C8ARGB",
     "title_a": "מארז מחשב Antec C8",
@@ -2258,28 +2247,6 @@
     "score": 90,
     "category": "motherboard",
     "brand": "MAXSUN",
-    "listing_a": "1pc:221410",
-    "listing_b": "tms:MS-TER-B760M-GKD5-WIFI",
-    "title_a": "MAXSUN Terminator B760M GKD5 WIFI",
-    "title_b": "MAXSUN Terminator B760M GKD5 WIFI",
-    "match_text_a": "221410 MAXSUN Terminator B760M GKD5 WIFI",
-    "match_text_b": "MS-TER-B760M-GKD5-WIFI MAXSUN Terminator B760M GKD5 WIFI"
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "MAXSUN",
-    "listing_a": "1pc:221411",
-    "listing_b": "tms:MS-TER-B760BKB-D5-WIFI",
-    "title_a": "MAXSUN Terminator B760BKB D5 WIFI",
-    "title_b": "MAXSUN Terminator B760BKB D5 WIFI",
-    "match_text_a": "221411 MAXSUN Terminator B760BKB D5 WIFI",
-    "match_text_b": "MS-TER-B760BKB-D5-WIFI MAXSUN Terminator B760BKB D5 WIFI"
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
-    "brand": "MAXSUN",
     "listing_a": "1pc:221413",
     "listing_b": "tms:MS-CHA-A520MKWIFIARGB",
     "title_a": "MAXSUN Challenger A520M-K WiFi ARGB",
@@ -3628,17 +3595,6 @@
     "title_b": "ספק כוח למחשב חברת Corsair דגם CX650 CX Series 650W 80 PLUS Bronze ACTIVE PFC כולל מאוורר 120MM",
     "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
     "match_text_b": "CP-9020278-EU Corsair CX650 CX Series 650W 80 PLUS Bronze ACTIVE PFC 120MM"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "MAXSUN",
-    "listing_a": "1pc:221412",
-    "listing_b": "tms:MS-ESP-B850M-WIFI6E",
-    "title_a": "MAXSUN eSport B850M WIFI6E",
-    "title_b": "MAXSUN eSport B850M WIFI6E",
-    "match_text_a": "221412 MAXSUN eSport B850M WIFI6E",
-    "match_text_b": "MS-ESP-B850M-WIFI6E MAXSUN eSport B850M WIFI6E"
   },
   {
     "score": 88,
