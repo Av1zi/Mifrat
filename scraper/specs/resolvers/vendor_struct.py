@@ -236,6 +236,36 @@ def _cache_mb(number_text, unit_text):
     return round(size, 3)
 
 
+# ECC / registered hide inside memory_type strings. POS before NEG is
+# wrong here — "Non-ECC" contains "ECC", so negatives are tested first
+# and an explicit positive anywhere beats a negative (a server kit never
+# un-prints its ECC because one generic row exists).
+_ECC_POS_RE = re.compile(r"\bECC\b|ECC\s*REG|R-DIMM|RDIMM|LRDIMM|LR-DIMM", re.I)
+_ECC_NEG_RE = re.compile(r"Non[-\s]?ECC|ללא\s*ECC|\bNO\s*ECC\b", re.I)
+_REG_POS_RE = re.compile(r"\bREG\b|RDIMM|LRDIMM|LR-DIMM|R-DIMM\b|Registered", re.I)
+_REG_NEG_RE = re.compile(r"Unbuffered|UDIMM|Non[-\s]?ECC", re.I)
+
+
+def _emit_memory_ecc(facts: dict, category: str, value, source: str) -> None:
+    """ECC/registered hide inside memory value strings ("DDR5 ECC REG",
+    "Non-ECC Unbuffered") — no vendor prints them as standalone rows.
+
+    Runs on the RAW row value (not the merged memory_type fact, which
+    coercion already trimmed to the generation): one row, one vote, so a
+    generic "DDR5" row never cancels an explicit one. Genuine vendor
+    self-contradictions surface as merge conflicts, as they should.
+    """
+    text = str(value or "")
+    if _ECC_NEG_RE.search(text):
+        _emit(facts, category, "ecc", False, source, 0.8)
+    elif _ECC_POS_RE.search(text):
+        _emit(facts, category, "ecc", True, source, 0.8)
+    if _REG_NEG_RE.search(text):
+        _emit(facts, category, "registered", False, source, 0.8)
+    elif _REG_POS_RE.search(text):
+        _emit(facts, category, "registered", True, source, 0.8)
+
+
 def _emit_cache_tier(facts: dict, category: str, value, source: str) -> None:
     """'L1 1280KB | L2 16MB | L3 128MB' -> l2_cache_mb + l3_cache_mb.
 
@@ -277,6 +307,26 @@ def _emit_cache_tier(facts: dict, category: str, value, source: str) -> None:
     if number is None:
         return
     _emit(facts, category, "cache_mb", number, source, 0.8)
+
+
+def _emit_psu_conn_string(facts: dict, category: str, value, source: str) -> None:
+    """'350W with Power Connector 3x8-pin' -> external_power ['3x8-pin'].
+
+    Only connector mentions are read; the wattage is a PSU recommendation
+    for the buyer's power supply, never the card's draw. Spacing variants
+    ("3 x 8-pin") render into the canonical "NxM-pin" shape the direct
+    rows already ship; 12VHPWR/12V-2x6 render as "1x16-pin" (same).
+    """
+    text = str(value or "")
+    conns: list[str] = []
+    for match in re.finditer(r"(\d+)\s*x\s*(\d+)\s*-?pin", text, re.I):
+        rendered = f"{int(match.group(1))}x{int(match.group(2))}-pin"
+        if rendered not in conns:
+            conns.append(rendered)
+    if re.search(r"12VHPWR|12V-2x6", text, re.I) and "1x16-pin" not in conns:
+        conns.append("1x16-pin")
+    if conns:
+        _emit(facts, category, "external_power", conns, source, 0.75)
 
 
 def _emit_memory_kit(facts: dict, category: str, value, source: str) -> None:
@@ -747,6 +797,75 @@ def _emit_gpu_vram(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "memory_type", type_match.group(1).upper(), source, 0.8)
 
 
+def _emit_expansion_slots(facts: dict, category: str, value, source: str) -> None:
+    """'8 חריצי הרחבה אופקיים…' -> expansion_slots 8 (leading count).
+
+    The plain field mapping dies in prose cleaning (Hebrew text returns
+    None), so the counted variant takes this token. Only a LEADING number
+    counts — anything else stays null.
+    """
+    match = re.match(r"\s*(\d{1,2})\b", str(value or ""))
+    if match and 1 <= int(match.group(1)) <= 20:
+        _emit(facts, category, "expansion_slots", int(match.group(1)),
+              source, 0.8)
+
+
+def _emit_memory_speeds(facts: dict, category: str, value, source: str) -> None:
+    """Support-list speeds -> memory_speeds ["4800", "8200"].
+
+    Reads 4-digit MHz/MT/s figures plus bare 4-digit numbers — but ONLY
+    inside explicitly speeds-labeled cells (the token is only mapped on
+    such labels). A bare number elsewhere (model codes, voltages, years)
+    never reaches this function.
+    """
+    speeds: list[str] = []
+    for match in re.finditer(r"(\d{4,5})\s*(?:MHz|MT/s)?", str(value or ""), re.I):
+        num = int(match.group(1))
+        if 800 <= num <= 12000 and str(num) not in speeds:
+            speeds.append(str(num))
+    if speeds:
+        _emit(facts, category, "memory_speeds", speeds, source, 0.7)
+
+
+def _emit_thermal_design(facts: dict, category: str, value, source: str) -> None:
+    """Case thermal-design prose -> per-position fan mounts.
+
+    'Front Fans 2x80x25mm | Rear 1x120mm' -> fan_front '2 fans',
+    fan_rear '1 x 120 mm'. Only segments that name a position are read;
+    anything else in the cell (dimensions, "Fans Included" totals without
+    a position, cooler brand lines) is skipped, never guessed. The whole
+    cell must carry a fan word (checked once, not per segment — "Rear
+    1x120mm" inherits its fan-ness from "Front Fans"). Count/size come
+    from the same helpers as the dedicated mount rows so both row kinds
+    render identically and never conflict with each other; the lower
+    confidence lets real mount rows win ties.
+    """
+    text = str(value or "")
+    if not re.search(r"fan|מאוורר", text, re.I):
+        return
+    positions = (("fan_front", r"front"), ("fan_rear", r"rear"),
+                 ("fan_top", r"\btop\b"), ("fan_bottom", r"bottom"))
+    marks = []
+    for field, word in positions:
+        for match in re.finditer(word, text, re.I):
+            marks.append((match.start(), field))
+    marks.sort()
+    for i, (start, field) in enumerate(marks):
+        end = marks[i + 1][0] if i + 1 < len(marks) else len(text)
+        segment = text[start:end]
+        count = _fan_count_from_text(segment)
+        size = _mm_from_text(segment)
+        if count is None and size is None:
+            continue
+        if count and size:
+            rendered = f"{count} x {size} mm"
+        elif size:
+            rendered = f"{size} mm"
+        else:
+            rendered = f"{count} fans"
+        _emit(facts, category, field, rendered, source, 0.7)
+
+
 def _emit_gpu_cooling(facts: dict, category: str, value, source: str) -> None:
     """'צלעות קירור בלבד (קירור פסיבי)' -> Passive, 'מאווררים...' -> Air."""
     text = str(value or "")
@@ -754,7 +873,9 @@ def _emit_gpu_cooling(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "cooling", "Passive", source, 0.85)
     elif re.search(r"נוזל|liquid|water", text, re.I):
         _emit(facts, category, "cooling", "Liquid", source, 0.85)
-    elif re.search(r"מאוורר|fan|blower", text, re.I):
+    elif re.search(r"מאוורר|fan|blower|windforce", text, re.I):
+        # WINDFORCE is Gigabyte's air-cooler brand (41 rows, all Gigabyte
+        # cards) — same reading as an explicit fan mention.
         _emit(facts, category, "cooling", "Air", source, 0.85)
 
 
@@ -1168,6 +1289,18 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
     if token == labels.NETWORK_CARD:
         _emit_network_card(facts, category, value, source)
         return True
+    if token == labels.PSU_CONN_STRING:
+        _emit_psu_conn_string(facts, category, value, source)
+        return True
+    if token == labels.THERMAL_DESIGN:
+        _emit_thermal_design(facts, category, value, source)
+        return True
+    if token == labels.MEMORY_SPEEDS:
+        _emit_memory_speeds(facts, category, value, source)
+        return True
+    if token == labels.EXPANSION_SLOTS:
+        _emit_expansion_slots(facts, category, value, source)
+        return True
     if token.startswith(labels.SLOT_COUNT_PREFIX):
         _emit_slot_count(facts, category, token[len(labels.SLOT_COUNT_PREFIX):],
                          value, source, state)
@@ -1215,8 +1348,27 @@ def parse_detail_specs(category: str | None, detail_specs,
     rows = (detail_specs.items() if isinstance(detail_specs, dict)
             else _detail_rows(detail_specs))
     for key, value in rows:
+        if str(key) == "הערות":
+            if cat == "case":
+                # The notes junk-drawer sometimes carries the one clearance
+                # figure ("Max GPU Length ≤ 408mm", 130 rows) — the ONLY
+                # thing ever read out of this label. Pattern-gated and lower
+                # confidence than a dedicated row, so a real row still wins;
+                # the label otherwise stays ignored as before.
+                match = re.search(r"Max GPU Length\s*[≤<]?\s*(\d{2,4})\s*mm",
+                                  str(value or ""), re.I)
+                if match:
+                    _emit(facts, cat, "max_gpu_length_mm", int(match.group(1)),
+                          SOURCE_DETAIL, 0.7)
+            elif cat == "case_fan" and re.search(r"\breverse\b", str(value or ""), re.I):
+                # Reverse-blade kits announce it in notes/model prose
+                # ("Reverse Fans", "P12 Pro Reverse A-RGB").
+                _emit(facts, cat, "flow_direction", "reverse",
+                      SOURCE_DETAIL, 0.7)
         if key is None or str(key) in _PROSE_KEYS or labels.is_ignored_label(key):
             continue
+        if cat == "memory":
+            _emit_memory_ecc(facts, cat, value, SOURCE_DETAIL)
         token = labels.translate_vendor_label(key, cat)
         if token is None:
             # Unknown Hebrew label: reported, never guessed at (the old code
@@ -1238,6 +1390,14 @@ def parse_detail_specs(category: str | None, detail_specs,
     sockets = state.get("sockets")
     if sockets:
         _emit(facts, cat, "sockets", sockets, SOURCE_DETAIL, 0.85)
+    # 0c. Reverse-blade kits name it in the model string ("P12 Pro Reverse
+    # A-RGB") rather than any direction-labeled row.
+    if cat == "case_fan":
+        for fact in facts.get("model", []):
+            if re.search(r"\breverse\b", str(fact.value or ""), re.I):
+                _emit(facts, cat, "flow_direction", "reverse",
+                      SOURCE_DETAIL, 0.85)
+                break
     # 1. Slot rows: TMS prints one row per x16 variant (plain, x4-wired,
     #    x8-wired); the field is the total number of x16 slots, so the rows
     #    are summed rather than raced.
@@ -1253,6 +1413,37 @@ def parse_detail_specs(category: str | None, detail_specs,
             and size in (120, 140) and 1 <= count <= 4):
         _emit(facts, cat, "radiator_size_mm", int(count * size),
               SOURCE_DETAIL, 0.8)
+    # 2b. The reverse division: a known radiator + fan size implies the fan
+    #    count (360/120 = 3x120mm). Only exact divisions — odd fan/radiator
+    #    pairings stay null rather than guessed.
+    for fact in facts.get("radiator_size_mm", []):
+        try:
+            rad = int(float(str(fact.value).split()[0]))
+        except (TypeError, ValueError):
+            continue
+        for fsize in facts.get("fan_size_mm", []):
+            try:
+                fansz = int(float(str(fsize.value).split()[0]))
+            except (TypeError, ValueError):
+                continue
+            if (fansz in (120, 140) and rad % fansz == 0
+                    and 1 <= rad // fansz <= 4):
+                _emit(facts, cat, "fan_count", rad // fansz,
+                      SOURCE_DETAIL, 0.7)
+                break
+        else:
+            continue
+        break
+    # 2c. Case volume from full dimensions (W=220 H=486 D=467mm).
+    #    Pure arithmetic on three validated numbers.
+    dims = facts.get("dimensions_mm", [])
+    if cat == "case" and dims:
+        whd = re.findall(r"([WHD])=(\d+)", str(dims[0].value))
+        axes = {axis: int(num) for axis, num in whd}
+        if all(a in axes for a in "WHD"):
+            _emit(facts, cat, "volume_l",
+                  round(axes["W"] * axes["H"] * axes["D"] / 1e6, 1),
+                  SOURCE_DETAIL, 0.8)
     return facts
 
 

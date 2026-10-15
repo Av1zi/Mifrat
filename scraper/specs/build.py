@@ -31,7 +31,15 @@ from .validate import cross_check, fill_derived, revalidate_derived
 
 
 def listing_text(listing: dict) -> str:
-    """The text Tier-2 parses: match_text plus Ivory prose (same as before)."""
+    """The text Tier-2 parses: match_text plus Ivory prose (same as before).
+
+    Plus the RAW title when it carries anything cleaning removed: Hebrew
+    is stripped by clean_text, so title rules with Hebrew branches
+    (SODIMM laptop words, cooler גובה, accessories חברת/דגם) match them
+    against text_input — which only works if the Hebrew reaches the
+    parsers. Pure-Latin titles are already contained verbatim and are
+    not duplicated.
+    """
     meta = listing.get("vendor_meta") or {}
     text_value = listing.get("match_text") or text_module.clean_text(
         f"{listing.get('vendor_sku', '')} {listing.get('title_raw', '')}")
@@ -41,6 +49,9 @@ def listing_text(listing: dict) -> str:
     )
     if extra:
         text_value = f"{text_value} {text_module.clean_text(extra)}"
+    raw_title = str(listing.get("title_raw") or "")
+    if raw_title and raw_title not in text_value:
+        text_value = f"{text_value} {raw_title}".strip()
     return text_value.strip()
 
 

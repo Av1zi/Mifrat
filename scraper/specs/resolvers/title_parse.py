@@ -550,9 +550,22 @@ def parse_memory(text_input: str) -> list[tuple]:
     elif re.search(r"\bRGB\b", text_value, re.I):
         pairs.append(("lighting", "RGB", 0.8))
 
-    if re.search(r"\bSO-?DIMM\b", text_value, re.I):
+    if re.search(r"\bSO-?DIMM\b|CSODIMM", text_value, re.I):
         pairs.append(("form_factor", "SO-DIMM", 0.9))
+    elif re.search(r"\bCUDIMM\b", text_value, re.I):
+        pairs.append(("form_factor", "DIMM", 0.85))
     elif re.search(r"\bDIMM\b", text_value, re.I):
+        pairs.append(("form_factor", "DIMM", 0.8))
+    elif ((re.search(r"laptop|notebook", text_value, re.I)
+           or re.search("לנייד|לפטופ", str(text_input or "")))
+          and not re.search(r"\bCAMM\d?\b", text_value, re.I)):
+        # Laptop memory is SODIMM by construction; CAMM2 modules are the
+        # documented exception (different form sharing laptop titles).
+        # NOTE: the Hebrew words match the RAW title — clean_text strips
+        # all Hebrew, so they can never fire on text_value.
+        pairs.append(("form_factor", "SO-DIMM", 0.8))
+    elif (re.search(r"\bdesktop\b", text_value, re.I)
+          or re.search("מחשב נייח", str(text_input or ""))):
         pairs.append(("form_factor", "DIMM", 0.8))
     return pairs
 
@@ -717,7 +730,12 @@ def parse_cooler(text_input: str) -> list[tuple]:
     if sockets:
         pairs.append(("sockets", sorted(sockets), 0.8))
 
-    height = re.search(r"(?:HEIGHT|גובה)\D{0,12}?(\d{2,3})\s?MM", text_value, re.I)
+    height = re.search(r"HEIGHT\D{0,12}?(\d{2,3})\s?MM", text_value, re.I)
+    if height is None:
+        # גובה never survives cleaning (all Hebrew is stripped), so the
+        # Hebrew branch matches the raw title while the value pattern
+        # stays identical.
+        height = re.search("גובה\\D{0,12}?(\\d{2,3})\\s?(?:MM|מ\"מ|ממ)", str(text_input or ""))
     if height and 20 <= int(height.group(1)) <= 300:
         pairs.append(("height_mm", int(height.group(1)), 0.8))
 
@@ -798,6 +816,40 @@ def parse_case_fan(text_input: str) -> list[tuple]:
 
 
 # --------------------------------------------------------------------------
+# accessories
+# --------------------------------------------------------------------------
+
+def parse_accessories(text_input: str) -> list[tuple]:
+    """Yahav thermal titles name brand + model explicitly
+    ("משחה טרמית חברת Antec דגם Compund AG-1 1.5G"). Only that explicit
+    pattern is read — bare titles ("מאוורר RGB Corsair LL140 …") carry no
+    labeled model and stay null rather than guessed.
+
+    NOTE: matched against the RAW title, not the cleaned text — cleaning
+    strips all Hebrew, including the חברת/דגם anchors themselves.
+    """
+    text_value = str(text_input or "")
+    pairs: list[tuple] = []
+    # Paired form first so multiword makers survive ("Thermal Grizzly",
+    # not "Thermal"); single token as fallback when no דגם follows.
+    # Latin-only: a Hebrew maker name is not shippable as manufacturer.
+    brand = re.search("חברת\s+([A-Za-z][A-Za-z0-9.\- ]*?)\s+דגם\b", text_value)
+    if brand is None:
+        brand = re.search("חברת\s+([A-Za-z][A-Za-z0-9.\-]*)", text_value)
+    if brand:
+        pairs.append(("manufacturer", brand.group(1).strip(), 0.85))
+    model = re.search("דגם\\s+(.+?)(?:\\s+-\\s+|$)", text_value)
+    if model:
+        name = model.group(1).strip()
+        if name:
+            pairs.append(("model", name, 0.85))
+            pack = re.search(r"[Pp]ack of (\d+)", name)
+            if pack:
+                pairs.append(("quantity", int(pack.group(1)), 0.8))
+    return pairs
+
+
+# --------------------------------------------------------------------------
 # Dispatch
 # --------------------------------------------------------------------------
 
@@ -813,6 +865,7 @@ PARSERS = {
     "aio": parse_cooler,
     "cooler_air": parse_cooler,
     "cooling_other": parse_cooler,
+    "accessories": parse_accessories,
 }
 
 

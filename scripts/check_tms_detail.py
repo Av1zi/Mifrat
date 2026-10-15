@@ -93,8 +93,10 @@ SPIDER_CASES = [
         },
         # Fields TMS prints that the schema deliberately has no home for yet —
         # they must show up as evidence, not as invented facts.
+        # ("Recommended PSU" left this list when its connector half started
+        # feeding external_power; the wattage half stays unread.)
         "expect_gaps": ("מהירות זכרון", "רוחב פס זכרון", "גרסת DirectX",
-                        "גרסת OpenGL", "Recommended PSU"),
+                        "גרסת OpenGL"),
     },
 ]
 
@@ -688,6 +690,98 @@ PAIR_CASES = [
         "expect_absent": ("model",),
         "expect_gaps": (),
     },
+    {
+        "name": "Dedicated USB counts feed the rear summary (motherboard)",
+        "category": "motherboard",
+        "rows": {"USB 2.0": "5", "USB 3.2": "4", "USB Type-C": "1"},
+        "expect_specs": {"usb_ports": "USB 2.0 x5, USB 3.2 x4, USB-C x1"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "ECC/registered ride inside memory_type strings (memory)",
+        "category": "memory",
+        "rows": {"סוג זכרון": "DDR5 ECC REG"},
+        "expect_specs": {"ecc": True, "registered": True},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Explicit ECC absence is False, not a gap (memory)",
+        "category": "memory",
+        "rows": {"תאימות ECC": "ללא ECC"},
+        "expect_specs": {"ecc": False},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Case notes GPU clearance is read, nothing else (case)",
+        "category": "case",
+        "rows": {"הערות": "Max GPU Length ≤ 408mm"},
+        "expect_specs": {"max_gpu_length_mm": 408},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Recommended-PSU connector string (gpu)",
+        "category": "gpu",
+        "rows": {"Recommended PSU": "350W with Power Connector 3x8-pin"},
+        "expect_specs": {"external_power": ["3x8-pin"]},
+        "expect_gaps": (),
+    },
+    {
+        "name": "12VHPWR reads as one 16-pin (gpu)",
+        "category": "gpu",
+        "rows": {"Recommended PSU": "750W with Power Cable 12VHPWR"},
+        "expect_specs": {"external_power": ["1x16-pin"]},
+        "expect_gaps": (),
+    },
+    {
+        "name": "AIO fan count divides out (aio)",
+        "category": "aio",
+        "rows": {"גודל רדיאטור": "360 מ״מ", "גודל מאוורר": "120 מ״מ"},
+        "expect_specs": {"radiator_size_mm": 360, "fan_size_mm": 120,
+                         "fan_count": 3},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Case volume from full dimensions (case)",
+        "category": "case",
+        "rows": {"מידות כ-": "W=220 H=486 D=467mm"},
+        "expect_specs": {"volume_l": 49.9},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Reverse-blade model names the direction (case_fan)",
+        "category": "case_fan",
+        "rows": {"דגם": "P12 Pro Reverse A-RGB"},
+        "expect_specs": {"flow_direction": "reverse"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Memory support speed lists (motherboard)",
+        "category": "motherboard",
+        "rows": {"תמיכה בזיכרון": "Dual Channel DDR5-7000MHz OC"},
+        "expect_specs": {"memory_speeds": ["7000"]},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Counted expansion-slot prose (case)",
+        "category": "case",
+        "rows": {"מספר חריצי הרחבה": "8 חריצי הרחבה אופקיים"},
+        "expect_specs": {"expansion_slots": "8"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Thermal-design positions split into mounts (case)",
+        "category": "case",
+        "rows": {"עיצוב תרמי": "Front Fans 2x80x25mm | Rear 1x120mm"},
+        "expect_specs": {"fan_front": "2 fans", "fan_rear": "1 x 120 mm"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "WINDFORCE marketing line is air cooling (gpu)",
+        "category": "gpu",
+        "rows": {"עיצוב תרמי": "WINDFORCE cooling system"},
+        "expect_specs": {"cooling": "Air"},
+        "expect_gaps": (),
+    },
 ]
 
 NEGATIVE_CASES = [
@@ -864,6 +958,10 @@ def check_chipset_and_efficiency(failures: list[str]) -> int:
         ("B650", "B650"),
         ("X570S", "X570S"),
         ("B760M", "B760"),
+        ("Intel W890", "W890"),
+        ("Intel C741", "C741"),
+        ("Q670", "Q670"),
+        ("SoC (System-on-Chip)", "SoC"),
     ):
         checked += 1
         actual = canon_chipset(raw)

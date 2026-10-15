@@ -81,11 +81,15 @@ USB_SUMMARY = "__usb_summary__"            # rear USB list -> usb_ports string
 REAR_OUTPUTS = "__rear_outputs__"           # rear video ports -> onboard_video
 INTERNAL_HEADERS = "__internal_headers__"  # internal header cell -> fan/usb headers
 QUANTITY_WORDS = "__quantity_words__"      # "מאוורר אחד" / "3-Pack" -> quantity
+THERMAL_DESIGN = "__thermal_design__"    # case "Front Fans 2x80x25mm" -> mounts
+MEMORY_SPEEDS = "__memory_speeds__"      # support lists -> ["4800", "8200"]
+EXPANSION_SLOTS = "__expansion_slots__"  # "8 … אופקיים…" -> 8 (Hebrew prose)
 FAN_CONNECTOR = "__fan_connector__"        # "4pin PWM" -> connector
 NAND_CELL = "__nand__"                     # "TLC | 3D/V NAND" -> nand
 STORAGE_FORM_FACTOR = "__storage_form_factor__"  # "M.2 2280" only, never dims
 INTERFACE_CONNECTIVITY = "__interface_connectivity__"  # 1PC grouped cell
 NETWORK_CARD = "__network_card__"  # 1PC "Spec / Network Card" -> wifi vs LAN
+PSU_CONN_STRING = "__psu_conn_string__"  # "350W with Power Connector 3x8-pin"
 CONNECTOR_COUNT_PREFIX = "__connector_count__:"  # + PSU connector field name
 SLOT_COUNT_PREFIX = "__slot_count__:"      # __slot_count__:x16 / :x1 (summed)
 FAN_MOUNT_PREFIX = "__fan_mount_cell__:"   # + case fan field name
@@ -100,6 +104,7 @@ SPECIAL_TOKENS = frozenset({
     MEMORY_SUPPORT, STORAGE_SUPPORT, USB_SUMMARY, REAR_OUTPUTS,
     INTERNAL_HEADERS, QUANTITY_WORDS, FAN_CONNECTOR, NAND_CELL,
     STORAGE_FORM_FACTOR, INTERFACE_CONNECTIVITY, NETWORK_CARD,
+    PSU_CONN_STRING, THERMAL_DESIGN, MEMORY_SPEEDS, EXPANSION_SLOTS,
 })
 
 # --------------------------------------------------------------------------
@@ -297,7 +302,14 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "ליבה גראפית": "chipset",
         "מספר מאווררים": "fan_count",
         "קירור": "cooling",
+        # WINDFORCE marketing rows land here, not under סוג קירור.
+        "עיצוב תרמי": GPU_COOLING,
         "חיבורי חשמל": "external_power",
+        # Board spec sheets bury the connector in the PSU recommendation
+        # ("350W with Power Connector 3x8-pin", "...Cable 12VHPWR").
+        # The wattage half is a PSU recommendation, never chip power —
+        # only the connector mentions are read (see PSU_CONN_STRING).
+        "recommended psu": PSU_CONN_STRING,
         "תמיכת סנכרון": "frame_sync",
         "סנכרון פריימים": "frame_sync",
     },
@@ -380,6 +392,16 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "זיכרון מקסימלי": "memory_max_gb",
         "מהירות זכרון": "memory_speeds",
         "מהירויות זכרון": "memory_speeds",
+        # Long-tail support-list spellings ("1866,2133,…,4133",
+        # "Dual Channel DDR5-7000MHz OC"). Bare 4-digit numbers are only
+        # read inside these explicitly speeds-labeled cells — never prose.
+        # NOTE: "תמיכה בזכרון (RAM)" is deliberately NOT here — it resolves
+        # to MEMORY_SUPPORT (slots+type+max+speeds) via the relaxed path,
+        # and an exact entry would shadow that richer parse.
+        "מהירויות שעון זיכרון נתמכות": MEMORY_SPEEDS,
+        "תמיכה בזיכרון": MEMORY_SPEEDS,
+        "סלוטים ddr5": "memory_slots",
+        "זיכרון (ram)": MEMORY_SPEEDS,
         # 1PC's redesigned storefront (Oct 2026) spells the same board rows
         # out in full ("תושבת המעבד" vs TMS's "תושבת מעבד", "ערכת שבבים של
         # לוח האם" vs "ערכת שבבים"). Values verified against the live pages.
@@ -421,6 +443,7 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מתח": "voltage_v",
         "ecc": "ecc",
         "registered": "registered",
+        "תאימות ecc": "ecc",
         "באפר": "registered",
         "גוף קירור": "heat_spreader",
         "פורמט": "form_factor",
@@ -570,8 +593,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "תאימות קירור נוזלי (רדיאטור)": RADIATOR_SUPPORT,
         "תאימות לוח": MB_FORM_FACTORS,
         "תאימות ללוח": MB_FORM_FACTORS,
-        "מספר חריצי הרחבה": "expansion_slots",
+        "מספר חריצי הרחבה": EXPANSION_SLOTS,
         "גודל כרטיס מסך מקסימלי": LENGTH_MM_PREFIX + "max_gpu_length_mm",
+        "מקסימום אורך כרטיס גרפי": LENGTH_MM_PREFIX + "max_gpu_length_mm",
         "גובה קירור למעבד מקסימלי": LENGTH_MM_PREFIX + "max_cooler_height_mm",
         "מידות כ-": DIMS_CELL,
         "מקום לכוננים": DRIVE_BAYS,
@@ -595,6 +619,11 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מאוורר אחורי": FAN_MOUNT_PREFIX + "fan_rear",
         "מאוורר תחתון": FAN_MOUNT_PREFIX + "fan_bottom",
         "מאווררים תחתונים": FAN_MOUNT_PREFIX + "fan_bottom",
+        # Thermal-design prose names positions in English ("Front Fans
+        # 2x80x25mm", "Rear: 1x120") while the rows above carry the Hebrew
+        # mount labels. Segments without a position word (dimensions,
+        # "Fans Included", cooler brand lines) are skipped, never guessed.
+        "עיצוב תרמי": THERMAL_DESIGN,
         "סוג תאורה": "lighting",
         "ממדים": "dimensions_mm",
         "מימדים": "dimensions_mm",
@@ -714,6 +743,8 @@ _ANY_ALNUM_RE = re.compile(r"[0-9A-Za-z]")
 # ("128 ליבות" -> 128 cores). Removing them is not interpretation: the field
 # declares the unit, so the word is noise.
 _UNIT_WORDS = frozenset({
+    "מאוורר", "משקל", "סלד", "סל״ד", "נימה", "מחברים", "נימים", "מהירות", "מאווררים", "דיסק",
+    "ממ", "סמ", "מילימטר", "סנטימטר",
     "ליבות", "ליבה", "נימים", "נימה", "מאווררים", "מאוורר", "ערוצים", "ערוץ",
     "פינים", "פין", "תדר", "תדרים", "מהירות", "נפח", "קיבולת", "זיכרון",
     "זכרון", "כונן", "דיסק", "סל\u05f4ד", "סל\"ד", "שבבים", "חריצים", "יציאות",
@@ -762,10 +793,12 @@ _IGNORED_LABELS = frozenset({
         # PSU power-factor correction, case-fan bearing type, memory
         # XMP/EXPO profile. Row counts stay visible in git history; these
         # are recorded as deferred schema candidates in spec-coverage-plan.
+        # ("עיצוב תרמי" left this list: case/gpu rows map to mount/cooling
+        # tokens; other categories report it as a gap.)
         "pfc", "pfc פעיל", "active pfc",
         "מסב מאוורר",
         "פרופיל זיכרון",
-        "דרישות ותאימות", "תוכנות ואפליקציות", "עמידות", "עיצוב תרמי",
+        "דרישות ותאימות", "תוכנות ואפליקציות", "עמידות",
         "תצוגה ותאורה", "פאנל תצוגה (מסך)", "חיבור סיריאלי com",
         "spec / specifications", "spec / operating system",
         "spec / built-in speakers", "spec / designed for gaming",

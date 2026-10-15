@@ -357,11 +357,15 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
     brand = str(specs.get("manufacturer") or "")
     if _EPYC.search(model_text):
         fill("unlocked", False, "cpu.server_locked")
+        # Every EPYC supports ECC memory (server platform requirement).
+        fill("ecc_support", True, "cpu.epyc_ecc")
     elif re.search(r"\bXeon\b", model_text, re.I):
         if re.search(r"\bW[\d\s]*\dX\b", model_text, re.I):
             fill("unlocked", True, "cpu.xeon_w_x_unlocked")
         else:
             fill("unlocked", False, "cpu.server_locked")
+        # Every Xeon supports ECC memory (server platform requirement).
+        fill("ecc_support", True, "cpu.xeon_ecc")
     elif re.search(r"\bFX\b", model_text):
         fill("unlocked", True, "cpu.fx_line_unlocked")
     elif re.search(r"\bA\d+\b", model_text) and not _AMD_PREFIX.search(model_text):

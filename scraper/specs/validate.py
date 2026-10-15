@@ -115,7 +115,10 @@ def validate_fact(category: str | None, field: FieldSpec, value) -> str | None:
         # Board chipsets are short codes ("B850"); GPU chips are chip names
         # ("GeForce RTX 5070"). Applying the board rule to both silently threw
         # away every multi-word GPU chipset — 87% of the GPU catalogue.
-        if category == "motherboard":
+        # "SoC" is the honest value for soldered-mobile boards (no PCH).
+        if value.strip() == "SoC":
+            pass
+        elif category == "motherboard":
             if not _CHIPSET_SHAPE.match(value.strip()):
                 return f"chipset {value!r} has an implausible shape"
         elif category == "gpu":

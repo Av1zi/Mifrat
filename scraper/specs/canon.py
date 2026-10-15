@@ -429,6 +429,11 @@ def _chipset_candidates(text: str):
 
 
 def canon_chipset(value) -> str:
+    # Soldered mobile platforms print "SoC (System-on-Chip)" instead of a
+    # chipset code — that IS the honest value (no socketed PCH exists),
+    # and compacting it to SOCSYSTEMONCHIP only fed the shape rejector.
+    if re.search(r"\bSoC\b|System\s*-?\s*on\s*-?\s*Chip", str(value), re.I):
+        return "SoC"
     text = re.sub(r"[^A-Za-z0-9]", "", str(value)).upper()
     for candidate in _chipset_candidates(text):
         if candidate in CHIPSET_INFO:

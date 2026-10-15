@@ -126,19 +126,23 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "B360": ("LGA1151", "DDR4"), "H370": ("LGA1151", "DDR4"),
     "Z370": ("LGA1151", "DDR4"), "B365": ("LGA1151", "DDR4"),
     "Z390": ("LGA1151", "DDR4"),
+    "Q170": ("LGA1151", "DDR4"), "Q270": ("LGA1151", "DDR4"),
+    "Q370": ("LGA1151", "DDR4"),
     # Intel LGA1200 / DDR4
     "H410": ("LGA1200", "DDR4"), "B460": ("LGA1200", "DDR4"),
     "H470": ("LGA1200", "DDR4"), "Z490": ("LGA1200", "DDR4"),
     "W480": ("LGA1200", "DDR4"), "H510": ("LGA1200", "DDR4"),
     "B560": ("LGA1200", "DDR4"), "H570": ("LGA1200", "DDR4"),
     "Z590": ("LGA1200", "DDR4"),
+    "Q470": ("LGA1200", "DDR4"), "Q570": ("LGA1200", "DDR4"),
     # Intel LGA1700 (DDR4 or DDR5 depending on the board)
     "H610": ("LGA1700", None), "B660": ("LGA1700", None), "H670": ("LGA1700", None),
     "Z690": ("LGA1700", None), "B760": ("LGA1700", None), "H770": ("LGA1700", None),
     "Z790": ("LGA1700", None), "W680": ("LGA1700", None),
+    "Q670": ("LGA1700", None),
     # Intel LGA1851 (DDR5 only)
     "H810": ("LGA1851", "DDR5"), "B860": ("LGA1851", "DDR5"),
-    "Z890": ("LGA1851", "DDR5"),
+    "Z890": ("LGA1851", "DDR5"), "W890": ("LGA1851", "DDR5"),
     # HEDT / legacy
     "X99": ("LGA2011-v3", "DDR4"), "X299": ("LGA2066", "DDR4"),
     "X399": ("TR4", "DDR4"), "TRX40": ("sTRX4", "DDR4"),
@@ -147,6 +151,8 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     # Server chipsets (Sep 2026: seen on TMS server-board details;
     # canon_chipset recovers these from concatenated vendor cells).
     "C602": ("LGA2011", "DDR3"), "C612": ("LGA2011-v3", "DDR4"),
+    # Sapphire Rapids (LGA4677, DDR5): Supermicro X13 boards print C741.
+    "C741": ("LGA4677", "DDR5"),
 }
 
 # Socket -> memory generation. Used by validate.py's cross-field checks and by
