@@ -1709,17 +1709,6 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "tms:100-000000158",
-    "listing_b": "tms:100-000000159",
-    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
-    "title_b": "AMD Ryzen 3 3300X AM4 Tray",
-    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
-    "match_text_b": "100-000000159 AMD Ryzen 3 3300X AM4 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000158",
     "listing_b": "tms:100-000001504",
     "title_a": "AMD Ryzen 5 3500X AM4 Tray",
     "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
@@ -3970,7 +3959,7 @@
     "titles": [
       "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Silver PC-TU150WA",
       "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Silver צבע כסוף",
-      "מארז מחשב Lian-Li PC-TU150 Aluminum Silver"
+      "מארז מחשב Lian-Li PC-TU150 Mini-ITX Aluminum Silver"
     ],
     "offers": [
       {
@@ -3982,7 +3971,7 @@
       {
         "listing_key": "tms:PC-TU150WA",
         "vendor_sku": "PC-TU150WA",
-        "title": "מארז מחשב Lian-Li PC-TU150 Aluminum Silver",
+        "title": "מארז מחשב Lian-Li PC-TU150 Mini-ITX Aluminum Silver",
         "price": 532
       },
       {
