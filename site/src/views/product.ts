@@ -174,10 +174,12 @@ function similarProducts(product: Product, all: Product[]): Product[] {
     }
     scored.push({ p, score });
   }
-  scored.sort(
-    (a, b) =>
-      b.score - a.score || (a.p.min_price ?? Infinity) - (b.p.min_price ?? Infinity)
-  );
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    const ap = a.p.min_price !== null && a.p.min_price > 0 ? a.p.min_price : Infinity;
+    const bp = b.p.min_price !== null && b.p.min_price > 0 ? b.p.min_price : Infinity;
+    return ap - bp;
+  });
   // Min-score threshold: unrelated items must not fill all 8 slots.
   const relevant = scored.filter((s) => s.score >= 6);
   return relevant.slice(0, 8).map((s) => s.p);
@@ -269,12 +271,15 @@ export async function renderProduct(
 
   const sortedOffers = [...product.offers].sort((a, b) => {
     if (a.in_stock !== b.in_stock) return a.in_stock ? -1 : 1;
-    return (a.price ?? Infinity) - (b.price ?? Infinity);
+    const ap = a.price !== null && a.price !== undefined && a.price > 0 ? a.price : Infinity;
+    const bp = b.price !== null && b.price !== undefined && b.price > 0 ? b.price : Infinity;
+    return ap - bp;
   });
 
   const priceRows = sortedOffers
     .map((offer) => {
-      const total = (offer.price ?? 0) + (offer.shipping ?? 0);
+      const hasPrice = offer.price !== null && offer.price !== undefined && offer.price > 0;
+      const total = (hasPrice ? (offer.price as number) : 0) + (offer.shipping ?? 0);
       const shipping =
         offer.shipping === null || offer.shipping === undefined
           ? `<span class="dim">-</span>`
@@ -285,16 +290,16 @@ export async function renderProduct(
         ? ` <span class="tag-stale">${t(lang, "staleData")}</span>`
         : "";
       const buyUrl = safeUrl(offer.url);
-      const buyCell = buyUrl
+      const buyCell = buyUrl && hasPrice
         ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>`
         : `<span class="dim">-</span>`;
       return `
       <tr class="${offer.in_stock ? "" : "is-out"}">
         <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}</td>
-        <td class="pt-num">${offer.price === null ? "-" : esc(formatPrice(offer.price, currency, lang))}</td>
+        <td class="pt-num">${hasPrice ? esc(formatPrice(offer.price as number, currency, lang)) : "-"}</td>
         <td class="pt-ship">${shipping}</td>
         <td class="pt-avail"><span class="status-dot ${offer.in_stock ? "in" : "out"}"></span>${offer.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}${stale}</td>
-        <td class="pt-total">${offer.price === null ? "-" : esc(formatPrice(total, currency, lang))}</td>
+        <td class="pt-total">${hasPrice ? esc(formatPrice(total, currency, lang)) : "-"}</td>
         <td class="pt-buy">${buyCell}</td>
       </tr>`;
     })
@@ -312,7 +317,7 @@ export async function renderProduct(
       <a class="pdp-similar-card" href="${productHash(p.category, p.id)}">
         ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy" width="200" height="200" style="object-fit:contain;background:#fff;">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
         <span class="pdp-similar-name">${esc(displayName(p))}</span>
-        <span class="pdp-similar-price">${p.min_price === null ? "-" : esc(formatPrice(p.min_price, currency, lang))}</span>
+        <span class="pdp-similar-price">${p.min_price !== null && p.min_price > 0 ? esc(formatPrice(p.min_price, currency, lang)) : "-"}</span>
       </a>`;
     })
     .join("");
@@ -464,7 +469,7 @@ async function renderPriceHistory(
   const shortDate = (iso: string): string => {
     const d = new Date(iso);
     if (!Number.isNaN(d.getTime()))
-      return new Intl.DateTimeFormat(locale, { day: "numeric", month: "numeric" }).format(d);
+      return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(d);
     const parts = iso.split("-");
     return parts.length === 3 ? `${parts[2]}.${parts[1]}` : iso;
   };

@@ -307,10 +307,13 @@ function renderShell(): void {
             </button>
           </div>
           <a class="nav-link ${isHome ? "active" : ""}" data-nav="home" href="${homeHash()}"${isHome ? ' aria-current="page"' : ""}>${t(lang, "home")}</a>
-          <span class="nav-search-spacer"></span>
-          <button class="nav-link nav-search-btn" id="search-btn" type="button" aria-label="${t(lang, "searchLabel")}" aria-expanded="false" aria-controls="search-panel">
-            ${icon("search", 15)}
-          </button>
+          <div class="nav-search" id="search-panel">
+            <div class="nav-search-inner">
+              ${icon("search", 15)}
+              <input id="global-search" type="search" placeholder="${esc(t(lang, "searchLabel"))}" autocomplete="off" aria-label="${t(lang, "searchLabel")}" role="combobox" aria-expanded="false" aria-controls="global-results" aria-autocomplete="list">
+            </div>
+            <div class="global-results" id="global-results" role="listbox" aria-live="polite" hidden></div>
+          </div>
         </div>
         <div class="mega-menu" id="mega-menu" hidden role="menu" aria-label="${esc(t(lang, "productsMenu"))}">
           <div class="mega-inner">
@@ -334,23 +337,36 @@ function renderShell(): void {
             </div>
           </div>
         </div>
-        <div class="nav-search-panel" id="search-panel" hidden>
-          <div class="nav-search-inner">
-            ${icon("search", 15)}
-            <input id="global-search" type="search" placeholder="${esc(t(lang, "searchLabel"))}" autocomplete="off" aria-label="${t(lang, "searchLabel")}" role="combobox" aria-expanded="false" aria-controls="global-results" aria-autocomplete="list">
-          </div>
-          <div class="global-results" id="global-results" role="listbox" aria-live="polite"></div>
-        </div>
       </nav>
     </header>
     <main id="main-content"></main>
     <footer class="site-footer">
-      <p>${t(lang, "disclaimer")}</p>
-      <a href="https://github.com/Av1zi/Mifrat" target="_blank" rel="noopener noreferrer">${t(lang, "sourceLinkLabel")}</a>
-      <span aria-hidden="true"> · </span><a href="${privacyHash()}">${t(lang, "privacyTitle")}</a>
-      <span aria-hidden="true"> · </span><a href="${termsHash()}">${t(lang, "termsTitle")}</a>
-      <span aria-hidden="true"> · </span><a href="${cookiesHash()}">${t(lang, "cookiesTitle")}</a>
-      <span aria-hidden="true"> · </span><a href="${qaHash()}">${t(lang, "qaTitle")}</a>
+      <div class="footer-inner">
+        <div class="footer-col footer-brand">
+          <a class="footer-logo" href="${homeHash()}">${icon("chip", 15)} ${t(lang, "appName")}</a>
+          <p class="footer-desc">${t(lang, "footerDesc")}</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-head">${t(lang, "footerProductsHead")}</h3>
+          <a href="${categoriesHash()}">${t(lang, "browseAllCategories")}</a>
+          <a href="${categoryHash("cpu")}">${esc(categoryLabel("cpu", lang))}</a>
+          <a href="${categoryHash("gpu")}">${esc(categoryLabel("gpu", lang))}</a>
+          <a href="${categoryHash("motherboard")}">${esc(categoryLabel("motherboard", lang))}</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-head">${t(lang, "footerBuildHead")}</h3>
+          <a href="#/build">${t(lang, "builderNav")}</a>
+          <a href="${qaHash()}">${t(lang, "qaTitle")}</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-head">${t(lang, "footerLegalHead")}</h3>
+          <a href="${privacyHash()}">${t(lang, "privacyTitle")}</a>
+          <a href="${termsHash()}">${t(lang, "termsTitle")}</a>
+          <a href="${cookiesHash()}">${t(lang, "cookiesTitle")}</a>
+          <a href="https://github.com/Av1zi/Mifrat" target="_blank" rel="noopener noreferrer">${t(lang, "sourceLinkLabel")}</a>
+        </div>
+      </div>
+      <p class="footer-disclaimer">${t(lang, "disclaimer")}</p>
     </footer>`;
 
   wireDropdown(
@@ -380,15 +396,14 @@ function renderShell(): void {
 
   const mega = document.getElementById("mega-menu")!;
   const productsBtn = document.getElementById("products-btn")!;
-  const panel = document.getElementById("search-panel")!;
-  const searchBtn = document.getElementById("search-btn")!;
+  const results = document.getElementById("global-results")!;
   const searchInput = document.getElementById("global-search") as HTMLInputElement;
 
   const closeMenus = () => {
     mega.hidden = true;
-    panel.hidden = true;
+    results.hidden = true;
     productsBtn.setAttribute("aria-expanded", "false");
-    searchBtn.setAttribute("aria-expanded", "false");
+    searchInput.setAttribute("aria-expanded", "false");
   };
 
   productsBtn.addEventListener("click", (e) => {
@@ -400,18 +415,6 @@ function renderShell(): void {
       mega.hidden = false;
       productsBtn.setAttribute("aria-expanded", "true");
       fillMegaPhotos();
-    }
-  });
-
-  searchBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const willOpen = panel.hidden;
-    closeMenus();
-    if (openDropdownRoot) closeDropdown(openDropdownRoot);
-    if (willOpen) {
-      panel.hidden = false;
-      searchBtn.setAttribute("aria-expanded", "true");
-      searchInput.focus();
     }
   });
 
@@ -558,8 +561,10 @@ async function runGlobalSearch(query: string, mySeq: number): Promise<void> {
   if (!box) return;
   if (query.length < 2) {
     box.innerHTML = "";
+    box.hidden = true;
     return;
   }
+  box.hidden = false;
   box.innerHTML = `<div class="global-status" role="status">${t(lang, "loading")}</div>`;
   try {
     const index = await ensureSearchIndex(mySeq);
@@ -609,13 +614,13 @@ async function runGlobalSearch(query: string, mySeq: number): Promise<void> {
 
 function closeOpenMenus(): void {
   const mega = document.getElementById("mega-menu");
-  const panel = document.getElementById("search-panel");
+  const results = document.getElementById("global-results");
   const productsBtn = document.getElementById("products-btn");
-  const searchBtn = document.getElementById("search-btn");
+  const searchInput = document.getElementById("global-search");
   if (mega) mega.hidden = true;
-  if (panel) panel.hidden = true;
+  if (results) results.hidden = true;
   productsBtn?.setAttribute("aria-expanded", "false");
-  searchBtn?.setAttribute("aria-expanded", "false");
+  searchInput?.setAttribute("aria-expanded", "false");
 }
 
 // Registered once: menus are re-created by renderShell, so these

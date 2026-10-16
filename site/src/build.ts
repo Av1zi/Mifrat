@@ -5,6 +5,8 @@ export interface BuildSlot {
   categories: string[];
   label: { he: string; en: string };
   choose: { he: string; en: string };
+  /** 2–4 letter chip code for the builder table's thumb column. */
+  code: string;
 }
 
 export const BUILD_SLOTS: BuildSlot[] = [
@@ -13,48 +15,56 @@ export const BUILD_SLOTS: BuildSlot[] = [
     categories: ["cpu"],
     label: { he: "מעבד", en: "CPU" },
     choose: { he: "בחירת מעבד", en: "Choose A CPU" },
+    code: "CPU",
   },
   {
     id: "cooler",
     categories: ["aio", "cooler_air"],
     label: { he: "קירור מעבד", en: "CPU Cooler" },
     choose: { he: "בחירת קירור מעבד", en: "Choose A CPU Cooler" },
+    code: "CLR",
   },
   {
     id: "motherboard",
     categories: ["motherboard"],
     label: { he: "לוח אם", en: "Motherboard" },
     choose: { he: "בחירת לוח אם", en: "Choose A Motherboard" },
+    code: "MB",
   },
   {
     id: "memory",
     categories: ["memory"],
     label: { he: "זיכרון", en: "Memory" },
     choose: { he: "בחירת זיכרון", en: "Choose Memory" },
+    code: "RAM",
   },
   {
     id: "storage",
     categories: ["storage"],
     label: { he: "אחסון", en: "Storage" },
     choose: { he: "בחירת אחסון", en: "Choose Storage" },
+    code: "SSD",
   },
   {
     id: "gpu",
     categories: ["gpu"],
     label: { he: "כרטיס מסך", en: "Video Card" },
     choose: { he: "בחירת כרטיס מסך", en: "Choose A Video Card" },
+    code: "GPU",
   },
   {
     id: "case",
     categories: ["case"],
     label: { he: "מארז", en: "Case" },
     choose: { he: "בחירת מארז", en: "Choose A Case" },
+    code: "CASE",
   },
   {
     id: "psu",
     categories: ["psu"],
     label: { he: "ספק כוח", en: "Power Supply" },
     choose: { he: "בחירת ספק כוח", en: "Choose A Power Supply" },
+    code: "PSU",
   },
   {
     id: "extras",
@@ -66,6 +76,7 @@ export const BUILD_SLOTS: BuildSlot[] = [
     ],
     label: { he: "תוספות", en: "Accessories" },
     choose: { he: "בחירת תוספת", en: "Choose Accessories" },
+    code: "EXT",
   },
 ];
 

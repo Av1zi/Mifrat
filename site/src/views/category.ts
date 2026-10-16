@@ -38,7 +38,7 @@ import {
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
-import { displayName, errorPanel, esc, safeImageUrl, skuOf } from "../utils";
+import { bindImgFallbacks, displayName, errorPanel, esc, safeImageUrl, skuOf } from "../utils";
 import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
@@ -63,6 +63,12 @@ function specCellText(product: Product, field: string, lang: Lang): string {
 // table column — keeps one-off trivia rows from producing near-empty
 // columns.
 const MIN_COLUMN_COVERAGE = 0.05;
+
+// Re-fits the product-list columns when the list width changes (window
+// resize, filter-rail collapse). Module-level so a route re-entry
+// disconnects the previous view's observer (same pattern as
+// product.ts historyResizeObserver).
+let listResizeObserver: ResizeObserver | null = null;
 
 function computeFilterableAttributes(
   products: Product[],
@@ -162,7 +168,9 @@ function computeNumericRanges(
       numericRanges.set(field, range);
     }
 
-    if (p.min_price !== null) {
+    // Zero/absent scraped prices are "unknown", not free: keep them out
+    // of the slider range (category cards showed "₪ 0" minimums).
+    if (p.min_price !== null && p.min_price > 0) {
       const range = numericRanges.get("price") ?? { min: Infinity, max: -Infinity };
       range.min = Math.min(range.min, p.min_price);
       range.max = Math.max(range.max, p.min_price);
@@ -219,7 +227,9 @@ function applyFilters(
 }
 
 function getNumericValue(p: Product, field: string): number | null {
-  if (field === "price") return p.min_price;
+  if (field === "price") {
+    return p.min_price !== null && p.min_price > 0 ? p.min_price : null;
+  }
   const value = specValue(p, field);
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
@@ -227,28 +237,33 @@ function getNumericValue(p: Product, field: string): number | null {
 function sortProducts(products: Product[], sort: SortKey): Product[] {
   const arr = [...products];
 
+  // Zero/absent scraped prices are "unknown", not free: they sort last
+  // ascending and last descending (treated as missing on both ends).
+  const asc = (p: Product): number =>
+    p.min_price !== null && p.min_price > 0 ? p.min_price : Infinity;
+
   switch (sort) {
     case "price_asc":
-      arr.sort((a, b) => (a.min_price ?? Infinity) - (b.min_price ?? Infinity));
+      arr.sort((a, b) => asc(a) - asc(b));
       break;
 
     case "price_desc":
-      arr.sort(
-        (a, b) => (b.min_price ?? -Infinity) - (a.min_price ?? -Infinity)
-      );
+      arr.sort((a, b) => asc(b) - asc(a));
       break;
 
     case "vendors_desc":
       arr.sort(
-        (a, b) =>
-          b.vendor_count - a.vendor_count ||
-          (a.min_price ?? Infinity) - (b.min_price ?? Infinity)
+        (a, b) => b.vendor_count - a.vendor_count || asc(a) - asc(b)
       );
       break;
 
     case "name":
       // Explicit locale: stable across browsers (spec §7 variant rule).
       arr.sort((a, b) => a.name.localeCompare(b.name, "en", { numeric: true }));
+      break;
+
+    case "name_desc":
+      arr.sort((a, b) => b.name.localeCompare(a.name, "en", { numeric: true }));
       break;
   }
 
@@ -446,15 +461,33 @@ export async function renderCategory(
       .map((field) => field.name);
   })();
 
-  const specColDefs = specColumns
-    .map(() => "minmax(110px, 1fr)")
-    .join(" ");
+  // Column mins must fit the container or the trailing action button
+  // overflows out of view (RTL scroll start = left edge). Spec columns
+  // are dropped at narrow widths until the row fits; renderGrid() owns
+  // this computation so resize can re-run it.
+  const COL_THUMB = 72;
+  const COL_NAME = 170;
+  const COL_STOCK = 94;
+  const COL_PRICE = 92;
+  const COL_ACTION = 104;
+  const COL_SPEC = 92;
+  const COL_FIXED = COL_THUMB + COL_NAME + COL_STOCK + COL_PRICE + COL_ACTION;
 
-  // 72px square thumb column at start.
-  const plCols = `72px minmax(220px, 2.2fr) ${specColDefs} minmax(108px, 1fr) minmax(110px, 1fr) minmax(112px, auto)`.replace(
-    /\s{2,}/g,
-    " "
-  );
+  function fitSpecColumns(width: number): string[] {
+    if (!width) return specColumns;
+    const fits = Math.floor((width - COL_FIXED) / COL_SPEC);
+    return specColumns.slice(0, Math.max(0, Math.min(specColumns.length, fits)));
+  }
+
+  function plColsFor(cols: string[]): string {
+    const specCols = cols.map(() => `minmax(${COL_SPEC}px, 1fr)`).join(" ");
+    return `minmax(${COL_THUMB}px, ${COL_THUMB}px) minmax(${COL_NAME}px, 2.2fr) ${specCols} minmax(${COL_STOCK}px, 1fr) minmax(${COL_PRICE}px, 1fr) minmax(${COL_ACTION}px, auto)`.replace(
+      /\s{2,}/g,
+      " "
+    );
+  }
+
+  let activeSpecCols = specColumns;
 
   function addPartToBuild(product: Product): boolean {
     if (!pickSlot) return false;
@@ -530,6 +563,20 @@ export async function renderCategory(
 
     ${pickBannerHtml()}
 
+    <div class="filters-mobile-bar">
+      <button
+        type="button"
+        class="btn-small filters-toggle"
+        id="filters-toggle"
+        aria-controls="filter-rail"
+        aria-expanded="false"
+      >
+        ${icon("sliders", 14)} <span>${esc(t(lang, "filtersHeading"))}</span>
+        <span class="filters-count" id="filters-count" hidden></span>
+      </button>
+    </div>
+    <div class="filter-backdrop" id="filter-backdrop" hidden></div>
+
     <div class="category-layout">
       <aside class="filter-rail" id="filter-rail" aria-label="${esc(t(lang, "filtersHeading"))}"></aside>
 
@@ -557,6 +604,7 @@ export async function renderCategory(
             <option value="price_desc">${t(lang, "sortPriceDesc")}</option>
             <option value="vendors_desc">${t(lang, "sortVendorsDesc")}</option>
             <option value="name">${t(lang, "sortName")}</option>
+            <option value="name_desc">${t(lang, "sortNameDesc")}</option>
           </select>
         </div>
 
@@ -710,38 +758,47 @@ export async function renderCategory(
     return s.slice(0, 2).toUpperCase() || "•";
   }
 
-  function headerHtml(): string {
-    const specHeaders = specColumns
+  function headerHtml(cols: string[]): string {
+    const specHeaders = cols
       .map(
         (key) =>
           `<div class="pl-cell">${esc(attributeLabel(key, lang))}</div>`
       )
       .join("");
 
-    // Price header is sortable — keyboard-operable, toggles low→high / high→low.
+    // Price + name headers are sortable — keyboard-operable, toggles direction.
     const priceSort = params.sort === "price_asc" ? "price_desc" : "price_asc";
     const priceArrow = params.sort === "price_asc" ? "↑" : params.sort === "price_desc" ? "↓" : "↕";
-    const ariaSort =
+    const priceAriaSort =
       params.sort === "price_asc"
         ? "ascending"
         : params.sort === "price_desc"
           ? "descending"
           : "none";
 
+    const nameSort = params.sort === "name" ? "name_desc" : "name";
+    const nameArrow = params.sort === "name" ? "↑" : params.sort === "name_desc" ? "↓" : "↕";
+    const nameAriaSort =
+      params.sort === "name"
+        ? "ascending"
+        : params.sort === "name_desc"
+          ? "descending"
+          : "none";
+
     return `
       <div class="pl-header">
         <div class="pl-cell" aria-hidden="true"></div>
-        <div class="pl-cell">${t(lang, "sortName")}</div>
+        <div class="pl-cell pl-sortable" role="button" tabindex="0" data-sort="${esc(nameSort)}" aria-sort="${nameAriaSort}" title="${esc(t(lang, "sortLabel"))}">${t(lang, "sortName")} <span style="font-weight:800" aria-hidden="true">${nameArrow}</span></div>
         ${specHeaders}
         <div class="pl-cell">${t(lang, "availability")}</div>
-        <div class="pl-cell" role="button" tabindex="0" data-sort="${esc(priceSort)}" aria-sort="${ariaSort}" title="${esc(t(lang, "sortLabel"))}">${t(lang, "priceHeading")} <span style="font-weight:800" aria-hidden="true">${priceArrow}</span></div>
+        <div class="pl-cell pl-sortable" role="button" tabindex="0" data-sort="${esc(priceSort)}" aria-sort="${priceAriaSort}" title="${esc(t(lang, "sortLabel"))}">${t(lang, "priceHeading")} <span style="font-weight:800" aria-hidden="true">${priceArrow}</span></div>
         <div class="pl-cell"></div>
       </div>
     `;
   }
 
-  function rowHtml(p: Product): string {
-    const specCells = specColumns
+  function rowHtml(p: Product, cols: string[]): string {
+    const specCells = cols
       .map((key) => {
         if (key === "vendor") {
           return `<div class="pl-cell">${esc(vendorsCount(lang, p.vendor_count))}</div>`;
@@ -759,13 +816,20 @@ export async function renderCategory(
       // cover (~35KB); image is the fallback until thumbs backfill.
       const img = safeImageUrl(p.thumb ?? p.image);
       return img
-        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" decoding="async" width="72" height="72" style="object-fit:contain; background:#fff;"></a>`
+        ? `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><img class="plThumb" src="${esc(img)}" alt="" loading="lazy" decoding="async" width="72" height="72" data-fb="${esc(thumbLabel(p))}" style="object-fit:contain; background:#fff;"></a>`
         : `<a class="pl-title-link" href="${href}" tabindex="-1" aria-hidden="true"><span class="plThumb" aria-hidden="true">${esc(thumbLabel(p))}</span></a>`;
     })();
 
     const actionCell = pickSlot
       ? `<button type="button" class="btn-small btn-add" data-pickadd="${esc(p.id)}">${t(lang, "addToBuild")}</button>`
       : `<button type="button" class="btn-small btn-quickadd" data-quickadd="${esc(p.id)}" aria-label="${esc(t(lang, "quickAdd"))}: ${esc(name)}">${icon("plus", 13)}<span>${esc(t(lang, "quickAdd"))}</span></button>`;
+
+    // Freshness: every offer stale ⇒ the whole product row is stale data.
+    const allStale =
+      p.offers.length > 0 && p.offers.every((o) => o.stale);
+    const staleTag = allStale
+      ? ` <span class="tag-stale">${esc(t(lang, "staleData"))}</span>`
+      : "";
 
     // No nested buttons: row is a div, title/thumb link explicitly,
     // quick-add is a separate sibling button. Whole-row click via JS.
@@ -774,7 +838,7 @@ export async function renderCategory(
           ${thumb}
         </div>
         <div class="pl-cell pl-name">
-          <a class="pl-title-link" href="${href}"><span class="pl-title">${esc(name)}</span></a>
+          <a class="pl-title-link" href="${href}"><span class="pl-title">${esc(name)}</span>${staleTag}</a>
           ${p.brand ? `<span class="pl-brand">${esc(p.brand)}</span>` : ""}
         </div>
 
@@ -786,7 +850,11 @@ export async function renderCategory(
         </div>
 
         <div class="pl-cell pl-price">
-          ${formatPrice(p.min_price, currency, lang)}
+          ${
+            p.min_price !== null && p.min_price > 0
+              ? formatPrice(p.min_price, currency, lang)
+              : `<span class="dim">&mdash;</span>`
+          }
         </div>
 
         <div class="pl-cell pl-action">
@@ -853,18 +921,31 @@ export async function renderCategory(
       filtered.length
     );
 
+    // Mobile filter button badge — active filter/range/stock count.
+    const filtersBadge = container.querySelector<HTMLElement>("#filters-count");
+    if (filtersBadge) {
+      const activeCount =
+        Object.values(params.filters).reduce((n, v) => n + v.length, 0) +
+        Object.keys(params.ranges).length +
+        (params.stockOnly ? 1 : 0);
+      filtersBadge.textContent = String(activeCount);
+      filtersBadge.hidden = activeCount === 0;
+    }
+
     const listEl = container.querySelector("#product-list") as HTMLElement;
-    listEl.style.setProperty("--pl-cols", plCols);
+    activeSpecCols = fitSpecColumns(listEl.clientWidth || listEl.parentElement?.clientWidth || 0);
+    listEl.style.setProperty("--pl-cols", plColsFor(activeSpecCols));
 
     const visible = filtered.slice(0, visibleCount);
 
     if (visible.length === 0) {
       listEl.innerHTML = `<div class="empty-state">${t(lang, "noResults")}</div>`;
     } else {
-      listEl.innerHTML = headerHtml() + visible.map(rowHtml).join("");
+      listEl.innerHTML = headerHtml(activeSpecCols) + visible.map((p) => rowHtml(p, activeSpecCols)).join("");
+      bindImgFallbacks(listEl, "plThumb");
 
-      const sortEl = listEl.querySelector<HTMLElement>("[data-sort]");
-      if (sortEl) {
+      const sortEls = listEl.querySelectorAll<HTMLElement>("[data-sort]");
+      for (const sortEl of sortEls) {
         const activateSort = (): void => {
           const next = sortEl.dataset.sort as SortKey;
           params.sort = next;
@@ -1211,6 +1292,11 @@ export async function renderCategory(
       : checkboxGroups;
 
     rail.innerHTML = `
+      <div class="sheet-head">
+        <span class="sheet-title">${esc(t(lang, "filtersHeading"))}</span>
+        <button type="button" class="sheet-close" id="filters-close" aria-label="${esc(t(lang, "close"))}">${icon("close", 18)}</button>
+      </div>
+
       ${miniCard}
 
       <div class="railSection">
@@ -1240,6 +1326,8 @@ export async function renderCategory(
           ${t(lang, "clearFilters")}
         </button>
       </div>
+
+      <button type="button" class="btn-primary sheet-apply" id="filters-apply">${esc(t(lang, "filtersShowResults"))}</button>
     `;
 
     rail
@@ -1463,6 +1551,59 @@ export async function renderCategory(
   renderFilterRail();
   renderGrid();
 
+  // ---- Mobile filter sheet (<=900px): full-screen off-canvas rail ----
+  const railEl = container.querySelector("#filter-rail") as HTMLElement;
+  const filtersToggle = container.querySelector("#filters-toggle") as HTMLButtonElement | null;
+  const filtersBackdrop = container.querySelector("#filter-backdrop") as HTMLElement | null;
+
+  const setFiltersOpen = (open: boolean): void => {
+    railEl.classList.toggle("is-open", open);
+    if (filtersBackdrop) filtersBackdrop.hidden = !open;
+    filtersToggle?.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("sheet-open", open);
+    if (open) railEl.querySelector<HTMLElement>("#filters-close")?.focus();
+    else filtersToggle?.focus();
+  };
+
+  filtersToggle?.addEventListener("click", () => {
+    setFiltersOpen(!railEl.classList.contains("is-open"));
+  });
+  filtersBackdrop?.addEventListener("click", () => setFiltersOpen(false));
+  // Close/apply buttons live inside rail.innerHTML, which renderFilterRail
+  // replaces — delegate from the persistent aside element.
+  railEl.addEventListener("click", (e) => {
+    const btn = (e.target as HTMLElement).closest("button");
+    if (btn?.id === "filters-close" || btn?.id === "filters-apply") {
+      setFiltersOpen(false);
+    }
+  });
+  const filtersKeydown = (e: KeyboardEvent): void => {
+    if (e.key === "Escape" && railEl.classList.contains("is-open")) {
+      setFiltersOpen(false);
+    }
+  };
+  document.addEventListener("keydown", filtersKeydown);
+
+  // Re-fit spec columns on width changes: only re-renders when the
+  // number of columns that fit actually changed (guards observer loops).
+  listResizeObserver?.disconnect();
+  const listHost = container.querySelector("#product-list");
+  if (typeof ResizeObserver !== "undefined" && listHost) {
+    let fitPending = false;
+    listResizeObserver = new ResizeObserver(() => {
+      if (fitPending) return;
+      fitPending = true;
+      requestAnimationFrame(() => {
+        fitPending = false;
+        const el = container.querySelector("#product-list") as HTMLElement | null;
+        if (!el || !el.isConnected) return;
+        const next = fitSpecColumns(el.clientWidth || 0);
+        if (next.length !== activeSpecCols.length) renderGrid();
+      });
+    });
+    listResizeObserver.observe(listHost);
+  }
+
   const searchInput = container.querySelector(
     "#search-input"
   ) as HTMLInputElement;
@@ -1481,10 +1622,17 @@ export async function renderCategory(
     }, 220);
   });
 
-  // Disconnect the infinite observer when leaving the route.
-  window.addEventListener("hashchange", () => gridObserver?.disconnect(), {
-    once: true,
-  });
+  // Disconnect the observers when leaving the route.
+  window.addEventListener(
+    "hashchange",
+    () => {
+      gridObserver?.disconnect();
+      listResizeObserver?.disconnect();
+      document.removeEventListener("keydown", filtersKeydown);
+      document.body.classList.remove("sheet-open");
+    },
+    { once: true }
+  );
 
   const sortSelect = container.querySelector(
     "#sort-select"

@@ -31,7 +31,8 @@ export type IconName =
   | "tower"
   | "fan"
   | "accessories"
-  | "file-text";
+  | "file-text"
+  | "sliders";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -86,6 +87,8 @@ const PATHS: Record<IconName, string> = {
     '<circle cx="12" cy="12" r="2.5" /><path d="M12 9c-1-4 2-6 4-5s1 4-2 6M15 12c4-1 6 2 5 4s-4 1-6-2M12 15c1 4-2 6-4 5s-1-4 2-6M9 12c-4 1-6-2-5-4s4-1 6 2" />',
   "file-text":
     '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h6" />',
+  sliders:
+    '<path d="M21 4H14M10 4H3M21 12H12M8 12H3M21 20H16M12 20H3M14 2v4M8 10v4M16 18v4" />',
 };
 
 /**

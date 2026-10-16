@@ -32,9 +32,16 @@ export async function renderCategories(
     .map((id) => byId.get(id)!)
     .filter((cat) => cat.count > 0)
     .map((cat) => {
-      const range = cat.min_price !== null && cat.max_price !== null
-        ? `${formatPrice(cat.min_price, currency, lang)} - ${formatPrice(cat.max_price, currency, lang)}`
-        : "";
+      // Zero minimums in the scraped meta mean "unknown", not free:
+      // degrade to an "up to X" hint instead of a misleading ₪0 floor.
+      const hasMin = cat.min_price !== null && cat.min_price > 0;
+      const hasMax = cat.max_price !== null && cat.max_price > 0;
+      const range =
+        hasMin && hasMax
+          ? `${formatPrice(cat.min_price as number, currency, lang)} – ${formatPrice(cat.max_price as number, currency, lang)}`
+          : hasMax
+            ? `${t(lang, "upTo")} ${formatPrice(cat.max_price as number, currency, lang)}`
+            : "";
       // Fixed-size square photo box fills in async; the icon fallback
       // holds the exact same box so there is no layout shift.
       return `<a class="category-card categories-page-card" href="${categoryHash(cat.id)}">

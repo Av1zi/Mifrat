@@ -28,7 +28,7 @@ import {
   type BuildMap,
 } from "../state";
 import type { Currency, Lang, Offer, Product } from "../types";
-import { displayName, esc, safeImageUrl, safeUrl } from "../utils";
+import { bindImgFallbacks, displayName, esc, safeImageUrl, safeUrl } from "../utils";
 
 export async function renderBuilder(
   container: HTMLElement,
@@ -177,7 +177,10 @@ export async function renderBuilder(
   }
 
   function effectivePrice(product: Product): number | null {
-    return bestOffer(product)?.price ?? product.min_price;
+    // Zero/absent scraped prices mean "no price", not a free part: they
+    // must not render as ₪0, get a Buy button, or win the best-offer sort.
+    const price = bestOffer(product)?.price ?? product.min_price;
+    return price !== null && price !== undefined && price > 0 ? price : null;
   }
 
   function chooseUrl(slot: BuildSlot): string {
@@ -188,15 +191,14 @@ export async function renderBuilder(
 
   function thumbHtml(slot: BuildSlot, product?: Product): string {
     if (!product) {
-      const initials = slot.id.slice(0, 3).toUpperCase();
-      return `<div class="thumb" aria-hidden="true"><span>${esc(initials)}</span></div>`;
+      return `<div class="thumb" aria-hidden="true"><span>${esc(slot.code)}</span></div>`;
     }
     const href = productHash(product.category, product.id);
     const img = safeImageUrl(product.image);
-    if (img) {
-      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy" width="64" height="64" style="object-fit:contain;background:#fff;"></a>`;
-    }
     const label = (product.brand ?? product.name).slice(0, 2).toUpperCase() || "-";
+    if (img) {
+      return `<a class="thumb has-part" href="${href}" tabindex="-1"><img src="${esc(img)}" alt="" loading="lazy" width="64" height="64" data-fb="${esc(label)}" style="object-fit:contain;background:#fff;"></a>`;
+    }
     return `<a class="thumb has-part" href="${href}" tabindex="-1"><span>${esc(label)}</span></a>`;
   }
 
@@ -234,7 +236,7 @@ export async function renderBuilder(
         </div>
         <div class="bhCell bsPrice" data-label="${esc(t(lang, "priceHeading"))}">${priceHtml}</div>
         <div class="bhCell bsWhere" data-label="${esc(t(lang, "merchantHeading"))}">${offer ? esc(vendorLabel(offer.vendor)) : `<span class="dim">-</span>`}</div>
-        <div class="bhCell">${buyUrl ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>` : `<span class="dim">-</span>`}</div>
+        <div class="bhCell">${buyUrl && price !== null ? `<a class="offer-link" href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer">${t(lang, "buyLabel")}</a>` : `<span class="dim">-</span>`}</div>
         <div class="bhCell bsRemove">
           <button class="icon-btn" type="button" data-action="remove" data-slot="${esc(slot.id)}" data-id="${esc(product.id)}" aria-label="${esc(t(lang, "removePart"))}" title="${esc(t(lang, "removePart"))}">
             ${icon("trash", 15)}
@@ -442,6 +444,8 @@ export async function renderBuilder(
         ${esc(t(lang, "compatNoteBody"))}
       </div>
     `;
+
+    bindImgFallbacks(container, "");
 
     const copyButton =
       container.querySelector<HTMLButtonElement>("#builder-copy-link");

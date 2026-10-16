@@ -182,7 +182,12 @@ export interface SiteMeta {
 
 export type Lang = "he" | "en";
 export type Currency = "ILS" | "USD";
-export type SortKey = "price_asc" | "price_desc" | "vendors_desc" | "name";
+export type SortKey =
+  | "price_asc"
+  | "price_desc"
+  | "vendors_desc"
+  | "name"
+  | "name_desc";
 
 /** data/site/history/<category>.json (see scraper/build_price_history.py). */
 export type PriceHistoryFile = {

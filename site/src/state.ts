@@ -167,6 +167,7 @@ const VALID_SORTS: SortKey[] = [
   "price_desc",
   "vendors_desc",
   "name",
+  "name_desc",
 ];
 
 export function parseRoute(): Route {

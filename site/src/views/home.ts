@@ -1,13 +1,29 @@
-import { loadMeta } from "../api";
-import { t } from "../i18n";
-import { icon } from "../icons";
-import { buildHash, categoriesHash } from "../state";
+import { loadCategoryRepImage, loadMeta } from "../api";
+import { formatPrice } from "../format";
+import { CATEGORY_LABELS, t } from "../i18n";
+import { icon, type IconName } from "../icons";
+import { buildHash, categoriesHash, categoryHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
-import { errorPanel } from "../utils";
+import { esc, errorPanel, safeImageUrl } from "../utils";
+
+const PORTAL_ICONS: Record<string, IconName> = {
+  cpu: "chip",
+  motherboard: "board",
+  memory: "memory",
+  gpu: "graphics",
+  storage: "drive",
+  psu: "power",
+  case: "tower",
+  cooler_air: "fan",
+  aio: "fan",
+  case_fan: "fan",
+  cooling_other: "fan",
+  accessories: "copy",
+  other: "chip",
+};
 
 export async function renderHome(container: HTMLElement, lang: Lang, currency: Currency): Promise<void> {
-  void currency;
   const he = lang === "he";
   setPageTitle(lang, t(lang, "homePageTitle"));
 
@@ -27,6 +43,30 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
 
   const totalParts = meta.categories.reduce((n, c) => n + c.count, 0);
   const categoryCount = meta.categories.filter((c) => c.count > 0).length;
+  const catsWithParts = meta.categories.filter((c) => c.count > 0);
+
+  // Portal tiles: icon + label + count + price range, one per category.
+  const portalTiles = catsWithParts
+    .map((c) => {
+      const label = CATEGORY_LABELS[c.id]?.[lang] ?? c.id;
+      const price =
+        c.min_price !== null && c.min_price > 0
+          ? `${formatPrice(c.min_price, currency, lang)}${c.max_price !== null && c.max_price > c.min_price ? ` – ${formatPrice(c.max_price, currency, lang)}` : ""}`
+          : "";
+      return `
+        <a class="portal-tile" href="${categoryHash(c.id)}">
+          <span class="portal-photo" data-portal-photo="${esc(c.id)}" aria-hidden="true">
+            <img alt="" loading="lazy" width="160" height="96" hidden>
+            <span class="portal-fallback">${icon(PORTAL_ICONS[c.id] ?? "chip", 30)}</span>
+          </span>
+          <span class="portal-body">
+            <span class="portal-name">${esc(label)}</span>
+            <span class="portal-count">${c.count.toLocaleString(he ? "he-IL" : "en-US")} · ${t(lang, "homeStatsParts")}</span>
+            ${price ? `<span class="portal-price">${esc(price)}</span>` : ""}
+          </span>
+        </a>`;
+    })
+    .join("");
 
   container.innerHTML = `
     <section class="hero hero--landing">
@@ -42,6 +82,11 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
         <div><dt>${categoryCount}</dt><dd>${t(lang, "homeStatsCats")}</dd></div>
         <div><dt>${t(lang, "homeStatsDaily")}</dt><dd>${t(lang, "homeStatsRefresh")}</dd></div>
       </dl>
+    </section>
+
+    <section class="landing-section portal-section">
+      <h2 class="section-title section-title--center">${t(lang, "homeCatsTitle")}</h2>
+      <div class="portal-grid">${portalTiles}</div>
     </section>
 
     <section class="landing-section">
@@ -63,4 +108,19 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
       </div>
     </section>
   `;
+
+  // Lazy-fill portal tile photos (same pattern as the mega menu).
+  for (const el of container.querySelectorAll<HTMLElement>("[data-portal-photo]")) {
+    const id = el.dataset.portalPhoto!;
+    void loadCategoryRepImage(id).then((src) => {
+      const url = safeImageUrl(src);
+      if (!url) return;
+      const img = el.querySelector("img");
+      if (!img) return;
+      img.src = url;
+      img.hidden = false;
+      const fb = el.querySelector(".portal-fallback");
+      if (fb) fb.remove();
+    });
+  }
 }

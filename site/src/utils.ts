@@ -74,6 +74,13 @@ export function skuOf(p: Product): string {
 
 export function displayName(p: Product): string {
   const name = p.name.trim();
+  // Scraped rows sometimes carry no real title ("unknown"/empty); show
+  // the SKU (or brand) instead of the literal placeholder.
+  if (!name || /^(unknown|n\/?a|none)$/i.test(name)) {
+    const sku = skuOf(p).trim();
+    if (sku && !/^unknown$/i.test(sku)) return sku;
+    return p.brand?.trim() || sku || "—";
+  }
   const firstSpace = name.search(/\s/);
   if (firstSpace <= 0) return name;
   const firstToken = name.slice(0, firstSpace).toLowerCase();
@@ -84,4 +91,24 @@ export function displayName(p: Product): string {
     }
   }
   return name;
+}
+
+/**
+ * Replaces broken `<img data-fb="AB">` thumbnails with the same
+ * initials-fallback element the no-image path renders. Bind once per
+ * render: the error event fires async after innerHTML, and the
+ * complete/naturalWidth check catches already-failed cached loads.
+ */
+export function bindImgFallbacks(root: ParentNode, thumbClass: string): void {
+  root.querySelectorAll<HTMLImageElement>("img[data-fb]").forEach((img) => {
+    const swap = (): void => {
+      const span = document.createElement("span");
+      if (thumbClass) span.className = thumbClass;
+      span.setAttribute("aria-hidden", "true");
+      span.textContent = img.dataset.fb || "—";
+      img.replaceWith(span);
+    };
+    img.addEventListener("error", swap, { once: true });
+    if (img.complete && img.naturalWidth === 0) swap();
+  });
 }
