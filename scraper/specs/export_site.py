@@ -7,7 +7,8 @@ One definition, four consumers (plan §3): the same `schema.py` tables produce
    type/label/filterable/group metadata, consumed by
    - site/src/specs.ts (display order + filter allowlist),
    - site/src/i18n.ts (attribute labels),
-   - site/src/views/product.ts (the PDP spec sheet, "Unknown" for nulls),
+   - site/src/views/product.ts (the PDP spec sheet: filled rows inline, the
+     unknown ones collapsed under a counted summary),
    - site/src/types.ts (the ProductSpecs value type);
 2. the JSON schema (`python -c "from scraper.specs import schema; ..."`);
 3. the golden-test field lists;

@@ -268,6 +268,10 @@ def canon_packaging(value) -> str:
         return "tray"
     if "box" in key or "retail" in key:
         return "boxed"
+    # "Bulk - בשקית" (a bagged part) reached the enum check as-is and was
+    # dropped; the word is the fact.
+    if "bulk" in key or "בשקית" in key:
+        return "bulk"
     return str(value).strip()
 
 
@@ -452,7 +456,12 @@ def canon_chipset(value) -> str:
 
 
 def canon_wireless(value) -> str:
-    """Board wireless: 'yes'/'no' become 'Yes'/'None'; standards are kept."""
+    """Board wireless: 'yes'/'no' become 'Yes'/'No'; standards are kept.
+
+    "No" rather than "None" for the same reason as canon_lighting: "none" is
+    a values.coerce placeholder, so a canonical "None" was re-read as "no
+    data" and every board that reports no wireless shipped a null row.
+    """
     text = str(value).strip()
     low = text.lower()
     match = re.search(r"wi-?fi\s?([67])\s?(e)?", low)
@@ -461,7 +470,7 @@ def canon_wireless(value) -> str:
     if low in ("yes", "y", "true", "1", "wifi", "wi-fi", "wireless"):
         return "Yes"
     if low in ("no", "n", "false", "0", "none", "without"):
-        return "None"
+        return "No"
     return text
 
 
@@ -542,13 +551,20 @@ def canon_gpu_memory_type(value) -> str:
 
 
 def canon_lighting(value) -> str:
-    """Lighting is a string facet; 'yes'/'no' become 'ARGB'/'None' only when
-    the vendor gave no standard, so the filter never shows 'yes' next to 'RGB'."""
+    """Lighting is a string facet; 'yes'/'no' become 'ARGB'/'No' only when the
+    vendor gave no standard, so the filter never shows 'yes' next to 'RGB'.
+
+    The negative form is "No", NOT "None": values.coerce drops anything the
+    placeholder table lists (and "none" is one of them) right after
+    canonicalization, so a canonical "None" was silently re-read as "no data"
+    — 101 fan products lost their recorded "ללא תאורה" to that collision, and
+    every lighting field in the catalog was missing its negative rows.
+    """
     low = str(value).strip().lower()
     if low in ("yes", "y", "true", "1", "argb", "addressable rgb"):
         return "ARGB"
     if low in ("no", "n", "false", "0", "none", "without", "non-rgb"):
-        return "None"
+        return "No"
     return str(value).strip()
 
 
@@ -568,6 +584,65 @@ def canon_speed_string(generation: int | str | None, mhz: int | float | None) ->
     return f"DDR{digit}-{int(mhz)}"
 
 
+# "דור 14" / "Generation 4" / "Series 2" / "Gen 3" -> "Gen N".
+#
+# Three vendors spell the same fact three ways — Hebrew בניין (TMS), Intel's
+# own "Series N" wording for Core Ultra (TMS), and a bare "Gen" — so the
+# column holds one shape. The generation word is REQUIRED: a cell that is just
+# a number ("4") is not proof of a generation, and passing it through would
+# put an unknown 4 in the column.
+_GENERATION_RE = re.compile(r"(?:\u05d3\u05d5\u05e8|generation|gen|series)\s*(\d{1,2})\b",
+                            re.I)
+
+# "650W - 1100W" -> "650-1100W" (one shape for the series range column).
+_WATTAGE_RANGE_RE = re.compile(
+    r"(\d{2,4})\s*w\s*(?:-|\u2013|\u2014|to)\s*(\d{2,4})\s*w", re.I)
+
+# "32.7 \u05d2\u05e8\u05dd" / "98 grams" / "\u05db-2.49 \u05e7\"\u05d2" / "7kg"
+_WEIGHT_RE = re.compile(
+    r"(\d+(?:[.,]\d+)?)\s*([\u05e7k][\u05d2g]?[\"'\u05f4\u05f3]?[\u05d2g]?|"
+    r"grams?|kilograms?|gr)?", re.I)
+
+
+def canon_generation(value) -> str:
+    """Fold every vendor spelling of a lineup generation into "Gen N"."""
+    text = str(value or "").strip()
+    match = _GENERATION_RE.search(text)
+    if match:
+        return f"Gen {int(match.group(1))}"
+    return text
+
+
+def canon_wattage_range(value) -> str:
+    """The series' wattage span as one comparable string (never a rating)."""
+    text = str(value or "").strip()
+    match = _WATTAGE_RANGE_RE.search(text)
+    if match:
+        low, high = sorted((int(match.group(1)), int(match.group(2))))
+        return f"{low}-{high}W"
+    return text
+
+
+def canon_weight_g(value):
+    """A mass cell as grams (int-safe float).
+
+    The unit decides the scale: \u05e7"\u05d2 / kg / kilograms multiply by 1000, \u05d2\u05e8\u05dd /
+    gram(s) / g are grams, and a bare number is grams (the drive pages that
+    print one print the small-unit figure). "\u05db-" ("approximately") is prose and
+    ignored; a cell with no digit is returned unchanged so the int coercion
+    drops it instead of inventing a weight.
+    """
+    text = str(value or "").strip()
+    match = _WEIGHT_RE.search(text)
+    if not match:
+        return value
+    number = float(match.group(1).replace(",", "."))
+    unit = (match.group(2) or "").lower()
+    if "k" in unit or "\u05e7" in unit:
+        number *= 1000
+    return number
+
+
 # Generic field-name rules (applied for every category unless overridden).
 _GENERIC_RULES = {
     "manufacturer": canon_brand,
@@ -579,6 +654,9 @@ _GENERIC_RULES = {
     "packaging": canon_packaging,
     "wireless": canon_wireless,
     "lighting": canon_lighting,
+    # case_fan spells the same fact `led` (Ivory's "תאורה" row): one canon,
+    # so a fan's LED reads "ARGB"/"None" like every other lighting field.
+    "led": canon_lighting,
 }
 
 # Category-specific overrides: (category, field name) -> rule.
@@ -594,9 +672,13 @@ _CATEGORY_RULES = {
     ("storage", "type"): canon_storage_type,
     ("storage", "interface"): canon_storage_interface,
     ("storage", "memory_type"): canon_memory_type,
+    ("cpu", "generation"): canon_generation,
+    ("storage", "weight_g"): canon_weight_g,
+    ("psu", "series_wattage_range"): canon_wattage_range,
     ("accessories", "lighting"): canon_lighting,
     ("case", "drive_bays_35"): canon_bay_count,
     ("case", "drive_bays_25"): canon_bay_count,
+    ("case", "drive_bays_525"): canon_bay_count,
 }
 
 

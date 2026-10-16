@@ -1,7 +1,13 @@
 import { loadCategory, loadHistory } from "../api";
 import { slotForCategory } from "../build";
 import { formatPrice } from "../format";
-import { attributeLabel, categoryLabel, t, vendorLabel } from "../i18n";
+import {
+  attributeLabel,
+  categoryLabel,
+  t,
+  unknownFieldsCount,
+  vendorLabel,
+} from "../i18n";
 import {
   displaySpecFields,
   formatSpecValue,
@@ -216,20 +222,32 @@ export async function renderProduct(
   const sku = skuOf(product);
   const name = displayName(product);
 
-  // Typed spec sheet (scraper/specs/): render the schema's own field order.
-  // Every schema field is present by construction; `null` (nothing any source
-  // could supply) renders as a muted "Unknown". Reference-dataset values are
-  // merged upstream at Tier 0, so there is no separate reference sidebox.
-  const specRows = displaySpecFields(product.category)
-    .map((field) => {
-      const text = formatSpecValue(specValue(product, field.name), lang);
-      return `<div class="spec-row"><span class="spec-key">${esc(
-        attributeLabel(field.name, lang)
-      )}</span><span class="${text ? "spec-val" : "spec-val is-unknown"}">${esc(
-        text || t(lang, "unknownValue")
-      )}</span></div>`;
-    })
-    .join("");
+  // Typed spec sheet (scraper/specs/): the schema's own field order, split
+  // into what any source supplied and what none did (Oct 2026 completeness
+  // pass). Reference-dataset values are merged upstream at Tier 0, so there
+  // is no separate reference sidebox.
+  //
+  // Known rows render inline; unknown fields collapse into a <details> block
+  // whose summary states the count — the sheet reads complete without a wall
+  // of "Unknown", and nothing is hidden silently (the rows are one click
+  // away, still labelled from the schema).
+  const knownRows: string[] = [];
+  const unknownRows: string[] = [];
+  for (const field of displaySpecFields(product.category)) {
+    const text = formatSpecValue(specValue(product, field.name), lang);
+    const row = `<div class="spec-row"><span class="spec-key">${esc(
+      attributeLabel(field.name, lang)
+    )}</span><span class="${text ? "spec-val" : "spec-val is-unknown"}">${esc(
+      text || t(lang, "unknownValue")
+    )}</span></div>`;
+    (text ? knownRows : unknownRows).push(row);
+  }
+  const unknownBlock = unknownRows.length
+    ? `<details class="spec-unknowns"><summary>${esc(
+        unknownFieldsCount(lang, unknownRows.length)
+      )}</summary>${unknownRows.join("")}</details>`
+    : "";
+  const specRows = knownRows.join("") + unknownBlock;
 
   const variantHtml = variantGroups
     .map(

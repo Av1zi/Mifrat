@@ -682,6 +682,16 @@ export function vendorsCount(lang: Lang, n: number): string {
   return n === 1 ? "1 vendor" : `${n} vendors`;
 }
 
+/**
+ * Summary line of the PDP's collapsed "no source published this" block (see
+ * views/product.ts). Counted, not hidden: the sheet shows every field any
+ * source supplied, and says how many the catalog could not fill.
+ */
+export function unknownFieldsCount(lang: Lang, n: number): string {
+  if (lang === "he") return n === 1 ? "שדה אחד ללא נתון" : `${n} שדות ללא נתון`;
+  return n === 1 ? "1 field without a value" : `${n} fields without a value`;
+}
+
 export function lastUpdated(lang: Lang, isoDate: string): string {
   const d = new Date(isoDate);
   const formatted = d.toLocaleDateString(lang === "he" ? "he-IL" : "en-GB", {

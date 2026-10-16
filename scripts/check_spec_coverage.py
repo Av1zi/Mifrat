@@ -44,13 +44,40 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # gpu מהירות זכרון/DirectX/OpenGL/רוחב פס זכרון (deferred-schema backlog),
 # psu קבוצת הספק (wattage already comes from the title). Same rule as the
 # baseline: new measured total (4,797) + ~30% headroom.
-LABEL_GAP_BUDGET = 6200
+#
+# 2026-10-15: 6200 -> 2100. The completeness pass gave those backlog labels
+# their schema homes (GPU memory speed / bus width / API + display rows,
+# board storage interface + Bluetooth + Thunderbolt + x4 slots, cooler
+# dimensions and wiring, drive throughput, packaging) and gap rows fell
+# 4,655 -> 1,651. The old budget would have left ~4,500 rows of headroom,
+# i.e. it could no longer see a real rename. Same rule: measured total
+# (1,651) + ~30% headroom.
+#
+# 2026-10-16: 2100 -> 1600. Batch 3 gave columns to the last big deferred
+# labels (cpu generation, psu series wattage range, drive weight) and read
+# 1PC's grouped cells per category (Storage / Storage Type, Interface
+# Connectivity), so gap rows fell 1,651 -> 1,237. What remains is genuinely
+# unreadable or has no schema home: Hebrew CPU-support prose (106), Yahav's
+# ambiguous modularity badge (76 — it sits on semi-modular units too), spec
+# blocks leaked onto accessory pages (~100), flattened "מפרט" cells (26).
+# Same rule: measured total (1,237) + ~30% headroom.
+LABEL_GAP_BUDGET = 1600
 
-# Mean field-fill % per category on 2026-10-03, minus 2pp tolerance.
+# Mean field-fill % per category, minus 2pp tolerance.
+#
+# 2026-10-15: every floor recalibrated by the same completeness pass. This
+# metric is a RATE (filled values / schema fields), so adding real but sparse
+# fields moves it down while the catalog knows MORE: 21 new fields landed and
+# total filled facts went 43,905 -> 46,832 (+2,927), yet each category's rate
+# fell (storage 57.2 -> 46.7 with read/write/IOPS/packaging added, gpu
+# 56.3 -> 52.6 while gaining 1,056 real facts over 9 more fields). Floors are
+# the new baselines minus the same 2pp tolerance, so a genuine mapping break
+# still trips — every new parser is pinned by pair cases in
+# scripts/check_tms_detail.py.
 CATEGORY_FLOORS = {
-    "accessories": 31,
-    "aio": 51,
-    "case": 42,
+    "accessories": 43,
+    "aio": 43,
+    "case": 41,
     # 2026-10-14: 60 -> 55. Yahav onboarded: 201 of 471 case_fan products
     # are Yahav's, averaging 8.0 filled fields/product vs 9.0 for the rest
     # (its tables are ~5 rows), so mean fill went to 57.7% on composition
@@ -58,25 +85,32 @@ CATEGORY_FLOORS = {
     # 2026-10-14 (same day): 55 -> 54. The lone-RPM bugfix (a lone
     # "2200 RPM" filed as min==max) removed false rpm_min fills; the 55
     # floor had been set on the inflated count.
-    "case_fan": 54,
-    "cooler_air": 41,
-    "cooling_other": 28,
-    "cpu": 70,
-    "gpu": 52,
-    "memory": 59,
+    # 2026-10-15: 54 -> 53 on the recalibration above (case_fan 55.1%).
+    "case_fan": 53,
+    "cooler_air": 35,
+    "cooling_other": 23,
+    "cpu": 78,
+    "gpu": 50,
+    "memory": 57,
     # 2026-10-14: 51 -> 46. Same Yahav onboarding: 148 of 710 boards are
     # Yahav's at 10.1 filled fields/product vs 16.9 for the rest (its
     # boards carry ~5 Hebrew rows where 1PC/TMS carry full tables),
     # dragging mean fill to 48.5% on composition alone.
-    "motherboard": 46,
-    "psu": 46,
+    # 2026-10-15: 46 -> 43. Board fill is 45.3% now: storage_interface (62%)
+    # and Bluetooth/Thunderbolt/x4/lighting/packaging (5-21%) added six
+    # fields — 11,118 -> 11,947 real board facts.
+    "motherboard": 43,
+    "psu": 43,
     # 2026-10-13: 58 -> 55. 1PC returned to the catalog (Oct 2026
     # storefront rebuild) bringing 66 HDD listings whose vendor tables
     # are 5 thin rows (model/capacity/type/warranty, no form-factor or
     # interface evidence to map); storage went 60.5% (n=249) -> 57.1%
     # (n=316) on composition alone. Recalibrated per the rule above
     # (new baseline minus tolerance), not deleted.
-    "storage": 55,
+    # 2026-10-15: 55 -> 44. Same rule again, larger effect: 14 -> 19 fields
+    # (sequential read/write, random IOPS, packaging). Storage facts went
+    # 2,570 -> 2,844 while the rate fell to 46.7%.
+    "storage": 44,
 }
 
 # Core compat fields, same basis (2026-10-03: socket 99, chipset 96,

@@ -94,6 +94,20 @@ CONNECTOR_COUNT_PREFIX = "__connector_count__:"  # + PSU connector field name
 SLOT_COUNT_PREFIX = "__slot_count__:"      # __slot_count__:x16 / :x1 (summed)
 FAN_MOUNT_PREFIX = "__fan_mount_cell__:"   # + case fan field name
 
+# Oct 2026 completeness pass: cells the vocabulary now reaches.
+MEMORY_SPEED_GBPS = "__memory_speed_gbps__"   # "28Gbps" (bandwidth is GB/s)
+MEMORY_BUS_BIT = "__memory_bus_bit__"         # "128bit" / "256bits"
+RADIATOR_DIMS = "__radiator_dims__"           # "אורך: 403 מ\"מ רוחב: … עובי: 27"
+PUMP_DIMS = "__pump_dims__"                   # "אורך: 69 … גובה: 76" / "124x120x28"
+SPEED_MBS_PREFIX = "__speed_mbs__:"           # + read_speed_mbs / write_speed_mbs
+IOPS_PREFIX = "__random_iops__:"              # + random_read_iops / random_write_iops
+CONNECTORS_CELL = "__connectors_cell__"       # cooler "חיבורים" prose -> list
+PACKAGING_CELL = "__packaging_cell__"         # "Retail - קופסה" -> boxed
+DISPLAY_COUNT = "__display_count__"           # "עד 4 מסכים" -> max_displays 4
+GENERATION_CELL = "__generation__"            # "דור 14" / "Series 2" -> Gen N
+WEIGHT_G = "__weight_g__"                    # mass cell -> grams ("32.7 גרם")
+STORAGE_TYPE_CELL = "__storage_type_cell__"   # 1PC "Storage / Storage Type", per category
+
 SPECIAL_TOKENS = frozenset({
     CLOCK_RANGE, CACHE_TIER, MEMORY_KIT, RPM_RANGE, GPU_DIMENSIONS,
     GPU_OUTPUTS, RAID, CONNECTIVITY_SPLIT,
@@ -105,6 +119,9 @@ SPECIAL_TOKENS = frozenset({
     INTERNAL_HEADERS, QUANTITY_WORDS, FAN_CONNECTOR, NAND_CELL,
     STORAGE_FORM_FACTOR, INTERFACE_CONNECTIVITY, NETWORK_CARD,
     PSU_CONN_STRING, THERMAL_DESIGN, MEMORY_SPEEDS, EXPANSION_SLOTS,
+    MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS, PUMP_DIMS,
+    CONNECTORS_CELL, PACKAGING_CELL, DISPLAY_COUNT,
+    GENERATION_CELL, WEIGHT_G, STORAGE_TYPE_CELL,
 })
 
 # --------------------------------------------------------------------------
@@ -201,6 +218,9 @@ _COMMON_RAW: dict[str, str] = {
 # matter (lookup is exact); the tables are grouped by product page for review.
 _CATEGORY_RAW: dict[str, dict[str, str]] = {
     "cpu": {
+        # "אריזת Box ללא מאוורר למעבד" / "גרסת OEM Tray …" — the English word
+        # is the fact; the surrounding Hebrew is the vendor's description.
+        "אריזה": PACKAGING_CELL,
         "סדרת מעבד": "series",
         "סדרת המעבד": "series",
         "משפחת מעבדים": "series",
@@ -208,6 +228,13 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # vendor's own family names ("Threadripper", "Ryzen 9", "Ultra 9"),
         # never a model, so this is the same fact as the rows above.
         "סוג מעבד": "series",
+        # TMS/1PC print the lineup generation as its own row ("דור 14",
+        # "Series 2", 69 rows). Hebrew value: the token reads the RAW cell and
+        # canon_generation folds every spelling into "Gen N".
+        "דור המעבד": GENERATION_CELL,
+        # Oct 2026 completeness pass (Ivory, 113 rows): the chipsets this CPU
+        # drops into — the actual "does it fit my board" answer.
+        "תאימות ערכת שבבים": "chipset_support",
         "ארכיטקטורה": "microarchitecture",
         "משפחת ליבות": "core_family",
         "שם קוד": "core_family",
@@ -260,15 +287,18 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "l3 cache": "l3_cache_mb",
     },
     "gpu": {
+        "אריזה": PACKAGING_CELL,
         "סוג קירור": GPU_COOLING,
         "נפח זכרון": GPU_VRAM,
         # 1PC grouped rows: Size/Capacity carry "8GB"/"16GB" (VRAM size),
         # type/Storage-Type carry "GDDR7" (VRAM type) or "512-bit" (bus
-        # width, no schema field — GPU_VRAM drops what it cannot read).
+        # width). The bus width has a schema column since the Oct 2026
+        # completeness pass, so the label goes through the cell router, which
+        # keeps GPU_VRAM for the VRAM shapes and reads the bus for the third.
         "ram / ram size": GPU_VRAM,
         "ram / ram capacity": GPU_VRAM,
         "ram / ram type": GPU_VRAM,
-        "storage / storage type": GPU_VRAM,
+        "storage / storage type": STORAGE_TYPE_CELL,
         "מהירות ליבה מקסימלית": "boost_clock_mhz",
         "יציאות תצוגה בכרטיס המסך": GPU_OUTPUTS,
         "מידות כרטיס מסך כ-": GPU_DIMENSIONS,
@@ -300,6 +330,24 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "חיבורי תצוגה": GPU_OUTPUTS,
         # ...and names the chip "graphics core" ("GeForce RTX 5090").
         "ליבה גראפית": "chipset",
+        # Oct 2026 completeness pass. Two different facts sit under
+        # near-identical labels (מהירות זכרון = the GDDR data rate,
+        # רוחב פס זכרון = the bus width), so each gets its own cell parser:
+        # the sibling rows also carry "224GB/s" and ancient "3200" clocks,
+        # which a bare int mapping would have shipped as a data rate.
+        "מהירות זכרון": MEMORY_SPEED_GBPS,
+        "רוחב פס זכרון": MEMORY_BUS_BIT,
+        "רוחב פס": MEMORY_BUS_BIT,
+        "רוחב אפיק זכרון": MEMORY_BUS_BIT,
+        # Ivory prints "עד 4 מסכים" (up to four screens) and TMS a bare
+        # count; the cell reads the number in both.
+        "כמות מסכים מקסימלית": DISPLAY_COUNT,
+        "תמיכה מרבית במסכים": DISPLAY_COUNT,
+        "גרסת directx": "directx",
+        "גרסת opengl": "opengl",
+        "רזולוציה מקסימלית": "max_resolution",
+        "הספק מינימלי": "recommended_psu_w",
+        "יצרן ליבה גראפית": "chip_manufacturer",
         "מספר מאווררים": "fan_count",
         "קירור": "cooling",
         # WINDFORCE marketing rows land here, not under סוג קירור.
@@ -384,8 +432,24 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "יציאות תצוגה": "onboard_video",
         "אלחוטי": "wireless",
         "כרטיס רשת אלחוטי": "wireless",
+        # Oct 2026 completeness pass (455 + 148 + 55 rows).
+        "ממשק אחסון": "storage_interface",
+        # 1PC's English twin of the row above ("M.2, SATA III", 79 rows). The
+        # same English label prints a GPU's memory type ("GDDR6") on GPU
+        # pages, so it goes through the per-category cell router instead of a
+        # plain mapping.
+        "storage / storage type": STORAGE_TYPE_CELL,
+        # "Retail - קופסה" is one cell whose Hebrew gloss used to make
+        # clean_detail_value drop the whole row (see PACKAGING_CELL).
+        "אריזה": PACKAGING_CELL,
+        "קישוריות bluetooth": "bluetooth",
+        # The slot-count token carries the SLOT KIND (the emitter sums rows
+        # per kind and the closing block emits the field), not a field name.
+        "pci-e x4": SLOT_COUNT_PREFIX + "x4",
+        # 1PC's "network card" cell is a radio, not a LAN: NETWORK_CARD routes
+        # Wi-Fi to `wireless` and LAN to `ethernet`.
+        "כרטיס רשת": NETWORK_CARD,
         "חיבורי חשמל": "power_connections",
-        "גובה קירור מקסימלי": "max_cooler_height_mm",
         "תמיכת ecc": "ecc_support",
         "שלבי vrm": "vrm_phases",
         "bios": "bios",
@@ -424,6 +488,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "חיבורי תצוגה": REAR_OUTPUTS,
     },
     "memory": {
+        # "Retail - קופסה" (52 rows) reaches canon_packaging only through the
+        # cell parser — as a plain value it is dropped as Hebrew prose.
+        "אריזה": PACKAGING_CELL,
         "סוג זכרון": "memory_type",
         "גודל זכרון (ram)": "total_gb",
         "גודל זכרון": "total_gb",
@@ -485,10 +552,23 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סוג nand": "nand",
         "nand": "nand",
         "בקר": "controller",
+        # Drive mass ("32.7 גרם", "98 grams", "כ-2.49 ק\"ג", 43 rows):
+        # canon_weight_g reads the vendor's unit, grams or kilograms.
+        "משקל": WEIGHT_G,
+        "משקל המוצר": WEIGHT_G,
         "דור pcie": "pcie_gen",
         "pcie generation": "pcie_gen",
         "nvme": "nvme",
         "ממשק אחסון": "interface",
+        # Oct 2026 completeness pass: sequential throughput + random IOPS, the
+        # two rows every drive page prints (83 / 81 / 43 / 40 / 19 / 19 rows).
+        "מהירות קריאה": SPEED_MBS_PREFIX + "read_speed_mbs",
+        "מהירות קריאה מקסימלית": SPEED_MBS_PREFIX + "read_speed_mbs",
+        "מהירות כתיבה": SPEED_MBS_PREFIX + "write_speed_mbs",
+        "מהירות כתיבה מקסימלית": SPEED_MBS_PREFIX + "write_speed_mbs",
+        "מהירות קריאה אקראית": IOPS_PREFIX + "random_read_iops",
+        "מהירות כתיבה אקראית": IOPS_PREFIX + "random_write_iops",
+        "אריזה": PACKAGING_CELL,
         "storage memory": NAND_CELL,
         "זכרון מטמון": "cache_mb",
         "גודל פיזי": STORAGE_FORM_FACTOR,
@@ -519,12 +599,20 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # wattage. It used to map to wattage_w: because the series row comes
         # first in the vendor table, its low bound won the merge and 143
         # products shipped the family minimum (a 750W Antec displayed as 650W).
-        # The series range is a schema candidate, not a spec we can map, so it
-        # is left as coverage-gap evidence (see plan §6).
+        # Oct 2026 completeness pass: the schema now HAS a column for it, so
+        # the row is read there — never into `wattage_w` (194 rows).
+        "קבוצת הספק": "series_wattage_range",
         "אורך": "length_mm",
         "ללא מאוורר": "fanless",
         "תקן atx": "atx_version",
         "חיבורי pcie": "pcie_power_connectors",
+        "אריזה": PACKAGING_CELL,
+        # Oct 2026 completeness pass: Yahav's watt row is this unit's real
+        # rating (its case pages share the label but mean the included PSU,
+        # which is where the case table maps it).
+        "וואט / watt / אמפר": "wattage_w",
+        "דרגת נצילות": "efficiency",
+        "גודל מאוורר": FAN_SIZE,
         # Plonter PSU labels (English, hyphenated exactly as printed). The
         # certificate rows carry the 80 PLUS tier inside a parenthetical blob;
         # canon_efficiency extracts the tier.
@@ -599,6 +687,11 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "גובה קירור למעבד מקסימלי": LENGTH_MM_PREFIX + "max_cooler_height_mm",
         "מידות כ-": DIMS_CELL,
         "מקום לכוננים": DRIVE_BAYS,
+        # Oct 2026 completeness pass (case).
+        "bays 5.25": "drive_bays_525",
+        "rackmount": "rackmount",
+        "מאוורר צד": FAN_MOUNT_PREFIX + "fan_side",
+        "תמיכה בגודל רדיאטור ב mm": RADIATOR_SUPPORT,
         # 1PC grouped row ("2x 3.5\" + 1x 2.5\"") — same shape DRIVE_BAYS reads.
         "storage / storage capacity": DRIVE_BAYS,
         "חיבורים בקדמת המארז": FRONT_IO,
@@ -641,6 +734,10 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # YahavPC prints the cooler's fan as a bare "size" ("120MM").
         "גודל": "fan_size_mm",
         "גודל רדיאטור": "radiator_size_mm",
+        # Oct 2026 completeness pass: Ivory's cooler cells.
+        "חיבורים": CONNECTORS_CELL,
+        "מידות משאבה": PUMP_DIMS,
+        "מידות רדיאטור": RADIATOR_DIMS,
         "מספר מאווררים": "fan_count",
         "מאוורר מובנה (ממ)": FAN_SIZE,
         # Ivory prints Intel and AMD compatibility as two rows; the union is
@@ -653,6 +750,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "תאימות תושבות amd": SOCKETS_CELL,
         "סוקטים": SOCKETS_CELL,
         "הספק תרמי מירבי": "tdp_w",
+        # 1PC's grouped cooler cell ("4PIN PWM", "iCUE LINK", "USB") is the
+        # same wiring list the Hebrew "חיבורים" row feeds.
+        "spec / interface connectivity": INTERFACE_CONNECTIVITY,
         "המלצה מקסימלית לקירור (tdp)": "tdp_w",
         "סוג תאורה": "lighting",
         "סוג קירור": COOLING_MEDIUM,
@@ -682,6 +782,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "לחץ סטטי": "static_pressure_mmh2o",
         "pwm": "pwm",
         "מחבר": "connector",
+        # 1PC names the fan's link/lighting in its grouped cell ("iCUE LINK",
+        # "ARGB") — the router reads only those two facts.
+        "spec / interface connectivity": INTERFACE_CONNECTIVITY,
         "סוג תאורה": "led",
         "גודל כ-": FAN_SIZE,
         "מהירות סיבוב": FAN_RPM_CELL,
@@ -755,6 +858,11 @@ _UNIT_WORDS = frozenset({
 # spelling the rest of the pipeline already uses ("no" on a CPU's
 # integrated_graphics, "yes"/"no" on a boolean field).
 _HE_VALUE_WORDS = {
+    # "כולל" (included) is the Hebrew yes across the lighting / side-window /
+    # PSU-included rows (506 lighting values alone). Without it every one of
+    # those rows was dropped as Hebrew prose, because nothing else in the
+    # value survived to make it a spec.
+    "כולל": "yes",
     "ללא": "no",
     "אין": "no",
     "לא": "no",
@@ -915,7 +1023,8 @@ def _resolve_field(category: str, name: str) -> str | None:
 # Token prefixes carry a parameter after the colon (the field they fill), so
 # they are tested by prefix; plain tokens by membership.
 _TOKEN_PREFIXES = (USB_COUNT_PREFIX, CONNECTOR_COUNT_PREFIX, SLOT_COUNT_PREFIX,
-                   FAN_MOUNT_PREFIX, LENGTH_MM_PREFIX)
+                   FAN_MOUNT_PREFIX, LENGTH_MM_PREFIX, SPEED_MBS_PREFIX,
+                   IOPS_PREFIX)
 
 
 def _is_token(value: str) -> bool:

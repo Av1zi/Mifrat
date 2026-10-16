@@ -23,6 +23,11 @@ Three things live here:
    values are marked `derived:<rule>` and only ever fill nulls, so any real value from
    any tier always wins. It runs AFTER cross_check (build.py) so a rule can also
    answer for a field a consistency check just emptied.
+
+   A derivation may also READ another derivation: storage's `nvme`/`type` follow
+   from `interface`, and CPU's node/L2 follow from the microarchitecture the
+   model number just implied. Each `_infer_*` helper re-reads the dict between
+   steps for exactly that reason.
 """
 
 from __future__ import annotations
@@ -450,25 +455,57 @@ def _infer_storage(specs: dict, sources: dict) -> list[str]:
     """
     filled: list[str] = []
     interface = str(specs.get("interface") or "")
-
-    def fill(field: str, value, rule: str) -> None:
-        if value in (None, "") or specs.get(field) is not None:
-            return
-        specs[field] = value
-        sources[field] = f"derived:{rule}"
-        filled.append(field)
-
     if not interface:
         return filled
     if re.search(r"\bnvme\b", interface, re.I) or re.search(r"pcie", interface, re.I):
-        fill("nvme", True, "storage.interface_nvme")
-        fill("type", "SSD", "storage.interface_ssd")
+        filled += _fill(specs, sources, "nvme", True, "storage.interface_nvme")
+        filled += _fill(specs, sources, "type", "SSD", "storage.interface_ssd")
         if re.match(r"\s*m\.?2", interface, re.I):
-            fill("form_factor", "M.2", "storage.interface_form_factor")
+            filled += _fill(specs, sources, "form_factor", "M.2",
+                            "storage.interface_form_factor")
     generation = re.search(r"pcie\s?([345])(?:\.0)?\b", interface, re.I)
     if generation:
-        fill("pcie_gen", int(generation.group(1)), "storage.interface_pcie_generation")
+        filled += _fill(specs, sources, "pcie_gen", int(generation.group(1)),
+                        "storage.interface_pcie_generation")
     return filled
+
+
+# Chip-name prefixes that name their maker. This is chip-LINE knowledge, not
+# per-SKU knowledge: every "GeForce …" is NVIDIA silicon, whoever sells the
+# card (the board partner is already in `manufacturer`).
+_GPU_CHIP_MAKERS = (
+    (re.compile(r"^geforce\b|^rtx\b|^gtx\b|^quadro\b|^tesla\b", re.I), "NVIDIA"),
+    (re.compile(r"^radeon\b|^rx\b|^firepro\b|^firegl\b|^vega\b", re.I), "AMD"),
+    (re.compile(r"^arc\b|^iris\b", re.I), "Intel"),
+)
+
+
+def _infer_gpu(specs: dict, sources: dict) -> list[str]:
+    """The GPU field that follows from the chip name it already carries."""
+    filled: list[str] = []
+    filled.extend(_fill(specs, sources, "chip_manufacturer",
+                        _gpu_chip_maker(specs.get("chipset")),
+                        "gpu.chipset_maker"))
+    return filled
+
+
+def _gpu_chip_maker(chipset) -> str | None:
+    text = str(chipset or "").strip()
+    if not text:
+        return None
+    for pattern, maker in _GPU_CHIP_MAKERS:
+        if pattern.search(text):
+            return maker
+    return None
+
+
+def _fill(specs: dict, sources: dict, field: str, value, rule: str) -> list[str]:
+    """Fill one null from a derivation (used by the storage/GPU helpers)."""
+    if value in (None, "") or specs.get(field) is not None:
+        return []
+    specs[field] = value
+    sources[field] = f"derived:{rule}"
+    return [field]
 
 
 def infer_specs(category: str | None, specs: dict, sources: dict) -> list[str]:
@@ -483,6 +520,8 @@ def infer_specs(category: str | None, specs: dict, sources: dict) -> list[str]:
         return _infer_memory(specs, sources)
     if category == "storage":
         return _infer_storage(specs, sources)
+    if category == "gpu":
+        return _infer_gpu(specs, sources)
     return []
 
 

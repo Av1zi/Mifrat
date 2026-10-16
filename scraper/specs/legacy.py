@@ -131,7 +131,10 @@ def _legacy_shapes(category: str | None, specs: dict) -> dict:
     if standard:
         out["wifi_standard"] = standard
     if specs.get("wireless"):
-        out["wifi"] = _YES if specs["wireless"] != "None" else _NO
+        # canon_wireless spells the negative "No" (Oct 2026: it used to spell
+        # it "None", which values.coerce dropped as a placeholder — so the
+        # comparison never saw a negative and every board read as wireless).
+        out["wifi"] = _NO if str(specs["wireless"]).lower() in ("no", "none") else _YES
     if specs.get("type") and category == "case":
         out["case_type"] = specs["type"]
     return out

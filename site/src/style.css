@@ -1291,6 +1291,18 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
 .spec-key { color: var(--text-dim); font-weight: 600; flex: none; max-width: 45%; }
 .spec-val { font-family: var(--font-mono); text-align: end; overflow-wrap: anywhere; }
 
+/* Fields no source supplied collapse into this block instead of padding the
+   sheet with a wall of "Unknown" (Oct 2026 completeness pass). Nothing is
+   hidden silently: the summary states how many rows are inside. */
+.spec-unknowns { margin-top: 6px; border-top: 1px solid var(--border-light); }
+.spec-unknowns summary {
+  cursor: pointer; padding: 8px 0 4px; font-size: 0.78rem;
+  color: var(--text-dim); font-weight: 600;
+}
+.spec-unknowns summary:hover { color: var(--text); }
+.spec-unknowns .spec-row { padding: 5px 0 5px 10px; }
+.spec-val.is-unknown { color: var(--text-dim); font-family: inherit; font-style: italic; }
+
 .price-table-wrap { overflow-x: auto; }
 .price-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .price-table thead th {

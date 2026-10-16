@@ -1082,8 +1082,9 @@ def _emit_interface_connectivity(facts: dict, category: str, value, source: str)
     wireless / ethernet when the cell names them). Storage: 'PCIe Gen 4.0 x4'
     -> interface + pcie_gen. GPU: 'PCIe 4.0 x16, HDMI 2.1' -> interface +
     outputs. Case: 'USB 3.2, USB-C' -> front_usb (front-panel ports).
-    PSU / fans / memory / CPU cells ('Modular.', 'iCUE LINK', '262-pin')
-    name no schema field and stay unmapped on purpose.
+    Fans and coolers: 'iCUE LINK' / 'ARGB' -> connector + led, '4PIN PWM' ->
+    the cooler's connector list. PSU / memory / CPU cells ('Modular.',
+    '262-pin', 'PCIe 3.0') name no schema field and stay unmapped on purpose.
     """
     text = str(value or "").strip()
     if not text:
@@ -1115,6 +1116,23 @@ def _emit_interface_connectivity(facts: dict, category: str, value, source: str)
         gen = re.search(r"(?:PCIe|PCI-?E)\s*(?:Gen)?\s*([3-6])(?:\.0)?\b", text, re.I)
         if gen:
             _emit(facts, category, "pcie_gen", int(gen.group(1)), source, 0.7)
+        return
+    if category in ("aio", "cooler_air", "cooling_other"):
+        parts = [part.strip() for part in re.split(r"[,;]+", text) if part.strip()]
+        parts = [part for part in parts
+                 if re.search(r"pin|PWM|iCUE|USB|ARGB|SATA", part, re.I)]
+        if parts:
+            _emit(facts, category, "connectors", parts[:8], source, 0.7)
+        return
+    if category == "case_fan":
+        if re.search(r"ARGB", text, re.I):
+            _emit(facts, category, "led", "ARGB", source, 0.7)
+        elif re.search(r"\bRGB\b", text, re.I):
+            _emit(facts, category, "led", "RGB", source, 0.7)
+        link = re.search(r"iCUE LINK(?:\s+System\s+Hub)?|4\s*-?\s*pin\s*PWM|3\s*-?\s*pin",
+                         text, re.I)
+        if link:
+            _emit(facts, category, "connector", link.group(0), source, 0.7)
         return
     if category == "gpu":
         _emit_gpu_outputs(facts, category, text, source)
@@ -1170,9 +1188,294 @@ def _emit_connector_count(facts: dict, category: str, field: str, value, source:
         _emit(facts, category, field, 1, source, 0.7)
 
 
+# --------------------------------------------------------------------------
+# Oct 2026 completeness pass
+# --------------------------------------------------------------------------
+
+_GBPS_RE = re.compile(r"(\d+(?:[.,]\d+)?)\s*gbps", re.I)
+_BUS_BIT_RE = re.compile(r"(\d{2,4})\s*bits?\b", re.I)
+_THICKNESS_RE = re.compile(
+    r"(?:עובי|thickness)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(ס\"מ|סמ|cm|מ\"מ|ממ|mm)?",
+    re.I)
+_TRIPLE_MM_RE = re.compile(
+    r"(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)")
+_SPEED_RE = re.compile(r"(\d[\d,.]*)\s*(gb|mb)", re.I)
+_IOPS_RE = re.compile(r"(\d[\d,.]*)\s*([km])?\s*iops", re.I)
+
+
+def _plain_number(token) -> float | None:
+    """'10,000' -> 10000.0, '1.5' -> 1.5. The comma is a thousands mark in a
+    vendor table, never a decimal point (first_number would read "10,000" as
+    10.0 and ship a 10,000MB/s drive as 10MB/s)."""
+    try:
+        return float(str(token).replace(",", "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def _emit_memory_speed(facts: dict, category: str, value, source: str) -> None:
+    """'28Gbps' -> memory_speed_gbps.
+
+    Deliberately narrow: the sibling row prints bandwidth in GB/s
+    ("224GB/s") and legacy cards print a clock in MHz, neither of which is a
+    GDDR data rate — a value without the Gbps unit stays unmapped.
+    """
+    match = _GBPS_RE.search(str(value or ""))
+    if not match:
+        return
+    number = _plain_number(match.group(1))
+    if number is not None:
+        _emit(facts, category, "memory_speed_gbps", round(number), source, 0.8)
+
+
+def _emit_memory_bus(facts: dict, category: str, value, source: str) -> None:
+    """'128bit' / '256bits' -> memory_bus_bit."""
+    match = _BUS_BIT_RE.search(str(value or ""))
+    if match:
+        _emit(facts, category, "memory_bus_bit", int(match.group(1)), source, 0.8)
+
+
+def _emit_radiator_dims(facts: dict, category: str, value, source: str) -> None:
+    """Ivory's radiator block: 'אורך: 403 מ\"מ רוחב: 120 מ\"מ עובי: 27 מ\"מ'.
+
+    The size class (360) is already on the sheet; these are the real
+    dimensions that decide whether the radiator clears a tight case.
+    """
+    text = str(value or "")
+    dims = _dims_from_text(text)
+    if "D" in dims:
+        _emit(facts, category, "radiator_length_mm", dims["D"], source, 0.8)
+    match = _THICKNESS_RE.search(text)
+    if match:
+        mm = _number_to_mm(match.group(1), match.group(2))
+        if mm is not None:
+            _emit(facts, category, "radiator_thickness_mm", mm, source, 0.8)
+
+
+def _emit_pump_dims(facts: dict, category: str, value, source: str) -> None:
+    """'אורך: 69 מ\"מ רוחב: 92 מ\"מ גובה: 76 מ\"מ' -> '69 × 92 × 76 mm'.
+
+    Also reads the unlabeled triple form ('124x120x28 מ\"מ'). Two axes are
+    enough to be the block size; a single number is not a block and is
+    dropped.
+    """
+    text = str(value or "")
+    triple = _TRIPLE_MM_RE.search(text)
+    if triple:
+        numbers = [_plain_number(group) for group in triple.groups()]
+    else:
+        dims = _dims_from_text(text)
+        numbers = [dims.get(axis) for axis in ("D", "W", "H")]
+    sizes = [int(round(number)) for number in numbers if number]
+    if len(sizes) < 2:
+        return
+    _emit(facts, category, "pump_dimensions_mm",
+          " × ".join(str(size) for size in sizes) + " mm", source, 0.7)
+
+
+def _emit_speed_mbs(facts: dict, category: str, field: str, value, source: str) -> None:
+    """'7450MB/s' / '10,000MB לשניה' / '1.5GB/s' -> int MB/s in `field`."""
+    match = _SPEED_RE.search(str(value or ""))
+    if not match:
+        return
+    number = _plain_number(match.group(1))
+    if number is None:
+        return
+    if match.group(2).lower() == "gb":
+        number *= 1000
+    _emit(facts, category, field, round(number), source, 0.8)
+
+
+def _emit_random_iops(facts: dict, category: str, field: str, value, source: str) -> None:
+    """'220K IOPS' / '98,000 IOPS' / '(Q32) 1,850K IOPS' -> int IOPS."""
+    match = _IOPS_RE.search(str(value or ""))
+    if not match:
+        return
+    number = _plain_number(match.group(1))
+    if number is None:
+        return
+    unit = (match.group(2) or "").lower()
+    if unit == "k":
+        number *= 1000
+    elif unit == "m":
+        number *= 1_000_000
+    _emit(facts, category, field, round(number), source, 0.75)
+
+
+_DISPLAY_COUNT_RE = re.compile(r"(\d{1,2})")
+
+
+def _emit_display_count(facts: dict, category: str, value, source: str) -> None:
+    """'4' / 'עד 4 מסכים' -> max_displays 4. The number is the whole fact; the
+    Hebrew framing around it made the plain-value path drop the cell."""
+    match = _DISPLAY_COUNT_RE.search(str(value or ""))
+    if not match:
+        return
+    count = int(match.group(1))
+    if 1 <= count <= 8:
+        _emit(facts, category, "max_displays", count, source, 0.8)
+
+
+_PACKAGING_WORD_RE = re.compile(r"\b(retail|boxed|box|bulk|tray|oem|mpk)\b", re.I)
+
+
+def _emit_packaging_cell(facts: dict, category: str, value, source: str) -> None:
+    """'Retail - קופסה' / 'Bulk - בשקית' / 'גרסת OEM Tray ללא מאוורר' -> packaging.
+
+    The English word is the fact and the Hebrew half is the vendor's gloss;
+    as a plain value the whole cell was dropped by the Hebrew-prose rule
+    (that is why 126 packing rows on boards, drives, memory and PSUs were
+    empty while the CPU's own row was already mapped).
+    """
+    text = str(value or "")
+    # "OEM Tray" is a tray, not an OEM bulk part (canon_packaging's rule).
+    if re.search(r"\btray\b", text, re.I):
+        word = "tray"
+    else:
+        match = _PACKAGING_WORD_RE.search(text)
+        if not match:
+            return
+        word = match.group(1)
+    _emit(facts, category, "packaging", word, source, 0.8)
+
+
+_CONNECTORS_CELL = (
+    (re.compile(r"(\d)\s*pin\s*pwm", re.I), "{0}-pin PWM"),
+    (re.compile(r"(\d)\s*pin\s*argb", re.I), "{0}-pin ARGB"),
+    (re.compile(r"(\d)\s*pin\s*rgb", re.I), "{0}-pin RGB"),
+    (re.compile(r"(\d)\s*pin\s*usb", re.I), "{0}-pin USB"),
+    (re.compile(r"(\d)\s*pin\s*(?:pcie|pci-e)", re.I), "{0}-pin PCIe"),
+    (re.compile(r"(\d)\s*pin\s*sata", re.I), "{0}-pin SATA"),
+)
+_USB_TOKEN_RES = (
+    (re.compile(r"usb\s*2\.0", re.I), "USB 2.0"),
+    (re.compile(r"usb\s*3\.0", re.I), "USB 3.0"),
+    (re.compile(r"usb\s*3\.2", re.I), "USB 3.2"),
+    (re.compile(r"\bsata\b", re.I), "SATA"),
+)
+
+
+def _emit_connectors_cell(facts: dict, category: str, value, source: str) -> None:
+    """Ivory's cooler wiring cell -> the connector list, not the sentence.
+
+    '• חיבור 4pin PWM ללוח אם או בקר מאווררים • חיבור 3pin ARGB ללוח אם •
+    חיבור USB2.0 פנימי' -> ['4-pin PWM', '3-pin ARGB', 'USB 2.0']. The
+    plain-prose cell would have been dropped as Hebrew text; what a fitter
+    needs is the pins.
+    """
+    text = str(value or "")
+    out: list[str] = []
+    for pattern, template in _CONNECTORS_CELL:
+        for match in pattern.finditer(text):
+            item = template.format(match.group(1))
+            if item not in out:
+                out.append(item)
+    for pattern, label in _USB_TOKEN_RES:
+        if pattern.search(text) and label not in out:
+            out.append(label)
+    if out:
+        _emit(facts, category, "connectors", out, source, 0.7)
+
+
+def _emit_generation(facts: dict, category: str, value, source: str) -> None:
+    """'דור 14' / 'Series 2' -> `generation` ('Gen 14' / 'Gen 2').
+
+    The vendor's own word is what makes the cell a generation: a bare number
+    is left alone, so the column never holds an unexplained digit.
+    """
+    text = str(value or "").strip()
+    if not re.search(r"(?:\u05d3\u05d5\u05e8|generation|gen|series)\s*\d", text, re.I):
+        return
+    _emit(facts, category, "generation", text, source, 0.8)
+
+
+def _emit_weight_g(facts: dict, category: str, value, source: str) -> None:
+    """A drive's mass cell -> grams (canon_weight_g reads the vendor's unit).
+
+    Only cells carrying a digit are read; the float coercion drops whatever
+    canon could not turn into a number, so no weight is invented.
+    """
+    text = str(value or "").strip()
+    if not re.search(r"\d", text):
+        return
+    _emit(facts, category, "weight_g", text, source, 0.8)
+
+
+def _emit_storage_type_cell(facts: dict, category: str, value, source: str) -> None:
+    """1PC's "Storage / Storage Type" cell, read per category.
+
+    The same English label prints a different fact on each kind of page: a
+    board's drive interfaces ("M.2, SATA III"), a drive's type ("NVMe",
+    "SSD NVMe") and a GPU's memory ("GDDR6", "512-bit"). Each category keeps
+    only the fact its own schema has a column for.
+    """
+    text = str(value or "").strip()
+    if not text:
+        return
+    if category == "motherboard":
+        parts = [part.strip() for part in re.split(r"[,;|]+", text) if part.strip()]
+        parts = [part for part in parts
+                 if re.search(r"M\.2|SATA|PCI-?e|NVMe|U\.2|SlimSAS", part, re.I)]
+        if parts:
+            _emit(facts, category, "storage_interface", parts[:6], source, 0.7)
+        return
+    if category == "storage":
+        match = re.search(r"SSHD|Hybrid|HDD|SSD|NVMe", text, re.I)
+        if match:
+            _emit(facts, category, "type", match.group(0), source, 0.7)
+        return
+    if category == "gpu":
+        # The same cell has carried a VRAM string on some pages ("12GB
+        # GDDR7"); GPU_VRAM owns that shape and the type-only one ("GDDR7"),
+        # and deliberately ignores the bus-width shape — which is read here.
+        _emit_gpu_vram(facts, category, text, source)
+        match = re.search(r"(\d{2,4})\s*-?\s*bits?\b", text, re.I)
+        if match:
+            _emit(facts, category, "memory_bus_bit", int(match.group(1)), source, 0.8)
+        return
+
+
 def _apply_special(facts: dict, category: str, token: str, value, source: str,
                    state: dict) -> bool:
     """One vendor row that expands into several schema fields. True = handled."""
+    if token == labels.GENERATION_CELL:
+        _emit_generation(facts, category, value, source)
+        return True
+    if token == labels.WEIGHT_G:
+        _emit_weight_g(facts, category, value, source)
+        return True
+    if token == labels.STORAGE_TYPE_CELL:
+        _emit_storage_type_cell(facts, category, value, source)
+        return True
+    if token == labels.MEMORY_SPEED_GBPS:
+        _emit_memory_speed(facts, category, value, source)
+        return True
+    if token == labels.MEMORY_BUS_BIT:
+        _emit_memory_bus(facts, category, value, source)
+        return True
+    if token == labels.RADIATOR_DIMS:
+        _emit_radiator_dims(facts, category, value, source)
+        return True
+    if token == labels.PUMP_DIMS:
+        _emit_pump_dims(facts, category, value, source)
+        return True
+    if token == labels.CONNECTORS_CELL:
+        _emit_connectors_cell(facts, category, value, source)
+        return True
+    if token == labels.PACKAGING_CELL:
+        _emit_packaging_cell(facts, category, value, source)
+        return True
+    if token == labels.DISPLAY_COUNT:
+        _emit_display_count(facts, category, value, source)
+        return True
+    if token.startswith(labels.SPEED_MBS_PREFIX):
+        _emit_speed_mbs(facts, category, token[len(labels.SPEED_MBS_PREFIX):],
+                        value, source)
+        return True
+    if token.startswith(labels.IOPS_PREFIX):
+        _emit_random_iops(facts, category, token[len(labels.IOPS_PREFIX):],
+                          value, source)
+        return True
     if token == labels.CLOCK_RANGE:
         _emit_clock_range(facts, category, value, source)
         return True
@@ -1401,7 +1704,8 @@ def parse_detail_specs(category: str | None, detail_specs,
     # 1. Slot rows: TMS prints one row per x16 variant (plain, x4-wired,
     #    x8-wired); the field is the total number of x16 slots, so the rows
     #    are summed rather than raced.
-    for slot, field in (("x16", "pcie_x16_slots"), ("x1", "pcie_x1_slots")):
+    for slot, field in (("x16", "pcie_x16_slots"), ("x4", "pcie_x4_slots"),
+                        ("x1", "pcie_x1_slots")):
         total = state.get(f"slot_count_{slot}")
         if total:
             _emit(facts, cat, field, total, SOURCE_DETAIL, 0.75)

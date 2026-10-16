@@ -90,13 +90,20 @@ SPIDER_CASES = [
             "length_mm": 170,
             "dvi_outputs": {"DVI": 1},
             "interface": "PCIe 2.0 x16",
+            # Three of the four rows that used to be coverage gaps on this
+            # page now have a schema home (Oct 2026 completeness pass).
+            # "מהירות זכרון" is mapped but its value here (1200MHz) is a
+            # memory CLOCK, so the Gbps parser stays silent — pinned by the
+            # pair case below (see "gpu memory speed vs bus width").
+            "memory_bus_bit": 64,
+            "directx": "11",
+            "opengl": "4.4",
         },
         # Fields TMS prints that the schema deliberately has no home for yet —
         # they must show up as evidence, not as invented facts.
         # ("Recommended PSU" left this list when its connector half started
         # feeding external_power; the wattage half stays unread.)
-        "expect_gaps": ("מהירות זכרון", "רוחב פס זכרון", "גרסת DirectX",
-                        "גרסת OpenGL"),
+        "expect_gaps": (),
     },
 ]
 
@@ -338,12 +345,13 @@ PAIR_CASES = [
         # 'קבוצת הספק' is the series family range ("650W - 1100W"), not this
         # unit's wattage. It printed first in the vendor table and its low bound
         # used to win the merge, so 143 PSUs shipped the family minimum (a 750W
-        # Antec displayed as 650W). It must stay a gap, never a wattage fact.
-        "name": "psu series range must not override the rated wattage",
+        # Antec displayed as 650W). Since Oct 2026 it has its own column, so the
+        # invariant is now: it lands THERE and never on the rated wattage.
+        "name": "psu series range lands on its own column, never the rated wattage",
         "category": "psu",
         "rows": {"קבוצת הספק": "650W - 1100W", "הספק": "700W"},
-        "expect_specs": {"wattage_w": 700},
-        "expect_gap": "קבוצת הספק",
+        "expect_specs": {"wattage_w": 700, "series_wattage_range": "650-1100W"},
+        "expect_no_gap": ("קבוצת הספק",),
     },
     {
         "name": "cooler Ivory Intel+AMD socket rows union",
@@ -595,7 +603,107 @@ PAIR_CASES = [
         "name": "YahavPC case fan rows (size in MM, lighting yes/no)",
         "category": "case_fan",
         "rows": {"גודל": "120MM", "תאורה": "ללא", "יצרן": "NZXT"},
-        "expect_specs": {"size_mm": 120, "led": "no", "manufacturer": "NZXT"},
+        # The negative lighting spelling is canon_lighting's "No" (Oct 2026:
+        # it used to be "None", which values.coerce then re-read as the
+        # no-data placeholder and dropped).
+        "expect_specs": {"size_mm": 120, "led": "No", "manufacturer": "NZXT"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "gpu memory rows: data rate and bus width (Oct 2026)",
+        "category": "gpu",
+        "rows": {"מהירות זכרון": "28Gbps", "רוחב פס זכרון": "256bit"},
+        "expect_specs": {"memory_speed_gbps": 28, "memory_bus_bit": 256},
+        "expect_gaps": (),
+    },
+    {
+        "name": "gpu memory clock never becomes a data rate (Oct 2026)",
+        "category": "gpu",
+        # A GDDR3 clock in MHz under the same label as the Gbps rate; the
+        # parser is unit-gated, so the fact stays unknown instead of wrong.
+        "rows": {"מהירות זכרון": "1200MHz", "רוחב פס זכרון": "64bit"},
+        "expect_specs": {"memory_bus_bit": 64},
+        "expect_absent": ("memory_speed_gbps",),
+        "expect_gaps": (),
+    },
+    {
+        "name": "gpu display count and API rows (Oct 2026)",
+        "category": "gpu",
+        # Ivory's "עד 4 מסכים" and TMS's bare count are the same fact.
+        "rows": {"תמיכה מרבית במסכים": "עד 4 מסכים", "גרסת DirectX": "12 Ultimate",
+                 "גרסת OpenGL": "4.6", "הספק מינימלי": "750W"},
+        "expect_specs": {"max_displays": 4, "directx": "12 Ultimate",
+                         "opengl": "4.6", "recommended_psu_w": 750},
+        "expect_gaps": (),
+    },
+    {
+        "name": "drive throughput with separators and units (Oct 2026)",
+        "category": "storage",
+        # "10,000MB" is ten thousand MB, not 10.0 (the comma is a thousands
+        # mark) and "1.5GB/s" is 1500 MB/s.
+        "rows": {"מהירות קריאה": "10,000MB לשניה", "מהירות כתיבה": "1.5GB/s"},
+        "expect_specs": {"read_speed_mbs": 10000, "write_speed_mbs": 1500},
+        "expect_gaps": (),
+    },
+    {
+        "name": "drive random IOPS with the K suffix (Oct 2026)",
+        "category": "storage",
+        "rows": {"מהירות קריאה אקראית": "(QD32) 1,850K IOPS",
+                 "מהירות כתיבה אקראית": "98,000 IOPS"},
+        "expect_specs": {"random_read_iops": 1850000, "random_write_iops": 98000},
+        "expect_gaps": (),
+    },
+    {
+        "name": "packaging cell carries an English word plus a Hebrew gloss",
+        "category": "memory",
+        # As a plain value the whole cell was dropped (Hebrew prose); the
+        # leading English word is the fact.
+        "rows": {"אריזה": "Retail - קופסה"},
+        "expect_specs": {"packaging": "boxed"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "case bays and rackmount rows (Oct 2026)",
+        "category": "case",
+        # "2+1" is two dedicated bays plus a shared one (canon_bay_count).
+        "rows": {"Bays 5.25": "2+1", "Rackmount": "כן"},
+        "expect_specs": {"drive_bays_525": 3, "rackmount": True},
+        "expect_gaps": (),
+    },
+    {
+        "name": "aio radiator dimensions and pump block (Oct 2026)",
+        "category": "aio",
+        "rows": {"מידות רדיאטור": "אורך: 403 מ\"מ רוחב: 120 מ\"מ עובי: 27 מ\"מ",
+                 "מידות משאבה": "אורך: 69 מ\"מ רוחב: 92 מ\"מ גובה: 76 מ\"מ"},
+        "expect_specs": {"radiator_length_mm": 403, "radiator_thickness_mm": 27,
+                         "pump_dimensions_mm": "69 × 92 × 76 mm"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "cooler wiring prose reduces to the connector list (Oct 2026)",
+        "category": "aio",
+        "rows": {"חיבורים": "• חיבור 4pin PWM ללוח אם או בקר מאווררים • חיבור 3pin ARGB "
+                            "ללוח אם • חיבור USB2.0 פנימי ללוח אם"},
+        "expect_specs": {"connectors": ["4-pin PWM", "3-pin ARGB", "USB 2.0"]},
+        "expect_gaps": (),
+    },
+    {
+        "name": "motherboard storage interface + PCIe slot kinds (Oct 2026)",
+        "category": "motherboard",
+        # The x4 row joins the x16/x1 rows in the slot sum; the interface
+        # cell keeps the vendor's names as a list.
+        "rows": {"ממשק אחסון": "M.2 PCIe | SATA3", "PCI-E x4": "1",
+                 "PCI-E x16": "2", "קישוריות Bluetooth": "Bluetooth 5.3"},
+        "expect_specs": {"storage_interface": ["M.2 PCIe", "SATA3"],
+                         "pcie_x4_slots": 1, "pcie_x16_slots": 2,
+                         "bluetooth": "Bluetooth 5.3"},
+        "expect_gaps": (),
+    },
+    {
+        "name": "cpu chipset support list (Oct 2026)",
+        "category": "cpu",
+        "rows": {"תאימות ערכת שבבים": "Intel Z690 | Intel H610 | Intel B660"},
+        "expect_specs": {"chipset_support": ["Intel Z690", "Intel H610", "Intel B660"]},
         "expect_gaps": (),
     },
     {
@@ -824,10 +932,21 @@ NEGATIVE_CASES = [
         "expect_gap": "חיבורי סאטה",
     },
     {
-        "name": "a bus-width cell is evidence, never a VRAM size",
+        # The grouped cell's three shapes, pinned separately so the VRAM
+        # reader can never claim a bus width (it did until Oct 2026): the type
+        # only, the capacity+type pair, and the bus width on its own column.
+        "name": "a bus-width cell fills the bus, never a VRAM size",
         "category": "gpu",
         "rows": {"Storage / Storage Type": "512-bit"},
-        "expect_no_facts": True,
+        "expect_specs": {"memory_bus_bit": 512},
+        "expect_absent": ("memory_gb",),
+    },
+    {
+        "name": "a VRAM cell keeps filling size and type",
+        "category": "gpu",
+        "rows": {"Storage / Storage Type": "12GB GDDR7"},
+        "expect_specs": {"memory_gb": 12, "memory_type": "GDDR7"},
+        "expect_absent": ("memory_bus_bit",),
     },
     {
         "name": "an RPM tolerance is stripped, never read as a range",
@@ -842,6 +961,91 @@ NEGATIVE_CASES = [
         "rows": {"Warranty / Importer": "3 שנים", "אחריות": "36 חודשים"},
         "expect_no_facts": True,
         "expect_no_gap": ("Warranty / Importer", "אחריות"),
+    },
+    # Oct 2026 completeness pass (batch 3): generation, drive weight, the
+    # grouped "Storage / Storage Type" cell and the cooler/fan wiring cell.
+    {
+        # Hebrew בניין and Intel's own "Series N" wording name the same fact.
+        "name": "a generation row reads whichever way the vendor spells it",
+        "category": "cpu",
+        "rows": {"דור המעבד": "דור 14"},
+        "expect_specs": {"generation": "Gen 14"},
+    },
+    {
+        "name": "Intel's Series N is the same column, same shape",
+        "category": "cpu",
+        "rows": {"דור המעבד": "Series 2"},
+        "expect_specs": {"generation": "Gen 2"},
+    },
+    {
+        # A bare number is not proof of a generation: reading it would put an
+        # unexplained digit in the column.
+        "name": "a bare number is not a generation",
+        "category": "cpu",
+        "rows": {"דור המעבד": "14"},
+        "expect_absent": ("generation",),
+    },
+    {
+        "name": "a Hebrew drive weight reads in grams",
+        "category": "storage",
+        "rows": {"משקל": "32.7 גרם"},
+        "expect_specs": {"weight_g": 32.7},
+    },
+    {
+        # The unit decides the scale; "כ-" (approximately) is prose.
+        "name": "a kilogram drive weight is scaled, not copied",
+        "category": "storage",
+        "rows": {"משקל המוצר": "כ-2.49 ק\"ג"},
+        "expect_specs": {"weight_g": 2490},
+    },
+    {
+        "name": "a weight cell with no number stays unread",
+        "category": "storage",
+        "rows": {"משקל": "אין נתון"},
+        "expect_absent": ("weight_g",),
+    },
+    {
+        # 1PC's English twin of Ivory's Hebrew storage-interface row.
+        "name": "the grouped storage-type cell gives a board its drive interfaces",
+        "category": "motherboard",
+        "rows": {"Storage / Storage Type": "M.2, SATA III"},
+        "expect_specs": {"storage_interface": ["M.2", "SATA III"]},
+    },
+    {
+        "name": "the same cell gives a drive its type",
+        "category": "storage",
+        "rows": {"Storage / Storage Type": "SSD NVMe"},
+        "expect_specs": {"type": "SSD"},
+    },
+    {
+        "name": "a fan's grouped cell fills its connector",
+        "category": "case_fan",
+        "rows": {"Spec / Interface Connectivity": "iCUE LINK"},
+        "expect_specs": {"connector": "iCUE LINK"},
+        "expect_absent": ("led",),
+    },
+    {
+        "name": "a fan's ARGB is lighting, not a connector",
+        "category": "case_fan",
+        "rows": {"Spec / Interface Connectivity": "ARGB"},
+        "expect_specs": {"led": "ARGB"},
+        "expect_absent": ("connector",),
+    },
+    {
+        "name": "a cooler's grouped cell is its connector list",
+        "category": "aio",
+        "rows": {"Spec / Interface Connectivity": "4PIN PWM"},
+        "expect_specs": {"connectors": ["4PIN PWM"]},
+    },
+    {
+        # Deliberate: 1PC's PSU cell carries "Modular.", which is genuinely
+        # ambiguous (semi or full — 5 Yahav units prove the vendors lump them),
+        # so it stays coverage-gap evidence instead of inventing "full".
+        "name": "an ambiguous PSU modularity cell is a gap, not a guess",
+        "category": "psu",
+        "rows": {"Spec / Interface Connectivity": "Modular."},
+        "expect_absent": ("modular",),
+        "expect_gap": "Spec / Interface Connectivity",
     },
 ]
 
