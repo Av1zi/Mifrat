@@ -69,17 +69,6 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:169701",
-    "listing_b": "yahav:9790",
-    "title_a": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
-    "title_b": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 - TRAY",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:169702",
     "listing_b": "yahav:9794",
     "title_a": "מעבד AMD Ryzen™ 7 9700X AM5 - TRAY",
@@ -947,17 +936,6 @@
   },
   {
     "score": 94,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "ivory:160780",
-    "listing_b": "tms:0-761345-10240-7",
-    "title_a": "מארז מחשב Antec AX1000 ARGB – כולל 4 מאווררים – צבע שחור",
-    "title_b": "מארז מחשב Antec AX1000 ARGB",
-    "match_text_a": "AX1000 Antec AX1000 ARGB 4",
-    "match_text_b": "0-761345-10240-7 Antec AX1000 ARGB"
-  },
-  {
-    "score": 94,
     "category": "memory",
     "brand": "GeIL",
     "listing_a": "1pc:221504",
@@ -988,17 +966,6 @@
     "title_b": "מעבד AMD Ryzen 9 7900X 4.7GHz Tray",
     "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5",
     "match_text_b": "100-000000589 AMD Ryzen 9 7900X 4.7GHz Tray"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:169701",
-    "listing_b": "tms:100-000001405",
-    "title_a": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
-    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 - TRAY",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
   },
   {
     "score": 93,
@@ -1098,6 +1065,17 @@
     "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included",
     "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
     "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included"
+  },
+  {
+    "score": 93,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001405",
+    "listing_b": "yahav:9790",
+    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
+    "title_b": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
+    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
+    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler"
   },
   {
     "score": 93,
@@ -1224,17 +1202,6 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:169701",
-    "listing_b": "ivory:109058",
-    "title_a": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
-    "title_b": "מעבד AMD Ryzen 5 9600X Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 - TRAY",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:187970",
     "listing_b": "tms:100-000000908",
     "title_a": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
@@ -1323,6 +1290,17 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "tms:100-000000593",
+    "listing_b": "tms:100-000001405",
+    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
+    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
+    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "tms:100-000000719",
     "listing_b": "tms:100-000000908",
     "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
@@ -1340,6 +1318,28 @@
     "title_b": "AMD Ryzen Threadripper 7970X 32-core Tray",
     "match_text_a": "100-000001350 AMD Ryzen Threadripper 7980X 64-core Tray",
     "match_text_b": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001404",
+    "listing_b": "tms:100-000001405",
+    "title_a": "AMD Ryzen 7 9700X AM5 Tray",
+    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
+    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
+    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
+  },
+  {
+    "score": 92,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001405",
+    "listing_b": "tms:100-000001406",
+    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
+    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
+    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
   },
   {
     "score": 92,
@@ -1868,6 +1868,17 @@
     "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
     "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
     "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000001405",
+    "listing_b": "tms:100-100000065",
+    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
+    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
+    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
+    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
   },
   {
     "score": 90,
@@ -3978,37 +3989,6 @@
         "listing_key": "yahav:8446",
         "vendor_sku": "PC-TU150WA",
         "title": "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Silver צבע כסוף",
-        "price": 615
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:case:pctu150wx",
-    "category": "case",
-    "vendor": "",
-    "titles": [
-      "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Black PC-TU150WX",
-      "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Black צבע שחור",
-      "מארז מחשב Lian-Li PC-TU150 Aluminum Black"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:93777",
-        "vendor_sku": "PC-TU150WX",
-        "title": "LIAN-LI Mini-ITX Case PC-TU150 Aluminum TG Black PC-TU150WX",
-        "price": 532
-      },
-      {
-        "listing_key": "tms:PC-TU150WX",
-        "vendor_sku": "PC-TU150WX",
-        "title": "מארז מחשב Lian-Li PC-TU150 Aluminum Black",
-        "price": 532
-      },
-      {
-        "listing_key": "yahav:8445",
-        "vendor_sku": "PC-TU150WX",
-        "title": "מארז חברת LIAN-LI דגם Lian Li PC-TU150 Mini-ITX Case Aluminum TG Black צבע שחור",
         "price": 615
       }
     ]
