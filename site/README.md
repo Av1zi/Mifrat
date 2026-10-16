@@ -79,9 +79,11 @@ on this repo's side.
   `migrations/0001_lists.sql`, shared codec in `src/lists.ts`). A full
   build carries ~110 bits of entropy, so fixed <=8-char ids REQUIRE a
   server-side lookup — stateless URL encoding cannot do it (see
-  `decisions.md` 2026-09-08). Legacy `#/build?...` links keep working.
-  First-time setup (create the D1 database, apply the migration) is in
-  `../SHORT_LINKS_SETUP.md`.
+  `decisions.md` 2026-09-08, local-only). Legacy `#/build?...` links keep working.
+  First-time setup (create the D1 database, apply the migration) is done —
+  `database_id` is already filled in `wrangler.jsonc`; to reproduce from
+  scratch: `npx wrangler d1 create mifrat-lists`, paste the id, then
+  `npx wrangler d1 execute mifrat-lists --remote --file=migrations/0001_lists.sql`.
 - **Compatibility checking** (Phase 3): not implemented. `attributes` on
   each product (socket, chipset, memory_type, form_factor, …) already has
   what a plain client-side rules module would need.

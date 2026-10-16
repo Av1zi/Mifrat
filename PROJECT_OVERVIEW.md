@@ -4,14 +4,12 @@ This document explains every part of the Mifrat project in plain concepts, with 
 
 Related sources of truth:
 
-- pc-parts-il-plan.md — why the architecture looks this way
-- spec-overhaul-plan.md — why specs are a typed schema (Sep 2026 overhaul)
+- PROJECT_OVERVIEW.md — this file (plain concepts, no code)
 - scraper/specs/README.md — how the spec pipeline works
 - decisions.md (local-only, not committed) — running log of decisions
-- README.md — short live status
+- README.md — short live status + quickstart
 - nano/NANO_README.md — Nano setup
-- site/README.md — frontend setup
-- SHORT_LINKS_SETUP.md — short link setup
+- site/README.md — frontend setup (+ short-link Worker)
 - data/raw/RAW_README.md — raw snapshot convention
 
 ## 1. What this project is
