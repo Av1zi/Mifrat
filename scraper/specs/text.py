@@ -78,7 +78,11 @@ CHIPSET_RE = re.compile(
 )
 
 DDR_RE = re.compile(r"\bDDR\s?([345]L?)\b", re.I)
-WIFI_STD_RE = re.compile(r"\bWIFI\s?([67])\s?(E)?\b", re.I)
+# The hyphenated spelling is the common one in vendor titles ("Wi-Fi 7",
+# "Wi-Fi 6E") — requiring a literal "WIFI" silently degraded every such
+# title to a bare "Yes" (Sep 2026: 7 listings, plus every board whose only
+# version source was its title).
+WIFI_STD_RE = re.compile(r"\bWI-?\s?FI\s?([67])\s?(E)?\b", re.I)
 WIFI_RE = re.compile(r"\bWIFI\b|\bWI-?FI\b|\bWIRELESS\b", re.I)
 
 FORM_FACTOR_PATTERNS = [

@@ -848,6 +848,10 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מספר מאווררים": QUANTITY_WORDS,
         "סוג חיבור": FAN_CONNECTOR,
         "תאורה": "led",
+        # The same cell the case table maps ("מאוורר מובנה (ממ)" = built-in
+        # fan, mm), reached through case_fan's own table so a fan product's
+        # detail page fills size_mm instead of landing in label_gaps.
+        "מאוורר מובנה (ממ)": FAN_SIZE,
     },
 }
 
