@@ -1,0 +1,132 @@
+/* Shared page chrome (breadcrumbs, page header) plus the legal, QA and 404 pages. */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-4);
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.crumbs a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  color: var(--text-2);
+}
+
+.crumbs a:hover {
+  color: var(--brand-strong);
+}
+
+.crumbs__sep {
+  color: var(--line-strong);
+}
+
+.page-head {
+  margin-bottom: var(--sp-5);
+}
+
+.page-head h1 {
+  font-size: var(--fs-2xl);
+}
+
+.page-head p:not(.eyebrow) {
+  margin-top: var(--sp-2);
+  color: var(--text-2);
+}
+
+/* ---- legal pages ---- */
+.narrow {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+
+.prose h2 {
+  margin: var(--sp-5) 0 var(--sp-2);
+  font-size: var(--fs-lg);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose p,
+.prose li {
+  color: var(--text-2);
+}
+
+.prose p + p,
+.prose ul {
+  margin-top: var(--sp-2);
+}
+
+.prose li + li {
+  margin-top: var(--sp-1);
+}
+
+/* ---- 404 ---- */
+.notfound {
+  display: grid;
+  place-items: center;
+  padding-block: var(--sp-7);
+}
+
+.notfound .card {
+  max-width: 32rem;
+  text-align: center;
+}
+
+.notfound__code {
+  color: var(--brand);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+.notfound h1 {
+  margin-block: var(--sp-3);
+  font-size: var(--fs-2xl);
+}
+
+.notfound__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+/* ---- quality review ---- */
+.qa-list {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.qa-case h2 {
+  font-size: var(--fs-md);
+  overflow-wrap: anywhere;
+}
+
+.qa-meta,
+.qa-note {
+  margin-top: var(--sp-1);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.qa-offers {
+  display: grid;
+  gap: var(--sp-1);
+  margin-top: var(--sp-2);
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+}
+
+.qa-offers li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}

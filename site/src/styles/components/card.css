@@ -1,0 +1,26 @@
+.card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--sp-4);
+}
+
+.card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.card__title {
+  font-size: var(--fs-lg);
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: var(--sp-5);
+  }
+}

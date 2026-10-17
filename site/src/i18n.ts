@@ -1,3 +1,4 @@
+import type { CompatCode, CompatIssue } from "./build";
 import { SPEC_LABELS } from "./specSchema.generated";
 import type { Lang } from "./types";
 
@@ -19,7 +20,7 @@ export const CATEGORY_ORDER = [
   "other",
 ] as const;
 
-export const CATEGORY_LABELS: Record<string, { he: string; en: string }> = {
+const CATEGORY_LABELS: Record<string, { he: string; en: string }> = {
   cpu: { he: "מעבדים", en: "Processors" },
   motherboard: { he: "לוחות אם", en: "Motherboards" },
   memory: { he: "זיכרון", en: "Memory" },
@@ -42,7 +43,10 @@ export const CATEGORY_LABELS: Record<string, { he: string; en: string }> = {
   other: { he: "רכיבים אחרים", en: "Other Components" },
 };
 
-export const VENDOR_LABELS: Record<string, string> = {
+/** Vendors currently scraped (Plonter stays labelled for old history only). */
+export const ACTIVE_VENDORS = ["tms", "yahav", "onepc", "ivory"] as const;
+
+const VENDOR_LABELS: Record<string, string> = {
   tms: "TMS",
   onepc: "1PC",
   "1pc": "1PC",
@@ -51,14 +55,12 @@ export const VENDOR_LABELS: Record<string, string> = {
   yahav: "YahavPC",
 };
 
-export const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
+const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
   wifi: { he: "Wi-Fi", en: "Wi-Fi" },
   brand: { he: "מותג", en: "Brand" },
   vendor: { he: "חנות", en: "Shop" },
 
-  // pcpartdb reference specs (site/src/types.ts's PcPartDbRef) — shown in
-  // detail.ts's separate "reference specs" section, so these only ever
-  // need labels, never merge into the vendor-attribute filter rail above.
+  // Reference-spec keys: labels only, they never become filters.
   core_clock: { he: "תדר בסיס", en: "Base Clock" },
   boost_clock: { he: "תדר מוגבר", en: "Boost Clock" },
   tdp: { he: "צריכת חשמל (TDP)", en: "TDP" },
@@ -223,16 +225,30 @@ export function attributeLabel(key: string, lang: Lang): string {
 
 const STRINGS = {
   he: {
+    notListed: "לא מצוין",
+    details: "פרטים",
+    homeHeroTitle: "כל רכיבי המחשב. המחיר הכי טוב בישראל.",
+    homeHeroSub: "משווים מחירים בין החנויות המובילות ובודקים תאימות לפני שקונים.",
+    homeSearchPlaceholder: "חפשו מעבד, כרטיס מסך, לוח אם…",
+    homePopular: "פופולרי:",
+    homeStatsVendors: "חנויות נסרקות",
+    homeVendorsTitle: "המחירים נאספים מ",
+    viewCards: "תצוגת כרטיסים",
+    viewTable: "תצוגת טבלה",
+    viewLabel: "תצוגת הרשימה",
+    atVendor: "אצל",
+    photoLabel: "תמונה",
+    compatStripOk: "לא נמצאו בעיות תאימות",
+    shareTitle: "שיתוף",
+    exportTitle: "ייצוא",
+    buildEmptySlot: "עוד לא נבחר",
     cheapest: "הזול ביותר",
-    save: "שמור",
     cancel: "ביטול",
     availability: "זמין",
     priceHeading: "מחיר",
     builderNav: "בניית מחשב",
     builderTitle: "בחרו את החלקים",
     totalLabel: "סה״כ:",
-    estimatedWattage: "צריכה משוערת:",
-    compatibilityOk: "תאימות: לא נמצאו בעיות.",
     compatibilityIdle: "בחרו רכיבים כדי לבדוק תאימות.",
     copyLink: "העתקת קישור",
     unknownList: "הקישור הזה לא נמצא. ייתכן שהוא שגוי או נמחק.",
@@ -240,7 +256,6 @@ const STRINGS = {
     addToBuild: "הוספה לבנייה",
     removePart: "הסרה",
     componentHeading: "רכיב",
-    selectionHeading: "בחירה",
     skuLabel: "מק״ט",
     appName: "מפרט",
     searchPlaceholder: "חיפוש לפי שם או מותג…",
@@ -268,11 +283,7 @@ const STRINGS = {
     langToggle: "EN",
     yesLabel: "כן",
     noLabel: "לא",
-    allLabel: "הכל",
-    noVendorData: "אין נתוני חנויות",
     merchantsTitle: "חנויות",
-    pricingOptionsTitle: "אפשרויות מחיר",
-    partsListTitle: "רשימת חלקים",
     partsShort: "חלקים",
     totalShort: "סה״כ",
     wattageShort: "צריכה משוערת",
@@ -282,7 +293,6 @@ const STRINGS = {
     markupTableCopied: "הטבלה הועתקה!",
     markupTextCopied: "הטקסט הועתק!",
     shorteningLabel: "מקצר…",
-    markupLabel: "סימון:",
     tableLabel: "טבלה",
     textLabel: "טקסט",
     markdownItem: "פריט",
@@ -312,15 +322,6 @@ const STRINGS = {
     homeStep2Body: "הכלי מסכם את המחיר, מעריך צריכה ובודק התאמה בין החלקים.",
     homeStep3Title: "משתפים ושומרים",
     homeStep3Body: "מקבלים קישור קצר לבנייה ושולחים לחבר או שומרים להמשך.",
-    homeFeatTitle: "למה לבנות כאן",
-    homeFeat1Title: "מחירים מחנויות מובילות",
-    homeFeat1Body: "המחירים נאספים מאתרי הספקים ומתעדכנים מדי יום.",
-    homeFeat2Title: "בדיקת תאימות",
-    homeFeat2Body: "התראות על שילובים בעייתיים לפני שמוציאים כסף.",
-    homeFeat3Title: "שיתוף בקישור קצר",
-    homeFeat3Body: "כל בנייה מקבלת קישור קבוע שאפשר לשלוח לכל אחד.",
-    homeFeat4Title: "בלי חשבון ובלי עוגיות",
-    homeFeat4Body: "אין הרשמה, אין מעקב ואין באנרים. פשוט בונים.",
     hiddenIncompatible: "לא תואמים הוסתרו",
     sortAriaLabel: "מיון תוצאות",
     searchAriaLabel: "חיפוש בקטגוריה",
@@ -335,8 +336,6 @@ const STRINGS = {
     metaDescription: "השוואת מחירים בין TMS, ‏1PC, Ivory ויהב מחשבים לרכיבי מחשב בישראל.",
     themeDark: "מצב כהה",
     themeLight: "מצב בהיר",
-    heroTitle: "בחרו חלקים. הרכיבו מחשב. השוו ושתפו.",
-    heroSub: "השוואת מחירים ותאימות לרכיבי מחשב מהחנויות המובילות בישראל.",
     startBuild: "התחילו לבנות",
     loading: "טוען…",
     loadError: "שגיאה בטעינת הנתונים. נסו לרענן את הדף.",
@@ -351,7 +350,6 @@ const STRINGS = {
     totalHeading: "סה״כ",
     buyLabel: "קנייה",
     specsHeading: "מפרט",
-    unknownValue: "לא ידוע",
     qaKindSpec: "סתירת מפרט",
     qaSpecKept: "נשמר",
     qaSpecDropped: "נפסל",
@@ -367,7 +365,6 @@ const STRINGS = {
     copyMarkdown: "העתקה כטבלה",
     copyText: "העתקה כטקסט",
     startNew: "התחלה חדשה",
-    partsCount: "חלקים",
     showMore: "הצג עוד",
     showLess: "הצג פחות",
     quickAdd: "הוספה",
@@ -395,16 +392,30 @@ const STRINGS = {
     footerLegalHead: "משפטי",
   },
   en: {
+    notListed: "Not listed",
+    details: "Details",
+    homeHeroTitle: "Every PC part. The best price in Israel.",
+    homeHeroSub: "Compare prices across the leading shops and check compatibility before you buy.",
+    homeSearchPlaceholder: "Search a CPU, graphics card, motherboard…",
+    homePopular: "Popular:",
+    homeStatsVendors: "Shops tracked",
+    homeVendorsTitle: "Prices collected from",
+    viewCards: "Card view",
+    viewTable: "Table view",
+    viewLabel: "List layout",
+    atVendor: "at",
+    photoLabel: "Photo",
+    compatStripOk: "No compatibility issues",
+    shareTitle: "Share",
+    exportTitle: "Export",
+    buildEmptySlot: "Nothing chosen yet",
     cheapest: "Cheapest",
-    save: "Save",
     cancel: "Cancel",
     availability: "Availability",
     priceHeading: "Price",
     builderNav: "Builder",
     builderTitle: "Choose Your Parts",
     totalLabel: "Total:",
-    estimatedWattage: "Estimated Wattage:",
-    compatibilityOk: "Compatibility: No issues detected.",
     compatibilityIdle: "Pick parts to check compatibility.",
     copyLink: "Copy link",
     unknownList: "This list link wasn't found. It may be mistyped or deleted.",
@@ -412,7 +423,6 @@ const STRINGS = {
     addToBuild: "Add to build",
     removePart: "Remove",
     componentHeading: "Component",
-    selectionHeading: "Selection",
     skuLabel: "SKU",
     appName: "Mifrat",
     searchPlaceholder: "Search by name or brand…",
@@ -440,11 +450,7 @@ const STRINGS = {
     langToggle: "עברית",
     yesLabel: "Yes",
     noLabel: "No",
-    allLabel: "All",
-    noVendorData: "No vendor data",
     merchantsTitle: "Merchants",
-    pricingOptionsTitle: "Pricing options",
-    partsListTitle: "Parts List",
     partsShort: "Parts",
     totalShort: "Total",
     wattageShort: "Est. wattage",
@@ -454,7 +460,6 @@ const STRINGS = {
     markupTableCopied: "Table copied!",
     markupTextCopied: "Text copied!",
     shorteningLabel: "Shortening…",
-    markupLabel: "Markup:",
     tableLabel: "Table",
     textLabel: "Text",
     markdownItem: "Item",
@@ -484,15 +489,6 @@ const STRINGS = {
     homeStep2Body: "The builder totals the price, estimates power draw and flags mismatches.",
     homeStep3Title: "Share and keep",
     homeStep3Body: "Every build gets a short permanent link you can send to anyone.",
-    homeFeatTitle: "Why build here",
-    homeFeat1Title: "Prices from leading shops",
-    homeFeat1Body: "Prices are collected from vendor sites and refreshed every day.",
-    homeFeat2Title: "Compatibility guidance",
-    homeFeat2Body: "Warnings about problem pairings before you spend money.",
-    homeFeat3Title: "Short share links",
-    homeFeat3Body: "Every build gets a permanent link you can send to anyone.",
-    homeFeat4Title: "No account and no cookies",
-    homeFeat4Body: "No signup, no tracking and no banners. Just build.",
     hiddenIncompatible: "known-incompatible hidden",
     sortAriaLabel: "Sort results",
     searchAriaLabel: "Search in category",
@@ -507,8 +503,6 @@ const STRINGS = {
     metaDescription: "Compare prices for PC parts from TMS, 1PC, Ivory and YahavPC in Israel.",
     themeDark: "Dark mode",
     themeLight: "Light mode",
-    heroTitle: "Pick Parts. Build Your PC. Compare and Share.",
-    heroSub: "Part selection, pricing, and compatibility guidance for Israeli PC builders.",
     startBuild: "Start Your Build",
     loading: "Loading…",
     loadError: "Couldn't load data. Try refreshing the page.",
@@ -523,7 +517,6 @@ const STRINGS = {
     totalHeading: "Total",
     buyLabel: "Buy",
     specsHeading: "Specifications",
-    unknownValue: "Unknown",
     qaKindSpec: "Spec conflict",
     qaSpecKept: "Kept",
     qaSpecDropped: "Dropped",
@@ -539,7 +532,6 @@ const STRINGS = {
     copyMarkdown: "Copy as table",
     copyText: "Copy as text",
     startNew: "Start new",
-    partsCount: "parts",
     showMore: "Show more",
     showLess: "Show less",
     quickAdd: "Add",
@@ -568,7 +560,7 @@ const STRINGS = {
   },
 } satisfies Record<Lang, Record<string, string>>;
 
-export type StringKey = keyof (typeof STRINGS)["he"];
+type StringKey = keyof (typeof STRINGS)["he"];
 
 export function t(lang: Lang, key: StringKey): string {
   return STRINGS[lang][key];
@@ -583,22 +575,92 @@ export function vendorsCount(lang: Lang, n: number): string {
   return n === 1 ? "1 vendor" : `${n} vendors`;
 }
 
-/**
- * Summary line of the PDP's collapsed "no source published this" block (see
- * views/product.ts). Counted, not hidden: the sheet shows every field any
- * source supplied, and says how many the catalog could not fill.
- */
-export function unknownFieldsCount(lang: Lang, n: number): string {
-  if (lang === "he") return n === 1 ? "שדה אחד ללא נתון" : `${n} שדות ללא נתון`;
-  return n === 1 ? "1 field without a value" : `${n} fields without a value`;
+/** Spec-sheet group heading (the schema's own `group` ids). */
+export function specGroupLabel(group: string, lang: Lang): string {
+  const labels: Record<string, { he: string; en: string }> = {
+    identity: { he: "זיהוי", en: "Identity" },
+    core: { he: "ליבה", en: "Core" },
+    memory: { he: "זיכרון", en: "Memory" },
+    storage: { he: "אחסון", en: "Storage" },
+    power: { he: "הספק", en: "Power" },
+    physical: { he: "פיזי", en: "Physical" },
+    io: { he: "חיבורים", en: "Connectivity" },
+    other: { he: "נוסף", en: "Other" },
+  };
+  return labels[group]?.[lang] ?? group;
 }
 
-export function lastUpdated(lang: Lang, isoDate: string): string {
-  const d = new Date(isoDate);
-  const formatted = d.toLocaleDateString(lang === "he" ? "he-IL" : "en-GB", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-  return lang === "he" ? `עודכן לאחרונה: ${formatted}` : `Last updated: ${formatted}`;
+/** "2 problems · 1 warning" for the builder's compatibility strip. */
+export function issuesSummary(lang: Lang, errors: number, warnings: number): string {
+  const parts: string[] = [];
+  if (lang === "he") {
+    if (errors > 0) parts.push(errors === 1 ? "בעיית תאימות אחת" : `${errors} בעיות תאימות`);
+    if (warnings > 0) parts.push(warnings === 1 ? "אזהרה אחת" : `${warnings} אזהרות`);
+  } else {
+    if (errors > 0) parts.push(errors === 1 ? "1 problem" : `${errors} problems`);
+    if (warnings > 0) parts.push(warnings === 1 ? "1 warning" : `${warnings} warnings`);
+  }
+  return parts.join(" · ");
+}
+
+/** "of 750W" next to the wattage meter. */
+export function wattOf(lang: Lang, capacity: number): string {
+  return lang === "he" ? `מתוך ${capacity}W` : `of ${capacity}W`;
+}
+
+type CompatParams = CompatIssue["params"];
+
+const COMPAT_MESSAGES: Record<CompatCode, Record<Lang, (p: CompatParams) => string>> = {
+  socket: {
+    he: (p) => `סוקט המעבד (${p.cpu}) אינו תואם ללוח האם (${p.board})`,
+    en: (p) => `CPU socket (${p.cpu}) does not match motherboard socket (${p.board})`,
+  },
+  memoryType: {
+    he: (p) => `סוג הזיכרון (${p.memory}) אינו תואם ללוח האם (${p.board})`,
+    en: (p) => `Memory type (${p.memory}) does not match motherboard memory type (${p.board})`,
+  },
+  memoryMax: {
+    he: () => "נפח הזיכרון חורג מהמקסימום של לוח האם",
+    en: () => "Memory kit exceeds the motherboard maximum capacity",
+  },
+  memorySpeed: {
+    he: (p) => `מהירות הזיכרון (${p.speed}MHz) גבוהה ממה שלוח האם מצהיר עליו`,
+    en: (p) => `Memory speed (${p.speed}MHz) is above what the motherboard lists`,
+  },
+  gpuLength: {
+    he: () => "כרטיס המסך ארוך מדי למארז הנבחר",
+    en: () => "Graphics card is longer than the selected case supports",
+  },
+  boardForm: {
+    he: (p) => `לוח האם (${p.form}) אינו נכנס למארז`,
+    en: (p) => `Motherboard (${p.form}) does not fit the case`,
+  },
+  coolerHeight: {
+    he: (p) => `גובה הקירור (${p.height}mm) עולה על המרווח במארז (${p.max}mm)`,
+    en: (p) => `Cooler height (${p.height}mm) exceeds the case clearance (${p.max}mm)`,
+  },
+  radiator: {
+    he: (p) => `המארז לא מצהיר על תמיכה ברדיאטור ${p.size}mm`,
+    en: (p) => `The case does not list support for a ${p.size}mm radiator`,
+  },
+  coolerSocket: {
+    he: (p) => `הקירור עשוי שלא להתאים לסוקט המעבד (${p.cpu})`,
+    en: (p) => `Cooler may not support CPU socket (${p.cpu})`,
+  },
+  psuLow: {
+    he: (p) => `הספק (${p.capacity}W) חלש מהצריכה הידועה (${p.watts}W)`,
+    en: (p) => `PSU (${p.capacity}W) is below known system wattage (${p.watts}W)`,
+  },
+  psuHeadroom: {
+    he: (p) => `מרווח הספק קטן: ${p.capacity}W מול צריכה ידועה ${p.watts}W`,
+    en: (p) => `Little wattage headroom: ${p.capacity}W against a known ${p.watts}W draw`,
+  },
+  psuGpu: {
+    he: (p) => `כרטיס המסך ממליץ על ספק ${p.recommended}W לפחות (נבחר ${p.capacity}W)`,
+    en: (p) => `The card recommends at least ${p.recommended}W (selected ${p.capacity}W)`,
+  },
+};
+
+export function compatMessage(lang: Lang, issue: CompatIssue): string {
+  return COMPAT_MESSAGES[issue.code][lang](issue.params);
 }

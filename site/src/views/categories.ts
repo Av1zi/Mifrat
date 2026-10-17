@@ -1,11 +1,12 @@
-import { loadCategoryRepImage, loadMeta } from "../api";
-import { formatPrice } from "../format";
-import { CATEGORY_ORDER, categoryLabel, t } from "../i18n";
-import { CATEGORY_ICONS, icon } from "../icons";
-import { categoryHash, homeHash } from "../state";
-import type { Currency, Lang } from "../types";
-import { errorPanel, esc } from "../utils";
+import { loadMeta } from "../api";
+import { CATEGORY_ORDER, t } from "../i18n";
+import { icon } from "../icons";
+import { homeHash } from "../state";
 import { setPageTitle } from "../titles";
+import type { Currency, Lang } from "../types";
+import { categoryTile, fillCategoryPhotos } from "../ui/categoryTile";
+import { html, mount } from "../ui/html";
+import { errorState, loadingState } from "../ui/state";
 
 export async function renderCategories(
   container: HTMLElement,
@@ -13,73 +14,34 @@ export async function renderCategories(
   currency: Currency
 ): Promise<void> {
   setPageTitle(lang, t(lang, "allCategoriesTitle"));
-  container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
+  mount(container, loadingState(lang));
 
   let meta;
   try {
     meta = await loadMeta();
   } catch (err) {
-    container.innerHTML = errorPanel(t(lang, "loadError"), t(lang, "retry"), err);
+    mount(container, errorState(lang, err));
     return;
   }
 
   const byId = new Map(meta.categories.map((c) => [c.id, c]));
-  const orderedIds = [
-    ...CATEGORY_ORDER.filter((id) => byId.has(id)),
-    ...meta.categories.map((c) => c.id).filter((id) => !(CATEGORY_ORDER as readonly string[]).includes(id)),
+  const known = CATEGORY_ORDER as readonly string[];
+  const ids = [
+    ...known.filter((id) => byId.has(id)),
+    ...meta.categories.map((c) => c.id).filter((id) => !known.includes(id)),
   ];
-  const cards = orderedIds
-    .map((id) => byId.get(id)!)
-    .filter((cat) => cat.count > 0)
-    .map((cat) => {
-      // Zero minimums in the scraped meta mean "unknown", not free:
-      // degrade to an "up to X" hint instead of a misleading ₪0 floor.
-      const hasMin = cat.min_price !== null && cat.min_price > 0;
-      const hasMax = cat.max_price !== null && cat.max_price > 0;
-      const range =
-        hasMin && hasMax
-          ? `${formatPrice(cat.min_price as number, currency, lang)} – ${formatPrice(cat.max_price as number, currency, lang)}`
-          : hasMax
-            ? `${t(lang, "upTo")} ${formatPrice(cat.max_price as number, currency, lang)}`
-            : "";
-      // Fixed-size square photo box fills in async; the icon fallback
-      // holds the exact same box so there is no layout shift.
-      return `<a class="category-card categories-page-card" href="${categoryHash(cat.id)}">
-        <span class="category-card-photo" data-cat-photo="${esc(cat.id)}" aria-hidden="true"><img alt="" loading="lazy" width="168" height="168" hidden><span class="category-card-fallback">${icon(CATEGORY_ICONS[cat.id] ?? "grid", 28)}</span></span>
-        <span class="category-card-body">
-          <span class="cat-name">${esc(categoryLabel(cat.id, lang))}</span>
-          <span class="cat-meta">${cat.count} · ${range}</span>
-        </span>
-        <span class="category-card-arrow">${icon("arrow-right", 16)}</span>
-      </a>`;
-    })
-    .join("");
+  const cats = ids.map((id) => byId.get(id)!).filter((c) => c.count > 0);
 
-  container.innerHTML = `
-    <div class="crumbs"><a href="${homeHash()}">${icon("arrow-right", 14)} ${esc(t(lang, "backToHome"))}</a></div>
-    <section class="categories-intro">
-      <p class="hero-eyebrow">${esc(t(lang, "categoriesEyebrow"))}</p>
-      <h1>${esc(t(lang, "allCategoriesTitle"))}</h1>
-      <p>${esc(t(lang, "categoriesIntro"))}</p>
-    </section>
-    <div class="category-grid categories-page-grid">${cards}</div>
-  `;
-
-  // Upgrade each card to its real product photo as it arrives; missing
-  // photos keep the icon fallback.
-  for (const id of orderedIds) {
-    void loadCategoryRepImage(id).then((src) => {
-      if (!src || !container.isConnected) return;
-      const slot = container.querySelector(
-        `[data-cat-photo="${CSS.escape(id)}"]`
-      );
-      if (!slot) return;
-      const img = slot.querySelector("img");
-      if (!img) return;
-      img.addEventListener("error", () => img.remove(), { once: true });
-      img.src = src;
-      img.hidden = false;
-      slot.querySelector(".category-card-fallback")?.remove();
-    });
-  }
+  mount(
+    container,
+    html`
+    <nav class="crumbs"><a href="${homeHash()}">${icon("back", 14)}${t(lang, "backToHome")}</a></nav>
+    <header class="page-head">
+      <p class="eyebrow">${t(lang, "categoriesEyebrow")}</p>
+      <h1>${t(lang, "allCategoriesTitle")}</h1>
+      <p>${t(lang, "categoriesIntro")}</p>
+    </header>
+    <div class="cat-grid">${cats.map((c) => categoryTile(c, currency, lang))}</div>`
+  );
+  fillCategoryPhotos(container);
 }

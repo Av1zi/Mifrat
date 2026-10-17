@@ -99,7 +99,7 @@ export interface QaFile {
  * are integer percentages; `tier0` is the share filled by the reference
  * dataset, `reference_matches` the share matched to a Tier-0 row at all.
  */
-export interface SpecReportCategory {
+interface SpecReportCategory {
   products: number;
   reference_matches: number;
   derived?: number;
@@ -195,8 +195,3 @@ export type PriceHistoryFile = {
   dates: string[];
   timestamps?: string[];
 } & Record<string, { v: Record<string, Array<number | null>> } | string[]>;
-
-export interface PriceSeries {
-  vendor: string;
-  prices: Array<number | null>;
-}

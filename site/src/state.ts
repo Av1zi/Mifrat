@@ -4,13 +4,13 @@ const LANG_KEY = "mifrat:lang";
 const CURRENCY_KEY = "mifrat:currency";
 const BUILD_KEY = "mifrat:build";
 const THEME_KEY = "mifrat:theme";
+const VIEW_KEY = "mifrat:view";
 
 export type Theme = "light" | "dark";
 
-export function getTheme(): Theme {
-  const saved = localStorage.getItem(THEME_KEY);
-  if (saved === "dark" || saved === "light") return saved;
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+function getTheme(): Theme {
+  // Light-first: dark is an explicit choice, never inferred from the OS.
+  return localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light";
 }
 
 export function setTheme(theme: Theme): void {
@@ -22,6 +22,16 @@ export function applyStoredTheme(): Theme {
   const theme = getTheme();
   document.documentElement.dataset.theme = theme;
   return theme;
+}
+
+export type ListView = "cards" | "table";
+
+export function getListView(): ListView {
+  return localStorage.getItem(VIEW_KEY) === "table" ? "table" : "cards";
+}
+
+export function setListView(view: ListView): void {
+  localStorage.setItem(VIEW_KEY, view);
 }
 
 export function getLang(): Lang {
@@ -138,7 +148,7 @@ export interface CategoryParams {
   pick: string | null;
 }
 
-export type Route =
+type Route =
   | { view: "home" }
   | { view: "categories" }
   | { view: "notfound" }

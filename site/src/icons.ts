@@ -5,6 +5,8 @@
  * No emoji, no icon fonts, no external requests.
  */
 
+import { raw, type Html } from "./ui/html";
+
 export type IconName =
   | "wrench"
   | "chip"
@@ -23,7 +25,6 @@ export type IconName =
   | "memory"
   | "droplet"
   | "grid"
-  | "arrow-right"
   | "board"
   | "drive"
   | "graphics"
@@ -32,7 +33,16 @@ export type IconName =
   | "fan"
   | "accessories"
   | "file-text"
-  | "sliders";
+  | "sliders"
+  | "back"
+  | "forward"
+  | "rows"
+  | "table"
+  | "alert"
+  | "circle-x"
+  | "circle-check"
+  | "external"
+  | "shield";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -71,8 +81,6 @@ const PATHS: Record<IconName, string> = {
     '<rect x="3" y="7" width="18" height="13" rx="1.5" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" />',
   grid:
     '<rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" />',
-  "arrow-right":
-    '<path d="M5 12h14" /><path d="m13 6 6 6-6 6" />',
   board:
     '<rect x="3" y="3" width="18" height="18" rx="1.5" /><path d="M7 7h4v4H7zM13 13h4v4h-4zM11 9h3M9 11v4" />',
   drive:
@@ -89,13 +97,29 @@ const PATHS: Record<IconName, string> = {
     '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h6" />',
   sliders:
     '<path d="M21 4H14M10 4H3M21 12H12M8 12H3M21 20H16M12 20H3M14 2v4M8 10v4M16 18v4" />',
+  back:
+    '<path d="m12 19-7-7 7-7" /><path d="M19 12H5" />',
+  forward:
+    '<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />',
+  rows:
+    '<rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /><path d="M14 4h7M14 9h7M14 15h7M14 20h7" />',
+  table:
+    '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />',
+  alert:
+    '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4M12 17h.01" />',
+  "circle-x":
+    '<circle cx="12" cy="12" r="10" /><path d="m15 9-6 6M9 9l6 6" />',
+  "circle-check":
+    '<circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" />',
+  external:
+    '<path d="M15 3h6v6M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />',
+  shield:
+    '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" />',
 };
 
 /**
- * Icon for every catalog category (not just the 8 "popular" tiles in the
- * mega menu) — used on the homepage grid so every card gets a matching
- * glyph instead of a bare text link. Cooling-family categories share the
- * "fan" mark deliberately; they're visually a family.
+ * The one icon map for catalog categories (mega menu, home grid, category
+ * cards). Cooling-family categories share the fan mark on purpose.
  */
 export const CATEGORY_ICONS: Record<string, IconName> = {
   cpu: "chip",
@@ -120,6 +144,6 @@ export const CATEGORY_ICONS: Record<string, IconName> = {
   other: "grid",
 };
 
-export function icon(name: IconName, size = 16): string {
-  return `<svg class="ic ic-${name}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PATHS[name]}</svg>`;
+export function icon(name: IconName, size = 16): Html {
+  return raw(`<svg class="ic ic-${name}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PATHS[name]}</svg>`);
 }
