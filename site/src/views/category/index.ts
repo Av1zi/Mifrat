@@ -1,6 +1,6 @@
 import { loadCategory } from "../../api";
 import { BUILD_SLOTS, isProductCompatibleWithBuild, slotForCategory } from "../../build";
-import { categoryLabel, t } from "../../i18n";
+import { categoryLabel, categoryMetaDesc, t } from "../../i18n";
 import { icon } from "../../icons";
 import {
   categoriesHash,
@@ -12,6 +12,8 @@ import {
   replaceRoute,
   type CategoryParams,
 } from "../../state";
+import { loadSignals } from "../../signals";
+import { setPageTitle } from "../../titles";
 import type { Currency, Lang, Product } from "../../types";
 import { button } from "../../ui/button";
 import { html, mount } from "../../ui/html";
@@ -65,6 +67,8 @@ export async function renderCategory(
     }
   }
 
+  setPageTitle(lang, categoryLabel(category, lang), categoryMetaDesc(lang, categoryLabel(category, lang), all.length));
+
   const pickSlot = params.pick ? BUILD_SLOTS.find((s) => s.id === params.pick) ?? null : null;
   const storedBuild = getStoredBuild();
   const build = await loadBuildParts(storedBuild);
@@ -101,6 +105,7 @@ export async function renderCategory(
     filterable: computeFilterable(products, category),
     ranges: computeRanges(products, category),
     columns: pickColumns(products, category),
+    signals: new Map(),
   };
 
   mount(
@@ -191,6 +196,13 @@ export async function renderCategory(
 
   actions.rebuildRail();
   actions.redrawList();
+
+  // Price-drop badges arrive after the first paint; a missing history file just means none.
+  void loadSignals(category).then((signals) => {
+    if (signals.size === 0 || !listEl.isConnected) return;
+    ctx.signals = signals;
+    actions.redrawList();
+  });
 
   // Leaving the route releases the observers and the scroll lock.
   window.addEventListener(

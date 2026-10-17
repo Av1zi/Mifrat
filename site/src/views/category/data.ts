@@ -9,6 +9,7 @@ import {
   specValue,
 } from "../../specs";
 import type { BuildMap, CategoryParams, ListView } from "../../state";
+import type { PriceSignal } from "../../signals";
 import type { Currency, Lang, Product, SortKey } from "../../types";
 import { normSearch, searchScore, searchTokens, skuOf } from "../../utils";
 import { positivePrice } from "../../ui/price";
@@ -43,6 +44,8 @@ export interface CategoryCtx {
   filterable: Map<string, OptionCounts>;
   ranges: Map<string, Range>;
   columns: string[];
+  /** Price-drop signals by product id; filled once the history file arrives. */
+  signals: Map<string, PriceSignal>;
 }
 
 /** Callbacks the view modules use to ask index.ts to re-render. */

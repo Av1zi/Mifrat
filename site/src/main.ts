@@ -21,9 +21,11 @@ import {
 import { setPageTitle } from "./titles";
 import type { Currency, Lang } from "./types";
 import { mount } from "./ui/html";
+import { bindPickControls } from "./ui/pick";
 import { errorState } from "./ui/state";
 import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategories } from "./views/categories";
+import { renderCompare } from "./views/compare";
 import { renderCategory } from "./views/category";
 import { renderCookies } from "./views/cookies";
 import { renderHome } from "./views/home";
@@ -31,6 +33,7 @@ import { renderNotFound } from "./views/notfound";
 import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
 import { renderQa } from "./views/qa";
+import { renderSaved } from "./views/saved";
 import { renderTerms } from "./views/terms";
 
 let lang: Lang = getLang();
@@ -105,8 +108,14 @@ function renderRoute(): void {
         setPageTitle(lang, t(lang, "qaTitle"));
         guard(renderQa(main, lang, currency));
         break;
+      case "compare":
+        guard(renderCompare(main, lang, currency, route.ids));
+        break;
+      case "saved":
+        guard(renderSaved(main, lang, currency));
+        break;
       case "categories":
-        setPageTitle(lang, t(lang, "allCategoriesTitle"));
+        setPageTitle(lang, t(lang, "allCategoriesTitle"), t(lang, "metaCategoriesDesc"));
         guard(renderCategories(main, lang, currency));
         break;
       case "home":
@@ -114,7 +123,7 @@ function renderRoute(): void {
         break;
       case "build": {
         const shared = route.listId !== null || route.shared !== null;
-        setPageTitle(lang, shared ? t(lang, "sharedBuildTitle") : t(lang, "builderPageTitle"));
+        setPageTitle(lang, shared ? t(lang, "sharedBuildTitle") : t(lang, "builderPageTitle"), t(lang, "metaBuilderDesc"));
         guard(
           route.listId
             ? renderListRoute(main, lang, currency, route.listId)
@@ -137,6 +146,7 @@ function renderRoute(): void {
 }
 
 bindGlobalMenuClose();
+bindPickControls();
 document.addEventListener("click", (e) => {
   if ((e.target as HTMLElement).closest('[data-action="reload"]')) location.reload();
 });

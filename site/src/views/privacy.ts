@@ -30,6 +30,8 @@ export function renderPrivacy(container: HTMLElement, lang: Lang): void {
         <li><code>mifrat:build</code> טיוטת הבנייה שלך</li>
         <li><code>mifrat:theme</code> מראה בהיר או מראה כהה</li>
         <li><code>mifrat:view</code> תצוגת רשימת המוצרים, כרטיסים או טבלה</li>
+        <li><code>mifrat:compare</code> המוצרים שסומנו להשוואה</li>
+        <li><code>mifrat:saved</code> המוצרים השמורים שלכם</li>
         <li><code>mifrat:fx:ils-usd</code> שער חליפין שמור ליום אחד, בשימוש רק במצב דולרים</li>
       </ul>
 
@@ -62,6 +64,8 @@ export function renderPrivacy(container: HTMLElement, lang: Lang): void {
         <li><code>mifrat:build</code> your builder draft</li>
         <li><code>mifrat:theme</code> light or dark appearance</li>
         <li><code>mifrat:view</code> product list layout, cards or table</li>
+        <li><code>mifrat:compare</code> parts ticked for comparison</li>
+        <li><code>mifrat:saved</code> your saved parts</li>
         <li><code>mifrat:fx:ils-usd</code> cached exchange rate, kept for one day, used only in USD mode</li>
       </ul>
 

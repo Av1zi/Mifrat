@@ -10,6 +10,7 @@ import { categoryTile, fillCategoryPhotos } from "../ui/categoryTile";
 import { chip } from "../ui/chip";
 import { html, mount } from "../ui/html";
 import { errorState, loadingState } from "../ui/state";
+import { fillDropsStrip } from "./drops";
 
 const QUICK_CATEGORIES = ["cpu", "gpu", "motherboard", "memory", "storage", "psu"];
 
@@ -65,6 +66,8 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
       </dl>
     </section>
 
+    <section class="section" id="home-drops" hidden></section>
+
     <section class="section">
       <header class="section__head">
         <h2>${t(lang, "homeCatsTitle")}</h2>
@@ -95,4 +98,7 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
   const search = container.querySelector<HTMLElement>("[data-search]");
   if (search) bindSearch(search, lang, currency);
   fillCategoryPhotos(container);
+
+  const drops = container.querySelector<HTMLElement>("#home-drops");
+  if (drops) void fillDropsStrip(drops, cats, lang, currency);
 }

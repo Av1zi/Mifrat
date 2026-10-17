@@ -27,6 +27,8 @@ export function renderCookies(container: HTMLElement, lang: Lang): void {
         <li><code>mifrat:build</code> טיוטה</li>
         <li><code>mifrat:theme</code> ערכת נושא</li>
         <li><code>mifrat:view</code> תצוגת רשימה</li>
+        <li><code>mifrat:compare</code> המוצרים שסומנו להשוואה</li>
+        <li><code>mifrat:saved</code> המוצרים השמורים שלכם</li>
         <li><code>mifrat:fx:ils-usd</code> שער ליום, רק במצב דולרים</li>
       </ul>
       <p>אחסון מסוג זה אינו דורש הסכמה. אפשר למחוק אותו בכל עת דרך הגדרות הדפדפן, בניקוי נתוני האתר. האתר ימשיך לעבוד. רק ההעדפות יתאפסו.</p>
@@ -48,6 +50,8 @@ export function renderCookies(container: HTMLElement, lang: Lang): void {
         <li><code>mifrat:build</code> draft</li>
         <li><code>mifrat:theme</code> theme</li>
         <li><code>mifrat:view</code> list view</li>
+        <li><code>mifrat:compare</code> parts ticked for comparison</li>
+        <li><code>mifrat:saved</code> your saved parts</li>
         <li><code>mifrat:fx:ils-usd</code> daily rate, USD mode only</li>
       </ul>
       <p>Storage of this kind does not need consent. You can delete it at any time in browser settings by clearing site data. The site will keep working. Only preferences will reset.</p>

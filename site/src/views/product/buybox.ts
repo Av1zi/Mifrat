@@ -9,6 +9,7 @@ import { card } from "../../ui/card";
 import { chip } from "../../ui/chip";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
+import { compareButton, saveButton } from "../../ui/pick";
 import { positivePrice, priceCell } from "../../ui/price";
 
 /** Sticky price box: best price, where, stock, and the two actions. */
@@ -25,6 +26,7 @@ export function buyBoxMarkup(
   return html`<aside class="card buybox">
     <p class="buybox__label">${t(lang, "cheapest")}</p>
     ${priceCell(price, currency, lang, "lg")}
+    <div class="buybox__signals" id="pdp-signals"></div>
     ${offer && price !== null
       ? html`<p class="buybox__where">${t(lang, "atVendor")} <b>${vendorLabel(offer.vendor)}</b> · ${vendorsCount(lang, product.vendor_count)}</p>`
       : html`<p class="buybox__where">${emptyValue(lang)}</p>`}
@@ -34,6 +36,7 @@ export function buyBoxMarkup(
         ? button({ label: `${t(lang, "buyLabel")} · ${vendorLabel(offer!.vendor)}`, icon: icon("external", 16), variant: "primary", href: url, external: true })
         : ""}
       ${canAdd ? button({ label: t(lang, "addToPartList"), icon: icon("plus", 16), id: "pdp-add" }) : ""}
+      <div class="buybox__tools">${compareButton(product, lang)}${saveButton(product, lang, true)}</div>
     </div>
     ${variants}
   </aside>`;

@@ -1,10 +1,16 @@
 import { loadCategory } from "../../api";
 import { slotForCategory } from "../../build";
-import { categoryLabel, t } from "../../i18n";
+import { categoryLabel, productMetaDesc, t } from "../../i18n";
 import { icon } from "../../icons";
 import { addToBuild, buildHash, categoriesHash, categoryHash, getStoredBuild, navigate, setStoredBuild } from "../../state";
 import type { Currency, Lang } from "../../types";
+import { formatPrice } from "../../format";
+import { loadSignals } from "../../signals";
+import { setPageTitle } from "../../titles";
 import { card } from "../../ui/card";
+import { syncPickControls } from "../../ui/pick";
+import { positivePrice } from "../../ui/price";
+import { signalBadges } from "../../ui/signal";
 import { html, mount } from "../../ui/html";
 import { emptyState, errorState, loadingState } from "../../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../../ui/thumb";
@@ -44,6 +50,12 @@ export async function renderProduct(
   }
 
   const name = displayName(product);
+  const bestPrice = positivePrice(product.min_price);
+  setPageTitle(
+    lang,
+    name,
+    productMetaDesc(lang, name, product.vendor_count, bestPrice !== null ? formatPrice(bestPrice, currency, lang) : null)
+  );
   const echoOf = makeEchoOf(name);
   const description = (product.description ?? "").trim();
   const brand = (product.brand ?? "").trim();
@@ -83,6 +95,7 @@ export async function renderProduct(
     </div>`
   );
   bindThumbs(container);
+  syncPickControls();
 
   const add = container.querySelector<HTMLButtonElement>("#pdp-add");
   if (add && slot) {
@@ -96,4 +109,11 @@ export async function renderProduct(
 
   const historyHost = container.querySelector<HTMLElement>("#pdp-history");
   if (historyHost) void renderPriceHistory(historyHost, lang, currency, category, product.id);
+
+  const signalHost = container.querySelector<HTMLElement>("#pdp-signals");
+  if (signalHost) {
+    void loadSignals(category).then((signals) => {
+      if (signalHost.isConnected) mount(signalHost, signalBadges(signals.get(product.id), lang));
+    });
+  }
 }

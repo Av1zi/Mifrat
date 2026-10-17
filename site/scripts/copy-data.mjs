@@ -13,7 +13,7 @@
 // Runs automatically before `npm run dev` and `npm run build` (see
 // package.json). Re-run any time data/site/*.json changes locally.
 
-import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, readdirSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -84,3 +84,37 @@ console.log(
   `[copy-data] copied ${copied} referenced images -> ${imagesDest}` +
     (missing > 0 ? ` (${missing} referenced files missing on disk)` : "")
 );
+
+// ---- sitemap.xml -----------------------------------------------------------
+// Generated from the same JSON, so it always matches the deployed catalog.
+// Routes are hash routes (#/c/<category>, #/p/<category>/<id>), the only
+// route form the site serves; see decisions.md for what that means for
+// crawlers. Gitignored (site/.gitignore), rebuilt on every dev/build run.
+const origin = (process.env.SITE_ORIGIN ?? "https://mifrat.net").replace(/\/+$/, "");
+const xmlEscape = (text) =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+const meta = JSON.parse(readFileSync(path.join(dest, "meta.json"), "utf8"));
+const lastmod = typeof meta.generated_at === "string" ? meta.generated_at.slice(0, 10) : null;
+
+const routes = ["/", "/#/categories", "/#/build", "/#/qa"];
+let products = 0;
+for (const cat of meta.categories ?? []) {
+  if (!cat.count) continue;
+  routes.push(`/#/c/${encodeURIComponent(cat.id)}`);
+  const file = path.join(dest, `${cat.id}.json`);
+  if (!existsSync(file)) continue;
+  for (const product of JSON.parse(readFileSync(file, "utf8"))) {
+    routes.push(`/#/p/${encodeURIComponent(cat.id)}/${encodeURIComponent(product.id)}`);
+    products++;
+  }
+}
+
+const urls = routes
+  .map((route) => `  <url><loc>${xmlEscape(origin + route)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}</url>`)
+  .join("\n");
+writeFileSync(
+  path.resolve(here, "..", "public", "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+);
+console.log(`[copy-data] wrote sitemap.xml (${routes.length} urls, ${products} products)`);

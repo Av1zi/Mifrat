@@ -9,11 +9,15 @@ import {
   parseRoute,
   privacyHash,
   qaHash,
+  savedHash,
   termsHash,
   type Theme,
 } from "./state";
 import type { Currency, Lang } from "./types";
+import { button } from "./ui/button";
+import { syncCompareTray } from "./ui/compareTray";
 import { html, type Html } from "./ui/html";
+import { syncPickControls } from "./ui/pick";
 
 const MEGA_GROUPS: Array<{ head: "componentHeading" | "coolingHeading" | "accessoriesHeading"; ids: string[] }> = [
   { head: "componentHeading", ids: ["cpu", "motherboard", "memory", "gpu", "storage", "psu", "case"] },
@@ -78,6 +82,15 @@ function headerMarkup(state: ShellState): Html {
         <div class="search-results" data-search-results role="listbox" aria-live="polite" hidden></div>
       </div>
       <div class="site-controls">
+        ${button({
+          label: t(lang, "savedTitle"),
+          icon: html`${icon("heart", 17)}<span class="saved-count" data-saved-count hidden>0</span>`,
+          iconOnly: true,
+          href: savedHash(),
+          className: `saved-link${route.view === "saved" ? " is-active" : ""}`,
+          data: { nav: "saved" },
+          title: t(lang, "savedTitle"),
+        })}
         ${dropdown("currency", t(lang, "currencyToggle"), icon("coin", 15), currency, [
           { value: "ILS", text: "ILS (₪)" },
           { value: "USD", text: "USD ($)" },
@@ -126,6 +139,7 @@ function footerMarkup(lang: Lang): Html {
       <div class="site-footer__col">
         <h3>${t(lang, "footerBuildHead")}</h3>
         <a href="#/build">${t(lang, "builderNav")}</a>
+        <a href="${savedHash()}">${t(lang, "savedTitle")}</a>
         <a href="${qaHash()}">${t(lang, "qaTitle")}</a>
       </div>
       <div class="site-footer__col">
@@ -142,7 +156,7 @@ function footerMarkup(lang: Lang): Html {
 
 /** Header + empty <main> + footer. Returns after wiring the header controls. */
 export function renderShell(app: HTMLElement, state: ShellState, handlers: ShellHandlers): void {
-  app.innerHTML = html`${headerMarkup(state)}<main id="main-content"></main>${footerMarkup(state.lang)}`.value;
+  app.innerHTML = html`${headerMarkup(state)}<main id="main-content"></main>${footerMarkup(state.lang)}<aside class="compare-tray" id="compare-tray" aria-label="${t(state.lang, "compareTitle")}" hidden></aside>`.value;
   openDropdown = null;
 
   wireDropdown(app.querySelector('[data-dropdown="lang"]')!, (value) => handlers.onLang(value as Lang));
@@ -165,6 +179,7 @@ export function renderShell(app: HTMLElement, state: ShellState, handlers: Shell
 
   const searchRoot = app.querySelector<HTMLElement>("[data-search]");
   if (searchRoot) bindSearch(searchRoot, state.lang, state.currency);
+  syncPickControls();
 }
 
 /** Re-marks the active nav item after a hash change (header is not re-rendered). */
@@ -173,6 +188,7 @@ export function syncNav(): void {
   const flags: Record<string, boolean> = {
     build: route.view === "build",
     products: route.view === "categories" || route.view === "category" || route.view === "product",
+    saved: route.view === "saved",
   };
   document.querySelectorAll<HTMLElement>("[data-nav]").forEach((el) => {
     const on = flags[el.dataset.nav ?? ""] ?? false;
@@ -180,6 +196,7 @@ export function syncNav(): void {
     if (on) el.setAttribute("aria-current", "page");
     else el.removeAttribute("aria-current");
   });
+  syncCompareTray();
 }
 
 // ---- menus ---------------------------------------------------------------

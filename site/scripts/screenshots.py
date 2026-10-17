@@ -25,6 +25,7 @@ import socketserver
 import sys
 import threading
 from pathlib import Path
+from urllib.parse import quote
 
 from playwright.sync_api import sync_playwright
 
@@ -44,6 +45,25 @@ BUILD = {
     "psu": ["mpn:psu:srpcgx851a5a32sfw"],
 }
 
+# Phase-4 fixtures: the compare tray and saved list live in localStorage.
+def _part(id_: str, category: str, name: str, brand: str, thumb: str) -> dict:
+    return {"id": id_, "category": category, "name": name, "brand": brand, "thumb": thumb}
+
+
+CPUS = [
+    _part("model:cpu:ryzen55500-tray", "cpu", "AMD Ryzen 5 5500 Tray", "AMD", "/images/tms/thumbs/100-000000457.jpg"),
+    _part("model:cpu:ryzen53500-tray", "cpu", "AMD Ryzen 5 3500 Tray", "AMD", "/images/tms/thumbs/100-000000050.jpg"),
+    _part("mpn:cpu:100000000159", "cpu", "AMD Ryzen 3 3300X", "AMD", "/images/onepc/thumbs/100-000000159.jpg"),
+    _part("model:cpu:ryzen79800x3d-tray", "cpu", "AMD Ryzen 7 9800X3D Tray", "AMD", ""),
+]
+COMPARE_URL = "#/compare?ids=" + ",".join(quote(p["id"], safe="") for p in CPUS)
+GPU = _part("mpn:gpu:akn210d3s1gl1", "gpu", "ARKTEK GeForce GT 210 1GB VGA DVI", "ARKTEK", "/images/yahav/thumbs/AKN210D3S1GL1.jpg")
+SEEDS = {
+    "category-cpu-tray": {"mifrat:compare": {"category": "cpu", "items": CPUS[:3]}},
+    "saved": {"mifrat:saved": [{**p, "savedAt": 1_000 + i} for i, p in enumerate([*CPUS[:3], GPU])]},
+    "compare-cpu": {"mifrat:compare": {"category": "cpu", "items": CPUS}},
+}
+
 ROUTES = {
     "home": ("#/", None),
     "categories": ("#/categories", None),
@@ -53,6 +73,11 @@ ROUTES = {
     "category-pick": ("#/c/cpu?pick=cpu", BUILD),
     "product-gpu": ("#/p/gpu/mpn%3Agpu%3An506taerooc8gd", None),
     "product-cpu": ("#/p/cpu/model%3Acpu%3Aryzen79800x3d-tray", None),
+    "category-cpu-tray": ("#/c/cpu", None),
+    "compare-cpu": (COMPARE_URL, None),
+    "compare-empty": ("#/compare", None),
+    "saved": ("#/saved", None),
+    "saved-empty": ("#/saved", None),
     "builder-empty": ("#/build", None),
     "builder-full": ("#/build", BUILD),
     "qa": ("#/qa", None),
@@ -131,6 +156,11 @@ def main() -> int:
                             init += f"localStorage.setItem('mifrat:build',{json.dumps(json.dumps(seed))});"
                         else:
                             init += "localStorage.removeItem('mifrat:build');"
+                        for key in ("mifrat:compare", "mifrat:saved"):
+                            if key in SEEDS.get(name, {}):
+                                init += f"localStorage.setItem('{key}',{json.dumps(json.dumps(SEEDS[name][key]))});"
+                            else:
+                                init += f"localStorage.removeItem('{key}');"
                         page.add_init_script(init)
                         page.goto(base + hash_, wait_until="networkidle")
                         page.evaluate("document.fonts.ready")

@@ -24,11 +24,13 @@
 @import "./components/footer.css" layer(components);
 @import "./components/sheet.css" layer(components);
 @import "./components/chart.css" layer(components);
+@import "./components/pick.css" layer(components);
 
 @import "./views/home.css" layer(views);
 @import "./views/category.css" layer(views);
 @import "./views/product.css" layer(views);
 @import "./views/builder.css" layer(views);
+@import "./views/compare.css" layer(views);
 @import "./views/page.css" layer(views);
 
 @import "./utilities.css" layer(utilities);

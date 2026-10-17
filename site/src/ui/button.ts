@@ -16,6 +16,8 @@ interface ButtonOptions {
   className?: string;
   /** Icon-only button: the label becomes the accessible name. */
   iconOnly?: boolean;
+  /** Toggle buttons: renders aria-pressed (button only). */
+  pressed?: boolean;
 }
 
 export function button(options: ButtonOptions): Html {
@@ -33,6 +35,7 @@ export function button(options: ButtonOptions): Html {
     disabled,
     className = "",
     iconOnly,
+    pressed,
   } = options;
   const cls = `btn btn--${variant} btn--${size}${iconOnly ? " btn--icon" : ""} ${className}`;
   const inner = iconOnly
@@ -45,5 +48,6 @@ export function button(options: ButtonOptions): Html {
     const rel = external ? html` target="_blank" rel="noopener noreferrer"` : "";
     return html`<a class="${cls}" href="${href}"${rel}${idAttr}${titleAttr}${ariaAttr}${dataAttrs(data)}>${inner}</a>`;
   }
-  return html`<button type="button" class="${cls}"${idAttr}${titleAttr}${ariaAttr}${dataAttrs(data)}${disabled ? html` disabled` : ""}>${inner}</button>`;
+  const pressedAttr = pressed === undefined ? "" : html` aria-pressed="${pressed ? "true" : "false"}"`;
+  return html`<button type="button" class="${cls}"${idAttr}${pressedAttr}${titleAttr}${ariaAttr}${dataAttrs(data)}${disabled ? html` disabled` : ""}>${inner}</button>`;
 }

@@ -69,6 +69,20 @@
   width: 100%;
 }
 
+.buybox__signals:empty {
+  display: none;
+}
+
+.buybox__tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--sp-2);
+}
+
+.buybox__tools .btn {
+  width: 100%;
+}
+
 .fineprint {
   margin-top: var(--sp-3);
   color: var(--text-3);

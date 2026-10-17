@@ -13,7 +13,7 @@ export async function renderCategories(
   lang: Lang,
   currency: Currency
 ): Promise<void> {
-  setPageTitle(lang, t(lang, "allCategoriesTitle"));
+  setPageTitle(lang, t(lang, "allCategoriesTitle"), t(lang, "metaCategoriesDesc"));
   mount(container, loadingState(lang));
 
   let meta;

@@ -156,6 +156,8 @@ type Route =
   | { view: "terms" }
   | { view: "cookies" }
   | { view: "qa" }
+  | { view: "compare"; ids: string[] }
+  | { view: "saved" }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -198,6 +200,28 @@ export function parseRoute(): Route {
 
   if (path === "/qa" || path === "/qa/") {
     return { view: "qa" };
+  }
+
+  if (path === "/saved" || path === "/saved/") {
+    return { view: "saved" };
+  }
+
+  if (path === "/compare" || path === "/compare/") {
+    // Product ids contain ":" and may contain anything else, so split on the
+    // literal comma first and decode each id after.
+    const raw = (queryStr ?? "").split("&").find((part) => part.startsWith("ids=")) ?? "";
+    const ids = raw
+      .slice(4)
+      .split(",")
+      .map((id) => {
+        try {
+          return decodeURIComponent(id);
+        } catch {
+          return id;
+        }
+      })
+      .filter((id, i, all) => id !== "" && all.indexOf(id) === i);
+    return { view: "compare", ids };
   }
 
   if (path === "/categories" || path === "/categories/") {
@@ -345,6 +369,15 @@ export function buildHash(build: BuildMap): string {
 
   const query = search.toString();
   return `#/build${query ? `?${query}` : ""}`;
+}
+
+/** Side-by-side comparison: #/compare?ids=a,b,c (ids percent-encoded, comma-joined). */
+export function compareHash(ids: string[]): string {
+  return `#/compare?ids=${ids.map(encodeURIComponent).join(",")}`;
+}
+
+export function savedHash(): string {
+  return "#/saved";
 }
 
 export function homeHash(): string {

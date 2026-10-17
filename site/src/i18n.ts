@@ -226,6 +226,39 @@ export function attributeLabel(key: string, lang: Lang): string {
 const STRINGS = {
   he: {
     notListed: "לא מצוין",
+    compareTitle: "השוואת מוצרים",
+    compareAction: "השוואה",
+    compareAdd: "הוספה להשוואה",
+    compareRemove: "הסרה מההשוואה",
+    compareTrayLabel: "המוצרים להשוואה",
+    compareNow: "השוואה",
+    compareNeedMore: "בחרו עוד מוצר",
+    compareClear: "ניקוי",
+    compareFull: "אפשר להשוות עד 4 מוצרים",
+    compareSwitched: "ההשוואה התחילה מחדש: משווים מוצרים מקטגוריה אחת בלבד",
+    compareEmpty: "לא נבחרו מוצרים להשוואה. סמנו “השוואה” בשורות המוצרים כדי להתחיל.",
+    compareMissing: "חלק מהמוצרים לא נמצאו או שייכים לקטגוריה אחרת והוסרו מההשוואה.",
+    compareOnlyDiffs: "הצגת הבדלים בלבד",
+    compareDiffNote: "ערכים שונים מסומנים",
+    compareSame: "כל הערכים המוצגים זהים.",
+    compareSpecs: "מפרט",
+    compareGeneral: "כללי",
+    compareRemoveItem: "הסרה",
+    savedNav: "שמורים",
+    savedTitle: "מוצרים שמורים",
+    savedAdd: "שמירה",
+    savedRemove: "הסרה מהשמורים",
+    savedEmpty: "עוד לא שמרתם מוצרים. לחצו על הלב בכל מוצר כדי לשמור אותו כאן.",
+    savedHint: "השמורים נשמרים בדפדפן הזה בלבד ולא נשלחים לשום מקום.",
+    savedBrowse: "לעיון בקטגוריות",
+    signalLowest: "הנמוך ב-30 יום",
+    signalTypicalTitle: "בהשוואה לחציון המחיר ב-30 הימים האחרונים",
+    dropsTitle: "הירידות הגדולות במחיר",
+    dropsSub: "לפי היסטוריית המחירים של 30 הימים האחרונים",
+    metaCategoriesDesc: "כל קטגוריות רכיבי המחשב: מעבדים, כרטיסי מסך, לוחות אם, זיכרון ועוד. השוואת מחירים בין חנויות בישראל.",
+    metaBuilderDesc: "בניית מחשב עם בדיקת תאימות אוטומטית והשוואת מחירים בין החנויות בישראל.",
+    metaCompareDesc: "השוואה צד לצד של מפרט ומחירים בין רכיבי מחשב.",
+    metaSavedDesc: "רכיבי המחשב ששמרתם, עם המחיר העדכני ביותר.",
     details: "פרטים",
     homeHeroTitle: "כל רכיבי המחשב. המחיר הכי טוב בישראל.",
     homeHeroSub: "משווים מחירים בין החנויות המובילות ובודקים תאימות לפני שקונים.",
@@ -393,6 +426,39 @@ const STRINGS = {
   },
   en: {
     notListed: "Not listed",
+    compareTitle: "Compare parts",
+    compareAction: "Compare",
+    compareAdd: "Add to compare",
+    compareRemove: "Remove from compare",
+    compareTrayLabel: "Parts to compare",
+    compareNow: "Compare",
+    compareNeedMore: "Pick one more part",
+    compareClear: "Clear",
+    compareFull: "You can compare up to 4 parts",
+    compareSwitched: "Compare list restarted: one category at a time",
+    compareEmpty: "No parts to compare yet. Tick “Compare” on product rows to start.",
+    compareMissing: "Some parts were not found or belong to another category and were left out.",
+    compareOnlyDiffs: "Show differences only",
+    compareDiffNote: "Differing values are highlighted",
+    compareSame: "All the values shown are identical.",
+    compareSpecs: "Specifications",
+    compareGeneral: "Overview",
+    compareRemoveItem: "Remove",
+    savedNav: "Saved",
+    savedTitle: "Saved parts",
+    savedAdd: "Save",
+    savedRemove: "Remove from saved",
+    savedEmpty: "Nothing saved yet. Tap the heart on any part to keep it here.",
+    savedHint: "Saved parts live in this browser only and are never sent anywhere.",
+    savedBrowse: "Browse categories",
+    signalLowest: "Lowest in 30 days",
+    signalTypicalTitle: "Compared with the median price over the last 30 days",
+    dropsTitle: "Biggest price drops",
+    dropsSub: "Based on the last 30 days of recorded prices",
+    metaCategoriesDesc: "Every PC part category: processors, graphics cards, motherboards, memory and more. Price comparison across Israeli stores.",
+    metaBuilderDesc: "Build a PC with automatic compatibility checks and price comparison across Israeli stores.",
+    metaCompareDesc: "Side-by-side specs and prices for PC parts.",
+    metaSavedDesc: "The PC parts you saved, with their latest prices.",
     details: "Details",
     homeHeroTitle: "Every PC part. The best price in Israel.",
     homeHeroSub: "Compare prices across the leading shops and check compatibility before you buy.",
@@ -568,6 +634,34 @@ export function t(lang: Lang, key: StringKey): string {
 
 export function resultsCount(lang: Lang, n: number): string {
   return lang === "he" ? `${n} תוצאות` : `${n} results`;
+}
+
+export function compareCount(lang: Lang, n: number, max: number): string {
+  return lang === "he" ? `${n} מתוך ${max}` : `${n} of ${max}`;
+}
+
+export function signalDown(lang: Lang, pct: number): string {
+  return lang === "he" ? `ירידה של ${pct}%` : `Down ${pct}%`;
+}
+
+/** Meta description for a category page. */
+export function categoryMetaDesc(lang: Lang, label: string, count: number): string {
+  const n = count.toLocaleString(lang === "he" ? "he-IL" : "en-US");
+  return lang === "he"
+    ? `השוואת מחירים ל${label} בחנויות בישראל: ${n} מוצרים, עם סינון לפי מפרט.`
+    : `Compare ${label.toLowerCase()} prices across Israeli stores: ${n} products with spec filters.`;
+}
+
+/** Meta description for a product page. */
+export function productMetaDesc(lang: Lang, name: string, vendors: number, price: string | null): string {
+  if (lang === "he") {
+    return price
+      ? `${name} — החל מ-${price}, ${vendorsCount(lang, vendors)}. מפרט והיסטוריית מחירים.`
+      : `${name} — מפרט והשוואת חנויות.`;
+  }
+  return price
+    ? `${name} — from ${price}, ${vendorsCount(lang, vendors)}. Specs and price history.`
+    : `${name} — specs and store comparison.`;
 }
 
 export function vendorsCount(lang: Lang, n: number): string {

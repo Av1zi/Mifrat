@@ -6,6 +6,8 @@ import { addToBuild, getStoredBuild, navigate, productHash, setStoredBuild } fro
 import type { Lang, Product, SortKey } from "../../types";
 import { displayName, safeUrl } from "../../utils";
 import { button } from "../../ui/button";
+import { compareCheck, saveButton, syncPickControls } from "../../ui/pick";
+import { signalBadges } from "../../ui/signal";
 import { chip } from "../../ui/chip";
 import { emptyState } from "../../ui/state";
 import { html, mount, type Html } from "../../ui/html";
@@ -56,6 +58,13 @@ function actionMarkup(ctx: CategoryCtx, p: Product): Html {
   });
 }
 
+/** Compare checkbox + heart on every row in both views (not while picking a build part). */
+function toolsMarkup(ctx: CategoryCtx, p: Product): Html {
+  if (ctx.pickSlot) return html``;
+  const { lang } = ctx;
+  return html`<div class="row__tools">${compareCheck(p, lang)}${saveButton(p, lang)}</div>`;
+}
+
 function titleMarkup(p: Product, lang: Lang, href: string): Html {
   const allStale = p.offers.length > 0 && p.offers.every((o) => o.stale);
   return html`<a class="row__title" href="${href}">${displayName(p)}</a>${allStale ? html` <span class="stale-tag">${t(lang, "staleData")}</span>` : ""}`;
@@ -76,11 +85,12 @@ function cardRow(ctx: CategoryCtx, p: Product): Html {
     </div>
     <div class="row__buy">
       ${priceCell(p.min_price, currency, lang, "lg")}
+      ${signalBadges(ctx.signals.get(p.id), lang)}
       ${offer && positivePrice(p.min_price) !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
       ${storesMarkup(ctx, p)}
       ${stockMarkup(p, lang)}
     </div>
-    <div class="row__action" aria-label="${name}">${actionMarkup(ctx, p)}</div>
+    <div class="row__action" aria-label="${name}">${actionMarkup(ctx, p)}${toolsMarkup(ctx, p)}</div>
   </article>`;
 }
 
@@ -99,8 +109,8 @@ function tableRow(ctx: CategoryCtx, p: Product): Html {
     <td class="col-name">${titleMarkup(p, lang, href)}${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}</td>
     ${ctx.columns.map((f) => html`<td>${specCell(specValue(p, f), lang)}</td>`)}
     <td>${stockMarkup(p, lang)}</td>
-    <td class="col-price">${priceCell(p.min_price, currency, lang)}${storesMarkup(ctx, p, false)}</td>
-    <td class="col-action">${actionMarkup(ctx, p)}</td>
+    <td class="col-price">${priceCell(p.min_price, currency, lang)}${signalBadges(ctx.signals.get(p.id), lang)}${storesMarkup(ctx, p, false)}</td>
+    <td class="col-action">${actionMarkup(ctx, p)}${toolsMarkup(ctx, p)}</td>
   </tr>`;
 }
 
@@ -130,6 +140,7 @@ export function renderList(ctx: CategoryCtx, listEl: HTMLElement, filtered: Prod
   listEl.classList.toggle("list--table", asTable);
   mount(listEl, asTable ? tableMarkup(ctx, visible) : html`${visible.map((p) => cardRow(ctx, p))}`);
   bindThumbs(listEl);
+  syncPickControls();
 }
 
 /** Delegated interactions for the list host (set once; its content is replaced). */
@@ -177,7 +188,7 @@ export function bindList(ctx: CategoryCtx, listEl: HTMLElement, actions: Categor
     }
 
     // Whole-row click navigates; links, buttons and the stores popover keep their own behaviour.
-    if (target.closest("a, button, summary, details, input")) return;
+    if (target.closest("a, button, summary, details, input, label")) return;
     const row = target.closest<HTMLElement>("[data-href]");
     if (row?.dataset.href) navigate(row.dataset.href);
   });
