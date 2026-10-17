@@ -108,6 +108,23 @@ class MergeResult:
         return [f.as_dict() for f in self.invalid]
 
 
+# Fields where a bare affirmative is the least informative value possible.
+# TMS's lazy "כרטיס רשת אלחוטי: יש" cell ("Yes") outranked the title's
+# precise standard on tier alone, so every board whose version was knowable
+# still shipped "Yes" (the 2026-10-17 WiFi6E -> "WiFi" regression). A stable
+# sort lifts a standard ("Wi-Fi 6E") above an affirmative; "No" is NOT an
+# affirmative and keeps its tier position — a board that reports no wireless
+# must never lose that to a title mention of Wi-Fi.
+_BARE_AFFIRMATIVE_FIELDS = frozenset({"wireless"})
+_AFFIRMATIVE_VALUES = frozenset(
+    {"yes", "y", "true", "1", "wifi", "wi-fi", "wireless", "\u05db\u05df",
+     "\u05d9\u05e9"})
+
+
+def _bare_affirmative_rank(fact: "Fact") -> int:
+    return 1 if str(fact.value).strip().lower() in _AFFIRMATIVE_VALUES else 0
+
+
 def model_name_preference(fact: "Fact") -> int:
     """Sort key for the `model` field: 0 for a name, 1 for a part number.
 
@@ -213,6 +230,11 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
                 model_name_preference(fact) == 0 for fact in accepted):
             accepted.sort(key=lambda fact: (model_name_preference(fact),
                                             model_number_preference(fact)))
+
+        # A standard beats a bare "Yes" in the fields listed above (tier
+        # order stays intact inside both groups; see _BARE_AFFIRMATIVE_FIELDS).
+        if name in _BARE_AFFIRMATIVE_FIELDS and len(accepted) > 1:
+            accepted.sort(key=_bare_affirmative_rank)
 
         winner = accepted[0]
         result.specs[name] = winner.value

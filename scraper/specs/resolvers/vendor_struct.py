@@ -905,6 +905,95 @@ def _emit_memory_support(facts: dict, category: str, value, source: str) -> None
         _emit(facts, category, "memory_speeds", speeds, source, 0.7)
 
 
+# Hebrew connector words Ivory wraps around the CPU families it lists:
+# "מעבדי AMD: … מסדרות AMD Ryzen 9000 / 8000" ("processors", "from series").
+_CPU_SUPPORT_WORDS = (
+    "\u05de\u05e2\u05d1\u05d3\u05d9\u05dd",   # מעבדים
+    "\u05de\u05e2\u05d1\u05d3\u05d9",         # מעבדי
+    "\u05de\u05e2\u05d1\u05d3",               # מעבד
+    "\u05de\u05e1\u05d3\u05e8\u05d5\u05ea",   # מסדרות
+    "\u05e1\u05d3\u05e8\u05d5\u05ea",         # סדרות
+    "\u05e1\u05d3\u05e8\u05d4",               # סדרה
+)
+
+
+def _emit_cpu_support(facts: dict, category: str, value, source: str) -> None:
+    """Ivory's "תמיכה במעבדים (CPU)" prose -> a compact token string.
+
+    The cell names whole CPU families in Hebrew prose ("מעבדי AMD: Ryzen 3 /
+    Ryzen 5 / Ryzen 7 / Ryzen 9 מסדרות AMD Ryzen 9000 / 8000 / 7000",
+    "Intel Core Ultra 5 / 7 / 9 סדרה Intel Core Ultra Processors (Series 2)
+    - Arrow Lake"). Everything factual in it is Latin + digits, so the
+    Hebrew connector words are stripped and the remaining tokens are
+    compacted ("AMD Ryzen 3 / Ryzen 5 / Ryzen 9 / Ryzen 9000 / 8000 /
+    7000"). Nothing is translated or invented — a cell with no Latin/digit
+    content at all is refused rather than guessed.
+    """
+    if category != "motherboard":
+        return
+    text = str(value or "")
+    if not text:
+        return
+    for word in _CPU_SUPPORT_WORDS:
+        text = text.replace(word, " ")
+    text = re.sub(r"[\u0590-\u05FF]+", " ", text)   # any leftover Hebrew run
+    text = text.replace(":", " ").replace("\ufffd", " ")
+    text = re.sub(r"\s+", " ", text).strip(" -/|")
+    if not text:
+        return
+
+    # The family name repeats mid-cell in two shapes: with no separators at
+    # all ("AMD Ryzen 3 AMD Ryzen 5 …") and inside one slot ("Ryzen 9 AMD
+    # Ryzen 9000"). Turn every repeat after the first into a separator so
+    # each chip/series lands in its own slot.
+    for family in ("AMD Ryzen", "Intel Core Ultra"):
+        text = re.sub(r"(?<=\S)\s+" + family + r"\s+", f" / {family} ", text)
+
+    parts = [part.strip()
+             for part in re.split(r"\s*(?:/|,|\u2022|\||\u00b7)\s*", text)
+             if part.strip()]
+    out: list[str] = []
+    for part in parts:
+        if part and part not in out:
+            out.append(part)
+    text = " / ".join(out)
+
+    # "AMD Ryzen" re-states the family in the series list ("AMD Ryzen 3 /
+    # Ryzen 9 / AMD Ryzen 9000"): keep the word, drop the brand repeat.
+    if text.count("AMD Ryzen") > 1:
+        first = text.find("AMD Ryzen")
+        head = text[:first + len("AMD Ryzen")]
+        text = head + text[first + len("AMD Ryzen"):].replace("AMD Ryzen", "Ryzen")
+    # "(Series 2)" restates "Intel Core Ultra" — keep the first mention.
+    while text.count("Intel Core Ultra") > 1:
+        first = text.find("Intel Core Ultra")
+        second = text.find("Intel Core Ultra", first + len("Intel Core Ultra"))
+        before = text[:second].rstrip(" /")
+        after = text[second + len("Intel Core Ultra"):].lstrip(" /")
+        text = (before + " " + after).strip()
+
+    text = re.sub(r"\bProcessors?\b", " ", text, flags=re.I)
+    text = re.sub(r"\s*/\s*", " / ", text).strip(" -/")
+    text = re.sub(r"\s+", " ", text)
+    if not text:
+        return
+    _emit(facts, category, "cpu_support", text, source, 0.75)
+
+
+def _emit_cpu_memory_support(facts: dict, category: str, value, source: str) -> None:
+    """CPU "אפשרויות הרחבה וקישוריות" cell -> supported memory capacity.
+
+    "• תומך עד 192GB זכרון DDR5 • תומך PCI Express דור 5.0 • סה"כ 24 PCI
+    Express Lane" — only the capacity has a schema field; the PCIe lanes are
+    left to the label-gap evidence.
+    """
+    if category != "cpu":
+        return
+    match = re.search(r"(?:עד|up to)\s*(\d{2,4})\s*GB", str(value or ""))
+    if match:
+        _emit(facts, category, "max_memory_gb", int(match.group(1)), source, 0.7)
+
+
 def _emit_storage_support(facts: dict, category: str, value, source: str) -> None:
     """Ivory storage cell -> M.2 count / SATA ports / RAID."""
     text = str(value or "")
@@ -1561,6 +1650,12 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         return True
     if token == labels.MEMORY_SUPPORT:
         _emit_memory_support(facts, category, value, source)
+        return True
+    if token == labels.CPU_SUPPORT:
+        _emit_cpu_support(facts, category, value, source)
+        return True
+    if token == labels.CPU_MEMORY_SUPPORT:
+        _emit_cpu_memory_support(facts, category, value, source)
         return True
     if token == labels.STORAGE_SUPPORT:
         _emit_storage_support(facts, category, value, source)

@@ -338,13 +338,19 @@ MOTHERBOARD = (
        he="סוקט", en="Socket"),
     _f("chipset", "str", filterable=True, group="core",
        aliases=("chipset", "cpu_model", "northbridge"), he="ערכת שבבים", en="Chipset"),
-    # Deliberately NO `supported_cpus` field: Ivory's "תמיכה במעבדים (CPU)"
-    # row (184 boards) is Hebrew prose naming whole families ("מעבדי AMD:
-    # Ryzen 3 / … מסדרות … 9000 / 8000 / 7000") and every value is dropped
-    # by clean_detail_value's Hebrew-prose rule. Shipping the sentence as a
-    # spec value would put untranslated prose in a field the filter rail
-    # groups, so the row stays coverage-gap evidence (see decisions.md,
-    # 2026-10-15).
+    # Ivory's "תמיכה במעבדים (CPU)" row (216 rows, the largest unmapped
+    # label in the catalog) names the CPU families the board takes. The raw
+    # values are Hebrew prose ("מעבדי AMD: Ryzen 3 / … מסדרות … 9000 /
+    # 8000"), which is why 2026-10-15 refused the field. 2026-10-17 reversal:
+    # labels.CPU_SUPPORT routes the row through a parser that strips the
+    # Hebrew connector words and keeps the Latin family tokens ("AMD Ryzen
+    # 3 / Ryzen 5 / Ryzen 9000 / 8000"), so the sheet carries a readable
+    # token string instead of untranslated prose. Deliberately NOT
+    # filterable — the rail groups it would explode into dozens of
+    # near-duplicate values.
+    _f("cpu_support", "str", group="core",
+       aliases=("cpu_support", "supported_cpus", "cpu_compatibility"),
+       he="תמיכה במעבדים", en="CPU Support"),
     _f("form_factor", "enum", enum=("ATX", "EATX", "Micro-ATX", "Mini-ITX", "XL-ATX",
                                     "Mini-DTX", "Thin Mini-ITX", "SSI-EEB"),
        filterable=True, group="physical",

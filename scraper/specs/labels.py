@@ -76,6 +76,8 @@ MB_FORM_FACTORS = "__mb_form_factors__"    # "Mini ITX Micro ATX" -> list
 GPU_VRAM = "__gpu_vram__"                  # "12GB GDDR7" -> memory_gb + type
 GPU_COOLING = "__gpu_cooling__"            # "צלעות קירור בלבד" -> cooling
 MEMORY_SUPPORT = "__memory_support__"      # Ivory RAM cell -> 4 fields
+CPU_SUPPORT = "__cpu_support__"            # Ivory CPU-family prose -> compact str
+CPU_MEMORY_SUPPORT = "__cpu_memory_support__"  # CPU "expansion" cell -> max_memory_gb
 STORAGE_SUPPORT = "__storage_support__"    # Ivory storage cell -> m2/sata/raid
 USB_SUMMARY = "__usb_summary__"            # rear USB list -> usb_ports string
 REAR_OUTPUTS = "__rear_outputs__"           # rear video ports -> onboard_video
@@ -116,6 +118,7 @@ SPECIAL_TOKENS = frozenset({
     RADIATOR_SUPPORT, DRIVE_BAYS, FRONT_IO,
     SIDE_WINDOW, PSU_INCLUDED_CELL, MB_FORM_FACTORS, GPU_VRAM, GPU_COOLING,
     MEMORY_SUPPORT, STORAGE_SUPPORT, USB_SUMMARY, REAR_OUTPUTS,
+    CPU_SUPPORT, CPU_MEMORY_SUPPORT,
     INTERNAL_HEADERS, QUANTITY_WORDS, FAN_CONNECTOR, NAND_CELL,
     STORAGE_FORM_FACTOR, INTERFACE_CONNECTIVITY, NETWORK_CARD,
     PSU_CONN_STRING, THERMAL_DESIGN, MEMORY_SPEEDS, EXPANSION_SLOTS,
@@ -236,6 +239,10 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # drops into — the actual "does it fit my board" answer.
         "תאימות ערכת שבבים": "chipset_support",
         "ארכיטקטורה": "microarchitecture",
+        # "• תומך עד 192GB זכרון DDR5 • תומך PCI Express דור 5.0 • …" — the
+        # only schema fact inside this cell is the supported memory capacity
+        # (17 rows); the PCIe lanes it also names have no field.
+        "אפשרויות הרחבה וקישוריות": CPU_MEMORY_SUPPORT,
         "משפחת ליבות": "core_family",
         "שם קוד": "core_family",
         "תושבת מעבד": "socket",
@@ -369,6 +376,13 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "ערכת שבבים": "chipset",
         "שבב": "chipset",
         "צ'יפסט": "chipset",
+        # 216 rows of Hebrew CPU-family prose -> cpu_support parser.
+        "תמיכה במעבדים (CPU)": CPU_SUPPORT,
+        # Ivory's generic "ממשק" row on a board names the drive interfaces
+        # it exposes ("SATA III 6Gbps", "PCIe Gen 4.0"), not a graphics
+        # interface — COMMON_LABELS sends it to `interface`, which no
+        # motherboard schema owns, so it landed in label_gaps (16 rows).
+        "ממשק": "storage_interface",
         "תושבת מעבד": "socket",
         "תושבת": "socket",
         "סוקט": "socket",
