@@ -202,8 +202,14 @@ def check_scoring(c: Checks) -> None:
     c.lt(furniture, 0, "furniture is unpickable")
     c.lt(local_tile, tms_detail,
          "a 228px local file is penalised against a full-size one")
-    c.eq(image_score.priority_table().get("case"), ["tms", "onepc", "ivory", "plonter"],
-          "committed priority table is loaded for 'case' (plonter demoted last)")
+    # 2026-10-17 (fix-round P7): the committed table now lists yahav second
+    # (tms -> yahav -> onepc -> ivory -> plonter) so the vendor we scrape
+    # ourselves leads over the 1PC tiles it was losing to; plonter stays
+    # last. Baseline updated in the same commit as the table, per the rule
+    # in this file's header.
+    c.eq(image_score.priority_table().get("case"),
+          ["tms", "yahav", "onepc", "ivory", "plonter"],
+          "committed priority table is loaded for 'case' (yahav second, plonter last)")
 
     # Cross-vendor, same kind: the committed table decides (that is its job),
     # even when the lower-priority vendor's URL shape is nicer.
