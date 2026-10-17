@@ -1,0 +1,73 @@
+name: site-checks
+# Code-quality gate for the frontend and the spec system. Deliberately separate
+# from normalize-and-deploy.yml, which only triggers on data/raw/** and so never
+# sees a code-only push or PR. Read-only: no secrets, no commits, no deploys.
+on:
+  push:
+    paths:
+      - 'site/**'
+      - 'scraper/specs/**'
+      - 'scripts/check_*.py'
+      - '.github/workflows/site-checks.yml'
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'scraper/specs/**'
+      - 'scripts/check_*.py'
+      - '.github/workflows/site-checks.yml'
+  workflow_dispatch: {}
+
+concurrency:
+  group: site-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    name: site (tsc, lint, vitest, build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            site/package-lock.json
+            site/tools/lint/package-lock.json
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc -b
+      - name: Lint
+        # Installs the isolated ESLint toolchain in site/tools/lint on first use.
+        run: npm run lint
+      - name: Unit tests
+        run: npm test
+      - name: Build
+        # prebuild copies ../data/site into public/ (committed daily by the
+        # normalize job); build = tsc -b && vite build.
+        run: npm run build
+
+  specs:
+    name: spec checks (python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Spec schema <-> frontend drift
+        run: python scripts/check_spec_sync.py
+      - name: Spec merge-layer regressions
+        run: python scripts/check_spec_merge.py
+      - name: Spec coverage floors
+        run: python scripts/check_spec_coverage.py
+      - name: Photo pipeline regressions
+        run: python scripts/check_image_pick.py
