@@ -67,6 +67,75 @@ export function errorPanel(
     </div>`;
 }
 
+/**
+ * Search normalization + ranking (shared by the nav search and the category
+ * page search so both agree on what "a match" is).
+ *
+ * Matching is token-based: every whitespace-separated token of the query
+ * must appear somewhere in the haystack ("gigabyte 5070 oc" no longer
+ * matches nothing just because the words are not adjacent). Ranking adds
+ * brand/category scoping: a query token that equals the brand or the
+ * category label lifts those products above the rest.
+ */
+export function normSearch(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/["'`׳״־–—]/g, " ")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function searchTokens(query: string): string[] {
+  const norm = normSearch(query);
+  return norm ? norm.split(" ") : [];
+}
+
+export interface SearchScoreInput {
+  /** Pre-normalized haystack the tokens must all appear in. */
+  haystack: string;
+  /** Pre-normalized product name (used for the exact/prefix bonuses). */
+  name: string;
+  /** Pre-normalized brand, for brand scoping. */
+  brand: string;
+  /** Pre-normalized category label, for category scoping. */
+  category: string;
+}
+
+/**
+ * Score >= 0 when every query token matches (higher = more relevant);
+ * -1 when it is not a match. Callers sort descending.
+ */
+export function searchScore(
+  tokens: string[],
+  input: SearchScoreInput
+): number {
+  if (tokens.length === 0) return -1;
+  for (const token of tokens) {
+    if (!input.haystack.includes(token)) return -1;
+  }
+  const query = tokens.join(" ");
+  let score = 0;
+  if (input.name === query) score += 120;
+  else if (input.name.startsWith(query)) score += 80;
+  else if (input.name.includes(query)) score += 50;
+  for (const token of tokens) {
+    const fromBrand = input.brand ? input.brand.split(" ") : [];
+    if (fromBrand.includes(token)) score += 26; // brand scoping
+    if (input.category && input.category.split(" ").includes(token)) {
+      score += 20; // category scoping
+    }
+  }
+  // Every token inside the name itself is a stronger signal than one that
+  // only appears in a spec value; shorter names win ties.
+  const nameTokens = input.name.split(" ");
+  const inName = tokens.filter((t) => nameTokens.includes(t)).length;
+  score += inName * 6;
+  score += Math.max(0, 12 - Math.floor(input.name.length / 8));
+  return score;
+}
+
 export function skuOf(p: Product): string {
   if (p.model) return p.model;
   return p.id.split(":").pop() || p.id;

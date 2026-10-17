@@ -570,6 +570,11 @@ async function renderPriceHistory(
   if (vendors.length === 0) return;
 
   let dayWindow = dates.length;
+  // Legend toggles (Phase-4 pass): a busy multi-vendor chart can hide a
+  // line per vendor; the axis rescales to the visible series only.
+  const hiddenVendors = new Set<string>();
+  const visibleVendors = (): string[] =>
+    vendors.filter((vendor) => !hiddenVendors.has(vendor));
   const colorOf = (vendor: string): string =>
     HISTORY_COLORS[vendors.indexOf(vendor) % HISTORY_COLORS.length];
 
@@ -588,9 +593,10 @@ async function renderPriceHistory(
     const start = Math.max(0, end - dayWindow);
     const visDates = dates.slice(start, end);
 
+    const shownVendors = visibleVendors();
     let lo = Infinity;
     let hi = -Infinity;
-    for (const v of vendors) {
+    for (const v of shownVendors) {
       for (const p of entry.v[v].slice(start, end)) {
         if (p === null || p === undefined) continue;
         if (p < lo) lo = p;
@@ -646,7 +652,7 @@ async function renderPriceHistory(
       )
       .join("");
 
-    const paths = vendors
+    const paths = shownVendors
       .map((vendor) => {
         const points = entry.v[vendor].slice(start, end);
         let d = "";
@@ -672,10 +678,10 @@ async function renderPriceHistory(
       .join("");
 
     const legend = vendors
-      .map(
-        (vendor) =>
-          `<span class="ph-legend-item"><span class="ph-swatch" style="background:${colorOf(vendor)}"></span>${esc(vendorLabel(vendor))}</span>`
-      )
+      .map((vendor) => {
+        const off = hiddenVendors.has(vendor);
+        return `<button type="button" class="ph-legend-item${off ? " is-off" : ""}" data-vendor="${esc(vendor)}" aria-pressed="${off ? "false" : "true"}" title="${esc(t(lang, "toggleSeries"))}"><span class="ph-swatch" style="background:${colorOf(vendor)}"></span>${esc(vendorLabel(vendor))}</button>`;
+      })
       .join("");
 
     const rangeDefs = [7, 14, 30, 120].filter(
@@ -728,7 +734,18 @@ async function renderPriceHistory(
     const svg = wrap.querySelector(".ph-chart") as SVGSVGElement;
     const tip = wrap.querySelector(".ph-tip") as HTMLElement;
     const cross = svg.querySelector(".ph-cross") as SVGLineElement;
-    const series = vendors.map((v) => entry.v[v].slice(start, end));
+    const series = shownVendors.map((v) => entry.v[v].slice(start, end));
+
+    host.querySelectorAll<HTMLButtonElement>(".ph-legend-item").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const vendor = btn.dataset.vendor ?? "";
+        if (hiddenVendors.has(vendor)) hiddenVendors.delete(vendor);
+        else hiddenVendors.add(vendor);
+        // Never leave the chart empty: the last visible line stays on.
+        if (visibleVendors().length === 0) hiddenVendors.delete(vendor);
+        draw();
+      });
+    });
     const fmtDay = (index: number): string => {
       const raw = timestamps[start + index] ?? visDates[index];
       const d = new Date(raw);
@@ -738,7 +755,7 @@ async function renderPriceHistory(
     };
     let focusIdx = n - 1;
     const showAt = (best: number, anchorX?: number, anchorY?: number): void => {
-      const rows = vendors
+      const rows = shownVendors
         .map((vendor, vi) => ({ vendor, price: series[vi][best] as number | null }))
         .filter((r) => r.price !== null && r.price !== undefined);
       if (rows.length === 0) {

@@ -378,6 +378,98 @@ function gpuFitsCase(gpu: Product, case_: Product): boolean {
   return card <= max;
 }
 
+/*
+============================================================================
+Phase-3 depth (2026-10-17): the physical/electrical fits the pipeline now
+has data for — board form factor vs case, cooler height vs case clearance,
+AIO radiator vs case support, RAM speed vs board support, and the GPU's
+PSU recommendation. Same forgiving rule as above: only both-sides-known
+conflicts are raised.
+============================================================================
+*/
+
+/** Canonical form-factor token ("Micro-ATX", "mATX", "uATX" -> MICROATX). */
+function normFormFactor(value: string): string {
+  const v = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (v === "MATX" || v === "MICROATX" || v === "UATX") return "MICROATX";
+  if (v === "ITX" || v === "MINIITX") return "MINIITX";
+  if (v === "EATX" || v === "EXTENDEDATX") return "EATX";
+  if (v === "XLATX") return "XLATX";
+  if (v === "MINIDTX") return "MINIDTX";
+  if (v === "SSIEEB") return "SSIEEB";
+  return v;
+}
+
+export function boardFormFactor(p: Product): string | null {
+  const raw = specText(p, "form_factor");
+  return raw ? normFormFactor(raw) : null;
+}
+
+export function caseFormFactors(p: Product): string[] {
+  const value = p.specs?.mb_form_factors;
+  if (!Array.isArray(value)) return [];
+  return unique(value.map((item) => normFormFactor(String(item))));
+}
+
+function boardFitsCase(board: Product, case_: Product): boolean {
+  const boardFactor = boardFormFactor(board);
+  const supported = caseFormFactors(case_);
+  if (!boardFactor || supported.length === 0) return true;
+  return supported.includes(boardFactor);
+}
+
+/** Tallest cooler the case takes vs the cooler's own height. */
+function coolerFitsCase(cooler: Product, case_: Product): boolean {
+  const height = numSpec(cooler, ["height_mm"]);
+  const max = numSpec(case_, ["max_cooler_height_mm"]);
+  if (height === null || max === null) return true;
+  return height <= max;
+}
+
+/** Radiator sizes the case lists ({"360 mm": 1, ...} -> [360, ...]). */
+export function caseRadiatorSizes(p: Product): number[] {
+  const value = p.specs?.radiator_support;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return [];
+  const sizes = new Set<number>();
+  for (const key of Object.keys(value as Record<string, unknown>)) {
+    const match = key.match(/(\d{2,3})/);
+    if (match) sizes.add(Number(match[1]));
+  }
+  return [...sizes];
+}
+
+function aioFitsCase(aio: Product, case_: Product): boolean {
+  const radiator = numSpec(aio, ["radiator_size_mm"]);
+  const sizes = caseRadiatorSizes(case_);
+  if (radiator === null || sizes.length === 0) return true;
+  return sizes.some((size) => size >= radiator);
+}
+
+/** Kit speed above every speed the board lists is a likely no-boot. */
+function memorySpeedFitsBoard(memory: Product, board: Product): boolean {
+  const kitSpeed = numSpec(memory, ["speed_mhz"]);
+  if (kitSpeed === null) return true;
+  const listed: number[] = [];
+  for (const field of ["memory_speeds", "speed"]) {
+    const value = board.specs?.[field];
+    const items = Array.isArray(value) ? value : value ? [value] : [];
+    for (const item of items) {
+      const match = String(item).match(/(\d{3,5})/);
+      if (match) listed.push(Number(match[1]));
+    }
+  }
+  if (listed.length === 0) return true;
+  return kitSpeed <= Math.max(...listed);
+}
+
+/** The card's own PSU recommendation vs the selected supply. */
+function psuMeetsGpuRecommendation(psu: Product, gpu: Product): boolean {
+  const capacity = numSpec(psu, ["wattage_w"]);
+  const recommended = numSpec(gpu, ["recommended_psu_w"]);
+  if (capacity === null || recommended === null) return true;
+  return capacity >= recommended;
+}
+
 /** Memory kit within the board's max capacity when both are known. */
 function memoryFitsBoard(memory: Product, board: Product): boolean {
   const kit = memoryCapacityGb(memory);
@@ -476,6 +568,15 @@ export function checkCompatibility(
           : "Memory kit exceeds the motherboard maximum capacity"
       );
     }
+
+    if (!memorySpeedFitsBoard(memory, motherboard)) {
+      const kitSpeed = numSpec(memory, ["speed_mhz"]);
+      issues.push(
+        lang === "he"
+          ? `מהירות הזיכרון (${kitSpeed}MHz) גבוהה ממה שלוח האם מצהיר עליו`
+          : `Memory speed (${kitSpeed}MHz) is above what the motherboard lists`
+      );
+    }
   }
 
   const gpu = parts.gpu;
@@ -487,6 +588,34 @@ export function checkCompatibility(
         ? "כרטיס המסך ארוך מדי למארז הנבחר"
         : "Graphics card is longer than the selected case supports"
     );
+  }
+
+  if (motherboard && case_ && !boardFitsCase(motherboard, case_)) {
+    issues.push(
+      lang === "he"
+        ? `לוח האם (${boardFormFactor(motherboard)}) אינו נכנס למארז`
+        : `Motherboard (${boardFormFactor(motherboard)}) does not fit the case`
+    );
+  }
+
+  if (cooler && case_) {
+    if (!coolerFitsCase(cooler, case_)) {
+      const height = numSpec(cooler, ["height_mm"]);
+      const max = numSpec(case_, ["max_cooler_height_mm"]);
+      issues.push(
+        lang === "he"
+          ? `גובה הקירור (${height}mm) עולה על המרווח במארז (${max}mm)`
+          : `Cooler height (${height}mm) exceeds the case clearance (${max}mm)`
+      );
+    }
+    if (!aioFitsCase(cooler, case_)) {
+      const radiator = numSpec(cooler, ["radiator_size_mm"]);
+      issues.push(
+        lang === "he"
+          ? `המארז לא מצהיר על תמיכה ברדיאטור ${radiator}mm`
+          : `The case does not list support for a ${radiator}mm radiator`
+      );
+    }
   }
 
   if (cpu && cooler) {
@@ -515,7 +644,24 @@ export function checkCompatibility(
           ? `הספק (${capacity}W) חלש מהצריכה הידועה (${estWatts}W)`
           : `PSU (${capacity}W) is below known system wattage (${estWatts}W)`
       );
+    } else if (capacity !== null && capacity < estWatts * 1.2) {
+      // Headroom note, not an error: transient GPU spikes go well above TDP.
+      issues.push(
+        lang === "he"
+          ? `מרווח הספק קטן: ${capacity}W מול צריכה ידועה ${estWatts}W`
+          : `Little wattage headroom: ${capacity}W against a known ${estWatts}W draw`
+      );
     }
+  }
+
+  if (psu && gpu && !psuMeetsGpuRecommendation(psu, gpu)) {
+    const capacity = numSpec(psu, ["wattage_w"]);
+    const recommended = numSpec(gpu, ["recommended_psu_w"]);
+    issues.push(
+      lang === "he"
+        ? `כרטיס המסך ממליץ על ספק ${recommended}W לפחות (נבחר ${capacity}W)`
+        : `The card recommends at least ${recommended}W (selected ${capacity}W)`
+    );
   }
 
   return issues;
@@ -655,8 +801,23 @@ export function isProductCompatibleWithBuild(
     }
   }
 
-  if (slotId === "case" && parts.gpu) {
-    if (!gpuFitsCase(parts.gpu, product)) {
+  if (slotId === "case") {
+    if (parts.gpu && !gpuFitsCase(parts.gpu, product)) {
+      return false;
+    }
+    if (parts.motherboard && !boardFitsCase(parts.motherboard, product)) {
+      return false;
+    }
+    if (parts.cooler && !coolerFitsCase(parts.cooler, product)) {
+      return false;
+    }
+    if (parts.cooler && !aioFitsCase(parts.cooler, product)) {
+      return false;
+    }
+  }
+
+  if (slotId === "motherboard" && parts.case) {
+    if (!boardFitsCase(product, parts.case)) {
       return false;
     }
   }
@@ -676,6 +837,11 @@ export function isProductCompatibleWithBuild(
         return false;
       }
     }
+
+    if (parts.case) {
+      if (!coolerFitsCase(product, parts.case)) return false;
+      if (!aioFitsCase(product, parts.case)) return false;
+    }
   }
 
   if (slotId === "psu") {
@@ -687,6 +853,12 @@ export function isProductCompatibleWithBuild(
       if (capacity !== null && capacity < estWatts) {
         return false;
       }
+    }
+  }
+
+  if (slotId === "memory" && parts.motherboard) {
+    if (!memorySpeedFitsBoard(product, parts.motherboard)) {
+      return false;
     }
   }
 

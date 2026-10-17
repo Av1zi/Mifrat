@@ -30,7 +30,15 @@ import {
   type Theme,
 } from "./state";
 import type { Currency, IndexRow, Lang, Product } from "./types";
-import { displayName, errorPanel, esc, safeImageUrl } from "./utils";
+import {
+  displayName,
+  errorPanel,
+  esc,
+  normSearch,
+  safeImageUrl,
+  searchScore,
+  searchTokens,
+} from "./utils";
 import { renderBuilder, renderListRoute } from "./views/builder";
 import { renderCategory } from "./views/category";
 import { renderCategories } from "./views/categories";
@@ -490,6 +498,10 @@ export function updateNavActive(): void {
 interface IndexHit {
   row: IndexRow;
   haystack: string;
+  /** Pre-normalized name/brand/category for the relevance ranking. */
+  nameHay: string;
+  brandHay: string;
+  categoryHay: string;
 }
 
 let indexHaystacks: IndexHit[] | null = null;
@@ -520,6 +532,9 @@ async function ensureSearchIndex(mySeq: number): Promise<IndexHit[]> {
     haystack: normHay(
       `${row[4] ?? ""} ${row[3] ?? ""} ${row[0]} ${row[1]} ${categoryLabel(row[1], lang)}`
     ),
+    nameHay: normSearch(String(row[4] ?? row[0] ?? "")),
+    brandHay: normSearch(String(row[3] ?? "")),
+    categoryHay: normSearch(String(categoryLabel(row[1], lang))),
   }));
   return indexHaystacks;
 }
@@ -571,8 +586,30 @@ async function runGlobalSearch(query: string, mySeq: number): Promise<void> {
   try {
     const index = await ensureSearchIndex(mySeq);
     if (mySeq !== searchSeqLive) return;
-    const q = normHay(query);
-    const hits = index.filter((e) => e.haystack.includes(q)).slice(0, 8);
+    const tokens = searchTokens(query);
+    // Rank before slicing: the old code kept the first 8 haystack hits in
+    // index order, so an exact name match could sit below eight products
+    // that merely contained the words (Phase-4 search pass, 2026-10-17).
+    const hits = index
+      .map((entry) => ({
+        entry,
+        score: searchScore(tokens, {
+          haystack: entry.haystack,
+          name: entry.nameHay,
+          brand: entry.brandHay,
+          category: entry.categoryHay,
+        }),
+      }))
+      .filter((candidate) => candidate.score >= 0)
+      .sort(
+        (a, b) =>
+          b.score - a.score ||
+          normSearch(String(a.entry.row[4] ?? a.entry.row[0] ?? "")).length -
+            normSearch(String(b.entry.row[4] ?? b.entry.row[0] ?? "")).length ||
+          String(a.entry.row[4] ?? "").localeCompare(String(b.entry.row[4] ?? ""))
+      )
+      .slice(0, 8)
+      .map((candidate) => candidate.entry);
     if (hits.length === 0) {
       box.innerHTML = `<div class="global-status" role="status">${t(lang, "noResults")}</div>`;
       return;

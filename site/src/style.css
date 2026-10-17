@@ -1663,7 +1663,25 @@ a.variant-pill:hover { border-color: var(--blue); color: var(--blue); text-decor
   color: var(--text-dim);
 }
 
-.ph-legend-item { display: inline-flex; align-items: center; gap: 7px; }
+.ph-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 2px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.ph-legend-item:hover,
+.ph-legend-item:focus-visible { color: var(--text); }
+
+.ph-legend-item.is-off { opacity: 0.45; text-decoration: line-through; }
+
+.ph-legend-item.is-off .ph-swatch { background: var(--border-light) !important; }
 
 .ph-swatch { width: 24px; height: 4px; border-radius: 2px; display: inline-block; }
 

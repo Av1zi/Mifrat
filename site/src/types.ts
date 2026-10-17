@@ -183,6 +183,7 @@ export interface SiteMeta {
 export type Lang = "he" | "en";
 export type Currency = "ILS" | "USD";
 export type SortKey =
+  | "relevance"
   | "price_asc"
   | "price_desc"
   | "vendors_desc"

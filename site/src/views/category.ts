@@ -38,7 +38,17 @@ import {
   type CategoryParams,
 } from "../state";
 import type { Currency, Lang, Product, SortKey } from "../types";
-import { bindImgFallbacks, displayName, errorPanel, esc, safeImageUrl, skuOf } from "../utils";
+import {
+  bindImgFallbacks,
+  displayName,
+  errorPanel,
+  esc,
+  normSearch,
+  safeImageUrl,
+  searchScore,
+  searchTokens,
+  skuOf,
+} from "../utils";
 import { icon } from "../icons";
 
 const PAGE_SIZE = 60;
@@ -248,12 +258,12 @@ function applyFilters(
     if (params.stockOnly && !p.in_stock) return false;
 
     if (q) {
-      // Display-only extension: SKU/MPN join the name haystack.
-      const partNumbers = specValue(p, "part_numbers");
-      const mpn = Array.isArray(partNumbers) ? partNumbers.join(" ") : "";
-      const haystack =
-        `${p.name} ${p.brand ?? ""} ${p.model ?? ""} ${skuOf(p)} ${mpn}`.toLowerCase();
-      if (!haystack.includes(q)) return false;
+      // Token matching (all words must appear, order-free) via the shared
+      // scorer — "gigabyte 5070 oc" now matches a title with the words
+      // apart, which the old single-substring test missed.
+      if (searchScore(searchTokens(params.q), productSearchHay(p)) < 0) {
+        return false;
+      }
     }
 
     for (const [key, values] of Object.entries(params.filters)) {
@@ -292,7 +302,29 @@ function getNumericValue(p: Product, field: string): number | null {
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
-function sortProducts(products: Product[], sort: SortKey): Product[] {
+function productSearchHay(p: Product): {
+  haystack: string;
+  name: string;
+  brand: string;
+  category: string;
+} {
+  const partNumbers = specValue(p, "part_numbers");
+  const mpn = Array.isArray(partNumbers) ? partNumbers.join(" ") : "";
+  return {
+    haystack: normSearch(
+      `${p.name} ${p.brand ?? ""} ${p.model ?? ""} ${skuOf(p)} ${mpn}`
+    ),
+    name: normSearch(p.name),
+    brand: normSearch(p.brand ?? ""),
+    category: "",
+  };
+}
+
+function sortProducts(
+  products: Product[],
+  sort: SortKey,
+  query = ""
+): Product[] {
   const arr = [...products];
 
   // Zero/absent scraped prices are "unknown", not free: they sort last
@@ -301,6 +333,24 @@ function sortProducts(products: Product[], sort: SortKey): Product[] {
     p.min_price !== null && p.min_price > 0 ? p.min_price : Infinity;
 
   switch (sort) {
+    case "relevance": {
+      // Only meaningful with a query; falls back to price order otherwise.
+      const tokens = searchTokens(query);
+      if (tokens.length === 0) {
+        arr.sort((a, b) => asc(a) - asc(b));
+        break;
+      }
+      const scores = new Map<Product, number>();
+      for (const p of arr) {
+        const hay = productSearchHay(p);
+        scores.set(p, searchScore(tokens, hay));
+      }
+      arr.sort(
+        (a, b) =>
+          (scores.get(b) ?? 0) - (scores.get(a) ?? 0) || asc(a) - asc(b)
+      );
+      break;
+    }
     case "price_asc":
       arr.sort((a, b) => asc(a) - asc(b));
       break;
@@ -659,6 +709,7 @@ export async function renderCategory(
           </label>
 
           <select class="sort-select" id="sort-select" aria-label="${esc(t(lang, "sortAriaLabel"))}">
+            <option value="relevance">${t(lang, "sortRelevance")}</option>
             <option value="price_asc">${t(lang, "sortPriceAsc")}</option>
             <option value="price_desc">${t(lang, "sortPriceDesc")}</option>
             <option value="vendors_desc">${t(lang, "sortVendorsDesc")}</option>
@@ -680,13 +731,22 @@ export async function renderCategory(
     </div>
   `;
 
+  // Only an untouched default (price_asc) is overridden by search — an
+  // explicit sort from the URL (name/vendors/price_desc) is respected.
+  // Declared here so the init pass and the input handler share it.
+  let sortTouched = params.sort !== "price_asc" && params.sort !== "relevance";
+  if (!sortTouched && localQuery.trim()) {
+    params.sort = "relevance";
+  }
+
   (container.querySelector("#sort-select") as HTMLSelectElement).value =
     params.sort;
 
   function currentFiltered(): Product[] {
     return sortProducts(
       applyFilters(compatibleProducts, { ...params, q: localQuery }),
-      params.sort
+      params.sort,
+      localQuery
     );
   }
 
@@ -1675,6 +1735,10 @@ export async function renderCategory(
     debounceTimer = window.setTimeout(() => {
       localQuery = searchInput.value;
       visibleCount = PAGE_SIZE;
+      if (!sortTouched) {
+        params.sort = localQuery.trim() ? "relevance" : "price_asc";
+        sortSelect.value = params.sort;
+      }
       replaceRoute(categoryHash(category, { ...params, q: localQuery }));
       refreshRailStates();
       renderGrid();
@@ -1698,6 +1762,7 @@ export async function renderCategory(
   ) as HTMLSelectElement;
 
   sortSelect.addEventListener("change", () => {
+    sortTouched = true;
     params.sort = sortSelect.value as SortKey;
     syncAndRerender();
   });
