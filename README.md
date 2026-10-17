@@ -39,7 +39,7 @@ a rewrite.
 ### Decisions locked in
 - **Language:** Bilingual, Hebrew + English.
 - **Accounts:** Shareable build links only (`/list/<id>` via Worker + D1; legacy `#/build?...` kept). Git-as-database otherwise.
-- **KSP:** Out of scope (`spiders/ksp.py` stays an isolated Phase-5 stub).
+- **KSP:** Out of scope (no spider; its WAF is a stop signal).
 - **robots.txt:** Ignored for cloud-run vendors;
   **followed** for locally-run vendors (TMS on the Nano). TMS: one run/day,
   sequential, throttled, browser headers, hard-stop after 2x 403/429.
@@ -68,7 +68,7 @@ legacy `#/build?...` links keep working.
 
 ```
 /scraper
-  /spiders                    # tms (Nano) · onepc · ivory · yahav · plonter (kept, unscheduled) · ksp (stub)
+  /spiders                    # tms (Nano) · onepc · ivory · yahav · plonter (kept, unscheduled)
   /specs                      # typed spec pipeline (schema, resolvers, merge, validate) — see specs/README.md
   normalize_and_match.py      # builds catalog.json + review_queue.json + data/site/*.json + history
   run_spider.py               # ONLY entrypoint for real runs → data/raw/<today>/<vendor>.jsonl

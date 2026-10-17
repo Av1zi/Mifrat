@@ -48,8 +48,8 @@ const SLOT_ORDER = BUILD_SLOTS.map((s) => s.id);
 const VALID_SLOTS = new Set<string>(SLOT_ORDER);
 const MAX_BODY_CHARS = 8192;
 const ID_ATTEMPTS = 5;
-// Abuse guards (audit §2.1): the dashboard rate-limit rule (see
-// SHORT_LINKS_SETUP.md step 4) is the primary defense; these in-worker
+// Abuse guards: a Cloudflare dashboard rate-limit rule on POST /api/lists
+// is the primary defense; these in-worker
 // checks are defense-in-depth so one misconfigured dashboard never means
 // unbounded D1 growth.
 const MAX_ROWS = 50000;

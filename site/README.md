@@ -6,8 +6,7 @@ Cloudflare Worker for short build links only (`worker.ts` + D1 table
 `lists` — see "Build sharing" below). No build-time API calls; catalog
 reads, compatibility and filtering all run in the browser.
 
-Vite + TypeScript, no UI framework. The whole app is ~16KB of JS
-(~6.5KB gzipped).
+Vite + TypeScript, no UI framework.
 
 ## How it fits the rest of the repo
 
@@ -18,11 +17,9 @@ Vite + TypeScript, no UI framework. The whole app is ~16KB of JS
   `fetch()` calls to same-origin relative paths (`/data/site/meta.json`
   etc). It never talks to GitHub, a database, or any server — it's a
   static file that reads static files.
-- Compatibility rules belong as a plain TS module operating on
-  `attributes` already in this data — no separate backend or graph
-  database. See the project's `decisions.md` for why. (The one exception:
-  short build-link storage, which mathematically requires a server-side
-  table — see "What's intentionally not here yet".)
+- Compatibility rules are a plain TS module over the product specs already
+  in this data — no separate backend. (The one exception: short build-link
+  storage, see "Build sharing" below.)
 
 ## Local development
 
@@ -48,45 +45,27 @@ normal clone already has it.
 
 `npm run build` does the same copy step, then builds to `site/dist/`.
 
-## Deploying on Cloudflare Pages
+## Deploying
 
-One-time setup in the Cloudflare dashboard (this can't be done from a
-repo file — Pages project settings live in Cloudflare's UI):
+Cloudflare Workers Builds deploys on every push to `main` (a code change in
+`site/` or the daily `data/site/*.json` refresh). The repo-root
+`wrangler.jsonc` and `package.json:build` exist for that build; the output
+is `site/dist`, served as static assets. The Worker entry
+(`site/wrangler.jsonc` -> `worker.ts`) handles only `/api/*` and `/list/*`.
+No environment variables or secrets are involved.
 
-| Setting | Value |
-| --- | --- |
-| Framework preset | Vite |
-| Root directory | `site` |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-
-Root directory being `site` still gives the build access to `../data`
-within the same checkout — `npm run build`'s copy step reads
-`../../data/site` relative to `site/scripts/copy-data.mjs`, which resolves
-correctly. No environment variables or secrets needed, consistent with the
-rest of this project (`decisions.md`: "cloud scraping workflow needs zero
-secrets" — same is true for this site).
-
-Every push to `main` — whether it's new code in `site/` or a fresh
-`data/site/*.json` from the daily normalize job — triggers a Cloudflare
-Pages rebuild automatically. No separate deploy step, no CI change needed
-on this repo's side.
-
-## What's intentionally not here yet
+## Build sharing and other server-side pieces
 
 - **Build sharing**: implemented as short permanent links (`/list/<id>`,
   6 chars) backed by a minimal Worker + D1 table (`worker.ts`,
   `migrations/0001_lists.sql`, shared codec in `src/lists.ts`). A full
   build carries ~110 bits of entropy, so fixed <=8-char ids REQUIRE a
-  server-side lookup — stateless URL encoding cannot do it (see
-  `decisions.md` 2026-09-08, local-only). Legacy `#/build?...` links keep working.
-  First-time setup (create the D1 database, apply the migration) is done —
-  `database_id` is already filled in `wrangler.jsonc`; to reproduce from
-  scratch: `npx wrangler d1 create mifrat-lists`, paste the id, then
+  server-side lookup — stateless URL encoding cannot do it. Legacy
+  `#/build?...` links keep working. The D1 database is already created and
+  its `database_id` is in `wrangler.jsonc`; to reproduce from scratch: `npx wrangler d1 create mifrat-lists`, paste the id, then
   `npx wrangler d1 execute mifrat-lists --remote --file=migrations/0001_lists.sql`.
-- **Compatibility checking** (Phase 3): not implemented. `attributes` on
-  each product (socket, chipset, memory_type, form_factor, …) already has
-  what a plain client-side rules module would need.
+- **Compatibility checking**: implemented client-side in `src/build.ts`
+  (socket, memory type, form factor, cooler height, radiator, PSU headroom).
 - **Currency conversion**: implemented (`src/format.ts`), using
   api.frankfurter.dev, cached in localStorage for a day. Best-effort only
   — if the fetch fails, the site just stays on ILS, which is why nothing
