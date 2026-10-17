@@ -32,7 +32,7 @@ async function fetchJson<T>(path: string): Promise<T> {
     return (await res.json()) as T;
   } catch (err) {
     if (err instanceof DOMException && err.name === "AbortError") {
-      throw new Error(`Timed out fetching ${path}`);
+      throw new Error(`Timed out fetching ${path}`, { cause: err });
     }
     throw err;
   } finally {

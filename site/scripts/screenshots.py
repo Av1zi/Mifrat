@@ -8,11 +8,19 @@ he/en x light/dark x 375/768/1280 and records, per shot:
 * horizontal overflow (document wider than the viewport),
 * a PNG under ``--out`` (default ``site/screenshots/<label>``).
 
-Exit code is non-zero when any console error or horizontal scroll is found,
-so the same script doubles as the smoke test.
+Exit code is non-zero when any console error, horizontal scroll or empty/404
+route is found, so the same script doubles as the smoke test.
 
     python site/scripts/screenshots.py --label before
     python site/scripts/screenshots.py --label after --routes home,category-cpu --langs he
+
+Smoke check (no PNGs; every route in he+en, light theme, 375px and 1280px):
+
+    npm --prefix site run build
+    python site/scripts/screenshots.py --smoke     # or: npm --prefix site run smoke
+
+Needs ``pip install playwright`` and ``python -m playwright install chromium``.
+Not run in CI (browser install cost); run it before a release or a UI change.
 """
 
 from __future__ import annotations
@@ -106,12 +114,27 @@ def main() -> int:
     ap.add_argument("--label", default="shots")
     ap.add_argument("--out", default=None)
     ap.add_argument("--routes", default=",".join(ROUTES))
-    ap.add_argument("--langs", default="he,en")
-    ap.add_argument("--themes", default="light,dark")
-    ap.add_argument("--widths", default="375,768,1280")
+    ap.add_argument("--langs", default=None, help="default he,en")
+    ap.add_argument("--themes", default=None, help="default light,dark (smoke: light)")
+    ap.add_argument("--widths", default=None, help="default 375,768,1280 (smoke: 375,1280)")
+    ap.add_argument(
+        "--smoke",
+        action="store_true",
+        help="fast pass/fail check: no PNGs, light theme, 375+1280 widths (flags still override)",
+    )
     ap.add_argument("--no-images", action="store_true", help="check only, skip PNGs")
     ap.add_argument("--viewport", action="store_true", help="capture the first screen only, not the full page")
     args = ap.parse_args()
+    args.langs = args.langs or "he,en"
+    args.themes = args.themes or ("light" if args.smoke else "light,dark")
+    args.widths = args.widths or ("375,1280" if args.smoke else "375,768,1280")
+    if args.smoke:
+        args.no_images = True
+
+    unknown = [r for r in args.routes.split(",") if r not in ROUTES]
+    if unknown:
+        print(f"unknown routes: {', '.join(unknown)} (known: {', '.join(ROUTES)})", file=sys.stderr)
+        return 2
 
     if not (DIST / "index.html").exists():
         print("site/dist missing: run `npm --prefix site run build` first", file=sys.stderr)
@@ -170,10 +193,18 @@ def main() -> int:
                         )
                         total += 1
                         tag = f"{name} {lang}/{theme}/{width}"
-                        if overflow > 1 and width == "375":
+                        if overflow > 1:
                             problems.append({"shot": tag, "overflow_px": overflow})
-                        elif overflow > 1:
-                            problems.append({"shot": tag, "overflow_px": overflow})
+                        # "Loads" = the shell mounted real content, and only the
+                        # notfound route may render the 404 view.
+                        rendered = page.evaluate(
+                            "({text: (document.getElementById('main-content') || document.body).innerText.trim().length,"
+                            " notfound: !!document.querySelector('.notfound')})"
+                        )
+                        if rendered["text"] == 0:
+                            problems.append({"shot": tag, "render": "empty page"})
+                        if rendered["notfound"] != (name == "notfound"):
+                            problems.append({"shot": tag, "render": "unexpected 404 view" if rendered["notfound"] else "expected 404 view"})
                         for e in errors:
                             # Short links need the Worker; the static server answers POST /api with 501
                             # (expected, the build link falls back to the long URL).
