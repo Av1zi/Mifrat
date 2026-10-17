@@ -281,10 +281,14 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "לא נעול": "unlocked",
         "ללא נעול": "unlocked",
         "מכפיל פתוח": "unlocked",
-        "מטמון l2": "l2_cache_mb",
-        "מטמון l3": "l3_cache_mb",
-        "l2 cache": "l2_cache_mb",
+        "ל2 cache": "l2_cache_mb",
         "l3 cache": "l3_cache_mb",
+        # 1PC's redesigned storefront groups the chipsets this CPU runs
+        # with under "hardware / Chipset" ("AMD B550", "Intel Z890", 13
+        # rows) — the same fact Ivory's "תאימות ערכת שבבים" carries.
+        "hardware / chipset": "chipset_support",
+        # "Number of threads" spelled with the vendor's geresh-less plural.
+        "מספר תהליכונים": "thread_count",
     },
     "gpu": {
         "אריזה": PACKAGING_CELL,
@@ -486,6 +490,33 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # 4.0"). REAR_OUTPUTS keeps only the video ports and drops the rest,
         # the same way the other vendors' rear-I/O cells are read.
         "חיבורי תצוגה": REAR_OUTPUTS,
+        # ----- Fix-round P6 (Oct 2026): labels counted in the gap report
+        # with real values behind them, verified against the raw pages. -----
+        "תצורת לוח האם": "form_factor",
+        "סוג bios": "bios",
+        "שבב שמע": "audio",
+        "בקר lan": "ethernet",
+        "תמיכה ב-raid": RAID,
+        "תמיכה ב raid": RAID,
+        "רמות raid": RAID,
+        "מצבי raid": RAID,
+        "מחברי usb 3.2 gen 1": "usb32_gen1_headers",
+        "מחברי usb 3.2 gen 2": "usb32_gen2_headers",
+        "ממשקי כונני אחסון נתמכים": "storage_interface",
+        "ממשקי כוננים נתמכים": "storage_interface",
+        "מקסימום זכרון": "memory_max_gb",
+        "זכרון מרבי נתמך": "memory_max_gb",
+        "תאימות ecc": "ecc_support",
+        # Values are the vendor's plain answer ("Yes"/"No") — honest either
+        # way; "the board has no Wi-Fi" is a compatibility fact.
+        "wi-fi": "wireless",
+        "top wi-fi standard": "wireless",
+        "תקן wi-fi מרבי": "wireless",
+        "גרפיקה משולבת": "onboard_video",
+        "יציאות וידאו": REAR_OUTPUTS,
+        "חריצי ddr5": "memory_slots",
+        "חריצי ddr4": "memory_slots",
+        "חריצי ddr3": "memory_slots",
     },
     "memory": {
         # "Retail - קופסה" (52 rows) reaches canon_packaging only through the
@@ -655,6 +686,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "12vhpwr": "pcie12_connectors",
         "12v-2x6": "pcie16_connectors",
         "16-pin": "pcie16_connectors",
+        # 1PC's combined label ("מודולרי / Modular", 76 rows in the gap
+        # report) — the same fact as the bare "מודולרי" above, same canon.
+        "מודולרי / modular": "modular",
     },
     "case": {
         "סוג": "type",
@@ -727,6 +761,15 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # "תמיכה ב... mm" with a bare millimetre number ("280", "155").
         "תמיכה בכרטיס מסך mm": "max_gpu_length_mm",
         "תמיכה בקירור למעבד mm": "max_cooler_height_mm",
+        # ----- Fix-round P6 (Oct 2026): the new storefront's remaining
+        # spellings, verified against the raw values ("Micro-ATX, Mini-ITX",
+        # "3", "280x195x380", "עליון: 240/280 מ״מ"). -----
+        "תמיכה בלוח אם": "mb_form_factors",
+        "תמיכה בלוחות אם": "mb_form_factors",
+        "משקל בקג": "weight_kg",
+        "מידות ב mm": "dimensions_mm",
+        "תמיכה ברדיאטור": RADIATOR_SUPPORT,
+        "תמיכה ברדיאטורים": RADIATOR_SUPPORT,
     },
     "cooler_air": {
         "גודל מאוורר": "fan_size_mm",

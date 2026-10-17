@@ -45,6 +45,24 @@ const PAGE_SIZE = 60;
 
 const MAX_SPEC_COLUMNS = 4;
 
+// Curated table columns per category — display concern only (the schema
+// order still drives filter rail ordering and the PDP spec list). Picks
+// favor fields that are both broadly filled and short per cell; wide
+// list-valued fields (chipset_support, sockets) are excluded on purpose.
+// Categories not listed fall back to the coverage-based picker.
+const COLUMN_PRIORITY: Record<string, string[]> = {
+  cpu: ["socket", "core_count", "thread_count", "tdp_w"],
+  motherboard: ["socket", "chipset", "memory_type", "form_factor"],
+  memory: ["memory_type", "speed_mhz", "total_gb", "cas_latency"],
+  storage: ["capacity_gb", "type", "interface", "form_factor"],
+  gpu: ["chip_manufacturer", "memory_gb", "memory_type", "interface"],
+  psu: ["wattage_w", "efficiency", "type", "modular"],
+  case: ["type", "color", "drive_bays_35", "volume_l"],
+  aio: ["radiator_size_mm", "fan_rpm_max", "color"],
+  cooler_air: ["fan_size_mm", "fan_rpm_max", "tdp_w", "color"],
+  case_fan: ["size_mm", "rpm_max", "color", "pwm"],
+};
+
 /**
  * Canonical (lang-independent) text of one typed spec value — the filter key
  * and checkbox value, so URL params, strict equality and labels agree.
@@ -57,6 +75,35 @@ function canonicalSpecText(product: Product, field: string): string {
 /** Localized display text for a table cell ("" when unknown). */
 function specCellText(product: Product, field: string, lang: Lang): string {
   return formatSpecValue(specValue(product, field), lang);
+}
+
+/** List-valued fields whose filter checkboxes are per element (sockets:
+ * "AM4" instead of the 40+ whole combinations). Memoized per category. */
+const listFieldMemo = new Map<string, Set<string>>();
+function listFieldsFor(category: string): Set<string> {
+  let set = listFieldMemo.get(category);
+  if (!set) {
+    set = new Set(
+      specFields(category)
+        .filter((field) => field.type === "list_str")
+        .map((field) => field.name)
+    );
+    listFieldMemo.set(category, set);
+  }
+  return set;
+}
+
+/** Filter option values one product contributes for a field: list fields
+ * contribute each element separately, scalars their canonical text. */
+function specOptionValues(product: Product, field: string, list: boolean): string[] {
+  if (list) {
+    const value = specValue(product, field);
+    if (Array.isArray(value)) {
+      return value.map((item) => String(item)).filter(Boolean);
+    }
+  }
+  const text = canonicalSpecText(product, field);
+  return text ? [text] : [];
 }
 
 // Minimum share of products that must carry a key before it becomes a
@@ -75,23 +122,26 @@ function computeFilterableAttributes(
   category: string
 ): Map<string, Array<[string, number]>> {
   const fields = specFieldMap(category);
+  const listFields = listFieldsFor(category);
   const counts = new Map<string, Map<string, number>>();
 
   // Schema order IS rail order (fields are grouped identity -> core ->
   // power -> physical -> io), so there is no separate priority list. Only
-  // fields the schema flags `filterable` become checkbox filters.
+  // fields the schema flags `filterable` become checkbox filters. List
+  // fields (sockets, ...) count each element so the rail shows real values,
+  // not whole combinations.
   for (const p of products) {
     for (const field of filterableSpecs(category)) {
       // Numeric fields become range sliders, never checkbox groups.
       if (isNumericSpec(fields.get(field))) continue;
-      const value = canonicalSpecText(p, field);
-      if (!value) continue;
       let values = counts.get(field);
       if (!values) {
         values = new Map();
         counts.set(field, values);
       }
-      values.set(value, (values.get(value) ?? 0) + 1);
+      for (const value of specOptionValues(p, field, listFields.has(field))) {
+        values.set(value, (values.get(value) ?? 0) + 1);
+      }
     }
 
     const vendors = new Set(p.offers.map((o) => o.vendor));
@@ -192,6 +242,7 @@ function applyFilters(
   params: CategoryParams
 ): Product[] {
   const q = params.q.trim().toLowerCase();
+  const listFields = listFieldsFor(products[0]?.category ?? "");
 
   return products.filter((p) => {
     if (params.stockOnly && !p.in_stock) return false;
@@ -210,8 +261,15 @@ function applyFilters(
 
       if (key === "vendor") {
         if (!p.offers.some((o) => values.includes(o.vendor))) return false;
-      } else if (!values.includes(canonicalSpecText(p, key))) {
-        return false;
+      } else {
+        const text = canonicalSpecText(p, key);
+        if (text && values.includes(text)) continue;
+        const own = listFields.has(key)
+          ? specOptionValues(p, key, true)
+          : text
+            ? text.split(", ")
+            : [];
+        if (!values.some((v) => own.includes(v))) return false;
       }
     }
 
@@ -437,26 +495,27 @@ export async function renderCategory(
     compatOn
   );
 
-  // Table columns follow the curated per-category priority (not "whatever
-  // filters exist"): the important specs first, skipping keys too sparse
-  // to make a useful column.
-  // Table columns follow the schema order (identity -> core -> power -> ...):
-  // the first fields with enough coverage, skipping identity columns the name
-  // cell already carries.
+  // Table columns: the curated per-category priority list first; categories
+  // without a curated list fall back to schema order + coverage. In both
+  // cases a column must clear MIN_COLUMN_COVERAGE across the shown products.
   const specColumns = (() => {
     const skip = new Set(["manufacturer", "model", "part_numbers"]);
-    const candidates = specFields(category).filter((field) => !skip.has(field.name));
+    const known = new Set(specFields(category).map((field) => field.name));
     const n = Math.max(1, compatibleProducts.length);
-    const coverage = new Map<string, number>();
-    for (const p of compatibleProducts) {
-      for (const field of candidates) {
-        if (canonicalSpecText(p, field.name)) {
-          coverage.set(field.name, (coverage.get(field.name) ?? 0) + 1);
-        }
+    const coverage = (name: string): number => {
+      let filled = 0;
+      for (const p of compatibleProducts) {
+        if (canonicalSpecText(p, name)) filled++;
       }
-    }
+      return filled / n;
+    };
+    const curated = (COLUMN_PRIORITY[category] ?? []).filter(
+      (name) => known.has(name) && coverage(name) >= MIN_COLUMN_COVERAGE
+    );
+    if (curated.length > 0) return curated.slice(0, MAX_SPEC_COLUMNS);
+    const candidates = specFields(category).filter((field) => !skip.has(field.name));
     return candidates
-      .filter((field) => (coverage.get(field.name) ?? 0) / n >= MIN_COLUMN_COVERAGE)
+      .filter((field) => coverage(field.name) >= MIN_COLUMN_COVERAGE)
       .slice(0, MAX_SPEC_COLUMNS)
       .map((field) => field.name);
   })();
@@ -703,6 +762,7 @@ export async function renderCategory(
     // without rebuilding <details> (preserves open sections).
     const rail = container.querySelector("#filter-rail");
     if (!rail) return;
+    const listFields = listFieldsFor(category);
     const good = new Map<string, Set<string>>();
     if (loadedBuild.items.length > 0 && targetSlotId) {
       for (const p of compatibleProducts) {
@@ -716,8 +776,9 @@ export async function renderCategory(
           if (key === "vendor") {
             for (const offer of p.offers) set.add(offer.vendor);
           } else {
-            const value = canonicalSpecText(p, key);
-            if (value) set.add(value);
+            for (const value of specOptionValues(p, key, listFields.has(key))) {
+              set.add(value);
+            }
           }
         }
       }
@@ -762,7 +823,7 @@ export async function renderCategory(
     const specHeaders = cols
       .map(
         (key) =>
-          `<div class="pl-cell">${esc(attributeLabel(key, lang))}</div>`
+          `<div class="pl-cell" title="${esc(attributeLabel(key, lang))}">${esc(attributeLabel(key, lang))}</div>`
       )
       .join("");
 
@@ -853,7 +914,7 @@ export async function renderCategory(
           ${
             p.min_price !== null && p.min_price > 0
               ? formatPrice(p.min_price, currency, lang)
-              : `<span class="dim">&mdash;</span>`
+              : `<span class="dim">-</span>`
           }
         </div>
 
@@ -1111,6 +1172,7 @@ export async function renderCategory(
     // filter is off they stay visible, only slightly muted, and clickable.
     const goodByOption = new Map<string, Set<string>>();
     if (buildCount > 0 && targetSlotId) {
+      const listFields = listFieldsFor(category);
       for (const p of compatibleProducts) {
         if (!isProductCompatibleWithBuild(p, targetSlotId, buildParts)) {
           continue;
@@ -1124,8 +1186,9 @@ export async function renderCategory(
           if (key === "vendor") {
             for (const offer of p.offers) set.add(offer.vendor);
           } else {
-            const value = canonicalSpecText(p, key);
-            if (value) set.add(value);
+            for (const value of specOptionValues(p, key, listFields.has(key))) {
+              set.add(value);
+            }
           }
         }
       }
@@ -1300,19 +1363,15 @@ export async function renderCategory(
       ${miniCard}
 
       <div class="railSection">
-        <h3 class="railSectionTitle">${esc(t(lang, "merchantsPricingTitle"))}</h3>
         <div class="group group--filter">
           <button class="group__title group__title--trigger js-trigger-filter" data-toggle="merchants" aria-expanded="false" aria-controls="merchants-content" type="button"><span>${esc(t(lang, "merchantsTitle"))}</span><span class="collapse-toggle" aria-hidden="true">+</span></button>
           ${merchantsBody}
         </div>
+
         <div class="group group--filter">
           <button class="group__title group__title--trigger js-trigger-filter" data-toggle="pricing" aria-expanded="false" aria-controls="pricing-content" type="button"><span>${esc(t(lang, "pricingOptionsTitle"))}</span><span class="collapse-toggle" aria-hidden="true">+</span></button>
           ${pricingBody}
         </div>
-      </div>
-
-      <div class="railSection">
-        <h3 class="railSectionTitle">${esc(t(lang, "filtersHeading"))}</h3>
 
         ${sliderHtml}
 

@@ -51,6 +51,8 @@ const app = document.getElementById("app")!;
 function applyDocumentLang(): void {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute("content", t(lang, "metaDescription"));
 }
 
 // Mirrors PCPP's browse-products dropdown: 8 popular tiles + grouped links.
@@ -298,7 +300,7 @@ function renderShell(): void {
           </button>
         </div>
       </div>
-      <nav class="header-nav" aria-label="main">
+      <nav class="header-nav" aria-label="${esc(t(lang, "navMain"))}">
         <div class="header-nav-inner">
           <a class="nav-build ${isBuild ? "active" : ""}" data-nav="build" href="#/build"${isBuild ? ' aria-current="page"' : ""}>${icon("wrench", 15)}<span>${t(lang, "builderNav")}</span></a>
           <div class="nav-products">
@@ -527,13 +529,13 @@ function interimHitHtml(row: IndexRow): string {
   const brand = row[3] ?? "";
   const price =
     row[2] === null || row[2] === undefined
-      ? "-"
-      : formatPrice(row[2], currency, lang);
+      ? `<span class="dim">-</span>`
+      : esc(formatPrice(row[2], currency, lang));
   return `
     <a class="global-hit" role="option" aria-selected="false" href="${productHash(row[1], row[0])}">
       <span class="plThumb" aria-hidden="true">${esc((brand || name).slice(0, 2).toUpperCase())}</span>
       <span class="global-hit-name">${esc(name)}<span class="global-hit-cat"> · ${esc(categoryLabel(row[1], lang))}</span></span>
-      <span class="global-hit-price">${esc(price)}</span>
+      <span class="global-hit-price">${price}</span>
     </a>`;
 }
 
@@ -545,13 +547,13 @@ function fullHitHtml(product: Product): string {
     : `<span class="plThumb" aria-hidden="true">${esc((product.brand ?? product.name).slice(0, 2).toUpperCase())}</span>`;
   const price =
     product.min_price === null || product.min_price === undefined
-      ? "-"
-      : formatPrice(product.min_price, currency, lang);
+      ? `<span class="dim">-</span>`
+      : esc(formatPrice(product.min_price, currency, lang));
   return `
     <a class="global-hit" role="option" aria-selected="false" href="${productHash(product.category, product.id)}">
       ${thumb}
       <span class="global-hit-name">${esc(name)}<span class="global-hit-cat"> · ${esc(categoryLabel(product.category, lang))}</span></span>
-      <span class="global-hit-price">${esc(price)}</span>
+      <span class="global-hit-price">${price}</span>
     </a>`;
 }
 

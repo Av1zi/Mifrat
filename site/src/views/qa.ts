@@ -122,7 +122,7 @@ export async function renderQa(
       return `
       <article class="qa-case">
         <h2><a href="${productHash(c.category, c.product_id)}">${esc(c.product_id)}</a></h2>
-        <p class="qa-meta"><span class="qa-kind">${kindLabel}</span>${esc(categoryLabel(c.category, lang))}${vendorBit} · <a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a></p>
+        <p class="qa-meta"><span class="qa-kind">${kindLabel}</span><a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a>${vendorBit}</p>
         ${titlesBit}
         ${specBit}
         ${coreBit}

@@ -34,7 +34,7 @@ HISTORY_DIR = REPO_ROOT / "data" / "site" / "history"
 # charts along with its catalog offers (series are catalog-offer-driven; this
 # tuple only controls which raw files get scanned). History files on disk keep
 # old plonter points until the next rebuild prunes them.
-SNAPSHOT_VENDORS = ("tms", "onepc", "ivory")
+SNAPSHOT_VENDORS = ("tms", "onepc", "ivory", "yahav")
 
 
 def _norm_vendor(vendor_id: str | None) -> str:

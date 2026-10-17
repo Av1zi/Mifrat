@@ -38,6 +38,7 @@ try:
         match_listings,
         match_text,
         mpn_affix_related,
+        name_from_attributes,
         prefer_longer_mpn,
         suggest_fuzzy_matches,
     )
@@ -54,6 +55,7 @@ except ImportError:
         match_listings,
         match_text,
         mpn_affix_related,
+        name_from_attributes,
         prefer_longer_mpn,
         suggest_fuzzy_matches,
     )
@@ -179,6 +181,105 @@ def _reextract_attributes(e: dict) -> None:
         e["attributes"].setdefault("accessory_type", kept)
 
 
+def _collapse_doubled(value: str) -> str:
+    """Collapse page-side doubled text nodes ("Acer Acer", "10GB 10GB").
+
+    1PC detail pages render the spec table twice (mobile + desktop layout)
+    and the scraper concatenates both copies into one cell — 59 values
+    across the Sep 2026 snapshot ("Black. Black.", "AN B570 10G OC AN B570
+    10G OC"). Only exactly equal halves are collapsed; anything else is
+    returned untouched.
+    """
+    text = value.strip()
+    tokens = text.split()
+    if len(tokens) >= 2 and len(tokens) % 2 == 0:
+        half = len(tokens) // 2
+        if tokens[:half] == tokens[half:]:
+            return " ".join(tokens[:half])
+    if " " not in text and len(text) >= 4 and len(text) % 2 == 0:
+        half = len(text) // 2
+        if text[:half] == text[half:]:
+            return text[:half]
+    return value
+
+
+def _recompute_canonical_names(products: list[dict], enriched: list[dict]) -> None:
+    """Rebuild generated canonical names from the VALIDATED spec attributes.
+
+    Names are built inside match_listings from raw merged attributes; the
+    spec build (build_product_specs) then re-derives `attributes` from the
+    validated sheet and may have corrected or dropped wrong values — e.g. a
+    title-bled "H610" chipset once baked "ARKTEK H610 H81M EL VS" for an
+    H81 board. Recompute so what the user reads matches what the spec sheet
+    proves. Manual canonical names always win; builders return None when
+    their inputs are missing, which keeps the old name.
+    """
+    groups: dict[str, list[dict]] = {}
+    for e in enriched:
+        pid = e.get("product_id")
+        if pid:
+            groups.setdefault(pid, []).append(e)
+    updated = 0
+    for product in products:
+        if product.get("matched_by") == "manual":
+            continue
+        group = groups.get(product.get("product_id"), [])
+        if not group:
+            continue
+        # GPU names must carry the board partner, not the chip vendor: a
+        # vendor row said "NVIDIA" for an ASUS card and the rebuilt name
+        # read "NVIDIA GeForce RTX 5060 …". Overlay the product brand ONLY
+        # when it actually corrects that case — the attrs brand is a chip
+        # vendor (NVIDIA/AMD/Intel) while the merged listing brand is not.
+        # A blanket overlay is wrong in BOTH directions: it turned
+        # "Lian Li Lancool 216" into "LanCool 216" and "PNY GeForce RTX
+        # 5060" into "NVIDIA GeForce RTX 5060" (product["brand"] picked the
+        # chip vendor from "PNY NVIDIA …" titles).
+        attrs = dict(product.get("attributes") or {})
+        brand = str(product.get("brand") or "").strip()
+        chip_vendors = {"nvidia", "amd", "intel", "ati"}
+        if (
+            brand
+            and product.get("category") == "gpu"
+            and str(attrs.get("brand") or "").strip().lower() in chip_vendors
+            and brand.lower() not in chip_vendors
+        ):
+            attrs["brand"] = brand
+            attrs["manufacturer"] = brand
+        # Same confusion one level up: a GPU whose spec `manufacturer` is a
+        # copyable of `chip_manufacturer` ("NVIDIA" for an ASUS card) also
+        # pollutes the spec sheet and the manufacturer facet. When the
+        # listing-derived brand disagrees, it IS the board partner — correct
+        # specs, source and attribute view together.
+        specs = product.get("specs") or {}
+        specs_mfr = str(specs.get("manufacturer") or "").strip()
+        chip_mfr = str(specs.get("chip_manufacturer") or "").strip()
+        if (
+            brand
+            and specs_mfr
+            and chip_mfr
+            and specs_mfr.lower() == chip_mfr.lower()
+            and brand.lower() != specs_mfr.lower()
+        ):
+            specs["manufacturer"] = brand
+            sources = product.get("spec_sources")
+            if isinstance(sources, dict):
+                sources["manufacturer"] = "derived:gpu.board_partner_from_brand"
+            product_attrs = product.get("attributes")
+            if isinstance(product_attrs, dict):
+                product_attrs["manufacturer"] = brand
+        rebuilt = name_from_attributes(
+            product.get("category", ""),
+            attrs,
+            group,
+        )
+        if rebuilt and rebuilt != product.get("canonical_name"):
+            product["canonical_name"] = rebuilt
+            updated += 1
+    if updated:
+        print(f"  recomputed {updated} canonical names from validated specs")
+
+
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     """Load detail-scraped specs from data/raw/detail/<vendor>.jsonl and
     merge into each enriched listing's vendor_meta under a 'detail_specs'
@@ -222,7 +323,11 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 image_url = item.get("image_url")
                 extra = item.get("extra")
                 if sku and specs:
-                    detail_index[(vendor_key, sku)] = specs
+                    detail_index[(vendor_key, sku)] = {
+                        key: _collapse_doubled(value)
+                        if isinstance(value, str) else value
+                        for key, value in specs.items()
+                    }
                 # Basename-less image URLs (a bare ".../full/" directory —
                 # Plonter emits these for imageless products) must never
                 # reach the index: the listing-level thumbnail would be
@@ -409,6 +514,7 @@ def build_catalog(today: datetime):
     # `attributes` view from the merged sheet (scraper/specs/). Products end
     # up with `specs` (fixed key set, nulls included) + `spec_sources`.
     spec_report = build_product_specs(match_result["products"], enriched)
+    _recompute_canonical_names(match_result["products"], enriched)
 
     exclude_multi_keys = {
         listing_key_value
@@ -446,6 +552,14 @@ def build_catalog(today: datetime):
 
 
 def main():
+    # The coverage summary prints vendor labels, which are Hebrew on local
+    # (non-UTF-8) consoles — and a UnicodeEncodeError there would abort the
+    # build right before the outputs are written. Degrade to replacement
+    # characters instead; CI (utf-8) is unaffected.
+    try:
+        sys.stdout.reconfigure(errors="replace")
+    except (AttributeError, ValueError):
+        pass
     today = datetime.now(timezone.utc)
 
     catalog, review_queue, spec_report = build_catalog(today)

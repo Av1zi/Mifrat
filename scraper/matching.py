@@ -2703,6 +2703,8 @@ def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
         "boards", "ddr", "pcie", "m.2", "m2", "sata", "usb", "hdmi",
         "digital", "solution", "solutions", "design", "smart", "rev",
         "revision", "version", "ver",
+        # Packaging words carry no model identity on boards.
+        "retail", "bulk", "oem",
         # "Gaming" stays: weak alone but real identity ("B550 Gaming").
         # Lone lowercase "a" goes, but uppercase "A"/"X" stay ("B650-A",
         # "GAMING X" need them) — hence the stop holds "a", matched
@@ -2737,10 +2739,14 @@ def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
             key = re.sub(r"[^a-z0-9]", "", low)
             if not key or key in seen:
                 continue
-            # A longer token restating a kept one ("AK-B760MEG-DDR4" over
-            # "AK-B760M") adds nothing — skip, don't double.
-            if any(key.startswith(k) or k.startswith(key)
-                   for k in seen if len(k) >= 4 and len(key) >= 4):
+            # A token restating a kept one ("AK-B760MEG-DDR4" over "B760M",
+            # "AK-H610MEG-VS" over "H610M") adds nothing — skip, don't
+            # double. Substring in both directions, not just prefixes.
+            if any(
+                k in key or key in k
+                for k in seen
+                if len(k) >= 4 and len(key) >= 4
+            ):
                 continue
             seen.add(key)
             kept.append(_display_token(tok))
@@ -2809,7 +2815,21 @@ def _motherboard_canonical_name(group: list, attributes: dict) -> str | None:
     parts: list[str] = []
     if brand:
         parts.append(str(brand))
-    if not any(chipset in re.sub(r"[^A-Z0-9]", "", p.upper()) for p in parts + kept):
+    # A kept token that itself looks like a chipset code ("H81M", "B760M")
+    # means the title carried its own chipset. Prepending the attribute
+    # chipset then produces contradictions ("ARKTEK H610 H81M EL VS" — an
+    # H81 board with a title-bled H610). Trust the model; one boards name
+    # never shows two chipset-looking codes.
+    def _chipsetish(token: str) -> bool:
+        norm = re.sub(r"[^A-Z0-9]", "", token.upper())
+        return bool(
+            re.fullmatch(r"[A-Z]{1,2}\d{2,4}[A-Z0-9]{0,3}", norm)
+        )
+
+    chipset_norm = re.sub(r"[^A-Z0-9]", "", chipset)
+    if not any(chipset_norm in re.sub(r"[^A-Z0-9]", "", p.upper())
+               for p in parts + kept) and not any(
+                   _chipsetish(p) for p in kept):
         parts.append(chipset)
     parts.extend(kept)
     if wifi_tag and not any("WIFI" in p.upper() or p.upper() in ("AC", "AX")
@@ -3727,8 +3747,8 @@ def name_from_attributes(
 ) -> str | None:
     """
     Canonical display names built from structured data, not scrubbed titles:
-    - cpu: "<brand> <model>" (+ "Dual Core" for 2-core parts, "+ series N"
-      for Intel series-tagged parts).
+    - cpu: "<brand> <model>" (+ "series N" only when the model doesn't
+      already carry the family; "Tray" suffix for tray packaging).
     - memory: "<brand> [model] <type> <cap>GB <speed><unit> [CLnn]".
     - gpu: "<brand> <family> <chip> <vram>GB [edition]".
     - motherboard: "<brand> <chipset> <model...> [WIFI tag]".
@@ -3745,21 +3765,35 @@ def name_from_attributes(
         model = attributes.get("model")
         if not brand or not model:
             return None
-        name = f"{brand} {model}".strip()
-        cores_raw: Any = attributes.get("cores")
-        try:
-            cores = int(cores_raw) if cores_raw is not None else None
-        except (ValueError, TypeError):
-            cores = None
-        if cores == 2:
-            name += " Dual Core"
+        # A vendor "דגם" row may repeat the brand inside the model
+        # ("AMD Ryzen™ 5 Processor"): strip the doubled leading token
+        # instead of printing "AMD AMD Ryzen™ 5 Processor".
+        model_text = str(model).strip()
+        if model_text.lower().startswith(str(brand).strip().lower() + " "):
+            model_text = model_text[len(str(brand).strip()):].lstrip()
+        name = f"{brand} {model_text}".strip()
+        # Series suffix only when it adds words the model lacks: the old
+        # append produced "Core i3 10105F series Core i3" and
+        # "A10-9700T series A Series" stutters. Strip the literal word
+        # "series" first — it is our own connector, not a family token.
         series = attributes.get("series")
-        if series and f"series {series}" not in name.lower():
-            name += f" series {series}"
+        if isinstance(series, str):
+            series = re.sub(r"\bseries\b", " ", series, flags=re.I).strip()
+        if series:
+            name_low = name.lower()
+            fam_tokens = [
+                tok for tok in re.split(r"[^0-9A-Za-z]+", series.lower())
+                if len(tok) >= 2
+            ]
+            if fam_tokens and any(tok not in name_low for tok in fam_tokens):
+                name += f" series {series}"
         # Tray CPUs are separate products from boxed ones (different
         # items, prices, warranties) — the suffix tells them apart in
-        # lists; Box is the unmarked default.
-        if attributes.get("packaging") == "Tray":
+        # lists; Box is the unmarked default. A vendor model that already
+        # ends in "Tray" ("Core i3 14100 / 1700 Tray") must not get a
+        # second one.
+        if attributes.get("packaging") == "Tray" and not name.lower(
+        ).rstrip().endswith(" tray"):
             name += " Tray"
         return name
     if category == "memory":
@@ -4075,6 +4109,31 @@ def normalize_pckombo_specs(specs: dict[str, str]) -> dict[str, str | int | floa
     return normalized
 
 
+def _pckombo_name_vram(row: dict) -> int | None:
+    """VRAM implied by the PC Kombo row's own MPN/URL text, if any."""
+    for text in (row.get("mpn") or "", row.get("url") or ""):
+        match = re.search(r"(?<!\d)(\d{1,2})\s?G(?:B)?(?![A-Za-z0-9])",
+                          str(text).upper())
+        if match:
+            return int(match.group(1))
+    return None
+
+
+def _drop_pckombo_vram_mismatch(specs: dict, row: dict) -> None:
+    """Drop PC Kombo's `vram_gb` when the row's own name disagrees with it.
+
+    The dataset lists "MSI ... RTX5070 Ti 16G SHADOW 3X OC" with
+    Performance|Vram "12 GB" (Icecat copy error) — a tier-0 fact that
+    outranked the vendor's own "16GB" and renamed the product "12GB".
+    GPU row names spell VRAM unambiguously ("16G" = 16 GB), so a
+    disagreement means the structured field is untrustworthy: drop it and
+    let the vendor/title value stand.
+    """
+    implied = _pckombo_name_vram(row)
+    if implied is not None and specs.get("vram_gb") != implied:
+        specs.pop("vram_gb", None)
+
+
 def enrich_products_with_pckombo(products: list[dict]) -> None:
     """Attach PC Kombo specs using exact MPN matches only."""
     if _pckombo_find_by_mpn is None or _pckombo_load_index is None:
@@ -4106,6 +4165,8 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
             continue
         row, _ = max(rows, key=lambda item: len(item[0]["specs"]))
         normalized_specs = normalize_pckombo_specs(row["specs"])
+        if (product.get("category") or "") == "gpu":
+            _drop_pckombo_vram_mismatch(normalized_specs, row)
         product["attributes"].update(
             (key, value)
             for key, value in normalized_specs.items()
@@ -4766,6 +4827,12 @@ def match_listings(
         model = meta.get("model") or merged_attributes.get("model")
         if not model and mpn_chosen is not None:
             model = mpn_chosen
+        # GTIN/EAN/UPC barcodes are identifiers, not model names — a bare
+        # 8/12/13/14-digit number ("4711377465847") must never surface as
+        # the SKU line on the site.
+        if isinstance(model, str) and re.fullmatch(
+                r"\d{8}|\d{12,14}", model.strip()):
+            model = None
 
         if any(e.get("bundle_only") for e in group):
             merged_attributes["bundle_only"] = True

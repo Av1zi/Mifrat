@@ -228,8 +228,6 @@ export async function renderBuilder(
           <a class="bs-part-name" href="${href}">${esc(displayName(product))}</a>
           ${product.brand ? `<div class="bs-part-brand">${esc(product.brand)}</div>` : ""}
         </div>
-        <div class="bhCell bsBase" data-label="${esc(t(lang, "baseHeading"))}">${price === null ? "-" : esc(formatPrice(price, currency, lang))}</div>
-        <div class="bhCell bsShip" data-label="${esc(t(lang, "shippingHeading"))}"><span class="dim">-</span></div>
         <div class="bhCell bsStock" data-label="${esc(t(lang, "availability"))}">
           <span class="status-dot ${product.in_stock ? "in" : "out"}" aria-hidden="true"></span>
           ${product.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}
@@ -250,7 +248,6 @@ export async function renderBuilder(
     return `
       <div class="buildRow is-empty">
         <div class="bhCell"><a class="slot-link" href="${categoryHash(slot.categories[0])}">${esc(slot.label[lang])}</a></div>
-        <div class="bhCell">${thumbHtml(slot)}</div>
         <div class="bhCell bsChoose">
           <a class="btn-choose" href="${chooseUrl(slot)}">${icon("plus", 13)}<span>${esc(slot.choose[lang])}</span></a>
         </div>
@@ -263,7 +260,6 @@ export async function renderBuilder(
     return `
       <div class="buildRow buildRow--add">
         <div class="bhCell"></div>
-        <div class="bhCell"></div>
         <div class="bhCell bsChoose">
           <a class="btn-choose btn-choose--ghost" href="${chooseUrl(slot)}">${icon("plus", 13)}<span>${label}</span></a>
         </div>
@@ -275,7 +271,10 @@ export async function renderBuilder(
     const origin = location.origin + location.pathname;
     const lines: string[] = [];
     if (mode === "markdown") {
-      lines.push("Type|Item|Price", ":----|:----|:----");
+      lines.push(
+        `${t(lang, "componentHeading")}|${t(lang, "markdownItem")}|${t(lang, "priceHeading")}`,
+        ":----|:----|:----"
+      );
     }
     for (const slot of BUILD_SLOTS) {
       for (const product of parts.get(slot.id) ?? []) {
@@ -296,7 +295,7 @@ export async function renderBuilder(
       for (const product of list) total += effectivePrice(product) ?? 0;
     }
     if (mode === "markdown") {
-      lines.push(` | **Total** | **${formatPrice(total, currency, lang)}**`);
+      lines.push(` | **${t(lang, "totalLabel")}** | **${formatPrice(total, currency, lang)}**`);
     } else {
       lines.push(`${t(lang, "totalLabel")} ${formatPrice(total, currency, lang)}`);
     }
@@ -421,8 +420,6 @@ export async function renderBuilder(
           <div class="bhCell">${t(lang, "componentHeading")}</div>
           <div class="bhCell"></div>
           <div class="bhCell">${t(lang, "selectionHeading")}</div>
-          <div class="bhCell">${t(lang, "baseHeading")}</div>
-          <div class="bhCell">${t(lang, "shippingHeading")}</div>
           <div class="bhCell">${t(lang, "availability")}</div>
           <div class="bhCell">${t(lang, "priceHeading")}</div>
           <div class="bhCell">${t(lang, "merchantHeading")}</div>

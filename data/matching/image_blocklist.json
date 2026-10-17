@@ -1,0 +1,6 @@
+{
+ "_note": "Photos known to be defective — banners, strips, wrong product, watermarked junk — are never picked as a cover, no matter the vendor ranking or URL shape. Entry format: '<vendor-folder>/<url-fragment>'. The fragment is any substring of the image URL; the vendor thumbs id (e.g. 1pc's 0333830) survives every URL shape of the same asset, so one entry vetoes all derivatives of a bad source. Vendor folders: tms, onepc, ivory, yahav, plonter. Hand-edit to add entries; a missing or broken file is simply an empty blocklist.",
+ "blocked": [
+  "onepc/0333830"
+ ]
+}

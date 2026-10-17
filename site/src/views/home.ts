@@ -61,7 +61,7 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
           </span>
           <span class="portal-body">
             <span class="portal-name">${esc(label)}</span>
-            <span class="portal-count">${c.count.toLocaleString(he ? "he-IL" : "en-US")} · ${t(lang, "homeStatsParts")}</span>
+            <span class="portal-count">${c.count.toLocaleString(he ? "he-IL" : "en-US")} · ${t(lang, "homeTileProducts")}</span>
             ${price ? `<span class="portal-price">${esc(price)}</span>` : ""}
           </span>
         </a>`;

@@ -42,17 +42,21 @@ from pathlib import Path
 from scraper.image_urls import is_probably_not_a_photo, url_shape_score
 
 PRIORITY_PATH = Path("data/matching/image_vendor_priority.json")
+BLOCKLIST_PATH = Path("data/matching/image_blocklist.json")
 META_PATH = Path("data/images/meta.json")
 
 # Fallback order when the priority file has no entry for a category. Measured
 # basis (audit, Sep 2026): TMS serves 1500px originals (its covers only look
-# tiny until the upgrade pass runs), Plonter averages 663px with 35% at 800+,
-# 1PC's native files are ~500px, and Ivory's 500px shots are the least
-# white-backdrop-friendly (0.65 border-white vs 0.94+ for everyone else,
-# i.e. more boxed/lifestyle art that mattes badly).
+# tiny until the upgrade pass runs), Yahav's 1079 detail photos are 800px
+# white-backdrop product shots, 1PC's native files are ~500px, and Ivory's
+# 500px shots are the least white-backdrop-friendly (0.65 border-white vs
+# 0.94+ for everyone else, i.e. more boxed/lifestyle art that mattes badly).
+# Yahav sits second (2026-10-17, images fix): its photo corpus was scraped
+# and verified but ranked last since the Sep audit, so yahav covers almost
+# never won despite being the second-largest source.
 # Plonter sits last since 2026-09-29: vendor dropped after a datacenter IP
 # block (owner decision) — mirrors data/matching/image_vendor_priority.json.
-DEFAULT_ORDER = ("tms", "onepc", "ivory", "plonter")
+DEFAULT_ORDER = ("tms", "yahav", "onepc", "ivory", "plonter")
 
 # Vendor ids on offers use "1pc"; image folders use "onepc".
 _VENDOR_FOLDER = {"1pc": "onepc", "onepc": "onepc"}
@@ -105,11 +109,41 @@ TILE_EDGE = 300
 UPGRADE_GAP = 4.0
 
 _priority_cache: dict | None = None
+_blocklist_cache: list | None = None
 _meta_cache: dict | None = None
 
 
 def vendor_folder(vendor_id: str | None) -> str:
     return _VENDOR_FOLDER.get(str(vendor_id or ""), str(vendor_id or ""))
+
+
+def blocklist(reload: bool = False) -> list[tuple[str, str]]:
+    """Known-defective photos: [(vendor_folder, url_fragment)], never picked.
+
+    Committed, human-editable file (same escape hatch as the priority
+    table). A fragment is any substring of the image URL — the thumbs id
+    ("0333830" for 1pc) survives every URL shape of the same asset, so one
+    entry vetoes all derivatives of a bad source. A missing or broken file
+    is simply an empty blocklist; discovery must never break the build.
+    """
+    global _blocklist_cache
+    if _blocklist_cache is not None and not reload:
+        return _blocklist_cache
+    entries: list[tuple[str, str]] = []
+    try:
+        if BLOCKLIST_PATH.is_file():
+            with BLOCKLIST_PATH.open(encoding="utf-8") as f:
+                raw = json.load(f)
+            for item in raw.get("blocked") or []:
+                if isinstance(item, str) and "/" in item:
+                    vendor, _, fragment = item.partition("/")
+                    vendor, fragment = vendor.strip(), fragment.strip()
+                    if vendor and fragment:
+                        entries.append((vendor, fragment))
+    except Exception as exc:
+        print(f"[image_score] ignoring {BLOCKLIST_PATH}: {exc}")
+    _blocklist_cache = entries
+    return entries
 
 
 def priority_table(reload: bool = False) -> dict:
@@ -185,13 +219,18 @@ def score_candidate(candidate: dict, *, category: str = "",
         return -100.0
     score = _SHAPE_WEIGHT * shape
 
+    vendor = vendor_folder(candidate.get("vendor"))
+    if vendor:
+        for blocked_vendor, fragment in blocklist():
+            if vendor == blocked_vendor and fragment in url:
+                return -100.0
+
     kind = str(candidate.get("kind") or "listing")
     score += _KIND_BONUS.get(kind, 0.0)
 
     if candidate.get("in_stock"):
         score += 1.0
 
-    vendor = vendor_folder(candidate.get("vendor"))
     if vendor:
         table = table if table is not None else priority_table()
         rank = _vendor_rank(vendor, category, table)

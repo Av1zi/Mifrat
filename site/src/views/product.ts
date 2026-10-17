@@ -224,6 +224,38 @@ export async function renderProduct(
   const sku = skuOf(product);
   const name = displayName(product);
 
+  // Echo guards: scraped descriptions and "SKUs" often just repeat the
+  // title, and a brand line under a title that already starts with the
+  // brand reads as a stutter. Normalized containment catches all three.
+  const normEcho = (s: string): string =>
+    s.toLowerCase().replace(/[\s\-–—_.,:;'"()[\]|/\\+*#]+/g, "");
+  const nameNorm = normEcho(name);
+  const echoOf = (s: string): boolean => {
+    const n = normEcho(s);
+    if (n === "") return false;
+    if (n === nameNorm) return true;
+    const contained = nameNorm.includes(n) || n.includes(nameNorm);
+    if (!contained) return false;
+    // Containment alone is too eager: a short title ("Antec") would hide a
+    // vendor description that carries real info. Treat it as an echo only
+    // when the two are close in size.
+    const shorter = Math.min(n.length, nameNorm.length);
+    const longer = Math.max(n.length, nameNorm.length);
+    return longer > 0 && shorter / longer >= 0.6;
+  };
+  const description = (product.description ?? "").trim();
+  const showDescription = description !== "" && !echoOf(description);
+  const brandText = (product.brand ?? "").trim();
+  const skuText = sku.trim();
+  const metaBits: string[] = [];
+  if (brandText !== "" && !nameNorm.startsWith(normEcho(brandText))) {
+    metaBits.push(esc(brandText));
+  }
+  if (skuText !== "" && !echoOf(skuText)) {
+    metaBits.push(`${esc(t(lang, "skuLabel"))}: ${esc(skuText)}`);
+  }
+  const metaLine = metaBits.length > 0 ? `<p>${metaBits.join(" · ")}</p>` : "";
+
   // Typed spec sheet (scraper/specs/): the schema's own field order, split
   // into what any source supplied and what none did (Oct 2026 completeness
   // pass). Reference-dataset values are merged upstream at Tier 0, so there
@@ -276,16 +308,32 @@ export async function renderProduct(
     return ap - bp;
   });
 
+  // Shipping is rarely present in scraped offers (zero of ~6k listings as
+  // of Oct 2026). Render the column only when at least one offer supplies
+  // it, and the total column only when shipping can actually change it —
+  // data-driven so the table is correct again if a vendor starts
+  // publishing shipping costs.
+  const showShipping = sortedOffers.some(
+    (o) => o.shipping !== null && o.shipping !== undefined
+  );
+  const showTotal = sortedOffers.some((o) => (o.shipping ?? 0) > 0);
+
   const priceRows = sortedOffers
     .map((offer) => {
       const hasPrice = offer.price !== null && offer.price !== undefined && offer.price > 0;
       const total = (hasPrice ? (offer.price as number) : 0) + (offer.shipping ?? 0);
-      const shipping =
-        offer.shipping === null || offer.shipping === undefined
-          ? `<span class="dim">-</span>`
-          : offer.shipping === 0
-            ? `<span class="free-ship">+${t(lang, "freeShipping")}</span>`
-            : esc(formatPrice(offer.shipping, currency, lang));
+      const shipCell = showShipping
+        ? `<td class="pt-ship">${
+            offer.shipping === null || offer.shipping === undefined
+              ? `<span class="dim">-</span>`
+              : offer.shipping === 0
+                ? `<span class="free-ship">+${t(lang, "freeShipping")}</span>`
+                : esc(formatPrice(offer.shipping, currency, lang))
+          }</td>`
+        : "";
+      const totalCell = showTotal
+        ? `<td class="pt-total">${hasPrice ? esc(formatPrice(total, currency, lang)) : `<span class="dim">-</span>`}</td>`
+        : "";
       const stale = offer.stale
         ? ` <span class="tag-stale">${t(lang, "staleData")}</span>`
         : "";
@@ -296,10 +344,10 @@ export async function renderProduct(
       return `
       <tr class="${offer.in_stock ? "" : "is-out"}">
         <td class="pt-merchant">${esc(vendorLabel(offer.vendor))}</td>
-        <td class="pt-num">${hasPrice ? esc(formatPrice(offer.price as number, currency, lang)) : "-"}</td>
-        <td class="pt-ship">${shipping}</td>
+        <td class="pt-num">${hasPrice ? esc(formatPrice(offer.price as number, currency, lang)) : `<span class="dim">-</span>`}</td>
+        ${shipCell}
         <td class="pt-avail"><span class="status-dot ${offer.in_stock ? "in" : "out"}"></span>${offer.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}${stale}</td>
-        <td class="pt-total">${hasPrice ? esc(formatPrice(total, currency, lang)) : "-"}</td>
+        ${totalCell}
         <td class="pt-buy">${buyCell}</td>
       </tr>`;
     })
@@ -310,14 +358,74 @@ export async function renderProduct(
     ? `<img class="pdp-image" src="${esc(mainImg)}" alt="${esc(name)}" loading="eager" fetchpriority="high" width="600" height="600" style="object-fit:contain;background:#fff;">`
     : `<div class="thumb thumb-lg" aria-hidden="true">${esc((product.brand ?? name).slice(0, 2).toUpperCase())}</div>`;
 
-  const similarHtml = similar
-    .map((p) => {
+  // The similar grid can surface twins that share a display name
+  // ("Gigabyte GeForce RTX 5060 TI 8GB" x5). When names collide (with
+  // each other or with the current product) add a dim disambiguator:
+  // model tokens the title doesn't already carry, otherwise the first
+  // differing priority spec values.
+  const simNorm = new Map<string, number>();
+  for (const p of similar) {
+    const n = normEcho(displayName(p));
+    simNorm.set(n, (simNorm.get(n) ?? 0) + 1);
+  }
+  const modelDisc = (p: Product): string => {
+    const m = (p.model ?? "").trim();
+    if (m === "" || echoOf(m)) return "";
+    const titleTokens = new Set(
+      displayName(p)
+        .toLowerCase()
+        .split(/[^a-z0-9א-ת+]+/i)
+        .filter(Boolean)
+    );
+    const kept = m.split(/\s+/).filter((tok) => {
+      const clean = tok.toLowerCase().replace(/[^a-z0-9א-ת+]/gi, "");
+      if (clean === "" || titleTokens.has(clean)) return false;
+      if (/^\d+$/.test(clean)) return false;
+      if (/^(nvidia|geforce|rtx?|gtx|rx|ti|super|series|edition)$/.test(clean)) return false;
+      return true;
+    });
+    const joined = kept.join(" ");
+    return joined.length >= 3 ? joined : "";
+  };
+  const specDiffs = (p: Product, limit: number): string => {
+    const out: string[] = [];
+    for (const k of specPriority(p.category)) {
+      if (NOISE_KEYS.has(k)) continue;
+      const mine = rawText(specValue(product, k));
+      const theirs = rawText(specValue(p, k));
+      if (!theirs || theirs === mine) continue;
+      out.push(`${attributeLabel(k, lang)} ${formatSpecValue(specValue(p, k), lang)}`);
+      if (out.length >= limit) break;
+    }
+    return out.join(" · ");
+  };
+  const simCards = similar.map((p) => {
+    const pname = displayName(p);
+    const collides =
+      (simNorm.get(normEcho(pname)) ?? 0) > 1 || normEcho(pname) === nameNorm;
+    const disc = collides ? modelDisc(p) || specDiffs(p, 2) : "";
+    return { p, pname, disc };
+  });
+  const discCounts = new Map<string, number>();
+  for (const c of simCards) {
+    if (c.disc) discCounts.set(c.disc, (discCounts.get(c.disc) ?? 0) + 1);
+  }
+  for (const c of simCards) {
+    if (c.disc && (discCounts.get(c.disc) ?? 0) > 1) {
+      const diff = specDiffs(c.p, 2);
+      if (diff !== "" && diff !== c.disc) c.disc = diff;
+    }
+  }
+
+  const similarHtml = simCards
+    .map(({ p, pname, disc }) => {
       const simImg = safeImageUrl(p.image);
       return `
       <a class="pdp-similar-card" href="${productHash(p.category, p.id)}">
-        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(displayName(p))}" loading="lazy" width="200" height="200" style="object-fit:contain;background:#fff;">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
-        <span class="pdp-similar-name">${esc(displayName(p))}</span>
-        <span class="pdp-similar-price">${p.min_price !== null && p.min_price > 0 ? esc(formatPrice(p.min_price, currency, lang)) : "-"}</span>
+        ${simImg ? `<img src="${esc(simImg)}" alt="${esc(pname)}" loading="lazy" width="200" height="200" style="object-fit:contain;background:#fff;">` : `<span class="plThumb" aria-hidden="true">${esc((p.brand ?? p.name).slice(0, 2).toUpperCase())}</span>`}
+        <span class="pdp-similar-name">${esc(pname)}</span>
+        ${disc ? `<span class="pdp-similar-disc">${esc(disc)}</span>` : ""}
+        <span class="pdp-similar-price">${p.min_price !== null && p.min_price > 0 ? esc(formatPrice(p.min_price, currency, lang)) : `<span class="dim">-</span>`}</span>
       </a>`;
     })
     .join("");
@@ -332,8 +440,8 @@ export async function renderProduct(
     <div class="title-band title-band--product">
       <div class="title-band-eyebrow">${esc(categoryLabel(category, lang))}</div>
       <h1>${esc(name)}</h1>
-      ${product.description ? `<p class="pdp-desc">${esc(product.description)}</p>` : ""}
-      <p>${esc(product.brand ?? "")}${sku ? ` · SKU: ${esc(sku)}` : ""}</p>
+      ${showDescription ? `<p class="pdp-desc">${esc(description)}</p>` : ""}
+      ${metaLine}
     </div>
 
     <div class="pdp-layout">
@@ -368,9 +476,9 @@ export async function renderProduct(
                 <tr>
                   <th scope="col">${t(lang, "merchantHeading")}</th>
                   <th scope="col">${t(lang, "baseHeading")}</th>
-                  <th scope="col">${t(lang, "shippingHeading")}</th>
+                  ${showShipping ? `<th scope="col">${t(lang, "shippingHeading")}</th>` : ""}
                   <th scope="col">${t(lang, "availability")}</th>
-                  <th scope="col">${t(lang, "totalHeading")}</th>
+                  ${showTotal ? `<th scope="col">${t(lang, "totalHeading")}</th>` : ""}
                   <th scope="col"><span class="visually-hidden">${esc(t(lang, "buyHeaderLabel"))}</span><span aria-hidden="true"></span></th>
                 </tr>
               </thead>
