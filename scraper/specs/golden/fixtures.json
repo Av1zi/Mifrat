@@ -19,7 +19,7 @@
     "so the socket-list and printed-part-number rules are unpinned until vendor",
     "data exercises them again. The rules themselves are untouched."
   ],
-  "schema_version": 1,
+  "schema_version": 2,
   "cases": [
     {
       "product_id": "model:cpu:ryzen79800x3d-tray",
@@ -58,7 +58,9 @@
         "socket": "AM5",
         "packaging": "tray",
         "includes_cooler": false,
-        "part_numbers": ["100-000000910"],
+        "part_numbers": [
+          "100-000000910"
+        ],
         "series": "Ryzen 7",
         "smt": true,
         "unlocked": true,
@@ -85,7 +87,9 @@
         "type": "SSD",
         "nvme": true,
         "pcie_gen": 4,
-        "part_numbers": ["MZ-V9P2T0BW"]
+        "part_numbers": [
+          "MZ-V9P2T0BW"
+        ]
       },
       "expect_reference": {
         "form_factor": "M.2-2280",
@@ -102,7 +106,9 @@
         "type": "SSD",
         "nvme": true,
         "pcie_gen": 4,
-        "part_numbers": ["MZ-V9P1T0BW"]
+        "part_numbers": [
+          "MZ-V9P1T0BW"
+        ]
       }
     },
     {
@@ -118,7 +124,9 @@
         "module_size_gb": 16,
         "total_gb": 32,
         "cas_latency": 28,
-        "part_numbers": ["6000J2836G16GX2-FX5"]
+        "part_numbers": [
+          "6000J2836G16GX2-FX5"
+        ]
       }
     },
     {
@@ -129,7 +137,9 @@
         "manufacturer": "MSI",
         "chipset": "B850",
         "memory_type": "DDR5",
-        "part_numbers": ["4711377290623"]
+        "part_numbers": [
+          "4711377290623"
+        ]
       },
       "expect_reference": {
         "socket": "AM5",
@@ -152,7 +162,7 @@
       "product_id": "mpn:gpu:4711377308175",
       "category": "gpu",
       "name": "MSI GeForce RTX 5070 12GB",
-      "_pins": "GPU chipset canonical form. The board rule for chipset used to reject every multi-word GPU chip, which was 87% of the catalogue. Same model/assertions as the original pin, which was mpn:gpu:4711377303927 (MSI RTX 5070 12G TRIO OC): that product is gone from the catalogue because 1PC's Oct 2026 builder lists only buildable items and its single offer is now sold out (the live page shows \u05d0\u05d6\u05dc \u05de\u05d4\u05de\u05dc\u05d0\u05d9, no schema.org availability). Its 1PC listing still reads 'MSI GeForce RTX 5070 12G VENTUS 2X OC', so the multi-word chip is still exercised.",
+      "_pins": "GPU chipset canonical form. The board rule for chipset used to reject every multi-word GPU chip, which was 87% of the catalogue. Same model/assertions as the original pin, which was mpn:gpu:4711377303927 (MSI RTX 5070 12G TRIO OC): that product is gone from the catalogue because 1PC's Oct 2026 builder lists only buildable items and its single offer is now sold out (the live page shows אזל מהמלאי, no schema.org availability). Its 1PC listing still reads 'MSI GeForce RTX 5070 12G VENTUS 2X OC', so the multi-word chip is still exercised.",
       "expect": {
         "manufacturer": "MSI",
         "chipset": "GeForce RTX 5070",
@@ -182,7 +192,44 @@
         "lighting": "ARGB",
         "color": "Black"
       },
-      "expect_null": ["water_cooled", "radiator_size_mm"]
+      "expect_null": [
+        "water_cooled",
+        "radiator_size_mm"
+      ]
+    },
+    {
+      "product_id": "mpn:case:cc9011291ww",
+      "category": "case",
+      "name": "Corsair Frame 4000D White",
+      "_pins": "Phase 1d: Tier 0.5 manufacturer page (corsair.com) states the clearances; a retailer value must never outrank it.",
+      "expect": {
+        "manufacturer": "Corsair",
+        "max_gpu_length_mm": 430,
+        "max_cooler_height_mm": 170,
+        "type": "Mid Tower"
+      }
+    },
+    {
+      "product_id": "mpn:case:cc9011242ww",
+      "category": "case",
+      "name": "Corsair iCUE 5000D Airflow RGB Black",
+      "_pins": "Phase 1d: second manufacturer-sourced case (5000D clears 420mm GPUs / 170mm coolers per corsair.com).",
+      "expect": {
+        "manufacturer": "Corsair",
+        "max_gpu_length_mm": 420,
+        "max_cooler_height_mm": 170
+      }
+    },
+    {
+      "product_id": "mpn:motherboard:90mb14u0m0eay0",
+      "category": "motherboard",
+      "name": "ASUS Prime B550-Plus",
+      "_pins": "Phase 1c/1d: no Wi-Fi/Bluetooth board is recorded as \"No\" (never null, never \"None\" - a coerce placeholder).",
+      "expect": {
+        "manufacturer": "ASUS",
+        "wireless": "No",
+        "bluetooth": "No"
+      }
     }
   ]
 }

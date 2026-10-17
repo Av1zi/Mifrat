@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from scraper.specs.merge import (  # noqa: E402
+    TIER_MANUFACTURER,
     TIER_OVERRIDE,
     TIER_REFERENCE,
     TIER_TITLE,
@@ -146,6 +147,23 @@ def check_tier_order(c: Checks) -> None:
     })
     c.eq(overridden.specs.get("socket"), "AM4", "an override beats every other tier")
 
+    # Tier 0.5: the brand's own page outranks the retailer's payload, but never
+    # the reference rows or a manual override.
+    primary = merge_facts("case", {
+        "max_gpu_length_mm": [
+            Fact(value=330, tier=TIER_VENDOR, source="vendor:detail"),
+            Fact(value=405, tier=TIER_MANUFACTURER, source="manufacturer:antec"),
+        ],
+        "max_cooler_height_mm": [
+            Fact(value=170, tier=TIER_MANUFACTURER, source="manufacturer:antec"),
+            Fact(value=165, tier=TIER_REFERENCE, source="reference"),
+        ],
+    })
+    c.eq(primary.specs.get("max_gpu_length_mm"), 405, "manufacturer tier beats the vendor tier")
+    c.eq(primary.sources.get("max_gpu_length_mm"), "manufacturer",
+         "a manufacturer-sourced cell is labelled manufacturer")
+    c.eq(primary.specs.get("max_cooler_height_mm"), 165, "reference tier still beats manufacturer")
+
 
 def check_validation_and_unknowns(c: Checks) -> None:
     junk = merge_facts("cpu", {
@@ -185,6 +203,37 @@ def schema_keys_are_fixed() -> bool:
     return all(key in empty and key in populated for key in required)
 
 
+def check_curated_tables(c: Checks) -> None:
+    """Every curated-table cell must be a legal value for its schema field
+    (scraper/specs/tables/*.json is data: a typo there ships as a derived cell)."""
+    from scraper.specs import derive, schema
+    from scraper.specs.tables import load
+    from scraper.specs.validate import validate_fact
+
+    for table, category in (("gpu_chipsets", "gpu"), ("cpu_models", "cpu")):
+        fields = schema.field_map(category)
+        rows = load(table)
+        c.ok(bool(rows), f"{table} table loads")
+        for key, row in rows.items():
+            for field, value in row.items():
+                if field.startswith("_"):
+                    continue
+                spec = fields.get(field)
+                c.ok(spec is not None, f"{table}[{key}].{field} is a {category} schema field")
+                if spec is not None:
+                    reason = validate_fact(category, spec, value)
+                    c.ok(reason is None, f"{table}[{key}].{field}={value!r} validates",
+                         str(reason))
+    c.eq(derive.cpu_table_key({"model": "Core i5 14400F", "manufacturer": "Intel"}),
+         "intel:14400F", "intel model token")
+    c.eq(derive.cpu_table_key({"model": "Core Ultra 7 265KF", "manufacturer": "Intel"}),
+         "intel:265KF", "core ultra token")
+    c.eq(derive.cpu_table_key({"model": "AMD Ryzen 5 5600 AMD Ryzen 5 Processor",
+                               "manufacturer": "AMD"}), "amd:5600", "amd model token")
+    c.eq(derive.cpu_table_key({"model": "Ryzen 5", "manufacturer": "AMD"}), None,
+         "a lineup name with no model number has no table key")
+
+
 def check_equality_helpers(c: Checks) -> None:
     c.ok(same_value("65W", "65 w"), "unit-case noise does not create a conflict")
     c.ok(same_value(["A", "B"], ["B", "A"]),
@@ -197,7 +246,7 @@ def main() -> int:
     checks = Checks()
     for group in (check_part_number_shape, check_model_prefers_a_name,
                   check_tier_order, check_validation_and_unknowns,
-                  check_equality_helpers):
+                  check_curated_tables, check_equality_helpers):
         group(checks)
 
     if checks.failures:

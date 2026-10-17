@@ -63,3 +63,6 @@ Thumbs.db
 site/public/data/
 site/public/images/
 tsconfig.tsbuildinfo
+
+# Manufacturer-page raw HTML cache (scraper/mfr); only data/mfr/<brand>.json is committed.
+data/mfr/.cache/
