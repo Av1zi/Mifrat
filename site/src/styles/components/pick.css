@@ -1,0 +1,248 @@
+/* Compare / save controls, price-signal chips, the sticky compare tray and
+   the compact part card. Tokens only. */
+
+/* ---- toggles ---- */
+.save-btn[aria-pressed="true"],
+.compare-btn[aria-pressed="true"] {
+  background: var(--brand-soft);
+  border-color: var(--brand-line);
+  color: var(--brand-strong);
+}
+
+.save-btn[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+
+/* ---- row tools (compare checkbox + heart) ---- */
+.row__tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+}
+
+.compare-check {
+  min-height: 2rem;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.compare-check input:disabled {
+  cursor: not-allowed;
+}
+
+/* ---- price-drop chips ---- */
+.signals {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+}
+
+/* ---- header: saved link with its count ---- */
+.saved-link {
+  position: relative;
+}
+
+.saved-link.is-active {
+  background: var(--brand-soft);
+  border-color: var(--brand-line);
+  color: var(--brand-strong);
+}
+
+.saved-count {
+  position: absolute;
+  inset-block-start: -0.3rem;
+  inset-inline-end: -0.3rem;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding: 0 var(--sp-1);
+  border-radius: var(--radius-pill);
+  background: var(--brand);
+  color: var(--on-brand);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+/* ---- sticky compare tray ---- */
+.compare-tray {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: var(--z-sticky);
+  background: var(--surface);
+  border-top: 1px solid var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+body.has-tray #app {
+  padding-block-end: 4.75rem;
+}
+
+.compare-tray__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: var(--sp-2) var(--gutter);
+}
+
+.compare-tray__count {
+  display: none;
+  flex: none;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.compare-tray__items {
+  display: flex;
+  flex: 1;
+  gap: var(--sp-2);
+  min-width: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.compare-tray__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 0;
+  padding-inline-end: var(--sp-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.compare-tray__name {
+  display: none;
+  max-width: 11rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-sm);
+}
+
+.compare-tray__x {
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  border-color: transparent;
+  background: none;
+}
+
+.compare-tray__actions {
+  display: flex;
+  flex: none;
+  gap: var(--sp-2);
+}
+
+.compare-tray__notice {
+  position: absolute;
+  inset-block-end: calc(100% + var(--sp-2));
+  inset-inline-start: var(--gutter);
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius-sm);
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+.compare-tray__notice:empty {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .compare-tray__count,
+  .compare-tray__name {
+    display: block;
+  }
+}
+
+/* ---- part card (saved list, home price-drop strip) ---- */
+.part-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr));
+  gap: var(--sp-3);
+}
+
+.part-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+
+.part-card:hover {
+  border-color: var(--brand-line);
+  box-shadow: var(--shadow);
+}
+
+.part-card__link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  color: var(--text);
+}
+
+.part-card__link:hover {
+  text-decoration: none;
+}
+
+.part-card__name {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  overflow-wrap: anywhere;
+}
+
+.part-card__link:hover .part-card__name {
+  color: var(--brand-strong);
+}
+
+.part-card__buy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-1);
+  margin-block-start: auto;
+}
+
+.part-card .price--lg {
+  font-size: var(--fs-xl);
+}
+
+.part-card__tools {
+  position: absolute;
+  inset-block-start: var(--sp-2);
+  inset-inline-end: var(--sp-2);
+}
+
+/* Home strip: 2 / 3 / 6 across so six cards never leave a stray second row. */
+.part-grid--strip {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .part-grid--strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .part-grid--strip {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

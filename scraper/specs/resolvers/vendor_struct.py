@@ -327,6 +327,11 @@ def _emit_psu_conn_string(facts: dict, category: str, value, source: str) -> Non
         conns.append("1x16-pin")
     if conns:
         _emit(facts, category, "external_power", conns, source, 0.75)
+    # The wattage IS the PSU recommendation, which has its own column since
+    # the Oct 2026 completeness pass (recommended_psu_w).
+    watts = re.search(r"(\d{3,4})\s*W\b", text, re.I)
+    if watts:
+        _emit(facts, category, "recommended_psu_w", int(watts.group(1)), source, 0.7)
 
 
 def _emit_memory_kit(facts: dict, category: str, value, source: str) -> None:
@@ -376,6 +381,22 @@ def _emit_gpu_dimensions(facts: dict, category: str, value, source: str) -> None
     number = float(match.group(1).replace(",", ".")) if match else first_number(text)
     if number is not None:
         _emit(facts, category, "length_mm", number, source, 0.8)
+    _emit_slot_width(facts, category, text, source)
+
+
+# "3.2 Slot" (TMS dimension cell), "Slot Size: 2.5 Slot", "2.5-slot". Only an
+# explicit slot statement is read: a card thickness in mm is NOT converted
+# (no vendor prints the pitch, and "2 slots" vs "2.5 slots" is exactly what
+# the buyer is asking).
+_SLOT_WIDTH_RE = re.compile(r"\b(\d(?:[.,]\d+)?)\s*-?\s*slots?\b", re.I)
+
+
+def _emit_slot_width(facts: dict, category: str, value, source: str) -> None:
+    match = _SLOT_WIDTH_RE.search(str(value or ""))
+    if match:
+        width = float(match.group(1).replace(",", "."))
+        if 0.5 <= width <= 6:
+            _emit(facts, category, "slot_width", width, source, 0.85)
 
 
 def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
@@ -415,7 +436,8 @@ def _emit_raid(facts: dict, category: str, value, source: str) -> None:
 
 _LAN_RE = re.compile(r"\bLAN\s*([\d.]+)\s*Gb/s", re.I)
 _WIFI_RE = re.compile(r"\bWi-?Fi\s*([67])\s?(E)?\b", re.I)
-_BT_RE = re.compile(r"\bBluetooth\s*([\d.]+)\b", re.I)
+_BT_RE = re.compile(r"\bBluetooth(?:®)?\s*(?:v(?:ersion)?\s*)?(\d(?:\.\d)?)\b", re.I)
+_BT_SHORT_RE = re.compile(r"\bBT\s?(\d\.\d)\b", re.I)
 
 
 def _emit_connectivity(facts: dict, category: str, value, source: str) -> None:
@@ -439,7 +461,11 @@ def _emit_connectivity(facts: dict, category: str, value, source: str) -> None:
     if wifi:
         _emit(facts, category, "wireless", f"Wi-Fi {wifi.group(1)}"
               f"{(wifi.group(2) or '').upper()}", source, 0.85)
-    if not lan and not wifi:
+    bluetooth = _BT_RE.search(text)
+    if bluetooth:
+        _emit(facts, category, "bluetooth", f"Bluetooth {bluetooth.group(1)}",
+              source, 0.85)
+    if not lan and not wifi and not bluetooth:
         # Nothing recognized: keep the raw row so it is not silently lost.
         _emit(facts, category, "ethernet", text, source, 0.6)
 
@@ -1289,7 +1315,6 @@ _THICKNESS_RE = re.compile(
 _TRIPLE_MM_RE = re.compile(
     r"(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)")
 _SPEED_RE = re.compile(r"(\d[\d,.]*)\s*(gb|mb)", re.I)
-_IOPS_RE = re.compile(r"(\d[\d,.]*)\s*([km])?\s*iops", re.I)
 
 
 def _plain_number(token) -> float | None:
@@ -1373,22 +1398,6 @@ def _emit_speed_mbs(facts: dict, category: str, field: str, value, source: str) 
     if match.group(2).lower() == "gb":
         number *= 1000
     _emit(facts, category, field, round(number), source, 0.8)
-
-
-def _emit_random_iops(facts: dict, category: str, field: str, value, source: str) -> None:
-    """'220K IOPS' / '98,000 IOPS' / '(Q32) 1,850K IOPS' -> int IOPS."""
-    match = _IOPS_RE.search(str(value or ""))
-    if not match:
-        return
-    number = _plain_number(match.group(1))
-    if number is None:
-        return
-    unit = (match.group(2) or "").lower()
-    if unit == "k":
-        number *= 1000
-    elif unit == "m":
-        number *= 1_000_000
-    _emit(facts, category, field, round(number), source, 0.75)
 
 
 _DISPLAY_COUNT_RE = re.compile(r"(\d{1,2})")
@@ -1561,10 +1570,6 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         _emit_speed_mbs(facts, category, token[len(labels.SPEED_MBS_PREFIX):],
                         value, source)
         return True
-    if token.startswith(labels.IOPS_PREFIX):
-        _emit_random_iops(facts, category, token[len(labels.IOPS_PREFIX):],
-                          value, source)
-        return True
     if token == labels.CLOCK_RANGE:
         _emit_clock_range(facts, category, value, source)
         return True
@@ -1730,6 +1735,27 @@ def _detail_rows(detail_specs):
         yield key, value
 
 
+def _bluetooth_sweep(facts: dict, category: str, detail_specs) -> None:
+    """Bluetooth version from any row of a board page.
+
+    The version rides inside combined cells ("Wi-Fi 7, Bluetooth 5.3",
+    "Wi-Fi 6 BT5.2") and in 1PC's one-row-per-claim keys ("Communication
+    connections: Bluetooth 5.4 (unpaired)"), so the row KEY is searched too.
+    A bare "Bluetooth" mention with no version is deliberately not a value.
+    """
+    if "bluetooth" in facts:
+        return
+    rows = (detail_specs.items() if isinstance(detail_specs, dict)
+            else _detail_rows(detail_specs))
+    for key, value in rows:
+        for blob in (str(key or ""), str(value or "")):
+            match = _BT_RE.search(blob) or _BT_SHORT_RE.search(blob)
+            if match:
+                _emit(facts, category, "bluetooth", f"Bluetooth {match.group(1)}",
+                      SOURCE_DETAIL, 0.75)
+                return
+
+
 def parse_detail_specs(category: str | None, detail_specs,
                        gaps: dict[str, int] | None = None) -> dict[str, list[Fact]]:
     """Structured spec rows from a vendor product page.
@@ -1782,6 +1808,9 @@ def parse_detail_specs(category: str | None, detail_specs,
         # Per-standard rear-port counts are one spec on the PDP, not four.
         summary = ", ".join(f"{standard} x{count}" for standard, count in usb.items())
         _emit(facts, cat, "usb_ports", summary, SOURCE_DETAIL, 0.75)
+
+    if cat == "motherboard":
+        _bluetooth_sweep(facts, cat, detail_specs)
 
     # Row-crossing arithmetic for the Oct 2026 coverage pass.
     # 0. Cooler sockets: one union regardless of how many rows printed them.

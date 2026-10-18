@@ -1,0 +1,113 @@
+/* Compare page. */
+.compare-only {
+  width: fit-content;
+  margin-bottom: var(--sp-3);
+}
+
+.compare-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.compare-table {
+  width: max-content;
+  min-width: 100%;
+}
+
+.compare-table th,
+.compare-table td {
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.compare-table td,
+.compare-table .compare-table__item {
+  min-width: 8.5rem;
+  max-width: 14rem;
+}
+
+.compare-table .compare-table__item {
+  position: relative;
+  color: var(--text);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0;
+}
+
+.compare-table__thumb {
+  display: block;
+  margin-bottom: var(--sp-2);
+}
+
+.compare-table__name {
+  display: block;
+  color: var(--text);
+  font-weight: var(--fw-semibold);
+}
+
+.compare-table__name:hover {
+  color: var(--brand-strong);
+}
+
+.compare-table__x {
+  position: absolute;
+  inset-block-start: var(--sp-1);
+  inset-inline-end: var(--sp-1);
+  border-color: transparent;
+  background: none;
+}
+
+.compare-table .compare-table__corner,
+.compare-table tbody th[scope="row"] {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+  min-width: 5.5rem;
+  max-width: 6.5rem;
+  background: var(--surface);
+  border-inline-end: 1px solid var(--line);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0;
+}
+
+.compare-table .compare-table__group th {
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+}
+
+/* Rows whose known values differ between the compared parts. */
+.compare-table .is-diff td,
+.compare-table .is-diff th[scope="row"] {
+  background: var(--brand-soft);
+}
+
+.compare-table .is-diff th[scope="row"] {
+  color: var(--brand-strong);
+}
+
+.compare-table .is-diff td {
+  font-weight: var(--fw-semibold);
+}
+
+.notice {
+  margin-bottom: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: var(--fs-sm);
+}
+
+@media (min-width: 640px) {
+  .compare-table .compare-table__corner,
+  .compare-table tbody th[scope="row"] {
+    min-width: 9rem;
+  }
+}

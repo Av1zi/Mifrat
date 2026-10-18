@@ -61,7 +61,10 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # ambiguous modularity badge (76 — it sits on semi-modular units too), spec
 # blocks leaked onto accessory pages (~100), flattened "מפרט" cells (26).
 # Same rule: measured total (1,237) + ~30% headroom.
-LABEL_GAP_BUDGET = 1600
+# 2026-10-17: 1600 -> 1300. Phase 1 mapped the labels that had a schema home and
+# the pruned fields' labels left the vocabulary; gap rows measure 978 now
+# (+~30% headroom). What remains is laptop/server prose filed under PC categories.
+LABEL_GAP_BUDGET = 1300
 
 # Mean field-fill % per category, minus 2pp tolerance.
 #
@@ -74,58 +77,59 @@ LABEL_GAP_BUDGET = 1600
 # the new baselines minus the same 2pp tolerance, so a genuine mapping break
 # still trips — every new parser is pinned by pair cases in
 # scripts/check_tms_detail.py.
+# 2026-10-17 (spec completeness, Phase 1): every floor recalibrated again, this
+# time UPWARD - measured mean fill minus 2pp. The cooler schema split, pruned
+# dead fields (vrm_phases, back_connect, power_connections, controller, IOPS,
+# frame_sync), curated tables, explicit-negative rules and the manufacturer tier
+# raised the rate: aio 48.3, case 53.3, case_fan 59.5, cooler_air 52.8,
+# cooling_other 34.5, cpu 86.0, gpu 65.0, memory 74.8, motherboard 55.7,
+# psu 51.3, storage 52.5, accessories 45.1 (baseline overall 48.8 -> 58.6).
 CATEGORY_FLOORS = {
     "accessories": 43,
-    "aio": 43,
-    "case": 41,
-    # 2026-10-14: 60 -> 55. Yahav onboarded: 201 of 471 case_fan products
-    # are Yahav's, averaging 8.0 filled fields/product vs 9.0 for the rest
-    # (its tables are ~5 rows), so mean fill went to 57.7% on composition
-    # alone — measured, not a mapping regression (pair cases still pass).
-    # 2026-10-14 (same day): 55 -> 54. The lone-RPM bugfix (a lone
-    # "2200 RPM" filed as min==max) removed false rpm_min fills; the 55
-    # floor had been set on the inflated count.
-    # 2026-10-15: 54 -> 53 on the recalibration above (case_fan 55.1%).
-    "case_fan": 53,
-    "cooler_air": 35,
-    "cooling_other": 23,
-    "cpu": 78,
-    "gpu": 50,
-    "memory": 57,
-    # 2026-10-14: 51 -> 46. Same Yahav onboarding: 148 of 710 boards are
-    # Yahav's at 10.1 filled fields/product vs 16.9 for the rest (its
-    # boards carry ~5 Hebrew rows where 1PC/TMS carry full tables),
-    # dragging mean fill to 48.5% on composition alone.
-    # 2026-10-15: 46 -> 43. Board fill is 45.3% now: storage_interface (62%)
-    # and Bluetooth/Thunderbolt/x4/lighting/packaging (5-21%) added six
-    # fields — 11,118 -> 11,947 real board facts.
-    "motherboard": 43,
-    "psu": 43,
-    # 2026-10-13: 58 -> 55. 1PC returned to the catalog (Oct 2026
-    # storefront rebuild) bringing 66 HDD listings whose vendor tables
-    # are 5 thin rows (model/capacity/type/warranty, no form-factor or
-    # interface evidence to map); storage went 60.5% (n=249) -> 57.1%
-    # (n=316) on composition alone. Recalibrated per the rule above
-    # (new baseline minus tolerance), not deleted.
-    # 2026-10-15: 55 -> 44. Same rule again, larger effect: 14 -> 19 fields
-    # (sequential read/write, random IOPS, packaging). Storage facts went
-    # 2,570 -> 2,844 while the rate fell to 46.7%.
-    "storage": 44,
+    "aio": 46,
+    "case": 51,
+    "case_fan": 57,
+    "cooler_air": 50,
+    "cooling_other": 32,
+    "cpu": 84,
+    "gpu": 63,
+    "memory": 72,
+    "motherboard": 53,
+    "psu": 49,
+    "storage": 50,
 }
 
 # Core compat fields, same basis (2026-10-03: socket 99, chipset 96,
 # memory_type 97, wattage_w 96, form_factor 74).
 CORE_FLOORS = {
     "socket": 97,
-    "chipset": 94,
-    "memory_type": 95,
-    "wattage_w": 94,
-    # 2026-10-13: 72 -> 69. Same 1PC return: memory went 350 -> 368
-    # products while memory form_factor was already 81% empty before it
-    # (desktop DIMM is the unrecorded default, a schema question outside
-    # this change), and the thin-spec HDDs carry no form factor either;
-    # product-weighted fill went 73.7% -> 71.4% on composition alone.
-    "form_factor": 69,
+    "chipset": 96,
+    "memory_type": 96,
+    "wattage_w": 95,
+    # 2026-10-17: 69 -> 94 (measured 96.0): memory form_factor is now derived
+    # from "no laptop marker" and boards/cases gained manufacturer-page values.
+    "form_factor": 94,
+}
+
+
+# Applicable CORE-field fill per category (scripts/fill_report.py CORE_FIELDS:
+# the fields a buyer / the compat engine needs, "not applicable" cells excluded),
+# measured 2026-10-17 after Phase 1 minus 2pp tolerance. The Phase-1 target is
+# 95%; the gap to it is explained per brand by `fill_report.py --gaps`
+# (Gigabyte/MSI block automated fetches, the long brand tail has no fetcher) and
+# in decisions.md - the floors only stop it from sliding back.
+CORE_APPLICABLE_FLOORS = {
+    "aio": 83,
+    "case": 76,
+    "case_fan": 64,
+    "cooler_air": 80,
+    "cooling_other": 70,
+    "cpu": 88,
+    "gpu": 81,
+    "memory": 85,
+    "motherboard": 83,
+    "psu": 78,
+    "storage": 76,
 }
 
 
@@ -188,13 +192,29 @@ def main() -> int:
         elif fill < floor:
             failures.append(f"core field {field}: {fill:.1f}% below floor {floor}%")
 
+    catalog = ROOT / "data" / "catalog.json"
+    if catalog.exists():
+        import fill_report
+
+        analysed = fill_report.analyse(fill_report.load_products(catalog))
+        for category, floor in sorted(CORE_APPLICABLE_FLOORS.items()):
+            bucket = analysed.get(category)
+            if bucket is None:
+                failures.append(f"category {category!r} missing from the catalog")
+                continue
+            measured = bucket["core"]["applicable_fill_pct"]
+            if measured < floor:
+                failures.append(f"{category}: core applicable fill {measured:.1f}% "
+                                f"below floor {floor}%")
+
     if failures:
         print(f"[spec-coverage] FAIL — {len(failures)} trip(s):")
         for failure in failures:
             print(f"  - {failure}")
         return 1
     print(f"[spec-coverage] pass — gap rows {gap_rows}/{LABEL_GAP_BUDGET}, "
-          f"{len(CATEGORY_FLOORS)} category floors + {len(CORE_FLOORS)} core floors held")
+          f"{len(CATEGORY_FLOORS)} category floors + {len(CORE_FLOORS)} core floors + "
+          f"{len(CORE_APPLICABLE_FLOORS)} applicable-core floors held")
     return 0
 
 

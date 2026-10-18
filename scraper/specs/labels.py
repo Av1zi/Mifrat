@@ -102,7 +102,6 @@ MEMORY_BUS_BIT = "__memory_bus_bit__"         # "128bit" / "256bits"
 RADIATOR_DIMS = "__radiator_dims__"           # "אורך: 403 מ\"מ רוחב: … עובי: 27"
 PUMP_DIMS = "__pump_dims__"                   # "אורך: 69 … גובה: 76" / "124x120x28"
 SPEED_MBS_PREFIX = "__speed_mbs__:"           # + read_speed_mbs / write_speed_mbs
-IOPS_PREFIX = "__random_iops__:"              # + random_read_iops / random_write_iops
 CONNECTORS_CELL = "__connectors_cell__"       # cooler "חיבורים" prose -> list
 PACKAGING_CELL = "__packaging_cell__"         # "Retail - קופסה" -> boxed
 DISPLAY_COUNT = "__display_count__"           # "עד 4 מסכים" -> max_displays 4
@@ -369,8 +368,15 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # The wattage half is a PSU recommendation, never chip power —
         # only the connector mentions are read (see PSU_CONN_STRING).
         "recommended psu": PSU_CONN_STRING,
-        "תמיכת סנכרון": "frame_sync",
-        "סנכרון פריימים": "frame_sync",
+        # Yahav/TMS spell the same recommendation in Hebrew
+        # ("750W עם מחברי חשמל 1x16-פינים"); 1PC spells the neighbours in
+        # English ("Bus Standard", "Memory Speed", "Maximum Display Support").
+        "ספק כוח מומלץ": PSU_CONN_STRING,
+        "bus standard": "interface",
+        "hardware / socket": "interface",
+        "memory speed": MEMORY_SPEED_GBPS,
+        "maximum display support": DISPLAY_COUNT,
+        "graphic engine": "chipset",
     },
     "motherboard": {
         "ערכת שבבים": "chipset",
@@ -467,9 +473,7 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # 1PC's "network card" cell is a radio, not a LAN: NETWORK_CARD routes
         # Wi-Fi to `wireless` and LAN to `ethernet`.
         "כרטיס רשת": NETWORK_CARD,
-        "חיבורי חשמל": "power_connections",
         "תמיכת ecc": "ecc_support",
-        "שלבי vrm": "vrm_phases",
         "bios": "bios",
         "זיכרון מקסימלי": "memory_max_gb",
         "מהירות זכרון": "memory_speeds",
@@ -596,7 +600,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סדרת hdd": "model",
         "סוג nand": "nand",
         "nand": "nand",
-        "בקר": "controller",
         # Drive mass ("32.7 גרם", "98 grams", "כ-2.49 ק\"ג", 43 rows):
         # canon_weight_g reads the vendor's unit, grams or kilograms.
         "משקל": WEIGHT_G,
@@ -611,8 +614,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מהירות קריאה מקסימלית": SPEED_MBS_PREFIX + "read_speed_mbs",
         "מהירות כתיבה": SPEED_MBS_PREFIX + "write_speed_mbs",
         "מהירות כתיבה מקסימלית": SPEED_MBS_PREFIX + "write_speed_mbs",
-        "מהירות קריאה אקראית": IOPS_PREFIX + "random_read_iops",
-        "מהירות כתיבה אקראית": IOPS_PREFIX + "random_write_iops",
         "אריזה": PACKAGING_CELL,
         "storage memory": NAND_CELL,
         "זכרון מטמון": "cache_mb",
@@ -855,14 +856,26 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
     },
 }
 
-# Coolers share one schema across aio / cooler_air / cooling_other.
+# Coolers used to share one schema across aio / cooler_air / cooling_other;
+# since the 2026-10-17 split each category drops the labels whose field it no
+# longer has (check_tms_detail fails on a label that maps to a missing field):
+# an air cooler has no radiator / water flag, an AIO no height / fanless flag,
+# and the grab-bag category neither fanless nor pump/radiator dimensions.
+_AIR_ONLY_DROP = ("גודל רדיאטור", "קירור נוזלי")
+_AIO_DROP = ("גובה", "ללא מאוורר", "קירור נוזלי")
+_OTHER_DROP = ("ללא מאוורר",)
+
+_COOLER_AIR_FULL = _CATEGORY_RAW["cooler_air"]
+_CATEGORY_RAW["cooler_air"] = {k: v for k, v in _COOLER_AIR_FULL.items()
+                               if k not in _AIR_ONLY_DROP}
 _CATEGORY_RAW["aio"] = {
-    **_CATEGORY_RAW["cooler_air"],
+    **{k: v for k, v in _COOLER_AIR_FULL.items() if k not in _AIO_DROP},
     "גודל רדיאטור": "radiator_size_mm",
     "רדיאטורים": AIO_RADIATOR_COUNT,
     "סוג קירור": COOLING_MEDIUM,
 }
-_CATEGORY_RAW["cooling_other"] = dict(_CATEGORY_RAW["cooler_air"])
+_CATEGORY_RAW["cooling_other"] = {k: v for k, v in _COOLER_AIR_FULL.items()
+                                  if k not in _OTHER_DROP}
 
 # English hints vendors append in parentheses to a Hebrew label ("ליבות
 # (Cores)"), carried over from the pre-overhaul table so Ivory keeps working.
@@ -1084,8 +1097,7 @@ def _resolve_field(category: str, name: str) -> str | None:
 # Token prefixes carry a parameter after the colon (the field they fill), so
 # they are tested by prefix; plain tokens by membership.
 _TOKEN_PREFIXES = (USB_COUNT_PREFIX, CONNECTOR_COUNT_PREFIX, SLOT_COUNT_PREFIX,
-                   FAN_MOUNT_PREFIX, LENGTH_MM_PREFIX, SPEED_MBS_PREFIX,
-                   IOPS_PREFIX)
+                   FAN_MOUNT_PREFIX, LENGTH_MM_PREFIX, SPEED_MBS_PREFIX)
 
 
 def _is_token(value: str) -> bool:

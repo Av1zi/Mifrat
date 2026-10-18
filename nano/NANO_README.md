@@ -1,7 +1,6 @@
 # Jetson Nano setup (TMS scraper)
 
-One-time setup for the box that runs the TMS spider from home, per
-`pc-parts-il-plan.md` §4/§7/§9. Do these in order — step 1 is the most
+One-time setup for the box that runs the TMS spider from home. Do these in order — step 1 is the most
 common failure point on this hardware.
 
 ## 1. Python via Miniforge (not the system Python)
@@ -133,8 +132,7 @@ resume on a later day rather than retrying through a block.
 
 ## If TMS starts blocking the Nano too
 
-That's §7 rule 7: pause several days, try slowing down further
+That's the rule: pause several days, try slowing down further
 (`DOWNLOAD_DELAY` in `scraper/spiders/tms.py`'s `custom_settings`), and if
 still blocked, drop the vendor rather than escalating against active
-defenses. Nothing here should ever be modified to defeat a block — see
-§10/§14 of the plan.
+defenses. Nothing here should ever be modified to defeat a block.

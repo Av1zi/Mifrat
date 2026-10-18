@@ -508,20 +508,255 @@ def _fill(specs: dict, sources: dict, field: str, value, rule: str) -> list[str]
     return [field]
 
 
-def infer_specs(category: str | None, specs: dict, sources: dict) -> list[str]:
+# --------------------------------------------------------------------------
+# Table-driven and rule-driven fills (plan Phase 1c). Every one only fills a
+# null and tags `derived:<rule>`.
+# --------------------------------------------------------------------------
+
+
+def _table_fill(specs: dict, sources: dict, row: dict | None, rule: str) -> list[str]:
+    filled: list[str] = []
+    row = row or {}
+    for field, allowed in (row.get("_requires") or {}).items():
+        if specs.get(field) not in allowed:
+            return filled
+    for field, value in row.items():
+        if field.startswith("_"):
+            continue
+        filled += _fill(specs, sources, field, value, rule)
+    return filled
+
+
+def cpu_table_key(specs: dict) -> str | None:
+    """'amd:7800X3D' / 'intel:14400F' for tables/cpu_models.json, else None.
+
+    The token is the model number with its suffix. A bare 3-digit token only
+    counts for Core Ultra (225/245/265/285): "225" on its own is not a CPU.
+    """
+    text = str(specs.get("model") or "")
+    maker = str(specs.get("manufacturer") or "").upper()
+    is_amd = bool(re.search(r"\bRyzen\b|\bThreadripper\b", text, re.I))
+    is_intel = bool(re.search(r"\bCore\b|\bUltra\b|\bPentium\b|\bi[3579]\b", text, re.I))
+    if is_amd and not is_intel:
+        match = (re.search(r"\b(?:Ryzen(?:\s*[3579])?|Threadripper)(?:\s*PRO)?[\s-]*(\d{4}[A-Z0-9]*)\b",
+                           text, re.I)
+                 or re.search(r"^\s*(\d{4}[A-Z0-9]*)\b", text))
+        return f"amd:{match.group(1).upper()}" if match else None
+    if is_amd is False and maker == "AMD":
+        match = re.search(r"^\s*(\d{4}[A-Z0-9]*)\b", text)
+        return f"amd:{match.group(1).upper()}" if match else None
+    if is_intel:
+        match = re.search(r"\bUltra\s*[3579]\s*(\d{3}[A-Z]{0,2})\b", text, re.I)
+        if match:
+            return f"intel:{match.group(1).upper()}"
+        match = re.search(r"^\s*(\d{3}[A-Z]{0,2})\b.*\bUltra\b", text, re.I)
+        if match:
+            return f"intel:{match.group(1).upper()}"
+        match = re.search(r"\bPentium\s+(G\d{4})\b", text, re.I)
+        if match:
+            return f"intel:{match.group(1).upper()}"
+        match = (re.search(r"\b(?:i[3579]|Core)[\s-]+(\d{4,5}[A-Z]{0,2})\b", text, re.I)
+                 or re.search(r"^\s*(\d{4,5}[A-Z]{0,2})\b", text))
+        if match:
+            return f"intel:{match.group(1).upper()}"
+    return None
+
+
+def _infer_cpu_table(specs: dict, sources: dict) -> list[str]:
+    from .tables import load
+
+    key = cpu_table_key(specs)
+    row = load("cpu_models").get(key) if key else None
+    filled = _table_fill(specs, sources, row, "cpu.model_table")
+
+    model = str(specs.get("model") or "")
+    # ECC: a lineup-wide platform fact (vendor-published per family).
+    if re.search(r"\bThreadripper\b", model, re.I):
+        filled += _fill(specs, sources, "ecc_support", True, "cpu.threadripper_ecc")
+    elif re.search(r"\bRyzen\b", model, re.I):
+        # Desktop Ryzen takes unbuffered ECC on AM4/AM5; consumer APUs
+        # (G/GE/GT without PRO) do not, PRO APUs do.
+        if re.search(r"\bPRO\b", model, re.I):
+            filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_pro_ecc")
+        elif re.search(r"\b\d{4}(?:G|GE|GT)\b", model, re.I):
+            filled += _fill(specs, sources, "ecc_support", False, "cpu.ryzen_apu_no_ecc")
+        elif str(specs.get("socket") or "") in ("AM4", "AM5") and re.search(r"\b\d{4}", model):
+            filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_desktop_ecc")
+    elif re.search(r"\bCore\s?i[579]\b|\bi[579]\b", model, re.I):
+        filled += _fill(specs, sources, "ecc_support", False, "cpu.intel_core_i5_i9_no_ecc")
+    elif re.search(r"\bCore\s?i3\b|\bi3\b|\bPentium\b|\bCeleron\b", model, re.I):
+        filled += _fill(specs, sources, "ecc_support", True, "cpu.intel_i3_pentium_ecc")
+    return filled
+
+
+def _infer_gpu_table(specs: dict, sources: dict) -> list[str]:
+    from .tables import load
+
+    key = str(specs.get("chipset") or "").strip()
+    if not key:
+        return []
+    rows = load("gpu_chipsets")
+    row = rows.get(key)
+    if row is None:
+        row = {k.lower(): v for k, v in rows.items()}.get(key.lower())
+    return _table_fill(specs, sources, row, "gpu.chipset_table")
+
+
+def _infer_gpu_extras(specs: dict, sources: dict) -> list[str]:
+    fans = specs.get("fan_count")
+    if isinstance(fans, int) and fans > 0:
+        return _fill(specs, sources, "cooling", "Air", "gpu.fans_mean_air")
+    return []
+
+
+_INTEL_CONSUMER_PCH = re.compile(r"^[HBZ]\d{2,3}$")
+_WIFI_MENTION = re.compile(r"wi-?fi|wlan|wireless|אלחוט|bluetooth|\bbt\s?\d", re.I)
+_THUNDERBOLT_MENTION = re.compile(r"thunderbolt|\btb[345]\b|usb\s?4\b", re.I)
+
+
+def _infer_motherboard(specs: dict, sources: dict, context: dict | None) -> list[str]:
+    filled: list[str] = []
+    chipset = str(specs.get("chipset") or "").upper()
+    socket = str(specs.get("socket") or "").upper()
+    if _INTEL_CONSUMER_PCH.match(chipset) and (socket.startswith("LGA") or not socket):
+        # Intel enables ECC only on W/C/Q-series PCHs; the H/B/Z desktop line
+        # does not support it (a board vendor cannot add it back).
+        filled += _fill(specs, sources, "ecc_support", False,
+                        "motherboard.intel_consumer_pch_no_ecc")
+
+    text = (context or {}).get("text", "")
+    if text and (context or {}).get("detail_rows", 0) >= 8:
+        # Absence from a FULL spec table and the title. Validated on the
+        # catalog: every board that has Wi-Fi / Thunderbolt mentions it in its
+        # title, a row key or a row value (473/473 and 74/74), so a rich page
+        # that never says it is a board without it.
+        if not _WIFI_MENTION.search(text):
+            filled += _fill(specs, sources, "wireless", "No",
+                            "motherboard.no_wifi_in_rich_table")
+        if not _THUNDERBOLT_MENTION.search(text):
+            filled += _fill(specs, sources, "thunderbolt_ports", 0,
+                            "motherboard.no_thunderbolt_in_rich_table")
+    if specs.get("wireless") == "No":
+        # Bluetooth rides on the same M.2 Key-E combo card as the Wi-Fi radio.
+        filled += _fill(specs, sources, "bluetooth", "No", "motherboard.no_wifi_no_bluetooth")
+    return filled
+
+
+_LAPTOP_MARKER = re.compile(r"so-?dimm|laptop|notebook|נייד|לפטופ|camm|sodimm", re.I)
+_SERVER_MEMORY_MARKER = re.compile(
+    r"\becc\b|\breg(?:istered)?\b|\brdimm\b|\blrdimm\b|buffered|server|שרת", re.I)
+_NAS_MEMORY_BRANDS = frozenset({"synology", "qnap"})
+
+
+def _infer_memory_text(specs: dict, sources: dict, context: dict | None) -> list[str]:
+    """Memory facts the titles prove by ABSENCE of a marker.
+
+    Validated on the catalog: all 26 SO-DIMM kits announce it (title, row key
+    or row value), as do all 25 ECC / 24 registered kits; none of the 67
+    desktop DIMM kits carry a laptop marker. Retailers must label laptop and
+    server memory, so an unmarked kit with a known DDR generation is desktop,
+    unbuffered, non-ECC. NAS brands (Synology/QNAP sell SO-DIMM ECC) are
+    excluded.
+    """
+    filled: list[str] = []
+    text = (context or {}).get("text", "")
+    brand = str(specs.get("manufacturer") or "").lower()
+    if specs.get("lighting") in ("RGB", "ARGB"):
+        filled += _fill(specs, sources, "heat_spreader", True, "memory.rgb_kit_has_spreader")
+    if not text or not specs.get("memory_type") or brand in _NAS_MEMORY_BRANDS:
+        return filled
+    if not _LAPTOP_MARKER.search(text):
+        filled += _fill(specs, sources, "form_factor", "DIMM", "memory.no_laptop_marker")
+    if not _SERVER_MEMORY_MARKER.search(text) and specs.get("form_factor") in ("DIMM", "SO-DIMM"):
+        filled += _fill(specs, sources, "ecc", False, "memory.no_ecc_marker")
+        filled += _fill(specs, sources, "registered", False, "memory.no_registered_marker")
+    return filled
+
+
+_PSU_SMALL_MARKER = re.compile(r"\bsfx|\btfx|flex|\b1u\b|\b2u\b|rack|server|redundant|שרת|\bmini\b|\bslim\b",
+                               re.I)
+
+
+def _infer_psu(specs: dict, sources: dict, context: dict | None = None) -> list[str]:
+    filled: list[str] = []
+    text = (context or {}).get("text", "")
+    if (text and specs.get("type") is None and isinstance(specs.get("wattage_w"), int)
+            and not _PSU_SMALL_MARKER.search(text)):
+        # SFX / TFX / Flex / 1U units are always labelled as such; an unmarked
+        # desktop PSU is full-size ATX.
+        filled += _fill(specs, sources, "type", "ATX", "psu.no_small_form_marker")
+    if specs.get("type") in ("ATX", "SFX", "SFX-L", "TFX", "Flex ATX"):
+        # Every desktop PSU form factor has exactly one 24-pin main connector.
+        filled += _fill(specs, sources, "atx4_connectors", 1, "psu.single_24pin_main")
+    if isinstance(specs.get("fan_size_mm"), int):
+        filled += _fill(specs, sources, "fanless", False, "psu.has_fan")
+    return filled
+
+
+def _infer_cooler(category: str, specs: dict, sources: dict) -> list[str]:
+    if category == "cooler_air" and (
+            (isinstance(specs.get("fan_count"), int) and specs["fan_count"] > 0)
+            or isinstance(specs.get("fan_size_mm"), int)
+            or isinstance(specs.get("fan_rpm_max"), int)):
+        return _fill(specs, sources, "fanless", False, "cooler.has_fan")
+    return []
+
+
+_RACK_TYPE = re.compile(r"rack|server|\b[1-9]U\b", re.I)
+
+
+_PSU_MENTION = re.compile(r"\b(?:psu|power supply)\b|ספק|\b\d{3,4}\s?w\b", re.I)
+_SERVER_CASE_BRANDS = frozenset({"supermicro", "silverstone rm", "tyan"})
+
+
+def _infer_case(specs: dict, sources: dict, context: dict | None = None) -> list[str]:
+    filled: list[str] = []
+    kind = specs.get("type")
+    rack = bool(kind and _RACK_TYPE.search(str(kind)))
+    if kind:
+        filled += _fill(specs, sources, "rackmount", rack, "case.type_rack")
+    title = (context or {}).get("title", "")
+    brand = str(specs.get("manufacturer") or "").lower()
+    if (title and not rack and specs.get("rackmount") is not True
+            and brand not in _SERVER_CASE_BRANDS and not _RACK_TYPE.search(title)
+            and not _PSU_MENTION.search(title)):
+        # Retailers always announce a bundled PSU in the title ("with 650W
+        # PSU", "כולל ספק"); 251 of 255 titles without a mention are recorded
+        # "Not included" (the 4 exceptions are rack / server chassis, excluded).
+        filled += _fill(specs, sources, "psu_included", "Not included",
+                        "case.no_psu_in_title")
+    return filled
+
+
+def infer_specs(category: str | None, specs: dict, sources: dict,
+                context: dict | None = None) -> list[str]:
     """Fill nulls from derivable facts; never override a real value.
 
     Mutates `specs`/`sources` in place and returns the filled field names so the
     run can report how much of the sheet is derived rather than sourced.
+    `context` is optional per-product raw evidence the caller assembles
+    ({"text": lowercase title + row text, "detail_rows": best table size});
+    only the explicit-negative rules read it.
     """
     if category == "cpu":
-        return _infer_cpu(specs, sources)
+        filled = _infer_cpu_table(specs, sources)
+        # the table supplies facts (iGPU, memory ceiling) the rules also read
+        return filled + _infer_cpu(specs, sources)
     if category == "memory":
-        return _infer_memory(specs, sources)
+        return _infer_memory(specs, sources) + _infer_memory_text(specs, sources, context)
     if category == "storage":
         return _infer_storage(specs, sources)
     if category == "gpu":
-        return _infer_gpu(specs, sources)
+        return (_infer_gpu(specs, sources) + _infer_gpu_table(specs, sources)
+                + _infer_gpu_extras(specs, sources))
+    if category == "motherboard":
+        return _infer_motherboard(specs, sources, context)
+    if category == "psu":
+        return _infer_psu(specs, sources, context)
+    if category in ("cooler_air", "aio", "cooling_other"):
+        return _infer_cooler(category, specs, sources)
+    if category == "case":
+        return _infer_case(specs, sources, context)
     return []
 
 

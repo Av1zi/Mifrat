@@ -1,0 +1,2317 @@
+{
+ "brand": "Antec",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-17",
+ "entries": {
+  "https://www.antec.com/product/case/ax1000-argb.php": {
+   "url": "https://www.antec.com/product/case/ax1000-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345102407",
+    "AX1000ARGBLILE",
+    "ax1000argb"
+   ],
+   "names": [
+    "ax1000 argb 3x140mm black",
+    "ax1000 argb lite black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 185,
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 7.7,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax20.php": {
+   "url": "https://www.antec.com/product/case/ax20.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "AX20E",
+    "AX20ELITE",
+    "076134510060120076134510066320076134510198120",
+    "0761345100601AX200761345100663AX20ELITE0761345101981AX20EXTREME",
+    "ax20"
+   ],
+   "names": [
+    "ax20 elite black",
+    "ax20 elite 4x120mm fixed black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 270,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=207 H=451 D=358mm",
+    "weight_kg": 4.0,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax61.php": {
+   "url": "https://www.antec.com/product/case/ax61.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345100694",
+    "ANTECAX61TEMPEREDGLASS",
+    "AX61ELITE",
+    "ax61"
+   ],
+   "names": [
+    "ax61 elite 4x120mm argb black",
+    "ax61 only black",
+    "ax61 elite ax61elite black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=200 H=449 D=405mm",
+    "weight_kg": 4.84,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax65-argb.php": {
+   "url": "https://www.antec.com/product/case/ax65-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "AX65ARGB",
+    "0761345102063",
+    "ax65argb"
+   ],
+   "names": [
+    "ax65 argb black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 345,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=200 H=449 D=400mm",
+    "weight_kg": 4.59,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax67-argb.php": {
+   "url": "https://www.antec.com/product/case/ax67-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345102070",
+    "ax67argb"
+   ],
+   "names": [
+    "ax67 argb black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 345,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=200 H=449 D=405mm",
+    "weight_kg": 4.6,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax83.php": {
+   "url": "https://www.antec.com/product/case/ax83.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "AX83RGBELITE",
+    "076134510036683076134510035983076134510042783076134510157883",
+    "0761345100366AX83RGBELITE0761345100359AX83RGB0761345100427AX83RGBEXTREME0761345101578AX83ARGB",
+    "ax83"
+   ],
+   "names": [
+    "ax83 rgb elite ax83rgbelite black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 300,
+    "max_cooler_height_mm": 165,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=218 H=486 D=380mm",
+    "weight_kg": 5.62,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax85.php": {
+   "url": "https://www.antec.com/product/case/ax85.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345101738",
+    "AX85ARGB",
+    "ax85"
+   ],
+   "names": [
+    "ax85 argb 4x120mm black",
+    "ax85 argb black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 340,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=205 H=485 D=393mm",
+    "weight_kg": 6.3,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/ax90.php": {
+   "url": "https://www.antec.com/product/case/ax90.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345100632",
+    "AX90",
+    "ax90"
+   ],
+   "names": [
+    "ax90 4x120mm argb black",
+    "ax90 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 385,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=210 H=486 D=473mm",
+    "weight_kg": 6.77,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c3.php": {
+   "url": "https://www.antec.com/product/case/c3.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C3ARGB",
+    "C3ARGBBLACK",
+    "C3ARGBW",
+    "C3ARGBWHITE",
+    "0761345100298",
+    "c3"
+   ],
+   "names": [
+    "c3 argb constellation 4x120mm black",
+    "c3 argb black",
+    "c3 argb constellation 4x120mm white",
+    "c3 argb white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=210 H=485 D=470mm",
+    "weight_kg": 7.56,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c5-curve-argb.php": {
+   "url": "https://www.antec.com/product/case/c5-curve-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345102254",
+    "0761345102261",
+    "C5CURVEARGB",
+    "C5CURVEWHITEARGB",
+    "07613451022540761345102261",
+    "BLACK0761345102254WHITE0761345102261",
+    "c5curveargb"
+   ],
+   "names": [
+    "c5 curve argb white",
+    "c5 curve argb constellation"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=285 H=400 D=465mm",
+    "weight_kg": 7.3,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c5.php": {
+   "url": "https://www.antec.com/product/case/c5.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C5ARGB",
+    "C5ARGBW",
+    "C5ARGBWHITE",
+    "0761345100335",
+    "c5"
+   ],
+   "names": [
+    "c5 argb constellation 7x120mm black",
+    "c5 argb white",
+    "c5 argb constellation 7x120mm white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 160,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=285 H=400 D=469mm",
+    "weight_kg": 7.6,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c6-curve-air-white.php": {
+   "url": "https://www.antec.com/product/case/c6-curve-air-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C6CURVEAIRW",
+    "c6curveairwhite"
+   ],
+   "names": [
+    "c6 curve air white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=235 H=470 D=480mm",
+    "weight_kg": 9.12,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c6-curve-air.php": {
+   "url": "https://www.antec.com/product/case/c6-curve-air.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C6CURVEAIR",
+    "c6curveair"
+   ],
+   "names": [
+    "c6 curve air black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=235 H=470 D=480mm",
+    "weight_kg": 9.12,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c6-curve-argb.php": {
+   "url": "https://www.antec.com/product/case/c6-curve-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C6CURVEARGB",
+    "c6curveargb"
+   ],
+   "names": [
+    "c6 curve argb black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=235 H=470 D=480mm",
+    "weight_kg": 9.12,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c6-wood-white.php": {
+   "url": "https://www.antec.com/product/case/c6-wood-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C6WOODW",
+    "c6woodwhite"
+   ],
+   "names": [
+    "c6 wood white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=235 H=485 D=455mm",
+    "weight_kg": 8.8,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c6-wood.php": {
+   "url": "https://www.antec.com/product/case/c6-wood.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C6WOOD",
+    "c6wood"
+   ],
+   "names": [
+    "c6 wood black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=235 H=485 D=455mm",
+    "weight_kg": 8.8,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c7-argb-white.php": {
+   "url": "https://www.antec.com/product/case/c7-argb-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C7ARGBW",
+    "0761345101363",
+    "c7argbwhite"
+   ],
+   "names": [
+    "c7 argb white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=241 H=504 D=485mm",
+    "weight_kg": 11.7,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c7-argb.php": {
+   "url": "https://www.antec.com/product/case/c7-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C7ARGB",
+    "C7ARGBNPS",
+    "C7ARGBWHITENPS",
+    "0761345101356",
+    "c7argb"
+   ],
+   "names": [
+    "c7 argb black",
+    "c7 argb constellation 3x120mm"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=241 H=504 D=485mm",
+    "weight_kg": 11.7,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/c8-argb.php": {
+   "url": "https://www.antec.com/product/case/c8-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C8ARGB",
+    "C8ARGBBLACK",
+    "C8WHITEARGB",
+    "0761345100229",
+    "c8argb"
+   ],
+   "names": [
+    "c8 argb 2x160mm black",
+    "c8 argb black",
+    "c8 argb 2x160mm"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 440,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=303 H=476 D=464mm",
+    "weight_kg": 11.84,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/c8-curve-wood.php": {
+   "url": "https://www.antec.com/product/case/c8-curve-wood.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C8CURVEWOOD",
+    "0761345101585",
+    "c8curvewood"
+   ],
+   "names": [
+    "c8 curve wood constellation heat"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 440,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=303 H=476 D=464mm",
+    "weight_kg": 10.78,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/c8-white.php": {
+   "url": "https://www.antec.com/product/case/c8-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C8W",
+    "0761345100212",
+    "c8white"
+   ],
+   "names": [
+    "c8 white",
+    "c8 white c8w"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 440,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=303 H=476 D=464mm",
+    "weight_kg": 10.48,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/c8-wood.php": {
+   "url": "https://www.antec.com/product/case/c8-wood.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C8WOOD",
+    "0761345100793",
+    "c8wood"
+   ],
+   "names": [
+    "c8 wood constellation black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 440,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=303 H=476 D=464mm",
+    "weight_kg": 10.39,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/c8.php": {
+   "url": "https://www.antec.com/product/case/c8.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "C8",
+    "C8ALW",
+    "0761345100199",
+    "c8"
+   ],
+   "names": [
+    "c8 black",
+    "c8",
+    "c8 aluminum constellation"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 440,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=303 H=476 D=464mm",
+    "weight_kg": 10.48,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/cx-mirror.php": {
+   "url": "https://www.antec.com/product/case/cx-mirror.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "cxmirror"
+   ],
+   "names": [
+    "cx mirror black",
+    "cx mirror white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=275 H=400 D=438mm",
+    "weight_kg": 7.46,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/cx200m-rgb-elite.php": {
+   "url": "https://www.antec.com/product/case/cx200m-rgb-elite.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CX200MRGBELITEW",
+    "076134510024320007613451002672000761345100533200",
+    "0761345100243CX200MRGBELITE0761345100267CX200MRGBELITEWHITE0761345100533CX200MARGB",
+    "cx200mrgbelite"
+   ],
+   "names": [
+    "cx200m rgb elite cx200mrgbelitew white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 164,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=210 H=392 D=350mm",
+    "weight_kg": 4.43,
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.antec.com/product/case/cx300-argb.php": {
+   "url": "https://www.antec.com/product/case/cx300-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CX300ARGBW",
+    "07613451014933000761345101516300",
+    "0761345101493CX300ARGBBLACK0761345101516CX300ARGBWHITE",
+    "cx300argb"
+   ],
+   "names": [
+    "cx300 argb white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 170,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=219 H=456 D=450mm",
+    "weight_kg": 6.55,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/cx500m-argb.php": {
+   "url": "https://www.antec.com/product/case/cx500m-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CX500MARGB",
+    "CX500MARGBW",
+    "07613451014310761345101448",
+    "BLACK0761345101431WHITE0761345101448",
+    "cx500margb"
+   ],
+   "names": [
+    "cx500m argb black",
+    "cx500m argb white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 165,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=210 H=446 D=436mm",
+    "weight_kg": 6.34,
+    "expansion_slots": "5"
+   }
+  },
+  "https://www.antec.com/product/case/dark-cube": {
+   "url": "https://www.antec.com/product/case/dark-cube",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345800341",
+    "darkcube"
+   ],
+   "names": [
+    "dark cube black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 175,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=406 D=512mm",
+    "weight_kg": 10.2,
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.antec.com/product/case/dark-cube.php": {
+   "url": "https://www.antec.com/product/case/dark-cube.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345800341",
+    "darkcube"
+   ],
+   "names": [
+    "dark cube black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 175,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=406 D=512mm",
+    "weight_kg": 10.2,
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.antec.com/product/case/df700-flux": {
+   "url": "https://www.antec.com/product/case/df700-flux",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345800709",
+    "df700flux"
+   ],
+   "names": [
+    "df700 flux"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 7.4,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/df700-flux.php": {
+   "url": "https://www.antec.com/product/case/df700-flux.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345800709",
+    "df700flux"
+   ],
+   "names": [
+    "df700 flux"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 7.4,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/df800-flux": {
+   "url": "https://www.antec.com/product/case/df800-flux",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "DF800FLUX",
+    "0761345800815",
+    "df800flux"
+   ],
+   "names": [
+    "df800flux black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=488 D=479mm",
+    "weight_kg": 7.58,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/df800-flux.php": {
+   "url": "https://www.antec.com/product/case/df800-flux.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "DF800FLUX",
+    "0761345800815",
+    "df800flux"
+   ],
+   "names": [
+    "df800flux black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=488 D=479mm",
+    "weight_kg": 7.58,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/dp501": {
+   "url": "https://www.antec.com/product/case/dp501",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "DP501",
+    "0761345800198",
+    "dp501"
+   ],
+   "names": [
+    "dp501 argb dark phantom black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 360,
+    "type": "Mid-tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 5.57,
+    "expansion_slots": "7",
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/dp502-flux-white": {
+   "url": "https://www.antec.com/product/case/dp502-flux-white",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345800518",
+    "dp502fluxwhite"
+   ],
+   "names": [
+    "dp502 flux white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=486 D=463mm",
+    "weight_kg": 7.55,
+    "expansion_slots": "7",
+    "drive_bays_525": 1
+   }
+  },
+  "https://www.antec.com/product/case/dp505-white.php": {
+   "url": "https://www.antec.com/product/case/dp505-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "DP505W",
+    "0761345810760",
+    "dp505white"
+   ],
+   "names": [
+    "dp505 white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 375,
+    "max_cooler_height_mm": 170,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=490 D=481mm",
+    "weight_kg": 8.1,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/flux-m.php": {
+   "url": "https://www.antec.com/product/case/flux-m.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "AN1FLUXM",
+    "fluxm"
+   ],
+   "names": [
+    "flux m 3x120mm",
+    "flux m black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Compact MicroATX",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=247 H=365 D=459mm",
+    "weight_kg": 6.35,
+    "expansion_slots": "5"
+   }
+  },
+  "https://www.antec.com/product/case/flux-pro-white.php": {
+   "url": "https://www.antec.com/product/case/flux-pro-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "FLUXPROW",
+    "07613451015540761345101561",
+    "0761345101554FLUXPROWHITE0761345101561FLUXPROWHITEEUV",
+    "fluxprowhite"
+   ],
+   "names": [
+    "flux pro white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 455,
+    "max_cooler_height_mm": 190,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=545 D=530mm",
+    "weight_kg": 13.6,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/flux-pro.php": {
+   "url": "https://www.antec.com/product/case/flux-pro.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "FLUXPRO",
+    "FLUXPROWHITE",
+    "07613451014860761345101547",
+    "0761345101486FLUXPRO0761345101547FLUXPROEUV",
+    "fluxpro"
+   ],
+   "names": [
+    "flux pro 3x140mm tranquil black",
+    "flux pro 3x140mm tranquil white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 455,
+    "max_cooler_height_mm": 190,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=545 D=530mm",
+    "weight_kg": 13.6,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/flux-rear.php": {
+   "url": "https://www.antec.com/product/case/flux-rear.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "FLUXREAR",
+    "fluxrear"
+   ],
+   "names": [
+    "flux rear 3x140 argb black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 180,
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 8.18,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/flux-se.php": {
+   "url": "https://www.antec.com/product/case/flux-se.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345101776",
+    "fluxse"
+   ],
+   "names": [
+    "flux se black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 408,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "dimensions_mm": "W=239 H=502 D=484mm",
+    "weight_kg": 8.8,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/flux.php": {
+   "url": "https://www.antec.com/product/case/flux.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "FLUX",
+    "FLUXW",
+    "0761345101332",
+    "flux"
+   ],
+   "names": [
+    "flux",
+    "flux 3x120mm black",
+    "flux 3x120mm white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 408,
+    "max_cooler_height_mm": 180,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=502 D=484mm",
+    "weight_kg": 9.27,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/isk110-vesa-u3": {
+   "url": "https://www.antec.com/product/case/isk110-vesa-u3",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345101042",
+    "isk110vesau3"
+   ],
+   "names": [
+    "isk110 vesa-u3 black"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/case/isk110-vesa-u3.php": {
+   "url": "https://www.antec.com/product/case/isk110-vesa-u3.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345101042",
+    "isk110vesau3"
+   ],
+   "names": [
+    "isk110 vesa-u3 black"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/case/nx200m": {
+   "url": "https://www.antec.com/product/case/nx200m",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345810272",
+    "07613458102722000761345810210200",
+    "0761345810272NX200M0761345810210NX200MRGB",
+    "nx200m"
+   ],
+   "names": [
+    "nx200m micro 1x120mm black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 275,
+    "max_cooler_height_mm": 150,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 3.51,
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.antec.com/product/case/nx200m.php": {
+   "url": "https://www.antec.com/product/case/nx200m.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345810272",
+    "07613458102722000761345810210200",
+    "0761345810272NX200M0761345810210NX200MRGB",
+    "nx200m"
+   ],
+   "names": [
+    "nx200m micro 1x120mm black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 275,
+    "max_cooler_height_mm": 150,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 3.51,
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.antec.com/product/case/nx280": {
+   "url": "https://www.antec.com/product/case/nx280",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX280",
+    "0761345810197",
+    "nx280"
+   ],
+   "names": [
+    "nx280 rgb 1x120mm rear black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 290,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=208 H=474 D=422mm",
+    "weight_kg": 4.96,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx290": {
+   "url": "https://www.antec.com/product/case/nx290",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "3810047613450",
+    "NX290",
+    "0761345810043",
+    "nx290"
+   ],
+   "names": [
+    "nx290 3x120mm rgb black",
+    "nx290 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=206 H=450 D=404mm",
+    "weight_kg": 4.25,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx290.php": {
+   "url": "https://www.antec.com/product/case/nx290.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "3810047613450",
+    "NX290",
+    "0761345810043",
+    "nx290"
+   ],
+   "names": [
+    "nx290 3x120mm rgb black",
+    "nx290 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=206 H=450 D=404mm",
+    "weight_kg": 4.25,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx291": {
+   "url": "https://www.antec.com/product/case/nx291",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX291",
+    "076134581005029107613458201962913",
+    "0761345810050NX2910761345820196NX2913FN",
+    "nx291"
+   ],
+   "names": [
+    "nx291 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=206 H=450 D=405mm",
+    "weight_kg": 4.5,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx292": {
+   "url": "https://www.antec.com/product/case/nx292",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX292ARGB",
+    "NX292W",
+    "07613458100672920761345810098292",
+    "0761345810067NX2920761345810098NX292ARGB",
+    "nx292"
+   ],
+   "names": [
+    "nx292 tg 3x120mm argb",
+    "nx292 3x120mm fixed mode white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=206 H=450 D=406mm",
+    "weight_kg": 4.5,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx292.php": {
+   "url": "https://www.antec.com/product/case/nx292.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX292ARGB",
+    "NX292W",
+    "07613458100672920761345810098292",
+    "0761345810067NX2920761345810098NX292ARGB",
+    "nx292"
+   ],
+   "names": [
+    "nx292 tg 3x120mm argb",
+    "nx292 3x120mm fixed mode white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 155,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=206 H=450 D=406mm",
+    "weight_kg": 4.5,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx300-black": {
+   "url": "https://www.antec.com/product/case/nx300-black",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX300",
+    "0761345810302",
+    "nx300black"
+   ],
+   "names": [
+    "nx300 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 360,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=450 D=450mm",
+    "weight_kg": 5.4,
+    "expansion_slots": "7",
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/nx300-white": {
+   "url": "https://www.antec.com/product/case/nx300-white",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX300W",
+    "0761345810326",
+    "nx300white"
+   ],
+   "names": [
+    "nx300 white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 360,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=450 D=450mm",
+    "weight_kg": 5.4,
+    "expansion_slots": "7",
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/nx410": {
+   "url": "https://www.antec.com/product/case/nx410",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345810418",
+    "0761345810425",
+    "NX410TEMPEREDGLASSONLY",
+    "41007613458104184100761345810425",
+    "NX4100761345810418NX410W0761345810425",
+    "nx410"
+   ],
+   "names": [
+    "nx410 black",
+    "nx410 white",
+    "nx410 rgb only black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 335,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 5.1,
+    "expansion_slots": "7",
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/nx410.php": {
+   "url": "https://www.antec.com/product/case/nx410.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345810418",
+    "0761345810425",
+    "NX410TEMPEREDGLASSONLY",
+    "41007613458104184100761345810425",
+    "NX4100761345810418NX410W0761345810425",
+    "nx410"
+   ],
+   "names": [
+    "nx410 black",
+    "nx410 white",
+    "nx410 rgb only black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 335,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 5.1,
+    "expansion_slots": "7",
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/nx416L.php": {
+   "url": "https://www.antec.com/product/case/nx416L.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX416L",
+    "NX416LW",
+    "07613451000214160761345100168416",
+    "0761345100021NX416L0761345100168NX416LWHITE",
+    "nx416l"
+   ],
+   "names": [
+    "nx416l 2x160mm black",
+    "nx416l 2x160mm white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 280,
+    "max_cooler_height_mm": 165,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=210 H=486 D=471mm",
+    "weight_kg": 6.4,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx420": {
+   "url": "https://www.antec.com/product/case/nx420",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345810463",
+    "nx420"
+   ],
+   "names": [
+    "nx420 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=221 H=463 D=416mm",
+    "weight_kg": 5.0,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/nx500m.php": {
+   "url": "https://www.antec.com/product/case/nx500m.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX500MARGBELITE",
+    "076134581056250007613458105795000761345100007500",
+    "0761345810562NX500M0761345810579NX500MARGB0761345100007NX500MARGBELITE",
+    "nx500m"
+   ],
+   "names": [
+    "nx500m argb elite black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 300,
+    "max_cooler_height_mm": 155,
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=200 H=451 D=384mm",
+    "weight_kg": 3.7,
+    "expansion_slots": "5"
+   }
+  },
+  "https://www.antec.com/product/case/nx800": {
+   "url": "https://www.antec.com/product/case/nx800",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "NX800",
+    "0761345810807",
+    "nx800"
+   ],
+   "names": [
+    "nx800 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 350,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=230 H=500 D=470mm",
+    "weight_kg": 7.87,
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/nx800-white": {
+   "url": "https://www.antec.com/product/case/nx800-white",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345810821",
+    "nx800white"
+   ],
+   "names": [
+    "nx800 white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 350,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 7.87,
+    "drive_bays_525": 0
+   }
+  },
+  "https://www.antec.com/product/case/p10-flux": {
+   "url": "https://www.antec.com/product/case/p10-flux",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345801003",
+    "P10FLUX",
+    "p10flux"
+   ],
+   "names": [
+    "p10 flux black",
+    "p10 flux optional 5 25 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "dimensions_mm": "W=220 H=486 D=477mm",
+    "weight_kg": 7.3,
+    "expansion_slots": "7",
+    "drive_bays_525": 1
+   }
+  },
+  "https://www.antec.com/product/case/p10-flux.php": {
+   "url": "https://www.antec.com/product/case/p10-flux.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345801003",
+    "P10FLUX",
+    "p10flux"
+   ],
+   "names": [
+    "p10 flux black",
+    "p10 flux optional 5 25 black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "dimensions_mm": "W=220 H=486 D=477mm",
+    "weight_kg": 7.3,
+    "expansion_slots": "7",
+    "drive_bays_525": 1
+   }
+  },
+  "https://www.antec.com/product/case/p20c-argb.php": {
+   "url": "https://www.antec.com/product/case/p20c-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P20CARGB",
+    "0761345801072",
+    "p20cargb"
+   ],
+   "names": [
+    "p20c argb 3x120mm black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 375,
+    "max_cooler_height_mm": 170,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=490 D=469mm",
+    "weight_kg": 8.1,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/p20c-white.php": {
+   "url": "https://www.antec.com/product/case/p20c-white.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P20CW",
+    "076134580108920076134580109620",
+    "0761345801089P20CWHITE0761345801096P20CWHITEELITE",
+    "p20cwhite"
+   ],
+   "names": [
+    "p20c white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 375,
+    "max_cooler_height_mm": 170,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=490 D=469mm",
+    "weight_kg": 8.1,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/p20c.php": {
+   "url": "https://www.antec.com/product/case/p20c.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P20C",
+    "076134580103420076134580105820",
+    "0761345801034P20C0761345801058P20CELITE",
+    "p20c"
+   ],
+   "names": [
+    "p20c black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 375,
+    "max_cooler_height_mm": 170,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=490 D=469mm",
+    "weight_kg": 8.1,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/p20ce.php": {
+   "url": "https://www.antec.com/product/case/p20ce.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P20CE",
+    "P20CWHITE",
+    "076134580104120076134580106520",
+    "0761345801041P20CE0761345801065P20CEELITE",
+    "p20ce"
+   ],
+   "names": [
+    "p20ce 3x120mm no black",
+    "p20c edition 3x120mm white"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 375,
+    "max_cooler_height_mm": 170,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "dimensions_mm": "W=220 H=490 D=469mm",
+    "weight_kg": 7.21,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/p30-air.php": {
+   "url": "https://www.antec.com/product/case/p30-air.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P30AIR",
+    "0761345102568",
+    "p30air"
+   ],
+   "names": [
+    "p30 air 2x140mm black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=222 H=465 D=478mm",
+    "weight_kg": 6.85,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/p30-argb.php": {
+   "url": "https://www.antec.com/product/case/p30-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P30ARGB",
+    "P30RGB",
+    "0761345102551",
+    "p30argb"
+   ],
+   "names": [
+    "p30 argb black",
+    "p30 argb 2x140mm black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=222 H=465 D=478mm",
+    "weight_kg": 6.85,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/p7s.php": {
+   "url": "https://www.antec.com/product/case/p7s.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "P7S",
+    "p7s"
+   ],
+   "names": [
+    "p7s black",
+    "p7 s 4x120mm pwm black"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 405,
+    "max_cooler_height_mm": 175,
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "dimensions_mm": "W=222 H=465 D=478mm",
+    "weight_kg": 5.75,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.antec.com/product/case/performance-1-ft.php": {
+   "url": "https://www.antec.com/product/case/performance-1-ft.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "PERFORMANCE1FTLEFTSIDEPANELONLY",
+    "PERFORMANCE1FTRIGHTSIDEPANELONLY",
+    "0761345100885",
+    "performance1ft"
+   ],
+   "names": [
+    "performance 1 ft"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=230 H=522 D=522mm",
+    "weight_kg": 12.55,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/case/performance-1-silent.php": {
+   "url": "https://www.antec.com/product/case/performance-1-silent.php",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "0761345100908",
+    "performance1silent"
+   ],
+   "names": [
+    "performance 1 silent"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 175,
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "E-ATX",
+     "ATX",
+     "Micro ATX",
+     "Mini ITX"
+    ],
+    "dimensions_mm": "W=230 H=522 D=522mm",
+    "weight_kg": 12.08,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.antec.com/product/cooling/a30": {
+   "url": "https://www.antec.com/product/cooling/a30",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "076134575694",
+    "A301700",
+    "A30PRO",
+    "a30"
+   ],
+   "names": [
+    "a30 pro 33 4cfm 92mm argb",
+    "a30",
+    "a30 pro",
+    "a30 1700"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/a35-frgb.php": {
+   "url": "https://www.antec.com/product/cooling/a35-frgb.php",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "A35FRGB",
+    "0761345400695",
+    "a35frgb"
+   ],
+   "names": [
+    "a35 frgb argb"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/a40-pro": {
+   "url": "https://www.antec.com/product/cooling/a40-pro",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "A40PROANTEC",
+    "A40P",
+    "a40pro"
+   ],
+   "names": [
+    "a40 pro 120mm argb",
+    "a40 pro"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/a400-rgb": {
+   "url": "https://www.antec.com/product/cooling/a400-rgb",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "A400RGB",
+    "0761345109215",
+    "a400rgb"
+   ],
+   "names": [
+    "a400 rgb"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/a400i": {
+   "url": "https://www.antec.com/product/cooling/a400i",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "A400IRGB",
+    "A400I",
+    "a400i"
+   ],
+   "names": [
+    "a400i 120mm argb",
+    "a400i"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.0,
+    "static_pressure_mmh2o": 2.1
+   }
+  },
+  "https://www.antec.com/product/cooling/c40": {
+   "url": "https://www.antec.com/product/cooling/c40",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "C40",
+    "c40"
+   ],
+   "names": [
+    "c40"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/c400": {
+   "url": "https://www.antec.com/product/cooling/c400",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "ANTECC400",
+    "C400",
+    "c400"
+   ],
+   "names": [
+    "c400 blue led 1900rpm 77cfm",
+    "c400"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/f400-argb.php": {
+   "url": "https://www.antec.com/product/cooling/f400-argb.php",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "F400ARGB",
+    "F400ARGBW",
+    "07613454008174000761345400824400",
+    "0761345400817F400ARGB0761345400824F400ARGBWHITE",
+    "f400argb"
+   ],
+   "names": [
+    "f400 argb"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/f600-argb.php": {
+   "url": "https://www.antec.com/product/cooling/f600-argb.php",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "F600ARGB",
+    "F600ARGBW",
+    "07613454008316000761345400848600",
+    "0761345400831F600ARGB0761345400848F600ARGBWHITE",
+    "f600argb"
+   ],
+   "names": [
+    "f600 argb"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/f620-digital-pro.php": {
+   "url": "https://www.antec.com/product/cooling/f620-digital-pro.php",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "F620DIGITALPRO",
+    "F620DIGITALPROW",
+    "07613454008556200761345400862620",
+    "0761345400855F620DIGITALPRO0761345400862F620DIGITALPROWHITE",
+    "f620digitalpro"
+   ],
+   "names": [
+    "f620 digital pro"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/frigusair-400-argb": {
+   "url": "https://www.antec.com/product/cooling/frigusair-400-argb",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "frigusair400argb"
+   ],
+   "names": [
+    "frigusair 400 argb"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/k240": {
+   "url": "https://www.antec.com/product/cooling/k240",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "K240RGB",
+    "0761345740166",
+    "k240"
+   ],
+   "names": [
+    "k240 240mm rgb"
+   ],
+   "specs": {
+    "fan_rpm_min": 900,
+    "fan_rpm_max": 1800,
+    "airflow_cfm": 73.31,
+    "noise_db": 30.0
+   }
+  },
+  "https://www.antec.com/product/cooling/neon120-argb.php": {
+   "url": "https://www.antec.com/product/cooling/neon120-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "NEON120ARGB3PK",
+    "neon120argb"
+   ],
+   "names": [
+    "neon 120 argb pwm 3xfans with controller"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 800,
+    "rpm_max": 1600,
+    "airflow_cfm": 35.0,
+    "static_pressure_mmh2o": 2.0,
+    "noise_db": 25.6,
+    "connector": "4-pin"
+   }
+  },
+  "https://www.antec.com/product/cooling/nova-120.php": {
+   "url": "https://www.antec.com/product/cooling/nova-120.php",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "NOVA120",
+    "NOVA1203PK",
+    "nova120"
+   ],
+   "names": [
+    "nova 120mm pwm black",
+    "nova 120mm pwm x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 300,
+    "rpm_max": 1500,
+    "airflow_cfm": 95.32,
+    "static_pressure_mmh2o": 6.56,
+    "noise_db": 38.7,
+    "connector": "4-pin"
+   }
+  },
+  "https://www.antec.com/product/cooling/omni-360-argb-white.php": {
+   "url": "https://www.antec.com/product/cooling/omni-360-argb-white.php",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "OMNI360ARGBW",
+    "omni360argbwhite"
+   ],
+   "names": [
+    "omni 360 argb white"
+   ],
+   "specs": {}
+  },
+  "https://www.antec.com/product/cooling/orbit-120-argb.php": {
+   "url": "https://www.antec.com/product/cooling/orbit-120-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "0761345400596",
+    "orbit120argb"
+   ],
+   "names": [
+    "orbit 120 argb x3"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 200,
+    "rpm_max": 2000,
+    "airflow_cfm": 66.72,
+    "static_pressure_mmh2o": 2.06,
+    "noise_db": 31.0,
+    "connector": "4-pin"
+   }
+  },
+  "https://www.antec.com/product/cooling/t120": {
+   "url": "https://www.antec.com/product/cooling/t120",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "T120",
+    "t120"
+   ],
+   "names": [
+    "t120 120mm argb",
+    "t120 rgb black",
+    "t120 chromatic air"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 60.0
+   }
+  },
+  "https://www.antec.com/product/cooling/vision-120-argb.php": {
+   "url": "https://www.antec.com/product/cooling/vision-120-argb.php",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "VISION120ARGB3PK",
+    "0761345400602",
+    "vision120argb"
+   ],
+   "names": [
+    "vision 120 argb 3x"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 800,
+    "airflow_cfm": 44.5,
+    "static_pressure_mmh2o": 1.36,
+    "noise_db": 29.0,
+    "connector": "4-pin"
+   }
+  },
+  "https://www.antec.com/product/cooling/vortex-view-360.php": {
+   "url": "https://www.antec.com/product/cooling/vortex-view-360.php",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "VORTEXVIEW360",
+    "07613454006400761345400688",
+    "0761345400640MADEINCHINA0761345400688MADEINMALAYSIA",
+    "vortexview360"
+   ],
+   "names": [
+    "vortex view 360mm"
+   ],
+   "specs": {
+    "fan_rpm_max": 400,
+    "airflow_cfm": 59.23,
+    "noise_db": 28.6
+   }
+  }
+ }
+}

@@ -1,0 +1,397 @@
+{
+ "brand": "Cooler Master",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-17",
+ "entries": {
+  "https://www.coolermaster.com/en-global/products/cosmos-c700m.html": {
+   "url": "https://www.coolermaster.com/en-global/products/cosmos-c700m.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCCC700MMG5NS00",
+    "700500700500",
+    "MCCC700MMG5NS00MCCC700MWG5NS00",
+    "cosmosc700m"
+   ],
+   "names": [
+    "coolermaster cosmos c700m"
+   ],
+   "specs": {
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 490,
+    "max_cooler_height_mm": 198,
+    "expansion_slots": "8",
+    "dimensions_mm": "W=306 H=651 D=650mm"
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/haf-500.html": {
+   "url": "https://www.coolermaster.com/en-global/products/haf-500.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "H500KGNNS00",
+    "H500WGNNS00",
+    "5005000050050000",
+    "HAF500H500KGNNS00HAF500WHITEH500WGNNS00",
+    "haf500"
+   ],
+   "names": [
+    "coolermaster haf 500",
+    "coolermaster haf 500 white"
+   ],
+   "specs": {
+    "color": "Black / White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
+    "expansion_slots": "7",
+    "drive_bays_25": 2,
+    "dimensions_mm": "W=224 H=510 D=516mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    }
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/haf-700-evo.html": {
+   "url": "https://www.coolermaster.com/en-global/products/haf-700-evo.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "H700EWGNNS00",
+    "7007000070070000",
+    "HAF700EVOH700EIGNNS00HAF700EVOWHITEH700EWGNNS00",
+    "haf700evo"
+   ],
+   "names": [
+    "coolermaster haf 700 evo titanium"
+   ],
+   "specs": {
+    "color": "Titanium / Gray",
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 490,
+    "max_cooler_height_mm": 166,
+    "side_panel": "Windowed",
+    "expansion_slots": "8",
+    "drive_bays_25": 12,
+    "dimensions_mm": "W=279 H=540 D=556mm",
+    "radiator_support": {
+     "420 mm": 1
+    }
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/haf-700.html": {
+   "url": "https://www.coolermaster.com/en-global/products/haf-700.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "H700IGNNS00",
+    "7007000070070000",
+    "HAF700H700IGNNS00HAF700WHITEH700WGNNS00",
+    "haf700"
+   ],
+   "names": [
+    "coolermaster haf 700"
+   ],
+   "specs": {
+    "color": "Titanium / Gray",
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 490,
+    "max_cooler_height_mm": 166,
+    "side_panel": "Windowed",
+    "expansion_slots": "8",
+    "dimensions_mm": "W=279 H=540 D=556mm",
+    "radiator_support": {
+     "420 mm": 1
+    }
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/hyper-212-black.html": {
+   "url": "https://www.coolermaster.com/en-global/products/hyper-212-black.html",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "RR212S20PCR1",
+    "RRS4KK25SNR1",
+    "hyper212black"
+   ],
+   "names": [
+    "coolermaster hyper 212 black rgb edition"
+   ],
+   "specs": {
+    "color": "Black",
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 1,
+    "fan_rpm_min": 690,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 70.7,
+    "noise_db": 32.8,
+    "height_mm": 152,
+    "fan_size_mm": 120
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/hyper-212-halo-black.html": {
+   "url": "https://www.coolermaster.com/en-global/products/hyper-212-halo-black.html",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "RRS4KK20PAR1",
+    "hyper212haloblack"
+   ],
+   "names": [
+    "coolermaster hyper 212 halo black cooler"
+   ],
+   "specs": {
+    "color": "Black",
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 1,
+    "fan_rpm_min": 650,
+    "fan_rpm_max": 2050,
+    "airflow_cfm": 51.88,
+    "noise_db": 27.0,
+    "height_mm": 154
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterair-ma824-stealth.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterair-ma824-stealth.html",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "MAMD8PN318PKR1",
+    "masterairma824stealth"
+   ],
+   "names": [
+    "masterair ma824 stealth 120mm"
+   ],
+   "specs": {
+    "color": "Black",
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 1,
+    "fan_rpm_min": 0,
+    "fan_rpm_max": 1550,
+    "airflow_cfm": 135.0,
+    "height_mm": 166
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterbox-nr200.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterbox-nr200.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCBNR200KNNNS00",
+    "MCBNR200WNNNS00",
+    "masterboxnr200"
+   ],
+   "names": [
+    "coolermaster masterbox nr200"
+   ],
+   "specs": {
+    "type": "Mini ITX",
+    "mb_form_factors": [
+     "Mini-DTX"
+    ],
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 155,
+    "expansion_slots": "3"
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterbox-nr200p.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterbox-nr200p.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCBNR200PKGNNS00",
+    "MCBNR200PWGNNS00",
+    "2002000020020000",
+    "MASTERBOXNR200PMCBNR200PKGNNS00MASTERBOXNR200PWHITEMCBNR200PWGNNS00",
+    "masterboxnr200p"
+   ],
+   "names": [
+    "coolermaster masterbox nr200p"
+   ],
+   "specs": {
+    "color": "Black / White",
+    "type": "Mini ITX",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Mini-DTX"
+    ],
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 155,
+    "side_panel": "Windowed",
+    "expansion_slots": "3",
+    "dimensions_mm": "W=185 H=274 D=360mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1
+    }
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterbox-pro-5-argb.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterbox-pro-5-argb.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCYB5P2KWGN03",
+    "masterboxpro5argb"
+   ],
+   "names": [
+    "coolermaster masterbox pro 5 argb"
+   ],
+   "specs": {
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 167,
+    "expansion_slots": "7",
+    "drive_bays_25": 2,
+    "dimensions_mm": "W=223 H=475 D=500mm"
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterbox-td500-argb.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterbox-td500-argb.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCBD500DWGNNS01",
+    "MCBD500DKANNS01",
+    "masterboxtd500argb"
+   ],
+   "names": [
+    "masterbox td500 argb white"
+   ],
+   "specs": {
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "side_panel": "Windowed",
+    "expansion_slots": "7",
+    "dimensions_mm": "W=205 H=447 D=430mm"
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterbox-td500-mesh.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterbox-td500-mesh.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCBD500DKGNNS01",
+    "MCBD500DKGNNS01MESHWHUB",
+    "masterboxtd500mesh"
+   ],
+   "names": [
+    "coolermaster masterbox td500 mesh"
+   ],
+   "specs": {
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "side_panel": "Windowed",
+    "expansion_slots": "7",
+    "dimensions_mm": "W=205 H=447 D=430mm"
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterbox-td500.html": {
+   "url": "https://www.coolermaster.com/en-global/products/masterbox-td500.html",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "MCBD500DKGNNSAU",
+    "MCBD500DKANNS00",
+    "masterboxtd500"
+   ],
+   "names": [
+    "coolermaster masterbox td500 crystal"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "expansion_slots": "7",
+    "dimensions_mm": "W=217 H=468 D=493mm"
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/mobius-120.html": {
+   "url": "https://www.coolermaster.com/en-global/products/mobius-120.html",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "MFZM2DN24NP2R1",
+    "MFZM2NN21NPKR1",
+    "mobius120"
+   ],
+   "names": [
+    "mobius 120p mfz-m2dn-24np2-r1 argb black"
+   ],
+   "specs": {
+    "color": "Black",
+    "fan_rpm_min": 0,
+    "fan_rpm_max": 2050,
+    "airflow_cfm": 63.1,
+    "noise_db": 22.6,
+    "height_mm": 25
+   }
+  }
+ }
+}

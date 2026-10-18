@@ -1,0 +1,2365 @@
+{
+ "brand": "ASUS",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-17",
+ "entries": {
+  "https://www.asus.com/motherboards-components/motherboards/csm/b850-max-gaming-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/b850-max-gaming-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1PR0M0EAY0",
+    "b850|gaming|max#wifi"
+   ],
+   "names": [
+    "b850 max gaming wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "32MB (256Mb) Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1EF0M0EAY0",
+    "b760|plus|prime"
+   ],
+   "names": [
+    "prime b760-plus"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-d4-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-d4-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1CW0M1EAY0",
+    "b760|d4|plus|prime"
+   ],
+   "names": [
+    "prime b760-plus d4"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "ecc_support": false,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-f-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-f-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1N00M0EAY0",
+    "b760m|f|prime#wifi"
+   ],
+   "names": [
+    "prime b760m-f wifi6"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-k-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-k-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1FI0M0EAY0",
+    "90MB1FI0M1EAY0",
+    "b760m|k|prime"
+   ],
+   "names": [
+    "prime b760m-k"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-r-d4-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-r-d4-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1HA0M0EAY0",
+    "b760m|d4|prime|r"
+   ],
+   "names": [
+    "prime b760m-r d4"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b850m-a-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b850m-a-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LN0M0EAY0",
+    "90MB1LQ0M0EAYC",
+    "a|b850m|prime#wifi"
+   ],
+   "names": [
+    "prime b850m-a wifi6e",
+    "prime b850m-a-csm wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-a-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-a-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "PRIMEB860MACSM",
+    "a|b860m|prime"
+   ],
+   "names": [
+    "prime b860m-a csm lga"
+   ],
+   "specs": {
+    "chipset": "B860",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 (128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-k-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-k-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1JT0M0EAY0",
+    "PRIMEB860MK",
+    "b860m|k|prime"
+   ],
+   "names": [
+    "prime b860m-k",
+    "prime b860m-k lga displayport"
+   ],
+   "specs": {
+    "chipset": "B860",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256(128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-a-d4-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-a-d4-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB19P0M0EAYC",
+    "a|d4|h610m|prime"
+   ],
+   "names": [
+    "prime h610m-a d4-csm"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-k-argb-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-k-argb-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1G90M0EAY0",
+    "argb|h610m|k|prime"
+   ],
+   "names": [
+    "prime h610m-k argb"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "1"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-h810m-a-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h810m-a-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1KJ0M0EAY0",
+    "90MB1KK0M0EAYC",
+    "a|h810m|prime#wifi"
+   ],
+   "names": [
+    "prime h810m-a wifi6",
+    "prime h810m-a-csm wifi6"
+   ],
+   "specs": {
+    "chipset": "H810",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 (128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-x670-p-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x670-p-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1BV0M0EAY0",
+    "p|prime|x670#wifi"
+   ],
+   "names": [
+    "prime x670-p wifi6"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X670",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 6,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IT0M0EAY0",
+    "PRIMEX870P",
+    "p|prime|x870"
+   ],
+   "names": [
+    "prime x870-p",
+    "prime x870-p 1xhdmi 2xtype"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IS0M0EAY0",
+    "PRIMEX870PWIFI",
+    "p|prime|x870#wifi"
+   ],
+   "names": [
+    "prime x870-p wifi7",
+    "prime x870-p 1xhdmi 2xtype wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890-p-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890-p-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1I70M0EAY0",
+    "PRIMEZ890PWIFI",
+    "p|prime|z890#wifi"
+   ],
+   "names": [
+    "prime z890-p wifi7",
+    "prime z890-p lga 1xhdmi wifi"
+   ],
+   "specs": {
+    "chipset": "Z890",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 (128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890m-plus-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890m-plus-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1J80M0EAY0",
+    "PRIMEZ890MPLUSWIFI",
+    "plus|prime|z890m#wifi"
+   ],
+   "names": [
+    "prime z890m-plus wifi7",
+    "prime z890m plus lga wifi"
+   ],
+   "specs": {
+    "chipset": "Z890",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 6,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 (128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi-w/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi-w/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1M00M0EAY0",
+    "B650EMAXGAMINGWIFIW",
+    "B650EMAXGAMINGWIFIWPC",
+    "b650e|gaming|max|w#wifi"
+   ],
+   "names": [
+    "b650e max gaming w wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LD0M0EAY0",
+    "b650e|gaming|max#wifi"
+   ],
+   "names": [
+    "b650e max gaming wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/others/b850-max-gaming-wifi-w/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/others/b850-max-gaming-wifi-w/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1M10M0EAY0",
+    "b850|gaming|max|w#wifi"
+   ],
+   "names": [
+    "b850 max gaming w wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/others/b850m-max-gaming-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/others/b850m-max-gaming-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LL0M0EAY0",
+    "B850MMAXGAMINGWIFI",
+    "B850MMAXGAMINGWIFIPC",
+    "b850m|gaming|max#wifi"
+   ],
+   "names": [
+    "b850m max gaming wifi6",
+    "b850m max gaming 1xhdmi wifi"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7-w/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7-w/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LZ0M0EAY0",
+    "gaming|max|w|x870#wifi"
+   ],
+   "names": [
+    "x870 max gaming w wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LY0M0EAY0",
+    "gaming|max|x870#wifi"
+   ],
+   "names": [
+    "x870 max gaming wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-a/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-a/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB14Z0M0EAY0",
+    "a|a520m|prime"
+   ],
+   "names": [
+    "prime a520m-a"
+   ],
+   "specs": {}
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1500M0EAY0",
+    "90150000",
+    "a520m|k|prime"
+   ],
+   "names": [
+    "prime a520m-k"
+   ],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "1"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-r/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-r/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1H60M0EAY0",
+    "a520m|prime|r"
+   ],
+   "names": [
+    "prime a520m-r"
+   ],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "1"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550-plus/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550-plus/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB14U0M0EAY0",
+    "b550|plus|prime"
+   ],
+   "names": [
+    "prime b550-plus"
+   ],
+   "specs": {
+    "chipset": "B550",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 6,
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a-wifi-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a-wifi-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB19X0M0EAY0",
+    "a|b550m|ii|prime#wifi"
+   ],
+   "names": [
+    "prime b550m-a ii wifi6"
+   ],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "B550",
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB14I0M0EAY0",
+    "90MB14I0M0EAYC",
+    "a|b550m|prime"
+   ],
+   "names": [
+    "prime b550m-a",
+    "prime b550m-a csm"
+   ],
+   "specs": {
+    "chipset": "B550",
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k-argb/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k-argb/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1GC0M0EAY0",
+    "argb|b550m|k|prime"
+   ],
+   "names": [
+    "prime b550m-k argb"
+   ],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "B550",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1KP0M0EAY0",
+    "b650|plus|prime#wifi"
+   ],
+   "names": [
+    "prime b650-plus wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-k/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-k/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1F60M0EAY0",
+    "PRIMEB650MK",
+    "b650m|k|prime"
+   ],
+   "names": [
+    "prime b650m-k",
+    "prime b650m-k vga"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-r/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-r/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1H30M0EAY0",
+    "b650m|prime|r"
+   ],
+   "names": [
+    "prime b650m-r"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-d4-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-d4-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1D00M1EAYC",
+    "a|b760m|d4|prime"
+   ],
+   "names": [
+    "prime b760m-a d4-csm"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1EL0M1EAY0",
+    "a|b760m|prime#wifi"
+   ],
+   "names": [
+    "prime b760m-a wifi6"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-d4/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-d4/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1CX0M0EAY0",
+    "90MB1CX0M1EAY0",
+    "a|b760m|d4|prime#wifi"
+   ],
+   "names": [
+    "prime b760m-a d4 wifi6"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1NF0M0EAY0",
+    "a|b760m|ii|prime#wifi"
+   ],
+   "names": [
+    "prime b760m-a ii wifi6e"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1EK0M0EAYC",
+    "PRIMEB760MACSM",
+    "a|b760m|prime"
+   ],
+   "names": [
+    "prime b760m-a-csm",
+    "prime b760m-a-csm gen 12th"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-k-d4-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-k-d4-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1DS0M1EAY0",
+    "b760m|d4|k|prime"
+   ],
+   "names": [
+    "prime b760m-k d4"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b840m-k-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b840m-k-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1PK0M0EAY0",
+    "b840m|k|prime"
+   ],
+   "names": [
+    "prime b840m-k"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B840",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "32MB (256Mb) Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1L80M0EAY0",
+    "b850|plus|prime#wifi"
+   ],
+   "names": [
+    "prime b850-plus wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850m-k/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850m-k/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LV0M0EAY0",
+    "b850m|k|prime"
+   ],
+   "names": [
+    "prime b850m-k"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1K50M0EAY0",
+    "90MB1KA0M0EAYC",
+    "PRIMEB860PLUSWIFI",
+    "b860|plus|prime#wifi"
+   ],
+   "names": [
+    "prime b860-plus wifi6e",
+    "prime b860-plus-csm wifi6e",
+    "b860 prime plus lga displayport wifi"
+   ],
+   "specs": {
+    "chipset": "B860",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "2 x 128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1JY0M0EAY0",
+    "90MB1K00M0EAYC",
+    "PRIMEB860MAWIFI",
+    "a|b860m|prime#wifi"
+   ],
+   "names": [
+    "prime b860m-a wifi6e",
+    "prime b860m-a-csm wifi6e",
+    "prime b860m-a lga 1xhdmi wifi"
+   ],
+   "specs": {
+    "chipset": "B860",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 (128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-a/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-a/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1G20M0EAYC",
+    "a|h610m|prime"
+   ],
+   "names": [
+    "prime h610m-a-csm"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1A10M0EAY0",
+    "d4|h610m|k|prime"
+   ],
+   "names": [
+    "prime h610m-k d4 micro"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "memory_slots": 2,
+    "memory_type": "DDR4",
+    "ecc_support": false,
+    "m2_slots": [
+     "1"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-x670e-pro-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-x670e-pro-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1BL0M0EAY0",
+    "prime|pro|x670e#wifi"
+   ],
+   "names": [
+    "prime x670e-pro wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X670",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-z790-p-wifi-csm/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z790-p-wifi-csm/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1CJ0M1EAY0",
+    "p|prime|z790#wifi"
+   ],
+   "names": [
+    "prime z790-p wifi6"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "192 (128+64) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1I50M0EAY0",
+    "PRIMEZ890P",
+    "p|prime|z890"
+   ],
+   "names": [
+    "prime z890-p",
+    "prime z890-p lga 1xhdmi"
+   ],
+   "specs": {
+    "chipset": "Z890",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 (128+128) Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/proart/proart-b850-creator-wifi-neo/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-b850-creator-wifi-neo/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1P60M0EAY0",
+    "b850|creator|neo|proart#wifi"
+   ],
+   "names": [
+    "proart b850-creator neo wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bios": "64MB (512Mb) Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IG0M0EAY0",
+    "creator|proart|x870e#wifi"
+   ],
+   "names": [
+    "proart x870e-creator wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870E",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 10 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB17G0M0EAY0",
+    "a520m|gaming|ii|plus|tuf"
+   ],
+   "names": [
+    "tuf gaming a520m-plus ii"
+   ],
+   "specs": {
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "sata_ports": 4,
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB17F0M0EAY0",
+    "a520m|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming a520m-plus wifi"
+   ],
+   "specs": {
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "bluetooth": "Bluetooth 5.0",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550-plus-wifi-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550-plus-wifi-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB19U0M0EAY0",
+    "b550|gaming|ii|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b550-plus ii wifi6"
+   ],
+   "specs": {
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "sata_ports": 6,
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550m-plus-wifi-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550m-plus-wifi-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB19Y0M0EAY0",
+    "b550m|gaming|ii|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b550m-plus ii wifi6"
+   ],
+   "specs": {
+    "chipset": "B550",
+    "memory_slots": 4,
+    "memory_type": "DDR4",
+    "sata_ports": 4,
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-e-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-e-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1GT0M0EAY0",
+    "b650|e|gaming|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b650-e wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1BZ0M0EAY0",
+    "b650|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b650-plus wifi6"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1BY0M0EAY0",
+    "b650|gaming|plus|tuf"
+   ],
+   "names": [
+    "tuf gaming b650-plus"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-e-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-e-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LT0M0EAY0",
+    "TUFGAMINGB650EEGAMINGWIFI",
+    "TUFGAMINGB650EEGAMINGWIFIPC",
+    "b650e|e|gaming|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b650e e wifi",
+    "tuf gaming b650e-e displayport wifi"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1M20M0EAY0",
+    "b650e|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b650e-plus wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1FV0M0EAY0",
+    "TUFGAMINGB650MEWIFI",
+    "b650m|e|gaming|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b650m-e wifi6",
+    "tuf gaming b650m-e 2xdisplayport wifi"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1FU0M0EAY0",
+    "b650m|e|gaming|tuf"
+   ],
+   "names": [
+    "tuf gaming b650m-e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": true,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1BF0M0EAY0",
+    "b650m|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b650m-plus wifi6"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1BG0M0EAY0",
+    "b650m|gaming|plus|tuf"
+   ],
+   "names": [
+    "tuf gaming b650m-plus"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1ER0M0EAY0",
+    "90MB1ER0M1EAY0",
+    "b760|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b760-plus wifi6"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-btf-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-btf-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1G50M0EAY0",
+    "b760m|btf|gaming|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b760m-btf wifi6"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1HD0M0EAY0",
+    "b760m|gaming|ii|plus|tuf"
+   ],
+   "names": [
+    "tuf gaming b760m-plus ii"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-wifi-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-wifi-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1HE0M0EAY0",
+    "b760m|gaming|ii|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b760m-plus ii wifi6e"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1ES0M0EAY0",
+    "b760m|gaming|plus|tuf"
+   ],
+   "names": [
+    "tuf gaming b760m-plus"
+   ],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "ecc_support": false,
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-btf-wifi-w/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-btf-wifi-w/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1KW0M0EAY0",
+    "b850|btf|gaming|tuf|w#wifi"
+   ],
+   "names": [
+    "tuf gaming b850-btf w wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-e-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-e-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1L20M0EAY0",
+    "b850|e|gaming|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b850-e wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1J30M0EAY0",
+    "b850|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b850-plus wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850i-wifi-neo/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850i-wifi-neo/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1PI0M0EAY0",
+    "b850i|gaming|neo|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b850i neo wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 2,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "2"
+    ],
+    "sata_ports": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bios": "32MB (256Mb) Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Mini-ITX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-e-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-e-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1LS0M0EAY0",
+    "b850m|e|gaming|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b850m-e wifi6e"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-ii/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-ii/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1MT0M0EAY0",
+    "b850m|gaming|ii|plus|tuf"
+   ],
+   "names": [
+    "tuf gaming b850m-plus ii"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IX0M0EAY0",
+    "90MB1IY0M0EAY0",
+    "90MB1MU0M0EAY0",
+    "TUFGAMINGB850MPLUSWIFI",
+    "b850m|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b850m-plus wifi6e",
+    "tuf gaming b850m-plus displayport wifi"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi7-w/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi7-w/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1MD0M0EAY0",
+    "b850m|gaming|plus|tuf|w#wifi"
+   ],
+   "names": [
+    "tuf gaming b850m-plus w wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1JL0M0EAY0",
+    "TUFGAMINGB860PLUSWIFI",
+    "b860|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b860-plus wifi7",
+    "tuf gaming b860-plus lga wifi"
+   ],
+   "specs": {
+    "chipset": "B860",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "2 x 128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860m-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860m-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1JV0M0EAY0",
+    "90MB1JW0M0EAY0",
+    "TUFGAMINGB860MPLUSWIFI",
+    "b860m|gaming|plus|tuf#wifi"
+   ],
+   "names": [
+    "tuf gaming b860m-plus wifi7",
+    "tuf gaming b860m-plus lga wifi"
+   ],
+   "specs": {
+    "chipset": "B860",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "2 x 128 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "Micro-ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IU0M0EAY0",
+    "TUFGAMINGX870PLUSWIFI",
+    "gaming|plus|tuf|x870#wifi"
+   ],
+   "names": [
+    "tuf gaming x870-plus wifi7",
+    "x870 tuf gaming plus 1xhdmi wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870e-plus-wifi7/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870e-plus-wifi7/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1M70M0EAY0",
+    "gaming|plus|tuf|x870e#wifi"
+   ],
+   "names": [
+    "tuf gaming x870e-plus wifi7"
+   ],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870E",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-plus-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-plus-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IQ0M0EAY0",
+    "TUFGAMINGZ890PLUSWIFI",
+    "gaming|plus|tuf|z890#wifi"
+   ],
+   "names": [
+    "tuf gaming z890-plus wifi7",
+    "z890 tuf gaming plus lga wifi"
+   ],
+   "specs": {
+    "chipset": "Z890",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1IR0M0EAY0",
+    "TUFGAMINGZ890PROWIFI",
+    "gaming|pro|tuf|z890#wifi"
+   ],
+   "names": [
+    "tuf gaming z890-pro wifi7",
+    "z890 tuf gaming pro lga wifi"
+   ],
+   "specs": {
+    "chipset": "Z890",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
+    "form_factor": "ATX"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-trx50-sage-wifi/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-trx50-sage-wifi/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1FZ0M0EAY0",
+    "pro|sage|trx50|ws#wifi"
+   ],
+   "names": [
+    "pro ws trx50-sage wifi7"
+   ],
+   "specs": {
+    "socket": "sTR5",
+    "chipset": "TRX50",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "3"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 10 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w890-sage/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w890-sage/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1MW0M0EAY0",
+    "pro|sage|w890|ws"
+   ],
+   "names": [
+    "pro ws w890-sage"
+   ],
+   "specs": {
+    "socket": "LGA4710",
+    "chipset": "W890",
+    "memory_slots": 8,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 10 Gb/s",
+    "bios": "512 Mb Flash ROM, UEFI AMI BIOS(text-based)"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "PROWSWRX90ESAGESE",
+    "pro|sage|se|wrx90e|ws"
+   ],
+   "names": [
+    "pro ws wrx90e-sage se"
+   ],
+   "specs": {
+    "socket": "sTR5",
+    "chipset": "WRX90",
+    "memory_slots": 8,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM, UEFI AMI BIOS(text-based)"
+   }
+  },
+  "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-z890-ace-se/techspec/": {
+   "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-z890-ace-se/techspec/",
+   "fetched": "2026-10-17",
+   "category": "motherboard",
+   "keys": [
+    "90MB1JC0M0EAY0",
+    "ace|pro|se|ws|z890"
+   ],
+   "names": [
+    "pro ws z890-ace se"
+   ],
+   "specs": {
+    "chipset": "Z890",
+    "memory_slots": 4,
+    "memory_type": "DDR5",
+    "m2_slots": [
+     "4"
+    ],
+    "sata_ports": 8,
+    "ethernet": "LAN 10 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "bios": "256 Mb Flash ROM UEFI AMI BIOS(text-based)",
+    "form_factor": "ATX"
+   }
+  }
+ }
+}

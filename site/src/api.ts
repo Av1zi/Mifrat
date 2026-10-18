@@ -32,7 +32,7 @@ async function fetchJson<T>(path: string): Promise<T> {
     return (await res.json()) as T;
   } catch (err) {
     if (err instanceof DOMException && err.name === "AbortError") {
-      throw new Error(`Timed out fetching ${path}`);
+      throw new Error(`Timed out fetching ${path}`, { cause: err });
     }
     throw err;
   } finally {
@@ -178,17 +178,17 @@ export function loadCategoryRepImage(category: string): Promise<string | null> {
 export function loadHistory(category: string): Promise<PriceHistoryFile | null> {
   const cached = historyPromises.get(category);
   if (cached) return cached;
-  // Absence is sticky-ish but not forever: only successful loads are
-  // cached, so a deploy that publishes history later is picked up, and a
-  // transient failure retries on the next product page instead of hiding
-  // the chart for the whole session.
-  const promise = fetchJson<PriceHistoryFile>(
-    `${DATA_BASE}/history/${category}.json`
-  )
-    .then((file) => {
-      historyPromises.set(category, Promise.resolve(file));
-      return file;
-    })
-    .catch(() => null);
+  // The in-flight promise is shared (price chart + price-drop badges ask at
+  // the same time), but a miss is dropped so a deploy that publishes history
+  // later, or a transient failure, is retried on the next page.
+  const promise = fetchJson<PriceHistoryFile>(`${DATA_BASE}/history/${category}.json`).catch(
+    () => null
+  );
+  historyPromises.set(category, promise);
+  void promise.then((file) => {
+    if (file === null && historyPromises.get(category) === promise) {
+      historyPromises.delete(category);
+    }
+  });
   return promise;
 }

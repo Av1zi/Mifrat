@@ -22,8 +22,8 @@
 		]
 	},
 	// D1 table `lists` (site/migrations/0001_lists.sql): short-id -> build
-	// mapping. database_id is filled in by SHORT_LINKS_SETUP.md step 1 —
-	// `wrangler deploy` fails until then, which is intentional.
+	// mapping. Create it with `wrangler d1 create mifrat-lists` and apply the
+	// migration (see site/README.md, "Build sharing").
 	"d1_databases": [
 		{
 			"binding": "LISTS_DB",

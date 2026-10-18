@@ -568,6 +568,27 @@ def canon_lighting(value) -> str:
     return str(value).strip()
 
 
+def canon_opengl(value) -> str:
+    """'OpenGL(R) 4.6' / 'OpenGL4.6' -> '4.6' (the field is the bare version)."""
+    match = re.search(r"(\d+(?:\.\d+)?)", str(value))
+    return match.group(1) if match else str(value).strip()
+
+
+def canon_integrated_graphics(value) -> str:
+    """CPU iGPU: every spelling of "there is none" becomes "No".
+
+    "No" for the same reason as canon_lighting (a canonical "None" is a
+    values.coerce placeholder and was re-read as "no data"). The catalog
+    carried both "no" and "No" until Oct 2026 - two filter options for one
+    fact.
+    """
+    low = str(value).strip().lower()
+    if low in ("no", "n", "false", "0", "none", "without", "n/a", "no graphics",
+               "no igpu", "discrete only"):
+        return "No"
+    return str(value).strip()
+
+
 def canon_speed_string(generation: int | str | None, mhz: int | float | None) -> str | None:
     """PCPP-style memory speed label: (5, 6000) or ("DDR5", 6000) -> 'DDR5-6000'."""
     if not mhz:
@@ -673,6 +694,8 @@ _CATEGORY_RULES = {
     ("storage", "interface"): canon_storage_interface,
     ("storage", "memory_type"): canon_memory_type,
     ("cpu", "generation"): canon_generation,
+    ("cpu", "integrated_graphics"): canon_integrated_graphics,
+    ("gpu", "opengl"): canon_opengl,
     ("storage", "weight_g"): canon_weight_g,
     ("psu", "series_wattage_range"): canon_wattage_range,
     ("accessories", "lighting"): canon_lighting,

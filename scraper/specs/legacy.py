@@ -90,9 +90,9 @@ def _legacy_shapes(category: str | None, specs: dict) -> dict:
     if specs.get("memory_gb") is not None:
         out["memory"] = f"{int(specs['memory_gb'])}GB"
     if specs.get("l2_cache_mb") is not None:
-        out["l2_cache"] = f"{int(specs['l2_cache_mb'])}MB"
+        out["l2_cache"] = f"{_fmt_mb(specs['l2_cache_mb'])}MB"
     if specs.get("l3_cache_mb") is not None:
-        out["l3_cache"] = f"{int(specs['l3_cache_mb'])}MB"
+        out["l3_cache"] = f"{_fmt_mb(specs['l3_cache_mb'])}MB"
     if specs.get("pcie_gen") is not None:
         out["pcie_gen"] = f"PCIe Gen {int(specs['pcie_gen'])}.0"
     if specs.get("packaging"):
@@ -138,6 +138,12 @@ def _legacy_shapes(category: str | None, specs: dict) -> dict:
     if specs.get("type") and category == "case":
         out["case_type"] = specs["type"]
     return out
+
+
+def _fmt_mb(value) -> str:
+    """9.5 -> '9.5', 12.0 -> '12' (cache sizes are fractional on hybrid Intel)."""
+    number = float(value)
+    return str(int(number)) if number.is_integer() else f"{number:g}"
 
 
 def to_attributes(category: str | None, specs: dict,

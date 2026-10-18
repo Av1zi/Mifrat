@@ -1,0 +1,41 @@
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-md);
+}
+
+.table th,
+.table td {
+  padding: var(--sp-3);
+  text-align: start;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--line);
+}
+
+.table th {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table .is-best td {
+  background: var(--brand-soft);
+}
+
+.table .is-out {
+  color: var(--text-3);
+}
+
+.table .col-action {
+  text-align: end;
+}

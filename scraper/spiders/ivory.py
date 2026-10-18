@@ -169,7 +169,7 @@ class IvorySpider(scrapy.Spider):
                         "parent": prod.get("parent"),
                         # Builder's per-product compatibility/feature tags —
                         # decoded downstream via data/ivory_cut_labels.json
-                        # (see IvoryFindings.md, scraper/build_ivory_cut_labels.py).
+                        # (the table is committed; it is not inferred at runtime).
                         "cuts": prod.get("cuts"),
                     },
                     scraped_at=datetime.now(timezone.utc).isoformat(),

@@ -38,14 +38,10 @@ AGENTS.md
 scrapy.log
 *.log
 tmp/
-compare_tms_scrapes.py
-diagnose_tms_coverage.py
 
-# data/raw/**/*.jsonl and data/catalog.json ARE meant to be committed — see
-# §5 of the plan. Nothing to ignore under data/ anymore now that the old
-# Scrapy-Cloud intermediate file (data/listings_latest.jsonl) is gone.
+# data/raw/**/*.jsonl and data/catalog.json ARE meant to be committed.
 
-# docyx/pc-part-dataset mirror + index (Aug 2026, see DECISIONS.md).
+# docyx/pc-part-dataset mirror + index.
 # Treated as regenerable, not source data: normalize-and-deploy.yml runs
 # `python -m scraper.pcpartdb refresh` before each normalize run, so this
 # is always rebuilt fresh from GitHub's raw CDN (~7MB, a few seconds).
@@ -61,8 +57,6 @@ Thumbs.db
 .idea/
 
 
-node_modules/
-dist/
 # Copied from ../data/site + referenced ../data/images by scripts/copy-data.mjs
 # on every dev/build run — regenerated, not a source file.
 # (Site-level .gitignore covers these; kept here as a backstop.)
@@ -70,3 +64,5 @@ site/public/data/
 site/public/images/
 tsconfig.tsbuildinfo
 
+# Manufacturer-page raw HTML cache (scraper/mfr); only data/mfr/<brand>.json is committed.
+data/mfr/.cache/
