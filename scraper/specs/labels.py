@@ -297,6 +297,8 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מספר תהליכונים": "thread_count",
     },
     "gpu": {
+        "spec / specifications / core speed": "core_clock_mhz",
+        "spec / specifications / memory speed": "memory_speed_gbps",
         "אריזה": PACKAGING_CELL,
         "סוג קירור": GPU_COOLING,
         "נפח זכרון": GPU_VRAM,
@@ -379,6 +381,7 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "graphic engine": "chipset",
     },
     "motherboard": {
+        "spec / specifications / sata3 connections": "sata_ports",
         "ערכת שבבים": "chipset",
         "שבב": "chipset",
         "צ'יפסט": "chipset",
@@ -531,6 +534,7 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "חריצי ddr3": "memory_slots",
     },
     "memory": {
+        "spec / specifications / memory size (ram)": "total_gb",
         # "Retail - קופסה" (52 rows) reaches canon_packaging only through the
         # cell parser — as a plain value it is dropped as Hebrew prose.
         "אריזה": PACKAGING_CELL,

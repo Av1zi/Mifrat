@@ -1750,6 +1750,28 @@ def _bluetooth_sweep(facts: dict, category: str, detail_specs) -> None:
                 return
 
 
+_UNPAIRED_SUFFIX_RE = re.compile(r"\s*\(unpaired\)\s*$", re.I)
+
+
+def _repair_unpaired_rows(rows):
+    """Split old 1PC rows whose value was glued into the key.
+
+    Before the detail spider learned the "Label: value" shape it stored such a
+    line as key "Spec / Specifications / MTBF: hours 2,000,000 (unpaired)" with
+    an empty value, so ~half of the 1PC records lost these facts. The label is
+    everything after the last " / " group path and before the first colon.
+    """
+    for key, value in rows:
+        text = str(key) if key is not None else ""
+        if (not value) and _UNPAIRED_SUFFIX_RE.search(text) and ":" in text:
+            body = _UNPAIRED_SUFFIX_RE.sub("", text)
+            head, _, tail = body.partition(":")
+            if tail.strip():
+                yield head.strip(), tail.strip()
+                continue
+        yield key, value
+
+
 def parse_detail_specs(category: str | None, detail_specs,
                        gaps: dict[str, int] | None = None) -> dict[str, list[Fact]]:
     """Structured spec rows from a vendor product page.
@@ -1765,7 +1787,7 @@ def parse_detail_specs(category: str | None, detail_specs,
 
     rows = (detail_specs.items() if isinstance(detail_specs, dict)
             else _detail_rows(detail_specs))
-    for key, value in rows:
+    for key, value in _repair_unpaired_rows(rows):
         if str(key) == "הערות":
             if cat == "case":
                 # The notes junk-drawer sometimes carries the one clearance
@@ -1935,9 +1957,49 @@ def ingest_computed_attributes(category: str | None, attributes) -> dict[str, li
     return facts
 
 
+_MODEL_FROM_TITLE_CATEGORIES = frozenset(
+    {"storage", "psu", "case", "motherboard", "gpu", "memory", "case_fan",
+     "aio", "cooler_air"})
+# Words that describe the product class or finish rather than name the model.
+_MODEL_NOISE_RE = re.compile(
+    r"\b(?:\d+(?:\.\d+)?\s?(?:GB|TB|MB|W|MM|MHZ|\"|INCH)|"
+    r"SSD|HDD|NVME|M\.2|SATA\d*|III|PCIE(?:X\d+)?|GEN\d?|2\.5|3\.5|\d+\s?RPM|"
+    r"5400|7200|10000|15000|"
+    r"BLACK|WHITE|SILVER|GREY|GRAY|RED|BLUE|PINK|RGB|ARGB|"
+    r"ATX|MATX|MICRO|MINI|ITX|DDR\d|80\+?|PLUS|BRONZE|GOLD|PLATINUM|"
+    r"TEMPERED|GLASS|ONLY|KIT|PACK|OF|UNKNOWN|OEM)\b",
+    re.I,
+)
+
+
+def _model_from_title(title: str, brand: str | None) -> str | None:
+    """The product name minus brand and generic descriptors, or None.
+
+    A title is the vendor's own words, so this is a low-confidence fact (any
+    detail-row or MPN-derived model outranks it). It only fires when what is
+    left looks like a model designation (has a digit), never as a guess.
+    """
+    text = re.sub(r"\s+", " ", title or "").strip()
+    if not text or text.lower() == "unknown":
+        return None
+    if brand:
+        text = re.sub(rf"^(?:{re.escape(brand)})\b[\s\-]*", "", text, flags=re.I)
+    text = _MODEL_NOISE_RE.sub(" ", text)
+    text = re.sub(r"[()\[\],/\"”″]+", " ", text)
+    text = re.sub(r"\s+", " ", text).strip(" -")
+    if not (3 <= len(text) <= 40) or not re.search(r"\d", text):
+        return None
+    return text
+
+
 def parse_listing_identity(category: str | None, listing: dict) -> dict[str, list[Fact]]:
     """Listing-level identity fields matching.py maintains (mpn/brand)."""
     facts: dict[str, list[Fact]] = {}
+    if category in _MODEL_FROM_TITLE_CATEGORIES:
+        title_model = _model_from_title(str(listing.get("title_raw") or ""),
+                                        listing.get("brand"))
+        if title_model:
+            _emit(facts, category or "", "model", title_model, SOURCE_COMPUTED, 0.35)
     mpn = listing.get("mpn")
     if mpn:
         _emit(facts, category or "", "part_numbers", [str(mpn)], SOURCE_COMPUTED, 0.95)

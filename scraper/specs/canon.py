@@ -318,6 +318,13 @@ def canon_storage_interface(value) -> str:
         return "NVMe"
     if low in ("sata", "sata iii", "sata 6gb/s", "sata 6.0 gb/s", "sata3"):
         return "SATA 6.0 Gb/s"
+    # Plain SATA III / 6Gb/s with stray or unbalanced parentheses
+    # ("(SATA 6Gb/s (SATA III", "SATA III (6Gb/s)", "SATA III 6Gbps"). An M.2
+    # or PCIe/NVMe mention means a different interface, so leave those alone.
+    if (re.match(r"^[\s(]*sata\b", low)
+            and not re.search(r"m\.?2|pci|nvme|usb", low)
+            and re.search(r"6\s*(?:\.0)?\s*gb|sata\s*(?:iii|3)\b", low)):
+        return "SATA 6.0 Gb/s"
     if low in ("pcie", "pci-e", "pci express"):
         return "PCIe"
     if low in ("sas",):
