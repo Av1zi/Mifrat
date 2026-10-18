@@ -118,8 +118,8 @@
   display: grid;
   place-items: center;
   flex: none;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 5rem;
+  height: 5rem;
   overflow: hidden;
   background: var(--thumb-bg);
   border: 1px solid var(--line);
@@ -127,12 +127,9 @@
   color: var(--brand);
 }
 
-.cat-tile__media img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.cat-tile__icon {
+  display: grid;
+  place-items: center;
 }
 
 .cat-tile__body {

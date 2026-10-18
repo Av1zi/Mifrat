@@ -172,6 +172,8 @@ export interface CategoryMeta {
   count: number;
   min_price: number | null;
   max_price: number | null;
+  /** Same-origin cover photo for the header menu (chosen by the scraper). */
+  cover?: string | null;
 }
 
 export interface SiteMeta {

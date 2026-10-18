@@ -1,3 +1,4 @@
+import { loadMeta } from "./api";
 import { categoryLabel, t } from "./i18n";
 import { CATEGORY_ICONS, icon } from "./icons";
 import { bindSearch, closeSearchResults } from "./search";
@@ -18,11 +19,12 @@ import { button } from "./ui/button";
 import { syncCompareTray } from "./ui/compareTray";
 import { html, type Html } from "./ui/html";
 import { syncPickControls } from "./ui/pick";
+import { safeImageUrl } from "./utils";
 
 const MEGA_GROUPS: Array<{ head: "componentHeading" | "coolingHeading" | "accessoriesHeading"; ids: string[] }> = [
   { head: "componentHeading", ids: ["cpu", "motherboard", "memory", "gpu", "storage", "psu", "case"] },
   { head: "coolingHeading", ids: ["cooler_air", "aio", "case_fan", "cooling_other"] },
-  { head: "accessoriesHeading", ids: ["accessories", "other"] },
+  { head: "accessoriesHeading", ids: ["accessories"] },
 ];
 
 interface ShellState {
@@ -112,7 +114,7 @@ function headerMarkup(state: ShellState): Html {
             (group) => html`<div class="mega__group">
               <h3>${t(lang, group.head)}</h3>
               ${group.ids.map(
-                (id) => html`<a class="mega__link" href="${categoryHash(id)}">${icon(CATEGORY_ICONS[id] ?? "grid", 18)}<span>${categoryLabel(id, lang)}</span></a>`
+                (id) => html`<a class="mega__link" href="${categoryHash(id)}"><span class="mega__media" data-cover-cat="${id}">${icon(CATEGORY_ICONS[id] ?? "grid", 18)}</span><span>${categoryLabel(id, lang)}</span></a>`
               )}
             </div>`
           )}
@@ -159,6 +161,8 @@ export function renderShell(app: HTMLElement, state: ShellState, handlers: Shell
   app.innerHTML = html`${headerMarkup(state)}<main id="main-content"></main>${footerMarkup(state.lang)}<aside class="compare-tray" id="compare-tray" aria-label="${t(state.lang, "compareTitle")}" hidden></aside>`.value;
   openDropdown = null;
 
+  fillMenuCovers(app);
+
   wireDropdown(app.querySelector('[data-dropdown="lang"]')!, (value) => handlers.onLang(value as Lang));
   wireDropdown(app.querySelector('[data-dropdown="currency"]')!, (value) => handlers.onCurrency(value as Currency));
   document.getElementById("theme-toggle")!.addEventListener("click", () => {
@@ -200,6 +204,34 @@ export function syncNav(): void {
 }
 
 // ---- menus ---------------------------------------------------------------
+
+/**
+ * Upgrades each mega-menu link's category icon to the category cover photo
+ * chosen by the scraper (meta.json categories[].cover — already fetched by
+ * the page, so no extra request) as soon as it resolves. Falls back to the
+ * icon when the category has no cover or the image fails to load.
+ */
+function fillMenuCovers(root: ParentNode): void {
+  const slots = root.querySelectorAll<HTMLElement>("[data-cover-cat]");
+  if (!slots.length) return;
+  void loadMeta()
+    .then((meta) => {
+      const covers = new Map(meta.categories.map((c) => [c.id, safeImageUrl(c.cover)]));
+      slots.forEach((slot) => {
+        const src = covers.get(slot.dataset.coverCat ?? "");
+        if (!src || !slot.isConnected) return;
+        const img = document.createElement("img");
+        img.alt = "";
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.addEventListener("error", () => img.remove(), { once: true });
+        img.addEventListener("load", () => slot.querySelector(".ic")?.remove(), { once: true });
+        img.src = src;
+        slot.append(img);
+      });
+    })
+    .catch(() => {});
+}
 
 let openDropdown: HTMLElement | null = null;
 

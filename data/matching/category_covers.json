@@ -1,0 +1,3 @@
+{
+  "_comment": "Manual cover override for the header menu: {category: product_id}. The chosen product's local cover is used for that category's menu tile. Empty = the scraper's automatic pick (scraper/site_data.py _pick_category_cover) is used."
+}

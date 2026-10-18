@@ -160,6 +160,25 @@
   font-weight: var(--fw-medium);
 }
 
+.mega__media {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--brand);
+}
+
+.mega__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .mega__link:hover {
   background: var(--brand-soft);
   color: var(--brand-strong);

@@ -4,7 +4,7 @@ import { icon } from "../icons";
 import { homeHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
-import { categoryTile, fillCategoryPhotos } from "../ui/categoryTile";
+import { categoryTile } from "../ui/categoryTile";
 import { html, mount } from "../ui/html";
 import { errorState, loadingState } from "../ui/state";
 
@@ -43,5 +43,4 @@ export async function renderCategories(
     </header>
     <div class="cat-grid">${cats.map((c) => categoryTile(c, currency, lang))}</div>`
   );
-  fillCategoryPhotos(container);
 }

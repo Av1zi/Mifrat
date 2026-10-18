@@ -6,7 +6,7 @@ import { buildHash, categoriesHash, categoryHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
 import { button } from "../ui/button";
-import { categoryTile, fillCategoryPhotos } from "../ui/categoryTile";
+import { categoryTile } from "../ui/categoryTile";
 import { chip } from "../ui/chip";
 import { html, mount } from "../ui/html";
 import { errorState, loadingState } from "../ui/state";
@@ -97,7 +97,6 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
 
   const search = container.querySelector<HTMLElement>("[data-search]");
   if (search) bindSearch(search, lang, currency);
-  fillCategoryPhotos(container);
 
   const drops = container.querySelector<HTMLElement>("#home-drops");
   if (drops) void fillDropsStrip(drops, cats, lang, currency);

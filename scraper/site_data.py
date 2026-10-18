@@ -232,6 +232,169 @@ def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str |
     return None, None
 
 
+# --------------------------------------------------------------------------
+# Category cover picker (header menu photos)
+# --------------------------------------------------------------------------
+# The menu shows ONE product photo per category. Picking "the first product"
+# meant the cheapest listing (categories are sorted by price), which is often
+# an unknown-brand part or a dark studio shot. This scores the candidates on
+# brand recognition, a non-bargain price band, a tile-friendly photo and how
+# complete the spec sheet is, so the cover is representative. A manual
+# override (data/matching/category_covers.json, {category: product_id}) always
+# wins. The chosen cover is written to meta.json categories[].cover and served
+# as a 256px derivative (site/scripts/copy-data.mjs generates covers256/).
+
+COVERS_OVERRIDE_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "matching" / "category_covers.json"
+)
+
+# Brands with clean, well-lit product photography, per category (plus a
+# shared tail). Only used as one bonus in the score, never as a hard filter.
+_COMMON_HERO_BRANDS = frozenset({
+    "asus", "msi", "corsair", "noctua", "nzxt", "samsung", "kingston",
+    "g.skill", "gskill", "intel", "amd", "lian li", "lian-li", "gigabyte",
+    "asrock", "cooler master", "be quiet!", "seasonic", "western digital",
+    "wd", "seagate", "crucial", "adata", "teamgroup", "thermaltake",
+    "fractal design", "deepcool", "arctic", "sapphire", "powercolor",
+    "zotac", "palit", "gainward", "inno3d", "pny", "evga", "thermalright",
+})
+_HERO_BRANDS: dict[str, frozenset[str]] = {
+    "cpu": frozenset({"intel", "amd"}),
+    "gpu": frozenset({"asus", "msi", "gigabyte", "sapphire", "zotac", "powercolor", "asrock", "evga"}),
+    "motherboard": frozenset({"asus", "msi", "gigabyte", "asrock"}),
+    "memory": frozenset({"corsair", "g.skill", "gskill", "kingston", "crucial", "samsung", "teamgroup", "adata"}),
+    "storage": frozenset({"samsung", "western digital", "wd", "seagate", "crucial", "kingston", "adata"}),
+    "psu": frozenset({"corsair", "seasonic", "be quiet!", "cooler master", "thermaltake", "asus", "msi"}),
+    "case": frozenset({"nzxt", "corsair", "lian li", "lian-li", "fractal design", "cooler master", "thermaltake", "be quiet!"}),
+    "aio": frozenset({"corsair", "nzxt", "arctic", "cooler master", "lian li", "deepcool", "thermaltake"}),
+    "cooler_air": frozenset({"noctua", "be quiet!", "cooler master", "deepcool", "thermalright", "arctic"}),
+    "case_fan": frozenset({"noctua", "corsair", "arctic", "be quiet!", "cooler master", "lian li"}),
+    "cooling_other": frozenset({"noctua", "arctic", "cooler master", "deepcool"}),
+}
+
+_COVER_QUALITY_CACHE: dict[str, float] = {}
+
+
+def _is_hero_brand(category: str, brand: str | None) -> bool:
+    name = (brand or "").strip().lower()
+    if not name:
+        return False
+    return name in _HERO_BRANDS.get(category, frozenset()) or name in _COMMON_HERO_BRANDS
+
+
+def _cover_quality(path: Path) -> float:
+    """0..1 tile-friendliness of a cover: near-square shape, white border.
+
+    A mostly-white border means the shot was photographed on a light
+    backdrop (composited on white by flatten_on_white), which reads well as a
+    small menu tile. Fail-open to 0 for an unreadable file.
+    """
+    key = str(path)
+    if key in _COVER_QUALITY_CACHE:
+        return _COVER_QUALITY_CACHE[key]
+    score = 0.0
+    try:
+        if _PILImage is not None and path.is_file():
+            with _PILImage.open(path) as im:
+                width, height = im.size
+                aspect = (width / height) if height else 1.0
+                square = 1.0 - min(abs(aspect - 1.0), 1.0)
+                small = im.convert("RGB").resize((64, 64))
+                px = small.load()
+                white = total = 0
+                for x in range(64):
+                    for y in list(range(3)) + list(range(61, 64)):
+                        r, g, b = px[x, y]
+                        total += 1
+                        white += 1 if min(r, g, b) >= 232 else 0
+                for y in range(3, 61):
+                    for x in list(range(3)) + list(range(61, 64)):
+                        r, g, b = px[x, y]
+                        total += 1
+                        white += 1 if min(r, g, b) >= 232 else 0
+                border = white / total if total else 0.0
+                score = 0.5 * square + 0.5 * border
+    except Exception:
+        score = 0.0
+    _COVER_QUALITY_CACHE[key] = score
+    return score
+
+
+def _cover_score(product: dict, category: str, price_p70: int | None) -> float:
+    score = 0.0
+    if _is_hero_brand(category, product.get("brand")):
+        score += 30.0
+    price = product.get("min_price") or 0
+    if price_p70 and price:
+        score += 20.0 * max(0.0, 1.0 - abs(price - price_p70) / price_p70)
+    image = product.get("image")
+    if isinstance(image, str) and image.startswith("/images/"):
+        score += 30.0 * _cover_quality(IMAGES_DIR / unquote(image[len("/images/"):]))
+    score += min(product.get("vendor_count") or 1, 5) * 2.0
+    score += min(len(product.get("specs") or {}), 25) * 0.4
+    return score
+
+
+def _pick_category_cover(category: str, items: list[dict],
+                         override_id: str | None = None) -> dict | None:
+    """Best cover product for one category, or None when none qualify."""
+    if override_id:
+        for product in items:
+            if product.get("id") == override_id and product.get("image"):
+                return product
+    prices = sorted(p["min_price"] for p in items if p.get("min_price"))
+    p70 = prices[int(len(prices) * 0.7)] if prices else None
+
+    def _eligible(product: dict) -> bool:
+        image = product.get("image")
+        if not isinstance(image, str) or not image:
+            return False
+        if not product.get("in_stock"):
+            return False
+        if (product.get("min_price") or 0) <= 0:
+            return False
+        if (product.get("vendor_count") or 0) < 2:
+            return False
+        return not _url_is_dark(image)
+
+    candidates = [p for p in items if _eligible(p)]
+    if not candidates:
+        # Relax the offer-quality filters but never the local/dark ones: a
+        # category whose every product is a single-vendor unknown still
+        # deserves its best photo over initials.
+        candidates = [
+            p for p in items
+            if isinstance(p.get("image"), str) and p["image"] and not _url_is_dark(p["image"])
+        ]
+    if not candidates:
+        return None
+    return sorted(candidates, key=lambda p: (-_cover_score(p, category, p70), str(p["id"])))[0]
+
+
+def _cover_256_path(image: str | None) -> str | None:
+    """256px derivative path of a cover (/images/<vendor>/covers256/...).
+
+    copy-data.mjs generates it from the same cover, exactly like the thumbs/
+    derivative. A legacy per-SKU subpath (Ivory) has no derivation — the full
+    cover is used instead.
+    """
+    if not isinstance(image, str) or not image.startswith("/images/"):
+        return None
+    parts = image[len("/images/"):].split("/")
+    if len(parts) != 2:
+        return image
+    return f"/images/{parts[0]}/covers256/{parts[1]}"
+
+
+def _load_cover_overrides() -> dict:
+    try:
+        with COVERS_OVERRIDE_PATH.open(encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
 def _write_json_atomic(path: Path, value: object) -> None:
     """Replace derived output atomically so transient file locks do not truncate it."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -429,6 +592,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     site_dir.mkdir(parents=True, exist_ok=True)
 
     categories_meta = []
+    cover_overrides = _load_cover_overrides()
 
     for category, items in by_category.items():
         items.sort(key=lambda x: (x["min_price"] is None, x["min_price"]))
@@ -437,12 +601,14 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         _write_json_atomic(out_path, items)
 
         prices = [x["min_price"] for x in items if x["min_price"] is not None]
+        cover_product = _pick_category_cover(category, items, cover_overrides.get(category))
         categories_meta.append(
             {
                 "id": category,
                 "count": len(items),
                 "min_price": min(prices) if prices else None,
                 "max_price": max(prices) if prices else None,
+                "cover": _cover_256_path(cover_product.get("image")) if cover_product else None,
             }
         )
 
