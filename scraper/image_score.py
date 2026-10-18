@@ -43,7 +43,6 @@ from scraper.image_urls import is_probably_not_a_photo, url_shape_score
 
 PRIORITY_PATH = Path("data/matching/image_vendor_priority.json")
 BLOCKLIST_PATH = Path("data/matching/image_blocklist.json")
-META_PATH = Path("data/images/meta.json")
 
 # Fallback order when the priority file has no entry for a category. Measured
 # basis (audit, Sep 2026): TMS serves 1500px originals (its covers only look
@@ -110,7 +109,6 @@ UPGRADE_GAP = 4.0
 
 _priority_cache: dict | None = None
 _blocklist_cache: list | None = None
-_meta_cache: dict | None = None
 
 
 def vendor_folder(vendor_id: str | None) -> str:
@@ -169,28 +167,6 @@ def priority_table(reload: bool = False) -> dict:
         print(f"[image_score] ignoring {PRIORITY_PATH}: {exc}")
     _priority_cache = table
     return table
-
-
-def load_meta(reload: bool = False) -> dict:
-    """Local file metrics index: {"<vendor>/<file>": {edge, bytes, ...}}.
-
-    Written by download_images.py. Optional — every
-    metric is a bonus, never a requirement.
-    """
-    global _meta_cache
-    if _meta_cache is not None and not reload:
-        return _meta_cache
-    index: dict = {}
-    try:
-        if META_PATH.is_file():
-            with META_PATH.open(encoding="utf-8") as f:
-                data = json.load(f)
-            if isinstance(data, dict):
-                index = data.get("covers") if isinstance(data.get("covers"), dict) else data
-    except Exception:
-        index = {}
-    _meta_cache = index
-    return index
 
 
 def _vendor_rank(vendor: str, category: str, table: dict) -> int:

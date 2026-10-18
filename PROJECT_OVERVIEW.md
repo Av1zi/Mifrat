@@ -29,11 +29,11 @@ Non-goals for the current version:
 - No user accounts. Sharing a build is done with links, not logins.
 - No real database for the catalog. Versioned files in git act as the database.
 - No backend server for browsing, filtering, or compatibility. All of that runs in the visitor browser. There is exactly one small server-side exception for short build links, explained later.
-- No attempt to defeat serious bot protection. If a vendor actively blocks automated access, the project treats that as a stop signal for that source, not a challenge to work around, with one documented historical exception for Plonter described below.
+- No attempt to defeat serious bot protection. If a vendor actively blocks automated access, the project treats that as a stop signal for that source, not a challenge to work around, with one documented historical exception for Plonter (see 4.6), which has since been dropped.
 
 The site is bilingual, Hebrew and English, right-to-left by default in Hebrew and left-to-right in English. Prices are stored as whole Israeli shekels and can be displayed in shekels or converted to dollars for viewing only.
 
-Live scale (late Sep 2026 snapshot; moves daily): roughly 7,200 listings merged into ~4,900 products across 13 categories, with a ~900-item human review queue. Four vendors feed the pipeline: TMS (home), 1PC, Plonter, and Ivory (cloud).
+Live scale (mid Oct 2026 snapshot; moves daily): roughly 6,100 listings merged into ~3,800 products across 12 categories, with a ~360-item human review queue. Four vendors feed the pipeline: TMS (home), and 1PC, Ivory and YahavPC (cloud).
 
 ## 2. Big picture — how the whole thing fits together
 
@@ -117,7 +117,9 @@ What it visits: a fixed mapping of internal category identifiers to canonical gu
 
 How it works: it posts form-style requests for pages of a category and reads the returned product-tile fragments. Each tile carries a numeric product identifier, title, price, thumbnail, and pagination signal. Prices are rounded carefully to whole shekels to remove floating-point noise. Titles are cleaned of occasional data-format bleed. The numeric identifier becomes the vendor identifier, stock is recorded as true because the endpoint only returns available items and carries no explicit stock signal, and pagination continues while the response indicates a next page.
 
-### 4.6 Plonter spider — cloud vendor with browser automation
+### 4.6 Plonter spider — dropped (code kept)
+
+Status: dropped on 2026-09-29. Its bot-management layer blocks datacenter IPs and the owner decided not to escalate. The spider, its support code and older snapshots stay in the repo for a possible future re-scrape; it is not scheduled. The description below is historical.
 
 Purpose: collect core PC components from Plonter full-catalog feed, which returns the entire catalog in one response.
 
@@ -139,13 +141,17 @@ How it works: it makes plain requests to the endpoint and reads grouped product 
 
 Blocking behavior: if every request in a run is blocked, that is treated as a datacenter ban signal. The spider does not retry, proxy, or evade; the normalizer stale-forwarding covers the gap.
 
-### 4.8 KSP spider — disabled stub
+### 4.8 YahavPC spider — cloud vendor
 
-Purpose: placeholder only. It defines the vendor domain but no start addresses and its parsing explicitly fails if ever called. It is never scheduled. The rule is to check for an official data-access approval first, to have the other vendors stable before revisiting, and to treat bot-management or CAPTCHA as a stop signal, not a challenge.
+Purpose: collect PC-part slots from YahavPC through the store's own builder JSON API (a slot-list call, then one search call per category group). Each response carries the whole category, so there is no pagination. Scope is only the builder's PC-part slots; software, monitors and peripherals are left out. Onboarded 2026-10-14.
+
+### 4.8b KSP — out of scope
+
+There is no KSP spider. KSP sits behind bot management; that is a stop signal, not a challenge.
 
 ### 4.9 Schedules — cloud vs home
 
-Cloud scraping runs on hosted automation on a matrix of the three cloud-safe vendors, with independent jobs so one vendor failure does not stop the others. It runs once late at night Israel time with a random spread to avoid thundering-herd timing, plus a morning fallback that skips vendors whose output already exists and is non-empty. It can also be started manually. It installs dependencies, installs the browser binary needed by Plonter, runs the per-vendor entrypoint, then commits only that vendor dated file using the narrow-commit helper. Narrow commits matter because parallel jobs on slightly stale checkouts must not stage each other files as deleted.
+Cloud scraping runs on hosted automation on a matrix of the cloud-safe vendors (Ivory, 1PC, YahavPC), with independent jobs so one vendor failure does not stop the others. It runs once late at night Israel time with a random spread to avoid thundering-herd timing, plus a morning fallback that skips vendors whose output already exists and is non-empty. It can also be started manually. It installs dependencies, installs the browser binary (kept installed for a possible Plonter return; no scheduled vendor needs it today), runs the per-vendor entrypoint, then commits only that vendor dated file using the narrow-commit helper. Narrow commits matter because parallel jobs on slightly stale checkouts must not stage each other files as deleted.
 
 Home scraping runs on the Nano for TMS only. A system service runs the home script with a time limit and logs to the system journal. A daily timer fires in the evening UTC with a large randomized delay so the run lands late at night or overnight Israel time and can catch up after downtime. A morning fallback timer runs only if a success marker for today does not already exist. The home script pulls latest code, runs the spider, checks for zero items, commits and pushes the snapshot first with retries, then does best-effort detail enrichment and image downloading, then pushes again, failing loudly if the main snapshot push fails.
 
@@ -437,7 +443,7 @@ Secrets hygiene: zero secrets in automation and git, ever. Environment examples,
 - The reactor setting must stay the first line of the crawler settings file.
 - Every spider keeps both entry methods sharing one request builder for version compatibility.
 - Robots handling is split: ignore globally, obey for the home-run vendor. Never construct page-size URLs for that vendor; follow pagination links or page numbers derived from the results-count footer.
-- Home-IP rules are binding: one run per day, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion. The Plonter browser-automation feed is the one documented exception.
+- Home-IP rules are binding: one run per day, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion.
 - Matching stays strict: manual merges, then CPU model identity, then exact manufacturer number, then exact identifier, then singleton — with packaging splits (boxed versus tray stay apart in every tier), a merge-consistency guard that splits same-identifier groups with conflicting manufacturer numbers, and human blocked-pairs vetoing every tier. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
 - Specs merge by tier, not by accidents of call order: reference wins, then trusted vendor structure, then title parsing, then weak vendors fill-only; equal-tier conflicts are logged, never silently picked. `null` means unknown — never guess a value to fill a gap.
 - The schema is the single source of truth for specs: add or change a field there, regenerate the frontend metadata, teach a resolver to emit it — nothing else needs editing. The drift check fails the pipeline if the generated module goes stale. Per-product overrides fix data without a code deploy.

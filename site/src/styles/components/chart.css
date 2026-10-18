@@ -1,0 +1,124 @@
+/* Price-history chart. Series colours come from --chart-1..8 via .ph-c1..8. */
+.ph-c1 { --series: var(--chart-1); }
+.ph-c2 { --series: var(--chart-2); }
+.ph-c3 { --series: var(--chart-3); }
+.ph-c4 { --series: var(--chart-4); }
+.ph-c5 { --series: var(--chart-5); }
+.ph-c6 { --series: var(--chart-6); }
+.ph-c7 { --series: var(--chart-7); }
+.ph-c8 { --series: var(--chart-8); }
+
+.ph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.ph-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 2rem;
+  padding: 0 var(--sp-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+
+.ph-legend__item.is-off {
+  color: var(--text-3);
+  text-decoration: line-through;
+  background: var(--surface-2);
+}
+
+.ph-legend__item.is-off .ph-swatch {
+  opacity: 0.35;
+}
+
+.ph-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--series);
+}
+
+.ph-wrap {
+  position: relative;
+}
+
+.ph-chart {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.ph-chart:focus-visible {
+  outline-offset: 4px;
+}
+
+.ph-grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.ph-tick {
+  fill: var(--text-3);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ph-line {
+  fill: none;
+  stroke: var(--series);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.ph-cross {
+  stroke: var(--text-3);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.ph-tip {
+  position: absolute;
+  z-index: var(--z-sticky);
+  min-width: 11rem;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  font-size: var(--fs-xs);
+  pointer-events: none;
+}
+
+.ph-tip__date {
+  margin-bottom: var(--sp-1);
+  color: var(--text-3);
+}
+
+.ph-tip__row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding-block: 2px;
+}
+
+.ph-tip__row.is-best {
+  font-weight: var(--fw-bold);
+}
+
+.ph-tip__vendor {
+  flex: 1;
+}
+
+.ph-tip__price {
+  font-variant-numeric: tabular-nums;
+}

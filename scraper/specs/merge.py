@@ -5,6 +5,9 @@ Sources are ranked, and a lower tier NEVER overwrites a higher one:
 
     -1 override   data/specs/overrides.json (human-edited, always wins)
      0 reference  PCPartPicker/docyx dataset + curated reference rows
+   0.5 manufacturer  the brand's own product page (data/mfr/<brand>.json,
+                  scraper/mfr/): primary-source facts, above the retailer's
+                  payload, below the reference rows and manual overrides
      1 vendor     vendor structured payloads (Ivory cuts/detail, TMS fields,
                   and keys matching.py computes post-match: mpn, accessory_type)
      2 title      typed regex extraction over the listing title/SKU
@@ -35,6 +38,7 @@ from . import schema
 
 TIER_OVERRIDE = -1
 TIER_REFERENCE = 0
+TIER_MANUFACTURER = 0.5
 TIER_VENDOR = 1
 TIER_TITLE = 2
 TIER_WEAK = 3
@@ -42,6 +46,7 @@ TIER_WEAK = 3
 TIER_NAMES = {
     TIER_OVERRIDE: "override",
     TIER_REFERENCE: "reference",
+    TIER_MANUFACTURER: "manufacturer",
     TIER_VENDOR: "vendor",
     TIER_TITLE: "title",
     TIER_WEAK: "weak",

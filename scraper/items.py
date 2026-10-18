@@ -1,7 +1,7 @@
 """
 Shared Item schema across all vendor spiders.
 
-Every spider (tms.py, ivory.py, onepc.py, plonter.py, and eventually ksp.py)
+Every spider (tms.py, ivory.py, onepc.py, yahav.py, plonter.py)
 yields ListingItem instances. Keep this schema stable — the normalizer/matcher
 (normalize_and_match.py) and everything downstream depends on it, and per the
 plan (§7) adding/removing a vendor should never require touching this file.

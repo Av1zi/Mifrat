@@ -1,0 +1,7 @@
+dist
+public
+node_modules
+package-lock.json
+*.generated.ts
+src/styles
+migrations

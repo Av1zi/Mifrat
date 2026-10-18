@@ -133,6 +133,31 @@ export function formatSpecValue(value: SpecValue | undefined, lang: Lang): strin
   return ENUM_LABELS[value.toLowerCase()] ?? value;
 }
 
+const UNIT_TOKENS: Record<string, string> = {
+  w: "W",
+  gb: "GB",
+  mb: "MB",
+  tb: "TB",
+  mm: "mm",
+  mhz: "MHz",
+  ghz: "GHz",
+  l: "L",
+  nm: "nm",
+  rpm: "RPM",
+  cfm: "CFM",
+  db: "dB",
+};
+
+/** Display unit encoded in a schema field name (`tdp_w` -> "W"), or "" for counts and enums. */
+export function specUnit(field: string): string {
+  const tokens = field.split("_");
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    const unit = UNIT_TOKENS[tokens[i]];
+    if (unit) return unit;
+  }
+  return "";
+}
+
 /** Read one field off a product's typed sheet (undefined when absent). */
 export function specValue(product: Product, field: string): SpecValue | undefined {
   const specs = product.specs;

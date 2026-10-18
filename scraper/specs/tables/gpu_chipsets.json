@@ -1,0 +1,192 @@
+{
+  "_doc": "Curated GPU reference facts keyed by canonical chipset (canon_gpu_chipset spelling). Only facts that are INVARIANT for the chip name are listed: bus width, memory generation, reference board power and the chip designer's recommended PSU. Anything that differs between partner variants (VRAM capacity, OC power, cooler) is deliberately absent. Values come from the chip designer's published specification (NVIDIA / AMD / Intel product pages); where a chip name spans two memory configurations with different bus widths (RTX 3050, RTX 3060, GT 1030) the varying field is omitted. A derived cell only fills a null and is tagged derived:gpu.chipset_table. A row may carry '_requires': {field: [allowed values]} - it applies only when the product's own value for that field is known and listed (the chipset name 'Radeon RX 9070' also covers the 12GB/192-bit RX 9070 GRE). max_displays is deliberately absent: vendors print the card's output count (2-3 on a 9060 XT), not the chip's ceiling. tdp_w / recommended_psu_w are the chip designer's REFERENCE figures; partner cards often publish higher ones, and a sourced value always wins.",
+  "_source": "Chip designers' published product specifications (NVIDIA GeForce, AMD Radeon, Intel Arc product pages), checked against vendor-published values already in the catalog (scripts/fill_report.py --check-tables).",
+  "rows": {
+    "GeForce RTX 5090": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR7",
+      "memory_bus_bit": 512,
+      "memory_speed_gbps": 28,
+      "tdp_w": 575,
+      "recommended_psu_w": 1000,
+      "interface": "PCIe 5.0 x16"
+    },
+    "GeForce RTX 5080": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR7",
+      "memory_bus_bit": 256,
+      "memory_speed_gbps": 30,
+      "tdp_w": 360,
+      "recommended_psu_w": 850,
+      "interface": "PCIe 5.0 x16"
+    },
+    "GeForce RTX 5070 Ti": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR7",
+      "memory_bus_bit": 256,
+      "memory_speed_gbps": 28,
+      "tdp_w": 300,
+      "recommended_psu_w": 750,
+      "interface": "PCIe 5.0 x16"
+    },
+    "GeForce RTX 5070": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR7",
+      "memory_bus_bit": 192,
+      "memory_speed_gbps": 28,
+      "tdp_w": 250,
+      "recommended_psu_w": 650,
+      "interface": "PCIe 5.0 x16"
+    },
+    "GeForce RTX 5060 Ti": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR7",
+      "memory_bus_bit": 128,
+      "memory_speed_gbps": 28,
+      "tdp_w": 180,
+      "recommended_psu_w": 600
+    },
+    "GeForce RTX 5060": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR7",
+      "memory_bus_bit": 128,
+      "memory_speed_gbps": 28,
+      "tdp_w": 145,
+      "recommended_psu_w": 550
+    },
+    "GeForce RTX 5050": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_bus_bit": 128,
+      "memory_speed_gbps": 20,
+      "recommended_psu_w": 550
+    },
+    "GeForce RTX 4090": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6X",
+      "memory_bus_bit": 384,
+      "memory_speed_gbps": 21,
+      "tdp_w": 450,
+      "recommended_psu_w": 850,
+      "interface": "PCIe 4.0 x16"
+    },
+    "GeForce RTX 3070 Ti": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6X",
+      "memory_bus_bit": 256,
+      "memory_speed_gbps": 19,
+      "tdp_w": 290,
+      "recommended_psu_w": 750,
+      "interface": "PCIe 4.0 x16"
+    },
+    "GeForce RTX 3060": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_speed_gbps": 15,
+      "tdp_w": 170,
+      "recommended_psu_w": 550,
+      "interface": "PCIe 4.0 x16"
+    },
+    "GeForce RTX 3050": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6"
+    },
+    "GeForce GTX 1660 Ti": {
+      "directx": "12",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 192,
+      "memory_speed_gbps": 12,
+      "tdp_w": 120,
+      "recommended_psu_w": 450,
+      "interface": "PCIe 3.0 x16"
+    },
+    "GeForce GTX 1650": {
+      "directx": "12",
+      "tdp_w": 75,
+      "recommended_psu_w": 300,
+      "interface": "PCIe 3.0 x16"
+    },
+    "GeForce GT 1030": {
+      "directx": "12",
+      "interface": "PCIe 3.0 x4"
+    },
+    "Radeon RX 9070 XT": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 256,
+      "memory_speed_gbps": 20,
+      "tdp_w": 304,
+      "recommended_psu_w": 750,
+      "interface": "PCIe 5.0 x16"
+    },
+    "Radeon RX 9070": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 256,
+      "memory_speed_gbps": 20,
+      "tdp_w": 220,
+      "recommended_psu_w": 650,
+      "interface": "PCIe 5.0 x16",
+      "_requires": {
+        "memory_gb": [
+          16
+        ]
+      }
+    },
+    "Radeon RX 9060 XT": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 128,
+      "memory_speed_gbps": 20,
+      "recommended_psu_w": 450,
+      "interface": "PCIe 5.0 x16"
+    },
+    "Radeon RX 9060": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 128,
+      "recommended_psu_w": 450
+    },
+    "Radeon RX 7600": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 128,
+      "memory_speed_gbps": 18,
+      "tdp_w": 165,
+      "recommended_psu_w": 550
+    },
+    "Radeon RX 580": {
+      "directx": "12",
+      "memory_type": "GDDR5",
+      "memory_bus_bit": 256,
+      "memory_speed_gbps": 8,
+      "tdp_w": 185,
+      "recommended_psu_w": 500,
+      "interface": "PCIe 3.0 x16"
+    },
+    "Arc B580": {
+      "directx": "12 Ultimate",
+      "opengl": "4.6",
+      "memory_type": "GDDR6",
+      "memory_bus_bit": 192,
+      "memory_speed_gbps": 19,
+      "tdp_w": 190,
+      "recommended_psu_w": 600
+    }
+  }
+}

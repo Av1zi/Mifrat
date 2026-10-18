@@ -50,10 +50,6 @@ export async function ensureFxRate(): Promise<void> {
   }
 }
 
-export function canConvertToUsd(): boolean {
-  return fxRate !== null;
-}
-
 export function formatPrice(priceIls: number | null, currency: Currency, lang: Lang): string {
   if (priceIls === null) return lang === "he" ? "מחיר לא זמין" : "Price unavailable";
 

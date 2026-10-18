@@ -1,0 +1,58 @@
+.price {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.price--md {
+  font-size: var(--fs-lg);
+}
+
+.price--lg {
+  font-size: var(--fs-3xl);
+  line-height: 1;
+}
+
+/* The single empty-value look. */
+.empty-val {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--text-3);
+}
+
+.status-dot--ok {
+  background: var(--ok);
+}
+
+.status-dot--err {
+  background: var(--err);
+}
+
+.stock {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+.stale-tag {
+  display: inline-block;
+  padding: 0 var(--sp-2);
+  border-radius: var(--radius-pill);
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}

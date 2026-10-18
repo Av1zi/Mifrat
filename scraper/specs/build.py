@@ -29,6 +29,11 @@ from .merge import TIER_REFERENCE, Fact, merge_facts
 from .resolvers import reference, title_parse, vendor_struct, weak_vendor
 from .validate import cross_check, fill_derived, revalidate_derived
 
+try:  # scraper/mfr is a sibling package; absent only when specs/ runs standalone
+    from ..mfr import store as mfr_store
+except ImportError:  # pragma: no cover
+    mfr_store = None
+
 
 def listing_text(listing: dict) -> str:
     """The text Tier-2 parses: match_text plus Ivory prose (same as before).
@@ -103,6 +108,28 @@ def _pckombo_facts(category: str | None, pckombo: dict) -> dict[str, list[Fact]]
     return facts
 
 
+def _evidence_context(listings: list[dict]) -> dict:
+    """Raw per-product text the explicit-negative rules (derive.py) read.
+
+    `text` is every title plus every detail-row key and value, lowercased
+    elsewhere by the regexes; `detail_rows` is the size of the BEST table, so
+    "the page never mentions X" only counts when a full table was published.
+    """
+    chunks: list[str] = []
+    titles: list[str] = []
+    rows = 0
+    for listing in listings:
+        chunks.append(str(listing.get("title_raw") or ""))
+        titles.append(str(listing.get("title_raw") or ""))
+        detail = (listing.get("vendor_meta") or {}).get("detail_specs")
+        if isinstance(detail, dict):
+            rows = max(rows, len(detail))
+            for key, value in detail.items():
+                chunks.append(str(key))
+                chunks.append(str(value))
+    return {"text": " ".join(chunks), "title": " ".join(titles), "detail_rows": rows}
+
+
 def _extras(product: dict) -> dict:
     """Non-schema attribute keys worth carrying into the derived view."""
     allowed = ("bundle_only",)
@@ -155,6 +182,13 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         for key, value in _pckombo_facts(category, product.get("pckombo") or {}).items():
             facts.setdefault(key, []).extend(value)
 
+        # Tier 0.5 - the brand's own product page (data/mfr/<brand>.json).
+        if mfr_store is not None:
+            for key, value in mfr_store.facts_for(
+                    category, provisional.get("manufacturer") or product.get("brand"),
+                    provisional.get("part_numbers"), product.get("canonical_name")).items():
+                facts.setdefault(key, []).extend(value)
+
         # Manual overrides are king.
         for key, value in reference.overrides_for(product).items():
             facts.setdefault(key, []).extend(value)
@@ -168,7 +202,9 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         # implies the answer. Inference reads packaging/socket/etc., never the
         # fields cross_check drops, so nothing it writes is checked afterwards.
         issues = cross_check(category, merged.specs, merged.sources)
-        derived_fields = infer_specs(category, merged.specs, merged.sources)
+        derived_fields = infer_specs(
+            category, merged.specs, merged.sources,
+            context=_evidence_context(by_product.get(str(product.get("product_id")), [])))
         # Inference is intentionally untrusted output: validate both its
         # individual values and any new cross-field relationships.
         issues.extend(revalidate_derived(

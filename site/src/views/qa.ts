@@ -1,139 +1,96 @@
 import { loadQa, loadSpecReport } from "../api";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, resultsCount, t, vendorLabel } from "../i18n";
-import { productHash, homeHash, categoryHash } from "../state";
+import { icon } from "../icons";
+import { categoryHash, homeHash, productHash } from "../state";
 import { setPageTitle } from "../titles";
-import type { Currency, Lang } from "../types";
-import { errorPanel, esc } from "../utils";
+import type { Currency, Lang, QaCase, SpecReport } from "../types";
+import { card } from "../ui/card";
+import { chip } from "../ui/chip";
+import { emptyValue } from "../ui/empty";
+import { html, mount, type Html } from "../ui/html";
+import { emptyState, errorState, loadingState } from "../ui/state";
 
-/** Public review list: every product with duplicate same-vendor listings. */
+/** Public review list: duplicate listings, naming/spec conflicts and core-spec gaps. */
 export async function renderQa(
   container: HTMLElement,
   lang: Lang,
   currency: Currency
 ): Promise<void> {
   setPageTitle(lang, t(lang, "qaTitle"));
-  container.innerHTML = `<div class="empty-state">${t(lang, "loading")}</div>`;
+  mount(container, loadingState(lang));
 
-  let qa;
-  let specReport;
+  let cases: QaCase[];
+  let specReport: SpecReport | null;
   try {
-    [qa, specReport] = await Promise.all([loadQa(), loadSpecReport()]);
+    const [qa, report] = await Promise.all([loadQa(), loadSpecReport()]);
+    cases = qa.cases ?? [];
+    specReport = report;
   } catch (err) {
-    container.innerHTML = errorPanel(
-      t(lang, "loadError"),
-      t(lang, "retry"),
-      err
-    );
+    mount(container, errorState(lang, err));
     return;
   }
 
-  const cases = qa.cases ?? [];
+  const he = lang === "he";
   const reportPanel = specReport
-    ? `
-      <section class="qa-case">
-        <h2>${esc(lang === "he" ? "כיסוי מפרטים" : "Spec coverage")}</h2>
-        <p class="qa-spec">
-          ${esc(lang === "he" ? "מוצרים" : "Products")}: ${specReport.products}
-          · ${esc(lang === "he" ? "פערי ליבה" : "Core gaps")}: ${specReport.counts.core_gaps ?? 0}
-          · ${esc(lang === "he" ? "לא ידוע" : "Unknown fields")}: ${specReport.counts.unknown ?? 0}
-          · ${esc(lang === "he" ? "הסקות בטוחות" : "Safe inferences")}: ${specReport.derived ?? 0}
-        </p>
-        <p class="qa-spec">
-          ${esc(lang === "he"
-            ? "ערכים חסרים נשארים לא ידועים בכוונה כאשר אין מקור אמין."
-            : "Unknown values remain unknown intentionally when no reliable source exists.")}
-        </p>
-      </section>`
+    ? card(
+        html`<p class="qa-note">
+            ${he ? "מוצרים" : "Products"}: ${specReport.products}
+            · ${he ? "פערי ליבה" : "Core gaps"}: ${specReport.counts.core_gaps ?? 0}
+            · ${he ? "לא ידוע" : "Unknown fields"}: ${specReport.counts.unknown ?? 0}
+            · ${he ? "הסקות בטוחות" : "Safe inferences"}: ${specReport.derived ?? 0}
+          </p>
+          <p class="qa-note">${he ? "ערכים חסרים נשארים לא ידועים בכוונה כאשר אין מקור אמין." : "Unknown values remain unknown intentionally when no reliable source exists."}</p>`,
+        { title: he ? "כיסוי מפרטים" : "Spec coverage", className: "qa-case" }
+      )
     : "";
-  if (cases.length === 0) {
-    container.innerHTML = `
-      <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
-      <div class="title-band"><h1>${esc(t(lang, "qaHeading"))}</h1></div>
-      ${reportPanel}
-      <div class="empty-state">${esc(t(lang, "qaEmpty"))}</div>`;
-    return;
-  }
 
-  /** Render a spec-conflict value (kept/dropped) as short text. */
-  const specValueText = (value: unknown): string => {
-    if (value === null || value === undefined || value === "") return "—";
-    if (Array.isArray(value)) return value.map((item) => String(item)).join(", ");
-    if (typeof value === "object") return JSON.stringify(value);
-    return String(value);
+  const specValueText = (value: unknown): Html => {
+    if (value === null || value === undefined || value === "") return emptyValue(lang);
+    if (Array.isArray(value)) return html`${value.map(String).join(", ")}`;
+    if (typeof value === "object") return html`${JSON.stringify(value)}`;
+    return html`${String(value)}`;
   };
 
-  const rows = cases
-    .map((c) => {
-      const offers = c.offers
-        .map(
-          (o) => `
-          <li><span class="qa-sku">${esc(o.vendor_sku ?? o.listing_key)}</span>
-          <span class="dim">${esc(o.title ?? "")}</span>
-          <span class="qa-price">${o.price === null || o.price === undefined ? "-" : esc(formatPrice(o.price, currency, lang))}</span></li>`
-        )
-        .join("");
-      const kindLabel = esc(
-        t(
-          lang,
-          c.kind === "naming_conflict"
-            ? "qaKindNaming"
-            : c.kind === "spec_conflict"
-              ? "qaKindSpec"
-              : c.kind === "core_gap"
-                ? "qaKindCore"
-                : "qaKindDuplicate"
-        )
-      );
-      const vendorBit = c.vendor ? ` · ${esc(vendorLabel(c.vendor))}` : "";
-      const titlesBit =
-        c.kind === "naming_conflict" && c.titles && c.titles.length > 0
-          ? `<p class="qa-titles">${c.titles.map((x) => esc(x)).join("<br>")}</p>`
-          : "";
-      // Spec conflict (scraper/specs/merge.py): two sources disagreed on one
-      // schema field. Shows the field plus the value kept and the one dropped.
-      const specBit =
-        c.kind === "spec_conflict"
-          ? `<p class="qa-spec">${
-              c.field
-                ? `<span class="qa-field">${esc(attributeLabel(c.field, lang))}</span> · `
-                : ""
-            }${
-              c.detail
-                ? esc(c.detail)
-                : `${esc(t(lang, "qaSpecKept"))}: ${esc(specValueText(c.kept))} · ${esc(
-                    t(lang, "qaSpecDropped")
-                  )}: ${esc(specValueText(c.dropped))}`
-            }</p>`
-          : "";
-      // Core-compat gap (scraper/specs/report.py): the product cannot answer
-      // "will it fit" for the listed fields. Rendered as field chips.
-      const coreBit =
-        c.kind === "core_gap" && c.fields && c.fields.length > 0
-          ? `<p class="qa-spec"><span class="qa-field">${esc(
-              t(lang, "qaMissingFields")
-            )}</span> ${c.fields
-              .map(
-                (f) =>
-                  `<span class="qa-field">${esc(attributeLabel(f, lang))}</span>`
-              )
-              .join(" ")}</p>`
-          : "";
-      return `
-      <article class="qa-case">
-        <h2><a href="${productHash(c.category, c.product_id)}">${esc(c.product_id)}</a></h2>
-        <p class="qa-meta"><span class="qa-kind">${kindLabel}</span><a href="${categoryHash(c.category)}">${esc(categoryLabel(c.category, lang))}</a>${vendorBit}</p>
-        ${titlesBit}
-        ${specBit}
-        ${coreBit}
-        ${offers ? `<ul class="qa-offers">${offers}</ul>` : ""}
-      </article>`;
-    })
-    .join("");
+  const kindKey = (kind: QaCase["kind"]) =>
+    kind === "naming_conflict"
+      ? "qaKindNaming"
+      : kind === "spec_conflict"
+        ? "qaKindSpec"
+        : kind === "core_gap"
+          ? "qaKindCore"
+          : "qaKindDuplicate";
 
-  container.innerHTML = `
-    <div class="crumbs"><a href="${homeHash()}">← ${t(lang, "backToCategories")}</a></div>
-    <div class="title-band"><h1>${esc(t(lang, "qaHeading"))}</h1><p>${esc(resultsCount(lang, cases.length))}</p></div>
-    ${reportPanel}
-    <div class="qa-list">${rows}</div>`;
+  const rows = cases.map((c) =>
+    card(
+      html`<h2><a href="${productHash(c.category, c.product_id)}">${c.product_id}</a></h2>
+        <p class="qa-meta">
+          ${chip(t(lang, kindKey(c.kind)), { tone: c.kind === "core_gap" ? "warn" : "brand" })}
+          <a href="${categoryHash(c.category)}">${categoryLabel(c.category, lang)}</a>${c.vendor ? ` · ${vendorLabel(c.vendor)}` : ""}
+        </p>
+        ${c.kind === "naming_conflict" && c.titles && c.titles.length > 0 ? html`<p class="qa-note">${c.titles.map((x) => html`${x}<br>`)}</p>` : ""}
+        ${c.kind === "spec_conflict"
+          ? html`<p class="qa-note">${c.field ? html`${chip(attributeLabel(c.field, lang))} ` : ""}${c.detail ? c.detail : html`${t(lang, "qaSpecKept")}: ${specValueText(c.kept)} · ${t(lang, "qaSpecDropped")}: ${specValueText(c.dropped)}`}</p>`
+          : ""}
+        ${c.kind === "core_gap" && c.fields && c.fields.length > 0
+          ? html`<p class="qa-note">${t(lang, "qaMissingFields")} ${c.fields.map((f) => html`${chip(attributeLabel(f, lang))} `)}</p>`
+          : ""}
+        ${c.offers.length > 0
+          ? html`<ul class="qa-offers">${c.offers.map(
+              (o) => html`<li><code>${o.vendor_sku ?? o.listing_key}</code><span class="text-dim">${o.title ?? ""}</span>${o.price === null || o.price === undefined ? emptyValue(lang) : html`<b class="num">${formatPrice(o.price, currency, lang)}</b>`}</li>`
+            )}</ul>`
+          : ""}`,
+      { className: "qa-case", tag: "article" }
+    )
+  );
+
+  mount(
+    container,
+    html`<nav class="crumbs"><a href="${homeHash()}">${icon("back", 14)}${t(lang, "backToHome")}</a></nav>
+      <header class="page-head"><h1>${t(lang, "qaHeading")}</h1>${cases.length > 0 ? html`<p>${resultsCount(lang, cases.length)}</p>` : ""}</header>
+      <div class="qa-list">
+        ${reportPanel}
+        ${cases.length === 0 ? emptyState(t(lang, "qaEmpty")) : rows}
+      </div>`
+  );
 }

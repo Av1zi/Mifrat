@@ -244,7 +244,7 @@ def parse_cpu(text_input: str) -> list[tuple]:
     elif manufacturer == "AMD" and re.search(r"\bRADEON\b", text_value, re.I):
         pairs.append(("integrated_graphics", "Radeon", 0.7))
     elif re.search(r"\b(?:CPU ONLY|NO GRAPHICS|WITHOUT GRAPHICS)\b", text_value, re.I):
-        pairs.append(("integrated_graphics", "None", 0.7))
+        pairs.append(("integrated_graphics", "No", 0.7))
 
     series = re.search(r"\(?\bseries\s?(\d{1,2})\)?\b", text_value, re.I)
     if series and manufacturer == "Intel" and 1 <= int(series.group(1)) <= 4:
@@ -359,10 +359,6 @@ def parse_gpu(text_input: str) -> list[tuple]:
     if fan:
         pairs.append(("fan_count", int(fan.group(1)), 0.8))
 
-    if re.search(r"\bG-?SYNC\b", text_value, re.I):
-        pairs.append(("frame_sync", "G-Sync", 0.8))
-    elif re.search(r"\bFREE-?SYNC\b", text_value, re.I):
-        pairs.append(("frame_sync", "FreeSync", 0.8))
     return pairs
 
 
@@ -766,6 +762,32 @@ def parse_cooler(text_input: str) -> list[tuple]:
 # --------------------------------------------------------------------------
 
 
+def _fan_pack_quantity(text_value: str, raw: str) -> int | None:
+    """Fans in the box from the pack wording vendors really use.
+
+    "Orbit 120 ARGB x3", "SL Wireless 3xFans", "3X120MM Kit", "Triple Pack",
+    "3 in 1 Pack", "Single Pack", Hebrew "מארז 3 מאווררים" / "שלישייה". A bare
+    fan with no pack word is NOT assumed to be a single (about one pack in ten
+    carries no marker), so no marker means no value.
+    """
+    match = (re.search(r"(?<![\w.])[x×]\s?([2-6])\b(?!\s?\d|\s?mm)", text_value, re.I)
+             or re.search(r"\b([2-6])\s?x\s?fans?\b", text_value, re.I)
+             or re.search(r"\b([2-6])\s?x\s?\d{2,3}\s?mm\b", text_value, re.I)
+             or re.search(r"\b([2-6])\s?-?\s?in\s?-?\s?1\b", text_value, re.I))
+    if match:
+        return int(match.group(1))
+    if re.search(r"\bTRIPLE\b", text_value, re.I):
+        return 3
+    if re.search(r"\bSINGLE\b", text_value, re.I):
+        return 1
+    hebrew = re.search(r"(?:מארז|סט|קיט)\s+([2-6])\s+מאווררים", raw)
+    if hebrew:
+        return int(hebrew.group(1))
+    if "שלישייה" in raw:
+        return 3
+    return None
+
+
 def parse_case_fan(text_input: str) -> list[tuple]:
     text_value = text.clean_text(text_input)
     pairs: list[tuple] = []
@@ -780,6 +802,10 @@ def parse_case_fan(text_input: str) -> list[tuple]:
     pack = re.search(r"\b(\d)\s?-?\s?(?:PACK|PCS|FANS?\b)", text_value, re.I)
     if pack and 2 <= int(pack.group(1)) <= 6:
         pairs.append(("quantity", int(pack.group(1)), 0.8))
+    else:
+        quantity = _fan_pack_quantity(text_value, str(text_input or ""))
+        if quantity:
+            pairs.append(("quantity", quantity, 0.75))
 
     if re.search(r"\bPWM\b", text_value, re.I):
         pairs.append(("pwm", True, 0.9))
@@ -833,9 +859,9 @@ def parse_accessories(text_input: str) -> list[tuple]:
     # Paired form first so multiword makers survive ("Thermal Grizzly",
     # not "Thermal"); single token as fallback when no דגם follows.
     # Latin-only: a Hebrew maker name is not shippable as manufacturer.
-    brand = re.search("חברת\s+([A-Za-z][A-Za-z0-9.\- ]*?)\s+דגם\b", text_value)
+    brand = re.search(r"חברת\s+([A-Za-z][A-Za-z0-9.\- ]*?)\s+דגם\b", text_value)
     if brand is None:
-        brand = re.search("חברת\s+([A-Za-z][A-Za-z0-9.\-]*)", text_value)
+        brand = re.search(r"חברת\s+([A-Za-z][A-Za-z0-9.\-]*)", text_value)
     if brand:
         pairs.append(("manufacturer", brand.group(1).strip(), 0.85))
     model = re.search("דגם\\s+(.+?)(?:\\s+-\\s+|$)", text_value)

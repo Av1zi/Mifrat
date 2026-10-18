@@ -18,6 +18,8 @@ Nothing here can overwrite a better source: see merge.py rule 3.
 
 from __future__ import annotations
 
+import re
+
 from .. import schema, text
 from ..merge import TIER_WEAK, Fact, add_fact
 from ..values import InvalidValue, coerce
@@ -207,10 +209,112 @@ def parse_hebrew_prose(category: str | None, description) -> dict[str, list[Fact
     return facts
 
 
+SOURCE_OVERVIEW = "weak:1pc-overview"
+
+# 1PC pages that carry no spec table at all keep one machine-written blurb:
+# "Manufacturer: X, Product Type: Fan, Height: 163mm, Number of fans: 1, ...".
+# ~480 listings, and `vendor_struct` skips the blob as prose. Only labels that
+# name one schema fact AND print a unit-bearing value are read; everything else
+# in the blob is marketing ("Additional Features", "Connectivity: Compatible
+# with all motherboards") or boilerplate ("Not relevant").
+_OVERVIEW_SPLIT_RE = re.compile(r",\s+(?=[A-Z][A-Za-z0-9 /&()+\-]{1,45}:\s)")
+
+# label (lowercase) -> {category: legacy key}. Legacy keys resolve through the
+# schema alias map, so a category without that field drops the fact.
+_OVERVIEW_LABELS: dict[str, dict[str, str]] = {
+    "number of processor cores": {"cpu": "cores"},
+    "power": {"psu": "wattage_w"},
+    "modular type": {"psu": "modular"},
+    "modular": {"psu": "modular"},
+    "efficiency": {"psu": "efficiency"},
+    "rating": {"psu": "efficiency"},
+    "height": {"cooler_air": "height_mm", "cooling_other": "height_mm"},
+    "number of fans": {"cooler_air": "fan_count", "aio": "fan_count",
+                       "cooling_other": "fan_count"},
+    "fan diameter": {"cooler_air": "fan_size_mm", "aio": "fan_size_mm",
+                     "cooling_other": "fan_size_mm"},
+    "fan size": {"cooler_air": "fan_size_mm", "aio": "fan_size_mm",
+                 "cooling_other": "fan_size_mm"},
+    "radiator size": {"aio": "radiator_size_mm", "cooling_other": "radiator_size_mm"},
+    "rotation speed": {"cooler_air": "rpm_max", "aio": "rpm_max",
+                       "cooling_other": "rpm_max", "case_fan": "rpm_max"},
+    "rotational speed": {"case_fan": "rpm_max", "cooler_air": "rpm_max"},
+    "noise level": {"cooler_air": "noise_db", "aio": "noise_db",
+                    "cooling_other": "noise_db", "case_fan": "noise_db"},
+    "diameter": {"case_fan": "size_mm"},
+    "size": {"case_fan": "size_mm"},
+    "color": {"*": "color"},
+    "memory type": {"memory": "memory_type", "gpu": "memory_type"},
+    "frequency": {"memory": "speed_mhz"},
+    "memory frequency": {"memory": "speed_mhz"},
+    "voltage": {"memory": "voltage_v"},
+    "bandwidth": {"gpu": "memory_bus_bit"},
+    "read speed": {"storage": "read_speed_mbs"},
+    "write speed": {"storage": "write_speed_mbs"},
+}
+_NUMBER_RE = re.compile(r"(\d+(?:[.,]\d+)?)")
+
+
+def _overview_value(label: str, value: str):
+    """Reduce an overview value to the bare token coerce() understands."""
+    value = value.strip().rstrip(".").strip()
+    if not value or re.search(r"not (?:applicable|relevant|specified|available)",
+                              value, re.I):
+        return None
+    if label in ("color", "modular type", "modular", "efficiency", "rating",
+                 "memory type"):
+        return value
+    if label in ("noise level", "rotation speed", "rotational speed"):
+        # "up to 24.4 dB(A)" / "up to 1600 RPM": the number is the maximum.
+        match = _NUMBER_RE.search(value)
+        return match.group(1).replace(",", ".") if match else None
+    match = _NUMBER_RE.search(value)
+    return match.group(1).replace(",", ".") if match else None
+
+
+def parse_overview(category: str | None, meta) -> dict[str, list[Fact]]:
+    """Facts from a 1PC `overview_text_raw` blob (detail pages with no table)."""
+    facts: dict[str, list[Fact]] = {}
+    if not isinstance(meta, dict):
+        return facts
+    detail = meta.get("detail_specs")
+    blob = detail.get("overview_text_raw") if isinstance(detail, dict) else None
+    if not isinstance(blob, str) or not blob.strip():
+        return facts
+    cat = category or ""
+    legacy: dict[str, object] = {}
+    for part in _OVERVIEW_SPLIT_RE.split(blob):
+        if ":" not in part:
+            continue
+        label, _, value = part.partition(":")
+        mapping = _OVERVIEW_LABELS.get(label.strip().lower())
+        if not mapping:
+            continue
+        key = mapping.get(cat) or mapping.get("*")
+        if key is None:
+            continue
+        cleaned = _overview_value(label.strip().lower(), value)
+        if cleaned is not None:
+            legacy.setdefault(key, cleaned)
+    # The product-type line is a closed vocabulary on these pages.
+    kind = re.search(r"Product Type:\s*([^,]+)", blob, re.I)
+    if kind:
+        product_type = kind.group(1).strip().lower()
+        if cat == "memory" and "laptop" in product_type:
+            legacy.setdefault("form_factor", "SO-DIMM")
+        elif cat == "storage" and product_type.startswith("ssd"):
+            legacy.setdefault("type", "SSD")
+    if legacy:
+        _emit_legacy_keys(facts, cat, SOURCE_OVERVIEW, legacy, confidence=0.55)
+    return facts
+
+
 def parse_weak(category: str | None, listing: dict) -> dict[str, list[Fact]]:
     """All Tier-3 facts for one listing."""
     facts = parse_fragments(category, listing.get("title_raw"))
     meta = listing.get("vendor_meta") or {}
+    for key, value in parse_overview(category, meta).items():
+        facts.setdefault(key, []).extend(value)
     for key, value in parse_plonter_tree(category, meta.get("tree")).items():
         facts.setdefault(key, []).extend(value)
     description = meta.get("description")

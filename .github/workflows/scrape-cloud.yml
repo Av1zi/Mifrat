@@ -4,9 +4,7 @@ name: scrape-cloud
 # (nano/README.md). Spiders themselves are location-agnostic; this file is
 # the only place that decides which vendors run in the cloud.
 #
-# Ivory added to the matrix (Aug 2026) — spider is built and owner-confirmed
-# (see DECISIONS.md). KSP stays absent: Phase 5 stretch goal, gated on the
-# API application, see scraper/spiders/ksp.py.
+# KSP has no spider (WAF = stop signal, out of scope).
 #
 # `permissions: contents: write` (Aug 2026 fix, see DECISIONS.md): the
 # default GITHUB_TOKEN is read-only on repos where the repo-level

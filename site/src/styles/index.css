@@ -1,0 +1,36 @@
+/* Mifrat design system. Layer order is the cascade: later layers win, so a
+   view can adjust a component and a utility can adjust anything, without
+   specificity fights.
+
+   Breakpoints (mobile-first, the only two in the codebase):
+     min-width: 640px   sm  - phones landscape / small tablets
+     min-width: 1024px  lg  - desktop: filter rail inline, sticky header   */
+@layer tokens, base, components, views, utilities;
+
+@import "./tokens.css" layer(tokens);
+@import "./base.css" layer(base);
+
+@import "./components/button.css" layer(components);
+@import "./components/card.css" layer(components);
+@import "./components/chip.css" layer(components);
+@import "./components/field.css" layer(components);
+@import "./components/thumb.css" layer(components);
+@import "./components/price.css" layer(components);
+@import "./components/state.css" layer(components);
+@import "./components/accordion.css" layer(components);
+@import "./components/table.css" layer(components);
+@import "./components/header.css" layer(components);
+@import "./components/menu.css" layer(components);
+@import "./components/footer.css" layer(components);
+@import "./components/sheet.css" layer(components);
+@import "./components/chart.css" layer(components);
+@import "./components/pick.css" layer(components);
+
+@import "./views/home.css" layer(views);
+@import "./views/category.css" layer(views);
+@import "./views/product.css" layer(views);
+@import "./views/builder.css" layer(views);
+@import "./views/compare.css" layer(views);
+@import "./views/page.css" layer(views);
+
+@import "./utilities.css" layer(utilities);

@@ -1,0 +1,144 @@
+/* One token set. Components read these and nothing else: no hex, rgb() or
+   raw px sizes for colour/type/radius/shadow/z-index live outside this file. */
+
+:root {
+  color-scheme: light;
+
+  /* ---- colour: warm-neutral surfaces, teal brand ---- */
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #efede6;
+  --surface-hover: #f8f7f3;
+  --line: #e2dfd6;
+  --line-strong: #c6c2b6;
+
+  --text: #1b2321;
+  --text-2: #49554f;
+  --text-3: #65706a;
+
+  --brand: #0b7a6d;
+  --brand-strong: #075e54;
+  --brand-soft: #e1f2ee;
+  --brand-line: #a6d6cc;
+  --on-brand: #ffffff;
+
+  /* Status: the only three. Each has a solid colour and a soft background
+     that the solid colour reads on (AA). */
+  --ok: #146c34;
+  --ok-soft: #e2f3e8;
+  --warn: #8f5206;
+  --warn-soft: #fcf0d8;
+  --err: #b02323;
+  --err-soft: #fae6e4;
+
+  /* Product photos are shot on white; keep their frame white in both themes. */
+  --thumb-bg: #ffffff;
+  --scrim: rgb(14 20 18 / 0.5);
+  --focus: var(--brand);
+
+  /* Price-history series. */
+  --chart-1: #0f766e;
+  --chart-2: #c2410c;
+  --chart-3: #2563eb;
+  --chart-4: #a21caf;
+  --chart-5: #a16207;
+  --chart-6: #475569;
+  --chart-7: #be123c;
+  --chart-8: #4d7c0f;
+
+  /* ---- type ---- */
+  --font-sans: "IBM Plex Sans Hebrew", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.0625rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.625rem;
+  --fs-3xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --lh-tight: 1.2;
+  --lh-base: 1.55;
+
+  /* ---- space (4px grid) ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4.5rem;
+
+  /* ---- shape ---- */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  --shadow: 0 1px 2px rgb(27 35 33 / 0.05), 0 8px 24px rgb(27 35 33 / 0.07);
+  --ring: 0 0 0 3px color-mix(in srgb, var(--focus) 28%, transparent);
+
+  /* ---- layout ---- */
+  --container: 1360px;
+  --container-narrow: 820px;
+  --gutter: var(--sp-4);
+  --header-h: 4rem;
+  --rail-w: 17rem;
+  /* Where sticky bars dock: the header is sticky only from the lg breakpoint. */
+  --sticky-top: 0px;
+
+  /* ---- z-index ---- */
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-dropdown: 40;
+  --z-sheet: 50;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: var(--sp-5);
+    --sticky-top: var(--header-h);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0e1413;
+  --surface: #161e1c;
+  --surface-2: #101716;
+  --surface-hover: #1b2523;
+  --line: #27322f;
+  --line-strong: #3a4944;
+
+  --text: #e9efec;
+  --text-2: #b0bcb7;
+  --text-3: #8d9a94;
+
+  --brand: #3fcbb6;
+  --brand-strong: #7fe4d4;
+  --brand-soft: #12302b;
+  --brand-line: #1f5a50;
+  --on-brand: #04211d;
+
+  --ok: #67d68f;
+  --ok-soft: #13301f;
+  --warn: #f1b455;
+  --warn-soft: #33260f;
+  --err: #f58f8a;
+  --err-soft: #3b1b1a;
+
+  --scrim: rgb(0 0 0 / 0.62);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px rgb(0 0 0 / 0.38);
+
+  --chart-1: #2dd4bf;
+  --chart-2: #fb923c;
+  --chart-3: #60a5fa;
+  --chart-4: #e879f9;
+  --chart-5: #facc15;
+  --chart-6: #94a3b8;
+  --chart-7: #fb7185;
+  --chart-8: #a3e635;
+}

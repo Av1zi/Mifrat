@@ -1,0 +1,5826 @@
+{
+ "brand": "Corsair",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-17",
+ "entries": {
+  "https://www.corsair.com/us/en/p/case-fans/co-9050092-ww/ll120-rgb-120mm-dual-light-loop-white-rgb-led-pwm-fan-triple-pack-with-lighting-node-pro-co-9050092-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050092-ww/ll120-rgb-120mm-dual-light-loop-white-rgb-led-pwm-fan-triple-pack-with-lighting-node-pro-co-9050092-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050092WW",
+    "CO9050092"
+   ],
+   "names": [
+    "ll120 dual light 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 63.0,
+    "static_pressure_mmh2o": 3.0,
+    "rpm_max": 2200,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050097-ww/icue-ql120-rgb-120mm-pwm-single-fan-co-9050097-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050097-ww/icue-ql120-rgb-120mm-pwm-single-fan-co-9050097-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050097WW",
+    "CO9050097"
+   ],
+   "names": [
+    "icue ql120 rgb 120mm pwm single"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 41.8,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050098-ww/icue-ql120-rgb-120mm-pwm-triple-fan-with-lighting-node-core-co-9050098-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050098-ww/icue-ql120-rgb-120mm-pwm-triple-fan-with-lighting-node-core-co-9050098-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050098WW",
+    "CO9050098"
+   ],
+   "names": [
+    "icue ql120 rgb 120mm pwm single 3 pack"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 41.8,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050099-ww/icue-ql140-rgb-140mm-pwm-single-fan-co-9050099-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050099-ww/icue-ql140-rgb-140mm-pwm-single-fan-co-9050099-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050099WW",
+    "CO9050099"
+   ],
+   "names": [
+    "ql140 single 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 50.2,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1250,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050100-ww/icue-ql140-rgb-140mm-pwm-dual-fan-kit-with-lighting-node-core-co-9050100-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050100-ww/icue-ql140-rgb-140mm-pwm-dual-fan-kit-with-lighting-node-core-co-9050100-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050100WW",
+    "CO9050100"
+   ],
+   "names": [
+    "icue ql140 rgb 140mm pwm single 2 pack"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 50.2,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1250,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050103-ww/icue-ql120-rgb-120mm-pwm-white-fan-single-pack-co-9050103-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050103-ww/icue-ql120-rgb-120mm-pwm-white-fan-single-pack-co-9050103-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050103WW",
+    "CO9050103"
+   ],
+   "names": [
+    "ql120 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 41.8,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050104-ww/icue-ql120-rgb-120mm-pwm-white-fan-triple-fan-kit-with-lighting-node-core-co-9050104-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050104-ww/icue-ql120-rgb-120mm-pwm-white-fan-triple-fan-kit-with-lighting-node-core-co-9050104-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050104WW",
+    "CO9050104"
+   ],
+   "names": [
+    "ql120 node core 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 41.8,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050105-ww/icue-ql140-rgb-140mm-pwm-white-fan-single-pack-co-9050105-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050105-ww/icue-ql140-rgb-140mm-pwm-white-fan-single-pack-co-9050105-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050105WW",
+    "CO9050105"
+   ],
+   "names": [
+    "ql140 single 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 50.2,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1250,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050106-ww/icue-ql140-rgb-140mm-pwm-white-fan-dual-fan-kit-with-lighting-node-core-co-9050106-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050106-ww/icue-ql140-rgb-140mm-pwm-white-fan-dual-fan-kit-with-lighting-node-core-co-9050106-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050106WW",
+    "CO9050106"
+   ],
+   "names": [
+    "ql140 node core 140mm pwm argb x2 black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 50.2,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1250,
+    "noise_db": 26.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050108-ww/icue-sp120-rgb-elite-performance-120mm-pwm-fan-a-single-pack-co-9050108-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050108-ww/icue-sp120-rgb-elite-performance-120mm-pwm-fan-a-single-pack-co-9050108-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050108WW",
+    "CO9050108"
+   ],
+   "names": [
+    "sp120 elite 120mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 47.73,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 22.6,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050111-ww/icue-sp140-rgb-elite-performance-140mm-pwm-fan-dual-fan-kit-with-lighting-node-core-co-9050111-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050111-ww/icue-sp140-rgb-elite-performance-140mm-pwm-fan-dual-fan-kit-with-lighting-node-core-co-9050111-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050111WW",
+    "CO9050111"
+   ],
+   "names": [
+    "sp140 elite 2x140mm 140mm argb x2 black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 68.11,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1200,
+    "noise_db": 26.8,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050136-ww/icue-sp120-rgb-elite-performance-120mm-white-pwm-fan-single-pack-co-9050136-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050136-ww/icue-sp120-rgb-elite-performance-120mm-white-pwm-fan-single-pack-co-9050136-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050136WW",
+    "CO9050136"
+   ],
+   "names": [
+    "sp120 elite high 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 47.73,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 22.6,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050137-ww/icue-sp120-rgb-elite-performance-120mm-white-pwm-fan-triple-pack-with-lighting-node-core-co-9050137-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050137-ww/icue-sp120-rgb-elite-performance-120mm-white-pwm-fan-triple-pack-with-lighting-node-core-co-9050137-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050137WW",
+    "CO9050137"
+   ],
+   "names": [
+    "sp120 elite 3x120mm 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 47.73,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1500,
+    "noise_db": 22.6,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050138-ww/icue-sp140-rgb-elite-performance-140mm-white-pwm-fan-single-pack-co-9050138-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050138-ww/icue-sp140-rgb-elite-performance-140mm-white-pwm-fan-single-pack-co-9050138-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050138WW",
+    "CO9050138"
+   ],
+   "names": [
+    "sp140 elite 140mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 68.11,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1200,
+    "noise_db": 26.8,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050139-ww/icue-sp140-rgb-elite-performance-140mm-white-pwm-fan-dual-fan-kit-with-lighting-node-core-co-9050139-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050139-ww/icue-sp140-rgb-elite-performance-140mm-white-pwm-fan-dual-fan-kit-with-lighting-node-core-co-9050139-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050139WW",
+    "CO9050139"
+   ],
+   "names": [
+    "sp140 elite 2x140mm 140mm argb x2 white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 68.11,
+    "static_pressure_mmh2o": 2.0,
+    "rpm_max": 1200,
+    "noise_db": 26.8,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050153-ww/icue-af120-rgb-elite-120mm-pwm-fan-co-9050153-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050153-ww/icue-af120-rgb-elite-120mm-pwm-fan-co-9050153-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050153WW",
+    "CO9050153"
+   ],
+   "names": [
+    "af120 elite single 120mm pwm argb"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 65.57,
+    "static_pressure_mmh2o": 2.68,
+    "rpm_max": 2100,
+    "noise_db": 34.1,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050157-ww/icue-af120-rgb-elite-120mm-pwm-fan-white-co-9050157-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050157-ww/icue-af120-rgb-elite-120mm-pwm-fan-white-co-9050157-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050157WW",
+    "CO9050157"
+   ],
+   "names": [
+    "af120 elite 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 65.57,
+    "static_pressure_mmh2o": 2.68,
+    "rpm_max": 2100,
+    "noise_db": 34.1,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050167-ww/icue-ar120-digital-rgb-120mm-pwm-fan-triple-pack-co-9050167-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050167-ww/icue-ar120-digital-rgb-120mm-pwm-fan-triple-pack-co-9050167-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050167WW",
+    "CO9050167"
+   ],
+   "names": [
+    "ar120 digital support 120mm pwm argb x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 59.0,
+    "static_pressure_mmh2o": 2.8,
+    "rpm_max": 1850,
+    "noise_db": 27.3,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050169-ww/icue-ar120-digital-rgb-120mm-pwm-fan-triple-pack-white-co-9050169-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050169-ww/icue-ar120-digital-rgb-120mm-pwm-fan-triple-pack-white-co-9050169-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050169WW",
+    "CO9050169"
+   ],
+   "names": [
+    "ar120 digital support 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 59.0,
+    "static_pressure_mmh2o": 2.8,
+    "rpm_max": 1850,
+    "noise_db": 27.3,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050180-ww/rs120-argb-120mm-pwm-fan-co-9050180-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050180-ww/rs120-argb-120mm-pwm-fan-co-9050180-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050180WW",
+    "CO9050180"
+   ],
+   "names": [
+    "rs120 support 120mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050181-ww/rs120-argb-120mm-pwm-fans-triple-pack-co-9050181-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050181-ww/rs120-argb-120mm-pwm-fans-triple-pack-co-9050181-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050181WW",
+    "CO9050181"
+   ],
+   "names": [
+    "rs120 argb 120mm pwm 3x triple pack"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050182-ww/rs140-argb-140mm-pwm-fan-co-9050182-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050182-ww/rs140-argb-140mm-pwm-fan-co-9050182-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050182WW",
+    "CO9050182"
+   ],
+   "names": [
+    "rs140 support 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 95.5,
+    "static_pressure_mmh2o": 3.46,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050183-ww/rs140-argb-140mm-pwm-fans-dual-pack-co-9050183-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050183-ww/rs140-argb-140mm-pwm-fans-dual-pack-co-9050183-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050183WW",
+    "CO9050183"
+   ],
+   "names": [
+    "rs140 argb 140mm pwm dual pack"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 95.5,
+    "static_pressure_mmh2o": 3.46,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050184-ww/rs120-argb-120mm-pwm-fan-white-co-9050184-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050184-ww/rs120-argb-120mm-pwm-fan-white-co-9050184-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050184WW",
+    "CO9050184"
+   ],
+   "names": [
+    "rs120 support 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050185-ww/rs120-argb-120mm-pwm-fans-triple-pack-white-co-9050185-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050185-ww/rs120-argb-120mm-pwm-fans-triple-pack-white-co-9050185-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050185WW",
+    "CO9050185"
+   ],
+   "names": [
+    "rs120 support 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050186-ww/rs140-argb-140mm-pwm-fan-white-co-9050186-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050186-ww/rs140-argb-140mm-pwm-fan-white-co-9050186-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050186WW",
+    "CO9050186"
+   ],
+   "names": [
+    "rs140 support 140mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 95.5,
+    "static_pressure_mmh2o": 3.46,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050187-ww/rs140-argb-140mm-pwm-fans-dual-pack-white-co-9050187-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050187-ww/rs140-argb-140mm-pwm-fans-dual-pack-white-co-9050187-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050187WW",
+    "CO9050187"
+   ],
+   "names": [
+    "rs140 argb 140mm pwm white dual pack"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 95.5,
+    "static_pressure_mmh2o": 3.46,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050188-ww/rs120-120mm-pwm-fan-co-9050188-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050188-ww/rs120-120mm-pwm-fan-co-9050188-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050188WW",
+    "CO9050188"
+   ],
+   "names": [
+    "rs120 120mm pwm black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050189-ww/rs120-120mm-pwm-fans-triple-pack-co-9050189-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050189-ww/rs120-120mm-pwm-fans-triple-pack-co-9050189-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050189WW",
+    "CO9050189"
+   ],
+   "names": [
+    "rs120 120mm pwm x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050192-ww/rs120-120mm-pwm-fan-white-co-9050192-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050192-ww/rs120-120mm-pwm-fan-white-co-9050192-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050192WW",
+    "CO9050192"
+   ],
+   "names": [
+    "rs120 120mm pwm white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050193-ww/rs120-120mm-pwm-fans-triple-pack-white-co-9050193-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050193-ww/rs120-120mm-pwm-fans-triple-pack-white-co-9050193-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050193WW",
+    "CO9050193"
+   ],
+   "names": [
+    "rs120 120mm pwm x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050196-ww/rs120-r-argb-120mm-pwm-reverse-fans-triple-pack-co-9050196-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050196-ww/rs120-r-argb-120mm-pwm-reverse-fans-triple-pack-co-9050196-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050196WW",
+    "CO9050196"
+   ],
+   "names": [
+    "rs120-r 120mm pwm argb x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 65.82,
+    "static_pressure_mmh2o": 2.81,
+    "rpm_max": 2100,
+    "noise_db": 34.6,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9050197-ww/rs120-r-argb-120mm-pwm-reverse-fans-triple-pack-white-co-9050197-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9050197-ww/rs120-r-argb-120mm-pwm-reverse-fans-triple-pack-white-co-9050197-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9050197WW",
+    "CO9050197"
+   ],
+   "names": [
+    "rs120-r 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 65.82,
+    "static_pressure_mmh2o": 2.81,
+    "rpm_max": 2100,
+    "noise_db": 34.6,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051003-ww/icue-link-qx120-rgb-140mm-pwm-pc-fan-expansion-kit-co-9051003-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051003-ww/icue-link-qx120-rgb-140mm-pwm-pc-fan-expansion-kit-co-9051003-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051003WW",
+    "CO9051003"
+   ],
+   "names": [
+    "qx140 single 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 82.5,
+    "static_pressure_mmh2o": 3.5,
+    "rpm_min": 400,
+    "rpm_max": 2000,
+    "noise_db": 37.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051008-ww/icue-link-qx140-rgb-140mm-pwm-pc-fans-starter-kit-with-icue-link-system-hub-white-co-9051008-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051008-ww/icue-link-qx140-rgb-140mm-pwm-pc-fans-starter-kit-with-icue-link-system-hub-white-co-9051008-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051008WW",
+    "CO9051008"
+   ],
+   "names": [
+    "qx140 starter 140mm pwm argb x2 white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 82.5,
+    "static_pressure_mmh2o": 3.5,
+    "rpm_min": 400,
+    "rpm_max": 2000,
+    "noise_db": 37.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051017-ww/icue-link-rx120-rgb-120mm-pwm-single-fan-expansion-co-9051017-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051017-ww/icue-link-rx120-rgb-120mm-pwm-single-fan-expansion-co-9051017-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051017WW",
+    "CO9051017"
+   ],
+   "names": [
+    "rx120 expansion 120mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 73.5,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051018-ww/icue-link-rx120-rgb-120mm-pwm-fan-triple-starter-kit-co-9051018-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051018-ww/icue-link-rx120-rgb-120mm-pwm-fan-triple-starter-kit-co-9051018-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051018WW",
+    "CO9051018"
+   ],
+   "names": [
+    "rx120 starter 120mm pwm argb x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 73.5,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051019-ww/icue-link-rx140-rgb-140mm-pwm-single-fan-expansion-co-9051019-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051019-ww/icue-link-rx140-rgb-140mm-pwm-single-fan-expansion-co-9051019-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051019WW",
+    "CO9051019"
+   ],
+   "names": [
+    "rx140 expansion 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 94.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051020-ww/icue-link-rx140-rgb-140mm-pwm-fan-twin-starter-kit-co-9051020-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051020-ww/icue-link-rx140-rgb-140mm-pwm-fan-twin-starter-kit-co-9051020-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051020WW",
+    "CO9051020"
+   ],
+   "names": [
+    "rx140 2xfans starter 140mm pwm argb x2 black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 94.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051021-ww/icue-link-rx120-rgb-120mm-pwm-single-fan-expansion-white-co-9051021-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051021-ww/icue-link-rx120-rgb-120mm-pwm-single-fan-expansion-white-co-9051021-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051021WW",
+    "CO9051021"
+   ],
+   "names": [
+    "rx120 expansion 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 73.5,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051022-ww/icue-link-rx120-rgb-120mm-pwm-fan-triple-starter-kit-white-co-9051022-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051022-ww/icue-link-rx120-rgb-120mm-pwm-fan-triple-starter-kit-white-co-9051022-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051022WW",
+    "CO9051022"
+   ],
+   "names": [
+    "rx120 starter 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 73.5,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051023-ww/icue-link-rx140-rgb-140mm-pwm-single-fan-expansion-white-co-9051023-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051023-ww/icue-link-rx140-rgb-140mm-pwm-single-fan-expansion-white-co-9051023-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051023WW",
+    "CO9051023"
+   ],
+   "names": [
+    "rx140 single 140mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 94.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051024-ww/icue-link-rx140-rgb-140mm-pwm-fan-twin-starter-kit-white-co-9051024-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051024-ww/icue-link-rx140-rgb-140mm-pwm-fan-twin-starter-kit-white-co-9051024-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051024WW",
+    "CO9051024"
+   ],
+   "names": [
+    "rx140 hub 140mm pwm argb x2 white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 94.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 1700,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051025-ww/icue-link-lx120-rgb-120mm-pwm-single-fan-expansion-co-9051025-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051025-ww/icue-link-lx120-rgb-120mm-pwm-single-fan-expansion-co-9051025-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051025WW",
+    "CO9051025"
+   ],
+   "names": [
+    "lx120 expansion 120mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 69.9,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2400,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051026-ww/icue-link-lx120-rgb-120mm-pwm-fans-starter-kit-co-9051026-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051026-ww/icue-link-lx120-rgb-120mm-pwm-fans-starter-kit-co-9051026-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051026WW",
+    "CO9051026"
+   ],
+   "names": [
+    "lx120 starter 120mm pwm argb x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 69.9,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2400,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051027-ww/icue-link-lx140-rgb-140mm-pwm-single-fan-expansion-co-9051027-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051027-ww/icue-link-lx140-rgb-140mm-pwm-single-fan-expansion-co-9051027-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051027WW",
+    "CO9051027"
+   ],
+   "names": [
+    "lx140 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 84.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2000,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051028-ww/icue-link-lx140-rgb-140mm-pwm-fans-starter-kit-co-9051028-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051028-ww/icue-link-lx140-rgb-140mm-pwm-fans-starter-kit-co-9051028-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051028WW",
+    "CO9051028"
+   ],
+   "names": [
+    "lx140 starter 140mm pwm argb x2 black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 84.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2000,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051029-ww/icue-link-lx120-rgb-120mm-pwm-single-fan-expansion-white-co-9051029-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051029-ww/icue-link-lx120-rgb-120mm-pwm-single-fan-expansion-white-co-9051029-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051029WW",
+    "CO9051029"
+   ],
+   "names": [
+    "lx120 expansion 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 69.9,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2400,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051030-ww/icue-link-lx120-rgb-120mm-pwm-fans-starter-kit-white-co-9051030-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051030-ww/icue-link-lx120-rgb-120mm-pwm-fans-starter-kit-white-co-9051030-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051030WW",
+    "CO9051030"
+   ],
+   "names": [
+    "lx120 starter 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 69.9,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2400,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051031-ww/icue-link-lx140-rgb-140mm-pwm-single-fan-expansion-white-co-9051031-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051031-ww/icue-link-lx140-rgb-140mm-pwm-single-fan-expansion-white-co-9051031-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051031WW",
+    "CO9051031"
+   ],
+   "names": [
+    "lx140 expansion 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 84.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2000,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051032-ww/icue-link-lx140-rgb-140mm-pwm-fans-starter-kit-white-co-9051032-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051032-ww/icue-link-lx140-rgb-140mm-pwm-fans-starter-kit-white-co-9051032-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051032WW",
+    "CO9051032"
+   ],
+   "names": [
+    "lx140 starter 140mm pwm argb x2 black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 84.7,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2000,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051033-ww/icue-link-rx120-max-rgb-120mm-pwm-thick-fan-": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051033-ww/icue-link-rx120-max-rgb-120mm-pwm-thick-fan-",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051033WW",
+    "CO9051033"
+   ],
+   "names": [
+    "rx120 max 120mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 71.3,
+    "static_pressure_mmh2o": 4.16,
+    "rpm_max": 2000,
+    "noise_db": 36.3,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051034-ww/icue-link-rx120-max-rgb-120mm-pwm-thick-fans-starter-kit-black-co-9051034-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051034-ww/icue-link-rx120-max-rgb-120mm-pwm-thick-fans-starter-kit-black-co-9051034-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051034WW",
+    "CO9051034"
+   ],
+   "names": [
+    "rx120 max 3xfans 120mm pwm argb x3 black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 71.3,
+    "static_pressure_mmh2o": 4.16,
+    "rpm_max": 2000,
+    "noise_db": 36.3,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051035-ww/icue-link-rx140-max-rgb-140mm-pwm-thick-fan-expansion-black-co-9051035-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051035-ww/icue-link-rx140-max-rgb-140mm-pwm-thick-fan-expansion-black-co-9051035-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051035WW",
+    "CO9051035"
+   ],
+   "names": [
+    "rx140 max 140mm pwm argb black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 102.9,
+    "static_pressure_mmh2o": 2.38,
+    "rpm_max": 1600,
+    "noise_db": 36.4,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051037-ww/icue-link-rx120-max-rgb-120mm-pwm-thick-fan-expansion-white-co-9051037-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051037-ww/icue-link-rx120-max-rgb-120mm-pwm-thick-fan-expansion-white-co-9051037-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051037WW",
+    "CO9051037"
+   ],
+   "names": [
+    "rx120 max 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 71.3,
+    "static_pressure_mmh2o": 4.16,
+    "rpm_max": 2000,
+    "noise_db": 36.3,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051039-ww/icue-link-rx140-max-rgb-140mm-pwm-thick-fan-expansion-white-co-9051039-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051039-ww/icue-link-rx140-max-rgb-140mm-pwm-thick-fan-expansion-white-co-9051039-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051039WW",
+    "CO9051039"
+   ],
+   "names": [
+    "rx140 max 140mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 102.9,
+    "static_pressure_mmh2o": 2.38,
+    "rpm_max": 1600,
+    "noise_db": 36.4,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051041-ww/icue-link-rx120-max-120mm-pwm-thick-fan-expansion-co-9051041-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051041-ww/icue-link-rx120-max-120mm-pwm-thick-fan-expansion-co-9051041-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051041WW",
+    "CO9051041"
+   ],
+   "names": [
+    "rx120 max thick 120mm pwm black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 71.6,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 2000,
+    "noise_db": 36.3,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051043-ww/icue-link-rx140-max-140mm-pwm-thick-fan-expansion-co-9051043-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051043-ww/icue-link-rx140-max-140mm-pwm-thick-fan-expansion-co-9051043-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051043WW",
+    "CO9051043"
+   ],
+   "names": [
+    "rx140 max thick 140mm pwm black"
+   ],
+   "specs": {
+    "size_mm": 140,
+    "airflow_cfm": 103.5,
+    "static_pressure_mmh2o": 20.0,
+    "rpm_max": 1600,
+    "noise_db": 36.4,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051049-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fan-expansion-co-9051049-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051049-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fan-expansion-co-9051049-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051049WW",
+    "CO9051049"
+   ],
+   "names": [
+    "lx120-r 120mm pwm rgb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 66.7,
+    "static_pressure_mmh2o": 4.72,
+    "rpm_max": 2400,
+    "noise_db": 37.7,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051050-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fans-starter-kit-co-9051050-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051050-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fans-starter-kit-co-9051050-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051050WW",
+    "CO9051050"
+   ],
+   "names": [
+    "lx120-r 120mm pwm rgb black"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 66.7,
+    "static_pressure_mmh2o": 4.72,
+    "rpm_max": 2400,
+    "noise_db": 37.7,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051053-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fan-expansion-white-co-9051053-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051053-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fan-expansion-white-co-9051053-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051053WW",
+    "CO9051053"
+   ],
+   "names": [
+    "lx120-r reverse 120mm pwm rgb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 66.7,
+    "static_pressure_mmh2o": 4.72,
+    "rpm_max": 2400,
+    "noise_db": 37.7,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051054-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fans-starter-kit-white-co-9051054-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051054-ww/icue-link-lx120-r-rgb-120mm-pwm-reverse-fans-starter-kit-white-co-9051054-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051054WW",
+    "CO9051054"
+   ],
+   "names": [
+    "lx120-r 120mm pwm rgb x3 white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 66.7,
+    "static_pressure_mmh2o": 4.72,
+    "rpm_max": 2400,
+    "noise_db": 37.7,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/case-fans/co-9051058-ww/icue-link-rx120-ii-rgb-pwm-pc-fan-expansion-white-co-9051058-ww": {
+   "url": "https://www.corsair.com/us/en/p/case-fans/co-9051058-ww/icue-link-rx120-ii-rgb-pwm-pc-fan-expansion-white-co-9051058-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CO9051058WW",
+    "CO9051058"
+   ],
+   "names": [
+    "rx120 ii expansion 120mm pwm argb white"
+   ],
+   "specs": {
+    "size_mm": 120,
+    "airflow_cfm": 64.7,
+    "static_pressure_mmh2o": 3.57,
+    "rpm_max": 2100,
+    "noise_db": 32.8,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/ct-9010011-ww/a115-twin-tower-cpu-air-cooler-ct-9010011-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/ct-9010011-ww/a115-twin-tower-cpu-air-cooler-ct-9010011-ww",
+   "fetched": "2026-10-17",
+   "category": "cooler_air",
+   "keys": [
+    "CT9010011WW",
+    "CT9010011"
+   ],
+   "names": [
+    "a115 twin tower"
+   ],
+   "specs": {
+    "fan_rpm_max": 1600,
+    "airflow_cfm": 84.5,
+    "noise_db": 33.9,
+    "height_mm": 165
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060061-ww/icue-h100i-elite-lcd-display-liquid-cpu-cooler-cw-9060061-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060061-ww/icue-h100i-elite-lcd-display-liquid-cpu-cooler-cw-9060061-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9060061WW",
+    "CW9060061"
+   ],
+   "names": [
+    "h100i elite 240mm lcd",
+    "icue h100i elite lcd"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1366",
+     "LGA2011",
+     "LGA2066",
+     "AM5",
+     "AM4",
+     "sTRX4",
+     "sTR4"
+    ],
+    "radiator_size_mm": 240,
+    "airflow_cfm": 58.1,
+    "noise_db": 30.4
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060070-ww/icue-h150i-elite-capellix-xt-liquid-cpu-cooler": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060070-ww/icue-h150i-elite-capellix-xt-liquid-cpu-cooler",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060070WW",
+    "CW9060070"
+   ],
+   "names": [
+    "icue h150i elite capellix xt"
+   ],
+   "specs": {
+    "airflow_cfm": 65.57,
+    "static_pressure_mmh2o": 2.68,
+    "rpm_max": 2100,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060078-ww/icue-h100i-rgb-elite-liquid-cpu-cooler-white-cw-9060078-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060078-ww/icue-h100i-rgb-elite-liquid-cpu-cooler-white-cw-9060078-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9060078WW",
+    "CW9060078"
+   ],
+   "names": [
+    "h100i elite 240mm argb white"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1156",
+     "LGA2011",
+     "LGA2066",
+     "sTR5",
+     "AM5",
+     "sTR4",
+     "AM4"
+    ],
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 1850,
+    "airflow_cfm": 59.1,
+    "noise_db": 28.9
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060088-ww/nautilus-240-rs-liquid-cpu-cooler-cw-9060088-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060088-ww/nautilus-240-rs-liquid-cpu-cooler-cw-9060088-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060088WW",
+    "CW9060088"
+   ],
+   "names": [
+    "nautilus rs pwm black"
+   ],
+   "specs": {
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060089-ww/nautilus-360-rs-liquid-cpu-cooler-cw-9060089-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060089-ww/nautilus-360-rs-liquid-cpu-cooler-cw-9060089-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060089WW",
+    "CW9060089"
+   ],
+   "names": [
+    "nautilus rs 120mm pwm black"
+   ],
+   "specs": {
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060092-ww/nautilus-240-rs-argb-liquid-cpu-cooler-cw-9060092-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060092-ww/nautilus-240-rs-argb-liquid-cpu-cooler-cw-9060092-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060092WW",
+    "CW9060092"
+   ],
+   "names": [
+    "nautilus rs 72 8cfm pwm argb black"
+   ],
+   "specs": {
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060093-ww/nautilus-360-rs-argb-liquid-cpu-cooler-cw-9060093-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060093-ww/nautilus-360-rs-argb-liquid-cpu-cooler-cw-9060093-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060093WW",
+    "CW9060093"
+   ],
+   "names": [
+    "nautilus rs 72 8cfm 120mm pwm argb black"
+   ],
+   "specs": {
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060094-ww/nautilus-240-rs-argb-liquid-cpu-cooler-white-cw-9060094-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060094-ww/nautilus-240-rs-argb-liquid-cpu-cooler-white-cw-9060094-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060094WW",
+    "CW9060094"
+   ],
+   "names": [
+    "nautilus rs 72 8cfm pwm argb white"
+   ],
+   "specs": {
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060095-ww/nautilus-360-rs-argb-liquid-cpu-cooler-white-cw-9060095-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9060095-ww/nautilus-360-rs-argb-liquid-cpu-cooler-white-cw-9060095-ww",
+   "fetched": "2026-10-17",
+   "category": "case_fan",
+   "keys": [
+    "CW9060095WW",
+    "CW9060095"
+   ],
+   "names": [
+    "nautilus rs 72 8cfm 120mm pwm argb white"
+   ],
+   "specs": {
+    "airflow_cfm": 72.8,
+    "static_pressure_mmh2o": 4.15,
+    "rpm_max": 2100,
+    "noise_db": 36.0,
+    "pwm": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061001-ww/icue-link-h100i-rgb-aio-liquid-cpu-cooler-cw-9061001-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061001-ww/icue-link-h100i-rgb-aio-liquid-cpu-cooler-cw-9061001-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061001WW",
+    "CW9061001"
+   ],
+   "names": [
+    "h100i 240mm argb"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 63.1
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061002-ww/icue-link-h115i-rgb-aio-liquid-cpu-cooler-cw-9061002-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061002-ww/icue-link-h115i-rgb-aio-liquid-cpu-cooler-cw-9061002-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061002WW",
+    "CW9061002"
+   ],
+   "names": [
+    "h115i 280mm rgb black"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 280,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 82.5
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061003-ww/icue-link-h150i-rgb-aio-liquid-cpu-cooler-cw-9061003-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061003-ww/icue-link-h150i-rgb-aio-liquid-cpu-cooler-cw-9061003-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061003WW",
+    "CW9061003"
+   ],
+   "names": [
+    "h150i 360mm argb black"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 63.1
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061004-ww/icue-link-h170i-rgb-aio-liquid-cpu-cooler-cw-9061004-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061004-ww/icue-link-h170i-rgb-aio-liquid-cpu-cooler-cw-9061004-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061004WW",
+    "CW9061004"
+   ],
+   "names": [
+    "h170i 420mm argb black"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 420,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 82.5
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061016-ww/icue-link-titan-240-rx-rgb-aio-liquid-cpu-cooler-cw-9061016-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061016-ww/icue-link-titan-240-rx-rgb-aio-liquid-cpu-cooler-cw-9061016-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061016WW",
+    "CW9061016"
+   ],
+   "names": [
+    "titan rx 240mm argb black"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061018-ww/icue-link-titan-360-rx-rgb-aio-liquid-cpu-cooler-cw-9061018-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061018-ww/icue-link-titan-360-rx-rgb-aio-liquid-cpu-cooler-cw-9061018-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061018WW",
+    "CW9061018"
+   ],
+   "names": [
+    "titan rx black 360mm argb"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061020-ww/icue-link-titan-240-rx-rgb-aio-liquid-cpu-cooler-white-cw-9061020-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061020-ww/icue-link-titan-240-rx-rgb-aio-liquid-cpu-cooler-white-cw-9061020-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061020WW",
+    "CW9061020"
+   ],
+   "names": [
+    "white edition titan rx 240mm argb"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061021-ww/icue-link-titan-360-rx-rgb-aio-liquid-cpu-cooler-white-cw-9061021-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061021-ww/icue-link-titan-360-rx-rgb-aio-liquid-cpu-cooler-white-cw-9061021-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061021WW",
+    "CW9061021"
+   ],
+   "names": [
+    "titan rx white 360mm argb"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061022-ww/icue-link-titan-240-rx-lcd-liquid-cpu-cooler-cw-9061022-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061022-ww/icue-link-titan-240-rx-lcd-liquid-cpu-cooler-cw-9061022-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061022WW",
+    "CW9061022"
+   ],
+   "names": [
+    "titan rx 240mm rgb lcd black"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061023-ww/icue-link-titan-360-rx-lcd-liquid-cpu-cooler-cw-9061023-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061023-ww/icue-link-titan-360-rx-lcd-liquid-cpu-cooler-cw-9061023-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061023WW",
+    "CW9061023"
+   ],
+   "names": [
+    "titan rx 360mm rgb lcd black"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061026-ww/icue-link-titan-360-rx-lcd-liquid-cpu-cooler-white-cw-9061026-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061026-ww/icue-link-titan-360-rx-lcd-liquid-cpu-cooler-white-cw-9061026-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061026WW",
+    "CW9061026"
+   ],
+   "names": [
+    "titan rx white 360mm rgb lcd"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 73.5,
+    "noise_db": 36.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061029-ww/nautilus-rs-lcd-screen-module-cw-9061029-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061029-ww/nautilus-rs-lcd-screen-module-cw-9061029-ww",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "CW9061029WW",
+    "CW9061029"
+   ],
+   "names": [
+    "lcd nautilus rs"
+   ],
+   "specs": {}
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061030-ww/nautilus-rs-lcd-screen-module-white-cw-9061030-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061030-ww/nautilus-rs-lcd-screen-module-white-cw-9061030-ww",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "CW9061030WW",
+    "CW9061030"
+   ],
+   "names": [
+    "lcd nautilus rs"
+   ],
+   "specs": {}
+  },
+  "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061037-ww/icue-link-titan-ii-360-rx-rgb-aio-liquid-cpu-cooler-cw-9061037-ww": {
+   "url": "https://www.corsair.com/us/en/p/cpu-coolers/cw-9061037-ww/icue-link-titan-ii-360-rx-rgb-aio-liquid-cpu-cooler-cw-9061037-ww",
+   "fetched": "2026-10-17",
+   "category": "aio",
+   "keys": [
+    "CW9061037WW",
+    "CW9061037"
+   ],
+   "names": [
+    "titan ii rx black 360mm argb"
+   ],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 64.7,
+    "noise_db": 32.8
+   }
+  },
+  "https://www.corsair.com/us/en/p/custom-liquid-cooling/cx-9070018-ww/hydro-x-series-icue-link-xh505i-rx-360-rgb-custom-cooling-kit-cx-9070018-ww": {
+   "url": "https://www.corsair.com/us/en/p/custom-liquid-cooling/cx-9070018-ww/hydro-x-series-icue-link-xh505i-rx-360-rgb-custom-cooling-kit-cx-9070018-ww",
+   "fetched": "2026-10-17",
+   "category": "cooling_other",
+   "keys": [
+    "CX9070018WW",
+    "CX9070018"
+   ],
+   "names": [
+    "hydro x icue link xh505i rx 360 rgb"
+   ],
+   "specs": {}
+  },
+  "https://www.corsair.com/us/en/p/ddr5-ram/cmh32gx5m2b6400c36/vengeance-rgb-32gb-2x16gb-ddr5-dram-6400mt-s-c36-memory-kit-black-cmh32gx5m2b6400c36": {
+   "url": "https://www.corsair.com/us/en/p/ddr5-ram/cmh32gx5m2b6400c36/vengeance-rgb-32gb-2x16gb-ddr5-dram-6400mt-s-c36-memory-kit-black-cmh32gx5m2b6400c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH32GX5M2B6400C36",
+    "3252640036"
+   ],
+   "names": [
+    "vengeance argb 32gb ddr5 2x16gb 6400mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 6400,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmg16gx4m1e3200c16/vengeancea-rgb-rs-16gb-1-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmg16gx4m1e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmg16gx4m1e3200c16/vengeancea-rgb-rs-16gb-1-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmg16gx4m1e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMG16GX4M1E3200C16",
+    "1641320016"
+   ],
+   "names": [
+    "vengeance argb 16gb ddr4 2x8gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmg16gx4m2e3200c16/vengeancea-rgb-rs-16gb-2-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-cmg16gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmg16gx4m2e3200c16/vengeancea-rgb-rs-16gb-2-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-cmg16gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMG16GX4M2E3200C16",
+    "1642320016"
+   ],
+   "names": [
+    "vengeance argb 16gb ddr4 2x8gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 2,
+    "module_size_gb": 8,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmg32gx4m2e3200c16/vengeance-rgb-rs-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmg32gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmg32gx4m2e3200c16/vengeance-rgb-rs-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmg32gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMG32GX4M2E3200C16",
+    "3242320016"
+   ],
+   "names": [
+    "vengeance argb 32gb ddr4 2x16gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmg64gx4m4e3200c16/vengeancea-rgb-rs-64gb-4-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmg64gx4m4e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmg64gx4m4e3200c16/vengeancea-rgb-rs-64gb-4-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-cmg64gx4m4e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMG64GX4M4E3200C16",
+    "6444320016"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr4 4x16gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh16gx4m2e3200c16/vengeance-rgb-pro-sl-16gb-2x8gb-ddr4-dram-3200mhz-c16-memory-kit-a-black-cmh16gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh16gx4m2e3200c16/vengeance-rgb-pro-sl-16gb-2x8gb-ddr4-dram-3200mhz-c16-memory-kit-a-black-cmh16gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH16GX4M2E3200C16",
+    "1642320016"
+   ],
+   "names": [
+    "vengeance argb ddr4 16gb 2x8gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 2,
+    "module_size_gb": 8,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh16gx5m1b5600c40/vengeance-rgb-16gb-1x16gb-ddr5-dram-5600mts-cl40-memory-kit-black-cmh16gx5m1b5600c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh16gx5m1b5600c40/vengeance-rgb-16gb-1x16gb-ddr5-dram-5600mts-cl40-memory-kit-black-cmh16gx5m1b5600c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH16GX5M1B5600C40",
+    "1651560040"
+   ],
+   "names": [
+    "vengeance argb 16gb ddr5 1x16gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 40,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh16gx5m1d6000z38/vengeance-rgb-16gb-1-x-16gb-ddr5-dram-up-to-6000mt-s-cl38-amd-expo-&amp;-intel-xmp-memory-kit-gray-cmh16gx5m1d6000z38": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh16gx5m1d6000z38/vengeance-rgb-16gb-1-x-16gb-ddr5-dram-up-to-6000mt-s-cl38-amd-expo-&amp;-intel-xmp-memory-kit-gray-cmh16gx5m1d6000z38",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH16GX5M1D6000Z38",
+    "1651600038"
+   ],
+   "names": [
+    "argb 16gb ddr5 1x16gb 6000mhz cl38"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 38,
+    "speed_mhz": 6000,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh16gx5m1d6000z38w/vengeance-rgb-16gb-1-x-16gb-ddr5-dram-up-to-6000mt-s-cl38-amd-expo-&amp;-intel-xmp-memory-kit-white-cmh16gx5m1d6000z38w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh16gx5m1d6000z38w/vengeance-rgb-16gb-1-x-16gb-ddr5-dram-up-to-6000mt-s-cl38-amd-expo-&amp;-intel-xmp-memory-kit-white-cmh16gx5m1d6000z38w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH16GX5M1D6000Z38W",
+    "1651600038"
+   ],
+   "names": [
+    "argb 16gb ddr5 1x16gb 6000mhz cl38"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 38,
+    "speed_mhz": 6000,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh32gx4m2e3200c16/vengeance-rgb-pro-sl-32gb-2x16gb-ddr4-dram-3200mhz-c16-memory-kit-a-black-cmh32gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh32gx4m2e3200c16/vengeance-rgb-pro-sl-32gb-2x16gb-ddr4-dram-3200mhz-c16-memory-kit-a-black-cmh32gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH32GX4M2E3200C16",
+    "3242320016"
+   ],
+   "names": [
+    "vengeance argb ddr4 32gb 2x16gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh32gx5m2b6000c30w/vengeance-rgb-32gb-2x16gb-ddr5-dram-6000mt-s-cl30-memory-kit-white-cmh32gx5m2b6000c30w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh32gx5m2b6000c30w/vengeance-rgb-32gb-2x16gb-ddr5-dram-6000mt-s-cl30-memory-kit-white-cmh32gx5m2b6000c30w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH32GX5M2B6000C30W",
+    "3252600030"
+   ],
+   "names": [
+    "vengeance argb 32gb ddr5 2x16gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh32gx5m2b6200c36/vengeance-rgb-32gb-2x16gb-ddr5-dram-6200mt-s-c36-memory-kit-black-cmh32gx5m2b6200c36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh32gx5m2b6200c36/vengeance-rgb-32gb-2x16gb-ddr5-dram-6200mt-s-c36-memory-kit-black-cmh32gx5m2b6200c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH32GX5M2B6200C36",
+    "3252620036"
+   ],
+   "names": [
+    "vengeance argb 32gb ddr5 2x16gb 6200mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 6200,
+    "voltage_v": 1.3,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh32gx5m2x7200c34/vengeance-rgb-32gb-2x16gb-ddr5-dram-7200mhz-c34-memory-kit-black-cmh32gx5m2x7200c34": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh32gx5m2x7200c34/vengeance-rgb-32gb-2x16gb-ddr5-dram-7200mhz-c34-memory-kit-black-cmh32gx5m2x7200c34",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH32GX5M2X7200C34",
+    "3252720034"
+   ],
+   "names": [
+    "vengeance argb 16gx2 ddr5 32gb 2x16gb 7200mhz cl34"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 34,
+    "speed_mhz": 7200,
+    "voltage_v": 1.45,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh48gx5m2b5600c40/vengeance-rgb-48gb-2x24gb-ddr5-dram-5600mhz-c40-memory-kit-black-cmh48gx5m2b5600c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh48gx5m2b5600c40/vengeance-rgb-48gb-2x24gb-ddr5-dram-5600mhz-c40-memory-kit-black-cmh48gx5m2b5600c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH48GX5M2B5600C40",
+    "4852560040"
+   ],
+   "names": [
+    "vengeance argb 24gx2 ddr5 48gb 2x24gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 40,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh48gx5m2b7000c40/vengeance-rgb-48gb-2x24gb-ddr5-dram-7000mhz-c40-memory-kit-black-cmh48gx5m2b7000c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh48gx5m2b7000c40/vengeance-rgb-48gb-2x24gb-ddr5-dram-7000mhz-c40-memory-kit-black-cmh48gx5m2b7000c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH48GX5M2B7000C40",
+    "4852700040"
+   ],
+   "names": [
+    "vengeance argb 24gx2 ddr5 48gb 2x24gb 7000mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 40,
+    "speed_mhz": 7000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh48gx5m2x8200c40/vengeance-rgb-48gb-2x24gb-ddr5-dram-8200mts-cl40-memory-kit-black-cmh48gx5m2x8200c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh48gx5m2x8200c40/vengeance-rgb-48gb-2x24gb-ddr5-dram-8200mts-cl40-memory-kit-black-cmh48gx5m2x8200c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH48GX5M2X8200C40",
+    "4852820040"
+   ],
+   "names": [
+    "vengeance argb 48gb ddr5 2x24gb 8200mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 40,
+    "speed_mhz": 8200,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b5600c40/vengeance-rgb-64gb-2x32gb-ddr5-dram-5600mts-cl40-memory-kit-black-cmh64gx5m2b5600c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b5600c40/vengeance-rgb-64gb-2x32gb-ddr5-dram-5600mts-cl40-memory-kit-black-cmh64gx5m2b5600c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B5600C40",
+    "6452560040"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000c30w/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mt-s-cl30-memory-kit-white-cmh64gx5m2b6000c30w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000c30w/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mt-s-cl30-memory-kit-white-cmh64gx5m2b6000c30w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6000C30W",
+    "6452600030"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000z28/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mts-cl28-amd-expo-&amp;-intel-xmp-memory-kit-cmh64gx5m2b6000z28": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000z28/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mts-cl28-amd-expo-&amp;-intel-xmp-memory-kit-cmh64gx5m2b6000z28",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6000Z28",
+    "6452600028"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6000mhz cl28"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 28,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000z30/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mt-s-cl30-amd-expo-memory-kit-cmh64gx5m2b6000z30": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000z30/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mt-s-cl30-amd-expo-memory-kit-cmh64gx5m2b6000z30",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6000Z30",
+    "6452600030"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000z30w/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mts-cl30-amd-expo-intel-xmp-memory-kit-white-cmh64gx5m2b6000z30w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6000z30w/vengeance-rgb-64gb-2x32gb-ddr5-dram-6000mts-cl30-amd-expo-intel-xmp-memory-kit-white-cmh64gx5m2b6000z30w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6000Z30W",
+    "6452600030"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6400c32/vengeance-rgb-64gb-2x32gb-ddr5-dram-6400mts-c32-memory-kit-black-cmh64gx5m2b6400c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6400c32/vengeance-rgb-64gb-2x32gb-ddr5-dram-6400mts-c32-memory-kit-black-cmh64gx5m2b6400c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6400C32",
+    "6452640032"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 32,
+    "speed_mhz": 6400,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6400c42/vengeance-rgb-64gb-2x32gb-ddr5-dram-6400mts-cl42-intel-xmp-memory-kit-cmh64gx5m2b6400c42": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6400c42/vengeance-rgb-64gb-2x32gb-ddr5-dram-6400mts-cl42-intel-xmp-memory-kit-cmh64gx5m2b6400c42",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6400C42",
+    "6452640042"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 42,
+    "speed_mhz": 6400,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6600c32/vengeance-rgb-64gb-2x32gb-ddr5-dram-6600mt-s-c32-memory-kit-black-cmh64gx5m2b6600c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2b6600c32/vengeance-rgb-64gb-2x32gb-ddr5-dram-6600mt-s-c32-memory-kit-black-cmh64gx5m2b6600c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2B6600C32",
+    "6452660032"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 2x32gb 6600mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 32,
+    "speed_mhz": 6600,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m2d5600z40/vengeance-rgb-64gb-2x32gb-ddr5-dram-5600mt-s-cl40-memory-kit-grey-cmh64gx5m2d5600z40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m2d5600z40/vengeance-rgb-64gb-2x32gb-ddr5-dram-5600mt-s-cl40-memory-kit-grey-cmh64gx5m2d5600z40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M2D5600Z40",
+    "6452560040"
+   ],
+   "names": [
+    "argb 64gb ddr5 2x32gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m4b5600z36/vengeance-rgb-64gb-4x16gb-ddr5-dram-5600mt-s-c36-amd-expo-memory-kit-cmh64gx5m4b5600z36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m4b5600z36/vengeance-rgb-64gb-4x16gb-ddr5-dram-5600mt-s-c36-amd-expo-memory-kit-cmh64gx5m4b5600z36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M4B5600Z36",
+    "6454560036"
+   ],
+   "names": [
+    "vengeance argb 16gx4 ddr5 64gb 4x16gb 5600mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh64gx5m4b6400c32/vengeance-rgb-64gb-4x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmh64gx5m4b6400c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh64gx5m4b6400c32/vengeance-rgb-64gb-4x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmh64gx5m4b6400c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH64GX5M4B6400C32",
+    "6454640032"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr5 4x16gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 32,
+    "speed_mhz": 6400,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmh96gx5m2b7000c40/vengeance-rgb-96gb-2x48gb-ddr5-dram-7000mts-cl40-memory-kit-black-cmh96gx5m2b7000c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmh96gx5m2b7000c40/vengeance-rgb-96gb-2x48gb-ddr5-dram-7000mts-cl40-memory-kit-black-cmh96gx5m2b7000c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMH96GX5M2B7000C40",
+    "9652700040"
+   ],
+   "names": [
+    "vengeance argb 96gb ddr5 2x48gb 7000mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 96,
+    "module_count": 2,
+    "module_size_gb": 48,
+    "cas_latency": 40,
+    "speed_mhz": 7000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk16gx4m1e3200c16/vengeancea-lpx-16gb-1-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk16gx4m1e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk16gx4m1e3200c16/vengeancea-lpx-16gb-1-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk16gx4m1e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK16GX4M1E3200C16",
+    "1641320016"
+   ],
+   "names": [
+    "vengeance 16gb ddr4 1x16gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk16gx4m1z3600c18/vengeancea-lpx-16gb-1-x-16gb-ddr4-dram-3600mhz-c18-memory-kit-black-cmk16gx4m1z3600c18": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk16gx4m1z3600c18/vengeancea-lpx-16gb-1-x-16gb-ddr4-dram-3600mhz-c18-memory-kit-black-cmk16gx4m1z3600c18",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK16GX4M1Z3600C18",
+    "1641360018"
+   ],
+   "names": [
+    "vengeance cmk16gx4m1z3600c18 ddr4 16gb 1x16gb 3600mhz cl18"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 18,
+    "speed_mhz": 3600,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk16gx4m2e3200c16/vengeancea-lpx-16gb-2-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk16gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk16gx4m2e3200c16/vengeancea-lpx-16gb-2-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk16gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK16GX4M2E3200C16",
+    "1642320016"
+   ],
+   "names": [
+    "vengeance 16gb ddr4 2x8gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 2,
+    "module_size_gb": 8,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk16gx5m1e6000z36/vengeance-16gb-1x16gb-ddr5-dram-6000mts-cl36-amd-expo-&amp;-intel-xmp-memory-kit-cmk16gx5m1e6000z36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk16gx5m1e6000z36/vengeance-16gb-1x16gb-ddr5-dram-6000mts-cl36-amd-expo-&amp;-intel-xmp-memory-kit-cmk16gx5m1e6000z36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK16GX5M1E6000Z36",
+    "1651600036"
+   ],
+   "names": [
+    "vengeance 16gb ddr5 1x16gb 6000mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 6000,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk32gx4m2e3200c16/vengeance-lpx-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk32gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk32gx4m2e3200c16/vengeance-lpx-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk32gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK32GX4M2E3200C16",
+    "3242320016"
+   ],
+   "names": [
+    "vengeance 32gb ddr4 2x16gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk32gx4m2e3200c16w/vengeancea-lpx-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-white-cmk32gx4m2e3200c16w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk32gx4m2e3200c16w/vengeancea-lpx-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-white-cmk32gx4m2e3200c16w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK32GX4M2E3200C16W",
+    "3242320016"
+   ],
+   "names": [
+    "vengeance lpx ddr4 32gb 2x16gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk32gx5m2b6400c32/vengeance-32gb-2x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmk32gx5m2b6400c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk32gx5m2b6400c32/vengeance-32gb-2x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmk32gx5m2b6400c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK32GX5M2B6400C32",
+    "3252640032"
+   ],
+   "names": [
+    "vengeance rgb 16x2 ddr5 32gb 2x16gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 32,
+    "speed_mhz": 6400,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b5600c40/vengeance-48gb-2x24gb-ddr5-dram-5600mhz-c40-memory-kit-black-cmk48gx5m2b5600c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b5600c40/vengeance-48gb-2x24gb-ddr5-dram-5600mhz-c40-memory-kit-black-cmk48gx5m2b5600c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK48GX5M2B5600C40",
+    "4852560040"
+   ],
+   "names": [
+    "vengeance 48gb ddr5 2x24gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 40,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b6000c30w/vengeance-48gb-2x24gb-ddr5-dram-6000mts-cl30-memory-kit-white-cmk48gx5m2b6000c30w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b6000c30w/vengeance-48gb-2x24gb-ddr5-dram-6000mts-cl30-memory-kit-white-cmk48gx5m2b6000c30w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK48GX5M2B6000C30W",
+    "4852600030"
+   ],
+   "names": [
+    "vengeance 48gb ddr5 2x24gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b6400c36/vengeance-48gb-2x24gb-ddr5-dram-6400mt-s-c36-memory-kit-black-cmk48gx5m2b6400c36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b6400c36/vengeance-48gb-2x24gb-ddr5-dram-6400mt-s-c36-memory-kit-black-cmk48gx5m2b6400c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK48GX5M2B6400C36",
+    "4852640036"
+   ],
+   "names": [
+    "vengeance 48gb ddr5 2x24gb 6400mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 36,
+    "speed_mhz": 6400,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b7000c40/vengeance-48gb-2x24gb-ddr5-dram-7000mhz-c40-memory-kit-black-cmk48gx5m2b7000c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk48gx5m2b7000c40/vengeance-48gb-2x24gb-ddr5-dram-7000mhz-c40-memory-kit-black-cmk48gx5m2b7000c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK48GX5M2B7000C40",
+    "4852700040"
+   ],
+   "names": [
+    "vengeance 48gb ddr5 2x24gb 7000mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 40,
+    "speed_mhz": 7000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m2b5200c40w/vengeancea-64gb-2x32gb-ddr5-dram-5200mhz-c40-memory-kit-a-white-cmk64gx5m2b5200c40w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m2b5200c40w/vengeancea-64gb-2x32gb-ddr5-dram-5200mhz-c40-memory-kit-a-white-cmk64gx5m2b5200c40w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M2B5200C40W",
+    "6452520040"
+   ],
+   "names": [
+    "32x2 ddr5 64gb 2x32gb 5200mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 5200,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m2b6000c40/vengeance-64gb-2x32gb-ddr5-dram-6000mhz-c40-memory-kit-black-cmk64gx5m2b6000c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m2b6000c40/vengeance-64gb-2x32gb-ddr5-dram-6000mhz-c40-memory-kit-black-cmk64gx5m2b6000c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M2B6000C40",
+    "6452600040"
+   ],
+   "names": [
+    "vengeance 64gb ddr5 2x32gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 6000,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m2d5600z40/vengeance-64gb-2x32gb-ddr5-dram-5600mt-s-cl40-memory-kit-grey-cmk64gx5m2d5600z40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m2d5600z40/vengeance-64gb-2x32gb-ddr5-dram-5600mt-s-cl40-memory-kit-grey-cmk64gx5m2d5600z40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M2D5600Z40",
+    "6452560040"
+   ],
+   "names": [
+    "64gb ddr5 2x32gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m2d6000z40/vengeance-64gb-2x32gb-ddr5-dram-6000mts-cl40-amd-expo-intel-xmp-memory-kit-cmk64gx5m2d6000z40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m2d6000z40/vengeance-64gb-2x32gb-ddr5-dram-6000mts-cl40-amd-expo-intel-xmp-memory-kit-cmk64gx5m2d6000z40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M2D6000Z40",
+    "6452600040"
+   ],
+   "names": [
+    "64gb ddr5 2x32gb 6000mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 6000,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m4b5600z36/vengeance-64gb-4x16gb-ddr5-dram-5600mt-s-c36-amd-expo-memory-kit": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m4b5600z36/vengeance-64gb-4x16gb-ddr5-dram-5600mt-s-c36-amd-expo-memory-kit",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M4B5600Z36",
+    "6454560036"
+   ],
+   "names": [
+    "vengeance 64gb ddr5 2x32gb 5600mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m4b6200c32/vengeance-64gb-4x16gb-ddr5-dram-6200mhz-c32-memory-kit-black-cmk64gx5m4b6200c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m4b6200c32/vengeance-64gb-4x16gb-ddr5-dram-6200mhz-c32-memory-kit-black-cmk64gx5m4b6200c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M4B6200C32",
+    "6454620032"
+   ],
+   "names": [
+    "vengeance 16gx4 ddr5 64gb 4x16gb 6200mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 32,
+    "speed_mhz": 6200,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk64gx5m4b6400c32/vengeance-64gb-4x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmk64gx5m4b6400c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk64gx5m4b6400c32/vengeance-64gb-4x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmk64gx5m4b6400c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK64GX5M4B6400C32",
+    "6454640032"
+   ],
+   "names": [
+    "vengeance 64gb ddr5 2x32gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 32,
+    "speed_mhz": 6400,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk8gx4m1e3200c16/vengeancea-lpx-8gb-1-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk8gx4m1e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk8gx4m1e3200c16/vengeancea-lpx-8gb-1-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk8gx4m1e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK8GX4M1E3200C16",
+    "841320016"
+   ],
+   "names": [
+    "8gb ddr4 1x8gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 8,
+    "module_count": 1,
+    "module_size_gb": 8,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmk96gx5m2b5200c38/vengeance-96gb-2x48gb-ddr5-dram-5200mhz-c38-memory-kit-black-cmk96gx5m2b5200c38": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmk96gx5m2b5200c38/vengeance-96gb-2x48gb-ddr5-dram-5200mhz-c38-memory-kit-black-cmk96gx5m2b5200c38",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMK96GX5M2B5200C38",
+    "9652520038"
+   ],
+   "names": [
+    "vengeance 96gb ddr5 2x48gb 5200mhz cl38"
+   ],
+   "specs": {
+    "total_gb": 96,
+    "module_count": 2,
+    "module_size_gb": 48,
+    "cas_latency": 38,
+    "speed_mhz": 5200,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp32gx5m2x7200c34/dominator-titanium-rgb-2x16gb-ddr5-dram-7200mt-s-c34-intel-xmp-memory-kit-cmp32gx5m2x7200c34": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp32gx5m2x7200c34/dominator-titanium-rgb-2x16gb-ddr5-dram-7200mt-s-c34-intel-xmp-memory-kit-cmp32gx5m2x7200c34",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP32GX5M2X7200C34",
+    "3252720034"
+   ],
+   "names": [
+    "dominator argb 2x16g ddr5 32gb 2x16gb 7200mhz cl34"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 34,
+    "speed_mhz": 7200,
+    "voltage_v": 1.45,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp48gx5m2x7200c36/dominator-titanium-rgb-2x24gb-ddr5-dram-7200mt-s-cl36-intel-xmp-memory-kit-cmp48gx5m2x7200c36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp48gx5m2x7200c36/dominator-titanium-rgb-2x24gb-ddr5-dram-7200mt-s-cl36-intel-xmp-memory-kit-cmp48gx5m2x7200c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP48GX5M2X7200C36",
+    "4852720036"
+   ],
+   "names": [
+    "dominator argb 2x24g ddr5 48gb 2x24gb 7200mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 2,
+    "module_size_gb": 24,
+    "cas_latency": 36,
+    "speed_mhz": 7200,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp48gx5m2x8000c38/dominator-titanium-rgb-2x24gb-ddr5-dram-8000mt-s-cl38-intel-xmp-memory-kit-cmp48gx5m2x8000c38": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp48gx5m2x8000c38/dominator-titanium-rgb-2x24gb-ddr5-dram-8000mt-s-cl38-intel-xmp-memory-kit-cmp48gx5m2x8000c38",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP48GX5M2X8000C38",
+    "4852800038"
+   ],
+   "names": [
+    "dominator argb ddr5 48gb 2x24gb 8000mhz cl38"
+   ],
+   "specs": {
+    "cas_latency": 38,
+    "speed_mhz": 8000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp64gx5m2b6000c30w/dominator-titanium-rgb-2x32gb-ddr5-dram-6000mt-s-cl30-intel-xmp-memory-kit-white-cmp64gx5m2b6000c30w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp64gx5m2b6000c30w/dominator-titanium-rgb-2x32gb-ddr5-dram-6000mt-s-cl30-intel-xmp-memory-kit-white-cmp64gx5m2b6000c30w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP64GX5M2B6000C30W",
+    "6452600030"
+   ],
+   "names": [
+    "dominator argb ddr5 64gb 2x32gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp64gx5m2x6600c32/dominator-titanium-rgb-64gb-2x32gb-ddr5-dram-6600mt-s-cl32-intel-xmp-memory-kit-black-cmp64gx5m2x6600c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp64gx5m2x6600c32/dominator-titanium-rgb-64gb-2x32gb-ddr5-dram-6600mt-s-cl32-intel-xmp-memory-kit-black-cmp64gx5m2x6600c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP64GX5M2X6600C32",
+    "6452660032"
+   ],
+   "names": [
+    "dominator argb 2x32g ddr5 64gb 2x32gb 6600mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 32,
+    "speed_mhz": 6600,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp96gx5m2b6000z30w/dominator-titanium-rgb-96gb-2x48gb-ddr5-dram-6000mts-cl30-amd-expo-intel-xmp-memory-kit-white-cmp96gx5m2b6000z30w": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp96gx5m2b6000z30w/dominator-titanium-rgb-96gb-2x48gb-ddr5-dram-6000mts-cl30-amd-expo-intel-xmp-memory-kit-white-cmp96gx5m2b6000z30w",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP96GX5M2B6000Z30W",
+    "9652600030"
+   ],
+   "names": [
+    "dominator argb ddr5 96gb 2x48gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 96,
+    "module_count": 2,
+    "module_size_gb": 48,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmp96gx5m2b7000c40/dominator-titanium-rgb-96gb-2x48gb-ddr5-dram-7000mts-cl40-intel-xmp-memory-kit-black-cmp96gx5m2b7000c40": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmp96gx5m2b7000c40/dominator-titanium-rgb-96gb-2x48gb-ddr5-dram-7000mts-cl40-intel-xmp-memory-kit-black-cmp96gx5m2b7000c40",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMP96GX5M2B7000C40",
+    "9652700040"
+   ],
+   "names": [
+    "dominator argb ddr5 96gb 2x48gb 7000mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 96,
+    "module_count": 2,
+    "module_size_gb": 48,
+    "cas_latency": 40,
+    "speed_mhz": 7000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt32gx5m2b5600c36/dominatora-platinum-rgb-32gb-2x16gb-ddr5-dram-5600mhz-c36-memory-kit-a-black-cmt32gx5m2b5600c36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt32gx5m2b5600c36/dominatora-platinum-rgb-32gb-2x16gb-ddr5-dram-5600mhz-c36-memory-kit-a-black-cmt32gx5m2b5600c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT32GX5M2B5600C36",
+    "3252560036"
+   ],
+   "names": [
+    "dominator argb ddr5 32gb 2x16gb 5600mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt32gx5m2b6400c32/dominator-platinum-rgb-32gb-2x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmt32gx5m2b6400c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt32gx5m2b6400c32/dominator-platinum-rgb-32gb-2x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmt32gx5m2b6400c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT32GX5M2B6400C32",
+    "3252640032"
+   ],
+   "names": [
+    "dominator argb 16x2 ddr5 32gb 2x16gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 32,
+    "speed_mhz": 6400,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt32gx5m2e6200c36/dominator-platinum-rgb-2x16gb-ddr5-dram-6200mt-s-c36-intel-xmp-memory-kit-cmt32gx5m2e6200c36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt32gx5m2e6200c36/dominator-platinum-rgb-2x16gb-ddr5-dram-6200mt-s-c36-intel-xmp-memory-kit-cmt32gx5m2e6200c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT32GX5M2E6200C36",
+    "3252620036"
+   ],
+   "names": [
+    "dominator argb ddr5 32gb 2x16gb 6200mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 6200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt32gx5m2x6200c36/dominatora-platinum-rgb-32gb-2x16gb-ddr5-dram-6200mhz-c36-memory-kit-a-black-cmt32gx5m2x6200c36": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt32gx5m2x6200c36/dominatora-platinum-rgb-32gb-2x16gb-ddr5-dram-6200mhz-c36-memory-kit-a-black-cmt32gx5m2x6200c36",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT32GX5M2X6200C36",
+    "3252620036"
+   ],
+   "names": [
+    "argb 32gb ddr5 2x16gb 6200mhz cl36"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 36,
+    "speed_mhz": 6200,
+    "voltage_v": 1.3,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt64gx5m2b5200z40k/dominator-platinum-rgb-64gb-2x32gb-ddr5-dram-5200mt-s-c40-amd-expo-memory-kit-cmt64gx5m2b5200z40k": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt64gx5m2b5200z40k/dominator-platinum-rgb-64gb-2x32gb-ddr5-dram-5200mt-s-c40-amd-expo-memory-kit-cmt64gx5m2b5200z40k",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT64GX5M2B5200Z40K",
+    "6452520040"
+   ],
+   "names": [
+    "dominator argb 32x2 ddr5 64gb 2x32gb 5200mhz cl40"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 40,
+    "speed_mhz": 5200,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt64gx5m2b6000z30/dominator-platinum-rgb-2x32gb-ddr5-dram-6000mt-s-cl30-amd-xmp-memory-kit-cmt64gx5m2b6000z30": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt64gx5m2b6000z30/dominator-platinum-rgb-2x32gb-ddr5-dram-6000mt-s-cl30-amd-xmp-memory-kit-cmt64gx5m2b6000z30",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT64GX5M2B6000Z30",
+    "6452600030"
+   ],
+   "names": [
+    "dominator argb ddr5 64gb 2x32gb 6000mhz cl30"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 30,
+    "speed_mhz": 6000,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt64gx5m4b5600z36/dominator-platinum-rgb-64gb-4x16gb-ddr5-dram-5600mt-s-c36-amd-expo-memory-kit": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt64gx5m4b5600z36/dominator-platinum-rgb-64gb-4x16gb-ddr5-dram-5600mt-s-c36-amd-expo-memory-kit",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT64GX5M4B5600Z36",
+    "6454560036"
+   ],
+   "names": [
+    "dominator argb 16x4 ddr5 64gb 4x16gb 5600mhz cl36"
+   ],
+   "specs": {
+    "cas_latency": 36,
+    "speed_mhz": 5600,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmt64gx5m4b6400c32/dominator-platinum-rgb-64gb-4x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmt64gx5m4b6400c32": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmt64gx5m4b6400c32/dominator-platinum-rgb-64gb-4x16gb-ddr5-dram-6400mhz-c32-memory-kit-black-cmt64gx5m4b6400c32",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMT64GX5M4B6400C32",
+    "6454640032"
+   ],
+   "names": [
+    "dominator argb ddr5 64gb 4x16gb 6400mhz cl32"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 4,
+    "module_size_gb": 16,
+    "cas_latency": 32,
+    "speed_mhz": 6400,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR5",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmw32gx4m2d3600c18/vengeancea-rgb-pro-32gb-2-x-16gb-ddr4-dram-3600mhz-c18-memory-kit-a-black-cmw32gx4m2d3600c18": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmw32gx4m2d3600c18/vengeancea-rgb-pro-32gb-2-x-16gb-ddr4-dram-3600mhz-c18-memory-kit-a-black-cmw32gx4m2d3600c18",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMW32GX4M2D3600C18",
+    "3242360018"
+   ],
+   "names": [
+    "vengeance argb 32gb ddr4 2x16gb 3600mhz cl18"
+   ],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "cas_latency": 18,
+    "speed_mhz": 3600,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/memory/cmw64gx4m2e3200c16/vengeancea-rgb-pro-64gb-2-x-32gb-ddr4-dram-3200mhz-c16-memory-kit-a-black-cmw64gx4m2e3200c16": {
+   "url": "https://www.corsair.com/us/en/p/memory/cmw64gx4m2e3200c16/vengeancea-rgb-pro-64gb-2-x-32gb-ddr4-dram-3200mhz-c16-memory-kit-a-black-cmw64gx4m2e3200c16",
+   "fetched": "2026-10-17",
+   "category": "memory",
+   "keys": [
+    "CMW64GX4M2E3200C16",
+    "6442320016"
+   ],
+   "names": [
+    "vengeance argb 64gb ddr4 2x32gb 3200mhz cl16"
+   ],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "cas_latency": 16,
+    "speed_mhz": 3200,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false,
+    "memory_type": "DDR4",
+    "heat_spreader": true
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011210-ww/5000d-airflow-tempered-glass-mid-tower-atx-pc-case-black-cc-9011210-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011210-ww/5000d-airflow-tempered-glass-mid-tower-atx-pc-case-black-cc-9011210-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011210WW",
+    "CC9011210"
+   ],
+   "names": [
+    "5000d airflow black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=520 D=520mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011211-ww/5000d-airflow-tempered-glass-mid-tower-atx-pc-case-white-cc-9011211-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011211-ww/5000d-airflow-tempered-glass-mid-tower-atx-pc-case-white-cc-9011211-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011211WW",
+    "CC9011211"
+   ],
+   "names": [
+    "5000d airflow tg"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=520 D=520mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011213-ww/icue-5000x-rgb-tempered-glass-mid-tower-atx-pc-smart-case-white-cc-9011213-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011213-ww/icue-5000x-rgb-tempered-glass-mid-tower-atx-pc-smart-case-white-cc-9011213-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011213WW",
+    "CC9011213"
+   ],
+   "names": [
+    "icue 5000x rgb white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 420,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=520 D=520mm",
+    "weight_kg": 15.0,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011219-ww/7000d-airflow-full-tower-atx-pc-case-white-cc-9011219-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011219-ww/7000d-airflow-full-tower-atx-pc-case-white-cc-9011219-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011219WW",
+    "CC9011219"
+   ],
+   "names": [
+    "icue 7000d airflow white"
+   ],
+   "specs": {
+    "type": "Full Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=248 H=600 D=550mm",
+    "weight_kg": 20.0,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011226-ww/icue-7000x-rgb-tempered-glass-full-tower-atx-pc-case-black-cc-9011226-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011226-ww/icue-7000x-rgb-tempered-glass-full-tower-atx-pc-case-black-cc-9011226-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011226WW",
+    "CC9011226"
+   ],
+   "names": [
+    "icue 7000x black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Full Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=248 H=600 D=550mm",
+    "weight_kg": 21.0,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011227-ww/icue-7000x-rgb-tempered-glass-full-tower-atx-pc-case-white-cc-9011227-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011227-ww/icue-7000x-rgb-tempered-glass-full-tower-atx-pc-case-white-cc-9011227-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011227WW",
+    "CC9011227"
+   ],
+   "names": [
+    "icue 7000x white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Full Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=248 H=600 D=550mm",
+    "weight_kg": 21.0,
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011230-ww/icue-5000t-rgb-tempered-glass-mid-tower-atx-pc-case-black-cc-9011230-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011230-ww/icue-5000t-rgb-tempered-glass-mid-tower-atx-pc-case-black-cc-9011230-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011230WW",
+    "CC9011230"
+   ],
+   "names": [
+    "icue 5000t rgb 3x120mm black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 420,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=251 H=560 D=530mm",
+    "weight_kg": 17.0,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011242-ww/icue-5000d-rgb-airflow-mid-tower-case-black-3x-af120-rgb-elite-fans-icue-lighting-node-pro-controller-high-airflow-design-cc-9011242-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011242-ww/icue-5000d-rgb-airflow-mid-tower-case-black-3x-af120-rgb-elite-fans-icue-lighting-node-pro-controller-high-airflow-design-cc-9011242-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011242WW",
+    "CC9011242"
+   ],
+   "names": [
+    "icue 5000d airflow rgb black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 420,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=520 D=520mm",
+    "weight_kg": 14.0,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011256-ww/3000d-rgb-tempered-glass-mid-tower-white-cc-9011256-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011256-ww/3000d-rgb-tempered-glass-mid-tower-white-cc-9011256-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011256WW",
+    "CC9011256"
+   ],
+   "names": [
+    "3000d rgb airflow white"
+   ],
+   "specs": {
+    "type": "Mid Tower",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=230 H=466 D=462mm",
+    "weight_kg": 8.0,
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011258-ww/6500x-mid-tower-dual-chamber-pc-case-white-cc-9011258-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011258-ww/6500x-mid-tower-dual-chamber-pc-case-white-cc-9011258-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011258WW",
+    "CC9011258"
+   ],
+   "names": [
+    "6500x white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=328 H=496 D=481mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011259-ww/6500d-airflow-mid-tower-dual-chamber-pc-case-black-cc-9011259-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011259-ww/6500d-airflow-mid-tower-dual-chamber-pc-case-black-cc-9011259-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011259WW",
+    "CC9011259"
+   ],
+   "names": [
+    "6500d airflow black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=328 H=496 D=481mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011260-ww/6500d-airflow-mid-tower-dual-chamber-pc-case-white-cc-9011260-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011260-ww/6500d-airflow-mid-tower-dual-chamber-pc-case-white-cc-9011260-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011260WW",
+    "CC9011260"
+   ],
+   "names": [
+    "6500d airflow white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=328 H=496 D=481mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011265-ww/2500x-mid-tower-dual-chamber-pc-case-black-cc-9011265-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011265-ww/2500x-mid-tower-dual-chamber-pc-case-black-cc-9011265-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011265WW",
+    "CC9011265"
+   ],
+   "names": [
+    "2500x black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=304 H=376 D=469mm",
+    "weight_kg": 13.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011266-ww/2500x-mid-tower-dual-chamber-pc-case-white-cc-9011266-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011266-ww/2500x-mid-tower-dual-chamber-pc-case-white-cc-9011266-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011266WW",
+    "CC9011266"
+   ],
+   "names": [
+    "2500x white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=304 H=376 D=469mm",
+    "weight_kg": 13.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011267-ww/icue-link-2500x-rgb-micro-atx-dual-chamber-pc-case-black-cc-9011267-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011267-ww/icue-link-2500x-rgb-micro-atx-dual-chamber-pc-case-black-cc-9011267-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011267WW",
+    "CC9011267"
+   ],
+   "names": [
+    "2500x rgb 2x120mm black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=304 H=376 D=469mm",
+    "weight_kg": 13.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011268-ww/icue-link-2500x-rgb-micro-atx-dual-chamber-pc-case-white-cc-9011268-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011268-ww/icue-link-2500x-rgb-micro-atx-dual-chamber-pc-case-white-cc-9011268-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011268WW",
+    "CC9011268"
+   ],
+   "names": [
+    "2500x rgb 2x120mm white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=304 H=376 D=469mm",
+    "weight_kg": 13.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011270-ww/icue-link-6500x-rgb-mid-tower-atx-dual-chamber-pc-case-white-cc-9011270-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011270-ww/icue-link-6500x-rgb-mid-tower-atx-dual-chamber-pc-case-white-cc-9011270-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011270WW",
+    "CC9011270"
+   ],
+   "names": [
+    "6500x rgb 3x120mm white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 190,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=328 H=496 D=481mm",
+    "weight_kg": 17.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011276-ww/3500x-mid-tower-pc-case-cc-9011276-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011276-ww/3500x-mid-tower-pc-case-cc-9011276-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011276WW",
+    "CC9011276"
+   ],
+   "names": [
+    "3500x black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=506 D=460mm",
+    "weight_kg": 9.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 1 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011277-ww/3500x-mid-tower-pc-case-white-cc-9011277-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011277-ww/3500x-mid-tower-pc-case-white-cc-9011277-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011277WW",
+    "CC9011277"
+   ],
+   "names": [
+    "3500x white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=506 D=460mm",
+    "weight_kg": 9.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 1 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011290-ww/frame-4000d-modular-mid-tower-pc-case-cc-9011290-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011290-ww/frame-4000d-modular-mid-tower-pc-case-cc-9011290-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011290WW",
+    "CC9011290"
+   ],
+   "names": [
+    "frame 4000d black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011291-ww/frame-4000d-modular-mid-tower-pc-case-white-cc-9011291-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011291-ww/frame-4000d-modular-mid-tower-pc-case-white-cc-9011291-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011291WW",
+    "CC9011291"
+   ],
+   "names": [
+    "frame 4000d white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011296-ww/frame-4000d-rs-argb-modular-mid-tower-pc-case-cc-9011296-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011296-ww/frame-4000d-rs-argb-modular-mid-tower-pc-case-cc-9011296-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011296WW",
+    "CC9011296"
+   ],
+   "names": [
+    "frame 4000d rs argb black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011297-ww/frame-4000d-rs-argb-modular-mid-tower-pc-case-white-cc-9011297-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011297-ww/frame-4000d-rs-argb-modular-mid-tower-pc-case-white-cc-9011297-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011297WW",
+    "CC9011297"
+   ],
+   "names": [
+    "frame 4000d rs argb white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011298-ww/icue-link-5000t-lx-rgb-mid-tower-high-performance-pc-case-cc-9011298-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011298-ww/icue-link-5000t-lx-rgb-mid-tower-high-performance-pc-case-cc-9011298-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011298WW",
+    "CC9011298"
+   ],
+   "names": [
+    "icue link 5000t lx black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=251 H=560 D=530mm",
+    "weight_kg": 14.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011307-ww/frame-5000d-rs-high-airflow-mid-tower-pc-case-cc-9011307-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011307-ww/frame-5000d-rs-high-airflow-mid-tower-pc-case-cc-9011307-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011307WW",
+    "CC9011307"
+   ],
+   "names": [
+    "frame 5000d rs black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 175,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=250 H=542 D=556mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "4 x 120 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011308-ww/frame-5000d-rs-high-airflow-mid-tower-pc-case-white-cc-9011308-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011308-ww/frame-5000d-rs-high-airflow-mid-tower-pc-case-white-cc-9011308-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011308WW",
+    "CC9011308"
+   ],
+   "names": [
+    "frame 5000d rs white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 175,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=250 H=542 D=556mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "4 x 120 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011309-ww/frame-5000d-rs-argb-high-airflow-mid-tower-pc-case-cc-9011309-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011309-ww/frame-5000d-rs-argb-high-airflow-mid-tower-pc-case-cc-9011309-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011309WW",
+    "CC9011309"
+   ],
+   "names": [
+    "frame 5000d rs argb black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 175,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=250 H=542 D=556mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "4 x 120 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011310-ww/frame-5000d-rs-argb-high-airflow-mid-tower-pc-case-white-cc-9011310-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011310-ww/frame-5000d-rs-argb-high-airflow-mid-tower-pc-case-white-cc-9011310-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011310WW",
+    "CC9011310"
+   ],
+   "names": [
+    "frame 5000d rs argb white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 450,
+    "max_cooler_height_mm": 175,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=250 H=542 D=556mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "4 x 120 mm",
+    "expansion_slots": "8"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011312-ww/frame-4000d-rs-modular-mid-tower-pc-case-cc-9011312-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011312-ww/frame-4000d-rs-modular-mid-tower-pc-case-cc-9011312-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011312WW",
+    "CC9011312"
+   ],
+   "names": [
+    "frame 4000d rs modular black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011313-ww/frame-4000d-rs-modular-mid-tower-pc-case-white-cc-9011313-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011313-ww/frame-4000d-rs-modular-mid-tower-pc-case-white-cc-9011313-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011313WW",
+    "CC9011313"
+   ],
+   "names": [
+    "frame 4000d rs modular white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011314-ww/frame-4500x-rs-r-argb-panoramic-glass-mid-tower-pc-case-cc-9011314-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011314-ww/frame-4500x-rs-r-argb-panoramic-glass-mid-tower-pc-case-cc-9011314-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011314WW",
+    "CC9011314"
+   ],
+   "names": [
+    "icue 4500x frame rs-r black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 460,
+    "max_cooler_height_mm": 185,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=246 H=478 D=499mm",
+    "weight_kg": 14.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011315-ww/frame-4500x-rs-r-argb-panoramic-glass-mid-tower-pc-case-white-cc-9011315-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011315-ww/frame-4500x-rs-r-argb-panoramic-glass-mid-tower-pc-case-white-cc-9011315-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011315WW",
+    "CC9011315"
+   ],
+   "names": [
+    "icue 4500x frame rs-r white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 460,
+    "max_cooler_height_mm": 185,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=246 H=478 D=499mm",
+    "weight_kg": 14.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011316-ww/frame-4500x-lx-r-rgb-icue-link-panoramic-glass-mid-tower-pc-case-cc-9011316-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011316-ww/frame-4500x-lx-r-rgb-icue-link-panoramic-glass-mid-tower-pc-case-cc-9011316-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011316WW",
+    "CC9011316"
+   ],
+   "names": [
+    "frame 4500x lx link black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 460,
+    "max_cooler_height_mm": 185,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=246 H=478 D=499mm",
+    "weight_kg": 14.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011317-ww/frame-4500x-lx-r-rgb-icue-link-panoramic-glass-mid-tower-pc-case-white-cc-9011317-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011317-ww/frame-4500x-lx-r-rgb-icue-link-panoramic-glass-mid-tower-pc-case-white-cc-9011317-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011317WW",
+    "CC9011317"
+   ],
+   "names": [
+    "frame 4500x lx link white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 460,
+    "max_cooler_height_mm": 185,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=246 H=478 D=499mm",
+    "weight_kg": 14.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011318-ww/air-5400-rs-r-argb-triple-chamber-mid-tower-pc-case-cc-9011318-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011318-ww/air-5400-rs-r-argb-triple-chamber-mid-tower-pc-case-cc-9011318-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011318WW",
+    "CC9011318"
+   ],
+   "names": [
+    "air rs-r argb triple black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 360,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=340 H=467 D=470mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011319-ww/air-5400-rs-r-argb-triple-chamber-mid-tower-pc-case-white-cc-9011319-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011319-ww/air-5400-rs-r-argb-triple-chamber-mid-tower-pc-case-white-cc-9011319-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011319WW",
+    "CC9011319"
+   ],
+   "names": [
+    "air rs-r argb triple white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 360,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=340 H=467 D=470mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011320-ww/air-5400-lx-r-rgb-icue-link-triple-chamber-mid-tower-pc-case-cc-9011320-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011320-ww/air-5400-lx-r-rgb-icue-link-triple-chamber-mid-tower-pc-case-cc-9011320-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011320WW",
+    "CC9011320"
+   ],
+   "names": [
+    "air lx-r rgb icue black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 360,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=340 H=467 D=470mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011321-ww/air-5400-lx-r-rgb-icue-link-triple-chamber-mid-tower-pc-case-white-cc-9011321-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011321-ww/air-5400-lx-r-rgb-icue-link-triple-chamber-mid-tower-pc-case-white-cc-9011321-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011321WW",
+    "CC9011321"
+   ],
+   "names": [
+    "air lx-r rgb icue white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 360,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=340 H=467 D=470mm",
+    "weight_kg": 16.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011322-ww/3500x-rs-r-argb-mid-tower-pc-case-cc-9011322-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011322-ww/3500x-rs-r-argb-mid-tower-pc-case-cc-9011322-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011322WW",
+    "CC9011322"
+   ],
+   "names": [
+    "3500x rs-r argb 3x120mm black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=506 D=460mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 1 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011323-ww/3500x-rs-r-argb-mid-tower-pc-case-white-cc-9011323-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011323-ww/3500x-rs-r-argb-mid-tower-pc-case-white-cc-9011323-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011323WW",
+    "CC9011323"
+   ],
+   "names": [
+    "3500x rs-r argb white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=506 D=460mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 1 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011324-ww/3500x-lx-r-rgb-icue-link-mid-tower-pc-case-cc-9011324-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011324-ww/3500x-lx-r-rgb-icue-link-mid-tower-pc-case-cc-9011324-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011324WW",
+    "CC9011324"
+   ],
+   "names": [
+    "3500x lx-r rgb icue black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=506 D=460mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 1 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011325-ww/3500x-lx-r-rgb-icue-link-mid-tower-pc-case-white-cc-9011325-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011325-ww/3500x-lx-r-rgb-icue-link-mid-tower-pc-case-white-cc-9011325-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011325WW",
+    "CC9011325"
+   ],
+   "names": [
+    "3500x lx-r rgb icue white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=506 D=460mm",
+    "weight_kg": 10.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 1 x 140 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011326-ww/frame-4000d-lcd-rs-argb-premium-mid-tower-pc-case-cc-9011326-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011326-ww/frame-4000d-lcd-rs-argb-premium-mid-tower-pc-case-cc-9011326-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011326WW",
+    "CC9011326"
+   ],
+   "names": [
+    "frame 4000d lcd rs black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 12.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011327-ww/frame-4000d-lcd-rs-argb-premium-mid-tower-pc-case-white-cc-9011327-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011327-ww/frame-4000d-lcd-rs-argb-premium-mid-tower-pc-case-white-cc-9011327-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011327WW",
+    "CC9011327"
+   ],
+   "names": [
+    "frame 4000d lcd rs white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=239 H=486 D=490mm",
+    "weight_kg": 12.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011344-ww/3200d-rs-argb-mid-tower-pc-case-cc-9011344-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011344-ww/3200d-rs-argb-mid-tower-pc-case-cc-9011344-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011344WW",
+    "CC9011344"
+   ],
+   "names": [
+    "3200d rs argb black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 165,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=219 H=495 D=458mm",
+    "weight_kg": 8.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011345-ww/3200d-rs-argb-mid-tower-pc-case-white-cc-9011345-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011345-ww/3200d-rs-argb-mid-tower-pc-case-white-cc-9011345-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011345WW",
+    "CC9011345"
+   ],
+   "names": [
+    "3200d rs argb white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "type": "Mid Tower",
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 165,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=219 H=495 D=458mm",
+    "weight_kg": 8.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011347-ww/2800x-rs-r-argb-micro-atx-pc-case-cc-9011347-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011347-ww/2800x-rs-r-argb-micro-atx-pc-case-cc-9011347-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011347WW",
+    "CC9011347"
+   ],
+   "names": [
+    "2800x rs r argb matx"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "type": "Micro ATX",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=232 H=447 D=436mm",
+    "weight_kg": 8.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011348-ww/2800x-rs-r-argb-micro-atx-pc-case-white-cc-9011348-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011348-ww/2800x-rs-r-argb-micro-atx-pc-case-white-cc-9011348-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011348WW",
+    "CC9011348"
+   ],
+   "names": [
+    "2800x rs r argb matx"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "type": "Micro ATX",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=232 H=447 D=436mm",
+    "weight_kg": 8.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "4"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011351-ww/warthog-rs-airflow-mid-tower-pc-case-black-cc-9011351-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011351-ww/warthog-rs-airflow-mid-tower-pc-case-black-cc-9011351-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011351WW",
+    "CC9011351"
+   ],
+   "names": [
+    "warthog rs airflow black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=283 H=546 D=534mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-cases/cc-9011352-ww/warthog-rs-airflow-mid-tower-pc-case-olive-drab-cc-9011352-ww": {
+   "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011352-ww/warthog-rs-airflow-mid-tower-pc-case-olive-drab-cc-9011352-ww",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC9011352WW",
+    "CC9011352"
+   ],
+   "names": [
+    "warthog rs airflow green"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "type": "Mid Tower",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=283 H=546 D=534mm",
+    "weight_kg": 15.0,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "expansion_slots": "7"
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-components-accessories/cc-8900433/icue-4000x-4000d-4000d-airflow-tempered-glass-panel-clear-cc-8900433": {
+   "url": "https://www.corsair.com/us/en/p/pc-components-accessories/cc-8900433/icue-4000x-4000d-4000d-airflow-tempered-glass-panel-clear-cc-8900433",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC8900433"
+   ],
+   "names": [
+    "4000d airflow 4000x only white"
+   ],
+   "specs": {
+    "dimensions_mm": "W=415 H=429 D=429mm",
+    "weight_kg": 2.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/pc-components-accessories/cc-8900548/icue-7000x-7000d-7000d-airflow-tempered-glass-panel-clear-cc-8900548": {
+   "url": "https://www.corsair.com/us/en/p/pc-components-accessories/cc-8900548/icue-7000x-7000d-7000d-airflow-tempered-glass-panel-clear-cc-8900548",
+   "fetched": "2026-10-17",
+   "category": "case",
+   "keys": [
+    "CC8900548"
+   ],
+   "names": [
+    "7000d airflow 7000x only white"
+   ],
+   "specs": {
+    "weight_kg": 5.0
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020087-na/ax1600i-digital-atx-power-supply-1600-watt-fully-modular-psu-cp-9020087-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020087-na/ax1600i-digital-atx-power-supply-1600-watt-fully-modular-psu-cp-9020087-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020087EU",
+    "CP9020087"
+   ],
+   "names": [
+    "ax1600i 80 1600w 80 plus titanium"
+   ],
+   "specs": {
+    "wattage_w": 1600,
+    "efficiency": "80+ Titanium",
+    "modular": "full",
+    "atx4_connectors": 1,
+    "sata_connectors": 16,
+    "molex4_connectors": 9,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020252-na/rm850x-shift-80-plus-gold-fully-modular-atx-power-supply-cp-9020252-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020252-na/rm850x-shift-80-plus-gold-fully-modular-atx-power-supply-cp-9020252-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020252EU",
+    "CP9020252"
+   ],
+   "names": [
+    "rm850x shift 850w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 12,
+    "molex4_connectors": 8,
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020257-na/sf-series-sf1000-fully-modular-80-plus-platinum-sfx-power-supply-cp-9020257-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020257-na/sf-series-sf1000-fully-modular-80-plus-platinum-sfx-power-supply-cp-9020257-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020257EU",
+    "CP9020257"
+   ],
+   "names": [
+    "sf1000 80 1000w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "type": "SFX",
+    "fan_size_mm": 92
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020258-na/rme-series-rm1200e-fully-modular-low-noise-atx-power-supply-cp-9020258-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020258-na/rme-series-rm1200e-fully-modular-low-noise-atx-power-supply-cp-9020258-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020258EU",
+    "CP9020258"
+   ],
+   "names": [
+    "rm1200e 1200w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 1200,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.0",
+    "atx4_connectors": 1
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020259-na/hx1000i-fully-modular-ultra-low-noise-platinum-atx-1000-watt-pc-power-supply-cp-9020259-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020259-na/hx1000i-fully-modular-ultra-low-noise-platinum-atx-1000-watt-pc-power-supply-cp-9020259-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020259EU",
+    "CP9020259"
+   ],
+   "names": [
+    "hx1000i hxi pcie5 3 0 1000w 80 plus platinum black"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 8,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020262-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-cp-9020262-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020262-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-cp-9020262-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020262EU",
+    "CP9020262"
+   ],
+   "names": [
+    "rm750e rme pcie5 3 0 750w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 7,
+    "molex4_connectors": 4,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020265-na/hx1000i-shift-fully-modular-platinum-atx-power-supply-cp-9020265-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020265-na/hx1000i-shift-fully-modular-platinum-atx-power-supply-cp-9020265-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020265EU",
+    "CP9020265"
+   ],
+   "names": [
+    "hx1000i shift 80 1000w 80 plus platinum"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 8,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020269-na/hx1500i-shift-fully-modular-platinum-atx-power-supply-cp-9020269-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020269-na/hx1500i-shift-fully-modular-platinum-atx-power-supply-cp-9020269-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020269EU",
+    "CP9020269"
+   ],
+   "names": [
+    "cp 1500w 80 plus platinum black"
+   ],
+   "specs": {
+    "wattage_w": 1500,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 12,
+    "molex4_connectors": 8,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020270-na/rmx-series-rm850x-fully-modular-power-supply-cp-9020270-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020270-na/rmx-series-rm850x-fully-modular-power-supply-cp-9020270-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020270",
+    "CP9020270EU"
+   ],
+   "names": [
+    "rm850x 3 1 pcie 5 1 850w 80 plus gold black",
+    "rm850x 3 1 850w 80 plus gold"
+   ],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "length_mm": 160
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020271-na/rmx-series-rm1000x-fully-modular-power-supply-cp-9020271-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020271-na/rmx-series-rm1000x-fully-modular-power-supply-cp-9020271-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020271EU",
+    "CP9020271"
+   ],
+   "names": [
+    "rm1000x 1000w atx 3 1 gold modular"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 12,
+    "molex4_connectors": 6,
+    "length_mm": 160
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020273-na/rm750x-shift-80-plus-gold-fully-modular-atx-power-supply-white-na-cp-9020273-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020273-na/rm750x-shift-80-plus-gold-fully-modular-atx-power-supply-white-na-cp-9020273-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020273EU",
+    "CP9020273"
+   ],
+   "names": [
+    "rm750x shift 750w 80 plus gold white"
+   ],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 12,
+    "molex4_connectors": 4,
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020277-na/cx-series-cx550-550-watt-80-plus-bronze-atx-power-supply-cp-9020277-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020277-na/cx-series-cx550-550-watt-80-plus-bronze-atx-power-supply-cp-9020277-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020277EU",
+    "CP9020277"
+   ],
+   "names": [
+    "cx550 550w 80 plus bronze black"
+   ],
+   "specs": {
+    "wattage_w": 550,
+    "efficiency": "80+ Bronze",
+    "modular": "no",
+    "atx4_connectors": 1,
+    "sata_connectors": 3,
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020278-na/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-cp-9020278-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020278-na/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-cp-9020278-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020278EU",
+    "CP9020278"
+   ],
+   "names": [
+    "cx650 cx 650w 80 plus bronze black"
+   ],
+   "specs": {
+    "wattage_w": 650,
+    "efficiency": "80+ Bronze",
+    "modular": "no",
+    "atx4_connectors": 1,
+    "sata_connectors": 3,
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020279-na/cx-series-cx750-750-watt-80-plus-bronze-atx-power-supply-cp-9020279-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020279-na/cx-series-cx750-750-watt-80-plus-bronze-atx-power-supply-cp-9020279-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020279EU",
+    "CP9020279"
+   ],
+   "names": [
+    "cx750 cx 750w 80 plus bronze black"
+   ],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Bronze",
+    "modular": "no",
+    "atx4_connectors": 1,
+    "sata_connectors": 3,
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020285-na/rmx-series-rm750x-fully-modular-power-supply-cp-9020285-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020285-na/rmx-series-rm750x-fully-modular-power-supply-cp-9020285-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020285EU",
+    "CP9020285"
+   ],
+   "names": [
+    "rm750x 750w atx 3 1 gold modular"
+   ],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "length_mm": 160
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020292-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-white-na-cp-9020292-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020292-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-white-na-cp-9020292-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020292EU",
+    "CP9020292"
+   ],
+   "names": [
+    "rm750e 750w atx 3 1 gold fully modular white"
+   ],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020293-na/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-white-na-cp-9020293-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020293-na/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-white-na-cp-9020293-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020293EU",
+    "CP9020293"
+   ],
+   "names": [
+    "rm850e 850w atx 3 1 gold fully modular white"
+   ],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020294-na/rme-series-rm1000e-fully-modular-low-noise-atx-power-supply-white-na-cp-9020294-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020294-na/rme-series-rm1000e-fully-modular-low-noise-atx-power-supply-white-na-cp-9020294-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020294EU",
+    "CP9020294"
+   ],
+   "names": [
+    "rm1000e 1000w atx 3 1 gold fully modular white"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020295-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-cp-9020295-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020295-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-cp-9020295-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020295EU",
+    "CP9020295"
+   ],
+   "names": [
+    "rm750e 750w atx 3 1 gold modular"
+   ],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020296-na/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-cp-9020296-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020296-na/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-cp-9020296-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020296EU",
+    "CP9020296"
+   ],
+   "names": [
+    "rm850e 850w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020297-na/rme-series-rm1000e-fully-modular-low-noise-atx-power-supply-cp-9020297-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020297-na/rme-series-rm1000e-fully-modular-low-noise-atx-power-supply-cp-9020297-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020297EU",
+    "CP9020297"
+   ],
+   "names": [
+    "rm1000e 1000w atx 3 1 gold modular"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020299-na/rm850x-shift-fully-modular-atx-power-supply-cp-9020299-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020299-na/rm850x-shift-fully-modular-atx-power-supply-cp-9020299-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020299EU",
+    "CP9020299"
+   ],
+   "names": [
+    "cp 850w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 9,
+    "molex4_connectors": 4,
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020300-na/rm1000x-shift-fully-modular-atx-power-supply-cp-9020300-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020300-na/rm1000x-shift-fully-modular-atx-power-supply-cp-9020300-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020300EU",
+    "CP9020300"
+   ],
+   "names": [
+    "rm1000x shift 1000w 80 plus gold black"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 12,
+    "molex4_connectors": 4,
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020302-na/rme-series-rm650e-fully-modular-low-noise-atx-power-supply-cp-9020302-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020302-na/rme-series-rm650e-fully-modular-low-noise-atx-power-supply-cp-9020302-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020302EU",
+    "CP9020302"
+   ],
+   "names": [
+    "rm650e 650w atx 3 1 gold modular"
+   ],
+   "specs": {
+    "wattage_w": 650,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020307-na/hx1200i-fully-modular-ultra-low-noise-platinum-atx-1200-watt-pc-power-supply-cp-9020307-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020307-na/hx1200i-fully-modular-ultra-low-noise-platinum-atx-1200-watt-pc-power-supply-cp-9020307-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020307EU",
+    "CP9020307"
+   ],
+   "names": [
+    "hx1200i hxi 3 1 pcie 1200w 80 plus platinum black"
+   ],
+   "specs": {
+    "wattage_w": 1200,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 6,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020309-na/hx1500i-fully-modular-ultra-low-noise-platinum-atx-1500-watt-pc-power-supply-cp-9020309-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020309-na/hx1500i-fully-modular-ultra-low-noise-platinum-atx-1500-watt-pc-power-supply-cp-9020309-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020309EU",
+    "CP9020309"
+   ],
+   "names": [
+    "cp 1500w 80 plus platinum black"
+   ],
+   "specs": {
+    "wattage_w": 1500,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 6,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020312EU",
+    "CP9020312"
+   ],
+   "names": [
+    "ws3000 3 1 80 3000w 80 plus platinum"
+   ],
+   "specs": {
+    "wattage_w": 3000,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 9,
+    "molex4_connectors": 6,
+    "type": "ATX",
+    "fan_size_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020336-na/rm850e-atx-3.1-low-noise-atx-power-supply-with-thermalprotect-12v-2x6-cable-cp-9020336-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020336-na/rm850e-atx-3.1-low-noise-atx-power-supply-with-thermalprotect-12v-2x6-cable-cp-9020336-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020336EU",
+    "CP9020336"
+   ],
+   "names": [
+    "rm850e 3 1 850w 80 plus gold"
+   ],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "https://www.corsair.com/us/en/p/psu/cp-9020337-na/rm1000e-atx-3.1-low-noise-atx-power-supply-with-thermalprotect-12v-2x6-cable-cp-9020337-na": {
+   "url": "https://www.corsair.com/us/en/p/psu/cp-9020337-na/rm1000e-atx-3.1-low-noise-atx-power-supply-with-thermalprotect-12v-2x6-cable-cp-9020337-na",
+   "fetched": "2026-10-17",
+   "category": "psu",
+   "keys": [
+    "CP9020337EU",
+    "CP9020337"
+   ],
+   "names": [
+    "rm1000e 3 1 1000w 80 plus gold"
+   ],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "atx4_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  }
+ }
+}

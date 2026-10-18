@@ -16,7 +16,7 @@ export function esc(value: unknown): string {
 }
 
 /**
- * URL scheme allowlist for scraped href/src sinks (audit §2.2).
+ * URL scheme allowlist for scraped href/src sinks.
  *
  * esc() neutralizes <>"'& but `href="javascript:..."` needs no special
  * chars — so every offer.url / product.image goes through here first.
@@ -46,28 +46,6 @@ export function safeImageUrl(raw: unknown): string | null {
 }
 
 /**
- * Failure panel for data views: friendly message, a retry button, and the
- * technical reason tucked into a details element so a bug report can
- * include the exact error instead of "it didn't load".
- */
-export function errorPanel(
-  message: string,
-  retryLabel: string,
-  err: unknown
-): string {
-  const detail =
-    err instanceof Error && err.message
-      ? `<details class="err-details"><summary>Details</summary><code>${esc(err.message)}</code></details>`
-      : "";
-  return `
-    <div class="empty-state">
-      <p style="margin-bottom:14px;">${esc(message)}</p>
-      <button class="btn-small" type="button" onclick="location.reload()">${esc(retryLabel)}</button>
-      ${detail}
-    </div>`;
-}
-
-/**
  * Search normalization + ranking (shared by the nav search and the category
  * page search so both agree on what "a match" is).
  *
@@ -92,7 +70,7 @@ export function searchTokens(query: string): string[] {
   return norm ? norm.split(" ") : [];
 }
 
-export interface SearchScoreInput {
+interface SearchScoreInput {
   /** Pre-normalized haystack the tokens must all appear in. */
   haystack: string;
   /** Pre-normalized product name (used for the exact/prefix bonuses). */
@@ -148,7 +126,7 @@ export function displayName(p: Product): string {
   if (!name || /^(unknown|n\/?a|none)$/i.test(name)) {
     const sku = skuOf(p).trim();
     if (sku && !/^unknown$/i.test(sku)) return sku;
-    return p.brand?.trim() || sku || "—";
+    return p.brand?.trim() || sku || p.id;
   }
   const firstSpace = name.search(/\s/);
   if (firstSpace <= 0) return name;
@@ -160,24 +138,4 @@ export function displayName(p: Product): string {
     }
   }
   return name;
-}
-
-/**
- * Replaces broken `<img data-fb="AB">` thumbnails with the same
- * initials-fallback element the no-image path renders. Bind once per
- * render: the error event fires async after innerHTML, and the
- * complete/naturalWidth check catches already-failed cached loads.
- */
-export function bindImgFallbacks(root: ParentNode, thumbClass: string): void {
-  root.querySelectorAll<HTMLImageElement>("img[data-fb]").forEach((img) => {
-    const swap = (): void => {
-      const span = document.createElement("span");
-      if (thumbClass) span.className = thumbClass;
-      span.setAttribute("aria-hidden", "true");
-      span.textContent = img.dataset.fb || "—";
-      img.replaceWith(span);
-    };
-    img.addEventListener("error", swap, { once: true });
-    if (img.complete && img.naturalWidth === 0) swap();
-  });
 }

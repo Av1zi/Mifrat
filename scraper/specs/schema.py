@@ -59,6 +59,13 @@ class FieldSpec:
     aliases: tuple[str, ...] = ()
     label_he: str = ""
     label_en: str = ""
+    # Conditional applicability: ((gate_field, (allowed values...)), ...).
+    # The field is meaningful only when EVERY gate field holds one of its
+    # allowed values; a gate that is still null leaves the field applicable
+    # (unknown is not "no"). See `applies()`. Python-side only: it is not
+    # exported to the frontend (the site never needs to know why a cell is
+    # absent, only that the schema says it is not expected).
+    applies_to: tuple[tuple[str, tuple], ...] = ()
 
     def label(self, lang: str) -> str:
         return self.label_he if lang == "he" else self.label_en
@@ -77,6 +84,7 @@ def _f(
     aliases: tuple[str, ...] = (),
     he: str = "",
     en: str = "",
+    when: tuple[tuple[str, tuple], ...] = (),
 ) -> FieldSpec:
     """Compact field constructor (keeps the tables below readable)."""
     assert type in TYPES, f"bad type {type!r} for {name}"
@@ -95,6 +103,7 @@ def _f(
         aliases=tuple(aliases),
         label_he=he or name,
         label_en=en or name,
+        applies_to=tuple((gate, tuple(allowed)) for gate, allowed in when),
     )
 
 
@@ -237,9 +246,11 @@ CPU = (
     _f("boost_clock_ghz", "float", lo=0.3, hi=8.0, group="core",
        aliases=("boost_clock_ghz", "boost_clock", "turbo_clock_ghz"),
        he="תדר מוגבר (GHz)", en="Boost Clock (GHz)"),
-    _f("l2_cache_mb", "int", lo=1, hi=512, group="core", aliases=("l2_cache_mb", "l2_cache"),
+    # float: Intel hybrid parts print fractional L2 ("9.5MB" on a 14400), which
+    # an int field rejected, so those caches shipped null.
+    _f("l2_cache_mb", "float", lo=0.25, hi=512, group="core", aliases=("l2_cache_mb", "l2_cache"),
        he="מטמון L2 (MB)", en="L2 Cache (MB)"),
-    _f("l3_cache_mb", "int", lo=1, hi=2048, group="core", aliases=("l3_cache_mb", "l3_cache"),
+    _f("l3_cache_mb", "float", lo=0.5, hi=2048, group="core", aliases=("l3_cache_mb", "l3_cache"),
        he="מטמון L3 (MB)", en="L3 Cache (MB)"),
     _f("tdp_w", "int", lo=3, hi=500, filterable=True, group="power",
        aliases=("tdp", "tdp_w", "power_consumption", "max_power", "rated_power",
@@ -266,61 +277,103 @@ CPU = (
 )
 
 # --------------------------------------------------------------------------
-# cpu_cooler — one schema for aio + cooler_air + cooling_other
+# coolers - aio / cooler_air / cooling_other
+#
+# Split 2026-10-17 (was one shared CPU_COOLER tuple): an air cooler can never
+# carry a radiator or a pump, and a closed-loop AIO's "is it water cooled" is
+# its category, so those cells sat permanently empty and dragged cooler fill to
+# 26-45%. Shared field instances are defined once and composed per category.
 # --------------------------------------------------------------------------
 
-CPU_COOLER = (
-    _f("manufacturer", "str", filterable=True, group="identity", aliases=_BRAND,
-       he="יצרן", en="Manufacturer"),
-    _f("model", "str", group="identity", aliases=_MODEL, he="דגם", en="Model"),
-    _f("part_numbers", "list_str", group="identity",
-       aliases=("part_numbers", "part_number", "mpn"), he="מק״טים", en="Part Numbers"),
-    _f("water_cooled", "bool", filterable=True, group="physical",
-       aliases=("water_cooled", "aio"), he="קירור נוזלי", en="Water Cooled"),
-    _f("radiator_size_mm", "int", lo=60, hi=560, filterable=True, group="physical",
-       aliases=("radiator_size_mm", "supported_radiator_mm", "radiator_mm", "size"),
-       he="גודל רדיאטור (mm)", en="Radiator Size (mm)"),
-    # Ivory prints the radiator's real dimensions ("אורך: 403 מ\"מ רוחב: 120
-    # מ\"מ עובי: 27 מ\"מ"); the size class above already says 360, so these
-    # two are the extra facts that cell carries (fitment in tight cases).
-    _f("radiator_length_mm", "int", lo=60, hi=600, group="physical",
-       aliases=("radiator_length_mm",), he="אורך רדיאטור (mm)", en="Radiator Length (mm)"),
-    _f("radiator_thickness_mm", "int", lo=10, hi=100, group="physical",
-       aliases=("radiator_thickness_mm",), he="עובי רדיאטור (mm)", en="Radiator Thickness (mm)"),
-    _f("fan_size_mm", "int", lo=40, hi=200, filterable=True, group="physical",
-       aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)"),
-    _f("fan_count", "int", lo=0, hi=6, group="physical", aliases=("fan_count", "fans"),
-       he="מספר מאווררים", en="Fan Count"),
-    _f("fan_rpm_min", "int", lo=0, hi=6000, group="physical",
-       aliases=("fan_rpm_min", "rpm_min", "fan_speed_min"), he="סל״ד מינימלי", en="Fan RPM Min"),
-    _f("fan_rpm_max", "int", lo=0, hi=8000, group="physical",
-       aliases=("fan_rpm_max", "rpm_max", "rpm", "fan_speed"), he="סל״ד מקסימלי", en="Fan RPM Max"),
-    _f("noise_db", "float", lo=0, hi=80, group="physical",
-       aliases=("noise_db", "noise_level"), he="רעש (dB)", en="Noise (dB)"),
-    _f("airflow_cfm", "float", lo=0, hi=800, group="physical",
-       aliases=("airflow_cfm", "airflow", "air_flow"), he="ספיקת אוויר (CFM)", en="Airflow (CFM)"),
-    _f("height_mm", "int", lo=5, hi=300, group="physical",
-       aliases=("height_mm", "cooler_height_mm"), he="גובה (mm)", en="Height (mm)"),
-    _f("sockets", "list_str", filterable=True, group="io",
-       aliases=("sockets", "socket_compat", "socket"), he="סוקטים נתמכים", en="Sockets"),
-    # Ivory's "חיבורים" cell lists the fan/pump wiring ("חיבור 4pin PWM ללוח
-    # אם", "חיבור 3pin ARGB", "USB2.0 פנימי"); the cell parser reduces it to
-    # the connector list instead of shipping the prose.
-    _f("connectors", "list_str", group="io",
-       aliases=("connectors", "connection_types"), he="חיבורים", en="Connectors"),
-    # "אורך: 69 מ\"מ רוחב: 92 מ\"מ גובה: 76 מ\"מ" — the pump/block block
-    # size, kept as one normalized dimension string (case dimensions_mm has
-    # the same shape; nothing downstream sorts on it).
-    _f("pump_dimensions_mm", "str", group="physical",
-       aliases=("pump_dimensions_mm", "pump_size_mm"), he="מידות משאבה", en="Pump Dimensions (mm)"),
-    _f("tdp_w", "int", lo=10, hi=1000, group="power",
-       aliases=("tdp_w", "tdp", "cooling_capacity_w"), he="פיזור חום (W)", en="Cooling Capacity (W)"),
-    _f("fanless", "bool", filterable=True, group="physical", aliases=("fanless",),
-       he="ללא מאוורר", en="Fanless"),
-    _f("lighting", "str", filterable=True, group="physical",
-       aliases=("lighting", "led"), he="תאורה", en="Lighting"),
-    _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
-       he="צבע", en="Color"),
+_C_MANUFACTURER = _f("manufacturer", "str", filterable=True, group="identity",
+                     aliases=_BRAND, he="יצרן", en="Manufacturer")
+_C_MODEL = _f("model", "str", group="identity", aliases=_MODEL, he="דגם", en="Model")
+_C_PART_NUMBERS = _f("part_numbers", "list_str", group="identity",
+                     aliases=("part_numbers", "part_number", "mpn"),
+                     he="מק״טים", en="Part Numbers")
+_C_WATER_COOLED = _f("water_cooled", "bool", filterable=True, group="physical",
+                     aliases=("water_cooled", "aio"), he="קירור נוזלי", en="Water Cooled")
+_C_RADIATOR_SIZE = _f("radiator_size_mm", "int", lo=60, hi=560, filterable=True,
+                      group="physical",
+                      aliases=("radiator_size_mm", "supported_radiator_mm", "radiator_mm", "size"),
+                      he="גודל רדיאטור (mm)", en="Radiator Size (mm)")
+# Ivory prints the radiator's real dimensions ("אורך: 403 מ\"מ רוחב: 120
+# מ\"מ עובי: 27 מ\"מ"); the size class above already says 360, so these
+# two are the extra facts that cell carries (fitment in tight cases).
+_C_RADIATOR_LENGTH = _f("radiator_length_mm", "int", lo=60, hi=600, group="physical",
+                        aliases=("radiator_length_mm",),
+                        he="אורך רדיאטור (mm)", en="Radiator Length (mm)")
+_C_RADIATOR_THICKNESS = _f("radiator_thickness_mm", "int", lo=10, hi=100,
+                           group="physical", aliases=("radiator_thickness_mm",),
+                           he="עובי רדיאטור (mm)", en="Radiator Thickness (mm)")
+_C_FAN_SIZE = _f("fan_size_mm", "int", lo=40, hi=200, filterable=True, group="physical",
+                 aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)")
+_C_FAN_COUNT = _f("fan_count", "int", lo=0, hi=6, group="physical",
+                  aliases=("fan_count", "fans"), he="מספר מאווררים", en="Fan Count")
+_C_FAN_RPM_MIN = _f("fan_rpm_min", "int", lo=0, hi=6000, group="physical",
+                    aliases=("fan_rpm_min", "rpm_min", "fan_speed_min"),
+                    he="סל״ד מינימלי", en="Fan RPM Min")
+_C_FAN_RPM_MAX = _f("fan_rpm_max", "int", lo=0, hi=8000, group="physical",
+                    aliases=("fan_rpm_max", "rpm_max", "rpm", "fan_speed"),
+                    he="סל״ד מקסימלי", en="Fan RPM Max")
+_C_NOISE = _f("noise_db", "float", lo=0, hi=80, group="physical",
+              aliases=("noise_db", "noise_level"), he="רעש (dB)", en="Noise (dB)")
+_C_AIRFLOW = _f("airflow_cfm", "float", lo=0, hi=800, group="physical",
+                aliases=("airflow_cfm", "airflow", "air_flow"),
+                he="ספיקת אוויר (CFM)", en="Airflow (CFM)")
+_C_HEIGHT = _f("height_mm", "int", lo=5, hi=300, group="physical",
+               aliases=("height_mm", "cooler_height_mm"), he="גובה (mm)", en="Height (mm)")
+_C_SOCKETS = _f("sockets", "list_str", filterable=True, group="io",
+                aliases=("sockets", "socket_compat", "socket"),
+                he="סוקטים נתמכים", en="Sockets")
+# Ivory's "חיבורים" cell lists the fan/pump wiring ("חיבור 4pin PWM ללוח
+# אם", "חיבור 3pin ARGB", "USB2.0 פנימי"); the cell parser reduces it to
+# the connector list instead of shipping the prose.
+_C_CONNECTORS = _f("connectors", "list_str", group="io",
+                   aliases=("connectors", "connection_types"),
+                   he="חיבורים", en="Connectors")
+# "אורך: 69 מ\"מ רוחב: 92 מ\"מ גובה: 76 מ\"מ" - the pump/block block
+# size, kept as one normalized dimension string (case dimensions_mm has
+# the same shape; nothing downstream sorts on it).
+_C_PUMP_DIMS = _f("pump_dimensions_mm", "str", group="physical",
+                  aliases=("pump_dimensions_mm", "pump_size_mm"),
+                  he="מידות משאבה", en="Pump Dimensions (mm)")
+_C_TDP = _f("tdp_w", "int", lo=10, hi=1000, group="power",
+            aliases=("tdp_w", "tdp", "cooling_capacity_w"),
+            he="פיזור חום (W)", en="Cooling Capacity (W)")
+_C_FANLESS = _f("fanless", "bool", filterable=True, group="physical",
+                aliases=("fanless",), he="ללא מאוורר", en="Fanless")
+_C_LIGHTING = _f("lighting", "str", filterable=True, group="physical",
+                 aliases=("lighting", "led"), he="תאורה", en="Lighting")
+_C_COLOR = _f("color", "str", filterable=True, group="physical",
+              aliases=("color", "colour"), he="צבע", en="Color")
+
+# Closed-loop liquid coolers: radiator + pump, no fanless flag, no case-fit
+# height (the radiator size is the fit fact), no water_cooled (the category).
+AIO = (
+    _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS,
+    _C_RADIATOR_SIZE, _C_RADIATOR_LENGTH, _C_RADIATOR_THICKNESS,
+    _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MIN, _C_FAN_RPM_MAX,
+    _C_NOISE, _C_AIRFLOW, _C_SOCKETS, _C_CONNECTORS, _C_PUMP_DIMS,
+    _C_TDP, _C_LIGHTING, _C_COLOR,
+)
+
+# Tower / downdraft air coolers: no radiator, no pump, no water_cooled.
+COOLER_AIR = (
+    _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS,
+    _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MIN, _C_FAN_RPM_MAX,
+    _C_NOISE, _C_AIRFLOW, _C_HEIGHT, _C_SOCKETS, _C_CONNECTORS,
+    _C_TDP, _C_FANLESS, _C_LIGHTING, _C_COLOR,
+)
+
+# The grab-bag the matcher could not place (coolers of either kind, paste,
+# brackets): only the facts that make sense for all of them. water_cooled
+# stays here because nothing else says which kind a row is.
+COOLING_OTHER = (
+    _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS, _C_WATER_COOLED,
+    _C_RADIATOR_SIZE, _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MAX,
+    _C_NOISE, _C_AIRFLOW, _C_HEIGHT, _C_SOCKETS, _C_TDP,
+    _C_LIGHTING, _C_COLOR,
 )
 
 # --------------------------------------------------------------------------
@@ -402,8 +455,6 @@ MOTHERBOARD = (
        aliases=("ecc_support", "ecc"), he="תמיכת ECC", en="ECC Support"),
     _f("raid_support", "bool", group="storage", aliases=("raid_support", "raid_level", "raid"),
        he="תמיכת RAID", en="RAID Support"),
-    _f("back_connect", "bool", group="io", aliases=("back_connect",),
-       he="Back-Connect", en="Back-Connect"),
     _f("usb2_headers", "int", lo=0, hi=6, group="io", aliases=("usb2_headers", "usb_headers"),
        he="מחברי USB 2.0", en="USB 2.0 Headers"),
     _f("usb32_gen1_headers", "int", lo=0, hi=6, group="io", aliases=("usb32_gen1_headers",),
@@ -417,11 +468,9 @@ MOTHERBOARD = (
     _f("audio", "str", group="io", aliases=("audio", "audio_chip"), he="שמע", en="Audio"),
     _f("expansion_slots", "str", group="io", aliases=("expansion_slots",),
        he="חריצי הרחבה", en="Expansion Slots"),
-    _f("vrm_phases", "str", group="other", aliases=("vrm_phases",),
-       he="שלבֵי VRM", en="VRM Phases"),
     _f("bios", "str", group="other", aliases=("bios",), he="BIOS", en="BIOS"),
-    _f("power_connections", "str", group="power", aliases=("power_connections",),
-       he="חיבורי חשמל", en="Power Connections"),
+    # Pruned 2026-10-17 (0% fill, no vendor or manufacturer page prints them):
+    # `vrm_phases`, `back_connect`, `power_connections`.
     # Removed 2026-10-15: `max_cooler_height_mm` was a CASE fact (the tallest
     # air cooler the enclosure takes) that had been copied into the board
     # schema, where it is physically meaningless and had been null on all
@@ -503,12 +552,16 @@ STORAGE = (
        aliases=("interface", "connection_interface"), he="ממשק", en="Interface"),
     _f("nvme", "bool", filterable=True, group="storage", aliases=("nvme", "nvme_flag"),
        he="NVMe", en="NVMe"),
+    # PCIe generation exists only on NVMe drives; a SATA SSD has none.
     _f("pcie_gen", "int", lo=1, hi=6, filterable=True, group="storage",
-       aliases=("pcie_gen",), he="דור PCIe", en="PCIe Gen"),
+       aliases=("pcie_gen",), he="דור PCIe", en="PCIe Gen",
+       when=(("nvme", (True,)),)),
     _f("cache_mb", "int", lo=0, hi=16384, group="storage", aliases=("cache_mb", "cache", "dram_cache"),
        he="מטמון (MB)", en="Cache (MB)"),
+    # Spindle speed: a spinning disk fact (an SSD has no platters).
     _f("rpm", "int", lo=0, hi=20000, filterable=True, group="storage",
-       aliases=("rpm", "spindle_speed"), he="סל״ד", en="RPM"),
+       aliases=("rpm", "spindle_speed"), he="סל״ד", en="RPM",
+       when=(("type", ("HDD", "Hybrid")),)),
     # Sequential throughput and random IOPS: the two rows every vendor's
     # drive page carries ("7450MB/s", "220K IOPS") and the two numbers a
     # buyer compares. Cell-parsed, because thousand separators ("10,000MB
@@ -519,14 +572,10 @@ STORAGE = (
     _f("write_speed_mbs", "int", lo=50, hi=30000, group="storage",
        aliases=("write_speed_mbs", "sequential_write_mbs", "max_write_mbs"),
        he="מהירות כתיבה (MB/s)", en="Write Speed (MB/s)"),
-    _f("random_read_iops", "int", lo=100, hi=10000000, group="storage",
-       aliases=("random_read_iops", "4k_random_read_iops"),
-       he="קריאה אקראית (IOPS)", en="Random Read (IOPS)"),
-    _f("random_write_iops", "int", lo=100, hi=10000000, group="storage",
-       aliases=("random_write_iops", "4k_random_write_iops"),
-       he="כתיבה אקראית (IOPS)", en="Random Write (IOPS)"),
-    _f("nand", "str", group="storage", aliases=("nand", "nand_type"), he="סוג NAND", en="NAND"),
-    _f("controller", "str", group="storage", aliases=("controller",), he="בקר", en="Controller"),
+    # Pruned 2026-10-17: `random_read_iops` / `random_write_iops` (5% fill, only
+    # Ivory's SSD tables print them) and `controller` (0%, no source prints it).
+    _f("nand", "str", group="storage", aliases=("nand", "nand_type"), he="סוג NAND", en="NAND",
+       when=(("type", ("SSD", "Hybrid")),)),
     # Drive mass, printed on 43 rows ("32.7 גרם", "98 grams", "כ-2.49 ק\"ג").
     # Grams as a float, not kilograms: an M.2 drive is tens of grams and a kg
     # column would round it to 0.0. canon_weight_g reads the vendor's unit.
@@ -608,8 +657,7 @@ GPU = (
        he="יציאות HDMI", en="HDMI Outputs"),
     _f("dvi_outputs", "dict_int", group="io", aliases=("dvi_outputs", "dvi_ports"),
        he="יציאות DVI", en="DVI Outputs"),
-    _f("frame_sync", "str", group="core", aliases=("frame_sync", "g_sync", "freesync"),
-       he="סנכרון פריימים", en="Frame Sync"),
+    # Pruned 2026-10-17: `frame_sync` (0.4% fill; no retailer or reference row prints it).
     PACKAGING,
     _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
        he="צבע", en="Color"),
@@ -744,8 +792,10 @@ PSU = (
        aliases=("modular", "modularity"), he="מודולרי", en="Modular"),
     _f("length_mm", "int", lo=100, hi=250, filterable=True, group="physical",
        aliases=("length_mm", "psu_length_mm", "depth_mm"), he="אורך (mm)", en="Length (mm)"),
+    # A fanless (passive) PSU has no fan to size.
     _f("fan_size_mm", "int", lo=40, hi=200, group="physical",
-       aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)"),
+       aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)",
+       when=(("fanless", (False,)),)),
     _f("fanless", "bool", filterable=True, group="physical", aliases=("fanless",),
        he="ללא מאוורר", en="Fanless"),
     _f("atx_version", "str", group="power", aliases=("atx_version", "atx_standard"),
@@ -805,12 +855,12 @@ MINIMAL = (
 # Category -> schema
 #
 # Category ids are the pipeline's `category_normalized` values, unchanged by
-# this overhaul (spiders, matching and site routing keep working). aio and
-# cooler_air intentionally share one schema: they are the same physical
-# product class (PCPP calls both "CPU Cooler").
+# this overhaul (spiders, matching and site routing keep working). aio,
+# cooler_air and cooling_other were one shared schema until 2026-10-17; the
+# reference dataset still files both under PCPartPicker's "cpu-cooler".
 # --------------------------------------------------------------------------
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 SCHEMA: dict[str, tuple[FieldSpec, ...]] = {
     "cpu": CPU,
@@ -821,9 +871,9 @@ SCHEMA: dict[str, tuple[FieldSpec, ...]] = {
     "case": CASE,
     "psu": PSU,
     "case_fan": CASE_FAN,
-    "aio": CPU_COOLER,
-    "cooler_air": CPU_COOLER,
-    "cooling_other": CPU_COOLER,
+    "aio": AIO,
+    "cooler_air": COOLER_AIR,
+    "cooling_other": COOLING_OTHER,
     "accessories": MINIMAL,
     "other": MINIMAL,
 }
@@ -858,6 +908,23 @@ def field_names(category: str | None) -> tuple[str, ...]:
 
 def field_map(category: str | None) -> dict[str, FieldSpec]:
     return {f.name: f for f in fields_for(category)}
+
+
+def applies(category: str | None, field: str, specs: dict) -> bool:
+    """False only when the field provably cannot exist for this product.
+
+    Every `applies_to` gate must hold. A gate whose field is still null leaves
+    the field applicable: unknown is not "no", and a wrongly-gated field would
+    hide a real gap from the fill report.
+    """
+    spec = field_map(category).get(field)
+    if spec is None:
+        return False
+    for gate, allowed in spec.applies_to:
+        value = specs.get(gate)
+        if value is not None and value not in allowed:
+            return False
+    return True
 
 
 def filterable_fields(category: str | None) -> tuple[str, ...]:
@@ -931,56 +998,6 @@ def empty_specs(category: str | None) -> dict[str, None]:
     return {f.name: None for f in fields_for(category)}
 
 
-def covered_specs(category: str | None, specs: dict) -> dict:
-    """Only the non-null fields (used by golden checks and the coverage
-    report; the shipped `specs` keeps nulls)."""
-    return {k: v for k, v in specs.items() if v is not None}
-
-
 def normalize_key(key: str) -> str:
     """Public alias for the vendor/detail key normalizer."""
     return _norm_key(key)
-
-
-def json_schema() -> dict:
-    """Machine-readable schema for tests/tooling (one definition, many uses)."""
-    return {
-        "version": SCHEMA_VERSION,
-        "categories": {
-            cat: {
-                "fields": [
-                    {
-                        "name": f.name,
-                        "type": f.type,
-                        "unit": f.unit,
-                        "enum": list(f.enum),
-                        "min": f.lo,
-                        "max": f.hi,
-                        "filterable": f.filterable,
-                        "group": f.group,
-                        "aliases": list(f.aliases),
-                    }
-                    for f in fields
-                ]
-            }
-            for cat, fields in SCHEMA.items()
-        },
-    }
-
-
-def schema_field_names() -> frozenset[str]:
-    """Every field name across every category (for the legacy projection's
-    'is this key schema-owned?' check)."""
-    names: set[str] = set()
-    for fields in SCHEMA.values():
-        names.update(f.name for f in fields)
-    return frozenset(names)
-
-
-def schema_key_names() -> frozenset[str]:
-    """Every field name AND alias across every category (normalized). This is
-    what stops non-schema junk from re-entering the derived attributes blob."""
-    keys: set[str] = set()
-    for category in SCHEMA:
-        keys.update(alias_map(category))
-    return frozenset(keys)

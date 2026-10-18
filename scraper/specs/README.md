@@ -79,6 +79,7 @@ Order inside the product pass is deliberate (`build.py::build_product_specs`):
 | Tier | Source | Role |
 | :--- | :--- | :--- |
 | 0 — Reference | docyx/pc-part-dataset (PCPartPicker specs) indexed by `scraper/pcpartdb.py` + committed `data/specs/overrides.json` | Authoritative; wins every conflict. |
+| 0.5 — Manufacturer | the brand's own product page, fetched by `scraper/mfr/` into `data/mfr/<brand>.json` (see `scraper/mfr/README.md`) | Primary-source facts; beats the retailer payload, loses to Tier 0 and overrides. Source label `manufacturer`. |
 | 1 — Trusted vendor | Ivory `cuts`/`detail_specs`, TMS product fields, the `matching:computed` bridge | Fills what Tier 0 lacks. |
 | 2 — Title/SKU | typed regex resolvers over `match_text` | Fills remaining nulls. |
 | 3 — Weak vendors | 1PC prose, Plonter tree/dash dumps | Fill-only; a value contradicting a filled Tier 0-2 field is discarded and logged, never merged. |
@@ -169,9 +170,11 @@ Two kinds of knowledge are separated on purpose:
   tray packaging -> no cooler, socket -> platform memory maximum, `thread_count` for
   SMT-uniform AMD lineups, and storage fields implied by the interface
   (`M.2 PCIe 4.0 x4` -> NVMe SSD on M.2 at gen 4).
-- **Never inferred**: per-SKU facts. L3 size, exact clocks, ECC support, fan
-  counts, connector counts, board USB headers. A wrong number is worse than a
-  missing one, so these stay `null` until a real source answers.
+- **Never inferred by rule**: per-SKU facts. Exact clocks, fan counts, connector
+  counts, board USB headers. A wrong number is worse than a missing one, so these stay
+  `null` until a real source answers. (L3/L2 size and ECC are the exception: since Oct
+  2026 they come from the curated per-model table described below, i.e. from a
+  source, not from a rule.)
 
 The order inside `build_product_specs` is part of the contract:
 `merge -> fill_derived -> cross_check -> infer_specs`. `cross_check` runs first
@@ -183,6 +186,33 @@ emptied, which it could not do while that wrong value was still present.
 `microarchitecture` that contradicts its own model number (the reference
 dataset lists Threadripper 7960X as Zen 2). They land in
 `data/site/spec_report.json` under `issues` with `kind: spec_note`.
+
+### Curated tables and explicit negatives (Oct 2026, Phase 1c)
+
+`derive.infer_specs` reads two kinds of knowledge beyond the architecture rules
+above. Both only fill nulls and tag `derived:<rule>`; `scripts/fill_report.py
+--check-tables` compares every table row with the vendor-published values already in
+the catalog, and `scripts/check_spec_merge.py` validates every table cell against the
+schema.
+
+- **Lookup tables** (`scraper/specs/tables/*.json`, data not logic): GPU facts that are
+  invariant for a chipset name (memory type, bus width, DirectX/OpenGL, the chip
+  designer's reference TDP and recommended PSU, interface) and per-CPU-model facts
+  (L2/L3, iGPU, Threadripper memory ceiling). A row lists a field only when it holds for
+  every SKU sharing the anchor: the RTX 3060 row has no bus width because 12GB/192-bit
+  and 8GB/128-bit both exist, `Radeon RX 9070` carries `_requires: {memory_gb: [16]}`
+  because the name also covers the 12GB GRE, and `max_displays` is absent everywhere
+  because retailers print the card's output count, not the chip's ceiling.
+- **Explicit negatives** (`context` argument, built in `build.py::_evidence_context`):
+  where the whole evidence base proves absence. A board whose title and *every* detail
+  row never mention Wi-Fi/Bluetooth/Thunderbolt, on a page with a full table (8+ rows),
+  has none (every one of the 473 boards that have Wi-Fi mentions it, 74/74 for
+  Thunderbolt); a memory kit with no laptop/server marker is desktop, unbuffered, non-ECC;
+  a case title that never mentions a PSU is "Not included". Negatives are spelled "No",
+  never "None" (`values.coerce` treats "none" as a placeholder and drops it).
+- **Schema gates** (`FieldSpec.applies_to`, `schema.applies()`): a field that cannot exist
+  for a product (an SSD's RPM, a fanless PSU's fan size, a SATA drive's PCIe generation) is
+  *not applicable*, not a gap. `scripts/fill_report.py` uses the same gate.
 
 ## Identity-scoped reference join (`identity+anchor`)
 

@@ -1,0 +1,255 @@
+"""
+mfr/corsair.py - corsair.com product pages (feasibility: PASS).
+
+Verdict (Oct 2026): robots.txt allows /us/en/p/ product pages; the product
+sitemap (us-sitemap-products-1.xml) lists ~4,000 URLs that embed the
+manufacturer part number (".../p/case-fans/co-9050111-ww/<slug>"), so catalog
+products join EXACTLY on MPN (region suffix dropped: the importer sells -EU
+codes, the US sitemap lists -NA / -WW); pages are server-rendered with a
+"TechSpecItem" table (<th>label</th><td>value</td>), no JS needed.
+Storage pages (MP600 SSDs) carry no such table and are skipped.
+"""
+
+from __future__ import annotations
+
+import re
+
+from .common import (base_mpn, html_rows, mb_form_factor_list, number_range, spaced_mm,
+                     typed)
+
+BRAND = "Corsair"
+BASE_URL = "https://www.corsair.com"
+SITEMAP = BASE_URL + "/us-sitemap-products-1.xml"
+CATEGORIES = ("case_fan", "aio", "cooler_air", "cooling_other", "case", "psu", "memory")
+
+_URL_RE = re.compile(r"https://www\.corsair\.com/us/en/p/([^/]+)/([^/]+)/([^/<\s]+)")
+
+
+def index(client) -> list[dict]:
+    """[{url, key, path_category}] for every product URL in the sitemap."""
+    page = client.get(SITEMAP)
+    entries = []
+    for match in _URL_RE.finditer(page or ""):
+        path_category, mpn_part, _slug = match.groups()
+        key = base_mpn(mpn_part)
+        if key:
+            entries.append({"url": match.group(0), "key": key,
+                            "path_category": path_category})
+    return entries
+
+
+def match(entries_by_key: dict[str, dict], product: dict) -> dict | None:
+    """Exact MPN join (the part number is in the URL)."""
+    for value in (product.get("specs") or {}).get("part_numbers") or []:
+        entry = entries_by_key.get(base_mpn(value))
+        if entry:
+            return entry
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Spec table -> schema fields, per catalog category
+# ---------------------------------------------------------------------------
+
+
+def _rows(page: str) -> dict[str, str]:
+    """label (lowercase) -> value, first occurrence wins."""
+    out: dict[str, str] = {}
+    for label, value in html_rows(page):
+        out.setdefault(re.sub(r"\s+", " ", label).strip().lower(), value)
+    return out
+
+
+def _pick(rows: dict[str, str], *labels: str) -> str | None:
+    for label in labels:
+        if label in rows:
+            return rows[label]
+    return None
+
+
+def _max(raw) -> float | None:
+    span = number_range(raw)
+    return span[1] if span else None
+
+
+def _yes(raw) -> bool | None:
+    text = str(raw or "").strip().lower()
+    if text in ("yes", "y", "true", "supported"):
+        return True
+    if text in ("no", "n", "false", "none", "n/a", "not supported"):
+        return False
+    return None
+
+
+def _mm(raw) -> int | None:
+    match = re.search(r"(\d+(?:\.\d+)?)\s*mm", str(raw or ""), re.I)
+    return int(round(float(match.group(1)))) if match else None
+
+
+def _bare_mm(raw) -> int | None:
+    match = re.fullmatch(r"\s*(\d{2,4})(?:\.\d+)?\s*", str(raw or ""))
+    return int(match.group(1)) if match else None
+
+
+def parse(page: str, category: str) -> dict:
+    """Typed schema fields for one page. Only values that validate survive."""
+    rows = _rows(page)
+    out: dict = {}
+
+    def put(field: str, raw) -> None:
+        if raw is None:
+            return
+        value = typed(category, field, raw)
+        if value is not None:
+            out[field] = value
+
+    if category == "case_fan":
+        _fan(rows, put)
+    elif category in ("aio", "cooler_air", "cooling_other"):
+        _cooler(rows, put, category)
+    elif category == "psu":
+        _psu(rows, put)
+    elif category == "case":
+        _case(rows, put)
+    elif category == "memory":
+        _memory(rows, put)
+    return out
+
+
+def _speed(rows, put, low_field: str, high_field: str) -> None:
+    raw = _pick(rows, "fan speed", "speed", "rpm")
+    span = number_range(raw) if raw else None
+    if span:
+        if span[0] != span[1] and span[0] >= 100:   # "10 - 2100" is the PWM floor, not rpm
+            put(low_field, int(span[0]))
+        put(high_field, int(span[1]))
+
+
+def _fan(rows, put) -> None:
+    put("size_mm", _mm(_pick(rows, "fan size", "fan dimensions")))
+    put("airflow_cfm", _max(_pick(rows, "fan airflow", "airflow")))
+    put("static_pressure_mmh2o",
+        _max(_pick(rows, "fan static pressure", "static pressure")))
+    _speed(rows, put, "rpm_min", "rpm_max")
+    put("noise_db", _max(_pick(rows, "noise level", "sound level", "fan noise level")))
+    put("pwm", _yes(_pick(rows, "pwm control", "pwm")))
+    # `Package Quantity` counts packages ("1" on a dual-fan kit) and "LED
+    # Color: RGB" does not say addressable, so neither is read.
+
+
+def _cooler(rows, put, category) -> None:
+    sockets = _pick(rows, "cpu socket")
+    if sockets:
+        put("sockets", [part.strip() for part in sockets.split(",") if part.strip()])
+    if category != "cooler_air":
+        put("radiator_size_mm", _mm(_pick(rows, "radiator size")))
+    _speed(rows, put, "fan_rpm_min", "fan_rpm_max")
+    put("airflow_cfm", _max(_pick(rows, "fan airflow", "airflow")))
+    put("noise_db", _max(_pick(rows, "noise level", "sound level")))
+    if category == "cooler_air":
+        height = _max(_pick(rows, "product height"))
+        if height:
+            put("height_mm", int(round(height)))
+
+
+_EFFICIENCY = {"white", "bronze", "silver", "gold", "platinum", "titanium"}
+
+
+def _psu(rows, put) -> None:
+    watts = _max(_pick(rows, "continuous power w"))
+    if watts:
+        put("wattage_w", int(watts))
+    tier = (_pick(rows, "80 plus efficiency", "cybenetics efficiency") or "").strip().lower()
+    if tier in _EFFICIENCY:
+        put("efficiency", f"80+ {tier.title()}")
+    modular = (_pick(rows, "modular") or "").strip().lower()
+    if modular.startswith("fully") or modular == "full":
+        put("modular", "full")
+    elif modular.startswith("semi") or modular == "partial":
+        put("modular", "semi")
+    elif modular in ("no", "non-modular", "none"):
+        put("modular", "no")
+    version = _pick(rows, "atx12v version")
+    if version and re.fullmatch(r"\s*[23]\.\d\s*", version):
+        put("atx_version", f"ATX {version.strip()}")
+    put("atx4_connectors", _max(_pick(rows, "atx connector")))
+    put("sata_connectors", _max(_pick(rows, "sata connector")))
+    put("molex4_connectors", _max(_pick(rows, "pata connector")))
+    put("type", _pick(rows, "psu form factor"))
+    put("fan_size_mm", _mm(_pick(rows, "fan size mm", "fan size")))
+    dims = _pick(rows, "dimensions")
+    match = re.match(r"\s*(\d{2,3})\s*x\s*\d{2,3}\s*x\s*\d{2,3}", dims or "", re.I)
+    if match:
+        put("length_mm", int(match.group(1)))
+
+
+def _case(rows, put) -> None:
+    support = _pick(rows, "motherboard support", "case supported")
+    forms = mb_form_factor_list(support or "")
+    if forms:
+        put("mb_form_factors", forms)
+    size = _pick(rows, "case size")
+    if size:
+        put("type", re.sub(r"[-_]+", " ", size).strip())
+    put("max_gpu_length_mm", _mm(_pick(rows, "maximum gpu length", "max gpu length")))
+    put("max_cooler_height_mm",
+        _mm(_pick(rows, "maximum cpu cooler height", "max cpu cooler height")))
+    window = (_pick(rows, "case window", "left side panel", "side panel") or "").strip()
+    if window:
+        if re.search(r"glass|window|acrylic", window, re.I):
+            put("side_panel", "Windowed")
+        elif window.lower() in ("none", "no", "n/a", "solid"):
+            put("side_panel", "No Window")
+    height, length, width = (_mm(_pick(rows, label)) or _bare_mm(_pick(rows, label))
+                             for label in ("case height", "case length", "case width"))
+    if height and length and width:
+        put("dimensions_mm", f"W={width} H={height} D={length}mm")
+    weight = re.search(r"(\d+(?:\.\d+)?)\s*kg", _pick(rows, "weight") or "", re.I)
+    if weight and float(weight.group(1)) > 0:
+        put("weight_kg", float(weight.group(1)))
+    sizes: set[int] = set()
+    for label, value in rows.items():
+        if label.startswith("radiator support"):
+            sizes.update(int(n) for n in re.findall(r"(\d{3})\s*mm", value))
+    if sizes:
+        put("radiator_support", {f"{n} mm": 1 for n in sorted(sizes)})
+    for label, field in (("fan support - front", "fan_front"), ("fan support - top", "fan_top"),
+                         ("fan support - rear", "fan_rear"), ("fan support - side", "fan_side"),
+                         ("fan support - bottom", "fan_bottom")):
+        value = rows.get(label)
+        if value and not value.strip().lower().startswith(("none", "n/a", "no")):
+            put(field, spaced_mm(value))
+    slots = re.match(r"\s*(\d{1,2})\b", _pick(rows, "case expansion slots") or "")
+    if slots:
+        put("expansion_slots", slots.group(1))
+
+
+def _memory(rows, put) -> None:
+    size = _pick(rows, "memory size") or ""
+    kit = re.search(r"(\d+)\s*GB\s*\(\s*(\d+)\s*x\s*(\d+)\s*GB", size, re.I)
+    single = re.fullmatch(r"\s*(\d+)\s*GB\s*", size, re.I)
+    if kit:
+        put("total_gb", int(kit.group(1)))
+        put("module_count", int(kit.group(2)))
+        put("module_size_gb", int(kit.group(3)))
+    elif single:
+        put("total_gb", int(single.group(1)))
+        put("module_count", 1)
+        put("module_size_gb", int(single.group(1)))
+    put("cas_latency", _max(_pick(rows, "tested latency")))
+    speed = _max(_pick(rows, "tested speed"))
+    if speed:
+        put("speed_mhz", int(speed))
+    put("voltage_v", _max(_pick(rows, "tested voltage")))
+    form = (_pick(rows, "package memory format") or "").upper()
+    if form in ("UDIMM", "DIMM"):
+        put("form_factor", "DIMM")
+        put("registered", False)
+    elif form in ("SODIMM", "SO-DIMM"):
+        put("form_factor", "SO-DIMM")
+    kind = (_pick(rows, "memory type") or "").strip().upper()
+    if re.fullmatch(r"DDR[345]", kind):
+        put("memory_type", kind)
+    spreader = _pick(rows, "heat spreader")
+    if spreader:
+        put("heat_spreader", spreader.strip().lower() not in ("none", "no"))

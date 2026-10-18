@@ -1,4 +1,4 @@
-import type { Lang, Product } from "./types";
+import type { Product } from "./types";
 
 export interface BuildSlot {
   id: string;
@@ -98,7 +98,7 @@ export function numSpec(p: Product, fields: string[]): number | null {
 }
 
 /** Scalar spec as display text ("" for a missing/complex value). */
-export function specText(p: Product, field: string): string {
+function specText(p: Product, field: string): string {
   const value = p.specs?.[field];
   if (value === null || value === undefined) return "";
   if (typeof value === "object") return "";
@@ -304,7 +304,7 @@ function inferCpuSockets(p: Product): string[] {
   return [];
 }
 
-export function cpuSocketsForProduct(p: Product): string[] {
+function cpuSocketsForProduct(p: Product): string[] {
   const fromSpecs = socketTokensFromSpec(p, ["socket"]);
   if (fromSpecs.length > 0) return fromSpecs;
 
@@ -314,7 +314,7 @@ export function cpuSocketsForProduct(p: Product): string[] {
   return inferCpuSockets(p);
 }
 
-export function motherboardSocketsForProduct(p: Product): string[] {
+function motherboardSocketsForProduct(p: Product): string[] {
   const fromSpecs = socketTokensFromSpec(p, ["socket"]);
   if (fromSpecs.length > 0) return fromSpecs;
 
@@ -330,7 +330,7 @@ export function motherboardSocketsForProduct(p: Product): string[] {
   return socketTokensFromText(`${p.name} ${p.model ?? ""}`);
 }
 
-export function coolerSocketsForProduct(p: Product): string[] {
+function coolerSocketsForProduct(p: Product): string[] {
   const fromSpecs = socketTokensFromSpec(p, ["sockets", "socket"]);
 
   const fromText = socketTokensFromText(`${p.name} ${p.model ?? ""}`);
@@ -338,7 +338,7 @@ export function coolerSocketsForProduct(p: Product): string[] {
   return unique([...fromSpecs, ...fromText]);
 }
 
-export function memoryTypeForProduct(p: Product): string | null {
+function memoryTypeForProduct(p: Product): string | null {
   const fromSpecs = specText(p, "memory_type").match(/DDR\s?([345])/i);
   if (fromSpecs) return `DDR${fromSpecs[1]}`;
 
@@ -380,8 +380,7 @@ function gpuFitsCase(gpu: Product, case_: Product): boolean {
 
 /*
 ============================================================================
-Phase-3 depth (2026-10-17): the physical/electrical fits the pipeline now
-has data for — board form factor vs case, cooler height vs case clearance,
+Physical and electrical fits the pipeline has data for — board form factor vs case, cooler height vs case clearance,
 AIO radiator vs case support, RAM speed vs board support, and the GPU's
 PSU recommendation. Same forgiving rule as above: only both-sides-known
 conflicts are raised.
@@ -400,12 +399,12 @@ function normFormFactor(value: string): string {
   return v;
 }
 
-export function boardFormFactor(p: Product): string | null {
+function boardFormFactor(p: Product): string | null {
   const raw = specText(p, "form_factor");
   return raw ? normFormFactor(raw) : null;
 }
 
-export function caseFormFactors(p: Product): string[] {
+function caseFormFactors(p: Product): string[] {
   const value = p.specs?.mb_form_factors;
   if (!Array.isArray(value)) return [];
   return unique(value.map((item) => normFormFactor(String(item))));
@@ -427,7 +426,7 @@ function coolerFitsCase(cooler: Product, case_: Product): boolean {
 }
 
 /** Radiator sizes the case lists ({"360 mm": 1, ...} -> [360, ...]). */
-export function caseRadiatorSizes(p: Product): number[] {
+function caseRadiatorSizes(p: Product): number[] {
   const value = p.specs?.radiator_support;
   if (!value || typeof value !== "object" || Array.isArray(value)) return [];
   const sizes = new Set<number>();
@@ -507,7 +506,7 @@ export function knownPartWattage(slotId: string, p: Product): number {
   return Math.round(watts);
 }
 
-export function estimateWattage(parts: Record<string, Product>): number {
+function estimateWattage(parts: Record<string, Product>): number {
   return Object.entries(parts).reduce((sum, [slotId, product]) => {
     return sum + knownPartWattage(slotId, product);
   }, 0);
@@ -519,149 +518,114 @@ Compatibility issues for already-selected build parts.
 ============================================================================
 */
 
+type CompatLevel = "warn" | "err";
+
+export type CompatCode =
+  | "socket"
+  | "memoryType"
+  | "memoryMax"
+  | "memorySpeed"
+  | "gpuLength"
+  | "boardForm"
+  | "coolerHeight"
+  | "radiator"
+  | "coolerSocket"
+  | "psuLow"
+  | "psuHeadroom"
+  | "psuGpu";
+
+/** A language-neutral finding; i18n.ts `compatMessage` renders the text. */
+export interface CompatIssue {
+  level: CompatLevel;
+  code: CompatCode;
+  params: Record<string, string | number | null>;
+}
+
 export function checkCompatibility(
   parts: Record<string, Product>,
-  estWatts: number,
-  lang: Lang
-): string[] {
-  const issues: string[] = [];
+  estWatts: number
+): CompatIssue[] {
+  const issues: CompatIssue[] = [];
+  const add = (
+    level: CompatLevel,
+    code: CompatCode,
+    params: CompatIssue["params"] = {}
+  ): void => {
+    issues.push({ level, code, params });
+  };
 
-  const cpu = parts.cpu;
-  const motherboard = parts.motherboard;
-  const memory = parts.memory;
-  const cooler = parts.cooler;
-  const psu = parts.psu;
+  const { cpu, motherboard, memory, cooler, psu, gpu } = parts;
+  const case_ = parts.case;
 
   if (cpu && motherboard) {
     const cpuSockets = cpuSocketsForProduct(cpu);
     const boardSockets = motherboardSocketsForProduct(motherboard);
-
     if (
       cpuSockets.length > 0 &&
       boardSockets.length > 0 &&
       !hasCommonValue(cpuSockets, boardSockets)
     ) {
-      issues.push(
-        lang === "he"
-          ? `סוקט המעבד (${cpuSockets.join("/")}) אינו תואם ללוח האם (${boardSockets.join("/")})`
-          : `CPU socket (${cpuSockets.join("/")}) does not match motherboard socket (${boardSockets.join("/")})`
-      );
+      add("err", "socket", { cpu: cpuSockets.join("/"), board: boardSockets.join("/") });
     }
   }
 
   if (memory && motherboard) {
     const boardMemory = memoryTypeForProduct(motherboard);
     const memMemory = memoryTypeForProduct(memory);
-
     if (boardMemory && memMemory && boardMemory !== memMemory) {
-      issues.push(
-        lang === "he"
-          ? `סוג הזיכרון (${memMemory}) אינו תואם ללוח האם (${boardMemory})`
-          : `Memory type (${memMemory}) does not match motherboard memory type (${boardMemory})`
-      );
+      add("err", "memoryType", { memory: memMemory, board: boardMemory });
     }
-
-    if (!memoryFitsBoard(memory, motherboard)) {
-      issues.push(
-        lang === "he"
-          ? "נפח הזיכרון חורג מהמקסימום של לוח האם"
-          : "Memory kit exceeds the motherboard maximum capacity"
-      );
-    }
-
+    if (!memoryFitsBoard(memory, motherboard)) add("err", "memoryMax");
     if (!memorySpeedFitsBoard(memory, motherboard)) {
-      const kitSpeed = numSpec(memory, ["speed_mhz"]);
-      issues.push(
-        lang === "he"
-          ? `מהירות הזיכרון (${kitSpeed}MHz) גבוהה ממה שלוח האם מצהיר עליו`
-          : `Memory speed (${kitSpeed}MHz) is above what the motherboard lists`
-      );
+      add("warn", "memorySpeed", { speed: numSpec(memory, ["speed_mhz"]) });
     }
   }
 
-  const gpu = parts.gpu;
-  const case_ = parts.case;
-
-  if (gpu && case_ && !gpuFitsCase(gpu, case_)) {
-    issues.push(
-      lang === "he"
-        ? "כרטיס המסך ארוך מדי למארז הנבחר"
-        : "Graphics card is longer than the selected case supports"
-    );
-  }
+  if (gpu && case_ && !gpuFitsCase(gpu, case_)) add("err", "gpuLength");
 
   if (motherboard && case_ && !boardFitsCase(motherboard, case_)) {
-    issues.push(
-      lang === "he"
-        ? `לוח האם (${boardFormFactor(motherboard)}) אינו נכנס למארז`
-        : `Motherboard (${boardFormFactor(motherboard)}) does not fit the case`
-    );
+    add("err", "boardForm", { form: boardFormFactor(motherboard) });
   }
 
   if (cooler && case_) {
     if (!coolerFitsCase(cooler, case_)) {
-      const height = numSpec(cooler, ["height_mm"]);
-      const max = numSpec(case_, ["max_cooler_height_mm"]);
-      issues.push(
-        lang === "he"
-          ? `גובה הקירור (${height}mm) עולה על המרווח במארז (${max}mm)`
-          : `Cooler height (${height}mm) exceeds the case clearance (${max}mm)`
-      );
+      add("err", "coolerHeight", {
+        height: numSpec(cooler, ["height_mm"]),
+        max: numSpec(case_, ["max_cooler_height_mm"]),
+      });
     }
     if (!aioFitsCase(cooler, case_)) {
-      const radiator = numSpec(cooler, ["radiator_size_mm"]);
-      issues.push(
-        lang === "he"
-          ? `המארז לא מצהיר על תמיכה ברדיאטור ${radiator}mm`
-          : `The case does not list support for a ${radiator}mm radiator`
-      );
+      add("warn", "radiator", { size: numSpec(cooler, ["radiator_size_mm"]) });
     }
   }
 
   if (cpu && cooler) {
     const cpuSockets = cpuSocketsForProduct(cpu);
     const coolerSockets = coolerSocketsForProduct(cooler);
-
     if (
       cpuSockets.length > 0 &&
       coolerSockets.length > 0 &&
       !hasCommonValue(cpuSockets, coolerSockets)
     ) {
-      issues.push(
-        lang === "he"
-          ? `הקירור עשוי שלא להתאים לסוקט המעבד (${cpuSockets.join("/")})`
-          : `Cooler may not support CPU socket (${cpuSockets.join("/")})`
-      );
+      add("warn", "coolerSocket", { cpu: cpuSockets.join("/") });
     }
   }
 
   if (psu && estWatts > 0) {
     const capacity = numSpec(psu, ["wattage_w"]);
-
     if (capacity !== null && capacity < estWatts) {
-      issues.push(
-        lang === "he"
-          ? `הספק (${capacity}W) חלש מהצריכה הידועה (${estWatts}W)`
-          : `PSU (${capacity}W) is below known system wattage (${estWatts}W)`
-      );
+      add("err", "psuLow", { capacity, watts: estWatts });
     } else if (capacity !== null && capacity < estWatts * 1.2) {
       // Headroom note, not an error: transient GPU spikes go well above TDP.
-      issues.push(
-        lang === "he"
-          ? `מרווח הספק קטן: ${capacity}W מול צריכה ידועה ${estWatts}W`
-          : `Little wattage headroom: ${capacity}W against a known ${estWatts}W draw`
-      );
+      add("warn", "psuHeadroom", { capacity, watts: estWatts });
     }
   }
 
   if (psu && gpu && !psuMeetsGpuRecommendation(psu, gpu)) {
-    const capacity = numSpec(psu, ["wattage_w"]);
-    const recommended = numSpec(gpu, ["recommended_psu_w"]);
-    issues.push(
-      lang === "he"
-        ? `כרטיס המסך ממליץ על ספק ${recommended}W לפחות (נבחר ${capacity}W)`
-        : `The card recommends at least ${recommended}W (selected ${capacity}W)`
-    );
+    add("warn", "psuGpu", {
+      capacity: numSpec(psu, ["wattage_w"]),
+      recommended: numSpec(gpu, ["recommended_psu_w"]),
+    });
   }
 
   return issues;
