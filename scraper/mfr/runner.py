@@ -64,6 +64,17 @@ def run(brand: str, *, limit: int | None = None, dry_run: bool = False,
         print(f"[mfr:{brand}] {len(wanted)} pages cover "
               f"{sum(len(v['products']) for v in wanted.values())} products "
               f"({unmatched} unmatched)")
+    # Brands whose pages carry a product identifier (UPC / MPN) fetch every
+    # in-scope page, not only those a catalog product matched by name: the join
+    # then happens at merge time on the identifier the page itself states.
+    extra = 0
+    if hasattr(module, "classify"):
+        for entry in entries:
+            if entry["url"] not in wanted and module.in_scope(entry):
+                wanted[entry["url"]] = {"entry": entry, "products": []}
+                extra += 1
+        if verbose:
+            print(f"[mfr:{brand}] +{extra} identifier-join pages beyond the name matches")
     if dry_run:
         return {"pages": len(wanted), "unmatched": unmatched}
 
@@ -81,7 +92,7 @@ def run(brand: str, *, limit: int | None = None, dry_run: bool = False,
     for index, (url, slot) in enumerate(sorted(wanted.items())):
         if limit is not None and index >= limit:
             break
-        category = slot["products"][0]["category"]
+        category = slot["products"][0]["category"] if slot["products"] else None
         try:
             page = client.get(url)
         except Blocked as error:
@@ -89,23 +100,45 @@ def run(brand: str, *, limit: int | None = None, dry_run: bool = False,
             break
         if page is None:
             continue
-        specs = module.parse(page, category)
-        extra_ids = [specs.pop("_upc", None), specs.pop("_mpn", None)]
-        keys: list[str] = []
-        names: list[str] = []
-        for product in slot["products"]:
-            product_keys, name = _identity_keys(product, module.BRAND)
-            keys += [k for k in product_keys if k not in keys]
-            if name and name not in names:
-                names.append(name)
-        for raw in extra_ids:
-            for key in (norm_upc(raw), norm_mpn(raw), base_mpn(raw)):
-                if key and key not in keys:
-                    keys.append(key)
-        if slot["entry"].get("key") and slot["entry"]["key"] not in keys:
-            keys.append(slot["entry"]["key"])
-        results[url] = {"url": url, "fetched": today, "category": category,
-                        "keys": keys, "names": names, "specs": specs}
+        if hasattr(module, "classify"):
+            category = module.classify(slot["entry"], page) or category
+        if category is None:
+            continue
+        parsed = module.parse(page, category)
+        # A page that sells several models (Lian Li fan families, case + LCD kit)
+        # returns "_blocks": one spec dict per model, each with its own category.
+        blocks = parsed.pop("_blocks", None)
+        if blocks is None:
+            items = [("", category, parsed)]
+        else:
+            items = [(f"#{n}", block.pop("_category", None), block)
+                     for n, block in enumerate(blocks)]
+        for suffix, item_category, specs in items:
+            if item_category is None:
+                continue
+            extra_ids = [specs.pop("_upc", None), specs.pop("_mpn", None),
+                         *(specs.pop("_ids", None) or [])]
+            keys: list[str] = []
+            names: list[str] = []
+            for product in slot["products"] if not suffix else []:
+                product_keys, name = _identity_keys(product, module.BRAND)
+                keys += [k for k in product_keys if k not in keys]
+                if name and name not in names:
+                    names.append(name)
+            for raw in extra_ids:
+                for key in (norm_upc(raw), norm_mpn(raw), base_mpn(raw)):
+                    if key and key not in keys:
+                        keys.append(key)
+            entry_key = slot["entry"].get("key")
+            if entry_key and not suffix:
+                # Entry keys are stored in the store's lookup form (upper-case
+                # alphanumeric) so a slug that IS a part number joins exactly.
+                for key in (entry_key, norm_mpn(entry_key)):
+                    if key and key not in keys:
+                        keys.append(key)
+            results[url + suffix] = {"url": url + suffix, "fetched": today,
+                                     "category": item_category, "keys": keys,
+                                     "names": names, "specs": specs}
         if verbose and index % 25 == 0:
             print(f"[mfr:{brand}] {index + 1}/{len(wanted)} fetched ({client.requests} requests)")
 

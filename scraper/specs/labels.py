@@ -100,13 +100,11 @@ FAN_MOUNT_PREFIX = "__fan_mount_cell__:"   # + case fan field name
 MEMORY_SPEED_GBPS = "__memory_speed_gbps__"   # "28Gbps" (bandwidth is GB/s)
 MEMORY_BUS_BIT = "__memory_bus_bit__"         # "128bit" / "256bits"
 RADIATOR_DIMS = "__radiator_dims__"           # "אורך: 403 מ\"מ רוחב: … עובי: 27"
-PUMP_DIMS = "__pump_dims__"                   # "אורך: 69 … גובה: 76" / "124x120x28"
 SPEED_MBS_PREFIX = "__speed_mbs__:"           # + read_speed_mbs / write_speed_mbs
 CONNECTORS_CELL = "__connectors_cell__"       # cooler "חיבורים" prose -> list
 PACKAGING_CELL = "__packaging_cell__"         # "Retail - קופסה" -> boxed
 DISPLAY_COUNT = "__display_count__"           # "עד 4 מסכים" -> max_displays 4
 GENERATION_CELL = "__generation__"            # "דור 14" / "Series 2" -> Gen N
-WEIGHT_G = "__weight_g__"                    # mass cell -> grams ("32.7 גרם")
 STORAGE_TYPE_CELL = "__storage_type_cell__"   # 1PC "Storage / Storage Type", per category
 
 SPECIAL_TOKENS = frozenset({
@@ -121,9 +119,9 @@ SPECIAL_TOKENS = frozenset({
     INTERNAL_HEADERS, QUANTITY_WORDS, FAN_CONNECTOR, NAND_CELL,
     STORAGE_FORM_FACTOR, INTERFACE_CONNECTIVITY, NETWORK_CARD,
     PSU_CONN_STRING, THERMAL_DESIGN, MEMORY_SPEEDS, EXPANSION_SLOTS,
-    MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS, PUMP_DIMS,
+    MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS,
     CONNECTORS_CELL, PACKAGING_CELL, DISPLAY_COUNT,
-    GENERATION_CELL, WEIGHT_G, STORAGE_TYPE_CELL,
+    GENERATION_CELL, STORAGE_TYPE_CELL,
 })
 
 # --------------------------------------------------------------------------
@@ -444,10 +442,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "usb 3.1": USB_COUNT_PREFIX + "USB 3.1",
         "usb 3.0": USB_COUNT_PREFIX + "USB 3.0",
         "usb 2.0": USB_COUNT_PREFIX + "USB 2.0",
-        "מחברי usb 2.0": "usb2_headers",
-        "מחברי usb 3.2 gen1": "usb32_gen1_headers",
-        "מחברי usb 3.2 gen2": "usb32_gen2_headers",
-        "מחברי מאווררים": "fan_headers",
         "חריצי הרחבה": "expansion_slots",
         "חיבור גרפי": "onboard_video",
         # TMS prints the board's graphics device here ("ASPEED AST2600 BMC",
@@ -518,8 +512,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "תמיכה ב raid": RAID,
         "רמות raid": RAID,
         "מצבי raid": RAID,
-        "מחברי usb 3.2 gen 1": "usb32_gen1_headers",
-        "מחברי usb 3.2 gen 2": "usb32_gen2_headers",
         "ממשקי כונני אחסון נתמכים": "storage_interface",
         "ממשקי כוננים נתמכים": "storage_interface",
         "מקסימום זכרון": "memory_max_gb",
@@ -554,7 +546,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מהירות": "speed_mhz",
         "זמן איחזור": "cas_latency",
         "cas latency": "cas_latency",
-        "תזמונים": "timing",
         "מתח זכרון": "voltage_v",
         "מתח": "voltage_v",
         "ecc": "ecc",
@@ -600,10 +591,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סדרת hdd": "model",
         "סוג nand": "nand",
         "nand": "nand",
-        # Drive mass ("32.7 גרם", "98 grams", "כ-2.49 ק\"ג", 43 rows):
-        # canon_weight_g reads the vendor's unit, grams or kilograms.
-        "משקל": WEIGHT_G,
-        "משקל המוצר": WEIGHT_G,
         "דור pcie": "pcie_gen",
         "pcie generation": "pcie_gen",
         "nvme": "nvme",
@@ -711,7 +698,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סוג מארז": "type",
         "פאנל צד": "side_panel",
         "ספק כוח כלול": "psu_included",
-        "כיסוי ספק כוח": "psu_shroud",
         "תמיכת לוחות אם": "mb_form_factors",
         "תאימות ללוח אם": "mb_form_factors",
         "פורמטים נתמכים": "mb_form_factors",
@@ -725,7 +711,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "יציאות קדמיות": "front_usb",
         "חריצי הרחבה": "expansion_slots",
         "usb קדמי": "front_usb",
-        "תמיכת מאווררים": "fan_support",
         "תמיכת רדיאטורים": "radiator_support",
         "תאימות קירור נוזלי (רדיאטור)": RADIATOR_SUPPORT,
         "תאימות לוח": MB_FORM_FACTORS,
@@ -737,7 +722,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מידות כ-": DIMS_CELL,
         "מקום לכוננים": DRIVE_BAYS,
         # Oct 2026 completeness pass (case).
-        "bays 5.25": "drive_bays_525",
         "rackmount": "rackmount",
         "מאוורר צד": FAN_MOUNT_PREFIX + "fan_side",
         "תמיכה בגודל רדיאטור ב mm": RADIATOR_SUPPORT,
@@ -794,7 +778,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "גודל רדיאטור": "radiator_size_mm",
         # Oct 2026 completeness pass: Ivory's cooler cells.
         "חיבורים": CONNECTORS_CELL,
-        "מידות משאבה": PUMP_DIMS,
         "מידות רדיאטור": RADIATOR_DIMS,
         "מספר מאווררים": "fan_count",
         "מאוורר מובנה (ממ)": FAN_SIZE,
@@ -832,7 +815,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "גודל": "size_mm",
         "גודל מאוורר": "size_mm",
         "כמות בחבילה": "quantity",
-        "כיוון זרימה": "flow_direction",
         "סל\u05f4ד": RPM_RANGE,
         "מהירות מאוורר": RPM_RANGE,
         "ספיקת אוויר": "airflow_cfm",
@@ -860,10 +842,12 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
 # since the 2026-10-17 split each category drops the labels whose field it no
 # longer has (check_tms_detail fails on a label that maps to a missing field):
 # an air cooler has no radiator / water flag, an AIO no height / fanless flag,
-# and the grab-bag category neither fanless nor pump/radiator dimensions.
-_AIR_ONLY_DROP = ("גודל רדיאטור", "קירור נוזלי")
-_AIO_DROP = ("גובה", "ללא מאוורר", "קירור נוזלי")
-_OTHER_DROP = ("ללא מאוורר",)
+# and the grab-bag category neither fanless nor pump/radiator dimensions
+# (2026-10-18: nor radiator size / fan count / model - 0%, 0% and 4% of 51).
+_AIR_ONLY_DROP = ("גודל רדיאטור", "קירור נוזלי", "מספר מאווררים")
+_AIO_DROP = ("גובה", "ללא מאוורר", "קירור נוזלי", "הספק תרמי מירבי",
+             "המלצה מקסימלית לקירור (tdp)", "פיזור חום")
+_OTHER_DROP = ("ללא מאוורר", "גודל רדיאטור", "מספר מאווררים", "ספיקת אוויר")
 
 _COOLER_AIR_FULL = _CATEGORY_RAW["cooler_air"]
 _CATEGORY_RAW["cooler_air"] = {k: v for k, v in _COOLER_AIR_FULL.items()

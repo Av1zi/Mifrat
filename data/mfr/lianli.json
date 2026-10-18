@@ -1,0 +1,1483 @@
+{
+ "brand": "Lian Li",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-18",
+ "entries": {
+  "https://lian-li.com/product/a3-matx/#0": {
+   "url": "https://lian-li.com/product/a3-matx/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "A3MATX",
+    "A3MATXBLACK",
+    "A3MATXWHITE",
+    "A3MATW",
+    "A3MATWBLACK",
+    "A3MATWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 415,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/a4h2o/#0": {
+   "url": "https://lian-li.com/product/a4h2o/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "A4H2OX5"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 322,
+    "expansion_slots": "3",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/b4-matx/#0": {
+   "url": "https://lian-li.com/product/b4-matx/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "B4X",
+    "B4W"
+   ],
+   "names": [],
+   "specs": {
+    "max_gpu_length_mm": 358,
+    "drive_bays_35": 1,
+    "drive_bays_25": 1,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/edge-gold-v2/#0": {
+   "url": "https://lian-li.com/product/edge-gold-v2/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "EG1000C"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://lian-li.com/product/edge-gold/#0": {
+   "url": "https://lian-li.com/product/edge-gold/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "EG0750G"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://lian-li.com/product/edge-platinum-v2/#0": {
+   "url": "https://lian-li.com/product/edge-platinum-v2/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "EG1350P"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1350,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://lian-li.com/product/edge/#0": {
+   "url": "https://lian-li.com/product/edge/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "EG0850"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Platinum",
+    "modular": "full",
+    "atx_version": "ATX 3.1",
+    "type": "ATX",
+    "fan_size_mm": 120
+   }
+  },
+  "https://lian-li.com/product/lancool-205/#0": {
+   "url": "https://lian-li.com/product/lancool-205/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "LANCOOL",
+    "LANCOOL205"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 350,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.0",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "280 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/lancool-206/#0": {
+   "url": "https://lian-li.com/product/lancool-206/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "LANCOOL",
+    "LANCOOL206RX",
+    "LANCOOL206RXBLACK",
+    "LANCOOL206RXWHITE",
+    "LANCOOL206RW",
+    "LANCOOL206RWBLACK",
+    "LANCOOL206RWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 386,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "280 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/lancool-207/#0": {
+   "url": "https://lian-li.com/product/lancool-207/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "LAN207RX",
+    "LAN207RXBLACK",
+    "LAN207RXWHITE",
+    "LAN207RW",
+    "LAN207RWBLACK",
+    "LAN207RWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 375,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/lancool-216/#0": {
+   "url": "https://lian-li.com/product/lancool-216/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "LANCOOL",
+    "LANCOOL216X",
+    "LANCOOL216XBLACK",
+    "LANCOOL216XWHITE",
+    "LANCOOL216W",
+    "LANCOOL216WBLACK",
+    "LANCOOL216WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 392,
+    "max_cooler_height_mm": 180,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/lancool-iii/#0": {
+   "url": "https://lian-li.com/product/lancool-iii/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "LANCOOL",
+    "LANCOOL3X",
+    "LANCOOL3XBLACK",
+    "LANCOOL3XWHITE",
+    "LANCOOL3W",
+    "LANCOOL3WBLACK",
+    "LANCOOL3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "max_gpu_length_mm": 435,
+    "side_panel": "Windowed",
+    "expansion_slots": "8",
+    "radiator_support": {
+     "360 mm": 1,
+     "420 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-air-mini/#0": {
+   "url": "https://lian-li.com/product/o11-air-mini/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11AMX",
+    "O11AMXBLACK",
+    "O11AMXWHITE",
+    "O11AMW",
+    "O11AMWBLACK",
+    "O11AMWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 362,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-dynamic-evo-xl/#0": {
+   "url": "https://lian-li.com/product/o11-dynamic-evo-xl/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DEXLX",
+    "O11DEXLXBLACK",
+    "O11DEXLXWHITE",
+    "O11DEXLW",
+    "O11DEXLWBLACK",
+    "O11DEXLWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 460,
+    "max_cooler_height_mm": 167,
+    "expansion_slots": "8",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "280 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-dynamic-evo/#0": {
+   "url": "https://lian-li.com/product/o11-dynamic-evo/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DEX",
+    "O11DEXBLACK",
+    "O11DEXWHITE",
+    "O11DEW",
+    "O11DEWBLACK",
+    "O11DEWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 426,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-dynamic-mini-v2/#0": {
+   "url": "https://lian-li.com/product/o11-dynamic-mini-v2/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DMIV2X",
+    "O11DMIV2XBLACK",
+    "O11DMIV2XWHITE",
+    "O11DMIV2W",
+    "O11DMIV2WBLACK",
+    "O11DMIV2WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 160,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=273 H=392 D=424mm",
+    "expansion_slots": "5",
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-dynamic-mini-v2/#1": {
+   "url": "https://lian-li.com/product/o11-dynamic-mini-v2/#1",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DMIV2FX",
+    "O11DMIV2FXBLACK",
+    "O11DMIV2FXWHITE",
+    "O11DMIV2FW",
+    "O11DMIV2FWBLACK",
+    "O11DMIV2FWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 160,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=273 H=392 D=424mm",
+    "expansion_slots": "5",
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-dynamic-mini/#0": {
+   "url": "https://lian-li.com/product/o11-dynamic-mini/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DMINIX",
+    "O11DMINIXBLACK",
+    "O11DMINIXWHITE",
+    "O11DMINIW",
+    "O11DMINIWBLACK",
+    "O11DMINIWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "max_gpu_length_mm": 395,
+    "max_cooler_height_mm": 170,
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-vision-m/#0": {
+   "url": "https://lian-li.com/product/o11-vision-m/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11VMX",
+    "O11VMXBLACK",
+    "O11VMXWHITE",
+    "O11VMW",
+    "O11VMWBLACK",
+    "O11VMWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 162,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=275 H=395 D=420mm",
+    "expansion_slots": "5",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-vision-m/#1": {
+   "url": "https://lian-li.com/product/o11-vision-m/#1",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11VMDX",
+    "O11VMDXBLACK",
+    "O11VMDXWHITE",
+    "O11VMDW",
+    "O11VMDWBLACK",
+    "O11VMDWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 162,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=275 H=395 D=420mm",
+    "expansion_slots": "5",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11-vision/#0": {
+   "url": "https://lian-li.com/product/o11-vision/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11VX",
+    "O11VXBLACK",
+    "O11VXWHITE",
+    "O11VW",
+    "O11VWBLACK",
+    "O11VWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 174,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "120 mm": 1,
+     "280 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11d-evo-rgb/#0": {
+   "url": "https://lian-li.com/product/o11d-evo-rgb/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DERGBX",
+    "O11DERGBXBLACK",
+    "O11DERGBXWHITE",
+    "O11DERGBW",
+    "O11DERGBWBLACK",
+    "O11DERGBWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 456,
+    "max_cooler_height_mm": 167,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/o11dergbl/#0": {
+   "url": "https://lian-li.com/product/o11dergbl/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "O11DERGBL"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 456,
+    "max_cooler_height_mm": 167,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/odyssey-x/#0": {
+   "url": "https://lian-li.com/product/odyssey-x/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "TR01X",
+    "TR01XBLACK",
+    "TR01XWHITE",
+    "TR01W",
+    "TR01WBLACK",
+    "TR01WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 423,
+    "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
+    "expansion_slots": "8",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://lian-li.com/product/q58/#0": {
+   "url": "https://lian-li.com/product/q58/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "Q58X3"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 320,
+    "side_panel": "Windowed",
+    "expansion_slots": "3",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/rb-psu/#0": {
+   "url": "https://lian-li.com/product/rb-psu/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "RB0550B"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 550
+   }
+  },
+  "https://lian-li.com/product/rs/#0": {
+   "url": "https://lian-li.com/product/rs/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "RS1200G"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1200
+   }
+  },
+  "https://lian-li.com/product/sp-platinum/#0": {
+   "url": "https://lian-li.com/product/sp-platinum/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "SP0850P"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850
+   }
+  },
+  "https://lian-li.com/product/sp-v2/#0": {
+   "url": "https://lian-li.com/product/sp-v2/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "SP750G"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 750,
+    "type": "SFX"
+   }
+  },
+  "https://lian-li.com/product/sp750/#0": {
+   "url": "https://lian-li.com/product/sp750/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "SP750"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "type": "SFX"
+   }
+  },
+  "https://lian-li.com/product/sp850/#0": {
+   "url": "https://lian-li.com/product/sp850/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "SP850"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "type": "SFX"
+   }
+  },
+  "https://lian-li.com/product/sup-01/#0": {
+   "url": "https://lian-li.com/product/sup-01/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "SUP01X",
+    "SUP01XBLACK",
+    "SUP01XWHITE",
+    "SUP01W",
+    "SUP01WBLACK",
+    "SUP01WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "280 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/sx-platinum/#0": {
+   "url": "https://lian-li.com/product/sx-platinum/#0",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "SX0850P"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850,
+    "fan_size_mm": 120
+   }
+  },
+  "https://lian-li.com/product/uni-fan-al-v2/#0": {
+   "url": "https://lian-li.com/product/uni-fan-al-v2/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "UFAL120V23B",
+    "UFAL120V23BBLACK",
+    "UFAL120V23BWHITE",
+    "UFAL120V23W",
+    "UFAL120V23WBLACK",
+    "UFAL120V23WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 250,
+    "rpm_max": 2000,
+    "airflow_cfm": 77.3,
+    "static_pressure_mmh2o": 2.97,
+    "noise_db": 28.7
+   }
+  },
+  "https://lian-li.com/product/uni-fan-cl-wireless/#0": {
+   "url": "https://lian-li.com/product/uni-fan-cl-wireless/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12CL1W3B",
+    "12CL1W3BBLACK",
+    "12CL1W3BWHITE",
+    "12CL1W3W",
+    "12CL1W3WBLACK",
+    "12CL1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 250,
+    "rpm_max": 2150,
+    "airflow_cfm": 77.34,
+    "static_pressure_mmh2o": 2.52,
+    "noise_db": 29.8
+   }
+  },
+  "https://lian-li.com/product/uni-fan-cl-wireless/#1": {
+   "url": "https://lian-li.com/product/uni-fan-cl-wireless/#1",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RCL1W3B",
+    "12RCL1W3BBLACK",
+    "12RCL1W3BWHITE",
+    "12RCL1W3W",
+    "12RCL1W3WBLACK",
+    "12RCL1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 250,
+    "rpm_max": 2100,
+    "airflow_cfm": 72.73,
+    "static_pressure_mmh2o": 2.52,
+    "noise_db": 30.8
+   }
+  },
+  "https://lian-li.com/product/uni-fan-p28/#0": {
+   "url": "https://lian-li.com/product/uni-fan-p28/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "UFP281203B",
+    "UFP281203BBLACK",
+    "UFP281203BWHITE",
+    "UFP281203W",
+    "UFP281203WBLACK",
+    "UFP281203WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 300,
+    "rpm_max": 2600,
+    "airflow_cfm": 92.0,
+    "static_pressure_mmh2o": 4.79
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-infinity/#0": {
+   "url": "https://lian-li.com/product/uni-fan-sl-infinity/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "UFSLIN1203B",
+    "UFSLIN1203BBLACK",
+    "UFSLIN1203BWHITE",
+    "UFSLIN1203W",
+    "UFSLIN1203WBLACK",
+    "UFSLIN1203WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 200,
+    "rpm_max": 2100,
+    "airflow_cfm": 61.3,
+    "static_pressure_mmh2o": 2.66,
+    "noise_db": 29.0
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-v2-reverse-blade/#0": {
+   "url": "https://lian-li.com/product/uni-fan-sl-v2-reverse-blade/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "UFRSL120V21B",
+    "UFRSL120V21BBLACK",
+    "UFRSL120V21BWHITE",
+    "UFRSL120V21W",
+    "UFRSL120V21WBLACK",
+    "UFRSL120V21WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 1,
+    "rpm_min": 250,
+    "rpm_max": 2000,
+    "airflow_cfm": 64.5,
+    "static_pressure_mmh2o": 2.59,
+    "noise_db": 32.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-v2/#0": {
+   "url": "https://lian-li.com/product/uni-fan-sl-v2/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "UFSL120V23B",
+    "UFSL120V23BBLACK",
+    "UFSL120V23BWHITE",
+    "UFSL120V23W",
+    "UFSL120V23WBLACK",
+    "UFSL120V23WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 250,
+    "rpm_max": 2000,
+    "airflow_cfm": 64.5,
+    "static_pressure_mmh2o": 2.59,
+    "noise_db": 29.2
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-wireless/#0": {
+   "url": "https://lian-li.com/product/uni-fan-sl-wireless/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12SLLCD1W3B",
+    "12SLLCD1W3BBLACK",
+    "12SLLCD1W3BWHITE",
+    "12SLLCD1W3W",
+    "12SLLCD1W3WBLACK",
+    "12SLLCD1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 300,
+    "rpm_max": 1900,
+    "airflow_cfm": 58.08,
+    "static_pressure_mmh2o": 2.4,
+    "noise_db": 29.5,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-wireless/#1": {
+   "url": "https://lian-li.com/product/uni-fan-sl-wireless/#1",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12SL1W3B",
+    "12SL1W3BBLACK",
+    "12SL1W3BWHITE",
+    "12SL1W3W",
+    "12SL1W3WBLACK",
+    "12SL1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 250,
+    "rpm_max": 2000,
+    "airflow_cfm": 65.4,
+    "static_pressure_mmh2o": 2.19,
+    "noise_db": 32.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-wireless/#2": {
+   "url": "https://lian-li.com/product/uni-fan-sl-wireless/#2",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RSLLCD1W3B",
+    "12RSLLCD1W3BBLACK",
+    "12RSLLCD1W3BWHITE",
+    "12RSLLCD1W3W",
+    "12RSLLCD1W3WBLACK",
+    "12RSLLCD1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 300,
+    "rpm_max": 1900,
+    "airflow_cfm": 51.45,
+    "static_pressure_mmh2o": 2.1,
+    "noise_db": 31.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-sl-wireless/#3": {
+   "url": "https://lian-li.com/product/uni-fan-sl-wireless/#3",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RSL1W3B",
+    "12RSL1W3BBLACK",
+    "12RSL1W3BWHITE",
+    "12RSL1W3W",
+    "12RSL1W3WBLACK",
+    "12RSL1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "quantity": 3,
+    "rpm_min": 300,
+    "rpm_max": 2000,
+    "airflow_cfm": 69.5,
+    "static_pressure_mmh2o": 2.6,
+    "noise_db": 31.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-lcd/#0": {
+   "url": "https://lian-li.com/product/uni-fan-tl-lcd/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12TLLCD3B",
+    "12TLLCD3BBLACK",
+    "12TLLCD3BWHITE",
+    "12TLLCD3W",
+    "12TLLCD3WBLACK",
+    "12TLLCD3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 350,
+    "rpm_max": 1900,
+    "airflow_cfm": 62.0,
+    "static_pressure_mmh2o": 2.9,
+    "noise_db": 27.0
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-lcd/#1": {
+   "url": "https://lian-li.com/product/uni-fan-tl-lcd/#1",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RTLLCD3B",
+    "12RTLLCD3BBLACK",
+    "12RTLLCD3BWHITE",
+    "12RTLLCD3W",
+    "12RTLLCD3WBLACK",
+    "12RTLLCD3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 350,
+    "rpm_max": 1900,
+    "airflow_cfm": 54.3,
+    "static_pressure_mmh2o": 2.83,
+    "noise_db": 31.0
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-wireless/#0": {
+   "url": "https://lian-li.com/product/uni-fan-tl-wireless/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12TLLCD1W3B",
+    "12TLLCD1W3BBLACK",
+    "12TLLCD1W3BWHITE",
+    "12TLLCD1W3W",
+    "12TLLCD1W3WBLACK",
+    "12TLLCD1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 350,
+    "rpm_max": 1900,
+    "airflow_cfm": 62.0,
+    "static_pressure_mmh2o": 2.9,
+    "noise_db": 27.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-wireless/#1": {
+   "url": "https://lian-li.com/product/uni-fan-tl-wireless/#1",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12TL1W3B",
+    "12TL1W3BBLACK",
+    "12TL1W3BWHITE",
+    "12TL1W3W",
+    "12TL1W3WBLACK",
+    "12TL1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 200,
+    "rpm_max": 2600,
+    "airflow_cfm": 90.1,
+    "static_pressure_mmh2o": 3.97,
+    "noise_db": 33.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-wireless/#2": {
+   "url": "https://lian-li.com/product/uni-fan-tl-wireless/#2",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RTLLCD1W3B",
+    "12RTLLCD1W3BBLACK",
+    "12RTLLCD1W3BWHITE",
+    "12RTLLCD1W3W",
+    "12RTLLCD1W3WBLACK",
+    "12RTLLCD1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 350,
+    "rpm_max": 1900,
+    "airflow_cfm": 54.3,
+    "static_pressure_mmh2o": 2.83,
+    "noise_db": 31.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-wireless/#3": {
+   "url": "https://lian-li.com/product/uni-fan-tl-wireless/#3",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RTL1W3B",
+    "12RTL1W3BBLACK",
+    "12RTL1W3BWHITE",
+    "12RTL1W3W",
+    "12RTL1W3WBLACK",
+    "12RTL1W3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 200,
+    "rpm_max": 2300,
+    "airflow_cfm": 83.4,
+    "static_pressure_mmh2o": 2.66,
+    "noise_db": 34.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-wireless/#4": {
+   "url": "https://lian-li.com/product/uni-fan-tl-wireless/#4",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "14TLLCD1W1B",
+    "14TLLCD1W1BBLACK",
+    "14TLLCD1W1BWHITE",
+    "14TLLCD1W1W",
+    "14TLLCD1W1WBLACK",
+    "14TLLCD1W1WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_min": 400,
+    "rpm_max": 1600,
+    "airflow_cfm": 68.1,
+    "static_pressure_mmh2o": 3.5,
+    "noise_db": 28.5,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl-wireless/#5": {
+   "url": "https://lian-li.com/product/uni-fan-tl-wireless/#5",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "14RTLLCD1W1B",
+    "14RTLLCD1W1BBLACK",
+    "14RTLLCD1W1BWHITE",
+    "14RTLLCD1W1W",
+    "14RTLLCD1W1WBLACK",
+    "14RTLLCD1W1WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_min": 350,
+    "rpm_max": 1600,
+    "airflow_cfm": 68.1,
+    "static_pressure_mmh2o": 3.1,
+    "noise_db": 29.4,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl/#0": {
+   "url": "https://lian-li.com/product/uni-fan-tl/#0",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12TL3B",
+    "12TL3BBLACK",
+    "12TL3BWHITE",
+    "12TL3W",
+    "12TL3WBLACK",
+    "12TL3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 200,
+    "rpm_max": 2600,
+    "airflow_cfm": 90.1,
+    "static_pressure_mmh2o": 3.97,
+    "noise_db": 33.0
+   }
+  },
+  "https://lian-li.com/product/uni-fan-tl/#1": {
+   "url": "https://lian-li.com/product/uni-fan-tl/#1",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "12RTL3B",
+    "12RTL3BBLACK",
+    "12RTL3BWHITE",
+    "12RTL3W",
+    "12RTL3WBLACK",
+    "12RTL3WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_min": 200,
+    "rpm_max": 2300,
+    "airflow_cfm": 83.4,
+    "static_pressure_mmh2o": 2.66,
+    "noise_db": 34.0
+   }
+  },
+  "https://lian-li.com/product/v3000-plus/#0": {
+   "url": "https://lian-li.com/product/v3000-plus/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "V3000PX",
+    "V3000PXBLACK",
+    "V3000PXWHITE",
+    "V3000PW",
+    "V3000PWBLACK",
+    "V3000PWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 589,
+    "max_cooler_height_mm": 198,
+    "side_panel": "Windowed",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/vector-v100-mini/#0": {
+   "url": "https://lian-li.com/product/vector-v100-mini/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "V100MIX",
+    "V100MIXBLACK",
+    "V100MIXWHITE",
+    "V100MIW",
+    "V100MIWBLACK",
+    "V100MIWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "radiator_support": {
+     "240 mm": 1,
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/vector-v100/#0": {
+   "url": "https://lian-li.com/product/vector-v100/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "V100X",
+    "V100XBLACK",
+    "V100XWHITE",
+    "V100W",
+    "V100WBLACK",
+    "V100WWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "side_panel": "Windowed",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/vector-v100/#1": {
+   "url": "https://lian-li.com/product/vector-v100/#1",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "V100RX",
+    "V100RXBLACK",
+    "V100RXWHITE",
+    "V100RW",
+    "V100RWBLACK",
+    "V100RWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "side_panel": "Windowed",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "360 mm": 1
+    }
+   }
+  },
+  "https://lian-li.com/product/vector-v150inf/#0": {
+   "url": "https://lian-li.com/product/vector-v150inf/#0",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "V150INFX",
+    "V150INFXBLACK",
+    "V150INFXWHITE",
+    "V150INFW",
+    "V150INFWBLACK",
+    "V150INFWWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "radiator_support": {
+     "240 mm": 1,
+     "360 mm": 1
+    }
+   }
+  }
+ }
+}

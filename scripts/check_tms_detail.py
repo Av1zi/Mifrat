@@ -88,7 +88,6 @@ SPIDER_CASES = [
             "memory_gb": 1,
             "memory_type": "GDDR3",
             "length_mm": 170,
-            "dvi_outputs": {"DVI": 1},
             "interface": "PCIe 2.0 x16",
             # Three of the four rows that used to be coverage gaps on this
             # page now have a schema home (Oct 2026 completeness pass).
@@ -294,7 +293,6 @@ PAIR_CASES = [
             "rpm_max": 1500,
             "noise_db": 25.6,
             "pwm": True,
-            "flow_direction": "reverse",
         },
         "expect_gaps": (),
     },
@@ -467,7 +465,7 @@ PAIR_CASES = [
             "חיבורים פנימיים בלוח האם":
                 "4 חיבורי SATA, 2x מחבר מאוורר, 1x USB 3.2 Gen 1 header",
         },
-        "expect_specs": {"sata_ports": 4, "fan_headers": 2, "usb32_gen1_headers": 1},
+        "expect_specs": {"sata_ports": 4},
         "expect_gaps": (),
     },
     {
@@ -645,7 +643,7 @@ PAIR_CASES = [
     },
     {
         "name": "packaging cell carries an English word plus a Hebrew gloss",
-        "category": "memory",
+        "category": "cpu",
         # As a plain value the whole cell was dropped (Hebrew prose); the
         # leading English word is the fact.
         "rows": {"אריזה": "Retail - קופסה"},
@@ -653,11 +651,10 @@ PAIR_CASES = [
         "expect_gaps": (),
     },
     {
-        "name": "case bays and rackmount rows (Oct 2026)",
+        "name": "case rackmount row (Oct 2026)",
         "category": "case",
-        # "2+1" is two dedicated bays plus a shared one (canon_bay_count).
-        "rows": {"Bays 5.25": "2+1", "Rackmount": "כן"},
-        "expect_specs": {"drive_bays_525": 3, "rackmount": True},
+        "rows": {"Rackmount": "כן"},
+        "expect_specs": {"rackmount": True},
         "expect_gaps": (),
     },
     {
@@ -665,8 +662,7 @@ PAIR_CASES = [
         "category": "aio",
         "rows": {"מידות רדיאטור": "אורך: 403 מ\"מ רוחב: 120 מ\"מ עובי: 27 מ\"מ",
                  "מידות משאבה": "אורך: 69 מ\"מ רוחב: 92 מ\"מ גובה: 76 מ\"מ"},
-        "expect_specs": {"radiator_length_mm": 403, "radiator_thickness_mm": 27,
-                         "pump_dimensions_mm": "69 × 92 × 76 mm"},
+        "expect_specs": {"radiator_length_mm": 403, "radiator_thickness_mm": 27},
         "expect_gaps": (),
     },
     {
@@ -680,12 +676,11 @@ PAIR_CASES = [
     {
         "name": "motherboard storage interface + PCIe slot kinds (Oct 2026)",
         "category": "motherboard",
-        # The x4 row joins the x16/x1 rows in the slot sum; the interface
-        # cell keeps the vendor's names as a list.
-        "rows": {"ממשק אחסון": "M.2 PCIe | SATA3", "PCI-E x4": "1",
+        # The interface cell keeps the vendor's names as a list.
+        "rows": {"ממשק אחסון": "M.2 PCIe | SATA3",
                  "PCI-E x16": "2", "קישוריות Bluetooth": "Bluetooth 5.3"},
         "expect_specs": {"storage_interface": ["M.2 PCIe", "SATA3"],
-                         "pcie_x4_slots": 1, "pcie_x16_slots": 2,
+                         "pcie_x16_slots": 2,
                          "bluetooth": "Bluetooth 5.3"},
         "expect_gaps": (),
     },
@@ -846,13 +841,6 @@ PAIR_CASES = [
         "expect_gaps": (),
     },
     {
-        "name": "Reverse-blade model names the direction (case_fan)",
-        "category": "case_fan",
-        "rows": {"דגם": "P12 Pro Reverse A-RGB"},
-        "expect_specs": {"flow_direction": "reverse"},
-        "expect_gaps": (),
-    },
-    {
         "name": "Memory support speed lists (motherboard)",
         "category": "motherboard",
         "rows": {"תמיכה בזיכרון": "Dual Channel DDR5-7000MHz OC"},
@@ -974,25 +962,6 @@ NEGATIVE_CASES = [
         "category": "cpu",
         "rows": {"דור המעבד": "14"},
         "expect_absent": ("generation",),
-    },
-    {
-        "name": "a Hebrew drive weight reads in grams",
-        "category": "storage",
-        "rows": {"משקל": "32.7 גרם"},
-        "expect_specs": {"weight_g": 32.7},
-    },
-    {
-        # The unit decides the scale; "כ-" (approximately) is prose.
-        "name": "a kilogram drive weight is scaled, not copied",
-        "category": "storage",
-        "rows": {"משקל המוצר": "כ-2.49 ק\"ג"},
-        "expect_specs": {"weight_g": 2490},
-    },
-    {
-        "name": "a weight cell with no number stays unread",
-        "category": "storage",
-        "rows": {"משקל": "אין נתון"},
-        "expect_absent": ("weight_g",),
     },
     {
         # 1PC's English twin of Ivory's Hebrew storage-interface row.

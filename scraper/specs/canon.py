@@ -619,11 +619,6 @@ _GENERATION_RE = re.compile(r"(?:\u05d3\u05d5\u05e8|generation|gen|series)\s*(\d
 _WATTAGE_RANGE_RE = re.compile(
     r"(\d{2,4})\s*w\s*(?:-|\u2013|\u2014|to)\s*(\d{2,4})\s*w", re.I)
 
-# "32.7 \u05d2\u05e8\u05dd" / "98 grams" / "\u05db-2.49 \u05e7\"\u05d2" / "7kg"
-_WEIGHT_RE = re.compile(
-    r"(\d+(?:[.,]\d+)?)\s*([\u05e7k][\u05d2g]?[\"'\u05f4\u05f3]?[\u05d2g]?|"
-    r"grams?|kilograms?|gr)?", re.I)
-
 
 def canon_generation(value) -> str:
     """Fold every vendor spelling of a lineup generation into "Gen N"."""
@@ -643,25 +638,6 @@ def canon_wattage_range(value) -> str:
         return f"{low}-{high}W"
     return text
 
-
-def canon_weight_g(value):
-    """A mass cell as grams (int-safe float).
-
-    The unit decides the scale: \u05e7"\u05d2 / kg / kilograms multiply by 1000, \u05d2\u05e8\u05dd /
-    gram(s) / g are grams, and a bare number is grams (the drive pages that
-    print one print the small-unit figure). "\u05db-" ("approximately") is prose and
-    ignored; a cell with no digit is returned unchanged so the int coercion
-    drops it instead of inventing a weight.
-    """
-    text = str(value or "").strip()
-    match = _WEIGHT_RE.search(text)
-    if not match:
-        return value
-    number = float(match.group(1).replace(",", "."))
-    unit = (match.group(2) or "").lower()
-    if "k" in unit or "\u05e7" in unit:
-        number *= 1000
-    return number
 
 
 # Generic field-name rules (applied for every category unless overridden).
@@ -696,12 +672,10 @@ _CATEGORY_RULES = {
     ("cpu", "generation"): canon_generation,
     ("cpu", "integrated_graphics"): canon_integrated_graphics,
     ("gpu", "opengl"): canon_opengl,
-    ("storage", "weight_g"): canon_weight_g,
     ("psu", "series_wattage_range"): canon_wattage_range,
     ("accessories", "lighting"): canon_lighting,
     ("case", "drive_bays_35"): canon_bay_count,
     ("case", "drive_bays_25"): canon_bay_count,
-    ("case", "drive_bays_525"): canon_bay_count,
 }
 
 

@@ -35,7 +35,7 @@
         "smt": true,
         "unlocked": true,
         "includes_cooler": false,
-        "max_memory_gb": 192,
+        "max_memory_gb": 256,
         "lithography_nm": 4,
         "l2_cache_mb": 8
       },
@@ -64,7 +64,7 @@
         "series": "Ryzen 7",
         "smt": true,
         "unlocked": true,
-        "max_memory_gb": 192,
+        "max_memory_gb": 128,
         "lithography_nm": 5,
         "l2_cache_mb": 8
       },

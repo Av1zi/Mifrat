@@ -1,0 +1,208 @@
+{
+ "brand": "Thermalright",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-18",
+ "entries": {
+  "https://www.thermalright.com/product/aqua-elite-360-v3/": {
+   "url": "https://www.thermalright.com/product/aqua-elite-360-v3/",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "AQUAELITE360V3",
+    "aquaelite360v3"
+   ],
+   "names": [
+    "aqua elite black v3 360mm argb"
+   ],
+   "specs": {
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "airflow_cfm": 66.17,
+    "noise_db": 25.6
+   }
+  },
+  "https://www.thermalright.com/product/aqua-elite-360-white-v3/": {
+   "url": "https://www.thermalright.com/product/aqua-elite-360-white-v3/",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "AQUAELITE360WHITEV3",
+    "aquaelite360whitev3"
+   ],
+   "names": [
+    "aqua elite white v3 360mm argb"
+   ],
+   "specs": {
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "airflow_cfm": 66.17,
+    "noise_db": 25.6
+   }
+  },
+  "https://www.thermalright.com/product/assassin-x-120-refined-se-argb/": {
+   "url": "https://www.thermalright.com/product/assassin-x-120-refined-se-argb/",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "ASSASSINX120REFINEDSEARGB",
+    "assassinx120refinedseargb"
+   ],
+   "names": [
+    "assassin x refined se 225w argb"
+   ],
+   "specs": {
+    "height_mm": 148,
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1550,
+    "airflow_cfm": 66.17,
+    "noise_db": 25.6
+   }
+  },
+  "https://www.thermalright.com/product/assassin-x-120-refined-se-white-argb/": {
+   "url": "https://www.thermalright.com/product/assassin-x-120-refined-se-white-argb/",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "ASSASSINX120REFINEDSEWHITEARGB",
+    "assassinx120refinedsewhiteargb"
+   ],
+   "names": [
+    "assassin x refined se white 225w argb"
+   ],
+   "specs": {
+    "height_mm": 148,
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1550,
+    "airflow_cfm": 66.17,
+    "noise_db": 25.6
+   }
+  },
+  "https://www.thermalright.com/product/phantom-spirit-120-se-argb/": {
+   "url": "https://www.thermalright.com/product/phantom-spirit-120-se-argb/",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "PHANTOMSPIRIT120SEARGB",
+    "phantomspirit120seargb"
+   ],
+   "names": [
+    "phantom spirit 120 280w argb"
+   ],
+   "specs": {
+    "height_mm": 154,
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "airflow_cfm": 66.17,
+    "noise_db": 25.6
+   }
+  },
+  "https://www.thermalright.com/product/royal-pretor-130-ultra-black/": {
+   "url": "https://www.thermalright.com/product/royal-pretor-130-ultra-black/",
+   "fetched": "2026-10-18",
+   "category": "cooling_other",
+   "keys": [
+    "ROYALPRETOR130ULTRABLACK",
+    "royalpretor130ultrablack"
+   ],
+   "names": [
+    "royal pretor 130 ultra black argb 130mm 120mm 250w tdp 1750rpm 81 88cfm"
+   ],
+   "specs": {}
+  },
+  "https://www.thermalright.com/product/royal-pretor-130-ultra-white/": {
+   "url": "https://www.thermalright.com/product/royal-pretor-130-ultra-white/",
+   "fetched": "2026-10-18",
+   "category": "cooling_other",
+   "keys": [
+    "ROYALPRETOR130ULTRAWHITE",
+    "royalpretor130ultrawhite"
+   ],
+   "names": [
+    "royal pretor 130 ultra white argb 130mm 120mm 250w tdp 1750rpm 81 88cfm"
+   ],
+   "specs": {}
+  },
+  "https://www.thermalright.com/product/tl-c12c-s/": {
+   "url": "https://www.thermalright.com/product/tl-c12c-s/",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "TLC12CS",
+    "tlc12cs"
+   ],
+   "names": [
+    "assassin king se 120mm pwm argb"
+   ],
+   "specs": {
+    "rpm_max": 1550,
+    "airflow_cfm": 66.17,
+    "noise_db": 25.6,
+    "size_mm": 120,
+    "static_pressure_mmh2o": 1.53,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.thermalright.com/product/tl-s12-s-x3/": {
+   "url": "https://www.thermalright.com/product/tl-s12-s-x3/",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "TLS12SX3",
+    "tls12sx3"
+   ],
+   "names": [
+    "tl-s12-s halo 23 2dba 120mm pwm argb x3"
+   ],
+   "specs": {
+    "rpm_max": 1500,
+    "airflow_cfm": 47.6,
+    "noise_db": 23.2,
+    "size_mm": 120,
+    "static_pressure_mmh2o": 1.31,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.thermalright.com/product/tl-s12w-s-x3/": {
+   "url": "https://www.thermalright.com/product/tl-s12w-s-x3/",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "TLS12WSX3",
+    "tls12wsx3"
+   ],
+   "names": [
+    "tl-s12w-s halo 23 2dba 120mm pwm argb x3 white"
+   ],
+   "specs": {
+    "rpm_max": 1500,
+    "airflow_cfm": 47.6,
+    "noise_db": 23.2,
+    "size_mm": 120,
+    "static_pressure_mmh2o": 1.31,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.thermalright.com/product/tl-s12w-s/": {
+   "url": "https://www.thermalright.com/product/tl-s12w-s/",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "TLS12WS",
+    "tls12ws"
+   ],
+   "names": [
+    "tl s12w 120mm argb white"
+   ],
+   "specs": {
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "airflow_cfm": 47.6,
+    "noise_db": 23.2
+   }
+  }
+ }
+}

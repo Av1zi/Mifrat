@@ -2,15 +2,16 @@
  "brand": "ASUS",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-17",
+ "generated": "2026-10-18",
  "entries": {
   "https://www.asus.com/motherboards-components/motherboards/csm/b850-max-gaming-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/b850-max-gaming-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1PR0M0EAY0",
-    "b850|gaming|max#wifi"
+    "b850|gaming|max#wifi",
+    "B850GAMINGMAXWIFI"
    ],
    "names": [
     "b850 max gaming wifi6e"
@@ -20,6 +21,8 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -34,11 +37,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1EF0M0EAY0",
-    "b760|plus|prime"
+    "b760|plus|prime",
+    "B760PLUSPRIME"
    ],
    "names": [
     "prime b760-plus"
@@ -48,6 +52,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "ecc_support": false,
     "m2_slots": [
      "3"
@@ -60,11 +67,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-d4-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1CW0M1EAY0",
-    "b760|d4|plus|prime"
+    "b760|d4|plus|prime",
+    "B760D4PLUSPRIME"
    ],
    "names": [
     "prime b760-plus d4"
@@ -74,6 +82,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "ecc_support": false,
     "m2_slots": [
      "3"
@@ -86,11 +97,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-f-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-f-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1N00M0EAY0",
-    "b760m|f|prime#wifi"
+    "b760m|f|prime#wifi",
+    "B760MFPRIMEWIFI"
    ],
    "names": [
     "prime b760m-f wifi6"
@@ -100,6 +112,9 @@
     "chipset": "B760",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 96,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -113,12 +128,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-k-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-k-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1FI0M0EAY0",
     "90MB1FI0M1EAY0",
-    "b760m|k|prime"
+    "b760m|k|prime",
+    "B760MKPRIME"
    ],
    "names": [
     "prime b760m-k"
@@ -128,6 +144,9 @@
     "chipset": "B760",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 96,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -142,11 +161,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-r-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-r-d4-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1HA0M0EAY0",
-    "b760m|d4|prime|r"
+    "b760m|d4|prime|r",
+    "B760MD4PRIMER"
    ],
    "names": [
     "prime b760m-r d4"
@@ -156,6 +176,9 @@
     "chipset": "B760",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -169,12 +192,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b850m-a-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b850m-a-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LN0M0EAY0",
     "90MB1LQ0M0EAYC",
-    "a|b850m|prime#wifi"
+    "a|b850m|prime#wifi",
+    "AB850MPRIMEWIFI"
    ],
    "names": [
     "prime b850m-a wifi6e",
@@ -185,6 +209,8 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -199,11 +225,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-a-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-a-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "PRIMEB860MACSM",
-    "a|b860m|prime"
+    "a|b860m|prime",
+    "AB860MPRIME"
    ],
    "names": [
     "prime b860m-a csm lga"
@@ -212,6 +239,9 @@
     "chipset": "B860",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -225,12 +255,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-k-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-k-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1JT0M0EAY0",
     "PRIMEB860MK",
-    "b860m|k|prime"
+    "b860m|k|prime",
+    "B860MKPRIME"
    ],
    "names": [
     "prime b860m-k",
@@ -240,6 +271,9 @@
     "chipset": "B860",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -253,11 +287,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-a-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-a-d4-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB19P0M0EAYC",
-    "a|d4|h610m|prime"
+    "a|d4|h610m|prime",
+    "AD4H610MPRIME"
    ],
    "names": [
     "prime h610m-a d4-csm"
@@ -267,6 +302,8 @@
     "chipset": "H610",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -279,11 +316,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-k-argb-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-k-argb-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1G90M0EAY0",
-    "argb|h610m|k|prime"
+    "argb|h610m|k|prime",
+    "ARGBH610MKPRIME"
    ],
    "names": [
     "prime h610m-k argb"
@@ -293,6 +331,9 @@
     "chipset": "H610",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 96,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "1"
@@ -307,12 +348,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-h810m-a-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h810m-a-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1KJ0M0EAY0",
     "90MB1KK0M0EAYC",
-    "a|h810m|prime#wifi"
+    "a|h810m|prime#wifi",
+    "AH810MPRIMEWIFI"
    ],
    "names": [
     "prime h810m-a wifi6",
@@ -322,6 +364,9 @@
     "chipset": "H810",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -335,11 +380,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-x670-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x670-p-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1BV0M0EAY0",
-    "p|prime|x670#wifi"
+    "p|prime|x670#wifi",
+    "PPRIMEX670WIFI"
    ],
    "names": [
     "prime x670-p wifi6"
@@ -349,6 +395,9 @@
     "chipset": "X670",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
+    "pcie_x1_slots": 1,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -363,12 +412,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IT0M0EAY0",
     "PRIMEX870P",
-    "p|prime|x870"
+    "p|prime|x870",
+    "PPRIMEX870"
    ],
    "names": [
     "prime x870-p",
@@ -379,6 +429,8 @@
     "chipset": "X870",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
     "m2_slots": [
      "4"
     ],
@@ -392,12 +444,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IS0M0EAY0",
     "PRIMEX870PWIFI",
-    "p|prime|x870#wifi"
+    "p|prime|x870#wifi",
+    "PPRIMEX870WIFI"
    ],
    "names": [
     "prime x870-p wifi7",
@@ -408,6 +461,8 @@
     "chipset": "X870",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "m2_slots": [
      "4"
     ],
@@ -421,21 +476,24 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890-p-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1I70M0EAY0",
     "PRIMEZ890PWIFI",
-    "p|prime|z890#wifi"
+    "p|prime|z890#wifi",
+    "PPRIMEZ890WIFI"
    ],
    "names": [
     "prime z890-p wifi7",
-    "prime z890-p lga 1xhdmi wifi"
+    "prime z890-p lga 1xhdmi wifi7"
    ],
    "specs": {
     "chipset": "Z890",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "m2_slots": [
      "4"
     ],
@@ -449,21 +507,24 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890m-plus-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890m-plus-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1J80M0EAY0",
     "PRIMEZ890MPLUSWIFI",
-    "plus|prime|z890m#wifi"
+    "plus|prime|z890m#wifi",
+    "PLUSPRIMEZ890MWIFI"
    ],
    "names": [
     "prime z890m-plus wifi7",
-    "prime z890m plus lga wifi"
+    "prime z890m plus lga wifi7"
    ],
    "specs": {
     "chipset": "Z890",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "m2_slots": [
      "3"
     ],
@@ -477,13 +538,14 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi-w/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1M00M0EAY0",
     "B650EMAXGAMINGWIFIW",
     "B650EMAXGAMINGWIFIWPC",
-    "b650e|gaming|max|w#wifi"
+    "b650e|gaming|max|w#wifi",
+    "B650EGAMINGMAXWWIFI"
    ],
    "names": [
     "b650e max gaming w wifi6e"
@@ -493,6 +555,8 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -507,11 +571,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LD0M0EAY0",
-    "b650e|gaming|max#wifi"
+    "b650e|gaming|max#wifi",
+    "B650EGAMINGMAXWIFI"
    ],
    "names": [
     "b650e max gaming wifi6e"
@@ -521,6 +586,8 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -535,11 +602,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b850-max-gaming-wifi-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b850-max-gaming-wifi-w/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1M10M0EAY0",
-    "b850|gaming|max|w#wifi"
+    "b850|gaming|max|w#wifi",
+    "B850GAMINGMAXWWIFI"
    ],
    "names": [
     "b850 max gaming w wifi6e"
@@ -549,6 +617,8 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -563,23 +633,26 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b850m-max-gaming-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b850m-max-gaming-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LL0M0EAY0",
     "B850MMAXGAMINGWIFI",
     "B850MMAXGAMINGWIFIPC",
-    "b850m|gaming|max#wifi"
+    "b850m|gaming|max#wifi",
+    "B850MGAMINGMAXWIFI"
    ],
    "names": [
     "b850m max gaming wifi6",
-    "b850m max gaming 1xhdmi wifi"
+    "b850m max gaming 1xhdmi wifi6"
    ],
    "specs": {
     "socket": "AM5",
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -594,11 +667,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7-w/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LZ0M0EAY0",
-    "gaming|max|w|x870#wifi"
+    "gaming|max|w|x870#wifi",
+    "GAMINGMAXWX870WIFI"
    ],
    "names": [
     "x870 max gaming w wifi7"
@@ -608,6 +682,8 @@
     "chipset": "X870",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "m2_slots": [
      "3"
     ],
@@ -621,11 +697,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LY0M0EAY0",
-    "gaming|max|x870#wifi"
+    "gaming|max|x870#wifi",
+    "GAMINGMAXX870WIFI"
    ],
    "names": [
     "x870 max gaming wifi7"
@@ -635,6 +712,8 @@
     "chipset": "X870",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "m2_slots": [
      "3"
     ],
@@ -648,11 +727,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-a/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB14Z0M0EAY0",
-    "a|a520m|prime"
+    "a|a520m|prime",
+    "AA520MPRIME"
    ],
    "names": [
     "prime a520m-a"
@@ -661,12 +741,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1500M0EAY0",
     "90150000",
-    "a520m|k|prime"
+    "a520m|k|prime",
+    "A520MKPRIME"
    ],
    "names": [
     "prime a520m-k"
@@ -676,6 +757,9 @@
     "chipset": "A520",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "1"
     ],
@@ -689,11 +773,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-r/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-r/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1H60M0EAY0",
-    "a520m|prime|r"
+    "a520m|prime|r",
+    "A520MPRIMER"
    ],
    "names": [
     "prime a520m-r"
@@ -703,6 +788,9 @@
     "chipset": "A520",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "1"
     ],
@@ -716,17 +804,20 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550-plus/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB14U0M0EAY0",
-    "b550|plus|prime"
+    "b550|plus|prime",
+    "B550PLUSPRIME"
    ],
    "names": [
     "prime b550-plus"
    ],
    "specs": {
     "chipset": "B550",
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 3,
     "m2_slots": [
      "2"
     ],
@@ -737,11 +828,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a-wifi-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB19X0M0EAY0",
-    "a|b550m|ii|prime#wifi"
+    "a|b550m|ii|prime#wifi",
+    "AB550MIIPRIMEWIFI"
    ],
    "names": [
     "prime b550m-a ii wifi6"
@@ -751,6 +843,9 @@
     "chipset": "B550",
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -764,12 +859,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB14I0M0EAY0",
     "90MB14I0M0EAYC",
-    "a|b550m|prime"
+    "a|b550m|prime",
+    "AB550MPRIME"
    ],
    "names": [
     "prime b550m-a",
@@ -779,6 +875,9 @@
     "chipset": "B550",
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -789,11 +888,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k-argb/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k-argb/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1GC0M0EAY0",
-    "argb|b550m|k|prime"
+    "argb|b550m|k|prime",
+    "ARGBB550MKPRIME"
    ],
    "names": [
     "prime b550m-k argb"
@@ -803,6 +903,9 @@
     "chipset": "B550",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -816,11 +919,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1KP0M0EAY0",
-    "b650|plus|prime#wifi"
+    "b650|plus|prime#wifi",
+    "B650PLUSPRIMEWIFI"
    ],
    "names": [
     "prime b650-plus wifi6e"
@@ -830,6 +934,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "ecc_support": true,
     "m2_slots": [
      "2"
@@ -844,12 +951,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-k/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-k/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1F60M0EAY0",
     "PRIMEB650MK",
-    "b650m|k|prime"
+    "b650m|k|prime",
+    "B650MKPRIME"
    ],
    "names": [
     "prime b650m-k",
@@ -860,6 +968,9 @@
     "chipset": "B650",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 96,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -873,11 +984,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-r/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-r/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1H30M0EAY0",
-    "b650m|prime|r"
+    "b650m|prime|r",
+    "B650MPRIMER"
    ],
    "names": [
     "prime b650m-r"
@@ -887,6 +999,9 @@
     "chipset": "B650",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 96,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -901,11 +1016,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-d4-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1D00M1EAYC",
-    "a|b760m|d4|prime"
+    "a|b760m|d4|prime",
+    "AB760MD4PRIME"
    ],
    "names": [
     "prime b760m-a d4-csm"
@@ -915,6 +1031,8 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 3,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -929,11 +1047,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1EL0M1EAY0",
-    "a|b760m|prime#wifi"
+    "a|b760m|prime#wifi",
+    "AB760MPRIMEWIFI"
    ],
    "names": [
     "prime b760m-a wifi6"
@@ -943,6 +1062,8 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 3,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -957,12 +1078,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-d4/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-d4/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1CX0M0EAY0",
     "90MB1CX0M1EAY0",
-    "a|b760m|d4|prime#wifi"
+    "a|b760m|d4|prime#wifi",
+    "AB760MD4PRIMEWIFI"
    ],
    "names": [
     "prime b760m-a d4 wifi6"
@@ -972,6 +1094,8 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 3,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -986,11 +1110,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1NF0M0EAY0",
-    "a|b760m|ii|prime#wifi"
+    "a|b760m|ii|prime#wifi",
+    "AB760MIIPRIMEWIFI"
    ],
    "names": [
     "prime b760m-a ii wifi6e"
@@ -1000,6 +1125,8 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
     "m2_slots": [
      "2"
     ],
@@ -1013,12 +1140,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1EK0M0EAYC",
     "PRIMEB760MACSM",
-    "a|b760m|prime"
+    "a|b760m|prime",
+    "AB760MPRIME"
    ],
    "names": [
     "prime b760m-a-csm",
@@ -1029,6 +1157,8 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
     "m2_slots": [
      "2"
     ],
@@ -1042,11 +1172,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-k-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-k-d4-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1DS0M1EAY0",
-    "b760m|d4|k|prime"
+    "b760m|d4|k|prime",
+    "B760MD4KPRIME"
    ],
    "names": [
     "prime b760m-k d4"
@@ -1056,6 +1187,9 @@
     "chipset": "B760",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -1069,11 +1203,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b840m-k-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b840m-k-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1PK0M0EAY0",
-    "b840m|k|prime"
+    "b840m|k|prime",
+    "B840MKPRIME"
    ],
    "names": [
     "prime b840m-k"
@@ -1083,6 +1218,8 @@
     "chipset": "B840",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -1096,11 +1233,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1L80M0EAY0",
-    "b850|plus|prime#wifi"
+    "b850|plus|prime#wifi",
+    "B850PLUSPRIMEWIFI"
    ],
    "names": [
     "prime b850-plus wifi6e"
@@ -1110,6 +1248,8 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "ecc_support": true,
     "m2_slots": [
      "3"
@@ -1124,11 +1264,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850m-k/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850m-k/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LV0M0EAY0",
-    "b850m|k|prime"
+    "b850m|k|prime",
+    "B850MKPRIME"
    ],
    "names": [
     "prime b850m-k"
@@ -1138,6 +1279,8 @@
     "chipset": "B850",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 2,
     "m2_slots": [
      "2"
     ],
@@ -1151,23 +1294,26 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1K50M0EAY0",
     "90MB1KA0M0EAYC",
     "PRIMEB860PLUSWIFI",
-    "b860|plus|prime#wifi"
+    "b860|plus|prime#wifi",
+    "B860PLUSPRIMEWIFI"
    ],
    "names": [
     "prime b860-plus wifi6e",
     "prime b860-plus-csm wifi6e",
-    "b860 prime plus lga displayport wifi"
+    "b860 prime plus lga displayport wifi6e"
    ],
    "specs": {
     "chipset": "B860",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 5,
     "m2_slots": [
      "2"
     ],
@@ -1181,23 +1327,27 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1JY0M0EAY0",
     "90MB1K00M0EAYC",
     "PRIMEB860MAWIFI",
-    "a|b860m|prime#wifi"
+    "a|b860m|prime#wifi",
+    "AB860MPRIMEWIFI"
    ],
    "names": [
     "prime b860m-a wifi6e",
     "prime b860m-a-csm wifi6e",
-    "prime b860m-a lga 1xhdmi wifi"
+    "prime b860m-a lga 1xhdmi wifi6e"
    ],
    "specs": {
     "chipset": "B860",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -1211,11 +1361,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-a/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1G20M0EAYC",
-    "a|h610m|prime"
+    "a|h610m|prime",
+    "AH610MPRIME"
    ],
    "names": [
     "prime h610m-a-csm"
@@ -1225,6 +1376,9 @@
     "chipset": "H610",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 96,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -1237,11 +1391,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1A10M0EAY0",
-    "d4|h610m|k|prime"
+    "d4|h610m|k|prime",
+    "D4H610MKPRIME"
    ],
    "names": [
     "prime h610m-k d4 micro"
@@ -1251,6 +1406,9 @@
     "chipset": "H610",
     "memory_slots": 2,
     "memory_type": "DDR4",
+    "memory_max_gb": 64,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "1"
@@ -1265,11 +1423,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-x670e-pro-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-x670e-pro-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1BL0M0EAY0",
-    "prime|pro|x670e#wifi"
+    "prime|pro|x670e#wifi",
+    "PRIMEPROX670EWIFI"
    ],
    "names": [
     "prime x670e-pro wifi6e"
@@ -1279,6 +1438,7 @@
     "chipset": "X670",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
     "ecc_support": false,
     "m2_slots": [
      "4"
@@ -1293,11 +1453,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-z790-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z790-p-wifi-csm/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1CJ0M1EAY0",
-    "p|prime|z790#wifi"
+    "p|prime|z790#wifi",
+    "PPRIMEZ790WIFI"
    ],
    "names": [
     "prime z790-p wifi6"
@@ -1307,6 +1468,9 @@
     "chipset": "Z790",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 4,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "3"
@@ -1321,12 +1485,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1I50M0EAY0",
     "PRIMEZ890P",
-    "p|prime|z890"
+    "p|prime|z890",
+    "PPRIMEZ890"
    ],
    "names": [
     "prime z890-p",
@@ -1336,6 +1501,8 @@
     "chipset": "Z890",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 4,
     "m2_slots": [
      "4"
     ],
@@ -1349,11 +1516,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/proart/proart-b850-creator-wifi-neo/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-b850-creator-wifi-neo/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1P60M0EAY0",
-    "b850|creator|neo|proart#wifi"
+    "b850|creator|neo|proart#wifi",
+    "B850CREATORNEOPROARTWIFI"
    ],
    "names": [
     "proart b850-creator neo wifi7"
@@ -1363,6 +1531,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -1375,11 +1546,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IG0M0EAY0",
-    "creator|proart|x870e#wifi"
+    "creator|proart|x870e#wifi",
+    "CREATORPROARTX870EWIFI"
    ],
    "names": [
     "proart x870e-creator wifi7"
@@ -1389,6 +1561,8 @@
     "chipset": "X870E",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
     "m2_slots": [
      "4"
     ],
@@ -1402,11 +1576,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB17G0M0EAY0",
-    "a520m|gaming|ii|plus|tuf"
+    "a520m|gaming|ii|plus|tuf",
+    "A520MGAMINGIIPLUSTUF"
    ],
    "names": [
     "tuf gaming a520m-plus ii"
@@ -1414,6 +1589,9 @@
    "specs": {
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "sata_ports": 4,
     "wireless": "No",
     "bluetooth": "No",
@@ -1422,11 +1600,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB17F0M0EAY0",
-    "a520m|gaming|plus|tuf#wifi"
+    "a520m|gaming|plus|tuf#wifi",
+    "A520MGAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming a520m-plus wifi"
@@ -1434,6 +1613,7 @@
    "specs": {
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
     "sata_ports": 4,
     "ethernet": "LAN 1 Gb/s",
     "bluetooth": "Bluetooth 5.0",
@@ -1442,11 +1622,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550-plus-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550-plus-wifi-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB19U0M0EAY0",
-    "b550|gaming|ii|plus|tuf#wifi"
+    "b550|gaming|ii|plus|tuf#wifi",
+    "B550GAMINGIIPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b550-plus ii wifi6"
@@ -1454,6 +1635,9 @@
    "specs": {
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 3,
     "sata_ports": 6,
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1463,11 +1647,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550m-plus-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550m-plus-wifi-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB19Y0M0EAY0",
-    "b550m|gaming|ii|plus|tuf#wifi"
+    "b550m|gaming|ii|plus|tuf#wifi",
+    "B550MGAMINGIIPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b550m-plus ii wifi6"
@@ -1476,6 +1661,9 @@
     "chipset": "B550",
     "memory_slots": 4,
     "memory_type": "DDR4",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "sata_ports": 4,
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1484,11 +1672,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-e-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1GT0M0EAY0",
-    "b650|e|gaming|tuf#wifi"
+    "b650|e|gaming|tuf#wifi",
+    "B650EGAMINGTUFWIFI"
    ],
    "names": [
     "tuf gaming b650-e wifi6e"
@@ -1498,6 +1687,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -1511,11 +1703,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1BZ0M0EAY0",
-    "b650|gaming|plus|tuf#wifi"
+    "b650|gaming|plus|tuf#wifi",
+    "B650GAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b650-plus wifi6"
@@ -1525,6 +1718,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "3"
     ],
@@ -1538,11 +1734,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1BY0M0EAY0",
-    "b650|gaming|plus|tuf"
+    "b650|gaming|plus|tuf",
+    "B650GAMINGPLUSTUF"
    ],
    "names": [
     "tuf gaming b650-plus"
@@ -1552,6 +1749,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "3"
     ],
@@ -1565,23 +1765,27 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-e-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LT0M0EAY0",
     "TUFGAMINGB650EEGAMINGWIFI",
     "TUFGAMINGB650EEGAMINGWIFIPC",
-    "b650e|e|gaming|tuf#wifi"
+    "b650e|e|gaming|tuf#wifi",
+    "B650EEGAMINGTUFWIFI"
    ],
    "names": [
     "tuf gaming b650e e wifi",
-    "tuf gaming b650e-e displayport wifi"
+    "tuf gaming b650e-e displayport wifi6e"
    ],
    "specs": {
     "socket": "AM5",
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -1595,11 +1799,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1M20M0EAY0",
-    "b650e|gaming|plus|tuf#wifi"
+    "b650e|gaming|plus|tuf#wifi",
+    "B650EGAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b650e-plus wifi6e"
@@ -1609,6 +1814,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "3"
     ],
@@ -1622,22 +1830,26 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1FV0M0EAY0",
     "TUFGAMINGB650MEWIFI",
-    "b650m|e|gaming|tuf#wifi"
+    "b650m|e|gaming|tuf#wifi",
+    "B650MEGAMINGTUFWIFI"
    ],
    "names": [
     "tuf gaming b650m-e wifi6",
-    "tuf gaming b650m-e 2xdisplayport wifi"
+    "tuf gaming b650m-e 2xdisplayport wifi6"
    ],
    "specs": {
     "socket": "AM5",
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "ecc_support": true,
     "m2_slots": [
      "2"
@@ -1652,11 +1864,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1FU0M0EAY0",
-    "b650m|e|gaming|tuf"
+    "b650m|e|gaming|tuf",
+    "B650MEGAMINGTUF"
    ],
    "names": [
     "tuf gaming b650m-e"
@@ -1666,6 +1879,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 2,
     "ecc_support": true,
     "m2_slots": [
      "2"
@@ -1680,11 +1896,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1BF0M0EAY0",
-    "b650m|gaming|plus|tuf#wifi"
+    "b650m|gaming|plus|tuf#wifi",
+    "B650MGAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b650m-plus wifi6"
@@ -1694,6 +1911,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -1707,11 +1927,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1BG0M0EAY0",
-    "b650m|gaming|plus|tuf"
+    "b650m|gaming|plus|tuf",
+    "B650MGAMINGPLUSTUF"
    ],
    "names": [
     "tuf gaming b650m-plus"
@@ -1721,6 +1942,9 @@
     "chipset": "B650",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -1734,12 +1958,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1ER0M0EAY0",
     "90MB1ER0M1EAY0",
-    "b760|gaming|plus|tuf#wifi"
+    "b760|gaming|plus|tuf#wifi",
+    "B760GAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b760-plus wifi6"
@@ -1749,6 +1974,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "ecc_support": false,
     "m2_slots": [
      "3"
@@ -1763,11 +1991,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-btf-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-btf-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1G50M0EAY0",
-    "b760m|btf|gaming|tuf#wifi"
+    "b760m|btf|gaming|tuf#wifi",
+    "B760MBTFGAMINGTUFWIFI"
    ],
    "names": [
     "tuf gaming b760m-btf wifi6"
@@ -1777,6 +2006,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "3"
@@ -1791,11 +2023,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1HD0M0EAY0",
-    "b760m|gaming|ii|plus|tuf"
+    "b760m|gaming|ii|plus|tuf",
+    "B760MGAMINGIIPLUSTUF"
    ],
    "names": [
     "tuf gaming b760m-plus ii"
@@ -1805,6 +2038,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -1818,11 +2054,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-wifi-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1HE0M0EAY0",
-    "b760m|gaming|ii|plus|tuf#wifi"
+    "b760m|gaming|ii|plus|tuf#wifi",
+    "B760MGAMINGIIPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b760m-plus ii wifi6e"
@@ -1832,6 +2069,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "3"
@@ -1846,11 +2086,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1ES0M0EAY0",
-    "b760m|gaming|plus|tuf"
+    "b760m|gaming|plus|tuf",
+    "B760MGAMINGPLUSTUF"
    ],
    "names": [
     "tuf gaming b760m-plus"
@@ -1860,6 +2101,9 @@
     "chipset": "B760",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 192,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "ecc_support": false,
     "m2_slots": [
      "2"
@@ -1874,11 +2118,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-btf-wifi-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-btf-wifi-w/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1KW0M0EAY0",
-    "b850|btf|gaming|tuf|w#wifi"
+    "b850|btf|gaming|tuf|w#wifi",
+    "B850BTFGAMINGTUFWWIFI"
    ],
    "names": [
     "tuf gaming b850-btf w wifi7"
@@ -1888,6 +2133,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -1901,11 +2149,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-e-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1L20M0EAY0",
-    "b850|e|gaming|tuf#wifi"
+    "b850|e|gaming|tuf#wifi",
+    "B850EGAMINGTUFWIFI"
    ],
    "names": [
     "tuf gaming b850-e wifi6e"
@@ -1915,6 +2164,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -1928,11 +2180,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1J30M0EAY0",
-    "b850|gaming|plus|tuf#wifi"
+    "b850|gaming|plus|tuf#wifi",
+    "B850GAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b850-plus wifi7"
@@ -1942,6 +2195,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "3"
     ],
@@ -1955,11 +2211,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850i-wifi-neo/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850i-wifi-neo/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1PI0M0EAY0",
-    "b850i|gaming|neo|tuf#wifi"
+    "b850i|gaming|neo|tuf#wifi",
+    "B850IGAMINGNEOTUFWIFI"
    ],
    "names": [
     "tuf gaming b850i neo wifi6e"
@@ -1969,6 +2226,8 @@
     "chipset": "B850",
     "memory_slots": 2,
     "memory_type": "DDR5",
+    "memory_max_gb": 128,
+    "pcie_x16_slots": 1,
     "m2_slots": [
      "2"
     ],
@@ -1981,11 +2240,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-e-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1LS0M0EAY0",
-    "b850m|e|gaming|tuf#wifi"
+    "b850m|e|gaming|tuf#wifi",
+    "B850MEGAMINGTUFWIFI"
    ],
    "names": [
     "tuf gaming b850m-e wifi6e"
@@ -1995,6 +2255,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -2008,11 +2271,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-ii/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1MT0M0EAY0",
-    "b850m|gaming|ii|plus|tuf"
+    "b850m|gaming|ii|plus|tuf",
+    "B850MGAMINGIIPLUSTUF"
    ],
    "names": [
     "tuf gaming b850m-plus ii"
@@ -2022,6 +2286,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -2035,24 +2302,28 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IX0M0EAY0",
     "90MB1IY0M0EAY0",
     "90MB1MU0M0EAY0",
     "TUFGAMINGB850MPLUSWIFI",
-    "b850m|gaming|plus|tuf#wifi"
+    "b850m|gaming|plus|tuf#wifi",
+    "B850MGAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b850m-plus wifi6e",
-    "tuf gaming b850m-plus displayport wifi"
+    "tuf gaming b850m-plus displayport wifi6e"
    ],
    "specs": {
     "socket": "AM5",
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -2066,11 +2337,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi7-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi7-w/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1MD0M0EAY0",
-    "b850m|gaming|plus|tuf|w#wifi"
+    "b850m|gaming|plus|tuf|w#wifi",
+    "B850MGAMINGPLUSTUFWWIFI"
    ],
    "names": [
     "tuf gaming b850m-plus w wifi7"
@@ -2080,6 +2352,9 @@
     "chipset": "B850",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 1,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -2092,21 +2367,25 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1JL0M0EAY0",
     "TUFGAMINGB860PLUSWIFI",
-    "b860|gaming|plus|tuf#wifi"
+    "b860|gaming|plus|tuf#wifi",
+    "B860GAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b860-plus wifi7",
-    "tuf gaming b860-plus lga wifi"
+    "tuf gaming b860-plus lga wifi7"
    ],
    "specs": {
     "chipset": "B860",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -2120,22 +2399,25 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860m-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1JV0M0EAY0",
     "90MB1JW0M0EAY0",
     "TUFGAMINGB860MPLUSWIFI",
-    "b860m|gaming|plus|tuf#wifi"
+    "b860m|gaming|plus|tuf#wifi",
+    "B860MGAMINGPLUSTUFWIFI"
    ],
    "names": [
     "tuf gaming b860m-plus wifi7",
-    "tuf gaming b860m-plus lga wifi"
+    "tuf gaming b860m-plus lga wifi7"
    ],
    "specs": {
     "chipset": "B860",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 1,
     "m2_slots": [
      "3"
     ],
@@ -2149,12 +2431,13 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IU0M0EAY0",
     "TUFGAMINGX870PLUSWIFI",
-    "gaming|plus|tuf|x870#wifi"
+    "gaming|plus|tuf|x870#wifi",
+    "GAMINGPLUSTUFX870WIFI"
    ],
    "names": [
     "tuf gaming x870-plus wifi7",
@@ -2165,6 +2448,8 @@
     "chipset": "X870",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
     "m2_slots": [
      "4"
     ],
@@ -2178,11 +2463,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870e-plus-wifi7/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870e-plus-wifi7/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1M70M0EAY0",
-    "gaming|plus|tuf|x870e#wifi"
+    "gaming|plus|tuf|x870e#wifi",
+    "GAMINGPLUSTUFX870EWIFI"
    ],
    "names": [
     "tuf gaming x870e-plus wifi7"
@@ -2192,6 +2478,9 @@
     "chipset": "X870E",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 1,
     "m2_slots": [
      "4"
     ],
@@ -2205,21 +2494,25 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-plus-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IQ0M0EAY0",
     "TUFGAMINGZ890PLUSWIFI",
-    "gaming|plus|tuf|z890#wifi"
+    "gaming|plus|tuf|z890#wifi",
+    "GAMINGPLUSTUFZ890WIFI"
    ],
    "names": [
     "tuf gaming z890-plus wifi7",
-    "z890 tuf gaming plus lga wifi"
+    "z890 tuf gaming plus lga wifi7"
    ],
    "specs": {
     "chipset": "Z890",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "4"
     ],
@@ -2233,21 +2526,25 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1IR0M0EAY0",
     "TUFGAMINGZ890PROWIFI",
-    "gaming|pro|tuf|z890#wifi"
+    "gaming|pro|tuf|z890#wifi",
+    "GAMINGPROTUFZ890WIFI"
    ],
    "names": [
     "tuf gaming z890-pro wifi7",
-    "z890 tuf gaming pro lga wifi"
+    "z890 tuf gaming pro lga wifi7"
    ],
    "specs": {
     "chipset": "Z890",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 2,
     "m2_slots": [
      "4"
     ],
@@ -2261,11 +2558,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-trx50-sage-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-trx50-sage-wifi/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1FZ0M0EAY0",
-    "pro|sage|trx50|ws#wifi"
+    "pro|sage|trx50|ws#wifi",
+    "PROSAGETRX50WSWIFI"
    ],
    "names": [
     "pro ws trx50-sage wifi7"
@@ -2275,6 +2573,7 @@
     "chipset": "TRX50",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "pcie_x16_slots": 5,
     "m2_slots": [
      "3"
     ],
@@ -2287,11 +2586,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w890-sage/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w890-sage/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1MW0M0EAY0",
-    "pro|sage|w890|ws"
+    "pro|sage|w890|ws",
+    "PROSAGEW890WS"
    ],
    "names": [
     "pro ws w890-sage"
@@ -2301,6 +2601,7 @@
     "chipset": "W890",
     "memory_slots": 8,
     "memory_type": "DDR5",
+    "pcie_x16_slots": 5,
     "m2_slots": [
      "4"
     ],
@@ -2311,11 +2612,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "PROWSWRX90ESAGESE",
-    "pro|sage|se|wrx90e|ws"
+    "pro|sage|se|wrx90e|ws",
+    "PROSAGESEWRX90EWS"
    ],
    "names": [
     "pro ws wrx90e-sage se"
@@ -2325,6 +2627,7 @@
     "chipset": "WRX90",
     "memory_slots": 8,
     "memory_type": "DDR5",
+    "pcie_x16_slots": 7,
     "m2_slots": [
      "4"
     ],
@@ -2337,11 +2640,12 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-z890-ace-se/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-z890-ace-se/techspec/",
-   "fetched": "2026-10-17",
+   "fetched": "2026-10-18",
    "category": "motherboard",
    "keys": [
     "90MB1JC0M0EAY0",
-    "ace|pro|se|ws|z890"
+    "ace|pro|se|ws|z890",
+    "ACEPROSEWSZ890"
    ],
    "names": [
     "pro ws z890-ace se"
@@ -2350,6 +2654,8 @@
     "chipset": "Z890",
     "memory_slots": 4,
     "memory_type": "DDR5",
+    "memory_max_gb": 256,
+    "pcie_x16_slots": 3,
     "m2_slots": [
      "4"
     ],

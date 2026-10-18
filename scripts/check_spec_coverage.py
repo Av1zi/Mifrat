@@ -64,7 +64,11 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # 2026-10-17: 1600 -> 1300. Phase 1 mapped the labels that had a schema home and
 # the pruned fields' labels left the vocabulary; gap rows measure 978 now
 # (+~30% headroom). What remains is laptop/server prose filed under PC categories.
-LABEL_GAP_BUDGET = 1300
+#
+# 2026-10-18: 1300 -> 1450. The second pruning pass removed 32 sparse field slots; the
+# vendor labels that fed them are now unmapped gap evidence on purpose (rows
+# 967 -> 1,131, +30% headroom would be 1,470; 1,450 keeps the same margin).
+LABEL_GAP_BUDGET = 1450
 
 # Mean field-fill % per category, minus 2pp tolerance.
 #
@@ -84,19 +88,25 @@ LABEL_GAP_BUDGET = 1300
 # raised the rate: aio 48.3, case 53.3, case_fan 59.5, cooler_air 52.8,
 # cooling_other 34.5, cpu 86.0, gpu 65.0, memory 74.8, motherboard 55.7,
 # psu 51.3, storage 52.5, accessories 45.1 (baseline overall 48.8 -> 58.6).
+# 2026-10-18 (Plan B, second pruning pass): recalibrated again, measured mean
+# minus 2pp. The rates rose mostly because 32 sparse field slots left the schema (the
+# denominator shrank), not because the catalog suddenly knows that much more:
+# aio 56.0, case 61.1, case_fan 65.4, cooler_air 60.0, cooling_other 45.5,
+# cpu 89.9, gpu 72.4, memory 81.7, motherboard 66.6, psu 55.2, storage 61.8,
+# accessories 78.8.
 CATEGORY_FLOORS = {
-    "accessories": 43,
-    "aio": 46,
-    "case": 51,
-    "case_fan": 57,
-    "cooler_air": 50,
-    "cooling_other": 32,
-    "cpu": 84,
-    "gpu": 63,
-    "memory": 72,
-    "motherboard": 53,
-    "psu": 49,
-    "storage": 50,
+    "accessories": 76,
+    "aio": 54,
+    "case": 59,
+    "case_fan": 63,
+    "cooler_air": 58,
+    "cooling_other": 43,
+    "cpu": 87,
+    "gpu": 70,
+    "memory": 79,
+    "motherboard": 64,
+    "psu": 53,
+    "storage": 59,
 }
 
 # Core compat fields, same basis (2026-10-03: socket 99, chipset 96,
@@ -118,16 +128,18 @@ CORE_FLOORS = {
 # 95%; the gap to it is explained per brand by `fill_report.py --gaps`
 # (Gigabyte/MSI block automated fetches, the long brand tail has no fetcher) and
 # in decisions.md - the floors only stop it from sliding back.
+# 2026-10-18 (Plan B): raised to the new measurement minus 2pp (aio 92.3,
+# case 80.2, case_fan 69.1, cooler_air 83.9, cpu 93.9, motherboard 86.8 ...).
 CORE_APPLICABLE_FLOORS = {
-    "aio": 83,
-    "case": 76,
-    "case_fan": 64,
-    "cooler_air": 80,
+    "aio": 90,
+    "case": 78,
+    "case_fan": 67,
+    "cooler_air": 82,
     "cooling_other": 70,
-    "cpu": 88,
+    "cpu": 91,
     "gpu": 81,
     "memory": 85,
-    "motherboard": 83,
+    "motherboard": 84,
     "psu": 78,
     "storage": 76,
 }

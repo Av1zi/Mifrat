@@ -346,6 +346,10 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
                 and not _INTEL_MOBILE_SUFFIX.search(model_alnum)):
             fill("smt", False, "cpu.arrow_lake_no_ht")
 
+    # No SMT means one thread per core: the thread count is the core count.
+    if specs.get("smt") is False and isinstance(cores, int) and cores > 0:
+        fill("thread_count", cores, "cpu.no_smt_threads_equal_cores")
+
     # AMD's family facet is the Zen generation itself (there is no
     # separate lake-style codename in the data): "Zen 4" microarch means
     # "Zen 4" family. EPYC/mobile stay out — their microarch is None.
@@ -624,6 +628,17 @@ def _infer_motherboard(specs: dict, sources: dict, context: dict | None) -> list
         filled += _fill(specs, sources, "ecc_support", False,
                         "motherboard.intel_consumer_pch_no_ecc")
 
+    if specs.get("form_factor") == "Mini-ITX" and re.match(r"(LGA|AM|FM)\d", socket):
+        # The Mini-ITX specification defines exactly one expansion slot, and
+        # every socketed desktop board in the catalog that states a count
+        # (22/22) lists one x16 slot.
+        filled += _fill(specs, sources, "pcie_x16_slots", 1,
+                        "motherboard.mini_itx_single_slot")
+        if specs.get("pcie_x16_slots") == 1:
+            # ... and that one slot is the x16 slot: no x1 / x4 slot beside it.
+            for field in ("pcie_x1_slots", "pcie_x4_slots"):
+                filled += _fill(specs, sources, field, 0, "motherboard.mini_itx_single_slot")
+
     text = (context or {}).get("text", "")
     if text and (context or {}).get("detail_rows", 0) >= 8:
         # Absence from a FULL spec table and the title. Validated on the
@@ -693,7 +708,18 @@ def _infer_psu(specs: dict, sources: dict, context: dict | None = None) -> list[
     return filled
 
 
+# A radiator is sold under the fan size times the fan count it takes (120 /
+# 240 / 360 mm carry 120 mm fans, 140 / 280 / 420 mm carry 140 mm fans): the
+# nominal size IS the mounting pattern. 146/146 catalog AIOs with both values
+# agree.
+_RADIATOR_FAN_MM = {120: 120, 240: 120, 360: 120, 140: 140, 280: 140, 420: 140}
+
+
 def _infer_cooler(category: str, specs: dict, sources: dict) -> list[str]:
+    if category == "aio" and isinstance(specs.get("radiator_size_mm"), int):
+        return _fill(specs, sources, "fan_size_mm",
+                     _RADIATOR_FAN_MM.get(specs["radiator_size_mm"]),
+                     "aio.radiator_fan_size")
     if category == "cooler_air" and (
             (isinstance(specs.get("fan_count"), int) and specs["fan_count"] > 0)
             or isinstance(specs.get("fan_size_mm"), int)

@@ -164,8 +164,7 @@ _SATA_PORTS_HE_RE = re.compile(r"(\d{1,2})\s*(?:x\s*)?חיבורי\s*SATA")
 # form lets "DisplayPort"/"Display Port"/"Mini DisplayPort" all resolve to
 # the one port type (see _emit_gpu_outputs).
 _GPU_OUTPUTS = (("DisplayPort", r"display\s?port", "dp_outputs"),
-                ("HDMI", r"hdmi", "hdmi_outputs"),
-                ("DVI", r"dvi", "dvi_outputs"))
+                ("HDMI", r"hdmi", "hdmi_outputs"))
 
 
 def _sata_port_count(text) -> int | None:
@@ -381,26 +380,10 @@ def _emit_gpu_dimensions(facts: dict, category: str, value, source: str) -> None
     number = float(match.group(1).replace(",", ".")) if match else first_number(text)
     if number is not None:
         _emit(facts, category, "length_mm", number, source, 0.8)
-    _emit_slot_width(facts, category, text, source)
-
-
-# "3.2 Slot" (TMS dimension cell), "Slot Size: 2.5 Slot", "2.5-slot". Only an
-# explicit slot statement is read: a card thickness in mm is NOT converted
-# (no vendor prints the pitch, and "2 slots" vs "2.5 slots" is exactly what
-# the buyer is asking).
-_SLOT_WIDTH_RE = re.compile(r"\b(\d(?:[.,]\d+)?)\s*-?\s*slots?\b", re.I)
-
-
-def _emit_slot_width(facts: dict, category: str, value, source: str) -> None:
-    match = _SLOT_WIDTH_RE.search(str(value or ""))
-    if match:
-        width = float(match.group(1).replace(",", "."))
-        if 0.5 <= width <= 6:
-            _emit(facts, category, "slot_width", width, source, 0.85)
 
 
 def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
-    """'VGA | DVI | DMS-59' -> dvi_outputs {'DVI': 1} (VGA has no field).
+    """'DisplayPort | HDMI' -> dp_outputs / hdmi_outputs (VGA and DVI have no field).
 
     Counts are read when the vendor prints them ('1x HDMI 2.1b 3x DisplayPort
     2.1b' is three DisplayPorts, not one); without a count each mention is
@@ -1090,26 +1073,11 @@ def _emit_rear_outputs(facts: dict, category: str, value, source: str) -> None:
 
 
 def _emit_internal_headers(facts: dict, category: str, value, source: str) -> None:
-    """Internal header cell -> fan_headers / USB header counts."""
-    text = str(value or "")
-    fan_total = 0
-    for match in re.finditer(r"(\d{1,2})?\s*(?:×|x)?\s*מחבר(?:י)?\s*(?:מאוורר|משאבה|Fan|AIO)",
-                             text, re.I):
-        fan_total += int(match.group(1)) if match.group(1) else 1
-    if fan_total:
-        _emit(facts, category, "fan_headers", fan_total, source, 0.7)
-    sata = _sata_port_count(text)
+    """Internal header cell -> sata_ports (fan / USB header counts were pruned
+    2026-10-18: 8.5% / 11.2% fill)."""
+    sata = _sata_port_count(str(value or ""))
     if sata is not None:
         _emit(facts, category, "sata_ports", sata, source, 0.7)
-    for pattern, field in ((r"USB\s*2\.0", "usb2_headers"),
-                           (r"USB\s*3\.2\s*Gen\s*1|USB\s*3\.0", "usb32_gen1_headers"),
-                           (r"USB\s*3\.2\s*Gen\s*2", "usb32_gen2_headers")):
-        total = 0
-        for match in re.finditer(r"(\d{1,2})?\s*(?:×|x)?\s*(?:מחבר(?:י)?\s*)?(?:\(Internal\)\s*)?" + pattern,
-                                 text, re.I):
-            total += int(match.group(1)) if match.group(1) else 1
-        if total:
-            _emit(facts, category, field, total, source, 0.7)
 
 
 def _emit_quantity_words(facts: dict, category: str, value, source: str) -> None:
@@ -1312,8 +1280,6 @@ _BUS_BIT_RE = re.compile(r"(\d{2,4})\s*bits?\b", re.I)
 _THICKNESS_RE = re.compile(
     r"(?:עובי|thickness)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(ס\"מ|סמ|cm|מ\"מ|ממ|mm)?",
     re.I)
-_TRIPLE_MM_RE = re.compile(
-    r"(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)")
 _SPEED_RE = re.compile(r"(\d[\d,.]*)\s*(gb|mb)", re.I)
 
 
@@ -1364,27 +1330,6 @@ def _emit_radiator_dims(facts: dict, category: str, value, source: str) -> None:
         mm = _number_to_mm(match.group(1), match.group(2))
         if mm is not None:
             _emit(facts, category, "radiator_thickness_mm", mm, source, 0.8)
-
-
-def _emit_pump_dims(facts: dict, category: str, value, source: str) -> None:
-    """'אורך: 69 מ\"מ רוחב: 92 מ\"מ גובה: 76 מ\"מ' -> '69 × 92 × 76 mm'.
-
-    Also reads the unlabeled triple form ('124x120x28 מ\"מ'). Two axes are
-    enough to be the block size; a single number is not a block and is
-    dropped.
-    """
-    text = str(value or "")
-    triple = _TRIPLE_MM_RE.search(text)
-    if triple:
-        numbers = [_plain_number(group) for group in triple.groups()]
-    else:
-        dims = _dims_from_text(text)
-        numbers = [dims.get(axis) for axis in ("D", "W", "H")]
-    sizes = [int(round(number)) for number in numbers if number]
-    if len(sizes) < 2:
-        return
-    _emit(facts, category, "pump_dimensions_mm",
-          " × ".join(str(size) for size in sizes) + " mm", source, 0.7)
 
 
 def _emit_speed_mbs(facts: dict, category: str, field: str, value, source: str) -> None:
@@ -1487,18 +1432,6 @@ def _emit_generation(facts: dict, category: str, value, source: str) -> None:
     _emit(facts, category, "generation", text, source, 0.8)
 
 
-def _emit_weight_g(facts: dict, category: str, value, source: str) -> None:
-    """A drive's mass cell -> grams (canon_weight_g reads the vendor's unit).
-
-    Only cells carrying a digit are read; the float coercion drops whatever
-    canon could not turn into a number, so no weight is invented.
-    """
-    text = str(value or "").strip()
-    if not re.search(r"\d", text):
-        return
-    _emit(facts, category, "weight_g", text, source, 0.8)
-
-
 def _emit_storage_type_cell(facts: dict, category: str, value, source: str) -> None:
     """1PC's "Storage / Storage Type" cell, read per category.
 
@@ -1539,9 +1472,6 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
     if token == labels.GENERATION_CELL:
         _emit_generation(facts, category, value, source)
         return True
-    if token == labels.WEIGHT_G:
-        _emit_weight_g(facts, category, value, source)
-        return True
     if token == labels.STORAGE_TYPE_CELL:
         _emit_storage_type_cell(facts, category, value, source)
         return True
@@ -1553,9 +1483,6 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         return True
     if token == labels.RADIATOR_DIMS:
         _emit_radiator_dims(facts, category, value, source)
-        return True
-    if token == labels.PUMP_DIMS:
-        _emit_pump_dims(facts, category, value, source)
         return True
     if token == labels.CONNECTORS_CELL:
         _emit_connectors_cell(facts, category, value, source)
@@ -1784,11 +1711,6 @@ def parse_detail_specs(category: str | None, detail_specs,
                 if match:
                     _emit(facts, cat, "max_gpu_length_mm", int(match.group(1)),
                           SOURCE_DETAIL, 0.7)
-            elif cat == "case_fan" and re.search(r"\breverse\b", str(value or ""), re.I):
-                # Reverse-blade kits announce it in notes/model prose
-                # ("Reverse Fans", "P12 Pro Reverse A-RGB").
-                _emit(facts, cat, "flow_direction", "reverse",
-                      SOURCE_DETAIL, 0.7)
         if key is None or str(key) in _PROSE_KEYS or labels.is_ignored_label(key):
             continue
         if cat == "memory":
@@ -1817,14 +1739,6 @@ def parse_detail_specs(category: str | None, detail_specs,
     sockets = state.get("sockets")
     if sockets:
         _emit(facts, cat, "sockets", sockets, SOURCE_DETAIL, 0.85)
-    # 0c. Reverse-blade kits name it in the model string ("P12 Pro Reverse
-    # A-RGB") rather than any direction-labeled row.
-    if cat == "case_fan":
-        for fact in facts.get("model", []):
-            if re.search(r"\breverse\b", str(fact.value or ""), re.I):
-                _emit(facts, cat, "flow_direction", "reverse",
-                      SOURCE_DETAIL, 0.85)
-                break
     # 1. Slot rows: TMS prints one row per x16 variant (plain, x4-wired,
     #    x8-wired); the field is the total number of x16 slots, so the rows
     #    are summed rather than raced.

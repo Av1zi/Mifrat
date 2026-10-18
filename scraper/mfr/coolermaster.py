@@ -16,7 +16,7 @@ from __future__ import annotations
 import html as html_lib
 import re
 
-from .common import mb_form_factor_list, norm_name, number_range, typed
+from .common import front_io_ports, mb_form_factor_list, norm_name, number_range, typed
 
 BRAND = "Cooler Master"
 BASE_URL = "https://www.coolermaster.com"
@@ -32,6 +32,23 @@ def index(client) -> list[dict]:
     page = client.get(SITEMAP)
     return [{"url": url, "slug": slug, "key": norm_name(slug)}
             for url, slug in _URL_RE.findall(page or "")]
+
+
+def in_scope(entry: dict) -> bool:
+    return True
+
+
+def classify(entry: dict, page: str) -> str | None:
+    """Category from the page's own labels (the join also needs the product to
+    share it). PSU / fan / accessory pages return None: no parser reads them."""
+    labels = {key for key, _ in _pairs(page)}
+    if "radiator size" in labels:
+        return "aio"
+    if "cpu socket" in labels and "heat sink material" in labels:
+        return "cooler_air"
+    if "motherboard support" in labels and "expansion slots" in labels:
+        return "case"
+    return None
 
 
 def match(entries_by_key: dict[str, dict], product: dict) -> dict | None:
@@ -165,6 +182,14 @@ def _case(pairs, put) -> None:
     slots = re.fullmatch(r"\s*(\d{1,2})\s*", _first(pairs, "expansion slots") or "")
     if slots:
         put("expansion_slots", slots.group(1))
+    front = []
+    for key, value in pairs:
+        if key.startswith("i/o") and "usb" in key and re.search(r"\d", value):
+            label = key.split("/")[-1].strip() if " / " in key else ""
+            front.append(f"{label} {value}".strip())
+    ports = front_io_ports(", ".join(front))
+    if ports:
+        put("front_usb", ports)
     bays = re.fullmatch(r"\s*(\d{1,2})\s*", _first(pairs, '2.5" drive bays') or "")
     if bays:
         put("drive_bays_25", int(bays.group(1)))

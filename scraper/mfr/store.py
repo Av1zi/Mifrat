@@ -31,6 +31,7 @@ SOURCE = "manufacturer"
 def _index() -> dict:
     """{(brand_lower, key): entry} over every data/mfr/*.json."""
     index: dict = {}
+    ambiguous: set = set()
     for path in sorted(DATA_DIR.glob("*.json")):
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -41,9 +42,16 @@ def _index() -> dict:
         brand = str(data.get("brand") or path.stem).lower()
         for entry in (data.get("entries") or {}).values():
             for key in entry.get("keys", []):
-                index[(brand, "k:" + key)] = entry
+                slot = (brand, "k:" + key)
+                # An identifier two different pages both claim (a multipack page
+                # that repeats the single fan's barcode) joins nothing.
+                if slot in index and index[slot].get("url") != entry.get("url"):
+                    ambiguous.add(slot)
+                index[slot] = entry
             for name in entry.get("names", []):
                 index[(brand, "n:" + name)] = entry
+    for slot in ambiguous:
+        index.pop(slot, None)
     return index
 
 
