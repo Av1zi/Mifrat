@@ -89,7 +89,7 @@ export async function renderProduct(
       <div class="pdp__main">
         ${offersCard(product, lang, currency)}
         <section class="card" id="pdp-history" hidden></section>
-        ${specsCard(product, lang)}
+        ${specsCard(product, lang, products)} 
         ${similar ? card(similar, { title: t(lang, "similarHeading") }) : ""}
       </div>
     </div>`

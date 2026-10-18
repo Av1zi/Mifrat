@@ -1345,6 +1345,67 @@ def _emit_speed_mbs(facts: dict, category: str, field: str, value, source: str) 
     _emit(facts, category, field, round(number), source, 0.8)
 
 
+def _speed_mbs(number_text, unit: str) -> int | None:
+    number = _plain_number(number_text)
+    if number is None:
+        return None
+    if str(unit).lower() == "gb":
+        number *= 1000
+    result = round(number)
+    return result if 1 <= result <= 30000 else None
+
+
+_COMBINED_READ_RE = re.compile(r"(?i)read[^0-9]{0,24}(\d[\d.,]*)\s*(gb|mb)")
+_COMBINED_WRITE_RE = re.compile(r"(?i)write[^0-9]{0,24}(\d[\d.,]*)\s*(gb|mb)")
+
+
+def _emit_combined_speed(facts: dict, category: str, value, source: str) -> None:
+    """One cell holding both sequential figures -> read + write MB/s.
+
+    1PC prints 'Read up to 500MB/s , Write up to 450MB/s' as a single row (and
+    Yahav's SSD pages print a combined 'קריאה/כתיבה' cell). The plain speed
+    mapping could only ever read the first number, so the write figure was
+    lost. When the words are absent a two-number cell is read positionally
+    (read, then write), which is the order every vendor prints them in.
+    """
+    text = str(value or "")
+    read = _COMBINED_READ_RE.search(text)
+    write = _COMBINED_WRITE_RE.search(text)
+    emitted = False
+    if read:
+        speed = _speed_mbs(read.group(1), read.group(2))
+        if speed:
+            _emit(facts, category, "read_speed_mbs", speed, source, 0.8)
+            emitted = True
+    if write:
+        speed = _speed_mbs(write.group(1), write.group(2))
+        if speed:
+            _emit(facts, category, "write_speed_mbs", speed, source, 0.8)
+            emitted = True
+    if emitted:
+        return
+    numbers = _SPEED_RE.findall(text)
+    for field, (number_text, unit) in zip(("read_speed_mbs", "write_speed_mbs"), numbers):
+        speed = _speed_mbs(number_text, unit)
+        if speed:
+            _emit(facts, category, field, speed, source, 0.7)
+
+
+def _emit_mtbf(facts: dict, category: str, value, source: str) -> None:
+    """'hours 2,000,000' / '2,000,000 hours' -> mtbf_hours.
+
+    `first_number` reads a thousands-separated figure as its first group
+    ("2,000,000" -> 2), so the commas are stripped before the number is taken.
+    """
+    text = str(value or "").replace(",", "").replace("\u00a0", " ")
+    match = re.search(r"\d+", text)
+    if not match:
+        return
+    hours = int(match.group(0))
+    if 100 <= hours <= 10_000_000:
+        _emit(facts, category, "mtbf_hours", hours, source, 0.8)
+
+
 _DISPLAY_COUNT_RE = re.compile(r"(\d{1,2})")
 
 
@@ -1492,6 +1553,12 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         return True
     if token == labels.DISPLAY_COUNT:
         _emit_display_count(facts, category, value, source)
+        return True
+    if token == labels.COMBINED_SPEED:
+        _emit_combined_speed(facts, category, value, source)
+        return True
+    if token == labels.MTBF_CELL:
+        _emit_mtbf(facts, category, value, source)
         return True
     if token.startswith(labels.SPEED_MBS_PREFIX):
         _emit_speed_mbs(facts, category, token[len(labels.SPEED_MBS_PREFIX):],

@@ -94,6 +94,13 @@ LABEL_GAP_BUDGET = 1450
 # aio 56.0, case 61.1, case_fan 65.4, cooler_air 60.0, cooling_other 45.5,
 # cpu 89.9, gpu 72.4, memory 81.7, motherboard 66.6, psu 55.2, storage 61.8,
 # accessories 78.8.
+# 2026-10-18 (S270 spec-fill round): storage 59 -> 46. The storage schema gained
+# five real columns the MSI Spatium S270 page prints (series, dimensions_mm,
+# mtbf_hours, warranty_years, weight_g). Only `series` is broadly populated
+# (85%); the other four are sparse (1-2%) because few drive pages print them,
+# so the RATE fell even though filled cells rose. This is the same
+# denominator-dilution the 2026-10-15 note describes; the floor follows the
+# measured value (48) minus 2pp.
 CATEGORY_FLOORS = {
     "accessories": 76,
     "aio": 54,
@@ -106,7 +113,7 @@ CATEGORY_FLOORS = {
     "memory": 79,
     "motherboard": 64,
     "psu": 53,
-    "storage": 59,
+    "storage": 46,
 }
 
 # Core compat fields, same basis (2026-10-03: socket 99, chipset 96,

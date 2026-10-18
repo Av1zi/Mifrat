@@ -573,6 +573,29 @@ def main():
     with open(REVIEW_PATH, "w", encoding="utf-8") as f:
         json.dump(review_queue, f, ensure_ascii=False, indent=2)
 
+    # Visible evidence queue for scraper/specs/labels.py: every vendor detail
+    # label that mapped to no schema field, grouped by category with a count
+    # and sample product ids. Read by `python -m scraper.specs.report_gaps`.
+    with open(DATA_DIR / "spec_gaps.json", "w", encoding="utf-8") as f:
+        gaps = (spec_report or {}).get("label_gaps") or []
+        json.dump(
+            {
+                "generated_at": today.isoformat(),
+                "gaps": [
+                    {
+                        "category": gap.get("category"),
+                        "label": gap.get("label"),
+                        "count": gap.get("count"),
+                        "products": (gap.get("products") or [])[:3],
+                    }
+                    for gap in gaps
+                ],
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+
     # Count-check: zero listings across every vendor means the whole
     # pipeline is broken, so fail loudly rather than commit an empty catalog.
     if not catalog["listings"]:

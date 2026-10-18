@@ -6,14 +6,24 @@ import { html, type Html } from "../../ui/html";
 import { specCell } from "../../ui/spec";
 
 /**
- * Spec sheet as accordions grouped by the schema's own groups. Every field
- * is shown in its group (gaps carry the shared "Not listed" look, nothing is
- * hidden behind a collapsed block); a group with no known value starts closed
- * and says so in its summary.
+ * Spec sheet as accordions grouped by the schema's own groups. A field no
+ * product in the category fills is dropped entirely (a column of "Not listed"
+ * for a fact no vendor ever prints is noise); every remaining field is shown
+ * in its group, gaps carrying the shared "Not listed" look. A group with no
+ * known value starts closed and says so in its summary.
+ *
+ * `categoryProducts` (the already-loaded category page data) is what makes
+ * the cross-category "is this field ever filled?" test possible without an
+ * extra request; without it only this product's own fields are considered.
  */
-export function specsCard(product: Product, lang: Lang): Html {
+export function specsCard(product: Product, lang: Lang, categoryProducts?: Product[]): Html {
+  const universe = categoryProducts && categoryProducts.length > 0 ? categoryProducts : [product];
   const groups = new Map<string, ReturnType<typeof displaySpecFields>>();
   for (const field of displaySpecFields(product.category)) {
+    const anyKnown = universe.some(
+      (p) => formatSpecValue(specValue(p, field.name), lang) !== ""
+    );
+    if (!anyKnown) continue;
     groups.set(field.group, [...(groups.get(field.group) ?? []), field]);
   }
 

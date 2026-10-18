@@ -4355,6 +4355,63 @@ def _model_token_conflict(sets: list[set[str]]) -> bool:
     return False
 
 
+# An EAN-8 / UPC-12 / EAN-13 / GTIN-14 identifier: the only numeric
+# lengths vendors use for a globally-unique product code (a 12+ digit
+# all-numeric MPN is a barcode, not a part number — see extract_mpn).
+_EAN_RE = re.compile(r"^(?:\d{8}|\d{12,14})$")
+
+
+def _ean_shape(value) -> str | None:
+    """The digits of `value` when it is a bare EAN/UPC/GTIN, else None.
+
+    Deliberately strict: a real barcode is printed as digits only (grouping
+    spaces/dots allowed), so anything carrying a Latin letter (Intel's
+    "CM8071505092206" ordering code) or a dash (Antec's dashed UPC, AMD's
+    "100-000000593" OPN) is NOT read as a barcode. Those vendor codes are part
+    numbers, not global product ids — a false barcode would merge unrelated
+    parts. Vendors that print such codes already merge on the MPN/SKU tiers.
+    """
+    if value is None:
+        return None
+    text = str(value).strip()
+    if re.search(r"[A-Za-z]", text) or "-" in text or "_" in text:
+        return None
+    digits = re.sub(r"[\s.\u00a0]", "", text)
+    if not digits.isdigit():
+        return None
+    return digits if _EAN_RE.fullmatch(digits) else None
+
+
+def _listing_eans(enriched: dict) -> set[str]:
+    """Every barcode a listing carries (dedicated attrs + EAN-shaped MPN/SKU).
+
+    1PC stores the product's EAN as its MPN ("4711377001168"); another vendor
+    prints the same number as its barcode or vendor SKU. Collecting all three
+    is what lets the two meet.
+    """
+    out: set[str] = set()
+    attrs = enriched.get("attributes") or {}
+    for key in ("barcode", "ean", "gtin", "upc"):
+        ean = _ean_shape(attrs.get(key))
+        if ean:
+            out.add(ean)
+    for raw in (enriched.get("mpn"), enriched.get("vendor_sku")):
+        ean = _ean_shape(raw)
+        if ean:
+            out.add(ean)
+    return out
+
+
+_PID_RANK = {"manual": 0, "model": 1, "mpn": 2, "sku": 3, "ean": 4}
+
+
+def _pid_rank(pid: str) -> tuple[int, str]:
+    """Survivor preference when two pids reunite: a curated/manual product and
+    an MPN-derived pid keep their existing URL; a bare singleton is the last
+    resort. Lexicographic tiebreak keeps the choice deterministic."""
+    return (_PID_RANK.get(pid.split(":", 1)[0], 5), pid)
+
+
 def match_listings(
     enriched_listings: list[dict],
     manual_path: Path | str | None = None,
@@ -4362,10 +4419,13 @@ def match_listings(
     """
     Build canonical products.
 
-    Phase 2A behavior:
-    - Manual merges first
-    - Exact MPN matches second
-    - Exact normalized vendor SKU matches third
+    Tiers, in order:
+    - Manual merges
+    - Model matches (curated categories only)
+    - Exact MPN matches
+    - Exact normalized vendor SKU matches
+    - MPN/SKU unification
+    - EAN/barcode unification (last: never churns an already-named pid)
     - Everything else becomes a singleton product
     """
     manual_key_to_pid, manual_products, blocked_pairs = load_manual(manual_path)
@@ -4726,6 +4786,65 @@ def match_listings(
                 "category": category,
             },
         )
+
+    # 5b. EAN/barcode unification (Oct 2026).
+    #
+    # An EAN/UPC/GTIN identifies one physical product globally, so two products
+    # that share one ARE the same product even when their vendor SKUs and MPNs
+    # share nothing (1PC stores the EAN as its MPN while the same number is
+    # another vendor's barcode or SKU). Runs AFTER every other tier — including
+    # singletons — so a product whose own MPN/SKU already named it keeps that
+    # pid (and URL/history); only genuinely different products that share a
+    # barcode are reunited, preferring a manual/MPN-derived survivor.
+    _lk_cat_eans: dict[str, set[str]] = {}
+    for enriched in enriched_listings:
+        category = enriched.get("category_normalized")
+        if category in ("other", "", None):
+            continue
+        eans = _listing_eans(enriched)
+        if eans:
+            _lk_cat_eans[enriched["listing_key"]] = {f"{category}|{e}" for e in eans}
+
+    _ean_to_pids: dict[str, list[str]] = {}
+    for _lk, keys in _lk_cat_eans.items():
+        _pid = assignments.get(_lk)
+        if not _pid:
+            continue
+        for key in keys:
+            bucket = _ean_to_pids.setdefault(key, [])
+            if _pid not in bucket:
+                bucket.append(_pid)
+
+    _ean_members: dict[str, list[str]] = {}
+    for _lk, _pid in assignments.items():
+        _ean_members.setdefault(_pid, []).append(_lk)
+
+    for _key, pids in _ean_to_pids.items():
+        if len(pids) < 2:
+            continue
+        survivor = min(pids, key=_pid_rank)
+        for pid in pids:
+            if pid == survivor:
+                continue
+            if pid not in _ean_members:
+                continue
+            # Never reunite across a human not_match verdict, and never across
+            # a hard spec conflict (a shared barcode with contradictory facts
+            # is a vendor data error, not a link to trust).
+            _members_pid = [_e_by_lk.get(lk) for lk in _ean_members.get(pid, [])]
+            _members_surv = [_e_by_lk.get(lk) for lk in _ean_members.get(survivor, [])]
+            _members_pid = [e for e in _members_pid if e is not None]
+            _members_surv = [e for e in _members_surv if e is not None]
+            if any(_is_blocked_pair(a["listing_key"], b["listing_key"])
+                   for a in _members_pid for b in _members_surv):
+                continue
+            if any(critical_conflict(a, b)
+                   for a in _members_pid for b in _members_surv):
+                continue
+            for _lk in _ean_members.pop(pid, []):
+                assignments[_lk] = survivor
+                _ean_members.setdefault(survivor, []).append(_lk)
+            product_meta.pop(pid, None)
 
     # Build product objects (indexed once — was a full listings scan per
     # product, i.e. O(products × listings)).

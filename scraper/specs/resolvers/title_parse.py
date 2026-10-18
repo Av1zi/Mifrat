@@ -628,6 +628,13 @@ def parse_case(text_input: str) -> list[tuple]:
 # --------------------------------------------------------------------------
 
 
+# Series/family shapes a drive title prints: "Spatium S270", "870 EVO",
+# "SN850X". Low-confidence fallback only (a vendor detail row outranks it).
+_SERIES_WORD_NUM_RE = re.compile(r"\b([A-Za-z]{3,}\s+[A-Za-z]{0,2}\d{2,4}[A-Za-z]{0,4})\b")
+_SERIES_NUM_WORD_RE = re.compile(r"\b(\d{3,4}\s+[A-Za-z]{2,6})\b")
+_SERIES_TOKEN_RE = re.compile(r"\b([A-Z]{2,4}\d{3,4}[A-Z]{0,3})\b")
+
+
 def parse_storage(text_input: str) -> list[tuple]:
     text_value = text.clean_text(text_input)
     pairs: list[tuple] = []
@@ -653,6 +660,22 @@ def parse_storage(text_input: str) -> list[tuple]:
     nvme = bool(re.search(r"\bNVME\b|\bM\.2\b", text_value, re.I))
     if nvme:
         pairs.append(("nvme", True, 0.9))
+
+    # NAND flash type. Only a drive can carry it, and only the vendor's own
+    # word counts ("3D NAND", "TLC"/"QLC"/"MLC" cells), never a guess.
+    nand = re.search(r"\b(3D\s*NAND|V-?NAND|TLC|QLC|MLC|SLC)\b", text_value, re.I)
+    if nand:
+        cell = re.sub(r"\s+", " ", nand.group(1)).upper()
+        pairs.append(("nand", "3D NAND" if "NAND" in cell else cell, 0.7))
+
+    # Series / model family from the title ("Spatium S270", "870 EVO",
+    # "SN850X"). Deliberately low confidence: the vendor detail row (when a
+    # page prints one) outranks it, and a miss leaves the field null.
+    series = (_SERIES_WORD_NUM_RE.search(text_value)
+              or _SERIES_NUM_WORD_RE.search(text_value)
+              or _SERIES_TOKEN_RE.search(text_value))
+    if series:
+        pairs.append(("series", re.sub(r"\s+", " ", series.group(1)).strip(), 0.55))
 
     generation = text.PCIE_GEN_RE.search(text_value)
     if generation:

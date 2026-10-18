@@ -101,6 +101,8 @@ MEMORY_SPEED_GBPS = "__memory_speed_gbps__"   # "28Gbps" (bandwidth is GB/s)
 MEMORY_BUS_BIT = "__memory_bus_bit__"         # "128bit" / "256bits"
 RADIATOR_DIMS = "__radiator_dims__"           # "אורך: 403 מ\"מ רוחב: … עובי: 27"
 SPEED_MBS_PREFIX = "__speed_mbs__:"           # + read_speed_mbs / write_speed_mbs
+COMBINED_SPEED = "__combined_speed__"         # "Read up to 500MB/s , Write up to 450MB/s"
+MTBF_CELL = "__mtbf_cell__"                   # "hours 2,000,000" (thousands separators)
 CONNECTORS_CELL = "__connectors_cell__"       # cooler "חיבורים" prose -> list
 PACKAGING_CELL = "__packaging_cell__"         # "Retail - קופסה" -> boxed
 DISPLAY_COUNT = "__display_count__"           # "עד 4 מסכים" -> max_displays 4
@@ -121,7 +123,7 @@ SPECIAL_TOKENS = frozenset({
     PSU_CONN_STRING, THERMAL_DESIGN, MEMORY_SPEEDS, EXPANSION_SLOTS,
     MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS,
     CONNECTORS_CELL, PACKAGING_CELL, DISPLAY_COUNT,
-    GENERATION_CELL, STORAGE_TYPE_CELL,
+    GENERATION_CELL, STORAGE_TYPE_CELL, COMBINED_SPEED, MTBF_CELL,
 })
 
 # --------------------------------------------------------------------------
@@ -619,6 +621,33 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סוג אחסון": "type",
         "פקטור צורה": STORAGE_FORM_FACTOR,
         "גודל הפיזי של הכונן": STORAGE_FORM_FACTOR,
+        # 1PC's redesigned storefront prints a bare "Transfer Rate" cell holding
+        # both sequential figures ("Read up to 500MB/s , Write up to 450MB/s")
+        # and a bare "MTBF" cell whose value carries thousands separators
+        # ("hours 2,000,000"); both need a cell parser, not a field alias.
+        "transfer rate": COMBINED_SPEED,
+        "read/write speed": COMBINED_SPEED,
+        "solid state drive - read/write speed": COMBINED_SPEED,
+        "data transfer rate": COMBINED_SPEED,
+        "מהירות העברה": COMBINED_SPEED,
+        "קצב העברה": COMBINED_SPEED,
+        "מהירות עברה": COMBINED_SPEED,
+        "mtbf": MTBF_CELL,
+        "mtbf (שעות)": MTBF_CELL,
+        "nand flash": "nand",
+        # Storage-specific shape/warranty rows that had no field before the
+        # Oct 2026 schema additions (series/dimensions_mm/mtbf_hours/warranty_years).
+        "dimensions": "dimensions_mm",
+        "dimension": "dimensions_mm",
+        "מידות": "dimensions_mm",
+        "מידות המוצר": "dimensions_mm",
+        "ממדי המוצר": "dimensions_mm",
+        "warranty period and terms": "warranty_years",
+        "warranty period": "warranty_years",
+        "אחריות": "warranty_years",
+        "משקל": "weight_g",
+        "משקל (גרם)": "weight_g",
+        "משקל המוצר": "weight_g",
     },
     "psu": {
         "הספק": "wattage_w",

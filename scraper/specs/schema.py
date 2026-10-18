@@ -563,7 +563,22 @@ STORAGE = (
     # Ivory's SSD tables print them) and `controller` (0%, no source prints it).
     _f("nand", "str", group="storage", aliases=("nand", "nand_type"), he="סוג NAND", en="NAND",
        when=(("type", ("SSD", "Hybrid")),)),
-    # Pruned 2026-10-18: `weight_g` (13.7%) and `color` (9.8%): drive pages rarely print them.
+    # Oct 2026: rows 1PC/Yahav print that had no column before. `series` and
+    # `dimensions_mm` reuse the CPU/case field names (one field, several
+    # categories); `weight_g` is back for storage only (the prune dropped the
+    # shared field at 13.7% fill, but the drive shape rows are the evidence).
+    _f("series", "str", group="identity", aliases=("series", "family"),
+       he="סדרה", en="Series"),
+    _f("dimensions_mm", "str", group="physical",
+       aliases=("dimensions_mm", "dimensions", "dimension"),
+       he="מידות (מ״מ)", en="Dimensions (mm)"),
+    _f("mtbf_hours", "int", lo=0, hi=10_000_000, group="other",
+       aliases=("mtbf_hours", "mtbf"), he="MTBF (שעות)", en="MTBF (hours)"),
+    _f("warranty_years", "int", lo=1, hi=20, group="other",
+       aliases=("warranty_years",), he="אחריות (שנים)", en="Warranty (years)"),
+    _f("weight_g", "int", lo=1, hi=5000, group="physical",
+       aliases=("weight_g",), he="משקל (גרם)", en="Weight (g)"),
+    # Pruned 2026-10-18: `color` (9.8%): drive pages rarely print it.
 )
 
 # --------------------------------------------------------------------------

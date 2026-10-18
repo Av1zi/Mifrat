@@ -714,6 +714,17 @@ class OnePcDetailSpider(scrapy.Spider):
                 subgroup = line
                 i += 1
                 continue
+            # A line that already carries its value ("MTBF: hours 2,000,000")
+            # is a complete label/value pair, not a label awaiting the next
+            # line. Without this split the pair was emitted as one malformed
+            # key ("Spec / Specifications / MTBF: hours 2,000,000 (unpaired)")
+            # with an empty value, losing both the label and the fact.
+            colon = re.match(r"^([^:]{1,60}?):\s*(\S.*)$", line)
+            if colon:
+                key_parts = [group, label, subgroup, colon.group(1).strip()]
+                result[" / ".join(p for p in key_parts if p)] = colon.group(2).strip()
+                i += 1
+                continue
             if i + 1 >= len(lines):
                 # Trailing unpaired line — nothing to pair it with,
                 # keep it visible rather than silently dropping it.
