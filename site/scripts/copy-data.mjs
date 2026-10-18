@@ -32,6 +32,12 @@ try {
 
 const THUMB_EDGE = 128;
 const THUMB_QUALITY = 70;
+const MENU_EDGE = 256;
+const MENU_QUALITY = 74;
+
+// Derived derivative subdirectories: /images/<vendor>/<dir>/<rest> is built
+// here with sharp from the same-name cover /images/<vendor>/<rest>.
+const DERIVED_DIRS = { thumbs: { edge: THUMB_EDGE, quality: THUMB_QUALITY }, covers256: { edge: MENU_EDGE, quality: MENU_QUALITY } };
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const src = path.resolve(here, "..", "..", "data", "site");
@@ -84,34 +90,42 @@ collect(dest);
 rmSync(imagesDest, { recursive: true, force: true });
 let copied = 0;
 let thumbs = 0;
+let menus = 0;
 let missing = 0;
 
-// /images/<vendor>/thumbs/<rest> is derived from /images/<vendor>/<rest>.
-const coverOf = (rel) => {
+// /images/<vendor>/<dir>/<rest> is derived from /images/<vendor>/<rest>.
+const deriveOf = (rel) => {
   const parts = rel.split("/");
-  return parts.length > 2 && parts[1] === "thumbs" ? [parts[0], ...parts.slice(2)].join("/") : null;
+  const spec = parts.length > 2 ? DERIVED_DIRS[parts[1]] : null;
+  if (!spec) return null;
+  return { cover: [parts[0], ...parts.slice(2)].join("/"), ...spec };
 };
 
 const copyOne = async (rel) => {
-  const cover = coverOf(rel);
-  const from = path.join(imagesSrc, cover ?? rel);
+  const derived = deriveOf(rel);
+  const from = path.join(imagesSrc, derived ? derived.cover : rel);
   const to = path.join(imagesDest, rel);
   if (!existsSync(from)) {
     missing++;
     return;
   }
   mkdirSync(path.dirname(to), { recursive: true });
-  if (cover && sharp) {
+  if (derived && sharp) {
     await sharp(from)
-      .resize(THUMB_EDGE, THUMB_EDGE, { fit: "inside", withoutEnlargement: true })
-      .webp({ quality: THUMB_QUALITY })
+      .resize(derived.edge, derived.edge, { fit: "inside", withoutEnlargement: true })
+      .webp({ quality: derived.quality })
       .toFile(to);
-    thumbs++;
+    if (derived.edge === THUMB_EDGE) thumbs++;
+    else menus++;
     return;
   }
   cpSync(from, to);
-  if (cover) thumbs++;
-  else copied++;
+  if (derived) {
+    if (derived.edge === THUMB_EDGE) thumbs++;
+    else menus++;
+  } else {
+    copied++;
+  }
 };
 
 const queue = [...referenced];
@@ -121,10 +135,30 @@ await Promise.all(
   })
 );
 
+const totalRefs = referenced.size;
+const resolved = copied + thumbs + menus;
+const ratio = totalRefs ? resolved / totalRefs : 1;
 console.log(
-  `[copy-data] copied ${copied} covers + generated ${thumbs} thumbnails -> ${imagesDest}` +
-    (missing > 0 ? ` (${missing} referenced files missing on disk)` : "")
+  `[copy-data] images: ${copied} covers, ${thumbs} thumbnails, ${menus} menu covers ` +
+    `-> ${imagesDest} (${resolved}/${totalRefs} referenced resolved, ` +
+    `${(ratio * 100).toFixed(1)}%)` +
+    (missing > 0 ? `, ${missing} missing on disk` : "")
 );
+
+// A deploy that ships without its photos shows initials everywhere and looks
+// broken. Refuse to build when too many referenced images are not on disk —
+// the fix is to run `python -m scraper.download_images --from-catalog` (or
+// pull the latest data/images) and rebuild. Attribute-less products are rare
+// (a handful of vendor 404s), so 90% is a safe floor.
+if (totalRefs > 0 && ratio < 0.9) {
+  console.error(
+    `[copy-data] FAIL: only ${(ratio * 100).toFixed(1)}% of referenced images exist under ` +
+      `${imagesSrc} (${missing} missing).\n` +
+      "  Backfill them from the catalog, then rebuild:\n" +
+      "    python -m scraper.download_images --from-catalog"
+  );
+  process.exit(1);
+}
 
 // ---- sitemap.xml -----------------------------------------------------------
 // Generated from the same JSON, so it always matches the deployed catalog.

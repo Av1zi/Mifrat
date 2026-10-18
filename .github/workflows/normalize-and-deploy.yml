@@ -82,6 +82,15 @@ jobs:
         # must not block the daily catalog update — hence continue-on-error.
         run: python -m scraper.pcpartdb refresh
         continue-on-error: true
+      - name: Backfill missing cover images (best-effort)
+        # A cover the chooser flipped to a pruned file, or a product that only
+        # ever had a listing thumbnail, would ship as an initials placeholder.
+        # Refill the on-disk covers from the committed catalog before the
+        # normalizer resolves them (it only serves a photo the file exists
+        # for). Best-effort: missing photos must never block the catalog
+        # update, and the fetch is capped + sequential to stay polite.
+        run: python -m scraper.download_images --from-catalog --limit 500
+        continue-on-error: true
       - run: python scraper/normalize_and_match.py
       - name: Spec golden fixtures (see scraper/specs/README.md)
         # Hand-verified specs for known products must match the catalog the
@@ -116,6 +125,11 @@ jobs:
         run: python scripts/check_image_pick.py
       - name: Cover corpus (WebP only, size budget, no black-border covers)
         run: python scripts/check_image_files.py
+      - name: Site image resolvability (no initials-placeholder flood)
+        # Fails when more than 2% of built products resolve no local image —
+        # the signature of a cover/JSON mismatch that would ship a site of
+        # placeholder tiles even though the corpus itself is valid.
+        run: python scripts/check_site_images.py
       - name: Site payload size guard (Phase 8, see DECISIONS.md)
         # Anti-regression lock for the data-trust + performance phases:
         # fail the job (no commit, no deploy) when a category/index file
