@@ -14,8 +14,8 @@ from __future__ import annotations
 
 import re
 
-from .common import (base_mpn, html_rows, mb_form_factor_list, number_range, spaced_mm,
-                     typed)
+from .common import (base_mpn, front_io_ports, html_rows, mb_form_factor_list, number_range,
+                     spaced_mm, typed)
 
 BRAND = "Corsair"
 BASE_URL = "https://www.corsair.com"
@@ -38,13 +38,72 @@ def index(client) -> list[dict]:
     return entries
 
 
+_PATH_CATEGORY = {"case": "pc-cases", "case_fan": "case-fans", "aio": "cpu-coolers",
+                  "cooler_air": "cpu-coolers", "cooling_other": "cpu-coolers",
+                  "psu": "power-supply-units"}
+_COLOURS = {"black", "white", "gray", "grey", "silver", "red", "blue", "pink", "green",
+            "yellow", "purple", "orange", "bamboo", "wood", "oak", "satin", "aluminum"}
+# Words a product page title adds to (or a catalog title drops from) the model
+# name without changing which product it is.
+_GENERIC = {"corsair", "pc", "case", "mid", "tower", "full", "micro", "mini", "atx", "itx", "matx",
+            "compact", "dual", "chamber", "liquid", "cpu", "cooler", "aio", "fan", "fans", "pwm",
+            "cooling", "kit", "pack", "single", "triple", "expansion", "starter", "computer",
+            "gaming", "tempered", "glass", "mesh", "steel", "panel", "with", "and", "for", "ww",
+            "na", "eu", "icue", "link", "series", "water", "radiator", "pro", "edition"}
+_NOISE_RE = re.compile(r"^\d+x\d+(mm)?$|^\d+mm$|^\d{1,2}x$")
+
+
+def _tokens(text: str) -> tuple[frozenset, frozenset]:
+    """(model tokens, colour tokens) of a title or URL slug."""
+    words = re.findall(r"[a-z0-9]+", str(text).lower())
+    colours = frozenset(w for w in words if w in _COLOURS)
+    model = frozenset(w for w in words
+                      if w not in _COLOURS and w not in _GENERIC and not _NOISE_RE.match(w))
+    return model, colours
+
+
+_name_index: dict[int, list] = {}
+
+
+def _slug_index(entries_by_key: dict) -> list:
+    cached = _name_index.get(id(entries_by_key))
+    if cached is None:
+        cached = []
+        for entry in entries_by_key.values():
+            slug = entry["url"].rsplit("/", 1)[-1]
+            slug = re.sub(r"[-]?[a-z]{2}-?\d{6,8}(-[a-z]{2})?$", "", slug, flags=re.I)
+            slug = re.sub(r"-?(ww|na|eu)$", "", slug, flags=re.I)
+            cached.append((entry, *_tokens(slug)))
+        _name_index[id(entries_by_key)] = cached
+    return cached
+
+
 def match(entries_by_key: dict[str, dict], product: dict) -> dict | None:
-    """Exact MPN join (the part number is in the URL)."""
+    """Exact MPN join first (the part number is in the URL); products with no
+    sitemap MPN fall back to a tight name join: the product's model tokens must
+    EQUAL the page title's (colour and size words aside), the colour must agree,
+    and exactly one page may qualify - anything looser would hand a wrong
+    manufacturer row to a product."""
     for value in (product.get("specs") or {}).get("part_numbers") or []:
         entry = entries_by_key.get(base_mpn(value))
         if entry:
             return entry
-    return None
+    group = _PATH_CATEGORY.get(product.get("category"))
+    if group is None:
+        return None
+    model, colours = _tokens(re.sub(r"(\d+)\s*x\s*(\d+)", " ", str(product.get("canonical_name") or "")))
+    if len(model) < 1 or not any(any(c.isdigit() for c in t) for t in model):
+        return None
+    found = []
+    for entry, slug_model, slug_colours in _slug_index(entries_by_key):
+        if entry.get("path_category") != group or slug_model != model:
+            continue
+        if colours and slug_colours and colours != slug_colours:
+            continue
+        found.append((entry, bool(colours and colours == slug_colours)))
+    exact = [entry for entry, same in found if same]
+    pool = exact or [entry for entry, _ in found]
+    return pool[0] if len(pool) == 1 else None
 
 
 # ---------------------------------------------------------------------------
@@ -222,6 +281,9 @@ def _case(rows, put) -> None:
     slots = re.match(r"\s*(\d{1,2})\b", _pick(rows, "case expansion slots") or "")
     if slots:
         put("expansion_slots", slots.group(1))
+    ports = front_io_ports(_pick(rows, "case front io"))
+    if ports:
+        put("front_usb", ports)
 
 
 def _memory(rows, put) -> None:

@@ -159,12 +159,16 @@ def cpu_model(text_value: str) -> tuple[str | None, str | None]:
     if match:
         family = re.sub(r"\s+", " ", match.group(1).strip())
         if family.upper().startswith("ULTRA"):
-            family = family.title()
+            family = re.sub(r"(?i)\s*processor\s*", " ", family).strip()
+            family = re.sub(r"(?i)^ultra\s*(\d)", r"Ultra \1", family).title()
         elif family.upper() in ("I3", "I5", "I7", "I9"):
             family = "i" + family[-1]
         else:
             family = family.upper()
         return "Intel", f"Core {family} {match.group(2).upper().strip()}"
+    match = text.INTEL_ULTRA_TRAILING_RE.search(text_value)
+    if match:
+        return "Intel", f"Core Ultra {match.group(2)} {match.group(1).upper()}"
     match = text.XEON_RE.search(text_value)
     if match:
         tier = (match.group(1) or "").upper()
@@ -321,10 +325,6 @@ def parse_gpu(text_input: str) -> list[tuple]:
         pairs.append(("interface", f"PCIe {generation.group(1)}.0 x16" if generation
                       else "PCIe x16", 0.8))
 
-    slot = text.SLOT_WIDTH_RE.search(text_value)
-    if slot:
-        pairs.append(("slot_width", float(slot.group(1)), 0.8))
-
     if re.search(r"\bLIQUID\b|\bAIO\b", text_value, re.I):
         pairs.append(("cooling", "Liquid", 0.8))
     elif re.search(r"\bPASSIVE\b|\bFANLESS\b", text_value, re.I):
@@ -341,8 +341,7 @@ def parse_gpu(text_input: str) -> list[tuple]:
 
     ports: dict[str, int] = {}
     for key, pattern in (("HDMI", r"(\d+)\s?X\s?HDMI"),
-                         ("DisplayPort", r"(\d+)\s?X\s?DISPLAYPORT|(\d+)\s?X\s?DP\b"),
-                         ("DVI", r"(\d+)\s?X\s?DVI")):
+                         ("DisplayPort", r"(\d+)\s?X\s?DISPLAYPORT|(\d+)\s?X\s?DP\b")):
         match = re.search(pattern, text_value, re.I)
         if match:
             count = next((g for g in match.groups() if g), None)
@@ -352,8 +351,6 @@ def parse_gpu(text_input: str) -> list[tuple]:
         pairs.append(("hdmi_outputs", {"HDMI": ports["HDMI"]}, 0.7))
     if "DisplayPort" in ports:
         pairs.append(("dp_outputs", {"DisplayPort": ports["DisplayPort"]}, 0.7))
-    if "DVI" in ports:
-        pairs.append(("dvi_outputs", {"DVI": ports["DVI"]}, 0.7))
 
     fan = re.search(r"(\d)\s?X\s?FAN", text_value, re.I)
     if fan:
@@ -530,10 +527,6 @@ def parse_memory(text_input: str) -> list[tuple]:
     voltage = text.VOLTAGE_RE.search(text_value)
     if voltage:
         pairs.append(("voltage_v", float(voltage.group(1)), 0.9))
-
-    timing = text.TIMING_RE.search(text_value)
-    if timing:
-        pairs.append(("timing", timing.group(1), 0.9))
 
     if text.ECC_RE.search(text_value):
         pairs.append(("ecc", True, 0.9))
@@ -825,9 +818,6 @@ def parse_case_fan(text_input: str) -> list[tuple]:
     airflow = text.AIRFLOW_RE.search(text_value)
     if airflow:
         pairs.append(("airflow_cfm", float(airflow.group(1)), 0.8))
-
-    if re.search(r"\bREVERSE\b", text_value, re.I):
-        pairs.append(("flow_direction", "reverse", 0.9))
 
     if re.search(r"\bARGB\b|\bADDRESSABLE\b", text_value, re.I):
         pairs.append(("led", "ARGB", 0.8))

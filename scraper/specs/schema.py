@@ -354,25 +354,27 @@ AIO = (
     _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS,
     _C_RADIATOR_SIZE, _C_RADIATOR_LENGTH, _C_RADIATOR_THICKNESS,
     _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MIN, _C_FAN_RPM_MAX,
-    _C_NOISE, _C_AIRFLOW, _C_SOCKETS, _C_CONNECTORS, _C_PUMP_DIMS,
-    _C_TDP, _C_LIGHTING, _C_COLOR,
+    _C_NOISE, _C_AIRFLOW, _C_SOCKETS, _C_CONNECTORS,
+    _C_LIGHTING, _C_COLOR,
 )
 
 # Tower / downdraft air coolers: no radiator, no pump, no water_cooled.
 COOLER_AIR = (
     _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS,
-    _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MIN, _C_FAN_RPM_MAX,
-    _C_NOISE, _C_AIRFLOW, _C_HEIGHT, _C_SOCKETS, _C_CONNECTORS,
+    _C_FAN_SIZE, _C_FAN_RPM_MIN, _C_FAN_RPM_MAX,
+    _C_NOISE, _C_AIRFLOW, _C_HEIGHT, _C_SOCKETS,
     _C_TDP, _C_FANLESS, _C_LIGHTING, _C_COLOR,
 )
 
 # The grab-bag the matcher could not place (coolers of either kind, paste,
 # brackets): only the facts that make sense for all of them. water_cooled
 # stays here because nothing else says which kind a row is.
+# Pruned 2026-10-18 (second pass): `radiator_size_mm` and `fan_count` (0% of 51), `model`
+# (3.9%), `airflow_cfm` (11.8%): thermal paste, pads and mounting kits carry none of them.
 COOLING_OTHER = (
-    _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS, _C_WATER_COOLED,
-    _C_RADIATOR_SIZE, _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MAX,
-    _C_NOISE, _C_AIRFLOW, _C_HEIGHT, _C_SOCKETS, _C_TDP,
+    _C_MANUFACTURER, _C_PART_NUMBERS, _C_WATER_COOLED,
+    _C_FAN_SIZE, _C_FAN_RPM_MAX,
+    _C_NOISE, _C_HEIGHT, _C_SOCKETS, _C_TDP,
     _C_LIGHTING, _C_COLOR,
 )
 
@@ -386,7 +388,6 @@ MOTHERBOARD = (
     _f("model", "str", group="identity", aliases=_MODEL, he="דגם", en="Model"),
     _f("part_numbers", "list_str", group="identity",
        aliases=("part_numbers", "part_number", "mpn"), he="מק״טים", en="Part Numbers"),
-    PACKAGING,
     _f("socket", "str", filterable=True, group="core", aliases=_SOCKETS,
        he="סוקט", en="Socket"),
     _f("chipset", "str", filterable=True, group="core",
@@ -424,8 +425,6 @@ MOTHERBOARD = (
        he="חריצי PCIe x16", en="PCIe x16 Slots"),
     _f("pcie_x1_slots", "int", lo=0, hi=8, group="io", aliases=("pcie_x1_slots",),
        he="חריצי PCIe x1", en="PCIe x1 Slots"),
-    _f("pcie_x4_slots", "int", lo=0, hi=8, group="io", aliases=("pcie_x4_slots",),
-       he="חריצי PCIe x4", en="PCIe x4 Slots"),
     _f("m2_slots", "list_str", group="io",
        aliases=("m2_slots", "m_2_slots", "m2_slot_details", "m_2_slot_details"),
        he="חריצי M.2", en="M.2 Slots"),
@@ -455,16 +454,8 @@ MOTHERBOARD = (
        aliases=("ecc_support", "ecc"), he="תמיכת ECC", en="ECC Support"),
     _f("raid_support", "bool", group="storage", aliases=("raid_support", "raid_level", "raid"),
        he="תמיכת RAID", en="RAID Support"),
-    _f("usb2_headers", "int", lo=0, hi=6, group="io", aliases=("usb2_headers", "usb_headers"),
-       he="מחברי USB 2.0", en="USB 2.0 Headers"),
-    _f("usb32_gen1_headers", "int", lo=0, hi=6, group="io", aliases=("usb32_gen1_headers",),
-       he="מחברי USB 3.2 Gen1", en="USB 3.2 Gen1 Headers"),
-    _f("usb32_gen2_headers", "int", lo=0, hi=6, group="io", aliases=("usb32_gen2_headers",),
-       he="מחברי USB 3.2 Gen2", en="USB 3.2 Gen2 Headers"),
     _f("usb_ports", "str", group="io", aliases=("usb_ports", "usb_a_ports", "usb_c_ports"),
        he="יציאות USB", en="Rear USB Ports"),
-    _f("fan_headers", "int", lo=0, hi=16, group="io", aliases=("fan_headers",),
-       he="מחברי מאווררים", en="Fan Headers"),
     _f("audio", "str", group="io", aliases=("audio", "audio_chip"), he="שמע", en="Audio"),
     _f("expansion_slots", "str", group="io", aliases=("expansion_slots",),
        he="חריצי הרחבה", en="Expansion Slots"),
@@ -491,7 +482,6 @@ MEMORY = (
     _f("model", "str", group="identity", aliases=_MODEL, he="דגם", en="Model"),
     _f("part_numbers", "list_str", group="identity",
        aliases=("part_numbers", "part_number", "mpn"), he="מק״טים", en="Part Numbers"),
-    PACKAGING,
     _f("memory_type", "enum", enum=("DDR3", "DDR4", "DDR5"), filterable=True, group="core",
        aliases=("memory_type", "ram_type", "memory_support"), he="סוג זיכרון", en="Memory Type"),
     _f("speed", "str", group="core", aliases=("speed", "memory_speed"),
@@ -513,8 +503,6 @@ MEMORY = (
        aliases=("first_word_latency_ns", "first_word_latency"), he="השהיה (ns)", en="Latency (ns)"),
     _f("cas_latency", "int", lo=5, hi=60, filterable=True, group="core",
        aliases=("cas_latency", "cas", "cl"), he="CAS Latency", en="CAS Latency"),
-    _f("timing", "str", group="core", aliases=("timing", "timings", "memory_timings"),
-       he="תזמונים", en="Timings"),
     _f("voltage_v", "float", lo=0.8, hi=2.5, group="power",
        aliases=("voltage_v", "voltage", "memory_voltage"), he="מתח (V)", en="Voltage (V)"),
     _f("ecc", "bool", filterable=True, group="memory", aliases=("ecc", "ecc_support"),
@@ -539,7 +527,6 @@ STORAGE = (
     _f("model", "str", group="identity", aliases=_MODEL, he="דגם", en="Model"),
     _f("part_numbers", "list_str", group="identity",
        aliases=("part_numbers", "part_number", "mpn"), he="מק״טים", en="Part Numbers"),
-    PACKAGING,
     _f("capacity_gb", "int", lo=1, hi=30000, filterable=True, group="storage",
        aliases=("capacity_gb", "capacity", "drive_capacity", "total_capacity_gb"),
        he="נפח (GB)", en="Capacity (GB)"),
@@ -576,13 +563,7 @@ STORAGE = (
     # Ivory's SSD tables print them) and `controller` (0%, no source prints it).
     _f("nand", "str", group="storage", aliases=("nand", "nand_type"), he="סוג NAND", en="NAND",
        when=(("type", ("SSD", "Hybrid")),)),
-    # Drive mass, printed on 43 rows ("32.7 גרם", "98 grams", "כ-2.49 ק\"ג").
-    # Grams as a float, not kilograms: an M.2 drive is tens of grams and a kg
-    # column would round it to 0.0. canon_weight_g reads the vendor's unit.
-    _f("weight_g", "float", lo=1, hi=20000, group="physical",
-       aliases=("weight_g", "product_weight_g", "weight"), he="משקל (g)", en="Weight (g)"),
-    _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
-       he="צבע", en="Color"),
+    # Pruned 2026-10-18: `weight_g` (13.7%) and `color` (9.8%): drive pages rarely print them.
 )
 
 # --------------------------------------------------------------------------
@@ -637,8 +618,6 @@ GPU = (
        he="רזולוציה מרבית", en="Max Resolution"),
     _f("length_mm", "int", lo=50, hi=500, group="physical",
        aliases=("length_mm", "gpu_length_mm", "card_length_mm"), he="אורך (mm)", en="Length (mm)"),
-    _f("slot_width", "float", lo=0.5, hi=6.0, group="physical", aliases=("slot_width",),
-       he="רוחב חריצים", en="Slot Width"),
     _f("tdp_w", "int", lo=10, hi=1000, group="power", aliases=("tdp_w", "tdp", "power_consumption"),
        he="הספק (W)", en="TDP (W)"),
     _f("recommended_psu_w", "int", lo=100, hi=2000, group="power",
@@ -655,10 +634,7 @@ GPU = (
        he="יציאות DisplayPort", en="DisplayPort Outputs"),
     _f("hdmi_outputs", "dict_int", group="io", aliases=("hdmi_outputs", "hdmi_ports"),
        he="יציאות HDMI", en="HDMI Outputs"),
-    _f("dvi_outputs", "dict_int", group="io", aliases=("dvi_outputs", "dvi_ports"),
-       he="יציאות DVI", en="DVI Outputs"),
     # Pruned 2026-10-17: `frame_sync` (0.4% fill; no retailer or reference row prints it).
-    PACKAGING,
     _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
        he="צבע", en="Color"),
 )
@@ -677,8 +653,6 @@ CASE_FAN = (
        aliases=("size_mm", "fan_size_mm", "size"), he="גודל (mm)", en="Size (mm)"),
     _f("quantity", "int", lo=1, hi=10, group="physical", aliases=("quantity", "fans_per_pack", "pack"),
        he="כמות בחבילה", en="Quantity"),
-    _f("flow_direction", "enum", enum=("standard", "reverse"), group="physical",
-       aliases=("flow_direction", "airflow_direction"), he="כיוון זרימה", en="Flow Direction"),
     _f("rpm_min", "int", lo=0, hi=6000, group="core", aliases=("rpm_min",), he="סל״ד מינימלי",
        en="RPM Min"),
     _f("rpm_max", "int", lo=0, hi=8000, group="core", aliases=("rpm_max", "rpm"),
@@ -715,8 +689,6 @@ CASE = (
        he="פאנל צד", en="Side Panel"),
     _f("psu_included", "str", group="power", aliases=("psu_included", "power_supply", "psu"),
        he="ספק כוח כלול", en="PSU Included"),
-    _f("psu_shroud", "bool", group="power", aliases=("psu_shroud", "power_supply_shroud"),
-       he="כיסוי ספק כוח", en="PSU Shroud"),
     _f("mb_form_factors", "list_str", group="physical",
        aliases=("mb_form_factors", "supported_mb_form_factors", "motherboard_support"),
        he="פורמטים נתמכים", en="Motherboard Form Factors"),
@@ -730,15 +702,10 @@ CASE = (
        aliases=("drive_bays_35", "internal_35_bays"), he="תאי 3.5 אינץ'", en="3.5\" Bays"),
     _f("drive_bays_25", "int", lo=0, hi=20, group="storage",
        aliases=("drive_bays_25", "internal_25_bays"), he="תאי 2.5 אינץ'", en="2.5\" Bays"),
-    _f("drive_bays_525", "int", lo=0, hi=12, group="storage",
-       aliases=("drive_bays_525", "internal_525_bays", "bays_525"),
-       he="תאי 5.25 אינץ'", en="5.25\" Bays"),
     _f("expansion_slots", "str", group="io", aliases=("expansion_slots",),
        he="חריצי הרחבה", en="Expansion Slots"),
     _f("front_usb", "list_str", group="io", aliases=("front_usb", "front_io", "front_panel_usb"),
        he="USB קדמי", en="Front USB"),
-    _f("fan_support", "dict_int", group="physical", aliases=("fan_support",),
-       he="תמיכת מאווררים", en="Fan Support"),
     _f("radiator_support", "dict_int", group="physical",
        aliases=("radiator_support", "supported_radiator_mm"), he="תמיכת רדיאטורים",
        en="Radiator Support"),
@@ -775,7 +742,6 @@ PSU = (
        aliases=("part_numbers", "part_number", "mpn"), he="מק״טים", en="Part Numbers"),
     _f("type", "enum", enum=_PSU_TYPES, filterable=True, group="identity",
        aliases=("type", "form_factor"), he="סוג", en="Type"),
-    PACKAGING,
     _f("wattage_w", "int", lo=100, hi=3000, filterable=True, group="power",
        aliases=("wattage_w", "wattage", "power_consumption"), he="הספק (W)", en="Wattage (W)"),
     # TMS prints the SERIES' wattage span in its own row (194 rows,
@@ -821,8 +787,6 @@ PSU = (
        he="מחברי Molex", en="Molex Connectors"),
     _f("pcie_power_connectors", "str", group="power", aliases=("pcie_power_connectors",),
        he="חיבורי PCIe", en="PCIe Power Connectors"),
-    _f("lighting", "str", filterable=True, group="physical", aliases=("lighting", "rgb_lighting"),
-       he="תאורה", en="Lighting"),
     _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
        he="צבע", en="Color"),
 )
@@ -839,13 +803,6 @@ MINIMAL = (
        aliases=("part_numbers", "part_number", "mpn"), he="מק״טים", en="Part Numbers"),
     _f("accessory_type", "str", filterable=True, group="identity",
        aliases=("accessory_type", "product_type"), he="סוג אביזר", en="Accessory Type"),
-    _f("quantity", "int", lo=1, hi=50, group="physical", aliases=("quantity", "amount", "pack"),
-       he="כמות", en="Quantity"),
-    _f("connector", "str", group="io", aliases=("connector",), he="מחבר", en="Connector"),
-    _f("length_mm", "int", lo=5, hi=2000, group="physical", aliases=("length_mm", "cable_length_mm"),
-       he="אורך (mm)", en="Length (mm)"),
-    _f("lighting", "str", filterable=True, group="physical", aliases=("lighting", "led", "rgb"),
-       he="תאורה", en="Lighting"),
     _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
        he="צבע", en="Color"),
 )

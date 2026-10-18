@@ -1,0 +1,3725 @@
+{
+ "brand": "be quiet!",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-18",
+ "entries": {
+  "https://www.bequiet.com/en/case/2047": {
+   "url": "https://www.bequiet.com/en/case/2047",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW39",
+    "4260052188385",
+    "id2047",
+    "ID2047"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=537 D=539mm",
+    "weight_kg": 13.2,
+    "volume_l": 70.91,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/2048": {
+   "url": "https://www.bequiet.com/en/case/2048",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW40",
+    "4260052188408",
+    "id2048",
+    "ID2048"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=245 H=537 D=539mm",
+    "weight_kg": 13.2,
+    "volume_l": 70.91,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/2049": {
+   "url": "https://www.bequiet.com/en/case/2049",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG039",
+    "4260052188378",
+    "id2049",
+    "ID2049"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "dimensions_mm": "W=245 H=537 D=539mm",
+    "weight_kg": 12.6,
+    "volume_l": 70.91,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/2050": {
+   "url": "https://www.bequiet.com/en/case/2050",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG040",
+    "4260052188392",
+    "id2050",
+    "ID2050"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "dimensions_mm": "W=245 H=537 D=539mm",
+    "weight_kg": 12.6,
+    "volume_l": 70.91,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/4425": {
+   "url": "https://www.bequiet.com/en/case/4425",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW50",
+    "4260052190142",
+    "id4425",
+    "ID4425"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_cooler_height_mm": 190,
+    "dimensions_mm": "W=254 H=539 D=604mm",
+    "weight_kg": 17.8,
+    "volume_l": 82.69,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/4478": {
+   "url": "https://www.bequiet.com/en/case/4478",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW60",
+    "4260052190609",
+    "id4478",
+    "ID4478"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "dimensions_mm": "W=247 H=503 D=550mm",
+    "weight_kg": 11.7,
+    "volume_l": 62.74,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/4480": {
+   "url": "https://www.bequiet.com/en/case/4480",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW61",
+    "4260052190616",
+    "id4480",
+    "ID4480"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "dimensions_mm": "W=247 H=503 D=550mm",
+    "weight_kg": 11.8,
+    "volume_l": 62.74,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/4481": {
+   "url": "https://www.bequiet.com/en/case/4481",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW62",
+    "4260052190623",
+    "id4481",
+    "ID4481"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "dimensions_mm": "W=247 H=503 D=550mm",
+    "weight_kg": 11.8,
+    "volume_l": 62.74,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/4483": {
+   "url": "https://www.bequiet.com/en/case/4483",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW63",
+    "4260052190630",
+    "id4483",
+    "ID4483"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "dimensions_mm": "W=247 H=503 D=550mm",
+    "weight_kg": 12.3,
+    "volume_l": 62.74,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/4484": {
+   "url": "https://www.bequiet.com/en/case/4484",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW64",
+    "4260052190647",
+    "id4484",
+    "ID4484"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "dimensions_mm": "W=247 H=503 D=550mm",
+    "weight_kg": 12.3,
+    "volume_l": 62.7,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5019": {
+   "url": "https://www.bequiet.com/en/case/5019",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW51",
+    "4260052191118",
+    "id5019",
+    "ID5019"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_cooler_height_mm": 190,
+    "dimensions_mm": "W=254 H=539 D=604mm",
+    "weight_kg": 18.0,
+    "volume_l": 82.69,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5290": {
+   "url": "https://www.bequiet.com/en/case/5290",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW71",
+    "4260052191774",
+    "id5290",
+    "ID5290"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_cooler_height_mm": 190,
+    "dimensions_mm": "W=327 H=465 D=532mm",
+    "weight_kg": 16.8,
+    "volume_l": 68.0,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5291": {
+   "url": "https://www.bequiet.com/en/case/5291",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW72",
+    "4260052191781",
+    "id5291",
+    "ID5291"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_cooler_height_mm": 190,
+    "dimensions_mm": "W=327 H=465 D=532mm",
+    "weight_kg": 16.8,
+    "volume_l": 68.0,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5292": {
+   "url": "https://www.bequiet.com/en/case/5292",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW69",
+    "4260052191750",
+    "id5292",
+    "ID5292"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_cooler_height_mm": 190,
+    "dimensions_mm": "W=327 H=465 D=532mm",
+    "weight_kg": 15.3,
+    "volume_l": 68.0,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5293": {
+   "url": "https://www.bequiet.com/en/case/5293",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW70",
+    "4260052191767",
+    "id5293",
+    "ID5293"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_cooler_height_mm": 190,
+    "dimensions_mm": "W=327 H=465 D=532mm",
+    "weight_kg": 16.8,
+    "volume_l": 68.0,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5294": {
+   "url": "https://www.bequiet.com/en/case/5294",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW67",
+    "4260052191736",
+    "id5294",
+    "ID5294"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 170,
+    "dimensions_mm": "W=305 H=435 D=450mm",
+    "weight_kg": 12.1,
+    "volume_l": 59.7,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5295": {
+   "url": "https://www.bequiet.com/en/case/5295",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW68",
+    "4260052191743",
+    "id5295",
+    "ID5295"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 170,
+    "dimensions_mm": "W=305 H=435 D=450mm",
+    "weight_kg": 12.1,
+    "volume_l": 59.7,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5296": {
+   "url": "https://www.bequiet.com/en/case/5296",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW65",
+    "4260052191712",
+    "id5296",
+    "ID5296"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 170,
+    "dimensions_mm": "W=305 H=435 D=450mm",
+    "weight_kg": 11.5,
+    "volume_l": 59.7,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5297": {
+   "url": "https://www.bequiet.com/en/case/5297",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW66",
+    "4260052191729",
+    "id5297",
+    "ID5297"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 170,
+    "dimensions_mm": "W=305 H=435 D=450mm",
+    "weight_kg": 12.1,
+    "volume_l": 59.7,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5321": {
+   "url": "https://www.bequiet.com/en/case/5321",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG073",
+    "4260052191798",
+    "id5321",
+    "ID5321"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 6.7,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5322": {
+   "url": "https://www.bequiet.com/en/case/5322",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG074",
+    "4260052191804",
+    "id5322",
+    "ID5322"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 6.8,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5323": {
+   "url": "https://www.bequiet.com/en/case/5323",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG075",
+    "4260052191811",
+    "id5323",
+    "ID5323"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 6.8,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5324": {
+   "url": "https://www.bequiet.com/en/case/5324",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW74",
+    "4260052191828",
+    "id5324",
+    "ID5324"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 7.2,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5325": {
+   "url": "https://www.bequiet.com/en/case/5325",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW75",
+    "4260052191835",
+    "id5325",
+    "ID5325"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 7.2,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5753": {
+   "url": "https://www.bequiet.com/en/case/5753",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW76",
+    "4260052192832",
+    "id5753",
+    "ID5753"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 7.8,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5754": {
+   "url": "https://www.bequiet.com/en/case/5754",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW77",
+    "4260052192849",
+    "id5754",
+    "ID5754"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 7.9,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5755": {
+   "url": "https://www.bequiet.com/en/case/5755",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW78",
+    "4260052192856",
+    "id5755",
+    "ID5755"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 7.8,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/5756": {
+   "url": "https://www.bequiet.com/en/case/5756",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW79",
+    "4260052192863",
+    "id5756",
+    "ID5756"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "dimensions_mm": "W=231 H=449 D=450mm",
+    "weight_kg": 7.9,
+    "volume_l": 39.2,
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/6691": {
+   "url": "https://www.bequiet.com/en/case/6691",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW83",
+    "4260052193808",
+    "id6691",
+    "ID6691"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "dimensions_mm": "W=305 H=410 D=432mm",
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/6693": {
+   "url": "https://www.bequiet.com/en/case/6693",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW85",
+    "4260052193884",
+    "id6693",
+    "ID6693"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "dimensions_mm": "W=305 H=410 D=432mm",
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/6694": {
+   "url": "https://www.bequiet.com/en/case/6694",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW86",
+    "4260052193891",
+    "id6694",
+    "ID6694"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "dimensions_mm": "W=305 H=410 D=432mm",
+    "front_usb": [
+     "USB Type-C",
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/920": {
+   "url": "https://www.bequiet.com/en/case/920",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG022",
+    "4260052185421",
+    "id920",
+    "ID920"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 165,
+    "dimensions_mm": "W=220 H=445 D=492mm",
+    "weight_kg": 7.4,
+    "volume_l": 48.17,
+    "front_usb": [
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/921": {
+   "url": "https://www.bequiet.com/en/case/921",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BG021",
+    "4260052185414",
+    "id921",
+    "ID921"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 165,
+    "dimensions_mm": "W=220 H=445 D=492mm",
+    "weight_kg": 7.4,
+    "volume_l": 48.17,
+    "front_usb": [
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/937": {
+   "url": "https://www.bequiet.com/en/case/937",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW21",
+    "4260052185445",
+    "id937",
+    "ID937"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 165,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=445 D=492mm",
+    "weight_kg": 8.5,
+    "volume_l": 48.17,
+    "front_usb": [
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/case/938": {
+   "url": "https://www.bequiet.com/en/case/938",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "BGW20",
+    "4260052185438",
+    "id938",
+    "ID938"
+   ],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 165,
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=220 H=445 D=492mm",
+    "weight_kg": 8.5,
+    "volume_l": 48.17,
+    "front_usb": [
+     "USB 3.2",
+     "Earphone/Mic"
+    ]
+   }
+  },
+  "https://www.bequiet.com/en/casefans/1625": {
+   "url": "https://www.bequiet.com/en/casefans/1625",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL087",
+    "4260052186893",
+    "id1625",
+    "ID1625"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 900,
+    "noise_db": 14.9,
+    "airflow_cfm": 49.8,
+    "static_pressure_mmh2o": 0.58,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/1626": {
+   "url": "https://www.bequiet.com/en/casefans/1626",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL085",
+    "4260052186879",
+    "id1626",
+    "ID1626"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1100,
+    "noise_db": 15.9,
+    "airflow_cfm": 38.5,
+    "static_pressure_mmh2o": 0.82,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/1698": {
+   "url": "https://www.bequiet.com/en/casefans/1698",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL088",
+    "4260052187326",
+    "id1698",
+    "ID1698"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1100,
+    "noise_db": 15.7,
+    "airflow_cfm": 38.5,
+    "static_pressure_mmh2o": 0.82,
+    "connector": "3-pin",
+    "pwm": false
+   }
+  },
+  "https://www.bequiet.com/en/casefans/1699": {
+   "url": "https://www.bequiet.com/en/casefans/1699",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL090",
+    "4260052187340",
+    "id1699",
+    "ID1699"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 900,
+    "noise_db": 14.7,
+    "airflow_cfm": 49.8,
+    "static_pressure_mmh2o": 0.58,
+    "connector": "3-pin",
+    "pwm": false
+   }
+  },
+  "https://www.bequiet.com/en/casefans/1700": {
+   "url": "https://www.bequiet.com/en/casefans/1700",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL089",
+    "4260052187333",
+    "id1700",
+    "ID1700"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1100,
+    "noise_db": 15.9,
+    "airflow_cfm": 38.5,
+    "static_pressure_mmh2o": 0.82,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/1701": {
+   "url": "https://www.bequiet.com/en/casefans/1701",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL091",
+    "4260052187357",
+    "id1701",
+    "ID1701"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 900,
+    "noise_db": 14.9,
+    "airflow_cfm": 49.8,
+    "static_pressure_mmh2o": 0.58,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3450": {
+   "url": "https://www.bequiet.com/en/casefans/3450",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL072",
+    "4260052188767",
+    "id3450",
+    "ID3450"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1700,
+    "noise_db": 20.6,
+    "airflow_cfm": 41.5,
+    "static_pressure_mmh2o": 1.66,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3451": {
+   "url": "https://www.bequiet.com/en/casefans/3451",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL074",
+    "4260052188781",
+    "id3451",
+    "ID3451"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1500,
+    "noise_db": 23.3,
+    "airflow_cfm": 56.0,
+    "static_pressure_mmh2o": 1.49,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3452": {
+   "url": "https://www.bequiet.com/en/casefans/3452",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL076",
+    "4260052188804",
+    "id3452",
+    "ID3452"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1700,
+    "noise_db": 20.6,
+    "airflow_cfm": 41.51,
+    "static_pressure_mmh2o": 1.66,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3453": {
+   "url": "https://www.bequiet.com/en/casefans/3453",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL078",
+    "4260052188828",
+    "id3453",
+    "ID3453"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1500,
+    "noise_db": 23.3,
+    "airflow_cfm": 56.0,
+    "static_pressure_mmh2o": 1.49,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3454": {
+   "url": "https://www.bequiet.com/en/casefans/3454",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL073",
+    "4260052188774",
+    "id3454",
+    "ID3454"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2500,
+    "noise_db": 31.0,
+    "airflow_cfm": 52.3,
+    "static_pressure_mmh2o": 2.6,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3455": {
+   "url": "https://www.bequiet.com/en/casefans/3455",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL075",
+    "4260052188798",
+    "id3455",
+    "ID3455"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2200,
+    "noise_db": 31.0,
+    "airflow_cfm": 71.7,
+    "static_pressure_mmh2o": 2.3,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3456": {
+   "url": "https://www.bequiet.com/en/casefans/3456",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL077",
+    "4260052188811",
+    "id3456",
+    "ID3456"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2500,
+    "noise_db": 31.0,
+    "airflow_cfm": 52.3,
+    "static_pressure_mmh2o": 2.6,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3457": {
+   "url": "https://www.bequiet.com/en/casefans/3457",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL079",
+    "4260052188835",
+    "id3457",
+    "ID3457"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2200,
+    "noise_db": 31.0,
+    "airflow_cfm": 71.7,
+    "static_pressure_mmh2o": 2.3,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3699": {
+   "url": "https://www.bequiet.com/en/casefans/3699",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL092",
+    "4260052188842",
+    "id3699",
+    "ID3699"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 18.9,
+    "airflow_cfm": 48.7,
+    "static_pressure_mmh2o": 1.79,
+    "connector": "3-pin",
+    "pwm": false
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3700": {
+   "url": "https://www.bequiet.com/en/casefans/3700",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL093",
+    "4260052188859",
+    "id3700",
+    "ID3700"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 18.9,
+    "airflow_cfm": 48.7,
+    "static_pressure_mmh2o": 1.79,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3701": {
+   "url": "https://www.bequiet.com/en/casefans/3701",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL094",
+    "4260052188866",
+    "id3701",
+    "ID3701"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2500,
+    "noise_db": 31.2,
+    "airflow_cfm": 76.7,
+    "static_pressure_mmh2o": 3.96,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3702": {
+   "url": "https://www.bequiet.com/en/casefans/3702",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL095",
+    "4260052188873",
+    "id3702",
+    "ID3702"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1100,
+    "noise_db": 13.6,
+    "airflow_cfm": 51.3,
+    "static_pressure_mmh2o": 0.92,
+    "connector": "3-pin",
+    "pwm": false
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3703": {
+   "url": "https://www.bequiet.com/en/casefans/3703",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL096",
+    "4260052188880",
+    "id3703",
+    "ID3703"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1100,
+    "noise_db": 13.6,
+    "airflow_cfm": 51.3,
+    "static_pressure_mmh2o": 0.92,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3704": {
+   "url": "https://www.bequiet.com/en/casefans/3704",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL097",
+    "4260052188897",
+    "id3704",
+    "ID3704"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1900,
+    "noise_db": 29.3,
+    "airflow_cfm": 78.4,
+    "static_pressure_mmh2o": 2.36,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3705": {
+   "url": "https://www.bequiet.com/en/casefans/3705",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL098",
+    "4260052188903",
+    "id3705",
+    "ID3705"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 3000,
+    "noise_db": 36.9,
+    "airflow_cfm": 83.9,
+    "static_pressure_mmh2o": 5.31,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/3706": {
+   "url": "https://www.bequiet.com/en/casefans/3706",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL099",
+    "4260052188910",
+    "id3706",
+    "ID3706"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2400,
+    "noise_db": 36.8,
+    "airflow_cfm": 97.4,
+    "static_pressure_mmh2o": 3.64,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4132": {
+   "url": "https://www.bequiet.com/en/casefans/4132",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL100",
+    "4260052190241",
+    "id4132",
+    "ID4132"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1700,
+    "noise_db": 20.6,
+    "airflow_cfm": 41.51,
+    "static_pressure_mmh2o": 1.66,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4133": {
+   "url": "https://www.bequiet.com/en/casefans/4133",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL102",
+    "4260052190258",
+    "id4133",
+    "ID4133"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1500,
+    "noise_db": 23.3,
+    "airflow_cfm": 56.0,
+    "static_pressure_mmh2o": 1.49,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4134": {
+   "url": "https://www.bequiet.com/en/casefans/4134",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL101",
+    "4260052190234",
+    "id4134",
+    "ID4134"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2500,
+    "noise_db": 31.0,
+    "airflow_cfm": 52.3,
+    "static_pressure_mmh2o": 2.6,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4135": {
+   "url": "https://www.bequiet.com/en/casefans/4135",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL103",
+    "4260052190265",
+    "id4135",
+    "ID4135"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2200,
+    "noise_db": 31.0,
+    "airflow_cfm": 71.7,
+    "static_pressure_mmh2o": 2.3,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4605": {
+   "url": "https://www.bequiet.com/en/casefans/4605",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL104",
+    "4260052190760",
+    "id4605",
+    "ID4605"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 49.9,
+    "static_pressure_mmh2o": 1.45,
+    "connector": "3-pin",
+    "pwm": false
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4606": {
+   "url": "https://www.bequiet.com/en/casefans/4606",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL105",
+    "4260052190777",
+    "id4606",
+    "ID4606"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 49.9,
+    "static_pressure_mmh2o": 1.45,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4607": {
+   "url": "https://www.bequiet.com/en/casefans/4607",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL106",
+    "4260052190784",
+    "id4607",
+    "ID4607"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2100,
+    "noise_db": 30.9,
+    "airflow_cfm": 59.6,
+    "static_pressure_mmh2o": 2.41,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4608": {
+   "url": "https://www.bequiet.com/en/casefans/4608",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL107",
+    "4260052190791",
+    "id4608",
+    "ID4608"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 21.9,
+    "airflow_cfm": 57.4,
+    "static_pressure_mmh2o": 0.96,
+    "connector": "3-pin",
+    "pwm": false
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4609": {
+   "url": "https://www.bequiet.com/en/casefans/4609",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL108",
+    "4260052190807",
+    "id4609",
+    "ID4609"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 21.9,
+    "airflow_cfm": 57.4,
+    "static_pressure_mmh2o": 0.96,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4610": {
+   "url": "https://www.bequiet.com/en/casefans/4610",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL109",
+    "4260052190814",
+    "id4610",
+    "ID4610"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1800,
+    "noise_db": 30.5,
+    "airflow_cfm": 72.2,
+    "static_pressure_mmh2o": 2.44,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4773": {
+   "url": "https://www.bequiet.com/en/casefans/4773",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL110",
+    "4260052190975",
+    "id4773",
+    "ID4773"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 49.9,
+    "static_pressure_mmh2o": 1.45,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4774": {
+   "url": "https://www.bequiet.com/en/casefans/4774",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL111",
+    "4260052190982",
+    "id4774",
+    "ID4774"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2100,
+    "noise_db": 30.9,
+    "airflow_cfm": 59.6,
+    "static_pressure_mmh2o": 2.41,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4775": {
+   "url": "https://www.bequiet.com/en/casefans/4775",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL112",
+    "4260052190999",
+    "id4775",
+    "ID4775"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 21.9,
+    "airflow_cfm": 57.4,
+    "static_pressure_mmh2o": 0.96,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/4776": {
+   "url": "https://www.bequiet.com/en/casefans/4776",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL113",
+    "4260052191002",
+    "id4776",
+    "ID4776"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1800,
+    "noise_db": 30.5,
+    "airflow_cfm": 72.2,
+    "static_pressure_mmh2o": 2.44,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5002": {
+   "url": "https://www.bequiet.com/en/casefans/5002",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL119",
+    "4260052191101",
+    "id5002",
+    "ID5002"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2400,
+    "noise_db": 36.8,
+    "airflow_cfm": 97.4,
+    "static_pressure_mmh2o": 3.64,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5003": {
+   "url": "https://www.bequiet.com/en/casefans/5003",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL118",
+    "4260052191095",
+    "id5003",
+    "ID5003"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 3000,
+    "noise_db": 36.9,
+    "airflow_cfm": 83.9,
+    "static_pressure_mmh2o": 5.31,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5004": {
+   "url": "https://www.bequiet.com/en/casefans/5004",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL117",
+    "4260052191088",
+    "id5004",
+    "ID5004"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1900,
+    "noise_db": 29.3,
+    "airflow_cfm": 78.4,
+    "static_pressure_mmh2o": 2.36,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5005": {
+   "url": "https://www.bequiet.com/en/casefans/5005",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL116",
+    "4260052191071",
+    "id5005",
+    "ID5005"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1100,
+    "noise_db": 13.6,
+    "airflow_cfm": 51.3,
+    "static_pressure_mmh2o": 0.92,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5006": {
+   "url": "https://www.bequiet.com/en/casefans/5006",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL115",
+    "4260052191064",
+    "id5006",
+    "ID5006"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2500,
+    "noise_db": 31.2,
+    "airflow_cfm": 76.7,
+    "static_pressure_mmh2o": 3.96,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5007": {
+   "url": "https://www.bequiet.com/en/casefans/5007",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL114",
+    "4260052191057",
+    "id5007",
+    "ID5007"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 18.9,
+    "airflow_cfm": 48.7,
+    "static_pressure_mmh2o": 1.79,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5305": {
+   "url": "https://www.bequiet.com/en/casefans/5305",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL129",
+    "4260052191675",
+    "id5305",
+    "ID5305"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1800,
+    "noise_db": 30.5,
+    "airflow_cfm": 75.3,
+    "static_pressure_mmh2o": 2.45,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5306": {
+   "url": "https://www.bequiet.com/en/casefans/5306",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL126",
+    "4260052191644",
+    "id5306",
+    "ID5306"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 22.9,
+    "airflow_cfm": 56.0,
+    "static_pressure_mmh2o": 0.9,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5307": {
+   "url": "https://www.bequiet.com/en/casefans/5307",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL123",
+    "4260052191613",
+    "id5307",
+    "ID5307"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2100,
+    "noise_db": 30.9,
+    "airflow_cfm": 61.8,
+    "static_pressure_mmh2o": 2.51,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5308": {
+   "url": "https://www.bequiet.com/en/casefans/5308",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL120",
+    "4260052191583",
+    "id5308",
+    "ID5308"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 51.5,
+    "static_pressure_mmh2o": 1.34,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5309": {
+   "url": "https://www.bequiet.com/en/casefans/5309",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL130",
+    "4260052191682",
+    "id5309",
+    "ID5309"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1800,
+    "noise_db": 30.5,
+    "airflow_cfm": 75.3,
+    "static_pressure_mmh2o": 2.45,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5310": {
+   "url": "https://www.bequiet.com/en/casefans/5310",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL131",
+    "4260052191699",
+    "id5310",
+    "ID5310"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1800,
+    "noise_db": 30.5,
+    "airflow_cfm": 75.3,
+    "static_pressure_mmh2o": 2.45,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5311": {
+   "url": "https://www.bequiet.com/en/casefans/5311",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL127",
+    "4260052191651",
+    "id5311",
+    "ID5311"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 22.9,
+    "airflow_cfm": 56.0,
+    "static_pressure_mmh2o": 0.9,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5312": {
+   "url": "https://www.bequiet.com/en/casefans/5312",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL128",
+    "4260052191668",
+    "id5312",
+    "ID5312"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 22.9,
+    "airflow_cfm": 56.0,
+    "static_pressure_mmh2o": 0.9,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5313": {
+   "url": "https://www.bequiet.com/en/casefans/5313",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL124",
+    "4260052191620",
+    "id5313",
+    "ID5313"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2100,
+    "noise_db": 30.9,
+    "airflow_cfm": 61.8,
+    "static_pressure_mmh2o": 2.51,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5314": {
+   "url": "https://www.bequiet.com/en/casefans/5314",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL125",
+    "4260052191637",
+    "id5314",
+    "ID5314"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2100,
+    "noise_db": 30.9,
+    "airflow_cfm": 61.8,
+    "static_pressure_mmh2o": 2.51,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5315": {
+   "url": "https://www.bequiet.com/en/casefans/5315",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL121",
+    "4260052191590",
+    "id5315",
+    "ID5315"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 51.5,
+    "static_pressure_mmh2o": 1.34,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5316": {
+   "url": "https://www.bequiet.com/en/casefans/5316",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL122",
+    "4260052191606",
+    "id5316",
+    "ID5316"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 51.5,
+    "static_pressure_mmh2o": 1.34,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5781": {
+   "url": "https://www.bequiet.com/en/casefans/5781",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL134",
+    "4260052192894",
+    "id5781",
+    "ID5781"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1300,
+    "noise_db": 25.5,
+    "airflow_cfm": 51.4,
+    "static_pressure_mmh2o": 1.1,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5782": {
+   "url": "https://www.bequiet.com/en/casefans/5782",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL135",
+    "4260052192900",
+    "id5782",
+    "ID5782"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1300,
+    "noise_db": 25.5,
+    "airflow_cfm": 51.4,
+    "static_pressure_mmh2o": 1.1,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5783": {
+   "url": "https://www.bequiet.com/en/casefans/5783",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL132",
+    "4260052192870",
+    "id5783",
+    "ID5783"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1500,
+    "noise_db": 28.5,
+    "airflow_cfm": 48.8,
+    "static_pressure_mmh2o": 1.04,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/5784": {
+   "url": "https://www.bequiet.com/en/casefans/5784",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL133",
+    "4260052192887",
+    "id5784",
+    "ID5784"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1500,
+    "noise_db": 28.5,
+    "airflow_cfm": 48.8,
+    "static_pressure_mmh2o": 1.04,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/6697": {
+   "url": "https://www.bequiet.com/en/casefans/6697",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL136",
+    "4260052193822",
+    "id6697",
+    "ID6697"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1500,
+    "noise_db": 28.5,
+    "airflow_cfm": 47.1,
+    "static_pressure_mmh2o": 1.17,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/6698": {
+   "url": "https://www.bequiet.com/en/casefans/6698",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL137",
+    "4260052193839",
+    "id6698",
+    "ID6698"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1500,
+    "noise_db": 28.5,
+    "airflow_cfm": 47.1,
+    "static_pressure_mmh2o": 1.17,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/6699": {
+   "url": "https://www.bequiet.com/en/casefans/6699",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL138",
+    "4260052193846",
+    "id6699",
+    "ID6699"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1800,
+    "noise_db": 30.5,
+    "airflow_cfm": 72.2,
+    "static_pressure_mmh2o": 2.44,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/6700": {
+   "url": "https://www.bequiet.com/en/casefans/6700",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL139",
+    "4260052193853",
+    "id6700",
+    "ID6700"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 1200,
+    "noise_db": 21.9,
+    "airflow_cfm": 57.4,
+    "static_pressure_mmh2o": 0.96,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/6701": {
+   "url": "https://www.bequiet.com/en/casefans/6701",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL140",
+    "4260052193860",
+    "id6701",
+    "ID6701"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2100,
+    "noise_db": 30.9,
+    "airflow_cfm": 59.6,
+    "static_pressure_mmh2o": 2.41,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/casefans/6702": {
+   "url": "https://www.bequiet.com/en/casefans/6702",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "BL141",
+    "4260052193877",
+    "id6702",
+    "ID6702"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "noise_db": 25.5,
+    "airflow_cfm": 49.9,
+    "static_pressure_mmh2o": 1.45,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/1074": {
+   "url": "https://www.bequiet.com/en/cpucooler/1074",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK003",
+    "4260052185391",
+    "id1074",
+    "ID1074"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA775",
+     "LGA1200",
+     "LGA1366",
+     "LGA2011",
+     "LGA2066",
+     "AM2",
+     "AM3",
+     "AM4"
+    ],
+    "fan_size_mm": 135,
+    "fan_rpm_max": 1400,
+    "airflow_cfm": 86.3
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/1659": {
+   "url": "https://www.bequiet.com/en/cpucooler/1659",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK024",
+    "4260052187319",
+    "id1659",
+    "ID1659"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA2066",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA2011",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "airflow_cfm": 50.5
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/2248": {
+   "url": "https://www.bequiet.com/en/cpucooler/2248",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK030",
+    "4260052188453",
+    "id2248",
+    "ID2248"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 92,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 34.9
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/3351": {
+   "url": "https://www.bequiet.com/en/cpucooler/3351",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK031",
+    "4260052188705",
+    "id3351",
+    "ID3351"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA2066",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA2011",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 135,
+    "fan_rpm_max": 1300,
+    "airflow_cfm": 60.0
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/3992": {
+   "url": "https://www.bequiet.com/en/cpucooler/3992",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK034",
+    "4260052189757",
+    "id3992",
+    "ID3992"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 92,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 33.0
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/4466": {
+   "url": "https://www.bequiet.com/en/cpucooler/4466",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK036",
+    "4260052190746",
+    "id4466",
+    "ID4466"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "airflow_cfm": 52.5
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/4468": {
+   "url": "https://www.bequiet.com/en/cpucooler/4468",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK037",
+    "4260052190753",
+    "id4468",
+    "ID4468"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 135,
+    "airflow_cfm": 80.2
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/5110": {
+   "url": "https://www.bequiet.com/en/cpucooler/5110",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK035",
+    "4260052190739",
+    "id5110",
+    "ID5110"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 55.0
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/5591": {
+   "url": "https://www.bequiet.com/en/cpucooler/5591",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK039",
+    "4260052192481",
+    "id5591",
+    "ID5591"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 59.6
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/5592": {
+   "url": "https://www.bequiet.com/en/cpucooler/5592",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK040",
+    "4260052192498",
+    "id5592",
+    "ID5592"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 61.8
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/5599": {
+   "url": "https://www.bequiet.com/en/cpucooler/5599",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK041",
+    "4260052192504",
+    "id5599",
+    "ID5599"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 59.6
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/5600": {
+   "url": "https://www.bequiet.com/en/cpucooler/5600",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK042",
+    "4260052192511",
+    "id5600",
+    "ID5600"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 59.6
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/5601": {
+   "url": "https://www.bequiet.com/en/cpucooler/5601",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK043",
+    "4260052192528",
+    "id5601",
+    "ID5601"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 61.8
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/570": {
+   "url": "https://www.bequiet.com/en/cpucooler/570",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK002",
+    "4260052184226",
+    "id570",
+    "ID570"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA2011",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "airflow_cfm": 51.4
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/6120": {
+   "url": "https://www.bequiet.com/en/cpucooler/6120",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK047",
+    "4260052193150",
+    "id6120",
+    "ID6120"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "fan_rpm_max": 1700,
+    "airflow_cfm": 35.5
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/7322": {
+   "url": "https://www.bequiet.com/en/cpucooler/7322",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK048",
+    "4260052193938",
+    "id7322",
+    "ID7322"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_rpm_max": 2000
+   }
+  },
+  "https://www.bequiet.com/en/cpucooler/7325": {
+   "url": "https://www.bequiet.com/en/cpucooler/7325",
+   "fetched": "2026-10-18",
+   "category": "cooler_air",
+   "keys": [
+    "BK046",
+    "4260052193143",
+    "id7325",
+    "ID7325"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_rpm_max": 2000
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/1553": {
+   "url": "https://www.bequiet.com/en/powersupply/1553",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BN239",
+    "4260052187135",
+    "id1553",
+    "ID1553"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 600,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 120,
+    "type": "SFX-L",
+    "modular": "full",
+    "eps8_connectors": 1,
+    "pcie62_connectors": 4,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 0,
+    "sata_connectors": 6,
+    "molex4_connectors": 3
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/2309": {
+   "url": "https://www.bequiet.com/en/powersupply/2309",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BN321",
+    "4260052188279",
+    "id2309",
+    "ID2309"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 450,
+    "efficiency": "80+ Bronze",
+    "fan_size_mm": 80,
+    "type": "SFX",
+    "modular": "no",
+    "eps8_connectors": 1,
+    "pcie62_connectors": 2,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 0,
+    "sata_connectors": 3,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/2314": {
+   "url": "https://www.bequiet.com/en/powersupply/2314",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BN323",
+    "4260052188293",
+    "id2314",
+    "ID2314"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 300,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 80,
+    "type": "TFX",
+    "modular": "no",
+    "eps8_connectors": 0,
+    "pcie62_connectors": 1,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 0,
+    "sata_connectors": 3,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/4393": {
+   "url": "https://www.bequiet.com/en/powersupply/4393",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BN332",
+    "4260052189375",
+    "id4393",
+    "ID4393"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1600,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 6,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 2,
+    "sata_connectors": 16,
+    "molex4_connectors": 5
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/4394": {
+   "url": "https://www.bequiet.com/en/powersupply/4394",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BN331",
+    "4260052189368",
+    "id4394",
+    "ID4394"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1300,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 6,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 2,
+    "sata_connectors": 16,
+    "molex4_connectors": 5
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5250": {
+   "url": "https://www.bequiet.com/en/powersupply/5250",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP001EU",
+    "4260052191163",
+    "id5250",
+    "ID5250"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 550,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 120,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "no",
+    "pcie62_connectors": 2,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 5,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5251": {
+   "url": "https://www.bequiet.com/en/powersupply/5251",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP002EU",
+    "4260052191170",
+    "id5251",
+    "ID5251"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 650,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 120,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "no",
+    "pcie62_connectors": 2,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 5,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5252": {
+   "url": "https://www.bequiet.com/en/powersupply/5252",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP003EU",
+    "4260052191187",
+    "id5252",
+    "ID5252"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 120,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "no",
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5253": {
+   "url": "https://www.bequiet.com/en/powersupply/5253",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP004EU",
+    "4260052191194",
+    "id5253",
+    "ID5253"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 120,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "no",
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5254": {
+   "url": "https://www.bequiet.com/en/powersupply/5254",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP005EU",
+    "4260052191200",
+    "id5254",
+    "ID5254"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "fan_size_mm": 120,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "no",
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5583": {
+   "url": "https://www.bequiet.com/en/powersupply/5583",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP008EU",
+    "4260052191385",
+    "id5583",
+    "ID5583"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Platinum",
+    "fan_size_mm": 140,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 7,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5584": {
+   "url": "https://www.bequiet.com/en/powersupply/5584",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP007EU",
+    "4260052191378",
+    "id5584",
+    "ID5584"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Platinum",
+    "fan_size_mm": 140,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 7,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5585": {
+   "url": "https://www.bequiet.com/en/powersupply/5585",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP006EU",
+    "4260052191361",
+    "id5585",
+    "ID5585"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 750,
+    "efficiency": "80+ Platinum",
+    "fan_size_mm": 140,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5788": {
+   "url": "https://www.bequiet.com/en/powersupply/5788",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP021EU",
+    "4260052192030",
+    "id5788",
+    "ID5788"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1200,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 4,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 2,
+    "sata_connectors": 13,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5789": {
+   "url": "https://www.bequiet.com/en/powersupply/5789",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP020EU",
+    "4260052192023",
+    "id5789",
+    "ID5789"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 4,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 13,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/5790": {
+   "url": "https://www.bequiet.com/en/powersupply/5790",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP019EU",
+    "4260052192016",
+    "id5790",
+    "ID5790"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 850,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 4,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1,
+    "sata_connectors": 13,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/6004": {
+   "url": "https://www.bequiet.com/en/powersupply/6004",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP023EU",
+    "4260052192115",
+    "id6004",
+    "ID6004"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1600,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 6,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 2,
+    "sata_connectors": 16,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/6005": {
+   "url": "https://www.bequiet.com/en/powersupply/6005",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP022EU",
+    "4260052192108",
+    "id6005",
+    "ID6005"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1300,
+    "efficiency": "80+ Titanium",
+    "fan_size_mm": 135,
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 6,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 2,
+    "sata_connectors": 16,
+    "molex4_connectors": 2
+   }
+  },
+  "https://www.bequiet.com/en/powersupply/6013": {
+   "url": "https://www.bequiet.com/en/powersupply/6013",
+   "fetched": "2026-10-18",
+   "category": "psu",
+   "keys": [
+    "BP030EU",
+    "4260052193563",
+    "id6013",
+    "ID6013"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1200,
+    "efficiency": "80+ Platinum",
+    "fan_size_mm": 140,
+    "type": "ATX",
+    "atx_version": "ATX 3.1",
+    "modular": "full",
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 2,
+    "sata_connectors": 7,
+    "molex4_connectors": 1
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5183": {
+   "url": "https://www.bequiet.com/en/watercooler/5183",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW020",
+    "4260052191125",
+    "id5183",
+    "ID5183"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 34.9
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5184": {
+   "url": "https://www.bequiet.com/en/watercooler/5184",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW022",
+    "4260052191132",
+    "id5184",
+    "ID5184"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5185": {
+   "url": "https://www.bequiet.com/en/watercooler/5185",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW021",
+    "4260052191149",
+    "id5185",
+    "ID5185"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 34.9
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5186": {
+   "url": "https://www.bequiet.com/en/watercooler/5186",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW023",
+    "4260052191156",
+    "id5186",
+    "ID5186"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5397": {
+   "url": "https://www.bequiet.com/en/watercooler/5397",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW026",
+    "4260052192559",
+    "id5397",
+    "ID5397"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 140,
+    "radiator_size_mm": 420,
+    "fan_rpm_max": 1900,
+    "airflow_cfm": 78.4,
+    "noise_db": 34.3
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5398": {
+   "url": "https://www.bequiet.com/en/watercooler/5398",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW025",
+    "4260052192542",
+    "id5398",
+    "ID5398"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 767.0,
+    "noise_db": 38.8
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/5399": {
+   "url": "https://www.bequiet.com/en/watercooler/5399",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW024",
+    "4260052192535",
+    "id5399",
+    "ID5399"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 767.0,
+    "noise_db": 36.9
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6137": {
+   "url": "https://www.bequiet.com/en/watercooler/6137",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW027EU",
+    "4260052193167",
+    "id6137",
+    "ID6137"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 59.6,
+    "noise_db": 35.2
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6138": {
+   "url": "https://www.bequiet.com/en/watercooler/6138",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW028EU",
+    "4260052193174",
+    "id6138",
+    "ID6138"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 140,
+    "radiator_size_mm": 280,
+    "fan_rpm_max": 1800,
+    "airflow_cfm": 72.2,
+    "noise_db": 36.6
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6139": {
+   "url": "https://www.bequiet.com/en/watercooler/6139",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW029EU",
+    "4260052193181",
+    "id6139",
+    "ID6139"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 59.6,
+    "noise_db": 37.2
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6140": {
+   "url": "https://www.bequiet.com/en/watercooler/6140",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW030EU",
+    "4260052193198",
+    "id6140",
+    "ID6140"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 35.0
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6141": {
+   "url": "https://www.bequiet.com/en/watercooler/6141",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW031EU",
+    "4260052193204",
+    "id6141",
+    "ID6141"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.9
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6735": {
+   "url": "https://www.bequiet.com/en/watercooler/6735",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW032",
+    "4260052193228",
+    "id6735",
+    "ID6735"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6736": {
+   "url": "https://www.bequiet.com/en/watercooler/6736",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW033",
+    "4260052193235",
+    "id6736",
+    "ID6736"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 360,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6737": {
+   "url": "https://www.bequiet.com/en/watercooler/6737",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW034",
+    "4260052193242",
+    "id6737",
+    "ID6737"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 34.9
+   }
+  },
+  "https://www.bequiet.com/en/watercooler/6738": {
+   "url": "https://www.bequiet.com/en/watercooler/6738",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "BW035",
+    "4260052193259",
+    "id6738",
+    "ID6738"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1151",
+     "LGA1150",
+     "LGA1155",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120,
+    "radiator_size_mm": 240,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 61.8,
+    "noise_db": 34.9
+   }
+  }
+ }
+}

@@ -130,7 +130,12 @@ EPYC_RE = re.compile(
     re.I,
 )
 INTEL_CPU_RE = re.compile(
-    r"\b(?:CORE\s?)?(ULTRA\s?\d|I\d)[\s-]?(\d{3,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
+    r"\b(?:CORE\s?)?(ULTRA\s?(?:PROCESSOR\s+)?\d|I\d)[\s-]?(?:PROCESSOR\s+)?"
+    r"(\d{3,5}[A-Z]{0,4}(?:\s?PLUS)?)", re.I
+)
+# "Intel 265KF Intel Core Ultra Processor 7 Tray": the model number comes first.
+INTEL_ULTRA_TRAILING_RE = re.compile(
+    r"\b(\d{3}[A-Z]{0,2})\s+(?:INTEL\s+)?(?:CORE\s+)?ULTRA\s+(?:PROCESSOR\s+)?(\d)\b", re.I
 )
 INTEL_CELERON_RE = re.compile(r"\bCELERON\s?(?:DUAL\s?CORE\s?)?([A-Z]?\d{3,4}[A-Z]{0,2})\b", re.I)
 INTEL_PENTIUM_RE = re.compile(
@@ -167,7 +172,6 @@ CORE_CLOCK_RE = re.compile(r"\b(\d{3,4})\s?MHZ\b", re.I)
 BOOST_CLOCK_RE = re.compile(r"\bBOOST\s*[:\\-]?\s*(\d{3,4})\s?MHZ\b", re.I)
 TDP_RE = re.compile(r"\b(\d{2,4})\s?W\b")
 LENGTH_MM_RE = re.compile(r"\b(\d{2,3})\s?MM\b", re.I)
-SLOT_WIDTH_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s*-?SLOT\b", re.I)
 PCIE_INTERFACE_RE = re.compile(r"PCI\s*E?\s*([345]\.0)?\s*X\s*16", re.I)
 PCIE_GEN_INTERFACE_RE = re.compile(r"\bPCIE\s?([345])\.0\b", re.I)
 GPU_POWER_8PIN_RE = re.compile(r"\b(\d{1,2})\s?X\s?8[\s-]?PIN\b", re.I)
@@ -198,7 +202,6 @@ SPEED_DDR_RE = re.compile(r"\bDDR[345]L?[-\s]?(\d{3,4})\b", re.I)
 CL_RE = re.compile(r"\bCL\s?(\d{1,2})\b", re.I)
 CAS_RE = re.compile(r"\bC(\d{1,2})\b")
 VOLTAGE_RE = re.compile(r"\b(\d+\.\d+)\s?V\b", re.I)
-TIMING_RE = re.compile(r"\b(\d{1,2}-\d{1,2}-\d{1,2}-\d{1,3})\b")
 ECC_RE = re.compile(r"\bECC\b", re.I)
 REGISTERED_RE = re.compile(r"\b(REG|REGISTERED)\b", re.I)
 HEAT_SPREADER_RE = re.compile(r"\b(HEAT\s?SPREADER|HEATSINK)\b", re.I)

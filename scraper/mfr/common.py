@@ -152,7 +152,8 @@ def mb_form_factor_list(text: str) -> list[str]:
                  "ITX": "Mini ITX", "ATX": "ATX"}.get(raw)
         if label and label not in out:
             out.append(label)
-    return out
+    order = ["Mini-DTX", "Mini ITX", "Micro ATX", "ATX", "E-ATX", "XL-ATX"]
+    return sorted(out, key=order.index)       # smallest first, like the retailer lists
 
 
 def spaced_mm(text: str) -> str:
@@ -174,3 +175,41 @@ def strict_name(value, brand: str = "") -> str:
         text = re.sub(rf"\b{re.escape(brand.lower())}\b", " ", text)
     text = re.sub(r"[^a-z0-9-]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def front_io_ports(text) -> list[str] | None:
+    """'Power, USB3.0 x 2, Type-C 3.2 Gen 2, Mic/HD-AUDIO' -> the catalog's
+    front_usb tokens, by the SAME reader the retailer cells go through
+    (vendor_struct._emit_front_io), so a manufacturer row never forks the
+    facet vocabulary."""
+    from ..specs.resolvers import vendor_struct
+
+    text = re.sub(r"\bUSB\s*(\d)(?=\.\d)", r"USB \1", str(text or ""))   # USB3.0 -> USB 3.0
+    text = re.sub(r"\bUSB(\d)\b", r"USB \1", text)
+    text = re.sub(r"\bUSB\s*\d(?:\.\d)?\s*(?:Gen\s*\w+)?\s*Type-?\s*C\b", "USB Type-C", text, flags=re.I)
+    text = re.sub(r"(?<![\w-])(?<!USB )Type-?\s*C\b", "USB Type-C", text, flags=re.I)
+    text = re.sub(r"\b(?:Mic|Microphone)\b[^,]*", "microphone", text, flags=re.I)
+    facts: dict = {}
+    vendor_struct._emit_front_io(facts, "case", text, "manufacturer")
+    found = facts.get("front_usb")
+    ports = list(found[0].value) if found else []
+    # The retailer vocabulary the case facet already uses: "USB Type-C" (not
+    # "USB (Type-C)"), bare "USB" is no information, one audio token.
+    out: list[str] = []
+    for port in ports:
+        port = {"USB (Type-C)": "USB Type-C", "Microphone": "Earphone/Mic",
+                "Headphone": "Earphone/Mic"}.get(port, port)
+        if port not in ("USB", "Power Button") and port not in out:
+            out.append(port)
+    if re.search(r"\b(?:mic|headset|headphone|earphone|audio)\b", text, re.I) \
+            and "Earphone/Mic" not in out:
+        out.append("Earphone/Mic")
+    return out or None
+
+
+def efficiency_tier(text) -> str | None:
+    """'80 Plus Platinum' / '80+ Gold' / 'Cybenetics Gold' -> '80+ Gold'."""
+    match = re.search(r"\b(White|Bronze|Silver|Gold|Platinum|Titanium)\b", str(text or ""), re.I)
+    if match and re.search(r"80\s*(?:\+|plus)|cybenetics", str(text or ""), re.I):
+        return f"80+ {match.group(1).title()}"
+    return None

@@ -1,0 +1,1562 @@
+{
+ "brand": "NZXT",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-18",
+ "entries": {
+  "https://nzxt.com/products/f120-core-rgb-1": {
+   "url": "https://nzxt.com/products/f120-core-rgb-1",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFC12SFW1",
+    "RFC12SFB1"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 1800,
+    "airflow_cfm": 78.86,
+    "static_pressure_mmh2o": 2.57,
+    "noise_db": 33.88,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120-rgb": {
+   "url": "https://nzxt.com/products/f120-rgb",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFR212SWF",
+    "RFR212SBF",
+    "810074848527",
+    "810074848510",
+    "5056547208374",
+    "5056547208367"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 2400,
+    "airflow_cfm": 70.67,
+    "static_pressure_mmh2o": 3.7,
+    "noise_db": 33.05,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120-rgb-duo": {
+   "url": "https://nzxt.com/products/f120-rgb-duo",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFD12SFW1",
+    "RFD12SFB1",
+    "810074840958",
+    "810074840941",
+    "5056547200903",
+    "5056547200897"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 1800,
+    "airflow_cfm": 50.0,
+    "static_pressure_mmh2o": 2.6,
+    "noise_db": 31.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120-rgb-duo-triple-pack": {
+   "url": "https://nzxt.com/products/f120-rgb-duo-triple-pack",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFD12TFW1",
+    "RFD12TFB1",
+    "810074840958",
+    "810074840941",
+    "5056547200903",
+    "5056547200897"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 1800,
+    "airflow_cfm": 50.0,
+    "static_pressure_mmh2o": 2.6,
+    "noise_db": 31.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120p": {
+   "url": "https://nzxt.com/products/f120p",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFP12SFW2",
+    "RFP12SFB2",
+    "810074844451",
+    "810074844444",
+    "5056547204369",
+    "5056547204352"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 2000,
+    "airflow_cfm": 73.47,
+    "static_pressure_mmh2o": 4.5,
+    "noise_db": 30.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120q": {
+   "url": "https://nzxt.com/products/f120q",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFQ12SFW2",
+    "RFQ12SFB2",
+    "810074844413",
+    "810074844406",
+    "5056547204321",
+    "5056547204314"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 1700,
+    "airflow_cfm": 74.26,
+    "static_pressure_mmh2o": 1.43,
+    "noise_db": 25.1,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120u": {
+   "url": "https://nzxt.com/products/f120u",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFE12USWA",
+    "RFE12USBA",
+    "810074848237",
+    "810074848220",
+    "5056547208091",
+    "5056547208084"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 2250,
+    "airflow_cfm": 60.0,
+    "static_pressure_mmh2o": 2.4,
+    "noise_db": 32.2,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f120x": {
+   "url": "https://nzxt.com/products/f120x",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU12PNW1",
+    "RFU12PNB1",
+    "810074846660",
+    "810074846653",
+    "5056547206608",
+    "5056547206592"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 3100,
+    "airflow_cfm": 104.0,
+    "static_pressure_mmh2o": 7.53,
+    "noise_db": 41.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140-core-rgb": {
+   "url": "https://nzxt.com/products/f140-core-rgb",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFC14SFW1",
+    "RFC14SFB1",
+    "810074843058",
+    "810074843041",
+    "5056547202990",
+    "5056547202983"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_min": 500,
+    "rpm_max": 1500,
+    "airflow_cfm": 90.79,
+    "static_pressure_mmh2o": 3.22,
+    "noise_db": 34.48,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140-rgb": {
+   "url": "https://nzxt.com/products/f140-rgb",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFR214SWF",
+    "RFR214SBF",
+    "810074848589",
+    "810074848572",
+    "5056547208435",
+    "5056547208428"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2000,
+    "airflow_cfm": 91.83,
+    "static_pressure_mmh2o": 4.23,
+    "noise_db": 34.03,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140-rgb-duo-twin-pack": {
+   "url": "https://nzxt.com/products/f140-rgb-duo-twin-pack",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFD14DFW1",
+    "RFD14DFB1",
+    "810074840972",
+    "810074840965",
+    "5056547200927",
+    "5056547200910"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_min": 500,
+    "rpm_max": 1800,
+    "airflow_cfm": 85.0,
+    "static_pressure_mmh2o": 2.8,
+    "noise_db": 38.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140p": {
+   "url": "https://nzxt.com/products/f140p",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFP14SFW2",
+    "RFP14SFB2",
+    "810074844475",
+    "810074844468",
+    "5056547204383",
+    "5056547204376"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_min": 500,
+    "rpm_max": 1700,
+    "airflow_cfm": 93.2,
+    "static_pressure_mmh2o": 4.45,
+    "noise_db": 30.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140q": {
+   "url": "https://nzxt.com/products/f140q",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFQ14SFW2",
+    "RFQ14SFB2",
+    "810074844437",
+    "810074844420",
+    "5056547204345",
+    "5056547204338"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_min": 500,
+    "rpm_max": 1500,
+    "airflow_cfm": 102.9,
+    "static_pressure_mmh2o": 1.77,
+    "noise_db": 29.8,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140u": {
+   "url": "https://nzxt.com/products/f140u",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFE14USWA",
+    "RFE14USBA",
+    "810074848251",
+    "810074848244",
+    "5056547208114",
+    "5056547208107"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_min": 500,
+    "rpm_max": 2400,
+    "airflow_cfm": 92.2,
+    "static_pressure_mmh2o": 5.1,
+    "noise_db": 36.9,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f140x": {
+   "url": "https://nzxt.com/products/f140x",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU14PNW1",
+    "RFU14PNB1",
+    "810074846684",
+    "810074846677",
+    "5056547206622",
+    "5056547206615"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 140,
+    "rpm_max": 2400,
+    "airflow_cfm": 116.0,
+    "static_pressure_mmh2o": 5.78,
+    "noise_db": 41.0,
+    "connector": "4-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f240-rgb-core": {
+   "url": "https://nzxt.com/products/f240-rgb-core",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU24HFW1",
+    "RFU24HFB1",
+    "810074844499",
+    "810074844482",
+    "5056547204406",
+    "5056547204390"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 240,
+    "rpm_min": 500,
+    "rpm_max": 2400,
+    "airflow_cfm": 75.12,
+    "static_pressure_mmh2o": 3.3,
+    "noise_db": 30.0,
+    "connector": "8-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f240x": {
+   "url": "https://nzxt.com/products/f240x",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU24PNW1",
+    "RFU24PNB1",
+    "810074846707",
+    "810074846691",
+    "5056547206646",
+    "5056547206639"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 240,
+    "rpm_max": 3100,
+    "airflow_cfm": 104.0,
+    "static_pressure_mmh2o": 7.53,
+    "noise_db": 41.0,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f280-rgb-core": {
+   "url": "https://nzxt.com/products/f280-rgb-core",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU28HFW1",
+    "RFU28HFB1",
+    "810074844512",
+    "810074844505",
+    "5056547204420",
+    "5056547204413"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_min": 500,
+    "rpm_max": 2000,
+    "airflow_cfm": 98.61,
+    "static_pressure_mmh2o": 3.2,
+    "noise_db": 34.5,
+    "connector": "8-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f280x": {
+   "url": "https://nzxt.com/products/f280x",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU28PNW1",
+    "RFU28PNB1",
+    "810074846721",
+    "810074846714",
+    "5056547206660",
+    "5056547206653"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_max": 2400,
+    "airflow_cfm": 116.0,
+    "static_pressure_mmh2o": 5.78,
+    "noise_db": 41.0,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f360-rgb": {
+   "url": "https://nzxt.com/products/f360-rgb",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFR236UWF",
+    "RFR236UBF",
+    "810074848565",
+    "810074848558",
+    "5056547208411",
+    "5056547208404"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_max": 2400,
+    "airflow_cfm": 70.67,
+    "static_pressure_mmh2o": 3.7,
+    "noise_db": 33.05,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f360-rgb-core": {
+   "url": "https://nzxt.com/products/f360-rgb-core",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU36HFW1",
+    "RFU36HFB1",
+    "810074844536",
+    "810074844529",
+    "5056547204444",
+    "5056547204437"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_min": 500,
+    "rpm_max": 2400,
+    "airflow_cfm": 75.12,
+    "static_pressure_mmh2o": 3.3,
+    "noise_db": 30.0,
+    "connector": "8-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f360-rgb-reverse": {
+   "url": "https://nzxt.com/products/f360-rgb-reverse",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFR236RWF",
+    "RFR236RBF",
+    "840465301034",
+    "840465301027",
+    "5056547209487",
+    "5056547209470"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_max": 2200,
+    "airflow_cfm": 62.14,
+    "static_pressure_mmh2o": 2.7,
+    "noise_db": 34.39,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f360u": {
+   "url": "https://nzxt.com/products/f360u",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFE36USWA",
+    "RFE36USBA",
+    "810074848312",
+    "810074848305",
+    "5056547208176",
+    "5056547208169"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_min": 500,
+    "rpm_max": 2250,
+    "airflow_cfm": 60.0,
+    "static_pressure_mmh2o": 2.4,
+    "noise_db": 32.2,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f360x": {
+   "url": "https://nzxt.com/products/f360x",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU36PNW1",
+    "RFU36PNB1",
+    "810074846745",
+    "810074846738",
+    "5056547206684",
+    "5056547206677"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_max": 3100,
+    "airflow_cfm": 104.0,
+    "static_pressure_mmh2o": 7.53,
+    "noise_db": 41.0,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f420-rgb": {
+   "url": "https://nzxt.com/products/f420-rgb",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFR242UWF",
+    "RFR242UBF",
+    "810074848626",
+    "810074848619",
+    "5056547208473",
+    "5056547208466"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_max": 2000,
+    "airflow_cfm": 91.83,
+    "static_pressure_mmh2o": 4.23,
+    "noise_db": 34.03,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f420-rgb-core": {
+   "url": "https://nzxt.com/products/f420-rgb-core",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFU42HFW1",
+    "RFU42HFB1",
+    "810074844598",
+    "810074844581",
+    "5056547206899",
+    "5056547206882"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_min": 500,
+    "rpm_max": 2000,
+    "airflow_cfm": 98.61,
+    "static_pressure_mmh2o": 3.2,
+    "noise_db": 34.5,
+    "connector": "8-pin",
+    "pwm": true
+   }
+  },
+  "https://nzxt.com/products/f420-rgb-reverse": {
+   "url": "https://nzxt.com/products/f420-rgb-reverse",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFR242RWF",
+    "RFR242RBF",
+    "840465301058",
+    "840465301041",
+    "5056547209500",
+    "5056547209494"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_max": 1900,
+    "airflow_cfm": 96.28,
+    "static_pressure_mmh2o": 3.06,
+    "noise_db": 34.6,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/f420u": {
+   "url": "https://nzxt.com/products/f420u",
+   "fetched": "2026-10-18",
+   "category": "case_fan",
+   "keys": [
+    "RFE42USWA",
+    "RFE42USBA",
+    "810074848336",
+    "810074848329",
+    "5056547208190",
+    "5056547208183"
+   ],
+   "names": [],
+   "specs": {
+    "rpm_min": 500,
+    "rpm_max": 2400,
+    "airflow_cfm": 92.2,
+    "static_pressure_mmh2o": 5.1,
+    "noise_db": 36.9,
+    "connector": "8-pin",
+    "pwm": false
+   }
+  },
+  "https://nzxt.com/products/h2-flow": {
+   "url": "https://nzxt.com/products/h2-flow",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CIH21FW01",
+    "CIH21FB01",
+    "810074848398",
+    "810074848404",
+    "5056547208794",
+    "5056547208800"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Small form factor case",
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 331,
+    "max_cooler_height_mm": 75,
+    "drive_bays_35": 0,
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=181 H=435 D=263mm",
+    "weight_kg": 4.55
+   }
+  },
+  "https://nzxt.com/products/h3-flow": {
+   "url": "https://nzxt.com/products/h3-flow",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH31FW01",
+    "CCH31FB01",
+    "CCH31FW02",
+    "CCH31FB02",
+    "810074848039",
+    "810074848046",
+    "810074843508",
+    "810074843515",
+    "5056547207971",
+    "5056547207988",
+    "5056547203393",
+    "5056547203409"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Micro ATX case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 377,
+    "max_cooler_height_mm": 170,
+    "drive_bays_35": 1,
+    "expansion_slots": "4",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=225 H=400 D=389mm",
+    "weight_kg": 5.017
+   }
+  },
+  "https://nzxt.com/products/h5-flow": {
+   "url": "https://nzxt.com/products/h5-flow",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH52FW01",
+    "CCH52FB01",
+    "810074845908",
+    "810074845915",
+    "5056547205847",
+    "5056547205854"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 170,
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=225 H=465 D=430mm",
+    "weight_kg": 7.28
+   }
+  },
+  "https://nzxt.com/products/h5-flow-rgb": {
+   "url": "https://nzxt.com/products/h5-flow-rgb",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH52FWR1",
+    "CCH52FBR1",
+    "810074845922",
+    "810074845939",
+    "5056547205861",
+    "5056547205878"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 170,
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=225 H=465 D=430mm",
+    "weight_kg": 7.63
+   }
+  },
+  "https://nzxt.com/products/h6": {
+   "url": "https://nzxt.com/products/h6",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH62FW01",
+    "CCH62FB01",
+    "810074846882",
+    "810074846875",
+    "5056547209340",
+    "5056547209333"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Dual chamber ATX case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 390,
+    "max_cooler_height_mm": 165,
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=292 H=448 D=420mm",
+    "weight_kg": 7.94
+   }
+  },
+  "https://nzxt.com/products/h6-flow": {
+   "url": "https://nzxt.com/products/h6-flow",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH61FW01",
+    "CCH61FB01",
+    "810074844130",
+    "810074844147",
+    "5056547204048",
+    "5056547204055"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 365,
+    "max_cooler_height_mm": 163,
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=287 H=435 D=415mm",
+    "weight_kg": 9.42
+   }
+  },
+  "https://nzxt.com/products/h6-flow-rgb": {
+   "url": "https://nzxt.com/products/h6-flow-rgb",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH61FWR1",
+    "CCH61FBR1",
+    "810074844154",
+    "810074844161",
+    "5056547204062",
+    "5056547204079"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 365,
+    "max_cooler_height_mm": 163,
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=287 H=435 D=415mm",
+    "weight_kg": 9.4
+   }
+  },
+  "https://nzxt.com/products/h6-rgb-plus": {
+   "url": "https://nzxt.com/products/h6-rgb-plus",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCH62FWP1",
+    "CCH62FBP1",
+    "810074846905",
+    "810074846899",
+    "5056547209364",
+    "5056547209357"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Dual chamber ATX case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 390,
+    "max_cooler_height_mm": 165,
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=292 H=448 D=420mm",
+    "weight_kg": 9.3
+   }
+  },
+  "https://nzxt.com/products/h7-flow": {
+   "url": "https://nzxt.com/products/h7-flow",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CMH72FW01",
+    "CMH72FB01",
+    "810074845564",
+    "810074845557",
+    "5056547205519",
+    "5056547205502"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 2,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=244 H=544 D=468mm",
+    "weight_kg": 10.97
+   }
+  },
+  "https://nzxt.com/products/h7-flow-rgb": {
+   "url": "https://nzxt.com/products/h7-flow-rgb",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CMH72FWR1",
+    "CMH72FBR1",
+    "810074845588",
+    "810074845571",
+    "5056547205533",
+    "5056547205526"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 2,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=244 H=544 D=475mm",
+    "weight_kg": 10.97
+   }
+  },
+  "https://nzxt.com/products/h9-flow": {
+   "url": "https://nzxt.com/products/h9-flow",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CMH92FW01",
+    "CMH92FB01",
+    "CMH92FW02",
+    "CMH92FB02",
+    "810074847841",
+    "810074847858",
+    "815671019493",
+    "815671019509",
+    "5056547207636",
+    "5056547207643",
+    "5056547208848",
+    "5056547208855"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 459,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=315 H=506 D=481mm",
+    "weight_kg": 12.49
+   }
+  },
+  "https://nzxt.com/products/h9-flow-rgb": {
+   "url": "https://nzxt.com/products/h9-flow-rgb",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CMH92FWR1",
+    "CMH92FBR1",
+    "CMH92FWR2",
+    "CMH92FBR2",
+    "810074847865",
+    "810074847872",
+    "815671019516",
+    "815671019523",
+    "5056547207650",
+    "5056547207667",
+    "5056547208862",
+    "5056547208879"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 459,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=315 H=506 D=481mm",
+    "weight_kg": 12.49
+   }
+  },
+  "https://nzxt.com/products/h9-flow-rgb-plus": {
+   "url": "https://nzxt.com/products/h9-flow-rgb-plus",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CMH92FWP1",
+    "CMH92FBP1",
+    "CMH92FWP2",
+    "CMH92FBP2",
+    "810074847889",
+    "810074847896",
+    "815671019530",
+    "815671019547",
+    "5056547207674",
+    "5056547207681",
+    "5056547208886",
+    "5056547208893"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 459,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=315 H=506 D=481mm",
+    "weight_kg": 13.29
+   }
+  },
+  "https://nzxt.com/products/kraken-240-elite": {
+   "url": "https://nzxt.com/products/kraken-240-elite",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKN24EB2",
+    "810074844208",
+    "5056547204116"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120
+   }
+  },
+  "https://nzxt.com/products/kraken-240-elite-rgb": {
+   "url": "https://nzxt.com/products/kraken-240-elite-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR24EW2",
+    "RLKR24EB2",
+    "810074844246",
+    "810074844239",
+    "5056547204154",
+    "5056547204147"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-280-elite-rgb": {
+   "url": "https://nzxt.com/products/kraken-280-elite-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR28EW2",
+    "RLKR28EB2",
+    "810074844260",
+    "810074844253",
+    "5056547204178",
+    "5056547204161"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-360-elite-aio": {
+   "url": "https://nzxt.com/products/kraken-360-elite-aio",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKN36EB2",
+    "810074844222",
+    "5056547204130"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120
+   }
+  },
+  "https://nzxt.com/products/kraken-360-elite-rgb-1": {
+   "url": "https://nzxt.com/products/kraken-360-elite-rgb-1",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR36EW2",
+    "RLKR36EB2",
+    "810074844284",
+    "810074844277",
+    "5056547204192",
+    "5056547204185"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-core-240-rgb": {
+   "url": "https://nzxt.com/products/kraken-core-240-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR24CB1",
+    "810074846288",
+    "5056547206226"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-core-360-rgb": {
+   "url": "https://nzxt.com/products/kraken-core-360-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR36CB1",
+    "810074846295",
+    "5056547206233"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-elite-420-rgb": {
+   "url": "https://nzxt.com/products/kraken-elite-420-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR42EW2",
+    "RLKR42EB2",
+    "810074844307",
+    "810074844291",
+    "5056547204215",
+    "5056547204208"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-plus-240": {
+   "url": "https://nzxt.com/products/kraken-plus-240",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKN240B2",
+    "810074845281",
+    "5056547205199"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120
+   }
+  },
+  "https://nzxt.com/products/kraken-plus-240-rgb": {
+   "url": "https://nzxt.com/products/kraken-plus-240-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR240W2",
+    "RLKR240B2",
+    "810074845311",
+    "810074845328",
+    "5056547205229",
+    "5056547205236"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/kraken-plus-280": {
+   "url": "https://nzxt.com/products/kraken-plus-280",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKN280B2",
+    "810074845298",
+    "5056547205205"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 140
+   }
+  },
+  "https://nzxt.com/products/kraken-plus-360": {
+   "url": "https://nzxt.com/products/kraken-plus-360",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKN360B2",
+    "810074845304",
+    "5056547205212"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ],
+    "fan_size_mm": 120
+   }
+  },
+  "https://nzxt.com/products/kraken-plus-360-rgb": {
+   "url": "https://nzxt.com/products/kraken-plus-360-rgb",
+   "fetched": "2026-10-18",
+   "category": "aio",
+   "keys": [
+    "RLKR360W2",
+    "RLKR360B2",
+    "810074845359",
+    "810074845366",
+    "5056547205267",
+    "5056547205274"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "AM5",
+     "AM4"
+    ]
+   }
+  },
+  "https://nzxt.com/products/player-one": {
+   "url": "https://nzxt.com/products/player-one",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ]
+   }
+  },
+  "https://nzxt.com/products/player-one-prime": {
+   "url": "https://nzxt.com/products/player-one-prime",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ]
+   }
+  },
+  "https://nzxt.com/products/player-three": {
+   "url": "https://nzxt.com/products/player-three",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ]
+   }
+  },
+  "https://nzxt.com/products/player-three-prime": {
+   "url": "https://nzxt.com/products/player-three-prime",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ]
+   }
+  },
+  "https://nzxt.com/products/player-two": {
+   "url": "https://nzxt.com/products/player-two",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ]
+   }
+  },
+  "https://nzxt.com/products/player-two-prime": {
+   "url": "https://nzxt.com/products/player-two-prime",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [],
+   "names": [],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ]
+   }
+  },
+  "https://nzxt.com/products/s5-rgb": {
+   "url": "https://nzxt.com/products/s5-rgb",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCS51FW01",
+    "CCS51FB01",
+    "815671019141",
+    "815671019134",
+    "5056547208329",
+    "5056547208312"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 162,
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 6.14
+   }
+  },
+  "https://nzxt.com/products/s5-rgb-deluxe": {
+   "url": "https://nzxt.com/products/s5-rgb-deluxe",
+   "fetched": "2026-10-18",
+   "category": "case",
+   "keys": [
+    "CCS51FWD1",
+    "CCS51FBD1",
+    "815671019202",
+    "815671019196",
+    "5056547208343",
+    "5056547208336"
+   ],
+   "names": [],
+   "specs": {
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 162,
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "expansion_slots": "7",
+    "front_usb": [
+     "USB 3.2",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "weight_kg": 6.44
+   }
+  }
+ }
+}

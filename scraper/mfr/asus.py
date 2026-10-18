@@ -112,6 +112,42 @@ def _sections(page: str) -> dict[str, list[str]]:
     return sections
 
 
+_SLOT_LINE = re.compile(r"^\s*(\d{1,2})\s*x\s*PCIe\s*[\d./]*\s*(?:\(\w+\)\s*)?x(16|4|1)\b", re.I)
+
+
+def _pcie_slot_counts(lines: list[str]) -> dict[str, int]:
+    """Physical PCIe slot counts by length from the "Expansion Slots" block.
+
+    ASUS lists the same physical slots once per CPU generation ("Ryzen 9000:
+    1 x PCIe 4.0 x16 (x16 mode) / Ryzen 8000: 1 x PCIe 4.0 x16 (x8 mode)") and
+    then the chipset's own slots, so: take the largest CPU-attached group and
+    ADD the chipset group. A page with no group headers is one flat list.
+    """
+    groups: list[tuple[str, dict[str, int]]] = []
+    # Some pages print the whole block twice; stop where the first line repeats.
+    if lines and lines[0] in lines[1:]:
+        lines = lines[:lines.index(lines[0], 1)]
+    for line in lines:
+        slot = _SLOT_LINE.match(line)
+        if slot:
+            if not groups:
+                groups.append(("flat", {}))
+            counts = groups[-1][1]
+            key = "x" + slot.group(2)
+            counts[key] = counts.get(key, 0) + int(slot.group(1))
+        elif not line.startswith(("*", "-")):
+            kind = "chipset" if re.search(r"chipset", line, re.I) else "cpu"
+            groups.append((kind, {}))
+    total: dict[str, int] = {}
+    cpu_groups = [counts for kind, counts in groups if kind != "chipset"]
+    for key in ("x16", "x4", "x1"):
+        best = max((counts.get(key, 0) for counts in cpu_groups), default=0)
+        chipset = sum(counts.get(key, 0) for kind, counts in groups if kind == "chipset")
+        if best + chipset:
+            total[key] = best + chipset
+    return total
+
+
 def parse(page: str, category: str) -> dict:
     sections = _sections(page)
     if category != "motherboard" or len(sections) < 8:
@@ -142,6 +178,13 @@ def parse(page: str, category: str) -> dict:
     kind = re.search(r"\b(DDR[345])\b", first)
     if kind:
         put("memory_type", kind.group(1))
+    ceiling = re.search(r"\bmax\.?\s*(\d{2,4})\s*GB\b", first, re.I)
+    if ceiling:
+        put("memory_max_gb", int(ceiling.group(1)))
+    slot_counts = _pcie_slot_counts(sections.get("expansion slots", []))
+    if slot_counts:
+        put("pcie_x16_slots", slot_counts.get("x16"))
+        put("pcie_x1_slots", slot_counts.get("x1"))
     if re.search(r"ECC and Non-ECC", first, re.I):
         put("ecc_support", True)
     elif re.search(r"\bNon-ECC\b", first, re.I):

@@ -1,0 +1,1358 @@
+{
+ "brand": "AMD",
+ "schema_version": 2,
+ "source": "manufacturer",
+ "generated": "2026-10-18",
+ "entries": {
+  "https://www.amd.com/en/products/processors/desktops/ryzen-pro/5000-series/amd-ryzen-7-pro-5755g.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/5000-series/amd-ryzen-7-pro-5755g.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001748",
+    "5755G-PRO",
+    "5755GPRO"
+   ],
+   "names": [
+    "ryzen 7 pro 5755g tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 4.6,
+    "l2_cache_mb": 4.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM4",
+    "microarchitecture": "Zen 3",
+    "lithography_nm": 7,
+    "unlocked": false,
+    "integrated_graphics": "Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8500g.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen-pro/8000-series/amd-ryzen-5-pro-8500g.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001183",
+    "8500G-PRO",
+    "8500GPRO"
+   ],
+   "names": [
+    "ryzen 5 pro 8500g tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.5,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "integrated_graphics": "AMD Radeon 740M"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5500x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5500x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001504",
+    "100100001504",
+    "100100001504WOF",
+    "5500X3D"
+   ],
+   "names": [
+    "ryzen 5 5500x3d tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.0,
+    "boost_clock_ghz": 4.0,
+    "l2_cache_mb": 3.0,
+    "l3_cache_mb": 96.0,
+    "tdp_w": 105,
+    "socket": "AM4",
+    "microarchitecture": "Zen 3",
+    "lithography_nm": 7,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000065",
+    "100100000065BOX",
+    "100000000065",
+    "5600X"
+   ],
+   "names": [
+    "ryzen 5 5600x tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "base_clock_ghz": 3.7,
+    "boost_clock_ghz": 4.6,
+    "l2_cache_mb": 3.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM4",
+    "lithography_nm": 7,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5800x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5800x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000063WOF",
+    "100100000063",
+    "100000000063",
+    "5800X"
+   ],
+   "names": [
+    "ryzen 7 5800x"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 4.7,
+    "l2_cache_mb": 4.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 105,
+    "socket": "AM4",
+    "lithography_nm": 7,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5800x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5800x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000651POF",
+    "100100000651",
+    "100000000651",
+    "100100000651WOF",
+    "5800X3D"
+   ],
+   "names": [
+    "ryzen 7 5800x3d",
+    "ryzen 7 5800x3d series ryzen 7 tray",
+    "ryzen 7 5800x3d tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 3.4,
+    "boost_clock_ghz": 4.5,
+    "l2_cache_mb": 4.0,
+    "l3_cache_mb": 96.0,
+    "tdp_w": 105,
+    "socket": "AM4",
+    "microarchitecture": "Zen 3",
+    "lithography_nm": 7,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7500f.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7500f.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000597",
+    "100100000597",
+    "100100000597BOX",
+    "7500F"
+   ],
+   "names": [
+    "ryzen 5 7500f series ryzen 5 tray",
+    "ryzen 5 7500f tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.7,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7500x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7500x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001904WOF",
+    "100100001904",
+    "100000001904",
+    "7500X3D"
+   ],
+   "names": [
+    "ryzen 5 7500x3d",
+    "ryzen 5 7500x3d series ryzen 5 tray",
+    "ryzen 5 7500x3d tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 4.0,
+    "boost_clock_ghz": 4.5,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 96.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001015BOX",
+    "100100001015",
+    "100000001015",
+    "7600"
+   ],
+   "names": [
+    "ryzen 5 7600 gaming processor"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 5.1,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000593",
+    "100100000593",
+    "100100000593WOF",
+    "7600X"
+   ],
+   "names": [
+    "ryzen 5 7600x tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 4.7,
+    "boost_clock_ghz": 5.3,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 105,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000592",
+    "100100000592BOX",
+    "100100000592",
+    "100100000592SBX",
+    "100100000592WOZ",
+    "7700"
+   ],
+   "names": [
+    "ryzen 7 7700 tray",
+    "ryzen 7 7700"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 5.3,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000591",
+    "100100000591WOF",
+    "100100000591",
+    "7700X"
+   ],
+   "names": [
+    "ryzen 7 7700x tray",
+    "ryzen 7 7700x"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 4.5,
+    "boost_clock_ghz": 5.4,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 105,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7800x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7800x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000910",
+    "100100000910TRAY",
+    "100100000910",
+    "100100000910WOF",
+    "7800X3D"
+   ],
+   "names": [
+    "ryzen 7 7800x3d tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 4.2,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 96.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000590BOX",
+    "100100000590",
+    "100100000590WOF",
+    "100100000590WOZ",
+    "100000000590",
+    "7900"
+   ],
+   "names": [
+    "ryzen 9 7900 gaming processor"
+   ],
+   "specs": {
+    "core_count": 12,
+    "thread_count": 24,
+    "smt": true,
+    "base_clock_ghz": 3.7,
+    "boost_clock_ghz": 5.4,
+    "l2_cache_mb": 12.0,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000589WOF",
+    "100100000589",
+    "100000000589",
+    "7900X"
+   ],
+   "names": [
+    "ryzen 9 7900x",
+    "ryzen 9 7900x series ryzen 9 tray"
+   ],
+   "specs": {
+    "core_count": 12,
+    "thread_count": 24,
+    "smt": true,
+    "base_clock_ghz": 4.7,
+    "boost_clock_ghz": 5.6,
+    "l2_cache_mb": 12.0,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 170,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7900x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000909",
+    "100100000909WOF",
+    "100000000909",
+    "7900X3D"
+   ],
+   "names": [
+    "ryzen 9 7900x3d tray"
+   ],
+   "specs": {
+    "core_count": 12,
+    "thread_count": 24,
+    "smt": true,
+    "base_clock_ghz": 4.4,
+    "boost_clock_ghz": 5.6,
+    "l2_cache_mb": 12.0,
+    "l3_cache_mb": 128.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7950x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7950x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000514",
+    "100100000514",
+    "100100000514WOF",
+    "7950X"
+   ],
+   "names": [
+    "ryzen 9 7950x tray"
+   ],
+   "specs": {
+    "core_count": 16,
+    "thread_count": 32,
+    "smt": true,
+    "base_clock_ghz": 4.5,
+    "boost_clock_ghz": 5.7,
+    "l2_cache_mb": 16.0,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 170,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7950x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-9-7950x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000908",
+    "100100000908WOF",
+    "100000000908",
+    "7950X3D"
+   ],
+   "names": [
+    "ryzen 9 7950x3d tray"
+   ],
+   "specs": {
+    "core_count": 16,
+    "thread_count": 32,
+    "smt": true,
+    "base_clock_ghz": 4.2,
+    "boost_clock_ghz": 5.7,
+    "l2_cache_mb": 16.0,
+    "l3_cache_mb": 128.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 5,
+    "max_memory_gb": 128,
+    "ecc_support": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8400f.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8400f.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001591",
+    "100100001591",
+    "100100001591BOX",
+    "100100001591CBX",
+    "8400F"
+   ],
+   "names": [
+    "ryzen 5 8400f tray",
+    "8400f ryzen 5 processor tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 4.2,
+    "boost_clock_ghz": 4.7,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8500g.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8500g.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001491",
+    "100100000931BOX",
+    "100100000931",
+    "100000000931",
+    "8500G"
+   ],
+   "names": [
+    "ryzen 5 8500g tray",
+    "ryzen 5 8500g"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.5,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "lithography_nm": 4,
+    "ecc_support": true,
+    "integrated_graphics": "AMD Radeon 740M"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8600g.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8600g.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001237",
+    "100100001237BOX",
+    "100100001237",
+    "8600G"
+   ],
+   "names": [
+    "ryzen 5 8600g tray",
+    "ryzen 5 8600g"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 4.3,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon 760M"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700f.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700f.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001590",
+    "100100001590",
+    "100100001590BOX",
+    "100100001590CBX",
+    "8700F"
+   ],
+   "names": [
+    "ryzen 7 8700f series ryzen 7 tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 4.1,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001236",
+    "100100001236SBX",
+    "100100001236CSX",
+    "100000001236",
+    "8700G"
+   ],
+   "names": [
+    "ryzen 7 8700g tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 4.2,
+    "boost_clock_ghz": 5.1,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 16.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 4",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon 780M"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9500f.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9500f.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001406",
+    "100100001406",
+    "100100001406BOX",
+    "9500F"
+   ],
+   "names": [
+    "ryzen 5 9500f series ryzen 5 tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 5.0,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000718BOX",
+    "100100000718",
+    "100000000718",
+    "9600"
+   ],
+   "names": [
+    "ryzen 5 9600"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 5.2,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001405WOF",
+    "100100001405",
+    "100000001405",
+    "9600X"
+   ],
+   "names": [
+    "ryzen 5 9600x",
+    "ryzen 5 9600x series ryzen 5 tray",
+    "ryzen 5 9600x tray"
+   ],
+   "specs": {
+    "core_count": 6,
+    "thread_count": 12,
+    "smt": true,
+    "base_clock_ghz": 3.9,
+    "boost_clock_ghz": 5.4,
+    "l2_cache_mb": 6.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001404",
+    "100100001404",
+    "100100001404WOF",
+    "9700X"
+   ],
+   "names": [
+    "ryzen 7 9700x tray",
+    "ryzen 7 9700x ryzen 7 processor tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 3.8,
+    "boost_clock_ghz": 5.5,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 32.0,
+    "tdp_w": 65,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9800x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9800x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001084",
+    "1001000001084WOF",
+    "1001000001084",
+    "100100001084",
+    "100100001084WOF",
+    "9800X3D"
+   ],
+   "names": [
+    "ryzen 7 9800x3d tray",
+    "ryzen 7 9800x3d"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 4.7,
+    "boost_clock_ghz": 5.2,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 96.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9850x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9850x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001973WOF",
+    "100100001973",
+    "100000001973",
+    "9850X3D"
+   ],
+   "names": [
+    "ryzen 7 9850x3d",
+    "ryzen 7 9850x3d tray"
+   ],
+   "specs": {
+    "core_count": 8,
+    "thread_count": 16,
+    "smt": true,
+    "base_clock_ghz": 4.7,
+    "boost_clock_ghz": 5.6,
+    "l2_cache_mb": 8.0,
+    "l3_cache_mb": 96.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9900x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9900x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000662",
+    "100100000662WOF",
+    "100100000662",
+    "9900X"
+   ],
+   "names": [
+    "ryzen 9 9900x tray",
+    "ryzen 9 9900x"
+   ],
+   "specs": {
+    "core_count": 12,
+    "thread_count": 24,
+    "smt": true,
+    "base_clock_ghz": 4.4,
+    "boost_clock_ghz": 5.6,
+    "l2_cache_mb": 12.0,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9900x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9900x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001368WOF",
+    "100100001368",
+    "100000001368",
+    "9900X3D"
+   ],
+   "names": [
+    "ryzen 9 9900x3d",
+    "ryzen 9 9900x3d tray",
+    "ryzen 9 9900x3d ryzen 9 processor tray"
+   ],
+   "specs": {
+    "core_count": 12,
+    "thread_count": 24,
+    "smt": true,
+    "base_clock_ghz": 4.4,
+    "boost_clock_ghz": 5.5,
+    "l2_cache_mb": 12.0,
+    "l3_cache_mb": 128.0,
+    "tdp_w": 120,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001277",
+    "100100001277WOF",
+    "100100001277",
+    "9950X"
+   ],
+   "names": [
+    "ryzen 9 9950x tray",
+    "ryzen 9 9950x"
+   ],
+   "specs": {
+    "core_count": 16,
+    "thread_count": 32,
+    "smt": true,
+    "base_clock_ghz": 4.3,
+    "boost_clock_ghz": 5.7,
+    "l2_cache_mb": 16.0,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 170,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html": {
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000719",
+    "100100000719",
+    "100100000719WOF",
+    "9950X3D"
+   ],
+   "names": [
+    "ryzen 9 9950x3d tray"
+   ],
+   "specs": {
+    "core_count": 16,
+    "thread_count": 32,
+    "smt": true,
+    "base_clock_ghz": 4.3,
+    "boost_clock_ghz": 5.7,
+    "l2_cache_mb": 16.0,
+    "l3_cache_mb": 128.0,
+    "tdp_w": 170,
+    "socket": "AM5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "max_memory_gb": 256,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "AMD Radeon Graphics"
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/4004-series/amd-epyc-4564p.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/4004-series/amd-epyc-4564p.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001476",
+    "100100001476WOF",
+    "100000001476",
+    "4564P"
+   ],
+   "names": [
+    "radeon graphics series epyc tray"
+   ],
+   "specs": {
+    "core_count": 16,
+    "thread_count": 32,
+    "base_clock_ghz": 4.5,
+    "boost_clock_ghz": 5.7,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 170
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9124.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9124.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000802",
+    "9124"
+   ],
+   "names": [
+    "epyc 9124 tray"
+   ],
+   "specs": {
+    "core_count": 16,
+    "thread_count": 32,
+    "base_clock_ghz": 3.0,
+    "boost_clock_ghz": 3.7,
+    "l3_cache_mb": 64.0,
+    "tdp_w": 200
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9334.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9334.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000800",
+    "9334"
+   ],
+   "names": [
+    "epyc 9334 series epyc tray"
+   ],
+   "specs": {
+    "core_count": 32,
+    "thread_count": 64,
+    "base_clock_ghz": 2.7,
+    "boost_clock_ghz": 3.9,
+    "l3_cache_mb": 128.0,
+    "tdp_w": 210
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9554.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9554.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000000790",
+    "9554"
+   ],
+   "names": [
+    "epyc 9554 series epyc tray"
+   ],
+   "specs": {
+    "core_count": 64,
+    "thread_count": 128,
+    "base_clock_ghz": 3.1,
+    "boost_clock_ghz": 3.75,
+    "l3_cache_mb": 256.0,
+    "tdp_w": 360
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9654.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9654.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "EP9654",
+    "100000000789",
+    "9654"
+   ],
+   "names": [
+    "epyc 9654 series epyc tray"
+   ],
+   "specs": {
+    "core_count": 96,
+    "thread_count": 192,
+    "base_clock_ghz": 2.4,
+    "boost_clock_ghz": 3.7,
+    "l3_cache_mb": 384.0,
+    "tdp_w": 360
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9754.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9754.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001234",
+    "9754"
+   ],
+   "names": [
+    "epyc 9754 series epyc tray"
+   ],
+   "specs": {
+    "core_count": 128,
+    "thread_count": 256,
+    "base_clock_ghz": 2.25,
+    "boost_clock_ghz": 3.1,
+    "l3_cache_mb": 256.0,
+    "tdp_w": 360
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7713.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7713.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "EP7713",
+    "100100000344",
+    "100100000344WOF",
+    "100000000344",
+    "7713"
+   ],
+   "names": [
+    "epyc 7713"
+   ],
+   "specs": {
+    "core_count": 64,
+    "thread_count": 128,
+    "base_clock_ghz": 2.0,
+    "boost_clock_ghz": 3.67,
+    "l3_cache_mb": 256.0,
+    "tdp_w": 225
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7763.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7763.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "EP7763",
+    "100100000312",
+    "100100000312WOF",
+    "100000000312",
+    "7763"
+   ],
+   "names": [
+    "epyc 7763"
+   ],
+   "specs": {
+    "core_count": 64,
+    "thread_count": 128,
+    "base_clock_ghz": 2.45,
+    "boost_clock_ghz": 3.5,
+    "l3_cache_mb": 256.0,
+    "tdp_w": 280
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9575f.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9575f.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001554",
+    "9575F"
+   ],
+   "names": [
+    "epyc 9575f series epyc tray"
+   ],
+   "specs": {
+    "core_count": 64,
+    "thread_count": 128,
+    "base_clock_ghz": 3.3,
+    "boost_clock_ghz": 5.0,
+    "l3_cache_mb": 256.0,
+    "tdp_w": 400
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9655p.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9655p.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001522",
+    "9655P"
+   ],
+   "names": [
+    "epyc 9655p series epyc tray"
+   ],
+   "specs": {
+    "core_count": 96,
+    "thread_count": 192,
+    "base_clock_ghz": 2.6,
+    "boost_clock_ghz": 4.5,
+    "l3_cache_mb": 384.0,
+    "tdp_w": 400
+   }
+  },
+  "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9755.html": {
+   "url": "https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9755.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100000001443",
+    "9755"
+   ],
+   "names": [
+    "epyc 9755 series epyc tray"
+   ],
+   "specs": {
+    "core_count": 128,
+    "thread_count": 256,
+    "base_clock_ghz": 2.7,
+    "boost_clock_ghz": 4.1,
+    "l3_cache_mb": 512.0,
+    "tdp_w": 500
+   }
+  },
+  "https://www.amd.com/en/products/processors/workstations/ryzen-threadripper/9000-wx-series/amd-ryzen-threadripper-pro-9975wx.html": {
+   "url": "https://www.amd.com/en/products/processors/workstations/ryzen-threadripper/9000-wx-series/amd-ryzen-threadripper-pro-9975wx.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000723",
+    "100100000723WOF",
+    "100000000723",
+    "9975WX-PRO",
+    "9975WXPRO"
+   ],
+   "names": [
+    "threadripper pro 9975wx series ryzen threadripper tray"
+   ],
+   "specs": {
+    "core_count": 32,
+    "thread_count": 64,
+    "smt": true,
+    "base_clock_ghz": 4.0,
+    "boost_clock_ghz": 5.4,
+    "l2_cache_mb": 32.0,
+    "l3_cache_mb": 128.0,
+    "tdp_w": 350,
+    "socket": "sTR5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/workstations/ryzen-threadripper/9000-wx-series/amd-ryzen-threadripper-pro-9985wx.html": {
+   "url": "https://www.amd.com/en/products/processors/workstations/ryzen-threadripper/9000-wx-series/amd-ryzen-threadripper-pro-9985wx.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100000722WOZ",
+    "100100000722",
+    "100000000722",
+    "9985WX-PRO",
+    "9985WXPRO"
+   ],
+   "names": [
+    "threadripper pro 9985wx"
+   ],
+   "specs": {
+    "core_count": 64,
+    "thread_count": 128,
+    "smt": true,
+    "base_clock_ghz": 3.2,
+    "boost_clock_ghz": 5.4,
+    "l2_cache_mb": 64.0,
+    "l3_cache_mb": 256.0,
+    "tdp_w": 350,
+    "socket": "sTR5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  },
+  "https://www.amd.com/en/products/processors/workstations/ryzen-threadripper/9000-wx-series/amd-ryzen-threadripper-pro-9995wx.html": {
+   "url": "https://www.amd.com/en/products/processors/workstations/ryzen-threadripper/9000-wx-series/amd-ryzen-threadripper-pro-9995wx.html",
+   "fetched": "2026-10-18",
+   "category": "cpu",
+   "keys": [
+    "100100001361WOF",
+    "100100001361",
+    "100000001361",
+    "9995WX-PRO",
+    "9995WXPRO"
+   ],
+   "names": [
+    "threadripper pro 9995wx"
+   ],
+   "specs": {
+    "core_count": 96,
+    "thread_count": 192,
+    "smt": true,
+    "base_clock_ghz": 2.5,
+    "boost_clock_ghz": 5.4,
+    "l2_cache_mb": 96.0,
+    "l3_cache_mb": 384.0,
+    "tdp_w": 350,
+    "socket": "sTR5",
+    "microarchitecture": "Zen 5",
+    "lithography_nm": 4,
+    "ecc_support": true,
+    "unlocked": true,
+    "integrated_graphics": "No"
+   }
+  }
+ }
+}

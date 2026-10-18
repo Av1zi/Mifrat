@@ -104,15 +104,24 @@ CORE_FIELDS: dict[str, tuple] = {
 # What is (not) reachable per brand, for the --gaps explanation. Verdicts come
 # from scraper/mfr/README.md (feasibility check, 2026-10-17).
 MFR_FETCHERS = {"corsair": "built", "asus": "built (boards)",
-                "cooler master": "built (coolers/AIO/cases, narrow)",
-                "antec": "built (cases, narrow)"}
+                "cooler master": "built (coolers/AIO/cases; joined on product number)",
+                "lian li": "built (cases, fans, PSU; one entry per model block)",
+                "be quiet!": "built (all categories; joined on article number / EAN)",
+                "antec": "built (cases, PSU, fans, AIO; joined on UPC / part number)",
+                "amd": "built (CPUs; pages missing for older SKUs)",
+                "nzxt": "built (cases, fans, AIO)",
+                "thermalright": "built (narrow: ~15 products have a page)"}
 MFR_VERDICT = {
     "gigabyte": "blocked: HTTP 403 on robots.txt (stop signal)",
     "msi": "blocked: HTTP 403 on robots.txt (stop signal)",
-    "lian li": "specs rendered client-side",
+    "intel": "blocked: HTTP 403 on robots.txt of intel.com and ark.intel.com",
+    "cougar": "blocked: connection closed without an HTTP answer (stop signal)",
+    "fractal design": "skipped: robots.txt disallows AI crawlers by name",
     "noctua": "specs rendered client-side, /api/ disallowed",
-    "be quiet!": "no sitemap / underivable URLs",
-    "maxsun": "not evaluated",
+    "gamdias": "skipped: pages exist for 5 of 43 products",
+    "deepcool": "skipped: no sitemap / robots",
+    "arctic": "skipped: no machine sitemap, pagination disallowed",
+    "maxsun": "skipped: product pages are marketing prose, no spec table",
 }
 
 
