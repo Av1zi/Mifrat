@@ -1687,6 +1687,17 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "tms:100-000000158",
+    "listing_b": "tms:100-000000159",
+    "title_a": "AMD Ryzen 5 3500X AM4 Tray",
+    "title_b": "AMD Ryzen 3 3300X AM4 Tray",
+    "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_b": "100-000000159 AMD Ryzen 3 3300X AM4 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "tms:100-000000158",
     "listing_b": "tms:100-000001504",
     "title_a": "AMD Ryzen 5 3500X AM4 Tray",
     "title_b": "AMD Ryzen 5 5500X3D AM4 Tray",
@@ -4091,30 +4102,6 @@
         "vendor_sku": "90MB1N90-M0EAY0",
         "title": "Asus PRIME B850M-F",
         "price": 693
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:akb760megddr4",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "ARKTEK B760 DDR4 AK-B760M EG",
-      "לוח אם ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:158839",
-        "vendor_sku": "AK-B760MEG-DDR4",
-        "title": "לוח אם ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4",
-        "price": 289
-      },
-      {
-        "listing_key": "tms:AK-B760MEG-DDR4",
-        "vendor_sku": "AK-B760MEG-DDR4",
-        "title": "ARKTEK B760 DDR4 AK-B760M EG",
-        "price": 269
       }
     ]
   },
