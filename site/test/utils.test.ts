@@ -56,8 +56,8 @@ describe("safeUrl / safeImageUrl", () => {
   });
 
   it("allows only same-origin /images/ for <img>", () => {
-    expect(safeImageUrl("/images/tms/123.jpg")).toBe("/images/tms/123.jpg");
-    expect(safeImageUrl("  /images/a.jpg ")).toBe("/images/a.jpg");
+    expect(safeImageUrl("/images/tms/123.webp")).toBe("/images/tms/123.webp");
+    expect(safeImageUrl("  /images/a.webp ")).toBe("/images/a.webp");
     expect(safeImageUrl("https://cdn.vendor.example/a.jpg")).toBeNull();
     expect(safeImageUrl("/other/a.jpg")).toBeNull();
     expect(safeImageUrl("data:image/png;base64,AAAA")).toBeNull();

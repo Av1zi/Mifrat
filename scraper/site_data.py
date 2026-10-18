@@ -39,6 +39,11 @@ except ImportError:
     from image_urls import candidate_urls  # type: ignore[no-redef]
 
 try:
+    from scraper.image_score import blocklist as _image_blocklist
+except ImportError:
+    from image_score import blocklist as _image_blocklist  # type: ignore[no-redef]
+
+try:
     from scraper.specs.report import qa_cases as spec_qa_cases
 except ImportError:
     # Script-path invocation (`python scraper/normalize_and_match.py` puts
@@ -77,26 +82,28 @@ def _safe_image_stem(vendor_sku: str) -> str:
     )
 
 
+COVER_EXT = ".webp"
+THUMB_SUBDIR = "thumbs"
+
+
 def _local_image_path(vendor_id: str | None, vendor_sku: str | None,
                       thumb: bool = False) -> str | None:
-    """Same-origin /images/... URL when the scraped file exists on disk.
+    """Same-origin /images/... URL when the scraped cover exists on disk.
 
-    thumb=True addresses the 128px list-thumbnail derivative under
-    data/images/<vendor>/thumbs/ (served from /images/<vendor>/thumbs/).
-
-    Serves the original vendor JPEG as-is (Sep 2026 transparency rework
-    reverted: background matting ate product interiors, so every render
-    was deleted and covers are the scraped files again).
+    Covers are WebP, long edge <= 640px, flattened on white (data/images/
+    <vendor>/<sku>.webp). thumb=True addresses the 128px list thumbnail
+    (/images/<vendor>/thumbs/<sku>.webp). Thumbnails are NOT stored in the
+    repo: site/scripts/copy-data.mjs derives them from the cover at build
+    time, so the path is returned whenever the cover itself exists.
     """
     if not vendor_sku:
         return None
     stem = _safe_image_stem(vendor_sku)
     vendor = _image_vendor_key(vendor_id)
-    subdir = "thumbs/" if thumb else ""
-    rel = f"{vendor}/{subdir}{stem}.jpg"
-    if (IMAGES_DIR / rel).is_file():
-        return f"/images/{vendor}/{subdir}{quote(stem)}.jpg"
-    return None
+    if not (IMAGES_DIR / f"{vendor}/{stem}{COVER_EXT}").is_file():
+        return None
+    subdir = f"{THUMB_SUBDIR}/" if thumb else ""
+    return f"/images/{vendor}/{subdir}{quote(stem)}{COVER_EXT}"
 
 
 # Remotes dropped by _resolve_image during the current write_site_data()
@@ -148,37 +155,21 @@ def _url_is_dark(url: str | None) -> bool:
     return dark
 
 
-def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str | None]:
-    """
-    Local-only: return (image, thumb) — our own hosted cover
-    (data/images/<vendor>/<sku>.jpg, served from /images/...) plus its
-    128px list-thumbnail derivative (data/images/<vendor>/thumbs/,
-    served from /images/<vendor>/thumbs/), or None for either.
+def _ordered_image_candidates(product: dict) -> list[tuple[str, str, str]]:
+    """(vendor_id, vendor_sku, image_url) cover candidates, best first.
 
-    No remote-vendor fallback — hotlinking leaks visitor IPs to vendor
-    hosts, breaks when vendors move their images, and defeats the
-    frontend's same-origin image policy (see safeImageUrl). Products
-    without a local photo fall back to the existing initials thumb in
-    the UI (thumbHtml/thumbLabel), so None is a safe, renderable state.
+    Candidate list, in order of preference:
+      1. the offer URL behind the stored cover (the matcher's scored pick —
+         the site has been showing it, so it leads: a cover only changes for
+         a reason), plus that URL's same-photo originals,
+      2. every other offer's image and its originals (image_urls.
+         candidate_urls turns a 228px listing tile into the vendor's
+         original file, which is often already on disk).
+    Blocklisted photos are dropped. Shared by _resolve_image and download_images --prune, so the files the
+    pruner keeps are exactly the ones the site can choose from.
     """
     current = product.get("image_url")
     raw_offers = product.get("offers", [])
-
-    # Candidate list, in order of preference:
-    #   1. the offer URL behind the stored cover (the matcher's scored pick —
-    #      the site has been showing it, so it leads: a cover only changes for
-    #      a reason), plus that URL's same-photo originals,
-    #   2. every other offer's image and its originals (image_urls.
-    #      candidate_urls turns a 228px listing tile into the vendor's
-    #      original file, which is often already on disk).
-    # The first candidate whose local file exists wins; a candidate with no
-    # file (a tile never downloaded, a vendor original that 404'd) simply
-    # falls through to the next instead of blanking the product.
-    # Dark-backdrop files are skipped in favor of a white-backdrop
-    # alternative (Sep 2026: a black TMS tile kept winning on vendor
-    # priority over 1PC's white shot of the same board) — but the first hit
-    # is kept as a fallback, so a product whose every photo is dark still
-    # shows its cover instead of initials.
     ordered: list[tuple[str, str, str]] = []
     seen: set[tuple[str, str, str]] = set()
     for offer in raw_offers:
@@ -187,16 +178,44 @@ def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str |
         if not offer_url or not sku:
             continue
         vendor = str(offer.get("vendor_id") or "")
+        folder = _image_vendor_key(vendor)
         for candidate in candidate_urls(str(offer_url)) or [str(offer_url)]:
+            # Known-junk photos (data/matching/image_blocklist.json: banners,
+            # vendor logos used as placeholders) are never a cover, even when
+            # they are the product's only photo — initials beat a logo.
+            if any(folder == bv and fragment in candidate
+                   for bv, fragment in _image_blocklist()):
+                continue
             key = (candidate, vendor, sku)
             if key not in seen:
                 seen.add(key)
                 ordered.append(key)
     if current:
         ordered.sort(key=lambda entry: 0 if entry[0] == current else 1)
+    return [(vendor, sku, url) for url, vendor, sku in ordered]
 
+
+def _resolve_image(product: dict, offers: list[dict]) -> tuple[str | None, str | None]:
+    """
+    Local-only: return (image, thumb) — our own hosted cover
+    (data/images/<vendor>/<sku>.webp, served from /images/...) plus the
+    path of its 128px list thumbnail (generated at site build time from
+    that cover, served from /images/<vendor>/thumbs/), or None for either.
+
+    No remote-vendor fallback — hotlinking leaks visitor IPs to vendor
+    hosts, breaks when vendors move their images, and defeats the
+    frontend's same-origin image policy (see safeImageUrl). Products
+    without a local photo fall back to the existing initials thumb in
+    the UI (thumbHtml/thumbLabel), so None is a safe, renderable state.
+    """
+    # The first candidate (see _ordered_image_candidates) whose local file
+    # exists wins; a candidate with no file (a tile never downloaded, a
+    # vendor original that 404'd) falls through to the next instead of
+    # blanking the product. Dark-backdrop files are skipped in favor of a
+    # white-backdrop alternative, but the first hit is kept as a fallback,
+    # so a product whose every photo is dark still shows its cover.
     fallback: tuple[str | None, str | None] | None = None
-    for _url, vendor, sku in ordered:
+    for vendor, sku, _url in _ordered_image_candidates(product):
         image = _local_image_path(vendor, sku)
         if not image:
             continue

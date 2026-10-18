@@ -50,6 +50,10 @@ tmp/
 # need it locally: `python -m scraper.pcpartdb refresh`.
 data/pcpartdb/
 
+# List thumbnails are derived at site build time (site/scripts/copy-data.mjs),
+# never committed. Covers themselves are data/images/<vendor>/<sku>.webp.
+data/images/*/thumbs/
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db

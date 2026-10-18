@@ -9,7 +9,7 @@ Covers, with no network and no dependency on the real image corpus:
 - scoring + best-photo picking + incumbent stability (scraper/image_score.py)
 - the refetch rule that fixes the audited 228px-tile covers
   (scraper/download_images.py)
-- site-side resolution: local JPEG covers, candidate fallback, dark-tile
+- site-side resolution: local WebP covers, candidate fallback, dark-tile
   rerouting, no image ever blanked (scraper/site_data.py)
 
 Run: python scripts/check_image_pick.py
@@ -27,7 +27,13 @@ sys.path.insert(0, str(ROOT))
 from PIL import Image  # noqa: E402
 
 from scraper import image_score, image_urls  # noqa: E402
-from scraper.download_images import _row_candidate_urls, _upgrade_low_res  # noqa: E402
+from scraper.download_images import (  # noqa: E402
+    _row_candidate_urls,
+    _upgrade_low_res,
+    build_image_plan,
+    encode_cover,
+    flatten_on_white,
+)
 
 TMS_ORIGINAL = "https://tms.co.il/image/catalog/products/ST28000NM003K/D9kz8CXkiv.jpg"
 TMS_1000 = "https://tms.co.il/image/cache/catalog/products/ST28000NM003K/D9kz8CXkiv-1000x1000.jpg"
@@ -275,17 +281,17 @@ def check_site_resolution(c: Checks) -> None:
     with tempfile.TemporaryDirectory() as tmp:
         images = Path(tmp) / "images"
         (images / "tms").mkdir(parents=True)
-        (images / "tms" / "A.jpg").write_bytes(b"j")
-        (images / "tms" / "B.jpg").write_bytes(b"j")
+        (images / "tms" / "A.webp").write_bytes(b"j")
+        (images / "tms" / "B.webp").write_bytes(b"j")
         (images / "plonter").mkdir(parents=True)
-        (images / "plonter" / "C.jpg").write_bytes(b"j")
+        (images / "plonter" / "C.webp").write_bytes(b"j")
 
         original = site_data.IMAGES_DIR
         site_data.IMAGES_DIR = images
         try:
             image, thumb = site_data._local_image_path("tms", "A"), None
-            c.eq(image, "/images/tms/A.jpg",
-                 "the scraped JPEG cover resolves")
+            c.eq(image, "/images/tms/A.webp",
+                 "the scraped WebP cover resolves")
             c.eq(site_data._local_image_path("tms", "ZZZ"), None,
                  "an unknown SKU resolves to nothing")
 
@@ -297,7 +303,7 @@ def check_site_resolution(c: Checks) -> None:
                 ],
             }
             image, _thumb = site_data._resolve_image(product, product["offers"])
-            c.eq(image, "/images/tms/A.jpg",
+            c.eq(image, "/images/tms/A.webp",
                  "resolution falls through to the first offer with a local file")
 
             ordered = {
@@ -309,7 +315,7 @@ def check_site_resolution(c: Checks) -> None:
                 ],
             }
             image, _thumb = site_data._resolve_image(ordered, ordered["offers"])
-            c.eq(image, "/images/plonter/C.jpg",
+            c.eq(image, "/images/plonter/C.webp",
                  "the stored cover's offer leads the resolution order")
 
             none = {
@@ -319,6 +325,16 @@ def check_site_resolution(c: Checks) -> None:
             }
             c.eq(site_data._resolve_image(none, none["offers"])[0], None,
                  "a product with no local file resolves to nothing, never a remote URL")
+
+            (images / "onepc").mkdir(parents=True)
+            (images / "onepc" / "BAD.webp").write_bytes(b"j")
+            blocked = {
+                "image_url": None,
+                "offers": [{"vendor_id": "1pc", "vendor_sku": "BAD",
+                            "image_url": "https://1pc.co.il/images/thumbs/0333830_strip_510.jpeg"}],
+            }
+            c.eq(site_data._resolve_image(blocked, blocked["offers"])[0], None,
+                 "a blocklisted photo is never served, even as the only candidate")
         finally:
             site_data.IMAGES_DIR = original
 
@@ -337,18 +353,18 @@ def check_dark_skip(c: Checks) -> None:
         images = Path(tmp) / "images"
         (images / "tms").mkdir(parents=True)
         (images / "onepc").mkdir(parents=True)
-        Image.new("RGB", (200, 200), (8, 8, 8)).save(images / "tms" / "D.jpg")
-        Image.new("RGB", (200, 200), (250, 250, 250)).save(images / "onepc" / "W.jpg")
+        Image.new("RGB", (200, 200), (8, 8, 8)).save(images / "tms" / "D.webp")
+        Image.new("RGB", (200, 200), (250, 250, 250)).save(images / "onepc" / "W.webp")
 
         original = site_data.IMAGES_DIR
         site_data.IMAGES_DIR = images
         site_data._DARK_CACHE.clear()
         try:
-            c.ok(site_data._url_is_dark("/images/tms/D.jpg"),
+            c.ok(site_data._url_is_dark("/images/tms/D.webp"),
                  "a black tile reads dark")
-            c.ok(not site_data._url_is_dark("/images/onepc/W.jpg"),
+            c.ok(not site_data._url_is_dark("/images/onepc/W.webp"),
                  "a white studio shot does not read dark")
-            c.ok(not site_data._url_is_dark("/images/tms/MISSING.jpg"),
+            c.ok(not site_data._url_is_dark("/images/tms/MISSING.webp"),
                  "an unreadable file fails open (served as before)")
 
             product = {
@@ -361,7 +377,7 @@ def check_dark_skip(c: Checks) -> None:
                 ],
             }
             image, _thumb = site_data._resolve_image(product, product["offers"])
-            c.eq(image, "/images/onepc/W.jpg",
+            c.eq(image, "/images/onepc/W.webp",
                  "a white alternative displaces the dark incumbent pick")
 
             dark_only = {
@@ -372,8 +388,92 @@ def check_dark_skip(c: Checks) -> None:
                 ],
             }
             image, _thumb = site_data._resolve_image(dark_only, dark_only["offers"])
-            c.eq(image, "/images/tms/D.jpg",
+            c.eq(image, "/images/tms/D.webp",
                  "an only-dark product still shows its cover, never initials")
+        finally:
+            site_data.IMAGES_DIR = original
+            site_data._DARK_CACHE.clear()
+
+
+def check_alpha_flatten(c: Checks) -> None:
+    """Oct 2026: Ivory/Yahav/1PC/TMS sources carry alpha. `.convert("RGB")`
+    kept the garbage RGB under transparent pixels (black backgrounds);
+    covers are composited onto WHITE instead."""
+    # Transparent canvas whose hidden RGB is black, with an opaque red square.
+    rgba = Image.new("RGBA", (100, 100), (0, 0, 0, 0))
+    rgba.paste((200, 30, 30, 255), (30, 30, 70, 70))
+    flat = flatten_on_white(rgba)
+    c.eq(flat.mode, "RGB", "a flattened cover is plain RGB")
+    c.eq(flat.getpixel((2, 2)), (255, 255, 255),
+         "transparent pixels become white, not the black RGB under them")
+    c.eq(flat.getpixel((50, 50)), (200, 30, 30), "opaque pixels are unchanged")
+    half = Image.new("RGBA", (4, 4), (0, 0, 0, 128))
+    px = flatten_on_white(half).getpixel((1, 1))
+    c.ok(120 <= px[0] <= 135, "half-transparent black blends toward white (grey)")
+    pal = Image.new("P", (8, 8), 0)
+    pal.info["transparency"] = 0
+    pal_px = flatten_on_white(pal).getpixel((1, 1))
+    c.eq(pal_px, (255, 255, 255),
+         "palette+tRNS index 0 is transparent, so it flattens to white")
+    from scripts.check_image_files import border_black_share
+    c.ok(border_black_share(Image.new("RGB", (120, 120), (5, 5, 5))) >= 0.85,
+         "the gate flags an all-black border (the alpha-bug signature)")
+    c.ok(border_black_share(flat) < 0.5,
+         "a flattened transparent cover has no black border")
+    opaque = Image.new("RGB", (10, 10), (12, 34, 56))
+    c.eq(flatten_on_white(opaque).getpixel((3, 3)), (12, 34, 56),
+         "an opaque image is untouched")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        dest = Path(tmp) / "x" / "A.webp"
+        big = Image.new("RGBA", (1600, 900), (0, 0, 0, 0))
+        encode_cover(big, dest)
+        with Image.open(dest) as out:
+            c.eq(out.format, "WEBP", "covers are written as WebP")
+            c.eq(max(out.size), 640, "covers are capped at a 640px long edge")
+            c.eq(out.convert("RGB").getpixel((5, 5)), (255, 255, 255),
+                 "an all-transparent source encodes as a white cover")
+        small = Image.new("RGB", (300, 200), (90, 90, 90))
+        encode_cover(small, dest)
+        with Image.open(dest) as out:
+            c.eq(out.size, (300, 200), "covers are never upscaled")
+
+
+def check_image_plan(c: Checks) -> None:
+    """The prune plan keeps the selected cover + one runner-up and drops the
+    rest; the daily download gate wants only the catalog's cover."""
+    from scraper import site_data
+
+    with tempfile.TemporaryDirectory() as tmp:
+        images = Path(tmp) / "images"
+        for vendor, name in (("tms", "A"), ("onepc", "B"), ("ivory", "C"),
+                             ("plonter", "D")):
+            (images / vendor).mkdir(parents=True)
+            Image.new("RGB", (40, 40), (250, 250, 250)).save(images / vendor / f"{name}.webp")
+        product = {
+            "category": "case",
+            "image_url": TMS_TILE,
+            "offers": [
+                {"vendor_id": "tms", "vendor_sku": "A", "image_url": TMS_TILE},
+                {"vendor_id": "1pc", "vendor_sku": "B", "image_url": ONEPC_FULL},
+                {"vendor_id": "ivory", "vendor_sku": "C",
+                 "image_url": "https://www.ivory.co.il/files/catalog/org/1.webp"},
+                {"vendor_id": "plonter", "vendor_sku": "D", "image_url": PLONTER_FULL},
+            ],
+        }
+        original = site_data.IMAGES_DIR
+        site_data.IMAGES_DIR = images
+        site_data._DARK_CACHE.clear()
+        try:
+            plan = build_image_plan({"products": [product]})
+            c.eq(plan.wanted, {("tms", "A")}, "the wanted cover is the stored pick")
+            c.ok(("tms", "A") in plan.keep, "the selected cover is kept")
+            c.eq(len(plan.runner_ups), 1, "exactly one runner-up per product")
+            c.eq(len(plan.keep), 2, "everything else is prunable")
+            c.ok(("plonter", "D") not in plan.keep,
+                 "the lowest-priority vendor is not the runner-up")
+            c.ok(("plonter", "D") in plan.known and ("plonter", "D") not in plan.wanted,
+                 "a pruned file is known-but-unwanted, so the daily job skips it")
         finally:
             site_data.IMAGES_DIR = original
             site_data._DARK_CACHE.clear()
@@ -401,7 +501,8 @@ def main() -> int:
     checks = Checks()
     for group in (check_url_vocabulary, check_gallery_capture, check_scoring,
                   check_refetch_rules, check_site_resolution,
-                  check_dark_skip, check_priority_file):
+                  check_dark_skip, check_alpha_flatten, check_image_plan,
+                  check_priority_file):
         group(checks)
 
     if checks.failures:

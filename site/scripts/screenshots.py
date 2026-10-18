@@ -59,13 +59,13 @@ def _part(id_: str, category: str, name: str, brand: str, thumb: str) -> dict:
 
 
 CPUS = [
-    _part("model:cpu:ryzen55500-tray", "cpu", "AMD Ryzen 5 5500 Tray", "AMD", "/images/tms/thumbs/100-000000457.jpg"),
-    _part("model:cpu:ryzen53500-tray", "cpu", "AMD Ryzen 5 3500 Tray", "AMD", "/images/tms/thumbs/100-000000050.jpg"),
-    _part("mpn:cpu:100000000159", "cpu", "AMD Ryzen 3 3300X", "AMD", "/images/onepc/thumbs/100-000000159.jpg"),
+    _part("model:cpu:ryzen55500-tray", "cpu", "AMD Ryzen 5 5500 Tray", "AMD", "/images/tms/thumbs/100-000000457.webp"),
+    _part("model:cpu:ryzen53500-tray", "cpu", "AMD Ryzen 5 3500 Tray", "AMD", "/images/tms/thumbs/100-000000050.webp"),
+    _part("mpn:cpu:100000000159", "cpu", "AMD Ryzen 3 3300X", "AMD", "/images/onepc/thumbs/100-000000159.webp"),
     _part("model:cpu:ryzen79800x3d-tray", "cpu", "AMD Ryzen 7 9800X3D Tray", "AMD", ""),
 ]
 COMPARE_URL = "#/compare?ids=" + ",".join(quote(p["id"], safe="") for p in CPUS)
-GPU = _part("mpn:gpu:akn210d3s1gl1", "gpu", "ARKTEK GeForce GT 210 1GB VGA DVI", "ARKTEK", "/images/yahav/thumbs/AKN210D3S1GL1.jpg")
+GPU = _part("mpn:gpu:akn210d3s1gl1", "gpu", "ARKTEK GeForce GT 210 1GB VGA DVI", "ARKTEK", "/images/yahav/thumbs/AKN210D3S1GL1.webp")
 SEEDS = {
     "category-cpu-tray": {"mifrat:compare": {"category": "cpu", "items": CPUS[:3]}},
     "saved": {"mifrat:saved": [{**p, "savedAt": 1_000 + i} for i, p in enumerate([*CPUS[:3], GPU])]},

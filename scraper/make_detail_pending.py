@@ -108,7 +108,7 @@ def _detail(v):
 
 def _image(v, sku):
     v = _normalize_vendor(v)
-    return Path(f"data/images/{v}/{sku}.jpg")
+    return Path(f"data/images/{v}/{sku}.webp")
 
 def _load_jsonl(path: Path) -> list:
     if not path.exists():

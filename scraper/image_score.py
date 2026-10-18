@@ -82,9 +82,11 @@ _PRIORITY_WEIGHTS = (2.4, 1.2, 0.0, -1.2, -2.4)
 _SHAPE_WEIGHT = 0.5
 
 # Below this many bytes a "photo" is a placeholder or a 74x74 tile; above it
-# the file is plausibly a real image (the audited corpus runs 3-50KB).
-PLACEHOLDER_BYTES = 6000
-REAL_BYTES = 25_000
+# the file is plausibly a real image. Byte thresholds are for WebP covers
+# (Oct 2026, q76 / 640px: ~half the size of the old q82 JPEGs they replaced,
+# so the former 6KB / 25KB cut-offs became 3KB / 12KB).
+PLACEHOLDER_BYTES = 3000
+REAL_BYTES = 12_000
 
 # An on-disk long edge under this is a resized derivative as far as the
 # upgrade pass is concerned — vendor originals are 500px and up.
@@ -222,7 +224,7 @@ def score_candidate(candidate: dict, *, category: str = "",
 
     local_edge = candidate.get("local_edge")
     if isinstance(local_edge, (int, float)) and local_edge > 0:
-        if local_edge >= 800:
+        if local_edge >= UPGRADE_EDGE:  # covers are capped at 640px
             score += 1.0
         elif local_edge < 350:
             score -= 1.0

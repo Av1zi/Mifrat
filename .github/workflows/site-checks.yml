@@ -71,3 +71,5 @@ jobs:
         run: python scripts/check_spec_coverage.py
       - name: Photo pipeline regressions
         run: python scripts/check_image_pick.py
+      - name: Cover corpus
+        run: python scripts/check_image_files.py

@@ -14,7 +14,7 @@ Picking a better photo requires knowing what the alternatives look like
 today, and the picker needs a *calibrated* per-category vendor priority
 table rather than a guess. This script is that measurement:
 
-1. Filesystem side — every cover (data/images/<vendor>/<sku>.jpg, thumbs
+1. Filesystem side — every cover (data/images/<vendor>/<sku>.webp, thumbs
    excluded) is measured once with Pillow: long edge, aspect ratio, and the
    share of border pixels that are near-white. Long edge tells us which
    vendors hand us a real full-size shot vs. a listing thumbnail
@@ -65,8 +65,9 @@ WHITE_CUTOFF = 240
 # real tower cases sit near 2.0 legitimately.
 PANO_ASPECT = 2.2
 
-# Long-edge buckets. 800 is download_images.MAX_DIMENSION, so "800" means
-# the vendor handed us something at least that big and we downscaled it.
+# Long-edge buckets. Covers are capped at download_images.MAX_DIMENSION
+# (640 since Oct 2026; 800 before), so a 640 file means the vendor handed us
+# at least that much and we downscaled it.
 RES_BUCKETS = ((400, "lt400"), (600, "400_599"), (800, "600_799"))
 
 
@@ -75,7 +76,7 @@ def _iter_covers():
     if not IMAGES_DIR.is_dir():
         return
     for vendor_dir in sorted(p for p in IMAGES_DIR.iterdir() if p.is_dir()):
-        for path in sorted(vendor_dir.rglob("*.jpg")):
+        for path in sorted(vendor_dir.rglob("*.webp")):
             if THUMB_SUBDIR in path.relative_to(vendor_dir).parts:
                 continue
             yield vendor_dir.name, str(path.relative_to(vendor_dir)), path
@@ -211,7 +212,7 @@ def catalog_report(covers: dict[tuple[str, str], dict], sample: int) -> dict:
                 sku = str(offer.get("vendor_sku") or "")
                 break
         vendor_folder = "onepc" if vendor in ("1pc", "onepc") else (vendor or "?")
-        metrics = covers.get((vendor_folder, f"{_stem(sku)}.jpg"))
+        metrics = covers.get((vendor_folder, f"{_stem(sku)}.webp"))
         category = str(product.get("category") or "?")
         bucket = by_category.setdefault(category, {"products": 0, "vendors": {}})
         bucket["products"] += 1

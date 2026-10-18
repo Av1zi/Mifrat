@@ -61,7 +61,7 @@ npm run format:check # Prettier, scoped to test/ + tooling; existing src/ is not
   TypeScript JS API (TS 6.x) while the site compiles with TS 7, which ships
   none. `npm run lint` runs `npm ci` there on first use; nothing else to set up.
 - CI (`.github/workflows/site-checks.yml`) runs tsc, lint, vitest, build and the
-  four `scripts/check_spec_*.py` / `check_image_pick.py` gates on any push or PR
+  four `scripts/check_spec_*.py` / `check_image_pick.py` / `check_image_files.py` gates on any push or PR
   touching `site/**` or `scraper/specs/**`.
 - **Browser smoke check** (local only, not in CI: needs a Playwright Chromium):
 

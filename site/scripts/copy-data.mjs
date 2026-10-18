@@ -5,10 +5,16 @@
 // request time, no backend.
 //
 // Also copies the product photos referenced by those JSON files from
-// ../../data/images/<vendor>/<sku>.jpg into site/public/images/... —
+// ../../data/images/<vendor>/<sku>.webp into site/public/images/... —
 // same-origin hosting so vendor sites can't break our photos by moving
 // or deleting theirs. Only referenced files are copied (a few thousand),
 // not the whole archive.
+//
+// List-page thumbnails (/images/<vendor>/thumbs/<sku>.webp, 128px long edge,
+// WebP q70) are NOT stored in the repo: they are derived here, with sharp,
+// from the cover of the same name — and only for the thumbs the JSON
+// references. Without sharp (unsupported platform) the full cover is copied
+// instead, so pages still render, just heavier.
 //
 // Runs automatically before `npm run dev` and `npm run build` (see
 // package.json). Re-run any time data/site/*.json changes locally.
@@ -16,6 +22,16 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+
+let sharp = null;
+try {
+  sharp = (await import("sharp")).default;
+} catch {
+  console.warn("[copy-data] sharp unavailable - list thumbnails fall back to full covers");
+}
+
+const THUMB_EDGE = 128;
+const THUMB_QUALITY = 70;
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const src = path.resolve(here, "..", "..", "data", "site");
@@ -67,21 +83,46 @@ collect(dest);
 
 rmSync(imagesDest, { recursive: true, force: true });
 let copied = 0;
+let thumbs = 0;
 let missing = 0;
-for (const rel of referenced) {
-  const from = path.join(imagesSrc, rel);
+
+// /images/<vendor>/thumbs/<rest> is derived from /images/<vendor>/<rest>.
+const coverOf = (rel) => {
+  const parts = rel.split("/");
+  return parts.length > 2 && parts[1] === "thumbs" ? [parts[0], ...parts.slice(2)].join("/") : null;
+};
+
+const copyOne = async (rel) => {
+  const cover = coverOf(rel);
+  const from = path.join(imagesSrc, cover ?? rel);
   const to = path.join(imagesDest, rel);
   if (!existsSync(from)) {
     missing++;
-    continue;
+    return;
   }
   mkdirSync(path.dirname(to), { recursive: true });
+  if (cover && sharp) {
+    await sharp(from)
+      .resize(THUMB_EDGE, THUMB_EDGE, { fit: "inside", withoutEnlargement: true })
+      .webp({ quality: THUMB_QUALITY })
+      .toFile(to);
+    thumbs++;
+    return;
+  }
   cpSync(from, to);
-  copied++;
-}
+  if (cover) thumbs++;
+  else copied++;
+};
+
+const queue = [...referenced];
+await Promise.all(
+  Array.from({ length: 12 }, async () => {
+    for (let rel = queue.pop(); rel !== undefined; rel = queue.pop()) await copyOne(rel);
+  })
+);
 
 console.log(
-  `[copy-data] copied ${copied} referenced images -> ${imagesDest}` +
+  `[copy-data] copied ${copied} covers + generated ${thumbs} thumbnails -> ${imagesDest}` +
     (missing > 0 ? ` (${missing} referenced files missing on disk)` : "")
 );
 

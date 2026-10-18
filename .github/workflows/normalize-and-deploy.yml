@@ -114,6 +114,8 @@ jobs:
         # download that skipped every existing file) and the v1 scoring bug
         # where 1PC's native URL shape read as a downgrade.
         run: python scripts/check_image_pick.py
+      - name: Cover corpus (WebP only, size budget, no black-border covers)
+        run: python scripts/check_image_files.py
       - name: Site payload size guard (Phase 8, see DECISIONS.md)
         # Anti-regression lock for the data-trust + performance phases:
         # fail the job (no commit, no deploy) when a category/index file
