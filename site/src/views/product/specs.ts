@@ -33,7 +33,7 @@ export function specsCard(product: Product, lang: Lang, categoryProducts?: Produ
       <summary>${specGroupLabel(group, lang)}<span class="acc__meta">${known} / ${fields.length}</span></summary>
       <dl class="acc__body spec-list">
         ${fields.map(
-          (f) => html`<div class="spec-row"><dt>${attributeLabel(f.name, lang)}</dt><dd>${specCell(specValue(product, f.name), lang)}</dd></div>`
+          (f) => html`<div class="spec-row"><dt>${attributeLabel(f.name, lang, product.category)}</dt><dd>${specCell(specValue(product, f.name), lang)}</dd></div>`
         )}
       </dl>
     </details>`;

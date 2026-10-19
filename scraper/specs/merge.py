@@ -41,6 +41,13 @@ TIER_REFERENCE = 0
 TIER_MANUFACTURER = 0.5
 TIER_VENDOR = 1
 TIER_TITLE = 2
+# Variant fields (colour, efficiency, modularity) from a reference row linked
+# by NAME SIMILARITY (fuzzy / identity-scoped joins) rather than exact-name
+# equality: they fill gaps but never override what a vendor page or title
+# states (Oct 2026: a fuzzy row for the black 'Antec CSK' overwrote the white
+# CSK750DC-W's colour). See reference._FUZZY_VARIANT_FIELDS. Same public name
+# as Tier 0.
+TIER_REFERENCE_FUZZY = 2.5
 TIER_WEAK = 3
 
 TIER_NAMES = {
@@ -49,6 +56,7 @@ TIER_NAMES = {
     TIER_MANUFACTURER: "manufacturer",
     TIER_VENDOR: "vendor",
     TIER_TITLE: "title",
+    TIER_REFERENCE_FUZZY: "reference",
     TIER_WEAK: "weak",
 }
 

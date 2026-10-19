@@ -115,6 +115,17 @@ export function searchScore(
 }
 
 export function skuOf(p: Product): string {
+  // The manufacturer part number IS the SKU ("CSK750DC-W"); `model` is a
+  // model name ("CSK 750 DC") and only stands in when no part number is known.
+  // GTIN/EAN/UPC barcodes ("4711377290623") are identifiers, not SKUs - the
+  // same rule matching.py applies to `model`.
+  const parts = p.specs?.part_numbers;
+  if (Array.isArray(parts)) {
+    const first = parts.find(
+      (v): v is string => typeof v === "string" && v.trim() !== "" && !/^(?:\d{8}|\d{12,14})$/.test(v.trim())
+    );
+    if (first) return first.trim();
+  }
   if (p.model) return p.model;
   return p.id.split(":").pop() || p.id;
 }

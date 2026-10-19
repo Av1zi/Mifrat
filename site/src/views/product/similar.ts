@@ -68,7 +68,7 @@ export function similarMarkup(
       if (NOISE_KEYS.has(k)) continue;
       const theirs = rawText(specValue(p, k));
       if (!theirs || theirs === rawText(specValue(product, k))) continue;
-      out.push(`${attributeLabel(k, lang)} ${formatSpecValue(specValue(p, k), lang)}`);
+      out.push(`${attributeLabel(k, lang, p.category)} ${formatSpecValue(specValue(p, k), lang)}`);
       if (out.length >= limit) break;
     }
     return out.join(" · ");

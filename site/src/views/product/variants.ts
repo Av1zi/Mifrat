@@ -91,7 +91,7 @@ export function variantsMarkup(product: Product, products: Product[], lang: Lang
     <h3 class="variants__title">${t(lang, "variantsHeading")}</h3>
     ${groups.map(
       (g) => html`<div class="variants__group">
-        <p>${attributeLabel(g.key, lang)}: <b>${formatSpecValue(specValue(product, g.key), lang)}</b></p>
+        <p>${attributeLabel(g.key, lang, product.category)}: <b>${formatSpecValue(specValue(product, g.key), lang)}</b></p>
         <div class="pills">
           ${g.values.map((v) =>
             v.active
