@@ -2,11 +2,11 @@
  "brand": "ASUS",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-18",
+ "generated": "2026-10-20",
  "entries": {
   "https://www.asus.com/motherboards-components/motherboards/csm/b850-max-gaming-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/b850-max-gaming-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1PR0M0EAY0",
@@ -22,12 +22,29 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8600",
+     "8400",
+     "8200",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x16 (x1 mode)",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek® 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 10Gbps (Type-A + Type-C) | 2 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.4",
@@ -37,7 +54,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1EF0M0EAY0",
@@ -53,13 +70,36 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 2 x USB 3.2 Gen 2 (Type-A) | 1 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
     "form_factor": "ATX"
@@ -67,7 +107,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760-plus-d4-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1CW0M1EAY0",
@@ -83,13 +123,39 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933",
+     "2800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 2 x USB 3.2 Gen 2 (Type-A) | 1 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
     "form_factor": "ATX"
@@ -97,7 +163,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-f-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-f-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1N00M0EAY0",
@@ -113,12 +179,40 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 96,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.3",
@@ -128,7 +222,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-k-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-k-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1FI0M0EAY0",
@@ -145,13 +239,40 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 96,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 3.2 Gen 1 (5G) (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -161,7 +282,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-r-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b760m-r-d4-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1HA0M0EAY0",
@@ -177,12 +298,40 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -225,7 +374,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-a-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-a-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "PRIMEB860MACSM",
@@ -240,12 +389,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -255,7 +416,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-k-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-b860m-k-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1JT0M0EAY0",
@@ -272,12 +433,25 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "8800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 3 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -287,7 +461,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-a-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-a-d4-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB19P0M0EAYC",
@@ -303,12 +477,30 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
     "pcie_x16_slots": 1,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 4.0 x16",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
     "form_factor": "Micro-ATX"
@@ -316,7 +508,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-k-argb-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h610m-k-argb-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1G90M0EAY0",
@@ -332,13 +524,28 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "1"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 1 (5G) (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -348,7 +555,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-h810m-a-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-h810m-a-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1KJ0M0EAY0",
@@ -365,12 +572,25 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "6400"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.3",
@@ -380,7 +600,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-x670-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x670-p-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1BV0M0EAY0",
@@ -396,13 +616,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 3,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x1",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 6,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 3 x USB 3.2 Gen 2 (Type-A) | 4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -412,7 +656,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IT0M0EAY0",
@@ -430,11 +674,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 2,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 1 x USB 10Gbps (Type-A) | 3 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -444,7 +703,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-x870-p-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IS0M0EAY0",
@@ -462,11 +721,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 2,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 1 x USB 10Gbps (Type-A) | 3 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -476,7 +750,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890-p-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1I70M0EAY0",
@@ -493,11 +767,25 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 1,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -507,7 +795,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890m-plus-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/csm/prime-z890m-plus-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1J80M0EAY0",
@@ -524,11 +812,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 6,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 1 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -538,12 +839,10 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi-w/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1M00M0EAY0",
-    "B650EMAXGAMINGWIFIW",
-    "B650EMAXGAMINGWIFIWPC",
     "b650e|gaming|max|w#wifi",
     "B650EGAMINGMAXWWIFI"
    ],
@@ -556,12 +855,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x16 (x1 mode)",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 10Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -571,7 +884,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b650e-max-gaming-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1LD0M0EAY0",
@@ -587,12 +900,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x16 (x1 mode)",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 10Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -602,7 +929,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b850-max-gaming-wifi-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b850-max-gaming-wifi-w/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1M10M0EAY0",
@@ -618,12 +945,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x16 (x1 mode)",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 10Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -633,17 +974,15 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/b850m-max-gaming-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/b850m-max-gaming-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
-    "90MB1LL0M0EAY0",
     "B850MMAXGAMINGWIFI",
     "B850MMAXGAMINGWIFIPC",
     "b850m|gaming|max#wifi",
     "B850MGAMINGMAXWIFI"
    ],
    "names": [
-    "b850m max gaming wifi6",
     "b850m max gaming 1xhdmi wifi6"
    ],
    "specs": {
@@ -652,12 +991,27 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x1 mode) | PCIe 4.0 x16",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A + Type-C) | 2 x USB 5Gbps (Type-A) | 5 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.4",
@@ -667,7 +1021,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7-w/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1LZ0M0EAY0",
@@ -683,11 +1037,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x1 mode) | PCIe 3.0 x16 (x1 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 1 x USB 10Gbps (Type-A) | 3 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -697,7 +1066,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/others/x870-max-gaming-wifi7/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1LY0M0EAY0",
@@ -713,11 +1082,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x1 mode) | PCIe 3.0 x16 (x1 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 1 x USB 10Gbps (Type-A) | 3 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -727,7 +1111,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-a/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB14Z0M0EAY0",
@@ -741,7 +1125,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1500M0EAY0",
@@ -758,12 +1142,39 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4866",
+     "4666",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 3.0 x16 | PCIe 3.0 x1",
     "m2_slots": [
      "1"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -773,7 +1184,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-r/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-r/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1H60M0EAY0",
@@ -789,12 +1200,39 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4866",
+     "4666",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 3.0 x16 | PCIe 3.0 x1",
     "m2_slots": [
      "1"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -804,7 +1242,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550-plus/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB14U0M0EAY0",
@@ -816,19 +1254,46 @@
    ],
    "specs": {
     "chipset": "B550",
+    "memory_speeds": [
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 3,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 | PCIe 3.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 6,
+    "storage_interface": [
+     "M.2 PCIe",
+     "M.2 SATA",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC887 7.1-Channel High Definition Audio CODEC",
     "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
     "form_factor": "ATX"
    }
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a-wifi-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB19X0M0EAY0",
@@ -844,12 +1309,39 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 | PCIe 3.0 x1",
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A) | 4 x USB 3.2 Gen 1 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -859,7 +1351,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-a/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB14I0M0EAY0",
@@ -876,19 +1368,45 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 | PCIe 3.0 x1",
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC887/897 7.1 Surround Sound High Definition Audio CODEC",
+    "thunderbolt_ports": 0,
     "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
     "form_factor": "Micro-ATX"
    }
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k-argb/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k-argb/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1GC0M0EAY0",
@@ -904,12 +1422,39 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4866",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 | PCIe 3.0 x1",
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 3.2 Gen 1 (5G) (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -919,7 +1464,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1KP0M0EAY0",
@@ -935,13 +1480,36 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
     "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -951,7 +1519,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-k/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-k/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1F60M0EAY0",
@@ -969,12 +1537,40 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 96,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A) | 2 x USB 3.2 Gen 1 (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -984,7 +1580,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-r/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-r/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1H30M0EAY0",
@@ -1000,13 +1596,37 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 96,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1016,7 +1636,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-d4-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1D00M1EAYC",
@@ -1032,12 +1652,40 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1047,7 +1695,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1EL0M1EAY0",
@@ -1063,12 +1711,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1078,7 +1751,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-d4/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-d4/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1CX0M0EAY0",
@@ -1095,12 +1768,40 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1110,7 +1811,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a-wifi-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1NF0M0EAY0",
@@ -1126,11 +1827,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.4",
@@ -1140,7 +1867,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-a/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1EK0M0EAYC",
@@ -1158,11 +1885,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1172,7 +1925,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-k-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b760m-k-d4-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1DS0M1EAY0",
@@ -1188,12 +1941,40 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1203,7 +1984,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b840m-k-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b840m-k-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1PK0M0EAY0",
@@ -1219,11 +2000,27 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 (x4 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek® 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1233,7 +2030,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1L80M0EAY0",
@@ -1249,12 +2046,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x16 (x1 mode)",
     "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 10Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -1264,7 +2075,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850m-k/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b850m-k/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1LV0M0EAY0",
@@ -1280,11 +2091,29 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "9600",
+     "9000",
+     "8200",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1294,7 +2123,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1K50M0EAY0",
@@ -1313,11 +2142,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 5,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 2 x USB 10Gbps (Type-A) | 1 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -1327,7 +2169,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1JY0M0EAY0",
@@ -1346,12 +2188,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -1361,7 +2215,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-a/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-a/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1G20M0EAYC",
@@ -1377,13 +2231,28 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (10G) (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "bios": "128 Mb Flash ROM, UEFI AMI BIOS",
     "form_factor": "Micro-ATX"
@@ -1391,7 +2260,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1A10M0EAY0",
@@ -1407,13 +2276,30 @@
     "memory_slots": 2,
     "memory_type": "DDR4",
     "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "1"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 1 (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1423,7 +2309,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-x670e-pro-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-x670e-pro-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1BL0M0EAY0",
@@ -1439,11 +2325,39 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
-    "ecc_support": false,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "pcie_x16_slots": 2,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x4",
+    "ecc_support": true,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek S1220A 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 4 x USB 3.2 Gen 2 (Type-A + Type-C) | 5 x USB 3.2 Gen 1 (Type-A + Type-C)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.2",
@@ -1453,7 +2367,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-z790-p-wifi-csm/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z790-p-wifi-csm/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1CJ0M1EAY0",
@@ -1469,13 +2383,36 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 4,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 1 x USB 3.2 Gen 2 (Type-A) | 2 x USB 3.2 Gen 1 (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1485,7 +2422,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1I50M0EAY0",
@@ -1502,11 +2439,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 4,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x16 (x1 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1516,7 +2466,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/proart/proart-b850-creator-wifi-neo/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-b850-creator-wifi-neo/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1P60M0EAY0",
@@ -1532,12 +2482,31 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8600",
+     "8400",
+     "8200",
+     "8000",
+     "7000",
+     "5600",
+     "4005"
+    ],
     "pcie_x16_slots": 3,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-C) | 2 x USB 10Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bios": "64MB (512Mb) Flash ROM, UEFI AMI BIOS",
@@ -1546,7 +2515,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IG0M0EAY0",
@@ -1562,11 +2531,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 1 x USB 20Gbps (Type-C) | 7 x USB 10Gbps (Type-A) | 1 x USB 2.0 (Type-A)",
     "ethernet": "LAN 10 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -1576,7 +2560,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB17G0M0EAY0",
@@ -1590,9 +2574,36 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 3.0 x16 | PCIe 3.0 x1",
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC887/897 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "wireless": "No",
     "bluetooth": "No",
     "bios": "128 Mb Flash ROM, UEFI AMI BIOS"
@@ -1600,7 +2611,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-a520m-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB17F0M0EAY0",
@@ -1614,7 +2625,33 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800"
+    ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC887/897 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 1 Gb/s",
     "bluetooth": "Bluetooth 5.0",
     "bios": "128 Mb Flash ROM, UEFI AMI BIOS"
@@ -1622,7 +2659,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550-plus-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550-plus-wifi-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB19U0M0EAY0",
@@ -1636,9 +2673,36 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 3,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 | PCIe 3.0 x16 (x4 mode) | PCIe 3.0 x1",
     "sata_ports": 6,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A + Type-C) | 4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
     "bios": "256 Mb Flash ROM, UEFI AMI BIOS",
@@ -1647,7 +2711,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550m-plus-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b550m-plus-wifi-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB19Y0M0EAY0",
@@ -1662,9 +2726,36 @@
     "memory_slots": 4,
     "memory_type": "DDR4",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 3.0 x16 | PCIe 3.0 x16 (x4 mode) | PCIe 3.0 x1",
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (Type-A + Type-C) | 4 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
     "bios": "256 Mb Flash ROM, UEFI AMI BIOS"
@@ -1672,7 +2763,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-e-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1GT0M0EAY0",
@@ -1688,12 +2779,40 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A + Type-C) | 3 x USB 5Gbps (Type-A) | 3 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -1703,7 +2822,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1BZ0M0EAY0",
@@ -1719,12 +2838,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 3 x USB 3.2 Gen 2 (Type-A + Type-C) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1734,7 +2878,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1BY0M0EAY0",
@@ -1750,12 +2894,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 3 x USB 3.2 Gen 2 (Type-A + Type-C) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1765,7 +2934,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-e-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1LT0M0EAY0",
@@ -1784,12 +2953,27 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x1 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A + Type-C) | 3 x USB 5Gbps (Type-A) | 3 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -1799,7 +2983,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650e-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1M20M0EAY0",
@@ -1815,12 +2999,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 6 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -1830,7 +3028,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1FV0M0EAY0",
@@ -1848,13 +3046,38 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
     "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (10G) (Type-A + Type-C) | 2 x USB 3.2 Gen 1 (5G) (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1864,7 +3087,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-e/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1FU0M0EAY0",
@@ -1880,13 +3103,38 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x1",
     "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 3.2 Gen 2 (10G) (Type-A + Type-C) | 2 x USB 3.2 Gen 1 (5G) (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1896,7 +3144,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1BF0M0EAY0",
@@ -1912,12 +3160,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 2 x USB 3.2 Gen 2 (Type-A) | 1 x USB 3.2 Gen 1 (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1927,7 +3200,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1BG0M0EAY0",
@@ -1943,12 +3216,37 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 2 x USB 3.2 Gen 2 (Type-A) | 1 x USB 3.2 Gen 1 (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -1958,7 +3256,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1ER0M0EAY0",
@@ -1975,13 +3273,36 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 3.0 x16 (x4 mode) | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 1 x USB 3.2 Gen 2 (Type-A) | 3 x USB 3.2 Gen 1 (Type-A) | 1 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -1991,7 +3312,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-btf-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-btf-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1G50M0EAY0",
@@ -2007,13 +3328,35 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6",
     "bluetooth": "Bluetooth 5.2",
@@ -2023,7 +3366,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1HD0M0EAY0",
@@ -2039,12 +3382,39 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x4 | PCIe 3.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -2054,7 +3424,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-wifi-ii/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus-wifi-ii/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1HE0M0EAY0",
@@ -2070,13 +3440,36 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7800",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x4 | PCIe 3.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 1 x USB 10Gbps (Type-A) | 2 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -2086,7 +3479,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b760m-plus/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1ES0M0EAY0",
@@ -2102,13 +3495,36 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
     "ecc_support": false,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 3.2 Gen 2x2 (Type-C) | 2 x USB 3.2 Gen 2 (Type-A) | 3 x USB 3.2 Gen 1 (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -2118,7 +3534,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-btf-wifi-w/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-btf-wifi-w/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1KW0M0EAY0",
@@ -2134,12 +3550,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2149,7 +3579,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-e-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-e-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1L20M0EAY0",
@@ -2165,12 +3595,27 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x1 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB 10Gbps (Type-A + Type-C) | 3 x USB 5Gbps (Type-A) | 3 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -2180,7 +3625,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1J30M0EAY0",
@@ -2196,12 +3641,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2211,7 +3670,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850i-wifi-neo/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850i-wifi-neo/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1PI0M0EAY0",
@@ -2227,11 +3686,29 @@
     "memory_slots": 2,
     "memory_type": "DDR5",
     "memory_max_gb": 128,
+    "memory_speeds": [
+     "9600",
+     "9000",
+     "8200",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 1,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16",
+    "ecc_support": true,
     "m2_slots": [
      "2"
     ],
     "sata_ports": 2,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek® 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 2 x USB 10Gbps (Type-A) | 1 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bios": "32MB (256Mb) Flash ROM, UEFI AMI BIOS",
@@ -2302,12 +3779,11 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b850m-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IX0M0EAY0",
     "90MB1IY0M0EAY0",
-    "90MB1MU0M0EAY0",
     "TUFGAMINGB850MPLUSWIFI",
     "b850m|gaming|plus|tuf#wifi",
     "B850MGAMINGPLUSTUFWIFI"
@@ -2322,12 +3798,27 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 1,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
+    "thunderbolt_ports": 0,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 6E",
     "bluetooth": "Bluetooth 5.3",
@@ -2367,7 +3858,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1JL0M0EAY0",
@@ -2384,12 +3875,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 2 x USB 10Gbps (Type-A) | 3 x USB 5Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2399,7 +3902,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860m-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b860m-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1JV0M0EAY0",
@@ -2417,11 +3920,24 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "8800"
+    ],
     "pcie_x16_slots": 1,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x4",
+    "ecc_support": false,
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 2 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 1 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2431,7 +3947,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IU0M0EAY0",
@@ -2449,11 +3965,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode)",
+    "ecc_support": true,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 2,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "3 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 1 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2463,7 +3994,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870e-plus-wifi7/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x870e-plus-wifi7/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1M70M0EAY0",
@@ -2479,12 +4010,26 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000",
+     "8000",
+     "7000"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 1,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 3.0 x1",
+    "ecc_support": true,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 3 x USB 10Gbps (Type-A) | 4 x USB 5Gbps (Type-A) | 4 x USB 2.0 (Type-A)",
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2494,7 +4039,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-plus-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-plus-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IQ0M0EAY0",
@@ -2511,12 +4056,25 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x4 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 3 x USB 10Gbps (Type-A) | 3 x USB 5Gbps (Type-A)",
+    "thunderbolt_ports": 1,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2526,7 +4084,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1IR0M0EAY0",
@@ -2543,12 +4101,25 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066"
+    ],
     "pcie_x16_slots": 2,
     "pcie_x1_slots": 2,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x4 | PCIe 4.0 x1",
+    "ecc_support": false,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "6 x USB 10Gbps (Type-A)",
+    "thunderbolt_ports": 2,
     "ethernet": "LAN 2.5 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2558,7 +4129,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-trx50-sage-wifi/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-trx50-sage-wifi/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1FZ0M0EAY0",
@@ -2574,10 +4145,19 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "pcie_x16_slots": 5,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16",
     "m2_slots": [
      "3"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 6 x USB 10Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 10 Gb/s",
     "wireless": "Wi-Fi 7",
     "bluetooth": "Bluetooth 5.4",
@@ -2586,7 +4166,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w890-sage/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-w890-sage/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1MW0M0EAY0",
@@ -2602,17 +4182,26 @@
     "memory_slots": 8,
     "memory_type": "DDR5",
     "pcie_x16_slots": 5,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode)",
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "2 x USB4 (40Gbps) (Type-C) | 6 x USB 10Gbps (Type-A) | 2 x USB 2.0 (Type-A)",
     "ethernet": "LAN 10 Gb/s",
     "bios": "512 Mb Flash ROM, UEFI AMI BIOS(text-based)"
    }
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "PROWSWRX90ESAGESE",
@@ -2628,10 +4217,19 @@
     "memory_slots": 8,
     "memory_type": "DDR5",
     "pcie_x16_slots": 7,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16",
     "m2_slots": [
      "4"
     ],
     "sata_ports": 4,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Realtek ALC1220P Surround Sound High Definition Audio CODEC",
+    "usb_ports": "6 x USB 10Gbps (Type-A) | 1 x USB 2.0 (Type-A)",
     "ethernet": "LAN 1 Gb/s",
     "wireless": "No",
     "bluetooth": "No",
@@ -2640,7 +4238,7 @@
   },
   "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-z890-ace-se/techspec/": {
    "url": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-z890-ace-se/techspec/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "motherboard",
    "keys": [
     "90MB1JC0M0EAY0",
@@ -2655,11 +4253,25 @@
     "memory_slots": 4,
     "memory_type": "DDR5",
     "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066"
+    ],
     "pcie_x16_slots": 3,
+    "pcie_x1_slots": 0,
+    "expansion_slots": "PCIe 5.0 x16 | PCIe 4.0 x16 (x4 mode)",
+    "ecc_support": false,
     "m2_slots": [
      "4"
     ],
     "sata_ports": 8,
+    "storage_interface": [
+     "M.2 PCIe",
+     "SATA3"
+    ],
+    "raid_support": true,
+    "audio": "Audio\"Realtek ALC1220P 7.1 Surround Sound High Definition Audio CODEC",
+    "usb_ports": "1 x USB 20Gbps (Type-C) | 6 x USB 10Gbps (Type-A)",
+    "thunderbolt_ports": 1,
     "ethernet": "LAN 10 Gb/s",
     "wireless": "No",
     "bluetooth": "No",

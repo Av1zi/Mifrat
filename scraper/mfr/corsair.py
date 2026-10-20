@@ -14,8 +14,9 @@ from __future__ import annotations
 
 import re
 
-from .common import (base_mpn, front_io_ports, html_rows, mb_form_factor_list, number_range,
-                     spaced_mm, typed)
+from .common import (base_mpn, clean, fan_mounts, front_io_ports, html_rows,
+                     mb_form_factor_list, psu_connector_counts, psu_length,
+                     radiator_sizes, spaced_mm, spec_range, typed)
 
 BRAND = "Corsair"
 BASE_URL = "https://www.corsair.com"
@@ -127,7 +128,7 @@ def _pick(rows: dict[str, str], *labels: str) -> str | None:
 
 
 def _max(raw) -> float | None:
-    span = number_range(raw)
+    span = spec_range(raw)
     return span[1] if span else None
 
 
@@ -163,28 +164,43 @@ def parse(page: str, category: str) -> dict:
             out[field] = value
 
     if category == "case_fan":
-        _fan(rows, put)
+        _fan(rows, put, page)
     elif category in ("aio", "cooler_air", "cooling_other"):
         _cooler(rows, put, category)
     elif category == "psu":
-        _psu(rows, put)
+        _psu(rows, put, page)
     elif category == "case":
         _case(rows, put)
     elif category == "memory":
         _memory(rows, put)
+    # The colour row is sometimes copied from the sibling SKU (the white
+    # 2800X page says "BLACK"); a page whose title names a different colour
+    # keeps no colour.
+    title_colours = {c.replace("grey", "gray") for c in _tokens(_title(page))[1]}
+    colour = str(out.get("color") or "").lower().replace("grey", "gray")
+    if colour and title_colours and not title_colours & set(re.findall(r"[a-z]+", colour)):
+        del out["color"]
     return out
 
 
 def _speed(rows, put, low_field: str, high_field: str) -> None:
     raw = _pick(rows, "fan speed", "speed", "rpm")
-    span = number_range(raw) if raw else None
+    span = spec_range(raw) if raw else None
     if span:
         if span[0] != span[1] and span[0] >= 100:   # "10 - 2100" is the PWM floor, not rpm
             put(low_field, int(span[0]))
         put(high_field, int(span[1]))
 
 
-def _fan(rows, put) -> None:
+def _title(page: str) -> str:
+    match = re.search(r"<title>([^<]*)</title>", page)
+    return clean(match.group(1)) if match else ""
+
+
+_PACK_WORDS = {"single": 1, "dual": 2, "twin": 2, "triple": 3, "quad": 4}
+
+
+def _fan(rows, put, page) -> None:
     put("size_mm", _mm(_pick(rows, "fan size", "fan dimensions")))
     put("airflow_cfm", _max(_pick(rows, "fan airflow", "airflow")))
     put("static_pressure_mmh2o",
@@ -192,8 +208,27 @@ def _fan(rows, put) -> None:
     _speed(rows, put, "rpm_min", "rpm_max")
     put("noise_db", _max(_pick(rows, "noise level", "sound level", "fan noise level")))
     put("pwm", _yes(_pick(rows, "pwm control", "pwm")))
-    # `Package Quantity` counts packages ("1" on a dual-fan kit) and "LED
-    # Color: RGB" does not say addressable, so neither is read.
+    # `Package Quantity` counts packages on some kits ("1" on a dual-fan kit),
+    # so it is read only when it says more than one; the page title's pack
+    # word ("Triple Pack", "Dual Fan Kit") is the fan count itself.
+    # ("Dual Light Loop" is a lighting feature, not a count.)
+    pack = re.search(r"\b(single|dual|twin|triple|quad)\s+(?:fan\s+)?(?:pack|kit|starter|fan\b|expansion)",
+                     _title(page), re.I)
+    if pack:
+        put("quantity", _PACK_WORDS[pack.group(1).lower()])
+    else:
+        count = re.fullmatch(r"\s*([2-9])\s*", _pick(rows, "package quantity") or "")
+        if count:
+            put("quantity", int(count.group(1)))
+    # "LED Color: RGB" does not say addressable, so it is not read.
+
+
+def _color(raw) -> str | None:
+    """'BLACK' / 'OLIVE DRAB' -> 'Black' / 'Olive Drab' (catalog spelling)."""
+    text = clean(raw)
+    if not text or text.upper() in ("NA", "N/A", "NONE"):
+        return None
+    return text.title()
 
 
 def _cooler(rows, put, category) -> None:
@@ -205,16 +240,50 @@ def _cooler(rows, put, category) -> None:
     _speed(rows, put, "fan_rpm_min", "fan_rpm_max")
     put("airflow_cfm", _max(_pick(rows, "fan airflow", "airflow")))
     put("noise_db", _max(_pick(rows, "noise level", "sound level")))
+    put("color", _color(_pick(rows, "color")))
     if category == "cooler_air":
         height = _max(_pick(rows, "product height"))
         if height:
             put("height_mm", int(round(height)))
+    elif category == "aio":
+        # An AIO's product length is its radiator's (397 on a 360 mm
+        # radiator); a figure that is not 1.0-1.25x the size class is some
+        # other dimension and is not read.
+        size = _mm(_pick(rows, "radiator size"))
+        length = _max(_pick(rows, "product length"))
+        if size and length and 1.0 <= length / size <= 1.25:
+            put("radiator_length_mm", int(round(length)))
 
 
 _EFFICIENCY = {"white", "bronze", "silver", "gold", "platinum", "titanium"}
 
 
-def _psu(rows, put) -> None:
+def _cable_table(page: str) -> dict[str, int]:
+    """Connector counts from the 'QTY | Cable | ... | Total connectors' table
+    some PSU pages print (the full cable kit)."""
+    from .common import _RowParser
+
+    parser = _RowParser()
+    parser.feed(page)
+    lines: list[str] = []
+    header = None
+    for cells in parser.rows:
+        if cells and cells[0].strip().upper() == "QTY" and len(cells) >= 4:
+            header = [c.strip().lower() for c in cells]
+            continue
+        if header is None:
+            continue
+        if len(cells) != len(header) or not cells[0].strip().isdigit():
+            if lines:
+                break
+            continue
+        total = cells[3].strip()
+        if total.isdigit():
+            lines.append(f"{total} x {cells[1]}")
+    return psu_connector_counts(lines)
+
+
+def _psu(rows, put, page) -> None:
     watts = _max(_pick(rows, "continuous power w"))
     if watts:
         put("wattage_w", int(watts))
@@ -228,18 +297,18 @@ def _psu(rows, put) -> None:
         put("modular", "semi")
     elif modular in ("no", "non-modular", "none"):
         put("modular", "no")
-    version = _pick(rows, "atx12v version")
-    if version and re.fullmatch(r"\s*[23]\.\d\s*", version):
-        put("atx_version", f"ATX {version.strip()}")
+    version = re.fullmatch(r"\s*v?([23]\.\d{1,2})\s*", _pick(rows, "atx12v version") or "", re.I)
+    if version:
+        put("atx_version", f"ATX {version.group(1)}")
     put("atx4_connectors", _max(_pick(rows, "atx connector")))
     put("sata_connectors", _max(_pick(rows, "sata connector")))
     put("molex4_connectors", _max(_pick(rows, "pata connector")))
     put("type", _pick(rows, "psu form factor"))
     put("fan_size_mm", _mm(_pick(rows, "fan size mm", "fan size")))
-    dims = _pick(rows, "dimensions")
-    match = re.match(r"\s*(\d{2,3})\s*x\s*\d{2,3}\s*x\s*\d{2,3}", dims or "", re.I)
-    if match:
-        put("length_mm", int(match.group(1)))
+    put("length_mm", psu_length(_pick(rows, "dimensions")))
+    for field, count in _cable_table(page).items():
+        if field not in ("atx4_connectors", "sata_connectors", "molex4_connectors"):
+            put(field, count)
 
 
 def _case(rows, put) -> None:
@@ -269,21 +338,37 @@ def _case(rows, put) -> None:
     sizes: set[int] = set()
     for label, value in rows.items():
         if label.startswith("radiator support"):
-            sizes.update(int(n) for n in re.findall(r"(\d{3})\s*mm", value))
+            sizes |= radiator_sizes(value)
+    if not sizes:
+        sizes = radiator_sizes(_pick(rows, "radiator compatibility"))
     if sizes:
         put("radiator_support", {f"{n} mm": 1 for n in sorted(sizes)})
     for label, field in (("fan support - front", "fan_front"), ("fan support - top", "fan_top"),
                          ("fan support - rear", "fan_rear"), ("fan support - side", "fan_side"),
                          ("fan support - bottom", "fan_bottom")):
         value = rows.get(label)
-        if value and not value.strip().lower().startswith(("none", "n/a", "no")):
-            put(field, spaced_mm(value))
+        if value:
+            put(field, fan_mounts(value) or spaced_mm(value))
     slots = re.match(r"\s*(\d{1,2})\b", _pick(rows, "case expansion slots") or "")
     if slots:
         put("expansion_slots", slots.group(1))
     ports = front_io_ports(_pick(rows, "case front io"))
     if ports:
         put("front_usb", ports)
+    # "(x6) 3.5in (x4) 2.5in"; "(x2) 3.5in or (x2) 2.5in" is one shared cage
+    # and is not split.
+    bays = _pick(rows, "case drive bays") or ""
+    if bays and not re.search(r"\bor\b", bays, re.I):
+        for field, size in (("drive_bays_35", "3.5"), ("drive_bays_25", "2.5")):
+            count = re.search(rf"\(x(\d{{1,2}})\)\s*{re.escape(size)}\s*in", bays, re.I)
+            if count:
+                put(field, int(count.group(1)))
+    fans = _pick(rows, "included fans") or ""
+    if re.search(r"\bA-?RGB\b", fans, re.I):
+        put("lighting", "ARGB")
+    elif re.search(r"\bRGB\b", fans, re.I):
+        put("lighting", "RGB")
+    put("color", _color(_pick(rows, "color")))
 
 
 def _memory(rows, put) -> None:
@@ -312,6 +397,10 @@ def _memory(rows, put) -> None:
     kind = (_pick(rows, "memory type") or "").strip().upper()
     if re.fullmatch(r"DDR[345]", kind):
         put("memory_type", kind)
+    lighting = (_pick(rows, "lighting") or "").strip().upper()
+    if lighting in ("RGB", "ARGB"):
+        put("lighting", lighting)
+    put("color", _color(_pick(rows, "memory color")))
     spreader = _pick(rows, "heat spreader")
     if spreader:
         put("heat_spreader", spreader.strip().lower() not in ("none", "no"))

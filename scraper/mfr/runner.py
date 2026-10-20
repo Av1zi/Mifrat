@@ -36,9 +36,9 @@ def _identity_keys(product: dict, brand: str) -> tuple[list[str], str]:
 
 
 def run(brand: str, *, limit: int | None = None, dry_run: bool = False,
-        verbose: bool = True) -> dict:
+        verbose: bool = True, offline: bool = False) -> dict:
     module = importlib.import_module(f"scraper.mfr.{brand}")
-    client = PoliteClient(brand, module.BASE_URL)
+    client = PoliteClient(brand, module.BASE_URL, offline=offline)
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     products = [p for p in catalog["products"]
                 if str((p.get("specs") or {}).get("manufacturer") or "").lower()
@@ -113,6 +113,10 @@ def run(brand: str, *, limit: int | None = None, dry_run: bool = False,
         else:
             items = [(f"#{n}", block.pop("_category", None), block)
                      for n, block in enumerate(blocks)]
+        # This run re-read the page: its entries from an earlier run (the
+        # un-split page, or blocks it no longer has) are replaced, not kept.
+        for stale in [key for key in existing if key.split("#")[0] == url]:
+            del existing[stale]
         for suffix, item_category, specs in items:
             if item_category is None:
                 continue
@@ -130,7 +134,7 @@ def run(brand: str, *, limit: int | None = None, dry_run: bool = False,
                     if key and key not in keys:
                         keys.append(key)
             entry_key = slot["entry"].get("key")
-            if entry_key and not suffix:
+            if entry_key and not suffix and slot["entry"].get("key_is_id", True):
                 # Entry keys are stored in the store's lookup form (upper-case
                 # alphanumeric) so a slug that IS a part number joins exactly.
                 for key in (entry_key, norm_mpn(entry_key)):

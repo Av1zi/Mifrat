@@ -2,11 +2,11 @@
  "brand": "Cooler Master",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-18",
+ "generated": "2026-10-20",
  "entries": {
   "https://www.coolermaster.com/en-global/products/cosmos-c700m-30th-anniversary-edition.html": {
    "url": "https://www.coolermaster.com/en-global/products/cosmos-c700m-30th-anniversary-edition.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCCC700MKHNNS30",
@@ -24,22 +24,36 @@
     ],
     "max_gpu_length_mm": 490,
     "max_cooler_height_mm": 198,
+    "side_panel": "Windowed",
     "expansion_slots": "8",
     "front_usb": [
      "USB Type-C",
      "USB 3.0"
     ],
-    "dimensions_mm": "W=306 H=651 D=650mm"
+    "drive_bays_25": 3,
+    "drive_bays_35": 2,
+    "dimensions_mm": "W=306 H=651 D=650mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/cosmos-c700m.html": {
    "url": "https://www.coolermaster.com/en-global/products/cosmos-c700m.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCCC700MMG5NS00",
-    "700500700500",
-    "MCCC700MMG5NS00MCCC700MWG5NS00",
+    "MCCC700MWG5NS00",
     "cosmosc700m",
     "COSMOSC700M"
    ],
@@ -56,20 +70,35 @@
     ],
     "max_gpu_length_mm": 490,
     "max_cooler_height_mm": 198,
+    "side_panel": "Windowed",
     "expansion_slots": "8",
     "front_usb": [
      "USB Type-C",
      "USB 3.0"
     ],
-    "dimensions_mm": "W=306 H=651 D=650mm"
+    "dimensions_mm": "W=306 H=651 D=650mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "2 x 120 mm, 2 x 140 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/cosmos-c700p.html": {
    "url": "https://www.coolermaster.com/en-global/products/cosmos-c700p.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCCC700PMG5NS00",
+    "884102036392",
+    "4719512063712",
     "cosmosc700p",
     "COSMOSC700P"
    ],
@@ -83,12 +112,25 @@
     "max_cooler_height_mm": 198,
     "expansion_slots": "8",
     "drive_bays_25": 2,
-    "dimensions_mm": "W=306 H=651 D=639mm"
+    "dimensions_mm": "W=306 H=651 D=639mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "2 x 120 mm, 2 x 140 mm",
+    "weight_kg": 22.2
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-301-lite-steel-left-panel.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-301-lite-steel-left-panel.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "E301LKNNNS00",
@@ -104,16 +146,24 @@
     "max_gpu_length_mm": 365,
     "max_cooler_height_mm": 164,
     "expansion_slots": "4",
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "dimensions_mm": "W=204 H=410 D=377mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 34.13
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-301-lite.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-301-lite.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "E301LKGNNS00",
@@ -131,16 +181,24 @@
     "max_gpu_length_mm": 365,
     "max_cooler_height_mm": 164,
     "expansion_slots": "4",
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "dimensions_mm": "W=204 H=410 D=377mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 34.13
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-301-white-lite.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-301-white-lite.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "E301LWGNNS00",
@@ -158,16 +216,24 @@
     "max_gpu_length_mm": 365,
     "max_cooler_height_mm": 164,
     "expansion_slots": "4",
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "dimensions_mm": "W=204 H=410 D=377mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 34.13
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-301-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-301-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "E301WGNNS00",
@@ -185,16 +251,25 @@
     "max_gpu_length_mm": 365,
     "max_cooler_height_mm": 164,
     "expansion_slots": "4",
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "dimensions_mm": "W=204 H=410 D=377mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "3 x 120 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 34.13,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-340.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-340.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "RC340",
@@ -208,16 +283,17 @@
      "Micro ATX"
     ],
     "expansion_slots": "4",
+    "drive_bays_35": 2,
     "dimensions_mm": "W=370 H=385 D=195mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-490.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-490.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "4900049000",
-    "BLACKE490KHNNS00WHITEE490WHNNS00",
+    "E490KHNNS00",
+    "E490WHNNS00",
     "elite490",
     "ELITE490"
    ],
@@ -235,20 +311,26 @@
      "USB 3.0"
     ],
     "drive_bays_25": 1,
+    "drive_bays_35": 1,
     "radiator_support": {
      "120 mm": 1,
      "240 mm": 1,
      "360 mm": 1
-    }
+    },
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "volume_l": 39.16,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-502-lite.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-502-lite.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "50250200",
-    "ELITE502LITEE502LKGNNS00",
+    "E502LKGNNS00",
+    "E502LWGNNS00",
     "elite502lite",
     "ELITE502LITE"
    ],
@@ -261,11 +343,14 @@
      "E-ATX"
     ],
     "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
      "USB Type-C"
     ],
+    "drive_bays_25": 2,
+    "drive_bays_35": 2,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
@@ -273,16 +358,19 @@
      "280 mm": 1,
      "360 mm": 1,
      "420 mm": 1
-    }
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-502.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-502.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "50250200",
-    "ELITE502E502KGNNS00",
+    "E502KGNNS00",
+    "E502WGNNS00",
     "elite502",
     "ELITE502"
    ],
@@ -296,11 +384,14 @@
      "E-ATX"
     ],
     "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
      "USB Type-C"
     ],
+    "drive_bays_25": 2,
+    "drive_bays_35": 2,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
@@ -308,16 +399,20 @@
      "280 mm": 1,
      "360 mm": 1,
      "420 mm": 1
-    }
+    },
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-600-with-argb-fan.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-600-with-argb-fan.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "6000260002",
-    "BLACKE600KGNNS02WHITEE600WGNNS02",
+    "E600KGNNS02",
+    "E600WGNNS02",
     "elite600withargbfan",
     "ELITE600WITHARGBFAN"
    ],
@@ -330,23 +425,36 @@
      "Micro ATX",
      "ATX"
     ],
+    "max_gpu_length_mm": 425,
     "max_cooler_height_mm": 160,
     "expansion_slots": "7",
     "drive_bays_25": 2,
+    "drive_bays_35": 1,
     "radiator_support": {
+     "120 mm": 1,
      "240 mm": 1,
      "280 mm": 1,
      "360 mm": 1
-    }
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "volume_l": 50.73,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-600.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-600.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "60000006000000",
-    "GLOBALBLACKE600KG00S00WHITEE600WG00S00",
+    "E600KG00S00",
+    "E600WG00S00",
+    "E600KGNNS00",
+    "E600WGNNS00",
+    "E600KGNNS02",
+    "E600WGNNS02",
     "elite600",
     "ELITE600"
    ],
@@ -359,23 +467,31 @@
      "Micro ATX",
      "ATX"
     ],
+    "max_gpu_length_mm": 425,
     "max_cooler_height_mm": 160,
     "expansion_slots": "7",
     "drive_bays_25": 2,
+    "drive_bays_35": 1,
     "radiator_support": {
+     "120 mm": 1,
      "240 mm": 1,
      "280 mm": 1,
      "360 mm": 1
-    }
+    },
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "volume_l": 50.73
    }
   },
   "https://www.coolermaster.com/en-global/products/elite-681.html": {
    "url": "https://www.coolermaster.com/en-global/products/elite-681.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "6810068100",
-    "BLACKE681KHNNS00WHITEE681WHNNS00",
+    "E681KHNNS00",
+    "E681WHNNS00",
     "elite681",
     "ELITE681"
    ],
@@ -393,22 +509,28 @@
      "USB Type-C",
      "USB 3.0"
     ],
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
     "radiator_support": {
      "120 mm": 1,
      "240 mm": 1,
-     "280 mm": 1
-    }
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "volume_l": 48.45,
+    "lighting": "ARGB"
    }
   },
-  "https://www.coolermaster.com/en-global/products/elite-liquid-series.html": {
-   "url": "https://www.coolermaster.com/en-global/products/elite-liquid-series.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/elite-liquid-series.html#0": {
+   "url": "https://www.coolermaster.com/en-global/products/elite-liquid-series.html#0",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "360362113603621240242112402421",
-    "360BLACKELWD36MA21DAR1360WHITEELWD36MA21DARW240BLACKELWD24MA21DAR1240WHITEELWD24MA21DARW",
-    "eliteliquidseries",
-    "ELITELIQUIDSERIES"
+    "ELWD24MA21DAR1",
+    "ELWD24MA21DARW"
    ],
    "names": [],
    "specs": {
@@ -423,24 +545,66 @@
      "AM5",
      "AM4"
     ],
+    "fan_count": 2,
     "fan_rpm_min": 600,
     "fan_rpm_max": 2100,
-    "airflow_cfm": 142.8,
+    "airflow_cfm": 84.2,
     "noise_db": 39.5,
-    "radiator_size_mm": 240,
+    "lighting": "ARGB",
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 240
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/elite-liquid-series.html#1": {
+   "url": "https://www.coolermaster.com/en-global/products/elite-liquid-series.html#1",
+   "fetched": "2026-10-20",
+   "category": "aio",
+   "keys": [
+    "ELWD36MA21DAR1",
+    "ELWD36MA21DARW"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 3,
+    "fan_rpm_min": 600,
+    "fan_rpm_max": 2100,
+    "airflow_cfm": 84.2,
+    "noise_db": 39.5,
+    "lighting": "ARGB",
     "radiator_length_mm": 394,
-    "radiator_thickness_mm": 27
+    "radiator_thickness_mm": 27,
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 360
    }
   },
   "https://www.coolermaster.com/en-global/products/haf-500.html": {
    "url": "https://www.coolermaster.com/en-global/products/haf-500.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "H500KGNNS00",
     "H500WGNNS00",
-    "5005000050050000",
-    "HAF500H500KGNNS00HAF500WHITEH500WGNNS00",
     "haf500",
     "HAF500"
    ],
@@ -472,18 +636,22 @@
      "120 mm": 1,
      "140 mm": 1,
      "240 mm": 1,
-     "280 mm": 1
-    }
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 200 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/haf-700-evo.html": {
    "url": "https://www.coolermaster.com/en-global/products/haf-700-evo.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "H700EWGNNS00",
-    "7007000070070000",
-    "HAF700EVOH700EIGNNS00HAF700EVOWHITEH700EWGNNS00",
+    "H700EIGNNS00",
     "haf700evo",
     "HAF700EVO"
    ],
@@ -510,18 +678,26 @@
     "drive_bays_25": 12,
     "dimensions_mm": "W=279 H=540 D=556mm",
     "radiator_support": {
-     "420 mm": 1
-    }
+     "240 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1,
+     "480 mm": 1
+    },
+    "fan_front": "2 x 200 mm, 3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 200 mm, 3 x 140 mm, 6 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_side": "4 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/haf-700.html": {
    "url": "https://www.coolermaster.com/en-global/products/haf-700.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "H700IGNNS00",
-    "7007000070070000",
-    "HAF700H700IGNNS00HAF700WHITEH700WGNNS00",
+    "H700WGNNS00",
     "haf700",
     "HAF700"
    ],
@@ -547,13 +723,22 @@
     ],
     "dimensions_mm": "W=279 H=540 D=556mm",
     "radiator_support": {
-     "420 mm": 1
-    }
+     "240 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1,
+     "480 mm": 1
+    },
+    "fan_front": "2 x 200 mm",
+    "fan_top": "2 x 200 mm, 3 x 140 mm, 6 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_side": "4 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-3dhp-black-argb.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-3dhp-black-argb.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "MAYT2HP217PAR1",
@@ -574,17 +759,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 0,
     "fan_rpm_max": 2050,
-    "airflow_cfm": 107.2,
+    "airflow_cfm": 63.1,
     "noise_db": 22.6,
-    "height_mm": 158
+    "lighting": "ARGB",
+    "height_mm": 158,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-black-edition.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-black-edition.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RR212S20PKR1",
@@ -615,7 +801,7 @@
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-black.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-black.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RR212S20PCR1",
@@ -639,7 +825,6 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
     "airflow_cfm": 70.7,
@@ -650,7 +835,7 @@
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-flow-argb-series.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-flow-argb-series.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "MAXT4PN217PAR1",
@@ -671,12 +856,17 @@
      "AM4"
     ],
     "fan_rpm_min": 650,
-    "fan_rpm_max": 1750
+    "fan_rpm_max": 1750,
+    "airflow_cfm": 75.19,
+    "noise_db": 32.2,
+    "lighting": "ARGB",
+    "height_mm": 154,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-flow-series.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-flow-series.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "MAXT4PN217PKR1",
@@ -698,12 +888,17 @@
      "AM4"
     ],
     "fan_rpm_min": 650,
-    "fan_rpm_max": 1750
+    "fan_rpm_max": 1750,
+    "airflow_cfm": 75.19,
+    "noise_db": 32.2,
+    "lighting": "No",
+    "height_mm": 154,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-halo-black.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-halo-black.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRS4KK20PAR1",
@@ -726,17 +921,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 650,
     "fan_rpm_max": 2050,
     "airflow_cfm": 51.88,
     "noise_db": 27.0,
-    "height_mm": 154
+    "lighting": "ARGB",
+    "height_mm": 154,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-halo-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-halo-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRS4WW20PAR1",
@@ -757,17 +953,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 650,
     "fan_rpm_max": 2050,
     "airflow_cfm": 51.88,
     "noise_db": 27.0,
-    "height_mm": 154
+    "lighting": "ARGB",
+    "height_mm": 154,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-pro.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-pro.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RR212S25PZR1",
@@ -788,18 +985,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
     "airflow_cfm": 70.7,
     "noise_db": 32.8,
+    "lighting": "ARGB",
     "height_mm": 152,
     "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-rgb-black-edition-with-lga1700.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-rgb-black-edition-with-lga1700.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RR212S20PCR2",
@@ -832,7 +1029,7 @@
   },
   "https://www.coolermaster.com/en-global/products/hyper-212-spectrum-v3.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-212-spectrum-v3.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRS4NA17PAR1",
@@ -853,17 +1050,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 650,
     "fan_rpm_max": 1750,
     "airflow_cfm": 71.93,
     "noise_db": 27.2,
-    "height_mm": 152
+    "lighting": "ARGB",
+    "height_mm": 152,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-411-nano-argb.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-411-nano-argb.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRH41025PAR1",
@@ -883,17 +1081,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 650,
     "fan_rpm_max": 2500,
     "airflow_cfm": 43.59,
     "noise_db": 30.0,
-    "height_mm": 136
+    "lighting": "ARGB",
+    "height_mm": 136,
+    "fan_size_mm": 92
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-411-nano.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-411-nano.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRH41025PKR1",
@@ -914,17 +1113,17 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 650,
     "fan_rpm_max": 2500,
     "airflow_cfm": 45.14,
     "noise_db": 30.04,
-    "height_mm": 136
+    "height_mm": 136,
+    "fan_size_mm": 92
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-620s.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-620s.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRD6NA17PAR1",
@@ -945,17 +1144,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 2,
     "fan_rpm_min": 650,
     "fan_rpm_max": 1750,
     "airflow_cfm": 71.93,
     "noise_db": 27.2,
-    "height_mm": 155
+    "lighting": "ARGB",
+    "height_mm": 155,
+    "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/hyper-622-halo-black.html": {
    "url": "https://www.coolermaster.com/en-global/products/hyper-622-halo-black.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "RRD6BB20PAR1",
@@ -976,18 +1176,18 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 2,
     "fan_rpm_min": 650,
     "fan_rpm_max": 2050,
     "airflow_cfm": 51.88,
     "noise_db": 27.0,
+    "lighting": "ARGB",
     "height_mm": 157,
     "fan_size_mm": 120
    }
   },
   "https://www.coolermaster.com/en-global/products/masterair-ma824-stealth.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterair-ma824-stealth.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "MAMD8PN318PKR1",
@@ -1010,16 +1210,17 @@
      "AM5",
      "AM4"
     ],
-    "fan_count": 1,
     "fan_rpm_min": 0,
-    "fan_rpm_max": 1550,
-    "airflow_cfm": 135.0,
-    "height_mm": 166
+    "fan_rpm_max": 1950,
+    "airflow_cfm": 63.6,
+    "lighting": "No",
+    "height_mm": 166,
+    "fan_size_mm": 135
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-500.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-500.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MB500KGNNS00",
@@ -1049,13 +1250,18 @@
      "120 mm": 1,
      "140 mm": 1,
      "240 mm": 1,
-     "280 mm": 1
-    }
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-520-mesh-blackout-edition.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-520-mesh-blackout-edition.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MB520KGNNSNO",
@@ -1071,16 +1277,28 @@
     "side_panel": "Windowed",
     "expansion_slots": "7",
     "drive_bays_25": 3,
-    "dimensions_mm": "W=210 H=498 D=499mm"
+    "drive_bays_35": 2,
+    "dimensions_mm": "W=210 H=498 D=499mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 43.0
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-600-lite.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-600-lite.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "6006000060060000",
-    "MASTERBOX600LITEBLACKMB600LKGNNS00MASTERBOX600LITEWHITEMB600LWGNNS00",
+    "MB600LKGNNS00",
+    "MB600LWGNNS00",
     "masterbox600lite",
     "MASTERBOX600LITE"
    ],
@@ -1096,27 +1314,35 @@
     ],
     "max_gpu_length_mm": 360,
     "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
      "USB Type-C"
     ],
+    "drive_bays_25": 2,
+    "drive_bays_35": 2,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
      "240 mm": 1,
      "280 mm": 1,
-     "360 mm": 1
-    }
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 49.73
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-600.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-600.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "6006000060060000",
-    "MASTERBOX600BLACKMB600KGNNS00MASTERBOX600WHITEMB600WGNNS00",
+    "MB600KGNNS00",
+    "MB600WGNNS00",
     "masterbox600",
     "MASTERBOX600"
    ],
@@ -1132,26 +1358,37 @@
     ],
     "max_gpu_length_mm": 360,
     "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
      "USB Type-C"
     ],
+    "drive_bays_25": 2,
+    "drive_bays_35": 2,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
      "240 mm": 1,
      "280 mm": 1,
-     "360 mm": 1
-    }
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 49.73,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-e500-with-odd.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-e500-with-odd.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBE500KG5NS00",
+    "884102050213",
+    "4719512077726",
     "masterboxe500withodd",
     "MASTERBOXE500WITHODD"
    ],
@@ -1163,15 +1400,28 @@
     "max_gpu_length_mm": 410,
     "max_cooler_height_mm": 165,
     "expansion_slots": "7",
-    "dimensions_mm": "W=218 H=485 D=482mm"
+    "drive_bays_25": 4,
+    "drive_bays_35": 2,
+    "dimensions_mm": "W=218 H=485 D=482mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-lite-3.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-lite-3.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCWL3B2KN5N",
+    "MCWL3S2KN5N",
+    "MCWL3S2KW5N",
     "masterboxlite3",
     "MASTERBOXLITE3"
    ],
@@ -1181,12 +1431,16 @@
      "Micro ATX"
     ],
     "expansion_slots": "4",
-    "drive_bays_25": 1
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
+    "radiator_support": {
+     "240 mm": 1
+    }
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-mb400l-odd-steel.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-mb400l-odd-steel.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBB400LKN5NS00",
@@ -1202,15 +1456,28 @@
     "max_gpu_length_mm": 344,
     "max_cooler_height_mm": 167,
     "expansion_slots": "4",
-    "drive_bays_25": 2
+    "drive_bays_25": 2,
+    "drive_bays_35": 2,
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "1 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "weight_kg": 5.47
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-mb500-tuf-gaming.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-mb500-tuf-gaming.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBB500DKGNNTUF",
+    "884102043598",
+    "4719512071090",
     "masterboxmb500tufgaming",
     "MASTERBOXMB500TUFGAMING"
    ],
@@ -1222,15 +1489,30 @@
     "max_gpu_length_mm": 400,
     "max_cooler_height_mm": 163,
     "expansion_slots": "7",
-    "dimensions_mm": "W=211 H=475 D=494mm"
+    "drive_bays_35": 2,
+    "dimensions_mm": "W=211 H=475 D=494mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "RGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-mb520.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-mb520.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "MCBB520KANNS03BLUE",
+    "MCBB520KANNS03",
+    "MCBB520KANNS02",
+    "MCBB520KANNS01",
+    "MCBB520KANNS00",
     "masterboxmb520",
     "MASTERBOXMB520"
    ],
@@ -1242,16 +1524,29 @@
     "max_gpu_length_mm": 410,
     "max_cooler_height_mm": 165,
     "expansion_slots": "7",
-    "dimensions_mm": "W=217 H=468 D=496mm"
+    "drive_bays_25": 4,
+    "dimensions_mm": "W=217 H=468 D=496mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-mb600l-v2.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-mb600l-v2.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "60020060020060025006002500",
-    "MB600L2KGNNS00WOODDTGMB600L2KNNNS00WOODDSTEELMB600L2KG5NS00WODDTGMB600L2KN5NS00WODDSTEEL",
+    "MB600L2KGNNS00",
+    "MB600L2KNNNS00",
+    "MB600L2KG5NS00",
+    "MB600L2KN5NS00",
     "masterboxmb600lv2",
     "MASTERBOXMB600LV2"
    ],
@@ -1265,12 +1560,23 @@
     "max_cooler_height_mm": 161,
     "expansion_slots": "7",
     "drive_bays_25": 2,
-    "dimensions_mm": "W=204 H=455 D=400mm"
+    "dimensions_mm": "W=204 H=455 D=400mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 37.15
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-nr200.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-nr200.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBNR200KNNNS00",
@@ -1288,16 +1594,31 @@
     ],
     "max_gpu_length_mm": 330,
     "max_cooler_height_mm": 155,
-    "expansion_slots": "3"
+    "expansion_slots": "3",
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
+    "dimensions_mm": "W=185 H=274 D=360mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_top": "2 x 120 mm",
+    "fan_rear": "1 x 92 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "volume_l": 18.25,
+    "weight_kg": 4.8
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-nr200p-v2.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-nr200p-v2.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "20022002002002200200",
-    "MASTERBOXNR200PV2NR200PV2KCNNS00MASTERBOXNR200PV2WHITENR200PV2WCNNS00",
+    "NR200PV2KCNNS00",
+    "NR200PV2WCNNS00",
     "masterboxnr200pv2",
     "MASTERBOXNR200PV2"
    ],
@@ -1317,23 +1638,29 @@
      "USB 3.0",
      "USB Type-C"
     ],
+    "drive_bays_25": 1,
+    "drive_bays_35": 1,
     "dimensions_mm": "W=185 H=274 D=360mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "No",
+    "fan_side": "No",
+    "fan_bottom": "2 x 120 mm",
+    "volume_l": 18.25
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-nr200p.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-nr200p.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBNR200PKGNNS00",
     "MCBNR200PWGNNS00",
-    "2002000020020000",
-    "MASTERBOXNR200PMCBNR200PKGNNS00MASTERBOXNR200PWHITEMCBNR200PWGNNS00",
     "masterboxnr200p",
     "MASTERBOXNR200P"
    ],
@@ -1355,17 +1682,25 @@
      "USB 3.2",
      "USB 3.0"
     ],
+    "drive_bays_25": 2,
+    "drive_bays_35": 1,
     "dimensions_mm": "W=185 H=274 D=360mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_top": "2 x 120 mm",
+    "fan_rear": "1 x 92 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "volume_l": 18.25
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-nr400-with-odd.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-nr400-with-odd.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBNR400KG5NS00",
@@ -1382,21 +1717,27 @@
     ],
     "max_gpu_length_mm": 346,
     "max_cooler_height_mm": 166,
+    "side_panel": "Windowed",
     "expansion_slots": "4",
     "front_usb": [
      "USB 3.0"
     ],
     "drive_bays_25": 4,
+    "drive_bays_35": 4,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "1 x 120 mm, 1 x 140 mm",
+    "fan_rear": "1 x 120 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-pro-5-argb.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-pro-5-argb.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCYB5P2KWGN03",
@@ -1411,15 +1752,27 @@
     "max_cooler_height_mm": 167,
     "expansion_slots": "7",
     "drive_bays_25": 2,
-    "dimensions_mm": "W=223 H=475 D=500mm"
+    "dimensions_mm": "W=223 H=475 D=500mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "weight_kg": 8.7,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-pro-5.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-pro-5.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCYB5P2KWGN00",
+    "884102036194",
+    "4719512063514",
     "masterboxpro5",
     "MASTERBOXPRO5"
    ],
@@ -1432,12 +1785,16 @@
     "max_gpu_length_mm": 410,
     "max_cooler_height_mm": 167,
     "expansion_slots": "7",
-    "dimensions_mm": "W=223 H=475 D=500mm"
+    "drive_bays_25": 2,
+    "dimensions_mm": "W=223 H=475 D=500mm",
+    "fan_front": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "weight_kg": 8.3
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-q300l-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-q300l-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBQ300LWANNS00",
@@ -1458,15 +1815,21 @@
      "USB 3.0"
     ],
     "drive_bays_25": 2,
+    "drive_bays_35": 1,
     "dimensions_mm": "W=230 H=381 D=387mm",
     "radiator_support": {
-     "120 mm": 1
-    }
+     "120 mm": 1,
+     "240 mm": 1
+    },
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "1 x 120 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-q300l.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-q300l.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBQ300LKANNS00",
@@ -1487,15 +1850,21 @@
      "USB 3.0"
     ],
     "drive_bays_25": 2,
+    "drive_bays_35": 1,
     "dimensions_mm": "W=230 H=381 D=387mm",
     "radiator_support": {
-     "120 mm": 1
-    }
+     "120 mm": 1,
+     "240 mm": 1
+    },
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "1 x 120 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-td500-argb.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-td500-argb.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBD500DWGNNS01",
@@ -1515,16 +1884,28 @@
     "max_cooler_height_mm": 165,
     "side_panel": "Windowed",
     "expansion_slots": "7",
-    "dimensions_mm": "W=205 H=447 D=430mm"
+    "drive_bays_25": 4,
+    "dimensions_mm": "W=205 H=447 D=430mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-td500-mesh-v2.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-td500-mesh-v2.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "50025002005002500200",
-    "TD500MESHV2TD500V2KGNNS00TD500MESHV2WHITETD500V2WGNNS00",
+    "TD500V2KGNNS00",
+    "TD500V2WGNNS00",
     "masterboxtd500meshv2",
     "MASTERBOXTD500MESHV2"
    ],
@@ -1547,22 +1928,30 @@
      "USB Type-C"
     ],
     "drive_bays_25": 3,
+    "drive_bays_35": 2,
     "dimensions_mm": "W=210 H=477 D=430mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
      "240 mm": 1,
-     "280 mm": 1
-    }
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-td500-mesh.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-td500-mesh.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBD500DKGNNS01",
-    "MCBD500DKGNNS01MESHWHUB",
+    "MCBD500DKGNNS00",
+    "MCBD500DWGNNS01",
+    "MCBD500DWGNNS00",
     "masterboxtd500mesh",
     "MASTERBOXTD500MESH"
    ],
@@ -1575,16 +1964,31 @@
     "max_cooler_height_mm": 165,
     "side_panel": "Windowed",
     "expansion_slots": "7",
-    "dimensions_mm": "W=205 H=447 D=430mm"
+    "drive_bays_25": 4,
+    "dimensions_mm": "W=205 H=447 D=430mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 40.14,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterbox-td500.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterbox-td500.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCBD500DKGNNSAU",
     "MCBD500DKANNS00",
+    "884102043604",
+    "4719512071106",
     "masterboxtd500",
     "MASTERBOXTD500"
    ],
@@ -1598,15 +2002,30 @@
     "max_gpu_length_mm": 410,
     "max_cooler_height_mm": 165,
     "expansion_slots": "7",
-    "dimensions_mm": "W=217 H=468 D=493mm"
+    "drive_bays_25": 4,
+    "drive_bays_35": 2,
+    "dimensions_mm": "W=217 H=468 D=493mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "RGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/mastercase-mc500p.html": {
    "url": "https://www.coolermaster.com/en-global/products/mastercase-mc500p.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCMM500PKG5NS00",
+    "884102038068",
+    "4719512065549",
     "mastercasemc500p",
     "MASTERCASEMC500P"
    ],
@@ -1623,15 +2042,28 @@
      "USB 2.0",
      "USB 3.0"
     ],
-    "dimensions_mm": "W=235 H=548 D=512mm"
+    "drive_bays_25": 2,
+    "dimensions_mm": "W=235 H=548 D=512mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/mastercase-pro-3.html": {
    "url": "https://www.coolermaster.com/en-global/products/mastercase-pro-3.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "MCYC3P1KWNN",
+    "884102029417",
+    "4719512053300",
     "mastercasepro3",
     "MASTERCASEPRO3"
    ],
@@ -1644,12 +2076,22 @@
     "max_gpu_length_mm": 258,
     "max_cooler_height_mm": 190,
     "expansion_slots": "5",
-    "dimensions_mm": "W=235 H=505 D=467mm"
+    "drive_bays_35": 2,
+    "dimensions_mm": "W=235 H=505 D=467mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-240-atmos-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-240-atmos-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLXD24MA25PZRW",
@@ -1675,15 +2117,19 @@
     "fan_rpm_max": 2500,
     "airflow_cfm": 70.7,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 240,
     "radiator_length_mm": 277,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-240-atmos.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-240-atmos.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLXD24MA25PZR1",
@@ -1709,15 +2155,19 @@
     "fan_rpm_max": 2500,
     "airflow_cfm": 70.7,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 240,
     "radiator_length_mm": 277,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-240l-core-argb-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-240l-core-argb-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLWD24MA18PZRW",
@@ -1745,15 +2195,20 @@
     "fan_rpm_max": 1750,
     "airflow_cfm": 71.93,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 240,
     "radiator_length_mm": 277,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin",
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-240l-core-argb.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-240l-core-argb.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLWD24MA18PZR1",
@@ -1781,15 +2236,20 @@
     "fan_rpm_max": 1750,
     "airflow_cfm": 71.93,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 240,
     "radiator_length_mm": 277,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin",
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-240l-core.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-240l-core.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLWD24MA17PKR1",
@@ -1819,12 +2279,16 @@
     "radiator_size_mm": 240,
     "radiator_length_mm": 277,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin",
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-360-atmos-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-360-atmos-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLXD36MA25PZRW",
@@ -1850,15 +2314,19 @@
     "fan_rpm_max": 2500,
     "airflow_cfm": 70.7,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 360,
     "radiator_length_mm": 394,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-360l-core-argb-white.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-360l-core-argb-white.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLWD36MA18PZRW",
@@ -1886,15 +2354,20 @@
     "fan_rpm_max": 1750,
     "airflow_cfm": 71.93,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 360,
     "radiator_length_mm": 394,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin",
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-360l-core-argb.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-360l-core-argb.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLWD36MA18PZR1",
@@ -1922,21 +2395,24 @@
     "fan_rpm_max": 1750,
     "airflow_cfm": 71.93,
     "noise_db": 27.2,
+    "lighting": "ARGB",
     "radiator_size_mm": 360,
     "radiator_length_mm": 394,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin",
+     "4-pin PWM"
+    ]
    }
   },
-  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-lcd.html": {
-   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-lcd.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-lcd.html#0": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-lcd.html#0",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "240242512402425360362513603625",
-    "240LCDBLACKMLXD24MA25SZL1240LCDWHITEMLXD24MA25SZLW360LCDBLACKMLXD36MA25SZL1360LCDWHITEMLXD36MA25SZLWSKUMAYVARYBYREGION",
-    "masterliquidatmosiilcd",
-    "MASTERLIQUIDATMOSIILCD"
+    "MLXD24MA25SZL1",
+    "MLXD24MA25SZLW"
    ],
    "names": [],
    "specs": {
@@ -1954,21 +2430,25 @@
     "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
-    "airflow_cfm": 240.35,
-    "radiator_size_mm": 240,
+    "airflow_cfm": 141.4,
+    "noise_db": 36.0,
+    "lighting": "ARGB",
     "radiator_length_mm": 277,
-    "radiator_thickness_mm": 27
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 240
    }
   },
-  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-pixel-led.html": {
-   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-pixel-led.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-lcd.html#1": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-lcd.html#1",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "240242512402425360362513603625",
-    "240PIXELLEDBLACKMLXD24MA25SZP1240PIXELLEDWHITEMLXD24MA25SZPW360PIXELLEDBLACKMLXD36MA25SZP1360PIXELLEDWHITEMLXD36MA25SZPWSKUMAYVARYBYREGION",
-    "masterliquidatmosiipixelled",
-    "MASTERLIQUIDATMOSIIPIXELLED"
+    "MLXD36MA25SZL1",
+    "MLXD36MA25SZLW"
    ],
    "names": [],
    "specs": {
@@ -1986,21 +2466,25 @@
     "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
-    "airflow_cfm": 240.35,
-    "radiator_size_mm": 240,
-    "radiator_length_mm": 277,
-    "radiator_thickness_mm": 27
+    "airflow_cfm": 190.0,
+    "noise_db": 38.5,
+    "lighting": "ARGB",
+    "radiator_length_mm": 394,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 360
    }
   },
-  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-series.html": {
-   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-series.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-pixel-led.html#0": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-pixel-led.html#0",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "24024251",
-    "240BLACKMLXD24MA25SZR1",
-    "masterliquidatmosiiseries",
-    "MASTERLIQUIDATMOSIISERIES"
+    "MLXD24MA25SZP1",
+    "MLXD24MA25SZPW"
    ],
    "names": [],
    "specs": {
@@ -2018,19 +2502,25 @@
     "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
-    "airflow_cfm": 240.35,
-    "radiator_size_mm": 240,
+    "airflow_cfm": 141.4,
+    "noise_db": 36.0,
+    "lighting": "ARGB",
     "radiator_length_mm": 277,
-    "radiator_thickness_mm": 27
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 240
    }
   },
-  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-stealth-series.html": {
-   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-stealth-series.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-pixel-led.html#1": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-pixel-led.html#1",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "MASTERLIQUIDATMOSIISTEALTHSERIES",
-    "masterliquidatmosiistealthseries"
+    "MLXD36MA25SZP1",
+    "MLXD36MA25SZPW"
    ],
    "names": [],
    "specs": {
@@ -2048,20 +2538,25 @@
     "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
-    "radiator_size_mm": 240,
-    "radiator_length_mm": 277,
-    "radiator_thickness_mm": 29
+    "airflow_cfm": 190.0,
+    "noise_db": 38.5,
+    "lighting": "ARGB",
+    "radiator_length_mm": 394,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 360
    }
   },
-  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-vrm-fan.html": {
-   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-vrm-fan.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-series.html#0": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-series.html#0",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "240242512402425360362513603625",
-    "240BLACKMLXD24MA25SZV1240WHITEMLXD24MA25SZVW360BLACKMLXD36MA25SZV1360WHITEMLXD36MA25SZVWSKUMAYVARYBYREGION",
-    "masterliquidatmosiivrmfan",
-    "MASTERLIQUIDATMOSIIVRMFAN"
+    "MLXD24MA25SZR1",
+    "MLXD24MA25SZRW"
    ],
    "names": [],
    "specs": {
@@ -2079,20 +2574,133 @@
     "fan_count": 1,
     "fan_rpm_min": 690,
     "fan_rpm_max": 2500,
-    "airflow_cfm": 240.35,
-    "radiator_size_mm": 240,
+    "airflow_cfm": 141.4,
+    "noise_db": 36.0,
+    "lighting": "ARGB",
     "radiator_length_mm": 277,
-    "radiator_thickness_mm": 27
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 240
    }
   },
-  "https://www.coolermaster.com/en-global/products/masterliquid-core-nex-digital-series.html": {
-   "url": "https://www.coolermaster.com/en-global/products/masterliquid-core-nex-digital-series.html",
-   "fetched": "2026-10-18",
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-series.html#1": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-series.html#1",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
-    "240BLACKMLXD24MA18PARD",
-    "masterliquidcorenexdigitalseries",
-    "MASTERLIQUIDCORENEXDIGITALSERIES"
+    "MLXD36MA25SZR1",
+    "MLXD36MA25SZRW"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 1,
+    "fan_rpm_min": 690,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 190.0,
+    "noise_db": 38.5,
+    "lighting": "ARGB",
+    "radiator_length_mm": 394,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 360
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-vrm-fan.html#0": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-vrm-fan.html#0",
+   "fetched": "2026-10-20",
+   "category": "aio",
+   "keys": [
+    "MLXD24MA25SZV1",
+    "MLXD24MA25SZVW"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 1,
+    "fan_rpm_min": 690,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 141.4,
+    "noise_db": 36.0,
+    "lighting": "ARGB",
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 240
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-vrm-fan.html#1": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-atmos-ii-vrm-fan.html#1",
+   "fetched": "2026-10-20",
+   "category": "aio",
+   "keys": [
+    "MLXD36MA25SZV1",
+    "MLXD36MA25SZVW"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 1,
+    "fan_rpm_min": 690,
+    "fan_rpm_max": 2500,
+    "airflow_cfm": 190.0,
+    "noise_db": 38.5,
+    "lighting": "ARGB",
+    "radiator_length_mm": 394,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 360
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterliquid-core-nex-digital-series.html#0": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-core-nex-digital-series.html#0",
+   "fetched": "2026-10-20",
+   "category": "aio",
+   "keys": [
+    "MLXD24MA18PARD",
+    "MLXD24MA18PWRD"
    ],
    "names": [],
    "specs": {
@@ -2107,18 +2715,60 @@
      "AM5",
      "AM4"
     ],
+    "fan_count": 2,
     "fan_rpm_min": 650,
     "fan_rpm_max": 1750,
-    "airflow_cfm": 122.4,
+    "airflow_cfm": 71.9,
     "noise_db": 27.2,
-    "radiator_size_mm": 240,
     "radiator_length_mm": 277,
-    "radiator_thickness_mm": 27
+    "radiator_thickness_mm": 27,
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 240
+   }
+  },
+  "https://www.coolermaster.com/en-global/products/masterliquid-core-nex-digital-series.html#1": {
+   "url": "https://www.coolermaster.com/en-global/products/masterliquid-core-nex-digital-series.html#1",
+   "fetched": "2026-10-20",
+   "category": "aio",
+   "keys": [
+    "MLXD36MA18PARD",
+    "MLXD36MA18PWRD"
+   ],
+   "names": [],
+   "specs": {
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "LGA1200",
+     "LGA1156",
+     "LGA1155",
+     "LGA1151",
+     "LGA1150",
+     "AM5",
+     "AM4"
+    ],
+    "fan_count": 3,
+    "fan_rpm_min": 650,
+    "fan_rpm_max": 1750,
+    "airflow_cfm": 71.9,
+    "noise_db": 27.2,
+    "radiator_length_mm": 394,
+    "radiator_thickness_mm": 27,
+    "fan_size_mm": 120,
+    "connectors": [
+     "3-pin ARGB",
+     "4-pin PWM"
+    ],
+    "radiator_size_mm": 360
    }
   },
   "https://www.coolermaster.com/en-global/products/masterliquid-pl360-tr5-sp6.html": {
    "url": "https://www.coolermaster.com/en-global/products/masterliquid-pl360-tr5-sp6.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLOR36MA24PKRA",
@@ -2131,16 +2781,21 @@
     "fan_count": 3,
     "fan_rpm_min": 0,
     "fan_rpm_max": 2400,
-    "airflow_cfm": 127.6,
+    "airflow_cfm": 75.2,
     "noise_db": 30.0,
+    "lighting": "No",
     "radiator_size_mm": 360,
     "radiator_length_mm": 394,
-    "radiator_thickness_mm": 27
+    "radiator_thickness_mm": 27,
+    "fan_size_mm": 120,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/mobius-120.html": {
    "url": "https://www.coolermaster.com/en-global/products/mobius-120.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "MFZM2DN24NP2R1",
@@ -2157,16 +2812,19 @@
     "fan_rpm_max": 2050,
     "airflow_cfm": 63.1,
     "noise_db": 22.6,
+    "lighting": "No",
     "height_mm": 25
    }
   },
   "https://www.coolermaster.com/en-global/products/n400.html": {
    "url": "https://www.coolermaster.com/en-global/products/n400.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "4001400140024002",
-    "NSE400KKN1NSE400KWN1NSE400KKN2NSE400KWN2",
+    "NSE400KKN1",
+    "NSE400KWN1",
+    "NSE400KKN2",
+    "NSE400KWN2",
     "n400",
     "N400"
    ],
@@ -2182,16 +2840,21 @@
      "USB 3.0",
      "USB 2.0"
     ],
-    "dimensions_mm": "W=190 H=426 D=501mm"
+    "drive_bays_25": 3,
+    "drive_bays_35": 1,
+    "dimensions_mm": "W=190 H=426 D=501mm",
+    "weight_kg": 5.6
    }
   },
   "https://www.coolermaster.com/en-global/products/n600.html": {
    "url": "https://www.coolermaster.com/en-global/products/n600.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "6001600160026002",
-    "NSE600KKN1NSE600KWN1NSE600KKN2NSE600KWN2",
+    "NSE600KKN1",
+    "NSE600KWN1",
+    "NSE600KKN2",
+    "NSE600KWN2",
     "n600",
     "N600"
    ],
@@ -2202,16 +2865,19 @@
      "ATX"
     ],
     "expansion_slots": "7",
-    "dimensions_mm": "W=455 H=520 D=207mm"
+    "drive_bays_25": 5,
+    "drive_bays_35": 7,
+    "dimensions_mm": "W=455 H=520 D=207mm",
+    "weight_kg": 8.1
    }
   },
   "https://www.coolermaster.com/en-global/products/ncore-100-air.html": {
    "url": "https://www.coolermaster.com/en-global/products/ncore-100-air.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "1000010000",
-    "BLACKNR100KNNNS00WHITENR100WNNNS00",
+    "NR100KNNNS00",
+    "NR100WNNNS00",
     "ncore100air",
     "NCORE100AIR"
    ],
@@ -2222,19 +2888,24 @@
     "mb_form_factors": [
      "Mini ITX"
     ],
+    "max_cooler_height_mm": 70,
     "front_usb": [
      "USB 3.2",
      "USB Type-C"
-    ]
+    ],
+    "drive_bays_25": 1,
+    "volume_l": 14.7
    }
   },
   "https://www.coolermaster.com/en-global/products/ncore-100-max.html": {
    "url": "https://www.coolermaster.com/en-global/products/ncore-100-max.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "100100850100851",
-    "NCORE100MAXNR100MNNN85SL0NR100MNNN85SL1",
+    "NR100MNNN85SL0",
+    "NR100MNNN85SL1",
+    "NR100ZNNN85SL0",
+    "NR100ZNNN85SL1",
     "ncore100max",
     "NCORE100MAX"
    ],
@@ -2244,16 +2915,19 @@
     "type": "Mini ITX",
     "mb_form_factors": [
      "Mini ITX"
-    ]
+    ],
+    "max_cooler_height_mm": 48,
+    "drive_bays_25": 1,
+    "volume_l": 15.8
    }
   },
   "https://www.coolermaster.com/en-global/products/nr200p-max-v2.html": {
    "url": "https://www.coolermaster.com/en-global/products/nr200p-max-v2.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "20028502002851",
-    "NR200PV2MCNN85SL0NR200PV2MCNN85SL1",
+    "NR200PV2MCNN85SL0",
+    "NR200PV2MCNN85SL1",
     "nr200pmaxv2",
     "NR200PMAXV2"
    ],
@@ -2264,6 +2938,7 @@
     "mb_form_factors": [
      "Mini ITX"
     ],
+    "max_cooler_height_mm": 67,
     "side_panel": "Windowed",
     "expansion_slots": "3",
     "front_usb": [
@@ -2271,17 +2946,22 @@
      "USB 3.0",
      "USB Type-C"
     ],
+    "drive_bays_25": 1,
     "dimensions_mm": "W=185 H=274 D=360mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "volume_l": 18.25
    }
   },
   "https://www.coolermaster.com/en-global/products/nr200p-max.html": {
    "url": "https://www.coolermaster.com/en-global/products/nr200p-max.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "NR200PMCNN85SL0",
@@ -2295,14 +2975,24 @@
     "mb_form_factors": [
      "Mini ITX"
     ],
+    "max_gpu_length_mm": 336,
+    "max_cooler_height_mm": 67,
     "side_panel": "Windowed",
     "expansion_slots": "3",
-    "dimensions_mm": "W=185 H=274 D=361mm"
+    "drive_bays_25": 2,
+    "dimensions_mm": "W=185 H=274 D=361mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "1 x 120 mm",
+    "volume_l": 18.3
    }
   },
   "https://www.coolermaster.com/en-global/products/pl240-spr-edition.html": {
    "url": "https://www.coolermaster.com/en-global/products/pl240-spr-edition.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "MLOD24MA24PKR1",
@@ -2320,15 +3010,19 @@
     "fan_rpm_max": 2050,
     "airflow_cfm": 63.1,
     "noise_db": 22.6,
+    "lighting": "No",
     "radiator_size_mm": 240,
     "radiator_length_mm": 277,
     "radiator_thickness_mm": 27,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.coolermaster.com/en-global/products/qube-340-q300l-v3.html": {
    "url": "https://www.coolermaster.com/en-global/products/qube-340-q300l-v3.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "qube340q300lv3",
@@ -2340,6 +3034,7 @@
      "Mini ITX",
      "Micro ATX"
     ],
+    "max_cooler_height_mm": 178,
     "expansion_slots": "4",
     "front_usb": [
      "USB 3.2",
@@ -2348,12 +3043,13 @@
     "radiator_support": {
      "120 mm": 1,
      "240 mm": 1
-    }
+    },
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/qube-500-flatpack-macaron-edition.html": {
    "url": "https://www.coolermaster.com/en-global/products/qube-500-flatpack-macaron-edition.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "Q500DGNNS00",
@@ -2372,6 +3068,7 @@
     ],
     "max_gpu_length_mm": 365,
     "max_cooler_height_mm": 164,
+    "side_panel": "Windowed",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
@@ -2381,16 +3078,24 @@
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "1 x 120 mm, 1 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm, 2 x 140 mm",
+    "volume_l": 33.44,
+    "lighting": "ARGB"
    }
   },
   "https://www.coolermaster.com/en-global/products/qube-540.html": {
    "url": "https://www.coolermaster.com/en-global/products/qube-540.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "STARDUSTIRONQ540MGNNS00",
+    "Q540MGNNS00",
+    "Q540LGNNS00",
     "qube540",
     "QUBE540"
    ],
@@ -2402,26 +3107,32 @@
      "Micro ATX",
      "ATX"
     ],
+    "max_cooler_height_mm": 172,
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
      "USB Type-C"
     ],
+    "drive_bays_25": 2,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
      "280 mm": 1,
      "360 mm": 1
-    }
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 2 x 140 mm"
    }
   },
   "https://www.coolermaster.com/en-global/products/silencio-s400.html": {
    "url": "https://www.coolermaster.com/en-global/products/silencio-s400.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "400500400500",
-    "MCSS400KN5NS00STEELMCSS400KG5NS00TG",
+    "MCSS400KN5NS00",
+    "MCSS400KG5NS00",
     "silencios400",
     "SILENCIOS400"
    ],
@@ -2440,20 +3151,26 @@
      "USB 3.0"
     ],
     "drive_bays_25": 4,
+    "drive_bays_35": 4,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "1 x 120 mm, 1 x 140 mm, 2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 33.9
    }
   },
   "https://www.coolermaster.com/en-global/products/silencio-s600.html": {
    "url": "https://www.coolermaster.com/en-global/products/silencio-s600.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "600500600500",
-    "MCSS600KN5NS00STEELMCSS600KG5NS00TG",
+    "MCSS600KN5NS00",
+    "MCSS600KG5NS00",
     "silencios600",
     "SILENCIOS600"
    ],
@@ -2467,26 +3184,33 @@
     ],
     "max_gpu_length_mm": 398,
     "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.2",
      "USB 3.0"
     ],
     "drive_bays_25": 5,
+    "drive_bays_35": 4,
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 44.8
    }
   },
   "https://www.coolermaster.com/en-global/products/td300-mesh.html": {
    "url": "https://www.coolermaster.com/en-global/products/td300-mesh.html",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
-    "3003000030030000",
-    "TD300MESHTD300KGNNS00TD300MESHWHITETD300WGNNS00",
+    "TD300KGNNS00",
+    "TD300WGNNS00",
     "td300mesh",
     "TD300MESH"
    ],
@@ -2500,14 +3224,21 @@
     ],
     "max_gpu_length_mm": 344,
     "max_cooler_height_mm": 166,
+    "side_panel": "Windowed",
     "expansion_slots": "4",
     "drive_bays_25": 2,
     "dimensions_mm": "W=210 H=410 D=366mm",
     "radiator_support": {
      "120 mm": 1,
      "140 mm": 1,
-     "240 mm": 1
-    }
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 38.24,
+    "lighting": "ARGB"
    }
   }
  }

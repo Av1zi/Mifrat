@@ -84,7 +84,7 @@ def parse(page: str, category: str) -> dict:
                 heatsink = dims
     fan_rows = dict(rows[fan:fan + 9]) if fan is not None else {}
     fan_dims = _dims(fan_rows.get("dimension"))
-    if category == "cooler_air":
+    if category in ("cooler_air", "cooling_other"):
         if heatsink:
             put("height_mm", heatsink[2])
         if fan_dims:
@@ -92,7 +92,7 @@ def parse(page: str, category: str) -> dict:
     elif category == "aio":
         if fan_dims:
             put("fan_size_mm", min(fan_dims[0], fan_dims[1]))
-    if category in ("case_fan", "cooler_air", "aio"):
+    if category in ("case_fan", "cooler_air", "aio", "cooling_other"):
         speed = number_range(re.sub(r"[±].*", "", fan_rows.get("rated speed", "")))
         if speed:
             put("rpm_max" if category == "case_fan" else "fan_rpm_max", int(speed[1]))
@@ -102,6 +102,15 @@ def parse(page: str, category: str) -> dict:
         noise = number_range(fan_rows.get("noise level"))
         if noise:
             put("noise_db", noise[1])
+    if category == "aio":
+        connectors = []
+        first = dict(rows)
+        if re.search(r"4\s*-?\s*pin\s*PWM", fan_rows.get("connector") or first.get("connector", ""), re.I):
+            connectors.append("4-pin PWM")
+        if re.search(r"3\s*-?\s*pin\s*5\s*V", first.get("argb connector", ""), re.I):
+            connectors.append("3-pin ARGB")
+        if connectors:
+            put("connectors", connectors)
     if category == "case_fan":
         if fan_dims:
             put("size_mm", min(fan_dims[0], fan_dims[1]))

@@ -10,7 +10,8 @@ Rules (AGENTS.md scraping politeness, binding for every brand):
   that blocks is dropped from the supported list (see mfr/README.md).
 - Raw pages are cached on disk (data/mfr/.cache, gitignored) for `max_age_days`
   so re-running the parser never re-hits the site; only the extracted JSON
-  (data/mfr/<brand>.json) is committed.
+  (data/mfr/<brand>.json) is committed. `offline=True` reads the cache at any
+  age and never touches the network (a page that is not cached is None).
 """
 
 from __future__ import annotations
@@ -41,12 +42,14 @@ class Blocked(RuntimeError):
 
 class PoliteClient:
     def __init__(self, brand: str, base_url: str, *, delay: float = 1.0,
-                 max_age_days: float = 7.0, timeout: float = 25.0) -> None:
+                 max_age_days: float = 7.0, timeout: float = 25.0,
+                 offline: bool = False) -> None:
         self.brand = brand
         self.base_url = base_url.rstrip("/")
         self.delay = max(delay, 1.0)
         self.max_age = max_age_days * 86400
         self.timeout = timeout
+        self.offline = offline
         self.cache_dir = CACHE_ROOT / brand
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self._last = 0.0
@@ -80,8 +83,11 @@ class PoliteClient:
             self.skipped_robots += 1
             return None
         path = self._cache_path(url)
-        if cache and path.exists() and time.time() - path.stat().st_mtime < self.max_age:
+        if cache and path.exists() and (
+                self.offline or time.time() - path.stat().st_mtime < self.max_age):
             return path.read_text(encoding="utf-8", errors="replace")
+        if self.offline:
+            return None
         wait = self.delay - (time.monotonic() - self._last)
         if wait > 0:
             time.sleep(wait)

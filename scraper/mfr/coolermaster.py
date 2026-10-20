@@ -16,7 +16,8 @@ from __future__ import annotations
 import html as html_lib
 import re
 
-from .common import front_io_ports, mb_form_factor_list, norm_name, number_range, typed
+from .common import (fan_mounts, front_io_ports, mb_form_factor_list, norm_name, number_range,
+                     radiator_sizes, spec_range, typed)
 
 BRAND = "Cooler Master"
 BASE_URL = "https://www.coolermaster.com"
@@ -113,6 +114,41 @@ def _sockets(values: list[str]) -> list[str]:
     return out
 
 
+_CODE_RE = re.compile(r"\b[A-Z0-9]{2,}(?:-[A-Z0-9]{2,}){2,}\b")
+_SIZE_PREFIX = re.compile(r"^\s*(?:\((\d{3})\)|(\d{3})\s*:)\s*(.*)$", re.S)
+
+
+def _codes(text) -> list[str]:
+    """'Black: NR100-KNNN-S00, White: NR100-WNNN-S00' -> both part numbers."""
+    return _CODE_RE.findall(str(text or "").replace("​", ""))
+
+
+def _by_size(pairs) -> tuple[list, dict[int, list], dict[int, list[str]]]:
+    """Split a series page ("360: 394 x 119.6 x 27.2 mm", "(240) 350 mm",
+    "360 Black: ELW-D36M-A21DA-R1") into the rows every size shares, the rows
+    of each radiator size, and each size's part numbers."""
+    common: list = []
+    sized: dict[int, list] = {}
+    codes: dict[int, list[str]] = {}
+    for key, value in pairs:
+        if key in ("product number", "model number"):
+            # "360 Black: ELW-D36M-A21DA-R1, 240 LCD White: MLX-D24M-A25SZ-LW",
+            # "(240 LCD Black) MLX-D24M-A25SZ-L1" (comma- or line-separated).
+            for size, code in re.findall(r"\b(\d{3})\b[^:,|()]{0,30}[:)]\s*([A-Z0-9][A-Z0-9-]+)",
+                                         value.replace("​", "")):
+                codes.setdefault(int(size), []).extend(_codes(code))
+            continue
+        parts = [p for p in re.split(r"\s+\|\s+", value) if p.strip()]
+        prefixed = [_SIZE_PREFIX.match(p) for p in parts]
+        if parts and all(prefixed):
+            for match in prefixed:
+                size = int(match.group(1) or match.group(2))
+                sized.setdefault(size, []).append((key, match.group(3).strip()))
+        else:
+            common.append((key, value))
+    return common, sized, codes
+
+
 def parse(page: str, category: str) -> dict:
     pairs = _pairs(page)
     out: dict = {}
@@ -124,49 +160,136 @@ def parse(page: str, category: str) -> dict:
         if value is not None:
             out[field] = value
 
-    out["_mpn"] = _first(pairs, "product number") or _first(pairs, "model number")
+    ids = []
+    for label in ("product number", "model number", "upc code", "ean code"):
+        for value in _all(pairs, label):
+            # Hyphenated part numbers, a bare one-token number ("RC340"), the
+            # UPC / EAN as printed.
+            single = re.fullmatch(r"\s*([A-Z0-9][A-Z0-9-]{3,})\s*", value)
+            ids += _codes(value) or ([single.group(1)] if single else [])
+    out["_ids"] = ids
     put("color", _first(pairs, "exterior color"))
-    if category in ("cooler_air", "aio"):
+    if category == "aio":
+        common, sized, codes = _by_size(pairs)
+        if len(set(sized) | set(codes)) > 1:
+            # A series page (Elite Liquid 240 / 360 side by side): one block per
+            # radiator size, joined only on that size's printed part numbers.
+            blocks = []
+            for size in sorted(set(sized) | set(codes)):
+                block: dict = {}
+
+                def put_block(field, raw, block=block):
+                    value = typed("aio", field, raw) if raw is not None else None
+                    if value is not None:
+                        block[field] = value
+
+                rows = common + sized.get(size, [])
+                rows = [(k, v) for k, v in rows if k != "radiator size"]
+                _cooler(rows, put_block, "aio")
+                put_block("radiator_size_mm", size)
+                put_block("color", _first(pairs, "exterior color"))
+                block["_ids"] = codes.get(size, [])
+                block["_category"] = "aio" if block["_ids"] else None
+                blocks.append(block)
+            return {"_blocks": blocks}
+        _cooler(pairs, put, category)
+    elif category == "cooler_air":
         _cooler(pairs, put, category)
     elif category == "case":
         _case(pairs, put)
     return {k: v for k, v in out.items() if v is not None}
 
 
+def _radiator(pairs) -> int | None:
+    size = re.search(r"\d{3}", _first(pairs, "radiator size") or "")
+    return int(size.group(0)) if size else None
+
+
+def _cfm(raw) -> float | None:
+    """'142.8 m³/h(84.2 CFM) (Max)' -> 84.2: the CFM figure, never the m³/h one."""
+    text = str(raw or "")
+    cfm = re.search(r"(\d+(?:\.\d+)?)\s*CFM", text, re.I)
+    if cfm:
+        return float(cfm.group(1))
+    if re.search(r"m³|m3", text):
+        return None
+    span = spec_range(text)
+    return span[1] if span else None
+
+
+def _connectors(pairs) -> list[str]:
+    """'3-Pin ARGB + 4-Pin PWM' / '7-Pin PWM + ARGB' / '4-Pin (PWM)' -> the
+    catalog's connector tokens; combined proprietary plugs are not split."""
+    out: list[str] = []
+    for label in ("pump connector", "fan connector", "fan power connector"):
+        for value in _all(pairs, label):
+            for part in re.split(r"\+|,|/", value):
+                pins = re.search(r"(\d)\s*-?\s*pin", part, re.I)
+                if not pins or pins.group(1) not in "34":
+                    continue
+                if re.search(r"argb|rgb|led", part, re.I):
+                    token = f"{pins.group(1)}-pin ARGB"
+                elif pins.group(1) == "4" or re.search(r"pwm", part, re.I):
+                    token = f"{pins.group(1)}-pin PWM"
+                else:
+                    token = f"{pins.group(1)}-pin"
+                if token not in out:
+                    out.append(token)
+    return out
+
+
 def _cooler(pairs, put, category) -> None:
     sockets = _sockets(_all(pairs, "cpu socket"))
     if sockets:
         put("sockets", sockets)
-    quantity = number_range(_first(pairs, "fan quantity"))
-    if quantity:
+    quantity = number_range(_first(pairs, "fan quantity") or _first(pairs, "fan quantity (pcs)"))
+    if quantity and category == "aio":
         put("fan_count", int(quantity[1]))
-    speed = number_range((_first(pairs, "fan speed") or "").split("±")[0])
+    speed = spec_range(_first(pairs, "fan speed"))
     if speed:
-        if speed[0] != speed[1]:
+        if speed[0] != speed[1]:      # "0-2050 RPM": the fan stops (semi-passive)
             put("fan_rpm_min", int(speed[0]))
         put("fan_rpm_max", int(speed[1]))
-    airflow = number_range(_first(pairs, "fan airflow"))
-    if airflow:
-        put("airflow_cfm", airflow[1])
-    noise = number_range(_first(pairs, "fan noise level"))
+    put("airflow_cfm", _cfm(_first(pairs, "fan airflow") or _first(pairs, "fan air flow (max)")))
+    noise = spec_range(_first(pairs, "fan noise level") or _first(pairs, "fan noise level (max)"))
     if noise:
         put("noise_db", noise[1])
-    dims = [_dims(v) for v in _all(pairs, "dimensions (l x w x h)")]
+    profile = " ".join(v for k, v in pairs if k in ("fan profiles", "fan led type", "fan led",
+                                                    "profile", "led lighting"))
+    if re.search(r"addressable|argb", profile, re.I):
+        put("lighting", "ARGB")
+    elif re.search(r"\bnon-led\b|^\s*none\s*$", profile, re.I):
+        put("lighting", "No")
+    dims = [_dims(v) for v in _all(pairs, "dimensions (l x w x h)") + _all(pairs, "dimensions")]
+    fan_dims = _dims(_first(pairs, "fan dimensions (l x w x h)") or _first(pairs, "fan dimensions (l x h x w)"))
     if category == "aio":
-        radiator = re.search(r"\d{3}", _first(pairs, "radiator size") or "")
+        radiator = _radiator(pairs)
         if radiator:
-            put("radiator_size_mm", int(radiator.group(0)))
+            put("radiator_size_mm", radiator)
         rad = _dims(_first(pairs, "radiator dimensions"))
         if rad:
             put("radiator_length_mm", int(round(rad[0])))
             put("radiator_thickness_mm", int(round(rad[2])))
-        if dims and dims[0]:
+        if fan_dims and fan_dims[0] < 200:
+            put("fan_size_mm", int(round(fan_dims[0])))
+        elif dims and dims[0]:
             put("fan_size_mm", int(round(dims[0][0])))
+        connectors = _connectors(pairs)
+        if connectors:
+            put("connectors", connectors)
     else:
         if dims and dims[0]:
             put("height_mm", int(round(dims[0][2])))
-        if len(dims) > 1 and dims[1]:
+        if fan_dims:
+            put("fan_size_mm", int(round(fan_dims[0])))
+        elif len(dims) > 1 and dims[1]:
             put("fan_size_mm", int(round(dims[1][0])))
+
+
+def _lead_int(raw) -> int | None:
+    """'2 (exposed)' / '1 (Max. 2)' / '3' -> the count the case ships with."""
+    match = re.match(r"\s*(\d{1,2})\b(?!\s*[+x/])", str(raw or ""))
+    return int(match.group(1)) if match else None
 
 
 def _case(pairs, put) -> None:
@@ -174,10 +297,15 @@ def _case(pairs, put) -> None:
     forms = mb_form_factor_list(re.sub(r"\*[^,]*", "", _first(pairs, "motherboard support") or ""))
     if forms:
         put("mb_form_factors", forms)
-    put("max_gpu_length_mm", _mm(_first(pairs, "clearance - gfx")))
-    put("max_cooler_height_mm", _mm(_first(pairs, "clearance - cpu cooler")))
-    panel = _first(pairs, "materials - left side panel") or ""
-    if re.search(r"glass|acrylic|window", panel, re.I):
+    gpu = _first(pairs, "clearance - gfx")
+    if gpu is None:
+        length = re.search(r"\bL:\s*(\d{3})\s*mm", _first(pairs, "clearances - graphics card") or "")
+        gpu = f"{length.group(1)}mm" if length else None
+    put("max_gpu_length_mm", _mm(gpu))
+    put("max_cooler_height_mm", _mm(_first(pairs, "clearance - cpu cooler")
+                                    or _first(pairs, "clearances - cpu cooler")))
+    panel = _first(pairs, "materials - left side panel") or _first(pairs, "materials - side panel") or ""
+    if re.search(r"glass|acrylic|window|\bTG\b", panel, re.I):
         put("side_panel", "Windowed")
     slots = re.fullmatch(r"\s*(\d{1,2})\s*", _first(pairs, "expansion slots") or "")
     if slots:
@@ -190,13 +318,12 @@ def _case(pairs, put) -> None:
     ports = front_io_ports(", ".join(front))
     if ports:
         put("front_usb", ports)
-    bays = re.fullmatch(r"\s*(\d{1,2})\s*", _first(pairs, '2.5" drive bays') or "")
-    if bays:
-        put("drive_bays_25", int(bays.group(1)))
+    put("drive_bays_25", _lead_int(_first(pairs, '2.5" drive bays') or _first(pairs, 'drive bays - 2.5" ssd')))
+    put("drive_bays_35", _lead_int(_first(pairs, '3.5" drive bays')))
     dims = None
     for value in _all(pairs, "dimensions (l x w x h)"):
         if re.search(r"excl", value, re.I):
-            excl = re.search(r"(\d+(?:\.\d+)?\s*x\s*\d+(?:\.\d+)?\s*x\s*\d+(?:\.\d+)?)\s*mm\s*\(excl", value)
+            excl = re.search(r"(\d+(?:\.\d+)?\s*x\s*\d+(?:\.\d+)?\s*x\s*\d+(?:\.\d+)?)\s*mm\s*\(?excl", value)
             dims = _dims(excl.group(1)) if excl else None
         elif dims is None:
             dims = _dims(value)
@@ -205,6 +332,21 @@ def _case(pairs, put) -> None:
     sizes: set[int] = set()
     for key, value in pairs:
         if key.startswith("radiator support"):
-            sizes.update(int(n) for n in re.findall(r"\b(1[24]0|2[48]0|3[68]0|420)\b", value))
+            sizes |= radiator_sizes(value)
     if sizes:
         put("radiator_support", {f"{n} mm": 1 for n in sorted(sizes)})
+    for position in ("front", "top", "rear", "side", "bottom"):
+        value = _first(pairs, f"fan support - {position}")
+        if value:
+            put(f"fan_{position}", fan_mounts(value))
+    volume = re.search(r"(\d+(?:\.\d+)?)\s*L\b", _first(pairs, "volume") or "")
+    if volume:
+        put("volume_l", float(volume.group(1)))
+    weight = re.search(r"(\d+(?:\.\d+)?)\s*kg", _first(pairs, "weight") or "", re.I)
+    if weight:
+        put("weight_kg", float(weight.group(1)))
+    fans = " ".join(v for k, v in pairs if k.startswith("pre-installed fans"))
+    if re.search(r"\bA-?RGB\b|addressable", fans, re.I):
+        put("lighting", "ARGB")
+    elif re.search(r"\bRGB\b", fans, re.I):
+        put("lighting", "RGB")

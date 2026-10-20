@@ -2,11 +2,11 @@
  "brand": "be quiet!",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-18",
+ "generated": "2026-10-20",
  "entries": {
   "https://www.bequiet.com/en/case/2047": {
    "url": "https://www.bequiet.com/en/case/2047",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW39",
@@ -16,6 +16,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Base 802 Window Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -31,12 +33,29 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 432,
+    "drive_bays_35": 7,
+    "drive_bays_25": 15
    }
   },
   "https://www.bequiet.com/en/case/2048": {
    "url": "https://www.bequiet.com/en/case/2048",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW40",
@@ -46,6 +65,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Base 802 Window White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -61,12 +82,29 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 432,
+    "drive_bays_35": 7,
+    "drive_bays_25": 15
    }
   },
   "https://www.bequiet.com/en/case/2049": {
    "url": "https://www.bequiet.com/en/case/2049",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG039",
@@ -76,6 +114,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Base 802 Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -90,12 +130,29 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 432,
+    "drive_bays_35": 7,
+    "drive_bays_25": 15
    }
   },
   "https://www.bequiet.com/en/case/2050": {
    "url": "https://www.bequiet.com/en/case/2050",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG040",
@@ -105,6 +162,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Base 802 White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -119,12 +178,29 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 432,
+    "drive_bays_35": 7,
+    "drive_bays_25": 15
    }
   },
   "https://www.bequiet.com/en/case/4425": {
    "url": "https://www.bequiet.com/en/case/4425",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW50",
@@ -134,6 +210,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Base Pro 901",
+    "color": "Black",
     "mb_form_factors": [
      "Micro ATX",
      "ATX",
@@ -148,12 +226,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "8",
+    "max_gpu_length_mm": 495,
+    "drive_bays_35": 7,
+    "drive_bays_25": 16,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/4478": {
    "url": "https://www.bequiet.com/en/case/4478",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW60",
@@ -163,6 +259,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Base 800",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -177,12 +275,29 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 430,
+    "drive_bays_35": 4,
+    "drive_bays_25": 8
    }
   },
   "https://www.bequiet.com/en/case/4480": {
    "url": "https://www.bequiet.com/en/case/4480",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW61",
@@ -192,6 +307,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Base 800 DX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -206,12 +323,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 430,
+    "drive_bays_35": 4,
+    "drive_bays_25": 8,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/4481": {
    "url": "https://www.bequiet.com/en/case/4481",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW62",
@@ -221,6 +356,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Base 800 DX White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -235,12 +372,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 430,
+    "drive_bays_35": 4,
+    "drive_bays_25": 8,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/4483": {
    "url": "https://www.bequiet.com/en/case/4483",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW63",
@@ -250,6 +405,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Base 800 FX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -264,12 +421,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 430,
+    "drive_bays_35": 3,
+    "drive_bays_25": 7,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/4484": {
    "url": "https://www.bequiet.com/en/case/4484",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW64",
@@ -279,6 +454,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Base 800 FX White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -293,12 +470,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 430,
+    "drive_bays_35": 3,
+    "drive_bays_25": 7,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5019": {
    "url": "https://www.bequiet.com/en/case/5019",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW51",
@@ -308,6 +503,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Base Pro 901 White",
+    "color": "White",
     "mb_form_factors": [
      "Micro ATX",
      "ATX",
@@ -322,12 +519,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "3 x 140 mm, 3 x 120 mm",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "1 x 140 mm, 1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "8",
+    "max_gpu_length_mm": 495,
+    "drive_bays_35": 7,
+    "drive_bays_25": 16,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5290": {
    "url": "https://www.bequiet.com/en/case/5290",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW71",
@@ -337,6 +552,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 900 FX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Micro ATX",
      "ATX",
@@ -351,12 +568,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "3 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "8",
+    "max_gpu_length_mm": 495,
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5291": {
    "url": "https://www.bequiet.com/en/case/5291",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW72",
@@ -366,6 +601,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 900 FX White",
+    "color": "White",
     "mb_form_factors": [
      "Micro ATX",
      "ATX",
@@ -380,12 +617,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "3 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "8",
+    "max_gpu_length_mm": 495,
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5292": {
    "url": "https://www.bequiet.com/en/case/5292",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW69",
@@ -395,6 +650,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 900 DX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Micro ATX",
      "ATX",
@@ -409,12 +666,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "3 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "8",
+    "max_gpu_length_mm": 495,
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5293": {
    "url": "https://www.bequiet.com/en/case/5293",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW70",
@@ -424,6 +699,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 900 DX White",
+    "color": "White",
     "mb_form_factors": [
      "Micro ATX",
      "ATX",
@@ -438,12 +715,30 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "3 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 140 mm, 3 x 120 mm",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "3 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "expansion_slots": "8",
+    "max_gpu_length_mm": 495,
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5294": {
    "url": "https://www.bequiet.com/en/case/5294",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW67",
@@ -453,6 +748,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 600 LX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Micro ATX",
      "ATX"
@@ -465,12 +762,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5295": {
    "url": "https://www.bequiet.com/en/case/5295",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW68",
@@ -480,6 +792,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 600 LX White",
+    "color": "White",
     "mb_form_factors": [
      "Micro ATX",
      "ATX"
@@ -492,12 +806,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5296": {
    "url": "https://www.bequiet.com/en/case/5296",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW65",
@@ -507,6 +836,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 600 DX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Micro ATX",
      "ATX"
@@ -519,12 +850,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5297": {
    "url": "https://www.bequiet.com/en/case/5297",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW66",
@@ -534,6 +880,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Base 600 DX White",
+    "color": "White",
     "mb_form_factors": [
      "Micro ATX",
      "ATX"
@@ -546,12 +894,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 140 mm, 3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "lighting": "ARGB"
    }
   },
   "https://www.bequiet.com/en/case/5321": {
    "url": "https://www.bequiet.com/en/case/5321",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG073",
@@ -561,6 +924,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -574,12 +939,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5322": {
    "url": "https://www.bequiet.com/en/case/5322",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG074",
@@ -589,6 +970,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 Airflow Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -602,12 +985,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5323": {
    "url": "https://www.bequiet.com/en/case/5323",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG075",
@@ -617,6 +1016,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 Airflow White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -630,12 +1031,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5324": {
    "url": "https://www.bequiet.com/en/case/5324",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW74",
@@ -645,6 +1062,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 Airflow Window Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -659,12 +1078,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5325": {
    "url": "https://www.bequiet.com/en/case/5325",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW75",
@@ -674,6 +1109,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 Airflow Window White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -688,12 +1125,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5753": {
    "url": "https://www.bequiet.com/en/case/5753",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW76",
@@ -703,11 +1156,14 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 DX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
      "ATX"
     ],
+    "max_cooler_height_mm": 178,
     "dimensions_mm": "W=231 H=449 D=450mm",
     "weight_kg": 7.8,
     "volume_l": 39.2,
@@ -715,12 +1171,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5754": {
    "url": "https://www.bequiet.com/en/case/5754",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW77",
@@ -730,11 +1202,14 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 DX White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
      "ATX"
     ],
+    "max_cooler_height_mm": 178,
     "dimensions_mm": "W=231 H=449 D=450mm",
     "weight_kg": 7.9,
     "volume_l": 39.2,
@@ -742,12 +1217,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5755": {
    "url": "https://www.bequiet.com/en/case/5755",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW78",
@@ -757,6 +1248,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 LX Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -770,12 +1263,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/5756": {
    "url": "https://www.bequiet.com/en/case/5756",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW79",
@@ -785,6 +1294,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 501 LX White",
+    "color": "White",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -798,12 +1309,28 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 140 mm, 3 x 120 mm",
+    "fan_top": "2 x 140 mm, 2 x 120 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 140 mm, 1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5
    }
   },
   "https://www.bequiet.com/en/case/6691": {
    "url": "https://www.bequiet.com/en/case/6691",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW83",
@@ -813,6 +1340,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "LIGHT BASE 500 | Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -824,12 +1353,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 2,
+    "drive_bays_25": 2
    }
   },
   "https://www.bequiet.com/en/case/6693": {
    "url": "https://www.bequiet.com/en/case/6693",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW85",
@@ -839,6 +1383,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "LIGHT BASE 500 LX | Black",
+    "color": "Black",
     "mb_form_factors": [
      "Micro ATX",
      "ATX"
@@ -849,12 +1395,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2
    }
   },
   "https://www.bequiet.com/en/case/6694": {
    "url": "https://www.bequiet.com/en/case/6694",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW86",
@@ -864,6 +1425,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "LIGHT BASE 500 LX | White",
+    "color": "White",
     "mb_form_factors": [
      "Micro ATX",
      "ATX"
@@ -874,12 +1437,27 @@
      "USB Type-C",
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "No",
+    "fan_top": "2 x 140 mm, 3 x 120 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 400,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2
    }
   },
   "https://www.bequiet.com/en/case/920": {
    "url": "https://www.bequiet.com/en/case/920",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG022",
@@ -889,6 +1467,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 600 Silver",
+    "color": "Silver",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -901,12 +1481,28 @@
     "front_usb": [
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 425,
+    "drive_bays_35": 5,
+    "drive_bays_25": 12
    }
   },
   "https://www.bequiet.com/en/case/921": {
    "url": "https://www.bequiet.com/en/case/921",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BG021",
@@ -916,6 +1512,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 600 Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -928,12 +1526,28 @@
     "front_usb": [
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 425,
+    "drive_bays_35": 5,
+    "drive_bays_25": 12
    }
   },
   "https://www.bequiet.com/en/case/937": {
    "url": "https://www.bequiet.com/en/case/937",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW21",
@@ -943,6 +1557,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 600 Window Black",
+    "color": "Black",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -956,12 +1572,28 @@
     "front_usb": [
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 425,
+    "drive_bays_35": 5,
+    "drive_bays_25": 12
    }
   },
   "https://www.bequiet.com/en/case/938": {
    "url": "https://www.bequiet.com/en/case/938",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "BGW20",
@@ -971,6 +1603,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Base 600 Window Orange",
+    "color": "Orange",
     "mb_form_factors": [
      "Mini ITX",
      "Micro ATX",
@@ -984,12 +1618,28 @@
     "front_usb": [
      "USB 3.2",
      "Earphone/Mic"
-    ]
+    ],
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "No",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "expansion_slots": "7",
+    "max_gpu_length_mm": 425,
+    "drive_bays_35": 5,
+    "drive_bays_25": 12
    }
   },
   "https://www.bequiet.com/en/casefans/1625": {
    "url": "https://www.bequiet.com/en/casefans/1625",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL087",
@@ -999,18 +1649,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Wings 2 140mm PWM",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 900,
     "noise_db": 14.9,
     "airflow_cfm": 49.8,
     "static_pressure_mmh2o": 0.58,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/1626": {
    "url": "https://www.bequiet.com/en/casefans/1626",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL085",
@@ -1020,18 +1673,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Wings 2 120mm PWM",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1100,
     "noise_db": 15.9,
     "airflow_cfm": 38.5,
     "static_pressure_mmh2o": 0.82,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/1698": {
    "url": "https://www.bequiet.com/en/casefans/1698",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL088",
@@ -1041,18 +1697,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Wings 2 120mm White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1100,
     "noise_db": 15.7,
     "airflow_cfm": 38.5,
     "static_pressure_mmh2o": 0.82,
+    "led": "No",
     "connector": "3-pin",
     "pwm": false
    }
   },
   "https://www.bequiet.com/en/casefans/1699": {
    "url": "https://www.bequiet.com/en/casefans/1699",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL090",
@@ -1062,18 +1721,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Wings 2 140mm White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 900,
     "noise_db": 14.7,
     "airflow_cfm": 49.8,
     "static_pressure_mmh2o": 0.58,
+    "led": "No",
     "connector": "3-pin",
     "pwm": false
    }
   },
   "https://www.bequiet.com/en/casefans/1700": {
    "url": "https://www.bequiet.com/en/casefans/1700",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL089",
@@ -1083,18 +1745,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Wings 2 120mm PWM White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1100,
     "noise_db": 15.9,
     "airflow_cfm": 38.5,
     "static_pressure_mmh2o": 0.82,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/1701": {
    "url": "https://www.bequiet.com/en/casefans/1701",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL091",
@@ -1104,18 +1769,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Wings 2 140mm PWM White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 900,
     "noise_db": 14.9,
     "airflow_cfm": 49.8,
     "static_pressure_mmh2o": 0.58,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3450": {
    "url": "https://www.bequiet.com/en/casefans/3450",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL072",
@@ -1125,18 +1793,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 120mm PWM",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1700,
     "noise_db": 20.6,
     "airflow_cfm": 41.5,
     "static_pressure_mmh2o": 1.66,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3451": {
    "url": "https://www.bequiet.com/en/casefans/3451",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL074",
@@ -1146,18 +1817,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 140mm PWM",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1500,
     "noise_db": 23.3,
     "airflow_cfm": 56.0,
     "static_pressure_mmh2o": 1.49,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3452": {
    "url": "https://www.bequiet.com/en/casefans/3452",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL076",
@@ -1167,18 +1841,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 120mm PWM Triple Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1700,
     "noise_db": 20.6,
     "airflow_cfm": 41.51,
     "static_pressure_mmh2o": 1.66,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3453": {
    "url": "https://www.bequiet.com/en/casefans/3453",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL078",
@@ -1188,18 +1865,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 140mm PWM Triple Pack",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1500,
     "noise_db": 23.3,
     "airflow_cfm": 56.0,
     "static_pressure_mmh2o": 1.49,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3454": {
    "url": "https://www.bequiet.com/en/casefans/3454",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL073",
@@ -1209,18 +1889,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 120mm PWM-high-speed",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2500,
     "noise_db": 31.0,
     "airflow_cfm": 52.3,
     "static_pressure_mmh2o": 2.6,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3455": {
    "url": "https://www.bequiet.com/en/casefans/3455",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL075",
@@ -1230,18 +1913,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 140mm PWM high-speed",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 2200,
     "noise_db": 31.0,
     "airflow_cfm": 71.7,
     "static_pressure_mmh2o": 2.3,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3456": {
    "url": "https://www.bequiet.com/en/casefans/3456",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL077",
@@ -1251,18 +1937,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 120mm PWM high-speed Triple Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2500,
     "noise_db": 31.0,
     "airflow_cfm": 52.3,
     "static_pressure_mmh2o": 2.6,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3457": {
    "url": "https://www.bequiet.com/en/casefans/3457",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL079",
@@ -1272,11 +1961,14 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 140mm PWM high-speed Triple Pack",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 2200,
     "noise_db": 31.0,
     "airflow_cfm": 71.7,
     "static_pressure_mmh2o": 2.3,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
@@ -1304,7 +1996,7 @@
   },
   "https://www.bequiet.com/en/casefans/3700": {
    "url": "https://www.bequiet.com/en/casefans/3700",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL093",
@@ -1314,18 +2006,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 120mm PWM",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 18.9,
     "airflow_cfm": 48.7,
     "static_pressure_mmh2o": 1.79,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3701": {
    "url": "https://www.bequiet.com/en/casefans/3701",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL094",
@@ -1335,11 +2030,14 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 120mm PWM high-speed",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2500,
     "noise_db": 31.2,
     "airflow_cfm": 76.7,
     "static_pressure_mmh2o": 3.96,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
@@ -1367,7 +2065,7 @@
   },
   "https://www.bequiet.com/en/casefans/3703": {
    "url": "https://www.bequiet.com/en/casefans/3703",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL096",
@@ -1377,18 +2075,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 140mm PWM",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1100,
     "noise_db": 13.6,
     "airflow_cfm": 51.3,
     "static_pressure_mmh2o": 0.92,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3704": {
    "url": "https://www.bequiet.com/en/casefans/3704",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL097",
@@ -1398,18 +2099,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 140mm PWM high-speed",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1900,
     "noise_db": 29.3,
     "airflow_cfm": 78.4,
     "static_pressure_mmh2o": 2.36,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3705": {
    "url": "https://www.bequiet.com/en/casefans/3705",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL098",
@@ -1419,18 +2123,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings Pro 4 120mm PWM",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 3000,
     "noise_db": 36.9,
     "airflow_cfm": 83.9,
     "static_pressure_mmh2o": 5.31,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/3706": {
    "url": "https://www.bequiet.com/en/casefans/3706",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL099",
@@ -1440,18 +2147,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings Pro 4 140mm PWM",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 2400,
     "noise_db": 36.8,
     "airflow_cfm": 97.4,
     "static_pressure_mmh2o": 3.64,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4132": {
    "url": "https://www.bequiet.com/en/casefans/4132",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL100",
@@ -1461,18 +2171,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings White 120mm PWM Triple Pack",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1700,
     "noise_db": 20.6,
     "airflow_cfm": 41.51,
     "static_pressure_mmh2o": 1.66,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4133": {
    "url": "https://www.bequiet.com/en/casefans/4133",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL102",
@@ -1482,18 +2195,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings White 140mm PWM Triple Pack",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1500,
     "noise_db": 23.3,
     "airflow_cfm": 56.0,
     "static_pressure_mmh2o": 1.49,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4134": {
    "url": "https://www.bequiet.com/en/casefans/4134",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL101",
@@ -1503,18 +2219,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings White 120mm PWM high-speed Triple Pack",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 2500,
     "noise_db": 31.0,
     "airflow_cfm": 52.3,
     "static_pressure_mmh2o": 2.6,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4135": {
    "url": "https://www.bequiet.com/en/casefans/4135",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL103",
@@ -1524,18 +2243,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings White 140mm PWM high-speed Triple Pack",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 2200,
     "noise_db": 31.0,
     "airflow_cfm": 71.7,
     "static_pressure_mmh2o": 2.3,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4605": {
    "url": "https://www.bequiet.com/en/casefans/4605",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL104",
@@ -1545,18 +2267,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 49.9,
     "static_pressure_mmh2o": 1.45,
+    "led": "No",
     "connector": "3-pin",
     "pwm": false
    }
   },
   "https://www.bequiet.com/en/casefans/4606": {
    "url": "https://www.bequiet.com/en/casefans/4606",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL105",
@@ -1566,18 +2291,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm PWM",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 49.9,
     "static_pressure_mmh2o": 1.45,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4607": {
    "url": "https://www.bequiet.com/en/casefans/4607",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL106",
@@ -1587,18 +2315,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm PWM high-speed",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2100,
     "noise_db": 30.9,
     "airflow_cfm": 59.6,
     "static_pressure_mmh2o": 2.41,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4608": {
    "url": "https://www.bequiet.com/en/casefans/4608",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL107",
@@ -1608,18 +2339,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 21.9,
     "airflow_cfm": 57.4,
     "static_pressure_mmh2o": 0.96,
+    "led": "No",
     "connector": "3-pin",
     "pwm": false
    }
   },
   "https://www.bequiet.com/en/casefans/4609": {
    "url": "https://www.bequiet.com/en/casefans/4609",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL108",
@@ -1629,18 +2363,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm PWM",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 21.9,
     "airflow_cfm": 57.4,
     "static_pressure_mmh2o": 0.96,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4610": {
    "url": "https://www.bequiet.com/en/casefans/4610",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL109",
@@ -1650,18 +2387,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm PWM high-speed",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1800,
     "noise_db": 30.5,
     "airflow_cfm": 72.2,
     "static_pressure_mmh2o": 2.44,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4773": {
    "url": "https://www.bequiet.com/en/casefans/4773",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL110",
@@ -1671,18 +2411,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm PWM White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 49.9,
     "static_pressure_mmh2o": 1.45,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4774": {
    "url": "https://www.bequiet.com/en/casefans/4774",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL111",
@@ -1692,18 +2435,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm PWM high-speed White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 2100,
     "noise_db": 30.9,
     "airflow_cfm": 59.6,
     "static_pressure_mmh2o": 2.41,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4775": {
    "url": "https://www.bequiet.com/en/casefans/4775",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL112",
@@ -1713,18 +2459,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm PWM White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 21.9,
     "airflow_cfm": 57.4,
     "static_pressure_mmh2o": 0.96,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/4776": {
    "url": "https://www.bequiet.com/en/casefans/4776",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL113",
@@ -1734,18 +2483,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm PWM high-speed White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1800,
     "noise_db": 30.5,
     "airflow_cfm": 72.2,
     "static_pressure_mmh2o": 2.44,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5002": {
    "url": "https://www.bequiet.com/en/casefans/5002",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL119",
@@ -1755,18 +2507,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings Pro 4 140mm PWM White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 2400,
     "noise_db": 36.8,
     "airflow_cfm": 97.4,
     "static_pressure_mmh2o": 3.64,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5003": {
    "url": "https://www.bequiet.com/en/casefans/5003",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL118",
@@ -1776,18 +2531,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings Pro 4 120mm PWM White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 3000,
     "noise_db": 36.9,
     "airflow_cfm": 83.9,
     "static_pressure_mmh2o": 5.31,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5004": {
    "url": "https://www.bequiet.com/en/casefans/5004",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL117",
@@ -1797,18 +2555,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 140mm PWM high-speed White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1900,
     "noise_db": 29.3,
     "airflow_cfm": 78.4,
     "static_pressure_mmh2o": 2.36,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5005": {
    "url": "https://www.bequiet.com/en/casefans/5005",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL116",
@@ -1818,18 +2579,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 140mm PWM White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1100,
     "noise_db": 13.6,
     "airflow_cfm": 51.3,
     "static_pressure_mmh2o": 0.92,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5006": {
    "url": "https://www.bequiet.com/en/casefans/5006",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL115",
@@ -1839,18 +2603,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 120mm PWM high-speed White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 2500,
     "noise_db": 31.2,
     "airflow_cfm": 76.7,
     "static_pressure_mmh2o": 3.96,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5007": {
    "url": "https://www.bequiet.com/en/casefans/5007",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL114",
@@ -1860,18 +2627,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Wings 4 120mm PWM White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 18.9,
     "airflow_cfm": 48.7,
     "static_pressure_mmh2o": 1.79,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5305": {
    "url": "https://www.bequiet.com/en/casefans/5305",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL129",
@@ -1881,18 +2651,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 140mm PWM high-speed",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1800,
     "noise_db": 30.5,
     "airflow_cfm": 75.3,
     "static_pressure_mmh2o": 2.45,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5306": {
    "url": "https://www.bequiet.com/en/casefans/5306",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL126",
@@ -1902,18 +2675,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 140mm PWM",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 22.9,
     "airflow_cfm": 56.0,
     "static_pressure_mmh2o": 0.9,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5307": {
    "url": "https://www.bequiet.com/en/casefans/5307",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL123",
@@ -1923,18 +2699,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM high-speed",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2100,
     "noise_db": 30.9,
     "airflow_cfm": 61.8,
     "static_pressure_mmh2o": 2.51,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5308": {
    "url": "https://www.bequiet.com/en/casefans/5308",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL120",
@@ -1944,18 +2723,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 51.5,
     "static_pressure_mmh2o": 1.34,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5309": {
    "url": "https://www.bequiet.com/en/casefans/5309",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL130",
@@ -1965,18 +2747,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 140mm PWM high-speed Triple Pack",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1800,
     "noise_db": 30.5,
     "airflow_cfm": 75.3,
     "static_pressure_mmh2o": 2.45,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5310": {
    "url": "https://www.bequiet.com/en/casefans/5310",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL131",
@@ -1986,18 +2771,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 140mm PWM high-speed White Triple Pack",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1800,
     "noise_db": 30.5,
     "airflow_cfm": 75.3,
     "static_pressure_mmh2o": 2.45,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5311": {
    "url": "https://www.bequiet.com/en/casefans/5311",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL127",
@@ -2007,18 +2795,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 140mm PWM Triple Pack",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 22.9,
     "airflow_cfm": 56.0,
     "static_pressure_mmh2o": 0.9,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5312": {
    "url": "https://www.bequiet.com/en/casefans/5312",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL128",
@@ -2028,18 +2819,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 140mm PWM White Triple Pack",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 22.9,
     "airflow_cfm": 56.0,
     "static_pressure_mmh2o": 0.9,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5313": {
    "url": "https://www.bequiet.com/en/casefans/5313",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL124",
@@ -2049,18 +2843,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM high-speed Triple Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2100,
     "noise_db": 30.9,
     "airflow_cfm": 61.8,
     "static_pressure_mmh2o": 2.51,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5314": {
    "url": "https://www.bequiet.com/en/casefans/5314",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL125",
@@ -2070,18 +2867,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM high-speed White Triple Pack",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 2100,
     "noise_db": 30.9,
     "airflow_cfm": 61.8,
     "static_pressure_mmh2o": 2.51,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5315": {
    "url": "https://www.bequiet.com/en/casefans/5315",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL121",
@@ -2091,18 +2891,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM Triple Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 51.5,
     "static_pressure_mmh2o": 1.34,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5316": {
    "url": "https://www.bequiet.com/en/casefans/5316",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL122",
@@ -2112,18 +2915,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM White Triple Pack",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 51.5,
     "static_pressure_mmh2o": 1.34,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5781": {
    "url": "https://www.bequiet.com/en/casefans/5781",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL134",
@@ -2133,18 +2939,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 140mm PWM Reverse",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1300,
     "noise_db": 25.5,
     "airflow_cfm": 51.4,
     "static_pressure_mmh2o": 1.1,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5782": {
    "url": "https://www.bequiet.com/en/casefans/5782",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL135",
@@ -2154,18 +2963,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings 140mm PWM Reverse White",
+    "color": "White",
     "size_mm": 140,
     "rpm_max": 1300,
     "noise_db": 25.5,
     "airflow_cfm": 51.4,
     "static_pressure_mmh2o": 1.1,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5783": {
    "url": "https://www.bequiet.com/en/casefans/5783",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL132",
@@ -2175,18 +2987,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM Reverse",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1500,
     "noise_db": 28.5,
     "airflow_cfm": 48.8,
     "static_pressure_mmh2o": 1.04,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/5784": {
    "url": "https://www.bequiet.com/en/casefans/5784",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL133",
@@ -2196,18 +3011,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Wings LX 120mm PWM Reverse White",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1500,
     "noise_db": 28.5,
     "airflow_cfm": 48.8,
     "static_pressure_mmh2o": 1.04,
+    "led": "ARGB",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/6697": {
    "url": "https://www.bequiet.com/en/casefans/6697",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL136",
@@ -2217,18 +3035,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm | PWM Reverse White Triple-Pack",
+    "color": "White",
     "size_mm": 120,
     "rpm_max": 1500,
     "noise_db": 28.5,
     "airflow_cfm": 47.1,
     "static_pressure_mmh2o": 1.17,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/6698": {
    "url": "https://www.bequiet.com/en/casefans/6698",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL137",
@@ -2238,18 +3059,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm | PWM Reverse Triple-Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1500,
     "noise_db": 28.5,
     "airflow_cfm": 47.1,
     "static_pressure_mmh2o": 1.17,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/6699": {
    "url": "https://www.bequiet.com/en/casefans/6699",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL138",
@@ -2259,18 +3083,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm | PWM high-speed Triple Pack",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1800,
     "noise_db": 30.5,
     "airflow_cfm": 72.2,
     "static_pressure_mmh2o": 2.44,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/6700": {
    "url": "https://www.bequiet.com/en/casefans/6700",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL139",
@@ -2280,18 +3107,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 140mm | PWM Triple Pack",
+    "color": "Black",
     "size_mm": 140,
     "rpm_max": 1200,
     "noise_db": 21.9,
     "airflow_cfm": 57.4,
     "static_pressure_mmh2o": 0.96,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/6701": {
    "url": "https://www.bequiet.com/en/casefans/6701",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL140",
@@ -2301,18 +3131,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm | PWM high-speed Triple Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 2100,
     "noise_db": 30.9,
     "airflow_cfm": 59.6,
     "static_pressure_mmh2o": 2.41,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/casefans/6702": {
    "url": "https://www.bequiet.com/en/casefans/6702",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "BL141",
@@ -2322,18 +3155,21 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Wings 3 120mm | PWM Triple Pack",
+    "color": "Black",
     "size_mm": 120,
     "rpm_max": 1600,
     "noise_db": 25.5,
     "airflow_cfm": 49.9,
     "static_pressure_mmh2o": 1.45,
+    "led": "No",
     "connector": "4-pin",
     "pwm": true
    }
   },
   "https://www.bequiet.com/en/cpucooler/1074": {
    "url": "https://www.bequiet.com/en/cpucooler/1074",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK003",
@@ -2343,6 +3179,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Rock TF 2",
+    "color": "Silver",
     "sockets": [
      "LGA775",
      "LGA1200",
@@ -2355,12 +3193,15 @@
     ],
     "fan_size_mm": 135,
     "fan_rpm_max": 1400,
-    "airflow_cfm": 86.3
+    "airflow_cfm": 86.3,
+    "tdp_w": 160,
+    "noise_db": 24.4,
+    "height_mm": 112
    }
   },
   "https://www.bequiet.com/en/cpucooler/1659": {
    "url": "https://www.bequiet.com/en/cpucooler/1659",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK024",
@@ -2370,6 +3211,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Rock Slim",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2384,12 +3227,15 @@
     ],
     "fan_size_mm": 120,
     "fan_rpm_max": 1500,
-    "airflow_cfm": 50.5
+    "airflow_cfm": 50.5,
+    "tdp_w": 180,
+    "noise_db": 23.6,
+    "height_mm": 159
    }
   },
   "https://www.bequiet.com/en/cpucooler/2248": {
    "url": "https://www.bequiet.com/en/cpucooler/2248",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK030",
@@ -2399,6 +3245,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock Slim 2",
+    "color": "Silver",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2411,12 +3259,15 @@
     ],
     "fan_size_mm": 92,
     "fan_rpm_max": 2000,
-    "airflow_cfm": 34.9
+    "airflow_cfm": 34.9,
+    "tdp_w": 130,
+    "noise_db": 25.4,
+    "height_mm": 135
    }
   },
   "https://www.bequiet.com/en/cpucooler/3351": {
    "url": "https://www.bequiet.com/en/cpucooler/3351",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK031",
@@ -2426,6 +3277,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Rock TF 2",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2440,12 +3293,15 @@
     ],
     "fan_size_mm": 135,
     "fan_rpm_max": 1300,
-    "airflow_cfm": 60.0
+    "airflow_cfm": 60.0,
+    "tdp_w": 230,
+    "noise_db": 27.1,
+    "height_mm": 134
    }
   },
   "https://www.bequiet.com/en/cpucooler/3992": {
    "url": "https://www.bequiet.com/en/cpucooler/3992",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK034",
@@ -2455,6 +3311,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock LP",
+    "color": "Black",
     "sockets": [
      "LGA1700",
      "LGA1200",
@@ -2466,12 +3324,15 @@
     ],
     "fan_size_mm": 92,
     "fan_rpm_max": 2500,
-    "airflow_cfm": 33.0
+    "airflow_cfm": 33.0,
+    "tdp_w": 100,
+    "noise_db": 30.6,
+    "height_mm": 45
    }
   },
   "https://www.bequiet.com/en/cpucooler/4466": {
    "url": "https://www.bequiet.com/en/cpucooler/4466",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK036",
@@ -2481,6 +3342,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Rock Pro 5",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2492,12 +3355,15 @@
      "AM4"
     ],
     "fan_size_mm": 120,
-    "airflow_cfm": 52.5
+    "airflow_cfm": 52.5,
+    "tdp_w": 270,
+    "noise_db": 23.3,
+    "height_mm": 168
    }
   },
   "https://www.bequiet.com/en/cpucooler/4468": {
    "url": "https://www.bequiet.com/en/cpucooler/4468",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK037",
@@ -2507,6 +3373,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Rock Elite",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2518,12 +3386,15 @@
      "AM4"
     ],
     "fan_size_mm": 135,
-    "airflow_cfm": 80.2
+    "airflow_cfm": 80.2,
+    "tdp_w": 280,
+    "noise_db": 25.8,
+    "height_mm": 168
    }
   },
   "https://www.bequiet.com/en/cpucooler/5110": {
    "url": "https://www.bequiet.com/en/cpucooler/5110",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK035",
@@ -2533,6 +3404,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Dark Rock 5",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2545,12 +3418,15 @@
     ],
     "fan_size_mm": 120,
     "fan_rpm_max": 2100,
-    "airflow_cfm": 55.0
+    "airflow_cfm": 55.0,
+    "tdp_w": 210,
+    "noise_db": 29.8,
+    "height_mm": 161
    }
   },
   "https://www.bequiet.com/en/cpucooler/5591": {
    "url": "https://www.bequiet.com/en/cpucooler/5591",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK039",
@@ -2560,6 +3436,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock 3 Black",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2572,12 +3450,15 @@
     ],
     "fan_size_mm": 120,
     "fan_rpm_max": 2000,
-    "airflow_cfm": 59.6
+    "airflow_cfm": 59.6,
+    "tdp_w": 190,
+    "noise_db": 31.2,
+    "height_mm": 154
    }
   },
   "https://www.bequiet.com/en/cpucooler/5592": {
    "url": "https://www.bequiet.com/en/cpucooler/5592",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK040",
@@ -2587,6 +3468,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock 3 LX",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2599,12 +3482,15 @@
     ],
     "fan_size_mm": 120,
     "fan_rpm_max": 2000,
-    "airflow_cfm": 61.8
+    "airflow_cfm": 61.8,
+    "tdp_w": 190,
+    "noise_db": 31.2,
+    "height_mm": 154
    }
   },
   "https://www.bequiet.com/en/cpucooler/5599": {
    "url": "https://www.bequiet.com/en/cpucooler/5599",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK041",
@@ -2614,6 +3500,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock Pro 3",
+    "color": "Silver",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2625,12 +3513,15 @@
      "AM4"
     ],
     "fan_rpm_max": 2000,
-    "airflow_cfm": 59.6
+    "airflow_cfm": 59.6,
+    "tdp_w": 250,
+    "noise_db": 34.8,
+    "height_mm": 155
    }
   },
   "https://www.bequiet.com/en/cpucooler/5600": {
    "url": "https://www.bequiet.com/en/cpucooler/5600",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK042",
@@ -2640,6 +3531,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock Pro 3 Black",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2651,12 +3544,15 @@
      "AM4"
     ],
     "fan_rpm_max": 2000,
-    "airflow_cfm": 59.6
+    "airflow_cfm": 59.6,
+    "tdp_w": 250,
+    "noise_db": 34.8,
+    "height_mm": 155
    }
   },
   "https://www.bequiet.com/en/cpucooler/5601": {
    "url": "https://www.bequiet.com/en/cpucooler/5601",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK043",
@@ -2666,6 +3562,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Rock Pro 3 LX",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2677,12 +3575,15 @@
      "AM4"
     ],
     "fan_rpm_max": 2000,
-    "airflow_cfm": 61.8
+    "airflow_cfm": 61.8,
+    "tdp_w": 250,
+    "noise_db": 34.8,
+    "height_mm": 155
    }
   },
   "https://www.bequiet.com/en/cpucooler/570": {
    "url": "https://www.bequiet.com/en/cpucooler/570",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK002",
@@ -2692,6 +3593,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Shadow Rock LP",
+    "color": "Silver",
     "sockets": [
      "LGA1700",
      "LGA1200",
@@ -2704,12 +3607,15 @@
     ],
     "fan_size_mm": 120,
     "fan_rpm_max": 1500,
-    "airflow_cfm": 51.4
+    "airflow_cfm": 51.4,
+    "tdp_w": 130,
+    "noise_db": 25.5,
+    "height_mm": 75
    }
   },
   "https://www.bequiet.com/en/cpucooler/6120": {
    "url": "https://www.bequiet.com/en/cpucooler/6120",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK047",
@@ -2719,6 +3625,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "PURE ROCK SLIM 3",
+    "color": "Silver",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2726,12 +3634,15 @@
      "AM4"
     ],
     "fan_rpm_max": 1700,
-    "airflow_cfm": 35.5
+    "airflow_cfm": 35.5,
+    "tdp_w": 130,
+    "noise_db": 24.8,
+    "height_mm": 127
    }
   },
   "https://www.bequiet.com/en/cpucooler/7322": {
    "url": "https://www.bequiet.com/en/cpucooler/7322",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK048",
@@ -2741,6 +3652,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "DARK ROCK PRO 6",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2751,12 +3664,15 @@
      "AM5",
      "AM4"
     ],
-    "fan_rpm_max": 2000
+    "fan_rpm_max": 2000,
+    "tdp_w": 300,
+    "noise_db": 32.4,
+    "height_mm": 169
    }
   },
   "https://www.bequiet.com/en/cpucooler/7325": {
    "url": "https://www.bequiet.com/en/cpucooler/7325",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "BK046",
@@ -2766,6 +3682,7 @@
    ],
    "names": [],
    "specs": {
+    "model": "DARK ROCK 6",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -2776,12 +3693,14 @@
      "AM5",
      "AM4"
     ],
-    "fan_rpm_max": 2000
+    "fan_rpm_max": 2000,
+    "tdp_w": 220,
+    "noise_db": 31.1
    }
   },
   "https://www.bequiet.com/en/powersupply/1553": {
    "url": "https://www.bequiet.com/en/powersupply/1553",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BN239",
@@ -2806,7 +3725,7 @@
   },
   "https://www.bequiet.com/en/powersupply/2309": {
    "url": "https://www.bequiet.com/en/powersupply/2309",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BN321",
@@ -2831,7 +3750,7 @@
   },
   "https://www.bequiet.com/en/powersupply/2314": {
    "url": "https://www.bequiet.com/en/powersupply/2314",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BN323",
@@ -2856,7 +3775,7 @@
   },
   "https://www.bequiet.com/en/powersupply/4393": {
    "url": "https://www.bequiet.com/en/powersupply/4393",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BN332",
@@ -2880,7 +3799,7 @@
   },
   "https://www.bequiet.com/en/powersupply/4394": {
    "url": "https://www.bequiet.com/en/powersupply/4394",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BN331",
@@ -2904,7 +3823,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5250": {
    "url": "https://www.bequiet.com/en/powersupply/5250",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP001EU",
@@ -2929,7 +3848,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5251": {
    "url": "https://www.bequiet.com/en/powersupply/5251",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP002EU",
@@ -2954,7 +3873,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5252": {
    "url": "https://www.bequiet.com/en/powersupply/5252",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP003EU",
@@ -2979,7 +3898,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5253": {
    "url": "https://www.bequiet.com/en/powersupply/5253",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP004EU",
@@ -3004,7 +3923,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5254": {
    "url": "https://www.bequiet.com/en/powersupply/5254",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP005EU",
@@ -3029,7 +3948,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5583": {
    "url": "https://www.bequiet.com/en/powersupply/5583",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP008EU",
@@ -3055,7 +3974,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5584": {
    "url": "https://www.bequiet.com/en/powersupply/5584",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP007EU",
@@ -3081,7 +4000,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5585": {
    "url": "https://www.bequiet.com/en/powersupply/5585",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP006EU",
@@ -3107,7 +4026,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5788": {
    "url": "https://www.bequiet.com/en/powersupply/5788",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP021EU",
@@ -3133,7 +4052,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5789": {
    "url": "https://www.bequiet.com/en/powersupply/5789",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP020EU",
@@ -3159,7 +4078,7 @@
   },
   "https://www.bequiet.com/en/powersupply/5790": {
    "url": "https://www.bequiet.com/en/powersupply/5790",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP019EU",
@@ -3185,7 +4104,7 @@
   },
   "https://www.bequiet.com/en/powersupply/6004": {
    "url": "https://www.bequiet.com/en/powersupply/6004",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP023EU",
@@ -3209,7 +4128,7 @@
   },
   "https://www.bequiet.com/en/powersupply/6005": {
    "url": "https://www.bequiet.com/en/powersupply/6005",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP022EU",
@@ -3233,7 +4152,7 @@
   },
   "https://www.bequiet.com/en/powersupply/6013": {
    "url": "https://www.bequiet.com/en/powersupply/6013",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "BP030EU",
@@ -3259,7 +4178,7 @@
   },
   "https://www.bequiet.com/en/watercooler/5183": {
    "url": "https://www.bequiet.com/en/watercooler/5183",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW020",
@@ -3269,6 +4188,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop 240mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3283,12 +4204,19 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 34.9
+    "noise_db": 34.9,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/5184": {
    "url": "https://www.bequiet.com/en/watercooler/5184",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW022",
@@ -3298,6 +4226,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop 360mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3312,12 +4242,19 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 36.8
+    "noise_db": 36.8,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/5185": {
    "url": "https://www.bequiet.com/en/watercooler/5185",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW021",
@@ -3327,6 +4264,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop 240mm White",
+    "color": "White",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3341,12 +4280,19 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 34.9
+    "noise_db": 34.9,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/5186": {
    "url": "https://www.bequiet.com/en/watercooler/5186",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW023",
@@ -3356,6 +4302,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop 360mm White",
+    "color": "White",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3370,12 +4318,19 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 36.8
+    "noise_db": 36.8,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/5397": {
    "url": "https://www.bequiet.com/en/watercooler/5397",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW026",
@@ -3385,6 +4340,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Loop 3 420mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3399,12 +4356,19 @@
     "radiator_size_mm": 420,
     "fan_rpm_max": 1900,
     "airflow_cfm": 78.4,
-    "noise_db": 34.3
+    "noise_db": 34.3,
+    "fan_count": 3,
+    "radiator_length_mm": 457,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/5398": {
    "url": "https://www.bequiet.com/en/watercooler/5398",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW025",
@@ -3414,6 +4378,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Loop 3 360mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3428,12 +4394,19 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2500,
     "airflow_cfm": 767.0,
-    "noise_db": 38.8
+    "noise_db": 38.8,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/5399": {
    "url": "https://www.bequiet.com/en/watercooler/5399",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW024",
@@ -3443,6 +4416,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Silent Loop 3 240mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3457,12 +4432,19 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2500,
     "airflow_cfm": 767.0,
-    "noise_db": 36.9
+    "noise_db": 36.9,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/6137": {
    "url": "https://www.bequiet.com/en/watercooler/6137",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW027EU",
@@ -3472,6 +4454,7 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Loop 3 | 240mm",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3486,12 +4469,18 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2100,
     "airflow_cfm": 59.6,
-    "noise_db": 35.2
+    "noise_db": 35.2,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/6138": {
    "url": "https://www.bequiet.com/en/watercooler/6138",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW028EU",
@@ -3501,6 +4490,7 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Loop 3 | 280mm",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3515,12 +4505,18 @@
     "radiator_size_mm": 280,
     "fan_rpm_max": 1800,
     "airflow_cfm": 72.2,
-    "noise_db": 36.6
+    "noise_db": 36.6,
+    "fan_count": 2,
+    "radiator_length_mm": 317,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/6139": {
    "url": "https://www.bequiet.com/en/watercooler/6139",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW029EU",
@@ -3530,6 +4526,7 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Loop 3 | 360mm",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3544,12 +4541,18 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2100,
     "airflow_cfm": 59.6,
-    "noise_db": 37.2
+    "noise_db": 37.2,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/6140": {
    "url": "https://www.bequiet.com/en/watercooler/6140",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW030EU",
@@ -3559,6 +4562,7 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Loop 3 LX 240mm",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3573,12 +4577,18 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 35.0
+    "noise_db": 35.0,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/6141": {
    "url": "https://www.bequiet.com/en/watercooler/6141",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW031EU",
@@ -3588,6 +4598,7 @@
    ],
    "names": [],
    "specs": {
+    "model": "Pure Loop 3 LX 360mm",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3602,12 +4613,18 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 36.9
+    "noise_db": 36.9,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://www.bequiet.com/en/watercooler/6735": {
    "url": "https://www.bequiet.com/en/watercooler/6735",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW032",
@@ -3617,6 +4634,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "LIGHT LOOP IO LCD | 360mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3631,12 +4650,15 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 36.8
+    "noise_db": 36.8,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27
    }
   },
   "https://www.bequiet.com/en/watercooler/6736": {
    "url": "https://www.bequiet.com/en/watercooler/6736",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW033",
@@ -3646,6 +4668,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop IO LCD | 360mm White",
+    "color": "White",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3660,12 +4684,15 @@
     "radiator_size_mm": 360,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 36.8
+    "noise_db": 36.8,
+    "fan_count": 3,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27
    }
   },
   "https://www.bequiet.com/en/watercooler/6737": {
    "url": "https://www.bequiet.com/en/watercooler/6737",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW034",
@@ -3675,6 +4702,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop IO LCD | 240mm",
+    "color": "Black",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3689,12 +4718,15 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 34.9
+    "noise_db": 34.9,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27
    }
   },
   "https://www.bequiet.com/en/watercooler/6738": {
    "url": "https://www.bequiet.com/en/watercooler/6738",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "BW035",
@@ -3704,6 +4736,8 @@
    ],
    "names": [],
    "specs": {
+    "model": "Light Loop IO LCD | 240mm White",
+    "color": "White",
     "sockets": [
      "LGA1851",
      "LGA1700",
@@ -3718,7 +4752,10 @@
     "radiator_size_mm": 240,
     "fan_rpm_max": 2100,
     "airflow_cfm": 61.8,
-    "noise_db": 34.9
+    "noise_db": 34.9,
+    "fan_count": 2,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27
    }
   }
  }

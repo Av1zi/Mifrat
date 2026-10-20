@@ -10,6 +10,7 @@ payload, below the PCPartPicker reference rows and `data/specs/overrides.json`).
 python -m scraper.mfr --list
 python -m scraper.mfr corsair --dry-run     # match catalog products to pages, fetch nothing
 python -m scraper.mfr corsair               # fetch (cached 7 days), parse, write data/mfr/corsair.json
+python -m scraper.mfr corsair --offline     # re-parse the cached pages only (any age), no network
 python scripts/fill_report.py               # measure
 ```
 
@@ -65,6 +66,32 @@ Catalog share = products carrying that manufacturer name (3,821 products total).
 | Noctua | 96 | **fail (re-checked)** | the product page is a 2 MB Next.js payload without the performance table; the numbers come from `/api/`, which robots.txt disallows. |
 | Seasonic | 41 | **skip** | one page per SERIES with several wattages side by side (same problem as Cooler Master PSUs): a wrong-wattage row would outrank the retailer's right one. |
 | SilverStone, FSP | 24 / 33 PSU | **not evaluated** | long tail; robots allow, but sitemaps are huge / php listings and each is <35 products. |
+
+### Round 3: every field the pages print (re-parsed 2026-10-20)
+
+No new brands and no new hosts: the eight built fetchers re-parse their pages
+for every schema field the page states (`python -m scraper.mfr <brand> --offline`
+re-parses the cache without touching the network). Measured with
+`scripts/fill_report.py` on the same catalog: overall fill 69.2% -> 71.0%,
++1,471 cells, no previously filled cell lost except three that came from a
+wrong join (below).
+
+| Brand | Verdict | Now read | Pages do not print (stays null) |
+| :--- | :--- | :--- | :--- |
+| Antec | **built, extended** | case fan mounts per position, radiator sizes, 3.5"/2.5" bays (separate rows only), lighting (bundled ARGB/RGB fans); PSU connector list (24-pin, EPS, PCIe 6+2/6-pin/8-pin, 12V-2x6, 12VHPWR, SATA, Molex), length, model, colour; AIO radiator length/thickness, connectors, fan rpm/noise from the *Fan* block (the pump's speed was read before); air coolers (rpm, airflow, noise, fan size, TDP, height, lighting); fan PWM. **Joins:** the UPC regex expected 1-5-5-1 digits but Antec prints 0-761345-11647-3, and a rowspan "UPC#" list was read only to its first row - 259 entries gained barcodes. A slug with an `-atx3` revision next to it (ne850-platinum / ne850-platinum-atx3-1) is no longer a part-number key: the retail code names both revisions | case volume, case/AIO colour, combined "3.5\" / 2.5\"" bay rows (combo vs dedicated not said) |
+| Corsair | **built, extended** | fan rpm_min (a "±10%" was read as the minimum), static pressure ("mm-H2O" was read as 2.0 on 32 pages), fan quantity (title pack word, or Package Quantity >= 2), case fan positions incl. "None" -> "No", radiator compatibility row, drive bays, lighting, colour; AIO radiator length (Product Length, 1.0-1.25x the size class), colour; PSU length, ATX "v2.4", cable-table connector counts (5 pages); memory lighting and colour. A colour row that contradicts the page title is dropped (the white 2800X page says BLACK) | fan connector, AIO thickness/connectors, PSU PCIe counts on pages without a cable table, case volume |
+| Cooler Master | **built, extended** | case fan mounts, radiator sizes (sizes written "280mm" were missed), volume, weight, bays, clearances (alt labels), lighting; every part number / UPC / EAN in the product-number rows (comma lists were joined into one junk key). **AIO series pages** ("360: 394 x 119.6 x 27.2 mm", "(240 LCD Black) MLX-...") are split into one block per radiator size joined on that size's part numbers - the old parse gave a 240 product the 360's radiator; airflow is the CFM figure, not m³/h; connectors | air-cooler TDP |
+| ASUS (boards) | **built, extended** | memory speeds (incl. "(O.C.)" lists), physical x16 / x1 slot counts incl. 0, slot kinds, storage interfaces, RAID, audio codec, rear USB ports, Thunderbolt count (0 only when the page names no Thunderbolt / USB4 / 40Gbps port), ECC on any memory line | board lighting (only RGB headers are listed), colour |
+| be quiet! | **built, extended** | case fan mounts and radiator sizes (the repeated "Top / Front (mm)" block), expansion slots, GPU length (HDD cage removed), drive bays (max.), lighting (positive only: "LED illumination: -" ignores bundled ARGB fans), model and colour; fan LED; cooler TDP, noise, height (taller of the two dimension rows); AIO radiator dimensions, fan count, connectors | fan min rpm (only 100% PWM is printed) |
+| Lian Li | **built, extended** | case fan mounts per position, radiator sizes (thickness footnotes excluded), alternate clearance / slot / I/O labels, volume, weight, lighting, model; PSU connector lists, length, model, ATX version | multi-spot drive descriptions (mounts shared between sizes, no total stated) |
+| NZXT | **built, extended** | case fan mounts, volume; AIO fan rpm, airflow, noise, radiator length/thickness, fan count ("3 fans in one frame"), connectors | radiator rows written "Up to N mm" (a partial list would outrank the retailer's full one) |
+| Thermalright | **built, extended** | AIO connectors; cooling_other height, fan size, rpm, noise | fan min rpm, TDP |
+
+Values that say a position takes no fan ("None", "N/A", "-") are stored as
+"No" (values.coerce reads "None" as unknown, as for lighting). A PSU's full
+connector list states the PCIe kinds it lacks, so those are 0; 12V-2x6 and
+12VHPWR are never zeroed against each other (retailers file one under the
+other's name).
 
 ## Adding a brand
 
