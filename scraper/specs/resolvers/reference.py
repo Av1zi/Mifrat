@@ -34,7 +34,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from .. import schema
-from ..merge import TIER_OVERRIDE, TIER_REFERENCE, Fact, add_fact
+from ..merge import (TIER_OVERRIDE, TIER_REFERENCE, TIER_REFERENCE_FUZZY, Fact,
+                     add_fact)
 from ..values import InvalidValue, coerce
 
 SOURCE_REFERENCE = "reference:pcpartdb"
@@ -113,8 +114,13 @@ IDENTITY_FIELDS: dict[str, tuple[str, ...]] = {
 _RESIDUAL_STRIP_RE = re.compile(
     r"\b\d+(?:\.\d+)?\s?(?:tb|gb|mb|w)\b"
     r"|\b\d+\s?x\s?\d+\s?gb\b|\bcl\s?\d+\b|\b\d{4,5}\s?(?:mhz|mt/s)\b"
-    r"|\b80\s?\+\s?(?:plus\s*)?(?:white|bronze|silver|gold|platinum|titanium)\b"
-    r"|\bddr[345]\b|\bnvme\b|\bm\.?2\b|\bsata\b|\bssd\b|\bhdd\b|\bdrive\b"
+    # 80 PLUS ratings; the query is already _norm_text'ed, so '80+' reaches
+    # this as a bare '80' (the old '\+' alternative never matched).
+    r"|\b80\s?\+?\s?(?:plus\s*)?(?:white|bronze|silver|gold|platinum|titanium)\b"
+    r"|\b80\s?(?:\+|plus)?(?!\w)"
+    r"|\bddr[345]\b|\bnvme\b|\bm\.?\s?2\b|\bsata\b|\bssd\b|\bhdd\b|\bdrive\b"
+    # interface generations ('PCIe 4.0' reaches here as 'pcie 4 0')
+    r"|\bpcie\s?\d(?:\s\d)?\b|\bgen\s?\d(?:\s?x\s?\d)?\b|\bx[1-9]6?\b"
     r"|\bgeforce\b|\brtx\b|\bgtx\b|\bradeon\b|\barc\b|\brx\b|\br\d{1,2}\b"
     r"|\bti\b|\bxtx?\b|\bsuper\b|\bintel\b|\bamd\b|\bcore\b|\bryzen\b",
     re.I,
@@ -217,16 +223,113 @@ _GENERIC_TOKENS = frozenset({
     "tower", "gen", "express", "usb", "type", "lan", "card", "graphics",
     "internal", "original", "official", "warranty", "importer", "new",
     "core", "color", "e", "s", "a", "b", "c", "g", "m", "x", "v2", "v3",
+    # colour words (variant, not model) and their reseller abbreviations
+    "silver", "gray", "grey", "red", "blue", "green", "yellow", "pink",
+    "wh", "bk", "pwm", "fan", "fans", "pack", "retail", "single",
+    "processor", "cooler", "liquid", "aio", "cpu",
+    "bronze", "gold", "platinum", "titanium", "atx3", "pcie5",
+    # pack / kit / colourway words: same fan, different box or finish
+    "starter", "expansion", "kit", "node", "dual", "light", "lighting",
+    "chromax", "brown", "beige", "3pin", "4pin", "pcs",
 })
+
+# Physical / pack-size tokens a reseller name carries that the dataset names
+# keep elsewhere (in specs) or not at all: '240mm', 'x3', '3 pack'.
+_PHYSICAL_TOKEN_RE = re.compile(
+    r"\b\d+(?:\.\d+)?\s?(?:mm|cm|rpm|cfm|dba?|v)\b|\bx\s?\d\b|\b\d\s?x\b"
+    r"|\b\d\s?pack\b|\b\d+\s?pcs?\b"
+    # decimals arrive normalized: '57.93CFM' -> '57 93cfm'
+    r"|\b\d+\s\d+\s?(?:mm|cfm|dba?|v)\b",
+    re.I,
+)
+
+
+def _model_tokens(text: str) -> list[str]:
+    """Normalized tokens with one-letter variant suffixes glued back on.
+
+    _norm_text turns 'X870E-A' into 'x870e a' and the lone 'a' is too short
+    to count, so 'ROG Strix X870E-A' matched the 'X870E-E' row. A single
+    letter right after a digit-bearing token is that model's suffix:
+    'x870e a' -> 'x870ea', 'b550m k' -> 'b550mk', 'lx120 r' -> 'lx120r'.
+    """
+    words = _norm_text(text).split()
+    out: list[str] = []
+    i = 0
+    while i < len(words):
+        word = words[i]
+        if (i + 1 < len(words) and re.search(r"\d", word)
+                and re.fullmatch(r"[a-z]", words[i + 1])):
+            out.append(word + words[i + 1])
+            i += 2
+            continue
+        out.append(word)
+        i += 1
+    return out
+
+
+def _token_set(text: str) -> set[str]:
+    """Plain AND suffix-glued tokens (for 'does the other side contain it')."""
+    return set(_norm_text(text).split()) | set(_model_tokens(text))
 
 
 def _distinctive_tokens(text: str) -> set[str]:
-    """Non-brand, non-generic tokens a matching row name must contain."""
-    tokens = [t for t in _norm_text(text).split() if len(t) >= 2]
+    """Non-brand, non-generic tokens a matching row name must contain.
+
+    Bare digits count ('Pure Loop 3' vs 'Pure Loop 2' differ only there);
+    physical sizes do not ('240mm' is a spec, the row may name it '240').
+    """
+    text = _PHYSICAL_TOKEN_RE.sub(" ", _norm_text(text))
+    tokens = [t for t in _model_tokens(text) if len(t) >= 2 or t.isdigit()]
     if not tokens:
         return set()
     return {t for t in tokens[1:]  # tokens[0] is the brand slot
-            if t not in _GENERIC_TOKENS and t not in _BRAND_ALIASES}
+            if t not in _GENERIC_TOKENS and t not in _BRAND_ALIASES
+            and not _WIFI_GEN_RE.fullmatch(t)}
+
+
+# 'WIFI7' / 'WIFI6E': resellers append the radio generation the dataset row
+# spells as plain 'WIFI' ('MSI MAG B850 TOMAHAWK MAX WIFI' is the WIFI7 board).
+_WIFI_GEN_RE = re.compile(r"wifi\d[a-z]?")
+
+
+def _row_model_tokens_covered(query: str, row: dict) -> bool:
+    """Every digit-bearing token of the row name must appear in our query.
+
+    The reverse of `_distinctive_tokens`: a row 'Corsair SF1000L' or
+    'Antec NE850G M' names a model our 'SF1000' / 'NE850G' is not. Bare
+    numbers are satisfied by any number in the query ('Silent Loop 2 240'
+    vs our '... 240mm').
+    """
+    query_norm = _norm_text(query)
+    query_tokens = _token_set(query)
+    query_numbers = set(re.findall(r"\d+", query_norm))
+    for token in _model_tokens(row.get("name") or "")[1:]:
+        if not re.search(r"\d", token) or token in query_tokens:
+            continue
+        if token.isdigit() and token in query_numbers:
+            continue
+        return False
+    return True
+
+
+def fuzzy_row_plausible(category: str, query: str, known: dict, row: dict) -> bool:
+    """Name gate for the fuzzy step (Oct 2026 audit: 553 of 607 fuzzy links
+    disagreed with our own data, e.g. the white 'Antec CSK 750 DC' linked to
+    PCPartPicker's plain 'Antec CSK', a Corsair AIO to 'OcUK 240mm Extreme').
+
+    token_set_ratio scores 100 whenever one name is a token subset of the
+    other, so the score alone cannot tell a product from its sibling. A row
+    passes only when the brand agrees, it contains every distinctive model
+    token of ours, and we contain every model number it names.
+    """
+    query_norm = _norm_text(query)
+    if not _brand_agrees(query_norm, row):
+        return False
+    row_tokens = _token_set(row.get("name") or "")
+    residual = _residual_query(category, query, known)
+    if not _distinctive_tokens(residual) <= row_tokens:
+        return False
+    return _row_model_tokens_covered(residual, row)
 
 
 def _brand_tokens(text: str) -> set[str]:
@@ -290,8 +393,9 @@ def _identity_join(category: str, query: str, specs: dict, anchors):
     for row in rows:
         if not _brand_agrees(residual, row):
             continue
-        name = _norm_text(row.get("name") or "")
-        if not distinctive <= set(name.split()):
+        if not distinctive <= _token_set(row.get("name") or ""):
+            continue
+        if not _row_model_tokens_covered(residual, row):
             continue
         score = module._score(_norm_text(residual), row)
         if score < 88.0:
@@ -535,6 +639,8 @@ def match_reference_row(category: str | None, query: str, known: dict):
                                      threshold=threshold, limit=4)
     viable: list[tuple[float, dict]] = []
     for score, row in candidates:
+        if not fuzzy_row_plausible(category, query, known, row):
+            continue
         agrees, contradicts = _anchor_check(category, anchors, row)
         if contradicts or not agrees:
             continue
@@ -559,9 +665,23 @@ def match_reference_row(category: str | None, query: str, known: dict):
     return best_row, best_score, "fuzzy+anchor"
 
 
+# Fields that tell sibling SKUs of one family apart (same name in the dataset,
+# different product on the shelf). From the Oct 2026 audit of fuzzy links.
+_FUZZY_VARIANT_FIELDS = frozenset({"color", "efficiency", "modular", "lighting", "led"})
+
+
 def reference_facts(category: str | None, row: dict,
-                    confidence: float = 1.0) -> dict[str, list[Fact]]:
-    """Coerce a reference row's specs into Tier-0 facts."""
+                    confidence: float = 1.0,
+                    method: str | None = "exact-name") -> dict[str, list[Fact]]:
+    """Coerce a reference row's specs into facts.
+
+    An exact-name link is authoritative (Tier 0) for every field. A row found
+    by name similarity keeps Tier 0 for spec precision (M.2-2280 over M.2)
+    but not for the VARIANT fields a sibling SKU differs in: those only fill
+    gaps below the title (the dataset lists one colour per name, so a fuzzy
+    'Antec CSK' row turned a white unit black).
+    """
+    exact = method == "exact-name"
     facts: dict[str, list[Fact]] = {}
     for key, value in (row.get("specs") or {}).items():
         field = schema.field_map(category).get(key) or schema.field_for_key(category, key)
@@ -571,7 +691,9 @@ def reference_facts(category: str | None, row: dict,
             typed = coerce(field, value, category)
         except InvalidValue:
             continue
-        add_fact(facts, field.name, Fact(value=typed, tier=TIER_REFERENCE,
+        tier = (TIER_REFERENCE if exact or field.name not in _FUZZY_VARIANT_FIELDS
+                else TIER_REFERENCE_FUZZY)
+        add_fact(facts, field.name, Fact(value=typed, tier=tier,
                                          source=SOURCE_REFERENCE,
                                          confidence=confidence))
     return facts

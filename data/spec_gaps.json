@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-18T18:46:51.147048+00:00",
+  "generated_at": "2026-10-20T18:38:49.171172+00:00",
   "gaps": [
     {
       "category": "motherboard",
       "label": "Spec / Specifications / Graphic connection",
-      "count": 69,
+      "count": 70,
       "products": [
         "mpn:motherboard:90mb1ds0m1eay0",
         "mpn:motherboard:90mb1fv0m0eay0",
@@ -54,7 +54,7 @@
     {
       "category": "motherboard",
       "label": "מפרט",
-      "count": 28,
+      "count": 27,
       "products": [
         "motherboard:1pc:1pc-128729",
         "motherboard:1pc:1pc-203138",
@@ -122,16 +122,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "הספק תרמי מירבי",
-      "count": 16,
-      "products": [
-        "aio:tms:tms-1009115",
-        "mpn:aio:0761345740432",
-        "mpn:aio:cw9060079ww"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "מהירות זכרון נתמכת",
       "count": 16,
@@ -142,9 +132,19 @@
       ]
     },
     {
+      "category": "aio",
+      "label": "הספק תרמי מירבי",
+      "count": 15,
+      "products": [
+        "aio:tms:tms-1009115",
+        "mpn:aio:0761345740432",
+        "mpn:aio:cw9060079ww"
+      ]
+    },
+    {
       "category": "case",
       "label": "Spec / Specifications / SKU",
-      "count": 16,
+      "count": 15,
       "products": [
         "mpn:case:4711377231565",
         "mpn:case:4711377231572",
@@ -206,9 +206,9 @@
       "label": "מהירות קריאה אקראית",
       "count": 14,
       "products": [
+        "mpn:storage:bl9bwwa107",
         "mpn:storage:bl9bwwa119",
-        "mpn:storage:lsd10z002tg8",
-        "mpn:storage:ltc10z480gg8"
+        "mpn:storage:lsd10z002tg8"
       ]
     },
     {
@@ -216,9 +216,9 @@
       "label": "מהירות כתיבה אקראית",
       "count": 14,
       "products": [
+        "mpn:storage:bl9bwwa107",
         "mpn:storage:bl9bwwa119",
-        "mpn:storage:lsd10z002tg8",
-        "mpn:storage:ltc10z480gg8"
+        "mpn:storage:lsd10z002tg8"
       ]
     },
     {
@@ -289,6 +289,16 @@
         "case:1pc:1pc-215453",
         "mpn:case:b4w",
         "mpn:case:b4wwd"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 10,
+      "products": [
+        "mpn:memory:cp16g64c32u5w",
+        "mpn:memory:ct32g56c46u5",
+        "mpn:memory:f43600c16d32gvkc"
       ]
     },
     {
@@ -399,16 +409,6 @@
         "mpn:case_fan:0761345740456",
         "mpn:case_fan:12tl1w1b",
         "mpn:case_fan:c120argb3pk"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 8,
-      "products": [
-        "mpn:memory:ct32g56c46u5",
-        "mpn:memory:f43600c16d32gvkc",
-        "mpn:memory:f43600c18d32gvk"
       ]
     },
     {
@@ -709,16 +709,6 @@
         "model:cpu:coreultra5245-tray",
         "model:cpu:coreultra5245k-tray",
         "model:cpu:coreultra7265f-tray"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מעבד",
-      "count": 5,
-      "products": [
-        "motherboard:1pc:1pc-203138",
-        "mpn:motherboard:90mb1gc0m0eay0",
-        "mpn:motherboard:90mb1h60m0eay0"
       ]
     },
     {
@@ -1249,16 +1239,6 @@
         "motherboard:1pc:1pc-222504",
         "motherboard:1pc:1pc-222507",
         "motherboard:1pc:1pc-222509"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "סדרות מעבדים תואמות",
-      "count": 3,
-      "products": [
-        "motherboard:1pc:1pc-222504",
-        "motherboard:1pc:1pc-222509",
-        "motherboard:1pc:1pc-222536"
       ]
     },
     {
@@ -5401,54 +5381,6 @@
       "count": 1,
       "products": [
         "psu:1pc:1pc-221408"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "תושבת מעבד (Socket)",
-      "count": 1,
-      "products": [
-        "storage:1pc:1pc-182687"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "חיבור",
-      "count": 1,
-      "products": [
-        "storage:1pc:1pc-182687"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "טמפרטורה",
-      "count": 1,
-      "products": [
-        "storage:1pc:1pc-182687"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "זעזועים",
-      "count": 1,
-      "products": [
-        "storage:1pc:1pc-182687"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "רעידות",
-      "count": 1,
-      "products": [
-        "storage:1pc:1pc-182687"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מידדים",
-      "count": 1,
-      "products": [
-        "storage:1pc:1pc-182687"
       ]
     },
     {

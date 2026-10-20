@@ -177,7 +177,7 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         if reference_row is not None:
             confidence = min(1.0, float(score or 0) / 100.0)
             for key, value in reference.reference_facts(
-                    category, reference_row, confidence).items():
+                    category, reference_row, confidence, method).items():
                 facts.setdefault(key, []).extend(value)
         for key, value in _pckombo_facts(category, product.get("pckombo") or {}).items():
             facts.setdefault(key, []).extend(value)

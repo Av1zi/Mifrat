@@ -74,7 +74,7 @@ function tableMarkup(items: Product[], category: string, lang: Lang, currency: C
         ${shown
           .filter((row) => row.group === group)
           .map(
-            (row) => html`<tr class="${row.differs ? "is-diff" : ""}"><th scope="row">${attributeLabel(row.field, lang)}</th>${items.map((p) => html`<td>${specCell(specValue(p, row.field), lang)}</td>`)}</tr>`
+            (row) => html`<tr class="${row.differs ? "is-diff" : ""}"><th scope="row">${attributeLabel(row.field, lang, category)}</th>${items.map((p) => html`<td>${specCell(specValue(p, row.field), lang)}</td>`)}</tr>`
           )}`
       )}
     </tbody>

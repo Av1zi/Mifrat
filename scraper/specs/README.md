@@ -102,7 +102,16 @@ Specs are only as good as the product -> reference-row link. Strictest first:
 2. fuzzy name match at a per-category threshold **plus a hard anchor check** —
    at least one structured field parsed from our own data must equal the
    candidate's, and the candidate must not contradict another anchored field.
+   The name must also pass `reference.fuzzy_row_plausible`: same brand, every
+   distinctive model token of ours in the row, every model number of the row
+   in ours (token-subset scores of 100 otherwise linked "Antec CSK DC" to
+   "Antec CSK"). Variant fields (colour, efficiency, modular, lighting) from a
+   non-exact link rank below the title (`merge.TIER_REFERENCE_FUZZY`).
 3. ambiguity/tie -> no Tier-0 match. Wrong specs are worse than null specs.
+
+Audit the links after changing any of this:
+`python scripts/audit_reference_matches.py` (runs the normalize in memory,
+writes `tmp/reference_audit.json`).
 
 Two same-name rows that differ in a field (colour/CAS twins) are intersected:
 only the fields **every** row agrees on are used.

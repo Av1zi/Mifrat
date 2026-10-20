@@ -33,7 +33,7 @@ export function activeFilterChips(ctx: CategoryCtx): Html {
     // Compat-applied values stay locked until the compat filter is turned off.
     const locked = ctx.compatOn && ctx.compatAutoKeys.has(key);
     for (const value of values) {
-      const label = html`${attributeLabel(key, lang)}: ${key === "vendor" ? vendorLabel(value) : value}`;
+      const label = html`${attributeLabel(key, lang, ctx.category)}: ${key === "vendor" ? vendorLabel(value) : value}`;
       chips.push(
         locked
           ? chip(label, { tone: "brand", locked: true, title: t(lang, "compatLocked") })
@@ -49,7 +49,7 @@ export function activeFilterChips(ctx: CategoryCtx): Html {
         : range.min !== null
           ? `${t(lang, "min")}: ${range.min}`
           : `${t(lang, "max")}: ${range.max}`;
-    chips.push(chip(html`${attributeLabel(key, lang)}: ${text}`, { tone: "brand", removable: true, data: { "range-key": key } }));
+    chips.push(chip(html`${attributeLabel(key, lang, ctx.category)}: ${text}`, { tone: "brand", removable: true, data: { "range-key": key } }));
   }
   if (chips.length === 0) return html``;
   return html`${chips}${button({ label: t(lang, "clearFilters"), variant: "ghost", size: "sm", data: { role: "clear-all" } })}`;
@@ -113,7 +113,7 @@ function rangeMarkup(ctx: CategoryCtx, key: string, range: Range): Html {
   const step = key === "price" ? Math.max(1, Math.floor(span / 100)) : key.includes("ghz") || key.includes("clock") ? 0.1 : 1;
   const lo = ctx.params.ranges[key]?.min ?? range.min;
   const hi = ctx.params.ranges[key]?.max ?? range.max;
-  const label = key === "price" ? t(ctx.lang, "priceRange") : attributeLabel(key, ctx.lang);
+  const label = key === "price" ? t(ctx.lang, "priceRange") : attributeLabel(key, ctx.lang, ctx.category);
   const minAria = key === "price" ? t(ctx.lang, "priceMinAria") : `${label} ${t(ctx.lang, "min")}`;
   const maxAria = key === "price" ? t(ctx.lang, "priceMaxAria") : `${label} ${t(ctx.lang, "max")}`;
   const edge = (n: number): string => (key === "price" ? formatPrice(n, ctx.currency, ctx.lang) : String(n));
@@ -134,7 +134,7 @@ function rangeMarkup(ctx: CategoryCtx, key: string, range: Range): Html {
 function checkGroup(ctx: CategoryCtx, good: Map<string, Set<string>>, key: string, values: OptionCounts, open: boolean): Html {
   const shown = values.slice(0, OPTIONS_SHOWN);
   const extra = values.slice(OPTIONS_SHOWN);
-  const label = key === "vendor" ? t(ctx.lang, "merchantsTitle") : attributeLabel(key, ctx.lang);
+  const label = key === "vendor" ? t(ctx.lang, "merchantsTitle") : attributeLabel(key, ctx.lang, ctx.category);
   const body = html`${shown.map(([v, n]) => optionMarkup(ctx, good, key, v, n))}
     ${extra.length > 0
       ? html`<div data-extra hidden>${extra.map(([v, n]) => optionMarkup(ctx, good, key, v, n))}</div>
@@ -163,7 +163,7 @@ export function filtersMarkup(ctx: CategoryCtx): Html {
 
   for (const [key, range] of ctx.ranges) {
     if (key === "price" || range.min === range.max) continue;
-    sections.push(group(attributeLabel(key, ctx.lang), rangeMarkup(ctx, key, range), false, ctx.params.ranges[key] ? 1 : 0));
+    sections.push(group(attributeLabel(key, ctx.lang, ctx.category), rangeMarkup(ctx, key, range), false, ctx.params.ranges[key] ? 1 : 0));
   }
 
   for (const [key, values] of ctx.filterable) {

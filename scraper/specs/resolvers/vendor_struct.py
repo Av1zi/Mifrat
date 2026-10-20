@@ -1967,9 +1967,14 @@ _MODEL_NOISE_RE = re.compile(
     r"5400|7200|10000|15000|"
     r"BLACK|WHITE|SILVER|GREY|GRAY|RED|BLUE|PINK|RGB|ARGB|"
     r"ATX|MATX|MICRO|MINI|ITX|DDR\d|80\+?|PLUS|BRONZE|GOLD|PLATINUM|"
-    r"TEMPERED|GLASS|ONLY|KIT|PACK|OF|UNKNOWN|OEM)\b",
+    r"TEMPERED|GLASS|ONLY|KIT|PACK|OF|UNKNOWN|OEM|PSU)\b",
     re.I,
 )
+_HEBREW_RE = re.compile(r"[֐-׿][֐-׿\"'״׳]*")
+# '80+' / '80 PLUS': the noise pattern's trailing \b cannot follow a '+', so
+# it used to strip only the '80' and leave a lone '+' behind.
+_EIGHTY_PLUS_RE = re.compile(r"\b80\s?(?:\+|PLUS\b)", re.I)
+_LONE_PUNCT_RE = re.compile(r"(?<!\S)[+\-–—&|:.]+(?!\S)")
 
 
 def _model_from_title(title: str, brand: str | None) -> str | None:
@@ -1982,10 +1987,17 @@ def _model_from_title(title: str, brand: str | None) -> str | None:
     text = re.sub(r"\s+", " ", title or "").strip()
     if not text or text.lower() == "unknown":
         return None
+    # Hebrew is the product-class prefix ("ספק כוח", "לוח אם") or a colour
+    # suffix, never the model, and the brand sits after it - so strip both
+    # anywhere (Oct 2026: ~1,000 products showed "ספק כוח Antec CSK 750 DC +"
+    # as their SKU line).
+    text = _HEBREW_RE.sub(" ", text)
     if brand:
-        text = re.sub(rf"^(?:{re.escape(brand)})\b[\s\-]*", "", text, flags=re.I)
+        text = re.sub(rf"(?<!\w){re.escape(brand)}(?!\w)", " ", text, flags=re.I)
+    text = _EIGHTY_PLUS_RE.sub(" ", text)
     text = _MODEL_NOISE_RE.sub(" ", text)
     text = re.sub(r"[()\[\],/\"”″]+", " ", text)
+    text = _LONE_PUNCT_RE.sub(" ", text)
     text = re.sub(r"\s+", " ", text).strip(" -")
     if not (3 <= len(text) <= 40) or not re.search(r"\d", text):
         return None

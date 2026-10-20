@@ -56,10 +56,10 @@ export function pickColumns(products: Product[], category: string): string[] {
 export function chipText(product: Product, field: string, lang: Lang): string {
   const value = specValue(product, field);
   if (value === null || value === undefined) return "";
-  if (typeof value === "boolean") return value ? attributeLabel(field, lang) : "";
+  if (typeof value === "boolean") return value ? attributeLabel(field, lang, product.category) : "";
   if (typeof value === "number") {
     const unit = specUnit(field);
-    return unit ? `${value} ${unit}` : `${attributeLabel(field, lang)} ${value}`;
+    return unit ? `${value} ${unit}` : `${attributeLabel(field, lang, product.category)} ${value}`;
   }
   return formatSpecValue(value, lang);
 }

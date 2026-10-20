@@ -125,10 +125,6 @@ MFR_VERDICT = {
 }
 
 
-def _is(specs: dict, field: str, *values) -> bool:
-    return specs.get(field) in values
-
-
 # Rules for gaps that are not-applicable beyond the schema's own `applies_to`
 # gates (schema.applies): (category, field) -> predicate(specs) -> True when
 # the field cannot apply. Empty today - the gates live in schema.py.

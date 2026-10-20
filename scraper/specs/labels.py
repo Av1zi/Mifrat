@@ -387,6 +387,10 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "צ'יפסט": "chipset",
         # 216 rows of Hebrew CPU-family prose -> cpu_support parser.
         "תמיכה במעבדים (CPU)": CPU_SUPPORT,
+        # 1PC's Icecat-sourced rows, translated: "סדרת AMD Ryzen 3000",
+        # "AMD Ryzen™ 5000 Series" (same Latin-token parser).
+        "סדרות מעבדים תואמות": CPU_SUPPORT,
+        "מעבד": CPU_SUPPORT,
         # Ivory's generic "ממשק" row on a board names the drive interfaces
         # it exposes ("SATA III 6Gbps", "PCIe Gen 4.0"), not a graphics
         # interface — COMMON_LABELS sends it to `interface`, which no
