@@ -242,11 +242,74 @@ def check_equality_helpers(c: Checks) -> None:
     c.ok(same_value(1000, 1000.0), "int/float spelling compares equal")
 
 
+def check_model_codes(c: Checks) -> None:
+    """Gigabyte model codes: read verbatim, kept only when they spell the
+    listing's own retailer code (matching.manufacturer_model_code), then
+    appended to part_numbers (build.with_model_code)."""
+    from scraper.matching import manufacturer_model_code
+    from scraper.specs.build import with_model_code
+
+    def board(mpn, title, detail=None):
+        return {"brand": "Gigabyte", "category_normalized": "motherboard",
+                "mpn": mpn, "title_raw": title,
+                "vendor_meta": {"detail_specs": detail or {}}}
+
+    c.eq(manufacturer_model_code(board("GA520AORUSE", "Gigabyte A520 AORUS ELITE")),
+         "A520 AORUS ELITE", "TMS G-code abbreviates ELITE")
+    c.eq(manufacturer_model_code(board(
+        "GB760GAMINGXD4GEN5", "לוח אם Gigabyte B760 GAMING X DDR4 GEN5 צבע שחור")),
+         "B760 GAMING X DDR4 GEN5", "DDR4 -> D4, Hebrew stripped")
+    c.eq(manufacturer_model_code(board(
+        "Z890-AORUS-ELITE-WIFI7",
+        "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE WIFI 7 LGA 1851 DDR5 DP ATX")),
+         "Z890 AORUS ELITE WIFI 7", "Yahav title noise after the model is cut")
+    c.eq(manufacturer_model_code(board(
+        "B850AELITEWF7", "לוח אם Gigabyte B850 AORUS ELITE WIFI7 DDR5 ATX AMD",
+        {"דגם": "B850 AORUS ELITE WIFI7"})),
+         "B850 AORUS ELITE WIFI7", "Ivory דגם row spells its code")
+    c.eq(manufacturer_model_code(board(
+        "GB760MDS3HDDR4", "לוח אם Gigabyte B760M DS3H צבע שחור")),
+         None, "a title missing a word of the code yields nothing")
+    c.eq(manufacturer_model_code(board(
+        "GX870AORUSELITEWIFI7", "Gigabyte X870 AORUS ELITE WIFI7 ICE")),
+         None, "a title variant word past the code (ICE) is a disagreement")
+    c.eq(manufacturer_model_code(board(
+        "GX870E-AORUS-XTREME-AI-TOP",
+        "לוח אם חברת Gigabyte דגם X870E Aorus Xtreme AI TOP WiFi 7 ATX DDR5")),
+         "X870E AORUS XTREME AI TOP", "a spelled-out code ignores title marketing")
+    c.eq(manufacturer_model_code(board(
+        "GH610IDDR4", 'לוח אם Gigabyte H610I DDR4 מק"ט GH610IDDR4 בצבע שחור')),
+         "H610I DDR4", "the vendor code printed after the model is not a variant")
+    c.eq(manufacturer_model_code(board(
+        "GB650MS2H", "Gigabyte B650 S2H")),
+         None, "the chipset line must match verbatim (B650 is not B650M)")
+    c.eq(manufacturer_model_code({
+        "brand": "Gigabyte", "category_normalized": "gpu",
+        "mpn": "N5060AEROOC8GD",
+        "title_raw": "Gigabyte GeForce RTX 5060 AERO OC 8G GV-N5060AERO OC-8GD"}),
+         "GV-N5060AERO OC-8GD", "GPU: the printed GV- part number")
+    c.eq(manufacturer_model_code({**board("GA520AORUSE", "ASUS A520 AORUS ELITE"),
+                                  "brand": "ASUS"}),
+         None, "only Gigabyte")
+
+    offers = [{"model_code": "Z890 AORUS ELITE WIFI 7"},
+              {"model_code": "Z890 AORUS ELITE WIFI7"}, {}]
+    c.eq(with_model_code(["GZ890AORUSELITEWIFI7"], offers),
+         ["GZ890AORUSELITEWIFI7", "Z890 AORUS ELITE WIFI7"],
+         "model code appended after the retailer code, fewest separators")
+    c.eq(with_model_code(["Z890-AORUS-ELITE-WIFI7"], offers),
+         ["Z890-AORUS-ELITE-WIFI7"], "no duplicate of an entry spelling it")
+    c.eq(with_model_code(["X"], [{"model_code": "B760M DS3H"},
+                                 {"model_code": "B760M DS3H DDR4"}]),
+         ["X"], "offers disagreeing on the code add nothing")
+
+
 def main() -> int:
     checks = Checks()
     for group in (check_part_number_shape, check_model_prefers_a_name,
                   check_tier_order, check_validation_and_unknowns,
-                  check_curated_tables, check_equality_helpers):
+                  check_curated_tables, check_equality_helpers,
+                  check_model_codes):
         group(checks)
 
     if checks.failures:

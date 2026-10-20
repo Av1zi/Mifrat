@@ -22,6 +22,8 @@ Order inside the product pass matters and is deliberate:
 
 from __future__ import annotations
 
+import re
+
 from . import legacy
 from . import text as text_module
 from .derive import infer_specs
@@ -130,6 +132,35 @@ def _evidence_context(listings: list[dict]) -> dict:
     return {"text": " ".join(chunks), "title": " ".join(titles), "detail_rows": rows}
 
 
+def _compact(value) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
+
+
+def with_model_code(part_numbers, listings: list[dict]):
+    """`part_numbers` plus the manufacturer's model code the offers carry.
+
+    matching.manufacturer_model_code only sets `model_code` when the vendor
+    printed it and it spells that listing's own retailer code, so this adds
+    an identifier, never a guess. Appended (the first entry still drives the
+    SKU line and `attributes.mpn`), only when every offer that has one names
+    the same code, and only when no entry already spells it ("B650-AORUS-
+    PRO-AX" already is "B650 AORUS PRO AX"). The spelling with the fewest
+    separators wins so the value is stable run to run.
+    """
+    codes = {str(listing["model_code"]) for listing in listings
+             if listing.get("model_code")}
+    if not codes:
+        return part_numbers
+    keys = {re.sub(r"^gv(?=\w{3})", "", _compact(code)) for code in codes}
+    if len(keys) != 1:
+        return part_numbers
+    code = min(codes, key=lambda v: (len(re.findall(r"[^A-Z0-9]", v)), v))
+    current = list(part_numbers or [])
+    if any(_compact(value) == _compact(code) for value in current):
+        return part_numbers
+    return current + [code]
+
+
 def _extras(product: dict) -> dict:
     """Non-schema attribute keys worth carrying into the derived view."""
     allowed = ("bundle_only",)
@@ -169,6 +200,10 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
             facts.setdefault(key, []).extend(value)
 
         provisional = merge_facts(category, facts).specs
+        offers = by_product.get(str(product.get("product_id")), [])
+        if "part_numbers" in provisional:
+            provisional["part_numbers"] = with_model_code(
+                provisional.get("part_numbers"), offers)
 
         # Tier 0 — anchor-verified reference row + exact-MPN PC Kombo specs.
         query = reference_query(product, provisional, category)
@@ -194,6 +229,9 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
             facts.setdefault(key, []).extend(value)
 
         merged = merge_facts(category, facts)
+        if "part_numbers" in merged.specs:
+            merged.specs["part_numbers"] = with_model_code(
+                merged.specs.get("part_numbers"), offers)
         fill_derived(category, merged.specs, merged.sources)
         # cross_check FIRST, then inference. The order matters: a consistency
         # rule may null a contradictory value (a tray CPU that claims a bundled

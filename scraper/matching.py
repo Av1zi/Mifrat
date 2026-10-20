@@ -1297,6 +1297,177 @@ def sku_as_mpn(vendor_sku: str | None) -> str | None:
 
 
 # --------------------------------------------------------------------------
+# Manufacturer model codes (Gigabyte)
+# --------------------------------------------------------------------------
+#
+# Israeli retailers key Gigabyte boards on distributor codes, not on
+# Gigabyte's model ("GB650AORUSEAX" at TMS/1PC, "B850AELITEWF7" at Ivory,
+# "B650-AORUS-ELITE-AX" at Yahav), so the same board landed on up to three
+# products and no exact-identifier join (Icecat, mfr pages) could hit it.
+# Every one of those codes is the model squeezed together, optionally
+# behind a "G"/"GB" distributor prefix, with words cut down to initials or
+# consonants ("ELITE" -> "E", "WIFI7" -> "WF7"). A model is therefore read
+# only from text the vendor printed (title, 1PC "Model:", Ivory "דגם") and
+# kept only when that run of words accounts for the listing's own code,
+# character for character — never inferred, never padded.
+
+_MODEL_CODE_BRANDS = frozenset({"Gigabyte"})
+_MODEL_CODE_WORD_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9\-]*")
+_MODEL_CODE_MAX_WORDS = 9
+
+
+def _abbreviates(word: str, chunk: str) -> bool:
+    """`chunk` is `word` cut down the way distributor codes do it: same
+    first character, letters dropped but never reordered, every digit kept
+    ("ELITE"->"E", "WIFI7"->"WF7", "DDR4"->"D4"; never "B650"->"B65")."""
+    if not chunk or chunk[0] != word[0]:
+        return False
+    if re.sub(r"\D", "", chunk) != re.sub(r"\D", "", word):
+        return False
+    rest = iter(word)
+    return all(ch in rest for ch in chunk)
+
+
+def _words_spell_code(words: tuple[str, ...], code: str) -> bool:
+    """True when the words, in order, spell exactly `code`: the first word
+    verbatim (the chipset line, "B650"/"Z890I"), each later one verbatim or
+    abbreviated, nothing left over on either side."""
+    memo: dict[tuple[int, int], bool] = {}
+
+    def go(i: int, pos: int) -> bool:
+        if i == len(words):
+            return pos == len(code)
+        if (i, pos) in memo:
+            return memo[(i, pos)]
+        word = words[i]
+        ok = False
+        if i == 0:
+            ok = code.startswith(word, pos) and go(1, pos + len(word))
+        else:
+            for end in range(pos + 1, min(len(code), pos + len(word)) + 1):
+                if _abbreviates(word, code[pos:end]) and go(i + 1, end):
+                    ok = True
+                    break
+        memo[(i, pos)] = ok
+        return ok
+
+    return bool(words) and go(0, 0)
+
+
+def _code_bodies(code: str) -> set[str]:
+    """A vendor code and the same code without the distributor prefix."""
+    compact = re.sub(r"[^A-Z0-9]", "", code.upper())
+    bodies = {compact}
+    for prefix in ("GB", "G"):
+        if compact.startswith(prefix) and len(compact) > len(prefix) + 2:
+            bodies.add(compact[len(prefix):])
+    return bodies
+
+
+def _printed_spans(text: str):
+    """Every run of up to _MODEL_CODE_MAX_WORDS Latin words in `text`, as
+    (printed span, uppercase word tuple split on dashes, the next word or
+    None)."""
+    words = list(_MODEL_CODE_WORD_RE.finditer(re.sub(r"[֐-׿]", " ", text)))
+    for i in range(len(words)):
+        tokens: list[str] = []
+        for j in range(i, min(len(words), i + _MODEL_CODE_MAX_WORDS)):
+            tokens.extend(t for t in words[j].group(0).upper().split("-") if t)
+            following = words[j + 1].group(0) if j + 1 < len(words) else None
+            yield text[words[i].start():words[j].end()], tuple(tokens), following
+
+
+# Words that may follow a printed model without being part of it: form
+# factor, platform, memory generation of the platform, ports, colour. Any
+# other word right after the matched span ("... WIFI7 ICE" when the code
+# stops at WIFI7) means title and code disagree on the variant.
+_MODEL_CODE_TRAILING_NOISE_RE = re.compile(
+    r"^(?:E-?ATX|M?-?ATX|MICRO(?:-ATX)?|MINI(?:-ITX)?|ITX|AMD|INTEL|AM[45]|"
+    r"LGA\d*|S?TR[X]?\d*|\d{4}|DDR5|HDMI|DP|DISPLAYPORT|VGA|USB\S*|"
+    r"\d+X\S*|THUNDERBOLT|BLACK|WHITE|MOTHERBOARD)$", re.I)
+
+
+def _model_code_texts(listing: dict) -> list[str]:
+    """Where vendors print a Gigabyte model: labelled detail rows first
+    (1PC "Model: H410M S2H V2", Ivory "דגם"), then the title."""
+    texts: list[str] = []
+    detail = (listing.get("vendor_meta") or {}).get("detail_specs") or {}
+    if isinstance(detail, dict):
+        overview = str(detail.get("overview_text_raw") or "")
+        labelled = re.search(r"(?:^|,)\s*Model:\s*([^,]+)", overview)
+        if labelled:
+            texts.append(labelled.group(1))
+        if detail.get("דגם"):
+            texts.append(str(detail["דגם"]))
+    texts.append(str(listing.get("title_raw") or ""))
+    return texts
+
+
+def _printed_form(span: str) -> str:
+    return re.sub(r"\s+", " ", span).strip().upper()
+
+
+def manufacturer_model_code(listing: dict) -> str | None:
+    """The manufacturer's own model code for a Gigabyte listing, exactly as
+    the vendor printed it, or None.
+
+    - Motherboards: the longest printed run of words that spells the
+      listing's own code (see _words_spell_code): GB760GAMINGXD4GEN5 ->
+      "B760 GAMING X DDR4 GEN5", B850AELITEWF7 -> "B850 AORUS ELITE WIFI7".
+      A title that drops a word the code has ("B760M DS3H" for
+      GB760MDS3HDDR4) yields nothing.
+    - GPUs: Gigabyte's "GV-" part number when the title prints it and it is
+      the same code as the listing's MPN ("GV-N5060AERO OC-8GD" for
+      N5060AEROOC8GD).
+    """
+    if listing.get("brand") not in _MODEL_CODE_BRANDS:
+        return None
+    category = listing.get("category_normalized")
+    code = listing.get("mpn") or sku_as_mpn(listing.get("vendor_sku"))
+    if not code:
+        return None
+    best: str | None = None
+    if category == "motherboard":
+        bodies = _code_bodies(str(code))
+        # A code that already spells the model out with separators (Yahav's
+        # "Z890-AORUS-ELITE-WIFI7") is the identity itself; whatever its
+        # title adds afterwards ("... Wi-Fi 7 ATX DDR5") is description.
+        spelled_out = bool(re.search(r"[\s\-]", str(code).strip()))
+        for text in _model_code_texts(listing):
+            found, after = None, None
+            for span, tokens, following in _printed_spans(text):
+                if not re.search(r"\d", tokens[0]):
+                    continue
+                if any(_words_spell_code(tokens, body) for body in bodies):
+                    if found is None or len(span) > len(found):
+                        found, after = span, following
+            if found and after and not (
+                    spelled_out
+                    and re.sub(r"[^A-Z0-9]", "", found.upper()) in bodies):
+                if (not _MODEL_CODE_TRAILING_NOISE_RE.match(after)
+                        and _compact_key(after) not in (
+                            _compact_key(code), _compact_key(listing.get("vendor_sku")))):
+                    found = None
+            if found:
+                best = found
+                break
+    elif category == "gpu":
+        key = mpn_part_key(str(code))
+        for span, tokens, _following in _printed_spans(
+                str(listing.get("title_raw") or "")):
+            if tokens[0].startswith("GV") and span.upper().startswith("GV-") \
+                    and mpn_part_key(span) == key:
+                if best is None or len(span) > len(best):
+                    best = span
+    return _printed_form(best) if best else None
+
+
+def model_code_key(model_code: str | None) -> str:
+    """Identity key of a model code (same keyspace as mpn_part_key)."""
+    return mpn_part_key(model_code)
+
+
+# --------------------------------------------------------------------------
 # Enrichment
 # --------------------------------------------------------------------------
 
@@ -4421,9 +4592,18 @@ def match_listings(
     - Exact normalized vendor SKU matches
     - MPN/SKU unification
     - EAN/barcode unification (last: never churns an already-named pid)
+    - Manufacturer model-code unification (Gigabyte distributor codes)
     - Everything else becomes a singleton product
     """
     manual_key_to_pid, manual_products, blocked_pairs = load_manual(manual_path)
+
+    # Verified manufacturer model codes (tier 5c below, and the spec build's
+    # part_numbers). Set only where found, so other listings stay unchanged.
+    for enriched in enriched_listings:
+        enriched.pop("model_code", None)
+        code = manufacturer_model_code(enriched)
+        if code:
+            enriched["model_code"] = code
 
     assignments: dict[str, str] = {}
     product_meta: dict[str, dict] = {}
@@ -4841,6 +5021,84 @@ def match_listings(
                 _ean_members.setdefault(survivor, []).append(_lk)
             product_meta.pop(pid, None)
 
+    # 5c. Manufacturer model-code unification (Oct 2026).
+    #
+    # TMS/1PC "GB850AORUSELITEWIFI7", Ivory "B850AELITEWF7" and Yahav
+    # "B850-AORUS-ELITE-WIFI7" are one Gigabyte board under three
+    # distributor codes; each listing's verified model code (manufacturer_model_code:
+    # read verbatim from vendor text, accepted only when it spells that
+    # listing's own code) is the shared identity. Same guards and placement
+    # as the EAN tier: last, never across a human not_match or a hard spec
+    # conflict, never merging a curated manual product away. Survivor: a
+    # manual pid, else the pid already carrying the most vendors (its
+    # URL/history is the one people use), then _pid_rank.
+    _code_to_pids: dict[str, list[str]] = {}
+    for enriched in enriched_listings:
+        code = enriched.get("model_code")
+        category = enriched.get("category_normalized")
+        _pid = assignments.get(enriched["listing_key"])
+        if not code or not _pid or category in ("other", "", None):
+            continue
+        key = f"{category}|{enriched.get('brand')}|{model_code_key(code)}"
+        bucket = _code_to_pids.setdefault(key, [])
+        if _pid not in bucket:
+            bucket.append(_pid)
+    # A listing whose own part number IS a verified model code (Yahav's
+    # "B760-DS3H-DDR4" vs TMS's verified "B760 DS3H DDR4", while Yahav's
+    # title splits the words around "LGA1700") is that identifier too. It
+    # only joins a code some other listing verified; it never seeds one.
+    for enriched in enriched_listings:
+        if enriched.get("model_code") or not enriched.get("mpn"):
+            continue
+        if enriched.get("brand") not in _MODEL_CODE_BRANDS:
+            continue
+        category = enriched.get("category_normalized")
+        _pid = assignments.get(enriched["listing_key"])
+        key = f"{category}|{enriched.get('brand')}|{mpn_part_key(enriched['mpn'])}"
+        if _pid and key in _code_to_pids and _pid not in _code_to_pids[key]:
+            _code_to_pids[key].append(_pid)
+
+    _code_members: dict[str, list[str]] = {}
+    for _lk, _pid in assignments.items():
+        _code_members.setdefault(_pid, []).append(_lk)
+
+    def _is_manual(pid: str) -> bool:
+        return (product_meta.get(pid) or {}).get("matched_by") == "manual"
+
+    def _vendor_count(pid: str) -> int:
+        return len({_e_by_lk[lk].get("vendor_id")
+                    for lk in _code_members.get(pid, []) if lk in _e_by_lk})
+
+    for _key, pids in _code_to_pids.items():
+        pids = [p for p in pids if p in _code_members]
+        if len(pids) < 2:
+            continue
+        survivor = min(pids, key=lambda p: (
+            not _is_manual(p), -_vendor_count(p), _pid_rank(p)))
+        for pid in pids:
+            if pid == survivor or pid not in _code_members or _is_manual(pid):
+                continue
+            _members_pid = [_e_by_lk[lk] for lk in _code_members[pid] if lk in _e_by_lk]
+            _members_surv = [_e_by_lk[lk] for lk in _code_members.get(survivor, [])
+                             if lk in _e_by_lk]
+            if any(_is_blocked_pair(a["listing_key"], b["listing_key"])
+                   for a in _members_pid for b in _members_surv):
+                continue
+            if any(critical_conflict(
+                    a, b, title_wifi=not (a.get("model_code") and b.get("model_code")))
+                   for a in _members_pid for b in _members_surv):
+                continue
+            # A listing whose own model code disagrees with the survivor's
+            # (both verified, different boards) is a conflict too.
+            _codes = {model_code_key(e.get("model_code"))
+                      for e in _members_pid + _members_surv if e.get("model_code")}
+            if len(_codes) > 1:
+                continue
+            for _lk in _code_members.pop(pid, []):
+                assignments[_lk] = survivor
+                _code_members.setdefault(survivor, []).append(_lk)
+            product_meta.pop(pid, None)
+
     # Build product objects (indexed once — was a full listings scan per
     # product, i.e. O(products × listings)).
     products = []
@@ -5200,7 +5458,15 @@ def _board_wifi_signals(enriched: dict) -> tuple[list[str], bool | None]:
     return boards, wifi
 
 
-def critical_conflict(a: dict, b: dict) -> bool:
+def critical_conflict(a: dict, b: dict, *, title_wifi: bool = True) -> bool:
+    """Hard spec conflict between two listings (never auto-merge).
+
+    `title_wifi=False` skips only the WiFi-mention test, for pairs whose
+    verified model codes already agree (tier 5c): WiFi is part of a
+    Gigabyte model ("B650 EAGLE" vs "B650 EAGLE AX"), so equal codes settle
+    it, while a retailer's marketing suffix ("X870E Aorus Master WiFi 7"
+    vs TMS "X870E AORUS MASTER", the same board) would split them.
+    """
     ca = extract_critical_attributes(a.get("match_text", ""))
     cb = extract_critical_attributes(b.get("match_text", ""))
 
@@ -5231,7 +5497,7 @@ def critical_conflict(a: dict, b: dict) -> bool:
     if ba and bb:
         if not set(ba) & set(bb):
             return True
-        if wa is not None and wb is not None and wa != wb:
+        if title_wifi and wa is not None and wb is not None and wa != wb:
             return True
 
     return False
