@@ -459,6 +459,13 @@ def _infer_storage(specs: dict, sources: dict) -> list[str]:
     """
     filled: list[str] = []
     interface = str(specs.get("interface") or "")
+    # A spinning disk is never NVMe, and neither is a drive whose only bus is
+    # SATA (NVMe is a PCIe protocol). USB enclosures stay unknown: the drive
+    # inside may be either.
+    if specs.get("type") == "HDD" or (
+            re.search(r"\bsata\b", interface, re.I)
+            and not re.search(r"nvme|pcie|usb|thunderbolt", interface, re.I)):
+        filled += _fill(specs, sources, "nvme", False, "storage.sata_or_hdd_not_nvme")
     if not interface:
         return filled
     if re.search(r"\bnvme\b", interface, re.I) or re.search(r"pcie", interface, re.I):
@@ -566,12 +573,59 @@ def cpu_table_key(specs: dict) -> str | None:
     return None
 
 
+def cpu_family(specs: dict) -> str | None:
+    """The family label tables/mb_cpu_support.json uses for this CPU, or None.
+
+    'Ryzen 7 9700X' -> 'AMD Ryzen 9000', 'Ryzen 5 3400G' -> 'AMD Ryzen 3000G'
+    (AMD lists 2000/3000 APUs separately on AM4), 'Core i5 14400' ->
+    'Intel Core 14th Gen', 'Core Ultra 5 225' -> 'Intel Core Ultra 200S
+    (Series 2)'. Threadripper/EPYC/Athlon: None (the table has no rows).
+    """
+    key = cpu_table_key(specs)
+    if not key:
+        return None
+    maker, token = key.split(":", 1)
+    model = str(specs.get("model") or "")
+    if maker == "amd":
+        if re.search(r"Threadripper|EPYC|Athlon", model, re.I):
+            return None
+        match = re.match(r"([1-9])\d{3}([A-Z0-9]*)$", token)
+        if not match:
+            return None
+        series, suffix = match.group(1), match.group(2)
+        apu = suffix.startswith("G") and series in ("2", "3")
+        return f"AMD Ryzen {series}000{'G' if apu else ''}"
+    if re.search(r"\bUltra\b", model, re.I) and re.fullmatch(r"2\d{2}[A-Z]{0,2}", token):
+        return "Intel Core Ultra 200S (Series 2)"
+    match = re.fullmatch(r"(1\d|[6-9])\d{3}[A-Z]{0,2}", token)
+    if match:
+        gen = int(match.group(1))
+        return f"Intel Core {gen}th Gen"
+    return None
+
+
+def _infer_cpu_chipsets(specs: dict, sources: dict) -> list[str]:
+    """chipset_support = every chipset whose official list names this family."""
+    from .tables import load
+
+    family = cpu_family(specs)
+    if not family:
+        return []
+    vendor = family.split()[0]
+    chipsets = [f"{vendor} {chipset}" for chipset, row in sorted(load("mb_cpu_support").items())
+                if family in (row.get("_families") or [])]
+    if not chipsets:
+        return []
+    return _fill(specs, sources, "chipset_support", chipsets, "cpu.chipset_cpu_table")
+
+
 def _infer_cpu_table(specs: dict, sources: dict) -> list[str]:
     from .tables import load
 
     key = cpu_table_key(specs)
     row = load("cpu_models").get(key) if key else None
     filled = _table_fill(specs, sources, row, "cpu.model_table")
+    filled += _infer_cpu_chipsets(specs, sources)
 
     model = str(specs.get("model") or "")
     # ECC: a lineup-wide platform fact (vendor-published per family).
@@ -618,8 +672,38 @@ _WIFI_MENTION = re.compile(r"wi-?fi|wlan|wireless|אלחוט|bluetooth|\bbt\s?\d
 _THUNDERBOLT_MENTION = re.compile(r"thunderbolt|\btb[345]\b|usb\s?4\b", re.I)
 
 
+# Tiers the chipset table may replace for cpu_support (see below).
+_RETAILER_TIERS = ("vendor", "title", "weak")
+
+
+def _infer_mb_cpu_support(specs: dict, sources: dict) -> list[str]:
+    """cpu_support from tables/mb_cpu_support.json (chipset -> CPU families).
+
+    The one table rule that may REPLACE a sourced value: retailers print CPU
+    support as free prose that is routinely incomplete (Ivory's B550 rows
+    said only "Ryzen 3000"), while the table is AMD's / Intel's own list for
+    the chipset. Overrides and manufacturer pages still win. Built by
+    scripts/build_mb_cpu_support.py.
+    """
+    from .tables import load
+
+    chipset = str(specs.get("chipset") or "").strip().upper()
+    row = load("mb_cpu_support").get(chipset) if chipset else None
+    value = (row or {}).get("cpu_support")
+    if not value:
+        return []
+    current = sources.get("cpu_support")
+    if specs.get("cpu_support") is not None and current not in _RETAILER_TIERS:
+        return []
+    if specs.get("cpu_support") == value:
+        return []
+    specs["cpu_support"] = value
+    sources["cpu_support"] = "derived:motherboard.chipset_cpu_table"
+    return ["cpu_support"]
+
+
 def _infer_motherboard(specs: dict, sources: dict, context: dict | None) -> list[str]:
-    filled: list[str] = []
+    filled: list[str] = _infer_mb_cpu_support(specs, sources)
     chipset = str(specs.get("chipset") or "").upper()
     socket = str(specs.get("socket") or "").upper()
     if _INTEL_CONSUMER_PCH.match(chipset) and (socket.startswith("LGA") or not socket):
@@ -705,7 +789,15 @@ def _infer_psu(specs: dict, sources: dict, context: dict | None = None) -> list[
         filled += _fill(specs, sources, "atx4_connectors", 1, "psu.single_24pin_main")
     if isinstance(specs.get("fan_size_mm"), int):
         filled += _fill(specs, sources, "fanless", False, "psu.has_fan")
+    if text and not _PSU_FANLESS_MARKER.search(text):
+        # A fanless PSU sells on being fanless: every one names it ("Fanless",
+        # "Passive", "ללא מאוורר"). Semi-passive "0dB / Zero RPM" units have a
+        # fan, so they are not markers. Same shape as the SFX rule above.
+        filled += _fill(specs, sources, "fanless", False, "psu.no_fanless_marker")
     return filled
+
+
+_PSU_FANLESS_MARKER = re.compile(r"fanless|passive|ללא\s*מאוורר|פסיבי", re.I)
 
 
 # A radiator is sold under the fan size times the fan count it takes (120 /

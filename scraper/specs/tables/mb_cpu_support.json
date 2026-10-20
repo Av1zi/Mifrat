@@ -1,0 +1,644 @@
+{
+ "_source": "AMD CPU pages ('Supporting Chipsets') + AMD AM4 chipset matrix; Intel rows cite their page",
+ "_built": "2026-10-20",
+ "rows": {
+  "A320": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000G / 2000 / 2000G / 1000 / AMD Athlon (Radeon Graphics) (Ryzen 4000 / Ryzen 5000 only with a beta BIOS on selected boards)",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000G",
+    "AMD Ryzen 2000",
+    "AMD Ryzen 2000G",
+    "AMD Ryzen 1000",
+    "AMD Athlon (Radeon Graphics)"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "A520": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "A620": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "B150": {
+   "cpu_support": "Intel Core 6th Gen / 7th Gen (7th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 6th Gen",
+    "Intel Core 7th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "B250": {
+   "cpu_support": "Intel Core 7th Gen / 6th Gen",
+   "_families": [
+    "Intel Core 7th Gen",
+    "Intel Core 6th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "B350": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000 / 3000G / 2000 / 2000G / 1000 (Ryzen 3000 / Ryzen 4000 / Ryzen 5000 only with a beta BIOS on selected boards)",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000",
+    "AMD Ryzen 3000G",
+    "AMD Ryzen 2000",
+    "AMD Ryzen 2000G",
+    "AMD Ryzen 1000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "B360": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "B365": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "B450": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000 / 3000G / 2000",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000",
+    "AMD Ryzen 3000G",
+    "AMD Ryzen 2000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "B460": {
+   "cpu_support": "Intel Core 10th Gen",
+   "_families": [
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "B550": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "B560": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "B650": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "B650E": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "B660": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen (13th/14th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "B760": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "B840": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "B850": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "B860": {
+   "cpu_support": "Intel Core Ultra 200S (Series 2)",
+   "_families": [
+    "Intel Core Ultra 200S (Series 2)"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1851"
+   ]
+  },
+  "H110": {
+   "cpu_support": "Intel Core 6th Gen / 7th Gen (7th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 6th Gen",
+    "Intel Core 7th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "H170": {
+   "cpu_support": "Intel Core 6th Gen / 7th Gen (7th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 6th Gen",
+    "Intel Core 7th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "H270": {
+   "cpu_support": "Intel Core 7th Gen / 6th Gen",
+   "_families": [
+    "Intel Core 7th Gen",
+    "Intel Core 6th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "H310": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "H370": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "H410": {
+   "cpu_support": "Intel Core 10th Gen",
+   "_families": [
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "H470": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen (11th Gen needs a BIOS update)",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "H510": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "H570": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "H610": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen (13th/14th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "H670": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen (13th/14th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "H770": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "H810": {
+   "cpu_support": "Intel Core Ultra 200S (Series 2)",
+   "_families": [
+    "Intel Core Ultra 200S (Series 2)"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1851"
+   ]
+  },
+  "Q170": {
+   "cpu_support": "Intel Core 6th Gen / 7th Gen (7th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 6th Gen",
+    "Intel Core 7th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Q270": {
+   "cpu_support": "Intel Core 7th Gen / 6th Gen",
+   "_families": [
+    "Intel Core 7th Gen",
+    "Intel Core 6th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Q370": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Q470": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen (11th Gen needs a BIOS update)",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "Q570": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "Q670": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen (13th/14th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "Q870": {
+   "cpu_support": "Intel Core Ultra 200S (Series 2)",
+   "_families": [
+    "Intel Core Ultra 200S (Series 2)"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1851"
+   ]
+  },
+  "W480": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen (11th Gen needs a BIOS update)",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "W680": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen (13th/14th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "W880": {
+   "cpu_support": "Intel Core Ultra 200S (Series 2)",
+   "_families": [
+    "Intel Core Ultra 200S (Series 2)"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1851"
+   ]
+  },
+  "X370": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000 / 3000G / 2000 / 2000G / 1000 (Ryzen 3000 / Ryzen 4000 / Ryzen 5000 only with a beta BIOS on selected boards)",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000",
+    "AMD Ryzen 3000G",
+    "AMD Ryzen 2000",
+    "AMD Ryzen 2000G",
+    "AMD Ryzen 1000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "X470": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000 / 3000G / 2000 / 2000G / 1000 / AMD Athlon (Radeon Graphics)",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000",
+    "AMD Ryzen 3000G",
+    "AMD Ryzen 2000",
+    "AMD Ryzen 2000G",
+    "AMD Ryzen 1000",
+    "AMD Athlon (Radeon Graphics)"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "X570": {
+   "cpu_support": "AMD Ryzen 5000 / 4000 / 3000 / 3000G / 2000",
+   "_families": [
+    "AMD Ryzen 5000",
+    "AMD Ryzen 4000",
+    "AMD Ryzen 3000",
+    "AMD Ryzen 3000G",
+    "AMD Ryzen 2000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/chipsets/am4.html"
+   ]
+  },
+  "X670": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "X670E": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "X870": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "X870E": {
+   "cpu_support": "AMD Ryzen 9000 / 8000 / 7000",
+   "_families": [
+    "AMD Ryzen 9000",
+    "AMD Ryzen 8000",
+    "AMD Ryzen 7000"
+   ],
+   "_source": [
+    "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-7-8700g.html",
+    "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
+   ]
+  },
+  "Z170": {
+   "cpu_support": "Intel Core 6th Gen / 7th Gen (7th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 6th Gen",
+    "Intel Core 7th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Z270": {
+   "cpu_support": "Intel Core 7th Gen / 6th Gen",
+   "_families": [
+    "Intel Core 7th Gen",
+    "Intel Core 6th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Z370": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Z390": {
+   "cpu_support": "Intel Core 9th Gen / 8th Gen",
+   "_families": [
+    "Intel Core 9th Gen",
+    "Intel Core 8th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/List_of_Intel_chipsets (100/200/300 Series introductions)"
+   ]
+  },
+  "Z490": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen (11th Gen needs a BIOS update)",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "Z590": {
+   "cpu_support": "Intel Core 11th Gen / 10th Gen",
+   "_families": [
+    "Intel Core 11th Gen",
+    "Intel Core 10th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1200 (chipset table)"
+   ]
+  },
+  "Z690": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen (13th/14th Gen may need a BIOS update)",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "Z790": {
+   "cpu_support": "Intel Core 14th Gen / 13th Gen / 12th Gen",
+   "_families": [
+    "Intel Core 14th Gen",
+    "Intel Core 13th Gen",
+    "Intel Core 12th Gen"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1700 (CPU support row; Intel 14th Gen = Raptor Lake Refresh)"
+   ]
+  },
+  "Z890": {
+   "cpu_support": "Intel Core Ultra 200S (Series 2)",
+   "_families": [
+    "Intel Core Ultra 200S (Series 2)"
+   ],
+   "_source": [
+    "https://en.wikipedia.org/wiki/LGA_1851"
+   ]
+  }
+ }
+}

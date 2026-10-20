@@ -5,7 +5,10 @@ Each JSON file is DATA, not logic: a table keyed by an anchor the product
 already carries (GPU chipset, CPU model token) mapping to facts the anchor
 fixes for every SKU that shares it. `derive.infer_specs` is the only reader;
 a cell it fills is tagged `derived:<table>.<rule>` and only ever fills a null,
-so any sourced value from any tier still wins.
+so any sourced value from any tier still wins. One exception:
+`mb_cpu_support.json` (AMD/Intel's own chipset -> CPU list) replaces RETAILER
+cpu_support prose too, because that prose is routinely incomplete
+(derive._infer_mb_cpu_support); overrides/manufacturer pages still win.
 
 Rules for editing a table:
 - list a field only when it is INVARIANT for the anchor (an RTX 3060 has
