@@ -16,6 +16,7 @@ a wrong manufacturer row would outrank the retailer's correct one.
 from __future__ import annotations
 
 import json
+import re
 from functools import lru_cache
 from pathlib import Path
 
@@ -25,6 +26,23 @@ from .common import base_mpn, norm_mpn, norm_upc, strict_name
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "mfr"
 SOURCE = "manufacturer"
+
+
+def alt_key(value) -> str:
+    """Order-insensitive MPN key: letters and digits kept as two runs.
+
+    Pages keyed by URL slug spell the part as the marketing name reads
+    ("csk-dc-750w") while the retailer MPN puts the wattage in the middle
+    ("CSK750DC-W"); both become "CSKDCW#750". Looser than `norm_mpn`, so the
+    index drops an alt key two pages share and the join only uses it after
+    the exact keys missed. Empty unless the value mixes 2+ letters and digits.
+    """
+    text = norm_mpn(value)
+    letters = re.sub(r"[^A-Z]", "", text)
+    digits = re.sub(r"\D", "", text)
+    if len(letters) < 2 or not digits or len(text) < 5:
+        return ""
+    return f"{letters}#{digits}"
 
 
 @lru_cache(maxsize=1)
@@ -48,15 +66,16 @@ def _index() -> dict:
                 if slot in index and index[slot].get("url") != entry.get("url"):
                     ambiguous.add(slot)
                 index[slot] = entry
+            for alt in {alt_key(key) for key in entry.get("keys", [])} - {""}:
+                slot = (brand, "a:" + alt)
+                if slot in index and index[slot].get("url") != entry.get("url"):
+                    ambiguous.add(slot)
+                index[slot] = entry
             for name in entry.get("names", []):
                 index[(brand, "n:" + name)] = entry
     for slot in ambiguous:
         index.pop(slot, None)
     return index
-
-
-def reset_cache() -> None:
-    _index.cache_clear()
 
 
 def facts_for(category: str | None, brand: str | None, part_numbers,
@@ -73,6 +92,11 @@ def facts_for(category: str | None, brand: str | None, part_numbers,
         for key in (norm_mpn(value), base_mpn(value), norm_upc(value)):
             if key:
                 entry = index.get((brand_key, "k:" + key)) or entry
+    if entry is None:
+        for value in part_numbers or []:
+            alt = alt_key(value)
+            if alt:
+                entry = index.get((brand_key, "a:" + alt)) or entry
     if entry is None and name:
         entry = index.get((brand_key, "n:" + strict_name(name, brand_key)))
     if not entry or entry.get("category") != category:

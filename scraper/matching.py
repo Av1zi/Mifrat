@@ -800,12 +800,6 @@ GPU_HOLDER_GENERIC_RE = re.compile(
 )
 GPU_CONTEXT_RE = re.compile(r"\b(gpu|vga|graphics|video\s*cards?)\b", re.I)
 
-# Back-compat alias: the union of both holder patterns.
-GPU_HOLDER_RE = re.compile(
-    r"\b(holders?|brackets?|support\s+brace|anti[\s-]?sag|sag\s+holder|gpu\s+stand)\b",
-    re.I,
-)
-
 
 def _is_gpu_holder(title_clean: str) -> bool:
     if GPU_HOLDER_SPECIFIC_RE.search(title_clean):
@@ -2861,7 +2855,8 @@ def _psu_canonical_name(group: list, attributes: dict) -> str | None:
         "semi", "full", "non", "atx", "sfx", "sfx-l", "sfxl", "tfx",
         "fan", "fans", "silent", "silence", "noise", "low-noise", "hdb",
         "series", "edition", "version", "rev", "revision", "model",
-        "cables", "cable", "sleeved", "white", "black", "plus", "80",
+        "cables", "cable", "sleeved", "white", "black", "plus", "80", "80+",
+        "80plus",
         "gold", "silver", "bronze", "platinum", "titanium", "cybenetics",
         "fully", "certified", "eu", "uk", "cable-free", "zero",
         "in", "on", "at",
@@ -4952,6 +4947,11 @@ def match_listings(
         if isinstance(model, str) and re.fullmatch(
                 r"\d{8}|\d{12,14}", model.strip()):
             model = None
+        # Nor a Hebrew title fragment ("ספק כוח Antec CSK 750 DC +"): the
+        # product-level spec merge rejects those, so the top-level copy must
+        # too, or the site's SKU/variant logic reads it.
+        if isinstance(model, str) and re.search(r"[֐-׿]", model):
+            model = mpn_chosen
 
         if any(e.get("bundle_only") for e in group):
             merged_attributes["bundle_only"] = True

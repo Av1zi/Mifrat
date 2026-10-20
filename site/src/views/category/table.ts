@@ -120,7 +120,7 @@ function tableMarkup(ctx: CategoryCtx, rows: Product[]): Html {
     <thead><tr>
       <th scope="col"><span class="visually-hidden">${t(lang, "photoLabel")}</span></th>
       ${sortHeader(ctx, t(lang, "sortName"), "name", "name_desc")}
-      ${ctx.columns.map((f) => html`<th scope="col" title="${attributeLabel(f, lang)}">${attributeLabel(f, lang)}</th>`)}
+      ${ctx.columns.map((f) => html`<th scope="col" title="${attributeLabel(f, lang, ctx.category)}">${attributeLabel(f, lang, ctx.category)}</th>`)}
       <th scope="col">${t(lang, "availability")}</th>
       ${sortHeader(ctx, t(lang, "priceHeading"), "price_asc", "price_desc")}
       <th scope="col"><span class="visually-hidden">${t(lang, "buyHeaderLabel")}</span></th>

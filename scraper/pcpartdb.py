@@ -267,8 +267,19 @@ def _doc_to_specs(slug: str, row: dict) -> dict:
             out[str(transform)] = True if raw is True else raw
 
     if slug == "power-supply" and "modular" in out:
-        # False means a non-modular unit; True means fully modular.
-        out["modular"] = "full" if out["modular"] is True else "no"
+        # The dataset stores "Full" / "Full / Side" / "Semi" / False. The old
+        # `is True` test mapped every modular unit to "no" (Oct 2026 audit:
+        # ~2,100 of 3,438 PSU rows published as non-modular).
+        raw_modular = out["modular"]
+        text = str(raw_modular).strip().lower()
+        if raw_modular is False:
+            out["modular"] = "no"
+        elif raw_modular is True or text.startswith("full"):
+            out["modular"] = "full"
+        elif text.startswith("semi"):
+            out["modular"] = "semi"
+        else:
+            out.pop("modular")
     if slug == "internal-hard-drive":
         interface = str(out.get("interface") or "")
         if "NVME" in interface.upper() or "PCIE" in interface.upper():

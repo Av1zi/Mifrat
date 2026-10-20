@@ -391,7 +391,7 @@ MOTHERBOARD = (
     _f("socket", "str", filterable=True, group="core", aliases=_SOCKETS,
        he="סוקט", en="Socket"),
     _f("chipset", "str", filterable=True, group="core",
-       aliases=("chipset", "cpu_model", "northbridge"), he="ערכת שבבים", en="Chipset"),
+       aliases=("chipset", "northbridge"), he="ערכת שבבים", en="Chipset"),
     # Ivory's "תמיכה במעבדים (CPU)" row (216 rows, the largest unmapped
     # label in the catalog) names the CPU families the board takes. The raw
     # values are Hebrew prose ("מעבדי AMD: Ryzen 3 / … מסדרות … 9000 /

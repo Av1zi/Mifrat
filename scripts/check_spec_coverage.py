@@ -137,10 +137,14 @@ CORE_FLOORS = {
 # in decisions.md - the floors only stop it from sliding back.
 # 2026-10-18 (Plan B): raised to the new measurement minus 2pp (aio 92.3,
 # case 80.2, case_fan 69.1, cooler_air 83.9, cpu 93.9, motherboard 86.8 ...).
+# 2026-10-19: case_fan 67 -> 64. The reference join stopped linking fans to
+# sibling models (Corsair RX120 -> RS120, LX/QL120 -> LL120, Lian Li TL120 ->
+# SL120; scripts/audit_reference_matches.py): measured 66.7% after removing
+# those wrong rpm/airflow/noise values, minus the usual 2pp.
 CORE_APPLICABLE_FLOORS = {
     "aio": 90,
     "case": 78,
-    "case_fan": 67,
+    "case_fan": 64,
     "cooler_air": 82,
     "cooling_other": 70,
     "cpu": 91,

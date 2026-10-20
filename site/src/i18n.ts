@@ -1,5 +1,5 @@
 import type { CompatCode, CompatIssue } from "./build";
-import { SPEC_LABELS } from "./specSchema.generated";
+import { SPEC_FIELDS, SPEC_LABELS } from "./specSchema.generated";
 import type { Lang } from "./types";
 
 // Fixed build order (not alphabetical) — mirrors how someone actually plans
@@ -216,8 +216,13 @@ export function vendorLabel(id: string): string {
   return VENDOR_LABELS[id] ?? id;
 }
 
-export function attributeLabel(key: string, lang: Lang): string {
-  // Schema labels first (one entry per field, generated from
+export function attributeLabel(key: string, lang: Lang, category?: string): string {
+  // The category's own schema label first: SPEC_LABELS is flat, so a field
+  // name shared across categories carries ONE category's wording ("type" read
+  // "סוג כונן" - drive type - on PSU, case and cooler pages).
+  const field = category ? SPEC_FIELDS[category]?.find((f) => f.name === key) : undefined;
+  if (field) return field[lang];
+  // Schema labels next (one entry per field, generated from
   // scraper/specs/schema.py); the hand list below still covers the
   // transitional derived/alias keys the filter rail reads from attributes.
   return SPEC_LABELS[key]?.[lang] ?? ATTRIBUTE_LABELS[key]?.[lang] ?? key;
