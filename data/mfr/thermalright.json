@@ -2,11 +2,11 @@
  "brand": "Thermalright",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-18",
+ "generated": "2026-10-20",
  "entries": {
   "https://www.thermalright.com/product/aqua-elite-360-v3/": {
    "url": "https://www.thermalright.com/product/aqua-elite-360-v3/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "AQUAELITE360V3",
@@ -19,12 +19,16 @@
     "fan_size_mm": 120,
     "fan_rpm_max": 1500,
     "airflow_cfm": 66.17,
-    "noise_db": 25.6
+    "noise_db": 25.6,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.thermalright.com/product/aqua-elite-360-white-v3/": {
    "url": "https://www.thermalright.com/product/aqua-elite-360-white-v3/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "AQUAELITE360WHITEV3",
@@ -37,12 +41,16 @@
     "fan_size_mm": 120,
     "fan_rpm_max": 1500,
     "airflow_cfm": 66.17,
-    "noise_db": 25.6
+    "noise_db": 25.6,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ]
    }
   },
   "https://www.thermalright.com/product/assassin-x-120-refined-se-argb/": {
    "url": "https://www.thermalright.com/product/assassin-x-120-refined-se-argb/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "ASSASSINX120REFINEDSEARGB",
@@ -61,7 +69,7 @@
   },
   "https://www.thermalright.com/product/assassin-x-120-refined-se-white-argb/": {
    "url": "https://www.thermalright.com/product/assassin-x-120-refined-se-white-argb/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "ASSASSINX120REFINEDSEWHITEARGB",
@@ -80,7 +88,7 @@
   },
   "https://www.thermalright.com/product/phantom-spirit-120-se-argb/": {
    "url": "https://www.thermalright.com/product/phantom-spirit-120-se-argb/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "PHANTOMSPIRIT120SEARGB",
@@ -99,7 +107,7 @@
   },
   "https://www.thermalright.com/product/royal-pretor-130-ultra-black/": {
    "url": "https://www.thermalright.com/product/royal-pretor-130-ultra-black/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooling_other",
    "keys": [
     "ROYALPRETOR130ULTRABLACK",
@@ -108,11 +116,16 @@
    "names": [
     "royal pretor 130 ultra black argb 130mm 120mm 250w tdp 1750rpm 81 88cfm"
    ],
-   "specs": {}
+   "specs": {
+    "height_mm": 158,
+    "fan_size_mm": 130,
+    "fan_rpm_max": 2150,
+    "noise_db": 27.0
+   }
   },
   "https://www.thermalright.com/product/royal-pretor-130-ultra-white/": {
    "url": "https://www.thermalright.com/product/royal-pretor-130-ultra-white/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooling_other",
    "keys": [
     "ROYALPRETOR130ULTRAWHITE",
@@ -121,11 +134,16 @@
    "names": [
     "royal pretor 130 ultra white argb 130mm 120mm 250w tdp 1750rpm 81 88cfm"
    ],
-   "specs": {}
+   "specs": {
+    "height_mm": 158,
+    "fan_size_mm": 130,
+    "fan_rpm_max": 2150,
+    "noise_db": 27.0
+   }
   },
   "https://www.thermalright.com/product/tl-c12c-s/": {
    "url": "https://www.thermalright.com/product/tl-c12c-s/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "TLC12CS",
@@ -146,7 +164,7 @@
   },
   "https://www.thermalright.com/product/tl-s12-s-x3/": {
    "url": "https://www.thermalright.com/product/tl-s12-s-x3/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "TLS12SX3",
@@ -167,7 +185,7 @@
   },
   "https://www.thermalright.com/product/tl-s12w-s-x3/": {
    "url": "https://www.thermalright.com/product/tl-s12w-s-x3/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "TLS12WSX3",
@@ -188,7 +206,7 @@
   },
   "https://www.thermalright.com/product/tl-s12w-s/": {
    "url": "https://www.thermalright.com/product/tl-s12w-s/",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "cooler_air",
    "keys": [
     "TLS12WS",

@@ -8,14 +8,18 @@ allows everything; each page is server-rendered with a two-column technical-data
 table that carries the "Article number" (BGW39, BK003 ...) and the "EAN code" the
 catalog already holds as its part number, so products join EXACTLY on those two
 identifiers (every listed page is fetched; the join happens at merge time).
+
+Round 3 (Oct 2026): every field the table prints. Case pages repeat the
+"Top / Front / Side / Rear / Bottom (mm)" labels: the first block is fan
+mounts ("3x 120 / 3x 140"), the second radiator sizes ("120 / 240 / 360").
 """
 
 from __future__ import annotations
 
 import re
 
-from .common import (efficiency_tier, front_io_ports, html_rows, mb_form_factor_list, number_range,
-                     typed)
+from .common import (efficiency_tier, fan_mounts, front_io_ports, html_rows, mb_form_factor_list,
+                     number_range, radiator_sizes, typed)
 
 BRAND = "be quiet!"
 BASE_URL = "https://www.bequiet.com"
@@ -55,6 +59,23 @@ def _rows(page: str) -> dict[str, str]:
     return out
 
 
+def _all_rows(page: str) -> dict[str, list[str]]:
+    out: dict[str, list[str]] = {}
+    for label, value in html_rows(page):
+        out.setdefault(re.sub(r"\s+", " ", label).strip().lower(), []).append(value)
+    return out
+
+
+def _flag(raw) -> bool | None:
+    """'✓' / 'Yes' -> True, '-' -> False, anything else unknown."""
+    text = str(raw or "").strip()
+    if text in (_CHECK, "Yes", "yes"):
+        return True
+    if text == "-":
+        return False
+    return None
+
+
 def _num(raw) -> float | None:
     match = re.match(r"\s*(\d+(?:\.\d+)?)", str(raw or "").replace(",", ""))
     return float(match.group(1)) if match else None
@@ -90,10 +111,15 @@ def parse(page: str, category: str) -> dict:
             out[field] = value
 
     model = rows.get("model", "")
+    if category in ("case_fan", "cooler_air", "aio", "case"):
+        put("model", model or None)
+        color = rows.get("color option", "").strip()
+        put("color", color if color and color != "-" else None)
     ids = [rows.get("article number", ""), rows.get("ean code", "")]
     ids += re.findall(r"Article number:\s*([A-Z0-9]{4,8})", page)
     if category == "case":
         _case(rows, model, put)
+        _case_more(rows, _all_rows(page), put)
     elif category == "case_fan":
         _fan(rows, put)
     elif category in ("cooler_air", "aio"):
@@ -136,6 +162,13 @@ def _fan(rows, put) -> None:
     put("noise_db", _last_num(rows.get("noise level at 100% pwm / 12v (db(a))")))
     put("airflow_cfm", _num(rows.get("airflow at 100% pwm / 12v (cfm / m3/h)")))
     put("static_pressure_mmh2o", _num(rows.get("air pressure at 100% pwm / 12v (mm h2o)")))
+    lighting = rows.get("lighting", "").strip()
+    if lighting == "-":
+        put("led", "No")
+    elif re.search(r"\bARGB\b", lighting, re.I):
+        put("led", "ARGB")
+    elif re.search(r"\bRGB\b", lighting, re.I):
+        put("led", "RGB")
     connector = rows.get("connector", "")
     pins = re.search(r"(\d)\s*-?\s*pin", connector, re.I)
     if pins:
@@ -150,6 +183,7 @@ def _cooler(rows, model, put, category) -> None:
     fan = re.match(r"\s*(\d{2,3})\s*x\s*\d{2,3}\s*x\s*\d{2}", rows.get("fan dimensions (mm)", ""))
     if fan:
         put("fan_size_mm", int(fan.group(1)))
+    fans = _num(rows.get("number of fans"))
     if category == "aio":
         radiator = re.search(r"\b(\d{3})\s*mm\b", model)
         if radiator:
@@ -157,9 +191,39 @@ def _cooler(rows, model, put, category) -> None:
         put("fan_rpm_max", _num(rows.get("speed at 100% pwm (rpm)")))
         put("airflow_cfm", _num(rows.get("airflow at 100% pwm / 12v (cfm / m3/h)")))
         put("noise_db", _last_num(rows.get("noise level (db(a)) at 50% / 75% /100% rpm", "")))
+        if fans is not None:
+            put("fan_count", int(fans))
+        # The radiator alone ("277 x 120 x 27"); the row above it includes the fans.
+        size = re.match(r"\s*(\d{2,3})\s*x\s*\d{2,3}\s*x\s*(\d{2})\b",
+                        rows.get("dimensions (l x w x h), (mm)", ""))
+        if size:
+            put("radiator_length_mm", int(size.group(1)))
+            put("radiator_thickness_mm", int(size.group(2)))
+        connectors = []
+        for label in ("pump connector", "connector"):
+            pins = re.search(r"(\d)\s*-?\s*pin\s*PWM", rows.get(label, ""), re.I)
+            if pins and f"{pins.group(1)}-pin PWM" not in connectors:
+                connectors.append(f"{pins.group(1)}-pin PWM")
+        if re.search(r"3\s*-?\s*pin.*(?:ARGB|addressable|adressable)", rows.get("lighting connector", ""), re.I):
+            connectors.append("3-pin ARGB")
+        if connectors:
+            put("connectors", connectors)
     else:
         put("fan_rpm_max", _num(rows.get("speed @ 100% pwm (rpm)")))
         put("airflow_cfm", _num(rows.get("airflow at 100% pwm / 12v (cfm / m3/h)")))
+        put("tdp_w", _num(rows.get("tdp (w)")))
+        put("noise_db", _last_num(rows.get("overall noise level (db(a)) @ 50/75/100% (rpm)", "")))
+        # Two dimension rows (overall / heatsink); which one includes the fan
+        # differs by model (Pure Rock LP: 45 / 30, Shadow Rock TF 2: 87 / 112),
+        # so the taller - the case-fit height - is read.
+        heights = []
+        for label, value in rows.items():
+            if label.startswith(("overall dimensions", "dimensions (l x w x h)")):
+                height = re.match(r"\s*\d{2,3}\s*x\s*\d{2,3}\s*x\s*(\d{2,3})\b", value)
+                if height:
+                    heights.append(int(height.group(1)))
+        if heights:
+            put("height_mm", max(heights))
 
 
 def _psu(rows, model, put) -> None:
@@ -198,3 +262,51 @@ def _psu(rows, model, put) -> None:
     put("pcie16_connectors", count("12v-2x6 cables"))
     put("sata_connectors", count("sata"))
     put("molex4_connectors", count("pata"))
+
+
+def _count(raw) -> int | None:
+    """'3' -> 3, '-' -> 0 (the table's "none"), anything else unknown."""
+    text = str(raw or "").strip()
+    if text == "-":
+        return 0
+    return int(text) if text.isdigit() else None
+
+
+def _case_more(rows, every, put) -> None:
+    """Fan mounts, radiator sizes, clearances, bays, lighting."""
+    for position in ("front", "top", "side", "rear", "bottom"):
+        values = every.get(f"{position} (mm)", [])
+        mounts = values[0] if values else None
+        shroud = rows.get("psu shroud", "-").strip()
+        if position == "bottom" and (mounts or "-").strip() == "-" and shroud != "-":
+            mounts = shroud                     # the PSU shroud is the bottom mount
+        if mounts:
+            put(f"fan_{position}", fan_mounts(mounts))
+    sizes: set[int] = set()
+    for position in ("front", "top", "side", "rear", "bottom"):
+        for value in every.get(f"{position} (mm)", [])[1:2]:
+            if not re.search(r"\dx", value.replace(" ", "")):
+                sizes |= radiator_sizes(value)
+    if sizes:
+        put("radiator_support", {f"{n} mm": 1 for n in sorted(sizes)})
+    slots = re.match(r"\s*(\d{1,2})\b", rows.get("expansion slots", ""))
+    if slots:
+        put("expansion_slots", slots.group(1))
+    # GPU length: the larger figure (HDD cage removed) is the case's maximum.
+    lengths = [_num(rows.get(label)) for label in (
+        "hdd cage (in height of graphics card) removed (mm)",
+        "hdd cage (in height of graphics card) installed (mm)")]
+    lengths = [n for n in lengths if n]
+    if lengths:
+        put("max_gpu_length_mm", int(max(lengths)))
+    # Bays the case takes ("max."), not the trays in the box.
+    put("drive_bays_35", _count(rows.get("3.5 slots (max.)")))
+    put("drive_bays_25", _count(rows.get("2.5 slots (max.)")))
+    led = _flag(rows.get("led illumination"))
+    kind = rows.get("led type", "")
+    # Only the positive: "LED illumination: -" is the case body, while the
+    # catalog's case lighting also counts bundled ARGB fans (Pure Base 501 LX).
+    if led and re.search(r"ARGB", kind, re.I):
+        put("lighting", "ARGB")
+    elif led and re.search(r"RGB", kind):
+        put("lighting", "RGB")

@@ -2,11 +2,11 @@
  "brand": "NZXT",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-18",
+ "generated": "2026-10-20",
  "entries": {
   "https://nzxt.com/products/f120-core-rgb-1": {
    "url": "https://nzxt.com/products/f120-core-rgb-1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFC12SFW1",
@@ -26,7 +26,7 @@
   },
   "https://nzxt.com/products/f120-rgb": {
    "url": "https://nzxt.com/products/f120-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFR212SWF",
@@ -49,7 +49,7 @@
   },
   "https://nzxt.com/products/f120-rgb-duo": {
    "url": "https://nzxt.com/products/f120-rgb-duo",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFD12SFW1",
@@ -73,7 +73,7 @@
   },
   "https://nzxt.com/products/f120-rgb-duo-triple-pack": {
    "url": "https://nzxt.com/products/f120-rgb-duo-triple-pack",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFD12TFW1",
@@ -97,7 +97,7 @@
   },
   "https://nzxt.com/products/f120p": {
    "url": "https://nzxt.com/products/f120p",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFP12SFW2",
@@ -121,7 +121,7 @@
   },
   "https://nzxt.com/products/f120q": {
    "url": "https://nzxt.com/products/f120q",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFQ12SFW2",
@@ -145,7 +145,7 @@
   },
   "https://nzxt.com/products/f120u": {
    "url": "https://nzxt.com/products/f120u",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFE12USWA",
@@ -169,7 +169,7 @@
   },
   "https://nzxt.com/products/f120x": {
    "url": "https://nzxt.com/products/f120x",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU12PNW1",
@@ -192,7 +192,7 @@
   },
   "https://nzxt.com/products/f140-core-rgb": {
    "url": "https://nzxt.com/products/f140-core-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFC14SFW1",
@@ -216,7 +216,7 @@
   },
   "https://nzxt.com/products/f140-rgb": {
    "url": "https://nzxt.com/products/f140-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFR214SWF",
@@ -239,7 +239,7 @@
   },
   "https://nzxt.com/products/f140-rgb-duo-twin-pack": {
    "url": "https://nzxt.com/products/f140-rgb-duo-twin-pack",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFD14DFW1",
@@ -263,7 +263,7 @@
   },
   "https://nzxt.com/products/f140p": {
    "url": "https://nzxt.com/products/f140p",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFP14SFW2",
@@ -287,7 +287,7 @@
   },
   "https://nzxt.com/products/f140q": {
    "url": "https://nzxt.com/products/f140q",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFQ14SFW2",
@@ -311,7 +311,7 @@
   },
   "https://nzxt.com/products/f140u": {
    "url": "https://nzxt.com/products/f140u",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFE14USWA",
@@ -335,7 +335,7 @@
   },
   "https://nzxt.com/products/f140x": {
    "url": "https://nzxt.com/products/f140x",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU14PNW1",
@@ -358,7 +358,7 @@
   },
   "https://nzxt.com/products/f240-rgb-core": {
    "url": "https://nzxt.com/products/f240-rgb-core",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU24HFW1",
@@ -382,7 +382,7 @@
   },
   "https://nzxt.com/products/f240x": {
    "url": "https://nzxt.com/products/f240x",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU24PNW1",
@@ -405,7 +405,7 @@
   },
   "https://nzxt.com/products/f280-rgb-core": {
    "url": "https://nzxt.com/products/f280-rgb-core",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU28HFW1",
@@ -428,7 +428,7 @@
   },
   "https://nzxt.com/products/f280x": {
    "url": "https://nzxt.com/products/f280x",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU28PNW1",
@@ -450,7 +450,7 @@
   },
   "https://nzxt.com/products/f360-rgb": {
    "url": "https://nzxt.com/products/f360-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFR236UWF",
@@ -472,7 +472,7 @@
   },
   "https://nzxt.com/products/f360-rgb-core": {
    "url": "https://nzxt.com/products/f360-rgb-core",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU36HFW1",
@@ -495,7 +495,7 @@
   },
   "https://nzxt.com/products/f360-rgb-reverse": {
    "url": "https://nzxt.com/products/f360-rgb-reverse",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFR236RWF",
@@ -517,7 +517,7 @@
   },
   "https://nzxt.com/products/f360u": {
    "url": "https://nzxt.com/products/f360u",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFE36USWA",
@@ -540,7 +540,7 @@
   },
   "https://nzxt.com/products/f360x": {
    "url": "https://nzxt.com/products/f360x",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU36PNW1",
@@ -562,7 +562,7 @@
   },
   "https://nzxt.com/products/f420-rgb": {
    "url": "https://nzxt.com/products/f420-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFR242UWF",
@@ -584,7 +584,7 @@
   },
   "https://nzxt.com/products/f420-rgb-core": {
    "url": "https://nzxt.com/products/f420-rgb-core",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFU42HFW1",
@@ -607,7 +607,7 @@
   },
   "https://nzxt.com/products/f420-rgb-reverse": {
    "url": "https://nzxt.com/products/f420-rgb-reverse",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFR242RWF",
@@ -629,7 +629,7 @@
   },
   "https://nzxt.com/products/f420u": {
    "url": "https://nzxt.com/products/f420u",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "RFE42USWA",
@@ -652,7 +652,7 @@
   },
   "https://nzxt.com/products/h2-flow": {
    "url": "https://nzxt.com/products/h2-flow",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CIH21FW01",
@@ -670,7 +670,9 @@
     ],
     "max_gpu_length_mm": 331,
     "max_cooler_height_mm": 75,
+    "drive_bays_25": 2,
     "drive_bays_35": 0,
+    "expansion_slots": "3",
     "front_usb": [
      "USB 3.2",
      "USB Type-C",
@@ -678,12 +680,15 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=181 H=435 D=263mm",
-    "weight_kg": 4.55
+    "weight_kg": 4.55,
+    "volume_l": 20.7,
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm"
    }
   },
   "https://nzxt.com/products/h3-flow": {
    "url": "https://nzxt.com/products/h3-flow",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH31FW01",
@@ -716,12 +721,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=225 H=400 D=389mm",
-    "weight_kg": 5.017
+    "weight_kg": 5.017,
+    "volume_l": 35.0,
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm"
    }
   },
   "https://nzxt.com/products/h5-flow": {
    "url": "https://nzxt.com/products/h5-flow",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH52FW01",
@@ -752,12 +762,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=225 H=465 D=430mm",
-    "weight_kg": 7.28
+    "weight_kg": 7.28,
+    "volume_l": 45.0,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm"
    }
   },
   "https://nzxt.com/products/h5-flow-rgb": {
    "url": "https://nzxt.com/products/h5-flow-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH52FWR1",
@@ -788,12 +803,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=225 H=465 D=430mm",
-    "weight_kg": 7.63
+    "weight_kg": 7.63,
+    "volume_l": 45.0,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm"
    }
   },
   "https://nzxt.com/products/h6": {
    "url": "https://nzxt.com/products/h6",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH62FW01",
@@ -823,12 +843,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=292 H=448 D=420mm",
-    "weight_kg": 7.94
+    "weight_kg": 7.94,
+    "volume_l": 55.0,
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm"
    }
   },
   "https://nzxt.com/products/h6-flow": {
    "url": "https://nzxt.com/products/h6-flow",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH61FW01",
@@ -858,12 +883,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=287 H=435 D=415mm",
-    "weight_kg": 9.42
+    "weight_kg": 9.42,
+    "volume_l": 51.8,
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 140 mm"
    }
   },
   "https://nzxt.com/products/h6-flow-rgb": {
    "url": "https://nzxt.com/products/h6-flow-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH61FWR1",
@@ -893,12 +923,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=287 H=435 D=415mm",
-    "weight_kg": 9.4
+    "weight_kg": 9.4,
+    "volume_l": 51.8,
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 140 mm"
    }
   },
   "https://nzxt.com/products/h6-rgb-plus": {
    "url": "https://nzxt.com/products/h6-rgb-plus",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCH62FWP1",
@@ -928,12 +963,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=292 H=448 D=420mm",
-    "weight_kg": 9.3
+    "weight_kg": 9.3,
+    "volume_l": 55.0,
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm"
    }
   },
   "https://nzxt.com/products/h7-flow": {
    "url": "https://nzxt.com/products/h7-flow",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CMH72FW01",
@@ -963,12 +1003,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=244 H=544 D=468mm",
-    "weight_kg": 10.97
+    "weight_kg": 10.97,
+    "volume_l": 62.1,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm"
    }
   },
   "https://nzxt.com/products/h7-flow-rgb": {
    "url": "https://nzxt.com/products/h7-flow-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CMH72FWR1",
@@ -998,12 +1043,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=244 H=544 D=475mm",
-    "weight_kg": 10.97
+    "weight_kg": 10.97,
+    "volume_l": 62.1,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm"
    }
   },
   "https://nzxt.com/products/h9-flow": {
    "url": "https://nzxt.com/products/h9-flow",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CMH92FW01",
@@ -1039,12 +1089,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=315 H=506 D=481mm",
-    "weight_kg": 12.49
+    "weight_kg": 12.49,
+    "volume_l": 76.7,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm"
    }
   },
   "https://nzxt.com/products/h9-flow-rgb": {
    "url": "https://nzxt.com/products/h9-flow-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CMH92FWR1",
@@ -1080,12 +1135,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=315 H=506 D=481mm",
-    "weight_kg": 12.49
+    "weight_kg": 12.49,
+    "volume_l": 76.7,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm"
    }
   },
   "https://nzxt.com/products/h9-flow-rgb-plus": {
    "url": "https://nzxt.com/products/h9-flow-rgb-plus",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CMH92FWP1",
@@ -1121,12 +1181,17 @@
     ],
     "side_panel": "Windowed",
     "dimensions_mm": "W=315 H=506 D=481mm",
-    "weight_kg": 13.29
+    "weight_kg": 13.29,
+    "volume_l": 76.7,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm"
    }
   },
   "https://nzxt.com/products/kraken-240-elite": {
    "url": "https://nzxt.com/products/kraken-240-elite",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKN24EB2",
@@ -1142,12 +1207,22 @@
      "AM5",
      "AM4"
     ],
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 73.47,
+    "noise_db": 30.0,
+    "radiator_length_mm": 281,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://nzxt.com/products/kraken-240-elite-rgb": {
    "url": "https://nzxt.com/products/kraken-240-elite-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR24EW2",
@@ -1165,12 +1240,19 @@
      "LGA1200",
      "AM5",
      "AM4"
-    ]
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 75.12,
+    "noise_db": 30.0,
+    "radiator_length_mm": 281,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2
    }
   },
   "https://nzxt.com/products/kraken-280-elite-rgb": {
    "url": "https://nzxt.com/products/kraken-280-elite-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR28EW2",
@@ -1188,12 +1270,19 @@
      "LGA1200",
      "AM5",
      "AM4"
-    ]
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 98.61,
+    "noise_db": 34.5,
+    "radiator_length_mm": 321,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2
    }
   },
   "https://nzxt.com/products/kraken-360-elite-aio": {
    "url": "https://nzxt.com/products/kraken-360-elite-aio",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKN36EB2",
@@ -1209,12 +1298,22 @@
      "AM5",
      "AM4"
     ],
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 73.47,
+    "noise_db": 30.0,
+    "radiator_length_mm": 401,
+    "radiator_thickness_mm": 27,
+    "fan_count": 3,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://nzxt.com/products/kraken-360-elite-rgb-1": {
    "url": "https://nzxt.com/products/kraken-360-elite-rgb-1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR36EW2",
@@ -1232,12 +1331,19 @@
      "LGA1200",
      "AM5",
      "AM4"
-    ]
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 75.12,
+    "noise_db": 30.0,
+    "radiator_length_mm": 401,
+    "radiator_thickness_mm": 27,
+    "fan_count": 3
    }
   },
   "https://nzxt.com/products/kraken-core-240-rgb": {
    "url": "https://nzxt.com/products/kraken-core-240-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR24CB1",
@@ -1252,12 +1358,22 @@
      "LGA1200",
      "AM5",
      "AM4"
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 75.05,
+    "noise_db": 31.9,
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2,
+    "connectors": [
+     "4-pin PWM"
     ]
    }
   },
   "https://nzxt.com/products/kraken-core-360-rgb": {
    "url": "https://nzxt.com/products/kraken-core-360-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR36CB1",
@@ -1272,12 +1388,22 @@
      "LGA1200",
      "AM5",
      "AM4"
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 75.05,
+    "noise_db": 31.9,
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "fan_count": 3,
+    "connectors": [
+     "4-pin PWM"
     ]
    }
   },
   "https://nzxt.com/products/kraken-elite-420-rgb": {
    "url": "https://nzxt.com/products/kraken-elite-420-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR42EW2",
@@ -1295,12 +1421,19 @@
      "LGA1200",
      "AM5",
      "AM4"
-    ]
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 98.61,
+    "noise_db": 34.5,
+    "radiator_length_mm": 457,
+    "radiator_thickness_mm": 27,
+    "fan_count": 3
    }
   },
   "https://nzxt.com/products/kraken-plus-240": {
    "url": "https://nzxt.com/products/kraken-plus-240",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKN240B2",
@@ -1316,12 +1449,22 @@
      "AM5",
      "AM4"
     ],
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 73.47,
+    "noise_db": 30.0,
+    "radiator_length_mm": 281,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://nzxt.com/products/kraken-plus-240-rgb": {
    "url": "https://nzxt.com/products/kraken-plus-240-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR240W2",
@@ -1339,12 +1482,19 @@
      "LGA1200",
      "AM5",
      "AM4"
-    ]
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 75.05,
+    "noise_db": 31.9,
+    "radiator_length_mm": 281,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2
    }
   },
   "https://nzxt.com/products/kraken-plus-280": {
    "url": "https://nzxt.com/products/kraken-plus-280",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKN280B2",
@@ -1360,12 +1510,22 @@
      "AM5",
      "AM4"
     ],
-    "fan_size_mm": 140
+    "fan_size_mm": 140,
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 1700,
+    "airflow_cfm": 93.2,
+    "noise_db": 30.0,
+    "radiator_length_mm": 321,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://nzxt.com/products/kraken-plus-360": {
    "url": "https://nzxt.com/products/kraken-plus-360",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKN360B2",
@@ -1381,12 +1541,22 @@
      "AM5",
      "AM4"
     ],
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 73.47,
+    "noise_db": 30.0,
+    "radiator_length_mm": 401,
+    "radiator_thickness_mm": 27,
+    "fan_count": 3,
+    "connectors": [
+     "4-pin PWM"
+    ]
    }
   },
   "https://nzxt.com/products/kraken-plus-360-rgb": {
    "url": "https://nzxt.com/products/kraken-plus-360-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "aio",
    "keys": [
     "RLKR360W2",
@@ -1404,12 +1574,19 @@
      "LGA1200",
      "AM5",
      "AM4"
-    ]
+    ],
+    "fan_rpm_min": 500,
+    "fan_rpm_max": 2400,
+    "airflow_cfm": 75.05,
+    "noise_db": 31.9,
+    "radiator_length_mm": 401,
+    "radiator_thickness_mm": 27,
+    "fan_count": 3
    }
   },
   "https://nzxt.com/products/player-one": {
    "url": "https://nzxt.com/products/player-one",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [],
    "names": [],
@@ -1422,7 +1599,7 @@
   },
   "https://nzxt.com/products/player-one-prime": {
    "url": "https://nzxt.com/products/player-one-prime",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [],
    "names": [],
@@ -1436,7 +1613,7 @@
   },
   "https://nzxt.com/products/player-three": {
    "url": "https://nzxt.com/products/player-three",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [],
    "names": [],
@@ -1450,7 +1627,7 @@
   },
   "https://nzxt.com/products/player-three-prime": {
    "url": "https://nzxt.com/products/player-three-prime",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [],
    "names": [],
@@ -1464,7 +1641,7 @@
   },
   "https://nzxt.com/products/player-two": {
    "url": "https://nzxt.com/products/player-two",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [],
    "names": [],
@@ -1478,7 +1655,7 @@
   },
   "https://nzxt.com/products/player-two-prime": {
    "url": "https://nzxt.com/products/player-two-prime",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [],
    "names": [],
@@ -1492,7 +1669,7 @@
   },
   "https://nzxt.com/products/s5-rgb": {
    "url": "https://nzxt.com/products/s5-rgb",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCS51FW01",
@@ -1521,12 +1698,19 @@
      "Earphone/Mic"
     ],
     "side_panel": "Windowed",
-    "weight_kg": 6.14
+    "weight_kg": 6.14,
+    "volume_l": 42.8,
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1
+    }
    }
   },
   "https://nzxt.com/products/s5-rgb-deluxe": {
    "url": "https://nzxt.com/products/s5-rgb-deluxe",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "CCS51FWD1",
@@ -1555,7 +1739,14 @@
      "Earphone/Mic"
     ],
     "side_panel": "Windowed",
-    "weight_kg": 6.44
+    "weight_kg": 6.44,
+    "volume_l": 42.8,
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1
+    }
    }
   }
  }

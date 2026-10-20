@@ -15,7 +15,8 @@ from __future__ import annotations
 import html as html_lib
 import re
 
-from .common import (clean, front_io_ports, mb_form_factor_list, number_range, typed)
+from .common import (clean, fan_mounts, front_io_ports, mb_form_factor_list, number_range,
+                     radiator_sizes, spec_range, typed)
 
 BRAND = "NZXT"
 BASE_URL = "https://nzxt.com"
@@ -113,10 +114,11 @@ def _case(rows, put) -> None:
     put("max_gpu_length_mm", _mm(rows.get("gpu length")))
     put("max_cooler_height_mm", _mm(rows.get("cpu cooler height")))
     for label, field in (('2.5" drive bays', "drive_bays_25"), ('3.5" drive bays', "drive_bays_35")):
-        value = re.fullmatch(r"\s*(\d{1,2})\s*", rows.get(label, ""))
+        # "2 (Up to 8.5 mm)" is 2 bays; "1+2" (two kinds of mount) is not split.
+        value = re.match(r"\s*(\d{1,2})\s*(?:$|\()", rows.get(label, ""))
         if value:
             put(field, int(value.group(1)))
-    slots = re.fullmatch(r"\s*(\d{1,2})\s*", rows.get("expansion slots", ""))
+    slots = re.match(r"\s*(\d{1,2})\s*(?:$|\()", rows.get("expansion slots", ""))
     if slots:
         put("expansion_slots", slots.group(1))
     ports = front_io_ports(", ".join(label for label in rows
@@ -132,6 +134,25 @@ def _case(rows, put) -> None:
     weight = re.match(r"\s*(\d+(?:\.\d+)?)\s*kg", rows.get("weight", ""), re.I)
     if weight:
         put("weight_kg", float(weight.group(1)))
+    volume = re.match(r"\s*(\d+(?:\.\d+)?)\s*L\b", rows.get("volume", ""))
+    if volume:
+        put("volume_l", float(volume.group(1)))
+    for field, labels in (("fan_front", ("front fans", "front-right fans")), ("fan_top", ("top fans",)),
+                          ("fan_rear", ("rear fan", "rear fans")), ("fan_bottom", ("bottom fans",)),
+                          ("fan_side", ("side fans", "side fan"))):
+        value = next((rows[label] for label in labels if rows.get(label)), None)
+        if value:
+            put(field, fan_mounts(value))
+    # Only a radiator row that lists sizes: "Up to 360 mm" names the largest
+    # and leaves the rest unsaid, and a partial list would outrank the
+    # retailer's complete one.
+    sizes: set[int] = set()
+    for label, value in rows.items():
+        if re.fullmatch(r"(?:top|front|rear|bottom|side)[- \w]*radiator", label) \
+                and not re.search(r"\bup to\b", value, re.I):
+            sizes |= radiator_sizes(value)
+    if sizes:
+        put("radiator_support", {f"{n} mm": 1 for n in sorted(sizes)})
 
 
 def _fan(rows, put) -> None:
@@ -139,7 +160,7 @@ def _fan(rows, put) -> None:
                     or rows.get("dimensions", ""))
     if size:
         put("size_mm", int(size.group(1)))
-    span = number_range(re.sub(r"[±].*", "", rows.get("speed", "")))
+    span = spec_range(rows.get("speed", ""))
     if span:
         if span[0] != span[1] and span[0] >= 100:
             put("rpm_min", int(span[0]))
@@ -173,5 +194,34 @@ def _cooler(rows, put, category) -> None:
     if sockets:
         put("sockets", sockets)
     size = re.match(r"\s*(\d{2,3})\s*x\s*\d{2,3}\s*x\s*\d{2}\s*mm", rows.get("dimensions", ""))
-    if size:
+    if size and int(size.group(1)) <= 200:          # "240 x 120 x 26" is a fan array
         put("fan_size_mm", int(size.group(1)))
+    if category != "aio":
+        return
+    span = spec_range(rows.get("speed", ""))
+    if span:
+        if span[0] != span[1] and span[0] >= 100:
+            put("fan_rpm_min", int(span[0]))
+        put("fan_rpm_max", int(span[1]))
+    for label, field in (("airflow", "airflow_cfm"), ("noise level", "noise_db")):
+        span = spec_range(rows.get(label))
+        if span:
+            put(field, span[1])
+    radiator = re.match(r"\s*(\d{3})\s*x\s*\d{2,3}\s*x\s*(\d{2})\s*mm", rows.get("dimensions (l x w x h)", ""))
+    if radiator:
+        put("radiator_length_mm", int(radiator.group(1)))
+        put("radiator_thickness_mm", int(radiator.group(2)))
+    # "Single-frame array (3 fans in one frame)" ships quantity 1 of 3 fans.
+    frame = re.search(r"\((\d)\s*fans?\s*in one frame\)", rows.get("configuration", ""), re.I)
+    quantity = re.fullmatch(r"\s*(\d)\s*", rows.get("quantity", ""))
+    if frame:
+        put("fan_count", int(frame.group(1)))
+    elif quantity:
+        put("fan_count", int(quantity.group(1)))
+    connectors = []
+    for part in re.split(r"/|,", rows.get("fan connector", "")):
+        pins = re.search(r"(\d)\s*-?\s*pin\s*PWM", part, re.I)
+        if pins and re.search(r"\bfor\b|&", part) is None:
+            connectors.append(f"{pins.group(1)}-pin PWM")
+    if connectors:
+        put("connectors", connectors)

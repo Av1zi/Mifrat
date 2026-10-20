@@ -2,11 +2,11 @@
  "brand": "Lian Li",
  "schema_version": 2,
  "source": "manufacturer",
- "generated": "2026-10-18",
+ "generated": "2026-10-20",
  "entries": {
   "https://lian-li.com/product/a3-matx/#0": {
    "url": "https://lian-li.com/product/a3-matx/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "A3MATX",
@@ -23,6 +23,14 @@
      "Micro ATX"
     ],
     "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 165,
+    "fan_top": "3 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "volume_l": 26.3,
+    "model": "A3-mATX",
+    "expansion_slots": "4",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -30,13 +38,14 @@
     ],
     "radiator_support": {
      "240 mm": 1,
+     "280 mm": 1,
      "360 mm": 1
     }
    }
   },
   "https://lian-li.com/product/a4h2o/#0": {
    "url": "https://lian-li.com/product/a4h2o/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "A4H2OX5"
@@ -47,7 +56,12 @@
      "Mini ITX"
     ],
     "max_gpu_length_mm": 322,
+    "max_cooler_height_mm": 55,
+    "fan_top": "2 x 120 mm",
+    "volume_l": 11.0,
+    "model": "A4-H2O",
     "expansion_slots": "3",
+    "drive_bays_25": 1,
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -60,7 +74,7 @@
   },
   "https://lian-li.com/product/b4-matx/#0": {
    "url": "https://lian-li.com/product/b4-matx/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "B4X",
@@ -69,8 +83,12 @@
    "names": [],
    "specs": {
     "max_gpu_length_mm": 358,
-    "drive_bays_35": 1,
-    "drive_bays_25": 1,
+    "max_cooler_height_mm": 159,
+    "fan_top": "2 x 120 mm, 3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 2 x 140 mm",
+    "model": "B4-mATX Mesh",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -85,7 +103,7 @@
   },
   "https://lian-li.com/product/edge-gold-v2/#0": {
    "url": "https://lian-li.com/product/edge-gold-v2/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "EG1000C"
@@ -97,12 +115,14 @@
     "modular": "full",
     "atx_version": "ATX 3.1",
     "type": "ATX",
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "length_mm": 182,
+    "model": "EG1000G V2"
    }
   },
   "https://lian-li.com/product/edge-gold/#0": {
    "url": "https://lian-li.com/product/edge-gold/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "EG0750G"
@@ -114,12 +134,21 @@
     "modular": "full",
     "atx_version": "ATX 3.1",
     "type": "ATX",
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "length_mm": 182,
+    "model": "EDGE GOLD 750",
+    "atx4_connectors": 1,
+    "eps8_connectors": 2,
+    "pcie62_connectors": 5,
+    "sata_connectors": 3,
+    "molex4_connectors": 4,
+    "pcie16_connectors": 1,
+    "pcie6_connectors": 0
    }
   },
   "https://lian-li.com/product/edge-platinum-v2/#0": {
    "url": "https://lian-li.com/product/edge-platinum-v2/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "EG1350P"
@@ -131,12 +160,14 @@
     "modular": "full",
     "atx_version": "ATX 3.1",
     "type": "ATX",
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "length_mm": 182,
+    "model": "Edge Platinum V2 1350W"
    }
   },
   "https://lian-li.com/product/edge/#0": {
    "url": "https://lian-li.com/product/edge/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "EG0850"
@@ -148,12 +179,21 @@
     "modular": "full",
     "atx_version": "ATX 3.1",
     "type": "ATX",
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "length_mm": 182,
+    "model": "EDGE850",
+    "atx4_connectors": 1,
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "pcie16_connectors": 1,
+    "molex4_connectors": 4,
+    "sata_connectors": 12,
+    "pcie6_connectors": 0
    }
   },
   "https://lian-li.com/product/lancool-205/#0": {
    "url": "https://lian-li.com/product/lancool-205/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "LANCOOL",
@@ -167,7 +207,15 @@
      "ATX"
     ],
     "max_gpu_length_mm": 350,
+    "max_cooler_height_mm": 160,
+    "side_panel": "Windowed",
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "model": "LANCOOL 205",
     "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
     "front_usb": [
      "USB 3.0",
      "Earphone/Mic"
@@ -179,7 +227,7 @@
   },
   "https://lian-li.com/product/lancool-206/#0": {
    "url": "https://lian-li.com/product/lancool-206/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "LANCOOL",
@@ -199,6 +247,11 @@
     ],
     "max_gpu_length_mm": 386,
     "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 160 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "model": "LANCOOL 206",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
@@ -206,13 +259,14 @@
      "Earphone/Mic"
     ],
     "radiator_support": {
-     "280 mm": 1
+     "280 mm": 1,
+     "360 mm": 1
     }
    }
   },
   "https://lian-li.com/product/lancool-207/#0": {
    "url": "https://lian-li.com/product/lancool-207/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "LAN207RX",
@@ -230,19 +284,30 @@
      "ATX"
     ],
     "max_gpu_length_mm": 375,
+    "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "fan_front": "2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "lighting": "ARGB",
+    "model": "LANCOOL 207",
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
      "Earphone/Mic"
     ],
     "radiator_support": {
-     "240 mm": 1
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
     }
    }
   },
   "https://lian-li.com/product/lancool-216/#0": {
    "url": "https://lian-li.com/product/lancool-216/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "LANCOOL",
@@ -263,6 +328,11 @@
     ],
     "max_gpu_length_mm": 392,
     "max_cooler_height_mm": 180,
+    "side_panel": "Windowed",
+    "fan_front": "3 x 120 mm, 2 x 140 mm, 2 x 160 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "model": "LANCOOL 216",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
@@ -270,13 +340,15 @@
      "Earphone/Mic"
     ],
     "radiator_support": {
-     "240 mm": 1
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
     }
    }
   },
   "https://lian-li.com/product/lancool-iii/#0": {
    "url": "https://lian-li.com/product/lancool-iii/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "LANCOOL",
@@ -289,9 +361,24 @@
    ],
    "names": [],
    "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
     "max_gpu_length_mm": 435,
+    "max_cooler_height_mm": 187,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "model": "LANCOOL III",
     "expansion_slots": "8",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
     "radiator_support": {
      "360 mm": 1,
      "420 mm": 1
@@ -300,7 +387,7 @@
   },
   "https://lian-li.com/product/o11-air-mini/#0": {
    "url": "https://lian-li.com/product/o11-air-mini/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11AMX",
@@ -319,6 +406,12 @@
      "E-ATX"
     ],
     "max_gpu_length_mm": 362,
+    "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "model": "O11 AIR MINI",
+    "expansion_slots": "7",
+    "drive_bays_35": 3,
+    "drive_bays_25": 6,
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -332,7 +425,7 @@
   },
   "https://lian-li.com/product/o11-dynamic-evo-xl/#0": {
    "url": "https://lian-li.com/product/o11-dynamic-evo-xl/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DEXLX",
@@ -352,6 +445,12 @@
     ],
     "max_gpu_length_mm": 460,
     "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "model": "O11 DYNAMIC EVO XL",
     "expansion_slots": "8",
     "front_usb": [
      "USB 3.0",
@@ -359,13 +458,16 @@
      "Earphone/Mic"
     ],
     "radiator_support": {
-     "280 mm": 1
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
     }
    }
   },
   "https://lian-li.com/product/o11-dynamic-evo/#0": {
    "url": "https://lian-li.com/product/o11-dynamic-evo/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DEX",
@@ -384,14 +486,20 @@
      "E-ATX"
     ],
     "max_gpu_length_mm": 426,
+    "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 2 x 140 mm",
+    "model": "O11 DYNAMIC EVO",
+    "expansion_slots": "8",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
      "Earphone/Mic"
     ],
     "radiator_support": {
-     "120 mm": 1,
-     "140 mm": 1,
      "280 mm": 1,
      "360 mm": 1
     }
@@ -399,7 +507,7 @@
   },
   "https://lian-li.com/product/o11-dynamic-mini-v2/#0": {
    "url": "https://lian-li.com/product/o11-dynamic-mini-v2/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DMIV2X",
@@ -414,10 +522,13 @@
     "max_gpu_length_mm": 400,
     "max_cooler_height_mm": 160,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "model": "O11D MINI V2",
     "dimensions_mm": "W=273 H=392 D=424mm",
     "expansion_slots": "5",
-    "drive_bays_35": 2,
-    "drive_bays_25": 2,
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -432,7 +543,7 @@
   },
   "https://lian-li.com/product/o11-dynamic-mini-v2/#1": {
    "url": "https://lian-li.com/product/o11-dynamic-mini-v2/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DMIV2FX",
@@ -447,10 +558,13 @@
     "max_gpu_length_mm": 400,
     "max_cooler_height_mm": 160,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "model": "O11D MINI V2 Flow",
     "dimensions_mm": "W=273 H=392 D=424mm",
     "expansion_slots": "5",
-    "drive_bays_35": 2,
-    "drive_bays_25": 2,
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -465,7 +579,7 @@
   },
   "https://lian-li.com/product/o11-dynamic-mini/#0": {
    "url": "https://lian-li.com/product/o11-dynamic-mini/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DMINIX",
@@ -477,8 +591,28 @@
    ],
    "names": [],
    "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
     "max_gpu_length_mm": 395,
     "max_cooler_height_mm": 170,
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 2 x 140 mm",
+    "model": "O11 DYNAMIC MINI",
+    "expansion_slots": "3",
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
     "radiator_support": {
      "240 mm": 1,
      "280 mm": 1,
@@ -488,7 +622,7 @@
   },
   "https://lian-li.com/product/o11-vision-m/#0": {
    "url": "https://lian-li.com/product/o11-vision-m/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11VMX",
@@ -507,6 +641,11 @@
     "max_gpu_length_mm": 410,
     "max_cooler_height_mm": 162,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "model": "O11 VISION-M",
     "dimensions_mm": "W=275 H=395 D=420mm",
     "expansion_slots": "5",
     "drive_bays_35": 1,
@@ -524,7 +663,7 @@
   },
   "https://lian-li.com/product/o11-vision-m/#1": {
    "url": "https://lian-li.com/product/o11-vision-m/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11VMDX",
@@ -543,6 +682,11 @@
     "max_gpu_length_mm": 410,
     "max_cooler_height_mm": 162,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "model": "O11 VISION-M Digital",
     "dimensions_mm": "W=275 H=395 D=420mm",
     "expansion_slots": "5",
     "drive_bays_35": 1,
@@ -560,7 +704,7 @@
   },
   "https://lian-li.com/product/o11-vision/#0": {
    "url": "https://lian-li.com/product/o11-vision/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11VX",
@@ -580,6 +724,12 @@
     ],
     "max_gpu_length_mm": 430,
     "max_cooler_height_mm": 174,
+    "side_panel": "Windowed",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "model": "O11 Vision",
+    "expansion_slots": "6",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -587,13 +737,15 @@
     ],
     "radiator_support": {
      "120 mm": 1,
-     "280 mm": 1
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
     }
    }
   },
   "https://lian-li.com/product/o11d-evo-rgb/#0": {
    "url": "https://lian-li.com/product/o11d-evo-rgb/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DERGBX",
@@ -613,6 +765,12 @@
     ],
     "max_gpu_length_mm": 456,
     "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "model": "O11 DYNAMIC EVO RGB",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
@@ -629,7 +787,7 @@
   },
   "https://lian-li.com/product/o11dergbl/#0": {
    "url": "https://lian-li.com/product/o11dergbl/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "O11DERGBL"
@@ -644,6 +802,11 @@
     ],
     "max_gpu_length_mm": 456,
     "max_cooler_height_mm": 167,
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "model": "O11D EVO RGB Automobili Lamborghini Edition",
     "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
@@ -660,7 +823,7 @@
   },
   "https://lian-li.com/product/odyssey-x/#0": {
    "url": "https://lian-li.com/product/odyssey-x/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "TR01X",
@@ -681,7 +844,13 @@
     "max_gpu_length_mm": 423,
     "max_cooler_height_mm": 167,
     "side_panel": "Windowed",
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "model": "ODYSSEY X",
     "expansion_slots": "8",
+    "drive_bays_35": 3,
+    "drive_bays_25": 3,
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -691,7 +860,7 @@
   },
   "https://lian-li.com/product/q58/#0": {
    "url": "https://lian-li.com/product/q58/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "Q58X3"
@@ -702,7 +871,11 @@
      "Mini ITX"
     ],
     "max_gpu_length_mm": 320,
+    "max_cooler_height_mm": 67,
     "side_panel": "Windowed",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "1 x 120 mm",
+    "model": "Q58",
     "expansion_slots": "3",
     "front_usb": [
      "USB 3.0",
@@ -718,43 +891,55 @@
   },
   "https://lian-li.com/product/rb-psu/#0": {
    "url": "https://lian-li.com/product/rb-psu/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "RB0550B"
    ],
    "names": [],
    "specs": {
-    "wattage_w": 550
+    "wattage_w": 550,
+    "fan_size_mm": 135,
+    "length_mm": 150,
+    "model": "RB 550B",
+    "atx_version": "ATX 3.1"
    }
   },
   "https://lian-li.com/product/rs/#0": {
    "url": "https://lian-li.com/product/rs/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "RS1200G"
    ],
    "names": [],
    "specs": {
-    "wattage_w": 1200
+    "wattage_w": 1200,
+    "fan_size_mm": 135,
+    "length_mm": 150,
+    "model": "RS1200G",
+    "atx_version": "ATX 3.1"
    }
   },
   "https://lian-li.com/product/sp-platinum/#0": {
    "url": "https://lian-li.com/product/sp-platinum/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "SP0850P"
    ],
    "names": [],
    "specs": {
-    "wattage_w": 850
+    "wattage_w": 850,
+    "fan_size_mm": 92,
+    "length_mm": 100,
+    "model": "SP850P",
+    "atx_version": "ATX 3.1"
    }
   },
   "https://lian-li.com/product/sp-v2/#0": {
    "url": "https://lian-li.com/product/sp-v2/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "SP750G"
@@ -762,12 +947,15 @@
    "names": [],
    "specs": {
     "wattage_w": 750,
-    "type": "SFX"
+    "type": "SFX",
+    "length_mm": 100,
+    "model": "SP750 V2 Gold",
+    "atx_version": "ATX 3.1"
    }
   },
   "https://lian-li.com/product/sp750/#0": {
    "url": "https://lian-li.com/product/sp750/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "SP750"
@@ -777,12 +965,22 @@
     "wattage_w": 750,
     "efficiency": "80+ Gold",
     "modular": "full",
-    "type": "SFX"
+    "type": "SFX",
+    "length_mm": 100,
+    "model": "SP750",
+    "atx4_connectors": 1,
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "sata_connectors": 8,
+    "molex4_connectors": 4,
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 0,
+    "pcie12_connectors": 0
    }
   },
   "https://lian-li.com/product/sp850/#0": {
    "url": "https://lian-li.com/product/sp850/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "SP850"
@@ -792,12 +990,21 @@
     "wattage_w": 850,
     "efficiency": "80+ Gold",
     "modular": "full",
-    "type": "SFX"
+    "type": "SFX",
+    "length_mm": 100,
+    "model": "SP850",
+    "atx4_connectors": 1,
+    "eps8_connectors": 2,
+    "pcie62_connectors": 3,
+    "sata_connectors": 8,
+    "molex4_connectors": 4,
+    "pcie12_connectors": 1,
+    "pcie6_connectors": 0
    }
   },
   "https://lian-li.com/product/sup-01/#0": {
    "url": "https://lian-li.com/product/sup-01/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "SUP01X",
@@ -815,6 +1022,13 @@
      "ATX"
     ],
     "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 88,
+    "side_panel": "Windowed",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "volume_l": 44.8,
+    "model": "SUP01",
+    "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -828,7 +1042,7 @@
   },
   "https://lian-li.com/product/sx-platinum/#0": {
    "url": "https://lian-li.com/product/sx-platinum/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "psu",
    "keys": [
     "SX0850P"
@@ -836,12 +1050,15 @@
    "names": [],
    "specs": {
     "wattage_w": 850,
-    "fan_size_mm": 120
+    "fan_size_mm": 120,
+    "length_mm": 140,
+    "model": "SX0850P",
+    "atx_version": "ATX 3.1"
    }
   },
   "https://lian-li.com/product/uni-fan-al-v2/#0": {
    "url": "https://lian-li.com/product/uni-fan-al-v2/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "UFAL120V23B",
@@ -863,7 +1080,7 @@
   },
   "https://lian-li.com/product/uni-fan-cl-wireless/#0": {
    "url": "https://lian-li.com/product/uni-fan-cl-wireless/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12CL1W3B",
@@ -886,7 +1103,7 @@
   },
   "https://lian-li.com/product/uni-fan-cl-wireless/#1": {
    "url": "https://lian-li.com/product/uni-fan-cl-wireless/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RCL1W3B",
@@ -909,7 +1126,7 @@
   },
   "https://lian-li.com/product/uni-fan-p28/#0": {
    "url": "https://lian-li.com/product/uni-fan-p28/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "UFP281203B",
@@ -930,7 +1147,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-infinity/#0": {
    "url": "https://lian-li.com/product/uni-fan-sl-infinity/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "UFSLIN1203B",
@@ -952,7 +1169,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-v2-reverse-blade/#0": {
    "url": "https://lian-li.com/product/uni-fan-sl-v2-reverse-blade/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "UFRSL120V21B",
@@ -976,7 +1193,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-v2/#0": {
    "url": "https://lian-li.com/product/uni-fan-sl-v2/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "UFSL120V23B",
@@ -998,7 +1215,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-wireless/#0": {
    "url": "https://lian-li.com/product/uni-fan-sl-wireless/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12SLLCD1W3B",
@@ -1022,7 +1239,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-wireless/#1": {
    "url": "https://lian-li.com/product/uni-fan-sl-wireless/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12SL1W3B",
@@ -1046,7 +1263,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-wireless/#2": {
    "url": "https://lian-li.com/product/uni-fan-sl-wireless/#2",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RSLLCD1W3B",
@@ -1070,7 +1287,7 @@
   },
   "https://lian-li.com/product/uni-fan-sl-wireless/#3": {
    "url": "https://lian-li.com/product/uni-fan-sl-wireless/#3",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RSL1W3B",
@@ -1094,7 +1311,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-lcd/#0": {
    "url": "https://lian-li.com/product/uni-fan-tl-lcd/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12TLLCD3B",
@@ -1117,7 +1334,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-lcd/#1": {
    "url": "https://lian-li.com/product/uni-fan-tl-lcd/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RTLLCD3B",
@@ -1140,7 +1357,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-wireless/#0": {
    "url": "https://lian-li.com/product/uni-fan-tl-wireless/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12TLLCD1W3B",
@@ -1165,7 +1382,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-wireless/#1": {
    "url": "https://lian-li.com/product/uni-fan-tl-wireless/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12TL1W3B",
@@ -1190,7 +1407,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-wireless/#2": {
    "url": "https://lian-li.com/product/uni-fan-tl-wireless/#2",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RTLLCD1W3B",
@@ -1215,7 +1432,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-wireless/#3": {
    "url": "https://lian-li.com/product/uni-fan-tl-wireless/#3",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RTL1W3B",
@@ -1240,7 +1457,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-wireless/#4": {
    "url": "https://lian-li.com/product/uni-fan-tl-wireless/#4",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "14TLLCD1W1B",
@@ -1265,7 +1482,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl-wireless/#5": {
    "url": "https://lian-li.com/product/uni-fan-tl-wireless/#5",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "14RTLLCD1W1B",
@@ -1290,7 +1507,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl/#0": {
    "url": "https://lian-li.com/product/uni-fan-tl/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12TL3B",
@@ -1313,7 +1530,7 @@
   },
   "https://lian-li.com/product/uni-fan-tl/#1": {
    "url": "https://lian-li.com/product/uni-fan-tl/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case_fan",
    "keys": [
     "12RTL3B",
@@ -1336,7 +1553,7 @@
   },
   "https://lian-li.com/product/v3000-plus/#0": {
    "url": "https://lian-li.com/product/v3000-plus/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "V3000PX",
@@ -1357,6 +1574,11 @@
     "max_gpu_length_mm": 589,
     "max_cooler_height_mm": 198,
     "side_panel": "Windowed",
+    "fan_front": "4 x 120 mm, 3 x 140 mm",
+    "fan_top": "4 x 120 mm, 3 x 140 mm, 2 x 200 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "4 x 120 mm, 3 x 140 mm",
+    "model": "V3000 PLUS",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -1366,13 +1588,14 @@
      "240 mm": 1,
      "280 mm": 1,
      "360 mm": 1,
-     "420 mm": 1
+     "420 mm": 1,
+     "480 mm": 1
     }
    }
   },
   "https://lian-li.com/product/vector-v100-mini/#0": {
    "url": "https://lian-li.com/product/vector-v100-mini/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "V100MIX",
@@ -1384,6 +1607,20 @@
    ],
    "names": [],
    "specs": {
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 164,
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "model": "VECTOR V100 MINI",
+    "expansion_slots": "5",
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
     "radiator_support": {
      "240 mm": 1,
      "360 mm": 1
@@ -1392,7 +1629,7 @@
   },
   "https://lian-li.com/product/vector-v100/#0": {
    "url": "https://lian-li.com/product/vector-v100/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "V100X",
@@ -1409,7 +1646,15 @@
      "Micro ATX",
      "ATX"
     ],
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 178,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "model": "Vector V100",
+    "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -1422,7 +1667,7 @@
   },
   "https://lian-li.com/product/vector-v100/#1": {
    "url": "https://lian-li.com/product/vector-v100/#1",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "V100RX",
@@ -1439,7 +1684,15 @@
      "Micro ATX",
      "ATX"
     ],
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 178,
     "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "model": "Vector V100R",
+    "expansion_slots": "7",
     "front_usb": [
      "USB 3.0",
      "USB Type-C",
@@ -1452,7 +1705,7 @@
   },
   "https://lian-li.com/product/vector-v150inf/#0": {
    "url": "https://lian-li.com/product/vector-v150inf/#0",
-   "fetched": "2026-10-18",
+   "fetched": "2026-10-20",
    "category": "case",
    "keys": [
     "V150INFX",
@@ -1468,6 +1721,16 @@
      "Mini ITX",
      "Micro ATX"
     ],
+    "max_gpu_length_mm": 400,
+    "side_panel": "Windowed",
+    "fan_front": "2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "weight_kg": 8.1,
+    "model": "Vector V150 INF",
+    "expansion_slots": "5",
     "front_usb": [
      "USB 3.2",
      "USB Type-C",

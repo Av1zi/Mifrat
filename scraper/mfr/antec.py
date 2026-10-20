@@ -15,16 +15,24 @@ retail part number / UPC the catalog already holds is the exact join: every
 in-scope page is fetched (`in_scope`/`classify`, ~300 pages) and recorded with
 the page's own UPCs plus its slug as a part number (Antec model codes such as
 "CX700-RGB-ELITE" ARE the slug), then `store.facts_for` joins on identifiers.
-Case drive-bay counts are NOT read: the "3.5\" / 2.5\"" row mixes combo and
-dedicated bays and the page does not say which.
+Case drive-bay counts are NOT read from the combined "3.5\" / 2.5\"" row: it
+mixes combo and dedicated bays and the page does not say which (pages with
+separate 3.5" and 2.5" rows only are read).
+
+Round 3 (Oct 2026): every field the page prints. The spec table is a run of
+headed blocks ("Fan Support", "Radiator Support", "Fan", "Pump", "Radiator")
+that repeat the same labels (Front / Top / Rear, Dimensions, Connector), so
+fields are read per block; a rowspan label ("Connector", "UPC#") covers the
+list rows under it, so all of a page's UPCs join now, not only the first.
 """
 
 from __future__ import annotations
 
 import re
 
-from .common import (efficiency_tier, front_io_ports, html_rows, mb_form_factor_list,
-                     norm_name, number_range, typed)
+from .common import (efficiency_tier, fan_mounts, front_io_ports, html_rows,
+                     html_section_rows, mb_form_factor_list, norm_name,
+                     psu_connector_counts, psu_length, radiator_sizes, spec_range, typed)
 
 BRAND = "Antec"
 BASE_URL = "https://www.antec.com"
@@ -53,6 +61,16 @@ def index(client) -> list[dict]:
     for url, group, slug in _URL_RE.findall(page or ""):
         entries.setdefault(norm_name(slug), {"url": url, "group": group,
                                              "slug": slug, "key": norm_name(slug)})
+    # "ne850-platinum" next to "ne850-platinum-atx3-1": the retail code
+    # NE850PLATINUM names both revisions, so the bare slug is no part number
+    # (the page still joins on its own UPCs). Colour siblings ("-white")
+    # share the specs and keep the key.
+    slugs = [entry["slug"].lower() for entry in entries.values()]
+    for entry in entries.values():
+        slug = entry["slug"].lower()
+        if any(other.startswith(slug + "-") and re.match(r"atx-?3", other[len(slug) + 1:])
+               for other in slugs):
+            entry["key_is_id"] = False
     return list(entries.values())
 
 
@@ -102,8 +120,30 @@ def _rows(page: str) -> dict[str, str]:
     return out
 
 
+def _sections(page: str) -> dict[tuple[str, str], list[str]]:
+    """(block, label) -> every value, in page order. Block names are reduced
+    to their kind ("Fan Support" -> "fan", "Radiator Support" -> "radiator")
+    so the coolers' "Fan" block and the cases' "Fan Support" block read alike;
+    rows above the first heading have block ""."""
+    out: dict[tuple[str, str], list[str]] = {}
+    for section, label, value in html_section_rows(page):
+        kind = next((k for k in ("radiator", "fan", "pump", "head", "tube") if k in section), "")
+        key = (kind, re.sub(r"\s+", " ", label).strip().lower())
+        out.setdefault(key, []).append(value)
+    return out
+
+
+def _get(sections, *keys) -> str | None:
+    """First value of the first (block, label) key present."""
+    for key in keys:
+        if sections.get(key):
+            return sections[key][0]
+    return None
+
+
 def parse(page: str, category: str) -> dict:
     rows = _rows(page)
+    sections = _sections(page)
     out: dict = {}
 
     def put(field: str, raw) -> None:
@@ -113,20 +153,24 @@ def parse(page: str, category: str) -> dict:
         if value is not None:
             out[field] = value
 
-    # The UPC cell lists every variant ("0-761345-40033-6 P12 PWM ARGB_3PK /
-    # 0-761345-40043-5 ..." or "[NE650C V2 AU][0-761345-11195-9]"): read each
-    # barcode on its own, never the digits of the whole cell.
-    barcodes = re.findall(r"\b\d-\d{5}-\d{5}-\d\b|\b\d{12,13}\b",
-                          f"{rows.get('upc#', '')} {rows.get('upc', '')}")
-    out["_ids"] = barcodes
+    # The UPC rows list every variant ("0-761345-40033-6 P12 PWM ARGB_3PK /
+    # 0-761345-40043-5 ..." or "[NE650C V2 AU][0-761345-11195-9]", one per row
+    # under a rowspan label): read each barcode on its own, never the digits
+    # of the whole cell.
+    upc_text = " ".join(value for (_, label), values in sections.items()
+                        if label in ("upc#", "upc", "#upc") for value in values)
+    # Antec prints UPC-A as 0-761345-11647-3 (1-6-5-1 digits).
+    out["_ids"] = re.findall(r"\b\d-\d{5,6}-\d{5}-\d\b|\b\d{12,13}\b", upc_text)
     if category == "case":
-        _case(rows, put)
+        _case(rows, sections, put)
     elif category == "case_fan":
-        _fan(rows, put)
+        _fan(sections, put)
     elif category == "aio":
-        _aio(rows, put)
+        _aio(sections, put)
+    elif category == "cooler_air":
+        _cooler_air(sections, put)
     elif category == "psu":
-        _psu(rows, put)
+        _psu(rows, sections, put)
     return {k: v for k, v in out.items() if v is not None}
 
 
@@ -135,9 +179,9 @@ def _mm(raw) -> int | None:
     return int(round(float(match.group(1)))) if match else None
 
 
-def _case(rows, put) -> None:
+def _case(rows, sections, put) -> None:
     put("max_gpu_length_mm", _mm(rows.get("max gpu length")))
-    put("max_cooler_height_mm", _mm(rows.get("max cpu cooler height")))
+    put("max_cooler_height_mm", _mm(rows.get("max cpu cooler height") or rows.get("max cpu height")))
     put("type", rows.get("form factor"))
     forms = mb_form_factor_list(rows.get("mainboard support", ""))
     if forms:
@@ -154,12 +198,37 @@ def _case(rows, put) -> None:
     slots = re.fullmatch(r"\s*(\d{1,2})\s*", rows.get("expansion slots", ""))
     if slots:
         put("expansion_slots", slots.group(1))
-    ports = front_io_ports(rows.get("front access & controls"))
+    ports = front_io_ports(rows.get("front access & controls") or rows.get("top access & controls"))
     if ports:
         put("front_usb", ports)
+    # "Fan Support" block: one row per position. The PSU shroud is the bottom
+    # mount on cases that print no separate "Bottom" row.
+    for field, labels in (("fan_front", ("front",)), ("fan_top", ("top",)), ("fan_rear", ("rear",)),
+                          ("fan_side", ("side", "right hand side")),
+                          ("fan_bottom", ("bottom", "power supply shroud", "power supply"))):
+        raw = _get(sections, *(("fan", label) for label in labels))
+        if raw:
+            put(field, fan_mounts(raw))
+    sizes: set[int] = set()
+    for (kind, _label), values in sections.items():
+        if kind == "radiator":
+            for value in values:
+                sizes |= radiator_sizes(value)
+    if sizes:
+        put("radiator_support", {f"{n} mm": 1 for n in sorted(sizes)})
+    if not any(re.search(r"3\.5.*2\.5", label) for _, label in sections):
+        for field, label in (("drive_bays_35", '3.5"'), ("drive_bays_25", '2.5"')):
+            count = re.fullmatch(r"\s*(\d{1,2})\s*", rows.get(label, ""))
+            if count:
+                put(field, int(count.group(1)))
+    fans = rows.get("included fan(s)") or rows.get("pre-installed fans") or ""
+    if re.search(r"\bA-?RGB\b", fans, re.I):
+        put("lighting", "ARGB")
+    elif re.search(r"\bRGB\b", fans, re.I):
+        put("lighting", "RGB")
 
 
-def _psu(rows, put) -> None:
+def _psu(rows, sections, put) -> None:
     watts = re.search(r"(\d{3,4})\s*W", rows.get("output capacity", ""), re.I)
     if watts:
         put("wattage_w", int(watts.group(1)))
@@ -171,41 +240,122 @@ def _psu(rows, put) -> None:
         put("modular", "semi")
     elif modular.startswith("non"):
         put("modular", "no")
-    version = re.search(r"ATX\s*12V\s*(?:v|ver\.?\s*)?([23]\.\d)", rows.get("type", ""), re.I)
+    version = re.search(r"ATX\s*12V\s*(?:v|ver\.?\s*)?([23]\.\d{1,2})", rows.get("type", ""), re.I)
     if version:
         put("atx_version", f"ATX {version.group(1)}")
     fan = re.search(r"(\d{2,3})\s*mm", rows.get("fan", ""), re.I)
     if fan:
         put("fan_size_mm", int(fan.group(1)))
+    put("length_mm", psu_length(rows.get("dimension") or rows.get("dimension (w x l x h)")))
+    put("model", rows.get("model") or rows.get("product name"))
+    put("color", rows.get("color"))
+    # "Connector" is a rowspan label over the full cable list (24-pin, EPS,
+    # PCI-E, SATA, Molex, FDD), one connector kind per row.
+    for field, count in psu_connector_counts(sections.get(("", "connector"), [])).items():
+        put(field, count)
 
 
-def _range_max(raw) -> float | None:
-    span = number_range(re.sub(r"[±].*", "", str(raw or "")))
-    return span[1] if span else None
+def _fan_size(raw) -> int | None:
+    size = re.match(r"\s*(\d{2,3})\s*[*x]\s*\1\b", str(raw or ""), re.I)
+    return int(size.group(1)) if size else None
 
 
-def _speed(rows, put, low_field: str, high_field: str, label: str) -> None:
-    span = number_range(re.sub(r"[±].*", "", rows.get(label, "")))
+def _speed(put, low_field: str, high_field: str, raw) -> None:
+    span = spec_range(raw)
     if span:
-        if span[0] != span[1] and span[0] >= 100:
+        if span[0] != span[1] and span[0] >= 100:   # a PWM floor "0 - 2000" is not an rpm
             put(low_field, int(span[0]))
         put(high_field, int(span[1]))
 
 
-def _fan(rows, put) -> None:
-    size = re.match(r"\s*(\d{2,3})\s*[*x]\s*\1\b", rows.get("dimensions", ""))
-    if size:
-        put("size_mm", int(size.group(1)))
-    _speed(rows, put, "rpm_min", "rpm_max", "fan speed")
-    put("airflow_cfm", _range_max(rows.get("airflow")))
-    put("static_pressure_mmh2o", _range_max(rows.get("air pressure")))
-    put("noise_db", _range_max(rows.get("fan noise level")))
-    connector = re.search(r"(\d)-?pin", rows.get("connector", ""), re.I)
+def _top(raw) -> float | None:
+    span = spec_range(raw)
+    return span[1] if span else None
+
+
+def _fan(sections, put) -> None:
+    def fan(label):
+        return _get(sections, ("fan", label), ("", label))
+
+    put("size_mm", _fan_size(fan("dimensions")))
+    _speed(put, "rpm_min", "rpm_max", fan("fan speed"))
+    put("airflow_cfm", _top(fan("airflow")))
+    put("static_pressure_mmh2o", _top(fan("air pressure")))
+    put("noise_db", _top(fan("fan noise level")))
+    connector = re.search(r"(\d)-?pin", fan("connector") or "", re.I)
     if connector:
         put("connector", f"{connector.group(1)}-pin")
+    kind = fan("fan type") or ""
+    if re.search(r"\bPWM\b", kind):
+        put("pwm", True)
+    elif re.search(r"\bDC\b", kind):
+        put("pwm", False)
+    # "C120 ARGB White_3PK" - only when the page sells that one pack size.
+    pack = re.fullmatch(r"[^/]*_(\d)PKS?", (fan("model name") or "").strip(), re.I)
+    if pack:
+        put("quantity", int(pack.group(1)))
 
 
-def _aio(rows, put) -> None:
-    _speed(rows, put, "fan_rpm_min", "fan_rpm_max", "speed")
-    put("airflow_cfm", _range_max(rows.get("airflow")))
-    put("noise_db", _range_max(rows.get("noise")))
+def _aio_connectors(sections) -> list[str]:
+    """'Fan: 4-Pin | ARGB: 3-Pin' / 'Pump: 3-pin | LED: 3-pin' / 'SATA power'
+    -> the catalog's connector tokens. Proprietary plugs ("PH2.0 7pin") are
+    not translated."""
+    out: list[str] = []
+    for kind in ("fan", "pump", "head", ""):
+        for value in sections.get((kind, "connector"), []):
+            for part in re.split(r"[|,;/]", value):
+                pins = re.search(r"(\d)\s*-?\s*pin", part, re.I)
+                if re.search(r"sata", part, re.I):
+                    token = "SATA"
+                elif re.search(r"usb", part, re.I):
+                    token = "USB 2.0" if re.search(r"2\.0", part) else None
+                elif not pins or re.search(r"PH\d|\b[5-9]\s*-?\s*pin", part, re.I):
+                    token = None
+                elif re.search(r"argb|led|rgb", part, re.I):
+                    token = f"{pins.group(1)}-pin ARGB"
+                elif pins.group(1) == "4" or re.search(r"pwm", part, re.I):
+                    token = f"{pins.group(1)}-pin PWM"
+                else:
+                    token = f"{pins.group(1)}-pin"
+                if token and token not in out:
+                    out.append(token)
+    return out
+
+
+def _aio(sections, put) -> None:
+    def fan(label):
+        return _get(sections, ("fan", label), ("", label))
+
+    _speed(put, "fan_rpm_min", "fan_rpm_max", fan("fan speed") or fan("speed"))
+    put("airflow_cfm", _top(fan("airflow")))
+    put("noise_db", _top(fan("fan noise level") or fan("noise")))
+    radiator = re.match(r"\s*(\d{2,3})\s*[x*]\s*\d{2,3}\s*[x*]\s*(\d{2})\b",
+                        _get(sections, ("radiator", "dimensions")) or "")
+    if radiator:
+        put("radiator_length_mm", int(radiator.group(1)))
+        put("radiator_thickness_mm", int(radiator.group(2)))
+    connectors = _aio_connectors(sections)
+    if connectors:
+        put("connectors", connectors)
+
+
+def _cooler_air(sections, put) -> None:
+    def fan(label):
+        return _get(sections, ("fan", label), ("", label))
+
+    _speed(put, "fan_rpm_min", "fan_rpm_max", fan("speed"))
+    put("airflow_cfm", _top(fan("airflow")))
+    put("noise_db", _top(fan("noise") or fan("noise level")))
+    put("fan_size_mm", _fan_size(fan("dimensions")))
+    tdp = re.search(r"(\d{2,3})\s*W\b", fan("tdp") or fan("tdp number") or "", re.I)
+    if tdp:
+        put("tdp_w", int(tdp.group(1)))
+    size = fan("product dimension") or fan("product dimensions") or ""
+    height = re.search(r"\d+\s*x\s*\d+\s*x\s*(\d{2,3})\s*mm\s*\(\s*(?:DWH|D\s*x\s*W\s*x\s*H)", size, re.I)
+    if height:
+        put("height_mm", int(height.group(1)))
+    kind = fan("type") or ""
+    if re.search(r"\bA-?RGB\b", kind, re.I):
+        put("lighting", "ARGB")
+    elif re.search(r"\bRGB\b", kind, re.I):
+        put("lighting", "RGB")

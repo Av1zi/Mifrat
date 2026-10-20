@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T18:38:49.171172+00:00",
+  "generated_at": "2026-10-20T22:44:32.551511+00:00",
   "gaps": [
     {
       "category": "motherboard",
@@ -72,6 +72,16 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "צבע",
+      "count": 20,
+      "products": [
+        "mpn:storage:32197",
+        "mpn:storage:32261",
+        "mpn:storage:4xf1c39743"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "Spec / Specifications / Processor series (CPU)",
       "count": 19,
@@ -79,16 +89,6 @@
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:coreultra5225-tray",
         "model:cpu:coreultra5225f"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "צבע",
-      "count": 19,
-      "products": [
-        "mpn:storage:32197",
-        "mpn:storage:32261",
-        "mpn:storage:4xf1c39743"
       ]
     },
     {
@@ -783,6 +783,16 @@
     },
     {
       "category": "storage",
+      "label": "R/W Speed",
+      "count": 5,
+      "products": [
+        "mpn:storage:ct1000x10ssd9",
+        "mpn:storage:ct2000p510ssd8",
+        "mpn:storage:lnm610p002trnnng"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "חיבורים",
       "count": 5,
       "products": [
@@ -1169,16 +1179,6 @@
         "mpn:storage:cssdf1000gbmp700pro",
         "mpn:storage:cssdf2000gbmp700pnh",
         "mpn:storage:cssdf2000gbmp700pro"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "R/W Speed",
-      "count": 4,
-      "products": [
-        "mpn:storage:ct1000x10ssd9",
-        "mpn:storage:ct2000p510ssd8",
-        "mpn:storage:lnm710x001trnnng"
       ]
     },
     {

@@ -3,7 +3,9 @@ mfr/common.py - shared helpers for manufacturer fetchers.
 
 - `html_rows(html)`: every (label, value) pair from two-cell table rows, with
   nested-table wrappers (Antec) ignored so a layout row never swallows its
-  children;
+  children; `html_section_rows(html)` adds the heading of the one-cell row
+  above each pair (Antec's "Fan Support" / "Radiator Support" blocks repeat
+  the same Front / Top / Rear labels);
 - `norm_mpn` / `norm_upc`: the identity keys products are matched on;
 - `typed(category, field, raw)`: raw page text -> a schema-typed, canonical,
   VALIDATED value (or None). Nothing leaves a fetcher that the spec pipeline
@@ -22,7 +24,12 @@ from ..specs.values import InvalidValue, coerce
 
 
 class _RowParser(HTMLParser):
-    """Collects the cells of every <tr> that has no nested <table>."""
+    """Collects the cells of every <tr> that has no nested <table>.
+
+    A label cell with rowspan="N" (Antec's "Connector" / "UPC#" lists) is
+    carried onto the one-cell rows it spans, so each list item reads as its
+    own (label, value) row instead of a bare one-cell row.
+    """
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
@@ -30,16 +37,20 @@ class _RowParser(HTMLParser):
         self._stack: list[dict] = []     # one frame per open <tr>
         self._cell: list[str] | None = None
         self._skip = 0                   # inside <script>/<style>
+        self._carry: list = []           # [label, rows left] of a rowspan label
 
     def handle_starttag(self, tag, attrs):
         if tag in ("script", "style"):
             self._skip += 1
         elif tag == "tr":
-            self._stack.append({"cells": [], "nested": False})
+            self._stack.append({"cells": [], "nested": False, "span": 1})
         elif tag == "table" and self._stack:
             self._stack[-1]["nested"] = True
         elif tag in ("td", "th") and self._stack:
             self._cell = []
+            if not self._stack[-1]["cells"]:
+                span = dict(attrs).get("rowspan") or "1"
+                self._stack[-1]["span"] = int(span) if span.isdigit() else 1
         elif tag == "br" and self._cell is not None:
             self._cell.append(" / ")
 
@@ -52,8 +63,18 @@ class _RowParser(HTMLParser):
             self._cell = None
         elif tag == "tr" and self._stack:
             frame = self._stack.pop()
-            if not frame["nested"] and len(frame["cells"]) >= 2:
-                self.rows.append(frame["cells"])
+            if frame["nested"] or not frame["cells"]:
+                return
+            cells = frame["cells"]
+            if self._carry:
+                if len(cells) == 1:
+                    cells = [self._carry[0], *cells]
+                self._carry[1] -= 1
+                if self._carry[1] <= 0:
+                    self._carry = []
+            elif frame["span"] > 1 and len(cells) >= 2:
+                self._carry = [cells[0], frame["span"] - 1]
+            self.rows.append(cells)
 
     def handle_data(self, data):
         if self._cell is not None and not self._skip:
@@ -66,9 +87,28 @@ def html_rows(page: str) -> list[tuple[str, str]]:
     parser.feed(page)
     out = []
     for cells in parser.rows:
+        if len(cells) < 2:
+            continue
         label, value = cells[0], cells[1]
         if label and value:
             out.append((label, value))
+    return out
+
+
+def html_section_rows(page: str) -> list[tuple[str, str, str]]:
+    """(section, label, value) per two-cell row; the section is the text of the
+    last one-cell row above it, lower-cased ("" before the first heading)."""
+    parser = _RowParser()
+    parser.feed(page)
+    out = []
+    section = ""
+    for cells in parser.rows:
+        if len(cells) == 1:
+            section = re.sub(r"\s+", " ", cells[0]).strip().lower()
+            continue
+        label, value = cells[0], cells[1]
+        if label and value:
+            out.append((section, label, value))
     return out
 
 
@@ -213,3 +253,118 @@ def efficiency_tier(text) -> str | None:
     if match and re.search(r"80\s*(?:\+|plus)|cybenetics", str(text or ""), re.I):
         return f"80+ {match.group(1).title()}"
     return None
+
+
+_TOLERANCE = re.compile(r"(?:±|\+/-|\+-)\s*\d+(?:\.\d+)?\s*%?")
+
+
+def spec_range(text) -> tuple[float, float] | None:
+    """'800±200 ~ 1800±10% RPM' / '420 – 2100 RPM ±10%' -> (800, 1800).
+
+    Tolerances are dropped before the numbers are read (`number_range` alone
+    took the "10" of "±10%" as the minimum), and so are unit suffixes that
+    carry a digit ("mm-H2O", "mmH₂O")."""
+    text = _TOLERANCE.sub(" ", str(text or ""))
+    text = re.sub(r"H\s*[2₂]\s*[0O]", " ", text, flags=re.I)
+    text = re.sub(r"\([^)]*\)", " ", text)
+    return number_range(text)
+
+
+_FAN_SIZES = r"(?:40|50|60|70|80|92|120|140|160|170|180|200|220|230)"
+
+
+def fan_mounts(text) -> str | None:
+    """'3 x 140 / 3 x 120mm (Remove HDD Cage)' -> '3 x 140 mm, 3 x 120 mm';
+    '1x 120mm' -> '1 x 120 mm'; 'None' / 'N/A' -> 'No' (the page states the
+    position takes no fan; "No" because values.coerce reads "None" as
+    unknown, like canon_lighting). Anything else -> None."""
+    raw = str(text or "").strip()
+    if re.fullmatch(r"(?:none|n/?a|no|not supported)\b.*|[-－—]", raw, re.I):
+        return "No"
+    body = re.sub(r"\([^)]*\)", " ", raw)
+    pairs = []
+    # "2 x 120/140mm": one count, alternative sizes.
+    for count, sizes in re.findall(rf"(\d{{1,2}})\s*[x×*]\s*({_FAN_SIZES}(?:\s*/\s*{_FAN_SIZES}(?!\d|\s*[x×*]))*)(?!\d)",
+                                   body, re.I):
+        pairs += [(count, size) for size in re.findall(r"\d+", sizes)]
+    # "120mm x 2" (size first)
+    pairs += [(count, size) for size, count in
+              re.findall(rf"(?<!\d)({_FAN_SIZES})\s*mm\s*[x×]\s*(\d{{1,2}})(?!\d)", body, re.I)]
+    if pairs:
+        out: list[str] = []
+        for count, size in pairs:
+            item = f"{int(count)} x {size} mm"
+            if item not in out:
+                out.append(item)
+        return ", ".join(out)
+    single = re.fullmatch(rf"\s*({_FAN_SIZES})\s*mm\s*", body, re.I)
+    return f"{single.group(1)} mm" if single else None
+
+
+def radiator_sizes(text) -> set[int]:
+    """'120 / 140 / 240 / 280 / 360mm (52mm thickness)' -> {120, 140, 240, 280, 360}."""
+    body = re.sub(r"\([^)]*\)", " ", str(text or ""))
+    return {int(n) for n in re.findall(r"(?<!\d)(120|140|240|280|360|420|480)(?!\d)", body)}
+
+
+def psu_length(text) -> int | None:
+    """Depth of a PSU from its dimension cell.
+
+    '140(L) x 150(W) x 86(H)' -> 140 (the L figure); unlabeled triples are
+    read only when the two standard faces are present (ATX 150 x 86, SFX
+    125 x 63.5, SFX-L 125 x 63.5), so the remaining figure IS the depth."""
+    text = str(text or "")
+    labeled = re.search(r"(\d{2,3}(?:\.\d+)?)\s*(?:mm)?\s*\(\s*L\s*\)", text, re.I)
+    if labeled:
+        return int(round(float(labeled.group(1))))
+    numbers = [float(n) for n in re.findall(r"\d{2,3}(?:\.\d+)?", text)][:3]
+    if len(numbers) != 3:
+        return None
+    for faces in ((150.0, 86.0), (125.0, 63.5), (125.0, 63.0), (125.0, 64.0)):
+        rest = list(numbers)
+        if all(face in rest and not rest.remove(face) for face in faces):
+            return int(round(rest[0]))
+    return None
+
+
+# PSU connector line -> schema field. Order matters: the first pattern that
+# matches a line wins ("12V-2x6 (12+4) pin" must not read as an 8-pin).
+_PSU_CONNECTORS = (
+    ("pcie16_connectors", r"12\s*V[\s\-–]*2\s*[x×]\s*6|\b16[\s-]*pin\b.*pci|pci.*\b16[\s-]*pin\b|12\+4"),
+    ("pcie12_connectors", r"12\s*VHPWR"),
+    ("pcie62_connectors", r"6\s*\+\s*2"),
+    ("pcie6_connectors", r"pci[\s-]*e?.*\b6[\s-]*pin|\b6[\s-]*pin\b.*pci"),
+    ("pcie8_connectors", r"pci[\s-]*e?.*\b8[\s-]*pin|\b8[\s-]*pin\b.*pci"),
+    ("eps8_connectors", r"\beps\b|\bcpu\b|4\s*\+\s*4"),
+    ("atx4_connectors", r"\b24\b|\bmb\b|\batx\b.*\b(?:20\+4|24)"),
+    ("sata_connectors", r"\bsata\b"),
+    ("molex4_connectors", r"molex|pata|peripheral"),
+)
+
+
+def psu_connector_counts(lines) -> dict[str, int]:
+    """['1 x MB 24(20+4) Pin', '6 x 8(6+2) Pin PCI-E', '10 x SATA'] -> counts.
+
+    Only called on a manufacturer's complete connector list, so the PCIe
+    kinds the list does not name are 0 (the PSU has none of them), not
+    unknown. A line with no leading count is skipped."""
+    counts: dict[str, int] = {}
+    for line in lines:
+        line = str(line or "")
+        count = re.match(r"\s*(\d{1,2})\s*(?:x|pcs?\b|×)", line, re.I)
+        if not count:
+            continue
+        for field, pattern in _PSU_CONNECTORS:
+            if re.search(pattern, line, re.I):
+                counts[field] = counts.get(field, 0) + int(count.group(1))
+                break
+    if counts:
+        for field in ("pcie62_connectors", "pcie6_connectors"):
+            counts.setdefault(field, 0)
+        # 12V-2x6 is the revised 12VHPWR plug and retailers file one under
+        # the other's name, so neither is zeroed while the other is present.
+        if not counts.get("pcie12_connectors"):
+            counts.setdefault("pcie16_connectors", 0)
+        if not counts.get("pcie16_connectors"):
+            counts.setdefault("pcie12_connectors", 0)
+    return counts

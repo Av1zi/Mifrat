@@ -112,7 +112,7 @@ def _sections(page: str) -> dict[str, list[str]]:
     return sections
 
 
-_SLOT_LINE = re.compile(r"^\s*(\d{1,2})\s*x\s*PCIe\s*[\d./]*\s*(?:\(\w+\)\s*)?x(16|4|1)\b", re.I)
+_SLOT_LINE = re.compile(r"^\s*-?\s*(\d{1,2})\s*x\s*PCIe\s*[\d./]*\s*(?:\(\w+\)\s*)?x(16|4|1)\b", re.I)
 
 
 def _pcie_slot_counts(lines: list[str]) -> dict[str, int]:
@@ -123,7 +123,7 @@ def _pcie_slot_counts(lines: list[str]) -> dict[str, int]:
     then the chipset's own slots, so: take the largest CPU-attached group and
     ADD the chipset group. A page with no group headers is one flat list.
     """
-    groups: list[tuple[str, dict[str, int]]] = []
+    groups: list[tuple[str, dict[str, int], str]] = []
     # Some pages print the whole block twice; stop where the first line repeats.
     if lines and lines[0] in lines[1:]:
         lines = lines[:lines.index(lines[0], 1)]
@@ -131,21 +131,78 @@ def _pcie_slot_counts(lines: list[str]) -> dict[str, int]:
         slot = _SLOT_LINE.match(line)
         if slot:
             if not groups:
-                groups.append(("flat", {}))
+                groups.append(("flat", {}, ""))
             counts = groups[-1][1]
             key = "x" + slot.group(2)
             counts[key] = counts.get(key, 0) + int(slot.group(1))
         elif not line.startswith(("*", "-")):
             kind = "chipset" if re.search(r"chipset", line, re.I) else "cpu"
-            groups.append((kind, {}))
+            # A page that repeats the chipset's slots under a second CPU family
+            # lists the same physical slots again: one copy counts.
+            if kind == "chipset" and any(header == line for _, _, header in groups):
+                kind = "repeat"
+            groups.append((kind, {}, line))
     total: dict[str, int] = {}
-    cpu_groups = [counts for kind, counts in groups if kind != "chipset"]
+    cpu_groups = [counts for kind, counts, _ in groups if kind in ("cpu", "flat")]
     for key in ("x16", "x4", "x1"):
         best = max((counts.get(key, 0) for counts in cpu_groups), default=0)
-        chipset = sum(counts.get(key, 0) for kind, counts in groups if kind == "chipset")
+        chipset = sum(counts.get(key, 0) for kind, counts, _ in groups if kind == "chipset")
         if best + chipset:
             total[key] = best + chipset
     return total
+
+
+def _memory_speeds(lines: list[str]) -> list[str]:
+    """'5333(OC)/5066(OC)/.../2133 Non-ECC' or 'Supports up to 8000+MT/s (OC)'
+    -> the data rates the page lists, fastest first. Lines naming capacities
+    ("Max. 256GB") are not speed lists."""
+    speeds: list[int] = []
+    for line in lines:
+        # "(OC)", "(O.C)" and "(O.C.)" all occur.
+        line = re.sub(r"\(O\.?C\.?\)", "(OC)", line, flags=re.I)
+        if not re.search(r"MT/s|\(OC\)|\d{4}\s*/\s*\d{4}", line):
+            continue
+        for number in re.findall(r"(?<![\d.])(\d{4,5})(?=\s*(?:\+|\(OC\)|MT/s|MHz|/|\s|$|[*,]))", line):
+            value = int(number)
+            if 1333 <= value <= 12000 and value not in speeds:
+                speeds.append(value)
+    return [str(v) for v in sorted(speeds, reverse=True)]
+
+
+def _slot_kinds(lines: list[str]) -> str | None:
+    """'1 x PCIe 5.0 x16 slot (supports x16 mode)' ... -> 'PCIe 5.0 x16 |
+    PCIe 4.0 x16 (x4 mode) | PCIe 4.0 x1' (each kind once, page order)."""
+    out: list[str] = []
+    for line in lines:
+        slot = re.match(r"\s*-?\s*\d{1,2}\s*x\s*(PCIe\s*[\d.]+\s*x\d{1,2})\b", line, re.I)
+        if not slot:
+            continue
+        kind = re.sub(r"\s+", " ", slot.group(1))
+        # "(supports x4 mode)"; a CPU-dependent "x8/x4 mode" is not one mode.
+        mode = re.search(r"\bsupports?\s+x(\d{1,2})\s*mode", line, re.I)
+        if mode and f"x{mode.group(1)}" != kind.rsplit(" ", 1)[-1]:
+            kind += f" (x{mode.group(1)} mode)"
+        if kind not in out:
+            out.append(kind)
+    return " | ".join(out) or None
+
+
+def _rear_usb(lines: list[str]) -> str | None:
+    """Back-panel USB lines -> '4 x USB 5Gbps (Type-A) | 1 x USB 20Gbps (Type-C)'."""
+    out: list[str] = []
+    for line in lines:
+        port = re.match(r"\s*(\d{1,2})\s*x\s*(USB\s*[\w.®]*(?:\s*Gen\s*\w+)?(?:\s*\([^)]*\))?)"
+                        r"\s*ports?\b(.*)", line, re.I)
+        if not port:
+            continue
+        speed = re.sub(r"\s+", " ", port.group(2).replace("®", "")).strip()
+        kinds = []
+        if re.search(r"Type-?A", port.group(3), re.I):
+            kinds.append("Type-A")
+        if re.search(r"Type-?C", port.group(3), re.I):
+            kinds.append("Type-C")
+        out.append(f"{port.group(1)} x {speed}" + (f" ({' + '.join(kinds)})" if kinds else ""))
+    return " | ".join(out) or None
 
 
 def parse(page: str, category: str) -> dict:
@@ -181,13 +238,21 @@ def parse(page: str, category: str) -> dict:
     ceiling = re.search(r"\bmax\.?\s*(\d{2,4})\s*GB\b", first, re.I)
     if ceiling:
         put("memory_max_gb", int(ceiling.group(1)))
+    speeds = _memory_speeds(memory)
+    if speeds:
+        put("memory_speeds", speeds)
     slot_counts = _pcie_slot_counts(sections.get("expansion slots", []))
     if slot_counts:
-        put("pcie_x16_slots", slot_counts.get("x16"))
-        put("pcie_x1_slots", slot_counts.get("x1"))
-    if re.search(r"ECC and Non-ECC", first, re.I):
+        # The block lists every slot, so a length it does not name is 0.
+        put("pcie_x16_slots", slot_counts.get("x16", 0))
+        put("pcie_x1_slots", slot_counts.get("x1", 0))
+    slots_text = _slot_kinds(sections.get("expansion slots", []))
+    if slots_text:
+        put("expansion_slots", slots_text)
+    memory_text = " ".join(memory)
+    if re.search(r"ECC and Non-ECC|ECC & Non-ECC", memory_text, re.I):
         put("ecc_support", True)
-    elif re.search(r"\bNon-ECC\b", first, re.I):
+    elif re.search(r"\bNon-ECC\b", memory_text, re.I):
         put("ecc_support", False)
 
     storage = " ".join(sections.get("storage", []))
@@ -197,6 +262,37 @@ def parse(page: str, category: str) -> dict:
     sata = re.search(r"(\d{1,2})\s*x\s*SATA\s*6", storage, re.I)
     if sata:
         put("sata_ports", int(sata.group(1)))
+    interfaces = []
+    if re.search(r"M\.2[^.]*PCIe", storage, re.I):
+        interfaces.append("M.2 PCIe")
+    if re.search(r"M\.2[^.]*SATA mode|PCIe[^.]*&\s*SATA modes?|SATA & PCIe", storage, re.I):
+        interfaces.append("M.2 SATA")
+    if sata:
+        interfaces.append("SATA3")
+    if interfaces:
+        put("storage_interface", interfaces)
+    raid = " ".join(sections.get("raid support", [])) + " " + storage
+    if re.search(r"\bRAID\s*\d", raid, re.I):
+        put("raid_support", True)
+
+    audio = [line for line in sections.get("audio", []) if not line.startswith(("-", "*"))]
+    if audio and re.search(r"codec|audio", audio[0], re.I) and len(audio[0]) < 100:
+        put("audio", re.sub(r"[*\s]+$", "", audio[0]))
+
+    rear = sections.get("back panel i/o ports") or sections.get("back i/o ports") or []
+    usb = _rear_usb(rear)
+    if usb:
+        put("usb_ports", usb)
+    rear_text = " ".join(rear)
+    if rear:
+        thunderbolt = sum(int(n) for n in re.findall(r"(\d)\s*x\s*Thunderbolt", rear_text, re.I))
+        # 0 only when the page names no Thunderbolt / USB4 / 40Gbps port
+        # anywhere: a board with a Thunderbolt header takes an add-in card,
+        # and ASUS lists Thunderbolt 4 ports as "USB 40Gbps" - retailers count
+        # both.
+        page_text = " ".join(" ".join(lines) for lines in sections.values())
+        if thunderbolt or not re.search(r"USB\s*4|Thunderbolt|40\s*Gbps", page_text, re.I):
+            put("thunderbolt_ports", thunderbolt)
 
     lan = " ".join(sections.get("ethernet", []))
     speed = re.search(r"(\d+(?:\.\d+)?)\s*(?:Gb|G)\b", lan, re.I)
