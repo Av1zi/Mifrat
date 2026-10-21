@@ -70,3 +70,7 @@ tsconfig.tsbuildinfo
 
 # Manufacturer-page raw HTML cache (scraper/mfr); only data/mfr/<brand>.json is committed.
 data/mfr/.cache/
+
+# design-sync (Claude Design) build output + staged skill scripts — regenerated
+ds-bundle/
+.ds-sync/
