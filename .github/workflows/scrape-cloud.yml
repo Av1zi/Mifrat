@@ -81,23 +81,36 @@ jobs:
       - name: Scrape vendor unless today's fallback artifact exists
         env:
           FALLBACK: ${{ needs.schedule-gate.outputs.fallback }}
+        # The overnight window (20:59-01:59 UTC) straddles the UTC date
+        # change, so last night's snapshot is often dated YESTERDAY. Checking
+        # only today's file made the fallback re-scrape every vendor (and
+        # re-normalize) around noon most days. Read scraped_at instead: any
+        # snapshot from the last 18h counts as current.
         run: |
-          output="data/raw/$(date -u +%F)/${{ matrix.spider }}.jsonl"
-          if [ "$FALLBACK" = "true" ] && [ -s "$output" ]; then
-            echo "${{ matrix.spider }} already has a current snapshot; skipping fallback"
-            exit 0
+          if [ "$FALLBACK" = "true" ]; then
+            for d in "$(date -u +%F)" "$(date -u -d yesterday +%F)"; do
+              f="data/raw/$d/${{ matrix.spider }}.jsonl"
+              [ -s "$f" ] || continue
+              if head -n 1 "$f" | python -c "import json,sys,datetime as t; s=json.loads(sys.stdin.readline())['scraped_at']; sys.exit(0 if t.datetime.now(t.timezone.utc)-t.datetime.fromisoformat(s) < t.timedelta(hours=18) else 1)"; then
+                echo "${{ matrix.spider }} already has a current snapshot ($f); skipping fallback"
+                exit 0
+              fi
+            done
           fi
           python scraper/run_spider.py "${{ matrix.spider }}"
       # Commit ONLY this job's own snapshot file. Never `data/raw/` — the
       # matrix jobs run in parallel on stale checkouts, and `git add` on a
       # shared directory stages the siblings' files as DELETED (Sep 2026
       # wiped 5 days of plonter/ivory snapshots exactly this way).
+      # A fallback skip on yesterday-dated data writes no file today.
       - run: |
+          output="data/raw/$(date -u +%F)/${{ matrix.spider }}.jsonl"
+          if [ ! -e "$output" ]; then echo "no new snapshot to commit"; exit 0; fi
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh \
             "scrape(${{ matrix.spider }}): $(date -u +%F)" \
-            "data/raw/$(date -u +%F)/${{ matrix.spider }}.jsonl"
+            "$output"
 
   # Detail-page scrape: runs after all listing spiders succeed.
   # Fetches each vendor's product detail pages for structured specs

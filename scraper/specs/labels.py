@@ -379,6 +379,26 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "memory speed": MEMORY_SPEED_GBPS,
         "maximum display support": DISPLAY_COUNT,
         "graphic engine": "chipset",
+        # Oct 2026: 1PC's ASUS cards carry an English Icecat sheet ("Graphics
+        # processor family: NVIDIA", "Memory bus: 128 bit", "Data transfer
+        # rate: 28 Gbit/s"). Only rows with a schema home are mapped; the
+        # package/weight/HDCP rows stay gap evidence.
+        "graphics processor": "chipset",
+        "graphics processor family": "chip_manufacturer",
+        "processor boost clock speed": "boost_clock_mhz",
+        "maximum resolution": "max_resolution",
+        "maximum displays per videocard": DISPLAY_COUNT,
+        "discrete graphics card memory": GPU_VRAM,
+        "graphics card memory type": GPU_VRAM,
+        "memory bus": MEMORY_BUS_BIT,
+        "data transfer rate": MEMORY_SPEED_GBPS,
+        "interface type": "interface",
+        "directx version": "directx",
+        "opengl version": "opengl",
+        "number of fans": "fan_count",
+        "minimum system power supply": "recommended_psu_w",
+        "supplementary power connectors": "external_power",
+        "length": "length_mm",
     },
     "motherboard": {
         "spec / specifications / sata3 connections": "sata_ports",
@@ -1025,6 +1045,12 @@ _IGNORED_LABELS = frozenset({
         # vendors spell "תקופת אחריות"/"נותן האחריות". Values are plain
         # durations ("36 חודשים"), and no schema field carries one.
         "משך אחריות",
+        # ----- 1PC's English Icecat sheets (Oct 2026) -----
+        # Shipping-box dimensions, the printed manual and the supported-OS
+        # list are retail bookkeeping, not facts about the part.
+        "package type", "package width", "package depth", "package height",
+        "package weight", "manual", "windows operating systems supported",
+        "tv tuner integrated",
     )
 })
 

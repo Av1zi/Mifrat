@@ -68,7 +68,13 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # 2026-10-18: 1300 -> 1450. The second pruning pass removed 32 sparse field slots; the
 # vendor labels that fed them are now unmapped gap evidence on purpose (rows
 # 967 -> 1,131, +30% headroom would be 1,470; 1,450 keeps the same margin).
-LABEL_GAP_BUDGET = 1450
+#
+# 2026-10-21: 1450 -> 1950. 1PC added an English Icecat spec sheet to its
+# ASUS GPU pages (~50 rows per card). The rows with a schema home are mapped
+# and the box/manual rows ignored; what remains (HDCP, CUDA, slot width, VR
+# ready, ...) has no column, so it is gap evidence, not breakage. Rows
+# 1,436 -> 1,621; 1,950 keeps the same ~330-row margin as before.
+LABEL_GAP_BUDGET = 1950
 
 # Mean field-fill % per category, minus 2pp tolerance.
 #
