@@ -123,11 +123,25 @@ _INTEL_UARCH: dict[str, tuple[str, int]] = {
 }
 
 # Platform memory maximum by socket (GB). Consumer/desktop sockets only; a
-# server or exotic socket is left alone rather than guessed.
+# server or exotic socket is left alone rather than guessed. AM5 and LGA1700
+# are NOT one number: the maker states it per generation (below), and the old
+# flat AM5=192 disagreed with 49 of 54 AMD product pages (backtest, Oct 2026).
 _SOCKET_MAX_MEMORY_GB: dict[str, int] = {
-    "AM4": 128, "AM5": 192, "LGA1155": 32, "LGA1151": 64,
-    "LGA1200": 128, "LGA1700": 192, "LGA1851": 192, "LGA2066": 256,
+    "AM4": 128, "LGA1155": 32, "LGA1151": 64,
+    "LGA1200": 128, "LGA1851": 192, "LGA2066": 256,
 }
+# (socket, generation) -> maximum, as each maker's spec page prints it: AMD
+# lists 128GB for Ryzen 7000 and 256GB for Ryzen 8000/9000; Intel lists 128GB
+# for 12th gen and 192GB for 13th/14th gen on LGA1700.
+_GENERATION_MAX_MEMORY_GB: dict[tuple[str, int], int] = {
+    ("AM5", 7): 128, ("AM5", 8): 256, ("AM5", 9): 256,
+    ("LGA1700", 12): 128, ("LGA1700", 13): 192, ("LGA1700", 14): 192,
+}
+# Ryzen 5 3500 / 3500X are the Ryzen 5 parts without SMT (6C/6T).
+_AMD_NO_SMT_MODELS = re.compile(r"\bRyzen\s?5\s?3500X?\b", re.I)
+# Ryzen 8000 desktop (Phoenix, 8300G-8700G and the F parts) is Zen 4 on 4nm,
+# not the 5nm of the Raphael / Zen 4 desktop chiplets.
+_AMD_PHOENIX_DESKTOP = re.compile(r"\bRyzen\s?[3579]\s?(?:PRO\s?)?8\d{2}0(?:G|GE|F)?\b", re.I)
 
 # Unlocked-by-suffix Intel model tails (K/KF/KS desktop, X/XE HEDT).
 _INTEL_UNLOCKED_SUFFIX = re.compile(r"\d{4,5}(K|KF|KS|X|XE)$", re.I)
@@ -297,18 +311,21 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
         # SMT is all-or-nothing per lineup for Ryzen 5/7/9, Threadripper and
         # EPYC; Ryzen 3 mixes 4C/4T (3200G) with 4C/8T (3300X), so it is left
         # to a real source rather than assumed.
-        if _AMD_SMT_SERIES.search(model_text):
+        if _AMD_SMT_SERIES.search(model_text) and not _AMD_NO_SMT_MODELS.search(model_text):
             fill("smt", True, "cpu.lineup_smt")
             if isinstance(cores, int) and cores > 0:
                 fill("thread_count", cores * 2, "cpu.smt_core_math")
-        if re.search(r"\bRyzen\b|\bThreadripper\b", model_text, re.I):
+        # PRO APUs are the locked exception (AMD: 5755G "Unlocked: No").
+        if re.search(r"\bRyzen\b|\bThreadripper\b", model_text, re.I) and not re.search(
+                r"\bPRO\s?\d{4}G", model_text, re.I):
             fill("unlocked", True, "cpu.amd_lineup_unlocked")
     elif is_intel and _INTEL_UNLOCKED_SUFFIX.search(re.sub(r"[^A-Za-z0-9]", "", model_text)):
         fill("unlocked", True, "cpu.intel_unlocked_suffix")
 
     amd_uarch = _amd_uarch(microarch)
     if is_amd and amd_uarch:
-        fill("lithography_nm", amd_uarch[0], "cpu.architecture_node")
+        node = 4 if _AMD_PHOENIX_DESKTOP.search(model_text) else amd_uarch[0]
+        fill("lithography_nm", node, "cpu.architecture_node")
         if isinstance(cores, int) and cores > 0:
             l2 = cores * amd_uarch[1]
             fill("l2_cache_mb", int(l2) if float(l2).is_integer() else round(l2, 3),
@@ -417,7 +434,9 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
         fill("socket", platform_socket, "cpu.desktop_platform_socket")
 
     socket = str(specs.get("socket") or "").upper()
-    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket),
+    generation = _generation_number(model)
+    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket)
+         or _GENERATION_MAX_MEMORY_GB.get((socket, generation or 0)),
          "cpu.socket_memory_platform")
 
     return filled
@@ -636,7 +655,8 @@ def _infer_cpu_table(specs: dict, sources: dict) -> list[str]:
         # (G/GE/GT without PRO) do not, PRO APUs do.
         if re.search(r"\bPRO\b", model, re.I):
             filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_pro_ecc")
-        elif re.search(r"\b\d{4}(?:G|GE|GT)\b", model, re.I):
+        elif re.search(r"\b[2-5]\d{3}(?:G|GE|GT)\b", model, re.I):
+            # Only through Ryzen 5000: AMD lists ECC for the 8000G APUs.
             filled += _fill(specs, sources, "ecc_support", False, "cpu.ryzen_apu_no_ecc")
         elif str(specs.get("socket") or "") in ("AM4", "AM5") and re.search(r"\b\d{4}", model):
             filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_desktop_ecc")
@@ -660,8 +680,15 @@ def _infer_gpu_table(specs: dict, sources: dict) -> list[str]:
     return _table_fill(specs, sources, row, "gpu.chipset_table")
 
 
-def _infer_gpu_extras(specs: dict, sources: dict) -> list[str]:
+_GPU_LIQUID_MENTION = re.compile(r"waterforce|hybrid|liquid|water\s?block|aio\b|קירור\s?נוזלי",
+                                 re.I)
+
+
+def _infer_gpu_extras(specs: dict, sources: dict, context: dict | None = None) -> list[str]:
     fans = specs.get("fan_count")
+    # A hybrid card (AORUS XTREME WATERFORCE) has radiator fans too.
+    if _GPU_LIQUID_MENTION.search(str((context or {}).get("title") or "")):
+        return []
     if isinstance(fans, int) and fans > 0:
         return _fill(specs, sources, "cooling", "Air", "gpu.fans_mean_air")
     return []
@@ -866,7 +893,7 @@ def infer_specs(category: str | None, specs: dict, sources: dict,
         return _infer_storage(specs, sources)
     if category == "gpu":
         return (_infer_gpu(specs, sources) + _infer_gpu_table(specs, sources)
-                + _infer_gpu_extras(specs, sources))
+                + _infer_gpu_extras(specs, sources, context))
     if category == "motherboard":
         return _infer_motherboard(specs, sources, context)
     if category == "psu":
