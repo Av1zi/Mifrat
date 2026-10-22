@@ -833,6 +833,7 @@ def _infer_motherboard(specs: dict, sources: dict, context: dict | None) -> list
         if not _THUNDERBOLT_MENTION.search(text):
             filled += _fill(specs, sources, "thunderbolt_ports", 0,
                             "motherboard.no_thunderbolt_in_rich_table")
+        filled += _no_lighting(specs, sources, context, "motherboard.no_lighting_mention")
     if specs.get("wireless") == "No":
         # Bluetooth rides on the same M.2 Key-E combo card as the Wi-Fi radio.
         filled += _fill(specs, sources, "bluetooth", "No", "motherboard.no_wifi_no_bluetooth")
@@ -867,7 +868,25 @@ def _infer_memory_text(specs: dict, sources: dict, context: dict | None) -> list
     if not _SERVER_MEMORY_MARKER.search(text) and specs.get("form_factor") in ("DIMM", "SO-DIMM"):
         filled += _fill(specs, sources, "ecc", False, "memory.no_ecc_marker")
         filled += _fill(specs, sources, "registered", False, "memory.no_registered_marker")
+    filled += _no_lighting(specs, sources, context, "memory.no_lighting_mention")
     return filled
+
+
+# Lighting is a selling point: every lit memory kit (175/175) and board
+# (52/52) in the catalog names it somewhere in its titles or spec rows, so a
+# FULL spec page plus titles that never mention any lighting word mean the
+# product has none. Cases and coolers are left out: lit ones that never say so
+# exist (Antec NX200M per its maker page; 2 of 108 coolers).
+_LIGHTING_MENTION = re.compile(
+    r"rgb|argb|\bled\b|aura|mystic|polychrome|fusion|spectra|lighting|light\b|"
+    r"תאורה|תאורת|מואר|לד\b", re.I)
+
+
+def _no_lighting(specs: dict, sources: dict, context: dict | None, rule: str) -> list[str]:
+    text = (context or {}).get("text", "")
+    if text and (context or {}).get("detail_rows", 0) >= 8 and not _LIGHTING_MENTION.search(text):
+        return _fill(specs, sources, "lighting", "No", rule)
+    return []
 
 
 _PSU_SMALL_MARKER = re.compile(r"\bsfx|\btfx|flex|\b1u\b|\b2u\b|rack|server|redundant|שרת|\bmini\b|\bslim\b",
