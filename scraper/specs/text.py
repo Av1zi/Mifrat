@@ -227,7 +227,11 @@ FORM_FACTOR_STORAGE_RE = re.compile(
     r"\b(2\.5[\"'\u2019]*|3\.5[\"'\u2019]*|M\.2\s*22\d{2}|M\.2|U\.2)\b", re.I
 )
 INTERFACE_RE = re.compile(r"\b(SATA|NVME|PCIE|SAS)\b", re.I)
-PCIE_GEN_RE = re.compile(r"PCIE\s*GEN\s*([345])(?:\.0)?(?:\s*X\s*4)?", re.I)
+# "PCIe Gen4", "PCIe 4.0", "PCIe4" and a bare "Gen4" next to NVMe all name
+# the drive's PCIe generation (USB "Gen2x2" is 2, never matched here).
+PCIE_GEN_RE = re.compile(
+    r"PCI-?E\s*(?:GEN\s*)?([345])(?:\.0)?(?:\s*X\s*4)?\b|\bGEN\s*([345])(?:\.0)?\b(?!\s*X\s*[12]\b)",
+    re.I)
 CACHE_RE = re.compile(r"\b(\d+)\s?MB\s*(?:CACHE|DRAM)?\b(?!/s)", re.I)
 RPM_RE = re.compile(r"\b(\d{3,4})\s?RPM\b", re.I)
 

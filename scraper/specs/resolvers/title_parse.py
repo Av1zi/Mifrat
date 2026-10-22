@@ -716,9 +716,11 @@ def parse_storage(text_input: str) -> list[tuple]:
         pairs.append(("series", re.sub(r"\s+", " ", series.group(1)).strip(), 0.55))
 
     generation = text.PCIE_GEN_RE.search(text_value)
-    if generation:
-        pairs.append(("pcie_gen", int(generation.group(1)), 0.9))
-        pairs.append(("interface", f"M.2 PCIe {generation.group(1)}.0 x4", 0.9))
+    gen = (generation.group(1) or generation.group(2)) if generation else None
+    if gen and (generation.group(1) or nvme):
+        pairs.append(("pcie_gen", int(gen), 0.9))
+        pairs.append(("interface", f"M.2 PCIe {gen}.0 x4"
+                      if re.search(r"\bM\.2\b", text_value, re.I) else f"PCIe {gen}.0 x4", 0.9))
     elif nvme:
         pairs.append(("interface", "M.2 PCIe NVMe" if re.search(r"\bM\.2\b", text_value, re.I)
                       else "NVMe", 0.8))
@@ -728,6 +730,11 @@ def parse_storage(text_input: str) -> list[tuple]:
         pairs.append(("interface", "SAS", 0.9))
     elif re.search(r"\bPCI\s?E\b", text_value, re.I):
         pairs.append(("interface", "PCIe", 0.6))
+
+    # Sequential speeds are NOT read from titles: listing text prints read and
+    # write figures without saying which, and per-capacity figures differ
+    # (title vs vendor row agreed 12/16, backtest Oct 2026). They come from
+    # the vendor's spec rows and maker datasheets.
 
     # A bare "NNNNMB" is a cache only at a power-of-two size: "990 Pro ...
     # 7450MB" is the read speed. An explicit cache / DRAM word always counts.
