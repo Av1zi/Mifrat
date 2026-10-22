@@ -34,8 +34,9 @@ from .validate import cross_check, fill_derived, revalidate_derived
 try:  # scraper/mfr is a sibling package; absent only when specs/ runs standalone
     from ..icecat import store as icecat_store
     from ..mfr import store as mfr_store
+    from ..xref import store as xref_store
 except ImportError:  # pragma: no cover
-    icecat_store = mfr_store = None
+    icecat_store = mfr_store = xref_store = None
 
 
 def listing_text(listing: dict) -> str:
@@ -228,6 +229,13 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         # Tier 0.75 - the brand's sheet as Open Icecat syndicates it.
         if icecat_store is not None:
             for key, value in icecat_store.facts_for(
+                    category, provisional.get("manufacturer") or product.get("brand"),
+                    provisional.get("part_numbers")).items():
+                facts.setdefault(key, []).extend(value)
+
+        # Tier 1 - foreign retailers' spec tables (scraper/xref), exact MPN/EAN.
+        if xref_store is not None:
+            for key, value in xref_store.facts_for(
                     category, provisional.get("manufacturer") or product.get("brand"),
                     provisional.get("part_numbers")).items():
                 facts.setdefault(key, []).extend(value)

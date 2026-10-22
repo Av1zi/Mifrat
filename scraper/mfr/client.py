@@ -3,7 +3,8 @@ mfr/client.py - the polite HTTP client every manufacturer fetcher shares.
 
 Rules (AGENTS.md scraping politeness, binding for every brand):
 - robots.txt is fetched once per host and OBEYED for the `*` agent; a disallowed
-  URL is skipped, never fetched.
+  URL is skipped, never fetched - except the per-host paths in ROBOTS_OVERRIDES,
+  an explicit owner decision recorded next to each entry.
 - At most one request per second per host (`delay`), browser-like headers.
 - A 403 or 429 is a STOP signal: `Blocked` is raised, the run for that brand
   ends, and nothing retries. No proxies, no header games, no evasion - a brand
@@ -33,6 +34,17 @@ HEADERS = {
     "User-Agent": USER_AGENT,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
+}
+
+
+# robots.txt paths the owner chose to fetch anyway (decision 2026-10-22: "override
+# robots, never bypass blocks"). Per host and per path prefix, never global;
+# each entry names why. A 403 / 429 still stops the run. Remove a host here on
+# the site's request.
+ROBOTS_OVERRIDES: dict[str, tuple[str, ...]] = {
+    # One search per catalog part number replaces crawling the whole store to
+    # find the page that prints that MPN (scraper/xref/overclockers.py).
+    "www.overclockers.co.uk": ("/search",),
 }
 
 
@@ -71,6 +83,10 @@ class PoliteClient:
         return self._robots
 
     def allowed(self, url: str) -> bool:
+        parsed = urllib.parse.urlparse(url)
+        if any(parsed.path.startswith(prefix)
+               for prefix in ROBOTS_OVERRIDES.get(parsed.netloc, ())):
+            return True
         return self._load_robots().can_fetch("*", url)
 
     # -- fetching ---------------------------------------------------------
