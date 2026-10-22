@@ -164,6 +164,19 @@ def check_tier_order(c: Checks) -> None:
          "a manufacturer-sourced cell is labelled manufacturer")
     c.eq(primary.specs.get("max_cooler_height_mm"), 165, "reference tier still beats manufacturer")
 
+    # Tier 0.75: an Open Icecat sheet sits between the brand's own page and
+    # the retailer.
+    from scraper.specs.merge import TIER_CATALOG
+    catalog = merge_facts("gpu", {
+        "fan_count": [Fact(value=2, tier=TIER_VENDOR, source="vendor:detail"),
+                      Fact(value=3, tier=TIER_CATALOG, source="catalog:icecat:gigabyte")],
+        "memory_gb": [Fact(value=16, tier=TIER_MANUFACTURER, source="manufacturer:asus"),
+                      Fact(value=12, tier=TIER_CATALOG, source="catalog:icecat:asus")],
+    })
+    c.eq(catalog.specs.get("fan_count"), 3, "an Icecat sheet beats the retailer")
+    c.eq(catalog.sources.get("fan_count"), "catalog", "an Icecat cell is labelled catalog")
+    c.eq(catalog.specs.get("memory_gb"), 16, "the brand's own page beats its Icecat sheet")
+
     # cross_check ranks every label merge can write. A manufacturer socket must
     # beat a title chipset that implies another socket (it ranked 99 until Oct 2026).
     from scraper.specs.merge import TIER_NAMES

@@ -80,6 +80,7 @@ Order inside the product pass is deliberate (`build.py::build_product_specs`):
 | :--- | :--- | :--- |
 | 0 — Reference | docyx/pc-part-dataset (PCPartPicker specs) indexed by `scraper/pcpartdb.py` + committed `data/specs/overrides.json` | Authoritative; wins every conflict. |
 | 0.5 — Manufacturer | the brand's own product page, fetched by `scraper/mfr/` into `data/mfr/<brand>.json` (see `scraper/mfr/README.md`) | Primary-source facts; beats the retailer payload, loses to Tier 0 and overrides. Source label `manufacturer`. |
+| 0.75 — Catalog | Open Icecat sheets fetched by `scraper/icecat/` into `data/icecat/<brand>.json` (see `scraper/icecat/README.md`) | The brand's sheet as syndicated; beats retailers, loses to the brand's own page. Per-field trust gate (`mapping.DISABLED`). Source label `catalog`. |
 | 1 — Trusted vendor | Ivory `cuts`/`detail_specs`, TMS product fields, the `matching:computed` bridge | Fills what Tier 0 lacks. |
 | 2 — Title/SKU | typed regex resolvers over `match_text` | Fills remaining nulls. |
 | 3 — Weak vendors | 1PC prose, Plonter tree/dash dumps | Fill-only; a value contradicting a filled Tier 0-2 field is discarded and logged, never merged. |

@@ -70,6 +70,8 @@ tsconfig.tsbuildinfo
 
 # Manufacturer-page raw HTML cache (scraper/mfr); only data/mfr/<brand>.json is committed.
 data/mfr/.cache/
+# Open Icecat raw API answers (scraper/icecat); only data/icecat/<brand>.json is committed.
+data/icecat/.cache/
 
 # design-sync (Claude Design) build output + staged skill scripts — regenerated
 ds-bundle/

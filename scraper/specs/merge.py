@@ -39,6 +39,10 @@ from . import schema
 TIER_OVERRIDE = -1
 TIER_REFERENCE = 0
 TIER_MANUFACTURER = 0.5
+# Open Icecat: the brand's sheet as syndicated by Icecat (scraper/icecat). Below
+# the brand's own page (its sheets carry the odd catalogue-entry error), above
+# any retailer.
+TIER_CATALOG = 0.75
 TIER_VENDOR = 1
 TIER_TITLE = 2
 # Variant fields (colour, efficiency, modularity) from a reference row linked
@@ -54,6 +58,7 @@ TIER_NAMES = {
     TIER_OVERRIDE: "override",
     TIER_REFERENCE: "reference",
     TIER_MANUFACTURER: "manufacturer",
+    TIER_CATALOG: "catalog",
     TIER_VENDOR: "vendor",
     TIER_TITLE: "title",
     TIER_REFERENCE_FUZZY: "reference",

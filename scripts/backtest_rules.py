@@ -105,12 +105,32 @@ def agrees(category: str, field: str, predicted, actual) -> bool:
     if isinstance(predicted, list) and isinstance(actual, list):
         left = {str(v).lower() for v in predicted}
         right = {str(v).lower() for v in actual}
-        return left <= right or right <= left
+        if left <= right or right <= left:
+            return True
     if isinstance(predicted, dict) or isinstance(actual, dict):
         return False
     if isinstance(predicted, (bool, int, float)) or isinstance(actual, (bool, int, float)):
         return False
+    if isinstance(predicted, list) or isinstance(actual, list):
+        # ["2"] vs ["2 (support SATA and PCIe)"]: the leading count is the claim.
+        first = [str((v if isinstance(v, list) else [v])[0]) if (v if isinstance(v, list) else [v])
+                 else "" for v in (predicted, actual)]
+        # "2 + 1 (SATA and PCIe SSD support)" is three slots.
+        counts = [sum(int(n) for n in re.findall(r"(?:^|\+)\s*(\d+)", x)) if
+                  re.match(r"\s*\d", x) else None for x in first]
+        if None not in counts:
+            return counts[0] == counts[1]
+        return False
     a, b = str(predicted).lower(), str(actual).lower()
+    if field in ("ethernet", "wireless", "bluetooth", "audio"):
+        # A generic value ("Ethernet", "Yes", "Realtek HD Audio") names the
+        # feature without its grade: it cannot contradict a specific one.
+        grade = {"ethernet": r"(\d+(?:\.\d+)?)\s*g", "wireless": r"wi-?fi\s?(\d+e?)",
+                 "bluetooth": r"(\d\.\d)", "audio": r"(alc\s?\d{3,4}|s\d{4})"}[field]
+        ga, gb = re.search(grade, a), re.search(grade, b)
+        if ga and gb:
+            return re.sub(r"\s", "", ga.group(1)) == re.sub(r"\s", "", gb.group(1))
+        return "no" not in (a, b) or a == b
     if field == "interface" or field == "pcie_gen":
         return _gen(a) == _gen(b) or None in (_gen(a), _gen(b))
     if field == "integrated_graphics":
