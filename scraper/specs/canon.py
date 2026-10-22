@@ -674,7 +674,14 @@ def canon_case_type(value):
     return value
 
 
+def canon_resolution(value):
+    """'7680 x 4320 pixels' / 'Digital Max Resolution 7680 x 4320' -> '7680x4320'."""
+    match = re.search(r"(\d{3,5})\s*[x×*]\s*(\d{3,5})", str(value))
+    return f"{match.group(1)}x{match.group(2)}" if match else value
+
+
 _GENERIC_RULES = {
+    "max_resolution": canon_resolution,
     "manufacturer": canon_brand,
     "color": canon_color,
     "series": canon_series,
