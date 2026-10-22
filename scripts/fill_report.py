@@ -244,6 +244,9 @@ def totals(bucket: dict) -> dict:
 
 
 PRODUCT_TARGET = 90.0
+# Whole computers, monitors and risers parked outside the PC-part schemas:
+# they have no spec sheet to complete.
+NOT_SCORED = frozenset({"other"})
 RESIDUAL = ROOT / "tmp" / "residual.json"
 
 
@@ -282,6 +285,8 @@ def per_product(products: list[dict]) -> tuple[dict, list[dict]]:
     residual = []
     for product in products:
         category = product.get("category") or ""
+        if category in NOT_SCORED:
+            continue
         score = product_score(product)
         scores.setdefault(category, []).append(score)
         if score["pct"] < PRODUCT_TARGET:
