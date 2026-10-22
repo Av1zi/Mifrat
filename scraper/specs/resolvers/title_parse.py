@@ -250,9 +250,6 @@ def parse_cpu(text_input: str) -> list[tuple]:
     elif re.search(r"\b(?:CPU ONLY|NO GRAPHICS|WITHOUT GRAPHICS)\b", text_value, re.I):
         pairs.append(("integrated_graphics", "No", 0.7))
 
-    series = re.search(r"\(?\bseries\s?(\d{1,2})\)?\b", text_value, re.I)
-    if series and manufacturer == "Intel" and 1 <= int(series.group(1)) <= 4:
-        pairs.append(("series", series.group(1), 0.8))
 
     if text.CPU_COOLER_EXCLUDED_RE.search(text_value):
         pairs.append(("includes_cooler", False, 0.8))
@@ -273,6 +270,22 @@ _GPU_BRAND_TOKENS = tuple(
 )
 
 
+def _gpu_vram(text_value: str) -> int | None:
+    """VRAM size: an explicit "16GB" wins over a bare "16G", and a "-20G" glued
+    to a part number ("11348-01-20G") is the order code, not memory."""
+    bare = None
+    for match in text.VRAM_RE.finditer(text_value):
+        if match.start() and text_value[match.start() - 1] in "-_/":
+            continue
+        size = int(match.group(1))
+        if not 1 <= size <= 64:
+            continue
+        if re.match(r"\d{1,2}\s?GB", match.group(0), re.I):
+            return size
+        bare = bare if bare is not None else size
+    return bare
+
+
 def parse_gpu(text_input: str) -> list[tuple]:
     text_value = text.clean_text(text_input)
     pairs: list[tuple] = []
@@ -286,30 +299,33 @@ def parse_gpu(text_input: str) -> list[tuple]:
     if chip:
         pairs.append(("chipset", re.sub(r"\s+", " ", chip.group(1).upper().strip())))
 
-    vram = text.VRAM_RE.search(text_value)
-    if vram and 1 <= int(vram.group(1)) <= 64:
-        pairs.append(("memory_gb", int(vram.group(1)), 0.9))
+    vram = _gpu_vram(text_value)
+    if vram is not None:
+        pairs.append(("memory_gb", vram, 0.9))
 
     gmem = text.GMEM_RE.search(text_value)
     if gmem:
         if gmem.group(1):
-            kind, generation = "S", gmem.group(1).upper()
+            # Plain DDR on entry cards ("GT1030 4GB DDR4"): the old code wrote
+            # "S4" here (the S of an optional SDDR prefix).
+            kind, generation = "DDR", gmem.group(1).upper()
         elif gmem.group(2):
             kind, generation = "GDDR", gmem.group(2).upper()
         else:
             kind, generation = "HBM", (gmem.group(3) or "2")
         pairs.append(("memory_type", f"{kind}{generation}", 0.9))
 
-    clocks = [int(c) for c in text.CORE_CLOCK_RE.findall(text_value)
-              if 500 <= int(c) <= 3500]
+    clocks = [int(re.sub(r"\D", "", c)) for c in text.CORE_CLOCK_RE.findall(text_value)]
+    clocks = [c for c in clocks if 500 <= c <= 3500]
     if len(clocks) == 1:
         pairs.append(("boost_clock_mhz", clocks[0], 0.7))
     elif len(clocks) >= 2:
         pairs.append(("core_clock_mhz", min(clocks), 0.7))
         pairs.append(("boost_clock_mhz", max(clocks), 0.7))
     boost = text.BOOST_CLOCK_RE.search(text_value)
-    if boost and 500 <= int(boost.group(1)) <= 3500:
-        pairs.append(("boost_clock_mhz", int(boost.group(1)), 0.9))
+    boost_mhz = int(re.sub(r"\D", "", boost.group(1))) if boost else 0
+    if 500 <= boost_mhz <= 3500:
+        pairs.append(("boost_clock_mhz", boost_mhz, 0.9))
 
     for tdp in re.finditer(r"\b(\d{2,3})\s?W\b", text_value, re.I):
         if 15 <= int(tdp.group(1)) <= 700:
@@ -393,6 +409,11 @@ def parse_psu(text_input: str) -> list[tuple]:
     modular = text.MOD_RE.search(text_value)
     if modular:
         pairs.append(("modular", modular.group(1), 0.9))
+    else:
+        for pattern, value in text.HE_MODULAR:
+            if pattern.search(text_input):
+                pairs.append(("modular", value, 0.85))
+                break
 
     length = re.search(r"\b(\d{2,3})\s?MM\b", text_value, re.I)
     if length and 100 <= int(length.group(1)) <= 250:
@@ -574,9 +595,15 @@ def parse_case(text_input: str) -> list[tuple]:
     text_value = text.clean_text(text_input)
     pairs: list[tuple] = []
 
-    case_type = text.case_form_factor(text_value)
-    if case_type:
-        pairs.append(("type", case_type, 0.9))
+    # Only a tower / rack / SFF word names the case class. A bare board size
+    # ("Full-Tower ATX" -> "ATX") is the motherboard support, which has its
+    # own field: the old fallback shipped it as the type (118 of 123 titles
+    # disagreed with the maker page, backtest Oct 2026).
+    tower = re.search(r"\b(FULL|SUPER|MIDI?|MINI|MICRO)[\s-]*TOWER\b", text_value, re.I)
+    if tower:
+        pairs.append(("type", canon.canon_case_type(tower.group(0)), 0.9))
+    elif re.search(r"\bSFF\b|\bSMALL\s+FORM\s+FACTOR\b", text_value, re.I):
+        pairs.append(("type", "SFF", 0.8))
 
     if re.search(r"\bTEMPERED\s*GLASS\b", text_value, re.I):
         pairs.append(("side_panel", "Tinted Tempered Glass"
@@ -587,12 +614,11 @@ def parse_case(text_input: str) -> list[tuple]:
     elif re.search(r"\bACRYLIC\b", text_value, re.I):
         pairs.append(("side_panel", "Acrylic", 0.8))
 
+    # psu_included is the yes/no fact; a bundled unit's wattage is not it.
     if re.search(r"\bNO\s+PSU\b|\bWITHOUT\s+PSU\b", text_value, re.I):
-        pairs.append(("psu_included", "None", 0.9))
+        pairs.append(("psu_included", "Not included", 0.9))
     elif re.search(r"\bWITH\s+PSU\b|\bPSU\s+INCLUDED\b|\b\d{3,4}W\s+PSU\b", text_value, re.I):
-        included = re.search(r"\b(\d{3,4})W\s+PSU\b", text_value, re.I)
-        pairs.append(("psu_included",
-                      f"{included.group(1)}W" if included else "Included", 0.8))
+        pairs.append(("psu_included", "Included", 0.8))
 
     volume = re.search(r"\b(\d+(?:\.\d+)?)\s?L\b", text_value, re.I)
     if volume:
@@ -614,11 +640,17 @@ def parse_case(text_input: str) -> list[tuple]:
     if max_gpu and 150 <= int(max_gpu.group(1)) <= 600:
         pairs.append(("max_gpu_length_mm", int(max_gpu.group(1)), 0.7))
 
-    max_cooler = re.search(r"(?:COOLER).*?(\d{2,3})\s?MM", text_value, re.I)
+    # The figure must sit next to the cooler word: "HAF 500 ... 2X200mm" is
+    # a fan size, not a clearance.
+    max_cooler = re.search(r"COOLER\s*(?:HEIGHT|CLEARANCE)?\s*[:\-]?\s*(?:UP\s+TO\s*)?(\d{2,3})\s?MM",
+                           text_value, re.I)
     if max_cooler and 100 <= int(max_cooler.group(1)) <= 300:
         pairs.append(("max_cooler_height_mm", int(max_cooler.group(1)), 0.7))
 
-    radiator = text.FAN_SIZE_MM_RE.search(text_value)
+    # A radiator size is only read with a radiator word; a bare "3X120MM" is
+    # the bundled fans, and a single size never describes the full list the
+    # maker page prints (8 of 13 titles disagreed, backtest Oct 2026).
+    radiator = re.search(r"(\d{3})\s?MM\s*(?:RADIATOR|RAD\b)", text_value, re.I)
     if radiator and int(radiator.group(1)) >= 120:
         pairs.append(("radiator_support", {f"{radiator.group(1)} mm": 1}, 0.6))
 
@@ -929,9 +961,43 @@ def _noise_db(text_value: str) -> float | None:
     return None
 
 
+# Colour words a title states. Red / blue / green are left out on purpose:
+# they name product lines ("Red Devil", "WD Blue") and LED colours far more
+# often than a finish. "Silver" after 80 PLUS is a certificate, and
+# SilverStone is a brand.
+_TITLE_COLOR_RE = re.compile(
+    r"(?<![A-Za-z])(white|black|silver|gr[ae]y|pink)(?![A-Za-z])|לבן|שחור|כסוף|אפור|ורוד", re.I)
+_NOT_A_COLOR_RE = re.compile(
+    r"80\s?(?:\+|PLUS)\s*(?:silver)|cybenetics\s*silver|silver\s?stone", re.I)
+# Categories whose own parser does not read a colour yet (psu / case_fan do).
+_TITLE_COLOR_CATEGORIES = frozenset({
+    "aio", "cooler_air", "cooling_other", "gpu", "memory", "motherboard", "case",
+    "accessories",
+})
+
+
+def title_color(text_input: str) -> str | None:
+    """Every finish the title names, in order, as one canonical colour value
+    ("בצבע שחור וכסוף" -> "Black / Silver"). Never a default: no word, no value."""
+    cleaned = _NOT_A_COLOR_RE.sub(" ", str(text_input or ""))
+    words: list[str] = []
+    for match in _TITLE_COLOR_RE.finditer(cleaned):
+        word = match.group(0).lower()
+        if word not in words:
+            words.append(word)
+    if not words:
+        return None
+    return canon.canon_color(" / ".join(words[:2]))
+
+
 def parse_title(category: str | None, text_input: str) -> dict[str, list[Fact]]:
     """Tier-2 facts for one listing's title/SKU text."""
     parser = PARSERS.get(category or "")
     if parser is None or not text_input:
         return {}
-    return _collect(category or "", parser(text_input))
+    pairs = list(parser(text_input))
+    if category in _TITLE_COLOR_CATEGORIES and not any(p[0] == "color" for p in pairs):
+        color = title_color(text_input)
+        if color:
+            pairs.append(("color", color, 0.7))
+    return _collect(category or "", pairs)
