@@ -1,6 +1,6 @@
 {
  "brand": "Antec",
- "schema_version": 2,
+ "schema_version": 3,
  "source": "manufacturer",
  "generated": "2026-10-20",
  "entries": {
@@ -9314,8 +9314,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/csk-550-bronze.php": {
@@ -9346,8 +9345,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/csk-650-bronze.php": {
@@ -9378,8 +9376,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/csk-750h-bronze.php": {
@@ -9410,8 +9407,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/csk-dc-550.php": {
@@ -9442,8 +9438,7 @@
     "sata_connectors": 6,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/csk-dc-650.php": {
@@ -9474,8 +9469,7 @@
     "sata_connectors": 6,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/csk-dc-750w.php": {
@@ -9609,8 +9603,7 @@
     "model": "EA750G PRO White",
     "pcie62_connectors": 1,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/eag-pro550": {
@@ -10033,8 +10026,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg-gold750.php": {
@@ -10065,8 +10057,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg-gold850.php": {
@@ -10097,8 +10088,7 @@
     "sata_connectors": 10,
     "molex4_connectors": 5,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg1000-extreme": {
@@ -10149,8 +10139,7 @@
     "sata_connectors": 12,
     "molex4_connectors": 6,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg1000-gold.php": {
@@ -10182,8 +10171,7 @@
     "sata_connectors": 12,
     "molex4_connectors": 6,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg1000-pro-platinum-atx31.php": {
@@ -10298,8 +10286,7 @@
     "sata_connectors": 9,
     "molex4_connectors": 4,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg850-bronze": {
@@ -10350,8 +10337,7 @@
     "sata_connectors": 9,
     "molex4_connectors": 4,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg850-extreme": {
@@ -10402,8 +10388,7 @@
     "sata_connectors": 10,
     "molex4_connectors": 6,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/hcg850-pro-platinum-atx31.php": {
@@ -10731,8 +10716,7 @@
     "sata_connectors": 6,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/ne600g-zen": {
@@ -10780,8 +10764,7 @@
     "sata_connectors": 6,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/ne650-platinum.php": {
@@ -10812,8 +10795,7 @@
     "sata_connectors": 9,
     "molex4_connectors": 4,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/ne700g-zen": {
@@ -10861,8 +10843,7 @@
     "sata_connectors": 6,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/ne750-platinum.php": {
@@ -10893,8 +10874,7 @@
     "sata_connectors": 9,
     "molex4_connectors": 4,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/ne850-platinum-atx3-1.php": {
@@ -10954,8 +10934,7 @@
     "sata_connectors": 12,
     "molex4_connectors": 4,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/ne850g-m-atx3.php": {
@@ -11016,8 +10995,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/neg750-modular.php": {
@@ -11158,8 +11136,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/neo-eco-classic-650-v2": {
@@ -11208,8 +11185,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/neo-eco-modular-550-v2": {
@@ -11257,8 +11233,7 @@
     "sata_connectors": 5,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/neo-eco-modular-650-v2": {
@@ -11307,8 +11282,7 @@
     "sata_connectors": 6,
     "molex4_connectors": 3,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/sf850x.php": {
@@ -11368,8 +11342,7 @@
     "sata_connectors": 14,
     "molex4_connectors": 5,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/signature-platinum-1300.php": {
@@ -11398,8 +11371,7 @@
     "sata_connectors": 14,
     "molex4_connectors": 5,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/signature-titanium-1000.php": {
@@ -11428,8 +11400,7 @@
     "sata_connectors": 16,
     "molex4_connectors": 5,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/signature2200-platinum-atx31.php": {
@@ -11499,8 +11470,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp450p.php": {
@@ -11536,8 +11506,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp500p-plus.php": {
@@ -11565,8 +11534,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp500p-v2.php": {
@@ -11613,8 +11581,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp550p-plus.php": {
@@ -11641,8 +11608,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp600p-plus.php": {
@@ -11670,8 +11636,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp600p.php": {
@@ -11707,8 +11672,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp650p-plus.php": {
@@ -11735,8 +11699,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp700p-plus.php": {
@@ -11764,8 +11727,7 @@
     "sata_connectors": 7,
     "molex4_connectors": 2,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://www.antec.com/product/power/vp700p.php": {

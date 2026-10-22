@@ -71,7 +71,7 @@ BASELINE = {
 # A tuple entry is an any-of group: the product counts as covered when ANY
 # member holds a value.
 _PCIE_POWER = ("pcie8_connectors", "pcie62_connectors", "pcie6_connectors",
-               "pcie12_connectors", "pcie16_connectors")
+               "pcie16_connectors")
 CORE_FIELDS: dict[str, tuple] = {
     "cpu": ("manufacturer", "model", "socket", "core_count", "thread_count",
             "base_clock_ghz", "boost_clock_ghz", "l3_cache_mb", "tdp_w",

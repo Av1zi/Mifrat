@@ -366,7 +366,10 @@ workflow — it blocks datacenter IPs — so its backfill runs from the home IP 
 1. Edit `scraper/specs/schema.py` (name, type, unit, enum, range, aliases,
    `filterable`, `group`, he/en label).
 2. Bump `SCHEMA_VERSION` for a breaking change and update
-   `golden/fixtures.json`'s `schema_version`.
+   `golden/fixtures.json`'s `schema_version`. Add a step to
+   `scripts/migrate_mfr_schema.py` and run it: `mfr/store.py` skips a
+   `data/mfr/*.json` at another version, which silently drops every
+   manufacturer fact.
 3. Regenerate the frontend metadata: `python -m scraper.specs.export_site`.
 4. Teach a resolver to emit it (vendor alias -> automatic; title -> add a
    `text.py` regex in the right `parse_*`).

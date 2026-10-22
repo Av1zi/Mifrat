@@ -89,9 +89,12 @@ wrong join (below).
 
 Values that say a position takes no fan ("None", "N/A", "-") are stored as
 "No" (values.coerce reads "None" as unknown, as for lighting). A PSU's full
-connector list states the PCIe kinds it lacks, so those are 0; 12V-2x6 and
-12VHPWR are never zeroed against each other (retailers file one under the
-other's name).
+connector list states the PCIe kinds it lacks, so those are 0. Since schema
+v3 (Oct 2026) 12V-2x6 and 12VHPWR are one column (`pcie16_connectors`, the
+same 16-pin plug that retailers file under either name); a list naming
+neither sets it to 0. A schema bump must run `scripts/migrate_mfr_schema.py`:
+`store.py` ignores a file at another version, and the raw page cache is not
+committed.
 
 ## Adding a brand
 

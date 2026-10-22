@@ -28,7 +28,7 @@ export interface SpecFieldMeta {
 }
 
 /** Schema version — bump in schema.py; golden fixtures record it too. */
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 /** Ordered spec fields per category (the PDP renders exactly this order). */
 export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
@@ -199,14 +199,12 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "atx_version", type: "str", unit: null, enum: [], filterable: false, group: "power", he: "תקן ATX", en: "ATX Version" },
     { name: "atx4_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי ATX 24-pin", en: "ATX 24-pin Connectors" },
     { name: "eps8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי EPS 8-pin", en: "EPS 8-pin Connectors" },
-    { name: "pcie16_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 16-pin", en: "PCIe 16-pin Connectors" },
-    { name: "pcie12_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 12-pin", en: "PCIe 12-pin Connectors" },
+    { name: "pcie16_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי 12V-2x6 / 12VHPWR", en: "12V-2x6 / 12VHPWR Connectors" },
     { name: "pcie8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors" },
     { name: "pcie62_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors" },
     { name: "pcie6_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors" },
     { name: "sata_connectors", type: "int", unit: null, enum: [], filterable: true, group: "power", he: "מחברי SATA", en: "SATA Connectors" },
     { name: "molex4_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי Molex", en: "Molex Connectors" },
-    { name: "pcie_power_connectors", type: "str", unit: null, enum: [], filterable: false, group: "power", he: "חיבורי PCIe", en: "PCIe Power Connectors" },
     { name: "color", type: "str", unit: null, enum: [], filterable: true, group: "physical", he: "צבע", en: "Color" },
   ],
   "case_fan": [
@@ -398,13 +396,11 @@ export const SPEC_LABELS: Record<string, { he: string; en: string }> = {
   "opengl": { he: "OpenGL", en: "OpenGL" },
   "packaging": { he: "אריזה", en: "Packaging" },
   "part_numbers": { he: "מק״טים", en: "Part Numbers" },
-  "pcie12_connectors": { he: "מחברי PCIe 12-pin", en: "PCIe 12-pin Connectors" },
-  "pcie16_connectors": { he: "מחברי PCIe 16-pin", en: "PCIe 16-pin Connectors" },
+  "pcie16_connectors": { he: "מחברי 12V-2x6 / 12VHPWR", en: "12V-2x6 / 12VHPWR Connectors" },
   "pcie62_connectors": { he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors" },
   "pcie6_connectors": { he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors" },
   "pcie8_connectors": { he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors" },
   "pcie_gen": { he: "דור PCIe", en: "PCIe Gen" },
-  "pcie_power_connectors": { he: "חיבורי PCIe", en: "PCIe Power Connectors" },
   "pcie_x16_slots": { he: "חריצי PCIe x16", en: "PCIe x16 Slots" },
   "pcie_x1_slots": { he: "חריצי PCIe x1", en: "PCIe x1 Slots" },
   "psu_included": { he: "ספק כוח כלול", en: "PSU Included" },

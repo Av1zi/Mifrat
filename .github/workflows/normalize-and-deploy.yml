@@ -102,6 +102,10 @@ jobs:
         # (site/src/specSchema.generated.ts) is stale or a hand-written
         # frontend spec key no longer exists in the schema.
         run: python scripts/check_spec_sync.py
+      - name: Manufacturer data at the schema version
+        # mfr/store.py ignores a data/mfr/*.json at another schema version, so
+        # a bump without scripts/migrate_mfr_schema.py drops every maker fact.
+        run: python scripts/migrate_mfr_schema.py --check
       - name: Refresh pcpartdb reference-spec index (spec system Tier 0)
         # Optional reference data, not core data — data/pcpartdb/ is
         # gitignored and rebuilt fresh here every run (~7MB from GitHub's

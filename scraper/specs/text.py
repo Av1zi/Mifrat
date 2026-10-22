@@ -227,7 +227,7 @@ RPM_RE = re.compile(r"\b(\d{3,4})\s?RPM\b", re.I)
 
 FAN_SIZE_MM_RE = re.compile(r"\b(80|92|120|140|170|200|240|280|360|420)\s?MM\b", re.I)
 AIRFLOW_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?CFM\b", re.I)
-NOISE_DB_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?dB(?:\(A\))?\b", re.I)
+NOISE_DB_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?dB(?:A\b|\(A\)|\b)", re.I)
 SOCKET_LIST_RE = re.compile(r"\b(AM[45]|LGA\s?\d{3,4}|sTR\d?|sWRX\d|TR4|SP\d|FM\d)\b", re.I)
 WATER_COOLED_RE = re.compile(r"\b(AIO|LIQUID|WATER\s?COOLER|WATERCOOL)\b", re.I)
 

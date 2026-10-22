@@ -19,7 +19,7 @@
     "so the socket-list and printed-part-number rules are unpinned until vendor",
     "data exercises them again. The rules themselves are untouched."
   ],
-  "schema_version": 2,
+  "schema_version": 3,
   "cases": [
     {
       "product_id": "model:cpu:ryzen79800x3d-tray",

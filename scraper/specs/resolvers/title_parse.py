@@ -437,8 +437,14 @@ def parse_psu(text_input: str) -> list[tuple]:
     eps = re.search(r"(\d+)\s?X\s?(EPS|CPU|ATX\s*12V)", text_value, re.I)
     if eps:
         pairs.append(("eps8_connectors", int(eps.group(1)), 0.7))
-    if re.search(r"12VHPWR|12V-2X6", text_value, re.I):
-        pairs.append(("pcie16_connectors", 1, 0.8))
+    # A bare "12VHPWR" mention says the plug exists, not how many: the HX1200i
+    # title names it once and the unit has two (backtest, Oct 2026). Only an
+    # explicit count is a count.
+    hpwr = re.search(r"\b(\d)\s?[x×]\s?(?:12VHPWR|12V-2X6|16[-\s]?PIN)", text_value, re.I)
+    if hpwr:
+        pairs.append(("pcie16_connectors", int(hpwr.group(1)), 0.8))
+    elif re.search(r"\bDUAL\s?(?:12VHPWR|12V-2X6)", text_value, re.I):
+        pairs.append(("pcie16_connectors", 2, 0.8))
 
     if re.search(r"\bARGB\b", text_value, re.I):
         pairs.append(("lighting", "ARGB", 0.7))
@@ -691,9 +697,14 @@ def parse_storage(text_input: str) -> list[tuple]:
     elif re.search(r"\bPCI\s?E\b", text_value, re.I):
         pairs.append(("interface", "PCIe", 0.6))
 
+    # A bare "NNNNMB" is a cache only at a power-of-two size: "990 Pro ...
+    # 7450MB" is the read speed. An explicit cache / DRAM word always counts.
     cache = text.CACHE_RE.search(text_value)
     if cache and 8 <= int(cache.group(1)) <= 8192:
-        pairs.append(("cache_mb", int(cache.group(1)), 0.8))
+        size = int(cache.group(1))
+        explicit = re.search(r"cache|dram", cache.group(0), re.I)
+        if explicit or size & (size - 1) == 0:
+            pairs.append(("cache_mb", size, 0.8))
 
     rpm = text.RPM_RE.search(text_value)
     if rpm and 3000 <= int(rpm.group(1)) <= 15000:
@@ -755,9 +766,9 @@ def parse_cooler(text_input: str) -> list[tuple]:
     if rpm:
         pairs.append(("fan_rpm_max", int(rpm.group(1)), 0.8))
 
-    noise = text.NOISE_DB_RE.search(text_value)
-    if noise:
-        pairs.append(("noise_db", float(noise.group(1)), 0.8))
+    noise = _noise_db(text_value)
+    if noise is not None:
+        pairs.append(("noise_db", noise, 0.8))
 
     airflow = text.AIRFLOW_RE.search(text_value)
     if airflow:
@@ -834,9 +845,9 @@ def parse_case_fan(text_input: str) -> list[tuple]:
     if rpm:
         pairs.append(("rpm_max", int(rpm.group(1)), 0.8))
 
-    noise = text.NOISE_DB_RE.search(text_value)
-    if noise:
-        pairs.append(("noise_db", float(noise.group(1)), 0.8))
+    noise = _noise_db(text_value)
+    if noise is not None:
+        pairs.append(("noise_db", noise, 0.8))
 
     airflow = text.AIRFLOW_RE.search(text_value)
     if airflow:
@@ -906,6 +917,16 @@ PARSERS = {
     "cooling_other": parse_cooler,
     "accessories": parse_accessories,
 }
+
+
+def _noise_db(text_value: str) -> float | None:
+    """First plausible noise figure. "0dB" is a fan-stop mode (Corsair "Zero
+    RPM / 0dB"), not a loudness, so anything under 5 dB is skipped."""
+    for match in text.NOISE_DB_RE.finditer(text_value):
+        value = float(match.group(1))
+        if value >= 5:
+            return value
+    return None
 
 
 def parse_title(category: str | None, text_input: str) -> dict[str, list[Fact]]:

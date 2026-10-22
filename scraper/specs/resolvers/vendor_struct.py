@@ -1407,6 +1407,32 @@ def _emit_mtbf(facts: dict, category: str, value, source: str) -> None:
 
 
 # \u200f: 1PC pastes right-to-left marks between the colon and the digit.
+_PSU_PCIE_PART_RE = re.compile(
+    r"(\d{1,2})\s*[x×]\s*(12\s*VHPWR|12\s*V[\s-]*2\s*[x×]\s*6|16[\s-]*pin|"
+    r"PCI-?e\s*6\s*\+\s*2|6\s*\+\s*2|PCI-?e\s*8(?:[\s-]*pin)?|PCI-?e\s*6(?:[\s-]*pin)?)", re.I)
+
+
+def _emit_psu_pcie_cell(facts: dict, category: str, value, source: str) -> None:
+    """'1x 12VHPWR' / '2x PCIe 6+2' -> per-plug connector counts.
+
+    Each part names its count and its plug; a cell naming one kind says
+    nothing about the others (a filter-bucket label, not the full list)."""
+    counts: dict[str, int] = {}
+    for match in _PSU_PCIE_PART_RE.finditer(str(value or "")):
+        kind = re.sub(r"\s+", "", match.group(2)).lower()
+        if "12" in kind or "16" in kind:
+            field = "pcie16_connectors"
+        elif "+" in kind:
+            field = "pcie62_connectors"
+        elif "8" in kind:
+            field = "pcie8_connectors"
+        else:
+            field = "pcie6_connectors"
+        counts[field] = counts.get(field, 0) + int(match.group(1))
+    for field, count in counts.items():
+        _emit(facts, category, field, count, source, 0.8)
+
+
 _M2_COUNT_RE = re.compile(r"m\.?2(?:\s*(?:pcie|nvme))?\s*:[\s\u200e\u200f]*(\d{1,2})\b", re.I)
 
 
@@ -1564,6 +1590,9 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         return True
     if token == labels.DISPLAY_COUNT:
         _emit_display_count(facts, category, value, source)
+        return True
+    if token == labels.PSU_PCIE_CELL:
+        _emit_psu_pcie_cell(facts, category, value, source)
         return True
     if token == labels.M2_SPEC_CELL:
         _emit_m2_spec_cell(facts, category, value, source)

@@ -333,7 +333,7 @@ PAIR_CASES = [
             "pcie8_connectors": 2,
             "molex4_connectors": 3,
             "sata_connectors": 5,
-            "pcie12_connectors": 1,
+            "pcie16_connectors": 1,
             "pcie62_connectors": 4,
         },
         "expect_gaps": (),

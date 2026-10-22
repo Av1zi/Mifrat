@@ -798,11 +798,13 @@ PSU = (
        he="מחברי ATX 24-pin", en="ATX 24-pin Connectors"),
     _f("eps8_connectors", "int", lo=0, hi=6, group="power", aliases=("eps8_connectors", "cpu_power_connectors"),
        he="מחברי EPS 8-pin", en="EPS 8-pin Connectors"),
+    # The native 16-pin GPU plug: 12VHPWR and its revision 12V-2x6 are one
+    # column. Retailers file each under the other's name (the old split had 11
+    # PSUs filling both, the same plug twice), and a buyer asks one question:
+    # can this PSU feed a 16-pin card without an adapter. v3, Oct 2026.
     _f("pcie16_connectors", "int", lo=0, hi=4, group="power",
-       aliases=("pcie16_connectors", "pcie16pin", "12v_2x6"), he="מחברי PCIe 16-pin",
-       en="PCIe 16-pin Connectors"),
-    _f("pcie12_connectors", "int", lo=0, hi=4, group="power",
-       aliases=("pcie12_connectors", "12vhpwr"), he="מחברי PCIe 12-pin", en="PCIe 12-pin Connectors"),
+       aliases=("pcie16_connectors", "pcie16pin", "12v_2x6", "pcie12_connectors", "12vhpwr"),
+       he="מחברי 12V-2x6 / 12VHPWR", en="12V-2x6 / 12VHPWR Connectors"),
     _f("pcie8_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie8_connectors",),
        he="מחברי PCIe 8-pin", en="PCIe 8-pin Connectors"),
     _f("pcie62_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie62_connectors",),
@@ -813,8 +815,6 @@ PSU = (
        aliases=("sata_connectors", "sata_power_connectors"), he="מחברי SATA", en="SATA Connectors"),
     _f("molex4_connectors", "int", lo=0, hi=12, group="power", aliases=("molex4_connectors", "molex"),
        he="מחברי Molex", en="Molex Connectors"),
-    _f("pcie_power_connectors", "str", group="power", aliases=("pcie_power_connectors",),
-       he="חיבורי PCIe", en="PCIe Power Connectors"),
     _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
        he="צבע", en="Color"),
 )
@@ -845,7 +845,7 @@ MINIMAL = (
 # reference dataset still files both under PCPartPicker's "cpu-cooler".
 # --------------------------------------------------------------------------
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 SCHEMA: dict[str, tuple[FieldSpec, ...]] = {
     "cpu": CPU,
