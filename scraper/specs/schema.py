@@ -62,10 +62,14 @@ class FieldSpec:
     # Conditional applicability: ((gate_field, (allowed values...)), ...).
     # The field is meaningful only when EVERY gate field holds one of its
     # allowed values; a gate that is still null leaves the field applicable
-    # (unknown is not "no"). See `applies()`. Python-side only: it is not
-    # exported to the frontend (the site never needs to know why a cell is
-    # absent, only that the schema says it is not expected).
+    # (unknown is not "no"). See `applies()`. Exported to the frontend as
+    # `when` (export_site.py) so the product page hides a row that cannot
+    # exist instead of printing "Not listed" for it.
     applies_to: tuple[tuple[str, tuple], ...] = ()
+    # The negative form: the field does NOT exist when a gate field holds one
+    # of these values (a passive GPU has no fans), for gates whose positive
+    # list would be open-ended ("Air", "Blower", "Hybrid", ...).
+    excluded_by: tuple[tuple[str, tuple], ...] = ()
 
     def label(self, lang: str) -> str:
         return self.label_he if lang == "he" else self.label_en
@@ -85,6 +89,7 @@ def _f(
     he: str = "",
     en: str = "",
     when: tuple[tuple[str, tuple], ...] = (),
+    unless: tuple[tuple[str, tuple], ...] = (),
 ) -> FieldSpec:
     """Compact field constructor (keeps the tables below readable)."""
     assert type in TYPES, f"bad type {type!r} for {name}"
@@ -104,6 +109,7 @@ def _f(
         label_he=he or name,
         label_en=en or name,
         applies_to=tuple((gate, tuple(allowed)) for gate, allowed in when),
+        excluded_by=tuple((gate, tuple(values)) for gate, values in unless),
     )
 
 
@@ -306,21 +312,26 @@ _C_RADIATOR_LENGTH = _f("radiator_length_mm", "int", lo=60, hi=600, group="physi
 _C_RADIATOR_THICKNESS = _f("radiator_thickness_mm", "int", lo=10, hi=100,
                            group="physical", aliases=("radiator_thickness_mm",),
                            he="עובי רדיאטור (mm)", en="Radiator Thickness (mm)")
+# A fanless (passive) cooler has no fan to size, spin or hear. Categories
+# without a `fanless` field (AIO) are unaffected: an absent gate is unknown.
+_HAS_FAN = (("fanless", (False,)),)
 _C_FAN_SIZE = _f("fan_size_mm", "int", lo=40, hi=200, filterable=True, group="physical",
-                 aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)")
+                 aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)",
+                 when=_HAS_FAN)
 _C_FAN_COUNT = _f("fan_count", "int", lo=0, hi=6, group="physical",
                   aliases=("fan_count", "fans"), he="מספר מאווררים", en="Fan Count")
 _C_FAN_RPM_MIN = _f("fan_rpm_min", "int", lo=0, hi=6000, group="physical",
                     aliases=("fan_rpm_min", "rpm_min", "fan_speed_min"),
-                    he="סל״ד מינימלי", en="Fan RPM Min")
+                    he="סל״ד מינימלי", en="Fan RPM Min", when=_HAS_FAN)
 _C_FAN_RPM_MAX = _f("fan_rpm_max", "int", lo=0, hi=8000, group="physical",
                     aliases=("fan_rpm_max", "rpm_max", "rpm", "fan_speed"),
-                    he="סל״ד מקסימלי", en="Fan RPM Max")
+                    he="סל״ד מקסימלי", en="Fan RPM Max", when=_HAS_FAN)
 _C_NOISE = _f("noise_db", "float", lo=0, hi=80, group="physical",
-              aliases=("noise_db", "noise_level"), he="רעש (dB)", en="Noise (dB)")
+              aliases=("noise_db", "noise_level"), he="רעש (dB)", en="Noise (dB)",
+              when=_HAS_FAN)
 _C_AIRFLOW = _f("airflow_cfm", "float", lo=0, hi=800, group="physical",
                 aliases=("airflow_cfm", "airflow", "air_flow"),
-                he="ספיקת אוויר (CFM)", en="Airflow (CFM)")
+                he="ספיקת אוויר (CFM)", en="Airflow (CFM)", when=_HAS_FAN)
 _C_HEIGHT = _f("height_mm", "int", lo=5, hi=300, group="physical",
                aliases=("height_mm", "cooler_height_mm"), he="גובה (mm)", en="Height (mm)")
 _C_SOCKETS = _f("sockets", "list_str", filterable=True, group="io",
@@ -640,8 +651,10 @@ GPU = (
        he="ספק מומלץ (W)", en="Recommended PSU (W)"),
     _f("cooling", "str", filterable=True, group="physical",
        aliases=("cooling", "cooler_type"), he="קירור", en="Cooling"),
+    # A passive card has no fans. Hybrid / liquid cards keep theirs (radiator
+    # fans), so only "Passive" excludes the field.
     _f("fan_count", "int", lo=0, hi=6, group="physical", aliases=("fan_count", "fans"),
-       he="מספר מאווררים", en="Fan Count"),
+       he="מספר מאווררים", en="Fan Count", unless=(("cooling", ("Passive",)),)),
     _f("external_power", "list_str", group="power",
        aliases=("external_power", "power_connections", "power_connectors"),
        he="חיבורי חשמל", en="External Power"),
@@ -895,6 +908,9 @@ def applies(category: str | None, field: str, specs: dict) -> bool:
     for gate, allowed in spec.applies_to:
         value = specs.get(gate)
         if value is not None and value not in allowed:
+            return False
+    for gate, values in spec.excluded_by:
+        if specs.get(gate) in values and specs.get(gate) is not None:
             return False
     return True
 

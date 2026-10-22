@@ -182,6 +182,17 @@ def check_tier_order(c: Checks) -> None:
          "a vendor chipset beats a derived socket")
 
 
+def check_applicability_gates(c: Checks) -> None:
+    from scraper.specs.schema import applies
+    c.ok(not applies("gpu", "fan_count", {"cooling": "Passive"}), "a passive GPU has no fan count")
+    c.ok(applies("gpu", "fan_count", {"cooling": "Liquid"}), "a hybrid/liquid GPU keeps its fans")
+    c.ok(applies("gpu", "fan_count", {"cooling": None}), "unknown cooling leaves fan_count applicable")
+    c.ok(not applies("cooler_air", "noise_db", {"fanless": True}), "a fanless cooler has no noise figure")
+    c.ok(applies("cooler_air", "noise_db", {"fanless": None}), "unknown fanless leaves noise applicable")
+    c.ok(applies("aio", "fan_rpm_max", {}), "AIO has no fanless gate field: still applicable")
+    c.ok(not applies("storage", "rpm", {"type": "SSD"}), "an SSD has no RPM")
+
+
 def check_validation_and_unknowns(c: Checks) -> None:
     junk = merge_facts("cpu", {
         "model": [Fact(value="\u05dc\u05d7\u05e5/\u05d9 \u05dc\u05e8\u05db\u05d9\u05e9\u05d4",
@@ -324,7 +335,8 @@ def check_model_codes(c: Checks) -> None:
 def main() -> int:
     checks = Checks()
     for group in (check_part_number_shape, check_model_prefers_a_name,
-                  check_tier_order, check_validation_and_unknowns,
+                  check_tier_order, check_applicability_gates,
+                  check_validation_and_unknowns,
                   check_curated_tables, check_equality_helpers,
                   check_model_codes):
         group(checks)
