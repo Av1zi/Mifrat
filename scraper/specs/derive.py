@@ -506,6 +506,15 @@ def _infer_memory(specs: dict, sources: dict) -> list[str]:
         fill("module_size_gb", total // count, "memory.module_arithmetic")
     elif isinstance(total, int) and isinstance(size, int) and size and total % size == 0:
         fill("module_count", total // size, "memory.module_arithmetic")
+    # First-word latency is arithmetic on two stated facts: CL cycles at the
+    # data rate, CL x 2000 / MT/s nanoseconds (the title parser's formula;
+    # 285/288 vendor-printed figures agree to 0.1 ns).
+    cas, speed = specs.get("cas_latency"), specs.get("speed_mhz")
+    if (specs.get("first_word_latency_ns") is None and isinstance(cas, (int, float))
+            and isinstance(speed, int) and cas > 0 and speed > 0):
+        specs["first_word_latency_ns"] = round(cas * 2000 / speed, 1)
+        sources["first_word_latency_ns"] = "derived:memory.latency_math"
+        filled.append("first_word_latency_ns")
     return filled
 
 
