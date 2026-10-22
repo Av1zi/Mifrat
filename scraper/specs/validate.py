@@ -29,7 +29,7 @@ from .schema import FieldSpec
 # an unlisted label ranked 99, so until Oct 2026 a manufacturer-page socket lost
 # a cross-check to a title-parsed chipset.
 _TIER_ORDER = {"override": 0, "reference": 1, "manufacturer": 1.5, "catalog": 1.75,
-               "vendor": 2, "title": 3, "weak": 4}
+               "vendor": 2, "extracted": 2.5, "title": 3, "weak": 4}
 # `derived:<rule>` values were inferred after the merge from other fields: they
 # lose to every sourced value.
 _DERIVED_RANK = 5

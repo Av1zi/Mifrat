@@ -780,7 +780,7 @@ _THUNDERBOLT_MENTION = re.compile(r"thunderbolt|\btb[345]\b|usb\s?4\b", re.I)
 
 
 # Tiers the chipset table may replace for cpu_support (see below).
-_RETAILER_TIERS = ("vendor", "title", "weak")
+_RETAILER_TIERS = ("vendor", "extracted", "title", "weak")
 
 
 def _infer_mb_cpu_support(specs: dict, sources: dict) -> list[str]:

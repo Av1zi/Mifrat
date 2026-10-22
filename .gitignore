@@ -72,6 +72,7 @@ tsconfig.tsbuildinfo
 data/mfr/.cache/
 # Open Icecat raw API answers (scraper/icecat); only data/icecat/<brand>.json is committed.
 data/icecat/.cache/
+data/extract/.cache/
 
 # design-sync (Claude Design) build output + staged skill scripts — regenerated
 ds-bundle/

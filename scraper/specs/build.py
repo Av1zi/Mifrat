@@ -32,11 +32,12 @@ from .resolvers import reference, title_parse, vendor_struct, weak_vendor
 from .validate import cross_check, fill_derived, revalidate_derived
 
 try:  # scraper/mfr is a sibling package; absent only when specs/ runs standalone
+    from ..extract import store as extract_store
     from ..icecat import store as icecat_store
     from ..mfr import store as mfr_store
     from ..xref import store as xref_store
 except ImportError:  # pragma: no cover
-    icecat_store = mfr_store = xref_store = None
+    extract_store = icecat_store = mfr_store = xref_store = None
 
 
 def listing_text(listing: dict) -> str:
@@ -238,6 +239,12 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
             for key, value in xref_store.facts_for(
                     category, provisional.get("manufacturer") or product.get("brand"),
                     provisional.get("part_numbers")).items():
+                facts.setdefault(key, []).extend(value)
+
+        # Tier 1.5 - verified AI extraction from this product's own listing text.
+        if extract_store is not None:
+            for key, value in extract_store.facts_for(
+                    product.get("product_id"), category, offers).items():
                 facts.setdefault(key, []).extend(value)
 
         # Manual overrides are king.

@@ -148,6 +148,11 @@ jobs:
         # re-vote dropped the Hebrew liquid word), laptops / mini PCs / NAS
         # units as storage. A misfiled product can never fill its schema.
         run: python scripts/check_categories.py
+      - name: AI-extraction verifier (offline, Oct 2026)
+        # The quote / re-parse checks that decide whether a model answer is
+        # believed (scraper/extract/verify.py), plus the client's refusal and
+        # cache handling against a fake API. No key, no network.
+        run: python scripts/check_extract.py
       - name: Inference-rule backtest (offline, Oct 2026)
         # Shadow-runs every derive/title rule against the products where a
         # real source states the same field. Fails on a new rule below 99%

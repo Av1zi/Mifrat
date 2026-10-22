@@ -44,6 +44,10 @@ TIER_MANUFACTURER = 0.5
 # any retailer.
 TIER_CATALOG = 0.75
 TIER_VENDOR = 1
+# Verified AI extraction (scraper/extract): a value quoted verbatim from our own
+# listing text and re-parsed from that quote. Below any table a vendor printed,
+# above the title parser.
+TIER_EXTRACTED = 1.5
 TIER_TITLE = 2
 # Variant fields (colour, efficiency, modularity) from a reference row linked
 # by NAME SIMILARITY (fuzzy / identity-scoped joins) rather than exact-name
@@ -60,6 +64,7 @@ TIER_NAMES = {
     TIER_MANUFACTURER: "manufacturer",
     TIER_CATALOG: "catalog",
     TIER_VENDOR: "vendor",
+    TIER_EXTRACTED: "extracted",
     TIER_TITLE: "title",
     TIER_REFERENCE_FUZZY: "reference",
     TIER_WEAK: "weak",
