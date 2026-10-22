@@ -714,6 +714,16 @@ PAIR_CASES = [
         "expect_gaps": (),
     },
     {
+        # 1PC / TMS list the port KINDS; reading each as one port disagreed
+        # with the partners' own sheets on 52 of 56 cards (Oct 2026).
+        "name": "a GPU port-kind list is not a port count",
+        "category": "gpu",
+        "rows": {"ליבה גראפית": "GeForce RTX 5070", "חיבור גרפי": "HDMI | DisplayPort"},
+        "expect_specs": {"chipset": "GeForce RTX 5070", "dp_outputs": None,
+                         "hdmi_outputs": None},
+        "expect_gaps": (),
+    },
+    {
         "name": "YahavPC memory capacity row is the kit total",
         "category": "memory",
         "rows": {"זיכרון": "64GB", "מהירות זכרון": "6000Mhz",

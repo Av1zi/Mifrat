@@ -385,11 +385,15 @@ def _emit_gpu_dimensions(facts: dict, category: str, value, source: str) -> None
 def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
     """'DisplayPort | HDMI' -> dp_outputs / hdmi_outputs (VGA and DVI have no field).
 
-    Counts are read when the vendor prints them ('1x HDMI 2.1b 3x DisplayPort
-    2.1b' is three DisplayPorts, not one); without a count each mention is
-    one port.
+    Counts are read only when the vendor prints them ('1x HDMI 2.1b 3x
+    DisplayPort 2.1b' is three DisplayPorts). A bare kind list ('HDMI |
+    DisplayPort', 1PC / TMS) names the port types, not one of each: read as
+    counts it disagreed with the board partners' own sheets on 52 of 56 cards
+    (Open Icecat comparison, Oct 2026), so it yields nothing. In a cell that
+    does count ('3X Display Port, HDMI') an uncounted kind is the single one.
     """
     text = str(value or "")
+    counted_cell = bool(re.search(r"\d{1,2}\s*[x×]", text, re.I))
     tokens = [part.strip() for part in re.split(r"[|,;]", text) if part.strip()]
     for display, needle, field in _GPU_OUTPUTS:
         # `needle` is a regex now: YahavPC spells the same port "Display
@@ -397,12 +401,10 @@ def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
         # "displayport" substring match never saw (Oct 2026).
         counts = [int(match.group(1)) for match in re.finditer(
             r"(\d{1,2})\s*[x×]?\s*(?:mini\s+|micro\s+)?" + needle, text, re.I)]
-        if counts:
-            count = sum(counts)
-        else:
-            count = sum(1 for token in tokens if re.search(needle, token, re.I))
-        if count:
-            _emit(facts, category, field, {display: count}, source, 0.7)
+        if not counts and counted_cell:
+            counts = [1 for token in tokens if re.search(needle, token, re.I)]
+        if counts and sum(counts):
+            _emit(facts, category, field, {display: sum(counts)}, source, 0.7)
 
 
 def _emit_raid(facts: dict, category: str, value, source: str) -> None:
