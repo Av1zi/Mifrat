@@ -650,6 +650,17 @@
   },
   {
     "score": 96,
+    "category": "gpu",
+    "brand": "Inno3D",
+    "listing_a": "1pc:188294",
+    "listing_b": "tms:N50702-12D7X-195064W",
+    "title_a": "כרטיס מסך Inno3D GeForce RTX 5070 TWIN X2 OC WHITE N50702-12D7X-195064W",
+    "title_b": "Inno3D GeForce RTX 5070 TWIN X2 OC WHITE 12GB",
+    "match_text_a": "188294 Inno3D GeForce RTX 5070 TWIN X2 OC WHITE N50702-12D7X-195064W",
+    "match_text_b": "N50702-12D7X-195064W Inno3D GeForce RTX 5070 TWIN X2 OC WHITE 12GB"
+  },
+  {
+    "score": 96,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221790",
@@ -878,28 +889,6 @@
     "title_b": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
     "match_text_a": "221404 Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
     "match_text_b": "GSK750V2 Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular"
-  },
-  {
-    "score": 93,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:216409",
-    "listing_b": "ivory:131649",
-    "title_a": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition בצבע רב צבעי",
-    "title_b": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "match_text_a": "216409 ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "match_text_b": "90YV0MP2-M0NA00 ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition"
-  },
-  {
-    "score": 93,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:216409",
-    "listing_b": "ivory:153961",
-    "title_a": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition בצבע רב צבעי",
-    "title_b": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 White OC Edition",
-    "match_text_a": "216409 ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "match_text_b": "90YV0MP5-M0NA00 ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 White OC Edition"
   },
   {
     "score": 93,
@@ -1156,6 +1145,17 @@
   },
   {
     "score": 92,
+    "category": "psu",
+    "brand": "Gigabyte",
+    "listing_a": "yahav:11475",
+    "listing_b": "yahav:11754",
+    "title_a": "ספק כוח למחשב חברת Gigabyte דגם Aorus Elite P850W 850W 80 Plus Platinum ATX 3.1 PCIE 5.1 Support Full Modular כולל מאוורר 120MM - צבע שחור",
+    "title_b": "ספק כוח למחשב חברת Gigabyte דגם Aorus Elite P850W ICE 850W White 80 Plus Platinum ATX 3.1 PCIE 5.1 Support Full Modular כולל מאוורר 120MM - צבע לבן",
+    "match_text_a": "GP-AE850PM-PG5 Gigabyte Aorus Elite P850W 850W 80 Plus Platinum ATX 3.1 PCIE 5.1 Support Full Modular 120MM -",
+    "match_text_b": "11754 Gigabyte Aorus Elite P850W ICE 850W White 80 Plus Platinum ATX 3.1 PCIE 5.1 Support Full Modular 120MM -"
+  },
+  {
+    "score": 92,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:222383",
@@ -1197,17 +1197,6 @@
     "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
     "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
     "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 92,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "1pc:200215",
-    "listing_b": "tms:NE7506TS19T1-GB2061S",
-    "title_a": "כרטיס מסך Palit GeForce RTX 5060 Ti Infinity 3 OC 16GB",
-    "title_b": "Palit GeForce RTX 5060 Ti Infinity 3 OC 16GB",
-    "match_text_a": "200215 Palit GeForce RTX 5060 Ti Infinity 3 OC 16GB",
-    "match_text_b": "NE7506TS19T1-GB2061S Palit GeForce RTX 5060 Ti Infinity 3 OC 16GB"
   },
   {
     "score": 92,
@@ -1365,17 +1354,6 @@
   },
   {
     "score": 91,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:206067",
-    "listing_b": "ivory:175549",
-    "title_a": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 בצבע לבן",
-    "title_b": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6",
-    "match_text_a": "206067 ASUS Dual Radeon RX 9060 XT 16GB GDDR6",
-    "match_text_b": "90YV0LG2-M0NA00 ASUS Dual Radeon RX 9060 XT 16GB GDDR6"
-  },
-  {
-    "score": 91,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221795",
@@ -1384,17 +1362,6 @@
     "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
     "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
     "match_text_b": "222392 Corsair NAUTILUS 360 RS ARGB"
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "1pc:209335",
-    "listing_b": "tms:NE75060V19P1-GB2063L",
-    "title_a": "כרטיס מסך Palit GeForce RTX 5060 Infinity 2 OC 8GB",
-    "title_b": "Palit GeForce RTX 5060 Infinity 2 OC 8GB",
-    "match_text_a": "209335 Palit GeForce RTX 5060 Infinity 2 OC 8GB",
-    "match_text_b": "NE75060V19P1-GB2063L Palit GeForce RTX 5060 Infinity 2 OC 8GB"
   },
   {
     "score": 91,
@@ -1739,17 +1706,6 @@
   },
   {
     "score": 90,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:216409",
-    "listing_b": "ivory:162718",
-    "title_a": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition בצבע רב צבעי",
-    "title_b": "כרטיס מסך ASUS Dual GeForce RTX 5060 White OC Edition 8GB GDDR7",
-    "match_text_a": "216409 ASUS Dual GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "match_text_b": "90YV0N15-M0NA00 ASUS Dual GeForce RTX 5060 White OC Edition 8GB GDDR7"
-  },
-  {
-    "score": 90,
     "category": "motherboard",
     "brand": "ASUS",
     "listing_a": "1pc:221493",
@@ -2091,28 +2047,6 @@
   },
   {
     "score": 90,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "1pc:200218",
-    "listing_b": "tms:NE7506T019P1-GB2062D",
-    "title_a": "כרטיס מסך Palit GeForce RTX 5060 Ti Dual 8GB",
-    "title_b": "Palit GeForce RTX 5060 Ti Dual 8GB",
-    "match_text_a": "200218 Palit GeForce RTX 5060 Ti Dual 8GB",
-    "match_text_b": "NE7506T019P1-GB2062D Palit GeForce RTX 5060 Ti Dual 8GB"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "1pc:209331",
-    "listing_b": "tms:NE75060U19P1-GB2063M",
-    "title_a": "כרטיס מסך Palit GeForce RTX 5060 WHITE OC 8GB",
-    "title_b": "Palit GeForce RTX 5060 WHITE OC 8GB",
-    "match_text_a": "209331 Palit GeForce RTX 5060 WHITE OC 8GB",
-    "match_text_b": "NE75060U19P1-GB2063M Palit GeForce RTX 5060 WHITE OC 8GB"
-  },
-  {
-    "score": 90,
     "category": "storage",
     "brand": "Western Digital",
     "listing_a": "1pc:221513",
@@ -2253,17 +2187,6 @@
     "title_b": "מארז חברת LIAN-LI דגם O11 Dynamic Mini V2 White Tower Case צבע לבן",
     "match_text_a": "O11DMIV2W Lian-Li O11 Dynamic Mini V2 White",
     "match_text_b": "O11DMIV2W LIAN-LI O11 Dynamic Mini V2 White Tower Case"
-  },
-  {
-    "score": 89,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:204014",
-    "listing_b": "tms:90YV0L70-M0NA00",
-    "title_a": "כרטיס גרפי ASUS TUF Gaming Radeon RX 9070 XT OC Edition 16GB GDDR6 בצבע שחור וכסף",
-    "title_b": "Asus TUF Gaming Radeon RX 9070 XT 16GB GDDR6 OC Edition",
-    "match_text_a": "204014 ASUS TUF Gaming Radeon RX 9070 XT OC Edition 16GB GDDR6",
-    "match_text_b": "90YV0L70-M0NA00 Asus TUF Gaming Radeon RX 9070 XT 16GB GDDR6 OC Edition"
   },
   {
     "score": 89,
@@ -3034,17 +2957,6 @@
     "title_b": "מארז מחשב Lian-Li A3 Wood and Glass Edition Black",
     "match_text_a": "A3X Lian-Li A3 Black",
     "match_text_b": "A3X-WDG Lian-Li A3 Wood and Glass Edition Black"
-  },
-  {
-    "score": 88,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:204012",
-    "listing_b": "tms:90YV0M19-M0NA00",
-    "title_a": "כרטיס גרפי ASUS PRIME GeForce RTX 5070 OC Edition 12GB GDDR7 בצבע לבן",
-    "title_b": "Asus PRIME GeForce RTX 5070 White OC Edition 12GB GDDR7",
-    "match_text_a": "204012 ASUS PRIME GeForce RTX 5070 OC Edition 12GB GDDR7",
-    "match_text_b": "90YV0M19-M0NA00 Asus PRIME GeForce RTX 5070 White OC Edition 12GB GDDR7"
   },
   {
     "score": 88,
