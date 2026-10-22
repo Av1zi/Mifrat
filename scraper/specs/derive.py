@@ -280,6 +280,43 @@ def expected_microarchitecture(model: str | None) -> str | None:
     return None
 
 
+def _box_cooler(model: str, packaging: str | None) -> bool | None:
+    """Whether a retail box ships a cooler, for lineups where AMD / Intel state
+    it for every SKU (their "Thermal solution (PIB)" spec row):
+
+    - no cooler: every Threadripper and X3D part; AMD X-suffix Ryzen 7000/9000
+      and 5700X/5800X/5900X/5950X; Intel K / KF / KS / X; EPYC and Xeon.
+    - cooler: Ryzen 7000 non-X (7600/7700/7900), Ryzen 8000G and 8400F/8700F,
+      Ryzen 5500/5600/5600G/5600X; Intel Core i3/i5/i7/i9 10th-14th gen non-K.
+
+    Anything else (Ryzen 9000 non-X, Core Ultra non-K) stays unknown: the
+    makers changed the bundle within those lineups. Only boxed or unstated
+    packaging: tray is handled above.
+    """
+    if packaging not in (None, "boxed"):
+        return None
+    text = re.sub(r"[-_]+", " ", model)
+    if re.search(r"\bThreadripper\b|\bEPYC\b|\bXeon\b|X3D", text, re.I):
+        return False
+    alnum = re.sub(r"[^A-Za-z0-9]", "", text).upper()
+    if re.search(r"\bRyzen\b", text, re.I):
+        if re.search(r"\b[79]\d{2}0X\b", text, re.I) or re.search(
+                r"\b5(?:700|800|900|950)X\b", text, re.I):
+            return False
+        if re.search(r"\b7[679]00\b(?!\s?X)", text, re.I) or re.search(
+                r"\b8\d00(?:G|F)\b", text, re.I) or re.search(
+                r"\b5(?:500|600|600G|600X)\b", text, re.I):
+            return True
+        return None
+    if _INTEL_PREFIX.search(text) or re.search(r"\bCore\b", text, re.I):
+        if re.search(r"\d{4,5}(?:K|KF|KS|X|XE)$", alnum) or re.search(
+                r"\bUltra\b.*\d{3}KF?\b", text, re.I):
+            return False
+        if re.search(r"\bi[3579]\b", text, re.I) and (_generation_number(text) or 0) in range(10, 15):
+            return True
+    return None
+
+
 def _infer_cpu(specs: dict, sources: dict) -> list[str]:
     """Rule-based fills for CPU fields. Returns the filled field names."""
     filled: list[str] = []
@@ -412,6 +449,8 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
     # A tray CPU ships without a cooler by definition.
     if specs.get("packaging") == "tray":
         fill("includes_cooler", False, "cpu.tray_packaging")
+    fill("includes_cooler", _box_cooler(model_text, specs.get("packaging")),
+         "cpu.lineup_box_cooler")
 
     socket = str(specs.get("socket") or "").upper()
 
@@ -866,11 +905,27 @@ _PSU_FANLESS_MARKER = re.compile(r"fanless|passive|ללא\s*מאוורר|פסי�
 _RADIATOR_FAN_MM = {120: 120, 240: 120, 360: 120, 140: 140, 280: 140, 420: 140}
 
 
-def _infer_cooler(category: str, specs: dict, sources: dict) -> list[str]:
+# ... and the fan count is the size over the fan size: a 360 takes three
+# 120 mm fans, a 280 two 140s. 135/135 catalog AIOs with a sourced fan count
+# agree (Oct 2026). A kit sold WITHOUT its fans says so in the title, and is
+# left alone.
+_RADIATOR_FAN_COUNT = {120: 1, 140: 1, 240: 2, 280: 2, 360: 3, 420: 3}
+_AIO_NO_FANS = re.compile(r"without\s+fans?|no\s+fans?|fans?\s+not\s+included|fanless|"
+                          r"ללא\s*מאווררים?", re.I)
+
+
+def _infer_cooler(category: str, specs: dict, sources: dict,
+                  context: dict | None = None) -> list[str]:
     if category == "aio" and isinstance(specs.get("radiator_size_mm"), int):
-        return _fill(specs, sources, "fan_size_mm",
-                     _RADIATOR_FAN_MM.get(specs["radiator_size_mm"]),
-                     "aio.radiator_fan_size")
+        filled = _fill(specs, sources, "fan_size_mm",
+                       _RADIATOR_FAN_MM.get(specs["radiator_size_mm"]),
+                       "aio.radiator_fan_size")
+        title = str((context or {}).get("title") or "")
+        if title and not _AIO_NO_FANS.search(title):
+            filled += _fill(specs, sources, "fan_count",
+                            _RADIATOR_FAN_COUNT.get(specs["radiator_size_mm"]),
+                            "aio.radiator_fan_count")
+        return filled
     if category == "cooler_air" and (
             (isinstance(specs.get("fan_count"), int) and specs["fan_count"] > 0)
             or isinstance(specs.get("fan_size_mm"), int)
@@ -932,7 +987,7 @@ def infer_specs(category: str | None, specs: dict, sources: dict,
     if category == "psu":
         return _infer_psu(specs, sources, context)
     if category in ("cooler_air", "aio", "cooling_other"):
-        return _infer_cooler(category, specs, sources)
+        return _infer_cooler(category, specs, sources, context)
     if category == "case":
         return _infer_case(specs, sources, context)
     return []

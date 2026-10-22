@@ -1,6 +1,7 @@
 {
  "derived:cpu.architecture_node -> cpu.lithography_nm": 98.4,
  "derived:cpu.chipset_cpu_table -> cpu.chipset_support": 97.9,
+ "derived:cpu.lineup_box_cooler -> cpu.includes_cooler": 80.0,
  "derived:cpu.model_series -> cpu.series": 97.5,
  "derived:cpu.no_smt_threads_equal_cores -> cpu.thread_count": 79.4,
  "derived:motherboard.mini_itx_single_slot -> motherboard.pcie_x1_slots": 50.0,
