@@ -108,6 +108,7 @@ PACKAGING_CELL = "__packaging_cell__"         # "Retail - קופסה" -> boxed
 DISPLAY_COUNT = "__display_count__"           # "עד 4 מסכים" -> max_displays 4
 GENERATION_CELL = "__generation__"            # "דור 14" / "Series 2" -> Gen N
 STORAGE_TYPE_CELL = "__storage_type_cell__"   # 1PC "Storage / Storage Type", per category
+M2_SPEC_CELL = "__m2_spec_cell__"             # 1PC board "מפרט": "חיבורי M.2 PCIe: 2"
 
 SPECIAL_TOKENS = frozenset({
     CLOCK_RANGE, CACHE_TIER, MEMORY_KIT, RPM_RANGE, GPU_DIMENSIONS,
@@ -124,6 +125,7 @@ SPECIAL_TOKENS = frozenset({
     MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS,
     CONNECTORS_CELL, PACKAGING_CELL, DISPLAY_COUNT,
     GENERATION_CELL, STORAGE_TYPE_CELL, COMBINED_SPEED, MTBF_CELL,
+    M2_SPEC_CELL,
 })
 
 # --------------------------------------------------------------------------
@@ -401,6 +403,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "length": "length_mm",
     },
     "motherboard": {
+        # 1PC's catch-all "מפרט" (spec) row on boards holds the M.2 count
+        # ("חיבורי M.2 PCIe: 2", "m.2: 4"); nothing else in it is read.
+        "מפרט": M2_SPEC_CELL,
         "spec / specifications / sata3 connections": "sata_ports",
         "ערכת שבבים": "chipset",
         "שבב": "chipset",

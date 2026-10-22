@@ -1406,6 +1406,17 @@ def _emit_mtbf(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "mtbf_hours", hours, source, 0.8)
 
 
+# \u200f: 1PC pastes right-to-left marks between the colon and the digit.
+_M2_COUNT_RE = re.compile(r"m\.?2(?:\s*(?:pcie|nvme))?\s*:[\s\u200e\u200f]*(\d{1,2})\b", re.I)
+
+
+def _emit_m2_spec_cell(facts: dict, category: str, value, source: str) -> None:
+    """1PC board "מפרט" cell: only an explicit 'M.2 ...: N' count is a fact."""
+    match = _M2_COUNT_RE.search(str(value or ""))
+    if match and 0 <= int(match.group(1)) <= 12:
+        _emit(facts, category, "m2_slots", int(match.group(1)), source, 0.8)
+
+
 _DISPLAY_COUNT_RE = re.compile(r"(\d{1,2})")
 
 
@@ -1553,6 +1564,9 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         return True
     if token == labels.DISPLAY_COUNT:
         _emit_display_count(facts, category, value, source)
+        return True
+    if token == labels.M2_SPEC_CELL:
+        _emit_m2_spec_cell(facts, category, value, source)
         return True
     if token == labels.COMBINED_SPEED:
         _emit_combined_speed(facts, category, value, source)
