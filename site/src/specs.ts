@@ -180,5 +180,12 @@ export function specApplies(product: Product, field: SpecFieldMeta): boolean {
     const value = specValue(product, gate);
     if (excluded.some((option) => option === value)) return false;
   }
+  // An empty field a sibling already answers (PSU "8-pin" vs "6+2-pin"
+  // counts) is not a missing value either.
+  const own = specValue(product, field.name);
+  if ((own === undefined || own === null) && (field.answeredBy ?? []).some((other) => {
+    const value = specValue(product, other);
+    return value !== undefined && value !== null;
+  })) return false;
   return true;
 }

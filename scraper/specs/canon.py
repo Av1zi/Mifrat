@@ -686,6 +686,18 @@ _CATEGORY_RULES = {
 }
 
 
+_POWER_PLUG_RE = re.compile(r"^\s*(\d{1,2})\s*[x×]\s*(\d{1,2})\s*-?\s*pin\s*$", re.I)
+
+
+def canon_power_plug(value):
+    """GPU power plug: '1x 8-pin' / '3 x 8-pin' / '1 x 16-pin' -> '1x8-pin', the
+    spelling the direct rows ship, so one plug kind is one filter value."""
+    match = _POWER_PLUG_RE.match(str(value))
+    if not match:
+        return value
+    return f"{int(match.group(1))}x{int(match.group(2))}-pin"
+
+
 def canonicalize(field, value, category: str | None = None):
     """Apply the canonical form for (category, field) to `value`.
 
@@ -694,6 +706,8 @@ def canonicalize(field, value, category: str | None = None):
     """
     if field.name == "sockets":
         return canon_socket_list(value)
+    if field.name == "external_power" and isinstance(value, (list, tuple)):
+        return [canon_power_plug(item) for item in value]
     if isinstance(value, (list, tuple, dict, int, float, bool)):
         return value
     if field.name == "form_factor":

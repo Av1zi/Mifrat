@@ -57,6 +57,8 @@ export interface SpecFieldMeta {
   when?: [string, (string | number | boolean)[]][];
   /** Negative gates: the field does not exist when a gate field holds one of these. */
   unless?: [string, (string | number | boolean)[]][];
+  /** Sibling fields that answer the same question; an empty field is not a gap when one is set. */
+  answeredBy?: string[];
 }
 
 /** Schema version — bump in schema.py; golden fixtures record it too. */
@@ -118,6 +120,8 @@ def _when_literal(field: schema.FieldSpec) -> str:
         out += ", when: [" + gates(field.applies_to) + "]"
     if field.excluded_by:
         out += ", unless: [" + gates(field.excluded_by) + "]"
+    if field.answered_by:
+        out += ", answeredBy: [" + ", ".join(_ts_string(f) for f in field.answered_by) + "]"
     return out
 
 

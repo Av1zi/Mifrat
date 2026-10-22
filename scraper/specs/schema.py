@@ -70,6 +70,11 @@ class FieldSpec:
     # of these values (a passive GPU has no fans), for gates whose positive
     # list would be open-ended ("Air", "Blower", "Hybrid", ...).
     excluded_by: tuple[tuple[str, tuple], ...] = ()
+    # Sibling fields that answer the same buyer question in another
+    # vendor's vocabulary (a PSU's GPU plugs as "8-pin", "6+2-pin" or
+    # "6-pin" counts). When one holds a value, this one left empty is not a
+    # gap: the coverage report does not count it and the site leaves it out.
+    answered_by: tuple[str, ...] = ()
 
     def label(self, lang: str) -> str:
         return self.label_he if lang == "he" else self.label_en
@@ -90,6 +95,7 @@ def _f(
     en: str = "",
     when: tuple[tuple[str, tuple], ...] = (),
     unless: tuple[tuple[str, tuple], ...] = (),
+    answered_by: tuple[str, ...] = (),
 ) -> FieldSpec:
     """Compact field constructor (keeps the tables below readable)."""
     assert type in TYPES, f"bad type {type!r} for {name}"
@@ -110,6 +116,7 @@ def _f(
         label_en=en or name,
         applies_to=tuple((gate, tuple(allowed)) for gate, allowed in when),
         excluded_by=tuple((gate, tuple(values)) for gate, values in unless),
+        answered_by=tuple(answered_by),
     )
 
 
@@ -805,12 +812,18 @@ PSU = (
     _f("pcie16_connectors", "int", lo=0, hi=4, group="power",
        aliases=("pcie16_connectors", "pcie16pin", "12v_2x6", "pcie12_connectors", "12vhpwr"),
        he="מחברי 12V-2x6 / 12VHPWR", en="12V-2x6 / 12VHPWR Connectors"),
+    # Vendors count the GPU 8-pin plugs in one of three vocabularies; any one
+    # answers "how many PCIe GPU plugs". Kept apart (not merged) because a page
+    # that prints two of them often counts cables in one and plugs in the other.
     _f("pcie8_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie8_connectors",),
-       he="מחברי PCIe 8-pin", en="PCIe 8-pin Connectors"),
+       he="מחברי PCIe 8-pin", en="PCIe 8-pin Connectors",
+       answered_by=("pcie62_connectors", "pcie6_connectors")),
     _f("pcie62_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie62_connectors",),
-       he="מחברי PCIe 6+2-pin", en="PCIe 6+2-pin Connectors"),
+       he="מחברי PCIe 6+2-pin", en="PCIe 6+2-pin Connectors",
+       answered_by=("pcie8_connectors", "pcie6_connectors")),
     _f("pcie6_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie6_connectors",),
-       he="מחברי PCIe 6-pin", en="PCIe 6-pin Connectors"),
+       he="מחברי PCIe 6-pin", en="PCIe 6-pin Connectors",
+       answered_by=("pcie8_connectors", "pcie62_connectors")),
     _f("sata_connectors", "int", lo=0, hi=24, filterable=True, group="power",
        aliases=("sata_connectors", "sata_power_connectors"), he="מחברי SATA", en="SATA Connectors"),
     _f("molex4_connectors", "int", lo=0, hi=12, group="power", aliases=("molex4_connectors", "molex"),
@@ -913,6 +926,12 @@ def applies(category: str | None, field: str, specs: dict) -> bool:
         if specs.get(gate) in values and specs.get(gate) is not None:
             return False
     return True
+
+
+def answered(category: str | None, field: str, specs: dict) -> bool:
+    """True when a sibling field already answers this field's question."""
+    spec = field_map(category).get(field)
+    return bool(spec) and any(specs.get(other) is not None for other in spec.answered_by)
 
 
 def filterable_fields(category: str | None) -> tuple[str, ...]:

@@ -166,6 +166,8 @@ def load_products(path: Path = CATALOG) -> list[dict]:
 def applicable(category: str, field: str, specs: dict) -> bool:
     if not schema.applies(category, field, specs):
         return False
+    if specs.get(field) is None and schema.answered(category, field, specs):
+        return False   # a sibling field already answers it (PSU 8-pin vs 6+2)
     rule = NOT_APPLICABLE.get((category, field))
     return not (rule and rule(specs))
 

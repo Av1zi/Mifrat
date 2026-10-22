@@ -25,6 +25,8 @@ export interface SpecFieldMeta {
   when?: [string, (string | number | boolean)[]][];
   /** Negative gates: the field does not exist when a gate field holds one of these. */
   unless?: [string, (string | number | boolean)[]][];
+  /** Sibling fields that answer the same question; an empty field is not a gap when one is set. */
+  answeredBy?: string[];
 }
 
 /** Schema version — bump in schema.py; golden fixtures record it too. */
@@ -200,9 +202,9 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "atx4_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי ATX 24-pin", en: "ATX 24-pin Connectors" },
     { name: "eps8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי EPS 8-pin", en: "EPS 8-pin Connectors" },
     { name: "pcie16_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי 12V-2x6 / 12VHPWR", en: "12V-2x6 / 12VHPWR Connectors" },
-    { name: "pcie8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors" },
-    { name: "pcie62_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors" },
-    { name: "pcie6_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors" },
+    { name: "pcie8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors", answeredBy: ["pcie62_connectors", "pcie6_connectors"] },
+    { name: "pcie62_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors", answeredBy: ["pcie8_connectors", "pcie6_connectors"] },
+    { name: "pcie6_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors", answeredBy: ["pcie8_connectors", "pcie62_connectors"] },
     { name: "sata_connectors", type: "int", unit: null, enum: [], filterable: true, group: "power", he: "מחברי SATA", en: "SATA Connectors" },
     { name: "molex4_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי Molex", en: "Molex Connectors" },
     { name: "color", type: "str", unit: null, enum: [], filterable: true, group: "physical", he: "צבע", en: "Color" },
