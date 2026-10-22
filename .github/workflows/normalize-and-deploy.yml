@@ -139,6 +139,12 @@ jobs:
         # MPN as the model and flipped a product's identity key), validation
         # drops, and the value-equality helpers.
         run: python scripts/check_spec_merge.py
+      - name: Inference-rule backtest (offline, Oct 2026)
+        # Shadow-runs every derive/title rule against the products where a
+        # real source states the same field. Fails on a new rule below 99%
+        # precision or a pinned one (scripts/backtest_baseline.json) that got
+        # worse: a rule fills nulls, so a wrong one ships wrong values.
+        run: python scripts/backtest_rules.py --check
       - name: Spec coverage floors (offline, Oct 2026 coverage pass)
         # Anti-regression lock for the spec-coverage work: fail the job when
         # label-gap rows exceed the budget, a category's fill drops below its
