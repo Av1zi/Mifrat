@@ -164,6 +164,23 @@ def check_tier_order(c: Checks) -> None:
          "a manufacturer-sourced cell is labelled manufacturer")
     c.eq(primary.specs.get("max_cooler_height_mm"), 165, "reference tier still beats manufacturer")
 
+    # cross_check ranks every label merge can write. A manufacturer socket must
+    # beat a title chipset that implies another socket (it ranked 99 until Oct 2026).
+    from scraper.specs.merge import TIER_NAMES
+    from scraper.specs.validate import _TIER_ORDER, cross_check
+    for name in set(TIER_NAMES.values()):
+        c.ok(name in _TIER_ORDER, f"cross_check ranks the {name!r} tier")
+    specs = {"socket": "AM5", "chipset": "B550", "memory_type": None}
+    sources = {"socket": "manufacturer", "chipset": "title"}
+    cross_check("motherboard", specs, sources)
+    c.eq((specs["socket"], specs["chipset"]), ("AM5", None),
+         "a manufacturer socket beats a contradicting title chipset")
+    specs = {"socket": "AM4", "chipset": "B650", "memory_type": None}
+    sources = {"socket": "derived:cpu.socket", "chipset": "vendor"}
+    cross_check("motherboard", specs, sources)
+    c.eq((specs["socket"], specs["chipset"]), (None, "B650"),
+         "a vendor chipset beats a derived socket")
+
 
 def check_validation_and_unknowns(c: Checks) -> None:
     junk = merge_facts("cpu", {
