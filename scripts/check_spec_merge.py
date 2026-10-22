@@ -252,6 +252,29 @@ def check_curated_tables(c: Checks) -> None:
                     reason = validate_fact(category, spec, value)
                     c.ok(reason is None, f"{table}[{key}].{field}={value!r} validates",
                          str(reason))
+    import re as _re
+    fan_spec = schema.field_map("gpu")["fan_count"]
+    lines = load("gpu_board_lines")
+    c.ok(bool(lines), "gpu_board_lines table loads")
+    for key, row in lines.items():
+        try:
+            _re.compile(row["pattern"])
+            compiles = True
+        except (KeyError, _re.error):
+            compiles = False
+        c.ok(compiles, f"gpu_board_lines[{key}] pattern compiles")
+        c.ok(validate_fact("gpu", fan_spec, row.get("fan_count")) is None,
+             f"gpu_board_lines[{key}].fan_count validates")
+        c.ok(bool(row.get("brands")), f"gpu_board_lines[{key}] names its brands")
+    specs = {"manufacturer": "Sapphire", "chipset": "Radeon RX 9070 XT", "fan_count": None}
+    derive.infer_specs("gpu", specs, {}, context={"title": "SAPPHIRE PULSE RX 9070 XT 16GB"})
+    c.eq(specs["fan_count"], 3, "a chip-keyed board line uses the chip (PULSE 9070 XT)")
+    specs = {"manufacturer": "Sapphire", "chipset": "Radeon RX 9070", "fan_count": None}
+    derive.infer_specs("gpu", specs, {}, context={"title": "SAPPHIRE PULSE RX 9070 16GB"})
+    c.eq(specs["fan_count"], 2, "... and the other chip of that line (PULSE 9070)")
+    specs = {"manufacturer": "Gigabyte", "chipset": "GeForce RTX 5080", "fan_count": None}
+    derive.infer_specs("gpu", specs, {}, context={"title": "AORUS RTX 5080 XTREME WATERFORCE"})
+    c.eq(specs["fan_count"], None, "a liquid card takes no board-line fan count")
     c.eq(derive.cpu_table_key({"model": "Core i5 14400F", "manufacturer": "Intel"}),
          "intel:14400F", "intel model token")
     c.eq(derive.cpu_table_key({"model": "Core Ultra 7 265KF", "manufacturer": "Intel"}),

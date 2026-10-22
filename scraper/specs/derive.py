@@ -684,6 +684,38 @@ _GPU_LIQUID_MENTION = re.compile(r"waterforce|hybrid|liquid|water\s?block|aio\b|
                                  re.I)
 
 
+def _infer_gpu_board_line(specs: dict, sources: dict, context: dict | None) -> list[str]:
+    """fan_count from tables/gpu_board_lines.json: the board partner's line
+    name fixes it (ASUS Dual = 2, MSI VENTUS 3X = 3, Gigabyte WF3 = 3).
+
+    Read off every title and part number of the product; a row only applies to
+    its brands (and chips, for lines that change with the chip), and when rows
+    with different counts match, nothing is filled."""
+    from .tables import load
+
+    if specs.get("fan_count") is not None:
+        return []
+    title = str((context or {}).get("title") or "")
+    if not title or _GPU_LIQUID_MENTION.search(title):
+        return []
+    haystack = " ".join([title, *map(str, specs.get("part_numbers") or [])])
+    brand = str(specs.get("manufacturer") or "").lower()
+    chip = str(specs.get("chipset") or "").lower()
+    counts = set()
+    for row in load("gpu_board_lines").values():
+        brands = [b.lower() for b in row.get("brands") or []]
+        if "*" not in brands and brand not in brands:
+            continue
+        chips = [c.lower() for c in row.get("chips") or []]
+        if chips and chip not in chips:
+            continue
+        if re.search(row["pattern"], haystack, re.I):
+            counts.add(int(row["fan_count"]))
+    if len(counts) != 1:
+        return []
+    return _fill(specs, sources, "fan_count", counts.pop(), "gpu.board_line_table")
+
+
 def _infer_gpu_extras(specs: dict, sources: dict, context: dict | None = None) -> list[str]:
     fans = specs.get("fan_count")
     # A hybrid card (AORUS XTREME WATERFORCE) has radiator fans too.
@@ -893,6 +925,7 @@ def infer_specs(category: str | None, specs: dict, sources: dict,
         return _infer_storage(specs, sources)
     if category == "gpu":
         return (_infer_gpu(specs, sources) + _infer_gpu_table(specs, sources)
+                + _infer_gpu_board_line(specs, sources, context)
                 + _infer_gpu_extras(specs, sources, context))
     if category == "motherboard":
         return _infer_motherboard(specs, sources, context)
