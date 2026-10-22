@@ -24,15 +24,25 @@ MIN_OVERLAP = 10
 _SOURCED = ("vendor", "manufacturer", "reference", "override")
 
 
-def report() -> int:
+def report(data_dir: Path | None = None, *, label: str = "icecat",
+           disabled: dict | None = None, reviewed: dict | None = None) -> int:
+    """Compare one source's entries with sourced catalog values.
+
+    Defaults to Open Icecat; scraper/xref passes its own site directory (and
+    no disabled list: a field over the limit there is fixed in its parser).
+    Run it on a catalog built WITHOUT that source, or every overlap is the
+    source agreeing with itself.
+    """
     sys.path.insert(0, str(ROOT / "scripts"))
     from backtest_rules import agrees  # noqa: E402  (scripts/)
 
     from ..mfr.store import load_index
     from .store import DATA_DIR
 
+    disabled = DISABLED if disabled is None else disabled
+    reviewed = REVIEWED_OVER if reviewed is None else reviewed
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
-    index = load_index(DATA_DIR)
+    index = load_index(data_dir or DATA_DIR)
     from ..mfr.common import base_mpn, norm_mpn, norm_upc
 
     tally: dict = defaultdict(lambda: {"overlap": 0, "agree": 0, "examples": []})
@@ -63,20 +73,20 @@ def report() -> int:
     print(f"{'category.field':<36}{'overlap':>8}{'agree':>7}{'disagree%':>11}  state")
     for (category, field), slot in sorted(tally.items()):
         rate = 1 - slot["agree"] / slot["overlap"]
-        disabled = field in DISABLED.get(category, ())
-        reviewed = field in REVIEWED_OVER.get(category, ())
-        over = slot["overlap"] >= MIN_OVERLAP and rate > TRUST_MAX_DISAGREE and not reviewed
-        state = ("disabled" if disabled else "OVER" if over
-                 else "reviewed: sourced side wrong" if reviewed else "")
+        is_disabled = field in disabled.get(category, ())
+        is_reviewed = field in reviewed.get(category, ())
+        over = slot["overlap"] >= MIN_OVERLAP and rate > TRUST_MAX_DISAGREE and not is_reviewed
+        state = ("disabled" if is_disabled else "OVER" if over
+                 else "reviewed: sourced side wrong" if is_reviewed else "")
         print(f"{category + '.' + field:<36}{slot['overlap']:>8}{slot['agree']:>7}"
               f"{rate * 100:>10.1f}%  {state}")
-        if over and not disabled:
+        if over and not is_disabled:
             bad.append((category, field))
             for name, ours, theirs in slot["examples"]:
-                print(f"      icecat={ours!r} sourced={theirs!r}  {str(name)[:60]}")
+                print(f"      {label}={ours!r} sourced={theirs!r}  {str(name)[:60]}")
     if bad:
-        print(f"[icecat-trust] {len(bad)} enabled field(s) over "
-              f"{TRUST_MAX_DISAGREE:.0%} disagreement: add them to mapping.DISABLED")
+        print(f"[{label}-trust] {len(bad)} enabled field(s) over "
+              f"{TRUST_MAX_DISAGREE:.0%} disagreement: disable them or fix the parser")
         return 1
-    print("[icecat-trust] every enabled field within the limit")
+    print(f"[{label}-trust] every enabled field within the limit")
     return 0

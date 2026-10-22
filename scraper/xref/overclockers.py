@@ -145,7 +145,8 @@ def specs_for(category: str, rows: dict) -> dict:
     colours = [c for c in dict.fromkeys(colours) if c]
     put("color", " / ".join(colours) if colours else None)
     if category == "case":
-        put("type", rows.get("Case Type"))
+        # "Case Type" is not read: Overclockers files the O11 Dynamic Mini V2
+        # (a mid tower by its maker and our vendors) as "Mini Case".
         put("mb_form_factors", mb_form_factor_list(rows.get("Compatible Motherboard Formats")))
         put("max_cooler_height_mm", _num(rows.get("Max. CPU Cooler Height")))
         put("max_gpu_length_mm", _num(rows.get("Max. GPU Length")))
