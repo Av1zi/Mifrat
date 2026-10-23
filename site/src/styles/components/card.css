@@ -3,15 +3,16 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
   padding: var(--sp-4);
 }
 
 .card__head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp-3);
+  gap: var(--sp-2) var(--sp-3);
   margin-bottom: var(--sp-3);
 }
 
@@ -19,8 +20,48 @@
   font-size: var(--fs-lg);
 }
 
+.card__sub {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+/* Flush cards: tables and lists run edge to edge, the head gets a rule. */
+.card--flush {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card--flush > .card__head {
+  margin: 0;
+  padding: var(--sp-4) 1.25rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.card__foot {
+  padding: var(--sp-3) 1.25rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+/* Hover-lift for linked cards (categories, drops, saved). */
+.card--lift {
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.card--lift:hover {
+  border-color: var(--brand);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
 @media (min-width: 640px) {
   .card {
-    padding: var(--sp-5);
+    padding: 1.25rem;
+  }
+
+  .card--flush {
+    padding: 0;
   }
 }

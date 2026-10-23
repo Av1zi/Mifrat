@@ -65,3 +65,37 @@ button.chip {
   list-style: none;
   padding: 0;
 }
+
+/* Pill toggles: category filters, variant pickers. */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0 0.875rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+a.pill:hover,
+button.pill:hover {
+  border-color: var(--brand);
+  text-decoration: none;
+}
+
+.pill[aria-pressed="true"],
+.pill.is-active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--surface);
+}

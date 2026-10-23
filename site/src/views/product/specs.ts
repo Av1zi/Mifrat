@@ -39,5 +39,5 @@ export function specsCard(product: Product, lang: Lang, categoryProducts?: Produ
     </details>`;
   });
 
-  return card(html`${sections}`, { title: t(lang, "specsHeading"), className: "specs" });
+  return card(html`${sections}`, { title: t(lang, "specsHeading"), className: "specs", id: "pdp-specs" });
 }

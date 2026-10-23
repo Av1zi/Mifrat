@@ -1,11 +1,10 @@
 import { loadMeta } from "../api";
-import { CATEGORY_ORDER, t } from "../i18n";
-import { icon } from "../icons";
-import { homeHash } from "../state";
+import { CATEGORY_ORDER, homeCatsSub, t } from "../i18n";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang } from "../types";
 import { categoryTile } from "../ui/categoryTile";
 import { html, mount } from "../ui/html";
+import { pageHero } from "../ui/pageHero";
 import { errorState, loadingState } from "../ui/state";
 
 export async function renderCategories(
@@ -35,12 +34,12 @@ export async function renderCategories(
   mount(
     container,
     html`
-    <nav class="crumbs"><a href="${homeHash()}">${icon("back", 14)}${t(lang, "backToHome")}</a></nav>
-    <header class="page-head">
-      <p class="eyebrow">${t(lang, "categoriesEyebrow")}</p>
-      <h1>${t(lang, "allCategoriesTitle")}</h1>
-      <p>${t(lang, "categoriesIntro")}</p>
-    </header>
+    ${pageHero({
+      lang,
+      crumbs: [{ label: t(lang, "allCategoriesTitle") }],
+      title: t(lang, "allCategoriesTitle"),
+      sub: homeCatsSub(lang, cats.length, cats.reduce((n, c) => n + c.count, 0).toLocaleString(lang === "he" ? "he-IL" : "en-US")),
+    })}
     <div class="cat-grid">${cats.map((c) => categoryTile(c, currency, lang))}</div>`
   );
 }

@@ -1,5 +1,5 @@
 import { slotForCategory } from "../../build";
-import { attributeLabel, t, vendorLabel, vendorsCount } from "../../i18n";
+import { attributeLabel, showingText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
 import { bestOffer, sortOffers } from "../../offers";
 import { addToBuild, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
@@ -16,12 +16,9 @@ import { specCell } from "../../ui/spec";
 import { bindThumbs, initialsOf, thumb } from "../../ui/thumb";
 import { specValue } from "../../specs";
 import { chipText } from "./columns";
-import type { CategoryActions, CategoryCtx } from "./data";
+import { PAGE_SIZE, type CategoryActions, type CategoryCtx } from "./data";
+import { vendorDots, vendorKey } from "../../ui/vendor";
 import { addPickedPart } from "./picker";
-
-function stockMarkup(p: Product, lang: Lang): Html {
-  return html`<span class="stock"><span class="status-dot ${p.in_stock ? "status-dot--ok" : "status-dot--err"}" aria-hidden="true"></span>${p.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}</span>`;
-}
 
 /** "N stores" with a popover listing every offer, cheapest first. */
 function storesMarkup(ctx: CategoryCtx, p: Product, popover = true): Html {
@@ -51,32 +48,54 @@ function actionMarkup(ctx: CategoryCtx, p: Product): Html {
   return button({
     label: t(lang, "quickAdd"),
     icon: icon("plus", 14),
-    variant: "subtle",
+    variant: "primary",
     size: "sm",
     data: { quickadd: p.id },
     ariaLabel: `${t(lang, "quickAdd")}: ${displayName(p)}`,
   });
 }
 
-/** Compare checkbox + heart on every row in both views (not while picking a build part). */
+/** Heart on every row (not while picking a build part). */
 function toolsMarkup(ctx: CategoryCtx, p: Product): Html {
   if (ctx.pickSlot) return html``;
-  const { lang } = ctx;
-  return html`<div class="row__tools">${compareCheck(p, lang)}${saveButton(p, lang)}</div>`;
+  return saveButton(p, ctx.lang);
+}
+
+/** Bare compare checkbox for the table's first column. */
+function compareCell(ctx: CategoryCtx, p: Product): Html {
+  if (ctx.pickSlot) return html``;
+  return compareCheck(p, ctx.lang, true);
 }
 
 function titleMarkup(p: Product, lang: Lang, href: string): Html {
   const allStale = p.offers.length > 0 && p.offers.every((o) => o.stale);
-  return html`<a class="row__title" href="${href}">${displayName(p)}</a>${allStale ? html` <span class="stale-tag">${t(lang, "staleData")}</span>` : ""}`;
+  return html`<a class="row__title" href="${href}" dir="auto">${displayName(p)}</a>${allStale ? html` <span class="stale-tag">${t(lang, "staleData")}</span>` : ""}`;
+}
+
+/** Stores that list the part, cheapest first, one entry per store. */
+function vendorsOf(p: Product): string[] {
+  const seen = new Map<string, string>();
+  for (const o of sortOffers(p.offers)) if (!seen.has(vendorKey(o.vendor))) seen.set(vendorKey(o.vendor), o.vendor);
+  return [...seen.values()];
+}
+
+function priceBlock(ctx: CategoryCtx, p: Product, size: "md" | "lg"): Html {
+  const { lang, currency } = ctx;
+  const offer = bestOffer(p);
+  return html`<span class="row__price">
+    ${priceCell(p.min_price, currency, lang, size)}
+    ${offer && positivePrice(p.min_price) !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+    ${p.in_stock ? "" : html`<span class="row__out">${t(lang, "outOfStock")}</span>`}
+    ${signalBadges(ctx.signals.get(p.id), lang)}
+  </span>`;
 }
 
 function cardRow(ctx: CategoryCtx, p: Product): Html {
-  const { lang, currency } = ctx;
+  const { lang } = ctx;
   const href = productHash(ctx.category, p.id);
   const name = displayName(p);
-  const offer = bestOffer(p);
   const chips = ctx.columns.map((f) => chipText(p, f, lang)).filter(Boolean);
-  return html`<article class="row" data-id="${p.id}" data-href="${href}">
+  return html`<article class="row${p.in_stock ? "" : " is-out"}" data-id="${p.id}" data-href="${href}">
     <a class="row__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "md")}</a>
     <div class="row__main">
       <div>${titleMarkup(p, lang, href)}</div>
@@ -84,33 +103,30 @@ function cardRow(ctx: CategoryCtx, p: Product): Html {
       ${chips.length > 0 ? html`<ul class="chip-list row__chips">${chips.map((c) => html`<li>${chip(c)}</li>`)}</ul>` : ""}
     </div>
     <div class="row__buy">
-      ${priceCell(p.min_price, currency, lang, "lg")}
-      ${signalBadges(ctx.signals.get(p.id), lang)}
-      ${offer && positivePrice(p.min_price) !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+      ${priceBlock(ctx, p, "lg")}
       ${storesMarkup(ctx, p)}
-      ${stockMarkup(p, lang)}
     </div>
-    <div class="row__action" aria-label="${name}">${actionMarkup(ctx, p)}${toolsMarkup(ctx, p)}</div>
+    <div class="row__action" aria-label="${name}">${actionMarkup(ctx, p)}<div class="row__tools">${ctx.pickSlot ? "" : compareCheck(p, lang)}${toolsMarkup(ctx, p)}</div></div>
   </article>`;
 }
 
-function sortHeader(ctx: CategoryCtx, label: string, asc: SortKey, desc: SortKey): Html {
+function sortHeader(ctx: CategoryCtx, label: string, asc: SortKey, desc: SortKey, className = ""): Html {
   const active = ctx.params.sort === asc ? "ascending" : ctx.params.sort === desc ? "descending" : "none";
   const next = ctx.params.sort === asc ? desc : asc;
-  const arrow = active === "ascending" ? "↑" : active === "descending" ? "↓" : "↕";
-  return html`<th scope="col" aria-sort="${active}"><button type="button" class="th-sort" data-sort="${next}" title="${t(ctx.lang, "sortLabel")}">${label}<span aria-hidden="true">${arrow}</span></button></th>`;
+  const arrow = active === "ascending" ? "▴" : active === "descending" ? "▾" : "";
+  return html`<th scope="col" class="${className}" aria-sort="${active}"><button type="button" class="th-sort${active !== "none" ? " is-active" : ""}" data-sort="${next}" title="${t(ctx.lang, "sortLabel")}">${label}<span aria-hidden="true">${arrow}</span></button></th>`;
 }
 
 function tableRow(ctx: CategoryCtx, p: Product): Html {
-  const { lang, currency } = ctx;
+  const { lang } = ctx;
   const href = productHash(ctx.category, p.id);
-  return html`<tr class="list-row" data-id="${p.id}" data-href="${href}">
-    <td class="col-thumb"><a href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "sm")}</a></td>
-    <td class="col-name">${titleMarkup(p, lang, href)}${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}</td>
-    ${ctx.columns.map((f) => html`<td>${specCell(specValue(p, f), lang)}</td>`)}
-    <td>${stockMarkup(p, lang)}</td>
-    <td class="col-price">${priceCell(p.min_price, currency, lang)}${signalBadges(ctx.signals.get(p.id), lang)}${storesMarkup(ctx, p, false)}</td>
-    <td class="col-action">${actionMarkup(ctx, p)}${toolsMarkup(ctx, p)}</td>
+  return html`<tr class="list-row${p.in_stock ? "" : " is-out"}" data-id="${p.id}" data-href="${href}">
+    ${ctx.pickSlot ? "" : html`<td class="col-cmp">${compareCell(ctx, p)}</td>`}
+    <td class="col-name"><div class="col-name__in"><a class="col-name__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "sm")}</a><span class="col-name__text">${titleMarkup(p, lang, href)}${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}</span></div></td>
+    ${ctx.columns.map((f) => html`<td class="col-spec">${specCell(specValue(p, f), lang)}</td>`)}
+    <td class="col-stores">${vendorDots(vendorsOf(p))}</td>
+    <td class="col-price">${priceBlock(ctx, p, "md")}</td>
+    <td class="col-action"><div class="col-action__in">${actionMarkup(ctx, p)}${toolsMarkup(ctx, p)}</div></td>
   </tr>`;
 }
 
@@ -118,20 +134,22 @@ function tableMarkup(ctx: CategoryCtx, rows: Product[]): Html {
   const { lang } = ctx;
   return html`<div class="table-wrap"><table class="table list-table">
     <thead><tr>
-      <th scope="col"><span class="visually-hidden">${t(lang, "photoLabel")}</span></th>
-      ${sortHeader(ctx, t(lang, "sortName"), "name", "name_desc")}
-      ${ctx.columns.map((f) => html`<th scope="col" title="${attributeLabel(f, lang, ctx.category)}">${attributeLabel(f, lang, ctx.category)}</th>`)}
-      <th scope="col">${t(lang, "availability")}</th>
-      ${sortHeader(ctx, t(lang, "priceHeading"), "price_asc", "price_desc")}
+      ${ctx.pickSlot ? "" : html`<th scope="col" class="col-cmp"><span class="visually-hidden">${t(lang, "compareAction")}</span></th>`}
+      ${sortHeader(ctx, t(lang, "nameHeading"), "name", "name_desc")}
+      ${ctx.columns.map((f) => html`<th scope="col" class="col-spec" title="${attributeLabel(f, lang, ctx.category)}">${attributeLabel(f, lang, ctx.category)}</th>`)}
+      ${sortHeader(ctx, t(lang, "storesHeading"), "vendors_desc", "vendors_desc")}
+      ${sortHeader(ctx, t(lang, "priceHeading"), "price_asc", "price_desc", "col-price")}
       <th scope="col"><span class="visually-hidden">${t(lang, "buyHeaderLabel")}</span></th>
     </tr></thead>
     <tbody>${rows.map((p) => tableRow(ctx, p))}</tbody>
   </table></div>`;
 }
 
-/** Draws the visible slice of the filtered list in the active view. */
+/** Draws the current page of the filtered list in the active view. */
 export function renderList(ctx: CategoryCtx, listEl: HTMLElement, filtered: Product[], tableAllowed: boolean): void {
-  const visible = filtered.slice(0, ctx.visible);
+  const start = ctx.page * PAGE_SIZE;
+  const visible = filtered.slice(start, start + PAGE_SIZE);
+  listEl.classList.remove("list--table");
   if (visible.length === 0) {
     mount(listEl, emptyState(t(ctx.lang, "noResults")));
     return;
@@ -141,6 +159,33 @@ export function renderList(ctx: CategoryCtx, listEl: HTMLElement, filtered: Prod
   mount(listEl, asTable ? tableMarkup(ctx, visible) : html`${visible.map((p) => cardRow(ctx, p))}`);
   bindThumbs(listEl);
   syncPickControls();
+}
+
+/** "Showing 1–24 of 234" plus numbered pages (first, last, and the neighbours of the current one). */
+export function pagerMarkup(ctx: CategoryCtx, total: number): Html {
+  const { lang } = ctx;
+  if (total === 0) return html``;
+  const pages = Math.ceil(total / PAGE_SIZE);
+  const from = ctx.page * PAGE_SIZE + 1;
+  const to = Math.min(total, from + PAGE_SIZE - 1);
+  const locale = lang === "he" ? "he-IL" : "en-US";
+  const summary = html`<span class="pager__info">${showingText(lang, from.toLocaleString(locale), to.toLocaleString(locale), total.toLocaleString(locale))}</span>`;
+  if (pages <= 1) return summary;
+  const list = [...new Set([0, pages - 1, ctx.page - 1, ctx.page, ctx.page + 1])]
+    .filter((n) => n >= 0 && n < pages)
+    .sort((a, b) => a - b);
+  const items: Html[] = [];
+  list.forEach((n, i) => {
+    if (i > 0 && n - list[i - 1] > 1) items.push(html`<span class="pager__gap" aria-hidden="true">…</span>`);
+    const current = n === ctx.page;
+    items.push(html`<button type="button" class="pager__btn${current ? " is-current" : ""}" data-page="${n}"${current ? html` aria-current="page"` : ""}>${(n + 1).toLocaleString(locale)}</button>`);
+  });
+  const rtl = lang === "he";
+  return html`${summary}<div class="pager__pages">
+    <button type="button" class="pager__btn" data-page="${ctx.page - 1}"${ctx.page === 0 ? html` disabled` : ""} aria-label="${t(lang, "prevPage")}">${icon(rtl ? "chevron-right" : "chevron-left", 16)}</button>
+    ${items}
+    <button type="button" class="pager__btn" data-page="${ctx.page + 1}"${ctx.page >= pages - 1 ? html` disabled` : ""} aria-label="${t(lang, "nextPage")}">${icon(rtl ? "chevron-left" : "chevron-right", 16)}</button>
+  </div>`;
 }
 
 /** Delegated interactions for the list host (set once; its content is replaced). */

@@ -48,7 +48,17 @@ export type IconName =
   | "external"
   | "shield"
   | "heart"
-  | "compare";
+  | "compare"
+  | "trend-down"
+  | "cart"
+  | "link"
+  | "pencil"
+  | "info"
+  | "save"
+  | "clock"
+  | "chevron-left"
+  | "chevron-right"
+  | "store";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -133,6 +143,26 @@ const PATHS: Record<IconName, string> = {
     '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />',
   compare:
     '<rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18M15 3v18" />',
+  "trend-down":
+    '<path d="m22 17-8.5-8.5-5 5L2 7" /><path d="M16 17h6v-6" />',
+  cart:
+    '<circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />',
+  link:
+    '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />',
+  pencil:
+    '<path d="M21.17 6.81a1 1 0 0 0-3.99-3.99L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z" /><path d="m15 5 4 4" />',
+  info:
+    '<circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" />',
+  save:
+    '<path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" /><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7" /><path d="M7 3v4a1 1 0 0 0 1 1h7" />',
+  clock:
+    '<circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />',
+  "chevron-left":
+    '<path d="m15 18-6-6 6-6" />',
+  "chevron-right":
+    '<path d="m9 18 6-6-6-6" />',
+  store:
+    '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" />',
 };
 
 /**

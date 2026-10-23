@@ -28,6 +28,7 @@ import { renderCategories } from "./views/categories";
 import { renderCompare } from "./views/compare";
 import { renderCategory } from "./views/category";
 import { renderCookies } from "./views/cookies";
+import { renderDrops } from "./views/drops";
 import { renderHome } from "./views/home";
 import { renderNotFound } from "./views/notfound";
 import { renderPrivacy } from "./views/privacy";
@@ -114,6 +115,9 @@ function renderRoute(): void {
       case "saved":
         guard(renderSaved(main, lang, currency));
         break;
+      case "drops":
+        guard(renderDrops(main, lang, currency));
+        break;
       case "categories":
         setPageTitle(lang, t(lang, "allCategoriesTitle"), t(lang, "metaCategoriesDesc"));
         guard(renderCategories(main, lang, currency));
@@ -153,6 +157,8 @@ document.addEventListener("click", (e) => {
 window.addEventListener("hashchange", () => {
   closeMenus();
   renderRoute();
+  // A new page starts at the top (in-page anchors are handled by the views).
+  window.scrollTo({ top: 0 });
 });
 
 // FX is opt-in: only USD display needs the frankfurter rate, so ILS-default

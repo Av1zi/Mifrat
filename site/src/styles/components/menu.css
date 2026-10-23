@@ -10,7 +10,8 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-pop);
+  color: var(--text);
 }
 
 .search-hit {
@@ -58,9 +59,9 @@
 .select-menu__btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--sp-1);
+  gap: 6px;
   min-height: 2.5rem;
-  padding: 0 var(--sp-2);
+  padding: 0 0.625rem;
   background: var(--surface);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
@@ -105,97 +106,238 @@
   background: var(--surface-2);
 }
 
+.select-menu__list {
+  color: var(--text);
+}
+
 .select-menu__list li[aria-selected="true"] {
   color: var(--brand-strong);
   font-weight: var(--fw-semibold);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 900px) {
   .select-menu__value {
     display: inline;
   }
 }
 
-/* ---- products mega menu ---- */
+/* ---- products mega menu ----
+   Always in the DOM; .is-open fades and slides it in (inert while closed).
+   On phones it is a scrollable panel under the header. */
 .mega {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: 2;
+  max-height: calc(100dvh - 7rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--surface);
-  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-pop);
+  color: var(--text);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.24s var(--ease-out),
+    visibility 0s linear 0.24s;
+}
+
+.mega.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  transition:
+    opacity 0.2s ease,
+    transform 0.26s var(--ease-out),
+    visibility 0s;
 }
 
 .mega__inner {
-  max-width: var(--container);
-  margin-inline: auto;
-  padding: var(--sp-4) var(--gutter) var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5) 1.75rem;
+  padding-block: var(--sp-5) 1.75rem;
 }
 
-.mega__all {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  margin-bottom: var(--sp-3);
-  font-weight: var(--fw-semibold);
+.mega__main {
+  flex: 999 1 40rem;
+  min-width: 0;
 }
 
-.mega__groups {
-  display: grid;
-  gap: var(--sp-4);
-}
-
-.mega__group h3 {
-  margin-bottom: var(--sp-2);
+.mega__head {
+  margin-bottom: 0.875rem;
   color: var(--text-3);
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.04em;
 }
 
-.mega__link {
-  display: flex;
-  align-items: center;
+.mega__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--sp-3);
-  min-height: 2.5rem;
-  padding: 0 var(--sp-2);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  font-weight: var(--fw-medium);
 }
 
-.mega__media {
+.mtile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--sp-3) var(--sp-3) 0.875rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.mtile:hover,
+.mtile:focus-visible {
+  background: var(--surface);
+  border-color: var(--brand);
+  color: var(--text);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.mtile__img {
   display: grid;
   place-items: center;
-  flex: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 100%;
+  height: 6rem;
+  margin-bottom: var(--sp-1);
   overflow: hidden;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--thumb-bg);
   border-radius: var(--radius-sm);
   color: var(--brand);
 }
 
-.mega__media img {
-  width: 100%;
-  height: 100%;
+.mtile__img img {
+  max-width: 88%;
+  max-height: 5.375rem;
   object-fit: contain;
 }
 
-.mega__link:hover {
-  background: var(--brand-soft);
-  color: var(--brand-strong);
+.mtile__name {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+
+.mtile__meta {
+  min-height: 1.125rem;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.mega.is-open .mtile {
+  animation: mtile-in 0.32s var(--ease-out) both;
+}
+
+.mega.is-open .mtile:nth-child(2) { animation-delay: 0.03s; }
+.mega.is-open .mtile:nth-child(3) { animation-delay: 0.06s; }
+.mega.is-open .mtile:nth-child(4) { animation-delay: 0.09s; }
+.mega.is-open .mtile:nth-child(5) { animation-delay: 0.12s; }
+.mega.is-open .mtile:nth-child(6) { animation-delay: 0.15s; }
+.mega.is-open .mtile:nth-child(7) { animation-delay: 0.18s; }
+.mega.is-open .mtile:nth-child(8) { animation-delay: 0.21s; }
+
+@keyframes mtile-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mega__side {
+  display: flex;
+  flex: 1 1 13rem;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mega__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  min-height: 2.5rem;
+  padding: 0 0.625rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  font-size: var(--fs-base);
+}
+
+.mega__link:hover,
+.mega__link:focus-visible {
+  background: var(--surface-3);
+  color: var(--text);
   text-decoration: none;
 }
 
+.mega__count {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.mega__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 0.875rem 0.625rem 0;
+  font-weight: var(--fw-semibold);
+}
+
+.mega-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--scrim);
+  opacity: 0;
+  visibility: hidden;
+  cursor: default;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.mega-scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease, visibility 0s;
+}
+
 @media (min-width: 640px) {
-  .mega__groups {
-    grid-template-columns: repeat(3, 1fr);
+  .mega__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
   .mega {
-    position: absolute;
-    inset-inline: 0;
-    top: 100%;
-    box-shadow: var(--shadow);
+    max-height: none;
+    overflow: visible;
+  }
+
+  .mega__side {
+    max-width: 16rem;
+    padding-inline-start: var(--sp-5);
+    border-inline-start: 1px solid var(--line-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mega.is-open .mtile {
+    animation: none;
   }
 }

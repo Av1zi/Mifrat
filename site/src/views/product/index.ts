@@ -7,14 +7,17 @@ import type { Currency, Lang } from "../../types";
 import { formatPrice } from "../../format";
 import { loadSignals } from "../../signals";
 import { setPageTitle } from "../../titles";
+import { button } from "../../ui/button";
 import { card } from "../../ui/card";
+import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { syncPickControls } from "../../ui/pick";
 import { positivePrice } from "../../ui/price";
 import { signalBadges } from "../../ui/signal";
 import { html, mount } from "../../ui/html";
 import { emptyState, errorState, loadingState } from "../../ui/state";
-import { bindThumbs, initialsOf, thumb } from "../../ui/thumb";
+import { bindThumbs } from "../../ui/thumb";
 import { displayName, skuOf } from "../../utils";
+import { chipText, pickColumns } from "../category/columns";
 import { buyBoxMarkup, offersCard } from "./buybox";
 import { renderPriceHistory } from "./history";
 import { similarMarkup } from "./similar";
@@ -43,8 +46,8 @@ export async function renderProduct(
   if (!product) {
     mount(
       container,
-      html`<nav class="crumbs"><a href="${categoriesHash()}">${icon("back", 14)}${t(lang, "backToCategories")}</a></nav>
-        ${emptyState(t(lang, "productNotFound"))}`
+      html`${pageHero({ lang, crumbs: [{ label: t(lang, "allCategoriesTitle"), href: categoriesHash() }, { label: categoryLabel(category, lang), href: categoryHash(category) }], title: t(lang, "productNotFound") })}
+        ${emptyState(t(lang, "productNotFound"), button({ label: t(lang, "backToCategories"), icon: icon("back", 14), href: categoryHash(category) }))}`
     );
     return;
   }
@@ -68,30 +71,45 @@ export async function renderProduct(
 
   const slot = slotForCategory(product.category);
   const similar = similarMarkup(product, products, lang, currency, echoOf);
+  const chips = pickColumns([product], category)
+    .map((field) => chipText(product, field, lang))
+    .filter(Boolean)
+    .slice(0, 6);
+  const heroMeta =
+    chips.length > 0 || meta.length > 0
+      ? html`<div class="hero-chips">
+          ${chips.map((c) => html`<span class="hero-chip"><bdi>${c}</bdi></span>`)}
+          ${meta.length > 0 ? html`<span class="hero-chips__sku">${meta.join(" · ")}</span>` : ""}
+        </div>`
+      : html``;
 
   mount(
     container,
     html`
-    <nav class="crumbs">
-      <a href="${categoriesHash()}">${icon("back", 14)}${t(lang, "backToCategories")}</a>
-      <span class="crumbs__sep" aria-hidden="true">/</span>
-      <a href="${categoryHash(category)}">${categoryLabel(category, lang)}</a>
-    </nav>
-    <header class="page-head">
-      <p class="eyebrow">${categoryLabel(category, lang)}</p>
-      <h1>${name}</h1>
-      ${description !== "" && !echoOf(description) ? html`<p>${description}</p>` : ""}
-      ${meta.length > 0 ? html`<p class="text-dim">${meta.join(" · ")}</p>` : ""}
-    </header>
-    <div class="pdp">
-      ${card(thumb(product.image, initialsOf(product.brand, name), "xl", name, true), { className: "pdp__gallery" })}
-      <div class="pdp__aside">${buyBoxMarkup(product, lang, currency, slot !== null, variantsMarkup(product, products, lang))}</div>
+    ${pageHero({
+      lang,
+      crumbs: [
+        { label: t(lang, "allCategoriesTitle"), href: categoriesHash() },
+        { label: categoryLabel(category, lang), href: categoryHash(category) },
+      ],
+      title: name,
+      titleDir: "auto",
+      sub: description !== "" && !echoOf(description) ? description : undefined,
+      meta: heroMeta,
+      tabs: [
+        { label: t(lang, "tabOverview"), href: "#pdp-top", active: true },
+        { label: t(lang, "tabSpecs"), href: "#pdp-specs" },
+        { label: t(lang, "tabHistory"), href: "#pdp-history" },
+      ],
+    })}
+    <div class="pdp" id="pdp-top">
+      ${buyBoxMarkup(product, lang, currency, slot !== null, variantsMarkup(product, products, lang), name)}
       <div class="pdp__main">
         ${offersCard(product, lang, currency)}
         <section class="card" id="pdp-history" hidden></section>
-        ${specsCard(product, lang, products)} 
         ${similar ? card(similar, { title: t(lang, "similarHeading") }) : ""}
       </div>
+      ${specsCard(product, lang, products)}
     </div>`
   );
   bindThumbs(container);
@@ -116,4 +134,5 @@ export async function renderProduct(
       if (signalHost.isConnected) mount(signalHost, signalBadges(signals.get(product.id), lang));
     });
   }
+  bindPageTabs(container);
 }

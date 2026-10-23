@@ -1,35 +1,40 @@
+/* Positioned so visually-hidden header labels stay inside the scroller
+   (otherwise they escape it and widen the page on phones). */
 .table-wrap {
+  position: relative;
   overflow-x: auto;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--fs-md);
+  font-size: var(--fs-base);
 }
 
 .table th,
 .table td {
-  padding: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
   text-align: start;
   vertical-align: middle;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-soft);
 }
 
-.table th {
+.table thead th {
+  padding-block: 0.625rem;
+  background: var(--surface-2);
+  border-bottom-color: var(--line);
   color: var(--text-3);
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
-.table tbody tr:last-child td {
+.table tbody tr:last-child > * {
   border-bottom: 0;
 }
 
-.table .is-best td {
-  background: var(--brand-soft);
+.table .is-best > * {
+  background: var(--surface-hover);
 }
 
 .table .is-out {
@@ -38,4 +43,16 @@
 
 .table .col-action {
   text-align: end;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .table th,
+  .table td {
+    padding-inline: 1.25rem;
+  }
+
+  .table td {
+    padding-block: 0.875rem;
+  }
 }

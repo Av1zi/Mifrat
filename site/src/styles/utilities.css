@@ -21,3 +21,8 @@
 .ltr {
   direction: ltr;
 }
+
+/* A wrapper that does not box its children (keeps .bleed heroes direct grid items of main). */
+.contents {
+  display: contents;
+}

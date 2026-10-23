@@ -1,92 +1,198 @@
+/* Product page: buy column (photo + price box, spec sheet) beside the
+   offers / history column. Phones stack buy box, offers, history, specs. */
 .pdp {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "gallery"
-    "aside"
-    "main";
-  gap: var(--sp-4);
+    "buy"
+    "main"
+    "specs";
+  align-items: start;
+  gap: 1.25rem;
 }
 
-.pdp__gallery {
-  grid-area: gallery;
-  display: grid;
-  place-items: center;
-}
-
-.pdp__aside {
-  grid-area: aside;
-  min-width: 0;
+.buybox {
+  grid-area: buy;
 }
 
 .pdp__main {
   grid-area: main;
   display: grid;
-  gap: var(--sp-4);
+  gap: 1.25rem;
   min-width: 0;
+}
+
+.pdp > .specs {
+  grid-area: specs;
 }
 
 @media (min-width: 1024px) {
   .pdp {
-    grid-template-columns: minmax(0, 1fr) 22rem;
+    grid-template-columns: minmax(20rem, 25rem) minmax(0, 1fr);
     grid-template-areas:
-      "gallery aside"
-      "main aside";
-    align-items: start;
-    gap: var(--sp-5);
-  }
-
-  .pdp__aside {
-    position: sticky;
-    top: calc(var(--sticky-top) + var(--sp-4));
+      "buy main"
+      "specs main";
+    grid-template-rows: auto 1fr;
+    gap: 1.25rem 1.75rem;
   }
 }
 
 /* ---- buy box ---- */
-.buybox {
+.buybox__photo {
   display: grid;
-  gap: var(--sp-3);
+  place-items: center;
+  height: clamp(14rem, 22vw, 19rem);
+  padding: var(--sp-5);
+  background: var(--thumb-bg);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.buybox__photo .thumb--xl {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.buybox__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.25rem;
 }
 
 .buybox__label {
   color: var(--text-3);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.04em;
+  font-size: var(--fs-sm);
+}
+
+.buybox__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.625rem;
+}
+
+.buybox__price .price--lg {
+  font-size: 2.125rem;
+  letter-spacing: -0.01em;
 }
 
 .buybox__where {
   color: var(--text-2);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
 }
 
-.buybox__actions {
-  display: grid;
-  gap: var(--sp-2);
-}
-
-.buybox__actions .btn {
-  width: 100%;
+.buybox__signals {
+  margin-top: var(--sp-1);
 }
 
 .buybox__signals:empty {
   display: none;
 }
 
+.buybox__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: 6px;
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.buy-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius);
+  background: var(--ok-solid);
+  color: var(--on-ok);
+  font-weight: var(--fw-bold);
+  box-shadow: var(--shadow-sm), inset 0 -2px 0 rgb(0 0 0 / 0.14);
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.buy-cta:hover {
+  background: var(--ok-solid-hover);
+  color: var(--on-ok);
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgb(10 122 74 / 0.3);
+}
+
+.buy-cta:active {
+  transform: translateY(1px);
+}
+
+.buy-cta__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  font-size: var(--fs-lg);
+  line-height: 1.25;
+}
+
+.buy-cta__text small {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  opacity: 0.9;
+}
+
+.buy-cta__price {
+  font-size: var(--fs-xl);
+  white-space: nowrap;
+}
+
 .buybox__tools {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: var(--sp-2);
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
 }
 
 .buybox__tools .btn {
   width: 100%;
 }
 
-.fineprint {
-  margin-top: var(--sp-3);
-  color: var(--text-3);
-  font-size: var(--fs-xs);
+/* ---- offers ---- */
+.offers-table th[scope="row"] {
+  color: var(--text);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+}
+
+.offer-store {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.offer-price {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.offer-seen {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+
+.offer-stale {
+  display: inline-grid;
+  margin-inline-start: 6px;
+  vertical-align: middle;
+  color: var(--warn);
+}
+
+/* ---- spec sheet ---- */
+.specs .acc > summary {
+  font-size: var(--fs-base);
 }
 
 /* ---- variants ---- */
@@ -113,31 +219,6 @@
   gap: var(--sp-2);
 }
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2rem;
-  padding: 0 var(--sp-3);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--text);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-}
-
-a.pill:hover {
-  border-color: var(--brand);
-  text-decoration: none;
-}
-
-.pill.is-active {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: var(--on-brand);
-}
-
-/* ---- spec sheet ---- */
 .spec-list {
   display: grid;
   margin: 0;

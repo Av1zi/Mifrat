@@ -3,8 +3,8 @@ import { dataAttrs, html, type Html } from "./html";
 interface ButtonOptions {
   label: string | Html;
   icon?: Html;
-  variant?: "primary" | "ghost" | "subtle";
-  size?: "sm" | "md";
+  variant?: "primary" | "ghost" | "subtle" | "buy" | "dark" | "outline";
+  size?: "sm" | "md" | "lg";
   /** Renders an anchor instead of a button. */
   href?: string;
   external?: boolean;

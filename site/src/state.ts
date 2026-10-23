@@ -27,7 +27,8 @@ export function applyStoredTheme(): Theme {
 export type ListView = "cards" | "table";
 
 export function getListView(): ListView {
-  return localStorage.getItem(VIEW_KEY) === "table" ? "table" : "cards";
+  // Desktop-first: the scan table is the default; phones fall back to cards anyway.
+  return localStorage.getItem(VIEW_KEY) === "cards" ? "cards" : "table";
 }
 
 export function setListView(view: ListView): void {
@@ -158,6 +159,7 @@ type Route =
   | { view: "qa" }
   | { view: "compare"; ids: string[] }
   | { view: "saved" }
+  | { view: "drops" }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -204,6 +206,10 @@ export function parseRoute(): Route {
 
   if (path === "/saved" || path === "/saved/") {
     return { view: "saved" };
+  }
+
+  if (path === "/drops" || path === "/drops/") {
+    return { view: "drops" };
   }
 
   if (path === "/compare" || path === "/compare/") {
@@ -378,6 +384,10 @@ export function compareHash(ids: string[]): string {
 
 export function savedHash(): string {
   return "#/saved";
+}
+
+export function dropsHash(): string {
+  return "#/drops";
 }
 
 export function homeHash(): string {

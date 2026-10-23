@@ -4,13 +4,28 @@ import { getStoredBuild, removeFromBuild, setStoredBuild, type BuildMap } from "
 import type { Currency, Lang } from "../../types";
 import { button } from "../../ui/button";
 import { card } from "../../ui/card";
-import { html, mount } from "../../ui/html";
+import { html, mount, type Html } from "../../ui/html";
 import { emptyState, loadingState } from "../../ui/state";
 import { bindThumbs } from "../../ui/thumb";
+import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { cleanBuild, persist, refreshParts, type BuilderCtx } from "./parts";
 import { bindShare, shareCard } from "./share";
 import { slotsMarkup } from "./slots";
-import { issuesMarkup, stripMarkup, summarize } from "./summary";
+import { checksMarkup, splitMarkup, statusMarkup, summarize } from "./summary";
+
+function hero(lang: Lang): Html {
+  return pageHero({
+    lang,
+    crumbs: [{ label: t(lang, "builderNav") }],
+    title: t(lang, "builderTitle"),
+    sub: t(lang, "builderSub"),
+    tabs: [
+      { label: t(lang, "tabOverview"), href: "#build-top", active: true },
+      { label: t(lang, "splitTitle"), href: "#split" },
+      { label: t(lang, "compatChecksTitle"), href: "#compat" },
+    ],
+  });
+}
 
 function render(ctx: BuilderCtx): void {
   const { lang } = ctx;
@@ -18,20 +33,27 @@ function render(ctx: BuilderCtx): void {
   mount(
     ctx.container,
     html`
-    <header class="page-head"><h1>${t(lang, "builderTitle")}</h1></header>
-    ${stripMarkup(ctx, summary)}
-    ${issuesMarkup(ctx, summary)}
-    <div class="builder">
-      ${slotsMarkup(ctx)}
-      <aside class="builder__side">
+    ${hero(lang)}
+    <div class="builder" id="build-top">
+      <section class="card card--flush build-bar">
         ${shareCard(ctx)}
-        <p class="fineprint"><b>${t(lang, "compatNoteTitle")}</b> ${t(lang, "compatNoteBody")}</p>
-        <p class="fineprint">${t(lang, "disclaimer")}</p>
-      </aside>
+        ${statusMarkup(ctx, summary)}
+      </section>
+      ${slotsMarkup(ctx)}
+      <div class="builder__cards">
+        ${splitMarkup(ctx)}
+        ${checksMarkup(ctx, summary)}
+      </div>
+      <p class="fineprint">${t(lang, "disclaimer")}</p>
     </div>`
   );
   bindThumbs(ctx.container);
   bindShare(ctx);
+  bindPageTabs(ctx.container);
+  ctx.container.querySelector<HTMLAnchorElement>('[data-jump="compat"]')?.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById("compat")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
   const itemCount = Object.values(ctx.build).reduce((n, ids) => n + ids.length, 0);
   ctx.container.querySelector('[data-role="start-new"]')?.addEventListener("click", () => {
@@ -74,7 +96,7 @@ export async function renderBuilder(
     share: { shortUrlFor: null, pendingKey: null, timer: undefined },
   };
 
-  mount(container, loadingState(lang));
+  mount(container, html`${hero(lang)}${loadingState(lang)}`);
   await refreshParts(ctx);
   render(ctx);
 }

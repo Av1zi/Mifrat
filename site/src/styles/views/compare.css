@@ -1,113 +1,209 @@
-/* Compare page. */
-.compare-only {
-  width: fit-content;
-  margin-bottom: var(--sp-3);
+/* Compare: toolbar, then one table with a product card per column. */
+.cmp-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-5);
+  margin-bottom: var(--sp-4);
 }
 
-.compare-wrap {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+.cmp-bar__count {
+  font-size: var(--fs-xl);
+}
+
+.cmp-bar .check {
+  font-size: var(--fs-base);
+}
+
+.cmp-bar__legend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.cmp-bar__swatch {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 3px;
+  background: var(--ok-soft);
+  box-shadow: inset -3px 0 0 var(--ok-solid);
+}
+
+.cmp-bar__copy {
+  margin-inline-start: auto;
 }
 
 .compare-table {
-  width: max-content;
-  min-width: 100%;
+  min-width: calc(13rem + var(--cmp-cols, 3) * 13rem);
+  table-layout: fixed;
 }
 
 .compare-table th,
 .compare-table td {
-  vertical-align: top;
+  border-inline-start: 1px solid var(--line-soft);
+}
+
+.compare-table tr > :first-child {
+  width: 13rem;
+  border-inline-start: 0;
+}
+
+.compare-table tbody th[scope="row"] {
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
   white-space: normal;
+}
+
+.compare-table tbody td {
+  text-align: center;
   overflow-wrap: anywhere;
 }
 
-.compare-table td,
-.compare-table .compare-table__item {
-  min-width: 8.5rem;
-  max-width: 14rem;
+.compare-table__corner {
+  vertical-align: bottom !important;
+  color: var(--text-2) !important;
+  font-size: var(--fs-sm) !important;
 }
 
-.compare-table .compare-table__item {
-  position: relative;
-  color: var(--text);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-regular);
-  letter-spacing: 0;
-}
-
-.compare-table__thumb {
-  display: block;
-  margin-bottom: var(--sp-2);
-}
-
-.compare-table__name {
-  display: block;
-  color: var(--text);
-  font-weight: var(--fw-semibold);
-}
-
-.compare-table__name:hover {
-  color: var(--brand-strong);
-}
-
-.compare-table__x {
-  position: absolute;
-  inset-block-start: var(--sp-1);
-  inset-inline-end: var(--sp-1);
-  border-color: transparent;
-  background: none;
-}
-
-.compare-table .compare-table__corner,
-.compare-table tbody th[scope="row"] {
-  position: sticky;
-  inset-inline-start: 0;
-  z-index: 1;
-  min-width: 5.5rem;
-  max-width: 6.5rem;
+.compare-table thead th {
   background: var(--surface);
-  border-inline-end: 1px solid var(--line);
-  color: var(--text-2);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0;
 }
 
-.compare-table .compare-table__group th {
-  background: var(--surface-2);
+.compare-table__group th {
+  background: var(--surface-3) !important;
   color: var(--text-2);
   font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   letter-spacing: 0.04em;
+  text-align: start;
 }
 
-/* Rows whose known values differ between the compared parts. */
-.compare-table .is-diff td,
-.compare-table .is-diff th[scope="row"] {
-  background: var(--brand-soft);
+.compare-table .is-best {
+  background: var(--ok-soft);
+  box-shadow: inset -4px 0 0 var(--ok-solid);
+  color: var(--ok);
+  font-weight: var(--fw-bold);
 }
 
-.compare-table .is-diff th[scope="row"] {
+[dir="ltr"] .compare-table .is-best {
+  box-shadow: inset 4px 0 0 var(--ok-solid);
+}
+
+.compare-table .is-best .price {
+  color: var(--ok);
+}
+
+.compare-table tr.is-diff > th[scope="row"] {
+  color: var(--text);
+}
+
+.cmp-pad {
+  background: var(--surface-2);
+}
+
+/* ---- product head cells ---- */
+.cmp-head {
+  position: relative;
+  padding: 1.125rem !important;
+  vertical-align: top;
+  white-space: normal !important;
+}
+
+.cmp-head > * + * {
+  margin-top: var(--sp-2);
+}
+
+.cmp-head__x {
+  position: absolute;
+  top: 0.625rem;
+  inset-inline-end: 0.625rem;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.cmp-head__x:hover {
+  background: var(--err-soft);
+  color: var(--err);
+}
+
+.cmp-head__img {
+  display: grid;
+  place-items: center;
+  height: 9.375rem;
+}
+
+.cmp-head__img .thumb {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.cmp-head__name {
+  display: block;
+  color: var(--text);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.cmp-head__name:hover {
   color: var(--brand-strong);
 }
 
-.compare-table .is-diff td {
+.cmp-head__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.cmp-head__price .price {
+  color: var(--text);
+  font-size: var(--fs-xl);
+}
+
+.cmp-head--add {
+  background: var(--surface-2) !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.cmp-add {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-inline: auto;
+  border: 2px dashed var(--line-strong);
+  border-radius: 50%;
+  color: var(--text-2);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.cmp-add:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.cmp-add__label {
+  display: block;
+  color: var(--text-2);
+  font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
+  letter-spacing: 0;
 }
 
-.notice {
-  margin-bottom: var(--sp-3);
-  padding: var(--sp-2) var(--sp-3);
-  border-radius: var(--radius-sm);
-  background: var(--warn-soft);
-  color: var(--warn);
-  font-size: var(--fs-sm);
-}
-
-@media (min-width: 640px) {
-  .compare-table .compare-table__corner,
-  .compare-table tbody th[scope="row"] {
-    min-width: 9rem;
-  }
+.cmp-add__hint {
+  display: block;
+  margin-top: 2px !important;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
 }

@@ -21,6 +21,7 @@ body {
   font-family: var(--font-sans);
   font-size: var(--fs-md);
   line-height: var(--lh-base);
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -35,12 +36,44 @@ body.is-locked {
   min-height: 100vh;
 }
 
+/* Full-bleed grid: every view's children sit in the centred content
+   column; page heroes and other .bleed blocks span the whole width and
+   reuse the same columns for their own content (see .bleed__inner). */
 main {
   flex: 1;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--gutter), 1fr)
+    [content-start] minmax(0, var(--container))
+    [content-end] minmax(var(--gutter), 1fr)
+    [full-end];
+  align-content: start;
   width: 100%;
-  max-width: var(--container);
+  padding-bottom: var(--sp-8);
+}
+
+/* .contents wrappers (views that rebuild their own root) are transparent here. */
+main > *,
+main > .contents > * {
+  grid-column: content;
+  min-width: 0;
+}
+
+main > .bleed,
+main > .contents > .bleed {
+  grid-column: full;
+}
+
+/* Views without a hero still need breathing room under the header. */
+main > :first-child:not(.bleed, .contents) {
+  margin-top: var(--sp-5);
+}
+
+.bleed__inner {
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
   margin-inline: auto;
-  padding: var(--sp-5) var(--gutter) var(--sp-8);
+  padding-inline: var(--gutter);
 }
 
 h1,
@@ -117,7 +150,7 @@ code {
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 

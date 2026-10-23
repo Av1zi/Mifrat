@@ -1,9 +1,9 @@
 import { t } from "../../i18n";
 import { icon } from "../../icons";
 import { createListLink, listUrl } from "../../lists";
+import { findSavedBuild, saveBuild } from "../../savedBuilds";
 import { buildHash, buildItemCount } from "../../state";
 import { button } from "../../ui/button";
-import { card } from "../../ui/card";
 import { html, type Html } from "../../ui/html";
 import { exportLines, type BuilderCtx } from "./parts";
 
@@ -52,20 +52,24 @@ export function shareCard(ctx: BuilderCtx): Html {
   const key = JSON.stringify(build);
   const shown = share.shortUrlFor && share.shortUrlFor.key === key ? share.shortUrlFor.url : longUrl;
   const empty = buildItemCount(build) === 0;
-  return card(
-    html`<div class="share">
-        <input class="input ltr" data-role="share-link" type="text" readonly value="${shown}" aria-label="${t(lang, "shareLinkAria")}">
-        ${button({ label: t(lang, "copyLink"), icon: icon("copy", 16), variant: "primary", data: { role: "copy-link" } })}
-      </div>
-      <p class="fineprint" data-role="short-status" role="status" aria-live="polite"></p>
-      <div class="share__export">
-        <span class="text-dim">${t(lang, "exportTitle")}</span>
-        ${button({ label: t(lang, "tableLabel"), icon: icon("grid", 15), size: "sm", data: { role: "export-md" }, title: t(lang, "copyMarkdown") })}
-        ${button({ label: t(lang, "textLabel"), icon: icon("file-text", 15), size: "sm", data: { role: "export-text" }, title: t(lang, "copyText") })}
-        ${button({ label: t(lang, "startNew"), icon: icon("trash", 15), size: "sm", data: { role: "start-new" }, disabled: empty })}
-      </div>`,
-    { title: t(lang, "shareTitle") }
-  );
+  const saved = !empty && findSavedBuild(build) !== undefined;
+  return html`<div class="build-share">
+      <label class="search-field build-share__link">
+        ${icon("link", 16)}
+        <input class="ltr" data-role="share-link" type="text" readonly value="${shown}" aria-label="${t(lang, "shareLinkAria")}">
+      </label>
+      ${button({ label: t(lang, "copyLink"), icon: icon("copy", 16), variant: "primary", data: { role: "copy-link" }, disabled: empty })}
+      ${button({ label: saved ? t(lang, "buildSaved") : t(lang, "saveBuild"), icon: icon(saved ? "check" : "save", 16), data: { role: "save-build" }, disabled: empty || saved, className: saved ? "is-done" : "" })}
+      ${button({ label: t(lang, "startNew"), icon: icon("plus", 16), data: { role: "start-new" }, disabled: empty })}
+      <details class="export-menu">
+        <summary class="btn btn--ghost" title="${t(lang, "exportTitle")}">${icon("file-text", 16)}<span>${t(lang, "exportTitle")}</span>${icon("chevron", 13)}</summary>
+        <div class="export-menu__list">
+          ${button({ label: t(lang, "copyMarkdown"), icon: icon("grid", 15), size: "sm", data: { role: "export-md" } })}
+          ${button({ label: t(lang, "copyText"), icon: icon("file-text", 15), size: "sm", data: { role: "export-text" } })}
+        </div>
+      </details>
+    </div>
+    <p class="fineprint build-share__status" data-role="short-status" role="status" aria-live="polite"></p>`;
 }
 
 async function copyText(text: string, btn: HTMLButtonElement, doneLabel: string): Promise<void> {
@@ -109,6 +113,13 @@ export function bindShare(ctx: BuilderCtx): void {
   on("copy-link", (btn) => void copyText(input?.value ?? "", btn, t(lang, "linkCopied")));
   on("export-md", (btn) => void copyText(exportLines(ctx, "markdown"), btn, t(lang, "markupTableCopied")));
   on("export-text", (btn) => void copyText(exportLines(ctx, "text"), btn, t(lang, "markupTextCopied")));
+  on("save-build", (btn) => {
+    if (buildItemCount(ctx.build) === 0) return;
+    saveBuild(ctx.build);
+    btn.disabled = true;
+    btn.classList.add("is-done");
+    btn.innerHTML = html`${icon("check", 16)}<span>${t(lang, "buildSaved")}</span>`.value;
+  });
   // The input always shows the short link: start (debounced) creation for this render's build.
   ensureShortLink(ctx, JSON.stringify(ctx.build));
 }
