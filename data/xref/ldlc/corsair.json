@@ -1,0 +1,50 @@
+{
+ "brand": "Corsair",
+ "schema_version": 3,
+ "source": "xref:ldlc",
+ "generated": "2026-10-23",
+ "entries": {
+  "https://www.ldlc.com/en/product/PB00675477.html": {
+   "url": "https://www.ldlc.com/en/product/PB00675477.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "Corsair",
+   "title": "Corsair iCUE LINK RX120 MAX (Black) - Case fan - LDLC",
+   "keys": [
+    "0840006683049",
+    "CO9051041WW"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 400,
+    "rpm_max": 2000,
+    "noise_db": 29.5,
+    "airflow_cfm": 71.6,
+    "pwm": true
+   }
+  },
+  "https://www.ldlc.com/en/product/PB00675484.html": {
+   "url": "https://www.ldlc.com/en/product/PB00675484.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "Corsair",
+   "title": "Corsair iCUE LINK RX140 MAX RGB (Black) - Case fan - LDLC",
+   "keys": [
+    "0840006682981",
+    "CO9051035WW"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_min": 300,
+    "rpm_max": 1600,
+    "noise_db": 31.0,
+    "airflow_cfm": 102.9,
+    "pwm": true
+   }
+  }
+ }
+}

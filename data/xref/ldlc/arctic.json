@@ -1,0 +1,88 @@
+{
+ "brand": "ARCTIC",
+ "schema_version": 3,
+ "source": "xref:ldlc",
+ "generated": "2026-10-23",
+ "entries": {
+  "https://www.ldlc.com/en/product/PB00696711.html": {
+   "url": "https://www.ldlc.com/en/product/PB00696711.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P9 Silent (Black) - Case fan - LDLC",
+   "keys": [
+    "4895213704977",
+    "ACFAN00297A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 92,
+    "rpm_max": 1900,
+    "noise_db": 20.5,
+    "airflow_cfm": 23.96,
+    "pwm": false
+   }
+  },
+  "https://www.ldlc.com/en/product/PB00711582.html": {
+   "url": "https://www.ldlc.com/en/product/PB00711582.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P12 Pro Reverse A-RGB (Black) - Case fan - LDLC",
+   "keys": [
+    "4895265000591",
+    "ACFAN00322A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 3000,
+    "airflow_cfm": 73.0,
+    "pwm": true
+   }
+  },
+  "https://www.ldlc.com/en/product/PB00716214.html": {
+   "url": "https://www.ldlc.com/en/product/PB00716214.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P14 Pro Reverse A-RGB (White) - Case fan - LDLC",
+   "keys": [
+    "4895265000751",
+    "ACFAN00324A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "rpm_min": 400,
+    "rpm_max": 2500,
+    "airflow_cfm": 110.0,
+    "pwm": true
+   }
+  },
+  "https://www.ldlc.com/en/product/PB00716216.html": {
+   "url": "https://www.ldlc.com/en/product/PB00716216.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P14 Pro Reverse A-RGB (Black) - Case fan - LDLC",
+   "keys": [
+    "4895265000607",
+    "ACFAN00323A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_min": 400,
+    "rpm_max": 2500,
+    "airflow_cfm": 110.0,
+    "pwm": true
+   }
+  }
+ }
+}
