@@ -20,7 +20,7 @@ echo "[run_xref] code revision: $(git rev-parse --short HEAD)"
 paths=()
 if [ "$WHAT" = "all" ] || [ "$WHAT" = "ldlc" ]; then
     "$PYTHON" -m scraper.xref ldlc || echo "[run_xref] ldlc stopped (exit $?)" >&2
-    paths+=(data/xref/ldlc)
+    for f in data/xref/ldlc/*.json; do [ -e "$f" ] && paths+=("$f"); done
 fi
 existing=()
 for path in "${paths[@]}"; do [ -e "$path" ] && existing+=("$path"); done

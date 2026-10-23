@@ -115,5 +115,5 @@ not done. Newegg also restricts automated access in its terms.
 
 | Source | Cloud | Nano | Verdict |
 | :--- | :--- | :--- | :--- |
-| LDLC (French retailer) | refused | 200 | **built** as `scraper/xref/ldlc.py`, run by `nano/run_xref.sh`; coolers and case fans so far, more categories as their pages are saved (`nano/save_fixtures.sh`) |
+| LDLC (French retailer) | refused | 200 | **built** (robots.txt disallows `/en/search/` for `*`; narrow `ROBOTS_OVERRIDES` entry under the owner's policy, removable on LDLC's request) as `scraper/xref/ldlc.py`, run by `nano/run_xref.sh`; coolers and case fans so far, more categories as their pages are saved (`nano/save_fixtures.sh`) |
 | Supermicro | refused | 200 | **not built**: 23 products (17 boards, 6 cases), 3-4 missing fields each; the page layout differs per product family, so the gain does not cover the maintenance |

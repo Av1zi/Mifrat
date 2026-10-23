@@ -58,6 +58,12 @@ ROBOTS_OVERRIDES: dict[str, tuple[str, ...]] = {
     # /products/ (the spec JSON is embedded in that HTML). /api/ and /studio/
     # stay disallowed. Remove this line if Fractal Design asks.
     "www.fractal-design.com": ("/products/",),
+    # Owner policy "override robots, never bypass blocks" (2026-10-22), applied
+    # 2026-10-23: ldlc.com disallows /en/search/ for `*` (robots.txt line 20) and
+    # nothing else we read; no AI crawler is named. One search per catalog part
+    # number, 1 req/s, identified as MifratSpecBot, run from the owner's own
+    # connection (scraper/xref/ldlc.py). Remove this line if LDLC asks.
+    "www.ldlc.com": ("/en/search/",),
 }
 
 
