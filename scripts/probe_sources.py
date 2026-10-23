@@ -18,8 +18,6 @@ per-host owner decision recorded in scraper/mfr/README.md, never automatic.
 One request per host per kind, 1 s apart.
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import sys
@@ -68,7 +66,7 @@ CANDIDATES = {
 TERMS_FORBID = {"techpowerup"}
 
 
-def fetch(url: str, timeout: float = 20.0) -> tuple[int, int, str]:
+def fetch(url, timeout=20.0):
     request = urllib.request.Request(url, headers=HEADERS)
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -85,7 +83,7 @@ _CHALLENGE = ("cf-chl", "challenge-platform", "Attention Required", "Access Deni
               "captcha", "_Incapsula_", "perimeterx", "akamai")
 
 
-def probe(name: str) -> dict:
+def probe(name):
     base, path = CANDIDATES[name]
     robots_status, _, robots_body = fetch(base + "/robots.txt")
     parser = urllib.robotparser.RobotFileParser()
@@ -108,7 +106,7 @@ def probe(name: str) -> dict:
             "status": status, "bytes": size, "challenge": challenge, "verdict": verdict}
 
 
-def main() -> int:
+def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("names", nargs="*", help=f"subset of: {', '.join(CANDIDATES)}")
     ap.add_argument("--json", help="write results as JSON")
