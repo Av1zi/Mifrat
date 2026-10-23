@@ -20,6 +20,9 @@ from ..specs import schema
 ROOT = Path(__file__).resolve().parent.parent.parent
 CACHE_DIR = ROOT / "data" / "extract" / ".cache"
 DEFAULT_MODEL = "claude-haiku-5-5"
+GEMINI_MODEL = "gemini-3.5-flash"
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+GEMINI_DELAY = 7.0            # free tier: ~10 requests a minute
 PROMPT_VERSION = 1
 
 SYSTEM = """You read computer-part listings from retailers (English and Hebrew) \
@@ -42,8 +45,17 @@ class NoKey(RuntimeError):
     """No ANTHROPIC_API_KEY: the runner reports and stops, it never guesses."""
 
 
+class RateLimited(RuntimeError):
+    """The free tier said 429: stop, the cache keeps what was answered."""
+
+
+def backend() -> str:
+    return (os.environ.get("MIFRAT_EXTRACT_BACKEND") or "anthropic").lower()
+
+
 def model_name() -> str:
-    return os.environ.get("MIFRAT_EXTRACT_MODEL") or DEFAULT_MODEL
+    return os.environ.get("MIFRAT_EXTRACT_MODEL") or (
+        GEMINI_MODEL if backend() == "gemini" else DEFAULT_MODEL)
 
 
 def _field_lines(category: str, fields: list[str]) -> str:
@@ -97,6 +109,49 @@ class Extractor:
                          ensure_ascii=False)
         return CACHE_DIR / (hashlib.sha1(key.encode("utf-8")).hexdigest() + ".json")
 
+    def _gemini(self, category: str, fields: list[str], text: str):
+        """One generateContent call, returned in the shape facts() reads."""
+        import time
+        from types import SimpleNamespace
+
+        import requests
+
+        key = os.environ.get("GOOGLE_KEY")
+        if not key:
+            raise NoKey("GOOGLE_KEY is not set")
+        wait = GEMINI_DELAY - (time.time() - getattr(self, "_last", 0.0))
+        if wait > 0:
+            time.sleep(wait)
+        body = {
+            "systemInstruction": {"parts": [{"text": SYSTEM}]},
+            "contents": [{"role": "user", "parts": [{"text": prompt(category, fields, text)}]}],
+            "generationConfig": {"responseMimeType": "application/json",
+                                 "responseJsonSchema": output_schema(fields),
+                                 "maxOutputTokens": 4000, "temperature": 0},
+        }
+        for attempt in range(4):              # 500/503 = "high demand": back off, retry
+            reply = requests.post(GEMINI_URL.format(model=self.model), json=body, timeout=120,
+                                  headers={"x-goog-api-key": key})
+            if reply.status_code not in (500, 503):
+                break
+            time.sleep(10 * 2 ** attempt)
+        self._last = time.time()
+        if reply.status_code in (429, 500, 503):    # quota, or still overloaded after retries
+            raise RateLimited(f"HTTP {reply.status_code}: {reply.text[:160]}")
+        reply.raise_for_status()
+        data = reply.json()
+        candidate = (data.get("candidates") or [{}])[0]
+        reason = candidate.get("finishReason", "")
+        parts = (candidate.get("content") or {}).get("parts") or []
+        usage = data.get("usageMetadata") or {}
+        stop = ("end_turn" if reason == "STOP" else
+                "max_tokens" if reason == "MAX_TOKENS" else "refusal")
+        return SimpleNamespace(
+            stop_reason=stop,
+            content=[SimpleNamespace(type="text", text="".join(p.get("text", "") for p in parts))],
+            usage=SimpleNamespace(input_tokens=usage.get("promptTokenCount", 0),
+                                  output_tokens=usage.get("candidatesTokenCount", 0)))
+
     def _api(self):
         if self._client is None:
             if not os.environ.get("ANTHROPIC_API_KEY"):
@@ -137,6 +192,8 @@ class Extractor:
         return facts
 
     def _create(self, category: str, fields: list[str], text: str):
+        if backend() == "gemini":
+            return self._gemini(category, fields, text)
         request = dict(
             model=self.model,
             max_tokens=4000,

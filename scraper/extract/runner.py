@@ -22,7 +22,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from ..specs import schema
-from .client import PROMPT_VERSION, Extractor, NoKey, model_name, prompt
+from .client import PROMPT_VERSION, Extractor, NoKey, RateLimited, model_name, prompt
 from .verify import extractable, product_text, text_hash, verified
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -140,6 +140,11 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
         except NoKey as error:
             print(f"[extract] STOP: {error}. Add the secret, or use --dry-run.")
             summary["stopped"] = str(error)
+            break
+        except RateLimited as error:
+            print(f"[extract] rate limited ({error}); answers so far are cached, "
+                  "re-run later to continue.")
+            summary["rate_limited"] = True
             break
         specs: dict = {}
         quotes: dict = {}
