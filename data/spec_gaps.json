@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T15:00:23.540545+00:00",
+  "generated_at": "2026-10-23T15:55:59.308200+00:00",
   "gaps": [
     {
       "category": "motherboard",
@@ -97,8 +97,8 @@
       "count": 18,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:ryzen57500x3d",
-        "model:cpu:ryzen58400f-tray"
+        "model:cpu:coreultra5225-tray",
+        "model:cpu:coreultra5225f-tray"
       ]
     },
     {
@@ -366,9 +366,9 @@
       "label": "יכולות AI",
       "count": 9,
       "products": [
-        "mpn:cpu:ultra5225-tray",
-        "mpn:cpu:ultra5225f-tray",
-        "mpn:cpu:ultra5250k-tray"
+        "model:cpu:coreultra5225-tray",
+        "model:cpu:coreultra5225f-tray",
+        "model:cpu:coreultra5250kfplus-tray"
       ]
     },
     {
@@ -1097,8 +1097,8 @@
       "count": 4,
       "products": [
         "model:cpu:corei914900ks-tray",
-        "model:cpu:ryzen57500f-tray",
-        "mpn:cpu:100000001488-tray"
+        "model:cpu:ryzen55600gt-tray",
+        "model:cpu:ryzen57500f-tray"
       ]
     },
     {
@@ -1438,7 +1438,7 @@
       "products": [
         "model:cpu:coreultra5250kplus-tray",
         "model:cpu:coreultra9285",
-        "mpn:cpu:100000001488-tray"
+        "model:cpu:ryzen55600gt-tray"
       ]
     },
     {
