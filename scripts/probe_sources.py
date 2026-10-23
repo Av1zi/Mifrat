@@ -27,11 +27,10 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
+# Identified honestly: a spoofed Chrome string with no browser behind it is what
+# bot protection flags (Oct 2026: Newegg answered wget 200 and this probe 403).
 HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
+    "User-Agent": "MifratSpecBot/1.0 (+https://github.com/Av1zi/Mifrat; ziv.avivi.28.11@gmail.com)",
 }
 
 # name -> (base URL, a real product page path)
@@ -95,7 +94,7 @@ def probe(name):
     if name in TERMS_FORBID:
         verdict = "excluded (terms forbid scraping)"
     elif status in (403, 429) or challenge or status == 0:
-        verdict = "blocked from here"
+        verdict = "refused our client"
     elif not allowed:
         verdict = "reachable, robots.txt disallows (owner override needed)"
     elif 200 <= status < 300:
