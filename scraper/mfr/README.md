@@ -105,3 +105,15 @@ committed.
    `__init__.BRANDS`.
 3. `--dry-run` first: the matched/unmatched split tells you whether it is worth fetching.
 4. Add the verdict row here and one line to `decisions.md`.
+
+## Sources that need the Nano's home IP (Oct 2026)
+
+Probed with an honestly identified client (`scripts/probe_sources.py`, `MifratSpecBot/1.0`),
+from the cloud and from the Nano. Gigabyte, MSI, Kingston, Noctua and Newegg refuse even
+a plain `wget` with that name (403 / 429): dropped. Spoofing a browser to get past that is
+not done. Newegg also restricts automated access in its terms.
+
+| Source | Cloud | Nano | Verdict |
+| :--- | :--- | :--- | :--- |
+| LDLC (French retailer) | refused | 200 | **built** as `scraper/xref/ldlc.py`, run by `nano/run_xref.sh`; coolers and case fans so far, more categories as their pages are saved (`nano/save_fixtures.sh`) |
+| Supermicro | refused | 200 | **not built**: 23 products (17 boards, 6 cases), 3-4 missing fields each; the page layout differs per product family, so the gain does not cover the maintenance |

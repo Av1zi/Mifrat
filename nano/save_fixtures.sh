@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Save a few real pages from sites that answer an honestly identified client from
-# the Nano's home IP but not from the cloud (Supermicro, LDLC), so the parsers can
+# Save real LDLC pages (answers an honestly identified client from the Nano's
+# home IP, not from the cloud), so the parsers can
 # be written and tested against them. Plain wget, the honest bot name, one request
-# every 3 seconds, ~10 pages in total. A 403/429 stops that site: nothing retries.
+# every 3 seconds, ~26 pages in total (~2 minutes). A 403/429 stops that site: nothing retries.
 #
 #   bash nano/save_fixtures.sh && git add scraper/fixtures && git commit -m "fixtures: Nano pages" && git push
 set -u
 UA="MifratSpecBot/1.0 (+https://github.com/Av1zi/Mifrat; ziv.avivi.28.11@gmail.com)"
 OUT="$(cd "$(dirname "$0")/.." && pwd)/scraper/fixtures"
-mkdir -p "$OUT/supermicro" "$OUT/ldlc"
+mkdir -p "$OUT/ldlc"
 
 get() {  # get <url> <file>: prints the status line, keeps the body only on 200
   local url="$1" file="$2" status
@@ -18,14 +18,12 @@ get() {  # get <url> <file>: prints the status line, keeps the body only on 200
   sleep 3
 }
 
-# Supermicro: product pages for catalog boards / cases (robots.txt allows /en/products/).
-for slug in motherboard/h12ssl-i motherboard/c9z790-cgw motherboard/c9z890-mw \
-            chassis/4u/846/sc846be1c-r1k23b; do
-  get "https://www.supermicro.com/en/products/$slug" "$OUT/supermicro/$(echo "$slug" | tr '/' '_').html"
-done
-
 # LDLC: a search per part number, then the first product page it lists.
-for term in CP-9020247-EU GV-N5070WF3OC-12GD KF560C36BBE2-32 NH-U12A; do
+# One or two real catalog part numbers per category, so every category's label
+# vocabulary is on disk before its parser is written (cooler pages are saved).
+for term in PC-A4H2OA4 90MB1JZ0-M0EAY0 AORUS-WATERFORCE-II-360 BW029EU 12ALV23W \
+            90YV06N2-M0NA00 CB8GU3200 CMG16GX4M1E3200C16 7E19-001R 12102PXAFS \
+            0B36404 CP-9020247-EU KF560C36BBE2-32; do
   f="$OUT/ldlc/search_$term.html"
   get "https://www.ldlc.com/en/search/$term/" "$f"
   [ -f "$f" ] || continue
@@ -34,4 +32,4 @@ for term in CP-9020247-EU GV-N5070WF3OC-12GD KF560C36BBE2-32 NH-U12A; do
   case "$link" in http*) ;; *) link="https://www.ldlc.com$link" ;; esac
   get "$link" "$OUT/ldlc/product_$term.html"
 done
-ls -la "$OUT/supermicro" "$OUT/ldlc"
+ls "$OUT/ldlc"

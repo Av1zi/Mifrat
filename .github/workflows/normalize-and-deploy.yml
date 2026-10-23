@@ -148,6 +148,10 @@ jobs:
         # re-vote dropped the Hebrew liquid word), laptops / mini PCs / NAS
         # units as storage. A misfiled product can never fill its schema.
         run: python scripts/check_categories.py
+      - name: Saved-page parser checks (offline, Oct 2026)
+        # Real pages saved from the Nano (scraper/fixtures): the LDLC parser
+        # must keep reading them, and joining on the right keys.
+        run: python scripts/check_xref_fixtures.py
       - name: AI-extraction verifier (offline, Oct 2026)
         # The quote / re-parse checks that decide whether a model answer is
         # believed (scraper/extract/verify.py), plus the client's refusal and

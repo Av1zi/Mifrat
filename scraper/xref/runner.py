@@ -22,7 +22,7 @@ from ..specs import schema
 ROOT = Path(__file__).resolve().parent.parent.parent
 CATALOG = ROOT / "data" / "catalog.json"
 OUT_ROOT = ROOT / "data" / "xref"
-SITES = ("overclockers",)
+SITES = ("overclockers", "ldlc")
 
 
 def _below_target(product: dict) -> bool:
@@ -49,7 +49,8 @@ def _codes(product: dict) -> tuple[list[str], set[str]]:
 def run(site: str, *, limit: int | None = None, dry_run: bool = False,
         offline: bool = False, verbose: bool = True) -> dict:
     module = importlib.import_module(f"scraper.xref.{site}")
-    client = PoliteClient(f"xref-{site}", module.BASE_URL, offline=offline)
+    client = PoliteClient(f"xref-{site}", module.BASE_URL, offline=offline,
+                          identify=getattr(module, "IDENTIFY", False))
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     summary = {"products": 0, "searches": 0, "pages": 0, "matched": 0, "blocked": False}
     entries: dict[str, dict[str, dict]] = {}

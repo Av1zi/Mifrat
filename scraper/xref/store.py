@@ -14,7 +14,7 @@ from ..mfr.store import facts_from, load_index
 from ..specs.merge import TIER_VENDOR, Fact
 
 DATA_ROOT = Path(__file__).resolve().parent.parent.parent / "data" / "xref"
-SITES = ("overclockers",)
+SITES = ("overclockers", "ldlc")
 
 # Fields that disagreed with sourced values on more than 3% of 10+ products
 # (`python -m scraper.xref <site> --trust`, catalog built without the site):

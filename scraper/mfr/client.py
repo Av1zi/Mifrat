@@ -30,6 +30,11 @@ CACHE_ROOT = ROOT / "data" / "mfr" / ".cache"
 
 USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+# New fetchers say what they are (decision 2026-10-23): a spoofed Chrome string
+# with no browser behind it is what bot protection flags, and an honest client
+# is served by every site that is going to serve us at all.
+BOT_USER_AGENT = ("MifratSpecBot/1.0 (+https://github.com/Av1zi/Mifrat; "
+                  "ziv.avivi.28.11@gmail.com)")
 HEADERS = {
     "User-Agent": USER_AGENT,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -63,8 +68,11 @@ class Blocked(RuntimeError):
 class PoliteClient:
     def __init__(self, brand: str, base_url: str, *, delay: float = 1.0,
                  max_age_days: float = 7.0, timeout: float = 25.0,
-                 offline: bool = False) -> None:
+                 offline: bool = False, identify: bool = False) -> None:
         self.brand = brand
+        self.headers = ({"User-Agent": BOT_USER_AGENT,
+                         "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8"}
+                        if identify else HEADERS)
         self.base_url = base_url.rstrip("/")
         self.delay = max(delay, 1.0)
         self.max_age = max_age_days * 86400
@@ -117,7 +125,7 @@ class PoliteClient:
             time.sleep(wait)
         self._last = time.monotonic()
         self.requests += 1
-        request = urllib.request.Request(url, headers=HEADERS)
+        request = urllib.request.Request(url, headers=self.headers)
         try:
             with urllib.request.urlopen(request, timeout=self.timeout) as response:
                 body = response.read(8_000_000).decode("utf-8", "replace")
