@@ -465,7 +465,9 @@ _FAN_KIT_RE = re.compile(
     r"\b\d{2,3}\s*mm\b"
     r"|\b\d+\s*x\s*fans?\b|\bfans?\b.{0,20}\bx\s*[2-9]\b"
     r"|\b\d+\s*in\s*1\b"
-    r"|\b(pack|kit|bundle)\b",
+    r"|\b(pack|kit|bundle)\b"
+    r"|\b\d\s*x\s*\d{2,3}\s*mm\b"
+    r"|\b(?:sp|ll|ql|ml|af|rx|neob|neon)\s?(?:80|92|120|140)\b",
     re.I,
 )
 # Case signals for the accessory peel-off: form factors/towers, fan arrays,
@@ -498,12 +500,28 @@ _CHIPSETISH_RE = re.compile(
     re.I,
 )
 
+# Thermal compound by name when the title never says "paste" ("Antec
+# Compund", "ARCTIC MX-4 Thermal 4g", "Noctua NT-H2 Tybrid 3.5g", "Kryonaut").
+_THERMAL_COMPOUND_RE = re.compile(
+    r"\b(?:thermal\s+(?:compou?nd|grease|interface)|compund|compound|kryonaut|"
+    r"nt[\s\-]?h[12]|mx[\s\-]?[4-6]|xtm\s?\d+|mastergel|ice\s*fusion|"
+    r"cryofuze|ph[\s\-]?ndc)\b"
+    r"|\bthermal\b.{0,12}\b\d+(?:\.\d+)?\s?g\b",
+    re.I,
+)
+
 # Hebrew category hints (TMS/1PC/Ivory titles carry the category in Hebrew;
 # _clean strips Hebrew entirely, so check the raw title first).
 _HEBREW_LIQUID_RE = re.compile(r"נוזלי")
 _HEBREW_CASE_FAN_RE = re.compile(r"מארז")
-_HEBREW_CPU_COOLER_RE = re.compile(r"קירור\s*למעבד|קירור\s*מעבד")
-_HEBREW_THERMAL_RE = re.compile(r"משחה\s*תרמית|גריז\s*תרמי|משחה")
+_HEBREW_CPU_COOLER_RE = re.compile(
+    r"(?:מצנן|מקרר|מאו?ו?רר)\s*(?:ל)?מעבד|מאוורר\s*ופתרון\s*קירור|"
+    r"קירור\s*(?:אוויר\s*|אוריר\s*)?(?:ל)?מעבד|מאוורר\s*(?:ל)?(?:מעבד|cpu)|מאוורר\s*cpu",
+    re.I,
+)
+_HEBREW_THERMAL_RE = re.compile(
+    r"משחה|גריז\s*[תט]רמי|חומר\s*[תט]רמי|[תט]רמית"
+)
 
 
 def _hebrew_category_hint(title_raw: str) -> str | None:
@@ -523,6 +541,30 @@ def _hebrew_category_hint(title_raw: str) -> str | None:
     return None
 
 
+_AIO_HINT_RE = re.compile(
+    r"\b(?:240|280|360|420)\b|\bh\d{2,3}i?\b|\b(?:nautilus|titan|lumen|celsius|"
+    r"omni|apex|capellix|asetek|\d{3}lc|icue\s*link|fairy)\b|\b(?:lcd|oled)\b",
+    re.I,
+)
+
+
+def _cooling_fallback(title_clean: str) -> str:
+    """Where an undecided cooling listing lands: the site has no 'other
+    cooling' bucket, so it is a mounting accessory, a liquid cooler (radiator
+    size / known AIO line), an air cooler, or `other` (temporary review bucket)."""
+    t = (title_clean or "").lower()
+    if re.search(r"\b(?:mounting\s*kit|bracket|backplate)\b", t) and not re.search(
+            r"\bfans?\b", t):
+        return "accessories"
+    if _AIO_HINT_RE.search(t):
+        return "aio"
+    if re.search(r"\b(?:tdp|rpm|cfm|passive|cooler|heatsink|heat\s*pipe|wraith|"
+                 r"hyper|argb|rgb)\b|\b\d{2,3}\s*mm\b", t):
+        return "cooler_air"
+    # Nothing decisive: surface it in the temporary `other` bucket for review.
+    return "other"
+
+
 def _category_from_title(title_clean: str) -> str | None:
     """Strong title-based hints for sub-classifying messy listings.
 
@@ -537,6 +579,8 @@ def _category_from_title(title_clean: str) -> str | None:
         return None
     t = title_clean
     if "thermal paste" in t or "thermal grease" in t:
+        return "thermal_paste"
+    if _THERMAL_COMPOUND_RE.search(t):
         return "thermal_paste"
     # A kit explicitly sold WITHOUT the cooler is never the cooler itself —
     # checked before the model-family regexes (kit titles list compatible
@@ -563,6 +607,10 @@ def _category_from_title(title_clean: str) -> str | None:
     # "H100i ... Liquid CPU Cooler") — it is checked after the AIO pass.
     # Air internals: heatpipes/heatsinks/towers never appear on bare fans.
     if AIR_TITLE_RE.search(t) or _TOWER_COOLER_RE.search(t):
+        return "cooler_air"
+    # Model families seen without any cooler word in the title.
+    if re.search(r"\bhyper\s?\d{3}\b|\bi70c\b|\bp60t\b|\balpine\s?\d+\b|"
+                 r"\bfreezer\s+xtreme\b|\bantec\s+(?:a|c|f)\d{2,3}\b", t):
         return "cooler_air"
     # An LCD/OLED screen on a 240mm+ part is a pump-cap display (AIO), not a
     # fan: air-tower screens pair with 92-140mm fan sizes and never with a
@@ -1003,7 +1051,7 @@ def canonical_category(
             "case_accessory",
         ):
             return "accessories" if title_cat in ACCESSORY_CATEGORIES else title_cat
-        return "cooling_other"
+        return _cooling_fallback(title_clean)
 
     # Vendor feeds also use "cooling_other" for CPU coolers and fan hubs.
     # Re-run the title classifier for this broad bucket instead of exposing
@@ -1019,6 +1067,8 @@ def canonical_category(
         "case_accessory",
     ):
         return "accessories" if title_cat in ACCESSORY_CATEGORIES else title_cat
+    if category == "cooling_other":
+        return _cooling_fallback(title_clean)
 
     if category == "case_fan" and title_cat in ("cooler_air", "aio"):
         return title_cat

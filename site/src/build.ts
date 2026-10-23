@@ -70,7 +70,6 @@ export const BUILD_SLOTS: BuildSlot[] = [
     id: "extras",
     categories: [
       "case_fan",
-      "cooling_other",
       "accessories",
       "other",
     ],

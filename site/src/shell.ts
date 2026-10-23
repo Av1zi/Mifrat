@@ -35,7 +35,7 @@ const MEGA_TILES: Array<{ id: string; cats: string[] }> = [
 ];
 
 /** Smaller categories, listed beside the tiles. */
-const MEGA_SIDE = ["cooler_air", "aio", "case_fan", "cooling_other", "accessories"];
+const MEGA_SIDE = ["case_fan", "accessories", "other"];
 
 interface ShellState {
   lang: Lang;

@@ -182,7 +182,6 @@ export const CATEGORY_ICONS: Record<string, IconName> = {
   case: "tower",
   cooler_air: "heatsink",
   aio: "radiator",
-  cooling_other: "cooling-other",
   case_fan: "case-fan",
   fan: "fan",
   fan_controller: "fan",

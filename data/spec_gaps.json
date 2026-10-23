@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T15:55:59.308200+00:00",
+  "generated_at": "2026-10-23T18:59:18.659870+00:00",
   "gaps": [
     {
       "category": "motherboard",
@@ -24,7 +24,7 @@
     {
       "category": "aio",
       "label": "Spec / Specifications / Cooling type",
-      "count": 32,
+      "count": 34,
       "products": [
         "mpn:aio:0761345400664",
         "mpn:aio:0761345400671",
@@ -242,6 +242,16 @@
       ]
     },
     {
+      "category": "cooler_air",
+      "label": "פרופיל קירור",
+      "count": 12,
+      "products": [
+        "mpn:cooler_air:bk034",
+        "mpn:cooler_air:k199",
+        "mpn:cooler_air:mapg2pn126pcr1"
+      ]
+    },
+    {
       "category": "psu",
       "label": "Spec / Specifications / Power supply group",
       "count": 12,
@@ -259,16 +269,6 @@
         "mpn:storage:718037896748",
         "mpn:storage:agammixs70b2tcs",
         "mpn:storage:aultsu680256gr"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "פרופיל קירור",
-      "count": 11,
-      "products": [
-        "mpn:cooler_air:bk034",
-        "mpn:cooler_air:k199",
-        "mpn:cooler_air:mapg2pn126pcr1"
       ]
     },
     {
@@ -369,6 +369,26 @@
         "model:cpu:coreultra5225-tray",
         "model:cpu:coreultra5225f-tray",
         "model:cpu:coreultra5250kfplus-tray"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "סוג קירור",
+      "count": 9,
+      "products": [
+        "mpn:aio:cw9060070ww",
+        "mpn:aio:cw9060071ww",
+        "mpn:aio:cw9060088ww"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "תושבת מעבד",
+      "count": 9,
+      "products": [
+        "mpn:aio:cw9060070ww",
+        "mpn:aio:cw9060071ww",
+        "mpn:aio:cw9060088ww"
       ]
     },
     {
@@ -473,42 +493,12 @@
     },
     {
       "category": "case_fan",
-      "label": "סוג קירור",
-      "count": 8,
-      "products": [
-        "mpn:aio:cw9060070ww",
-        "mpn:aio:cw9060071ww",
-        "mpn:aio:cw9060088ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תושבת מעבד",
-      "count": 8,
-      "products": [
-        "mpn:aio:cw9060070ww",
-        "mpn:aio:cw9060071ww",
-        "mpn:aio:cw9060088ww"
-      ]
-    },
-    {
-      "category": "case_fan",
       "label": "רדיאטורים",
       "count": 8,
       "products": [
         "mpn:aio:cw9060070ww",
         "mpn:aio:cw9060071ww",
         "mpn:aio:cw9060088ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "Spec / Specifications / גודל מאוורר",
-      "count": 8,
-      "products": [
-        "mpn:case_fan:0761345740456",
-        "mpn:case_fan:12tl1w1b",
-        "mpn:case_fan:c120argb3pk"
       ]
     },
     {
@@ -839,6 +829,16 @@
         "mpn:case:c5argbw",
         "mpn:case:fdcera2n02",
         "mpn:case:fdcmod1n01"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "Spec / Specifications / גודל מאוורר",
+      "count": 6,
+      "products": [
+        "mpn:case_fan:0761345740456",
+        "mpn:case_fan:12tl1w1b",
+        "mpn:case_fan:co9050187ww"
       ]
     },
     {
@@ -2259,21 +2259,12 @@
       ]
     },
     {
-      "category": "cooling_other",
-      "label": "Spec / Specifications / Cooling type",
+      "category": "cooler_air",
+      "label": "Spec / Specifications / גודל מאוורר",
       "count": 2,
       "products": [
-        "mpn:cooling_other:cx9070018ww",
-        "mpn:cooling_other:icefairydig360litebk"
-      ]
-    },
-    {
-      "category": "cooling_other",
-      "label": "רדיאטורים",
-      "count": 2,
-      "products": [
-        "mpn:cooling_other:fdwl1s3612",
-        "mpn:cooling_other:omni360argbw"
+        "mpn:case_fan:c120argb3pk",
+        "mpn:case_fan:c120argb3pkw"
       ]
     },
     {
@@ -2901,14 +2892,6 @@
       "count": 1,
       "products": [
         "case:1pc:1pc-222508"
-      ]
-    },
-    {
-      "category": "cooling_other",
-      "label": "דגם",
-      "count": 1,
-      "products": [
-        "cooling_other:1pc:1pc-222411"
       ]
     },
     {
@@ -3601,18 +3584,26 @@
     },
     {
       "category": "accessories",
-      "label": "תאורה",
+      "label": "תושבת מעבד (Socket)",
       "count": 1,
       "products": [
-        "mpn:accessories:0761345400237"
+        "mpn:accessories:galga1700"
       ]
     },
     {
       "category": "accessories",
-      "label": "גודל",
+      "label": "סוג קירור",
       "count": 1,
       "products": [
-        "mpn:accessories:0761345400237"
+        "mpn:accessories:galga1700"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "תושבת מעבד",
+      "count": 1,
+      "products": [
+        "mpn:accessories:galga1700"
       ]
     },
     {
@@ -3637,6 +3628,14 @@
       "count": 1,
       "products": [
         "mpn:aio:cw9061026ww"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "ממשק",
+      "count": 1,
+      "products": [
+        "mpn:aio:cw9061029ww"
       ]
     },
     {
@@ -3744,27 +3743,59 @@
       ]
     },
     {
-      "category": "cooling_other",
-      "label": "ממשק",
+      "category": "case_fan",
+      "label": "תאימות תושבות INTEL",
       "count": 1,
       "products": [
-        "mpn:cooling_other:cw9061029ww"
+        "mpn:cooler_air:t120"
       ]
     },
     {
-      "category": "cooling_other",
-      "label": "CPU / Processor Type Model",
+      "category": "case_fan",
+      "label": "תאימות תושבות AMD",
       "count": 1,
       "products": [
-        "mpn:cooling_other:etianp60tsv2"
+        "mpn:cooler_air:t120"
       ]
     },
     {
-      "category": "cooling_other",
-      "label": "פרופיל קירור",
+      "category": "case_fan",
+      "label": "גודל מאוורר כ-",
       "count": 1,
       "products": [
-        "mpn:cooling_other:rri7c718par1"
+        "mpn:cooler_air:t120"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "מהירות מקסימלית עד",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:t120"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "מידות כ-",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:t120"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "גובה (ממ)",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:t120"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "הספק תרמי מירבי",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:t120"
       ]
     },
     {
