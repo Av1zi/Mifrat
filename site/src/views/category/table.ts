@@ -148,8 +148,7 @@ function tableMarkup(ctx: CategoryCtx, rows: Product[]): Html {
 
 /** Draws the current page of the filtered list in the active view. */
 export function renderList(ctx: CategoryCtx, listEl: HTMLElement, filtered: Product[], tableAllowed: boolean): void {
-  const start = ctx.page * PAGE_SIZE;
-  const visible = filtered.slice(start, start + PAGE_SIZE);
+  const visible = filtered.slice(0, (ctx.page + 1) * PAGE_SIZE);
   listEl.classList.remove("list--table");
   if (visible.length === 0) {
     mount(
@@ -171,31 +170,13 @@ export function renderList(ctx: CategoryCtx, listEl: HTMLElement, filtered: Prod
   syncPickControls();
 }
 
-/** "Showing 1–24 of 234" plus numbered pages (first, last, and the neighbours of the current one). */
+/** Footer under the list: "Showing 60 of 234" and the sentinel that loads the next batch. */
 export function pagerMarkup(ctx: CategoryCtx, total: number): Html {
   const { lang } = ctx;
   if (total === 0) return html``;
-  const pages = Math.ceil(total / PAGE_SIZE);
-  const from = ctx.page * PAGE_SIZE + 1;
-  const to = Math.min(total, from + PAGE_SIZE - 1);
   const locale = lang === "he" ? "he-IL" : "en-US";
-  const summary = html`<span class="pager__info">${showingText(lang, from.toLocaleString(locale), to.toLocaleString(locale), total.toLocaleString(locale))}</span>`;
-  if (pages <= 1) return summary;
-  const list = [...new Set([0, pages - 1, ctx.page - 1, ctx.page, ctx.page + 1])]
-    .filter((n) => n >= 0 && n < pages)
-    .sort((a, b) => a - b);
-  const items: Html[] = [];
-  list.forEach((n, i) => {
-    if (i > 0 && n - list[i - 1] > 1) items.push(html`<span class="pager__gap" aria-hidden="true">…</span>`);
-    const current = n === ctx.page;
-    items.push(html`<button type="button" class="pager__btn${current ? " is-current" : ""}" data-page="${n}"${current ? html` aria-current="page"` : ""}>${(n + 1).toLocaleString(locale)}</button>`);
-  });
-  const rtl = lang === "he";
-  return html`${summary}<div class="pager__pages">
-    <button type="button" class="pager__btn" data-page="${ctx.page - 1}"${ctx.page === 0 ? html` disabled` : ""} aria-label="${t(lang, "prevPage")}">${icon(rtl ? "chevron-right" : "chevron-left", 16)}</button>
-    ${items}
-    <button type="button" class="pager__btn" data-page="${ctx.page + 1}"${ctx.page >= pages - 1 ? html` disabled` : ""} aria-label="${t(lang, "nextPage")}">${icon(rtl ? "chevron-left" : "chevron-right", 16)}</button>
-  </div>`;
+  const shown = Math.min(total, (ctx.page + 1) * PAGE_SIZE);
+  return html`<span class="pager__info">${showingText(lang, "1", shown.toLocaleString(locale), total.toLocaleString(locale))}</span>${shown < total ? html`<span class="pager__more" data-role="sentinel"><span class="state__spinner" aria-hidden="true"></span>${t(lang, "loading")}</span>` : ""}`;
 }
 
 /** Delegated interactions for the list host (set once; its content is replaced). */

@@ -500,3 +500,14 @@
     width: 100%;
   }
 }
+
+/* The export menu opens below the bar: the bar must not clip it, so its
+   rounded corners move onto the verdict strip instead. */
+.build-bar {
+  overflow: visible;
+}
+
+.build-status {
+  overflow: hidden;
+  border-radius: 0 0 var(--radius) var(--radius);
+}

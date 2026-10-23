@@ -328,6 +328,7 @@
 }
 
 .ccat__img {
+  overflow: hidden;
   display: grid;
   place-items: center;
   aspect-ratio: 5 / 4;
@@ -640,6 +641,7 @@
 }
 
 .ccard__img {
+  overflow: hidden;
   display: grid;
   place-items: center;
   height: 10rem;

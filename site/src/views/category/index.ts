@@ -21,7 +21,6 @@ import { html, mount } from "../../ui/html";
 import { errorState, loadingState } from "../../ui/state";
 import { pickColumns } from "./columns";
 import {
-  PAGE_SIZE,
   computeFilterable,
   computeRanges,
   currentList,
@@ -177,8 +176,6 @@ export async function renderCategory(
     },
     redrawList() {
       const filtered = currentList(ctx);
-      const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-      ctx.page = Math.min(ctx.page, pages - 1);
       updateResultsBar(ctx, filtered);
       lastFits = tableFits();
       renderList(ctx, listEl, filtered, lastFits);
@@ -186,6 +183,9 @@ export async function renderCategory(
       const toggle = container.querySelector<HTMLElement>(".toolbar__view");
       if (toggle) toggle.hidden = !lastFits;
       mount(pagerEl, pagerMarkup(ctx, filtered.length));
+      observer.disconnect();
+      const sentinel = pagerEl.querySelector('[data-role="sentinel"]');
+      if (sentinel) observer.observe(sentinel);
     },
     rebuildRail() {
       const openStates = Array.from(railBody.querySelectorAll("details")).map((d) => d.open);
@@ -202,19 +202,27 @@ export async function renderCategory(
   };
 
   const sheet = bindMobileSheet(container);
+  // Scrolling near the end of the list reveals the next batch. The observer
+  // does the work; the scroll check backs it up where observers are throttled.
+  const loadMore = (): void => {
+    ctx.page += 1;
+    actions.redrawList();
+  };
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((e) => e.isIntersecting)) loadMore();
+    },
+    { rootMargin: "600px" }
+  );
+  const onScroll = (): void => {
+    const sentinel = pagerEl.querySelector('[data-role="sentinel"]');
+    if (sentinel && sentinel.getBoundingClientRect().top < window.innerHeight + 600) loadMore();
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
   const resize = new ResizeObserver(() => {
     if (tableFits() !== lastFits) actions.redrawList();
   });
   resize.observe(listEl);
-
-  pagerEl.addEventListener("click", (e) => {
-    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-page]");
-    if (!btn || btn.disabled) return;
-    ctx.page = Number(btn.dataset.page) || 0;
-    actions.redrawList();
-    const top = container.querySelector<HTMLElement>(".list-head");
-    top?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-  });
 
   bindToolbar(ctx, actions);
   bindList(ctx, listEl, actions);
@@ -238,6 +246,8 @@ export async function renderCategory(
     "hashchange",
     () => {
       resize.disconnect();
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
       sheet.dispose();
     },
     { once: true }

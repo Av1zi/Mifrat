@@ -17,13 +17,18 @@ function ensureShortLink(ctx: BuilderCtx, key: string): void {
   const { share, container, lang } = ctx;
   if (buildItemCount(ctx.build) === 0 || share.shortUrlFor?.key === key || share.pendingKey === key) return;
   share.pendingKey = key;
-  const status = container.querySelector('[data-role="short-status"]');
-  if (status) status.textContent = t(lang, "shorteningLabel");
+  // While the short link is made, the box itself says "loading"; the real
+  // (long) URL stays in data-url so Copy still works.
+  const field = container.querySelector<HTMLInputElement>('[data-role="share-link"]');
+  if (field) {
+    field.dataset.url = field.value;
+    field.value = t(lang, "loading");
+  }
   window.clearTimeout(share.timer);
   share.timer = window.setTimeout(() => {
     const clear = (): void => {
       share.pendingKey = null;
-      if (status) status.textContent = "";
+      if (field?.dataset.url) field.value = field.dataset.url;
     };
     // The build moved on while waiting: the next render reschedules.
     if (JSON.stringify(ctx.build) !== key) {
@@ -37,7 +42,10 @@ function ensureShortLink(ctx: BuilderCtx, key: string): void {
         const url = listUrl(id);
         share.shortUrlFor = { key, url };
         const input = container.querySelector<HTMLInputElement>('[data-role="share-link"]');
-        if (input) input.value = url;
+        if (input) {
+          input.value = url;
+          input.dataset.url = url;
+        }
       },
       // API unreachable (offline, `vite dev` without the Worker): the long
       // URL already in the input still shares fine.
@@ -108,9 +116,28 @@ export function bindShare(ctx: BuilderCtx): void {
     const btn = root.querySelector<HTMLButtonElement>(`[data-role="${role}"]`);
     btn?.addEventListener("click", () => run(btn));
   };
+  // The export menu is a <details>: close it on an outside click, Escape or after picking.
+  const menu = root.querySelector<HTMLDetailsElement>(".export-menu");
+  if (menu) {
+    const close = (e: Event): void => {
+      if (!menu.isConnected) {
+        document.removeEventListener("click", close);
+        return;
+      }
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    };
+    document.addEventListener("click", close);
+    menu.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    });
+    menu.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => window.setTimeout(() => (menu.open = false), 900)));
+  }
   const input = root.querySelector<HTMLInputElement>('[data-role="share-link"]');
   input?.addEventListener("click", () => input.select());
-  on("copy-link", (btn) => void copyText(input?.value ?? "", btn, t(lang, "linkCopied")));
+  on("copy-link", (btn) => void copyText(input?.dataset.url || input?.value || "", btn, t(lang, "linkCopied")));
   on("export-md", (btn) => void copyText(exportLines(ctx, "markdown"), btn, t(lang, "markupTableCopied")));
   on("export-text", (btn) => void copyText(exportLines(ctx, "text"), btn, t(lang, "markupTextCopied")));
   on("save-build", (btn) => {

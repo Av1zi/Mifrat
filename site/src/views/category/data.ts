@@ -14,7 +14,7 @@ import type { Currency, Lang, Product, SortKey } from "../../types";
 import { normSearch, searchScore, searchTokens, skuOf } from "../../utils";
 import { positivePrice } from "../../ui/price";
 
-export const PAGE_SIZE = 24;
+export const PAGE_SIZE = 60;
 
 export type OptionCounts = Array<[string, number]>;
 export type Range = { min: number; max: number };
@@ -40,7 +40,7 @@ export interface CategoryCtx {
   query: string;
   sortTouched: boolean;
   view: ListView;
-  /** Zero-based results page. */
+  /** Extra batches revealed by scrolling (rows shown = (page + 1) * PAGE_SIZE). */
   page: number;
   filterable: Map<string, OptionCounts>;
   ranges: Map<string, Range>;
@@ -53,7 +53,7 @@ export interface CategoryCtx {
 export interface CategoryActions {
   /** Filters/query/sort changed: sync the URL, refresh rail states, redraw the list. */
   update(): void;
-  /** Redraw the list only (view toggle, paging). */
+  /** Redraw the list only (view toggle, infinite scroll). */
   redrawList(): void;
   /** Rebuild the rail markup (compat toggled, filters cleared). */
   rebuildRail(): void;
