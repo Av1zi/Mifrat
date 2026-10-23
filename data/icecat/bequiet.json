@@ -1,0 +1,3492 @@
+{
+ "brand": "be quiet!",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "100726713": {
+   "url": "https://icecat.biz/p/product/100726713",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SILENT WINGS 4 | 120mm PWM Computer case Fan 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052188859",
+    "BL093"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1600,
+    "airflow_cfm": 48.7,
+    "noise_db": 18.9,
+    "static_pressure_mmh2o": 1.79,
+    "pwm": true,
+    "connector": "4-pin"
+   }
+  },
+  "100726716": {
+   "url": "https://icecat.biz/p/product/100726716",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SILENT WINGS 4 | 140mm PWM Computer case Fan 14 cm Black 1 pc(s)",
+   "keys": [
+    "4260052188880",
+    "BL096"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1100,
+    "airflow_cfm": 51.3,
+    "noise_db": 13.6,
+    "static_pressure_mmh2o": 0.92,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "100726718": {
+   "url": "https://icecat.biz/p/product/100726718",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SILENT WINGS PRO 4 | 120mm PWM Computer case Fan 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052188903",
+    "BL098"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 3000,
+    "airflow_cfm": 83.9,
+    "noise_db": 36.9,
+    "static_pressure_mmh2o": 5.31,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "100726719": {
+   "url": "https://icecat.biz/p/product/100726719",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SILENT WINGS PRO 4 | 140mm PWM Computer case Fan 14 cm Black 1 pc(s)",
+   "keys": [
+    "4260052188910",
+    "BL099"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 2400,
+    "airflow_cfm": 97.41,
+    "noise_db": 36.8,
+    "static_pressure_mmh2o": 3.64,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "100861065": {
+   "url": "https://icecat.biz/p/product/100861065",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Loop 2 FX 240mm Processor All-in-one liquid cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052189023",
+    "BW013"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "noise_db": 32.3,
+    "sockets": [
+     "LGA1150",
+     "LGA2011",
+     "LGA1151",
+     "LGA1155",
+     "LGA2066",
+     "AM4",
+     "LGA1200",
+     "AM5",
+     "LGA1700"
+    ],
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 27,
+    "lighting": "RGB"
+   }
+  },
+  "100861066": {
+   "url": "https://icecat.biz/p/product/100861066",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE BASE 500 FX Black Midi Tower",
+   "keys": [
+    "4260052189054",
+    "BGW43"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 369,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 8.0,
+    "dimensions_mm": "W=232 H=463 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "100861068": {
+   "url": "https://icecat.biz/p/product/100861068",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Loop 2 FX 360mm Processor All-in-one liquid cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052189047",
+    "BW015"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "noise_db": 34.0,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 27,
+    "lighting": "RGB"
+   }
+  },
+  "100861069": {
+   "url": "https://icecat.biz/p/product/100861069",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock 2 FX Black Processor Air cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052189016",
+    "BK033"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "tdp_w": 150,
+    "sockets": [
+     "LGA1150",
+     "LGA2011",
+     "LGA1151",
+     "LGA1155",
+     "LGA2066",
+     "AM4",
+     "LGA1200",
+     "AM5",
+     "LGA1700"
+    ],
+    "height_mm": 155,
+    "lighting": "RGB"
+   }
+  },
+  "102192702": {
+   "url": "https://icecat.biz/p/product/102192702",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! System Power 10 power supply unit 850 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052189108",
+    "BN330"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "no",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 6,
+    "molex4_connectors": 1,
+    "atx4_connectors": 1,
+    "length_mm": 160
+   }
+  },
+  "107110278": {
+   "url": "https://icecat.biz/p/product/107110278",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock LP Motherboard Air cooler 9.2 cm Black 1 pc(s)",
+   "keys": [
+    "4260052189757",
+    "BK034"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 92,
+    "fan_rpm_max": 2500,
+    "noise_db": 30.6,
+    "tdp_w": 100,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 45,
+    "lighting": "No"
+   }
+  },
+  "107134914": {
+   "url": "https://icecat.biz/p/product/107134914",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! DARK BASE PRO 901 | Black Full Tower",
+   "keys": [
+    "4260052190142",
+    "BGW50"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_gpu_length_mm": 495,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 16.3,
+    "dimensions_mm": "W=275 H=569 D=604mm",
+    "lighting": "RGB"
+   }
+  },
+  "109758340": {
+   "url": "https://icecat.biz/p/product/109758340",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings White | 120mm PWM high-speed Triple-Pack Computer case Fan 12 cm 3 pc(s)",
+   "keys": [
+    "4260052190234",
+    "BL101"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 2500,
+    "airflow_cfm": 52.3,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.6,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "109758350": {
+   "url": "https://icecat.biz/p/product/109758350",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings White | 120mm PWM Triple Pack Computer case Fan 12 cm 3 pc(s)",
+   "keys": [
+    "4260052190241",
+    "BL100"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1700,
+    "airflow_cfm": 41.51,
+    "noise_db": 20.6,
+    "static_pressure_mmh2o": 1.66,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "109758351": {
+   "url": "https://icecat.biz/p/product/109758351",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings White | 140mm PWM high-speed Triple-Pack Computer case Fan 14 cm 3 pc(s)",
+   "keys": [
+    "4260052190265",
+    "BL103"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "quantity": 3,
+    "rpm_max": 2200,
+    "airflow_cfm": 71.7,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.3,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "111112557": {
+   "url": "https://icecat.biz/p/product/111112557",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Base 800 Black Midi Tower",
+   "keys": [
+    "4260052190609",
+    "BGW60"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 180,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 11.7,
+    "dimensions_mm": "W=247 H=522 D=550mm",
+    "lighting": "No"
+   }
+  },
+  "111112566": {
+   "url": "https://icecat.biz/p/product/111112566",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Base 800 FX White Midi Tower",
+   "keys": [
+    "4260052190647",
+    "BGW64"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 180,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 12.3,
+    "dimensions_mm": "W=247 H=522 D=550mm",
+    "lighting": "RGB"
+   }
+  },
+  "111112567": {
+   "url": "https://icecat.biz/p/product/111112567",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Base 800 DX White Midi Tower",
+   "keys": [
+    "4260052190623",
+    "BGW62"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 180,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 11.8,
+    "dimensions_mm": "W=247 H=522 D=550mm",
+    "lighting": "RGB"
+   }
+  },
+  "111112580": {
+   "url": "https://icecat.biz/p/product/111112580",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Base 800 DX Black Midi Tower",
+   "keys": [
+    "4260052190616",
+    "BGW61"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 180,
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 11.8,
+    "dimensions_mm": "W=247 H=522 D=550mm",
+    "lighting": "RGB"
+   }
+  },
+  "111230377": {
+   "url": "https://icecat.biz/p/product/111230377",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Power Pro 13 | 1300W power supply unit 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052189368",
+    "BN331"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 1300,
+    "efficiency": "80+ Titanium",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 135,
+    "pcie62_connectors": 6,
+    "sata_connectors": 16,
+    "atx4_connectors": 1,
+    "length_mm": 200
+   }
+  },
+  "113701855": {
+   "url": "https://icecat.biz/p/product/113701855",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Base 701 Tower White",
+   "keys": [
+    "4260052190661",
+    "BGW59"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 415,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 3,
+    "drive_bays_25": 5,
+    "expansion_slots": "10",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 3 x 240 mm, 3 x 280 mm, 3 x 360 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm, 3 x 240 mm, 3 x 280 mm, 3 x 360 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 12.8,
+    "dimensions_mm": "W=249 H=495 D=565mm"
+   }
+  },
+  "115751764": {
+   "url": "https://icecat.biz/p/product/115751764",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Rock Pro 5 Processor Air cooler 120/135 mm Black 1 pc(s)",
+   "keys": [
+    "4260052190746",
+    "BK036"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "noise_db": 23.3,
+    "tdp_w": 270,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 168,
+    "lighting": "No"
+   }
+  },
+  "115751765": {
+   "url": "https://icecat.biz/p/product/115751765",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Rock Elite Processor Air cooler 13.5 cm Black 1 pc(s)",
+   "keys": [
+    "4260052190753",
+    "BK037"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 135,
+    "noise_db": 25.8,
+    "tdp_w": 280,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 168
+   }
+  },
+  "116294827": {
+   "url": "https://icecat.biz/p/product/116294827",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 120mm PWM Computer case Fan 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052190777",
+    "BL105"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1600,
+    "airflow_cfm": 49.9,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.45,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "118560460": {
+   "url": "https://icecat.biz/p/product/118560460",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 120mm PWM White Computer case Fan 12 cm 1 pc(s)",
+   "keys": [
+    "4260052190975",
+    "BL110"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1600,
+    "airflow_cfm": 49.9,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.45,
+    "pwm": true,
+    "connector": "4-pin"
+   }
+  },
+  "120215283": {
+   "url": "https://icecat.biz/p/product/120215283",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SILENT WINGS 4 | 120mm PWM White Computer case Fan 12 cm 1 pc(s)",
+   "keys": [
+    "4260052191057",
+    "BL114"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1600,
+    "airflow_cfm": 48.7,
+    "noise_db": 18.9,
+    "static_pressure_mmh2o": 1.79,
+    "pwm": true,
+    "connector": "4-pin"
+   }
+  },
+  "120215286": {
+   "url": "https://icecat.biz/p/product/120215286",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SILENT WINGS 4 | 140mm PWM high-speed White Computer case Fan 14 cm 1 pc(s)",
+   "keys": [
+    "4260052191088",
+    "BL117"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1900,
+    "airflow_cfm": 78.4,
+    "noise_db": 29.3,
+    "static_pressure_mmh2o": 2.36,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "121215055": {
+   "url": "https://icecat.biz/p/product/121215055",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 900 FX White Full Tower",
+   "keys": [
+    "4260052191781",
+    "BGW72"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_gpu_length_mm": 495,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 1,
+    "drive_bays_25": 4,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 16.8,
+    "dimensions_mm": "W=327 H=484 D=532mm",
+    "lighting": "RGB"
+   }
+  },
+  "121344750": {
+   "url": "https://icecat.biz/p/product/121344750",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 600 DX Black Midi Tower",
+   "keys": [
+    "4260052191712",
+    "BGW65"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 170,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 11.5,
+    "dimensions_mm": "W=305 H=455 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "121344756": {
+   "url": "https://icecat.biz/p/product/121344756",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 600 LX Black Midi Tower",
+   "keys": [
+    "4260052191736",
+    "BGW67"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 170,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 12.1,
+    "dimensions_mm": "W=305 H=455 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "121407265": {
+   "url": "https://icecat.biz/p/product/121407265",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 600 DX White Midi Tower",
+   "keys": [
+    "4260052191729",
+    "BGW66"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 170,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 12.1,
+    "dimensions_mm": "W=305 H=455 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "121407271": {
+   "url": "https://icecat.biz/p/product/121407271",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 600 LX White Midi Tower",
+   "keys": [
+    "4260052191743",
+    "BGW68"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 170,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 12.1,
+    "dimensions_mm": "W=305 H=455 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "121407272": {
+   "url": "https://icecat.biz/p/product/121407272",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 900 DX Black Full Tower",
+   "keys": [
+    "4260052191750",
+    "BGW69"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_gpu_length_mm": 495,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 1,
+    "drive_bays_25": 4,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 15.3,
+    "dimensions_mm": "W=327 H=484 D=532mm",
+    "lighting": "RGB"
+   }
+  },
+  "121407281": {
+   "url": "https://icecat.biz/p/product/121407281",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT BASE 900 FX Black Full Tower",
+   "keys": [
+    "4260052191774",
+    "BGW71"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Full Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX",
+     "XL-ATX"
+    ],
+    "max_gpu_length_mm": 495,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 1,
+    "drive_bays_25": 4,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 16.8,
+    "dimensions_mm": "W=327 H=484 D=532mm",
+    "lighting": "RGB"
+   }
+  },
+  "122189551": {
+   "url": "https://icecat.biz/p/product/122189551",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE BASE 501 Black Midi Tower",
+   "keys": [
+    "4260052191798",
+    "BG073"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 368,
+    "max_cooler_height_mm": 178,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "No Window",
+    "psu_included": "Not included",
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 6.7,
+    "dimensions_mm": "W=231 H=463 D=450mm",
+    "lighting": "No"
+   }
+  },
+  "122189552": {
+   "url": "https://icecat.biz/p/product/122189552",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE BASE 501 Airflow Black Midi Tower",
+   "keys": [
+    "4260052191804",
+    "BG074"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 368,
+    "max_cooler_height_mm": 178,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "No Window",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 6.8,
+    "dimensions_mm": "W=231 H=463 D=450mm",
+    "lighting": "No"
+   }
+  },
+  "122189553": {
+   "url": "https://icecat.biz/p/product/122189553",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE BASE 501 Airflow White Midi Tower",
+   "keys": [
+    "4260052191811",
+    "BG075"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 6.8,
+    "dimensions_mm": "W=231 H=463 D=450mm"
+   }
+  },
+  "122189554": {
+   "url": "https://icecat.biz/p/product/122189554",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE BASE 501 Airflow Window White Midi Tower",
+   "keys": [
+    "4260052191835",
+    "BGW75"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 178,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.2,
+    "dimensions_mm": "W=231 H=463 D=450mm"
+   }
+  },
+  "122358979": {
+   "url": "https://icecat.biz/p/product/122358979",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT LOOP 240mm Black Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052191125",
+    "BW020"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 61.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5",
+     "TR4"
+    ],
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 52
+   }
+  },
+  "122358980": {
+   "url": "https://icecat.biz/p/product/122358980",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT LOOP 360mm Black Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052191132",
+    "BW022"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 52,
+    "lighting": "RGB"
+   }
+  },
+  "122360537": {
+   "url": "https://icecat.biz/p/product/122360537",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT LOOP 240mm White Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052191149",
+    "BW021"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 61.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5",
+     "TR4"
+    ],
+    "radiator_length_mm": 277,
+    "radiator_thickness_mm": 52
+   }
+  },
+  "122362358": {
+   "url": "https://icecat.biz/p/product/122362358",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT LOOP 360mm White Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052191156",
+    "BW023"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_length_mm": 397,
+    "radiator_thickness_mm": 52,
+    "lighting": "RGB"
+   }
+  },
+  "122744336": {
+   "url": "https://icecat.biz/p/product/122744336",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT WINGS LX 120mm PWM 3-Pack White Computer case Fan 12 cm 3 pc(s)",
+   "keys": [
+    "4260052191606",
+    "BL122"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1600,
+    "airflow_cfm": 51.5,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.34,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "122744351": {
+   "url": "https://icecat.biz/p/product/122744351",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT WINGS LX 120mm PWM 3-Pack Black Computer case Fan 12 cm 3 pc(s)",
+   "keys": [
+    "4260052191590",
+    "BL121"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1600,
+    "airflow_cfm": 51.5,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.34,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "122744961": {
+   "url": "https://icecat.biz/p/product/122744961",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT WINGS LX 120mm PWM Computer case Fan 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052191583",
+    "BL120"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1600,
+    "airflow_cfm": 51.5,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.34,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "122744962": {
+   "url": "https://icecat.biz/p/product/122744962",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT WINGS LX 140mm PWM Computer case Fan 14 cm Black 1 pc(s)",
+   "keys": [
+    "4260052191644",
+    "BL126"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1200,
+    "airflow_cfm": 56.0,
+    "noise_db": 22.9,
+    "static_pressure_mmh2o": 0.9,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "122744964": {
+   "url": "https://icecat.biz/p/product/122744964",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! LIGHT WINGS LX 140mm PWM 3-Pack Black Computer case Fan 14 cm 3 pc(s)",
+   "keys": [
+    "4260052191651",
+    "BL127"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 3,
+    "rpm_max": 1200,
+    "airflow_cfm": 56.0,
+    "noise_db": 22.9,
+    "static_pressure_mmh2o": 0.9,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "124481856": {
+   "url": "https://icecat.biz/p/product/124481856",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 501 DX Black Midi Tower",
+   "keys": [
+    "4260052192832",
+    "BGW76"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.8,
+    "dimensions_mm": "W=231 H=463 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "124481857": {
+   "url": "https://icecat.biz/p/product/124481857",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 501 DX White Midi Tower",
+   "keys": [
+    "4260052192849",
+    "BGW77"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 368,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.9,
+    "dimensions_mm": "W=231 H=463 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "124481858": {
+   "url": "https://icecat.biz/p/product/124481858",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 501 LX Black Midi Tower",
+   "keys": [
+    "4260052192856",
+    "BGW78"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 368,
+    "max_cooler_height_mm": 178,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.8,
+    "dimensions_mm": "W=231 H=463 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "124481859": {
+   "url": "https://icecat.biz/p/product/124481859",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 501 LX White Midi Tower",
+   "keys": [
+    "4260052192863",
+    "BGW79"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 368,
+    "max_cooler_height_mm": 178,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.9,
+    "dimensions_mm": "W=231 H=463 D=450mm",
+    "lighting": "RGB"
+   }
+  },
+  "128639699": {
+   "url": "https://icecat.biz/p/product/128639699",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Loop 3 360 mm Processor All-in-one liquid cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052192542",
+    "BW025"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 76.7,
+    "noise_db": 38.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5",
+     "TR4",
+     "TR5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "128864592": {
+   "url": "https://icecat.biz/p/product/128864592",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock 3 Black Processor Air cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052192481",
+    "BK039"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 59.6,
+    "noise_db": 31.2,
+    "tdp_w": 190,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 154,
+    "lighting": "No"
+   }
+  },
+  "128864593": {
+   "url": "https://icecat.biz/p/product/128864593",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock 3 LX Processor Air cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052192498",
+    "BK040"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 61.8,
+    "noise_db": 31.2,
+    "tdp_w": 190,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 154,
+    "lighting": "RGB"
+   }
+  },
+  "128864594": {
+   "url": "https://icecat.biz/p/product/128864594",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock Pro 3 Processor Air cooler 12 cm Silver 1 pc(s)",
+   "keys": [
+    "4260052192504",
+    "BK041"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Silver",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 59.6,
+    "noise_db": 34.8,
+    "tdp_w": 250,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 155,
+    "lighting": "No"
+   }
+  },
+  "128864595": {
+   "url": "https://icecat.biz/p/product/128864595",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock Pro 3 Black Processor Air cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052192511",
+    "BK042"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 59.6,
+    "noise_db": 34.8,
+    "tdp_w": 250,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 155,
+    "lighting": "No"
+   }
+  },
+  "128864596": {
+   "url": "https://icecat.biz/p/product/128864596",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock Pro 3 LX Black Processor Air cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4260052192528",
+    "BK043"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 61.8,
+    "noise_db": 34.8,
+    "tdp_w": 250,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 155,
+    "lighting": "RGB"
+   }
+  },
+  "130333335": {
+   "url": "https://icecat.biz/p/product/130333335",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings LX 120 mm PWM Reverse White Computer case Fan 12 cm 1 pc(s)",
+   "keys": [
+    "4260052192887",
+    "BL133"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1500,
+    "airflow_cfm": 48.8,
+    "noise_db": 28.5,
+    "static_pressure_mmh2o": 1.04,
+    "pwm": true,
+    "connector": "3-pin",
+    "led": "RGB"
+   }
+  },
+  "130333336": {
+   "url": "https://icecat.biz/p/product/130333336",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 140 mm PWM Reverse Black Computer case Fan 14 cm 1 pc(s)",
+   "keys": [
+    "4260052192894",
+    "BL134"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1300,
+    "airflow_cfm": 51.4,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.1,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "130333337": {
+   "url": "https://icecat.biz/p/product/130333337",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 140 mm PWM Reverse White Computer case Fan 14 cm 1 pc(s)",
+   "keys": [
+    "4260052192900",
+    "BL135"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1300,
+    "airflow_cfm": 51.4,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.1,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "130333338": {
+   "url": "https://icecat.biz/p/product/130333338",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings LX 120 mm PWM Reverse Black Computer case Fan 12 cm 1 pc(s)",
+   "keys": [
+    "4260052192870",
+    "BL132"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1500,
+    "airflow_cfm": 48.8,
+    "noise_db": 28.5,
+    "static_pressure_mmh2o": 1.04,
+    "pwm": true,
+    "connector": "3-pin",
+    "led": "RGB"
+   }
+  },
+  "133491223": {
+   "url": "https://icecat.biz/p/product/133491223",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Base 500 Midi Tower Black",
+   "keys": [
+    "4260052193808",
+    "BGW83"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 10.9,
+    "dimensions_mm": "W=305 H=436 D=432mm",
+    "lighting": "No"
+   }
+  },
+  "134041595": {
+   "url": "https://icecat.biz/p/product/134041595",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE LOOP 3 Processor All-in-one liquid cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052193181",
+    "BW029EU"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 59.6,
+    "noise_db": 37.2,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "No"
+   }
+  },
+  "134041597": {
+   "url": "https://icecat.biz/p/product/134041597",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE LOOP 3 LX Processor All-in-one liquid cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4260052193204",
+    "BW031EU"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.9,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "135309138": {
+   "url": "https://icecat.biz/p/product/135309138",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 120mm | PWM Triple Pack Computer case Fan 12 cm Black 3 pc(s)",
+   "keys": [
+    "4260052193877",
+    "BL141"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1600,
+    "airflow_cfm": 49.9,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.45,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "135309139": {
+   "url": "https://icecat.biz/p/product/135309139",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 120mm | PWM high-speed Triple Pack Computer case Fan 12 cm Black 3 pc(s)",
+   "keys": [
+    "4260052193860",
+    "BL140"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 2100,
+    "airflow_cfm": 59.6,
+    "noise_db": 30.9,
+    "static_pressure_mmh2o": 2.41,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "135309140": {
+   "url": "https://icecat.biz/p/product/135309140",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 120mm | PWM Reverse Triple-Pack Computer case Fan 12 cm Black 3 pc(s)",
+   "keys": [
+    "4260052193839",
+    "BL137"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1500,
+    "airflow_cfm": 47.1,
+    "noise_db": 28.5,
+    "static_pressure_mmh2o": 1.17,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "135309141": {
+   "url": "https://icecat.biz/p/product/135309141",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 120mm | PWM Reverse White Triple-Pack Computer case Fan 12 cm 3 pc(s)",
+   "keys": [
+    "4260052193822",
+    "BL136"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1500,
+    "airflow_cfm": 47.1,
+    "noise_db": 28.5,
+    "static_pressure_mmh2o": 1.17,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "135309142": {
+   "url": "https://icecat.biz/p/product/135309142",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 140mm | PWM Triple Pack Computer case Fan 14 cm Black 3 pc(s)",
+   "keys": [
+    "4260052193853",
+    "BL139"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 3,
+    "rpm_max": 1200,
+    "airflow_cfm": 57.4,
+    "noise_db": 21.9,
+    "static_pressure_mmh2o": 0.96,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "135309143": {
+   "url": "https://icecat.biz/p/product/135309143",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Wings 3 140mm | PWM high-speed Triple Pack Computer case Fan 14 cm Black 3 pc(s)",
+   "keys": [
+    "4260052193846",
+    "BL138"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 3,
+    "rpm_max": 1800,
+    "airflow_cfm": 72.2,
+    "noise_db": 30.5,
+    "static_pressure_mmh2o": 2.44,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "No"
+   }
+  },
+  "135309144": {
+   "url": "https://icecat.biz/p/product/135309144",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Base 500 LX Black Midi Tower",
+   "keys": [
+    "4260052193884",
+    "BGW85"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 10.9,
+    "dimensions_mm": "W=305 H=436 D=432mm",
+    "lighting": "RGB"
+   }
+  },
+  "135309145": {
+   "url": "https://icecat.biz/p/product/135309145",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Base 500 LX White Midi Tower",
+   "keys": [
+    "4260052193891",
+    "BGW86"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 10.9,
+    "dimensions_mm": "W=305 H=436 D=432mm",
+    "lighting": "RGB"
+   }
+  },
+  "136907573": {
+   "url": "https://icecat.biz/p/product/136907573",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock Slim 3 Processor Air cooler 10 cm Silver 1 pc(s)",
+   "keys": [
+    "4260052193150",
+    "BK047"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Silver",
+    "fan_size_mm": 100,
+    "fan_rpm_max": 1700,
+    "airflow_cfm": 35.5,
+    "noise_db": 24.8,
+    "tdp_w": 130,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 127,
+    "lighting": "No"
+   }
+  },
+  "146217666": {
+   "url": "https://icecat.biz/p/product/146217666",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Rock 6 Chipset Air cooler 13.5 cm Black 1 pc(s)",
+   "keys": [
+    "4260052193143",
+    "BK046"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 135,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 52.94,
+    "noise_db": 31.1,
+    "tdp_w": 220,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 162
+   }
+  },
+  "146217667": {
+   "url": "https://icecat.biz/p/product/146217667",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Rock Pro 6 Chipset Air cooler 120/135 mm Black 1 pc(s)",
+   "keys": [
+    "4260052193938",
+    "BK048"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 79.48,
+    "noise_db": 32.4,
+    "tdp_w": 300,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 169
+   }
+  },
+  "149405631": {
+   "url": "https://icecat.biz/p/product/149405631",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Loop IO LCD 360 mm Black",
+   "keys": [
+    "4260052193228",
+    "BW032"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "149405632": {
+   "url": "https://icecat.biz/p/product/149405632",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Loop IO LCD 360 mm White",
+   "keys": [
+    "4260052193235",
+    "BW033"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 61.8,
+    "noise_db": 36.8,
+    "sockets": [
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "19413837": {
+   "url": "https://icecat.biz/p/product/19413837",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE WINGS 2, 140mm Computer case Fan 14 cm Black",
+   "keys": [
+    "4260052183366",
+    "5054533522763",
+    "BL047"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_max": 1000,
+    "airflow_cfm": 61.2,
+    "noise_db": 18.8,
+    "static_pressure_mmh2o": 0.76
+   }
+  },
+  "27091400": {
+   "url": "https://icecat.biz/p/product/27091400",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Power Pro 11 power supply unit 850 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052183786",
+    "BN253"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 850,
+    "efficiency": "80+ Platinum",
+    "type": "ATX",
+    "modular": "semi",
+    "fan_size_mm": 135,
+    "pcie62_connectors": 7,
+    "sata_connectors": 8,
+    "molex4_connectors": 7,
+    "length_mm": 193
+   }
+  },
+  "29687651": {
+   "url": "https://icecat.biz/p/product/29687651",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Power Pro 11 power supply unit 750 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052183779",
+    "BN252"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 750,
+    "efficiency": "80+ Platinum",
+    "type": "ATX",
+    "modular": "semi",
+    "fan_size_mm": 135,
+    "pcie62_connectors": 6,
+    "pcie6_connectors": 1,
+    "sata_connectors": 8,
+    "molex4_connectors": 7,
+    "atx4_connectors": 1,
+    "length_mm": 180
+   }
+  },
+  "32981139": {
+   "url": "https://icecat.biz/p/product/32981139",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SilentWings 3 Computer case Fan 14 cm Black",
+   "keys": [
+    "4260052184257",
+    "BL065"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_max": 1000,
+    "airflow_cfm": 59.5,
+    "noise_db": 15.5,
+    "static_pressure_mmh2o": 1.08,
+    "connector": "3-pin"
+   }
+  },
+  "32981251": {
+   "url": "https://icecat.biz/p/product/32981251",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SilentWings 3 PWM Computer case Fan 12 cm Black",
+   "keys": [
+    "4260052184264",
+    "BL066"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1450,
+    "airflow_cfm": 50.5,
+    "noise_db": 16.4,
+    "static_pressure_mmh2o": 1.79,
+    "pwm": true,
+    "connector": "4-pin"
+   }
+  },
+  "32981253": {
+   "url": "https://icecat.biz/p/product/32981253",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! SilentWings 3 PWM Computer case Fan 12 cm Black",
+   "keys": [
+    "4260052184752",
+    "BL070"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 2200,
+    "airflow_cfm": 73.33,
+    "noise_db": 28.6,
+    "static_pressure_mmh2o": 3.37,
+    "pwm": true,
+    "connector": "4-pin"
+   }
+  },
+  "36067916": {
+   "url": "https://icecat.biz/p/product/36067916",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 600 Window Midi Tower Black",
+   "keys": [
+    "4260052185445",
+    "BGW21"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 3,
+    "drive_bays_25": 8,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "1 x 120 mm, 1 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 8.4,
+    "dimensions_mm": "W=220 H=470 D=492mm",
+    "lighting": "No"
+   }
+  },
+  "37033298": {
+   "url": "https://icecat.biz/p/product/37033298",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Rock TF 2 Processor Cooler 13.5 cm Black, Copper, Silver",
+   "keys": [
+    "4260052185391",
+    "BK003"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "fan_size_mm": 135,
+    "fan_rpm_max": 2000,
+    "fan_rpm_min": 1400,
+    "airflow_cfm": 67.8,
+    "noise_db": 24.4,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1366",
+     "LGA2011",
+     "LGA2066",
+     "LGA775",
+     "AM2+",
+     "AM3+",
+     "AM4",
+     "FM1",
+     "FM2+"
+    ],
+    "height_mm": 112,
+    "lighting": "No"
+   }
+  },
+  "54438159": {
+   "url": "https://icecat.biz/p/product/54438159",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Rock 4 CPU Cooler",
+   "keys": [
+    "4260052186251",
+    "BK021"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 135,
+    "fan_rpm_max": 1400,
+    "noise_db": 21.4,
+    "tdp_w": 200,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 74,
+    "lighting": "No"
+   }
+  },
+  "66918594": {
+   "url": "https://icecat.biz/p/product/66918594",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Wings 2 | 120mm",
+   "keys": [
+    "4260052186862",
+    "BL084"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1100,
+    "airflow_cfm": 38.5,
+    "noise_db": 15.7,
+    "static_pressure_mmh2o": 0.82,
+    "connector": "3-pin"
+   }
+  },
+  "73406191": {
+   "url": "https://icecat.biz/p/product/73406191",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Wings 2 | 120mm White",
+   "keys": [
+    "4260052187326",
+    "BL088"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "rpm_max": 1100,
+    "airflow_cfm": 38.5,
+    "noise_db": 15.7,
+    "static_pressure_mmh2o": 0.82,
+    "connector": "3-pin"
+   }
+  },
+  "73406384": {
+   "url": "https://icecat.biz/p/product/73406384",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Wings 2 | 140mm White",
+   "keys": [
+    "4260052187340",
+    "BL090"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "rpm_max": 900,
+    "airflow_cfm": 49.8,
+    "noise_db": 14.7,
+    "static_pressure_mmh2o": 0.58,
+    "connector": "3-pin"
+   }
+  },
+  "74341707": {
+   "url": "https://icecat.biz/p/product/74341707",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 500 Window White",
+   "keys": [
+    "4260052187807",
+    "BGW35"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 369,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.3,
+    "dimensions_mm": "W=231 H=443 D=450mm"
+   }
+  },
+  "74341711": {
+   "url": "https://icecat.biz/p/product/74341711",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 500 Window Black",
+   "keys": [
+    "4260052187791",
+    "BGW34"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 369,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.5,
+    "dimensions_mm": "W=231 H=443 D=450mm"
+   }
+  },
+  "74341730": {
+   "url": "https://icecat.biz/p/product/74341730",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 500 Metallic Gray",
+   "keys": [
+    "4260052187845",
+    "BG036"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 369,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "No Window",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.0,
+    "dimensions_mm": "W=231 H=443 D=450mm"
+   }
+  },
+  "74341760": {
+   "url": "https://icecat.biz/p/product/74341760",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 500 White",
+   "keys": [
+    "4260052187838",
+    "BG035"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 369,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "No Window",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.0,
+    "dimensions_mm": "W=231 H=443 D=450mm"
+   }
+  },
+  "77465830": {
+   "url": "https://icecat.biz/p/product/77465830",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! Straight Power 11 650W Platinum power supply unit 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052187371",
+    "BN306"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 650,
+    "efficiency": "80+ Platinum",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 135,
+    "pcie62_connectors": 4,
+    "sata_connectors": 9,
+    "length_mm": 160
+   }
+  },
+  "78268911": {
+   "url": "https://icecat.biz/p/product/78268911",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Rock 3 CPU Cooler, Single 120mm PWM Fan, For Intel Socket:1700/1200 / 2066 / 1150 / 1151 / 1155 / 2011(-3) Square ILM, For AMD Socket: AM4 / AM3(+), 190W TDP, 163mm Height",
+   "keys": [
+    "4260052187852",
+    "BK004"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1600,
+    "noise_db": 24.4,
+    "tdp_w": 190,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 163,
+    "lighting": "No"
+   }
+  },
+  "79037550": {
+   "url": "https://icecat.biz/p/product/79037550",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Base 500DX White",
+   "keys": [
+    "4260052187944",
+    "BGW38"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 369,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 7.8,
+    "dimensions_mm": "W=232 H=443 D=450mm"
+   }
+  },
+  "79162026": {
+   "url": "https://icecat.biz/p/product/79162026",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Pure Rock 2 Black CPU Cooler, Single 120mm PWM Fan, For Intel Socket: 1700/1200 / 2066 / 1150 / 1151 / 1155 / 2011(-3) square ILM; For AMD Socket: AM4 / AM3(+), 150W TDP, 155mm Height",
+   "keys": [
+    "4260052187968",
+    "BK007"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "noise_db": 26.8,
+    "tdp_w": 150,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 155,
+    "lighting": "No"
+   }
+  },
+  "84085606": {
+   "url": "https://icecat.biz/p/product/84085606",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Power Pro 12 1500W power supply unit 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052187432",
+    "BN312"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 1500,
+    "efficiency": "80+ Titanium",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 135,
+    "pcie62_connectors": 10,
+    "sata_connectors": 16,
+    "molex4_connectors": 8,
+    "atx4_connectors": 1,
+    "length_mm": 200
+   }
+  },
+  "86187666": {
+   "url": "https://icecat.biz/p/product/86187666",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Base 802 Window White Midi Tower",
+   "keys": [
+    "4260052188408",
+    "BGW40"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 449,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 3,
+    "drive_bays_25": 7,
+    "expansion_slots": "9",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 13.2,
+    "dimensions_mm": "W=281 H=553 D=539mm"
+   }
+  },
+  "86187667": {
+   "url": "https://icecat.biz/p/product/86187667",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Base 802 Black Midi Tower",
+   "keys": [
+    "4260052188378",
+    "BG039"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 449,
+    "max_cooler_height_mm": 185,
+    "drive_bays_35": 3,
+    "drive_bays_25": 7,
+    "expansion_slots": "9",
+    "side_panel": "No Window",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "weight_kg": 12.6,
+    "dimensions_mm": "W=281 H=553 D=539mm",
+    "lighting": "No"
+   }
+  },
+  "86365555": {
+   "url": "https://icecat.biz/p/product/86365555",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! Shadow Rock 3 White CPU Cooler, Single 120mm PWM Fan, For Intel Socket: 1700/1200 / 2066 / 1150 / 1151 / 1155 / 2011(-3) Square ILM, For AMD Socket: AM4 / AM3(+), 190W TDP, 163mm Height",
+   "keys": [
+    "4260052188309",
+    "BK005"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1600,
+    "noise_db": 24.4,
+    "tdp_w": 190,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 163,
+    "lighting": "No"
+   }
+  },
+  "89500006": {
+   "url": "https://icecat.biz/p/product/89500006",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "be quiet!",
+   "title": "be quiet! DARK POWER 12 750W power supply unit 20+4 pin ATX ATX Black",
+   "keys": [
+    "4260052188002",
+    "BN314"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 750,
+    "efficiency": "80+ Titanium",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 135,
+    "pcie62_connectors": 6,
+    "sata_connectors": 12,
+    "molex4_connectors": 5,
+    "atx4_connectors": 1,
+    "length_mm": 175
+   }
+  },
+  "89660529": {
+   "url": "https://icecat.biz/p/product/89660529",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet! PURE ROCK SLIM 2 Processor Air cooler 9.2 cm Silver 1 pc(s)",
+   "keys": [
+    "4260052188453",
+    "BK030"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Silver",
+    "fan_size_mm": 92,
+    "fan_rpm_max": 2000,
+    "noise_db": 25.4,
+    "tdp_w": 130,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 135,
+    "lighting": "No"
+   }
+  },
+  "89951729": {
+   "url": "https://icecat.biz/p/product/89951729",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Loop 2 120mm All In One CPU Water Cooling, 1 X 120mm PWM Fan, For Intel Socket: 1200 / 2066 / 115X / 2011(-3) square ILM; For AMD Socket: AMD: AM4 / AM3(+)",
+   "keys": [
+    "4260052188316",
+    "BW009"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5",
+     "TR4",
+     "sTRX4"
+    ],
+    "radiator_length_mm": 154,
+    "radiator_thickness_mm": 27
+   }
+  },
+  "89951783": {
+   "url": "https://icecat.biz/p/product/89951783",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Loop 2 240mm All In One CPU Water Cooling, 2 X 240mm PWM Fan, For Intel Socket: 1200 / 2066 / 115X / 2011(-3) square ILM; For AMD Socket: AMD: AM4 / AM3(+)",
+   "keys": [
+    "4260052188323",
+    "BW010"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5",
+     "TR4",
+     "sTRX4"
+    ],
+    "radiator_length_mm": 274,
+    "radiator_thickness_mm": 27
+   }
+  },
+  "89951784": {
+   "url": "https://icecat.biz/p/product/89951784",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Loop 2 280mm All In One CPU Water Cooling, 2 X 140mm PWM Fan, For Intel Socket: 1200 / 2066 / 115X / 2011(-3) square ILM; For AMD Socket: AMD: AM4 / AM3(+)",
+   "keys": [
+    "4260052188330",
+    "BW011"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 140,
+    "fan_count": 2,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA2011",
+     "LGA2066",
+     "AM4",
+     "AM5",
+     "TR4",
+     "sTRX4"
+    ],
+    "radiator_length_mm": 314,
+    "radiator_thickness_mm": 27
+   }
+  },
+  "95552521": {
+   "url": "https://icecat.biz/p/product/95552521",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 140mm ARGB PWM Fan Black",
+   "keys": [
+    "4260052188781",
+    "BL074"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1500,
+    "airflow_cfm": 56.0,
+    "noise_db": 23.3,
+    "static_pressure_mmh2o": 1.49,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552522": {
+   "url": "https://icecat.biz/p/product/95552522",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 120mm ARGB PWM Fan Black",
+   "keys": [
+    "4260052188767",
+    "BL072"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1700,
+    "airflow_cfm": 41.51,
+    "noise_db": 20.6,
+    "static_pressure_mmh2o": 1.66,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552523": {
+   "url": "https://icecat.biz/p/product/95552523",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 120mm ARGB PWM Fan Black 3 Pack",
+   "keys": [
+    "4260052188804",
+    "BL076"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1700,
+    "airflow_cfm": 41.51,
+    "noise_db": 20.6,
+    "static_pressure_mmh2o": 1.66,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552524": {
+   "url": "https://icecat.biz/p/product/95552524",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 140mm ARGB PWM Fan Black 3 Pack",
+   "keys": [
+    "4260052188828",
+    "BL078"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1500,
+    "airflow_cfm": 56.0,
+    "noise_db": 23.3,
+    "static_pressure_mmh2o": 1.49,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552525": {
+   "url": "https://icecat.biz/p/product/95552525",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 140mm ARGB PWM High Speed Fan Black",
+   "keys": [
+    "4260052188798",
+    "BL075"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 2200,
+    "airflow_cfm": 71.7,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.3,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552526": {
+   "url": "https://icecat.biz/p/product/95552526",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 120mm ARGB PWM High Speed Fan Black",
+   "keys": [
+    "4260052188774",
+    "BL073"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 2500,
+    "airflow_cfm": 52.3,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.6,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552527": {
+   "url": "https://icecat.biz/p/product/95552527",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 120mm ARGB PWM High Speed Fan Black 3 Pack",
+   "keys": [
+    "4260052188811",
+    "BL077"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 2500,
+    "airflow_cfm": 52.3,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.6,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "95552528": {
+   "url": "https://icecat.biz/p/product/95552528",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings 140mm ARGB PWM High Speed Fan Black 3 Pack",
+   "keys": [
+    "4260052188835",
+    "BL079"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 3,
+    "rpm_max": 2200,
+    "airflow_cfm": 71.7,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.3,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  }
+ }
+}

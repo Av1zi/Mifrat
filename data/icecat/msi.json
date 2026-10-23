@@ -1,0 +1,2113 @@
+{
+ "brand": "MSI",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "101435846": {
+   "url": "https://icecat.biz/p/product/101435846",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "MSI",
+   "title": "MSI MPG A1000G PCIE5 power supply unit 1000 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4711377030434",
+    "4719072972196",
+    "MPGA1000GPCIE5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 135,
+    "pcie16_connectors": 1,
+    "pcie62_connectors": 6,
+    "sata_connectors": 12,
+    "molex4_connectors": 4,
+    "length_mm": 150
+   }
+  },
+  "102156729": {
+   "url": "https://icecat.biz/p/product/102156729",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI MPG B650 EDGE WIFI motherboard AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711377010191",
+    "MPGB650EDGEWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4080"
+   }
+  },
+  "106115048": {
+   "url": "https://icecat.biz/p/product/106115048",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B760M-E DDR4 motherboard Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711377026987",
+    "PROB760MEDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4200",
+     "4000",
+     "3800",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "2933",
+     "2666",
+     "2400"
+    ],
+    "sata_ports": 4,
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "106115059": {
+   "url": "https://icecat.biz/p/product/106115059",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B760M-A WIFI DDR4 motherboard Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711377026383",
+    "PROB760MAWIFIDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5200",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4200",
+     "4000",
+     "3800",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "106115063": {
+   "url": "https://icecat.biz/p/product/106115063",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B760M-P DDR4 motherboard Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "0824142308240",
+    "0824142319802",
+    "4711377030991",
+    "5715063287897",
+    "824142308240",
+    "824142319802",
+    "PROB760MPDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4200",
+     "4000",
+     "3800",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "2933",
+     "2666",
+     "2400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "109129474": {
+   "url": "https://icecat.biz/p/product/109129474",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "MSI",
+   "title": "MSI Spatium S270 SATA 2.5 480GB 2.5\" Serial ATA III 3D NAND",
+   "keys": [
+    "4711377001168",
+    "SPATIUMS270SATA25480GB"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 480,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "nvme": false,
+    "write_speed_mbs": 450,
+    "mtbf_hours": 2000000
+   }
+  },
+  "109793604": {
+   "url": "https://icecat.biz/p/product/109793604",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI B760 GAMING PLUS WIFI motherboard Intel B760 LGA 1700 ATX",
+   "keys": [
+    "0824142319420",
+    "4711377086561",
+    "824142319420",
+    "B760GAMINGPLUSWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 3,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897"
+   }
+  },
+  "109826977": {
+   "url": "https://icecat.biz/p/product/109826977",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B760M-A WIFI motherboard Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "0824142313176",
+    "4711377059572",
+    "824142313176",
+    "PROB760MAWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "112160809": {
+   "url": "https://icecat.biz/p/product/112160809",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "MSI",
+   "title": "MSI MAG A850GL PCIE5 power supply unit 850 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "0824142319222",
+    "4711377084253",
+    "4711377087254",
+    "824142319222",
+    "MAGA850GLPCIE5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 4,
+    "length_mm": 140
+   }
+  },
+  "113433021": {
+   "url": "https://icecat.biz/p/product/113433021",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI VENTUS GEFORCE RTX 3050 2X XS 8G OC graphics card NVIDIA 8 GB GDDR6",
+   "keys": [
+    "0824142319192",
+    "4711377084796",
+    "824142319192",
+    "GEFORCERTX3050VENTUS2XXS8GOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 3,
+    "recommended_psu_w": 500,
+    "external_power": [
+     "1x6-pin"
+    ],
+    "boost_clock_mhz": 1807
+   }
+  },
+  "113494464": {
+   "url": "https://icecat.biz/p/product/113494464",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid E240 Motherboard, Processor All-in-one liquid cooler 12 cm Black",
+   "keys": [
+    "0824142330500",
+    "4711377115728",
+    "824142330500",
+    "MAGCORELIQUIDE240"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 75.04,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1700"
+    ]
+   }
+  },
+  "113494477": {
+   "url": "https://icecat.biz/p/product/113494477",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG CORELIQUID E360 computer cooling system Motherboard, Processor All-in-one liquid cooler 12 cm Black",
+   "keys": [
+    "4711377115735",
+    "MAGCORELIQUIDE360"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 75.04,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1700"
+    ]
+   }
+  },
+  "113495982": {
+   "url": "https://icecat.biz/p/product/113495982",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid E360 White Motherboard, Processor All-in-one liquid cooler 12 cm",
+   "keys": [
+    "4711377124157",
+    "MAGCORELIQUIDE360WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 75.04,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1700"
+    ]
+   }
+  },
+  "113495996": {
+   "url": "https://icecat.biz/p/product/113495996",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid E240 WHITE Motherboard, Processor All-in-one liquid cooler 12 cm",
+   "keys": [
+    "4711377124140",
+    "MAGCORELIQUIDE240WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 75.04,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1700"
+    ]
+   }
+  },
+  "114681314": {
+   "url": "https://icecat.biz/p/product/114681314",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "MSI",
+   "title": "MSI MAG A850GL PCIE5 WHITE power supply unit 850 W 20+4 pin ATX ATX",
+   "keys": [
+    "4711377115391",
+    "4711377115407",
+    "MAGA850GLPCIE5WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 4,
+    "length_mm": 140
+   }
+  },
+  "115970613": {
+   "url": "https://icecat.biz/p/product/115970613",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO H610M-E motherboard Intel H610 LGA 1700 micro ATX",
+   "keys": [
+    "4711377125147",
+    "PROH610ME"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "116114350": {
+   "url": "https://icecat.biz/p/product/116114350",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "MSI",
+   "title": "MSI MAG A750BN PCIE5 power supply unit 750 W 24-pin ATX ATX Black",
+   "keys": [
+    "0824142333808",
+    "4711377126595",
+    "4711377126601",
+    "824142333808",
+    "MAGA750BNPCIE5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 750,
+    "efficiency": "80+ Bronze",
+    "type": "ATX",
+    "modular": "no",
+    "fan_size_mm": 120,
+    "pcie16_connectors": 1,
+    "pcie62_connectors": 2,
+    "sata_connectors": 5,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "117994701": {
+   "url": "https://icecat.biz/p/product/117994701",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B650M-B motherboard AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "4711377144797",
+    "PROB650MB"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "121557769": {
+   "url": "https://icecat.biz/p/product/121557769",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG Pano 100R PZ Midi Tower Black",
+   "keys": [
+    "4711377231565",
+    "MAGPANO100RPZ"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 380,
+    "max_cooler_height_mm": 166,
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm, 3 x 160 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "dimensions_mm": "W=290 H=482 D=519mm",
+    "lighting": "RGB"
+   }
+  },
+  "121599129": {
+   "url": "https://icecat.biz/p/product/121599129",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid I360 WHITE Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "4711377233217",
+    "MAGCORELIQUIDI360WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 70.7,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "121654822": {
+   "url": "https://icecat.biz/p/product/121654822",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG Pano 100R PZ Midi Tower White",
+   "keys": [
+    "4711377231572",
+    "MAGPANO100RPZWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 380,
+    "max_cooler_height_mm": 166,
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm, 3 x 160 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "dimensions_mm": "W=290 H=482 D=519mm",
+    "lighting": "RGB"
+   }
+  },
+  "122184052": {
+   "url": "https://icecat.biz/p/product/122184052",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI MPG X870E CARBON WIFI motherboard AMD X870E Socket AM5 ATX",
+   "keys": [
+    "0824142382219",
+    "4711377253536",
+    "824142382219",
+    "MPGX870ECARBONWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true
+   }
+  },
+  "122420769": {
+   "url": "https://icecat.biz/p/product/122420769",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO Z890-A WIFI motherboard Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0824142382233",
+    "4711377259729",
+    "824142382233",
+    "PROZ890AWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9200",
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897"
+   }
+  },
+  "122620185": {
+   "url": "https://icecat.biz/p/product/122620185",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI MPG Z890 CARBON WIFI motherboard Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0824142384343",
+    "4711377260794",
+    "824142384343",
+    "MPGZ890CARBONWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9200",
+     "6400",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P"
+   }
+  },
+  "122712398": {
+   "url": "https://icecat.biz/p/product/122712398",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI VENTUS GeForce RTX 3050 2X E 6G OC NVIDIA 6 GB GDDR6",
+   "keys": [
+    "4711377265591",
+    "GEFORCERTX3050VENTUS2XE6GOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 6,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 96,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 1
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 3,
+    "recommended_psu_w": 300,
+    "length_mm": 189,
+    "boost_clock_mhz": 1492
+   }
+  },
+  "122891230": {
+   "url": "https://icecat.biz/p/product/122891230",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid A13 240 WHITE Motherboard, Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "0824142388839",
+    "4711377276672",
+    "824142388839",
+    "MAGCORELIQUIDA13240WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 62.6,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "122891232": {
+   "url": "https://icecat.biz/p/product/122891232",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid A13 360 WHITE Motherboard, Processor All-in-one liquid cooler 12 cm 1 pc(s)",
+   "keys": [
+    "0824142388846",
+    "4711377276689",
+    "824142388846",
+    "MAGCORELIQUIDA13360WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 62.6,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "122965989": {
+   "url": "https://icecat.biz/p/product/122965989",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "MSI",
+   "title": "MSI MAG Coreliquid A13 360 Motherboard, Processor All-in-one liquid cooler 12 cm Black 1 pc(s)",
+   "keys": [
+    "4711377273770",
+    "CORELIQUIDA13360"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 62.6,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "124528936": {
+   "url": "https://icecat.biz/p/product/124528936",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "MSI",
+   "title": "MSI MAG A1000GL PCIE5 power supply unit 1000 W 24-pin ATX ATX Black",
+   "keys": [
+    "4711377142243",
+    "MAGA1000GLPCIE5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 135,
+    "pcie16_connectors": 1,
+    "pcie62_connectors": 4,
+    "sata_connectors": 12,
+    "molex4_connectors": 1,
+    "length_mm": 150
+   }
+  },
+  "124860426": {
+   "url": "https://icecat.biz/p/product/124860426",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B840-P WIFI motherboard AMD B840 Socket AM5 ATX",
+   "keys": [
+    "4711377286596",
+    "PROB840PWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "5600",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124860428": {
+   "url": "https://icecat.biz/p/product/124860428",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI MAG B850 TOMAHAWK MAX WIFI motherboard AMD B850 Socket AM5 ATX",
+   "keys": [
+    "0824142395356",
+    "4711377290623",
+    "824142395356",
+    "MAGB850TOMAHAWKMAXWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8400",
+     "5600",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080"
+   }
+  },
+  "124873681": {
+   "url": "https://icecat.biz/p/product/124873681",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI B860 GAMING PLUS WIFI motherboard Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0824142394854",
+    "4711377289764",
+    "824142394854",
+    "B860GAMINGPLUSWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8800",
+     "6400",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124873682": {
+   "url": "https://icecat.biz/p/product/124873682",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B860-P WIFI motherboard Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0824142392959",
+    "4711377286572",
+    "824142392959",
+    "PROB860PWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8800",
+     "6400",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124873683": {
+   "url": "https://icecat.biz/p/product/124873683",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B860-P motherboard Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "4711377289757",
+    "PROB860P"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8800",
+     "6400",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "125122867": {
+   "url": "https://icecat.biz/p/product/125122867",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GEFORCE RTX 5080 16G SHADOW 3X OC graphics card NVIDIA 16 GB GDDR7",
+   "keys": [
+    "0824142395882",
+    "4711377292498",
+    "4711377292504",
+    "4711377352093",
+    "824142395882",
+    "GEFORCERTX508016GSHADOW3XOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 303,
+    "boost_clock_mhz": 2640
+   }
+  },
+  "128520184": {
+   "url": "https://icecat.biz/p/product/128520184",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5070 Ti 16G VENTUS 3X OC NVIDIA 16 GB GDDR7",
+   "keys": [
+    "0824142402801",
+    "4711377301589",
+    "824142402801",
+    "GEFORCERTX5070TI16GVENTUS3XOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 303,
+    "boost_clock_mhz": 2482,
+    "core_clock_mhz": 2497
+   }
+  },
+  "128777446": {
+   "url": "https://icecat.biz/p/product/128777446",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5070 12G VENTUS 2X OC NVIDIA 12 GB GDDR7",
+   "keys": [
+    "0824142405727",
+    "4711377308229",
+    "824142405727",
+    "GEFORCERTX507012GVENTUS2XOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 236,
+    "boost_clock_mhz": 2542
+   }
+  },
+  "129190661": {
+   "url": "https://icecat.biz/p/product/129190661",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5070 12G SHADOW 3X OC NVIDIA 12 GB GDDR7",
+   "keys": [
+    "4711377308205",
+    "GEFORCERTX507012GSHADOW3XOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 303,
+    "boost_clock_mhz": 2542
+   }
+  },
+  "129543757": {
+   "url": "https://icecat.biz/p/product/129543757",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG PANO 110R PZ computer case Midi Tower Black",
+   "keys": [
+    "4711377293181",
+    "MAGPANO110RPZ"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 200,
+    "max_cooler_height_mm": 160,
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm, 3 x 160 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "dimensions_mm": "W=225 H=485 D=420mm"
+   }
+  },
+  "129616223": {
+   "url": "https://icecat.biz/p/product/129616223",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MPG VELOX 300R AIRFLOW PZ Midi Tower Black",
+   "keys": [
+    "4711377293167",
+    "MPGVELOX300RPZ"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 1,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 3 x 160 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "dimensions_mm": "W=235 H=518 D=485mm"
+   }
+  },
+  "129722618": {
+   "url": "https://icecat.biz/p/product/129722618",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GAMING GeForce RTX 5070 Ti 16G TRIO OC NVIDIA 16 GB GDDR7",
+   "keys": [
+    "0824142412879",
+    "4711377301541",
+    "824142412879",
+    "GEFORCERTX5070TI16GGAMINGTRIOOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 338,
+    "boost_clock_mhz": 2572
+   }
+  },
+  "130531818": {
+   "url": "https://icecat.biz/p/product/130531818",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI VENTUS GeForce RTX 5060 TI 16G 2X OC PLUS NVIDIA 16 GB GDDR7",
+   "keys": [
+    "0824142418567",
+    "4711377334471",
+    "5715328219113",
+    "824142418567",
+    "GEFORCERTX5060TI16GVENTUS2XOCPLUS"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 600,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 227,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "130570589": {
+   "url": "https://icecat.biz/p/product/130570589",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5060 TI 8G VENTUS 2X OC PLUS NVIDIA 8 GB GDDR7",
+   "keys": [
+    "0824142420997",
+    "4711377338868",
+    "824142420997",
+    "GEFORCERTX5060TI8GVENTUS2XOCPLUS"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Silver",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 600,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 227,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "131066768": {
+   "url": "https://icecat.biz/p/product/131066768",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5060 8G GAMING OC NVIDIA 8 GB GDDR7",
+   "keys": [
+    "0824142422823",
+    "4711377342544",
+    "5715328396418",
+    "824142422823",
+    "GEFORCERTX50608GGAMINGOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 248,
+    "boost_clock_mhz": 2625
+   }
+  },
+  "131090285": {
+   "url": "https://icecat.biz/p/product/131090285",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5070 Ti 16G GAMING TRIO OC WHITE NVIDIA 16 GB GDDR7",
+   "keys": [
+    "0824142402856",
+    "4711377301060",
+    "824142402856",
+    "GEFORCERTX5070TI16GGAMINGTRIOOCWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 338,
+    "boost_clock_mhz": 2572
+   }
+  },
+  "131220405": {
+   "url": "https://icecat.biz/p/product/131220405",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI X870E GAMING PLUS WIFI motherboard AMD X870E Socket AM5 ATX",
+   "keys": [
+    "4711377347594",
+    "X870EGAMINGPLUSWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true
+   }
+  },
+  "132104329": {
+   "url": "https://icecat.biz/p/product/132104329",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO X870E-P WIFI motherboard AMD X870E Socket AM5 ATX",
+   "keys": [
+    "0824142425565",
+    "4711377347600",
+    "824142425565",
+    "PROX870EPWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "5600",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true
+   }
+  },
+  "132108645": {
+   "url": "https://icecat.biz/p/product/132108645",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B840M-B motherboard AMD B840 Socket AM5 micro ATX",
+   "keys": [
+    "4711377360166",
+    "PROB840MB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8000",
+     "5600",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132186714": {
+   "url": "https://icecat.biz/p/product/132186714",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GEFORCE RTX 5060 TI 8G SHADOW 2X OC PLUS graphics card NVIDIA 8 GB GDDR7",
+   "keys": [
+    "0824142421321",
+    "4711377340281",
+    "824142421321",
+    "GEFORCERTX5060TI8GSHADOW2XOCPLUS"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 600,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 226,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "132551895": {
+   "url": "https://icecat.biz/p/product/132551895",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B850M-P WIFI motherboard AMD B850 Socket AM5 micro ATX",
+   "keys": [
+    "0824142426722",
+    "4711377350181",
+    "824142426722",
+    "PROB850MPWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "6400",
+     "6000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132585256": {
+   "url": "https://icecat.biz/p/product/132585256",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GAMING GeForce RTX 5060 Ti 16G SHADOW 2X OC PLUS NVIDIA 16 GB GDDR7",
+   "keys": [
+    "4711377334433",
+    "G506T16S2CP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 600,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 126,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "132624685": {
+   "url": "https://icecat.biz/p/product/132624685",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO B850-S WIFI6E motherboard AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711377365338",
+    "PROB850SWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897"
+   }
+  },
+  "132624696": {
+   "url": "https://icecat.biz/p/product/132624696",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO H810M-B motherboard Intel H810 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711377337977",
+    "PROH810MB"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897"
+   }
+  },
+  "132951203": {
+   "url": "https://icecat.biz/p/product/132951203",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5050 8G SHADOW 2X OC NVIDIA 8 GB GDDR6",
+   "keys": [
+    "0824142438336",
+    "4711377379960",
+    "4711377382328",
+    "824142438336",
+    "GEFORCERTX50508GSHADOW2XOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 130,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 197,
+    "boost_clock_mhz": 2602,
+    "core_clock_mhz": 2617
+   }
+  },
+  "132954005": {
+   "url": "https://icecat.biz/p/product/132954005",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5050 8G GAMING OC NVIDIA 8 GB GDDR6",
+   "keys": [
+    "0824142438343",
+    "4711377379946",
+    "824142438343",
+    "GEFORCERTX50508GGAMINGOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 202,
+    "boost_clock_mhz": 2632
+   }
+  },
+  "134865730": {
+   "url": "https://icecat.biz/p/product/134865730",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG PANO 130R PZ WHITE computer case Midi Tower",
+   "keys": [
+    "4711377373302",
+    "MAGPANO130RPZWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 8.4,
+    "dimensions_mm": "W=232 H=490 D=460mm"
+   }
+  },
+  "134865731": {
+   "url": "https://icecat.biz/p/product/134865731",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG PANO 130R PZ computer case Midi Tower Black",
+   "keys": [
+    "4711377365758",
+    "MAGPANO130RPZ"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 8.4,
+    "dimensions_mm": "W=232 H=490 D=460mm"
+   }
+  },
+  "140377123": {
+   "url": "https://icecat.biz/p/product/140377123",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG PANO M110R computer case Mini Tower Black",
+   "keys": [
+    "4711377405003",
+    "MAGPANOM110R"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 1,
+    "drive_bays_25": 1,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 5.7,
+    "dimensions_mm": "W=225 H=444 D=434mm",
+    "lighting": "RGB"
+   }
+  },
+  "140405607": {
+   "url": "https://icecat.biz/p/product/140405607",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "MSI",
+   "title": "MSI MAG PANO M110R Mini Tower White",
+   "keys": [
+    "4711377405010",
+    "MAGPANOM110RWHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 1,
+    "drive_bays_25": 1,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 5.7,
+    "dimensions_mm": "W=225 H=444 D=434mm",
+    "lighting": "RGB"
+   }
+  },
+  "140595851": {
+   "url": "https://icecat.biz/p/product/140595851",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "MSI",
+   "title": "MSI PRO X870E-S EVO WIFI motherboard AMD X870E Socket AM5 ATX",
+   "keys": [
+    "4711377412230",
+    "PROX870ESEVOWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "5600",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "149620842": {
+   "url": "https://icecat.biz/p/product/149620842",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "MSI",
+   "title": "MSI GeForce RTX 5060 8G VENTUS 2X OC V1 NVIDIA 8 GB GDDR7",
+   "keys": [
+    "4711377460880",
+    "GEFORCERTX50608GVENTUS2XOCV1"
+   ],
+   "names": [],
+   "specs": {
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 197,
+    "boost_clock_mhz": 2527,
+    "core_clock_mhz": 2535
+   }
+  }
+ }
+}

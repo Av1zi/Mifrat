@@ -1,0 +1,170 @@
+{
+ "brand": "FSP",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "104794975": {
+   "url": "https://icecat.biz/p/product/104794975",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "FSP",
+   "title": "FSP FSP450-51ACC power supply unit 450 W Grey",
+   "keys": [
+    "4713224523465",
+    "FSP45051ACC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "wattage_w": 450,
+    "modular": "no",
+    "fan_size_mm": 120,
+    "length_mm": 140
+   }
+  },
+  "128747828": {
+   "url": "https://icecat.biz/p/product/128747828",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "FSP",
+   "title": "FSP H3-650 power supply unit 650 W 24-pin ATX ATX Black",
+   "keys": [
+    "4713224522161",
+    "H3650"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 650,
+    "type": "ATX",
+    "modular": "no",
+    "pcie62_connectors": 2,
+    "sata_connectors": 5,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "130171039": {
+   "url": "https://icecat.biz/p/product/130171039",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "FSP",
+   "title": "FSP VITA-750GD power supply unit 750 W 24-pin ATX ATX Black",
+   "keys": [
+    "VITA750GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 1,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 140
+   }
+  },
+  "130171041": {
+   "url": "https://icecat.biz/p/product/130171041",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "FSP",
+   "title": "FSP VITA-1000GM power supply unit 1000 W 20+4 pin ATX ATX",
+   "keys": [
+    "VITA1000GM"
+   ],
+   "names": [],
+   "specs": {
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 4,
+    "molex4_connectors": 4,
+    "length_mm": 140
+   }
+  },
+  "145539970": {
+   "url": "https://icecat.biz/p/product/145539970",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "FSP",
+   "title": "FSP S342-BA computer case Black",
+   "keys": [
+    "S342BA"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "mb_form_factors": [
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 160,
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm, 3 x 360 mm",
+    "fan_side": "2 x 120 mm, 2 x 240 mm",
+    "radiator_support": {
+     "360 mm": 1
+    },
+    "dimensions_mm": "W=275 H=354 D=425mm"
+   }
+  },
+  "78533103": {
+   "url": "https://icecat.biz/p/product/78533103",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "FSP",
+   "title": "FSP Twins power supply unit 700 W 24-pin ATX ATX Black",
+   "keys": [
+    "FSP70050RGHBE1"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 700,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "no",
+    "fan_size_mm": 40,
+    "pcie62_connectors": 2,
+    "sata_connectors": 6,
+    "molex4_connectors": 2,
+    "length_mm": 190
+   }
+  },
+  "88011227": {
+   "url": "https://icecat.biz/p/product/88011227",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "FSP",
+   "title": "FSP HYDRO M Pro 800 power supply unit 800 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4713224524516",
+    "HP2800M"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 800,
+    "efficiency": "80+ Bronze",
+    "type": "ATX",
+    "modular": "semi",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "length_mm": 140
+   }
+  }
+ }
+}

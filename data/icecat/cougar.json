@@ -1,0 +1,27 @@
+{
+ "brand": "Cougar",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "62338106": {
+   "url": "https://icecat.biz/p/product/62338106",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Cougar",
+   "title": "COUGAR Vortex RGB FCB 120 Computer case Fan 12 cm Black",
+   "keys": [
+    "CFV12FBRGB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1200,
+    "airflow_cfm": 36.72,
+    "static_pressure_mmh2o": 0.78,
+    "led": "RGB"
+   }
+  }
+ }
+}

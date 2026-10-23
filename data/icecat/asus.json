@@ -1,0 +1,5998 @@
+{
+ "brand": "ASUS",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "101257982": {
+   "url": "https://icecat.biz/p/product/101257982",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME A520M-K AMD A520 Socket AM4 micro ATX",
+   "keys": [
+    "4718017826921",
+    "90150000",
+    "90MB1500M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "4866",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC887 / Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "101680275": {
+   "url": "https://icecat.biz/p/product/101680275",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X670E-I GAMING WIFI AMD X670 Socket AM5 mini ITX",
+   "keys": [
+    "0195553905572",
+    "195553905572",
+    "4711081905578",
+    "90MB1B70M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X670",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4050H",
+    "bios": "UEFI AMI"
+   }
+  },
+  "101680278": {
+   "url": "https://icecat.biz/p/product/101680278",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME X670-P WIFI AMD X670 Socket AM5 ATX",
+   "keys": [
+    "4711081884583",
+    "90MB1BV0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X670",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5100",
+     "4800"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "101680279": {
+   "url": "https://icecat.biz/p/product/101680279",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME X670E-PRO WIFI AMD X670 Socket AM5 ATX",
+   "keys": [
+    "0195553905664",
+    "195553905664",
+    "4711081905660",
+    "90MB1BL0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X670",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek S1220A",
+    "bios": "UEFI AMI"
+   }
+  },
+  "101929585": {
+   "url": "https://icecat.biz/p/product/101929585",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING TF120 ARGB WHITE EDITION 3IN1 Computer case Fan 12 cm 3 pc(s)",
+   "keys": [
+    "4711081845447",
+    "90003309030",
+    "90DA0033B09030"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "rpm_max": 1900,
+    "rpm_min": 250,
+    "airflow_cfm": 76.0,
+    "noise_db": 29.0
+   }
+  },
+  "101955744": {
+   "url": "https://icecat.biz/p/product/101955744",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B650E-I GAMING WIFI AMD B650 Socket AM5 mini ITX",
+   "keys": [
+    "4711081957881",
+    "90MB1BI0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "101955752": {
+   "url": "https://icecat.biz/p/product/101955752",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B650E-E GAMING WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711081906209",
+    "90MB1BB0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "101955784": {
+   "url": "https://icecat.biz/p/product/101955784",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B650-A GAMING WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "0195553917766",
+    "195553917766",
+    "4711081917762",
+    "90MB1BP0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "101955793": {
+   "url": "https://icecat.biz/p/product/101955793",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650M-PLUS WIFI AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "0195553912112",
+    "195553912112",
+    "4711081912118",
+    "90MB1BF0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "101955839": {
+   "url": "https://icecat.biz/p/product/101955839",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650-PLUS AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711081912767",
+    "90MB1BY0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "102190576": {
+   "url": "https://icecat.biz/p/product/102190576",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650-PLUS WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "0195553912655",
+    "195553912655",
+    "4711081912651",
+    "4711081912668",
+    "90MB1BZ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "102190609": {
+   "url": "https://icecat.biz/p/product/102190609",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650M-PLUS AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "4711081912392",
+    "90MB1BG0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "102190611": {
+   "url": "https://icecat.biz/p/product/102190611",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B650E-F GAMING WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711081944034",
+    "90MB1BQ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "107336064": {
+   "url": "https://icecat.biz/p/product/107336064",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B760-I GAMING WIFI Intel B760 LGA 1700 mini ITX",
+   "keys": [
+    "4711081997658",
+    "90MB1D90M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "SupremeFX S1220A",
+    "bios": "UEFI AMI"
+   }
+  },
+  "107443216": {
+   "url": "https://icecat.biz/p/product/107443216",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A WIFI D4 Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711081982661",
+    "90MB1CX0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "108765057": {
+   "url": "https://icecat.biz/p/product/108765057",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF Gaming B760-Plus WIFI Intel B760 LGA 1700 ATX",
+   "keys": [
+    "0197105095113",
+    "197105095113",
+    "4711387095119",
+    "90MB1ER0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5066"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "109202996": {
+   "url": "https://icecat.biz/p/product/109202996",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760-PLUS Intel B760 LGA 1700 ATX",
+   "keys": [
+    "0197105102989",
+    "197105102989",
+    "90MB1EF0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "109202997": {
+   "url": "https://icecat.biz/p/product/109202997",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B760M-PLUS Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387139349",
+    "90MB1ES0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "109980580": {
+   "url": "https://icecat.biz/p/product/109980580",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A-CSM Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387140710",
+    "90MB1EK0M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "bios": "UEFI AMI"
+   }
+  },
+  "110848605": {
+   "url": "https://icecat.biz/p/product/110848605",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-K Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387198506",
+    "90MB1FI0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "111738251": {
+   "url": "https://icecat.biz/p/product/111738251",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B650M-K AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "4711387236628",
+    "90MB1F60M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "111738253": {
+   "url": "https://icecat.biz/p/product/111738253",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650M-E AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "4711387221969",
+    "90MB1FU0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 8,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "111738257": {
+   "url": "https://icecat.biz/p/product/111738257",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650M-E WIFI AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "4711387222041",
+    "90MB1FV0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "113760171": {
+   "url": "https://icecat.biz/p/product/113760171",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF Gaming B760-Plus WIFI Intel B760 LGA 1700 ATX",
+   "keys": [
+    "90MB1ER0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5066"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "113760923": {
+   "url": "https://icecat.biz/p/product/113760923",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME H610M-A-CSM Intel H610 LGA 1700 micro ATX",
+   "keys": [
+    "4711387293911",
+    "4711387293935",
+    "90MB1G20M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "114406033": {
+   "url": "https://icecat.biz/p/product/114406033",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME Z790-P WIFI Intel Z790 LGA 1700 ATX",
+   "keys": [
+    "0195553937221",
+    "195553937221",
+    "90MB1CJ0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "114406400": {
+   "url": "https://icecat.biz/p/product/114406400",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760-PLUS D4 Intel B760 LGA 1700 ATX",
+   "keys": [
+    "90MB1CW0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933",
+     "2800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "114468993": {
+   "url": "https://icecat.biz/p/product/114468993",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-K Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "0197105198500",
+    "197105198500",
+    "90MB1FI0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "114502659": {
+   "url": "https://icecat.biz/p/product/114502659",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B760M-BTF WIFI Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "0197105324541",
+    "197105324541",
+    "4711387324547",
+    "90MB1G50M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "114502732": {
+   "url": "https://icecat.biz/p/product/114502732",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B550M-K ARGB AMD B550 Socket AM4 micro ATX",
+   "keys": [
+    "4711387316030",
+    "90MB1GC0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4866",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "EFI AMI"
+   }
+  },
+  "114502734": {
+   "url": "https://icecat.biz/p/product/114502734",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME H610M-K ARGB Intel H610 LGA 1700 micro ATX",
+   "keys": [
+    "4711387313350",
+    "90MB1G90M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "114536895": {
+   "url": "https://icecat.biz/p/product/114536895",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A WIFI D4 Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "90MB1CX0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "114572813": {
+   "url": "https://icecat.biz/p/product/114572813",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A WIFI Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "90MB1EL0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "116769150": {
+   "url": "https://icecat.biz/p/product/116769150",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-K D4 Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387006917",
+    "90MB1DS0M1EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "117550835": {
+   "url": "https://icecat.biz/p/product/117550835",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A D4-CSM Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "90MB1D00M1EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "117560934": {
+   "url": "https://icecat.biz/p/product/117560934",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS Pro WS TRX50-SAGE WIFI AMD TRX50 Socket sTR5 SSI CEB",
+   "keys": [
+    "0197105402720",
+    "197105402720",
+    "4711387402726",
+    "90MB1FZ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "sTR5",
+    "chipset": "TRX50",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "117826755": {
+   "url": "https://icecat.biz/p/product/117826755",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-R D4 Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387423769",
+    "90MB1HA0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5333",
+     "5066",
+     "5000",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4000",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3200",
+     "3000",
+     "2933"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "117826756": {
+   "url": "https://icecat.biz/p/product/117826756",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B650M-R AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "4711387429761",
+    "90MB1H30M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "118250349": {
+   "url": "https://icecat.biz/p/product/118250349",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME A520M-R AMD A520 Socket AM4 micro ATX",
+   "keys": [
+    "4711387466414",
+    "90MB1H60M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4866",
+     "4666",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "118250350": {
+   "url": "https://icecat.biz/p/product/118250350",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650-E WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711387423073",
+    "90MB1GT0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "118252137": {
+   "url": "https://icecat.biz/p/product/118252137",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-PLUS Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387469910",
+    "90MB1GY0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "118279397": {
+   "url": "https://icecat.biz/p/product/118279397",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B760M-PLUS WIFI II Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387461365",
+    "90MB1HE0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7800",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "118279398": {
+   "url": "https://icecat.biz/p/product/118279398",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B760M-PLUS II Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711387469798",
+    "90MB1HD0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "118524616": {
+   "url": "https://icecat.biz/p/product/118524616",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX3050-O6G NVIDIA GeForce RTX 3050 6 GB GDDR6",
+   "keys": [
+    "0197105470644",
+    "197105470644",
+    "4711387470633",
+    "90060000",
+    "90YV0K60M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 6,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 96,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 1
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 3,
+    "recommended_psu_w": 550,
+    "length_mm": 201,
+    "boost_clock_mhz": 1507
+   }
+  },
+  "118591100": {
+   "url": "https://icecat.biz/p/product/118591100",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A-CSM Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "90MB1EK0M1EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "bios": "UEFI AMI"
+   }
+  },
+  "119826539": {
+   "url": "https://icecat.biz/p/product/119826539",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "ASUS",
+   "title": "ASUS TUF Gaming GT502 PLUS Midi Tower White",
+   "keys": [
+    "4711387204689",
+    "90009319000",
+    "90DC0093B19000"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "max_cooler_height_mm": 163,
+    "drive_bays_35": 4,
+    "drive_bays_25": 4,
+    "expansion_slots": "8",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 11.0,
+    "dimensions_mm": "W=285 H=450 D=446mm"
+   }
+  },
+  "121139644": {
+   "url": "https://icecat.biz/p/product/121139644",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS GT710-SL-2GD5-BRK-EVO NVIDIA GeForce GT 710 2 GB GDDR5",
+   "keys": [
+    "4711387418680",
+    "90YV0ALAM0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Blue",
+    "fan_count": 0,
+    "memory_gb": 2,
+    "memory_type": "GDDR5",
+    "memory_bus_bit": 64,
+    "interface": "PCIe 2.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "max_resolution": "3840x2160",
+    "max_displays": 3,
+    "recommended_psu_w": 300,
+    "length_mm": 170,
+    "cooling": "Passive"
+   }
+  },
+  "122344455": {
+   "url": "https://icecat.biz/p/product/122344455",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG CROSSHAIR X870E HERO AMD X870E Socket AM5 ATX",
+   "keys": [
+    "0197105710306",
+    "197105710306",
+    "4711387710302",
+    "90MB1IE0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4082",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344456": {
+   "url": "https://icecat.biz/p/product/122344456",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME X870-P AMD X870 Socket AM5 ATX",
+   "keys": [
+    "4711387723036",
+    "90MB1IT0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344457": {
+   "url": "https://icecat.biz/p/product/122344457",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS Prime X870-P WIFI AMD X870 Socket AM5 ATX",
+   "keys": [
+    "0197105718142",
+    "197105718142",
+    "4711387718148",
+    "90MB1IS0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344458": {
+   "url": "https://icecat.biz/p/product/122344458",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ProArt X870E-CREATOR WIFI AMD X870E Socket AM5 ATX",
+   "keys": [
+    "4711387730775",
+    "90MB1IG0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek S1220A",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344459": {
+   "url": "https://icecat.biz/p/product/122344459",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X870-A GAMING WIFI AMD X870 Socket AM5 ATX",
+   "keys": [
+    "0197105737853",
+    "197105737853",
+    "4711387737859",
+    "90MB1IF0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Aluminium",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344460": {
+   "url": "https://icecat.biz/p/product/122344460",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X870-F GAMING WIFI AMD X870 Socket AM5 ATX",
+   "keys": [
+    "0197105732049",
+    "197105732049",
+    "4711387732045",
+    "90MB1IV0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344461": {
+   "url": "https://icecat.biz/p/product/122344461",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X870-I GAMING WIFI AMD X870 Socket AM5 mini ITX",
+   "keys": [
+    "0197105740303",
+    "197105740303",
+    "4711387740309",
+    "90MB1IW0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "8600"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344462": {
+   "url": "https://icecat.biz/p/product/122344462",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X870E-E GAMING WIFI AMD X870E Socket AM5 ATX",
+   "keys": [
+    "0197105724167",
+    "0199291407947",
+    "197105724167",
+    "199291407947",
+    "4711387724163",
+    "90MB1IB0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122344463": {
+   "url": "https://icecat.biz/p/product/122344463",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING X870-PLUS WIFI AMD X870 Socket AM5 ATX",
+   "keys": [
+    "4711387723609",
+    "90MB1IU0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653610": {
+   "url": "https://icecat.biz/p/product/122653610",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME Z890-P Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "4711387759103",
+    "90MB1I50M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653611": {
+   "url": "https://icecat.biz/p/product/122653611",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME Z890-P WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105754812",
+    "197105754812",
+    "4711387754818",
+    "90MB1I70M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653612": {
+   "url": "https://icecat.biz/p/product/122653612",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME Z890M-PLUS WIFI Intel Z890 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387755419",
+    "90MB1J80M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 6,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653613": {
+   "url": "https://icecat.biz/p/product/122653613",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG MAXIMUS Z890 APEX Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105754294",
+    "197105754294",
+    "4711387754290",
+    "90MB1IP0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Aluminium",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "sata_ports": 4,
+    "m2_slots": [
+     "6"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653615": {
+   "url": "https://icecat.biz/p/product/122653615",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG MAXIMUS Z890 HERO Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105747227",
+    "197105747227",
+    "4711387747223",
+    "90MB1ID0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "6"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4082",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653616": {
+   "url": "https://icecat.biz/p/product/122653616",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX Z890-A GAMING WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105758834",
+    "197105758834",
+    "4711387758830",
+    "90MB1I90M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653617": {
+   "url": "https://icecat.biz/p/product/122653617",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX Z890-E GAMING WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105756137",
+    "197105756137",
+    "4711387756133",
+    "90MB1IM0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "7"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653618": {
+   "url": "https://icecat.biz/p/product/122653618",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX Z890-F GAMING WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105755925",
+    "197105755925",
+    "4711387755921",
+    "90MB1I40M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653620": {
+   "url": "https://icecat.biz/p/product/122653620",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING Z890-PLUS WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105763920",
+    "197105763920",
+    "4711387763926",
+    "90MB1IQ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122653621": {
+   "url": "https://icecat.biz/p/product/122653621",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING Z890-PRO WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105762633",
+    "197105762633",
+    "4711387762639",
+    "90MB1IR0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770320": {
+   "url": "https://icecat.biz/p/product/124770320",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B850-E GAMING WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "90MB1J60M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770323": {
+   "url": "https://icecat.biz/p/product/124770323",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B850-A GAMING WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "90MB1J50M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770324": {
+   "url": "https://icecat.biz/p/product/124770324",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B850-F GAMING WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "90MB1J70M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770326": {
+   "url": "https://icecat.biz/p/product/124770326",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850-PLUS WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711387781609",
+    "90MB1J30M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770327": {
+   "url": "https://icecat.biz/p/product/124770327",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B850-I GAMING WIFI AMD B850 Socket AM5 mini ITX",
+   "keys": [
+    "0197105823624",
+    "197105823624",
+    "4711387823620",
+    "90MB1K30M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "8400"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770328": {
+   "url": "https://icecat.biz/p/product/124770328",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850M-PLUS AMD B850 Socket AM5 micro ATX",
+   "keys": [
+    "4711387775172",
+    "90MB1IX0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124770329": {
+   "url": "https://icecat.biz/p/product/124770329",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850M-PLUS WIFI AMD B850 Socket AM5 micro ATX",
+   "keys": [
+    "4711387764916",
+    "90MB1IY0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124804279": {
+   "url": "https://icecat.biz/p/product/124804279",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRO WS Z890-ACE SE Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "90MB1JC0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825289": {
+   "url": "https://icecat.biz/p/product/124825289",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B860-F GAMING WIFI Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "4711387806951",
+    "90MB1JG0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825290": {
+   "url": "https://icecat.biz/p/product/124825290",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B860-A GAMING WIFI Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "4711387788424",
+    "90MB1JI0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600"
+    ],
+    "sata_ports": 4,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825291": {
+   "url": "https://icecat.biz/p/product/124825291",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B860-G GAMING WIFI Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387806838",
+    "90MB1JF0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825292": {
+   "url": "https://icecat.biz/p/product/124825292",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B860-I GAMING WIFI Intel B860 LGA 1851 (Socket V1) mini ITX",
+   "keys": [
+    "90MB1JB0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9066"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825293": {
+   "url": "https://icecat.biz/p/product/124825293",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B860-PLUS WIFI Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105815148",
+    "197105815148",
+    "4711387815144",
+    "90MB1JL0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825294": {
+   "url": "https://icecat.biz/p/product/124825294",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B860M-PLUS WIFI Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "0197105783096",
+    "197105783096",
+    "4711387783092",
+    "90MB1JV0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825295": {
+   "url": "https://icecat.biz/p/product/124825295",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B860M-PLUS Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "90MB1JW0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825296": {
+   "url": "https://icecat.biz/p/product/124825296",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B860-PLUS WIFI Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105814691",
+    "0197105814738",
+    "197105814691",
+    "197105814738",
+    "4711387814697",
+    "90MB1K50M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825297": {
+   "url": "https://icecat.biz/p/product/124825297",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B860-PLUS-CSM Intel B860 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "4711387814857",
+    "90MB1KA0M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825298": {
+   "url": "https://icecat.biz/p/product/124825298",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B860M-A WIFI Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387806289",
+    "90MB1JY0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825299": {
+   "url": "https://icecat.biz/p/product/124825299",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B860M-A-CSM Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387819869",
+    "90MB1K00M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124825300": {
+   "url": "https://icecat.biz/p/product/124825300",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B860M-K Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387808498",
+    "90MB1JT0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124885090": {
+   "url": "https://icecat.biz/p/product/124885090",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B650-PLUS WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711387760895",
+    "90MB1KP0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124923009": {
+   "url": "https://icecat.biz/p/product/124923009",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME H810M-A WIFI Intel H810 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387842522",
+    "90MB1KJ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124923010": {
+   "url": "https://icecat.biz/p/product/124923010",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME H810M-A-CSM Intel H810 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387844625",
+    "90MB1KK0M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "125003497": {
+   "url": "https://icecat.biz/p/product/125003497",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RTX5080-O16G NVIDIA GeForce RTX 5080 16 GB GDDR7",
+   "keys": [
+    "0197105837782",
+    "0197105868397",
+    "197105837782",
+    "197105868397",
+    "4711387837788",
+    "90YV0LX0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 306
+   }
+  },
+  "125003498": {
+   "url": "https://icecat.biz/p/product/125003498",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS TUF Gaming TUF-RX9070XT-O16G-GAMING AMD Radeon RX 9070 XT 16 GB GDDR6",
+   "keys": [
+    "0197105829572",
+    "197105829572",
+    "4711387829578",
+    "90070000",
+    "90YV0L70M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "3x8-pin"
+    ],
+    "length_mm": 330,
+    "boost_clock_mhz": 3060
+   }
+  },
+  "125003499": {
+   "url": "https://icecat.biz/p/product/125003499",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RX9070XT-O16G AMD Radeon RX 9070 XT 16 GB GDDR6",
+   "keys": [
+    "0197105829589",
+    "0197105860810",
+    "197105829589",
+    "197105860810",
+    "4711387829585",
+    "90071000",
+    "90YV0L71M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "3x8-pin"
+    ],
+    "length_mm": 312,
+    "boost_clock_mhz": 3010
+   }
+  },
+  "125121702": {
+   "url": "https://icecat.biz/p/product/125121702",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS TUF Gaming TUF-RTX5090-O32G-GAMING NVIDIA GeForce RTX 5090 32 GB GDDR7",
+   "keys": [
+    "4711387890325",
+    "90YV0LY0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 3,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 348,
+    "boost_clock_mhz": 2550
+   }
+  },
+  "125121719": {
+   "url": "https://icecat.biz/p/product/125121719",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS ROG Astral - -RTX5090-O32G-GAMING NVIDIA GeForce RTX 5090 32 GB GDDR7",
+   "keys": [
+    "0197105890282",
+    "197105890282",
+    "4711387890288",
+    "90YV0LW0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "fan_count": 4,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 358,
+    "boost_clock_mhz": 2580
+   }
+  },
+  "125218229": {
+   "url": "https://icecat.biz/p/product/125218229",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RTX5070TI-O16G NVIDIA GeForce RTX 5070 Ti 16 GB GDDR7",
+   "keys": [
+    "0197105878044",
+    "197105878044",
+    "4711387861516",
+    "90YV0MF0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 306
+   }
+  },
+  "125238769": {
+   "url": "https://icecat.biz/p/product/125238769",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B850-PLUS WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711387931509",
+    "90MB1L80M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "125355769": {
+   "url": "https://icecat.biz/p/product/125355769",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS B650E MAX GAMING WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "4711387932445",
+    "90MB1LD0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "125355770": {
+   "url": "https://icecat.biz/p/product/125355770",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX Z890-H GAMING WIFI Intel Z890 LGA 1851 (Socket V1) ATX",
+   "keys": [
+    "0197105880672",
+    "197105880672",
+    "4711387880678",
+    "90MB1K20M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "128787586": {
+   "url": "https://icecat.biz/p/product/128787586",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RTX5070-O12G NVIDIA GeForce RTX 5070 12 GB GDDR7",
+   "keys": [
+    "0197105837829",
+    "197105837829",
+    "4711387837825",
+    "90010000",
+    "90YV0M10M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2557
+   }
+  },
+  "130073522": {
+   "url": "https://icecat.biz/p/product/130073522",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS X870 MAX GAMING WIFI7 AMD X870 Socket AM5 ATX",
+   "keys": [
+    "4711636007849",
+    "90MB1LY0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130073523": {
+   "url": "https://icecat.biz/p/product/130073523",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS X870 MAX GAMING WIFI7 W AMD X870 Socket AM5 ATX",
+   "keys": [
+    "0199291007857",
+    "199291007857",
+    "4711636007856",
+    "90MB1LZ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130080981": {
+   "url": "https://icecat.biz/p/product/130080981",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5060TI-O16G NVIDIA GeForce RTX 5060 Ti 16 GB GDDR7",
+   "keys": [
+    "0197105994300",
+    "197105994300",
+    "4711387994306",
+    "90YV0MH0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 229,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "130124332": {
+   "url": "https://icecat.biz/p/product/130124332",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RTX5060TI-O16G NVIDIA GeForce RTX 5060 Ti 16 GB GDDR7",
+   "keys": [
+    "0197105994058",
+    "0199291014756",
+    "197105994058",
+    "199291014756",
+    "4711387994054",
+    "90YV0MH2M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2617
+   }
+  },
+  "130351272": {
+   "url": "https://icecat.biz/p/product/130351272",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5060TI-O8G NVIDIA GeForce RTX 5060 Ti 8 GB GDDR7",
+   "keys": [
+    "0197105994294",
+    "197105994294",
+    "4711387994290",
+    "90YV0MP2M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 229,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "130520673": {
+   "url": "https://icecat.biz/p/product/130520673",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B850M-K AMD B850 Socket AM5 micro ATX",
+   "keys": [
+    "0199291005518",
+    "199291005518",
+    "4711636005517",
+    "4711636005524",
+    "90MB1LV0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130520674": {
+   "url": "https://icecat.biz/p/product/130520674",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650E-E WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "0197105992498",
+    "197105992498",
+    "4711387992494",
+    "90MB1LT0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130520675": {
+   "url": "https://icecat.biz/p/product/130520675",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS B850 MAX GAMING WIFI W AMD B850 Socket AM5 ATX",
+   "keys": [
+    "0197105981010",
+    "197105981010",
+    "4711387981016",
+    "90MB1M10M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130520677": {
+   "url": "https://icecat.biz/p/product/130520677",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS B650E MAX GAMING WIFI W AMD B650 Socket AM5 ATX",
+   "keys": [
+    "0197105975590",
+    "197105975590",
+    "4711387975596",
+    "90MB1M00M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130526482": {
+   "url": "https://icecat.biz/p/product/130526482",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850-E WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "0197105987548",
+    "197105987548",
+    "4711387987544",
+    "90MB1L20M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130526483": {
+   "url": "https://icecat.biz/p/product/130526483",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B650E-PLUS WIFI AMD B650 Socket AM5 ATX",
+   "keys": [
+    "0197105995482",
+    "197105995482",
+    "4711387995488",
+    "90MB1M20M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "130587741": {
+   "url": "https://icecat.biz/p/product/130587741",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850-BTF WIFI W AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711387941874",
+    "90MB1KW0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "130640329": {
+   "url": "https://icecat.biz/p/product/130640329",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS B860M MAX GAMING AX Intel B860 LGA 1851 (Socket V1) micro ATX",
+   "keys": [
+    "4711387831694",
+    "90MB1JZ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8666"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "130802112": {
+   "url": "https://icecat.biz/p/product/130802112",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5060TI-8G NVIDIA GeForce RTX 5060 Ti 8 GB GDDR7",
+   "keys": [
+    "0199291014183",
+    "199291014183",
+    "4711636014182",
+    "90YV0MP3M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 229,
+    "boost_clock_mhz": 2572
+   }
+  },
+  "130955626": {
+   "url": "https://icecat.biz/p/product/130955626",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5060-O8G NVIDIA GeForce RTX 5060 8 GB GDDR7",
+   "keys": [
+    "0199291057906",
+    "199291057906",
+    "4711636057899",
+    "90012000",
+    "90YV0N12M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 228,
+    "boost_clock_mhz": 2535
+   }
+  },
+  "131057571": {
+   "url": "https://icecat.biz/p/product/131057571",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RTX5070-O12G-WHITE NVIDIA GeForce RTX 5070 12 GB GDDR7",
+   "keys": [
+    "4711636046121",
+    "90019000",
+    "90YV0M19M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2557
+   }
+  },
+  "131057573": {
+   "url": "https://icecat.biz/p/product/131057573",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5070-O12G NVIDIA GeForce RTX 5070 12 GB GDDR7",
+   "keys": [
+    "0199291046214",
+    "199291046214",
+    "4711636046213",
+    "90017000",
+    "90YV0M17M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "fan_count": 2,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 249,
+    "boost_clock_mhz": 2542
+   }
+  },
+  "131239099": {
+   "url": "https://icecat.biz/p/product/131239099",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING X870E-PLUS WIFI7 AMD X870E Socket AM5 ATX",
+   "keys": [
+    "4711636100342",
+    "90MB1M70M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "132529041": {
+   "url": "https://icecat.biz/p/product/132529041",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "ASUS",
+   "title": "ASUS PRIME AP202 ARGB Mini Tower Black",
+   "keys": [
+    "0199291006539",
+    "199291006539",
+    "4711636006521",
+    "9000019000",
+    "90DC00P0B19000"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mini Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 420,
+    "max_cooler_height_mm": 175,
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "expansion_slots": "4",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "360 mm": 1
+    },
+    "weight_kg": 9.1,
+    "dimensions_mm": "W=236 H=441 D=460mm",
+    "lighting": "RGB"
+   }
+  },
+  "132918644": {
+   "url": "https://icecat.biz/p/product/132918644",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X870E-H GAMING WIFI7 AMD X870E Socket AM5 ATX",
+   "keys": [
+    "90MB1M90M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "133172718": {
+   "url": "https://icecat.biz/p/product/133172718",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5060TI-O16G-WHITE NVIDIA GeForce RTX 5060 Ti 16 GB GDDR7",
+   "keys": [
+    "4711636179973",
+    "90YV0MH6M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 229,
+    "boost_clock_mhz": 2602
+   }
+  },
+  "133489542": {
+   "url": "https://icecat.biz/p/product/133489542",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RTX5060-O8G-WHITE NVIDIA GeForce RTX 5060 8 GB GDDR7",
+   "keys": [
+    "4711636196963",
+    "90015000",
+    "90YV0N15M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 228,
+    "boost_clock_mhz": 2535
+   }
+  },
+  "133489546": {
+   "url": "https://icecat.biz/p/product/133489546",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RX9070-O16G-EVO AMD Radeon RX 9070 16 GB GDDR6",
+   "keys": [
+    "0199291204102",
+    "0199291204119",
+    "199291204102",
+    "199291204119",
+    "4711636204101",
+    "90YV0MQ0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "2x8-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2590
+   }
+  },
+  "133489547": {
+   "url": "https://icecat.biz/p/product/133489547",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RX9060XT-16G AMD Radeon RX 9060 XT 16 GB GDDR6",
+   "keys": [
+    "0199291196766",
+    "0199291196773",
+    "199291196766",
+    "199291196773",
+    "4711636196765",
+    "90YV0LG2M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 3,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 202,
+    "boost_clock_mhz": 3230
+   }
+  },
+  "133489548": {
+   "url": "https://icecat.biz/p/product/133489548",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Dual -RX9060XT-16G-WHITE AMD Radeon RX 9060 XT 16 GB GDDR6",
+   "keys": [
+    "0199291203006",
+    "0199291203013",
+    "199291203006",
+    "199291203013",
+    "4711636203005",
+    "90YV0LG3M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_displays": 3,
+    "recommended_psu_w": 550,
+    "length_mm": 202
+   }
+  },
+  "134070851": {
+   "url": "https://icecat.biz/p/product/134070851",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS Prime -RX9070XT-O16G-WHITE AMD Radeon RX 9070 XT 16 GB GDDR6",
+   "keys": [
+    "0199291234246",
+    "0199291235427",
+    "199291234246",
+    "199291235427",
+    "4711636234245",
+    "90075000",
+    "90YV0L75M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "3x8-pin"
+    ],
+    "length_mm": 312,
+    "boost_clock_mhz": 3010,
+    "core_clock_mhz": 2460
+   }
+  },
+  "134156951": {
+   "url": "https://icecat.biz/p/product/134156951",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS ProArt -RTX5070TI-O16G NVIDIA GeForce RTX 5070 Ti 16 GB GDDR7",
+   "keys": [
+    "0199291227002",
+    "199291227002",
+    "4711636226998",
+    "90YV0NR0M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2588
+   }
+  },
+  "137555154": {
+   "url": "https://icecat.biz/p/product/137555154",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-F WIFI Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711636182232",
+    "90MB1N00M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "138344568": {
+   "url": "https://icecat.biz/p/product/138344568",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B850M-F WIFI AMD B850 Socket AM5 micro ATX",
+   "keys": [
+    "4711636260176",
+    "90MB1N80M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "138395758": {
+   "url": "https://icecat.biz/p/product/138395758",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B760M-A WIFI II Intel B760 LGA 1700 micro ATX",
+   "keys": [
+    "4711636275439",
+    "90MB1NF0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "5000",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "138563282": {
+   "url": "https://icecat.biz/p/product/138563282",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS TUF Gaming TUF-RX9070XT-O16G-COD-BO7 AMD Radeon RX 9070 XT 16 GB GDDR6",
+   "keys": [
+    "4711636302265",
+    "90076000",
+    "90YV0L76M0NM00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "3x8-pin"
+    ],
+    "length_mm": 330,
+    "boost_clock_mhz": 3060
+   }
+  },
+  "139192581": {
+   "url": "https://icecat.biz/p/product/139192581",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG CROSSHAIR X870E DARK HERO AMD X870E Socket AM5 ATX",
+   "keys": [
+    "0199291398672",
+    "199291398672",
+    "4711636398671",
+    "90MB1NT0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4082",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139192582": {
+   "url": "https://icecat.biz/p/product/139192582",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG CROSSHAIR X870E GLACIAL AMD X870E Socket AM5 Extended ATX",
+   "keys": [
+    "4711636392044",
+    "90MB1NQ0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "7"
+    ],
+    "ethernet": "LAN 10 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4082",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139822105": {
+   "url": "https://icecat.biz/p/product/139822105",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B840M-K AMD B840 Socket AM5 micro ATX",
+   "keys": [
+    "4711636435048",
+    "90MB1PK0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "139993092": {
+   "url": "https://icecat.biz/p/product/139993092",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B850-F GAMING WIFI7 NEO AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711636434904",
+    "90MB1NX0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139993093": {
+   "url": "https://icecat.biz/p/product/139993093",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING X870-PRO WIFI7 W NEO AMD X870 Socket AM5 ATX",
+   "keys": [
+    "4711636425247",
+    "90MB1NY0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9600"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139993094": {
+   "url": "https://icecat.biz/p/product/139993094",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B850-A GAMING WIFI7 NEO AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711636446518",
+    "90MB1P10M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139993095": {
+   "url": "https://icecat.biz/p/product/139993095",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850-PRO WIFI7 W NEO AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711636435994",
+    "90MB1NW0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "140075947": {
+   "url": "https://icecat.biz/p/product/140075947",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS B850 MAX GAMING WIFI AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711636465519",
+    "90MB1PR0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "141944279": {
+   "url": "https://icecat.biz/p/product/141944279",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PROART B850-CREATOR WIFI NEO AMD B850 Socket AM5 ATX",
+   "keys": [
+    "4711636504447",
+    "90MB1P60M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "142025846": {
+   "url": "https://icecat.biz/p/product/142025846",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRO WS W890-SAGE Intel W890 LGA 4710-2 CEB",
+   "keys": [
+    "0199291390454",
+    "0199291390478",
+    "199291390454",
+    "199291390478",
+    "4711636390453",
+    "90MB1MW0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA4710",
+    "chipset": "W890",
+    "memory_type": "DDR5",
+    "memory_slots": 8,
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC1220P",
+    "bios": "UEFI AMI"
+   }
+  },
+  "142233015": {
+   "url": "https://icecat.biz/p/product/142233015",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX X870E-E GAMING WIFI7 NEO AMD X870E Socket AM5 ATX",
+   "keys": [
+    "4711636407946",
+    "90MB1P20M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "145552126": {
+   "url": "https://icecat.biz/p/product/145552126",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B850I WIFI NEO AMD B850 Socket AM5 mini ITX",
+   "keys": [
+    "4711636580915",
+    "90MB1PI0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9600"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "147152607": {
+   "url": "https://icecat.biz/p/product/147152607",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS T1-RTX5070-O12G-GAMING NVIDIA GeForce RTX 5070 12 GB GDDR7",
+   "keys": [
+    "4711636601399",
+    "90YV0M1GM0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 305,
+    "boost_clock_mhz": 2572
+   }
+  },
+  "30580414": {
+   "url": "https://icecat.biz/p/product/30580414",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS GT730-SL-2GD5-BRK NVIDIA GeForce GT 730 2 GB GDDR5",
+   "keys": [
+    "0195553250122",
+    "0886227990399",
+    "195553250122",
+    "4716659990390",
+    "886227990399",
+    "90062000",
+    "90YV06N2M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Blue",
+    "fan_count": 0,
+    "memory_gb": 2,
+    "memory_type": "GDDR5",
+    "memory_bus_bit": 64,
+    "interface": "PCIe 2.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "max_resolution": "2560x1600",
+    "length_mm": 165,
+    "boost_clock_mhz": 902,
+    "cooling": "Passive"
+   }
+  },
+  "79262919": {
+   "url": "https://icecat.biz/p/product/79262919",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG MAXIMUS XII APEX Intel Z490 LGA 1200 (Socket H5) ATX",
+   "keys": [
+    "4718017669207",
+    "90MB13D0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1200",
+    "chipset": "Z490",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "4800",
+     "4700",
+     "4600",
+     "4500",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3600",
+     "3466",
+     "3400",
+     "3333",
+     "3300",
+     "3200",
+     "3000"
+    ],
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "bluetooth": "Bluetooth 5.1",
+    "audio": "SupremeFX S1220A",
+    "bios": "UEFI AMI"
+   }
+  },
+  "79582164": {
+   "url": "https://icecat.biz/p/product/79582164",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B550M-A AMD B550 Socket AM4 micro ATX",
+   "keys": [
+    "0192876755525",
+    "192876755525",
+    "4718017755528",
+    "90MB14I0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "Bluetooth 5.1",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "79582270": {
+   "url": "https://icecat.biz/p/product/79582270",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS ROG STRIX B550-F GAMING AMD B550 Socket AM4 ATX",
+   "keys": [
+    "0192876749685",
+    "0192876749692",
+    "192876749685",
+    "1928767496852",
+    "192876749692",
+    "4718017749688",
+    "4718017749695",
+    "90MB14S0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4600",
+     "4400",
+     "4133",
+     "4000",
+     "3866",
+     "3600",
+     "3466",
+     "3200",
+     "3000",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 3,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "bluetooth": "Bluetooth 5",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "79582284": {
+   "url": "https://icecat.biz/p/product/79582284",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B550M-K AMD B550 Socket AM4 micro ATX",
+   "keys": [
+    "0192876758281",
+    "0192876758298",
+    "192876758281",
+    "192876758298",
+    "4718017758284",
+    "90MB14V0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "79747696": {
+   "url": "https://icecat.biz/p/product/79747696",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B550-PLUS AMD B550 Socket AM4 ATX",
+   "keys": [
+    "0192876782347",
+    "192876782347",
+    "4718017782340",
+    "4718017782357",
+    "90MB14U0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "80471376": {
+   "url": "https://icecat.biz/p/product/80471376",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME A520M-A AMD A520 micro ATX",
+   "keys": [
+    "4718017826860",
+    "90MB14Z0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666",
+     "2400"
+    ],
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "85775543": {
+   "url": "https://icecat.biz/p/product/85775543",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS Prime B550M-A/CSM AMD B550 Socket AM4 micro ATX",
+   "keys": [
+    "4718017755535",
+    "90MB14I0M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC887",
+    "bios": "UEFI AMI"
+   }
+  },
+  "90112040": {
+   "url": "https://icecat.biz/p/product/90112040",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING A520M-PLUS II AMD A520 Socket AM4 micro ATX",
+   "keys": [
+    "4711081154457",
+    "90MB17G0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC887 / Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "90112062": {
+   "url": "https://icecat.biz/p/product/90112062",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING A520M-PLUS WIFI AMD A520 Socket AM4 micro ATX",
+   "keys": [
+    "4711081154273",
+    "90MB17F0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800",
+     "2666"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 5",
+    "bluetooth": "Bluetooth 5",
+    "raid_support": true,
+    "audio": "Realtek ALC887 / Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "93450358": {
+   "url": "https://icecat.biz/p/product/93450358",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "ASUS",
+   "title": "ASUS GT730-4H-SL-2GD5 NVIDIA GeForce GT 730 2 GB GDDR5",
+   "keys": [
+    "0195553369411",
+    "0195553377751",
+    "195553369411",
+    "195553377751",
+    "4711081369417",
+    "90020000",
+    "90YV0H20M0NA00"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Blue",
+    "fan_count": 0,
+    "memory_gb": 2,
+    "memory_type": "GDDR5",
+    "hdmi_outputs": {
+     "HDMI": 4
+    },
+    "max_resolution": "3840x2160",
+    "max_displays": 4,
+    "recommended_psu_w": 300,
+    "length_mm": 148,
+    "boost_clock_mhz": 902,
+    "cooling": "Passive"
+   }
+  },
+  "95460440": {
+   "url": "https://icecat.biz/p/product/95460440",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME B550M-A WIFI II AMD B550 Socket AM4 micro ATX",
+   "keys": [
+    "0195553309745",
+    "0195553309752",
+    "195553309745",
+    "195553309752",
+    "4711081309741",
+    "90MB19X0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3333",
+     "3200",
+     "3000",
+     "2800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "95460499": {
+   "url": "https://icecat.biz/p/product/95460499",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B550M-PLUS WIFI II AMD B550 Socket AM4 micro ATX",
+   "keys": [
+    "4711081305705",
+    "90MB19Y0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "95460750": {
+   "url": "https://icecat.biz/p/product/95460750",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS TUF GAMING B550-PLUS WIFI II AMD B550 Socket AM4 ATX",
+   "keys": [
+    "0195553338516",
+    "195553338516",
+    "4711081338413",
+    "90MB19U0M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4866",
+     "4800",
+     "4600",
+     "4466",
+     "4400",
+     "4333",
+     "4266",
+     "4200",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3333"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 3,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "96535513": {
+   "url": "https://icecat.biz/p/product/96535513",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME H610M-K D4 Intel H610 LGA 1700 micro ATX",
+   "keys": [
+    "4711081565499",
+    "4711081565505",
+    "90MB1A10M0EAY0"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "96560543": {
+   "url": "https://icecat.biz/p/product/96560543",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "ASUS",
+   "title": "ASUS PRIME H610M-A D4-CSM Intel H610 LGA 1700 micro ATX",
+   "keys": [
+    "0195553514446",
+    "195553514446",
+    "4711081514442",
+    "90MB19P0M0EAYC"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2800",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  }
+ }
+}

@@ -1,0 +1,911 @@
+{
+ "brand": "ARCTIC",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "118603177": {
+   "url": "https://icecat.biz/p/product/118603177",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36 CO Multi Compatible Tower CPU Cooler for Continuous Operation",
+   "keys": [
+    "0840033401944",
+    "4895213704137",
+    "840033401944",
+    "ACFRE00122A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1800,
+    "fan_rpm_min": 200,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 159,
+    "lighting": "No"
+   }
+  },
+  "118603180": {
+   "url": "https://icecat.biz/p/product/118603180",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36 A-RGB (White) Multi Compatible Tower CPU Cooler with A-RGB",
+   "keys": [
+    "4895213704168",
+    "ACFRE00125A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "fan_rpm_min": 200,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 159,
+    "lighting": "RGB"
+   }
+  },
+  "118603184": {
+   "url": "https://icecat.biz/p/product/118603184",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36 A-RGB (Black) Multi Compatible Tower CPU Cooler with A-RGB",
+   "keys": [
+    "4895213704151",
+    "ACFRE00124A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 2000,
+    "fan_rpm_min": 200,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 159,
+    "lighting": "RGB"
+   }
+  },
+  "118603189": {
+   "url": "https://icecat.biz/p/product/118603189",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36 Multi Compatible Tower CPU Cooler",
+   "keys": [
+    "0840033401937",
+    "4895213704120",
+    "840033401937",
+    "ACFRE00121A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1800,
+    "fan_rpm_min": 200,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 159,
+    "lighting": "No"
+   }
+  },
+  "118603197": {
+   "url": "https://icecat.biz/p/product/118603197",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III 240 A-RGB - Multi Compatible All-in-One CPU Water Cooler with A-RGB",
+   "keys": [
+    "4895213704540",
+    "ACFRE00150A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 48.82,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "128662808": {
+   "url": "https://icecat.biz/p/product/128662808",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC P9 Silent (Black) - 92 mm Low-Noise Fan",
+   "keys": [
+    "0840033402590",
+    "4895213704977",
+    "840033402590",
+    "ACFAN00297A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 92,
+    "quantity": 1,
+    "airflow_cfm": 23.96,
+    "led": "No"
+   }
+  },
+  "129586213": {
+   "url": "https://icecat.biz/p/product/129586213",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 8A - Compact AMD CPU Cooler",
+   "keys": [
+    "0840033402736",
+    "4895265000058",
+    "840033402736",
+    "ACFRE00161A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 100,
+    "fan_count": 2,
+    "sockets": [
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "No"
+   }
+  },
+  "129586214": {
+   "url": "https://icecat.biz/p/product/129586214",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 8A - CO Compact AMD CPU Cooler for Continuous Operation",
+   "keys": [
+    "0840033402743",
+    "4895265000065",
+    "840033402743",
+    "ACFRE00162A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 100,
+    "tdp_w": 350,
+    "sockets": [
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 136,
+    "lighting": "No"
+   }
+  },
+  "129586216": {
+   "url": "https://icecat.biz/p/product/129586216",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 8i - CO Compact Intel CPU Cooler for Continuous Operation",
+   "keys": [
+    "0840033403184",
+    "4895265000515",
+    "840033403184",
+    "ACFRE00191A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 100,
+    "tdp_w": 350,
+    "sockets": [
+     "LGA1700",
+     "LGA1851"
+    ],
+    "height_mm": 136,
+    "lighting": "No"
+   }
+  },
+  "130314202": {
+   "url": "https://icecat.biz/p/product/130314202",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 360 - Multi Compatible All-in-One CPU Water Cooler",
+   "keys": [
+    "0840033402927",
+    "4895265000249",
+    "840033402927",
+    "ACFRE00180A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "No"
+   }
+  },
+  "130314204": {
+   "url": "https://icecat.biz/p/product/130314204",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 360 A-RGB - Multi Compatible All-in-One CPU Water Cooler with A-RGB",
+   "keys": [
+    "0840033402934",
+    "4895265000256",
+    "840033402934",
+    "ACFRE00184A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "130314205": {
+   "url": "https://icecat.biz/p/product/130314205",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 360 A-RGB (White) - Multi Compatible All-in-One CPU Water Cooler with A-RGB",
+   "keys": [
+    "0840033402941",
+    "4895265000263",
+    "840033402941",
+    "ACFRE00188A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 3,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "130483815": {
+   "url": "https://icecat.biz/p/product/130483815",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 240 - Multi Compatible All-in-One CPU Water Cooler",
+   "keys": [
+    "4895265000218",
+    "ACFRE00178A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "No"
+   }
+  },
+  "130500389": {
+   "url": "https://icecat.biz/p/product/130500389",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 240 A-RGB - Multi Compatible All-in-One CPU Water Cooler with A-RGB Black",
+   "keys": [
+    "0840033402903",
+    "4895265000225",
+    "840033402903",
+    "ACFRE00182A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / White",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "131471297": {
+   "url": "https://icecat.biz/p/product/131471297",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 240 A-RGB - Multi Compatible All-in-One CPU Water Cooler with A-RGB White",
+   "keys": [
+    "0840033402910",
+    "4895265000232",
+    "840033402910",
+    "ACFRE00186A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "132629732": {
+   "url": "https://icecat.biz/p/product/132629732",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P12 Pro A-RGB - 120 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "0840033402798",
+    "4895265000119",
+    "840033402798",
+    "ACFAN00309A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / White",
+    "size_mm": 120,
+    "quantity": 1,
+    "airflow_cfm": 77.0,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "132935122": {
+   "url": "https://icecat.biz/p/product/132935122",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 420 A-RGB Multi Compatible All-in-One CPU Water Cooler with A-RGB",
+   "keys": [
+    "0840033403023",
+    "4895265000355",
+    "840033403023",
+    "ACFRE00185A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 140,
+    "fan_count": 3,
+    "fan_rpm_max": 2500,
+    "fan_rpm_min": 400,
+    "airflow_cfm": 110.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "132935123": {
+   "url": "https://icecat.biz/p/product/132935123",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Liquid Freezer III Pro 420 A-RGB (White) - Multi Compatible All-in-One CPU Water Cooler with A-RGB",
+   "keys": [
+    "4895265000362",
+    "ACFRE00189A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 140,
+    "fan_count": 3,
+    "fan_rpm_max": 2500,
+    "fan_rpm_min": 400,
+    "airflow_cfm": 110.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "133176737": {
+   "url": "https://icecat.biz/p/product/133176737",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC P14 Pro A-RGB (White) 140 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "0840033403092",
+    "4895265000423",
+    "840033403092",
+    "ACFAN00318A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 2500,
+    "rpm_min": 400,
+    "airflow_cfm": 110.0,
+    "static_pressure_mmh2o": 5.2,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "133176750": {
+   "url": "https://icecat.biz/p/product/133176750",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P12 Pro A-RGB - 3 Pack - 120 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000126",
+    "ACFAN00310A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / White",
+    "size_mm": 120,
+    "quantity": 3,
+    "airflow_cfm": 77.0,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "133176751": {
+   "url": "https://icecat.biz/p/product/133176751",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P12 Pro A-RGB (White) - 120 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000133",
+    "ACFAN00311A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "airflow_cfm": 77.0,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "133559751": {
+   "url": "https://icecat.biz/p/product/133559751",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P14 Pro A-RGB (White) - 3 Pack 140 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000478",
+    "ACFAN00321A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "quantity": 1,
+    "airflow_cfm": 110.0,
+    "static_pressure_mmh2o": 5.2,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "133740453": {
+   "url": "https://icecat.biz/p/product/133740453",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P12 Pro A-RGB (White) - 3 Pack 120 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000683",
+    "ACFAN00326A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 3,
+    "airflow_cfm": 77.0,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "135246258": {
+   "url": "https://icecat.biz/p/product/135246258",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P12 Pro Reverse A-RGB 120 mm A-RGB - PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000591",
+    "ACFAN00322A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "airflow_cfm": 73.0,
+    "pwm": true,
+    "connector": "4-pin",
+    "led": "RGB"
+   }
+  },
+  "137580660": {
+   "url": "https://icecat.biz/p/product/137580660",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P14 Pro Reverse A-RGB (White) - 140 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000751",
+    "ACFAN00324A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "quantity": 1,
+    "airflow_cfm": 98.0,
+    "static_pressure_mmh2o": 5.1,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "137580661": {
+   "url": "https://icecat.biz/p/product/137580661",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P14 Pro Reverse A-RGB - 140 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000607",
+    "ACFAN00323A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "quantity": 1,
+    "airflow_cfm": 98.0,
+    "static_pressure_mmh2o": 5.1,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "137860987": {
+   "url": "https://icecat.biz/p/product/137860987",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer P12 Pro Reverse A-RGB (White) - 120 mm A-RGB PWM Fan with Cable Splitter",
+   "keys": [
+    "4895265000706",
+    "ACFAN00325A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "quantity": 1,
+    "airflow_cfm": 73.0,
+    "pwm": true,
+    "connector": "4-pin + 4-pin",
+    "led": "RGB"
+   }
+  },
+  "146459548": {
+   "url": "https://icecat.biz/p/product/146459548",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36-S Multi Compatible Tower CPU Cooler",
+   "keys": [
+    "0840033403634",
+    "4895265000966",
+    "840033403634",
+    "ACFRE00194A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 3000,
+    "fan_rpm_min": 600,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "height_mm": 156,
+    "lighting": "No"
+   }
+  },
+  "146459549": {
+   "url": "https://icecat.biz/p/product/146459549",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36-S (Black) Multi Compatible Tower CPU Cooler",
+   "keys": [
+    "0840033403658",
+    "4895265000980",
+    "840033403658",
+    "ACFRE00196A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 3000,
+    "fan_rpm_min": 600,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM5",
+     "AM4"
+    ],
+    "height_mm": 156,
+    "lighting": "No"
+   }
+  },
+  "146459550": {
+   "url": "https://icecat.biz/p/product/146459550",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36-S A-RGB (Black) Multi Compatible Tower CPU Cooler",
+   "keys": [
+    "0840033403672",
+    "4895265001000",
+    "840033403672",
+    "ACFRE00198A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 3000,
+    "fan_rpm_min": 600,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 156
+   }
+  },
+  "146459551": {
+   "url": "https://icecat.biz/p/product/146459551",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer 36-S A-RGB (White) Multi Compatible Tower CPU Cooler",
+   "keys": [
+    "0840033403689",
+    "4895265001017",
+    "840033403689",
+    "ACFRE00199A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 3000,
+    "fan_rpm_min": 600,
+    "sockets": [
+     "LGA1851",
+     "LGA1700",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 156
+   }
+  },
+  "31115580": {
+   "url": "https://icecat.biz/p/product/31115580",
+   "fetched": "2026-10-22",
+   "category": "cooling_other",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Alpine 11 Passive - Silent Intel CPU Cooler",
+   "keys": [
+    "0872767008250",
+    "872767008250",
+    "ACALP00011A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Aluminium",
+    "tdp_w": 47,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156"
+    ]
+   }
+  },
+  "3592978": {
+   "url": "https://icecat.biz/p/product/3592978",
+   "fetched": "2026-10-22",
+   "category": "cooling_other",
+   "brand": "ARCTIC",
+   "title": "ARCTIC Freezer Xtreme (Rev. 2) - Multi-Compatible Twin Tower CPU Cooler",
+   "keys": [
+    "0013591041239",
+    "013591041239",
+    "0872767002272",
+    "0872767002432",
+    "13591041239",
+    "4895213701839",
+    "5054484141938",
+    "872767002272",
+    "872767002432",
+    "8727670024328",
+    "UCACOP0900CSB01"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "fan_size_mm": 120,
+    "fan_rpm_max": 1500,
+    "noise_db": 26.0,
+    "sockets": [
+     "LGA1150",
+     "LGA1155",
+     "LGA1156",
+     "LGA1366",
+     "LGA775",
+     "AM2",
+     "AM2+",
+     "AM3",
+     "AM3+",
+     "FM1",
+     "FM2"
+    ]
+   }
+  },
+  "77679865": {
+   "url": "https://icecat.biz/p/product/77679865",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC P8 - Pressure-optimised 80 mm Fan",
+   "keys": [
+    "4895213701990",
+    "ACFAN00147A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 80,
+    "rpm_max": 3000,
+    "airflow_cfm": 23.4,
+    "static_pressure_mmh2o": 1.9,
+    "connector": "3-pin",
+    "led": "No"
+   }
+  },
+  "88029538": {
+   "url": "https://icecat.biz/p/product/88029538",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC F12 PWM PST CO - 120 mm PWM with PST Case Fan for Continuous Operation",
+   "keys": [
+    "0840033400770",
+    "4895213702973",
+    "840033400770",
+    "ACFAN00210A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "quantity": 1,
+    "rpm_max": 1350,
+    "rpm_min": 230,
+    "airflow_cfm": 53.0,
+    "pwm": true,
+    "connector": "4-pin + 4-pin"
+   }
+  },
+  "93312398": {
+   "url": "https://icecat.biz/p/product/93312398",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "ARCTIC F8 PWM PST CO - 80 mm PWM with PST Case Fan for Continuous Operation",
+   "keys": [
+    "4895213702874",
+    "ACFAN00206A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 80,
+    "quantity": 1,
+    "rpm_max": 2000,
+    "rpm_min": 300,
+    "airflow_cfm": 31.0,
+    "connector": "4-pin + 4-pin"
+   }
+  }
+ }
+}

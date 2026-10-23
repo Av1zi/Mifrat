@@ -1,0 +1,465 @@
+{
+ "brand": "ARCTIC",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/arctic-freezer-36-a-rgb-120m-black-cpu-cooler-2x-120mm/BG-COO-ARC-02418.html": {
+   "url": "https://www.overclockers.co.uk/arctic-freezer-36-a-rgb-120m-black-cpu-cooler-2x-120mm/BG-COO-ARC-02418.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "B GRADE Arctic Freezer 36 A-RGB 120m Black CPU Cooler - 2x 120mm",
+   "keys": [
+    "4895213704151",
+    "ACFRE00124A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 200,
+    "fan_rpm_max": 200,
+    "airflow_cfm": 48.8,
+    "noise_db": 30.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 159,
+    "fanless": false,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-freezer-36-a-rgb-120m-white-cpu-cooler-2x-120mm/BG-COO-ARC-02419.html": {
+   "url": "https://www.overclockers.co.uk/arctic-freezer-36-a-rgb-120m-white-cpu-cooler-2x-120mm/BG-COO-ARC-02419.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "B GRADE Arctic Freezer 36 A-RGB 120m White CPU Cooler - 2x 120mm",
+   "keys": [
+    "4895213704168",
+    "ACFRE00125A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 200,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 48.8,
+    "noise_db": 30.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 159,
+    "fanless": false,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-argb-black-cpu-air-cooler-120mm/COO-ARC-08461.html": {
+   "url": "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-argb-black-cpu-air-cooler-120mm/COO-ARC-08461.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "Arctic Freezer 36-S 120m ARGB Black CPU Air Cooler - 120mm",
+   "keys": [
+    "4895265001000",
+    "ACFRE00198A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 600,
+    "fan_rpm_max": 3000,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 156,
+    "fanless": false,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-argb-white-cpu-air-cooler-120mm/COO-ARC-08462.html": {
+   "url": "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-argb-white-cpu-air-cooler-120mm/COO-ARC-08462.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "Arctic Freezer 36-S 120m ARGB White CPU Air Cooler - 120mm",
+   "keys": [
+    "4895265001017",
+    "ACFRE00199A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 600,
+    "fan_rpm_max": 3000,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 156,
+    "fanless": false,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-black-cpu-air-cooler-120mm/COO-ARC-08459.html": {
+   "url": "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-black-cpu-air-cooler-120mm/COO-ARC-08459.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "Arctic Freezer 36-S 120m Black CPU Air Cooler - 120mm",
+   "keys": [
+    "4895265000980",
+    "ACFRE00196A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 600,
+    "fan_rpm_max": 3000,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 156,
+    "fanless": false,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-cpu-air-cooler-120mm/COO-ARC-08460.html": {
+   "url": "https://www.overclockers.co.uk/arctic-freezer-36-s-120m-cpu-air-cooler-120mm/COO-ARC-08460.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "ARCTIC",
+   "title": "Arctic Freezer 36-S 120m CPU Air Cooler - 120mm",
+   "keys": [
+    "4895265000966",
+    "ACFRE00194A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Silver",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 600,
+    "fan_rpm_max": 3000,
+    "airflow_cfm": 77.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 156,
+    "fanless": false,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-all-in-one-cpu-cooler-240mm/BG-COO-ARC-05351.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-all-in-one-cpu-cooler-240mm/BG-COO-ARC-05351.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "B GRADE - Arctic Liquid Freezer III PRO ARGB High Performance All In One CPU Coo",
+   "keys": [
+    "4895265000225",
+    "ACFRE00182A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 240,
+    "radiator_thickness_mm": 38,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-all-in-one-cpu-cooler-360mm/COO-ARC-04930.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-all-in-one-cpu-cooler-360mm/COO-ARC-04930.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "Arctic Liquid Freezer III PRO ARGB High Performance All In One CPU Cooler - 360mm",
+   "keys": [
+    "4895265000256",
+    "ACFRE00184A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 38,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-all-in-one-cpu-cooler-420mm/BG-COO-ARC-05873.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-all-in-one-cpu-cooler-420mm/BG-COO-ARC-05873.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "B GRADE Arctic Liquid Freezer III PRO ARGB High Performance All In One 420mm",
+   "keys": [
+    "4895265000355",
+    "ACFRE00185A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 140,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 420,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-white-all-in-one-cpu-cooler-240mm/BG-COO-ARC-05352.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-high-performance-white-all-in-one-cpu-cooler-240mm/BG-COO-ARC-05352.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "B GRADE Arctic Liquid Freezer III PRO ARGB Performance White All In One CPU Cool",
+   "keys": [
+    "4895265000232",
+    "ACFRE00186A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 2,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 240,
+    "radiator_thickness_mm": 38,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-white-high-performance-all-in-one-cpu-cooler-420mm/BG-COO-ARC-05874.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-argb-white-high-performance-all-in-one-cpu-cooler-420mm/BG-COO-ARC-05874.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "B GRADE Arctic Liquid Freezer III PRO ARGB WhitHigh Performance All In One CPU C",
+   "keys": [
+    "4895265000362",
+    "ACFRE00189A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "fan_size_mm": 140,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 420,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-high-performance-all-in-one-cpu-cooler-240mm/BG-COO-ARC-05350.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-high-performance-all-in-one-cpu-cooler-240mm/BG-COO-ARC-05350.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "B GRADE Arctic Liquid Freezer III PRO High Performance All In One 240mm",
+   "keys": [
+    "4895265000218",
+    "ACFRE00178A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 240,
+    "radiator_thickness_mm": 38,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-high-performance-all-in-one-cpu-cooler-360mm/COO-ARC-04932.html": {
+   "url": "https://www.overclockers.co.uk/arctic-liquid-freezer-iii-pro-high-performance-all-in-one-cpu-cooler-360mm/COO-ARC-04932.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "ARCTIC",
+   "title": "Arctic Liquid Freezer III PRO High Performance All In One CPU Cooler - 360mm",
+   "keys": [
+    "4895265000249",
+    "ACFRE00180A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 38,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-mx-4-thermal-compound-4g/TH-01B-AR.html": {
+   "url": "https://www.overclockers.co.uk/arctic-mx-4-thermal-compound-4g/TH-01B-AR.html",
+   "fetched": "2026-10-22",
+   "category": "cooling_other",
+   "brand": "ARCTIC",
+   "title": "Arctic MX-4 Thermal Compound (4g)",
+   "keys": [
+    "4895213701655",
+    "ACTCP00002B"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Blue"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-p12-pro-reverse-a-rgb-black-pwm-fan-120mm/COO-ARC-06336.html": {
+   "url": "https://www.overclockers.co.uk/arctic-p12-pro-reverse-a-rgb-black-pwm-fan-120mm/COO-ARC-06336.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P12 Pro Reverse A-RGB Black PWM Fan - 120mm",
+   "keys": [
+    "4895265000591",
+    "ACFAN00322A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 3000,
+    "airflow_cfm": 73.0,
+    "static_pressure_mmh2o": 4.5,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-p12-pro-reverse-a-rgb-white-pwm-fan-120mm/COO-ARC-06334.html": {
+   "url": "https://www.overclockers.co.uk/arctic-p12-pro-reverse-a-rgb-white-pwm-fan-120mm/COO-ARC-06334.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P12 Pro Reverse A-RGB White PWM Fan - 120mm",
+   "keys": [
+    "4895265000706",
+    "ACFAN00325A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "rpm_min": 500,
+    "rpm_max": 3000,
+    "airflow_cfm": 73.0,
+    "static_pressure_mmh2o": 4.5,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-p14-pro-reverse-black-a-rgb-pwm-fan-140mm/COO-ARC-06340.html": {
+   "url": "https://www.overclockers.co.uk/arctic-p14-pro-reverse-black-a-rgb-pwm-fan-140mm/COO-ARC-06340.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P14 Pro Reverse Black A-RGB PWM Fan - 140mm",
+   "keys": [
+    "4895265000607",
+    "ACFAN00323A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_min": 400,
+    "rpm_max": 2650,
+    "airflow_cfm": 98.0,
+    "static_pressure_mmh2o": 5.1,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/arctic-p14-pro-reverse-white-a-rgb-pwm-fan-140mm/COO-ARC-06342.html": {
+   "url": "https://www.overclockers.co.uk/arctic-p14-pro-reverse-white-a-rgb-pwm-fan-140mm/COO-ARC-06342.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "ARCTIC",
+   "title": "Arctic P14 Pro Reverse White A-RGB PWM Fan - 140mm",
+   "keys": [
+    "4895265000751",
+    "ACFAN00324A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 140,
+    "rpm_min": 400,
+    "rpm_max": 2650,
+    "airflow_cfm": 98.0,
+    "static_pressure_mmh2o": 5.1,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  }
+ }
+}

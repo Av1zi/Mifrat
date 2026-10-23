@@ -1,0 +1,760 @@
+{
+ "brand": "Kingston",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "107944078": {
+   "url": "https://icecat.biz/p/product/107944078",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 5600MT/s DDR5 CL36 DIMM Black EXPO",
+   "keys": [
+    "0740617331752",
+    "740617331752",
+    "KF556C36BBE32"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 36,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "107944272": {
+   "url": "https://icecat.biz/p/product/107944272",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 64GB 6000MT/s DDR5 CL36 DIMM (Kit of 2) Black EXPO",
+   "keys": [
+    "0740617331707",
+    "56036264",
+    "740617331707",
+    "KF560C36BBEK264"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 36,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "108209269": {
+   "url": "https://icecat.biz/p/product/108209269",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Kingston",
+   "title": "Kingston Technology A400 480 GB 2.5\" Serial ATA III TLC",
+   "keys": [
+    "0740617263442",
+    "40037480",
+    "5057454799757",
+    "740617263442",
+    "7406172634426",
+    "SA400S37480G"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 480,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "read_speed_mbs": 500,
+    "write_speed_mbs": 450,
+    "mtbf_hours": 1000000,
+    "weight_g": 41
+   }
+  },
+  "108728784": {
+   "url": "https://icecat.biz/p/product/108728784",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology ValueRAM memory module 32 GB 1 x 32 GB DDR5 5600 MT/s 288-pin DIMM",
+   "keys": [
+    "0740617332865",
+    "740617332865",
+    "KVR56U46BD832"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "108728813": {
+   "url": "https://icecat.biz/p/product/108728813",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology ValueRAM memory module 16 GB 1 x 16 GB DDR5 5600 MT/s 288-pin DIMM",
+   "keys": [
+    "0740617332827",
+    "740617332827",
+    "KVR56U46BS816"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "109706493": {
+   "url": "https://icecat.biz/p/product/109706493",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 64GB 5600MT/s DDR5 CL40 DIMM (Kit of 2) White RGB XMP",
+   "keys": [
+    "0740617333831",
+    "55640264",
+    "740617333831",
+    "KF556C40BWAK264"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 40,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "109756088": {
+   "url": "https://icecat.biz/p/product/109756088",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 6000MT/s DDR5 CL36 DIMM White EXPO",
+   "keys": [
+    "0740617333374",
+    "740617333374",
+    "KF560C36BWE32"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 36,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "114157007": {
+   "url": "https://icecat.biz/p/product/114157007",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 16GB 3600MT/s DDR4 CL17 DIMM (Kit of 2) RGB",
+   "keys": [
+    "0740617337440",
+    "436172216",
+    "740617337440",
+    "7406173374406",
+    "KF436C17BB2AK216"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 2,
+    "module_size_gb": 8,
+    "memory_type": "DDR4",
+    "speed_mhz": 3600,
+    "cas_latency": 17,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "114747796": {
+   "url": "https://icecat.biz/p/product/114747796",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY 48GB 6000MT/s DDR5 CL32 DIMM Renegade RGB XMP",
+   "keys": [
+    "0740617338744",
+    "740617338744",
+    "KF560C32RSA48"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 48,
+    "module_count": 1,
+    "module_size_gb": 48,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 32,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "119864430": {
+   "url": "https://icecat.biz/p/product/119864430",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 6000MT/s DDR5 CL30 DIMM (Kit of 2) RGB EXPO",
+   "keys": [
+    "0740617342895",
+    "56030232",
+    "740617342895",
+    "KF560C30BBEAK232"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "119864438": {
+   "url": "https://icecat.biz/p/product/119864438",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 6000MT/s DDR5 CL30 DIMM (Kit of 2) White RGB EXPO",
+   "keys": [
+    "0740617343311",
+    "56030232",
+    "740617343311",
+    "KF560C30BWEAK232"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "119864538": {
+   "url": "https://icecat.biz/p/product/119864538",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 16GB 6000MT/s DDR5 CL30 DIMM Black EXPO",
+   "keys": [
+    "0740617343038",
+    "740617343038",
+    "KF560C30BBE16"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "119864541": {
+   "url": "https://icecat.biz/p/product/119864541",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 64GB 6000MT/s DDR5 CL30 DIMM (Kit of 2) Black EXPO",
+   "keys": [
+    "0740617343403",
+    "56030264",
+    "740617343403",
+    "KF560C30BBEK264"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "119864547": {
+   "url": "https://icecat.biz/p/product/119864547",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 6000MT/s DDR5 CL30 DIMM (Kit of 2) White EXPO",
+   "keys": [
+    "0740617343328",
+    "56030232",
+    "740617343328",
+    "KF560C30BWEK232"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "122072971": {
+   "url": "https://icecat.biz/p/product/122072971",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 6000MT/s DDR5 CL36 DIMM (Kit of 2) White RGB EXPO",
+   "keys": [
+    "0740617345889",
+    "560362232",
+    "740617345889",
+    "KF560C36BWE2AK232"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 36,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "122073007": {
+   "url": "https://icecat.biz/p/product/122073007",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 16GB 6000MT/s DDR5 CL36 DIMM White EXPO",
+   "keys": [
+    "0740617345865",
+    "56036216",
+    "740617345865",
+    "KF560C36BWE216"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 36,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "122073009": {
+   "url": "https://icecat.biz/p/product/122073009",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 6000MT/s DDR5 CL36 DIMM (Kit of 2) White EXPO",
+   "keys": [
+    "0740617345872",
+    "560362232",
+    "740617345872",
+    "KF560C36BWE2K232"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 36,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "122089549": {
+   "url": "https://icecat.biz/p/product/122089549",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Kingston",
+   "title": "Kingston Technology 4000G NV3 M.2 2280 NVMe SSD",
+   "keys": [
+    "0740617346602",
+    "740617346602",
+    "SNV3S4000G"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 6000,
+    "write_speed_mbs": 5000,
+    "mtbf_hours": 2000000,
+    "weight_g": 7
+   }
+  },
+  "130449984": {
+   "url": "https://icecat.biz/p/product/130449984",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Kingston",
+   "title": "Kingston Technology 1T FURY RENEGADE G5 M.2 2280 NVMe SSD",
+   "keys": [
+    "0740617349481",
+    "740617349481",
+    "SFYR2S1T0"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14200,
+    "write_speed_mbs": 11000,
+    "mtbf_hours": 2000000,
+    "weight_g": 7
+   }
+  },
+  "131197531": {
+   "url": "https://icecat.biz/p/product/131197531",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 5600MT/s DDR5 CL36 DIMM RGB",
+   "keys": [
+    "0740617350333",
+    "55636232",
+    "740617350333",
+    "KF556C36BBE2A32"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 36,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "131197534": {
+   "url": "https://icecat.biz/p/product/131197534",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 128GB 5600MT/s DDR5 CL36 DIMM (Kit of 2) RGB",
+   "keys": [
+    "0740617350272",
+    "556362128",
+    "740617350272",
+    "KF556C36BBEAK2128"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 128,
+    "module_count": 2,
+    "module_size_gb": 64,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 36,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "131338967": {
+   "url": "https://icecat.biz/p/product/131338967",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 5600MT/s DDR5 CL36 DIMM Black",
+   "keys": [
+    "0740617350180",
+    "55636232",
+    "740617350180",
+    "KF556C36BBE232"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 36,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "92899568": {
+   "url": "https://icecat.biz/p/product/92899568",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 16GB 3200MT/s DDR4 CL16 DIMM (Kit of 2) Black",
+   "keys": [
+    "0740617319903",
+    "0740617320480",
+    "43216216",
+    "740617319903",
+    "740617320480",
+    "KF432C16BBK216"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 2,
+    "module_size_gb": 8,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 16,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": false
+   }
+  },
+  "92995350": {
+   "url": "https://icecat.biz/p/product/92995350",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 64GB 3200MT/s DDR4 CL16 DIMM (Kit of 2) Black",
+   "keys": [
+    "0740617319804",
+    "43216264",
+    "740617319804",
+    "KF432C16BBK264"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 2,
+    "module_size_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 16,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": false
+   }
+  },
+  "94377003": {
+   "url": "https://icecat.biz/p/product/94377003",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Kingston",
+   "title": "Kingston Technology 2048G KC3000 M.2 2280 NVMe SSD",
+   "keys": [
+    "0740617324242",
+    "30002048",
+    "740617324242",
+    "SKC3000D2048G"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7000,
+    "write_speed_mbs": 7000,
+    "mtbf_hours": 1800000,
+    "weight_g": 10
+   }
+  },
+  "94557481": {
+   "url": "https://icecat.biz/p/product/94557481",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 5200MT/s DDR5 CL40 DIMM (Kit of 2) Black",
+   "keys": [
+    "0740617324358",
+    "55240232",
+    "740617324358",
+    "KF552C40BBK232"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 2,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 5200,
+    "cas_latency": 40,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "99780917": {
+   "url": "https://icecat.biz/p/product/99780917",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 5200MT/s DDR5 CL40 DIMM RGB",
+   "keys": [
+    "0740617328622",
+    "740617328622",
+    "KF552C40BBA32"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5200,
+    "cas_latency": 40,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "99780924": {
+   "url": "https://icecat.biz/p/product/99780924",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 32GB 5600MT/s DDR5 CL40 DIMM RGB",
+   "keys": [
+    "0740617328592",
+    "740617328592",
+    "KF556C40BBA32"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 40,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "99780927": {
+   "url": "https://icecat.biz/p/product/99780927",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Kingston",
+   "title": "Kingston Technology FURY Beast 16GB 5600MT/s DDR5 CL40 DIMM RGB",
+   "keys": [
+    "0740617328585",
+    "740617328585",
+    "KF556C40BBA16"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 40,
+    "voltage_v": 1.25,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  }
+ }
+}

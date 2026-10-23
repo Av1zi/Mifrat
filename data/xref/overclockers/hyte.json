@@ -1,0 +1,92 @@
+{
+ "brand": "HYTE",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/hyte-y40-mid-tower-atx-case-snow-white/CAS-HYT-00734.html": {
+   "url": "https://www.overclockers.co.uk/hyte-y40-mid-tower-atx-case-snow-white/CAS-HYT-00734.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "HYTE",
+   "title": "HYTE Y40 Mid-Tower ATX Case - Snow White",
+   "keys": [
+    "1220000350502",
+    "CSHYTEY40WW"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 183,
+    "max_gpu_length_mm": 422,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "10",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=472 D=439mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/hyte-y60-dual-chamber-mid-tower-atx-case-white/CA-007-HY.html": {
+   "url": "https://www.overclockers.co.uk/hyte-y60-dual-chamber-mid-tower-atx-case-white/CA-007-HY.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "HYTE",
+   "title": "HYTE Y60 Dual Chamber Mid-Tower ATX Case - White",
+   "keys": [
+    "1220000350113",
+    "CSHYTEY60BW"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White / Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 160,
+    "max_gpu_length_mm": 375,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "10",
+    "side_panel": "Windowed",
+    "weight_kg": 9.6,
+    "dimensions_mm": "W=285 H=462 D=456mm",
+    "lighting": "No"
+   }
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "brand": "ASUS",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/asus-prime-ap202-argb-curved-glass-microatx-case-black/CAS-ASU-06378.html": {
+   "url": "https://www.overclockers.co.uk/asus-prime-ap202-argb-curved-glass-microatx-case-black/CAS-ASU-06378.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "ASUS",
+   "title": "Asus PRIME AP202 ARGB Curved Glass MicroATX Case - Black",
+   "keys": [
+    "4711636006521",
+    "90DC00P0B19000"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_cooler_height_mm": 175,
+    "max_gpu_length_mm": 420,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "expansion_slots": "4",
+    "side_panel": "Windowed",
+    "weight_kg": 9.0,
+    "dimensions_mm": "W=236 H=460 D=441mm"
+   }
+  }
+ }
+}

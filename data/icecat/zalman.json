@@ -1,0 +1,72 @@
+{
+ "brand": "Zalman",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "79065981": {
+   "url": "https://icecat.biz/p/product/79065981",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Zalman",
+   "title": "Zalman ZM-RFD120A computer cooling system Computer case Fan 12 cm Black",
+   "keys": [
+    "0823884209198",
+    "823884209198",
+    "8809213769528",
+    "ZMRFD120A"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1500,
+    "airflow_cfm": 34.34,
+    "noise_db": 25.6,
+    "connector": "3-pin",
+    "led": "RGB"
+   }
+  },
+  "97335543": {
+   "url": "https://icecat.biz/p/product/97335543",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Zalman",
+   "title": "Zalman ZM-IF120 3pack+ ZM-4PALC controller 120mm Milky White aRGB Fan infinity effect Computer case 12 cm Black",
+   "keys": [
+    "8809213762857",
+    "ZMIF120A3"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1200,
+    "airflow_cfm": 55.2,
+    "noise_db": 21.0,
+    "static_pressure_mmh2o": 1.95,
+    "connector": "3-pin"
+   }
+  },
+  "97335549": {
+   "url": "https://icecat.biz/p/product/97335549",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Zalman",
+   "title": "Zalman ZM-IF120 120mm Milky White aRGB Fan infinity effect 1.200 RPM 21.0dB A 55.2CFM Computer case 12 cm",
+   "keys": [
+    "8809213762734",
+    "ZMIF120"
+   ],
+   "names": [],
+   "specs": {
+    "size_mm": 120,
+    "rpm_max": 1200,
+    "airflow_cfm": 55.2,
+    "noise_db": 21.0,
+    "static_pressure_mmh2o": 1.95,
+    "connector": "3-pin"
+   }
+  }
+ }
+}

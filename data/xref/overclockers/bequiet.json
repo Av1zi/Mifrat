@@ -1,0 +1,481 @@
+{
+ "brand": "be quiet!",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/be-quiet-dark-base-701-mid-tower-case-white/CAS-BEQ-02078.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-dark-base-701-mid-tower-case-white/CAS-BEQ-02078.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet! Dark Base 701 Mid-Tower Case - White",
+   "keys": [
+    "4260052190661",
+    "BGW59"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "max_gpu_length_mm": 415,
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 12.8,
+    "dimensions_mm": "W=249 H=523 D=565mm",
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-dark-rock-6-cpu-air-cooler/COO-BEQ-08086.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-dark-rock-6-cpu-air-cooler/COO-BEQ-08086.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet Dark Rock 6 CPU Air Cooler",
+   "keys": [
+    "4260052193143",
+    "BK046"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 135,
+    "fan_rpm_min": 0,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 79.48,
+    "noise_db": 31.1,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 162,
+    "fanless": false,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-dark-rock-pro-6-cpu-air-cooler/COO-BEQ-08085.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-dark-rock-pro-6-cpu-air-cooler/COO-BEQ-08085.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "be quiet!",
+   "title": "be quiet Dark Rock Pro 6 CPU Air Cooler",
+   "keys": [
+    "4260052193938",
+    "BK048"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 0,
+    "fan_rpm_max": 2000,
+    "airflow_cfm": 79.48,
+    "noise_db": 32.4,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 169,
+    "fanless": false,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-base-500-midi-tower-case-black/CAS-BEQ-06473.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-base-500-midi-tower-case-black/CAS-BEQ-06473.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "be quiet!",
+   "title": "be quiet Light Base 500 Midi Tower Case - Black",
+   "keys": [
+    "4260052193808",
+    "BGW83"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 185,
+    "max_gpu_length_mm": 400,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 10.91,
+    "dimensions_mm": "W=305 H=436 D=432mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-loop-io-lcd-360-argb-high-performance-all-in-one-cpu-cooler-360/COO-BEQ-09042.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-loop-io-lcd-360-argb-high-performance-all-in-one-cpu-cooler-360/COO-BEQ-09042.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet Light Loop IO LCD 360 ARGB High Performance All In One CPU Cooler - 360",
+   "keys": [
+    "4260052193228",
+    "BW032"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA115X",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 27,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-loop-io-lcd-360-argb-white-high-performance-all-in-one-cpu-cooler/COO-BEQ-09043.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-loop-io-lcd-360-argb-white-high-performance-all-in-one-cpu-cooler/COO-BEQ-09043.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet Light Loop IO LCD 360 ARGB White High Performance All In One CPU Cooler",
+   "keys": [
+    "4260052193235",
+    "BW033"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA115X",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 27,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-wings-argb-120mm-pwm-high-speed-fan/FG-040-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-wings-argb-120mm-pwm-high-speed-fan/FG-040-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings ARGB 120mm PWM High Speed Fan",
+   "keys": [
+    "4260052188774",
+    "BL073"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 2500,
+    "airflow_cfm": 52.3,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.6,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-wings-argb-140mm-pwm-fan/FG-041-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-wings-argb-140mm-pwm-fan/FG-041-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings ARGB 140mm PWM Fan",
+   "keys": [
+    "4260052188781",
+    "BL074"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_max": 1500,
+    "airflow_cfm": 56.0,
+    "noise_db": 23.3,
+    "static_pressure_mmh2o": 1.49,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-wings-argb-140mm-pwm-high-speed-fan/FG-042-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-wings-argb-140mm-pwm-high-speed-fan/FG-042-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Light Wings ARGB 140mm PWM High Speed Fan",
+   "keys": [
+    "4260052188798",
+    "BL075"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_max": 2200,
+    "airflow_cfm": 71.7,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.3,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-light-wings-lx-argb-120mm-pwm-fan/COO-BEQ-03399.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-light-wings-lx-argb-120mm-pwm-fan/COO-BEQ-03399.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet Light Wings LX ARGB 120mm PWM Fan",
+   "keys": [
+    "4260052191583",
+    "BL120"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "airflow_cfm": 51.5,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.34,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-pure-loop-3-360-high-performance-all-in-one-cpu-cooler-360mm/COO-BEQ-06199.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-pure-loop-3-360-high-performance-all-in-one-cpu-cooler-360mm/COO-BEQ-06199.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet Pure Loop 3 360 High Performance All In One CPU Cooler - 360mm",
+   "keys": [
+    "4260052193181",
+    "BW029EU"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 27,
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-pure-loop-3-lx-360-argb-high-performance-all-in-one-cpu-cooler-360mm/COO-BEQ-06196.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-pure-loop-3-lx-360-argb-high-performance-all-in-one-cpu-cooler-360mm/COO-BEQ-06196.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "be quiet!",
+   "title": "be quiet Pure Loop 3 LX 360 ARGB High Performance All In One CPU Cooler - 360mm",
+   "keys": [
+    "4260052193204",
+    "BW031EU"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 27,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-pure-wings-3-120mm-pwm-fan/COO-BEQ-01128.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-pure-wings-3-120mm-pwm-fan/COO-BEQ-01128.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet Pure Wings 3 120mm PWM Fan",
+   "keys": [
+    "4260052190777",
+    "BL105"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "airflow_cfm": 49.9,
+    "noise_db": 25.5,
+    "static_pressure_mmh2o": 1.45,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-silent-wings-4-120mm-pwm-fan/FG-048-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-silent-wings-4-120mm-pwm-fan/FG-048-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Wings 4 120mm PWM Fan",
+   "keys": [
+    "4260052188859",
+    "BL093"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1600,
+    "airflow_cfm": 48.7,
+    "noise_db": 18.9,
+    "static_pressure_mmh2o": 1.79,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-silent-wings-4-140mm-pwm-fan/FG-04B-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-silent-wings-4-140mm-pwm-fan/FG-04B-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Wings 4 140mm PWM Fan",
+   "keys": [
+    "4260052188880",
+    "BL096"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_max": 1100,
+    "airflow_cfm": 51.3,
+    "noise_db": 13.6,
+    "static_pressure_mmh2o": 0.92,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-silent-wings-pro-4-120mm-pwm-fan/FG-04D-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-silent-wings-pro-4-120mm-pwm-fan/FG-04D-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Wings PRO 4 120mm PWM Fan",
+   "keys": [
+    "4260052188903",
+    "BL098"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 3000,
+    "airflow_cfm": 83.9,
+    "noise_db": 36.9,
+    "static_pressure_mmh2o": 5.31,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/be-quiet-silent-wings-pro-4-140mm-pwm-fan/FG-04E-BQ.html": {
+   "url": "https://www.overclockers.co.uk/be-quiet-silent-wings-pro-4-140mm-pwm-fan/FG-04E-BQ.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "be quiet!",
+   "title": "be quiet! Silent Wings PRO 4 140mm PWM Fan",
+   "keys": [
+    "4260052188910",
+    "BL099"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 140,
+    "rpm_max": 2400,
+    "airflow_cfm": 97.4,
+    "noise_db": 36.8,
+    "static_pressure_mmh2o": 3.64,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "No"
+   }
+  }
+ }
+}

@@ -1,0 +1,73 @@
+{
+ "brand": "Cooler Master",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/cooler-master-masterliquid-360-core-ii-argb-all-in-one-cpu-cooler-360mm/COO-CLM-04370.html": {
+   "url": "https://www.overclockers.co.uk/cooler-master-masterliquid-360-core-ii-argb-all-in-one-cpu-cooler-360mm/COO-CLM-04370.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Cooler Master",
+   "title": "Cooler Master MasterLiquid 360 Core II ARGB All In One CPU Cooler - 360mm",
+   "keys": [
+    "4719512154854",
+    "MLWD36MA18PAR1"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "noise_db": 38.5,
+    "sockets": [
+     "LGA115X",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/cooler-master-masterliquid-pl360-flux-all-in-one-cpu-cooler-360mm/BG-HS-08S-CM.html": {
+   "url": "https://www.overclockers.co.uk/cooler-master-masterliquid-pl360-flux-all-in-one-cpu-cooler-360mm/BG-HS-08S-CM.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Cooler Master",
+   "title": "B GRADE Cooler Master MasterLiquid PL360 Flux All In One CPU Cooler - 360mm",
+   "keys": [
+    "4719512123645",
+    "MLYD36MA23PZR1"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "noise_db": 32.0,
+    "sockets": [
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "LGA2011",
+     "LGA2066",
+     "AM2",
+     "AM2+",
+     "AM3",
+     "AM3+",
+     "AM4",
+     "FM1",
+     "FM2"
+    ],
+    "radiator_size_mm": 360
+   }
+  }
+ }
+}

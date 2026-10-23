@@ -1,0 +1,447 @@
+{
+ "brand": "Jonsbo",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/jonsbo-d200-midi-tower-matx-gaming-case-black/CAS-JON-06770.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-d200-midi-tower-matx-gaming-case-black/CAS-JON-06770.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo D200 Midi-Tower mATX Gaming Case - Black",
+   "keys": [
+    "6970620555058",
+    "D200BLACK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_cooler_height_mm": 171,
+    "max_gpu_length_mm": 410,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "weight_kg": 6.11,
+    "dimensions_mm": "W=216 H=419 D=437mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-d200-midi-tower-matx-gaming-case-white/CAS-JON-06771.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-d200-midi-tower-matx-gaming-case-white/CAS-JON-06771.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo D200 Midi-Tower mATX Gaming Case - White",
+   "keys": [
+    "6970620555065",
+    "D200WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_cooler_height_mm": 171,
+    "max_gpu_length_mm": 410,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "weight_kg": 6.11,
+    "dimensions_mm": "W=216 H=419 D=437mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-d401-atx-mid-tower-case/CAS-JON-07865.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-d401-atx-mid-tower-case/CAS-JON-07865.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo D401 ATX Mid Tower Case",
+   "keys": [
+    "6970620555591",
+    "D401BLACK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 169,
+    "max_gpu_length_mm": 439,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 8.1,
+    "dimensions_mm": "W=250 H=531 D=480mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-tf3-360scb-lcd-argb-black-all-in-one-cpu-cooler-360mm/COO-JON-06724.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-tf3-360scb-lcd-argb-black-all-in-one-cpu-cooler-360mm/COO-JON-06724.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Jonsbo",
+   "title": "Jonsbo TF3-360SCB LCD ARGB Black All In One CPU Cooler - 360mm",
+   "keys": [
+    "6970620555034",
+    "TF3360SCB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "noise_db": 37.3,
+    "sockets": [
+     "LGA115X",
+     "LGA1200",
+     "LGA1366",
+     "LGA1700",
+     "LGA1851",
+     "LGA2011",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-tk-4-midi-tower-atx-curved-tempered-glass-case-black/CAS-JON-06769.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-tk-4-midi-tower-atx-curved-tempered-glass-case-black/CAS-JON-06769.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo TK-4 Midi-Tower ATX Curved Tempered Glass Case - Black",
+   "keys": [
+    "6970620554921",
+    "TK4BLACK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 175,
+    "max_gpu_length_mm": 460,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "2 x 92 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "drive_bays_35": 4,
+    "drive_bays_25": 2,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "weight_kg": 10.72,
+    "dimensions_mm": "W=298 H=495 D=495mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-tk-4-midi-tower-atx-curved-tempered-glass-case-white/CAS-JON-06870.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-tk-4-midi-tower-atx-curved-tempered-glass-case-white/CAS-JON-06870.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo TK-4 Midi-Tower ATX Curved Tempered Glass Case - White",
+   "keys": [
+    "6970620554938",
+    "TK4WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 175,
+    "max_gpu_length_mm": 460,
+    "psu_included": "Not included",
+    "drive_bays_35": 4,
+    "drive_bays_25": 2,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "weight_kg": 10.72,
+    "dimensions_mm": "W=298 H=495 D=495mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-tk-5-atx-mid-tower-case-white/CAS-JON-07867.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-tk-5-atx-mid-tower-case-white/CAS-JON-07867.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo TK-5 ATX Mid Tower Case - White",
+   "keys": [
+    "6970620555027",
+    "TK5WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "max_gpu_length_mm": 460,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "360 mm": 1
+    },
+    "drive_bays_35": 4,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 10.4,
+    "dimensions_mm": "W=245 H=539 D=474mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-tk-5-atx-mid-tower-case/CAS-JON-07866.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-tk-5-atx-mid-tower-case/CAS-JON-07866.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo TK-5 ATX Mid Tower Case",
+   "keys": [
+    "6970620554990",
+    "TK5BLACK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "max_gpu_length_mm": 460,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm",
+    "radiator_support": {
+     "360 mm": 1
+    },
+    "drive_bays_35": 4,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 10.4,
+    "dimensions_mm": "W=245 H=539 D=474mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-v12-micro-atx-panoramic-mini-tower-case-white/CAS-JON-06495.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-v12-micro-atx-panoramic-mini-tower-case-white/CAS-JON-06495.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo V12 Micro-ATX Panoramic Mini-Tower Case - White",
+   "keys": [
+    "6970620554839",
+    "V12WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_cooler_height_mm": 140,
+    "max_gpu_length_mm": 260,
+    "psu_included": "Not included",
+    "fan_front": "2 x 120 mm",
+    "fan_rear": "1 x 80 mm, 1 x 92 mm",
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "4",
+    "side_panel": "Windowed",
+    "weight_kg": 5.52,
+    "dimensions_mm": "W=280 H=275 D=301mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-x400-atx-mid-tower-tempered-glass-grey/CAS-JON-06781.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-x400-atx-mid-tower-tempered-glass-grey/CAS-JON-06781.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo X400 ATX Mid-Tower, Tempered Glass - Grey",
+   "keys": [
+    "6970620555539",
+    "X400GRAY"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 176,
+    "max_gpu_length_mm": 427,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 1,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 10.2,
+    "dimensions_mm": "W=310 H=476 D=460mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsbo-x400-atx-mid-tower-tempered-glass-white/CAS-JON-07868.html": {
+   "url": "https://www.overclockers.co.uk/jonsbo-x400-atx-mid-tower-tempered-glass-white/CAS-JON-07868.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsbo X400 ATX Mid-Tower, Tempered Glass - White",
+   "keys": [
+    "6970620555621",
+    "X400WHITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 176,
+    "max_gpu_length_mm": 427,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 1,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 10.2,
+    "dimensions_mm": "W=310 H=476 D=460mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/jonsplus-bo400-mid-tower-atx-aluminium-frame-tempered-glass-black/CAS-JNP-06055.html": {
+   "url": "https://www.overclockers.co.uk/jonsplus-bo400-mid-tower-atx-aluminium-frame-tempered-glass-black/CAS-JNP-06055.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Jonsbo",
+   "title": "Jonsplus BO400 Mid-Tower, ATX, Aluminium Frame, Tempered Glass - Black",
+   "keys": [
+    "6970620554679",
+    "BO400"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 173,
+    "max_gpu_length_mm": 435,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 4,
+    "drive_bays_25": 2,
+    "expansion_slots": "8",
+    "side_panel": "Windowed",
+    "weight_kg": 12.9,
+    "dimensions_mm": "W=311 H=489 D=474mm",
+    "lighting": "No"
+   }
+  }
+ }
+}

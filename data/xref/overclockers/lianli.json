@@ -1,0 +1,617 @@
+{
+ "brand": "Lian Li",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/lian-li-a3-matx-tempered-glass-micro-atx-case-black/CAS-LIA-04811.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-a3-matx-tempered-glass-micro-atx-case-black/CAS-LIA-04811.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li A3-mATX Tempered Glass Micro-ATX Case (Black)",
+   "keys": [
+    "4718466017567",
+    "A3XWDG"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_cooler_height_mm": 165,
+    "max_gpu_length_mm": 415,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "expansion_slots": "4",
+    "side_panel": "Windowed",
+    "weight_kg": 5.0,
+    "dimensions_mm": "W=194 H=321 D=443mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-a3-matx-tempered-glass-micro-atx-case-white/CAS-LIA-04812.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-a3-matx-tempered-glass-micro-atx-case-white/CAS-LIA-04812.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li A3-mATX Tempered Glass Micro-ATX Case (White)",
+   "keys": [
+    "4718466017574",
+    "A3WWDG"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_cooler_height_mm": 165,
+    "max_gpu_length_mm": 415,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "expansion_slots": "4",
+    "side_panel": "Windowed",
+    "weight_kg": 5.0,
+    "dimensions_mm": "W=194 H=321 D=443mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-hydroshift-ii-lcd-c-360r-black-all-in-one-cpu-cooler-360mm/COO-LIA-04868.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-hydroshift-ii-lcd-c-360r-black-all-in-one-cpu-cooler-360mm/COO-LIA-04868.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Lian Li",
+   "title": "Lian Li HydroShift II LCD-C 360R Black All In One CPU Cooler - 360mm",
+   "keys": [
+    "4718466017994",
+    "GHS2LCD36RB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "noise_db": 31.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 24
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-hydroshift-ii-lcd-c-360tl-black-all-in-one-cpu-cooler-360mm/BG-COO-LIA-04870.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-hydroshift-ii-lcd-c-360tl-black-all-in-one-cpu-cooler-360mm/BG-COO-LIA-04870.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li HydroShift II LCD-C 360TL All In One CPU Cooler 360mm - Black",
+   "keys": [
+    "4718466018014",
+    "GHS2LCD36TB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "noise_db": 33.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 24
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-hydroshift-ii-lcd-c-360tl-white-all-in-one-cpu-cooler-360mm/COO-LIA-04871.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-hydroshift-ii-lcd-c-360tl-white-all-in-one-cpu-cooler-360mm/COO-LIA-04871.html",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Lian Li",
+   "title": "Lian Li HydroShift II LCD-C 360TL White All In One CPU Cooler - 360mm",
+   "keys": [
+    "4718466018021",
+    "GHS2LCD36TW"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "fan_size_mm": 120,
+    "noise_db": 33.0,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "radiator_size_mm": 360,
+    "radiator_thickness_mm": 24
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-lancool-207-digital-black/CAS-LIA-04526.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-lancool-207-digital-black/CAS-LIA-04526.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li Lancool 207 Digital - Black",
+   "keys": [
+    "4718466017642",
+    "LAN207DX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "max_gpu_length_mm": 375,
+    "psu_included": "Not included",
+    "fan_front": "2 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 9.0,
+    "dimensions_mm": "W=219 H=456 D=455mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-o11-dynamic-mini-v2-midi-tower-case-white/CAS-LIA-05355.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-o11-dynamic-mini-v2-midi-tower-case-white/CAS-LIA-05355.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li O11 Dynamic Mini V2 Midi-Tower Case - White",
+   "keys": [
+    "4718466019844",
+    "O11DMIV2W"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mini Case",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_cooler_height_mm": 160,
+    "max_gpu_length_mm": 400,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=273 H=391 D=423mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-o11-vision-compact-black/CAS-LIA-02812.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-o11-vision-compact-black/CAS-LIA-02812.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li O11 Vision Compact Black",
+   "keys": [
+    "4718466015884",
+    "O11VPX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 167,
+    "max_gpu_length_mm": 408,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 11.35,
+    "dimensions_mm": "W=287 H=446 D=447mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-o11-vision-compact-white/CAS-LIA-02813.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-o11-vision-compact-white/CAS-LIA-02813.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li O11 Vision Compact White",
+   "keys": [
+    "4718466015891",
+    "O11VPW"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 167,
+    "max_gpu_length_mm": 408,
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_side": "3 x 120 mm",
+    "fan_rear": "2 x 120 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 11.35,
+    "dimensions_mm": "W=287 H=446 D=447mm",
+    "lighting": "No"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-sup-01-black/BG-CAS-LIA-02188.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-sup-01-black/BG-CAS-LIA-02188.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li SUP-01 - Black",
+   "keys": [
+    "4718466015587",
+    "SUP01X"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "psu_included": "Not included",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 11.0,
+    "dimensions_mm": "W=212 H=534 D=403mm",
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-sup-01-white/CAS-LIA-02189.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-sup-01-white/CAS-LIA-02189.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lian Li",
+   "title": "Lian Li SUP-01 - White",
+   "keys": [
+    "4718466015594",
+    "SUP01W"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 400,
+    "psu_included": "Not included",
+    "fan_side": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "weight_kg": 11.0,
+    "dimensions_mm": "W=212 H=534 D=403mm",
+    "lighting": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-black-rgb-fan-120mm/BG-COO-LIA-05073.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-black-rgb-fan-120mm/BG-COO-LIA-05073.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li UNI FAN CL WIRELESS 120mm - Black",
+   "keys": [
+    "12CL1W1B",
+    "4718466018519"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 250,
+    "rpm_max": 2150,
+    "airflow_cfm": 77.34,
+    "noise_db": 29.8,
+    "static_pressure_mmh2o": 2.52
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-reverse-flow-black-rgb-fan-120mm/COO-LIA-05075.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-reverse-flow-black-rgb-fan-120mm/COO-LIA-05075.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "Lian Li UNI FAN CL 120 WIRELESS Reverse Flow Black RGB Fan - 120mm",
+   "keys": [
+    "12RCL1W1B",
+    "4718466018571"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 250,
+    "rpm_max": 2100,
+    "airflow_cfm": 72.73,
+    "noise_db": 30.8,
+    "static_pressure_mmh2o": 2.38
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-reverse-flow-black-rgb-triple-fan-pack-120mm/BG-COO-LIA-05079.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-reverse-flow-black-rgb-triple-fan-pack-120mm/BG-COO-LIA-05079.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li UNI FAN CL WIRELESS Reverse Flow 120mm Triple Fan Pack - Black",
+   "keys": [
+    "12RCL1W3B",
+    "4718466018595"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 250,
+    "rpm_max": 2100,
+    "airflow_cfm": 72.73,
+    "noise_db": 30.8,
+    "static_pressure_mmh2o": 2.38
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-white-rgb-fan-120mm/COO-LIA-05074.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-white-rgb-fan-120mm/COO-LIA-05074.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "Lian Li UNI FAN CL 120 WIRELESS White RGB Fan - 120mm",
+   "keys": [
+    "12CL1W1W",
+    "4718466018526"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "rpm_min": 250,
+    "rpm_max": 2150,
+    "airflow_cfm": 77.34,
+    "noise_db": 29.8,
+    "static_pressure_mmh2o": 2.52
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-white-rgb-triple-fan-pack-120mm/COO-LIA-05078.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-fan-cl-120-wireless-white-rgb-triple-fan-pack-120mm/COO-LIA-05078.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "Lian Li UNI FAN CL 120 WIRELESS White RGB Triple Fan Pack - 120mm",
+   "keys": [
+    "12CL1W3W",
+    "4718466018540"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "rpm_min": 250,
+    "rpm_max": 2150,
+    "airflow_cfm": 77.34,
+    "noise_db": 29.8,
+    "static_pressure_mmh2o": 2.52
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-sl-wireless-rgb-120mm-reverse-flow-fan-black/COO-LIA-03015.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-sl-wireless-rgb-120mm-reverse-flow-fan-black/COO-LIA-03015.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "Lian Li UNI SL WIRELESS RGB 120mm Reverse Flow Fan - Black",
+   "keys": [
+    "12RSL1W1B",
+    "4718466016713"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 300,
+    "rpm_max": 2000,
+    "airflow_cfm": 69.5,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.6,
+    "pwm": false
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-sl-wireless-rgb-120mm-reverse-flow-fan-white/COO-LIA-03016.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-sl-wireless-rgb-120mm-reverse-flow-fan-white/COO-LIA-03016.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "Lian Li UNI SL WIRELESS RGB 120mm Reverse Flow Fan - White",
+   "keys": [
+    "12RSL1W1W",
+    "4718466016720"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "rpm_min": 300,
+    "rpm_max": 2000,
+    "airflow_cfm": 69.5,
+    "noise_db": 31.0,
+    "static_pressure_mmh2o": 2.6,
+    "pwm": false
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-sl120-inf-addressable-rgb-black-120mm-fan/BG-FG-00Z-LL.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-sl120-inf-addressable-rgb-black-120mm-fan/BG-FG-00Z-LL.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li UNI SL120 INF Addressable RGB Black 120mm Fan",
+   "keys": [
+    "4718466011718",
+    "UFSLIN1201B"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "size_mm": 120,
+    "rpm_min": 200,
+    "rpm_max": 2100,
+    "airflow_cfm": 61.3,
+    "noise_db": 29.0,
+    "static_pressure_mmh2o": 2.66,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-sl120-inf-wireless-addressable-rgb-black-120mm-triple-fan-pack/BG-COO-LIA-04667.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-sl120-inf-wireless-addressable-rgb-black-120mm-triple-fan-pack/BG-COO-LIA-04667.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li UNI SL120 INF Wireless Addressable RGB Black 120mm Triple Fan Pa",
+   "keys": [
+    "12SLIN1W3B",
+    "4718466017697"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_min": 0,
+    "rpm_max": 2300,
+    "airflow_cfm": 67.0,
+    "noise_db": 29.2,
+    "static_pressure_mmh2o": 3.4,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  },
+  "https://www.overclockers.co.uk/lian-li-uni-sl120-inf-wireless-addressable-rgb-white-120mm-triple-fan-pack/BG-COO-LIA-04668.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-uni-sl120-inf-wireless-addressable-rgb-white-120mm-triple-fan-pack/BG-COO-LIA-04668.html",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Lian Li",
+   "title": "B GRADE Lian Li UNI SL120 INF Wireless Addressable RGB White 120mm Triple Fan Pa",
+   "keys": [
+    "12SLIN1W3W",
+    "4718466017703"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "size_mm": 120,
+    "rpm_min": 0,
+    "rpm_max": 2300,
+    "airflow_cfm": 67.0,
+    "noise_db": 29.2,
+    "static_pressure_mmh2o": 3.4,
+    "connector": "4-pin",
+    "pwm": true,
+    "led": "RGB"
+   }
+  }
+ }
+}
