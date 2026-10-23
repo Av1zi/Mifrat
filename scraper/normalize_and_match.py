@@ -453,6 +453,33 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     return enriched
 
 
+def _drop_included_builder_options(listings: list[dict]) -> list[dict]:
+    """Drop YahavPC's "included in ..." builder slots.
+
+    BuildSearch returns the PC-builder's zero-price options as if they were
+    products: BIC-GPU ("integrated graphics in the CPU"), BIC-CPU ("boxed
+    cooler"), BIC-CASE-YPC ("case + cooler bundle") and WITHPSU ("included
+    PSU"). They have no real price, no vendor page worth linking and a
+    generic stamp image, yet they used to surface as products in gpu,
+    cooler_air, case_fan and psu. The spider now filters them at the source;
+    this also scrubs snapshots taken before that fix (and any stale-forwarded
+    copies of them).
+
+    Deliberately scoped to yahav: TMS legitimately lists "price on request"
+    parts without a price, and dropping those would lose real products.
+    """
+    kept = []
+    dropped = 0
+    for listing in listings:
+        if listing.get("vendor_id") == "yahav" and listing.get("price_ils") == 0:
+            dropped += 1
+            continue
+        kept.append(listing)
+    if dropped:
+        print(f"  dropped {dropped} YahavPC included-in-... builder options")
+    return kept
+
+
 def build_catalog(today: datetime):
     today_str = _date_str(today)
 
@@ -476,6 +503,7 @@ def build_catalog(today: datetime):
         is_stale = snapshot_date != today_str
 
         listings = load_listings(path)
+        listings = _drop_included_builder_options(listings)
 
         for listing in listings:
             listing["last_seen"] = snapshot_date

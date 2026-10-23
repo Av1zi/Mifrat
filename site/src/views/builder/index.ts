@@ -1,7 +1,7 @@
 import { t } from "../../i18n";
 import { fetchListBuild, isValidListId } from "../../lists";
 import { icon } from "../../icons";
-import { getStoredBuild, removeFromBuild, savedHash, setStoredBuild, type BuildMap } from "../../state";
+import { getStoredBuild, removeFromBuild, savedHash, type BuildMap } from "../../state";
 import { setPageTitle } from "../../titles";
 import type { Currency, Lang } from "../../types";
 import { html, mount, type Html } from "../../ui/html";
@@ -82,7 +82,8 @@ export async function renderBuilder(
   listId: string | null
 ): Promise<void> {
   const build = cleanBuild(shared ?? getStoredBuild());
-  if (shared) setStoredBuild(build);
+  // A shared build is only viewed here: it must not overwrite the visitor's
+  // own saved draft. It is written to storage by persist() on the first edit.
 
   const ctx: BuilderCtx = {
     container,

@@ -15,8 +15,13 @@ Every vendor here serves the same photo at several URL shapes:
   TMS (OpenCart)   /image/catalog/products/<sku>/<hash>.jpg          original
                    /image/cache/catalog/products/<sku>/<hash>-1000x1000.jpg
                    /image/cache/.../<hash>-74x74.jpg                 tile
-  1PC (CS-Cart)    /images/thumbs/<id>_<slug>.jpeg                   native
+  1PC legacy       /images/thumbs/<id>_<slug>.jpeg                   native
                    /images/thumbs/<id>_<slug>_510.jpeg                resized
+  (Oct 2026: the CS-Cart storefront moved to /media/ and every legacy
+   /images/thumbs/ URL now 404s — see url_shape_score.)
+  1PC new          /media/catalog/v1/<hash>.webp                      original
+                   /media/uploads/products/<y>/<m>/<file>.webp        uploaded
+                   /media/pictures/<id>.jpeg                          listing tile
   Plonter          /graphics/product_images/full/<SKU>.jpg           full
   Ivory            /files/catalog/org/<hash>.webp                    original
 
@@ -232,13 +237,22 @@ def url_shape_score(url: str) -> float:
         score += 2.5          # 1PC new storefront (Oct 2026) originals:
                               # the pdp-hero data-orig-src file (og:image
                               # points at /media/pictures/, the listing tile)
+    if "/media/uploads/" in lowered:
+        score += 2.0          # 1PC new storefront uploads: a live listing
+                              # photo, not a resize of an old one
+    if "/media/pictures/" in lowered:
+        # 1PC's live listing tile / og:image. It used to rank below the
+        # legacy /images/thumbs/ "native" file, but that whole directory
+        # 404s since the Oct 2026 storefront move — the detail corpus still
+        # points there, so the dead URL kept winning and 12 covers could
+        # never download. Any live /media/ photo now outranks it.
+        score += 1.5
     if "/graphics/product_images/full/" in lowered:
         score += 2.5
     if "/images/thumbs/" in lowered:
-        # 1PC's only bucket: /images/thumbs/<id>_<slug>.jpeg IS its native
-        # file (the page links exactly that as the full-size image), so the
-        # word "thumbs" must not read as a downgrade. The resize suffix is
-        # what distinguishes the render from the native file.
+        # 1PC's legacy CS-Cart bucket. Kept slightly positive (not a resize
+        # by itself) so old rows don't churn, but it always loses to a live
+        # /media/ URL above.
         score += 0.5
     if "/cache/" in lowered:
         score -= 1.0
