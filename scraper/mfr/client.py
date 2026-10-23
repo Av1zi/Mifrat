@@ -45,6 +45,14 @@ ROBOTS_OVERRIDES: dict[str, tuple[str, ...]] = {
     # One search per catalog part number replaces crawling the whole store to
     # find the page that prints that MPN (scraper/xref/overclockers.py).
     "www.overclockers.co.uk": ("/search",),
+    # Owner decision 2026-10-22 (scraper/mfr/fractal.py): fractal-design.com's
+    # robots.txt allows `*` everywhere but /studio/ and /api/, and disallows
+    # ClaudeBot / anthropic-ai / GPTBot / CCBot / Google-Extended outright. The
+    # owner chose to read the product pages anyway; this entry is the record of
+    # that choice and covers ONLY the category listings + variant pages under
+    # /products/ (the spec JSON is embedded in that HTML). /api/ and /studio/
+    # stay disallowed. Remove this line if Fractal Design asks.
+    "www.fractal-design.com": ("/products/",),
 }
 
 

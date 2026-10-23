@@ -111,13 +111,14 @@ MFR_FETCHERS = {"corsair": "built", "asus": "built (boards)",
                 "antec": "built (cases, PSU, fans, AIO; joined on UPC / part number)",
                 "amd": "built (CPUs; pages missing for older SKUs)",
                 "nzxt": "built (cases, fans, AIO)",
-                "thermalright": "built (narrow: ~15 products have a page)"}
+                "thermalright": "built (narrow: ~15 products have a page)",
+                "fractal design": "built (cases/AIO; robots override by owner decision)",
+                "silverstone": "built (cases, PSU, fans, coolers; joined on SST- code)"}
 MFR_VERDICT = {
     "gigabyte": "blocked: HTTP 403 on robots.txt (stop signal)",
     "msi": "blocked: HTTP 403 on robots.txt (stop signal)",
     "intel": "blocked: HTTP 403 on robots.txt of intel.com and ark.intel.com",
     "cougar": "blocked: connection closed without an HTTP answer (stop signal)",
-    "fractal design": "skipped: robots.txt disallows AI crawlers by name",
     "noctua": "specs rendered client-side, /api/ disallowed",
     "gamdias": "skipped: pages exist for 5 of 43 products",
     "deepcool": "skipped: no sitemap / robots",

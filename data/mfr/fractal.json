@@ -1,0 +1,1840 @@
+{
+ "brand": "Fractal Design",
+ "schema_version": 3,
+ "source": "manufacturer",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.fractal-design.com/products/cases/define-series/define-7-xl/define-7-xl-black-solid/": {
+   "url": "https://www.fractal-design.com/products/cases/define-series/define-7-xl/define-7-xl-black-solid/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCDEF7X01",
+    "7340172702047",
+    "843276102043"
+   ],
+   "names": [
+    "define 7 xl black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 530,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "9",
+    "drive_bays_35": 6,
+    "drive_bays_25": 8,
+    "front_usb": [
+     "USB 2.0",
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=240 H=566 D=604mm",
+    "weight_kg": 16.53,
+    "volume_l": 77.6,
+    "fan_front": "4 x 120 mm, 3 x 140 mm",
+    "fan_top": "4 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1,
+     "480 mm": 1
+    },
+    "model": "Define 7 XL",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/epoch-series/epoch-xl/epoch-xl-black-tg-rgb-light-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/epoch-series/epoch-xl/epoch-xl-black-tg-rgb-light-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCEPO1X04",
+    "7340172710400",
+    "843276110406"
+   ],
+   "names": [
+    "c epo1x 04 epoch black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 176,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.75,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Epoch XL",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/epoch-series/epoch-xl/epoch-xl-white-tg-rgb-clear-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/epoch-series/epoch-xl/epoch-xl-white-tg-rgb-clear-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCEPO1X05",
+    "7340172710417",
+    "843276110413"
+   ],
+   "names": [
+    "c epo1x 05 epoch white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 425,
+    "max_cooler_height_mm": 176,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.75,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Epoch XL",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/epoch-series/epoch/epoch-black-tg-rgb-light-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/epoch-series/epoch/epoch-black-tg-rgb-light-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCEPO1A04",
+    "7340172709664",
+    "843276109660"
+   ],
+   "names": [
+    "c epo1a 04 epoch black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 372,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.86,
+    "volume_l": 43.39,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Epoch",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/epoch-series/epoch/epoch-white-tg-rgb-clear-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/epoch-series/epoch/epoch-white-tg-rgb-clear-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCEPO1A05",
+    "7340172709688",
+    "843276109684"
+   ],
+   "names": [
+    "c epo1a 05 epoch white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 372,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.86,
+    "volume_l": 43.39,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Epoch",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/era-series/era-2/era-2-charcoal-gray/": {
+   "url": "https://www.fractal-design.com/products/cases/era-series/era-2/era-2-charcoal-gray/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCERA2N02",
+    "7340172705833",
+    "843276105839"
+   ],
+   "names": [
+    "c 02 era gray"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 326,
+    "max_cooler_height_mm": 70,
+    "expansion_slots": "3",
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=165 H=314 D=366mm",
+    "weight_kg": 4.64,
+    "volume_l": 18.97,
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "model": "Era 2",
+    "color": "Gray"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/era-series/era-2/era-2-midnight-blue/": {
+   "url": "https://www.fractal-design.com/products/cases/era-series/era-2/era-2-midnight-blue/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCERA2N03",
+    "7340172705840",
+    "843276105846"
+   ],
+   "names": [
+    "c 03 era midnight blue"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 326,
+    "max_cooler_height_mm": 70,
+    "expansion_slots": "3",
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=165 H=314 D=366mm",
+    "weight_kg": 4.64,
+    "volume_l": 18.97,
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "model": "Era 2",
+    "color": "Blue"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/era-series/era-2/era-2-silver/": {
+   "url": "https://www.fractal-design.com/products/cases/era-series/era-2/era-2-silver/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCERA2N01",
+    "7340172705826",
+    "843276105822"
+   ],
+   "names": [
+    "c 01 era white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 326,
+    "max_cooler_height_mm": 70,
+    "expansion_slots": "3",
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=165 H=314 D=366mm",
+    "weight_kg": 4.64,
+    "volume_l": 18.97,
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_bottom": "2 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "model": "Era 2",
+    "color": "Silver"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/meshify-series/meshify-3-xl/meshify-3-xl-black-solid/": {
+   "url": "https://www.fractal-design.com/products/cases/meshify-series/meshify-3-xl/meshify-3-xl-black-solid/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMES3X01",
+    "7340172707219",
+    "843276107215"
+   ],
+   "names": [
+    "c mes3x 01 meshify black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 512,
+    "max_cooler_height_mm": 182,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=245 H=515 D=575mm",
+    "weight_kg": 10.5,
+    "volume_l": 71.29,
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 180 mm",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "3 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "Meshify 3 XL",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-ambience-pro-rgb-black-tg-light-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-ambience-pro-rgb-black-tg-light-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMES3A03",
+    "7340172707189",
+    "843276107185"
+   ],
+   "names": [
+    "c mes3a 03 meshify black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 349,
+    "max_cooler_height_mm": 173,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=229 H=507 D=433mm",
+    "weight_kg": 9.1,
+    "volume_l": 46.79,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "lighting": "ARGB",
+    "model": "Meshify 3",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-ambience-pro-rgb-white-tg-clear-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-ambience-pro-rgb-white-tg-clear-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMES3A05",
+    "7340172707202",
+    "843276107208"
+   ],
+   "names": [
+    "c mes3a 05 meshify white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 349,
+    "max_cooler_height_mm": 173,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=229 H=507 D=433mm",
+    "weight_kg": 9.1,
+    "volume_l": 46.79,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "lighting": "ARGB",
+    "model": "Meshify 3",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-black-rgb-tg-light-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-black-rgb-tg-light-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMES3A06",
+    "7340172709503",
+    "843276109509"
+   ],
+   "names": [
+    "c mes3a 06 meshify black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 349,
+    "max_cooler_height_mm": 173,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=229 H=507 D=433mm",
+    "weight_kg": 8.8,
+    "volume_l": 46.79,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "lighting": "ARGB",
+    "model": "Meshify 3",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-white-rgb-tg-clear-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/meshify-series/meshify-3/meshify-3-white-rgb-tg-clear-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMES3A07",
+    "7340172709510",
+    "843276109516"
+   ],
+   "names": [
+    "c mes3a 07 meshify white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 349,
+    "max_cooler_height_mm": 173,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 6,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=229 H=507 D=433mm",
+    "weight_kg": 8.8,
+    "volume_l": 46.79,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "lighting": "ARGB",
+    "model": "Meshify 3",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/mood-series/mood/mood-black/": {
+   "url": "https://www.fractal-design.com/products/cases/mood-series/mood/mood-black/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMOD1N02",
+    "7340172703938",
+    "843276103934"
+   ],
+   "names": [
+    "c mod1n 02 mood black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 325,
+    "max_cooler_height_mm": 114,
+    "expansion_slots": "2",
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=212 H=453 D=212mm",
+    "weight_kg": 4.6,
+    "volume_l": 19.46,
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "1 x 180 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "model": "Mood",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/mood-series/mood/mood-light-gray/": {
+   "url": "https://www.fractal-design.com/products/cases/mood-series/mood/mood-light-gray/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCMOD1N01",
+    "7340172703921",
+    "843276103927"
+   ],
+   "names": [
+    "mood light gray"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 325,
+    "max_cooler_height_mm": 114,
+    "expansion_slots": "2",
+    "drive_bays_35": 1,
+    "drive_bays_25": 2,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=212 H=453 D=212mm",
+    "weight_kg": 4.6,
+    "volume_l": 19.46,
+    "fan_front": "2 x 120 mm, 2 x 140 mm",
+    "fan_top": "1 x 180 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1
+    },
+    "model": "Mood",
+    "color": "Gray"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/node-series/node-304/node-304-black/": {
+   "url": "https://www.fractal-design.com/products/cases/node-series/node-304/node-304-black/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "NODE304BL",
+    "FDCANODE304BL",
+    "7350041080978",
+    "817301010979"
+   ],
+   "names": [
+    "node 304 black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini-DTX",
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 310,
+    "max_cooler_height_mm": 165,
+    "expansion_slots": "2",
+    "drive_bays_35": 6,
+    "drive_bays_25": 6,
+    "front_usb": [
+     "USB 3.0",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=250 H=210 D=374mm",
+    "weight_kg": 4.9,
+    "volume_l": 19.5,
+    "fan_front": "2 x 92 mm",
+    "fan_rear": "1 x 140 mm",
+    "model": "Node 304",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-momentum-edition/north-momentum-edition/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-momentum-edition/north-momentum-edition/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1C05",
+    "7340172711179",
+    "843276111175"
+   ],
+   "names": [
+    "north momentum edition 3x120mm black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 355,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.9,
+    "volume_l": 41.99,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "North Momentum Edition",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-xl-momentum-edition/north-xl-momentum-edition/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-xl-momentum-edition/north-xl-momentum-edition/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1X07",
+    "7340172711186",
+    "843276111182"
+   ],
+   "names": [
+    "c nor1x 07 north black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 413,
+    "max_cooler_height_mm": 176,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.7,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "North XL Momentum Edition",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-chalk-white-mesh/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-chalk-white-mesh/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1X03",
+    "7340172706557",
+    "843276106553"
+   ],
+   "names": [
+    "north xl chalk white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 413,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.7,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "North XL",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-chalk-white-tg/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-chalk-white-tg/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1X04",
+    "7340172706564",
+    "843276106560"
+   ],
+   "names": [
+    "c nor1x 04 north white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 413,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.5,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "North XL",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-charcoal-black-mesh/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-charcoal-black-mesh/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1X01",
+    "7340172706533",
+    "843276106539"
+   ],
+   "names": [
+    "c nor1x 01 north black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 413,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.7,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "North XL",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-charcoal-black-tg/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-charcoal-black-tg/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1X02",
+    "7340172706540",
+    "843276106546"
+   ],
+   "names": [
+    "c nor1x 02 north black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 413,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.5,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "North XL",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-rc-charcoal-black-tg-dark/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north-xl/north-xl-rc-charcoal-black-tg-dark/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1X05",
+    "7340172709466",
+    "843276109462"
+   ],
+   "names": [
+    "c nor1x 05 north black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 413,
+    "max_cooler_height_mm": 169,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=240 H=509 D=503mm",
+    "weight_kg": 9.7,
+    "volume_l": 57.62,
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "North XL",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north/north-chalk-white-tg-clear/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north/north-chalk-white-tg-clear/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1C04",
+    "7340172704737",
+    "843276104733"
+   ],
+   "names": [
+    "c nor1c 04 north white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 355,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.7,
+    "volume_l": 42.0,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "North",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north/north-chalk-white/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north/north-chalk-white/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1C03",
+    "7340172704720",
+    "843276104726"
+   ],
+   "names": [
+    "north chalk white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 355,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.6,
+    "volume_l": 42.0,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "North",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north/north-charcoal-black-tg-light/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north/north-charcoal-black-tg-light/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1C02",
+    "7340172704713",
+    "843276104719"
+   ],
+   "names": [
+    "north light"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 355,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.7,
+    "volume_l": 42.0,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "No",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "North",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/north-series/north/north-charcoal-black/": {
+   "url": "https://www.fractal-design.com/products/cases/north-series/north/north-charcoal-black/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCNOR1C01",
+    "7340172704706",
+    "843276104702"
+   ],
+   "names": [
+    "north dark"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 355,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=215 H=469 D=447mm",
+    "weight_kg": 7.6,
+    "volume_l": 42.0,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "North",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-2-air/pop-2-air-black-tg-rgb/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-2-air/pop-2-air-black-tg-rgb/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOA2A03",
+    "7340172710455",
+    "843276110451"
+   ],
+   "names": [
+    "c poa2a 03 pop black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 416,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "dimensions_mm": "W=215 H=462 D=481mm",
+    "weight_kg": 7.0,
+    "volume_l": 43.88,
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Pop 2 Air"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-2-air/pop-2-air-white-tg-rgb-2/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-2-air/pop-2-air-white-tg-rgb-2/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOA2A04",
+    "7340172710462",
+    "843276110468"
+   ],
+   "names": [
+    "c poa2a 04 pop white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 416,
+    "max_cooler_height_mm": 170,
+    "expansion_slots": "7",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "dimensions_mm": "W=215 H=462 D=481mm",
+    "weight_kg": 7.0,
+    "volume_l": 43.88,
+    "fan_front": "3 x 120 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Pop 2 Air"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-2-vision/pop-2-vision-black-rgb/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-2-vision/pop-2-vision-black-rgb/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOV2A02",
+    "7340172712169",
+    "843276112165"
+   ],
+   "names": [
+    "pop vision fd-c-pov2a-02 black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini-DTX",
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 412,
+    "max_cooler_height_mm": 172,
+    "expansion_slots": "7",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=297 H=441 D=434mm",
+    "weight_kg": 9.7,
+    "volume_l": 56.45,
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Pop 2 Vision",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-2-vision/pop-2-vision-black/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-2-vision/pop-2-vision-black/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOV2A01",
+    "7340172712152",
+    "843276112158"
+   ],
+   "names": [
+    "pop 2 vision black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini-DTX",
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 412,
+    "max_cooler_height_mm": 172,
+    "expansion_slots": "7",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=297 H=441 D=434mm",
+    "weight_kg": 9.7,
+    "volume_l": 56.45,
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "lighting": "No",
+    "model": "Pop 2 Vision",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-2-vision/pop-2-vision-white-rgb/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-2-vision/pop-2-vision-white-rgb/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOV2A03",
+    "7340172712176",
+    "843276112172"
+   ],
+   "names": [
+    "pop vision fd-c-pov2a-03 black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini-DTX",
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 412,
+    "max_cooler_height_mm": 172,
+    "expansion_slots": "7",
+    "drive_bays_35": 1,
+    "drive_bays_25": 3,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=297 H=441 D=434mm",
+    "weight_kg": 9.7,
+    "volume_l": 56.45,
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "fan_bottom": "2 x 120 mm",
+    "fan_side": "2 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Pop 2 Vision",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-xl-air/pop-xl-air-rgb-black-tg-clear-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-xl-air/pop-xl-air-rgb-black-tg-clear-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOR1X06",
+    "7340172703631",
+    "843276103637"
+   ],
+   "names": [
+    "c por1x 06 pop black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 455,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "8",
+    "drive_bays_35": 6,
+    "drive_bays_25": 2,
+    "front_usb": [
+     "USB 3.0",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=230 H=520 D=522mm",
+    "weight_kg": 9.65,
+    "volume_l": 62.5,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "lighting": "ARGB",
+    "model": "Pop XL Air",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/pop-series/pop-xl-silent/pop-xl-silent-black-solid/": {
+   "url": "https://www.fractal-design.com/products/cases/pop-series/pop-xl-silent/pop-xl-silent-black-solid/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCPOS1X01",
+    "7340172703143",
+    "843276103149"
+   ],
+   "names": [
+    "pop xl silent solid"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 430,
+    "max_cooler_height_mm": 185,
+    "expansion_slots": "8",
+    "drive_bays_35": 4,
+    "drive_bays_25": 8,
+    "front_usb": [
+     "USB 3.0",
+     "Earphone/Mic"
+    ],
+    "side_panel": "No Window",
+    "dimensions_mm": "W=230 H=520 D=522mm",
+    "weight_kg": 10.42,
+    "volume_l": 62.5,
+    "fan_front": "3 x 120 mm, 2 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "model": "Pop XL Silent",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/ridge-series/ridge/ridge-pcie-4-0-black/": {
+   "url": "https://www.fractal-design.com/products/cases/ridge-series/ridge/ridge-pcie-4-0-black/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCRID1N11",
+    "7340172706090",
+    "843276106096"
+   ],
+   "names": [
+    "c rid1n 11 ridge black"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 335,
+    "max_cooler_height_mm": 70,
+    "expansion_slots": "3",
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=110 H=395 D=374mm",
+    "weight_kg": 4.3,
+    "volume_l": 12.6,
+    "fan_top": "3 x 80 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1
+    },
+    "model": "Ridge",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/ridge-series/ridge/ridge-pcie-4-0-white/": {
+   "url": "https://www.fractal-design.com/products/cases/ridge-series/ridge/ridge-pcie-4-0-white/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCRID1N12",
+    "7340172706106",
+    "843276106102"
+   ],
+   "names": [
+    "ridge white mitx pcie 4 0"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX"
+    ],
+    "max_gpu_length_mm": 335,
+    "max_cooler_height_mm": 70,
+    "expansion_slots": "3",
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Mesh",
+    "dimensions_mm": "W=110 H=395 D=374mm",
+    "weight_kg": 4.3,
+    "volume_l": 12.6,
+    "fan_top": "3 x 80 mm",
+    "fan_side": "2 x 120 mm, 2 x 140 mm",
+    "radiator_support": {
+     "120 mm": 1
+    },
+    "model": "Ridge",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/torrent-series/torrent/torrent-black-tg-light-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/torrent-series/torrent/torrent-black-tg-light-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCTOR1A01",
+    "7340172702283",
+    "843276102289"
+   ],
+   "names": [
+    "torrent light"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 461,
+    "max_cooler_height_mm": 188,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=242 H=530 D=544mm",
+    "weight_kg": 11.1,
+    "volume_l": 62.89,
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm, 2 x 180 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "model": "Torrent",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/cases/torrent-series/torrent/torrent-rgb-white-tg-clear-tint/": {
+   "url": "https://www.fractal-design.com/products/cases/torrent-series/torrent/torrent-rgb-white-tg-clear-tint/",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "keys": [
+    "FDCTOR1A07",
+    "7340172705239",
+    "843276105235"
+   ],
+   "names": [
+    "c tor1a 07 torrent white"
+   ],
+   "specs": {
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_gpu_length_mm": 461,
+    "max_cooler_height_mm": 188,
+    "expansion_slots": "7",
+    "drive_bays_35": 2,
+    "drive_bays_25": 4,
+    "front_usb": [
+     "USB 3.0",
+     "USB Type-C",
+     "Earphone/Mic"
+    ],
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=242 H=530 D=544mm",
+    "weight_kg": 11.1,
+    "volume_l": 62.89,
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 180 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm, 3 x 140 mm, 2 x 180 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "140 mm": 1,
+     "240 mm": 1,
+     "280 mm": 1,
+     "360 mm": 1,
+     "420 mm": 1
+    },
+    "lighting": "ARGB",
+    "model": "Torrent",
+    "color": "White"
+   }
+  },
+  "https://www.fractal-design.com/products/water-cooling/lumen-series/lumen-s24/lumen-s24-v2-rgb/": {
+   "url": "https://www.fractal-design.com/products/water-cooling/lumen-series/lumen-s24/lumen-s24-v2-rgb/",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "keys": [
+    "FDWL1S2412",
+    "7340172705932",
+    "843276105938"
+   ],
+   "names": [
+    "lumen s24 240mm argb"
+   ],
+   "specs": {
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1366",
+     "LGA2011",
+     "LGA2011-3",
+     "LGA2066",
+     "AM5",
+     "AM4",
+     "FM2",
+     "FM1",
+     "AM3"
+    ],
+    "fan_rpm_max": 2000,
+    "noise_db": 33.2,
+    "lighting": "ARGB",
+    "radiator_size_mm": 240,
+    "radiator_length_mm": 272,
+    "radiator_thickness_mm": 27,
+    "fan_count": 2,
+    "fan_rpm_min": 500,
+    "airflow_cfm": 56.0,
+    "connectors": [
+     "4-pin PWM",
+     "3-pin ARGB"
+    ],
+    "model": "Lumen S24",
+    "color": "Black"
+   }
+  },
+  "https://www.fractal-design.com/products/water-cooling/lumen-series/lumen-s36/lumen-s36-v2-rgb/": {
+   "url": "https://www.fractal-design.com/products/water-cooling/lumen-series/lumen-s36/lumen-s36-v2-rgb/",
+   "fetched": "2026-10-22",
+   "category": "cooling_other",
+   "keys": [
+    "FDWL1S3612",
+    "7340172705956",
+    "843276105952"
+   ],
+   "names": [
+    "lumen s36 rgb"
+   ],
+   "specs": {
+    "fan_size_mm": 120,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "LGA1150",
+     "LGA1151",
+     "LGA1155",
+     "LGA1156",
+     "LGA1200",
+     "LGA1366",
+     "LGA2011",
+     "LGA2011-3",
+     "LGA2066",
+     "AM5",
+     "AM4",
+     "FM2",
+     "FM1",
+     "AM3"
+    ],
+    "fan_rpm_max": 2000,
+    "noise_db": 33.2,
+    "lighting": "ARGB",
+    "water_cooled": true,
+    "color": "Black"
+   }
+  }
+ }
+}

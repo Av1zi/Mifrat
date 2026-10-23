@@ -24,4 +24,5 @@ Layout:
 
 from __future__ import annotations
 
-BRANDS = ("amd", "antec", "asus", "coolermaster", "corsair", "nzxt", "thermalright", "bequiet", "lianli")
+BRANDS = ("amd", "antec", "asus", "coolermaster", "corsair", "nzxt", "thermalright", "bequiet", "lianli",
+          "fractal", "silverstone")
