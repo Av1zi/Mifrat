@@ -22,6 +22,9 @@ SITES = ("overclockers", "ldlc")
 # for its own catalogue (box sizes, shop-defined case types, per-fan rather
 # than per-kit figures), so the rate is high for case and cooler geometry.
 DISABLED: dict[str, dict[str, frozenset]] = {
+    # LDLC's first run (24 case-fan pages, Oct 2026): per-fan vs per-kit figures
+    # and rounded rpm / noise, the same shape as Overclockers' misses.
+    "ldlc": {"case_fan": frozenset({"airflow_cfm", "noise_db", "pwm", "rpm_max"})},
     "overclockers": {
     "aio": frozenset({'lighting', 'sockets'}),
         "case": frozenset({'dimensions_mm', 'drive_bays_25', 'drive_bays_35', 'fan_bottom', 'fan_rear', 'fan_side', 'lighting', 'max_cooler_height_mm', 'radiator_support', 'type', 'weight_kg'}),
