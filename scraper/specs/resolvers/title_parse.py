@@ -198,9 +198,12 @@ def parse_cpu(text_input: str) -> list[tuple]:
     if socket:
         pairs.append(("socket", socket))
 
-    if text.CPU_PACKAGING_TRAY_RE.search(text_value):
+    # clean_text drops Hebrew, so 1PC's mistranslated "צבע טרי" (tray) /
+    # "צבע אריזת קופסה" (box) only survive in the raw input.
+    packaging_text = f"{text_value} {text_input}"
+    if text.CPU_PACKAGING_TRAY_RE.search(packaging_text):
         pairs.append(("packaging", "tray", 0.9))
-    elif text.CPU_PACKAGING_BOX_RE.search(text_value):
+    elif text.CPU_PACKAGING_BOX_RE.search(packaging_text):
         pairs.append(("packaging", "boxed", 0.9))
 
     tdp = text.TDP_RE.search(text_value)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T18:59:18.659870+00:00",
+  "generated_at": "2026-10-23T19:12:50.801470+00:00",
   "gaps": [
     {
       "category": "motherboard",
@@ -9,6 +9,16 @@
         "mpn:motherboard:90mb1ds0m1eay0",
         "mpn:motherboard:90mb1fv0m0eay0",
         "mpn:motherboard:90mb1gy0m0eay0"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה",
+      "count": 68,
+      "products": [
+        "mpn:gpu:113480120g",
+        "mpn:gpu:113480220g",
+        "mpn:gpu:113490120g"
       ]
     },
     {
@@ -56,9 +66,29 @@
       "label": "מפרט",
       "count": 30,
       "products": [
+        "manual:motherboard:1pc-221505-tms-gb550aorusewf7",
         "motherboard:1pc:1pc-128729",
-        "motherboard:1pc:1pc-203138",
-        "motherboard:1pc:1pc-213828"
+        "motherboard:1pc:1pc-203138"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "סוג האחסון",
+      "count": 25,
+      "products": [
+        "mpn:gpu:113480220g",
+        "mpn:gpu:113490120g",
+        "mpn:gpu:4711377292498"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "משקל",
+      "count": 22,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
@@ -69,6 +99,16 @@
         "mpn:storage:795s732g1t",
         "mpn:storage:as6508t",
         "mpn:storage:as7116rdx"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ספק כח מומלץ",
+      "count": 20,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
@@ -132,6 +172,36 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "צריכת חשמל",
+      "count": 17,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק חיבור",
+      "count": 16,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק זיכרון",
+      "count": 16,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
       "category": "aio",
       "label": "הספק תרמי מירבי",
       "count": 15,
@@ -149,6 +219,56 @@
         "mpn:case:4711377231565",
         "mpn:case:4711377231572",
         "mpn:case:4711377293167"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDMI",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPort",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות מעבד גרפי",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ברזולוציה",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מקסימלית",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
       ]
     },
     {
@@ -173,12 +293,42 @@
     },
     {
       "category": "gpu",
-      "label": "Spec / Specifications / SKU",
+      "label": "D-SUB",
       "count": 14,
       "products": [
-        "mpn:gpu:4711377292474",
-        "mpn:gpu:4711377292498",
-        "mpn:gpu:4711377301060"
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבור לספק כח",
+      "count": 14,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377265591",
+        "mpn:gpu:4711377292498"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב G-SYNC",
+      "count": 14,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "dvi",
+      "count": 14,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
@@ -219,6 +369,16 @@
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:ryzen57500x3d",
         "model:cpu:ryzen58400f-tray"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תושבת מעבד (Socket)",
+      "count": 13,
+      "products": [
+        "mpn:gpu:113480220g",
+        "mpn:gpu:9005g1332240000",
+        "mpn:gpu:90yv0mf0m0na00"
       ]
     },
     {
@@ -289,6 +449,96 @@
         "case:1pc:1pc-215453",
         "mpn:case:b4w",
         "mpn:case:b4wwd"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "כרטיס גרפי",
+      "count": 10,
+      "products": [
+        "mpn:gpu:4x61q73041",
+        "mpn:gpu:4x61t95638",
+        "mpn:gpu:9005g1332240000"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Parallel processing technology support",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDMI ports quantity",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPorts quantity",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Cooling type",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Cooling technology",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Number of slots",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Depth",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Height",
+      "count": 10,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
       ]
     },
     {
@@ -393,92 +643,72 @@
     },
     {
       "category": "gpu",
-      "label": "Parallel processing technology support",
+      "label": "CUDA",
       "count": 9,
       "products": [
         "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDMI ports quantity",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "DisplayPorts quantity",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Cooling type",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Cooling technology",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Number of slots",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Depth",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Height",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "רזולוציה",
-      "count": 9,
-      "products": [
-        "mpn:gpu:90yv0l71m0na00",
         "mpn:gpu:90yv0lg2m0na00",
-        "mpn:gpu:90yv0lx0m0na00"
+        "mpn:gpu:90yv0lg3m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDMI version",
+      "count": 9,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPort version",
+      "count": 9,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDCP",
+      "count": 9,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDCP version",
+      "count": 9,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Dual Link DVI",
+      "count": 9,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg2m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Weight",
+      "count": 9,
+      "products": [
+        "mpn:gpu:90yv0l70m0na00",
+        "mpn:gpu:90yv0l76m0nm00",
+        "mpn:gpu:90yv0lg3m0na00"
       ]
     },
     {
@@ -499,76 +729,6 @@
         "mpn:aio:cw9060070ww",
         "mpn:aio:cw9060071ww",
         "mpn:aio:cw9060088ww"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "CUDA",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0lg2m0na00",
-        "mpn:gpu:90yv0lg3m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDMI version",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "DisplayPort version",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDCP",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDCP version",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Dual Link DVI",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg2m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Weight",
-      "count": 8,
-      "products": [
-        "mpn:gpu:90yv0l70m0na00",
-        "mpn:gpu:90yv0l76m0nm00",
-        "mpn:gpu:90yv0lg3m0na00"
       ]
     },
     {
@@ -596,8 +756,8 @@
       "label": "PCI-E x16 (x4) חריץ",
       "count": 7,
       "products": [
+        "manual:motherboard:1pc-221505-tms-gb550aorusewf7",
         "motherboard:1pc:1pc-221470",
-        "motherboard:1pc:1pc-221505",
         "motherboard:1pc:1pc-221506"
       ]
     },
@@ -843,22 +1003,32 @@
     },
     {
       "category": "gpu",
-      "label": "כרטיס גרפי",
+      "label": "SFF ready",
       "count": 6,
       "products": [
-        "mpn:gpu:9005g1472250000",
-        "mpn:gpu:90yv0mh6m0na00",
-        "mpn:gpu:n5070212d7x195064w"
+        "mpn:gpu:90yv0lg2m0na00",
+        "mpn:gpu:90yv0m17m0na00",
+        "mpn:gpu:90yv0m19m0na00"
       ]
     },
     {
       "category": "gpu",
-      "label": "רזולוציה דיגיטלית מקסימלית",
+      "label": "CUDA cores",
       "count": 6,
       "products": [
-        "mpn:gpu:n5070212d7x195064w",
-        "mpn:gpu:ne75060u19p1gb2063m",
-        "mpn:gpu:ne75060v19p1gb2063l"
+        "mpn:gpu:90yv0m17m0na00",
+        "mpn:gpu:90yv0m19m0na00",
+        "mpn:gpu:90yv0mh6m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Processor frequency (OC mode)",
+      "count": 6,
+      "products": [
+        "mpn:gpu:90yv0m17m0na00",
+        "mpn:gpu:90yv0m19m0na00",
+        "mpn:gpu:90yv0mh6m0na00"
       ]
     },
     {
@@ -933,32 +1103,32 @@
     },
     {
       "category": "gpu",
-      "label": "SFF ready",
+      "label": "מפרט",
       "count": 5,
       "products": [
-        "mpn:gpu:90yv0lg2m0na00",
+        "mpn:gpu:90yv0h20m0na00",
+        "mpn:gpu:90yv0l71m0na00",
+        "mpn:gpu:90yv0lx0m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "NVIDIA G-SYNC",
+      "count": 5,
+      "products": [
+        "mpn:gpu:90yv0m17m0na00",
         "mpn:gpu:90yv0m19m0na00",
         "mpn:gpu:90yv0mp3m0na00"
       ]
     },
     {
       "category": "gpu",
-      "label": "CUDA cores",
+      "label": "NPU performance up to",
       "count": 5,
       "products": [
+        "mpn:gpu:90yv0m17m0na00",
         "mpn:gpu:90yv0m19m0na00",
-        "mpn:gpu:90yv0mh6m0na00",
-        "mpn:gpu:90yv0mp3m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Processor frequency (OC mode)",
-      "count": 5,
-      "products": [
-        "mpn:gpu:90yv0m19m0na00",
-        "mpn:gpu:90yv0mh6m0na00",
-        "mpn:gpu:90yv0mp3m0na00"
+        "mpn:gpu:90yv0mh6m0na00"
       ]
     },
     {
@@ -1233,7 +1403,17 @@
     },
     {
       "category": "gpu",
-      "label": "Storage / Storage capacity",
+      "label": "ליבות CUDA®",
+      "count": 4,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "נפח אחסון",
       "count": 4,
       "products": [
         "mpn:gpu:4711377292498",
@@ -1253,21 +1433,11 @@
     },
     {
       "category": "gpu",
-      "label": "NVIDIA G-SYNC",
+      "label": "Virtual Reality (VR) ready",
       "count": 4,
       "products": [
+        "mpn:gpu:90yv0m17m0na00",
         "mpn:gpu:90yv0m19m0na00",
-        "mpn:gpu:90yv0mp3m0na00",
-        "mpn:gpu:90yv0n15m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "NPU performance up to",
-      "count": 4,
-      "products": [
-        "mpn:gpu:90yv0m19m0na00",
-        "mpn:gpu:90yv0mh6m0na00",
         "mpn:gpu:90yv0mp3m0na00"
       ]
     },
@@ -1763,6 +1933,96 @@
     },
     {
       "category": "gpu",
+      "label": "תמיכת DirectX",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכת OpenGL",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מספר מסכים מקסימלי",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "פורטים",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צריכת כוח",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מחברי כוח",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מידות כרטיס (מ״מ)",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יציאות תצוגה",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4711377379946",
+        "mpn:gpu:4711377460880",
+        "mpn:gpu:9005g1472250000"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "קצב רענון",
+      "count": 3,
+      "products": [
+        "mpn:gpu:4x61q73041",
+        "mpn:gpu:4x61t95638",
+        "mpn:gpu:rx9060xt16glocwhite"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Stream processors",
       "count": 3,
       "products": [
@@ -1779,16 +2039,6 @@
         "mpn:gpu:90yv0l70m0na00",
         "mpn:gpu:90yv0lg3m0na00",
         "mpn:gpu:90yv0m19m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Virtual Reality (VR) ready",
-      "count": 3,
-      "products": [
-        "mpn:gpu:90yv0m19m0na00",
-        "mpn:gpu:90yv0mp3m0na00",
-        "mpn:gpu:90yv0n15m0na00"
       ]
     },
     {
@@ -2269,11 +2519,47 @@
     },
     {
       "category": "gpu",
-      "label": "Spec / Specifications / Graphics card memory size",
+      "label": "CUDA Cores",
       "count": 2,
       "products": [
-        "mpn:gpu:9005g1332240000",
-        "mpn:gpu:akr580d5s8gh1"
+        "mpn:gpu:4711377379946",
+        "mpn:gpu:90yv0lx0m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מידות כרטיס",
+      "count": 2,
+      "products": [
+        "mpn:gpu:4711377379946",
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבורים",
+      "count": 2,
+      "products": [
+        "mpn:gpu:4711377379960",
+        "mpn:gpu:dpz4cwwp01"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "הספק כח",
+      "count": 2,
+      "products": [
+        "mpn:gpu:4x61q73041",
+        "mpn:gpu:4x61t95638"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דרישות מערכת",
+      "count": 2,
+      "products": [
+        "mpn:gpu:4x61q73041",
+        "mpn:gpu:4x61t95638"
       ]
     },
     {
@@ -2283,33 +2569,6 @@
       "products": [
         "mpn:gpu:90yv0l70m0na00",
         "mpn:gpu:90yv0l76m0nm00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מפרט",
-      "count": 2,
-      "products": [
-        "mpn:gpu:90yv0l71m0na00",
-        "mpn:gpu:90yv0lx0m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "סוג האחסון",
-      "count": 2,
-      "products": [
-        "mpn:gpu:90yv0lx0m0na00",
-        "mpn:gpu:90yv0mh6m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Spec / Dimensions",
-      "count": 2,
-      "products": [
-        "mpn:gpu:90yv0mh0m0na00",
-        "mpn:gpu:90yv0mh2m0na00"
       ]
     },
     {
@@ -3800,26 +4059,122 @@
     },
     {
       "category": "gpu",
-      "label": "Spec / Specifications / Product Code",
+      "label": "מספר ליבות CUDA",
       "count": 1,
       "products": [
-        "mpn:gpu:4711377308229"
+        "mpn:gpu:4711377301060"
       ]
     },
     {
       "category": "gpu",
-      "label": "Spec / Specifications / Item number",
+      "label": "מחברי חשמל",
       "count": 1,
       "products": [
-        "mpn:gpu:4711377334471"
+        "mpn:gpu:4711377301060"
       ]
     },
     {
       "category": "gpu",
-      "label": "יציאות תצוגה",
+      "label": "תאימות למארז",
       "count": 1,
       "products": [
-        "mpn:gpu:9005g1472250000"
+        "mpn:gpu:4711377338868"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "אפיק זיכרון",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377379946"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מסכים נתמכים",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377379946"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מידות mm",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377379960"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מספר תצוגות מקסימלי",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377379960"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "שטח תצוגה פעיל (mm)",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377379960"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות CUDA",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מידות הכרטיס",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב-DirectX",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב-OpenGL",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מספר מסכים מרבי",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מרבית",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבורי מתח",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377460880"
       ]
     },
     {
@@ -3912,30 +4267,6 @@
     },
     {
       "category": "gpu",
-      "label": "CUDA Cores",
-      "count": 1,
-      "products": [
-        "mpn:gpu:90yv0lx0m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDMI",
-      "count": 1,
-      "products": [
-        "mpn:gpu:90yv0lx0m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "DisplayPort",
-      "count": 1,
-      "products": [
-        "mpn:gpu:90yv0lx0m0na00"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "HDCP Support",
       "count": 1,
       "products": [
@@ -3976,10 +4307,66 @@
     },
     {
       "category": "gpu",
-      "label": "Spec / Specifications / CUDA",
+      "label": "ערכת שבבים",
       "count": 1,
       "products": [
-        "mpn:gpu:90yv0m17m0na00"
+        "mpn:gpu:90yv0mf0m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דגם כרטיס מסך",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תושבת / ממשק חיבור",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מערכת קירור",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "עיצוב",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "טכנולוגיות נוספות",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ביצועי AI",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מיסבים",
+      "count": 1,
+      "products": [
+        "mpn:gpu:90yv0n12m0na00"
       ]
     },
     {
@@ -3992,26 +4379,10 @@
     },
     {
       "category": "gpu",
-      "label": "Spec / Battery Capacity",
+      "label": "סוללה",
       "count": 1,
       "products": [
         "mpn:gpu:n507tgamingoc16gd"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Spec / Specifications / GPU Architecture",
-      "count": 1,
-      "products": [
-        "mpn:gpu:ne75070019k9gb2050u"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Spec / Specifications / Graphic connection",
-      "count": 1,
-      "products": [
-        "mpn:gpu:rx9070xt16glocwhite"
       ]
     },
     {

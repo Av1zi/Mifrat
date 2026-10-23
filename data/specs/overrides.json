@@ -8,5 +8,15 @@
     "Use one entry per corrected product, e.g.:",
     "  \"products\": { \"abc123def\": { \"tdp_w\": 120, \"socket\": \"AM5\" } }"
   ],
-  "products": {}
+  "products": {
+    "mpn:cpu:pk8072007045600": {
+      "socket": "LGA 4710"
+    },
+    "mpn:gpu:100505849": {
+      "memory_type": "GDDR3"
+    },
+    "mpn:gpu:4711377107549": {
+      "memory_type": "GDDR4"
+    }
+  }
 }

@@ -310,6 +310,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "ram / ram size": GPU_VRAM,
         "ram / ram capacity": GPU_VRAM,
         "ram / ram type": GPU_VRAM,
+        # 1PC new storefront (Oct 2026): bare "Memory: 8GB GDDR7" row.
+        "memory": GPU_VRAM,
+        "video memory": GPU_VRAM,
         "storage / storage type": STORAGE_TYPE_CELL,
         "מהירות ליבה מקסימלית": "boost_clock_mhz",
         "יציאות תצוגה בכרטיס המסך": GPU_OUTPUTS,

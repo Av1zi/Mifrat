@@ -34,50 +34,6 @@
   },
   {
     "score": 100,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:221402",
-    "listing_b": "tms:NE1000P",
-    "title_a": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular NE1000P",
-    "title_b": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
-    "match_text_a": "221402 ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular NE1000P",
-    "match_text_b": "NE1000P ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular"
-  },
-  {
-    "score": 100,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:221403",
-    "listing_b": "tms:NE1200P",
-    "title_a": "ANTEC NE1200 NeoECO PSU 1200W ATX3.1 Platinum Full Modular NE1200P",
-    "title_b": "ANTEC PSU 1200W NE1200 NeoECO ATX3.1 Platinum Full Modular",
-    "match_text_a": "221403 ANTEC NE1200 NeoECO PSU 1200W ATX3.1 Platinum Full Modular NE1200P",
-    "match_text_b": "NE1200P ANTEC PSU 1200W NE1200 NeoECO ATX3.1 Platinum Full Modular"
-  },
-  {
-    "score": 100,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:221505",
-    "listing_b": "tms:GB550AORUSEWF7",
-    "title_a": "לוח אם Gigabyte B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
-    "title_b": "לוח אם Gigabyte B550 AORUS ELITE WiFi7",
-    "match_text_a": "221505 Gigabyte B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
-    "match_text_b": "GB550AORUSEWF7 Gigabyte B550 AORUS ELITE WiFi7"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:102820",
-    "listing_b": "tms:C10105FT",
-    "title_a": "מעבד Intel Core i3 10105F צבע טרי",
-    "title_b": "Intel Core i3 10105F / 1200 Tray",
-    "match_text_a": "C10105FT Intel Core i3 10105F",
-    "match_text_b": "C10105FT Intel Core i3 10105F / 1200 Tray"
-  },
-  {
-    "score": 100,
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "1pc:109579",
@@ -86,6 +42,17 @@
     "title_b": "Intel Core i7 12700F / 1700 Box",
     "match_text_a": "C12700FB Intel Core i7 12700F",
     "match_text_b": "C12700FB Intel Core i7 12700F / 1700 Box"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:134718",
+    "listing_b": "tms:C7500T-P",
+    "title_a": "מעבד Intel Core i5 7500 צבע קופסה",
+    "title_b": "Intel Core i5 7500 / 1151 Tray Pull",
+    "match_text_a": "C7500T-P Intel Core i5 7500",
+    "match_text_b": "C7500T-P Intel Core i5 7500 / 1151 Tray Pull"
   },
   {
     "score": 100,
@@ -2806,26 +2773,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:corei310105f",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:104846",
-        "vendor_sku": "C10105FB",
-        "title": "מעבד Intel Core i3 10105F צבע אריזת קופסה",
-        "price": 242
-      },
-      {
-        "listing_key": "1pc:102820",
-        "vendor_sku": "C10105FT",
-        "title": "מעבד Intel Core i3 10105F צבע טרי",
-        "price": 250
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:cpu:corei712700f-tray",
     "category": "cpu",
     "vendor": "1pc",
@@ -2901,46 +2848,6 @@
         "vendor_sku": "100-000001973",
         "title": "מעבד חברת AMD דגם Ryzen 7 9850X3D Boost 5.6Ghz 96MB Cache AM5 TRAY Thermal solution not included",
         "price": 1920
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:ryzen97900x",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:127416",
-        "vendor_sku": "100-000000589",
-        "title": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
-        "price": 1525
-      },
-      {
-        "listing_key": "1pc:125818",
-        "vendor_sku": "100-100000589WOF",
-        "title": "מעבד AMD Ryzen 9 7900X AM5 צבע שחור",
-        "price": 1560
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "mpn:psu:srpcgx851a5a32sfw",
-    "category": "psu",
-    "vendor": "tms",
-    "offers": [
-      {
-        "listing_key": "tms:SRP-CGX851-A5A32SF-W",
-        "vendor_sku": "SRP-CGX851-A5A32SF-W",
-        "title": "ספק כוח Seasonic GX-850 850W CORE (V2) GX ATX 3.1 80+ Gold White",
-        "price": 670
-      },
-      {
-        "listing_key": "tms:SRP-CGX851-A5A32SFW",
-        "vendor_sku": "SRP-CGX851-A5A32SFW",
-        "title": "Seasonic Core GX-850-V2 850W ATX 3.1 80+ Gold White",
-        "price": 670
       }
     ]
   },
@@ -3535,30 +3442,6 @@
         "vendor_sku": "NE1000GM-W-ATX3.0",
         "title": "ספק כוח למחשב חברת Antec דגם NeoEco NE1000GM 1000W Gold Full Modular ATX 3.0 PCIE 5.0 READY ACTIVE PFC - צבע לבן",
         "price": 670
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:psu:ne1000p",
-    "category": "psu",
-    "vendor": "",
-    "titles": [
-      "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
-      "ספק כוח למחשב חברת Antec דגם NeoEco NE1000P 1000W Platinum Full Modular ATX 3.1 PCIE 5.1 READY ACTIVE PFC"
-    ],
-    "offers": [
-      {
-        "listing_key": "tms:NE1000P",
-        "vendor_sku": "NE1000P",
-        "title": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
-        "price": 555
-      },
-      {
-        "listing_key": "yahav:11516",
-        "vendor_sku": "NE1000P",
-        "title": "ספק כוח למחשב חברת Antec דגם NeoEco NE1000P 1000W Platinum Full Modular ATX 3.1 PCIE 5.1 READY ACTIVE PFC",
-        "price": 580
       }
     ]
   },

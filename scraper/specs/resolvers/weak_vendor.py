@@ -254,6 +254,16 @@ _OVERVIEW_LABELS: dict[str, dict[str, str]] = {
 }
 _NUMBER_RE = re.compile(r"(\d+(?:[.,]\d+)?)")
 
+# GPU overview rows that print the card's VRAM ("Internal Memory Size: 16GB
+# GDDR6", "Memory: 8GB GDDR7"). Size and type share one cell, so they are
+# split here instead of through _OVERVIEW_LABELS (one key per label).
+_OVERVIEW_GPU_VRAM_LABELS = frozenset({
+    "memory", "internal memory size", "video memory", "memory size",
+    "graphics card memory size", "graphics card memory",
+})
+_VRAM_GB_RE = re.compile(r"(\d+(?:[.,]\d+)?)\s*GB\b", re.I)
+_VRAM_TYPE_RE = re.compile(r"\b(GDDR\d+X?|HBM\d?)\b", re.I)
+
 
 def _overview_value(label: str, value: str):
     """Reduce an overview value to the bare token coerce() understands."""
@@ -287,7 +297,16 @@ def parse_overview(category: str | None, meta) -> dict[str, list[Fact]]:
         if ":" not in part:
             continue
         label, _, value = part.partition(":")
-        mapping = _OVERVIEW_LABELS.get(label.strip().lower())
+        name = label.strip().lower()
+        if cat == "gpu" and name in _OVERVIEW_GPU_VRAM_LABELS:
+            size = _VRAM_GB_RE.search(value)
+            if size:
+                legacy.setdefault("memory_gb", size.group(1).replace(",", "."))
+            kind = _VRAM_TYPE_RE.search(value)
+            if kind:
+                legacy.setdefault("memory_type", kind.group(1).upper())
+            continue
+        mapping = _OVERVIEW_LABELS.get(name)
         if not mapping:
             continue
         key = mapping.get(cat) or mapping.get("*")
