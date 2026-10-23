@@ -41,6 +41,27 @@ of its allowed values when the field lists them. Yes/No fields take "Yes" or "No
 - Leave out every field the text does not state. An empty list is a fine answer."""
 
 
+def _load_dotenv() -> None:
+    """KEY=VALUE lines of the repo's .env (gitignored) fill env vars that are not
+    already set. Plain parsing, no dependency; a missing file is fine."""
+    try:
+        lines = (ROOT / ".env").read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        name, _, value = line.partition("=")
+        name = name.strip().removeprefix("export ").strip()
+        value = value.strip().strip("'\"")
+        if name and value:
+            os.environ.setdefault(name, value)
+
+
+_load_dotenv()
+
+
 class NoKey(RuntimeError):
     """No ANTHROPIC_API_KEY: the runner reports and stops, it never guesses."""
 
