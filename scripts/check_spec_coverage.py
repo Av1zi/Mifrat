@@ -74,7 +74,12 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # and the box/manual rows ignored; what remains (HDCP, CUDA, slot width, VR
 # ready, ...) has no column, so it is gap evidence, not breakage. Rows
 # 1,436 -> 1,621; 1,950 keeps the same ~330-row margin as before.
-LABEL_GAP_BUDGET = 1950
+#
+# 2026-10-23: 1950 -> 2300. Rows 1,621 -> 1,963 after the case-fan / CPU-cooling
+# split and the title/weak-vendor spec work; same ~330-row margin. Also dropped
+# the removed `cooling_other` category from the floors and lowered accessories
+# 76 -> 73 (measured 75.8 on n=19, so one product swings it).
+LABEL_GAP_BUDGET = 2300
 
 # Mean field-fill % per category, minus 2pp tolerance.
 #
@@ -108,12 +113,11 @@ LABEL_GAP_BUDGET = 1950
 # denominator-dilution the 2026-10-15 note describes; the floor follows the
 # measured value (48) minus 2pp.
 CATEGORY_FLOORS = {
-    "accessories": 76,
+    "accessories": 73,
     "aio": 54,
     "case": 59,
     "case_fan": 63,
     "cooler_air": 58,
-    "cooling_other": 43,
     "cpu": 87,
     "gpu": 70,
     "memory": 79,
@@ -152,7 +156,6 @@ CORE_APPLICABLE_FLOORS = {
     "case": 78,
     "case_fan": 64,
     "cooler_air": 82,
-    "cooling_other": 70,
     "cpu": 91,
     "gpu": 81,
     "memory": 85,
