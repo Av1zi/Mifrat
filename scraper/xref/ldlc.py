@@ -12,8 +12,10 @@ and a value cell. The brand's model code is the "Model" row ("NOCTUA NH-U12A").
 Joined on the EAN or on the "Model" code once the brand word is dropped, both
 compared with our own part numbers (runner), never on the product name.
 
-Only the cooler / fan fields are mapped so far: they are what the saved pages
+Only coolers, fans and memory are mapped: they are what the saved pages
 (scraper/fixtures/ldlc) show. Other categories need their pages saved first.
+The search is lenient (a 1x16GB code can list the 2x8GB kit); the exact-key join
+in the runner is what rejects those.
 "Processor support" prints ONE socket for a cooler that fits many, so sockets
 are not read.
 """
@@ -28,7 +30,7 @@ from ..mfr.common import norm_mpn, norm_upc, typed
 
 SITE = "ldlc"
 BASE_URL = "https://www.ldlc.com"
-CATEGORIES = ("cooler_air", "case_fan")
+CATEGORIES = ("cooler_air", "case_fan", "memory")
 IDENTIFY = True                     # MifratSpecBot, never a borrowed browser name
 M3H_TO_CFM = 0.588578
 
@@ -109,6 +111,8 @@ def specs_for(category: str, rows: dict) -> dict:
 
     if category not in CATEGORIES:
         return out
+    if category == "memory":
+        return _memory(rows, put, out)
     put("color", rows.get("Color"))
     lit = _yes(rows.get("Luminous"))
     if lit is False:
@@ -138,4 +142,37 @@ def specs_for(category: str, rows: dict) -> dict:
         pwm = _yes(rows.get("PWM"))
         if pwm is not None:
             put("pwm", pwm)
+    return out
+
+
+def _memory(rows: dict, put, out: dict) -> dict:
+    kind = re.search(r"DDR\d", rows.get("Memory type", ""))
+    rate = re.search(r"(DDR\d)\s*(\d{3,5})\s*MHz", rows.get("Memory Frequency(ies)", ""), re.I)
+    if kind:
+        put("memory_type", kind.group(0))
+    if rate:
+        put("speed_mhz", int(rate.group(2)))
+        put("speed", f"{rate.group(1).upper()}-{rate.group(2)}")
+    form = rows.get("Memory format", "")
+    put("form_factor", "SO-DIMM" if re.search(r"SO-?DIMM", form, re.I)
+        else "DIMM" if re.search(r"\bDIMM\b", form, re.I) else None)
+    modules, each, total = (_num(rows.get(k)) for k in
+                            ("Number of modules", "Capacity per module", "Capacity"))
+    if modules and each and re.search(r"GB", rows.get("Capacity per module", "")):
+        put("module_count", int(modules))
+        put("module_size_gb", int(each))
+        if total and re.search(r"GB", rows.get("Capacity", "")) and abs(modules * each - total) < 0.5:
+            put("total_gb", int(total))
+    put("cas_latency", _num(rows.get("CAS Latency")))
+    volts = rows.get("Voltage", "")
+    if re.search(r"volt", volts, re.I):
+        put("voltage_v", _num(volts))
+    sink = _yes(rows.get("Radiator"))
+    if sink is not None:
+        put("heat_spreader", sink)
+    if _yes(rows.get("LED")) is False and _yes(rows.get("LED RGB")) is not True:
+        put("lighting", "No")               # "Yes" alone does not say RGB or ARGB
+    spec = rows.get("Memory specification", "").lower()
+    if "unbuffered" in spec:
+        put("registered", False)
     return out

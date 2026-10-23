@@ -49,6 +49,20 @@ check("ldlc search tiles", ldlc.tile_urls(page("ldlc", "search_NH-U12A.html")),
 check("ldlc search with no product is a miss", ldlc.tile_urls(page("ldlc", "search_CP-9020247-EU.html")), [])
 check("ldlc search url", ldlc.search_url("NH-U12A"), "https://www.ldlc.com/en/search/NH-U12A/")
 
+# LDLC memory: the search for the 1x16GB code CMG16GX4M1E3200C16 listed the 2x8GB kit.
+kit = ldlc.parse_page(page("ldlc", "product_CMG16GX4M1E3200C16.html"))
+check("ldlc lenient search: the page's keys do not include the code we asked for",
+      "CMG16GX4M1E3200C16" in ldlc.page_keys(kit), False)
+check("ldlc kit keys", ldlc.page_keys(kit), {"CMG16GX4M2E3200C16", "0840006649007"})
+check("ldlc memory specs (RGB LED yes -> lighting not emitted)", ldlc.specs_for("memory", kit["rows"]), {
+    "memory_type": "DDR4", "speed_mhz": 3200, "speed": "DDR4-3200", "form_factor": "DIMM",
+    "module_count": 2, "module_size_gb": 8, "total_gb": 16, "cas_latency": 16,
+    "voltage_v": 1.35, "heat_spreader": True, "registered": False})
+fury = ldlc.parse_page(page("ldlc", "product_KF560C36BBE2-32.html"))
+check("ldlc fury keys (code printed with the K2 kit suffix)", ldlc.page_keys(fury),
+      {"KF560C36BBE2K232", "0740617345841"})
+check("ldlc no-LED memory", ldlc.specs_for("memory", fury["rows"]).get("lighting"), "No")
+
 if failures:
     print(f"[xref-fixtures] {failures} failure(s)")
     sys.exit(1)
