@@ -51,9 +51,11 @@ wrong, listed in `REVIEWED_OVER` with the evidence.
 | gpu `length_mm`, `memory_speed_gbps`, `recommended_psu_w` | disabled | length is sometimes the height; data rate / PSU differ from chip and partner figures |
 | gpu `dp_outputs`, `hdmi_outputs` | enabled (reviewed) | the retailer cells listed port kinds and our parser read one of each; fixed in `vendor_struct._emit_gpu_outputs` |
 | motherboard `wireless` | enabled (reviewed) | retailers print "Wi-Fi 6" for Gigabyte AX boards with Wi-Fi 6E modules |
-| gpu `color` | enabled (reviewed) | the one miss is a white AERO card a retailer lists as black |
+| gpu `color`, `memory_gb`; motherboard `bluetooth`; memory `ecc`; cooling_other `color` | disabled | the inference backtest found sheets shared between sibling SKUs (Bronze vs a white title, 16 GB on the 8G card, WiFi board Bluetooth on a non-WiFi ASUS, DDR5 on-die ECC read as ECC) |
 
-Coverage measured on the first Gigabyte run: 193 of 349 products got a sheet.
+Coverage of the full Oct 2026 run (open account, 1 req/s, ~3,000 requests): 3,440 products, 3,727 lookups, 787 sheets accepted, 737 products matched; 1,130 lookups answered "not open" (Full Icecat only) and 1,810 "not found". 16 brand files. 49 sheets were rejected because neither their part number nor a barcode equalled ours.
+
+After the full run `--trust` flagged 38 fields over 3%, all now in `mapping.DISABLED`; the inference backtest later found four more (table above).
 Brands that only answered "needs a Full Icecat key" (Corsair, Cooler Master,
 Crucial, WD, Lian Li, Palit, Sapphire) need a paid account, which was declined
 (Oct 2026).

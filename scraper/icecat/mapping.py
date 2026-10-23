@@ -33,14 +33,42 @@ DISABLED: dict[str, frozenset] = {
     "gpu": frozenset({"length_mm", "memory_speed_gbps", "recommended_psu_w"}),
 }
 
+# Measured over the limit on the full Oct 2026 run (787 sheets, `--trust` on a
+# catalog built without Icecat): disabled mechanically rather than reviewed one
+# by one. Many are definitional (a case's box vs product dimensions, OC vs
+# gaming-mode boost clocks, 77 vs 56 CFM for the same fan); a field is
+# re-enabled by moving it to REVIEWED_OVER with the evidence.
+_MEASURED_OVER: dict[str, frozenset] = {
+    "aio": frozenset({'airflow_cfm', 'lighting', 'sockets'}),
+    "case": frozenset({'dimensions_mm', 'drive_bays_25', 'drive_bays_35', 'expansion_slots', 'fan_front', 'fan_rear', 'fan_side', 'fan_top', 'max_gpu_length_mm', 'radiator_support', 'type', 'weight_kg'}),
+    "case_fan": frozenset({'airflow_cfm', 'connector', 'noise_db', 'quantity', 'rpm_max'}),
+    "cooler_air": frozenset({'fan_rpm_max', 'height_mm', 'sockets'}),
+    "gpu": frozenset({'boost_clock_mhz', 'max_resolution'}),
+    "memory": frozenset({'cas_latency', 'color', 'voltage_v'}),
+    "motherboard": frozenset({'m2_slots', 'memory_speeds'}),
+    "psu": frozenset({'molex4_connectors', 'sata_connectors'}),
+    "storage": frozenset({'capacity_gb', 'form_factor', 'interface', 'pcie_gen', 'read_speed_mbs', 'write_speed_mbs'}),
+}
+# Found by the inference-rule backtest once Icecat values counted as sourced
+# (a sheet shared between sibling SKUs): the title says Black / White / 8G and
+# the sheet says Bronze / 16 GB; ASUS non-WiFi boards get a WiFi sheet's
+# Bluetooth; DDR5 on-die ECC reads as ECC.
+_MEASURED_OVER["gpu"] = _MEASURED_OVER["gpu"] | {"color", "memory_gb"}
+_MEASURED_OVER["motherboard"] = _MEASURED_OVER["motherboard"] | {"bluetooth"}
+_MEASURED_OVER["memory"] = _MEASURED_OVER.get("memory", frozenset()) | {"ecc"}
+_MEASURED_OVER["cooling_other"] = _MEASURED_OVER.get("cooling_other", frozenset()) | {"color"}
+for _category, _fields in _MEASURED_OVER.items():
+    DISABLED[_category] = DISABLED.get(_category, frozenset()) | _fields
+
 # Fields over the limit where the review found the SOURCED side wrong, so they
 # stay enabled (and outrank the retailer). Re-check after a vendor parser fix.
 REVIEWED_OVER: dict[str, frozenset] = {
     # Retailer cells list port kinds ("HDMI | DisplayPort"), and the old parser
     # read them as one of each; the partner sheets give real counts
     # (RTX 3070 Ti GAMING OC: 2 HDMI + 2 DP).
-    # The one colour miss is a white AERO card a retailer lists as black.
-    "gpu": frozenset({"dp_outputs", "hdmi_outputs", "color"}),
+    # (gpu colour was reviewed here once; the backtest showed the sheet is the
+    # wrong side - it is DISABLED above.)
+    "gpu": frozenset({"dp_outputs", "hdmi_outputs"}),
     # Retailers print "Wi-Fi 6" for Gigabyte's AX boards that ship Wi-Fi 6E
     # (B650 AORUS PRO AX, B760M AORUS ELITE AX: RZ616 / AX211 modules).
     "motherboard": frozenset({"wireless"}),

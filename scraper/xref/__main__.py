@@ -20,9 +20,9 @@ def main() -> int:
     args = parser.parse_args()
     if args.trust:
         from ..icecat.trust import report
-        from .store import DATA_ROOT
+        from .store import DATA_ROOT, DISABLED
 
-        return report(DATA_ROOT / args.site, label=f"xref:{args.site}", disabled={}, reviewed={})
+        return report(DATA_ROOT / args.site, label=f"xref:{args.site}", disabled=DISABLED.get(args.site, {}), reviewed={})
     summary = run(args.site, limit=args.limit, dry_run=args.dry_run, offline=args.offline)
     return 1 if summary.get("blocked") else 0
 

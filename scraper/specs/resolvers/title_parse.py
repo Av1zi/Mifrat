@@ -415,9 +415,20 @@ def parse_psu(text_input: str) -> list[tuple]:
                 pairs.append(("modular", value, 0.85))
                 break
 
-    length = re.search(r"\b(\d{2,3})\s?MM\b", text_value, re.I)
-    if length and 100 <= int(length.group(1)) <= 250:
-        pairs.append(("length_mm", int(length.group(1)), 0.7))
+    # "כולל מאוורר 135MM" / "135mm fan" name the FAN; read as a length it was
+    # wrong on 21 of 66 sourced overlaps (backtest, Oct 2026). A bare mm number
+    # stays a length only when no fan word sits next to it.
+    fan_size = re.search(
+        r"(?:\bfan|מאוורר(?:ים)?)\s*[:\-]?\s*(\d{2,3})\s?MM\b|\b(\d{2,3})\s?MM\s*(?:\bfan\b|מאוורר)",
+        text_input, re.I)           # raw: the Hebrew "מאוורר" is cleaned out of text_value
+    if fan_size:
+        size = int(fan_size.group(1) or fan_size.group(2))
+        if 80 <= size <= 200:
+            pairs.append(("fan_size_mm", size, 0.8))
+    else:
+        length = re.search(r"\b(\d{2,3})\s?MM\b", text_value, re.I)
+        if length and 100 <= int(length.group(1)) <= 250:
+            pairs.append(("length_mm", int(length.group(1)), 0.7))
 
     if text.FANLESS_RE.search(text_value):
         pairs.append(("fanless", True, 0.9))

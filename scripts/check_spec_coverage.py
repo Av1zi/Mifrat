@@ -165,10 +165,23 @@ CORE_APPLICABLE_FLOORS = {
 # (schema fields - fields that cannot exist for this product - fields a sibling
 # answers)). Unlike CATEGORY_FLOORS this rate cannot be raised by pruning
 # columns or lowered by a correct not-applicable gate: it moves only when
-# products gain or lose real values. Measured __MEASURED__ after the sources
+# products gain or lose real values. Measured 2026-10-23 (30.6% of products overall) after the sources
 # pass (Icecat, foreign retailers, new makers), minus 3pp: a per-product share
 # wobbles more than a mean when one vendor's offers come and go.
-PRODUCT_TARGET_FLOORS: dict[str, float] = {}
+PRODUCT_TARGET_FLOORS: dict[str, float] = {
+    "accessories": 8,
+    "aio": 12,
+    "case": 25,
+    "case_fan": 21,
+    "cooler_air": 9,
+    "cooling_other": 0,
+    "cpu": 74,
+    "gpu": 38,
+    "memory": 53,
+    "motherboard": 25,
+    "psu": 23,
+    "storage": 0,
+}
 
 
 def category_fill(bucket: dict) -> float:
