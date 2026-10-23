@@ -7,14 +7,14 @@ import type { Currency, Lang } from "../../types";
 import { formatPrice } from "../../format";
 import { loadSignals } from "../../signals";
 import { setPageTitle } from "../../titles";
-import { button } from "../../ui/button";
 import { card } from "../../ui/card";
 import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { syncPickControls } from "../../ui/pick";
 import { positivePrice } from "../../ui/price";
 import { signalBadges } from "../../ui/signal";
 import { html, mount } from "../../ui/html";
-import { emptyState, errorState, loadingState } from "../../ui/state";
+import { emptyBox } from "../../ui/emptyBox";
+import { errorState, loadingState } from "../../ui/state";
 import { bindThumbs } from "../../ui/thumb";
 import { displayName, skuOf } from "../../utils";
 import { chipText, pickColumns } from "../category/columns";
@@ -47,7 +47,13 @@ export async function renderProduct(
     mount(
       container,
       html`${pageHero({ lang, crumbs: [{ label: t(lang, "allCategoriesTitle"), href: categoriesHash() }, { label: categoryLabel(category, lang), href: categoryHash(category) }], title: t(lang, "productNotFound") })}
-        ${emptyState(t(lang, "productNotFound"), button({ label: t(lang, "backToCategories"), icon: icon("back", 14), href: categoryHash(category) }))}`
+        ${emptyBox({
+          icon: "search",
+          title: t(lang, "productGoneTitle"),
+          body: t(lang, "productGoneBody"),
+          actions: html`<a class="btn btn--primary" href="${categoryHash(category)}">${t(lang, "backToCategory").replace("{c}", categoryLabel(category, lang))}</a>
+            <a class="btn btn--ghost" href="#/build">${icon("wrench", 16)}${t(lang, "builderNav")}</a>`,
+        })}`
     );
     return;
   }

@@ -60,24 +60,8 @@
   margin-top: 2.5rem;
 }
 
-.saved-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--sp-2);
-  padding: var(--sp-7) var(--sp-5);
-  border-style: dashed;
-  color: var(--text-2);
-  text-align: center;
-}
-
-.saved-empty b {
-  color: var(--text);
-  font-size: var(--fs-lg);
-}
-
-.saved-empty .btn {
-  margin-top: var(--sp-2);
+.saved-sec .empty-box {
+  padding-block: var(--sp-6);
 }
 
 /* ---- product cards ---- */

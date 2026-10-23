@@ -58,7 +58,8 @@ export type IconName =
   | "clock"
   | "chevron-left"
   | "chevron-right"
-  | "store";
+  | "store"
+  | "unlink";
 
 const PATHS: Record<IconName, string> = {
   wrench:
@@ -161,6 +162,8 @@ const PATHS: Record<IconName, string> = {
     '<path d="m15 18-6-6 6-6" />',
   "chevron-right":
     '<path d="m9 18 6-6-6-6" />',
+  unlink:
+    '<path d="M9 15 15 9" /><path d="M11 6.5 12.5 5a4.2 4.2 0 0 1 6 6L17 12.5" /><path d="M13 17.5 11.5 19a4.2 4.2 0 0 1-6-6L7 11.5" /><path d="M4 4l2 2M18 18l2 2" />',
   store:
     '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" />',
 };

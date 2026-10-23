@@ -5,7 +5,7 @@ import { attributeLabel, categoryLabel, specGroupLabel, t, vendorsCount } from "
 import { icon } from "../icons";
 import { bestOffer } from "../offers";
 import { displaySpecFields, formatSpecValue, specValue } from "../specs";
-import { categoriesHash, categoryHash, compareHash, productHash, replaceRoute } from "../state";
+import { categoriesHash, categoryHash, compareHash, productHash, replaceRoute, savedHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { button } from "../ui/button";
@@ -14,7 +14,8 @@ import { html, mount, type Html } from "../ui/html";
 import { pageHero } from "../ui/pageHero";
 import { positivePrice, priceCell } from "../ui/price";
 import { specCell } from "../ui/spec";
-import { emptyState, errorState, loadingState } from "../ui/state";
+import { emptyBox } from "../ui/emptyBox";
+import { errorState, loadingState } from "../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
 import { vendorTag } from "../ui/vendor";
 import { displayName } from "../utils";
@@ -141,7 +142,18 @@ export async function renderCompare(container: HTMLElement, lang: Lang, currency
 
   const empty = (): Html =>
     html`${hero()}
-      ${emptyState(t(lang, "compareEmpty"), button({ label: t(lang, "savedBrowse"), icon: icon("forward", 14), variant: "primary", href: categoriesHash() }))}`;
+      ${emptyBox({
+        icon: "compare",
+        title: t(lang, "compareEmptyTitle"),
+        body: t(lang, "compareEmptyBody"),
+        steps: [
+          { title: t(lang, "compareStep1"), body: t(lang, "compareStep1Body") },
+          { title: t(lang, "compareStep2"), body: t(lang, "compareStep2Body") },
+          { title: t(lang, "compareStep3"), body: t(lang, "compareStep3Body") },
+        ],
+        actions: html`<a class="btn btn--primary" href="${categoriesHash()}">${t(lang, "compareEmptyCta")}</a>
+          <a class="btn btn--ghost" href="${savedHash()}">${icon("heart", 16)}${t(lang, "compareFromSaved")}</a>`,
+      })}`;
 
   const ids = (urlIds.length > 0 ? urlIds : getCompare().items.map((p) => p.id)).slice(0, COMPARE_MAX);
   if (ids.length === 0) {

@@ -2,7 +2,7 @@ import { loadMeta } from "../api";
 import { CATEGORY_ORDER, categoryLabel, homeCatsSub, t } from "../i18n";
 import { CATEGORY_ICONS, icon } from "../icons";
 import { bindSearch } from "../search";
-import { categoriesHash, categoryHash } from "../state";
+import { categoriesHash, categoryHash, navigate, searchHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { CategoryMeta, Currency, Lang } from "../types";
 import { html, mount, type Html } from "../ui/html";
@@ -128,12 +128,9 @@ export async function renderHome(container: HTMLElement, lang: Lang, currency: C
     const input = search.querySelector<HTMLInputElement>("[data-search-input]");
     search.querySelector('[data-role="hero-search"]')?.addEventListener("click", () => {
       if (!input) return;
-      const first = search.querySelector<HTMLElement>(".search-hit");
-      if (first) first.click();
-      else {
-        input.focus();
-        input.dispatchEvent(new Event("input"));
-      }
+      const query = input.value.trim();
+      if (query) navigate(searchHash(query));
+      else input.focus();
     });
   }
   bindRail(container);

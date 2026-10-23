@@ -1,11 +1,11 @@
 import { t } from "../../i18n";
 import { fetchListBuild, isValidListId } from "../../lists";
-import { getStoredBuild, removeFromBuild, setStoredBuild, type BuildMap } from "../../state";
+import { icon } from "../../icons";
+import { getStoredBuild, removeFromBuild, savedHash, setStoredBuild, type BuildMap } from "../../state";
+import { setPageTitle } from "../../titles";
 import type { Currency, Lang } from "../../types";
-import { button } from "../../ui/button";
-import { card } from "../../ui/card";
 import { html, mount, type Html } from "../../ui/html";
-import { emptyState, loadingState } from "../../ui/state";
+import { loadingState } from "../../ui/state";
 import { bindThumbs } from "../../ui/thumb";
 import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { cleanBuild, persist, refreshParts, type BuilderCtx } from "./parts";
@@ -113,11 +113,34 @@ export async function renderListRoute(
   currency: Currency,
   listId: string
 ): Promise<void> {
-  const unknown = (): void =>
+  const unknown = (): void => {
+    setPageTitle(lang, t(lang, "brokenTitle"));
+    // The link exactly as opened, so the visitor can see whether it was cut short.
+    const opened = `${location.host}${location.pathname}`;
     mount(
       container,
-      card(emptyState(t(lang, "unknownList"), button({ label: t(lang, "backToBuilder"), href: "#/build" })), { className: "narrow" })
+      html`<section class="card broken">
+        <div class="broken__main">
+          <span class="state-ic state-ic--warn" aria-hidden="true">${icon("unlink", 32)}</span>
+          <h1>${t(lang, "brokenTitle")}</h1>
+          <p>${t(lang, "brokenBody")}</p>
+          <span class="code-chip" title="${t(lang, "brokenOpened")}">${opened}</span>
+          <div class="empty-box__actions">
+            <a class="btn btn--primary" href="${savedHash()}">${icon("heart", 16)}${t(lang, "brokenToSaved")}</a>
+            <a class="btn btn--ghost" href="#/build">${icon("wrench", 16)}${t(lang, "builderNav")}</a>
+          </div>
+        </div>
+        <div class="broken__help">
+          <strong>${t(lang, "brokenHelpTitle")}</strong>
+          <ul>
+            <li>${t(lang, "brokenHelp1")}</li>
+            <li>${t(lang, "brokenHelp2")}</li>
+            <li>${t(lang, "brokenHelp3")}</li>
+          </ul>
+        </div>
+      </section>`
     );
+  };
   if (!isValidListId(listId)) {
     unknown();
     return;

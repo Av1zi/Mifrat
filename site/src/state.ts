@@ -160,6 +160,7 @@ type Route =
   | { view: "compare"; ids: string[] }
   | { view: "saved" }
   | { view: "drops" }
+  | { view: "search"; q: string }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -210,6 +211,10 @@ export function parseRoute(): Route {
 
   if (path === "/drops" || path === "/drops/") {
     return { view: "drops" };
+  }
+
+  if (path === "/search" || path === "/search/") {
+    return { view: "search", q: new URLSearchParams(queryStr ?? "").get("q") ?? "" };
   }
 
   if (path === "/compare" || path === "/compare/") {
@@ -388,6 +393,11 @@ export function savedHash(): string {
 
 export function dropsHash(): string {
   return "#/drops";
+}
+
+/** Full search results: #/search?q=<query>. */
+export function searchHash(query: string): string {
+  return `#/search?q=${encodeURIComponent(query)}`;
 }
 
 export function homeHash(): string {

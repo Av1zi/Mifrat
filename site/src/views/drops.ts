@@ -4,7 +4,7 @@ import { categoryLabel, CATEGORY_ORDER, dropsCount, savingText, t } from "../i18
 import { icon } from "../icons";
 import { bestOffer } from "../offers";
 import { MIN_DROP_PCT, SIGNAL_WINDOW_DAYS, loadSignals, type PriceSignal } from "../signals";
-import { dropsHash, productHash } from "../state";
+import { categoriesHash, dropsHash, productHash } from "../state";
 import { partRef } from "../storage";
 import { setPageTitle } from "../titles";
 import type { CategoryMeta, Currency, Lang, Product } from "../types";
@@ -12,7 +12,8 @@ import { html, mount, type Html } from "../ui/html";
 import { pageHero } from "../ui/pageHero";
 import { saveButtonRef, syncPickControls } from "../ui/pick";
 import { positivePrice } from "../ui/price";
-import { emptyState, errorState, loadingState } from "../ui/state";
+import { emptyBox } from "../ui/emptyBox";
+import { errorState, loadingState } from "../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
 import { vendorTag } from "../ui/vendor";
 import { displayName } from "../utils";
@@ -272,7 +273,12 @@ export async function renderDrops(
         ${
           shown.length > 0
             ? html`<div class="drop-grid">${shown.map((p) => dropCard(p, lang, currency))}</div>`
-            : emptyState(t(lang, "dropsEmpty"))
+            : emptyBox({
+                icon: "trend-down",
+                title: t(lang, "dropsEmpty"),
+                body: t(lang, "dropsEmptyBody"),
+                actions: html`${days === 7 ? html`<button type="button" class="btn btn--primary" data-days="30">${t(lang, "dropsTry30")}</button>` : ""}<a class="btn btn--ghost" href="${categoriesHash()}">${t(lang, "homeBrowseCta")}</a>`,
+              })
         }
       </div>`
     );

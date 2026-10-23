@@ -35,6 +35,7 @@ import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
 import { renderQa } from "./views/qa";
 import { renderSaved } from "./views/saved";
+import { renderSearch } from "./views/search";
 import { renderTerms } from "./views/terms";
 
 let lang: Lang = getLang();
@@ -103,7 +104,7 @@ function renderRoute(): void {
         renderCookies(main, lang);
         break;
       case "notfound":
-        renderNotFound(main, lang);
+        renderNotFound(main, lang, currency);
         break;
       case "qa":
         setPageTitle(lang, t(lang, "qaTitle"));
@@ -117,6 +118,9 @@ function renderRoute(): void {
         break;
       case "drops":
         guard(renderDrops(main, lang, currency));
+        break;
+      case "search":
+        guard(renderSearch(main, lang, currency, route.q));
         break;
       case "categories":
         setPageTitle(lang, t(lang, "allCategoriesTitle"), t(lang, "metaCategoriesDesc"));

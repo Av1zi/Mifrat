@@ -2,14 +2,15 @@ import { slotForCategory } from "../../build";
 import { attributeLabel, showingText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
 import { bestOffer, sortOffers } from "../../offers";
-import { addToBuild, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
+import { addToBuild, categoriesHash, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
+import { clearAllFilters } from "./filters";
 import type { Lang, Product, SortKey } from "../../types";
 import { displayName, safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { compareCheck, saveButton, syncPickControls } from "../../ui/pick";
 import { signalBadges } from "../../ui/signal";
 import { chip } from "../../ui/chip";
-import { emptyState } from "../../ui/state";
+import { emptyBox } from "../../ui/emptyBox";
 import { html, mount, type Html } from "../../ui/html";
 import { priceCell, positivePrice } from "../../ui/price";
 import { specCell } from "../../ui/spec";
@@ -151,7 +152,16 @@ export function renderList(ctx: CategoryCtx, listEl: HTMLElement, filtered: Prod
   const visible = filtered.slice(start, start + PAGE_SIZE);
   listEl.classList.remove("list--table");
   if (visible.length === 0) {
-    mount(listEl, emptyState(t(ctx.lang, "noResults")));
+    mount(
+      listEl,
+      emptyBox({
+        icon: "search",
+        title: ctx.query.trim() ? html`${t(ctx.lang, "noMatchFor")} „<bdi>${ctx.query.trim()}</bdi>”` : t(ctx.lang, "noMatchFilters"),
+        body: t(ctx.lang, "noMatchBody"),
+        actions: html`<button type="button" class="btn btn--primary" data-role="empty-clear">${t(ctx.lang, "clearSearchFilters")}</button>
+          <a class="btn btn--ghost" href="${categoriesHash()}">${t(ctx.lang, "homeBrowseCta")}</a>`,
+      })
+    );
     return;
   }
   const asTable = ctx.view === "table" && tableAllowed;
@@ -199,6 +209,20 @@ export function bindList(ctx: CategoryCtx, listEl: HTMLElement, actions: Categor
       ctx.sortTouched = true;
       ctx.container.querySelector<HTMLSelectElement>('[data-role="sort"]')!.value = ctx.params.sort;
       actions.update();
+      return;
+    }
+
+    if (target.closest('[data-role="empty-clear"]')) {
+      ctx.query = "";
+      const search = ctx.container.querySelector<HTMLInputElement>('[data-role="search"]');
+      if (search) search.value = "";
+      // Relevance only made sense for the query that is now gone.
+      if (!ctx.sortTouched) {
+        ctx.params.sort = "price_asc";
+        const sort = ctx.container.querySelector<HTMLSelectElement>('[data-role="sort"]');
+        if (sort) sort.value = "price_asc";
+      }
+      clearAllFilters(ctx, actions);
       return;
     }
 

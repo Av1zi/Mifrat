@@ -17,6 +17,7 @@ import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { html, mount, type Html } from "../ui/html";
 import { pageHero } from "../ui/pageHero";
+import { emptyBox } from "../ui/emptyBox";
 import { saveButtonRef, syncPickControls } from "../ui/pick";
 import { emptyValue } from "../ui/empty";
 import { loadingState } from "../ui/state";
@@ -178,13 +179,30 @@ export async function renderSaved(container: HTMLElement, lang: Lang, currency: 
             ? html`<a class="btn btn--ghost btn--sm" href="${compareHash(group.slice(0, 4))}">${icon("compare", 15)}<span>${t(lang, "compareSaved")}</span></a>`
             : ""}
         </div>
-        <p class="notice" role="note">${icon("info", 18)}<span><b>${t(lang, "localOnlyTitle")}</b> ${t(lang, "localOnlyBody")}</span></p>
+        ${saved.length + builds.length === 0
+          ? emptyBox({
+              icon: "heart",
+              title: t(lang, "savedNothingTitle"),
+              body: t(lang, "savedNothingBody"),
+              steps: [
+                { title: t(lang, "savedStepPart"), body: t(lang, "savedStepPartBody"), glyph: "heart" },
+                { title: t(lang, "savedStepList"), body: t(lang, "savedStepListBody"), glyph: "wrench" },
+              ],
+              actions: html`<a class="btn btn--primary" href="${categoriesHash()}">${t(lang, "savedBrowse")}</a>
+                <a class="btn btn--ghost" href="#/build">${icon("wrench", 16)}${t(lang, "builderNav")}</a>`,
+            })
+          : html`<p class="notice" role="note">${icon("info", 18)}<span><b>${t(lang, "localOnlyTitle")}</b> ${t(lang, "localOnlyBody")}</span></p>
 
         <section class="saved-sec"${tab === "builds" ? html` hidden` : ""} aria-labelledby="saved-products">
           <header class="sec-head"><div><h2 id="saved-products">${t(lang, "savedProducts")}</h2><p>${t(lang, "savedProductsSub")}</p></div></header>
           ${saved.length > 0
             ? html`<div class="pgrid">${saved.map((ref) => productCard(ref, products.get(ref.id), lang, currency))}</div>`
-            : html`<div class="card saved-empty"><b>${t(lang, "savedEmptyTitle")}</b><span>${t(lang, "savedEmpty")}</span><a class="btn btn--primary btn--sm" href="${categoriesHash()}">${t(lang, "savedBrowse")}</a></div>`}
+            : emptyBox({
+                icon: "heart",
+                title: t(lang, "savedEmptyTitle"),
+                body: t(lang, "savedEmpty"),
+                actions: html`<a class="btn btn--primary" href="${categoriesHash()}">${t(lang, "savedBrowse")}</a>`,
+              })}
         </section>
 
         <section class="saved-sec"${tab === "products" ? html` hidden` : ""} aria-labelledby="saved-builds">
@@ -194,8 +212,13 @@ export async function renderSaved(container: HTMLElement, lang: Lang, currency: 
           </header>
           ${resolved.length > 0
             ? html`<div class="bgrid">${resolved.map((b) => buildCard(b, lang, currency))}</div>`
-            : html`<div class="card saved-empty"><b>${t(lang, "savedBuildsEmptyTitle")}</b><span>${t(lang, "savedBuildsEmpty")}</span><a class="btn btn--primary btn--sm" href="#/build">${t(lang, "builderNav")}</a></div>`}
-        </section>
+            : emptyBox({
+                icon: "wrench",
+                title: t(lang, "savedBuildsEmptyTitle"),
+                body: t(lang, "savedBuildsEmpty"),
+                actions: html`<a class="btn btn--primary" href="#/build">${t(lang, "builderNav")}</a>`,
+              })}
+        </section>`}
       </div>`
     );
     bindThumbs(container);

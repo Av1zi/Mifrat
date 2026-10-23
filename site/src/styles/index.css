@@ -26,6 +26,7 @@
 @import "./components/chart.css" layer(components);
 @import "./components/pick.css" layer(components);
 @import "./components/vendor.css" layer(components);
+@import "./components/empty.css" layer(components);
 
 @import "./views/home.css" layer(views);
 @import "./views/category.css" layer(views);

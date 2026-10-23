@@ -45,6 +45,17 @@
   font-weight: var(--fw-regular);
 }
 
+.search-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--sp-1);
+  padding: var(--sp-2) var(--sp-3);
+  border-top: 1px solid var(--line-soft);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
 .search-status {
   padding: var(--sp-4);
   color: var(--text-2);
