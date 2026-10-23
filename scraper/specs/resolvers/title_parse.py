@@ -287,7 +287,7 @@ def parse_gpu(text_input: str) -> list[tuple]:
         pairs.append(("chipset", re.sub(r"\s+", " ", chip.group(1).upper().strip())))
 
     vram = text.VRAM_RE.search(text_value)
-    if vram and 1 <= int(vram.group(1)) <= 64:
+    if vram and 1 <= int(vram.group(1)) <= 128:
         pairs.append(("memory_gb", int(vram.group(1)), 0.9))
 
     gmem = text.GMEM_RE.search(text_value)

@@ -510,10 +510,10 @@
     },
     {
       "product_id": "sku:cpu:100000001476-tray",
-      "canonical_name": "AMD AMD Radeon Graphics series EPYC Tray",
+      "canonical_name": "AMD EPYC 4564P",
       "category": "cpu",
       "brand": "AMD",
-      "model": "AMD Radeon Graphics",
+      "model": "EPYC 4564P",
       "attributes": {},
       "listing_keys": [
         "tms:100-000001476"
@@ -541,6 +541,68 @@
       "listing_keys": [
         "1pc:163190",
         "yahav:11270"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:90yv0lw0m0na00",
+      "canonical_name": "ASUS GeForce RTX 5090 32GB OC",
+      "category": "gpu",
+      "brand": "ASUS",
+      "model": "ROG Astral GeForce RTX 5090 32GB GDDR7 OC Edition",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:126408",
+        "tms:90YV0LW0-M0NA00",
+        "yahav:10655"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:ne63060u19k9pg190l",
+      "canonical_name": "Palit GeForce RTX 3060 12GB",
+      "category": "gpu",
+      "brand": "Palit",
+      "model": "GeForce RTX 3060 Infinity 2 OC",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:175102",
+        "tms:NE63060U19K9-PG190L",
+        "1pc:221415"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:90ga61zz00uanf",
+      "canonical_name": "ASRock Radeon RX 9070 XT 16GB",
+      "category": "gpu",
+      "brand": "ASRock",
+      "model": "RX 9070 XT Challenger",
+      "attributes": {},
+      "listing_keys": [
+        "tms:90-GA61ZZ-00UANF",
+        "1pc:221525"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:rx96tsw16bq",
+      "canonical_name": "XFX Radeon RX 9060 XT 16GB",
+      "category": "gpu",
+      "brand": "XFX",
+      "model": "Swift RX 9060 XT OC Gaming Edition",
+      "attributes": {},
+      "listing_keys": [
+        "tms:RX-96TSW16BQ",
+        "1pc:221526"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:4711377301541",
+      "canonical_name": "MSI GeForce RTX 5070 TI 16GB TRIO OC",
+      "category": "gpu",
+      "brand": "MSI",
+      "model": "RTX™ 5070 Ti",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:194055",
+        "yahav:11268"
       ]
     }
   ],

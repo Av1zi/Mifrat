@@ -249,6 +249,13 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
         if name in _BARE_AFFIRMATIVE_FIELDS and len(accepted) > 1:
             accepted.sort(key=_bare_affirmative_rank)
 
+        # GPU VRAM: a vendor page row can be wrong (Yahav listed 48GB on a
+        # 96GB card whose title says 96GB; two of three vendors gave 12GB
+        # for a 16GB RX 9070 XT while every title said 16GB). The explicit
+        # "NNGB" in a title is the more reliable read, so it goes first.
+        if category == "gpu" and name == "memory_gb" and len(accepted) > 1:
+            accepted.sort(key=lambda fact: fact.tier != TIER_TITLE)
+
         winner = accepted[0]
         result.specs[name] = winner.value
         result.sources[name] = winner.tier_name

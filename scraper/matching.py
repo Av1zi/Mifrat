@@ -1756,7 +1756,11 @@ def model_identity(enriched: dict) -> tuple | None:
         return None
 
     brand_key = re.sub(r"[^a-z0-9]+", "", str(brand).lower())
-    model_key = re.sub(r"[^a-z0-9]+", "", str(model).lower())
+    # Vendor model rows are messy ("8400F AMD Ryzen 5 Processor" vs
+    # "Ryzen 5 8400F"): key on the cleaned "family + code" form.
+    model_key = re.sub(
+        r"[^a-z0-9]+", "",
+        (_cpu_model_text(str(brand), str(model)) or str(model)).lower())
 
     if not brand_key or not model_key:
         return None
@@ -2310,30 +2314,61 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
         return None
 
     cu = re.sub(r"\s+", " ", str(chip).upper()).strip()
+    titles = [str(e.get("title_raw") or "") for e in group]
+    blob = HEBREW_RUN_RE.sub(" ", " | ".join(titles))
+    # The chip string can still carry a vendor word ("NVIDIA QUADRO"); the
+    # brand is printed once, up front.
+    for word in {str(brand).upper(), "NVIDIA", "AMD", "INTEL"}:
+        if cu.startswith(word + " "):
+            cu = cu[len(word):].strip()
+            break
+    workstation = bool(
+        re.match(r"^(RTX (PRO|A\d)|QUADRO)\b", cu)
+        or re.search(r"\b(Ada Generation|Blackwell|Quadro)\b", blob, re.I)
+    )
     if cu.startswith("GEFORCE "):
-        family, core = "GeForce", cu[len("GEFORCE "):].strip()
+        family, core = ("" if workstation else "GeForce"), cu[len("GEFORCE "):].strip()
     elif cu.startswith("RADEON "):
         family, core = "Radeon", cu[len("RADEON "):].strip()
     elif cu.startswith("ARC "):
         family, core = "Arc", cu[len("ARC "):].strip()
     elif re.match(r"^(RTX|RX|GTX|GT|GTS|R[579]|HD)\b", cu):
         fam_word = "Radeon" if re.match(r"^(RX|R[579]|HD)\b", cu) else "GeForce"
-        family, core = fam_word, cu
+        family, core = ("" if workstation else fam_word), cu
     else:
         family, core = "", cu
+    core = re.sub(r"\bTI\b", "Ti", core)
+    core = re.sub(r"\bSUPER\b", "Super", core)
+    if core == "QUADRO":
+        core = "Quadro"
+        mm = re.search(r"\b(GP100|GV100|[PTK]\d{3,4}|RTX \d{4})\b", blob, re.I)
+        if mm:
+            core += " " + mm.group(1).upper()
+    # Workstation generations keep same-chip cards apart (RTX 6000 Ada 48GB
+    # vs RTX PRO 6000 Blackwell 96GB).
+    for pat, label in ((r"\bAda(?: Generation)?\b", "Ada"),
+                       (r"\bBlackwell\b", "Blackwell"),
+                       (r"\bMax-?Q\b", "Max-Q")):
+        if workstation and re.search(pat, blob, re.I) and label.lower() not in core.lower():
+            core += " " + label
+
+    # Product line (ROG Astral, Windforce, Pulse...) from the raw titles.
+    series = ""
+    for rx, label in _GPU_SERIES.get(str(brand).lower(), ()):
+        if re.search(rx, blob, re.I):
+            series = label
+            break
 
     # Edition: "Low Profile" phrase wins; else trailing all-caps tokens
     # after the VRAM token (EVO, LP, OC…), excluding memory-type words,
     # bus widths and digit-bearing MPN tails.
     edition = ""
-    titles = [str(e.get("title_raw") or "") for e in group]
-    blob = HEBREW_RUN_RE.sub(" ", " | ".join(titles))
     if re.search(r"\blow profile\b", blob, re.I):
         edition = "Low Profile"
     else:
         for t in titles:
             tc = HEBREW_RUN_RE.sub(" ", t)
-            vm = re.search(r"\b\d{1,2}\s?GB?\b", tc, re.I)
+            vm = re.search(r"\b\d{1,3}\s?GB?\b", tc, re.I)
             tail = tc[vm.end():] if vm else tc
             toks = re.findall(r"[A-Za-z][A-Za-z0-9.+-]*", tail)
             picks = []
@@ -2341,10 +2376,13 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
                 up = tok.upper()
                 # Skip memory-type / bus-width tokens to reach the real
                 # edition word behind them ("SDDR3 LP", "GDDR5 EVO").
-                if up in ("GDDR", "SDDR", "DDR", "HBM", "BIT", "PCI", "RGB", "ARGB", "LED"):
+                if up in ("GDDR", "SDDR", "DDR", "HBM", "BIT", "PCI", "RGB", "ARGB", "LED",
+                          "WITH", "AND", "FOR", "THE", "NEW"):
                     continue
                 if re.fullmatch(r"(G|S)?DDR\dX?|HBM\d?|\d+BIT", up):
                     continue
+                if up == str(brand).upper():
+                    break
                 if re.fullmatch(r"[A-Z]{2,4}s?", up):
                     picks.append(up)
                     if len(picks) == 2:
@@ -2356,6 +2394,8 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
                 break
 
     parts = [brand]
+    if series and series.lower() not in str(brand).lower():
+        parts.append(series)
     if family:
         parts.append(family)
     parts.append(core)
@@ -2364,6 +2404,75 @@ def _gpu_canonical_name(group: list[dict], attributes: dict) -> str | None:
     if edition:
         parts.append(edition)
     return " ".join(parts)
+
+
+# Board-partner product lines, matched against the raw titles in priority
+# order. Per brand so a generic word ("Dual", "Prime") only counts where it
+# really is that brand's line.
+_GPU_SERIES: dict[str, tuple[tuple[str, str], ...]] = {
+    "asus": (
+        (r"\bROG[\s-]+Astral\b|\bAstral\b", "ROG Astral"),
+        (r"\bROG[\s-]+Strix\b|\bStrix\b", "ROG Strix"),
+        (r"\bTUF\b", "TUF Gaming"),
+        (r"\bProArt\b", "ProArt"),
+        (r"\bPrime\b", "Prime"),
+        (r"\bDual\b", "Dual"),
+        (r"\bPhoenix\b", "Phoenix"),
+    ),
+    "msi": (
+        (r"\bSuprim\b", "Suprim"),
+        (r"\bGaming\s+Trio\b", "Gaming Trio"),
+        (r"\bVentus\s+3X\b", "Ventus 3X"),
+        (r"\bVentus\s+2X\b", "Ventus 2X"),
+        (r"\bVanguard\b", "Vanguard"),
+        (r"\bShadow\b", "Shadow"),
+        (r"\bInspire\b", "Inspire"),
+        (r"\bMech\b", "Mech"),
+    ),
+    "gigabyte": (
+        (r"\bAorus\b", "Aorus"),
+        (r"\bWindforce\b", "Windforce"),
+        (r"\bEagle\b", "Eagle"),
+        (r"\bAero\b", "Aero"),
+    ),
+    "palit": (
+        (r"\bGameRock\b", "GameRock"),
+        (r"\bInfinity\b", "Infinity"),
+        (r"\bStormX\b", "StormX"),
+        (r"\bDual\b", "Dual"),
+    ),
+    "gainward": ((r"\bPhoenix\b", "Phoenix"), (r"\bGhost\b", "Ghost")),
+    "sapphire": (
+        (r"\bNitro\+?", "Nitro+"),
+        (r"\bPulse\b", "Pulse"),
+        (r"\bPure\b", "Pure"),
+    ),
+    "xfx": (
+        (r"\bMercury\b", "Mercury"),
+        (r"\bSwift\b", "Swift"),
+        (r"\bSpeedster\b", "Speedster"),
+        (r"\bQuicksilver\b", "Quicksilver"),
+    ),
+    "powercolor": (
+        (r"\bRed\s+Devil\b", "Red Devil"),
+        (r"\bHellhound\b", "Hellhound"),
+        (r"\bReaper\b", "Reaper"),
+        (r"\bFighter\b", "Fighter"),
+    ),
+    "asrock": (
+        (r"\bTaichi\b", "Taichi"),
+        (r"\bSteel\s+Legend\b", "Steel Legend"),
+        (r"\bPhantom\b", "Phantom Gaming"),
+        (r"\bChallenger\b", "Challenger"),
+    ),
+    "zotac": (
+        (r"\bTwin\s+Edge\b", "Twin Edge"),
+        (r"\bSolid\b", "Solid"),
+        (r"\bAMP\b", "AMP"),
+    ),
+    "pny": ((r"\bVerto\b", "Verto"), (r"\bXLR8\b", "XLR8")),
+    "inno3d": ((r"\bTwin\s?X2\b", "Twin X2"), (r"\biChill\b", "iChill")),
+}
 
 
 # --------------------------------------------------------------------------
@@ -3908,7 +4017,74 @@ def build_description(group: list) -> str | None:
     return s or None
 
 
+_CPU_FAMILY_RE = re.compile(
+    r"\b(?:Ryzen\s+Threadripper(?:\s+PRO)?|Threadripper(?:\s+PRO)?"
+    r"|Ryzen\s+AI\s+[3579]|Ryzen\s+[3579]|Core\s+Ultra\s+[3579]"
+    r"|Core\s+i[3579]|EPYC|Xeon(?:\s+(?:Platinum|Gold|Silver|Bronze|W))?"
+    r"|Athlon(?:\s+(?:Gold|Silver|PRO))?|Pentium(?:\s+Gold)?|Celeron)\b",
+    re.I,
+)
+_CPU_JUNK_RE = re.compile(
+    r"\b(?:(?:gaming\s+)?processors?|series|tray|boxed?|retail|cpu"
+    r"|desktop|graphics|radeon)\b",
+    re.I,
+)
+_TITLE_MARKS_RE = re.compile("[™®©]")
+_ADJACENT_DUP_RE = re.compile(r"\b([A-Za-z][A-Za-z0-9.+-]+)(\s+\1\b)+", re.I)
+_BRAND_FIXES = (
+    (re.compile(r"\bWD Western Digital\b", re.I), "Western Digital"),
+    (re.compile(r"\bCooler ?Master Cooler ?master\b", re.I), "Cooler Master"),
+    (re.compile(r"\bCoolerMaster\b"), "Cooler Master"),
+)
+
+
+def clean_title_part(text: str) -> str:
+    """Final pass shared by every canonical name: drop ™/®/©, collapse
+    immediately repeated words ("Silver Silver", "Ippon Ippon") and unify
+    brand spellings."""
+    out = _TITLE_MARKS_RE.sub("", text)
+    out = _ADJACENT_DUP_RE.sub(r"\1", out)
+    for rx, repl in _BRAND_FIXES:
+        out = rx.sub(repl, out)
+    return re.sub(r"\s+", " ", out).strip()
+
+
+def _cpu_model_text(brand: str, model: str) -> str:
+    """'Ryzen 5 8400F' from the vendor model row, however messy:
+    '8400F AMD Ryzen™ 5 Processor', 'AMD Ryzen 5 7600 Gaming Processor',
+    'Intel™ Core™ Ultra Processor 7 265K'. Family phrase first (once),
+    then the model code tokens in their original order."""
+    text = _TITLE_MARKS_RE.sub(" ", model)
+    text = re.sub(rf"\b{re.escape(brand)}\b", " ", text, flags=re.I)
+    text = _CPU_JUNK_RE.sub(" ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    fams = [re.sub(r"\s+", " ", m.group(0)) for m in _CPU_FAMILY_RE.finditer(text)]
+    rest = re.sub(r"\s+", " ", _CPU_FAMILY_RE.sub(" ", text)).strip()
+    seen: set[str] = set()
+    toks = []
+    for tok in rest.split():
+        if tok.lower() not in seen:
+            seen.add(tok.lower())
+            toks.append(tok)
+    head = fams[0] if fams else ""
+    if head:
+        head = " ".join(w if w.isupper() else w.capitalize() for w in head.split())
+        head = re.sub(r"\bPro\b", "PRO", head)
+        head = re.sub(r"\bAi\b", "AI", head)
+        head = re.sub(r"\bI([3579])\b", r"i\1", head)
+    return " ".join([p for p in [head, " ".join(toks)] if p]).strip()
+
+
 def name_from_attributes(
+    category: str, attributes: dict, group: list | None = None
+) -> str | None:
+    """Canonical display name (see _name_from_attributes_raw), passed
+    through clean_title_part."""
+    name = _name_from_attributes_raw(category, attributes, group)
+    return clean_title_part(name) if name else name
+
+
+def _name_from_attributes_raw(
     category: str, attributes: dict, group: list | None = None
 ) -> str | None:
     """
@@ -3934,33 +4110,18 @@ def name_from_attributes(
         # A vendor "דגם" row may repeat the brand inside the model
         # ("AMD Ryzen™ 5 Processor"): strip the doubled leading token
         # instead of printing "AMD AMD Ryzen™ 5 Processor".
-        model_text = str(model).strip()
-        if model_text.lower().startswith(str(brand).strip().lower() + " "):
-            model_text = model_text[len(str(brand).strip()):].lstrip()
+        model_text = _cpu_model_text(str(brand), str(model))
+        if not model_text:
+            return None
         name = f"{brand} {model_text}".strip()
-        # Series suffix only when it adds words the model lacks: the old
-        # append produced "Core i3 10105F series Core i3" and
-        # "A10-9700T series A Series" stutters. Strip the literal word
-        # "series" first — it is our own connector, not a family token.
-        series = attributes.get("series")
-        if isinstance(series, str):
-            series = re.sub(r"\bseries\b", " ", series, flags=re.I).strip()
-        if series:
-            name_low = name.lower()
-            fam_tokens = [
-                tok for tok in re.split(r"[^0-9A-Za-z]+", series.lower())
-                if len(tok) >= 2
-            ]
-            if fam_tokens and any(tok not in name_low for tok in fam_tokens):
-                name += f" series {series}"
         # Tray CPUs are separate products from boxed ones (different
-        # items, prices, warranties) — the suffix tells them apart in
-        # lists; Box is the unmarked default. A vendor model that already
-        # ends in "Tray" ("Core i3 14100 / 1700 Tray") must not get a
-        # second one.
-        if attributes.get("packaging") == "Tray" and not name.lower(
-        ).rstrip().endswith(" tray"):
+        # items, prices, warranties) — the suffix says which one a list
+        # row is. Unknown packaging stays unmarked.
+        packaging = str(attributes.get("packaging") or "").strip().lower()
+        if packaging == "tray":
             name += " Tray"
+        elif packaging in ("box", "boxed", "retail"):
+            name += " Box"
         return name
     if category == "memory":
         return _memory_canonical_name(group, attributes)
