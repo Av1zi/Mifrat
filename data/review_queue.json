@@ -848,6 +848,39 @@
   },
   {
     "score": 92,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:171773",
+    "listing_b": "1pc:183247",
+    "title_a": "ספק כח Antec GSK 850W ATX3.1 80+ Gold Full Modular GSK850",
+    "title_b": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "match_text_a": "GSK850 Antec GSK 850W ATX3.1 80+ Gold Full Modular GSK850",
+    "match_text_b": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular"
+  },
+  {
+    "score": 92,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:183247",
+    "listing_b": "tms:GSK850",
+    "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "title_b": "ספק כח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "match_text_a": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "match_text_b": "GSK850 Antec GSK 850W ATX3.1 80+ Gold Full Modular"
+  },
+  {
+    "score": 92,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:183247",
+    "listing_b": "tms:GSK850V2-W",
+    "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "title_b": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White",
+    "match_text_a": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "match_text_b": "GSK850V2-W Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White"
+  },
+  {
+    "score": 92,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:222383",
