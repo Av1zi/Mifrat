@@ -36,9 +36,13 @@ GEMINI_DELAY = 7.0            # free tier: ~10 requests a minute
 OPENAI_STYLE = {
     # name: base URL (or the env var holding it), key env var, default model, seconds between requests
     "groq": {"base": "https://api.groq.com/openai/v1", "key": "GROQ_KEY",
-             "model": "openai/gpt-oss-20b", "delay": 2.5},
+             "model": "openai/gpt-oss-20b", "delay": 2.5,
+             "extra": {"reasoning_effort": "low"}},        # gpt-oss: little thinking, short answers
     "intern": {"base_env": "INTERN_BASE_URL", "key": "INTERN_KEY", "model": None, "delay": 3.0},
 }
+# Per-request timeout: reasoning models (Intern-S2) can think for minutes.
+# MIFRAT_EXTRACT_TIMEOUT overrides it (seconds).
+REQUEST_TIMEOUT = 120.0
 PROMPT_VERSION = 1
 
 SYSTEM = """You read computer-part listings from retailers (English and Hebrew) \
@@ -237,8 +241,19 @@ class Extractor:
 
         self._pace(name, delay)
         reply = None
+        timeout = float(os.environ.get("MIFRAT_EXTRACT_TIMEOUT") or REQUEST_TIMEOUT)
+        failures = 0
         for attempt in range(5):
-            reply = requests.post(url, json=body, timeout=120, headers=headers)
+            try:
+                reply = requests.post(url, json=body, timeout=timeout, headers=headers)
+            except requests.RequestException as error:      # timeout, reset, DNS: not fatal
+                failures += 1
+                self._last[name] = time.time()
+                if failures >= 2:
+                    raise RateLimited(f"{name}: {type(error).__name__} twice in a row "
+                                      f"(timeout {timeout:.0f}s; a reasoning model may need "
+                                      "MIFRAT_EXTRACT_TIMEOUT or a no-thinking option)") from error
+                continue
             if reply.status_code in (500, 502, 503):     # "high demand": back off, retry
                 if attempt < 3:
                     time.sleep(10 * 2 ** attempt)
@@ -306,7 +321,14 @@ class Extractor:
         else:
             response_format = {"type": "json_schema", "json_schema": {
                 "name": "facts", "schema": schema_, "strict": False}}
-        body = {"model": model, "temperature": 0, "max_tokens": 4000,
+        extra = dict(config.get("extra") or {})
+        override = os.environ.get(f"MIFRAT_EXTRACT_EXTRA_{name.upper()}")
+        if override:                                     # JSON object of extra request fields
+            try:
+                extra = json.loads(override)
+            except ValueError:
+                raise NoKey(f"MIFRAT_EXTRACT_EXTRA_{name.upper()} is not valid JSON") from None
+        body = {**extra, "model": model, "temperature": 0, "max_tokens": 4000,
                 "messages": [{"role": "system", "content": SYSTEM},
                              {"role": "user", "content": user}],
                 "response_format": response_format}
