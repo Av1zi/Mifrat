@@ -75,8 +75,7 @@ export const VARIANT_IDENTITY_KEYS: Record<string, string[]> = {
   storage: [],
   case: [],
   case_fan: [],
-  aio: [],
-  cooler_air: [],
+  cpu_cooler: [],
   accessories: [],
 };
 

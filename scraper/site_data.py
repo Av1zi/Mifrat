@@ -269,7 +269,7 @@ _HERO_BRANDS: dict[str, frozenset[str]] = {
     "aio": frozenset({"corsair", "nzxt", "arctic", "cooler master", "lian li", "deepcool", "thermaltake"}),
     "cooler_air": frozenset({"noctua", "be quiet!", "cooler master", "deepcool", "thermalright", "arctic"}),
     "case_fan": frozenset({"noctua", "corsair", "arctic", "be quiet!", "cooler master", "lian li"}),
-    "cooling_other": frozenset({"noctua", "arctic", "cooler master", "deepcool"}),
+    "cpu_cooler": frozenset({"noctua", "be quiet!", "cooler master", "deepcool", "thermalright", "arctic", "corsair", "nzxt", "lian li"}),
 }
 
 _COVER_QUALITY_CACHE: dict[str, float] = {}
@@ -442,6 +442,17 @@ def _trim_offer(offer: dict) -> dict:
     return trimmed
 
 
+# The site shows air coolers and AIOs as ONE "CPU Cooling" page with a
+# cooler-type filter. The pipeline keeps the two categories (their spec
+# schemas differ); the merge happens only when site files are written.
+SITE_CATEGORY = {"aio": "cpu_cooler", "cooler_air": "cpu_cooler"}
+_COOLER_TYPE = {"aio": "Water", "cooler_air": "Air"}
+
+
+def site_category(category: str) -> str:
+    return SITE_CATEGORY.get(category, category)
+
+
 def _trim_product(product: dict) -> dict:
     offers = [_trim_offer(o) for o in product.get("offers", [])]
     offers.sort(key=lambda o: (o["price"] is None, o["price"]))
@@ -467,11 +478,14 @@ def _trim_product(product: dict) -> dict:
     # payload from doubling (Sep 2026: shipping both tripped the size guard at
     # 1526KB motherboard.json / +32% growth).
     specs = product.get("specs") or {}
+    cooler_type = _COOLER_TYPE.get(product["category"])
+    if cooler_type:
+        specs = {**specs, "cooler_type": cooler_type}
 
     trimmed = {
         "id": product["product_id"],
         "name": product.get("canonical_name"),
-        "category": product["category"],
+        "category": site_category(product["category"]),
         "brand": product.get("brand"),
         "model": product.get("model"),
         "image": _image,
@@ -587,7 +601,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     by_category: dict[str, list[dict]] = defaultdict(list)
 
     for product in catalog["products"]:
-        by_category[product["category"]].append(_trim_product(product))
+        by_category[site_category(product["category"])].append(_trim_product(product))
 
     site_dir.mkdir(parents=True, exist_ok=True)
 

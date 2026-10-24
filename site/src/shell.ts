@@ -25,7 +25,7 @@ import { safeImageUrl } from "./utils";
 /** Big photo tiles in the products menu; the cooling tile spans air + liquid. */
 const MEGA_TILES: Array<{ id: string; cats: string[] }> = [
   { id: "cpu", cats: ["cpu"] },
-  { id: "cooler", cats: ["cooler_air", "aio"] },
+  { id: "cooler", cats: ["cpu_cooler"] },
   { id: "gpu", cats: ["gpu"] },
   { id: "motherboard", cats: ["motherboard"] },
   { id: "memory", cats: ["memory"] },
@@ -77,7 +77,7 @@ function megaMarkup(lang: Lang): Html {
             return html`<a class="mtile" role="menuitem" href="${categoryHash(tile.cats[0])}">
               <span class="mtile__img" data-cover-cat="${tile.cats[0]}">${icon(CATEGORY_ICONS[tile.cats[0]] ?? "grid", 30)}</span>
               <span class="mtile__name">${label}</span>
-              <span class="mtile__meta" data-count-cats="${tile.cats.join(",")}"${tile.id === "cooler" ? html` data-count-prefix="${t(lang, "megaCoolingSub")}"` : ""}></span>
+              <span class="mtile__meta" data-count-cats="${tile.cats.join(",")}"${""}></span>
             </a>`;
           })}
         </div>

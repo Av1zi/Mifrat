@@ -45,7 +45,7 @@ export function emptyBox(options: EmptyBoxOptions): Html {
 }
 
 /** The eight main categories, used where a dead end needs somewhere to go. */
-const QUICK_CATS = ["cpu", "gpu", "motherboard", "memory", "storage", "psu", "case", "cooler_air"];
+const QUICK_CATS = ["cpu", "gpu", "motherboard", "memory", "storage", "psu", "case", "cpu_cooler"];
 
 /** Section of category tiles with cover photos; counts and photos fill in from meta.json. */
 export function quickCats(lang: Lang, heading: string, link?: Html): Html {

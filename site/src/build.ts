@@ -19,7 +19,7 @@ export const BUILD_SLOTS: BuildSlot[] = [
   },
   {
     id: "cooler",
-    categories: ["aio", "cooler_air"],
+    categories: ["cpu_cooler"],
     label: { he: "קירור מעבד", en: "CPU Cooler" },
     choose: { he: "בחירת קירור מעבד", en: "Choose A CPU Cooler" },
     code: "CLR",

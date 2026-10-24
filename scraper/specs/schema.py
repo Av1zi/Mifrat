@@ -366,16 +366,17 @@ COOLER_AIR = (
     _C_TDP, _C_FANLESS, _C_LIGHTING, _C_COLOR,
 )
 
-# The grab-bag the matcher could not place (coolers of either kind, paste,
-# brackets): only the facts that make sense for all of them. water_cooled
-# stays here because nothing else says which kind a row is.
-# Pruned 2026-10-18 (second pass): `radiator_size_mm` and `fan_count` (0% of 51), `model`
-# (3.9%), `airflow_cfm` (11.8%): thermal paste, pads and mounting kits carry none of them.
-COOLING_OTHER = (
-    _C_MANUFACTURER, _C_PART_NUMBERS, _C_WATER_COOLED,
-    _C_FAN_SIZE, _C_FAN_RPM_MAX,
-    _C_NOISE, _C_HEIGHT, _C_SOCKETS, _C_TDP,
-    _C_LIGHTING, _C_COLOR,
+# SITE-ONLY merged "CPU Cooling" page (air + AIO shown together; see
+# site_data.SITE_CATEGORY). Never a pipeline category: specs are built per
+# aio / cooler_air and merged at export, where `cooler_type` is stamped.
+_C_COOLER_TYPE = _f("cooler_type", "str", filterable=True, group="physical",
+                    aliases=("cooler_type",), he="סוג קירור", en="Cooler Type")
+CPU_COOLER = (
+    _C_MANUFACTURER, _C_MODEL, _C_PART_NUMBERS, _C_COOLER_TYPE,
+    _C_RADIATOR_SIZE, _C_RADIATOR_LENGTH, _C_RADIATOR_THICKNESS,
+    _C_FAN_SIZE, _C_FAN_COUNT, _C_FAN_RPM_MIN, _C_FAN_RPM_MAX,
+    _C_NOISE, _C_AIRFLOW, _C_HEIGHT, _C_SOCKETS, _C_CONNECTORS,
+    _C_TDP, _C_FANLESS, _C_LIGHTING, _C_COLOR,
 )
 
 # --------------------------------------------------------------------------
@@ -845,7 +846,7 @@ SCHEMA: dict[str, tuple[FieldSpec, ...]] = {
     "case_fan": CASE_FAN,
     "aio": AIO,
     "cooler_air": COOLER_AIR,
-    "cooling_other": COOLING_OTHER,
+    "cpu_cooler": CPU_COOLER,
     "accessories": MINIMAL,
     "other": MINIMAL,
 }

@@ -25,7 +25,7 @@ const SAMPLE_PLAN: Array<{ slot: string; category: string; pct: number }> = [
   { slot: "memory", category: "memory", pct: 0.35 },
   { slot: "gpu", category: "gpu", pct: 0.55 },
   { slot: "storage", category: "storage", pct: 0.4 },
-  { slot: "cooler", category: "cooler_air", pct: 0.5 },
+  { slot: "cooler", category: "cpu_cooler", pct: 0.5 },
   { slot: "case", category: "case", pct: 0.45 },
   { slot: "psu", category: "psu", pct: 0.4 },
 ];

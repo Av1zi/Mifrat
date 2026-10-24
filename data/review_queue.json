@@ -58,34 +58,23 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:157389",
-    "listing_b": "tms:C14100T",
-    "title_a": "מעבד Intel Core i3 14100 / 1700 Tray",
-    "title_b": "Intel Core i3 14100 / 1700 Tray",
-    "match_text_a": "C14100T Intel Core i3 14100 / 1700 Tray",
-    "match_text_b": "C14100T Intel Core i3 14100 / 1700 Tray"
+    "listing_a": "1pc:152181",
+    "listing_b": "tms:C14600KT",
+    "title_a": "מעבד Intel Core i5 14600K / 1700 Tray",
+    "title_b": "Intel Core i5 14600K / 1700 Tray",
+    "match_text_a": "C14600KT Intel Core i5 14600K / 1700 Tray",
+    "match_text_b": "C14600KT Intel Core i5 14600K / 1700 Tray"
   },
   {
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:157391",
-    "listing_b": "tms:C14400T",
-    "title_a": "מעבד Intel Core i5 14400 / 1700 Tray",
-    "title_b": "Intel Core i5 14400 / 1700 Tray",
-    "match_text_a": "C14400T Intel Core i5 14400 / 1700 Tray",
-    "match_text_b": "C14400T Intel Core i5 14400 / 1700 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:189653",
-    "listing_b": "tms:C225T",
-    "title_a": "מעבד Intel Core Ultra 5 225 1851 Tray",
-    "title_b": "Intel Core Ultra 5 225 / 1851 Tray",
-    "match_text_a": "C225T Intel Core Ultra 5 225 1851 Tray",
-    "match_text_b": "C225T Intel Core Ultra 5 225 / 1851 Tray"
+    "listing_a": "1pc:152189",
+    "listing_b": "tms:C14900KT",
+    "title_a": "מעבד Intel Core i9 14900K / 1700 Tray",
+    "title_b": "Intel Core i9 14900K / 1700 Tray",
+    "match_text_a": "C14900KT Intel Core i9 14900K / 1700 Tray",
+    "match_text_b": "C14900KT Intel Core i9 14900K / 1700 Tray"
   },
   {
     "score": 100,
@@ -2788,26 +2777,6 @@
         "vendor_sku": "C12700FT",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
         "price": 1333
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:coreultra5225f",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:189654",
-        "vendor_sku": "C225FT",
-        "title": "מעבד Intel Core Ultra 5 225F דגם 1851",
-        "price": 553
-      },
-      {
-        "listing_key": "1pc:218557",
-        "vendor_sku": "C225FB",
-        "title": "מעבד Intel Core Ultra 5 225F 1851 Box",
-        "price": 702
       }
     ]
   },
