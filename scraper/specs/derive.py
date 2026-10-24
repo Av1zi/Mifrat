@@ -123,11 +123,25 @@ _INTEL_UARCH: dict[str, tuple[str, int]] = {
 }
 
 # Platform memory maximum by socket (GB). Consumer/desktop sockets only; a
-# server or exotic socket is left alone rather than guessed.
+# server or exotic socket is left alone rather than guessed. AM5 and LGA1700
+# are NOT one number: the maker states it per generation (below), and the old
+# flat AM5=192 disagreed with 49 of 54 AMD product pages (backtest, Oct 2026).
 _SOCKET_MAX_MEMORY_GB: dict[str, int] = {
-    "AM4": 128, "AM5": 192, "LGA1155": 32, "LGA1151": 64,
-    "LGA1200": 128, "LGA1700": 192, "LGA1851": 192, "LGA2066": 256,
+    "AM4": 128, "LGA1155": 32, "LGA1151": 64,
+    "LGA1200": 128, "LGA1851": 192, "LGA2066": 256,
 }
+# (socket, generation) -> maximum, as each maker's spec page prints it: AMD
+# lists 128GB for Ryzen 7000 and 256GB for Ryzen 8000/9000; Intel lists 128GB
+# for 12th gen and 192GB for 13th/14th gen on LGA1700.
+_GENERATION_MAX_MEMORY_GB: dict[tuple[str, int], int] = {
+    ("AM5", 7): 128, ("AM5", 8): 256, ("AM5", 9): 256,
+    ("LGA1700", 12): 128, ("LGA1700", 13): 192, ("LGA1700", 14): 192,
+}
+# Ryzen 5 3500 / 3500X are the Ryzen 5 parts without SMT (6C/6T).
+_AMD_NO_SMT_MODELS = re.compile(r"\bRyzen\s?5\s?3500X?\b", re.I)
+# Ryzen 8000 desktop (Phoenix, 8300G-8700G and the F parts) is Zen 4 on 4nm,
+# not the 5nm of the Raphael / Zen 4 desktop chiplets.
+_AMD_PHOENIX_DESKTOP = re.compile(r"\bRyzen\s?[3579]\s?(?:PRO\s?)?8\d{2}0(?:G|GE|F)?\b", re.I)
 
 # Unlocked-by-suffix Intel model tails (K/KF/KS desktop, X/XE HEDT).
 _INTEL_UNLOCKED_SUFFIX = re.compile(r"\d{4,5}(K|KF|KS|X|XE)$", re.I)
@@ -266,6 +280,43 @@ def expected_microarchitecture(model: str | None) -> str | None:
     return None
 
 
+def _box_cooler(model: str, packaging: str | None) -> bool | None:
+    """Whether a retail box ships a cooler, for lineups where AMD / Intel state
+    it for every SKU (their "Thermal solution (PIB)" spec row):
+
+    - no cooler: every Threadripper and X3D part; AMD X-suffix Ryzen 7000/9000
+      and 5700X/5800X/5900X/5950X; Intel K / KF / KS / X; EPYC and Xeon.
+    - cooler: Ryzen 7000 non-X (7600/7700/7900), Ryzen 8000G and 8400F/8700F,
+      Ryzen 5500/5600/5600G/5600X; Intel Core i3/i5/i7/i9 10th-14th gen non-K.
+
+    Anything else (Ryzen 9000 non-X, Core Ultra non-K) stays unknown: the
+    makers changed the bundle within those lineups. Only boxed or unstated
+    packaging: tray is handled above.
+    """
+    if packaging not in (None, "boxed"):
+        return None
+    text = re.sub(r"[-_]+", " ", model)
+    if re.search(r"\bThreadripper\b|\bEPYC\b|\bXeon\b|X3D", text, re.I):
+        return False
+    alnum = re.sub(r"[^A-Za-z0-9]", "", text).upper()
+    if re.search(r"\bRyzen\b", text, re.I):
+        if re.search(r"\b[79]\d{2}0X\b", text, re.I) or re.search(
+                r"\b5(?:700|800|900|950)X\b", text, re.I):
+            return False
+        if re.search(r"\b7[679]00\b(?!\s?X)", text, re.I) or re.search(
+                r"\b8\d00(?:G|F)\b", text, re.I) or re.search(
+                r"\b5(?:500|600|600G|600X)\b", text, re.I):
+            return True
+        return None
+    if _INTEL_PREFIX.search(text) or re.search(r"\bCore\b", text, re.I):
+        if re.search(r"\d{4,5}(?:K|KF|KS|X|XE)$", alnum) or re.search(
+                r"\bUltra\b.*\d{3}KF?\b", text, re.I):
+            return False
+        if re.search(r"\bi[3579]\b", text, re.I) and (_generation_number(text) or 0) in range(10, 15):
+            return True
+    return None
+
+
 def _infer_cpu(specs: dict, sources: dict) -> list[str]:
     """Rule-based fills for CPU fields. Returns the filled field names."""
     filled: list[str] = []
@@ -297,18 +348,21 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
         # SMT is all-or-nothing per lineup for Ryzen 5/7/9, Threadripper and
         # EPYC; Ryzen 3 mixes 4C/4T (3200G) with 4C/8T (3300X), so it is left
         # to a real source rather than assumed.
-        if _AMD_SMT_SERIES.search(model_text):
+        if _AMD_SMT_SERIES.search(model_text) and not _AMD_NO_SMT_MODELS.search(model_text):
             fill("smt", True, "cpu.lineup_smt")
             if isinstance(cores, int) and cores > 0:
                 fill("thread_count", cores * 2, "cpu.smt_core_math")
-        if re.search(r"\bRyzen\b|\bThreadripper\b", model_text, re.I):
+        # PRO APUs are the locked exception (AMD: 5755G "Unlocked: No").
+        if re.search(r"\bRyzen\b|\bThreadripper\b", model_text, re.I) and not re.search(
+                r"\bPRO\s?\d{4}G", model_text, re.I):
             fill("unlocked", True, "cpu.amd_lineup_unlocked")
     elif is_intel and _INTEL_UNLOCKED_SUFFIX.search(re.sub(r"[^A-Za-z0-9]", "", model_text)):
         fill("unlocked", True, "cpu.intel_unlocked_suffix")
 
     amd_uarch = _amd_uarch(microarch)
     if is_amd and amd_uarch:
-        fill("lithography_nm", amd_uarch[0], "cpu.architecture_node")
+        node = 4 if _AMD_PHOENIX_DESKTOP.search(model_text) else amd_uarch[0]
+        fill("lithography_nm", node, "cpu.architecture_node")
         if isinstance(cores, int) and cores > 0:
             l2 = cores * amd_uarch[1]
             fill("l2_cache_mb", int(l2) if float(l2).is_integer() else round(l2, 3),
@@ -395,6 +449,8 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
     # A tray CPU ships without a cooler by definition.
     if specs.get("packaging") == "tray":
         fill("includes_cooler", False, "cpu.tray_packaging")
+    fill("includes_cooler", _box_cooler(model_text, specs.get("packaging")),
+         "cpu.lineup_box_cooler")
 
     socket = str(specs.get("socket") or "").upper()
 
@@ -417,7 +473,9 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
         fill("socket", platform_socket, "cpu.desktop_platform_socket")
 
     socket = str(specs.get("socket") or "").upper()
-    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket),
+    generation = _generation_number(model)
+    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket)
+         or _GENERATION_MAX_MEMORY_GB.get((socket, generation or 0)),
          "cpu.socket_memory_platform")
 
     return filled
@@ -448,6 +506,15 @@ def _infer_memory(specs: dict, sources: dict) -> list[str]:
         fill("module_size_gb", total // count, "memory.module_arithmetic")
     elif isinstance(total, int) and isinstance(size, int) and size and total % size == 0:
         fill("module_count", total // size, "memory.module_arithmetic")
+    # First-word latency is arithmetic on two stated facts: CL cycles at the
+    # data rate, CL x 2000 / MT/s nanoseconds (the title parser's formula;
+    # 285/288 vendor-printed figures agree to 0.1 ns).
+    cas, speed = specs.get("cas_latency"), specs.get("speed_mhz")
+    if (specs.get("first_word_latency_ns") is None and isinstance(cas, (int, float))
+            and isinstance(speed, int) and cas > 0 and speed > 0):
+        specs["first_word_latency_ns"] = round(cas * 2000 / speed, 1)
+        sources["first_word_latency_ns"] = "derived:memory.latency_math"
+        filled.append("first_word_latency_ns")
     return filled
 
 
@@ -641,7 +708,8 @@ def _infer_cpu_table(specs: dict, sources: dict) -> list[str]:
         # (G/GE/GT without PRO) do not, PRO APUs do.
         if re.search(r"\bPRO\b", model, re.I):
             filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_pro_ecc")
-        elif re.search(r"\b\d{4}(?:G|GE|GT)\b", model, re.I):
+        elif re.search(r"\b[2-5]\d{3}(?:G|GE|GT)\b", model, re.I):
+            # Only through Ryzen 5000: AMD lists ECC for the 8000G APUs.
             filled += _fill(specs, sources, "ecc_support", False, "cpu.ryzen_apu_no_ecc")
         elif str(specs.get("socket") or "") in ("AM4", "AM5") and re.search(r"\b\d{4}", model):
             filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_desktop_ecc")
@@ -665,8 +733,47 @@ def _infer_gpu_table(specs: dict, sources: dict) -> list[str]:
     return _table_fill(specs, sources, row, "gpu.chipset_table")
 
 
-def _infer_gpu_extras(specs: dict, sources: dict) -> list[str]:
+_GPU_LIQUID_MENTION = re.compile(r"waterforce|hybrid|liquid|water\s?block|aio\b|קירור\s?נוזלי",
+                                 re.I)
+
+
+def _infer_gpu_board_line(specs: dict, sources: dict, context: dict | None) -> list[str]:
+    """fan_count from tables/gpu_board_lines.json: the board partner's line
+    name fixes it (ASUS Dual = 2, MSI VENTUS 3X = 3, Gigabyte WF3 = 3).
+
+    Read off every title and part number of the product; a row only applies to
+    its brands (and chips, for lines that change with the chip), and when rows
+    with different counts match, nothing is filled."""
+    from .tables import load
+
+    if specs.get("fan_count") is not None:
+        return []
+    title = str((context or {}).get("title") or "")
+    if not title or _GPU_LIQUID_MENTION.search(title):
+        return []
+    haystack = " ".join([title, *map(str, specs.get("part_numbers") or [])])
+    brand = str(specs.get("manufacturer") or "").lower()
+    chip = str(specs.get("chipset") or "").lower()
+    counts = set()
+    for row in load("gpu_board_lines").values():
+        brands = [b.lower() for b in row.get("brands") or []]
+        if "*" not in brands and brand not in brands:
+            continue
+        chips = [c.lower() for c in row.get("chips") or []]
+        if chips and chip not in chips:
+            continue
+        if re.search(row["pattern"], haystack, re.I):
+            counts.add(int(row["fan_count"]))
+    if len(counts) != 1:
+        return []
+    return _fill(specs, sources, "fan_count", counts.pop(), "gpu.board_line_table")
+
+
+def _infer_gpu_extras(specs: dict, sources: dict, context: dict | None = None) -> list[str]:
     fans = specs.get("fan_count")
+    # A hybrid card (AORUS XTREME WATERFORCE) has radiator fans too.
+    if _GPU_LIQUID_MENTION.search(str((context or {}).get("title") or "")):
+        return []
     if isinstance(fans, int) and fans > 0:
         return _fill(specs, sources, "cooling", "Air", "gpu.fans_mean_air")
     return []
@@ -678,7 +785,7 @@ _THUNDERBOLT_MENTION = re.compile(r"thunderbolt|\btb[345]\b|usb\s?4\b", re.I)
 
 
 # Tiers the chipset table may replace for cpu_support (see below).
-_RETAILER_TIERS = ("vendor", "title", "weak")
+_RETAILER_TIERS = ("vendor", "extracted", "title", "weak")
 
 
 def _infer_mb_cpu_support(specs: dict, sources: dict) -> list[str]:
@@ -740,6 +847,7 @@ def _infer_motherboard(specs: dict, sources: dict, context: dict | None) -> list
         if not _THUNDERBOLT_MENTION.search(text):
             filled += _fill(specs, sources, "thunderbolt_ports", 0,
                             "motherboard.no_thunderbolt_in_rich_table")
+        filled += _no_lighting(specs, sources, context, "motherboard.no_lighting_mention")
     if specs.get("wireless") == "No":
         # Bluetooth rides on the same M.2 Key-E combo card as the Wi-Fi radio.
         filled += _fill(specs, sources, "bluetooth", "No", "motherboard.no_wifi_no_bluetooth")
@@ -774,7 +882,25 @@ def _infer_memory_text(specs: dict, sources: dict, context: dict | None) -> list
     if not _SERVER_MEMORY_MARKER.search(text) and specs.get("form_factor") in ("DIMM", "SO-DIMM"):
         filled += _fill(specs, sources, "ecc", False, "memory.no_ecc_marker")
         filled += _fill(specs, sources, "registered", False, "memory.no_registered_marker")
+    filled += _no_lighting(specs, sources, context, "memory.no_lighting_mention")
     return filled
+
+
+# Lighting is a selling point: every lit memory kit (175/175) and board
+# (52/52) in the catalog names it somewhere in its titles or spec rows, so a
+# FULL spec page plus titles that never mention any lighting word mean the
+# product has none. Cases and coolers are left out: lit ones that never say so
+# exist (Antec NX200M per its maker page; 2 of 108 coolers).
+_LIGHTING_MENTION = re.compile(
+    r"rgb|argb|\bled\b|aura|mystic|polychrome|fusion|spectra|lighting|light\b|"
+    r"תאורה|תאורת|מואר|לד\b", re.I)
+
+
+def _no_lighting(specs: dict, sources: dict, context: dict | None, rule: str) -> list[str]:
+    text = (context or {}).get("text", "")
+    if text and (context or {}).get("detail_rows", 0) >= 8 and not _LIGHTING_MENTION.search(text):
+        return _fill(specs, sources, "lighting", "No", rule)
+    return []
 
 
 _PSU_SMALL_MARKER = re.compile(r"\bsfx|\btfx|flex|\b1u\b|\b2u\b|rack|server|redundant|שרת|\bmini\b|\bslim\b",
@@ -812,11 +938,27 @@ _PSU_FANLESS_MARKER = re.compile(r"fanless|passive|ללא\s*מאוורר|פסי�
 _RADIATOR_FAN_MM = {120: 120, 240: 120, 360: 120, 140: 140, 280: 140, 420: 140}
 
 
-def _infer_cooler(category: str, specs: dict, sources: dict) -> list[str]:
+# ... and the fan count is the size over the fan size: a 360 takes three
+# 120 mm fans, a 280 two 140s. 135/135 catalog AIOs with a sourced fan count
+# agree (Oct 2026). A kit sold WITHOUT its fans says so in the title, and is
+# left alone.
+_RADIATOR_FAN_COUNT = {120: 1, 140: 1, 240: 2, 280: 2, 360: 3, 420: 3}
+_AIO_NO_FANS = re.compile(r"without\s+fans?|no\s+fans?|fans?\s+not\s+included|fanless|"
+                          r"ללא\s*מאווררים?", re.I)
+
+
+def _infer_cooler(category: str, specs: dict, sources: dict,
+                  context: dict | None = None) -> list[str]:
     if category == "aio" and isinstance(specs.get("radiator_size_mm"), int):
-        return _fill(specs, sources, "fan_size_mm",
-                     _RADIATOR_FAN_MM.get(specs["radiator_size_mm"]),
-                     "aio.radiator_fan_size")
+        filled = _fill(specs, sources, "fan_size_mm",
+                       _RADIATOR_FAN_MM.get(specs["radiator_size_mm"]),
+                       "aio.radiator_fan_size")
+        title = str((context or {}).get("title") or "")
+        if title and not _AIO_NO_FANS.search(title):
+            filled += _fill(specs, sources, "fan_count",
+                            _RADIATOR_FAN_COUNT.get(specs["radiator_size_mm"]),
+                            "aio.radiator_fan_count")
+        return filled
     if category == "cooler_air" and (
             (isinstance(specs.get("fan_count"), int) and specs["fan_count"] > 0)
             or isinstance(specs.get("fan_size_mm"), int)
@@ -871,13 +1013,14 @@ def infer_specs(category: str | None, specs: dict, sources: dict,
         return _infer_storage(specs, sources)
     if category == "gpu":
         return (_infer_gpu(specs, sources) + _infer_gpu_table(specs, sources)
-                + _infer_gpu_extras(specs, sources))
+                + _infer_gpu_board_line(specs, sources, context)
+                + _infer_gpu_extras(specs, sources, context))
     if category == "motherboard":
         return _infer_motherboard(specs, sources, context)
     if category == "psu":
         return _infer_psu(specs, sources, context)
     if category in ("cooler_air", "aio", "cooling_other"):
-        return _infer_cooler(category, specs, sources)
+        return _infer_cooler(category, specs, sources, context)
     if category == "case":
         return _infer_case(specs, sources, context)
     return []

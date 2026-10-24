@@ -918,10 +918,67 @@ def _is_junk_listing(
     return True
 
 
-def _reclassify(category: str, title_clean: str) -> str:
+# Whole computers 1PC files under its storage tree: laptops (מחשב נייד),
+# mini PCs (מחשב מיני / מיני מחשב), NAS units (נאס, שרת NAS, "8Bay"). Drives
+# MADE for a NAS ("IronWolf ... ל-NAS", "WD Red NAS") and portable SSDs
+# ("כונן SSD נייד") stay storage: the computer words never appear on them.
+_COMPUTER_IN_STORAGE_RE = re.compile(
+    r"מחשב\s*(?:נייד|מיני)|מיני\s*מחשב|^\s*נאס\b|שרת\s*NAS|"
+    r"\b(?:laptop|notebook|mini[\s-]?pc)\b|\b\d{1,2}[\s-]?bay\b",
+    re.I,
+)
+
+
+def _reclassify(category: str, title_clean: str, raw_title: str = "") -> str:
     if category == "gpu" and MONITOR_RE.search(title_clean):
         return "other"
+    if category == "storage" and _COMPUTER_IN_STORAGE_RE.search(
+            f"{raw_title} {title_clean}"):
+        return "other"
     return category
+
+def title_category(raw_title: str, title_clean: str | None = None) -> str | None:
+    """The category one title argues for: Hebrew hint + English classifier.
+
+    Shared by the per-listing pass (canonical_category) and the product-level
+    cooling re-vote, which used to re-vote on the Hebrew-stripped English
+    alone: "קירור נוזלי למעבד ... Corsair iCUE H150i ... 360mm RGB 75CFM"
+    then lost its liquid word and 19 AIOs shipped as case fans (Oct 2026).
+    """
+    if title_clean is None:
+        title_clean = _clean(str(raw_title or "")).lower()
+    hebrew_cat = _hebrew_category_hint(str(raw_title or ""))
+    title_cat = _category_from_title(title_clean)
+    if hebrew_cat in ("aio", "cooler_air", "case_fan", "thermal_paste"):
+        # English accessory evidence (a real hub/strip/frame/bracket title)
+        # still wins over a coarse Hebrew cooler/fan hint — e.g. a Hebrew
+        # "מאוורר למארז" fan kit titled "... with Lighting Node" is decided
+        # by the fan+controller rule above, not here. But a Hebrew liquid
+        # hint beats an English miss (model-only titles like HydroShift with
+        # no English liquid word).
+        if title_cat in ACCESSORY_CATEGORIES and hebrew_cat in (
+            "aio", "cooler_air", "case_fan"):
+            pass
+        elif title_cat in ("aio", "cooler_air", "case_fan",
+                           "thermal_paste") and title_cat != hebrew_cat:
+            # Both sides claim a primary type but disagree: trust Hebrew for
+            # the vendor's own storefront language (TMS "קירור נוזלי למעבד
+            # ... HydroShift" has no English liquid word — English says
+            # nothing/air, Hebrew says liquid), unless English found cooler
+            # internals Hebrew cannot see (heatpipes/TDP/tower in English),
+            # or Hebrew only said the generic "קירור למעבד" (CPU cooling,
+            # air OR liquid) against an explicit English liquid word
+            # ("Tulong Warrior W360 ... Water Cooler").
+            if _COOLER_INTERNALS_RE.search(title_clean) and hebrew_cat == "case_fan":
+                pass
+            elif hebrew_cat == "cooler_air" and title_cat == "aio":
+                pass
+            else:
+                title_cat = hebrew_cat
+        elif title_cat is None:
+            title_cat = hebrew_cat
+    return title_cat
+
 
 def canonical_category(
     guess: str | None, title: str = "", url: str = "", sku: str = ""
@@ -961,31 +1018,7 @@ def canonical_category(
     # English classifier. The Hebrew hint is authoritative for the coarse
     # fan-vs-air-vs-liquid split; the English pass below still refines
     # accessories (frames, hubs, strips) which Hebrew never names.
-    hebrew_cat = _hebrew_category_hint(raw_title)
-    title_cat = _category_from_title(title_clean)
-    if hebrew_cat in ("aio", "cooler_air", "case_fan", "thermal_paste"):
-        # English accessory evidence (a real hub/strip/frame/bracket title)
-        # still wins over a coarse Hebrew cooler/fan hint — e.g. a Hebrew
-        # "מאוורר למארז" fan kit titled "... with Lighting Node" is decided
-        # by the fan+controller rule above, not here. But a Hebrew liquid
-        # hint beats an English miss (model-only titles like HydroShift with
-        # no English liquid word).
-        if title_cat in ACCESSORY_CATEGORIES and hebrew_cat in (
-            "aio", "cooler_air", "case_fan"):
-            pass
-        elif title_cat in ("aio", "cooler_air", "case_fan",
-                           "thermal_paste") and title_cat != hebrew_cat:
-            # Both sides claim a primary type but disagree: trust Hebrew for
-            # the vendor's own storefront language (TMS "קירור נוזלי למעבד
-            # ... HydroShift" has no English liquid word — English says
-            # nothing/air, Hebrew says liquid), unless English found cooler
-            # internals Hebrew cannot see (heatpipes/TDP/tower in English).
-            if _COOLER_INTERNALS_RE.search(title_clean) and hebrew_cat == "case_fan":
-                pass
-            else:
-                title_cat = hebrew_cat
-        elif title_cat is None:
-            title_cat = hebrew_cat
+    title_cat = title_category(raw_title, title_clean)
 
     if raw_key in CATEGORY_ALIASES:
         category = CATEGORY_ALIASES[raw_key]
@@ -1099,7 +1132,7 @@ def canonical_category(
     if category in ("cooler_air", "aio") and title_cat in ("cooler_air", "aio"):
         return title_cat
 
-    return _reclassify(category, title_clean)
+    return _reclassify(category, title_clean, raw_title)
 
 
 # --------------------------------------------------------------------------
@@ -5344,12 +5377,7 @@ def match_listings(
         # Frozn (air). The per-listing pass already folded any SKU-only
         # signal it trusts into category_normalized; re-voting with the SKU
         # here only reintroduces the collision.
-        title_categories = {
-            _category_from_title(
-                _clean(e.get("title_raw", "")).lower()
-            )
-            for e in group
-        }
+        title_categories = {title_category(e.get("title_raw", "")) for e in group}
         # Product-level backstop: every offer's title re-voted after the
         # per-listing pass, so a stale vendor bucket cannot hold a product
         # in the wrong cooling family (e.g. TMS HydroShift singletons filed

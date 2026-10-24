@@ -1,5 +1,5 @@
 import { attributeLabel, specGroupLabel, t } from "../../i18n";
-import { displaySpecFields, formatSpecValue, specValue } from "../../specs";
+import { displaySpecFields, formatSpecValue, specApplies, specValue } from "../../specs";
 import type { Lang, Product } from "../../types";
 import { card } from "../../ui/card";
 import { html, type Html } from "../../ui/html";
@@ -9,7 +9,9 @@ import { specCell } from "../../ui/spec";
  * Spec sheet as accordions grouped by the schema's own groups. A field no
  * product in the category fills is dropped entirely (a column of "Not listed"
  * for a fact no vendor ever prints is noise); every remaining field is shown
- * in its group, gaps carrying the shared "Not listed" look. A group with no
+ * in its group, gaps carrying the shared "Not listed" look. A field the schema
+ * says cannot exist for this product (`when` gates) is not a gap and is left
+ * out. A group with no
  * known value starts closed and says so in its summary.
  *
  * `categoryProducts` (the already-loaded category page data) is what makes
@@ -20,6 +22,8 @@ export function specsCard(product: Product, lang: Lang, categoryProducts?: Produ
   const universe = categoryProducts && categoryProducts.length > 0 ? categoryProducts : [product];
   const groups = new Map<string, ReturnType<typeof displaySpecFields>>();
   for (const field of displaySpecFields(product.category)) {
+    // A row that cannot exist for this product (an SSD's RPM) is not a gap.
+    if (!specApplies(product, field)) continue;
     const anyKnown = universe.some(
       (p) => formatSpecValue(specValue(p, field.name), lang) !== ""
     );

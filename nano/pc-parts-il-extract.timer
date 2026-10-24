@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily verified AI spec extraction
+
+[Timer]
+# After the evening TMS scrape and the cloud normalize have updated the catalog.
+OnCalendar=*-*-* 04:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

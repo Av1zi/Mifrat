@@ -1,0 +1,1009 @@
+{
+ "brand": "ADATA",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "100405981": {
+   "url": "https://icecat.biz/p/product/100405981",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG SPECTRIX D50 memory module 16 GB 1 x 16 GB DDR4 288-pin DIMM",
+   "keys": [
+    "43600161850",
+    "4711085934420",
+    "AX4U360016G18ISW50"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR4",
+    "speed_mhz": 3600,
+    "cas_latency": 18,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "101353723": {
+   "url": "https://icecat.biz/p/product/101353723",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "XPG GAMMIX S70 Blade 4 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085937858",
+    "AGAMMIXS70B4TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7400,
+    "write_speed_mbs": 6600,
+    "mtbf_hours": 2000000,
+    "weight_g": 10
+   }
+  },
+  "101769015": {
+   "url": "https://icecat.biz/p/product/101769015",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 960 2 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085937513",
+    "ALEG9602TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7400,
+    "write_speed_mbs": 6800,
+    "mtbf_hours": 2000000,
+    "weight_g": 11
+   }
+  },
+  "101769082": {
+   "url": "https://icecat.biz/p/product/101769082",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 960 1 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085937506",
+    "ALEG9601TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7400,
+    "write_speed_mbs": 6000,
+    "mtbf_hours": 2000000,
+    "weight_g": 11
+   }
+  },
+  "101777419": {
+   "url": "https://icecat.biz/p/product/101777419",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 16 GB 1 x 16 GB DDR5 288-pin DIMM",
+   "keys": [
+    "4711085939234",
+    "AD5U560016GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "106100619": {
+   "url": "https://icecat.biz/p/product/106100619",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 960 4 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085938145",
+    "ALEG9604TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7400,
+    "write_speed_mbs": 6800,
+    "mtbf_hours": 2000000,
+    "weight_g": 11
+   }
+  },
+  "107342736": {
+   "url": "https://icecat.biz/p/product/107342736",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 710 2 TB M.2 PCI Express 3.0 NVMe 3D NAND",
+   "keys": [
+    "0842243028256",
+    "4711085939470",
+    "842243028256",
+    "ALEG7102TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 3.0 x4",
+    "pcie_gen": 3,
+    "nvme": true,
+    "read_speed_mbs": 2400,
+    "write_speed_mbs": 1800,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "107385124": {
+   "url": "https://icecat.biz/p/product/107385124",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER RGB memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM",
+   "keys": [
+    "4711085940834",
+    "560003032",
+    "AX5U6000C3032GCLARBK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "107385197": {
+   "url": "https://icecat.biz/p/product/107385197",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER RGB memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM",
+   "keys": [
+    "4711085940858",
+    "560003032",
+    "AX5U6000C3032GCLARWH"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "109626782": {
+   "url": "https://icecat.biz/p/product/109626782",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA AD5S560032G-S memory module 32 GB 1 x 32 GB DDR5 262-pin SO-DIMM ECC",
+   "keys": [
+    "4711085941114",
+    "AD5S560032GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "SO-DIMM",
+    "ecc": true
+   }
+  },
+  "109626787": {
+   "url": "https://icecat.biz/p/product/109626787",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM",
+   "keys": [
+    "4711085939296",
+    "AD5U560032GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "110731329": {
+   "url": "https://icecat.biz/p/product/110731329",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER RGB memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM",
+   "keys": [
+    "4711085942692",
+    "564003232",
+    "AX5U6400C3232GCLARWH"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6400,
+    "cas_latency": 32,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "110731334": {
+   "url": "https://icecat.biz/p/product/110731334",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER RGB DDR5 memory module 32 GB 1 x 32 GB 288-pin DIMM ECC",
+   "keys": [
+    "4711085942678",
+    "564003232",
+    "AX5U6400C3232GCLARBK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 6400,
+    "cas_latency": 32,
+    "voltage_v": 1.4,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "111106832": {
+   "url": "https://icecat.biz/p/product/111106832",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG SPECTRIX D35G memory module 16 GB 1 x 16 GB DDR4 288-pin DIMM",
+   "keys": [
+    "43600161835",
+    "4711085943439",
+    "AX4U360016G18ISBKD35G"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR4",
+    "speed_mhz": 3600,
+    "cas_latency": 18,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "117474217": {
+   "url": "https://icecat.biz/p/product/117474217",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER BLADE RGB DDR5 memory module 16 GB 1 x 16 GB 6000 MT/s 288-pin DIMM",
+   "keys": [
+    "4711085944870",
+    "560003016",
+    "AX5U6000C3016GSLABRBK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "117474267": {
+   "url": "https://icecat.biz/p/product/117474267",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER BLADE RGB DDR5 memory module 16 GB 1 x 16 GB 6000 MT/s 288-pin DIMM",
+   "keys": [
+    "4711085944894",
+    "560003016",
+    "AX5U6000C3016GSLABRWH"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "118028681": {
+   "url": "https://icecat.biz/p/product/118028681",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "XPG GAMMIX S60 2 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085946164",
+    "AGAMMIXS602TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 5000,
+    "write_speed_mbs": 4200,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 8
+   }
+  },
+  "118038660": {
+   "url": "https://icecat.biz/p/product/118038660",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "XPG GAMMIX S60 1 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085946157",
+    "AGAMMIXS601TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 5000,
+    "write_speed_mbs": 3200,
+    "mtbf_hours": 1500000,
+    "weight_g": 8
+   }
+  },
+  "118422595": {
+   "url": "https://icecat.biz/p/product/118422595",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER BLADE RGB DDR5 memory module 16 GB 1 x 16 GB 288-pin DIMM ECC",
+   "keys": [
+    "564003216",
+    "AX5U6400C3216GSLABRBK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6400,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "118422599": {
+   "url": "https://icecat.biz/p/product/118422599",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER BLADE RGB DDR5 memory module 16 GB 1 x 16 GB 288-pin DIMM ECC",
+   "keys": [
+    "4711085944979",
+    "564003216",
+    "AX5U6400C3216GSLABRWH"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6400,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "120230305": {
+   "url": "https://icecat.biz/p/product/120230305",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "XPG AGAMMIXS70B-8000G-CS internal solid state drive 8 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085945525",
+    "AGAMMIXS70B8000GCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7300,
+    "write_speed_mbs": 6300,
+    "mtbf_hours": 2000000,
+    "weight_g": 10
+   }
+  },
+  "121262392": {
+   "url": "https://icecat.biz/p/product/121262392",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER BLADE RGB memory module 16 GB 1 x 16 GB DDR5 6000 MT/s 288-pin DIMM",
+   "keys": [
+    "4711085948434",
+    "560004816",
+    "AX5U6000C4816GSLABRBK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 48,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "121376723": {
+   "url": "https://icecat.biz/p/product/121376723",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER BLADE RGB memory module 16 GB 1 x 16 GB DDR5 6000 MT/s 288-pin DIMM",
+   "keys": [
+    "4711085948410",
+    "560004816",
+    "AX5U6000C4816GSLABRWH"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 48,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "122828209": {
+   "url": "https://icecat.biz/p/product/122828209",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "XPG LANCER RGB DDR5 memory module 16 GB 1 x 16 GB 288-pin DIMM ECC",
+   "keys": [
+    "4711085948960",
+    "560003016",
+    "AX5U6000C3016GCLANRSG"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Multicolour",
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 6000,
+    "cas_latency": 30,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "124819176": {
+   "url": "https://icecat.biz/p/product/124819176",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 860 SLEG-860-1000GCS internal solid state drive 1 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "0842243034783",
+    "4711085949493",
+    "842243034783",
+    "SLEG8601000GCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 6000,
+    "write_speed_mbs": 4000,
+    "mtbf_hours": 2000000,
+    "weight_g": 10
+   }
+  },
+  "124819177": {
+   "url": "https://icecat.biz/p/product/124819177",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 860 SLEG-860-2000GCS internal solid state drive 2 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "0842243034790",
+    "4711085949509",
+    "842243034790",
+    "SLEG8602000GCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 6000,
+    "write_speed_mbs": 5000,
+    "mtbf_hours": 2000000,
+    "weight_g": 10
+   }
+  },
+  "24583259": {
+   "url": "https://icecat.biz/p/product/24583259",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 8 GB 1 x 8 GB DDR3L 204-pin SO-DIMM",
+   "keys": [
+    "4054843764649",
+    "4713435795538",
+    "ADDS1600W8G11S"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Green",
+    "total_gb": 8,
+    "module_count": 1,
+    "module_size_gb": 8,
+    "memory_type": "DDR3",
+    "speed_mhz": 1600,
+    "cas_latency": 11,
+    "voltage_v": 1.35,
+    "form_factor": "SO-DIMM"
+   }
+  },
+  "24583261": {
+   "url": "https://icecat.biz/p/product/24583261",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA ADDU1600W8G11-S memory module 8 GB 1 x 8 GB DDR3L 240-pin DIMM",
+   "keys": [
+    "4713435798843",
+    "ADDU1600W8G11S"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Green",
+    "total_gb": 8,
+    "module_count": 1,
+    "module_size_gb": 8,
+    "memory_type": "DDR3",
+    "speed_mhz": 1600,
+    "cas_latency": 11,
+    "voltage_v": 1.35,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "37885099": {
+   "url": "https://icecat.biz/p/product/37885099",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 4 GB 1 x 4 GB DDR4 288-pin DIMM",
+   "keys": [
+    "42666419",
+    "4713218461506",
+    "AD4U2666J4G19R"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 4,
+    "module_count": 1,
+    "module_size_gb": 4,
+    "memory_type": "DDR4",
+    "speed_mhz": 2666,
+    "cas_latency": 19,
+    "form_factor": "DIMM",
+    "registered": false
+   }
+  },
+  "76542893": {
+   "url": "https://icecat.biz/p/product/76542893",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA Ultimate SU630 1.92 TB 2.5\" PCI Express 3.0 QLC 3D NAND",
+   "keys": [
+    "4710273773551",
+    "ASU630SS1T92QR"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1920,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "M.2 PCIe 3.0 x4",
+    "pcie_gen": 3,
+    "nvme": false,
+    "read_speed_mbs": 520,
+    "write_speed_mbs": 450,
+    "mtbf_hours": 1500000,
+    "weight_g": 48
+   }
+  },
+  "89144962": {
+   "url": "https://icecat.biz/p/product/89144962",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 16 GB 1 x 16 GB DDR4 288-pin DIMM",
+   "keys": [
+    "432001622",
+    "4711085931443",
+    "AD4U320016G22SGN"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 22,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "90111836": {
+   "url": "https://icecat.biz/p/product/90111836",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA AD4S3200732G22-SGN memory module 32 GB DDR4 260-pin SO-DIMM",
+   "keys": [
+    "4320073222",
+    "AD4S3200732G22SGN"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "form_factor": "SO-DIMM",
+    "ecc": false
+   }
+  },
+  "91299389": {
+   "url": "https://icecat.biz/p/product/91299389",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 32 GB 1 x 32 GB DDR4 288-pin DIMM",
+   "keys": [
+    "0842243027907",
+    "432003222",
+    "4711085933485",
+    "842243027907",
+    "AD4U320032G22SGN"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 22,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "91487051": {
+   "url": "https://icecat.biz/p/product/91487051",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 32 GB 1 x 32 GB DDR4 260-pin SO-DIMM",
+   "keys": [
+    "432003222",
+    "4711085933539",
+    "AD4S320032G22SGN"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "voltage_v": 1.2,
+    "form_factor": "SO-DIMM"
+   }
+  },
+  "92777328": {
+   "url": "https://icecat.biz/p/product/92777328",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "XPG GAMMIX S70 Blade 1 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085933065",
+    "AGAMMIXS70B1TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7400,
+    "write_speed_mbs": 6400,
+    "mtbf_hours": 2000000,
+    "weight_g": 10
+   }
+  },
+  "92777329": {
+   "url": "https://icecat.biz/p/product/92777329",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "XPG GAMMIX S70 Blade 2 TB M.2 PCI Express 4.0 NVMe 3D NAND",
+   "keys": [
+    "4711085933072",
+    "AGAMMIXS70B2TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7400,
+    "write_speed_mbs": 6400,
+    "mtbf_hours": 2000000,
+    "weight_g": 10
+   }
+  },
+  "94631034": {
+   "url": "https://icecat.biz/p/product/94631034",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 16 GB 1 x 16 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "0842243026443",
+    "4711085936448",
+    "842243026443",
+    "AD5U480016GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "cas_latency": 40,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "95399236": {
+   "url": "https://icecat.biz/p/product/95399236",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "4711085936479",
+    "AD5U480032GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "cas_latency": 40,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": false
+   }
+  },
+  "97165233": {
+   "url": "https://icecat.biz/p/product/97165233",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 16 GB 1 x 16 GB DDR5 262-pin SO-DIMM ECC",
+   "keys": [
+    "0842243026818",
+    "4711085936592",
+    "842243026818",
+    "AD5S480016GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 16,
+    "module_count": 1,
+    "module_size_gb": 16,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "voltage_v": 1.1,
+    "form_factor": "SO-DIMM",
+    "ecc": true
+   }
+  },
+  "99122808": {
+   "url": "https://icecat.biz/p/product/99122808",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "ADATA",
+   "title": "ADATA LEGEND 710 1 TB M.2 PCI Express 3.0 NVMe 3D NAND",
+   "keys": [
+    "0842243027181",
+    "4711085937841",
+    "842243027181",
+    "ALEG7101TCS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 3.0 x4",
+    "pcie_gen": 3,
+    "nvme": true,
+    "read_speed_mbs": 2400,
+    "write_speed_mbs": 1800,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "99373972": {
+   "url": "https://icecat.biz/p/product/99373972",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "ADATA",
+   "title": "ADATA Premier memory module 32 GB 1 x 32 GB DDR5 262-pin SO-DIMM",
+   "keys": [
+    "4711085936622",
+    "AD5S480032GS"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "cas_latency": 40,
+    "voltage_v": 1.1,
+    "form_factor": "SO-DIMM"
+   }
+  }
+ }
+}

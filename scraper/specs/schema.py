@@ -62,10 +62,19 @@ class FieldSpec:
     # Conditional applicability: ((gate_field, (allowed values...)), ...).
     # The field is meaningful only when EVERY gate field holds one of its
     # allowed values; a gate that is still null leaves the field applicable
-    # (unknown is not "no"). See `applies()`. Python-side only: it is not
-    # exported to the frontend (the site never needs to know why a cell is
-    # absent, only that the schema says it is not expected).
+    # (unknown is not "no"). See `applies()`. Exported to the frontend as
+    # `when` (export_site.py) so the product page hides a row that cannot
+    # exist instead of printing "Not listed" for it.
     applies_to: tuple[tuple[str, tuple], ...] = ()
+    # The negative form: the field does NOT exist when a gate field holds one
+    # of these values (a passive GPU has no fans), for gates whose positive
+    # list would be open-ended ("Air", "Blower", "Hybrid", ...).
+    excluded_by: tuple[tuple[str, tuple], ...] = ()
+    # Sibling fields that answer the same buyer question in another
+    # vendor's vocabulary (a PSU's GPU plugs as "8-pin", "6+2-pin" or
+    # "6-pin" counts). When one holds a value, this one left empty is not a
+    # gap: the coverage report does not count it and the site leaves it out.
+    answered_by: tuple[str, ...] = ()
 
     def label(self, lang: str) -> str:
         return self.label_he if lang == "he" else self.label_en
@@ -85,6 +94,8 @@ def _f(
     he: str = "",
     en: str = "",
     when: tuple[tuple[str, tuple], ...] = (),
+    unless: tuple[tuple[str, tuple], ...] = (),
+    answered_by: tuple[str, ...] = (),
 ) -> FieldSpec:
     """Compact field constructor (keeps the tables below readable)."""
     assert type in TYPES, f"bad type {type!r} for {name}"
@@ -104,6 +115,8 @@ def _f(
         label_he=he or name,
         label_en=en or name,
         applies_to=tuple((gate, tuple(allowed)) for gate, allowed in when),
+        excluded_by=tuple((gate, tuple(values)) for gate, values in unless),
+        answered_by=tuple(answered_by),
     )
 
 
@@ -306,21 +319,26 @@ _C_RADIATOR_LENGTH = _f("radiator_length_mm", "int", lo=60, hi=600, group="physi
 _C_RADIATOR_THICKNESS = _f("radiator_thickness_mm", "int", lo=10, hi=100,
                            group="physical", aliases=("radiator_thickness_mm",),
                            he="עובי רדיאטור (mm)", en="Radiator Thickness (mm)")
+# A fanless (passive) cooler has no fan to size, spin or hear. Categories
+# without a `fanless` field (AIO) are unaffected: an absent gate is unknown.
+_HAS_FAN = (("fanless", (False,)),)
 _C_FAN_SIZE = _f("fan_size_mm", "int", lo=40, hi=200, filterable=True, group="physical",
-                 aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)")
+                 aliases=("fan_size_mm", "fan_size"), he="גודל מאוורר (mm)", en="Fan Size (mm)",
+                 when=_HAS_FAN)
 _C_FAN_COUNT = _f("fan_count", "int", lo=0, hi=6, group="physical",
                   aliases=("fan_count", "fans"), he="מספר מאווררים", en="Fan Count")
 _C_FAN_RPM_MIN = _f("fan_rpm_min", "int", lo=0, hi=6000, group="physical",
                     aliases=("fan_rpm_min", "rpm_min", "fan_speed_min"),
-                    he="סל״ד מינימלי", en="Fan RPM Min")
+                    he="סל״ד מינימלי", en="Fan RPM Min", when=_HAS_FAN)
 _C_FAN_RPM_MAX = _f("fan_rpm_max", "int", lo=0, hi=8000, group="physical",
                     aliases=("fan_rpm_max", "rpm_max", "rpm", "fan_speed"),
-                    he="סל״ד מקסימלי", en="Fan RPM Max")
+                    he="סל״ד מקסימלי", en="Fan RPM Max", when=_HAS_FAN)
 _C_NOISE = _f("noise_db", "float", lo=0, hi=80, group="physical",
-              aliases=("noise_db", "noise_level"), he="רעש (dB)", en="Noise (dB)")
+              aliases=("noise_db", "noise_level"), he="רעש (dB)", en="Noise (dB)",
+              when=_HAS_FAN)
 _C_AIRFLOW = _f("airflow_cfm", "float", lo=0, hi=800, group="physical",
                 aliases=("airflow_cfm", "airflow", "air_flow"),
-                he="ספיקת אוויר (CFM)", en="Airflow (CFM)")
+                he="ספיקת אוויר (CFM)", en="Airflow (CFM)", when=_HAS_FAN)
 _C_HEIGHT = _f("height_mm", "int", lo=5, hi=300, group="physical",
                aliases=("height_mm", "cooler_height_mm"), he="גובה (mm)", en="Height (mm)")
 _C_SOCKETS = _f("sockets", "list_str", filterable=True, group="io",
@@ -641,8 +659,10 @@ GPU = (
        he="ספק מומלץ (W)", en="Recommended PSU (W)"),
     _f("cooling", "str", filterable=True, group="physical",
        aliases=("cooling", "cooler_type"), he="קירור", en="Cooling"),
+    # A passive card has no fans. Hybrid / liquid cards keep theirs (radiator
+    # fans), so only "Passive" excludes the field.
     _f("fan_count", "int", lo=0, hi=6, group="physical", aliases=("fan_count", "fans"),
-       he="מספר מאווררים", en="Fan Count"),
+       he="מספר מאווררים", en="Fan Count", unless=(("cooling", ("Passive",)),)),
     _f("external_power", "list_str", group="power",
        aliases=("external_power", "power_connections", "power_connectors"),
        he="חיבורי חשמל", en="External Power"),
@@ -786,23 +806,29 @@ PSU = (
        he="מחברי ATX 24-pin", en="ATX 24-pin Connectors"),
     _f("eps8_connectors", "int", lo=0, hi=6, group="power", aliases=("eps8_connectors", "cpu_power_connectors"),
        he="מחברי EPS 8-pin", en="EPS 8-pin Connectors"),
+    # The native 16-pin GPU plug: 12VHPWR and its revision 12V-2x6 are one
+    # column. Retailers file each under the other's name (the old split had 11
+    # PSUs filling both, the same plug twice), and a buyer asks one question:
+    # can this PSU feed a 16-pin card without an adapter. v3, Oct 2026.
     _f("pcie16_connectors", "int", lo=0, hi=4, group="power",
-       aliases=("pcie16_connectors", "pcie16pin", "12v_2x6"), he="מחברי PCIe 16-pin",
-       en="PCIe 16-pin Connectors"),
-    _f("pcie12_connectors", "int", lo=0, hi=4, group="power",
-       aliases=("pcie12_connectors", "12vhpwr"), he="מחברי PCIe 12-pin", en="PCIe 12-pin Connectors"),
+       aliases=("pcie16_connectors", "pcie16pin", "12v_2x6", "pcie12_connectors", "12vhpwr"),
+       he="מחברי 12V-2x6 / 12VHPWR", en="12V-2x6 / 12VHPWR Connectors"),
+    # Vendors count the GPU 8-pin plugs in one of three vocabularies; any one
+    # answers "how many PCIe GPU plugs". Kept apart (not merged) because a page
+    # that prints two of them often counts cables in one and plugs in the other.
     _f("pcie8_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie8_connectors",),
-       he="מחברי PCIe 8-pin", en="PCIe 8-pin Connectors"),
+       he="מחברי PCIe 8-pin", en="PCIe 8-pin Connectors",
+       answered_by=("pcie62_connectors", "pcie6_connectors")),
     _f("pcie62_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie62_connectors",),
-       he="מחברי PCIe 6+2-pin", en="PCIe 6+2-pin Connectors"),
+       he="מחברי PCIe 6+2-pin", en="PCIe 6+2-pin Connectors",
+       answered_by=("pcie8_connectors", "pcie6_connectors")),
     _f("pcie6_connectors", "int", lo=0, hi=12, group="power", aliases=("pcie6_connectors",),
-       he="מחברי PCIe 6-pin", en="PCIe 6-pin Connectors"),
+       he="מחברי PCIe 6-pin", en="PCIe 6-pin Connectors",
+       answered_by=("pcie8_connectors", "pcie62_connectors")),
     _f("sata_connectors", "int", lo=0, hi=24, filterable=True, group="power",
        aliases=("sata_connectors", "sata_power_connectors"), he="מחברי SATA", en="SATA Connectors"),
     _f("molex4_connectors", "int", lo=0, hi=12, group="power", aliases=("molex4_connectors", "molex"),
        he="מחברי Molex", en="Molex Connectors"),
-    _f("pcie_power_connectors", "str", group="power", aliases=("pcie_power_connectors",),
-       he="חיבורי PCIe", en="PCIe Power Connectors"),
     _f("color", "str", filterable=True, group="physical", aliases=("color", "colour"),
        he="צבע", en="Color"),
 )
@@ -833,7 +859,7 @@ MINIMAL = (
 # reference dataset still files both under PCPartPicker's "cpu-cooler".
 # --------------------------------------------------------------------------
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 SCHEMA: dict[str, tuple[FieldSpec, ...]] = {
     "cpu": CPU,
@@ -897,7 +923,16 @@ def applies(category: str | None, field: str, specs: dict) -> bool:
         value = specs.get(gate)
         if value is not None and value not in allowed:
             return False
+    for gate, values in spec.excluded_by:
+        if specs.get(gate) in values and specs.get(gate) is not None:
+            return False
     return True
+
+
+def answered(category: str | None, field: str, specs: dict) -> bool:
+    """True when a sibling field already answers this field's question."""
+    spec = field_map(category).get(field)
+    return bool(spec) and any(specs.get(other) is not None for other in spec.answered_by)
 
 
 def filterable_fields(category: str | None) -> tuple[str, ...]:

@@ -51,6 +51,11 @@ def translate_hebrew_colors(text: str) -> str:
     return text
 
 
+# Machine-translated Hebrew colour cells: כסף (silver) came through as
+# "Money." and חום (brown) as "Heat.", and shipped as colours.
+_MISTRANSLATED_COLORS = {"money": "silver", "heat": "brown"}
+
+
 def canon_color(value) -> str:
     """Recognized color words in a value ('Black / Silver' -> 'Black / Silver').
 
@@ -58,6 +63,8 @@ def canon_color(value) -> str:
     instead of splitting the filter into two extra single-color options.
     """
     text = translate_hebrew_colors(str(value).strip())
+    text = re.sub(r"[A-Za-z]+", lambda m: _MISTRANSLATED_COLORS.get(m.group(0).lower(),
+                                                                     m.group(0)), text)
     words = re.findall(r"[A-Za-z]+", text.lower())
     found: list[str] = []
     for word in words:
@@ -648,7 +655,33 @@ def canon_wattage_range(value) -> str:
 
 
 # Generic field-name rules (applied for every category unless overridden).
+_TOWER_RE = re.compile(r"\b(full|super|mid|midi|mini|micro)[\s-]*tower\b", re.I)
+_TOWER_LABEL = {"full": "Full Tower", "super": "Full Tower", "mid": "Mid Tower",
+                "midi": "Mid Tower", "mini": "Mini Tower", "micro": "Mini Tower"}
+
+
+def canon_case_type(value):
+    """One spelling per tower class: 'Mid tower' / 'Mid-Tower' / 'Midi Tower'
+    / 'ATX Mid Tower' -> 'Mid Tower'; a micro tower is a mini tower class.
+    "Micro ATX Tower" names a board size plus "tower", so it reads as a mini
+    tower too. Rack heights, SFF and board-size-only values pass through."""
+    text = str(value)
+    if re.search(r"micro[\s-]*atx[\s-]*tower", text, re.I):
+        return "Mini Tower"
+    match = _TOWER_RE.search(text)
+    if match:
+        return _TOWER_LABEL[match.group(1).lower()]
+    return value
+
+
+def canon_resolution(value):
+    """'7680 x 4320 pixels' / 'Digital Max Resolution 7680 x 4320' -> '7680x4320'."""
+    match = re.search(r"(\d{3,5})\s*[x×*]\s*(\d{3,5})", str(value))
+    return f"{match.group(1)}x{match.group(2)}" if match else value
+
+
 _GENERIC_RULES = {
+    "max_resolution": canon_resolution,
     "manufacturer": canon_brand,
     "color": canon_color,
     "series": canon_series,
@@ -667,6 +700,7 @@ _GENERIC_RULES = {
 # `chipset` only canonicalizes for motherboards: a GPU chipset is a marketing
 # name ("GeForce RTX 5070 Ti") and must keep its spaces and case.
 _CATEGORY_RULES = {
+    ("case", "type"): canon_case_type,
     ("motherboard", "chipset"): canon_chipset,
     ("motherboard", "memory_type"): canon_memory_type,
     ("memory", "memory_type"): canon_memory_type,
@@ -686,6 +720,18 @@ _CATEGORY_RULES = {
 }
 
 
+_POWER_PLUG_RE = re.compile(r"^\s*(\d{1,2})\s*[x×]\s*(\d{1,2})\s*-?\s*pin\s*$", re.I)
+
+
+def canon_power_plug(value):
+    """GPU power plug: '1x 8-pin' / '3 x 8-pin' / '1 x 16-pin' -> '1x8-pin', the
+    spelling the direct rows ship, so one plug kind is one filter value."""
+    match = _POWER_PLUG_RE.match(str(value))
+    if not match:
+        return value
+    return f"{int(match.group(1))}x{int(match.group(2))}-pin"
+
+
 def canonicalize(field, value, category: str | None = None):
     """Apply the canonical form for (category, field) to `value`.
 
@@ -694,6 +740,8 @@ def canonicalize(field, value, category: str | None = None):
     """
     if field.name == "sockets":
         return canon_socket_list(value)
+    if field.name == "external_power" and isinstance(value, (list, tuple)):
+        return [canon_power_plug(item) for item in value]
     if isinstance(value, (list, tuple, dict, int, float, bool)):
         return value
     if field.name == "form_factor":

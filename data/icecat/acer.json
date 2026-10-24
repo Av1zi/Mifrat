@@ -1,0 +1,114 @@
+{
+ "brand": "Acer",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "124839868": {
+   "url": "https://icecat.biz/p/product/124839868",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Acer",
+   "title": "Acer Nitro Intel® Arc™ B570 OC Arc B570 10 GB GDDR6",
+   "keys": [
+    "4711474221131",
+    "DPZ4CWWP01"
+   ],
+   "names": [],
+   "specs": {
+    "fan_count": 2,
+    "memory_gb": 10,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 160,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "length_mm": 268,
+    "boost_clock_mhz": 2690
+   }
+  },
+  "125356099": {
+   "url": "https://icecat.biz/p/product/125356099",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Acer",
+   "title": "Acer Predator BiFrost Radeon RX 9070 XT OC 16GB AMD GDDR6",
+   "keys": [
+    "4711474226648",
+    "DPZ4FWWP01"
+   ],
+   "names": [],
+   "specs": {
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "length_mm": 297,
+    "boost_clock_mhz": 3100,
+    "core_clock_mhz": 1870
+   }
+  },
+  "89639196": {
+   "url": "https://icecat.biz/p/product/89639196",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Acer",
+   "title": "Acer RE100 256 GB 2.5\" Serial ATA III",
+   "keys": [
+    "0887184012643",
+    "6955914613690",
+    "887184012643",
+    "BL9BWWA107"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 256,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "read_speed_mbs": 562,
+    "write_speed_mbs": 528,
+    "mtbf_hours": 2000000,
+    "weight_g": 40
+   }
+  },
+  "93437759": {
+   "url": "https://icecat.biz/p/product/93437759",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Acer",
+   "title": "Acer BL.9BWWA.119 internal solid state drive 512 GB M.2 PCI Express 3.0 NVMe 3D TLC",
+   "keys": [
+    "0887184012759",
+    "6955914613805",
+    "887184012759",
+    "BL9BWWA119"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 512,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 3.0 x4",
+    "pcie_gen": 3,
+    "nvme": true,
+    "read_speed_mbs": 3000,
+    "write_speed_mbs": 2700,
+    "mtbf_hours": 2000000
+   }
+  }
+ }
+}

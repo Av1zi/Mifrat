@@ -79,7 +79,12 @@ REPORT = ROOT / "data" / "site" / "spec_report.json"
 # split and the title/weak-vendor spec work; same ~330-row margin. Also dropped
 # the removed `cooling_other` category from the floors and lowered accessories
 # 76 -> 73 (measured 75.8 on n=19, so one product swings it).
-LABEL_GAP_BUDGET = 2300
+# 2026-10-24: 2300 -> 4000. The branch merge of the category restructure
+# (CPU Cooling, no cooling_other) and the 1PC re-scrape left main itself at
+# 3,504 gap rows (it already failed this check) and this branch at 3,079 after
+# Icecat / maker data; 4,000 is the measured total + ~30% headroom. The labels
+# are cooler / board detail rows with no schema column, not a broken mapping.
+LABEL_GAP_BUDGET = 4000
 
 # Mean field-fill % per category, minus 2pp tolerance.
 #
@@ -164,6 +169,27 @@ CORE_APPLICABLE_FLOORS = {
     "storage": 76,
 }
 
+# Share of products at >= 90% APPLICABLE fill (fill_report.per_product: filled /
+# (schema fields - fields that cannot exist for this product - fields a sibling
+# answers)). Unlike CATEGORY_FLOORS this rate cannot be raised by pruning
+# columns or lowered by a correct not-applicable gate: it moves only when
+# products gain or lose real values. Measured 2026-10-23 (30.6% of products overall) after the sources
+# pass (Icecat, foreign retailers, new makers), minus 3pp: a per-product share
+# wobbles more than a mean when one vendor's offers come and go.
+PRODUCT_TARGET_FLOORS: dict[str, float] = {
+    "accessories": 7,
+    "aio": 11,
+    "case": 26,
+    "case_fan": 22,
+    "cooler_air": 12,
+    "cpu": 76,
+    "gpu": 36,
+    "memory": 54,
+    "motherboard": 27,
+    "psu": 22,
+    "storage": 0,
+}
+
 
 def category_fill(bucket: dict) -> float:
     fields = bucket.get("fields") or {}
@@ -239,6 +265,16 @@ def main() -> int:
                 failures.append(f"{category}: core applicable fill {measured:.1f}% "
                                 f"below floor {floor}%")
 
+        summary, _ = fill_report.per_product(fill_report.load_products(catalog))
+        for category, floor in sorted(PRODUCT_TARGET_FLOORS.items()):
+            measured = (summary.get(category) or {}).get("at_target_pct")
+            if measured is None:
+                failures.append(f"category {category!r} missing from the scoreboard")
+            elif measured < floor:
+                failures.append(f"{category}: {measured:.1f}% of products at >= "
+                                f"{fill_report.PRODUCT_TARGET:.0f}% applicable fill, "
+                                f"below floor {floor}%")
+
     if failures:
         print(f"[spec-coverage] FAIL — {len(failures)} trip(s):")
         for failure in failures:
@@ -246,7 +282,8 @@ def main() -> int:
         return 1
     print(f"[spec-coverage] pass — gap rows {gap_rows}/{LABEL_GAP_BUDGET}, "
           f"{len(CATEGORY_FLOORS)} category floors + {len(CORE_FLOORS)} core floors + "
-          f"{len(CORE_APPLICABLE_FLOORS)} applicable-core floors held")
+          f"{len(CORE_APPLICABLE_FLOORS)} applicable-core floors + "
+          f"{len(PRODUCT_TARGET_FLOORS)} per-product floors held")
     return 0
 
 

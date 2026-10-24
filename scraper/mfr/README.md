@@ -46,7 +46,7 @@ Catalog share = products carrying that manufacturer name (3,821 products total).
 | Noctua | 96 | **fail** | Specs ("Performance specifications" tab) load client-side from the CMS; `/api/` is disallowed by robots. |
 | be quiet! | 115 | **built (round 2 - category listings, not the sitemap)** | robots allow all; `/en/case`, `/casefans`, `/cpucooler`, `/watercooler`, `/powersupply` link every product as `./<category>/<id>`; each page is a server-rendered technical-data table ending in the Article number (BGW39) and EAN, so products join exactly on identifiers they already carry. |
 | Maxsun | 102 | **skip** | one board family, English pages thin; revisit if boards stay the biggest gap. |
-| SilverStone, Seasonic, G.Skill, Kingston, ADATA, Crucial | <100 each | **not evaluated** | each is a long tail of <60 products; not worth a fetcher before the larger brands. |
+| Seasonic, G.Skill, Kingston, ADATA, Crucial | <100 each | **not evaluated** | each is a long tail of <60 products; not worth a fetcher before the larger brands. |
 
 ### Round 2 verdicts (checked 2026-10-18)
 
@@ -57,7 +57,8 @@ Catalog share = products carrying that manufacturer name (3,821 products total).
 | NZXT | 37 | **built (cases, fans, AIO)** | Shopify storefront, robots allow products, sitemap lists ~100 handles; server-rendered `tech-specs__row` table with a "Model Number" row naming every colour variant's part number + UPC/EAN, so products join exactly on the identifiers they already carry. A barcode two pages both claim (a multipack repeating the single fan's UPC) is dropped as ambiguous by `store._index`. |
 | Thermalright | 49 | **built (narrow)** | robots only block cart/admin; server-rendered `<th>/<td>` spec rows. Slug = model name, so products join on part number == slug or whole-token slug prefix; ~11 pages / ~15 products match (the rest are 2024+ models with no page or no part number). |
 | GAMDIAS | 43 | **skip** | robots allow everything and the spec table is embedded in the page as JSON, but the current-lineup pages (Apollo / Argus / Athena / Mars / Talos, Boreas, Chione E1-E2) cover only 5 of the 43 catalog products - the retail names (Aura GCxx, Atlas, Chione E4) have no page. Not worth a fetcher. |
-| Fractal Design | 56 | **skip (policy)** | `robots.txt` allows `*` but names ClaudeBot / anthropic-ai / GPTBot / CCBot / Google-Extended and disallows them: the site has asked AI crawlers not to read it. The fetcher is a plain script, not an AI crawler, but the owner has not been asked to override an explicit anti-AI-agent policy, so it is not built. Re-open on the owner's word. |
+| Fractal Design | 56 | **built (owner override)** | `robots.txt` allows `*` everywhere but `/studio/` and `/api/`, and disallows ClaudeBot / anthropic-ai / GPTBot / CCBot / Google-Extended by name. The fetcher is a plain polite script; on 2026-10-22 the owner chose to read the `/products/` pages anyway (`client.ROBOTS_OVERRIDES`; remove on Fractal's request). `/api/` stays untouched. 40 pages; where maker and retailer disagree the maker is right (Epoch XL sold under Epoch dimensions). |
+| SilverStone | 59 | **built** | robots allow; sitemap lists 1,248 pages, 1,050 in scope (PSU wattage variants split per column). Joins on the printed `SST-` code. `model` is not read (short code vs retailer name). Maker PSU connector counts disagree with a retailer in ~10% of 70 overlaps, the maker side being right in the cases checked (EX650R is SFX). |
 | Cougar | 20 | **fail** | the server closes the TCP connection without any HTTP answer to a standard browser-header client (`RemoteDisconnected` on `robots.txt`, on both `cougargaming.com` and `www.`, two attempts). Treated as a block; no retry, no workaround. |
 | DeepCool | 10 | **skip** | no `robots.txt` and no `sitemap.xml` (404); product URLs are not derivable from names. 10 products. |
 | Arctic | 40 | **skip** | `sitemap.xml` is an HTML page, not a machine sitemap, and listing pagination (`?p=`) is disallowed by `robots.txt` (`Disallow: */?`), so the ~40 catalog products cannot be enumerated politely. |
@@ -65,7 +66,7 @@ Catalog share = products carrying that manufacturer name (3,821 products total).
 | ASUS ROG (rog.asus.com) | ~100 boards | **skip** | host allows crawling, but its product sitemap stops at 2020-era boards (no B650 / X870 / Z890 ROG pages), so the 65 unmatched ASUS boards (mostly ROG Strix / Crosshair / Maximus) have no page to join. |
 | Noctua | 96 | **fail (re-checked)** | the product page is a 2 MB Next.js payload without the performance table; the numbers come from `/api/`, which robots.txt disallows. |
 | Seasonic | 41 | **skip** | one page per SERIES with several wattages side by side (same problem as Cooler Master PSUs): a wrong-wattage row would outrank the retailer's right one. |
-| SilverStone, FSP | 24 / 33 PSU | **not evaluated** | long tail; robots allow, but sitemaps are huge / php listings and each is <35 products. |
+| FSP | 33 PSU | **not evaluated** | long tail; robots allow, but sitemaps are huge / php listings and each is <35 products. |
 
 ### Round 3: every field the pages print (re-parsed 2026-10-20)
 
@@ -89,9 +90,12 @@ wrong join (below).
 
 Values that say a position takes no fan ("None", "N/A", "-") are stored as
 "No" (values.coerce reads "None" as unknown, as for lighting). A PSU's full
-connector list states the PCIe kinds it lacks, so those are 0; 12V-2x6 and
-12VHPWR are never zeroed against each other (retailers file one under the
-other's name).
+connector list states the PCIe kinds it lacks, so those are 0. Since schema
+v3 (Oct 2026) 12V-2x6 and 12VHPWR are one column (`pcie16_connectors`, the
+same 16-pin plug that retailers file under either name); a list naming
+neither sets it to 0. A schema bump must run `scripts/migrate_mfr_schema.py`:
+`store.py` ignores a file at another version, and the raw page cache is not
+committed.
 
 ## Adding a brand
 
@@ -101,3 +105,15 @@ other's name).
    `__init__.BRANDS`.
 3. `--dry-run` first: the matched/unmatched split tells you whether it is worth fetching.
 4. Add the verdict row here and one line to `decisions.md`.
+
+## Sources that need the Nano's home IP (Oct 2026)
+
+Probed with an honestly identified client (`scripts/probe_sources.py`, `MifratSpecBot/1.0`),
+from the cloud and from the Nano. Gigabyte, MSI, Kingston, Noctua and Newegg refuse even
+a plain `wget` with that name (403 / 429): dropped. Spoofing a browser to get past that is
+not done. Newegg also restricts automated access in its terms.
+
+| Source | Cloud | Nano | Verdict |
+| :--- | :--- | :--- | :--- |
+| LDLC (French retailer) | refused | 200 | **built** (robots.txt disallows `/en/search/` for `*`; narrow `ROBOTS_OVERRIDES` entry under the owner's policy, removable on LDLC's request) as `scraper/xref/ldlc.py`, run by `nano/run_xref.sh`; coolers and case fans so far, more categories as their pages are saved (`nano/save_fixtures.sh`) |
+| Supermicro | refused | 200 | **not built**: 23 products (17 boards, 6 cases), 3-4 missing fields each; the page layout differs per product family, so the gain does not cover the maintenance |

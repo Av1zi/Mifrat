@@ -17,10 +17,20 @@ export interface SpecFieldMeta {
   /** Short display label (Hebrew / English). */
   he: string;
   en: string;
+  /**
+   * Applicability gates (schema `applies_to`): the field exists for a product
+   * only when every gate field holds one of its listed values. A gate field
+   * that is still unknown leaves the field applicable.
+   */
+  when?: [string, (string | number | boolean)[]][];
+  /** Negative gates: the field does not exist when a gate field holds one of these. */
+  unless?: [string, (string | number | boolean)[]][];
+  /** Sibling fields that answer the same question; an empty field is not a gap when one is set. */
+  answeredBy?: string[];
 }
 
 /** Schema version — bump in schema.py; golden fixtures record it too. */
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 /** Ordered spec fields per category (the PDP renders exactly this order). */
 export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
@@ -110,12 +120,12 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "form_factor", type: "str", unit: null, enum: [], filterable: true, group: "storage", he: "פורמט", en: "Form Factor" },
     { name: "interface", type: "str", unit: null, enum: [], filterable: true, group: "storage", he: "ממשק", en: "Interface" },
     { name: "nvme", type: "bool", unit: null, enum: [], filterable: true, group: "storage", he: "NVMe", en: "NVMe" },
-    { name: "pcie_gen", type: "int", unit: null, enum: [], filterable: true, group: "storage", he: "דור PCIe", en: "PCIe Gen" },
+    { name: "pcie_gen", type: "int", unit: null, enum: [], filterable: true, group: "storage", he: "דור PCIe", en: "PCIe Gen", when: [["nvme", [true]]] },
     { name: "cache_mb", type: "int", unit: null, enum: [], filterable: false, group: "storage", he: "מטמון (MB)", en: "Cache (MB)" },
-    { name: "rpm", type: "int", unit: null, enum: [], filterable: true, group: "storage", he: "סל״ד", en: "RPM" },
+    { name: "rpm", type: "int", unit: null, enum: [], filterable: true, group: "storage", he: "סל״ד", en: "RPM", when: [["type", ["HDD", "Hybrid"]]] },
     { name: "read_speed_mbs", type: "int", unit: null, enum: [], filterable: false, group: "storage", he: "מהירות קריאה (MB/s)", en: "Read Speed (MB/s)" },
     { name: "write_speed_mbs", type: "int", unit: null, enum: [], filterable: false, group: "storage", he: "מהירות כתיבה (MB/s)", en: "Write Speed (MB/s)" },
-    { name: "nand", type: "str", unit: null, enum: [], filterable: false, group: "storage", he: "סוג NAND", en: "NAND" },
+    { name: "nand", type: "str", unit: null, enum: [], filterable: false, group: "storage", he: "סוג NAND", en: "NAND", when: [["type", ["SSD", "Hybrid"]]] },
     { name: "series", type: "str", unit: null, enum: [], filterable: false, group: "identity", he: "סדרה", en: "Series" },
     { name: "dimensions_mm", type: "str", unit: null, enum: [], filterable: false, group: "physical", he: "מידות (מ״מ)", en: "Dimensions (mm)" },
     { name: "mtbf_hours", type: "int", unit: null, enum: [], filterable: false, group: "other", he: "MTBF (שעות)", en: "MTBF (hours)" },
@@ -143,7 +153,7 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "tdp_w", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "הספק (W)", en: "TDP (W)" },
     { name: "recommended_psu_w", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "ספק מומלץ (W)", en: "Recommended PSU (W)" },
     { name: "cooling", type: "str", unit: null, enum: [], filterable: true, group: "physical", he: "קירור", en: "Cooling" },
-    { name: "fan_count", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "מספר מאווררים", en: "Fan Count" },
+    { name: "fan_count", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "מספר מאווררים", en: "Fan Count", unless: [["cooling", ["Passive"]]] },
     { name: "external_power", type: "list_str", unit: null, enum: [], filterable: false, group: "power", he: "חיבורי חשמל", en: "External Power" },
     { name: "dp_outputs", type: "dict_int", unit: null, enum: [], filterable: false, group: "io", he: "יציאות DisplayPort", en: "DisplayPort Outputs" },
     { name: "hdmi_outputs", type: "dict_int", unit: null, enum: [], filterable: false, group: "io", he: "יציאות HDMI", en: "HDMI Outputs" },
@@ -186,19 +196,17 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "efficiency", type: "enum", unit: null, enum: ["80+ White", "80+ Bronze", "80+ Silver", "80+ Gold", "80+ Platinum", "80+ Titanium"], filterable: true, group: "power", he: "יעילות", en: "Efficiency" },
     { name: "modular", type: "enum", unit: null, enum: ["no", "semi", "full"], filterable: true, group: "power", he: "מודולרי", en: "Modular" },
     { name: "length_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "אורך (mm)", en: "Length (mm)" },
-    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)" },
+    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)", when: [["fanless", [false]]] },
     { name: "fanless", type: "bool", unit: null, enum: [], filterable: true, group: "physical", he: "ללא מאוורר", en: "Fanless" },
     { name: "atx_version", type: "str", unit: null, enum: [], filterable: false, group: "power", he: "תקן ATX", en: "ATX Version" },
     { name: "atx4_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי ATX 24-pin", en: "ATX 24-pin Connectors" },
     { name: "eps8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי EPS 8-pin", en: "EPS 8-pin Connectors" },
-    { name: "pcie16_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 16-pin", en: "PCIe 16-pin Connectors" },
-    { name: "pcie12_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 12-pin", en: "PCIe 12-pin Connectors" },
-    { name: "pcie8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors" },
-    { name: "pcie62_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors" },
-    { name: "pcie6_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors" },
+    { name: "pcie16_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי 12V-2x6 / 12VHPWR", en: "12V-2x6 / 12VHPWR Connectors" },
+    { name: "pcie8_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors", answeredBy: ["pcie62_connectors", "pcie6_connectors"] },
+    { name: "pcie62_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors", answeredBy: ["pcie8_connectors", "pcie6_connectors"] },
+    { name: "pcie6_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors", answeredBy: ["pcie8_connectors", "pcie62_connectors"] },
     { name: "sata_connectors", type: "int", unit: null, enum: [], filterable: true, group: "power", he: "מחברי SATA", en: "SATA Connectors" },
     { name: "molex4_connectors", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "מחברי Molex", en: "Molex Connectors" },
-    { name: "pcie_power_connectors", type: "str", unit: null, enum: [], filterable: false, group: "power", he: "חיבורי PCIe", en: "PCIe Power Connectors" },
     { name: "color", type: "str", unit: null, enum: [], filterable: true, group: "physical", he: "צבע", en: "Color" },
   ],
   "case_fan": [
@@ -224,12 +232,12 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "radiator_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל רדיאטור (mm)", en: "Radiator Size (mm)" },
     { name: "radiator_length_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "אורך רדיאטור (mm)", en: "Radiator Length (mm)" },
     { name: "radiator_thickness_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "עובי רדיאטור (mm)", en: "Radiator Thickness (mm)" },
-    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)" },
+    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)", when: [["fanless", [false]]] },
     { name: "fan_count", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "מספר מאווררים", en: "Fan Count" },
-    { name: "fan_rpm_min", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מינימלי", en: "Fan RPM Min" },
-    { name: "fan_rpm_max", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מקסימלי", en: "Fan RPM Max" },
-    { name: "noise_db", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "רעש (dB)", en: "Noise (dB)" },
-    { name: "airflow_cfm", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "ספיקת אוויר (CFM)", en: "Airflow (CFM)" },
+    { name: "fan_rpm_min", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מינימלי", en: "Fan RPM Min", when: [["fanless", [false]]] },
+    { name: "fan_rpm_max", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מקסימלי", en: "Fan RPM Max", when: [["fanless", [false]]] },
+    { name: "noise_db", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "רעש (dB)", en: "Noise (dB)", when: [["fanless", [false]]] },
+    { name: "airflow_cfm", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "ספיקת אוויר (CFM)", en: "Airflow (CFM)", when: [["fanless", [false]]] },
     { name: "sockets", type: "list_str", unit: null, enum: [], filterable: true, group: "io", he: "סוקטים נתמכים", en: "Sockets" },
     { name: "connectors", type: "list_str", unit: null, enum: [], filterable: false, group: "io", he: "חיבורים", en: "Connectors" },
     { name: "lighting", type: "str", unit: null, enum: [], filterable: true, group: "physical", he: "תאורה", en: "Lighting" },
@@ -239,11 +247,11 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "manufacturer", type: "str", unit: null, enum: [], filterable: true, group: "identity", he: "יצרן", en: "Manufacturer" },
     { name: "model", type: "str", unit: null, enum: [], filterable: false, group: "identity", he: "דגם", en: "Model" },
     { name: "part_numbers", type: "list_str", unit: null, enum: [], filterable: false, group: "identity", he: "מק״טים", en: "Part Numbers" },
-    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)" },
-    { name: "fan_rpm_min", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מינימלי", en: "Fan RPM Min" },
-    { name: "fan_rpm_max", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מקסימלי", en: "Fan RPM Max" },
-    { name: "noise_db", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "רעש (dB)", en: "Noise (dB)" },
-    { name: "airflow_cfm", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "ספיקת אוויר (CFM)", en: "Airflow (CFM)" },
+    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)", when: [["fanless", [false]]] },
+    { name: "fan_rpm_min", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מינימלי", en: "Fan RPM Min", when: [["fanless", [false]]] },
+    { name: "fan_rpm_max", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מקסימלי", en: "Fan RPM Max", when: [["fanless", [false]]] },
+    { name: "noise_db", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "רעש (dB)", en: "Noise (dB)", when: [["fanless", [false]]] },
+    { name: "airflow_cfm", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "ספיקת אוויר (CFM)", en: "Airflow (CFM)", when: [["fanless", [false]]] },
     { name: "height_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "גובה (mm)", en: "Height (mm)" },
     { name: "sockets", type: "list_str", unit: null, enum: [], filterable: true, group: "io", he: "סוקטים נתמכים", en: "Sockets" },
     { name: "tdp_w", type: "int", unit: null, enum: [], filterable: false, group: "power", he: "פיזור חום (W)", en: "Cooling Capacity (W)" },
@@ -259,12 +267,12 @@ export const SPEC_FIELDS: Record<string, SpecFieldMeta[]> = {
     { name: "radiator_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל רדיאטור (mm)", en: "Radiator Size (mm)" },
     { name: "radiator_length_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "אורך רדיאטור (mm)", en: "Radiator Length (mm)" },
     { name: "radiator_thickness_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "עובי רדיאטור (mm)", en: "Radiator Thickness (mm)" },
-    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)" },
+    { name: "fan_size_mm", type: "int", unit: null, enum: [], filterable: true, group: "physical", he: "גודל מאוורר (mm)", en: "Fan Size (mm)", when: [["fanless", [false]]] },
     { name: "fan_count", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "מספר מאווררים", en: "Fan Count" },
-    { name: "fan_rpm_min", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מינימלי", en: "Fan RPM Min" },
-    { name: "fan_rpm_max", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מקסימלי", en: "Fan RPM Max" },
-    { name: "noise_db", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "רעש (dB)", en: "Noise (dB)" },
-    { name: "airflow_cfm", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "ספיקת אוויר (CFM)", en: "Airflow (CFM)" },
+    { name: "fan_rpm_min", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מינימלי", en: "Fan RPM Min", when: [["fanless", [false]]] },
+    { name: "fan_rpm_max", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "סל״ד מקסימלי", en: "Fan RPM Max", when: [["fanless", [false]]] },
+    { name: "noise_db", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "רעש (dB)", en: "Noise (dB)", when: [["fanless", [false]]] },
+    { name: "airflow_cfm", type: "float", unit: null, enum: [], filterable: false, group: "physical", he: "ספיקת אוויר (CFM)", en: "Airflow (CFM)", when: [["fanless", [false]]] },
     { name: "height_mm", type: "int", unit: null, enum: [], filterable: false, group: "physical", he: "גובה (mm)", en: "Height (mm)" },
     { name: "sockets", type: "list_str", unit: null, enum: [], filterable: true, group: "io", he: "סוקטים נתמכים", en: "Sockets" },
     { name: "connectors", type: "list_str", unit: null, enum: [], filterable: false, group: "io", he: "חיבורים", en: "Connectors" },
@@ -400,13 +408,11 @@ export const SPEC_LABELS: Record<string, { he: string; en: string }> = {
   "opengl": { he: "OpenGL", en: "OpenGL" },
   "packaging": { he: "אריזה", en: "Packaging" },
   "part_numbers": { he: "מק״טים", en: "Part Numbers" },
-  "pcie12_connectors": { he: "מחברי PCIe 12-pin", en: "PCIe 12-pin Connectors" },
-  "pcie16_connectors": { he: "מחברי PCIe 16-pin", en: "PCIe 16-pin Connectors" },
+  "pcie16_connectors": { he: "מחברי 12V-2x6 / 12VHPWR", en: "12V-2x6 / 12VHPWR Connectors" },
   "pcie62_connectors": { he: "מחברי PCIe 6+2-pin", en: "PCIe 6+2-pin Connectors" },
   "pcie6_connectors": { he: "מחברי PCIe 6-pin", en: "PCIe 6-pin Connectors" },
   "pcie8_connectors": { he: "מחברי PCIe 8-pin", en: "PCIe 8-pin Connectors" },
   "pcie_gen": { he: "דור PCIe", en: "PCIe Gen" },
-  "pcie_power_connectors": { he: "חיבורי PCIe", en: "PCIe Power Connectors" },
   "pcie_x16_slots": { he: "חריצי PCIe x16", en: "PCIe x16 Slots" },
   "pcie_x1_slots": { he: "חריצי PCIe x1", en: "PCIe x1 Slots" },
   "psu_included": { he: "ספק כוח כלול", en: "PSU Included" },

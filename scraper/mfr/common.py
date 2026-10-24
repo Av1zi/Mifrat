@@ -330,8 +330,9 @@ def psu_length(text) -> int | None:
 # PSU connector line -> schema field. Order matters: the first pattern that
 # matches a line wins ("12V-2x6 (12+4) pin" must not read as an 8-pin).
 _PSU_CONNECTORS = (
-    ("pcie16_connectors", r"12\s*V[\s\-–]*2\s*[x×]\s*6|\b16[\s-]*pin\b.*pci|pci.*\b16[\s-]*pin\b|12\+4"),
-    ("pcie12_connectors", r"12\s*VHPWR"),
+    # 12V-2x6 and 12VHPWR are one column (schema v3): the same 16-pin plug.
+    ("pcie16_connectors", r"12\s*V[\s\-–]*2\s*[x×]\s*6|\b16[\s-]*pin\b.*pci|pci.*\b16[\s-]*pin\b|12\+4"
+                          r"|12\s*VHPWR"),
     ("pcie62_connectors", r"6\s*\+\s*2"),
     ("pcie6_connectors", r"pci[\s-]*e?.*\b6[\s-]*pin|\b6[\s-]*pin\b.*pci"),
     ("pcie8_connectors", r"pci[\s-]*e?.*\b8[\s-]*pin|\b8[\s-]*pin\b.*pci"),
@@ -359,12 +360,6 @@ def psu_connector_counts(lines) -> dict[str, int]:
                 counts[field] = counts.get(field, 0) + int(count.group(1))
                 break
     if counts:
-        for field in ("pcie62_connectors", "pcie6_connectors"):
+        for field in ("pcie62_connectors", "pcie6_connectors", "pcie16_connectors"):
             counts.setdefault(field, 0)
-        # 12V-2x6 is the revised 12VHPWR plug and retailers file one under
-        # the other's name, so neither is zeroed while the other is present.
-        if not counts.get("pcie12_connectors"):
-            counts.setdefault("pcie16_connectors", 0)
-        if not counts.get("pcie16_connectors"):
-            counts.setdefault("pcie12_connectors", 0)
     return counts

@@ -172,8 +172,10 @@ GPU_CHIP_RE = re.compile(
 
 VRAM_RE = re.compile(r"\b(\d{1,2})\s?G(?:B)?\b")
 GMEM_RE = re.compile(r"\bS?DDR([345]X?)\b|\bGDDR([567]X?)\b|\bHBM(\d?)\b", re.I)
-CORE_CLOCK_RE = re.compile(r"\b(\d{3,4})\s?MHZ\b", re.I)
-BOOST_CLOCK_RE = re.compile(r"\bBOOST\s*[:\\-]?\s*(\d{3,4})\s?MHZ\b", re.I)
+# Vendors write "2,542MHz", which clean_text turns into "2 542MHz": the
+# thousands group is part of the number, never a separate 542 MHz clock.
+CORE_CLOCK_RE = re.compile(r"(?<![\d,.])\b(\d[\s,]\d{3}|\d{3,4})\s?MHZ\b", re.I)
+BOOST_CLOCK_RE = re.compile(r"\bBOOST\s*[:\\-]?\s*(\d[\s,]\d{3}|\d{3,4})\s?MHZ\b", re.I)
 TDP_RE = re.compile(r"\b(\d{2,4})\s?W\b")
 LENGTH_MM_RE = re.compile(r"\b(\d{2,3})\s?MM\b", re.I)
 PCIE_INTERFACE_RE = re.compile(r"PCI\s*E?\s*([345]\.0)?\s*X\s*16", re.I)
@@ -190,7 +192,15 @@ WATT_PSU_FALLBACK_RE = re.compile(r"\b(\d{3,4})P\b")  # e.g. Ai1300P without W
 EFF_RE = re.compile(r"80\s?PLUS\s?(TITANIUM|PLATINUM|GOLD|SILVER|BRONZE|WHITE)", re.I)
 CYBENETICS_RE = re.compile(r"CYBENETICS\s*(TITANIUM|PLATINUM|GOLD|SILVER|BRONZE)", re.I)
 MOD_RE = re.compile(
-    r"\b(FULL(?:Y)?\s?MODULAR|SEMI\s?MODULAR|NON\s?MODULAR|MODULAR)\b", re.I
+    r"\b(FULL(?:Y)?[\s-]?MODULAR|SEMI[\s-]?MODULAR|NON[\s-]?MODULAR|MODULAR)\b", re.I
+)
+# Hebrew modularity words (clean_text drops Hebrew, so these run on the raw
+# title): "מודולרי מלא" full, "חצי / סמי מודולרי" semi, "לא מודולרי" none.
+# A bare "מודולרי" is as ambiguous as a bare "Modular" and is not read.
+HE_MODULAR = (
+    (re.compile(r"לא\s*מודולרי"), "no"),
+    (re.compile(r"(?:חצי|סמי)[\s-]*מודולרי"), "semi"),
+    (re.compile(r"מודולרי\s*(?:מלא|לחלוטין)"), "full"),
 )
 FANLESS_RE = re.compile(r"\bFANLESS\b", re.I)
 PSU_TYPE_RE = re.compile(r"\b(SFX-L|SFX|TFX|FLEX\s?ATX|ATX)\b", re.I)
@@ -221,7 +231,11 @@ FORM_FACTOR_STORAGE_RE = re.compile(
     r"\b(2\.5[\"'\u2019]*|3\.5[\"'\u2019]*|M\.2\s*22\d{2}|M\.2|U\.2)\b", re.I
 )
 INTERFACE_RE = re.compile(r"\b(SATA|NVME|PCIE|SAS)\b", re.I)
-PCIE_GEN_RE = re.compile(r"PCIE\s*GEN\s*([345])(?:\.0)?(?:\s*X\s*4)?", re.I)
+# "PCIe Gen4", "PCIe 4.0", "PCIe4" and a bare "Gen4" next to NVMe all name
+# the drive's PCIe generation (USB "Gen2x2" is 2, never matched here).
+PCIE_GEN_RE = re.compile(
+    r"PCI-?E\s*(?:GEN\s*)?([345])(?:\.0)?(?:\s*X\s*4)?\b|\bGEN\s*([345])(?:\.0)?\b(?!\s*X\s*[12]\b)",
+    re.I)
 CACHE_RE = re.compile(r"\b(\d+)\s?MB\s*(?:CACHE|DRAM)?\b(?!/s)", re.I)
 RPM_RE = re.compile(r"\b(\d{3,4})\s?RPM\b", re.I)
 
@@ -231,7 +245,7 @@ RPM_RE = re.compile(r"\b(\d{3,4})\s?RPM\b", re.I)
 
 FAN_SIZE_MM_RE = re.compile(r"\b(80|92|120|140|170|200|240|280|360|420)\s?MM\b", re.I)
 AIRFLOW_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?CFM\b", re.I)
-NOISE_DB_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?dB(?:\(A\))?\b", re.I)
+NOISE_DB_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?dB(?:A\b|\(A\)|\b)", re.I)
 SOCKET_LIST_RE = re.compile(r"\b(AM[45]|LGA\s?\d{3,4}|sTR\d?|sWRX\d|TR4|SP\d|FM\d)\b", re.I)
 WATER_COOLED_RE = re.compile(r"\b(AIO|LIQUID|WATER\s?COOLER|WATERCOOL)\b", re.I)
 

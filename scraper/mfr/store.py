@@ -48,9 +48,16 @@ def alt_key(value) -> str:
 @lru_cache(maxsize=1)
 def _index() -> dict:
     """{(brand_lower, key): entry} over every data/mfr/*.json."""
+    return load_index(DATA_DIR)
+
+
+@lru_cache(maxsize=None)
+def load_index(data_dir: Path) -> dict:
+    """{(brand_lower, key): entry} over every <data_dir>/*.json at the current
+    schema version (shared by data/mfr and data/icecat)."""
     index: dict = {}
     ambiguous: set = set()
-    for path in sorted(DATA_DIR.glob("*.json")):
+    for path in sorted(Path(data_dir).glob("*.json")):
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
@@ -81,9 +88,16 @@ def _index() -> dict:
 def facts_for(category: str | None, brand: str | None, part_numbers,
               name: str | None) -> dict[str, list[Fact]]:
     """Tier-0.5 facts for one product ({} when no manufacturer page matched)."""
+    return facts_from(_index(), category, brand, part_numbers, name,
+                      tier=TIER_MANUFACTURER, source=SOURCE)
+
+
+def facts_from(index: dict, category: str | None, brand: str | None, part_numbers,
+               name: str | None, *, tier: float, source: str,
+               confidence: float = 0.9) -> dict[str, list[Fact]]:
+    """Facts from one entry index (data/mfr or data/icecat) for one product."""
     if not brand:
         return {}
-    index = _index()
     if not index:
         return {}
     brand_key = str(brand).lower()
@@ -106,6 +120,6 @@ def facts_for(category: str | None, brand: str | None, part_numbers,
     for field, value in (entry.get("specs") or {}).items():
         if field in fields and value is not None:
             facts.setdefault(field, []).append(Fact(
-                value=value, tier=TIER_MANUFACTURER,
-                source=f"{SOURCE}:{brand_key}", confidence=0.9))
+                value=value, tier=tier,
+                source=f"{source}:{brand_key}", confidence=confidence))
     return facts

@@ -333,7 +333,7 @@ PAIR_CASES = [
             "pcie8_connectors": 2,
             "molex4_connectors": 3,
             "sata_connectors": 5,
-            "pcie12_connectors": 1,
+            "pcie16_connectors": 1,
             "pcie62_connectors": 4,
         },
         "expect_gaps": (),
@@ -711,6 +711,16 @@ PAIR_CASES = [
         "expect_specs": {"chipset": "GeForce RTX 5090",
                          "dp_outputs": {"DisplayPort": 3},
                          "hdmi_outputs": {"HDMI": 1}},
+        "expect_gaps": (),
+    },
+    {
+        # 1PC / TMS list the port KINDS; reading each as one port disagreed
+        # with the partners' own sheets on 52 of 56 cards (Oct 2026).
+        "name": "a GPU port-kind list is not a port count",
+        "category": "gpu",
+        "rows": {"ליבה גראפית": "GeForce RTX 5070", "חיבור גרפי": "HDMI | DisplayPort"},
+        "expect_specs": {"chipset": "GeForce RTX 5070", "dp_outputs": None,
+                         "hdmi_outputs": None},
         "expect_gaps": (),
     },
     {

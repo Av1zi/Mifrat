@@ -1,0 +1,37 @@
+{
+ "brand": "Thermalright",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/thermalright-phantom-spirit-120-se-argb-dual-tower-cpu-cooler-120mm/COO-TLR-02721.html": {
+   "url": "https://www.overclockers.co.uk/thermalright-phantom-spirit-120-se-argb-dual-tower-cpu-cooler-120mm/COO-TLR-02721.html",
+   "fetched": "2026-10-22",
+   "category": "cooler_air",
+   "brand": "Thermalright",
+   "title": "Thermalright Phantom Spirit 120 SE ARGB Dual Tower CPU Cooler - 120mm",
+   "keys": [
+    "0814256015578",
+    "PHANTOMSPIRIT120SEARGB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_rpm_min": 380,
+    "fan_rpm_max": 1500,
+    "noise_db": 25.6,
+    "sockets": [
+     "LGA115X",
+     "LGA1200",
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "height_mm": 154,
+    "fanless": false
+   }
+  }
+ }
+}

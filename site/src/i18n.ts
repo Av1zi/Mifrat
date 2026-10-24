@@ -227,6 +227,7 @@ export function attributeLabel(key: string, lang: Lang, category?: string): stri
 const STRINGS = {
   he: {
     notListed: "לא מצוין",
+    notApplicable: "לא רלוונטי",
     compareTitle: "השוואת מוצרים",
     compareAction: "השוואה",
     compareAdd: "הוספה להשוואה",
@@ -569,6 +570,7 @@ const STRINGS = {
   },
   en: {
     notListed: "Not listed",
+    notApplicable: "Not applicable",
     compareTitle: "Compare parts",
     compareAction: "Compare",
     compareAdd: "Add to compare",

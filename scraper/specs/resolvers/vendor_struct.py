@@ -385,11 +385,15 @@ def _emit_gpu_dimensions(facts: dict, category: str, value, source: str) -> None
 def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
     """'DisplayPort | HDMI' -> dp_outputs / hdmi_outputs (VGA and DVI have no field).
 
-    Counts are read when the vendor prints them ('1x HDMI 2.1b 3x DisplayPort
-    2.1b' is three DisplayPorts, not one); without a count each mention is
-    one port.
+    Counts are read only when the vendor prints them ('1x HDMI 2.1b 3x
+    DisplayPort 2.1b' is three DisplayPorts). A bare kind list ('HDMI |
+    DisplayPort', 1PC / TMS) names the port types, not one of each: read as
+    counts it disagreed with the board partners' own sheets on 52 of 56 cards
+    (Open Icecat comparison, Oct 2026), so it yields nothing. In a cell that
+    does count ('3X Display Port, HDMI') an uncounted kind is the single one.
     """
     text = str(value or "")
+    counted_cell = bool(re.search(r"\d{1,2}\s*[x×]", text, re.I))
     tokens = [part.strip() for part in re.split(r"[|,;]", text) if part.strip()]
     for display, needle, field in _GPU_OUTPUTS:
         # `needle` is a regex now: YahavPC spells the same port "Display
@@ -397,12 +401,10 @@ def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
         # "displayport" substring match never saw (Oct 2026).
         counts = [int(match.group(1)) for match in re.finditer(
             r"(\d{1,2})\s*[x×]?\s*(?:mini\s+|micro\s+)?" + needle, text, re.I)]
-        if counts:
-            count = sum(counts)
-        else:
-            count = sum(1 for token in tokens if re.search(needle, token, re.I))
-        if count:
-            _emit(facts, category, field, {display: count}, source, 0.7)
+        if not counts and counted_cell:
+            counts = [1 for token in tokens if re.search(needle, token, re.I)]
+        if counts and sum(counts):
+            _emit(facts, category, field, {display: sum(counts)}, source, 0.7)
 
 
 def _emit_raid(facts: dict, category: str, value, source: str) -> None:
@@ -1406,6 +1408,43 @@ def _emit_mtbf(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "mtbf_hours", hours, source, 0.8)
 
 
+# \u200f: 1PC pastes right-to-left marks between the colon and the digit.
+_PSU_PCIE_PART_RE = re.compile(
+    r"(\d{1,2})\s*[x×]\s*(12\s*VHPWR|12\s*V[\s-]*2\s*[x×]\s*6|16[\s-]*pin|"
+    r"PCI-?e\s*6\s*\+\s*2|6\s*\+\s*2|PCI-?e\s*8(?:[\s-]*pin)?|PCI-?e\s*6(?:[\s-]*pin)?)", re.I)
+
+
+def _emit_psu_pcie_cell(facts: dict, category: str, value, source: str) -> None:
+    """'1x 12VHPWR' / '2x PCIe 6+2' -> per-plug connector counts.
+
+    Each part names its count and its plug; a cell naming one kind says
+    nothing about the others (a filter-bucket label, not the full list)."""
+    counts: dict[str, int] = {}
+    for match in _PSU_PCIE_PART_RE.finditer(str(value or "")):
+        kind = re.sub(r"\s+", "", match.group(2)).lower()
+        if "12" in kind or "16" in kind:
+            field = "pcie16_connectors"
+        elif "+" in kind:
+            field = "pcie62_connectors"
+        elif "8" in kind:
+            field = "pcie8_connectors"
+        else:
+            field = "pcie6_connectors"
+        counts[field] = counts.get(field, 0) + int(match.group(1))
+    for field, count in counts.items():
+        _emit(facts, category, field, count, source, 0.8)
+
+
+_M2_COUNT_RE = re.compile(r"m\.?2(?:\s*(?:pcie|nvme))?\s*:[\s\u200e\u200f]*(\d{1,2})\b", re.I)
+
+
+def _emit_m2_spec_cell(facts: dict, category: str, value, source: str) -> None:
+    """1PC board "מפרט" cell: only an explicit 'M.2 ...: N' count is a fact."""
+    match = _M2_COUNT_RE.search(str(value or ""))
+    if match and 0 <= int(match.group(1)) <= 12:
+        _emit(facts, category, "m2_slots", int(match.group(1)), source, 0.8)
+
+
 _DISPLAY_COUNT_RE = re.compile(r"(\d{1,2})")
 
 
@@ -1553,6 +1592,12 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
         return True
     if token == labels.DISPLAY_COUNT:
         _emit_display_count(facts, category, value, source)
+        return True
+    if token == labels.PSU_PCIE_CELL:
+        _emit_psu_pcie_cell(facts, category, value, source)
+        return True
+    if token == labels.M2_SPEC_CELL:
+        _emit_m2_spec_cell(facts, category, value, source)
         return True
     if token == labels.COMBINED_SPEED:
         _emit_combined_speed(facts, category, value, source)

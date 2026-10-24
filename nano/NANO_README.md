@@ -101,6 +101,45 @@ sudo systemctl start pc-parts-il-tms.service
 journalctl -u pc-parts-il-tms.service -f
 ```
 
+## 7. Verified AI extraction (optional, daily)
+
+Fills spec fields that are still empty by reading each product's own listing
+text (`scraper/extract/README.md`). It needs a model key, kept only on the Nano
+in the gitignored `.env`:
+
+```bash
+cd ~/pc-parts-il
+umask 077
+cat > .env <<'ENV'
+MIFRAT_EXTRACT_BACKEND=gemini
+GOOGLE_KEY=paste-your-key-here
+ENV
+chmod 600 .env
+git status --short .env        # prints nothing: .env is ignored
+~/miniforge3/envs/pc-parts-il/bin/pip install requests   # if the env lacks it
+```
+
+First run, by hand (audit 300 products to measure accuracy, then fill):
+
+```bash
+AUDIT=300 bash nano/run_extract.sh
+```
+
+Then the daily timer:
+
+```bash
+sudo cp nano/pc-parts-il-extract.service nano/pc-parts-il-extract.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now pc-parts-il-extract.timer
+systemctl list-timers pc-parts-il-extract.timer
+journalctl -u pc-parts-il-extract.service -n 50     # after a run
+```
+
+The free tier rate-limits (429 / 503): a run that is stopped keeps every answer
+it already got (cached under `data/extract/.cache`, local to the Nano) and the
+next day continues. The committed files are `data/extract/products.json` and
+`trust.json`; the cloud's next normalize run merges them.
+
 ## Reading logs later
 
 ```bash

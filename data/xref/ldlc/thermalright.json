@@ -1,0 +1,28 @@
+{
+ "brand": "Thermalright",
+ "schema_version": 3,
+ "source": "xref:ldlc",
+ "generated": "2026-10-23",
+ "entries": {
+  "https://www.ldlc.com/en/product/PB00661439.html": {
+   "url": "https://www.ldlc.com/en/product/PB00661439.html",
+   "fetched": "2026-10-23",
+   "category": "case_fan",
+   "brand": "Thermalright",
+   "title": "Thermalright TL-C12C-S - Black (Set of 3) - Case fan - LDLC",
+   "keys": [
+    "0814256004497",
+    "TLC12CS"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "size_mm": 120,
+    "rpm_max": 1550,
+    "noise_db": 25.6,
+    "airflow_cfm": 66.17,
+    "pwm": true
+   }
+  }
+ }
+}

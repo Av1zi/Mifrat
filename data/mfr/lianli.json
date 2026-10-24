@@ -1,6 +1,6 @@
 {
  "brand": "Lian Li",
- "schema_version": 2,
+ "schema_version": 3,
  "source": "manufacturer",
  "generated": "2026-10-20",
  "entries": {
@@ -974,8 +974,7 @@
     "sata_connectors": 8,
     "molex4_connectors": 4,
     "pcie6_connectors": 0,
-    "pcie16_connectors": 0,
-    "pcie12_connectors": 0
+    "pcie16_connectors": 0
    }
   },
   "https://lian-li.com/product/sp850/#0": {
@@ -998,8 +997,8 @@
     "pcie62_connectors": 3,
     "sata_connectors": 8,
     "molex4_connectors": 4,
-    "pcie12_connectors": 1,
-    "pcie6_connectors": 0
+    "pcie6_connectors": 0,
+    "pcie16_connectors": 1
    }
   },
   "https://lian-li.com/product/sup-01/#0": {

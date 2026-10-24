@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-10-23T21:46:20.203650+00:00",
+  "generated_at": "2026-10-24T09:44:28.596569+00:00",
   "gaps": [
-    {
-      "category": "motherboard",
-      "label": "מפרט",
-      "count": 410,
-      "products": [
-        "manual:motherboard:1pc-221505-tms-gb550aorusewf7",
-        "motherboard:1pc:1pc-128729",
-        "motherboard:1pc:1pc-203138"
-      ]
-    },
     {
       "category": "case",
       "label": "ממשק",
@@ -99,16 +89,6 @@
         "mpn:motherboard:4711377289757",
         "mpn:motherboard:4711377337977",
         "mpn:motherboard:4711377365338"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "צבע",
-      "count": 32,
-      "products": [
-        "mpn:storage:32197",
-        "mpn:storage:32261",
-        "mpn:storage:718037896748"
       ]
     },
     {
@@ -252,6 +232,16 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "צבע",
+      "count": 24,
+      "products": [
+        "mpn:storage:32197",
+        "mpn:storage:32261",
+        "mpn:storage:718037896748"
+      ]
+    },
+    {
       "category": "case",
       "label": "חיבורים",
       "count": 22,
@@ -322,16 +312,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "נפח זיכרון",
-      "count": 22,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:as6508t",
-        "mpn:storage:as7116rdx"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "TPM-HEADER",
       "count": 21,
@@ -349,16 +329,6 @@
         "mpn:cooler_air:bk034",
         "mpn:cooler_air:clp0172",
         "mpn:cooler_air:k199"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "סוג זכרון",
-      "count": 21,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:as6508t",
-        "mpn:storage:as7116rdx"
       ]
     },
     {
@@ -392,6 +362,16 @@
       ]
     },
     {
+      "category": "other",
+      "label": "נפח זיכרון",
+      "count": 19,
+      "products": [
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-140488"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "מהירות זכרון נתמכת",
       "count": 18,
@@ -402,6 +382,36 @@
       ]
     },
     {
+      "category": "aio",
+      "label": "חיבורי RGB",
+      "count": 18,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "זרימת אוויר",
+      "count": 18,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "חיבור משאבה",
+      "count": 18,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
       "category": "case",
       "label": "שטח תצוגה פעיל (mm)",
       "count": 18,
@@ -409,16 +419,6 @@
         "mpn:case:4711377231565",
         "mpn:case:4711377231572",
         "mpn:case:4711377293167"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מעבד",
-      "count": 18,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:as7116rdx",
-        "mpn:storage:bg3a5eaabt"
       ]
     },
     {
@@ -439,6 +439,36 @@
         "mpn:storage:agammixs601tcs",
         "mpn:storage:agammixs602tcs",
         "mpn:storage:agammixs70b1tcs"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מעבד",
+      "count": 18,
+      "products": [
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ממשק",
+      "count": 18,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מאווררים",
+      "count": 17,
+      "products": [
+        "aio:1pc:1pc-222207",
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735"
       ]
     },
     {
@@ -472,6 +502,16 @@
       ]
     },
     {
+      "category": "other",
+      "label": "סוג זכרון",
+      "count": 17,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "תמיכה ב AMD® CrossFire",
       "count": 16,
@@ -483,7 +523,7 @@
     },
     {
       "category": "aio",
-      "label": "חיבורי RGB",
+      "label": "מידות",
       "count": 16,
       "products": [
         "mpn:aio:4711377115728",
@@ -493,7 +533,7 @@
     },
     {
       "category": "aio",
-      "label": "זרימת אוויר",
+      "label": "מהירות משאבה",
       "count": 16,
       "products": [
         "mpn:aio:4711377115728",
@@ -503,32 +543,12 @@
     },
     {
       "category": "aio",
-      "label": "חיבור משאבה",
+      "label": "תמיכה במעבדים תלוי הוראת יצרן",
       "count": 16,
       "products": [
         "mpn:aio:4711377115728",
         "mpn:aio:4711377115735",
         "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "סוג קירור",
-      "count": 16,
-      "products": [
-        "mpn:aio:cw9060070ww",
-        "mpn:aio:cw9060071ww",
-        "mpn:aio:cw9060088ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תושבת מעבד",
-      "count": 16,
-      "products": [
-        "mpn:aio:cw9060070ww",
-        "mpn:aio:cw9060071ww",
-        "mpn:aio:cw9060088ww"
       ]
     },
     {
@@ -572,33 +592,43 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מעבד גרפי",
+      "category": "other",
+      "label": "נפח אחסון",
       "count": 16,
       "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:bg3a5eaabt",
-        "mpn:storage:g615jprts176"
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג האחסון",
+      "count": 16,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554"
       ]
     },
     {
       "category": "aio",
-      "label": "מאווררים",
+      "label": "PWM",
       "count": 15,
       "products": [
-        "aio:1pc:1pc-222207",
         "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735"
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
       ]
     },
     {
-      "category": "case_fan",
-      "label": "רדיאטורים",
+      "category": "aio",
+      "label": "פאנל תצוגה",
       "count": 15,
       "products": [
-        "mpn:aio:cw9060070ww",
-        "mpn:aio:cw9060071ww",
-        "mpn:aio:cw9060088ww"
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
       ]
     },
     {
@@ -652,33 +682,13 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "כרטיס גרפי",
+      "category": "other",
+      "label": "מעבד גרפי",
       "count": 15,
       "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:bg3a5eaabt",
-        "mpn:storage:g615jprts176"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 15,
-      "products": [
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p",
-        "mpn:storage:lsd10z002tg8"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 15,
-      "products": [
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p",
-        "mpn:storage:lsd10z002tg8"
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554"
       ]
     },
     {
@@ -689,56 +699,6 @@
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:corei712700f-tray",
         "model:cpu:coreultra5245k-tray"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "PWM",
-      "count": 14,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות",
-      "count": 14,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מהירות משאבה",
-      "count": 14,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "תמיכה במעבדים תלוי הוראת יצרן",
-      "count": 14,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "פאנל תצוגה",
-      "count": 14,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
       ]
     },
     {
@@ -822,6 +782,26 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 14,
+      "products": [
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p",
+        "mpn:storage:lsd10z002tg8"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 14,
+      "products": [
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p",
+        "mpn:storage:lsd10z002tg8"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "תכונות נוספות",
       "count": 13,
@@ -829,6 +809,26 @@
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:ryzen57500x3d",
         "model:cpu:ryzen58400f-tray"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "אורח חיים",
+      "count": 13,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "זמן עבודה למשאבה",
+      "count": 13,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
       ]
     },
     {
@@ -852,28 +852,18 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "כרטיס רשת",
       "count": 13,
       "products": [
-        "mpn:storage:bg3a5eaabt",
-        "mpn:storage:g615jprts176",
-        "mpn:storage:g615jprts210w"
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-206632"
       ]
     },
     {
       "category": "aio",
-      "label": "אורח חיים",
-      "count": 12,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "זמן עבודה למשאבה",
+      "label": "אורך כבל PWM",
       "count": 12,
       "products": [
         "mpn:aio:4711377115728",
@@ -892,6 +882,16 @@
       ]
     },
     {
+      "category": "other",
+      "label": "כרטיס גרפי",
+      "count": 12,
+      "products": [
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192555"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "USB",
       "count": 11,
@@ -899,16 +899,6 @@
         "motherboard:1pc:1pc-203138",
         "mpn:motherboard:4711377010191",
         "mpn:motherboard:4711377259729"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "אורך כבל PWM",
-      "count": 11,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
       ]
     },
     {
@@ -929,16 +919,6 @@
         "mpn:memory:4712389908124",
         "mpn:memory:ax5u6000c3016gclanrsg",
         "mpn:memory:ax5u6000c3016gslabrbk"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 11,
-      "products": [
-        "mpn:memory:4712389908124",
-        "mpn:memory:cp16g64c32u5w",
-        "mpn:memory:ct32g56c46u5"
       ]
     },
     {
@@ -1062,6 +1042,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 10,
+      "products": [
+        "mpn:memory:4712389908124",
+        "mpn:memory:cp16g64c32u5w",
+        "mpn:memory:ct32g56c46u5"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "נפח אחסון",
       "count": 10,
@@ -1072,33 +1062,33 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "אחסון",
       "count": 10,
       "products": [
-        "mpn:storage:as6508t",
-        "mpn:storage:as7116rdx",
-        "mpn:storage:bg3a5eaabt"
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "יציאות וחיבורים",
       "count": 10,
       "products": [
-        "mpn:storage:as6508t",
-        "mpn:storage:as7116rdx",
-        "mpn:storage:bg3a5eaabt"
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "זיכרון",
       "count": 10,
       "products": [
-        "mpn:storage:as6508t",
-        "mpn:storage:as7116rdx",
-        "mpn:storage:bg3a5eaabt"
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
       ]
     },
     {
@@ -1109,16 +1099,6 @@
         "model:cpu:coreultra5225-tray",
         "model:cpu:coreultra5225f-tray",
         "model:cpu:coreultra5250kfplus-tray"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "גודל רדיאטור",
-      "count": 9,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:aio:cw9060088ww",
-        "mpn:aio:cw9060089ww"
       ]
     },
     {
@@ -1192,13 +1172,13 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "חיבורי תקשורת",
       "count": 9,
       "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-192554"
       ]
     },
     {
@@ -1222,23 +1202,33 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "רזולוציה",
       "count": 8,
       "products": [
-        "mpn:storage:bg3a5eaabt",
-        "mpn:storage:g615jprts176",
-        "mpn:storage:g615jprts210w"
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216315",
+        "other:1pc:1pc-216327"
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "קישוריות",
       "count": 8,
       "products": [
-        "mpn:storage:bg3a5eaabt",
-        "mpn:storage:g615jprts176",
-        "mpn:storage:g615jprts210w"
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216315",
+        "other:1pc:1pc-216327"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "משקל המוצר",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216315",
+        "other:1pc:1pc-216327"
       ]
     },
     {
@@ -1292,16 +1282,6 @@
       ]
     },
     {
-      "category": "case_fan",
-      "label": "זרימת אוויר",
-      "count": 7,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4711514501094",
-        "mpn:case_fan:4711514501780"
-      ]
-    },
-    {
       "category": "memory",
       "label": "מפרט",
       "count": 7,
@@ -1333,56 +1313,6 @@
     },
     {
       "category": "storage",
-      "label": "חיבור גרפי",
-      "count": 7,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "כרטיס קול משולב",
-      "count": 7,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "USB Type-C",
-      "count": 7,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "חריצי זיכרון",
-      "count": 7,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "USB 3.2",
-      "count": 7,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מפרט סוג האחריות",
       "count": 7,
       "products": [
@@ -1392,13 +1322,73 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
+      "label": "חיבור גרפי",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "כרטיס קול משולב",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "USB Type-C",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "חריצי זיכרון",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג דיסק",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "USB 3.2",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
       "label": "ערכת שבבים",
       "count": 7,
       "products": [
-        "mpn:storage:g615jprts176",
-        "mpn:storage:g615jprts210w",
-        "mpn:storage:g615jprts224w"
+        "other:1pc:1pc-216315",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
       ]
     },
     {
@@ -1472,46 +1462,6 @@
       ]
     },
     {
-      "category": "case_fan",
-      "label": "תושבת מעבד (Socket)",
-      "count": 6,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:aio:cw9060092ww",
-        "mpn:aio:cw9060093ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תאימות תושבת Intel",
-      "count": 6,
-      "products": [
-        "mpn:aio:cw9060088ww",
-        "mpn:aio:cw9060089ww",
-        "mpn:aio:cw9060092ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תאימות תושבת AMD",
-      "count": 6,
-      "products": [
-        "mpn:aio:cw9060088ww",
-        "mpn:aio:cw9060089ww",
-        "mpn:aio:cw9060092ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "חיבורים",
-      "count": 6,
-      "products": [
-        "mpn:aio:cw9060088ww",
-        "mpn:aio:cw9060089ww",
-        "mpn:aio:cw9060092ww"
-      ]
-    },
-    {
       "category": "aio",
       "label": "קצב רענון",
       "count": 6,
@@ -1519,6 +1469,16 @@
         "mpn:aio:ghs2lcd36tb",
         "mpn:aio:ghs2lcd36tw",
         "mpn:aio:ghs2lcds36cb"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "זרימת אוויר",
+      "count": 6,
+      "products": [
+        "mpn:case_fan:4711514501094",
+        "mpn:case_fan:4711514501780",
+        "mpn:case_fan:4711514501797"
       ]
     },
     {
@@ -1592,13 +1552,13 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
       "label": "סדרת מעבד (CPU)",
       "count": 6,
       "products": [
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t",
-        "mpn:storage:m1pro285h32g1t"
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-206610",
+        "other:1pc:1pc-206632"
       ]
     },
     {
@@ -1659,16 +1619,6 @@
         "motherboard:1pc:1pc-203138",
         "mpn:motherboard:4711377286596",
         "mpn:motherboard:4711377290623"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "חיבורי RGB",
-      "count": 5,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4711514501094",
-        "mpn:case_fan:4712960138223"
       ]
     },
     {
@@ -1813,16 +1763,6 @@
     },
     {
       "category": "storage",
-      "label": "USB 2.0",
-      "count": 5,
-      "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מהירות קריאה רציפה",
       "count": 5,
       "products": [
@@ -1842,13 +1782,23 @@
       ]
     },
     {
-      "category": "storage",
+      "category": "other",
+      "label": "USB 2.0",
+      "count": 5,
+      "products": [
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206632",
+        "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "other",
       "label": "חיבורים",
       "count": 5,
       "products": [
-        "mpn:storage:m1plus12600h16g512g",
-        "mpn:storage:m1pro125h32g1t",
-        "mpn:storage:m1pro285h32g1t"
+        "other:1pc:1pc-206610",
+        "other:1pc:1pc-206632",
+        "other:1pc:1pc-206634"
       ]
     },
     {
@@ -2002,86 +1952,6 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "מידות",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל רדיאטור",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מאווררים",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "חיבורי RGB",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מהירות משאבה",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "זרימת אוויר",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תמיכה במעבדים תלוי הוראת יצרן",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "חיבור משאבה",
-      "count": 4,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
       "category": "case",
       "label": "חיבורים קדמיים (I/O)",
       "count": 4,
@@ -2169,6 +2039,16 @@
         "mpn:case_fan:4711514501094",
         "mpn:case_fan:4711514501780",
         "mpn:case_fan:4711514501797"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "חיבורי RGB",
+      "count": 4,
+      "products": [
+        "mpn:case_fan:4711514501094",
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960138254"
       ]
     },
     {
@@ -2393,12 +2273,22 @@
     },
     {
       "category": "storage",
+      "label": "סוג זכרון",
+      "count": 4,
+      "products": [
+        "mpn:storage:cssdf4000gbmp700pnh",
+        "mpn:storage:mzv9p1t0cw",
+        "mpn:storage:p31s2tbm"
+      ]
+    },
+    {
+      "category": "other",
       "label": "כרטיס מסך",
       "count": 4,
       "products": [
-        "mpn:storage:795s732g1t",
-        "mpn:storage:m1pro125h32g1t",
-        "mpn:storage:nab9plus32g1t"
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206632"
       ]
     },
     {
@@ -2823,62 +2713,42 @@
     },
     {
       "category": "aio",
+      "label": "לחץ אוויר",
+      "count": 3,
+      "products": [
+        "mpn:aio:4711514502411",
+        "mpn:aio:4711514502428",
+        "mpn:aio:4711514503111"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "חיבור",
+      "count": 3,
+      "products": [
+        "mpn:aio:4711514502411",
+        "mpn:aio:4711514502428",
+        "mpn:aio:4711514503111"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "עצמת רעש",
+      "count": 3,
+      "products": [
+        "mpn:aio:4711514502411",
+        "mpn:aio:4711514502428",
+        "mpn:aio:4711514503111"
+      ]
+    },
+    {
+      "category": "aio",
       "label": "סוג מיסב",
       "count": 3,
       "products": [
         "mpn:aio:4711514502411",
         "mpn:aio:4711514502428",
         "mpn:aio:ft360wh"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "מידות",
-      "count": 3,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4712960138223",
-        "mpn:case_fan:4712960139589"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "מאווררים",
-      "count": 3,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4712960138223",
-        "mpn:case_fan:4712960139589"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "מהירות משאבה",
-      "count": 3,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4712960138223",
-        "mpn:case_fan:4712960139589"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תמיכה במעבדים תלוי הוראת יצרן",
-      "count": 3,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4712960138223",
-        "mpn:case_fan:4712960139589"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "חיבור משאבה",
-      "count": 3,
-      "products": [
-        "mpn:aio:4712960139343",
-        "mpn:case_fan:4712960138223",
-        "mpn:case_fan:4712960139589"
       ]
     },
     {
@@ -2899,6 +2769,86 @@
         "mpn:case_fan:bl122",
         "mpn:case_fan:clc25w",
         "mpn:case_fan:rfd14sfb1"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גודל רדיאטור",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מאווררים",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבורי RGB",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מהירות משאבה",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "זרימת אוויר",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תמיכה במעבדים תלוי הוראת יצרן",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבור משאבה",
+      "count": 3,
+      "products": [
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571",
+        "mpn:cooler_air:4712960139466"
       ]
     },
     {
@@ -3139,6 +3089,26 @@
         "mpn:storage:bpu124dess",
         "mpn:storage:bpu126sa",
         "mpn:storage:fdabrkt001"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "נפח זיכרון",
+      "count": 3,
+      "products": [
+        "mpn:storage:lnm620x256grnnng",
+        "mpn:storage:lns100128rb",
+        "mpn:storage:lns100512rb"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "כרטיס גרפי",
+      "count": 3,
+      "products": [
+        "mpn:storage:lnm620x256grnnng",
+        "mpn:storage:lns100128rb",
+        "mpn:storage:lns100512rb"
       ]
     },
     {
@@ -3441,15 +3411,6 @@
     },
     {
       "category": "aio",
-      "label": "לחץ אוויר",
-      "count": 2,
-      "products": [
-        "mpn:aio:4711514502411",
-        "mpn:aio:4711514502428"
-      ]
-    },
-    {
-      "category": "aio",
       "label": "מתח נומינלי",
       "count": 2,
       "products": [
@@ -3469,24 +3430,6 @@
     {
       "category": "aio",
       "label": "תמיכה בסנכרון RGB של לוח אם",
-      "count": 2,
-      "products": [
-        "mpn:aio:4711514502411",
-        "mpn:aio:4711514502428"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "חיבור",
-      "count": 2,
-      "products": [
-        "mpn:aio:4711514502411",
-        "mpn:aio:4711514502428"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "עצמת רעש",
       "count": 2,
       "products": [
         "mpn:aio:4711514502411",
@@ -3530,30 +3473,12 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "ערכת שבבים",
-      "count": 2,
-      "products": [
-        "mpn:aio:4711514503111",
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
       "category": "aio",
       "label": "סוג פאנל",
       "count": 2,
       "products": [
         "mpn:aio:cw9060074ww",
         "mpn:aio:x360wh"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "מידות רדיאטור",
-      "count": 2,
-      "products": [
-        "mpn:aio:cw9060088ww",
-        "mpn:aio:cw9060089ww"
       ]
     },
     {
@@ -3688,6 +3613,60 @@
       "products": [
         "mpn:case_fan:4711514501094",
         "mpn:case_fan:4712960138254"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "מידות",
+      "count": 2,
+      "products": [
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960139589"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "גודל רדיאטור",
+      "count": 2,
+      "products": [
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960139589"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "מאווררים",
+      "count": 2,
+      "products": [
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960139589"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "מהירות משאבה",
+      "count": 2,
+      "products": [
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960139589"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "תמיכה במעבדים תלוי הוראת יצרן",
+      "count": 2,
+      "products": [
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960139589"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "חיבור משאבה",
+      "count": 2,
+      "products": [
+        "mpn:case_fan:4712960138223",
+        "mpn:case_fan:4712960139589"
       ]
     },
     {
@@ -4376,15 +4355,6 @@
     },
     {
       "category": "storage",
-      "label": "תכונות נוספות",
-      "count": 2,
-      "products": [
-        "mpn:storage:as6508t",
-        "mpn:storage:as7116rdx"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "עיצוב תרמי",
       "count": 2,
       "products": [
@@ -4399,24 +4369,6 @@
       "products": [
         "mpn:storage:clssdv1",
         "mpn:storage:clssdv3b"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "גודל מסך מסונן",
-      "count": 2,
-      "products": [
-        "mpn:storage:g615jprts176",
-        "mpn:storage:g615lpts228"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מסך מגע",
-      "count": 2,
-      "products": [
-        "mpn:storage:g615jprts210w",
-        "mpn:storage:g615jprts224w"
       ]
     },
     {
@@ -4448,33 +4400,6 @@
     },
     {
       "category": "storage",
-      "label": "דגם מעבד",
-      "count": 2,
-      "products": [
-        "mpn:storage:m1pro125h32g1t",
-        "mpn:storage:m1pro285h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מיקרופון",
-      "count": 2,
-      "products": [
-        "mpn:storage:opc51103bc",
-        "mpn:storage:opc5801bc"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "חיבור יחידת ממוחשבת",
-      "count": 2,
-      "products": [
-        "mpn:storage:opc51103bc",
-        "mpn:storage:opc5801bc"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "גובה",
       "count": 2,
       "products": [
@@ -4489,6 +4414,78 @@
       "products": [
         "mpn:storage:s1201y033t84p024t0900",
         "storage:1pc:1pc-222535"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מידות",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-133260"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מיקרופון",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-133260"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "חיבור יחידת ממוחשבת",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-104416",
+        "other:1pc:1pc-133260"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "תכונות נוספות",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ממדי המוצר",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "דגם מעבד",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-206634",
+        "other:1pc:1pc-209884"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מסך מגע",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216344"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "גודל מסך מסונן",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-216337",
+        "other:1pc:1pc-216346"
       ]
     },
     {
@@ -5245,7 +5242,15 @@
       ]
     },
     {
-      "category": "cooler_air",
+      "category": "aio",
+      "label": "ערכת שבבים",
+      "count": 1,
+      "products": [
+        "mpn:aio:4711514503111"
+      ]
+    },
+    {
+      "category": "aio",
       "label": "מידות המאוורר",
       "count": 1,
       "products": [
@@ -5253,7 +5258,7 @@
       ]
     },
     {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "רמת רעש",
       "count": 1,
       "products": [
@@ -5261,7 +5266,7 @@
       ]
     },
     {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "מידות המוצר",
       "count": 1,
       "products": [
@@ -5269,7 +5274,7 @@
       ]
     },
     {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "מתח עבודה",
       "count": 1,
       "products": [
@@ -5277,23 +5282,15 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "חיבור",
+      "category": "aio",
+      "label": "TDP",
       "count": 1,
       "products": [
         "mpn:aio:4711514503111"
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "לחץ אוויר",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "מידות מאוורר",
       "count": 1,
       "products": [
@@ -5301,7 +5298,7 @@
       ]
     },
     {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "Fin Material",
       "count": 1,
       "products": [
@@ -5309,15 +5306,7 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "עצמת רעש",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "ממדי המוצר",
       "count": 1,
       "products": [
@@ -5325,43 +5314,11 @@
       ]
     },
     {
-      "category": "cooler_air",
+      "category": "aio",
       "label": "תאימות לתושבות",
       "count": 1,
       "products": [
         "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "אורך כבל PWM",
-      "count": 1,
-      "products": [
-        "mpn:aio:4712960139343"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "אורח חיים",
-      "count": 1,
-      "products": [
-        "mpn:aio:4712960139343"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "זמן עבודה למשאבה",
-      "count": 1,
-      "products": [
-        "mpn:aio:4712960139343"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "פאנל תצוגה",
-      "count": 1,
-      "products": [
-        "mpn:aio:4712960139343"
       ]
     },
     {
@@ -5454,6 +5411,14 @@
     },
     {
       "category": "case_fan",
+      "label": "תושבת מעבד (Socket)",
+      "count": 1,
+      "products": [
+        "mpn:case_fan:4712960138223"
+      ]
+    },
+    {
+      "category": "case_fan",
       "label": "סוג מסך",
       "count": 1,
       "products": [
@@ -5510,6 +5475,14 @@
     },
     {
       "category": "cooler_air",
+      "label": "ערכת שבבים",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "רמקולים",
       "count": 1,
       "products": [
@@ -5538,62 +5511,6 @@
       "count": 1,
       "products": [
         "mpn:cooler_air:sstxed120sws"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תאימות תושבות INTEL",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "תאימות תושבות AMD",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "גודל מאוורר כ-",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "מהירות מקסימלית עד",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "מידות כ-",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "גובה (ממ)",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "הספק תרמי מירבי",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:t120"
       ]
     },
     {
@@ -7398,30 +7315,6 @@
     },
     {
       "category": "storage",
-      "label": "קצב רענון",
-      "count": 1,
-      "products": [
-        "mpn:storage:bg3a5eaabt"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "גודל תצוגה",
-      "count": 1,
-      "products": [
-        "mpn:storage:bg3a5eaabt"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "רזולוציית תצוגה",
-      "count": 1,
-      "products": [
-        "mpn:storage:bg3a5eaabt"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "Bays 5.25",
       "count": 1,
       "products": [
@@ -7470,30 +7363,6 @@
     },
     {
       "category": "storage",
-      "label": "גודל זיכרון (RAM)",
-      "count": 1,
-      "products": [
-        "mpn:storage:m1plus12600h16g512g"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Thunderbolt",
-      "count": 1,
-      "products": [
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Flash Card Slot",
-      "count": 1,
-      "products": [
-        "mpn:storage:m1pro125h32g1t"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "תצורת דיסק",
       "count": 1,
       "products": [
@@ -7510,26 +7379,10 @@
     },
     {
       "category": "storage",
-      "label": "רמקולים",
+      "label": "מעבד גרפי",
       "count": 1,
       "products": [
-        "mpn:storage:nab9plus32g1t"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "חיבורי מסך",
-      "count": 1,
-      "products": [
-        "mpn:storage:opc5801bc"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "הרכב חומרה",
-      "count": 1,
-      "products": [
-        "mpn:storage:opc5801bc"
+        "mpn:storage:mzv9p4t0cw"
       ]
     },
     {
@@ -7650,6 +7503,86 @@
       "count": 1,
       "products": [
         "mpn:storage:sdsp51500gan000e0"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "משקל",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-104416"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "חיבורי מסך",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-104416"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "הרכב חומרה",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-104416"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "קצב רענון",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "גודל תצוגה",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "רזולוציית תצוגה",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "רמקולים",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-192554"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "Thunderbolt",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "Flash Card Slot",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "גודל זיכרון (RAM)",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-215610"
       ]
     },
     {

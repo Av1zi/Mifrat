@@ -164,6 +164,47 @@ def check_tier_order(c: Checks) -> None:
          "a manufacturer-sourced cell is labelled manufacturer")
     c.eq(primary.specs.get("max_cooler_height_mm"), 165, "reference tier still beats manufacturer")
 
+    # Tier 0.75: an Open Icecat sheet sits between the brand's own page and
+    # the retailer.
+    from scraper.specs.merge import TIER_CATALOG
+    catalog = merge_facts("gpu", {
+        "fan_count": [Fact(value=2, tier=TIER_VENDOR, source="vendor:detail"),
+                      Fact(value=3, tier=TIER_CATALOG, source="catalog:icecat:gigabyte")],
+        "memory_gb": [Fact(value=16, tier=TIER_MANUFACTURER, source="manufacturer:asus"),
+                      Fact(value=12, tier=TIER_CATALOG, source="catalog:icecat:asus")],
+    })
+    c.eq(catalog.specs.get("fan_count"), 3, "an Icecat sheet beats the retailer")
+    c.eq(catalog.sources.get("fan_count"), "catalog", "an Icecat cell is labelled catalog")
+    c.eq(catalog.specs.get("memory_gb"), 16, "the brand's own page beats its Icecat sheet")
+
+    # cross_check ranks every label merge can write. A manufacturer socket must
+    # beat a title chipset that implies another socket (it ranked 99 until Oct 2026).
+    from scraper.specs.merge import TIER_NAMES
+    from scraper.specs.validate import _TIER_ORDER, cross_check
+    for name in set(TIER_NAMES.values()):
+        c.ok(name in _TIER_ORDER, f"cross_check ranks the {name!r} tier")
+    specs = {"socket": "AM5", "chipset": "B550", "memory_type": None}
+    sources = {"socket": "manufacturer", "chipset": "title"}
+    cross_check("motherboard", specs, sources)
+    c.eq((specs["socket"], specs["chipset"]), ("AM5", None),
+         "a manufacturer socket beats a contradicting title chipset")
+    specs = {"socket": "AM4", "chipset": "B650", "memory_type": None}
+    sources = {"socket": "derived:cpu.socket", "chipset": "vendor"}
+    cross_check("motherboard", specs, sources)
+    c.eq((specs["socket"], specs["chipset"]), (None, "B650"),
+         "a vendor chipset beats a derived socket")
+
+
+def check_applicability_gates(c: Checks) -> None:
+    from scraper.specs.schema import applies
+    c.ok(not applies("gpu", "fan_count", {"cooling": "Passive"}), "a passive GPU has no fan count")
+    c.ok(applies("gpu", "fan_count", {"cooling": "Liquid"}), "a hybrid/liquid GPU keeps its fans")
+    c.ok(applies("gpu", "fan_count", {"cooling": None}), "unknown cooling leaves fan_count applicable")
+    c.ok(not applies("cooler_air", "noise_db", {"fanless": True}), "a fanless cooler has no noise figure")
+    c.ok(applies("cooler_air", "noise_db", {"fanless": None}), "unknown fanless leaves noise applicable")
+    c.ok(applies("aio", "fan_rpm_max", {}), "AIO has no fanless gate field: still applicable")
+    c.ok(not applies("storage", "rpm", {"type": "SSD"}), "an SSD has no RPM")
+
 
 def check_validation_and_unknowns(c: Checks) -> None:
     junk = merge_facts("cpu", {
@@ -224,6 +265,29 @@ def check_curated_tables(c: Checks) -> None:
                     reason = validate_fact(category, spec, value)
                     c.ok(reason is None, f"{table}[{key}].{field}={value!r} validates",
                          str(reason))
+    import re as _re
+    fan_spec = schema.field_map("gpu")["fan_count"]
+    lines = load("gpu_board_lines")
+    c.ok(bool(lines), "gpu_board_lines table loads")
+    for key, row in lines.items():
+        try:
+            _re.compile(row["pattern"])
+            compiles = True
+        except (KeyError, _re.error):
+            compiles = False
+        c.ok(compiles, f"gpu_board_lines[{key}] pattern compiles")
+        c.ok(validate_fact("gpu", fan_spec, row.get("fan_count")) is None,
+             f"gpu_board_lines[{key}].fan_count validates")
+        c.ok(bool(row.get("brands")), f"gpu_board_lines[{key}] names its brands")
+    specs = {"manufacturer": "Sapphire", "chipset": "Radeon RX 9070 XT", "fan_count": None}
+    derive.infer_specs("gpu", specs, {}, context={"title": "SAPPHIRE PULSE RX 9070 XT 16GB"})
+    c.eq(specs["fan_count"], 3, "a chip-keyed board line uses the chip (PULSE 9070 XT)")
+    specs = {"manufacturer": "Sapphire", "chipset": "Radeon RX 9070", "fan_count": None}
+    derive.infer_specs("gpu", specs, {}, context={"title": "SAPPHIRE PULSE RX 9070 16GB"})
+    c.eq(specs["fan_count"], 2, "... and the other chip of that line (PULSE 9070)")
+    specs = {"manufacturer": "Gigabyte", "chipset": "GeForce RTX 5080", "fan_count": None}
+    derive.infer_specs("gpu", specs, {}, context={"title": "AORUS RTX 5080 XTREME WATERFORCE"})
+    c.eq(specs["fan_count"], None, "a liquid card takes no board-line fan count")
     c.eq(derive.cpu_table_key({"model": "Core i5 14400F", "manufacturer": "Intel"}),
          "intel:14400F", "intel model token")
     c.eq(derive.cpu_table_key({"model": "Core Ultra 7 265KF", "manufacturer": "Intel"}),
@@ -307,7 +371,8 @@ def check_model_codes(c: Checks) -> None:
 def main() -> int:
     checks = Checks()
     for group in (check_part_number_shape, check_model_prefers_a_name,
-                  check_tier_order, check_validation_and_unknowns,
+                  check_tier_order, check_applicability_gates,
+                  check_validation_and_unknowns,
                   check_curated_tables, check_equality_helpers,
                   check_model_codes):
         group(checks)

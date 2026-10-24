@@ -1,0 +1,262 @@
+{
+ "model": "gemini-3.5-flash",
+ "prompt_version": 1,
+ "generated": "2026-10-23",
+ "fields": {
+  "aio.color": {
+   "overlap": 7,
+   "agree": 7,
+   "examples": []
+  },
+  "aio.lighting": {
+   "overlap": 7,
+   "agree": 7,
+   "examples": []
+  },
+  "aio.sockets": {
+   "overlap": 7,
+   "agree": 7,
+   "examples": []
+  },
+  "case.color": {
+   "overlap": 13,
+   "agree": 13,
+   "examples": []
+  },
+  "case.drive_bays_25": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "case.front_usb": {
+   "overlap": 6,
+   "agree": 0,
+   "examples": [
+    [
+     "Lian Li O11 Dynamic Mini V2 White",
+     [
+      "USB 5Gbps (Type-C)"
+     ],
+     [
+      "USB 3.0",
+      "USB Type-C",
+      "Earphone/Mic"
+     ],
+     "USB 5Gbps (Type-C)"
+    ],
+    [
+     "Lian Li O11 Dynamic Mini V2 White",
+     [
+      "USB 5Gbps (Type-C)"
+     ],
+     [
+      "USB 3.0",
+      "USB Type-C",
+      "Earphone/Mic"
+     ],
+     "USB 5Gbps (Type-C)"
+    ],
+    [
+     "Lian Li O11 Dynamic Mini V2 White",
+     [
+      "USB 5Gbps (Type-C)"
+     ],
+     [
+      "USB 3.0",
+      "USB Type-C",
+      "Earphone/Mic"
+     ],
+     "USB 5Gbps (Type-C)"
+    ],
+    [
+     "Lian Li O11 Dynamic Mini V2 White",
+     [
+      "USB 5Gbps (Type-C)"
+     ],
+     [
+      "USB 3.0",
+      "USB Type-C",
+      "Earphone/Mic"
+     ],
+     "USB 5Gbps (Type-C)"
+    ],
+    [
+     "Lian Li O11 Dynamic Mini V2 White",
+     [
+      "USB 5Gbps (Type-C)"
+     ],
+     [
+      "USB 3.0",
+      "USB Type-C",
+      "Earphone/Mic"
+     ],
+     "USB 5Gbps (Type-C)"
+    ],
+    [
+     "Lian Li O11 Dynamic Mini V2 White",
+     [
+      "USB 5Gbps (Type-C)"
+     ],
+     [
+      "USB 3.0",
+      "USB Type-C",
+      "Earphone/Mic"
+     ],
+     "USB 5Gbps (Type-C)"
+    ]
+   ]
+  },
+  "case.lighting": {
+   "overlap": 7,
+   "agree": 7,
+   "examples": []
+  },
+  "case.max_cooler_height_mm": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "case.mb_form_factors": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "case.type": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "cpu.base_clock_ghz": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "cpu.generation": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "cpu.integrated_graphics": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "cpu.l3_cache_mb": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "cpu.packaging": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "cpu.socket": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "cpu.tdp_w": {
+   "overlap": 3,
+   "agree": 3,
+   "examples": []
+  },
+  "gpu.chipset": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "gpu.memory_gb": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "memory.cas_latency": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.color": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.lighting": {
+   "overlap": 6,
+   "agree": 6,
+   "examples": []
+  },
+  "memory.memory_type": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.module_count": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.module_size_gb": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.speed": {
+   "overlap": 6,
+   "agree": 0,
+   "examples": [
+    [
+     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+     "3200MT/s",
+     "DDR4-3200",
+     "3200MT/s"
+    ],
+    [
+     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+     "3200MT/s",
+     "DDR4-3200",
+     "3200MT/s"
+    ],
+    [
+     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+     "3200MT/s",
+     "DDR4-3200",
+     "3200MT/s"
+    ],
+    [
+     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+     "3200MT/s",
+     "DDR4-3200",
+     "3200MT/s"
+    ],
+    [
+     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+     "3200MT/s",
+     "DDR4-3200",
+     "3200MT/s"
+    ],
+    [
+     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+     "3200MT/s",
+     "DDR4-3200",
+     "3200MT/s"
+    ]
+   ]
+  },
+  "memory.speed_mhz": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.total_gb": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  },
+  "memory.voltage_v": {
+   "overlap": 12,
+   "agree": 12,
+   "examples": []
+  }
+ }
+}

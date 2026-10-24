@@ -1,0 +1,951 @@
+{
+ "brand": "Samsung",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "101333591": {
+   "url": "https://icecat.biz/p/product/101333591",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 990 PRO 2 TB M.2 PCI Express 4.0 NVMe V-NAND MLC",
+   "keys": [
+    "0887276638348",
+    "8806094215038",
+    "887276638348",
+    "MZV9P2T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7450,
+    "write_speed_mbs": 6900,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "101333669": {
+   "url": "https://icecat.biz/p/product/101333669",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 990 PRO 1 TB M.2 PCI Express 4.0 NVMe V-NAND MLC",
+   "keys": [
+    "0887276638331",
+    "8806094215021",
+    "887276638331",
+    "MZV9P1T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7450,
+    "write_speed_mbs": 6900,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 9
+   }
+  },
+  "108170405": {
+   "url": "https://icecat.biz/p/product/108170405",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321RBGA0B40-CWK memory module 256 GB 1 x 256 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "5059902031075",
+    "M321RBGA0B40CWK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 256,
+    "module_count": 1,
+    "module_size_gb": 256,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "108170446": {
+   "url": "https://icecat.biz/p/product/108170446",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321RAGA0B20-CWK memory module 128 GB 1 x 128 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "5059902031068",
+    "M321RAGA0B20CWK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 128,
+    "module_count": 1,
+    "module_size_gb": 128,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "cas_latency": 46,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "108373065": {
+   "url": "https://icecat.biz/p/product/108373065",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 990 PRO 1 TB M.2 PCI Express 4.0 NVMe V-NAND MLC",
+   "keys": [
+    "0887276656984",
+    "8806094413748",
+    "887276656984",
+    "MZV9P1T0CW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7450,
+    "write_speed_mbs": 6900,
+    "mtbf_hours": 1500000,
+    "weight_g": 28
+   }
+  },
+  "113227832": {
+   "url": "https://icecat.biz/p/product/113227832",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 990 PRO 4 TB M.2 PCI Express 4.0 NVMe V-NAND TLC",
+   "keys": [
+    "0887276750484",
+    "8806094947205",
+    "887276750484",
+    "MZV9P4T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7450,
+    "write_speed_mbs": 6900,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "114129592": {
+   "url": "https://icecat.biz/p/product/114129592",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321RYGA0BB0-CQK memory module 96 GB 1 x 96 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "M321RYGA0BB0CQK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 96,
+    "module_count": 1,
+    "module_size_gb": 96,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "114142903": {
+   "url": "https://icecat.biz/p/product/114142903",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 990 Pro 4 TB M.2 PCI Express 4.0 NVMe V-NAND TLC",
+   "keys": [
+    "0887276750309",
+    "8806094946857",
+    "887276750309",
+    "MZV9P4T0CW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7450,
+    "write_speed_mbs": 6900,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 28
+   }
+  },
+  "118042199": {
+   "url": "https://icecat.biz/p/product/118042199",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321R4GA0PB0-CWM memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "M321R4GA0PB0CWM"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "118042200": {
+   "url": "https://icecat.biz/p/product/118042200",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321R8GA0PB0-CWM memory module 64 GB 1 x 64 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "4262552150039",
+    "5715328172173",
+    "M321R8GA0PB0CWM"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 1,
+    "module_size_gb": 64,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "122321882": {
+   "url": "https://icecat.biz/p/product/122321882",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M323R4GA3PB0-CWM memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM",
+   "keys": [
+    "M323R4GA3PB0CWM"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "122666297": {
+   "url": "https://icecat.biz/p/product/122666297",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung MZ-V9S1T0 1 TB M.2 PCI Express 4.0 NVMe V-NAND TLC",
+   "keys": [
+    "0887276843704",
+    "8806095575674",
+    "887276843704",
+    "MZV9S1T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7150,
+    "write_speed_mbs": 6300,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "122666300": {
+   "url": "https://icecat.biz/p/product/122666300",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung MZ-V9S2T0 2 TB M.2 PCI Express 4.0 NVMe V-NAND TLC",
+   "keys": [
+    "0887276843681",
+    "8806095575650",
+    "887276843681",
+    "MZV9S2T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7250,
+    "write_speed_mbs": 6300,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "122666301": {
+   "url": "https://icecat.biz/p/product/122666301",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung MZ-V9S4T0 4 TB M.2 PCI Express 4.0 NVMe V-NAND TLC",
+   "keys": [
+    "0887276843698",
+    "8806095575667",
+    "887276843698",
+    "MZV9S4T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 4.0 x4",
+    "pcie_gen": 4,
+    "nvme": true,
+    "read_speed_mbs": 7250,
+    "write_speed_mbs": 6300,
+    "mtbf_hours": 1500000,
+    "weight_g": 9
+   }
+  },
+  "125102297": {
+   "url": "https://icecat.biz/p/product/125102297",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321RAJA0MB0-CWM memory module 128 GB 1 x 128 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "M321RAJA0MB0CWM"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 128,
+    "module_count": 1,
+    "module_size_gb": 128,
+    "memory_type": "DDR5",
+    "speed_mhz": 5600,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "125116534": {
+   "url": "https://icecat.biz/p/product/125116534",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M386AAG40DM3-CWE memory module 128 GB 1 x 128 GB DDR4 288-pin DIMM ECC",
+   "keys": [
+    "M386AAG40DM3CWE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 128,
+    "module_count": 1,
+    "module_size_gb": 128,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "128864450": {
+   "url": "https://icecat.biz/p/product/128864450",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO Heatsink PCIe® 5.0 NVMe™ M.2 SSD - 1 TB",
+   "keys": [
+    "8806095811673",
+    "MZVAP1T0CW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14700,
+    "write_speed_mbs": 13300,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 30
+   }
+  },
+  "128864451": {
+   "url": "https://icecat.biz/p/product/128864451",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO PCIe® 5.0 NVMe™ M.2 SSD - 1 TB",
+   "keys": [
+    "0887276904870",
+    "8806095811628",
+    "887276904870",
+    "MZVAP1T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14700,
+    "write_speed_mbs": 13300,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 9
+   }
+  },
+  "128864452": {
+   "url": "https://icecat.biz/p/product/128864452",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO Heatsink PCIe® 5.0 NVMe™ M.2 SSD - 2 TB",
+   "keys": [
+    "5054444682822",
+    "8806095811666",
+    "MZVAP2T0CW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14700,
+    "write_speed_mbs": 13400,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 30
+   }
+  },
+  "128864455": {
+   "url": "https://icecat.biz/p/product/128864455",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO Heatsink PCIe® 5.0 NVMe™ M.2 SSD - 4 TB",
+   "keys": [
+    "8806095811659",
+    "MZVAP4T0CW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14800,
+    "write_speed_mbs": 13400,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 30
+   }
+  },
+  "128864458": {
+   "url": "https://icecat.biz/p/product/128864458",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO PCIe® 5.0 NVMe™ M.2 SSD - 2 TB",
+   "keys": [
+    "7806027811710",
+    "8806095811710",
+    "MZVAP2T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14700,
+    "write_speed_mbs": 13400,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 9
+   }
+  },
+  "128864461": {
+   "url": "https://icecat.biz/p/product/128864461",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO PCIe® 5.0 NVMe™ M.2 SSD - 4 TB",
+   "keys": [
+    "0887276904979",
+    "8806095811703",
+    "887276904979",
+    "MZVAP4T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14800,
+    "write_speed_mbs": 13400,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 9
+   }
+  },
+  "129237621": {
+   "url": "https://icecat.biz/p/product/129237621",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung MZ-VAP8T0 8 TB M.2 PCI Express 5.0 NVMe V-NAND TLC",
+   "keys": [
+    "0887276904962",
+    "8806095811680",
+    "887276904962",
+    "MZVAP8T0BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14800,
+    "write_speed_mbs": 13400,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5
+   }
+  },
+  "129237622": {
+   "url": "https://icecat.biz/p/product/129237622",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 9100 PRO 8 TB M.2 PCI Express 5.0 NVMe V-NAND TLC",
+   "keys": [
+    "8806095811642",
+    "MZVAP8T0CW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 5.0 x4",
+    "pcie_gen": 5,
+    "nvme": true,
+    "read_speed_mbs": 14800,
+    "write_speed_mbs": 13400,
+    "mtbf_hours": 1500000,
+    "warranty_years": 5,
+    "weight_g": 10
+   }
+  },
+  "38098188": {
+   "url": "https://icecat.biz/p/product/38098188",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M393A4K40CB2-CTD memory module 32 GB 1 x 32 GB DDR4 288-pin DIMM ECC",
+   "keys": [
+    "0088564838680",
+    "088564838680",
+    "5054444136486",
+    "5706998929372",
+    "7640143872831",
+    "8592978124205",
+    "88564838680",
+    "M393A4K40CB2CTD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Green",
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 2666,
+    "cas_latency": 19,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "44564228": {
+   "url": "https://icecat.biz/p/product/44564228",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung PM883 960 GB 2.5\" Serial ATA III",
+   "keys": [
+    "4260580370931",
+    "5054444263403",
+    "5055288441088",
+    "796000005",
+    "8592978150037",
+    "MZ7LH960HAJR00005"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 960,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "read_speed_mbs": 550,
+    "write_speed_mbs": 520,
+    "weight_g": 58
+   }
+  },
+  "44564234": {
+   "url": "https://icecat.biz/p/product/44564234",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung PM983",
+   "keys": [
+    "11900007",
+    "4260580371006",
+    "5054444359816",
+    "5055288441224",
+    "8592978113957",
+    "MZ1LB1T9HALS00007"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1920,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 3.0 x4",
+    "pcie_gen": 3,
+    "read_speed_mbs": 3000,
+    "write_speed_mbs": 1400
+   }
+  },
+  "59937417": {
+   "url": "https://icecat.biz/p/product/59937417",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 983 DCT 1.9 TB M.2 PCI Express 3.0 NVMe MLC",
+   "keys": [
+    "MZ1LB1T9NE"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1900,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "interface": "M.2 PCIe 3.0 x4",
+    "pcie_gen": 3,
+    "nvme": true,
+    "read_speed_mbs": 3000,
+    "write_speed_mbs": 1400,
+    "mtbf_hours": 2000000,
+    "weight_g": 20
+   }
+  },
+  "74476211": {
+   "url": "https://icecat.biz/p/product/74476211",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M393A8G40AB2-CWE memory module 64 GB 1 x 64 GB DDR4 288-pin DIMM ECC",
+   "keys": [
+    "0759170864829",
+    "5704174988298",
+    "759170864829",
+    "8592978250096",
+    "M393A8G40AB2CWE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 1,
+    "module_size_gb": 64,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 24,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "79159544": {
+   "url": "https://icecat.biz/p/product/79159544",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung T7 2 TB USB Type-C 3.2 Gen 2 (3.1 Gen 2) Titanium",
+   "keys": [
+    "MUPC2T0T"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "SSD",
+    "nvme": true,
+    "read_speed_mbs": 1050,
+    "write_speed_mbs": 1000,
+    "weight_g": 58
+   }
+  },
+  "85922647": {
+   "url": "https://icecat.biz/p/product/85922647",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M393AAG40M32-CAE memory module 128 GB 1 x 128 GB DDR4 288-pin DIMM ECC",
+   "keys": [
+    "4260580376544",
+    "8592978353162",
+    "M393AAG40M32CAE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 128,
+    "module_count": 1,
+    "module_size_gb": 128,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "87862020": {
+   "url": "https://icecat.biz/p/product/87862020",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M393A4G43AB3-CWE memory module 32 GB 1 x 32 GB DDR4 288-pin DIMM",
+   "keys": [
+    "5715063338711",
+    "M393A4G43AB3CWE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "registered": true
+   }
+  },
+  "87862070": {
+   "url": "https://icecat.biz/p/product/87862070",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M386AAG40AM3-CWE memory module 128 GB 1 x 128 GB DDR4 288-pin DIMM ECC",
+   "keys": [
+    "4260751590663",
+    "8592978420987",
+    "M386AAG40AM3CWE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 128,
+    "module_count": 1,
+    "module_size_gb": 128,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "88923048": {
+   "url": "https://icecat.biz/p/product/88923048",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung 870 EVO 500 GB 2.5\" Serial ATA III V-NAND MLC",
+   "keys": [
+    "5715328365735",
+    "8806090527463",
+    "MZ77E500BW"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 500,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "read_speed_mbs": 560,
+    "write_speed_mbs": 530,
+    "mtbf_hours": 1500000,
+    "weight_g": 45
+   }
+  },
+  "89388173": {
+   "url": "https://icecat.biz/p/product/89388173",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Samsung",
+   "title": "Samsung PM893 7.68 TB 2.5\" Serial ATA III V-NAND TLC",
+   "keys": [
+    "4260580377404",
+    "5715063164181",
+    "73760007",
+    "7613081098175",
+    "8592978403942",
+    "MZ7L37T6HBLA00A07"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 7680,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "nvme": false,
+    "read_speed_mbs": 550,
+    "write_speed_mbs": 520,
+    "mtbf_hours": 2000000,
+    "weight_g": 70
+   }
+  },
+  "91346288": {
+   "url": "https://icecat.biz/p/product/91346288",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M378A1K43EB2-CWE memory module 8 GB 1 x 8 GB DDR4 288-pin DIMM",
+   "keys": [
+    "5715063152294",
+    "M378A1K43EB2CWE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 8,
+    "module_count": 1,
+    "module_size_gb": 8,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 22,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": false,
+    "registered": false
+   }
+  },
+  "95627158": {
+   "url": "https://icecat.biz/p/product/95627158",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M393A4K40EB3-CWE memory module 32 GB 1 x 32 GB DDR4 288-pin DIMM ECC",
+   "keys": [
+    "0810141320307",
+    "4260751598409",
+    "5715063108185",
+    "810141320307",
+    "M393A4K40EB3CWE"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR4",
+    "speed_mhz": 3200,
+    "cas_latency": 22,
+    "voltage_v": 1.2,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  },
+  "96242464": {
+   "url": "https://icecat.biz/p/product/96242464",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Samsung",
+   "title": "Samsung M321R8GA0BB0-CQK memory module 64 GB 1 x 64 GB DDR5 288-pin DIMM ECC",
+   "keys": [
+    "4262401062599",
+    "5050914215712",
+    "M321R8GA0BB0CQK"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 64,
+    "module_count": 1,
+    "module_size_gb": 64,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "voltage_v": 1.1,
+    "form_factor": "DIMM",
+    "ecc": true,
+    "registered": true
+   }
+  }
+ }
+}

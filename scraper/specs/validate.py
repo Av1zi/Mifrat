@@ -25,7 +25,14 @@ from .derive import expected_microarchitecture, zen_generation
 from .schema import FieldSpec
 
 # Tier preference for cross-field fights (lower number = stronger source).
-_TIER_ORDER = {"override": 0, "reference": 1, "vendor": 2, "title": 3, "weak": 4}
+# Mirrors merge.TIER_NAMES. Every source label the merge can write must be here:
+# an unlisted label ranked 99, so until Oct 2026 a manufacturer-page socket lost
+# a cross-check to a title-parsed chipset.
+_TIER_ORDER = {"override": 0, "reference": 1, "manufacturer": 1.5, "catalog": 1.75,
+               "vendor": 2, "extracted": 2.5, "title": 3, "weak": 4}
+# `derived:<rule>` values were inferred after the merge from other fields: they
+# lose to every sourced value.
+_DERIVED_RANK = 5
 
 _SOCKET_SHAPE = re.compile(
     r"^(?:\d x )?(AM\d\+?|FM\d\+?|LGA\d{3,4}(?:-[0-9v]\d?)?|BGA\d+|sTR\d+|sTRX\d+|sWRX\d+"
@@ -163,8 +170,11 @@ def validate_fact(category: str | None, field: FieldSpec, value) -> str | None:
 # --------------------------------------------------------------------------
 
 
-def _tier_rank(sources: dict, field: str) -> int:
-    return _TIER_ORDER.get(sources.get(field, ""), 99)
+def _tier_rank(sources: dict, field: str) -> float:
+    label = sources.get(field, "")
+    if label.startswith("derived:"):
+        return _DERIVED_RANK
+    return _TIER_ORDER.get(label, 99)
 
 
 def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:

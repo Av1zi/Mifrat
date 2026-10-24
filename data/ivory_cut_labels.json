@@ -859,28 +859,28 @@
       "sata_connectors": 16
     },
     "21909": {
-      "pcie_power_connectors": "2x PCIe 6+2"
+      "pcie62_connectors": 2
     },
     "21912": {
-      "pcie_power_connectors": "3x PCIe 6+2"
+      "pcie62_connectors": 3
     },
     "21915": {
-      "pcie_power_connectors": "4x PCIe 6+2"
+      "pcie62_connectors": 4
     },
     "21918": {
-      "pcie_power_connectors": "6x PCIe 6+2"
+      "pcie62_connectors": 6
     },
     "21954": {
-      "pcie_power_connectors": "1x 12VHPWR"
+      "pcie16_connectors": 1
     },
     "21957": {
-      "pcie_power_connectors": "2x 12VHPWR"
+      "pcie16_connectors": 2
     },
     "22002": {
-      "pcie_power_connectors": "8x PCIe 6+2"
+      "pcie62_connectors": 8
     },
     "23715": {
-      "pcie_power_connectors": "5x PCIe 6+2"
+      "pcie62_connectors": 5
     },
     "21924": {
       "cpu_power_connectors": "1x CPU 4+4-pin"

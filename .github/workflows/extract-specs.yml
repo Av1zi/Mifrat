@@ -1,0 +1,58 @@
+# Verified AI extraction (scraper/extract), manual only.
+#
+# Audit first: Claude is asked about fields a sourced tier already filled, and
+# the per-field agreement lands in data/extract/trust.json. The store uses a
+# field only after that audit measured it (10+ overlaps, <=3% disagreement).
+# Then fill: only fields still empty on products below the 90% target. Every
+# answer is cached by text hash, so a re-run pays only for changed listings.
+# The next normalize run merges the result as tier 1.5 (`extracted`).
+#
+# Needs the ANTHROPIC_API_KEY repository secret. A full run of ~2,700
+# products costs well under a dollar on Claude Haiku 5.5 (`--dry-run` prints
+# the estimate).
+name: extract-specs
+
+on:
+  workflow_dispatch:
+    inputs:
+      audit:
+        description: "products to audit before filling (0 = skip)"
+        default: "300"
+      limit:
+        description: "at most N products to fill (empty = all)"
+        default: ""
+
+concurrency:
+  group: extract-specs
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt --break-system-packages
+      - run: python scripts/check_extract.py
+      - name: Audit
+        if: inputs.audit != '0'
+        run: python -m scraper.extract --audit "${{ inputs.audit }}"
+      - name: Fill
+        run: python -m scraper.extract ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - run: |
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          files=()
+          for f in data/extract/products.json data/extract/trust.json; do
+            [ -f "$f" ] && files+=("$f")
+          done
+          [ "${#files[@]}" -eq 0 ] && { echo "nothing extracted"; exit 0; }
+          bash scripts/git_commit_push.sh \
+            "extract: verified spec facts for $(date -u +%F)" "${files[@]}"

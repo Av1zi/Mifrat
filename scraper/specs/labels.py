@@ -108,6 +108,8 @@ PACKAGING_CELL = "__packaging_cell__"         # "Retail - קופסה" -> boxed
 DISPLAY_COUNT = "__display_count__"           # "עד 4 מסכים" -> max_displays 4
 GENERATION_CELL = "__generation__"            # "דור 14" / "Series 2" -> Gen N
 STORAGE_TYPE_CELL = "__storage_type_cell__"   # 1PC "Storage / Storage Type", per category
+M2_SPEC_CELL = "__m2_spec_cell__"             # 1PC board "מפרט": "חיבורי M.2 PCIe: 2"
+PSU_PCIE_CELL = "__psu_pcie_cell__"           # "1x 12VHPWR" / "2x PCIe 6+2" -> counts
 
 SPECIAL_TOKENS = frozenset({
     CLOCK_RANGE, CACHE_TIER, MEMORY_KIT, RPM_RANGE, GPU_DIMENSIONS,
@@ -124,6 +126,7 @@ SPECIAL_TOKENS = frozenset({
     MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS,
     CONNECTORS_CELL, PACKAGING_CELL, DISPLAY_COUNT,
     GENERATION_CELL, STORAGE_TYPE_CELL, COMBINED_SPEED, MTBF_CELL,
+    M2_SPEC_CELL, PSU_PCIE_CELL,
 })
 
 # --------------------------------------------------------------------------
@@ -404,6 +407,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "length": "length_mm",
     },
     "motherboard": {
+        # 1PC's catch-all "מפרט" (spec) row on boards holds the M.2 count
+        # ("חיבורי M.2 PCIe: 2", "m.2: 4"); nothing else in it is read.
+        "מפרט": M2_SPEC_CELL,
         "spec / specifications / sata3 connections": "sata_ports",
         "ערכת שבבים": "chipset",
         "שבב": "chipset",
@@ -698,7 +704,8 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "אורך": "length_mm",
         "ללא מאוורר": "fanless",
         "תקן atx": "atx_version",
-        "חיבורי pcie": "pcie_power_connectors",
+        # "1x 12VHPWR" / "2x PCIe 6+2": counts per plug kind, not a string.
+        "חיבורי pcie": PSU_PCIE_CELL,
         "אריזה": PACKAGING_CELL,
         # Oct 2026 completeness pass: Yahav's watt row is this unit's real
         # rating (its case pages share the label but mean the included PSU,
@@ -727,8 +734,8 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "pci-e connectors 6+2 pin": "pcie62_connectors",
         "pci-e connectors 16 pin": "pcie16_connectors",
         "molex 4 pin": "molex4_connectors",
-        "חיבורי 12vhpwr": "pcie12_connectors",
-        "חיבור לכרטיס מסך (12vhpwr)": CONNECTOR_COUNT_PREFIX + "pcie12_connectors",
+        "חיבורי 12vhpwr": "pcie16_connectors",
+        "חיבור לכרטיס מסך (12vhpwr)": CONNECTOR_COUNT_PREFIX + "pcie16_connectors",
         "חיבור לכרטיס מסך (pcie)": CONNECTOR_COUNT_PREFIX + "pcie62_connectors",
         "חיבור למעבד (cpu)": CONNECTOR_COUNT_PREFIX + "eps8_connectors",
         "חיבור ללוח אם (atx)": CONNECTOR_COUNT_PREFIX + "atx4_connectors",
@@ -745,7 +752,7 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "pcie 8-pin": "pcie8_connectors",
         "6-pin pcie": "pcie6_connectors",
         "pcie 6-pin": "pcie6_connectors",
-        "12vhpwr": "pcie12_connectors",
+        "12vhpwr": "pcie16_connectors",
         "12v-2x6": "pcie16_connectors",
         "16-pin": "pcie16_connectors",
         # 1PC's combined label ("מודולרי / Modular", 76 rows in the gap
@@ -907,7 +914,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
 _AIR_ONLY_DROP = ("גודל רדיאטור", "קירור נוזלי", "מספר מאווררים")
 _AIO_DROP = ("גובה", "ללא מאוורר", "קירור נוזלי", "הספק תרמי מירבי",
              "המלצה מקסימלית לקירור (tdp)", "פיזור חום")
-_OTHER_DROP = ("ללא מאוורר", "גודל רדיאטור", "מספר מאווררים", "ספיקת אוויר")
 
 _COOLER_AIR_FULL = _CATEGORY_RAW["cooler_air"]
 _CATEGORY_RAW["cooler_air"] = {k: v for k, v in _COOLER_AIR_FULL.items()
@@ -918,8 +924,7 @@ _CATEGORY_RAW["aio"] = {
     "רדיאטורים": AIO_RADIATOR_COUNT,
     "סוג קירור": COOLING_MEDIUM,
 }
-_CATEGORY_RAW["cooling_other"] = {k: v for k, v in _COOLER_AIR_FULL.items()
-                                  if k not in _OTHER_DROP}
+# (cooling_other left the schema 2026-10-24: its alias table went with it.)
 
 # English hints vendors append in parentheses to a Hebrew label ("ליבות
 # (Cores)"), carried over from the pre-overhaul table so Ivory keeps working.

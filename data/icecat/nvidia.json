@@ -1,0 +1,46 @@
+{
+ "brand": "NVIDIA",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "125115836": {
+   "url": "https://icecat.biz/p/product/125115836",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "NVIDIA",
+   "title": "MSI GEFORCE RTX 5080 16G INSPIRE 3X OC graphics card NVIDIA 16 GB GDDR7",
+   "keys": [
+    "0824142395943",
+    "0824142455432",
+    "4711377292474",
+    "824142395943",
+    "824142455432",
+    "GEFORCERTX508016GINSPIRE3XOC"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Bronze",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 288,
+    "boost_clock_mhz": 2640
+   }
+  }
+ }
+}

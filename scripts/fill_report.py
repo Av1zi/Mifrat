@@ -33,6 +33,7 @@ Usage (repo root, after a normalize run):
     python scripts/fill_report.py --gaps          # core gaps by brand + source verdict
     python scripts/fill_report.py --category gpu --fields
     python scripts/fill_report.py --check-tables  # curated tables vs sourced values
+    python scripts/fill_report.py --per-product   # % of products >= 90%, residual list
     python scripts/fill_report.py --json out.json # machine-readable dump
     python scripts/fill_report.py --check         # exit 1 if a category's core fill < target
 """
@@ -70,7 +71,7 @@ BASELINE = {
 # A tuple entry is an any-of group: the product counts as covered when ANY
 # member holds a value.
 _PCIE_POWER = ("pcie8_connectors", "pcie62_connectors", "pcie6_connectors",
-               "pcie12_connectors", "pcie16_connectors")
+               "pcie16_connectors")
 CORE_FIELDS: dict[str, tuple] = {
     "cpu": ("manufacturer", "model", "socket", "core_count", "thread_count",
             "base_clock_ghz", "boost_clock_ghz", "l3_cache_mb", "tdp_w",
@@ -110,13 +111,14 @@ MFR_FETCHERS = {"corsair": "built", "asus": "built (boards)",
                 "antec": "built (cases, PSU, fans, AIO; joined on UPC / part number)",
                 "amd": "built (CPUs; pages missing for older SKUs)",
                 "nzxt": "built (cases, fans, AIO)",
-                "thermalright": "built (narrow: ~15 products have a page)"}
+                "thermalright": "built (narrow: ~15 products have a page)",
+                "fractal design": "built (cases/AIO; robots override by owner decision)",
+                "silverstone": "built (cases, PSU, fans, coolers; joined on SST- code)"}
 MFR_VERDICT = {
     "gigabyte": "blocked: HTTP 403 on robots.txt (stop signal)",
     "msi": "blocked: HTTP 403 on robots.txt (stop signal)",
     "intel": "blocked: HTTP 403 on robots.txt of intel.com and ark.intel.com",
     "cougar": "blocked: connection closed without an HTTP answer (stop signal)",
-    "fractal design": "skipped: robots.txt disallows AI crawlers by name",
     "noctua": "specs rendered client-side, /api/ disallowed",
     "gamdias": "skipped: pages exist for 5 of 43 products",
     "deepcool": "skipped: no sitemap / robots",
@@ -165,6 +167,8 @@ def load_products(path: Path = CATALOG) -> list[dict]:
 def applicable(category: str, field: str, specs: dict) -> bool:
     if not schema.applies(category, field, specs):
         return False
+    if specs.get(field) is None and schema.answered(category, field, specs):
+        return False   # a sibling field already answers it (PSU 8-pin vs 6+2)
     rule = NOT_APPLICABLE.get((category, field))
     return not (rule and rule(specs))
 
@@ -238,6 +242,111 @@ def totals(bucket: dict) -> dict:
             "fill_pct": round(filled * 100 / cells, 1) if cells else 0.0,
             "applicable_fill_pct": round(
                 filled * 100 / (cells - na), 1) if cells - na else 0.0}
+
+
+PRODUCT_TARGET = 90.0
+# Whole computers, monitors and risers parked outside the PC-part schemas:
+# they have no spec sheet to complete.
+NOT_SCORED = frozenset({"other"})
+RESIDUAL = ROOT / "tmp" / "residual.json"
+
+
+def product_score(product: dict) -> dict:
+    """One product's applicable fill: filled / (schema fields - not applicable).
+
+    A stated zero or "No" is a value, so it counts as filled. `sourced_pct`
+    leaves `derived:*` cells out of the numerator: they are inferred from
+    other fields, so they are reported apart from what a source printed.
+    """
+    category = product.get("category") or ""
+    specs = product.get("specs") or {}
+    sources = product.get("spec_sources") or {}
+    applicable_fields = filled = sourced = 0
+    missing = []
+    for fspec in schema.fields_for(category):
+        name = fspec.name
+        if specs.get(name) is not None:
+            applicable_fields += 1
+            filled += 1
+            if not str(sources.get(name) or "").startswith("derived"):
+                sourced += 1
+        elif applicable(category, name, specs):
+            applicable_fields += 1
+            missing.append(name)
+    pct = filled * 100 / applicable_fields if applicable_fields else 100.0
+    return {"pct": pct,
+            "sourced_pct": sourced * 100 / applicable_fields if applicable_fields else 100.0,
+            "applicable": applicable_fields, "missing": missing}
+
+
+def per_product(products: list[dict]) -> tuple[dict, list[dict]]:
+    """Per category: median product fill and the share of products at the
+    target, plus the residual list (every product below it, with its gaps)."""
+    scores: dict[str, list[dict]] = {}
+    residual = []
+    for product in products:
+        category = product.get("category") or ""
+        if category in NOT_SCORED:
+            continue
+        score = product_score(product)
+        scores.setdefault(category, []).append(score)
+        if score["pct"] < PRODUCT_TARGET:
+            specs = product.get("specs") or {}
+            brand = str(specs.get("manufacturer") or product.get("brand") or "?")
+            residual.append({
+                "product_id": product.get("product_id"),
+                "category": category,
+                "brand": brand,
+                "name": product.get("canonical_name"),
+                "pct": round(score["pct"], 1),
+                "missing": score["missing"],
+                "part_numbers": specs.get("part_numbers") or [],
+                "vendors": sorted({o.get("vendor_id") for o in product.get("offers") or []}),
+                "manufacturer_source": MFR_FETCHERS.get(brand.lower())
+                or MFR_VERDICT.get(brand.lower(), "none built"),
+            })
+    summary = {}
+    for category, rows in scores.items():
+        pcts = sorted(r["pct"] for r in rows)
+        n = len(pcts)
+        summary[category] = {
+            "n": n,
+            "median_pct": round(pcts[n // 2], 1) if n else 0.0,
+            "at_target_pct": round(sum(p >= PRODUCT_TARGET for p in pcts) * 100 / n, 1),
+            "sourced_at_target_pct": round(sum(
+                r["sourced_pct"] >= PRODUCT_TARGET for r in rows) * 100 / n, 1),
+        }
+    residual.sort(key=lambda r: (r["category"], r["pct"]))
+    return summary, residual
+
+
+def print_per_product(products: list[dict], categories, residual_path: Path) -> None:
+    summary, residual = per_product(products)
+    total = sum(s["n"] for s in summary.values())
+    at = sum(s["n"] * s["at_target_pct"] / 100 for s in summary.values())
+    print(f"\n[per-product] {at:.0f}/{total} products ({at * 100 / total:.1f}%) at "
+          f">= {PRODUCT_TARGET:.0f}% applicable fill")
+    print(f"{'category':<14}{'n':>5}{'median%':>9}{'>=90%':>8}{'sourced>=90%':>14}")
+    for category in sorted(categories):
+        s = summary.get(category)
+        if s:
+            print(f"{category:<14}{s['n']:>5}{s['median_pct']:>9.1f}"
+                  f"{s['at_target_pct']:>8.1f}{s['sourced_at_target_pct']:>14.1f}")
+    # The fields that keep the most products below target, per category.
+    for category in sorted(categories):
+        rows = [r for r in residual if r["category"] == category]
+        if not rows:
+            continue
+        blockers = Counter(f for r in rows for f in r["missing"])
+        brands = Counter(r["brand"] for r in rows)
+        print(f"  {category}: {len(rows)} below target; top missing "
+              + ", ".join(f"{f}={n}" for f, n in blockers.most_common(6))
+              + "; brands " + ", ".join(f"{b}={n}" for b, n in brands.most_common(5)))
+    residual_path.parent.mkdir(parents=True, exist_ok=True)
+    residual_path.write_text(json.dumps(
+        {"target_pct": PRODUCT_TARGET, "summary": summary, "products": residual},
+        ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"[per-product] residual list ({len(residual)} products) -> {residual_path}")
 
 
 def core_gaps_by_brand(products: list[dict], category: str) -> Counter:
@@ -349,6 +458,11 @@ def main() -> int:
                     help="core gaps by brand + what is reachable for that brand")
     ap.add_argument("--check-tables", action="store_true",
                     help="compare curated tables to sourced catalog values")
+    ap.add_argument("--per-product", action="store_true",
+                    help=f"share of products at >= {PRODUCT_TARGET:.0f}%% applicable fill, "
+                         "plus the residual list (tmp/residual.json)")
+    ap.add_argument("--residual", type=Path, default=RESIDUAL,
+                    help="where --per-product writes the residual list")
     ap.add_argument("--json", metavar="PATH", help="write the full analysis as JSON")
     ap.add_argument("--check", action="store_true",
                     help=f"exit 1 when a category's core applicable fill < {CORE_TARGET:.0f}%%")
@@ -410,6 +524,9 @@ def main() -> int:
 
     if args.gaps:
         print_gaps(products, selected)
+
+    if args.per_product:
+        print_per_product(products, selected, args.residual)
 
     if args.json:
         Path(args.json).write_text(json.dumps(

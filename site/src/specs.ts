@@ -161,3 +161,29 @@ export function specValue(product: Product, field: string): SpecValue | undefine
   const specs = product.specs;
   return specs ? specs[field] : undefined;
 }
+
+/**
+ * False only when the schema says the field cannot exist for this product (an
+ * SSD's RPM, a fanless PSU's fan size): every `when` gate must hold, and a gate
+ * field that is still unknown leaves the field applicable. Mirrors
+ * `schema.applies()` in the pipeline, which fill_report counts the same way.
+ */
+export function specApplies(product: Product, field: SpecFieldMeta): boolean {
+  for (const [gate, allowed] of field.when ?? []) {
+    const value = specValue(product, gate);
+    if (value === undefined || value === null) continue;
+    if (!allowed.some((option) => option === value)) return false;
+  }
+  for (const [gate, excluded] of field.unless ?? []) {
+    const value = specValue(product, gate);
+    if (excluded.some((option) => option === value)) return false;
+  }
+  // An empty field a sibling already answers (PSU "8-pin" vs "6+2-pin"
+  // counts) is not a missing value either.
+  const own = specValue(product, field.name);
+  if ((own === undefined || own === null) && (field.answeredBy ?? []).some((other) => {
+    const value = specValue(product, other);
+    return value !== undefined && value !== null;
+  })) return false;
+  return true;
+}

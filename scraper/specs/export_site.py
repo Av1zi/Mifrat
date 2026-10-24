@@ -49,6 +49,16 @@ export interface SpecFieldMeta {
   /** Short display label (Hebrew / English). */
   he: string;
   en: string;
+  /**
+   * Applicability gates (schema `applies_to`): the field exists for a product
+   * only when every gate field holds one of its listed values. A gate field
+   * that is still unknown leaves the field applicable.
+   */
+  when?: [string, (string | number | boolean)[]][];
+  /** Negative gates: the field does not exist when a gate field holds one of these. */
+  unless?: [string, (string | number | boolean)[]][];
+  /** Sibling fields that answer the same question; an empty field is not a gap when one is set. */
+  answeredBy?: string[];
 }
 
 /** Schema version — bump in schema.py; golden fixtures record it too. */
@@ -83,8 +93,36 @@ def _field_literal(field: schema.FieldSpec) -> str:
         + ", group: " + _ts_string(field.group)
         + ", he: " + _ts_string(field.label_he)
         + ", en: " + _ts_string(field.label_en)
+        + _when_literal(field)
         + " }"
     )
+
+
+def _gate_value(value) -> str:
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, (int, float)):
+        return str(value)
+    return _ts_string(str(value))
+
+
+def _when_literal(field: schema.FieldSpec) -> str:
+    """`applies_to` gates, so the PDP can hide a row that cannot exist for
+    the product instead of printing "Not listed". Emitted only when a field
+    has gates, keeping the generated module small."""
+    def gates(pairs) -> str:
+        return ", ".join(
+            "[" + _ts_string(gate) + ", [" + ", ".join(_gate_value(v) for v in values) + "]]"
+            for gate, values in pairs)
+
+    out = ""
+    if field.applies_to:
+        out += ", when: [" + gates(field.applies_to) + "]"
+    if field.excluded_by:
+        out += ", unless: [" + gates(field.excluded_by) + "]"
+    if field.answered_by:
+        out += ", answeredBy: [" + ", ".join(_ts_string(f) for f in field.answered_by) + "]"
+    return out
 
 
 def render() -> str:

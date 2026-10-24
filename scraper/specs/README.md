@@ -80,7 +80,9 @@ Order inside the product pass is deliberate (`build.py::build_product_specs`):
 | :--- | :--- | :--- |
 | 0 — Reference | docyx/pc-part-dataset (PCPartPicker specs) indexed by `scraper/pcpartdb.py` + committed `data/specs/overrides.json` | Authoritative; wins every conflict. |
 | 0.5 — Manufacturer | the brand's own product page, fetched by `scraper/mfr/` into `data/mfr/<brand>.json` (see `scraper/mfr/README.md`) | Primary-source facts; beats the retailer payload, loses to Tier 0 and overrides. Source label `manufacturer`. |
-| 1 — Trusted vendor | Ivory `cuts`/`detail_specs`, TMS product fields, the `matching:computed` bridge | Fills what Tier 0 lacks. |
+| 0.75 — Catalog | Open Icecat sheets fetched by `scraper/icecat/` into `data/icecat/<brand>.json` (see `scraper/icecat/README.md`) | The brand's sheet as syndicated; beats retailers, loses to the brand's own page. Per-field trust gate (`mapping.DISABLED`). Source label `catalog`. |
+| 1 — Trusted vendor | Ivory `cuts`/`detail_specs`, TMS product fields, the `matching:computed` bridge, foreign retailers' tables from `scraper/xref/` (source `xref:<site>`) | Fills what Tier 0 lacks. |
+| 1.5 — Extracted | Claude reading the product's own listing text (`scraper/extract/`, `data/extract/products.json`) | Only fields still empty; a value is kept only if its quote is verbatim in the text and re-parses to the value, and only for fields the audit measured at ≤3% disagreement. Source label `extracted`. |
 | 2 — Title/SKU | typed regex resolvers over `match_text` | Fills remaining nulls. |
 | 3 — Weak vendors | 1PC prose, Plonter tree/dash dumps | Fill-only; a value contradicting a filled Tier 0-2 field is discarded and logged, never merged. |
 
@@ -180,7 +182,11 @@ Two kinds of knowledge are separated on purpose:
   SMT-uniform AMD lineups, and storage fields implied by the interface
   (`M.2 PCIe 4.0 x4` -> NVMe SSD on M.2 at gen 4).
 - **Never inferred by rule**: per-SKU facts. Exact clocks, fan counts, connector
-  counts, board USB headers. A wrong number is worse than a missing one, so these stay
+  counts, board USB headers. Two fan-count rules are the exception, because the
+  count is fixed by something the product states, not guessed: an AIO's
+  radiator size over its fan size (360 = 3 x 120; 135/135 sourced counts agree)
+  and a GPU board line that names it (`tables/gpu_board_lines.json`, 53/53).
+  Every such rule must pass `scripts/backtest_rules.py` before it ships. A wrong number is worse than a missing one, so these stay
   `null` until a real source answers. (L3/L2 size and ECC are the exception: since Oct
   2026 they come from the curated per-model table described below, i.e. from a
   source, not from a rule.)
@@ -366,7 +372,10 @@ workflow — it blocks datacenter IPs — so its backfill runs from the home IP 
 1. Edit `scraper/specs/schema.py` (name, type, unit, enum, range, aliases,
    `filterable`, `group`, he/en label).
 2. Bump `SCHEMA_VERSION` for a breaking change and update
-   `golden/fixtures.json`'s `schema_version`.
+   `golden/fixtures.json`'s `schema_version`. Add a step to
+   `scripts/migrate_mfr_schema.py` and run it: `mfr/store.py` skips a
+   `data/mfr/*.json` at another version, which silently drops every
+   manufacturer fact.
 3. Regenerate the frontend metadata: `python -m scraper.specs.export_site`.
 4. Teach a resolver to emit it (vendor alias -> automatic; title -> add a
    `text.py` regex in the right `parse_*`).

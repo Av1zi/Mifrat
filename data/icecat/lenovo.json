@@ -1,0 +1,119 @@
+{
+ "brand": "Lenovo",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "101706523": {
+   "url": "https://icecat.biz/p/product/101706523",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Lenovo",
+   "title": "Lenovo 4XB7A82290 internal solid state drive 960 GB 2.5\" Serial ATA III 3D TLC NAND",
+   "keys": [
+    "0889488633814",
+    "4XB7A82290",
+    "889488633814"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 960,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "read_speed_mbs": 540,
+    "write_speed_mbs": 520,
+    "mtbf_hours": 3000000,
+    "weight_g": 70
+   }
+  },
+  "108859810": {
+   "url": "https://icecat.biz/p/product/108859810",
+   "fetched": "2026-10-22",
+   "category": "memory",
+   "brand": "Lenovo",
+   "title": "Lenovo 4X77A77030 memory module 32 GB 1 x 32 GB DDR5 288-pin DIMM",
+   "keys": [
+    "0889488588558",
+    "47777030",
+    "4X77A77030",
+    "889488588558"
+   ],
+   "names": [],
+   "specs": {
+    "total_gb": 32,
+    "module_count": 1,
+    "module_size_gb": 32,
+    "memory_type": "DDR5",
+    "speed_mhz": 4800,
+    "form_factor": "DIMM",
+    "registered": true
+   }
+  },
+  "118257359": {
+   "url": "https://icecat.biz/p/product/118257359",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Lenovo",
+   "title": "Lenovo 4XB7A90874 internal solid state drive 960 GB 2.5\" Serial ATA III V-NAND TLC",
+   "keys": [
+    "0889488712496",
+    "4XB7A90874",
+    "889488712496"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 960,
+    "type": "SSD",
+    "form_factor": "2.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "nvme": false,
+    "mtbf_hours": 2000000
+   }
+  },
+  "122334212": {
+   "url": "https://icecat.biz/p/product/122334212",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Lenovo",
+   "title": "Lenovo 4X61Q73041 graphics card NVIDIA RTX A1000 8 GB GDDR6",
+   "keys": [
+    "0195892109693",
+    "195892109693",
+    "46173041",
+    "4X61Q73041"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 1,
+    "memory_gb": 8,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 4.0 x16",
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 164
+   }
+  },
+  "87943591": {
+   "url": "https://icecat.biz/p/product/87943591",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Lenovo",
+   "title": "Lenovo 4XF1C39743 computer case part",
+   "keys": [
+    "0195477992481",
+    "195477992481",
+    "4XF1C39743"
+   ],
+   "names": [],
+   "specs": {
+    "weight_g": 140
+   }
+  }
+ }
+}

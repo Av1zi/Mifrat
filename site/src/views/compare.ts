@@ -4,7 +4,7 @@ import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, specGroupLabel, t, vendorsCount } from "../i18n";
 import { icon } from "../icons";
 import { bestOffer } from "../offers";
-import { displaySpecFields, formatSpecValue, specValue } from "../specs";
+import { displaySpecFields, formatSpecValue, specApplies, specFieldMap, specValue } from "../specs";
 import { categoriesHash, categoryHash, compareHash, productHash, replaceRoute, savedHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
@@ -99,6 +99,13 @@ function overviewRows(items: Product[], lang: Lang, currency: Currency, pad: Htm
 
 function tableMarkup(items: Product[], category: string, lang: Lang, currency: Currency, onlyDiffs: boolean): Html {
   const rows = specRows(items, category, lang);
+  // A cell the schema says cannot exist for that part (an SSD's RPM next to
+  // an HDD's) reads as "not applicable", not as a missing value.
+  const fields = specFieldMap(category);
+  const applies = (p: Product, name: string): boolean => {
+    const meta = fields.get(name);
+    return meta ? specApplies(p, meta) : true;
+  };
   const shown = onlyDiffs ? rows.filter((row) => row.differs) : rows;
   const groups = [...new Set(shown.map((row) => row.group))];
   const canAdd = items.length < COMPARE_MAX;
@@ -115,7 +122,7 @@ function tableMarkup(items: Product[], category: string, lang: Lang, currency: C
         ${shown
           .filter((row) => row.group === group)
           .map(
-            (row) => html`<tr class="${row.differs ? "is-diff" : ""}"><th scope="row">${attributeLabel(row.field, lang, category)}</th>${items.map((p, i) => html`<td class="${i === row.best ? "is-best" : ""}">${specCell(specValue(p, row.field), lang)}</td>`)}${pad}</tr>`
+            (row) => html`<tr class="${row.differs ? "is-diff" : ""}"><th scope="row">${attributeLabel(row.field, lang, category)}</th>${items.map((p, i) => html`<td class="${i === row.best ? "is-best" : ""}">${applies(p, row.field) ? specCell(specValue(p, row.field), lang) : html`<span class="text-dim" title="${t(lang, "notApplicable")}">—</span>`}</td>`)}${pad}</tr>`
           )}`
       )}
     </tbody>

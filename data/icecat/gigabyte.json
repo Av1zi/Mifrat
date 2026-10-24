@@ -1,0 +1,7970 @@
+{
+ "brand": "Gigabyte",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "101890274": {
+   "url": "https://icecat.biz/p/product/101890274",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650 AORUS PRO AX Motherboard - Supports AMD Ryzen 9000 CPUs, 16+2+1 Phases Digital VRM, up to 8000MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0 M.2, Wi-Fi 6E, 2.5GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331849641",
+    "B650AORUSPROAX",
+    "GB650AORUSPROAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "102142839": {
+   "url": "https://icecat.biz/p/product/102142839",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z790 AORUS ELITE AX Motherboard - Supports Intel Core 14th CPUs, 16*+2+１ Phases Digital VRM, up to 7600MHz DDR5 (OC), 4xPCIe 4.0 M.2, Wi-Fi 6E, 2.5GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "0889523034002",
+    "4719331849467",
+    "889523034002",
+    "GZ790AORUSELITEAX",
+    "Z790AORUSELITEAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "104088566": {
+   "url": "https://icecat.biz/p/product/104088566",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M AORUS ELITE Motherboard - AMD Ryzen 9000 CPUs, 12+2+2 Phases VRM, up to 8000MHz DDR5, 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331849818",
+    "B650MAORUSELITE",
+    "GB650MAORUSELITE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "107407179": {
+   "url": "https://icecat.biz/p/product/107407179",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M DS3H DDR4 Motherboard",
+   "keys": [
+    "0889523034606",
+    "4719331850876",
+    "889523034606",
+    "B760MDS3HDDR4",
+    "GB760MDS3HDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5133",
+     "5000",
+     "4933",
+     "4800",
+     "4700",
+     "4600",
+     "4500",
+     "4400",
+     "4300",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3800",
+     "3733"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "107407298": {
+   "url": "https://icecat.biz/p/product/107407298",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760 DS3H DDR4 Motherboard - Supports Intel Core 14th CPUs, 18+2+1 Phases Digital VRM, up to 5333MHz DDR4 (OC), 2xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331850746",
+    "B760DS3HDDR4",
+    "GB760DS3HDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5133",
+     "5000",
+     "4933",
+     "4800",
+     "4700",
+     "4600",
+     "4500",
+     "4400",
+     "4300",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3800",
+     "3733"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "107407311": {
+   "url": "https://icecat.biz/p/product/107407311",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M AORUS ELITE AX Motherboard - Supports Intel Core 14th Gen CPUs, 12*+1+1 Phases Digital VRM, up to 7800MHz DDR5 (OC), 2xPCIe 4.0 M.2, Wi-Fi 6E, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "0889523035047",
+    "4719331851309",
+    "889523035047",
+    "B760MAORUSELITEAX",
+    "GB760MAORUSELITEAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5300",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "107729915": {
+   "url": "https://icecat.biz/p/product/107729915",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760 DS3H AX Motherboard - Supports Intel Core 14th Gen CPUs, 8+2+1 Phases Digital VRM, up to 7600MHz DDR5 (OC), 2xPCIe 4.0 M.2, Wi-Fi 6E, GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "0889523035979",
+    "4719331852757",
+    "889523035979",
+    "B760DS3HAX",
+    "GB760DS3HAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "107730041": {
+   "url": "https://icecat.biz/p/product/107730041",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760 DS3H Motherboard - Supports Intel Core 14th Gen CPUs, 8+2+1 Phases Digital VRM, up to 7600MHz DDR5 (OC), 2xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331853136",
+    "B760DS3H",
+    "GB760DS3H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "107739921": {
+   "url": "https://icecat.biz/p/product/107739921",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z790 AORUS TACHYON motherboard Intel Z790 Express LGA 1700 Extended ATX",
+   "keys": [
+    "4719331851538",
+    "GZ790AORUSTACHYON",
+    "Z790AORUSTACHYON"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "8333",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "109117083": {
+   "url": "https://icecat.biz/p/product/109117083",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550M K Motherboard - AMD Ryzen 5000 CPUs, up to 4733MHz DDR4, 1xPCIe 4.0 + 1xPCIe 3.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523036006",
+    "4719331852764",
+    "889523036006",
+    "B550MK",
+    "GB550MK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "109188281": {
+   "url": "https://icecat.biz/p/product/109188281",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M DS3H AX Motherboard - Supports Intel Core 14th Gen CPUs, 6+2+1 Phases Digital VRM, up to 7600MHz DDR5 (OC), 2xPCIe 4.0 M.2, Wi-Fi 6E, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "0889523035726",
+    "4719331851767",
+    "889523035726",
+    "B760MDS3HAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "109251434": {
+   "url": "https://icecat.biz/p/product/109251434",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A520M K V2 Motherboard",
+   "keys": [
+    "4719331852771",
+    "A520MKV2",
+    "GA520MKV2"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "109794534": {
+   "url": "https://icecat.biz/p/product/109794534",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A620M GAMING X Motherboard - Supports AMD Ryzen 8000 CPUs, 8+2+1 Phases Digital VRM, up to 8000MHz DDR5 (OC), 1xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331854096",
+    "A620MGAMINGX",
+    "GA620MGAMINGX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "A620",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "111147459": {
+   "url": "https://icecat.biz/p/product/111147459",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M S2H V2 Motherboard - Supports Intel Core 14th CPUs, 4+1+1 Hybrid Phases Digital VRM, up to 5600MHz DDR5, 1xPCIe 3.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523040966",
+    "4719331859817",
+    "889523040966",
+    "GH610MS2HV2",
+    "H610MS2HV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "111337534": {
+   "url": "https://icecat.biz/p/product/111337534",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GAMING Radeon RX 7600 OC 8G AMD 8 GB GDDR6",
+   "keys": [
+    "4719331313425",
+    "GVR76GAMINGOC8GD",
+    "R76GAMINGOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 287,
+    "boost_clock_mhz": 2755,
+    "core_clock_mhz": 2355
+   }
+  },
+  "111625294": {
+   "url": "https://icecat.biz/p/product/111625294",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A520M DS3H V2 Motherboard - Supports AMD Ryzen 5000 Series AM4 CPUs, up to 4733MHz DDR4 (OC), PCIe 3.0 x16, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331854690",
+    "A520MDS3HV2",
+    "GA520MDS3HV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM4",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4400",
+     "4000",
+     "3600",
+     "3333",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC887",
+    "bios": "UEFI AMI"
+   }
+  },
+  "112130609": {
+   "url": "https://icecat.biz/p/product/112130609",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A620M H Motherboard - Supports AMD Ryzen 8000 CPUs, 5+2+2 Phases Digital VRM, up to 7200MHz DDR5 (OC), 1xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331855512",
+    "A620MH",
+    "GA620MH"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "A620",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "7200",
+     "6800",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "112196507": {
+   "url": "https://icecat.biz/p/product/112196507",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550M AORUS ELITE AX Motherboard",
+   "keys": [
+    "0889523037294",
+    "4719331855055",
+    "889523037294",
+    "B550MAORUSELITEAX",
+    "GB550MAORUSELITEAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "112571005": {
+   "url": "https://icecat.biz/p/product/112571005",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A620M S2H Motherboard - Supports AMD Ryzen 8000 CPUs, 5+2+2 Phases Digital VRM, up to 7200MHz DDR5 (OC), 1xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523038031",
+    "4719331855208",
+    "889523038031",
+    "A620MS2H",
+    "GA620MS2H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "A620",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "7200",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "112677228": {
+   "url": "https://icecat.biz/p/product/112677228",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A620M DS3H Motherboard - Supports AMD Ryzen 8000 CPUs, 5+2+2 Phases Digital VRM, up to 7600MHz DDR5 (OC), 1xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331855567",
+    "A620MDS3H",
+    "GA620MDS3H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "A620",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "114184454": {
+   "url": "https://icecat.biz/p/product/114184454",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M S2H Motherboard - AMD Ryzen 9000 Series CPUs, 5+2+2 Phases VRM, up to 6400MHz DDR5 (OC), 1xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331856298",
+    "B650MS2H",
+    "GB650MS2H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "114502731": {
+   "url": "https://icecat.biz/p/product/114502731",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M D3HP Motherboard - AMD Ryzen 9000 Series CPUs, 5+2+2 Phases VRM, up to 7600MHz DDR5 (OC), 2xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523039083",
+    "4719331857851",
+    "889523039083",
+    "B650MD3HP",
+    "GB650MD3HP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "114623688": {
+   "url": "https://icecat.biz/p/product/114623688",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610I Motherboard - Supports Intel Core 14th CPUs, 4+1+1 Hybrid Digital VRM, up to 5600MHz DDR5, 1xPCIe 3.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523037676",
+    "4719331855222",
+    "889523037676",
+    "GH610I",
+    "H610I"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "116798311": {
+   "url": "https://icecat.biz/p/product/116798311",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z790 AORUS TACHYON X - Supports Intel 14th Gen Core CPUs, Digital direct 15+1+2 phases VRM, up to 8700MHz DDR5 (O.C), 4 x M.2 PCIe 4.0, Wi-Fi 6E, 2.5GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331859725",
+    "GZ790AORUSTACHYONX",
+    "Z790AORUSTACHYONX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "8700",
+     "8333",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "116798319": {
+   "url": "https://icecat.biz/p/product/116798319",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M D3HP AX Motherboard - AMD Ryzen 9000 Series CPUs, 5+2+2 Phases VRM, up to 8000MHz DDR5 (OC), 2xPCIe 4.0 M.2, WIFI 6E, 2.5GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523040584",
+    "4719331859510",
+    "889523040584",
+    "B650MD3HPAX",
+    "GB650MD3HPAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "117495925": {
+   "url": "https://icecat.biz/p/product/117495925",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M AORUS ELITE AX ICE Motherboard",
+   "keys": [
+    "0889523040348",
+    "4719331859336",
+    "889523040348",
+    "B650MAORUSELITEAXICE",
+    "GB650MAORUSELITEAXICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "117647672": {
+   "url": "https://icecat.biz/p/product/117647672",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GP-P650G power supply unit 650 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4719331553753",
+    "GPP650G"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 650,
+    "efficiency": "80+ Bronze",
+    "type": "ATX",
+    "modular": "no",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 6,
+    "molex4_connectors": 3,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  },
+  "117854300": {
+   "url": "https://icecat.biz/p/product/117854300",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650I AX Motherboard - AMD Ryzen 9000 Series CPUs, 5+2+1 Phases VRM, up to 6400MHz DDR5 (OC), 1xPCIe 4.0 M.2, 2.5GbE LAN, WIFI 6E, USB 3.2 Gen 2",
+   "keys": [
+    "4719331859190",
+    "B650IAX",
+    "GB650IAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118285886": {
+   "url": "https://icecat.biz/p/product/118285886",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650 EAGLE AX Motherboard",
+   "keys": [
+    "0889523041703",
+    "4719331860158",
+    "889523041703",
+    "B650EAGLEAX",
+    "GB650EAGLEAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118309283": {
+   "url": "https://icecat.biz/p/product/118309283",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M H V2 Motherboard - Supports Intel Core 14th CPUs, 4+1+1 Hybrid Digital VRM, up to 5600MHz DDR5, 1xPCIe 3.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331859985",
+    "GH610MHV2",
+    "H610MHV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 96,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118309284": {
+   "url": "https://icecat.biz/p/product/118309284",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M H V3 DDR4 Motherboard - Supports Intel Core 14th CPUs, 4+1+1 Hybrid Phases Digital VRM, up to 3200MHz DDR4, 1xPCIe 3.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331859718",
+    "GH610MHV3DDR4",
+    "H610MHV3DDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118309285": {
+   "url": "https://icecat.biz/p/product/118309285",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M S2H V3 DDR4 Motherboard",
+   "keys": [
+    "4719331859732",
+    "GH610MS2HV3DDR4",
+    "H610MS2HV3DDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118309286": {
+   "url": "https://icecat.biz/p/product/118309286",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650 GAMING X AX V2 Motherboard",
+   "keys": [
+    "0889523041376",
+    "4719331860073",
+    "889523041376",
+    "B650GAMINGXAXV2",
+    "GB650GAMINGXAXV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118467837": {
+   "url": "https://icecat.biz/p/product/118467837",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z790 EAGLE AX Motherboard - Supports Intel Core 14th Gen CPUs, 12+1+１Phases Digital VRM, up to 7600MHz DDR5 (OC), 3xPCIe 4.0 M.2, Wi-Fi 6E, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "0889523042120",
+    "4719331860998",
+    "889523042120",
+    "GZ790EAGLEAX",
+    "Z790EAGLEAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "118560066": {
+   "url": "https://icecat.biz/p/product/118560066",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 3050 OC Low Profile 6G NVIDIA 6 GB GDDR6",
+   "keys": [
+    "4719331354268",
+    "GVN3050OC6GL"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 6,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 96,
+    "memory_speed_gbps": 14,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 300,
+    "length_mm": 181,
+    "boost_clock_mhz": 1477
+   }
+  },
+  "118563146": {
+   "url": "https://icecat.biz/p/product/118563146",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z790 D Motherboard - Supports Intel Core 14th Gen CPUs, 12+1+１ Phases Digital VRM, up to 7600MHz DDR5 (OC), 3xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331861186",
+    "GZ790D",
+    "Z790D"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "120489829": {
+   "url": "https://icecat.biz/p/product/120489829",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M GAMING PLUS WIFI motherboard AMD B650 Socket AM5 micro ATX",
+   "keys": [
+    "0889523042793",
+    "889523042793",
+    "B650MGAMINGPLUSWIFI",
+    "GB650MGAMINGPLUSWIFI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "120700095": {
+   "url": "https://icecat.biz/p/product/120700095",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE C102 GLASS Midi Tower Black",
+   "keys": [
+    "4719331554835",
+    "GBC102G"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm",
+    "weight_kg": 5.8,
+    "dimensions_mm": "W=210 H=450 D=450mm"
+   }
+  },
+  "120864677": {
+   "url": "https://icecat.biz/p/product/120864677",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650 EAGLE Motherboard - AMD Ryzen 9000 Series CPUs, 12+2+2 Phases VRM, up to 7600MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331863081",
+    "B650EAGLE",
+    "GB650EAGLE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "120864692": {
+   "url": "https://icecat.biz/p/product/120864692",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M D3HP DDR4 Motherboard - Supports Intel Core 14th Gen CPUs, 4+1+1 Phases Digital VRM, up to 5333MHz DDR4 (OC), 2xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen1",
+   "keys": [
+    "4719331862848",
+    "B760MD3HPDDR4",
+    "GB760MD3HPDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5333",
+     "5133",
+     "5000",
+     "4933",
+     "4800",
+     "4700",
+     "4600",
+     "4500",
+     "4400",
+     "4300",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3800",
+     "3733"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "121512363": {
+   "url": "https://icecat.biz/p/product/121512363",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE C102 GLASS Midi Tower White",
+   "keys": [
+    "0810162140441",
+    "4719331554842",
+    "810162140441",
+    "GBC102GI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "drive_bays_25": 3,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm",
+    "fan_top": "2 x 120 mm, 2 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm",
+    "radiator_support": {
+     "120 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 5.8,
+    "dimensions_mm": "W=210 H=450 D=450mm"
+   }
+  },
+  "121727285": {
+   "url": "https://icecat.biz/p/product/121727285",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650E AORUS STEALTH ICE Motherboard",
+   "keys": [
+    "4719331863777",
+    "B650EAORUSSTEALTHICE",
+    "GB650EAORUSSTEALTHICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122205012": {
+   "url": "https://icecat.biz/p/product/122205012",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870E AORUS MASTER Motherboard",
+   "keys": [
+    "0889523044803",
+    "4719331864354",
+    "889523044803",
+    "GX870EAORUSMASTER",
+    "X870EAORUSMASTER"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8400",
+     "8200",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122205072": {
+   "url": "https://icecat.biz/p/product/122205072",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870E AORUS PRO Motherboard",
+   "keys": [
+    "0889523045251",
+    "4719331864866",
+    "889523045251",
+    "GX870EAORUSPRO",
+    "X870EAORUSPRO"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6000",
+     "5600",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122205996": {
+   "url": "https://icecat.biz/p/product/122205996",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870E AORUS PRO ICE Motherboard",
+   "keys": [
+    "0889523045275",
+    "4719331864798",
+    "889523045275",
+    "GX870EAORUSPROICE",
+    "X870EAORUSPROICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "X870E",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122339650": {
+   "url": "https://icecat.biz/p/product/122339650",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870 EAGLE WIFI7 Motherboard",
+   "keys": [
+    "0889523045312",
+    "4719331864996",
+    "889523045312",
+    "GX870EAGLEWIFI7",
+    "X870EAGLEWIFI7"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122372369": {
+   "url": "https://icecat.biz/p/product/122372369",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870I AORUS PRO ICE Motherboard - Supports AMD Ryzen 9000 Series CPUs, 8+2+1 phases VRM, up to 8400MHz DDR5 (OC), 1xPCIe 5.0 M.2 + 1xPCIe 4.0 M.2, WI-FI 7, 2,5GbE LAN, USB 4",
+   "keys": [
+    "0889523045930",
+    "4719331866112",
+    "889523045930",
+    "GX870IAORUSPROICE",
+    "X870IAORUSPROICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122372370": {
+   "url": "https://icecat.biz/p/product/122372370",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870 GAMING X WIFI7 Motherboard",
+   "keys": [
+    "0889523045497",
+    "4719331865368",
+    "889523045497",
+    "GX870GAMINGXWIFI7",
+    "X870GAMINGXWIFI7"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122465915": {
+   "url": "https://icecat.biz/p/product/122465915",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650 UD AX Motherboard - AMD Ryzen 9000 Series CPUs, 6+2+2 Phases VRM, up to 7600MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0 M.2, GbE LAN, WIFI 6, USB 3.2 Gen 2",
+   "keys": [
+    "4719331863944",
+    "B650UDAX",
+    "GB650UDAX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122499383": {
+   "url": "https://icecat.biz/p/product/122499383",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 AERO G Motherboard",
+   "keys": [
+    "4719331865139",
+    "GZ890AEROG",
+    "Z890AEROG"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122502048": {
+   "url": "https://icecat.biz/p/product/122502048",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 AORUS MASTER Motherboard",
+   "keys": [
+    "0889523045107",
+    "4719331864903",
+    "889523045107",
+    "GZ890AORUSMASTER",
+    "Z890AORUSMASTER"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9500",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 10 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122502905": {
+   "url": "https://icecat.biz/p/product/122502905",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 AORUS PRO ICE Motherboard",
+   "keys": [
+    "0889523045084",
+    "4719331864712",
+    "889523045084",
+    "GZ890AORUSPROICE",
+    "Z890AORUSPROICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9500",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "5"
+    ],
+    "ethernet": "LAN 5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122755170": {
+   "url": "https://icecat.biz/p/product/122755170",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M D3HP Motherboard - Intel Core 14th Gen CPUs, 4+1+1 Phases VRM, up to 5600MHz DDR5, 2xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331864347",
+    "B760MD3HP",
+    "GB760MD3HP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122797000": {
+   "url": "https://icecat.biz/p/product/122797000",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 GAMING X WIFI7 Motherboard",
+   "keys": [
+    "4719331864941",
+    "GZ890GAMINGXWIFI7",
+    "Z890GAMINGXWIFI7"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122797092": {
+   "url": "https://icecat.biz/p/product/122797092",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 EAGLE WIFI7 Motherboard - Supports Intel Core Ultra (Series 2) CPUs, 14+1+2 phases VRM, up to 8800MHz DDR5 (OC), 1xPCIe 5.0 + 3xPCIe 4.0, Wi-Fi 7, 2.5GbE LAN, USB 4",
+   "keys": [
+    "0889523045299",
+    "4719331864927",
+    "889523045299",
+    "GZ890EAGLEWIFI7",
+    "Z890EAGLEWIFI7"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8400",
+     "8266",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122797093": {
+   "url": "https://icecat.biz/p/product/122797093",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 EAGLE Motherboard - Supports Intel Core Ultra (Series 2) CPUs, 14+1+2 phases VRM, up to 8800MHz DDR5 (OC), 1xPCIe 5.0 M.2 + 3xPCIe 4.0 M.2, 2.5GbE LAN, USB4",
+   "keys": [
+    "4719331865214",
+    "GZ890EAGLE",
+    "Z890EAGLE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "122797094": {
+   "url": "https://icecat.biz/p/product/122797094",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 UD WIFI6E Motherboard - Supports Intel Core Ultra (Series 2) CPUs, 12+1+2 phases VRM, up to 8800MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0, Wi-Fi 6E, 2.5GbE LAN, USB 4",
+   "keys": [
+    "0889523045336",
+    "4719331865313",
+    "889523045336",
+    "GZ890UDWIFI6E",
+    "Z890UDWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122797096": {
+   "url": "https://icecat.biz/p/product/122797096",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890I AORUS ULTRA Motherboard",
+   "keys": [
+    "0889523045398",
+    "4719331864804",
+    "889523045398",
+    "GZ890IAORUSULTRA",
+    "Z890IAORUSULTRA"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "122797100": {
+   "url": "https://icecat.biz/p/product/122797100",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890M GAMING X Motherboard",
+   "keys": [
+    "0889523045411",
+    "4719331865160",
+    "889523045411",
+    "GZ890MGAMINGX",
+    "Z890MGAMINGX"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124422295": {
+   "url": "https://icecat.biz/p/product/124422295",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M D3W DDR4 Motherboard - Supports 14th Gen. Intel Core CPUs, 5+1+1 phases VRM, up to 3200MHz DDR4, 1xPCIe 3.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331865245",
+    "GH610MD3WDDR4",
+    "H610MD3WDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124422388": {
+   "url": "https://icecat.biz/p/product/124422388",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z790 EAGLE Motherboard - Supports 14th Gen. Intel Core CPUs, 12+1+1 phases VRM, up to 7600MHz DDR5 (OC), 3xPCIe 4.0 M.2, 2,5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331860981",
+    "GZ790EAGLE",
+    "Z790EAGLE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124822640": {
+   "url": "https://icecat.biz/p/product/124822640",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 3050 WINDFORCE OC V2 6G NVIDIA 6 GB GDDR6",
+   "keys": [
+    "0889523045879",
+    "4719331355081",
+    "889523045879",
+    "GVN3050WF2OCV26GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Silver",
+    "fan_count": 2,
+    "memory_gb": 6,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 96,
+    "memory_speed_gbps": 14,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 300,
+    "length_mm": 191,
+    "boost_clock_mhz": 1477
+   }
+  },
+  "124830470": {
+   "url": "https://icecat.biz/p/product/124830470",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850 AI TOP Motherboard",
+   "keys": [
+    "4719331866570",
+    "B850AITOP",
+    "GB850AITOP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8600",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 10 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830471": {
+   "url": "https://icecat.biz/p/product/124830471",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850 EAGLE WIFI6E Motherboard",
+   "keys": [
+    "0889523046302",
+    "4719331866587",
+    "889523046302",
+    "B850EAGLEWIFI6E",
+    "GB850EAGLEWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830473": {
+   "url": "https://icecat.biz/p/product/124830473",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850 GAMING X WIFI6E Motherboard - AMD Ryzen 9000 Series CPUs, 12+2+2 Phases Digital VRM, up to 8200MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0 M.2, 2.5LAN, WIFI 6E, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331866457",
+    "B850GAMINGXWIFI6E",
+    "GB850GAMINGXWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830474": {
+   "url": "https://icecat.biz/p/product/124830474",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850I AORUS PRO Motherboard - AMD Ryzen 9000 Series CPUs, 8+2+1 Phases Digital VRM, up to 8400MHz DDR5 (OC), 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5LAN, WIFI 7, USB 3.2 Gen 2",
+   "keys": [
+    "4719331867263",
+    "B850IAORUSPRO",
+    "GB850IAORUSPRO"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8400",
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830476": {
+   "url": "https://icecat.biz/p/product/124830476",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850M D3HP Motherboard - AMD Ryzen 9000 Series CPUs, 5+2+2 Phases Digital VRM, up to 8200MHz DDR5 (OC), 1xPCIe 5.0 + 1xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331867058",
+    "B850MD3HP",
+    "GB850MD3HP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830477": {
+   "url": "https://icecat.biz/p/product/124830477",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850M DS3H Motherboard - AMD Ryzen 9000 Series CPUs, 16+2+2 Phases Digital VRM, up to 8200MHz DDR5 (OC), 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5 LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331866518",
+    "B850MDS3H",
+    "GB850MDS3H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830480": {
+   "url": "https://icecat.biz/p/product/124830480",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860 DS3H WIFI6E Motherboard - Intel Core Ultra Series CPUs, 8+1+2+2 Phases VRM, up to 9066MHz DDR5, 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5GbE LAN, WIFI 6E, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331867515",
+    "B860DS3HWIFI6E",
+    "GB860DS3HWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830481": {
+   "url": "https://icecat.biz/p/product/124830481",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860 EAGLE WIFI6E Motherboard",
+   "keys": [
+    "4719331866822",
+    "B860EAGLEWIFI6E",
+    "GB860EAGLEWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830482": {
+   "url": "https://icecat.biz/p/product/124830482",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860 GAMING X WIFI6E Motherboard",
+   "keys": [
+    "4719331866532",
+    "B860GAMINGXWIFI6E",
+    "GB860GAMINGXWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830483": {
+   "url": "https://icecat.biz/p/product/124830483",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860I AORUS PRO ICE Motherboard",
+   "keys": [
+    "0889523046722",
+    "4719331867539",
+    "889523046722",
+    "B860IAORUSPROICE",
+    "GB860IAORUSPROICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9200",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830486": {
+   "url": "https://icecat.biz/p/product/124830486",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M D3HP Motherboard - Intel Core Ultra Series CPUs, 4+1+2+1 Phases VRM, up to 9066MHz DDR5, 2xPCIe 4.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523046937",
+    "4719331866860",
+    "889523046937",
+    "B860MD3HP",
+    "GB860MD3HP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830487": {
+   "url": "https://icecat.biz/p/product/124830487",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M DS3H Motherboard - Intel Core Ultra Series CPUs, 5+1+2+1 Phases VRM, up to 9066MHz DDR5, 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331866709",
+    "B860MDS3H",
+    "GB860MDS3H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830488": {
+   "url": "https://icecat.biz/p/product/124830488",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M DS3H WIFI6E Motherboard - Intel Core Ultra Series CPUs, 5+1+2+1 Phases VRM, up to 9066MHz DDR5, 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5GbE LAN, WIFI 6E, USB 3.2 Gen 2",
+   "keys": [
+    "4719331866815",
+    "B860MDS3HWIFI6E",
+    "GB860MDS3HWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124830490": {
+   "url": "https://icecat.biz/p/product/124830490",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M GAMING X WIFI6E Motherboard",
+   "keys": [
+    "0889523046951",
+    "4719331867133",
+    "889523046951",
+    "B860MGAMINGXWIFI6E",
+    "GB860MGAMINGXWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9200",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124953609": {
+   "url": "https://icecat.biz/p/product/124953609",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550 EAGLE Motherboard - AMD Ryzen 5000 G-Series CPUs, 10+3+1 Phases VRM, up to 3200MHz DDR4, 1xPCIe 4.0 + 1xPCIe 3.0 M.2, 1GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331868208",
+    "B550EAGLE",
+    "GB550EAGLE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124953610": {
+   "url": "https://icecat.biz/p/product/124953610",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550 EAGLE WIFI6 Motherboard - AMD Ryzen 5000 G-Series CPUs, 10+3+1 Phases VRM, up to 3200MHz DDR4, 1xPCIe 4.0 + 1xPCIe 3.0 M.2, 1GbE LAN, WIFI 6, USB 3.2 Gen 2",
+   "keys": [
+    "0889523047262",
+    "4719331868406",
+    "889523047262",
+    "B550EAGLEWIFI6",
+    "GB550EAGLEWIFI6"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 4,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124980376": {
+   "url": "https://icecat.biz/p/product/124980376",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860 DS3H Motherboard - Supports Intel Core Ultra CPUs, 8+1+2+2 phases VRM, up to 9066MHz DDR5, 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5 GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331868178",
+    "B860DS3H",
+    "GB860DS3H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "124995959": {
+   "url": "https://icecat.biz/p/product/124995959",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5080 MASTER 16G Graphics Card",
+   "keys": [
+    "0889523048061",
+    "4719331355586",
+    "889523048061",
+    "GVN5080AORUSM16GD",
+    "N5080AORUSM16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 360,
+    "boost_clock_mhz": 2805
+   }
+  },
+  "124995960": {
+   "url": "https://icecat.biz/p/product/124995960",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5080 GAMING OC 16G Graphics Card",
+   "keys": [
+    "0889523047521",
+    "4719331355494",
+    "889523047521",
+    "GVN5080GAMINGOC16GD",
+    "N5080GAMINGOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 342,
+    "boost_clock_mhz": 2730
+   }
+  },
+  "124995961": {
+   "url": "https://icecat.biz/p/product/124995961",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5080 AERO OC SFF 16G Graphics Card",
+   "keys": [
+    "0889523048030",
+    "4719331355555",
+    "889523048030",
+    "GVN5080AEROOC16GD",
+    "N5080AEROOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2730
+   }
+  },
+  "124995962": {
+   "url": "https://icecat.biz/p/product/124995962",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5080 WINDFORCE SFF 16G Graphics Card - 16GB GDDR7, 256bit, PCI-E 5.0, 2617MHz Core Clock, 3 x DisplayPort, 1 x HDMI, GV-N5080WF3-16GD",
+   "keys": [
+    "0889523047514",
+    "4719331355487",
+    "889523047514",
+    "GVN5080WF316GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2617
+   }
+  },
+  "125096431": {
+   "url": "https://icecat.biz/p/product/125096431",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5090 MASTER 32G Graphics Card",
+   "keys": [
+    "0889523048450",
+    "4719331355807",
+    "889523048450",
+    "GVN5090AORUSM32GD",
+    "N5090AORUSM32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 360,
+    "boost_clock_mhz": 2655
+   }
+  },
+  "125096433": {
+   "url": "https://icecat.biz/p/product/125096433",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 Ti AERO OC 16G Graphics Card",
+   "keys": [
+    "0889523048542",
+    "4719331355876",
+    "889523048542",
+    "GVN507TAEROOC16GD",
+    "N507TAEROOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 340,
+    "boost_clock_mhz": 2588
+   }
+  },
+  "125097572": {
+   "url": "https://icecat.biz/p/product/125097572",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 Ti GAMING OC 16G Graphics Card",
+   "keys": [
+    "0889523048054",
+    "4719331355562",
+    "889523048054",
+    "GVN507TGAMINGOC16GD",
+    "N507TGAMINGOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 342,
+    "boost_clock_mhz": 2588
+   }
+  },
+  "125097573": {
+   "url": "https://icecat.biz/p/product/125097573",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 Ti EAGLE OC SFF 16G Graphics Card - 16GB GDDR7, 256bit, PCI-E 5.0, 2542 MHz Core Clock, 3 x DP 2.1a, 1 x HDMI 2.1b, NVIDIA DLSS 4, GV-N507TEAGLE OC-16GD",
+   "keys": [
+    "0889523048559",
+    "4719331355883",
+    "889523048559",
+    "GVN507TEAGLEOC16GD",
+    "N507TEAGLEOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2542
+   }
+  },
+  "125097810": {
+   "url": "https://icecat.biz/p/product/125097810",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 AERO OC 12G Graphics Card",
+   "keys": [
+    "0889523048511",
+    "4719331355852",
+    "889523048511",
+    "GVN5070AEROOC12GD",
+    "N5070AEROOC12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 324,
+    "boost_clock_mhz": 2625
+   }
+  },
+  "125097811": {
+   "url": "https://icecat.biz/p/product/125097811",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 EAGLE OC SFF 12G Graphics Card - 12GB GDDR7, 192bit, PCI-E 5.0, 2587 MHz Core Clock, 3 x DP 2.1b, 1 x HDMI 2.1b, NVIDIA DLSS 4, GV-N5070EAGLE OC-12GD",
+   "keys": [
+    "0889523048412",
+    "4719331355760",
+    "889523048412",
+    "GVN5070EAGLEOC12GD",
+    "N5070EAGLEOC12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 290,
+    "boost_clock_mhz": 2587
+   }
+  },
+  "125097812": {
+   "url": "https://icecat.biz/p/product/125097812",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS Radeon RX 9070 XT ELITE 16G Graphics Card",
+   "keys": [
+    "0889523047545",
+    "4719331355517",
+    "889523047545",
+    "GVR9070XTAORUSE16GD",
+    "R9070XTAORUSE16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 20,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "3x8-pin"
+    ],
+    "length_mm": 339,
+    "boost_clock_mhz": 3100
+   }
+  },
+  "125097813": {
+   "url": "https://icecat.biz/p/product/125097813",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5080 MASTER ICE 16G Graphics Card",
+   "keys": [
+    "0889523048177",
+    "4719331355692",
+    "889523048177",
+    "GVN5080AORUSMICE16GD",
+    "N5080AORUSMICE16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 360,
+    "boost_clock_mhz": 2805
+   }
+  },
+  "125098152": {
+   "url": "https://icecat.biz/p/product/125098152",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Radeon RX 9070 GAMING OC 16G Graphics Card",
+   "keys": [
+    "0889523047552",
+    "4719331355531",
+    "889523047552",
+    "GVR9070GAMINGOC16GD",
+    "R9070GAMINGOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 20,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "2x8-pin"
+    ],
+    "length_mm": 288,
+    "boost_clock_mhz": 2700
+   }
+  },
+  "125098153": {
+   "url": "https://icecat.biz/p/product/125098153",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5090 XTREME WATERFORCE WB 32G Graphics Card",
+   "keys": [
+    "0889523048672",
+    "4719331355944",
+    "889523048672",
+    "GVN5090AORUSXWB32GD",
+    "N5090AORUSXWB32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 234,
+    "boost_clock_mhz": 2655
+   }
+  },
+  "125098225": {
+   "url": "https://icecat.biz/p/product/125098225",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5080 WINDFORCE OC SFF 16G Graphics Card",
+   "keys": [
+    "0889523048528",
+    "4719331355845",
+    "889523048528",
+    "GVN5080WF3OC16GD",
+    "N5080WF3OC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2670
+   }
+  },
+  "125098228": {
+   "url": "https://icecat.biz/p/product/125098228",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5080 XTREME WATERFORCE 16G Graphics Card",
+   "keys": [
+    "4719331355739",
+    "GVN5080AORUSXW16GD",
+    "N5080AORUSXW16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 220,
+    "boost_clock_mhz": 2805
+   }
+  },
+  "125098231": {
+   "url": "https://icecat.biz/p/product/125098231",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5090 XTREME WATERFORCE 32G Graphics Card",
+   "keys": [
+    "0889523048696",
+    "4719331355968",
+    "889523048696",
+    "GVN5090AORUSXW32GD",
+    "N5090AORUSXW32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 245,
+    "boost_clock_mhz": 2655
+   }
+  },
+  "125098274": {
+   "url": "https://icecat.biz/p/product/125098274",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5070 MASTER 12G Graphics Card",
+   "keys": [
+    "4719331355753",
+    "GVN5070AORUSM12GD",
+    "N5070AORUSM12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 317,
+    "boost_clock_mhz": 2715
+   }
+  },
+  "125098275": {
+   "url": "https://icecat.biz/p/product/125098275",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 WINDFORCE OC SFF 12G Graphics Card",
+   "keys": [
+    "0889523048191",
+    "4719331355715",
+    "889523048191",
+    "GVN5070WF3OC12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 282,
+    "boost_clock_mhz": 2542
+   }
+  },
+  "125098277": {
+   "url": "https://icecat.biz/p/product/125098277",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5090 GAMING OC 32G Graphics Card",
+   "keys": [
+    "0889523048443",
+    "4719331355791",
+    "889523048443",
+    "GVN5090GAMINGOC32GD",
+    "N5090GAMINGOC32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 342,
+    "boost_clock_mhz": 2550
+   }
+  },
+  "125098278": {
+   "url": "https://icecat.biz/p/product/125098278",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5070 Ti MASTER 16G Graphics Card",
+   "keys": [
+    "4719331355678",
+    "GVN507TAORUSM16GD",
+    "N507TAORUSM16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 360,
+    "boost_clock_mhz": 2670
+   }
+  },
+  "125098279": {
+   "url": "https://icecat.biz/p/product/125098279",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G Graphics Card - 16GB GDDR7, 256bit, PCI-E 5.0, 2542 MHz Core Clock, 3 x DP 2.1a, 1 x HDMI 2.1b, NVIDIA DLSS 4, GV-N507TEAGLEOC ICE-16GD",
+   "keys": [
+    "0889523048504",
+    "4719331355869",
+    "889523048504",
+    "GVN507TEAGLEOCICE16GD",
+    "N507TEAGLEOCICE16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 304,
+    "boost_clock_mhz": 2542
+   }
+  },
+  "125098334": {
+   "url": "https://icecat.biz/p/product/125098334",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 EAGLE OC ICE SFF 12G Graphics Card - 12GB GDDR7, 192bit, PCI-E 5.0, 2587 MHz Core Clock, 3 x DP 2.1a, 1 x HDMI 2.1b, NVIDIA DLSS 4, GV-N5070EAGLEOC ICE-12GD",
+   "keys": [
+    "0889523048429",
+    "4719331355777",
+    "889523048429",
+    "GVN5070EAGLEOCICE12GD",
+    "N5070EAGLEOCICE12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 290,
+    "boost_clock_mhz": 2587
+   }
+  },
+  "125098335": {
+   "url": "https://icecat.biz/p/product/125098335",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5070 GAMING OC 12G Graphics Card",
+   "keys": [
+    "0889523048207",
+    "4719331355722",
+    "889523048207",
+    "GVN5070GAMINGOC12GD",
+    "N5070GAMINGOC12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 327,
+    "boost_clock_mhz": 2625
+   }
+  },
+  "125118797": {
+   "url": "https://icecat.biz/p/product/125118797",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650M GAMING WIFI6E Motherboard - AMD Ryzen 9000 Series CPUs, 5+2+2 Phases VRM, up to 6400MHz DDR5 (OC), 1xPCIe 4.0 M.2, 2.5 GbE LAN, WIFI 6E, USB 3.2 Gen 1",
+   "keys": [
+    "4719331867942",
+    "B650MGAMINGWIFI6E",
+    "GB650MGAMINGWIFI6E"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "125185602": {
+   "url": "https://icecat.biz/p/product/125185602",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H810M GAMING WIFI6 Motherboard - Intel Core Ultra (Series 2) CPUs, 4+1+2 Phases VRM, up to 6400MHz DDR5, 1xPCIe 4.0 M.2, 2.5GbE LAN, WIFI 6, USB 3.2 Gen 1",
+   "keys": [
+    "0889523047941",
+    "4719331869090",
+    "889523047941",
+    "GH810MGAMINGWIFI6",
+    "H810MGAMINGWIFI6"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "125185603": {
+   "url": "https://icecat.biz/p/product/125185603",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H810M H Motherboard - Intel Core Ultra (Series 2) CPUs, 4+1+2 Phases VRM, up to 6400MHz DDR5, 1xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331869540",
+    "GH810MH",
+    "H810MH"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "125185604": {
+   "url": "https://icecat.biz/p/product/125185604",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H810M S2H Motherboard - Intel Core Ultra (Series 2) CPUs, 4+1+2 Phases VRM, up to 6400MHz DDR5, 1xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523047996",
+    "4719331869168",
+    "889523047996",
+    "GH810MS2H",
+    "H810MS2H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "128639640": {
+   "url": "https://icecat.biz/p/product/128639640",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B840M DS3H Motherboard - AMD Ryzen 9000 CPUs, 8+2+2 Phases VRM, up to 8200MHz DDR5, 2xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331868437",
+    "B840MDS3H",
+    "GB840MDS3H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "128639641": {
+   "url": "https://icecat.biz/p/product/128639641",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B840M D2H Motherboard - AMD Ryzen 9000 CPUs, 5+2+2 Phases VRM, up to 7600MHz DDR5, 1xPCIe 4.0 + 1xPCIe 3.0 M.2, 2.5GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331868116",
+    "B840MD2H",
+    "GB840MD2H"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "128775823": {
+   "url": "https://icecat.biz/p/product/128775823",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M GAMING WIFI6 Motherboard",
+   "keys": [
+    "4719331866891",
+    "B860MGAMINGWIFI6",
+    "GB860MGAMINGWIFI6"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9066",
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "129503254": {
+   "url": "https://icecat.biz/p/product/129503254",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550M GAMING X WIFI6 Motherboard - AMD Ryzen 5000 CPUs, 5+3 Phases VRM, up to 3200MHz DDR4, 1xPCIe 4.0 + 1xPCIe 3.0 M.2, Wi-Fi 6, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523048740",
+    "4719331870096",
+    "889523048740",
+    "B550MGAMINGXWIFI6",
+    "GB550MGAMINGXWIFI6"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "129647786": {
+   "url": "https://icecat.biz/p/product/129647786",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550M DS3H AC R2 Motherboard - AMD Ryzen 5000 CPUs, 5+3 Phases VRM, up to 4733MHz DDR4 (O.C.), 1xPCIe 4.0 + 1xPCIe 3.0 M.2, Wi-Fi 5, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523048641",
+    "4719331869908",
+    "889523048641",
+    "B550MDS3HACR2",
+    "GB550MDS3HACR2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 5",
+    "bluetooth": "Bluetooth 5",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "129653459": {
+   "url": "https://icecat.biz/p/product/129653459",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M EAGLE V2 Motherboard - Intel Core Ultra Series CPUs, 6+1+2 Phases VRM, up to 9066MHz DDR5, 1xPCIe 5.0 + 1xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331869656",
+    "B860MEAGLEV2",
+    "GB860MEAGLEV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9066",
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "129653460": {
+   "url": "https://icecat.biz/p/product/129653460",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M D3HP WIFI6 Motherboard - Supports Intel Core 14th Gen CPUs, 4+1+1 Phases Digital VRM, up to 5600MHz DDR5, 2xPCIe 4.0 M.2, Wi-Fi 6, GbE LAN, USB 3.2 Gen1",
+   "keys": [
+    "4719331867638",
+    "B760MD3HPWIFI6",
+    "GB760MD3HPWIFI6"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 192,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "129653461": {
+   "url": "https://icecat.biz/p/product/129653461",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550M DS3H R2 Motherboard - AMD Ryzen 5000 CPUs, 5+3 Phases VRM, up to 4733MHz DDR4 (O.C.), 1xPCIe 4.0 + 1xPCIe 3.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331870454",
+    "B550MDS3HR2",
+    "GB550MDS3HR2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "130196228": {
+   "url": "https://icecat.biz/p/product/130196228",
+   "fetched": "2026-10-22",
+   "category": "aio",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GAMING 240 Liquid CPU Cooler",
+   "keys": [
+    "4719331555856",
+    "GPGIGABYTEGME240"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_size_mm": 120,
+    "fan_count": 2,
+    "airflow_cfm": 61.61,
+    "sockets": [
+     "LGA1700",
+     "LGA1851",
+     "AM4",
+     "AM5"
+    ],
+    "lighting": "RGB"
+   }
+  },
+  "130197316": {
+   "url": "https://icecat.biz/p/product/130197316",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M E Motherboard - Supports 14th Gen. Intel Core CPUs, 6+1+1 phases VRM, up to 7200MHz DDR5 (OC), 2xPCIe 4.0 M.2, 1 GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331856052",
+    "B760ME",
+    "GB760ME"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "130516980": {
+   "url": "https://icecat.biz/p/product/130516980",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Radeon RX 9070 XT GAMING 16G Graphics Card - 16GB GDDR6, 256bit, PCI-E 5.0, 2970 MHz Core Clock, 2 x DisplayPort 2.1a, 2 x HDMI 2.1b, GV-R9070XTGAMING-16GD",
+   "keys": [
+    "0889523049631",
+    "4719331356149",
+    "889523049631",
+    "GVR9070XTGAMING16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 20,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "3x8-pin"
+    ],
+    "length_mm": 288,
+    "boost_clock_mhz": 2970
+   }
+  },
+  "130662138": {
+   "url": "https://icecat.biz/p/product/130662138",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti AERO OC 16G Graphics Card",
+   "keys": [
+    "0889523049310",
+    "4719331356033",
+    "889523049310",
+    "GVN506TAEROOC16GD",
+    "N506TAEROOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 281,
+    "boost_clock_mhz": 2647
+   }
+  },
+  "130665407": {
+   "url": "https://icecat.biz/p/product/130665407",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE C201 PANORAMIC ICE PC Case - Mid Tower, m-ATX, 360mm radiator support, 3 Pre-installed Fans, USB 3.0, Support RGB Fusion",
+   "keys": [
+    "0810162142414",
+    "4719331555849",
+    "810162142414",
+    "GBC201PI"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 1,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "140 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 6.5,
+    "dimensions_mm": "W=242 H=431 D=430mm",
+    "lighting": "RGB"
+   }
+  },
+  "130665408": {
+   "url": "https://icecat.biz/p/product/130665408",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE C201 PANORAMIC PC Case - Mid Tower, m-ATX, 360mm radiator support, 3 Pre-installed Fans, USB 3.0, Support RGB Fusion",
+   "keys": [
+    "0810162142407",
+    "4719331555832",
+    "810162142407",
+    "GBC201P"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX"
+    ],
+    "max_gpu_length_mm": 410,
+    "max_cooler_height_mm": 190,
+    "drive_bays_35": 2,
+    "drive_bays_25": 1,
+    "expansion_slots": "5",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_top": "3 x 120 mm, 3 x 140 mm",
+    "fan_side": "2 x 120 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "140 mm": 1,
+     "240 mm": 1,
+     "360 mm": 1
+    },
+    "weight_kg": 6.5,
+    "dimensions_mm": "W=242 H=431 D=430mm",
+    "lighting": "RGB"
+   }
+  },
+  "130671146": {
+   "url": "https://icecat.biz/p/product/130671146",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti EAGLE OC 16G Graphics Card - 16GB GDDR7, 128bit, PCI-E 5.0, 2617MHz Core Clock, 3 x DisplayPort, 1 x HDMI, GV-N506TEAGLE OC-16GD",
+   "keys": [
+    "0889523049334",
+    "4719331356071",
+    "889523049334",
+    "GVN506TEAGLEOC16GD",
+    "N506TEAGLEOC16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 215,
+    "boost_clock_mhz": 2617
+   }
+  },
+  "130787095": {
+   "url": "https://icecat.biz/p/product/130787095",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti AERO OC 8G Graphics Card - 8GB GDDR7, 128bit, PCI-E 5.0, 2647MHz Core Clock, 3 x DisplayPort, 1 x HDMI, GV-N506TAERO OC-8GD",
+   "keys": [
+    "0889523049327",
+    "4719331356040",
+    "889523049327",
+    "GVN506TAEROOC8GD",
+    "N506TAEROOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 281,
+    "boost_clock_mhz": 2647
+   }
+  },
+  "130787103": {
+   "url": "https://icecat.biz/p/product/130787103",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti EAGLE OC 8G Graphics Card",
+   "keys": [
+    "0889523049365",
+    "4719331356101",
+    "889523049365",
+    "GVN506TEAGLEOC8GD",
+    "N506TEAGLEOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 215,
+    "boost_clock_mhz": 2617
+   }
+  },
+  "130787134": {
+   "url": "https://icecat.biz/p/product/130787134",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti GAMING OC 8G Graphics Card",
+   "keys": [
+    "0889523049297",
+    "4719331356019",
+    "889523049297",
+    "GVN506TGAMINGOC8GD",
+    "N506TGAMINGOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 281,
+    "boost_clock_mhz": 2647
+   }
+  },
+  "130787142": {
+   "url": "https://icecat.biz/p/product/130787142",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti WINDFORCE 8G Graphics Card - 8GB GDDR7, 128bit, PCI-E 5.0, 2572MHz Core Clock, 3 x DisplayPort, 1 x HDMI, GV-N506TWF2-8GD",
+   "keys": [
+    "0889523050101",
+    "4719331356316",
+    "889523050101",
+    "GVN506TWF28GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 208,
+    "boost_clock_mhz": 2572
+   }
+  },
+  "130787152": {
+   "url": "https://icecat.biz/p/product/130787152",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti WINDFORCE OC 8G Graphics Card - 8GB GDDR7, 128bit, PCI-E 5.0, 2587MHz Core Clock, 3 x DisplayPort, 1 x HDMI, GV-N506TWF2OC-8GD",
+   "keys": [
+    "0889523049389",
+    "4719331356057",
+    "889523049389",
+    "GVN506TWF2OC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 208,
+    "boost_clock_mhz": 2587
+   }
+  },
+  "130931443": {
+   "url": "https://icecat.biz/p/product/130931443",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 WINDFORCE OC 8G Graphics Card",
+   "keys": [
+    "0889523050156",
+    "4719331356323",
+    "889523050156",
+    "GVN5060WF2OC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 450,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 199,
+    "boost_clock_mhz": 2512
+   }
+  },
+  "130955358": {
+   "url": "https://icecat.biz/p/product/130955358",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 OC Low Profile 8G Graphics Card - 8GB GDDR7, 128bit, PCI-E 5.0, 2512 MHz Core Clock, 3 x DisplayPort, 1 x HDMI, GV-N5060OC-8GL",
+   "keys": [
+    "0889523050699",
+    "4719331356422",
+    "889523050699",
+    "GVN5060OC8GL"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 450,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 182,
+    "boost_clock_mhz": 2512
+   }
+  },
+  "130955597": {
+   "url": "https://icecat.biz/p/product/130955597",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 EAGLE OC 8G Graphics Card",
+   "keys": [
+    "4719331356439",
+    "GVN5060EAGLEOC8GD",
+    "N5060EAGLEOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 450,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 208,
+    "boost_clock_mhz": 2550
+   }
+  },
+  "130955628": {
+   "url": "https://icecat.biz/p/product/130955628",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5060 ELITE 8G Graphics Card",
+   "keys": [
+    "4719331356392",
+    "GVN5060AORUSE8GD",
+    "N5060AORUSE8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 500,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 329,
+    "boost_clock_mhz": 2722
+   }
+  },
+  "130955646": {
+   "url": "https://icecat.biz/p/product/130955646",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 AERO OC 8G Graphics Card",
+   "keys": [
+    "0889523050682",
+    "4719331356415",
+    "889523050682",
+    "GVN5060AEROOC8GD",
+    "N5060AEROOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 500,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 281,
+    "boost_clock_mhz": 2595
+   }
+  },
+  "130955654": {
+   "url": "https://icecat.biz/p/product/130955654",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B840M EAGLE WIFI6 Motherboard - AMD Ryzen 9000 CPUs, 5+2+2 Phases VRM, up to 7600MHz DDR5(O.C), 1xPCIe 4.0 + 1xPCIe 3.0 M.2, Wi-Fi 6, 2.5GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523047422",
+    "4719331868970",
+    "889523047422",
+    "B840MEAGLEWIFI6",
+    "GB840MEAGLEWIFI6"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.3",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "131044351": {
+   "url": "https://icecat.biz/p/product/131044351",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850 EAGLE ICE Motherboard",
+   "keys": [
+    "4719331871680",
+    "B850EAGLEICE",
+    "GB850EAGLEICE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132096036": {
+   "url": "https://icecat.biz/p/product/132096036",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M DS3H GEN5 Motherboard",
+   "keys": [
+    "4719331872793",
+    "B760MDS3HGEN5",
+    "GB760MDS3HGEN5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132451904": {
+   "url": "https://icecat.biz/p/product/132451904",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5090 STEALTH ICE 32G Graphics Card",
+   "keys": [
+    "4719331356576",
+    "GVN5090AORUSSTICE32GD",
+    "N5090AORUSSTICE32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 360,
+    "boost_clock_mhz": 2655
+   }
+  },
+  "132549389": {
+   "url": "https://icecat.biz/p/product/132549389",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 WINDFORCE MAX OC 8G Graphics Card",
+   "keys": [
+    "0889523052365",
+    "4719331356699",
+    "889523052365",
+    "GVN5060WF2MAXOC8GD",
+    "N5060WF2MAXOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 199,
+    "boost_clock_mhz": 2512
+   }
+  },
+  "132684738": {
+   "url": "https://icecat.biz/p/product/132684738",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 Ti EAGLE MAX OC 8G Graphics Card",
+   "keys": [
+    "4719331356637",
+    "GVN506TEAGLEMAXOC8GD",
+    "N506TEAGLEMAXOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 650,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 281,
+    "boost_clock_mhz": 2617
+   }
+  },
+  "132826797": {
+   "url": "https://icecat.biz/p/product/132826797",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5050 WINDFORCE OC 8G Graphics Card",
+   "keys": [
+    "0889523052709",
+    "4719331356743",
+    "889523052709",
+    "GVN5050WF2OC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 20,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 199,
+    "boost_clock_mhz": 2587
+   }
+  },
+  "132926576": {
+   "url": "https://icecat.biz/p/product/132926576",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760 DS3H GEN5 Motherboard - Supports Intel Core 14th Gen CPUs, 8+2+1 Phases Digital VRM, up to 5600MHz DDR5, 2xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 2x2",
+   "keys": [
+    "4719331872892",
+    "B760DS3HGEN5",
+    "GB760DS3HGEN5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132928343": {
+   "url": "https://icecat.biz/p/product/132928343",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760 GAMING X GEN5 Motherboard",
+   "keys": [
+    "4719331872120",
+    "B760GAMINGXGEN5",
+    "GB760GAMINGXGEN5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132929737": {
+   "url": "https://icecat.biz/p/product/132929737",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850M FORCE Motherboard - AMD Ryzen 9000 Series CPUs, 8+2+2 Phases Digital VRM, up to 9600MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0 M.2, 2.5 GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331874322",
+    "B850MFORCE",
+    "GB850MFORCE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9600",
+     "9200",
+     "8800",
+     "8600",
+     "8400",
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132954004": {
+   "url": "https://icecat.biz/p/product/132954004",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H810M K Motherboard - Intel Core Ultra (Series 2) CPUs, 3+1+2 Phases VRM, up to 6400MHz DDR5, 1xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331868697",
+    "GH810MK",
+    "H810MK"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "H810",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "6400",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "132977510": {
+   "url": "https://icecat.biz/p/product/132977510",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Radeon AI PRO R9700 AI TOP 32G Graphics Card",
+   "keys": [
+    "0889523052266",
+    "889523052266",
+    "GVR9700AITOP32GD",
+    "R9700AITOP32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Gray",
+    "fan_count": 1,
+    "memory_gb": 32,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 20,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 267,
+    "boost_clock_mhz": 2920,
+    "core_clock_mhz": 2350
+   }
+  },
+  "133494839": {
+   "url": "https://icecat.biz/p/product/133494839",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS RTX 5090 AI BOX Graphics Card",
+   "keys": [
+    "GVN5090IXEB32GD"
+   ],
+   "names": [],
+   "specs": {
+    "memory_gb": 32,
+    "memory_speed_gbps": 28,
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "boost_clock_mhz": 2407
+   }
+  },
+  "137000177": {
+   "url": "https://icecat.biz/p/product/137000177",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M E Motherboard - Intel Core Ultra Series CPUs, 4+1+2 Phases VRM, up to 8800MHz DDR5 (O.C), 2xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331868260",
+    "B860ME",
+    "GB860ME"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "137263233": {
+   "url": "https://icecat.biz/p/product/137263233",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B840M H Motherboard - AMD Ryzen 9000 CPUs, 5+2+2 Phases VRM, up to 7200MHz DDR5 (OC), 1xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331877880",
+    "B840MH",
+    "GB840MH"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "137509846": {
+   "url": "https://icecat.biz/p/product/137509846",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M D3W Motherboard - Supports 14th Gen. Intel Core CPUs, 5+1+1 phases VRM, up to 5600MHz DDR5, 1xPCIe 3.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331877804",
+    "GH610MD3W",
+    "H610MD3W"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "137806781": {
+   "url": "https://icecat.biz/p/product/137806781",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B760M H V2 Motherboard - Supports Intel Core 14th Gen CPUs, 5+1+1 Phases Digital VRM, up to 8000MHz DDR5 (O.C.), 1xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen1",
+   "keys": [
+    "4719331878054",
+    "B760MHV2",
+    "GB760MHV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8000",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139172917": {
+   "url": "https://icecat.biz/p/product/139172917",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A520M H ARGB Motherboard - Supports AMD Ryzen 5000 Series CPUs, up to 5100MHz DDR4 (OC), PCIe 3.0 x4 M.2, 1 GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331879822",
+    "A520MHARGB",
+    "GA520MHARGB"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "5100",
+     "4800",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139172939": {
+   "url": "https://icecat.biz/p/product/139172939",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS RTX 5060 Ti AI BOX Graphics Card",
+   "keys": [
+    "4719331357184",
+    "GVN506TIXEB16GD"
+   ],
+   "names": [],
+   "specs": {
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_speed_gbps": 28,
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "boost_clock_mhz": 2572
+   }
+  },
+  "139176166": {
+   "url": "https://icecat.biz/p/product/139176166",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B840M D3HP Motherboard - AMD Ryzen 9000 CPUs, 8+2+2 Phases VRM, up to 8200MHz DDR5(O.C), 2xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331879761",
+    "B840MD3HP",
+    "GB840MD3HP"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B840",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5800",
+     "5600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "139704713": {
+   "url": "https://icecat.biz/p/product/139704713",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M E GEN5 Motherboard - Intel Core Ultra Series CPUs, 4+1+2 Phases VRM, up to 8800MHz DDR5 (O.C.), 2xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331879853",
+    "B860MEGEN5",
+    "GB860MEGEN5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "140238211": {
+   "url": "https://icecat.biz/p/product/140238211",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE P650G PCIE 5.1 power supply unit 650 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "GPP650GPG5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 650,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "no",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 2,
+    "sata_connectors": 6,
+    "molex4_connectors": 3,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  },
+  "144167986": {
+   "url": "https://icecat.biz/p/product/144167986",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B650E EAGLE Motherboard - AMD Ryzen 9000 Series CPUs, 8+2+2 Phases VRM, up to 8200MHz DDR5 (OC), 1xPCIe 5.0 + 2xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331880125",
+    "B650EEAGLE",
+    "GB650EEAGLE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM5",
+    "chipset": "B650",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7200",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "144168695": {
+   "url": "https://icecat.biz/p/product/144168695",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 EAGLE PLUS Motherboard - Supports Intel Core Ultra (Series 2) CPUs, 14+1+2 phases VRM, up to 9466MHz DDR5 (OC), 1xPCIe 5.0 M.2 + 3xPCIe 4.0 M.2, 2.5GbE LAN, USB4",
+   "keys": [
+    "4719331880750",
+    "GZ890EAGLEPLUS",
+    "Z890EAGLEPLUS"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9466"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "144280128": {
+   "url": "https://icecat.biz/p/product/144280128",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z890 D PLUS Motherboard - Supports Intel Core Ultra (Series 2) CPUs, 12+1+2 phases VRM, up to 9466MHz DDR5 (OC), 1xPCIe 5.0 M.2 + 3xPCIe 4.0 M.2, 2.5GbE LAN, USB 3.2 Gen 2",
+   "keys": [
+    "4719331880644",
+    "GZ890DPLUS",
+    "Z890DPLUS"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "LGA1851",
+    "chipset": "Z890",
+    "form_factor": "ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9466"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "4"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "144387775": {
+   "url": "https://icecat.biz/p/product/144387775",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B860M D3W Motherboard - Intel Core Ultra Series CPUs, 4+1+2 Phases VRM, up to 9066MHz DDR5, 2xPCIe 4.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331880613",
+    "B860MD3W",
+    "GB860MD3W"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1851",
+    "chipset": "B860",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "9066",
+     "8800",
+     "8600",
+     "8400",
+     "8266",
+     "8200",
+     "8000",
+     "7950",
+     "7900",
+     "7800",
+     "7600",
+     "7400",
+     "7200",
+     "7000",
+     "6800",
+     "6600"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "146391904": {
+   "url": "https://icecat.biz/p/product/146391904",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5090 INFINITY 32G Graphics Card",
+   "keys": [
+    "4719331357337",
+    "GVN5090AORUSIF32GD",
+    "N5090AORUSIF32GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 3,
+    "memory_gb": 32,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 512,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 1000,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 330,
+    "boost_clock_mhz": 2730
+   }
+  },
+  "146731713": {
+   "url": "https://icecat.biz/p/product/146731713",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Radeon RX 9070 GRE GAMING OC 12G Graphics Card",
+   "keys": [
+    "0889523050064",
+    "4719331356262",
+    "889523050064",
+    "GVR907GREGAMINGOC12GD",
+    "R907GREGAMINGOC12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR6",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 18,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "2x8-pin"
+    ],
+    "length_mm": 288,
+    "boost_clock_mhz": 2920
+   }
+  },
+  "147134190": {
+   "url": "https://icecat.biz/p/product/147134190",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GeForce RTX 5060 WINDFORCE MAX OC V2 8G Graphics Card - 8GB GDDR7, 128bit, PCI-E 5.0, 2512MHz Core Clock, 3 x DP, 1 x HDMI, NVIDIA DLSS 4, GV-N5060WF2MAX OCV2-8GD",
+   "keys": [
+    "0889523059661",
+    "4719331357382",
+    "889523059661",
+    "GVN5060WF2MAXOCV28GD",
+    "N5060WF2MAXOCV28GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 2,
+    "memory_gb": 8,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 128,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 550,
+    "external_power": [
+     "1x8-pin"
+    ],
+    "length_mm": 199,
+    "boost_clock_mhz": 2512
+   }
+  },
+  "147708241": {
+   "url": "https://icecat.biz/p/product/147708241",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B850M AORUS STEALTH Motherboard",
+   "keys": [
+    "4719331882198",
+    "B850MAORUSSTEALTH",
+    "GB850MAORUSSTEALTH"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "B850",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR5",
+    "memory_slots": 4,
+    "memory_max_gb": 256,
+    "memory_speeds": [
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6600",
+     "6400",
+     "6200",
+     "6000",
+     "5600",
+     "5200",
+     "4800",
+     "4400"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6E",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "148452236": {
+   "url": "https://icecat.biz/p/product/148452236",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5080 INFINITY WOOD 16G NVIDIA 16 GB GDDR7",
+   "keys": [
+    "4719331357535",
+    "GVN5080AORUSIFWD16GD",
+    "N5080AORUSIFWD16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "White",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 330,
+    "boost_clock_mhz": 2805
+   }
+  },
+  "148452237": {
+   "url": "https://icecat.biz/p/product/148452237",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5080 INFINITY 16G Graphics Card",
+   "keys": [
+    "4719331357542",
+    "GVN5080AORUSIF16GD",
+    "N5080AORUSIF16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 30,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 850,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 330,
+    "boost_clock_mhz": 2805
+   }
+  },
+  "148452238": {
+   "url": "https://icecat.biz/p/product/148452238",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5070 Ti INFINITY 16G Graphics Card",
+   "keys": [
+    "4719331357528",
+    "GVN507TAORUSIF16GD",
+    "N507TAORUSIF16GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 3,
+    "memory_gb": 16,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 327,
+    "boost_clock_mhz": 2670
+   }
+  },
+  "148452239": {
+   "url": "https://icecat.biz/p/product/148452239",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS GeForce RTX 5070 INFINITY 12G Graphics Card",
+   "keys": [
+    "0889523060421",
+    "4719331357559",
+    "889523060421",
+    "GVN5070AORUSIF12GD",
+    "N5070AORUSIF12GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / Gray",
+    "fan_count": 3,
+    "memory_gb": 12,
+    "memory_type": "GDDR7",
+    "memory_bus_bit": 192,
+    "memory_speed_gbps": 28,
+    "interface": "PCIe 5.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "dp_outputs": {
+     "DisplayPort": 3
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "1x16-pin"
+    ],
+    "length_mm": 309,
+    "boost_clock_mhz": 2715
+   }
+  },
+  "148753992": {
+   "url": "https://icecat.biz/p/product/148753992",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X870 AORUS INFINITY Motherboard",
+   "keys": [
+    "0889523059876",
+    "4719331882617",
+    "889523059876",
+    "GX870AORUSINFINITY",
+    "X870AORUSINFINITY"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "socket": "AM5",
+    "chipset": "X870",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "9600",
+     "9200",
+     "8800",
+     "8600",
+     "8400",
+     "8200",
+     "8000",
+     "7800",
+     "7600",
+     "7200",
+     "7000",
+     "6800",
+     "6666",
+     "6600",
+     "6400",
+     "6200"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 7",
+    "bluetooth": "Bluetooth 5.4",
+    "raid_support": true,
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "150180209": {
+   "url": "https://icecat.biz/p/product/150180209",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550 X GAMING Motherboard",
+   "keys": [
+    "4719331884079",
+    "B550XGAMING",
+    "GB550XGAMING"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "bios": "UEFI AMI"
+   }
+  },
+  "37847784": {
+   "url": "https://icecat.biz/p/product/37847784",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE X299 UD4 Pro Intel® X299 LGA 2066 (Socket R4) ATX",
+   "keys": [
+    "0889523011072",
+    "4719331801977",
+    "889523011072",
+    "GX299UD4PRO",
+    "X299UD4PRO"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA2066",
+    "chipset": "X299",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 8,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 8,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "audio": "Realtek ALC1220",
+    "bios": "UEFI AMI"
+   }
+  },
+  "55182518": {
+   "url": "https://icecat.biz/p/product/55182518",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GV-N1030D4-2GL graphics card NVIDIA GeForce GT 1030 2 GB GDDR4",
+   "keys": [
+    "0889523013366",
+    "4719331303280",
+    "889523013366",
+    "GVN1030D42GL"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 1,
+    "memory_gb": 2,
+    "memory_type": "GDDR4",
+    "memory_bus_bit": 64,
+    "interface": "PCIe 3.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 1
+    },
+    "max_resolution": "4096x2160",
+    "max_displays": 2,
+    "recommended_psu_w": 300,
+    "length_mm": 150,
+    "boost_clock_mhz": 1379,
+    "core_clock_mhz": 1151
+   }
+  },
+  "71387912": {
+   "url": "https://icecat.biz/p/product/71387912",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE C200 Midi Tower Black",
+   "keys": [
+    "4719331551247",
+    "GBC200G"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX"
+    ],
+    "max_gpu_length_mm": 330,
+    "max_cooler_height_mm": 165,
+    "drive_bays_35": 2,
+    "drive_bays_25": 2,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "psu_included": "Not included",
+    "fan_front": "2 x 120 mm, 2 x 140 mm, 2 x 240 mm, 2 x 280 mm",
+    "fan_top": "2 x 120 mm, 2 x 240 mm",
+    "fan_rear": "1 x 120 mm",
+    "dimensions_mm": "W=210 H=480 D=435mm"
+   }
+  },
+  "79325917": {
+   "url": "https://icecat.biz/p/product/79325917",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z490 AORUS MASTER motherboard Intel Z490 LGA 1200 (Socket H5) ATX",
+   "keys": [
+    "0889523021439",
+    "4719331808327",
+    "889523021439",
+    "GZ490AORUSM",
+    "Z490AORUSMASTER"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1200",
+    "chipset": "Z490",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5000",
+     "4933",
+     "4800",
+     "4700",
+     "4600",
+     "4500",
+     "4400",
+     "4300",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3800",
+     "3733",
+     "3666",
+     "3600"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "bluetooth": "Bluetooth 5",
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "79359543": {
+   "url": "https://icecat.biz/p/product/79359543",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z490 AORUS XTREME motherboard Intel Z490 Express LGA 1200 (Socket H5) Extended ATX",
+   "keys": [
+    "4719331808532",
+    "GZ490AORUSXT",
+    "Z490AORUSXTREME"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1200",
+    "chipset": "Z490",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "5000",
+     "4933",
+     "4800",
+     "4700",
+     "4600",
+     "4500",
+     "4400",
+     "4300",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3800",
+     "3733",
+     "3666",
+     "3600"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "bluetooth": "Bluetooth 5.1",
+    "audio": "Realtek ALC1220-VB",
+    "bios": "UEFI AMI"
+   }
+  },
+  "79470026": {
+   "url": "https://icecat.biz/p/product/79470026",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H410M S2H motherboard Intel H410 Express LGA 1200 (Socket H5) micro ATX",
+   "keys": [
+    "0889523022283",
+    "4719331808839",
+    "889523022283",
+    "GH410MS2H",
+    "H410MS2H"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1200",
+    "chipset": "H410",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC887",
+    "bios": "UEFI AMI"
+   }
+  },
+  "80483780": {
+   "url": "https://icecat.biz/p/product/80483780",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE P750GM power supply unit 750 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "0813567028710",
+    "4719331551759",
+    "813567028710",
+    "GPP750GM"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 750,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 4,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  },
+  "81078805": {
+   "url": "https://icecat.biz/p/product/81078805",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE A520 AORUS ELITE Motherboard",
+   "keys": [
+    "4719331809812",
+    "A520AORUSELITE",
+    "GA520AORUSE"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "AM4",
+    "chipset": "A520",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4000",
+     "3600",
+     "3333",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "audio": "Realtek ALC1200",
+    "bios": "UEFI AMI"
+   }
+  },
+  "85832647": {
+   "url": "https://icecat.biz/p/product/85832647",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550M AORUS ELITE Motherboard - AMD Ryzen 5000 CPUs, 5+3 Phases VRM, up to 4733MHz DDR4, 1xPCIe 4.0 + 1xPCIe 3.0 M.2, 1GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331809546",
+    "B550MAORUSELITE",
+    "GB550MAORUSE"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 1,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "86066612": {
+   "url": "https://icecat.biz/p/product/86066612",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GV-N3090TURBO-24GD graphics card NVIDIA GeForce RTX 3090 24 GB GDDR6X",
+   "keys": [
+    "0889523024799",
+    "4719331307714",
+    "889523024799",
+    "GVN3090TURBO24GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 1,
+    "memory_gb": 24,
+    "memory_type": "GDDR6X",
+    "memory_bus_bit": 384,
+    "memory_speed_gbps": 20,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "2x8-pin"
+    ],
+    "length_mm": 267,
+    "boost_clock_mhz": 1695
+   }
+  },
+  "86067091": {
+   "url": "https://icecat.biz/p/product/86067091",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE P850GM power supply unit 850 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4719331551865",
+    "4719331551872",
+    "GPP850GM"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  },
+  "87315949": {
+   "url": "https://icecat.biz/p/product/87315949",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE B550 Gaming X V2 Motherboard",
+   "keys": [
+    "0889523024102",
+    "4719331810702",
+    "889523024102",
+    "B550GAMINGXV2",
+    "GB550GAMINGXV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "AM4",
+    "chipset": "B550",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "4733",
+     "4600",
+     "4400",
+     "4266",
+     "4133",
+     "4000",
+     "3866",
+     "3733",
+     "3600",
+     "3466",
+     "3400",
+     "3200",
+     "2933",
+     "2667",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "2"
+    ],
+    "pcie_x1_slots": 3,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "raid_support": true,
+    "audio": "Realtek ALC897",
+    "bios": "UEFI AMI"
+   }
+  },
+  "87923293": {
+   "url": "https://icecat.biz/p/product/87923293",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Vision Drive 1TB USB Type-C 3.2 Gen 2 (3.1 Gen 2) Black, White",
+   "keys": [
+    "4719331811914",
+    "GPVSD1TB"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "SSD",
+    "form_factor": "M.2",
+    "read_speed_mbs": 2000,
+    "write_speed_mbs": 2000,
+    "mtbf_hours": 1770000
+   }
+  },
+  "88009389": {
+   "url": "https://icecat.biz/p/product/88009389",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE P1000GM power supply unit 1000 W 20+4 pin ATX Black",
+   "keys": [
+    "4719331552015",
+    "4719331552022",
+    "GPP1000GM"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 6,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  },
+  "89147569": {
+   "url": "https://icecat.biz/p/product/89147569",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z590 AORUS ULTRA motherboard Intel Z590 LGA 1200 (Socket H5) ATX",
+   "keys": [
+    "4719331814885",
+    "GZ590AORUSU",
+    "Z590AORUSULTRA"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1200",
+    "chipset": "Z590",
+    "form_factor": "ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 4,
+    "memory_max_gb": 128,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 6,
+    "m2_slots": [
+     "3"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.1",
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "89312216": {
+   "url": "https://icecat.biz/p/product/89312216",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H410M S2H V2 Motherboard - Supports Intel Core 10th CPUs, up to 2933MHz DDR4, 1xPCIe M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "4719331815370",
+    "GH410MS2HV2",
+    "H410MS2HV2"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1200",
+    "chipset": "H470",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bluetooth": "No",
+    "raid_support": true,
+    "bios": "UEFI"
+   }
+  },
+  "92339094": {
+   "url": "https://icecat.biz/p/product/92339094",
+   "fetched": "2026-10-22",
+   "category": "gpu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE GAMING GV-N307TGAMING OC-8GD graphics card NVIDIA GeForce RTX 3070 Ti 8 GB GDDR6X",
+   "keys": [
+    "0889523028483",
+    "4719331309220",
+    "889523028483",
+    "GVN307TGAMINGOC8GD",
+    "N307TGAMINGOC8GD"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "fan_count": 3,
+    "memory_gb": 8,
+    "memory_type": "GDDR6X",
+    "memory_bus_bit": 256,
+    "memory_speed_gbps": 19,
+    "interface": "PCIe 4.0 x16",
+    "hdmi_outputs": {
+     "HDMI": 2
+    },
+    "dp_outputs": {
+     "DisplayPort": 2
+    },
+    "max_resolution": "7680x4320",
+    "max_displays": 4,
+    "recommended_psu_w": 750,
+    "external_power": [
+     "2x8-pin"
+    ],
+    "length_mm": 320,
+    "boost_clock_mhz": 1830
+   }
+  },
+  "92602024": {
+   "url": "https://icecat.biz/p/product/92602024",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H410M S2H V3 motherboard Intel H510 LGA 1200 (Socket H5) micro ATX",
+   "keys": [
+    "4719331823535",
+    "GH410MS2HV3",
+    "H410MS2HV3"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1200",
+    "chipset": "H510",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "bios": "UEFI AMI"
+   }
+  },
+  "93129010": {
+   "url": "https://icecat.biz/p/product/93129010",
+   "fetched": "2026-10-22",
+   "category": "case_fan",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE AORUS 140 ARGB Universal Fan 14 cm Black, White 1 pc(s)",
+   "keys": [
+    "4719331552220",
+    "GPAR140RFAN"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black / White",
+    "size_mm": 140,
+    "quantity": 1,
+    "rpm_max": 1700,
+    "rpm_min": 800,
+    "airflow_cfm": 60.64,
+    "noise_db": 35.8,
+    "connector": "4-pin"
+   }
+  },
+  "95595101": {
+   "url": "https://icecat.biz/p/product/95595101",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE Z690I AORUS ULTRA (rev. 1.0) Intel Z690 LGA 1700 mini ITX",
+   "keys": [
+    "4719331829940",
+    "GZ690IAORUSULTRA",
+    "Z690IAORUSULTRA"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "Z690",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR5",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "6200",
+     "6000",
+     "5800",
+     "5600",
+     "5400",
+     "5200",
+     "4800",
+     "4000"
+    ],
+    "sata_ports": 2,
+    "m2_slots": [
+     "2"
+    ],
+    "ethernet": "LAN 2.5 Gb/s",
+    "wireless": "Wi-Fi 6",
+    "bluetooth": "Bluetooth 5.2",
+    "raid_support": true,
+    "audio": "Realtek ALC4080",
+    "bios": "UEFI AMI"
+   }
+  },
+  "95820440": {
+   "url": "https://icecat.biz/p/product/95820440",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE UD850GM power supply unit 850 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4719331552541",
+    "GPUD850GM"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 850,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 3,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  },
+  "96569327": {
+   "url": "https://icecat.biz/p/product/96569327",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M S2H DDR4 motherboard Intel H610 Express LGA 1700 micro ATX",
+   "keys": [
+    "0889523030745",
+    "4719331830427",
+    "889523030745",
+    "H610MS2HDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "pcie_x1_slots": 2,
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "96569337": {
+   "url": "https://icecat.biz/p/product/96569337",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610M H DDR4 motherboard Intel H610 Express LGA 1700 micro ATX",
+   "keys": [
+    "4719331830465",
+    "H610MHDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Micro-ATX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "96586089": {
+   "url": "https://icecat.biz/p/product/96586089",
+   "fetched": "2026-10-22",
+   "category": "motherboard",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE H610I DDR4 Motherboard - Supports Intel Core 14th CPUs, 4+1+1 Hybrid Digital VRM, up to 3200MHz DDR4, 1xPCIe 3.0 M.2, GbE LAN, USB 3.2 Gen 1",
+   "keys": [
+    "0889523031490",
+    "4719331834562",
+    "889523031490",
+    "GH610IDDR4",
+    "H610IDDR4"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Brown",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "form_factor": "Mini-ITX",
+    "memory_type": "DDR4",
+    "memory_slots": 2,
+    "memory_max_gb": 64,
+    "memory_speeds": [
+     "3200",
+     "3000",
+     "2933",
+     "2666",
+     "2400",
+     "2133"
+    ],
+    "sata_ports": 4,
+    "m2_slots": [
+     "1"
+    ],
+    "ethernet": "LAN 1 Gb/s",
+    "wireless": "No",
+    "bios": "UEFI AMI"
+   }
+  },
+  "99717440": {
+   "url": "https://icecat.biz/p/product/99717440",
+   "fetched": "2026-10-22",
+   "category": "psu",
+   "brand": "Gigabyte",
+   "title": "GIGABYTE UD1000GM PG5 power supply unit 1000 W 20+4 pin ATX ATX Black",
+   "keys": [
+    "4719331552930",
+    "4719331553234",
+    "GPUD1000GMPG5"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "wattage_w": 1000,
+    "efficiency": "80+ Gold",
+    "type": "ATX",
+    "modular": "full",
+    "fan_size_mm": 120,
+    "pcie16_connectors": 1,
+    "pcie62_connectors": 4,
+    "sata_connectors": 8,
+    "molex4_connectors": 4,
+    "atx4_connectors": 1,
+    "length_mm": 140
+   }
+  }
+ }
+}

@@ -1,0 +1,944 @@
+{
+ "brand": "Seagate",
+ "schema_version": 3,
+ "source": "icecat",
+ "generated": "2026-10-22",
+ "entries": {
+  "101071407": {
+   "url": "https://icecat.biz/p/product/101071407",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Enterprise Exos X20 internal hard drive 20 TB 7200 RPM 3.5\" Serial ATA III",
+   "keys": [
+    "0763649153116",
+    "20000007",
+    "5715063061664",
+    "763649153116",
+    "8719706031554",
+    "ST20000NM007D"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 20000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 670,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "101647684": {
+   "url": "https://icecat.biz/p/product/101647684",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf Pro ST8000NT001 internal hard drive 8 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649176313",
+    "5415247303817",
+    "5715063278819",
+    "763649176313",
+    "8719706432337",
+    "8719706432764",
+    "ST8000NT001"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 720,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "101647685": {
+   "url": "https://icecat.biz/p/product/101647685",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf Pro ST12000NT001 internal hard drive 12 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649176290",
+    "12000001",
+    "5415247304111",
+    "5715063214886",
+    "763649176290",
+    "8719706432313",
+    "8719706432825",
+    "ST12000NT001"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 12000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 670,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "103112445": {
+   "url": "https://icecat.biz/p/product/103112445",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk internal hard drive 2 TB 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649148037",
+    "5715063314760",
+    "763649148037",
+    "8719706028240",
+    "ST2000VX017"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "mtbf_hours": 1000000,
+    "weight_g": 415,
+    "dimensions_mm": "101.6 x 146.99 x 20.2 mm"
+   }
+  },
+  "103112446": {
+   "url": "https://icecat.biz/p/product/103112446",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk ST6000VX009 internal hard drive 6 TB 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649148099",
+    "5715063720790",
+    "763649148099",
+    "8719706028301",
+    "ST6000VX009"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 6000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "mtbf_hours": 1000000,
+    "weight_g": 630,
+    "dimensions_mm": "101.6 x 146.99 x 26.1 mm"
+   }
+  },
+  "103112447": {
+   "url": "https://icecat.biz/p/product/103112447",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk internal hard drive 1 TB 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649148013",
+    "5715063668979",
+    "763649148013",
+    "8719706028226",
+    "ST1000VX013"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 1000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "mtbf_hours": 1000000,
+    "weight_g": 415,
+    "dimensions_mm": "101.6 x 20.2 x 146.99 mm"
+   }
+  },
+  "103112448": {
+   "url": "https://icecat.biz/p/product/103112448",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf ST6000VN006 internal hard drive 6 TB 5400 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649147429",
+    "5715063503720",
+    "763649147429",
+    "8719706027670",
+    "ST6000VN006"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 6000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 5400,
+    "mtbf_hours": 1000000,
+    "weight_g": 630,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "103112449": {
+   "url": "https://icecat.biz/p/product/103112449",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf ST8000VN002 internal hard drive 8 TB 5400 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649079409",
+    "0763649092088",
+    "763649079409",
+    "763649092088",
+    "ST8000VN002"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 5400,
+    "mtbf_hours": 1000000,
+    "warranty_years": 3,
+    "weight_g": 630,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "103112451": {
+   "url": "https://icecat.biz/p/product/103112451",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk internal hard drive 8 TB 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649148112",
+    "5715063102152",
+    "763649148112",
+    "8719706028325",
+    "ST8000VX010"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "mtbf_hours": 1000000,
+    "weight_g": 630,
+    "dimensions_mm": "101.6 x 146.99 x 26.1 mm"
+   }
+  },
+  "109746750": {
+   "url": "https://icecat.biz/p/product/109746750",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate ST22000NM001E internal hard drive 22 TB 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649171059",
+    "22000001",
+    "5715063274996",
+    "763649171059",
+    "8719706428095",
+    "ST22000NM001E"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 22000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "warranty_years": 5,
+    "weight_g": 680,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "116302175": {
+   "url": "https://icecat.biz/p/product/116302175",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Exos X24 internal hard drive 16 TB 7200 RPM 512 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649175231",
+    "16000002",
+    "5715063524473",
+    "763649175231",
+    "8719706431460",
+    "ST16000NM002H"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 16000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 685,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "116302247": {
+   "url": "https://icecat.biz/p/product/116302247",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Exos X24 internal hard drive 24 TB 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649174883",
+    "24000002",
+    "5415247312963",
+    "5715063727836",
+    "763649174883",
+    "8719706431118",
+    "ST24000NM002H"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 24000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 685,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "117899333": {
+   "url": "https://icecat.biz/p/product/117899333",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk internal hard drive 12 TB 7200 RPM 512 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649181911",
+    "12000003",
+    "763649181911",
+    "8719706436908",
+    "ST12000VE003"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 12000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 680,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "117899334": {
+   "url": "https://icecat.biz/p/product/117899334",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk AI internal hard drive 16 TB 7200 RPM 512 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649181904",
+    "16000004",
+    "5715063736913",
+    "763649181904",
+    "8719706436892",
+    "ST16000VE004"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 16000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 680,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "117899335": {
+   "url": "https://icecat.biz/p/product/117899335",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk AI internal hard drive 20 TB 7200 RPM 512 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649181898",
+    "20000003",
+    "763649181898",
+    "8719706436885",
+    "ST20000VE003"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 20000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 680,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "118455479": {
+   "url": "https://icecat.biz/p/product/118455479",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf Pro ST24000NT002 internal hard drive 24 TB 7200 RPM 512 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649182253",
+    "24000002",
+    "763649182253",
+    "8719706437073",
+    "ST24000NT002"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 24000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 685,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "125295912": {
+   "url": "https://icecat.biz/p/product/125295912",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Barracuda 16TB internal hard drive 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649185285",
+    "16000001",
+    "5054444768953",
+    "5715328175853",
+    "763649185285",
+    "8719706439428",
+    "ST16000DM001"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 16000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "weight_g": 695,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "125295913": {
+   "url": "https://icecat.biz/p/product/125295913",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Barracuda 20TB internal hard drive 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649185278",
+    "20000001",
+    "5715328118621",
+    "763649185278",
+    "8719706439411",
+    "ST20000DM001"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 20000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "weight_g": 695,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "125295914": {
+   "url": "https://icecat.biz/p/product/125295914",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Barracuda Desktop 24TB HDD internal hard drive 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649185445",
+    "24000001",
+    "5715328165540",
+    "763649185445",
+    "8719706439480",
+    "ST24000DM001"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 24000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "weight_g": 695,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "131698111": {
+   "url": "https://icecat.biz/p/product/131698111",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Exos M internal hard drive 28 TB 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649182680",
+    "28000003",
+    "5715328202245",
+    "763649182680",
+    "8719706437301",
+    "ST28000NM003K"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 28000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "warranty_years": 5,
+    "weight_g": 695,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "131698113": {
+   "url": "https://icecat.biz/p/product/131698113",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf Pro ST28000NT000 internal hard drive 28 TB 7200 RPM 512 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649184202",
+    "28000000",
+    "5715328178199",
+    "763649184202",
+    "8719706438667",
+    "ST28000NT000"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 28000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "warranty_years": 5,
+    "weight_g": 695,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "132868416": {
+   "url": "https://icecat.biz/p/product/132868416",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Exos M internal hard drive 30 TB 7200 RPM 512 MB 3.5\" Serial ATA",
+   "keys": [
+    "0763649182673",
+    "30000004",
+    "5715328187436",
+    "763649182673",
+    "8719706437295",
+    "ST30000NM004K"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 30000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 512,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "warranty_years": 5,
+    "weight_g": 695,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "36168994": {
+   "url": "https://icecat.biz/p/product/36168994",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Barracuda ST4000DM004 internal hard drive 4 TB 5400 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0000002481524",
+    "0700621900092",
+    "0763649081723",
+    "0763649094402",
+    "0763649119907",
+    "0763649128220",
+    "5415247133421",
+    "5711783903277",
+    "700621900092",
+    "7612392323020",
+    "763649081723",
+    "763649094402",
+    "763649119907",
+    "763649128220",
+    "8592978081621",
+    "8719706002981",
+    "ST4000DM004"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 5400,
+    "weight_g": 490,
+    "dimensions_mm": "101.6 x 146.99 x 20.17 mm"
+   }
+  },
+  "37656306": {
+   "url": "https://icecat.biz/p/product/37656306",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Barracuda ST2000DM008 internal hard drive 2 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649100165",
+    "0763649113653",
+    "0763649129081",
+    "763649100165",
+    "763649113653",
+    "763649129081",
+    "8719706011280",
+    "ST2000DM008"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 2000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "weight_g": 415,
+    "dimensions_mm": "101.6 x 147 x 20.17 mm"
+   }
+  },
+  "37979885": {
+   "url": "https://icecat.biz/p/product/37979885",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Barracuda ST8000DM004 internal hard drive 8 TB 5400 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0691046629722",
+    "0763649094419",
+    "0763649129548",
+    "691046629722",
+    "763649094419",
+    "763649129548",
+    "8719706003766",
+    "ST8000DM004"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 5400,
+    "weight_g": 630,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "560005": {
+   "url": "https://icecat.biz/p/product/560005",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Desktop HDD DB35 7200.3 400GB Ultra ATA 100 internal hard drive 7200 RPM 8 MB 3.5\" Ultra-ATA/100",
+   "keys": [
+    "ST3400820ACE"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 400,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "cache_mb": 8,
+    "rpm": 7200,
+    "weight_g": 635,
+    "dimensions_mm": "101.6 x 146.99 x 26.1 mm"
+   }
+  },
+  "62330468": {
+   "url": "https://icecat.biz/p/product/62330468",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate NAS HDD IronWolf internal hard drive 12 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649121757",
+    "120000008",
+    "5706998784728",
+    "7330381903540",
+    "763649121757",
+    "8719706004350",
+    "ST12000VN0008"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 12000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 1000000,
+    "weight_g": 690,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "81680086": {
+   "url": "https://icecat.biz/p/product/81680086",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Enterprise ST18000NM000J internal hard drive 18 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649138878",
+    "18000000",
+    "5704174462491",
+    "763649138878",
+    "8719706020442",
+    "ST18000NM000J"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 18000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 670,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "8538731": {
+   "url": "https://icecat.biz/p/product/8538731",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Savvio 900GB SAS internal hard drive 10000 RPM 64 MB 2.5\"",
+   "keys": [
+    "7636490041440",
+    "ST9900805SS"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 900,
+    "type": "HDD",
+    "form_factor": "2.5\"",
+    "cache_mb": 64,
+    "rpm": 10000,
+    "mtbf_hours": 2000000,
+    "weight_g": 205,
+    "dimensions_mm": "70.1 x 100.45 x 15 mm"
+   }
+  },
+  "85997630": {
+   "url": "https://icecat.biz/p/product/85997630",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk AI internal hard drive 8 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649142028",
+    "5704174894766",
+    "763649142028",
+    "8592978307684",
+    "8719706022934",
+    "8719706031691",
+    "ST8000VE001"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 716,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  },
+  "91940948": {
+   "url": "https://icecat.biz/p/product/91940948",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Enterprise ST16000NM000J internal hard drive 16 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649138960",
+    "16000000",
+    "5704174941507",
+    "763649138960",
+    "8719706020534",
+    "ST16000NM000J"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 16000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2500000,
+    "weight_g": 670,
+    "dimensions_mm": "101.85 x 147 x 26.1 mm"
+   }
+  },
+  "93617373": {
+   "url": "https://icecat.biz/p/product/93617373",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Enterprise ST10000NM017B internal hard drive 10 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649141274",
+    "10000017",
+    "5715063287392",
+    "763649141274",
+    "8719706022187",
+    "ST10000NM017B"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 10000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 720,
+    "dimensions_mm": "101.85 x 147 x 26.11 mm"
+   }
+  },
+  "93617406": {
+   "url": "https://icecat.biz/p/product/93617406",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate Enterprise ST8000NM017B internal hard drive 8 TB 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649141236",
+    "5715063216590",
+    "763649141236",
+    "8719706022149",
+    "ST8000NM017B"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 8000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 716,
+    "dimensions_mm": "101.85 x 147 x 26.11 mm"
+   }
+  },
+  "96752563": {
+   "url": "https://icecat.biz/p/product/96752563",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate IronWolf ST4000VN006 internal hard drive 4 TB 5400 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649090985",
+    "5715063000939",
+    "7636490078309",
+    "763649090985",
+    "ST4000VN006"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 4000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 5400,
+    "weight_g": 490,
+    "dimensions_mm": "101.8 x 146.99 x 20.2 mm"
+   }
+  },
+  "97325625": {
+   "url": "https://icecat.biz/p/product/97325625",
+   "fetched": "2026-10-22",
+   "category": "storage",
+   "brand": "Seagate",
+   "title": "Seagate SkyHawk AI 20 TB internal hard drive 7200 RPM 256 MB 3.5\" Serial ATA III",
+   "keys": [
+    "0763649169926",
+    "20000002",
+    "5715063365335",
+    "763649169926",
+    "8719706427579",
+    "ST20000VE002"
+   ],
+   "names": [],
+   "specs": {
+    "capacity_gb": 20000,
+    "type": "HDD",
+    "form_factor": "3.5\"",
+    "interface": "SATA 6.0 Gb/s",
+    "cache_mb": 256,
+    "rpm": 7200,
+    "mtbf_hours": 2000000,
+    "weight_g": 680,
+    "dimensions_mm": "101.85 x 146.99 x 26.11 mm"
+   }
+  }
+ }
+}

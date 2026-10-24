@@ -1,0 +1,47 @@
+{
+ "brand": "Lancool",
+ "schema_version": 3,
+ "source": "xref:overclockers",
+ "generated": "2026-10-22",
+ "entries": {
+  "https://www.overclockers.co.uk/lian-li-lancool-217-black/CAS-LIA-04527.html": {
+   "url": "https://www.overclockers.co.uk/lian-li-lancool-217-black/CAS-LIA-04527.html",
+   "fetched": "2026-10-22",
+   "category": "case",
+   "brand": "Lancool",
+   "title": "Lian Li Lancool 217 - Black",
+   "keys": [
+    "4718466015853",
+    "LAN217X"
+   ],
+   "names": [],
+   "specs": {
+    "color": "Black",
+    "type": "Mid Tower",
+    "mb_form_factors": [
+     "Mini ITX",
+     "Micro ATX",
+     "ATX",
+     "E-ATX"
+    ],
+    "max_cooler_height_mm": 180,
+    "max_gpu_length_mm": 380,
+    "psu_included": "Not included",
+    "fan_front": "3 x 120 mm, 3 x 140 mm, 2 x 170 mm",
+    "fan_top": "3 x 120 mm, 2 x 140 mm",
+    "fan_rear": "1 x 120 mm, 1 x 140 mm",
+    "fan_bottom": "3 x 120 mm",
+    "radiator_support": {
+     "280 mm": 1,
+     "360 mm": 1
+    },
+    "drive_bays_35": 2,
+    "drive_bays_25": 5,
+    "expansion_slots": "7",
+    "side_panel": "Windowed",
+    "dimensions_mm": "W=238 H=503 D=482mm",
+    "lighting": "No"
+   }
+  }
+ }
+}
