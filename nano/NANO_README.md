@@ -145,6 +145,19 @@ it already got (cached under `data/extract/.cache`, local to the Nano) and the
 next day continues. The committed files are `data/extract/products.json` and
 `trust.json`; the cloud's next normalize run merges them.
 
+## 1PC listing scrape (also on the Nano)
+
+1PC moved here 2026-10-24 (its site answers datacenter IPs with a CAPTCHA
+page). Same home-IP rules as TMS; it runs after the TMS window. The spider
+hard-stops after two 403/429 responses. Detail pages stay in the cloud job.
+
+```bash
+sudo cp nano/pc-parts-il-onepc*.service nano/pc-parts-il-onepc*.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now pc-parts-il-onepc.timer pc-parts-il-onepc-fallback.timer
+sudo systemctl start pc-parts-il-onepc.service   # first run by hand
+```
+
 ## Reading logs later
 
 ```bash

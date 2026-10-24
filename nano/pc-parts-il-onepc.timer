@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily timer for the 1PC scraper (PC Part Picker IL)
+
+[Timer]
+# After the TMS window opens (20:59 UTC + up to ~6h): runs sequentially
+# behind it on the same IP, spread over 01:00-03:00 UTC.
+OnCalendar=*-*-* 01:00:00 UTC
+RandomizedDelaySec=7200
+Persistent=true
+
+[Install]
+WantedBy=timers.target

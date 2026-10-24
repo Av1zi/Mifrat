@@ -64,7 +64,9 @@ jobs:
         # IP-class block would only show up in a real run — if it does, the
         # zero-items/min-count check fails loudly and the vendor moves to the
         # Nano next to TMS.
-        spider: [ivory, onepc, yahav]
+        # 1PC moved to the Nano 2026-10-24 (CAPTCHA page for datacenter IPs;
+        # see decisions.md, nano/run_onepc.sh). Its detail scrape stays below.
+        spider: [ivory, yahav]
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6

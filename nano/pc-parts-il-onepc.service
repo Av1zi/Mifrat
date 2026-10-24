@@ -1,0 +1,13 @@
+[Unit]
+Description=Scrape 1PC for the PC Part Picker (IL) pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=avizi
+WorkingDirectory=/home/avizi/pc-parts-il
+ExecStart=/home/avizi/pc-parts-il/nano/run_onepc.sh
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=1800

@@ -102,6 +102,7 @@ from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from urllib.parse import urljoin
 
 import scrapy
+from scrapy.exceptions import CloseSpider
 
 from scraper.items import ListingItem
 
@@ -125,6 +126,28 @@ USER_AGENT = (
 # The endpoint clamps `limit` to 48 (asking for 200 served 48), so page at
 # the observed maximum and trust the response's next_offset.
 PAGE_SIZE = 48
+
+# --- Oct 2026 DDOS-protection stop signal (binding, see decisions.md §Never break) ---
+# Starting 2026-10-23 1PC fronts the whole /web/ storefront (listing AND detail
+# pages) with a self-hosted "DDOS protection page" / zhCAPTCHA v0.2 checkbox
+# challenge. Cloud (and, after enough volume, home) clients get HTTP 403/423
+# with that HTML instead of the product data, so the crawl yields zero items
+# and the cloud job fails. Per plan §14 and decisions.md this is a stop signal,
+# NOT something to work around: no retries, no cookie-jar games, no browser
+# automation to tick the box. The vendor was moved to the Nano (home IP, next
+# to TMS) on 2026-10-24; this spider's job is only to recognise the block
+# loudly and stop before it hammers the home connection.
+BLOCK_STATUS_CODES = {403, 423, 429}
+MAX_BLOCKS_PER_RUN = 2
+_BLOCK_MARKERS = (
+    "ddos protection",
+    "zhcaptcha",
+    "captcha",
+    "i'm not a robot",
+    "challenge-platform",
+    "cf-chl",
+    "_incapsula_",
+)
 
 # builder slot -> category_guess. The guesses use the vocabulary
 # matching.CATEGORY_ALIASES already knows, kept identical to the
@@ -169,12 +192,53 @@ class OnePcSpider(scrapy.Spider):
     name = "onepc"
     allowed_domains = ["1pc.co.il"]
 
+    # Runs on the Nano from the home IP since 2026-10-24 (the cloud leg met
+    # a CAPTCHA page, see decisions.md), so the TMS home-IP rules apply:
+    # sequential, throttled, robots.txt obeyed (it allows /web/), and a hard
+    # stop after two block responses. No retries against blocks.
+    custom_settings = {
+        "ROBOTSTXT_OBEY": True,
+        "CONCURRENT_REQUESTS": 1,
+        "DOWNLOAD_DELAY": 2,
+        "RETRY_HTTP_CODES": [500, 502, 503, 504],
+    }
+    MAX_BLOCKS = 2
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._blocks = 0
+
+    # Let 403/423/429 bodies reach our callbacks instead of being swallowed by
+    # Scrapy's HttpErrorMiddleware, so the DDOS challenge can be named (see the
+    # constants above). Default behaviour would just drop them and look like a
+    # silent zero-item run.
+    handle_httpstatus_list = [403, 423, 429]
+
     def start_requests(self):
         yield from self._build_requests()
 
     async def start(self):
         for request in self._build_requests():
             yield request
+
+    def _response_is_blocked(self, response):
+        if response.status in BLOCK_STATUS_CODES:
+            return True
+        # The challenge arrives as HTML; keep JSON candidates out of this path.
+        head = response.body[:4000].decode("utf-8", "replace").lower()
+        return any(marker in head for marker in _BLOCK_MARKERS)
+
+    def _register_block(self, response):
+        self._block_count = getattr(self, "_block_count", 0) + 1
+        challenge = self._response_is_blocked(response)
+        self.logger.error(
+            "[1pc] BLOCKED (status %s, challenge=%s) on %s — no retry: a block "
+            "is a stop signal (§14), block %d/%d this run",
+            response.status, challenge, response.url,
+            self._block_count, MAX_BLOCKS_PER_RUN,
+        )
+        if self._block_count >= MAX_BLOCKS_PER_RUN:
+            raise CloseSpider(f"blocked_{self._block_count}x")
 
     def _build_requests(self):
         for slot in SLOTS:
@@ -215,6 +279,15 @@ class OnePcSpider(scrapy.Spider):
 
     def handle_error(self, failure):
         request = failure.request
+        status = getattr(getattr(failure.value, "response", None), "status", None)
+        if status in (403, 429):
+            self._blocks += 1
+            if self._blocks >= self.MAX_BLOCKS:
+                self.logger.error(
+                    "[1pc] %d block responses (HTTP %s) - hard stop, not "
+                    "retrying against the block", self._blocks, status,
+                )
+                self.crawler.engine.close_spider(self, "blocked")
         self.logger.error(
             "[1pc] request failed: %s meta=%s (%s)",
             request.url, request.meta, failure.value,
@@ -223,6 +296,10 @@ class OnePcSpider(scrapy.Spider):
     def parse_candidates(self, response):
         slot = response.meta["slot"]
         offset = response.meta["offset"]
+
+        if self._response_is_blocked(response):
+            self._register_block(response)
+            return
 
         try:
             data = json.loads(response.text)
