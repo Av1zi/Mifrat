@@ -38,7 +38,10 @@ OPENAI_STYLE = {
     "groq": {"base": "https://api.groq.com/openai/v1", "key": "GROQ_KEY",
              "model": "openai/gpt-oss-20b", "delay": 2.5,
              "extra": {"reasoning_effort": "low"}},        # gpt-oss: little thinking, short answers
-    "intern": {"base_env": "INTERN_BASE_URL", "key": "INTERN_KEY", "model": None, "delay": 3.0},
+    # Intern-S2 ignores json_schema and answers a flat {"field": value} object (Oct 2026):
+    # plain JSON mode, with the exact shape spelled out in the prompt.
+    "intern": {"base_env": "INTERN_BASE_URL", "key": "INTERN_KEY", "model": None, "delay": 3.0,
+               "json_object": True},
 }
 # Per-request timeout: reasoning models (Intern-S2) can think for minutes.
 # MIFRAT_EXTRACT_TIMEOUT overrides it (seconds).
@@ -342,8 +345,12 @@ class Extractor:
             raise NoKey(f"MIFRAT_EXTRACT_MODEL_{name.upper()} is not set")
         schema_ = output_schema(fields)
         user = prompt(category, fields, text)
-        if name in self._json_object:
-            user += "\n\nAnswer with one JSON object matching this JSON schema:\n" + json.dumps(schema_)
+        if name in self._json_object or config.get("json_object"):
+            user += ("\n\nAnswer with ONE JSON object of exactly this shape, and nothing else:\n"
+                     '{"facts": [{"field": "<field name from the list>", "value": "<value>", '
+                     '"quote": "<exact words copied from the listing>"}]}\n'
+                     'Every fact needs its "quote". If the listing states none of the fields, '
+                     'answer {"facts": []}.\nJSON schema:\n' + json.dumps(schema_))
             response_format = {"type": "json_object"}
         else:
             response_format = {"type": "json_schema", "json_schema": {

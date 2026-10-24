@@ -129,6 +129,51 @@ check("parse: prose around", client_module.parse_facts('Sure! {"facts": [{"field
 check("parse: garbage", client_module.parse_facts("I cannot comply"), None)
 check("parse: empty", client_module.parse_facts(""), None)
 
+# Intern gets plain JSON mode with the shape spelled out; Groq gets json_schema.
+import os as _os  # noqa: E402
+
+import requests as _requests  # noqa: E402
+
+sent = {}
+
+
+class _Ok:
+    status_code = 200
+    headers: dict = {}
+    text = "{}"
+
+    @staticmethod
+    def raise_for_status():
+        return None
+
+    @staticmethod
+    def json():
+        return {"choices": [{"message": {"content": '{"facts": []}'}, "finish_reason": "stop"}],
+                "usage": {}}
+
+
+def _capture(url, json=None, **kwargs):  # noqa: A002
+    sent[url] = json
+    return _Ok()
+
+
+_real = _requests.post
+_requests.post = _capture
+_os.environ.update(GROQ_KEY="k", INTERN_KEY="k", INTERN_BASE_URL="https://intern.example/v1")
+try:
+    probe = client_module.Extractor()
+    probe._pace = lambda *a: None
+    probe._openai("intern", "m", "aio", ["color"], "listing")
+    probe._openai("groq", "m", "aio", ["color"], "listing")
+finally:
+    _requests.post = _real
+check("intern: plain JSON mode", sent["https://intern.example/v1/chat/completions"]["response_format"]["type"],
+      "json_object")
+check("intern: shape is spelled out in the prompt",
+      '"facts"' in sent["https://intern.example/v1/chat/completions"]["messages"][1]["content"], True)
+check("groq: json_schema", sent["https://api.groq.com/openai/v1/chat/completions"]["response_format"]["type"],
+      "json_schema")
+
 # A timeout / connection error twice in a row skips the provider; it does not crash.
 import requests as _requests  # noqa: E402
 
