@@ -137,6 +137,30 @@ def openai_quota_info(reply) -> tuple[float | None, bool, str]:
     return delay, daily, f"HTTP 429 daily={daily} retryAfter={delay}"
 
 
+def parse_facts(body: str) -> list | None:
+    """The `facts` list from a model's text: plain JSON, or JSON inside a code
+    fence / after some prose. None when no JSON object with a list is there."""
+    import re
+
+    candidates = [body or ""]
+    fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", body or "", re.S)
+    if fenced:
+        candidates.append(fenced.group(1))
+    start, end = (body or "").find("{"), (body or "").rfind("}")
+    if 0 <= start < end:
+        candidates.append(body[start:end + 1])
+    for text in candidates:
+        try:
+            data = json.loads(text)
+        except ValueError:
+            continue
+        if isinstance(data, dict) and isinstance(data.get("facts"), list):
+            return data["facts"]
+        if isinstance(data, list):
+            return data
+    return None
+
+
 def backends() -> list[str]:
     names = [n.strip().lower() for n in (os.environ.get("MIFRAT_EXTRACT_BACKEND")
                                          or "anthropic").split(",") if n.strip()]
@@ -214,6 +238,7 @@ class Extractor:
         self.refused = 0
         self.input_tokens = 0
         self.output_tokens = 0
+        self.samples = 0                         # raw empty answers shown so far
         self.exhausted: dict[str, str] = {}      # provider -> why it was skipped
         self._client = None
         self._last: dict[str, float] = {}
@@ -288,6 +313,8 @@ class Extractor:
         reply = self._post("gemini", GEMINI_URL.format(model=model),
                            {"x-goog-api-key": key}, body, GEMINI_DELAY,
                            lambda r: quota_info(r.text))
+        if reply.status_code in (401, 403):
+            raise NoKey(f"gemini: the key was rejected (HTTP {reply.status_code}); check GOOGLE_KEY")
         reply.raise_for_status()
         data = reply.json()
         candidate = (data.get("candidates") or [{}])[0]
@@ -342,6 +369,9 @@ class Extractor:
         if reply.status_code in (400, 404) and "model" in reply.text.lower():
             raise NoKey(f"{name}: the model {model!r} was not accepted "
                         f"(set MIFRAT_EXTRACT_MODEL_{name.upper()}): {reply.text[:160]}")
+        if reply.status_code in (401, 403):
+            raise NoKey(f"{name}: the key was rejected (HTTP {reply.status_code}); "
+                        f"check {config['key']} in .env")
         reply.raise_for_status()
         data = reply.json()
         choice = (data.get("choices") or [{}])[0]
@@ -406,12 +436,14 @@ class Extractor:
             self.refused += 1
         elif response.stop_reason != "max_tokens":
             body = next((block.text for block in response.content if block.type == "text"), "")
-            try:
-                facts = json.loads(body).get("facts")
-            except (ValueError, AttributeError):
-                facts = None
-        if response.stop_reason in ("refusal", "end_turn"):
-            # Cache refusals too: the same text would be refused again.
+            facts = parse_facts(body)
+            if not facts and self.samples < 3:          # show what a silent model really said
+                self.samples += 1
+                self._say(f"{model} returned no facts; raw answer: {body[:300]!r}")
+        if response.stop_reason == "refusal" or (response.stop_reason == "end_turn"
+                                                 and facts is not None):
+            # Cache refusals and parsed answers (an empty list included); an answer we
+            # could not parse is not cached, so a parser fix retries it.
             CACHE_DIR.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps({"model": model, "stop": response.stop_reason,
                                         "facts": facts}, ensure_ascii=False), encoding="utf-8")
@@ -455,6 +487,6 @@ class Extractor:
             response.model_used = model
             return response
         if problems and all("is not set" in p or "not accepted" in p or "unknown provider" in p
-                            for p in problems):
+                            or "was rejected" in p for p in problems):
             raise NoKey("; ".join(problems))
         raise RateLimited("; ".join(problems), daily=daily)

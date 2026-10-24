@@ -122,6 +122,13 @@ check("429 per day", client_module.quota_info(day_body)[1], True)
 check("429 per day names its quota", "PerDay" in client_module.quota_info(day_body)[2], True)
 check("429 with a body we cannot read", client_module.quota_info("not json")[:2], (None, False))
 
+# Answers wrapped in a code fence or prose still parse; garbage does not.
+check("parse: plain", client_module.parse_facts('{"facts": [{"field": "a"}]}'), [{"field": "a"}])
+check("parse: fenced", client_module.parse_facts('Here you go:\n```json\n{"facts": []}\n```'), [])
+check("parse: prose around", client_module.parse_facts('Sure! {"facts": [{"field": "b"}]} Done.'), [{"field": "b"}])
+check("parse: garbage", client_module.parse_facts("I cannot comply"), None)
+check("parse: empty", client_module.parse_facts(""), None)
+
 # A timeout / connection error twice in a row skips the provider; it does not crash.
 import requests as _requests  # noqa: E402
 
