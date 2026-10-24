@@ -20,8 +20,9 @@ export interface PriceSignal {
 }
 
 export const SIGNAL_WINDOW_DAYS = 30;
-/** Fewer recorded days than this is a blip, not a trend. */
+/** Fewer recorded days than this is a blip, not a trend (half that for a one-week window). */
 const MIN_DAYS = 7;
+const minDaysFor = (windowDays: number): number => Math.min(MIN_DAYS, Math.ceil(windowDays / 2));
 /** Smaller moves are noise. */
 export const MIN_DROP_PCT = 5;
 const MIN_LOW_GAP = 0.02;
@@ -58,12 +59,16 @@ function median(values: number[]): number {
  * that vendor's own series. A cross-vendor "lowest per day" would read a
  * cheaper store appearing in the data as a price drop, which it is not.
  */
-function signalFor(file: PriceHistoryFile, series: Record<string, Array<number | null>>): PriceSignal | null {
+function signalFor(
+  file: PriceHistoryFile,
+  series: Record<string, Array<number | null>>,
+  windowDays: number
+): PriceSignal | null {
   const end = file.dates.length;
   const lastDate = Date.parse(file.dates[end - 1] ?? "");
   if (!Number.isFinite(lastDate)) return null;
   let from = end - 1;
-  while (from > 0 && (lastDate - Date.parse(file.dates[from - 1])) / 86_400_000 < SIGNAL_WINDOW_DAYS) from--;
+  while (from > 0 && (lastDate - Date.parse(file.dates[from - 1])) / 86_400_000 < windowDays) from--;
 
   const vendors = Object.values(series)
     .filter((prices) => Array.isArray(prices))
@@ -73,7 +78,7 @@ function signalFor(file: PriceHistoryFile, series: Record<string, Array<number |
   if (!Number.isFinite(current)) return null;
 
   const own = vendors[today.indexOf(current)].filter((p): p is number => p !== null);
-  if (own.length < MIN_DAYS) return null;
+  if (own.length < minDaysFor(windowDays)) return null;
   // Lowest of every vendor on every day of the window, not just of its own.
   const windowLow = Math.min(...vendors.flat().filter((p): p is number => p !== null));
 
@@ -86,12 +91,12 @@ function signalFor(file: PriceHistoryFile, series: Record<string, Array<number |
 }
 
 /** Every product of the file that currently carries a signal. */
-export function computeSignals(file: PriceHistoryFile): Map<string, PriceSignal> {
+export function computeSignals(file: PriceHistoryFile, windowDays = SIGNAL_WINDOW_DAYS): Map<string, PriceSignal> {
   const out = new Map<string, PriceSignal>();
-  if (!Array.isArray(file.dates) || file.dates.length < MIN_DAYS) return out;
+  if (!Array.isArray(file.dates) || file.dates.length < minDaysFor(windowDays)) return out;
   for (const [id, entry] of Object.entries(file)) {
     if (id === "dates" || id === "timestamps" || Array.isArray(entry) || !entry?.v) continue;
-    const signal = signalFor(file, entry.v);
+    const signal = signalFor(file, entry.v, windowDays);
     if (signal) out.set(id, signal);
   }
   return out;
@@ -100,11 +105,12 @@ export function computeSignals(file: PriceHistoryFile): Map<string, PriceSignal>
 const cache = new Map<string, Promise<Map<string, PriceSignal>>>();
 
 /** Signals per product id for a category; empty when there is no history file. */
-export function loadSignals(category: string): Promise<Map<string, PriceSignal>> {
-  let promise = cache.get(category);
+export function loadSignals(category: string, windowDays = SIGNAL_WINDOW_DAYS): Promise<Map<string, PriceSignal>> {
+  const key = `${category}:${windowDays}`;
+  let promise = cache.get(key);
   if (!promise) {
-    promise = loadHistory(category).then((file) => (file ? computeSignals(file) : new Map()));
-    cache.set(category, promise);
+    promise = loadHistory(category).then((file) => (file ? computeSignals(file, windowDays) : new Map()));
+    cache.set(key, promise);
   }
   return promise;
 }

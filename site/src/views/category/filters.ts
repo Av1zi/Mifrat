@@ -6,6 +6,7 @@ import { categoryHash, replaceRoute } from "../../state";
 import { chip } from "../../ui/chip";
 import { button } from "../../ui/button";
 import { html, type Html } from "../../ui/html";
+import { vendorDot } from "../../ui/vendor";
 import {
   listFieldsFor,
   specOptionValues,
@@ -98,7 +99,7 @@ function optionMarkup(ctx: CategoryCtx, good: Map<string, Set<string>>, key: str
   const dead = good.size > 0 && !(good.get(key)?.has(value) ?? false);
   const state = dead ? (ctx.compatOn ? " is-off" : " is-soft-off") : "";
   const checked = (ctx.params.filters[key] ?? []).includes(value);
-  return html`<label class="check${state}"><input type="checkbox" data-attr="${key}" value="${value}"${checked ? html` checked` : ""}${dead && ctx.compatOn ? html` disabled` : ""}>${key === "vendor" ? vendorLabel(value) : value}<span class="check__count">${count}</span></label>`;
+  return html`<label class="check${state}"><input type="checkbox" data-attr="${key}" value="${value}"${checked ? html` checked` : ""}${dead && ctx.compatOn ? html` disabled` : ""}>${key === "vendor" ? html`${vendorDot(value)}${vendorLabel(value)}` : html`<bdi>${value}</bdi>`}<span class="check__count">${count}</span></label>`;
 }
 
 function group(label: string, body: Html, open: boolean, selected = 0): Html {

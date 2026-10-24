@@ -138,6 +138,10 @@ def build_price_history(
         category = product.get("category")
         if not pid or not category:
             continue
+        # aio + cooler_air ship as the single `cpu_cooler` site category
+        # (mirrors site_data.SITE_CATEGORY).
+        if category in ("aio", "cooler_air"):
+            category = "cpu_cooler"
         series: dict[str, list] = {}
         for offer in product.get("offers", []):
             vendor = _norm_vendor(offer.get("vendor_id"))

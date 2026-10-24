@@ -13,9 +13,7 @@ export const CATEGORY_ORDER = [
   "psu",
   "case",
   "case_fan",
-  "aio",
-  "cooler_air",
-  "cooling_other",
+  "cpu_cooler",
   "accessories",
   "other",
 ] as const;
@@ -28,19 +26,17 @@ const CATEGORY_LABELS: Record<string, { he: string; en: string }> = {
   storage: { he: "אחסון", en: "Storage" },
   psu: { he: "ספקי כוח", en: "Power Supplies" },
   case: { he: "מארזים", en: "Cases" },
-  case_fan: { he: "מאווררים למארז", en: "Case Fans" },
+  case_fan: { he: "מאווררי מארז", en: "Case Fans" },
   fan: { he: "מאווררים", en: "Fans" },
   fan_controller: { he: "בקרי מאווררים", en: "Fan Controllers" },
-  aio: { he: "קירור נוזלי", en: "Liquid Coolers" },
-  cooler_air: { he: "קירור אוויר", en: "Air Coolers" },
-  cooling_other: { he: "קירור אחר", en: "Other Cooling" },
+  cpu_cooler: { he: "קירור מעבד", en: "CPU Cooling" },
   cooler_accessory: { he: "אביזרי קירור", en: "Cooler Accessories" },
   thermal_paste: { he: "משחות תרמיות", en: "Thermal Paste" },
   thermal: { he: "משחות תרמיות", en: "Thermal" },
   rgb_lighting: { he: "תאורת RGB", en: "RGB Lighting" },
   rgb: { he: "תאורת RGB", en: "RGB" },
   accessories: { he: "אביזרים", en: "Accessories" },
-  other: { he: "רכיבים אחרים", en: "Other Components" },
+  other: { he: "אחר (זמני – לא סווג)", en: "Other (temporary – uncategorized)" },
 };
 
 /** Vendors currently scraped (Plonter stays labelled for old history only). */
@@ -242,7 +238,6 @@ const STRINGS = {
     compareClear: "ניקוי",
     compareFull: "אפשר להשוות עד 4 מוצרים",
     compareSwitched: "ההשוואה התחילה מחדש: משווים מוצרים מקטגוריה אחת בלבד",
-    compareEmpty: "לא נבחרו מוצרים להשוואה. סמנו “השוואה” בשורות המוצרים כדי להתחיל.",
     compareMissing: "חלק מהמוצרים לא נמצאו או שייכים לקטגוריה אחרת והוסרו מההשוואה.",
     compareOnlyDiffs: "הצגת הבדלים בלבד",
     compareDiffNote: "ערכים שונים מסומנים",
@@ -254,8 +249,7 @@ const STRINGS = {
     savedTitle: "מוצרים שמורים",
     savedAdd: "שמירה",
     savedRemove: "הסרה מהשמורים",
-    savedEmpty: "עוד לא שמרתם מוצרים. לחצו על הלב בכל מוצר כדי לשמור אותו כאן.",
-    savedHint: "השמורים נשמרים בדפדפן הזה בלבד ולא נשלחים לשום מקום.",
+    savedEmpty: "לחצו על הלב בדף מוצר כדי לשמור אותו כאן.",
     savedBrowse: "לעיון בקטגוריות",
     signalLowest: "הנמוך ב-30 יום",
     signalTypicalTitle: "בהשוואה לחציון המחיר ב-30 הימים האחרונים",
@@ -267,7 +261,7 @@ const STRINGS = {
     metaSavedDesc: "רכיבי המחשב ששמרתם, עם המחיר העדכני ביותר.",
     details: "פרטים",
     homeHeroTitle: "כל רכיבי המחשב. המחיר הכי טוב בישראל.",
-    homeHeroSub: "משווים מחירים בין החנויות המובילות ובודקים תאימות לפני שקונים.",
+    homeHeroSub: "אותו רכיב, ארבע חנויות, מחירים שונים. אנחנו מראים לכם את הזול ביותר.",
     homeSearchPlaceholder: "חפשו מעבד, כרטיס מסך, לוח אם…",
     homePopular: "פופולרי:",
     homeStatsVendors: "חנויות נסרקות",
@@ -277,7 +271,7 @@ const STRINGS = {
     viewLabel: "תצוגת הרשימה",
     atVendor: "אצל",
     photoLabel: "תמונה",
-    compatStripOk: "לא נמצאו בעיות תאימות",
+    compatStripOk: "תאימות: לא נמצאו בעיות בין הרכיבים.",
     shareTitle: "שיתוף",
     exportTitle: "ייצוא",
     buildEmptySlot: "עוד לא נבחר",
@@ -286,12 +280,10 @@ const STRINGS = {
     availability: "זמין",
     priceHeading: "מחיר",
     builderNav: "בניית מחשב",
-    builderTitle: "בחרו את החלקים",
+    builderTitle: "בניית מחשב",
     totalLabel: "סה״כ:",
     compatibilityIdle: "בחרו רכיבים כדי לבדוק תאימות.",
     copyLink: "העתקת קישור",
-    unknownList: "הקישור הזה לא נמצא. ייתכן שהוא שגוי או נמחק.",
-    backToBuilder: "חזרה לבניית מחשב",
     addToBuild: "הוספה לבנייה",
     removePart: "הסרה",
     componentHeading: "רכיב",
@@ -326,8 +318,8 @@ const STRINGS = {
     partsShort: "חלקים",
     totalShort: "סה״כ",
     wattageShort: "צריכה משוערת",
-    compatFilterLabel: "מסנן תאימות",
-    compatFilterHint: "הצגת ערכים תואמים בלבד",
+    compatFilterLabel: "רק מוצרים שתואמים לבנייה",
+    compatFilterHint: "מסתיר אפשרויות שמתנגשות עם החלקים שכבר בחרת",
     linkCopied: "הקישור הועתק!",
     markupTableCopied: "הטבלה הועתקה!",
     markupTextCopied: "הטקסט הועתק!",
@@ -347,14 +339,14 @@ const STRINGS = {
     categoriesIntro: "בחרו קטגוריה כדי להשוות מחירים, מפרטים וזמינות.",
     browseAllCategories: "עיון בכל הקטגוריות",
     homeEyebrow: "השוואת מחירים לרכיבי מחשב בישראל",
-    homeBrowseCta: "עיון בקטגוריות",
+    homeBrowseCta: "לכל הקטגוריות",
     homeStatsParts: "מוצרים בקטלוג",
     homeTileProducts: "מוצרים",
     homeStatsCats: "קטגוריות פעילות",
     homeStatsRefresh: "רענון מחירים יומי",
     homeStatsDaily: "כל יום",
     homeHowTitle: "איך זה עובד",
-    homeCatsTitle: "עיינו בקטגוריות",
+    homeCatsTitle: "קטגוריות",
     homeStep1Title: "בוחרים חלקים",
     homeStep1Body: "מסננים לפי חנות, מחיר ומפרט, ומוסיפים כל חלק לבנייה.",
     homeStep2Title: "בודקים תאימות וסכום",
@@ -394,7 +386,7 @@ const STRINGS = {
     qaSpecDropped: "נפסל",
     similarHeading: "מוצרים דומים",
     variantsHeading: "דגמים קרובים",
-    addToPartList: "הוספה לרשימת החלקים",
+    addToPartList: "הוספה לבנייה",
     productNotFound: "המוצר לא נמצא",
     freeShipping: "משלוח חינם",
     productsMenu: "מוצרים",
@@ -403,7 +395,7 @@ const STRINGS = {
     accessoriesHeading: "אביזרים",
     copyMarkdown: "העתקה כטבלה",
     copyText: "העתקה כטקסט",
-    startNew: "התחלה חדשה",
+    startNew: "בנייה חדשה",
     showMore: "הצג עוד",
     showLess: "הצג פחות",
     quickAdd: "הוספה",
@@ -429,6 +421,152 @@ const STRINGS = {
     footerProductsHead: "מוצרים",
     footerBuildHead: "בנייה",
     footerLegalHead: "משפטי",
+    megaMainHead: "קטגוריות עיקריות",
+    megaCooling: "קירור מעבד",
+    megaCoolingSub: "קירור אוויר ונוזלי",
+    megaMoreHead: "עוד קטגוריות",
+    megaClose: "סגירת תפריט המוצרים",
+    dropsNav: "ירידות מחיר",
+    skipToContent: "דילוג לתוכן",
+    homeCrumb: "דף הבית",
+    breadcrumbs: "פירורי לחם",
+    sectionsNav: "חלקי העמוד",
+    allPrices: "לכל המחירים",
+    dropsHomeSub: "ב-30 הימים האחרונים: המחיר היום מול המחיר הרגיל בתקופה",
+    allDrops: "לכל הירידות",
+    dropsPageSub: "המוצרים שהמחיר שלהם ירד הכי הרבה, לפי היסטוריית המחירים היומית מכל החנויות",
+    periodLabel: "תקופה",
+    days7: "7 ימים",
+    days30: "30 ימים",
+    filterByCategory: "סינון לפי קטגוריה",
+    allLabel: "הכל",
+    dropsSortPct: "הירידה הגדולה באחוזים",
+    dropsSortAmount: "הירידה הגדולה בשקלים",
+    dropsEmpty: "לא נמצאו ירידות מחיר בתקופה הזו.",
+    homeHeroLine1: "מחשב חדש.",
+    homeHeroLine2: "בלי לשלם יותר מדי.",
+    searchButton: "חיפוש",
+    prevLabel: "הקודם",
+    nextLabel: "הבא",
+    sampleBuildTitle: "בנייה לדוגמה",
+    sampleBuildSub: "נבנתה אוטומטית ממחירי היום, רכיבים תואמים",
+    yourBuildTitle: "הבנייה שלך",
+    yourBuildSub: "במחירים של היום",
+    andMoreParts: "ועוד {n} רכיבים",
+    openBuild: "פתיחת הבנייה",
+    fromStores: "מ-{n} חנויות",
+    tabOverview: "סקירה",
+    tabSpecs: "מפרט מלא",
+    tabHistory: "היסטוריית מחירים",
+    toStore: "לחנות",
+    lastUpdated: "עדכון אחרון",
+    todayLabel: "היום",
+    historyLow: "הנמוך",
+    historyHigh: "הגבוה",
+    historyChange7: "שינוי ב-7 ימים",
+    noChange: "ללא שינוי",
+    fromPrice: "מ-",
+    toBuild: "לבנייה",
+    searchInCategory: "חיפוש ב{c}",
+    pricesFrom: "מחירים מ-",
+    resetLabel: "איפוס",
+    pickHeroSub: "מוצגים רק חלקים שמתאימים לרכיבים שכבר בחרת",
+    pagesLabel: "עמודים",
+    nameHeading: "שם",
+    storesHeading: "חנויות",
+    prevPage: "העמוד הקודם",
+    nextPage: "העמוד הבא",
+    builderSub: "בחרו רכיב לכל שורה. נבדוק תאימות ונמצא את המחיר הזול ביותר לכל חלק.",
+    splitTitle: "חלוקה לפי חנות",
+    splitEmpty: "בחרו רכיבים כדי לראות איפה הם הכי זולים.",
+    splitNote: "כל רכיב נספר בחנות שבה הוא הכי זול כרגע.",
+    compatChecksTitle: "בדיקות תאימות",
+    compatChecksEmpty: "בחרו לפחות שני רכיבים שקשורים זה לזה (למשל מעבד ולוח אם) כדי להריץ בדיקות.",
+    buildSaved: "נשמרה",
+    saveBuild: "שמירה",
+    selectionHeading: "בחירה",
+    storeHeading: "חנות",
+    buildEmptyNote: "עוד לא נבחרו רכיבים",
+    detailsLink: "פרטים",
+    wattageEstimate: "צריכה משוערת",
+    compareHeroSub: "השוואה צד לצד של המפרט והמחירים. הערך הטוב ביותר בכל שורה מסומן בירוק.",
+    compareAddProduct: "הוספת מוצר",
+    compareUpTo: "עד 4 מוצרים",
+    priceRangeLabel: "טווח מחירים",
+    productLabel: "מוצר",
+    compareBestLegend: "הערך הטוב ביותר",
+    copyCompareLink: "העתקת קישור להשוואה",
+    savedHeroSub: "המוצרים ורשימות החלקים ששמרת, עם המחירים המעודכנים מכל החנויות.",
+    savedFilter: "סינון שמורים",
+    savedProducts: "מוצרים",
+    savedBuilds: "רשימות חלקים",
+    savedProductsSub: "המחיר הזול ביותר כרגע מכל החנויות",
+    savedBuildsSub: "הבניות ששמרת מדף בניית המחשב, עם המחיר המעודכן של כל רכיב",
+    savedEmptyTitle: "אין מוצרים שמורים",
+    savedBuildsEmptyTitle: "אין רשימות חלקים שמורות",
+    savedBuildsEmpty: "בדף בניית המחשב לחצו על \"שמירה\" כדי לשמור את הרשימה במכשיר הזה.",
+    compareSaved: "השוואת המוצרים השמורים",
+    localOnlyTitle: "נשמר רק במכשיר הזה.",
+    localOnlyBody: "אין צורך בחשבון: השמורים נשמרים בדפדפן שלך. ניקוי נתוני הדפדפן או מעבר למכשיר אחר לא יציגו אותם.",
+    savedGone: "לא נמצא בקטלוג היום",
+    untitledBuild: "בנייה ללא שם",
+    withLabel: "עם",
+    renameBuild: "שינוי שם הרשימה",
+    deleteBuild: "מחיקת הרשימה",
+    duplicateBuild: "שכפול",
+    copyLabel: "עותק",
+    allCompatible: "כל הרכיבים תואמים",
+    hasConflicts: "יש התנגשויות",
+    hasWarnings: "יש הערות תאימות",
+    nfPageTitle: "הדף לא נמצא",
+    nfTag: "שגיאה 404",
+    nfTitle: "הרכיב הזה לא נמצא במלאי",
+    nfBody: "הדף שחיפשת לא קיים, הוסר או שהכתובת הוקלדה עם טעות. אפשר לחפש מוצר, או להמשיך מאחד המקומות האלה.",
+    popularCats: "קטגוריות פופולריות",
+    brokenTitle: "הרשימה הזו לא נמצאה",
+    brokenBody: "לא הצלחנו לפתוח את רשימת החלקים מהקישור. לרוב זה קורה כשהקישור הועתק רק בחלקו, או כשנמחק ממנו תו.",
+    brokenOpened: "הקישור שנפתח",
+    brokenToSaved: "לרשימות השמורות",
+    brokenHelpTitle: "מה אפשר לעשות",
+    brokenHelp1: "לבדוק שהעתקת את כל הקישור, עד הסוף.",
+    brokenHelp2: "לבקש ממי ששלח לך את הרשימה לשתף אותה שוב.",
+    brokenHelp3: "אם זו רשימה שלך, היא שמורה במכשיר שבו יצרת אותה.",
+    compareEmptyTitle: "אין מוצרים להשוואה",
+    compareEmptyBody: "עוד לא בחרת מוצרים. הוסיפו 2 עד 4 מוצרים מאותה קטגוריה, ונראה לכם אותם זה לצד זה, עם הערך הטוב ביותר מסומן בכל שורה.",
+    compareStep1: "בוחרים קטגוריה",
+    compareStep1Body: "למשל מעבדים או כרטיסי מסך.",
+    compareStep2: "מסמנים \"השוואה\"",
+    compareStep2Body: "בעד 4 מוצרים ברשימה.",
+    compareStep3: "לוחצים \"השוואה\"",
+    compareStep3Body: "בסרגל שמופיע בתחתית המסך.",
+    compareEmptyCta: "לבחירת מוצרים",
+    compareFromSaved: "מהמוצרים השמורים",
+    dropsEmptyBody: "המחירים נבדקים כל יום; כשמחיר יורד ביותר מ-5% מהמחיר הרגיל שלו הוא יופיע כאן.",
+    dropsTry30: "הצגת 30 הימים האחרונים",
+    noMatchFor: "לא מצאנו תוצאות עבור",
+    noMatchFilters: "אין מוצרים שמתאימים לסינון",
+    noMatchBody: "נסו מילים כלליות יותר, בדקו את האיות, או הסירו חלק מהמסננים.",
+    clearSearchFilters: "ניקוי החיפוש והסינון",
+    productGoneTitle: "המוצר הזה כבר לא בקטלוג",
+    productGoneBody: "ייתכן שהחנויות הפסיקו למכור אותו או שהקישור ישן. אפשר למצוא דגם דומה בקטגוריה.",
+    backToCategory: "חזרה ל{c}",
+    savedNothingTitle: "עוד לא שמרת כלום",
+    savedNothingBody: "מוצרים ורשימות חלקים שתשמרו יופיעו כאן, עם המחיר הזול ביותר כרגע. הכל נשמר רק במכשיר הזה, בלי חשבון.",
+    savedStepPart: "שמירת מוצר",
+    savedStepPartBody: "לחצו על הלב בכרטיס של מוצר או בדף המוצר.",
+    savedStepList: "שמירת רשימת חלקים",
+    savedStepListBody: "בדף בניית המחשב לחצו על \"שמירה\".",
+    searchTitle: "תוצאות חיפוש",
+    searchCrumb: "חיפוש",
+    searchEmptyPrompt: "מה מחפשים?",
+    searchEmptyBody: "נסו מילים כלליות יותר, בדקו את האיות, או חפשו לפי שם הדגם בלבד.",
+    didYouMean: "אולי התכוונת ל:",
+    clearSearch: "ניקוי החיפוש",
+    browseByCategory: "או עיינו לפי קטגוריה",
+    searchInCategoryLabel: "לפי קטגוריה:",
+    searchMoreHint: "מוצגות 48 התוצאות הראשונות. לחצו על קטגוריה כדי לראות את כולן עם סינון.",
+    searchAllResults: "לכל התוצאות עבור",
+    searchOpenPage: "לדף החיפוש עבור",
   },
   en: {
     notListed: "Not listed",
@@ -443,7 +581,6 @@ const STRINGS = {
     compareClear: "Clear",
     compareFull: "You can compare up to 4 parts",
     compareSwitched: "Compare list restarted: one category at a time",
-    compareEmpty: "No parts to compare yet. Tick “Compare” on product rows to start.",
     compareMissing: "Some parts were not found or belong to another category and were left out.",
     compareOnlyDiffs: "Show differences only",
     compareDiffNote: "Differing values are highlighted",
@@ -455,8 +592,7 @@ const STRINGS = {
     savedTitle: "Saved parts",
     savedAdd: "Save",
     savedRemove: "Remove from saved",
-    savedEmpty: "Nothing saved yet. Tap the heart on any part to keep it here.",
-    savedHint: "Saved parts live in this browser only and are never sent anywhere.",
+    savedEmpty: "Tap the heart on any part to keep it here.",
     savedBrowse: "Browse categories",
     signalLowest: "Lowest in 30 days",
     signalTypicalTitle: "Compared with the median price over the last 30 days",
@@ -468,7 +604,7 @@ const STRINGS = {
     metaSavedDesc: "The PC parts you saved, with their latest prices.",
     details: "Details",
     homeHeroTitle: "Every PC part. The best price in Israel.",
-    homeHeroSub: "Compare prices across the leading shops and check compatibility before you buy.",
+    homeHeroSub: "Same part, four stores, different prices. We show you the cheapest.",
     homeSearchPlaceholder: "Search a CPU, graphics card, motherboard…",
     homePopular: "Popular:",
     homeStatsVendors: "Shops tracked",
@@ -478,7 +614,7 @@ const STRINGS = {
     viewLabel: "List layout",
     atVendor: "at",
     photoLabel: "Photo",
-    compatStripOk: "No compatibility issues",
+    compatStripOk: "Compatibility: no issues found between the parts.",
     shareTitle: "Share",
     exportTitle: "Export",
     buildEmptySlot: "Nothing chosen yet",
@@ -487,12 +623,10 @@ const STRINGS = {
     availability: "Availability",
     priceHeading: "Price",
     builderNav: "Builder",
-    builderTitle: "Choose Your Parts",
+    builderTitle: "Build a PC",
     totalLabel: "Total:",
     compatibilityIdle: "Pick parts to check compatibility.",
     copyLink: "Copy link",
-    unknownList: "This list link wasn't found. It may be mistyped or deleted.",
-    backToBuilder: "Back to builder",
     addToBuild: "Add to build",
     removePart: "Remove",
     componentHeading: "Component",
@@ -527,8 +661,8 @@ const STRINGS = {
     partsShort: "Parts",
     totalShort: "Total",
     wattageShort: "Est. wattage",
-    compatFilterLabel: "Compatibility Filter",
-    compatFilterHint: "Grey out options that conflict with the picked parts",
+    compatFilterLabel: "Only parts that fit my build",
+    compatFilterHint: "Hides options that conflict with the parts you picked",
     linkCopied: "Link copied!",
     markupTableCopied: "Table copied!",
     markupTextCopied: "Text copied!",
@@ -548,14 +682,14 @@ const STRINGS = {
     categoriesIntro: "Choose a category to compare prices, specifications, and availability.",
     browseAllCategories: "Browse all categories",
     homeEyebrow: "Price comparison for PC parts in Israel",
-    homeBrowseCta: "Browse categories",
+    homeBrowseCta: "All categories",
     homeStatsParts: "Products in the catalog",
     homeTileProducts: "Products",
     homeStatsCats: "Active categories",
     homeStatsRefresh: "Prices refreshed daily",
     homeStatsDaily: "Daily",
     homeHowTitle: "How it works",
-    homeCatsTitle: "Browse categories",
+    homeCatsTitle: "Categories",
     homeStep1Title: "Pick your parts",
     homeStep1Body: "Filter by shop, price and specs, then add each part to your build.",
     homeStep2Title: "Check fit and total",
@@ -595,7 +729,7 @@ const STRINGS = {
     qaSpecDropped: "Dropped",
     similarHeading: "Similar products",
     variantsHeading: "Close variants",
-    addToPartList: "Add to Part List",
+    addToPartList: "Add to build",
     productNotFound: "Product not found",
     freeShipping: "FREE shipping",
     productsMenu: "Products",
@@ -604,7 +738,7 @@ const STRINGS = {
     accessoriesHeading: "Accessories",
     copyMarkdown: "Copy as table",
     copyText: "Copy as text",
-    startNew: "Start new",
+    startNew: "New build",
     showMore: "Show more",
     showLess: "Show less",
     quickAdd: "Add",
@@ -630,6 +764,152 @@ const STRINGS = {
     footerProductsHead: "Products",
     footerBuildHead: "Build",
     footerLegalHead: "Legal",
+    megaMainHead: "Main categories",
+    megaCooling: "CPU cooling",
+    megaCoolingSub: "Air cooling and water cooling",
+    megaMoreHead: "More categories",
+    megaClose: "Close the products menu",
+    dropsNav: "Price drops",
+    skipToContent: "Skip to content",
+    homeCrumb: "Home",
+    breadcrumbs: "Breadcrumbs",
+    sectionsNav: "Page sections",
+    allPrices: "See all prices",
+    dropsHomeSub: "Last 30 days: today's price against the usual price over the period",
+    allDrops: "All price drops",
+    dropsPageSub: "The parts whose price fell the most, from the daily price history of every store",
+    periodLabel: "Period",
+    days7: "7 days",
+    days30: "30 days",
+    filterByCategory: "Filter by category",
+    allLabel: "All",
+    dropsSortPct: "Biggest drop (%)",
+    dropsSortAmount: "Biggest drop (amount)",
+    dropsEmpty: "No price drops recorded in this period.",
+    homeHeroLine1: "A new PC.",
+    homeHeroLine2: "Without overpaying.",
+    searchButton: "Search",
+    prevLabel: "Previous",
+    nextLabel: "Next",
+    sampleBuildTitle: "Sample build",
+    sampleBuildSub: "Assembled from today's prices, compatible parts",
+    yourBuildTitle: "Your build",
+    yourBuildSub: "At today's prices",
+    andMoreParts: "and {n} more parts",
+    openBuild: "Open the build",
+    fromStores: "from {n} stores",
+    tabOverview: "Overview",
+    tabSpecs: "Full specs",
+    tabHistory: "Price history",
+    toStore: "To store",
+    lastUpdated: "Last updated",
+    todayLabel: "today",
+    historyLow: "Lowest",
+    historyHigh: "Highest",
+    historyChange7: "7-day change",
+    noChange: "No change",
+    fromPrice: "from ",
+    toBuild: "To build",
+    searchInCategory: "Search {c}",
+    pricesFrom: "prices from ",
+    resetLabel: "Reset",
+    pickHeroSub: "Only parts that fit the components you already picked are shown",
+    pagesLabel: "Pages",
+    nameHeading: "Name",
+    storesHeading: "Stores",
+    prevPage: "Previous page",
+    nextPage: "Next page",
+    builderSub: "Pick a part for each row. We check compatibility and find the cheapest price for every part.",
+    splitTitle: "Split by store",
+    splitEmpty: "Pick parts to see where each is cheapest.",
+    splitNote: "Each part counts at the store where it is cheapest right now.",
+    compatChecksTitle: "Compatibility checks",
+    compatChecksEmpty: "Pick at least two related parts (say a CPU and a motherboard) to run checks.",
+    buildSaved: "Saved",
+    saveBuild: "Save",
+    selectionHeading: "Selection",
+    storeHeading: "Store",
+    buildEmptyNote: "No parts picked yet",
+    detailsLink: "Details",
+    wattageEstimate: "Estimated draw",
+    compareHeroSub: "Specs and prices side by side. The best value in each row is marked green.",
+    compareAddProduct: "Add a part",
+    compareUpTo: "Up to 4 parts",
+    priceRangeLabel: "Price range",
+    productLabel: "Part",
+    compareBestLegend: "Best value",
+    copyCompareLink: "Copy compare link",
+    savedHeroSub: "The parts and parts lists you saved, with today's prices from every store.",
+    savedFilter: "Filter saved items",
+    savedProducts: "Parts",
+    savedBuilds: "Parts lists",
+    savedProductsSub: "The cheapest price right now across all stores",
+    savedBuildsSub: "Builds you saved from the builder, with each part's current price",
+    savedEmptyTitle: "No saved parts",
+    savedBuildsEmptyTitle: "No saved parts lists",
+    savedBuildsEmpty: "In the builder, press \"Save\" to keep the list on this device.",
+    compareSaved: "Compare saved parts",
+    localOnlyTitle: "Saved on this device only.",
+    localOnlyBody: "No account needed: saved items live in your browser. Clearing browser data or switching devices will not show them.",
+    savedGone: "Not in today's catalog",
+    untitledBuild: "Untitled build",
+    withLabel: "with",
+    renameBuild: "Rename the list",
+    deleteBuild: "Delete the list",
+    duplicateBuild: "Duplicate",
+    copyLabel: "copy",
+    allCompatible: "All parts compatible",
+    hasConflicts: "Has conflicts",
+    hasWarnings: "Has compatibility notes",
+    nfPageTitle: "Page not found",
+    nfTag: "Error 404",
+    nfTitle: "This part is out of stock. Permanently.",
+    nfBody: "The page you were looking for doesn't exist, was removed, or the address has a typo. Search for a part, or carry on from one of these.",
+    popularCats: "Popular categories",
+    brokenTitle: "This list wasn't found",
+    brokenBody: "We couldn't open the parts list from this link. Usually the link was copied only partly, or a character got deleted.",
+    brokenOpened: "The link that was opened",
+    brokenToSaved: "To saved lists",
+    brokenHelpTitle: "What you can do",
+    brokenHelp1: "Check that you copied the whole link, to the very end.",
+    brokenHelp2: "Ask whoever sent you the list to share it again.",
+    brokenHelp3: "If it's your own list, it is saved on the device you made it on.",
+    compareEmptyTitle: "Nothing to compare yet",
+    compareEmptyBody: "You haven't picked any parts. Add 2 to 4 parts from the same category and we'll show them side by side, with the best value marked in every row.",
+    compareStep1: "Pick a category",
+    compareStep1Body: "Say processors or graphics cards.",
+    compareStep2: "Tick \"Compare\"",
+    compareStep2Body: "On up to 4 parts in the list.",
+    compareStep3: "Press \"Compare\"",
+    compareStep3Body: "In the bar that appears at the bottom of the screen.",
+    compareEmptyCta: "Pick parts",
+    compareFromSaved: "From saved parts",
+    dropsEmptyBody: "Prices are checked daily; when one falls more than 5% below its usual price it shows up here.",
+    dropsTry30: "Show the last 30 days",
+    noMatchFor: "No results for",
+    noMatchFilters: "No parts match these filters",
+    noMatchBody: "Try broader words, check the spelling, or remove some filters.",
+    clearSearchFilters: "Clear search and filters",
+    productGoneTitle: "This part is no longer in the catalog",
+    productGoneBody: "The stores may have stopped selling it, or the link is old. You'll likely find a similar model in its category.",
+    backToCategory: "Back to {c}",
+    savedNothingTitle: "Nothing saved yet",
+    savedNothingBody: "Parts and parts lists you save show up here with today's cheapest price. Everything stays on this device, no account needed.",
+    savedStepPart: "Save a part",
+    savedStepPartBody: "Tap the heart on a part's card or its page.",
+    savedStepList: "Save a parts list",
+    savedStepListBody: "In the builder, press \"Save\".",
+    searchTitle: "Search results",
+    searchCrumb: "Search",
+    searchEmptyPrompt: "What are you looking for?",
+    searchEmptyBody: "Try broader words, check the spelling, or search by the model name alone.",
+    didYouMean: "Did you mean:",
+    clearSearch: "Clear search",
+    browseByCategory: "Or browse by category",
+    searchInCategoryLabel: "By category:",
+    searchMoreHint: "Showing the first 48 results. Pick a category to see them all with filters.",
+    searchAllResults: "All results for",
+    searchOpenPage: "Search page for",
   },
 } satisfies Record<Lang, Record<string, string>>;
 
@@ -764,4 +1044,114 @@ const COMPAT_MESSAGES: Record<CompatCode, Record<Lang, (p: CompatParams) => stri
 
 export function compatMessage(lang: Lang, issue: CompatIssue): string {
   return COMPAT_MESSAGES[issue.code][lang](issue.params);
+}
+
+export function storesCount(lang: Lang, n: number): string {
+  return lang === "he" ? `${n} חנויות` : `${n} stores`;
+}
+
+/** "Prices updated today at 06:51" (local time), or a date when older. */
+export function updatedText(lang: Lang, iso: string): string | null {
+  const when = new Date(iso);
+  if (Number.isNaN(when.getTime())) return null;
+  const locale = lang === "he" ? "he-IL" : "en-GB";
+  const time = new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit" }).format(when);
+  const dayKey = (d: Date): string => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+  const now = new Date();
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  if (dayKey(when) === dayKey(now)) return lang === "he" ? `המחירים עודכנו היום ב-${time}` : `Prices updated today at ${time}`;
+  if (dayKey(when) === dayKey(yesterday)) return lang === "he" ? `המחירים עודכנו אתמול ב-${time}` : `Prices updated yesterday at ${time}`;
+  const date = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(when);
+  return lang === "he" ? `המחירים עודכנו ב-${date}` : `Prices updated ${date}`;
+}
+
+export function homeCatsSub(lang: Lang, cats: number, parts: string): string {
+  return lang === "he"
+    ? `${cats} קטגוריות, ${parts} מוצרים מ-${ACTIVE_VENDORS.length} חנויות`
+    : `${cats} categories, ${parts} parts from ${ACTIVE_VENDORS.length} stores`;
+}
+
+export function dropsCount(lang: Lang, n: number, days: number): string {
+  return lang === "he" ? `${n} מוצרים ירדו במחיר ב-${days} הימים האחרונים` : `${n} parts dropped in price over the last ${days} days`;
+}
+
+export function savingText(lang: Lang, amount: string): string {
+  return lang === "he" ? `חוסכים ${amount}` : `Save ${amount}`;
+}
+
+/** When a store last listed the price: today / yesterday / N days ago. */
+export function lastSeenText(lang: Lang, isoDay: string): string {
+  const seen = Date.parse(`${isoDay.slice(0, 10)}T00:00:00`);
+  if (!Number.isFinite(seen)) return isoDay;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const days = Math.round((today.getTime() - seen) / 86_400_000);
+  if (days <= 0) return lang === "he" ? "היום" : "Today";
+  if (days === 1) return lang === "he" ? "אתמול" : "Yesterday";
+  return lang === "he" ? `לפני ${days} ימים` : `${days} days ago`;
+}
+
+export function inStockCount(lang: Lang, n: string): string {
+  return lang === "he" ? `${n} במלאי` : `${n} in stock`;
+}
+
+export function showingText(lang: Lang, from: string, to: string, total: string): string {
+  return lang === "he" ? `מציג ${from}–${to} מתוך ${total}` : `Showing ${from}–${to} of ${total}`;
+}
+
+export function partsCount(lang: Lang, n: number): string {
+  if (lang === "he") return n === 1 ? "רכיב אחד" : `${n} רכיבים`;
+  return n === 1 ? "1 part" : `${n} parts`;
+}
+
+/** Builder table foot: "8 parts · cheapest price per part, from 3 stores". */
+export function buildFootNote(lang: Lang, parts: number, stores: number): string {
+  return lang === "he"
+    ? `${partsCount(lang, parts)} · המחיר הזול ביותר לכל רכיב, מ-${stores === 1 ? "חנות אחת" : `${stores} חנויות`}`
+    : `${partsCount(lang, parts)} · cheapest price per part, from ${stores === 1 ? "1 store" : `${stores} stores`}`;
+}
+
+type OkCheck = "socket" | "memoryType" | "memorySpeed" | "coolerSocket" | "boardForm" | "gpuLength" | "coolerFit" | "psu" | "psuGpu";
+
+/** A compatibility check that passed, with the value it matched on when the specs carry it. */
+export function compatOkMessage(
+  lang: Lang,
+  check: OkCheck,
+  parts: Record<string, { specs?: Record<string, unknown> }>,
+  watts: number
+): string {
+  const spec = (slot: string, field: string): string => {
+    const value = parts[slot]?.specs?.[field];
+    return typeof value === "string" || typeof value === "number" ? String(value) : "";
+  };
+  const detail = (value: string): string => (value ? ` (${value})` : "");
+  const he = lang === "he";
+  switch (check) {
+    case "socket":
+      return (he ? "שקע המעבד תואם ללוח האם" : "CPU socket matches the motherboard") + detail(spec("motherboard", "socket") || spec("cpu", "socket"));
+    case "memoryType":
+      return (he ? "סוג הזיכרון ונפחו מתאימים ללוח האם" : "Memory type and capacity suit the motherboard") + detail(spec("motherboard", "memory_type") || spec("memory", "memory_type"));
+    case "memorySpeed":
+      return (he ? "מהירות הזיכרון בטווח שהלוח מצהיר עליו" : "Memory speed is within what the board lists") + detail(spec("memory", "speed_mhz") ? `${spec("memory", "speed_mhz")}MHz` : "");
+    case "coolerSocket":
+      return he ? "הקירור תומך בשקע המעבד" : "The cooler supports the CPU socket";
+    case "boardForm":
+      return (he ? "לוח האם נכנס למארז" : "The motherboard fits the case") + detail(spec("motherboard", "form_factor"));
+    case "gpuLength":
+      return he ? "כרטיס המסך נכנס לאורך המארז" : "The graphics card fits the case length";
+    case "coolerFit":
+      return he ? "הקירור נכנס למארז" : "The cooler fits the case";
+    case "psu": {
+      const cap = spec("psu", "wattage_w");
+      return (he ? "ספק הכוח מספיק" : "The power supply is sufficient") + detail(cap ? (he ? `${cap}W מול ${watts}W משוערים` : `${cap}W against ~${watts}W`) : "");
+    }
+    case "psuGpu":
+      return he ? "ספק הכוח עומד בהמלצת כרטיס המסך" : "The PSU meets the graphics card's recommendation";
+  }
+}
+
+export function searchResultsCount(lang: Lang, n: number): string {
+  const num = n.toLocaleString(lang === "he" ? "he-IL" : "en-US");
+  return lang === "he" ? `${num} תוצאות עבור` : `${num} results for`;
 }

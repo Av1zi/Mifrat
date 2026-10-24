@@ -1,13 +1,13 @@
 import { loadQa, loadSpecReport } from "../api";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, resultsCount, t, vendorLabel } from "../i18n";
-import { icon } from "../icons";
-import { categoryHash, homeHash, productHash } from "../state";
+import { categoryHash, productHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, QaCase, SpecReport } from "../types";
 import { card } from "../ui/card";
 import { chip } from "../ui/chip";
 import { emptyValue } from "../ui/empty";
+import { pageHero } from "../ui/pageHero";
 import { html, mount, type Html } from "../ui/html";
 import { emptyState, errorState, loadingState } from "../ui/state";
 
@@ -86,8 +86,7 @@ export async function renderQa(
 
   mount(
     container,
-    html`<nav class="crumbs"><a href="${homeHash()}">${icon("back", 14)}${t(lang, "backToHome")}</a></nav>
-      <header class="page-head"><h1>${t(lang, "qaHeading")}</h1>${cases.length > 0 ? html`<p>${resultsCount(lang, cases.length)}</p>` : ""}</header>
+    html`${pageHero({ lang, crumbs: [{ label: t(lang, "qaTitle") }], title: t(lang, "qaHeading"), sub: cases.length > 0 ? resultsCount(lang, cases.length) : undefined })}
       <div class="qa-list">
         ${reportPanel}
         ${cases.length === 0 ? emptyState(t(lang, "qaEmpty")) : rows}

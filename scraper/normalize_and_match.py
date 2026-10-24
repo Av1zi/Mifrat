@@ -221,7 +221,11 @@ def _recompute_canonical_names(products: list[dict], enriched: list[dict]) -> No
             groups.setdefault(pid, []).append(e)
     updated = 0
     for product in products:
-        if product.get("matched_by") == "manual":
+        # CPU names are fully derived from model + packaging, and the
+        # manual entries carry stale generated names ("... series Ryzen 5
+        # Tray"), so only the other categories keep manual names.
+        if product.get("matched_by") == "manual" and product.get("category") not in (
+                "cpu", "gpu"):
             continue
         group = groups.get(product.get("product_id"), [])
         if not group:
@@ -278,6 +282,35 @@ def _recompute_canonical_names(products: list[dict], enriched: list[dict]) -> No
             updated += 1
     if updated:
         print(f"  recomputed {updated} canonical names from validated specs")
+
+
+def _disambiguate_duplicate_names(products: list[dict]) -> None:
+    """Two different products must never read the same: append the part
+    number to every product that shares a name with another one in its
+    category ("Gigabyte GeForce RTX 5060 8GB" x3 -> "... (GV-N5060GAMING OC-8GD)").
+    Products with no part number keep their name."""
+    by_name: dict[tuple, list[dict]] = {}
+    for product in products:
+        name = str(product.get("canonical_name") or "").strip().lower()
+        if name:
+            by_name.setdefault((product.get("category"), name), []).append(product)
+    changed = 0
+    for group in by_name.values():
+        if len(group) < 2:
+            continue
+        for product in group:
+            parts = (product.get("specs") or {}).get("part_numbers") or []
+            part = next((str(p) for p in parts if p), "")
+            if not part:
+                pid = str(product.get("product_id") or "")
+                if pid.startswith("mpn:"):
+                    part = pid.rsplit(":", 1)[-1].upper()
+            name = str(product["canonical_name"])
+            if part and part.lower() not in name.lower():
+                product["canonical_name"] = f"{name} ({part})"
+                changed += 1
+    if changed:
+        print(f"  disambiguated {changed} duplicate canonical names")
 
 
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
@@ -453,6 +486,33 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     return enriched
 
 
+def _drop_included_builder_options(listings: list[dict]) -> list[dict]:
+    """Drop YahavPC's "included in ..." builder slots.
+
+    BuildSearch returns the PC-builder's zero-price options as if they were
+    products: BIC-GPU ("integrated graphics in the CPU"), BIC-CPU ("boxed
+    cooler"), BIC-CASE-YPC ("case + cooler bundle") and WITHPSU ("included
+    PSU"). They have no real price, no vendor page worth linking and a
+    generic stamp image, yet they used to surface as products in gpu,
+    cooler_air, case_fan and psu. The spider now filters them at the source;
+    this also scrubs snapshots taken before that fix (and any stale-forwarded
+    copies of them).
+
+    Deliberately scoped to yahav: TMS legitimately lists "price on request"
+    parts without a price, and dropping those would lose real products.
+    """
+    kept = []
+    dropped = 0
+    for listing in listings:
+        if listing.get("vendor_id") == "yahav" and listing.get("price_ils") == 0:
+            dropped += 1
+            continue
+        kept.append(listing)
+    if dropped:
+        print(f"  dropped {dropped} YahavPC included-in-... builder options")
+    return kept
+
+
 def build_catalog(today: datetime):
     today_str = _date_str(today)
 
@@ -476,6 +536,7 @@ def build_catalog(today: datetime):
         is_stale = snapshot_date != today_str
 
         listings = load_listings(path)
+        listings = _drop_included_builder_options(listings)
 
         for listing in listings:
             listing["last_seen"] = snapshot_date
@@ -515,6 +576,7 @@ def build_catalog(today: datetime):
     # up with `specs` (fixed key set, nulls included) + `spec_sources`.
     spec_report = build_product_specs(match_result["products"], enriched)
     _recompute_canonical_names(match_result["products"], enriched)
+    _disambiguate_duplicate_names(match_result["products"])
 
     exclude_multi_keys = {
         listing_key_value

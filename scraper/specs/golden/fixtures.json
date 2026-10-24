@@ -181,16 +181,16 @@
       }
     },
     {
-      "product_id": "sku:cooler_air:814256022132",
+      "product_id": "sku:cooler_air:814256022149",
       "category": "cooler_air",
-      "name": "Thermalright Peerless Assassin Vision MAX Black ARGB",
-      "_pins": "Oct 2026 coverage pass: Ivory prints 'מידות כ-: גובה 164 רוחב 110 עומק 125' (consistent across scrapes since Sep 2026), which the new DIMS_CELL mapping reads as height_mm 164. The previous 170 came from no surviving source (title has no height, Tier-0 has no entry) and was stale.",
+      "name": "Thermalright Peerless Assassin Vision MAX White ARGB",
+      "_pins": "Oct 2026 coverage pass: Ivory prints 'מידות כ-: גובה 164 רוחב 110 עומק 125' (consistent across scrapes since Sep 2026), which the new DIMS_CELL mapping reads as height_mm 164. The previous 170 came from no surviving source (title has no height, Tier-0 has no entry) and was stale. 2026-10-24: Ivory dropped the Black listing (81425602213-2), so the pin moved to the White sibling (same page layout, same cooler).",
       "expect": {
         "manufacturer": "Thermalright",
         "fan_rpm_max": 2150,
         "height_mm": 164,
         "lighting": "ARGB",
-        "color": "Black"
+        "color": "White"
       },
       "expect_null": [
         "water_cooled",

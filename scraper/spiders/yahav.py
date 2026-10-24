@@ -364,12 +364,26 @@ class YahavSpider(scrapy.Spider):
             return None
         self._seen[sku] = guess
 
+        price = _round_price(raw.get("price"))
+        if price == 0:
+            # BuildSearch also returns the builder's "included in ..." slot
+            # options (BIC-GPU integrated graphics, BIC-CPU boxed cooler,
+            # BIC-CASE-YPC bundled case cooler, WITHPSU included PSU) at
+            # price 0. They are configurator flags, not purchasable parts:
+            # no price, no link and a generic "recommended" stamp for a
+            # photo. Keep them out of the catalogue.
+            self.logger.info(
+                "[yahav] skipping included-at-no-cost builder option %s (%s)",
+                sku, title,
+            )
+            return None
+
         return ListingItem(
             vendor_id=VENDOR_ID,
             vendor_sku=sku,
             title_raw=title,
             url=PRODUCT_URL.format(pid=product_id),
-            price_ils=_round_price(raw.get("price")),
+            price_ils=price,
             in_stock=True,
             category_guess=guess,
             image_url=IMAGE_URL.format(pid=product_id) if raw.get("image") else None,

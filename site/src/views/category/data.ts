@@ -40,7 +40,8 @@ export interface CategoryCtx {
   query: string;
   sortTouched: boolean;
   view: ListView;
-  visible: number;
+  /** Extra batches revealed by scrolling (rows shown = (page + 1) * PAGE_SIZE). */
+  page: number;
   filterable: Map<string, OptionCounts>;
   ranges: Map<string, Range>;
   columns: string[];

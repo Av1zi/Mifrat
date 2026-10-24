@@ -3,34 +3,12 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:127415",
-    "listing_b": "ivory:72257",
-    "title_a": "מעבד AMD Ryzen 7 7700X AM5 צבע לא ידוע",
-    "title_b": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
-    "match_text_a": "100-000000591 AMD Ryzen 7 7700X AM5",
-    "match_text_b": "100-000000591 AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:127416",
     "listing_b": "tms:100-000000589",
     "title_a": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
     "title_b": "AMD Ryzen 9 7900X AM5 Tray",
     "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5",
     "match_text_b": "100-000000589 AMD Ryzen 9 7900X AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:154854",
-    "listing_b": "ivory:126060",
-    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
   },
   {
     "score": 100,
@@ -47,188 +25,12 @@
     "score": 100,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "tms:100-000000927",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:164657",
-    "listing_b": "tms:100-100000651WOF",
-    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Box",
-    "title_b": "AMD Ryzen 7 5800X3D AM4 Box",
-    "match_text_a": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box",
-    "match_text_b": "100-100000651WOF AMD Ryzen 7 5800X3D AM4 Box"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:169702",
-    "listing_b": "yahav:9794",
-    "title_a": "מעבד AMD Ryzen™ 7 9700X AM5 - TRAY",
-    "title_b": "מעבד חברת AMD דגם Ryzen 7 9700X Boost 5.5Ghz 32MB Cache AM5 TRAY - Without Cooler",
-    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 - TRAY",
-    "match_text_b": "100-000001404 AMD Ryzen 7 9700X Boost 5.5Ghz 32MB Cache AM5 TRAY - Without Cooler"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:188423",
-    "listing_b": "ivory:154048",
-    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
-    "title_b": "מעבד AMD Ryzen 5 8400F Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:188423",
-    "listing_b": "tms:100-000001591",
-    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
-    "title_b": "AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:188423",
-    "listing_b": "yahav:11202",
-    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 5 8400F Boost 4.7Ghz 16MB Cache AM5 Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Boost 4.7Ghz 16MB Cache AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:189440",
-    "listing_b": "tms:100-000001368",
-    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-    "title_b": "AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:189440",
-    "listing_b": "yahav:10457",
-    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 9 9900X3D Boost 5.5Ghz 128MB L3 Cache AM5 Tray Thermal Solution Not Included",
-    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_b": "100-000001368 AMD Ryzen 9 9900X3D Boost 5.5Ghz 128MB L3 Cache AM5 Tray Thermal Solution Not Included"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:218573",
     "listing_b": "tms:100-000000743",
     "title_a": "מעבד AMD Ryzen 7 5700 AM4 Tray",
     "title_b": "AMD Ryzen 7 5700 AM4 Tray",
     "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
     "match_text_b": "100-000000743 AMD Ryzen 7 5700 AM4 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "yahav:10325",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:72257",
-    "listing_b": "tms:100-000000591",
-    "title_a": "מעבד AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
-    "title_b": "מעבד AMD Ryzen 7 7700X AM5 Tray",
-    "match_text_a": "100-000000591 AMD Ryzen 7 7700X 4.5GHz 8MB AM5 Tray",
-    "match_text_b": "100-000000591 AMD Ryzen 7 7700X AM5 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000927",
-    "listing_b": "yahav:9797",
-    "title_a": "AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 5 5600 3.5Ghz 4.4Ghz 32MB Cache AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 3.5Ghz 4.4Ghz 32MB Cache AM4 Tray"
-  },
-  {
-    "score": 100,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:221402",
-    "listing_b": "tms:NE1000P",
-    "title_a": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular NE1000P",
-    "title_b": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
-    "match_text_a": "221402 ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular NE1000P",
-    "match_text_b": "NE1000P ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular"
-  },
-  {
-    "score": 100,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:221403",
-    "listing_b": "tms:NE1200P",
-    "title_a": "ANTEC NE1200 NeoECO PSU 1200W ATX3.1 Platinum Full Modular NE1200P",
-    "title_b": "ANTEC PSU 1200W NE1200 NeoECO ATX3.1 Platinum Full Modular",
-    "match_text_a": "221403 ANTEC NE1200 NeoECO PSU 1200W ATX3.1 Platinum Full Modular NE1200P",
-    "match_text_b": "NE1200P ANTEC PSU 1200W NE1200 NeoECO ATX3.1 Platinum Full Modular"
-  },
-  {
-    "score": 100,
-    "category": "motherboard",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:221505",
-    "listing_b": "tms:GB550AORUSEWF7",
-    "title_a": "לוח אם Gigabyte B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
-    "title_b": "לוח אם Gigabyte B550 AORUS ELITE WiFi7",
-    "match_text_a": "221505 Gigabyte B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
-    "match_text_b": "GB550AORUSEWF7 Gigabyte B550 AORUS ELITE WiFi7"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:102820",
-    "listing_b": "tms:C10105FT",
-    "title_a": "מעבד Intel Core i3 10105F צבע טרי",
-    "title_b": "Intel Core i3 10105F / 1200 Tray",
-    "match_text_a": "C10105FT Intel Core i3 10105F",
-    "match_text_b": "C10105FT Intel Core i3 10105F / 1200 Tray"
   },
   {
     "score": 100,
@@ -245,45 +47,34 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:157389",
-    "listing_b": "tms:C14100T",
-    "title_a": "מעבד Intel Core i3 14100 / 1700 Tray",
-    "title_b": "Intel Core i3 14100 / 1700 Tray",
-    "match_text_a": "C14100T Intel Core i3 14100 / 1700 Tray",
-    "match_text_b": "C14100T Intel Core i3 14100 / 1700 Tray"
+    "listing_a": "1pc:134718",
+    "listing_b": "tms:C7500T-P",
+    "title_a": "מעבד Intel Core i5 7500 צבע קופסה",
+    "title_b": "Intel Core i5 7500 / 1151 Tray Pull",
+    "match_text_a": "C7500T-P Intel Core i5 7500",
+    "match_text_b": "C7500T-P Intel Core i5 7500 / 1151 Tray Pull"
   },
   {
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:157391",
-    "listing_b": "tms:C14400T",
-    "title_a": "מעבד Intel Core i5 14400 / 1700 Tray",
-    "title_b": "Intel Core i5 14400 / 1700 Tray",
-    "match_text_a": "C14400T Intel Core i5 14400 / 1700 Tray",
-    "match_text_b": "C14400T Intel Core i5 14400 / 1700 Tray"
+    "listing_a": "1pc:152181",
+    "listing_b": "tms:C14600KT",
+    "title_a": "מעבד Intel Core i5 14600K / 1700 Tray",
+    "title_b": "Intel Core i5 14600K / 1700 Tray",
+    "match_text_a": "C14600KT Intel Core i5 14600K / 1700 Tray",
+    "match_text_b": "C14600KT Intel Core i5 14600K / 1700 Tray"
   },
   {
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:189653",
-    "listing_b": "tms:C225T",
-    "title_a": "מעבד Intel Core Ultra 5 225 1851 Tray",
-    "title_b": "Intel Core Ultra 5 225 / 1851 Tray",
-    "match_text_a": "C225T Intel Core Ultra 5 225 1851 Tray",
-    "match_text_b": "C225T Intel Core Ultra 5 225 / 1851 Tray"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:189654",
-    "listing_b": "tms:C225FT",
-    "title_a": "מעבד Intel Core Ultra 5 225F דגם 1851",
-    "title_b": "Intel Core Ultra 5 225F / 1851 Tray",
-    "match_text_a": "C225FT Intel Core Ultra 5 225F 1851",
-    "match_text_b": "C225FT Intel Core Ultra 5 225F / 1851 Tray"
+    "listing_a": "1pc:152189",
+    "listing_b": "tms:C14900KT",
+    "title_a": "מעבד Intel Core i9 14900K / 1700 Tray",
+    "title_b": "Intel Core i9 14900K / 1700 Tray",
+    "match_text_a": "C14900KT Intel Core i9 14900K / 1700 Tray",
+    "match_text_b": "C14900KT Intel Core i9 14900K / 1700 Tray"
   },
   {
     "score": 100,
@@ -529,6 +320,17 @@
   },
   {
     "score": 100,
+    "category": "cooler_air",
+    "brand": "Antec",
+    "listing_a": "1pc:59363",
+    "listing_b": "tms:C40",
+    "title_a": "מאוורר מעבד Antec C40 צבע שחור",
+    "title_b": "Antec C40 CPU Cooler",
+    "match_text_a": "C40 Antec C40",
+    "match_text_b": "C40 Antec C40 CPU Cooler"
+  },
+  {
+    "score": 100,
     "category": "memory",
     "brand": "Samsung",
     "listing_a": "1pc:221510",
@@ -570,17 +372,6 @@
     "title_b": "ספק כוח Corsair RM1000e ‏1000W ATX 3.1 Cybenetics Platinum מודולרי מלא",
     "match_text_a": "221409 Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum CP-9020337-EU",
     "match_text_b": "CP-9020337-EU Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum"
-  },
-  {
-    "score": 100,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "1pc:221415",
-    "listing_b": "tms:NE63060U19K9-PG190L",
-    "title_a": "RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
-    "title_b": "Palit RTX 3060 Infinity 2 OC 12GB",
-    "match_text_a": "221415 RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
-    "match_text_b": "NE63060U19K9-PG190L Palit RTX 3060 Infinity 2 OC 12GB"
   },
   {
     "score": 100,
@@ -727,17 +518,6 @@
   },
   {
     "score": 94,
-    "category": "gpu",
-    "brand": "NVIDIA",
-    "listing_a": "1pc:203693",
-    "listing_b": "yahav:11625",
-    "title_a": "כרטיס מסך NVIDIA RTX PRO 4500 Blackwell 32GB GDDR7 ECC 900-5G147-2250-000",
-    "title_b": "כרטיס מסך חברת PNY דגם NVIDIA RTX PRO 4500 Blackwell 32GB GDDR7 ECC 4xMini DP",
-    "match_text_a": "203693 NVIDIA RTX PRO 4500 Blackwell 32GB GDDR7 ECC 900-5G147-2250-000",
-    "match_text_b": "900-5G147-2250-000 PNY NVIDIA RTX PRO 4500 Blackwell 32GB GDDR7 ECC 4xMini DP"
-  },
-  {
-    "score": 94,
     "category": "memory",
     "brand": "GeIL",
     "listing_a": "1pc:221504",
@@ -757,28 +537,6 @@
     "title_b": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
     "match_text_a": "221536 Klevv DDR5 64GB (2x32GB) 6000 CL30 CRAS V RGB Black",
     "match_text_b": "221538 Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:169702",
-    "listing_b": "tms:100-000001404",
-    "title_a": "מעבד AMD Ryzen™ 7 9700X AM5 - TRAY",
-    "title_b": "AMD Ryzen 7 9700X AM5 Tray",
-    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 - TRAY",
-    "match_text_b": "100-000001404 AMD Ryzen 7 9700X AM5 Tray"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:174936",
-    "listing_b": "tms:100-000001277",
-    "title_a": "מעבד AMD Ryzen™ 9 9950X AM5 - TRAY",
-    "title_b": "AMD Ryzen 9 9950X AM5 Tray",
-    "match_text_a": "100-000001277 AMD Ryzen 9 9950X AM5 - TRAY",
-    "match_text_b": "100-000001277 AMD Ryzen 9 9950X AM5 Tray"
   },
   {
     "score": 93,
@@ -881,17 +639,6 @@
   },
   {
     "score": 93,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:221404",
-    "listing_b": "tms:GSK750V2",
-    "title_a": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
-    "title_b": "Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
-    "match_text_a": "221404 Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular",
-    "match_text_b": "GSK750V2 Antec PSU GSK 750W V2 ATX3.1 80+ Gold Full Modular"
-  },
-  {
-    "score": 93,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221523",
@@ -925,17 +672,6 @@
   },
   {
     "score": 93,
-    "category": "gpu",
-    "brand": "Palit",
-    "listing_a": "1pc:221415",
-    "listing_b": "ivory:175102",
-    "title_a": "RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
-    "title_b": "כרטיס מסך Palit GeForce RTX 3060 Infinity 2 OC 12GB",
-    "match_text_a": "221415 RTX 3060 Infinity 2 OC 12GB Palit NE63060U19K9-PG190L",
-    "match_text_b": "NE63060U19K9-PG190L Palit GeForce RTX 3060 Infinity 2 OC 12GB"
-  },
-  {
-    "score": 93,
     "category": "memory",
     "brand": "GeIL",
     "listing_a": "1pc:222243",
@@ -944,17 +680,6 @@
     "title_b": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
     "match_text_a": "222243 GeIL ORION DDR4 16GB (2x8GB) 3200 CL16",
     "match_text_b": "222244 GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16"
-  },
-  {
-    "score": 93,
-    "category": "memory",
-    "brand": "GeIL",
-    "listing_a": "1pc:222754",
-    "listing_b": "tms:GAOG432GB3200C16BDC",
-    "title_a": "זיכרון למחשב GeIL ORION AMD Edition DDR4 32GB (2x16GB) 3200 CL16 אפור",
-    "title_b": "GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION AMD Edition Gray",
-    "match_text_a": "222754 GeIL ORION AMD Edition DDR4 32GB (2x16GB) 3200 CL16",
-    "match_text_b": "GAOG432GB3200C16BDC GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION AMD Edition Gray"
   },
   {
     "score": 93,
@@ -993,34 +718,12 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:112622",
-    "listing_b": "tms:100-000000927",
-    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:187970",
     "listing_b": "tms:100-000000908",
     "title_a": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
     "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
     "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
     "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:188423",
-    "listing_b": "tms:100-000001590",
-    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
-    "title_b": "AMD Ryzen 7 8700F AM5 Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_b": "100-000001590 AMD Ryzen 7 8700F AM5 Tray"
   },
   {
     "score": 92,
@@ -1054,17 +757,6 @@
     "title_b": "AMD Ryzen 5 5600X AM4 Tray",
     "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
     "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000457",
-    "listing_b": "tms:100-000000927",
-    "title_a": "AMD Ryzen 5 5500 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
   },
   {
     "score": 92,
@@ -1222,17 +914,6 @@
   },
   {
     "score": 92,
-    "category": "gpu",
-    "brand": "XFX",
-    "listing_a": "1pc:221526",
-    "listing_b": "tms:RX-96TSW16BQ",
-    "title_a": "כרטיס מסך XFX Swift RX 9060 XT OC Gaming Edition 16GB",
-    "title_b": "כרטיס מסך XFX Swift RX 9060 XT OC Gaming Edition 16GB",
-    "match_text_a": "221526 XFX Swift RX 9060 XT OC Gaming Edition 16GB",
-    "match_text_b": "RX-96TSW16BQ XFX Swift RX 9060 XT OC Gaming Edition 16GB"
-  },
-  {
-    "score": 92,
     "category": "memory",
     "brand": "Klevv",
     "listing_a": "1pc:221527",
@@ -1290,17 +971,6 @@
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:154854",
-    "listing_b": "tms:100-000000927",
-    "title_a": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:218573",
     "listing_b": "tms:100-000000926",
     "title_a": "מעבד AMD Ryzen 7 5700 AM4 Tray",
@@ -1323,45 +993,12 @@
     "score": 91,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000597",
-    "listing_b": "tms:100-000000927",
-    "title_a": "AMD Ryzen 5 7500F AM5 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000743",
     "listing_b": "tms:100-000000926",
     "title_a": "AMD Ryzen 7 5700 AM4 Tray",
     "title_b": "AMD Ryzen 7 5700X AM4 Tray",
     "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
     "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000927",
-    "listing_b": "tms:100-100000065",
-    "title_a": "AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:222749",
-    "listing_b": "1pc:222751",
-    "title_a": "כרטיס מסך ASUS Prime RX 9070 EVO OC Edition 16GB GDDR6",
-    "title_b": "כרטיס מסך ASUS Prime RX 9070 XT OC Edition 16GB GDDR6 לבן",
-    "match_text_a": "222749 ASUS Prime RX 9070 EVO OC Edition 16GB GDDR6",
-    "match_text_b": "222751 ASUS Prime RX 9070 XT OC Edition 16GB GDDR6"
   },
   {
     "score": 91,
@@ -1411,17 +1048,6 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:174936",
-    "listing_b": "yahav:9898",
-    "title_a": "מעבד AMD Ryzen™ 9 9950X AM5 - TRAY",
-    "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X Boost 5.7Ghz 64MB L3 Cache AM5 Tray",
-    "match_text_a": "100-000001277 AMD Ryzen 9 9950X AM5 - TRAY",
-    "match_text_b": "100-000001277 AMD Ryzen 9 9950X Boost 5.7Ghz 64MB L3 Cache AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:175540",
     "listing_b": "tms:100-000001904",
     "title_a": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
@@ -1439,50 +1065,6 @@
     "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
     "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray",
     "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:188423",
-    "listing_b": "tms:100-000000597",
-    "title_a": "מעבד AMD Ryzen 5 8400F AM5 Tray",
-    "title_b": "AMD Ryzen 5 7500F AM5 Tray",
-    "match_text_a": "100-000001591 AMD Ryzen 5 8400F AM5 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:189440",
-    "listing_b": "tms:100-000000662",
-    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-    "title_b": "AMD Ryzen 9 9900X AM5 Tray",
-    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_b": "100-000000662 AMD Ryzen 9 9900X AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:189440",
-    "listing_b": "tms:100-000000719",
-    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-    "title_b": "AMD Ryzen 9 9950X3D AM5 Tray",
-    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D AM5 Tray"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:189440",
-    "listing_b": "tms:100-000001084",
-    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-    "title_b": "AMD Ryzen 7 9800X3D AM5 Tray",
-    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_b": "100-000001084 AMD Ryzen 7 9800X3D AM5 Tray"
   },
   {
     "score": 90,
@@ -1717,6 +1299,369 @@
   },
   {
     "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172761",
+    "listing_b": "1pc:222383",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172761",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172762",
+    "listing_b": "1pc:222383",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172762",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172763",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172763",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:175128",
+    "listing_b": "1pc:222411",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX LCD AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
+    "match_text_a": "CW-9061026-WW Corsair iCUE LINK TITAN 360 RX LCD AIO",
+    "match_text_b": "222411 Corsair iCUE LINK TITAN RX 360 LCD"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:175129",
+    "listing_b": "1pc:222411",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX LCD AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
+    "match_text_a": "CW-9061023-WW Corsair iCUE LINK TITAN 360 RX LCD AIO",
+    "match_text_b": "222411 Corsair iCUE LINK TITAN RX 360 LCD"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206395",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206395",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221523",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221523",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "ivory:130950",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "ivory:130953",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "tms:CW-9061016-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "tms:CW-9061020-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "ivory:117271",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "ivory:117273",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061018-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061021-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061037-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "ivory:130950",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "ivory:130953",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "tms:CW-9061016-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "tms:CW-9061020-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "ivory:117271",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "ivory:117273",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061018-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061021-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061037-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222411",
+    "listing_b": "ivory:150454",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
+    "title_b": "קירור נוזלי למעבד עם מסך Corsair iCUE LINK TITAN 360 RX LCD 360mm בצבע לבן",
+    "match_text_a": "222411 Corsair iCUE LINK TITAN RX 360 LCD",
+    "match_text_b": "CW-9061026-WW Corsair iCUE LINK TITAN 360 RX LCD 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222411",
+    "listing_b": "tms:CW-9061023-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX LCD AIO Liquid CPU Cooler",
+    "match_text_a": "222411 Corsair iCUE LINK TITAN RX 360 LCD",
+    "match_text_b": "CW-9061023-WW Corsair iCUE LINK TITAN 360 RX LCD AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222411",
+    "listing_b": "tms:CW-9061026-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX LCD AIO Liquid CPU Cooler White",
+    "match_text_a": "222411 Corsair iCUE LINK TITAN RX 360 LCD",
+    "match_text_b": "CW-9061026-WW Corsair iCUE LINK TITAN 360 RX LCD AIO Liquid CPU Cooler White"
+  },
+  {
+    "score": 90,
     "category": "motherboard",
     "brand": "ASUS",
     "listing_a": "1pc:221493",
@@ -1725,314 +1670,6 @@
     "title_b": "לוח אם Asus ProArt B850-CREATOR WiFi NEO",
     "match_text_a": "221493 Asus ProArt B850-CREATOR WiFi NEO",
     "match_text_b": "90MB1P60-M0EAY0 Asus ProArt B850-CREATOR WiFi NEO"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:172761",
-    "listing_b": "1pc:222383",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
-    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
-    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:172761",
-    "listing_b": "1pc:222385",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
-    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
-    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:172762",
-    "listing_b": "1pc:222383",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
-    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
-    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:172762",
-    "listing_b": "1pc:222385",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
-    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
-    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:172763",
-    "listing_b": "1pc:222384",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
-    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:172763",
-    "listing_b": "1pc:222386",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
-    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:206395",
-    "listing_b": "1pc:222384",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
-    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:206395",
-    "listing_b": "1pc:222386",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
-    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:221523",
-    "listing_b": "1pc:222384",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
-    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:221523",
-    "listing_b": "1pc:222386",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
-    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222383",
-    "listing_b": "ivory:130950",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
-    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222383",
-    "listing_b": "ivory:130953",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
-    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222383",
-    "listing_b": "tms:CW-9061016-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
-    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
-    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222383",
-    "listing_b": "tms:CW-9061020-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
-    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
-    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222384",
-    "listing_b": "ivory:117271",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
-    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222384",
-    "listing_b": "ivory:117273",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
-    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222384",
-    "listing_b": "tms:CW-9061018-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
-    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222384",
-    "listing_b": "tms:CW-9061021-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
-    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222384",
-    "listing_b": "tms:CW-9061037-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
-    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222385",
-    "listing_b": "ivory:130950",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
-    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222385",
-    "listing_b": "ivory:130953",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
-    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222385",
-    "listing_b": "tms:CW-9061016-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
-    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
-    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222385",
-    "listing_b": "tms:CW-9061020-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
-    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
-    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
-    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222386",
-    "listing_b": "ivory:117271",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
-    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222386",
-    "listing_b": "ivory:117273",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
-    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222386",
-    "listing_b": "tms:CW-9061018-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
-    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222386",
-    "listing_b": "tms:CW-9061021-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
-    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
-  },
-  {
-    "score": 90,
-    "category": "aio",
-    "brand": "Corsair",
-    "listing_a": "1pc:222386",
-    "listing_b": "tms:CW-9061037-WW",
-    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
-    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
-    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
-    "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
   },
   {
     "score": 90,
@@ -2077,50 +1714,6 @@
     "title_b": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
     "match_text_a": "222482 WD Green SN3000 M.2 NVMe SSD 2TB",
     "match_text_b": "WDS200T4G0E-00CPS0 WD Green SN3000 M.2 NVMe SSD 2TB"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "PNY",
-    "listing_a": "1pc:222752",
-    "listing_b": "tms:VCG5060T16DFXPB1-O",
-    "title_a": "כרטיס מסך PNY RTX 5060 Ti 16GB OC Dual Fan",
-    "title_b": "כרטיס מסך PNY RTX 5060 Ti 16GB OC Dual Fan",
-    "match_text_a": "222752 PNY RTX 5060 Ti 16GB OC Dual Fan",
-    "match_text_b": "VCG5060T16DFXPB1-O PNY RTX 5060 Ti 16GB OC Dual Fan"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "ASRock",
-    "listing_a": "1pc:221525",
-    "listing_b": "tms:90-GA61ZZ-00UANF",
-    "title_a": "כרטיס מסך ASRock RX 9070 XT Challenger 16GB",
-    "title_b": "כרטיס מסך ASRock RX 9070 XT Challenger 16GB",
-    "match_text_a": "221525 ASRock RX 9070 XT Challenger 16GB",
-    "match_text_b": "90-GA61ZZ-00UANF ASRock RX 9070 XT Challenger 16GB"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:92773",
-    "listing_b": "tms:100-000000927",
-    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000050",
-    "listing_b": "tms:100-000000927",
-    "title_a": "AMD Ryzen 5 3500 AM4 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
   },
   {
     "score": 89,
@@ -2247,17 +1840,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:112622",
-    "listing_b": "ivory:126060",
-    "title_a": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:155626",
     "listing_b": "tms:100-000000589",
     "title_a": "מעבד AMD Ryzen 7 7700 AM5 Tray",
@@ -2297,17 +1879,6 @@
     "title_b": "AMD Ryzen 5 3500X AM4 Tray",
     "match_text_a": "100-000001488 AMD Ryzen 5 5600GT AM4 Tray",
     "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:163368",
-    "listing_b": "ivory:126060",
-    "title_a": "מעבד AMD Ryzen 5 5600 AM4 Tray",
-    "title_b": "מעבד AMD Ryzen 5 7500F Tray",
-    "match_text_a": "100-000000927 AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_b": "100-000000597 AMD Ryzen 5 7500F Tray"
   },
   {
     "score": 88,
@@ -2390,17 +1961,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "1pc:189440",
-    "listing_b": "tms:100-000001973",
-    "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-    "title_b": "AMD Ryzen 7 9850X3D AM5 Tray",
-    "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
-    "match_text_b": "100-000001973 AMD Ryzen 7 9850X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "1pc:215496",
     "listing_b": "tms:100-000000651",
     "title_a": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
@@ -2418,39 +1978,6 @@
     "title_b": "AMD Ryzen 7 9700X AM5 Tray",
     "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
     "match_text_b": "100-000001404 AMD Ryzen 7 9700X AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "ivory:154048",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "מעבד AMD Ryzen 5 8400F Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000001591 AMD Ryzen 5 8400F Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000457",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 5500 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:126060",
-    "listing_b": "tms:100-000000927",
-    "title_a": "מעבד AMD Ryzen 5 7500F Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000597 AMD Ryzen 5 7500F Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
   },
   {
     "score": 88,
@@ -2517,17 +2044,6 @@
     "title_b": "AMD Ryzen 7 7700 AM5 Tray",
     "match_text_a": "100-000000589 AMD Ryzen 9 7900X AM5 Tray",
     "match_text_b": "100-000000592 AMD Ryzen 7 7700 AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000593",
-    "listing_b": "tms:100-000000927",
-    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
   },
   {
     "score": 88,
@@ -2682,17 +2198,6 @@
     "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
     "match_text_a": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray",
     "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000926",
-    "listing_b": "tms:100-000000927",
-    "title_a": "AMD Ryzen 7 5700X AM4 Tray",
-    "title_b": "AMD Ryzen 5 5600 AM4 Tray",
-    "match_text_a": "100-000000926 AMD Ryzen 7 5700X AM4 Tray",
-    "match_text_b": "100-000000927 AMD Ryzen 5 5600 AM4 Tray"
   },
   {
     "score": 88,
@@ -2982,17 +2487,6 @@
   },
   {
     "score": 88,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "1pc:195916",
-    "listing_b": "1pc:222751",
-    "title_a": "כרטיס מסך ASUS Prime Radeon RX 9070 OC Edition 16GB GDDR6",
-    "title_b": "כרטיס מסך ASUS Prime RX 9070 XT OC Edition 16GB GDDR6 לבן",
-    "match_text_a": "90YV0L71-M0NA00 ASUS Prime Radeon RX 9070 OC Edition 16GB GDDR6",
-    "match_text_b": "222751 ASUS Prime RX 9070 XT OC Edition 16GB GDDR6"
-  },
-  {
-    "score": 88,
     "category": "cooler_air",
     "brand": "Antec",
     "listing_a": "1pc:145922",
@@ -3268,26 +2762,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:corei310105f",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:104846",
-        "vendor_sku": "C10105FB",
-        "title": "מעבד Intel Core i3 10105F צבע אריזת קופסה",
-        "price": 242
-      },
-      {
-        "listing_key": "1pc:102820",
-        "vendor_sku": "C10105FT",
-        "title": "מעבד Intel Core i3 10105F צבע טרי",
-        "price": 250
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:cpu:corei712700f-tray",
     "category": "cpu",
     "vendor": "1pc",
@@ -3303,26 +2777,6 @@
         "vendor_sku": "C12700FT",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
         "price": 1333
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:coreultra5225f",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:189654",
-        "vendor_sku": "C225FT",
-        "title": "מעבד Intel Core Ultra 5 225F דגם 1851",
-        "price": 553
-      },
-      {
-        "listing_key": "1pc:218557",
-        "vendor_sku": "C225FB",
-        "title": "מעבד Intel Core Ultra 5 225F 1851 Box",
-        "price": 702
       }
     ]
   },
@@ -3363,46 +2817,6 @@
         "vendor_sku": "100-000001973",
         "title": "מעבד חברת AMD דגם Ryzen 7 9850X3D Boost 5.6Ghz 96MB Cache AM5 TRAY Thermal solution not included",
         "price": 1920
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:ryzen97900x",
-    "category": "cpu",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:127416",
-        "vendor_sku": "100-000000589",
-        "title": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
-        "price": 1525
-      },
-      {
-        "listing_key": "1pc:125818",
-        "vendor_sku": "100-100000589WOF",
-        "title": "מעבד AMD Ryzen 9 7900X AM5 צבע שחור",
-        "price": 1560
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "mpn:psu:srpcgx851a5a32sfw",
-    "category": "psu",
-    "vendor": "tms",
-    "offers": [
-      {
-        "listing_key": "tms:SRP-CGX851-A5A32SF-W",
-        "vendor_sku": "SRP-CGX851-A5A32SF-W",
-        "title": "ספק כוח Seasonic GX-850 850W CORE (V2) GX ATX 3.1 80+ Gold White",
-        "price": 670
-      },
-      {
-        "listing_key": "tms:SRP-CGX851-A5A32SFW",
-        "vendor_sku": "SRP-CGX851-A5A32SFW",
-        "title": "Seasonic Core GX-850-V2 850W ATX 3.1 80+ Gold White",
-        "price": 670
       }
     ]
   },
@@ -3671,6 +3085,30 @@
         "vendor_sku": "RF-R14SF-B1",
         "title": "מאוורר חברת NZXT דגם F140 RGB Black 140MM Single Pack Fan Retail 1800RPM 89CFM 120MM צבע שחור",
         "price": 130
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
+    "product_id": "mpn:cooler_air:a400rgb",
+    "category": "cooler_air",
+    "vendor": "",
+    "titles": [
+      "מאוורר למעבד Antec A400 RGB",
+      "מאוורר קירור מעבד Antec A400 RGB A400RGB בצבע שחור"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:59362",
+        "vendor_sku": "A400RGB",
+        "title": "מאוורר קירור מעבד Antec A400 RGB A400RGB בצבע שחור",
+        "price": 175
+      },
+      {
+        "listing_key": "tms:A400RGB",
+        "vendor_sku": "A400RGB",
+        "title": "מאוורר למעבד Antec A400 RGB",
+        "price": 117
       }
     ]
   },
@@ -3973,30 +3411,6 @@
         "vendor_sku": "NE1000GM-W-ATX3.0",
         "title": "ספק כוח למחשב חברת Antec דגם NeoEco NE1000GM 1000W Gold Full Modular ATX 3.0 PCIE 5.0 READY ACTIVE PFC - צבע לבן",
         "price": 670
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:psu:ne1000p",
-    "category": "psu",
-    "vendor": "",
-    "titles": [
-      "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
-      "ספק כוח למחשב חברת Antec דגם NeoEco NE1000P 1000W Platinum Full Modular ATX 3.1 PCIE 5.1 READY ACTIVE PFC"
-    ],
-    "offers": [
-      {
-        "listing_key": "tms:NE1000P",
-        "vendor_sku": "NE1000P",
-        "title": "ANTEC PSU 1000W NE1000 NeoECO ATX3.1 Platinum Full Modular",
-        "price": 555
-      },
-      {
-        "listing_key": "yahav:11516",
-        "vendor_sku": "NE1000P",
-        "title": "ספק כוח למחשב חברת Antec דגם NeoEco NE1000P 1000W Platinum Full Modular ATX 3.1 PCIE 5.1 READY ACTIVE PFC",
-        "price": 580
       }
     ]
   },

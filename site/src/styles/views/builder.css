@@ -1,316 +1,513 @@
-/* ---- sticky compatibility strip: verdict, wattage meter, total ---- */
-.strip {
-  position: sticky;
-  top: var(--sticky-top);
-  z-index: var(--z-sticky);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "verdict total"
-    "watts watts";
-  gap: var(--sp-2) var(--sp-4);
-  align-items: center;
-  margin-bottom: var(--sp-4);
-  padding: var(--sp-3) var(--sp-4);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-inline-start: 6px solid var(--text-3);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.strip--ok {
-  border-inline-start-color: var(--ok);
-}
-
-.strip--warn {
-  border-inline-start-color: var(--warn);
-}
-
-.strip--err {
-  border-inline-start-color: var(--err);
-}
-
-.strip__verdict {
-  grid-area: verdict;
+/* Builder: share/verdict bar, the parts table, then the store split and
+   compatibility cards. Below md the table rows become stacked cards. */
+.builder {
   display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  font-weight: var(--fw-bold);
+  flex-direction: column;
+  gap: 1.25rem;
+  scroll-margin-top: calc(var(--sticky-top) + var(--sp-4));
 }
 
-.strip--ok .strip__verdict {
-  color: var(--ok);
+.builder .card {
+  scroll-margin-top: calc(var(--sticky-top) + var(--sp-4));
 }
 
-.strip--warn .strip__verdict {
-  color: var(--warn);
-}
-
-.strip--err .strip__verdict {
-  color: var(--err);
-}
-
-.strip--idle .strip__verdict {
-  color: var(--text-2);
-  font-weight: var(--fw-medium);
-}
-
-.strip__watts {
-  grid-area: watts;
+/* ---- share + verdict bar ---- */
+.build-share {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--sp-2);
-  color: var(--text-2);
-  font-size: var(--fs-sm);
+  gap: 0.625rem;
+  padding: var(--sp-3);
 }
 
-.strip__watts b {
+.build-share__link {
+  flex: 1 1 20rem;
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+
+.build-share__link input {
   color: var(--text);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  text-align: end;
 }
 
-.strip__of {
-  color: var(--text-3);
+.build-share__status {
+  padding: 0 var(--sp-3);
 }
 
-.strip__total {
-  grid-area: total;
-  display: flex;
-  align-items: baseline;
-  gap: var(--sp-2);
-  color: var(--text-2);
+.build-share__status:empty {
+  display: none;
 }
 
-.strip__total b {
-  color: var(--text);
-  font-size: var(--fs-xl);
+.export-menu {
+  position: relative;
 }
 
-@media (min-width: 640px) {
-  .strip {
-    grid-template-columns: 1fr auto auto;
-    grid-template-areas: "verdict watts total";
-    gap: var(--sp-5);
-  }
-}
-
-/* ---- wattage meter ---- */
-.meter {
-  width: 8rem;
-  height: 0.5rem;
-  appearance: none;
-  border: 0;
-  border-radius: var(--radius-pill);
-  background: var(--line);
-  overflow: hidden;
-}
-
-.meter::-webkit-progress-bar {
-  background: var(--line);
-}
-
-.meter::-webkit-progress-value {
-  background: var(--ok);
-}
-
-.meter::-moz-progress-bar {
-  background: var(--ok);
-}
-
-.meter--warn::-webkit-progress-value {
-  background: var(--warn);
-}
-
-.meter--warn::-moz-progress-bar {
-  background: var(--warn);
-}
-
-.meter--err::-webkit-progress-value {
-  background: var(--err);
-}
-
-.meter--err::-moz-progress-bar {
-  background: var(--err);
-}
-
-/* ---- issue list ---- */
-.issues {
-  display: grid;
-  gap: var(--sp-2);
-  margin: 0 0 var(--sp-4);
-  padding: 0;
+.export-menu > summary {
   list-style: none;
 }
 
-.issue {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--sp-2);
-  padding: var(--sp-3);
+.export-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.export-menu__list {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + var(--sp-1));
+  z-index: var(--z-dropdown);
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 12rem;
+  padding: var(--sp-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  font-size: var(--fs-sm);
+  box-shadow: var(--shadow-pop);
 }
 
-.issue svg {
-  flex: none;
-  margin-top: 2px;
+.export-menu__list .btn {
+  justify-content: flex-start;
+  border: 0;
 }
 
-.issue--err {
-  background: var(--err-soft);
-  color: var(--err);
-}
-
-.issue--warn {
-  background: var(--warn-soft);
-  color: var(--warn);
-}
-
-/* ---- slots + side column ---- */
-.builder {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--sp-4);
-}
-
-.slots {
-  display: grid;
-  gap: var(--sp-3);
-  min-width: 0;
-}
-
-.builder__side {
-  display: grid;
-  gap: var(--sp-3);
-  min-width: 0;
-}
-
-@media (min-width: 1024px) {
-  .builder {
-    grid-template-columns: minmax(0, 1fr) 21rem;
-    align-items: start;
-    gap: var(--sp-5);
-  }
-
-  .builder__side {
-    position: sticky;
-    top: calc(var(--sticky-top) + 6rem);
-  }
-}
-
-.slot__head {
+.build-status {
   display: flex;
+  flex-wrap: wrap;
+  color: var(--on-brand);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+.build-status__compat {
+  display: inline-flex;
+  flex: 1 1 20rem;
   align-items: center;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-3);
+  gap: 0.625rem;
+  padding: 0.6875rem var(--sp-4);
+  color: #fff;
 }
 
-.slot__head h2 {
-  font-size: var(--fs-md);
+.build-status__compat:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
-.slot__head h2 a {
+.build-status__compat u {
+  font-weight: var(--fw-regular);
+  text-underline-offset: 3px;
+}
+
+.build-status__compat--ok {
+  background: var(--ok-solid);
+}
+
+.build-status__compat--warn {
+  background: var(--warn);
+}
+
+.build-status__compat--err {
+  background: var(--err);
+}
+
+.build-status__compat--idle {
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+
+.build-status__compat--idle:hover {
   color: var(--text);
 }
 
-.slot__icon {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  background: var(--brand-soft);
-  color: var(--brand-strong);
-}
-
-.slot__empty {
-  display: flex;
+.build-status__watts {
+  display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-3);
+  gap: var(--sp-2);
+  padding: 0.6875rem 1.125rem;
+  background: var(--brand);
+  color: var(--on-brand);
 }
 
-.slot__more {
-  margin-top: var(--sp-3);
+.build-status__of {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  opacity: 0.9;
 }
 
-.slot.is-empty {
-  box-shadow: none;
-  background: var(--surface-2);
-  border-style: dashed;
+.meter {
+  width: 6rem;
+  height: 0.5rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.28);
+  appearance: none;
 }
 
-.part {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  grid-template-areas:
-    "thumb main remove"
-    "thumb buy buy";
-  gap: var(--sp-1) var(--sp-3);
+.meter::-webkit-progress-bar {
+  background: rgb(255 255 255 / 0.28);
+}
+
+.meter::-webkit-progress-value {
+  border-radius: var(--radius-pill);
+  background: #fff;
+}
+
+.meter::-moz-progress-bar {
+  border-radius: var(--radius-pill);
+  background: #fff;
+}
+
+.meter--err::-webkit-progress-value {
+  background: var(--err-soft);
+}
+
+/* ---- parts table ---- */
+.build-table {
+  min-width: 52rem;
+}
+
+.build-table .bt-slot {
+  width: 8rem;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.build-table thead .bt-slot {
+  font-size: var(--fs-xs);
+}
+
+.bt-part {
+  display: flex;
   align-items: center;
-  padding-block: var(--sp-3);
-  border-top: 1px solid var(--line);
+  gap: var(--sp-3);
+  min-width: 0;
 }
 
-.part:first-of-type {
-  border-top: 0;
-  padding-top: 0;
+.bt-part__thumb .thumb {
+  width: 2.875rem;
+  height: 2.875rem;
 }
 
-.part__thumb {
-  grid-area: thumb;
-}
-
-.part__main {
-  grid-area: main;
+.bt-part__text {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
-.part__name {
+.bt-part__name {
   color: var(--text);
   font-weight: var(--fw-semibold);
   overflow-wrap: anywhere;
 }
 
-.part__name:hover {
+.bt-part__name:hover {
   color: var(--brand-strong);
 }
 
-.part__meta {
+.bt-part__sub {
   color: var(--text-3);
   font-size: var(--fs-xs);
 }
 
-.part__buy {
-  grid-area: buy;
+.build-table .bt-price {
+  width: 1%;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  text-align: end;
+  white-space: nowrap;
 }
 
-.part__remove {
-  grid-area: remove;
+.build-table thead .bt-price {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
 }
 
-@media (min-width: 640px) {
-  .part {
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
-    grid-template-areas: "thumb main buy remove";
-    gap: var(--sp-3);
+.bt-store,
+.bt-buy,
+.bt-x {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.bt-row--extra > * {
+  border-top: 0;
+}
+
+.bt-row--empty .bt-slot a {
+  color: var(--text-2);
+}
+
+.bt-row--more > *,
+.bt-row--empty > * {
+  padding-block: var(--sp-2);
+}
+
+.build-table tfoot td {
+  padding-block: var(--sp-4);
+  background: var(--surface-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+}
+
+.bt-note {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.bt-total {
+  text-align: end;
+  white-space: nowrap;
+}
+
+.bt-total span {
+  margin-inline-end: 0.625rem;
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.bt-total b {
+  font-size: var(--fs-xl);
+}
+
+/* ---- split + checks cards ---- */
+.builder__cards {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.build-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.build-card__empty {
+  color: var(--text-3);
+  font-size: var(--fs-base);
+}
+
+.split-bar {
+  display: flex;
+  gap: 2px;
+  height: 0.625rem;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+}
+
+.split-bar__seg { background: var(--v-other); }
+.split-bar__seg--tms { background: var(--v-tms); }
+.split-bar__seg--onepc { background: var(--v-onepc); }
+.split-bar__seg--ivory { background: var(--v-ivory); }
+.split-bar__seg--yahav { background: var(--v-yahav); }
+.split-bar__seg--plonter { background: var(--v-plonter); }
+
+.split-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.split-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.split-list li:last-child {
+  border-bottom: 0;
+}
+
+.split-list span {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+}
+
+.split-list .split-list__sum {
+  margin-inline-start: auto;
+  color: var(--text);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+}
+
+.chk-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chk {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: var(--fs-base);
+}
+
+.chk:last-child {
+  border-bottom: 0;
+}
+
+.chk .ic {
+  flex: none;
+  margin-top: 1px;
+}
+
+.chk--ok .ic {
+  color: var(--ok);
+}
+
+.chk--warn .ic {
+  color: var(--warn);
+}
+
+.chk--err .ic {
+  color: var(--err);
+}
+
+@media (min-width: 900px) {
+  .builder__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* ---- share card ---- */
-.share {
-  display: grid;
-  gap: var(--sp-2);
+/* Phones: each table row becomes a small card. */
+@media (max-width: 759px) {
+  .build-table {
+    min-width: 0;
+  }
+
+  .build-table thead {
+    display: none;
+  }
+
+  .build-table,
+  .build-table tbody,
+  .build-table tfoot {
+    display: block;
+  }
+
+  .build-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas:
+      "slot slot slot"
+      "part part part"
+      "price buy x";
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .build-table tr > * {
+    padding: 0;
+    border: 0;
+  }
+
+  .build-table .bt-slot {
+    grid-area: slot;
+    width: auto;
+    font-size: var(--fs-xs);
+  }
+
+  .bt-row--extra .bt-slot,
+  .bt-row--more .bt-slot {
+    display: none;
+  }
+
+  .bt-part {
+    grid-area: part;
+  }
+
+  .build-table .bt-price {
+    grid-area: price;
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
+    width: auto;
+    text-align: start;
+  }
+
+  .bt-store {
+    display: none;
+  }
+
+  .bt-buy {
+    grid-area: buy;
+  }
+
+  .bt-x {
+    grid-area: x;
+  }
+
+  .bt-row--empty,
+  .bt-row--more {
+    grid-template-areas: "slot choose choose";
+  }
+
+  .bt-row--more {
+    grid-template-areas: "choose choose choose";
+  }
+
+  .bt-choose {
+    grid-area: choose;
+    justify-self: end;
+  }
+
+  .bt-row--more .bt-choose {
+    justify-self: start;
+  }
+
+  .build-table tfoot tr {
+    grid-template-areas: "note total total";
+    background: var(--surface-2);
+  }
+
+  .build-table tfoot td {
+    background: none;
+  }
+
+  .bt-note {
+    grid-area: note;
+  }
+
+  .bt-total {
+    grid-area: total;
+  }
+
+  .bt-foot-pad {
+    display: none;
+  }
 }
 
-.share__export {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--sp-2);
-  margin-top: var(--sp-3);
+@media (max-width: 639px) {
+  .build-share > .btn,
+  .build-share > .export-menu {
+    flex: 1 1 auto;
+  }
+
+  .build-share > .export-menu > summary {
+    width: 100%;
+  }
+}
+
+/* The export menu opens below the bar: the bar must not clip it, so its
+   rounded corners move onto the verdict strip instead. */
+.build-bar {
+  overflow: visible;
+}
+
+.build-status {
+  overflow: hidden;
+  border-radius: 0 0 var(--radius) var(--radius);
 }

@@ -145,8 +145,12 @@ XEON_RE = re.compile(
     r"\bXEON\s?(?:(SILVER|BRONZE|GOLD|PLATINUM|W\d?|E\d?)\s?-?\s?)?(\d{3,5}[A-Z]{0,2})\b",
     re.I,
 )
-CPU_PACKAGING_TRAY_RE = re.compile(r"\b(?:tray|oem|mpk|bulk)\b", re.I)
-CPU_PACKAGING_BOX_RE = re.compile(r"\b(?:box|boxed|retail|wraith|wrapper)\b", re.I)
+# 1PC's machine translation renders "tray" as "טרי"/"טריי" (Hebrew for "fresh")
+# and "box" as "קופסה"/"קרטון" after "צבע"/"אריזת" ("color"/"packaging of"):
+# "מעבד Intel Core i3 10105F צבע טרי" is the tray CPU, "... צבע אריזת קופסה" the box.
+CPU_PACKAGING_TRAY_RE = re.compile(r"\b(?:tray|oem|mpk|bulk)\b|\bטריי?\b", re.I)
+CPU_PACKAGING_BOX_RE = re.compile(
+    r"\b(?:box|boxed|retail|wraith|wrapper)\b|(?:אריזת|צבע)\s+(?:קופסה|קרטון)", re.I)
 CPU_COOLER_INCLUDED_RE = re.compile(
     r"\b(?:with|includes?)\s+(?:a\s+)?(?:wraith|stock\s+)?cooler\b", re.I
 )

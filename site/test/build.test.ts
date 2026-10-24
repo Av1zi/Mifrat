@@ -15,8 +15,7 @@ const codes = (parts: Parameters<typeof checkCompatibility>[0], watts = 0) =>
 
 describe("slotForCategory / numSpec", () => {
   it("maps categories onto builder slots", () => {
-    expect(slotForCategory("aio")?.id).toBe("cooler");
-    expect(slotForCategory("cooler_air")?.id).toBe("cooler");
+    expect(slotForCategory("cpu_cooler")?.id).toBe("cooler");
     expect(slotForCategory("case_fan")?.id).toBe("extras");
     expect(slotForCategory("nope")).toBeNull();
   });

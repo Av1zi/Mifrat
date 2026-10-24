@@ -1,16 +1,31 @@
 import { t } from "../../i18n";
 import { fetchListBuild, isValidListId } from "../../lists";
-import { getStoredBuild, removeFromBuild, setStoredBuild, type BuildMap } from "../../state";
+import { icon } from "../../icons";
+import { getStoredBuild, removeFromBuild, savedHash, type BuildMap } from "../../state";
+import { setPageTitle } from "../../titles";
 import type { Currency, Lang } from "../../types";
-import { button } from "../../ui/button";
-import { card } from "../../ui/card";
-import { html, mount } from "../../ui/html";
-import { emptyState, loadingState } from "../../ui/state";
+import { html, mount, type Html } from "../../ui/html";
+import { loadingState } from "../../ui/state";
 import { bindThumbs } from "../../ui/thumb";
+import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { cleanBuild, persist, refreshParts, type BuilderCtx } from "./parts";
 import { bindShare, shareCard } from "./share";
 import { slotsMarkup } from "./slots";
-import { issuesMarkup, stripMarkup, summarize } from "./summary";
+import { checksMarkup, splitMarkup, statusMarkup, summarize } from "./summary";
+
+function hero(lang: Lang): Html {
+  return pageHero({
+    lang,
+    crumbs: [{ label: t(lang, "builderNav") }],
+    title: t(lang, "builderTitle"),
+    sub: t(lang, "builderSub"),
+    tabs: [
+      { label: t(lang, "tabOverview"), href: "#build-top", active: true },
+      { label: t(lang, "splitTitle"), href: "#split" },
+      { label: t(lang, "compatChecksTitle"), href: "#compat" },
+    ],
+  });
+}
 
 function render(ctx: BuilderCtx): void {
   const { lang } = ctx;
@@ -18,20 +33,27 @@ function render(ctx: BuilderCtx): void {
   mount(
     ctx.container,
     html`
-    <header class="page-head"><h1>${t(lang, "builderTitle")}</h1></header>
-    ${stripMarkup(ctx, summary)}
-    ${issuesMarkup(ctx, summary)}
-    <div class="builder">
-      ${slotsMarkup(ctx)}
-      <aside class="builder__side">
+    ${hero(lang)}
+    <div class="builder" id="build-top">
+      <section class="card card--flush build-bar">
         ${shareCard(ctx)}
-        <p class="fineprint"><b>${t(lang, "compatNoteTitle")}</b> ${t(lang, "compatNoteBody")}</p>
-        <p class="fineprint">${t(lang, "disclaimer")}</p>
-      </aside>
+        ${statusMarkup(ctx, summary)}
+      </section>
+      ${slotsMarkup(ctx)}
+      <div class="builder__cards">
+        ${splitMarkup(ctx)}
+        ${checksMarkup(ctx, summary)}
+      </div>
+      <p class="fineprint">${t(lang, "disclaimer")}</p>
     </div>`
   );
   bindThumbs(ctx.container);
   bindShare(ctx);
+  bindPageTabs(ctx.container);
+  ctx.container.querySelector<HTMLAnchorElement>('[data-jump="compat"]')?.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById("compat")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
   const itemCount = Object.values(ctx.build).reduce((n, ids) => n + ids.length, 0);
   ctx.container.querySelector('[data-role="start-new"]')?.addEventListener("click", () => {
@@ -60,7 +82,8 @@ export async function renderBuilder(
   listId: string | null
 ): Promise<void> {
   const build = cleanBuild(shared ?? getStoredBuild());
-  if (shared) setStoredBuild(build);
+  // A shared build is only viewed here: it must not overwrite the visitor's
+  // own saved draft. It is written to storage by persist() on the first edit.
 
   const ctx: BuilderCtx = {
     container,
@@ -74,7 +97,7 @@ export async function renderBuilder(
     share: { shortUrlFor: null, pendingKey: null, timer: undefined },
   };
 
-  mount(container, loadingState(lang));
+  mount(container, html`${hero(lang)}${loadingState(lang)}`);
   await refreshParts(ctx);
   render(ctx);
 }
@@ -91,11 +114,34 @@ export async function renderListRoute(
   currency: Currency,
   listId: string
 ): Promise<void> {
-  const unknown = (): void =>
+  const unknown = (): void => {
+    setPageTitle(lang, t(lang, "brokenTitle"));
+    // The link exactly as opened, so the visitor can see whether it was cut short.
+    const opened = `${location.host}${location.pathname}`;
     mount(
       container,
-      card(emptyState(t(lang, "unknownList"), button({ label: t(lang, "backToBuilder"), href: "#/build" })), { className: "narrow" })
+      html`<section class="card broken">
+        <div class="broken__main">
+          <span class="state-ic state-ic--warn" aria-hidden="true">${icon("unlink", 32)}</span>
+          <h1>${t(lang, "brokenTitle")}</h1>
+          <p>${t(lang, "brokenBody")}</p>
+          <span class="code-chip" title="${t(lang, "brokenOpened")}">${opened}</span>
+          <div class="empty-box__actions">
+            <a class="btn btn--primary" href="${savedHash()}">${icon("heart", 16)}${t(lang, "brokenToSaved")}</a>
+            <a class="btn btn--ghost" href="#/build">${icon("wrench", 16)}${t(lang, "builderNav")}</a>
+          </div>
+        </div>
+        <div class="broken__help">
+          <strong>${t(lang, "brokenHelpTitle")}</strong>
+          <ul>
+            <li>${t(lang, "brokenHelp1")}</li>
+            <li>${t(lang, "brokenHelp2")}</li>
+            <li>${t(lang, "brokenHelp3")}</li>
+          </ul>
+        </div>
+      </section>`
     );
+  };
   if (!isValidListId(listId)) {
     unknown();
     return;

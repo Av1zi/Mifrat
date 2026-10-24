@@ -1,6 +1,6 @@
 import { loadCategory, loadIndex } from "./api";
 import { categoryLabel, t } from "./i18n";
-import { productHash } from "./state";
+import { navigate, productHash, searchHash } from "./state";
 import type { Currency, IndexRow, Lang, Product } from "./types";
 import { displayName, normSearch, searchScore, searchTokens } from "./utils";
 import { html, mount, type Html } from "./ui/html";
@@ -88,6 +88,40 @@ function setOpen(box: SearchBox, open: boolean): void {
   box.input.setAttribute("aria-expanded", open ? "true" : "false");
 }
 
+/**
+ * Index rows matching `query`, best first. Ranked before slicing so an exact
+ * name match is not lost below products that merely contain the words.
+ */
+export async function searchIndex(lang: Lang, query: string, limit = Infinity): Promise<IndexRow[]> {
+  const index = await ensureIndex(lang);
+  const tokens = searchTokens(query);
+  if (tokens.length === 0) return [];
+  return index
+    .map((entry) => ({
+      entry,
+      score: searchScore(tokens, {
+        haystack: entry.haystack,
+        name: entry.nameHay,
+        brand: entry.brandHay,
+        category: entry.categoryHay,
+      }),
+    }))
+    .filter((candidate) => candidate.score >= 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        a.entry.nameHay.length - b.entry.nameHay.length ||
+        a.entry.nameHay.localeCompare(b.entry.nameHay)
+    )
+    .slice(0, limit)
+    .map((candidate) => candidate.entry.row);
+}
+
+/** "See all results" row at the foot of the dropdown. */
+function allResultsLink(box: SearchBox, query: string, found: boolean): Html {
+  return html`<a class="search-all" href="${searchHash(query)}">${found ? t(box.lang, "searchAllResults") : t(box.lang, "searchOpenPage")}<span dir="auto">„${query}”</span></a>`;
+}
+
 async function run(box: SearchBox, query: string, seq: number): Promise<void> {
   if (query.length < 2) {
     box.results.innerHTML = "";
@@ -97,35 +131,14 @@ async function run(box: SearchBox, query: string, seq: number): Promise<void> {
   setOpen(box, true);
   mount(box.results, html`<div class="search-status" role="status">${t(box.lang, "loading")}</div>`);
   try {
-    const index = await ensureIndex(box.lang);
+    const rows = await searchIndex(box.lang, query, 8);
     if (seq !== box.seq) return;
-    const tokens = searchTokens(query);
-    // Rank before slicing so an exact name match is not lost below eight
-    // products that merely contain the words.
-    const hits = index
-      .map((entry) => ({
-        entry,
-        score: searchScore(tokens, {
-          haystack: entry.haystack,
-          name: entry.nameHay,
-          brand: entry.brandHay,
-          category: entry.categoryHay,
-        }),
-      }))
-      .filter((candidate) => candidate.score >= 0)
-      .sort(
-        (a, b) =>
-          b.score - a.score ||
-          a.entry.nameHay.length - b.entry.nameHay.length ||
-          a.entry.nameHay.localeCompare(b.entry.nameHay)
-      )
-      .slice(0, 8)
-      .map((candidate) => candidate.entry);
+    const hits = rows.map((row) => ({ row }));
     if (hits.length === 0) {
-      mount(box.results, html`<div class="search-status" role="status">${t(box.lang, "noResults")}</div>`);
+      mount(box.results, html`<div class="search-status" role="status">${t(box.lang, "noResults")}</div>${allResultsLink(box, query, false)}`);
       return;
     }
-    mount(box.results, html`${hits.map((h) => interimHit(h.row, box))}`);
+    mount(box.results, html`${hits.map((h) => interimHit(h.row, box))}${allResultsLink(box, query, true)}`);
 
     const byCategory = new Map<string, IndexRow[]>();
     for (const h of hits) {
@@ -153,7 +166,7 @@ async function run(box: SearchBox, query: string, seq: number): Promise<void> {
       html`${hits.map((h) => {
         const p = found.get(h.row[0]);
         return p ? fullHit(p, box) : interimHit(h.row, box);
-      })}`
+      })}${allResultsLink(box, query, true)}`
     );
   } catch {
     if (seq !== box.seq) return;
@@ -190,13 +203,19 @@ export function bindSearch(root: HTMLElement, lang: Lang, currency: Currency): v
     }
     if (e.key !== "ArrowDown" && e.key !== "ArrowUp" && e.key !== "Enter") return;
     const hits = Array.from(results.querySelectorAll<HTMLElement>(".search-hit"));
-    if (hits.length === 0) return;
-    e.preventDefault();
     let idx = hits.findIndex((h) => h.classList.contains("is-active"));
     if (e.key === "Enter") {
-      (idx >= 0 ? hits[idx] : hits[0]).click();
+      // A highlighted hit opens; otherwise Enter goes to the full results page.
+      e.preventDefault();
+      if (idx >= 0) hits[idx].click();
+      else if (input.value.trim().length > 0) {
+        setOpen(box, false);
+        navigate(searchHash(input.value.trim()));
+      }
       return;
     }
+    if (hits.length === 0) return;
+    e.preventDefault();
     if (e.key === "ArrowDown") idx = idx < hits.length - 1 ? idx + 1 : 0;
     else idx = idx > 0 ? idx - 1 : hits.length - 1;
     hits.forEach((h, i) => {

@@ -2,16 +2,16 @@ import { loadHistory } from "../../api";
 import { formatPrice } from "../../format";
 import { t, vendorLabel } from "../../i18n";
 import type { Currency, Lang } from "../../types";
-import { html, mount } from "../../ui/html";
+import { html, mount, type Html } from "../../ui/html";
 import { esc } from "../../utils";
+import { vendorKey } from "../../ui/vendor";
 
-const SERIES = 8;
 
 /** Redraws when the card's width changes; module-level so a route re-entry disconnects the old one. */
 let resizeObserver: ResizeObserver | null = null;
 
-/** Series class (colour comes from the --chart-n tokens in chart.css). */
-const seriesClass = (index: number): string => `ph-c${(index % SERIES) + 1}`;
+/** Series class: each store keeps its own colour (--v-<vendor> tokens in chart.css). */
+const seriesClass = (vendor: string): string => `ph-v-${vendorKey(vendor)}`;
 
 export async function renderPriceHistory(
   host: HTMLElement,
@@ -122,7 +122,7 @@ export async function renderPriceHistory(
           d += penDown ? ` H ${cx} V ${cy}` : `M ${cx} ${cy}`;
           penDown = true;
         });
-        return d ? `<path d="${d}" class="ph-line ${seriesClass(vendors.indexOf(vendor))}"><title>${esc(vendorLabel(vendor))}</title></path>` : "";
+        return d ? `<path d="${d}" class="ph-line ${seriesClass(vendor)}"><title>${esc(vendorLabel(vendor))}</title></path>` : "";
       })
       .join("");
 
@@ -137,15 +137,51 @@ export async function renderPriceHistory(
           return html`<option value="${days}"${dayWindow === (full ? dates.length : days) ? html` selected` : ""}>${label}</option>`;
         })}</select>`;
 
+    // Low / high over the visible window, and the week's move of today's cheapest store.
+    const stats = (): Html => {
+      let low: { price: number; vendor: string; at: number } | null = null;
+      let high: { price: number; vendor: string; at: number } | null = null;
+      for (const v of shown) {
+        for (let i = start; i < end; i++) {
+          const p = series[v][i];
+          if (p === null || p === undefined) continue;
+          if (!low || p < low.price || (p === low.price && i > low.at)) low = { price: p, vendor: v, at: i };
+          if (!high || p > high.price) high = { price: p, vendor: v, at: i };
+        }
+      }
+      const today = shown
+        .map((v) => ({ v, p: series[v][end - 1] }))
+        .filter((r): r is { v: string; p: number } => r.p !== null && r.p !== undefined)
+        .sort((a, b) => a.p - b.p)[0];
+      let change: number | null = null;
+      if (today) {
+        const from = Math.max(0, end - 8);
+        const past = series[today.v].slice(from, end - 1).find((p) => p !== null && p !== undefined);
+        if (past !== undefined && past !== null) change = today.p - past;
+      }
+      const when = (at: number): string => (at === end - 1 ? t(lang, "todayLabel") : shortDate(dates[at]));
+      const span = dayWindow >= dates.length ? t(lang, "historyAll") : `${dayWindow} ${t(lang, "historyDays")}`;
+      return html`<div class="ph-stats">
+        ${low ? html`<div class="ph-stat"><span>${t(lang, "historyLow")} · ${span}</span><b>${formatPrice(low.price, currency, lang)} <small>${vendorLabel(low.vendor)}, ${when(low.at)}</small></b></div>` : ""}
+        ${high ? html`<div class="ph-stat"><span>${t(lang, "historyHigh")} · ${span}</span><b>${formatPrice(high.price, currency, lang)} <small>${vendorLabel(high.vendor)}, ${when(high.at)}</small></b></div>` : ""}
+        ${today && change !== null
+          ? html`<div class="ph-stat"><span>${t(lang, "historyChange7")}</span><b class="${change < 0 ? "is-down" : change > 0 ? "is-up" : ""}">${change === 0
+              ? t(lang, "noChange")
+              : html`<bdi dir="ltr">${change < 0 ? "−" : "+"}${formatPrice(Math.abs(change), currency, lang)}</bdi>`} <small>${vendorLabel(today.v)}</small></b></div>`
+          : ""}
+      </div>`;
+    };
+
     // Preserve focus across redraws (the range select keeps keyboard context).
     const activeId = restoreFocusId ?? (host.contains(document.activeElement) ? (document.activeElement as HTMLElement).id || "" : "");
     host.hidden = false;
     mount(
       host,
       html`<header class="card__head"><h2 class="card__title">${t(lang, "priceHistory")}</h2>${rangeControl}</header>
+        ${stats()}
         <div class="ph-legend">${vendors.map((vendor) => {
           const off = hidden.has(vendor);
-          return html`<button type="button" class="ph-legend__item${off ? " is-off" : ""}" data-vendor="${vendor}" aria-pressed="${off ? "false" : "true"}" title="${t(lang, "toggleSeries")}"><span class="ph-swatch ${seriesClass(vendors.indexOf(vendor))}"></span>${vendorLabel(vendor)}</button>`;
+          return html`<button type="button" class="ph-legend__item${off ? " is-off" : ""}" data-vendor="${vendor}" aria-pressed="${off ? "false" : "true"}" title="${t(lang, "toggleSeries")}"><span class="ph-swatch ${seriesClass(vendor)}"></span>${vendorLabel(vendor)}</button>`;
         })}</div>
         <div class="ph-wrap">
           <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}" tabindex="0">
@@ -214,7 +250,7 @@ export async function renderPriceHistory(
       mount(
         tip,
         html`<div class="ph-tip__date">${fmtDay(best)}</div>${rows.map(
-          ({ vendor, price }) => html`<div class="ph-tip__row${price === cheapest ? " is-best" : ""}"><span class="ph-swatch ${seriesClass(vendors.indexOf(vendor))}"></span><span class="ph-tip__vendor">${vendorLabel(vendor)}</span><span class="ph-tip__price">${formatPrice(price as number, currency, lang)}</span></div>`
+          ({ vendor, price }) => html`<div class="ph-tip__row${price === cheapest ? " is-best" : ""}"><span class="ph-swatch ${seriesClass(vendor)}"></span><span class="ph-tip__vendor">${vendorLabel(vendor)}</span><span class="ph-tip__price">${formatPrice(price as number, currency, lang)}</span></div>`
         )}`
       );
       tip.hidden = false;

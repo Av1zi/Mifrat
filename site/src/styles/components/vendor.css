@@ -1,0 +1,54 @@
+.vdot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--v-other);
+}
+
+.vdot--tms { background: var(--v-tms); }
+.vdot--onepc { background: var(--v-onepc); }
+.vdot--ivory { background: var(--v-ivory); }
+.vdot--yahav { background: var(--v-yahav); }
+.vdot--plonter { background: var(--v-plonter); }
+
+.vtag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+
+.vdots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vdots__n {
+  margin-inline-start: 4px;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.vmono {
+  display: inline-grid;
+  place-items: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  flex: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+}
+
+.vmono--tms { background: var(--v-tms-soft); color: var(--v-tms); }
+.vmono--onepc { background: var(--v-onepc-soft); color: var(--v-onepc); }
+.vmono--ivory { background: var(--v-ivory-soft); color: var(--v-ivory); }
+.vmono--yahav { background: var(--v-yahav-soft); color: var(--v-yahav); }
+.vmono--plonter { background: var(--v-plonter-soft); color: var(--v-plonter); }
+.vmono--other { background: var(--v-other-soft); color: var(--v-other); }

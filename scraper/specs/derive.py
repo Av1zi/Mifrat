@@ -571,6 +571,11 @@ def _gpu_chip_maker(chipset) -> str | None:
     text = str(chipset or "").strip()
     if not text:
         return None
+    # "NVIDIA Quadro" / "AMD Radeon Pro": the maker word is already there.
+    lead = re.match(r"(nvidia|amd|ati|intel)\b", text, re.I)
+    if lead:
+        word = lead.group(1).lower()
+        return {"nvidia": "NVIDIA", "intel": "Intel"}.get(word, "AMD")
     for pattern, maker in _GPU_CHIP_MAKERS:
         if pattern.search(text):
             return maker

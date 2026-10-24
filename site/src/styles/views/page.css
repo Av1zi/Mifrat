@@ -1,40 +1,185 @@
-/* Shared page chrome (breadcrumbs, page header) plus the legal, QA and 404 pages. */
+/* Shared page chrome (the ink hero band, breadcrumbs, anchor tabs) plus the
+   legal, QA and 404 pages. */
+.page-hero {
+  margin-bottom: 1.75rem;
+  background: var(--ink-800);
+  color: var(--ink-text);
+}
+
+.page-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-block: 1.625rem 1.875rem;
+}
+
+.page-hero--tabs .page-hero__inner {
+  padding-bottom: 0;
+}
+
 .crumbs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--sp-2);
-  margin-bottom: var(--sp-4);
-  color: var(--text-3);
+  color: var(--ink-text-3);
   font-size: var(--fs-sm);
 }
 
 .crumbs a {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-1);
-  color: var(--text-2);
+  color: var(--ink-text-2);
 }
 
 .crumbs a:hover {
-  color: var(--brand-strong);
+  color: var(--ink-white);
 }
 
-.crumbs__sep {
-  color: var(--line-strong);
+.crumbs [aria-current="page"] {
+  color: var(--ink-text-1);
 }
 
-.page-head {
-  margin-bottom: var(--sp-5);
+.page-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-5);
 }
 
-.page-head h1 {
+.page-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.page-hero h1 {
+  color: var(--ink-white);
+  font-size: var(--fs-3xl);
+  overflow-wrap: anywhere;
+}
+
+[dir="rtl"] .page-hero h1[dir="auto"] {
+  text-align: right;
+}
+
+.page-hero__sub {
+  max-width: 60rem;
+  color: var(--ink-text-2);
+  font-size: var(--fs-md);
+}
+
+.page-hero__aside {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+  color: var(--ink-text-1);
+  font-size: var(--fs-sm);
+}
+
+.hero-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--ink-line-2);
+  border-radius: 4px;
+}
+
+.hero-chips__sku {
+  margin-inline-start: var(--sp-2);
+  color: var(--ink-text-3);
+}
+
+.page-tabs {
+  display: flex;
+  gap: var(--sp-1);
+  margin-top: var(--sp-4);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.page-tab {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  height: 2.625rem;
+  padding: 0 1.125rem;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  color: var(--ink-text-2);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+.page-tab:hover {
+  color: var(--ink-white);
+  text-decoration: none;
+}
+
+.page-tab.is-active {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Section header used on home and saved. */
+.sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-4);
+  margin-bottom: 1.25rem;
+}
+
+.sec-head h2 {
   font-size: var(--fs-2xl);
 }
 
-.page-head p:not(.eyebrow) {
-  margin-top: var(--sp-2);
+.sec-head p {
+  margin-top: var(--sp-1);
   color: var(--text-2);
+  font-size: var(--fs-md);
+}
+
+.sec-head__end {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: 0.875rem 1.125rem;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius);
+  background: var(--brand-soft);
+  color: var(--text);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+}
+
+.notice > .ic {
+  margin-top: 2px;
+  color: var(--brand);
+}
+
+.notice--warn {
+  border-color: transparent;
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.fineprint {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
 }
 
 /* ---- legal pages ---- */

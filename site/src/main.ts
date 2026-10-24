@@ -28,12 +28,14 @@ import { renderCategories } from "./views/categories";
 import { renderCompare } from "./views/compare";
 import { renderCategory } from "./views/category";
 import { renderCookies } from "./views/cookies";
+import { renderDrops } from "./views/drops";
 import { renderHome } from "./views/home";
 import { renderNotFound } from "./views/notfound";
 import { renderPrivacy } from "./views/privacy";
 import { renderProduct } from "./views/product";
 import { renderQa } from "./views/qa";
 import { renderSaved } from "./views/saved";
+import { renderSearch } from "./views/search";
 import { renderTerms } from "./views/terms";
 
 let lang: Lang = getLang();
@@ -102,7 +104,7 @@ function renderRoute(): void {
         renderCookies(main, lang);
         break;
       case "notfound":
-        renderNotFound(main, lang);
+        renderNotFound(main, lang, currency);
         break;
       case "qa":
         setPageTitle(lang, t(lang, "qaTitle"));
@@ -113,6 +115,12 @@ function renderRoute(): void {
         break;
       case "saved":
         guard(renderSaved(main, lang, currency));
+        break;
+      case "drops":
+        guard(renderDrops(main, lang, currency));
+        break;
+      case "search":
+        guard(renderSearch(main, lang, currency, route.q));
         break;
       case "categories":
         setPageTitle(lang, t(lang, "allCategoriesTitle"), t(lang, "metaCategoriesDesc"));
@@ -153,6 +161,8 @@ document.addEventListener("click", (e) => {
 window.addEventListener("hashchange", () => {
   closeMenus();
   renderRoute();
+  // A new page starts at the top (in-page anchors are handled by the views).
+  window.scrollTo({ top: 0 });
 });
 
 // FX is opt-in: only USD display needs the frankfurter rate, so ILS-default

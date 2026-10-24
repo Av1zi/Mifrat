@@ -1,18 +1,6 @@
 {
   "products": [
     {
-      "product_id": "case:antec:st20m",
-      "canonical_name": "Antec ST20M",
-      "category": "case",
-      "brand": "Antec",
-      "model": "ST20M",
-      "attributes": {},
-      "listing_keys": [
-        "1pc:216305",
-        "tms:ST20M"
-      ]
-    },
-    {
       "product_id": "case:antec:df700-flux",
       "canonical_name": "Antec DF700 Flux",
       "category": "case",
@@ -39,50 +27,30 @@
       ]
     },
     {
-      "product_id": "motherboard:maxsun:b760m-i-cafe-d4",
-      "canonical_name": "MAXSUN B760M I-CAFE D4",
-      "category": "motherboard",
-      "brand": "MAXSUN",
-      "model": "B760M I-CAFE D4",
-      "attributes": {
-        "memory_type": "DDR4",
-        "form_factor": "Micro-ATX"
-      },
-      "listing_keys": [
-        "1pc:218520",
-        "tms:MS-B760MI-CAFED4"
-      ]
-    },
-    {
-      "product_id": "motherboard:asus:b860m-max-gaming-ax",
-      "canonical_name": "ASUS B860M MAX GAMING AX",
-      "category": "motherboard",
-      "brand": "ASUS",
-      "model": "B860M MAX GAMING AX",
-      "attributes": {
-        "socket": "LGA1851",
-        "form_factor": "Micro-ATX",
-        "memory_type": "DDR5",
-        "wireless": true
-      },
-      "listing_keys": [
-        "1pc:214814",
-        "ivory:169318"
-      ]
-    },
-    {
-      "product_id": "case:lian-li:a4-h2o-silver",
-      "canonical_name": "Lian Li A4-H2O Silver",
+      "product_id": "case:antec:st20m",
+      "canonical_name": "Antec ST20M",
       "category": "case",
-      "brand": "Lian Li",
-      "model": "A4-H2O",
+      "brand": "Antec",
+      "model": "ST20M",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:216305",
+        "tms:ST20M"
+      ]
+    },
+    {
+      "product_id": "case:fractal-design:torrent-compact-white-tg-clear-tint",
+      "canonical_name": "Fractal Design Torrent Compact White TG Clear Tint",
+      "category": "case",
+      "brand": "Fractal Design",
+      "model": "Torrent Compact",
       "attributes": {
-        "color": "silver",
-        "form_factor": "Mini-ITX"
+        "color": "white",
+        "window": "TG"
       },
       "listing_keys": [
-        "1pc:218342",
-        "tms:A4H2OA5"
+        "1pc:111378",
+        "tms:FD-C-TOR1C-03"
       ]
     },
     {
@@ -100,18 +68,18 @@
       ]
     },
     {
-      "product_id": "case:fractal-design:torrent-compact-white-tg-clear-tint",
-      "canonical_name": "Fractal Design Torrent Compact White TG Clear Tint",
+      "product_id": "case:lian-li:a4-h2o-silver",
+      "canonical_name": "Lian Li A4-H2O Silver",
       "category": "case",
-      "brand": "Fractal Design",
-      "model": "Torrent Compact",
+      "brand": "Lian Li",
+      "model": "A4-H2O",
       "attributes": {
-        "color": "white",
-        "window": "TG"
+        "color": "silver",
+        "form_factor": "Mini-ITX"
       },
       "listing_keys": [
-        "1pc:111378",
-        "tms:FD-C-TOR1C-03"
+        "1pc:218342",
+        "tms:A4H2OA5"
       ]
     },
     {
@@ -155,27 +123,36 @@
       ]
     },
     {
-      "product_id": "model:cpu:ryzen79800x3d-tray",
-      "canonical_name": "AMD Ryzen 7 9800X3D Tray",
-      "category": "cpu",
-      "brand": "AMD",
-      "model": "Ryzen 7 9800X3D",
+      "product_id": "manual:motherboard:1pc-221505-tms-gb550aorusewf7",
+      "category": "motherboard",
+      "brand": "Gigabyte",
+      "model": "B550 AORUS ELITE WiFi7 GB550AORUSEWF7",
       "attributes": {},
       "listing_keys": [
-        "ivory:119039",
-        "tms:100-000001084"
+        "1pc:221505",
+        "tms:GB550AORUSEWF7"
       ]
     },
     {
-      "product_id": "model:cpu:ryzen77800x3d-tray",
-      "canonical_name": "AMD Ryzen 7 7800X3D Tray",
-      "category": "cpu",
-      "brand": "AMD",
-      "model": "Ryzen 7 7800X3D",
+      "product_id": "manual:psu:1pc-221402-tms-ne1000p",
+      "category": "psu",
+      "brand": "Antec",
+      "model": "NE1000 NeoECO ATX3.1 Full Modular",
       "attributes": {},
       "listing_keys": [
-        "1pc:139919",
-        "tms:100-000000910"
+        "1pc:221402",
+        "tms:NE1000P"
+      ]
+    },
+    {
+      "product_id": "manual:psu:1pc-221403-tms-ne1200p",
+      "category": "psu",
+      "brand": "Antec",
+      "model": "NE1200 NeoECO ATX3.1 Full Modular",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:221403",
+        "tms:NE1200P"
       ]
     },
     {
@@ -399,6 +376,18 @@
       ]
     },
     {
+      "product_id": "model:cpu:ryzen77800x3d-tray",
+      "canonical_name": "AMD Ryzen 7 7800X3D Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 7800X3D",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:139919",
+        "tms:100-000000910"
+      ]
+    },
+    {
       "product_id": "model:cpu:ryzen78700f-tray",
       "canonical_name": "AMD Ryzen 7 8700F series Ryzen 7 Tray",
       "category": "cpu",
@@ -407,6 +396,18 @@
       "attributes": {},
       "listing_keys": [
         "tms:100-000001590"
+      ]
+    },
+    {
+      "product_id": "model:cpu:ryzen79800x3d-tray",
+      "canonical_name": "AMD Ryzen 7 9800X3D Tray",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "Ryzen 7 9800X3D",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:119039",
+        "tms:100-000001084"
       ]
     },
     {
@@ -509,14 +510,47 @@
       ]
     },
     {
-      "product_id": "sku:cpu:100000001476-tray",
-      "canonical_name": "AMD AMD Radeon Graphics series EPYC Tray",
-      "category": "cpu",
-      "brand": "AMD",
-      "model": "AMD Radeon Graphics",
+      "product_id": "motherboard:asus:b860m-max-gaming-ax",
+      "canonical_name": "ASUS B860M MAX GAMING AX",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "model": "B860M MAX GAMING AX",
+      "attributes": {
+        "socket": "LGA1851",
+        "form_factor": "Micro-ATX",
+        "memory_type": "DDR5",
+        "wireless": true
+      },
+      "listing_keys": [
+        "1pc:214814",
+        "ivory:169318"
+      ]
+    },
+    {
+      "product_id": "motherboard:maxsun:b760m-i-cafe-d4",
+      "canonical_name": "MAXSUN B760M I-CAFE D4",
+      "category": "motherboard",
+      "brand": "MAXSUN",
+      "model": "B760M I-CAFE D4",
+      "attributes": {
+        "memory_type": "DDR4",
+        "form_factor": "Micro-ATX"
+      },
+      "listing_keys": [
+        "1pc:218520",
+        "tms:MS-B760MI-CAFED4"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:4711377301541",
+      "canonical_name": "MSI GeForce RTX 5070 TI 16GB TRIO OC",
+      "category": "gpu",
+      "brand": "MSI",
+      "model": "RTX™ 5070 Ti",
       "attributes": {},
       "listing_keys": [
-        "tms:100-000001476"
+        "1pc:194055",
+        "yahav:11268"
       ]
     },
     {
@@ -532,6 +566,67 @@
       ]
     },
     {
+      "product_id": "mpn:gpu:90ga61zz00uanf",
+      "canonical_name": "ASRock Radeon RX 9070 XT 16GB",
+      "category": "gpu",
+      "brand": "ASRock",
+      "model": "RX 9070 XT Challenger",
+      "attributes": {},
+      "listing_keys": [
+        "tms:90-GA61ZZ-00UANF",
+        "1pc:221525"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:90yv0lw0m0na00",
+      "canonical_name": "ASUS GeForce RTX 5090 32GB OC",
+      "category": "gpu",
+      "brand": "ASUS",
+      "model": "ROG Astral GeForce RTX 5090 32GB GDDR7 OC Edition",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:126408",
+        "tms:90YV0LW0-M0NA00",
+        "yahav:10655"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:ne63060u19k9pg190l",
+      "canonical_name": "Palit GeForce RTX 3060 12GB",
+      "category": "gpu",
+      "brand": "Palit",
+      "model": "GeForce RTX 3060 Infinity 2 OC",
+      "attributes": {},
+      "listing_keys": [
+        "ivory:175102",
+        "tms:NE63060U19K9-PG190L",
+        "1pc:221415"
+      ]
+    },
+    {
+      "product_id": "mpn:gpu:rx96tsw16bq",
+      "canonical_name": "XFX Radeon RX 9060 XT 16GB",
+      "category": "gpu",
+      "brand": "XFX",
+      "model": "Swift RX 9060 XT OC Gaming Edition",
+      "attributes": {},
+      "listing_keys": [
+        "tms:RX-96TSW16BQ",
+        "1pc:221526"
+      ]
+    },
+    {
+      "product_id": "sku:cpu:100000001476-tray",
+      "canonical_name": "AMD EPYC 4564P",
+      "category": "cpu",
+      "brand": "AMD",
+      "model": "EPYC 4564P",
+      "attributes": {},
+      "listing_keys": [
+        "tms:100-000001476"
+      ]
+    },
+    {
       "product_id": "storage:msi:spatium-s270-480gb",
       "canonical_name": "MSI Spatium S270 480GB SATA SSD 2.5\"",
       "category": "storage",
@@ -544,5 +639,10 @@
       ]
     }
   ],
-  "blocked_pairs": []
+  "blocked_pairs": [
+    [
+      "tms:SRP-CGX851-A5A32SF-W",
+      "tms:SRP-CGX851-A5A32SFW"
+    ]
+  ]
 }

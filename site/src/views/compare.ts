@@ -1,25 +1,48 @@
 import { loadCategory, loadIndex } from "../api";
 import { COMPARE_MAX, getCompare, removeCompare } from "../compare";
-import { attributeLabel, categoryLabel, specGroupLabel, t, vendorLabel, vendorsCount } from "../i18n";
+import { formatPrice } from "../format";
+import { attributeLabel, categoryLabel, specGroupLabel, t, vendorsCount } from "../i18n";
 import { icon } from "../icons";
 import { bestOffer } from "../offers";
 import { displaySpecFields, formatSpecValue, specApplies, specFieldMap, specValue } from "../specs";
-import { categoriesHash, categoryHash, compareHash, productHash, replaceRoute } from "../state";
+import { categoriesHash, categoryHash, compareHash, productHash, replaceRoute, savedHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { button } from "../ui/button";
-import { chip } from "../ui/chip";
+import { emptyValue } from "../ui/empty";
 import { html, mount, type Html } from "../ui/html";
+import { pageHero } from "../ui/pageHero";
 import { positivePrice, priceCell } from "../ui/price";
 import { specCell } from "../ui/spec";
-import { emptyState, errorState, loadingState } from "../ui/state";
+import { emptyBox } from "../ui/emptyBox";
+import { errorState, loadingState } from "../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
+import { vendorTag } from "../ui/vendor";
 import { displayName } from "../utils";
 
 interface SpecRow {
   field: string;
   group: string;
   differs: boolean;
+  /** Index of the clearly best value (numeric fields with a known direction), else -1. */
+  best: number;
+}
+
+/** Numeric fields where more is better / less is better; everything else is just compared. */
+const HIGHER_BETTER = /(_count|_gb|_tb|_mb|_mhz|_ghz|_mbps|_slots|_connectors|_ports|_tbw)$|^wattage_w$/;
+const LOWER_BETTER = /^(tdp_w|cas_latency|noise_db|noise_dba|recommended_psu_w|power_w)$/;
+
+function bestIndex(items: Product[], field: string): number {
+  const higher = HIGHER_BETTER.test(field);
+  const lower = LOWER_BETTER.test(field);
+  if (!higher && !lower) return -1;
+  const values = items.map((p) => specValue(p, field));
+  const nums = values.map((v) => (typeof v === "number" && Number.isFinite(v) ? v : null));
+  const known = nums.filter((n): n is number => n !== null);
+  if (known.length < 2 || new Set(known).size < 2) return -1;
+  const target = higher ? Math.max(...known) : Math.min(...known);
+  // A tie for first place has no single winner.
+  return known.filter((n) => n === target).length === 1 ? nums.indexOf(target) : -1;
 }
 
 /** Spec rows with at least one known value; `differs` when two parts show different known values. */
@@ -29,33 +52,49 @@ function specRows(items: Product[], category: string, lang: Lang): SpecRow[] {
     const texts = items.map((p) => formatSpecValue(specValue(p, field.name), lang));
     const known = texts.filter((text) => text !== "");
     if (known.length === 0) continue;
-    rows.push({ field: field.name, group: field.group, differs: new Set(known).size > 1 });
+    rows.push({ field: field.name, group: field.group, differs: new Set(known).size > 1, best: bestIndex(items, field.name) });
   }
   return rows;
 }
 
-function headCell(p: Product, category: string, lang: Lang): Html {
+function headCell(p: Product, category: string, lang: Lang, currency: Currency): Html {
   const name = displayName(p);
-  return html`<th scope="col" class="compare-table__item">
-    <a class="compare-table__thumb" href="${productHash(category, p.id)}" tabindex="-1" aria-hidden="true">${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "md")}</a>
-    <a class="compare-table__name" href="${productHash(category, p.id)}">${name}</a>
-    ${p.brand ? html`<span class="row__brand">${p.brand}</span>` : ""}
-    ${button({ label: `${t(lang, "compareRemoveItem")}: ${name}`, icon: icon("close", 14), size: "sm", iconOnly: true, className: "compare-table__x", data: { remove: p.id } })}
+  const href = productHash(category, p.id);
+  const offer = bestOffer(p);
+  return html`<th scope="col" class="cmp-head">
+    ${button({ label: `${t(lang, "compareRemoveItem")}: ${name}`, icon: icon("close", 14), size: "sm", iconOnly: true, className: "cmp-head__x", data: { remove: p.id } })}
+    <a class="cmp-head__img" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.image ?? p.thumb, initialsOf(p.brand, p.name), "lg")}</a>
+    <a class="cmp-head__name" href="${href}" dir="auto">${name}</a>
+    <span class="cmp-head__price">${priceCell(p.min_price, currency, lang)}${offer ? vendorTag(offer.vendor) : ""}</span>
+    <a class="btn btn--primary btn--sm btn--block" href="${href}">${t(lang, "allPrices")}</a>
   </th>`;
 }
 
-function overviewRows(items: Product[], lang: Lang, currency: Currency): Html {
+function addCell(category: string, lang: Lang): Html {
+  return html`<th scope="col" class="cmp-head cmp-head--add">
+    <a class="cmp-add" href="${categoryHash(category)}" aria-label="${t(lang, "compareAddProduct")}">${icon("plus", 22)}</a>
+    <span class="cmp-add__label">${t(lang, "compareAddProduct")}</span>
+    <span class="cmp-add__hint">${t(lang, "compareUpTo")}</span>
+  </th>`;
+}
+
+function overviewRows(items: Product[], lang: Lang, currency: Currency, pad: Html): Html {
   const prices = items.map((p) => positivePrice(p.min_price));
   const known = prices.filter((price): price is number => price !== null);
   const lowest = known.length > 1 && new Set(known).size > 1 ? Math.min(...known) : null;
   const differs = (values: unknown[]): string => (new Set(values).size > 1 ? "is-diff" : "");
+  const range = (p: Product): Html => {
+    const all = p.offers.map((o) => positivePrice(o.price)).filter((n): n is number => n !== null);
+    if (all.length === 0) return emptyValue(lang);
+    const lo = Math.min(...all);
+    const hi = Math.max(...all);
+    return html`<bdi dir="ltr">${lo === hi ? formatPrice(lo, currency, lang) : `${formatPrice(lo, currency, lang)} – ${formatPrice(hi, currency, lang)}`}</bdi>`;
+  };
   return html`
-    <tr class="${differs(prices)}"><th scope="row">${t(lang, "priceHeading")}</th>${items.map((p, i) => html`<td>${priceCell(p.min_price, currency, lang, "lg")}${prices[i] !== null && prices[i] === lowest ? html` ${chip(t(lang, "cheapest"), { tone: "brand" })}` : ""}</td>`)}</tr>
-    <tr><th scope="row">${t(lang, "merchantHeading")}</th>${items.map((p) => {
-      const offer = bestOffer(p);
-      return html`<td>${offer ? html`<b>${vendorLabel(offer.vendor)}</b> · ` : ""}${vendorsCount(lang, p.vendor_count)}</td>`;
-    })}</tr>
-    <tr class="${differs(items.map((p) => p.in_stock))}"><th scope="row">${t(lang, "availability")}</th>${items.map((p) => html`<td><span class="stock"><span class="status-dot ${p.in_stock ? "status-dot--ok" : "status-dot--err"}" aria-hidden="true"></span>${p.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}</span></td>`)}</tr>`;
+    <tr class="${differs(prices)}"><th scope="row">${t(lang, "cheapest")}</th>${items.map((p, i) => html`<td class="${prices[i] !== null && prices[i] === lowest ? "is-best" : ""}">${priceCell(p.min_price, currency, lang)}</td>`)}${pad}</tr>
+    <tr><th scope="row">${t(lang, "priceRangeLabel")}</th>${items.map((p) => html`<td>${range(p)}</td>`)}${pad}</tr>
+    <tr class="${differs(items.map((p) => p.vendor_count))}"><th scope="row">${t(lang, "storesHeading")}</th>${items.map((p) => html`<td>${vendorsCount(lang, p.vendor_count)}</td>`)}${pad}</tr>
+    <tr class="${differs(items.map((p) => p.in_stock))}"><th scope="row">${t(lang, "availability")}</th>${items.map((p) => html`<td><span class="stock"><span class="status-dot ${p.in_stock ? "status-dot--ok" : "status-dot--err"}" aria-hidden="true"></span>${p.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}</span></td>`)}${pad}</tr>`;
 }
 
 function tableMarkup(items: Product[], category: string, lang: Lang, currency: Currency, onlyDiffs: boolean): Html {
@@ -69,23 +108,25 @@ function tableMarkup(items: Product[], category: string, lang: Lang, currency: C
   };
   const shown = onlyDiffs ? rows.filter((row) => row.differs) : rows;
   const groups = [...new Set(shown.map((row) => row.group))];
-  const span = items.length + 1;
-  return html`<div class="table-wrap compare-wrap"><table class="table compare-table">
-    <thead><tr><th scope="col" class="compare-table__corner"><span class="visually-hidden">${t(lang, "compareSpecs")}</span></th>${items.map((p) => headCell(p, category, lang))}</tr></thead>
+  const canAdd = items.length < COMPARE_MAX;
+  const span = items.length + 1 + (canAdd ? 1 : 0);
+  const pad = canAdd ? html`<td class="cmp-pad" aria-hidden="true"></td>` : html``;
+  return html`<div class="card card--flush cmp-card"><div class="table-wrap"><table class="table compare-table" style="--cmp-cols: ${items.length + (canAdd ? 1 : 0)}">
+    <thead><tr><th scope="col" class="compare-table__corner">${t(lang, "productLabel")}</th>${items.map((p) => headCell(p, category, lang, currency))}${canAdd ? addCell(category, lang) : ""}</tr></thead>
     <tbody>
-      <tr class="compare-table__group"><th scope="colgroup" colspan="${span}">${t(lang, "compareGeneral")}</th></tr>
-      ${overviewRows(items, lang, currency)}
+      <tr class="compare-table__group"><th scope="colgroup" colspan="${span}">${t(lang, "priceHeading")}</th></tr>
+      ${overviewRows(items, lang, currency, pad)}
       ${shown.length === 0 ? html`<tr><td colspan="${span}" class="text-dim">${t(lang, "compareSame")}</td></tr>` : ""}
       ${groups.map(
         (group) => html`<tr class="compare-table__group"><th scope="colgroup" colspan="${span}">${specGroupLabel(group, lang)}</th></tr>
         ${shown
           .filter((row) => row.group === group)
           .map(
-            (row) => html`<tr class="${row.differs ? "is-diff" : ""}"><th scope="row">${attributeLabel(row.field, lang, category)}</th>${items.map((p) => html`<td>${applies(p, row.field) ? specCell(specValue(p, row.field), lang) : html`<span class="text-dim" title="${t(lang, "notApplicable")}">—</span>`}</td>`)}</tr>`
+            (row) => html`<tr class="${row.differs ? "is-diff" : ""}"><th scope="row">${attributeLabel(row.field, lang, category)}</th>${items.map((p, i) => html`<td class="${i === row.best ? "is-best" : ""}">${applies(p, row.field) ? specCell(specValue(p, row.field), lang) : html`<span class="text-dim" title="${t(lang, "notApplicable")}">—</span>`}</td>`)}${pad}</tr>`
           )}`
       )}
     </tbody>
-  </table></div>`;
+  </table></div></div>`;
 }
 
 /**
@@ -95,11 +136,31 @@ function tableMarkup(items: Product[], category: string, lang: Lang, currency: C
  */
 export async function renderCompare(container: HTMLElement, lang: Lang, currency: Currency, urlIds: string[]): Promise<void> {
   setPageTitle(lang, t(lang, "compareTitle"), t(lang, "metaCompareDesc"));
-  mount(container, loadingState(lang));
+  const hero = (category?: string): Html =>
+    pageHero({
+      lang,
+      crumbs: category
+        ? [{ label: categoryLabel(category, lang), href: categoryHash(category) }, { label: t(lang, "compareTitle") }]
+        : [{ label: t(lang, "compareTitle") }],
+      title: t(lang, "compareTitle"),
+      sub: t(lang, "compareHeroSub"),
+    });
+  mount(container, html`${hero()}${loadingState(lang)}`);
 
   const empty = (): Html =>
-    html`<header class="page-head"><h1>${t(lang, "compareTitle")}</h1></header>
-      ${emptyState(t(lang, "compareEmpty"), button({ label: t(lang, "savedBrowse"), icon: icon("forward", 14), variant: "primary", href: categoriesHash() }))}`;
+    html`${hero()}
+      ${emptyBox({
+        icon: "compare",
+        title: t(lang, "compareEmptyTitle"),
+        body: t(lang, "compareEmptyBody"),
+        steps: [
+          { title: t(lang, "compareStep1"), body: t(lang, "compareStep1Body") },
+          { title: t(lang, "compareStep2"), body: t(lang, "compareStep2Body") },
+          { title: t(lang, "compareStep3"), body: t(lang, "compareStep3Body") },
+        ],
+        actions: html`<a class="btn btn--primary" href="${categoriesHash()}">${t(lang, "compareEmptyCta")}</a>
+          <a class="btn btn--ghost" href="${savedHash()}">${icon("heart", 16)}${t(lang, "compareFromSaved")}</a>`,
+      })}`;
 
   const ids = (urlIds.length > 0 ? urlIds : getCompare().items.map((p) => p.id)).slice(0, COMPARE_MAX);
   if (ids.length === 0) {
@@ -126,7 +187,7 @@ export async function renderCompare(container: HTMLElement, lang: Lang, currency
     products = sameCategory.map((id) => byId.get(id)).filter((p): p is Product => p !== undefined);
     missing = missing || products.length !== sameCategory.length;
   } catch (err) {
-    mount(container, errorState(lang, err));
+    mount(container, html`${hero()}${errorState(lang, err)}`);
     return;
   }
   if (products.length === 0) {
@@ -145,16 +206,15 @@ export async function renderCompare(container: HTMLElement, lang: Lang, currency
     }
     mount(
       container,
-      html`<div data-compare-root>
-        <nav class="crumbs">
-          <a href="${categoryHash(category)}">${icon("back", 14)}${categoryLabel(category, lang)}</a>
-        </nav>
-        <header class="page-head">
-          <h1>${t(lang, "compareTitle")}</h1>
-          <p>${categoryLabel(category, lang)} · ${t(lang, "compareDiffNote")}</p>
-        </header>
-        ${missing ? html`<p class="notice" role="status">${t(lang, "compareMissing")}</p>` : ""}
-        <label class="check compare-only"><input type="checkbox" data-role="only-diffs"${onlyDiffs ? html` checked` : ""}><span>${t(lang, "compareOnlyDiffs")}</span></label>
+      html`<div class="contents" data-compare-root>
+        ${hero(category)}
+        ${missing ? html`<p class="notice notice--warn" role="status">${icon("alert", 16)}<span>${t(lang, "compareMissing")}</span></p>` : ""}
+        <div class="cmp-bar">
+          <b class="cmp-bar__count">${items.length} ${categoryLabel(category, lang)}</b>
+          <label class="check"><input type="checkbox" data-role="only-diffs"${onlyDiffs ? html` checked` : ""}><span>${t(lang, "compareOnlyDiffs")}</span></label>
+          <span class="cmp-bar__legend"><span class="cmp-bar__swatch" aria-hidden="true"></span>${t(lang, "compareBestLegend")}</span>
+          ${button({ label: t(lang, "copyCompareLink"), icon: icon("link", 15), size: "sm", data: { role: "copy-compare" }, className: "cmp-bar__copy" })}
+        </div>
         ${tableMarkup(items, category, lang, currency, onlyDiffs)}
       </div>`
     );
@@ -163,7 +223,17 @@ export async function renderCompare(container: HTMLElement, lang: Lang, currency
     // The root is rebuilt on every draw, so its listeners go with it.
     const root = container.querySelector<HTMLElement>("[data-compare-root]")!;
     root.addEventListener("click", (e) => {
-      const removeEl = (e.target as HTMLElement).closest<HTMLElement>("[data-remove]");
+      const target = e.target as HTMLElement;
+      const copy = target.closest<HTMLButtonElement>('[data-role="copy-compare"]');
+      if (copy) {
+        const url = `${location.origin}${location.pathname}${compareHash(items.map((p) => p.id))}`;
+        void navigator.clipboard?.writeText(url).then(() => {
+          copy.classList.add("is-done");
+          copy.querySelector("span")!.textContent = t(lang, "linkCopied");
+        });
+        return;
+      }
+      const removeEl = target.closest<HTMLElement>("[data-remove]");
       if (!removeEl) return;
       const id = removeEl.dataset.remove ?? "";
       items = items.filter((p) => p.id !== id);

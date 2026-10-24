@@ -1,12 +1,51 @@
-/* Price-history chart. Series colours come from --chart-1..8 via .ph-c1..8. */
-.ph-c1 { --series: var(--chart-1); }
-.ph-c2 { --series: var(--chart-2); }
-.ph-c3 { --series: var(--chart-3); }
-.ph-c4 { --series: var(--chart-4); }
-.ph-c5 { --series: var(--chart-5); }
-.ph-c6 { --series: var(--chart-6); }
-.ph-c7 { --series: var(--chart-7); }
-.ph-c8 { --series: var(--chart-8); }
+/* Price-history chart. Each store's series wears its vendor colour. */
+.ph-v-tms { --series: var(--v-tms); }
+.ph-v-onepc { --series: var(--v-onepc); }
+.ph-v-ivory { --series: var(--v-ivory); }
+.ph-v-yahav { --series: var(--v-yahav); }
+.ph-v-plonter { --series: var(--v-plonter); }
+.ph-v-other { --series: var(--v-other); }
+
+.ph-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: var(--sp-4);
+}
+
+.ph-stat {
+  display: flex;
+  flex: 1 1 10rem;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface-2);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+}
+
+.ph-stat span {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+
+.ph-stat b {
+  font-size: var(--fs-lg);
+}
+
+.ph-stat small {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+.ph-stat .is-down {
+  color: var(--ok);
+}
+
+.ph-stat .is-up {
+  color: var(--err);
+}
 
 .ph-legend {
   display: flex;
@@ -62,7 +101,7 @@
 }
 
 .ph-grid {
-  stroke: var(--line);
+  stroke: var(--chart-grid);
   stroke-width: 1;
 }
 

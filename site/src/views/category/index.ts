@@ -1,6 +1,7 @@
 import { loadCategory } from "../../api";
 import { BUILD_SLOTS, isProductCompatibleWithBuild, slotForCategory } from "../../build";
 import { categoryLabel, categoryMetaDesc, t } from "../../i18n";
+import { pageHero } from "../../ui/pageHero";
 import { icon } from "../../icons";
 import {
   categoriesHash,
@@ -20,7 +21,6 @@ import { html, mount } from "../../ui/html";
 import { errorState, loadingState } from "../../ui/state";
 import { pickColumns } from "./columns";
 import {
-  PAGE_SIZE,
   computeFilterable,
   computeRanges,
   currentList,
@@ -38,8 +38,8 @@ import {
 } from "./filters";
 import { bindMobileSheet } from "./mobileSheet";
 import { pickBannerMarkup } from "./picker";
-import { bindList, renderList } from "./table";
-import { bindToolbar, toolbarMarkup, updateResultsBar } from "./toolbar";
+import { bindList, pagerMarkup, renderList } from "./table";
+import { bindToolbar, buildCardMarkup, toolbarMarkup, updateResultsBar } from "./toolbar";
 
 export async function renderCategory(
   container: HTMLElement,
@@ -101,18 +101,26 @@ export async function renderCategory(
     query: params.q,
     sortTouched,
     view: getListView(),
-    visible: PAGE_SIZE,
+    page: 0,
     filterable: computeFilterable(products, category),
     ranges: computeRanges(products, category),
     columns: pickColumns(products, category),
     signals: new Map(),
   };
 
+  const label = categoryLabel(category, lang);
   mount(
     container,
     html`
-    <nav class="crumbs"><a href="${categoriesHash()}">${icon("back", 14)}${t(lang, "backToCategories")}</a></nav>
-    <header class="page-head"><h1>${categoryLabel(category, lang)}</h1></header>
+    ${pageHero({
+      lang,
+      crumbs: [
+        { label: t(lang, "allCategoriesTitle"), href: categoriesHash() },
+        { label, href: pickSlot ? categoryHash(category) : undefined },
+      ],
+      title: pickSlot ? pickSlot.choose[lang] : label,
+      sub: pickSlot ? t(lang, "pickHeroSub") : categoryMetaDesc(lang, label, all.length),
+    })}
     ${pickBannerMarkup(ctx)}
     <div class="catalog">
       <div class="sheet-backdrop" data-role="backdrop" hidden></div>
@@ -121,7 +129,20 @@ export async function renderCategory(
           <span class="sheet__title">${t(lang, "filtersHeading")}</span>
           ${button({ label: t(lang, "close"), icon: icon("close", 18), variant: "ghost", size: "sm", iconOnly: true, data: { role: "filters-close" } })}
         </div>
-        <div class="sheet__body" data-role="rail-body"></div>
+        <div class="sheet__body">
+          ${buildCardMarkup(ctx)}
+          <section class="card rail-card">
+            <header class="rail-card__head">
+              <span>${t(lang, "filtersHeading")}</span>
+              <button type="button" class="link-btn" data-role="rail-clear">${t(lang, "resetLabel")}</button>
+            </header>
+            <details class="acc" open>
+              <summary>${t(lang, "availability")}</summary>
+              <div class="acc__body"><label class="check"><input type="checkbox" data-role="stock"${ctx.params.stockOnly ? html` checked` : ""}>${t(lang, "inStockOnly")}</label></div>
+            </details>
+            <div data-role="rail-body"></div>
+          </section>
+        </div>
         <div class="sheet__foot">
           ${button({ label: t(lang, "clearFilters"), data: { role: "sheet-clear" } })}
           ${button({ label: t(lang, "filtersShowResults"), variant: "primary", data: { role: "filters-apply" } })}
@@ -130,36 +151,41 @@ export async function renderCategory(
       <div class="catalog__main">
         ${toolbarMarkup(ctx)}
         <div class="list" data-role="list"></div>
-        <div class="sentinel" data-role="sentinel" hidden></div>
+        <nav class="pager" data-role="pager" aria-label="${t(lang, "pagesLabel")}"></nav>
         <div class="visually-hidden" data-role="status" role="status" aria-live="polite"></div>
       </div>
     </div>`
   );
 
   const listEl = container.querySelector<HTMLElement>('[data-role="list"]')!;
-  const sentinel = container.querySelector<HTMLElement>('[data-role="sentinel"]')!;
+  const pagerEl = container.querySelector<HTMLElement>('[data-role="pager"]')!;
   const railBody = container.querySelector<HTMLElement>('[data-role="rail-body"]')!;
 
-  // The table needs width; phones always get the card rows.
-  const wide = window.matchMedia("(min-width: 640px)");
-  let observer: IntersectionObserver | null = null;
+  // The scan table needs room: below this list width (phones, narrow
+  // windows beside the rail) the card rows are used whatever the toggle says.
+  const TABLE_MIN = 720;
+  const tableFits = (): boolean => listEl.clientWidth >= TABLE_MIN;
+  let lastFits = tableFits();
 
   const actions: CategoryActions = {
     update() {
-      ctx.visible = PAGE_SIZE;
+      ctx.page = 0;
       replaceRoute(categoryHash(category, { ...ctx.params, q: ctx.query }));
       refreshRailStates(ctx);
       actions.redrawList();
     },
     redrawList() {
       const filtered = currentList(ctx);
-      updateResultsBar(ctx, filtered.length);
-      renderList(ctx, listEl, filtered, wide.matches);
-      const more = filtered.length > ctx.visible;
-      sentinel.hidden = !more;
-      sentinel.textContent = more ? t(lang, "loading") : "";
-      observer?.disconnect();
-      if (more) observer?.observe(sentinel);
+      updateResultsBar(ctx, filtered);
+      lastFits = tableFits();
+      renderList(ctx, listEl, filtered, lastFits);
+      // The view toggle only means something where the table fits.
+      const toggle = container.querySelector<HTMLElement>(".toolbar__view");
+      if (toggle) toggle.hidden = !lastFits;
+      mount(pagerEl, pagerMarkup(ctx, filtered.length));
+      observer.disconnect();
+      const sentinel = pagerEl.querySelector('[data-role="sentinel"]');
+      if (sentinel) observer.observe(sentinel);
     },
     rebuildRail() {
       const openStates = Array.from(railBody.querySelectorAll("details")).map((d) => d.open);
@@ -176,23 +202,34 @@ export async function renderCategory(
   };
 
   const sheet = bindMobileSheet(container);
-  observer = new IntersectionObserver(
+  // Scrolling near the end of the list reveals the next batch. The observer
+  // does the work; the scroll check backs it up where observers are throttled.
+  const loadMore = (): void => {
+    ctx.page += 1;
+    actions.redrawList();
+  };
+  const observer = new IntersectionObserver(
     (entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return;
-      ctx.visible += PAGE_SIZE;
-      actions.redrawList();
+      if (entries.some((e) => e.isIntersecting)) loadMore();
     },
-    { rootMargin: "320px" }
+    { rootMargin: "600px" }
   );
-  const onWidth = (): void => actions.redrawList();
-  wide.addEventListener("change", onWidth);
+  const onScroll = (): void => {
+    const sentinel = pagerEl.querySelector('[data-role="sentinel"]');
+    if (sentinel && sentinel.getBoundingClientRect().top < window.innerHeight + 600) loadMore();
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  const resize = new ResizeObserver(() => {
+    if (tableFits() !== lastFits) actions.redrawList();
+  });
+  resize.observe(listEl);
 
   bindToolbar(ctx, actions);
   bindList(ctx, listEl, actions);
   bindActiveChips(ctx, actions);
-  container
-    .querySelector('[data-role="sheet-clear"]')!
-    .addEventListener("click", () => clearAllFilters(ctx, actions));
+  for (const role of ["sheet-clear", "rail-clear"]) {
+    container.querySelector(`[data-role="${role}"]`)!.addEventListener("click", () => clearAllFilters(ctx, actions));
+  }
 
   actions.rebuildRail();
   actions.redrawList();
@@ -204,12 +241,13 @@ export async function renderCategory(
     actions.redrawList();
   });
 
-  // Leaving the route releases the observers and the scroll lock.
+  // Leaving the route releases the listeners and the scroll lock.
   window.addEventListener(
     "hashchange",
     () => {
-      observer?.disconnect();
-      wide.removeEventListener("change", onWidth);
+      resize.disconnect();
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
       sheet.dispose();
     },
     { once: true }

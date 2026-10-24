@@ -20,8 +20,7 @@ const COLUMN_PRIORITY: Record<string, string[]> = {
   gpu: ["chip_manufacturer", "memory_gb", "memory_type", "interface"],
   psu: ["wattage_w", "efficiency", "type", "modular"],
   case: ["type", "color", "drive_bays_35", "volume_l"],
-  aio: ["radiator_size_mm", "fan_rpm_max", "color"],
-  cooler_air: ["fan_size_mm", "fan_rpm_max", "tdp_w", "color"],
+  cpu_cooler: ["cooler_type", "radiator_size_mm", "fan_rpm_max", "color"],
   case_fan: ["size_mm", "rpm_max", "color", "pwm"],
 };
 

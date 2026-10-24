@@ -1,6 +1,6 @@
 .input,
 .select {
-  min-height: 2.5rem;
+  min-height: 2.375rem;
   width: 100%;
   padding: 0 var(--sp-3);
   background: var(--surface);
@@ -70,8 +70,8 @@
 }
 
 .check input {
-  width: 1.0625rem;
-  height: 1.0625rem;
+  width: 1rem;
+  height: 1rem;
   flex: none;
   accent-color: var(--brand);
 }
@@ -92,13 +92,13 @@
   opacity: 0.7;
 }
 
-/* Segmented control (view toggle). */
+/* Segmented control (view toggle, drops period). */
 .seg {
   display: inline-flex;
-  padding: 2px;
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  gap: 4px;
+  padding: 4px;
+  background: var(--surface-3);
+  border-radius: var(--radius);
 }
 
 .seg__btn {
@@ -106,15 +106,21 @@
   place-items: center;
   min-width: 2.25rem;
   min-height: 2rem;
-  padding: 0 var(--sp-2);
-  border-radius: calc(var(--radius-sm) - 2px);
+  padding: 0 var(--sp-3);
+  border-radius: var(--radius-sm);
   color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.seg__btn:hover {
+  color: var(--text);
 }
 
 .seg__btn[aria-pressed="true"] {
   background: var(--surface);
-  color: var(--brand-strong);
-  box-shadow: var(--shadow);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgb(14 22 38 / 0.12);
 }
 
 /* Dual-handle range. */

@@ -2,6 +2,7 @@ import { COMPARE_MAX, getCompare, onCompareChange, removeCompare, clearCompare, 
 import { t } from "../i18n";
 import { icon } from "../icons";
 import { getSaved, isSaved, onSavedChange, toggleSaved } from "../saved";
+import { getSavedBuilds } from "../savedBuilds";
 import { partRef, type PartRef } from "../storage";
 import type { Lang, Product } from "../types";
 import { displayName } from "../utils";
@@ -45,9 +46,12 @@ export function saveButton(p: Product, lang: Lang, labelled = false): Html {
   return saveButtonRef(register(p), lang, labelled);
 }
 
-/** "Compare" checkbox for list rows. */
-export function compareCheck(p: Product, lang: Lang): Html {
+/** "Compare" checkbox for list rows; `bare` drops the visible label (table column). */
+export function compareCheck(p: Product, lang: Lang, bare = false): Html {
   register(p);
+  if (bare) {
+    return html`<label class="cmp-check" title="${t(lang, "compareAction")}"><input type="checkbox" data-compare="${p.id}" aria-label="${t(lang, "compareAction")}: ${displayName(p)}"></label>`;
+  }
   return html`<label class="check compare-check"><input type="checkbox" data-compare="${p.id}"><span>${t(lang, "compareAction")}</span></label>`;
 }
 
@@ -90,8 +94,10 @@ export function syncPickControls(): void {
     el.setAttribute("aria-pressed", saved.has(el.dataset.save ?? "") ? "true" : "false");
   });
 
+  // The header heart counts everything on the Saved page: parts and parts lists.
+  const savedTotal = saved.size + getSavedBuilds().length;
   document.querySelectorAll<HTMLElement>("[data-saved-count]").forEach((el) => {
-    const n = saved.size;
+    const n = savedTotal;
     el.textContent = String(n);
     el.hidden = n === 0;
   });

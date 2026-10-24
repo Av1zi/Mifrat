@@ -7,16 +7,25 @@
   padding: 0 var(--sp-4);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  font-size: var(--fs-md);
+  font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
-  transition: background-color 0.12s, border-color 0.12s, color 0.12s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    box-shadow 0.15s,
+    transform 0.15s;
 }
 
 .btn:hover {
   text-decoration: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .btn svg {
@@ -24,18 +33,51 @@
 }
 
 .btn--sm {
-  min-height: 2rem;
+  min-height: 2.125rem;
   padding: 0 var(--sp-3);
   font-size: var(--fs-sm);
+}
+
+.btn--lg {
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  font-size: var(--fs-md);
+}
+
+.btn--block {
+  width: 100%;
 }
 
 .btn--primary {
   background: var(--brand);
   color: var(--on-brand);
+  box-shadow: var(--shadow-sm), inset 0 -2px 0 rgb(0 0 0 / 0.12);
 }
 
 .btn--primary:hover {
   background: var(--brand-strong);
+  color: var(--on-brand);
+  box-shadow: 0 6px 16px rgb(36 87 214 / 0.3);
+}
+
+.btn--dark {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.btn--dark:hover {
+  background: var(--text-2);
+  color: var(--surface);
+}
+
+.btn--buy {
+  background: var(--ok-solid);
+  color: var(--on-ok);
+}
+
+.btn--buy:hover {
+  background: var(--ok-solid-hover);
+  color: var(--on-ok);
 }
 
 .btn--ghost {
@@ -46,7 +88,19 @@
 
 .btn--ghost:hover {
   background: var(--surface-hover);
+  border-color: var(--brand);
+  color: var(--brand-strong);
+}
+
+.btn--outline {
+  background: transparent;
   border-color: var(--text-3);
+  color: var(--text);
+}
+
+.btn--outline:hover {
+  border-color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
 }
 
 .btn--subtle {
@@ -64,15 +118,51 @@
 }
 
 .btn--icon.btn--sm {
-  min-width: 2rem;
+  min-width: 2.125rem;
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .btn.is-done {
   background: var(--ok-soft);
   border-color: transparent;
   color: var(--ok);
+  box-shadow: none;
+}
+
+/* Arrows follow the reading direction. */
+[dir="rtl"] .ic-forward,
+[dir="rtl"] .ic-back {
+  transform: scaleX(-1);
+}
+
+/* Icon-only destructive control (builder rows, compare columns). */
+.x-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  flex: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-3);
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.x-btn:hover {
+  background: var(--err-soft);
+  color: var(--err);
+}
+
+.link-btn {
+  padding: var(--sp-1) 0;
+  color: var(--brand);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.link-btn:hover {
+  color: var(--brand-strong);
+  text-decoration: underline;
 }

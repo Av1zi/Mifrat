@@ -1,64 +1,71 @@
 .site-footer {
-  margin-top: var(--sp-7);
-  background: var(--surface);
-  border-top: 1px solid var(--line);
+  background: var(--ink-900);
+  color: var(--ink-text-2);
 }
 
 .site-footer__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-5);
-  max-width: var(--container);
-  margin-inline: auto;
-  padding: var(--sp-6) var(--gutter) var(--sp-5);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-6) var(--sp-5);
+  padding-block: var(--sp-7) var(--sp-6);
 }
 
 .site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
   grid-column: 1 / -1;
-  max-width: 28rem;
+}
+
+.site-footer__brand .brand__mark {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.site-footer__brand .brand__name {
+  font-size: var(--fs-lg);
 }
 
 .site-footer__brand p {
-  margin-top: var(--sp-2);
-  color: var(--text-2);
+  max-width: 18rem;
   font-size: var(--fs-sm);
+  line-height: 1.7;
 }
 
 .site-footer__col {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-2);
-  font-size: var(--fs-sm);
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: var(--fs-base);
 }
 
 .site-footer__col h3 {
-  margin-bottom: var(--sp-1);
-  color: var(--text-3);
+  color: var(--ink-text-4);
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.04em;
 }
 
 .site-footer__col a {
-  color: var(--text-2);
+  color: var(--ink-text-1);
 }
 
 .site-footer__col a:hover {
-  color: var(--brand-strong);
+  color: var(--ink-white);
 }
 
 .site-footer__disclaimer {
-  max-width: var(--container);
-  margin-inline: auto;
-  padding: var(--sp-4) var(--gutter);
-  border-top: 1px solid var(--line);
-  color: var(--text-3);
+  padding-block: 1.125rem 1.75rem;
+  border-top: 1px solid var(--ink-line);
+  color: var(--ink-text-3);
   font-size: var(--fs-xs);
+  line-height: 1.7;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 900px) {
   .site-footer__inner {
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
   }
 
   .site-footer__brand {

@@ -1,67 +1,115 @@
 /* One token set. Components read these and nothing else: no hex, rgb() or
-   raw px sizes for colour/type/radius/shadow/z-index live outside this file. */
+   raw px sizes for colour/type/radius/shadow/z-index live outside this file.
+
+   Palette: ink navy chrome, cobalt for actions, emerald for prices and
+   savings. Light is the default; dark is an explicit choice (state.ts). */
 
 :root {
   color-scheme: light;
 
-  /* ---- colour: warm-neutral surfaces, teal brand ---- */
-  --bg: #f6f5f1;
+  /* ---- colour: cool-neutral surfaces, cobalt brand ---- */
+  --bg: #f1f3f6;
   --surface: #ffffff;
-  --surface-2: #efede6;
-  --surface-hover: #f8f7f3;
-  --line: #e2dfd6;
-  --line-strong: #c6c2b6;
+  --surface-2: #f6f8fa;
+  --surface-3: #eef1f5;
+  --surface-hover: #f7faff;
+  --line: #dce1e8;
+  --line-soft: #e9edf2;
+  --line-strong: #c5cdd8;
 
-  --text: #1b2321;
-  --text-2: #49554f;
-  --text-3: #65706a;
+  --text: #0e1626;
+  --text-2: #44516a;
+  --text-3: #5a6780;
 
-  --brand: #0b7a6d;
-  --brand-strong: #075e54;
-  --brand-soft: #e1f2ee;
-  --brand-line: #a6d6cc;
+  --brand: #2457d6;
+  --brand-strong: #1b44aa;
+  --brand-soft: #e8eefc;
+  --brand-line: #c9d7f7;
   --on-brand: #ffffff;
 
-  /* Status: the only three. Each has a solid colour and a soft background
-     that the solid colour reads on (AA). */
-  --ok: #146c34;
-  --ok-soft: #e2f3e8;
+  /* Status. Each has a solid colour and a soft background it reads on (AA). */
+  --ok: #0a6b41;
+  --ok-solid: #0a7a4a;
+  --ok-solid-hover: #08633c;
+  --ok-soft: #e3f4ec;
+  --on-ok: #ffffff;
   --warn: #8f5206;
   --warn-soft: #fcf0d8;
-  --err: #b02323;
-  --err-soft: #fae6e4;
+  --err: #b42318;
+  --err-soft: #fdecec;
+
+  /* Ink: the header, page heroes and footer stay dark in both themes. */
+  --ink-900: #0b1322;
+  --ink-800: #0f1a2e;
+  --ink-700: #111c2f;
+  --ink-600: #16213a;
+  --ink-line: #1c2840;
+  --ink-line-2: #2a3956;
+  --ink-white: #ffffff;
+  --ink-text: #e8edf5;
+  --ink-text-1: #c9d3e3;
+  --ink-text-2: #a3b1c6;
+  --ink-text-3: #8c9bb3;
+  --ink-text-4: #6f7f99;
+  --ink-accent: #5b8cff;
+  --ink-live: #34c27a;
+
+  /* Home hero wash and its decoration. */
+  --hero-bg: #e4e8ef;
+  --hero-line: #cbd3e0;
+  --hero-deco: #2457d6;
+
+  /* Vendor identity: dots, monograms, chart series, split bars. */
+  --v-tms: #2457d6;
+  --v-onepc: #c2410c;
+  --v-ivory: #0f766e;
+  --v-yahav: #7c3aed;
+  --v-plonter: #a16207;
+  --v-other: #64748b;
+  --v-tms-soft: #e8eefc;
+  --v-onepc-soft: #fbede6;
+  --v-ivory-soft: #e2f2ef;
+  --v-yahav-soft: #efe8fd;
+  --v-plonter-soft: #f8efd9;
+  --v-other-soft: #eef1f5;
 
   /* Product photos are shot on white; keep their frame white in both themes. */
   --thumb-bg: #ffffff;
-  --scrim: rgb(14 20 18 / 0.5);
+  --scrim: rgb(11 19 34 / 0.45);
   --focus: var(--brand);
+  --focus-ring: #9db8ff;
 
-  /* Price-history series. */
+  /* Price-history series without a vendor colour. */
   --chart-1: #0f766e;
   --chart-2: #c2410c;
-  --chart-3: #2563eb;
+  --chart-3: #2457d6;
   --chart-4: #a21caf;
   --chart-5: #a16207;
   --chart-6: #475569;
   --chart-7: #be123c;
   --chart-8: #4d7c0f;
+  --chart-grid: #e3e8ee;
+  --chart-cursor: #94a3b8;
 
   /* ---- type ---- */
   --font-sans: "IBM Plex Sans Hebrew", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --fs-2xs: 0.6875rem;
   --fs-xs: 0.75rem;
   --fs-sm: 0.8125rem;
+  --fs-base: 0.875rem;
   --fs-md: 0.9375rem;
   --fs-lg: 1.0625rem;
-  --fs-xl: 1.25rem;
-  --fs-2xl: 1.625rem;
-  --fs-3xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: clamp(1.625rem, 1.2rem + 1.2vw, 2.125rem);
+  --fs-hero: clamp(2.125rem, 1.4rem + 2.6vw, 3.625rem);
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
   --lh-tight: 1.2;
-  --lh-base: 1.55;
+  --lh-base: 1.5;
 
   /* ---- space (4px grid) ---- */
   --sp-1: 0.25rem;
@@ -74,19 +122,26 @@
   --sp-8: 4.5rem;
 
   /* ---- shape ---- */
-  --radius: 12px;
-  --radius-sm: 8px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-pill: 999px;
-  --shadow: 0 1px 2px rgb(27 35 33 / 0.05), 0 8px 24px rgb(27 35 33 / 0.07);
-  --ring: 0 0 0 3px color-mix(in srgb, var(--focus) 28%, transparent);
+  --shadow-sm: 0 1px 2px rgb(14 22 38 / 0.06);
+  --shadow: 0 1px 2px rgb(14 22 38 / 0.05), 0 6px 20px rgb(14 22 38 / 0.06);
+  --shadow-lift: 0 10px 24px rgb(36 87 214 / 0.14);
+  --shadow-pop: 0 22px 48px rgb(11 19 34 / 0.22);
+  --ring: 0 0 0 3px color-mix(in srgb, var(--focus) 24%, transparent);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   /* ---- layout ---- */
-  --container: 1360px;
+  --container: 1720px;
   --container-narrow: 820px;
-  --gutter: var(--sp-4);
-  --header-h: 4rem;
-  --rail-w: 17rem;
-  /* Where sticky bars dock: the header is sticky only from the lg breakpoint. */
+  --gutter: 1rem;
+  --hdr-top-h: auto;
+  --hdr-nav-h: 3rem;
+  --rail-w: 18rem;
+  /* Where sticky bars dock: below the sticky nav bar from lg up. */
   --sticky-top: 0px;
 
   /* ---- z-index ---- */
@@ -96,49 +151,88 @@
   --z-sheet: 50;
 }
 
+@media (min-width: 640px) {
+  :root {
+    --gutter: clamp(1.25rem, 3.2vw, 4rem);
+  }
+}
+
 @media (min-width: 1024px) {
   :root {
-    --gutter: var(--sp-5);
-    --sticky-top: var(--header-h);
+    --hdr-top-h: 4rem;
+    --sticky-top: var(--hdr-nav-h);
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --bg: #0e1413;
-  --surface: #161e1c;
-  --surface-2: #101716;
-  --surface-hover: #1b2523;
-  --line: #27322f;
-  --line-strong: #3a4944;
+  --bg: #0a111e;
+  --surface: #111a2b;
+  --surface-2: #0e1626;
+  --surface-3: #16213a;
+  --surface-hover: #15213a;
+  --line: #233150;
+  --line-soft: #1b2741;
+  --line-strong: #33456a;
 
-  --text: #e9efec;
-  --text-2: #b0bcb7;
-  --text-3: #8d9a94;
+  --text: #e8edf5;
+  --text-2: #b4c0d3;
+  --text-3: #8c9bb3;
 
-  --brand: #3fcbb6;
-  --brand-strong: #7fe4d4;
-  --brand-soft: #12302b;
-  --brand-line: #1f5a50;
-  --on-brand: #04211d;
+  --brand: #6e95ff;
+  --brand-strong: #9db8ff;
+  --brand-soft: #1a2a52;
+  --brand-line: #2c4380;
+  --on-brand: #06122e;
 
-  --ok: #67d68f;
-  --ok-soft: #13301f;
+  --ok: #5fd39a;
+  --ok-solid: #12965c;
+  --ok-solid-hover: #0f804e;
+  --ok-soft: #10301f;
+  --on-ok: #ffffff;
   --warn: #f1b455;
   --warn-soft: #33260f;
   --err: #f58f8a;
   --err-soft: #3b1b1a;
 
-  --scrim: rgb(0 0 0 / 0.62);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px rgb(0 0 0 / 0.38);
+  --ink-900: #060b15;
+  --ink-800: #0b1322;
+  --ink-700: #0c1527;
+  --ink-600: #131d33;
+
+  --hero-bg: #0e1729;
+  --hero-line: #1c2840;
+  --hero-deco: #6e95ff;
+
+  --v-tms: #6e95ff;
+  --v-onepc: #fb8a4b;
+  --v-ivory: #2dc3b3;
+  --v-yahav: #a98bfa;
+  --v-plonter: #e3b34a;
+  --v-other: #94a3b8;
+  --v-tms-soft: #1a2a52;
+  --v-onepc-soft: #3a2014;
+  --v-ivory-soft: #0f2f2c;
+  --v-yahav-soft: #271c45;
+  --v-plonter-soft: #33280f;
+  --v-other-soft: #1b2741;
+
+  --scrim: rgb(0 0 0 / 0.6);
+  --focus-ring: #6e95ff;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px rgb(0 0 0 / 0.35);
+  --shadow-lift: 0 12px 28px rgb(0 0 0 / 0.45);
+  --shadow-pop: 0 24px 56px rgb(0 0 0 / 0.55);
 
   --chart-1: #2dd4bf;
   --chart-2: #fb923c;
-  --chart-3: #60a5fa;
+  --chart-3: #6e95ff;
   --chart-4: #e879f9;
   --chart-5: #facc15;
   --chart-6: #94a3b8;
   --chart-7: #fb7185;
   --chart-8: #a3e635;
+  --chart-grid: #1f2b45;
+  --chart-cursor: #4b5d80;
 }

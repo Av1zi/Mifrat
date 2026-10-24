@@ -313,6 +313,9 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "ram / ram size": GPU_VRAM,
         "ram / ram capacity": GPU_VRAM,
         "ram / ram type": GPU_VRAM,
+        # 1PC new storefront (Oct 2026): bare "Memory: 8GB GDDR7" row.
+        "memory": GPU_VRAM,
+        "video memory": GPU_VRAM,
         "storage / storage type": STORAGE_TYPE_CELL,
         "מהירות ליבה מקסימלית": "boost_clock_mhz",
         "יציאות תצוגה בכרטיס המסך": GPU_OUTPUTS,
@@ -911,7 +914,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
 _AIR_ONLY_DROP = ("גודל רדיאטור", "קירור נוזלי", "מספר מאווררים")
 _AIO_DROP = ("גובה", "ללא מאוורר", "קירור נוזלי", "הספק תרמי מירבי",
              "המלצה מקסימלית לקירור (tdp)", "פיזור חום")
-_OTHER_DROP = ("ללא מאוורר", "גודל רדיאטור", "מספר מאווררים", "ספיקת אוויר")
 
 _COOLER_AIR_FULL = _CATEGORY_RAW["cooler_air"]
 _CATEGORY_RAW["cooler_air"] = {k: v for k, v in _COOLER_AIR_FULL.items()
@@ -922,8 +924,7 @@ _CATEGORY_RAW["aio"] = {
     "רדיאטורים": AIO_RADIATOR_COUNT,
     "סוג קירור": COOLING_MEDIUM,
 }
-_CATEGORY_RAW["cooling_other"] = {k: v for k, v in _COOLER_AIR_FULL.items()
-                                  if k not in _OTHER_DROP}
+# (cooling_other left the schema 2026-10-24: its alias table went with it.)
 
 # English hints vendors append in parentheses to a Hebrew label ("ליבות
 # (Cores)"), carried over from the pre-overhaul table so Ivory keeps working.

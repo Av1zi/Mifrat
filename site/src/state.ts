@@ -27,7 +27,8 @@ export function applyStoredTheme(): Theme {
 export type ListView = "cards" | "table";
 
 export function getListView(): ListView {
-  return localStorage.getItem(VIEW_KEY) === "table" ? "table" : "cards";
+  // Desktop-first: the scan table is the default; phones fall back to cards anyway.
+  return localStorage.getItem(VIEW_KEY) === "cards" ? "cards" : "table";
 }
 
 export function setListView(view: ListView): void {
@@ -158,6 +159,8 @@ type Route =
   | { view: "qa" }
   | { view: "compare"; ids: string[] }
   | { view: "saved" }
+  | { view: "drops" }
+  | { view: "search"; q: string }
   | { view: "build"; shared: BuildMap | null; listId: string | null }
   | { view: "category"; category: string; params: CategoryParams }
   | { view: "product"; category: string; productId: string };
@@ -206,6 +209,14 @@ export function parseRoute(): Route {
     return { view: "saved" };
   }
 
+  if (path === "/drops" || path === "/drops/") {
+    return { view: "drops" };
+  }
+
+  if (path === "/search" || path === "/search/") {
+    return { view: "search", q: new URLSearchParams(queryStr ?? "").get("q") ?? "" };
+  }
+
   if (path === "/compare" || path === "/compare/") {
     // Product ids contain ":" and may contain anything else, so split on the
     // literal comma first and decode each id after.
@@ -249,7 +260,7 @@ export function parseRoute(): Route {
   if (productMatch) {
     return {
       view: "product",
-      category: decodeURIComponent(productMatch[1]),
+      category: LEGACY_COOLER_TYPE[decodeURIComponent(productMatch[1])] ? "cpu_cooler" : decodeURIComponent(productMatch[1]),
       productId: decodeURIComponent(productMatch[2]),
     };
   }
@@ -277,8 +288,13 @@ export function parseRoute(): Route {
     return { view: "notfound" };
   }
 
-  const category = decodeURIComponent(match[1]);
+  const rawCategory = decodeURIComponent(match[1]);
+  // Air coolers and AIOs used to be two pages; old links land on the merged
+  // CPU Cooling page with the matching type pre-selected.
+  const legacyType = LEGACY_COOLER_TYPE[rawCategory];
+  const category = legacyType ? "cpu_cooler" : rawCategory;
   const params = defaultCategoryParams();
+  if (legacyType) params.filters.cooler_type = [legacyType];
   const search = new URLSearchParams(queryStr ?? "");
 
   params.q = search.get("q") ?? "";
@@ -315,6 +331,8 @@ export function parseRoute(): Route {
 export function categoriesHash(): string {
   return "#/categories";
 }
+
+const LEGACY_COOLER_TYPE: Record<string, string> = { aio: "Water", cooler_air: "Air" };
 
 export function categoryHash(
   category: string,
@@ -378,6 +396,15 @@ export function compareHash(ids: string[]): string {
 
 export function savedHash(): string {
   return "#/saved";
+}
+
+export function dropsHash(): string {
+  return "#/drops";
+}
+
+/** Full search results: #/search?q=<query>. */
+export function searchHash(query: string): string {
+  return `#/search?q=${encodeURIComponent(query)}`;
 }
 
 export function homeHash(): string {

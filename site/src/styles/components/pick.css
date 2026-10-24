@@ -2,7 +2,12 @@
    the compact part card. Tokens only. */
 
 /* ---- toggles ---- */
-.save-btn[aria-pressed="true"],
+.save-btn[aria-pressed="true"] {
+  background: var(--err-soft);
+  border-color: transparent;
+  color: var(--err);
+}
+
 .compare-btn[aria-pressed="true"] {
   background: var(--brand-soft);
   border-color: var(--brand-line);
@@ -38,34 +43,6 @@
   gap: var(--sp-1);
 }
 
-/* ---- header: saved link with its count ---- */
-.saved-link {
-  position: relative;
-}
-
-.saved-link.is-active {
-  background: var(--brand-soft);
-  border-color: var(--brand-line);
-  color: var(--brand-strong);
-}
-
-.saved-count {
-  position: absolute;
-  inset-block-start: -0.3rem;
-  inset-inline-end: -0.3rem;
-  display: inline-grid;
-  place-items: center;
-  min-width: 1.125rem;
-  height: 1.125rem;
-  padding: 0 var(--sp-1);
-  border-radius: var(--radius-pill);
-  background: var(--brand);
-  color: var(--on-brand);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  line-height: 1;
-}
-
 /* ---- sticky compare tray ---- */
 .compare-tray {
   position: fixed;
@@ -74,7 +51,14 @@
   z-index: var(--z-sticky);
   background: var(--surface);
   border-top: 1px solid var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: 0 -10px 30px rgb(14 22 38 / 0.12);
+  animation: tray-in 0.25s var(--ease-out);
+}
+
+@keyframes tray-in {
+  from {
+    transform: translateY(100%);
+  }
 }
 
 body.has-tray #app {
@@ -163,86 +147,5 @@ body.has-tray #app {
   .compare-tray__count,
   .compare-tray__name {
     display: block;
-  }
-}
-
-/* ---- part card (saved list, home price-drop strip) ---- */
-.part-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr));
-  gap: var(--sp-3);
-}
-
-.part-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-2);
-  padding: var(--sp-3);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  transition: border-color 0.12s, box-shadow 0.12s;
-}
-
-.part-card:hover {
-  border-color: var(--brand-line);
-  box-shadow: var(--shadow);
-}
-
-.part-card__link {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--sp-2);
-  color: var(--text);
-}
-
-.part-card__link:hover {
-  text-decoration: none;
-}
-
-.part-card__name {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-  overflow-wrap: anywhere;
-}
-
-.part-card__link:hover .part-card__name {
-  color: var(--brand-strong);
-}
-
-.part-card__buy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--sp-1);
-  margin-block-start: auto;
-}
-
-.part-card .price--lg {
-  font-size: var(--fs-xl);
-}
-
-.part-card__tools {
-  position: absolute;
-  inset-block-start: var(--sp-2);
-  inset-inline-end: var(--sp-2);
-}
-
-/* Home strip: 2 / 3 / 6 across so six cards never leave a stray second row. */
-.part-grid--strip {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-@media (min-width: 640px) {
-  .part-grid--strip {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .part-grid--strip {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
