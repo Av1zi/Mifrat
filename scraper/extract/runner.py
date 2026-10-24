@@ -22,7 +22,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from ..specs import schema
-from .client import PROMPT_VERSION, Extractor, NoKey, RateLimited, model_name, prompt
+from .client import PROMPT_VERSION, Extractor, NoKey, RateLimited, prompt, provider_models
 from .verify import extractable, product_text, text_hash, verified
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -55,43 +55,50 @@ def _by_product(catalog: dict) -> dict[str, list[dict]]:
     return out
 
 
-def trusted_fields() -> set[tuple[str, str]]:
-    """(category, field) pairs the audit measured as safe."""
+def trust_models() -> dict[str, dict]:
+    """{model: {"category.field": {overlap, agree, examples}}} from trust.json.
+    The first file format held one model's fields under "fields"."""
     try:
         data = json.loads(TRUST.read_text(encoding="utf-8"))
     except (OSError, ValueError):
-        return set()
+        return {}
     if data.get("prompt_version") != PROMPT_VERSION:
-        return set()
+        return {}
+    if "models" in data:
+        return {model: (slot.get("fields") or {}) for model, slot in data["models"].items()}
+    return {data["model"]: data.get("fields") or {}} if data.get("model") else {}
+
+
+def _verdicts(good: bool) -> set[tuple[str, str, str]]:
     out = set()
-    for key, slot in (data.get("fields") or {}).items():
-        overlap, agree = slot.get("overlap", 0), slot.get("agree", 0)
-        if overlap >= MIN_OVERLAP and 1 - agree / overlap <= MAX_DISAGREE:
-            category, _, field = key.partition(".")
-            out.add((category, field))
+    for model, fields in trust_models().items():
+        for key, slot in fields.items():
+            overlap, agree = slot.get("overlap", 0), slot.get("agree", 0)
+            if overlap < MIN_OVERLAP:
+                continue
+            if (1 - agree / overlap <= MAX_DISAGREE) == good:
+                category, _, field = key.partition(".")
+                out.add((model, category, field))
     return out
 
 
-def _distrusted() -> set[tuple[str, str]]:
-    """Fields the audit measured as over the limit: not worth asking again."""
-    try:
-        data = json.loads(TRUST.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return set()
-    out = set()
-    for key, slot in (data.get("fields") or {}).items():
-        overlap, agree = slot.get("overlap", 0), slot.get("agree", 0)
-        if overlap >= MIN_OVERLAP and 1 - agree / overlap > MAX_DISAGREE:
-            category, _, field = key.partition(".")
-            out.add((category, field))
-    return out
+def trusted_fields() -> set[tuple[str, str, str]]:
+    """(model, category, field) the audit measured as safe, per model."""
+    return _verdicts(True)
+
+
+def _distrusted() -> set[tuple[str, str, str]]:
+    """(model, category, field) measured over the limit: not worth asking again."""
+    return _verdicts(False)
 
 
 def _requests(catalog: dict, audit: int | None):
     """(product, fields, text) per request, in catalog order."""
     fill_report, _ = _scripts()
     listings = _by_product(catalog)
-    skip = _distrusted()
+    bad = _distrusted()
+    models = [model or "?" for _, model in provider_models()]
+    skip = {(c, f) for (_, c, f) in bad if all((m, c, f) in bad for m in models)}
     products = [p for p in catalog["products"] if p.get("category") not in NOT_SCORED]
     if audit:
         # Spread the sample over the catalog: every k-th product with sourced cells.
@@ -120,10 +127,11 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
         audit: int | None = None, verbose: bool = True) -> dict:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     extractor = Extractor(offline=offline)
-    summary = {"model": extractor.model, "mode": "audit" if audit else "fill",
+    summary = {"model": ",".join(m or "?" for _, m in extractor.providers), "mode": "audit" if audit else "fill",
                "products": 0, "fields_asked": 0, "claimed": 0, "verified": 0}
     entries = _load_entries()
-    tally: dict = defaultdict(lambda: {"overlap": 0, "agree": 0, "examples": []})
+    tally: dict = defaultdict(lambda: defaultdict(
+        lambda: {"overlap": 0, "agree": 0, "examples": []}))      # model -> category.field -> slot
     _, backtest = _scripts()
     est_in = 0
     for product, fields, text in _requests(catalog, audit):
@@ -161,7 +169,7 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
             specs[field], quotes[field] = value, claim.get("quote")
         if audit:
             for field, value in specs.items():
-                slot = tally[f"{category}.{field}"]
+                slot = tally[extractor.last_model][f"{category}.{field}"]
                 slot["overlap"] += 1
                 actual = product["specs"].get(field)
                 if backtest.agrees(category, field, value, actual):
@@ -171,7 +179,7 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
                                              quotes[field]])
         elif specs:
             entries[str(product["product_id"])] = {
-                "category": category, "model": extractor.model,
+                "category": category, "model": extractor.last_model,
                 "text_hash": text_hash(text), "specs": specs, "quotes": quotes}
     summary.update(requests=extractor.requests, cached=extractor.cached,
                    refused=extractor.refused, input_tokens=extractor.input_tokens,
@@ -214,30 +222,29 @@ def _write_entries(entries: dict) -> None:
 
 def _write_trust(tally: dict) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    old: dict = {}
-    try:
-        data = json.loads(TRUST.read_text(encoding="utf-8"))
-        if data.get("prompt_version") == PROMPT_VERSION and data.get("model") == model_name():
-            old = data.get("fields") or {}
-    except (OSError, ValueError):
-        pass
-    for key, slot in tally.items():
-        prev = old.get(key) or {"overlap": 0, "agree": 0, "examples": []}
-        old[key] = {"overlap": prev["overlap"] + slot["overlap"],
-                    "agree": prev["agree"] + slot["agree"],
-                    "examples": (prev.get("examples") or []) + slot["examples"]}
+    old = trust_models()
+    for model, fields in tally.items():
+        merged = old.setdefault(model, {})
+        for key, slot in fields.items():
+            prev = merged.get(key) or {"overlap": 0, "agree": 0, "examples": []}
+            merged[key] = {"overlap": prev["overlap"] + slot["overlap"],
+                           "agree": prev["agree"] + slot["agree"],
+                           "examples": (prev.get("examples") or []) + slot["examples"]}
     TRUST.write_text(json.dumps({
-        "model": model_name(), "prompt_version": PROMPT_VERSION,
+        "prompt_version": PROMPT_VERSION,
         "generated": datetime.now(timezone.utc).date().isoformat(),
-        "fields": dict(sorted(old.items()))}, ensure_ascii=False, indent=1) + "\n",
-        encoding="utf-8")
+        "models": {model: {"fields": dict(sorted(fields.items()))}
+                   for model, fields in sorted(old.items())}},
+        ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def _print_trust(tally: dict) -> None:
-    print(f"{'category.field':<36}{'overlap':>8}{'agree':>7}{'disagree%':>11}")
-    for key, slot in sorted(tally.items()):
-        rate = 1 - slot["agree"] / slot["overlap"]
-        print(f"{key:<36}{slot['overlap']:>8}{slot['agree']:>7}{rate * 100:>10.1f}%")
-        if rate > MAX_DISAGREE:
-            for name, ours, theirs, quote in slot["examples"]:
-                print(f"      model={ours!r} sourced={theirs!r} quote={quote!r}  {str(name)[:50]}")
+    for model, fields in sorted(tally.items()):
+        print(f"== {model}")
+        print(f"{'category.field':<36}{'overlap':>8}{'agree':>7}{'disagree%':>11}")
+        for key, slot in sorted(fields.items()):
+            rate = 1 - slot["agree"] / slot["overlap"]
+            print(f"{key:<36}{slot['overlap']:>8}{slot['agree']:>7}{rate * 100:>10.1f}%")
+            if rate > MAX_DISAGREE:
+                for name, ours, theirs, quote in slot["examples"]:
+                    print(f"      model={ours!r} sourced={theirs!r} quote={quote!r}  {str(name)[:50]}")
