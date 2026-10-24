@@ -135,6 +135,11 @@ systemctl list-timers pc-parts-il-extract.timer
 journalctl -u pc-parts-il-extract.service -n 50     # after a run
 ```
 
+More providers go into the same `.env` (see `.env.example`):
+`MIFRAT_EXTRACT_BACKEND=gemini,groq,intern`, `GROQ_KEY`, `INTERN_KEY`,
+`INTERN_BASE_URL`, and `MIFRAT_EXTRACT_MODEL_<NAME>`. Run the audit once so
+every model that answers gets its own accuracy table.
+
 The free tier rate-limits (429 / 503): a run that is stopped keeps every answer
 it already got (cached under `data/extract/.cache`, local to the Nano) and the
 next day continues. The committed files are `data/extract/products.json` and

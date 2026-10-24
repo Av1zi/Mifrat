@@ -51,6 +51,20 @@ read, so it measures how well the model reads tables more than how well it
 reads prose. That is why the quote and re-parse checks, not the audit, are the
 main guard. `scripts/check_extract.py` pins them offline in CI.
 
+## Providers
+
+`MIFRAT_EXTRACT_BACKEND` is a comma list: `anthropic` (default), `gemini`,
+`groq`, `intern`. Groq and Intern speak the OpenAI chat-completions protocol
+(`client.OPENAI_STYLE` is the table; another provider is one more row). The
+first provider answers; one that reports a per-day quota (or has no key) is
+skipped for the rest of the run and the next one takes over. Per-minute 429s
+are waited out up to 90 s.
+
+Trust is per model: `trust.json` holds one audit table per model, each stored
+value records the model that produced it, and `store.py` uses a value only if
+that model passed the audit for that field. A weaker model therefore costs
+coverage, not correctness.
+
 ## Cache and cost
 
 Every answer is cached under `data/extract/.cache/` (gitignored), keyed by

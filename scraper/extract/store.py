@@ -51,7 +51,8 @@ def facts_for(product_id, category: str | None, listings: list[dict]) -> dict[st
     fields = schema.field_map(category)
     facts: dict[str, list[Fact]] = {}
     for field, value in (entry.get("specs") or {}).items():
-        if field not in fields or value is None or (category, field) not in _trusted():
+        if field not in fields or value is None or (
+                entry.get("model"), category, field) not in _trusted():
             continue
         if text is None:
             text = normalize(product_text(listings))

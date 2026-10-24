@@ -4,8 +4,18 @@ extract/client.py - one Claude request per (product text, field list), cached.
 Structured output (a JSON schema whose `field` enum is exactly the fields
 asked), low effort, no tools. Every answer, refusals included, is cached under
 data/extract/.cache/ keyed by model + prompt version + text + fields, so a page
-is paid for once and a re-run is free. Needs ANTHROPIC_API_KEY; the model is
-MIFRAT_EXTRACT_MODEL (default Claude Haiku 5.5: high volume, short answers).
+is paid for once and a re-run is free.
+
+Providers (MIFRAT_EXTRACT_BACKEND, a comma list tried in order; keys in .env):
+  anthropic  ANTHROPIC_API_KEY             default model Claude Haiku 5.5
+  gemini     GOOGLE_KEY                    default model gemini-3.5-flash
+  groq       GROQ_KEY                      OpenAI-compatible; model default below
+  intern     INTERN_KEY + INTERN_BASE_URL  OpenAI-compatible; model required
+The model of a provider is MIFRAT_EXTRACT_MODEL_<NAME> (or MIFRAT_EXTRACT_MODEL
+when only one provider is configured). A provider that reports a per-day quota,
+or stays overloaded, is skipped for the rest of the run and the next one answers.
+Every model is audited on its own (runner.py): a field is used from a model only
+if that model's audit passed it.
 """
 
 from __future__ import annotations
@@ -23,6 +33,12 @@ DEFAULT_MODEL = "claude-haiku-5-5"
 GEMINI_MODEL = "gemini-3.5-flash"
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 GEMINI_DELAY = 7.0            # free tier: ~10 requests a minute
+OPENAI_STYLE = {
+    # name: base URL (or the env var holding it), key env var, default model, seconds between requests
+    "groq": {"base": "https://api.groq.com/openai/v1", "key": "GROQ_KEY",
+             "model": "openai/gpt-oss-20b", "delay": 2.5},
+    "intern": {"base_env": "INTERN_BASE_URL", "key": "INTERN_KEY", "model": None, "delay": 3.0},
+}
 PROMPT_VERSION = 1
 
 SYSTEM = """You read computer-part listings from retailers (English and Hebrew) \
@@ -66,17 +82,86 @@ class NoKey(RuntimeError):
     """No ANTHROPIC_API_KEY: the runner reports and stops, it never guesses."""
 
 
+MAX_QUOTA_WAIT = 90.0         # seconds a per-minute 429 is waited out instead of stopping
+
+
 class RateLimited(RuntimeError):
-    """The free tier said 429: stop, the cache keeps what was answered."""
+    """The free tier said 429 / still overloaded: stop, the cache keeps what was
+    answered. `daily` = a per-day quota: nothing more today."""
+
+    def __init__(self, message, daily: bool = False):
+        super().__init__(message)
+        self.daily = daily
 
 
-def backend() -> str:
-    return (os.environ.get("MIFRAT_EXTRACT_BACKEND") or "anthropic").lower()
+def quota_info(body: str) -> tuple[float | None, bool, str]:
+    """(retry delay in seconds, per-day quota?, readable detail) from a 429 body."""
+    import json
+    import re
+
+    try:
+        error = json.loads(body).get("error") or {}
+    except ValueError:
+        error = {}
+    delay, ids = None, []
+    for detail in error.get("details") or []:
+        raw = detail.get("retryDelay")
+        if raw and re.fullmatch(r"[\d.]+s", str(raw)):
+            delay = float(str(raw)[:-1])
+        for violation in detail.get("violations") or []:
+            ids.append(str(violation.get("quotaId") or violation.get("quotaMetric") or ""))
+    daily = any(re.search(r"PerDay", quota, re.I) for quota in ids)
+    text = f"HTTP 429 quota={','.join(i for i in ids if i) or '?'} retryDelay={delay}"
+    return delay, daily, text
+
+
+def openai_quota_info(reply) -> tuple[float | None, bool, str]:
+    """Same triple for an OpenAI-style 429: Retry-After header, or the 'try again
+    in 2m30s' sentence; 'per day' / TPD / RPD in the message = a daily quota."""
+    import re
+
+    text = reply.text or ""
+    daily = bool(re.search(r"per day|\b(?:TPD|RPD)\b|daily", text, re.I))
+    delay = None
+    header = (getattr(reply, "headers", None) or {}).get("retry-after")
+    if header and re.fullmatch(r"[\d.]+", str(header).strip()):
+        delay = float(header)
+    else:
+        match = re.search(r"try again in (?:(\d+)m)?(?:([\d.]+)s)?", text)
+        if match and (match.group(1) or match.group(2)):
+            delay = float(match.group(1) or 0) * 60 + float(match.group(2) or 0)
+    return delay, daily, f"HTTP 429 daily={daily} retryAfter={delay}"
+
+
+def backends() -> list[str]:
+    names = [n.strip().lower() for n in (os.environ.get("MIFRAT_EXTRACT_BACKEND")
+                                         or "anthropic").split(",") if n.strip()]
+    return [n for n in dict.fromkeys(names)] or ["anthropic"]
+
+
+def model_for(name: str, only: bool) -> str | None:
+    """The model a provider uses: MIFRAT_EXTRACT_MODEL_<NAME>, then (single
+    provider only) MIFRAT_EXTRACT_MODEL, then the provider's default."""
+    explicit = os.environ.get(f"MIFRAT_EXTRACT_MODEL_{name.upper()}")
+    if explicit:
+        return explicit
+    if only and os.environ.get("MIFRAT_EXTRACT_MODEL"):
+        return os.environ["MIFRAT_EXTRACT_MODEL"]
+    if name == "anthropic":
+        return DEFAULT_MODEL
+    if name == "gemini":
+        return GEMINI_MODEL
+    return (OPENAI_STYLE.get(name) or {}).get("model")
+
+
+def provider_models() -> list[tuple[str, str | None]]:
+    names = backends()
+    return [(name, model_for(name, len(names) == 1)) for name in names]
 
 
 def model_name() -> str:
-    return os.environ.get("MIFRAT_EXTRACT_MODEL") or (
-        GEMINI_MODEL if backend() == "gemini" else DEFAULT_MODEL)
+    """The first provider's model (the one a single-backend run reports)."""
+    return provider_models()[0][1] or "?"
 
 
 def _field_lines(category: str, fields: list[str]) -> str:
@@ -116,33 +201,68 @@ def prompt(category: str, fields: list[str], text: str) -> str:
 
 class Extractor:
     def __init__(self, *, offline: bool = False):
-        self.model = model_name()
+        self.providers = provider_models()
+        self.model = self.providers[0][1] or "?"
+        self.last_model = self.model
         self.offline = offline
         self.requests = 0
         self.cached = 0
         self.refused = 0
         self.input_tokens = 0
         self.output_tokens = 0
+        self.exhausted: dict[str, str] = {}      # provider -> why it was skipped
         self._client = None
+        self._last: dict[str, float] = {}
+        self._json_object: set[str] = set()      # providers that refused json_schema
 
-    def _cache_path(self, category: str, fields: list[str], text: str) -> Path:
-        key = json.dumps([self.model, PROMPT_VERSION, category, sorted(fields), text],
+    def _cache_path(self, model: str, category: str, fields: list[str], text: str) -> Path:
+        key = json.dumps([model, PROMPT_VERSION, category, sorted(fields), text],
                          ensure_ascii=False)
         return CACHE_DIR / (hashlib.sha1(key.encode("utf-8")).hexdigest() + ".json")
 
-    def _gemini(self, category: str, fields: list[str], text: str):
-        """One generateContent call, returned in the shape facts() reads."""
+    def _pace(self, name: str, delay: float) -> None:
         import time
-        from types import SimpleNamespace
+
+        wait = delay - (time.time() - self._last.get(name, 0.0))
+        if wait > 0:
+            time.sleep(wait)
+
+    def _post(self, name: str, url: str, headers: dict, body: dict, delay: float,
+              retry_after=None):
+        """POST with the shared 5xx / 429 policy; RateLimited when the provider
+        should be skipped. `retry_after(reply)` -> (seconds|None, daily, detail)."""
+        import time
 
         import requests
+
+        self._pace(name, delay)
+        reply = None
+        for attempt in range(5):
+            reply = requests.post(url, json=body, timeout=120, headers=headers)
+            if reply.status_code in (500, 502, 503):     # "high demand": back off, retry
+                if attempt < 3:
+                    time.sleep(10 * 2 ** attempt)
+                    continue
+            elif reply.status_code == 429:
+                wait, daily, detail = retry_after(reply)
+                if daily or wait is None or wait > MAX_QUOTA_WAIT or attempt >= 3:
+                    self._last[name] = time.time()
+                    raise RateLimited(f"{name}: {detail}", daily=daily)
+                time.sleep(wait + 1)                     # a per-minute quota: wait it out
+                continue
+            break
+        self._last[name] = time.time()
+        if reply.status_code in (500, 502, 503):
+            raise RateLimited(f"{name}: HTTP {reply.status_code}, still overloaded after retries")
+        return reply
+
+    def _gemini(self, model: str, category: str, fields: list[str], text: str):
+        """One generateContent call, returned in the shape facts() reads."""
+        from types import SimpleNamespace
 
         key = os.environ.get("GOOGLE_KEY")
         if not key:
             raise NoKey("GOOGLE_KEY is not set")
-        wait = GEMINI_DELAY - (time.time() - getattr(self, "_last", 0.0))
-        if wait > 0:
-            time.sleep(wait)
         body = {
             "systemInstruction": {"parts": [{"text": SYSTEM}]},
             "contents": [{"role": "user", "parts": [{"text": prompt(category, fields, text)}]}],
@@ -150,15 +270,9 @@ class Extractor:
                                  "responseJsonSchema": output_schema(fields),
                                  "maxOutputTokens": 4000, "temperature": 0},
         }
-        for attempt in range(4):              # 500/503 = "high demand": back off, retry
-            reply = requests.post(GEMINI_URL.format(model=self.model), json=body, timeout=120,
-                                  headers={"x-goog-api-key": key})
-            if reply.status_code not in (500, 503):
-                break
-            time.sleep(10 * 2 ** attempt)
-        self._last = time.time()
-        if reply.status_code in (429, 500, 503):    # quota, or still overloaded after retries
-            raise RateLimited(f"HTTP {reply.status_code}: {reply.text[:160]}")
+        reply = self._post("gemini", GEMINI_URL.format(model=model),
+                           {"x-goog-api-key": key}, body, GEMINI_DELAY,
+                           lambda r: quota_info(r.text))
         reply.raise_for_status()
         data = reply.json()
         candidate = (data.get("candidates") or [{}])[0]
@@ -173,6 +287,53 @@ class Extractor:
             usage=SimpleNamespace(input_tokens=usage.get("promptTokenCount", 0),
                                   output_tokens=usage.get("candidatesTokenCount", 0)))
 
+    def _openai(self, name: str, model: str, category: str, fields: list[str], text: str):
+        """One OpenAI-style /chat/completions call (Groq, Intern, ...)."""
+        from types import SimpleNamespace
+
+        config = OPENAI_STYLE[name]
+        base = config.get("base") or os.environ.get(config.get("base_env", ""), "")
+        key = os.environ.get(config["key"])
+        if not key or not base:
+            raise NoKey(f"{config['key']} / base URL is not set for {name}")
+        if not model:
+            raise NoKey(f"MIFRAT_EXTRACT_MODEL_{name.upper()} is not set")
+        schema_ = output_schema(fields)
+        user = prompt(category, fields, text)
+        if name in self._json_object:
+            user += "\n\nAnswer with one JSON object matching this JSON schema:\n" + json.dumps(schema_)
+            response_format = {"type": "json_object"}
+        else:
+            response_format = {"type": "json_schema", "json_schema": {
+                "name": "facts", "schema": schema_, "strict": False}}
+        body = {"model": model, "temperature": 0, "max_tokens": 4000,
+                "messages": [{"role": "system", "content": SYSTEM},
+                             {"role": "user", "content": user}],
+                "response_format": response_format}
+        reply = self._post(name, base.rstrip("/") + "/chat/completions",
+                           {"Authorization": f"Bearer {key}"}, body, config["delay"],
+                           openai_quota_info)
+        if reply.status_code == 400 and name not in self._json_object and \
+                "response_format" in reply.text:
+            self._json_object.add(name)                  # no json_schema here: plain JSON mode
+            return self._openai(name, model, category, fields, text)
+        if reply.status_code in (400, 404) and "model" in reply.text.lower():
+            raise NoKey(f"{name}: the model {model!r} was not accepted "
+                        f"(set MIFRAT_EXTRACT_MODEL_{name.upper()}): {reply.text[:160]}")
+        reply.raise_for_status()
+        data = reply.json()
+        choice = (data.get("choices") or [{}])[0]
+        reason = choice.get("finish_reason", "")
+        usage = data.get("usage") or {}
+        stop = ("end_turn" if reason == "stop" else
+                "max_tokens" if reason == "length" else "refusal")
+        content = (choice.get("message") or {}).get("content") or ""
+        return SimpleNamespace(
+            stop_reason=stop,
+            content=[SimpleNamespace(type="text", text=content)],
+            usage=SimpleNamespace(input_tokens=usage.get("prompt_tokens", 0),
+                                  output_tokens=usage.get("completion_tokens", 0)))
+
     def _api(self):
         if self._client is None:
             if not os.environ.get("ANTHROPIC_API_KEY"):
@@ -182,16 +343,38 @@ class Extractor:
             self._client = anthropic.Anthropic(max_retries=4)
         return self._client
 
+    def _anthropic(self, model: str, category: str, fields: list[str], text: str):
+        request = dict(
+            model=model,
+            max_tokens=4000,
+            system=SYSTEM,
+            messages=[{"role": "user", "content": prompt(category, fields, text)}],
+            output_config={"effort": "low",
+                           "format": {"type": "json_schema", "schema": output_schema(fields)}},
+        )
+        client = self._api()
+        if model.startswith("claude-opus-5"):
+            # Opus declines on its classifiers re-run on the recommended model.
+            return client.beta.messages.create(
+                betas=["server-side-fallback-2026-07-01"], fallbacks="default", **request)
+        return client.messages.create(**request)
+
     def facts(self, category: str, fields: list[str], text: str) -> list[dict] | None:
         """[{field, value, quote}] as the model claimed them (unverified), or
-        None when nothing usable came back (offline miss, refusal, cut off)."""
-        path = self._cache_path(category, fields, text)
-        if path.exists():
-            self.cached += 1
-            return json.loads(path.read_text(encoding="utf-8")).get("facts")
+        None when nothing usable came back (offline miss, refusal, cut off).
+        `self.last_model` names the model that answered."""
+        for _, model in self.providers:
+            path = self._cache_path(model or "?", category, fields, text)
+            if path.exists():
+                self.cached += 1
+                self.last_model = model or "?"
+                return json.loads(path.read_text(encoding="utf-8")).get("facts")
         if self.offline:
             return None
         response = self._create(category, fields, text)
+        model = getattr(response, "model_used", None) or self.model
+        self.last_model = model
+        path = self._cache_path(model, category, fields, text)
         self.requests += 1
         usage = getattr(response, "usage", None)
         self.input_tokens += getattr(usage, "input_tokens", 0) or 0
@@ -208,24 +391,40 @@ class Extractor:
         if response.stop_reason in ("refusal", "end_turn"):
             # Cache refusals too: the same text would be refused again.
             CACHE_DIR.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps({"model": self.model, "stop": response.stop_reason,
+            path.write_text(json.dumps({"model": model, "stop": response.stop_reason,
                                         "facts": facts}, ensure_ascii=False), encoding="utf-8")
         return facts
 
     def _create(self, category: str, fields: list[str], text: str):
-        if backend() == "gemini":
-            return self._gemini(category, fields, text)
-        request = dict(
-            model=self.model,
-            max_tokens=4000,
-            system=SYSTEM,
-            messages=[{"role": "user", "content": prompt(category, fields, text)}],
-            output_config={"effort": "low",
-                           "format": {"type": "json_schema", "schema": output_schema(fields)}},
-        )
-        client = self._api()
-        if self.model.startswith("claude-opus-5"):
-            # Opus declines on its classifiers re-run on the recommended model.
-            return client.beta.messages.create(
-                betas=["server-side-fallback-2026-07-01"], fallbacks="default", **request)
-        return client.messages.create(**request)
+        """Ask the providers in order; skip one that is rate limited for the
+        rest of the run (or has no key), raise when none is left."""
+        problems: list[str] = []
+        daily = True
+        for name, model in self.providers:
+            if name in self.exhausted:
+                problems.append(self.exhausted[name])
+                continue
+            try:
+                if name == "anthropic":
+                    response = self._anthropic(model, category, fields, text)
+                elif name == "gemini":
+                    response = self._gemini(model, category, fields, text)
+                elif name in OPENAI_STYLE:
+                    response = self._openai(name, model, category, fields, text)
+                else:
+                    raise NoKey(f"unknown provider {name!r}")
+            except RateLimited as error:
+                self.exhausted[name] = str(error)
+                problems.append(str(error))
+                daily = daily and error.daily
+                continue
+            except NoKey as error:
+                self.exhausted[name] = str(error)
+                problems.append(str(error))
+                continue
+            response.model_used = model
+            return response
+        if problems and all("is not set" in p or "not accepted" in p or "unknown provider" in p
+                            for p in problems):
+            raise NoKey("; ".join(problems))
+        raise RateLimited("; ".join(problems), daily=daily)

@@ -108,6 +108,96 @@ with tempfile.TemporaryDirectory() as tmp:
     check("schema field enum is exactly the fields asked",
           item["properties"]["field"]["enum"], ["pump_rpm", "fan_count"])
 
+# Gemini 429 bodies: a per-minute quota with a retry delay is waited out, a
+# per-day quota stops the run at once.
+minute_body = json.dumps({"error": {"code": 429, "details": [
+    {"@type": "type.googleapis.com/google.rpc.QuotaFailure", "violations": [
+        {"quotaId": "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"}]},
+    {"@type": "type.googleapis.com/google.rpc.RetryInfo", "retryDelay": "34s"}]}})
+day_body = json.dumps({"error": {"code": 429, "details": [
+    {"@type": "type.googleapis.com/google.rpc.QuotaFailure", "violations": [
+        {"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}]}})
+check("429 per minute", client_module.quota_info(minute_body)[:2], (34.0, False))
+check("429 per day", client_module.quota_info(day_body)[1], True)
+check("429 per day names its quota", "PerDay" in client_module.quota_info(day_body)[2], True)
+check("429 with a body we cannot read", client_module.quota_info("not json")[:2], (None, False))
+
+# OpenAI-style 429s (Groq / Intern): Retry-After header, "try again in" text, daily words.
+class FakeReply:
+    def __init__(self, text, headers=None):
+        self.text, self.headers = text, headers or {}
+
+
+check("openai 429 retry-after header",
+      client_module.openai_quota_info(FakeReply("Rate limit reached", {"retry-after": "12"}))[:2], (12.0, False))
+check("openai 429 'try again in'",
+      client_module.openai_quota_info(FakeReply("Please try again in 1m30.5s. Limit (TPM)"))[:2], (90.5, False))
+check("openai 429 per day",
+      client_module.openai_quota_info(FakeReply("Rate limit reached ... requests per day (RPD): Limit 1000"))[1], True)
+
+# Provider fallback: the first provider is daily-limited, the second answers.
+with tempfile.TemporaryDirectory() as tmp:
+    client_module.CACHE_DIR = Path(tmp)
+    import os
+
+    old_backend = os.environ.get("MIFRAT_EXTRACT_BACKEND")
+    os.environ["MIFRAT_EXTRACT_BACKEND"] = "gemini,groq"
+    os.environ["MIFRAT_EXTRACT_MODEL_GEMINI"] = "gem-x"
+    os.environ["MIFRAT_EXTRACT_MODEL_GROQ"] = "groq-y"
+    reply = SimpleNamespace(stop_reason="end_turn", usage=SimpleNamespace(input_tokens=1, output_tokens=1),
+                            content=[SimpleNamespace(type="text", text=json.dumps({"facts": [
+                                {"field": "pump_rpm", "value": "1", "quote": "x1"}]}))])
+    calls = []
+
+    def limited(model, category, fields, text):
+        calls.append("gemini")
+        raise client_module.RateLimited("gemini: HTTP 429 daily=True", daily=True)
+
+    def answers(name, model, category, fields, text):
+        calls.append(name)
+        return SimpleNamespace(**reply.__dict__)
+
+    extractor = client_module.Extractor()
+    extractor._gemini, extractor._openai = limited, answers
+    got = extractor.facts("aio", ["pump_rpm"], "listing text for fallback " * 5)
+    check("fallback: the second provider answered", extractor.last_model, "groq-y")
+    check("fallback: the facts came back", bool(got), True)
+    got = extractor.facts("aio", ["pump_rpm"], "another listing for fallback " * 5)
+    check("fallback: the limited provider is not asked again", calls, ["gemini", "groq", "groq"])
+    check("fallback: cache is per model and found again",
+          client_module.Extractor().facts("aio", ["pump_rpm"], "listing text for fallback " * 5) is not None, True)
+
+    both = client_module.Extractor()
+    both._gemini = limited
+    both._openai = lambda *a: (_ for _ in ()).throw(client_module.RateLimited("groq: daily", daily=True))
+    try:
+        both.facts("aio", ["pump_rpm"], "nothing is left to ask " * 5)
+        check("all providers limited raises", False, True)
+    except client_module.RateLimited as error:
+        check("all providers daily-limited: daily=True", error.daily, True)
+    for name in ("MIFRAT_EXTRACT_BACKEND", "MIFRAT_EXTRACT_MODEL_GEMINI", "MIFRAT_EXTRACT_MODEL_GROQ"):
+        os.environ.pop(name, None)
+    if old_backend:
+        os.environ["MIFRAT_EXTRACT_BACKEND"] = old_backend
+
+# Trust is per model: a field passed for model A is not used for model B, and the
+# first file format (one model, "fields") still reads.
+from scraper.extract import runner  # noqa: E402
+
+with tempfile.TemporaryDirectory() as tmp:
+    runner.TRUST = Path(tmp) / "trust.json"
+    good = {"overlap": 20, "agree": 20, "examples": []}
+    bad = {"overlap": 20, "agree": 15, "examples": []}
+    runner.TRUST.write_text(json.dumps({"prompt_version": runner.PROMPT_VERSION, "models": {
+        "A": {"fields": {"memory.color": good, "case.color": bad}},
+        "B": {"fields": {"memory.color": bad}}}}), encoding="utf-8")
+    check("trust: A passes memory.color", ("A", "memory", "color") in runner.trusted_fields(), True)
+    check("trust: B does not pass memory.color", ("B", "memory", "color") in runner.trusted_fields(), False)
+    check("trust: A fails case.color", ("A", "case", "color") in runner._distrusted(), True)
+    runner.TRUST.write_text(json.dumps({"model": "L", "prompt_version": runner.PROMPT_VERSION,
+                                        "fields": {"memory.color": good}}), encoding="utf-8")
+    check("trust: legacy single-model file", runner.trusted_fields(), {("L", "memory", "color")})
+
 offline = client_module.Extractor(offline=True)
 check("offline miss asks nothing", offline.facts("aio", ["pump_rpm"], "not cached " * 20), None)
 
