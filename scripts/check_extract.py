@@ -108,6 +108,20 @@ with tempfile.TemporaryDirectory() as tmp:
     check("schema field enum is exactly the fields asked",
           item["properties"]["field"]["enum"], ["pump_rpm", "fan_count"])
 
+# Gemini 429 bodies: a per-minute quota with a retry delay is waited out, a
+# per-day quota stops the run at once.
+minute_body = json.dumps({"error": {"code": 429, "details": [
+    {"@type": "type.googleapis.com/google.rpc.QuotaFailure", "violations": [
+        {"quotaId": "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"}]},
+    {"@type": "type.googleapis.com/google.rpc.RetryInfo", "retryDelay": "34s"}]}})
+day_body = json.dumps({"error": {"code": 429, "details": [
+    {"@type": "type.googleapis.com/google.rpc.QuotaFailure", "violations": [
+        {"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}]}})
+check("429 per minute", client_module.quota_info(minute_body)[:2], (34.0, False))
+check("429 per day", client_module.quota_info(day_body)[1], True)
+check("429 per day names its quota", "PerDay" in client_module.quota_info(day_body)[2], True)
+check("429 with a body we cannot read", client_module.quota_info("not json")[:2], (None, False))
+
 offline = client_module.Extractor(offline=True)
 check("offline miss asks nothing", offline.facts("aio", ["pump_rpm"], "not cached " * 20), None)
 

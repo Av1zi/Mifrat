@@ -145,6 +145,7 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
             print(f"[extract] rate limited ({error}); answers so far are cached, "
                   "re-run later to continue.")
             summary["rate_limited"] = True
+            summary["daily_quota"] = error.daily
             break
         specs: dict = {}
         quotes: dict = {}

@@ -20,10 +20,18 @@ echo "[run_extract] code revision: $(git rev-parse --short HEAD)"
 
 [ -f .env ] || { echo "[run_extract] no .env in $REPO_DIR (see nano/NANO_README.md)" >&2; exit 1; }
 
+daily_spent=0
 if [ -n "${AUDIT:-}" ]; then
-    "$PYTHON" -m scraper.extract --audit "$AUDIT" || echo "[run_extract] audit stopped early (exit $?)" >&2
+    code=0; "$PYTHON" -m scraper.extract --audit "$AUDIT" || code=$?
+    [ "$code" -eq 3 ] && daily_spent=1
+    [ "$code" -ne 0 ] && echo "[run_extract] audit stopped early (exit $code)" >&2
 fi
-"$PYTHON" -m scraper.extract || echo "[run_extract] fill stopped early (exit $?)" >&2
+if [ "$daily_spent" -eq 0 ]; then
+    code=0; "$PYTHON" -m scraper.extract || code=$?
+    [ "$code" -ne 0 ] && echo "[run_extract] fill stopped early (exit $code)" >&2
+else
+    echo "[run_extract] per-day quota spent; skipping the fill until tomorrow" >&2
+fi
 
 files=()
 for f in data/extract/products.json data/extract/trust.json; do [ -f "$f" ] && files+=("$f"); done

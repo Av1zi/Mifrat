@@ -66,8 +66,37 @@ class NoKey(RuntimeError):
     """No ANTHROPIC_API_KEY: the runner reports and stops, it never guesses."""
 
 
+MAX_QUOTA_WAIT = 90.0         # seconds a per-minute 429 is waited out instead of stopping
+
+
 class RateLimited(RuntimeError):
-    """The free tier said 429: stop, the cache keeps what was answered."""
+    """The free tier said 429 / still overloaded: stop, the cache keeps what was
+    answered. `daily` = a per-day quota: nothing more today."""
+
+    def __init__(self, message, daily: bool = False):
+        super().__init__(message)
+        self.daily = daily
+
+
+def quota_info(body: str) -> tuple[float | None, bool, str]:
+    """(retry delay in seconds, per-day quota?, readable detail) from a 429 body."""
+    import json
+    import re
+
+    try:
+        error = json.loads(body).get("error") or {}
+    except ValueError:
+        error = {}
+    delay, ids = None, []
+    for detail in error.get("details") or []:
+        raw = detail.get("retryDelay")
+        if raw and re.fullmatch(r"[\d.]+s", str(raw)):
+            delay = float(str(raw)[:-1])
+        for violation in detail.get("violations") or []:
+            ids.append(str(violation.get("quotaId") or violation.get("quotaMetric") or ""))
+    daily = any(re.search(r"PerDay", quota, re.I) for quota in ids)
+    text = f"HTTP 429 quota={','.join(i for i in ids if i) or '?'} retryDelay={delay}"
+    return delay, daily, text
 
 
 def backend() -> str:
@@ -150,15 +179,24 @@ class Extractor:
                                  "responseJsonSchema": output_schema(fields),
                                  "maxOutputTokens": 4000, "temperature": 0},
         }
-        for attempt in range(4):              # 500/503 = "high demand": back off, retry
+        for attempt in range(5):
             reply = requests.post(GEMINI_URL.format(model=self.model), json=body, timeout=120,
                                   headers={"x-goog-api-key": key})
-            if reply.status_code not in (500, 503):
-                break
-            time.sleep(10 * 2 ** attempt)
+            if reply.status_code in (500, 503):          # "high demand": back off, retry
+                if attempt < 3:
+                    time.sleep(10 * 2 ** attempt)
+                    continue
+            elif reply.status_code == 429:
+                delay, daily, detail = quota_info(reply.text)
+                if daily or delay is None or delay > MAX_QUOTA_WAIT or attempt >= 3:
+                    self._last = time.time()
+                    raise RateLimited(detail, daily=daily)
+                time.sleep(delay + 1)                    # a per-minute quota: wait it out
+                continue
+            break
         self._last = time.time()
-        if reply.status_code in (429, 500, 503):    # quota, or still overloaded after retries
-            raise RateLimited(f"HTTP {reply.status_code}: {reply.text[:160]}")
+        if reply.status_code in (500, 503):
+            raise RateLimited(f"HTTP {reply.status_code}: still overloaded after retries")
         reply.raise_for_status()
         data = reply.json()
         candidate = (data.get("candidates") or [{}])[0]

@@ -19,6 +19,8 @@ def main() -> int:
                         help="measure precision on N products' already-sourced fields")
     args = parser.parse_args()
     summary = run(limit=args.limit, dry_run=args.dry_run, offline=args.offline, audit=args.audit)
+    if summary.get("daily_quota"):
+        return 3                   # per-day quota spent: nothing more to ask today
     return 1 if summary.get("stopped") else 0
 
 
