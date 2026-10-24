@@ -181,6 +181,8 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
             entries[str(product["product_id"])] = {
                 "category": category, "model": extractor.last_model,
                 "text_hash": text_hash(text), "specs": specs, "quotes": quotes}
+    if extractor.exhausted:
+        summary["skipped"] = ",".join(sorted(extractor.exhausted))
     summary.update(requests=extractor.requests, cached=extractor.cached,
                    refused=extractor.refused, input_tokens=extractor.input_tokens,
                    output_tokens=extractor.output_tokens)

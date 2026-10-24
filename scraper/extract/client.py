@@ -395,6 +395,12 @@ class Extractor:
                                         "facts": facts}, ensure_ascii=False), encoding="utf-8")
         return facts
 
+    @staticmethod
+    def _say(message: str) -> None:
+        import sys
+
+        print(f"[extract] {message}", file=sys.stderr, flush=True)
+
     def _create(self, category: str, fields: list[str], text: str):
         """Ask the providers in order; skip one that is rate limited for the
         rest of the run (or has no key), raise when none is left."""
@@ -415,11 +421,13 @@ class Extractor:
                     raise NoKey(f"unknown provider {name!r}")
             except RateLimited as error:
                 self.exhausted[name] = str(error)
+                self._say(f"skipping {name} for this run: {error}")
                 problems.append(str(error))
                 daily = daily and error.daily
                 continue
             except NoKey as error:
                 self.exhausted[name] = str(error)
+                self._say(f"skipping {name} for this run: {error}")
                 problems.append(str(error))
                 continue
             response.model_used = model
