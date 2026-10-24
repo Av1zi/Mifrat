@@ -1,386 +1,2049 @@
 {
- "model": "gemini-3.5-flash",
  "prompt_version": 1,
  "generated": "2026-10-24",
- "fields": {
-  "aio.color": {
-   "overlap": 11,
-   "agree": 11,
-   "examples": []
+ "models": {
+  "gemini-3.5-flash": {
+   "fields": {
+    "aio.color": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "aio.lighting": {
+     "overlap": 7,
+     "agree": 7,
+     "examples": []
+    },
+    "aio.sockets": {
+     "overlap": 7,
+     "agree": 7,
+     "examples": []
+    },
+    "case.color": {
+     "overlap": 23,
+     "agree": 23,
+     "examples": []
+    },
+    "case.drive_bays_25": {
+     "overlap": 6,
+     "agree": 6,
+     "examples": []
+    },
+    "case.front_usb": {
+     "overlap": 11,
+     "agree": 0,
+     "examples": [
+      [
+       "Lian Li O11 Dynamic Mini V2 White",
+       [
+        "USB 5Gbps (Type-C)"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "USB 5Gbps (Type-C)"
+      ],
+      [
+       "Lian Li O11 Dynamic Mini V2 White",
+       [
+        "USB 5Gbps (Type-C)"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "USB 5Gbps (Type-C)"
+      ],
+      [
+       "Lian Li O11 Dynamic Mini V2 White",
+       [
+        "USB 5Gbps (Type-C)"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "USB 5Gbps (Type-C)"
+      ],
+      [
+       "Lian Li O11 Dynamic Mini V2 White",
+       [
+        "USB 5Gbps (Type-C)"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "USB 5Gbps (Type-C)"
+      ],
+      [
+       "Lian Li O11 Dynamic Mini V2 White",
+       [
+        "USB 5Gbps (Type-C)"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "USB 5Gbps (Type-C)"
+      ],
+      [
+       "Lian Li O11 Dynamic Mini V2 White",
+       [
+        "USB 5Gbps (Type-C)"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "USB 5Gbps (Type-C)"
+      ],
+      [
+       "Lian Li A4-H2O Silver",
+       [
+        "USB 3.2"
+       ],
+       [
+        "USB 3.0",
+        "Earphone/Mic",
+        "USB Type-C"
+       ],
+       "USB 3.2"
+      ],
+      [
+       "Lian Li A4-H2O Silver",
+       [
+        "USB 3.2"
+       ],
+       [
+        "USB 3.0",
+        "Earphone/Mic",
+        "USB Type-C"
+       ],
+       "USB 3.2"
+      ],
+      [
+       "Lian Li A4-H2O Silver",
+       [
+        "USB 3.2"
+       ],
+       [
+        "USB 3.0",
+        "Earphone/Mic",
+        "USB Type-C"
+       ],
+       "USB 3.2"
+      ],
+      [
+       "Lian Li A4-H2O Silver",
+       [
+        "USB 3.2"
+       ],
+       [
+        "USB 3.0",
+        "Earphone/Mic",
+        "USB Type-C"
+       ],
+       "USB 3.2"
+      ],
+      [
+       "Lian Li A4-H2O Silver",
+       [
+        "USB 3.2"
+       ],
+       [
+        "USB 3.0",
+        "Earphone/Mic",
+        "USB Type-C"
+       ],
+       "USB 3.2"
+      ]
+     ]
+    },
+    "case.lighting": {
+     "overlap": 7,
+     "agree": 7,
+     "examples": []
+    },
+    "case.max_cooler_height_mm": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "case.max_gpu_length_mm": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "case.mb_form_factors": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "case.type": {
+     "overlap": 16,
+     "agree": 16,
+     "examples": []
+    },
+    "cpu.base_clock_ghz": {
+     "overlap": 29,
+     "agree": 25,
+     "examples": [
+      [
+       "Intel Core i7 14700KF Tray (C14700KFT)",
+       2.5,
+       3.4,
+       "Base 2.5GHz"
+      ],
+      [
+       "Intel Core i7 14700KF Tray (C14700KFT)",
+       2.5,
+       3.4,
+       "Base 2.5GHz"
+      ],
+      [
+       "Intel Core i7 14700KF Tray (C14700KFT)",
+       2.5,
+       3.4,
+       "Base 2.5GHz"
+      ],
+      [
+       "Intel Core i7 14700KF Tray (C14700KFT)",
+       2.5,
+       3.4,
+       "Base 2.5GHz"
+      ]
+     ]
+    },
+    "cpu.boost_clock_ghz": {
+     "overlap": 26,
+     "agree": 26,
+     "examples": []
+    },
+    "cpu.chipset_support": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "cpu.core_count": {
+     "overlap": 16,
+     "agree": 16,
+     "examples": []
+    },
+    "cpu.generation": {
+     "overlap": 13,
+     "agree": 7,
+     "examples": [
+      [
+       "Intel Core Ultra 5 225 Tray (C225T)",
+       "Gen 2",
+       "Ultra Series",
+       "Series 2"
+      ],
+      [
+       "Intel Core Ultra 7 270K Plus Tray (C270KPLUST)",
+       "Gen 2",
+       "Ultra Series",
+       "Series 2"
+      ],
+      [
+       "Intel Core Ultra 5 225 Tray (C225T)",
+       "Gen 2",
+       "Ultra Series",
+       "Series 2"
+      ],
+      [
+       "Intel Core Ultra 7 270K Plus Tray (C270KPLUST)",
+       "Gen 2",
+       "Ultra Series",
+       "Series 2"
+      ],
+      [
+       "Intel Core Ultra 5 225 Tray (C225T)",
+       "Gen 2",
+       "Ultra Series",
+       "Series 2"
+      ],
+      [
+       "Intel Core Ultra 7 270K Plus Tray (C270KPLUST)",
+       "Gen 2",
+       "Ultra Series",
+       "Series 2"
+      ]
+     ]
+    },
+    "cpu.integrated_graphics": {
+     "overlap": 19,
+     "agree": 19,
+     "examples": []
+    },
+    "cpu.l2_cache_mb": {
+     "overlap": 16,
+     "agree": 16,
+     "examples": []
+    },
+    "cpu.l3_cache_mb": {
+     "overlap": 21,
+     "agree": 21,
+     "examples": []
+    },
+    "cpu.max_memory_gb": {
+     "overlap": 3,
+     "agree": 3,
+     "examples": []
+    },
+    "cpu.packaging": {
+     "overlap": 29,
+     "agree": 29,
+     "examples": []
+    },
+    "cpu.socket": {
+     "overlap": 29,
+     "agree": 29,
+     "examples": []
+    },
+    "cpu.tdp_w": {
+     "overlap": 29,
+     "agree": 29,
+     "examples": []
+    },
+    "cpu.thread_count": {
+     "overlap": 13,
+     "agree": 13,
+     "examples": []
+    },
+    "gpu.chipset": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "gpu.core_clock_mhz": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.directx": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.interface": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.length_mm": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.memory_bus_bit": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.memory_gb": {
+     "overlap": 6,
+     "agree": 6,
+     "examples": []
+    },
+    "gpu.memory_speed_gbps": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.memory_type": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.opengl": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.recommended_psu_w": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "memory.cas_latency": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "memory.color": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "memory.lighting": {
+     "overlap": 6,
+     "agree": 6,
+     "examples": []
+    },
+    "memory.memory_type": {
+     "overlap": 24,
+     "agree": 24,
+     "examples": []
+    },
+    "memory.module_count": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "memory.module_size_gb": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "memory.speed": {
+     "overlap": 6,
+     "agree": 0,
+     "examples": [
+      [
+       "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+       "3200MT/s",
+       "DDR4-3200",
+       "3200MT/s"
+      ],
+      [
+       "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+       "3200MT/s",
+       "DDR4-3200",
+       "3200MT/s"
+      ],
+      [
+       "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+       "3200MT/s",
+       "DDR4-3200",
+       "3200MT/s"
+      ],
+      [
+       "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+       "3200MT/s",
+       "DDR4-3200",
+       "3200MT/s"
+      ],
+      [
+       "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+       "3200MT/s",
+       "DDR4-3200",
+       "3200MT/s"
+      ],
+      [
+       "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
+       "3200MT/s",
+       "DDR4-3200",
+       "3200MT/s"
+      ]
+     ]
+    },
+    "memory.speed_mhz": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "memory.total_gb": {
+     "overlap": 24,
+     "agree": 24,
+     "examples": []
+    },
+    "memory.voltage_v": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    }
+   }
   },
-  "aio.lighting": {
-   "overlap": 7,
-   "agree": 7,
-   "examples": []
+  "intern-latest": {
+   "fields": {
+    "accessories.accessory_type": {
+     "overlap": 2,
+     "agree": 0,
+     "examples": [
+      [
+       "Corsair iCUE LINK RX360 II Unified Frame RGB PWM",
+       "מאוורר",
+       "cooler_accessory",
+       "ערכת מאווררים"
+      ],
+      [
+       "Noctua NT H2 Tybrid 3.5g",
+       "חומר תרמי",
+       "thermal_paste",
+       "חומר תרמי"
+      ]
+     ]
+    },
+    "accessories.color": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "aio.airflow_cfm": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "aio.color": {
+     "overlap": 16,
+     "agree": 16,
+     "examples": []
+    },
+    "aio.connectors": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "aio.fan_count": {
+     "overlap": 12,
+     "agree": 12,
+     "examples": []
+    },
+    "aio.fan_rpm_max": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "aio.fan_size_mm": {
+     "overlap": 15,
+     "agree": 15,
+     "examples": []
+    },
+    "aio.lighting": {
+     "overlap": 14,
+     "agree": 14,
+     "examples": []
+    },
+    "aio.noise_db": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "aio.radiator_length_mm": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "aio.radiator_size_mm": {
+     "overlap": 19,
+     "agree": 19,
+     "examples": []
+    },
+    "aio.radiator_thickness_mm": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "aio.sockets": {
+     "overlap": 15,
+     "agree": 15,
+     "examples": []
+    },
+    "case.color": {
+     "overlap": 52,
+     "agree": 51,
+     "examples": [
+      [
+       "Antec CX200M RGB Elite CX200MRGBELITEW Black",
+       "White",
+       "Black",
+       "צבע: לבן"
+      ]
+     ]
+    },
+    "case.dimensions_mm": {
+     "overlap": 30,
+     "agree": 28,
+     "examples": [
+      [
+       "Antec AX20 Elite 4X120MM Fixed Black",
+       "D=358 W=207 H=451mm",
+       "W=207 H=451 D=358mm",
+       "מידות: D=358 W=207 H=451mm"
+      ],
+      [
+       "CoolerMaster MasterBox NR200P (MCB-NR200P-WGNN-S00)",
+       "376 x 185 x 292mm incl. Protrusions",
+       "W=185 H=274 D=360mm",
+       "מידות: 376 x 185 x 292mm incl. Protrusions"
+      ]
+     ]
+    },
+    "case.drive_bays_25": {
+     "overlap": 18,
+     "agree": 13,
+     "examples": [
+      [
+       "Antec CX200M RGB Elite CX200MRGBELITEW Black",
+       1,
+       2,
+       "Hard Drive 2.5: 1+1"
+      ],
+      [
+       "Fractal Design Define 7 XL Black",
+       2,
+       8,
+       "Hard Drive 2.5: 2 included, 5 positions total"
+      ],
+      [
+       "FSP M541 ARGB White",
+       3,
+       5,
+       "מקום לכוננים: 2x SSD (2.5\") + 1x HDD (3.5\") או 3x SSD (2.5\")"
+      ]
+     ]
+    },
+    "case.drive_bays_35": {
+     "overlap": 28,
+     "agree": 28,
+     "examples": []
+    },
+    "case.expansion_slots": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "case.fan_bottom": {
+     "overlap": 1,
+     "agree": 0,
+     "examples": [
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       "ללא - ניתן להוסיף 3 מאווררי 12 ס\"מ",
+       "3 x 120 mm",
+       "מאוורר תחתון: ללא - ניתן להוסיף 3 מאווררי 12 ס\"מ"
+      ]
+     ]
+    },
+    "case.fan_front": {
+     "overlap": 8,
+     "agree": 0,
+     "examples": [
+      [
+       "Antec NX800 White",
+       "2x200mm",
+       "3 x 120 mm, 3 x 140 mm",
+       "Included ARGB Fans Front 2x200mm & Rear 1x120mm"
+      ],
+      [
+       "Antec AX20 Elite 4X120MM Fixed Black",
+       "4X120MM Fixed RGB Fans",
+       "3 x 120 mm, 2 x 140 mm",
+       "4X120MM Fixed RGB Fans"
+      ],
+      [
+       "Corsair 2500X RGB 2X120MM White",
+       "2X120MM RGB Fans",
+       "No",
+       "2X120MM RGB Fans"
+      ]
+     ]
+    },
+    "case.fan_rear": {
+     "overlap": 8,
+     "agree": 2,
+     "examples": [
+      [
+       "Antec NX800 White",
+       "1x120mm",
+       "1 x 120 mm, 1 x 140 mm",
+       "Included ARGB Fans Front 2x200mm & Rear 1x120mm"
+      ],
+      [
+       "Antec C7 ARGB White",
+       "1x140mm",
+       "1 x 120 mm, 1 x 140 mm",
+       "Included ARGB PWM Fans: On Right Side 3x120mm & Rear 1x140mm"
+      ],
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       "ללא - ניתן להוסיף מאוורר 12 ס\"מ",
+       "1 x 120 mm",
+       "מאוורר אחורי: ללא - ניתן להוסיף מאוורר 12 ס\"מ"
+      ]
+     ]
+    },
+    "case.fan_side": {
+     "overlap": 2,
+     "agree": 1,
+     "examples": [
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       "3 מאווררי 12 ס\"מ ARGB",
+       "3 x 120 mm",
+       "מאוורר צד: 3 מאווררי 12 ס\"מ ARGB"
+      ]
+     ]
+    },
+    "case.fan_top": {
+     "overlap": 3,
+     "agree": 1,
+     "examples": [
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       "ללא - ניתן להוסיף 3 מאווררי 12 ס\"מ או 2 מאווררי 14 ס\"מ",
+       "3 x 120 mm, 2 x 140 mm",
+       "מאוורר עליון: ללא - ניתן להוסיף 3 מאווררי 12 ס\"מ או 2 מאווררי 14 ס\"מ"
+      ],
+      [
+       "CoolerMaster MasterBox NR200P (MCB-NR200P-WGNN-S00)",
+       "2x 120mm 650-1800RPM PWM (SickleFlow)",
+       "2 x 120 mm",
+       "עיצוב תרמי: PRE-INSTALLED FANS - TOP 2x 120mm 650-1800RPM PWM (SickleFlow)"
+      ]
+     ]
+    },
+    "case.front_usb": {
+     "overlap": 32,
+     "agree": 28,
+     "examples": [
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       [
+        "USB 20Gbps (Type-C)",
+        "USB 5Gbps (Type-A)"
+       ],
+       [
+        "USB Type-C",
+        "USB 3.2",
+        "Earphone/Mic"
+       ],
+       "חיבורים בקדמת המארז: • חיבור USB 20Gbps (Type-C) • חיבור USB 5Gbps (Type-A) • חיבור מיקרופון/אוזניות מאוחד 3.5 מ\"מ"
+      ],
+      [
+       "Jonsbo D400 White",
+       [
+        "USB 3.0 (Type-A)",
+        "USB 3.2 Gen2 (Type-C)"
+       ],
+       [
+        "1x USB-C"
+       ],
+       "חיבורים בקדמת המארז: • 2 חיבורי USB 3.0 (Type-A) • חיבור USB 3.2 Gen2 (Type-C)"
+      ],
+      [
+       "Fractal Design C MES3X 01 Meshify Black",
+       [
+        "USB Type-C",
+        "USB 3.2"
+       ],
+       [
+        "USB 3.0",
+        "USB Type-C",
+        "Earphone/Mic"
+       ],
+       "יציאות קדמיות: Earphone/Mic | USB Type-C | USB 3.2"
+      ]
+     ]
+    },
+    "case.lighting": {
+     "overlap": 20,
+     "agree": 18,
+     "examples": [
+      [
+       "be quiet! Pure Base 501 Airflow White (BGW75)",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ],
+      [
+       "Cougar MX600 RGB 3X140MM ARGB White",
+       "כולל",
+       "ARGB",
+       "תאורה: כולל"
+      ]
+     ]
+    },
+    "case.max_cooler_height_mm": {
+     "overlap": 30,
+     "agree": 21,
+     "examples": [
+      [
+       "Antec AX20 Elite 4X120MM Fixed Black",
+       150,
+       155,
+       "גובה מקסימלי קירור למעבד (ממ): 150"
+      ],
+      [
+       "Antec CX200M RGB Elite CX200MRGBELITEW Black",
+       160,
+       164,
+       "גובה מקסימלי קירור למעבד (ממ): 160"
+      ],
+      [
+       "Fractal Design Define 7 XL Black",
+       180,
+       185,
+       "גובה מקסימלי קירור למעבד (ממ): 180"
+      ]
+     ]
+    },
+    "case.max_gpu_length_mm": {
+     "overlap": 18,
+     "agree": 17,
+     "examples": [
+      [
+       "Fractal Design Torrent Light",
+       460,
+       461,
+       "Max GPU Length 460mm"
+      ]
+     ]
+    },
+    "case.mb_form_factors": {
+     "overlap": 39,
+     "agree": 37,
+     "examples": [
+      [
+       "Corsair 2500X RGB 2X120MM White",
+       [
+        "ATX"
+       ],
+       [
+        "Mini ITX",
+        "Micro ATX"
+       ],
+       "Mid Tower ATX"
+      ],
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       [
+        "Mini ITX Micro ATX"
+       ],
+       [
+        "Mini ITX",
+        "Micro ATX"
+       ],
+       "תאימות ללוח: Mini ITX Micro ATX"
+      ]
+     ]
+    },
+    "case.psu_included": {
+     "overlap": 2,
+     "agree": 0,
+     "examples": [
+      [
+       "CoolerMaster MasterBox NR200P (MCB-NR200P-WGNN-S00)",
+       "No",
+       "Not included",
+       "ספק כח: SFX, SFX-L (not included)"
+      ],
+      [
+       "Antec P20CE 3X120MM NO Black",
+       "No",
+       "Not included",
+       "ספק כח: ATX (not included)"
+      ]
+     ]
+    },
+    "case.side_panel": {
+     "overlap": 3,
+     "agree": 0,
+     "examples": [
+      [
+       "be quiet! Pure Base 501 Airflow White (BGW75)",
+       "כולל",
+       "Windowed",
+       "חלון צד: כולל"
+      ],
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       "כולל",
+       "Windowed",
+       "חלון צד: כולל"
+      ],
+      [
+       "Cougar MX600 RGB 3X140MM ARGB White",
+       "כולל",
+       "Windowed",
+       "חלון צד: כולל"
+      ]
+     ]
+    },
+    "case.type": {
+     "overlap": 52,
+     "agree": 49,
+     "examples": [
+      [
+       "Corsair 2800X RS R ARGB mATX (CC-9011347-WW)",
+       "Small Tower",
+       "Micro ATX",
+       "סוג מארז: Small Tower"
+      ],
+      [
+       "CoolerMaster MasterBox NR200P (MCB-NR200P-WGNN-S00)",
+       "Mini Tower",
+       "Mini ITX",
+       "סוג מארז: Mini Tower"
+      ],
+      [
+       "Antec CX Mirror White",
+       "Mini Tower",
+       "Mid Tower",
+       "סוג מארז: Mini Tower"
+      ]
+     ]
+    },
+    "case.weight_kg": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "case_fan.airflow_cfm": {
+     "overlap": 6,
+     "agree": 5,
+     "examples": [
+      [
+       "be quiet! Silent Wings 82.7CFM 120mm PWM White",
+       82.7,
+       48.7,
+       "82.7CFM"
+      ]
+     ]
+    },
+    "case_fan.color": {
+     "overlap": 32,
+     "agree": 31,
+     "examples": [
+      [
+       "Noctua NF-A12X25 G2 120mm PWM Brown (NF-A12X25G2PWM)",
+       "בז'",
+       "Brown",
+       "צבע: בז'"
+      ]
+     ]
+    },
+    "case_fan.connector": {
+     "overlap": 5,
+     "agree": 0,
+     "examples": [
+      [
+       "ARCTIC F12 PST CO 120mm PWM Black",
+       "PST",
+       "4-pin",
+       "F12 PWM PST CO"
+      ],
+      [
+       "Corsair RS120 120mm PWM White",
+       "4pin PWM",
+       "4-pin",
+       "סוג חיבור: חיבור 4pin PWM ללוח אם או לבקר מאווררים"
+      ],
+      [
+       "Corsair RX140 Single 140mm PWM ARGB White",
+       "חיבור iCUE LINK",
+       "4-pin",
+       "סוג חיבור: חיבור iCUE LINK"
+      ]
+     ]
+    },
+    "case_fan.led": {
+     "overlap": 25,
+     "agree": 14,
+     "examples": [
+      [
+       "ARCTIC F12 PST CO 120mm PWM Black",
+       "ללא תאורה",
+       "No",
+       "סוג תאורה: ללא תאורה"
+      ],
+      [
+       "be quiet! Pure Wings 61.2CFM 140mm Black",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ],
+      [
+       "be quiet! Silent Wings 82.7CFM 120mm PWM White",
+       "ללא תאורה",
+       "No",
+       "סוג תאורה: ללא תאורה"
+      ]
+     ]
+    },
+    "case_fan.quantity": {
+     "overlap": 7,
+     "agree": 7,
+     "examples": []
+    },
+    "case_fan.rpm_max": {
+     "overlap": 28,
+     "agree": 27,
+     "examples": [
+      [
+       "Antec Nova UP TO 120mm PWM White",
+       3200,
+       1500,
+       "Up to 3200RPM"
+      ]
+     ]
+    },
+    "case_fan.rpm_min": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "case_fan.size_mm": {
+     "overlap": 33,
+     "agree": 33,
+     "examples": []
+    },
+    "cooler_air.airflow_cfm": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "cooler_air.color": {
+     "overlap": 14,
+     "agree": 14,
+     "examples": []
+    },
+    "cooler_air.fan_rpm_max": {
+     "overlap": 12,
+     "agree": 12,
+     "examples": []
+    },
+    "cooler_air.fan_rpm_min": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "cooler_air.fan_size_mm": {
+     "overlap": 14,
+     "agree": 14,
+     "examples": []
+    },
+    "cooler_air.height_mm": {
+     "overlap": 9,
+     "agree": 8,
+     "examples": [
+      [
+       "Antec A450 Frgb Fixed 180W ARGB",
+       150,
+       148,
+       "גובה (ממ): 150"
+      ]
+     ]
+    },
+    "cooler_air.lighting": {
+     "overlap": 11,
+     "agree": 7,
+     "examples": [
+      [
+       "Corsair A115 Twin Tower",
+       "ללא תאורה",
+       "No",
+       "סוג תאורה: ללא תאורה"
+      ],
+      [
+       "Noctua NH-D15 Chromax.black NH-D15CH-BK Black",
+       "ללא תאורה",
+       "No",
+       "סוג תאורה: ללא תאורה"
+      ],
+      [
+       "Noctua NH-L9A 92mm",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ]
+     ]
+    },
+    "cooler_air.noise_db": {
+     "overlap": 1,
+     "agree": 0,
+     "examples": [
+      [
+       "Antec A450 Frgb Fixed 180W ARGB",
+       62.0,
+       26.0,
+       "62CFM"
+      ]
+     ]
+    },
+    "cooler_air.sockets": {
+     "overlap": 9,
+     "agree": 9,
+     "examples": []
+    },
+    "cooler_air.tdp_w": {
+     "overlap": 7,
+     "agree": 7,
+     "examples": []
+    },
+    "cpu.base_clock_ghz": {
+     "overlap": 8,
+     "agree": 7,
+     "examples": [
+      [
+       "Intel Core i3 3240T Tray",
+       3.4,
+       2.9,
+       "מהירות מעבד: 3.4GHz"
+      ]
+     ]
+    },
+    "cpu.boost_clock_ghz": {
+     "overlap": 9,
+     "agree": 9,
+     "examples": []
+    },
+    "cpu.chipset_support": {
+     "overlap": 3,
+     "agree": 3,
+     "examples": []
+    },
+    "cpu.core_count": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "cpu.generation": {
+     "overlap": 3,
+     "agree": 1,
+     "examples": [
+      [
+       "Intel Core i5 14600KF Box",
+       "14th",
+       "Gen 14",
+       "14th Gen"
+      ],
+      [
+       "Intel Core i5 14500 Tray",
+       "14th",
+       "Gen 14",
+       "14th Gen"
+      ]
+     ]
+    },
+    "cpu.integrated_graphics": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "cpu.l2_cache_mb": {
+     "overlap": 4,
+     "agree": 4,
+     "examples": []
+    },
+    "cpu.l3_cache_mb": {
+     "overlap": 6,
+     "agree": 6,
+     "examples": []
+    },
+    "cpu.microarchitecture": {
+     "overlap": 3,
+     "agree": 3,
+     "examples": []
+    },
+    "cpu.packaging": {
+     "overlap": 10,
+     "agree": 10,
+     "examples": []
+    },
+    "cpu.socket": {
+     "overlap": 12,
+     "agree": 12,
+     "examples": []
+    },
+    "cpu.tdp_w": {
+     "overlap": 4,
+     "agree": 3,
+     "examples": [
+      [
+       "Intel Core i3 3240T Tray",
+       55,
+       35,
+       "צריכת חשמל - מעבד: 55W"
+      ]
+     ]
+    },
+    "cpu.thread_count": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "gpu.boost_clock_mhz": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "gpu.chip_manufacturer": {
+     "overlap": 6,
+     "agree": 6,
+     "examples": []
+    },
+    "gpu.chipset": {
+     "overlap": 20,
+     "agree": 20,
+     "examples": []
+    },
+    "gpu.color": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "gpu.cooling": {
+     "overlap": 9,
+     "agree": 0,
+     "examples": [
+      [
+       "Sapphire Pulse Radeon RX 9070 16GB",
+       "מאווררים + צלעות קירור",
+       "Air",
+       "סוג קירור: מאווררים + צלעות קירור"
+      ],
+      [
+       "ARKTEK GeForce GTX 1660 Ti 6GB",
+       "2xFan",
+       "Air",
+       "עיצוב תרמי: 2xFan"
+      ],
+      [
+       "MSI Shadow GeForce RTX 5070 Ti 16GB",
+       "Triple Fan",
+       "Air",
+       "Shadow 3X OC Triple Fan"
+      ]
+     ]
+    },
+    "gpu.core_clock_mhz": {
+     "overlap": 14,
+     "agree": 13,
+     "examples": [
+      [
+       "ASUS Prime Radeon RX 9070 XT 16GB",
+       3010,
+       2460,
+       "מהירות ליבה: 3010MHz"
+      ]
+     ]
+    },
+    "gpu.directx": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "gpu.external_power": {
+     "overlap": 11,
+     "agree": 9,
+     "examples": [
+      [
+       "NVIDIA GeForce RTX 5080 8GB",
+       [
+        "16-pin"
+       ],
+       [
+        "1x16-pin"
+       ],
+       "מחברי כוח: 16-pin x 1 (ATX 3.1 PSU recommended)"
+      ],
+      [
+       "MSI Shadow GeForce RTX 5060 Ti 8GB",
+       [
+        "8-pin x 1"
+       ],
+       [
+        "1x16-pin"
+       ],
+       "חיבור לספק כח: 8-pin x 1"
+      ]
+     ]
+    },
+    "gpu.fan_count": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.interface": {
+     "overlap": 22,
+     "agree": 22,
+     "examples": []
+    },
+    "gpu.length_mm": {
+     "overlap": 17,
+     "agree": 13,
+     "examples": [
+      [
+       "Gigabyte GeForce RTX 5070 Ti 16GB (GV-N507TAORUS)",
+       330,
+       145,
+       "מימדים: W=145 H=65 D=330mm"
+      ],
+      [
+       "Gigabyte Aorus GeForce RTX 5090 32GB (GV-N5090IXEB-32GD)",
+       172,
+       189,
+       "מימדים: W=189 H=302 D=172mm"
+      ],
+      [
+       "NVIDIA GeForce RTX 4090 24GB",
+       304,
+       137,
+       "מידות: W=137 D=304mm"
+      ]
+     ]
+    },
+    "gpu.max_displays": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "gpu.max_resolution": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.memory_bus_bit": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "gpu.memory_gb": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "gpu.memory_speed_gbps": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "gpu.memory_type": {
+     "overlap": 21,
+     "agree": 20,
+     "examples": [
+      [
+       "ARKTEK GeForce GTX 1660 Ti 6GB",
+       "GDDR6",
+       "DDR6",
+       "סוג זכרון גרפי: GDDR6"
+      ]
+     ]
+    },
+    "gpu.opengl": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "gpu.recommended_psu_w": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "memory.cas_latency": {
+     "overlap": 29,
+     "agree": 29,
+     "examples": []
+    },
+    "memory.color": {
+     "overlap": 25,
+     "agree": 24,
+     "examples": [
+      [
+       "Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30)",
+       "Gray",
+       "White",
+       "צבע: אפור"
+      ]
+     ]
+    },
+    "memory.form_factor": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "memory.lighting": {
+     "overlap": 16,
+     "agree": 12,
+     "examples": [
+      [
+       "G.Skill Aegis DDR4 3200MT DDR4 16GB 3200MT/s CL16",
+       "ללא",
+       "No",
+       "ללא"
+      ],
+      [
+       "Klevv ARGB 32GB DDR5 (2x16GB) 6000MHz CL30 (KD5AGU880-60A300G)",
+       "כולל",
+       "ARGB",
+       "תאורה: כולל"
+      ],
+      [
+       "Kingston Fury Beast DDR5 64GB 6000MHz CL30",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ]
+     ]
+    },
+    "memory.memory_type": {
+     "overlap": 31,
+     "agree": 31,
+     "examples": []
+    },
+    "memory.module_count": {
+     "overlap": 22,
+     "agree": 22,
+     "examples": []
+    },
+    "memory.module_size_gb": {
+     "overlap": 24,
+     "agree": 24,
+     "examples": []
+    },
+    "memory.speed": {
+     "overlap": 30,
+     "agree": 18,
+     "examples": [
+      [
+       "ADATA 32GB DDR5 (1x32GB) 5600MHz",
+       "5600MHz",
+       "DDR5-5600",
+       "מהירות: 5600MHz"
+      ],
+      [
+       "ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32 (AX5U6400C3216G-SLABRBK)",
+       "6400MHz",
+       "DDR5-6400",
+       "מהירות: 6400MHz"
+      ],
+      [
+       "Crucial 32GB DDR5 (2x16GB) 5600MHz CL46 (CP2K16G56C46U5)",
+       "5600MHz",
+       "DDR5-5600",
+       "5600MHz"
+      ]
+     ]
+    },
+    "memory.speed_mhz": {
+     "overlap": 30,
+     "agree": 30,
+     "examples": []
+    },
+    "memory.total_gb": {
+     "overlap": 30,
+     "agree": 30,
+     "examples": []
+    },
+    "memory.voltage_v": {
+     "overlap": 23,
+     "agree": 19,
+     "examples": [
+      [
+       "Corsair Vengeance ARGB 64GB DDR5 (2x32GB) 5600MHz CL40",
+       1.2,
+       1.25,
+       "מתח זיכרון: 1.2V"
+      ],
+      [
+       "Corsair Vengeance ARGB 96GB DDR5 (2x48GB) 7000MHz CL40",
+       1.1,
+       1.4,
+       "מתח זיכרון: 1.1V"
+      ],
+      [
+       "Corsair Vengeance 48GB DDR5 (2x24GB) 6400MHz CL36",
+       1.1,
+       1.35,
+       "מתח זיכרון: 1.1V"
+      ]
+     ]
+    },
+    "motherboard.audio": {
+     "overlap": 34,
+     "agree": 34,
+     "examples": []
+    },
+    "motherboard.bios": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "motherboard.bluetooth": {
+     "overlap": 28,
+     "agree": 27,
+     "examples": [
+      [
+       "MSI Z890 MAG Tomahawk WiFi",
+       "5.3",
+       "Bluetooth 5.4",
+       "wifi + BT: Wi-Fi 7 BT5.3"
+      ]
+     ]
+    },
+    "motherboard.chipset": {
+     "overlap": 51,
+     "agree": 50,
+     "examples": [
+      [
+       "MSI PRO X870E-P WIFI7",
+       "X870",
+       "X870E",
+       "ערכת שבבים: AMD X870"
+      ]
+     ]
+    },
+    "motherboard.color": {
+     "overlap": 9,
+     "agree": 9,
+     "examples": []
+    },
+    "motherboard.ethernet": {
+     "overlap": 41,
+     "agree": 41,
+     "examples": []
+    },
+    "motherboard.expansion_slots": {
+     "overlap": 28,
+     "agree": 28,
+     "examples": []
+    },
+    "motherboard.form_factor": {
+     "overlap": 31,
+     "agree": 31,
+     "examples": []
+    },
+    "motherboard.lighting": {
+     "overlap": 6,
+     "agree": 0,
+     "examples": [
+      [
+       "Gigabyte B760 DS3H AX",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ],
+      [
+       "Gigabyte B850M Gaming X WIFI6E",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ],
+      [
+       "Gigabyte Z890 UD WIFI6E",
+       "ללא",
+       "No",
+       "תאורה: ללא"
+      ]
+     ]
+    },
+    "motherboard.m2_slots": {
+     "overlap": 35,
+     "agree": 34,
+     "examples": [
+      [
+       "ASUS Prime B760M-K (90MB1FI0-M1EAY0)",
+       [
+        "2242",
+        "2260",
+        "2280"
+       ],
+       [
+        "2"
+       ],
+       "2x M.2 slots: מנוהל מעבד M.2_1 slot (Key M), type 2242/2260/2280 (supports PCIe 4.0 x4 mode) מנוהל Intel B760 Chipset M.2_2 slot (Key M), type 2242/2260/2280 (supports PCIe 4.0 x4 mode)"
+      ]
+     ]
+    },
+    "motherboard.memory_max_gb": {
+     "overlap": 16,
+     "agree": 14,
+     "examples": [
+      [
+       "MSI PRO B650M-B",
+       128,
+       96,
+       "מקסימום זיכרון: 128GB"
+      ],
+      [
+       "ASUS ROG Strix B850-A Gaming WIFI7 (90MB1J50-M0EAY0)",
+       256,
+       192,
+       "תומכים עד 256GB סה\"כ"
+      ]
+     ]
+    },
+    "motherboard.memory_slots": {
+     "overlap": 40,
+     "agree": 40,
+     "examples": []
+    },
+    "motherboard.memory_speeds": {
+     "overlap": 15,
+     "agree": 15,
+     "examples": []
+    },
+    "motherboard.memory_type": {
+     "overlap": 52,
+     "agree": 52,
+     "examples": []
+    },
+    "motherboard.onboard_video": {
+     "overlap": 35,
+     "agree": 29,
+     "examples": [
+      [
+       "Gigabyte B760M Gaming X Displayport",
+       "Display Port, VGA, HDMI",
+       "DisplayPort | HDMI | VGA",
+       "חיבורי תצוגה: Display Port, VGA, HDMI"
+      ],
+      [
+       "Gigabyte X870 Aorus Elite WIFI7",
+       "AMD Radeon Graphics",
+       "HDMI | USB Type-C",
+       "כרטיס מסך: AMD Radeon Graphics"
+      ],
+      [
+       "MSI B650 MPG Edge DP WiFi",
+       "Display Port, HDMI",
+       "DisplayPort | HDMI",
+       "חיבורי תצוגה: Display Port, HDMI"
+      ]
+     ]
+    },
+    "motherboard.pcie_x16_slots": {
+     "overlap": 34,
+     "agree": 22,
+     "examples": [
+      [
+       "Gigabyte B550 X Gaming",
+       1,
+       2,
+       "PCI-E x16: 1"
+      ],
+      [
+       "ASUS TUF Gaming B650M-Plus",
+       1,
+       2,
+       "PCI-E x16: 1"
+      ],
+      [
+       "ASUS X870 MAX Gaming WIFI7",
+       1,
+       4,
+       "PCI-E x16: 1"
+      ]
+     ]
+    },
+    "motherboard.pcie_x1_slots": {
+     "overlap": 19,
+     "agree": 18,
+     "examples": [
+      [
+       "ASUS Prime B760M-A D4-CSM",
+       1,
+       0,
+       "1x PCIe 4.0 x16 (תומך במצב x1)"
+      ]
+     ]
+    },
+    "motherboard.raid_support": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "motherboard.sata_ports": {
+     "overlap": 38,
+     "agree": 38,
+     "examples": []
+    },
+    "motherboard.socket": {
+     "overlap": 50,
+     "agree": 50,
+     "examples": []
+    },
+    "motherboard.storage_interface": {
+     "overlap": 35,
+     "agree": 14,
+     "examples": [
+      [
+       "ASUS Prime A520M-A",
+       [
+        "SATA3",
+        "M.2 PCIe",
+        "M.2 SATA"
+       ],
+       [
+        "SATA 6 Gbps",
+        "USB 3.2 Gen 1 Type-A"
+       ],
+       "ממשק אחסון: SATA3 | M.2 PCIe | M.2 SATA"
+      ],
+      [
+       "ASUS Prime B760M-A D4-CSM",
+       [
+        "M.2",
+        "SATA"
+       ],
+       [
+        "M.2 PCIe",
+        "SATA3"
+       ],
+       "2 חריצי M.2: מנוהל מעבד • M.2_1 (Key M), תומך גדלים 2242 / 2260 / 2280 (תומך PCIe 4.0 x4) מנוהל Chipset • M.2_2 slot (Key M), תומך גדלים 2242 / 2260 / 2280 (תומך PCIe 4.0 x4) 4 חיבורי SATA 6Gb/s"
+      ],
+      [
+       "ASUS ROG Strix Z890-E Gaming WIFI7",
+       [
+        "SATA3",
+        "M.2 PCIe"
+       ],
+       [
+        "LAN 5Gbps",
+        "Wi-Fi 7 (802.11be)",
+        "Bluetooth 5.4",
+        "HDMI",
+        "Thunderbolt",
+        "USB Type-C",
+        "5x USB Type-C",
+        "12x USB 3.2",
+        "3x USB 2.0"
+       ],
+       "סוג האחסון: SATA3, M.2 PCIe"
+      ]
+     ]
+    },
+    "motherboard.thunderbolt_ports": {
+     "overlap": 6,
+     "agree": 6,
+     "examples": []
+    },
+    "motherboard.usb_ports": {
+     "overlap": 18,
+     "agree": 18,
+     "examples": []
+    },
+    "motherboard.wireless": {
+     "overlap": 34,
+     "agree": 30,
+     "examples": [
+      [
+       "Gigabyte B650E Eagle WIFI6E",
+       "Wi-Fi 6",
+       "Wi-Fi 6E",
+       "Wi-Fi 6/6E (802.11ax)"
+      ],
+      [
+       "Gigabyte B760 DS3H AX",
+       "Wi-Fi 6",
+       "Wi-Fi 6E",
+       "חיבורי תקשורת: LAN 1 Gb/s | Wi-Fi 6/6E (802.11ax) | Bluetooth 5.3"
+      ],
+      [
+       "Gigabyte Z790 Aorus Tachyon WIFI6E",
+       "Wi-Fi 6",
+       "Wi-Fi 6E",
+       "Wi-Fi 6/6E (802.11ax)"
+      ]
+     ]
+    },
+    "psu.atx4_connectors": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "psu.atx_version": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "psu.color": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "psu.efficiency": {
+     "overlap": 19,
+     "agree": 19,
+     "examples": []
+    },
+    "psu.eps8_connectors": {
+     "overlap": 14,
+     "agree": 14,
+     "examples": []
+    },
+    "psu.fan_size_mm": {
+     "overlap": 4,
+     "agree": 4,
+     "examples": []
+    },
+    "psu.length_mm": {
+     "overlap": 1,
+     "agree": 0,
+     "examples": [
+      [
+       "MSI MAG A750BN PCIE5 750W 80 PLUS Bronze Black (4711377126595)",
+       160,
+       140,
+       "מידות: 160x140x86"
+      ]
+     ]
+    },
+    "psu.modular": {
+     "overlap": 3,
+     "agree": 3,
+     "examples": []
+    },
+    "psu.molex4_connectors": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "psu.pcie16_connectors": {
+     "overlap": 8,
+     "agree": 8,
+     "examples": []
+    },
+    "psu.pcie62_connectors": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "psu.pcie6_connectors": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "psu.pcie8_connectors": {
+     "overlap": 14,
+     "agree": 14,
+     "examples": []
+    },
+    "psu.sata_connectors": {
+     "overlap": 16,
+     "agree": 16,
+     "examples": []
+    },
+    "psu.series_wattage_range": {
+     "overlap": 16,
+     "agree": 16,
+     "examples": []
+    },
+    "psu.type": {
+     "overlap": 17,
+     "agree": 17,
+     "examples": []
+    },
+    "psu.wattage_w": {
+     "overlap": 24,
+     "agree": 24,
+     "examples": []
+    },
+    "storage.cache_mb": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "storage.capacity_gb": {
+     "overlap": 23,
+     "agree": 22,
+     "examples": [
+      [
+       "Afox SD250-1000GN III 1TB SATA SSD 2.5\"",
+       1024,
+       1000,
+       "1024GB"
+      ]
+     ]
+    },
+    "storage.dimensions_mm": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "storage.form_factor": {
+     "overlap": 21,
+     "agree": 20,
+     "examples": [
+      [
+       "Lenovo Thinksystem HS V2 960GB SATA SSD SATA",
+       "2.5\"",
+       "SATA",
+       "Features - SSD form factor: 2.5\""
+      ]
+     ]
+    },
+    "storage.interface": {
+     "overlap": 23,
+     "agree": 22,
+     "examples": [
+      [
+       "KIOXIA 2TB NVMe Gen5 M.2-2280",
+       "PCIe Gen 5.0",
+       "M.2 PCIe 3.0 x4",
+       "ממשק: PCIe Gen 5.0"
+      ]
+     ]
+    },
+    "storage.mtbf_hours": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "storage.nand": {
+     "overlap": 7,
+     "agree": 7,
+     "examples": []
+    },
+    "storage.nvme": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "storage.pcie_gen": {
+     "overlap": 11,
+     "agree": 11,
+     "examples": []
+    },
+    "storage.read_speed_mbs": {
+     "overlap": 10,
+     "agree": 10,
+     "examples": []
+    },
+    "storage.rpm": {
+     "overlap": 5,
+     "agree": 5,
+     "examples": []
+    },
+    "storage.type": {
+     "overlap": 22,
+     "agree": 22,
+     "examples": []
+    },
+    "storage.weight_g": {
+     "overlap": 2,
+     "agree": 1,
+     "examples": [
+      [
+       "ADATA XPG Gammix S70 Blade 8TB NVMe M.2",
+       6,
+       10,
+       "מידע על המוצר: 6(10)gr"
+      ]
+     ]
+    },
+    "storage.write_speed_mbs": {
+     "overlap": 9,
+     "agree": 9,
+     "examples": []
+    }
+   }
   },
-  "aio.sockets": {
-   "overlap": 7,
-   "agree": 7,
-   "examples": []
-  },
-  "case.color": {
-   "overlap": 17,
-   "agree": 17,
-   "examples": []
-  },
-  "case.drive_bays_25": {
-   "overlap": 6,
-   "agree": 6,
-   "examples": []
-  },
-  "case.front_usb": {
-   "overlap": 8,
-   "agree": 0,
-   "examples": [
-    [
-     "Lian Li O11 Dynamic Mini V2 White",
-     [
-      "USB 5Gbps (Type-C)"
-     ],
-     [
-      "USB 3.0",
-      "USB Type-C",
-      "Earphone/Mic"
-     ],
-     "USB 5Gbps (Type-C)"
-    ],
-    [
-     "Lian Li O11 Dynamic Mini V2 White",
-     [
-      "USB 5Gbps (Type-C)"
-     ],
-     [
-      "USB 3.0",
-      "USB Type-C",
-      "Earphone/Mic"
-     ],
-     "USB 5Gbps (Type-C)"
-    ],
-    [
-     "Lian Li O11 Dynamic Mini V2 White",
-     [
-      "USB 5Gbps (Type-C)"
-     ],
-     [
-      "USB 3.0",
-      "USB Type-C",
-      "Earphone/Mic"
-     ],
-     "USB 5Gbps (Type-C)"
-    ],
-    [
-     "Lian Li O11 Dynamic Mini V2 White",
-     [
-      "USB 5Gbps (Type-C)"
-     ],
-     [
-      "USB 3.0",
-      "USB Type-C",
-      "Earphone/Mic"
-     ],
-     "USB 5Gbps (Type-C)"
-    ],
-    [
-     "Lian Li O11 Dynamic Mini V2 White",
-     [
-      "USB 5Gbps (Type-C)"
-     ],
-     [
-      "USB 3.0",
-      "USB Type-C",
-      "Earphone/Mic"
-     ],
-     "USB 5Gbps (Type-C)"
-    ],
-    [
-     "Lian Li O11 Dynamic Mini V2 White",
-     [
-      "USB 5Gbps (Type-C)"
-     ],
-     [
-      "USB 3.0",
-      "USB Type-C",
-      "Earphone/Mic"
-     ],
-     "USB 5Gbps (Type-C)"
-    ],
-    [
-     "Lian Li A4-H2O Silver",
-     [
-      "USB 3.2"
-     ],
-     [
-      "USB 3.0",
-      "Earphone/Mic",
-      "USB Type-C"
-     ],
-     "USB 3.2"
-    ],
-    [
-     "Lian Li A4-H2O Silver",
-     [
-      "USB 3.2"
-     ],
-     [
-      "USB 3.0",
-      "Earphone/Mic",
-      "USB Type-C"
-     ],
-     "USB 3.2"
-    ]
-   ]
-  },
-  "case.lighting": {
-   "overlap": 7,
-   "agree": 7,
-   "examples": []
-  },
-  "case.max_cooler_height_mm": {
-   "overlap": 8,
-   "agree": 8,
-   "examples": []
-  },
-  "case.max_gpu_length_mm": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "case.mb_form_factors": {
-   "overlap": 8,
-   "agree": 8,
-   "examples": []
-  },
-  "case.type": {
-   "overlap": 10,
-   "agree": 10,
-   "examples": []
-  },
-  "cpu.base_clock_ghz": {
-   "overlap": 11,
-   "agree": 10,
-   "examples": [
-    [
-     "Intel Core i7 14700KF Tray (C14700KFT)",
-     2.5,
-     3.4,
-     "Base 2.5GHz"
-    ]
-   ]
-  },
-  "cpu.boost_clock_ghz": {
-   "overlap": 8,
-   "agree": 8,
-   "examples": []
-  },
-  "cpu.chipset_support": {
-   "overlap": 5,
-   "agree": 5,
-   "examples": []
-  },
-  "cpu.core_count": {
-   "overlap": 5,
-   "agree": 5,
-   "examples": []
-  },
-  "cpu.generation": {
-   "overlap": 6,
-   "agree": 4,
-   "examples": [
-    [
-     "Intel Core Ultra 5 225 Tray (C225T)",
-     "Gen 2",
-     "Ultra Series",
-     "Series 2"
-    ],
-    [
-     "Intel Core Ultra 7 270K Plus Tray (C270KPLUST)",
-     "Gen 2",
-     "Ultra Series",
-     "Series 2"
-    ]
-   ]
-  },
-  "cpu.integrated_graphics": {
-   "overlap": 8,
-   "agree": 8,
-   "examples": []
-  },
-  "cpu.l2_cache_mb": {
-   "overlap": 5,
-   "agree": 5,
-   "examples": []
-  },
-  "cpu.l3_cache_mb": {
-   "overlap": 9,
-   "agree": 9,
-   "examples": []
-  },
-  "cpu.max_memory_gb": {
-   "overlap": 1,
-   "agree": 1,
-   "examples": []
-  },
-  "cpu.packaging": {
-   "overlap": 11,
-   "agree": 11,
-   "examples": []
-  },
-  "cpu.socket": {
-   "overlap": 11,
-   "agree": 11,
-   "examples": []
-  },
-  "cpu.tdp_w": {
-   "overlap": 11,
-   "agree": 11,
-   "examples": []
-  },
-  "cpu.thread_count": {
-   "overlap": 4,
-   "agree": 4,
-   "examples": []
-  },
-  "gpu.chipset": {
-   "overlap": 8,
-   "agree": 8,
-   "examples": []
-  },
-  "gpu.core_clock_mhz": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.directx": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.interface": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.length_mm": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.memory_bus_bit": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.memory_gb": {
-   "overlap": 6,
-   "agree": 6,
-   "examples": []
-  },
-  "gpu.memory_speed_gbps": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.memory_type": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.opengl": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "gpu.recommended_psu_w": {
-   "overlap": 2,
-   "agree": 2,
-   "examples": []
-  },
-  "memory.cas_latency": {
-   "overlap": 14,
-   "agree": 14,
-   "examples": []
-  },
-  "memory.color": {
-   "overlap": 14,
-   "agree": 14,
-   "examples": []
-  },
-  "memory.lighting": {
-   "overlap": 6,
-   "agree": 6,
-   "examples": []
-  },
-  "memory.memory_type": {
-   "overlap": 16,
-   "agree": 16,
-   "examples": []
-  },
-  "memory.module_count": {
-   "overlap": 14,
-   "agree": 14,
-   "examples": []
-  },
-  "memory.module_size_gb": {
-   "overlap": 14,
-   "agree": 14,
-   "examples": []
-  },
-  "memory.speed": {
-   "overlap": 6,
-   "agree": 0,
-   "examples": [
-    [
-     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
-     "3200MT/s",
-     "DDR4-3200",
-     "3200MT/s"
-    ],
-    [
-     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
-     "3200MT/s",
-     "DDR4-3200",
-     "3200MT/s"
-    ],
-    [
-     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
-     "3200MT/s",
-     "DDR4-3200",
-     "3200MT/s"
-    ],
-    [
-     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
-     "3200MT/s",
-     "DDR4-3200",
-     "3200MT/s"
-    ],
-    [
-     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
-     "3200MT/s",
-     "DDR4-3200",
-     "3200MT/s"
-    ],
-    [
-     "GeIL 8GB DDR4 (1x8GB) 3200MHz CL22",
-     "3200MT/s",
-     "DDR4-3200",
-     "3200MT/s"
-    ]
-   ]
-  },
-  "memory.speed_mhz": {
-   "overlap": 14,
-   "agree": 14,
-   "examples": []
-  },
-  "memory.total_gb": {
-   "overlap": 16,
-   "agree": 16,
-   "examples": []
-  },
-  "memory.voltage_v": {
-   "overlap": 14,
-   "agree": 14,
-   "examples": []
+  "openai/gpt-oss-20b": {
+   "fields": {
+    "aio.color": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "case.color": {
+     "overlap": 2,
+     "agree": 2,
+     "examples": []
+    },
+    "case.drive_bays_25": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "case.front_usb": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "case.max_cooler_height_mm": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "case.max_gpu_length_mm": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "case.mb_form_factors": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "case.type": {
+     "overlap": 2,
+     "agree": 1,
+     "examples": [
+      [
+       "Corsair Frame 4000D White",
+       "מארז מחשב",
+       "Mid Tower",
+       "מארז מחשב"
+      ]
+     ]
+    },
+    "gpu.chipset": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.core_clock_mhz": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.directx": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.interface": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.length_mm": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.max_displays": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.memory_bus_bit": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.memory_speed_gbps": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.memory_type": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.opengl": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    },
+    "gpu.recommended_psu_w": {
+     "overlap": 1,
+     "agree": 1,
+     "examples": []
+    }
+   }
   }
  }
 }
