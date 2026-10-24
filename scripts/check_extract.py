@@ -122,6 +122,28 @@ check("429 per day", client_module.quota_info(day_body)[1], True)
 check("429 per day names its quota", "PerDay" in client_module.quota_info(day_body)[2], True)
 check("429 with a body we cannot read", client_module.quota_info("not json")[:2], (None, False))
 
+# A timeout / connection error twice in a row skips the provider; it does not crash.
+import requests as _requests  # noqa: E402
+
+_real_post = _requests.post
+
+
+def _timeout_post(*args, **kwargs):
+    raise _requests.exceptions.ReadTimeout("simulated")
+
+
+_requests.post = _timeout_post
+try:
+    slow = client_module.Extractor()
+    slow._last = {}
+    try:
+        slow._post("intern", "https://example.invalid/x", {}, {}, 0.0, lambda r: (None, False, ""))
+        check("timeouts twice raise RateLimited", False, True)
+    except client_module.RateLimited as error:
+        check("timeouts twice -> provider skipped", "ReadTimeout" in str(error), True)
+finally:
+    _requests.post = _real_post
+
 # OpenAI-style 429s (Groq / Intern): Retry-After header, "try again in" text, daily words.
 class FakeReply:
     def __init__(self, text, headers=None):
