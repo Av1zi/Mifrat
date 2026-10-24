@@ -1,11 +1,11 @@
 {
  "model": "gemini-3.5-flash",
  "prompt_version": 1,
- "generated": "2026-10-23",
+ "generated": "2026-10-24",
  "fields": {
   "aio.color": {
-   "overlap": 7,
-   "agree": 7,
+   "overlap": 11,
+   "agree": 11,
    "examples": []
   },
   "aio.lighting": {
@@ -19,8 +19,8 @@
    "examples": []
   },
   "case.color": {
-   "overlap": 13,
-   "agree": 13,
+   "overlap": 17,
+   "agree": 17,
    "examples": []
   },
   "case.drive_bays_25": {
@@ -29,7 +29,7 @@
    "examples": []
   },
   "case.front_usb": {
-   "overlap": 6,
+   "overlap": 8,
    "agree": 0,
    "examples": [
     [
@@ -103,6 +103,30 @@
       "Earphone/Mic"
      ],
      "USB 5Gbps (Type-C)"
+    ],
+    [
+     "Lian Li A4-H2O Silver",
+     [
+      "USB 3.2"
+     ],
+     [
+      "USB 3.0",
+      "Earphone/Mic",
+      "USB Type-C"
+     ],
+     "USB 3.2"
+    ],
+    [
+     "Lian Li A4-H2O Silver",
+     [
+      "USB 3.2"
+     ],
+     [
+      "USB 3.0",
+      "Earphone/Mic",
+      "USB Type-C"
+     ],
+     "USB 3.2"
     ]
    ]
   },
@@ -112,58 +136,138 @@
    "examples": []
   },
   "case.max_cooler_height_mm": {
-   "overlap": 6,
-   "agree": 6,
+   "overlap": 8,
+   "agree": 8,
+   "examples": []
+  },
+  "case.max_gpu_length_mm": {
+   "overlap": 2,
+   "agree": 2,
    "examples": []
   },
   "case.mb_form_factors": {
-   "overlap": 6,
-   "agree": 6,
+   "overlap": 8,
+   "agree": 8,
    "examples": []
   },
   "case.type": {
-   "overlap": 6,
-   "agree": 6,
+   "overlap": 10,
+   "agree": 10,
    "examples": []
   },
   "cpu.base_clock_ghz": {
-   "overlap": 3,
-   "agree": 3,
+   "overlap": 11,
+   "agree": 10,
+   "examples": [
+    [
+     "Intel Core i7 14700KF Tray (C14700KFT)",
+     2.5,
+     3.4,
+     "Base 2.5GHz"
+    ]
+   ]
+  },
+  "cpu.boost_clock_ghz": {
+   "overlap": 8,
+   "agree": 8,
+   "examples": []
+  },
+  "cpu.chipset_support": {
+   "overlap": 5,
+   "agree": 5,
+   "examples": []
+  },
+  "cpu.core_count": {
+   "overlap": 5,
+   "agree": 5,
    "examples": []
   },
   "cpu.generation": {
-   "overlap": 3,
-   "agree": 3,
-   "examples": []
+   "overlap": 6,
+   "agree": 4,
+   "examples": [
+    [
+     "Intel Core Ultra 5 225 Tray (C225T)",
+     "Gen 2",
+     "Ultra Series",
+     "Series 2"
+    ],
+    [
+     "Intel Core Ultra 7 270K Plus Tray (C270KPLUST)",
+     "Gen 2",
+     "Ultra Series",
+     "Series 2"
+    ]
+   ]
   },
   "cpu.integrated_graphics": {
-   "overlap": 3,
-   "agree": 3,
+   "overlap": 8,
+   "agree": 8,
+   "examples": []
+  },
+  "cpu.l2_cache_mb": {
+   "overlap": 5,
+   "agree": 5,
    "examples": []
   },
   "cpu.l3_cache_mb": {
-   "overlap": 3,
-   "agree": 3,
+   "overlap": 9,
+   "agree": 9,
+   "examples": []
+  },
+  "cpu.max_memory_gb": {
+   "overlap": 1,
+   "agree": 1,
    "examples": []
   },
   "cpu.packaging": {
-   "overlap": 3,
-   "agree": 3,
+   "overlap": 11,
+   "agree": 11,
    "examples": []
   },
   "cpu.socket": {
-   "overlap": 3,
-   "agree": 3,
+   "overlap": 11,
+   "agree": 11,
    "examples": []
   },
   "cpu.tdp_w": {
-   "overlap": 3,
-   "agree": 3,
+   "overlap": 11,
+   "agree": 11,
+   "examples": []
+  },
+  "cpu.thread_count": {
+   "overlap": 4,
+   "agree": 4,
    "examples": []
   },
   "gpu.chipset": {
-   "overlap": 6,
-   "agree": 6,
+   "overlap": 8,
+   "agree": 8,
+   "examples": []
+  },
+  "gpu.core_clock_mhz": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.directx": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.interface": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.length_mm": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.memory_bus_bit": {
+   "overlap": 2,
+   "agree": 2,
    "examples": []
   },
   "gpu.memory_gb": {
@@ -171,14 +275,34 @@
    "agree": 6,
    "examples": []
   },
+  "gpu.memory_speed_gbps": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.memory_type": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.opengl": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
+  "gpu.recommended_psu_w": {
+   "overlap": 2,
+   "agree": 2,
+   "examples": []
+  },
   "memory.cas_latency": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 14,
+   "agree": 14,
    "examples": []
   },
   "memory.color": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 14,
+   "agree": 14,
    "examples": []
   },
   "memory.lighting": {
@@ -187,18 +311,18 @@
    "examples": []
   },
   "memory.memory_type": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 16,
+   "agree": 16,
    "examples": []
   },
   "memory.module_count": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 14,
+   "agree": 14,
    "examples": []
   },
   "memory.module_size_gb": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 14,
+   "agree": 14,
    "examples": []
   },
   "memory.speed": {
@@ -244,18 +368,18 @@
    ]
   },
   "memory.speed_mhz": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 14,
+   "agree": 14,
    "examples": []
   },
   "memory.total_gb": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 16,
+   "agree": 16,
    "examples": []
   },
   "memory.voltage_v": {
-   "overlap": 12,
-   "agree": 12,
+   "overlap": 14,
+   "agree": 14,
    "examples": []
   }
  }
