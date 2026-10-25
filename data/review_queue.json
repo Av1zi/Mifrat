@@ -873,6 +873,17 @@
     "category": "psu",
     "brand": "Antec",
     "listing_a": "1pc:183247",
+    "listing_b": "tms:GSK850-W",
+    "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "title_b": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular White",
+    "match_text_a": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
+    "match_text_b": "GSK850-W Antec GSK 850W ATX3.1 80+ Gold Full Modular White"
+  },
+  {
+    "score": 92,
+    "category": "psu",
+    "brand": "Antec",
+    "listing_a": "1pc:183247",
     "listing_b": "tms:GSK850V2-W",
     "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
     "title_b": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White",
@@ -3515,7 +3526,7 @@
         "listing_key": "tms:NE850PLATINUM",
         "vendor_sku": "NE850PLATINUM",
         "title": "ANTEC PSU 850W NE850 NeoECO ATX3.1 Platinum Full Modular",
-        "price": 481
+        "price": 437
       }
     ]
   },
