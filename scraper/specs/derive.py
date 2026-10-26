@@ -166,6 +166,8 @@ _INTEL_GEN_DESKTOP: dict[int, tuple[str, int]] = {
 }
 _INTEL_MOBILE_SUFFIX = re.compile(r"\d{3,5}(?:U|H|HK|HS|HQ|Y|P|G\d)$", re.I)
 _ULTRA_ARROW_LAKE = re.compile(r"\bUltra\s?[579]\s?2\d{2}(?![0-9])", re.I)
+_INTEL_CORE_TOKEN = re.compile(r"\b(?:Core\s*)?i[3579][\s-]?(\d{4,5}[A-Z]{0,3})\b", re.I)
+_INTEL_BOX_MARKER_SUFFIXES = {"F", "T", "TF", "K", "KF", "KS", "X", "XE"}
 # AMD parts whose SMT is per-SKU (Ryzen 3 1200/2200G/3200G ship 4 cores/4
 # threads while 3100/3300X/4100 ship 4/8), so they are never inferred.
 _AMD_SMT_SERIES = re.compile(r"\bRyzen\s?[579]\b|\bThreadripper\b|\bEPYC\b", re.I)
