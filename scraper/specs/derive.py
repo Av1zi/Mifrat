@@ -287,10 +287,12 @@ def _box_cooler(model: str, packaging: str | None) -> bool | None:
     - no cooler: every Threadripper and X3D part; AMD X-suffix Ryzen 7000/9000
       and 5700X/5800X/5900X/5950X; Intel K / KF / KS / X; EPYC and Xeon.
     - cooler: Ryzen 7000 non-X (7600/7700/7900), Ryzen 8000G and 8400F/8700F,
-      Ryzen 5500/5600/5600G/5600X; Intel Core i3/i5/i7/i9 10th-14th gen non-K.
+      Ryzen 5500/5600/5600G/5600X; Intel Core i3/i5/i7/i9 10th-14th gen with
+      plain/F/T suffixes.
 
-    Anything else (Ryzen 9000 non-X, Core Ultra non-K) stays unknown: the
-    makers changed the bundle within those lineups. Only boxed or unstated
+    Anything else (Ryzen 9000 non-X, Core Ultra non-K, or opaque Intel suffixes
+    like "...FB") stays unknown: the makers changed the bundle within some
+    lineups and vendors also mint local box codes. Only boxed or unstated
     packaging: tray is handled above.
     """
     if packaging not in (None, "boxed"):
@@ -313,7 +315,12 @@ def _box_cooler(model: str, packaging: str | None) -> bool | None:
                 r"\bUltra\b.*\d{3}KF?\b", text, re.I):
             return False
         if re.search(r"\bi[3579]\b", text, re.I) and (_generation_number(text) or 0) in range(10, 15):
-            return True
+            if _INTEL_MOBILE_SUFFIX.search(alnum):
+                return None
+            match = re.search(r"I[3579]\d{4,5}([A-Z]{0,3})$", alnum)
+            if not match:
+                return None
+            return True if match.group(1) in {"", "F", "T", "TF"} else None
     return None
 
 
