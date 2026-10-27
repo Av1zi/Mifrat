@@ -16,6 +16,7 @@ Usage (from the repo root):
 python -m scraper.normalize_and_match
 """
 
+import io
 import json
 import sys
 from datetime import datetime, timedelta, timezone
@@ -227,7 +228,8 @@ def _recompute_canonical_names(products: list[dict], enriched: list[dict]) -> No
         if product.get("matched_by") == "manual" and product.get("category") not in (
                 "cpu", "gpu"):
             continue
-        group = groups.get(product.get("product_id"), [])
+        pid = str(product.get("product_id") or "")
+        group = groups.get(pid, [])
         if not group:
             continue
         # GPU names must carry the board partner, not the chip vendor: a
@@ -619,7 +621,8 @@ def main():
     # build right before the outputs are written. Degrade to replacement
     # characters instead; CI (utf-8) is unaffected.
     try:
-        sys.stdout.reconfigure(errors="replace")
+        if isinstance(sys.stdout, io.TextIOWrapper):
+            sys.stdout.reconfigure(errors="replace")
     except (AttributeError, ValueError):
         pass
     today = datetime.now(timezone.utc)

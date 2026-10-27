@@ -58,7 +58,7 @@ TIER_TITLE = 2
 TIER_REFERENCE_FUZZY = 2.5
 TIER_WEAK = 3
 
-TIER_NAMES = {
+TIER_NAMES: dict[float, str] = {
     TIER_OVERRIDE: "override",
     TIER_REFERENCE: "reference",
     TIER_MANUFACTURER: "manufacturer",
@@ -76,7 +76,7 @@ class Fact:
     """One typed claim about one field, with its provenance."""
 
     value: Any
-    tier: int
+    tier: float
     source: str
     confidence: float = 1.0
     listing_key: str | None = None

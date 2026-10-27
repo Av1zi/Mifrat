@@ -731,7 +731,7 @@ def parse_storage(text_input: str) -> list[tuple]:
 
     generation = text.PCIE_GEN_RE.search(text_value)
     gen = (generation.group(1) or generation.group(2)) if generation else None
-    if gen and (generation.group(1) or nvme):
+    if generation and gen and (generation.group(1) or nvme):
         pairs.append(("pcie_gen", int(gen), 0.9))
         pairs.append(("interface", f"M.2 PCIe {gen}.0 x4"
                       if re.search(r"\bM\.2\b", text_value, re.I) else f"PCIe {gen}.0 x4", 0.9))

@@ -55,6 +55,8 @@ IMAGES_DIR = REPO_ROOT / "data" / "images"
 CATALOG_PATH = REPO_ROOT / "data" / "catalog.json"
 THUMB_SUBDIR = "thumbs"
 
+from scraper.image_pixels import load_pixels, rgb_at  # noqa: E402
+
 # A pixel counts as "background white" at or above this on every channel.
 # 240 rather than 255: vendor JPEGs compress a white studio backdrop to
 # 250-254 near edges, never a flat 255.
@@ -92,19 +94,19 @@ def _border_white_share(img: Image.Image) -> float:
     if width < 4 or height < 4:
         return 0.0
     rgb = img.convert("RGB")
-    pixels = rgb.load()
+    pixels = load_pixels(rgb)
     step_x = max(1, width // 120)
     step_y = max(1, height // 120)
     white = total = 0
     for x in range(0, width, step_x):
         for y in (0, 1, height - 2, height - 1):
-            r, g, b = pixels[x, y]
+            r, g, b = rgb_at(pixels, x, y)
             total += 1
             if r >= WHITE_CUTOFF and g >= WHITE_CUTOFF and b >= WHITE_CUTOFF:
                 white += 1
     for y in range(0, height, step_y):
         for x in (0, 1, width - 2, width - 1):
-            r, g, b = pixels[x, y]
+            r, g, b = rgb_at(pixels, x, y)
             total += 1
             if r >= WHITE_CUTOFF and g >= WHITE_CUTOFF and b >= WHITE_CUTOFF:
                 white += 1
@@ -212,7 +214,7 @@ def catalog_report(covers: dict[tuple[str, str], dict], sample: int) -> dict:
                 sku = str(offer.get("vendor_sku") or "")
                 break
         vendor_folder = "onepc" if vendor in ("1pc", "onepc") else (vendor or "?")
-        metrics = covers.get((vendor_folder, f"{_stem(sku)}.webp"))
+        metrics = covers.get((vendor_folder, f"{_stem(sku or '')}.webp"))
         category = str(product.get("category") or "?")
         bucket = by_category.setdefault(category, {"products": 0, "vendors": {}})
         bucket["products"] += 1

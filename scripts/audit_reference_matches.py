@@ -18,6 +18,7 @@ data/pcpartdb/index.json):
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import sys
 from collections import Counter, defaultdict
@@ -105,7 +106,7 @@ def audit(products: list[dict], seen: dict[str, dict]) -> dict:
     by_method: Counter = Counter()
     flagged_by_method: Counter = Counter()
     for product in products:
-        category = product.get("category")
+        category = str(product.get("category") or "")
         record = seen.get(str(product.get("product_id")))
         if not record or record["match"] is None:
             by_method["unmatched"] += 1
@@ -150,7 +151,9 @@ def audit(products: list[dict], seen: dict[str, dict]) -> dict:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    if isinstance(sys.stdout, io.TextIOWrapper):
+        sys.stdout.reconfigure(errors="replace")
+    parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--out", default=str(ROOT / "tmp" / "reference_audit.json"))
     parser.add_argument("--show", type=int, default=15,
                         help="print this many flagged links")

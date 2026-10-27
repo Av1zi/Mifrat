@@ -449,7 +449,7 @@ def check_tables(products: list[dict]) -> int:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap = argparse.ArgumentParser(description=(__doc__ or "").split("\n\n")[0])
     ap.add_argument("--category")
     ap.add_argument("--catalog", type=Path, default=CATALOG,
                     help="catalog json to read (default data/catalog.json)")

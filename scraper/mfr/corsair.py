@@ -89,7 +89,7 @@ def match(entries_by_key: dict[str, dict], product: dict) -> dict | None:
         entry = entries_by_key.get(base_mpn(value))
         if entry:
             return entry
-    group = _PATH_CATEGORY.get(product.get("category"))
+    group = _PATH_CATEGORY.get(str(product.get("category") or ""))
     if group is None:
         return None
     model, colours = _tokens(re.sub(r"(\d+)\s*x\s*(\d+)", " ", str(product.get("canonical_name") or "")))

@@ -179,7 +179,7 @@ _FORM_PATTERN = re.compile(
     re.I)
 
 
-def mb_form_factor_list(text: str) -> list[str]:
+def mb_form_factor_list(text: str | None) -> list[str]:
     """'Mini-ITX | MicroATX | ATX | E-ATX (305mm x 277mm)' ->
     ['Mini ITX', 'Micro ATX', 'ATX', 'E-ATX'] - the spellings the catalog's
     filter already uses, so a manufacturer row never forks a facet."""
@@ -237,8 +237,11 @@ def front_io_ports(text) -> list[str] | None:
     # "USB (Type-C)"), bare "USB" is no information, one audio token.
     out: list[str] = []
     for port in ports:
-        port = {"USB (Type-C)": "USB Type-C", "Microphone": "Earphone/Mic",
-                "Headphone": "Earphone/Mic"}.get(port, port)
+        port = str(port)
+        mapped = {"USB (Type-C)": "USB Type-C", "Microphone": "Earphone/Mic",
+                  "Headphone": "Earphone/Mic"}.get(port)
+        if mapped:
+            port = mapped
         if port not in ("USB", "Power Button") and port not in out:
             out.append(port)
     if re.search(r"\b(?:mic|headset|headphone|earphone|audio)\b", text, re.I) \

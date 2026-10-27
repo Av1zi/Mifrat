@@ -287,7 +287,9 @@ class OnePcSpider(scrapy.Spider):
                     "[1pc] %d block responses (HTTP %s) - hard stop, not "
                     "retrying against the block", self._blocks, status,
                 )
-                self.crawler.engine.close_spider(self, "blocked")
+                engine = self.crawler.engine
+                if engine is not None:
+                    engine.close_spider(self, "blocked")
         self.logger.error(
             "[1pc] request failed: %s meta=%s (%s)",
             request.url, request.meta, failure.value,

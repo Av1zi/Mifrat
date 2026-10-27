@@ -121,7 +121,7 @@ def build_cases() -> list[dict]:
         b = listings.get(item.get("listing_b"), {})
         decision = by_pair.get(frozenset((item.get("listing_a"), item.get("listing_b"))))
         cid = f"fuzzy|{i}|"
-        state = {"match": "fixed", "not_match": "fixed"}.get(decision, "open")
+        state = {"match": "fixed", "not_match": "fixed"}.get(str(decision or ""), "open")
         if dismissed.get(cid):
             state = "dismissed"
         cases.append({

@@ -9,6 +9,7 @@ Run: python -m scraper.specs.report_gaps [--top 30]
 """
 from __future__ import annotations
 
+import io
 import json
 import sys
 from pathlib import Path
@@ -39,7 +40,8 @@ def _load_gaps() -> list[dict]:
 
 def main() -> int:
     try:
-        sys.stdout.reconfigure(errors="replace")
+        if isinstance(sys.stdout, io.TextIOWrapper):
+            sys.stdout.reconfigure(errors="replace")
     except (AttributeError, ValueError):
         pass
     top = 30

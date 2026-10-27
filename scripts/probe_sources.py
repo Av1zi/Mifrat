@@ -106,7 +106,7 @@ def probe(name):
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap = argparse.ArgumentParser(description=(__doc__ or "").split("\n\n")[0])
     ap.add_argument("names", nargs="*", help=f"subset of: {', '.join(CANDIDATES)}")
     ap.add_argument("--json", help="write results as JSON")
     args = ap.parse_args()

@@ -162,7 +162,7 @@ _requests.post = _capture
 _os.environ.update(GROQ_KEY="k", INTERN_KEY="k", INTERN_BASE_URL="https://intern.example/v1")
 try:
     probe = client_module.Extractor()
-    probe._pace = lambda *a: None
+    setattr(probe, "_pace", lambda *a: None)
     probe._openai("intern", "m", "aio", ["color"], "listing")
     probe._openai("groq", "m", "aio", ["color"], "listing")
 finally:
@@ -243,7 +243,8 @@ with tempfile.TemporaryDirectory() as tmp:
 
     both = client_module.Extractor()
     both._gemini = limited
-    both._openai = lambda *a: (_ for _ in ()).throw(client_module.RateLimited("groq: daily", daily=True))
+    setattr(both, "_openai", lambda *a: (_ for _ in ()).throw(
+        client_module.RateLimited("groq: daily", daily=True)))
     try:
         both.facts("aio", ["pump_rpm"], "nothing is left to ask " * 5)
         check("all providers limited raises", False, True)

@@ -27,9 +27,9 @@ sys.path.insert(0, str(ROOT))
 from PIL import Image  # noqa: E402
 
 from scraper import image_score, image_urls  # noqa: E402
+from scraper.image_pixels import rgb_of  # noqa: E402
 from scraper.download_images import (  # noqa: E402
     _row_candidate_urls,
-    _upgrade_low_res,
     build_image_plan,
     encode_cover,
     flatten_on_white,
@@ -223,7 +223,7 @@ def check_scoring(c: Checks) -> None:
         [{"url": TMS_TILE, "vendor": "tms", "in_stock": True},
          {"url": ONEPC_FULL, "vendor": "1pc", "in_stock": True}],
         category="case", table=table)
-    c.eq(picked["url"], TMS_TILE,
+    c.eq((picked or {}).get("url"), TMS_TILE,
          "at equal kind the higher-priority vendor wins despite a worse URL shape")
 
     # Cross-vendor, different kind: a detail-page photo beats a foreign
@@ -232,7 +232,7 @@ def check_scoring(c: Checks) -> None:
         [{"url": TMS_TILE, "kind": "listing", "vendor": "tms", "in_stock": True},
          {"url": ONEPC_FULL, "kind": "detail", "vendor": "1pc", "in_stock": True}],
         category="case", table=table)
-    c.eq(picked["url"], ONEPC_FULL,
+    c.eq((picked or {}).get("url"), ONEPC_FULL,
          "a detail photo beats another vendor's listing tile")
 
     # One priority rank apart is a margin smaller than HYSTERESIS: the site
@@ -241,14 +241,14 @@ def check_scoring(c: Checks) -> None:
         [{"url": ONEPC_FULL, "kind": "detail", "vendor": "1pc", "in_stock": True},
          {"url": IVORY_ORG, "kind": "detail", "vendor": "ivory", "in_stock": True}],
         category="case", table=table, incumbent_url=IVORY_ORG)
-    c.eq(incumbent["url"], IVORY_ORG,
+    c.eq((incumbent or {}).get("url"), IVORY_ORG,
          "a marginally-better challenger does not displace the incumbent")
 
     replaced = image_score.pick_image(
         [{"url": TMS_ORIGINAL, "kind": "detail", "vendor": "tms", "in_stock": True},
          {"url": TMS_TILE, "kind": "listing", "vendor": "tms", "in_stock": True}],
         category="case", table=table, incumbent_url=TMS_TILE)
-    c.eq(replaced["url"], TMS_ORIGINAL,
+    c.eq((replaced or {}).get("url"), TMS_ORIGINAL,
          "a clearly better shot does displace the incumbent")
     c.eq(image_score.pick_image([], category="case"), None,
          "no candidates means no image")
@@ -289,7 +289,7 @@ def check_site_resolution(c: Checks) -> None:
         original = site_data.IMAGES_DIR
         site_data.IMAGES_DIR = images
         try:
-            image, thumb = site_data._local_image_path("tms", "A"), None
+            image = site_data._local_image_path("tms", "A")
             c.eq(image, "/images/tms/A.webp",
                  "the scraped WebP cover resolves")
             c.eq(site_data._local_image_path("tms", "ZZZ"), None,
@@ -408,7 +408,7 @@ def check_alpha_flatten(c: Checks) -> None:
          "transparent pixels become white, not the black RGB under them")
     c.eq(flat.getpixel((50, 50)), (200, 30, 30), "opaque pixels are unchanged")
     half = Image.new("RGBA", (4, 4), (0, 0, 0, 128))
-    px = flatten_on_white(half).getpixel((1, 1))
+    px = rgb_of(flatten_on_white(half).getpixel((1, 1)))
     c.ok(120 <= px[0] <= 135, "half-transparent black blends toward white (grey)")
     pal = Image.new("P", (8, 8), 0)
     pal.info["transparency"] = 0

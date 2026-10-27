@@ -622,10 +622,10 @@ def _fan(items, intro, put) -> None:
     if re.search(r"\bA-?RGB\b", connectors, re.I):
         put("led", "ARGB")
     codes = _variants(items, intro)
-    packs = {re.search(r"-(\d)PK$", code).group(1) if re.search(r"-(\d)PK$", code) else None
-             for code, _ in codes}
-    if len(packs) == 1 and None not in packs:
-        put("quantity", int(packs.pop()))
+    pack_matches = [re.search(r"-(\d)PK$", code) for code, _ in codes]
+    pack_sizes = [match.group(1) for match in pack_matches if match is not None]
+    if pack_matches and len(pack_sizes) == len(pack_matches) and len(set(pack_sizes)) == 1:
+        put("quantity", int(pack_sizes[0]))
 
 
 def _fan_block(items) -> dict[str, list[str]]:

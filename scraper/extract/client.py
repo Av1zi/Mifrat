@@ -23,7 +23,11 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+from collections.abc import Callable
 from pathlib import Path
+from typing import Any
+
+import requests
 
 from ..specs import schema
 
@@ -33,7 +37,7 @@ DEFAULT_MODEL = "claude-haiku-5-5"
 GEMINI_MODEL = "gemini-3.5-flash"
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 GEMINI_DELAY = 7.0            # free tier: ~10 requests a minute
-OPENAI_STYLE = {
+OPENAI_STYLE: dict[str, dict[str, Any]] = {
     # name: base URL (or the env var holding it), key env var, default model, seconds between requests
     "groq": {"base": "https://api.groq.com/openai/v1", "key": "GROQ_KEY",
              "model": "openai/gpt-oss-20b", "delay": 2.5,
@@ -260,15 +264,13 @@ class Extractor:
             time.sleep(wait)
 
     def _post(self, name: str, url: str, headers: dict, body: dict, delay: float,
-              retry_after=None):
+              retry_after: Callable[[requests.Response], tuple[float | None, bool, str]]):
         """POST with the shared 5xx / 429 policy; RateLimited when the provider
         should be skipped. `retry_after(reply)` -> (seconds|None, daily, detail)."""
         import time
 
-        import requests
-
         self._pace(name, delay)
-        reply = None
+        reply: requests.Response | None = None
         timeout = float(os.environ.get("MIFRAT_EXTRACT_TIMEOUT") or REQUEST_TIMEOUT)
         failures = 0
         for attempt in range(5):
@@ -294,6 +296,8 @@ class Extractor:
                 time.sleep(wait + 1)                     # a per-minute quota: wait it out
                 continue
             break
+        if reply is None:                       # every attempt raised before a response
+            raise RateLimited(f"{name}: no response after {failures} network failure(s)")
         self._last[name] = time.time()
         if reply.status_code in (500, 502, 503):
             raise RateLimited(f"{name}: HTTP {reply.status_code}, still overloaded after retries")
@@ -397,7 +401,7 @@ class Extractor:
         if self._client is None:
             if not os.environ.get("ANTHROPIC_API_KEY"):
                 raise NoKey("ANTHROPIC_API_KEY is not set")
-            import anthropic
+            import anthropic  # type: ignore[import-not-found]  # optional provider
 
             self._client = anthropic.Anthropic(max_retries=4)
         return self._client
@@ -473,11 +477,11 @@ class Extractor:
                 continue
             try:
                 if name == "anthropic":
-                    response = self._anthropic(model, category, fields, text)
+                    response = self._anthropic(model or DEFAULT_MODEL, category, fields, text)
                 elif name == "gemini":
-                    response = self._gemini(model, category, fields, text)
+                    response = self._gemini(model or GEMINI_MODEL, category, fields, text)
                 elif name in OPENAI_STYLE:
-                    response = self._openai(name, model, category, fields, text)
+                    response = self._openai(name, model or "", category, fields, text)
                 else:
                     raise NoKey(f"unknown provider {name!r}")
             except RateLimited as error:

@@ -177,7 +177,6 @@ def _identity_slice(category: str, key) -> list[dict]:
     cached = _IDENTITY_SLICE_CACHE.get(cache_key)
     if cached is None:
         want = index_cat(category)
-        fields = IDENTITY_FIELDS.get(category, ())
         rows: list[dict] = []
         for part in index["parts"]:
             if part.get("cat") != want:
@@ -586,7 +585,8 @@ def _intersect_rows(rows: list[dict]) -> dict:
             "specs": shared, "variants": len(rows)}
 
 
-def match_reference_row(category: str | None, query: str, known: dict):
+def match_reference_row(category: str | None, query: str, known: dict,
+                        ) -> tuple[dict, float, str] | None:
     """Return (row, score, method) for a confident Tier-0 match, else None.
 
     `known` is the merged non-reference spec sheet for the product; it supplies
@@ -610,9 +610,9 @@ def match_reference_row(category: str | None, query: str, known: dict):
     if exact:
         if len(exact) == 1:
             return exact[0], 100.0, "exact-name"
-        viable = [row for row in exact
-                  if not _anchor_check(category, anchors, row)[1]]
-        agreeing = [row for row in viable
+        uncontradicted = [row for row in exact
+                          if not _anchor_check(category, anchors, row)[1]]
+        agreeing = [row for row in uncontradicted
                     if _anchor_check(category, anchors, row)[0]]
         if len(agreeing) == 1:
             return agreeing[0], 100.0, "exact-name"

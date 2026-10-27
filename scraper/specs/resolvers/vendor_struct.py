@@ -1951,7 +1951,7 @@ def load_cut_labels() -> dict:
             _LABELS_CACHE = json.loads(CUT_LABELS_PATH.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             _LABELS_CACHE = {}
-    return _LABELS_CACHE
+    return _LABELS_CACHE or {}
 
 
 def parse_cuts(category: str | None, cuts) -> dict[str, list[Fact]]:

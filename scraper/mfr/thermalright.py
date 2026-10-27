@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 
-from .common import html_rows, norm_mpn, norm_name, number_range, typed
+from .common import html_rows, norm_name, number_range, typed
 
 BRAND = "Thermalright"
 BASE_URL = "https://www.thermalright.com"
@@ -58,7 +58,10 @@ def _blocks(page: str) -> list[tuple[str, str]]:
 
 def _dims(raw) -> tuple[int, int, int] | None:
     found = re.findall(r"[LWHD]\s*(\d+(?:\.\d+)?)\s*mm", str(raw or ""))
-    return tuple(int(round(float(n))) for n in found[:3]) if len(found) == 3 else None
+    if len(found) != 3:
+        return None
+    return (int(round(float(found[0]))), int(round(float(found[1]))),
+            int(round(float(found[2]))))
 
 
 def parse(page: str, category: str) -> dict:

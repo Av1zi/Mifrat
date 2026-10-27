@@ -93,7 +93,9 @@ def _mm(raw) -> int | None:
 
 def _dims(raw) -> tuple[float, float, float] | None:
     match = re.search(r"(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)", str(raw or ""))
-    return tuple(float(g) for g in match.groups()) if match else None
+    if not match:
+        return None
+    return float(match.group(1)), float(match.group(2)), float(match.group(3))
 
 
 def _sockets(values: list[str]) -> list[str]:
@@ -140,8 +142,9 @@ def _by_size(pairs) -> tuple[list, dict[int, list], dict[int, list[str]]]:
             continue
         parts = [p for p in re.split(r"\s+\|\s+", value) if p.strip()]
         prefixed = [_SIZE_PREFIX.match(p) for p in parts]
-        if parts and all(prefixed):
-            for match in prefixed:
+        matches = [match for match in prefixed if match is not None]
+        if parts and len(matches) == len(parts):
+            for match in matches:
                 size = int(match.group(1) or match.group(2))
                 sized.setdefault(size, []).append((key, match.group(3).strip()))
         else:

@@ -45,7 +45,7 @@ def in_scope(entry: dict) -> bool:
 
 
 def classify(entry: dict, page: str) -> str | None:
-    return _GROUPS.get(entry.get("group"))
+    return _GROUPS.get(str(entry.get("group") or ""))
 
 
 def match(entries_by_key: dict[str, dict], product: dict) -> dict | None:

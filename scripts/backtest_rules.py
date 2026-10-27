@@ -58,7 +58,6 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from scraper.specs import schema  # noqa: E402
 from scraper.specs.build import _evidence_context, listing_text  # noqa: E402
 from scraper.specs.derive import infer_specs  # noqa: E402
 from scraper.specs.merge import same_value  # noqa: E402
@@ -183,7 +182,7 @@ class Tally:
 
 def backtest_derived(products: list[dict], by_product: dict, tally: Tally) -> None:
     for product in products:
-        category = product.get("category")
+        category = str(product.get("category") or "")
         specs = product.get("specs") or {}
         sources = product.get("spec_sources") or {}
         context = _evidence_context(by_product.get(str(product.get("product_id")), []))
@@ -210,7 +209,7 @@ def backtest_derived(products: list[dict], by_product: dict, tally: Tally) -> No
 
 def backtest_title(products: list[dict], by_product: dict, tally: Tally) -> None:
     for product in products:
-        category = product.get("category")
+        category = str(product.get("category") or "")
         specs = product.get("specs") or {}
         sources = product.get("spec_sources") or {}
         for listing in by_product.get(str(product.get("product_id")), []):
@@ -303,7 +302,7 @@ def is_regression(slot: dict, key: str, pinned: float | None) -> bool:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap = argparse.ArgumentParser(description=(__doc__ or "").split("\n\n")[0])
     ap.add_argument("--catalog", type=Path, default=CATALOG)
     ap.add_argument("--rule", help="only pairs whose key contains this text")
     ap.add_argument("--examples", type=int, default=0,

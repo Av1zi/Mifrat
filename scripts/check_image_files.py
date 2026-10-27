@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from scraper.download_images import COVER_EXT, COVER_MAX_BYTES, MAX_DIMENSION  # noqa: E402
+from scraper.image_pixels import load_pixels, rgb_at  # noqa: E402
 
 IMAGES_DIR = ROOT / "data" / "images"
 ALLOWLIST = ROOT / "data" / "matching" / "image_dark_ok.json"
@@ -44,14 +45,14 @@ def border_black_share(img: Image.Image) -> float:
     width, height = rgb.size
     if width < 8 or height < 8:
         return 0.0
-    px = rgb.load()
+    px = load_pixels(rgb)
     step_x = max(1, width // 100)
     step_y = max(1, height // 100)
     dark = total = 0
     points = [(x, y) for x in range(0, width, step_x) for y in (0, 1, height - 2, height - 1)]
     points += [(x, y) for y in range(0, height, step_y) for x in (0, 1, width - 2, width - 1)]
     for x, y in points:
-        r, g, b = px[x, y]
+        r, g, b = rgb_at(px, x, y)
         total += 1
         if r < BLACK_CUTOFF and g < BLACK_CUTOFF and b < BLACK_CUTOFF:
             dark += 1

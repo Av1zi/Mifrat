@@ -255,10 +255,10 @@ def specs_for(category: str, features: dict) -> dict:
             if _int(f.get("Number of M.2 (M) slots")) is not None else None)
         x16 = [_int(v) for k, v in f.items() if re.match(r"PCI Express x16 \(Gen \d\.x\) slots", k)]
         if x16 and all(n is not None for n in x16):
-            put("pcie_x16_slots", sum(x16))
+            put("pcie_x16_slots", sum(n for n in x16 if n is not None))
         x1 = [_int(v) for k, v in f.items() if re.match(r"PCI Express x1 \(Gen \d\.x\) slots", k)]
         if x1 and all(n is not None for n in x1):
-            put("pcie_x1_slots", sum(x1))
+            put("pcie_x1_slots", sum(n for n in x1 if n is not None))
         put("ethernet", _ethernet(f.get("Ethernet interface type")))
         if "Wi-Fi" in f:
             put("wireless", _wifi(f.get("Top Wi-Fi standard")) if _yes(f.get("Wi-Fi")) else "No")
@@ -344,7 +344,8 @@ def specs_for(category: str, features: dict) -> dict:
     elif category == "case":
         form = f.get("Form factor")
         put("type", form)
-        put("mb_form_factors", mb_form_factor_list(f.get("Supported motherboard form factors")))
+        put("mb_form_factors", mb_form_factor_list(
+            str(f.get("Supported motherboard form factors") or "")))
         put("max_gpu_length_mm", _int(f.get("Maximum graphics card length")))
         put("max_cooler_height_mm", _int(f.get("Maximum CPU cooler height")))
         put("drive_bays_35", _int(f.get('Number of 3.5" bays')))

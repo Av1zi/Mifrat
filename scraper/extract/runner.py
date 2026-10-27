@@ -20,6 +20,7 @@ import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 from ..specs import schema
 from .client import PROMPT_VERSION, Extractor, NoKey, RateLimited, prompt, provider_models
@@ -127,10 +128,12 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
         audit: int | None = None, verbose: bool = True) -> dict:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     extractor = Extractor(offline=offline)
-    summary = {"model": ",".join(m or "?" for _, m in extractor.providers), "mode": "audit" if audit else "fill",
-               "products": 0, "fields_asked": 0, "claimed": 0, "verified": 0}
+    summary: dict[str, Any] = {
+        "model": ",".join(m or "?" for _, m in extractor.providers),
+        "mode": "audit" if audit else "fill",
+        "products": 0, "fields_asked": 0, "claimed": 0, "verified": 0}
     entries = _load_entries()
-    tally: dict = defaultdict(lambda: defaultdict(
+    tally: dict[Any, dict[Any, dict[str, Any]]] = defaultdict(lambda: defaultdict(
         lambda: {"overlap": 0, "agree": 0, "examples": []}))      # model -> category.field -> slot
     _, backtest = _scripts()
     est_in = 0
@@ -160,13 +163,16 @@ def run(*, limit: int | None = None, dry_run: bool = False, offline: bool = Fals
         for claim in claims or []:
             summary["claimed"] += 1
             field = claim.get("field")
+            quote = claim.get("quote")
+            if not isinstance(field, str) or not isinstance(quote, str):
+                continue
             if field not in fields or field in specs:
                 continue
-            value = verified(category, field, claim.get("value"), claim.get("quote"), text)
+            value = verified(category, field, claim.get("value"), quote, text)
             if value is None:
                 continue
             summary["verified"] += 1
-            specs[field], quotes[field] = value, claim.get("quote")
+            specs[field], quotes[field] = value, quote
         if audit:
             for field, value in specs.items():
                 slot = tally[extractor.last_model][f"{category}.{field}"]

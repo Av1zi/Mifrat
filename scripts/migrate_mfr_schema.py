@@ -59,7 +59,7 @@ def migrate_file(path: Path) -> bool:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap = argparse.ArgumentParser(description=(__doc__ or "").split("\n\n")[0])
     ap.add_argument("--check", action="store_true",
                     help="exit 1 when a file is not at the current schema version")
     args = ap.parse_args()

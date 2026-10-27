@@ -49,7 +49,9 @@ def product_text(listings: list[dict]) -> str:
 
     for listing in listings:
         meta = listing.get("vendor_meta") or {}
-        add(listing.get("title_raw"))
+        title = listing.get("title_raw")
+        if isinstance(title, str):
+            add(title)
         if isinstance(meta.get("description"), str):
             add(meta["description"])
         detail = meta.get("detail_specs")
@@ -105,7 +107,7 @@ def _carries(spec, category: str | None, typed, value, quote: str) -> bool:
         len(normalize(value)) >= 2 and normalize(value) in norm_quote)
 
 
-def verified(category: str | None, field: str, value, quote: str, text: str):
+def verified(category: str | None, field: str, value, quote: object, text: str):
     """The typed value when the claim survives every check, else None."""
     if not extractable(category, field) or value is None:
         return None

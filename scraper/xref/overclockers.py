@@ -147,7 +147,8 @@ def specs_for(category: str, rows: dict) -> dict:
     if category == "case":
         # "Case Type" is not read: Overclockers files the O11 Dynamic Mini V2
         # (a mid tower by its maker and our vendors) as "Mini Case".
-        put("mb_form_factors", mb_form_factor_list(rows.get("Compatible Motherboard Formats")))
+        put("mb_form_factors", mb_form_factor_list(
+            str(rows.get("Compatible Motherboard Formats") or "")))
         put("max_cooler_height_mm", _num(rows.get("Max. CPU Cooler Height")))
         put("max_gpu_length_mm", _num(rows.get("Max. GPU Length")))
         included = _yes(rows.get("PSU included"))

@@ -39,6 +39,11 @@ except ImportError:
     from image_urls import candidate_urls  # type: ignore[no-redef]
 
 try:
+    from scraper.image_pixels import load_pixels, rgb_at
+except ImportError:
+    from image_pixels import load_pixels, rgb_at  # type: ignore[no-redef]
+
+try:
     from scraper.image_score import blocklist as _image_blocklist
 except ImportError:
     from image_score import blocklist as _image_blocklist  # type: ignore[no-redef]
@@ -135,17 +140,17 @@ def _url_is_dark(url: str | None) -> bool:
         if _PILImage is not None and path.is_file():
             with _PILImage.open(path) as im:
                 small = im.convert("RGB").resize((64, 64))
-                px = small.load()
+                px = load_pixels(small)
                 total = 0
                 count = 0
                 for x in range(64):
                     for y in list(range(4)) + list(range(60, 64)):
-                        r, g, b = px[x, y]
+                        r, g, b = rgb_at(px, x, y)
                         total += r + g + b
                         count += 1
                 for y in range(4, 60):
                     for x in list(range(4)) + list(range(60, 64)):
-                        r, g, b = px[x, y]
+                        r, g, b = rgb_at(px, x, y)
                         total += r + g + b
                         count += 1
                 dark = (total / count / 3) < DARK_BORDER_LUM if count else False
@@ -300,16 +305,16 @@ def _cover_quality(path: Path) -> float:
                 aspect = (width / height) if height else 1.0
                 square = 1.0 - min(abs(aspect - 1.0), 1.0)
                 small = im.convert("RGB").resize((64, 64))
-                px = small.load()
+                px = load_pixels(small)
                 white = total = 0
                 for x in range(64):
                     for y in list(range(3)) + list(range(61, 64)):
-                        r, g, b = px[x, y]
+                        r, g, b = rgb_at(px, x, y)
                         total += 1
                         white += 1 if min(r, g, b) >= 232 else 0
                 for y in range(3, 61):
                     for x in list(range(3)) + list(range(61, 64)):
-                        r, g, b = px[x, y]
+                        r, g, b = rgb_at(px, x, y)
                         total += 1
                         white += 1 if min(r, g, b) >= 232 else 0
                 border = white / total if total else 0.0

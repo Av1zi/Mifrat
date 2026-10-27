@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import io
 import json
 import re
 import sys
@@ -144,7 +145,7 @@ def _row_category(row: dict, by_sku: dict[tuple[str, str], str]) -> str | None:
 
 
 def main() -> int:
-    if hasattr(sys.stdout, "reconfigure"):
+    if isinstance(sys.stdout, io.TextIOWrapper):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(
         description="Offline spec-coverage diagnostic (no network).")

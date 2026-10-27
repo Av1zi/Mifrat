@@ -33,6 +33,7 @@ import socketserver
 import sys
 import threading
 from pathlib import Path
+from typing import Literal, cast
 from urllib.parse import quote
 
 from playwright.sync_api import sync_playwright
@@ -97,7 +98,7 @@ ROUTES = {
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *args):  # noqa: D401 - silence request log
+    def log_message(self, format: str, *args: object) -> None:  # noqa: A002 - silence request log
         pass
 
 
@@ -158,7 +159,8 @@ def main() -> int:
                     ctx = browser.new_context(
                         viewport={"width": w, "height": h},
                         locale="he-IL" if lang == "he" else "en-US",
-                        color_scheme=theme,
+                        color_scheme=cast(
+                            Literal["dark", "light", "no-preference"], theme),
                     )
                     for name in args.routes.split(","):
                         hash_, seed = ROUTES[name]

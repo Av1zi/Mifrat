@@ -121,6 +121,9 @@ def run(*, brands: set[str] | None = None, limit: int | None = None,
                 summary[status if status == NOT_OPEN else "not_found"] += 1
                 continue
             summary["ok"] += 1
+            if data is None:                    # 'ok' with no sheet: treat as a miss
+                summary["not_found"] += 1
+                continue
             keys = _sheet_keys(data)
             if not keys & ours:
                 summary["rejected"] += 1        # Icecat's lenient lookup, not our part
