@@ -5,6 +5,7 @@ This document explains every part of the Mifrat project in plain concepts, with 
 Related sources of truth:
 
 - PROJECT_OVERVIEW.md — this file (plain concepts, no code)
+- pc-parts-il-plan.md (local-only, not committed) — the build plan, scheduling rationale, and roadmap status
 - scraper/specs/README.md — how the spec pipeline works
 - decisions.md (local-only, not committed) — running log of decisions
 - README.md — short live status + quickstart
@@ -33,7 +34,7 @@ Non-goals for the current version:
 
 The site is bilingual, Hebrew and English, right-to-left by default in Hebrew and left-to-right in English. Prices are stored as whole Israeli shekels and can be displayed in shekels or converted to dollars for viewing only.
 
-Live scale (mid Oct 2026 snapshot; moves daily): roughly 6,100 listings merged into ~3,800 products across 12 categories, with a ~360-item human review queue. Four vendors feed the pipeline: TMS (home), and 1PC, Ivory and YahavPC (cloud).
+Live scale (late Oct 2026 snapshot; moves daily): roughly 6,150 listings merged into ~3,750 products across 11 public categories (12 pipeline categories — air coolers and liquid coolers are separate upstream and merge into one CPU Cooling category on the site), with a ~320-item human review queue. Four vendors feed the pipeline: TMS and 1PC from the home box, Ivory and YahavPC from the cloud.
 
 ## 2. Big picture — how the whole thing fits together
 
@@ -53,19 +54,19 @@ Concretely:
 
 Two machines do the scraping because vendors behave differently from different networks:
 
-- Cloud runners handle vendors that do not block datacenter addresses.
-- A small home computer (Jetson Nano) handles the one vendor that blocks datacenter addresses and therefore must be visited from a normal residential home connection.
+- Cloud runners handle vendors that do not block datacenter addresses (Ivory and YahavPC).
+- A small home computer (Jetson Nano) handles the vendors that block or challenge datacenter addresses and therefore must be visited from a normal residential home connection (TMS, and 1PC since Oct 2026 when its builder endpoint began serving a CAPTCHA to cloud IPs). That box also runs the local-only spec-enrichment helpers that benefit from a home IP.
 
-Spiders themselves are location-agnostic. Moving a vendor from cloud to home or back is a scheduling change, not a rewrite.
+Spiders themselves are location-agnostic. Moving a vendor from cloud to home or back is a scheduling change, not a rewrite — that move has already happened once, for 1PC.
 
 ## 3. Repository map — where everything lives
 
-- scraper folder: all data-collection and data-merging logic. Includes vendor spiders, shared settings, the daily runner entrypoint, the normalizer, the matcher, attribute extraction, price-history builder, reference-spec enrichment, detail-page enrichment helpers, image downloader, and size checks.
-- site folder: the static website. Vite plus TypeScript with no UI framework. Includes page views, shared state and routing, catalog access, filtering and compatibility logic, formatting and translation, and the tiny short-link worker.
-- data folder: the database. Raw daily snapshots, the built catalog, the review queue, manual merge decisions, public site files, price history, detail enrichment ledgers, downloaded images, and reference label files. Some subfolders are intentionally not committed.
-- nano folder: setup and scheduling for the home computer that scrapes the one blocked vendor.
-- scripts folder: shared helper for committing and pushing with retry, used by automated jobs.
-- Workflows folder for automation: cloud scraping schedule, normalize-and-deploy pipeline, weekly old-data cleanup.
+- scraper folder: all data-collection and data-merging logic. Includes vendor spiders, shared settings, the daily runner entrypoint, the normalizer, the matcher, the typed spec system, price-history builder, reference-spec enrichment, detail-page enrichment helpers, image downloader, size checks, plus four enrichment sub-packages: `mfr` (manufacturer spec pages), `xref` (foreign-retailer cross-references), `icecat` (Open Icecat product sheets), and `extract` (verified AI extraction for facts still sitting in prose), and a local QA workbench.
+- site folder: the static website. Vite plus TypeScript with no UI framework. Includes page views (category, product, builder, drops, compare, saved, search, quality, legal), shared state and routing, catalog access, filtering and compatibility logic, formatting and translation, and the tiny short-link worker.
+- data folder: the database. Raw daily snapshots, the built catalog, the review queue, manual merge decisions, public site files, price history, detail enrichment ledgers, downloaded images, reference label files, and the enrichment outputs (spec overrides, manufacturer and cross-reference JSON, extraction ledger). Some subfolders are intentionally not committed.
+- nano folder: setup and scheduling for the home computer: systemd units and shell entrypoints for the TMS and 1PC listing scrapes and for the local spec-enrichment runs.
+- scripts folder: shared helper for committing and pushing with retry, used by automated jobs, plus the offline gate scripts (spec sync, coverage, merge, category, image, extraction, backtest checks).
+- Workflows folder for automation: cloud scraping schedule (plus detail enrichment), normalize-and-deploy pipeline, manual AI-extraction run, site and spec checks, weekly old-data cleanup.
 - Root configuration: package and worker configuration for the hosting platform, dependency lists for Python and for the site, crawler configuration.
 
 ## 4. Scraping layer — how data is collected
@@ -109,13 +110,15 @@ Promotions and bundles: if a card shows two shekel amounts with new-PC wording, 
 
 Network and politeness rules for TMS are strict because it runs from a home connection and the vendor blocks datacenter addresses: plain HTTP only with no browser automation on the home machine, obey robots rules, very slow and strictly sequential requests, minimal bot-identifying headers, and an automatic hard stop after two block responses in one run. No retries against blocks, no proxies, no evasion. Repeated blocks mean de-escalate or drop the source.
 
-### 4.5 1PC spider — cloud vendor
+### 4.5 1PC spider — home vendor (on the Nano since 2026-10-24)
 
 Purpose: collect core components from 1PC through the vendor own builder data endpoint.
 
-What it visits: a fixed mapping of internal category identifiers to canonical guesses such as processor, CPU cooling, motherboard with platform dependency, memory, case, power supply, case fans, graphics, solid-state, and hard drive. The mapping was confirmed to return full unfiltered categories.
+What it visits: a fixed mapping of builder slots to canonical guesses such as processor, CPU cooling, motherboard with platform dependency, memory, case, power supply, case fans, graphics, solid-state, and hard drive, plus two server-rendered category pages for the fan and hard-drive families the builder feed does not cover. The mapping was confirmed to return full unfiltered categories.
 
-How it works: it posts form-style requests for pages of a category and reads the returned product-tile fragments. Each tile carries a numeric product identifier, title, price, thumbnail, and pagination signal. Prices are rounded carefully to whole shekels to remove floating-point noise. Titles are cleaned of occasional data-format bleed. The numeric identifier becomes the vendor identifier, stock is recorded as true because the endpoint only returns available items and carries no explicit stock signal, and pagination continues while the response indicates a next page.
+How it works: it requests pages of a slot as JSON and reads the returned product records — each carrying a numeric product identifier, title, price, image address and pagination signal — while the two HTML category pages are read as product cards with page numbers derived from the footer count. Prices are rounded carefully to whole shekels to remove floating-point noise, titles are cleaned of occasional data-format bleed, the numeric identifier becomes the vendor identifier, and pagination continues while the response indicates a next page. Stock stays recorded as true because the builder lists only available items and carries no reliable stock signal: the quantity field is an order cap, not inventory, and an honest unknown beats a wrong guess. A challenge page where JSON was expected is treated as a block — stop, no retries, no evasion.
+
+Placement history: this spider ran in the cloud from its rebuild (2026-10-13, after the original `PCBuilder/CategoryViewData` endpoint 404'd in a storefront replacement) until Oct 2026, when the new endpoint began serving a DDOS-protection CAPTCHA to datacenter IPs. That is a stop signal, so the listing run moved to the Nano under the home rules (§4.9) instead of being worked around. Its detail-page scrape still runs in the cloud, where it is not challenged.
 
 ### 4.6 Plonter spider — dropped (code kept)
 
@@ -151,11 +154,11 @@ There is no KSP spider. KSP sits behind bot management; that is a stop signal, n
 
 ### 4.9 Schedules — cloud vs home
 
-Cloud scraping runs on hosted automation on a matrix of the cloud-safe vendors (Ivory, 1PC, YahavPC), with independent jobs so one vendor failure does not stop the others. It runs once late at night Israel time with a random spread to avoid thundering-herd timing, plus a morning fallback that skips vendors whose output already exists and is non-empty. It can also be started manually. It installs dependencies, installs the browser binary (kept installed for a possible Plonter return; no scheduled vendor needs it today), runs the per-vendor entrypoint, then commits only that vendor dated file using the narrow-commit helper. Narrow commits matter because parallel jobs on slightly stale checkouts must not stage each other files as deleted.
+Cloud scraping runs on hosted automation on a matrix of the cloud-safe vendors (Ivory, YahavPC), with independent jobs so one vendor failure does not stop the others. It runs once late at night Israel time with a random spread to avoid thundering-herd timing, plus a morning fallback that skips vendors whose output already exists and was written in the last 18 hours (the overnight window straddles the date change, so "is today's file there" would re-scrape most days). It can also be started manually. It installs dependencies, installs the browser binary (kept installed for a possible Plonter return; no scheduled vendor needs it today), runs the per-vendor entrypoint, then commits only that vendor dated file using the narrow-commit helper. Narrow commits matter because parallel jobs on slightly stale checkouts must not stage each other files as deleted. A detail-scrape job follows the listing matrix for the cloud-run vendors' product pages (including 1PC detail), bounded per run, append-only, and guarded so one failed vendor never cancels the others.
 
-Home scraping runs on the Nano for TMS only. A system service runs the home script with a time limit and logs to the system journal. A daily timer fires in the evening UTC with a large randomized delay so the run lands late at night or overnight Israel time and can catch up after downtime. A morning fallback timer runs only if a success marker for today does not already exist. The home script pulls latest code, runs the spider, checks for zero items, commits and pushes the snapshot first with retries, then does best-effort detail enrichment and image downloading, then pushes again, failing loudly if the main snapshot push fails.
+Home scraping runs on the Nano for TMS and 1PC. A system service runs each home script with a time limit and logs to the system journal. TMS fires in the evening UTC with a large randomized delay so the run lands late at night or overnight Israel time and can catch up after downtime; 1PC fires later and sequentially behind it on the same IP, so the two runs never overlap. Morning fallback timers run only if a success marker for that day does not already exist. Each home script pulls latest code, runs its spider, refuses to commit an empty output (and warns below a per-vendor item floor), and commits and pushes the snapshot first with retries — failing loudly if that push fails, because a silent push failure looks exactly like a dead box. TMS then does best-effort detail enrichment and image downloading before a second push. A separate daily timer runs the verified AI extraction helper after the night's scrapes and normalize have refreshed the catalog, using a gitignored key file, and commits only its own output.
 
-Binding home rules: at most one run per day, strictly sequential and throttled, browser-shaped traffic, hard stop on repeated blocks, de-escalate or drop on repeated blocks, never use proxies or retries against blocks.
+Binding home rules: at most one run per day per vendor, strictly sequential and throttled, browser-shaped traffic, hard stop on repeated blocks, de-escalate or drop on repeated blocks, never use proxies or retries against blocks. 1PC plays by the same rules as TMS: robots obeyed, one concurrent request, small fixed delay, no retries on a block response.
 
 ### 4.10 Outputs and hygiene of scraping
 
@@ -176,7 +179,7 @@ Lifecycle:
 - Download images for those detail results, creating a standard-size image and a small thumbnail, skipping items that already have images and skipping image addresses without a real filename.
 - Mark identifiers as done only if the detail result contained a non-empty specification table. An image alone does not count as done; an empty table means the page was likely a challenge or miss and stays pending for a future attempt.
 
-Per-vendor detail reading is tailored: one vendor uses labeled content rows with Hebrew label mapping, another uses definition and table structures plus structured metadata including brand, availability, and catalog number, another uses specification tables with subgroup handling plus real identifier and manufacturer number discovery from metadata and structured data, and Plonter uses browser automation over table rows with Hebrew labels and directional values. Everywhere, the detail main image is preferred over the listing thumbnail when present, and junk, empty, Hebrew-navigation, or mojibake-contaminated pairs are discarded. Detail tables are a Tier-1 source for the spec system (§6.5): they fill what reference data lacks but never override it.
+Per-vendor detail reading is tailored: one vendor uses labeled content rows with Hebrew label mapping, another uses definition and table structures plus structured metadata including brand, availability, and catalog number, another uses specification tables with subgroup handling plus real identifier and manufacturer number discovery from metadata and structured data, and the dropped Plonter source used browser automation over table rows with Hebrew labels and directional values. Everywhere, the detail main image is preferred over the listing thumbnail when present, and junk, empty, Hebrew-navigation, or mojibake-contaminated pairs are discarded. Detail tables are a Tier-1 source for the spec system (§6.5): they fill what reference data lacks but never override it.
 
 ## 6. Normalize and match — how raw listings become one catalog
 
@@ -202,6 +205,8 @@ Prices are normalized to integer shekels with careful rounding that removes floa
 
 Each listing starts with a rough vendor guess, but titles, addresses, identifiers, and Hebrew hints can correct it. Air cooling is distinguished from liquid cooling before generic cooler wording can confuse them. Fan, accessory, and case guards prevent common misclassification. Hebrew words for liquid cooling, case fans, processor cooling, and paste help disambiguate. Several small accessory families are grouped under one accessories umbrella while preserving the specific accessory type as an attribute. Mining and riser items go to a generic other bucket, and graphics-card holders go to accessories. The goal is a small, stable set of canonical categories the site can rely on.
 
+Two consequences worth knowing: air and liquid coolers stay separate *pipeline* categories (they carry different schemas) but the site presents a single CPU Cooling category with a cooler-type filter, and the temporary `other` bucket must stay near-empty — a product sitting there means the classifier needs a rule, not a relabel. An offline category gate replays real titles that were once misfiled (fans under CPU cooling, air towers under Water, laptops and NAS boxes as storage) so a classifier fix cannot silently regress.
+
 ### 6.4 Search text, brand, and manufacturer number
 
 A normalized match text is built from identifier plus raw title after cleaning. Brand is detected by longest known alias match. Manufacturer numbers are extracted with patterns that understand common affixes and packaging hints, preferring longer and more specific forms and stripping known prefixes that would otherwise split identical products. Short numeric-only identifiers are not treated as manufacturer numbers unless they are long enough to plausibly be universal codes.
@@ -213,9 +218,14 @@ Since the Sep 2026 overhaul, product facts live in a fixed, typed per-category s
 Facts are filled from a strict source-reliability hierarchy, higher tier always winning over lower:
 
 - Tier 0 — Reference: the pc-part-dataset index (PCPartPicker specs) plus a committed per-product override file for human corrections without a code deploy. Reference rows link by exact normalized-name equality first, then fuzzy name plus a hard anchor check (at least one structured field parsed from our own data must agree, and nothing anchored may contradict); ties or ambiguity mean no Tier-0 match. Wrong specs are treated as worse than missing specs. A second exact-match source keyed by manufacturer number adds specs the same way. When the reference index is missing, the pipeline degrades gracefully with Tier 0 disabled and a loud warning.
-- Tier 1 — Trusted vendor structure: Ivory cut labels and detail tables, TMS product fields, detail-page tables, and a post-match bridge of already-computed identity values.
+- Tier 0.5 — Manufacturer pages: the brand's own product pages, fetched politely by the `mfr` package and joined only on an identifier the page itself states (manufacturer number or barcode). A brand that answers a bot with 403/WAF is a stop signal and is left unfilled, never worked around.
+- Tier 0.75 — Open Icecat sheets: a brand's own spec sheet as its syndication service returns it, joined by part number or barcode, and only kept for fields that measured agreement against what our own sources say.
+- Tier 1 — Trusted vendor structure: Ivory cut labels and detail tables, TMS product fields, detail-page tables, foreign-retailer spec tables reached by exact identifier cross-reference (`xref`), and a post-match bridge of already-computed identity values.
+- Tier 1.5 — Verified AI extraction: a model is asked only about fields still empty after every other tier, reading just that product's own listing text. An answer survives only if it quotes the source text verbatim, the value types correctly through the schema, and the quote itself carries the value; each field is audited for measured precision before it is trusted at all, identity fields are never asked, and the whole tier can be disabled for a run.
 - Tier 2 — Title/SKU parsing: typed regexes over the normalized match text. This is the one place pattern-matching lives.
 - Tier 3 — Weak vendors: 1PC prose fragments and Plonter tree/dash dumps. Fill-only: a value contradicting an already-filled higher-tier field is discarded and logged, never merged.
+
+Those extra tiers come from local, politeness-bounded runners rather than the daily scrape: manufacturer pages and foreign-retailer pages are fetched by hand or from the home box (robots obeyed, one request per second, a first block ends that brand), Open Icecat is a cached lookup service, and AI extraction runs on a daily home timer or a manually dispatched workflow. Their outputs are committed JSON the normalizer merely reads, so a missing or stale enrichment file degrades coverage, never correctness.
 
 Rules: never overwrite a filled field with a lower tier; equal-tier conflicts keep the higher-confidence value and record both as a conflict case for the quality page; manual overrides are king. Per-value validators plus cross-field consistency checks run after merging (ranges, enums, socket-to-chipset coherence, kit math), and a small inference step fills only whole-lineup facts (Ryzen series to microarchitecture, tray packaging to no bundled cooler) while per-SKU facts like exact clocks stay `null` until a real source answers.
 
@@ -253,7 +263,7 @@ If a vendor has no snapshot today, the normalizer walks backwards day by day up 
 
 Near-matches are suggested by comparing listings within the same category and brand, skipping generic categories, brand-less items, items already in the same product, already-multi items, blocked pairs, and pairs with differing manufacturer numbers or critical conflicts. A high string-similarity threshold is required. Suggestions plus vendor-duplicate and naming-conflict cases go to a review file for humans.
 
-A tiny local review tool can serve that queue for decisions. A promotion helper turns confirmed matches into new manual products and confirmed non-matches into blocked pairs, idempotently and in sorted order. Fuzzy logic never auto-merges.
+A local QA workbench serves that queue for decisions: a localhost-only tool that writes human answers into committed ledgers (manual merges and blocked pairs, review decisions, spec overrides, dismissed quality cases), covering spec conflicts and coverage gaps alongside match review. The public quality view of the same data is read-only. A promotion helper turns confirmed matches into new manual products and confirmed non-matches into blocked pairs, idempotently and in sorted order. Fuzzy logic never auto-merges.
 
 ### 6.9 Reference-spec enrichment (spec Tier 0)
 
@@ -273,7 +283,7 @@ Since the Sep 2026 photo rework, one product's cover is the best photo *availabl
 
 Choosing: every vendor image URL is expanded into the same photo's originals — the vocabulary lives in one module, because the same shot is served at several shapes (a TMS listing tile is a 228px cached render of a 1500px original at an unsuffixed URL; 1PC appends `_510` to a ~500px native file; Plonter and Ivory have a single canonical shape). Candidates are scored on URL shape, whether the URL came from a detail page or a listing tile, stock, and a committed per-category vendor priority table that a human can edit without a code deploy. The winner is deterministic, so covers only move when the data moves, and detail spiders capture the gallery alongside the main image so the chooser has something to choose from. Site furniture never wins: logos, flags, menu art, and SVG icons are vetoed before scoring. A photo download treats "the file already exists" as "done" only when it is not a smaller copy of a URL we can name better; otherwise it is upgraded in place, at most once per file, tracked by a ledger so genuinely small vendor originals are not refetched forever. Image addresses without a real filename are rejected, and identifier replacements rebuild search text and specs so names stay correct.
 
-Serving: each cover is one WebP (`data/images/<vendor>/<sku>.webp`, long edge at most 640px, quality 76, ~15KB). Vendor sources with an alpha channel (Ivory and 1PC WebP, Yahav and TMS PNG) are composited onto white — the old converter dropped the alpha and left black backdrops. The archive holds only what the site can show: the catalog-selected cover per product plus one runner-up (`python -m scraper.download_images --prune`, dry run by default), roughly 5k files / 100MB instead of the 22k / 580MB the downloader once accumulated; the daily detail download skips a SKU the catalog does not want, and `--from-catalog` re-fetches a cover that is missing. Category rows load a 128px WebP thumbnail that is not stored in git: `site/scripts/copy-data.mjs` derives it from the cover at build time (sharp) for the thumbnails the data references. Pages serve the cover on a white card. `scripts/check_image_files.py` is the corpus gate (WebP only, size budget, no black-border covers). The public site uses local image paths only and never hotlinks vendor hosts at runtime; missing images fall back to an initials-style placeholder, and the build fails if any public product still references a remote image.
+Serving: each cover is one WebP (`data/images/<vendor>/<sku>.webp`, long edge at most 640px, quality 76, ~15KB). Vendor sources with an alpha channel (Ivory and 1PC WebP, Yahav and TMS PNG) are composited onto white — the old converter dropped the alpha and left black backdrops. The archive holds only what the site can show: the catalog-selected cover per product plus one runner-up (`python -m scraper.download_images --prune`, dry run by default), roughly 5k files / 100MB instead of the 22k / 580MB the downloader once accumulated; the daily detail download skips a SKU the catalog does not want, and `--from-catalog` re-fetches a cover that is missing. List rows load a 128px WebP thumbnail and menu tiles and category covers load a 256px one; neither is stored in git — `site/scripts/copy-data.mjs` derives them from the same-named cover at build time (sharp), for only the paths the data references, and falls back to the full cover if sharp is unavailable. Pages serve the cover on a white card. `scripts/check_image_files.py` is the corpus gate (WebP only, size budget, no black-border covers). The public site uses local image paths only and never hotlinks vendor hosts at runtime; missing images fall back to an initials-style placeholder, and the build fails if any public product still references a remote image.
 
 ### 6.12 Public site files
 
@@ -281,7 +291,11 @@ The full internal catalog is sharded into small client-optimized files: one trim
 
 ### 6.13 Triggers and guards
 
-After cloud scraping finishes, detail enrichment runs for a bounded chunk per vendor (capped per run so the first runs after a ledger fix do not hammer vendors), appending detail results, downloading images, marking completed identifiers, and committing narrowly per vendor. The home machine does the same for its vendor with a smaller chunk. The normalize-and-deploy pipeline triggers on new raw data pushes, on cloud-scrape completion (needed because automation-token pushes do not fire push triggers), on a midday fallback schedule, or manually. It allows concurrent runs to queue rather than cancel, then runs a fixed gate sequence: schema-to-frontend drift check (the generated TypeScript must match the schema), best-effort reference-index refresh, catalog and site-file build, hand-verified golden spec fixtures, and payload size checks — any gate fails the run before anything commits. It commits the catalog, review queue, and public site files. Hosting then redeploys automatically.
+After cloud scraping finishes, detail enrichment runs for a bounded chunk per vendor (capped per run so the first runs after a ledger fix do not hammer vendors), appending detail results, downloading images, marking completed identifiers, and committing narrowly per vendor. The home machine does the same for TMS with a smaller chunk.
+
+The normalize-and-deploy pipeline triggers on new raw-data pushes, on cloud-scrape completion (needed because automation-token pushes do not fire push triggers), or manually — there is no clock-time trigger any more, and a first gate skips the run entirely when nothing under `data/raw/` changed since the last normalize commit. It allows concurrent runs to queue rather than cancel, then runs a fixed gate sequence before anything commits: schema-to-frontend drift check (the generated TypeScript must match the schema), manufacturer-data schema-version check, best-effort reference-index refresh, best-effort cover backfill, catalog and site-file build, hand-verified golden spec fixtures, offline vendor-detail-page fixtures, spec merge-rule fixtures, category-classification fixtures, cross-reference parser fixtures, AI-extraction verifier, inference-rule backtest, spec-coverage floors, photo-pipeline regressions, cover-corpus check, site-image resolvability, and the payload size guard. Any gate failure stops the run before the commit. It then commits the catalog, review queue, public site files, and covers. Hosting then redeploys automatically.
+
+A separate read-only workflow runs on pushes and pull requests that touch the frontend, the spec code, or the gate scripts: type-check, lint, unit tests, and a full site build, plus the Python spec and photo checks — deliberately outside the data pipeline so a code change is verified without rebuilding the catalog.
 
 ## 7. Data artifacts — what each file means
 
@@ -299,6 +313,8 @@ After cloud scraping finishes, detail enrichment runs for a bounded chunk per ve
 - Detail files and ledgers: append-only detail results plus pending and completed identifier tracking.
 - Images: local vendor-scoped standard images plus small thumbnails, only for referenced products.
 - Label files: committed translation tables for opaque internal cut identifiers.
+- Enrichment outputs: committed manufacturer-page, foreign-retailer cross-reference, Icecat and AI-extraction JSON that the tiered merge reads as their named tiers. Absent or stale means lower coverage, never wrong values.
+- Spec-gap report: per category and field, which gaps remain and whether any reachable source still carries the fact — the backlog for coverage work.
 - Reference index: ignored, rebuilt cache that powers Tier-0 spec enrichment.
 - Golden fixtures: hand-verified expected specs for known products, checked on every pipeline run.
 
@@ -324,12 +340,17 @@ Routes conceptually:
 - One product: category plus product identifier.
 - Builder: build query with one parameter per slot, repeatable for multi-item slots.
 - Shared build: clean short-link path with a short identifier.
+- Price drops: drops, with an optional window and category filter over every recorded price drop.
+- Compare: compare plus up to four product identifiers, restricted to one category so the columns are comparable.
+- Saved: saved parts and saved lists held in local storage.
+- Full search results: search plus a query, grouped counts per category — distinct from the header's instant-search dropdown.
+- Quality workbench: a read-only view of the same review and conflict data the local QA tool edits.
 - Static pages: privacy, terms, cookies, data-quality.
 - Unknown routes show a not-found page.
 
 Navigation helpers build these hashes, update history for major moves, replace the route without adding history for filter tweaks, and leave the short-link path when the user starts editing so a reload stops fetching the shared snapshot.
 
-The shell always shows: a header with brand, language and currency selectors, and theme toggle; a navigation bar with builder link, products mega-menu button, home link, and global search; a main content area; and a footer with disclaimer, source link, and legal and quality links. The mega-menu groups popular categories with photo tiles plus core, cooling, and accessory groups. Photos load asynchronously with icon fallback so layout does not shift. Global search is debounced, uses the tiny index for instant interim hits, then lazily enriches top hits with per-category data for photos and prices, with keyboard navigation. Language and direction are applied to the document on every route change.
+The shell always shows: a header with brand, language and currency selectors, saved-parts access, and theme toggle; a navigation bar with builder link, products mega-menu button, price-drops and compare links, home link, and global search; a main content area; and a footer with disclaimer, source link, and legal and quality links. The mega-menu groups popular categories with photo tiles plus core, cooling, and accessory groups. Photos load asynchronously with icon fallback so layout does not shift. Global search is debounced, uses the tiny index for instant interim hits, then lazily enriches top hits with per-category data for photos and prices, with keyboard navigation. Language and direction are applied to the document on every route change.
 
 ### 8.3 Home page
 
@@ -404,6 +425,15 @@ Purpose: be transparent about uncertain data.
 
 Contents: articles for vendor-duplicate cases (same vendor appearing twice under different identifiers in one product), naming-conflict cases (same compact number with differing model-title tokens), and spec-conflict cases (equal-tier sources disagreeing on one field, with kept versus dropped values), each with product reference, category, vendor, titles, and offer details including listing key, identifier, title, and price.
 
+### 8.9b Price drops, comparison, saved parts, and full search
+
+Purpose: the browsing extras that give a visitor a reason to come back after the first build.
+
+- Price drops: a signals module reads the per-product price history (it needs at least seven priced days before it says anything, and it follows whichever vendor currently holds the lowest price, so one missing day is not a drop) and the drops page lists recorded drops with window and category filters.
+- Comparison: up to four products from one category, side by side, added from a category row or a product page; a small tray follows the visitor so picks can be collected without navigating away.
+- Saved parts and lists: favorites kept in local storage under stable keys, no account; those keys are named on the privacy and cookie pages.
+- Full search: a dedicated results page with grouped per-category counts, separate from the header's instant dropdown, which stays on the current page and enriches only the few hits it shows.
+
 ### 8.10 Legal and utility pages
 
 Privacy, terms, and cookies pages are static bilingual cards explaining local preferences (language, currency, build, theme, effects), short-link snapshots, currency-rate fetching, hosting request handling, and the absence of tracking, advertising cookies, or consent banners. The not-found page offers home and builder links.
@@ -426,13 +456,13 @@ Dashboard settings point at the site folder, build with the site build command, 
 
 ## 9. Operations and automation
 
-Cloud scraping is a scheduled matrix over the three cloud-safe vendors with no fast failure, late-night primary plus morning fallback that skips already-present outputs, manual dispatch, write permission, dependency and browser-binary installation, per-vendor runs, and narrow per-file commits.
+Cloud scraping is a scheduled matrix over the two cloud-safe vendors with no fast failure, late-night primary plus a morning fallback that skips any vendor whose snapshot is already current (written in the last 18 hours), manual dispatch, write permission, dependency and browser-binary installation, per-vendor runs, and narrow per-file commits.
 
-Normalize-and-deploy triggers on new raw-data pushes, on cloud-scrape completion (because automation-token pushes do not fire push triggers), on a midday fallback schedule, or manually. It never cancels in-progress runs, then runs the fixed gate sequence (§6.13): drift check, best-effort reference refresh, build, golden fixtures, size checks — and commits the catalog, review queue, and public site files. Hosting redeploys on that push. A detail-scrape job runs after the listing spiders (bounded pending chunk per vendor, append-only, exist-guarded narrow commit) so one vendor failing never cancels the others.
+Normalize-and-deploy triggers on new raw-data pushes, on cloud-scrape completion (because automation-token pushes do not fire push triggers), or manually. There is no clock-time trigger: a change gate skips runs where nothing under the raw-data folder changed, since rebuilding an identical catalog is pure noise. It never cancels in-progress runs, then runs the fixed gate sequence (§6.13) — drift check, reference refresh, cover backfill, build, then every offline fixture, backtest, coverage and size gate — and commits the catalog, review queue, and public site files. Hosting redeploys on that push. A detail-scrape job runs after the listing spiders (bounded pending chunk per vendor, append-only, exist-guarded narrow commit) so one vendor failing never cancels the others.
 
 Weekly cleanup thins old raw snapshots to weekly beyond three months and monthly beyond a year, never touching detail files. The normalizer only reads the last two weeks, while git history preserves older blobs.
 
-The home computer uses a service plus daily and fallback timers with randomized delay and catch-up behavior, a dedicated low-privilege user, modern Python via a version manager, pinned crawler versions matching cloud, a repo-scoped deploy key, RAM-friendly logging, and required time synchronization. No browser automation lives there because the home vendor does not need it and the install is heavy on that hardware.
+The home computer uses one service per vendor plus daily and fallback timers with randomized delay and catch-up behavior (the two vendors scheduled so they never overlap), a dedicated low-privilege user, modern Python via a version manager, pinned crawler versions matching cloud, a repo-scoped deploy key, RAM-friendly logging, and required time synchronization. No browser automation lives there because neither home vendor needs it and the install is heavy on that hardware. An extra timer runs the local spec-enrichment helper that needs a home IP and a gitignored key file.
 
 Shared commit hygiene: always commit narrowly with only the files the job wrote, never stage a shared tree, because parallel jobs on stale checkouts can otherwise stage siblings as deleted. The helper guards existence, uses a bot identity, and rebases with retry.
 
@@ -442,22 +472,23 @@ Secrets hygiene: zero secrets in automation and git, ever. Environment examples,
 
 - The reactor setting must stay the first line of the crawler settings file.
 - Every spider keeps both entry methods sharing one request builder for version compatibility.
-- Robots handling is split: ignore globally, obey for the home-run vendor. Never construct page-size URLs for that vendor; follow pagination links or page numbers derived from the results-count footer.
-- Home-IP rules are binding: one run per day, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion.
+- Robots handling is split: ignore globally, obey for the home-run vendors (TMS and 1PC) and for every spec-enrichment fetcher. Never construct page-size URLs for TMS; follow pagination links or page numbers derived from the results-count footer.
+- Home-IP rules are binding: one run per day per vendor, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion.
 - Matching stays strict: manual merges, then CPU model identity, then exact manufacturer number, then exact identifier, then singleton — with packaging splits (boxed versus tray stay apart in every tier), a merge-consistency guard that splits same-identifier groups with conflicting manufacturer numbers, and human blocked-pairs vetoing every tier. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
-- Specs merge by tier, not by accidents of call order: reference wins, then trusted vendor structure, then title parsing, then weak vendors fill-only; equal-tier conflicts are logged, never silently picked. `null` means unknown — never guess a value to fill a gap.
+- Specs merge by tier, not by accidents of call order: reference wins, then manufacturer pages and Open Icecat, then trusted vendor structure (vendor payloads, detail tables, foreign-retailer tables), then verified AI extraction, then title parsing, then weak vendors fill-only; equal-tier conflicts are logged, never silently picked. `null` means unknown — never guess a value to fill a gap.
 - The schema is the single source of truth for specs: add or change a field there, regenerate the frontend metadata, teach a resolver to emit it — nothing else needs editing. The drift check fails the pipeline if the generated module goes stale. Per-product overrides fix data without a code deploy.
 - Any new frontend field must be allowlisted in the site-file trimmer or it is silently dropped before reaching the browser.
 - Compatibility stays client-side as plain rules over specs (via the transitional attribute view until the rail and builder finish migrating). The only server-side piece is short-link storage, which is mathematically required for fixed short identifiers. Legacy long links keep working.
 
 ## 11. How to verify changes without a test suite
 
-There is no automated test suite. Verification is:
+There is no single pipeline test suite; instead every risky area has an offline gate that CI runs on every normalize, and the frontend has real unit tests. Verification is:
 
 - Run one vendor test crawl to an ignored test file and confirm items look sane.
 - Run the schema-to-frontend drift check and confirm the generated spec module is in sync.
 - Run the normalizer locally and confirm the catalog, review queue, public files, spec-coverage report, and history build without failures, golden-fixture mismatches, or size-guard violations.
-- Run the golden spec fixtures and the payload size guard explicitly when touching specs or site data.
+- Run the offline gates that cover what you touched: golden spec fixtures, spec merge rules, category classification, vendor detail-page fixtures, cross-reference fixtures, the extraction verifier, the inference-rule backtest, spec-coverage floors, the photo gates, and the payload size guard — each is a small script under the scripts folder, and the normalize workflow runs all of them before committing.
+- For frontend or spec-code changes, run the type-check, lint, unit tests, and site build — CI does the same on every related push and pull request.
 - Build the site locally and confirm it renders with fresh data.
 
 Dependency setup is a Python package install plus a separate browser-binary install before running the browser-driven vendor. The site needs a package install before development or build. If public data is missing, run the normalizer or pull latest before starting the site.
