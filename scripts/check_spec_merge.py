@@ -298,6 +298,26 @@ def check_curated_tables(c: Checks) -> None:
          "a lineup name with no model number has no table key")
 
 
+def check_cpu_cooler_inference(c: Checks) -> None:
+    from scraper.specs import derive
+
+    specs = {"model": "Core i7 12700F", "packaging": "boxed", "includes_cooler": None}
+    derive.infer_specs("cpu", specs, {})
+    c.eq(specs["includes_cooler"], True, "boxed Core i7 12700F infers bundled cooler")
+
+    specs = {"model": "Core i7 12700FB", "packaging": "boxed", "includes_cooler": None}
+    derive.infer_specs("cpu", specs, {})
+    c.eq(specs["includes_cooler"], None, "boxed Core i7 12700FB stays unknown (opaque suffix)")
+
+    specs = {"model": "Core i7 12700FB", "packaging": "tray", "includes_cooler": None}
+    derive.infer_specs("cpu", specs, {})
+    c.eq(specs["includes_cooler"], False, "tray packaging overrides lineup ambiguity")
+
+    specs = {"model": "Ryzen 7 7700", "packaging": "boxed", "includes_cooler": None}
+    derive.infer_specs("cpu", specs, {})
+    c.eq(specs["includes_cooler"], True, "boxed Ryzen 7 7700 infers bundled cooler")
+
+
 def check_equality_helpers(c: Checks) -> None:
     c.ok(same_value("65W", "65 w"), "unit-case noise does not create a conflict")
     c.ok(same_value(["A", "B"], ["B", "A"]),
@@ -373,7 +393,8 @@ def main() -> int:
     for group in (check_part_number_shape, check_model_prefers_a_name,
                   check_tier_order, check_applicability_gates,
                   check_validation_and_unknowns,
-                  check_curated_tables, check_equality_helpers,
+                  check_curated_tables, check_cpu_cooler_inference,
+                  check_equality_helpers,
                   check_model_codes):
         group(checks)
 
