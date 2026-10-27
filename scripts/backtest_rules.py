@@ -18,14 +18,23 @@ measures exactly that, offline, from data/catalog.json:
   tables         The curated-table check from fill_report.py --check-tables
                  (printed, not gated: its mismatches are often vendor typos).
 
-Every (rule, field) pair gets overlaps / agree / disagree. A pair passes when
-it has no disagreement, or at least MIN_OVERLAP overlaps at >= MIN_PRECISION.
-Pairs that fail today are pinned with their precision in
-scripts/backtest_baseline.json. --check fails when an unpinned pair fails (with
-at least MIN_GATE_OVERLAP overlaps, so one odd new listing cannot stop the daily
-build) or a pinned pair's precision drops more than SLACK points below its pin.
-That makes the baseline a ratchet: existing rules may only get better, and a
-new rule must be clean before it ships.
+Every (rule, field) pair gets overlaps / agree / disagree, and --check decides
+whether a pair is a REGRESSION using a statistical test, not a point threshold
+(see `is_regression`): d disagreements out of n overlaps only count against a
+rule when they are too many to be chance at that rule's acceptable precision
+(MIN_PRECISION for a brand-new pair, or the pair's own recorded rate minus
+SLACK for one pinned in scripts/backtest_baseline.json).
+
+Why a test instead of "precision >= 99%": the catalog is rebuilt from fresh
+scrapes every day, so the *population* each rule is measured against shifts
+continuously. A fixed point threshold trips on pure sampling noise — a 4-overlap
+pair where one odd product flips it 25 points, or a 400-overlap pair drifting
+99.3% -> 98.7% because two new listings arrived. Both kept failing the daily
+build while nothing was actually wrong. A binomial test scales the bar to the
+sample: a handful of overlaps needs overwhelming evidence to fail, a large pair
+needs the drop to be statistically real. The baseline is still a ratchet (a
+pinned pair is judged only against its own history), but a rule can no longer
+stop the build for being within noise of where it has always been.
 
 Usage (repo root, after a normalize run):
     python scripts/backtest_rules.py                 # summary of every pair
@@ -42,6 +51,7 @@ import copy
 import json
 import re
 import sys
+from math import exp, lgamma, log
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -62,6 +72,14 @@ MIN_OVERLAP = 20
 MIN_PRECISION = 99.0
 MIN_GATE_OVERLAP = 5
 SLACK = 2.0
+
+# Significance level for the regression test. A pair fails --check only when the
+# chance of seeing this many disagreements at its acceptable precision is below
+# ALPHA. Kept strict (1 in 10,000) because ~150 pairs are evaluated every day
+# against a shifting catalog — at this level a purely-noise trip is rare, while
+# a rule that genuinely dropped precision (say 85% on 50 overlaps) is many
+# orders of magnitude past it and still fails loudly.
+ALPHA = 1e-4
 
 # Sources a rule is judged against. Title and derived values are themselves
 # rules; the fuzzy reference tier shares the public name "reference".
@@ -210,14 +228,78 @@ def backtest_title(products: list[dict], by_product: dict, tally: Tally) -> None
                                "source": sources.get(field)})
 
 
-def verdict(slot: dict, key: str = "") -> bool:
+def _log_binom_pmf(k: int, n: int, q: float) -> float:
+    """log P(X == k) for X ~ Binomial(n, q), via log-gamma for large-n exactness."""
+    return (lgamma(n + 1) - lgamma(k + 1) - lgamma(n - k + 1)
+            + k * log(q) + (n - k) * log(1 - q))
+
+
+def binom_pge(d: int, n: int, q: float) -> float:
+    """P(X >= d) for X ~ Binomial(n, q): the chance of seeing at least d
+    disagreements when the true disagreement rate is q.
+
+    Computed in log-space (log-sum-exp) so it stays exact for the large overlap
+    counts the real catalog produces (hundreds of listings), where a naive
+    C(n,k) overflows float.
+    """
+    if d <= 0:
+        return 1.0
+    if d > n:
+        return 0.0
+    if q <= 0.0:
+        return 0.0
+    if q >= 1.0:
+        return 1.0
+    logs = [_log_binom_pmf(k, n, q) for k in range(d, n + 1)]
+    top = max(logs)
+    return min(exp(top) * sum(exp(x - top) for x in logs), 1.0)
+
+
+def below_bar(slot: dict, key: str = "") -> bool:
+    """True when a pair has not reached the ideal bar (no disagreement, or a
+    clean MIN_OVERLAP-sample at >= MIN_PRECISION).
+
+    Used for the display marker and --write-baseline: any pair still below the
+    ideal gets pinned so future runs are judged against its own rate rather
+    than against 99%. This was the old `verdict` — unchanged semantics.
+    """
     field = key.rsplit(" -> ", 1)[-1]
     if tuple(field.split(".", 1)) in PARTNER_VARIES:
-        return True
+        return False
     if not slot["disagree"]:
-        return True
+        return False
     precision = slot["agree"] * 100 / slot["overlap"]
-    return slot["overlap"] >= MIN_OVERLAP and precision >= MIN_PRECISION
+    return not (slot["overlap"] >= MIN_OVERLAP and precision >= MIN_PRECISION)
+
+
+def is_regression(slot: dict, key: str, pinned: float | None) -> bool:
+    """True when a pair's disagreements are too many to be chance -- the gate.
+
+    A pair is a regression only if observing this many disagreements is
+    unlikely (p < ALPHA) if the rule were still at its acceptable precision.
+    That bar is statistical, not a point threshold, so it scales with the
+    sample: a 4-overlap pair needs overwhelming evidence to fail, a 400-overlap
+    pair needs the drop to be statistically real. This is what stops daily
+    catalog churn (a few new listings) from failing the build while a rule that
+    genuinely went bad still fails loudly.
+
+    Acceptable precision: a new (unpinned) pair must be at MIN_PRECISION; a
+    pinned pair need only stay within SLACK points of its own recorded rate.
+    """
+    disagree, overlap = slot["disagree"], slot["overlap"]
+    if not disagree:
+        return False
+    field = key.rsplit(" -> ", 1)[-1]
+    if tuple(field.split(".", 1)) in PARTNER_VARIES:
+        return False
+    target = MIN_PRECISION if pinned is None else max(pinned - SLACK, 0.0)
+    q = max(1.0 - target / 100.0, 0.0)  # tolerated disagreement rate
+    if pinned is None and overlap < MIN_GATE_OVERLAP:
+        # Preserve "one odd new listing cannot stop the daily build" for the
+        # very smallest samples; the binomial test already protects everything
+        # above this floor.
+        return False
+    return binom_pge(disagree, overlap, q) < ALPHA
 
 
 def main() -> int:
@@ -263,37 +345,45 @@ def main() -> int:
     print(f"{'rule -> field':<62}{'overlap':>8}{'agree':>7}{'disagr':>7}{'prec%':>7}")
     for key, slot in pairs.items():
         precision = slot["agree"] * 100 / slot["overlap"]
-        ok = verdict(slot, key)
         pinned = baseline.get(key)
-        mark = "" if ok else ("  pinned" if pinned is not None else "  FAIL")
+        # below_bar drives the "pinned"/"FAIL" marker + --write-baseline;
+        # is_regression is the --check gate (statistical, see its docstring).
+        below = below_bar(slot, key)
+        regressed = is_regression(slot, key, pinned)
+        mark = "" if not below else ("  pinned" if pinned is not None else "  FAIL")
         print(f"{key:<62}{slot['overlap']:>8}{slot['agree']:>7}{slot['disagree']:>7}"
               f"{precision:>7.1f}{mark}")
-        if not ok:
+        if below:
             failing.append(key)
-            if (pinned is None and slot["overlap"] >= MIN_GATE_OVERLAP) or (
-                    pinned is not None and precision < pinned - SLACK):
-                regressions.append(key)
+        if regressed:
+            regressions.append(key)
             for example in slot["examples"][:args.examples]:
                 print(f"      {json.dumps(example, ensure_ascii=False)[:220]}")
 
     total = sum(s["overlap"] for s in pairs.values())
     bad = sum(s["disagree"] for s in pairs.values())
     print(f"[backtest] {len(pairs)} rule/field pairs, {total} overlaps, {bad} disagree; "
-          f"{len(failing)} pairs below {MIN_PRECISION:.0f}% "
-          f"({len(regressions)} new or worse than baseline)")
+          f"{len(failing)} below the ideal bar, {len(regressions)} regression(s) "
+          f"past p<{ALPHA:g}")
 
     if args.json:
         args.json.write_text(json.dumps(pairs, ensure_ascii=False, indent=1), encoding="utf-8")
     if args.write_baseline:
         pins = {k: round(slot["agree"] * 100 / slot["overlap"], 1)
-                for k, slot in sorted(tally.pairs.items()) if not verdict(slot, k)}
+                for k, slot in sorted(tally.pairs.items()) if below_bar(slot, k)}
         BASELINE.write_text(json.dumps(pins, indent=1) + "\n", encoding="utf-8")
-        print(f"[backtest] pinned {len(failing)} failing pairs in {BASELINE}")
+        print(f"[backtest] pinned {len(pins)} below-bar pairs in {BASELINE}")
     if args.check and regressions:
         for key in regressions:
             slot = pairs[key]
+            pinned = baseline.get(key)
+            target = MIN_PRECISION if pinned is None else max(pinned - SLACK, 0.0)
+            p = binom_pge(slot["disagree"], slot["overlap"],
+                          max(1.0 - target / 100.0, 0.0))
             print(f"[backtest] FAIL {key}: {slot['agree'] * 100 / slot['overlap']:.1f}% "
-                  f"precision on {slot['overlap']} overlaps (pinned {baseline.get(key)})")
+                  f"precision on {slot['overlap']} overlaps "
+                  f"({slot['disagree']} disagree, p={p:.2g} < {ALPHA:g}, "
+                  f"acceptable {target:.1f}%, pinned {pinned})")
         return 1
     return 0
 
