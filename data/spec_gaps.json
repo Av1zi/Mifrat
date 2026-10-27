@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T09:44:28.596569+00:00",
+  "generated_at": "2026-10-27T11:26:29.952745+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 94,
+      "count": 93,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:corei310105f",
@@ -94,11 +94,11 @@
     {
       "category": "aio",
       "label": "מידות משאבה",
-      "count": 31,
+      "count": 30,
       "products": [
         "mpn:aio:acfre00150a",
         "mpn:aio:acfre00178a",
-        "mpn:aio:acfre00180a"
+        "mpn:aio:acfre00182a"
       ]
     },
     {
@@ -382,36 +382,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "חיבורי RGB",
-      "count": 18,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "זרימת אוויר",
-      "count": 18,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "חיבור משאבה",
-      "count": 18,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
       "category": "case",
       "label": "שטח תצוגה פעיל (mm)",
       "count": 18,
@@ -462,16 +432,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "מאווררים",
-      "count": 17,
-      "products": [
-        "aio:1pc:1pc-222207",
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "קירור",
       "count": 17,
@@ -479,6 +439,36 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "חיבורי RGB",
+      "count": 17,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "זרימת אוויר",
+      "count": 17,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "חיבור משאבה",
+      "count": 17,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
       ]
     },
     {
@@ -512,6 +502,16 @@
       ]
     },
     {
+      "category": "aio",
+      "label": "מאווררים",
+      "count": 16,
+      "products": [
+        "aio:1pc:1pc-222207",
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "תמיכה ב AMD® CrossFire",
       "count": 16,
@@ -519,36 +519,6 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות",
-      "count": 16,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מהירות משאבה",
-      "count": 16,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "תמיכה במעבדים תלוי הוראת יצרן",
-      "count": 16,
-      "products": [
-        "mpn:aio:4711377115728",
-        "mpn:aio:4711377115735",
-        "mpn:aio:4711377124140"
       ]
     },
     {
@@ -614,6 +584,36 @@
     {
       "category": "aio",
       "label": "PWM",
+      "count": 15,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מידות",
+      "count": 15,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מהירות משאבה",
+      "count": 15,
+      "products": [
+        "mpn:aio:4711377115728",
+        "mpn:aio:4711377115735",
+        "mpn:aio:4711377124140"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "תמיכה במעבדים תלוי הוראת יצרן",
       "count": 15,
       "products": [
         "mpn:aio:4711377115728",
@@ -1802,6 +1802,56 @@
       ]
     },
     {
+      "category": "other",
+      "label": "סוג קירור",
+      "count": 5,
+      "products": [
+        "other:tms:tms-mlx-d36m-a18p2-r1",
+        "other:tms:tms-mly-d24m-a20pa-r1",
+        "other:tms:tms-mly-d24m-a23pz-r1"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג תאורה",
+      "count": 5,
+      "products": [
+        "other:tms:tms-mlx-d36m-a18p2-r1",
+        "other:tms:tms-mly-d24m-a20pa-r1",
+        "other:tms:tms-mly-d24m-a23pz-r1"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "תושבת מעבד",
+      "count": 5,
+      "products": [
+        "other:tms:tms-mlx-d36m-a18p2-r1",
+        "other:tms:tms-mly-d24m-a20pa-r1",
+        "other:tms:tms-mly-d24m-a23pz-r1"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "רדיאטורים",
+      "count": 5,
+      "products": [
+        "other:tms:tms-mlx-d36m-a18p2-r1",
+        "other:tms:tms-mly-d24m-a20pa-r1",
+        "other:tms:tms-mly-d24m-a23pz-r1"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מאוורר מובנה (ממ)",
+      "count": 5,
+      "products": [
+        "other:tms:tms-mlx-d36m-a18p2-r1",
+        "other:tms:tms-mly-d24m-a20pa-r1",
+        "other:tms:tms-mly-d24m-a23pz-r1"
+      ]
+    },
+    {
       "category": "case",
       "label": "סנכרון תאורה",
       "count": 4,
@@ -2079,6 +2129,86 @@
         "mpn:case_fan:4711514501094",
         "mpn:case_fan:4711514501780",
         "mpn:case_fan:4711514501797"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גודל רדיאטור",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מאווררים",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבורי RGB",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מהירות משאבה",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "זרימת אוויר",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תמיכה במעבדים תלוי הוראת יצרן",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבור משאבה",
+      "count": 4,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960135888",
+        "mpn:cooler_air:4712960136571"
       ]
     },
     {
@@ -2713,36 +2843,6 @@
     },
     {
       "category": "aio",
-      "label": "לחץ אוויר",
-      "count": 3,
-      "products": [
-        "mpn:aio:4711514502411",
-        "mpn:aio:4711514502428",
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "חיבור",
-      "count": 3,
-      "products": [
-        "mpn:aio:4711514502411",
-        "mpn:aio:4711514502428",
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "עצמת רעש",
-      "count": 3,
-      "products": [
-        "mpn:aio:4711514502411",
-        "mpn:aio:4711514502428",
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
       "label": "סוג מיסב",
       "count": 3,
       "products": [
@@ -2763,92 +2863,22 @@
     },
     {
       "category": "case_fan",
+      "label": "יציאות קדמיות",
+      "count": 3,
+      "products": [
+        "mpn:case_fan:akfc08at",
+        "mpn:case_fan:cl9011109ww",
+        "mpn:case_fan:mfxacbnnnunnr1"
+      ]
+    },
+    {
+      "category": "case_fan",
       "label": "סוג האחסון",
       "count": 3,
       "products": [
         "mpn:case_fan:bl122",
         "mpn:case_fan:clc25w",
         "mpn:case_fan:rfd14sfb1"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מידות",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל רדיאטור",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מאווררים",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "חיבורי RGB",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מהירות משאבה",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "זרימת אוויר",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תמיכה במעבדים תלוי הוראת יצרן",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "חיבור משאבה",
-      "count": 3,
-      "products": [
-        "mpn:cooler_air:4712960135888",
-        "mpn:cooler_air:4712960136571",
-        "mpn:cooler_air:4712960139466"
       ]
     },
     {
@@ -3411,6 +3441,15 @@
     },
     {
       "category": "aio",
+      "label": "לחץ אוויר",
+      "count": 2,
+      "products": [
+        "mpn:aio:4711514502411",
+        "mpn:aio:4711514502428"
+      ]
+    },
+    {
+      "category": "aio",
       "label": "מתח נומינלי",
       "count": 2,
       "products": [
@@ -3430,6 +3469,24 @@
     {
       "category": "aio",
       "label": "תמיכה בסנכרון RGB של לוח אם",
+      "count": 2,
+      "products": [
+        "mpn:aio:4711514502411",
+        "mpn:aio:4711514502428"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "חיבור",
+      "count": 2,
+      "products": [
+        "mpn:aio:4711514502411",
+        "mpn:aio:4711514502428"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "עצמת רעש",
       "count": 2,
       "products": [
         "mpn:aio:4711514502411",
@@ -3671,20 +3728,20 @@
     },
     {
       "category": "case_fan",
-      "label": "יציאות קדמיות",
-      "count": 2,
-      "products": [
-        "mpn:case_fan:akfc08at",
-        "mpn:case_fan:cl9011109ww"
-      ]
-    },
-    {
-      "category": "case_fan",
       "label": "אורך",
       "count": 2,
       "products": [
         "mpn:case_fan:bxatxsbc",
         "mpn:case_fan:bxatxsbc2"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "ערכת שבבים",
+      "count": 2,
+      "products": [
+        "mpn:cooler_air:4711514503111",
+        "mpn:cooler_air:4712960136571"
       ]
     },
     {
@@ -5243,86 +5300,6 @@
     },
     {
       "category": "aio",
-      "label": "ערכת שבבים",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות המאוורר",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "רמת רעש",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות המוצר",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מתח עבודה",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "TDP",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות מאוורר",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "Fin Material",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "ממדי המוצר",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "תאימות לתושבות",
-      "count": 1,
-      "products": [
-        "mpn:aio:4711514503111"
-      ]
-    },
-    {
-      "category": "aio",
       "label": "סוג האחסון",
       "count": 1,
       "products": [
@@ -5459,6 +5436,94 @@
     },
     {
       "category": "cooler_air",
+      "label": "מידות המאוורר",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "רמת רעש",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות המוצר",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מתח עבודה",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבור",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "לחץ אוויר",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות מאוורר",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "Fin Material",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "עצמת רעש",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "ממדי המוצר",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות לתושבות",
+      "count": 1,
+      "products": [
+        "mpn:cooler_air:4711514503111"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "מעבד",
       "count": 1,
       "products": [
@@ -5475,14 +5540,6 @@
     },
     {
       "category": "cooler_air",
-      "label": "ערכת שבבים",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:4712960136571"
-      ]
-    },
-    {
-      "category": "cooler_air",
       "label": "רמקולים",
       "count": 1,
       "products": [
@@ -5495,14 +5552,6 @@
       "count": 1,
       "products": [
         "mpn:cooler_air:clb60digbkv2argb"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "יציאות קדמיות",
-      "count": 1,
-      "products": [
-        "mpn:cooler_air:mfxacbnnnunnr1"
       ]
     },
     {
@@ -6495,6 +6544,14 @@
       "count": 1,
       "products": [
         "mpn:motherboard:90mb1ie0m0eay0"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Spec / Specifications / News &amp; Updates",
+      "count": 1,
+      "products": [
+        "mpn:motherboard:90mb1jd0m0eay0"
       ]
     },
     {

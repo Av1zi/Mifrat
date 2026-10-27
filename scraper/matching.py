@@ -430,6 +430,17 @@ AIR_TITLE_RE = re.compile(
 _GENERIC_COOLER_PHRASE_RE = re.compile(
     r"\b(cpu cooler|air cooler|tower cooler|low[- ]profile cooler)\b", re.I)
 
+# Model families seen without any cooler word in the title. Antec's air
+# line is the A/C series (A30/A35/A40/A450/A400, Copper Tiger C40/C400);
+# the F series (F12/F14) and the C120 packs are CASE FANS — the old
+# `a|c|f` alternation let every Antec fan pack pass here and line 1106
+# then flipped the vendor's correct `case_fans` bucket into CPU cooling.
+_AIR_MODEL_RE = re.compile(
+    r"\bhyper\s?\d{3}\b|\bi70c\b|\bp60t\b|\balpine\s?\d+\b|"
+    r"\bfreezer\s+xtreme\b|\bantec\s+(?:a\d{2,3}|c(?!120)\d{2,3})\b",
+    re.I,
+)
+
 # A bare "tower" also appears in case titles ("Mid Tower"), so tower alone
 # is never a cooler signal — it only counts with cooler internals nearby.
 _TOWER_COOLER_RE = re.compile(
@@ -450,6 +461,16 @@ _CORSAIR_FRAME_CASE_RE = re.compile(
     r"\bframe\s*(4000d|4500x|5000d)\b|\bframe\b.{0,30}\b(case|tower|chassis|atx)\b",
     re.I,
 )
+
+
+def _cooler_brandless(title_clean: str) -> str:
+    """Title without the maker name "Cooler Master" in it: the brand word
+    "cooler" is not product evidence, yet `"cooler" not in t` reads it as
+    one and every Cooler Master listing without stronger signals fell to
+    CPU cooling (MasterFan/SickleFlow fans especially)."""
+    return re.sub(r"cooler[\s-]*master", " ", title_clean, flags=re.I)
+
+
 # Fan telemetry glued to digits ("1200rpm", "2200RPM") has no word boundary
 # before the unit — \brpm\b never matches it. Match digit-glued RPM too.
 _RPM_RE = r"(?:pwm|cfm|airflow|\d\s*rpm|\brpm\b)"
@@ -513,6 +534,9 @@ _THERMAL_COMPOUND_RE = re.compile(
 # Hebrew category hints (TMS/1PC/Ivory titles carry the category in Hebrew;
 # _clean strips Hebrew entirely, so check the raw title first).
 _HEBREW_LIQUID_RE = re.compile(r"נוזלי")
+# "מיסב דינמי נוזלי" = fluid-dynamic BEARING — a fan spec on AIR coolers
+# ("Arctic Freezer 8A ... מיסב דינמי נוזלי"), never a liquid-cooling hint.
+_HEBREW_BEARING_RE = re.compile(r"מיסב")
 _HEBREW_CASE_FAN_RE = re.compile(r"מארז")
 _HEBREW_CPU_COOLER_RE = re.compile(
     r"(?:מצנן|מקרר|מאו?ו?רר)\s*(?:ל)?מעבד|מאוורר\s*ופתרון\s*קירור|"
@@ -531,8 +555,14 @@ def _hebrew_category_hint(title_raw: str) -> str | None:
     if _HEBREW_THERMAL_RE.search(title_raw):
         return "thermal_paste"
     # Liquid check first: "קירור נוזלי למעבד" contains both liquid and the
-    # generic CPU-cooler phrase — liquid wins.
-    if _HEBREW_LIQUID_RE.search(title_raw):
+    # generic CPU-cooler phrase — liquid wins. Each occurrence counts on
+    # its own: a bearing's "נוזלי" never does (see _HEBREW_BEARING_RE),
+    # but a real "קירור נוזלי" elsewhere in the same title still does.
+    if any(
+        not _HEBREW_BEARING_RE.search(
+            title_raw[max(0, m.start() - 16):m.end() + 8])
+        for m in _HEBREW_LIQUID_RE.finditer(title_raw)
+    ):
         return "aio"
     if _HEBREW_CASE_FAN_RE.search(title_raw):
         return "case_fan"
@@ -609,8 +639,7 @@ def _category_from_title(title_clean: str) -> str | None:
     if AIR_TITLE_RE.search(t) or _TOWER_COOLER_RE.search(t):
         return "cooler_air"
     # Model families seen without any cooler word in the title.
-    if re.search(r"\bhyper\s?\d{3}\b|\bi70c\b|\bp60t\b|\balpine\s?\d+\b|"
-                 r"\bfreezer\s+xtreme\b|\bantec\s+(?:a|c|f)\d{2,3}\b", t):
+    if _AIR_MODEL_RE.search(t):
         return "cooler_air"
     # An LCD/OLED screen on a 240mm+ part is a pump-cap display (AIO), not a
     # fan: air-tower screens pair with 92-140mm fan sizes and never with a
@@ -772,7 +801,7 @@ def _category_from_title(title_clean: str) -> str | None:
         re.search(r"\b\d{2,3}\s*mm\b", t)
         and re.search(r"\bfans?\b", t)
         and not _COOLER_INTERNALS_RE.search(t)
-        and "cooler" not in t
+        and not re.search(r"\bcooler\b", _cooler_brandless(t))
     ):
         return "case_fan"
     # Many vendor feeds omit the word "fan" from model-style titles
@@ -782,17 +811,30 @@ def _category_from_title(title_clean: str) -> str | None:
         re.search(r"\b\d{2,3}\s*mm\b", t)
         and re.search(_RPM_RE, t)
         and not _COOLER_INTERNALS_RE.search(t)
-        and "cooler" not in t
+        and not re.search(r"\bcooler\b", _cooler_brandless(t))
         and "radiator" not in t
     ):
         return "case_fan"
+    # Cooler Master's fan lines never spell "fan" as its own token
+    # ("MasterFan MF120") and single packs carry no "mm" suffix, so every
+    # branch above misses them — while the bare "cooler" rule below reads
+    # the BRAND word "Cooler Master" as product evidence and filed the
+    # whole MasterFan/SickleFlow range as air coolers.
+    if re.search(r"\bmaster\s*fan\b|\bsickleflow\b", t) and not (
+            _COOLER_INTERNALS_RE.search(t)):
+        return "case_fan"
+    # Brand-aware: "Cooler Master" is a maker name, not a product-type
+    # word — strip it before the bare "cooler" evidence rules, so a
+    # MasterFan without mm/rpm signals falls through to its vendor bucket
+    # instead of landing in CPU cooling.
+    t_nobrand = _cooler_brandless(t)
     if (
-        re.search(r"\bcooler\b", t)
-        and re.search(r"\b\d{2,3}\s*mm\b", t)
+        re.search(r"\bcooler\b", t_nobrand)
+        and re.search(r"\b\d{2,3}\s*mm\b", t_nobrand)
         and not _COOLER_INTERNALS_RE.search(t)
     ):
         return "case_fan"
-    if re.search(r"\bcooler\b", t):
+    if re.search(r"\bcooler\b", t_nobrand):
         return "cooler_air"
     # --- broad fallbacks, used only when the vendor guess is missing/unknown ---
     if re.search(r"\b(ssd|solid state|nvme|m\.2)\b", t):
@@ -972,6 +1014,24 @@ def title_category(raw_title: str, title_clean: str | None = None) -> str | None
             if _COOLER_INTERNALS_RE.search(title_clean) and hebrew_cat == "case_fan":
                 pass
             elif hebrew_cat == "cooler_air" and title_cat == "aio":
+                pass
+            elif (
+                hebrew_cat == "aio"
+                and title_cat == "cooler_air"
+                and (
+                    AIR_TITLE_RE.search(title_clean)
+                    or _TOWER_COOLER_RE.search(title_clean)
+                    or _AIR_MODEL_RE.search(title_clean)
+                )
+            ):
+                # An air-only model identity beats the vendor's coarse
+                # Hebrew "נוזלי" word: 1PC labels the air tower BOREAS
+                # M2-51D as "קירור נוזלי" and it shipped as the only
+                # air cooler under Water (Oct 2026). Weak English air
+                # evidence ("air cooler" phrase, bare brand "cooler")
+                # still loses to Hebrew — real AIO titles are safe from
+                # this set by construction (heatpipes/towers/air-only
+                # families never name a liquid cooler).
                 pass
             else:
                 title_cat = hebrew_cat
@@ -3558,6 +3618,26 @@ def _case_canonical_name(group: list, attributes: dict) -> str | None:
     return re.sub(r"\s+", " ", " ".join(parts)).strip() or None
 
 
+# Generic tails after "Liquid" in a spec phrase ("Liquid CPU Cooler") —
+# when the token after "liquid" is one of these, it is spec prose and drops
+# with the other spec words; anything else means the word heads the model
+# ("Liquid Freezer III PRO" — dropping it renamed every Arctic AIO into the
+# air "Freezer ..." line on the water-cooling list).
+_LIQUID_GENERIC_TAILS = frozenset({
+    "cpu", "processor", "processors", "cooler", "coolers", "cooling",
+    "system", "water", "radiator", "for", "and", "with",
+})
+# Bare size numbers that are model identity in a cooler's identity clause
+# ("Assassin King 120 SE", "PA120") — same set the size/air_size searches
+# below accept, so they are never weights or speeds. Kept in the model so
+# `_has_model_id` sees real identity and stops handing these titles to the
+# vendor-SKU fallback (which read the bundled fan code "TL-C12C-S" as the
+# model and shipped "Thermalright TL C12C" as a CPU cooler).
+_COOLER_SIZE_TOKENS = frozenset({
+    "92", "120", "140", "170", "200", "240", "280", "360", "420",
+})
+
+
 def _cooler_canonical_name(
     group: list, attributes: dict, category: str
 ) -> str | None:
@@ -3618,11 +3698,41 @@ def _cooler_canonical_name(
     model: list[str] = []
     seen: set[str] = set()
     clause = _first_clause(blob)
-    for tok in _clause_tokens(clause):
+    clause_toks = _clause_tokens(clause)
+    # Divider-delimited run index per clause token: "|" / "," / "/" start a
+    # new fact ("Noctua NH-D15 | 140" — the 140 is Hebrew spec prose, not
+    # part of the model), while spaces keep a run ("King 120" is identity).
+    # Only used to gate bare size numbers in the loop below; splitting on
+    # characters that are never token chars keeps this aligned with
+    # _clause_tokens' findall (the popped MPN tail only ever shortens the
+    # end of the list).
+    _seg_of: list[int] = []
+    for _si, _part in enumerate(re.split(r"[|/,;·—–]", clause)):
+        _seg_of.extend(
+            [_si] * len(re.findall(r"[A-Za-z0-9][A-Za-z0-9+.-]*", _part)))
+    for _i, tok in enumerate(clause_toks):
         up = tok.upper()
         low = tok.lower()
         if _tok_drop(low, drop):
-            continue
+            # Model-name "Liquid": keep when it is not spec prose (see
+            # _LIQUID_GENERIC_TAILS) — exact token or hyphen compound. The
+            # next token must be lowercased BEFORE the key strip: `[^a-z0-9]`
+            # swallows capitals, so "Cooler" used to strip to "ooler", miss
+            # the tails set, and keep spec-phrase "Liquid Cooler" as model.
+            _parts = low.split("-") if "-" in low else [low]
+            _tail_key = re.sub(
+                r"[^a-z0-9]+", "",
+                (clause_toks[_i + 1] if _i + 1 < len(clause_toks) else ""
+                 ).lower())
+            if (
+                "liquid" in _parts
+                and not any(p in drop for p in _parts if p != "liquid")
+                and _tail_key
+                and _tail_key not in _LIQUID_GENERIC_TAILS
+            ):
+                pass
+            else:
+                continue
         if low in ("mm", "cm"):
             continue
         # Ranges and decimals with units ("600-2200RPM", "103.7x86.6x126mm").
@@ -3631,8 +3741,20 @@ def _cooler_canonical_name(
         if re.fullmatch(r"\d+(\.\d+)?x\d+(\.\d+)?(x\d+(\.\d+)?)?(MM)?", up, re.I):
             continue
         # Short numbers are model parts ("DARK ROCK 4"); long runs are
-        # weights/speeds ("3100", "2200").
-        if _pure_number(tok, max_keep_digits=1):
+        # weights/speeds ("3100", "2200"). On air coolers a bare size is
+        # model identity and stays ("Assassin King 120") — see
+        # _COOLER_SIZE_TOKENS — but only inside the same uninterrupted run
+        # as the word before it ("NH-D15 | 140" is spec prose), and never
+        # for AIOs: there the bare radiator number only ever duplicates the
+        # "360mm" size appended below ("Antec Ultra 360 360mm"), which
+        # pushed built names over the length gate and handed them back to
+        # the raw-title fallback.
+        if _pure_number(tok, max_keep_digits=1) and not (
+            category == "cooler_air"
+            and low in _COOLER_SIZE_TOKENS
+            and _i > 0
+            and _seg_of[_i] == _seg_of[_i - 1]
+        ):
             continue
         if re.fullmatch(r"(AM[45]|LGA\s?\d+|PWM|ARGB|RGB|LED|TDP)", up):
             continue
