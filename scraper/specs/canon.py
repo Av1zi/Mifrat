@@ -20,7 +20,7 @@ from __future__ import annotations
 import re
 
 from .schema import CHIPSET_INFO
-from .text import NUMERIC_SOCKET
+from .text import NUMERIC_SOCKET, clean_text
 
 # --------------------------------------------------------------------------
 # Colors
@@ -653,6 +653,31 @@ def canon_wattage_range(value) -> str:
     return text
 
 
+def canon_cpu_model(value) -> str:
+    """The canonical CPU model name, from any spelling a vendor printed.
+
+    The title resolver already reduces every title to one form through
+    `cpu_model()` ('AMD Ryzen 7 7800X3D Gaming Processor' -> 'Ryzen 7
+    7800X3D'), but a vendor detail row (Ivory's "דגם" cell) reaches the
+    merge unnormalized and can outrank the title fact — shipping the
+    raw string on the site and failing the golden check. Running the SAME
+    chain here means both sources converge on one name, so which fact wins
+    stops mattering.
+
+    A value the chain cannot parse (an MPN like '100-000000910', a
+    numberless lineup name like 'AMD Ryzen 9 Processor') passes through
+    unchanged — merge.py's part-number preference still needs to see it.
+    """
+    # Imported here: title_parse imports this module at import time.
+    from .resolvers.title_parse import cpu_model
+
+    text_value = clean_text(value)
+    if not text_value:
+        return value
+    _, model = cpu_model(text_value)
+    return model or value
+
+
 
 # Generic field-name rules (applied for every category unless overridden).
 _TOWER_RE = re.compile(r"\b(full|super|mid|midi|mini|micro)[\s-]*tower\b", re.I)
@@ -711,6 +736,9 @@ _CATEGORY_RULES = {
     ("storage", "interface"): canon_storage_interface,
     ("storage", "memory_type"): canon_memory_type,
     ("cpu", "generation"): canon_generation,
+    # cpu model names, however the vendor spelled the row: one chain for
+    # title facts and detail rows alike (see canon_cpu_model).
+    ("cpu", "model"): canon_cpu_model,
     ("cpu", "integrated_graphics"): canon_integrated_graphics,
     ("gpu", "opengl"): canon_opengl,
     ("psu", "series_wattage_range"): canon_wattage_range,

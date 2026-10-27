@@ -36,34 +36,12 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
-    "listing_a": "1pc:109579",
-    "listing_b": "tms:C12700FB",
-    "title_a": "מעבד Intel Core i7 12700F צבע שחור",
-    "title_b": "Intel Core i7 12700F / 1700 Box",
-    "match_text_a": "C12700FB Intel Core i7 12700F",
-    "match_text_b": "C12700FB Intel Core i7 12700F / 1700 Box"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
     "listing_a": "1pc:134718",
     "listing_b": "tms:C7500T-P",
     "title_a": "מעבד Intel Core i5 7500 צבע קופסה",
     "title_b": "Intel Core i5 7500 / 1151 Tray Pull",
     "match_text_a": "C7500T-P Intel Core i5 7500",
     "match_text_b": "C7500T-P Intel Core i5 7500 / 1151 Tray Pull"
-  },
-  {
-    "score": 100,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "1pc:152181",
-    "listing_b": "tms:C14600KT",
-    "title_a": "מעבד Intel Core i5 14600K / 1700 Tray",
-    "title_b": "Intel Core i5 14600K / 1700 Tray",
-    "match_text_a": "C14600KT Intel Core i5 14600K / 1700 Tray",
-    "match_text_b": "C14600KT Intel Core i5 14600K / 1700 Tray"
   },
   {
     "score": 100,
@@ -322,6 +300,17 @@
     "score": 100,
     "category": "cooler_air",
     "brand": "Antec",
+    "listing_a": "1pc:132269",
+    "listing_b": "tms:T120",
+    "title_a": "קירור למעבד Antec T120 Chromatic CPU Air Cooler",
+    "title_b": "מאוורר למעבד Antec T120 Chromatic CPU Air",
+    "match_text_a": "132269 Antec T120 Chromatic CPU Air Cooler",
+    "match_text_b": "T120 Antec T120 Chromatic CPU Air"
+  },
+  {
+    "score": 100,
+    "category": "cooler_air",
+    "brand": "Antec",
     "listing_a": "1pc:59363",
     "listing_b": "tms:C40",
     "title_a": "מאוורר מעבד Antec C40 צבע שחור",
@@ -339,17 +328,6 @@
     "title_b": "Samsung DDR5 32GB 6400 CL52 CUDIMM",
     "match_text_a": "221510 Samsung DDR5 32GB 6400 CL52 CUDIMM M333R4GA3EB1-CCP",
     "match_text_b": "M333R4GA3EB1-CCP Samsung DDR5 32GB 6400 CL52 CUDIMM"
-  },
-  {
-    "score": 100,
-    "category": "storage",
-    "brand": "Crucial",
-    "listing_a": "1pc:221457",
-    "listing_b": "tms:CT1000E100SSD8-T",
-    "title_a": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
-    "title_b": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 NVMe M.2 SSD Bulk",
-    "match_text_a": "221457 Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
-    "match_text_b": "CT1000E100SSD8-T Crucial 1TB E100 PCIe 4.0 Gen4 2280 NVMe M.2 SSD Bulk"
   },
   {
     "score": 100,
@@ -372,6 +350,17 @@
     "title_b": "ספק כוח Corsair RM1000e ‏1000W ATX 3.1 Cybenetics Platinum מודולרי מלא",
     "match_text_a": "221409 Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum CP-9020337-EU",
     "match_text_b": "CP-9020337-EU Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum"
+  },
+  {
+    "score": 100,
+    "category": "storage",
+    "brand": "Crucial",
+    "listing_a": "1pc:221457",
+    "listing_b": "tms:CT1000E100SSD8-T",
+    "title_a": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
+    "title_b": "Crucial 1TB E100 PCIe 4.0 Gen4 2280 NVMe M.2 SSD Bulk",
+    "match_text_a": "221457 Crucial 1TB E100 PCIe 4.0 Gen4 2280 M.2 NVMe SSD Bulk CT1000E100SSD8-T",
+    "match_text_b": "CT1000E100SSD8-T Crucial 1TB E100 PCIe 4.0 Gen4 2280 NVMe M.2 SSD Bulk"
   },
   {
     "score": 100,
@@ -519,6 +508,72 @@
   {
     "score": 94,
     "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:131353",
+    "listing_b": "1pc:131354",
+    "title_a": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
+    "title_b": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6400 CL32",
+    "match_text_a": "131353 Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30",
+    "match_text_b": "131354 Corsair Vengeance RGB DDR5 32G (16Gx2) 6400 CL32"
+  },
+  {
+    "score": 94,
+    "category": "case",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:222860",
+    "listing_b": "1pc:222861",
+    "title_a": "מארז מחשב COOLER MASTER E600-KGNN-S02",
+    "title_b": "מארז מחשב COOLER MASTER E600-WGNN-S02",
+    "match_text_a": "222860 COOLER MASTER E600-KGNN-S02",
+    "match_text_b": "222861 COOLER MASTER E600-WGNN-S02"
+  },
+  {
+    "score": 94,
+    "category": "psu",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:206332",
+    "listing_b": "tms:GP-UD1600PM-PG5",
+    "title_a": "ספק כוח Gigabyte UD1600PM PG5 AI TOP 1600W PCIe 5.0 80+ Platinum מודולרי",
+    "title_b": "ספק כוח Gigabyte UD1600PM PG5 AI TOP 1600W PCIe 5.0 80+ Platinum Modular",
+    "match_text_a": "206332 Gigabyte UD1600PM PG5 AI TOP 1600W PCIe 5.0 80+ Platinum",
+    "match_text_b": "GP-UD1600PM-PG5 Gigabyte UD1600PM PG5 AI TOP 1600W PCIe 5.0 80+ Platinum Modular"
+  },
+  {
+    "score": 94,
+    "category": "cooler_air",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:222806",
+    "listing_b": "yahav:11566",
+    "title_a": "קירור למעבד Cooler Master Hyper 212 3DHP ARGB Black MAY-T2HP-217PA-R1",
+    "title_b": "קירור אוויר למעבד חברת Cooler Master דגם Hyper 212 3DHP Black ARGB 120MM 230W TDP 2050RPM 63.1CFM",
+    "match_text_a": "222806 Cooler Master Hyper 212 3DHP ARGB Black MAY-T2HP-217PA-R1",
+    "match_text_b": "MAY-T2HP-217PA-R1 Cooler Master Hyper 212 3DHP Black ARGB 120MM 230W TDP 2050RPM 63.1CFM"
+  },
+  {
+    "score": 94,
+    "category": "cooler_air",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:222812",
+    "listing_b": "1pc:222815",
+    "title_a": "קירור למעבד COOLER MASTER MLW-D36M-A18PA-R1",
+    "title_b": "קירור למעבד COOLER MASTER MLW-D36M-A18PA-RW",
+    "match_text_a": "222812 COOLER MASTER MLW-D36M-A18PA-R1",
+    "match_text_b": "222815 COOLER MASTER MLW-D36M-A18PA-RW"
+  },
+  {
+    "score": 94,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:206390",
+    "listing_b": "tms:CP-9020309-EU",
+    "title_a": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "title_b": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "match_text_a": "206390 Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "match_text_b": "CP-9020309-EU Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular"
+  },
+  {
+    "score": 94,
+    "category": "memory",
     "brand": "GeIL",
     "listing_a": "1pc:221504",
     "listing_b": "tms:GAMSG532GB5600C38ADC",
@@ -619,17 +674,6 @@
     "score": 93,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000001405",
-    "listing_b": "yahav:9790",
-    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X Boost 5.4Ghz 32MB Cache AM5 TRAY - Without Cooler"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000001904",
     "listing_b": "yahav:11002",
     "title_a": "AMD Ryzen 5 7500X3D AM5 Tray",
@@ -647,6 +691,17 @@
     "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
     "match_text_a": "221523 Corsair iCUE LINK TITAN II 360 RX RGB AIO Black",
     "match_text_b": "CW-9061037-WW Corsair iCUE LINK TITAN II 360 RX RGB AIO Black"
+  },
+  {
+    "score": 93,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:206390",
+    "listing_b": "1pc:222424",
+    "title_a": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "title_b": "ספק כוח Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
+    "match_text_a": "206390 Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "match_text_b": "222424 Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W"
   },
   {
     "score": 93,
@@ -713,6 +768,17 @@
     "title_b": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
     "match_text_a": "221538 Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
     "match_text_b": "KD5BGUA80-64A320G Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black"
+  },
+  {
+    "score": 93,
+    "category": "cooler_air",
+    "brand": "Deepcool",
+    "listing_a": "1pc:222814",
+    "listing_b": "1pc:222816",
+    "title_a": "קירור למעבד DEEPCOOL R-AK620-WHADMN-GJD",
+    "title_b": "קירור למעבד DEEPCOOL R-AK620-WHADMN-G",
+    "match_text_a": "222814 DEEPCOOL R-AK620-WHADMN-GJD",
+    "match_text_b": "222816 DEEPCOOL R-AK620-WHADMN-G"
   },
   {
     "score": 92,
@@ -784,17 +850,6 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "tms:100-000000593",
-    "listing_b": "tms:100-000001405",
-    "title_a": "AMD Ryzen 5 7600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000000593 AMD Ryzen 5 7600X AM5 Tray",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000719",
     "listing_b": "tms:100-000000908",
     "title_a": "AMD Ryzen 9 9950X3D AM5 Tray",
@@ -812,28 +867,6 @@
     "title_b": "AMD Ryzen Threadripper 7970X 32-core Tray",
     "match_text_a": "100-000001350 AMD Ryzen Threadripper 7980X 64-core Tray",
     "match_text_b": "100-000001351 AMD Ryzen Threadripper 7970X 32-core Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001404",
-    "listing_b": "tms:100-000001405",
-    "title_a": "AMD Ryzen 7 9700X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_a": "100-000001404 AMD Ryzen 7 9700X AM5 Tray",
-    "match_text_b": "100-000001405 AMD Ryzen 5 9600X AM5 Tray"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001405",
-    "listing_b": "tms:100-000001406",
-    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 9500F AM5 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_b": "100-000001406 AMD Ryzen 5 9500F AM5 Tray"
   },
   {
     "score": 92,
@@ -892,6 +925,17 @@
   },
   {
     "score": 92,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:171977",
+    "listing_b": "1pc:171978",
+    "title_a": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX",
+    "title_b": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - Tray",
+    "match_text_a": "171977 Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX",
+    "match_text_b": "171978 Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - Tray"
+  },
+  {
+    "score": 92,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:222383",
@@ -933,6 +977,50 @@
     "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
     "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
     "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 92,
+    "category": "cooler_air",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:222812",
+    "listing_b": "1pc:222813",
+    "title_a": "קירור למעבד COOLER MASTER MLW-D36M-A18PA-R1",
+    "title_b": "קירור למעבד COOLER MASTER MLX-D36M-A18PA-RD",
+    "match_text_a": "222812 COOLER MASTER MLW-D36M-A18PA-R1",
+    "match_text_b": "222813 COOLER MASTER MLX-D36M-A18PA-RD"
+  },
+  {
+    "score": 92,
+    "category": "cooler_air",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:222813",
+    "listing_b": "1pc:222815",
+    "title_a": "קירור למעבד COOLER MASTER MLX-D36M-A18PA-RD",
+    "title_b": "קירור למעבד COOLER MASTER MLW-D36M-A18PA-RW",
+    "match_text_a": "222813 COOLER MASTER MLX-D36M-A18PA-RD",
+    "match_text_b": "222815 COOLER MASTER MLW-D36M-A18PA-RW"
+  },
+  {
+    "score": 92,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:208955",
+    "listing_b": "1pc:222423",
+    "title_a": "ספק כוח Corsair HX1200i SHIFT 1200W Fully Modular 80+ Platinum",
+    "title_b": "ספק כוח Corsair HX1200i 1200W Platinum Fully Modular",
+    "match_text_a": "208955 Corsair HX1200i SHIFT 1200W Fully Modular 80+ Platinum",
+    "match_text_b": "222423 Corsair HX1200i 1200W Platinum Fully Modular"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "1pc:207851",
+    "listing_b": "1pc:210599",
+    "title_a": "זיכרון Kingston DDR5 32GB 6000 CL30 FURY Beast RGB בצבע שחור",
+    "title_b": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
+    "match_text_a": "207851 Kingston DDR5 32GB 6000 CL30 FURY Beast RGB",
+    "match_text_b": "KF560C30BWEAK2-32 Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30"
   },
   {
     "score": 92,
@@ -1046,6 +1134,50 @@
   },
   {
     "score": 91,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:183298",
+    "listing_b": "1pc:209978",
+    "title_a": "כרטיס מסך Gigabyte Radeon™ RX 9070 XT GAMING OC 16G",
+    "title_b": "כרטיס מסך Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G",
+    "match_text_a": "183298 Gigabyte Radeon RX 9070 XT GAMING OC 16G",
+    "match_text_b": "R907XGAMINGOCICE16GD Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G"
+  },
+  {
+    "score": 91,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:183298",
+    "listing_b": "tms:R907XGAMINGOCICE16GD",
+    "title_a": "כרטיס מסך Gigabyte Radeon™ RX 9070 XT GAMING OC 16G",
+    "title_b": "Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G",
+    "match_text_a": "183298 Gigabyte Radeon RX 9070 XT GAMING OC 16G",
+    "match_text_b": "R907XGAMINGOCICE16GD Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G"
+  },
+  {
+    "score": 91,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:171972",
+    "listing_b": "1pc:171977",
+    "title_a": "מעבד Intel Core Ultra 7 265K 5.5GHz 30MB Cache S1851 - Tray",
+    "title_b": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX",
+    "match_text_a": "171972 Intel Core Ultra 7 265K 5.5GHz 30MB Cache S1851 - Tray",
+    "match_text_b": "171977 Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:152938",
+    "listing_b": "tms:CMP32GX5M2B6000Z30",
+    "title_a": "זיכרון ‏למחשב Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB Black CMP32GX5M2B6000C30",
+    "title_b": "ערכת זיכרון Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB אפור",
+    "match_text_a": "152938 Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB Black CMP32GX5M2B6000C30",
+    "match_text_b": "CMP32GX5M2B6000Z30 Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB"
+  },
+  {
+    "score": 91,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221795",
@@ -1087,6 +1219,17 @@
     "title_b": "AMD Ryzen 7 5700X AM4 Tray",
     "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
     "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:172741",
+    "listing_b": "tms:100-000000589",
+    "title_a": "מעבד AMD Ryzen 9 9900X AM5 Tray",
+    "title_b": "AMD Ryzen 9 7900X AM5 Tray",
+    "match_text_a": "100-000000662 AMD Ryzen 9 9900X AM5 Tray",
+    "match_text_b": "100-000000589 AMD Ryzen 9 7900X AM5 Tray"
   },
   {
     "score": 90,
@@ -1288,17 +1431,6 @@
   },
   {
     "score": 90,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000001405",
-    "listing_b": "tms:100-100000065",
-    "title_a": "AMD Ryzen 5 9600X AM5 Tray",
-    "title_b": "AMD Ryzen 5 5600X AM4 Tray",
-    "match_text_a": "100-000001405 AMD Ryzen 5 9600X AM5 Tray",
-    "match_text_b": "100-100000065 AMD Ryzen 5 5600X AM4 Tray"
-  },
-  {
-    "score": 90,
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "1pc:221508",
@@ -1318,6 +1450,28 @@
     "title_b": "כונן Samsung PM883 2.5\" SATA3 SSD בנפח 960GB",
     "match_text_a": "221515 Samsung PM883 2.5 SATA3 SSD 960GB",
     "match_text_b": "MZ7LH960HAJR-00005 Samsung PM883 2.5 SATA3 SSD 960GB"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:162135",
+    "listing_b": "tms:CX200MRGBELITEW",
+    "title_a": "מארז מחשב Antec CX200M RGB Elite CX200MRGBELITE",
+    "title_b": "מארז Antec CX200M RGB Elite לבן",
+    "match_text_a": "162135 Antec CX200M RGB Elite CX200MRGBELITE",
+    "match_text_b": "CX200MRGBELITEW Antec CX200M RGB Elite"
+  },
+  {
+    "score": 90,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:152938",
+    "listing_b": "tms:CMP32GX5M2B6000Z30W",
+    "title_a": "זיכרון ‏למחשב Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB Black CMP32GX5M2B6000C30",
+    "title_b": "ערכת זיכרון Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB לבן",
+    "match_text_a": "152938 Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB Black CMP32GX5M2B6000C30",
+    "match_text_b": "CMP32GX5M2B6000Z30W Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB"
   },
   {
     "score": 90,
@@ -1676,6 +1830,17 @@
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:222411",
+    "listing_b": "ivory:135831",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
+    "title_b": "קירור נוזלי למעבד עם מסך Corsair iCUE LINK TITAN 360 RX LCD 360mm בצבע שחור",
+    "match_text_a": "222411 Corsair iCUE LINK TITAN RX 360 LCD",
+    "match_text_b": "CW-9061023-WW Corsair iCUE LINK TITAN 360 RX LCD 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222411",
     "listing_b": "ivory:150454",
     "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
     "title_b": "קירור נוזלי למעבד עם מסך Corsair iCUE LINK TITAN 360 RX LCD 360mm בצבע לבן",
@@ -1714,6 +1879,39 @@
     "title_b": "לוח אם Asus ProArt B850-CREATOR WiFi NEO",
     "match_text_a": "221493 Asus ProArt B850-CREATOR WiFi NEO",
     "match_text_b": "90MB1P60-M0EAY0 Asus ProArt B850-CREATOR WiFi NEO"
+  },
+  {
+    "score": 90,
+    "category": "psu",
+    "brand": "Gigabyte",
+    "listing_a": "1pc:222868",
+    "listing_b": "1pc:222869",
+    "title_a": "ספק כוח GIGABYTE GP-GME750GM PG5",
+    "title_b": "ספק כוח GIGABYTE GP-GME750GM PG5 ICE",
+    "match_text_a": "222868 GIGABYTE GP-GME750GM PG5",
+    "match_text_b": "222869 GIGABYTE GP-GME750GM PG5 ICE"
+  },
+  {
+    "score": 90,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:161888",
+    "listing_b": "ivory:86643",
+    "title_a": "ספק כוח Corsair CX750 80+ Bronze 750W CP-9020279-EU",
+    "title_b": "ספק כוח למחשב Corsair CX750 80 PLUS Bronze 750W",
+    "match_text_a": "161888 Corsair CX750 80+ Bronze 750W CP-9020279-EU",
+    "match_text_b": "CP-9020279-EU Corsair CX750 80 PLUS Bronze 750W"
+  },
+  {
+    "score": 90,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:161889",
+    "listing_b": "ivory:86640",
+    "title_a": "ספק כוח Corsair CX650 80+ Bronze 650W CP-9020278-EU",
+    "title_b": "ספק כוח למחשב Corsair CX650 80 PLUS Bronze 650W",
+    "match_text_a": "161889 Corsair CX650 80+ Bronze 650W CP-9020278-EU",
+    "match_text_b": "CP-9020278-EU Corsair CX650 80 PLUS Bronze 650W"
   },
   {
     "score": 90,
@@ -1769,6 +1967,50 @@
     "title_b": "Gigabyte B850 AORUS ELITE-P ICE",
     "match_text_a": "221470 Gigabyte B850 AORUS ELITE-P ICE",
     "match_text_b": "GB850AORUSELITE-PICE Gigabyte B850 AORUS ELITE-P ICE"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:222852",
+    "listing_b": "1pc:222857",
+    "title_a": "מארז מחשב ANTEC 0-761345-10236-0",
+    "title_b": "מארז מחשב ANTEC 0-761345-10232-2",
+    "match_text_a": "222852 ANTEC 0-761345-10236-0",
+    "match_text_b": "222857 ANTEC 0-761345-10232-2"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:222853",
+    "listing_b": "1pc:222857",
+    "title_a": "מארז מחשב ANTEC 0-761345-10221-6",
+    "title_b": "מארז מחשב ANTEC 0-761345-10232-2",
+    "match_text_a": "222853 ANTEC 0-761345-10221-6",
+    "match_text_b": "222857 ANTEC 0-761345-10232-2"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:129571",
+    "listing_b": "1pc:131353",
+    "title_a": "זיכרון Corsair Vengeance RGB DDR5 32G (16Gx2) 7000 CL34 בצבע שחור",
+    "title_b": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
+    "match_text_a": "129571 Corsair Vengeance RGB DDR5 32G (16Gx2) 7000 CL34",
+    "match_text_b": "131353 Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:222817",
+    "listing_b": "1pc:222819",
+    "title_a": "זיכרון למחשב Corsair CMG8GX4M1E3200C16 RGB/BLACK",
+    "title_b": "זיכרון למחשב Corsair CMW16GX4M2E3200C16 RGB/BLACK",
+    "match_text_a": "222817 Corsair CMG8GX4M1E3200C16 RGB/BLACK",
+    "match_text_b": "222819 Corsair CMW16GX4M2E3200C16 RGB/BLACK"
   },
   {
     "score": 89,
@@ -1857,6 +2099,50 @@
     "title_b": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
     "match_text_a": "222391 Corsair NAUTILUS 360 RS",
     "match_text_b": "222392 Corsair NAUTILUS 360 RS ARGB"
+  },
+  {
+    "score": 89,
+    "category": "cooler_air",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:222811",
+    "listing_b": "1pc:222812",
+    "title_a": "קירור למעבד COOLER MASTER ELW-D36M-A21DA-R1",
+    "title_b": "קירור למעבד COOLER MASTER MLW-D36M-A18PA-R1",
+    "match_text_a": "222811 COOLER MASTER ELW-D36M-A21DA-R1",
+    "match_text_b": "222812 COOLER MASTER MLW-D36M-A18PA-R1"
+  },
+  {
+    "score": 89,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:208955",
+    "listing_b": "1pc:217247",
+    "title_a": "ספק כוח Corsair HX1200i SHIFT 1200W Fully Modular 80+ Platinum",
+    "title_b": "ספק כוח מודולרי Corsair HX1200i 1200W Platinum",
+    "match_text_a": "208955 Corsair HX1200i SHIFT 1200W Fully Modular 80+ Platinum",
+    "match_text_b": "217247 Corsair HX1200i 1200W Platinum"
+  },
+  {
+    "score": 89,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:217247",
+    "listing_b": "1pc:222423",
+    "title_a": "ספק כוח מודולרי Corsair HX1200i 1200W Platinum",
+    "title_b": "ספק כוח Corsair HX1200i 1200W Platinum Fully Modular",
+    "match_text_a": "217247 Corsair HX1200i 1200W Platinum",
+    "match_text_b": "222423 Corsair HX1200i 1200W Platinum Fully Modular"
+  },
+  {
+    "score": 89,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:217247",
+    "listing_b": "yahav:10900",
+    "title_a": "ספק כוח מודולרי Corsair HX1200i 1200W Platinum",
+    "title_b": "ספק כוח למחשב חברת Corsair דגם HX1200i HXi Series Platinum 1200W ATX 3.1 PCIe 5.1 Certified Active PFC כולל מאוורר 140MM",
+    "match_text_a": "217247 Corsair HX1200i 1200W Platinum",
+    "match_text_b": "CP-9020307-EU Corsair HX1200i HXi Series Platinum 1200W ATX 3.1 PCIe 5.1 Certified Active PFC 140MM"
   },
   {
     "score": 89,
@@ -2533,6 +2819,17 @@
     "score": 88,
     "category": "cooler_air",
     "brand": "Antec",
+    "listing_a": "1pc:132269",
+    "listing_b": "tms:C40",
+    "title_a": "קירור למעבד Antec T120 Chromatic CPU Air Cooler",
+    "title_b": "Antec C40 CPU Cooler",
+    "match_text_a": "132269 Antec T120 Chromatic CPU Air Cooler",
+    "match_text_b": "C40 Antec C40 CPU Cooler"
+  },
+  {
+    "score": 88,
+    "category": "cooler_air",
+    "brand": "Antec",
     "listing_a": "1pc:145922",
     "listing_b": "tms:C40",
     "title_a": "מאורר למעבד Antec A30 Pro CPU Cooler",
@@ -2806,21 +3103,121 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:corei712700f-tray",
+    "product_id": "model:cpu:corei914900kf-tray",
     "category": "cpu",
     "vendor": "1pc",
     "offers": [
       {
-        "listing_key": "1pc:109579",
-        "vendor_sku": "C12700FB",
-        "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1322
+        "listing_key": "1pc:152191",
+        "vendor_sku": "C14900KFT",
+        "title": "מעבד Intel Core i9 14900KF / 1700 Tray",
+        "price": 2187
       },
       {
-        "listing_key": "1pc:116096",
-        "vendor_sku": "C12700FT",
-        "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1333
+        "listing_key": "1pc:199721",
+        "vendor_sku": "199721",
+        "title": "מעבד Intel Core i9 14900KF / 1700 Tray",
+        "price": 2454
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:coreultra5245k-tray",
+    "category": "cpu",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:189994",
+        "vendor_sku": "C245KT",
+        "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
+        "price": 913
+      },
+      {
+        "listing_key": "1pc:171974",
+        "vendor_sku": "171974",
+        "title": "מעבד Intel Core Ultra 5 245K 5.2GHz 24MB Cache S1851 - Tray",
+        "price": 1120
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:coreultra5245kf-tray",
+    "category": "cpu",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:189655",
+        "vendor_sku": "C245KFT",
+        "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
+        "price": 865
+      },
+      {
+        "listing_key": "1pc:171975",
+        "vendor_sku": "171975",
+        "title": "מעבד Intel Core Ultra 5 245KF 5.2GHz 24MB Cache S1851 - Tray",
+        "price": 1042
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:coreultra7265k-tray",
+    "category": "cpu",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:171972",
+        "vendor_sku": "171972",
+        "title": "מעבד Intel Core Ultra 7 265K 5.5GHz 30MB Cache S1851 - Tray",
+        "price": 1565
+      },
+      {
+        "listing_key": "1pc:189657",
+        "vendor_sku": "C265KT",
+        "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
+        "price": 1966
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:coreultra7265kf-tray",
+    "category": "cpu",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:189658",
+        "vendor_sku": "C265KFT",
+        "title": "מעבד Intel Core Ultra 7 265KF תושבת 1851",
+        "price": 1447
+      },
+      {
+        "listing_key": "1pc:171978",
+        "vendor_sku": "171978",
+        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - Tray",
+        "price": 1600
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:coreultra9285k-tray",
+    "category": "cpu",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:189660",
+        "vendor_sku": "C285KT",
+        "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
+        "price": 2494
+      },
+      {
+        "listing_key": "1pc:171970",
+        "vendor_sku": "171970",
+        "title": "מעבד Intel Core Ultra 9 285K 5.7GHz 36MB Cache S1851 - Tray",
+        "price": 3247
       }
     ]
   },
@@ -3520,7 +3917,7 @@
         "listing_key": "1pc:105384",
         "vendor_sku": "NE850PLATINUM",
         "title": "Antec PSU 850W NE850 NeoECO Platinum Modular NE850PLATINUM",
-        "price": 519
+        "price": 474
       },
       {
         "listing_key": "tms:NE850PLATINUM",
