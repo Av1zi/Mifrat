@@ -806,17 +806,6 @@
     "score": 92,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "ivory:129267",
-    "listing_b": "yahav:10512",
-    "title_a": "מעבד AMD Ryzen 9 9950X3D Tray",
-    "title_b": "מעבד חברת AMD דגם Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included",
-    "match_text_a": "100-000000719 AMD Ryzen 9 9950X3D Tray",
-    "match_text_b": "100-000000719 AMD Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included"
-  },
-  {
-    "score": 92,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000158",
     "listing_b": "tms:100-100000065",
     "title_a": "AMD Ryzen 5 3500X AM4 Tray",
@@ -1197,6 +1186,17 @@
     "title_b": "זיכרון GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition אפור",
     "match_text_a": "221503 GeIL DDR5 32GB (2x16GB) 5600 CL38 ORION V RGB AMD Edition",
     "match_text_b": "221504 GeIL DDR5 32GB (2x16GB) 5600 CL38 GEMINI RGB AMD Edition"
+  },
+  {
+    "score": 91,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222325",
+    "listing_b": "1pc:222328",
+    "title_a": "כונן SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "title_b": "כונן SSD SanDisk Optimus 5100 NVMe 2TB",
+    "match_text_a": "222325 SSD SanDisk Optimus GX 7100 NVMe 2TB",
+    "match_text_b": "222328 SSD SanDisk Optimus 5100 NVMe 2TB"
   },
   {
     "score": 90,
@@ -1958,6 +1958,17 @@
     "match_text_b": "WDS200T4G0E-00CPS0 WD Green SN3000 M.2 NVMe SSD 2TB"
   },
   {
+    "score": 90,
+    "category": "storage",
+    "brand": "Sandisk",
+    "listing_a": "1pc:222328",
+    "listing_b": "1pc:222329",
+    "title_a": "כונן SSD SanDisk Optimus 5100 NVMe 2TB",
+    "title_b": "כונן SSD SanDisk Optimus 5100 NVMe 500GB",
+    "match_text_a": "222328 SSD SanDisk Optimus 5100 NVMe 2TB",
+    "match_text_b": "222329 SSD SanDisk Optimus 5100 NVMe 500GB"
+  },
+  {
     "score": 89,
     "category": "motherboard",
     "brand": "Gigabyte",
@@ -1967,28 +1978,6 @@
     "title_b": "Gigabyte B850 AORUS ELITE-P ICE",
     "match_text_a": "221470 Gigabyte B850 AORUS ELITE-P ICE",
     "match_text_b": "GB850AORUSELITE-PICE Gigabyte B850 AORUS ELITE-P ICE"
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:222852",
-    "listing_b": "1pc:222857",
-    "title_a": "מארז מחשב ANTEC 0-761345-10236-0",
-    "title_b": "מארז מחשב ANTEC 0-761345-10232-2",
-    "match_text_a": "222852 ANTEC 0-761345-10236-0",
-    "match_text_b": "222857 ANTEC 0-761345-10232-2"
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:222853",
-    "listing_b": "1pc:222857",
-    "title_a": "מארז מחשב ANTEC 0-761345-10221-6",
-    "title_b": "מארז מחשב ANTEC 0-761345-10232-2",
-    "match_text_a": "222853 ANTEC 0-761345-10221-6",
-    "match_text_b": "222857 ANTEC 0-761345-10232-2"
   },
   {
     "score": 89,
