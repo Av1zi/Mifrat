@@ -420,9 +420,12 @@ python -m scraper.specs.golden.check_golden --update-anchors --apply  # write
 
 It only refreshes a case that currently passes its own expectations, keeps every
 old anchor (append-only — a stale key is never deleted), and warns when the
-target product has a single vendor. `--baseline <catalog>` adds the population
-guard (a category dropping >15%, the catalog >10%) plus the "re-keyed products"
-report; `--strict` makes any missing case a failure.
+target product has a single vendor. It refuses a catalog older than three days
+(`--force` overrides): anchors written from a stale catalog are stale too.
+`--baseline <catalog>` adds the population guard (a category dropping >15%, the
+catalog >10%) plus the "re-keyed products" report; `--strict` makes any missing
+case a failure. In CI the run gets a job-summary table (own-id / anchor /
+missing / re-keyed counts), so a permanently yellow gate is not just log noise.
 
 The resolver itself is pinned by `scripts/check_golden_resolution.py` (synthetic
 catalogs, no data needed): a live product with a wrong value must fail, a

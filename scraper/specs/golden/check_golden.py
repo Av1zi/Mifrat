@@ -57,6 +57,7 @@ import sys
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .. import schema
@@ -84,6 +85,11 @@ POPULATION_CATEGORY_DROP = 0.15
 POPULATION_TOTAL_DROP = 0.10
 POPULATION_MIN_CATEGORY = 10
 POPULATION_MIN_TOTAL = 100
+
+# `--update-anchors` writes what it sees. Running it against a catalog that is
+# days old records anchors that are already gone (the gate then "repairs" into
+# another skip), so refuse an old catalog unless --force.
+CATALOG_MAX_AGE_DAYS = 3
 
 
 # --------------------------------------------------------------------------
@@ -481,8 +487,8 @@ def report(result: Result, have_reference: bool) -> None:
             print(f"  - {item}")
         print(
             "[golden] action: run `python -m scraper.specs.golden.check_golden "
-            "--update-anchors` to refresh anchors, or retire the case with a "
-            "`_pins` note if the product left the catalog."
+            "--update-anchors --apply` against a fresh normalize run to refresh "
+            "anchors, or retire the case with a `_pins` note if the product left."
         )
 
     if result.failures:
@@ -494,11 +500,12 @@ def report(result: Result, have_reference: bool) -> None:
             print(f"  - {failure}")
         return
 
+    verdict = "pass" if result.exit_code == EXIT_OK else "pass (identity churn)"
     tier_note = "" if have_reference else " (Tier-0 checks skipped)"
     skipped = f", {len(result.missing)} skipped" if result.missing else ""
     print(
-        f"[golden] pass — {result.checked} assertions over {result.resolved} "
-        f"product(s){skipped}{tier_note}"
+        f"[golden] {verdict} — {result.checked} assertions over "
+        f"{result.resolved} product(s){skipped}{tier_note}"
     )
     if result.churned:
         print(
@@ -517,6 +524,50 @@ def annotate(result: Result) -> None:
         print(f"::warning::golden fixture no longer resolvable: {item}")
     for failure in result.failures:
         print(f"::error::{failure}")
+
+
+def write_step_summary(result: Result) -> None:
+    """A job-summary table, so a permanently yellow gate is not just log noise."""
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if not path:
+        return
+    churned = len(result.churned)
+    own_id = max(0, result.resolved - churned)
+    verdict = {
+        EXIT_OK: "pass",
+        EXIT_CHURN: "pass (identity churn)",
+        EXIT_FAIL: "FAIL",
+    }.get(result.exit_code, "FAIL")
+    lines = [
+        "### Golden spec fixtures",
+        "",
+        f"**{verdict}** — {result.checked} assertions over {result.resolved} "
+        f"product(s), {result.total} case(s).",
+        "",
+        "| | count |",
+        "| :--- | ---: |",
+        f"| resolved by own product id | {own_id} |",
+        f"| resolved through an anchor (re-keyed) | {churned} |",
+        f"| no product at all (budget {result.budget}) | {len(result.missing)} |",
+        f"| products re-keyed since the baseline | {len(result.moved)} |",
+    ]
+    if result.missing:
+        lines += ["", "**Missing cases**", ""]
+        lines += [f"- {item}" for item in result.missing]
+        lines += [
+            "",
+            "Repair: `python -m scraper.specs.golden.check_golden "
+            "--update-anchors --apply` after a normalize run, or retire the case "
+            "with a `_pins` note.",
+        ]
+    if result.failures:
+        lines += ["", "**Failures**", ""]
+        lines += [f"- {failure}" for failure in result.failures[:20]]
+    try:
+        with open(path, "a", encoding="utf-8") as handle:
+            handle.write("\n".join(lines) + "\n")
+    except OSError:
+        pass
 
 
 # --------------------------------------------------------------------------
@@ -577,13 +628,36 @@ def _anchor_payload(case: dict, product: dict) -> dict:
     return payload
 
 
+def catalog_age_days(catalog: dict) -> int | None:
+    generated = catalog.get("generated_at")
+    if not isinstance(generated, str):
+        return None
+    try:
+        stamp = datetime.fromisoformat(generated.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if stamp.tzinfo is None:
+        stamp = stamp.replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - stamp).days
+
+
 def update_anchors(
     catalog: dict,
     fixtures: dict,
     fixtures_path: Path,
     have_reference: bool,
     apply: bool,
+    force: bool = False,
 ) -> int:
+    age = catalog_age_days(catalog)
+    if not force and age is not None and age > CATALOG_MAX_AGE_DAYS:
+        print(
+            f"[golden] refuse: the catalog is {age} days old "
+            f"(generated_at {catalog.get('generated_at')}). Anchors written from "
+            "a stale catalog are stale too — normalize first, or pass --force."
+        )
+        return EXIT_FAIL
+
     indexes = build_indexes(catalog)
     changed = 0
     untouched = 0
@@ -700,10 +774,18 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="with --update-anchors: write the fixtures file",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="with --update-anchors: allow a catalog older than "
+        f"{CATALOG_MAX_AGE_DAYS} days",
+    )
     args = parser.parse_args(argv)
 
     if args.apply and not args.update_anchors:
         parser.error("--apply only makes sense with --update-anchors")
+    if args.force and not args.update_anchors:
+        parser.error("--force only makes sense with --update-anchors")
 
     if not args.catalog.exists():
         print(f"[golden] catalog not found: {args.catalog} (run normalize first)")
@@ -721,7 +803,12 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.update_anchors:
         return update_anchors(
-            catalog, fixtures, args.fixtures, have_reference, args.apply
+            catalog,
+            fixtures,
+            args.fixtures,
+            have_reference,
+            args.apply,
+            force=args.force,
         )
 
     if not have_reference:
@@ -746,6 +833,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     report(result, have_reference)
     annotate(result)
+    write_step_summary(result)
     return result.exit_code
 
 

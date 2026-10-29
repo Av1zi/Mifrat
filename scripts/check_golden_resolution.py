@@ -18,7 +18,11 @@ Exit 0 = every case behaved; exit 1 = at least one did not (each printed).
 """
 from __future__ import annotations
 
+import contextlib
+import io
+import os
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,6 +36,8 @@ from scraper.specs.golden.check_golden import (  # noqa: E402
     check,
     moved_products,
     part_key,
+    report,
+    write_step_summary,
 )
 
 CHECKS = 0
@@ -108,6 +114,21 @@ def expect_in(name: str, haystack: list[str], needle: str) -> None:
     joined = " | ".join(haystack)
     if needle not in joined:
         FAILURES.append(f"{name}: no {needle!r} in {joined!r}")
+
+
+def expect_not_in(name: str, haystack: list[str], needle: str) -> None:
+    global CHECKS
+    CHECKS += 1
+    joined = " | ".join(haystack)
+    if needle in joined:
+        FAILURES.append(f"{name}: unexpected {needle!r} in {joined!r}")
+
+
+def captured_report(result, have_reference: bool = False) -> str:
+    buffer = io.StringIO()
+    with contextlib.redirect_stdout(buffer):
+        report(result, have_reference)
+    return buffer.getvalue()
 
 
 def filler(category: str, count: int, prefix: str) -> list[dict]:
@@ -290,6 +311,38 @@ def main() -> int:
     )
 
     # ----------------------------------------------------------------------
+    # Reporting
+    # ----------------------------------------------------------------------
+
+    churn_result = run(
+        [board_case("mpn:motherboard:gone", anchors={"ids": ["mpn:motherboard:aaa1"]})],
+        [board],
+    )
+    text = captured_report(churn_result)
+    expect_in("report: churn verdict", [text], "pass (identity churn)")
+    expect_in("report: churn count", [text], "resolved through an anchor")
+
+    missing_result = run([board_case("mpn:motherboard:gone")], [board])
+    text = captured_report(missing_result)
+    expect_in("report: repair hint is runnable", [text], "--update-anchors --apply")
+
+    fail_text = captured_report(
+        run([board_case("mpn:motherboard:aaa1", expect={"chipset": "X870"})], [board])
+    )
+    expect_in("report: failure verdict", [fail_text], "FAIL")
+
+    summary_path = Path(tempfile.mkdtemp()) / "summary.md"
+    os.environ["GITHUB_STEP_SUMMARY"] = str(summary_path)
+    try:
+        write_step_summary(missing_result)
+    finally:
+        os.environ.pop("GITHUB_STEP_SUMMARY", None)
+    summary = summary_path.read_text(encoding="utf-8")
+    expect_in("summary: verdict", [summary], "pass (identity churn)")
+    expect_in("summary: missing section", [summary], "**Missing cases**")
+    expect_in("summary: repair hint", [summary], "--update-anchors --apply")
+
+    # ----------------------------------------------------------------------
     # Missing budget and collapse guards
     # ----------------------------------------------------------------------
 
@@ -300,6 +353,26 @@ def main() -> int:
     result = run(absent, [])
     expect("budget: 4 missing of 4", result.exit_code, EXIT_FAIL)
     expect("budget: value", result.budget, 2)
+
+    thirteen_missing = [
+        {"product_id": f"mpn:cat{index}:gone", "category": f"cat{index}"}
+        for index in range(13)
+    ]
+    expect("budget: 13 cases -> 3", run(thirteen_missing, []).budget, 3)
+    expect(
+        "budget: exactly 3 missing of 13 passes",
+        run(
+            thirteen_missing[:3] + [board_case("mpn:motherboard:aaa1")] * 10, [board]
+        ).exit_code,
+        EXIT_CHURN,
+    )
+    expect(
+        "budget: 4 missing of 13 fails",
+        run(
+            thirteen_missing[:4] + [board_case("mpn:motherboard:aaa1")] * 9, [board]
+        ).exit_code,
+        EXIT_FAIL,
+    )
 
     two_live = run(
         absent[:2] + [board_case("mpn:motherboard:aaa1")] * 2,
@@ -344,10 +417,13 @@ def main() -> int:
     expect_in("population: message", result.failures, "category 'gpu'")
 
     big_baseline = {"products": filler("gpu", 60, "b") + filler("cpu", 60, "b")}
-    shrunk = filler("gpu", 55, "f") + filler("cpu", 45, "f")
+    shrunk = filler("gpu", 52, "f") + filler("cpu", 52, "f")
     result = run(cases, [board] + shrunk, baseline=big_baseline)
     expect("population: total drop fails", result.exit_code, EXIT_FAIL)
     expect_in("population: total message", result.failures, "catalog:")
+    expect_not_in(
+        "population: no category false positive", result.failures, "category '"
+    )
 
     moved_baseline = {
         "products": [product("mpn:motherboard:old", "motherboard", {}, ("1pc:7",))]
