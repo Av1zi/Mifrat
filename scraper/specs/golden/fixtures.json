@@ -12,12 +12,30 @@
     "                    a wrong value is pinned as a regression: e.g. an air",
     "                    cooler must never claim water_cooled/radiator_size_mm.",
     "Values are in the schema's canonical unit (units live in the field name).",
+    "",
+    "Anchors (Oct 2026): a case may carry `anchors` - the vendor listing keys,",
+    "part numbers and model it was hand-verified against. Product ids are rebuilt",
+    "from whichever listings exist that day, so a vendor delist/merge/split moves",
+    "them. The gate resolves a case by its own product_id first and ONLY by it (a",
+    "live product whose values changed is a regression, not churn), and falls back",
+    "to anchors only when that id is gone. Repair after a normalize run with:",
+    "  python -m scraper.specs.golden.check_golden --update-anchors --apply",
+    "Anchors are append-only evidence - a stale key is never deleted, only joined.",
+    "`expect.part_numbers` is CONTAINMENT, not equality: a product may gain a",
+    "manufacturer model code (specs/build.py with_model_code) and that is not a",
+    "regression.",
+    "",
     "2026-09-29 Plonter drop removed 3 cases whose products left the catalog",
     "(mpn:cooler_air:a40pro, sku:cooler_air:peerlessassassin120digitalargbwhite,",
     "mpn:psu:cp9020251eu — all Plonter-only singletons). No surviving product",
     "carries the same rich specs (0 cooler_air products with sockets+fan left),",
     "so the socket-list and printed-part-number rules are unpinned until vendor",
-    "data exercises them again. The rules themselves are untouched."
+    "data exercises them again. The rules themselves are untouched.",
+    "",
+    "2026-10-29: the MSI MAG B850 Tomahawk MAX WiFi case (its only source was",
+    "1pc:179926, an EAN-keyed one-vendor product) was replaced by the four-vendor",
+    "Gigabyte B850 Aorus Elite WIFI7 - see that case's `_pins`. That is exactly",
+    "the churn the anchors exist to absorb."
   ],
   "schema_version": 3,
   "cases": [
@@ -46,6 +64,24 @@
         "tdp_w": 120,
         "microarchitecture": "Zen 5",
         "integrated_graphics": "Radeon"
+      },
+      "anchors": {
+        "ids": [
+          "model:cpu:ryzen79800x3d-tray"
+        ],
+        "listing_keys": [
+          "1pc:175540",
+          "tms:100-000001084",
+          "yahav:10143",
+          "yahav:11569"
+        ],
+        "part_numbers": [
+          "100-000001084"
+        ],
+        "manufacturer": "AMD",
+        "models": [
+          "Ryzen 7 9800X3D"
+        ]
       }
     },
     {
@@ -74,6 +110,24 @@
         "boost_clock_ghz": 5.0,
         "tdp_w": 120,
         "microarchitecture": "Zen 4"
+      },
+      "anchors": {
+        "ids": [
+          "model:cpu:ryzen77800x3d-tray"
+        ],
+        "listing_keys": [
+          "1pc:139919",
+          "ivory:108908",
+          "tms:100-000000910",
+          "yahav:8631"
+        ],
+        "part_numbers": [
+          "100-000000910"
+        ],
+        "manufacturer": "AMD",
+        "models": [
+          "Ryzen 7 7800X3D"
+        ]
       }
     },
     {
@@ -94,6 +148,23 @@
       "expect_reference": {
         "form_factor": "M.2-2280",
         "interface": "M.2 PCIe 4.0 x4"
+      },
+      "anchors": {
+        "ids": [
+          "mpn:storage:mzv9p2t0bw"
+        ],
+        "listing_keys": [
+          "1pc:129782",
+          "tms:MZ-V9P2T0BW",
+          "yahav:7628"
+        ],
+        "part_numbers": [
+          "MZ-V9P2T0BW"
+        ],
+        "manufacturer": "Samsung",
+        "models": [
+          "Samsung 990 PRO MZ-V9P2T0BW"
+        ]
       }
     },
     {
@@ -108,6 +179,24 @@
         "pcie_gen": 4,
         "part_numbers": [
           "MZ-V9P1T0BW"
+        ]
+      },
+      "anchors": {
+        "ids": [
+          "mpn:storage:mzv9p1t0bw"
+        ],
+        "listing_keys": [
+          "1pc:129783",
+          "ivory:59216",
+          "tms:MZ-V9P1T0BW",
+          "yahav:7627"
+        ],
+        "part_numbers": [
+          "MZ-V9P1T0BW"
+        ],
+        "manufacturer": "Samsung",
+        "models": [
+          "Samsung 990 PRO MZ-V9P1T0BW"
         ]
       }
     },
@@ -127,18 +216,53 @@
         "part_numbers": [
           "6000J2836G16GX2-FX5"
         ]
+      },
+      "anchors": {
+        "ids": [
+          "mpn:memory:6000j2836g16gx2fx5"
+        ],
+        "listing_keys": [
+          "1pc:200231",
+          "tms:6000J2836G16GX2-FX5"
+        ],
+        "part_numbers": [
+          "6000J2836G16GX2-FX5"
+        ],
+        "manufacturer": "G.Skill",
+        "models": [
+          "Flare X5 2x16GB 6000 CL28"
+        ]
       }
     },
     {
-      "product_id": "mpn:motherboard:4711377290623",
+      "product_id": "mpn:motherboard:gb850aoruselitewifi7",
       "category": "motherboard",
-      "name": "MSI MAG B850 Tomahawk MAX WiFi",
+      "name": "Gigabyte B850 Aorus Elite WIFI7",
+      "anchors": {
+        "ids": [
+          "mpn:motherboard:gb850aoruselitewifi7"
+        ],
+        "listing_keys": [
+          "1pc:177647",
+          "ivory:125172",
+          "tms:GB850AORUSELITEWIFI7",
+          "yahav:10280"
+        ],
+        "part_numbers": [
+          "GB850AORUSELITEWIFI7",
+          "B850 AORUS ELITE WIFI7"
+        ],
+        "manufacturer": "Gigabyte",
+        "models": [
+          "B850 AORUS ELITE WIFI7"
+        ]
+      },
       "expect": {
-        "manufacturer": "MSI",
+        "manufacturer": "Gigabyte",
         "chipset": "B850",
         "memory_type": "DDR5",
         "part_numbers": [
-          "4711377290623"
+          "GB850AORUSELITEWIFI7"
         ]
       },
       "expect_reference": {
@@ -146,7 +270,8 @@
         "form_factor": "ATX",
         "memory_slots": 4,
         "memory_max_gb": 256
-      }
+      },
+      "_pins": "2026-10-29: replaces the MSI MAG B850 Tomahawk MAX WiFi case, whose only source (1pc:179926) delisted. That listing also carried the EAN-as-part-number assertion, which is not pinned here any more: the board is sold by four vendors, so one vendor's churn cannot retire the case. `expect.part_numbers` is containment, so the model code joining the list is not a regression."
     },
     {
       "product_id": "mpn:storage:49354",
@@ -156,6 +281,21 @@
       "expect": {
         "capacity_gb": 2000,
         "type": "SSD"
+      },
+      "anchors": {
+        "ids": [
+          "mpn:storage:49354"
+        ],
+        "listing_keys": [
+          "1pc:152792"
+        ],
+        "part_numbers": [
+          "49354"
+        ],
+        "manufacturer": "Verbatim",
+        "models": [
+          "Vi550 SATA III"
+        ]
       }
     },
     {
@@ -167,6 +307,23 @@
         "manufacturer": "ASUS",
         "chipset": "GeForce RTX 5070",
         "memory_gb": 12
+      },
+      "anchors": {
+        "ids": [
+          "mpn:gpu:90yv0m17m0na00"
+        ],
+        "listing_keys": [
+          "1pc:205344",
+          "ivory:142517",
+          "tms:90YV0M17-M0NA00"
+        ],
+        "part_numbers": [
+          "90YV0M17-M0NA00"
+        ],
+        "manufacturer": "ASUS",
+        "models": [
+          "Dual GeForce RTX 5070 12GB GDDR7 OC Edition"
+        ]
       }
     },
     {
@@ -178,6 +335,19 @@
         "socket": "sTR5",
         "series": "Ryzen Threadripper",
         "includes_cooler": false
+      },
+      "anchors": {
+        "ids": [
+          "model:cpu:threadripper7960x-tray"
+        ],
+        "listing_keys": [
+          "tms:100-000001352"
+        ],
+        "part_numbers": [],
+        "manufacturer": "AMD",
+        "models": [
+          "Threadripper 7960X"
+        ]
       }
     },
     {
@@ -195,7 +365,20 @@
       "expect_null": [
         "water_cooled",
         "radiator_size_mm"
-      ]
+      ],
+      "anchors": {
+        "ids": [
+          "sku:cooler_air:814256022149"
+        ],
+        "listing_keys": [
+          "ivory:155083"
+        ],
+        "part_numbers": [],
+        "manufacturer": "Thermalright",
+        "models": [
+          "Peerless Assassin 120 Vision MAX ARGB WHITE"
+        ]
+      }
     },
     {
       "product_id": "mpn:case:cc9011291ww",
@@ -207,6 +390,24 @@
         "max_gpu_length_mm": 430,
         "max_cooler_height_mm": 170,
         "type": "Mid Tower"
+      },
+      "anchors": {
+        "ids": [
+          "mpn:case:cc9011291ww"
+        ],
+        "listing_keys": [
+          "1pc:188431",
+          "ivory:130947",
+          "tms:CC-9011291-WW",
+          "yahav:10544"
+        ],
+        "part_numbers": [
+          "CC-9011291-WW"
+        ],
+        "manufacturer": "Corsair",
+        "models": [
+          "FRAME 4000D"
+        ]
       }
     },
     {
@@ -218,6 +419,23 @@
         "manufacturer": "Corsair",
         "max_gpu_length_mm": 420,
         "max_cooler_height_mm": 170
+      },
+      "anchors": {
+        "ids": [
+          "mpn:case:cc9011242ww"
+        ],
+        "listing_keys": [
+          "1pc:131378",
+          "tms:CC-9011242-WW",
+          "yahav:8133"
+        ],
+        "part_numbers": [
+          "CC-9011242-WW"
+        ],
+        "manufacturer": "Corsair",
+        "models": [
+          "5000D Airflow"
+        ]
       }
     },
     {
@@ -229,6 +447,23 @@
         "manufacturer": "ASUS",
         "wireless": "No",
         "bluetooth": "No"
+      },
+      "anchors": {
+        "ids": [
+          "mpn:motherboard:90mb14u0m0eay0"
+        ],
+        "listing_keys": [
+          "1pc:146316",
+          "ivory:157255",
+          "tms:90MB14U0-M0EAY0"
+        ],
+        "part_numbers": [
+          "90mb14u0-m0eay0"
+        ],
+        "manufacturer": "ASUS",
+        "models": [
+          "PRIME B550-PLUS"
+        ]
       }
     }
   ]

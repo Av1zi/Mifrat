@@ -126,11 +126,34 @@ jobs:
         run: python -m scraper.download_images --from-catalog --limit 500
         continue-on-error: true
       - run: python scraper/normalize_and_match.py
+      - name: Golden-fixture resolver self-test (offline)
+        # The gate resolves a fixture through its own product id first and its
+        # anchors second; this pins that decision (a live product with a wrong
+        # value must fail, a re-keyed one must not) against synthetic catalogs.
+        run: python scripts/check_golden_resolution.py
       - name: Spec golden fixtures (see scraper/specs/README.md)
-        # Hand-verified specs for known products must match the catalog the
-        # run just wrote. Tier-0 assertions are skipped automatically when
-        # the optional reference index above failed to refresh.
-        run: python -m scraper.specs.golden.check_golden
+        # Hand-verified specs for known products must match the catalog the run
+        # just wrote. Exit 2 = identity churn only (a fixture's product id moved
+        # or vanished and nothing is wrong with the values): the catalog and site
+        # still publish, the run shows a warning. Exit 1 = a spec value regressed,
+        # the missing budget was exceeded or the population collapsed; blocks the
+        # commit. --baseline is the previously committed catalog, so the
+        # population guard needs no extra state.
+        run: |
+          if git show HEAD:data/catalog.json > "$RUNNER_TEMP/baseline-catalog.json" 2>/dev/null; then
+            baseline="--baseline $RUNNER_TEMP/baseline-catalog.json"
+          else
+            baseline=""
+          fi
+          set +e
+          python -m scraper.specs.golden.check_golden $baseline
+          code=$?
+          set -e
+          if [ "$code" -eq 2 ]; then
+            echo "::warning::golden fixtures: identity churn only - the catalog still publishes"
+            exit 0
+          fi
+          exit "$code"
       - name: Vendor detail-page regressions (offline fixtures)
         # Scraped vendor markup + the label vocabulary it feeds. No network:
         # the fixtures live in scraper/specs/golden/tms_pages/. This is the

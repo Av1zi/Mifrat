@@ -384,12 +384,57 @@ workflow — it blocks datacenter IPs — so its backfill runs from the home IP 
 Nothing else needs editing: labels, filter allowlist, PDP order and the TS type
 all come from the same definition.
 
+## Golden fixtures (identity churn)
+
+`golden/fixtures.json` holds hand-verified products. A fixture's `product_id` is
+derived from the day's listings (`mpn:` / `sku:` / `model:`), so a vendor
+delist, merge or split moves it — and failing the whole deploy for that is why a
+fixture used to be re-pinned by hand every few weeks.
+
+The gate resolves a case in this order:
+
+1. its own `product_id`, **and only that product** — a live product whose values
+   changed is a regression, never churn;
+2. `anchors.ids` (historical ids);
+3. `anchors.listing_keys` (`vendor:sku`, the most stable source-level identity);
+4. `anchors.part_numbers` / `expect.part_numbers` (same category);
+5. `anchors.manufacturer` + `anchors.models` (same category).
+
+Exit codes: `0` clean, `2` identity churn only (a case resolved through an
+anchor, or a case has no product within the missing budget), `1` a wrong value,
+a missing budget overrun, a category collapse or a population drop. CI turns
+`2` into a warning and still publishes; `1` blocks the commit. The missing
+budget is `max(2, 25%)`, so three of today's thirteen cases can vanish before
+the gate goes red.
+
+`expect.part_numbers` is **containment** (`{expected} ⊆ {actual}`), not
+equality: a product may gain a manufacturer model code
+(`build.py:with_model_code`) and that is not a regression.
+
+Repair, after a normalize run (CI never runs it):
+
+```bash
+python -m scraper.specs.golden.check_golden --update-anchors          # dry run
+python -m scraper.specs.golden.check_golden --update-anchors --apply  # write
+```
+
+It only refreshes a case that currently passes its own expectations, keeps every
+old anchor (append-only — a stale key is never deleted), and warns when the
+target product has a single vendor. `--baseline <catalog>` adds the population
+guard (a category dropping >15%, the catalog >10%) plus the "re-keyed products"
+report; `--strict` makes any missing case a failure.
+
+The resolver itself is pinned by `scripts/check_golden_resolution.py` (synthetic
+catalogs, no data needed): a live product with a wrong value must fail, a
+re-keyed one must not.
+
 ## Verifying a change
 
 ```bash
 python scripts/check_spec_sync.py                 # schema <-> frontend drift
 python scripts/diagnose_spec_coverage.py          # offline gap/fill view (seconds, no normalize)
 python -m scraper.normalize_and_match             # rebuild catalog + site data
+python scripts/check_golden_resolution.py         # golden resolver (offline, synthetic)
 python -m scraper.specs.golden.check_golden       # hand-verified fixtures
 python scripts/check_tms_detail.py                # vendor page fixtures (offline)
 python scripts/check_spec_merge.py                # merge-rule regressions
