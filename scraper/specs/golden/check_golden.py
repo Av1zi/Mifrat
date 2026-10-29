@@ -44,7 +44,10 @@ Exit codes
    budget). The catalog still publishes; the workflow turns this into a
    warning annotation.
 1  a resolved case has a wrong value, missing cases exceed the budget, a
-   category lost every fixture, or the catalog population collapsed.
+   category with two or more fixtures lost all of them, or the catalog
+   population collapsed. A singleton category's case is an ordinary missing
+   case: the population guard, not the fixture count, is what catches a real
+   category collapse.
 """
 
 from __future__ import annotations
@@ -57,7 +60,7 @@ import sys
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .. import schema
@@ -575,7 +578,7 @@ def write_step_summary(result: Result) -> None:
 # --------------------------------------------------------------------------
 
 
-def _anchor_payload(case: dict, product: dict) -> dict:
+def _anchor_payload(case: dict, product: dict, previous_id: str = "") -> dict:
     """Anchors are append-only evidence: never drop a stale key or id."""
     specs = product.get("specs") or {}
     current = str(product.get("product_id") or "")
@@ -583,6 +586,9 @@ def _anchor_payload(case: dict, product: dict) -> dict:
 
     ids = [current]
     seen_ids = {current}
+    if previous_id and previous_id not in seen_ids:
+        seen_ids.add(previous_id)
+        ids.append(previous_id)
     for value in old.get("ids") or []:
         text = str(value)
         if text not in seen_ids:
@@ -628,7 +634,8 @@ def _anchor_payload(case: dict, product: dict) -> dict:
     return payload
 
 
-def catalog_age_days(catalog: dict) -> int | None:
+def catalog_age(catalog: dict) -> timedelta | None:
+    """How long ago the catalog was built; None when it cannot be read."""
     generated = catalog.get("generated_at")
     if not isinstance(generated, str):
         return None
@@ -638,7 +645,7 @@ def catalog_age_days(catalog: dict) -> int | None:
         return None
     if stamp.tzinfo is None:
         stamp = stamp.replace(tzinfo=timezone.utc)
-    return (datetime.now(timezone.utc) - stamp).days
+    return datetime.now(timezone.utc) - stamp
 
 
 def update_anchors(
@@ -649,12 +656,18 @@ def update_anchors(
     apply: bool,
     force: bool = False,
 ) -> int:
-    age = catalog_age_days(catalog)
-    if not force and age is not None and age > CATALOG_MAX_AGE_DAYS:
+    age = catalog_age(catalog)
+    if not force and (age is None or age > timedelta(days=CATALOG_MAX_AGE_DAYS)):
+        if age is None:
+            reason = "its generated_at is missing or unreadable"
+        else:
+            reason = (
+                f"the catalog is {age.total_seconds() / 86400:.1f} days old "
+                f"(generated_at {catalog.get('generated_at')})"
+            )
         print(
-            f"[golden] refuse: the catalog is {age} days old "
-            f"(generated_at {catalog.get('generated_at')}). Anchors written from "
-            "a stale catalog are stale too — normalize first, or pass --force."
+            f"[golden] refuse: anchors written from an old catalog are stale too "
+            f"— {reason}. Normalize first, or pass --force."
         )
         return EXIT_FAIL
 
@@ -687,8 +700,9 @@ def update_anchors(
             {"product_id": case.get("product_id"), "anchors": case.get("anchors")},
             sort_keys=True,
         )
+        previous_id = str(case.get("product_id") or "")
         case["product_id"] = str(product.get("product_id") or "")
-        case["anchors"] = _anchor_payload(case, product)
+        case["anchors"] = _anchor_payload(case, product, previous_id)
         after = json.dumps(
             {"product_id": case.get("product_id"), "anchors": case.get("anchors")},
             sort_keys=True,

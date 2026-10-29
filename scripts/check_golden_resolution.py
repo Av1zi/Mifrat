@@ -20,9 +20,11 @@ from __future__ import annotations
 
 import contextlib
 import io
+import json
 import os
 import sys
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -37,6 +39,7 @@ from scraper.specs.golden.check_golden import (  # noqa: E402
     moved_products,
     part_key,
     report,
+    update_anchors,
     write_step_summary,
 )
 
@@ -434,6 +437,104 @@ def main() -> int:
     moved = moved_products(moved_fresh, moved_baseline)
     expect("moved products: detected", len(moved), 1)
     expect_in("moved products: line", moved, "mpn:motherboard:old -> mpn:motherboard:new")
+
+    # ----------------------------------------------------------------------
+    # Anchor maintenance (the only code that mutates fixtures.json)
+    # ----------------------------------------------------------------------
+
+    def probe_fixtures():
+        return {
+            "schema_version": 3,
+            "cases": [
+                board_case(
+                    "mpn:motherboard:gone",
+                    anchors={
+                        "ids": ["mpn:motherboard:aaa1"],
+                        "listing_keys": ["yahav:dead"],
+                    },
+                )
+            ],
+        }
+
+    live_catalog = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "products": [board],
+    }
+    old_catalog = {"generated_at": "2026-01-01T00:00:00+00:00", "products": [board]}
+    undated_catalog = {"products": [board]}
+
+    probe_dir = Path(tempfile.mkdtemp())
+    probe_path = probe_dir / "fixtures.json"
+
+    def run_update(catalog, fixtures, path, apply: bool):
+        buffer = io.StringIO()
+        with contextlib.redirect_stdout(buffer):
+            code = update_anchors(catalog, fixtures, path, False, apply=apply)
+        return code, buffer.getvalue()
+
+    probe = probe_fixtures()
+    probe_path.write_text(json.dumps(probe), encoding="utf-8")
+    original = probe_path.read_text(encoding="utf-8")
+    code, _log = run_update(live_catalog, probe, probe_path, apply=False)
+    expect("maintenance: dry run returns clean", code, EXIT_OK)
+    expect(
+        "maintenance: dry run writes nothing",
+        probe_path.read_text(encoding="utf-8"),
+        original,
+    )
+
+    code, log = run_update(old_catalog, probe_fixtures(), probe_path, apply=True)
+    expect("maintenance: stale catalog refused", code, EXIT_FAIL)
+    expect_in("maintenance: stale refusal explains itself", [log], "days old")
+
+    code, log = run_update(undated_catalog, probe_fixtures(), probe_path, apply=True)
+    expect("maintenance: undated catalog refused", code, EXIT_FAIL)
+    expect_in("maintenance: undated refusal explains itself", [log], "missing or unreadable")
+
+    probe = probe_fixtures()
+    probe_path.write_text(json.dumps(probe), encoding="utf-8")
+    code, _log = run_update(live_catalog, probe, probe_path, apply=True)
+    expect("maintenance: apply returns clean", code, EXIT_OK)
+    written = json.loads(probe_path.read_text(encoding="utf-8"))["cases"][0]
+    expect(
+        "maintenance: re-keyed to the current id",
+        written["product_id"],
+        "mpn:motherboard:aaa1",
+    )
+    expect(
+        "maintenance: previous id kept as an anchor",
+        "mpn:motherboard:gone" in written["anchors"]["ids"],
+        True,
+    )
+    expect(
+        "maintenance: dead listing key kept",
+        "yahav:dead" in written["anchors"]["listing_keys"],
+        True,
+    )
+    expect(
+        "maintenance: current listing keys added",
+        "yahav:2" in written["anchors"]["listing_keys"],
+        True,
+    )
+
+    failing_probe = {
+        "schema_version": 3,
+        "cases": [board_case("mpn:motherboard:aaa1", expect={"chipset": "X870"})],
+    }
+    failing_path = probe_dir / "failing.json"
+    failing_path.write_text(json.dumps(failing_probe), encoding="utf-8")
+    snapshot = json.dumps(failing_probe, sort_keys=True)
+    run_update(live_catalog, failing_probe, failing_path, apply=True)
+    expect(
+        "maintenance: a failing case is untouched",
+        json.dumps(failing_probe, sort_keys=True),
+        snapshot,
+    )
+    expect(
+        "maintenance: a failing case writes no file",
+        failing_path.read_text(encoding="utf-8"),
+        json.dumps(failing_probe, ensure_ascii=False),
+    )
 
     # ----------------------------------------------------------------------
     # Key parity with the matcher
