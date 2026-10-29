@@ -186,6 +186,14 @@ jobs:
         # precision or a pinned one (scripts/backtest_baseline.json) that got
         # worse: a rule fills nulls, so a wrong one ships wrong values.
         run: python scripts/backtest_rules.py --check
+      - name: Coverage gate self-test (offline)
+        # Pins the gate's own arithmetic against synthetic catalogs: exact
+        # counts (not percentages rounded to whole points), a floor is
+        # inclusive, one product under trips. Run #322 failed on "95.0% below
+        # floor 95%" because the rate was reconstructed from a rounded
+        # percentage and landed on 94.99999999999999; this is the regression
+        # test for that. No data files, no network.
+        run: python scripts/check_spec_coverage.py --self-test
       - name: Spec coverage floors (offline, Oct 2026 coverage pass)
         # Anti-regression lock for the spec-coverage work: fail the job when
         # label-gap rows exceed the budget, a category's fill drops below its

@@ -4,10 +4,11 @@ check_spec_coverage.py — spec-coverage regression gate (Oct 2026 coverage pass
 The repo has no test framework by design (see PROJECT_OVERVIEW §11), so this
 is a plain script:
 
-    python scripts/check_spec_coverage.py        # after a normalize run
+    python scripts/check_spec_coverage.py             # after a normalize run
+    python scripts/check_spec_coverage.py --self-test # the gate's own math
 
-It reads data/site/spec_report.json (written by the normalizer) and fails
-when spec health regresses beyond daily-churn noise:
+It reads the catalog the normalizer just wrote plus data/site/spec_report.json
+and fails when spec health regresses beyond daily-churn noise:
 
 1. label-gap rows exceed the budget — the `label_gaps` frequency table is
    how the vocabulary in scraper/specs/labels.py grows from real vendor
@@ -17,6 +18,16 @@ when spec health regresses beyond daily-churn noise:
    of tolerance for daily vendor churn;
 3. a core compat field (socket, chipset, memory_type, wattage_w,
    form_factor) drops below its floor for the same reason.
+
+Every rate is now COUNTED from the catalog (filled products / products, via
+fill_report.analyse), not rebuilt from the site report's percentages, which
+are rounded to whole points. The old reconstruction multiplied a rounded
+percentage by a product count and divided back (`95 * 307 / 100 * 100 / 307`
+= 94.99999999999999), so a catalog exactly at its floor failed on binary
+float representation alone — run #322 failed with "95.0% below floor 95%"
+while the true rate was 95.11%. spec_report.json is still used for the
+label-gap table, and its product count is checked against the catalog so a
+stale report cannot validate the wrong run.
 
 Floors are deliberately conservative: this gate catches regressions, not
 daily wobble. If a floor trips because the catalog genuinely changed shape
@@ -34,6 +45,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPORT = ROOT / "data" / "site" / "spec_report.json"
+CATALOG = ROOT / "data" / "catalog.json"
 
 # Total label-gap rows in spec_report.json on 2026-10-03 (3,475) + ~30%
 # headroom for vendor-label churn. A vendor renaming a table or a broken
@@ -117,6 +129,11 @@ LABEL_GAP_BUDGET = 4000
 # so the RATE fell even though filled cells rose. This is the same
 # denominator-dilution the 2026-10-15 note describes; the floor follows the
 # measured value (48) minus 2pp.
+# 2026-10-29: measured exactly from the catalog (not from rounded report
+# percentages) — the floors still hold with >= 5.8pp of headroom each:
+# accessories 78.89, aio 68.49, case 72.30, case_fan 70.50, cooler_air 70.82,
+# cpu 92.12, gpu 81.25, memory 86.70, motherboard 81.19, psu 69.54,
+# storage 60.61. No floor needed to move.
 CATEGORY_FLOORS = {
     "accessories": 73,
     "aio": 54,
@@ -131,16 +148,25 @@ CATEGORY_FLOORS = {
     "storage": 46,
 }
 
-# Core compat fields, same basis (2026-10-03: socket 99, chipset 96,
-# memory_type 97, wattage_w 96, form_factor 74).
+# Core compat fields, same basis. 2026-10-03 measurements: socket 99,
+# chipset 96, memory_type 97, wattage_w 96, form_factor 74.
+#
+# 2026-10-29: recalibrated to the 2pp rule the section above states, measured
+# exactly from today's catalog: socket 99.06 -> 97, chipset 97.62 -> 95,
+# memory_type 97.78 -> 95, wattage_w 95.11 -> 93, form_factor 94.83 -> 92.
+# The old values were measured-0..1 (chipset 96, memory_type 96, wattage_w 95,
+# form_factor 94), which left wattage_w 0.11pp of headroom — one PSU listing
+# either way is 0.33pp at n=307, so the gate was guaranteed to re-trip on
+# ordinary churn, and did (run #322). A floor's job is to catch a break (a
+# parser that stops reading a field drops it 5-40pp), not a one-listing swing.
+# CATEGORY_FLOORS and CORE_APPLICABLE_FLOORS were re-measured the same run and
+# already sit >= 2.7pp clear, so they did not move.
 CORE_FLOORS = {
     "socket": 97,
-    "chipset": 96,
-    "memory_type": 96,
-    "wattage_w": 95,
-    # 2026-10-17: 69 -> 94 (measured 96.0): memory form_factor is now derived
-    # from "no laptop marker" and boards/cases gained manufacturer-page values.
-    "form_factor": 94,
+    "chipset": 95,
+    "memory_type": 95,
+    "wattage_w": 93,
+    "form_factor": 92,
 }
 
 
@@ -156,6 +182,9 @@ CORE_FLOORS = {
 # sibling models (Corsair RX120 -> RS120, LX/QL120 -> LL120, Lian Li TL120 ->
 # SL120; scripts/audit_reference_matches.py): measured 66.7% after removing
 # those wrong rpm/airflow/noise values, minus the usual 2pp.
+# 2026-10-29: re-measured exactly (>= 1.5pp clear, psu the tightest): aio 94.2,
+# case 83.2, case_fan 68.6, cooler_air 85.3, cpu 93.7, gpu 89.4, memory 89.8,
+# motherboard 91.1, psu 79.5, storage 81.6.
 CORE_APPLICABLE_FLOORS = {
     "aio": 90,
     "case": 78,
@@ -176,6 +205,9 @@ CORE_APPLICABLE_FLOORS = {
 # products gain or lose real values. Measured 2026-10-23 (30.6% of products overall) after the sources
 # pass (Icecat, foreign retailers, new makers), minus 3pp: a per-product share
 # wobbles more than a mean when one vendor's offers come and go.
+# 2026-10-29: re-measured exactly (>= 2.0pp clear): accessories 11.1, aio 15.2,
+# case 28.7, case_fan 24.2, cooler_air 17.9, cpu 78.9, gpu 39.0, memory 57.8,
+# motherboard 30.4, psu 25.1, storage 2.0. No floor needed to move.
 PRODUCT_TARGET_FLOORS: dict[str, float] = {
     "accessories": 7,
     "aio": 11,
@@ -190,100 +222,237 @@ PRODUCT_TARGET_FLOORS: dict[str, float] = {
     "storage": 0,
 }
 
+# Rates are counted exactly as filled * 100 / n over integers, so a true value
+# of exactly 95.0 is the double 95.0, and the smallest real gap between two
+# rates at these sample sizes is ~100/4000 = 0.025pp. The epsilon only absorbs
+# binary-float representation of a mean; it cannot hide a real drop.
+RATE_EPSILON = 1e-9
+
+
+def _below(rate: float, floor: float) -> bool:
+    """True when `rate` is genuinely under `floor` (floors are inclusive)."""
+    return rate < floor - RATE_EPSILON
+
 
 def category_fill(bucket: dict) -> float:
+    """Mean per-field fill % for one category, from exact product counts."""
+    n = int(bucket.get("n") or 0)
     fields = bucket.get("fields") or {}
-    if not fields:
+    if not n or not fields:
         return 0.0
-    return sum(f.get("filled", 0) for f in fields.values()) / len(fields)
+    return sum(int(s.get("filled") or 0) * 100 / n for s in fields.values()) / len(fields)
 
 
-def core_fill(report: dict, field: str) -> float | None:
-    """Product-weighted fill across categories carrying the field.
+def core_fill(analysed: dict, field: str) -> tuple[float | None, int, int]:
+    """Product-weighted fill for one core field: (rate %, filled, products).
 
-    Same formula as SpecReport.core_coverage (the site JSON stores field
-    fill as percentages, so counts are reconstructed per category).
+    Mirrors CoverageReport.core_coverage (specs/report.py): the denominator is
+    every product in a category whose schema carries the field, not just the
+    products where it applies. Counts come from the catalog, so no rate is
+    reconstructed from a percentage rounded to a whole point.
     """
-    total = filled = 0
-    for bucket in (report.get("categories") or {}).values():
+    filled = total = 0
+    for bucket in analysed.values():
         slot = (bucket.get("fields") or {}).get(field)
         if slot is None:
             continue
-        n = bucket.get("products") or 0
-        total += n
-        filled += slot.get("filled", 0) * n / 100
+        filled += int(slot.get("filled") or 0)
+        total += int(bucket.get("n") or 0)
     if not total:
-        return None
-    return filled * 100 / total
+        return None, 0, 0
+    return filled * 100 / total, filled, total
 
 
-def main() -> int:
-    if not REPORT.exists():
-        print(f"[spec-coverage] report not found: {REPORT} (run normalize first)")
-        return 1
-    report = json.loads(REPORT.read_text(encoding="utf-8"))
+def evaluate(report: dict, analysed: dict, summary: dict) -> tuple[list[str], dict]:
+    """Run every floor against an already-analysed catalog. Pure, for tests."""
     failures: list[str] = []
 
     gaps = report.get("label_gaps") or []
-    gap_rows = sum(g.get("count", 0) for g in gaps)
+    gap_rows = sum(int(g.get("count") or 0) for g in gaps)
     if gap_rows > LABEL_GAP_BUDGET:
         failures.append(
             f"label-gap rows {gap_rows} exceed budget {LABEL_GAP_BUDGET} "
             f"({len(gaps)} labels) — a vendor renamed labels or a mapping broke; "
             "see scripts/diagnose_spec_coverage.py --suggest")
 
+    # A spec_report.json from another run would validate stale numbers while
+    # the catalog moves on, so a mismatch is a failure, not a warning.
+    declared = report.get("products")
+    counted = sum(int(bucket.get("n") or 0) for bucket in analysed.values())
+    if declared is not None and int(declared) != counted:
+        failures.append(
+            f"spec_report.json is stale: it describes {declared} products, the "
+            f"catalog has {counted} — rerun normalize and check both were written")
+
     for category, floor in sorted(CATEGORY_FLOORS.items()):
-        bucket = (report.get("categories") or {}).get(category)
+        bucket = analysed.get(category)
         if bucket is None:
-            failures.append(f"category {category!r} missing from the report")
+            failures.append(f"category {category!r} missing from the catalog")
             continue
         fill = category_fill(bucket)
-        if fill < floor:
+        if _below(fill, floor):
             failures.append(
-                f"{category}: fill {fill:.1f}% below floor {floor}% "
-                f"(n={bucket.get('products')})")
+                f"{category}: fill {fill:.2f}% below floor {floor}% "
+                f"(n={bucket.get('n')})")
 
     for field, floor in sorted(CORE_FLOORS.items()):
-        fill = core_fill(report, field)
+        fill, filled, total = core_fill(analysed, field)
         if fill is None:
             failures.append(f"core field {field!r} matches no category")
-        elif fill < floor:
-            failures.append(f"core field {field}: {fill:.1f}% below floor {floor}%")
+        elif _below(fill, floor):
+            failures.append(
+                f"core field {field}: {fill:.2f}% ({filled}/{total}) "
+                f"below floor {floor}%")
 
-    catalog = ROOT / "data" / "catalog.json"
-    if catalog.exists():
+    for category, floor in sorted(CORE_APPLICABLE_FLOORS.items()):
+        bucket = analysed.get(category)
+        if bucket is None:
+            failures.append(f"category {category!r} missing from the catalog")
+            continue
+        measured = float((bucket.get("core") or {}).get("applicable_fill_pct") or 0.0)
+        if _below(measured, floor):
+            failures.append(f"{category}: core applicable fill {measured:.2f}% "
+                            f"below floor {floor}%")
+
+    for category, floor in sorted(PRODUCT_TARGET_FLOORS.items()):
+        measured = (summary.get(category) or {}).get("at_target_pct")
+        if measured is None:
+            failures.append(f"category {category!r} missing from the scoreboard")
+        elif _below(float(measured), floor):
+            failures.append(f"{category}: {float(measured):.2f}% of products at >= "
+                            f"90% applicable fill, below floor {floor}%")
+
+    return failures, {"gap_rows": gap_rows, "products": counted}
+
+
+def _passing_dataset(n: int = 100) -> tuple[dict, dict, dict]:
+    """Synthetic report + analysed catalog + scoreboard that pass every floor."""
+    analysed: dict = {}
+    for category in sorted(CATEGORY_FLOORS):
+        analysed[category] = {
+            "n": n,
+            "fields": {field: {"filled": n} for field in CORE_FLOORS},
+            "core": {"applicable_fill_pct": 100.0},
+        }
+    summary = {category: {"at_target_pct": 100.0} for category in PRODUCT_TARGET_FLOORS}
+    report = {"products": n * len(analysed), "label_gaps": []}
+    return report, analysed, summary
+
+
+def _one_field_dataset(field: str, n: int, filled: int) -> tuple[dict, dict, dict]:
+    """`_passing_dataset` with `field` carried by psu alone, at filled/n."""
+    report, analysed, summary = _passing_dataset()
+    for bucket in analysed.values():
+        fields = bucket["fields"]
+        fields.pop(field, None)
+    analysed["psu"]["fields"][field] = {"filled": filled}
+    analysed["psu"]["n"] = n
+    report["products"] = sum(int(b.get("n") or 0) for b in analysed.values())
+    return report, analysed, summary
+
+
+def self_test() -> int:
+    """Pin the arithmetic that run #322 broke. No data files, no network."""
+    problems: list[str] = []
+
+    def check(name: str, ok: bool, detail: str = "") -> None:
+        if not ok:
+            problems.append(f"{name}{(': ' + detail) if detail else ''}")
+
+    report, analysed, summary = _passing_dataset()
+    failures, _ = evaluate(report, analysed, summary)
+    check("clean dataset passes", not failures, "; ".join(failures))
+
+    # The exact rate the old rounded reconstruction could not represent:
+    # 95% of 307 products -> 291.65 -> *100/307 = 94.99999999999999.
+    report, analysed, _ = _one_field_dataset("wattage_w", n=307, filled=292)
+    rate, filled, total = core_fill(analysed, "wattage_w")
+    check("counts survive the analysis", (filled, total) == (292, 307), f"{filled}/{total}")
+    check("292/307 is 95.11%", abs((rate or 0.0) - 95.114) < 0.001, repr(rate))
+    check("292/307 clears floor 95", not _below(rate or 0.0, 95))
+    legacy = 95 * 307 / 100 * 100 / 307
+    check("legacy reconstruction is the bug", legacy < 95, repr(legacy))
+
+    # Inclusive floors: exactly at the floor passes, one product under fails.
+    report, analysed, summary = _one_field_dataset("socket", n=100, filled=97)
+    failures, _ = evaluate(report, analysed, summary)
+    check("exactly at the floor passes",
+          not any("core field socket" in f for f in failures), "; ".join(failures))
+    report, analysed, summary = _one_field_dataset("socket", n=100, filled=96)
+    failures, _ = evaluate(report, analysed, summary)
+    check("below the floor fails",
+          any("core field socket" in f for f in failures), "; ".join(failures))
+
+    # Category means: 73.0% is at the floor, not under it.
+    bucket = {"n": 100, "fields": {"a": {"filled": 73}, "b": {"filled": 73}}}
+    check("category mean counts exactly", abs(category_fill(bucket) - 73.0) < 1e-9,
+          repr(category_fill(bucket)))
+    check("73.0 is not below 73", not _below(73.0, 73))
+    check("72.9 is below 73", _below(72.9, 73))
+
+    # Label-gap budget is inclusive and only a real overage trips.
+    report, analysed, summary = _passing_dataset()
+    report["label_gaps"] = [{"count": LABEL_GAP_BUDGET}]
+    failures, _ = evaluate(report, analysed, summary)
+    check("gap budget is inclusive", not any("label-gap" in f for f in failures))
+    report["label_gaps"] = [{"count": LABEL_GAP_BUDGET + 1}]
+    failures, _ = evaluate(report, analysed, summary)
+    check("gap overage fails", any("label-gap" in f for f in failures))
+
+    # A stale site report must not validate a newer catalog.
+    report, analysed, summary = _passing_dataset()
+    report["products"] = int(report["products"]) - 1
+    failures, _ = evaluate(report, analysed, summary)
+    check("stale spec_report fails", any("stale" in f for f in failures), "; ".join(failures))
+
+    # A core field nobody carries is a failure, not a silent pass.
+    report, analysed, summary = _passing_dataset()
+    for bucket in analysed.values():
+        bucket["fields"].pop("wattage_w", None)
+    failures, _ = evaluate(report, analysed, summary)
+    check("unmatched core field fails", any("matches no category" in f for f in failures))
+
+    total_checks = 15
+    if problems:
+        print(f"[spec-coverage] self-test FAILED — {len(problems)} of ~{total_checks} checks:")
+        for problem in problems:
+            print(f"  - {problem}")
+        return 1
+    print(f"[spec-coverage] self-test pass — {total_checks} checks")
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = sys.argv[1:] if argv is None else argv
+    if "--self-test" in args:
+        return self_test()
+    if not REPORT.exists():
+        print(f"[spec-coverage] report not found: {REPORT} (run normalize first)")
+        return 1
+    if not CATALOG.exists():
+        print(f"[spec-coverage] catalog not found: {CATALOG} (run normalize first)")
+        return 1
+    try:
+        import fill_report
+    except ImportError:
+        sys.path.insert(0, str(ROOT / "scripts"))
         import fill_report
 
-        analysed = fill_report.analyse(fill_report.load_products(catalog))
-        for category, floor in sorted(CORE_APPLICABLE_FLOORS.items()):
-            bucket = analysed.get(category)
-            if bucket is None:
-                failures.append(f"category {category!r} missing from the catalog")
-                continue
-            measured = bucket["core"]["applicable_fill_pct"]
-            if measured < floor:
-                failures.append(f"{category}: core applicable fill {measured:.1f}% "
-                                f"below floor {floor}%")
-
-        summary, _ = fill_report.per_product(fill_report.load_products(catalog))
-        for category, floor in sorted(PRODUCT_TARGET_FLOORS.items()):
-            measured = (summary.get(category) or {}).get("at_target_pct")
-            if measured is None:
-                failures.append(f"category {category!r} missing from the scoreboard")
-            elif measured < floor:
-                failures.append(f"{category}: {measured:.1f}% of products at >= "
-                                f"{fill_report.PRODUCT_TARGET:.0f}% applicable fill, "
-                                f"below floor {floor}%")
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
+    products = fill_report.load_products(CATALOG)
+    analysed = fill_report.analyse(products)
+    summary, _ = fill_report.per_product(products)
+    failures, stats = evaluate(report, analysed, summary)
 
     if failures:
         print(f"[spec-coverage] FAIL — {len(failures)} trip(s):")
         for failure in failures:
             print(f"  - {failure}")
         return 1
-    print(f"[spec-coverage] pass — gap rows {gap_rows}/{LABEL_GAP_BUDGET}, "
-          f"{len(CATEGORY_FLOORS)} category floors + {len(CORE_FLOORS)} core floors + "
-          f"{len(CORE_APPLICABLE_FLOORS)} applicable-core floors + "
-          f"{len(PRODUCT_TARGET_FLOORS)} per-product floors held")
+    print(f"[spec-coverage] pass — gap rows {stats['gap_rows']}/{LABEL_GAP_BUDGET} over "
+          f"{stats['products']} products, {len(CATEGORY_FLOORS)} category floors + "
+          f"{len(CORE_FLOORS)} core floors + {len(CORE_APPLICABLE_FLOORS)} applicable-core "
+          f"floors + {len(PRODUCT_TARGET_FLOORS)} per-product floors held")
     return 0
 
 
