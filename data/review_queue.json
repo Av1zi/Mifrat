@@ -881,50 +881,6 @@
   },
   {
     "score": 92,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:171773",
-    "listing_b": "1pc:183247",
-    "title_a": "ספק כח Antec GSK 850W ATX3.1 80+ Gold Full Modular GSK850",
-    "title_b": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "match_text_a": "GSK850 Antec GSK 850W ATX3.1 80+ Gold Full Modular GSK850",
-    "match_text_b": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular"
-  },
-  {
-    "score": 92,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:183247",
-    "listing_b": "tms:GSK850",
-    "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "title_b": "ספק כח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "match_text_a": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "match_text_b": "GSK850 Antec GSK 850W ATX3.1 80+ Gold Full Modular"
-  },
-  {
-    "score": 92,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:183247",
-    "listing_b": "tms:GSK850-W",
-    "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "title_b": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular White",
-    "match_text_a": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "match_text_b": "GSK850-W Antec GSK 850W ATX3.1 80+ Gold Full Modular White"
-  },
-  {
-    "score": 92,
-    "category": "psu",
-    "brand": "Antec",
-    "listing_a": "1pc:183247",
-    "listing_b": "tms:GSK850V2-W",
-    "title_a": "ספק כוח Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "title_b": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White",
-    "match_text_a": "183247 Antec GSK 850W ATX3.1 80+ Gold Full Modular",
-    "match_text_b": "GSK850V2-W Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White"
-  },
-  {
-    "score": 92,
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "1pc:171977",
@@ -1989,6 +1945,28 @@
     "title_b": "Gigabyte B850 AORUS ELITE-P ICE",
     "match_text_a": "221470 Gigabyte B850 AORUS ELITE-P ICE",
     "match_text_b": "GB850AORUSELITE-PICE Gigabyte B850 AORUS ELITE-P ICE"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:222852",
+    "listing_b": "1pc:222857",
+    "title_a": "מארז מחשב ANTEC 0-761345-10236-0",
+    "title_b": "מארז מחשב ANTEC 0-761345-10232-2",
+    "match_text_a": "222852 ANTEC 0-761345-10236-0",
+    "match_text_b": "222857 ANTEC 0-761345-10232-2"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:222853",
+    "listing_b": "1pc:222857",
+    "title_a": "מארז מחשב ANTEC 0-761345-10221-6",
+    "title_b": "מארז מחשב ANTEC 0-761345-10232-2",
+    "match_text_a": "222853 ANTEC 0-761345-10221-6",
+    "match_text_b": "222857 ANTEC 0-761345-10232-2"
   },
   {
     "score": 89,
