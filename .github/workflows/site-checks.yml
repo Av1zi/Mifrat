@@ -2,18 +2,35 @@ name: site-checks
 # Code-quality gate for the frontend and the spec system. Deliberately separate
 # from normalize-and-deploy.yml, which only triggers on data/raw/** and so never
 # sees a code-only push or PR. Read-only: no secrets, no commits, no deploys.
+#
+# Data paths are here too (Nov 2026): the deploy is a push to main, so the
+# committed publish set IS the site. 2026-11-01: a push that happened to touch
+# scripts/check_*.py carried a catalog with 4,697 products and site files /
+# spec_report.json describing 4,678 — this workflow caught it only by luck,
+# because a data-only push matches no path below. `data/catalog.json`,
+# `data/site/**` and `data/spec_gaps.json` are now triggers, so every commit
+# that changes what the site serves is checked: the `site` job builds the exact
+# payload (prebuild copies ../data/site) and the `specs` job runs
+# check_publish_set.py, which requires the catalog, the category files, the
+# index, meta.json and spec_report.json to describe one run and one product set.
 on:
   push:
     paths:
       - 'site/**'
       - 'scraper/specs/**'
       - 'scripts/check_*.py'
+      - 'data/catalog.json'
+      - 'data/site/**'
+      - 'data/spec_gaps.json'
       - '.github/workflows/site-checks.yml'
   pull_request:
     paths:
       - 'site/**'
       - 'scraper/specs/**'
       - 'scripts/check_*.py'
+      - 'data/catalog.json'
+      - 'data/site/**'
+      - 'data/spec_gaps.json'
       - '.github/workflows/site-checks.yml'
   workflow_dispatch: {}
 
@@ -69,6 +86,15 @@ jobs:
         run: python scripts/check_spec_merge.py
       - name: Spec coverage floors
         run: python scripts/check_spec_coverage.py
+      - name: Publish set coherence (self-test + gate)
+        # The catalog, data/site/*.json, index.json, meta.json and
+        # spec_report.json must describe ONE run and ONE product set. This is
+        # the gate for a data commit assembled by hand, by an interrupted run
+        # or by two boxes: 2026-11-01 shipped a 4,697-product catalog beside
+        # site files describing 4,678 (19 products lost from the site).
+        run: |
+          python scripts/check_publish_set.py --self-test
+          python scripts/check_publish_set.py
       - name: Photo pipeline regressions
         run: python scripts/check_image_pick.py
       - name: Cover corpus

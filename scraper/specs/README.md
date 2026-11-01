@@ -441,6 +441,7 @@ python scripts/check_golden_resolution.py         # golden resolver (offline, sy
 python -m scraper.specs.golden.check_golden       # hand-verified fixtures
 python scripts/check_tms_detail.py                # vendor page fixtures (offline)
 python scripts/check_spec_merge.py                # merge-rule regressions
+python scripts/check_publish_set.py               # catalog <-> site/meta/index/report agree (CI gate)
 python scripts/check_spec_coverage.py             # fill floors + gap budget (CI gate)
 python scraper/check_site_size.py                 # payload guard
 npm --prefix site run build                       # typecheck + bundle

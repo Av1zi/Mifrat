@@ -221,9 +221,31 @@ jobs:
         # exceeds 1MB or the category payload grows >15% without
         # proportional product growth. Pure stdlib, no deps.
         run: python scraper/check_site_size.py
+      - name: Publish set coherence (one run, one product set)
+        # catalog.json, data/site/*.json and data/site/spec_report.json are
+        # written by this run but committed as separate files, and three
+        # boxes push them (this job, the Nano, a local run). 2026-11-01: main
+        # ended up with a 4,697-product catalog next to site files and a spec
+        # report describing 4,678 — 19 products were in the catalog and in no
+        # category file, so the site silently dropped them and site-checks
+        # failed on the stale-report count. This compares the actual product
+        # ids per category file, the index, meta.json's counts + generated_at
+        # and the report, so a partial/mixed set can never be committed.
+        run: |
+          python scripts/check_publish_set.py --self-test
+          python scripts/check_publish_set.py
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
-          bash scripts/git_commit_push.sh \
+          # REQUIRE_CLEAN_TREE=1: every file this run wrote must be in the
+          # publish list below. A forgotten output is a bug, not noise — it
+          # used to be autostashed on a rejected push and popped back as a
+          # merge conflict (2026-11-01: data/spec_gaps.json), failing the
+          # whole run. The list must cover all of normalize_and_match.py's
+          # outputs: catalog.json, review_queue.json, spec_gaps.json and the
+          # whole data/site tree (category files, history, meta/index/qa/
+          # spec_report); data/images is this job's downloaded covers.
+          REQUIRE_CLEAN_TREE=1 bash scripts/git_commit_push.sh \
             "normalize: catalog for $(date -u +%F)" \
-            data/catalog.json data/review_queue.json data/site data/images
+            data/catalog.json data/review_queue.json data/spec_gaps.json \
+            data/site data/images

@@ -80,7 +80,7 @@ legacy `#/build?...` links keep working.
   /specs                      # typed spec pipeline (schema, resolvers, merge, validate) — see specs/README.md
   normalize_and_match.py      # builds catalog.json + review_queue.json + data/site/*.json + history
   run_spider.py               # ONLY entrypoint for real runs → data/raw/<today>/<vendor>.jsonl
-/scripts                      # git_commit_push.sh + spec/size/detail gates
+/scripts                      # git_commit_push.sh + publish-set/spec/size/detail gates
 /nano                         # Jetson Nano setup for TMS/1PC/KSP (NANO_README.md + systemd units)
 /data
   raw/YYYY-MM-DD/<vendor>.jsonl  # daily raw snapshots (git = database)
