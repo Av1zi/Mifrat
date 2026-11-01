@@ -1,7 +1,7 @@
 import { vendorLabel } from "../i18n";
 import { html, type Html } from "./html";
 
-const KNOWN = new Set(["tms", "onepc", "ivory", "yahav", "plonter"]);
+const KNOWN = new Set(["tms", "onepc", "ivory", "yahav", "ksp", "plonter"]);
 
 /** CSS key for a vendor's colour tokens (--v-<key>); "1pc" is an alias. */
 export function vendorKey(vendor: string): string {
@@ -9,7 +9,7 @@ export function vendorKey(vendor: string): string {
   return KNOWN.has(id) ? id : "other";
 }
 
-const MONOGRAMS: Record<string, string> = { tms: "TMS", onepc: "1PC", ivory: "IV", yahav: "YH", plonter: "PL" };
+const MONOGRAMS: Record<string, string> = { tms: "TMS", onepc: "1PC", ivory: "IV", yahav: "YH", ksp: "KSP", plonter: "PL" };
 
 export function vendorDot(vendor: string): Html {
   return html`<span class="vdot vdot--${vendorKey(vendor)}" aria-hidden="true"></span>`;

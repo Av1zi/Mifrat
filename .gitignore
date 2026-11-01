@@ -35,6 +35,7 @@ AGENTS.md
 # history on every test run.
 *_test.jsonl
 *_test.json
+*.part
 scrapy.log
 *.log
 tmp/

@@ -55,7 +55,10 @@ BLOCKLIST_PATH = Path("data/matching/image_blocklist.json")
 # never won despite being the second-largest source.
 # Plonter sits last since 2026-09-29: vendor dropped after a datacenter IP
 # block (owner decision) — mirrors data/matching/image_vendor_priority.json.
-DEFAULT_ORDER = ("tms", "yahav", "onepc", "ivory", "plonter")
+# KSP joins last on 2026-10-30: its listing feed only carries 300px JPEGs (the
+# larger detail gallery is WAF-blocked), so it should win only when no other
+# vendor has a photo. Mirrors the committed table.
+DEFAULT_ORDER = ("tms", "yahav", "onepc", "ivory", "plonter", "ksp")
 
 # Vendor ids on offers use "1pc"; image folders use "onepc".
 _VENDOR_FOLDER = {"1pc": "onepc", "onepc": "onepc"}

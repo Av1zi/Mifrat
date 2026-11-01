@@ -40,7 +40,7 @@ const CATEGORY_LABELS: Record<string, { he: string; en: string }> = {
 };
 
 /** Vendors currently scraped (Plonter stays labelled for old history only). */
-export const ACTIVE_VENDORS = ["tms", "yahav", "onepc", "ivory"] as const;
+export const ACTIVE_VENDORS = ["tms", "yahav", "onepc", "ivory", "ksp"] as const;
 
 const VENDOR_LABELS: Record<string, string> = {
   tms: "TMS",
@@ -49,6 +49,7 @@ const VENDOR_LABELS: Record<string, string> = {
   plonter: "Plonter",
   ivory: "Ivory",
   yahav: "YahavPC",
+  ksp: "KSP",
 };
 
 const ATTRIBUTE_LABELS: Record<string, { he: string; en: string }> = {
@@ -364,7 +365,7 @@ const STRINGS = {
     homePageTitle: "השוואת מחירי רכיבי מחשב",
     pickMismatch: "לא ניתן להוסיף לחריץ זה",
     navMain: "ניווט ראשי",
-    metaDescription: "השוואת מחירים בין TMS, ‏1PC, Ivory ויהב מחשבים לרכיבי מחשב בישראל.",
+    metaDescription: "השוואת מחירים בין TMS, ‏1PC, Ivory, יהב מחשבים ו-KSP לרכיבי מחשב בישראל.",
     themeDark: "מצב כהה",
     themeLight: "מצב בהיר",
     startBuild: "התחילו לבנות",
@@ -707,7 +708,7 @@ const STRINGS = {
     homePageTitle: "Compare PC Part Prices in Israel",
     pickMismatch: "Cannot add to this slot",
     navMain: "Main navigation",
-    metaDescription: "Compare prices for PC parts from TMS, 1PC, Ivory and YahavPC in Israel.",
+    metaDescription: "Compare prices for PC parts from TMS, 1PC, Ivory, YahavPC and KSP in Israel.",
     themeDark: "Dark mode",
     themeLight: "Light mode",
     startBuild: "Start Your Build",

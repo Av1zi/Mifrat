@@ -1,0 +1,14 @@
+[Unit]
+Description=Scrape KSP for the PC Part Picker (IL) pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=avizi
+WorkingDirectory=/home/avizi/pc-parts-il
+ExecStart=/home/avizi/pc-parts-il/nano/run_ksp.sh
+StandardOutput=journal
+StandardError=journal
+# ~90 requests at 3-9s plus bounded 429 retries; 40 minutes is ample.
+TimeoutStartSec=2400

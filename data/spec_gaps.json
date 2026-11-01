@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T13:58:34.097576+00:00",
+  "generated_at": "2026-11-01T08:49:51.857483+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 89,
+      "count": 87,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:corei310105f",
@@ -24,7 +24,7 @@
     {
       "category": "motherboard",
       "label": "סוג האחסון",
-      "count": 73,
+      "count": 67,
       "products": [
         "mpn:motherboard:4711377010191",
         "mpn:motherboard:4711377286596",
@@ -34,7 +34,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 66,
+      "count": 64,
       "products": [
         "mpn:gpu:113480120g",
         "mpn:gpu:113480220g",
@@ -44,7 +44,7 @@
     {
       "category": "motherboard",
       "label": "נפח זיכרון",
-      "count": 54,
+      "count": 51,
       "products": [
         "motherboard:1pc:1pc-213828",
         "mpn:motherboard:4711377010191",
@@ -73,22 +73,22 @@
     },
     {
       "category": "motherboard",
-      "label": "רמקולים",
-      "count": 33,
-      "products": [
-        "mpn:motherboard:4711377289757",
-        "mpn:motherboard:4711377337977",
-        "mpn:motherboard:4711377365338"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "חריצים פנויים",
-      "count": 32,
+      "count": 31,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
         "mpn:motherboard:4711377026383"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "רמקולים",
+      "count": 31,
+      "products": [
+        "mpn:motherboard:4711377289757",
+        "mpn:motherboard:4711377337977",
+        "mpn:motherboard:4711377365338"
       ]
     },
     {
@@ -112,36 +112,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "R/W Speed",
-      "count": 28,
-      "products": [
-        "mpn:storage:31825",
-        "mpn:storage:31826",
-        "mpn:storage:31827"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "D-SUB",
-      "count": 27,
-      "products": [
-        "motherboard:1pc:1pc-128729",
-        "motherboard:1pc:1pc-222511",
-        "mpn:motherboard:4711377010191"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 5.0 x16",
-      "count": 27,
-      "products": [
-        "motherboard:1pc:1pc-128729",
-        "mpn:motherboard:4711377010191",
-        "mpn:motherboard:4711377026383"
-      ]
-    },
-    {
       "category": "aio",
       "label": "הספק תרמי מירבי",
       "count": 26,
@@ -153,8 +123,38 @@
     },
     {
       "category": "motherboard",
-      "label": "SATA III",
+      "label": "D-SUB",
+      "count": 26,
+      "products": [
+        "motherboard:1pc:1pc-128729",
+        "motherboard:1pc:1pc-222511",
+        "mpn:motherboard:4711377010191"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCIe 5.0 x16",
+      "count": 26,
+      "products": [
+        "motherboard:1pc:1pc-128729",
+        "mpn:motherboard:4711377010191",
+        "mpn:motherboard:4711377026383"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "R/W Speed",
       "count": 25,
+      "products": [
+        "mpn:storage:31825",
+        "mpn:storage:31826",
+        "mpn:storage:31827"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "SATA III",
+      "count": 24,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
@@ -164,7 +164,7 @@
     {
       "category": "motherboard",
       "label": "DISPLAY PORT",
-      "count": 25,
+      "count": 24,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
@@ -174,7 +174,7 @@
     {
       "category": "motherboard",
       "label": "wifi + BT",
-      "count": 25,
+      "count": 24,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
@@ -184,7 +184,7 @@
     {
       "category": "gpu",
       "label": "סוג האחסון",
-      "count": 25,
+      "count": 24,
       "products": [
         "mpn:gpu:113480220g",
         "mpn:gpu:113490120g",
@@ -194,7 +194,7 @@
     {
       "category": "motherboard",
       "label": "HDMI 2.1",
-      "count": 24,
+      "count": 23,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
@@ -204,7 +204,7 @@
     {
       "category": "motherboard",
       "label": "PCIe 4.0 x16",
-      "count": 24,
+      "count": 23,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
@@ -214,51 +214,11 @@
     {
       "category": "motherboard",
       "label": "PCIe 3.0 x1",
-      "count": 24,
+      "count": 23,
       "products": [
         "motherboard:1pc:1pc-128729",
         "motherboard:1pc:1pc-222511",
         "mpn:motherboard:4711377010191"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "HDMI",
-      "count": 22,
-      "products": [
-        "motherboard:1pc:1pc-128729",
-        "mpn:motherboard:4711377010191",
-        "mpn:motherboard:4711377026383"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "HD 7.1",
-      "count": 22,
-      "products": [
-        "motherboard:1pc:1pc-128729",
-        "mpn:motherboard:4711377010191",
-        "mpn:motherboard:4711377026383"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "משקל",
-      "count": 22,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "צבע",
-      "count": 22,
-      "products": [
-        "mpn:storage:32197",
-        "mpn:storage:32261",
-        "mpn:storage:718037896748"
       ]
     },
     {
@@ -312,13 +272,53 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "HDMI",
+      "count": 21,
+      "products": [
+        "motherboard:1pc:1pc-128729",
+        "mpn:motherboard:4711377010191",
+        "mpn:motherboard:4711377026383"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "HD 7.1",
+      "count": 21,
+      "products": [
+        "motherboard:1pc:1pc-128729",
+        "mpn:motherboard:4711377010191",
+        "mpn:motherboard:4711377026383"
+      ]
+    },
+    {
       "category": "gpu",
-      "label": "ספק כח מומלץ",
-      "count": 20,
+      "label": "משקל",
+      "count": 21,
       "products": [
         "mpn:gpu:4711377084796",
         "mpn:gpu:4711377107549",
         "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 20,
+      "products": [
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p",
+        "mpn:storage:lsd10z002tg8"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 20,
+      "products": [
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p",
+        "mpn:storage:lsd10z002tg8"
       ]
     },
     {
@@ -332,33 +332,53 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "TPM-HEADER",
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
       "count": 19,
       "products": [
-        "motherboard:1pc:1pc-128729",
-        "mpn:motherboard:4711377010191",
-        "mpn:motherboard:4711377026383"
+        "model:cpu:coreultra5225-tray",
+        "model:cpu:coreultra5225f-tray",
+        "model:cpu:coreultra5250kfplus"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ספק כח מומלץ",
+      "count": 19,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
       "category": "storage",
-      "label": "מפרט",
+      "label": "צבע",
       "count": 19,
       "products": [
         "mpn:storage:32197",
         "mpn:storage:32261",
-        "mpn:storage:49363"
+        "mpn:storage:718037896748"
       ]
     },
     {
       "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
+      "label": "תכונות נוספות",
       "count": 18,
       "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:coreultra5225-tray",
-        "model:cpu:coreultra5225f-tray"
+        "model:cpu:ryzen55600-tray",
+        "model:cpu:ryzen57500x3d",
+        "model:cpu:ryzen58400f-tray"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "TPM-HEADER",
+      "count": 18,
+      "products": [
+        "motherboard:1pc:1pc-128729",
+        "mpn:motherboard:4711377010191",
+        "mpn:motherboard:4711377026383"
       ]
     },
     {
@@ -373,22 +393,12 @@
     },
     {
       "category": "storage",
-      "label": "ביצועים",
+      "label": "מפרט",
       "count": 18,
       "products": [
-        "mpn:storage:agammixs601tcs",
-        "mpn:storage:agammixs602tcs",
-        "mpn:storage:agammixs70b1tcs"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Shock Resistance",
-      "count": 18,
-      "products": [
-        "mpn:storage:agammixs601tcs",
-        "mpn:storage:agammixs602tcs",
-        "mpn:storage:agammixs70b1tcs"
+        "mpn:storage:32197",
+        "mpn:storage:32261",
+        "mpn:storage:49363"
       ]
     },
     {
@@ -399,16 +409,6 @@
         "other:1pc:1pc-104416",
         "other:1pc:1pc-133260",
         "other:1pc:1pc-140488"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 17,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:ryzen57500x3d",
-        "model:cpu:ryzen58400f-tray"
       ]
     },
     {
@@ -452,13 +452,23 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "צריכת חשמל",
+      "category": "storage",
+      "label": "ביצועים",
       "count": 17,
       "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
+        "mpn:storage:agammixs601tcs",
+        "mpn:storage:agammixs602tcs",
+        "mpn:storage:agammixs70b1tcs"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Shock Resistance",
+      "count": 17,
+      "products": [
+        "mpn:storage:agammixs601tcs",
+        "mpn:storage:agammixs602tcs",
+        "mpn:storage:agammixs70b1tcs"
       ]
     },
     {
@@ -513,17 +523,7 @@
     },
     {
       "category": "gpu",
-      "label": "ממשק חיבור",
-      "count": 16,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
+      "label": "צריכת חשמל",
       "count": 16,
       "products": [
         "mpn:gpu:4711377084796",
@@ -613,7 +613,7 @@
     },
     {
       "category": "gpu",
-      "label": "HDMI",
+      "label": "ממשק חיבור",
       "count": 15,
       "products": [
         "mpn:gpu:4711377084796",
@@ -623,7 +623,7 @@
     },
     {
       "category": "gpu",
-      "label": "DisplayPort",
+      "label": "ממשק זיכרון",
       "count": 15,
       "products": [
         "mpn:gpu:4711377084796",
@@ -632,23 +632,13 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "ליבות מעבד גרפי",
+      "category": "memory",
+      "label": "תאימות",
       "count": 15,
       "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ברזולוציה",
-      "count": 15,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
+        "mpn:memory:4712389908124",
+        "mpn:memory:ax4u320032g16asbkd35",
+        "mpn:memory:ax4u320032g16asbkd35p"
       ]
     },
     {
@@ -673,7 +663,7 @@
     },
     {
       "category": "gpu",
-      "label": "D-SUB",
+      "label": "HDMI",
       "count": 14,
       "products": [
         "mpn:gpu:4711377084796",
@@ -683,17 +673,7 @@
     },
     {
       "category": "gpu",
-      "label": "חיבור לספק כח",
-      "count": 14,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377265591",
-        "mpn:gpu:4711377292498"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ב G-SYNC",
+      "label": "DisplayPort",
       "count": 14,
       "products": [
         "mpn:gpu:4711377084796",
@@ -703,7 +683,7 @@
     },
     {
       "category": "gpu",
-      "label": "dvi",
+      "label": "ליבות מעבד גרפי",
       "count": 14,
       "products": [
         "mpn:gpu:4711377084796",
@@ -713,42 +693,12 @@
     },
     {
       "category": "gpu",
-      "label": "רזולוציה דיגיטלית מקסימלית",
+      "label": "תמיכה ברזולוציה",
       "count": 14,
       "products": [
-        "mpn:gpu:4711377292474",
-        "mpn:gpu:4711377301060",
-        "mpn:gpu:4711377337649"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "נפח אחסון",
-      "count": 14,
-      "products": [
-        "mpn:memory:04711378425451",
-        "mpn:memory:760557848332",
-        "mpn:memory:jm3200hle16g"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "RAM",
-      "count": 14,
-      "products": [
-        "mpn:memory:04711378425451",
-        "mpn:memory:760557848332",
-        "mpn:memory:jm3200hle16g"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Module Type",
-      "count": 14,
-      "products": [
-        "mpn:memory:04711378425451",
-        "mpn:memory:760557848332",
-        "mpn:memory:jm3200hle16g"
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
@@ -759,26 +709,6 @@
         "mpn:motherboard:90mb14i0m0eay0",
         "mpn:motherboard:90mb14s0m0eay0",
         "mpn:motherboard:90mb14v0m0eay0"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 14,
-      "products": [
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p",
-        "mpn:storage:lsd10z002tg8"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 14,
-      "products": [
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p",
-        "mpn:storage:lsd10z002tg8"
       ]
     },
     {
@@ -822,23 +752,83 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "יחידת תפקוד",
+      "category": "gpu",
+      "label": "D-SUB",
       "count": 13,
       "products": [
-        "mpn:memory:addu1600w8g11s",
-        "mpn:memory:ax4u360016g18isw50",
-        "mpn:memory:ax5u6000c3016gclanrsg"
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
-      "category": "psu",
-      "label": "ממשק",
+      "category": "gpu",
+      "label": "חיבור לספק כח",
       "count": 13,
       "products": [
-        "mpn:psu:0761345200325",
-        "mpn:psu:840440485056",
-        "mpn:psu:cp9020271eu"
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377265591",
+        "mpn:gpu:4711377292498"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב G-SYNC",
+      "count": 13,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "dvi",
+      "count": 13,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מקסימלית",
+      "count": 13,
+      "products": [
+        "mpn:gpu:4711377292474",
+        "mpn:gpu:4711377301060",
+        "mpn:gpu:4711377337649"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "נפח אחסון",
+      "count": 13,
+      "products": [
+        "mpn:memory:04711378425451",
+        "mpn:memory:760557848332",
+        "mpn:memory:jm3200hle16g"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "RAM",
+      "count": 13,
+      "products": [
+        "mpn:memory:04711378425451",
+        "mpn:memory:760557848332",
+        "mpn:memory:jm3200hle16g"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Module Type",
+      "count": 13,
+      "products": [
+        "mpn:memory:04711378425451",
+        "mpn:memory:760557848332",
+        "mpn:memory:jm3200hle16g"
       ]
     },
     {
@@ -863,12 +853,22 @@
     },
     {
       "category": "memory",
-      "label": "תאימות",
+      "label": "יחידת תפקוד",
       "count": 12,
       "products": [
-        "mpn:memory:4712389908124",
-        "mpn:memory:cp16g64c32u5w",
-        "mpn:memory:ct32g56c46u5"
+        "mpn:memory:addu1600w8g11s",
+        "mpn:memory:ax5u6000c3016gclanrsg",
+        "mpn:memory:ax5u6000c3016gslabrbk"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "ממשק",
+      "count": 12,
+      "products": [
+        "mpn:psu:0761345200325",
+        "mpn:psu:840440485056",
+        "mpn:psu:cp9020271eu"
       ]
     },
     {
@@ -1042,23 +1042,13 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "USB",
-      "count": 10,
-      "products": [
-        "mpn:motherboard:4711377010191",
-        "mpn:motherboard:4711377259729",
-        "mpn:motherboard:4711377260794"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "יכולות AI",
       "count": 9,
       "products": [
         "model:cpu:coreultra5225-tray",
         "model:cpu:coreultra5225f-tray",
-        "model:cpu:coreultra5250kfplus-tray"
+        "model:cpu:coreultra5250kfplus"
       ]
     },
     {
@@ -1139,6 +1129,16 @@
         "mpn:gpu:90yv0l70m0na00",
         "mpn:gpu:90yv0l76m0nm00",
         "mpn:gpu:90yv0lg3m0na00"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "USB",
+      "count": 9,
+      "products": [
+        "mpn:motherboard:4711377010191",
+        "mpn:motherboard:4711377259729",
+        "mpn:motherboard:4711377260794"
       ]
     },
     {
@@ -1249,16 +1249,6 @@
         "mpn:motherboard:4711377259729",
         "mpn:motherboard:4711377260794",
         "mpn:motherboard:4711377286572"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "IO",
-      "count": 7,
-      "products": [
-        "mpn:motherboard:4711377286596",
-        "mpn:motherboard:4711377290623",
-        "mpn:motherboard:4711377337977"
       ]
     },
     {
@@ -1482,6 +1472,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "IO",
+      "count": 6,
+      "products": [
+        "mpn:motherboard:4711377286596",
+        "mpn:motherboard:4711377337977",
+        "mpn:motherboard:4711377350181"
+      ]
+    },
+    {
       "category": "storage",
       "label": "מידע על המוצר",
       "count": 6,
@@ -1546,29 +1546,9 @@
       "label": "דור מעבד",
       "count": 5,
       "products": [
-        "model:cpu:corei514600k",
-        "model:cpu:corei714700f-tray",
-        "model:cpu:corei714700k"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אודיו",
-      "count": 5,
-      "products": [
-        "motherboard:1pc:1pc-213828",
-        "mpn:motherboard:4711377337984",
-        "mpn:motherboard:4711377360166"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תמיכה במעבד",
-      "count": 5,
-      "products": [
-        "motherboard:1pc:1pc-222511",
-        "mpn:motherboard:4711377360166",
-        "mpn:motherboard:4711377410458"
+        "model:cpu:corei714700k",
+        "model:cpu:corei914900k",
+        "model:cpu:corei914900kf-tray"
       ]
     },
     {
@@ -1579,16 +1559,6 @@
         "mpn:case:0761345810418",
         "mpn:case:cc9011242ww",
         "mpn:case:cx300argbw"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מפרט",
-      "count": 5,
-      "products": [
-        "mpn:gpu:90yv0h20m0na00",
-        "mpn:gpu:90yv0l71m0na00",
-        "mpn:gpu:90yv0lx0m0na00"
       ]
     },
     {
@@ -1649,16 +1619,6 @@
         "mpn:motherboard:4711377129862",
         "mpn:motherboard:4711377144797",
         "mpn:motherboard:4711377402842"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "זיכרון",
-      "count": 5,
-      "products": [
-        "mpn:motherboard:4711377337984",
-        "mpn:motherboard:4711377360166",
-        "mpn:motherboard:4711377410458"
       ]
     },
     {
@@ -1863,6 +1823,16 @@
     },
     {
       "category": "motherboard",
+      "label": "אודיו",
+      "count": 4,
+      "products": [
+        "motherboard:1pc:1pc-213828",
+        "mpn:motherboard:4711377337984",
+        "mpn:motherboard:4711377360166"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "דור תקשורת",
       "count": 4,
       "products": [
@@ -1939,6 +1909,16 @@
         "motherboard:1pc:1pc-222504",
         "motherboard:1pc:1pc-222507",
         "motherboard:1pc:1pc-222509"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תמיכה במעבד",
+      "count": 4,
+      "products": [
+        "motherboard:1pc:1pc-222511",
+        "mpn:motherboard:4711377360166",
+        "mpn:motherboard:4711377410458"
       ]
     },
     {
@@ -2203,6 +2183,16 @@
     },
     {
       "category": "gpu",
+      "label": "מפרט",
+      "count": 4,
+      "products": [
+        "mpn:gpu:90yv0h20m0na00",
+        "mpn:gpu:90yv0l71m0na00",
+        "mpn:gpu:90yv0lx0m0na00"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Overclocked (OC) edition",
       "count": 4,
       "products": [
@@ -2249,36 +2239,6 @@
         "mpn:motherboard:4711377259729",
         "mpn:motherboard:4711377260794",
         "mpn:motherboard:magz890tomahawkwifi"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "AMD Ryzen™",
-      "count": 4,
-      "products": [
-        "mpn:motherboard:4711377286596",
-        "mpn:motherboard:4711377290623",
-        "mpn:motherboard:4711377350181"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכות הפעלה נתמכות",
-      "count": 4,
-      "products": [
-        "mpn:motherboard:4711377337984",
-        "mpn:motherboard:4711377360166",
-        "mpn:motherboard:4711377410458"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבור USB קדמי",
-      "count": 4,
-      "products": [
-        "mpn:motherboard:90mb1he0m0eay0",
-        "mpn:motherboard:90mb1is0m0eay0",
-        "mpn:motherboard:90mb1it0m0eay0"
       ]
     },
     {
@@ -2456,39 +2416,9 @@
       "label": "ממשק",
       "count": 3,
       "products": [
-        "model:cpu:coreultra5250kplus-tray",
         "model:cpu:coreultra9285",
-        "model:cpu:ryzen55600gt-tray"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אחסון",
-      "count": 3,
-      "products": [
-        "motherboard:1pc:1pc-213828",
-        "mpn:motherboard:4711377412230",
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורים פנימיים",
-      "count": 3,
-      "products": [
-        "motherboard:1pc:1pc-213828",
-        "mpn:motherboard:4711377412230",
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מידות",
-      "count": 3,
-      "products": [
-        "motherboard:1pc:1pc-213828",
-        "mpn:motherboard:4711377412230",
-        "mpn:motherboard:4711377424028"
+        "model:cpu:ryzen55600gt-tray",
+        "mpn:cpu:c250kplust-tray"
       ]
     },
     {
@@ -2983,22 +2913,42 @@
     },
     {
       "category": "motherboard",
-      "label": "רזולוציה",
-      "count": 3,
-      "products": [
-        "mpn:motherboard:4711377259729",
-        "mpn:motherboard:90mb1lq0m0eayc",
-        "mpn:motherboard:gz790dax"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "Type-C DisplayPort",
       "count": 3,
       "products": [
         "mpn:motherboard:4711377286572",
         "mpn:motherboard:4711377289757",
         "mpn:motherboard:4711377289764"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "AMD Ryzen™",
+      "count": 3,
+      "products": [
+        "mpn:motherboard:4711377286596",
+        "mpn:motherboard:4711377350181",
+        "mpn:motherboard:4711377391276"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מערכות הפעלה נתמכות",
+      "count": 3,
+      "products": [
+        "mpn:motherboard:4711377337984",
+        "mpn:motherboard:4711377360166",
+        "mpn:motherboard:4711377410458"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "זיכרון",
+      "count": 3,
+      "products": [
+        "mpn:motherboard:4711377337984",
+        "mpn:motherboard:4711377360166",
+        "mpn:motherboard:4711377410458"
       ]
     },
     {
@@ -3019,6 +2969,16 @@
         "mpn:motherboard:4711377337984",
         "mpn:motherboard:4711377360166",
         "mpn:motherboard:4711377410458"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבור USB קדמי",
+      "count": 3,
+      "products": [
+        "mpn:motherboard:90mb1is0m0eay0",
+        "mpn:motherboard:90mb1it0m0eay0",
+        "mpn:motherboard:gb760md3hpwifi6"
       ]
     },
     {
@@ -3114,24 +3074,6 @@
       "products": [
         "model:cpu:corei511400f-tray",
         "mpn:cpu:c10100t-tray"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "גרפיקה מובנית",
-      "count": 2,
-      "products": [
-        "motherboard:1pc:1pc-213828",
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורים אחוריים",
-      "count": 2,
-      "products": [
-        "motherboard:1pc:1pc-213828",
-        "mpn:motherboard:4711377412230"
       ]
     },
     {
@@ -3675,15 +3617,6 @@
     },
     {
       "category": "gpu",
-      "label": "חיבורים",
-      "count": 2,
-      "products": [
-        "mpn:gpu:4711377379960",
-        "mpn:gpu:dpz4cwwp01"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "הספק כח",
       "count": 2,
       "products": [
@@ -3716,15 +3649,6 @@
       "products": [
         "mpn:memory:adds1600w8g11s",
         "mpn:memory:addu1600w8g11s"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Operating temperature",
-      "count": 2,
-      "products": [
-        "mpn:memory:ax4u360016g18isw50",
-        "mpn:memory:ax5u6000c4816gslabrbk"
       ]
     },
     {
@@ -3810,6 +3734,15 @@
     },
     {
       "category": "motherboard",
+      "label": "רזולוציה",
+      "count": 2,
+      "products": [
+        "mpn:motherboard:4711377259729",
+        "mpn:motherboard:gz790dax"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "חיבורים",
       "count": 2,
       "products": [
@@ -3887,24 +3820,6 @@
       "products": [
         "mpn:motherboard:4711377360166",
         "mpn:motherboard:4711377410458"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "פקטור צורה",
-      "count": 2,
-      "products": [
-        "mpn:motherboard:4711377412230",
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיווי LED",
-      "count": 2,
-      "products": [
-        "mpn:motherboard:4711377412230",
-        "mpn:motherboard:4711377424028"
       ]
     },
     {
@@ -4727,7 +4642,47 @@
     },
     {
       "category": "motherboard",
+      "label": "גרפיקה מובנית",
+      "count": 1,
+      "products": [
+        "motherboard:1pc:1pc-213828"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אחסון",
+      "count": 1,
+      "products": [
+        "motherboard:1pc:1pc-213828"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים פנימיים",
+      "count": 1,
+      "products": [
+        "motherboard:1pc:1pc-213828"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "LED",
+      "count": 1,
+      "products": [
+        "motherboard:1pc:1pc-213828"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים אחוריים",
+      "count": 1,
+      "products": [
+        "motherboard:1pc:1pc-213828"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מידות",
       "count": 1,
       "products": [
         "motherboard:1pc:1pc-213828"
@@ -5559,6 +5514,14 @@
     },
     {
       "category": "gpu",
+      "label": "חיבורים",
+      "count": 1,
+      "products": [
+        "mpn:gpu:4711377379960"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "שטח תצוגה פעיל (mm)",
       "count": 1,
       "products": [
@@ -5951,10 +5914,10 @@
     },
     {
       "category": "memory",
-      "label": "סוג האחסון",
+      "label": "Operating temperature",
       "count": 1,
       "products": [
-        "mpn:memory:cmk16gx4m1z3600c18b"
+        "mpn:memory:ax5u6000c4816gslabrbk"
       ]
     },
     {
@@ -6223,154 +6186,10 @@
     },
     {
       "category": "motherboard",
-      "label": "פורטים אחוריים",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "גודל זיכרון (RAM)",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "סדרת מעבד (CPU)",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Max Overclocking",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Memory Features",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "LED Features",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "כניסות בחלק האחורי",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377412230"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "יציאת תצוגה",
       "count": 1,
       "products": [
         "mpn:motherboard:4711377415156"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכת שבבים",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "USB קדמי",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "USB אחורי",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "רשת LAN",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורי פנימי",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תכונות LED",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכת הפעלה נתמכת",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מהירות זיכרון נתמכת",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תדר מקסימום ב-overclock",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חריצים",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורי לוח אחורי",
-      "count": 1,
-      "products": [
-        "mpn:motherboard:4711377424028"
       ]
     },
     {
@@ -6619,6 +6438,14 @@
       "count": 1,
       "products": [
         "mpn:motherboard:gb650eeaglewifi6e"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Spec / Specifications / Graphics Card",
+      "count": 1,
+      "products": [
+        "mpn:motherboard:gx870aoruselitewifi"
       ]
     },
     {
@@ -7295,10 +7122,10 @@
     },
     {
       "category": "storage",
-      "label": "סינון דיסק קשיח",
+      "label": "Spec / Color",
       "count": 1,
       "products": [
-        "mpn:storage:lnm990x004trnnng"
+        "mpn:storage:lnmplay001trnnng"
       ]
     },
     {

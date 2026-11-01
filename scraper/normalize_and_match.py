@@ -73,18 +73,17 @@ REVIEW_PATH = DATA_DIR / "review_queue.json"
 MANUAL_PATH = DATA_DIR / "matching" / "manual_products.json"
 SITE_DIR = DATA_DIR / "site"
 
-# Ivory is now included. If its raw file is missing, it is skipped gracefully.
-# Plonter dropped 2026-09-29 (datacenter IP-class Incapsula block, two
-# consecutive CI failures; owner decision — see decisions.md). Its spider +
-# support code stay for a possible future re-scrape, but its listings no
-# longer enter the catalog. Raw/detail history under data/ is kept as-is.
-VENDOR_SPIDER_NAMES = ["tms", "onepc", "ivory", "yahav"]
+# KSP added 2026-10-30 (home-run vendor, listing-only; see decisions.md).
+VENDOR_SPIDER_NAMES = ["tms", "onepc", "ivory", "yahav", "ksp"]
 
 # Vendors whose listing feed exposes only an internal numeric product id
 # instead of a part number, and whose product pages therefore have to hand
 # the real SKU over through detail `extra` (see _merge_detail_specs).
 # 1PC: /web/builder/candidates ids. YahavPC: /api/BuildSearch ids.
-NUMERIC_ID_VENDORS = {"onepc", "yahav"}
+# KSP: numeric uin only and no detail feed, so the real-SKU substitution below
+# never fires for it; it stays in the set to document the numeric-id shape.
+# Matching already refuses pure-numeric MPNs, so a uin cannot merge products.
+NUMERIC_ID_VENDORS = {"onepc", "yahav", "ksp"}
 
 # Supports either onepc.jsonl or 1pc.jsonl.
 VENDOR_FILE_ALIASES = {

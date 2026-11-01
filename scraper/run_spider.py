@@ -47,6 +47,11 @@ VENDOR_MIN_COUNTS = {
     # parity verified). Floor at ~75% of that, same headroom rule as the
     # others, so a partial-block day warns without failing.
     "yahav": 800,
+    # KSP onboarding baseline 2026-10-30: 13 catalog tags returned 1,087
+    # listings (~800 B each), before uin dedupe. Floor at ~75% so Cloudflare
+    # retries/a partial API day warn without failing; the spider itself is
+    # all-or-nothing, so this floor is a degradation alarm, not the gate.
+    "ksp": 800,
 }
 
 
@@ -65,16 +70,20 @@ def main():
     run_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     output_path = build_output_path(spider_name, run_date)
 
-    # Overwrite, not append — a re-run (manual dispatch retry, Nano catch-up
-    # after downtime) should replace today's file, not duplicate into it.
-    if output_path.exists():
-        output_path.unlink()
+    # Write next to the final file, then rename only on success. A re-run
+    # (manual dispatch retry, Nano catch-up) must not delete an already-good
+    # same-day snapshot before the new crawl proves it produced data — the
+    # all-or-nothing spiders deliberately yield nothing on a block, and the
+    # old "unlink first" behaviour turned that into a lost day.
+    part_path = output_path.with_name(output_path.name + ".part")
+    if part_path.exists():
+        part_path.unlink()
 
     settings = get_project_settings()
     settings.set(
         "FEEDS",
         {
-            str(output_path): {
+            str(part_path): {
                 "format": "jsonlines",
                 "encoding": "utf8",
                 "store_empty": False,
@@ -87,15 +96,19 @@ def main():
     process.crawl(spider_name)
     process.start()  # blocks until the crawl finishes
 
-    if not output_path.exists() or output_path.stat().st_size == 0:
+    if not part_path.exists() or part_path.stat().st_size == 0:
+        if part_path.exists():
+            part_path.unlink()
         print(
-            f"[error] {spider_name}: zero items written to {output_path} — "
+            f"[error] {spider_name}: zero items written to {part_path} — "
             "failing so the count-check (§10) catches it rather than "
-            "silently shipping an empty day.",
+            "silently shipping an empty day. Any existing snapshot for "
+            f"{output_path.name} was left untouched.",
             file=sys.stderr,
         )
         sys.exit(1)
 
+    part_path.replace(output_path)
     line_count = sum(1 for _ in output_path.open(encoding="utf-8"))
     print(f"[ok] {spider_name}: wrote {line_count} items to {output_path}")
 

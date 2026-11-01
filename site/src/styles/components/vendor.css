@@ -11,6 +11,7 @@
 .vdot--onepc { background: var(--v-onepc); }
 .vdot--ivory { background: var(--v-ivory); }
 .vdot--yahav { background: var(--v-yahav); }
+.vdot--ksp { background: var(--v-ksp); }
 .vdot--plonter { background: var(--v-plonter); }
 
 .vtag {
@@ -50,5 +51,6 @@
 .vmono--onepc { background: var(--v-onepc-soft); color: var(--v-onepc); }
 .vmono--ivory { background: var(--v-ivory-soft); color: var(--v-ivory); }
 .vmono--yahav { background: var(--v-yahav-soft); color: var(--v-yahav); }
+.vmono--ksp { background: var(--v-ksp-soft); color: var(--v-ksp); }
 .vmono--plonter { background: var(--v-plonter-soft); color: var(--v-plonter); }
 .vmono--other { background: var(--v-other-soft); color: var(--v-other); }

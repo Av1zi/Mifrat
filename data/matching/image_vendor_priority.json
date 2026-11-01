@@ -1,96 +1,109 @@
 {
- "_note": "Which vendor photo to prefer when the same product has offers from several vendors. Best first. Seeded from scripts/audit_images.py (Sep 2026). Yahav inserted second 2026-10-17: its 1079 detail photos (800px, white backdrop) were scraped and verified but ranked last, so yahav covers almost never won. Plonter demoted last 2026-09-29: vendor dropped after datacenter IP block (owner decision, 0 listings) ? its orphaned files must never win a pick if it ever re-scrapes; restore only with a re-audit. Edit any list to recalibrate without a code deploy; the picker reads this file at build time and falls back to its built-in default when a category is absent or the file is broken.",
+ "_note": "Which vendor photo to prefer when the same product has offers from several vendors. Best first. Seeded from scripts/audit_images.py (Sep 2026). Yahav inserted second 2026-10-17: its 1079 detail photos (800px, white backdrop) were scraped and verified but ranked last, so yahav covers almost never won. Plonter demoted last 2026-09-29: vendor dropped after datacenter IP block (owner decision, 0 listings) ? its orphaned files must never win a pick if it ever re-scrapes; restore only with a re-audit. Edit any list to recalibrate without a code deploy; the picker reads this file at build time and falls back to its built-in default when a category is absent or the file is broken. KSP added 2026-10-30: listing images are only 300x300 (detail gallery is WAF-blocked), so it ranks last until a larger source exists.",
  "priority": {
   "accessories": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "aio": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "case": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "case_fan": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "cooler_air": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "cooling_other": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "cpu": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "gpu": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "memory": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "motherboard": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "other": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "psu": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ],
   "storage": [
    "tms",
    "yahav",
    "onepc",
    "ivory",
-   "plonter"
+   "plonter",
+   "ksp"
   ]
  }
 }

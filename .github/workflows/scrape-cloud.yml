@@ -4,7 +4,8 @@ name: scrape-cloud
 # (nano/README.md). Spiders themselves are location-agnostic; this file is
 # the only place that decides which vendors run in the cloud.
 #
-# KSP has no spider (WAF = stop signal, out of scope).
+# KSP runs on the Nano (Cloudflare blocks datacenter IPs); it is not part of
+# this matrix.
 #
 # `permissions: contents: write` (Aug 2026 fix, see DECISIONS.md): the
 # default GITHUB_TOKEN is read-only on repos where the repo-level

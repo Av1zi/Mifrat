@@ -134,8 +134,16 @@ LABEL_GAP_BUDGET = 4000
 # accessories 78.89, aio 68.49, case 72.30, case_fan 70.50, cooler_air 70.82,
 # cpu 92.12, gpu 81.25, memory 86.70, motherboard 81.19, psu 69.54,
 # storage 60.61. No floor needed to move.
+#
+# 2026-10-31: accessories 73 -> 57. KSP onboarded as a listing-only vendor:
+# 946 of its 970 catalog products are KSP-only, and its feed carries no MPN,
+# so its 18 thermal pastes (half of the 36-product accessories bucket) cannot
+# fill `part_numbers` or `model`. Measured 59.44, minus the usual 2pp. This is
+# a catalog-shape change, not a broken resolver: with KSP-only products
+# excluded every old floor still passes. The rest of the category floors
+# already held (>= 2.4pp clear) and did not move.
 CATEGORY_FLOORS = {
-    "accessories": 73,
+    "accessories": 57,
     "aio": 54,
     "case": 59,
     "case_fan": 63,
@@ -185,16 +193,21 @@ CORE_FLOORS = {
 # 2026-10-29: re-measured exactly (>= 1.5pp clear, psu the tightest): aio 94.2,
 # case 83.2, case_fan 68.6, cooler_air 85.3, cpu 93.7, gpu 89.4, memory 89.8,
 # motherboard 91.1, psu 79.5, storage 81.6.
+# 2026-10-31: KSP shape change (see CATEGORY_FLOORS): case 78 -> 75 (measured
+# 77.60) and psu 78 -> 72 (measured 74.20), i.e. measured minus 2pp. KSP's
+# listing tags carry a case's form factor and a PSU's wattage/efficiency but
+# not the missing core fields (case dimensions, PSU connector counts), and its
+# 946 KSP-only products have no detail feed to fill them from.
 CORE_APPLICABLE_FLOORS = {
     "aio": 90,
-    "case": 78,
+    "case": 75,
     "case_fan": 64,
     "cooler_air": 82,
     "cpu": 91,
     "gpu": 81,
     "memory": 85,
     "motherboard": 84,
-    "psu": 78,
+    "psu": 72,
     "storage": 76,
 }
 
@@ -208,17 +221,26 @@ CORE_APPLICABLE_FLOORS = {
 # 2026-10-29: re-measured exactly (>= 2.0pp clear): accessories 11.1, aio 15.2,
 # case 28.7, case_fan 24.2, cooler_air 17.9, cpu 78.9, gpu 39.0, memory 57.8,
 # motherboard 30.4, psu 25.1, storage 2.0. No floor needed to move.
+#
+# 2026-10-31: KSP shape change. 946 KSP-only products (no MPN and no detail
+# feed) can never reach the 90% applicable target because `part_numbers` and
+# often `model` are structurally unobtainable, so the share drops in every
+# category KSP enters. Re-measured and lowered by the usual 3pp:
+# accessories 5.6 -> 2, case 24.7 -> 21, case_fan 19.5 -> 16, gpu 27.9 -> 24,
+# memory 43.8 -> 40, motherboard 24.3 -> 21, psu 20.7 -> 17. Categories KSP
+# does not sell, or where it adds only merged CPU offers, did not move
+# (aio 12.0, cooler_air 16.0, cpu 79.5, storage 1.4 already cleared).
 PRODUCT_TARGET_FLOORS: dict[str, float] = {
-    "accessories": 7,
+    "accessories": 2,
     "aio": 11,
-    "case": 26,
-    "case_fan": 22,
+    "case": 21,
+    "case_fan": 16,
     "cooler_air": 12,
     "cpu": 76,
-    "gpu": 36,
-    "memory": 54,
-    "motherboard": 27,
-    "psu": 22,
+    "gpu": 24,
+    "memory": 40,
+    "motherboard": 21,
+    "psu": 17,
     "storage": 0,
 }
 

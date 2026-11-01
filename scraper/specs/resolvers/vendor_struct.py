@@ -2066,12 +2066,222 @@ def parse_listing_identity(category: str | None, listing: dict) -> dict[str, lis
     return facts
 
 
+# --------------------------------------------------------------------------
+# KSP Hebrew tag table (2026-10-30)
+# --------------------------------------------------------------------------
+# KSP's listing payload carries `vendor_meta["tags"]`, a Hebrew label -> value
+# dict (socket, chipset, capacity, wattage, ...). The detail endpoint is
+# WAF-blocked, so this table is the only structured spec source for the
+# vendor. Values are fed through the same coerce/canon path as every other
+# vendor cell; a value that does not type never becomes a fact.
+
+_KSP_ACCESSORY_TYPES = {
+    "משחות תרמיות": "thermal_paste",
+    "בקרים למאווררים": "fan_controller",
+}
+
+
+def _ksp_cell(tags: dict, key: str):
+    value = tags.get(key)
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
+
+
+def _ksp_lighting(features) -> str | None:
+    """'A-RGB' / 'ARGB' / 'RGB Light' -> the pipeline's spelling.
+
+    KSP writes both `A-RGB` and `ARGB`; the backtest's lighting family only
+    recognises `argb`, so a raw pass-through reads as a contradiction.
+    """
+    text = str(features or "")
+    if re.search(r"A-?RGB", text, re.I):
+        return "ARGB"
+    if re.search(r"\bRGB\b", text, re.I):
+        return "RGB"
+    return None
+
+
+def _ksp_fan_size(value):
+    """'120x3 מ"מ' -> (120, 3); '92 מ''מ' -> (92, None).
+
+    For AIOs the first number is the fan diameter and the second is the fan
+    count, so the radiator is 120x3 = 360 mm — not 120 mm. For air coolers
+    only the fan diameter/count is meant.
+    """
+    text = str(value or "")
+    match = re.search(r"(\d{2,3})\s*[x×]\s*(\d)\b", text)
+    if match:
+        return int(match.group(1)), int(match.group(2))
+    match = re.search(r"(\d{2,3})", text)
+    return (int(match.group(1)), None) if match else (None, None)
+
+
+def parse_ksp_tags(category: str | None, meta) -> dict[str, list[Fact]]:
+    """Map KSP's Hebrew listing tags into typed Tier-1 facts."""
+    facts: dict[str, list[Fact]] = {}
+    if not category or not isinstance(meta, dict):
+        return facts
+    tags = meta.get("tags")
+    if not isinstance(tags, dict) or not tags:
+        return facts
+
+    _emit(facts, category, "manufacturer", _ksp_cell(tags, "יצרן"),
+          SOURCE_META, 0.85)
+
+    if category == "cpu":
+        _emit(facts, category, "series", _ksp_cell(tags, "מעבד"), SOURCE_META, 0.7)
+        _emit(facts, category, "socket", _ksp_cell(tags, "תושבת"), SOURCE_META, 0.9)
+        _emit(facts, category, "core_count", _ksp_cell(tags, "כמות ליבות"),
+              SOURCE_META, 0.9)
+        _emit(facts, category, "l3_cache_mb", _ksp_cell(tags, "זכרון מטמון"),
+              SOURCE_META, 0.85)
+        _emit(facts, category, "packaging", _ksp_cell(tags, "תכונות"),
+              SOURCE_META, 0.8)
+        return facts
+
+    if category == "motherboard":
+        _emit(facts, category, "socket", _ksp_cell(tags, "תושבת"), SOURCE_META, 0.9)
+        _emit(facts, category, "chipset", _ksp_cell(tags, "ערכת שבבים"),
+              SOURCE_META, 0.9)
+        _emit(facts, category, "memory_type", _ksp_cell(tags, "סוג זכרון"),
+              SOURCE_META, 0.9)
+        form = _ksp_cell(tags, "גודל")
+        if form == "Extended ATX":
+            form = "EATX"
+        _emit(facts, category, "form_factor", form, SOURCE_META, 0.9)
+        link = _ksp_cell(tags, "קישוריות") or ""
+        if "WiFi" in link or "Wi-Fi" in link:
+            _emit(facts, category, "wireless", "Wi-Fi", SOURCE_META, 0.7)
+        if "Ethernet" in link:
+            _emit(facts, category, "ethernet", "Ethernet", SOURCE_META, 0.7)
+        if "Bluetooth" in (_ksp_cell(tags, "תכונות") or ""):
+            _emit(facts, category, "bluetooth", "Yes", SOURCE_META, 0.7)
+        return facts
+
+    if category == "memory":
+        _emit(facts, category, "memory_type", _ksp_cell(tags, "סוג זכרון"),
+              SOURCE_META, 0.9)
+        _emit(facts, category, "speed_mhz", _ksp_cell(tags, "קצב העברת נתונים"),
+              SOURCE_META, 0.9)
+        _emit(facts, category, "form_factor", _ksp_cell(tags, "סוג"),
+              SOURCE_META, 0.7)
+        _emit_memory_kit(facts, category, _ksp_cell(tags, "גודל זכרון"),
+                         SOURCE_META)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.7)
+        if "RGB" in (_ksp_cell(tags, "תכונות") or ""):
+            _emit(facts, category, "lighting", "RGB", SOURCE_META, 0.7)
+        return facts
+
+    if category == "gpu":
+        _emit(facts, category, "chipset", _ksp_cell(tags, "כרטיס מסך"),
+              SOURCE_META, 0.85)
+        _emit(facts, category, "chip_manufacturer", _ksp_cell(tags, "סוג"),
+              SOURCE_META, 0.7)
+        _emit(facts, category, "memory_gb",
+              _ksp_cell(tags, "זיכרון כרטיס מסך"), SOURCE_META, 0.9)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.7)
+        return facts
+
+    if category == "case":
+        _emit(facts, category, "model", _ksp_cell(tags, "דגם"), SOURCE_META, 0.7)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.8)
+        # `סוג` here is the board size ("Micro ATX", "Mini ITX"), which is the
+        # motherboard-support field — NOT the tower class. The title parser
+        # already refuses to read a bare board size as `type` for exactly this
+        # reason (118/123 disagreements, Oct 2026 backtest).
+        _emit_mb_form_factors(facts, category, _ksp_cell(tags, "סוג"), SOURCE_META)
+        if "ללא" in (_ksp_cell(tags, "ואט") or ""):
+            _emit(facts, category, "psu_included", "No", SOURCE_META, 0.8)
+        lighting = _ksp_lighting(_ksp_cell(tags, "תכונות"))
+        if lighting:
+            _emit(facts, category, "lighting", lighting, SOURCE_META, 0.7)
+        _emit_front_io(facts, category, _ksp_cell(tags, "חיבורים"), SOURCE_META)
+        return facts
+
+    if category == "psu":
+        _emit(facts, category, "wattage_w", _ksp_cell(tags, "ואט"), SOURCE_META, 0.9)
+        _emit(facts, category, "efficiency", _ksp_cell(tags, "נצילות"),
+              SOURCE_META, 0.9)
+        _emit(facts, category, "type", _ksp_cell(tags, "סוג ספק"), SOURCE_META, 0.8)
+        _emit(facts, category, "fan_size_mm", _ksp_cell(tags, "גודל"),
+              SOURCE_META, 0.7)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.7)
+        features = _ksp_cell(tags, "תכונות") or ""
+        if "Modular" in features:
+            _emit(facts, category, "modular", "Full", SOURCE_META, 0.7)
+        return facts
+
+    if category == "storage":
+        _emit(facts, category, "capacity_gb", _ksp_cell(tags, "נפח אחסון"),
+              SOURCE_META, 0.9)
+        _emit(facts, category, "form_factor", _ksp_cell(tags, "גודל HDD / SSD"),
+              SOURCE_META, 0.8)
+        _emit(facts, category, "cache_mb", _ksp_cell(tags, "זכרון מטמון"),
+              SOURCE_META, 0.8)
+        sub = _ksp_cell(tags, "קטלוג משני") or ""
+        if "SSD" in sub:
+            _emit(facts, category, "type", "SSD", SOURCE_META, 0.7)
+        elif "קשיחים" in sub:
+            _emit(facts, category, "type", "HDD", SOURCE_META, 0.7)
+        features = _ksp_cell(tags, "תכונות") or ""
+        rpm = re.search(r"(\d{4})\s*Rpm", features, re.I)
+        if rpm:
+            _emit(facts, category, "rpm", rpm.group(1), SOURCE_META, 0.8)
+        return facts
+
+    if category in ("cooler_air", "aio"):
+        _emit(facts, category, "model", _ksp_cell(tags, "דגם"), SOURCE_META, 0.6)
+        sockets = _ksp_cell(tags, "תושבת")
+        if sockets:
+            _emit(facts, category, "sockets", [sockets], SOURCE_META, 0.8)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.7)
+        size, fans = _ksp_fan_size(_ksp_cell(tags, "גודל"))
+        if size:
+            if category == "aio":
+                # "120x3" names three 120 mm fans on a 360 mm radiator.
+                _emit(facts, category, "radiator_size_mm",
+                      size * fans if fans else size, SOURCE_META, 0.8)
+            else:
+                _emit(facts, category, "fan_size_mm", size, SOURCE_META, 0.8)
+                if fans:
+                    _emit(facts, category, "fan_count", fans, SOURCE_META, 0.8)
+        lighting = _ksp_lighting(_ksp_cell(tags, "תכונות"))
+        if lighting:
+            _emit(facts, category, "lighting", lighting, SOURCE_META, 0.7)
+        return facts
+
+    if category == "case_fan":
+        _emit(facts, category, "model", _ksp_cell(tags, "דגם"), SOURCE_META, 0.6)
+        _emit(facts, category, "size_mm", _ksp_cell(tags, "גודל"), SOURCE_META, 0.9)
+        _emit(facts, category, "quantity", _ksp_cell(tags, "כמות יחידות באריזה"),
+              SOURCE_META, 0.8)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.8)
+        features = _ksp_cell(tags, "תכונות")
+        if features:
+            _emit(facts, category, "led", _ksp_lighting(features) or features,
+                  SOURCE_META, 0.7)
+        return facts
+
+    if category == "accessories":
+        kind = _KSP_ACCESSORY_TYPES.get(_ksp_cell(tags, "סוג") or "")
+        if kind:
+            _emit(facts, category, "accessory_type", kind, SOURCE_META, 0.9)
+        _emit(facts, category, "color", _ksp_cell(tags, "צבע"), SOURCE_META, 0.6)
+        return facts
+
+    return facts
+
+
 def parse_vendor_struct(category: str | None, listing: dict,
                         gaps: dict[str, int] | None = None) -> dict[str, list[Fact]]:
     """All Tier-1 facts for one listing."""
     meta = listing.get("vendor_meta") or {}
     facts = parse_detail_specs(category, meta.get("detail_specs"), gaps=gaps)
     for key, value in parse_meta_scalars(category, meta).items():
+        facts.setdefault(key, []).extend(value)
+    for key, value in parse_ksp_tags(category, meta).items():
         facts.setdefault(key, []).extend(value)
     for key, value in parse_cuts(category, meta.get("cuts")).items():
         facts.setdefault(key, []).extend(value)

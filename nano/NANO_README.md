@@ -158,6 +158,37 @@ sudo systemctl enable --now pc-parts-il-onepc.timer pc-parts-il-onepc-fallback.t
 sudo systemctl start pc-parts-il-onepc.service   # first run by hand
 ```
 
+## KSP listing scrape (also on the Nano)
+
+KSP added 2026-10-30 (its Cloudflare edge blocks datacenter IPs and plain
+TLS clients; a browser-shaped TLS handshake from the home IP gets the public
+catalog). Same home-IP rules as TMS/1PC, but stricter: one request at a time,
+3-9s apart (6s base with Scrapy's randomization; tuned after 1.5s produced
+HTTP 429s), and the **first 403 ends the run** (no retry, no rotation).
+Listing-only — the detail endpoint is blocked, so there is no KSP detail or
+image phase.
+
+One-time dependency install in the same venv:
+
+```bash
+cd ~/pc-parts-il
+pip install 'curl-cffi==0.15.0' 'scrapy-curl-cffi==0.4.2'
+```
+
+Install the timer (runs 03:30-05:00 UTC, after the 1PC window):
+
+```bash
+sudo cp nano/pc-parts-il-ksp.service nano/pc-parts-il-ksp.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now pc-parts-il-ksp.timer
+sudo systemctl start pc-parts-il-ksp.service   # first run by hand
+journalctl -u pc-parts-il-ksp.service -n 50
+```
+
+If the first run is blocked, leave it alone for several days: the normalizer
+stale-forwards the previous KSP snapshot for up to 14 days. Do not add
+proxies, retries or a different TLS profile.
+
 ## Reading logs later
 
 ```bash

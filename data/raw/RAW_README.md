@@ -8,16 +8,21 @@ data/raw/2026-10-17/ivory.jsonl
 data/raw/2026-10-17/onepc.jsonl
 data/raw/2026-10-17/tms.jsonl
 data/raw/2026-10-17/yahav.jsonl
+data/raw/2026-10-29/ksp.jsonl      # first KSP snapshot (vendor added 2026-10-30 UTC)
 ```
 
-- `ivory`, `onepc` and `yahav` are written by the `scrape-cloud` GitHub
-  Actions workflow (~03:30 UTC).
-- `tms` is written by the Jetson Nano (`nano/`), once a day.
+- `ivory` and `yahav` are written by the `scrape-cloud` GitHub Actions
+  workflow (~03:30 UTC).
+- `tms`, `onepc` and `ksp` are written by the Jetson Nano (`nano/`), once a
+  day. KSP was added 2026-10-30; it is listing-only (its detail endpoint is
+  WAF-blocked) and its raw rows carry KSP's Hebrew `tags` table in
+  `vendor_meta`.
 - `plonter` was dropped on 2026-09-29 (datacenter-IP block). Its last
   snapshot is 2026-09-27; the spider and its older snapshots stay in the
   repo in case it is re-enabled.
 - `detail/` holds the per-vendor detail-page enrichment
   (`scrapy crawl <vendor>_detail`), merged by `normalize_and_match.py`.
+  There is no KSP detail file or ledger.
 - `scraper/normalize_and_match.py` reads the latest file per vendor, falling
   back to the most recent prior day for up to 14 days (the stale-forward
   rule), and builds `data/catalog.json` and `data/site/*.json`.
@@ -40,6 +45,14 @@ snapshots' data, one folder per vendor: `data/images/<vendor>/<sku>.webp`.
   transparency (tms excluded unless `--vendor tms`, home-IP rules);
   `--upgrade` refetches low-resolution covers once (ledger:
   `data/images/upgrade_ledger.json`).
+- KSP covers are 300×300 listing JPEGs (its larger detail gallery is
+  WAF-blocked), rank last in `data/matching/image_vendor_priority.json`, and
+  are deliberately skipped by the cloud `--from-catalog` run (its image host
+  blocks datacenter IPs). The home-side
+  `python -m scraper.download_images --from-catalog --vendor ksp` backfill
+  ran on 2026-10-31 (946/946 covers, 0 failures); re-run it on the home
+  connection whenever KSP-only products are added, or those products render a
+  placeholder.
 - `python scripts/check_image_files.py` is the gate (WebP only, size budget,
   black-border detector; genuine dark-backdrop shots are listed in
   `data/matching/image_dark_ok.json`).

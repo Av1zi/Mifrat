@@ -210,12 +210,12 @@ def check_scoring(c: Checks) -> None:
          "a 228px local file is penalised against a full-size one")
     # 2026-10-17 (fix-round P7): the committed table now lists yahav second
     # (tms -> yahav -> onepc -> ivory -> plonter) so the vendor we scrape
-    # ourselves leads over the 1PC tiles it was losing to; plonter stays
-    # last. Baseline updated in the same commit as the table, per the rule
-    # in this file's header.
+    # ourselves leads over the 1PC tiles it was losing to. KSP joined last on
+    # 2026-10-30 (300px listing images only). Baseline updated in the same
+    # commit as the table, per the rule in this file's header.
     c.eq(image_score.priority_table().get("case"),
-          ["tms", "yahav", "onepc", "ivory", "plonter"],
-          "committed priority table is loaded for 'case' (yahav second, plonter last)")
+          ["tms", "yahav", "onepc", "ivory", "plonter", "ksp"],
+          "committed priority table is loaded for 'case' (yahav second, ksp last)")
 
     # Cross-vendor, same kind: the committed table decides (that is its job),
     # even when the lower-priority vendor's URL shape is nicer.

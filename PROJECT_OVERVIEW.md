@@ -34,7 +34,7 @@ Non-goals for the current version:
 
 The site is bilingual, Hebrew and English, right-to-left by default in Hebrew and left-to-right in English. Prices are stored as whole Israeli shekels and can be displayed in shekels or converted to dollars for viewing only.
 
-Live scale (late Oct 2026 snapshot; moves daily): roughly 6,150 listings merged into ~3,750 products across 11 public categories (12 pipeline categories — air coolers and liquid coolers are separate upstream and merge into one CPU Cooling category on the site), with a ~320-item human review queue. Four vendors feed the pipeline: TMS and 1PC from the home box, Ivory and YahavPC from the cloud.
+Live scale (late Oct 2026 snapshot; moves daily): roughly 7,150 listings merged into ~4,700 products across 11 public categories (12 pipeline categories — air coolers and liquid coolers are separate upstream and merge into one CPU Cooling category on the site), with a review queue of a few hundred items. Five vendors feed the pipeline: TMS, 1PC and KSP from the home box, Ivory and YahavPC from the cloud.
 
 ## 2. Big picture — how the whole thing fits together
 
@@ -55,7 +55,7 @@ Concretely:
 Two machines do the scraping because vendors behave differently from different networks:
 
 - Cloud runners handle vendors that do not block datacenter addresses (Ivory and YahavPC).
-- A small home computer (Jetson Nano) handles the vendors that block or challenge datacenter addresses and therefore must be visited from a normal residential home connection (TMS, and 1PC since Oct 2026 when its builder endpoint began serving a CAPTCHA to cloud IPs). That box also runs the local-only spec-enrichment helpers that benefit from a home IP.
+- A small home computer (Jetson Nano) handles the vendors that block or challenge datacenter addresses and therefore must be visited from a normal residential home connection (TMS, 1PC since Oct 2026 when its builder endpoint began serving a CAPTCHA to cloud IPs, and KSP since Oct 2026 because its Cloudflare edge blocks datacenter IPs). That box also runs the local-only spec-enrichment helpers that benefit from a home IP.
 
 Spiders themselves are location-agnostic. Moving a vendor from cloud to home or back is a scheduling change, not a rewrite — that move has already happened once, for 1PC.
 
@@ -148,17 +148,66 @@ Blocking behavior: if every request in a run is blocked, that is treated as a da
 
 Purpose: collect PC-part slots from YahavPC through the store's own builder JSON API (a slot-list call, then one search call per category group). Each response carries the whole category, so there is no pagination. Scope is only the builder's PC-part slots; software, monitors and peripherals are left out. Onboarded 2026-10-14.
 
-### 4.8b KSP — out of scope
+### 4.8b KSP — home-run, listing-only (added 2026-10-30)
 
-There is no KSP spider. KSP sits behind bot management; that is a stop signal, not a challenge.
+Purpose: collect core components from KSP through its own public catalog JSON API.
+
+What it visits: 13 catalog tags — processors, motherboards, memory, graphics,
+cases, power supplies, internal SSD, internal HDD, CPU air coolers, liquid
+coolers, case fans, thermal paste and fan controllers. Each category is
+paginated 12 rows at a time with `result.next`; a complete first run returned
+1,087 listings before scope filtering, and the kept snapshot is 971 rows
+(≈0.9 MB raw) after dropping laptop SO-DIMMs, GPU holders, case panels and
+cooler covers, with a few cooling rows appearing under both the air-cooler
+and liquid tags and deduplicated by KSP's numeric `uin`.
+
+How it works: KSP sits behind Cloudflare Bot Management. Plain HTTP clients
+and datacenter IPs receive a custom 403 block page; a browser-shaped TLS
+handshake (the `curl_cffi` Chrome profile, via `scrapy-curl-cffi`) plus the
+storefront's `Referer`/`Origin`/`Accept-Language` headers gets the same public
+catalog as a normal browser. The spider therefore runs from the home IP, one
+request at a time, 3–9 seconds apart (6 s base, after 1.5 s produced HTTP
+429s), with no proxies, no CAPTCHA solving and no retry against a 403: the
+first block stops the run. A `429` after four retries stops it too.
+`robots.txt` is obeyed (it allows the catalog).
+
+Listing-only: KSP's `/m_action/api/item/<uin>` detail endpoint returns 403
+under every impersonation, including an in-page browser fetch, and the product
+page is an empty single-page-app shell. There is no KSP detail spider. The
+listing `tags` dict (Hebrew label → value, e.g. socket, chipset, capacity,
+wattage) is preserved raw in `vendor_meta` and mapped into Tier-1 facts by
+`parse_ksp_tags` (`scraper/specs/resolvers/vendor_struct.py`). Because the
+listing feed carries no manufacturer part number, only 24 of 970 KSP products
+merged with another vendor on the 2026-10-29 snapshot (21 of 52 CPUs); the
+other 946 stay KSP-only until an official API or a working detail path exists.
+That is an accepted limitation, not something title-based auto-merging is
+allowed to paper over.
+
+Data integrity: the spider buffers every category and yields nothing unless
+all 13 categories completed, each category fetched at least 95% of its
+`products_total` and at least 85% of its verified baseline, and the whole run
+cleared 80% of the verified item baseline. A partial day therefore fails the
+runner instead of shipping, and the previous snapshot stale-forwards.
+
+Images: the feed carries only a 300×300 listing JPEG (the larger detail
+gallery is blocked), so KSP ranks last in the cover-priority table and wins a
+photo only when no other vendor has one. The cloud normalize job must not
+fetch KSP images (datacenter IP); a home-side
+`download_images --from-catalog --vendor ksp` backfill ran on 2026-10-31
+(946/946 covers, 0 failures) and must be re-run whenever KSP-only products are
+added.
+
+The 2026-09-29 "KSP out of scope" decision was reopened by the owner on
+2026-10-30 on the evidence above; the exception and its guardrails are logged
+in `decisions.md`.
 
 ### 4.9 Schedules — cloud vs home
 
 Cloud scraping runs on hosted automation on a matrix of the cloud-safe vendors (Ivory, YahavPC), with independent jobs so one vendor failure does not stop the others. It runs once late at night Israel time with a random spread to avoid thundering-herd timing, plus a morning fallback that skips vendors whose output already exists and was written in the last 18 hours (the overnight window straddles the date change, so "is today's file there" would re-scrape most days). It can also be started manually. It installs dependencies, installs the browser binary (kept installed for a possible Plonter return; no scheduled vendor needs it today), runs the per-vendor entrypoint, then commits only that vendor dated file using the narrow-commit helper. Narrow commits matter because parallel jobs on slightly stale checkouts must not stage each other files as deleted. A detail-scrape job follows the listing matrix for the cloud-run vendors' product pages (including 1PC detail), bounded per run, append-only, and guarded so one failed vendor never cancels the others.
 
-Home scraping runs on the Nano for TMS and 1PC. A system service runs each home script with a time limit and logs to the system journal. TMS fires in the evening UTC with a large randomized delay so the run lands late at night or overnight Israel time and can catch up after downtime; 1PC fires later and sequentially behind it on the same IP, so the two runs never overlap. Morning fallback timers run only if a success marker for that day does not already exist. Each home script pulls latest code, runs its spider, refuses to commit an empty output (and warns below a per-vendor item floor), and commits and pushes the snapshot first with retries — failing loudly if that push fails, because a silent push failure looks exactly like a dead box. TMS then does best-effort detail enrichment and image downloading before a second push. A separate daily timer runs the verified AI extraction helper after the night's scrapes and normalize have refreshed the catalog, using a gitignored key file, and commits only its own output.
+Home scraping runs on the Nano for TMS, 1PC and KSP. A system service runs each home script with a time limit and logs to the system journal. TMS fires in the evening UTC with a large randomized delay so the run lands late at night or overnight Israel time and can catch up after downtime; 1PC fires later and sequentially behind it on the same IP, so the two runs never overlap; KSP fires after the 1PC window and is the slowest of the three (≈100 requests at 3–9 s, plus bounded 429 retries). Morning fallback timers run only if a success marker for that day does not already exist. Each home script pulls latest code, runs its spider, refuses to commit an empty output (and warns below a per-vendor item floor), and commits and pushes the snapshot first with retries — failing loudly if that push fails, because a silent push failure looks exactly like a dead box. TMS then does best-effort detail enrichment and image downloading before a second push. A separate daily timer runs the verified AI extraction helper after the night's scrapes and normalize have refreshed the catalog, using a gitignored key file, and commits only its own output.
 
-Binding home rules: at most one run per day per vendor, strictly sequential and throttled, browser-shaped traffic, hard stop on repeated blocks, de-escalate or drop on repeated blocks, never use proxies or retries against blocks. 1PC plays by the same rules as TMS: robots obeyed, one concurrent request, small fixed delay, no retries on a block response.
+Binding home rules: at most one run per day per vendor, strictly sequential and throttled, browser-shaped traffic, hard stop on repeated blocks, de-escalate or drop on repeated blocks, never use proxies or retries against blocks. 1PC plays by the same rules as TMS: robots obeyed, one concurrent request, small fixed delay, no retries on a block response. KSP has the same rules with a stricter stop: any 403 ends the run immediately; only `429`/5xx are retried, four times.
 
 ### 4.10 Outputs and hygiene of scraping
 
@@ -166,7 +215,7 @@ Listing snapshots live under date folders with one file per vendor. Detail snaps
 
 Real runs use the supported entrypoint or the home script. Local tests use ignored test files. Detail runs append, never overwrite. Commits use a shared helper that takes an explicit message plus only the files the job wrote, guards existence, rebases with a strategy that favors incoming changes on conflict, and uses a bot identity. Never stage a shared tree broadly because parallel jobs can otherwise delete sibling files.
 
-Robot and throttle summary: global default is to ignore robots rules, but the home-run vendor explicitly obeys them. Page-size query tricks are never constructed for that vendor. Cloud vendors run with modest delay and throttling and low parallelism; the home vendor runs even slower with single-request parallelism. Zero secrets live in automation or git. The home machine uses a repo-scoped deploy key. Hosting identifiers are public by design; credentials, tokens, login sessions, private keys, and local environment values are never committed or shared.
+Robot and throttle summary: global default is to ignore robots rules, but the home-run vendors (TMS, 1PC, KSP) explicitly obey them. Page-size query tricks are never constructed for TMS; KSP and 1PC only use the endpoints their own pages use. Cloud vendors run with modest delay and throttling and low parallelism; the home vendors run even slower with single-request parallelism, and KSP stops on the first 403 rather than retrying it. Zero secrets live in automation or git. The home machine uses a repo-scoped deploy key. Hosting identifiers are public by design; credentials, tokens, login sessions, private keys, and local environment values are never committed or shared.
 
 ## 5. Detail enrichment — deeper specs and better images
 
@@ -472,8 +521,8 @@ Secrets hygiene: zero secrets in automation and git, ever. Environment examples,
 
 - The reactor setting must stay the first line of the crawler settings file.
 - Every spider keeps both entry methods sharing one request builder for version compatibility.
-- Robots handling is split: ignore globally, obey for the home-run vendors (TMS and 1PC) and for every spec-enrichment fetcher. Never construct page-size URLs for TMS; follow pagination links or page numbers derived from the results-count footer.
-- Home-IP rules are binding: one run per day per vendor, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion.
+- Robots handling is split: ignore globally, obey for the home-run vendors (TMS, 1PC, KSP) and for every spec-enrichment fetcher. Never construct page-size URLs for TMS; follow pagination links or page numbers derived from the results-count footer. KSP's exception is bounded: one TLS profile per run, no 403 retry, no proxies or CAPTCHA services.
+- Home-IP rules are binding: one run per day per vendor, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion. KSP is stricter still: its first 403 ends the run.
 - Matching stays strict: manual merges, then CPU model identity, then exact manufacturer number, then exact identifier, then singleton — with packaging splits (boxed versus tray stay apart in every tier), a merge-consistency guard that splits same-identifier groups with conflicting manufacturer numbers, and human blocked-pairs vetoing every tier. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
 - Specs merge by tier, not by accidents of call order: reference wins, then manufacturer pages and Open Icecat, then trusted vendor structure (vendor payloads, detail tables, foreign-retailer tables), then verified AI extraction, then title parsing, then weak vendors fill-only; equal-tier conflicts are logged, never silently picked. `null` means unknown — never guess a value to fill a gap.
 - The schema is the single source of truth for specs: add or change a field there, regenerate the frontend metadata, teach a resolver to emit it — nothing else needs editing. The drift check fails the pipeline if the generated module goes stale. Per-product overrides fix data without a code deploy.

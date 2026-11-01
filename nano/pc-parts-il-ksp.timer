@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily timer for the KSP scraper (PC Part Picker IL)
+
+[Timer]
+# After the 1PC window (01:00 UTC + up to 2h) on the same home IP; spread
+# over 03:30-05:00 UTC so the run is sequential behind TMS and 1PC.
+OnCalendar=*-*-* 03:30:00 UTC
+RandomizedDelaySec=5400
+Persistent=true
+
+[Install]
+WantedBy=timers.target

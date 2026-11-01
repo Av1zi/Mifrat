@@ -429,6 +429,12 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
         )
         vendor = str(chosen.get("vendor_id") or "")
         folder = _vendor_folder(vendor)
+        # KSP's image host sits behind the same Cloudflare edge as its API;
+        # the normalize workflow runs on a datacenter IP, so fetching KSP
+        # covers there would 403 twice and abort the shared backfill. The
+        # Nano is the only allowed fetcher for this vendor (--vendor ksp).
+        if folder == "ksp" and not (vendors and "ksp" in vendors):
+            continue
         if vendors and folder not in vendors and vendor not in vendors:
             continue
         sku = str(chosen.get("vendor_sku") or "").strip()

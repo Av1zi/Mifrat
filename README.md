@@ -19,11 +19,12 @@ local vendors merge into one catalog; a static site serves it with no backend
 
 Daily scrapes run in two places:
 
-- **GitHub Actions** — `ivory`, `onepc`, `yahav` (`scrape-cloud.yml`).
+- **GitHub Actions** — `ivory`, `yahav` (`scrape-cloud.yml`).
   Plonter dropped 2026-09-29 (datacenter IP-class block, spider kept for a
-  possible re-scrape). KSP is a disabled Phase-5 stub.
-- **Jetson Nano at home** — `tms` only, since it blocks datacenter IPs.
-  See `nano/NANO_README.md` for setup.
+  possible re-scrape).
+- **Jetson Nano at home** — `tms`, `onepc` and (since 2026-10-30) `ksp`,
+  because those vendors block datacenter IPs. See `nano/NANO_README.md` for
+  setup.
 - Both write dated raw snapshots to `data/raw/YYYY-MM-DD/<vendor>.jsonl`
   and push them to this repo.
 - `normalize-and-deploy.yml` reads the latest
@@ -39,11 +40,18 @@ a rewrite.
 ### Decisions locked in
 - **Language:** Bilingual, Hebrew + English.
 - **Accounts:** Shareable build links only (`/list/<id>` via Worker + D1; legacy `#/build?...` kept). Git-as-database otherwise.
-- **KSP:** Out of scope (no spider; its WAF is a stop signal).
+- **KSP:** Active since 2026-10-30 as a **home-run, listing-only** vendor.
+  Its public catalog is fetched with a Chrome TLS profile (`curl_cffi`);
+  its `/m_action/api/item/<uin>` detail endpoint is WAF-blocked (403), so
+  there is no KSP detail/MPN enrichment. One run/day, 1 request at a time,
+  3-9s apart, first 403 stops the run (429 retried 4x), no proxies or CAPTCHA
+  solving. The exception is logged in `decisions.md`.
 - **robots.txt:** Ignored for cloud-run vendors;
-  **followed** for locally-run vendors (TMS on the Nano). TMS: one run/day,
-  sequential, throttled, browser headers, hard-stop after 2x 403/429.
-  Never escalate against blocks or WAFs.
+  **followed** for locally-run vendors (TMS, 1PC, KSP on the Nano). TMS:
+  one run/day, sequential, throttled, browser headers, hard-stop after
+  2x 403/429. KSP: one run/day, one request at a time, 3-9s apart,
+  first 403 stops the run (429 retried 4x). Never escalate against blocks or
+  WAFs.
 - **Specs:** typed per-category schema (`scraper/specs/`) — `null` means unknown, never guess. See `scraper/specs/README.md`.
 
 ### About `decisions.md`
@@ -68,18 +76,18 @@ legacy `#/build?...` links keep working.
 
 ```
 /scraper
-  /spiders                    # tms (Nano) · onepc · ivory · yahav · plonter (kept, unscheduled)
+  /spiders                    # tms · onepc · ksp (Nano) · ivory · yahav · plonter (kept, unscheduled)
   /specs                      # typed spec pipeline (schema, resolvers, merge, validate) — see specs/README.md
   normalize_and_match.py      # builds catalog.json + review_queue.json + data/site/*.json + history
   run_spider.py               # ONLY entrypoint for real runs → data/raw/<today>/<vendor>.jsonl
 /scripts                      # git_commit_push.sh + spec/size/detail gates
-/nano                         # Jetson Nano setup for TMS (NANO_README.md + systemd units)
+/nano                         # Jetson Nano setup for TMS/1PC/KSP (NANO_README.md + systemd units)
 /data
   raw/YYYY-MM-DD/<vendor>.jsonl  # daily raw snapshots (git = database)
   catalog.json                   # built catalog — the "database"
   site/<category>.json + meta.json + history/  # client-optimized site files
 /.github/workflows
-  scrape-cloud.yml            # ivory + onepc + yahav
+  scrape-cloud.yml            # ivory + yahav
   normalize-and-deploy.yml    # build catalog + site JSON
 /site                         # static Vite+TS frontend + short-link Worker (see site/README.md)
 ```
@@ -88,7 +96,7 @@ legacy `#/build?...` links keep working.
 
 ```bash
 pip install -r requirements.txt
-python scraper/run_spider.py <tms|onepc|ivory|yahav>   # real run entrypoint
+python scraper/run_spider.py <tms|onepc|ivory|yahav|ksp>   # real run entrypoint
 python -m scraper.normalize_and_match                  # rebuild catalog + site JSON
 cd site; npm install; npm run dev                       # frontend (auto-copies data)
 npm --prefix site run build                             # typecheck + bundle
