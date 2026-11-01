@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T08:49:51.857483+00:00",
+  "generated_at": "2026-11-01T08:58:30.603780+00:00",
   "gaps": [
     {
       "category": "case",
@@ -24,7 +24,7 @@
     {
       "category": "motherboard",
       "label": "סוג האחסון",
-      "count": 67,
+      "count": 71,
       "products": [
         "mpn:motherboard:4711377010191",
         "mpn:motherboard:4711377286596",
@@ -44,7 +44,7 @@
     {
       "category": "motherboard",
       "label": "נפח זיכרון",
-      "count": 51,
+      "count": 52,
       "products": [
         "motherboard:1pc:1pc-213828",
         "mpn:motherboard:4711377010191",
@@ -73,22 +73,22 @@
     },
     {
       "category": "motherboard",
+      "label": "רמקולים",
+      "count": 33,
+      "products": [
+        "mpn:motherboard:4711377289757",
+        "mpn:motherboard:4711377337977",
+        "mpn:motherboard:4711377365338"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "חריצים פנויים",
       "count": 31,
       "products": [
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
         "mpn:motherboard:4711377026383"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "רמקולים",
-      "count": 31,
-      "products": [
-        "mpn:motherboard:4711377289757",
-        "mpn:motherboard:4711377337977",
-        "mpn:motherboard:4711377365338"
       ]
     },
     {
@@ -362,16 +362,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 18,
-      "products": [
-        "model:cpu:ryzen55600-tray",
-        "model:cpu:ryzen57500x3d",
-        "model:cpu:ryzen58400f-tray"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "TPM-HEADER",
       "count": 18,
@@ -409,6 +399,16 @@
         "other:1pc:1pc-104416",
         "other:1pc:1pc-133260",
         "other:1pc:1pc-140488"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 17,
+      "products": [
+        "model:cpu:ryzen55600-tray",
+        "model:cpu:ryzen57500x3d",
+        "model:cpu:ryzen58400f-tray"
       ]
     },
     {
@@ -832,6 +832,16 @@
       ]
     },
     {
+      "category": "psu",
+      "label": "ממשק",
+      "count": 13,
+      "products": [
+        "mpn:psu:0761345200325",
+        "mpn:psu:840440485056",
+        "mpn:psu:cp9020271eu"
+      ]
+    },
+    {
       "category": "aio",
       "label": "אורך כבל PWM",
       "count": 12,
@@ -859,16 +869,6 @@
         "mpn:memory:addu1600w8g11s",
         "mpn:memory:ax5u6000c3016gclanrsg",
         "mpn:memory:ax5u6000c3016gslabrbk"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "ממשק",
-      "count": 12,
-      "products": [
-        "mpn:psu:0761345200325",
-        "mpn:psu:840440485056",
-        "mpn:psu:cp9020271eu"
       ]
     },
     {
@@ -2243,6 +2243,16 @@
     },
     {
       "category": "motherboard",
+      "label": "חיבור USB קדמי",
+      "count": 4,
+      "products": [
+        "mpn:motherboard:90mb1he0m0eay0",
+        "mpn:motherboard:90mb1is0m0eay0",
+        "mpn:motherboard:90mb1it0m0eay0"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "מעבד גרפי",
       "count": 4,
       "products": [
@@ -2969,16 +2979,6 @@
         "mpn:motherboard:4711377337984",
         "mpn:motherboard:4711377360166",
         "mpn:motherboard:4711377410458"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבור USB קדמי",
-      "count": 3,
-      "products": [
-        "mpn:motherboard:90mb1is0m0eay0",
-        "mpn:motherboard:90mb1it0m0eay0",
-        "mpn:motherboard:gb760md3hpwifi6"
       ]
     },
     {
@@ -5918,6 +5918,14 @@
       "count": 1,
       "products": [
         "mpn:memory:ax5u6000c4816gslabrbk"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סוג האחסון",
+      "count": 1,
+      "products": [
+        "mpn:memory:cmk16gx4m1z3600c18b"
       ]
     },
     {
