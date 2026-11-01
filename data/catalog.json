@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T03:37:08.135950+00:00",
+  "generated_at": "2026-11-01T03:41:45.722611+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -241729,7 +241729,7 @@
       "price_ils": 3695,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/11348-03-20G/31YEmKGE3U-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/11348-03-20G/31YEmKGE3U.jpg",
       "scraped_at": "2026-11-01T03:30:26.899136+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -241758,7 +241758,55 @@
         "memory_gb": 16,
         "vram_gb": 16,
         "memory": "16GB",
-        "video_memory": 16
+        "video_memory": 16,
+        "memory_type": "GDDR6",
+        "vram_type": "GDDR6",
+        "gddr": "GDDR6",
+        "memory_speed_gbps": 20,
+        "vram_speed": 20,
+        "memory_data_rate": 20,
+        "memory_bus_bit": 256,
+        "memory_bus_width": 256,
+        "vram_bus_width": 256,
+        "core_clock_mhz": 2400,
+        "core_clock": 2400,
+        "base_clock_mhz": 2400,
+        "directx": "12 Ultimate",
+        "directx_version": "12 Ultimate",
+        "opengl": "4.6",
+        "opengl_version": "4.6",
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "max_displays": 4,
+        "maximum_displays": 4,
+        "multi_display": 4,
+        "length_mm": 320,
+        "gpu_length_mm": 320,
+        "card_length_mm": 320,
+        "recommended_psu_w": 750,
+        "minimum_psu_w": 750,
+        "psu_requirement_w": 750,
+        "external_power": "2x8-pin",
+        "power_connections": "2x8-pin",
+        "power_connectors": "2x8-pin",
+        "length": "320 mm"
+      },
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9070 XT",
+          "מהירות ליבה": "2400MHz",
+          "מהירות זכרון": "20Gbps",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "256bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "L=320 W=121 H=62mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "750W with Power Connector 2x8-pin"
+        }
       },
       "product_id": "mpn:gpu:113480320g"
     },
@@ -251708,7 +251756,7 @@
       "price_ils": 4293,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5DZZ-00UANF/STHaUn4HUU-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/90-GA5DZZ-00UANF/STHaUn4HUU.jpg",
       "scraped_at": "2026-11-01T03:29:46.829118+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -251739,6 +251787,7 @@
         "memory": "16GB",
         "video_memory": 16
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:90ga5dzz00uanf"
     },
     {
@@ -251749,7 +251798,7 @@
       "price_ils": 3726,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5NZZ-00UANF/T8Q8a2Eww8-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/90-GA5NZZ-00UANF/T8Q8a2Eww8.jpg",
       "scraped_at": "2026-11-01T03:29:46.817686+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -251780,6 +251829,7 @@
         "memory": "16GB",
         "video_memory": 16
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:90ga5nzz00uanf"
     },
     {
@@ -251790,7 +251840,7 @@
       "price_ils": 3134,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5QZZ-00UANF/vhEGKpm1Ve-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/90-GA5QZZ-00UANF/vhEGKpm1Ve.jpg",
       "scraped_at": "2026-11-01T03:29:46.725887+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -251821,6 +251871,7 @@
         "memory": "16GB",
         "video_memory": 16
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:90ga5qzz00uanf"
     },
     {
@@ -308352,7 +308403,7 @@
       "price_ils": 3726,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4EWW.P01/ccj16abUhl-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/DP.Z4EWW.P01/ccj16abUhl.jpg",
       "scraped_at": "2026-11-01T03:29:46.806232+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -308360,7 +308411,7 @@
       "price_ils_raw": 3726,
       "category_normalized": "gpu",
       "match_text": "DP.Z4EWW.P01 Acer Nitro RX 9070 OC 16GB",
-      "brand": null,
+      "brand": "Acer",
       "mpn": "DP.Z4EWW.P01",
       "bundle_only": false,
       "new_pc_deal": false,
@@ -308379,6 +308430,7 @@
         "memory": "16GB",
         "video_memory": 16
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:dpz4ewwp01"
     },
     {
@@ -308389,7 +308441,7 @@
       "price_ils": 3813,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4GWW.P01/OyLEiNBdgU-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/DP.Z4GWW.P01/OyLEiNBdgU.jpg",
       "scraped_at": "2026-11-01T03:29:46.794756+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -308397,7 +308449,7 @@
       "price_ils_raw": 3813,
       "category_normalized": "gpu",
       "match_text": "DP.Z4GWW.P01 Acer Predator RX 9070 16G OC",
-      "brand": null,
+      "brand": "Acer",
       "mpn": "DP.Z4GWW.P01",
       "bundle_only": false,
       "new_pc_deal": false,
@@ -308416,6 +308468,7 @@
         "memory": "16GB",
         "video_memory": 16
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:dpz4gwwp01"
     },
     {
@@ -308426,7 +308479,7 @@
       "price_ils": 3813,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4GWW.P02/TXUQA3DPPn-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/DP.Z4GWW.P02/TXUQA3DPPn.jpg",
       "scraped_at": "2026-11-01T03:29:46.691314+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -308434,7 +308487,7 @@
       "price_ils_raw": 3813,
       "category_normalized": "gpu",
       "match_text": "DP.Z4GWW.P02 Acer Predator BiFrost RX 9070 OC 16GB -",
-      "brand": null,
+      "brand": "Acer",
       "mpn": "DP.Z4GWW.P02",
       "bundle_only": false,
       "new_pc_deal": false,
@@ -308455,6 +308508,7 @@
         "color": "White",
         "colour": "White"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:dpz4gwwp02"
     },
     {
@@ -379516,7 +379570,7 @@
       "price_ils": 3813,
       "in_stock": true,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/R9070GAMING16GD/dnshw6MNHk-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/R9070GAMING16GD/dnshw6MNHk.jpg",
       "scraped_at": "2026-11-01T03:29:46.840609+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -379548,6 +379602,7 @@
         "vram_type": "GDDR6",
         "gddr": "GDDR6"
       },
+      "vendor_meta": {},
       "model_code": "GV-R9070GAMING-16GD",
       "product_id": "mpn:gpu:r9070gaming16gd"
     },
@@ -382297,7 +382352,7 @@
       "price_ils": 3134,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX-96TS316B7/Y0icf3RVS8-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX-96TS316B7/Y0icf3RVS8.jpg",
       "scraped_at": "2026-11-01T03:29:46.714365+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -382328,6 +382383,7 @@
         "cooling": "Air",
         "cooler_type": "Air"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:rx96ts316b7"
     },
     {
@@ -382338,7 +382394,7 @@
       "price_ils": 3134,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX-96TS316W7/zicSDJY7iL-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX-96TS316W7/zicSDJY7iL.jpg",
       "scraped_at": "2026-11-01T03:29:46.702908+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -382371,6 +382427,7 @@
         "color": "White",
         "colour": "White"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:rx96ts316w7"
     },
     {
@@ -382463,7 +382520,7 @@
       "price_ils": 4766,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TMARGW9/6LipzlzsNq-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX-97TMARGW9/6LipzlzsNq.jpg",
       "scraped_at": "2026-11-01T03:29:46.760315+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -382494,6 +382551,7 @@
         "color": "White",
         "colour": "White"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:rx97tmargw9"
     },
     {
@@ -382504,7 +382562,7 @@
       "price_ils": 4333,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TQICKW9/sZ9uDzGg2y-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX-97TQICKW9/sZ9uDzGg2y.jpg",
       "scraped_at": "2026-11-01T03:29:46.748853+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -382533,6 +382591,7 @@
         "color": "White",
         "colour": "White"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:rx97tqickw9"
     },
     {
@@ -382543,7 +382602,7 @@
       "price_ils": 4420,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TRGBBB9/nWZ2Mgvw7x-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX-97TRGBBB9/nWZ2Mgvw7x.jpg",
       "scraped_at": "2026-11-01T03:29:46.771731+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -382572,6 +382631,7 @@
         "color": "Black",
         "colour": "Black"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:rx97trgbbb9"
     },
     {
@@ -382582,7 +382642,7 @@
       "price_ils": 4420,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TSWF3W9/1gNonlk2O0-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX-97TSWF3W9/1gNonlk2O0.jpg",
       "scraped_at": "2026-11-01T03:29:46.737421+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -382611,6 +382671,7 @@
         "color": "White",
         "colour": "White"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:rx97tswf3w9"
     },
     {
@@ -383068,7 +383129,7 @@
       "price_ils": 3726,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/RX907016G-A/rVkDruQ8HD-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/RX907016G-A/rVkDruQ8HD.jpg",
       "scraped_at": "2026-11-01T03:30:26.815226+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -383100,7 +383161,52 @@
         "video_memory": 16,
         "memory_type": "GDDR6",
         "vram_type": "GDDR6",
-        "gddr": "GDDR6"
+        "gddr": "GDDR6",
+        "memory_speed_gbps": 20,
+        "vram_speed": 20,
+        "memory_data_rate": 20,
+        "memory_bus_bit": 256,
+        "memory_bus_width": 256,
+        "vram_bus_width": 256,
+        "core_clock_mhz": 2070,
+        "core_clock": 2070,
+        "base_clock_mhz": 2070,
+        "directx": "12 Ultimate",
+        "directx_version": "12 Ultimate",
+        "opengl": "4.6",
+        "opengl_version": "4.6",
+        "interface": "PCIe 5.0 x16",
+        "bus_interface": "PCIe 5.0 x16",
+        "max_displays": 4,
+        "maximum_displays": 4,
+        "multi_display": 4,
+        "length_mm": 304,
+        "gpu_length_mm": 304,
+        "card_length_mm": 304,
+        "recommended_psu_w": 650,
+        "minimum_psu_w": 650,
+        "psu_requirement_w": 650,
+        "external_power": "2x8-pin",
+        "power_connections": "2x8-pin",
+        "power_connectors": "2x8-pin",
+        "length": "304 mm"
+      },
+      "vendor_meta": {
+        "detail_specs": {
+          "מעבד גרפי": "AMD Radeon RX 9070",
+          "מהירות ליבה": "2070MHz",
+          "מהירות זכרון": "20 Gbps",
+          "גודל זכרון כרטיס מסך": "16GB",
+          "סוג זכרון גרפי": "GDDR6",
+          "רוחב פס זכרון": "256bit",
+          "כמות מסכים מקסימלית": "4",
+          "מימדים": "W=304 H=127 D=42mm",
+          "גרסת DirectX": "12 Ultimate",
+          "גרסת OpenGL": "4.6",
+          "חיבור גרפי": "HDMI | DisplayPort",
+          "ממשק כרטיס מסך": "PCIe 5.0 x16",
+          "Recommended PSU": "650W with Power Connector 2x8-pin"
+        }
       },
       "product_id": "mpn:gpu:rx907016ga"
     },
@@ -395745,7 +395851,7 @@
       "price_ils": 6283,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/V531-092R/nKqYwqJaqZ-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/V531-092R/nKqYwqJaqZ.jpg",
       "scraped_at": "2026-11-01T03:29:46.783111+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -395776,6 +395882,7 @@
         "memory": "16GB",
         "video_memory": 16
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:v531092r"
     },
     {
@@ -396219,7 +396326,7 @@
       "price_ils": 6283,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/VCG5070T16TFXPB1-O/0qvNJikpYJ-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/VCG5070T16TFXPB1-O/0qvNJikpYJ.jpg",
       "scraped_at": "2026-11-01T03:29:43.990660+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -396246,6 +396353,7 @@
         "gpu_chipset": "GeForce RTX 5070 Ti",
         "graphics_processor": "GeForce RTX 5070 Ti"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:vcg5070t16tfxpb1o"
     },
     {
@@ -396256,7 +396364,7 @@
       "price_ils": 6499,
       "in_stock": false,
       "category_guess": "gpu",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/VCG5070T16TFXXPB1-O/mdc0wLyc1V-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/VCG5070T16TFXXPB1-O/mdc0wLyc1V.jpg",
       "scraped_at": "2026-11-01T03:29:43.978588+00:00",
       "last_seen": "2026-11-01",
       "stale": false,
@@ -396283,6 +396391,7 @@
         "gpu_chipset": "GeForce RTX 5070 Ti",
         "graphics_processor": "GeForce RTX 5070 Ti"
       },
+      "vendor_meta": {},
       "product_id": "mpn:gpu:vcg5070t16tfxxpb1o"
     },
     {
@@ -866224,6 +866333,9 @@
         "memory_bus_bit": 256,
         "memory_bus_width": 256,
         "vram_bus_width": 256,
+        "core_clock_mhz": 2400,
+        "core_clock": 2400,
+        "base_clock_mhz": 2400,
         "boost_clock_mhz": 2970,
         "boost_clock": 2970,
         "directx": "12 Ultimate",
@@ -866356,7 +866468,7 @@
           "category_normalized": "gpu",
           "brand": "Sapphire",
           "mpn": "11348-03-20G",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/11348-03-20G/31YEmKGE3U-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/11348-03-20G/31YEmKGE3U.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "Sapphire",
@@ -866375,7 +866487,38 @@
             "memory_gb": 16,
             "vram_gb": 16,
             "memory": "16GB",
-            "video_memory": 16
+            "video_memory": 16,
+            "memory_type": "GDDR6",
+            "vram_type": "GDDR6",
+            "gddr": "GDDR6",
+            "memory_speed_gbps": 20,
+            "vram_speed": 20,
+            "memory_data_rate": 20,
+            "memory_bus_bit": 256,
+            "memory_bus_width": 256,
+            "vram_bus_width": 256,
+            "core_clock_mhz": 2400,
+            "core_clock": 2400,
+            "base_clock_mhz": 2400,
+            "directx": "12 Ultimate",
+            "directx_version": "12 Ultimate",
+            "opengl": "4.6",
+            "opengl_version": "4.6",
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "max_displays": 4,
+            "maximum_displays": 4,
+            "multi_display": 4,
+            "length_mm": 320,
+            "gpu_length_mm": 320,
+            "card_length_mm": 320,
+            "recommended_psu_w": 750,
+            "minimum_psu_w": 750,
+            "psu_requirement_w": 750,
+            "external_power": "2x8-pin",
+            "power_connections": "2x8-pin",
+            "power_connectors": "2x8-pin",
+            "length": "320 mm"
           }
         }
       ],
@@ -866388,6 +866531,14 @@
         "model_name": [
           "PULSE AMD Radeon RX 9070 XT",
           "PULSE RX 9070 XT GAMING"
+        ],
+        "interface": [
+          "PCI Express 5.0",
+          "PCIe 5.0 x16"
+        ],
+        "bus_interface": [
+          "PCI Express 5.0",
+          "PCIe 5.0 x16"
         ]
       },
       "best_offer": {
@@ -866478,7 +866629,7 @@
         "memory_type": "GDDR6",
         "memory_speed_gbps": 20,
         "memory_bus_bit": 256,
-        "core_clock_mhz": null,
+        "core_clock_mhz": 2400,
         "boost_clock_mhz": 2970,
         "directx": "12 Ultimate",
         "opengl": "4.6",
@@ -866522,9 +866673,10 @@
         "color": "vendor",
         "fan_count": "vendor",
         "part_numbers": "vendor",
+        "core_clock_mhz": "vendor",
+        "directx": "vendor",
+        "opengl": "vendor",
         "chip_manufacturer": "derived:gpu.chipset_maker",
-        "directx": "derived:gpu.chipset_table",
-        "opengl": "derived:gpu.chipset_table",
         "tdp_w": "derived:gpu.chipset_table"
       }
     },
@@ -876790,7 +876942,7 @@
           "category_normalized": "gpu",
           "brand": "ASRock",
           "mpn": "90-GA5DZZ-00UANF",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5DZZ-00UANF/STHaUn4HUU-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/90-GA5DZZ-00UANF/STHaUn4HUU.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "ASRock",
@@ -876828,7 +876980,7 @@
         "category_normalized": "gpu",
         "brand": "ASRock",
         "mpn": "90-GA5DZZ-00UANF",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5DZZ-00UANF/STHaUn4HUU-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/90-GA5DZZ-00UANF/STHaUn4HUU.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "ASRock",
@@ -877255,7 +877407,7 @@
           "category_normalized": "gpu",
           "brand": "ASRock",
           "mpn": "90-GA5NZZ-00UANF",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5NZZ-00UANF/T8Q8a2Eww8-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/90-GA5NZZ-00UANF/T8Q8a2Eww8.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "ASRock",
@@ -877293,7 +877445,7 @@
         "category_normalized": "gpu",
         "brand": "ASRock",
         "mpn": "90-GA5NZZ-00UANF",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5NZZ-00UANF/T8Q8a2Eww8-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/90-GA5NZZ-00UANF/T8Q8a2Eww8.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "ASRock",
@@ -877526,7 +877678,7 @@
           "category_normalized": "gpu",
           "brand": "ASRock",
           "mpn": "90-GA5QZZ-00UANF",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/90-GA5QZZ-00UANF/vhEGKpm1Ve-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/90-GA5QZZ-00UANF/vhEGKpm1Ve.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "ASRock",
@@ -891373,12 +891525,16 @@
     },
     {
       "product_id": "mpn:gpu:dpz4ewwp01",
-      "canonical_name": "Acer Nitro RX 9070 OC 16GB",
+      "canonical_name": "Acer Radeon RX 9070 16GB (DP.Z4EWW.P01)",
       "description": null,
       "category": "gpu",
-      "brand": null,
+      "brand": "Acer",
       "model": "Acer Nitro RX 9070 OC",
       "attributes": {
+        "manufacturer": "Acer",
+        "brand": "Acer",
+        "maker": "Acer",
+        "vendor_brand": "Acer",
         "model": "Acer Nitro RX 9070 OC",
         "model_name": "Acer Nitro RX 9070 OC",
         "part_numbers": "DP.Z4EWW.P01",
@@ -891435,9 +891591,9 @@
           "title_raw": "Acer Nitro RX 9070 OC 16GB",
           "category_guess": "gpu",
           "category_normalized": "gpu",
-          "brand": null,
+          "brand": "Acer",
           "mpn": "DP.Z4EWW.P01",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4EWW.P01/ccj16abUhl-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/DP.Z4EWW.P01/ccj16abUhl.jpg",
           "bundle_only": false,
           "attributes": {
             "model": "Acer Nitro RX 9070 OC",
@@ -891469,9 +891625,9 @@
         "title_raw": "Acer Nitro RX 9070 OC 16GB",
         "category_guess": "gpu",
         "category_normalized": "gpu",
-        "brand": null,
+        "brand": "Acer",
         "mpn": "DP.Z4EWW.P01",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4EWW.P01/ccj16abUhl-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/DP.Z4EWW.P01/ccj16abUhl.jpg",
         "bundle_only": false,
         "attributes": {
           "model": "Acer Nitro RX 9070 OC",
@@ -891490,7 +891646,7 @@
         }
       },
       "specs": {
-        "manufacturer": null,
+        "manufacturer": "Acer",
         "model": "Acer Nitro RX 9070 OC",
         "part_numbers": [
           "DP.Z4EWW.P01"
@@ -891523,6 +891679,7 @@
         "memory_gb": "title",
         "model": "vendor",
         "part_numbers": "vendor",
+        "manufacturer": "vendor",
         "chip_manufacturer": "derived:gpu.chipset_maker",
         "directx": "derived:gpu.chipset_table",
         "opengl": "derived:gpu.chipset_table",
@@ -891754,12 +891911,16 @@
     },
     {
       "product_id": "mpn:gpu:dpz4gwwp01",
-      "canonical_name": "Acer Predator RX 9070 16G OC",
+      "canonical_name": "Acer Radeon RX 9070 16GB OC",
       "description": null,
       "category": "gpu",
-      "brand": null,
+      "brand": "Acer",
       "model": "Acer Predator RX 9070 16G OC",
       "attributes": {
+        "manufacturer": "Acer",
+        "brand": "Acer",
+        "maker": "Acer",
+        "vendor_brand": "Acer",
         "model": "Acer Predator RX 9070 16G OC",
         "model_name": "Acer Predator RX 9070 16G OC",
         "part_numbers": "DP.Z4GWW.P01",
@@ -891816,9 +891977,9 @@
           "title_raw": "כרטיס מסך Acer Predator RX 9070 16G OC",
           "category_guess": "gpu",
           "category_normalized": "gpu",
-          "brand": null,
+          "brand": "Acer",
           "mpn": "DP.Z4GWW.P01",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4GWW.P01/OyLEiNBdgU-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/DP.Z4GWW.P01/OyLEiNBdgU.jpg",
           "bundle_only": false,
           "attributes": {
             "model": "Acer Predator RX 9070 16G OC",
@@ -891850,9 +892011,9 @@
         "title_raw": "כרטיס מסך Acer Predator RX 9070 16G OC",
         "category_guess": "gpu",
         "category_normalized": "gpu",
-        "brand": null,
+        "brand": "Acer",
         "mpn": "DP.Z4GWW.P01",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4GWW.P01/OyLEiNBdgU-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/DP.Z4GWW.P01/OyLEiNBdgU.jpg",
         "bundle_only": false,
         "attributes": {
           "model": "Acer Predator RX 9070 16G OC",
@@ -891871,7 +892032,7 @@
         }
       },
       "specs": {
-        "manufacturer": null,
+        "manufacturer": "Acer",
         "model": "Acer Predator RX 9070 16G OC",
         "part_numbers": [
           "DP.Z4GWW.P01"
@@ -891904,6 +892065,7 @@
         "memory_gb": "title",
         "model": "vendor",
         "part_numbers": "vendor",
+        "manufacturer": "vendor",
         "chip_manufacturer": "derived:gpu.chipset_maker",
         "directx": "derived:gpu.chipset_table",
         "opengl": "derived:gpu.chipset_table",
@@ -891918,12 +892080,16 @@
     },
     {
       "product_id": "mpn:gpu:dpz4gwwp02",
-      "canonical_name": "Acer Predator BiFrost RX 9070 OC 16GB",
+      "canonical_name": "Acer Radeon RX 9070 16GB (DP.Z4GWW.P02)",
       "description": null,
       "category": "gpu",
-      "brand": null,
+      "brand": "Acer",
       "model": "Acer Predator BiFrost RX 9070 OC",
       "attributes": {
+        "manufacturer": "Acer",
+        "brand": "Acer",
+        "maker": "Acer",
+        "vendor_brand": "Acer",
         "model": "Acer Predator BiFrost RX 9070 OC",
         "model_name": "Acer Predator BiFrost RX 9070 OC",
         "part_numbers": "DP.Z4GWW.P02",
@@ -891982,9 +892148,9 @@
           "title_raw": "כרטיס מסך Acer Predator BiFrost RX 9070 OC 16GB - לבן",
           "category_guess": "gpu",
           "category_normalized": "gpu",
-          "brand": null,
+          "brand": "Acer",
           "mpn": "DP.Z4GWW.P02",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4GWW.P02/TXUQA3DPPn-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/DP.Z4GWW.P02/TXUQA3DPPn.jpg",
           "bundle_only": false,
           "attributes": {
             "model": "Acer Predator BiFrost RX 9070 OC",
@@ -892018,9 +892184,9 @@
         "title_raw": "כרטיס מסך Acer Predator BiFrost RX 9070 OC 16GB - לבן",
         "category_guess": "gpu",
         "category_normalized": "gpu",
-        "brand": null,
+        "brand": "Acer",
         "mpn": "DP.Z4GWW.P02",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/DP.Z4GWW.P02/TXUQA3DPPn-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/DP.Z4GWW.P02/TXUQA3DPPn.jpg",
         "bundle_only": false,
         "attributes": {
           "model": "Acer Predator BiFrost RX 9070 OC",
@@ -892041,7 +892207,7 @@
         }
       },
       "specs": {
-        "manufacturer": null,
+        "manufacturer": "Acer",
         "model": "Acer Predator BiFrost RX 9070 OC",
         "part_numbers": [
           "DP.Z4GWW.P02"
@@ -892075,6 +892241,7 @@
         "color": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
+        "manufacturer": "vendor",
         "chip_manufacturer": "derived:gpu.chipset_maker",
         "directx": "derived:gpu.chipset_table",
         "opengl": "derived:gpu.chipset_table",
@@ -926450,7 +926617,7 @@
           "category_normalized": "gpu",
           "brand": "Gigabyte",
           "mpn": "GV-R9070GAMING-16GD",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/R9070GAMING16GD/dnshw6MNHk-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/R9070GAMING16GD/dnshw6MNHk.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "Gigabyte",
@@ -926489,7 +926656,7 @@
         "category_normalized": "gpu",
         "brand": "Gigabyte",
         "mpn": "GV-R9070GAMING-16GD",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/R9070GAMING16GD/dnshw6MNHk-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/R9070GAMING16GD/dnshw6MNHk.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "Gigabyte",
@@ -931172,15 +931339,24 @@
         "memory_bus_bit": 256,
         "memory_bus_width": 256,
         "vram_bus_width": 256,
+        "core_clock_mhz": 2070,
+        "core_clock": 2070,
+        "base_clock_mhz": 2070,
         "directx": "12 Ultimate",
         "directx_version": "12 Ultimate",
         "opengl": "4.6",
         "opengl_version": "4.6",
         "interface": "PCIe 5.0 x16",
         "bus_interface": "PCIe 5.0 x16",
+        "max_displays": 4,
+        "maximum_displays": 4,
+        "multi_display": 4,
         "max_resolution": "7680x4320",
         "maximum_resolution": "7680x4320",
         "digital_max_resolution": "7680x4320",
+        "length_mm": 304,
+        "gpu_length_mm": 304,
+        "card_length_mm": 304,
         "tdp_w": 220,
         "tdp": "220W",
         "power_consumption": 220,
@@ -931190,7 +931366,11 @@
         "cooling": "Air",
         "cooler_type": "Air",
         "fan_count": 3,
-        "fans": 3
+        "fans": 3,
+        "external_power": "2x8-pin",
+        "power_connections": "2x8-pin",
+        "power_connectors": "2x8-pin",
+        "length": "304 mm"
       },
       "matched_by": "mpn",
       "vendor_count": 1,
@@ -931209,7 +931389,7 @@
           "category_normalized": "gpu",
           "brand": "PowerColor",
           "mpn": "RX907016G-A",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX907016G-A/rVkDruQ8HD-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX907016G-A/rVkDruQ8HD.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "PowerColor",
@@ -931231,7 +931411,35 @@
             "video_memory": 16,
             "memory_type": "GDDR6",
             "vram_type": "GDDR6",
-            "gddr": "GDDR6"
+            "gddr": "GDDR6",
+            "memory_speed_gbps": 20,
+            "vram_speed": 20,
+            "memory_data_rate": 20,
+            "memory_bus_bit": 256,
+            "memory_bus_width": 256,
+            "vram_bus_width": 256,
+            "core_clock_mhz": 2070,
+            "core_clock": 2070,
+            "base_clock_mhz": 2070,
+            "directx": "12 Ultimate",
+            "directx_version": "12 Ultimate",
+            "opengl": "4.6",
+            "opengl_version": "4.6",
+            "interface": "PCIe 5.0 x16",
+            "bus_interface": "PCIe 5.0 x16",
+            "max_displays": 4,
+            "maximum_displays": 4,
+            "multi_display": 4,
+            "length_mm": 304,
+            "gpu_length_mm": 304,
+            "card_length_mm": 304,
+            "recommended_psu_w": 650,
+            "minimum_psu_w": 650,
+            "psu_requirement_w": 650,
+            "external_power": "2x8-pin",
+            "power_connections": "2x8-pin",
+            "power_connectors": "2x8-pin",
+            "length": "304 mm"
           }
         }
       ],
@@ -931250,7 +931458,7 @@
         "category_normalized": "gpu",
         "brand": "PowerColor",
         "mpn": "RX907016G-A",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX907016G-A/rVkDruQ8HD-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX907016G-A/rVkDruQ8HD.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "PowerColor",
@@ -931272,7 +931480,35 @@
           "video_memory": 16,
           "memory_type": "GDDR6",
           "vram_type": "GDDR6",
-          "gddr": "GDDR6"
+          "gddr": "GDDR6",
+          "memory_speed_gbps": 20,
+          "vram_speed": 20,
+          "memory_data_rate": 20,
+          "memory_bus_bit": 256,
+          "memory_bus_width": 256,
+          "vram_bus_width": 256,
+          "core_clock_mhz": 2070,
+          "core_clock": 2070,
+          "base_clock_mhz": 2070,
+          "directx": "12 Ultimate",
+          "directx_version": "12 Ultimate",
+          "opengl": "4.6",
+          "opengl_version": "4.6",
+          "interface": "PCIe 5.0 x16",
+          "bus_interface": "PCIe 5.0 x16",
+          "max_displays": 4,
+          "maximum_displays": 4,
+          "multi_display": 4,
+          "length_mm": 304,
+          "gpu_length_mm": 304,
+          "card_length_mm": 304,
+          "recommended_psu_w": 650,
+          "minimum_psu_w": 650,
+          "psu_requirement_w": 650,
+          "external_power": "2x8-pin",
+          "power_connections": "2x8-pin",
+          "power_connectors": "2x8-pin",
+          "length": "304 mm"
         }
       },
       "specs": {
@@ -931287,38 +931523,44 @@
         "memory_type": "GDDR6",
         "memory_speed_gbps": 20,
         "memory_bus_bit": 256,
-        "core_clock_mhz": null,
+        "core_clock_mhz": 2070,
         "boost_clock_mhz": null,
         "directx": "12 Ultimate",
         "opengl": "4.6",
         "interface": "PCIe 5.0 x16",
-        "max_displays": null,
+        "max_displays": 4,
         "max_resolution": "7680x4320",
-        "length_mm": null,
+        "length_mm": 304,
         "tdp_w": 220,
         "recommended_psu_w": 650,
         "cooling": "Air",
         "fan_count": 3,
-        "external_power": null,
+        "external_power": [
+          "2x8-pin"
+        ],
         "dp_outputs": null,
         "hdmi_outputs": null,
         "color": null
       },
       "spec_sources": {
-        "manufacturer": "vendor",
         "chipset": "vendor",
+        "core_clock_mhz": "vendor",
+        "memory_speed_gbps": "vendor",
         "memory_gb": "title",
         "memory_type": "vendor",
+        "memory_bus_bit": "vendor",
+        "max_displays": "vendor",
+        "length_mm": "vendor",
+        "directx": "vendor",
+        "opengl": "vendor",
+        "interface": "vendor",
+        "external_power": "vendor",
+        "recommended_psu_w": "vendor",
+        "manufacturer": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "chip_manufacturer": "derived:gpu.chipset_maker",
-        "directx": "derived:gpu.chipset_table",
-        "opengl": "derived:gpu.chipset_table",
-        "memory_bus_bit": "derived:gpu.chipset_table",
-        "memory_speed_gbps": "derived:gpu.chipset_table",
         "tdp_w": "derived:gpu.chipset_table",
-        "recommended_psu_w": "derived:gpu.chipset_table",
-        "interface": "derived:gpu.chipset_table",
         "max_resolution": "derived:gpu.chipset_table",
         "fan_count": "derived:gpu.board_line_table",
         "cooling": "derived:gpu.fans_mean_air"
@@ -933306,7 +933548,7 @@
           "category_normalized": "gpu",
           "brand": "XFX",
           "mpn": "RX-96TS316B7",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX-96TS316B7/Y0icf3RVS8-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX-96TS316B7/Y0icf3RVS8.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "XFX",
@@ -933344,7 +933586,7 @@
         "category_normalized": "gpu",
         "brand": "XFX",
         "mpn": "RX-96TS316B7",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX-96TS316B7/Y0icf3RVS8-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX-96TS316B7/Y0icf3RVS8.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "XFX",
@@ -933484,7 +933726,7 @@
           "category_normalized": "gpu",
           "brand": "XFX",
           "mpn": "RX-96TS316W7",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX-96TS316W7/zicSDJY7iL-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX-96TS316W7/zicSDJY7iL.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "XFX",
@@ -933524,7 +933766,7 @@
         "category_normalized": "gpu",
         "brand": "XFX",
         "mpn": "RX-96TS316W7",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX-96TS316W7/zicSDJY7iL-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX-96TS316W7/zicSDJY7iL.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "XFX",
@@ -933962,7 +934204,7 @@
           "category_normalized": "gpu",
           "brand": "XFX",
           "mpn": "RX-97TMARGW9",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TMARGW9/6LipzlzsNq-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX-97TMARGW9/6LipzlzsNq.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "XFX",
@@ -934000,7 +934242,7 @@
         "category_normalized": "gpu",
         "brand": "XFX",
         "mpn": "RX-97TMARGW9",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TMARGW9/6LipzlzsNq-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX-97TMARGW9/6LipzlzsNq.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "XFX",
@@ -934139,7 +934381,7 @@
           "category_normalized": "gpu",
           "brand": "XFX",
           "mpn": "RX-97TQICKW9",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TQICKW9/sZ9uDzGg2y-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX-97TQICKW9/sZ9uDzGg2y.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "XFX",
@@ -934175,7 +934417,7 @@
         "category_normalized": "gpu",
         "brand": "XFX",
         "mpn": "RX-97TQICKW9",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TQICKW9/sZ9uDzGg2y-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX-97TQICKW9/sZ9uDzGg2y.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "XFX",
@@ -934407,7 +934649,7 @@
           "category_normalized": "gpu",
           "brand": "XFX",
           "mpn": "RX-97TRGBBB9",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TRGBBB9/nWZ2Mgvw7x-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX-97TRGBBB9/nWZ2Mgvw7x.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "XFX",
@@ -934866,7 +935108,7 @@
           "category_normalized": "gpu",
           "brand": "XFX",
           "mpn": "RX-97TSWF3W9",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TSWF3W9/1gNonlk2O0-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/RX-97TSWF3W9/1gNonlk2O0.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "XFX",
@@ -934902,7 +935144,7 @@
         "category_normalized": "gpu",
         "brand": "XFX",
         "mpn": "RX-97TSWF3W9",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/RX-97TSWF3W9/1gNonlk2O0-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/RX-97TSWF3W9/1gNonlk2O0.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "XFX",
@@ -935483,7 +935725,7 @@
           "category_normalized": "gpu",
           "brand": "MSI",
           "mpn": "V531-092R",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/V531-092R/nKqYwqJaqZ-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/V531-092R/nKqYwqJaqZ.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "MSI",
@@ -935521,7 +935763,7 @@
         "category_normalized": "gpu",
         "brand": "MSI",
         "mpn": "V531-092R",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/V531-092R/nKqYwqJaqZ-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/V531-092R/nKqYwqJaqZ.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "MSI",
@@ -938031,7 +938273,7 @@
           "category_normalized": "gpu",
           "brand": "PNY",
           "mpn": "VCG5070T16TFXPB1-O",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/VCG5070T16TFXPB1-O/0qvNJikpYJ-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/VCG5070T16TFXPB1-O/0qvNJikpYJ.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "PNY",
@@ -938065,7 +938307,7 @@
         "category_normalized": "gpu",
         "brand": "PNY",
         "mpn": "VCG5070T16TFXPB1-O",
-        "image_url": "https://tms.co.il/image/cache/catalog/products/VCG5070T16TFXPB1-O/0qvNJikpYJ-228x228.jpg",
+        "image_url": "https://tms.co.il/image/catalog/products/VCG5070T16TFXPB1-O/0qvNJikpYJ.jpg",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "PNY",
@@ -938320,7 +938562,7 @@
           "category_normalized": "gpu",
           "brand": "PNY",
           "mpn": "VCG5070T16TFXXPB1-O",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/VCG5070T16TFXXPB1-O/mdc0wLyc1V-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/VCG5070T16TFXXPB1-O/mdc0wLyc1V.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "PNY",
