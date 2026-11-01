@@ -4,7 +4,7 @@ Scrapy==2.19.0
 scrapy-curl-cffi==0.4.2
 curl-cffi==0.15.0
 scrapy-playwright==0.0.48
-playwright==1.63.0
+playwright==1.64.1
 rapidfuzz==3.14.6
 sentry-sdk==2.71.0
 Pillow==12.3.0
