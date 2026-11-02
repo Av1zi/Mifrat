@@ -1123,6 +1123,50 @@
   },
   {
     "score": 95,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:299648",
+    "listing_b": "ksp:299651",
+    "title_a": "כבל עם שתי יציאות Corsair iCUE LINK Cable 1x600mm - צבע לבן",
+    "title_b": "כבל עם חיבור ישר Corsair iCUE LINK Cable 1x600mm - צבע לבן",
+    "match_text_a": "299648 Corsair iCUE LINK Cable 1x600mm -",
+    "match_text_b": "299651 Corsair iCUE LINK Cable 1x600mm -"
+  },
+  {
+    "score": 95,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:299661",
+    "listing_b": "ksp:299677",
+    "title_a": "שני כבלים עם חיבור 90 מעלות Corsair iCUE LINK Cable 2x135mm - צבע שחור",
+    "title_b": "שני כבלים עם חיבור 90 מעלות Corsair iCUE LINK Cable 2x135mm - צבע לבן",
+    "match_text_a": "299661 90 Corsair iCUE LINK Cable 2x135mm -",
+    "match_text_b": "299677 90 Corsair iCUE LINK Cable 2x135mm -"
+  },
+  {
+    "score": 95,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:235514",
+    "listing_b": "ksp:235516",
+    "title_a": "פד תרמי Arctic TP-3 100x100mm 1.5mm Thickness",
+    "title_b": "פד תרמי Arctic TP-3 100x100mm 0.5mm Thickness",
+    "match_text_a": "235514 Arctic TP-3 100x100mm 1.5mm Thickness",
+    "match_text_b": "235516 Arctic TP-3 100x100mm 0.5mm Thickness"
+  },
+  {
+    "score": 95,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:491604",
+    "listing_b": "ksp:491607",
+    "title_a": "פד תרמי Arctic TP-4 100x100mm 1.0mm Thickness",
+    "title_b": "פד תרמי Arctic TP-4 100x100mm 1.5mm Thickness",
+    "match_text_a": "491604 Arctic TP-4 100x100mm 1.0mm Thickness",
+    "match_text_b": "491607 Arctic TP-4 100x100mm 1.5mm Thickness"
+  },
+  {
+    "score": 95,
     "category": "aio",
     "brand": "Arctic",
     "listing_a": "ksp:398985",
@@ -1340,28 +1384,6 @@
     "title_b": "Asus TUF Gaming Radeon RX 9070 XT 16GB GDDR6 OC Edition",
     "match_text_a": "371759 Asus TUF Gaming Radeon RX 9070 XT 16GB GDDR6 OC Edition",
     "match_text_b": "90YV0L70-M0NA00 Asus TUF Gaming Radeon RX 9070 XT 16GB GDDR6 OC Edition"
-  },
-  {
-    "score": 94,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:112545",
-    "listing_b": "ksp:112549",
-    "title_a": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP6 Chromax.Black",
-    "title_b": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP5 Chromax.Black",
-    "match_text_a": "112545 16 NOCTUA NA-SAVP6 Chromax.Black",
-    "match_text_b": "112549 16 NOCTUA NA-SAVP5 Chromax.Black"
-  },
-  {
-    "score": 94,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:112545",
-    "listing_b": "ksp:112550",
-    "title_a": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP6 Chromax.Black",
-    "title_b": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP1 Chromax.Black",
-    "match_text_a": "112545 16 NOCTUA NA-SAVP6 Chromax.Black",
-    "match_text_b": "112550 16 NOCTUA NA-SAVP1 Chromax.Black"
   },
   {
     "score": 94,
@@ -1659,6 +1681,28 @@
     "title_b": "קירור למעבד Arctic Freezer 36-S A-RGB מבית Arctic - צבע לבן",
     "match_text_a": "491586 Arctic Freezer 36-S A-RGB Arctic -",
     "match_text_b": "491594 Arctic Freezer 36-S A-RGB Arctic -"
+  },
+  {
+    "score": 94,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:112545",
+    "listing_b": "ksp:112549",
+    "title_a": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP6 Chromax.Black",
+    "title_b": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP5 Chromax.Black",
+    "match_text_a": "112545 16 NOCTUA NA-SAVP6 Chromax.Black",
+    "match_text_b": "112549 16 NOCTUA NA-SAVP5 Chromax.Black"
+  },
+  {
+    "score": 94,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:112545",
+    "listing_b": "ksp:112550",
+    "title_a": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP6 Chromax.Black",
+    "title_b": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP1 Chromax.Black",
+    "match_text_a": "112545 16 NOCTUA NA-SAVP6 Chromax.Black",
+    "match_text_b": "112550 16 NOCTUA NA-SAVP1 Chromax.Black"
   },
   {
     "score": 94,
@@ -2476,6 +2520,17 @@
   },
   {
     "score": 93,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:235499",
+    "listing_b": "ksp:235514",
+    "title_a": "פד תרמי Arctic TP-3 100x100mm 1.0mm Thickness",
+    "title_b": "פד תרמי Arctic TP-3 100x100mm 1.5mm Thickness",
+    "match_text_a": "235499 Arctic TP-3 100x100mm 1.0mm Thickness",
+    "match_text_b": "235514 Arctic TP-3 100x100mm 1.5mm Thickness"
+  },
+  {
+    "score": 93,
     "category": "aio",
     "brand": "Arctic",
     "listing_a": "ksp:406037",
@@ -2803,50 +2858,6 @@
     "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
     "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
     "match_text_b": "483232 Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 -"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:112549",
-    "listing_b": "ksp:112550",
-    "title_a": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP5 Chromax.Black",
-    "title_b": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP1 Chromax.Black",
-    "match_text_a": "112549 16 NOCTUA NA-SAVP5 Chromax.Black",
-    "match_text_b": "112550 16 NOCTUA NA-SAVP1 Chromax.Black"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:413709",
-    "listing_b": "ksp:413725",
-    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP6 Chromax Blue מבית Noctua",
-    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP5 Chromax Blue מבית Noctua",
-    "match_text_a": "413709 16 - NA-SAVP6 Chromax Blue Noctua",
-    "match_text_b": "413725 16 - NA-SAVP5 Chromax Blue Noctua"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:413709",
-    "listing_b": "ksp:413748",
-    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP6 Chromax Blue מבית Noctua",
-    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Blue מבית Noctua",
-    "match_text_a": "413709 16 - NA-SAVP6 Chromax Blue Noctua",
-    "match_text_b": "413748 16 - NA-SAVP3 Chromax Blue Noctua"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:413725",
-    "listing_b": "ksp:413748",
-    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP5 Chromax Blue מבית Noctua",
-    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Blue מבית Noctua",
-    "match_text_a": "413725 16 - NA-SAVP5 Chromax Blue Noctua",
-    "match_text_b": "413748 16 - NA-SAVP3 Chromax Blue Noctua"
   },
   {
     "score": 92,
@@ -3257,6 +3268,17 @@
   },
   {
     "score": 92,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:278916",
+    "listing_b": "ksp:299681",
+    "title_a": "שני כבלים Corsair iCUE LINK Cable 2x100mm",
+    "title_b": "שני כבלים Corsair iCUE LINK Cable 2x100mm",
+    "match_text_a": "278916 Corsair iCUE LINK Cable 2x100mm",
+    "match_text_b": "299681 Corsair iCUE LINK Cable 2x100mm"
+  },
+  {
+    "score": 92,
     "category": "gpu",
     "brand": "XFX",
     "listing_a": "1pc:221526",
@@ -3309,6 +3331,50 @@
     "title_b": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
     "match_text_a": "221534 Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
     "match_text_b": "KD5AGUA80-60A300H Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey"
+  },
+  {
+    "score": 92,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:112549",
+    "listing_b": "ksp:112550",
+    "title_a": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP5 Chromax.Black",
+    "title_b": "סט 16 פדים מונעי רעידות NOCTUA NA-SAVP1 Chromax.Black",
+    "match_text_a": "112549 16 NOCTUA NA-SAVP5 Chromax.Black",
+    "match_text_b": "112550 16 NOCTUA NA-SAVP1 Chromax.Black"
+  },
+  {
+    "score": 92,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:413709",
+    "listing_b": "ksp:413725",
+    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP6 Chromax Blue מבית Noctua",
+    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP5 Chromax Blue מבית Noctua",
+    "match_text_a": "413709 16 - NA-SAVP6 Chromax Blue Noctua",
+    "match_text_b": "413725 16 - NA-SAVP5 Chromax Blue Noctua"
+  },
+  {
+    "score": 92,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:413709",
+    "listing_b": "ksp:413748",
+    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP6 Chromax Blue מבית Noctua",
+    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Blue מבית Noctua",
+    "match_text_a": "413709 16 - NA-SAVP6 Chromax Blue Noctua",
+    "match_text_b": "413748 16 - NA-SAVP3 Chromax Blue Noctua"
+  },
+  {
+    "score": 92,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:413725",
+    "listing_b": "ksp:413748",
+    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP5 Chromax Blue מבית Noctua",
+    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Blue מבית Noctua",
+    "match_text_a": "413725 16 - NA-SAVP5 Chromax Blue Noctua",
+    "match_text_b": "413748 16 - NA-SAVP3 Chromax Blue Noctua"
   },
   {
     "score": 92,
@@ -3851,17 +3917,6 @@
   },
   {
     "score": 91,
-    "category": "case_fan",
-    "brand": "Noctua",
-    "listing_a": "ksp:413744",
-    "listing_b": "ksp:413748",
-    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Black מבית Noctua",
-    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Blue מבית Noctua",
-    "match_text_a": "413744 16 - NA-SAVP3 Chromax Black Noctua",
-    "match_text_b": "413748 16 - NA-SAVP3 Chromax Blue Noctua"
-  },
-  {
-    "score": 91,
     "category": "aio",
     "brand": "Corsair",
     "listing_a": "1pc:221795",
@@ -4068,6 +4123,17 @@
     "title_b": "כונן SSD SanDisk Optimus 5100 NVMe 2TB",
     "match_text_a": "222325 SSD SanDisk Optimus GX 7100 NVMe 2TB",
     "match_text_b": "222328 SSD SanDisk Optimus 5100 NVMe 2TB"
+  },
+  {
+    "score": 91,
+    "category": "accessories",
+    "brand": "Noctua",
+    "listing_a": "ksp:413744",
+    "listing_b": "ksp:413748",
+    "title_a": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Black מבית Noctua",
+    "title_b": "סט 16 רפידות נגד-רעידות NA-SAVP3 Chromax Blue מבית Noctua",
+    "match_text_a": "413744 16 - NA-SAVP3 Chromax Black Noctua",
+    "match_text_b": "413748 16 - NA-SAVP3 Chromax Blue Noctua"
   },
   {
     "score": 91,
@@ -5479,6 +5545,28 @@
   },
   {
     "score": 90,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:278918",
+    "listing_b": "ksp:299655",
+    "title_a": "שני כבלים עם חיבור 90 מעלות Corsair iCUE LINK Cable 2x200mm",
+    "title_b": "שני כבלים עם חיבור 90 מעלות Corsair iCUE LINK Cable 2x200mm - צבע לבן",
+    "match_text_a": "278918 90 Corsair iCUE LINK Cable 2x200mm",
+    "match_text_b": "299655 90 Corsair iCUE LINK Cable 2x200mm -"
+  },
+  {
+    "score": 90,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:299651",
+    "listing_b": "ksp:299657",
+    "title_a": "כבל עם חיבור ישר Corsair iCUE LINK Cable 1x600mm - צבע לבן",
+    "title_b": "2 כבלים עם חיבור ישר באורך Corsair iCUE LINK Cable 200mm - צבע לבן",
+    "match_text_a": "299651 Corsair iCUE LINK Cable 1x600mm -",
+    "match_text_b": "299657 2 Corsair iCUE LINK Cable 200mm -"
+  },
+  {
+    "score": 90,
     "category": "storage",
     "brand": "Sandisk",
     "listing_a": "1pc:222328",
@@ -5509,6 +5597,17 @@
     "title_b": "משחה תרמית 8 גרם עם מרית Arctic MX-4",
     "match_text_a": "170230 4 Arctic MX-4",
     "match_text_b": "170236 8 Arctic MX-4"
+  },
+  {
+    "score": 90,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:491599",
+    "listing_b": "ksp:491607",
+    "title_a": "פד תרמי Arctic TP-4 100x100mm 0.5mm Thickness",
+    "title_b": "פד תרמי Arctic TP-4 100x100mm 1.5mm Thickness",
+    "match_text_a": "491599 Arctic TP-4 100x100mm 0.5mm Thickness",
+    "match_text_b": "491607 Arctic TP-4 100x100mm 1.5mm Thickness"
   },
   {
     "score": 90,
@@ -7060,6 +7159,39 @@
     "title_b": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
     "match_text_a": "221469 PNY RTX 5060Ti 8GB OC Dual Fan",
     "match_text_b": "VCG5060T8DFXPB1-O-PC PNY Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP -"
+  },
+  {
+    "score": 89,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:283786",
+    "listing_b": "ksp:299648",
+    "title_a": "כבל עם חיבור ישר Corsair iCUE LINK Cable 1x600mm",
+    "title_b": "כבל עם שתי יציאות Corsair iCUE LINK Cable 1x600mm - צבע לבן",
+    "match_text_a": "283786 Corsair iCUE LINK Cable 1x600mm",
+    "match_text_b": "299648 Corsair iCUE LINK Cable 1x600mm -"
+  },
+  {
+    "score": 89,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:283786",
+    "listing_b": "ksp:299651",
+    "title_a": "כבל עם חיבור ישר Corsair iCUE LINK Cable 1x600mm",
+    "title_b": "כבל עם חיבור ישר Corsair iCUE LINK Cable 1x600mm - צבע לבן",
+    "match_text_a": "283786 Corsair iCUE LINK Cable 1x600mm",
+    "match_text_b": "299651 Corsair iCUE LINK Cable 1x600mm -"
+  },
+  {
+    "score": 89,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:283810",
+    "listing_b": "ksp:299657",
+    "title_a": "2 כבלים עם חיבור ישר באורך Corsair iCUE LINK Cable 200mm",
+    "title_b": "2 כבלים עם חיבור ישר באורך Corsair iCUE LINK Cable 200mm - צבע לבן",
+    "match_text_a": "283810 2 Corsair iCUE LINK Cable 200mm",
+    "match_text_b": "299657 2 Corsair iCUE LINK Cable 200mm -"
   },
   {
     "score": 89,
@@ -9098,6 +9230,17 @@
   },
   {
     "score": 88,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:299721",
+    "listing_b": "ksp:396383",
+    "title_a": "ערכת כבלים Corsair iCUE LINK Cable Kit",
+    "title_b": "מציאון ועודפים - ערכת כבלים Corsair iCUE LINK Cable Kit",
+    "match_text_a": "299721 Corsair iCUE LINK Cable Kit",
+    "match_text_b": "396383 - Corsair iCUE LINK Cable Kit"
+  },
+  {
+    "score": 88,
     "category": "storage",
     "brand": "Sandisk",
     "listing_a": "1pc:222324",
@@ -9139,6 +9282,39 @@
     "title_b": "מציאון ועודפים - קירור למעבד Arctic Freezer 36 - שחור",
     "match_text_a": "304052 Arctic Freezer 36 -",
     "match_text_b": "428520 - Arctic Freezer 36 -"
+  },
+  {
+    "score": 88,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:235499",
+    "listing_b": "ksp:235516",
+    "title_a": "פד תרמי Arctic TP-3 100x100mm 1.0mm Thickness",
+    "title_b": "פד תרמי Arctic TP-3 100x100mm 0.5mm Thickness",
+    "match_text_a": "235499 Arctic TP-3 100x100mm 1.0mm Thickness",
+    "match_text_b": "235516 Arctic TP-3 100x100mm 0.5mm Thickness"
+  },
+  {
+    "score": 88,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:235499",
+    "listing_b": "ksp:491604",
+    "title_a": "פד תרמי Arctic TP-3 100x100mm 1.0mm Thickness",
+    "title_b": "פד תרמי Arctic TP-4 100x100mm 1.0mm Thickness",
+    "match_text_a": "235499 Arctic TP-3 100x100mm 1.0mm Thickness",
+    "match_text_b": "491604 Arctic TP-4 100x100mm 1.0mm Thickness"
+  },
+  {
+    "score": 88,
+    "category": "accessories",
+    "brand": "Arctic",
+    "listing_a": "ksp:491599",
+    "listing_b": "ksp:491604",
+    "title_a": "פד תרמי Arctic TP-4 100x100mm 0.5mm Thickness",
+    "title_b": "פד תרמי Arctic TP-4 100x100mm 1.0mm Thickness",
+    "match_text_a": "491599 Arctic TP-4 100x100mm 0.5mm Thickness",
+    "match_text_b": "491604 Arctic TP-4 100x100mm 1.0mm Thickness"
   },
   {
     "score": 88,

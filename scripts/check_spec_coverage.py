@@ -142,8 +142,17 @@ LABEL_GAP_BUDGET = 4000
 # a catalog-shape change, not a broken resolver: with KSP-only products
 # excluded every old floor still passes. The rest of the category floors
 # already held (>= 2.4pp clear) and did not move.
+#
+# 2026-11-02: accessories 57 -> 53. KSP's cooling leaf was re-classified per
+# row (see decisions.md): 37 rows that used to sit in `other` (22), `case_fan`
+# (9 pads/mounts), CPU cooling (3 cooler kits) or another fan bucket (3, Yahav
+# splitters + a 1PC LED controller) are accessories now, i.e. the bucket grew
+# 36 -> 73 products, 34 of them KSP rows with no MPN and mostly no spec block,
+# so the mean per-field fill follows the same dilution as the 2026-10-31
+# entry: measured 55.34, minus the usual 2pp. Every other floor held with
+# >= 3.2pp of headroom (case_fan the tightest) and did not move.
 CATEGORY_FLOORS = {
-    "accessories": 57,
+    "accessories": 53,
     "aio": 54,
     "case": 59,
     "case_fan": 63,

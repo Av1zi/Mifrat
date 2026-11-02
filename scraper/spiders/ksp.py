@@ -54,6 +54,14 @@ USER_AGENT = (
 # `hdd`, `cpu_cooler_air`, `cpu_cooler_aio`, `case_fans`); canonical_category()
 # maps them to memory/storage/cooler_air/aio/case_fan. `accessories` is the
 # single accessory umbrella the pipeline already uses.
+#
+# The cooling tags are a HINT, not a verdict: KSP's "קירור" tree mixes parts
+# and accessories, and its two cooler leaves overlap (a liquid cooler is
+# listed under BOTH `מאווררים למעבדים` (182) and `קירור נוזלי` (1329)). The
+# air/liquid split and the accessory/out-of-scope rows are therefore decided
+# per row in _refine_guess, from the row's own title and `סוג` tag — see the
+# regexes below. Guessing by tag alone made the split depend on which page
+# answered first (the tag that claimed a uin won it).
 CATEGORIES = (
     ("2", "cpu"),                     # מעבדים — 53
     ("3", "motherboard"),             # לוחות אם — 158
@@ -81,6 +89,60 @@ MIN_TOTAL_ITEMS = int(sum(CATEGORY_COUNTS.values()) * 0.80)
 MIN_CATEGORY_SHARE = 0.85
 MIN_FETCHED_SHARE = 0.95
 MAX_UNKNOWN_STOCK_SHARE = 0.05
+
+# Cooling-row placement (KSP storefront's "קירור" tree, verified 2026-11-02):
+#
+#   מאווררים למעבדים  (182)  desktop CPU coolers, air AND liquid in one leaf
+#   קירור נוזלי       (1329) the same liquid coolers, listed a second time
+#   מאווררים למארזים  (186)  case fans, plus anti-vibration pads and mounts
+#   משחות תרמיות      (187)  thermal paste and thermal pads
+#   בקרים למאווררים   (188)  fan controllers, hubs and iCUE/SATA cables
+#   מאוורר USB, קירור למחשבים ניידים, קירור לכונני אחסון
+#                            laptop / USB / drive cooling — not desktop parts
+COOLING_GUESSES = frozenset(
+    {"cpu_cooler_air", "cpu_cooler_aio", "case_fans", "accessories"}
+)
+
+# Rows inside the "קירור" tree that are *accessories* rather than the part
+# they plug into: anti-vibration pads, Y-cables, mounting adapters, cooler
+# expansion / offset / air-duct kits. They are real products this catalogue
+# sells, so they go to `accessories` — not to the cooler/fan leaf that merely
+# names the part they fit. Only cosmetic covers are dropped (see below).
+# Hebrew first: KSP titles are Hebrew-only, so the English rules in
+# matching._category_from_title never see them (see the matching.py hints for
+# the same words on the normalizer side).
+COOLING_ACCESSORY_TITLE_RE = re.compile(
+    r"^\s*(?:סט\s+\d+\s+|זוג\s+|שני\s+|שתי\s+)?"
+    r"(?:רפידות|תושבות|פדים|מתא(?:ם|מי)|כבלי?|תעלת\s*אוויר)\b|"
+    r"^\s*ערכת\s*(?:הרחבה|התקנה|הרכבה|הסטה|שדרוג|כבלים|תעלת)|"
+    r"\bNA-(?:SAV|SYC|SFMA|FK|FD)\w*\b",
+    re.I,
+)
+# KSP lists decorative cooler shrouds ("כיסוי עיצובי") under the CPU coolers;
+# they are not comparable products, and they are the one cooling row group
+# this catalogue still drops.
+COSMETIC_COVER_TITLE_RE = re.compile(r"כיסוי\s*עיצובי", re.I)
+
+# The whole "קירור" section also carries laptop pads, USB fans and M.2/SSD
+# heatsinks. They are filtered out at the source, before the normalizer.
+OUT_OF_SCOPE_COOLING_TITLE_RE = re.compile(
+    r"קירור\s*למחשב(?:ים)?\s*נייד|קירור\s*לנייד|משטח\s*קירור|"
+    r"מאוורר\s*USB|USB\s*(?:fan|מאוורר)|"
+    r"קירור\s*לכוננ|קירור\s*ל[- ]?(?:SSD|M\.?2)|"
+    r"\bheatsinks?\s*(?:for|ל)\s*(?:SSD|M\.?2|NVMe)\b",
+    re.I,
+)
+
+# Liquid coolers: KSP files them under the CPU-fan leaf with `סוג` =
+# "מאווררים למעבדים", so the title is the only air/liquid evidence. The
+# Hebrew phrase (not the bare word) avoids the "מיסב דינמי נוזלי" bearing
+# spec that matching._HEBREW_BEARING_RE also guards.
+LIQUID_TITLE_RE = re.compile(
+    r"קירור\s*נוזלי|נוזלי\s*למעבד|\bliquid\b|\baio\b|water\s*cool",
+    re.I,
+)
+
+CASE_FAN_TITLE_RE = re.compile(r"למארז|מאוורר(?:י|ים)?\s*מארז")
 
 HEADERS = {
     "Accept": "application/json, text/plain, */*",
@@ -305,13 +367,22 @@ class KspSpider(scrapy.Spider):
 
     @staticmethod
     def _refine_guess(title, tags, guess):
-        """Apply KSP's own type tag / title evidence to the category guess.
+        """Place each row in the category the row itself describes.
 
         Scope, not spec work: KSP's memory tag includes laptop SO-DIMMs, the
-        GPU and case tags include holders/panels, and the CPU-cooler tag
-        includes Noctua chromax covers. Those are not the desktop parts this
-        site compares, so they are dropped or moved to accessories before the
-        normalizer sees them.
+        GPU and case tags include holders/panels, and the whole "קירור"
+        (cooling) tree mixes parts with accessories and with laptop/USB/drive
+        cooling. Before this pass the cooling tags handed their entire leaf to
+        one guess — every row in the CPU-cooler leaf became `cpu_cooler_air`,
+        and which tag claimed a uin depended on page order. The rules below
+        read the row, so the split is stable and the accessories/out-of-scope
+        rows never reach the normalizer:
+          - liquid words            -> cpu_cooler_aio
+          - case-fan leaf / "למארז" -> case_fans
+          - pads/cables/mounts/kits -> accessories
+          - paste/controller leaf   -> accessories
+          - cosmetic covers         -> dropped
+          - laptop/USB/drive cooler -> dropped
         """
         type_tag = str(tags.get("סוג") or "")
         if guess == "ram" and ("SODIMM" in type_tag or "לניידים" in type_tag):
@@ -320,11 +391,27 @@ class KspSpider(scrapy.Spider):
             return guess, False
         if guess == "case" and "פאנלים" in type_tag:
             return guess, False
-        if guess in ("cpu_cooler_air", "cooler_air") and (
-            "כיסוי עיצובי" in title or "מתאם הרכבה" in title
-        ):
+
+        if guess not in COOLING_GUESSES:
+            return guess, True
+
+        if OUT_OF_SCOPE_COOLING_TITLE_RE.search(title):
             return guess, False
-        return guess, True
+        if COSMETIC_COVER_TITLE_RE.search(title):
+            return guess, False
+        if COOLING_ACCESSORY_TITLE_RE.search(title):
+            return "accessories", True
+        if guess == "accessories":
+            # Tags 187/188: thermal paste/pads and fan controllers/hubs/cables.
+            return "accessories", True
+        if guess == "case_fans":
+            # The leaf's own rows are fans except the pads/mounts caught above.
+            return "case_fans", True
+        if type_tag == "קירור נוזלי" or LIQUID_TITLE_RE.search(title):
+            return "cpu_cooler_aio", True
+        if CASE_FAN_TITLE_RE.search(title):
+            return "case_fans", True
+        return "cpu_cooler_air", True
 
     def _map_item(self, raw, guess):
         if not isinstance(raw, dict):

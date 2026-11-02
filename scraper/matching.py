@@ -168,6 +168,11 @@ CATEGORY_ALIASES = {
     "videocards": "gpu",
     "graphicscards": "gpu",
     "gpus": "gpu",
+    # --- single accessory umbrella (KSP's `accessories` leaf: thermal paste,
+    #     fan controllers, iCUE cables; the old granular ids merge in
+    #     ACCESSORY_CATEGORIES below) ---
+    "accessories": "cooler_accessory",
+    "accessory": "cooler_accessory",
     # --- not build parts -> other ---
     "monitor": "other",
     "monitors": "other",
@@ -544,8 +549,38 @@ _HEBREW_CPU_COOLER_RE = re.compile(
     re.I,
 )
 _HEBREW_THERMAL_RE = re.compile(
-    r"משחה|גריז\s*[תט]רמי|חומר\s*[תט]רמי|[תט]רמית"
+    r"משחה|גריז\s*[תט]רמי|חומר\s*[תט]רמי|פד(?:ים)?\s*[תט]רמי|"
+    r"[תט]רמית"
 )
+# Cooling accessories that Hebrew-first feeds file inside the part's own leaf:
+# KSP puts cooler expansion/mounting kits under CPU coolers, anti-vibration
+# pads, Y-cables and mounting adapters under case fans, and hubs/iCUE cables
+# under thermal paste. `_clean` strips Hebrew, so the English accessory rules
+# in `_category_from_title` never see these titles; without a hint the part's
+# leaf wins and the accessory ships as a cooler/fan. The same words guard the
+# spider at the source (`scraper/spiders/ksp.py`).
+#
+# Every pattern is anchored: an accessory title STARTS with the accessory
+# ("סט 16 פדים ...", "ערכת כבלים ...", "כבל ...", "פד תרמי ..."), while a fan
+# that merely ships with pads names itself first ("מאוורר למארז ... עם
+# רפידות נגד ויברציות") and must stay a fan. The lead accepts a count word
+# ("סט 20", "זוג", "שני", "שתי") and KSP's clearance banner
+# ("מציאון ועודפים - ").
+_HEBREW_ACCESSORY_LEAD = (
+    r"^\s*(?:(?:מציאון|עודפים|מבצע|מלאי)[^\d]{0,24}?[-–]\s*)?"
+    r"(?:סט\s+\d+\s+|זוג\s+|שני\s+|שתי\s+|ערכת\s+)?"
+)
+_HEBREW_COOLER_ACCESSORY_RE = re.compile(
+    _HEBREW_ACCESSORY_LEAD
+    + r"(?:רפידות|תושבות|פדים|מתא(?:ם|מי)|כבל(?:ים|י)?|"
+    r"הרחבה|התקנה|הרכבה|הסטה|שדרוג|כבלים|תעלת\s*אוויר)\b",
+    re.I,
+)
+# A fan CONTROLLER title starts with the controller ("בקר מאווררים ...",
+# "בקר רכזת מאוורר PWM"). A fan bundle only mentions one ("... מאוורר למארז
+# עם בקר תאורה ...") and must stay a fan, hence the start anchor. A splitter
+# ("מפצל מאווררים") is the same kind of accessory cable.
+_HEBREW_FAN_CONTROLLER_RE = re.compile(r"^\s*(?:בקר|רכזת|מפצל)\b")
 
 
 def _hebrew_category_hint(title_raw: str) -> str | None:
@@ -554,6 +589,13 @@ def _hebrew_category_hint(title_raw: str) -> str | None:
         return None
     if _HEBREW_THERMAL_RE.search(title_raw):
         return "thermal_paste"
+    # Accessories before the coarse cooler/fan words: "ערכת הרחבה ... למערכת
+    # קירור" and "רפידות ... למאווררי מארז" name the part they fit, not the
+    # product being sold.
+    if _HEBREW_COOLER_ACCESSORY_RE.search(title_raw):
+        return "cooler_accessory"
+    if _HEBREW_FAN_CONTROLLER_RE.search(title_raw):
+        return "fan_controller"
     # Liquid check first: "קירור נוזלי למעבד" contains both liquid and the
     # generic CPU-cooler phrase — liquid wins. Each occurrence counts on
     # its own: a bearing's "נוזלי" never does (see _HEBREW_BEARING_RE),
@@ -991,6 +1033,13 @@ def title_category(raw_title: str, title_clean: str | None = None) -> str | None
         title_clean = _clean(str(raw_title or "")).lower()
     hebrew_cat = _hebrew_category_hint(str(raw_title or ""))
     title_cat = _category_from_title(title_clean)
+    if hebrew_cat in ACCESSORY_CATEGORIES:
+        # Explicit Hebrew accessory wording names the product itself, even
+        # when the title also names the fan/cooler it fits ("ערכת הרחבה ...
+        # עם מאוורר NF-P12", "רפידות ... למאווררי מארז Noctua", "פד תרמי
+        # ... 100x100mm"). English fan-only evidence in those titles is
+        # compatibility prose, so it must not win.
+        return hebrew_cat
     if hebrew_cat in ("aio", "cooler_air", "case_fan", "thermal_paste"):
         # English accessory evidence (a real hub/strip/frame/bracket title)
         # still wins over a coarse Hebrew cooler/fan hint — e.g. a Hebrew
