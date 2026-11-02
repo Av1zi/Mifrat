@@ -135,6 +135,17 @@
     "score": 100,
     "category": "case",
     "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "tms:C8",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
     "listing_a": "1pc:167982",
     "listing_b": "tms:C8",
     "title_a": "מארז מחשב Antec C8 Wood",
@@ -317,6 +328,17 @@
     "title_b": "מארז מחשב Lian-Li A3 White",
     "match_text_a": "A3W Lian-Li A3 White A3W",
     "match_text_b": "A3W Lian-Li A3 White"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:180228",
+    "listing_b": "tms:O11VPW",
+    "title_a": "מארז מחשב Lian-Li O11 VISION Compact White O11VPW",
+    "title_b": "מארז מחשב Lian-Li O11 VISION Compact White",
+    "match_text_a": "180228 Lian-Li O11 VISION Compact White O11VPW",
+    "match_text_b": "O11VPW Lian-Li O11 VISION Compact White"
   },
   {
     "score": 100,
@@ -559,6 +581,17 @@
     "title_b": "מארז מחשב דגם 2800X RS-R ARGB Micro-ATX בצבע לבן מבית CORSAIR",
     "match_text_a": "221842 2800X RS-R ARGB Micro-ATX CORSAIR",
     "match_text_b": "221844 2800X RS-R ARGB Micro-ATX CORSAIR"
+  },
+  {
+    "score": 97,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "1pc:207998",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "207998 Lian-Li O11 Dynamic Mini V2"
   },
   {
     "score": 97,
@@ -1076,6 +1109,17 @@
     "title_b": "כונן SSD פנימי לקונסולות CORSAIR MP600 ELITE 2TB M.2 NVMe PCIe 4.0 PS5 / PS5 Pro עם גוף קירור",
     "match_text_a": "500632 SSD CORSAIR MP600 ELITE 1TB M.2 NVMe PCIe 4.0 PS5 / PS5 Pro",
     "match_text_b": "500644 SSD CORSAIR MP600 ELITE 2TB M.2 NVMe PCIe 4.0 PS5 / PS5 Pro"
+  },
+  {
+    "score": 95,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:11688",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12RSLIND1F1B Lian Li UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
   },
   {
     "score": 95,
@@ -2718,6 +2762,17 @@
   },
   {
     "score": 92,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "yahav:10552",
+    "listing_b": "yahav:11759",
+    "title_a": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060Ti Eagle OC ICE 16GB GDDR7 1xHDMI 3xDP צבע לבן",
+    "title_b": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060Ti Eagle MAX OC 16GB GDDR7 1xHDMI 3xDP",
+    "match_text_a": "10552 Gigabyte Geforce RTX 5060Ti Eagle OC ICE 16GB GDDR7 1xHDMI 3xDP",
+    "match_text_b": "11759 Gigabyte Geforce RTX 5060Ti Eagle MAX OC 16GB GDDR7 1xHDMI 3xDP"
+  },
+  {
+    "score": 92,
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "1pc:171977",
@@ -2924,6 +2979,28 @@
     "title_b": "לוח אם ASUS ROG STRIX B860-I Gaming WiFi LGA1851 DDR5",
     "match_text_a": "363702 ASUS ROG STRIX Z890-I Gaming WiFi LGA1851 DDR5",
     "match_text_b": "363779 ASUS ROG STRIX B860-I Gaming WiFi LGA1851 DDR5"
+  },
+  {
+    "score": 92,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:11684",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Wireless 120mm Black Single Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12SLIN1F1B Lian Li UNI FAN SL-INF Flex Wireless 120mm Black Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
+  },
+  {
+    "score": 92,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:11685",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12RSLIN1F1B Lian Li UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
   },
   {
     "score": 92,
@@ -4588,6 +4665,17 @@
   },
   {
     "score": 90,
+    "category": "gpu",
+    "brand": "Gigabyte",
+    "listing_a": "yahav:11291",
+    "listing_b": "yahav:11759",
+    "title_a": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060Ti WINDFORCE MAX OC 16GB GDDR7 1xHDMI 3xDP",
+    "title_b": "כרטיס מסך חברת Gigabyte דגם Geforce RTX 5060Ti Eagle MAX OC 16GB GDDR7 1xHDMI 3xDP",
+    "match_text_a": "11291 Gigabyte Geforce RTX 5060Ti WINDFORCE MAX OC 16GB GDDR7 1xHDMI 3xDP",
+    "match_text_b": "11759 Gigabyte Geforce RTX 5060Ti Eagle MAX OC 16GB GDDR7 1xHDMI 3xDP"
+  },
+  {
+    "score": 90,
     "category": "motherboard",
     "brand": "Gigabyte",
     "listing_a": "1pc:221508",
@@ -5259,6 +5347,28 @@
   },
   {
     "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:10987",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12SLIN1W1B Lian Li UNI FAN SL-INF Wireless 120mm Black Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
+  },
+  {
+    "score": 90,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:11689",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Single Pack צבע לבן",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12RSLIND1F1W Lian Li UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
+  },
+  {
+    "score": 90,
     "category": "psu",
     "brand": "Corsair",
     "listing_a": "1pc:161888",
@@ -5278,6 +5388,17 @@
     "title_b": "ספק כוח למחשב Corsair CX650 80 PLUS Bronze 650W",
     "match_text_a": "161889 Corsair CX650 80+ Bronze 650W CP-9020278-EU",
     "match_text_b": "CP-9020278-EU Corsair CX650 80 PLUS Bronze 650W"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Lian Li",
+    "listing_a": "1pc:210583",
+    "listing_b": "tms:GHS2LCDS36TB",
+    "title_a": "קירור נוזלי למעבד Lian-Li HydroShift II LCD-S 360TL",
+    "title_b": "קירור נוזלי למעבד Lian-Li HydroShift II LCD-S 360TL Black",
+    "match_text_a": "210583 Lian-Li HydroShift II LCD-S 360TL",
+    "match_text_b": "GHS2LCDS36TB Lian-Li HydroShift II LCD-S 360TL Black"
   },
   {
     "score": 90,
@@ -5784,6 +5905,72 @@
     "title_b": "מעבד Intel Core Ultra 7 265 30MB Cache LGA1851 - Box",
     "match_text_a": "340422 Intel Core Ultra 7 265KF 30MB Cache LGA1851 - Box",
     "match_text_b": "368551 Intel Core Ultra 7 265 30MB Cache LGA1851 - Box"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "yahav:10008",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז חברת Antec דגם C8 Aluminum Constellation Series Full Tower צבע אלומניום לבן",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8-AL-W Antec C8 Aluminum Constellation Series Full Tower"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "yahav:10316",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז חברת Antec דגם C8 Curve Wood Constellation Series Full Tower צבע שחור עץ",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8-CURVE-WOOD Antec C8 Curve Wood Constellation Series Full Tower"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "yahav:9181",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז חברת Antec דגם C8 Constellation Series Full Tower צבע לבן",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8W Antec C8 Constellation Series Full Tower"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "yahav:9738",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז חברת Antec דגם C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower צבע שחור",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8-ARGB Antec C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "yahav:9739",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז חברת Antec דגם C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower צבע לבן",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8-WHITE-ARGB Antec C8 ARGB 2X160MM Argb Fans + 1X140MM Argb Fan Constellation Series Full Tower"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:167528",
+    "listing_b": "yahav:9740",
+    "title_a": "מארז מחשב Antec C8 Constellation Series בצבע לבן",
+    "title_b": "מארז חברת Antec דגם C8 Wood Constellation Series Full Tower צבע שחור עץ",
+    "match_text_a": "167528 Antec C8 Constellation Series",
+    "match_text_b": "C8WOOD Antec C8 Wood Constellation Series Full Tower"
   },
   {
     "score": 89,
@@ -6664,6 +6851,28 @@
     "title_b": "כרטיס מסך חברת MSI דגם GAMING TRIO OC RTX 5070 12GB GDDR7 HDMI 3xDP",
     "match_text_a": "380080 MSI RTX 5070 12GB GDDR7 GAMING TRIO OC -",
     "match_text_b": "GeForce-RTX-5070-12G-GAMING-TRIO-OC MSI GAMING TRIO OC RTX 5070 12GB GDDR7 HDMI 3xDP"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:11694",
+    "listing_b": "yahav:11760",
+    "title_a": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Triple Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12SLIND1F3B Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Triple Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:11695",
+    "listing_b": "yahav:11760",
+    "title_a": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12RSLIND1F3B Lian Li UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Triple Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
   },
   {
     "score": 89,
@@ -8154,6 +8363,149 @@
     "score": 88,
     "category": "case",
     "brand": "Lian Li",
+    "listing_a": "1pc:180226",
+    "listing_b": "tms:A3W",
+    "title_a": "מארז מחשב Lian-Li A3 Wood White A3W-WD",
+    "title_b": "מארז מחשב Lian-Li A3 White",
+    "match_text_a": "A3W-WD Lian-Li A3 Wood White A3W-WD",
+    "match_text_b": "A3W Lian-Li A3 White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "1pc:207997",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow בצבע שחור",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FX Lian-Li O11 Dynamic Mini V2 Flow"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "1pc:207999",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow בצבע לבן",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FW Lian-Li O11 Dynamic Mini V2 Flow"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "tms:O11DMIV2FW",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow White",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FW Lian-Li O11 Dynamic Mini V2 Flow White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "tms:O11DMIV2FX",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow Black",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FX Lian-Li O11 Dynamic Mini V2 Flow Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "tms:O11DMIV2W",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 White",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2W Lian-Li O11 Dynamic Mini V2 White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207996",
+    "listing_b": "tms:O11DMIV2X",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע לבן",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Black",
+    "match_text_a": "207996 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2X Lian-Li O11 Dynamic Mini V2 Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207997",
+    "listing_b": "1pc:207998",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "match_text_a": "O11DMIV2FX Lian-Li O11 Dynamic Mini V2 Flow",
+    "match_text_b": "207998 Lian-Li O11 Dynamic Mini V2"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207998",
+    "listing_b": "1pc:207999",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow בצבע לבן",
+    "match_text_a": "207998 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FW Lian-Li O11 Dynamic Mini V2 Flow"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207998",
+    "listing_b": "tms:O11DMIV2FW",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow White",
+    "match_text_a": "207998 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FW Lian-Li O11 Dynamic Mini V2 Flow White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207998",
+    "listing_b": "tms:O11DMIV2FX",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Flow Black",
+    "match_text_a": "207998 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2FX Lian-Li O11 Dynamic Mini V2 Flow Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207998",
+    "listing_b": "tms:O11DMIV2W",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 White",
+    "match_text_a": "207998 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2W Lian-Li O11 Dynamic Mini V2 White"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:207998",
+    "listing_b": "tms:O11DMIV2X",
+    "title_a": "מארז מחשב Lian-Li O11 Dynamic Mini V2 בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li O11 Dynamic Mini V2 Black",
+    "match_text_a": "207998 Lian-Li O11 Dynamic Mini V2",
+    "match_text_b": "O11DMIV2X Lian-Li O11 Dynamic Mini V2 Black"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Lian Li",
     "listing_a": "1pc:219287",
     "listing_b": "tms:B4X",
     "title_a": "מארז Lian-Li B4 Mesh בצבע לבן",
@@ -8787,6 +9139,28 @@
     "title_b": "לוח אם MSI X870E GAMING PLUS MAX WIFI S AM5",
     "match_text_a": "461756 MSI MAG X870E GAMING PLUS MAX WIFI AM5 DDR5",
     "match_text_b": "502509 MSI X870E GAMING PLUS MAX WIFI S AM5"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:10973",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN CL Wireless 120mm Black Single Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12CL1W1B Lian Li UNI FAN CL Wireless 120mm Black Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
+  },
+  {
+    "score": 88,
+    "category": "case_fan",
+    "brand": "Lian Li",
+    "listing_a": "yahav:10984",
+    "listing_b": "yahav:11760",
+    "title_a": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless Reverse 120mm Black Single Pack צבע שחור",
+    "title_b": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack צבע שחור",
+    "match_text_a": "12RSLIN1W1B Lian Li UNI FAN SL-INF Wireless Reverse 120mm Black Single Pack",
+    "match_text_b": "11760 Lian Li UNI FAN SL-INF LCD Flex Wireless 120mm Black Single Pack"
   },
   {
     "score": 88,
@@ -9733,30 +10107,6 @@
   },
   {
     "kind": "naming_conflict",
-    "product_id": "mpn:case_fan:rfc14sfw1",
-    "category": "case_fan",
-    "vendor": "",
-    "titles": [
-      "NZXT F140RGB Core 140mm Hub-Mounted RGB Fan White",
-      "מאוורר מארז NZXT F140 RGB Core 140mm לבן"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:169178",
-        "vendor_sku": "RF-C14SF-W1",
-        "title": "מאוורר מארז NZXT F140 RGB Core 140mm לבן",
-        "price": 105
-      },
-      {
-        "listing_key": "tms:RF-C14SF-W1",
-        "vendor_sku": "RF-C14SF-W1",
-        "title": "NZXT F140RGB Core 140mm Hub-Mounted RGB Fan White",
-        "price": 87
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
     "product_id": "mpn:case_fan:rfr14sfb1",
     "category": "case_fan",
     "vendor": "",
@@ -10198,7 +10548,7 @@
         "listing_key": "1pc:208338",
         "vendor_sku": "LNM610P500G-RNNNG",
         "title": "כונן SSD Lexar NM610PRO 500GB M.2 2280 LNM610P500G-RNNNG",
-        "price": 490
+        "price": 590
       },
       {
         "listing_key": "ivory:170086",
