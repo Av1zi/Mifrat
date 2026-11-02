@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T14:09:12.806031+00:00",
+  "generated_at": "2026-11-02T01:49:15.214656+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 87,
+      "count": 86,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:corei310105f",
@@ -34,7 +34,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 64,
+      "count": 65,
       "products": [
         "mpn:gpu:113480120g",
         "mpn:gpu:113480220g",
@@ -222,6 +222,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "משקל",
+      "count": 22,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
       "category": "case",
       "label": "חיבורים",
       "count": 21,
@@ -293,8 +303,8 @@
     },
     {
       "category": "gpu",
-      "label": "משקל",
-      "count": 21,
+      "label": "ספק כח מומלץ",
+      "count": 20,
       "products": [
         "mpn:gpu:4711377084796",
         "mpn:gpu:4711377107549",
@@ -342,16 +352,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "ספק כח מומלץ",
-      "count": 19,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
       "category": "storage",
       "label": "צבע",
       "count": 19,
@@ -369,16 +369,6 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377010191",
         "mpn:motherboard:4711377026383"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "פרופיל קירור",
-      "count": 18,
-      "products": [
-        "mpn:cooler_air:bk034",
-        "mpn:cooler_air:k199",
-        "mpn:cooler_air:mapg2pn126pcr1"
       ]
     },
     {
@@ -449,6 +439,26 @@
         "mpn:case:4711377231565",
         "mpn:case:4711377231572",
         "mpn:case:4711377293167"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "פרופיל קירור",
+      "count": 17,
+      "products": [
+        "mpn:cooler_air:bk034",
+        "mpn:cooler_air:k199",
+        "mpn:cooler_air:mapg2pn126pcr1"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צריכת חשמל",
+      "count": 17,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
       ]
     },
     {
@@ -523,7 +533,17 @@
     },
     {
       "category": "gpu",
-      "label": "צריכת חשמל",
+      "label": "ממשק חיבור",
+      "count": 16,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק זיכרון",
       "count": 16,
       "products": [
         "mpn:gpu:4711377084796",
@@ -613,7 +633,7 @@
     },
     {
       "category": "gpu",
-      "label": "ממשק חיבור",
+      "label": "HDMI",
       "count": 15,
       "products": [
         "mpn:gpu:4711377084796",
@@ -623,7 +643,27 @@
     },
     {
       "category": "gpu",
-      "label": "ממשק זיכרון",
+      "label": "DisplayPort",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות מעבד גרפי",
+      "count": 15,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377107549",
+        "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ברזולוציה",
       "count": 15,
       "products": [
         "mpn:gpu:4711377084796",
@@ -663,7 +703,7 @@
     },
     {
       "category": "gpu",
-      "label": "HDMI",
+      "label": "D-SUB",
       "count": 14,
       "products": [
         "mpn:gpu:4711377084796",
@@ -673,7 +713,17 @@
     },
     {
       "category": "gpu",
-      "label": "DisplayPort",
+      "label": "חיבור לספק כח",
+      "count": 14,
+      "products": [
+        "mpn:gpu:4711377084796",
+        "mpn:gpu:4711377265591",
+        "mpn:gpu:4711377292498"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב G-SYNC",
       "count": 14,
       "products": [
         "mpn:gpu:4711377084796",
@@ -683,17 +733,7 @@
     },
     {
       "category": "gpu",
-      "label": "ליבות מעבד גרפי",
-      "count": 14,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ברזולוציה",
+      "label": "dvi",
       "count": 14,
       "products": [
         "mpn:gpu:4711377084796",
@@ -722,16 +762,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "ערכת שבבים",
-      "count": 13,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:coreultra5245k-tray",
-        "model:cpu:coreultra5245kf-tray"
-      ]
-    },
-    {
       "category": "aio",
       "label": "אורח חיים",
       "count": 13,
@@ -749,46 +779,6 @@
         "mpn:aio:4711377115728",
         "mpn:aio:4711377115735",
         "mpn:aio:4711377124140"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "D-SUB",
-      "count": 13,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "חיבור לספק כח",
-      "count": 13,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377265591",
-        "mpn:gpu:4711377292498"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ב G-SYNC",
-      "count": 13,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "dvi",
-      "count": 13,
-      "products": [
-        "mpn:gpu:4711377084796",
-        "mpn:gpu:4711377107549",
-        "mpn:gpu:4711377265591"
       ]
     },
     {
@@ -839,6 +829,16 @@
         "mpn:psu:0761345200325",
         "mpn:psu:840440485056",
         "mpn:psu:cp9020271eu"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "ערכת שבבים",
+      "count": 12,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:coreultra5245k-tray",
+        "model:cpu:coreultra5245kf-tray"
       ]
     },
     {
@@ -3599,6 +3599,15 @@
     },
     {
       "category": "gpu",
+      "label": "Spec / Specifications / SKU",
+      "count": 2,
+      "products": [
+        "mpn:gpu:4711377301633",
+        "mpn:gpu:4711377302456"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "CUDA Cores",
       "count": 2,
       "products": [
@@ -5206,6 +5215,14 @@
       "count": 1,
       "products": [
         "mpn:aio:ft360wh"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "Spec / Specifications / Lighting type",
+      "count": 1,
+      "products": [
+        "mpn:aio:ga2p36w"
       ]
     },
     {
