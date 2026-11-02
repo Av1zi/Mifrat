@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T16:54:14.692031+00:00",
+  "generated_at": "2026-11-02T17:06:09.167420+00:00",
   "gaps": [
     {
       "category": "case",
@@ -672,6 +672,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 15,
+      "products": [
+        "mpn:memory:4712389908124",
+        "mpn:memory:ax4u320032g16asbkd35p",
+        "mpn:memory:cp16g64c32u5w"
+      ]
+    },
+    {
       "category": "other",
       "label": "נפח אחסון",
       "count": 15,
@@ -729,16 +739,6 @@
         "mpn:gpu:4711377084796",
         "mpn:gpu:4711377107549",
         "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 14,
-      "products": [
-        "mpn:memory:4712389908124",
-        "mpn:memory:ax4u320032g16asbkd35p",
-        "mpn:memory:cp16g64c32u5w"
       ]
     },
     {
