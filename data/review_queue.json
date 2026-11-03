@@ -4798,6 +4798,17 @@
   {
     "score": 90,
     "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "1pc:222925",
+    "listing_b": "1pc:222978",
+    "title_a": "זיכרון למחשב ADATA Premier AD4U320038G22-SGN",
+    "title_b": "זיכרון למחשב ADATA Premier AD4U3200316G22-SGN ירוק",
+    "match_text_a": "222925 ADATA Premier AD4U320038G22-SGN",
+    "match_text_b": "222978 ADATA Premier AD4U3200316G22-SGN"
+  },
+  {
+    "score": 90,
+    "category": "memory",
     "brand": "Corsair",
     "listing_a": "1pc:152938",
     "listing_b": "tms:CMP32GX5M2B6000Z30W",
@@ -9777,7 +9788,7 @@
         "listing_key": "1pc:152191",
         "vendor_sku": "C14900KFT",
         "title": "מעבד Intel Core i9 14900KF / 1700 Tray",
-        "price": 2187
+        "price": 2234
       },
       {
         "listing_key": "1pc:199721",
@@ -9797,7 +9808,7 @@
         "listing_key": "1pc:189994",
         "vendor_sku": "C245KT",
         "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
-        "price": 913
+        "price": 932
       },
       {
         "listing_key": "1pc:171974",
@@ -9817,7 +9828,7 @@
         "listing_key": "1pc:189655",
         "vendor_sku": "C245KFT",
         "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
-        "price": 865
+        "price": 885
       },
       {
         "listing_key": "1pc:171975",
@@ -9843,7 +9854,7 @@
         "listing_key": "1pc:189657",
         "vendor_sku": "C265KT",
         "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
-        "price": 1966
+        "price": 1949
       }
     ]
   },
@@ -9857,7 +9868,7 @@
         "listing_key": "1pc:189658",
         "vendor_sku": "C265KFT",
         "title": "מעבד Intel Core Ultra 7 265KF תושבת 1851",
-        "price": 1447
+        "price": 1414
       },
       {
         "listing_key": "1pc:171978",
@@ -9877,7 +9888,7 @@
         "listing_key": "1pc:189660",
         "vendor_sku": "C285KT",
         "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
-        "price": 2494
+        "price": 2549
       },
       {
         "listing_key": "1pc:171970",
@@ -10212,30 +10223,6 @@
         "vendor_sku": "A400RGB",
         "title": "מאוורר למעבד Antec A400 RGB",
         "price": 117
-      }
-    ]
-  },
-  {
-    "kind": "naming_conflict",
-    "product_id": "mpn:motherboard:4711377360166",
-    "category": "motherboard",
-    "vendor": "",
-    "titles": [
-      "לוח אם MSI PRO B840-B AM5",
-      "לוח אם MSI PRO B840M-B mATX AM5 AMD"
-    ],
-    "offers": [
-      {
-        "listing_key": "1pc:211711",
-        "vendor_sku": "211711",
-        "title": "לוח אם MSI PRO B840-B AM5",
-        "price": 404
-      },
-      {
-        "listing_key": "ivory:162085",
-        "vendor_sku": "4711377360166",
-        "title": "לוח אם MSI PRO B840M-B mATX AM5 AMD",
-        "price": 530
       }
     ]
   },
