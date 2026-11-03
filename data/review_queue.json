@@ -202,6 +202,17 @@
     "category": "case",
     "brand": "Antec",
     "listing_a": "tms:C8",
+    "listing_b": "tms:C8ARGB-W",
+    "title_a": "מארז מחשב Antec C8",
+    "title_b": "Antec C8 ARGB White Case",
+    "match_text_a": "C8 Antec C8",
+    "match_text_b": "C8ARGB-W Antec C8 ARGB White Case"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:C8",
     "listing_b": "tms:C8CURVEWOOD",
     "title_a": "מארז מחשב Antec C8",
     "title_b": "מארז מחשב Antec C8 Curve Wood",
@@ -9959,6 +9970,26 @@
     ]
   },
   {
+    "kind": "duplicate_vendor",
+    "product_id": "mpn:motherboard:akh110meg",
+    "category": "motherboard",
+    "vendor": "tms",
+    "offers": [
+      {
+        "listing_key": "tms:AKH110MEG",
+        "vendor_sku": "AKH110MEG",
+        "title": "ARKTEK H110M EG",
+        "price": 238
+      },
+      {
+        "listing_key": "tms:AK-H110MEG",
+        "vendor_sku": "AK-H110MEG",
+        "title": "ARKTEK AK-H110M EG",
+        "price": 292
+      }
+    ]
+  },
+  {
     "kind": "naming_conflict",
     "product_id": "mpn:case:a500ncb",
     "category": "case",
@@ -10302,6 +10333,30 @@
         "vendor_sku": "90MB1N90-M0EAY0",
         "title": "Asus PRIME B850M-F",
         "price": 693
+      }
+    ]
+  },
+  {
+    "kind": "naming_conflict",
+    "product_id": "mpn:motherboard:akb760megddr4",
+    "category": "motherboard",
+    "vendor": "",
+    "titles": [
+      "ARKTEK B760 DDR4 AK-B760M EG",
+      "לוח אם ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4"
+    ],
+    "offers": [
+      {
+        "listing_key": "1pc:158839",
+        "vendor_sku": "AK-B760MEG-DDR4",
+        "title": "לוח אם ARKTEK B760 DDR4 AK-B760M EG AK-B760MEG-DDR4",
+        "price": 289
+      },
+      {
+        "listing_key": "tms:AK-B760MEG-DDR4",
+        "vendor_sku": "AK-B760MEG-DDR4",
+        "title": "ARKTEK B760 DDR4 AK-B760M EG",
+        "price": 269
       }
     ]
   },
