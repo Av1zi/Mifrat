@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T03:34:16.634780+00:00",
+  "generated_at": "2026-11-03T05:09:01.544191+00:00",
   "gaps": [
     {
       "category": "case",
@@ -162,26 +162,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 21,
-      "products": [
-        "mpn:storage:bl9bwwa107",
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 21,
-      "products": [
-        "mpn:storage:bl9bwwa107",
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "מהירות זכרון נתמכת",
       "count": 20,
@@ -209,6 +189,26 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 20,
+      "products": [
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p",
+        "mpn:storage:lsd10z002tg8"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 20,
+      "products": [
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p",
+        "mpn:storage:lsd10z002tg8"
       ]
     },
     {
@@ -262,16 +262,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 19,
-      "products": [
-        "model:cpu:ryzen55600-tray",
-        "model:cpu:ryzen57500x3d",
-        "model:cpu:ryzen58400f-tray"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "SATA III",
       "count": 19,
@@ -319,6 +309,16 @@
         "case:1pc:1pc-222500",
         "case:1pc:1pc-222501",
         "case:1pc:1pc-222502"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 18,
+      "products": [
+        "model:cpu:ryzen55600-tray",
+        "model:cpu:ryzen57500x3d",
+        "model:cpu:ryzen58400f-tray"
       ]
     },
     {
@@ -572,16 +572,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 15,
-      "products": [
-        "mpn:memory:4712389908124",
-        "mpn:memory:ax4u320032g16asbkd35p",
-        "mpn:memory:cp16g64c32u5w"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "קדמי ואחורי",
       "count": 15,
@@ -619,6 +609,16 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 14,
+      "products": [
+        "mpn:memory:4712389908124",
+        "mpn:memory:ax4u320032g16asbkd35p",
+        "mpn:memory:cp16g64c32u5w"
       ]
     },
     {
@@ -912,6 +912,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "יכולות AI",
+      "count": 10,
+      "products": [
+        "model:cpu:coreultra5225-tray",
+        "model:cpu:coreultra5225f-tray",
+        "model:cpu:coreultra5250kfplus"
+      ]
+    },
+    {
       "category": "aio",
       "label": "רזולוציה",
       "count": 10,
@@ -1019,16 +1029,6 @@
         "mpn:memory:addu1600w8g11s",
         "mpn:memory:ax5u6000c3016gslabrbk",
         "mpn:memory:ax5u6000c3016gslabrwh"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "יכולות AI",
-      "count": 9,
-      "products": [
-        "model:cpu:coreultra5225-tray",
-        "model:cpu:coreultra5225f-tray",
-        "model:cpu:coreultra5250kfplus"
       ]
     },
     {

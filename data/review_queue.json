@@ -4491,6 +4491,17 @@
     "score": 90,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000001904",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 5 7500X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000001904 AMD Ryzen 5 7500X3D AM5 Tray"
+  },
+  {
+    "score": 90,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "tms:100-000000158",
     "listing_b": "tms:100-000000159",
     "title_a": "AMD Ryzen 5 3500X AM4 Tray",
@@ -7704,6 +7715,17 @@
     "category": "cpu",
     "brand": "AMD",
     "listing_a": "1pc:155797",
+    "listing_b": "ivory:119039",
+    "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
+    "title_b": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "match_text_a": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_b": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "1pc:155797",
     "listing_b": "tms:100-000001084",
     "title_a": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
     "title_b": "AMD Ryzen 7 9800X3D AM5 Tray",
@@ -7830,6 +7852,39 @@
     "title_b": "AMD Ryzen 7 9700X AM5 Tray",
     "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
     "match_text_b": "100-000001404 AMD Ryzen 7 9700X AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000651",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 7 5800X3D AM4 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000000651 AMD Ryzen 7 5800X3D AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000908",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000909",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
   },
   {
     "score": 88,
