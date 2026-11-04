@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T01:36:05.147078+00:00",
+  "generated_at": "2026-11-04T02:31:15.495010+00:00",
   "gaps": [
     {
       "category": "case",
@@ -192,26 +192,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 20,
-      "products": [
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p",
-        "mpn:storage:lsd10z002tg8"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 20,
-      "products": [
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p",
-        "mpn:storage:lsd10z002tg8"
-      ]
-    },
-    {
       "category": "case",
       "label": "חיבורים",
       "count": 19,
@@ -289,6 +269,26 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 19,
+      "products": [
+        "mpn:storage:bl9bwwa107",
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 19,
+      "products": [
+        "mpn:storage:bl9bwwa107",
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p"
       ]
     },
     {
@@ -452,6 +452,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 16,
+      "products": [
+        "mpn:memory:4712389908124",
+        "mpn:memory:ax4u320032g16asbkd35",
+        "mpn:memory:ax4u320032g16asbkd35p"
+      ]
+    },
+    {
       "category": "storage",
       "label": "ביצועים",
       "count": 16,
@@ -569,16 +579,6 @@
         "mpn:gpu:4711377084796",
         "mpn:gpu:4711377107549",
         "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 15,
-      "products": [
-        "mpn:memory:4712389908124",
-        "mpn:memory:ax4u320032g16asbkd35p",
-        "mpn:memory:cp16g64c32u5w"
       ]
     },
     {
