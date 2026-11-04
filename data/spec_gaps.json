@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T14:59:09.862408+00:00",
+  "generated_at": "2026-11-04T01:36:05.147078+00:00",
   "gaps": [
     {
       "category": "case",
@@ -124,7 +124,7 @@
     {
       "category": "storage",
       "label": "R/W Speed",
-      "count": 25,
+      "count": 24,
       "products": [
         "mpn:storage:31825",
         "mpn:storage:31826",
@@ -292,16 +292,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "צבע",
-      "count": 19,
-      "products": [
-        "mpn:storage:32197",
-        "mpn:storage:32261",
-        "mpn:storage:718037896748"
-      ]
-    },
-    {
       "category": "case",
       "label": "תמיכה בספק mm",
       "count": 18,
@@ -329,6 +319,16 @@
         "motherboard:1pc:1pc-128729",
         "motherboard:1pc:1pc-222511",
         "mpn:motherboard:4711377026383"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צבע",
+      "count": 18,
+      "products": [
+        "mpn:storage:32197",
+        "mpn:storage:32261",
+        "mpn:storage:718037896748"
       ]
     },
     {
@@ -6884,14 +6884,6 @@
       "count": 1,
       "products": [
         "mpn:storage:aleg710512gcs"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "USB",
-      "count": 1,
-      "products": [
-        "mpn:storage:ct1000x10ssd9"
       ]
     },
     {

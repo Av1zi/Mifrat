@@ -1079,6 +1079,28 @@
   },
   {
     "score": 95,
+    "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "1pc:223007",
+    "listing_b": "1pc:223008",
+    "title_a": "זיכרון למחשב ADATA XPG SPECTRIX D35G RGB DDR4 16GB AX4U320016G16A-SBKD35G שחור",
+    "title_b": "זיכרון למחשב ADATA XPG SPECTRIX D35G RGB DDR4 16GB AX4U320016G16A-SWHD35G לבן",
+    "match_text_a": "223007 ADATA XPG SPECTRIX D35G RGB DDR4 16GB AX4U320016G16A-SBKD35G",
+    "match_text_b": "223008 ADATA XPG SPECTRIX D35G RGB DDR4 16GB AX4U320016G16A-SWHD35G"
+  },
+  {
+    "score": 95,
+    "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "1pc:223013",
+    "listing_b": "1pc:223014",
+    "title_a": "זיכרון למחשב ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRBK שחור",
+    "title_b": "זיכרון למחשב ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRWH לבן",
+    "match_text_a": "223013 ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRBK",
+    "match_text_b": "223014 ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRWH"
+  },
+  {
+    "score": 95,
     "category": "case_fan",
     "brand": "Corsair",
     "listing_a": "ksp:360417",
@@ -2015,6 +2037,17 @@
   {
     "score": 93,
     "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "1pc:223019",
+    "listing_b": "1pc:223020",
+    "title_a": "זיכרון למחשב ADATA XPG SPECTRIX D35G RGB DDR4 8GB AX4U32008G16A-SBKD35G שחור",
+    "title_b": "זיכרון למחשב ADATA XPG SPECTRIX D35G RGB DDR4 8GB AX4U32008G16A-SWHD35G לבן",
+    "match_text_a": "223019 ADATA XPG SPECTRIX D35G RGB DDR4 8GB AX4U32008G16A-SBKD35G",
+    "match_text_b": "223020 ADATA XPG SPECTRIX D35G RGB DDR4 8GB AX4U32008G16A-SWHD35G"
+  },
+  {
+    "score": 93,
+    "category": "memory",
     "brand": "Corsair",
     "listing_a": "ksp:480428",
     "listing_b": "ksp:480431",
@@ -2550,6 +2583,17 @@
     "title_b": "קירור למעבד DEEPCOOL R-AK620-WHADMN-G",
     "match_text_a": "222814 DEEPCOOL R-AK620-WHADMN-GJD",
     "match_text_b": "222816 DEEPCOOL R-AK620-WHADMN-G"
+  },
+  {
+    "score": 93,
+    "category": "psu",
+    "brand": "GAMDIAS",
+    "listing_a": "1pc:222989",
+    "listing_b": "1pc:222991",
+    "title_a": "ספק כוח GAMDIAS HELIOS E1-500 PRO שחור",
+    "title_b": "ספק כוח GAMDIAS HELIOS E1-600 PRO שחור",
+    "match_text_a": "222989 GAMDIAS HELIOS E1-500 PRO",
+    "match_text_b": "222991 GAMDIAS HELIOS E1-600 PRO"
   },
   {
     "score": 93,
@@ -4038,6 +4082,17 @@
   },
   {
     "score": 91,
+    "category": "gpu",
+    "brand": "MSI",
+    "listing_a": "1pc:223030",
+    "listing_b": "ivory:175105",
+    "title_a": "כרטיס מסך MSI GeForce RTX 5080 16G VENTUS 3X OC אפור",
+    "title_b": "כרטיס מסך MSI GeForce RTX 5080 16G VENTUS 3X OC",
+    "match_text_a": "223030 MSI GeForce RTX 5080 16G VENTUS 3X OC",
+    "match_text_b": "4711377309219 MSI GeForce RTX 5080 16G VENTUS 3X OC"
+  },
+  {
+    "score": 91,
     "category": "aio",
     "brand": "MSI",
     "listing_a": "ksp:380414",
@@ -4816,17 +4871,6 @@
     "title_b": "מארז מחשב ללא ספק Antec AX27 RGB Elite ATX Mid Tower - צבע שחור",
     "match_text_a": "444397 Antec AX26 RGB Elite ATX Mid Tower -",
     "match_text_b": "444426 Antec AX27 RGB Elite ATX Mid Tower -"
-  },
-  {
-    "score": 90,
-    "category": "memory",
-    "brand": "ADATA",
-    "listing_a": "1pc:222925",
-    "listing_b": "1pc:222978",
-    "title_a": "זיכרון למחשב ADATA Premier AD4U320038G22-SGN",
-    "title_b": "זיכרון למחשב ADATA Premier AD4U3200316G22-SGN ירוק",
-    "match_text_a": "222925 ADATA Premier AD4U320038G22-SGN",
-    "match_text_b": "222978 ADATA Premier AD4U3200316G22-SGN"
   },
   {
     "score": 90,
@@ -6059,17 +6103,6 @@
     "title_b": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
     "match_text_a": "129571 Corsair Vengeance RGB DDR5 32G (16Gx2) 7000 CL34",
     "match_text_b": "131353 Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30"
-  },
-  {
-    "score": 89,
-    "category": "memory",
-    "brand": "Corsair",
-    "listing_a": "1pc:222817",
-    "listing_b": "1pc:222819",
-    "title_a": "זיכרון למחשב Corsair CMG8GX4M1E3200C16 RGB/BLACK",
-    "title_b": "זיכרון למחשב Corsair CMW16GX4M2E3200C16 RGB/BLACK",
-    "match_text_a": "222817 Corsair CMG8GX4M1E3200C16 RGB/BLACK",
-    "match_text_b": "222819 Corsair CMW16GX4M2E3200C16 RGB/BLACK"
   },
   {
     "score": 89,
@@ -9205,6 +9238,17 @@
     "title_b": "כונן Corsair MP600 ELITE with Heatsink PCIe NVMe M.2 2280 1TB SSD",
     "match_text_a": "235173 Corsair MP600 GS PCIe NVMe M.2 2280 1TB SSD",
     "match_text_b": "437620 Corsair MP600 ELITE with Heatsink PCIe NVMe M.2 2280 1TB SSD"
+  },
+  {
+    "score": 88,
+    "category": "storage",
+    "brand": "ADATA",
+    "listing_a": "1pc:223017",
+    "listing_b": "1pc:223021",
+    "title_a": "כונן SSD ADATA XPG MARS 980 PRO 2TB SMAR-980P-2TCI",
+    "title_b": "כונן SSD ADATA XPG MARS 980 PRO 1TB SMAR-980P-1TCI",
+    "match_text_a": "223017 SSD ADATA XPG MARS 980 PRO 2TB SMAR-980P-2TCI",
+    "match_text_b": "223021 SSD ADATA XPG MARS 980 PRO 1TB SMAR-980P-1TCI"
   },
   {
     "score": 88,
