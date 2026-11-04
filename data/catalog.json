@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T08:45:16.025276+00:00",
+  "generated_at": "2026-11-04T15:12:14.519684+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -193827,9 +193827,22 @@
           4398,
           20825,
           22371
-        ]
+        ],
+        "detail_specs": {
+          "מותג": "Crucial",
+          "דגם": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
+          "סדרה": "E100",
+          "נפח": "1TB",
+          "ממשק": "PCIe Gen 4 x4",
+          "מהירות קריאה מקסימלית": "עד 5,000MB/s",
+          "מהירות כתיבה מקסימלית": "עד 4,500MB/s",
+          "עמידות": "נמדד על ידי היצרן בעומסי כתיבה קריאה עד 80TB",
+          "גודל פיזי": "M.2 2280",
+          "תכולת האריזה": "כונן SSD בלבד",
+          "אחריות": "שלוש שנות אחריות באייבורי - ‎*8280 050-7664440"
+        }
       },
-      "image_url": "https://www.ivory.co.il/files/catalog/reg/1761490828p28Lg.webp",
+      "image_url": "https://www.ivory.co.il/files/catalog/org/1761490828p28Lg.webp",
       "scraped_at": "2026-11-04T02:19:00.321443+00:00",
       "last_seen": "2026-11-04",
       "stale": false,
@@ -193846,8 +193859,8 @@
         "brand": "Crucial",
         "maker": "Crucial",
         "vendor_brand": "Crucial",
-        "model": "Crucial E100",
-        "model_name": "Crucial E100",
+        "model": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
+        "model_name": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
         "part_numbers": "CT1000E100SSD8",
         "part_number": "CT1000E100SSD8",
         "mpn": "CT1000E100SSD8",
@@ -193860,13 +193873,19 @@
         "form_factor": "M.2-2280",
         "drive_form_factor": "M.2-2280",
         "storage_form_factor": "M.2-2280",
-        "interface": "PCIe NVMe",
-        "connection_interface": "PCIe NVMe",
+        "interface": "PCIe Gen 4 x4",
+        "connection_interface": "PCIe Gen 4 x4",
         "nvme": "Yes",
         "nvme_flag": "Yes",
         "pcie_gen": "PCIe Gen 4.0",
-        "series": "Crucial E100",
-        "family": "Crucial E100"
+        "read_speed_mbs": 5000,
+        "sequential_read_mbs": 5000,
+        "max_read_mbs": 5000,
+        "write_speed_mbs": 4500,
+        "sequential_write_mbs": 4500,
+        "max_write_mbs": 4500,
+        "series": "E100",
+        "family": "E100"
       },
       "product_id": "mpn:storage:ct1000e100ssd8"
     },
@@ -1536109,8 +1536128,8 @@
         "brand": "Crucial",
         "maker": "Crucial",
         "vendor_brand": "Crucial",
-        "model": "Crucial E100 CT1000E100SSD8",
-        "model_name": "Crucial E100 CT1000E100SSD8",
+        "model": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
+        "model_name": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
         "part_numbers": "CT1000E100SSD8",
         "part_number": "CT1000E100SSD8",
         "mpn": "CT1000E100SSD8",
@@ -1536136,8 +1536155,8 @@
         "max_write_mbs": 3000,
         "nand": "3D NAND",
         "nand_type": "3D NAND",
-        "series": "Crucial E100",
-        "family": "Crucial E100"
+        "series": "E100",
+        "family": "E100"
       },
       "matched_by": "mpn",
       "vendor_count": 3,
@@ -1536204,15 +1536223,15 @@
           "category_normalized": "storage",
           "brand": null,
           "mpn": "CT1000E100SSD8",
-          "image_url": "https://www.ivory.co.il/files/catalog/reg/1761490828p28Lg.webp",
+          "image_url": "https://www.ivory.co.il/files/catalog/org/1761490828p28Lg.webp",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "Crucial",
             "brand": "Crucial",
             "maker": "Crucial",
             "vendor_brand": "Crucial",
-            "model": "Crucial E100",
-            "model_name": "Crucial E100",
+            "model": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
+            "model_name": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
             "part_numbers": "CT1000E100SSD8",
             "part_number": "CT1000E100SSD8",
             "mpn": "CT1000E100SSD8",
@@ -1536225,13 +1536244,19 @@
             "form_factor": "M.2-2280",
             "drive_form_factor": "M.2-2280",
             "storage_form_factor": "M.2-2280",
-            "interface": "PCIe NVMe",
-            "connection_interface": "PCIe NVMe",
+            "interface": "PCIe Gen 4 x4",
+            "connection_interface": "PCIe Gen 4 x4",
             "nvme": "Yes",
             "nvme_flag": "Yes",
             "pcie_gen": "PCIe Gen 4.0",
-            "series": "Crucial E100",
-            "family": "Crucial E100"
+            "read_speed_mbs": 5000,
+            "sequential_read_mbs": 5000,
+            "max_read_mbs": 5000,
+            "write_speed_mbs": 4500,
+            "sequential_write_mbs": 4500,
+            "max_write_mbs": 4500,
+            "series": "E100",
+            "family": "E100"
           }
         },
         {
@@ -1536287,23 +1536312,43 @@
       "attribute_conflicts": {
         "model": [
           "Crucial E100 CT1000E100SSD8",
-          "Crucial E100",
+          "E100 1TB PCIe Gen4 NVMe M.2 SSD",
           "Crucial E100 4.0 2280"
         ],
         "model_name": [
           "Crucial E100 CT1000E100SSD8",
-          "Crucial E100",
+          "E100 1TB PCIe Gen4 NVMe M.2 SSD",
           "Crucial E100 4.0 2280"
         ],
         "interface": [
           "NVMe (PCIe Gen 4 x4)",
-          "PCIe NVMe",
+          "PCIe Gen 4 x4",
           "M.2 PCIe"
         ],
         "connection_interface": [
           "NVMe (PCIe Gen 4 x4)",
-          "PCIe NVMe",
+          "PCIe Gen 4 x4",
           "M.2 PCIe"
+        ],
+        "write_speed_mbs": [
+          3000,
+          4500
+        ],
+        "sequential_write_mbs": [
+          3000,
+          4500
+        ],
+        "max_write_mbs": [
+          3000,
+          4500
+        ],
+        "series": [
+          "Crucial E100",
+          "E100"
+        ],
+        "family": [
+          "Crucial E100",
+          "E100"
         ]
       },
       "best_offer": {
@@ -1536320,15 +1536365,15 @@
         "category_normalized": "storage",
         "brand": null,
         "mpn": "CT1000E100SSD8",
-        "image_url": "https://www.ivory.co.il/files/catalog/reg/1761490828p28Lg.webp",
+        "image_url": "https://www.ivory.co.il/files/catalog/org/1761490828p28Lg.webp",
         "bundle_only": false,
         "attributes": {
           "manufacturer": "Crucial",
           "brand": "Crucial",
           "maker": "Crucial",
           "vendor_brand": "Crucial",
-          "model": "Crucial E100",
-          "model_name": "Crucial E100",
+          "model": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
+          "model_name": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
           "part_numbers": "CT1000E100SSD8",
           "part_number": "CT1000E100SSD8",
           "mpn": "CT1000E100SSD8",
@@ -1536341,18 +1536386,24 @@
           "form_factor": "M.2-2280",
           "drive_form_factor": "M.2-2280",
           "storage_form_factor": "M.2-2280",
-          "interface": "PCIe NVMe",
-          "connection_interface": "PCIe NVMe",
+          "interface": "PCIe Gen 4 x4",
+          "connection_interface": "PCIe Gen 4 x4",
           "nvme": "Yes",
           "nvme_flag": "Yes",
           "pcie_gen": "PCIe Gen 4.0",
-          "series": "Crucial E100",
-          "family": "Crucial E100"
+          "read_speed_mbs": 5000,
+          "sequential_read_mbs": 5000,
+          "max_read_mbs": 5000,
+          "write_speed_mbs": 4500,
+          "sequential_write_mbs": 4500,
+          "max_write_mbs": 4500,
+          "series": "E100",
+          "family": "E100"
         }
       },
       "specs": {
         "manufacturer": "Crucial",
-        "model": "Crucial E100 CT1000E100SSD8",
+        "model": "E100 1TB PCIe Gen4 NVMe M.2 SSD",
         "part_numbers": [
           "CT1000E100SSD8"
         ],
@@ -1536367,7 +1536418,7 @@
         "read_speed_mbs": 5000,
         "write_speed_mbs": 3000,
         "nand": "3D NAND",
-        "series": "Crucial E100",
+        "series": "E100",
         "dimensions_mm": null,
         "mtbf_hours": null,
         "warranty_years": null,
