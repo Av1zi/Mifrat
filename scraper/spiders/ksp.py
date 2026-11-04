@@ -12,6 +12,20 @@ headers and a per-request impersonation profile. This is a deliberate,
 logged exception (see decisions.md) under the home-run rules: one run/day,
 one request at a time, no proxies, no CAPTCHA solving, abort on blocks.
 
+## Client hints (2026-11-04)
+
+Since roughly 2026-11-02 the edge also answers a *browser-shaped* request
+with a managed challenge (`403`, `cf-mitigated: challenge`, the Hebrew
+"אימות אבטחה" page) unless the request repeats the high-entropy UA client
+hints named in the challenge's `Accept-CH`/`Critical-CH` headers. curl_cffi
+sends only the low-entropy hints (`sec-ch-ua`, `-mobile`, `-platform`) and
+never performs the browser's "retry with the requested hints" step, so a
+plain impersonated request is now challenged while the identical request
+with the hints below answers 200 (verified on all 13 category tags). CLIENT_HINTS
+therefore goes on every KSP request, including Scrapy's own robots.txt
+fetch. Keep the UA and the `sec-ch-ua*` values on the same browser build as
+IMPERSONATE: the edge risk-scores the whole fingerprint, not just TLS.
+
 ## API
 
     GET https://ksp.co.il/m_action/api/category/<tag>?page=<n>
@@ -44,9 +58,13 @@ from scraper.items import ListingItem
 VENDOR_ID = "ksp"
 API_URL = "https://ksp.co.il/m_action/api/category/{tag}?page={page}"
 PRODUCT_URL = "https://ksp.co.il/web/item/{uin}"
+# Pin the TLS profile instead of using the "chrome" alias: the alias follows
+# whatever curl-cffi ships last, but the UA and CLIENT_HINTS below are a fixed
+# build, and Cloudflare compares them. Bump all three together.
+IMPERSONATE = "chrome146"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+    "(KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
 )
 
 # KSP catalog tag id -> our pipeline category guess. Counts checked 2026-10-30.
@@ -144,12 +162,38 @@ LIQUID_TITLE_RE = re.compile(
 
 CASE_FAN_TITLE_RE = re.compile(r"למארז|מאוורר(?:י|ים)?\s*מארז")
 
+# The high-entropy UA client hints the edge asks for via `Accept-CH` and
+# treats as `Critical-CH` (see the module docstring). A real browser resends
+# the same request with these after the first response; curl_cffi does not, so
+# we send them up front on every request. Values are the Windows Chrome 146
+# build named by IMPERSONATE/USER_AGENT above.
+CLIENT_HINTS = {
+    "sec-ch-ua": '"Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-ch-ua-arch": '"x86"',
+    "sec-ch-ua-bitness": '"64"',
+    "sec-ch-ua-full-version": '"146.0.7680.76"',
+    "sec-ch-ua-full-version-list": (
+        '"Chromium";v="146.0.7680.76", "Not-A.Brand";v="24.0.0.0", '
+        '"Google Chrome";v="146.0.7680.76"'
+    ),
+    "sec-ch-ua-platform-version": '"19.0.0"',
+    "sec-ch-ua-model": '""',
+    # Same-origin XHR, which is what this is — curl_cffi's navigation defaults
+    # say document/navigate/none and contradict the JSON Accept header.
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+}
+
 HEADERS = {
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "he-IL,he;q=0.9,en;q=0.8",
     "Referer": "https://ksp.co.il/web/",
     "Origin": "https://ksp.co.il",
     "User-Agent": USER_AGENT,
+    **CLIENT_HINTS,
 }
 
 MAX_PAGES_PER_CATEGORY = 60
@@ -168,16 +212,17 @@ def _as_int(value):
 
 
 class KspFingerprintMiddleware:
-    """Attach the Chrome TLS profile to every KSP request.
+    """Attach the Chrome TLS profile and client hints to every KSP request.
 
     One profile per run: rotating fingerprints on a 403 would be probing the
     WAF, which the home-IP exception forbids. A 403 is a stop signal (see
     KspSpider._block), not a retry cue. The middleware is still the right
     place for this because Scrapy's robots.txt fetch also runs through the
-    downloader chain and needs the same options.
+    downloader chain and needs the same options and, since 2026-11-04, the
+    same client hints (a hint-less request is what the edge challenges).
     """
 
-    IMPERSONATE = "chrome"
+    IMPERSONATE = IMPERSONATE
 
     def __init__(self, crawler):
         self.crawler = crawler
@@ -196,6 +241,8 @@ class KspFingerprintMiddleware:
             request.headers.setdefault(
                 b"Accept-Language", b"he-IL,he;q=0.9,en;q=0.8"
             )
+        for name, value in CLIENT_HINTS.items():
+            request.headers.setdefault(name.encode(), value.encode())
         return None
 
 
