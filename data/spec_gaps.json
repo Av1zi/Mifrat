@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T15:12:14.519684+00:00",
+  "generated_at": "2026-11-05T02:20:37.567677+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 85,
+      "count": 91,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:corei310105f",
@@ -24,7 +24,7 @@
     {
       "category": "motherboard",
       "label": "סוג האחסון",
-      "count": 69,
+      "count": 70,
       "products": [
         "mpn:motherboard:4711377289757",
         "mpn:motherboard:90mb1bf0m0eay0",
@@ -44,7 +44,7 @@
     {
       "category": "motherboard",
       "label": "נפח זיכרון",
-      "count": 49,
+      "count": 50,
       "products": [
         "motherboard:1pc:1pc-213828",
         "mpn:motherboard:4711377125147",
@@ -54,7 +54,7 @@
     {
       "category": "case",
       "label": "Bays 5.25",
-      "count": 43,
+      "count": 44,
       "products": [
         "mpn:case:0761345800518",
         "mpn:case:a500ncb",
@@ -122,16 +122,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "R/W Speed",
-      "count": 24,
-      "products": [
-        "mpn:storage:31825",
-        "mpn:storage:31826",
-        "mpn:storage:31827"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "סוג האחסון",
       "count": 23,
@@ -139,6 +129,16 @@
         "mpn:gpu:113480220g",
         "mpn:gpu:113490120g",
         "mpn:gpu:4711377292498"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "R/W Speed",
+      "count": 23,
+      "products": [
+        "mpn:storage:31825",
+        "mpn:storage:31826",
+        "mpn:storage:31827"
       ]
     },
     {
@@ -189,6 +189,16 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "פרופיל קירור",
+      "count": 20,
+      "products": [
+        "mpn:cooler_air:bk034",
+        "mpn:cooler_air:clp0172",
+        "mpn:cooler_air:k199"
       ]
     },
     {
@@ -323,16 +333,6 @@
     },
     {
       "category": "storage",
-      "label": "צבע",
-      "count": 18,
-      "products": [
-        "mpn:storage:32197",
-        "mpn:storage:32261",
-        "mpn:storage:718037896748"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מפרט",
       "count": 18,
       "products": [
@@ -402,16 +402,6 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "פרופיל קירור",
-      "count": 17,
-      "products": [
-        "mpn:cooler_air:bk034",
-        "mpn:cooler_air:k199",
-        "mpn:cooler_air:mapg2pn126pcr1"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "משקל",
       "count": 17,
@@ -419,6 +409,26 @@
         "mpn:gpu:4711377084796",
         "mpn:gpu:4711377107549",
         "mpn:gpu:4711377265591"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "כרטיס גרפי",
+      "count": 17,
+      "products": [
+        "mpn:motherboard:90mb14i0m0eay0",
+        "mpn:motherboard:90mb14s0m0eay0",
+        "mpn:motherboard:90mb14v0m0eay0"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צבע",
+      "count": 17,
+      "products": [
+        "mpn:storage:32197",
+        "mpn:storage:32261",
+        "mpn:storage:718037896748"
       ]
     },
     {
@@ -632,13 +642,13 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "כרטיס גרפי",
+      "category": "psu",
+      "label": "ממשק",
       "count": 14,
       "products": [
-        "mpn:motherboard:90mb14i0m0eay0",
-        "mpn:motherboard:90mb14s0m0eay0",
-        "mpn:motherboard:90mb14v0m0eay0"
+        "mpn:psu:0761345200325",
+        "mpn:psu:840440485056",
+        "mpn:psu:cp9020271eu"
       ]
     },
     {
@@ -649,6 +659,16 @@
         "other:1pc:1pc-133260",
         "other:1pc:1pc-188068",
         "other:1pc:1pc-192554"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "ערכת שבבים",
+      "count": 13,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:coreultra5245k-tray",
+        "model:cpu:coreultra5245kf-tray"
       ]
     },
     {
@@ -689,26 +709,6 @@
         "mpn:gpu:4711377084796",
         "mpn:gpu:4711377107549",
         "mpn:gpu:4711377265591"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "ממשק",
-      "count": 13,
-      "products": [
-        "mpn:psu:0761345200325",
-        "mpn:psu:840440485056",
-        "mpn:psu:cp9020271eu"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "ערכת שבבים",
-      "count": 12,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:coreultra5245k-tray",
-        "model:cpu:coreultra5245kf-tray"
       ]
     },
     {
@@ -822,16 +822,6 @@
       ]
     },
     {
-      "category": "psu",
-      "label": "מפרט",
-      "count": 12,
-      "products": [
-        "mpn:psu:0761345200561",
-        "mpn:psu:4711377084253",
-        "mpn:psu:4711377115391"
-      ]
-    },
-    {
       "category": "other",
       "label": "כרטיס רשת",
       "count": 12,
@@ -899,6 +889,16 @@
         "mpn:memory:addu1600w8g11s",
         "mpn:memory:ax5u6000c3016gslabrbk",
         "mpn:memory:ax5u6000c3016gslabrwh"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מפרט",
+      "count": 11,
+      "products": [
+        "mpn:psu:0761345200561",
+        "mpn:psu:4711377084253",
+        "mpn:psu:4711377115391"
       ]
     },
     {
@@ -1442,6 +1442,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "חיבור USB קדמי",
+      "count": 6,
+      "products": [
+        "mpn:motherboard:90mb1he0m0eay0",
+        "mpn:motherboard:90mb1ip0m0eay0",
+        "mpn:motherboard:90mb1is0m0eay0"
+      ]
+    },
+    {
       "category": "storage",
       "label": "מפרט סוג האחריות",
       "count": 6,
@@ -1459,6 +1469,26 @@
         "mpn:storage:hdwd320uzsva",
         "mpn:storage:st20000dm001",
         "mpn:storage:st4000dm004"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה רציפה",
+      "count": 6,
+      "products": [
+        "mpn:storage:lns1001trb",
+        "mpn:storage:p210s512g25",
+        "mpn:storage:s1201y033t84p024t0900"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה רציפה",
+      "count": 6,
+      "products": [
+        "mpn:storage:lns1001trb",
+        "mpn:storage:p210s512g25",
+        "mpn:storage:s1201y033t84p024t0900"
       ]
     },
     {
@@ -1659,26 +1689,6 @@
         "mpn:storage:agammixs601tcs",
         "mpn:storage:agammixs602tcs",
         "mpn:storage:agammixs70b1tcs"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה רציפה",
-      "count": 5,
-      "products": [
-        "mpn:storage:lns1001trb",
-        "mpn:storage:p210s512g25",
-        "mpn:storage:s1201y033t84p024t0900"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה רציפה",
-      "count": 5,
-      "products": [
-        "mpn:storage:lns1001trb",
-        "mpn:storage:p210s512g25",
-        "mpn:storage:s1201y033t84p024t0900"
       ]
     },
     {
@@ -2099,16 +2109,6 @@
         "mpn:motherboard:4711377337977",
         "mpn:motherboard:4711377350181",
         "mpn:motherboard:4711377358651"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבור USB קדמי",
-      "count": 4,
-      "products": [
-        "mpn:motherboard:90mb1he0m0eay0",
-        "mpn:motherboard:90mb1is0m0eay0",
-        "mpn:motherboard:90mb1it0m0eay0"
       ]
     },
     {
@@ -2662,6 +2662,16 @@
       ]
     },
     {
+      "category": "case_fan",
+      "label": "סוג האחסון",
+      "count": 3,
+      "products": [
+        "mpn:case_fan:bl122",
+        "mpn:case_fan:clc25w",
+        "mpn:case_fan:rfd14sfb1"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "ליבות CUDA®",
       "count": 3,
@@ -2844,6 +2854,15 @@
       "products": [
         "model:cpu:corei511400f-tray",
         "mpn:cpu:c10100t-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "נפח זיכרון",
+      "count": 2,
+      "products": [
+        "model:cpu:corei713700k-tray",
+        "model:cpu:corei914900ks-tray"
       ]
     },
     {
@@ -3329,15 +3348,6 @@
       "products": [
         "mpn:case_fan:akfc08at",
         "mpn:case_fan:cl9011109ww"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "סוג האחסון",
-      "count": 2,
-      "products": [
-        "mpn:case_fan:clc25w",
-        "mpn:case_fan:rfd14sfb1"
       ]
     },
     {
@@ -4496,14 +4506,6 @@
     },
     {
       "category": "cpu",
-      "label": "נפח זיכרון",
-      "count": 1,
-      "products": [
-        "model:cpu:corei914900ks-tray"
-      ]
-    },
-    {
-      "category": "cpu",
       "label": "Spec / Specifications / Processor series (CPU)",
       "count": 1,
       "products": [
@@ -5056,6 +5058,30 @@
     },
     {
       "category": "accessories",
+      "label": "תושבת מעבד (Socket)",
+      "count": 1,
+      "products": [
+        "mpn:accessories:galga1700"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "סוג קירור",
+      "count": 1,
+      "products": [
+        "mpn:accessories:galga1700"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "תושבת מעבד",
+      "count": 1,
+      "products": [
+        "mpn:accessories:galga1700"
+      ]
+    },
+    {
+      "category": "accessories",
       "label": "יציאות קדמיות",
       "count": 1,
       "products": [
@@ -5212,6 +5238,14 @@
       "count": 1,
       "products": [
         "mpn:case_fan:4712960138223"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "סוג מסך",
+      "count": 1,
+      "products": [
+        "mpn:case_fan:bl122"
       ]
     },
     {

@@ -58,6 +58,17 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:109579",
+    "listing_b": "tms:C12700FB",
+    "title_a": "מעבד Intel Core i7 12700F צבע שחור",
+    "title_b": "Intel Core i7 12700F / 1700 Box",
+    "match_text_a": "C12700FB Intel Core i7 12700F",
+    "match_text_b": "C12700FB Intel Core i7 12700F / 1700 Box"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "1pc:134718",
     "listing_b": "tms:C7500T-P",
     "title_a": "מעבד Intel Core i5 7500 צבע קופסה",
@@ -75,6 +86,17 @@
     "title_b": "Intel Core i5 14600K / 1700 Tray",
     "match_text_a": "C14600KT Intel Core i5 14600K / 1700 Tray",
     "match_text_b": "C14600KT Intel Core i5 14600K / 1700 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:152187",
+    "listing_b": "tms:C14700KFT",
+    "title_a": "מעבד Intel Core i7 14700KF / 1700 Tray",
+    "title_b": "Intel Core i7 14700KF / 1700 Tray",
+    "match_text_a": "C14700KFT Intel Core i7 14700KF / 1700 Tray",
+    "match_text_b": "C14700KFT Intel Core i7 14700KF / 1700 Tray"
   },
   {
     "score": 100,
@@ -581,6 +603,17 @@
     "title_b": "מעבד אינטל Intel Core i7 14700KF 3.4GHz 33MB Cache s1700 - Box",
     "match_text_a": "280956 Intel Core i7 14700K 3.4GHz 33MB Cache s1700 - Box",
     "match_text_b": "280964 Intel Core i7 14700KF 3.4GHz 33MB Cache s1700 - Box"
+  },
+  {
+    "score": 97,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:223068",
+    "listing_b": "1pc:223069",
+    "title_a": "זיכרון למחשב Corsair VENGEANCE RGB DDR5 32GB (2×16GB) CMH32GX5M2D6000Z38W לבן",
+    "title_b": "זיכרון למחשב Corsair VENGEANCE RGB DDR5 32GB (2×16GB) CMH32GX5M2D6000Z38 אפור",
+    "match_text_a": "223068 Corsair VENGEANCE RGB DDR5 32GB (2 16GB) CMH32GX5M2D6000Z38W",
+    "match_text_b": "223069 Corsair VENGEANCE RGB DDR5 32GB (2 16GB) CMH32GX5M2D6000Z38"
   },
   {
     "score": 97,
@@ -2038,6 +2071,28 @@
     "score": 93,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "1pc:223067",
+    "listing_b": "1pc:223068",
+    "title_a": "זיכרון למחשב Corsair VENGEANCE DDR5 32GB (2×16GB) CMK32GX5M2D6000Z38 אפור",
+    "title_b": "זיכרון למחשב Corsair VENGEANCE RGB DDR5 32GB (2×16GB) CMH32GX5M2D6000Z38W לבן",
+    "match_text_a": "223067 Corsair VENGEANCE DDR5 32GB (2 16GB) CMK32GX5M2D6000Z38",
+    "match_text_b": "223068 Corsair VENGEANCE RGB DDR5 32GB (2 16GB) CMH32GX5M2D6000Z38W"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:223067",
+    "listing_b": "1pc:223069",
+    "title_a": "זיכרון למחשב Corsair VENGEANCE DDR5 32GB (2×16GB) CMK32GX5M2D6000Z38 אפור",
+    "title_b": "זיכרון למחשב Corsair VENGEANCE RGB DDR5 32GB (2×16GB) CMH32GX5M2D6000Z38 אפור",
+    "match_text_a": "223067 Corsair VENGEANCE DDR5 32GB (2 16GB) CMK32GX5M2D6000Z38",
+    "match_text_b": "223069 Corsair VENGEANCE RGB DDR5 32GB (2 16GB) CMH32GX5M2D6000Z38"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:480428",
     "listing_b": "ksp:480431",
     "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
@@ -3100,17 +3155,6 @@
     "title_b": "זיכרון למחשב G.Skill Trident Z5 NEO X RGB 2x16GB DDR5 6000MT / s CL28 F5-6000A2836G16GX2-TZ5NXRW",
     "match_text_a": "489126 G.Skill Trident Z5 NEO X RGB 2x16GB DDR5 6000MT / s CL30 F5-6000A3038F16GX2-TZ5NXRW",
     "match_text_b": "489142 G.Skill Trident Z5 NEO X RGB 2x16GB DDR5 6000MT / s CL28 F5-6000A2836G16GX2-TZ5NXRW"
-  },
-  {
-    "score": 92,
-    "category": "memory",
-    "brand": "Kingston",
-    "listing_a": "1pc:207851",
-    "listing_b": "1pc:210599",
-    "title_a": "זיכרון Kingston DDR5 32GB 6000 CL30 FURY Beast RGB בצבע שחור",
-    "title_b": "קיט זיכרון Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע לבן",
-    "match_text_a": "207851 Kingston DDR5 32GB 6000 CL30 FURY Beast RGB",
-    "match_text_b": "KF560C30BWEAK2-32 Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30"
   },
   {
     "score": 92,
@@ -9523,7 +9567,7 @@
         "listing_key": "1pc:189660",
         "vendor_sku": "C285KT",
         "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
-        "price": 2549
+        "price": 2199
       },
       {
         "listing_key": "1pc:171970",
@@ -10249,7 +10293,7 @@
         "listing_key": "1pc:208338",
         "vendor_sku": "LNM610P500G-RNNNG",
         "title": "כונן SSD Lexar NM610PRO 500GB M.2 2280 LNM610P500G-RNNNG",
-        "price": 590
+        "price": 510
       },
       {
         "listing_key": "ivory:170086",
