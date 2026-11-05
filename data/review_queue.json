@@ -2564,6 +2564,17 @@
   },
   {
     "score": 93,
+    "category": "gpu",
+    "brand": "PNY",
+    "listing_a": "ksp:376410",
+    "listing_b": "yahav:10573",
+    "title_a": "כרטיס מסך PNY RTX 5070 ARGB EPIC-X OC Triple Fan 12GB GDDR7",
+    "title_b": "כרטיס מסך חברת PNY דגם Geforce RTX 5070 ARGB EPIC-X RGB Triple Fan OC 12GB GDDR7 1xHDMI 3xDP",
+    "match_text_a": "376410 PNY RTX 5070 ARGB EPIC-X OC Triple Fan 12GB GDDR7",
+    "match_text_b": "10573 PNY Geforce RTX 5070 ARGB EPIC-X RGB Triple Fan OC 12GB GDDR7 1xHDMI 3xDP"
+  },
+  {
+    "score": 93,
     "category": "memory",
     "brand": "GeIL",
     "listing_a": "1pc:222243",
@@ -3012,6 +3023,17 @@
     "title_b": "מאוורר למארז Arctic P12 Pro PST CO 120mm - צבע שחור",
     "match_text_a": "421742 Arctic P12 Pro PST 120mm -",
     "match_text_b": "421747 Arctic P12 Pro PST CO 120mm -"
+  },
+  {
+    "score": 92,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "ivory:134868",
+    "listing_b": "ksp:393815",
+    "title_a": "לוח אם ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD - לבן",
+    "title_b": "לוח אם ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
+    "match_text_a": "90MB1LZ0-M0EAY0 ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD -",
+    "match_text_b": "393815 ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 -"
   },
   {
     "score": 92,
@@ -3941,6 +3963,17 @@
     "score": 91,
     "category": "motherboard",
     "brand": "ASUS",
+    "listing_a": "ivory:134868",
+    "listing_b": "ksp:393712",
+    "title_a": "לוח אם ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD - לבן",
+    "title_b": "לוח אם ASUS X870 GAMING MAX WIFI7 AM5 AMD X870 DDR5",
+    "match_text_a": "90MB1LZ0-M0EAY0 ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD -",
+    "match_text_b": "393712 ASUS X870 GAMING MAX WIFI7 AM5 AMD X870 DDR5"
+  },
+  {
+    "score": 91,
+    "category": "motherboard",
+    "brand": "ASUS",
     "listing_a": "ksp:355804",
     "listing_b": "ksp:497448",
     "title_a": "לוח אם Asus PRIME H610M-K LGA1700 H610 DDR5",
@@ -4068,6 +4101,17 @@
     "title_b": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 6400MT / s CL32 - צבע שחור",
     "match_text_a": "423257 Kingston FURY BEAST RGB 32GB DDR5 6400MT / s CL32 -",
     "match_text_b": "425378 Kingston FURY BEAST 2x32GB DDR5 6400MT / s CL32 -"
+  },
+  {
+    "score": 91,
+    "category": "gpu",
+    "brand": "PNY",
+    "listing_a": "ksp:362785",
+    "listing_b": "yahav:10394",
+    "title_a": "כרטיס מסך PNY RTX 5080 OC Triple Fan 16GB GDDR7",
+    "title_b": "כרטיס מסך חברת PNY דגם GeForce RTX 5080 ARGB EPIC-X RGB Triple Fan OC 16GB GDDR7 1xHDMI 3xDP",
+    "match_text_a": "362785 PNY RTX 5080 OC Triple Fan 16GB GDDR7",
+    "match_text_b": "10394 PNY GeForce RTX 5080 ARGB EPIC-X RGB Triple Fan OC 16GB GDDR7 1xHDMI 3xDP"
   },
   {
     "score": 91,
@@ -5520,6 +5564,17 @@
     "title_b": "כרטיס מסך PNY RTX 5080 Triple Fan 16GB GDDR7",
     "match_text_a": "362785 PNY RTX 5080 OC Triple Fan 16GB GDDR7",
     "match_text_b": "383317 PNY RTX 5080 Triple Fan 16GB GDDR7"
+  },
+  {
+    "score": 90,
+    "category": "gpu",
+    "brand": "PNY",
+    "listing_a": "ksp:383317",
+    "listing_b": "yahav:10394",
+    "title_a": "כרטיס מסך PNY RTX 5080 Triple Fan 16GB GDDR7",
+    "title_b": "כרטיס מסך חברת PNY דגם GeForce RTX 5080 ARGB EPIC-X RGB Triple Fan OC 16GB GDDR7 1xHDMI 3xDP",
+    "match_text_a": "383317 PNY RTX 5080 Triple Fan 16GB GDDR7",
+    "match_text_b": "10394 PNY GeForce RTX 5080 ARGB EPIC-X RGB Triple Fan OC 16GB GDDR7 1xHDMI 3xDP"
   },
   {
     "score": 90,

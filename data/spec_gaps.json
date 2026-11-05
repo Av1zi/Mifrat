@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T03:41:42.772213+00:00",
+  "generated_at": "2026-11-05T05:09:09.496597+00:00",
   "gaps": [
     {
       "category": "case",
@@ -84,11 +84,11 @@
     {
       "category": "aio",
       "label": "מידות משאבה",
-      "count": 30,
+      "count": 31,
       "products": [
         "mpn:aio:acfre00150a",
         "mpn:aio:acfre00178a",
-        "mpn:aio:acfre00182a"
+        "mpn:aio:acfre00180a"
       ]
     },
     {
@@ -142,6 +142,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 21,
+      "products": [
+        "model:cpu:coreultra5225-tray",
+        "model:cpu:coreultra5225f-tray",
+        "model:cpu:coreultra5250kfplus"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "D-SUB",
       "count": 21,
@@ -159,16 +169,6 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 20,
-      "products": [
-        "model:cpu:coreultra5225-tray",
-        "model:cpu:coreultra5225f-tray",
-        "model:cpu:coreultra5250kfplus"
       ]
     },
     {
@@ -199,6 +199,26 @@
         "mpn:cooler_air:bk034",
         "mpn:cooler_air:clp0172",
         "mpn:cooler_air:k199"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 20,
+      "products": [
+        "mpn:storage:bl9bwwa107",
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 20,
+      "products": [
+        "mpn:storage:bl9bwwa107",
+        "mpn:storage:bl9bwwa119",
+        "mpn:storage:bl9bwwa119p"
       ]
     },
     {
@@ -279,26 +299,6 @@
         "motherboard:1pc:1pc-128729",
         "mpn:motherboard:4711377026383",
         "mpn:motherboard:4711377026987"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 19,
-      "products": [
-        "mpn:storage:bl9bwwa107",
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 19,
-      "products": [
-        "mpn:storage:bl9bwwa107",
-        "mpn:storage:bl9bwwa119",
-        "mpn:storage:bl9bwwa119p"
       ]
     },
     {
@@ -412,6 +412,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 17,
+      "products": [
+        "mpn:memory:4712389908124",
+        "mpn:memory:ax4u320032g16asbkd35",
+        "mpn:memory:ax4u320032g16asbkd35p"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "כרטיס גרפי",
       "count": 17,
@@ -459,16 +469,6 @@
         "aio:1pc:1pc-222207",
         "mpn:aio:4711377115728",
         "mpn:aio:4711377115735"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 16,
-      "products": [
-        "mpn:memory:4712389908124",
-        "mpn:memory:ax4u320032g16asbkd35",
-        "mpn:memory:ax4u320032g16asbkd35p"
       ]
     },
     {
