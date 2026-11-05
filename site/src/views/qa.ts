@@ -22,16 +22,22 @@ export async function renderQa(
 
   let cases: QaCase[];
   let specReport: SpecReport | null;
+  let identityCounts: Record<string, number> = {};
   try {
     const [qa, report] = await Promise.all([loadQa(), loadSpecReport()]);
     cases = qa.cases ?? [];
     specReport = report;
+    identityCounts = qa.identity_counts ?? {};
   } catch (err) {
     mount(container, errorState(lang, err));
     return;
   }
 
   const he = lang === "he";
+  const kindParam =
+    new URLSearchParams(location.hash.split("?")[1] ?? "").get("kind") ?? "";
+  const allKinds = [...new Set(cases.map((c) => c.kind))].sort();
+  const shown = kindParam ? cases.filter((c) => c.kind === kindParam) : cases;
   const reportPanel = specReport
     ? card(
         html`<p class="qa-note">
@@ -52,16 +58,38 @@ export async function renderQa(
     return html`${String(value)}`;
   };
 
-  const kindKey = (kind: QaCase["kind"]) =>
-    kind === "naming_conflict"
-      ? "qaKindNaming"
-      : kind === "spec_conflict"
-        ? "qaKindSpec"
-        : kind === "core_gap"
-          ? "qaKindCore"
-          : "qaKindDuplicate";
+  const kindKey = (kind: QaCase["kind"]) => {
+    switch (kind) {
+      case "naming_conflict":
+        return "qaKindNaming";
+      case "spec_conflict":
+        return "qaKindSpec";
+      case "core_gap":
+        return "qaKindCore";
+      case "identity_merge":
+        return "qaKindIdentity";
+      case "packaging_conflict":
+        return "qaKindPackaging";
+      case "variant_conflict":
+        return "qaKindVariant";
+      case "split_candidate":
+        return "qaKindSplit";
+      default:
+        return "qaKindDuplicate";
+    }
+  };
 
-  const rows = cases.map((c) =>
+  const kindFilter = allKinds.length > 1
+    ? html`<p class="qa-meta">
+        <a class="btn btn--ghost" href="#/qa">${t(lang, "qaFilterAll")} (${cases.length})</a>
+        ${allKinds.map((kind) => {
+          const count = identityCounts[kind] ?? cases.filter((c) => c.kind === kind).length;
+          return html`<a class="btn btn--ghost" href="#/qa?kind=${encodeURIComponent(kind)}">${t(lang, kindKey(kind))} (${count})</a>`;
+        })}
+      </p>`
+    : "";
+
+  const rows = shown.map((c) =>
     card(
       html`<h2><a href="${productHash(c.category, c.product_id)}">${c.product_id}</a></h2>
         <p class="qa-meta">
@@ -75,6 +103,9 @@ export async function renderQa(
         ${c.kind === "core_gap" && c.fields && c.fields.length > 0
           ? html`<p class="qa-note">${t(lang, "qaMissingFields")} ${c.fields.map((f) => html`${chip(attributeLabel(f, lang))} `)}</p>`
           : ""}
+        ${c.model_code
+          ? html`<p class="qa-note"><code>${c.model_code}</code>${c.merged_from ? html` · ${c.merged_from}` : ""}${c.manufacturer_pn && c.manufacturer_pn.length > 0 ? html` · ${c.manufacturer_pn.join(", ")}` : ""}${c.reason ? html` · ${c.reason}` : ""}</p>`
+          : ""}
         ${c.offers.length > 0
           ? html`<ul class="qa-offers">${c.offers.map(
               (o) => html`<li><code>${o.vendor_sku ?? o.listing_key}</code><span class="text-dim">${o.title ?? ""}</span>${o.price === null || o.price === undefined ? emptyValue(lang) : html`<b class="num">${formatPrice(o.price, currency, lang)}</b>`}</li>`
@@ -84,12 +115,18 @@ export async function renderQa(
     )
   );
 
+  const shownTotal = identityCounts[kindParam] ?? shown.length;
+
   mount(
     container,
-    html`${pageHero({ lang, crumbs: [{ label: t(lang, "qaTitle") }], title: t(lang, "qaHeading"), sub: cases.length > 0 ? resultsCount(lang, cases.length) : undefined })}
+    html`${pageHero({ lang, crumbs: [{ label: t(lang, "qaTitle") }], title: t(lang, "qaHeading"), sub: shown.length > 0 ? resultsCount(lang, shown.length) : undefined })}
       <div class="qa-list">
         ${reportPanel}
-        ${cases.length === 0 ? emptyState(t(lang, "qaEmpty")) : rows}
+        ${kindFilter}
+        ${kindParam && shownTotal > shown.length
+          ? html`<p class="qa-note">${t(lang, "qaCapped").replace("{n}", String(shown.length)).replace("{total}", String(shownTotal))}</p>`
+          : ""}
+        ${shown.length === 0 ? emptyState(t(lang, "qaEmpty")) : rows}
       </div>`
   );
 }

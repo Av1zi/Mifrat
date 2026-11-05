@@ -595,7 +595,8 @@ def build_catalog(today: datetime):
     # Public duplicate-vendor QA cases ride along in the same queue file
     # (local review tool) and are also emitted as data/site/qa.json for the
     # public #/qa page (see site_data.write_site_data). Naming-conflict
-    # cases (tier-4c flags) ride along the same way.
+    # cases (tier-4c flags) ride along the same way, as do the identity
+    # decisions from the identity tier (plan §3.5).
     try:
         review_queue = list(review_queue) + find_duplicate_vendor_cases(
             match_result["products"]
@@ -603,15 +604,70 @@ def build_catalog(today: datetime):
     except Exception:
         pass
 
+    identity_cases = list(match_result.get("identity_cases") or [])
+    review_queue = list(review_queue) + identity_cases
+
     catalog = {
         "generated_at": today.isoformat(),
         "listings": enriched,
         "products": match_result["products"],
+        # §3.6: old pid -> surviving pid. Kept in the catalog (and in
+        # data/site/meta.json, see site_data) so saved builds, bookmarks and
+        # the price-history series keep resolving after a rework.
+        "pid_aliases": dict(match_result.get("pid_aliases") or {}),
+        # §3.5: identity decisions for the public QA page (site_data caps
+        # each kind); also mirrored into the local review_queue.
+        "identity_cases": identity_cases,
         "review_queue_count": len(review_queue),
         "skipped_vendors": skipped_vendors,
     }
 
     return catalog, review_queue, spec_report
+
+
+def _carry_pid_aliases(catalog: dict, previous: dict | None) -> None:
+    """Turn the previous build's product ids into today's ids (§3.6).
+
+    The run's own alias map only knows the pids it retired *today* (an `mpn:`
+    product absorbed by a `model:` one, a label-corrected leftover). The site
+    also has to resolve ids from earlier builds — saved build rows are
+    insert-only and a bookmark can be months old — so each previous product
+    is followed through its listings to the pid that now holds them. A pid
+    that split into several products has no single successor and is left
+    out (the bookmark falls back to the category page); chains from older
+    builds are carried forward and fully resolved, and a pid that is still
+    in use is never aliased.
+    """
+    aliases = dict(catalog.get("pid_aliases") or {})
+    if previous:
+        new_of = {e.get("listing_key"): e.get("product_id")
+                  for e in catalog.get("listings") or []}
+        moves: dict[str, set[str]] = {}
+        for enriched in previous.get("listings") or []:
+            old_pid = enriched.get("product_id")
+            new_pid = new_of.get(enriched.get("listing_key"))
+            if old_pid and new_pid:
+                moves.setdefault(str(old_pid), set()).add(str(new_pid))
+        for old_pid, targets in moves.items():
+            if len(targets) == 1:
+                aliases.setdefault(old_pid, next(iter(targets)))
+        for old_pid, target in (previous.get("pid_aliases") or {}).items():
+            aliases.setdefault(str(old_pid), str(target))
+
+    current = {str(p.get("product_id")) for p in catalog.get("products") or []}
+    resolved: dict[str, str] = {}
+    for old_pid in aliases:
+        target = aliases[old_pid]
+        seen = {old_pid}
+        while target in aliases and target not in seen:
+            seen.add(target)
+            target = aliases[target]
+        if target != old_pid:
+            resolved[old_pid] = target
+    catalog["pid_aliases"] = {
+        old_pid: target for old_pid, target in resolved.items()
+        if old_pid not in current
+    }
 
 
 def main():
@@ -627,6 +683,17 @@ def main():
     today = datetime.now(timezone.utc)
 
     catalog, review_queue, spec_report = build_catalog(today)
+
+    # Resolve earlier builds' product ids before anything is written: the
+    # previous catalog is still on disk at this point (§3.6).
+    previous = None
+    if OUTPUT_PATH.exists():
+        try:
+            with open(OUTPUT_PATH, encoding="utf-8") as previous_file:
+                previous = json.load(previous_file)
+        except (OSError, json.JSONDecodeError):
+            previous = None
+    _carry_pid_aliases(catalog, previous)
 
     DATA_DIR.mkdir(exist_ok=True)
     MANUAL_PATH.parent.mkdir(parents=True, exist_ok=True)

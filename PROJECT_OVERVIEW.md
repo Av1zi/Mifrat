@@ -304,6 +304,10 @@ After grouping, products get: a stable product identifier, a canonical name buil
 
 Presentation hygiene matters: raw titles and structured attributes stay separate. Canonical names come from identity fields when available. Vendor feature prose belongs in attributes or description, never in the name. Encoding artifacts are discarded during matching and extraction so they cannot leak into the catalog or site.
 
+**Planned rework — product identity (2026-11-04).** The hierarchy above splits more than it should: a listing that is alone in its subgroup falls out of the processor-model tier and lands on a vendor-specific identifier, and the model tier and the manufacturer-number tier mint identifiers in separate namespaces that never reconcile. The result is one physical chip spread over several products — a single processor family returned ten products for three chips — and across the whole catalog 706 groups of listings describing the same part were spread over 909 redundant products in eleven categories.
+
+The rework makes identity explicit: a product is one physical SKU, identified by a canonical model code per category plus the variant axes that change the physical part, with the full CPU letter suffix compared exactly so a "K" chip never merges with an "KF" chip. Box and tray stay separate products; ambiguous evidence merges and is flagged on the quality page rather than held back. The plan, its invariants and its acceptance criteria live in `docs/merge-identity-plan.md`.
+
 ### 6.7 Stale forwarding
 
 If a vendor has no snapshot today, the normalizer walks backwards day by day up to two weeks and reuses the first file it finds for that vendor. Reused listings are stamped with their true snapshot date and marked stale when that date is not today. A log notes fresh versus stale per vendor. Vendors with nothing in the window are recorded as skipped and surfaced in metadata so the site can explain gaps. A vendor having a bad day never wipes its prices off the site, but stale data is always visibly stale.

@@ -1,8 +1,8 @@
-import { loadCategory } from "../../api";
+import { loadCategory, resolveProductAlias } from "../../api";
 import { slotForCategory } from "../../build";
 import { categoryLabel, productMetaDesc, t } from "../../i18n";
 import { icon } from "../../icons";
-import { addToBuild, buildHash, categoriesHash, categoryHash, getStoredBuild, navigate, setStoredBuild } from "../../state";
+import { addToBuild, buildHash, categoriesHash, categoryHash, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
 import type { Currency, Lang } from "../../types";
 import { formatPrice } from "../../format";
 import { loadSignals } from "../../signals";
@@ -44,6 +44,17 @@ export async function renderProduct(
 
   const product = products.find((p) => p.id === productId);
   if (!product) {
+    // A retired pid (§3.6): the catalog rework moved this product's listings
+    // under a new id, and a bookmark still points at the old one. Follow the
+    // alias instead of declaring the product gone.
+    const successor = await resolveProductAlias(productId);
+    if (successor) {
+      const moved = products.find((p) => p.id === successor);
+      if (moved) {
+        navigate(productHash(category, successor));
+        return;
+      }
+    }
     mount(
       container,
       html`${pageHero({ lang, crumbs: [{ label: t(lang, "allCategoriesTitle"), href: categoriesHash() }, { label: categoryLabel(category, lang), href: categoryHash(category) }], title: t(lang, "productNotFound") })}

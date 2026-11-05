@@ -1,4 +1,4 @@
-import { loadCategory } from "../../api";
+import { loadCategory, resolveProductAlias } from "../../api";
 import { BUILD_SLOTS, knownPartWattage } from "../../build";
 import { formatPrice } from "../../format";
 import { t, vendorLabel } from "../../i18n";
@@ -51,6 +51,31 @@ export function cleanBuild(source: BuildMap): BuildMap {
   return build;
 }
 
+/**
+ * Find one build id in the slot's categories, following the retired-id alias
+ * map (§3.6) once when the raw id is no longer in the catalog.
+ */
+async function findProduct(
+  categories: readonly string[],
+  productId: string
+): Promise<Product | undefined> {
+  const search = async (id: string): Promise<Product | undefined> => {
+    for (const category of categories) {
+      try {
+        const match = (await loadCategory(category)).find((p) => p.id === id);
+        if (match) return match;
+      } catch {
+        // Try the next category.
+      }
+    }
+    return undefined;
+  };
+  const direct = await search(productId);
+  if (direct) return direct;
+  const successor = await resolveProductAlias(productId);
+  return successor ? search(successor) : undefined;
+}
+
 /** Resolves ids to products and drops ids that no longer exist (stale links, removed listings). */
 export async function refreshParts(ctx: BuilderCtx): Promise<void> {
   const next = new Map<string, Product[]>();
@@ -59,17 +84,8 @@ export async function refreshParts(ctx: BuilderCtx): Promise<void> {
     BUILD_SLOTS.map(async (slot) => {
       const found: Product[] = [];
       for (const productId of ctx.build[slot.id] ?? []) {
-        for (const category of slot.categories) {
-          try {
-            const match = (await loadCategory(category)).find((p) => p.id === productId);
-            if (match) {
-              found.push(match);
-              break;
-            }
-          } catch {
-            // Try the next category.
-          }
-        }
+        const match = await findProduct(slot.categories, productId);
+        if (match) found.push(match);
       }
       if (found.length > 0) {
         next.set(slot.id, found);

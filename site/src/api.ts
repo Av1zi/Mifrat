@@ -81,6 +81,30 @@ export function loadQa(): Promise<QaFile> {
 }
 
 /**
+ * Resolve a retired product id to the product that now holds its listings
+ * (data/site/meta.json `pid_aliases`, plan §3.6). Returns null when the id
+ * was never aliased (a genuinely removed listing, or an older deploy with
+ * no map). Chains are already collapsed by the scraper, but the loop stays
+ * bounded in case an old file carries a cycle.
+ */
+export async function resolveProductAlias(productId: string): Promise<string | null> {
+  try {
+    const meta = await loadMeta();
+    const aliases = meta.pid_aliases;
+    if (!aliases) return null;
+    let current = productId;
+    for (let hop = 0; hop < 8; hop += 1) {
+      const next = aliases[current];
+      if (!next || next === current) break;
+      current = next;
+    }
+    return current === productId ? null : current;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Spec coverage dashboard for the current run (data/site/spec_report.json).
  * Resolves null when the file is absent (an older deploy) so a page can hide
  * the panel instead of erroring.

@@ -64,7 +64,15 @@ export interface Product {
 }
 
 export interface QaCase {
-  kind: "duplicate_vendor" | "naming_conflict" | "spec_conflict" | "core_gap";
+  kind:
+    | "duplicate_vendor"
+    | "naming_conflict"
+    | "spec_conflict"
+    | "core_gap"
+    | "identity_merge"
+    | "packaging_conflict"
+    | "variant_conflict"
+    | "split_candidate";
   product_id: string;
   category: string;
   vendor: string;
@@ -80,6 +88,18 @@ export interface QaCase {
   detail?: string;
   /** core_gap: every missing core-compatibility field of the product. */
   fields?: string[];
+  /** Identity decisions (scraper/identity.py): the model code involved. */
+  model_code?: string | null;
+  /** identity_merge: the retired product id whose listings moved here. */
+  merged_from?: string | null;
+  /** variant_conflict: the disagreeing manufacturer part numbers. */
+  manufacturer_pn?: string[];
+  /** packaging_conflict: whether the mislabelled listing was moved. */
+  resolved?: boolean;
+  /** packaging_conflict: why it was not moved. */
+  reason?: string;
+  /** packaging_conflict: the vendor SKU that moved. */
+  moved?: string | null;
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;
@@ -91,6 +111,8 @@ export interface QaCase {
 export interface QaFile {
   generated_at: string;
   cases: QaCase[];
+  /** Identity cases per kind before the per-kind display cap. */
+  identity_counts?: Record<string, number>;
 }
 
 /**
@@ -180,6 +202,12 @@ export interface SiteMeta {
   generated_at: string;
   skipped_vendors: string[];
   categories: CategoryMeta[];
+  /**
+   * Retired product id -> the product that now holds its listings (§3.6).
+   * Saved builds are insert-only and bookmarks outlive a catalog rework, so
+   * an unknown id is resolved through this map before it is treated as gone.
+   */
+  pid_aliases?: Record<string, string>;
 }
 
 export type Lang = "he" | "en";

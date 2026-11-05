@@ -121,6 +121,81 @@ def _offer_price(
     return None
 
 
+def _previous_history(history_dir: Path) -> dict[str, dict]:
+    """History files from the build this run replaces (pid -> series)."""
+    out: dict[str, dict] = {}
+    if not history_dir.is_dir():
+        return out
+    for path in history_dir.glob("*.json"):
+        try:
+            with path.open(encoding="utf-8") as f:
+                payload = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(payload, dict):
+            out[path.stem] = payload
+    return out
+
+
+def _join_aliased_history(
+    catalog: dict,
+    dates: list[str],
+    by_category: dict[str, dict[str, dict]],
+    history_dir: Path,
+) -> int:
+    """Carry an old product id's series onto its successor (§3.6).
+
+    The chart is rebuilt from raw snapshots, so a renamed product still gets
+    its full line as long as the same offers are on sale. What is lost
+    without this join is the vendor that stopped selling: its points only
+    exist in the previous file, keyed by the old pid. Vendor ids are stable,
+    so the old series can be grafted onto the successor; the two point lists
+    line up only when both files cover the same dates.
+    """
+    aliases = catalog.get("pid_aliases") or {}
+    if not aliases:
+        return 0
+
+    category_of: dict[str, str] = {}
+    for product in catalog.get("products") or []:
+        pid = product.get("product_id")
+        category = product.get("category")
+        if not pid or not category:
+            continue
+        if category in ("aio", "cooler_air"):
+            category = "cpu_cooler"
+        category_of[str(pid)] = category
+
+    previous = _previous_history(history_dir)
+    joined = 0
+    for old_pid, new_pid in aliases.items():
+        category = category_of.get(str(new_pid))
+        if not category:
+            continue
+        old_entry = next(
+            (payload[str(old_pid)] for payload in previous.values()
+             if isinstance(payload.get(str(old_pid)), dict)),
+            None,
+        )
+        if not old_entry:
+            continue
+        entry = by_category[category].setdefault(str(new_pid), {"v": {}})
+        entry.setdefault("v", {})
+        for vendor, points in (old_entry.get("v") or {}).items():
+            if not isinstance(points, list) or len(points) != len(dates):
+                continue
+            current = entry["v"].get(vendor)
+            if current is None:
+                entry["v"][vendor] = list(points)
+                joined += 1
+            else:
+                entry["v"][vendor] = [
+                    new_point if new_point is not None else old_point
+                    for new_point, old_point in zip(current, points)
+                ]
+    return joined
+
+
 def build_price_history(
     catalog: dict,
     limit_days: int = 120,
@@ -154,6 +229,9 @@ def build_price_history(
             by_category[category][pid] = {"v": series}
 
     history_dir.mkdir(parents=True, exist_ok=True)
+    joined = _join_aliased_history(catalog, dates, by_category, history_dir)
+    if joined:
+        print(f"[ok] joined {joined} vendor series across renamed product ids")
     counts: dict[str, int] = {}
     for category, items in by_category.items():
         payload = {

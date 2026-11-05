@@ -46,6 +46,11 @@ except ImportError:
 # now returns the DERIVED view of the typed spec sheet (specs/legacy.py), and
 # the two canonicalization helpers moved with it.
 try:
+    from scraper import identity
+except ImportError:  # pragma: no cover - script-path invocation
+    import identity  # type: ignore[no-redef]
+
+try:
     from scraper.specs.api import extract_attributes
     from scraper.specs.api import canonicalize_filter_values as _canonicalize_filter_values
     from scraper.specs.api import unify_duplicate_attributes as _unify_duplicate_attributes
@@ -1913,51 +1918,110 @@ def load_manual(path: Path | str | None):
 # Product building
 # --------------------------------------------------------------------------
 
-# Categories where a (brand, model) pair fully and unambiguously identifies
-# the physical part, so leftover listings can be merged across vendors on the
-# model name alone (see the model-merge tier in match_listings). Deliberately
-# conservative: GPUs/memory/etc. have model names that don't uniquely pin the
-# part (two AIB cards can share a chip; two kits can share a name at different
-# speeds), so they stay on MPN/SKU matching only.
-MODEL_MERGE_CATEGORIES = {"cpu"}
+# --------------------------------------------------------------------------
+# Identity tier (docs/merge-identity-plan.md)
+# --------------------------------------------------------------------------
+#
+# A product is one physical SKU. Its identity is (category, canonical model
+# code, variant axes) — see scraper/identity.py, the single source of truth
+# for all three. This tier replaced the old CPU-only "model merge" that keyed
+# on each vendor's free-text model row: that key was a different string per
+# vendor (TMS "Core Ultra 5 245KF", yahav "Ultra 5 245KF", 1PC "C245KFT"), so
+# the same chip landed on four products, and the `len(sub) < 2: continue`
+# orphan guard left every single-packaging listing to the MPN/SKU tiers.
 
 
-def model_identity(enriched: dict) -> tuple | None:
+def _dominant_code(category: str, members: list[dict]) -> str | None:
+    """The model code that names the group: most listings, then lowest.
+
+    Deterministic on purpose — the pid is built from this code, so the same
+    data must always produce the same name.
     """
-    Return a (category, brand, normalized_model) merge key for listings where
-    the model name uniquely identifies the part, else None.
-
-    Only categories in MODEL_MERGE_CATEGORIES participate. The key normalizes
-    away case/whitespace/punctuation so "Core I7 14700K" and "core_i7-14700K"
-    collide, but keeps distinct model numbers (14700K vs 14700KF) apart.
-    Intel `series` ("225" vs "225 series 2") is handled one step down in
-    _split_series_subgroups(): explicit series conflicts split the group,
-    while listings whose vendor omits the tag ride with the majority — a
-    strict series element in this key would fragment every same-part
-    cross-vendor merge whenever a single vendor omits the tag.
-    """
-    category = enriched.get("category_normalized")
-    if category not in MODEL_MERGE_CATEGORIES:
+    counts: dict[str, int] = {}
+    for enriched in members:
+        code = identity.model_code(category, enriched)
+        if code:
+            counts[code] = counts.get(code, 0) + 1
+    if not counts:
         return None
+    return min(counts, key=lambda value: (-counts[value], value))
 
-    attrs = enriched.get("attributes") or {}
-    brand = attrs.get("brand") or enriched.get("brand")
-    model = attrs.get("model") or enriched.get("model") or enriched.get("name")
 
-    if not brand or not model:
-        return None
+def _identity_values(category: str, members: list[dict]) -> dict[str, str]:
+    """One value per variant axis, agreed by the group (unknown skipped)."""
+    merged: dict[str, str] = {}
+    for enriched in members:
+        for axis, value in identity.variant_values(category, enriched).items():
+            if value is not None:
+                merged.setdefault(axis, value)
+    return merged
 
-    brand_key = re.sub(r"[^a-z0-9]+", "", str(brand).lower())
-    # Vendor model rows are messy ("8400F AMD Ryzen 5 Processor" vs
-    # "Ryzen 5 8400F"): key on the cleaned "family + code" form.
-    model_key = re.sub(
-        r"[^a-z0-9]+", "",
-        (_cpu_model_text(str(brand), str(model)) or str(model)).lower())
 
-    if not brand_key or not model_key:
-        return None
+_PID_AXIS_FORMAT = {
+    "total_gb": "{v}gb",
+    "capacity_gb": "{v}gb",
+    "memory_gb": "{v}gb",
+    "size_mm": "{v}mm",
+    "radiator_size_mm": "{v}mm",
+    "height_mm": "{v}mm",
+    "fan_size_mm": "{v}mm",
+    "speed_mhz": "{v}mhz",
+    "cas_latency": "cl{v}",
+    "wattage_w": "{v}w",
+    "module_count": "x{v}",
+}
 
-    return (category, brand_key, model_key)
+
+def _identity_token(axis: str, value: str) -> str | None:
+    """Short, stable URL token for one axis value (None = the default)."""
+    if axis == "packaging":
+        # Box keeps the bare pid (today's convention: only tray carries a
+        # suffix), so existing box URLs keep their shape.
+        return None if value == "box" else "tray"
+    if axis in ("lighting", "led"):
+        return None if value == "no" else "rgb"
+    template = _PID_AXIS_FORMAT.get(axis)
+    token = template.format(v=value) if template else value
+    return identity.code_slug(token) or None
+
+
+def identity_pid_suffix(category: str, members: list[dict]) -> str:
+    """``-tray`` / ``-32gb-6000-cl30-rgb`` for a known variant; ``""`` else."""
+    values = _identity_values(category, members)
+    tokens: list[str] = []
+    for axis in identity.PID_AXES.get(category, ()):
+        value = values.get(axis)
+        if value is None:
+            continue
+        token = _identity_token(axis, value)
+        if token:
+            tokens.append(token)
+    return "".join(f"-{token}" for token in tokens)
+
+
+def _identity_qr_case(category: str, members: list[dict], *,
+                      kind: str, pid: str | None = None,
+                      extra: dict | None = None) -> dict:
+    """One QA-page case describing an identity decision (§3.5)."""
+    case = {
+        "kind": kind,
+        "category": category,
+        "product_id": pid,
+        "vendor": "",
+        "offers": [
+            {
+                "listing_key": e.get("listing_key"),
+                "vendor": e.get("vendor_id"),
+                "vendor_sku": e.get("vendor_sku"),
+                "title": e.get("title_raw"),
+                "price": e.get("price_ils"),
+            }
+            for e in members
+        ],
+    }
+    if extra:
+        case.update(extra)
+    return case
 
 
 def offer_from_listing(enriched: dict) -> dict:
@@ -1978,6 +2042,11 @@ def offer_from_listing(enriched: dict) -> dict:
         "image_url": enriched.get("image_url"),
         "bundle_only": enriched.get("bundle_only", False),
         "attributes": enriched.get("attributes", {}),
+        # Verified manufacturer model code (tier 5c). Catalog-only: the site
+        # offer whitelist (site_data._trim_offer) does not ship it. The
+        # identity check (scripts/check_identity_merge.py) needs it to tell a
+        # merge justified by a maker code from one that is not.
+        "model_code": enriched.get("model_code"),
     }
     if enriched.get("price_promo_ils") is not None:
         offer["price_promo_ils"] = enriched.get("price_promo_ils")
@@ -4789,35 +4858,6 @@ def _mpn_keys(e: dict) -> set[str]:
     return keys
 
 
-def _split_series_subgroups(group: list[dict]) -> list[list[dict]]:
-    """Split a model-merge group on explicit Intel series conflicts.
-
-    Listings tagged "series 1" vs "series 2" are different parts and must
-    never share a product. Listings whose vendor omits the tag ride along
-    with the majority explicit series (ties go to the lowest series value,
-    deterministic); a group with fewer than two DISTINCT KNOWN series is
-    returned whole.
-    """
-    known: dict[str, list[dict]] = {}
-    unknown: list[dict] = []
-
-    for e in group:
-        series = str((e.get("attributes") or {}).get("series") or "").strip()
-        if series:
-            known.setdefault(series, []).append(e)
-        else:
-            unknown.append(e)
-
-    if len(known) < 2:
-        return [group]
-
-    order = sorted(known, key=lambda s: (-len(known[s]), s))
-    subs = {s: list(members) for s, members in known.items()}
-    for e in unknown:
-        subs[order[0]].append(e)
-    return [subs[s] for s in order]
-
-
 def _split_packaging_subgroups(
     group: list[dict],
 ) -> list[tuple[str, list[dict]]]:
@@ -5002,13 +5042,16 @@ def match_listings(
 
     Tiers, in order:
     - Manual merges
-    - Model matches (curated categories only)
+    - Identity tier (canonical model code + variant axes, every category)
     - Exact MPN matches
     - Exact normalized vendor SKU matches
     - MPN/SKU unification
+    - Merge consistency guard (tier 4c)
+    - Identity reconciliation (model pid absorbs its MPN/SKU twins)
+    - Everything else becomes a singleton product
     - EAN/barcode unification (last: never churns an already-named pid)
     - Manufacturer model-code unification (Gigabyte distributor codes)
-    - Everything else becomes a singleton product
+    - Vendor packaging-conflict resolution (one vendor, two labels)
     """
     manual_key_to_pid, manual_products, blocked_pairs = load_manual(manual_path)
 
@@ -5045,103 +5088,199 @@ def match_listings(
             meta.setdefault("matched_by", "manual")
             product_meta.setdefault(pid, meta)
 
-    # 2. Model-based merges.
+    # 2. Identity tier.
     #
     # The same physical part sold by different vendors carries a different
     # SKU / product id at each vendor, so MPN/SKU matching can never link
-    # them — which is exactly why "the same CPU from three vendors" shows up
-    # as three separate one-vendor products instead of one product with three
-    # offers. For categories where the model name alone unambiguously
-    # identifies the part, merge on (category, brand, model) BEFORE the
-    # MPN/SKU tiers so a cross-vendor model match wins over each vendor's
-    # own SKU/MPN product.
+    # them — which is why "the same CPU from three vendors" used to show up
+    # as three one-vendor products. Identity is (category, canonical model
+    # code, variant axes) from scraper/identity.py; see that module for the
+    # per-category axes and the part-number classes.
     #
-    # Guarded four ways so we never silently merge the wrong thing:
-    #   - Only categories/keys we explicitly trust (see MODEL_MERGE_CATEGORIES).
-    #   - Listings that disagree on a critical attribute (DDR generation,
-    #     capacity, speed, wattage, etc.) are kept apart.
-    #   - Explicit Intel series tags are NEVER merged across ("225" vs
-    #     "225 series 2"); listings with no series tag ride with the majority.
-    #   - Box vs Tray packaging is NEVER merged: a boxed CPU (retail,
-    #     cooler, warranty) and a tray CPU (OEM, bare) are different items
-    #     with different prices — merging them defeats the packaging
-    #     filter. Each (model, packaging) pair becomes its own product;
-    #     listings with unknown packaging join the majority subgroup.
-    model_groups: dict[tuple, list[dict]] = {}
+    # Guarded so we never silently merge the wrong thing:
+    #   - every known-but-different variant axis splits (Box vs Tray, DDR
+    #     generation, capacity, RGB, colour, ...); an unknown value rides;
+    #   - two different manufacturer part numbers mean two variants and
+    #     split (part_number_subgroups);
+    #   - a human not_match verdict still wins (blocked pairs);
+    #   - EVERY surviving subgroup gets a pid, including one-member ones —
+    #     that is the orphan fix (D-1): the only boxed listing of a chip no
+    #     longer falls through to a vendor-specific pid.
+    #
+    # A listing is joined to its own model code AND to its own manufacturer
+    # part number (union-find), because the two describe the same part from
+    # different sides: one vendor prints "RT7", another the whole
+    # "RT7-BK-3FC7R-1FC7" model row, and only the shared maker part number
+    # proves they are one product. Keying on the code alone would split them
+    # again on every vendor's spelling.
+    _parent: dict[str, str] = {}
+
+    def _find(key: str) -> str:
+        root = key
+        while _parent[root] != root:
+            root = _parent[root]
+        while _parent[key] != root:
+            _parent[key], key = root, _parent[key]
+        return root
+
+    def _union(a: str, b: str) -> None:
+        root_a, root_b = _find(a), _find(b)
+        if root_a != root_b:
+            _parent[max(root_a, root_b)] = min(root_a, root_b)
+
+    _identity_keys: dict[tuple[str, str, str], list[str]] = {}
+    _identity_listing: dict[str, dict] = {}
 
     for enriched in enriched_listings:
         if enriched["listing_key"] in assignments:
             continue
+        category = str(enriched.get("category_normalized") or "")
+        if category not in identity.IDENTITY_CATEGORIES:
+            continue
+        listing_key = enriched["listing_key"]
+        keys: list[tuple[str, str, str]] = []
+        code = identity.model_code(category, enriched)
+        if code:
+            keys.append(("code", category, code))
+        mpn = enriched.get("mpn")
+        if mpn:
+            # Any printed part number joins its own listings: the old MPN
+            # tier did exactly this, and a retailer does not reuse its
+            # catalogue code for a different product. Two *manufacturer*
+            # part numbers still end up as two components (two variants);
+            # the class only decides which merges count as evidence.
+            keys.append(("pn", category, identity.part_number_key(mpn)))
+        if not keys:
+            continue
+        _parent[listing_key] = listing_key
+        _identity_listing[listing_key] = enriched
+        for key in keys:
+            _identity_keys.setdefault(key, []).append(listing_key)
 
-        ident = model_identity(enriched)
-        if ident is None:
+    for keys in _identity_keys.values():
+        for other in keys[1:]:
+            _union(keys[0], other)
+
+    _components: dict[str, list[dict]] = {}
+    for listing_key in _parent:
+        _components.setdefault(_find(listing_key), []).append(
+            _identity_listing[listing_key])
+
+    # A component can carry several codes (the PN bridge pulled two
+    # spellings together). Components whose codes share a slug are one group:
+    # "O11 Vision Compact" and "o11-vision-compact" are the same part under
+    # two spellings, and grouping them by the slug is what keeps one pid.
+    identity_groups: dict[tuple[str, str], list[dict]] = {}
+    for root, members in sorted(_components.items()):
+        category = str(members[0].get("category_normalized") or "")
+        code = _dominant_code(category, members)
+        if not code:
+            continue
+        group_slug = identity.code_slug(code) or code
+        identity_groups.setdefault((category, group_slug), []).extend(
+            sorted(members, key=lambda e: str(e["listing_key"])))
+
+    # pid -> identity facts, used by the reconciliation step (4d) and the
+    # packaging-conflict check at the end.
+    _identity_info: dict[str, dict] = {}
+    _identity_cases: list[dict] = []
+    _packaging_cases: list[dict] = []
+    _pid_aliases: dict[str, str] = {}
+
+    for (category, code_slug), group in sorted(identity_groups.items()):
+        code = _dominant_code(category, group) or code_slug
+        if not code_slug:
             continue
 
-        model_groups.setdefault(ident, []).append(enriched)
-
-    for ident, group in list(model_groups.items()):
-        # A single listing isn't a merge; leave it for the MPN/SKU/singleton
-        # tiers.
-        if len(group) < 2:
-            continue
-
-        category = ident[0]
-        slug_part = re.sub(r"[^a-z0-9]+", "-", ident[2]).strip("-")
-
-        # Explicit Intel series conflicts split first ("225" vs
-        # "225 series 2" never share a product); packaging splits each
-        # series subgroup after that.
-        for series_group in _split_series_subgroups(group):
-            subgroups = _split_packaging_subgroups(series_group)
-            if not subgroups:
-                continue
-
-            for pack_key, sub in subgroups:
-                # A lone listing isn't a merge (e.g. the only Tray offer of a
-                # model otherwise sold boxed) — leave it for the MPN/SKU tiers
-                # instead of minting a one-offer "model" product.
-                if len(sub) < 2:
-                    continue
-
+        for sub in identity.variant_subgroups(category, group):
+            clusters = identity.part_number_subgroups(list(sub))
+            made: list[tuple[str, list[dict]]] = []
+            for cluster in clusters:
                 # Blocked-pair veto: a human not_match verdict keeps these
-                # apart. Vetoed listings fall through to the MPN/SKU tiers
-                # instead of merging here.
+                # apart. Vetoed listings fall through to the MPN/SKU tiers.
                 accepted = []
-                for enriched in sub:
+                for enriched in cluster:
                     if any(_is_blocked_pair(
                             enriched["listing_key"], a["listing_key"])
                             for a in accepted):
                         continue
                     accepted.append(enriched)
-                if len(accepted) < 2:
-                    continue
-                sub = accepted
-
-                # Critical-attribute guard: if any two listings in the
-                # prospective merge disagree on a spec that changes the part
-                # (e.g. a CPU sold as both 65W and 125W TDP), it's not the same
-                # part — drop the subgroup and let each remain separate.
-                if any(
-                    critical_conflict(a, b)
-                    for i, a in enumerate(sub)
-                    for b in sub[i + 1 :]
-                ):
+                if not accepted:
                     continue
 
-                pid = f"model:{category}:{slug_part}"
-                if pack_key == "Tray":
-                    pid += "-tray"
+                pid = f"model:{category}:{code_slug}{identity_pid_suffix(category, accepted)}"
+                # Two clusters of one code can only collide when they split on
+                # an axis that is not in the pid (socket, generation, ...).
+                # Disambiguate with the first differing value, then an index.
+                if pid in _identity_info:
+                    differing = sorted(
+                        axis for axis in identity.variant_axes(category)
+                        if _identity_values(category, accepted).get(axis)
+                        != _identity_info[pid]["values"].get(axis)
+                    )
+                    token = ""
+                    for axis in differing:
+                        value = _identity_values(category, accepted).get(axis)
+                        token = _identity_token(axis, value or "") or ""
+                        if token:
+                            break
+                    base = f"{pid}-{token}" if token else pid
+                    candidate, index = base, 2
+                    while candidate in _identity_info:
+                        candidate = f"{base}-{index}"
+                        index += 1
+                    pid = candidate
 
-                for enriched in sub:
+                for enriched in accepted:
                     assignments[enriched["listing_key"]] = pid
 
+                _identity_info[pid] = {
+                    "category": category,
+                    "code": code,
+                    "values": _identity_values(category, accepted),
+                    "manufacturer_pns": {
+                        identity.part_number_key(e.get("mpn"))
+                        for e in accepted
+                        if identity.part_number_class(e.get("mpn"), e)
+                        == "manufacturer"
+                    },
+                }
+                made.append((pid, accepted))
                 product_meta.setdefault(
                     pid,
                     {
                         "product_id": pid,
-                        "matched_by": "model",
+                        "matched_by": "identity",
                     },
                 )
+
+                # A merge held together only by the model code (no shared
+                # manufacturer part number) is the weakest kind of merge the
+                # tier makes; it is public in the QA page (D3).
+                shared_pn = _identity_info[pid]["manufacturer_pns"]
+                if len(accepted) > 1 and not shared_pn:
+                    vendors = {e.get("vendor_id") for e in accepted}
+                    if len(vendors) > 1:
+                        _identity_cases.append(_identity_qr_case(
+                            category, accepted,
+                            kind="identity_merge", pid=pid,
+                            extra={"model_code": code},
+                        ))
+
+            # Two different manufacturer part numbers inside one axis
+            # subgroup mean two variants of the model: they stay apart, and
+            # the pair is public as `variant_conflict` (plan §3.5).
+            if len(made) > 1:
+                for pid, accepted in made:
+                    _identity_cases.append(_identity_qr_case(
+                        category, accepted,
+                        kind="variant_conflict", pid=pid,
+                        extra={
+                            "model_code": code,
+                            "manufacturer_pn": sorted(
+                                _identity_info[pid]["manufacturer_pns"]),
+                        },
+                    ))
 
     # 3. Exact MPN matches.
     mpn_groups: dict[str, list[dict]] = {}
@@ -5358,6 +5497,135 @@ def match_listings(
                     if str(e.get("title_raw") or "").strip()
                 })
 
+    # 4d. Identity reconciliation (fixes D-2).
+    #
+    # The identity tier mints `model:` pids while the part-number tiers mint
+    # `mpn:`/`sku:` pids, and tier 4b can only reunite pids that share the
+    # *same* key suffix — so `model:cpu:245kf-tray` and
+    # `mpn:cpu:at8076806414-tray` (the same Intel chip found by two different
+    # tiers) could never meet. Compare them now: when both describe one part
+    # (same model code, no conflicting axis, no contradictory manufacturer
+    # part numbers) the `model:` pid survives because the model code is the
+    # physical identity and the part number is only evidence about it. The
+    # absorbed pid is kept in the alias map (§3.6) so product URLs and price
+    # history keep resolving.
+    #
+    # When the evidence cannot be reconciled (different axis value, or two
+    # manufacturer part numbers that disagree) both products stay and the
+    # pair is public in the QA page as `split_candidate`.
+    if _identity_info:
+        _rec_members: dict[str, list[str]] = {}
+        for _lk, _pid in assignments.items():
+            _rec_members.setdefault(_pid, []).append(_lk)
+
+        _model_by_code: dict[tuple[str, str], list[str]] = {}
+        for _pid, _info in _identity_info.items():
+            _model_by_code.setdefault(
+                (_info["category"], _info["code"]), []).append(_pid)
+
+        def _absorb(source_pid: str, survivor: str) -> bool:
+            """Move every listing of source_pid onto survivor (with the same
+            guards the other unification tiers use)."""
+            source = [_e_by_lk[lk] for lk in _rec_members.get(source_pid, [])
+                      if lk in _e_by_lk]
+            target = [_e_by_lk[lk] for lk in _rec_members.get(survivor, [])
+                      if lk in _e_by_lk]
+            if not source:
+                return False
+            if any(_is_blocked_pair(a["listing_key"], b["listing_key"])
+                   for a in source for b in target):
+                return False
+            for _lk in _rec_members.pop(source_pid, []):
+                assignments[_lk] = survivor
+                _rec_members.setdefault(survivor, []).append(_lk)
+            product_meta.pop(source_pid, None)
+            _pid_aliases[source_pid] = survivor
+            return True
+
+        for _pid in list(product_meta):
+            if _pid in _identity_info:
+                continue
+            _meta = product_meta.get(_pid)
+            if not _meta:
+                continue
+            if _meta.get("matched_by") not in ("mpn", "sku", "singleton", "manual"):
+                continue
+            _members = [_e_by_lk[lk] for lk in _rec_members.get(_pid, [])
+                        if lk in _e_by_lk]
+            if not _members:
+                continue
+            _category = _members[0].get("category_normalized")
+            if _category not in identity.IDENTITY_CATEGORIES:
+                continue
+            # A vendor's model text is not stable ("O11 Dynamic V2" vs "O11
+            # Dynamic V2 Tower Case"), so a product can carry more than one
+            # code. Every code it carries is a way to meet its identity.
+            _codes = {identity.model_code(_category, e) for e in _members}
+            _codes.discard(None)
+            _targets = sorted({
+                target
+                for code in _codes
+                for target in _model_by_code.get((str(_category), code), [])
+            })
+            if not _targets:
+                continue
+            # A human-curated product keeps its pid (URL, history, saved
+            # builds); the identity pid is the newcomer and moves onto it.
+            _manual = _meta.get("matched_by") == "manual"
+            _merged = False
+            for _target_pid in _targets:
+                _info = _identity_info.get(_target_pid)
+                if not _info:
+                    continue
+                _target_members = [_e_by_lk[lk]
+                                   for lk in _rec_members.get(_target_pid, [])
+                                   if lk in _e_by_lk]
+                if not _target_members:
+                    continue
+                if any(identity.variant_conflict(_category, a, b)
+                       for a in _members for b in _target_members):
+                    continue
+                _pns = {identity.part_number_key(e.get("mpn"))
+                        for e in _members + _target_members
+                        if identity.part_number_class(e.get("mpn"), e)
+                        == "manufacturer"}
+                if len(_pns) > 1:
+                    continue
+                _survivor, _absorbed = (
+                    (_pid, _target_pid) if _manual else (_target_pid, _pid))
+                if _absorb(_absorbed, _survivor):
+                    if _manual:
+                        # The curated pid now holds the identity product;
+                        # re-key its facts so later loose pids can meet it.
+                        for _code in _codes:
+                            _bucket = _model_by_code.setdefault(
+                                (str(_category), _code), [])
+                            if _survivor not in _bucket:
+                                _bucket.append(_survivor)
+                        _identity_info.setdefault(_survivor, _identity_info[_target_pid])
+                        _identity_info.pop(_target_pid, None)
+                    if len(_pns) != 1:
+                        _identity_cases.append(_identity_qr_case(
+                            str(_category), _members + _target_members,
+                            kind="identity_merge", pid=_survivor,
+                            extra={
+                                "model_code": _dominant_code(
+                                    str(_category), _members + _target_members),
+                                "merged_from": _absorbed,
+                            },
+                        ))
+                    _merged = True
+                    break
+            if _merged or not _targets:
+                continue
+            # Same code, evidence that cannot be reconciled: both products
+            # stay, and the pair is worth a human look (D3).
+            _identity_cases.append(_identity_qr_case(
+                str(_category), _members,
+                kind="split_candidate", pid=_targets[0],
+                extra={"model_code": sorted(_codes)[0] if _codes else None},
+            ))
+
     # 5. Singletons.
     for enriched in enriched_listings:
         if enriched["listing_key"] in assignments:
@@ -5513,6 +5781,149 @@ def match_listings(
                 assignments[_lk] = survivor
                 _code_members.setdefault(survivor, []).append(_lk)
             product_meta.pop(pid, None)
+
+    # 6. Vendor packaging-conflict resolution (plan §3.3 — the KSP case).
+    #
+    # One vendor occasionally lists a single part twice and labels one copy
+    # Box and the other Tray (KSP 340400/340404, both 690 NIS, identical
+    # spec tags). D1 keeps Box and Tray as two products — but only when the
+    # labels are real. A vendor's own two records cannot both be right when
+    # their price and every other spec tag agree, so the mislabelled one
+    # joins the better-supported product, and the case is public in the QA
+    # page. Corroboration is required: an identical price AND an identical
+    # vendor tag fingerprint (minus the packaging tag), or a shared
+    # manufacturer part number. Two genuine twins (a real boxed and a real
+    # tray SKU) carry different manufacturer part numbers and are never
+    # moved — they are only flagged.
+    _packaging_cases: list[dict] = []
+    if "packaging" in identity.variant_axes("cpu"):
+        _vendor_code: dict[tuple[str, str, str], list[dict]] = {}
+        for enriched in enriched_listings:
+            if enriched.get("category_normalized") != "cpu":
+                continue
+            code = identity.model_code("cpu", enriched)
+            if not code:
+                continue
+            _vendor_code.setdefault(
+                (str(enriched.get("vendor_id")),
+                 str(enriched.get("category_normalized")), code),
+                [],
+            ).append(enriched)
+
+        _pack_members: dict[str, list[str]] = {}
+        for _lk, _pid in assignments.items():
+            _pack_members.setdefault(_pid, []).append(_lk)
+
+        def _packaging_tag_fingerprint(listing: dict) -> tuple | None:
+            """The vendor's own spec tags, minus the ones that name packaging."""
+            meta = listing.get("vendor_meta") or {}
+            tags = meta.get("tags")
+            if not isinstance(tags, dict) or not tags:
+                return None
+            ignore = ("תכונות", "אריזה", "אריזת מעבד", "packaging", "box",
+                      "package", "type")
+            return tuple(sorted(
+                (str(key), str(value)) for key, value in tags.items()
+                if str(key).strip().lower() not in ignore
+            )) or None
+
+        for (vendor, category, code), items in sorted(_vendor_code.items()):
+            if len(items) < 2:
+                continue
+            pairs: list[tuple[dict, dict]] = []
+            for index, left in enumerate(items):
+                for right in items[index + 1:]:
+                    left_pack = identity.variant_values("cpu", left).get("packaging")
+                    right_pack = identity.variant_values("cpu", right).get("packaging")
+                    if not left_pack or not right_pack or left_pack == right_pack:
+                        continue
+                    if assignments.get(left["listing_key"]) == assignments.get(
+                            right["listing_key"]):
+                        continue
+                    pairs.append((left, right))
+            for left, right in pairs:
+                left_pn = left.get("mpn")
+                right_pn = right.get("mpn")
+                left_mfr = (identity.part_number_class(left_pn, left)
+                            == "manufacturer")
+                right_mfr = (identity.part_number_class(right_pn, right)
+                             == "manufacturer")
+                shared_pn = (
+                    left_mfr and right_mfr
+                    and identity.part_number_key(left_pn)
+                    == identity.part_number_key(right_pn)
+                )
+                # Two different manufacturer part numbers are two genuine
+                # variants of one model — never move either one.
+                contradicting_pn = (
+                    left_mfr and right_mfr and not shared_pn
+                )
+                same_price = (
+                    left.get("price_ils") is not None
+                    and left.get("price_ils") == right.get("price_ils")
+                )
+                left_tags = _packaging_tag_fingerprint(left)
+                right_tags = _packaging_tag_fingerprint(right)
+                same_tags = bool(left_tags) and left_tags == right_tags
+                corroborated = shared_pn or (same_price and same_tags)
+
+                left_pid = assignments.get(left["listing_key"])
+                right_pid = assignments.get(right["listing_key"])
+
+                if corroborated and not contradicting_pn and left_pid and right_pid:
+                    # The mislabelled copy joins the product with more
+                    # independent offers; the pair itself is excluded from
+                    # both counts so the decision is not self-referential.
+                    left_others = len([lk for lk in _pack_members.get(left_pid, [])
+                                       if lk not in (left["listing_key"],
+                                                     right["listing_key"])])
+                    right_others = len([lk for lk in _pack_members.get(right_pid, [])
+                                        if lk not in (left["listing_key"],
+                                                      right["listing_key"])])
+                    if left_others == right_others:
+                        continue  # no evidence which label is the wrong one
+                    source, source_pid, target_pid = (
+                        (left, left_pid, right_pid)
+                        if left_others < right_others
+                        else (right, right_pid, left_pid))
+                    # Only the mislabelled *listing* moves (§3.3); any other
+                    # listing of its product (a genuine twin, or a vendor
+                    # whose label is not in question) stays where it is. The
+                    # source product is retired only if it becomes empty.
+                    _lk = source["listing_key"]
+                    _pack_members[source_pid] = [
+                        other for other in _pack_members.get(source_pid, [])
+                        if other != _lk
+                    ]
+                    assignments[_lk] = target_pid
+                    _pack_members.setdefault(target_pid, []).append(_lk)
+                    if not _pack_members.get(source_pid):
+                        product_meta.pop(source_pid, None)
+                        _pid_aliases[source_pid] = target_pid
+                    _packaging_cases.append(_identity_qr_case(
+                        category, [left, right],
+                        kind="packaging_conflict", pid=target_pid,
+                        extra={
+                            "vendor": vendor,
+                            "model_code": code,
+                            "resolved": True,
+                            "moved": source.get("vendor_sku"),
+                        },
+                    ))
+                else:
+                    _packaging_cases.append(_identity_qr_case(
+                        category, [left, right],
+                        kind="packaging_conflict",
+                        pid=assignments.get(left["listing_key"]),
+                        extra={
+                            "vendor": vendor,
+                            "model_code": code,
+                            "resolved": False,
+                            "reason": ("different manufacturer part numbers"
+                                       if contradicting_pn
+                                       else "price/spec tags disagree"),
+                        },
+                    ))
 
     # Build product objects (indexed once — was a full listings scan per
     # product, i.e. O(products × listings)).
@@ -5721,6 +6132,12 @@ def match_listings(
         "products": products,
         "assignments": assignments,
         "product_sizes": product_sizes,
+        # §3.6: old pid -> surviving pid, so product URLs, the saved-build
+        # rows (insert-only) and the price-history series keep resolving.
+        "pid_aliases": _pid_aliases,
+        # §3.5: identity decisions worth a human look (identity_merge,
+        # variant_conflict, split_candidate, packaging_conflict).
+        "identity_cases": list(_identity_cases) + list(_packaging_cases),
     }
 
 

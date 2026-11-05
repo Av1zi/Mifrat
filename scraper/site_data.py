@@ -656,6 +656,10 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         "generated_at": catalog["generated_at"],
         "skipped_vendors": catalog.get("skipped_vendors", []),
         "categories": categories_meta,
+        # §3.6: old product id -> surviving id. A bookmarked or saved-build
+        # pid resolves through this map (site/src/state.ts); index.json stays
+        # the search-row list it always was.
+        "pid_aliases": dict(catalog.get("pid_aliases") or {}),
     }
 
     _write_json_atomic(site_dir / "meta.json", meta)
@@ -718,6 +722,45 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
                 ],
             }
         )
+    # Identity decisions from the identity tier (plan §3.5): a merge held
+    # together by the model code alone, an unresolvable split, a vendor's
+    # own Box/Tray contradiction. D3 makes them public rather than a manual
+    # queue, so they ride the same page and the same offer shape. Capped per
+    # kind: `identity_merge` can run into the thousands.
+    identity_counts: dict[str, int] = {}
+    identity_cap = 500
+    for case in catalog.get("identity_cases") or []:
+        kind = str(case.get("kind") or "")
+        if not kind:
+            continue
+        identity_counts[kind] = identity_counts.get(kind, 0) + 1
+        if identity_counts[kind] > identity_cap:
+            continue
+        qa_cases.append(
+            {
+                "kind": kind,
+                "product_id": case.get("product_id"),
+                "category": case.get("category"),
+                "vendor": case.get("vendor") or "",
+                "model_code": case.get("model_code"),
+                **{
+                    key: case[key]
+                    for key in ("merged_from", "manufacturer_pn", "resolved",
+                                "reason", "moved")
+                    if key in case
+                },
+                "offers": [
+                    {
+                        "listing_key": offer.get("listing_key"),
+                        "vendor_sku": offer.get("vendor_sku"),
+                        "title": offer.get("title"),
+                        "price": offer.get("price"),
+                    }
+                    for offer in case.get("offers") or []
+                ],
+            }
+        )
+
     qa_cases.sort(
         key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
     )
@@ -739,7 +782,13 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         _write_json_atomic(site_dir / "spec_report.json", _trim_spec_report(spec_report))
     _write_json_atomic(
         site_dir / "qa.json",
-        {"generated_at": catalog["generated_at"], "cases": qa_cases},
+        {
+            "generated_at": catalog["generated_at"],
+            "cases": qa_cases,
+            # How many identity cases of each kind exist, before the per-kind
+            # cap above — the page shows the number it did not render.
+            "identity_counts": identity_counts,
+        },
     )
 
     # Categories that existed before this run but no longer do (e.g. a
