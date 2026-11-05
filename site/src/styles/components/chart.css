@@ -119,6 +119,12 @@
   stroke-linecap: round;
 }
 
+.ph-dot {
+  fill: var(--series);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
 .ph-cross {
   stroke: var(--text-3);
   stroke-width: 1;

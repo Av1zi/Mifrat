@@ -31,7 +31,7 @@ export async function renderPriceHistory(
   if (!entry || Array.isArray(entry)) return;
 
   const dates = Array.isArray(file.dates) ? file.dates : [];
-  if (dates.length < 2) return;
+  if (dates.length < 1) return;
   const timestamps = Array.isArray(file.timestamps) ? file.timestamps : [];
   const series = entry.v;
   const vendors = Object.keys(series).filter(
@@ -106,22 +106,43 @@ export async function renderPriceHistory(
       .map((i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="ph-tick">${shortDate(visDates[i])}</text>`)
       .join("");
 
-    // Step lines: a price holds until the next change.
+    // Step lines: a price holds until the next change. A lone point (one day
+    // of data, a store that just appeared, a day isolated by gaps) has no
+    // line to draw - a bare moveto renders nothing - so it gets a dot.
+    let dots = "";
     const paths = shown
       .map((vendor) => {
         const points = series[vendor].slice(start, end);
         let d = "";
         let penDown = false;
+        const present: number[] = [];
         points.forEach((p, i) => {
           if (p === null || p === undefined) {
             penDown = false;
             return;
           }
+          present.push(i);
           const cx = x(i).toFixed(1);
           const cy = y(p).toFixed(1);
           d += penDown ? ` H ${cx} V ${cy}` : `M ${cx} ${cy}`;
           penDown = true;
         });
+        // Dot every isolated point, plus the ends of a very short series
+        // (<=3 visible points) so a day or two of data is still visible.
+        const dotIdx = new Set<number>();
+        for (const i of present) {
+          const before = i > 0 ? points[i - 1] : null;
+          const after = i < points.length - 1 ? points[i + 1] : null;
+          if ((before === null || before === undefined) && (after === null || after === undefined)) dotIdx.add(i);
+        }
+        if (present.length > 0 && present.length <= 3) {
+          dotIdx.add(present[0] as number);
+          dotIdx.add(present[present.length - 1] as number);
+        }
+        for (const i of dotIdx) {
+          const p = points[i] as number;
+          dots += `<circle cx="${x(i).toFixed(1)}" cy="${y(p).toFixed(1)}" r="5" class="ph-dot ${seriesClass(vendor)}"><title>${esc(vendorLabel(vendor))}</title></circle>`;
+        }
         return d ? `<path d="${d}" class="ph-line ${seriesClass(vendor)}"><title>${esc(vendorLabel(vendor))}</title></path>` : "";
       })
       .join("");
@@ -191,7 +212,7 @@ export async function renderPriceHistory(
     );
     // The SVG body holds trusted, already-escaped chart markup built above.
     const svg = host.querySelector<SVGSVGElement>(".ph-chart")!;
-    svg.innerHTML = `${grid}${paths}<line class="ph-cross" y1="${T}" y2="${H - B}" visibility="hidden"/>${xLabels}`;
+    svg.innerHTML = `${grid}${paths}${dots}<line class="ph-cross" y1="${T}" y2="${H - B}" visibility="hidden"/>${xLabels}`;
     if (activeId) host.querySelector<HTMLElement>(`#${activeId}`)?.focus({ preventScroll: true });
     lastDrawnWidth = W;
 
