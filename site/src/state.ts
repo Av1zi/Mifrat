@@ -24,6 +24,14 @@ export function applyStoredTheme(): Theme {
   return theme;
 }
 
+function safeDecode(value: string): string | null {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return null;
+  }
+}
+
 export type ListView = "cards" | "table";
 
 export function getListView(): ListView {
@@ -258,10 +266,15 @@ export function parseRoute(): Route {
 
   const productMatch = /^\/p\/([^/]+)\/([^/]+)/.exec(path ?? "");
   if (productMatch) {
+    const rawCategory = safeDecode(productMatch[1]!);
+    const productId = safeDecode(productMatch[2]!);
+    if (rawCategory === null || productId === null) {
+      return { view: "notfound" };
+    }
     return {
       view: "product",
-      category: LEGACY_COOLER_TYPE[decodeURIComponent(productMatch[1])] ? "cpu_cooler" : decodeURIComponent(productMatch[1]),
-      productId: decodeURIComponent(productMatch[2]),
+      category: LEGACY_COOLER_TYPE[rawCategory] ? "cpu_cooler" : rawCategory,
+      productId,
     };
   }
 
@@ -288,7 +301,10 @@ export function parseRoute(): Route {
     return { view: "notfound" };
   }
 
-  const rawCategory = decodeURIComponent(match[1]);
+  const rawCategory = safeDecode(match[1]!);
+  if (rawCategory === null) {
+    return { view: "notfound" };
+  }
   // Air coolers and AIOs used to be two pages; old links land on the merged
   // CPU Cooling page with the matching type pre-selected.
   const legacyType = LEGACY_COOLER_TYPE[rawCategory];

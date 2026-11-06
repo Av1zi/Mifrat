@@ -158,6 +158,13 @@ describe("parseRoute: category and product", () => {
       productId: "mpn:gpu:n506taerooc8gd",
     });
   });
+
+  it("returns notfound for malformed percent-encoding on product and category routes", () => {
+    at("/#/p/%E0%A4%A/x");
+    expect(parseRoute()).toEqual({ view: "notfound" });
+    at("/#/c/%E0%A4%A");
+    expect(parseRoute()).toEqual({ view: "notfound" });
+  });
 });
 
 describe("draft build helpers", () => {

@@ -266,7 +266,15 @@ export default {
       }
       const raw = path.slice("/api/lists/".length);
       if (!raw || raw.includes("/")) return json({ error: "bad list id" }, 400);
-      return handleGet(decodeURIComponent(raw), env);
+      let id: string;
+      try {
+        id = decodeURIComponent(raw);
+      } catch {
+        // Malformed percent-encoding (e.g. /api/lists/%E0%A4%A) throws a
+        // URIError; an unhandled throw would surface as a 500.
+        return json({ error: "bad list id" }, 400);
+      }
+      return handleGet(id, env);
     }
 
     // /list/* (single id or anything else under it): serve the SPA shell;
