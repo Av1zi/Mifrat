@@ -1,0 +1,22 @@
+name: pip-audit
+
+on:
+  schedule:
+    # Mondays 06:23 UTC — off the hour so it does not pile onto every
+    # other scheduled workflow's peak.
+    - cron: "23 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
+        with:
+          python-version: "3.12"
+      - run: pip install pip-audit
+      - run: pip-audit -r requirements.txt
