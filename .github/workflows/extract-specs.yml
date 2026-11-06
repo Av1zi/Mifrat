@@ -43,9 +43,18 @@ jobs:
       - run: python scripts/check_extract.py
       - name: Audit
         if: inputs.audit != '0'
-        run: python -m scraper.extract --audit "${{ inputs.audit }}"
+        env:
+          AUDIT_COUNT: ${{ inputs.audit }}
+        run: python -m scraper.extract --audit "$AUDIT_COUNT"
       - name: Fill
-        run: python -m scraper.extract ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+        env:
+          FILL_LIMIT: ${{ inputs.limit }}
+        run: |
+          if [ -n "$FILL_LIMIT" ]; then
+            python -m scraper.extract --limit "$FILL_LIMIT"
+          else
+            python -m scraper.extract
+          fi
       - run: |
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
