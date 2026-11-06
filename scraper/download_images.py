@@ -49,6 +49,11 @@ except ImportError:
         url_shape_score,
     )
 
+try:
+    from scraper.site_data import _assert_inside_images
+except ImportError:
+    from site_data import _assert_inside_images  # type: ignore[no-redef]
+
 # Oct 2026: JPEG q82 / 800px -> WebP q76 / 640px. A q75 WebP re-encode is
 # ~47% smaller at equal size; the 640 cap takes TMS's / Yahav's 800px files
 # down a further ~25%. The PDP shows covers at <= 480 CSS px.
@@ -164,6 +169,7 @@ def encode_cover(img: Image.Image, dest_path: Path) -> None:
     """Flatten on white, shrink to MAX_DIMENSION, write the WebP cover."""
     flat = flatten_on_white(img)
     flat.thumbnail((MAX_DIMENSION, MAX_DIMENSION), Image.Resampling.LANCZOS)
+    _assert_inside_images(dest_path)
     dest_path.parent.mkdir(parents=True, exist_ok=True)
     for quality in (WEBP_QUALITY, 68, 60, 52):
         buf = BytesIO()

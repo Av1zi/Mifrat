@@ -60,11 +60,41 @@ except ImportError:
 
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
 IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _assert_inside_images(dest_path: Path) -> Path:
+    """Guard: a cover may only ever be written inside data/images/<vendor>/.
+
+    The SKU is untrusted scraped data and reaches the path builder as a
+    string component, so this is the last line of defence against a
+    traversal write (a hostile SKU such as "../../evil"). Resolves the
+    candidate path (symlinks included) and refuses anything that lands
+    outside the vendor's image folder. Returns the resolved path.
+    """
+    root = IMAGES_DIR.resolve()
+    candidate = dest_path if dest_path.is_absolute() else REPO_ROOT / dest_path
+    resolved = candidate.resolve()
+    if not resolved.is_relative_to(root):
+        raise ValueError(
+            f"refusing to write cover outside {root}: {dest_path}"
+        )
+    return resolved
 
 
 def _image_vendor_key(vendor_id: str | None) -> str:
     """Same normalization as the image downloader's folders on disk."""
     return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
+
+
+# Characters allowed in an on-disk cover filename. Vendor SKUs are untrusted
+# scraped data, so the stem is built by REPLACEMENT, never by deletion:
+# deleting "." would collapse two distinct real SKUs onto one filename
+# (e.g. "NE1000GM-W-ATX3.0" and "NE1000GM-W-ATX30" -> one file, one wrong
+# product photo). Replacement keeps the mapping injective on the corpus.
+_SAFE_STEM_KEEP = frozenset(
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._-"
+)
 
 
 def _safe_image_stem(vendor_sku: str) -> str:
@@ -77,14 +107,23 @@ def _safe_image_stem(vendor_sku: str) -> str:
     that downloaded it. Stripping Cf/Cc keeps the name byte-stable for
     every normal SKU (no churn) while making odd ones portable.
 
+    Path separators are ALSO replaced: a SKU is attacker-shaped data
+    (it comes from scraped vendor HTML) and the stem becomes a filesystem
+    path component, so "/" or ".." must never reach the path builder.
+
     MUST stay in sync with the downloader: both sides derive the on-disk
     path through this helper, never from the raw SKU.
     """
     import unicodedata
 
-    return "".join(
+    clean = "".join(
         ch for ch in vendor_sku if unicodedata.category(ch) not in ("Cf", "Cc")
     )
+    stem = "".join(ch if ch in _SAFE_STEM_KEEP else "_" for ch in clean)
+    # A stem of only dots would still be a legal-but-meaningless name.
+    if not stem.strip("."):
+        return "unknown_sku"
+    return stem
 
 
 COVER_EXT = ".webp"

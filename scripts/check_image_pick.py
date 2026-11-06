@@ -424,8 +424,11 @@ def check_alpha_flatten(c: Checks) -> None:
     c.eq(flatten_on_white(opaque).getpixel((3, 3)), (12, 34, 56),
          "an opaque image is untouched")
 
-    with tempfile.TemporaryDirectory() as tmp:
-        dest = Path(tmp) / "x" / "A.webp"
+    import shutil
+    tmp_dir = Path("data/images/.tmp_check_image_pick")
+    shutil.rmtree(tmp_dir, ignore_errors=True)
+    try:
+        dest = tmp_dir / "x" / "A.webp"
         big = Image.new("RGBA", (1600, 900), (0, 0, 0, 0))
         encode_cover(big, dest)
         with Image.open(dest) as out:
@@ -437,6 +440,8 @@ def check_alpha_flatten(c: Checks) -> None:
         encode_cover(small, dest)
         with Image.open(dest) as out:
             c.eq(out.size, (300, 200), "covers are never upscaled")
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
 
 
 def check_image_plan(c: Checks) -> None:
