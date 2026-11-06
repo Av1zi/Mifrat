@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T05:20:05.411656+00:00",
+  "generated_at": "2026-11-06T15:04:29.426757+00:00",
   "gaps": [
     {
       "category": "case",
@@ -72,6 +72,16 @@
       ]
     },
     {
+      "category": "aio",
+      "label": "מידות משאבה",
+      "count": 32,
+      "products": [
+        "model:aio:alpha2-se-a24-240-39-39-240mm-black",
+        "model:aio:alpha2-se-a24-240-39-39-240mm-white",
+        "model:aio:alpha2-se-a36-360-39-39-360mm-white"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "רמקולים",
       "count": 32,
@@ -79,16 +89,6 @@
         "model:motherboard:b650e-aorus-stealth-ice-atx",
         "model:motherboard:b860-aorus-elite-wifi7-ice-atx",
         "model:motherboard:b860-ds3h-wifi6e-atx"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מידות משאבה",
-      "count": 31,
-      "products": [
-        "model:aio:alpha2-se-a24-240-39-39-240mm-black",
-        "model:aio:alpha2-se-a24-240-39-39-240mm-white",
-        "model:aio:alpha2-se-a36-360-39-39-360mm-white"
       ]
     },
     {
