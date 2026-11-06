@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T03:30:28.300495+00:00",
+  "generated_at": "2026-11-06T05:20:05.411656+00:00",
   "gaps": [
     {
       "category": "case",
@@ -142,16 +142,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 21,
-      "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
-      ]
-    },
-    {
       "category": "cooler_air",
       "label": "פרופיל קירור",
       "count": 20,
@@ -159,6 +149,16 @@
         "model:cooler_air:1u-775-low-profile-passive-cl-p0172-black",
         "model:cooler_air:coolermaster-i70c-lga-1700-70mm-120mm",
         "model:cooler_air:coolermaster-masterair-g200p-40mm-92mm-black"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 20,
+      "products": [
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray",
+        "model:cpu:250k"
       ]
     },
     {
@@ -362,16 +362,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 17,
-      "products": [
-        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
-        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white",
-        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "כרטיס גרפי",
       "count": 17,
@@ -459,6 +449,16 @@
         "model:aio:aura-gl240-lite-240mm",
         "model:aio:aura-gl360-lite-360mm",
         "model:aio:aura-gl360-v2-wh-360mm-white"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 16,
+      "products": [
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white",
+        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white"
       ]
     },
     {
@@ -922,16 +922,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "יכולות AI",
-      "count": 10,
-      "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "Parallel processing technology support",
       "count": 10,
@@ -1039,6 +1029,16 @@
         "model:memory:lancer-u-dimm-ax5u6000c3032g-clarbk-32gb-6000mhz-cl30-rgb-dimm",
         "model:memory:lancer-u-dimm-ax5u6000c3032g-clarwh-32gb-6000mhz-cl40-rgb-white-dimm",
         "model:memory:lancer-u-dimm-ax5u6400c3232g-clarbk-32gb-6400mhz-cl32-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "יכולות AI",
+      "count": 9,
+      "products": [
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray",
+        "model:cpu:250k"
       ]
     },
     {

@@ -881,6 +881,17 @@
   },
   {
     "score": 96,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "yahav:10617",
+    "listing_b": "yahav:11789",
+    "title_a": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB DDR5 64GB 32GBX2 6000MHZ CL30 XMP & EXPO Certified - ברכישה עם 3 רכיבים נוספים\\מחשב שלם בלבד",
+    "title_b": "זיכרון חברת Kingston דגם Kingston FURY Beast RGB DDR5 64GB 32GBX2 6000MHZ CL30 XMP & EXPO Certified",
+    "match_text_a": "KF560C30BBEA-32X2 Kingston Kingston FURY Beast RGB DDR5 64GB 32GBX2 6000MHZ CL30 XMP & EXPO Certified - 3",
+    "match_text_b": "11789 Kingston Kingston FURY Beast RGB DDR5 64GB 32GBX2 6000MHZ CL30 XMP & EXPO Certified"
+  },
+  {
+    "score": 96,
     "category": "storage",
     "brand": "Sandisk",
     "listing_a": "1pc:222326",
@@ -8689,26 +8700,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:ryzen79800x3d-tray",
-    "category": "cpu",
-    "vendor": "yahav",
-    "offers": [
-      {
-        "listing_key": "yahav:11569",
-        "vendor_sku": "100-1000001084-PC",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included - מבצע ברכישת מחשב שלם בלבד",
-        "price": 1620
-      },
-      {
-        "listing_key": "yahav:10143",
-        "vendor_sku": "100-1000001084",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1650
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:gpu:prime-radeon-rx-9070-xt-gddr6-oc-16gb",
     "category": "gpu",
     "vendor": "ksp",
@@ -16070,7 +16061,7 @@
         "vendor": "ivory",
         "vendor_sku": "CC-H52FW-01",
         "title": "מארז מחשב NZXT H5 Flow בצבע לבן",
-        "price": 360
+        "price": 460
       }
     ],
     "model_code": "h5-flow"
@@ -28291,14 +28282,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-1000001084",
         "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1650
-      },
-      {
-        "listing_key": "yahav:11569",
-        "vendor": "yahav",
-        "vendor_sku": "100-1000001084-PC",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included - מבצע ברכישת מחשב שלם בלבד",
-        "price": 1620
+        "price": 1690
       }
     ],
     "model_code": "9800x3d"
@@ -34108,13 +34092,6 @@
     "product_id": "model:motherboard:b850-aorus-elite-wifi7-ice-atx",
     "vendor": "",
     "offers": [
-      {
-        "listing_key": "ivory:125169",
-        "vendor": "ivory",
-        "vendor_sku": "B850AELITEWF7-ICE",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE DDR5 ATX AMD בצבע לבן",
-        "price": 1060
-      },
       {
         "listing_key": "1pc:177646",
         "vendor": "1pc",
@@ -43446,14 +43423,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-1000001084",
         "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1650
-      },
-      {
-        "listing_key": "yahav:11569",
-        "vendor": "yahav",
-        "vendor_sku": "100-1000001084-PC",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included - מבצע ברכישת מחשב שלם בלבד",
-        "price": 1620
+        "price": 1690
       }
     ],
     "model_code": "9800x3d",
@@ -44203,31 +44173,6 @@
       }
     ],
     "model_code": "250kf",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:270k-tray",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:161242",
-        "vendor": "ivory",
-        "vendor_sku": "ULTRA-7-270K",
-        "title": "מעבד Intel Core Ultra 7 270K Plus | מהירות עד 5.50GHz | זיכרון מטמון 36MB | גרסת Tray ללא קירור",
-        "price": 1490
-      },
-      {
-        "listing_key": "ivory:161245",
-        "vendor": "ivory",
-        "vendor_sku": "ULTRA-7-270KB",
-        "title": "מעבד Intel Core Ultra 7 270K Plus | מהירות עד 5.50GHz | זיכרון מטמון 36MB | אריזת Box",
-        "price": 1469
-      }
-    ],
-    "model_code": "270k",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
