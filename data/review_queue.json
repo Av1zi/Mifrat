@@ -9207,6 +9207,26 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:memory:trident-z5-neo-2x16gb-6000-cl30-expo-32gb-x2-6000mhz-cl30-rgb-black",
+    "category": "memory",
+    "vendor": "tms",
+    "offers": [
+      {
+        "listing_key": "tms:6000J3038F16GX2-TZ5N",
+        "vendor_sku": "6000J3038F16GX2-TZ5N",
+        "title": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+        "price": 2771
+      },
+      {
+        "listing_key": "tms:6000J3038F16GX2-TZ5NR",
+        "vendor_sku": "6000J3038F16GX2-TZ5NR",
+        "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+        "price": 2817
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:memory:vengeance-2x16gb-6000mt-s-cl30-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
     "category": "memory",
     "vendor": "ksp",
@@ -13533,7 +13553,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-012",
         "title": "מארז מחשב HAVN BF 360 Flow White",
-        "price": 737
+        "price": 889
       }
     ],
     "model_code": "bf-360-flow"
@@ -16149,7 +16169,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-005",
         "title": "מארז מחשב HAVN HS 420 Base Edition White",
-        "price": 837
+        "price": 957
       },
       {
         "listing_key": "yahav:10640",
@@ -16179,7 +16199,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-006",
         "title": "מארז מחשב HAVN HS 420 Base Edition",
-        "price": 837
+        "price": 957
       },
       {
         "listing_key": "yahav:10641",
@@ -16209,7 +16229,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-007",
         "title": "מארז מחשב HAVN HS 420 VGPU Edition White",
-        "price": 1159
+        "price": 1311
       },
       {
         "listing_key": "yahav:10642",
@@ -16239,7 +16259,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-008",
         "title": "מארז מחשב HAVN HS 420 VGPU Edition",
-        "price": 1159
+        "price": 1311
       },
       {
         "listing_key": "yahav:10643",
@@ -20844,7 +20864,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-015",
         "title": "HAVN H12 White 120mm Fan",
-        "price": 62
+        "price": 66
       }
     ],
     "model_code": "h12-fan"
@@ -20867,7 +20887,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-022",
         "title": "HAVN H12 White Triple Pack 120mm x3 Fans",
-        "price": 132
+        "price": 168
       }
     ],
     "model_code": "h12-triple"
@@ -20890,7 +20910,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-017",
         "title": "HAVN H14 White 140mm Fan",
-        "price": 62
+        "price": 76
       }
     ],
     "model_code": "h14-fan"
@@ -20913,7 +20933,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-018",
         "title": "HAVN H14 Black 140mm Fan",
-        "price": 71
+        "price": 76
       }
     ],
     "model_code": "h14-fan"
@@ -20936,7 +20956,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-024",
         "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
-        "price": 150
+        "price": 189
       }
     ],
     "model_code": "h14-triple"
@@ -23250,13 +23270,6 @@
         "price": 133
       },
       {
-        "listing_key": "tms:CO-9050184-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050184-WW",
-        "title": "Corsair RS120 ARGB PWM 120mm Fan White",
-        "price": 64
-      },
-      {
         "listing_key": "yahav:10103",
         "vendor": "yahav",
         "vendor_sku": "CO-9050184-WW",
@@ -25549,29 +25562,6 @@
       }
     ],
     "model_code": "masterair-ma620p"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cooler_air",
-    "product_id": "model:cooler_air:masterair-ma824-stealth-63-6cfm-165mm-135mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:MAM-D8PN-318PK-R1",
-        "vendor": "tms",
-        "vendor_sku": "MAM-D8PN-318PK-R1",
-        "title": "CoolerMaster MASTERAIR MA824 STEALTH Cooler",
-        "price": 507
-      },
-      {
-        "listing_key": "yahav:10322",
-        "vendor": "yahav",
-        "vendor_sku": "MAM-D8PN-318PK-R1",
-        "title": "קירור אוויר למעבד חברת Cooler Master דגם MasterAir MA824 Stealth 120MM 1950RPM 63.6CFM",
-        "price": 570
-      }
-    ],
-    "model_code": "masterair-ma824-stealth-63-6cfm"
   },
   {
     "kind": "identity_merge",
@@ -29810,29 +29800,6 @@
   {
     "kind": "identity_merge",
     "category": "gpu",
-    "product_id": "model:gpu:rtx-5060ti-oc-dual-fan-8gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:VCG5060T8DFXPB1-O",
-        "vendor": "tms",
-        "vendor_sku": "VCG5060T8DFXPB1-O",
-        "title": "PNY RTX 5060Ti 8GB OC Dual Fan",
-        "price": 2348
-      },
-      {
-        "listing_key": "1pc:221469",
-        "vendor": "1pc",
-        "vendor_sku": "221469",
-        "title": "PNY RTX 5060Ti 8GB OC Dual Fan",
-        "price": 2430
-      }
-    ],
-    "model_code": "rtx-5060ti-oc-dual-fan"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "gpu",
     "product_id": "model:gpu:rtx-5080-gv-n5080aorusif-wd-16gd-16gb",
     "vendor": "",
     "offers": [
@@ -32005,7 +31972,7 @@
   {
     "kind": "identity_merge",
     "category": "memory",
-    "product_id": "model:memory:trident-z5-neo-2x16gb-6000-cl30-32gb-x2-6000mhz-cl30-rgb-blackwhite",
+    "product_id": "model:memory:trident-z5-neo-2x16gb-6000-cl30-expo-32gb-x2-6000mhz-cl30-rgb-blackwhite",
     "vendor": "",
     "offers": [
       {
@@ -32023,12 +31990,12 @@
         "price": 2817
       }
     ],
-    "model_code": "trident-z5-neo-2x16gb-6000-cl30"
+    "model_code": "trident-z5-neo-2x16gb-6000-cl30-expo"
   },
   {
     "kind": "identity_merge",
     "category": "memory",
-    "product_id": "model:memory:trident-z5-neo-2x16gb-6000-cl30-32gb-x2-6000mhz-cl30-rgb-black",
+    "product_id": "model:memory:trident-z5-neo-2x16gb-6000-cl30-expo-32gb-x2-6000mhz-cl30-rgb-black",
     "vendor": "",
     "offers": [
       {
@@ -32039,6 +32006,13 @@
         "price": 2839
       },
       {
+        "listing_key": "tms:6000J3038F16GX2-TZ5N",
+        "vendor": "tms",
+        "vendor_sku": "6000J3038F16GX2-TZ5N",
+        "title": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+        "price": 2771
+      },
+      {
         "listing_key": "tms:6000J3038F16GX2-TZ5NR",
         "vendor": "tms",
         "vendor_sku": "6000J3038F16GX2-TZ5NR",
@@ -32046,7 +32020,7 @@
         "price": 2817
       }
     ],
-    "model_code": "trident-z5-neo-2x16gb-6000-cl30"
+    "model_code": "trident-z5-neo-2x16gb-6000-cl30-expo"
   },
   {
     "kind": "identity_merge",
@@ -41913,7 +41887,7 @@
   {
     "kind": "identity_merge",
     "category": "storage",
-    "product_id": "model:storage:fury-renegade-g5-5-0-1000gb-m2pcie-m22280",
+    "product_id": "model:storage:fury-renegade-g5-1000gb-m2pcie-m22280",
     "vendor": "",
     "offers": [
       {
@@ -41931,7 +41905,7 @@
         "price": 1082
       }
     ],
-    "model_code": "fury-renegade-g5-5-0"
+    "model_code": "fury-renegade-g5"
   },
   {
     "kind": "identity_merge",
