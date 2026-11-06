@@ -77,6 +77,11 @@ export function generateListId(nextByte: () => number): string {
 export const MAX_LIST_SLOTS = 16;
 export const MAX_IDS_PER_SLOT = 16;
 export const MAX_PRODUCT_ID_LENGTH = 80;
+// Product ids are "<category>:<vendor>:<vendor-sku>" (e.g.
+// "accessories:ksp:ksp-112515"). Every id in the current catalog matches
+// this shape, so the allowlist rejects only junk the server would
+// otherwise store forever in an insert-only table.
+const PRODUCT_ID_RE = /^[A-Za-z0-9._:-]{1,80}$/;
 
 export type ValidateResult =
   | { ok: true; build: BuildMap }
@@ -110,6 +115,9 @@ export function validateListBuild(
       }
       if (id.length > MAX_PRODUCT_ID_LENGTH) {
         return { ok: false, error: `product id too long in slot: ${slot}` };
+      }
+      if (!PRODUCT_ID_RE.test(id)) {
+        return { ok: false, error: `bad product id in slot: ${slot}` };
       }
       ids.push(id);
     }

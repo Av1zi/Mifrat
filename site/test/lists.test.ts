@@ -91,6 +91,8 @@ describe("validateListBuild", () => {
     ["empty slot array", { cpu: [] }, "empty slot: cpu"],
     ["non-string id", { cpu: [1] }, "bad product id in slot: cpu"],
     ["empty id", { cpu: [""] }, "bad product id in slot: cpu"],
+    ["slash in id", { cpu: ["a/b"] }, "bad product id in slot: cpu"],
+    ["tag in id", { cpu: ["a<b"] }, "bad product id in slot: cpu"],
   ])("rejects %s", (_name, input, error) => {
     expect(validateListBuild(input, slots)).toEqual({ ok: false, error });
   });
