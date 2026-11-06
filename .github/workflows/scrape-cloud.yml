@@ -17,11 +17,10 @@ on:
     - cron: '0 7 * * *'    # 10:00 Israel-time fallback check (UTC+3)
   workflow_dispatch: {}
 
-permissions:
-  contents: write
-
 jobs:
   schedule-gate:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     outputs:
       fallback: ${{ steps.mode.outputs.fallback }}
@@ -43,6 +42,8 @@ jobs:
           sleep "$((RANDOM % 18000))"
 
   scrape:
+    permissions:
+      contents: write
     needs: schedule-gate
     runs-on: ubuntu-latest
     strategy:
@@ -69,8 +70,8 @@ jobs:
         # see decisions.md, nano/run_onepc.sh). Its detail scrape stays below.
         spider: [ivory, yahav]
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
@@ -122,6 +123,8 @@ jobs:
   # downloaded as resized JPEG and committed to the repo (plan §7 —
   # trivial repo growth at this rate).
   detail-scrape:
+    permissions:
+      contents: write
     needs: [schedule-gate, scrape]
     # A single vendor failing (e.g. Ivory 403-blocking datacenter IPs, Sep
     # 2026) must not cancel everyone else's detail scrape: without this,
@@ -133,8 +136,8 @@ jobs:
     if: "!cancelled()"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
