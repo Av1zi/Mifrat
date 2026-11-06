@@ -57,11 +57,16 @@ const MAX_POSTS_PER_IP_PER_MIN = 20;
 const ipHits = new Map<string, number[]>();
 
 function clientIp(request: Request): string {
-  return (
-    request.headers.get("cf-connecting-ip") ??
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-    "unknown"
-  );
+  // Cloudflare sets CF-Connecting-IP at the edge and clients cannot forge
+  // it. Never fall back to X-Forwarded-For: that header is client-supplied,
+  // so an attacker could rotate it and mint a fresh rate-limit budget per
+  // request. If the header is missing we are not behind the Cloudflare edge
+  // — bucket that traffic together under "unknown" instead of trusting a
+  // spoofable header.
+  //
+  // NOTE: this module must stay free of Node APIs (process.env, require):
+  // the Worker runs without nodejs_compat (see site/wrangler.jsonc).
+  return request.headers.get("cf-connecting-ip") ?? "unknown";
 }
 
 function isRateLimited(ip: string, now: number): boolean {
@@ -101,6 +106,10 @@ function withSecurityHeaders(res: Response): Response {
   // apply to Worker-generated /list/* HTML): same framing policy and
   // CSP. Keep the two in sync when either changes.
   headers.set("x-frame-options", "DENY");
+  headers.set(
+    "strict-transport-security",
+    "max-age=31536000; includeSubDomains"
+  );
   headers.set(
     "content-security-policy",
     "default-src 'self'; img-src 'self' data:; font-src 'self' data:; " +
