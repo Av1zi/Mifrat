@@ -10100,29 +10100,6 @@
   {
     "kind": "identity_merge",
     "category": "aio",
-    "product_id": "model:aio:aura-gl360-v2-360mm-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:171358",
-        "vendor": "1pc",
-        "vendor_sku": "171358",
-        "title": "קירור נוזלי GAMDIAS AURA GL360 V2",
-        "price": 494
-      },
-      {
-        "listing_key": "yahav:10203",
-        "vendor": "yahav",
-        "vendor_sku": "10203",
-        "title": "קירור נוזלי למעבד חברת Gamdias דגם AURA GL360 V2 360mm ARGB 73.6CFM צבע שחור",
-        "price": 360
-      }
-    ],
-    "model_code": "aura-gl360-v2"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "aio",
     "product_id": "model:aio:celsius-s36-prisma-cpu-water-cooling-360mm",
     "vendor": "",
     "offers": [
@@ -10654,29 +10631,6 @@
       }
     ],
     "model_code": "ice-apex-vision-pro-360-bk"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "aio",
-    "product_id": "model:aio:ice-apex-vision-pro-360-wt-360mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:206172",
-        "vendor": "1pc",
-        "vendor_sku": "ICE-REALM-VIS-360-WT",
-        "title": "מקרר מים Coolleo ICE Apex Vision PRO 360 WT",
-        "price": 652
-      },
-      {
-        "listing_key": "tms:ICE-REALM-VIS-360-WT",
-        "vendor": "tms",
-        "vendor_sku": "ICE-REALM-VIS-360-WT",
-        "title": "Coolleo ICE Apex Vision PRO 360 WT Water Cooler",
-        "price": 681
-      }
-    ],
-    "model_code": "ice-apex-vision-pro-360-wt"
   },
   {
     "kind": "identity_merge",
@@ -13572,7 +13526,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-CH-HVN-012",
         "title": "מארז מחשב HAVN BF 360 Flow בצבע לבן",
-        "price": 767
+        "price": 832
       },
       {
         "listing_key": "tms:PGW-CH-HVN-012",
@@ -16218,7 +16172,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-CH-HVN-006",
         "title": "מארז מחשב HAVN HS 420 Base Edition",
-        "price": 877
+        "price": 931
       },
       {
         "listing_key": "tms:PGW-CH-HVN-006",
@@ -16248,7 +16202,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-CH-HVN-007",
         "title": "מארז מחשב HAVN HS 420 VGPU Edition White",
-        "price": 1370
+        "price": 1382
       },
       {
         "listing_key": "tms:PGW-CH-HVN-007",
@@ -16278,7 +16232,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-CH-HVN-008",
         "title": "מארז מחשב HAVN HS 420 VGPU Edition",
-        "price": 1370
+        "price": 1382
       },
       {
         "listing_key": "tms:PGW-CH-HVN-008",
@@ -20883,7 +20837,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-015",
         "title": "מאוורר HAVN H12 120mm בצבע לבן",
-        "price": 78
+        "price": 77
       },
       {
         "listing_key": "tms:PGW-AC-HVN-015",
@@ -20906,7 +20860,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-022",
         "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע לבן",
-        "price": 149
+        "price": 171
       },
       {
         "listing_key": "tms:PGW-AC-HVN-022",
@@ -20929,7 +20883,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-017",
         "title": "מאוורר HAVN H14 140 מ\"מ בצבע לבן",
-        "price": 78
+        "price": 86
       },
       {
         "listing_key": "tms:PGW-AC-HVN-017",
@@ -20975,7 +20929,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-024",
         "title": "מאווררי HAVN H14 Triple Pack 140mm בצבע לבן",
-        "price": 207
+        "price": 238
       },
       {
         "listing_key": "tms:PGW-AC-HVN-024",
@@ -25603,13 +25557,6 @@
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:159859",
-        "vendor": "1pc",
-        "vendor_sku": "MAM-D8PN-318PK-R1",
-        "title": "מערכת קירור Cooler Master MASTERAIR MA824 STEALTH Cooler MAM-D8PN-318PK-R1",
-        "price": 579
-      },
-      {
         "listing_key": "tms:MAM-D8PN-318PK-R1",
         "vendor": "tms",
         "vendor_sku": "MAM-D8PN-318PK-R1",
@@ -26210,29 +26157,6 @@
       }
     ],
     "model_code": "p70-lcd-bk"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cooler_air",
-    "product_id": "model:cooler_air:ps-130-pwm-160mm-130mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:171715",
-        "vendor": "1pc",
-        "vendor_sku": "PS130",
-        "title": "מאוורר קירור למעבד 1StPlayer PS-130 ARGB PWM",
-        "price": 129
-      },
-      {
-        "listing_key": "tms:PS130",
-        "vendor": "tms",
-        "vendor_sku": "PS130",
-        "title": "מאוורר למעבד 1StPlayer PS-130 ARGB PWM",
-        "price": 122
-      }
-    ],
-    "model_code": "ps-130-pwm"
   },
   {
     "kind": "identity_merge",
@@ -27221,29 +27145,6 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:285",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:197601",
-        "vendor": "1pc",
-        "vendor_sku": "C285B",
-        "title": "מעבד Intel® Core™ Ultra 9 285 דור 15 תושבת 1851 BOX",
-        "price": 2520
-      },
-      {
-        "listing_key": "tms:C285B",
-        "vendor": "tms",
-        "vendor_sku": "C285B",
-        "title": "Intel Core Ultra 9 285 / 1851 Box",
-        "price": 2436
-      }
-    ],
-    "model_code": "285"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
     "product_id": "model:cpu:3240-tray",
     "vendor": "",
     "offers": [
@@ -28204,7 +28105,7 @@
         "vendor": "1pc",
         "vendor_sku": "221475",
         "title": "AMD Ryzen 5 9500F AM5 Tray",
-        "price": 771
+        "price": 735
       },
       {
         "listing_key": "ksp:417000",
@@ -28250,7 +28151,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001405",
         "title": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
-        "price": 937
+        "price": 957
       },
       {
         "listing_key": "yahav:9790",
@@ -28446,7 +28347,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000662",
         "title": "מעבד AMD Ryzen 9 9900X AM5 Tray",
-        "price": 2004
+        "price": 2100
       },
       {
         "listing_key": "yahav:9863",
@@ -28892,29 +28793,6 @@
   {
     "kind": "identity_merge",
     "category": "gpu",
-    "product_id": "model:gpu:geforce-rtx-5070-gamingpro-s-12gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209589",
-        "vendor": "1pc",
-        "vendor_sku": "NE75070019K9-GB2050U",
-        "title": "כרטיס מסך Palit GeForce RTX 5070 GamingPro-S 12GB",
-        "price": 3790
-      },
-      {
-        "listing_key": "tms:NE75070019K9-GB2050U",
-        "vendor": "tms",
-        "vendor_sku": "NE75070019K9-GB2050U",
-        "title": "Palit GeForce RTX 5070 GamingPro-S 12GB",
-        "price": 3705
-      }
-    ],
-    "model_code": "geforce-rtx-5070-gamingpro-s"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "gpu",
     "product_id": "model:gpu:geforce-rtx-5070-gamingpro-s-oc-12gb",
     "vendor": "",
     "offers": [
@@ -28992,7 +28870,7 @@
         "vendor": "1pc",
         "vendor_sku": "VCG5070T16TFXXPB1-O",
         "title": "NVIDIA כרטיס מסך GeForce RTX 5070 Ti ARGB EPIC-X RGB Overclocked VCG5070T16TFXXPB1-O",
-        "price": 6025
+        "price": 6045
       },
       {
         "listing_key": "ivory:169912",
@@ -42655,7 +42533,7 @@
         "vendor": "1pc",
         "vendor_sku": "HDWG51JXZSTB",
         "title": "כונן קשיח פנימי Toshiba N300 PRO 18TB 3.5\" SATA III 512MB Cache",
-        "price": 3380
+        "price": 3677
       },
       {
         "listing_key": "tms:HDWG51JXZSTB",
@@ -43953,7 +43831,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001405",
         "title": "מעבד AMD Ryzen™ 5 9600X AM5 - TRAY",
-        "price": 937
+        "price": 957
       },
       {
         "listing_key": "yahav:9790",
@@ -43998,7 +43876,7 @@
         "vendor": "1pc",
         "vendor_sku": "221475",
         "title": "AMD Ryzen 5 9500F AM5 Tray",
-        "price": 771
+        "price": 735
       },
       {
         "listing_key": "ksp:417000",

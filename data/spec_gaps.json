@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T19:47:21.113590+00:00",
+  "generated_at": "2026-11-06T02:57:02.873028+00:00",
   "gaps": [
     {
       "category": "case",
@@ -114,7 +114,7 @@
     {
       "category": "motherboard",
       "label": "חריצים פנויים",
-      "count": 26,
+      "count": 25,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
         "model:motherboard:b760m-gaming-wifi-microatx",
@@ -152,26 +152,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "D-SUB",
-      "count": 21,
-      "products": [
-        "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:b860m-gaming-plus-wifi6e-microatx",
-        "model:motherboard:h810m-gaming-wifi6e-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 5.0 x16",
-      "count": 21,
-      "products": [
-        "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:b760m-gaming-wifi-microatx",
-        "model:motherboard:b860-gaming-wifi"
-      ]
-    },
-    {
       "category": "cooler_air",
       "label": "פרופיל קירור",
       "count": 20,
@@ -183,22 +163,22 @@
     },
     {
       "category": "motherboard",
-      "label": "DISPLAY PORT",
+      "label": "D-SUB",
       "count": 20,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:b860-gaming-wifi",
+        "model:motherboard:b860m-gaming-plus-wifi6e-microatx",
         "model:motherboard:h810m-gaming-wifi6e-microatx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "wifi + BT",
+      "label": "PCIe 5.0 x16",
       "count": 20,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:h810m-gaming-wifi6e-microatx"
+        "model:motherboard:b760m-gaming-wifi-microatx",
+        "model:motherboard:b860-gaming-wifi"
       ]
     },
     {
@@ -273,7 +253,7 @@
     },
     {
       "category": "motherboard",
-      "label": "SATA III",
+      "label": "DISPLAY PORT",
       "count": 19,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
@@ -283,17 +263,7 @@
     },
     {
       "category": "motherboard",
-      "label": "HDMI 2.1",
-      "count": 19,
-      "products": [
-        "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:h810m-gaming-wifi6e-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 4.0 x16",
+      "label": "wifi + BT",
       "count": 19,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
@@ -323,12 +293,42 @@
     },
     {
       "category": "motherboard",
-      "label": "PCIe 3.0 x1",
+      "label": "SATA III",
       "count": 18,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
         "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:b860m-gaming-plus-wifi6e-microatx"
+        "model:motherboard:h810m-gaming-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "HDMI 2.1",
+      "count": 18,
+      "products": [
+        "model:motherboard:b760m-bomber-wifi-microatx",
+        "model:motherboard:b860-gaming-wifi",
+        "model:motherboard:h810m-gaming-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCIe 4.0 x16",
+      "count": 18,
+      "products": [
+        "model:motherboard:b760m-bomber-wifi-microatx",
+        "model:motherboard:b860-gaming-wifi",
+        "model:motherboard:h810m-gaming-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צבע",
+      "count": 18,
+      "products": [
+        "model:storage:32261-usb-m2",
+        "model:storage:cl-v3ssd-bk",
+        "model:storage:enterprise-exos-x-24000gb-sata-35"
       ]
     },
     {
@@ -349,36 +349,6 @@
         "other:1pc:1pc-104416",
         "other:1pc:1pc-133260",
         "other:1pc:1pc-140488"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "זרימת אוויר",
-      "count": 17,
-      "products": [
-        "model:aio:aura-gl240-lite-240mm",
-        "model:aio:aura-gl360-lite-360mm",
-        "model:aio:aura-gl360-v2-360mm-black"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "חיבורי RGB",
-      "count": 17,
-      "products": [
-        "model:aio:aura-gl240-lite-240mm",
-        "model:aio:aura-gl360-lite-360mm",
-        "model:aio:aura-gl360-v2-360mm-black"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "חיבור משאבה",
-      "count": 17,
-      "products": [
-        "model:aio:aura-gl240-lite-240mm",
-        "model:aio:aura-gl360-lite-360mm",
-        "model:aio:aura-gl360-v2-360mm-black"
       ]
     },
     {
@@ -413,32 +383,32 @@
     },
     {
       "category": "motherboard",
-      "label": "HDMI",
+      "label": "PCIe 3.0 x1",
       "count": 17,
       "products": [
         "model:motherboard:b760m-bomber-wifi-microatx",
         "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:h810m-gaming-wifi6e-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "HD 7.1",
-      "count": 17,
-      "products": [
-        "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:h810m-gaming-wifi6e-microatx"
+        "model:motherboard:b860m-gaming-plus-wifi6e-microatx"
       ]
     },
     {
       "category": "storage",
-      "label": "צבע",
+      "label": "ביצועים",
       "count": 17,
       "products": [
-        "model:storage:32261-usb-m2",
-        "model:storage:cl-v3ssd-bk",
-        "model:storage:enterprise-exos-x-24000gb-sata-35"
+        "model:storage:gammix-s60-agammixs60-1t-cs-1000gb-pciegen4x4-m22280",
+        "model:storage:gammix-s60-agammixs60-2t-cs-2000gb-pciegen4x4-m22280",
+        "model:storage:gammix-s70-blade-agammixs70b-1t-cs-1000gb-pciegen4x4"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Shock Resistance",
+      "count": 17,
+      "products": [
+        "model:storage:gammix-s60-agammixs60-1t-cs-1000gb-pciegen4x4-m22280",
+        "model:storage:gammix-s60-agammixs60-2t-cs-2000gb-pciegen4x4-m22280",
+        "model:storage:gammix-s70-blade-agammixs70b-1t-cs-1000gb-pciegen4x4"
       ]
     },
     {
@@ -463,32 +433,52 @@
     },
     {
       "category": "aio",
-      "label": "מאווררים",
+      "label": "זרימת אוויר",
       "count": 16,
       "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
-        "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
+        "model:aio:aura-gl240-lite-240mm",
+        "model:aio:aura-gl360-lite-360mm",
+        "model:aio:aura-gl360-v2-wh-360mm-white"
       ]
     },
     {
-      "category": "storage",
-      "label": "ביצועים",
+      "category": "aio",
+      "label": "חיבורי RGB",
       "count": 16,
       "products": [
-        "model:storage:gammix-s60-agammixs60-1t-cs-1000gb-pciegen4x4-m22280",
-        "model:storage:gammix-s60-agammixs60-2t-cs-2000gb-pciegen4x4-m22280",
-        "model:storage:gammix-s70-blade-agammixs70b-1t-cs-1000gb-pciegen4x4"
+        "model:aio:aura-gl240-lite-240mm",
+        "model:aio:aura-gl360-lite-360mm",
+        "model:aio:aura-gl360-v2-wh-360mm-white"
       ]
     },
     {
-      "category": "storage",
-      "label": "Shock Resistance",
+      "category": "aio",
+      "label": "חיבור משאבה",
       "count": 16,
       "products": [
-        "model:storage:gammix-s60-agammixs60-1t-cs-1000gb-pciegen4x4-m22280",
-        "model:storage:gammix-s60-agammixs60-2t-cs-2000gb-pciegen4x4-m22280",
-        "model:storage:gammix-s70-blade-agammixs70b-1t-cs-1000gb-pciegen4x4"
+        "model:aio:aura-gl240-lite-240mm",
+        "model:aio:aura-gl360-lite-360mm",
+        "model:aio:aura-gl360-v2-wh-360mm-white"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "HDMI",
+      "count": 16,
+      "products": [
+        "model:motherboard:b760m-bomber-wifi-microatx",
+        "model:motherboard:b860-gaming-wifi",
+        "model:motherboard:h810m-gaming-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "HD 7.1",
+      "count": 16,
+      "products": [
+        "model:motherboard:b760m-bomber-wifi-microatx",
+        "model:motherboard:b860-gaming-wifi",
+        "model:motherboard:h810m-gaming-wifi6e-microatx"
       ]
     },
     {
@@ -503,52 +493,12 @@
     },
     {
       "category": "aio",
-      "label": "מידות",
+      "label": "מאווררים",
       "count": 15,
       "products": [
-        "model:aio:aura-gl240-lite-240mm",
-        "model:aio:aura-gl360-lite-360mm",
-        "model:aio:aura-gl360-v2-360mm-black"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "PWM",
-      "count": 15,
-      "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
         "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "מהירות משאבה",
-      "count": 15,
-      "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
-        "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "תמיכה במעבדים תלוי הוראת יצרן",
-      "count": 15,
-      "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
-        "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "פאנל תצוגה",
-      "count": 15,
-      "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
-        "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
       ]
     },
     {
@@ -569,6 +519,16 @@
         "model:gpu:geforce-gt-1030-4gd4-lp-oc-4gb",
         "model:gpu:geforce-rtx-3050-ventus-2x-e-6g-oc-6gb",
         "model:gpu:geforce-rtx-5050-8g-shadow-2x-oc-8gb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "ממשק",
+      "count": 15,
+      "products": [
+        "model:memory:32g-16x2-6400-dominator-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+        "model:memory:64g-16x4-5600-64gb-x4-5600mhz-cl36-rgb-grey-dimm",
+        "model:memory:a-data-5600-cl46-16gb-x1-5600mhz-cl46-black-dimm"
       ]
     },
     {
@@ -622,23 +582,53 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "ממשק",
+      "category": "aio",
+      "label": "מידות",
       "count": 14,
       "products": [
-        "model:memory:32g-16x2-6400-dominator-32gb-x2-6400mhz-cl32-rgb-black-dimm",
-        "model:memory:64g-16x4-5600-64gb-x4-5600mhz-cl36-rgb-grey-dimm",
-        "model:memory:a-data-5600-cl46-16gb-x1-5600mhz-cl46-black-dimm"
+        "model:aio:aura-gl240-lite-240mm",
+        "model:aio:aura-gl360-lite-360mm",
+        "model:aio:aura-gl360-v2-wh-360mm-white"
       ]
     },
     {
-      "category": "motherboard",
-      "label": "TPM-HEADER",
+      "category": "aio",
+      "label": "PWM",
       "count": 14,
       "products": [
-        "model:motherboard:b760m-bomber-wifi-microatx",
-        "model:motherboard:h810m-gaming-wifi6e-microatx",
-        "model:motherboard:pro-b760m-a-wifi-microatx"
+        "model:aio:aura-gl360-v2-wh-360mm-white",
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מהירות משאבה",
+      "count": 14,
+      "products": [
+        "model:aio:aura-gl360-v2-wh-360mm-white",
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "תמיכה במעבדים תלוי הוראת יצרן",
+      "count": 14,
+      "products": [
+        "model:aio:aura-gl360-v2-wh-360mm-white",
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "פאנל תצוגה",
+      "count": 14,
+      "products": [
+        "model:aio:aura-gl360-v2-wh-360mm-white",
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
       ]
     },
     {
@@ -672,26 +662,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "אורח חיים",
-      "count": 13,
-      "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
-        "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "זמן עבודה למשאבה",
-      "count": 13,
-      "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
-        "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "צריכת חשמל",
       "count": 13,
@@ -712,13 +682,33 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "TPM-HEADER",
+      "count": 13,
+      "products": [
+        "model:motherboard:b760m-bomber-wifi-microatx",
+        "model:motherboard:h810m-gaming-wifi6e-microatx",
+        "model:motherboard:pro-b760m-a-wifi-microatx"
+      ]
+    },
+    {
       "category": "aio",
-      "label": "אורך כבל PWM",
+      "label": "אורח חיים",
       "count": 12,
       "products": [
-        "model:aio:aura-gl360-v2-360mm-black",
         "model:aio:aura-gl360-v2-wh-360mm-white",
-        "model:aio:chione-e4-240-240mm"
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "זמן עבודה למשאבה",
+      "count": 12,
+      "products": [
+        "model:aio:aura-gl360-v2-wh-360mm-white",
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
       ]
     },
     {
@@ -792,36 +782,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "נפח אחסון",
-      "count": 12,
-      "products": [
-        "model:memory:3200-udimm-8gb-3200mhz",
-        "model:memory:jm3200hse-32g-32gb-3200mhz-cl22",
-        "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "RAM",
-      "count": 12,
-      "products": [
-        "model:memory:3200-udimm-8gb-3200mhz",
-        "model:memory:jm3200hse-32g-32gb-3200mhz-cl22",
-        "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Module Type",
-      "count": 12,
-      "products": [
-        "model:memory:3200-udimm-8gb-3200mhz",
-        "model:memory:jm3200hse-32g-32gb-3200mhz-cl22",
-        "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb"
-      ]
-    },
-    {
       "category": "other",
       "label": "כרטיס רשת",
       "count": 12,
@@ -833,12 +793,12 @@
     },
     {
       "category": "aio",
-      "label": "ממשק",
+      "label": "אורך כבל PWM",
       "count": 11,
       "products": [
-        "model:aio:hydroshift-ii-oled-curved-360p28-360mm-black",
-        "model:aio:ice-apex-vision-pro-360-bk-360mm",
-        "model:aio:ice-apex-vision-pro-360-wt-360mm"
+        "model:aio:aura-gl360-v2-wh-360mm-white",
+        "model:aio:chione-e4-240-240mm",
+        "model:aio:chione-e4-360-360mm"
       ]
     },
     {
@@ -883,6 +843,36 @@
     },
     {
       "category": "memory",
+      "label": "נפח אחסון",
+      "count": 11,
+      "products": [
+        "model:memory:3200-udimm-8gb-3200mhz",
+        "model:memory:jm3200hse-32g-32gb-3200mhz-cl22",
+        "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "RAM",
+      "count": 11,
+      "products": [
+        "model:memory:3200-udimm-8gb-3200mhz",
+        "model:memory:jm3200hse-32g-32gb-3200mhz-cl22",
+        "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Module Type",
+      "count": 11,
+      "products": [
+        "model:memory:3200-udimm-8gb-3200mhz",
+        "model:memory:jm3200hse-32g-32gb-3200mhz-cl22",
+        "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "יחידת תפקוד",
       "count": 11,
       "products": [
@@ -919,6 +909,16 @@
         "model:aio:hydroshift-ii-lcd-c-360tl-360mm-black",
         "model:aio:hydroshift-ii-lcd-c-360tl-360mm-white",
         "model:aio:hydroshift-ii-lcd-s-360cl-360mm-black"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "ממשק",
+      "count": 10,
+      "products": [
+        "model:aio:hydroshift-ii-oled-curved-360p28-360mm-black",
+        "model:aio:ice-apex-vision-pro-360-bk-360mm",
+        "model:aio:icue-link-titan-240-rx-lcd-aio-240mm-black"
       ]
     },
     {
@@ -1013,6 +1013,16 @@
     },
     {
       "category": "memory",
+      "label": "מק\"ט בינ\"ל",
+      "count": 10,
+      "products": [
+        "model:memory:a-data-5600-cl46-16gb-x1-5600mhz-cl46-black-dimm",
+        "model:memory:so-dimm-ad4s320032g22-sgn-32gb-3200mhz-cl22-sodimm",
+        "model:memory:so-dimm-ad5s480016g-s-16gb-4800mhz-cl40-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מתח עבודה",
       "count": 10,
       "products": [
@@ -1099,16 +1109,6 @@
         "model:gpu:dual-geforce-rtx-5070-gddr7-oc-12gb",
         "model:gpu:dual-radeon-rx-9060-xt-gddr6-16gb-white",
         "model:gpu:dual-rtx-5060-oc-gddr7-8gb"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מק\"ט בינ\"ל",
-      "count": 9,
-      "products": [
-        "model:memory:a-data-5600-cl46-16gb-x1-5600mhz-cl46-black-dimm",
-        "model:memory:so-dimm-ad4s320032g22-sgn-32gb-3200mhz-cl22-sodimm",
-        "model:memory:so-dimm-ad5s480016g-s-16gb-4800mhz-cl40-sodimm"
       ]
     },
     {
@@ -1622,16 +1622,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "USB",
-      "count": 5,
-      "products": [
-        "model:motherboard:pro-b850m-p-atx",
-        "model:motherboard:pro-b850m-p-wifi-microatx",
-        "model:motherboard:pro-z890-a-wifi"
-      ]
-    },
-    {
       "category": "psu",
       "label": "80+",
       "count": 5,
@@ -1962,6 +1952,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "מפרט סוג האחריות",
+      "count": 4,
+      "products": [
+        "model:memory:so-dimm-adds1600w8g11-s-8gb-1600mhz-cl11-sodimm",
+        "model:memory:u-dimm-ad4u320016g22-sgn-16gb-3200mhz-cl22-dimm",
+        "model:memory:u-dimm-ad5u480016g-s-16gb-4800mhz-dimm"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "מחברי USB 3.2 Gen 1 (3.1 Gen 1)",
       "count": 4,
@@ -2053,16 +2053,6 @@
     },
     {
       "category": "motherboard",
-      "label": "IO",
-      "count": 4,
-      "products": [
-        "model:motherboard:h810m-gaming-wifi6e-microatx",
-        "model:motherboard:pro-b850m-p-atx",
-        "model:motherboard:pro-b850m-p-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "13h Gen Intel",
       "count": 4,
       "products": [
@@ -2089,6 +2079,16 @@
         "model:motherboard:pro-b760m-a-wifi-microatx",
         "model:motherboard:pro-b760m-a-wifi-microatx-ddr5",
         "model:motherboard:pro-h610m-e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "USB",
+      "count": 4,
+      "products": [
+        "model:motherboard:pro-b850m-p-wifi-microatx",
+        "model:motherboard:pro-z890-a-wifi",
+        "model:motherboard:z890-gaming-wifi-z890-gaming-wifi-atx"
       ]
     },
     {
@@ -2321,16 +2321,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "ממשק",
-      "count": 3,
-      "products": [
-        "model:cpu:250k-tray",
-        "model:cpu:285",
-        "model:cpu:5600gt-tray"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "Stream processors",
       "count": 3,
@@ -2398,16 +2388,6 @@
         "model:memory:3200-3rd-party-16gb-3200mhz-black",
         "model:memory:dimm-ct32g4dfd832a-32gb-3200mhz-black-dimm",
         "model:memory:ld4as032g-b3200gsst-32gb-3200mhz"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מפרט סוג האחריות",
-      "count": 3,
-      "products": [
-        "model:memory:u-dimm-ad4u320016g22-sgn-16gb-3200mhz-cl22-dimm",
-        "model:memory:u-dimm-ad5u480016g-s-16gb-4800mhz-dimm",
-        "mpn:memory:ax5u6400c3216gslabrbk"
       ]
     },
     {
@@ -2568,6 +2548,16 @@
         "model:motherboard:b860m-gaming-plus-wifi6e-microatx",
         "model:motherboard:mpg-x870e-carbon-max-wifi-atx",
         "model:motherboard:pro-b860m-e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "IO",
+      "count": 3,
+      "products": [
+        "model:motherboard:h810m-gaming-wifi6e-microatx",
+        "model:motherboard:pro-b850m-p-wifi-microatx",
+        "model:motherboard:pro-h810m-b-core-ultra-microatx"
       ]
     },
     {
@@ -3224,6 +3214,15 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "ממשק",
+      "count": 2,
+      "products": [
+        "model:cpu:250k-tray",
+        "model:cpu:5600gt-tray"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "הספק כח",
       "count": 2,
@@ -3338,6 +3337,15 @@
       "products": [
         "model:memory:ddr5-pro-32gb-x1-5600mhz-cl46-black-dimm",
         "model:memory:ddr5-pro-48gb-x1-5600mhz-cl46-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מתח VDD",
+      "count": 2,
+      "products": [
+        "model:memory:so-dimm-adds1600w8g11-s-8gb-1600mhz-cl11-sodimm",
+        "model:memory:u-dimm-addu1600w8g11-s-8gb-1600mhz-cl11-dimm"
       ]
     },
     {
@@ -3599,15 +3607,6 @@
       "products": [
         "model:motherboard:pro-a620am-b-evo-microatx",
         "model:motherboard:rog-strix-x870e-a-gaming-wifi7-neo-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "AMD Ryzen™",
-      "count": 2,
-      "products": [
-        "model:motherboard:pro-b850m-p-atx",
-        "model:motherboard:pro-b850m-p-wifi-microatx"
       ]
     },
     {
@@ -5137,14 +5136,6 @@
     },
     {
       "category": "memory",
-      "label": "מתח VDD",
-      "count": 1,
-      "products": [
-        "model:memory:u-dimm-addu1600w8g11-s-8gb-1600mhz-cl11-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "Spec / Specifications / RAM",
       "count": 1,
       "products": [
@@ -5930,6 +5921,14 @@
     {
       "category": "motherboard",
       "label": "LED FEATURE",
+      "count": 1,
+      "products": [
+        "model:motherboard:pro-b850m-p-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "AMD Ryzen™",
       "count": 1,
       "products": [
         "model:motherboard:pro-b850m-p-wifi-microatx"
