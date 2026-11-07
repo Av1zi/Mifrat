@@ -925,17 +925,6 @@
   },
   {
     "score": 96,
-    "category": "aio",
-    "brand": "ASUS",
-    "listing_a": "ksp:471871",
-    "listing_b": "ksp:471879",
-    "title_a": "קירור נוזלי למעבד Asus ROG Ryuo IV 360 ARGB צבע שחור",
-    "title_b": "קירור נוזלי למעבד Asus ROG Ryuo IV 360 ARGB צבע לבן",
-    "match_text_a": "471871 Asus ROG Ryuo IV 360 ARGB",
-    "match_text_b": "471879 Asus ROG Ryuo IV 360 ARGB"
-  },
-  {
-    "score": 96,
     "category": "case_fan",
     "brand": "MSI",
     "listing_a": "ksp:419689",
@@ -1032,6 +1021,28 @@
     "title_b": "זיכרון למחשב ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRWH לבן",
     "match_text_a": "223013 ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRBK",
     "match_text_b": "223014 ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G-SLABRWH"
+  },
+  {
+    "score": 95,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "ksp:360444",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 95,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "ksp:360488",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -"
   },
   {
     "score": 95,
@@ -1684,17 +1695,6 @@
   },
   {
     "score": 93,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "ksp:491362",
-    "listing_b": "ksp:491422",
-    "title_a": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING 16GB",
-    "title_b": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING 16GB",
-    "match_text_a": "491362 GIGABYTE Radeon RX 9060 XT GAMING 16GB",
-    "match_text_b": "491422 GIGABYTE Radeon RX 9070 XT GAMING 16GB"
-  },
-  {
-    "score": 93,
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "ksp:280968",
@@ -1849,17 +1849,6 @@
   },
   {
     "score": 93,
-    "category": "case_fan",
-    "brand": "Arctic",
-    "listing_a": "ksp:446902",
-    "listing_b": "ksp:446950",
-    "title_a": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse A-RGB 120mm PWM - צבע לבן",
-    "title_b": "מאוורר למארז עם להבים הפוכים Arctic P14 Pro Reverse A-RGB PWM 140mm - צבע שחור",
-    "match_text_a": "446902 Arctic P12 Pro Reverse A-RGB 120mm PWM -",
-    "match_text_b": "446950 Arctic P14 Pro Reverse A-RGB PWM 140mm -"
-  },
-  {
-    "score": 93,
     "category": "storage",
     "brand": "Corsair",
     "listing_a": "1pc:210591",
@@ -1934,17 +1923,6 @@
     "title_b": "כונן Kingston KC3000 2TB PCIe 4.0 NVMe M.2 SSD",
     "match_text_a": "177983 Kingston KC3000 512GB PCIe 4.0 NVMe M.2 SSD",
     "match_text_b": "177988 Kingston KC3000 2TB PCIe 4.0 NVMe M.2 SSD"
-  },
-  {
-    "score": 93,
-    "category": "case",
-    "brand": "MSI",
-    "listing_a": "ksp:284482",
-    "listing_b": "ksp:284493",
-    "title_a": "מארז מחשב ללא ספק MSI MPG GUNGNIR 300R AIRFLOW  Mid Tower - צבע שחור",
-    "title_b": "מארז מחשב ללא ספק MSI MPG GUNGNIR 300P AIRFLOW  Mid Tower - צבע שחור",
-    "match_text_a": "284482 MSI MPG GUNGNIR 300R AIRFLOW Mid Tower -",
-    "match_text_b": "284493 MSI MPG GUNGNIR 300P AIRFLOW Mid Tower -"
   },
   {
     "score": 93,
@@ -2341,6 +2319,17 @@
     "title_b": "זיכרון למחשב Corsair Vengeance LPX 2x16GB DDR4 2666MHz CL16 - צבע שחור",
     "match_text_a": "437643 Corsair Vengeance LPX 16GB DDR4 2666MHz CL16 -",
     "match_text_b": "456370 Corsair Vengeance LPX 2x16GB DDR4 2666MHz CL16 -"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:456280",
+    "listing_b": "ksp:456284",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 6000MT / s CL36 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
+    "match_text_a": "456280 Corsair Vengeance RGB 2x8GB DDR5 6000MT / s CL36 -",
+    "match_text_b": "456284 Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 -"
   },
   {
     "score": 92,
@@ -2907,34 +2896,12 @@
     "score": 91,
     "category": "gpu",
     "brand": "Gigabyte",
-    "listing_a": "ksp:491305",
-    "listing_b": "ksp:491362",
-    "title_a": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING OC ICE 16GB",
-    "title_b": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING 16GB",
-    "match_text_a": "491305 GIGABYTE Radeon RX 9060 XT GAMING OC ICE 16GB",
-    "match_text_b": "491362 GIGABYTE Radeon RX 9060 XT GAMING 16GB"
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "Gigabyte",
     "listing_a": "ksp:491352",
     "listing_b": "ksp:491422",
     "title_a": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
     "title_b": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING 16GB",
     "match_text_a": "491352 GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
     "match_text_b": "491422 GIGABYTE Radeon RX 9070 XT GAMING 16GB"
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "ksp:491356",
-    "listing_b": "ksp:491362",
-    "title_a": "כרטיס מסך GIGABYTE Radeon RX 9070 GAMING 16GB",
-    "title_b": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING 16GB",
-    "match_text_a": "491356 GIGABYTE Radeon RX 9070 GAMING 16GB",
-    "match_text_b": "491362 GIGABYTE Radeon RX 9060 XT GAMING 16GB"
   },
   {
     "score": 91,
@@ -2968,6 +2935,17 @@
     "title_b": "ערכת זיכרון Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB אפור",
     "match_text_a": "152938 Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB Black CMP32GX5M2B6000C30",
     "match_text_b": "CMP32GX5M2B6000Z30 Corsair DDR5 32GB (2x16GB) 6000 CL30 Dominator Titanium RGB"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:456280",
+    "listing_b": "ksp:456283",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 6000MT / s CL36 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
+    "match_text_a": "456280 Corsair Vengeance RGB 2x8GB DDR5 6000MT / s CL36 -",
+    "match_text_b": "456283 Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 -"
   },
   {
     "score": 91,
@@ -3015,6 +2993,17 @@
   },
   {
     "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051032-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051032-WW Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White"
+  },
+  {
+    "score": 91,
     "category": "gpu",
     "brand": "ASUS",
     "listing_a": "ksp:39519",
@@ -3034,17 +3023,6 @@
     "title_b": "מאוורר למארז Arctic P14 Pro A-RGB 140mm - צבע שחור",
     "match_text_a": "421720 Arctic P12 Pro A-RGB 120mm -",
     "match_text_b": "421770 Arctic P14 Pro A-RGB 140mm -"
-  },
-  {
-    "score": 91,
-    "category": "case_fan",
-    "brand": "Arctic",
-    "listing_a": "ksp:446902",
-    "listing_b": "ksp:446954",
-    "title_a": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse A-RGB 120mm PWM - צבע לבן",
-    "title_b": "מאוורר למארז עם להבים הפוכים Arctic P14 Pro Reverse A-RGB PWM 140mm - צבע לבן",
-    "match_text_a": "446902 Arctic P12 Pro Reverse A-RGB 120mm PWM -",
-    "match_text_b": "446954 Arctic P14 Pro Reverse A-RGB PWM 140mm -"
   },
   {
     "score": 91,
@@ -4128,17 +4106,6 @@
     "score": 90,
     "category": "case_fan",
     "brand": "Arctic",
-    "listing_a": "ksp:446902",
-    "listing_b": "ksp:446919",
-    "title_a": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse A-RGB 120mm PWM - צבע לבן",
-    "title_b": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse 120mm PWM - צבע שחור",
-    "match_text_a": "446902 Arctic P12 Pro Reverse A-RGB 120mm PWM -",
-    "match_text_b": "446919 Arctic P12 Pro Reverse 120mm PWM -"
-  },
-  {
-    "score": 90,
-    "category": "case_fan",
-    "brand": "Arctic",
     "listing_a": "ksp:446919",
     "listing_b": "ksp:446935",
     "title_a": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse 120mm PWM - צבע שחור",
@@ -4799,12 +4766,78 @@
     "score": 89,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "ksp:456280",
+    "listing_b": "ksp:456282",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 6000MT / s CL36 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
+    "match_text_a": "456280 Corsair Vengeance RGB 2x8GB DDR5 6000MT / s CL36 -",
+    "match_text_b": "456282 Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 -"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:480431",
     "listing_b": "ksp:483233",
     "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
     "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע לבן",
     "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
     "match_text_b": "483233 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172709",
+    "listing_b": "ksp:360417",
+    "title_a": "ערכת מאווררים Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit בצבע שחור",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit",
+    "match_text_b": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172710",
+    "listing_b": "ksp:360417",
+    "title_a": "מאוורר Corsair iCUE LINK LX140 RGB PWM 140mm Expansion בצבע לבן",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Expansion",
+    "match_text_b": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051027-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051027-WW Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051028-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051031-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White"
   },
   {
     "score": 89,
@@ -5157,6 +5190,17 @@
     "title_b": "Kingston 4TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
     "match_text_a": "338323 Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 4TB SSD",
     "match_text_b": "SNV3S-4000G Kingston 4TB SSD NV3 M.2 2280 PCIe 4.0 NVMe"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "MSI",
+    "listing_a": "1pc:192575",
+    "listing_b": "ksp:380406",
+    "title_a": "מארז מחשב MSI MPG VELOX 300R AIRFLOW PZ בצבע שחור",
+    "title_b": "מארז מחשב ללא ספק MSI MPG VELOX 300R AIRFLOW PZ Mid Tower - צבע לבן",
+    "match_text_a": "192575 MSI MPG VELOX 300R AIRFLOW PZ",
+    "match_text_b": "380406 MSI MPG VELOX 300R AIRFLOW PZ Mid Tower -"
   },
   {
     "score": 89,
@@ -5864,17 +5908,6 @@
   },
   {
     "score": 88,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "ksp:491352",
-    "listing_b": "ksp:491362",
-    "title_a": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
-    "title_b": "כרטיס מסך GIGABYTE Radeon RX 9060 XT GAMING 16GB",
-    "match_text_a": "491352 GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
-    "match_text_b": "491362 GIGABYTE Radeon RX 9060 XT GAMING 16GB"
-  },
-  {
-    "score": 88,
     "category": "cooler_air",
     "brand": "Noctua",
     "listing_a": "ksp:275987",
@@ -5894,17 +5927,6 @@
     "title_b": "מעבד אינטל Intel Core i7 14700KF 3.4GHz 33MB Cache s1700 - Box",
     "match_text_a": "280959 Intel Core i9 14900K 3.2GHz 36MB Cache s1700 - Box",
     "match_text_b": "280964 Intel Core i7 14700KF 3.4GHz 33MB Cache s1700 - Box"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ksp:290018",
-    "listing_b": "ksp:290022",
-    "title_a": "מעבד אינטל Intel Core i7 14700F 2.1GHz 33MB Cache s1700 - Box",
-    "title_b": "מעבד אינטל Intel Core i9 14900 2.0GHz 36MB Cache s1700 - Box",
-    "match_text_a": "290018 Intel Core i7 14700F 2.1GHz 33MB Cache s1700 - Box",
-    "match_text_b": "290022 Intel Core i9 14900 2.0GHz 36MB Cache s1700 - Box"
   },
   {
     "score": 88,
@@ -6164,17 +6186,6 @@
     "category": "case_fan",
     "brand": "Arctic",
     "listing_a": "ksp:406053",
-    "listing_b": "ksp:446902",
-    "title_a": "מאוורר למארז Arctic P12 Pro A-RGB 120mm - צבע שחור",
-    "title_b": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse A-RGB 120mm PWM - צבע לבן",
-    "match_text_a": "406053 Arctic P12 Pro A-RGB 120mm -",
-    "match_text_b": "446902 Arctic P12 Pro Reverse A-RGB 120mm PWM -"
-  },
-  {
-    "score": 88,
-    "category": "case_fan",
-    "brand": "Arctic",
-    "listing_a": "ksp:406053",
     "listing_b": "ksp:461850",
     "title_a": "מאוורר למארז Arctic P12 Pro A-RGB 120mm - צבע שחור",
     "title_b": "מאוורר למארז Arctic P12 Pro A-RGB LN 120mm - צבע שחור",
@@ -6191,17 +6202,6 @@
     "title_b": "מאוורר למארז Arctic P14 Pro A-RGB 140mm - צבע לבן",
     "match_text_a": "421720 Arctic P12 Pro A-RGB 120mm -",
     "match_text_b": "421781 Arctic P14 Pro A-RGB 140mm -"
-  },
-  {
-    "score": 88,
-    "category": "case_fan",
-    "brand": "Arctic",
-    "listing_a": "ksp:421720",
-    "listing_b": "ksp:446902",
-    "title_a": "מאוורר למארז Arctic P12 Pro A-RGB 120mm - צבע לבן",
-    "title_b": "מאוורר למארז עם להבים הפוכים Arctic P12 Pro Reverse A-RGB 120mm PWM - צבע לבן",
-    "match_text_a": "421720 Arctic P12 Pro A-RGB 120mm -",
-    "match_text_b": "446902 Arctic P12 Pro Reverse A-RGB 120mm PWM -"
   },
   {
     "score": 88,
@@ -6345,17 +6345,6 @@
     "title_b": "לוח אם ASUS ROG STRIX B850-F GAMING WIFI7 NEO DDR5 AM5",
     "match_text_a": "464667 ASUS ROG STRIX B850-A GAMING WIFI7 NEO AM5 DDR5",
     "match_text_b": "480123 ASUS ROG STRIX B850-F GAMING WIFI7 NEO DDR5 AM5"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "MSI",
-    "listing_a": "ksp:461756",
-    "listing_b": "ksp:502509",
-    "title_a": "לוח אם MSI MAG X870E GAMING PLUS MAX WIFI AM5 DDR5",
-    "title_b": "לוח אם MSI X870E GAMING PLUS MAX WIFI S AM5",
-    "match_text_a": "461756 MSI MAG X870E GAMING PLUS MAX WIFI AM5 DDR5",
-    "match_text_b": "502509 MSI X870E GAMING PLUS MAX WIFI S AM5"
   },
   {
     "score": 88,
@@ -8129,26 +8118,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:case_fan:icue-link-lx140-pwm-140mm-rgb-black",
-    "category": "case_fan",
-    "vendor": "ksp",
-    "offers": [
-      {
-        "listing_key": "ksp:453184",
-        "vendor_sku": "453184",
-        "title": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
-        "price": 135
-      },
-      {
-        "listing_key": "ksp:360417",
-        "vendor_sku": "360417",
-        "title": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
-        "price": 399
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:case_fan:icue-link-lx140-pwm-140mm-rgb-white",
     "category": "case_fan",
     "vendor": "ksp",
@@ -8693,12 +8662,6 @@
     "category": "gpu",
     "vendor": "ksp",
     "offers": [
-      {
-        "listing_key": "ksp:434288",
-        "vendor_sku": "434288",
-        "title": "מציאון ועודפים - כרטיס מסך Asus Prime Radeon RX 9070 XT 16GB GDDR6 OC Edition",
-        "price": 3090
-      },
       {
         "listing_key": "ksp:371860",
         "vendor_sku": "371860",
@@ -9633,26 +9596,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:psu:atom-g850-12cm-850w",
-    "category": "psu",
-    "vendor": "ksp",
-    "offers": [
-      {
-        "listing_key": "ksp:493613",
-        "vendor_sku": "493613",
-        "title": "מציאון ועודפים - ספק כח Antec ATOM G850 850W 12cm",
-        "price": 199
-      },
-      {
-        "listing_key": "ksp:353022",
-        "vendor_sku": "353022",
-        "title": "ספק כח Antec ATOM G850 850W 12cm",
-        "price": 280
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:psu:csk-750-dc-750w-white",
     "category": "psu",
     "vendor": "1pc",
@@ -10028,26 +9971,6 @@
         "vendor_sku": "BL.9BWWA.119",
         "title": "כונן Acer FA100 M.2 PCIe NVMe SSD – נפח 512GB – ממשק PCIe Gen 3.0",
         "price": 365
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:storage:nv3-4-0-2230-snv3sm3-500g-500gb-pcie4-m22230",
-    "category": "storage",
-    "vendor": "ksp",
-    "offers": [
-      {
-        "listing_key": "ksp:499589",
-        "vendor_sku": "499589",
-        "title": "מציאון ועודפים - כונן SSD פנימי NV3 PCIe 4.0 NVMe בתצורת M.2 2230 דגם SNV3SM3 / 500G מבית Kingston - נפח 500GB",
-        "price": 439
-      },
-      {
-        "listing_key": "ksp:401797",
-        "vendor_sku": "401797",
-        "title": "כונן SSD פנימי NV3 PCIe 4.0 NVMe בתצורת M.2 2230 דגם SNV3SM3 / 500G מבית Kingston - נפח 500GB",
-        "price": 525
       }
     ]
   },
@@ -12068,6 +11991,13 @@
         "vendor_sku": "221795",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
         "price": 693
+      },
+      {
+        "listing_key": "ksp:369854",
+        "vendor": "ksp",
+        "vendor_sku": "369854",
+        "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB 360mm - צבע לבן",
+        "price": 409
       }
     ],
     "model_code": "nautilus-360-rs"
@@ -26853,29 +26783,6 @@
       }
     ],
     "model_code": "13900k"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:14700f",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:85533",
-        "vendor": "ivory",
-        "vendor_sku": "I7-14700FB",
-        "title": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
-        "price": 1249
-      },
-      {
-        "listing_key": "ksp:290018",
-        "vendor": "ksp",
-        "vendor_sku": "290018",
-        "title": "מעבד אינטל Intel Core i7 14700F 2.1GHz 33MB Cache s1700 - Box",
-        "price": 1249
-      }
-    ],
-    "model_code": "14700f"
   },
   {
     "kind": "identity_merge",
@@ -44323,31 +44230,6 @@
       }
     ],
     "model_code": "9950x",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:14700f",
-    "vendor": "ksp",
-    "offers": [
-      {
-        "listing_key": "ksp:290018",
-        "vendor": "ksp",
-        "vendor_sku": "290018",
-        "title": "מעבד אינטל Intel Core i7 14700F 2.1GHz 33MB Cache s1700 - Box",
-        "price": 1249
-      },
-      {
-        "listing_key": "ksp:290937",
-        "vendor": "ksp",
-        "vendor_sku": "290937",
-        "title": "מעבד אינטל Intel Core i7 14700F 2.1GHz 33MB Cache s1700 - Tray",
-        "price": 1225
-      }
-    ],
-    "model_code": "14700f",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
