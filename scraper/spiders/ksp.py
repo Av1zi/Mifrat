@@ -107,6 +107,16 @@ MIN_TOTAL_ITEMS = int(sum(CATEGORY_COUNTS.values()) * 0.80)
 MIN_CATEGORY_SHARE = 0.85
 MIN_FETCHED_SHARE = 0.95
 MAX_UNKNOWN_STOCK_SHARE = 0.05
+# Small categories get absolute slack instead of a pure percentage. A tiny
+# leaf naturally churns a few SKUs, and the all-or-nothing rule would turn a
+# 2-item dip into a total outage (2026-11-06: HDD tag 145 fell 18->15, and
+# 15 < 18*0.85 = 15.3 killed a run whose 93 pages all answered 200;
+# 2026-11-07: 14). Baselines under MIN_SMALL_CATEGORY_BASELINE allow up to
+# MIN_SMALL_CATEGORY_SLACK missing rows (18 -> 13 here); anything deeper
+# still fails and asks for a re-baseline review. Real truncation remains
+# caught by MIN_FETCHED_SHARE (0.95) and MIN_TOTAL_ITEMS (80%).
+MIN_SMALL_CATEGORY_BASELINE = 25
+MIN_SMALL_CATEGORY_SLACK = 5
 
 # Cooling-row placement (KSP storefront's "קירור" tree, verified 2026-11-02):
 #
@@ -209,6 +219,13 @@ def _as_int(value):
         return int(value)
     match = re.search(r"\d+", str(value))
     return int(match.group(0)) if match else None
+
+
+def _category_threshold(baseline: int) -> float:
+    """Minimum acceptable products_total for one category page 1."""
+    if baseline < MIN_SMALL_CATEGORY_BASELINE:
+        return max(0, baseline - MIN_SMALL_CATEGORY_SLACK)
+    return baseline * MIN_CATEGORY_SHARE
 
 
 class KspFingerprintMiddleware:
@@ -354,11 +371,12 @@ class KspSpider(scrapy.Spider):
                 self._fail(tag, "products_total is 0/missing — known category changed")
                 return
             baseline = CATEGORY_COUNTS[tag]
-            if total < baseline * MIN_CATEGORY_SHARE:
+            threshold = _category_threshold(baseline)
+            if total < threshold:
                 self._fail(
                     tag,
-                    f"products_total {total} is below {MIN_CATEGORY_SHARE:.0%} "
-                    f"of the verified baseline {baseline}",
+                    f"products_total {total} is below the minimum "
+                    f"{threshold:g} for the verified baseline {baseline}",
                 )
                 return
             self._tag_totals[tag] = total
