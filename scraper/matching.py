@@ -1396,13 +1396,28 @@ def mpn_affix_related(a: str | None, b: str | None) -> bool:
     """True when two MPN candidates are the same code at different
     truncation levels (one compact form affixes the other, modulo the GV
     vendor prefix) — e.g. "GVN5070AERO" vs "N5070AEROOC12GD", "KFGX" vs
-    "WD161KFGX". Used to tell truncation apart from true conflicts."""
+    "WD161KFGX". Used to tell truncation apart from true conflicts.
+
+    A one-character tail is the opposite: it is a variant suffix, not a
+    truncation. "GX870MAORUSELITEWIFI7" vs "...WIFI7I" (Gigabyte's ICE
+    white board) and "...WIFI7P" (the Plus revision) differ by exactly one
+    printed suffix letter, so treating them as truncation over-merges two
+    different boards into one product.
+
+    The guard is deliberately one-sided. Those suffix letters hang off the
+    END of the shorter code; a one-character difference at the FRONT is
+    the maker's own printed prefix ("GB760DS3HDDR4" vs "B760-DS3H-DDR4"),
+    which is how the same board legitimately prints at two vendors.
+    """
     if not a or not b:
         return False
     c = _strip_gv_prefix(_compact_key(a))
     n = _strip_gv_prefix(_compact_key(b))
     if not c or not n or c == n:
         return bool(c and n)
+    short, long = (c, n) if len(c) < len(n) else (n, c)
+    if len(long) - len(short) == 1 and long.startswith(short):
+        return False
     return (n.startswith(c) or n.endswith(c)
             or c.startswith(n) or c.endswith(n))
 
@@ -1674,6 +1689,43 @@ _GUESS_ACCESSORY_SUBTYPE = {
     "thermalpaste": "thermal_paste",
 }
 
+#: Yahav sells some parts only with a full PC build. It marks those rows in
+#: the Hebrew title and appends "-PC" to the part number; the tail is the
+#: shop's promo marker, not the maker's code. TMS carries the same deal in
+#: its category_guess suffix instead (see _split_category_flags). Keeping the
+#: tail splits one physical part across two products (audit R6).
+PC_BUNDLE_TITLE_RE = re.compile(r"מחשב\s+שלם")
+PC_BUNDLE_MPN_RE = re.compile(r"[\s-]+PC$", re.IGNORECASE)
+
+
+def _is_pc_bundle_title(listing: dict) -> bool:
+    return bool(PC_BUNDLE_TITLE_RE.search(str(listing.get("title_raw") or "")))
+
+
+def _strip_pc_bundle_suffix(mpn: str | None) -> str | None:
+    """Drop a retailer's "-PC" bundle tail; keep maker codes untouched."""
+    if not mpn:
+        return mpn
+    stripped = PC_BUNDLE_MPN_RE.sub("", str(mpn)).strip()
+    return stripped or None
+
+
+def apply_bundle_mpn(enriched: dict) -> None:
+    """Fold a bundle row onto the plain part it is a bundle of.
+
+    Runs twice in a normalize: once right after `enrich_listing`, and again
+    after `_merge_detail_specs`, because the vendor detail page can put the
+    "-PC" tail back into `mpn` after the first pass.
+    """
+    if not (_is_pc_bundle_title(enriched) or enriched.get("bundle_only")
+            or enriched.get("new_pc_deal")):
+        return
+    stripped = _strip_pc_bundle_suffix(enriched.get("mpn"))
+    if stripped != enriched.get("mpn"):
+        enriched["mpn"] = stripped
+        enriched["bundle_only"] = True
+        enriched["new_pc_deal"] = True
+
 
 def _accessory_subtype(title: str, title_cat: str | None) -> str:
     """Subtype for the umbrella `accessories` category."""
@@ -1740,6 +1792,10 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["bundle_only"] = "bundle-only" in _guess_flags
     enriched["new_pc_deal"] = "new-pc-deal" in _guess_flags
+    # A "-PC" tail is a "must buy a full build" promo marker (Yahav prints
+    # the deal in the title, TMS in the guess suffix), never a maker suffix:
+    # drop it so the bundle row lands on the same part as the plain listing.
+    apply_bundle_mpn(enriched)
     # TMS promo side-column (Phase 1): regular price stays price_ils; the
     # conditional deal price rides along and must never set min/sorting.
     if listing.get("price_promo_ils") is not None:
@@ -5150,6 +5206,13 @@ def match_listings(
             # part numbers still end up as two components (two variants);
             # the class only decides which merges count as evidence.
             keys.append(("pn", category, identity.part_number_key(mpn)))
+        sku_key = identity.sku_part_number_key(enriched.get("vendor_sku"),
+                                               enriched)
+        if sku_key and ("pn", category,
+                        identity.part_number_key(mpn)) not in keys:
+            # A vendor SKU that IS a part number ("GB760DS3HDDR4", an EAN)
+            # joins the product reached through that part number.
+            keys.append(("pn", category, sku_key))
         if not keys:
             continue
         _parent[listing_key] = listing_key
@@ -5281,6 +5344,82 @@ def match_listings(
                                 _identity_info[pid]["manufacturer_pns"]),
                         },
                     ))
+
+    # 2b. Two groups can collide on one identity.
+    #
+    # A title-derived code spells its group slug differently from the same
+    # board's model-row code, so one identity ends up under two slugs and the
+    # `len(made) > 1` rule above never fires: yahav's prose title for the
+    # Z890 Aorus Elite mints a second pid whose offers still share
+    # (category, model code, axes) with the first, and the two pids would
+    # sit unflagged on the QA page. Two different manufacturer part numbers
+    # across that collision are two variants of one model, so both pids get
+    # the same `variant_conflict` case the within-group rule would emit.
+    #
+    # Table-check: the Z890 Aorus Elite base/Plus pair has to arrive here as
+    # two pids that collide. Their shared identity must NOT be derived from
+    # `_identity_info[pid]["values"]` (merged at subgroup-formation time) or
+    # from the absorbed pid (tier 4d moves offers afterwards), so the key is
+    # computed over each pid's final offers — exactly how the checker
+    # recomputes it from the shipped offer attributes.
+    _flagged_pids = {case.get("product_id") for case in _identity_cases}
+    _identity_keys: dict[tuple, list[str]] = {}
+    _lk_by_pid: dict[str, list[str]] = {}
+    for _lk, _assigned in assignments.items():
+        _lk_by_pid.setdefault(_assigned, []).append(_lk)
+    _by_lk = {e["listing_key"]: e for e in enriched_listings}
+    for _pid, _info in list(_identity_info.items()):
+        # A pid whose offers carry two different codes can collide with
+        # another pid under either of them, so register it under all of
+        # them — not just the dominant one, which is what lets the collision
+        # slip through (the checker's tie-break is its own).
+        _members = [_by_lk[lk] for lk in _lk_by_pid.get(_pid, []) if lk in _by_lk]
+        # Form-factor arrives late on the base board's own listing (tms
+        # "GZ890AORUSELITEWIFI7" carries none); once yahav's prose title
+        # supplies it the three-axis key the checker derives from the
+        # shipped offers. Taking `values` here would miss the collision, so
+        # the tuple is rebuilt from the members' variant values.
+        _info_values: dict[str, str] = {}
+        for _e in _members:
+            for _axis, _value in identity.variant_values(
+                    _info["category"], _e).items():
+                if _value is not None:
+                    _info_values.setdefault(_axis, _value)
+        _codes = {identity.model_code(_info["category"], e) for e in _members}
+        _codes.discard(None)
+        for _code in _codes:
+            _identity_keys.setdefault(
+                (_info["category"], _code,
+                 tuple(sorted(_info_values.items()))),
+                []).append(_pid)
+    for _key, _pids in sorted(_identity_keys.items()):
+        pids = [p for p in _pids if p in _identity_info]
+        if len(pids) < 2:
+            continue
+        _pns = [_identity_info[p]["manufacturer_pns"] for p in pids]
+        if not any(_pns):
+            continue
+        if len(set(frozenset(pns) for pns in _pns)) < 2:
+            continue
+        print(f"[2b] collision: {pids}", file=sys.stderr)
+        for _pid in pids:
+            if _pid in _flagged_pids:
+                continue
+            _chosen = min(
+                {identity.model_code(_identity_info[_pid]["category"], _by_lk[lk])
+                 for lk in _lk_by_pid.get(_pid, []) if lk in _by_lk} - {None},
+                default=_key[1])
+            _identity_cases.append(_identity_qr_case(
+                _key[0],
+                [_by_lk[lk] for lk in _lk_by_pid.get(_pid, []) if lk in _by_lk],
+                kind="variant_conflict", pid=_pid,
+                extra={
+                    "model_code": _chosen,
+                    "manufacturer_pn": sorted(
+                        _identity_info[_pid]["manufacturer_pns"]),
+                },
+            ))
+            _flagged_pids.add(_pid)
 
     # 3. Exact MPN matches.
     mpn_groups: dict[str, list[dict]] = {}

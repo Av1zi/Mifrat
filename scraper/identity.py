@@ -328,16 +328,9 @@ def _brand_tokens(listing: dict) -> set[str]:
     return tokens
 
 
-def generic_model_code(listing: dict) -> str | None:
-    """Model text reduced to a stable code (``o11-dynamic-evo``).
-
-    Conservative on purpose: a single word with no digit ("DELTA", a memory
-    series shared by fourteen kits) is not an identity, so it yields None and
-    the listing stays on the MPN/SKU tiers.
-    """
+def _model_code_from(listing: dict, raw) -> str | None:
+    """Reduce one candidate model text to a stable code, or None."""
     attrs = listing.get("attributes") or {}
-    raw = (attrs.get("model") or listing.get("model")
-           or attrs.get("product_name") or "")
     text = _TRADEMARK_RE.sub(" ", _text(raw))
     text = re.sub(r"[\u0590-\u05FF]+", " ", text)
     if not text:
@@ -357,7 +350,9 @@ def generic_model_code(listing: dict) -> str | None:
 
     compact = "".join(tokens)
     has_digit = any(ch.isdigit() for ch in compact)
-    if len(compact) < 4:
+    # Three-character codes are real when the brand is known ("A3W", "B4X");
+    # without a brand they are too ambiguous to identify anything.
+    if len(compact) < (3 if brands else 4):
         return None
     # One bare word with no digit is a series/family name, not a model.
     if len(tokens) == 1 and not has_digit:
@@ -365,7 +360,33 @@ def generic_model_code(listing: dict) -> str | None:
     # A model row that is only a brand plus a generic word adds nothing.
     if compact in _GENERIC_MODELS:
         return None
-    return "-".join(tokens)
+    # Word order is vendor prose, not identity: "Dual RTX 5060 Ti OC GDDR7"
+    # (KSP) and "Dual RTX 5060 Ti GDDR7 OC Edition" (TMS) name the same
+    # card, but the token order differs and the bare strings compare unequal
+    # — which the identity-tier union-find then reads as two models and
+    # splits one product across two pids. Sorting makes the code a SET of
+    # tokens, so any vendor's word order reduces to the same code.
+    return "-".join(sorted(tokens))
+
+
+def generic_model_code(listing: dict) -> str | None:
+    """Model text reduced to a stable code (``o11-dynamic-evo``).
+
+    Conservative on purpose: a single word with no digit ("DELTA", a memory
+    series shared by fourteen kits) is not an identity, so it yields None and
+    the listing stays on the MPN/SKU tiers.
+
+    The model row wins; when the vendor publishes none, the title's model
+    tokens are the last resort — the same fallback the CPU branch already
+    uses, because KSP/Yahav routinely ship a title and no model row at all.
+    """
+    attrs = listing.get("attributes") or {}
+    raw = (attrs.get("model") or listing.get("model")
+           or attrs.get("product_name") or "")
+    code = _model_code_from(listing, raw)
+    if code:
+        return code
+    return _model_code_from(listing, listing.get("title_raw"))
 
 
 def code_slug(code: str | None) -> str:
@@ -735,9 +756,14 @@ _VENDOR_CODE_RES = (
 # Manufacturer part-number prefixes worth naming explicitly. Everything else
 # is decided by shape: a long alphanumeric code with letters and digits is a
 # part number, a short one is a retailer's.
+#
+# GX/GZ/GB are Gigabyte board codes ("GX870MAORUSELITEWIFI7" is a 1PC listing
+# whose board would otherwise classify as that retailer's own catalogue id
+# and over-merge with the ICE white twin "...WIFI7I"); BK/BL are be quiet!
+# cooler/fan maker codes (BK043, BL078 used as the listing's own SKU).
 _MFR_PREFIXES = (
     "BX", "AT", "CM", "BB", "BC", "PK", "J", "SR",
-    "GV", "GP", "GA", "90", "MB",
+    "GV", "GP", "GA", "90", "MB", "GX", "GZ", "GB", "BK", "BL",
     "100-", "1000", "KF", "HX", "CMK", "CMH", "MZ", "MZV", "CT", "F4",
     "WD", "ST", "RT", "WD",
 )
@@ -751,6 +777,33 @@ def part_number_key(value) -> str:
     if compact.startswith("GV") and len(compact) > 5:
         compact = compact[2:]
     return compact
+
+
+def sku_part_number_key(vendor_sku, listing: dict | None = None) -> str | None:
+    """The part number a vendor's catalogue code is standing in for, if any.
+
+    Shops publish the maker's part number as their own SKU (TMS "GB760DS3HDDR4",
+    1PC "90YV0MH6M0NA00"), and the identity tier never looked at it, so those
+    listings sat as singletons next to the product they belong to. This is the
+    classification these SKUs would get AS part numbers: maker-shaped codes and
+    EAN-shaped barcodes bridge; the retailer's own ids (pure digits, TMS C-
+    codes, ULTRA-prefixed) do not. It is the same test `part_number_subgroups`
+    applies to a printed `mpn`, so a bridged SKU joins exactly the listings a
+    printed copy of that code would.
+    """
+    key = part_number_key(vendor_sku)
+    if not key or len(key) < 3:
+        return None
+    if key.isdigit():
+        # A barcode (8/12-14 digits) names one part worldwide; a retailer id
+        # is the retailer's own bookkeeping and names nothing here.
+        return key if re.fullmatch(r"\d{8}|\d{12,14}", key) else None
+    if not re.search(r"[A-Z]", key) or not re.search(r"\d", key):
+        return None
+    for pattern in _VENDOR_CODE_RES:
+        if pattern.match(key):
+            return None
+    return key
 
 
 def part_number_class(value, listing: dict | None = None) -> str | None:
@@ -783,11 +836,16 @@ def part_number_class(value, listing: dict | None = None) -> str | None:
         return "vendor"
     if not re.search(r"[A-Z]", upper) or not re.search(r"\d", upper):
         return None
+    # A known maker prefix wins over the generic retailer shapes below:
+    # a Gigabyte board code ("GX870...", "GZ890EAGLE") or a be quiet! fan
+    # code ("BL078") is alphanumeric in exactly the shape the retailer
+    # patterns catch, so without this order the maker code is read as the
+    # retailer's own id and two different parts merge (audit R4).
+    if upper.startswith(_MFR_PREFIXES):
+        return "manufacturer"
     for pattern in _VENDOR_CODE_RES:
         if pattern.match(upper):
             return "vendor"
-    if upper.startswith(_MFR_PREFIXES):
-        return "manufacturer"
     if len(upper) >= _MANUFACTURER_MIN_LEN:
         return "manufacturer"
     return "vendor"

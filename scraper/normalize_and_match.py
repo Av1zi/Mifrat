@@ -32,6 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 try:
     from scraper.matching import (
+        apply_bundle_mpn,
         dedupe_enriched_listings,
         enrich_listing,
         find_duplicate_vendor_cases,
@@ -49,6 +50,7 @@ try:
     from scraper.image_urls import best_of, candidate_urls
 except ImportError:
     from matching import (
+        apply_bundle_mpn,
         dedupe_enriched_listings,
         enrich_listing,
         find_duplicate_vendor_cases,
@@ -484,6 +486,10 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         print(f"  merged detail images for {merged_images} listings")
     if merged_extra:
         print(f"  merged real MPNs for {merged_extra} listings")
+    # The detail page can restore a retailer's "-PC" bundle tail after
+    # enrich_listing already dropped it; re-apply once the MPN is final.
+    for e in enriched:
+        apply_bundle_mpn(e)
     return enriched
 
 
