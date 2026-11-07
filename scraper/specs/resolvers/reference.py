@@ -438,9 +438,48 @@ def load_overrides() -> dict:
 
 
 def overrides_for(product: dict) -> dict[str, list[Fact]]:
-    """Manual override facts for one product (highest tier)."""
+    """Manual override facts for one product (highest tier).
+
+    Overrides are keyed by product id, so an identity rework that renames the
+    pid would silently drop them (every identity rework moves thousands of
+    pids). Part numbers are stable across rekeys, so fall back to the same
+    ``mpn:<category>:<key>`` / ``sku:<category>:<key>`` lookups the matcher
+    uses when the exact id misses.
+    """
     category = product.get("category")
-    entry = load_overrides().get(str(product.get("product_id") or ""))
+    overrides = load_overrides()
+    entry = overrides.get(str(product.get("product_id") or ""))
+    if not isinstance(entry, dict):
+        entry = None
+        if category:
+            raws: list[str] = []
+            for offer in product.get("offers") or []:
+                for value in (offer.get("mpn"), offer.get("vendor_sku")):
+                    if value and str(value) not in raws:
+                        raws.append(str(value))
+                attrs = offer.get("attributes") or {}
+                for name in ("part_numbers", "part_number", "mpn"):
+                    raw_attrs = attrs.get(name)
+                    values = (raw_attrs if isinstance(raw_attrs, (list, tuple, set))
+                              else [raw_attrs])
+                    for value in values:
+                        if value and str(value) not in raws:
+                            raws.append(str(value))
+            for raw in raws:
+                key = re.sub(r"[^a-z0-9]+", "", str(raw).lower())
+                if len(key) > 5 and key.startswith("gv"):
+                    rest = key[2:]
+                    if len(rest) >= 3 and re.search(r"\d", rest):
+                        key = rest
+                if not key:
+                    continue
+                for prefix in ("mpn", "sku"):
+                    found = overrides.get(f"{prefix}:{category}:{key}")
+                    if isinstance(found, dict):
+                        entry = found
+                        break
+                if entry is not None:
+                    break
     if not isinstance(entry, dict):
         return {}
     facts: dict[str, list[Fact]] = {}

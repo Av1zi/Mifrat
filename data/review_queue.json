@@ -9303,26 +9303,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:psu:12cm-atom-g850-850w",
-    "category": "psu",
-    "vendor": "ksp",
-    "offers": [
-      {
-        "listing_key": "ksp:493613",
-        "vendor_sku": "493613",
-        "title": "מציאון ועודפים - ספק כח Antec ATOM G850 850W 12cm",
-        "price": 199
-      },
-      {
-        "listing_key": "ksp:353022",
-        "vendor_sku": "353022",
-        "title": "ספק כח Antec ATOM G850 850W 12cm",
-        "price": 280
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:psu:750-csk-dc-750w-white",
     "category": "psu",
     "vendor": "1pc",
@@ -9558,26 +9538,6 @@
         "vendor_sku": "385362",
         "title": "כונן Samsung 9100 PRO 4TB PCIe 5.0 NVMe 2.0 M.2 2280",
         "price": 3650
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:storage:0-2230-4-500g-nv3-snv3sm3-500gb-pcie4-m22230",
-    "category": "storage",
-    "vendor": "ksp",
-    "offers": [
-      {
-        "listing_key": "ksp:499589",
-        "vendor_sku": "499589",
-        "title": "מציאון ועודפים - כונן SSD פנימי NV3 PCIe 4.0 NVMe בתצורת M.2 2230 דגם SNV3SM3 / 500G מבית Kingston - נפח 500GB",
-        "price": 439
-      },
-      {
-        "listing_key": "ksp:401797",
-        "vendor_sku": "401797",
-        "title": "כונן SSD פנימי NV3 PCIe 4.0 NVMe בתצורת M.2 2230 דגם SNV3SM3 / 500G מבית Kingston - נפח 500GB",
-        "price": 525
       }
     ]
   },
