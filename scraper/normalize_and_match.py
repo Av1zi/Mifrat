@@ -37,6 +37,7 @@ try:
         enrich_listing,
         find_duplicate_vendor_cases,
         find_naming_conflict_cases,
+        flag_identity_collisions,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -520,6 +521,29 @@ def _drop_included_builder_options(listings: list[dict]) -> list[dict]:
     return kept
 
 
+def _remap_identity_cases(cases, aliases: dict[str, str],
+                          product_pids: set[str]) -> list[dict]:
+    """Point every case at the pid that survived, and drop the orphans.
+
+    A pid can be absorbed more than once (reconciliation, then the
+    code-merge tier), so follow the alias chain instead of one hop.
+    """
+    kept: list[dict] = []
+    for case in cases:
+        pid = case.get("product_id")
+        if pid:
+            seen: set[str] = set()
+            while pid in aliases and pid not in seen:
+                seen.add(pid)
+                pid = aliases[pid]
+            if pid not in product_pids:
+                continue
+            case = dict(case)
+            case["product_id"] = pid
+        kept.append(case)
+    return kept
+
+
 def build_catalog(today: datetime):
     today_str = _date_str(today)
 
@@ -610,7 +634,23 @@ def build_catalog(today: datetime):
     except Exception:
         pass
 
-    identity_cases = list(match_result.get("identity_cases") or [])
+    # Identity cases are emitted while pids are still moving (reconciliation
+    # and the code-merge tier absorb pids), so a case can name one the
+    # catalog no longer ships: point it at the survivor, and keep it only
+    # when that survivor exists.
+    product_pids = {str(p.get("product_id"))
+                    for p in match_result["products"]}
+    identity_cases = _remap_identity_cases(
+        match_result.get("identity_cases") or [],
+        dict(match_result.get("pid_aliases") or {}),
+        product_pids,
+    )
+    # The shipped grouping is the final word on which products share one
+    # identity; this is the pass `scripts/check_identity_merge.py` (I2)
+    # replays, and it runs after the spec merge so both read the same
+    # offer attributes.
+    identity_cases += flag_identity_collisions(
+        match_result["products"], identity_cases)
     review_queue = list(review_queue) + identity_cases
 
     catalog = {
@@ -668,7 +708,10 @@ def _carry_pid_aliases(catalog: dict, previous: dict | None) -> None:
         while target in aliases and target not in seen:
             seen.add(target)
             target = aliases[target]
-        if target != old_pid:
+        # The last hop can be a pid that was itself retired later in the run
+        # (an `_absorb` target that a later tier merged away), so a chain is
+        # only a redirect when it lands on a product this catalog ships.
+        if target != old_pid and target in current:
             resolved[old_pid] = target
     catalog["pid_aliases"] = {
         old_pid: target for old_pid, target in resolved.items()

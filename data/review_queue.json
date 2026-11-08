@@ -18406,7 +18406,7 @@
   {
     "kind": "identity_merge",
     "category": "case",
-    "product_id": "model:case:dynamic-o11-v2-white",
+    "product_id": "case:lian-li:o11-dynamic-mini-v2-white",
     "vendor": "",
     "offers": [
       {
@@ -28045,7 +28045,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:5600-tray",
+    "product_id": "model:cpu:ryzen55600-tray",
     "vendor": "",
     "offers": [
       {
@@ -28326,7 +28326,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:7500f-tray",
+    "product_id": "model:cpu:ryzen57500f-tray",
     "vendor": "",
     "offers": [
       {
@@ -28527,7 +28527,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:7800x3d-tray",
+    "product_id": "model:cpu:ryzen77800x3d-tray",
     "vendor": "",
     "offers": [
       {
@@ -28709,7 +28709,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:8700f-tray",
+    "product_id": "model:cpu:ryzen78700f-tray",
     "vendor": "",
     "offers": [
       {
@@ -28792,7 +28792,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:9500f-tray",
+    "product_id": "model:cpu:ryzen59500f-tray",
     "vendor": "",
     "offers": [
       {
@@ -28845,7 +28845,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:9600x-tray",
+    "product_id": "model:cpu:ryzen59600x-tray",
     "vendor": "",
     "offers": [
       {
@@ -28988,7 +28988,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:9800x3d-tray",
+    "product_id": "model:cpu:ryzen79800x3d-tray",
     "vendor": "",
     "offers": [
       {
@@ -29055,7 +29055,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:9850x3d",
+    "product_id": "model:cpu:ryzen79850x3d",
     "vendor": "",
     "offers": [
       {
@@ -29249,7 +29249,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:9950x3d2",
+    "product_id": "model:cpu:ryzen99950x3d2",
     "vendor": "",
     "offers": [
       {
@@ -33989,25 +33989,6 @@
     "model_code": "aorus-elite-wifi7-z890",
     "manufacturer_pn": [
       "GZ890AORUSELITEWIFI7P"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-z890",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:GZ890AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GZ890AORUSELITEWIFI7",
-        "title": "Gigabyte Z890 AORUS ELITE WiFi7",
-        "price": 1213
-      }
-    ],
-    "model_code": "aorus-elite-wifi7-z890",
-    "manufacturer_pn": [
-      "GZ890AORUSELITEWIFI7"
     ]
   },
   {
@@ -43105,5 +43086,31 @@
     "model_code": "9950x3d2",
     "resolved": false,
     "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:1851-7-aorus-atx-ddr5-dp-elite-lga-thunderbolt-wifi-z890-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:GZ890AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GZ890AORUSELITEWIFI7",
+        "title": "Gigabyte Z890 AORUS ELITE WiFi7",
+        "price": 1213
+      },
+      {
+        "listing_key": "yahav:10144",
+        "vendor": "yahav",
+        "vendor_sku": "Z890-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE WIFI 7 LGA 1851 DDR5 DP Thunderbolt ATX",
+        "price": 1110
+      }
+    ],
+    "model_code": "1851-7-aorus-atx-ddr5-dp-elite-lga-thunderbolt-wifi-z890",
+    "manufacturer_pn": [
+      "GZ890AORUSELITEWIFI7"
+    ]
   }
 ]

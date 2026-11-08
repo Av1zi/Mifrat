@@ -2080,6 +2080,81 @@ def _identity_qr_case(category: str, members: list[dict], *,
     return case
 
 
+def flag_identity_collisions(products: list[dict],
+                             existing_cases: list[dict] | None = None) -> list[dict]:
+    """QA cases for products that ship under one identity with two maker PNs.
+
+    Runs on the *finished* product list, after the spec merge, so the key is
+    computed from exactly the offer attributes the catalog ships — the same
+    inputs `scripts/check_identity_merge.py` (I2) reads. An earlier sweep
+    inside the matcher saw a grouping reconciliation had not finished yet:
+    tier 5b moves offers between pids, so a pair could look apart to the
+    matcher (different pids, one of them missing an axis) and merged to the
+    checker, which read the shipped offers (the Z890 Aorus Elite base/Plus
+    pair). Comparing the shipped data is the only self-consistent option.
+
+    Two manufacturer part numbers under one (category, model code, axes) are
+    two variants of one model: they stay apart, and the pair is public as
+    `variant_conflict` (plan §3.5). A product is registered under *every*
+    code it carries, since the checker picks one by count and that pick is
+    a tie whenever a product's offers spell the code two ways.
+    """
+    flagged = {str(case.get("product_id")) for case in existing_cases or []
+               if case.get("product_id")}
+    by_pid: dict[str, dict] = {}
+    buckets: dict[tuple, list[str]] = {}
+    for product in products:
+        pid = str(product.get("product_id") or "")
+        # A curator's split is a decision, not a matcher miss (as in I2).
+        if not pid or product.get("matched_by") == "manual":
+            continue
+        category = product.get("category")
+        if category not in identity.IDENTITY_CATEGORIES:
+            continue
+        offers = list(product.get("offers") or [])
+        codes = {code for code in (identity.model_code(category, offer)
+                                   for offer in offers) if code}
+        if not codes:
+            continue
+        axes: dict[str, str] = {}
+        for offer in offers:
+            for axis, value in identity.variant_values(category, offer).items():
+                if value is not None:
+                    axes.setdefault(axis, value)
+        pns = {identity.part_number_key(offer.get("mpn")) for offer in offers
+               if identity.part_number_class(offer.get("mpn"), offer)
+               == "manufacturer"}
+        pns.discard(None)
+        by_pid[pid] = {"category": str(category), "offers": offers,
+                       "pns": frozenset(pns), "codes": sorted(codes)}
+        key_tail = (tuple(sorted(axes.items())),)
+        for code in codes:
+            buckets.setdefault((str(category), code) + key_tail,
+                               []).append(pid)
+
+    cases: list[dict] = []
+    for key, pids in sorted(buckets.items()):
+        pids = sorted(set(pids))
+        if len(pids) < 2:
+            continue
+        pns = [by_pid[pid]["pns"] for pid in pids]
+        if not any(pns) or len(set(pns)) < 2:
+            continue
+        for pid in pids:
+            if pid in flagged:
+                continue
+            cases.append(_identity_qr_case(
+                by_pid[pid]["category"], by_pid[pid]["offers"],
+                kind="variant_conflict", pid=pid,
+                extra={
+                    "model_code": by_pid[pid]["codes"][0],
+                    "manufacturer_pn": sorted(by_pid[pid]["pns"]),
+                },
+            ))
+            flagged.add(pid)
+    return cases
+
+
 def offer_from_listing(enriched: dict) -> dict:
     offer = {
         "vendor_id": enriched.get("vendor_id"),
@@ -5345,81 +5420,11 @@ def match_listings(
                         },
                     ))
 
-    # 2b. Two groups can collide on one identity.
-    #
-    # A title-derived code spells its group slug differently from the same
-    # board's model-row code, so one identity ends up under two slugs and the
-    # `len(made) > 1` rule above never fires: yahav's prose title for the
-    # Z890 Aorus Elite mints a second pid whose offers still share
-    # (category, model code, axes) with the first, and the two pids would
-    # sit unflagged on the QA page. Two different manufacturer part numbers
-    # across that collision are two variants of one model, so both pids get
-    # the same `variant_conflict` case the within-group rule would emit.
-    #
-    # Table-check: the Z890 Aorus Elite base/Plus pair has to arrive here as
-    # two pids that collide. Their shared identity must NOT be derived from
-    # `_identity_info[pid]["values"]` (merged at subgroup-formation time) or
-    # from the absorbed pid (tier 4d moves offers afterwards), so the key is
-    # computed over each pid's final offers — exactly how the checker
-    # recomputes it from the shipped offer attributes.
-    _flagged_pids = {case.get("product_id") for case in _identity_cases}
-    _identity_keys: dict[tuple, list[str]] = {}
-    _lk_by_pid: dict[str, list[str]] = {}
-    for _lk, _assigned in assignments.items():
-        _lk_by_pid.setdefault(_assigned, []).append(_lk)
-    _by_lk = {e["listing_key"]: e for e in enriched_listings}
-    for _pid, _info in list(_identity_info.items()):
-        # A pid whose offers carry two different codes can collide with
-        # another pid under either of them, so register it under all of
-        # them — not just the dominant one, which is what lets the collision
-        # slip through (the checker's tie-break is its own).
-        _members = [_by_lk[lk] for lk in _lk_by_pid.get(_pid, []) if lk in _by_lk]
-        # Form-factor arrives late on the base board's own listing (tms
-        # "GZ890AORUSELITEWIFI7" carries none); once yahav's prose title
-        # supplies it the three-axis key the checker derives from the
-        # shipped offers. Taking `values` here would miss the collision, so
-        # the tuple is rebuilt from the members' variant values.
-        _info_values: dict[str, str] = {}
-        for _e in _members:
-            for _axis, _value in identity.variant_values(
-                    _info["category"], _e).items():
-                if _value is not None:
-                    _info_values.setdefault(_axis, _value)
-        _codes = {identity.model_code(_info["category"], e) for e in _members}
-        _codes.discard(None)
-        for _code in _codes:
-            _identity_keys.setdefault(
-                (_info["category"], _code,
-                 tuple(sorted(_info_values.items()))),
-                []).append(_pid)
-    for _key, _pids in sorted(_identity_keys.items()):
-        pids = [p for p in _pids if p in _identity_info]
-        if len(pids) < 2:
-            continue
-        _pns = [_identity_info[p]["manufacturer_pns"] for p in pids]
-        if not any(_pns):
-            continue
-        if len(set(frozenset(pns) for pns in _pns)) < 2:
-            continue
-        print(f"[2b] collision: {pids}", file=sys.stderr)
-        for _pid in pids:
-            if _pid in _flagged_pids:
-                continue
-            _chosen = min(
-                {identity.model_code(_identity_info[_pid]["category"], _by_lk[lk])
-                 for lk in _lk_by_pid.get(_pid, []) if lk in _by_lk} - {None},
-                default=_key[1])
-            _identity_cases.append(_identity_qr_case(
-                _key[0],
-                [_by_lk[lk] for lk in _lk_by_pid.get(_pid, []) if lk in _by_lk],
-                kind="variant_conflict", pid=_pid,
-                extra={
-                    "model_code": _chosen,
-                    "manufacturer_pn": sorted(
-                        _identity_info[_pid]["manufacturer_pns"]),
-                },
-            ))
-            _flagged_pids.add(_pid)
+    # 2b. Moved: the collision sweep now runs on the finished product
+    # list (`flag_identity_collisions`, called from normalize after spec
+    # merge). Before reconciliation the grouping is not final — tier 5b
+    # moves offers between pids — so a pair could look apart to the
+    # matcher and merged to the checker. See that function's docstring.
 
     # 3. Exact MPN matches.
     mpn_groups: dict[str, list[dict]] = {}
