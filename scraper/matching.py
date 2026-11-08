@@ -2101,7 +2101,7 @@ def _codes_differ(codes_a: list[str], codes_b: list[str],
 
 def flag_identity_collisions(products: list[dict],
                              existing_cases: list[dict] | None = None) -> list[dict]:
-    """QA cases for products that ship under one identity with two maker PNs.
+    """QA cases for two products that are variants of one model.
 
     Runs on the *finished* product list, after the spec merge, so the key is
     computed from exactly the offer attributes the catalog ships — the same
@@ -2151,12 +2151,28 @@ def flag_identity_collisions(products: list[dict],
         pns.discard(None)
         by_pid[pid] = {"category": str(category), "offers": offers,
                        "pns": frozenset(pns), "codes": sorted(codes)}
-        key_tail = (tuple(sorted(axes.items())),)
+        axes_key = tuple(sorted(axes.items()))
         for code in codes:
-            buckets.setdefault((str(category), code) + key_tail,
+            buckets.setdefault((str(category), code, axes_key),
                                []).append(pid)
 
     cases: list[dict] = []
+
+    def _emit(pid: str) -> None:
+        """One `variant_conflict` case for `pid`, once (already-flagged
+        products keep their original case)."""
+        if pid in flagged:
+            return
+        info = by_pid[pid]
+        cases.append(_identity_qr_case(
+            info["category"], info["offers"],
+            kind="variant_conflict", pid=pid,
+            extra={
+                "model_code": info["codes"][0],
+                "manufacturer_pn": sorted(info["pns"]),
+            },
+        ))
+        flagged.add(pid)
     for key, pids in sorted(buckets.items()):
         pids = sorted(set(pids))
         if len(pids) < 2:
@@ -2165,17 +2181,7 @@ def flag_identity_collisions(products: list[dict],
         if not any(pns) or len(set(pns)) < 2:
             continue
         for pid in pids:
-            if pid in flagged:
-                continue
-            cases.append(_identity_qr_case(
-                by_pid[pid]["category"], by_pid[pid]["offers"],
-                kind="variant_conflict", pid=pid,
-                extra={
-                    "model_code": by_pid[pid]["codes"][0],
-                    "manufacturer_pn": sorted(by_pid[pid]["pns"]),
-                },
-            ))
-            flagged.add(pid)
+            _emit(pid)
 
     # R7: codes that differ only by a variant word the axes do not model
     # (quantity: "3"/"triple"/"pack"; lighting: "rgb"/"argb"; edition: "ice"
@@ -2210,8 +2216,8 @@ def flag_identity_collisions(products: list[dict],
         for i, pid_a in enumerate(pids):
             for pid_b in pids[i + 1:]:
                 info_a, info_b = by_pid[pid_a], by_pid[pid_b]
-                if not any(_codes_differ([a], [b], _variant_tokens(category))
-                           for a in info_a["codes"] for b in info_b["codes"]):
+                if not _codes_differ(info_a["codes"], info_b["codes"],
+                                      _variant_tokens(category)):
                     continue
                 pns_a, pns_b = info_a["pns"], info_b["pns"]
                 pn_diff = bool(pns_a) and bool(pns_b) and pns_a != pns_b
@@ -2220,18 +2226,7 @@ def flag_identity_collisions(products: list[dict],
                         for x in info_a["offers"] for y in info_b["offers"]):
                     continue
                 for pid in (pid_a, pid_b):
-                    if pid in flagged:
-                        continue
-                    info = by_pid[pid]
-                    cases.append(_identity_qr_case(
-                        info["category"], info["offers"],
-                        kind="variant_conflict", pid=pid,
-                        extra={
-                            "model_code": info["codes"][0],
-                            "manufacturer_pn": sorted(info["pns"]),
-                        },
-                    ))
-                    flagged.add(pid)
+                    _emit(pid)
     return cases
 
 
