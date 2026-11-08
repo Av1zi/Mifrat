@@ -2080,6 +2080,25 @@ def _identity_qr_case(category: str, members: list[dict], *,
     return case
 
 
+def _codes_differ(codes_a: list[str], codes_b: list[str],
+                  variant_tokens: set[str]) -> bool:
+    """Only-spelling difference: some pair of codes differs, and only by
+    variant words.
+
+    A product may spell its code two ways ("360-a-freezer..." and
+    "77cfm-freezer..."); requiring the difference itself to be variant
+    words — not just any spelling difference — keeps a stray second
+    spelling from pairing one product with everything.
+    """
+    for code_a in codes_a:
+        tokens_a = frozenset(code_a.split("-"))
+        for code_b in codes_b:
+            tokens_b = frozenset(code_b.split("-"))
+            if tokens_a != tokens_b and (tokens_a ^ tokens_b) <= variant_tokens:
+                return True
+    return False
+
+
 def flag_identity_collisions(products: list[dict],
                              existing_cases: list[dict] | None = None) -> list[dict]:
     """QA cases for products that ship under one identity with two maker PNs.
@@ -2098,6 +2117,11 @@ def flag_identity_collisions(products: list[dict],
     `variant_conflict` (plan §3.5). A product is registered under *every*
     code it carries, since the checker picks one by count and that pick is
     a tie whenever a product's offers spell the code two ways.
+
+    Near codes (differing only by a quantity/lighting/edition word the axes
+    do not model — audit R7) are flagged the same way when there is evidence
+    of two variants: two different manufacturer PNs, or a modelled axis that
+    conflicts. The products stay apart either way; the case is the signal.
     """
     flagged = {str(case.get("product_id")) for case in existing_cases or []
                if case.get("product_id")}
@@ -2152,6 +2176,62 @@ def flag_identity_collisions(products: list[dict],
                 },
             ))
             flagged.add(pid)
+
+    # R7: codes that differ only by a variant word the axes do not model
+    # (quantity: "3"/"triple"/"pack"; lighting: "rgb"/"argb"; edition: "ice"
+    # or a letter suffix like "w"). The products already stay apart; make
+    # the pair public as `variant_conflict` so the QA page shows the split
+    # instead of hiding it. Narrow by construction: group codes by their
+    # signature with the variant words stripped, then require evidence of
+    # two variants — two different manufacturer PNs, or a modelled axis
+    # that conflicts. Colour words are NOT here: every category models
+    # `color`, so black/white pairs are already axis splits, not R7.
+    _VARIANT_TOKENS = {"rgb", "argb", "ice", "w", "triple", "pack", "x3"}
+    # Bare digits mean "pack quantity" only where a quantity axis exists;
+    # anywhere else a small digit is a spec version ("850 ... 5") and
+    # pairing on it would merge across generations.
+    _QUANTITY_TOKENS = {"1", "2", "3", "4", "5"}
+
+    def _variant_tokens(category: str) -> set[str]:
+        if category == "case_fan":
+            return _VARIANT_TOKENS | _QUANTITY_TOKENS
+        return _VARIANT_TOKENS
+
+    sig_buckets: dict[tuple, list[str]] = {}
+    for pid, info in by_pid.items():
+        for code in info["codes"]:
+            tokens = frozenset(t for t in code.split("-")
+                               if t not in _variant_tokens(info["category"]))
+            sig_buckets.setdefault((info["category"], tokens), []).append(pid)
+    for (category, _tokens), pids in sorted(sig_buckets.items()):
+        pids = sorted(set(pids))
+        if len(pids) < 2:
+            continue
+        for i, pid_a in enumerate(pids):
+            for pid_b in pids[i + 1:]:
+                info_a, info_b = by_pid[pid_a], by_pid[pid_b]
+                if not any(_codes_differ([a], [b], _variant_tokens(category))
+                           for a in info_a["codes"] for b in info_b["codes"]):
+                    continue
+                pns_a, pns_b = info_a["pns"], info_b["pns"]
+                pn_diff = bool(pns_a) and bool(pns_b) and pns_a != pns_b
+                if not pn_diff and not any(
+                        identity.variant_conflict(category, x, y)
+                        for x in info_a["offers"] for y in info_b["offers"]):
+                    continue
+                for pid in (pid_a, pid_b):
+                    if pid in flagged:
+                        continue
+                    info = by_pid[pid]
+                    cases.append(_identity_qr_case(
+                        info["category"], info["offers"],
+                        kind="variant_conflict", pid=pid,
+                        extra={
+                            "model_code": info["codes"][0],
+                            "manufacturer_pn": sorted(info["pns"]),
+                        },
+                    ))
+                    flagged.add(pid)
     return cases
 
 

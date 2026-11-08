@@ -14,10 +14,33 @@ clean, `npm --prefix site run build` green.
 | R1 | `model_code` falls back to the title, accepts 3-char codes when the brand is known, sorts code tokens | `scraper/identity.py` |
 | R4 | `GX/GZ/GB/BK/BL` maker prefixes, prefix test before retailer shapes, one-sided 1-char affix guard | `scraper/identity.py`, `scraper/matching.py` |
 | R3 | maker-shaped vendor SKUs join the identity tier as `("pn", category, key)` | `scraper/identity.py` (`sku_part_number_key`), `scraper/matching.py` |
-| R2 | **measured, then rejected** — see below | — |
-| R5, R7 | deliberately **no merge** — QA only | — |
+| R2 | **measured, then rejected** - see below | - |
+| R5, R7 | deliberately **no merge** - QA only (`variant_conflict` cases for same-code and near-code variant pairs) | `scraper/matching.py` (`flag_identity_collisions`) |
 
 Products 4459 -> 4397, listings unchanged (7080 after the 2026-11-08 snapshots).
+
+## R7: near-code variant pairs are now QA cases (2026-11-08)
+
+R5 needed no code: the 27 axis-compatible pairs that share one model code
+with two maker PNs were already flagged. R7 pairs have *different* codes
+(quantity, lighting, ICE/White edition suffix), so the same-code sweep never
+saw them — the PF120 single vs 3-pack, A70 vs A70 ARGB, and Gigabyte
+base vs ICE splits shipped with no case at all.
+
+`flag_identity_collisions` now adds a near-code pass on the same finished
+product list: codes are grouped by a signature with variant words stripped
+(`rgb`/`argb`/`ice`/`w`/`triple`/`pack`/`x3`, plus bare digits only for
+`case_fan`, where quantity is an axis), and a pair is flagged when a
+spelling differs *only* by those words and there is variant evidence (two
+different maker PNs, or a modelled-axis conflict). Colour words are
+excluded: every category models `color`, so black/white splits are axis
+splits, not R7. Products never move; cases are the only output.
+
+Measured: `identity_cases` 1288 -> 1385 (+97), `variant_conflict` 60 ->
+157. An early draft paired on *any* spelling difference and produced 238
+cases; requiring the difference itself to be variant words dropped that to
+97. Gates all green (I1/I2/I3 exit 0 incl. seeds 42/99/1234, publish-set
+pass, delta 0, site build green).
 
 ## R2: measured, not applied
 
@@ -88,7 +111,9 @@ committed catalog carried 69 of them).
 
 ## Current catalog facts
 
-- 4397 products, 7080 listings, 1288 identity cases, 6971 pid aliases.
+- 4397 products, 7080 listings, 1385 identity cases (identity_merge 1172,
+  packaging_conflict 49, split_candidate 7, variant_conflict 157), 6971
+  pid aliases.
 - `matched_by`: identity 4245, singleton 76, manual 51, mpn 24, sku 1.
 - Under the checker's own key derivation: 15 duplicate groups / 30 products; 14
   flagged, and the one "silent" pair (`case:lian-li:a4-h2o-pcie4` vs
