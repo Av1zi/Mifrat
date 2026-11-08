@@ -5338,28 +5338,6 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
-    "listing_a": "ivory:119039",
-    "listing_b": "tms:100-000000908",
-    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
-    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
-    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
-    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "ivory:119039",
-    "listing_b": "tms:100-000000909",
-    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
-    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
-    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
-    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
     "listing_a": "tms:100-000000158",
     "listing_b": "tms:100-000000927",
     "title_a": "AMD Ryzen 5 3500X AM4 Tray",
@@ -41346,44 +41324,6 @@
     "model_code": "a4-case-h2o"
   },
   {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:ryzen79800x3d-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:119039",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
-        "price": 1659
-      },
-      {
-        "listing_key": "tms:100-000001084",
-        "vendor": "tms",
-        "vendor_sku": "100-000001084",
-        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
-        "price": 1820
-      },
-      {
-        "listing_key": "1pc:175540",
-        "vendor": "1pc",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 2162
-      },
-      {
-        "listing_key": "yahav:10143",
-        "vendor": "yahav",
-        "vendor_sku": "100-1000001084",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1690
-      }
-    ],
-    "model_code": "9800x3d",
-    "merged_from": "model:cpu:9800x3d-tray"
-  },
-  {
     "kind": "split_candidate",
     "category": "gpu",
     "product_id": "model:gpu:2xhdmi-32gb-3xdp-5090-astral-gaming-gddr7-geforce-oc-rog-rtx-32gb",
@@ -41708,6 +41648,37 @@
     ],
     "model_code": "5600",
     "merged_from": "model:cpu:5600-tray"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:ryzen79800x3d-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000001084",
+        "vendor": "tms",
+        "vendor_sku": "100-000001084",
+        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
+        "price": 1820
+      },
+      {
+        "listing_key": "1pc:175540",
+        "vendor": "1pc",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+        "price": 2162
+      },
+      {
+        "listing_key": "yahav:10143",
+        "vendor": "yahav",
+        "vendor_sku": "100-1000001084",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
+        "price": 1690
+      }
+    ],
+    "model_code": "9800x3d",
+    "merged_from": "model:cpu:9800x3d-tray"
   },
   {
     "kind": "split_candidate",

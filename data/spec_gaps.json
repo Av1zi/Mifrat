@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T21:27:53.601614+00:00",
+  "generated_at": "2026-11-08T02:29:29.481053+00:00",
   "gaps": [
     {
       "category": "case",
@@ -272,16 +272,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 18,
-      "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "SATA III",
       "count": 18,
@@ -343,12 +333,12 @@
     },
     {
       "category": "cpu",
-      "label": "תכונות נוספות",
+      "label": "מהירות זכרון נתמכת",
       "count": 17,
       "products": [
-        "model:cpu:5800x3d",
-        "model:cpu:7500x3d",
-        "model:cpu:8400f-tray"
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray",
+        "model:cpu:250k"
       ]
     },
     {
@@ -449,6 +439,16 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-a13-coreliquid-mag-240mm-white",
         "model:aio:240-chione-e4-240mm"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 16,
+      "products": [
+        "model:cpu:5800x3d",
+        "model:cpu:7500x3d",
+        "model:cpu:8400f-tray"
       ]
     },
     {
