@@ -17,7 +17,7 @@ clean, `npm --prefix site run build` green.
 | R2 | **measured, then rejected** — see below | — |
 | R5, R7 | deliberately **no merge** — QA only | — |
 
-Products 4459 -> 4397, listings unchanged (7083).
+Products 4459 -> 4397, listings unchanged (7080 after the 2026-11-08 snapshots).
 
 ## R2: measured, not applied
 
@@ -88,7 +88,7 @@ committed catalog carried 69 of them).
 
 ## Current catalog facts
 
-- 4397 products, 7083 listings, 1288 identity cases, 6971 pid aliases.
+- 4397 products, 7080 listings, 1288 identity cases, 6971 pid aliases.
 - `matched_by`: identity 4245, singleton 76, manual 51, mpn 24, sku 1.
 - Under the checker's own key derivation: 15 duplicate groups / 30 products; 14
   flagged, and the one "silent" pair (`case:lian-li:a4-h2o-pcie4` vs
