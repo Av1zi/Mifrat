@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T02:29:29.481053+00:00",
+  "generated_at": "2026-11-08T02:42:55.640515+00:00",
   "gaps": [
     {
       "category": "case",
@@ -1563,16 +1563,6 @@
     },
     {
       "category": "memory",
-      "label": "מעבד גרפי",
-      "count": 5,
-      "products": [
-        "model:memory:0-2x16gb-3-6400-cl36-vengeance-xmp-32gb-x2-6400mhz-cl36-rgb-black",
-        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black",
-        "model:memory:0-2x48gb-3-5200-cl38-vengeance-xmp-96gb-x2-5200mhz-cl38-black"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "סוג קירור",
       "count": 5,
       "products": [
@@ -2368,6 +2358,16 @@
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
         "model:gpu:5070-gddr7-geforce-oc-prime-rtx-12gb-white",
         "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-white"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מעבד גרפי",
+      "count": 3,
+      "products": [
+        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black",
+        "model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm",
+        "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40"
       ]
     },
     {
