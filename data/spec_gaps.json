@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T03:48:30.034826+00:00",
+  "generated_at": "2026-11-09T05:07:31.048897+00:00",
   "gaps": [
     {
       "category": "case",
@@ -82,16 +82,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "מידות משאבה",
-      "count": 31,
-      "products": [
-        "model:aio:240-34-a-freezer-liquid-240mm-white",
-        "model:aio:240-39-39-a24-alpha2-se-240mm-black",
-        "model:aio:240-39-39-a24-alpha2-se-240mm-white"
-      ]
-    },
-    {
       "category": "case_fan",
       "label": "ממשק",
       "count": 30,
@@ -99,6 +89,16 @@
         "model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black",
         "model:case_fan:120-icue-link-lx120-r-120mm-3-rgb-black",
         "model:case_fan:120-icue-link-max-rx120-120mm-1-rgb-black"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מידות משאבה",
+      "count": 27,
+      "products": [
+        "model:aio:240-34-a-freezer-liquid-240mm-white",
+        "model:aio:240-39-39-a24-alpha2-se-240mm-black",
+        "model:aio:240-39-39-a24-alpha2-se-240mm-white"
       ]
     },
     {
@@ -172,26 +172,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 20,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 20,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
-      ]
-    },
-    {
       "category": "case",
       "label": "תמיכה במאווררים mm",
       "count": 19,
@@ -259,6 +239,26 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 19,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 19,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -462,16 +462,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 16,
-      "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
-        "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
-        "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "HDMI",
       "count": 16,
@@ -529,6 +519,16 @@
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 15,
+      "products": [
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+        "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
+        "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
       ]
     },
     {

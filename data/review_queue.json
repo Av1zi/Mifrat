@@ -7159,26 +7159,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:case:360-bf-flow-white",
-    "category": "case",
-    "vendor": "tms",
-    "offers": [
-      {
-        "listing_key": "tms:PGW-CH-HVN-012",
-        "vendor_sku": "PGW-CH-HVN-012",
-        "title": "מארז מחשב HAVN BF 360 Flow White",
-        "price": 889
-      },
-      {
-        "listing_key": "tms:PGW-CH-HVN-013",
-        "vendor_sku": "PGW-CH-HVN-013",
-        "title": "מארז מחשב HAVN BF 360 Flow",
-        "price": 889
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:case:4000d-frame-lcd-premium-rs-black",
     "category": "case",
     "vendor": "1pc",
@@ -7700,26 +7680,6 @@
         "vendor_sku": "12SLLCD1W1B",
         "title": "מאוורר למארז 12 ס&#39;&#39;מ עם מסך Lian Li UNI FAN SL Wireless – צבע שחור",
         "price": 235
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case_fan:14-al-prisma-pwm-140mm-rgb-white",
-    "category": "case_fan",
-    "vendor": "tms",
-    "offers": [
-      {
-        "listing_key": "tms:FD-FAN-PRI-AL14-PWM",
-        "vendor_sku": "FD-FAN-PRI-AL14-PWM",
-        "title": "Fractal Design Prisma AL-14 ARGB PWM",
-        "price": 103
-      },
-      {
-        "listing_key": "tms:FD-FAN-PRI-AL14-PWM-WT",
-        "vendor_sku": "FD-FAN-PRI-AL14-PWM-WT",
-        "title": "Fractal Design Prisma AL-14 ARGB PWM White",
-        "price": 103
       }
     ]
   },
@@ -14392,13 +14352,6 @@
         "vendor_sku": "PGW-CH-HVN-012",
         "title": "מארז מחשב HAVN BF 360 Flow White",
         "price": 889
-      },
-      {
-        "listing_key": "tms:PGW-CH-HVN-013",
-        "vendor": "tms",
-        "vendor_sku": "PGW-CH-HVN-013",
-        "title": "מארז מחשב HAVN BF 360 Flow",
-        "price": 889
       }
     ],
     "model_code": "360-bf-flow"
@@ -19241,7 +19194,7 @@
         "vendor": "yahav",
         "vendor_sku": "O11VX",
         "title": "מארז חברת LIAN-LI דגם Lian Li O11 Vision Mid Tower Case צבע שחור",
-        "price": 815
+        "price": 720
       }
     ],
     "model_code": "o11-vision"
@@ -21514,13 +21467,6 @@
     "product_id": "model:case_fan:14-al-prisma-pwm-140mm-rgb-white",
     "vendor": "",
     "offers": [
-      {
-        "listing_key": "tms:FD-FAN-PRI-AL14-PWM",
-        "vendor": "tms",
-        "vendor_sku": "FD-FAN-PRI-AL14-PWM",
-        "title": "Fractal Design Prisma AL-14 ARGB PWM",
-        "price": 103
-      },
       {
         "listing_key": "1pc:155603",
         "vendor": "1pc",
@@ -32340,6 +32286,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "ivory:177568",
+        "vendor": "ivory",
+        "vendor_sku": "KD5AGUA80-60A300H",
+        "title": "זכרון למחשב KLEVV BOLT V DDR5 | מהירות 6000MT/s | נפח 2x16GB | זמן אחזור CL30 | צבע אפור",
+        "price": 2190
+      },
+      {
         "listing_key": "tms:KD5AGUA80-60A300H",
         "vendor": "tms",
         "vendor_sku": "KD5AGUA80-60A300H",
@@ -32732,29 +32685,6 @@
   {
     "kind": "identity_merge",
     "category": "memory",
-    "product_id": "model:memory:2x16gb-6000-cl30-fit-v-2gb-x2-6000mhz-cl30-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:173656",
-        "vendor": "ivory",
-        "vendor_sku": "KD5AGU880-60A300F",
-        "title": "זכרון למחשב KLEVV FIT V DDR5 | מהירות 6000MT/s | נפח 2x16GB | זמן אחזור CL30 | צבע לבן",
-        "price": 2150
-      },
-      {
-        "listing_key": "tms:KD5AGU880-60A300F",
-        "vendor": "tms",
-        "vendor_sku": "KD5AGU880-60A300F",
-        "title": "זיכרון Klevv DDR5 32GB (2x16GB) 6000 CL30 FIT V White",
-        "price": 2313
-      }
-    ],
-    "model_code": "2x16gb-6000-cl30-fit-v"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
     "product_id": "model:memory:2x16gb-6400-cl32-expo-manta-xsky-32gb-x2-6400mhz-cl32-rgb-black",
     "vendor": "",
     "offers": [
@@ -32855,7 +32785,7 @@
         "vendor": "ivory",
         "vendor_sku": "KD5BGUA80-60A300G",
         "title": "זכרון למחשב KLEVV CRAS V RGB DDR5 | מהירות 6000MT/s | נפח 2x32GB | זמן אחזור CL30 | צבע שחור",
-        "price": 4350
+        "price": 4690
       },
       {
         "listing_key": "tms:KD5BGUA80-60A300G",
@@ -33270,29 +33200,6 @@
       }
     ],
     "model_code": "6400-ecc-rdimm"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:blister-cl46-desktop-memory-udimm-16gb-5600mhz-cl46-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:175169",
-        "vendor": "1pc",
-        "vendor_sku": "LD5U16G56C46ST-BGS",
-        "title": "זיכרון RAM Lexar DIMM 16GB DDR5 5600Mhz CL46",
-        "price": 989
-      },
-      {
-        "listing_key": "yahav:11745",
-        "vendor": "yahav",
-        "vendor_sku": "LD5U16G56C46ST-BGS",
-        "title": "זיכרון חברת Lexar דגם Black UDIMM Desktop Memory DDR5 16GB 5600MHZ CL46 Blister Pack",
-        "price": 950
-      }
-    ],
-    "model_code": "blister-cl46-desktop-memory-udimm"
   },
   {
     "kind": "identity_merge",
@@ -36579,36 +36486,6 @@
   {
     "kind": "identity_merge",
     "category": "psu",
-    "product_id": "model:psu:0-0-1250w-3-5-80-active-atx-full-gold-modular-mwe-pcie-pfc-plus-ready-1250w-full-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:139926",
-        "vendor": "1pc",
-        "vendor_sku": "MPE-C501-AFCAG-3WO",
-        "title": "ספק כוח Cooler Master 1250W MWE GOLD V2 בצבע שחור",
-        "price": 1000
-      },
-      {
-        "listing_key": "tms:MPE-C501-AFCAG-3WO",
-        "vendor": "tms",
-        "vendor_sku": "MPE-C501-AFCAG-3WO",
-        "title": "ספק כוח CoolerMaster 1250W MWE GOLD V2 (ATX3.0) מודולרי מלא",
-        "price": 769
-      },
-      {
-        "listing_key": "yahav:9910",
-        "vendor": "yahav",
-        "vendor_sku": "MPE-C501-AFCAG-3WO",
-        "title": "ספק כוח למחשב חברת Cooler Master דגם MWE 1250W Gold Full Modular ATX 3.0 PCIE 5.0 Ready 80 Plus ACTIVE PFC",
-        "price": 840
-      }
-    ],
-    "model_code": "0-0-1250w-3-5-80-active-atx-full-gold-modular-mwe-pcie-pfc-plus-ready"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "psu",
     "product_id": "model:psu:0-0-3-850w-atx-atx3-gold-m-modular-ne850g-ne850gm-neoeco-psu-850w",
     "vendor": "",
     "offers": [
@@ -36789,6 +36666,29 @@
       }
     ],
     "model_code": "0-atx3-coolermaster-fully-gx-modular"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:0-atx3-coolermaster-mwe-v2-1250w-full",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:139926",
+        "vendor": "1pc",
+        "vendor_sku": "MPE-C501-AFCAG-3WO",
+        "title": "ספק כוח Cooler Master 1250W MWE GOLD V2 בצבע שחור",
+        "price": 1000
+      },
+      {
+        "listing_key": "tms:MPE-C501-AFCAG-3WO",
+        "vendor": "tms",
+        "vendor_sku": "MPE-C501-AFCAG-3WO",
+        "title": "ספק כוח CoolerMaster 1250W MWE GOLD V2 (ATX3.0) מודולרי מלא",
+        "price": 769
+      }
+    ],
+    "model_code": "0-atx3-coolermaster-mwe-v2"
   },
   {
     "kind": "identity_merge",
@@ -43492,40 +43392,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:a70-argb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:155098",
-        "vendor": "ivory",
-        "vendor_sku": "81425602229-3",
-        "title": "מארז מחשב THERMALRIGHT A70 ARGB – פס תאורה ARGB – חלון צד – צבע שחור",
-        "price": 545
-      }
-    ],
-    "model_code": "a70-argb",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:a70-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:155095",
-        "vendor": "ivory",
-        "vendor_sku": "81425602228-6",
-        "title": "מארז מחשב THERMALRIGHT A70 – חלון צד – צבע לבן",
-        "price": 490
-      }
-    ],
-    "model_code": "a70",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:a70-argb-white",
     "vendor": "",
     "offers": [
@@ -43568,7 +43434,7 @@
         "vendor": "ivory",
         "vendor_sku": "90DC00P0-B19000",
         "title": "מארז מחשב ASUS Prime AP202 ARGB – תאורת ARGB – צבע שחור",
-        "price": 484
+        "price": 363
       }
     ],
     "model_code": "ap202-argb-prime",
@@ -44522,6 +44388,65 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
+    "product_id": "model:motherboard:am5-gaming-max-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:195912",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1LZ0-M0EAY0",
+        "title": "לוח אם גיימינג ASUS X870 MAX GAMING WIFI7 לתושבת AM5",
+        "price": 1684
+      },
+      {
+        "listing_key": "tms:90MB1LZ0-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1LZ0-M0EAY0",
+        "title": "Asus X870 MAX GAMING WiFi7 W",
+        "price": 1693
+      }
+    ],
+    "model_code": "am5-gaming-max-wifi7-x870",
+    "manufacturer_pn": [
+      "90MB1LZ0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:gaming-max-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:194029",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1LY0-M0EAY0",
+        "title": "לוח אם ASUS X870 MAX GAMING WIFI7",
+        "price": 1592
+      },
+      {
+        "listing_key": "ivory:134865",
+        "vendor": "ivory",
+        "vendor_sku": "90MB1LY0-M0EAY0",
+        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
+        "price": 1415
+      },
+      {
+        "listing_key": "tms:90MB1LY0-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1LY0-M0EAY0",
+        "title": "Asus X870 MAX GAMING WiFi7",
+        "price": 1406
+      }
+    ],
+    "model_code": "gaming-max-wifi7-x870",
+    "manufacturer_pn": [
+      "90MB1LY0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
     "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
     "vendor": "",
     "offers": [
@@ -45138,72 +45063,6 @@
     "model_code": "b850m-gaming-plus-tuf-wifi7",
     "manufacturer_pn": [
       "90MB1MU0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:gaming-max-w-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:195912",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1LZ0-M0EAY0",
-        "title": "לוח אם גיימינג ASUS X870 MAX GAMING WIFI7 לתושבת AM5",
-        "price": 1684
-      },
-      {
-        "listing_key": "ivory:134868",
-        "vendor": "ivory",
-        "vendor_sku": "90MB1LZ0-M0EAY0",
-        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD - לבן",
-        "price": 1290
-      },
-      {
-        "listing_key": "tms:90MB1LZ0-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1LZ0-M0EAY0",
-        "title": "Asus X870 MAX GAMING WiFi7 W",
-        "price": 1693
-      }
-    ],
-    "model_code": "am5-gaming-max-wifi7-x870",
-    "manufacturer_pn": [
-      "90MB1LZ0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:gaming-max-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:194029",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1LY0-M0EAY0",
-        "title": "לוח אם ASUS X870 MAX GAMING WIFI7",
-        "price": 1592
-      },
-      {
-        "listing_key": "ivory:134865",
-        "vendor": "ivory",
-        "vendor_sku": "90MB1LY0-M0EAY0",
-        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
-        "price": 1415
-      },
-      {
-        "listing_key": "tms:90MB1LY0-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1LY0-M0EAY0",
-        "title": "Asus X870 MAX GAMING WiFi7",
-        "price": 1406
-      }
-    ],
-    "model_code": "gaming-max-wifi7-x870",
-    "manufacturer_pn": [
-      "90MB1LY0M0EAY0"
     ]
   },
   {
