@@ -19,10 +19,6 @@ export function getCompare(): CompareList {
   return { category, items: items.filter((p) => p.category === category).slice(0, COMPARE_MAX) };
 }
 
-export function isCompared(id: string): boolean {
-  return getCompare().items.some((p) => p.id === id);
-}
-
 export type CompareResult = "added" | "removed" | "full" | "switched";
 
 /**

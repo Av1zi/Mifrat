@@ -23,8 +23,6 @@ import {
 import { t } from "./i18n";
 import type { Lang, Product, SpecValue } from "./types";
 
-export type { SpecFieldMeta };
-
 /** Ordered schema fields for a category (the PDP renders exactly this order). */
 export function specFields(category: string): SpecFieldMeta[] {
   return SPEC_FIELDS[category] ?? [];

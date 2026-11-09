@@ -1,5 +1,5 @@
 import type { BuildMap } from "./state";
-import { onStoreChange, readJson, writeJson } from "./storage";
+import { readJson, writeJson } from "./storage";
 
 const BUILDS_KEY = "mifrat:builds";
 
@@ -82,5 +82,3 @@ export function duplicateSavedBuild(id: string, name: string): void {
   };
   writeJson(BUILDS_KEY, [copy, ...getSavedBuilds()]);
 }
-
-export const onSavedBuildsChange = onStoreChange;

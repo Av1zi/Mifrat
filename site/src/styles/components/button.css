@@ -133,8 +133,7 @@
 }
 
 /* Arrows follow the reading direction. */
-[dir="rtl"] .ic-forward,
-[dir="rtl"] .ic-back {
+[dir="rtl"] .ic-forward {
   transform: scaleX(-1);
 }
 

@@ -34,11 +34,9 @@ export type IconName =
   | "case-fan"
   | "radiator"
   | "heatsink"
-  | "cooling-other"
   | "accessories"
   | "file-text"
   | "sliders"
-  | "back"
   | "forward"
   | "rows"
   | "table"
@@ -58,7 +56,6 @@ export type IconName =
   | "clock"
   | "chevron-left"
   | "chevron-right"
-  | "store"
   | "unlink";
 
 const PATHS: Record<IconName, string> = {
@@ -116,14 +113,10 @@ const PATHS: Record<IconName, string> = {
     '<rect x="3" y="4" width="18" height="6" rx="1" /><path d="M6.5 4v6M10 4v6M13.5 4v6M17 4v6" /><circle cx="12" cy="16.5" r="3" /><path d="M6.5 10v3.5a3 3 0 0 0 2.7 3M17.5 10v3.5a3 3 0 0 1-2.7 3" />',
   heatsink:
     '<path d="M7 3v13M10.5 3v13M14 3v13M17.5 3v13" /><path d="M4.5 16h15v1.5a2.5 2.5 0 0 1-2.5 2.5H7a2.5 2.5 0 0 1-2.5-2.5z" />',
-  "cooling-other":
-    '<path d="M12 2v20" /><path d="m3.5 7 17 10" /><path d="m20.5 7-17 10" /><path d="M9.5 4 12 6.5 14.5 4" /><path d="M9.5 20 12 17.5 14.5 20" />',
   "file-text":
     '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h6" />',
   sliders:
     '<path d="M21 4H14M10 4H3M21 12H12M8 12H3M21 20H16M12 20H3M14 2v4M8 10v4M16 18v4" />',
-  back:
-    '<path d="m12 19-7-7 7-7" /><path d="M19 12H5" />',
   forward:
     '<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />',
   rows:
@@ -164,8 +157,6 @@ const PATHS: Record<IconName, string> = {
     '<path d="m9 18 6-6-6-6" />',
   unlink:
     '<path d="M9 15 15 9" /><path d="M11 6.5 12.5 5a4.2 4.2 0 0 1 6 6L17 12.5" /><path d="M13 17.5 11.5 19a4.2 4.2 0 0 1-6-6L7 11.5" /><path d="M4 4l2 2M18 18l2 2" />',
-  store:
-    '<path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" />',
 };
 
 /**
