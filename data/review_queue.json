@@ -43619,58 +43619,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:c500-ice-panoramic-stealth-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207719",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C500PI-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE בצבע לבן",
-        "price": 493
-      },
-      {
-        "listing_key": "tms:GB-C500PI-ST",
-        "vendor": "tms",
-        "vendor_sku": "GB-C500PI-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE",
-        "price": 477
-      }
-    ],
-    "model_code": "c500-ice-panoramic-stealth",
-    "manufacturer_pn": [
-      "GBC500PIST"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:c500-panoramic-stealth-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207720",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C500P-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth בצבע שחור",
-        "price": 480
-      },
-      {
-        "listing_key": "tms:GB-C500P-ST",
-        "vendor": "tms",
-        "vendor_sku": "GB-C500P-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth",
-        "price": 463
-      }
-    ],
-    "model_code": "c500-panoramic-stealth",
-    "manufacturer_pn": [
-      "GBC500PST"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:c201-ice-panoramic-white",
     "vendor": "",
     "offers": [
@@ -43718,6 +43666,58 @@
     "model_code": "c201-panoramic",
     "manufacturer_pn": [
       "GBC201P"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c500-ice-panoramic-stealth-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207719",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C500PI-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE בצבע לבן",
+        "price": 493
+      },
+      {
+        "listing_key": "tms:GB-C500PI-ST",
+        "vendor": "tms",
+        "vendor_sku": "GB-C500PI-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE",
+        "price": 477
+      }
+    ],
+    "model_code": "c500-ice-panoramic-stealth",
+    "manufacturer_pn": [
+      "GBC500PIST"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c500-panoramic-stealth-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207720",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C500P-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth בצבע שחור",
+        "price": 480
+      },
+      {
+        "listing_key": "tms:GB-C500P-ST",
+        "vendor": "tms",
+        "vendor_sku": "GB-C500P-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth",
+        "price": 463
+      }
+    ],
+    "model_code": "c500-panoramic-stealth",
+    "manufacturer_pn": [
+      "GBC500PST"
     ]
   },
   {
@@ -44511,6 +44511,360 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177646",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSELITEWF7ICE",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
+        "price": 1075
+      },
+      {
+        "listing_key": "tms:GB850AORUSELITEWF7ICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSELITEWF7ICE",
+        "title": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
+        "price": 1040
+      },
+      {
+        "listing_key": "yahav:10278",
+        "vendor": "yahav",
+        "vendor_sku": "B850-AORUS-ELITE-WIFI7-ICE",
+        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 Ice AM5 DDR5 DP ATX",
+        "price": 1040
+      }
+    ],
+    "model_code": "7-am5-aorus-b850-dp-elite-ice-wifi",
+    "manufacturer_pn": [
+      "GB850AORUSELITEWF7ICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-elite-wifi7-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177647",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7",
+        "price": 1119
+      },
+      {
+        "listing_key": "ivory:125172",
+        "vendor": "ivory",
+        "vendor_sku": "B850AELITEWF7",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 DDR5 ATX AMD בצבע שחור",
+        "price": 1050
+      },
+      {
+        "listing_key": "tms:GB850AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSELITEWIFI7",
+        "title": "Gigabyte B850 AORUS ELITE WIFI7",
+        "price": 1083
+      },
+      {
+        "listing_key": "yahav:10280",
+        "vendor": "yahav",
+        "vendor_sku": "B850-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 AM5 DDR5 DP ATX",
+        "price": 1050
+      }
+    ],
+    "model_code": "7-am5-aorus-b850-dp-elite-wifi",
+    "manufacturer_pn": [
+      "GB850AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-ice-stealth-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:204045",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSSTEALTHICE",
+        "title": "לוח אם Gigabyte B850 AORUS STEALTH ICE",
+        "price": 1583
+      },
+      {
+        "listing_key": "tms:GB850AORUSSTEALTHICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSSTEALTHICE",
+        "title": "Gigabyte B850 AORUS STEALTH ICE",
+        "price": 1538
+      }
+    ],
+    "model_code": "aorus-b850-ice-stealth",
+    "manufacturer_pn": [
+      "GB850AORUSSTEALTHICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-stealth-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:209505",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSSTEALTH",
+        "title": "לוח אם Gigabyte B850 AORUS STEALTH",
+        "price": 1693
+      },
+      {
+        "listing_key": "tms:GB850AORUSSTEALTH",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSSTEALTH",
+        "title": "Gigabyte B850 AORUS STEALTH",
+        "price": 1677
+      }
+    ],
+    "model_code": "aorus-b850-stealth",
+    "manufacturer_pn": [
+      "GB850AORUSSTEALTH"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177652",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 1009
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6EICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 975
+      },
+      {
+        "listing_key": "yahav:10288",
+        "vendor": "yahav",
+        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
+        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
+        "price": 1130
+      }
+    ],
+    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6EICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207713",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 1009
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6E",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 975
+      }
+    ],
+    "model_code": "aorus-b850m-elite-wifi6e",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6E"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170330",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1340
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1300
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170331",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1340
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1300
+      }
+    ],
+    "model_code": "aorus-elite-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207716",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1539
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1523
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7I"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170329",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
+        "price": 1460
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7",
+        "price": 1417
+      },
+      {
+        "listing_key": "yahav:10175",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1380
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207718",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2553
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3DI",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2538
+      },
+      {
+        "listing_key": "yahav:10919",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 2190
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3DI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:216436",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
+        "price": 2465
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "Gigabyte X870E AORUS MASTER X3D",
+        "price": 2405
+      }
+    ],
+    "model_code": "aorus-master-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
     "product_id": "model:motherboard:aorus-ice-pro-x870e-atx",
     "vendor": "",
     "offers": [
@@ -44645,360 +44999,6 @@
     "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
     "manufacturer_pn": [
       "GX870EAORUSPROX3D"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207718",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2553
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3DI",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2538
-      },
-      {
-        "listing_key": "yahav:10919",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 2190
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3DI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:216436",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-        "price": 2465
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2405
-      }
-    ],
-    "model_code": "aorus-master-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3D"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170330",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1340
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1300
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170331",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1340
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1300
-      }
-    ],
-    "model_code": "aorus-elite-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207716",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1539
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1523
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170329",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-        "price": 1460
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7",
-        "price": 1417
-      },
-      {
-        "listing_key": "yahav:10175",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1380
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177652",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 1009
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6EICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 975
-      },
-      {
-        "listing_key": "yahav:10288",
-        "vendor": "yahav",
-        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-        "price": 1130
-      }
-    ],
-    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207713",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 1009
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6E",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 975
-      }
-    ],
-    "model_code": "aorus-b850m-elite-wifi6e",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6E"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177646",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1075
-      },
-      {
-        "listing_key": "tms:GB850AORUSELITEWF7ICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1040
-      },
-      {
-        "listing_key": "yahav:10278",
-        "vendor": "yahav",
-        "vendor_sku": "B850-AORUS-ELITE-WIFI7-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 Ice AM5 DDR5 DP ATX",
-        "price": 1040
-      }
-    ],
-    "model_code": "7-am5-aorus-b850-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850AORUSELITEWF7ICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177647",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 1119
-      },
-      {
-        "listing_key": "ivory:125172",
-        "vendor": "ivory",
-        "vendor_sku": "B850AELITEWF7",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 DDR5 ATX AMD בצבע שחור",
-        "price": 1050
-      },
-      {
-        "listing_key": "tms:GB850AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSELITEWIFI7",
-        "title": "Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 1083
-      },
-      {
-        "listing_key": "yahav:10280",
-        "vendor": "yahav",
-        "vendor_sku": "B850-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 AM5 DDR5 DP ATX",
-        "price": 1050
-      }
-    ],
-    "model_code": "7-am5-aorus-b850-dp-elite-wifi",
-    "manufacturer_pn": [
-      "GB850AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-ice-stealth-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:204045",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSSTEALTHICE",
-        "title": "לוח אם Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1583
-      },
-      {
-        "listing_key": "tms:GB850AORUSSTEALTHICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSSTEALTHICE",
-        "title": "Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1538
-      }
-    ],
-    "model_code": "aorus-b850-ice-stealth",
-    "manufacturer_pn": [
-      "GB850AORUSSTEALTHICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-stealth-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209505",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSSTEALTH",
-        "title": "לוח אם Gigabyte B850 AORUS STEALTH",
-        "price": 1693
-      },
-      {
-        "listing_key": "tms:GB850AORUSSTEALTH",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSSTEALTH",
-        "title": "Gigabyte B850 AORUS STEALTH",
-        "price": 1677
-      }
-    ],
-    "model_code": "aorus-b850-stealth",
-    "manufacturer_pn": [
-      "GB850AORUSSTEALTH"
     ]
   },
   {

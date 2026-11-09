@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:12:06.896164+00:00",
+  "generated_at": "2026-11-09T02:09:04.600413+00:00",
   "gaps": [
     {
       "category": "case",
@@ -453,6 +453,16 @@
     },
     {
       "category": "memory",
+      "label": "ממשק",
+      "count": 16,
+      "products": [
+        "model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+        "model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+        "model:memory:0-3-4x16gb-5600-cl36-dominator-expo-xmp-64gb-x4-5600mhz-cl36-rgb-grey-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "תאימות",
       "count": 16,
       "products": [
@@ -519,16 +529,6 @@
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "ממשק",
-      "count": 15,
-      "products": [
-        "model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
-        "model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
-        "model:memory:0-3-4x16gb-5600-cl36-dominator-expo-xmp-64gb-x4-5600mhz-cl36-rgb-grey-dimm"
       ]
     },
     {
@@ -882,6 +882,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "מק\"ט בינ\"ל",
+      "count": 11,
+      "products": [
+        "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
+        "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
+        "model:memory:ad4s32008g22-dimm-sgn-so-8gb-3200mhz-cl22-sodimm"
+      ]
+    },
+    {
       "category": "psu",
       "label": "מפרט",
       "count": 11,
@@ -1019,16 +1029,6 @@
         "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c4816g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl48-rgb-white-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מק\"ט בינ\"ל",
-      "count": 10,
-      "products": [
-        "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
-        "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
-        "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm"
       ]
     },
     {
@@ -1172,6 +1172,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "מפרט",
+      "count": 8,
+      "products": [
+        "model:memory:0-2-2x8gb-3200-cl16-rs-vengeance-xmp-16gb-x2-3200mhz-cl16-rgb-black",
+        "model:memory:3200-3rd-party-16gb-3200mhz-black",
+        "model:memory:32gb-4800mhz-4x77a77030-rdimm-thinksystem-truddr5-32gb-4800mhz-black-dimm"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "PCI-E x16 (x4) חריץ",
       "count": 7,
@@ -1189,16 +1199,6 @@
         "model:cpu:14900ks-tray",
         "model:cpu:5600gt-tray",
         "model:cpu:5800x3d"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מפרט",
-      "count": 7,
-      "products": [
-        "model:memory:0-2-2x8gb-3200-cl16-rs-vengeance-xmp-16gb-x2-3200mhz-cl16-rgb-black",
-        "model:memory:3200-3rd-party-16gb-3200mhz-black",
-        "model:memory:32gb-4800mhz-4x77a77030-rdimm-thinksystem-truddr5-32gb-4800mhz-black-dimm"
       ]
     },
     {
@@ -1422,6 +1422,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "DRAM spec/VCC",
+      "count": 6,
+      "products": [
+        "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
+        "model:memory:ad4s32008g22-dimm-sgn-so-8gb-3200mhz-cl22-sodimm",
+        "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "Intel® Core™ Ultra",
       "count": 6,
@@ -1569,16 +1579,6 @@
         "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white",
         "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white",
         "model:memory:2x32gb-6000-cl30-cras-v-64gb-x2-6000mhz-cl30-rgb-black"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "DRAM spec/VCC",
-      "count": 5,
-      "products": [
-        "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
-        "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm",
-        "model:memory:ad5s480016g-dimm-s-so-16gb-4800mhz-cl40-sodimm"
       ]
     },
     {
