@@ -25,9 +25,22 @@ MAX_MISSING = 0.02
 
 SKIP_FILES = {"meta.json", "qa.json", "index.json", "spec_report.json"}
 
+# KSP covers sit behind a Cloudflare edge that 403s datacenter IPs, so CI can
+# never fetch them; the Nano backfills them (`download_images --from-catalog
+# --vendor ksp`). KSP-only products without a cover are reported separately
+# and held to their own, looser budget instead of eating the cloud budget.
+DEFERRED_VENDOR = "ksp"
+MAX_DEFERRED = 0.15
+
+
+def _ksp_only(product: dict) -> bool:
+    vendors = {o.get("vendor") for o in product.get("offers") or []}
+    return vendors == {DEFERRED_VENDOR}
+
 
 def scan() -> dict:
-    result = {"categories": 0, "products": 0, "with_image": 0, "missing": []}
+    result = {"categories": 0, "products": 0, "with_image": 0, "missing": [],
+              "deferred": [], "deferred_total": 0}
     if not SITE_DIR.is_dir():
         return result
     for path in sorted(SITE_DIR.glob("*.json")):
@@ -41,10 +54,16 @@ def scan() -> dict:
             continue
         result["categories"] += 1
         for product in items:
-            result["products"] += 1
+            ksp_only = _ksp_only(product)
+            if ksp_only:
+                result["deferred_total"] += 1
             if product.get("image"):
+                result["products"] += 1
                 result["with_image"] += 1
+            elif ksp_only:
+                result["deferred"].append(f"{path.stem}/{product.get('id')}")
             else:
+                result["products"] += 1
                 result["missing"].append(
                     f"{path.stem}/{product.get('id')}"
                 )
@@ -63,6 +82,17 @@ def main() -> int:
         f"[site-images] {r['with_image']}/{total} products have a local image "
         f"({r['categories']} categories, {missing_share:.1%} missing)"
     )
+    deferred = len(r["deferred"])
+    if deferred:
+        share = deferred / max(1, r["deferred_total"])
+        print(f"[site-images] {deferred} KSP-only products wait for the Nano "
+              f"backfill ({share:.1%} of {r['deferred_total']}; budget "
+              f"{MAX_DEFERRED:.0%}); not counted above")
+        if share > MAX_DEFERRED:
+            print("[site-images] FAIL: too many KSP covers missing; run on the "
+                  "Nano: python -m scraper.download_images --from-catalog "
+                  "--vendor ksp")
+            return 1
     if missing_share > MAX_MISSING:
         print(f"[site-images] FAIL: {missing_share:.1%} of products lack a local "
               f"image (budget {MAX_MISSING:.0%})")

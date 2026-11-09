@@ -127,6 +127,24 @@ jobs:
         run: python -m scraper.download_images --from-catalog --limit 500
         continue-on-error: true
       - run: python scraper/normalize_and_match.py
+      - name: Backfill covers the NEW catalog selected (best-effort)
+        # The backfill above reads the committed catalog, i.e. the PREVIOUS
+        # run's product set and cover choices. This run's normalize can pick
+        # different covers (2026-11-09: 107 products, 88 of them 1PC, had no
+        # file on disk and check_site_images failed at 2.5% vs a 2% budget).
+        # Fetch what the fresh catalog wants, then rebuild so the site JSON
+        # references the files. Skipped when nothing is missing.
+        id: backfill_new
+        continue-on-error: true
+        run: |
+          out="$(python -m scraper.download_images --from-catalog --limit 500)"
+          echo "$out"
+          if echo "$out" | grep -qE 'downloaded [1-9]'; then
+            echo "fetched=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Rebuild with the backfilled covers
+        if: steps.backfill_new.outputs.fetched == 'true'
+        run: python scraper/normalize_and_match.py
       - name: Golden-fixture resolver self-test (offline)
         # The gate resolves a fixture through its own product id first and its
         # anchors second; this pins that decision (a live product with a wrong
