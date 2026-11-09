@@ -2118,6 +2118,33 @@ def _ksp_fan_size(value):
     return (int(match.group(1)), None) if match else (None, None)
 
 
+def _ksp_generation(value) -> str | None:
+    """'מעבד Intel Raptor Lake Refresh 14th Gen' -> 'Gen 14'; '... Series 2' -> 'Gen 2'.
+
+    Only an explicit generation number is read; a codename alone ("Zen 5")
+    stays unknown rather than being guessed into a number.
+    """
+    text = str(value or "")
+    match = (re.search(r"\b(\d{1,2})(?:st|nd|rd|th)\s+gen\b", text, re.I)
+             or re.search(r"\b(?:gen|generation|series)\s*(\d{1,2})\b", text, re.I))
+    return f"Gen {int(match.group(1))}" if match else None
+
+
+def _ksp_warranty_years(value) -> int | None:
+    """'5 שנים' -> 5, 'שנתיים' -> 2, 'שנה' -> 1.
+
+    'חודש' (a month), 'ללא' (none) and 'לכל חיי המוצר' (lifetime) are not a
+    number of years, so they stay unknown.
+    """
+    text = str(value or "").strip()
+    if text == "שנתיים":
+        return 2
+    if text in ("שנה", "שנה אחת"):
+        return 1
+    match = re.fullmatch(r"(\d{1,2})\s*שנים", text)
+    return int(match.group(1)) if match else None
+
+
 def parse_ksp_tags(category: str | None, meta) -> dict[str, list[Fact]]:
     """Map KSP's Hebrew listing tags into typed Tier-1 facts."""
     facts: dict[str, list[Fact]] = {}
@@ -2139,6 +2166,8 @@ def parse_ksp_tags(category: str | None, meta) -> dict[str, list[Fact]]:
               SOURCE_META, 0.85)
         _emit(facts, category, "packaging", _ksp_cell(tags, "תכונות"),
               SOURCE_META, 0.8)
+        _emit(facts, category, "generation",
+              _ksp_generation(_ksp_cell(tags, "דור המעבד")), SOURCE_META, 0.8)
         return facts
 
     if category == "motherboard":
@@ -2229,6 +2258,8 @@ def parse_ksp_tags(category: str | None, meta) -> dict[str, list[Fact]]:
         rpm = re.search(r"(\d{4})\s*Rpm", features, re.I)
         if rpm:
             _emit(facts, category, "rpm", rpm.group(1), SOURCE_META, 0.8)
+        _emit(facts, category, "warranty_years",
+              _ksp_warranty_years(_ksp_cell(tags, "משך אחריות")), SOURCE_META, 0.8)
         return facts
 
     if category in ("cooler_air", "aio"):
