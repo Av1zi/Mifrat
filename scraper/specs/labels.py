@@ -518,7 +518,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # and an exact entry would shadow that richer parse.
         "מהירויות שעון זיכרון נתמכות": MEMORY_SPEEDS,
         "תמיכה בזיכרון": MEMORY_SPEEDS,
-        "סלוטים ddr5": "memory_slots",
         "זיכרון (ram)": MEMORY_SPEEDS,
         # 1PC's redesigned storefront (Oct 2026) spells the same board rows
         # out in full ("תושבת המעבד" vs TMS's "תושבת מעבד", "ערכת שבבים של
@@ -870,8 +869,6 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "מהירות מאוורר": RPM_RANGE,
         "רעש": "noise_db",
         "ספיקת אוויר": "airflow_cfm",
-        # YahavPC prints the cooler's fan as a bare "size": "120MM".
-        "גודל": "fan_size_mm",
         "גובה": "height_mm",
         "תושבת": SOCKETS_CELL,
         "פיזור חום": "tdp_w",
