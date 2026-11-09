@@ -40,6 +40,10 @@ _Avoid_: item, part (when the merged catalog entry is meant)
 The stable handle for a product, used in links and price history.
 _Avoid_: pid in user-facing text
 
+**Retired product id**:
+A product id that no longer names a product because its listings moved to another product, or split across several.
+_Avoid_: dead id, absorbed pid
+
 **Pid alias**:
 A retired product id that points at the product now holding its listings, so old links and history keep resolving.
 
