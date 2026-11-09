@@ -2125,6 +2125,8 @@ def flag_identity_collisions(products: list[dict],
     """
     flagged = {str(case.get("product_id")) for case in existing_cases or []
                if case.get("product_id")}
+    shared_pns = identity.shared_part_numbers(
+        offer for product in products for offer in product.get("offers") or [])
     by_pid: dict[str, dict] = {}
     buckets: dict[tuple, list[str]] = {}
     for product in products:
@@ -2146,7 +2148,8 @@ def flag_identity_collisions(products: list[dict],
                 if value is not None:
                     axes.setdefault(axis, value)
         pns = {identity.part_number_key(offer.get("mpn")) for offer in offers
-               if identity.part_number_class(offer.get("mpn"), offer)
+               if identity.part_number_class(
+                   offer.get("mpn"), offer, shared_pns.get(str(category), ()))
                == "manufacturer"}
         pns.discard(None)
         by_pid[pid] = {"category": str(category), "offers": offers,
@@ -5239,6 +5242,130 @@ def _pid_rank(pid: str) -> tuple[int, str]:
     return (_PID_RANK.get(pid.split(":", 1)[0], 5), pid)
 
 
+# --------------------------------------------------------------------------
+# Part-number repairs before matching. Each rewrites a listing's `mpn` only
+# when the evidence is in the listing's own title or in another vendor's
+# printed part number; the catalog ships the repaired value.
+# --------------------------------------------------------------------------
+
+_GIGABYTE_TAIL_RE = re.compile(r"\d+GD?$", re.I)
+
+
+def complete_gigabyte_mpn(enriched: dict) -> None:
+    """Gigabyte prints a card's part number with a space in it
+    ("GV-N5060WF2MAX OCV2-8GD"); `extract_mpn` keeps only the first half,
+    which is the stem every variant of the card shares. The second half is
+    the memory-size tail, so it is put back when the title prints it.
+    """
+    mpn = str(enriched.get("mpn") or "")
+    if (enriched.get("category_normalized") != "gpu"
+            or not mpn.upper().startswith("GV")):
+        return
+    match = re.search(re.escape(mpn) + r"\s+([A-Z0-9][A-Z0-9-]*)",
+                      str(enriched.get("title_raw") or ""), re.I)
+    if match and _GIGABYTE_TAIL_RE.search(match.group(1)):
+        enriched["mpn"] = f"{mpn} {match.group(1)}"
+
+
+def adopt_title_part_numbers(enriched_listings: list[dict],
+                             shared: dict[str, frozenset[str]]) -> None:
+    """A listing with no part number (KSP) or only a barcode (1PC) whose
+    title prints exactly one code that another listing of the category
+    carries as its manufacturer part number takes that code as its `mpn`.
+    A barcode it replaces moves to `attributes.barcode`, where the EAN tier
+    still reads it. A code is not adopted by a listing whose variant axes
+    contradict another listing that carries or adopts it (Noctua's
+    "NH-L9I-17XX" printed on both the brown and the chromax black cooler):
+    there the printed code is the model's stem, not the full part number.
+    """
+    maker_keys: dict[str, set[str]] = {}
+    holders: dict[tuple[str, str], list[dict]] = {}
+    for enriched in enriched_listings:
+        category = str(enriched.get("category_normalized") or "")
+        mpn = enriched.get("mpn")
+        if (category in identity.IDENTITY_CATEGORIES
+                and identity.part_number_class(mpn, enriched, shared.get(category, ()))
+                == "manufacturer"):
+            key = identity.part_number_key(mpn)
+            maker_keys.setdefault(category, set()).add(key)
+            holders.setdefault((category, key), []).append(enriched)
+    adoptions: list[tuple[dict, str, str]] = []
+    for enriched in enriched_listings:
+        category = str(enriched.get("category_normalized") or "")
+        if category not in maker_keys:
+            continue
+        mpn = str(enriched.get("mpn") or "")
+        own_key = identity.part_number_key(mpn)
+        if mpn and not own_key.isdigit():
+            continue
+        found: dict[str, set[str]] = {}
+        for token in re.split(r"[\s/,()\[\]|]+", str(enriched.get("title_raw") or "")):
+            key = identity.part_number_key(token)
+            if (len(key) >= 7 and re.search(r"[A-Z]", key) and re.search(r"\d", key)
+                    and key in maker_keys[category] and key != own_key):
+                found.setdefault(key, set()).add(token)
+        if len(found) != 1:
+            continue
+        key, tokens = next(iter(found.items()))
+        adoptions.append((enriched, key, min(tokens)))
+    adopters: dict[tuple[str, str], list[dict]] = {}
+    for enriched, key, _ in adoptions:
+        adopters.setdefault((enriched["category_normalized"], key), []).append(enriched)
+    for enriched, key, token in adoptions:
+        category = enriched["category_normalized"]
+        others = holders.get((category, key), []) + adopters[(category, key)]
+        if any(other is not enriched
+               and identity.variant_conflict(category, enriched, other)
+               for other in others):
+            continue
+        mpn = str(enriched.get("mpn") or "")
+        if mpn:
+            attrs = enriched.get("attributes")
+            if not isinstance(attrs, dict):
+                attrs = enriched["attributes"] = {}
+            attrs.setdefault("barcode", mpn)
+        enriched["mpn"] = token
+
+
+_COLOUR_TAIL_RE = re.compile(r"^(.+?)[\s_-]*(BLACK|WHITE)$", re.I)
+
+
+def strip_colour_word_mpns(enriched_listings: list[dict]) -> None:
+    """Ivory/Yahav append a colour word to the maker's part number
+    ("C3-ARGB-BLACK" for Antec's "C3ARGB"). The bare code names the part when
+    another listing of the category prints it and its colour agrees: black is
+    the default finish, so a "...BLACK" code joins a bare code whose listings
+    are black or say nothing; white is a separate SKU, so a "...WHITE" code
+    joins only when the bare code's listings already say white.
+    """
+    by_key: dict[tuple[str, str], list[dict]] = {}
+    for enriched in enriched_listings:
+        category = str(enriched.get("category_normalized") or "")
+        if category in identity.IDENTITY_CATEGORIES and enriched.get("mpn"):
+            by_key.setdefault(
+                (category, identity.part_number_key(enriched["mpn"])), []
+            ).append(enriched)
+    rewrites: list[tuple[dict, str]] = []
+    for (category, key), members in by_key.items():
+        match = re.fullmatch(r"(.+?)(BLACK|WHITE)", key)
+        if not match or len(match.group(1)) < 4:
+            continue
+        targets = by_key.get((category, match.group(1)))
+        if not targets:
+            continue
+        colours = {identity.variant_values(category, t).get("color")
+                   for t in targets} - {None}
+        if not (colours <= {"black"} if match.group(2) == "BLACK"
+                else colours == {"white"}):
+            continue
+        for enriched in members:
+            printed = _COLOUR_TAIL_RE.match(str(enriched["mpn"]).strip())
+            if printed and identity.part_number_key(printed.group(1)) == match.group(1):
+                rewrites.append((enriched, printed.group(1)))
+    for enriched, mpn in rewrites:
+        enriched["mpn"] = mpn
+
+
 def match_listings(
     enriched_listings: list[dict],
     manual_path: Path | str | None = None,
@@ -5247,7 +5374,9 @@ def match_listings(
     Build canonical products.
 
     Tiers, in order:
+    - Part-number repairs (Gigabyte tail, title part number, colour tail)
     - Manual merges
+    - Curated part-number absorb (a listing printing a curated PN)
     - Identity tier (canonical model code + variant axes, every category)
     - Exact MPN matches
     - Exact normalized vendor SKU matches
@@ -5260,6 +5389,16 @@ def match_listings(
     - Vendor packaging-conflict resolution (one vendor, two labels)
     """
     manual_key_to_pid, manual_products, blocked_pairs = load_manual(manual_path)
+
+    # Part-number repairs first (every tier reads `mpn`), then the codes
+    # several vendors print per category: those are maker part numbers
+    # whatever their shape (`identity.shared_part_numbers`).
+    for enriched in enriched_listings:
+        complete_gigabyte_mpn(enriched)
+    adopt_title_part_numbers(enriched_listings,
+                             identity.shared_part_numbers(enriched_listings))
+    strip_colour_word_mpns(enriched_listings)
+    shared_pns = identity.shared_part_numbers(enriched_listings)
 
     # Verified manufacturer model codes (tier 5c below, and the spec build's
     # part_numbers). Set only where found, so other listings stay unchanged.
@@ -5293,6 +5432,60 @@ def match_listings(
             meta.setdefault("product_id", pid)
             meta.setdefault("matched_by", "manual")
             product_meta.setdefault(pid, meta)
+
+    # 1b. A listing printing the exact part number of one curated product's
+    # listing is that product. The curator merged by hand what the tiers
+    # could not, so another vendor's copy of the same code (or a new listing
+    # of it) would otherwise land on a second product beside it. The code
+    # must name exactly one curated product of the category. A CPU whose
+    # packaging label disagrees with the curated product's stays where the
+    # tiers put it (D1: box and tray are two products) and is flagged.
+    _manual_pn_cases: list[dict] = []
+    _manual_members: dict[str, list[dict]] = {}
+    _manual_by_pn: dict[tuple[str, str], set[str]] = {}
+    for enriched in enriched_listings:
+        pid = assignments.get(enriched["listing_key"])
+        if not pid:
+            continue
+        _manual_members.setdefault(pid, []).append(enriched)
+        category = str(enriched.get("category_normalized") or "")
+        key = identity.part_number_key(enriched.get("mpn"))
+        if category in identity.IDENTITY_CATEGORIES and key:
+            _manual_by_pn.setdefault((category, key), set()).add(pid)
+    for enriched in enriched_listings:
+        if enriched["listing_key"] in assignments:
+            continue
+        category = str(enriched.get("category_normalized") or "")
+        key = identity.part_number_key(enriched.get("mpn"))
+        if (len(key) < 6 or not re.search(r"[A-Z]", key)
+                or not re.search(r"\d", key)):
+            continue
+        owners = _manual_by_pn.get((category, key)) or set()
+        if len(owners) != 1:
+            continue
+        pid = next(iter(owners))
+        members = _manual_members[pid]
+        if any(_is_blocked_pair(enriched["listing_key"], m["listing_key"])
+               for m in members):
+            continue
+        own_pack = (identity.variant_values("cpu", enriched).get("packaging")
+                    if category == "cpu" else None)
+        if own_pack and any(
+                identity.variant_values("cpu", m).get("packaging")
+                not in (None, own_pack) for m in members):
+            _manual_pn_cases.append(_identity_qr_case(
+                category, members + [enriched],
+                kind="packaging_conflict", pid=pid,
+                extra={
+                    "vendor": enriched.get("vendor_id"),
+                    "model_code": identity.model_code(category, enriched),
+                    "resolved": False,
+                    "reason": "same part number as a curated product",
+                },
+            ))
+            continue
+        assignments[enriched["listing_key"]] = pid
+        members.append(enriched)
 
     # 2. Identity tier.
     #
@@ -5396,7 +5589,7 @@ def match_listings(
     # pid -> identity facts, used by the reconciliation step (4d) and the
     # packaging-conflict check at the end.
     _identity_info: dict[str, dict] = {}
-    _identity_cases: list[dict] = []
+    _identity_cases: list[dict] = list(_manual_pn_cases)
     _packaging_cases: list[dict] = []
     _pid_aliases: dict[str, str] = {}
 
@@ -5405,8 +5598,9 @@ def match_listings(
         if not code_slug:
             continue
 
+        shared = shared_pns.get(category, frozenset())
         for sub in identity.variant_subgroups(category, group):
-            clusters = identity.part_number_subgroups(list(sub))
+            clusters = identity.part_number_subgroups(list(sub), shared)
             made: list[tuple[str, list[dict]]] = []
             for cluster in clusters:
                 # Blocked-pair veto: a human not_match verdict keeps these
@@ -5454,7 +5648,7 @@ def match_listings(
                     "manufacturer_pns": {
                         identity.part_number_key(e.get("mpn"))
                         for e in accepted
-                        if identity.part_number_class(e.get("mpn"), e)
+                        if identity.part_number_class(e.get("mpn"), e, shared)
                         == "manufacturer"
                     },
                 }
@@ -5806,7 +6000,8 @@ def match_listings(
                     continue
                 _pns = {identity.part_number_key(e.get("mpn"))
                         for e in _members + _target_members
-                        if identity.part_number_class(e.get("mpn"), e)
+                        if identity.part_number_class(
+                            e.get("mpn"), e, shared_pns.get(str(_category), ()))
                         == "manufacturer"}
                 if len(_pns) > 1:
                     continue
@@ -6063,9 +6258,10 @@ def match_listings(
             for left, right in pairs:
                 left_pn = left.get("mpn")
                 right_pn = right.get("mpn")
-                left_mfr = (identity.part_number_class(left_pn, left)
+                cpu_shared = shared_pns.get("cpu", frozenset())
+                left_mfr = (identity.part_number_class(left_pn, left, cpu_shared)
                             == "manufacturer")
-                right_mfr = (identity.part_number_class(right_pn, right)
+                right_mfr = (identity.part_number_class(right_pn, right, cpu_shared)
                              == "manufacturer")
                 shared_pn = (
                     left_mfr and right_mfr

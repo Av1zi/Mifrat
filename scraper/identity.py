@@ -26,11 +26,15 @@ Public surface (consumed by ``scraper/matching.py``):
     cluster listings that agree on every known axis; an unknown value rides
     with whichever subgroup it does not contradict.
 
-``part_number_class(value, listing=None)``
+``part_number_class(value, listing=None, shared=())``
     ``"manufacturer"`` or ``"vendor"`` — is this a maker part number or a
     retailer's own catalogue code?
 
-``part_number_subgroups(group)``
+``shared_part_numbers(listings)``
+    per category, the codes two or more vendors print (the ``shared`` set
+    above: a code several shops print is the maker's).
+
+``part_number_subgroups(group, shared=())``
     split a group when it carries two *different* manufacturer part numbers
     (the same model sold in two variants), never on retailer codes.
 
@@ -48,7 +52,9 @@ unit-checked on its own (``scripts/check_identity_merge.py``).
 
 from __future__ import annotations
 
+import html
 import re
+from collections.abc import Collection, Iterable
 
 __all__ = [
     "IDENTITY_CATEGORIES",
@@ -60,6 +66,7 @@ __all__ = [
     "part_number_class",
     "part_number_subgroups",
     "part_number_key",
+    "shared_part_numbers",
     "code_slug",
 ]
 
@@ -330,7 +337,9 @@ def _brand_tokens(listing: dict) -> set[str]:
 
 def _model_code_from(listing: dict, raw) -> str | None:
     """Reduce one candidate model text to a stable code, or None."""
-    text = _TRADEMARK_RE.sub(" ", _text(raw))
+    # Ivory titles arrive HTML-escaped ("SL-INF &amp; Wireless"): the entity
+    # name would otherwise become a model token ("amp") no other vendor has.
+    text = _TRADEMARK_RE.sub(" ", html.unescape(_text(raw)))
     text = re.sub(r"[\u0590-\u05FF]+", " ", text)
     if not text:
         return None
@@ -592,16 +601,95 @@ def variant_values(category: str | None, listing: dict) -> dict[str, str | None]
     return values
 
 
+# Match-time equivalence of two vendors' spellings of one axis value. The
+# stored values (and so the product id) are never rewritten; only the merge
+# decision reads these.
+_COLOUR_WORDS = ("black", "white", "grey", "gray", "silver", "red", "brown",
+                 "blue", "green", "gold", "pink", "wood", "purple", "orange",
+                 "yellow")
+
+
+def _colour_set(value: str) -> str:
+    """"whiteblack" and "blackwhite" are one two-tone finish."""
+    rest, parts = value, []
+    while rest:
+        for word in _COLOUR_WORDS:
+            if rest.startswith(word):
+                parts.append("grey" if word == "gray" else word)
+                rest = rest[len(word):]
+                break
+        else:
+            return value
+    return "".join(sorted(parts))
+
+
+def _storage_bus(value: str) -> tuple[str, str | None]:
+    """(bus family, PCIe generation or None) of a storage interface value."""
+    if "sata" in value or "serialata" in value:
+        return ("sata", None)
+    if "usb" in value:
+        return ("usb", None)
+    if "sas" in value:
+        return ("sas", None)
+    if value in ("u2", "ide"):
+        return (value, None)
+    if any(word in value for word in ("pci", "nvme", "gen")):
+        match = re.search(r"(?:pciexpress|pcie|gen)(?:gen)?(\d)", value)
+        return ("nvme", match.group(1) if match else None)
+    return (value, None)
+
+
+def _axis_wildcard(category: str | None, axis: str, value: str | None) -> bool:
+    """A value that names no variant on this axis (it reads as unknown).
+
+    "M.2" in a storage interface row is the slot, not the bus; "ATX" in a case
+    type row is the largest board it takes, not the tower size.
+    """
+    if value is None:
+        return True
+    if category == "storage" and axis == "interface":
+        return re.fullmatch(r"m2(\d{4})?", value) is not None
+    if category == "storage" and axis == "form_factor":
+        return value in ("m2", "m2sata")
+    if category == "case" and axis == "type":
+        return value in ("atx", "microatx", "miniitx", "eatx")
+    return False
+
+
+def _axis_equal(category: str | None, axis: str, a: str, b: str) -> bool:
+    """Two known values that describe the same variant."""
+    if a == b:
+        return True
+    if axis == "color":
+        return _colour_set(a) == _colour_set(b)
+    if category == "storage" and axis == "interface":
+        (bus_a, gen_a), (bus_b, gen_b) = _storage_bus(a), _storage_bus(b)
+        return bus_a == bus_b and (gen_a is None or gen_b is None or gen_a == gen_b)
+    if category == "storage" and axis == "form_factor":
+        a, b = re.sub(r"inch$", "", a), re.sub(r"inch$", "", b)
+        return a == b or (a.startswith("m2") and b.startswith("m2")
+                          and (a in b or b in a))
+    return False
+
+
+def _known_values(category: str | None, listing: dict) -> dict[str, str]:
+    """The axis values that can contradict another listing's."""
+    return {axis: value
+            for axis, value in variant_values(category, listing).items()
+            if not _axis_wildcard(category, axis, value)}
+
+
 def variant_conflict(category: str | None, a: dict, b: dict) -> bool:
     """True when two listings state different values for one physical axis."""
     axes = variant_axes(category)
     if not axes:
         return False
-    va = variant_values(category, a)
-    vb = variant_values(category, b)
+    va = _known_values(category, a)
+    vb = _known_values(category, b)
     for axis in axes:
         left, right = va.get(axis), vb.get(axis)
-        if left is not None and right is not None and left != right:
+        if (left is not None and right is not None
+                and not _axis_equal(category, axis, left, right)):
             return True
     return False
 
@@ -634,7 +722,7 @@ def _cluster(category: str | None, listings: list[dict], *,
         return [list(listings)]
 
     def _completeness(e: dict) -> tuple:
-        values = variant_values(category, e)
+        values = _known_values(category, e)
         return (-sum(1 for axis in axes if values.get(axis) is not None),
                 str(e.get("listing_key") or ""))
 
@@ -644,15 +732,14 @@ def _cluster(category: str | None, listings: list[dict], *,
     def _values_of(members: list[dict]) -> dict[str, str]:
         values: dict[str, str] = {}
         for member in members:
-            for axis, value in variant_values(category, member).items():
-                if value is not None:
-                    values.setdefault(axis, value)
+            for axis, value in _known_values(category, member).items():
+                values.setdefault(axis, value)
         return values
 
     def _conflicts(known: dict[str, str], values: dict[str, str]) -> bool:
         return any(values.get(axis) is not None
                    and known.get(axis) is not None
-                   and values[axis] != known[axis]
+                   and not _axis_equal(category, axis, values[axis], known[axis])
                    for axis in axes)
 
     # Seeds are atomic — one seed is one product — and two seeds merge only
@@ -676,7 +763,7 @@ def _cluster(category: str | None, listings: list[dict], *,
                     cluster_values[target].setdefault(axis, seed_values[axis])
 
     for enriched in sorted(listings, key=_completeness):
-        values = variant_values(category, enriched)
+        values = _known_values(category, enriched)
         candidates = [
             index for index, known in enumerate(cluster_values)
             if not _conflicts(known, values)
@@ -805,7 +892,40 @@ def sku_part_number_key(vendor_sku, listing: dict | None = None) -> str | None:
     return key
 
 
-def part_number_class(value, listing: dict | None = None) -> str | None:
+# TMS's own CPU codes (C245KT, C14600KT): 1PC copies them verbatim, so two
+# vendors printing one is not two independent sources.
+_TMS_CPU_CODE_RE = re.compile(r"^C\d{3,}[A-Z]{0,7}$")
+
+
+def shared_part_numbers(listings: Iterable[dict]) -> dict[str, frozenset[str]]:
+    """Per category, the part-number keys two or more vendors print as ``mpn``.
+
+    A retailer's catalogue code is its own bookkeeping; another retailer does
+    not print it. So a code that several vendors print is the maker's, even
+    when one of them also uses it as its own SKU (TMS and 1PC publish the
+    maker's part number as their SKU) or it is short ("O11VPW"). Retailer
+    shapes stay retailer codes. Works on listings and on offers alike.
+    """
+    vendors: dict[tuple[str, str], set] = {}
+    for listing in listings:
+        category = str(listing.get("category_normalized") or "")
+        mpn = listing.get("mpn")
+        if category not in IDENTITY_CATEGORIES or mpn in _EMPTY:
+            continue
+        vendors.setdefault((category, part_number_key(mpn)), set()).add(
+            listing.get("vendor_id"))
+    shared: dict[str, set[str]] = {}
+    for (category, key), seen in vendors.items():
+        if (len(seen) >= 2 and len(key) >= 4
+                and re.search(r"[A-Z]", key) and re.search(r"\d", key)
+                and not any(pattern.match(key) for pattern in _VENDOR_CODE_RES)
+                and not _TMS_CPU_CODE_RE.match(key)):
+            shared.setdefault(category, set()).add(key)
+    return {category: frozenset(keys) for category, keys in shared.items()}
+
+
+def part_number_class(value, listing: dict | None = None,
+                      shared: Collection[str] = ()) -> str | None:
     """``"manufacturer"``, ``"vendor"``, or None when there is no value.
 
     A *manufacturer* part number is the maker's own code and is identity
@@ -813,7 +933,17 @@ def part_number_class(value, listing: dict | None = None) -> str | None:
     about the part. The distinction matters: two different manufacturer part
     numbers mean two variants of one model (do not merge), while two retailer
     codes are just two shops' bookkeeping (merge on the model code).
+
+    `shared` is this category's set from `shared_part_numbers`: a code read
+    as a retailer's by its shape alone is the maker's when it is in there.
     """
+    cls = _part_number_shape_class(value, listing)
+    if cls == "vendor" and shared and part_number_key(value) in shared:
+        return "manufacturer"
+    return cls
+
+
+def _part_number_shape_class(value, listing: dict | None) -> str | None:
     if value in _EMPTY:
         return None
     printed = _text(value)
@@ -850,7 +980,8 @@ def part_number_class(value, listing: dict | None = None) -> str | None:
     return "vendor"
 
 
-def part_number_subgroups(group: list[dict]) -> list[list[dict]]:
+def part_number_subgroups(group: list[dict],
+                          shared: Collection[str] = ()) -> list[list[dict]]:
     """Split a group that carries two *different* manufacturer part numbers.
 
     Same manufacturer PN (in any spelling) is the strongest identity
@@ -858,7 +989,8 @@ def part_number_subgroups(group: list[dict]) -> list[list[dict]]:
     mean two variants of the model (G.Skill's RGB ``...TZ5RK`` vs the
     non-RGB ``...TZ5RS``), so they must stay apart. Listings without a
     manufacturer PN cannot contradict anything and ride with the largest
-    cluster (deterministic; ties resolve lexicographically).
+    cluster (deterministic; ties resolve lexicographically). `shared` is
+    passed through to `part_number_class`.
     """
     if len(group) < 2:
         return [list(group)]
@@ -867,7 +999,7 @@ def part_number_subgroups(group: list[dict]) -> list[list[dict]]:
     unclassified: list[dict] = []
     for enriched in group:
         mpn = enriched.get("mpn")
-        if part_number_class(mpn, enriched) == "manufacturer":
+        if part_number_class(mpn, enriched, shared) == "manufacturer":
             clusters.setdefault(part_number_key(mpn), []).append(enriched)
         else:
             unclassified.append(enriched)

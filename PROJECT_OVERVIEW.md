@@ -299,8 +299,9 @@ A product is one physical SKU: a category, a canonical model code, and the varia
 
 In order:
 
-1. Manual merges win. A committed ledger maps known listing keys to a chosen product. Blocked pairs veto merging at every tier.
-2. Identity. Listings with the same category, model code and compatible variant axes form one product; a known-but-different axis value splits, and two different manufacturer part numbers mean two variants. Every subgroup gets a product, including one-listing subgroups, so nothing falls through to a vendor-specific identifier. This tier places the large majority of listings.
+0. Part-number repairs. A listing with no part number, or only a barcode, takes the one manufacturer part number its title prints when another vendor already carries it; Gigabyte's split part numbers get their memory-size tail back; a colour word glued onto a maker's part number is dropped when the colours agree. A code that two or more vendors print counts as the maker's part number whatever its shape.
+1. Manual merges win. A committed ledger maps known listing keys to a chosen product. Blocked pairs veto merging at every tier. A listing printing the exact part number of a curated product joins it (unless it is a processor with the other packaging label, which is flagged instead).
+2. Identity. Listings with the same category, model code and compatible variant axes form one product; a known-but-different axis value splits (two vendors' spellings of one value, such as a two-tone colour in either order, compare equal), and two different manufacturer part numbers mean two variants. Every subgroup gets a product, including one-listing subgroups, so nothing falls through to a vendor-specific identifier. This tier places the large majority of listings.
 3. Exact manufacturer number, then exact normalized vendor identifier, for listings the identity tier could not place, then cross-key unification between the two.
 4. Conflict guards. Differing manufacturer numbers plus a critical spec conflict split a group even when vendor identifiers agree.
 5. Identity reconciliation. A product found by part number and a product found by model code that describe one part fold into the model-code product; when the evidence disagrees both stay and the pair is published as a split candidate.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T21:49:08.396655+00:00",
+  "generated_at": "2026-11-09T22:13:04.288166+00:00",
   "gaps": [
     {
       "category": "case",
@@ -106,9 +106,9 @@
       "label": "מידות משאבה",
       "count": 27,
       "products": [
-        "model:aio:240-34-a-freezer-liquid-240mm-white",
-        "model:aio:240-39-39-a24-alpha2-se-240mm-black",
-        "model:aio:240-39-39-a24-alpha2-se-240mm-white"
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
+        "model:aio:240-a-freezer-liquid-240mm-white"
       ]
     },
     {
@@ -787,8 +787,8 @@
       "count": 13,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:12700f-tray",
-        "model:cpu:245k-tray"
+        "model:cpu:245k-tray",
+        "model:cpu:245kf-tray"
       ]
     },
     {
@@ -1747,8 +1747,8 @@
       "count": 7,
       "products": [
         "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey",
-        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white",
-        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white"
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white"
       ]
     },
     {
@@ -2028,7 +2028,7 @@
       "products": [
         "model:storage:1tcs-710-710-aleg-legend-1000gb-pciegen3x4",
         "model:storage:1tcs-960-960-aleg-legend-1000gb-pciegen4x4-m22280",
-        "model:storage:2-4096gb-4t-4tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-4000gb-pciegen4x4-m22280"
+        "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -2106,9 +2106,9 @@
       "label": "סוג קירור",
       "count": 5,
       "products": [
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
         "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white",
-        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white",
-        "model:memory:2x32gb-6000-cl30-cras-v-64gb-x2-6000mhz-cl30-rgb-black"
+        "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white"
       ]
     },
     {
@@ -2228,7 +2228,7 @@
       "products": [
         "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
         "model:storage:1t-agammixs70b-blade-cs-gammix-s70-1000gb-pciegen4x4",
-        "model:storage:2-4096gb-4t-4tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-4000gb-pciegen4x4-m22280"
+        "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -2336,7 +2336,7 @@
       "label": "רמקולים",
       "count": 4,
       "products": [
-        "model:case:216-lancool-black",
+        "model:case:216-lancool-black-2",
         "model:case:2500x-black",
         "model:case:3x120mm-fans-flow-h6-included-mid-tower-white"
       ]
@@ -3857,7 +3857,7 @@
       "products": [
         "model:storage:512gcs-710-710-aleg-legend-512gb-pciegen3x4-m22280",
         "model:storage:lns100-1000gb-sata-25",
-        "model:storage:pm883-960gb-serialataiii-25"
+        "model:storage:pm883-960gb-sata-25"
       ]
     },
     {
@@ -5348,6 +5348,24 @@
     },
     {
       "category": "storage",
+      "label": "זכרון מטמון - CASH MEMORY",
+      "count": 2,
+      "products": [
+        "model:storage:24-7-nas-purple-wd-12000gb-sata-35",
+        "model:storage:purple-wd-10000gb-sata-35"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Recording Technology",
+      "count": 2,
+      "products": [
+        "model:storage:24-7-nas-purple-wd-12000gb-sata-35",
+        "model:storage:purple-wd-10000gb-sata-35"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "טמפרטורת הפעלה",
       "count": 2,
       "products": [
@@ -5451,7 +5469,7 @@
       "count": 2,
       "products": [
         "model:storage:lns100-1000gb-sata-25",
-        "model:storage:pm883-960gb-serialataiii-25"
+        "model:storage:pm883-960gb-sata-25"
       ]
     },
     {
@@ -5460,7 +5478,7 @@
       "count": 2,
       "products": [
         "model:storage:m461-spatium-1000gb-pciexpress40",
-        "model:storage:pm883-960gb-serialataiii-25"
+        "model:storage:pm883-960gb-sata-25"
       ]
     },
     {
@@ -5470,24 +5488,6 @@
       "products": [
         "model:storage:m461-spatium-1000gb-pciexpress40",
         "model:storage:sa53p-3840gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "זכרון מטמון - CASH MEMORY",
-      "count": 2,
-      "products": [
-        "model:storage:pro-purple-wd-wd102purp-10000gb-sata-35",
-        "model:storage:pro-purple-wd-wd122purp-12000gb-sata-35"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Recording Technology",
-      "count": 2,
-      "products": [
-        "model:storage:pro-purple-wd-wd102purp-10000gb-sata-35",
-        "model:storage:pro-purple-wd-wd122purp-12000gb-sata-35"
       ]
     },
     {
@@ -6144,7 +6144,7 @@
       "label": "ממשק",
       "count": 1,
       "products": [
-        "model:cooler_air:b60-bk-cooler-cpu-dig-v2-160mm-120mm-black"
+        "model:cooler_air:b60-bk-cooler-cpu-dig-v2-160mm-120mm"
       ]
     },
     {
@@ -9296,7 +9296,7 @@
       "label": "לחות באחסון",
       "count": 1,
       "products": [
-        "model:storage:pm883-960gb-serialataiii-25"
+        "model:storage:pm883-960gb-sata-25"
       ]
     },
     {
@@ -9304,7 +9304,7 @@
       "label": "לחות בעבודה",
       "count": 1,
       "products": [
-        "model:storage:pm883-960gb-serialataiii-25"
+        "model:storage:pm883-960gb-sata-25"
       ]
     },
     {
@@ -9312,7 +9312,7 @@
       "label": "קצב העברת נתונים",
       "count": 1,
       "products": [
-        "model:storage:pm883-960gb-serialataiii-25"
+        "model:storage:pm883-960gb-sata-25"
       ]
     },
     {
