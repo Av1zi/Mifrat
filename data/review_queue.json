@@ -6237,6 +6237,26 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:aio:360-ts4-360mm-white",
+    "category": "aio",
+    "vendor": "tms",
+    "offers": [
+      {
+        "listing_key": "tms:TS4-360-BK",
+        "vendor_sku": "TS4-360-BK",
+        "title": "קירור נוזלי למעבד 1StPlayer TS4 360",
+        "price": 264
+      },
+      {
+        "listing_key": "tms:TS4-360-WH",
+        "vendor_sku": "TS4-360-WH",
+        "title": "קירור נוזלי למעבד 1StPlayer TS4 360 White",
+        "price": 274
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:aio:360-ultra-360mm-white",
     "category": "aio",
     "vendor": "tms",
@@ -6742,16 +6762,16 @@
     "vendor": "tms",
     "offers": [
       {
+        "listing_key": "tms:CC-9011296-WW",
+        "vendor_sku": "CC-9011296-WW",
+        "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
+        "price": 415
+      },
+      {
         "listing_key": "tms:CC-9011312-WW",
         "vendor_sku": "CC-9011312-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS Modular צבע שחור",
         "price": 436
-      },
-      {
-        "listing_key": "tms:CC-9011296-WW",
-        "vendor_sku": "CC-9011296-WW",
-        "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
-        "price": 474
       }
     ]
   },
@@ -6788,16 +6808,16 @@
     "vendor": "tms",
     "offers": [
       {
+        "listing_key": "tms:CC-9011297-WW",
+        "vendor_sku": "CC-9011297-WW",
+        "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
+        "price": 427
+      },
+      {
         "listing_key": "tms:CC-9011313-WW",
         "vendor_sku": "CC-9011313-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS Modular White צבע לבן",
         "price": 436
-      },
-      {
-        "listing_key": "tms:CC-9011297-WW",
-        "vendor_sku": "CC-9011297-WW",
-        "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
-        "price": 488
       }
     ]
   },
@@ -8781,6 +8801,26 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:psu:1-850-atx3-full-gsk-modular-v2-850w-full-white",
+    "category": "psu",
+    "vendor": "tms",
+    "offers": [
+      {
+        "listing_key": "tms:GSK850V2",
+        "vendor_sku": "GSK850V2",
+        "title": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular",
+        "price": 426
+      },
+      {
+        "listing_key": "tms:GSK850V2-W",
+        "vendor_sku": "GSK850V2-W",
+        "title": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White",
+        "price": 444
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:psu:10cm-fan-fully-modular-sf850-sfx-850w-full-black",
     "category": "psu",
     "vendor": "ksp",
@@ -9460,6 +9500,29 @@
         "vendor_sku": "BW013",
         "title": "be quiet! Pure Loop 2 FX 240mm",
         "price": 546
+      }
+    ],
+    "model_code": "2-fx-loop-pure"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "aio",
+    "product_id": "model:aio:2-fx-loop-pure-360mm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:BW015",
+        "vendor": "tms",
+        "vendor_sku": "BW015",
+        "title": "be quiet! Pure Loop 2 FX 360mm",
+        "price": 667
+      },
+      {
+        "listing_key": "yahav:8834",
+        "vendor": "yahav",
+        "vendor_sku": "BW015",
+        "title": "קירור נוזלי למעבד חברת Be Quiet דגם Pure Loop 2 FX 360MM ARGB 2500RPM",
+        "price": 750
       }
     ],
     "model_code": "2-fx-loop-pure"
@@ -10174,7 +10237,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9061018-WW",
         "title": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
-        "price": 843
+        "price": 745
       },
       {
         "listing_key": "yahav:10587",
@@ -10211,7 +10274,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9061021-WW",
         "title": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
-        "price": 867
+        "price": 753
       },
       {
         "listing_key": "yahav:10586",
@@ -10515,7 +10578,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9061023-WW",
         "title": "Corsair iCUE LINK TITAN 360 RX LCD AIO Liquid CPU Cooler",
-        "price": 1165
+        "price": 1042
       },
       {
         "listing_key": "yahav:10341",
@@ -10559,7 +10622,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9061026-WW",
         "title": "Corsair iCUE LINK TITAN 360 RX LCD AIO Liquid CPU Cooler White",
-        "price": 997
+        "price": 896
       },
       {
         "listing_key": "yahav:10342",
@@ -10767,7 +10830,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060093-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB",
-        "price": 591
+        "price": 509
       },
       {
         "listing_key": "yahav:10404",
@@ -10811,7 +10874,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060095-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB White",
-        "price": 596
+        "price": 509
       },
       {
         "listing_key": "yahav:10405",
@@ -13901,7 +13964,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011322-WW",
         "title": "מארז מחשב Corsair 3500X RS-R ARGB",
-        "price": 513
+        "price": 432
       },
       {
         "listing_key": "yahav:11608",
@@ -13938,7 +14001,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011323-WW",
         "title": "מארז מחשב Corsair 3500X RS-R ARGB White",
-        "price": 513
+        "price": 432
       }
     ],
     "model_code": "3500x-r-rs"
@@ -13961,7 +14024,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-012",
         "title": "מארז מחשב HAVN BF 360 Flow White",
-        "price": 889
+        "price": 756
       }
     ],
     "model_code": "360-bf-flow"
@@ -14291,7 +14354,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011326-WW",
         "title": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - Black",
-        "price": 1323
+        "price": 1140
       },
       {
         "listing_key": "yahav:11482",
@@ -14335,7 +14398,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011327-WW",
         "title": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB Premium - White",
-        "price": 1323
+        "price": 1140
       },
       {
         "listing_key": "yahav:11483",
@@ -14372,7 +14435,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011296-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
-        "price": 474
+        "price": 415
       },
       {
         "listing_key": "yahav:10543",
@@ -14423,7 +14486,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011297-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
-        "price": 488
+        "price": 427
       },
       {
         "listing_key": "yahav:10545",
@@ -14504,7 +14567,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-005",
         "title": "מארז מחשב HAVN HS 420 Base Edition White",
-        "price": 957
+        "price": 813
       },
       {
         "listing_key": "yahav:10640",
@@ -14534,7 +14597,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-006",
         "title": "מארז מחשב HAVN HS 420 Base Edition",
-        "price": 957
+        "price": 813
       },
       {
         "listing_key": "yahav:10641",
@@ -14564,7 +14627,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-007",
         "title": "מארז מחשב HAVN HS 420 VGPU Edition White",
-        "price": 1311
+        "price": 1114
       },
       {
         "listing_key": "yahav:10642",
@@ -14594,7 +14657,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-CH-HVN-008",
         "title": "מארז מחשב HAVN HS 420 VGPU Edition",
-        "price": 1311
+        "price": 1114
       },
       {
         "listing_key": "yahav:10643",
@@ -14677,7 +14740,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011314-WW",
         "title": "מארז מחשב Corsair FRAME 4500X RS ARGB",
-        "price": 731
+        "price": 570
       },
       {
         "listing_key": "yahav:10898",
@@ -14714,7 +14777,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011315-WW",
         "title": "מארז מחשב Corsair FRAME 4500X RS ARGB White",
-        "price": 731
+        "price": 570
       },
       {
         "listing_key": "yahav:10899",
@@ -24015,7 +24078,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-015",
         "title": "HAVN H12 White 120mm Fan",
-        "price": 66
+        "price": 56
       }
     ],
     "model_code": "fan-h12"
@@ -24038,7 +24101,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-017",
         "title": "HAVN H14 White 140mm Fan",
-        "price": 76
+        "price": 65
       }
     ],
     "model_code": "fan-h14"
@@ -24061,7 +24124,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-018",
         "title": "HAVN H14 Black 140mm Fan",
-        "price": 76
+        "price": 65
       }
     ],
     "model_code": "fan-h14"
@@ -24198,6 +24261,66 @@
   {
     "kind": "identity_merge",
     "category": "case_fan",
+    "product_id": "model:case_fan:fan-pwm-rs120-120mm-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172719",
+        "vendor": "1pc",
+        "vendor_sku": "CO-9050180-WW",
+        "title": "מאוורר Corsair RS120 ARGB PWM 120mm בצבע שחור",
+        "price": 138
+      },
+      {
+        "listing_key": "tms:CO-9050180-WW",
+        "vendor": "tms",
+        "vendor_sku": "CO-9050180-WW",
+        "title": "Corsair RS120 ARGB PWM 120mm Fan",
+        "price": 49
+      },
+      {
+        "listing_key": "yahav:10105",
+        "vendor": "yahav",
+        "vendor_sku": "CO-9050180-WW",
+        "title": "מאוורר חברת Corsair דגם RS120 RGB LED with PWM support 120MM - צבע שחור",
+        "price": 85
+      }
+    ],
+    "model_code": "fan-pwm-rs120"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-pwm-rs120-120mm-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172718",
+        "vendor": "1pc",
+        "vendor_sku": "CO-9050184-WW",
+        "title": "מאוורר Corsair RS120 ARGB PWM 120mm בצבע לבן",
+        "price": 133
+      },
+      {
+        "listing_key": "tms:CO-9050184-WW",
+        "vendor": "tms",
+        "vendor_sku": "CO-9050184-WW",
+        "title": "Corsair RS120 ARGB PWM 120mm Fan White",
+        "price": 45
+      },
+      {
+        "listing_key": "yahav:10103",
+        "vendor": "yahav",
+        "vendor_sku": "CO-9050184-WW",
+        "title": "מאוורר חברת Corsair דגם RS120 RGB LED with PWM support White 120MM - צבע לבן",
+        "price": 85
+      }
+    ],
+    "model_code": "fan-pwm-rs120"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case_fan",
     "product_id": "model:case_fan:fan-pwm-rs140-140mm-rgb-black",
     "vendor": "",
     "offers": [
@@ -24303,7 +24426,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-022",
         "title": "HAVN H12 White Triple Pack 120mm x3 Fans",
-        "price": 168
+        "price": 143
       }
     ],
     "model_code": "fans-h12-triple-x3"
@@ -24326,7 +24449,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-024",
         "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
-        "price": 189
+        "price": 161
       }
     ],
     "model_code": "fans-h14-triple-x3"
@@ -24737,59 +24860,6 @@
       }
     ],
     "model_code": "led-ml140-pro-pwm"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case_fan",
-    "product_id": "model:case_fan:led-pwm-rs120-support-120mm-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172719",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050180-WW",
-        "title": "מאוורר Corsair RS120 ARGB PWM 120mm בצבע שחור",
-        "price": 138
-      },
-      {
-        "listing_key": "tms:CO-9050180-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050180-WW",
-        "title": "Corsair RS120 ARGB PWM 120mm Fan",
-        "price": 69
-      },
-      {
-        "listing_key": "yahav:10105",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050180-WW",
-        "title": "מאוורר חברת Corsair דגם RS120 RGB LED with PWM support 120MM - צבע שחור",
-        "price": 85
-      }
-    ],
-    "model_code": "led-pwm-rs120-support"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case_fan",
-    "product_id": "model:case_fan:led-pwm-rs120-support-120mm-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172718",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050184-WW",
-        "title": "מאוורר Corsair RS120 ARGB PWM 120mm בצבע לבן",
-        "price": 133
-      },
-      {
-        "listing_key": "yahav:10103",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050184-WW",
-        "title": "מאוורר חברת Corsair דגם RS120 RGB LED with PWM support White 120MM - צבע לבן",
-        "price": 85
-      }
-    ],
-    "model_code": "led-pwm-rs120-support"
   },
   {
     "kind": "identity_merge",
@@ -32022,7 +32092,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOG432GB3200C16BDC",
         "title": "GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION Edition Gray",
-        "price": 1093
+        "price": 1064
       },
       {
         "listing_key": "1pc:222245",
@@ -32048,7 +32118,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG432GB3200C16BDC",
         "title": "GEIL DDR4 32GB (2x16GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 1114
+        "price": 1093
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -37021,7 +37091,7 @@
         "vendor": "tms",
         "vendor_sku": "CP-9020292-EU",
         "title": "ספק כוח Corsair RM750e 750W ATX 3.1 Gold Fully Modular White",
-        "price": 558
+        "price": 529
       },
       {
         "listing_key": "yahav:10904",
@@ -37058,7 +37128,7 @@
         "vendor": "tms",
         "vendor_sku": "CP-9020295-EU",
         "title": "ספק כוח Corsair RM750e 750W ATX 3.1 Gold Modular",
-        "price": 566
+        "price": 537
       },
       {
         "listing_key": "yahav:10515",
@@ -37088,7 +37158,7 @@
         "vendor": "tms",
         "vendor_sku": "CP-9020293-EU",
         "title": "ספק כוח Corsair RM850e 850W ATX 3.1 Gold Fully Modular White",
-        "price": 625
+        "price": 590
       },
       {
         "listing_key": "yahav:10905",
@@ -37192,7 +37262,7 @@
         "vendor": "tms",
         "vendor_sku": "CP-9020296-EU",
         "title": "ספק כוח Corsair RM850e 850W ATX 3.1 Gold Modular",
-        "price": 598
+        "price": 570
       }
     ],
     "model_code": "1-3-modular-rm850e"
@@ -39310,7 +39380,7 @@
         "vendor": "tms",
         "vendor_sku": "CP-9020294-EU",
         "title": "ספק כוח Corsair RM1000e 1000W ATX 3.1 Gold Fully Modular White",
-        "price": 762
+        "price": 708
       },
       {
         "listing_key": "yahav:10902",
@@ -39347,7 +39417,7 @@
         "vendor": "tms",
         "vendor_sku": "CP-9020297-EU",
         "title": "ספק כוח Corsair RM1000e 1000W ATX 3.1 Gold Modular",
-        "price": 712
+        "price": 668
       },
       {
         "listing_key": "yahav:10518",
