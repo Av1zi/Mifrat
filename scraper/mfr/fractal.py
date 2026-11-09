@@ -127,10 +127,6 @@ def _records(page: str) -> tuple[dict, dict]:
     return {}, {}
 
 
-def _variant(page: str) -> dict:
-    return _records(page)[1]
-
-
 def _value(raw):
     """A PIM scalar, or None for the payload's empty markers."""
     if raw in (None, "", "$undefined", [], {}):

@@ -32,10 +32,6 @@ DEFAULT_REQUEST_HEADERS = {
     "Upgrade-Insecure-Requests": "1",
 }
 
-ITEM_PIPELINES = {
-    # "scraper.pipelines.ValidationPipeline": 100,
-}
-
 # --- scrapy-playwright (required for Plonter) ---
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",

@@ -57,7 +57,6 @@ import json
 import os
 import re
 import sys
-import unicodedata
 from collections import Counter
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
@@ -98,13 +97,6 @@ CATALOG_MAX_AGE_DAYS = 3
 # --------------------------------------------------------------------------
 # Normalization
 # --------------------------------------------------------------------------
-
-
-def _fold(value: object) -> str:
-    """Unicode NFKD, ASCII-fold, lowercase, collapse punctuation to spaces."""
-    text = unicodedata.normalize("NFKD", str(value or ""))
-    text = text.encode("ascii", "ignore").decode("ascii")
-    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
 
 
 def part_key(value: object) -> str:

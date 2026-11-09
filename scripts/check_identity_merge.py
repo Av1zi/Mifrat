@@ -47,17 +47,6 @@ def fail(message: str) -> None:
     FAILURES.append(message)
 
 
-def _offers_by_listing_key(products: list[dict]) -> dict[str, dict]:
-    """listing_key -> the offer, which keeps the identity-bearing fields."""
-    out: dict[str, dict] = {}
-    for product in products:
-        for offer in product.get("offers") or []:
-            key = offer.get("listing_key")
-            if key:
-                out[key] = offer
-    return out
-
-
 def check_i1(catalog: dict) -> int:
     """No product mixes two codes that no evidence ties together.
 
@@ -263,7 +252,6 @@ def check_i3_catalog(catalog: dict) -> int:
         if product.get("category") == "cpu":
             family_products[str(product.get("product_id")).split("-tray")[0]].append(
                 product)
-    pid_meta = {p["product_id"]: p for p in catalog.get("products") or []}
     for product in catalog.get("products") or []:
         if product.get("category") != "cpu":
             continue

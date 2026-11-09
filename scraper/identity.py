@@ -330,7 +330,6 @@ def _brand_tokens(listing: dict) -> set[str]:
 
 def _model_code_from(listing: dict, raw) -> str | None:
     """Reduce one candidate model text to a stable code, or None."""
-    attrs = listing.get("attributes") or {}
     text = _TRADEMARK_RE.sub(" ", _text(raw))
     text = re.sub(r"[\u0590-\u05FF]+", " ", text)
     if not text:

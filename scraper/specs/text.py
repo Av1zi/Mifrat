@@ -92,15 +92,6 @@ FORM_FACTOR_PATTERNS = [
     (re.compile(r"\bATX\b", re.I), "ATX"),
 ]
 
-CASE_FORM_FACTOR_PATTERNS = [
-    (re.compile(r"\bATX\s+FULL\s+TOWER\b", re.I), "ATX Full Tower"),
-    (re.compile(r"\bATX\s+MID\s+TOWER\b", re.I), "ATX Mid Tower"),
-    (re.compile(r"\bMICRO\s?ATX\s+MINI\s+TOWER\b", re.I), "MicroATX Mini Tower"),
-    (re.compile(r"\bMICRO\s?ATX\s+MID\s+TOWER\b", re.I), "MicroATX Mid Tower"),
-    (re.compile(r"\bMINI\s?ITX\s+DESKTOP\b", re.I), "Mini ITX Desktop"),
-    (re.compile(r"\bMINI\s?ITX\s+TOWER\b", re.I), "Mini ITX Tower"),
-]
-
 LAN_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?G\s?LAN\b", re.I)
 LAN_BASE_T_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s?Gb/s\s?BASE-T\b", re.I)
 SLOTS_RE = re.compile(r"\b(\d{1,2})\s?X\s?DDR[345]\b", re.I)
@@ -110,8 +101,6 @@ M2_SLOTS_RE = re.compile(r"\b(\d+)\s?X\s?M\.?2\b", re.I)
 SATA_PORTS_RE = re.compile(r"\b(\d+)\s?X\s?SATA\b", re.I)
 PCIE_X16_RE = re.compile(r"\b(\d{1,2})\s?X\s?PCIE\s?(?:GEN\d\s?)?X?16\b", re.I)
 PCIE_X1_RE = re.compile(r"\b(\d)\s?X\s?PCIE\s?X?1\b", re.I)
-REVISION_RE = re.compile(r"\bREV\.?\s?(\d+(?:\.\d+)?)\b", re.I)
-V_REVISION_RE = re.compile(r"\b[Vv](\d+)\b")
 
 
 # --------------------------------------------------------------------------
@@ -179,9 +168,6 @@ BOOST_CLOCK_RE = re.compile(r"\bBOOST\s*[:\\-]?\s*(\d[\s,]\d{3}|\d{3,4})\s?MHZ\b
 TDP_RE = re.compile(r"\b(\d{2,4})\s?W\b")
 LENGTH_MM_RE = re.compile(r"\b(\d{2,3})\s?MM\b", re.I)
 PCIE_INTERFACE_RE = re.compile(r"PCI\s*E?\s*([345]\.0)?\s*X\s*16", re.I)
-PCIE_GEN_INTERFACE_RE = re.compile(r"\bPCIE\s?([345])\.0\b", re.I)
-GPU_POWER_8PIN_RE = re.compile(r"\b(\d{1,2})\s?X\s?8[\s-]?PIN\b", re.I)
-GPU_POWER_16PIN_RE = re.compile(r"\b(\d?)\s?X?\s?12V-?2X6\b|\b12VHPWR\b", re.I)
 
 # --------------------------------------------------------------------------
 # PSU
@@ -190,7 +176,6 @@ GPU_POWER_16PIN_RE = re.compile(r"\b(\d?)\s?X?\s?12V-?2X6\b|\b12VHPWR\b", re.I)
 WATT_RE = re.compile(r"\b(\d{3,4})\s?W\b")
 WATT_PSU_FALLBACK_RE = re.compile(r"\b(\d{3,4})P\b")  # e.g. Ai1300P without W
 EFF_RE = re.compile(r"80\s?PLUS\s?(TITANIUM|PLATINUM|GOLD|SILVER|BRONZE|WHITE)", re.I)
-CYBENETICS_RE = re.compile(r"CYBENETICS\s*(TITANIUM|PLATINUM|GOLD|SILVER|BRONZE)", re.I)
 MOD_RE = re.compile(
     r"\b(FULL(?:Y)?[\s-]?MODULAR|SEMI[\s-]?MODULAR|NON[\s-]?MODULAR|MODULAR)\b", re.I
 )
@@ -203,7 +188,6 @@ HE_MODULAR = (
     (re.compile(r"מודולרי\s*(?:מלא|לחלוטין)"), "full"),
 )
 FANLESS_RE = re.compile(r"\bFANLESS\b", re.I)
-PSU_TYPE_RE = re.compile(r"\b(SFX-L|SFX|TFX|FLEX\s?ATX|ATX)\b", re.I)
 
 # --------------------------------------------------------------------------
 # Memory
@@ -214,12 +198,10 @@ KIT_ALT_RE = re.compile(r"\b(\d)\s?[Xx×]\s?(\d{1,3})\s?GB\b")
 SPEED_RE = re.compile(r"\b(\d{3,4})\s?(?:MHZ|MT/S)\b", re.I)
 SPEED_DDR_RE = re.compile(r"\bDDR[345]L?[-\s]?(\d{3,4})\b", re.I)
 CL_RE = re.compile(r"\bCL\s?(\d{1,2})\b", re.I)
-CAS_RE = re.compile(r"\bC(\d{1,2})\b")
 VOLTAGE_RE = re.compile(r"\b(\d+\.\d+)\s?V\b", re.I)
 ECC_RE = re.compile(r"\bECC\b", re.I)
 REGISTERED_RE = re.compile(r"\b(REG|REGISTERED)\b", re.I)
 HEAT_SPREADER_RE = re.compile(r"\b(HEAT\s?SPREADER|HEATSINK)\b", re.I)
-LIGHTING_RE = re.compile(r"\b(ARGB|ADDRESSABLE\s?RGB|RGB|LED)\b", re.I)
 
 # --------------------------------------------------------------------------
 # Storage
@@ -230,7 +212,6 @@ STORAGE_TYPE_RE = re.compile(r"\b(SSD|HDD|SSHD|NVME)\b", re.I)
 FORM_FACTOR_STORAGE_RE = re.compile(
     r"\b(2\.5[\"'\u2019]*|3\.5[\"'\u2019]*|M\.2\s*22\d{2}|M\.2|U\.2)\b", re.I
 )
-INTERFACE_RE = re.compile(r"\b(SATA|NVME|PCIE|SAS)\b", re.I)
 # "PCIe Gen4", "PCIe 4.0", "PCIe4" and a bare "Gen4" next to NVMe all name
 # the drive's PCIe generation (USB "Gen2x2" is 2, never matched here).
 PCIE_GEN_RE = re.compile(
@@ -284,13 +265,6 @@ def form_factor(text: str) -> str | None:
     return None
 
 
-def case_form_factor(text: str) -> str | None:
-    for pattern, label in CASE_FORM_FACTOR_PATTERNS:
-        if pattern.search(text):
-            return label
-    return form_factor(text)
-
-
 def wifi(text: str) -> tuple[bool | None, str | None]:
     match = WIFI_STD_RE.search(text)
     if match:
@@ -303,30 +277,3 @@ def wifi(text: str) -> tuple[bool | None, str | None]:
 def ddr(text: str) -> str | None:
     match = DDR_RE.search(text)
     return f"DDR{match.group(1).upper()}" if match else None
-
-
-def capacity_gb(text: str) -> int | None:
-    """'1TB' / '500 GB' -> integer GB (TB counts as 1000, like the vendors)."""
-    match = CAPACITY_RE.search(text)
-    if not match:
-        return None
-    value = float(match.group(1))
-    gb = int(value * 1000) if match.group(2).upper() == "TB" else int(value)
-    return gb if 1 <= gb <= 30000 else None
-
-
-def revision(text: str) -> str | None:
-    match = re.search(r"\b[Rr](\d+)\b", text)
-    if match:
-        return f"R{match.group(1)}"
-    match = V_REVISION_RE.search(text)
-    if match:
-        return f"V{match.group(1)}"
-    match = REVISION_RE.search(text)
-    if match:
-        return f"REV{match.group(1)}"
-    if re.search(r"\bIII\b", text):
-        return "V3"
-    if re.search(r"\bII\b", text):
-        return "V2"
-    return None

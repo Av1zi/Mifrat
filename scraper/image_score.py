@@ -104,14 +104,6 @@ UPGRADE_EDGE = 600
 # 450-500px), so re-downloading would be a no-op with a network cost.
 TILE_EDGE = 300
 
-# How much better a derived URL's shape must look before download_images
-# re-fetches over an existing file. 4.0 is deliberately a big gap: it is
-# cleared by a cache tile (-228x228, score ~2) to its vendor original
-# (score ~13) and by nothing smaller. In particular 1PC's "_510 ->
-# unsuffixed" sidegrade scores the same on both sides and is ignored —
-# re-downloading it would replace a 510px file with a 496px one.
-UPGRADE_GAP = 4.0
-
 _priority_cache: dict | None = None
 _blocklist_cache: list | None = None
 

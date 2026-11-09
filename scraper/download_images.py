@@ -11,7 +11,6 @@ Usage:
     python -m scraper.download_images --from-catalog [--limit 200]
     python -m scraper.download_images --prune [--apply]      # dry run default
     python -m scraper.download_images --refetch-alpha [--dry-run] [--vendor v]
-    python -m scraper.download_images --convert-local        # jpg -> webp
 
 Saves to data/images/<vendor>/<vendor_sku>.webp: long edge at most 640px,
 WebP quality 76 (~12-15KB). Sources with an alpha channel (Ivory/1PC webp,
@@ -61,7 +60,6 @@ MAX_DIMENSION = 640
 WEBP_QUALITY = 76
 WEBP_METHOD = 6
 COVER_EXT = ".webp"
-LEGACY_EXT = ".jpg"
 # Over-size budget (median cover is ~18KB, p99 ~50KB). encode_cover steps
 # the quality down for the rare busy photo that would exceed it, and
 # scripts/check_image_files.py enforces it.
@@ -179,12 +177,6 @@ def encode_cover(img: Image.Image, dest_path: Path) -> None:
     dest_path.write_bytes(buf.getvalue())
 
 
-def _legacy_sibling(dest_path: Path) -> Path:
-    """The pre-WebP `.jpg` twin of a cover path. Built by name, not with
-    with_suffix(): SKUs such as "ABC.1" would lose their ".1"."""
-    return dest_path.with_name(dest_path.name[: -len(COVER_EXT)] + LEGACY_EXT)
-
-
 def download_and_save(image_url: str, dest_path: Path) -> bool:
     """Returns True on success. Never raises — a failed image download
     should not block the rest of the batch; log and move on.
@@ -203,9 +195,6 @@ def download_and_save(image_url: str, dest_path: Path) -> bool:
         with Image.open(BytesIO(resp.content)) as img:
             LAST_HAD_ALPHA = _has_alpha(img)
             encode_cover(img, dest_path)
-        legacy = _legacy_sibling(dest_path)
-        if legacy.is_file():
-            legacy.unlink()  # superseded by the WebP cover
         return True
     except Exception as exc:
         try:
@@ -842,46 +831,6 @@ def _prune(apply: bool = False) -> None:
     print(f"[prune] deleted {len(to_delete)} files; ledger {len(ledger)} -> {len(pruned_ledger)}")
 
 
-def _convert_one(path_str: str) -> tuple[str, str]:
-    path = Path(path_str)
-    dest = path.with_name(path.name[: -len(LEGACY_EXT)] + COVER_EXT)
-    try:
-        if not dest.is_file():
-            with Image.open(path) as img:
-                encode_cover(img, dest)
-        path.unlink()
-        return path_str, "ok"
-    except Exception as exc:
-        return path_str, f"FAILED: {exc}"
-
-
-def _convert_local(workers: int = 0) -> None:
-    """Re-encode legacy .jpg covers (not thumbs/) as 640px WebP, no network."""
-    from concurrent.futures import ProcessPoolExecutor
-    import os
-
-    base = Path("data/images")
-    files = [str(p) for _v, p in _iter_image_files(base)
-             if p.suffix.lower() == LEGACY_EXT and "thumbs" not in p.relative_to(base).parts]
-    print(f"[convert] {len(files)} legacy .jpg covers")
-    done, failed = 0, 0
-    with ProcessPoolExecutor(max_workers=workers or max(1, (os.cpu_count() or 2) - 1)) as pool:
-        for i, (name, status) in enumerate(pool.map(_convert_one, files, chunksize=32), 1):
-            if status == "ok":
-                done += 1
-            else:
-                failed += 1
-                print(f"  {name}: {status}")
-            if i % 2000 == 0:
-                print(f"  ... {i}/{len(files)}")
-    ledger = _load_upgrade_ledger()
-    migrated = {(k[: -len(LEGACY_EXT)] + COVER_EXT if k.endswith(LEGACY_EXT) else k): v
-                for k, v in ledger.items()}
-    if migrated != ledger:
-        _save_upgrade_ledger(migrated)
-    print(f"[convert] {done} converted, {failed} failed; ledger keys migrated")
-
-
 def _url_may_have_alpha(url: str) -> bool:
     try:
         return urlparse(url).path.lower().endswith(ALPHA_CAPABLE_EXTS)
@@ -1005,12 +954,6 @@ if __name__ == "__main__":
         help="with --prune: actually delete (default is a dry run)",
     )
     parser.add_argument(
-        "--convert-local",
-        action="store_true",
-        help="one-time, no network: re-encode every legacy .jpg cover as a "
-        "640px WebP and delete the .jpg",
-    )
-    parser.add_argument(
         "--refetch-alpha",
         action="store_true",
         help="re-download kept covers whose SOURCE format can carry "
@@ -1068,8 +1011,6 @@ if __name__ == "__main__":
                          max_edge=args.upgrade_max_edge)
     elif args.prune:
         _prune(apply=args.apply)
-    elif args.convert_local:
-        _convert_local()
     elif args.refetch_alpha:
         _refetch_alpha(limit=args.limit, vendors=args.only_vendor,
                        sleep_secs=args.sleep, dry_run=args.dry_run)

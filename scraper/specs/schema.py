@@ -188,22 +188,6 @@ SOCKET_MEMORY: dict[str, str] = {
     "LGA1851": "DDR5", "LGA4677": "DDR5",
 }
 
-# Our category id -> PCPartPicker/dataset category slug(s) for Tier-0
-# reference lookups. Categories missing here have no reference source.
-CATEGORY_TO_PCPP: dict[str, tuple[str, ...]] = {
-    "cpu": ("cpu",),
-    "motherboard": ("motherboard",),
-    "memory": ("memory",),
-    "storage": ("internal-hard-drive",),
-    "gpu": ("video-card",),
-    "case": ("case",),
-    "psu": ("power-supply",),
-    "case_fan": ("case-fan",),
-    "aio": ("cpu-cooler",),
-    "cooler_air": ("cpu-cooler",),
-}
-
-
 # Shared alias groups (legacy/vendor spellings seen in the wild).
 _BRAND = ("brand", "manufacturer", "maker", "vendor_brand")
 _MODEL = ("model", "model_name")
