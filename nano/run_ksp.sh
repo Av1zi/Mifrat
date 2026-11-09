@@ -2,7 +2,8 @@
 # KSP listing scrape on the Nano. KSP's Cloudflare edge blocks datacenter IPs
 # and plain TLS clients, so this runs from the home connection only, after the
 # TMS/1PC windows. Listing-only: the item detail endpoint is WAF-blocked, so
-# there is no detail/image phase here (see decisions.md, 2026-10-30).
+# there is no detail phase here (see decisions.md, 2026-10-30). The only
+# extra step is the best-effort cover backfill at the end.
 set -euo pipefail
 
 REPO_DIR="/home/avizi/pc-parts-il"
@@ -51,5 +52,27 @@ bash scripts/git_commit_push.sh \
 
 mkdir -p "$STATE_DIR"
 touch "$SUCCESS_MARKER"
+
+# Cover backfill (best-effort; the snapshot is already pushed and the success
+# marker written, so nothing below may fail the run). KSP's image host shares
+# the Cloudflare edge with the API: home IP only, 3s between downloads, and
+# download_images stops after 2 consecutive 403/429. It reads the catalog CI
+# built from the PREVIOUS snapshot, so a new product gets its cover a day late.
+if ! "$PYTHON" -c "import PIL, requests" 2>/dev/null; then
+    echo "[warn] Pillow/requests missing in Nano venv — skipping KSP covers. Run: $PYTHON -m pip install 'Pillow>=10.0' 'requests>=2.31'" >&2
+elif [ ! -f data/catalog.json ]; then
+    echo "[warn] no data/catalog.json — skipping KSP covers" >&2
+else
+    {
+        echo "[run_ksp] downloading KSP covers..."
+        "$PYTHON" -m scraper.download_images --from-catalog --vendor ksp \
+            --limit 300 --sleep 3
+        if [ -d data/images/ksp ]; then
+            bash scripts/git_commit_push.sh \
+                "ksp covers $TODAY" \
+                "data/images/ksp/"
+        fi
+    } || echo "[warn] KSP cover step failed — snapshot already pushed" >&2
+fi
 find "$STATE_DIR" -name 'ksp-*.success' -type f -mtime +14 -delete
 echo "[run_ksp] done at $(date -Iseconds)"
