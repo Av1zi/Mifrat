@@ -1,9 +1,11 @@
 [Unit]
-Description=10:00 Israel-time fallback for the TMS scraper
+Description=In-window fallback for the TMS scraper
 
 [Timer]
-OnCalendar=*-*-* 07:00:00 UTC
-Persistent=true
+# Still inside the 21:00-04:00 UTC night window (23:00-07:00 Israel): runs at
+# 02:50 UTC, after the primary run is long over, and exits at once when the
+# day's success marker exists. Latest finish 03:20 UTC (30 min timeout).
+OnCalendar=*-*-* 02:50:00 UTC
 
 [Install]
 WantedBy=timers.target

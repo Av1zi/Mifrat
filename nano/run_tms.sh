@@ -15,7 +15,11 @@ fi
 
 cd "$REPO_DIR"
 
-if [ "${RUN_TMS_FALLBACK:-0}" = "1" ] && [ -f "$SUCCESS_MARKER" ]; then
+# The night run starts before and finishes after midnight, so "today's marker"
+# can be dated the day before the fallback fires. Any marker younger than 18h
+# counts as the overnight scrape having completed.
+if [ "${RUN_TMS_FALLBACK:-0}" = "1" ] && \
+   [ -n "$(find "$STATE_DIR" -maxdepth 1 -name 'tms-*.success' -type f -mmin -1080 2>/dev/null)" ]; then
     echo "[run_tms] overnight scrape already completed; fallback is not needed"
     exit 0
 fi

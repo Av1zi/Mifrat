@@ -175,7 +175,7 @@ cd ~/pc-parts-il
 pip install 'curl-cffi==0.15.0' 'scrapy-curl-cffi==0.4.2'
 ```
 
-Install the timer (runs 03:30-05:00 UTC, after the 1PC window):
+Install the timer (runs 00:55-01:55 UTC, after the 1PC window):
 
 ```bash
 sudo cp nano/pc-parts-il-ksp.service nano/pc-parts-il-ksp.timer /etc/systemd/system/

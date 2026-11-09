@@ -16,7 +16,10 @@ SUCCESS_MARKER="$STATE_DIR/onepc-$TODAY.success"
 
 cd "$REPO_DIR"
 
-if [ "${RUN_ONEPC_FALLBACK:-0}" = "1" ] && [ -f "$SUCCESS_MARKER" ]; then
+# The night run straddles the UTC date change, so "today's marker" can be dated
+# the day before the fallback fires. Any marker younger than 18h counts.
+if [ "${RUN_ONEPC_FALLBACK:-0}" = "1" ] && \
+   [ -n "$(find "$STATE_DIR" -maxdepth 1 -name 'onepc-*.success' -type f -mmin -1080 2>/dev/null)" ]; then
     echo "[run_onepc] overnight scrape already completed; fallback is not needed"
     exit 0
 fi

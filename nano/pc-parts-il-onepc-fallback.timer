@@ -1,9 +1,10 @@
 [Unit]
-Description=10:00 Israel-time fallback for the 1PC scraper
+Description=In-window fallback for the 1PC scraper
 
 [Timer]
-OnCalendar=*-*-* 07:30:00 UTC
-Persistent=true
+# 03:20 UTC: after the TMS fallback (02:50 UTC, done by 03:20) on the same IP,
+# latest finish 03:50 UTC = 05:50/06:50 Israel, inside the night window.
+OnCalendar=*-*-* 03:20:00 UTC
 
 [Install]
 WantedBy=timers.target

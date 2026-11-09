@@ -11,10 +11,17 @@ name: scrape-cloud
 # default GITHUB_TOKEN is read-only on repos where the repo-level
 # "Workflow permissions" setting defaults to read-only — commits succeed
 # locally, then push 403s. Same fix as normalize-and-deploy.yml.
+#
+# Night window (Nov 2026): every scheduled run must land between 23:00 and
+# 07:00 Israel time. Israel is UTC+2 in winter and UTC+3 in summer, so the
+# only UTC span that is inside that window in BOTH seasons is 21:00-04:00.
+# Primary: gate opens 21:07 UTC, random start up to 3h later, scrape + detail
+# finish well before 04:00. Fallback: 02:47 UTC (still night), skipped when
+# the primary already left a snapshot younger than 18h.
 on:
   schedule:
-    - cron: '59 20 * * *'  # Randomized gate opens at 23:59 Israel time (UTC+3)
-    - cron: '0 7 * * *'    # 10:00 Israel-time fallback check (UTC+3)
+    - cron: '7 21 * * *'   # gate opens 21:07 UTC (23:07 winter / 00:07 summer Israel)
+    - cron: '47 2 * * *'   # in-window fallback check (04:47 winter / 05:47 summer Israel)
   workflow_dispatch: {}
 
 jobs:
@@ -30,16 +37,16 @@ jobs:
         env:
           SCHEDULE: ${{ github.event.schedule }}
         run: |
-          if [ "$SCHEDULE" = "0 7 * * *" ]; then
+          if [ "$SCHEDULE" = "47 2 * * *" ]; then
             echo "fallback=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "fallback=false" >> "$GITHUB_OUTPUT"
-          # Spread load across the overnight window. This is for reliability
-          # and load distribution, not for bypassing site defenses.
-          # Leave headroom for the matrix/detail jobs before the 6-hour
-          # Actions job limit.
-          sleep "$((RANDOM % 18000))"
+          # Spread load across the first part of the night window. This is
+          # for reliability and load distribution, not for bypassing site
+          # defenses. 3h keeps the scrape + detail jobs done well before the
+          # 04:00 UTC window end (and the 02:47 fallback behind them).
+          sleep "$((RANDOM % 10800))"
 
   scrape:
     permissions:
@@ -85,7 +92,7 @@ jobs:
       - name: Scrape vendor unless today's fallback artifact exists
         env:
           FALLBACK: ${{ needs.schedule-gate.outputs.fallback }}
-        # The overnight window (20:59-01:59 UTC) straddles the UTC date
+        # The overnight window (21:07-00:07 UTC starts) straddles the UTC date
         # change, so last night's snapshot is often dated YESTERDAY. Checking
         # only today's file made the fallback re-scrape every vendor (and
         # re-normalize) around noon most days. Read scraped_at instead: any

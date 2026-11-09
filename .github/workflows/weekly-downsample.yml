@@ -13,7 +13,7 @@ name: weekly-downsample
 # pipeline health check.
 on:
   schedule:
-    - cron: '0 5 * * 0'   # weekly Sunday 05:00 UTC, after the daily sync
+    - cron: '23 2 * * 0'  # weekly Sunday 02:23 UTC: inside the 23:00-07:00 Israel night window in both DST seasons (its push wakes normalize)
   workflow_dispatch: {}
 
 concurrency:

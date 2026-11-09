@@ -12,7 +12,8 @@ data/raw/2026-10-29/ksp.jsonl      # first KSP snapshot (vendor added 2026-10-30
 ```
 
 - `ivory` and `yahav` are written by the `scrape-cloud` GitHub Actions
-  workflow (~03:30 UTC).
+  workflow (21:07 UTC + up to 3h spread, i.e. inside the 23:00-07:00 Israel
+  night window).
 - `tms`, `onepc` and `ksp` are written by the Jetson Nano (`nano/`), once a
   day. KSP was added 2026-10-30; it is listing-only (its detail endpoint is
   WAF-blocked) and its raw rows carry KSP's Hebrew `tags` table in

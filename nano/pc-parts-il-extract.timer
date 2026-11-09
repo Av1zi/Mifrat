@@ -2,9 +2,11 @@
 Description=Daily verified AI spec extraction
 
 [Timer]
-# After the evening TMS scrape and the cloud normalize have updated the catalog.
-OnCalendar=*-*-* 04:30:00 UTC
-Persistent=true
+# After the night's scrapes and the cloud normalize have updated the catalog
+# (KSP is done by 02:35 UTC). 02:40 UTC + the 75 min service timeout ends by
+# 03:55 UTC = 05:55/06:55 Israel, inside the 23:00-07:00 night window.
+OnCalendar=*-*-* 02:40:00 UTC
+# No Persistent=: a catch-up run would land in daytime.
 
 [Install]
 WantedBy=timers.target

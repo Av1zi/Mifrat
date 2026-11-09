@@ -11,4 +11,4 @@ ExecStart=/home/avizi/pc-parts-il/nano/run_extract.sh
 StandardOutput=journal
 StandardError=journal
 # The free tier is slow (one request every ~7 s); a stopped run continues tomorrow.
-TimeoutStartSec=5400
+TimeoutStartSec=4500

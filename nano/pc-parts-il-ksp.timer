@@ -2,11 +2,12 @@
 Description=Daily timer for the KSP scraper (PC Part Picker IL)
 
 [Timer]
-# After the 1PC window (01:00 UTC + up to 2h) on the same home IP; spread
-# over 03:30-05:00 UTC so the run is sequential behind TMS and 1PC.
-OnCalendar=*-*-* 03:30:00 UTC
-RandomizedDelaySec=5400
-Persistent=true
+# Night window (21:00-04:00 UTC = 23:00-07:00 Israel in both seasons).
+# After the 1PC window (done by 00:50 UTC) on the same home IP: starts
+# 00:55-01:55 UTC, finishes by 02:35 UTC under the 40 min service timeout.
+OnCalendar=*-*-* 00:55:00 UTC
+RandomizedDelaySec=3600
+# No Persistent=: see pc-parts-il-tms.timer.
 
 [Install]
 WantedBy=timers.target
