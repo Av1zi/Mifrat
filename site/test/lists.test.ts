@@ -119,6 +119,12 @@ describe("validateListBuild", () => {
     const okId = { cpu: ["x".repeat(MAX_PRODUCT_ID_LENGTH)] };
     expect(validateListBuild(okId, slots).ok).toBe(true);
   });
+
+  it("accepts identity-tier ids longer than 80 chars", () => {
+    const identityId = `model:cpu:${"ryzen-9-9950x3d-".repeat(8)}tray`;
+    expect(identityId.length).toBeGreaterThan(80);
+    expect(validateListBuild({ cpu: [identityId] }, new Set(["cpu"])).ok).toBe(true);
+  });
 });
 
 describe("canonicalizeListBuild", () => {
