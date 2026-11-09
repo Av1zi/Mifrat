@@ -1,7 +1,7 @@
 """
 mfr/client.py - the polite HTTP client every manufacturer fetcher shares.
 
-Rules (AGENTS.md scraping politeness, binding for every brand):
+Rules (README.md "Scraping rules", binding for every brand):
 - robots.txt is fetched once per host and OBEYED for the `*` agent; a disallowed
   URL is skipped, never fetched - except the per-host paths in ROBOTS_OVERRIDES,
   an explicit owner decision recorded next to each entry.

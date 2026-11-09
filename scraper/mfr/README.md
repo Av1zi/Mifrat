@@ -14,7 +14,7 @@ python -m scraper.mfr corsair --offline     # re-parse the cached pages only (an
 python scripts/fill_report.py               # measure
 ```
 
-## Rules (binding, same as AGENTS.md scraping politeness)
+## Rules (binding; the root `README.md` "Scraping rules" applies too)
 
 - `robots.txt` obeyed for `*`; a disallowed URL is skipped, never fetched.
 - One request per second per host, browser-like headers, no proxies, no evasion.
@@ -43,10 +43,10 @@ Catalog share = products carrying that manufacturer name (3,821 products total).
 | Gigabyte | 433 | **fail** | HTTP 403 on `robots.txt` itself with browser headers (WAF). Stop signal: no retry, no workaround. |
 | MSI | 141 | **fail** | HTTP 403 on `robots.txt` (WAF). Same rule. |
 | Lian Li | 200 | **built (round 2 - the Phase-1 "fail" was wrong)** | the Phase-1 check looked at a page whose tab did not render. robots.txt only blocks cart/log paths, `product-sitemap.xml` lists 135 products and the product pages carry the spec as server-rendered `<th>/<td>` rows (MODEL NO., FAN SPEED, GPU LENGTH CLEARANCE, MAX. DC OUTPUT ...). A family page holds one row block per model, so the runner stores one entry per block (`url#n`) keyed on the MODEL NO. the retailers use as part number. |
-| Noctua | 96 | **fail** | Specs ("Performance specifications" tab) load client-side from the CMS; `/api/` is disallowed by robots. |
 | be quiet! | 115 | **built (round 2 - category listings, not the sitemap)** | robots allow all; `/en/case`, `/casefans`, `/cpucooler`, `/watercooler`, `/powersupply` link every product as `./<category>/<id>`; each page is a server-rendered technical-data table ending in the Article number (BGW39) and EAN, so products join exactly on identifiers they already carry. |
-| Maxsun | 102 | **skip** | one board family, English pages thin; revisit if boards stay the biggest gap. |
 | Seasonic, G.Skill, Kingston, ADATA, Crucial | <100 each | **not evaluated** | each is a long tail of <60 products; not worth a fetcher before the larger brands. |
+
+Maxsun and Noctua were checked here too; their re-checked verdicts are in Round 2.
 
 ### Round 2 verdicts (checked 2026-10-18)
 

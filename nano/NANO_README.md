@@ -1,6 +1,7 @@
-# Jetson Nano setup (TMS scraper)
+# Jetson Nano setup (home vendors: TMS, 1PC, KSP)
 
-One-time setup for the box that runs the TMS spider from home. Do these in order — step 1 is the most
+One-time setup for the box that runs the home-IP spiders. The rules they run
+under are in the root `README.md`, "Scraping rules". Do these in order — step 1 is the most
 common failure point on this hardware.
 
 ## 1. Python via Miniforge (not the system Python)
@@ -16,8 +17,8 @@ conda activate pc-parts-il
 ```
 
 Pin the **exact same Scrapy version** here as in `requirements.txt` /
-GitHub Actions — version drift between the two environments is a listed
-pitfall (§10).
+GitHub Actions — version drift between the two environments is a known
+pitfall.
 
 ## 2. Dedicated low-privilege user
 
@@ -38,10 +39,10 @@ pip install -r requirements.txt
 ```
 
 Keep the dependency list lean here — no `scrapy-playwright` browser install
-unless a vendor genuinely needs it (§10); it's a heavy ARM64 install for a
-box that only scrapes TMS.
+unless a vendor genuinely needs it; it's a heavy ARM64 install on this
+hardware.
 
-## 4. SSH deploy key (repo-scoped, §9)
+## 4. SSH deploy key (repo-scoped)
 
 ```bash
 ssh-keygen -t ed25519 -C "pc-parts-il-nano" -f ~/.ssh/pc_parts_il_deploy_key -N ""
@@ -92,6 +93,14 @@ Check it's scheduled and see the next run time:
 ```bash
 systemctl list-timers pc-parts-il-tms.timer pc-parts-il-tms-fallback.timer
 ```
+
+Every timer fires inside 21:00-04:00 UTC, which is night in Israel in both
+seasons, and the runs take turns on the one home IP: TMS 21:15 (+<=90 min),
+1PC 23:20 (+<=1 h), KSP 00:55 (+<=1 h), extract 02:40. The TMS and 1PC
+fallbacks (02:50, 03:20) run only when no success marker is under 18 h old.
+The timers have no `Persistent=`, so a night missed during downtime is not
+caught up in daytime; the fallback and the normalizer's 14-day stale-forward
+cover it.
 
 Run it once by hand to confirm the whole chain works before trusting the
 timer:
@@ -195,8 +204,8 @@ proxies, retries or a different TLS profile.
 journalctl -u pc-parts-il-tms.service --since today
 ```
 
-Nothing is written to a log file on disk — journald only (§4, SD card
-health).
+Nothing is written to a log file on disk — journald only (keeps SD-card
+writes down).
 
 `run_tms.sh` refreshes the checkout with `git pull --rebase --autostash`
 before both the listing crawl and the detail crawl. Each phase commits and
@@ -218,9 +227,9 @@ one request at a time, a two-second delay, robots compliance, and the hard stop
 after two block responses. If it stops, leave the remaining SKUs pending and
 resume on a later day rather than retrying through a block.
 
-## If TMS starts blocking the Nano too
+## If a vendor starts blocking the Nano
 
-That's the rule: pause several days, try slowing down further
+That's Scraping rules, rule 7: pause several days, try slowing down further
 (`DOWNLOAD_DELAY` in `scraper/spiders/tms.py`'s `custom_settings`), and if
 still blocked, drop the vendor rather than escalating against active
 defenses. Nothing here should ever be modified to defeat a block.

@@ -171,7 +171,7 @@ class PlonterSpider(scrapy.Spider):
                 # the feed's own <pre> (30s) gives a solving challenge time
                 # to land; a hard IP-block still surfaces as a bounded
                 # wait-timeout via _error (distinct marker), never a loop —
-                # MAX_FEED_ATTEMPTS stays 4 (plan §7 spirit: no hammering).
+                # MAX_FEED_ATTEMPTS stays 4 (Scraping rules spirit: no hammering).
                 "playwright_page_methods": [
                     PageMethod("wait_for_selector", "pre", timeout=30000),
                 ],

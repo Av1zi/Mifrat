@@ -1,8 +1,8 @@
 r"""
 TMS (tms.co.il) spider — HTML category-page version, built against real
 view-source markup (Aug 2026), not guessed OpenCart-theme classes.
-Runs on the Jetson Nano only (rev. 2 hybrid architecture, see
-pc-parts-il-plan.md §2/§4) — TMS blocks datacenter/scraping-infra IPs, so
+Runs on the Jetson Nano only (hybrid architecture, see README.md and
+nano/NANO_README.md) — TMS blocks datacenter/scraping-infra IPs, so
 this is the one spider that can't run in GitHub Actions.
 --- DECISION LOG ---
 Replaces the JSON-configurator-API approach
@@ -24,7 +24,7 @@ category browsing was fully allowed. Fixed by dropping the forced limit
 entirely: start URLs are now bare category pages, and pagination follows
 the site's own pagination links (`?page=2`, `?page=3`, ...) verbatim,
 never rewritten. This also means more requests per category than before —
-acceptable, since §7's whole point is favoring a slower, more realistic
+acceptable, since the home-IP rules (README.md "Scraping rules") favor a slower, more realistic
 request pattern over a faster one.
 `custom_settings` now sets `ROBOTSTXT_OBEY = True`, overriding the global
 `False` in settings.py — per DECISIONS.md, robots.txt is followed for
@@ -62,10 +62,10 @@ The homepage warm‑up was added to mimic a human, but TMS blocks the homepage
 itself with the new headers. Since the old code worked without a warmup,
 we remove it entirely. The spider now starts directly with the category URLs
 using the async `start()` method (which is the recommended style for Scrapy 2.13+).
---- HARD‑STOP (§7) ---
+--- HARD‑STOP (README.md "Scraping rules") ---
 `handle_httpstatus_list = [403, 429]` makes block responses reach our code
 instead of being silently dropped by Scrapy's default
-HttpErrorMiddleware — needed because §7 rule 6 ("two block responses in
+HttpErrorMiddleware — needed because Scraping rules, rule 6 ("two block responses in
 one run close the spider") can't be implemented against responses we never
 see. `_register_block()` is the single choke point for that rule.
 NEW PC DEAL TILES ("הנחת New PC" sticker) used to yield price_ils=None
@@ -144,7 +144,7 @@ SHEKEL_RE = re.compile(r"₪\s*([\d,]+)")
 # FIXED: Group 1 is now strictly the digits.
 PAGE_COUNT_RE = re.compile(r"(\d+)\s*עמודים")
 
-# §7 rule 6: two block responses in one run closes the spider. Applies to
+# Scraping rules, rule 6 (README.md): two block responses in one run closes the spider. Applies to
 # both category pages and the Claris availability call — a block is a
 # block regardless of which endpoint it hit.
 MAX_BLOCKS_PER_RUN = 2
@@ -191,7 +191,7 @@ class TmsSpider(scrapy.Spider):
         # Robots.txt IS followed here, unlike the cloud vendors — see the
         # module docstring's robots.txt fix section and DECISIONS.md.
         "ROBOTSTXT_OBEY": True,
-        # Gentle pace regardless of global settings — home IP, §7.
+        # Gentle pace regardless of global settings — home IP, Scraping rules.
         "DOWNLOAD_DELAY": 2.0,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
         "DOWNLOAD_TIMEOUT": 60,
@@ -469,7 +469,7 @@ class TmsSpider(scrapy.Spider):
         return urlunparse(parsed._replace(query=urlencode(query, doseq=True)))
 
     # ------------------------------------------------------------------ #
-    # §7 rule 6: hard stop on blocks
+    # Scraping rules, rule 6 (README.md): hard stop on blocks
     # ------------------------------------------------------------------ #
     def _register_block(self, response) -> bool:
         """Returns True if this response was a block AND the spider is now
@@ -489,7 +489,7 @@ class TmsSpider(scrapy.Spider):
 
         if self._block_count >= MAX_BLOCKS_PER_RUN:
             self.logger.error(
-                "[tms] %d block responses this run — stopping per §7 rule 6. "
+                "[tms] %d block responses this run — stopping per Scraping rules, rule 6. "
                 "No retries against a block, no automatic re-run today.",
                 self._block_count,
             )

@@ -1,7 +1,12 @@
 # Duplicate groups remaining in the identity categories
 
-**Status:** read-only audit. No file under `scraper/`, `scripts/` or `data/` was modified, and no
-catalog was regenerated. Everything below is derived from the catalog currently on disk.
+**Status:** completed and closed (historical). Outcomes, 2026-11-07..08: R1, R3, R4 and R6 were
+implemented; R5 and R7 now emit `variant_conflict` QA cases instead of merging; R2 was measured
+and rejected (2 merges for 322 renamed product ids). Counts below are from the 2026-11-07 catalog
+and are not kept current.
+
+Originally a read-only audit: no file under `scraper/`, `scripts/` or `data/` was modified, and no
+catalog was regenerated. Everything below is derived from the catalog on disk at the time.
 
 **Date:** 2026-11-07
 

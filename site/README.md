@@ -86,6 +86,11 @@ is `site/dist`, served as static assets. The Worker entry
 (`site/wrangler.jsonc` -> `worker.ts`) handles only `/api/*` and `/list/*`.
 No environment variables or secrets are involved.
 
+Both `wrangler.jsonc` files name the same Worker (`mifrat`); the root one has
+no `main` and no D1 binding. The "Root directory" field in the Workers Builds
+dashboard decides which one is read: `site` (as `site/wrangler.jsonc` says)
+gives the short-link Worker; the repo root would deploy static assets only.
+
 ## Build sharing and other server-side pieces
 
 - **Build sharing**: implemented as short permanent links (`/list/<id>`,

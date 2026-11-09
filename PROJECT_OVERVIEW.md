@@ -5,10 +5,12 @@ This document explains every part of the Mifrat project in plain concepts, with 
 Related sources of truth:
 
 - PROJECT_OVERVIEW.md — this file (plain concepts, no code)
-- pc-parts-il-plan.md (local-only, not committed) — the build plan, scheduling rationale, and roadmap status
+- GLOSSARY.md — the project's terms
+- README.md — short live status, scraping rules, quickstart
 - scraper/specs/README.md — how the spec pipeline works
+- docs/merge-identity-plan.md — the product-identity design
 - decisions.md (local-only, not committed) — running log of decisions
-- README.md — short live status + quickstart
+- pc-parts-il-plan.md (local-only, not committed) — the original build plan, kept as history
 - nano/NANO_README.md — Nano setup
 - site/README.md — frontend setup (+ short-link Worker)
 - data/raw/RAW_README.md — raw snapshot convention
@@ -34,7 +36,7 @@ Non-goals for the current version:
 
 The site is bilingual, Hebrew and English, right-to-left by default in Hebrew and left-to-right in English. Prices are stored as whole Israeli shekels and can be displayed in shekels or converted to dollars for viewing only.
 
-Live scale (late Oct 2026 snapshot; moves daily): roughly 7,150 listings merged into ~4,700 products across 11 public categories (12 pipeline categories — air coolers and liquid coolers are separate upstream and merge into one CPU Cooling category on the site), with a review queue of a few hundred items. Five vendors feed the pipeline: TMS, 1PC and KSP from the home box, Ivory and YahavPC from the cloud.
+Live scale (2026-11-08 snapshot; moves daily): roughly 7,080 listings merged into ~4,400 products across 11 public categories (12 pipeline categories — air coolers and liquid coolers are separate upstream and merge into one CPU Cooling category on the site), with a review queue of a few hundred items. Five vendors feed the pipeline: TMS, 1PC and KSP from the home box, Ivory and YahavPC from the cloud.
 
 ## 2. Big picture — how the whole thing fits together
 
@@ -162,10 +164,12 @@ cooler covers, with a few cooling rows appearing under both the air-cooler
 and liquid tags and deduplicated by KSP's numeric `uin`.
 
 How it works: KSP sits behind Cloudflare Bot Management. Plain HTTP clients
-and datacenter IPs receive a custom 403 block page; a browser-shaped TLS
-handshake (the `curl_cffi` Chrome profile, via `scrapy-curl-cffi`) plus the
-storefront's `Referer`/`Origin`/`Accept-Language` headers gets the same public
-catalog as a normal browser. The spider therefore runs from the home IP, one
+and datacenter IPs receive a 403 managed challenge, which also fires when a
+request omits the UA client hints the site asks for (since 2026-11-04). One
+fixed browser-shaped TLS handshake (the `curl_cffi` `chrome146` profile, via
+`scrapy-curl-cffi`), the matching client hints, and the storefront's
+`Referer`/`Origin`/`Accept-Language` headers get the same public catalog as a
+normal browser. The spider therefore runs from the home IP, one
 request at a time, 3–9 seconds apart (6 s base, after 1.5 s produced HTTP
 429s), with no proxies, no CAPTCHA solving and no retry against a 403: the
 first block stops the run. A `429` after four retries stops it too.
@@ -185,7 +189,8 @@ allowed to paper over.
 
 Data integrity: the spider buffers every category and yields nothing unless
 all 13 categories completed, each category fetched at least 95% of its
-`products_total` and at least 85% of its verified baseline, and the whole run
+`products_total` and at least 85% of its verified baseline (a small category,
+baseline under 25, may instead fall at most 5 items short), and the whole run
 cleared 80% of the verified item baseline. A partial day therefore fails the
 runner instead of shipping, and the previous snapshot stale-forwards.
 
@@ -198,16 +203,16 @@ fetch KSP images (datacenter IP); a home-side
 added.
 
 The 2026-09-29 "KSP out of scope" decision was reopened by the owner on
-2026-10-30 on the evidence above; the exception and its guardrails are logged
-in `decisions.md`.
+2026-10-30 on the evidence above; the exception and its guardrails are in the
+README's "Scraping rules".
 
 ### 4.9 Schedules — cloud vs home
 
 Cloud scraping runs on hosted automation on a matrix of the cloud-safe vendors (Ivory, YahavPC), with independent jobs so one vendor failure does not stop the others. It runs once late at night Israel time with a random spread to avoid thundering-herd timing, plus a morning fallback that skips vendors whose output already exists and was written in the last 18 hours (the overnight window straddles the date change, so "is today's file there" would re-scrape most days). It can also be started manually. It installs dependencies, installs the browser binary (kept installed for a possible Plonter return; no scheduled vendor needs it today), runs the per-vendor entrypoint, then commits only that vendor dated file using the narrow-commit helper. Narrow commits matter because parallel jobs on slightly stale checkouts must not stage each other files as deleted. A detail-scrape job follows the listing matrix for the cloud-run vendors' product pages (including 1PC detail), bounded per run, append-only, and guarded so one failed vendor never cancels the others.
 
-Home scraping runs on the Nano for TMS, 1PC and KSP. A system service runs each home script with a time limit and logs to the system journal. TMS fires in the evening UTC with a large randomized delay so the run lands late at night or overnight Israel time and can catch up after downtime; 1PC fires later and sequentially behind it on the same IP, so the two runs never overlap; KSP fires after the 1PC window and is the slowest of the three (≈100 requests at 3–9 s, plus bounded 429 retries). Morning fallback timers run only if a success marker for that day does not already exist. Each home script pulls latest code, runs its spider, refuses to commit an empty output (and warns below a per-vendor item floor), and commits and pushes the snapshot first with retries — failing loudly if that push fails, because a silent push failure looks exactly like a dead box. TMS then does best-effort detail enrichment and image downloading before a second push. A separate daily timer runs the verified AI extraction helper after the night's scrapes and normalize have refreshed the catalog, using a gitignored key file, and commits only its own output.
+Home scraping runs on the Nano for TMS, 1PC and KSP. A system service runs each home script with a time limit and logs to the system journal. Every home run lands inside the night window (21:00–04:00 UTC, night in Israel in both seasons). TMS fires first with a large randomized delay; 1PC fires later and sequentially behind it on the same IP, so the two runs never overlap; KSP fires after the 1PC window and is the slowest of the three (≈100 requests at 3–9 s, plus bounded 429 retries). Timers do not catch up after downtime, because a catch-up would run in daytime; fallback timers for TMS and 1PC run only if no success marker is under 18 hours old, and stale-forwarding covers a missed night. Exact times are in `nano/NANO_README.md`. Each home script pulls latest code, runs its spider, refuses to commit an empty output (and warns below a per-vendor item floor), and commits and pushes the snapshot first with retries — failing loudly if that push fails, because a silent push failure looks exactly like a dead box. TMS then does best-effort detail enrichment and image downloading before a second push. A separate daily timer runs the verified AI extraction helper after the night's scrapes and normalize have refreshed the catalog, using a gitignored key file, and commits only its own output.
 
-Binding home rules: at most one run per day per vendor, strictly sequential and throttled, browser-shaped traffic, hard stop on repeated blocks, de-escalate or drop on repeated blocks, never use proxies or retries against blocks. 1PC plays by the same rules as TMS: robots obeyed, one concurrent request, small fixed delay, no retries on a block response. KSP has the same rules with a stricter stop: any 403 ends the run immediately; only `429`/5xx are retried, four times.
+The binding home-IP rules (one run per day, sequential, hard stop on blocks, never escalate) are the README's "Scraping rules". KSP has the same rules with a stricter stop: any 403 ends the run immediately; only `429`/5xx are retried, four times.
 
 ### 4.10 Outputs and hygiene of scraping
 
@@ -290,23 +295,22 @@ Presentation hygiene matters: raw titles and structured specs stay separate. Can
 
 The matcher decides which listings are the same physical product. It is conservative by design: uncertain pairs stay separate and are suggested for human review instead of being silently merged.
 
+A product is one physical SKU: a category, a canonical model code, and the variant axes that change the physical part (packaging, colour, capacity, memory type, lighting, and so on). The full CPU letter suffix is part of the code and compared exactly, so a "K" chip never merges with a "KF" chip; box and tray stay separate products. The design, its invariants and its acceptance criteria are in `docs/merge-identity-plan.md` (shipped 2026-11-06).
+
 In order:
 
 1. Manual merges win. A committed ledger maps known listing keys to a chosen product. Blocked pairs veto merging at every tier.
-2. Processor model identity. Only processors use this tier. It understands series and sub-series distinctions that must never merge and packaging distinctions where boxed and tray versions stay separate with a tray suffix.
-3. Exact manufacturer number. Listings with the same compact manufacturer key in the same category merge, still respecting packaging splits and conflict vetoes.
-4. Exact normalized vendor identifier. Same idea for vendor identifiers that are long and specific enough.
-5. Cross-key unification. If the manufacturer-number view and identifier view point at the same category and part, they unify under the manufacturer-number identity.
-6. Conflict guards. If compact numbers match but critical attributes conflict, the group splits into singletons. A merge-consistency guard applies the same idea across key types: differing compact manufacturer numbers plus an extended critical conflict also split, even when vendor identifiers agree. If compact numbers match and only model-title tokens differ, the group stays together but is flagged as a naming conflict with the differing titles preserved for review. Equal-tier spec disagreements that survive the tiered merge (§6.5) are likewise recorded as conflict cases rather than silently picked.
-7. Everything else becomes a singleton product unique to its listing key.
+2. Identity. Listings with the same category, model code and compatible variant axes form one product; a known-but-different axis value splits, and two different manufacturer part numbers mean two variants. Every subgroup gets a product, including one-listing subgroups, so nothing falls through to a vendor-specific identifier. This tier places the large majority of listings.
+3. Exact manufacturer number, then exact normalized vendor identifier, for listings the identity tier could not place, then cross-key unification between the two.
+4. Conflict guards. Differing manufacturer numbers plus a critical spec conflict split a group even when vendor identifiers agree.
+5. Identity reconciliation. A product found by part number and a product found by model code that describe one part fold into the model-code product; when the evidence disagrees both stay and the pair is published as a split candidate.
+6. Everything else becomes a singleton. Then, last, products that share a barcode or a verified manufacturer model code are reunited, and a vendor that lists one model code under conflicting box and tray labels has the mislabelled listing moved to the corroborated product.
+
+Ambiguous evidence merges and is flagged on the quality page rather than held back. Identity cases there are identity merges, packaging conflicts, variant conflicts (including near-code pairs such as a fan single versus a 3-pack) and split candidates. When a product id retires, an alias maps it to the surviving product, so old links, saved builds and price history keep resolving.
 
 After grouping, products get: a stable product identifier, a canonical name built from structured identity fields rather than vendor prose, a short description, category, brand, model, merged attributes with majority-vote conflict detection, how it was matched, vendor count, offers sorted for display, first available image, duplicate-vendor flags, naming-conflict flags, best offer selection preferring in-stock cheapest, and optional reference-spec blocks.
 
-Presentation hygiene matters: raw titles and structured attributes stay separate. Canonical names come from identity fields when available. Vendor feature prose belongs in attributes or description, never in the name. Encoding artifacts are discarded during matching and extraction so they cannot leak into the catalog or site.
-
-**Planned rework — product identity (2026-11-04).** The hierarchy above splits more than it should: a listing that is alone in its subgroup falls out of the processor-model tier and lands on a vendor-specific identifier, and the model tier and the manufacturer-number tier mint identifiers in separate namespaces that never reconcile. The result is one physical chip spread over several products — a single processor family returned ten products for three chips — and across the whole catalog 706 groups of listings describing the same part were spread over 909 redundant products in eleven categories.
-
-The rework makes identity explicit: a product is one physical SKU, identified by a canonical model code per category plus the variant axes that change the physical part, with the full CPU letter suffix compared exactly so a "K" chip never merges with an "KF" chip. Box and tray stay separate products; ambiguous evidence merges and is flagged on the quality page rather than held back. The plan, its invariants and its acceptance criteria live in `docs/merge-identity-plan.md`.
+Canonical names are rebuilt from the identity (brand, model code, axis words), never inherited from one offer's vendor text.
 
 ### 6.7 Stale forwarding
 
@@ -346,7 +350,7 @@ The full internal catalog is sharded into small client-optimized files: one trim
 
 After cloud scraping finishes, detail enrichment runs for a bounded chunk per vendor (capped per run so the first runs after a ledger fix do not hammer vendors), appending detail results, downloading images, marking completed identifiers, and committing narrowly per vendor. The home machine does the same for TMS with a smaller chunk.
 
-The normalize-and-deploy pipeline triggers on new raw-data pushes, on cloud-scrape completion (needed because automation-token pushes do not fire push triggers), or manually — there is no clock-time trigger any more, and a first gate skips the run entirely when nothing under `data/raw/` changed since the last normalize commit. It allows concurrent runs to queue rather than cancel, then runs a fixed gate sequence before anything commits: schema-to-frontend drift check (the generated TypeScript must match the schema), manufacturer-data schema-version check, best-effort reference-index refresh, best-effort cover backfill, catalog and site-file build, hand-verified golden spec fixtures, offline vendor-detail-page fixtures, spec merge-rule fixtures, category-classification fixtures, cross-reference parser fixtures, AI-extraction verifier, inference-rule backtest, spec-coverage floors, photo-pipeline regressions, cover-corpus check, site-image resolvability, and the payload size guard. Any gate failure stops the run before the commit. It then commits the catalog, review queue, public site files, and covers. Hosting then redeploys automatically.
+The normalize-and-deploy pipeline triggers on new raw-data pushes, on cloud-scrape completion (needed because automation-token pushes do not fire push triggers), or manually — there is no clock-time trigger any more, and a first gate skips the run entirely when nothing under `data/raw/` changed since the last normalize commit. It allows concurrent runs to queue rather than cancel, then runs a fixed gate sequence before anything commits: the schema-to-frontend drift check first, best-effort reference refresh and cover backfill, the catalog and site-file build (with a second cover backfill and rebuild when the fresh catalog picked covers not yet on disk), then every offline fixture, backtest, coverage, image, publish-set and size gate. The exact list and order live in `.github/workflows/normalize-and-deploy.yml`; each gate is a script under `scripts/` (or `scraper/`). Any gate failure stops the run before the commit. It then commits the catalog, review queue, public site files, and covers. Hosting then redeploys automatically.
 
 A separate read-only workflow runs on pushes and pull requests that touch the frontend, the spec code, or the gate scripts: type-check, lint, unit tests, and a full site build, plus the Python spec and photo checks — deliberately outside the data pipeline so a code change is verified without rebuilding the catalog.
 
@@ -379,7 +383,7 @@ The site is static: Vite plus TypeScript with no UI framework. The entire applic
 
 Local development and production builds both start with a copy step that copies the public data files from the repository data folder into the site public folder, plus only the images actually referenced by those JSON files. If the data folder is missing, the instructions are to run the normalizer first or pull latest data. The build then type-checks and bundles to a distribution folder.
 
-Hosting configuration lives in the hosting dashboard, not in the repo: the project root is the site folder, the build command builds the site, and the output folder is served. Because the checkout includes the whole repository, the copy step can still reach the data folder even though the site root is a subfolder. Every push to the main branch rebuilds, whether the push changed site code or just daily data.
+Hosting is Cloudflare Workers Builds (§8.14). Because the checkout includes the whole repository, the copy step can still reach the data folder even though the site root is a subfolder. Every push to the main branch rebuilds, whether the push changed site code or just daily data.
 
 ### 8.2 Routing and shell
 
@@ -470,7 +474,7 @@ Storage is a tiny table with identifier, build payload, hash for de-duplication,
 
 User experience: the builder auto-creates a short link after edits settle, showing the long link first until the short one arrives so sharing still works offline or in local development. Old long hash links keep working forever and are never broken.
 
-First-time setup (creating the database, applying the migration, wiring bindings, and optionally adding rate-limit rules) is documented in the short-links setup file. Hosting identifiers for the worker and database are public by design; credentials are never committed.
+First-time setup (creating the database, applying the migration, wiring bindings, and optionally adding rate-limit rules) is documented in `site/README.md` ("Build sharing"). Hosting identifiers for the worker and database are public by design; credentials are never committed.
 
 ### 8.9 Data-quality page
 
@@ -505,7 +509,7 @@ Translations live in one module with category order, localized category, vendor,
 
 ### 8.14 Deployment
 
-Dashboard settings point at the site folder, build with the site build command, and serve the distribution folder. Because the checkout contains the whole repository, the copy step can read the data folder even though the site root is a subfolder. No environment variables or secrets are needed. Every main-branch push rebuilds, whether it changed site code or daily data. The newer worker-based deployment uses the same assets plus bindings for the short-link database and asset serving, with a custom domain serving both the site and short-link paths from the same worker.
+Cloudflare Workers Builds rebuilds on every main-branch push, whether it changed site code or daily data. One worker serves the built site as static assets and runs code only for the short-link API and short-link paths, with a binding to the short-link database and a custom domain for both. The worker config is `site/wrangler.jsonc`; no environment variables or secrets are needed. Setup details are in `site/README.md`.
 
 ## 9. Operations and automation
 
@@ -515,7 +519,7 @@ Normalize-and-deploy triggers on new raw-data pushes, on cloud-scrape completion
 
 Weekly cleanup thins old raw snapshots to weekly beyond three months and monthly beyond a year, never touching detail files. The normalizer only reads the last two weeks, while git history preserves older blobs.
 
-The home computer uses one service per vendor plus daily and fallback timers with randomized delay and catch-up behavior (the two vendors scheduled so they never overlap), a dedicated low-privilege user, modern Python via a version manager, pinned crawler versions matching cloud, a repo-scoped deploy key, RAM-friendly logging, and required time synchronization. No browser automation lives there because neither home vendor needs it and the install is heavy on that hardware. An extra timer runs the local spec-enrichment helper that needs a home IP and a gitignored key file.
+The home computer uses one service per vendor plus daily timers with randomized delay inside the night window and no catch-up after downtime (the three vendors scheduled so they never overlap), fallback timers for TMS and 1PC, a dedicated low-privilege user, modern Python via a version manager, pinned crawler versions matching cloud, a repo-scoped deploy key, RAM-friendly logging, and required time synchronization. No browser automation lives there: KSP needs only a browser-shaped TLS client, and a full browser install is heavy on that hardware. An extra timer runs the local spec-enrichment helper that needs a home IP and a gitignored key file.
 
 Shared commit hygiene: always commit narrowly with only the files the job wrote, never stage a shared tree, because parallel jobs on stale checkouts can otherwise stage siblings as deleted. The helper guards existence, uses a bot identity, and rebases with retry.
 
@@ -525,9 +529,8 @@ Secrets hygiene: zero secrets in automation and git, ever. Environment examples,
 
 - The reactor setting must stay the first line of the crawler settings file.
 - Every spider keeps both entry methods sharing one request builder for version compatibility.
-- Robots handling is split: ignore globally, obey for the home-run vendors (TMS, 1PC, KSP) and for every spec-enrichment fetcher. Never construct page-size URLs for TMS; follow pagination links or page numbers derived from the results-count footer. KSP's exception is bounded: one TLS profile per run, no 403 retry, no proxies or CAPTCHA services.
-- Home-IP rules are binding: one run per day per vendor, sequential, throttled, browser-like, hard stop after repeated blocks, de-escalate or drop on repeated blocks. No retries against blocks, proxies, or bot-defense evasion. KSP is stricter still: its first 403 ends the run.
-- Matching stays strict: manual merges, then CPU model identity, then exact manufacturer number, then exact identifier, then singleton — with packaging splits (boxed versus tray stay apart in every tier), a merge-consistency guard that splits same-identifier groups with conflicting manufacturer numbers, and human blocked-pairs vetoing every tier. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
+- Robots handling and the home-IP rules are binding and live in the README's "Scraping rules". For TMS, follow pagination links or page numbers derived from the results-count footer, never page-size URLs.
+- Identity stays explicit: one product per (category, model code, variant axes), the CPU letter suffix compared exactly, box and tray apart, two manufacturer part numbers never merged, human blocked pairs vetoing every tier. Fuzzy suggestions go to the review queue only and never auto-merge. Listing keys stay stable. Numeric builder identifiers and catalog query identifiers need special handling to avoid collisions.
 - Specs merge by tier, not by accidents of call order: reference wins, then manufacturer pages and Open Icecat, then trusted vendor structure (vendor payloads, detail tables, foreign-retailer tables), then verified AI extraction, then title parsing, then weak vendors fill-only; equal-tier conflicts are logged, never silently picked. `null` means unknown — never guess a value to fill a gap.
 - The schema is the single source of truth for specs: add or change a field there, regenerate the frontend metadata, teach a resolver to emit it — nothing else needs editing. The drift check fails the pipeline if the generated module goes stale. Per-product overrides fix data without a code deploy.
 - Any new frontend field must be allowlisted in the site-file trimmer or it is silently dropped before reaching the browser.
@@ -544,23 +547,8 @@ There is no single pipeline test suite; instead every risky area has an offline 
 - For frontend or spec-code changes, run the type-check, lint, unit tests, and site build — CI does the same on every related push and pull request.
 - Build the site locally and confirm it renders with fresh data.
 
-Dependency setup is a Python package install plus a separate browser-binary install before running the browser-driven vendor. The site needs a package install before development or build. If public data is missing, run the normalizer or pull latest before starting the site.
+Dependency setup is a Python package install; the browser binary is only needed for the dropped Plonter spider. The site needs a package install before development or build. If public data is missing, run the normalizer or pull latest before starting the site.
 
-## 12. Glossary in plain words
+## 12. Glossary
 
-- Listing: one row a vendor showed on a given day, with title, price, availability, address, and image as seen.
-- Listing key: the stable handle used to track the same vendor row over time and across manual merges.
-- Product: one real-world part, possibly with offers from several vendors.
-- Product identifier: the stable handle for that product, encoding how it was matched.
-- Offer: one vendor price and availability for a product, with last-seen date and stale flag.
-- Stale: data reused from a previous day because today snapshot was missing. Visible to visitors, never hidden.
-- Skipped vendor: a vendor with no usable snapshot in the lookback window for that run.
-- Match text: cleaned searchable text built from identifier plus title, used for brand, number, and spec work.
-- Manufacturer number: the maker part code used to recognize the same product across vendors.
-- Manual merge: a human decision that two listing keys belong together, stored in a committed ledger.
-- Blocked pair: a human decision that two listings must never merge, checked at every matching tier.
-- Singleton: a product with only one listing because nothing else matched it confidently.
-- Reference specs: physical facts from an external dataset (spec Tier 0). Authoritative when matched — exact-name first, fuzzy only with an anchor — and merged invisibly into the product sheet.
-- Spec conflict: two same-tier sources disagreeing on one field. The higher-confidence value ships; both are recorded for the quality page.
-- Detail enrichment: deeper specification tables and better images collected from product pages for a bounded daily chunk.
-- Short link: a fixed short identifier that maps to a full build via server-side storage because pure URL encoding cannot fit a build in that few characters.
+The project's terms are defined in `GLOSSARY.md`.

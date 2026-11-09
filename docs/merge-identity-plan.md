@@ -1,6 +1,11 @@
 # Plan — one product per part (merge identity rework)
 
-Status: **proposed**, awaiting approval. Written 2026-11-04.
+Status: **implemented**, shipped 2026-11-06 (products 4,687 -> 4,474, listings
+unchanged). Written 2026-11-04 as a proposal; the body below is the design as
+approved. Deviations from §2.3/§3.6: `color` became a gpu axis, and the pid
+alias map lives in `data/site/meta.json` (`pid_aliases`), not `index.json`.
+Later refinements (R1-R7 duplicate fixes) are summarized in
+`docs/duplicate-groups-audit.md`.
 Author context: the "245" search on the site showed 10 rows for 3 chips; the
 catalogue holds 7,091 listings in 4,672 products, and **706 groups of
 listings that describe the same part are spread over more than one product

@@ -53,7 +53,7 @@ If your output contradicts an existing ADR, surface it explicitly rather than si
 ## Repo-specific notes
 
 - **Layout: single-context.** This repo has no `pnpm-workspace.yaml`, no `workspaces` field, and no `packages/*` — `site/` is a nested npm project driven by the root `package.json` scripts, not a workspace member. One root `GLOSSARY.md` plus `docs/adr/` is the layout.
-- **Neither `GLOSSARY.md` nor `docs/adr/` exists yet.** That is expected: `/domain-modeling` creates them when terms or decisions actually get resolved. Don't scaffold them upfront.
+- **`GLOSSARY.md` exists (seeded 2026-11-09 from PROJECT_OVERVIEW's old glossary); `docs/adr/` does not yet.** That is expected: `/domain-modeling` creates it when a decision actually gets resolved. Don't scaffold it upfront.
 - **`decisions.md` is the de-facto decision log today.** It is local and gitignored, and the repo rule is that every important change gets an entry there. Read it before proposing changes to the pipeline, spec tiers, image rules, or site behaviour, and add a one-line entry for any important change. When a decision is big enough to deserve an ADR, record it in `docs/adr/` as well and keep the `decisions.md` line as the index entry.
-- **Language lives in `PROJECT_OVERVIEW.md` and `decisions.md`, not a glossary.** Until `GLOSSARY.md` exists, take existing vocabulary (vendor, spec tier, normalize, catalog, …) from those two files rather than inventing new terms.
+- **Language lives in `GLOSSARY.md`.** For a term it does not define yet, take the existing vocabulary from `PROJECT_OVERVIEW.md` and `decisions.md` rather than inventing a new one, and add it to the glossary once it is settled.
 - `docs/agents/` holds agent-tooling configuration (issue tracker, triage labels, this file). It is agent setup, not domain documentation — don't put pipeline knowledge in it.

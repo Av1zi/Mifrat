@@ -188,7 +188,7 @@ class IvorySpider(scrapy.Spider):
         # Uniform 403 = datacenter-IP block, not flaky categories. Say so
         # explicitly: the per-category warnings above bury this, and the
         # run_spider zero-items error that follows doesn't name the cause.
-        # Policy (same class as TMS §7 / KSP WAF): do NOT retry against it,
+        # Policy (README.md "Scraping rules", as for TMS / KSP): do NOT retry against it,
         # do not add proxies — stale-forward covers 14 days, just wait.
         if self._requests and self._failed_403 >= self._requests:
             self.logger.error(

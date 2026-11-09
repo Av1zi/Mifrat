@@ -75,7 +75,7 @@ fi
 
 # --- Detail page scraping (specs + cover images) ---
 # At ~5 new items/day, limit the initial backfill chunk to avoid
-# hammering TMS from the home IP (§7). Once the ledger catches up
+# hammering TMS from the home IP (README.md "Scraping rules"). Once the ledger catches up
 # with the existing catalog, this limit can be removed.
 PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
 DETAIL_DIR="$REPO_DIR/data/raw/detail"

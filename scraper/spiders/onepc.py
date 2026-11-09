@@ -1,6 +1,6 @@
 """
 1PC (1pc.co.il) spider — rebuilt for the Oct 2026 storefront redesign.
-(See pc-parts-il-plan.md and decisions.md for full context)
+(Rules: README.md "Scraping rules"; history in decisions.md)
 
 ## Why this file was rewritten (2026-10-13)
 
@@ -57,7 +57,7 @@ Confirmed against the live site 2026-10-13:
   data we are silently dropping.
 - robots.txt explicitly ALLOWS /web/ and disallows only
   account/cart/checkout/login/register/forgot/reset/wishlist/admin, so this
-  path is allowed (cloud vendors ignore robots per plan §14; TMS is the
+  path is allowed (cloud vendors ignore robots per README.md "Scraping rules"; TMS is the
   single override).
 
 ## What the API gives us that the old fragment did not
@@ -132,7 +132,7 @@ PAGE_SIZE = 48
 # pages) with a self-hosted "DDOS protection page" / zhCAPTCHA v0.2 checkbox
 # challenge. Cloud (and, after enough volume, home) clients get HTTP 403/423
 # with that HTML instead of the product data, so the crawl yields zero items
-# and the cloud job fails. Per plan §14 and decisions.md this is a stop signal,
+# and the cloud job fails. Per README.md "Scraping rules" this is a stop signal,
 # NOT something to work around: no retries, no cookie-jar games, no browser
 # automation to tick the box. The vendor was moved to the Nano (home IP, next
 # to TMS) on 2026-10-24; this spider's job is only to recognise the block
@@ -233,7 +233,7 @@ class OnePcSpider(scrapy.Spider):
         challenge = self._response_is_blocked(response)
         self.logger.error(
             "[1pc] BLOCKED (status %s, challenge=%s) on %s — no retry: a block "
-            "is a stop signal (§14), block %d/%d this run",
+            "is a stop signal (Scraping rules), block %d/%d this run",
             response.status, challenge, response.url,
             self._block_count, MAX_BLOCKS_PER_RUN,
         )

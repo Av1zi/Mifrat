@@ -28,7 +28,7 @@ Design:
   mark a product "done" without its image.
 
 Rate limiting: TMS runs from the Nano (home IP, datacenter-blocked
-per decisions.md §7) — this spider inherits whatever
+per README.md "Scraping rules") — this spider inherits whatever
 DOWNLOAD_DELAY/AUTOTHROTTLE settings are already in settings.py for
 that context. At ~5 new items/day total across all vendors this is a
 non-issue, but do NOT batch-request the full existing catalog through
@@ -46,7 +46,7 @@ from scrapy.exceptions import CloseSpider
 from scraper.items import DetailItem  # add this to items.py — shape shown at bottom of file
 from scraper.image_urls import candidate_urls, is_probably_not_a_photo, photo_key
 
-# Same §7 rule 6 threshold as spiders/tms.py: two block responses in one
+# Same Scraping rules, rule 6 threshold as spiders/tms.py: two block responses in one
 # run closes the spider. Detail-page volume is tiny (~5/day) but it's the
 # same home IP and the same site, so the same protection applies.
 MAX_BLOCKS_PER_RUN = 2
@@ -275,8 +275,8 @@ class TmsDetailSpider(scrapy.Spider):
     name = "tms_detail"
     allowed_domains = ["tms.co.il"]
 
-    # Mirrors spiders/tms.py exactly — same site, same home IP, same §7
-    # rules apply to detail pages as to category pages. Block responses
+    # Mirrors spiders/tms.py exactly — same site, same home IP, same
+    # Scraping rules apply to detail pages as to category pages. Block responses
     # must reach parse_detail (not be silently dropped) so _register_block
     # can count them.
     handle_httpstatus_list = list(BLOCK_STATUS_CODES)
@@ -481,8 +481,8 @@ class TmsDetailSpider(scrapy.Spider):
         )
         if self._block_count >= MAX_BLOCKS_PER_RUN:
             self.logger.error(
-                "[tms_detail] %d block responses this run — stopping per §7 "
-                "rule 6. Whatever SKUs didn't get scraped stay pending for "
+                "[tms_detail] %d block responses this run — stopping per Scraping "
+                "rules, rule 6. Whatever SKUs didn't get scraped stay pending for "
                 "tomorrow's run.",
                 self._block_count,
             )
