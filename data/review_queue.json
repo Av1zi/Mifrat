@@ -5050,6 +5050,17 @@
   },
   {
     "score": 88,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "tms:CXMIRROR",
+    "listing_b": "yahav:11386",
+    "title_a": "מארז מחשב Antec CX Mirror Black",
+    "title_b": "מארז חברת Antec דגם CX Mirror ARGB 7X120MM ARGB Fans Mid Tower צבע שחור",
+    "match_text_a": "CXMIRROR Antec CX Mirror Black",
+    "match_text_b": "CXMIRROR Antec CX Mirror ARGB 7X120MM ARGB Fans Mid Tower"
+  },
+  {
+    "score": 88,
     "category": "memory",
     "brand": "Corsair",
     "listing_a": "ksp:480431",
@@ -9917,6 +9928,29 @@
       }
     ],
     "model_code": "600-base-dx-light"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:7x120mm-cx-fans-mid-mirror-tower-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:214258",
+        "vendor": "1pc",
+        "vendor_sku": "CXMIRROR",
+        "title": "מארז מחשב Antec CX Mirror Mini Tower בצבע שחור",
+        "price": 334
+      },
+      {
+        "listing_key": "yahav:11386",
+        "vendor": "yahav",
+        "vendor_sku": "CXMIRROR",
+        "title": "מארז חברת Antec דגם CX Mirror ARGB 7X120MM ARGB Fans Mid Tower צבע שחור",
+        "price": 405
+      }
+    ],
+    "model_code": "7x120mm-cx-fans-mid-mirror-tower"
   },
   {
     "kind": "identity_merge",
