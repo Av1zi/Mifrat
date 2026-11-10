@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-10T22:39:09.586847+00:00",
+  "generated_at": "2026-11-10T23:44:00.829353+00:00",
   "gaps": [
     {
       "category": "case",
       "label": "ממשק",
-      "count": 105,
+      "count": 103,
       "products": [
         "case:lian-li:a4-h2o-silver",
         "model:case:0-4-mitx-ridge-white",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 101,
+      "count": 100,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:10100-tray",
@@ -64,7 +64,7 @@
     {
       "category": "case",
       "label": "מפרט",
-      "count": 38,
+      "count": 37,
       "products": [
         "model:case:0-3-761345-80100-flux-p10",
         "model:case:100r-mag-pano-pz-white",
@@ -372,26 +372,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "נפח אחסון",
-      "count": 18,
-      "products": [
-        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
-        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "RAM",
-      "count": 18,
-      "products": [
-        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
-        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "SATA III",
       "count": 18,
@@ -419,16 +399,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מפרט",
-      "count": 18,
-      "products": [
-        "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
-        "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -483,22 +453,12 @@
     },
     {
       "category": "storage",
-      "label": "ביצועים",
+      "label": "מפרט",
       "count": 17,
       "products": [
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs70b-blade-cs-gammix-s70-1000gb-pciegen4x4"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Shock Resistance",
-      "count": 17,
-      "products": [
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs70b-blade-cs-gammix-s70-1000gb-pciegen4x4"
+        "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
+        "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -562,16 +522,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "Module Type",
-      "count": 16,
-      "products": [
-        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
-        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "HDMI",
       "count": 16,
@@ -589,6 +539,26 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "ביצועים",
+      "count": 16,
+      "products": [
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Shock Resistance",
+      "count": 16,
+      "products": [
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
       ]
     },
     {
@@ -912,6 +882,26 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "נפח אחסון",
+      "count": 12,
+      "products": [
+        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
+        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "RAM",
+      "count": 12,
+      "products": [
+        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
+        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
+      ]
+    },
+    {
       "category": "other",
       "label": "כרטיס רשת",
       "count": 12,
@@ -934,16 +924,6 @@
     {
       "category": "case",
       "label": "צבע מארז",
-      "count": 11,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מק\"ט יצרן",
       "count": 11,
       "products": [
         "model:case:0-0-10236-761345",
@@ -1093,6 +1073,16 @@
     },
     {
       "category": "memory",
+      "label": "Module Type",
+      "count": 11,
+      "products": [
+        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
+        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מתח עבודה",
       "count": 11,
       "products": [
@@ -1194,6 +1184,16 @@
     {
       "category": "case",
       "label": "רוחב",
+      "count": 10,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מק\"ט יצרן",
       "count": 10,
       "products": [
         "model:case:0-0-10236-761345",
@@ -2173,16 +2173,6 @@
     },
     {
       "category": "storage",
-      "label": "מידע על המוצר",
-      "count": 5,
-      "products": [
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs70b-blade-cs-gammix-s70-1000gb-pciegen4x4",
-        "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "בקר",
       "count": 5,
       "products": [
@@ -2543,56 +2533,6 @@
     },
     {
       "category": "memory",
-      "label": "תוכנת גיבוי אוטומטי",
-      "count": 4,
-      "products": [
-        "model:memory:16gbx2-elite-pver532g66c34kt-viper-32gb-rgb",
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Vibration resistance",
-      "count": 4,
-      "products": [
-        "model:memory:16gbx2-elite-pver532g66c34kt-viper-32gb-rgb",
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Shock resistance",
-      "count": 4,
-      "products": [
-        "model:memory:16gbx2-elite-pver532g66c34kt-viper-32gb-rgb",
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Password Protected",
-      "count": 4,
-      "products": [
-        "model:memory:16gbx2-elite-pver532g66c34kt-viper-32gb-rgb",
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "אטימות למים ואבק",
-      "count": 4,
-      "products": [
-        "model:memory:16gbx2-elite-pver532g66c34kt-viper-32gb-rgb",
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "קצב נתונים בסיסי",
       "count": 4,
       "products": [
@@ -2839,6 +2779,16 @@
         "model:psu:a1000g-mpg-1000w",
         "model:psu:a750bn-mag-pcie5-750w",
         "model:psu:a850gl-mag-pcie5-850w"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מידע על המוצר",
+      "count": 4,
+      "products": [
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280",
+        "model:storage:2t-agammixs60-cs-gammix-s60-2000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -4080,33 +4030,6 @@
     },
     {
       "category": "case",
-      "label": "תאימות לוח אם",
-      "count": 2,
-      "products": [
-        "model:case:br-ca-h510i-h510i-black",
-        "model:case:dark-dp501-phantom-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מאווררים",
-      "count": 2,
-      "products": [
-        "model:case:br-ca-h510i-h510i-black",
-        "model:case:dark-dp501-phantom-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "כניסות / יציאות",
-      "count": 2,
-      "products": [
-        "model:case:br-ca-h510i-h510i-black",
-        "model:case:dark-dp501-phantom-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "קצב רענון",
       "count": 2,
       "products": [
@@ -4148,15 +4071,6 @@
       "products": [
         "model:case:m110r-mag-pano-black",
         "model:case:m110r-mag-pano-white"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "יציאות קדמיות",
-      "count": 2,
-      "products": [
-        "model:case_fan:08-ak-at-controller-fan-fc",
-        "model:case_fan:9011109-cl-ww"
       ]
     },
     {
@@ -4598,6 +4512,51 @@
       "products": [
         "model:memory:16gbit-cl46-ct16g56c46s5-sodimm-16gb-5600mhz-cl46-sodimm",
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תוכנת גיבוי אוטומטי",
+      "count": 2,
+      "products": [
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Vibration resistance",
+      "count": 2,
+      "products": [
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Shock resistance",
+      "count": 2,
+      "products": [
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Password Protected",
+      "count": 2,
+      "products": [
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "אטימות למים ואבק",
+      "count": 2,
+      "products": [
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
       ]
     },
     {
@@ -5672,94 +5631,6 @@
     },
     {
       "category": "case",
-      "label": "אחריות מארז",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מקסימום אורך ספק כח",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מקסימום גובה קירור למעבד",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "סוג חלון למארז",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "כניסות קדמיות",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תאימות לקירור",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "קירור נוזלי תואם (CORSAIR)",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חיבור לספק כח",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "גובה מארז",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "אורך מארז",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "רוחב מארז",
-      "count": 1,
-      "products": [
-        "model:case:7000x-icue-rgb-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "כמות CD BAY 5.25",
       "count": 1,
       "products": [
@@ -5980,6 +5851,14 @@
       "count": 1,
       "products": [
         "model:case:case-digital-m-o11-vision-white"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "יציאות קדמיות",
+      "count": 1,
+      "products": [
+        "model:case_fan:08-ak-at-controller-fan-fc"
       ]
     },
     {
