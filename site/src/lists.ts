@@ -1,7 +1,7 @@
 import type { BuildMap } from "./state";
 
 /**
- * Short permanent build links: https://mifrat.net/list/<id>.
+ * Short permanent build links: https://mifrat.avizi.workers.dev/list/<id>.
  *
  * A full build (~9 part picks from ~5k products) carries ~110 bits of
  * entropy, so no stateless encoding can squeeze it into <=8 characters —
@@ -221,7 +221,7 @@ export async function fetchListBuild(id: string): Promise<BuildMap> {
   return build;
 }
 
-/** Absolute short URL for display/copy, e.g. https://mifrat.net/list/aB3!xQ9 */
+/** Absolute short URL for display/copy, e.g. https://mifrat.avizi.workers.dev/list/aB3!xQ9 */
 export function listUrl(id: string): string {
   return `${location.origin}/list/${id}`;
 }

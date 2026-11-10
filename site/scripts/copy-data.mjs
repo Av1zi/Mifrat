@@ -19,9 +19,10 @@
 // Runs automatically before `npm run dev` and `npm run build` (see
 // package.json). Re-run any time data/site/*.json changes locally.
 
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { collectImageRefs, isInsideDir } from "./image-refs.mjs";
 
 let sharp = null;
 try {
@@ -62,30 +63,16 @@ cpSync(src, dest, { recursive: true });
 console.log(`[copy-data] copied ${src} -> ${dest}`);
 
 // Collect every /images/<vendor>/<file> referenced by the site JSON layer
-// (category files + per-category history files).
-const referenced = new Set();
-const collect = (dir) => {
-  if (!existsSync(dir)) return;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      collect(full);
-      continue;
-    }
-    if (!entry.name.endsWith(".json")) continue;
-    const text = readFileSync(full, "utf8");
-    const re = /"\/images\/([^"]+)"/g;
-    let m;
-    while ((m = re.exec(text)) !== null) {
-      try {
-        referenced.add(decodeURIComponent(m[1]));
-      } catch {
-        referenced.add(m[1]);
-      }
-    }
-  }
-};
-collect(dest);
+// (category files + per-category history files). Strings that are not
+// image paths of the shape the pipeline writes are skipped, never joined
+// into a filesystem path (see image-refs.mjs).
+const { refs: referenced, rejected } = collectImageRefs(dest);
+if (rejected.length > 0) {
+  console.warn(
+    `[copy-data] skipped ${rejected.length} "/images/..." strings that are not image paths: ` +
+      JSON.stringify(rejected.slice(0, 5))
+  );
+}
 
 rmSync(imagesDest, { recursive: true, force: true });
 let copied = 0;
@@ -105,6 +92,10 @@ const copyOne = async (rel) => {
   const derived = deriveOf(rel);
   const from = path.join(imagesSrc, derived ? derived.cover : rel);
   const to = path.join(imagesDest, rel);
+  if (!isInsideDir(imagesSrc, from) || !isInsideDir(imagesDest, to)) {
+    missing++;
+    return;
+  }
   if (!existsSync(from)) {
     missing++;
     return;
@@ -165,7 +156,9 @@ if (totalRefs > 0 && ratio < 0.9) {
 // Routes are hash routes (#/c/<category>, #/p/<category>/<id>), the only
 // route form the site serves; see decisions.md for what that means for
 // crawlers. Gitignored (site/.gitignore), rebuilt on every dev/build run.
-const origin = (process.env.SITE_ORIGIN ?? "https://mifrat.net").replace(/\/+$/, "");
+// Default = the live workers.dev host until a custom domain is bought; keep
+// it in step with the canonical/og tags in index.html and public/robots.txt.
+const origin = (process.env.SITE_ORIGIN ?? "https://mifrat.avizi.workers.dev").replace(/\/+$/, "");
 const xmlEscape = (text) =>
   text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 

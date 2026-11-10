@@ -80,16 +80,15 @@ npm run format:check # Prettier, scoped to test/ + tooling; existing src/ is not
 ## Deploying
 
 Cloudflare Workers Builds deploys on every push to `main` (a code change in
-`site/` or the daily `data/site/*.json` refresh). The repo-root
-`wrangler.jsonc` and `package.json:build` exist for that build; the output
-is `site/dist`, served as static assets. The Worker entry
-(`site/wrangler.jsonc` -> `worker.ts`) handles only `/api/*` and `/list/*`.
-No environment variables or secrets are involved.
+`site/` or the daily `data/site/*.json` refresh). Its "Root directory" is
+`site`, so it reads `site/wrangler.jsonc`: the output is `site/dist`, served
+as static assets, and the Worker entry (`worker.ts`) handles only `/api/*`
+and `/list/*`. No environment variables or secrets are involved.
 
-Both `wrangler.jsonc` files name the same Worker (`mifrat`); the root one has
-no `main` and no D1 binding. The "Root directory" field in the Workers Builds
-dashboard decides which one is read: `site` (as `site/wrangler.jsonc` says)
-gives the short-link Worker; the repo root would deploy static assets only.
+`site/wrangler.jsonc` is the only Wrangler config. The repo root had a second
+one naming the same Worker (`mifrat`) with no `main` and no D1 binding; a
+`wrangler deploy` from the root would have replaced the Worker with static
+assets only, so it was removed (Nov 2026). Run `wrangler` from `site/`.
 
 ## Build sharing and other server-side pieces
 
