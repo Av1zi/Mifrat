@@ -59,7 +59,7 @@ touch "$SUCCESS_MARKER"
 # download_images stops after 2 consecutive 403/429. It reads the catalog CI
 # built from the PREVIOUS snapshot, so a new product gets its cover a day late.
 if ! "$PYTHON" -c "import PIL, requests" 2>/dev/null; then
-    echo "[warn] Pillow/requests missing in Nano venv — skipping KSP covers. Run: $PYTHON -m pip install 'Pillow>=10.0' 'requests>=2.31'" >&2
+    echo "[warn] Pillow/requests missing in Nano venv — skipping KSP covers. Run: $PYTHON -m pip install -r $REPO_DIR/requirements.txt" >&2
 elif [ ! -f data/catalog.json ]; then
     echo "[warn] no data/catalog.json — skipping KSP covers" >&2
 else

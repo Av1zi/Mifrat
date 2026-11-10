@@ -26,12 +26,15 @@ of every product plus its runner-up (see keep_set / --prune).
 """
 import json
 import sys
+import time
+import warnings
 from io import BytesIO
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 import requests
 from PIL import Image
+from urllib3.util import parse_url
 
 try:
     from scraper.image_urls import (
@@ -65,6 +68,26 @@ COVER_EXT = ".webp"
 # scripts/check_image_files.py enforces it.
 COVER_MAX_BYTES = 100_000
 REQUEST_TIMEOUT = 15
+
+# Fetch limits (security audit F-2 / D-3, 2026-11-10). Image URLs are scraped
+# vendor data, so a hostile or broken page can point og:image anywhere: the
+# LAN, a multi-GB or slow-drip body, an exotic decoder. Only the vendors' own
+# domains (and their subdomains) are fetched, over https; redirects are
+# followed by hand so every hop is re-checked; the body is capped and only
+# the four web formats are decoded. A refused URL is never requested and is
+# not an HTTP status, so it never counts toward the 2x403/429 stop.
+# IMAGE_HOSTS mirrors the spiders' allowed_domains (check_image_fetch.py
+# pins that); a vendor image CDN on another domain must be added explicitly.
+IMAGE_HOSTS = frozenset({
+    "tms.co.il", "1pc.co.il", "ivory.co.il", "yahavpc.co.il", "plonter.co.il",
+    "ksp.co.il",
+})
+IMAGE_SCHEMES = frozenset({"https"})
+MAX_REDIRECTS = 3
+MAX_IMAGE_BYTES = 10 * 1024 * 1024
+FETCH_DEADLINE = 60.0
+IMAGE_FORMATS = ("JPEG", "PNG", "WEBP", "GIF")
+Image.MAX_IMAGE_PIXELS = 40_000_000
 
 # Source URL extensions that can carry an alpha channel. JPEG never does,
 # so a JPEG-sourced cover was never damaged and is not refetched.
@@ -177,6 +200,91 @@ def encode_cover(img: Image.Image, dest_path: Path) -> None:
     dest_path.write_bytes(buf.getvalue())
 
 
+class RefusedImage(Exception):
+    """A URL or body the fetch limits refuse. Never carries an HTTP status."""
+
+
+def refuse_reason(url: str, hosts=None, schemes=None) -> str | None:
+    """Why `url` may not be fetched (None when it may). `hosts` / `schemes`
+    default to IMAGE_HOSTS / IMAGE_SCHEMES; tests inject their own."""
+    hosts = IMAGE_HOSTS if hosts is None else hosts
+    schemes = IMAGE_SCHEMES if schemes is None else schemes
+    url = str(url or "")
+    if "\\" in url or any(ord(ch) < 32 or ord(ch) == 127 for ch in url):
+        return "backslash or control character in URL"
+    try:
+        parts = urlparse(url)
+        host = (parts.hostname or "").lower()
+        # requests parses with urllib3; a URL the two read differently is
+        # refused rather than trusted to either.
+        other = (parse_url(url).host or "").lower().strip("[]")
+    except Exception:
+        return "unparseable URL"
+    if parts.scheme.lower() not in schemes:
+        return f"scheme {parts.scheme or '-'!r} not allowed"
+    if parts.username is not None or parts.password is not None:
+        return "credentials in URL"
+    if not host or host != other or not host.isascii():
+        return f"ambiguous host {host or '-'!r}"
+    if not any(host == d or host.endswith("." + d) for d in hosts):
+        return f"host {host!r} not on the image allowlist"
+    return None
+
+
+def _read_capped(resp: requests.Response, deadline: float) -> bytes:
+    declared = (resp.headers.get("Content-Length") or "").strip()
+    if declared.isdigit() and int(declared) > MAX_IMAGE_BYTES:
+        raise RefusedImage(f"Content-Length {declared} over {MAX_IMAGE_BYTES} bytes")
+    # read1 returns what has arrived instead of blocking for a full chunk, so
+    # a slow drip still meets the deadline check (urllib3 1.x lacks it).
+    read1 = getattr(resp.raw, "read1", None)
+    chunks = resp.iter_content(65536) if read1 is None else iter(())
+    buf = bytearray()
+    while True:
+        chunk = read1(65536, decode_content=True) if read1 else next(chunks, b"")
+        if not chunk:
+            return bytes(buf)
+        buf += chunk
+        if len(buf) > MAX_IMAGE_BYTES:
+            raise RefusedImage(f"body over {MAX_IMAGE_BYTES} bytes")
+        if time.monotonic() > deadline:
+            raise RefusedImage(f"download took over {FETCH_DEADLINE:g}s")
+
+
+def fetch_image_bytes(image_url: str, hosts=None, schemes=None) -> bytes:
+    """GET an image within the fetch limits: allowlisted host and scheme on
+    every hop, at most MAX_REDIRECTS redirects, MAX_IMAGE_BYTES, and
+    FETCH_DEADLINE seconds overall (REQUEST_TIMEOUT still bounds each read).
+    Raises RefusedImage, or requests' errors (HTTPError keeps the status)."""
+    deadline = time.monotonic() + FETCH_DEADLINE
+    headers = {"User-Agent": _user_agent_for(image_url)}
+    url = str(image_url)
+    with requests.Session() as session:
+        for hop in range(MAX_REDIRECTS + 1):
+            reason = refuse_reason(url, hosts, schemes)
+            if reason:
+                raise RefusedImage(reason if hop == 0 else f"redirect to {url}: {reason}")
+            if time.monotonic() > deadline:
+                raise RefusedImage(f"redirects took over {FETCH_DEADLINE:g}s")
+            with session.get(url, timeout=REQUEST_TIMEOUT, headers=headers,
+                             allow_redirects=False, stream=True) as resp:
+                target = session.get_redirect_target(resp)
+                if target:
+                    url = urljoin(url, target)
+                    continue
+                resp.raise_for_status()
+                return _read_capped(resp, deadline)
+    raise RefusedImage(f"more than {MAX_REDIRECTS} redirects")
+
+
+def _open_image(source) -> Image.Image:
+    """Image.open limited to IMAGE_FORMATS. Over MAX_IMAGE_PIXELS raises
+    (Pillow itself only warns between 1x and 2x the limit)."""
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", Image.DecompressionBombWarning)
+        return Image.open(source, formats=IMAGE_FORMATS)
+
+
 def download_and_save(image_url: str, dest_path: Path) -> bool:
     """Returns True on success. Never raises — a failed image download
     should not block the rest of the batch; log and move on.
@@ -188,14 +296,14 @@ def download_and_save(image_url: str, dest_path: Path) -> bool:
     LAST_HTTP_STATUS = None
     LAST_HAD_ALPHA = False
     try:
-        resp = requests.get(image_url, timeout=REQUEST_TIMEOUT, headers={
-            "User-Agent": _user_agent_for(image_url)
-        })
-        resp.raise_for_status()
-        with Image.open(BytesIO(resp.content)) as img:
+        data = fetch_image_bytes(image_url)
+        with _open_image(BytesIO(data)) as img:
             LAST_HAD_ALPHA = _has_alpha(img)
             encode_cover(img, dest_path)
         return True
+    except RefusedImage as exc:
+        print(f"  REFUSED {image_url} -> {dest_path}: {exc}")
+        return False
     except Exception as exc:
         try:
             LAST_HTTP_STATUS = exc.response.status_code  # type: ignore[attr-defined]
@@ -283,7 +391,7 @@ def _long_edge(path: Path) -> int | None:
     thousand files costs well under a second.
     """
     try:
-        with Image.open(path) as img:
+        with Image.open(path, formats=IMAGE_FORMATS) as img:
             width, height = img.size
             return max(width, height)
     except Exception:

@@ -15,10 +15,18 @@ conflicts, duplicate-vendor listings) and data/review_queue.json (fuzzy
 
 Nothing changes on the site until the pipeline is rebuilt (button on the
 page runs scraper/normalize_and_match.py).
+
+Only the page this process served may change anything (security audit E-2,
+2026-11-10): every request must carry a Host of 127.0.0.1/localhost on the
+bound port (DNS rebinding), and every POST must be same-origin JSON carrying
+the per-run X-QA-Token embedded in the page (CSRF). scripts/check_qa_tool.py
+pins this offline.
 """
 from __future__ import annotations
 
+import hmac
 import json
+import secrets
 import subprocess
 import sys
 import threading
@@ -38,6 +46,7 @@ MANUAL = ROOT / "data" / "matching" / "manual_products.json"
 DECISIONS = ROOT / "data" / "matching" / "review_decisions.json"
 DISMISSED = ROOT / "data" / "matching" / "qa_dismissed.json"
 PORT = 8766
+TOKEN = secrets.token_urlsafe(32)
 
 _lock = threading.Lock()
 _rebuild = {"running": False, "log": ""}
@@ -218,7 +227,7 @@ def start_rebuild() -> None:
 
 
 PAGE = r"""<!doctype html><meta charset="utf-8"><title>Mifrat QA</title>
-<style>
+<style nonce="__NONCE__">
 body{font:14px system-ui;margin:0;background:#15161a;color:#e6e6e6}
 header{position:sticky;top:0;background:#1d1f25;padding:8px 14px;border-bottom:1px solid #333;z-index:5;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 select,input,button{background:#262932;color:#e6e6e6;border:1px solid #444;border-radius:4px;padding:4px 8px;font:inherit}
@@ -248,11 +257,13 @@ main{padding:10px 14px;max-width:1250px}
 <span id="msg"></span>
 </header>
 <main id="list"></main>
-<script>
+<script nonce="__NONCE__">
 let cases=[];const $=id=>document.getElementById(id);
+const TOKEN='__QA_TOKEN__',HDRS={'content-type':'application/json','x-qa-token':TOKEN};
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const show=v=>typeof v==='string'?v:JSON.stringify(v);
-async function post(body){const r=await fetch('/api/act',{method:'POST',body:JSON.stringify(body)});
+const link=(u,t)=>/^https?:\/\//i.test(u||'')?`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${t}</a>`:`<span>${t}</span>`;
+async function post(body){const r=await fetch('/api/act',{method:'POST',headers:HDRS,body:JSON.stringify(body)});
  const j=await r.json().catch(()=>({error:'bad response'}));
  if(!r.ok){$('msg').textContent=j.error||'error';return false}$('msg').textContent='';return true}
 async function load(){cases=await (await fetch('/api/cases')).json();fill();render()}
@@ -260,7 +271,7 @@ function fill(){for(const [id,key] of [['kind','kind'],['cat','category'],['fiel
  const sel=$(id),cur=sel.value,vals=[...new Set(cases.map(c=>c[key]).filter(Boolean))].sort();
  sel.innerHTML='<option value="">all '+id+'</option>'+vals.map(v=>`<option ${v===cur?'selected':''}>${esc(v)}</option>`).join('')}}
 function offers(c){return c.offers.map(o=>`<div class="off"><span class="dim">${esc(o.vendor||'')}</span>
- <a href="${esc(o.url||'#')}" target="_blank">${esc(o.title||o.key)}</a><span>${o.price??''}₪</span></div>`).join('')}
+ ${link(o.url,esc(o.title||o.key))}<span>${esc(o.price)}₪</span></div>`).join('')}
 function acts(c){
  const d=(l,a,cls='')=>`<button class="${cls}" data-a="${a}" data-id="${esc(c.id)}">${l}</button>`;
  let h='';
@@ -285,8 +296,8 @@ function render(){const k=$('kind').value,cat=$('cat').value,f=$('field').value,
  const rows=cases.filter(c=>(!k||c.kind===k)&&(!cat||c.category===cat)&&(!f||c.field===f||(c.fields||[]).includes(f))&&(!st||c.state===st)
   &&(!q||(c.name+c.product_id+c.offers.map(o=>o.title).join(' ')).toLowerCase().includes(q)));
  $('count').textContent=rows.length+' / '+cases.length;
- $('list').innerHTML=rows.slice(0,150).map(c=>`<div class="card ${c.state}">
-  <div class="top"><span class="tag k-${c.kind}">${c.kind}${c.field?': '+esc(c.field):''}</span><b>${esc(c.name)}</b>
+ $('list').innerHTML=rows.slice(0,150).map(c=>`<div class="card ${esc(c.state)}">
+  <div class="top"><span class="tag k-${esc(c.kind)}">${esc(c.kind)}${c.field?': '+esc(c.field):''}</span><b>${esc(c.name)}</b>
   <span class="dim">${esc(c.category||'')} ${c.kind==='fuzzy'?'':esc(c.product_id||'')}</span></div>${offers(c)}${acts(c)}</div>`).join('')
   +(rows.length>150?'<p class="dim">showing first 150 – filter to narrow</p>':'')}
 document.addEventListener('click',async e=>{const b=e.target.closest('button[data-a]');if(!b)return;
@@ -300,24 +311,67 @@ document.addEventListener('click',async e=>{const b=e.target.closest('button[dat
  else if(a==='split'){body.keys=c.kind==='duplicate_vendor'?c.offers.filter(o=>o.vendor===c.vendor).map(o=>o.key):c.offers.map(o=>o.key)}
  if(await post(body))await load()});
 for(const id of['kind','cat','field','state'])$(id).onchange=render;$('q').oninput=render;
-$('rebuild').onclick=async()=>{await fetch('/api/rebuild',{method:'POST'});poll()};
+$('rebuild').onclick=async()=>{await fetch('/api/rebuild',{method:'POST',headers:HDRS,body:'{}'});poll()};
 async function poll(){const s=await (await fetch('/api/status')).json();$('rb').textContent=s.running?'rebuilding…':s.log.split('\n')[0];
  if(s.running)setTimeout(poll,3000);else if(s.log.startsWith('done'))load()}
 load();poll();
 </script>"""
 
 
+def _csp(nonce: str) -> str:
+    # The page shows no images and loads nothing remote.
+    return (f"default-src 'none'; script-src 'nonce-{nonce}'; "
+            f"style-src 'nonce-{nonce}'; connect-src 'self'; base-uri 'none'; "
+            "form-action 'none'; frame-ancestors 'none'")
+
+
 class Handler(BaseHTTPRequestHandler):
-    def _send(self, code: int, body: bytes, ctype: str = "application/json") -> None:
+    def _send(self, code: int, body: bytes, ctype: str = "application/json",
+              csp: str = "default-src 'none'; frame-ancestors 'none'") -> None:
         self.send_response(code)
         self.send_header("Content-Type", ctype + "; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
+        self.send_header("Content-Security-Policy", csp)
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "DENY")
+        self.send_header("Cache-Control", "no-store")
         self.end_headers()
         self.wfile.write(body)
 
+    def _deny(self, code: int, why: str) -> None:
+        self._send(code, json.dumps({"error": why}).encode("utf-8"))
+
+    def _origins(self) -> tuple[str, ...]:
+        port = self.server.server_address[1]  # type: ignore[index]
+        return (f"127.0.0.1:{port}", f"localhost:{port}")
+
+    def _host_ok(self) -> bool:
+        return (self.headers.get("Host") or "").strip().lower() in self._origins()
+
+    def _post_refusal(self) -> tuple[int, str] | None:
+        """Why this POST is refused (code, reason), or None when it may act."""
+        site = (self.headers.get("Sec-Fetch-Site") or "").strip().lower()
+        if site and site != "same-origin":
+            return 403, "cross-site request refused"
+        origin = self.headers.get("Origin")
+        if origin is not None and origin.strip().lower() not in {
+                f"http://{o}" for o in self._origins()}:
+            return 403, "foreign origin refused"
+        ctype = (self.headers.get("Content-Type") or "").split(";")[0].strip().lower()
+        if ctype != "application/json":
+            return 415, "content-type must be application/json"
+        token = (self.headers.get("X-QA-Token") or "").encode("utf-8", "replace")
+        if not hmac.compare_digest(token, TOKEN.encode("ascii")):
+            return 403, "missing or wrong X-QA-Token (reload the page)"
+        return None
+
     def do_GET(self) -> None:
-        if self.path == "/":
-            self._send(200, PAGE.encode("utf-8"), "text/html")
+        if not self._host_ok():
+            self._deny(403, "foreign Host refused")
+        elif self.path == "/":
+            nonce = secrets.token_urlsafe(16)
+            page = PAGE.replace("__NONCE__", nonce).replace("__QA_TOKEN__", TOKEN)
+            self._send(200, page.encode("utf-8"), "text/html", _csp(nonce))
         elif self.path == "/api/cases":
             self._send(200, json.dumps(build_cases(), ensure_ascii=False).encode("utf-8"))
         elif self.path == "/api/status":
@@ -327,12 +381,22 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         length = int(self.headers.get("Content-Length") or 0)
+        # Read before refusing: replying over an unread body makes the
+        # client see a reset instead of the refusal.
+        raw = self.rfile.read(min(max(length, 0), 1_000_000))
+        if not self._host_ok():
+            self._deny(403, "foreign Host refused")
+            return
+        refusal = self._post_refusal()
+        if refusal:
+            self._deny(*refusal)
+            return
         try:
             if self.path == "/api/rebuild":
                 start_rebuild()
                 self._send(200, b'{"ok":true}')
                 return
-            body = json.loads(self.rfile.read(length) or b"{}")
+            body = json.loads(raw or b"{}")
             self._send(200, json.dumps(act(body)).encode("utf-8"))
         except Exception as exc:  # shown in the page header
             self._send(400, json.dumps({"error": str(exc)}).encode("utf-8"))

@@ -125,7 +125,7 @@ GOOGLE_KEY=paste-your-key-here
 ENV
 chmod 600 .env
 git status --short .env        # prints nothing: .env is ignored
-~/miniforge3/envs/pc-parts-il/bin/pip install requests   # if the env lacks it
+~/miniforge3/envs/pc-parts-il/bin/pip install -r requirements.txt   # if the env lacks a dependency
 ```
 
 First run, by hand (audit 300 products to measure accuracy, then fill):
@@ -177,11 +177,12 @@ HTTP 429s), and the **first 403 ends the run** (no retry, no rotation).
 Listing-only — the detail endpoint is blocked, so there is no KSP detail or
 image phase.
 
-One-time dependency install in the same venv:
+One-time dependency install in the same venv (`curl-cffi` and
+`scrapy-curl-cffi` are pinned there; never install other versions by hand):
 
 ```bash
 cd ~/pc-parts-il
-pip install 'curl-cffi==0.15.0' 'scrapy-curl-cffi==0.4.2'
+pip install -r requirements.txt
 ```
 
 Install the timer (runs 00:55-01:55 UTC, after the 1PC window):

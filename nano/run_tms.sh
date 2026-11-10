@@ -97,7 +97,7 @@ fi
 # not have (they were added for the cloud detail job later). A missing dep
 # must SKIP detail — never fail the run (the snapshot is already pushed).
 if ! "$PYTHON" -c "import PIL, requests" 2>/dev/null; then
-    echo "[warn] Pillow/requests missing in Nano venv — skipping detail steps (snapshot already pushed). Run: $PYTHON -m pip install 'Pillow>=10.0' 'requests>=2.31'" >&2
+    echo "[warn] Pillow/requests missing in Nano venv — skipping detail steps (snapshot already pushed). Run: $PYTHON -m pip install -r $REPO_DIR/requirements.txt" >&2
     PENDING_COUNT=0
 else
     PENDING_COUNT=$("$PYTHON" -c "import json; print(len(json.load(open('data/detail_pending/tms.json'))))" 2>/dev/null || echo 0)
