@@ -20,28 +20,75 @@ concurrency:
   group: weekly-downsample
   cancel-in-progress: false
 
+# Build / publish split (Nov 2026, see decisions.md): `downsample` decides and
+# deletes with a read-only token; `publish` alone can push. It re-checks that
+# the bundle only deletes whole day-dirs well past the 90-day daily tier.
 jobs:
   downsample:
     permissions:
-      contents: write
+      contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      packed: ${{ steps.pack.outputs.packed }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: "3.12"
       # downsample.py is stdlib-only — no requirements install needed.
       - name: Remove downsampled day-dirs
+        id: pack
         run: |
-          python scraper/downsample.py | tee downsample.log
-          grep '^data/raw/' downsample.log > removed.txt || true
-          if [ -s removed.txt ]; then
-            git config user.email "bot@users.noreply.github.com"
-            git config user.name "pc-parts-il-bot"
-            # shellcheck disable=SC2046
-            bash scripts/git_commit_push.sh \
-              "downsample: collapse old raw snapshots to weekly" \
-              $(cat removed.txt)
-          else
+          python scraper/downsample.py | tee "$RUNNER_TEMP/downsample.log"
+          mapfile -t removed < <(grep '^data/raw/' "$RUNNER_TEMP/downsample.log" || true)
+          if [ "${#removed[@]}" -eq 0 ]; then
             echo "nothing downsampled — no commit"
+            exit 0
           fi
+          bash scripts/ci_bundle.sh pack "$RUNNER_TEMP/bundle" "${removed[@]}"
+      - if: steps.pack.outputs.packed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: publish-downsample
+          path: ${{ runner.temp }}/bundle
+          retention-days: 1
+          if-no-files-found: error
+
+  publish:
+    permissions:
+      contents: write
+    needs: downsample
+    if: needs.downsample.outputs.packed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+        with:
+          name: publish-downsample
+          path: ${{ runner.temp }}/bundle
+      - run: |
+          b="$RUNNER_TEMP/bundle"
+          if [ -s "$b/changed.list" ]; then
+            echo "[error] a downsample bundle may only delete files" >&2
+            exit 1
+          fi
+          cutoff="$(date -u -d '80 days ago' +%F)"
+          days=()
+          while IFS= read -r -d '' f; do
+            if ! [[ "$f" =~ ^data/raw/([0-9]{4}-[0-9]{2}-[0-9]{2})/[^/]+$ ]] ||
+               ! [[ "${BASH_REMATCH[1]}" < "$cutoff" ]]; then
+              printf '[error] refusing to delete %q\n' "$f" >&2
+              exit 1
+            fi
+            days+=("data/raw/${BASH_REMATCH[1]}/")
+          done < "$b/deleted.list"
+          mapfile -t days < <(printf '%s\n' "${days[@]}" | sort -u)
+          bash scripts/ci_bundle.sh unpack "$b" "${days[@]}"
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          bash scripts/git_commit_push.sh \
+            "downsample: collapse old raw snapshots to weekly" "${days[@]}"

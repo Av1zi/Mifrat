@@ -7,10 +7,13 @@ name: scrape-cloud
 # KSP runs on the Nano (Cloudflare blocks datacenter IPs); it is not part of
 # this matrix.
 #
-# `permissions: contents: write` (Aug 2026 fix, see DECISIONS.md): the
-# default GITHUB_TOKEN is read-only on repos where the repo-level
-# "Workflow permissions" setting defaults to read-only — commits succeed
-# locally, then push 403s. Same fix as normalize-and-deploy.yml.
+# Build / publish split (Nov 2026, see decisions.md): the jobs that install
+# packages, run Chromium and parse vendor pages hold a READ-ONLY token with
+# no persisted git credentials and hand their files over as an artifact
+# (scripts/ci_bundle.sh). Only the publish-* jobs hold `contents: write`
+# (explicit, since the repo default token may be read-only); they run no
+# third-party code, just apply the bundle and push with
+# scripts/git_commit_push.sh.
 #
 # Night window (Nov 2026): every scheduled run must land between 23:00 and
 # 07:00 Israel time. Israel is UTC+2 in winter and UTC+3 in summer, so the
@@ -24,14 +27,51 @@ on:
     - cron: '47 2 * * *'   # in-window fallback check (04:47 winter / 05:47 summer Israel)
   workflow_dispatch: {}
 
+env:
+  # Everything the detail job may publish. Per-vendor paths only (see the
+  # scrape job for why shared directories are forbidden): data/images/<vendor>/
+  # holds only that vendor's downloaded covers, so those three dirs are safe.
+  DETAIL_PATHS: >-
+    data/detail_pending/ivory.json data/raw/detail/ivory.jsonl
+    data/detail_scraped/ivory.json data/images/ivory/
+    data/detail_pending/onepc.json data/raw/detail/onepc.jsonl
+    data/detail_scraped/onepc.json data/images/onepc/
+    data/detail_pending/yahav.json data/raw/detail/yahav.jsonl
+    data/detail_scraped/yahav.json data/images/yahav/
+
 jobs:
   schedule-gate:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    # The step below sleeps up to 3h.
+    timeout-minutes: 200
     outputs:
       fallback: ${{ steps.mode.outputs.fallback }}
+      spiders: ${{ steps.spiders.outputs.list }}
     steps:
+      - id: spiders
+        # The cloud vendor list, read by both the scrape and the publish-scrape
+        # matrix so they can never drift apart.
+        # Plonter dropped 2026-09-29 (datacenter IP-class Incapsula block;
+        # see decisions.md). Spider + support code stay for a possible
+        # future re-scrape — this list is the only thing unscheduling it.
+        # 1PC was suspended Oct 2026 when the old PCBuilder/CategoryViewData
+        # endpoint started answering 404 — not an IP block, the storefront
+        # was replaced. The spider was rebuilt on the new
+        # /web/builder/candidates JSON API plus /web/cat/428+356 for the
+        # fan/HDD gap (2,214 rows total, verified 2026-10-13) and is
+        # re-enabled here.
+        # YahavPC onboarded 2026-10-14 on its own /api/BuildSearch JSON
+        # builder endpoint (11 part slots, 1,079 rows). Cloud-safe as far as
+        # local verification can tell: nginx answers a browser UA from a
+        # residential IP and robots.txt allows everything, but a datacenter
+        # IP-class block would only show up in a real run — if it does, the
+        # zero-items/min-count check fails loudly and the vendor moves to the
+        # Nano next to TMS.
+        # 1PC moved to the Nano 2026-10-24 (CAPTCHA page for datacenter IPs;
+        # see decisions.md, nano/run_onepc.sh). Its detail scrape stays below.
+        run: echo 'list=["ivory","yahav"]' >> "$GITHUB_OUTPUT"
       - id: mode
         shell: bash
         env:
@@ -50,34 +90,21 @@ jobs:
 
   scrape:
     permissions:
-      contents: write
+      contents: read
     needs: schedule-gate
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     strategy:
       # One vendor failing must not kill the others' scrapes (§10).
       fail-fast: false
       matrix:
-        # Plonter dropped 2026-09-29 (datacenter IP-class Incapsula block;
-        # see decisions.md). Spider + support code stay for a possible
-        # future re-scrape — this matrix is the only thing unscheduling it.
-        # 1PC was suspended Oct 2026 when the old PCBuilder/CategoryViewData
-        # endpoint started answering 404 — not an IP block, the storefront
-        # was replaced. The spider was rebuilt on the new
-        # /web/builder/candidates JSON API plus /web/cat/428+356 for the
-        # fan/HDD gap (2,214 rows total, verified 2026-10-13) and is
-        # re-enabled here.
-        # YahavPC onboarded 2026-10-14 on its own /api/BuildSearch JSON
-        # builder endpoint (11 part slots, 1,079 rows). Cloud-safe as far as
-        # local verification can tell: nginx answers a browser UA from a
-        # residential IP and robots.txt allows everything, but a datacenter
-        # IP-class block would only show up in a real run — if it does, the
-        # zero-items/min-count check fails loudly and the vendor moves to the
-        # Nano next to TMS.
-        # 1PC moved to the Nano 2026-10-24 (CAPTCHA page for datacenter IPs;
-        # see decisions.md, nano/run_onepc.sh). Its detail scrape stays below.
-        spider: [ivory, yahav]
+        spider: ${{ fromJSON(needs.schedule-gate.outputs.spiders) }}
+    env:
+      SPIDER: ${{ matrix.spider }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: "3.12"
@@ -100,28 +127,81 @@ jobs:
         run: |
           if [ "$FALLBACK" = "true" ]; then
             for d in "$(date -u +%F)" "$(date -u -d yesterday +%F)"; do
-              f="data/raw/$d/${{ matrix.spider }}.jsonl"
+              f="data/raw/$d/$SPIDER.jsonl"
               [ -s "$f" ] || continue
               if head -n 1 "$f" | python -c "import json,sys,datetime as t; s=json.loads(sys.stdin.readline())['scraped_at']; sys.exit(0 if t.datetime.now(t.timezone.utc)-t.datetime.fromisoformat(s) < t.timedelta(hours=18) else 1)"; then
-                echo "${{ matrix.spider }} already has a current snapshot ($f); skipping fallback"
+                echo "$SPIDER already has a current snapshot ($f); skipping fallback"
                 exit 0
               fi
             done
           fi
-          python scraper/run_spider.py "${{ matrix.spider }}"
-      # Commit ONLY this job's own snapshot file. Never `data/raw/` — the
+          python scraper/run_spider.py "$SPIDER"
+      # Publish ONLY this job's own snapshot file. Never `data/raw/` — the
       # matrix jobs run in parallel on stale checkouts, and `git add` on a
       # shared directory stages the siblings' files as DELETED (Sep 2026
       # wiped 5 days of plonter/ivory snapshots exactly this way).
       # A fallback skip on yesterday-dated data writes no file today.
-      - run: |
-          output="data/raw/$(date -u +%F)/${{ matrix.spider }}.jsonl"
-          if [ ! -e "$output" ]; then echo "no new snapshot to commit"; exit 0; fi
+      # run_spider.py dates the file when the crawl STARTS, so a crawl that
+      # crosses UTC midnight writes yesterday's name: offer both, only the
+      # one that differs from HEAD gets bundled.
+      - name: Bundle the snapshot for publish-scrape
+        id: pack
+        run: |
+          outputs=()
+          for d in "$(date -u +%F)" "$(date -u -d yesterday +%F)"; do
+            f="data/raw/$d/$SPIDER.jsonl"
+            if [ -e "$f" ]; then outputs+=("$f"); fi
+          done
+          if [ "${#outputs[@]}" -eq 0 ]; then echo "no new snapshot to publish"; exit 0; fi
+          bash scripts/ci_bundle.sh pack "$RUNNER_TEMP/bundle" "${outputs[@]}"
+      - if: steps.pack.outputs.packed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: publish-scrape-${{ matrix.spider }}
+          path: ${{ runner.temp }}/bundle
+          retention-days: 1
+          if-no-files-found: error
+
+  publish-scrape:
+    # One leg per vendor, so one vendor's push trouble never blocks another's.
+    # A leg whose scrape failed or wrote nothing finds no artifact and stops.
+    permissions:
+      contents: write
+    needs: [schedule-gate, scrape]
+    if: "!cancelled()"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        spider: ${{ fromJSON(needs.schedule-gate.outputs.spiders) }}
+    env:
+      SPIDER: ${{ matrix.spider }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - id: download
+        continue-on-error: true
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+        with:
+          name: publish-scrape-${{ matrix.spider }}
+          path: ${{ runner.temp }}/bundle
+      - if: steps.download.outcome == 'success'
+        # The bundle may name exactly one file: today's snapshot of this
+        # vendor. Its date (not the publish job's clock) dates the commit.
+        run: |
+          b="$RUNNER_TEMP/bundle"
+          mapfile -d '' -t changed < "$b/changed.list"
+          if [ -s "$b/deleted.list" ] || [ "${#changed[@]}" -ne 1 ] ||
+             ! [[ "${changed[0]}" =~ ^data/raw/([0-9]{4}-[0-9]{2}-[0-9]{2})/${SPIDER}\.jsonl$ ]]; then
+            echo "[error] bundle is not a single $SPIDER snapshot" >&2
+            exit 1
+          fi
+          day="${BASH_REMATCH[1]}"
+          output="${changed[0]}"
+          bash scripts/ci_bundle.sh unpack "$b" "$output"
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
-          bash scripts/git_commit_push.sh \
-            "scrape(${{ matrix.spider }}): $(date -u +%F)" \
-            "$output"
+          bash scripts/git_commit_push.sh "scrape($SPIDER): $day" "$output"
 
   # Detail-page scrape: runs after all listing spiders succeed.
   # Fetches each vendor's product detail pages for structured specs
@@ -131,8 +211,10 @@ jobs:
   # trivial repo growth at this rate).
   detail-scrape:
     permissions:
-      contents: write
-    needs: [schedule-gate, scrape]
+      contents: read
+    # publish-scrape too, so the detail push lands after the snapshot pushes
+    # exactly as when the scrape legs pushed themselves.
+    needs: [schedule-gate, scrape, publish-scrape]
     # A single vendor failing (e.g. Ivory 403-blocking datacenter IPs, Sep
     # 2026) must not cancel everyone else's detail scrape: without this,
     # `needs` requires ALL matrix legs to succeed, so one vendor's block
@@ -142,8 +224,13 @@ jobs:
     # below, but its committed detail file + images stay as history.)
     if: "!cancelled()"
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      packed: ${{ steps.pack.outputs.packed }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: "3.12"
@@ -176,35 +263,50 @@ jobs:
       # gate marking (see make_detail_pending): imageless products would
       # otherwise re-scrape every day forever.
       - run: python -m scraper.make_detail_pending mark ivory onepc yahav
-      # NOTE: per-vendor paths only (see the scrape job above for why shared
-      # directories are forbidden here). data/images/<vendor>/ holds only
-      # that vendor's downloaded covers, so those three dirs are safe.
-      # Commit only paths that EXIST: a vendor with zero new rows has no
-      # ledger file, and that must not fail the other vendors' commit
-      # (Sep 2026: static path list + missing onepc ledger = exit 128,
-      # losing the whole run's detail commit).
-      - run: |
-          git config user.email "bot@users.noreply.github.com"
-          git config user.name "pc-parts-il-bot"
-          PATHS=(
-            data/detail_pending/ivory.json
-            data/raw/detail/ivory.jsonl
-            data/detail_scraped/ivory.json
-            data/images/ivory/
-            data/detail_pending/onepc.json
-            data/raw/detail/onepc.jsonl
-            data/detail_scraped/onepc.json
-            data/images/onepc/
-            data/detail_pending/yahav.json
-            data/raw/detail/yahav.jsonl
-            data/detail_scraped/yahav.json
-            data/images/yahav/
-          )
+      # Only paths that EXIST: a vendor with zero new rows has no ledger
+      # file, and that must not fail the other vendors' commit (Sep 2026:
+      # static path list + missing onepc ledger = exit 128, losing the whole
+      # run's detail commit).
+      - name: Bundle the detail outputs for publish-detail
+        id: pack
+        run: |
+          read -ra paths <<< "$DETAIL_PATHS"
           EXISTING=()
-          for p in "${PATHS[@]}"; do
+          for p in "${paths[@]}"; do
             if [ -e "$p" ]; then EXISTING+=("$p"); fi
           done
-          if [ "${#EXISTING[@]}" -eq 0 ]; then echo "nothing to commit"; exit 0; fi
+          if [ "${#EXISTING[@]}" -eq 0 ]; then echo "nothing to publish"; exit 0; fi
+          bash scripts/ci_bundle.sh pack "$RUNNER_TEMP/bundle" "${EXISTING[@]}"
+      - if: steps.pack.outputs.packed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: publish-detail
+          path: ${{ runner.temp }}/bundle
+          retention-days: 1
+          if-no-files-found: error
+
+  publish-detail:
+    permissions:
+      contents: write
+    needs: detail-scrape
+    if: "!cancelled() && needs.detail-scrape.outputs.packed == 'true'"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+        with:
+          name: publish-detail
+          path: ${{ runner.temp }}/bundle
+      - run: |
+          read -ra paths <<< "$DETAIL_PATHS"
+          bash scripts/ci_bundle.sh unpack "$RUNNER_TEMP/bundle" "${paths[@]}"
+          EXISTING=()
+          for p in "${paths[@]}"; do
+            if [ -e "$p" ]; then EXISTING+=("$p"); fi
+          done
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh \
             "detail-scrape: $(date -u +%F)" \
             "${EXISTING[@]}"

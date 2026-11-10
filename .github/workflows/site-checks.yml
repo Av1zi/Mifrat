@@ -22,7 +22,13 @@ on:
       - 'data/catalog.json'
       - 'data/site/**'
       - 'data/spec_gaps.json'
-      - '.github/workflows/site-checks.yml'
+      - '.github/workflows/**'
+      - 'scripts/ci_bundle.sh'
+      - 'scripts/check_ci_bundle.sh'
+      - 'scraper/download_images.py'
+      - 'scraper/image_urls.py'
+      - 'scraper/qa_tool.py'
+      - 'scraper/spiders/**'
   pull_request:
     paths:
       - 'site/**'
@@ -31,7 +37,13 @@ on:
       - 'data/catalog.json'
       - 'data/site/**'
       - 'data/spec_gaps.json'
-      - '.github/workflows/site-checks.yml'
+      - '.github/workflows/**'
+      - 'scripts/ci_bundle.sh'
+      - 'scripts/check_ci_bundle.sh'
+      - 'scraper/download_images.py'
+      - 'scraper/image_urls.py'
+      - 'scraper/qa_tool.py'
+      - 'scraper/spiders/**'
   workflow_dispatch: {}
 
 concurrency:
@@ -39,16 +51,36 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  workflows:
+    permissions:
+      contents: read
+    name: workflow + publish-handoff gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
+      - name: Write jobs run no third-party code; pins, timeouts, credentials
+        run: |
+          python3 scripts/check_workflows.py --self-test
+          python3 scripts/check_workflows.py
+      - name: ci_bundle.sh pack/unpack round trip and refusals
+        run: bash scripts/check_ci_bundle.sh
+
   site:
     permissions:
       contents: read
     name: site (tsc, lint, vitest, build)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: site
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444  # v5
         with:
           node-version: '22'
@@ -74,8 +106,11 @@ jobs:
       contents: read
     name: spec checks (python)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: '3.12'
@@ -100,3 +135,8 @@ jobs:
         run: python scripts/check_image_pick.py
       - name: Cover corpus
         run: python scripts/check_image_files.py
+      - name: Image fetch limits (host allowlist, redirects, size, formats)
+        # Local 127.0.0.1 server only; no vendor traffic.
+        run: python scripts/check_image_fetch.py
+      - name: QA tool refuses cross-site and rebinding writes
+        run: python scripts/check_qa_tool.py

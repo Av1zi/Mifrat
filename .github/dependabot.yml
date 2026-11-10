@@ -1,10 +1,29 @@
 version: 2
+# A new release waits 7 days before Dependabot proposes it: most hijacked
+# package versions are caught and pulled within that window.
 updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/site"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
+  - package-ecosystem: "npm"
+    directory: "/site/tools/lint"
+    schedule:
+      interval: "monthly"
+    cooldown:
+      default-days: 7
+  # Keeps the SHA-pinned actions current (the `# vX` comment is updated too).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    cooldown:
+      default-days: 7

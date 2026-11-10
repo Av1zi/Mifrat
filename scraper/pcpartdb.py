@@ -29,7 +29,10 @@ DATA_DIR = ROOT / "data"
 RAW_DIR = DATA_DIR / "pcpartdb" / "raw"
 INDEX_PATH = DATA_DIR / "pcpartdb" / "index.json"
 
-BASE_URL = "https://raw.githubusercontent.com/docyx/pc-part-dataset/main/data/json"
+# Pinned to a commit (main's tip on 2026-11-10), not the moving branch: this is
+# third-party data fed into every normalize run. Bump the SHA deliberately.
+PCPARTDB_COMMIT = "c52a04ca9465c83997ed335f7767b09a2005dd26"
+BASE_URL = f"https://raw.githubusercontent.com/docyx/pc-part-dataset/{PCPARTDB_COMMIT}/data/json"
 
 # PCPartPicker dataset slug -> our canonical category id.
 PCPP_TO_OURS = {

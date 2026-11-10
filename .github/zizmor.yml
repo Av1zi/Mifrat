@@ -1,0 +1,17 @@
+# Accepted zizmor findings (security audit 2026-11-10).
+rules:
+  # The publish jobs keep the checkout credentials because they push; they
+  # upload nothing. Every other job sets persist-credentials: false, which
+  # scripts/check_workflows.py enforces in CI.
+  artipacked:
+    ignore:
+      - normalize-and-deploy.yml
+      - scrape-cloud.yml
+      - extract-specs.yml
+      - weekly-downsample.yml
+  # Needed so normalize runs after scrape-cloud's GITHUB_TOKEN pushes (those
+  # never fire on: push). Limited to main and same-repo runs, and the triggering
+  # workflow only runs on schedule or manual dispatch.
+  dangerous-triggers:
+    ignore:
+      - normalize-and-deploy.yml
