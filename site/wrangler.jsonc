@@ -1,7 +1,9 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	// Matches the Worker name already created (mifrat.ziv-avivi-28-11.workers.dev)
+	// Matches the Worker name already created (mifrat.avizi.workers.dev)
 	// — keep this the same so deploys update it in place.
+	// Once a custom domain serves the site, set "workers_dev": false and
+	// "preview_urls": false (today workers.dev is the only hostname).
 	"name": "mifrat",
 	"compatibility_date": "2026-08-25",
 	// Worker entrypoint: short build-link API + /list/* SPA fallback.
@@ -29,6 +31,20 @@
 			"binding": "LISTS_DB",
 			"database_name": "mifrat-lists",
 			"database_id": "883187e2-7208-44a1-9aec-e9866e2cc4c9"
+		}
+	],
+	// POST /api/lists limiter, keyed per IPv4 address / IPv6 /64 (worker.ts).
+	// Approximate and per Cloudflare location; the Worker falls back to its
+	// in-memory limiter if the binding is missing or fails. namespace_id
+	// must be unique in the account; period must be 10 or 60.
+	"ratelimits": [
+		{
+			"name": "LISTS_RATE_LIMITER",
+			"namespace_id": "1001",
+			"simple": {
+				"limit": 20,
+				"period": 60
+			}
 		}
 	]
 }
