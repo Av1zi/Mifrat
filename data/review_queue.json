@@ -1354,28 +1354,6 @@
   },
   {
     "score": 93,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:177016",
-    "listing_b": "1pc:177017",
-    "title_a": "כרטיס מסך Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE 32G",
-    "title_b": "כרטיס מסך Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE WB 32G",
-    "match_text_a": "177016 Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE 32G",
-    "match_text_b": "N5090AORUSXWB32GD Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE WB 32G"
-  },
-  {
-    "score": 93,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:177016",
-    "listing_b": "tms:N5090AORUSXWB32GD",
-    "title_a": "כרטיס מסך Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE 32G",
-    "title_b": "Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE WB 32G GV-N5090AORUSX WB-32GD",
-    "match_text_a": "177016 Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE 32G",
-    "match_text_b": "N5090AORUSXWB32GD Gigabyte AORUS GeForce RTX 5090 XTREME WATERFORCE WB 32G GV-N5090AORUSX WB-32GD"
-  },
-  {
-    "score": 93,
     "category": "cpu",
     "brand": "Intel",
     "listing_a": "ksp:280968",
@@ -2418,17 +2396,6 @@
     "title_b": "AMD Ryzen 5 5500 AM4 Tray",
     "match_text_a": "100-000000158 AMD Ryzen 5 3500X AM4 Tray",
     "match_text_b": "100-000000457 AMD Ryzen 5 5500 AM4 Tray"
-  },
-  {
-    "score": 91,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:177021",
-    "listing_b": "tms:N5090GAMINGOC32GD",
-    "title_a": "כרטיס מסך Gigabyte GeForce RTX 5090 GAMING OC 32G",
-    "title_b": "Gigabyte GeForce RTX 5090 GAMING OC 32G GV-N5090GAMING OC-32GD",
-    "match_text_a": "177021 Gigabyte GeForce RTX 5090 GAMING OC 32G",
-    "match_text_b": "N5090GAMINGOC32GD Gigabyte GeForce RTX 5090 GAMING OC 32G GV-N5090GAMING OC-32GD"
   },
   {
     "score": 91,
@@ -4870,6 +4837,28 @@
     "title_a": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
     "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
     "match_text_a": "100-000001368 AMD Ryzen 9 9900X3D AM5 Tray",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000908",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000909",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
     "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
   },
   {
@@ -8625,7 +8614,7 @@
         "vendor": "ivory",
         "vendor_sku": "CW-9061005-WW",
         "title": "קירור נוזלי למעבד CORSAIR iCUE LINK H100i RGB 240mm בצבע לבן",
-        "price": 550
+        "price": 299
       },
       {
         "listing_key": "tms:CW-9061005-WW",
@@ -12227,7 +12216,7 @@
         "listing_key": "ivory:43412",
         "vendor": "ivory",
         "vendor_sku": "I7-12700F",
-        "title": "מעבד Intel Core i7-12700F Alder Lake Tray",
+        "title": "מעבד אינטל Intel Core i7-12700F | דור 12 Alder Lake | ללא ליבה גרפית | אריזת Tray",
         "price": 1199
       }
     ],
@@ -12646,7 +12635,7 @@
         "listing_key": "ivory:161233",
         "vendor": "ivory",
         "vendor_sku": "ULTRA-5-250KFB",
-        "title": "מעבד Intel Core Ultra 5 250KF Plus 30M Cache, up to 5.30GHz Box",
+        "title": "מעבד אינטל Intel Core Ultra 5 250KF | תדר עד 5.30GHz | זיכרון מטמון 30MB | ללא ליבה גרפית | אריזת Box",
         "price": 970
       },
       {
@@ -12897,7 +12886,7 @@
         "listing_key": "ivory:178282",
         "vendor": "ivory",
         "vendor_sku": "100-000000927",
-        "title": "מעבד AMD Ryzen 5 5600 Tray",
+        "title": "מעבד AMD Ryzen 5 5600 | תושבת AM4 | בעל 6 ליבות | אריזת Tray",
         "price": 499
       }
     ],
@@ -12963,6 +12952,13 @@
         "price": 799
       },
       {
+        "listing_key": "ivory:178252",
+        "vendor": "ivory",
+        "vendor_sku": "100-000000926",
+        "title": "מעבד AMD Ryzen 7 5700X | תושבת AM4 | בעל 8 ליבות | אריזת Tray",
+        "price": 639
+      },
+      {
         "listing_key": "tms:100-000000926",
         "vendor": "tms",
         "vendor_sku": "100-000000926",
@@ -13005,7 +13001,7 @@
         "listing_key": "ivory:168817",
         "vendor": "ivory",
         "vendor_sku": "100-100000651POF",
-        "title": "מעבד AMD Ryzen 7 5800X3D Box",
+        "title": "מעבד AMD Ryzen 7 5800X3D | טכנולוגיית 3D V-Cache | תושבת AM4 | אריזת Box",
         "price": 1549
       },
       {
@@ -13260,7 +13256,7 @@
         "listing_key": "ivory:85182",
         "vendor": "ivory",
         "vendor_sku": "100-000000592",
-        "title": "מעבד AMD Ryzen 7 7700 8 Core Gaming Processor Tray",
+        "title": "מעבד AMD Ryzen 7 7700 | ארכיטקטורת Zen 4 | בעל 8 ליבות | אריזת Tray",
         "price": 790
       },
       {
@@ -13350,7 +13346,7 @@
         "listing_key": "ivory:108908",
         "vendor": "ivory",
         "vendor_sku": "100-000000910",
-        "title": "מעבד AMD Ryzen 7 7800X3D 8 Core Tray",
+        "title": "מעבד AMD Ryzen 7 7800X3D | טכנולוגיית 3D V-Cache | בעל 8 ליבות | אריזת Tray",
         "price": 1240
       }
     ],
@@ -13622,7 +13618,7 @@
         "listing_key": "ivory:109058",
         "vendor": "ivory",
         "vendor_sku": "100-000001405",
-        "title": "מעבד AMD Ryzen 5 9600X Tray",
+        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
         "price": 757
       }
     ],
@@ -13682,7 +13678,7 @@
         "listing_key": "ivory:109064",
         "vendor": "ivory",
         "vendor_sku": "100-000001404",
-        "title": "מעבד AMD Ryzen 7 9700X Tray",
+        "title": "מעבד AMD Ryzen 7 9700X | ארכיטקטורת Zen 5 | בעל 8 ליבות | אריזת Tray",
         "price": 1029
       }
     ],
@@ -13749,7 +13745,7 @@
         "listing_key": "ivory:155827",
         "vendor": "ivory",
         "vendor_sku": "100-000001973",
-        "title": "מעבד AMD Ryzen 7 9850X3D Tray",
+        "title": "מעבד AMD Ryzen 7 9850X3D | טכנולוגיית 3D V-Cache | ארכיטקטורת Zen 5 | אריזת Tray",
         "price": 1950
       }
     ],
@@ -16113,7 +16109,7 @@
         "vendor": "yahav",
         "vendor_sku": "MZ-VAP8T0BW",
         "title": "כונן SSD חברת Samsung דגם MZ-VAP8T0BW 9100 Pro Series 14800MB 8TB Gen5 8192GB M.2 NVMe",
-        "price": 8750
+        "price": 9150
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -16551,7 +16547,7 @@
         "listing_key": "ivory:108908",
         "vendor": "ivory",
         "vendor_sku": "100-000000910",
-        "title": "מעבד AMD Ryzen 7 7800X3D 8 Core Tray",
+        "title": "מעבד AMD Ryzen 7 7800X3D | טכנולוגיית 3D V-Cache | בעל 8 ליבות | אריזת Tray",
         "price": 1240
       }
     ],
@@ -16642,6 +16638,44 @@
       }
     ],
     "model_code": "a4-case-h2o"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:ryzen79800x3d-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:119039",
+        "vendor": "ivory",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+        "price": 1659
+      },
+      {
+        "listing_key": "tms:100-000001084",
+        "vendor": "tms",
+        "vendor_sku": "100-000001084",
+        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
+        "price": 1837
+      },
+      {
+        "listing_key": "1pc:175540",
+        "vendor": "1pc",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+        "price": 1989
+      },
+      {
+        "listing_key": "yahav:10143",
+        "vendor": "yahav",
+        "vendor_sku": "100-1000001084",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
+        "price": 1690
+      }
+    ],
+    "model_code": "9800x3d",
+    "merged_from": "model:cpu:9800x3d-tray"
   },
   {
     "kind": "split_candidate",
@@ -16869,43 +16903,12 @@
         "listing_key": "ivory:178282",
         "vendor": "ivory",
         "vendor_sku": "100-000000927",
-        "title": "מעבד AMD Ryzen 5 5600 Tray",
+        "title": "מעבד AMD Ryzen 5 5600 | תושבת AM4 | בעל 6 ליבות | אריזת Tray",
         "price": 499
       }
     ],
     "model_code": "5600",
     "merged_from": "model:cpu:5600-tray"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:ryzen79800x3d-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:100-000001084",
-        "vendor": "tms",
-        "vendor_sku": "100-000001084",
-        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
-        "price": 1837
-      },
-      {
-        "listing_key": "1pc:175540",
-        "vendor": "1pc",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 1989
-      },
-      {
-        "listing_key": "yahav:10143",
-        "vendor": "yahav",
-        "vendor_sku": "100-1000001084",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1690
-      }
-    ],
-    "model_code": "9800x3d",
-    "merged_from": "model:cpu:9800x3d-tray"
   },
   {
     "kind": "split_candidate",
@@ -16970,7 +16973,7 @@
         "listing_key": "ivory:109058",
         "vendor": "ivory",
         "vendor_sku": "100-000001405",
-        "title": "מעבד AMD Ryzen 5 9600X Tray",
+        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
         "price": 757
       }
     ],
@@ -17084,7 +17087,7 @@
         "listing_key": "ivory:43099",
         "vendor": "ivory",
         "vendor_sku": "I7-12700FB",
-        "title": "מעבד Intel Core i7-12700F Alder Lake Box ",
+        "title": "מעבד אינטל Intel Core i7-12700F | דור 12 Alder Lake | ללא ליבה גרפית | אריזת Box",
         "price": 1249
       }
     ],
@@ -17226,14 +17229,14 @@
         "listing_key": "ivory:43099",
         "vendor": "ivory",
         "vendor_sku": "I7-12700FB",
-        "title": "מעבד Intel Core i7-12700F Alder Lake Box ",
+        "title": "מעבד אינטל Intel Core i7-12700F | דור 12 Alder Lake | ללא ליבה גרפית | אריזת Box",
         "price": 1249
       },
       {
         "listing_key": "ivory:43412",
         "vendor": "ivory",
         "vendor_sku": "I7-12700F",
-        "title": "מעבד Intel Core i7-12700F Alder Lake Tray",
+        "title": "מעבד אינטל Intel Core i7-12700F | דור 12 Alder Lake | ללא ליבה גרפית | אריזת Tray",
         "price": 1199
       }
     ],
@@ -17251,14 +17254,14 @@
         "listing_key": "ivory:85515",
         "vendor": "ivory",
         "vendor_sku": "I5-14400",
-        "title": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Tray",
+        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | כולל ליבה גרפית | אריזת Tray",
         "price": 740
       },
       {
         "listing_key": "ivory:85518",
         "vendor": "ivory",
         "vendor_sku": "I5-14400B",
-        "title": "מעבד Intel Core i5-14400 up to 4.70GHz 20MB Cache Raptor Lake Box",
+        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | אריזת Box",
         "price": 790
       }
     ],
@@ -17276,14 +17279,14 @@
         "listing_key": "ivory:85530",
         "vendor": "ivory",
         "vendor_sku": "I7-14700F",
-        "title": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Tray",
+        "title": "מעבד אינטל Intel Core i7-14700F | תדר עד 5.40GHz | ללא ליבה גרפית | אריזת Tray",
         "price": 1225
       },
       {
         "listing_key": "ivory:85533",
         "vendor": "ivory",
         "vendor_sku": "I7-14700FB",
-        "title": "מעבד Intel Core i7-14700F up to 5.40GHz 33MB Cache Raptor Lake Box",
+        "title": "מעבד אינטל Intel Core i7-14700F | תדר עד 5.40GHz | ללא ליבה גרפית | אריזת Box",
         "price": 1249
       }
     ],
@@ -17333,7 +17336,7 @@
         "listing_key": "ivory:161233",
         "vendor": "ivory",
         "vendor_sku": "ULTRA-5-250KFB",
-        "title": "מעבד Intel Core Ultra 5 250KF Plus 30M Cache, up to 5.30GHz Box",
+        "title": "מעבד אינטל Intel Core Ultra 5 250KF | תדר עד 5.30GHz | זיכרון מטמון 30MB | ללא ליבה גרפית | אריזת Box",
         "price": 970
       }
     ],
@@ -17358,7 +17361,7 @@
         "listing_key": "ivory:113311",
         "vendor": "ivory",
         "vendor_sku": "ULTRA-9-285KB",
-        "title": "מעבד Intel Core Ultra 9 285K 36M Cache, up to 5.70GHz Box",
+        "title": "מעבד אינטל Intel Core Ultra 9 285K | תדר עד 5.70GHz | זיכרון מטמון 36MB | אריזת Box",
         "price": 2220
       }
     ],
@@ -17376,7 +17379,7 @@
         "listing_key": "ivory:85182",
         "vendor": "ivory",
         "vendor_sku": "100-000000592",
-        "title": "מעבד AMD Ryzen 7 7700 8 Core Gaming Processor Tray",
+        "title": "מעבד AMD Ryzen 7 7700 | ארכיטקטורת Zen 4 | בעל 8 ליבות | אריזת Tray",
         "price": 790
       },
       {
@@ -17433,7 +17436,7 @@
         "listing_key": "ivory:109058",
         "vendor": "ivory",
         "vendor_sku": "100-000001405",
-        "title": "מעבד AMD Ryzen 5 9600X Tray",
+        "title": "מעבד AMD Ryzen 5 9600X | ארכיטקטורת Zen 5 | בעל 6 ליבות | אריזת Tray",
         "price": 757
       }
     ],
@@ -17458,7 +17461,7 @@
         "listing_key": "ivory:155827",
         "vendor": "ivory",
         "vendor_sku": "100-000001973",
-        "title": "מעבד AMD Ryzen 7 9850X3D Tray",
+        "title": "מעבד AMD Ryzen 7 9850X3D | טכנולוגיית 3D V-Cache | ארכיטקטורת Zen 5 | אריזת Tray",
         "price": 1950
       }
     ],
@@ -19108,42 +19111,6 @@
       }
     ],
     "model_code": "a70",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:ap202-argb-prime-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:152296",
-        "vendor": "ivory",
-        "vendor_sku": "90DC00P0-B19000",
-        "title": "מארז מחשב ASUS Prime AP202 ARGB – תאורת ARGB – צבע שחור",
-        "price": 363
-      }
-    ],
-    "model_code": "ap202-argb-prime",
-    "manufacturer_pn": [
-      "90DC00P0B19000"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:ap202-prime-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:430632",
-        "vendor": "ksp",
-        "vendor_sku": "430632",
-        "title": "מארז ללא ספק Asus Prime AP202 ARGB Micro ATX - צבע לבן",
-        "price": 599
-      }
-    ],
-    "model_code": "ap202-prime",
     "manufacturer_pn": []
   },
   {

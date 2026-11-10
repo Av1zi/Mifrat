@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T23:46:20.196409+00:00",
+  "generated_at": "2026-11-10T03:44:18.169583+00:00",
   "gaps": [
     {
       "category": "case",
@@ -34,7 +34,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 67,
+      "count": 69,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -48,7 +48,7 @@
       "products": [
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:a-b850m-prime-wifi-microatx"
+        "model:motherboard:1851-90mb1i70-m0eay0-p-prime-wifi7-z890-atx"
       ]
     },
     {
@@ -77,8 +77,8 @@
       "count": 32,
       "products": [
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
-        "model:motherboard:6-666-d5-h610m-wifi-microatx",
-        "model:motherboard:a-b860-gaming-rog-strix-wifi-atx"
+        "model:motherboard:1851-90mb1i70-m0eay0-p-prime-wifi7-z890-atx",
+        "model:motherboard:6-666-d5-h610m-wifi-microatx"
       ]
     },
     {
@@ -112,6 +112,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "סוג האחסון",
+      "count": 25,
+      "products": [
+        "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
+        "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb",
+        "model:gpu:12g-12gd-5070-aorus-gv-m-master-n5070aorus-rtx-12gb"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "חריצים פנויים",
       "count": 25,
@@ -129,16 +139,6 @@
         "model:aio:120-510lc-120mm-black",
         "model:aio:1cfm-63-aio-elite-h150i-icue-360mm-white",
         "model:aio:1stpalyer-a-f-lcd-s-t-360mm-black"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "סוג האחסון",
-      "count": 23,
-      "products": [
-        "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
-        "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb",
-        "model:gpu:12g-12gd-5070-aorus-gv-m-master-n5070aorus-rtx-12gb"
       ]
     },
     {
@@ -312,6 +312,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 19,
+      "products": [
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray",
+        "model:cpu:250k"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "DISPLAY PORT",
       "count": 19,
@@ -339,6 +349,16 @@
         "model:case:100r-mag-pano-pz-white",
         "model:case:110r-mag-pano-pz-white",
         "model:case:3-e-m3-mesh-mid-talos-tower"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 18,
+      "products": [
+        "model:cpu:5700x-tray",
+        "model:cpu:5800x3d",
+        "model:cpu:7500x3d"
       ]
     },
     {
@@ -422,13 +442,23 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
+      "category": "gpu",
+      "label": "כרטיס גרפי",
       "count": 17,
       "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
+        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
+        "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
+        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מקסימלית",
+      "count": 17,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
+        "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
+        "model:gpu:2-5060-geforce-infinity-oc-rtx-8gb"
       ]
     },
     {
@@ -522,13 +552,13 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "תכונות נוספות",
+      "category": "gpu",
+      "label": "ממשק זיכרון",
       "count": 16,
       "products": [
-        "model:cpu:5800x3d",
-        "model:cpu:7500x3d",
-        "model:cpu:8400f-tray"
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
       ]
     },
     {
@@ -609,26 +639,6 @@
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
-      "count": 15,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "רזולוציה דיגיטלית מקסימלית",
-      "count": 15,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
-        "model:gpu:2-5060-geforce-infinity-oc-rtx-8gb"
       ]
     },
     {
@@ -879,16 +889,6 @@
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "כרטיס גרפי",
-      "count": 12,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
-        "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
-        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb"
       ]
     },
     {
@@ -1517,8 +1517,8 @@
       "count": 9,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:aorus-ultra-z890i-miniitx",
-        "model:motherboard:b860-gaming-wifi6e-x-atx"
+        "model:motherboard:1851-90mb1i70-m0eay0-p-prime-wifi7-z890-atx",
+        "model:motherboard:1851-90mb1j80-m0eay0-prime-wifi7-z890m-atx"
       ]
     },
     {
@@ -1949,6 +1949,16 @@
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מפרט",
+      "count": 6,
+      "products": [
+        "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb",
+        "model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb",
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
       ]
     },
     {
@@ -2499,16 +2509,6 @@
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
         "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מפרט",
-      "count": 4,
-      "products": [
-        "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb",
-        "model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb",
-        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -3168,6 +3168,16 @@
         "model:gpu:16g-2x-5060-oc-plus-rtx-ti-ventus-16gb",
         "model:gpu:16g-3x-5080-oc-rtx-shadow-16gb",
         "model:gpu:2x-5060-8g-geforce-oc-plus-rtx-ti-ventus-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות CUDA",
+      "count": 3,
+      "products": [
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
       ]
     },
     {
@@ -4376,15 +4386,6 @@
     },
     {
       "category": "gpu",
-      "label": "ליבות CUDA",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "תמיכת DirectX",
       "count": 2,
       "products": [
@@ -4534,6 +4535,24 @@
       "products": [
         "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
         "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דגם כרטיס מסך",
+      "count": 2,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ביצועי AI",
+      "count": 2,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -6493,6 +6512,174 @@
     },
     {
       "category": "gpu",
+      "label": "Graphics Processing",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "CUDA® Cores",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Memory Clock",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Card Bus",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Multi-view Support",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Card Size",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "PCB Form Factor",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPort 2.1a",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDMI 2.1b",
+      "count": 1,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דגם מלא",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ארכיטקטורה",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מצב OC",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מצב ברירת מחדל",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק מערכת",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה במסכים בו-זמנית",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב-HDCP",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב-NVLink / CrossFire",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבור חשמל",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דרישת ספק כוח מומלצת",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תאורה",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "עובי",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "תדר המעבד",
       "count": 1,
       "products": [
@@ -6525,14 +6712,6 @@
     },
     {
       "category": "gpu",
-      "label": "דגם כרטיס מסך",
-      "count": 1,
-      "products": [
-        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "תושבת / ממשק חיבור",
       "count": 1,
       "products": [
@@ -6558,14 +6737,6 @@
     {
       "category": "gpu",
       "label": "טכנולוגיות נוספות",
-      "count": 1,
-      "products": [
-        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ביצועי AI",
       "count": 1,
       "products": [
         "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
