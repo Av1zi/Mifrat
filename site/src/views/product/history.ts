@@ -45,7 +45,8 @@ export async function renderPriceHistory(
   const visible = (): string[] => vendors.filter((v) => !hidden.has(v));
 
   const locale = lang === "he" ? "he-IL" : "en-GB";
-  const shortDate = (iso: string): string => {
+  const shortDate = (value: unknown): string => {
+    const iso = typeof value === "string" ? value : "";
     const d = new Date(iso);
     if (!Number.isNaN(d.getTime())) {
       return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(d);
@@ -99,11 +100,11 @@ export async function renderPriceHistory(
       const value = lo + ((hi - lo) * g) / ticks;
       const gy = y(value);
       grid += `<line x1="${L}" y1="${gy}" x2="${W - R}" y2="${gy}" class="ph-grid"/>`;
-      grid += `<text x="${L - 8}" y="${gy + 4}" text-anchor="end" class="ph-tick">${formatPrice(Math.round(value), currency, lang)}</text>`;
+      grid += `<text x="${L - 8}" y="${gy + 4}" text-anchor="end" class="ph-tick">${esc(formatPrice(Math.round(value), currency, lang))}</text>`;
     }
     const xLabels = [0, Math.floor((n - 1) / 2), n - 1]
       .filter((v, i, a) => a.indexOf(v) === i)
-      .map((i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="ph-tick">${shortDate(visDates[i])}</text>`)
+      .map((i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="ph-tick">${esc(shortDate(visDates[i]))}</text>`)
       .join("");
 
     // Step lines: a price holds until the next change. A lone point (one day

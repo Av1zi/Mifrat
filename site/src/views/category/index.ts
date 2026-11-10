@@ -7,6 +7,7 @@ import {
   categoriesHash,
   categoryHash,
   getListView,
+  getPickBaseBuild,
   getStoredBuild,
   navigate,
   productHash,
@@ -70,7 +71,7 @@ export async function renderCategory(
   setPageTitle(lang, categoryLabel(category, lang), categoryMetaDesc(lang, categoryLabel(category, lang), all.length));
 
   const pickSlot = params.pick ? BUILD_SLOTS.find((s) => s.id === params.pick) ?? null : null;
-  const storedBuild = getStoredBuild();
+  const storedBuild = pickSlot ? getPickBaseBuild() : getStoredBuild();
   const build = await loadBuildParts(storedBuild);
   const targetSlotId = pickSlot?.id ?? slotForCategory(category)?.id ?? null;
 

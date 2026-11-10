@@ -1,3 +1,4 @@
+import { readItem, writeItem } from "./storage";
 import type { Currency, Lang } from "./types";
 
 const FX_CACHE_KEY = "mifrat:fx:ils-usd";
@@ -14,6 +15,10 @@ function todayStr(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function isRate(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value > 0;
+}
+
 /**
  * Fetches the ILS->USD rate at most once per day, cached in localStorage.
  * Best-effort only: if this fails (offline, API down), the app just stays
@@ -24,10 +29,10 @@ export async function ensureFxRate(): Promise<void> {
   if (fxRate !== null) return;
 
   try {
-    const cachedRaw = localStorage.getItem(FX_CACHE_KEY);
+    const cachedRaw = readItem(FX_CACHE_KEY);
     if (cachedRaw) {
-      const cached: FxCache = JSON.parse(cachedRaw);
-      if (cached.date === todayStr() && typeof cached.rate === "number") {
+      const cached = JSON.parse(cachedRaw) as Partial<FxCache> | null;
+      if (cached?.date === todayStr() && isRate(cached.rate)) {
         fxRate = cached.rate;
         return;
       }
@@ -40,10 +45,10 @@ export async function ensureFxRate(): Promise<void> {
     const res = await fetch(FX_ENDPOINT);
     if (!res.ok) return;
     const data = await res.json();
-    const rate = data?.rates?.USD;
-    if (typeof rate === "number") {
+    const rate: unknown = data?.rates?.USD;
+    if (isRate(rate)) {
       fxRate = rate;
-      localStorage.setItem(FX_CACHE_KEY, JSON.stringify({ date: todayStr(), rate }));
+      writeItem(FX_CACHE_KEY, JSON.stringify({ date: todayStr(), rate }));
     }
   } catch {
     // Offline or blocked — silently skip, ILS display still works fine.

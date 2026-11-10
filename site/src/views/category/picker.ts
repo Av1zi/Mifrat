@@ -3,9 +3,9 @@ import {
   addToBuild,
   buildHash,
   categoryHash,
+  getPickBaseBuild,
   navigate,
   setStoredBuild,
-  getStoredBuild,
 } from "../../state";
 import type { Product } from "../../types";
 import { chip } from "../../ui/chip";
@@ -41,7 +41,7 @@ export function addPickedPart(ctx: CategoryCtx, product: Product): void {
     if (status) status.textContent = `${displayName(product)} — ${t(ctx.lang, "pickMismatch")}`;
     return;
   }
-  const build = getStoredBuild();
+  const build = getPickBaseBuild();
   addToBuild(build, slot.id, product.id);
   setStoredBuild(build);
   navigate(buildHash(build));

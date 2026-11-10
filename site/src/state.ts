@@ -1,3 +1,4 @@
+import { readItem, writeItem } from "./storage";
 import type { Currency, Lang, SortKey } from "./types";
 
 const LANG_KEY = "mifrat:lang";
@@ -10,11 +11,11 @@ export type Theme = "light" | "dark";
 
 function getTheme(): Theme {
   // Light-first: dark is an explicit choice, never inferred from the OS.
-  return localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light";
+  return readItem(THEME_KEY) === "dark" ? "dark" : "light";
 }
 
 export function setTheme(theme: Theme): void {
-  localStorage.setItem(THEME_KEY, theme);
+  writeItem(THEME_KEY, theme);
   document.documentElement.dataset.theme = theme;
 }
 
@@ -36,27 +37,27 @@ export type ListView = "cards" | "table";
 
 export function getListView(): ListView {
   // Desktop-first: the scan table is the default; phones fall back to cards anyway.
-  return localStorage.getItem(VIEW_KEY) === "cards" ? "cards" : "table";
+  return readItem(VIEW_KEY) === "cards" ? "cards" : "table";
 }
 
 export function setListView(view: ListView): void {
-  localStorage.setItem(VIEW_KEY, view);
+  writeItem(VIEW_KEY, view);
 }
 
 export function getLang(): Lang {
-  return localStorage.getItem(LANG_KEY) === "en" ? "en" : "he";
+  return readItem(LANG_KEY) === "en" ? "en" : "he";
 }
 
 export function setLang(lang: Lang): void {
-  localStorage.setItem(LANG_KEY, lang);
+  writeItem(LANG_KEY, lang);
 }
 
 export function getCurrency(): Currency {
-  return localStorage.getItem(CURRENCY_KEY) === "USD" ? "USD" : "ILS";
+  return readItem(CURRENCY_KEY) === "USD" ? "USD" : "ILS";
 }
 
 export function setCurrency(currency: Currency): void {
-  localStorage.setItem(CURRENCY_KEY, currency);
+  writeItem(CURRENCY_KEY, currency);
 }
 
 /**
@@ -77,10 +78,10 @@ export const MULTI_SLOTS: ReadonlySet<string> = new Set([
 
 export function getStoredBuild(): BuildMap {
   try {
-    const raw = localStorage.getItem(BUILD_KEY);
+    const raw = readItem(BUILD_KEY);
     if (raw) {
       const parsed: unknown = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") {
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
         const out: BuildMap = {};
         for (const [key, value] of Object.entries(
           parsed as Record<string, unknown>
@@ -104,8 +105,28 @@ export function getStoredBuild(): BuildMap {
   return {};
 }
 
+/**
+ * A shared build (/list link or #/build? URL) open in the builder. Viewing
+ * it never writes the stored draft, so a slot pick started from it must
+ * apply to it rather than to the draft. Cleared once a draft is written.
+ */
+let openSharedBuild: BuildMap | null = null;
+
 export function setStoredBuild(build: BuildMap): void {
-  localStorage.setItem(BUILD_KEY, JSON.stringify(build));
+  writeItem(BUILD_KEY, JSON.stringify(build));
+  openSharedBuild = null;
+}
+
+export function setOpenSharedBuild(build: BuildMap | null): void {
+  openSharedBuild = build;
+}
+
+/** The build a builder slot pick applies to: the open shared build, else the stored draft. */
+export function getPickBaseBuild(): BuildMap {
+  if (!openSharedBuild) return getStoredBuild();
+  const copy: BuildMap = {};
+  for (const [slot, ids] of Object.entries(openSharedBuild)) copy[slot] = [...ids];
+  return copy;
 }
 
 /**
@@ -465,4 +486,14 @@ export function replaceRoute(hash: string): void {
  */
 export function exitListRoute(hash: string): void {
   history.replaceState(null, "", `/${hash}`);
+}
+
+/** True while the address bar still shows the /list/<id> path a short link landed on. */
+export function onListPath(): boolean {
+  return location.pathname.startsWith("/list/");
+}
+
+/** Absolute app address that hashes are appended to (never the /list/<id> landing path). */
+export function appUrl(): string {
+  return location.origin + (onListPath() ? "/" : location.pathname);
 }

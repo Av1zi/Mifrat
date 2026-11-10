@@ -1,11 +1,47 @@
+import { BUILD_SLOTS } from "../../build";
 import { t } from "../../i18n";
 import { icon } from "../../icons";
-import { createListLink, listUrl } from "../../lists";
+import { canonicalizeListBuild, createListLink, listUrl } from "../../lists";
 import { findSavedBuild, saveBuild } from "../../savedBuilds";
-import { buildHash, buildItemCount } from "../../state";
+import { appUrl, buildHash, buildItemCount, type BuildMap } from "../../state";
 import { button } from "../../ui/button";
 import { html, type Html } from "../../ui/html";
 import { exportLines, type BuilderCtx } from "./parts";
+
+const SLOT_ORDER = BUILD_SLOTS.map((slot) => slot.id);
+
+/** Short links already known this session, by share key: an unchanged build is never POSTed again. */
+const knownLinks = new Map<string, string>();
+
+/** Link creations in flight, by share key: a re-rendered page joins the pending POST. */
+const inflight = new Map<string, Promise<string>>();
+
+/** The Worker's dedup key: slot order, id order and repeats do not change the link. */
+function shareKey(build: BuildMap): string {
+  return JSON.stringify(canonicalizeListBuild(build, SLOT_ORDER));
+}
+
+/** Records the short link a build is already stored under (an opened /list link). */
+export function rememberShortLink(build: BuildMap, id: string): void {
+  knownLinks.set(shareKey(build), listUrl(id));
+}
+
+function shortLinkFor(key: string, build: BuildMap): Promise<string> {
+  const known = knownLinks.get(key);
+  if (known) return Promise.resolve(known);
+  let request = inflight.get(key);
+  if (!request) {
+    request = createListLink(build).then((id) => {
+      const url = listUrl(id);
+      knownLinks.set(key, url);
+      return url;
+    });
+    const settle = (): void => void inflight.delete(key);
+    request.then(settle, settle);
+    inflight.set(key, request);
+  }
+  return request;
+}
 
 /**
  * The short link generates itself (debounced POST, deduped server-side): the
@@ -15,7 +51,7 @@ import { exportLines, type BuilderCtx } from "./parts";
  */
 function ensureShortLink(ctx: BuilderCtx, key: string): void {
   const { share, container, lang } = ctx;
-  if (buildItemCount(ctx.build) === 0 || share.shortUrlFor?.key === key || share.pendingKey === key) return;
+  if (buildItemCount(ctx.build) === 0 || knownLinks.has(key) || share.pendingKey === key) return;
   share.pendingKey = key;
   // While the short link is made, the box itself says "loading"; the real
   // (long) URL stays in data-url so Copy still works.
@@ -31,16 +67,14 @@ function ensureShortLink(ctx: BuilderCtx, key: string): void {
       if (field?.dataset.url) field.value = field.dataset.url;
     };
     // The build moved on while waiting: the next render reschedules.
-    if (JSON.stringify(ctx.build) !== key) {
+    if (shareKey(ctx.build) !== key) {
       clear();
       return;
     }
-    createListLink(ctx.build).then(
-      (id) => {
+    shortLinkFor(key, ctx.build).then(
+      (url) => {
         clear();
-        if (JSON.stringify(ctx.build) !== key) return;
-        const url = listUrl(id);
-        share.shortUrlFor = { key, url };
+        if (shareKey(ctx.build) !== key) return;
         const input = container.querySelector<HTMLInputElement>('[data-role="share-link"]');
         if (input) {
           input.value = url;
@@ -55,10 +89,9 @@ function ensureShortLink(ctx: BuilderCtx, key: string): void {
 }
 
 export function shareCard(ctx: BuilderCtx): Html {
-  const { lang, build, share } = ctx;
-  const longUrl = `${location.origin}${location.pathname}${buildHash(build)}`;
-  const key = JSON.stringify(build);
-  const shown = share.shortUrlFor && share.shortUrlFor.key === key ? share.shortUrlFor.url : longUrl;
+  const { lang, build } = ctx;
+  const longUrl = `${appUrl()}${buildHash(build)}`;
+  const shown = knownLinks.get(shareKey(build)) ?? longUrl;
   const empty = buildItemCount(build) === 0;
   const saved = !empty && findSavedBuild(build) !== undefined;
   return html`<div class="build-share">
@@ -148,5 +181,5 @@ export function bindShare(ctx: BuilderCtx): void {
     btn.innerHTML = html`${icon("check", 16)}<span>${t(lang, "buildSaved")}</span>`.value;
   });
   // The input always shows the short link: start (debounced) creation for this render's build.
-  ensureShortLink(ctx, JSON.stringify(ctx.build));
+  ensureShortLink(ctx, shareKey(ctx.build));
 }

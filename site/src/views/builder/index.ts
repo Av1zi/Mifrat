@@ -1,7 +1,7 @@
 import { t } from "../../i18n";
 import { fetchListBuild, isValidListId } from "../../lists";
 import { icon } from "../../icons";
-import { getStoredBuild, removeFromBuild, savedHash, type BuildMap } from "../../state";
+import { getStoredBuild, removeFromBuild, savedHash, setOpenSharedBuild, type BuildMap } from "../../state";
 import { setPageTitle } from "../../titles";
 import type { Currency, Lang } from "../../types";
 import { html, mount, type Html } from "../../ui/html";
@@ -9,7 +9,7 @@ import { loadingState } from "../../ui/state";
 import { bindThumbs } from "../../ui/thumb";
 import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { cleanBuild, persist, refreshParts, type BuilderCtx } from "./parts";
-import { bindShare, shareCard } from "./share";
+import { bindShare, rememberShortLink, shareCard } from "./share";
 import { slotsMarkup } from "./slots";
 import { checksMarkup, splitMarkup, statusMarkup, summarize } from "./summary";
 
@@ -84,6 +84,8 @@ export async function renderBuilder(
   const build = cleanBuild(shared ?? getStoredBuild());
   // A shared build is only viewed here: it must not overwrite the visitor's
   // own saved draft. It is written to storage by persist() on the first edit.
+  setOpenSharedBuild(shared ? build : null);
+  if (shared && listId) rememberShortLink(shared, listId);
 
   const ctx: BuilderCtx = {
     container,
@@ -94,7 +96,8 @@ export async function renderBuilder(
     // After opening a /list/<id> link, the first edit leaves the /list path
     // so reloads stop refetching the snapshot.
     activeListId: listId,
-    share: { shortUrlFor: null, pendingKey: null, timer: undefined },
+    ownDraft: shared === null,
+    share: { pendingKey: null, timer: undefined },
   };
 
   mount(container, html`${hero(lang)}${loadingState(lang)}`);

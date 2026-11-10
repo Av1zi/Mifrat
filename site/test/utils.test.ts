@@ -33,9 +33,40 @@ describe("esc", () => {
 describe("safeUrl / safeImageUrl", () => {
   it("allows http(s), same-origin paths and fragments", () => {
     expect(safeUrl("https://example.com/a")).toBe("https://example.com/a");
-    expect(safeUrl("  http://example.com ")).toBe("http://example.com");
+    expect(safeUrl("http://example.com")).toBe("http://example.com");
     expect(safeUrl("/p/cpu/x")).toBe("/p/cpu/x");
     expect(safeUrl("#/build")).toBe("#/build");
+  });
+
+  // Audit B-5: the verdict must match what the browser would actually load.
+  it.each([
+    ["/\\evil.example", null],
+    ["//evil.example", null],
+    ["java\tscript:alert(1)", null],
+    ["javascript:alert(1)", null],
+    [" https://x", null],
+    ["  http://example.com ", null],
+    ["/\t/evil.example/x", null],
+    ["https://user:pw@x", null],
+    ["https://\u0000x", null],
+    ["https:evil.example", null],
+    ["/c/gpu", "/c/gpu"],
+    ["#/p/x", "#/p/x"],
+    ["https://ivory.co.il/x", "https://ivory.co.il/x"],
+  ])("safeUrl(%j) -> %j", (input, expected) => {
+    expect(safeUrl(input)).toBe(expected);
+  });
+
+  it("never passes a URL that resolves off-site from a same-origin-looking path", () => {
+    for (const path of [
+      "/\\evil.example/x",
+      "/\t/evil.example/x",
+      "/\n/evil.example/x",
+      "/x/../y",
+    ]) {
+      const out = safeUrl(path);
+      if (out !== null) expect(new URL(out, "https://mifrat.net/").host).toBe("mifrat.net");
+    }
   });
 
   it("rejects script-bearing and protocol-relative URLs", () => {

@@ -4,9 +4,11 @@ import { formatPrice } from "../../format";
 import { t, vendorLabel } from "../../i18n";
 import { bestOffer, effectivePrice } from "../../offers";
 import {
+  appUrl,
   buildHash,
   exitListRoute,
   MULTI_SLOTS,
+  onListPath,
   productHash,
   replaceRoute,
   setStoredBuild,
@@ -26,12 +28,17 @@ export interface BuilderCtx {
   parts: Map<string, Product[]>;
   /** Set while the page was opened from a /list/<id> link; cleared by the first edit. */
   activeListId: string | null;
+  /**
+   * True when `build` is the visitor's stored draft. A shared build (list
+   * link, #/build? URL) is only viewed: storage stays untouched until the
+   * first edit, which makes it theirs.
+   */
+  ownDraft: boolean;
   share: ShareState;
 }
 
 /** Short-link bookkeeping for the exact build currently shown. */
 interface ShareState {
-  shortUrlFor: { key: string; url: string } | null;
   pendingKey: string | null;
   timer: number | undefined;
 }
@@ -95,14 +102,19 @@ export async function refreshParts(ctx: BuilderCtx): Promise<void> {
   );
   for (const key of Object.keys(ctx.build)) delete ctx.build[key];
   Object.assign(ctx.build, pruned);
-  persist(ctx);
   ctx.parts = next;
+  if (ctx.ownDraft) persist(ctx);
 }
 
-/** Saves the draft and syncs the address bar (leaving a /list path on first edit). */
+/**
+ * Saves the draft and syncs the address bar (leaving a /list path on first
+ * edit). Edits call it directly, which makes a viewed shared build the
+ * visitor's own.
+ */
 export function persist(ctx: BuilderCtx): void {
   setStoredBuild(ctx.build);
-  if (ctx.activeListId) {
+  ctx.ownDraft = true;
+  if (ctx.activeListId || onListPath()) {
     exitListRoute(buildHash(ctx.build));
     ctx.activeListId = null;
   } else {
@@ -132,7 +144,7 @@ export function buildTotal(ctx: BuilderCtx): number {
 /** Plain-text / markdown export of the current parts list. */
 export function exportLines(ctx: BuilderCtx, mode: "markdown" | "text"): string {
   const { lang, currency } = ctx;
-  const origin = location.origin + location.pathname;
+  const origin = appUrl();
   const total = formatPrice(buildTotal(ctx), currency, lang);
   const lines: string[] =
     mode === "markdown"

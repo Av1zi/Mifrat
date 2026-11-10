@@ -26,24 +26,48 @@ export function partRef(p: Product, name: string): PartRef {
 export function isPartRef(value: unknown): value is PartRef {
   if (!value || typeof value !== "object") return false;
   const v = value as Record<string, unknown>;
-  return typeof v.id === "string" && v.id !== "" && typeof v.category === "string" && typeof v.name === "string";
+  const optionalText = (x: unknown): boolean => x == null || typeof x === "string";
+  return (
+    typeof v.id === "string" &&
+    v.id !== "" &&
+    typeof v.category === "string" &&
+    typeof v.name === "string" &&
+    optionalText(v.brand) &&
+    optionalText(v.thumb)
+  );
 }
 
 const CHANGE_EVENT = "mifrat:storage";
 
 // Storage can be missing (private windows, blocked site data) or throw on
-// write (quota). The memory map keeps the features working for the session.
+// write (quota). A failed write is kept in memory so the features keep
+// working for the session; every other read goes to storage, so other tabs'
+// writes stay visible.
 const memory = new Map<string, string>();
 
-export function readJson<T>(key: string, fallback: T): T {
-  let raw: string | null = memory.get(key) ?? null;
-  if (raw === null) {
-    try {
-      raw = localStorage.getItem(key);
-    } catch {
-      raw = null;
-    }
+/** localStorage.getItem that never throws. */
+export function readItem(key: string): string | null {
+  const kept = memory.get(key);
+  if (kept !== undefined) return kept;
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
   }
+}
+
+/** localStorage.setItem that never throws. */
+export function writeItem(key: string, value: string): void {
+  try {
+    localStorage.setItem(key, value);
+    memory.delete(key);
+  } catch {
+    memory.set(key, value);
+  }
+}
+
+export function readJson<T>(key: string, fallback: T): T {
+  const raw = readItem(key);
   if (raw === null) return fallback;
   try {
     return JSON.parse(raw) as T;
@@ -53,13 +77,7 @@ export function readJson<T>(key: string, fallback: T): T {
 }
 
 export function writeJson(key: string, value: unknown): void {
-  const raw = JSON.stringify(value);
-  memory.set(key, raw);
-  try {
-    localStorage.setItem(key, raw);
-  } catch {
-    // memory copy above still serves this session
-  }
+  writeItem(key, JSON.stringify(value));
   window.dispatchEvent(new Event(CHANGE_EVENT));
 }
 
@@ -67,7 +85,8 @@ export function writeJson(key: string, value: unknown): void {
 export function onStoreChange(listener: () => void): () => void {
   const onStorage = (e: StorageEvent): void => {
     if (e.key === null || e.key.startsWith("mifrat:")) {
-      memory.delete(e.key ?? "");
+      if (e.key === null) memory.clear();
+      else memory.delete(e.key);
       listener();
     }
   };

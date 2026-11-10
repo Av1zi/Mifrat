@@ -32,6 +32,7 @@ export function renderPrivacy(container: HTMLElement, lang: Lang): void {
         <li><code>mifrat:view</code> תצוגת רשימת המוצרים, כרטיסים או טבלה</li>
         <li><code>mifrat:compare</code> המוצרים שסומנו להשוואה</li>
         <li><code>mifrat:saved</code> המוצרים השמורים שלכם</li>
+        <li><code>mifrat:builds</code> רשימות החלקים השמורות שלכם</li>
         <li><code>mifrat:fx:ils-usd</code> שער חליפין שמור ליום אחד, בשימוש רק במצב דולרים</li>
       </ul>
 
@@ -66,6 +67,7 @@ export function renderPrivacy(container: HTMLElement, lang: Lang): void {
         <li><code>mifrat:view</code> product list layout, cards or table</li>
         <li><code>mifrat:compare</code> parts ticked for comparison</li>
         <li><code>mifrat:saved</code> your saved parts</li>
+        <li><code>mifrat:builds</code> your saved parts lists</li>
         <li><code>mifrat:fx:ils-usd</code> cached exchange rate, kept for one day, used only in USD mode</li>
       </ul>
 

@@ -22,13 +22,27 @@ export function esc(value: unknown): string {
  * chars — so every offer.url / product.image goes through here first.
  * Buy links allow https/http + same-origin paths + fragments; anything
  * else (javascript:, data:, vbscript:, file:) returns null and the caller
- * must skip the link.
+ * must skip the link. Whitespace, control characters and backslashes are
+ * rejected outright: browsers strip or reinterpret them while resolving
+ * (`java\tscript:`, `/\evil.example`), so what passed would not be what loads.
  */
 export function safeUrl(raw: unknown): string | null {
-  if (typeof raw !== "string") return null;
-  const v = raw.trim();
-  if (/^(https?:\/\/|\/[^/]|#)/i.test(v)) return v;
-  return null;
+  if (typeof raw !== "string" || raw === "" || /[\s\\]/.test(raw)) return null;
+  for (let i = 0; i < raw.length; i++) {
+    const code = raw.charCodeAt(i);
+    if (code < 0x20 || code === 0x7f) return null;
+  }
+  if (raw.startsWith("#")) return raw;
+  if (raw.startsWith("/")) return raw.startsWith("//") ? null : raw;
+  if (!/^https?:\/\//i.test(raw)) return null;
+  let url: URL;
+  try {
+    url = new URL(raw);
+  } catch {
+    return null;
+  }
+  if (!url.hostname || url.username || url.password) return null;
+  return raw;
 }
 
 /**
