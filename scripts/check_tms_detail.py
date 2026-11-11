@@ -1190,6 +1190,9 @@ def check_socket_canon(failures: list[str]) -> int:
         ("AMD AM5 (LGA1718)", "AM5"),
         ("sTR5", "sTR5"),
         ("LGA2011-3", "LGA2011-3"),
+        # Xeon 6 (TMS prints the bare number, 2026-11-12).
+        ("4710", "LGA4710"),
+        ("LGA 4710", "LGA4710"),
         ("", ""),
     ):
         checked += 1

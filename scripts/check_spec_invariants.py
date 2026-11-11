@@ -147,6 +147,12 @@ def self_test() -> int:
     case("DDR4 card passes", [p("gpu", {"memory_type": "DDR4"})], None)
     case("chipset/socket mismatch trips",
          [p("motherboard", {"chipset": "Z890", "socket": "AM5"})], "not their chipset's")
+    # Xeon 6 workstation boards (ASRock Rack W890D8: vendor page "Intel W890",
+    # socket "4710"); W880 is the Arrow Lake workstation PCH on LGA1851.
+    case("W890 on LGA4710 passes",
+         [p("motherboard", {"chipset": "W890", "socket": "LGA4710"})], None)
+    case("W880 on LGA1851 passes",
+         [p("motherboard", {"chipset": "W880", "socket": "LGA1851"})], None)
     case("unranked label trips", [p("gpu", {"memory_type": "GDDR6"}, {"memory_type": "guess"})],
          "not ranked")
     case("SoC and mobile PCH boards pass",
@@ -180,7 +186,7 @@ def self_test() -> int:
     report_case("report without schema_misses trips", {"products": 1},
                 "has no schema_misses")
 
-    total = 16
+    total = 18
     if failures:
         print(f"[spec-invariants] self-test FAIL - {len(failures)} of {total}")
         for failure in failures:

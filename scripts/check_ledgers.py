@@ -7,7 +7,8 @@ where a dead entry is certainly dead:
 
     hard    a spec override that no product reaches (exact pid, a pid alias,
             or the `mpn:`/`sku:` part-number fallback of
-            `specs.resolvers.reference.overrides_for`)
+            `specs.resolvers.reference.overrides_for`), or one that changes
+            no shipped value (rebuilt with and without it)
     warn    an override reached only through an alias or that fallback (it
             applies; rekey it to the live pid when convenient)
     budget  curated manual products none of whose listings is in the
@@ -79,6 +80,81 @@ def check_overrides(catalog: dict) -> tuple[list[str], list[str]]:
     warn = [f"override {key} applies via {how}" for key, how in sorted(reached.items())
             if how != "exact"]
     return hard, warn
+
+
+def _rebuilt(product: dict, listings: list[dict], overrides: dict) -> dict:
+    """The product's merged specs rebuilt with `overrides` as the ledger."""
+    import copy
+
+    from scraper.matching import merge_offer_attributes
+    from scraper.specs import build
+
+    saved = reference._OVERRIDES_CACHE
+    reference._OVERRIDES_CACHE = overrides
+    try:
+        clone = copy.deepcopy(product)
+        # The shipped product `attributes` are the previous build's output
+        # (they echo an override's value back in as a vendor fact); rebuild
+        # from the listings' own attributes, as matching does.
+        clone["attributes"] = merge_offer_attributes(copy.deepcopy(listings))[0]
+        build.build_product_specs([clone], copy.deepcopy(listings), verbose=False)
+    finally:
+        reference._OVERRIDES_CACHE = saved
+    return clone.get("specs") or {}
+
+
+def check_override_effect(catalog: dict, overrides: dict | None = None) -> list[str]:
+    """Overrides that change nothing (audit 2026-11-10 L).
+
+    Each reached product is rebuilt with and without its entry. An entry is
+    dead weight when every field it sets ships the same value either way
+    (the sources already say it) or ships a value other than the override's
+    (a validator or invariant refused it). Either way it changes no output.
+    """
+    overrides = reference.load_overrides() if overrides is None else overrides
+    if not overrides:
+        return []
+    live = {str(p.get("product_id")): p for p in catalog.get("products") or []}
+    by_pid: dict[str, list[dict]] = {}
+    for listing in catalog.get("listings") or []:
+        by_pid.setdefault(str(listing.get("product_id")), []).append(listing)
+    aliases = catalog.get("pid_aliases") or {}
+    out = []
+    for key, entry in overrides.items():
+        if not isinstance(entry, dict):
+            continue
+        pid = key if key in live else aliases.get(key)
+        if pid not in live:
+            continue
+        with_entry = _rebuilt(live[pid], by_pid.get(pid, []), overrides)
+        without = _rebuilt(live[pid], by_pid.get(pid, []),
+                           {k: v for k, v in overrides.items() if k != key})
+        changed = [field for field in entry
+                   if with_entry.get(field) != without.get(field)]
+        if not changed:
+            out.append(f"override {key} changes no output on {pid} "
+                       f"(fields {sorted(entry)}: {[with_entry.get(f) for f in sorted(entry)]})")
+    return out
+
+
+def self_test() -> int:
+    """The no-op check flags an override equal to the sourced value and
+    passes one that changes it (live catalog product, synthetic ledger)."""
+    catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    product = next(p for p in catalog["products"]
+                   if p.get("category") == "gpu"
+                   and (p.get("spec_sources") or {}).get("memory_type") == "vendor")
+    pid, value = product["product_id"], product["specs"]["memory_type"]
+    other = "GDDR6" if value != "GDDR6" else "GDDR7"
+    fails = 0
+    for label, entry, want in (("same value", {"memory_type": value}, 1),
+                               ("new value", {"memory_type": other}, 0)):
+        got = len(check_override_effect(catalog, {pid: entry}))
+        ok = got == want
+        fails += not ok
+        print(f"  [{'ok' if ok else 'FAIL'}] override effect, {label}: {got} flag(s), want {want}")
+    print("[check-ledgers] self-test %s" % ("passed" if not fails else "FAILED"))
+    return 1 if fails else 0
 
 
 def _entry_of(product: dict):
@@ -157,7 +233,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--catalog", default=str(ROOT / "data" / "catalog.json"))
     parser.add_argument("--verbose", action="store_true")
+    parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
+    if args.self_test:
+        return self_test()
     path = Path(args.catalog)
     if not path.exists():
         print("[check-ledgers] %s not found, run the normalizer first" % path,
@@ -166,6 +245,7 @@ def main() -> int:
     catalog = json.loads(path.read_text(encoding="utf-8"))
 
     hard, warn = check_overrides(catalog)
+    hard += check_override_effect(catalog)
     for line in warn:
         print("  [warn] " + line)
     failed = list(hard)

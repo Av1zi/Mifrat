@@ -165,7 +165,9 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "Q670": ("LGA1700", None),
     # Intel LGA1851 (DDR5 only)
     "H810": ("LGA1851", "DDR5"), "B860": ("LGA1851", "DDR5"),
-    "Z890": ("LGA1851", "DDR5"), "W890": ("LGA1851", "DDR5"),
+    # W890 is the Xeon 6 workstation PCH (LGA4710; TMS ASRock Rack W890D8
+    # detail: "Intel W890" + socket "4710"), not an Arrow Lake part.
+    "Z890": ("LGA1851", "DDR5"), "W890": ("LGA4710", "DDR5"),
     "W880": ("LGA1851", "DDR5"),
     # Intel LGA1155 / LGA1150 (DDR3), and mobile PCHs on soldered-CPU boards
     # (no socket; HM770 boards ship DDR4 or DDR5). Audit 2026-11-10 M.
@@ -223,7 +225,7 @@ SOCKET_MEMORY: dict[str, str] = {
     "LGA2011": "DDR4", "LGA2011-v3": "DDR4", "LGA3647": "DDR4",
     "LGA1155": "DDR3", "LGA1150": "DDR3", "LGA4189": "DDR4",
     "LGA1700": "DDR4",  # both flavours exist; a hint only
-    "LGA1851": "DDR5", "LGA4677": "DDR5",
+    "LGA1851": "DDR5", "LGA4677": "DDR5", "LGA4710": "DDR5", "LGA7529": "DDR5",
 }
 
 # Shared alias groups (legacy/vendor spellings seen in the wild).
