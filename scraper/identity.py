@@ -828,6 +828,10 @@ BRAND_FAMILY = {
     "hyperx": "kingston",
 }
 _CHIP_BRANDS = frozenset({"nvidia", "amd", "intel", "ati"})
+CHIP_MAKERS = _CHIP_BRANDS
+#: Categories whose products a board partner builds around a chip maker's
+#: chip: there the chip maker is not the brand unless the name says so.
+BOARD_PARTNER_CATEGORIES = frozenset({"motherboard", "gpu"})
 
 
 def brand_family(value) -> str | None:

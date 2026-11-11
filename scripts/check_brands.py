@@ -21,6 +21,7 @@ import argparse
 import contextlib
 import io
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -79,13 +80,69 @@ def self_test() -> list[str]:
         {"product_id": "t", "brand": "", "specs": {}, "canonical_name": "TeamGroup vs Crucial bundle"},
         {"product_id": "j", "brand": "", "specs": {"manufacturer": "Jonsbo"}, "canonical_name": "Jonsbo D41"},
     ]
+    # A chip maker builds the chip, not the board or card (review 2,
+    # 2026-11-12): its `manufacturer` falls back to the name's brand.
+    products += [
+        {"product_id": "a1", "brand": "ASUS", "category": "motherboard", "canonical_name": "ASUS Prime"},
+        {"product_id": "a2", "brand": "ASUS", "category": "motherboard", "canonical_name": "ASUS TUF"},
+        {"product_id": "p1", "brand": "PNY", "category": "gpu", "canonical_name": "PNY RTX 5060"},
+        {"product_id": "p2", "brand": "PNY", "category": "gpu", "canonical_name": "PNY RTX 5070"},
+        {"product_id": "mb", "brand": "", "category": "motherboard",
+         "specs": {"manufacturer": "AMD"}, "canonical_name": "ASUS ROG Crosshair X870E Hero"},
+        {"product_id": "gp", "brand": "", "category": "gpu",
+         "specs": {"manufacturer": "NVIDIA"}, "canonical_name": "PNY GeForce RTX 5070 Ti"},
+        {"product_id": "mb2", "brand": "", "category": "motherboard",
+         "specs": {"manufacturer": "Intel"}, "canonical_name": "Z890 board"},
+        {"product_id": "cpu", "brand": "", "category": "cpu",
+         "specs": {"manufacturer": "AMD"}, "canonical_name": "Ryzen 7 9700X"},
+        {"product_id": "ref", "brand": "", "category": "gpu",
+         "specs": {"manufacturer": "NVIDIA"}, "canonical_name": "NVIDIA RTX PRO 4000 Blackwell"},
+        {"product_id": "pnyb", "brand": "NVIDIA", "category": "gpu", "canonical_name": "RTX 5060",
+         "offers": [{"title_raw": "כרטיס מסך NVIDIA GeForce RTX 5060"},
+                    {"title_raw": "כרטיס מסך PNY RTX 5060 OC Dual Fan 8GB"}]},
+        {"product_id": "nv", "brand": "NVIDIA", "category": "gpu", "canonical_name": "RTX A2000",
+         "offers": [{"title_raw": "כרטיס מסך NVIDIA RTX A2000"}]},
+    ]
     with contextlib.redirect_stdout(io.StringIO()):
         _fill_empty_brands(products)
-    got = {p["product_id"]: p.get("brand") for p in products[4:]}
-    want = {"m": "TeamGroup", "n": "Crucial", "t": "", "j": "Jonsbo"}
+    got = {p["product_id"]: p.get("brand") for p in products
+           if p["product_id"] in ("m", "n", "t", "j", "mb", "gp", "mb2", "cpu", "ref", "pnyb", "nv")}
+    want = {"m": "TeamGroup", "n": "Crucial", "t": "", "j": "Jonsbo",
+            "mb": "ASUS", "gp": "PNY", "mb2": "", "cpu": "AMD", "ref": "NVIDIA",
+            "pnyb": "PNY", "nv": "NVIDIA"}
+    if chip_brand_partners({"products": products}):
+        errors.append(f"chip_brand_partners after the fill: {chip_brand_partners({'products': products})}")
     if got != want:
         errors.append(f"_fill_empty_brands = {got}, want {want}")
     return errors
+
+
+def chip_brand_partners(catalog: dict) -> list[str]:
+    """Board/card products branded with the chip maker while their own titles
+    name a board partner from the catalog ("MSI NVIDIA GeForce RTX 5060 Ti"
+    branded NVIDIA). A chip maker is the brand only of its own reference /
+    workstation cards, whose titles name no partner (NVIDIA RTX PRO 4000)."""
+    products = catalog.get("products") or []
+    counts: dict[str, int] = {}
+    for p in products:
+        brand = str(p.get("brand") or "").strip()
+        if brand and identity.brand_family(brand) not in identity.CHIP_MAKERS:
+            counts[brand] = counts.get(brand, 0) + 1
+    partners = sorted({b for b, n in counts.items() if n >= 2 and len(b) >= 3}, key=len, reverse=True)
+    pattern = re.compile(r"(?<![A-Za-z0-9])(" + "|".join(re.escape(b) for b in partners)
+                         + r")(?![A-Za-z0-9])", re.I) if partners else None
+    out = []
+    for p in products:
+        if p.get("category") not in identity.BOARD_PARTNER_CATEGORIES or pattern is None:
+            continue
+        if identity.brand_family(p.get("brand")) not in identity.CHIP_MAKERS:
+            continue
+        named = {m.group(1).lower() for o in p.get("offers") or []
+                 for m in pattern.finditer(str(o.get("title_raw") or ""))}
+        named = {n for n in named if identity.brand_family(n) not in identity.CHIP_MAKERS}
+        if named:
+            out.append(f"{p.get('product_id')} ({p.get('brand')}; titles name {', '.join(sorted(named))})")
+    return out
 
 
 def check_catalog(catalog: dict) -> list[str]:
@@ -100,6 +157,10 @@ def check_catalog(catalog: dict) -> list[str]:
     for product in mixed[:20]:
         brands = sorted({str(o.get("brand")) for o in product.get("offers") or [] if o.get("brand")})
         errors.append(f"C: {product.get('product_id')} joins two makers: {', '.join(brands)}")
+    chip_brand = chip_brand_partners(catalog)
+    if chip_brand:
+        errors.append(f"N: {len(chip_brand)} board/card product(s) branded with the chip maker "
+                      f"while their titles name the partner, e.g. {'; '.join(chip_brand[:5])}")
     empty = [p for p in catalog.get("products") or [] if not str(p.get("brand") or "").strip()]
     if len(empty) > EMPTY_BRAND_BUDGET:
         errors.append(f"N: {len(empty)} products have no brand (budget {EMPTY_BRAND_BUDGET}), "

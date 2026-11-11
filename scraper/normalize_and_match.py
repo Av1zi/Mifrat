@@ -54,6 +54,7 @@ try:
     from scraper.build_price_history import build_price_history
     from scraper.image_urls import best_of, candidate_urls
     from scraper.text_hygiene import clean_tree
+    from scraper import identity
 except ImportError:
     from matching import (
         apply_bundle_mpn,
@@ -75,6 +76,7 @@ except ImportError:
     from image_urls import best_of, candidate_urls  # type: ignore[no-redef]
     from build_price_history import build_price_history
     from text_hygiene import clean_tree  # type: ignore[no-redef]
+    import identity  # type: ignore[no-redef]
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -344,11 +346,50 @@ def _fill_empty_brands(products: list[dict]) -> None:
     catalog = {key: counts.most_common(1)[0][0] for key, counts in spellings.items()}
     vocabulary = [(key, brand) for key, brand in catalog.items()
                   if sum(spellings[key].values()) >= 2 and len(brand) >= 3]
-    from_maker = from_name = ambiguous = 0
+    from_maker = from_name = ambiguous = partner = 0
+
+    def names(text: str) -> set[str]:
+        return {brand for _, brand in vocabulary
+                if re.search(rf"(?<![A-Za-z0-9]){re.escape(brand)}(?![A-Za-z0-9])", text, re.I)}
+
     for product in products:
-        if str(product.get("brand") or "").strip():
+        brand = str(product.get("brand") or "").strip()
+        if (brand and product.get("category") in identity.BOARD_PARTNER_CATEGORIES
+                and identity.brand_family(brand) in identity.CHIP_MAKERS):
+            # A chip maker builds the chip, not the card (review 2, 2026-11-12:
+            # "PNY NVIDIA RTX 5060" is a PNY card). One partner brand in the
+            # titles wins; none (NVIDIA RTX PRO, AMD FirePro) keeps it.
+            found: set[str] = set()
+            for offer in product.get("offers") or []:
+                found |= names(str(offer.get("title_raw") or ""))
+            partners = {b for b in found if identity.brand_family(b) not in identity.CHIP_MAKERS}
+            if len(partners) == 1:
+                product["brand"] = partners.pop()
+                partner += 1
+            continue
+        if brand:
             continue
         maker = str((product.get("specs") or {}).get("manufacturer") or "").strip()
+        # A chip maker builds the chip, not the board or card (review 2,
+        # 2026-11-12: a "manufacturer AMD" X870E board is an ASUS board).
+        # It stays the brand only when the name holds no other catalog brand.
+        if (maker and product.get("category") in identity.BOARD_PARTNER_CATEGORIES
+                and identity.brand_family(maker) in identity.CHIP_MAKERS):
+            maker_raw, maker = maker, ""
+            name = str(product.get("canonical_name") or "")
+            found = names(name)
+            partners = {b for b in found if identity.brand_family(b) not in identity.CHIP_MAKERS}
+            if len(partners) == 1:
+                product["brand"] = partners.pop()
+                from_name += 1
+            elif not partners and re.match(
+                    rf"\s*{re.escape(maker_raw)}(?![A-Za-z0-9])", name, re.I):
+                # The chip maker's own card (NVIDIA RTX PRO, AMD FirePro).
+                product["brand"] = catalog.get(re.sub(r"[^a-z0-9]", "", maker_raw.lower()), maker_raw)
+                from_maker += 1
+            elif partners:
+                ambiguous += 1
+            continue
         if maker:
             product["brand"] = catalog.get(re.sub(r"[^a-z0-9]", "", maker.lower()), maker)
             from_maker += 1
@@ -364,6 +405,8 @@ def _fill_empty_brands(products: list[dict]) -> None:
     if from_maker or from_name or ambiguous:
         print(f"  empty brand: {from_maker} from manufacturer, {from_name} from name, "
               f"{ambiguous} left (name holds two brands)")
+    if partner:
+        print(f"  chip-maker brand: {partner} board/card product(s) take the partner their titles name")
 
 
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
