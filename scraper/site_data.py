@@ -483,6 +483,12 @@ def _trim_offer(offer: dict) -> dict:
             pass
     if offer.get("promo_kind"):
         trimmed["promo_kind"] = str(offer.get("promo_kind"))
+    # Conditional-offer flags (owner Q1): the site ranks a bundle price after
+    # every plain one and labels it; it can only do that if the flag ships.
+    if offer.get("bundle_only"):
+        trimmed["bundle_only"] = True
+    if offer.get("new_pc_deal"):
+        trimmed["new_pc_deal"] = True
     return trimmed
 
 
@@ -497,12 +503,56 @@ def site_category(category: str) -> str:
     return SITE_CATEGORY.get(category, category)
 
 
+def _positive_price(value) -> int | float | None:
+    if isinstance(value, (int, float)) and not isinstance(value, bool) and value > 0:
+        return value
+    return None
+
+
+def _site_offers(raw_offers: list[dict]) -> list[dict]:
+    """One site offer per vendor per part (audit 2026-11-10 P).
+
+    A listing `matching.collapse_vendor_twins` marked `alias_of` is not
+    shipped; its price becomes a chip on the offer it aliases (owner
+    2026-11-10): a whole-PC twin's price is the offer's `promo_price` under
+    `new_pc_deal`, an in-stock clearance copy's price is `clearance_price`.
+    The shown price stays the plain listing's own.
+    """
+    primaries: dict[str, dict] = {}
+    aliases: list[dict] = []
+    for offer in raw_offers:
+        if offer.get("alias_of"):
+            aliases.append(offer)
+        else:
+            primaries[str(offer.get("listing_key"))] = _trim_offer(offer)
+    for alias in aliases:
+        target = primaries.get(str(alias.get("alias_of")))
+        price = _positive_price(alias.get("price_ils"))
+        if target is None or price is None:
+            continue
+        if alias.get("alias_kind") == "bundle":
+            if target.get("bundle_only") or (target.get("promo_price") or 0) > 0:
+                continue
+            if target["price"] is None or price < target["price"]:
+                target["new_pc_deal"] = True
+                target["promo_price"] = int(price)
+        elif alias.get("alias_kind") == "clearance" and alias.get("in_stock") is True:
+            current = target.get("clearance_price")
+            if (target["price"] is None or price < target["price"]) and (current is None or price < current):
+                target["clearance_price"] = int(price)
+    return list(primaries.values())
+
+
 def _trim_product(product: dict) -> dict:
-    offers = [_trim_offer(o) for o in product.get("offers", [])]
+    offers = _site_offers(product.get("offers", []))
     offers.sort(key=lambda o: (o["price"] is None, o["price"]))
 
-    in_stock_prices = [o["price"] for o in offers if o["in_stock"] and o["price"] is not None]
-    any_prices = [o["price"] for o in offers if o["price"] is not None]
+    # A bundle price sets min_price only when no plain offer is priced
+    # (mirrors matching.choose_best_offer).
+    plain = [o for o in offers if not o.get("bundle_only") and o["price"] is not None]
+    ranked = plain or offers
+    in_stock_prices = [o["price"] for o in ranked if o["in_stock"] and o["price"] is not None]
+    any_prices = [o["price"] for o in ranked if o["price"] is not None]
     min_price = min(in_stock_prices) if in_stock_prices else (min(any_prices) if any_prices else None)
 
     # 128px list-thumbnail derivative (local-only, like image above).
@@ -562,8 +612,12 @@ def _trim_product(product: dict) -> dict:
     # merged into `specs` (Tier 0) by scraper/specs/build.py, and the PDP shows
     # the merged sheet instead of a separate "reference specs" box.
 
-    if product.get("duplicate_vendors"):
-        trimmed["duplicate_vendors"] = sorted(product["duplicate_vendors"])
+    shown = defaultdict(int)
+    for offer in offers:
+        shown[offer.get("vendor")] += 1
+    dup_vendors = sorted(v for v in product.get("duplicate_vendors") or [] if shown[v] > 1)
+    if dup_vendors:
+        trimmed["duplicate_vendors"] = dup_vendors
 
     return trimmed
 
@@ -600,10 +654,23 @@ def _trim_spec_report(report: dict) -> dict:
             "fields": fields,
         }
     invalid_reasons: dict[str, int] = {}
+    # A vendor value the schema does not know (audit 2026-11-10 M): an enum
+    # refusal at coercion, or a board chipset the validator rejected.
+    misses: dict[tuple, dict] = {
+        (m["category"], m["field"], m["value"]): dict(m, products=[])
+        for m in report.get("schema_misses") or []}
     for entry in report.get("invalid") or []:
         reason = str(entry.get("reason") or "")
         key = reason.split(":")[0][:60]
         invalid_reasons[key] = invalid_reasons.get(key, 0) + 1
+        if entry.get("category") == "motherboard" and entry.get("field") == "chipset":
+            slot = misses.setdefault(
+                ("motherboard", "chipset", str(entry.get("value"))),
+                {"category": "motherboard", "field": "chipset",
+                 "value": str(entry.get("value")), "count": 0, "products": []})
+            slot["count"] += 1
+            if len(slot["products"]) < 5:
+                slot["products"].append(entry.get("product_id"))
     return {
         "products": report.get("products", 0),
         "reference": report.get("reference", {}),
@@ -616,6 +683,7 @@ def _trim_spec_report(report: dict) -> dict:
         # Vendor labels that mapped to no schema field, by frequency — the
         # evidence queue for specs/labels.py.
         "label_gaps": (report.get("label_gaps") or [])[:300],
+        "schema_misses": sorted(misses.values(), key=lambda m: -m["count"])[:300],
         "categories": categories,
         "counts": {
             "conflicts": len(report.get("conflicts") or []),
@@ -723,12 +791,15 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
                     "product_id": product.get("product_id"),
                     "category": product.get("category"),
                     "vendor": vendor,
+                    # Folded into one offer (matching.collapse_vendor_twins).
+                    "collapsed": sum(1 for o in olist if not o.get("alias_of")) == 1,
                     "offers": [
                         {
                             "listing_key": o.get("listing_key"),
                             "vendor_sku": o.get("vendor_sku"),
                             "title": o.get("title_raw"),
                             "price": o.get("price_ils"),
+                            **({"alias_of": o["alias_of"]} if o.get("alias_of") else {}),
                         }
                         for o in olist
                     ],
@@ -761,6 +832,30 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
                 ],
             }
         )
+    # Conditional-price phrase in a title whose offer carries no bundle flag
+    # (owner Q1: the vendor flag decides, the phrase only asks for review).
+    for product in catalog["products"]:
+        keys = set(product.get("unflagged_deals") or [])
+        if not keys:
+            continue
+        qa_cases.append(
+            {
+                "kind": "unflagged_deal",
+                "product_id": product.get("product_id"),
+                "category": product.get("category"),
+                "vendor": "",
+                "offers": [
+                    {
+                        "listing_key": o.get("listing_key"),
+                        "vendor_sku": o.get("vendor_sku"),
+                        "title": o.get("title_raw"),
+                        "price": o.get("price_ils"),
+                    }
+                    for o in product.get("offers", [])
+                    if o.get("listing_key") in keys
+                ],
+            }
+        )
     # Identity decisions from the identity tier (plan §3.5): a merge held
     # together by the model code alone, an unresolvable split, a vendor's
     # own Box/Tray contradiction. D3 makes them public rather than a manual
@@ -785,7 +880,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
                 **{
                     key: case[key]
                     for key in ("merged_from", "manufacturer_pn", "resolved",
-                                "reason", "moved")
+                                "reason", "moved", "product_ids")
                     if key in case
                 },
                 "offers": [
@@ -809,12 +904,16 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     # Core-gap cases are extended separately and first so the spec_conflict
     # limit=200 inside qa_cases() can never crowd them out of the page.
     if spec_report:
-        core_gap_cases = [
-            c for c in spec_qa_cases(spec_report, limit=10_000)
-            if c.get("kind") == "core_gap"
-        ][:300]
+        # Uncapped: the 19k merge conflicts sort ahead of `motherboard`, so a
+        # finite limit silently cut every later category's core gaps and
+        # witness cases (Nov 2026).
+        all_spec_cases = spec_qa_cases(spec_report, limit=None)
+        core_gap_cases = [c for c in all_spec_cases if c.get("kind") == "core_gap"][:300]
         qa_cases.extend(core_gap_cases)
-        qa_cases.extend(spec_qa_cases(spec_report))
+        # Title-witness flags (audit 2026-11-10 F/G) are few and each one is a
+        # value a human should check, so the 200-case cap never hides them.
+        qa_cases.extend(c for c in all_spec_cases if c.get("rule") == "title_witness")
+        qa_cases.extend(c for c in spec_qa_cases(spec_report) if c.get("rule") != "title_witness")
         qa_cases.sort(
             key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
         )

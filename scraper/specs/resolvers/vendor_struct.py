@@ -71,6 +71,12 @@ def is_promo_label(value) -> bool:
     return len(stripped) > 40 or bool(_PROMO_RE.search(stripped))
 
 
+#: (category, field, vendor value) -> count of vendor values an enum refused
+#: this run (audit 2026-11-10 M). `build_product_specs` resets it and puts it
+#: in the report, so a new real value fails a gate instead of vanishing.
+SCHEMA_MISSES: dict[tuple[str, str, str], int] = {}
+
+
 def _emit(facts: dict, category: str, name: str, value, source: str,
           confidence: float = 0.9) -> None:
     field = schema.field_map(category).get(name)
@@ -78,7 +84,10 @@ def _emit(facts: dict, category: str, name: str, value, source: str,
         return
     try:
         typed = coerce(field, value, category)
-    except InvalidValue:
+    except InvalidValue as error:
+        if field.type == "enum" and "not in enum" in str(error):
+            key = (str(category), name, str(value).strip()[:60])
+            SCHEMA_MISSES[key] = SCHEMA_MISSES.get(key, 0) + 1
         return
     add_fact(facts, name, Fact(value=typed, tier=TIER_VENDOR, source=source,
                                confidence=confidence))
@@ -150,7 +159,7 @@ _CACHE_SEGMENT_RE = re.compile(
 # '36MB ... Intel Smart Cache'). Only consulted when no L3 segment
 # printed, so 'SmartCache 36MB | L2 32MB' still fills both tiers.
 _SMART_CACHE_RE = re.compile(r"(?i)smart\s*cache")
-_KIT_RE = re.compile(r"(?i)(\d{1,2})\s*[x×*]\s*(\d{1,4})\s*gb")
+_KIT_RE = re.compile(r"(?i)(?<![\d.])(\d{1,2})\s*[x×*]\s*(\d{1,4})\s*gb")
 _LENGTH_RE = re.compile(r"(?i)\bL\s*=\s*(\d+(?:[.,]\d+)?)")
 
 # SATA port counts as vendor cells print them: '4x SATA 6Gb/s ports' (TMS /
@@ -158,8 +167,8 @@ _LENGTH_RE = re.compile(r"(?i)\bL\s*=\s*(\d+(?:[.,]\d+)?)")
 # The count always LEADS the word 'SATA' — 'SATA 6Gb/s' has the number after
 # it and a junk-drawer cell prints 'PCIe 4.0 x4 / SATA mode', so neither is
 # guessed. Both patterns are searched in order of specificity.
-_SATA_PORTS_RE = re.compile(r"(\d{1,2})\s*x\s*SATA", re.I)
-_SATA_PORTS_HE_RE = re.compile(r"(\d{1,2})\s*(?:x\s*)?חיבורי\s*SATA")
+_SATA_PORTS_RE = re.compile(r"(?<![\d.])(\d{1,2})\s*x\s*SATA", re.I)
+_SATA_PORTS_HE_RE = re.compile(r"(?<![\d.])(\d{1,2})\s*(?:x\s*)?חיבורי\s*SATA")
 # (display label, regex the vendor spelling must match, field). The regex
 # form lets "DisplayPort"/"Display Port"/"Mini DisplayPort" all resolve to
 # the one port type (see _emit_gpu_outputs).
@@ -400,7 +409,7 @@ def _emit_gpu_outputs(facts: dict, category: str, value, source: str) -> None:
         # Port" and prefixes it ("4X Mini Display Port"), which a literal
         # "displayport" substring match never saw (Oct 2026).
         counts = [int(match.group(1)) for match in re.finditer(
-            r"(\d{1,2})\s*[x×]?\s*(?:mini\s+|micro\s+)?" + needle, text, re.I)]
+            r"(?<![\d.])(\d{1,2})\s*[x×]?\s*(?:mini\s+|micro\s+)?" + needle, text, re.I)]
         if not counts and counted_cell:
             counts = [1 for token in tokens if re.search(needle, token, re.I)]
         if counts and sum(counts):
@@ -482,7 +491,7 @@ _CM_RE = re.compile(r"(\d+(?:[.,]\d+)?)\s*(?:ס\"מ|סמ|cm)", re.I)
 _MM_RE = re.compile(r"(\d+(?:[.,]\d+)?)\s*(?:מ\"מ|ממ|mm)", re.I)
 _RPM_RANGE_RE = re.compile(r"(\d{2,5})\s*(?:rpm)?\s*(?:~|-|–|—|to)\s*(\d{2,5})", re.I)
 _RPM_TOLERANCE_RE = re.compile(r"[±+]\s*\d{1,3}\s*%|\b\d{1,3}\s*%\b")
-_FAN_WORD_RE = re.compile(r"(\d{1,2})\s*[x×]?\s*מאוורר|מאווררים?\s*(\d{1,2})|(\d{1,2})\s*[-\s]?pack\b", re.I)
+_FAN_WORD_RE = re.compile(r"(?<![\d.])(\d{1,2})\s*[x×]?\s*מאוורר|מאווררים?\s*(\d{1,2})|(?<![\d.])(\d{1,2})\s*[-\s]?pack\b", re.I)
 
 
 def _number_to_mm(number, unit: str | None = None) -> int | None:
@@ -706,7 +715,7 @@ def _emit_drive_bays(facts: dict, category: str, value, source: str) -> None:
     for pattern, field in ((r"3\.5", "drive_bays_35"), (r"2\.5", "drive_bays_25")):
         total = 0
         found = False
-        for match in re.finditer(r"(\d{1,2})\s*(?:[x×]\s*)?[^0-9\n]{0,16}?" + pattern, text, re.I):
+        for match in re.finditer(r"(?<![\d.])(\d{1,2})\s*(?:[x×]\s*)?[^0-9\n]{0,16}?" + pattern, text, re.I):
             total += int(match.group(1))
             found = True
         if not found:
@@ -898,7 +907,7 @@ def _emit_memory_support(facts: dict, category: str, value, source: str) -> None
     # words may intervene for English word order ("2 DDR5 slots"); Hebrew
     # cells ("4 סלוטים DDR5") match directly.
     match = re.search(
-        r"(?<!DDR)(\d{1,2})\s*(?:[A-Za-z0-9.]+\s+){0,2}(?:חריצי|סלוטי|slots?)",
+        r"(?<!DDR)(?<![\d.])(\d{1,2})\s*(?:[A-Za-z0-9.]+\s+){0,2}(?:חריצי|סלוטי|slots?)",
         text)
     if match:
         _emit(facts, category, "memory_slots", int(match.group(1)), source, 0.8)
@@ -1009,7 +1018,7 @@ def _emit_storage_support(facts: dict, category: str, value, source: str) -> Non
     """Ivory storage cell -> M.2 count / SATA ports / RAID."""
     text = str(value or "")
     m2 = 0
-    match = re.search(r"(\d{1,2})\s*x\s*M\.2", text, re.I)
+    match = re.search(r"(?<![\d.])(\d{1,2})\s*x\s*M\.2", text, re.I)
     if match:
         m2 = int(match.group(1))
     slots = {slot for slot in re.findall(r"M\.2_(\d{1,2})\b", text)}
@@ -1033,7 +1042,7 @@ def _emit_usb_summary(facts: dict, category: str, value, source: str) -> None:
     text = str(value or "")
     parts: list[str] = []
     for match in re.finditer(
-            r"(\d{1,2})?\s*(?:×|x)?\s*חיבורי?\s*USB\s*"
+            r"(?:(?<![\d.])(\d{1,2}))?\s*(?:×|x)?\s*חיבורי?\s*USB\s*"
             r"([\d.]+\s*(?:Gbps|Gen\s*\d)?)?\s*(?:\((Type-[AC])\))?",
             text, re.I):
         count = int(match.group(1)) if match.group(1) else 1
@@ -1236,7 +1245,7 @@ def _emit_slot_count(facts: dict, category: str, field: str, value, source: str,
     before the `x` counts slots, the digit after it counts lanes).
     """
     text = str(value or "")
-    counts = [int(m.group(1)) for m in re.finditer(r"(\d{1,2})\s*x(?=\s*[A-Za-z])", text)]
+    counts = [int(m.group(1)) for m in re.finditer(r"(?<![\d.])(\d{1,2})\s*x(?=\s*[A-Za-z])", text)]
     if counts and sum(counts) <= 12:
         key = f"slot_count_{field}"
         state[key] = state.get(key, 0) + sum(counts)
@@ -1410,7 +1419,7 @@ def _emit_mtbf(facts: dict, category: str, value, source: str) -> None:
 
 # \u200f: 1PC pastes right-to-left marks between the colon and the digit.
 _PSU_PCIE_PART_RE = re.compile(
-    r"(\d{1,2})\s*[x×]\s*(12\s*VHPWR|12\s*V[\s-]*2\s*[x×]\s*6|16[\s-]*pin|"
+    r"(?<![\d.])(\d{1,2})\s*[x×]\s*(12\s*VHPWR|12\s*V[\s-]*2\s*[x×]\s*6|16[\s-]*pin|"
     r"PCI-?e\s*6\s*\+\s*2|6\s*\+\s*2|PCI-?e\s*8(?:[\s-]*pin)?|PCI-?e\s*6(?:[\s-]*pin)?)", re.I)
 
 
@@ -1445,7 +1454,7 @@ def _emit_m2_spec_cell(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "m2_slots", int(match.group(1)), source, 0.8)
 
 
-_DISPLAY_COUNT_RE = re.compile(r"(\d{1,2})")
+_DISPLAY_COUNT_RE = re.compile(r"(?<![\d.])(\d{1,2})")
 
 
 def _emit_display_count(facts: dict, category: str, value, source: str) -> None:

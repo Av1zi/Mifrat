@@ -18,7 +18,9 @@ python -m scraper.normalize_and_match
 
 import io
 import json
+import re
 import sys
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -35,9 +37,11 @@ try:
         apply_bundle_mpn,
         dedupe_enriched_listings,
         enrich_listing,
+        find_cross_product_twin_cases,
         find_duplicate_vendor_cases,
         find_naming_conflict_cases,
         flag_identity_collisions,
+        flag_title_axis_conflicts,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -49,13 +53,16 @@ try:
     from scraper.site_data import write_site_data
     from scraper.build_price_history import build_price_history
     from scraper.image_urls import best_of, candidate_urls
+    from scraper.text_hygiene import clean_tree
 except ImportError:
     from matching import (
         apply_bundle_mpn,
         dedupe_enriched_listings,
         enrich_listing,
+        find_cross_product_twin_cases,
         find_duplicate_vendor_cases,
         find_naming_conflict_cases,
+        flag_title_axis_conflicts,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -67,6 +74,7 @@ except ImportError:
     from site_data import write_site_data
     from image_urls import best_of, candidate_urls  # type: ignore[no-redef]
     from build_price_history import build_price_history
+    from text_hygiene import clean_tree  # type: ignore[no-redef]
 
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -156,7 +164,8 @@ def load_listings(path: Path) -> list[dict]:
                     except json.JSONDecodeError:
                         break
 
-    return listings
+    # Entities, bidi marks and NBSP decoded/stripped once, here (audit J).
+    return [clean_tree(listing) for listing in listings]
 
 
 def _has_image_basename(url: str) -> bool:
@@ -317,6 +326,46 @@ def _disambiguate_duplicate_names(products: list[dict]) -> None:
         print(f"  disambiguated {changed} duplicate canonical names")
 
 
+def _fill_empty_brands(products: list[dict]) -> None:
+    """A product with no brand takes its maker (audit 2026-11-10 N).
+
+    First the merged `specs.manufacturer`, written the way the catalog
+    already spells that brand ("Team Group" -> "TeamGroup"). Without one,
+    the one catalog brand (on >=2 products, >=3 characters, whole word) its
+    canonical name holds; a name holding two stays empty rather than guess.
+    The name is the weaker reader: a TeamGroup kit's name can say "Crucial".
+    """
+    spellings: dict[str, Counter] = {}
+    for product in products:
+        brand = str(product.get("brand") or "").strip()
+        if brand:
+            key = re.sub(r"[^a-z0-9]", "", brand.lower())
+            spellings.setdefault(key, Counter())[brand] += 1
+    catalog = {key: counts.most_common(1)[0][0] for key, counts in spellings.items()}
+    vocabulary = [(key, brand) for key, brand in catalog.items()
+                  if sum(spellings[key].values()) >= 2 and len(brand) >= 3]
+    from_maker = from_name = ambiguous = 0
+    for product in products:
+        if str(product.get("brand") or "").strip():
+            continue
+        maker = str((product.get("specs") or {}).get("manufacturer") or "").strip()
+        if maker:
+            product["brand"] = catalog.get(re.sub(r"[^a-z0-9]", "", maker.lower()), maker)
+            from_maker += 1
+            continue
+        name = str(product.get("canonical_name") or "")
+        found = {brand for _, brand in vocabulary
+                 if re.search(rf"(?<![A-Za-z0-9]){re.escape(brand)}(?![A-Za-z0-9])", name, re.I)}
+        if len(found) == 1:
+            product["brand"] = found.pop()
+            from_name += 1
+        elif found:
+            ambiguous += 1
+    if from_maker or from_name or ambiguous:
+        print(f"  empty brand: {from_maker} from manufacturer, {from_name} from name, "
+              f"{ambiguous} left (name holds two brands)")
+
+
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     """Load detail-scraped specs from data/raw/detail/<vendor>.jsonl and
     merge into each enriched listing's vendor_meta under a 'detail_specs'
@@ -354,7 +403,9 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
                 line = line.strip()
                 if not line:
                     continue
-                item = json.loads(line)
+                # Detail specs and the Yahav/1PC real_sku carry the same
+                # entities and bidi marks as titles (audit J).
+                item = clean_tree(json.loads(line))
                 sku = str(item.get("vendor_sku") or "").strip()
                 specs = item.get("specs")
                 image_url = item.get("image_url")
@@ -608,6 +659,7 @@ def build_catalog(today: datetime):
     spec_report = build_product_specs(match_result["products"], enriched)
     _recompute_canonical_names(match_result["products"], enriched)
     _disambiguate_duplicate_names(match_result["products"])
+    _fill_empty_brands(match_result["products"])
 
     exclude_multi_keys = {
         listing_key_value
@@ -651,6 +703,10 @@ def build_catalog(today: datetime):
     # offer attributes.
     identity_cases += flag_identity_collisions(
         match_result["products"], identity_cases)
+    # One vendor's decorated twin (`-PC`, clearance) in another product.
+    identity_cases += find_cross_product_twin_cases(match_result["products"])
+    # Titles of one product stating two colours / lighting / GPU chips (A2).
+    identity_cases += flag_title_axis_conflicts(match_result["products"], identity_cases)
     review_queue = list(review_queue) + identity_cases
 
     catalog = {

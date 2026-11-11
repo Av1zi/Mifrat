@@ -149,13 +149,26 @@ _MB_FORM_FACTORS = {
     "itx": "Mini-ITX", "mini-itx": "Mini-ITX", "mini itx": "Mini-ITX",
     "mini-dtx": "Mini-DTX", "thin mini-itx": "Thin Mini-ITX",
     "ssi-eeb": "SSI-EEB", "ssi eeb": "SSI-EEB", "eeb": "SSI-EEB",
-    "ssi-ceb": "SSI-CEB",
+    "ssi-ceb": "SSI-CEB", "ssi ceb": "SSI-CEB", "ceb": "SSI-CEB",
 }
+
+
+# A known form factor leading a longer cell ("ATX – 243.84 × 304.8",
+# "micro-ATX Form Factor9.6 inch x 8.7 inch"): the leading token is the fact.
+_MB_FORM_FACTOR_LEAD = re.compile(
+    r"^(extended atx|e-?atx|xl-atx|micro[- ]?atx|m-?atx|thin mini-itx|mini[- ]?itx|atx)"
+    r"(?![a-z0-9-])")
 
 
 def canon_form_factor_mb(value) -> str:
     key = re.sub(r"\s+", " ", str(value).strip().lower()).replace("_", "-")
-    return _MB_FORM_FACTORS.get(key, str(value).strip())
+    if key in _MB_FORM_FACTORS:
+        return _MB_FORM_FACTORS[key]
+    lead = _MB_FORM_FACTOR_LEAD.match(key)
+    if lead:
+        token = lead.group(1)
+        return _MB_FORM_FACTORS.get(token, "EATX" if token == "extended atx" else str(value).strip())
+    return str(value).strip()
 
 
 _STORAGE_FORM_FACTORS = {
@@ -209,12 +222,16 @@ _PSU_TYPE_CANON = {
     "atx": "ATX", "atx12v": "ATX", "sfx": "SFX", "sfx-l": "SFX-L", "sfxl": "SFX-L",
     "tfx": "TFX", "flex atx": "Flex ATX", "flex": "Flex ATX",
     "micro atx": "Micro ATX", "matx": "Micro ATX", "mini itx": "Mini ITX",
-    "1u": "1U",
+    "1u": "1U", "2u": "2U",
 }
 
 
 def canon_psu_type(value) -> str:
-    return _PSU_TYPE_CANON.get(str(value).strip().lower(), str(value).strip())
+    key = re.sub(r"\s+", " ", str(value).strip().lower())
+    # "ATX PS/2", "ATX 12V 3.1": the ATX form factor with its spec revision.
+    if re.match(r"^atx (?:ps/2|12v\b)", key):
+        return "ATX"
+    return _PSU_TYPE_CANON.get(key, str(value).strip())
 
 
 _EFFICIENCY_CANON = {
@@ -226,6 +243,8 @@ _EFFICIENCY_CANON = {
     "80plus platinum": "80+ Platinum",
     "titanium": "80+ Titanium", "80+ titanium": "80+ Titanium",
     "80plus titanium": "80+ Titanium",
+    # The base certification with no tier word is the one called "White".
+    "80+": "80+ White", "80+ plus": "80+ White", "80+ standard": "80+ White",
 }
 
 # The tier word inside a longer certification blob ("80 PLUS Gold (according
@@ -243,7 +262,7 @@ def canon_efficiency(value) -> str:
     if tier:
         return _EFFICIENCY_CANON.get(tier.group(1).lower(), text)
     key = text.lower()
-    key = re.sub(r"^80\s?\+?\s*", "80+ ", key) if key.startswith("80") else key
+    key = re.sub(r"^80\s?\+?\s*", "80+ ", key).strip() if key.startswith("80") else key
     return _EFFICIENCY_CANON.get(key, text)
 
 
@@ -461,7 +480,7 @@ def canon_chipset(value) -> str:
     # "C612PCH", "B760EXPRESS"). Split on the glued brand/suffix words and
     # take the first segment that is a known chipset — a board carries one,
     # and vendors list the board's own chipset first.
-    segments = re.split(r"AMD|INTEL|ASUS|MSI|EXPRESS|PCH", text)
+    segments = re.split(r"AMD|INTEL|ASUS|MSI|EXPRESS|PCH|CHIPSET", text)
     for segment in segments:
         for candidate in _chipset_candidates(segment):
             if candidate in CHIPSET_INFO:

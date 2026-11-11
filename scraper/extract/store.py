@@ -19,10 +19,12 @@ from functools import lru_cache
 
 from ..specs import schema
 from ..specs.merge import TIER_EXTRACTED, Fact
-from .runner import PRODUCTS, trusted_fields
+from ..specs.values import InvalidValue, coerce
+from .runner import PRODUCTS, ROOT, trusted_fields
 from .verify import normalize, product_text
 
 SOURCE = "extracted"
+ALIASES = ROOT / "data" / "site" / "meta.json"
 
 
 @lru_cache(maxsize=1)
@@ -34,6 +36,24 @@ def _entries() -> dict:
     if data.get("schema_version") != schema.SCHEMA_VERSION:
         return {}
     return data.get("entries") or {}
+
+
+@lru_cache(maxsize=1)
+def _alias_sources() -> dict[str, tuple[str, ...]]:
+    """Live pid -> the retired pids that alias to it (audit 2026-11-10 K).
+
+    Read from the last build's `data/site/meta.json` `pid_aliases` (chains
+    already resolved and carried forward by `_carry_pid_aliases`), so an
+    entry extracted under a pid that a rework retired still reaches its
+    product without rekeying the git-tracked store."""
+    try:
+        meta = json.loads(ALIASES.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    sources: dict[str, list[str]] = {}
+    for old_pid, target in (meta.get("pid_aliases") or {}).items():
+        sources.setdefault(str(target), []).append(str(old_pid))
+    return {target: tuple(sorted(olds)) for target, olds in sources.items()}
 
 
 @lru_cache(maxsize=1)
@@ -71,7 +91,7 @@ def _candidate_part_numbers(listings: list[dict]) -> list[str]:
 
 
 def _candidate_ids(product_id, category: str | None, listings: list[dict]) -> list[str]:
-    """Cache keys worth trying for one product, exact id first.
+    """Cache keys worth trying for one product: exact id, aliased ids, PNs.
 
     Product ids churn with every identity rework (the token-sort rework moved
     ~3.7k pids from ``mpn:`` to ``model:``), but the extraction cache is keyed
@@ -83,6 +103,8 @@ def _candidate_ids(product_id, category: str | None, listings: list[dict]) -> li
     cannot land on the wrong product.
     """
     ids = [str(product_id)]
+    # Retired pids that alias to this product (a rekey must not orphan a fact).
+    ids += [old for old in _alias_sources().get(str(product_id), ()) if old not in ids]
     if not category:
         return ids
     for raw in _candidate_part_numbers(listings):
@@ -115,6 +137,12 @@ def facts_for(product_id, category: str | None, listings: list[dict]) -> dict[st
                 text = normalize(product_text(listings))
             quote = normalize((entry.get("quotes") or {}).get(field) or "")
             if not quote or quote not in text:
+                continue
+            # The model wrote the vendor's spelling ("INTELHM770"): canonicalize
+            # it like a vendor value, so it is a schema key or no fact at all.
+            try:
+                value = coerce(fields[field], value, category)
+            except InvalidValue:
                 continue
             facts.setdefault(field, []).append(Fact(
                 value=value, tier=TIER_EXTRACTED,

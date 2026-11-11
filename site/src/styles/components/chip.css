@@ -53,6 +53,73 @@ button.chip {
   color: var(--err);
 }
 
+/* Conditional-offer chip: the deal terms show on hover or keyboard focus. */
+.deal-chip {
+  position: relative;
+  cursor: help;
+}
+
+.deal-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.deal-chip__tip {
+  position: absolute;
+  inset-inline-start: 50%;
+  bottom: calc(100% + var(--sp-2));
+  z-index: var(--z-dropdown);
+  width: max-content;
+  max-width: 16rem;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(2px);
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+}
+
+[dir="rtl"] .deal-chip__tip {
+  transform: translateX(50%) translateY(2px);
+}
+
+.deal-chip:hover .deal-chip__tip,
+.deal-chip:focus-visible .deal-chip__tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
+}
+
+[dir="rtl"] .deal-chip:hover .deal-chip__tip,
+[dir="rtl"] .deal-chip:focus-visible .deal-chip__tip {
+  transform: translateX(50%);
+}
+
+/* In a table's last column a centred tip would leave the scroll box: anchor
+   it to the chip's end edge so it opens back into the row. */
+.deal-chip--end .deal-chip__tip,
+[dir="rtl"] .deal-chip--end .deal-chip__tip {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  transform: translateY(2px);
+}
+
+.deal-chip--end:hover .deal-chip__tip,
+.deal-chip--end:focus-visible .deal-chip__tip,
+[dir="rtl"] .deal-chip--end:hover .deal-chip__tip,
+[dir="rtl"] .deal-chip--end:focus-visible .deal-chip__tip {
+  transform: none;
+}
+
 .chip.is-locked {
   opacity: 0.7;
   cursor: default;

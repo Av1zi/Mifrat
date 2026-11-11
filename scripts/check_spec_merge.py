@@ -195,6 +195,70 @@ def check_tier_order(c: Checks) -> None:
          "a vendor chipset beats a derived socket")
 
 
+def check_title_witness(c: Checks) -> None:
+    """Audit 2026-11-10 F/G, owner Q4: two independent sources may correct a
+    value against the product's titles; one source only flags it."""
+    from scraper.specs.validate import cross_check, validate_fact
+    from scraper.specs.schema import field_map
+    from scraper.specs.witness import apply_title_witness, refine_chipset_suffix
+
+    def board(vendor: str, title: str, chipset: str | None = None):
+        own = {"chipset": [Fact(value=chipset, tier=TIER_VENDOR, source="vendor:detail")]} if chipset else {}
+        return {"vendor_id": vendor, "title_raw": title}, own
+
+    pairs = [board("1pc", "Gigabyte Z890 AORUS ELITE", "Z790"),
+             board("tms", "Gigabyte Z890 AORUS ELITE WIFI7")]
+    specs, sources = {"chipset": "Z790", "socket": "LGA1851"}, {"chipset": "vendor", "socket": "vendor"}
+    issues, supported = apply_title_witness("motherboard", specs, sources, pairs, {})
+    c.eq((specs["chipset"], sources["chipset"]), ("Z890", "witness"),
+         "two vendors' titles correct a vendor chipset")
+    c.ok("chipset" in supported and issues and issues[0].get("rule") == "title_witness",
+         "the correction is logged as a title-witness QA case")
+
+    pairs = [board("1pc", "Gigabyte Z890 AORUS ELITE", "Z790")]
+    specs, sources = {"chipset": "Z790"}, {"chipset": "vendor"}
+    issues, _ = apply_title_witness("motherboard", specs, sources, pairs, {})
+    c.eq(specs["chipset"], "Z790", "one vendor's title alone never changes a value")
+    c.ok(any("one source" in str(i.get("detail")) for i in issues), "a single source is a QA flag")
+
+    pairs = [board("1pc", "Gigabyte Z890 AORUS ELITE"), board("tms", "Gigabyte Z890 AORUS ELITE")]
+    specs, sources = {"chipset": "Z790"}, {"chipset": "override"}
+    apply_title_witness("motherboard", specs, sources, pairs, {})
+    c.eq(specs["chipset"], "Z790", "a manual override is never corrected by titles")
+
+    pairs = [({"vendor_id": "yahav", "title_raw": "Lexar THOR DDR4 32GB 6000MHz"},
+              {"memory_type": [Fact(value="DDR5", tier=TIER_VENDOR, source="vendor:detail")]})]
+    specs, sources = {"memory_type": "DDR5"}, {"memory_type": "vendor"}
+    apply_title_witness("memory", specs, sources, pairs, {})
+    c.eq(specs["memory_type"], "DDR5", "Lexar Thor: one vendor's title against its attribute is kept")
+
+    facts = {"chipset": [Fact(value="B650", tier=TIER_VENDOR, source="vendor:detail"),
+                         Fact(value="B650E", tier=TIER_TITLE, source="title")]}
+    refine_chipset_suffix("motherboard", facts)
+    c.eq(facts["chipset"][0].value, "B650E", "a base-chipset label takes its own title's E (F09)")
+    facts = {"chipset": [Fact(value="B650", tier=TIER_VENDOR, source="vendor:detail"),
+                         Fact(value="B650", tier=TIER_TITLE, source="title")]}
+    refine_chipset_suffix("motherboard", facts)
+    c.eq(facts["chipset"][0].value, "B650", "a plain B650 board stays B650")
+
+    specs = {"socket": "LGA1851", "chipset": "B760", "memory_type": None}
+    sources = {"socket": "vendor", "chipset": "reference"}
+    cross_check("motherboard", specs, sources, title_supported={"socket"})
+    c.eq((specs["socket"], specs["chipset"]), ("LGA1851", None),
+         "the side no title supports loses a socket/chipset fight")
+
+    specs = {"core_count": 14, "thread_count": 12}
+    sources = {"core_count": "reference", "thread_count": "reference"}
+    cross_check("cpu", specs, sources)
+    c.eq((specs["core_count"], specs["thread_count"]), (14, None),
+         "threads below cores: the thread count goes on a tie")
+
+    memory = field_map("gpu")["memory_type"]
+    c.ok(validate_fact("gpu", memory, "GDDR4") is not None, "GDDR4 is not a GPU memory standard")
+    c.ok(validate_fact("gpu", memory, "DDR6") is not None, "DDR6 is not a GPU memory standard")
+    c.ok(validate_fact("gpu", memory, "DDR4") is None, "a DDR4 card is valid")
+
+
 def check_applicability_gates(c: Checks) -> None:
     from scraper.specs.schema import applies
     c.ok(not applies("gpu", "fan_count", {"cooling": "Passive"}), "a passive GPU has no fan count")
@@ -371,7 +435,7 @@ def check_model_codes(c: Checks) -> None:
 def main() -> int:
     checks = Checks()
     for group in (check_part_number_shape, check_model_prefers_a_name,
-                  check_tier_order, check_applicability_gates,
+                  check_tier_order, check_title_witness, check_applicability_gates,
                   check_validation_and_unknowns,
                   check_curated_tables, check_equality_helpers,
                   check_model_codes):

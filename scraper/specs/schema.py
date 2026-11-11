@@ -25,6 +25,7 @@ Design rules (see decisions.md "spec system overhaul"):
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 # Value types a field may have. Keep this list in sync with
@@ -165,10 +166,17 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     # Intel LGA1851 (DDR5 only)
     "H810": ("LGA1851", "DDR5"), "B860": ("LGA1851", "DDR5"),
     "Z890": ("LGA1851", "DDR5"), "W890": ("LGA1851", "DDR5"),
+    "W880": ("LGA1851", "DDR5"),
+    # Intel LGA1155 / LGA1150 (DDR3), and mobile PCHs on soldered-CPU boards
+    # (no socket; HM770 boards ship DDR4 or DDR5). Audit 2026-11-10 M.
+    "B75": ("LGA1155", "DDR3"), "H81": ("LGA1150", "DDR3"),
+    "HM65": (None, "DDR3"), "HM770": (None, None),
     # HEDT / legacy
     "X99": ("LGA2011-v3", "DDR4"), "X299": ("LGA2066", "DDR4"),
     "X399": ("TR4", "DDR4"), "TRX40": ("sTRX4", "DDR4"),
     "C422": ("LGA2066", "DDR4"), "C621": ("LGA3647", "DDR4"),
+    # Ice Lake-SP (Supermicro X12SP*): vendors print it as plain "C621".
+    "C621A": ("LGA4189", "DDR4"),
     "W790": ("LGA4677", "DDR5"),
     # Server chipsets (Sep 2026: seen on TMS server-board details;
     # canon_chipset recovers these from concatenated vendor cells).
@@ -177,6 +185,35 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "C741": ("LGA4677", "DDR5"),
 }
 
+# Board chipset values that are honest but name no PCH (soldered SoC boards).
+# Every other board chipset must be a CHIPSET_INFO key (audit 2026-11-10 M).
+CHIPSET_UNKNOWN = frozenset({"SoC"})
+
+# Vendor values an enum refuses on purpose (audit 2026-11-10 M), as
+# (category, field) -> full-match patterns, case-insensitive. Each is either
+# a real value the enum does not model or another spec in the wrong row.
+# Any other refused value fails scripts/check_spec_invariants.py: it is a
+# canon gap or a missing enum value, never a silent drop.
+SCHEMA_UNKNOWN_VALUES: dict[tuple[str, str], tuple[str, ...]] = {
+    # Cybenetics is a second certification, not an 80 PLUS grade.
+    ("psu", "efficiency"): (r"cybenetics\b.*",),
+    # A board-height pair and a cable-standard number, not a form factor.
+    ("psu", "type"): (r"1U \| Flex ATX", r"Type \d+"),
+    ("motherboard", "form_factor"): (r"mining board",),
+    # Capacity / buffering rows filed under the memory standard.
+    ("motherboard", "memory_type"): (r"\d+\s*GB",),
+    ("memory", "memory_type"): (r"\d+\s*GB", r"(?:un)?registered\b.*"),
+    # Interface, form factor, NAND or enclosure words filed under SSD/HDD.
+    ("storage", "type"): (r"PCI-?E.*", r"M\.2.*", r"MVMe M\.2", r"USB.*", r"3\.5\"?",
+                          r"(?:3D |V-NAND )?TLC(?: NAND)?", r"V-NAND TLC", r"(?:hanging )?box"),
+}
+
+
+def schema_unknown(category: str, field: str, value) -> bool:
+    """True when an enum refusal is on SCHEMA_UNKNOWN_VALUES."""
+    return any(re.fullmatch(pattern, str(value).strip(), re.I)
+               for pattern in SCHEMA_UNKNOWN_VALUES.get((category, field), ()))
+
 # Socket -> memory generation. Used by validate.py's cross-field checks and by
 # the reference resolver's anchor cross-check (not as a spec source itself).
 SOCKET_MEMORY: dict[str, str] = {
@@ -184,6 +221,7 @@ SOCKET_MEMORY: dict[str, str] = {
     "TR4": "DDR4", "sTRX4": "DDR4",
     "LGA1151": "DDR4", "LGA1200": "DDR4", "LGA2066": "DDR4",
     "LGA2011": "DDR4", "LGA2011-v3": "DDR4", "LGA3647": "DDR4",
+    "LGA1155": "DDR3", "LGA1150": "DDR3", "LGA4189": "DDR4",
     "LGA1700": "DDR4",  # both flavours exist; a hint only
     "LGA1851": "DDR5", "LGA4677": "DDR5",
 }
@@ -409,7 +447,7 @@ MOTHERBOARD = (
        aliases=("cpu_support", "supported_cpus", "cpu_compatibility"),
        he="תמיכה במעבדים", en="CPU Support"),
     _f("form_factor", "enum", enum=("ATX", "EATX", "Micro-ATX", "Mini-ITX", "XL-ATX",
-                                    "Mini-DTX", "Thin Mini-ITX", "SSI-EEB"),
+                                    "Mini-DTX", "Thin Mini-ITX", "SSI-EEB", "SSI-CEB"),
        filterable=True, group="physical",
        aliases=("form_factor", "motherboard_form_factor", "board_form_factor",
                 "spec_form_factor", "motherboard_size", "board_size", "format"),
@@ -426,6 +464,8 @@ MOTHERBOARD = (
        he="מהירויות זיכרון", en="Memory Speeds"),
     _f("pcie_x16_slots", "int", lo=0, hi=8, group="io", aliases=("pcie_x16_slots",),
        he="חריצי PCIe x16", en="PCIe x16 Slots"),
+    _f("pcie_x4_slots", "int", lo=0, hi=8, group="io", aliases=("pcie_x4_slots",),
+       he="חריצי PCIe x4", en="PCIe x4 Slots"),
     _f("pcie_x1_slots", "int", lo=0, hi=8, group="io", aliases=("pcie_x1_slots",),
        he="חריצי PCIe x1", en="PCIe x1 Slots"),
     _f("m2_slots", "list_str", group="io",
@@ -750,7 +790,7 @@ CASE = (
 
 # --------------------------------------------------------------------------
 
-_PSU_TYPES = ("ATX", "SFX", "SFX-L", "TFX", "Flex ATX", "Micro ATX", "Mini ITX", "1U")
+_PSU_TYPES = ("ATX", "SFX", "SFX-L", "TFX", "Flex ATX", "Micro ATX", "Mini ITX", "1U", "2U")
 _PSU_EFFICIENCY = ("80+ White", "80+ Bronze", "80+ Silver", "80+ Gold",
                    "80+ Platinum", "80+ Titanium")
 

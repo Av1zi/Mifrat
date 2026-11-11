@@ -278,7 +278,7 @@ Each cluster is stated as one general rule. The rule names no product, so it als
 - **Ledger-only:** none. The owner's Q3 principle settles the old Q7 maker-page checks:
   - Antec Performance 1 M Black and Aventurine (02 F-14): two titles, two EANs, two products.
   - MSI A750BN PCIE5 III and the original A750BN (02 F-18): two EANs, two products.
-  - ASUS Prime RX 9070 and 9070 XT (02 F-05): two cards, split on the GPU model axis. The one MPN they share means one vendor printed it wrong, so it becomes a QA case.
+  - ASUS Prime RX 9070 and "9070 XT" (02 F-05): one card. The owner checked: all three offers are the RX 9070 OC, and the TMS "XT" title is wrong. The shared maker PN `90YV0L71-M0NA00` keeps them together; the axis disagreement is a QA case, not a split.
 - **Rejected:**
   - Stripping axis words from model codes. This is R2 in `docs/duplicate-groups-audit.md`, measured and rejected in the 2026-11-07..08 work: 2 merges for 322 renamed pids. The 2712-of-4232 count does not change that, so the phase 1 fix text for A2 is withdrawn.
   - Any colour-word difference as a gate. 3 of the 5 extras are false, and vendors write two-tone parts as "שחור/לבן".
@@ -588,7 +588,7 @@ Every lane finding is now in a cluster, marked as a duplicate, accepted under a 
 4. **Title vs attribute:** yes, when it is reliable. Reliable = two independent sources agree; one source alone is a QA flag (§3.2 F/G, measured).
 5. **Schema:** the six chipsets are added and the E chipsets stay distinct. Left to my call: `80+`, `2U` and `CEB` join the enums, and `pcie_x4_slots` is kept (§3.2 M).
 6. **1PC barcode as part number:** left open by the owner. My call: no. A 13-digit `מק"ט` barcode is stored as the EAN (used for matching under the strict-EAN rules) and is not shown as a part number.
-7. **Maker pages:** settled by Q3. All three pairs become two products (§3.2 A2).
+7. **Maker pages:** the owner opened the pages. Antec Performance 1 M Black and Aventurine are one model in two colours, so they become two colour-variant products. MSI A750BN PCIE5 III (PCIe 5.1) and the original A750BN PCIE5 are two products. The three ASUS Prime RX 9070 offers are one card: the TMS "9070 XT" title is wrong, and the shared maker PN keeps them together (QA flag, no split) (§3.2 A2).
 8. **Live checks:** two vendor pages to open in a browser (§3.2 V).
 9. **Extract file:** my call: prune the 277 gone entries and the 16 that fail the verbatim check; keep the 1,127 untrusted facts for review (§3.2 K).
 10. **`vendor_count`:** counts vendors, as today (§3.2 P).

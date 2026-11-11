@@ -141,9 +141,13 @@ CPU_PACKAGING_TRAY_RE = re.compile(r"\b(?:tray|oem|mpk|bulk)\b|\bטריי?\b", r
 CPU_PACKAGING_BOX_RE = re.compile(
     r"\b(?:box|boxed|retail|wraith|wrapper)\b|(?:אריזת|צבע)\s+(?:קופסה|קרטון)", re.I)
 CPU_COOLER_INCLUDED_RE = re.compile(
-    r"\b(?:with|includes?)\s+(?:a\s+)?(?:wraith|stock\s+)?cooler\b", re.I
+    r"\b(?:with|includes?)\s+(?:a\s+)?(?:wraith|stock\s+)?cooler\b"
+    r"|(?:כולל|עם)\s*(?:קירור|מאוורר|קולר)", re.I
 )
-CPU_COOLER_EXCLUDED_RE = re.compile(r"\b(?:without|no)\s+cooler\b", re.I)
+# Hebrew alternatives only match the RAW title (clean_text strips Hebrew):
+# KSP "Box - ללא קירור באריזה" (audit 2026-11-10 F12).
+CPU_COOLER_EXCLUDED_RE = re.compile(
+    r"\b(?:without|no)\s+cooler\b|(?:ללא|בלי)\s*(?:קירור|מאוורר|קולר)", re.I)
 
 # --------------------------------------------------------------------------
 # GPU / clocks / power

@@ -24,6 +24,14 @@ if [ "${RUN_TMS_FALLBACK:-0}" = "1" ] && \
     exit 0
 fi
 
+# One crawl per day (audit 2026-11-10 E): a second run on 2026-11-09 appended
+# to the day's file, 18h after the first, and normalize then showed 25
+# superseded prices. Any run honours today's marker; RUN_TMS_FORCE=1 overrides.
+if [ "${RUN_TMS_FORCE:-0}" != "1" ] && [ -f "$SUCCESS_MARKER" ]; then
+    echo "[run_tms] today's scrape already completed ($SUCCESS_MARKER); set RUN_TMS_FORCE=1 to re-run"
+    exit 0
+fi
+
 update_repo() {
     # Recover from interrupted rebases before every scrape phase.
     if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
@@ -39,16 +47,22 @@ update_repo "listing scrape"
 mkdir -p "$OUT_DIR"
 
 echo "[run_tms] starting spider at $(date -Iseconds)"
+# Scrapy's file feed APPENDS to an existing file, so the crawl goes to a
+# fresh `.part` and replaces the day's file only once it holds items.
+PART_FILE="$OUT_FILE.part"
+rm -f "$PART_FILE"
 "$SCRAPY" crawl tms \
-    -s "FEEDS={\"$OUT_FILE\":{\"format\":\"jsonl\",\"encoding\":\"utf-8\"}}"
+    -s "FEEDS={\"$PART_FILE\":{\"format\":\"jsonl\",\"encoding\":\"utf-8\",\"overwrite\":true}}"
 
-ITEM_COUNT="$(wc -l < "$OUT_FILE")"
-echo "[run_tms] spider done — $ITEM_COUNT items written to $OUT_FILE"
+ITEM_COUNT="$( [ -f "$PART_FILE" ] && wc -l < "$PART_FILE" || echo 0 )"
+echo "[run_tms] spider done — $ITEM_COUNT items written to $PART_FILE"
 
 if [ "$ITEM_COUNT" -eq 0 ]; then
     echo "[error] zero items scraped — not committing empty file" >&2
+    rm -f "$PART_FILE"
     exit 1
 fi
+mv -f "$PART_FILE" "$OUT_FILE"
 
 git add "data/raw/$TODAY/tms.jsonl"
 git diff --cached --quiet || git commit -m "tms snapshot $TODAY ($ITEM_COUNT items)"

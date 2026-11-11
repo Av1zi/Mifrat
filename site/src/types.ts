@@ -9,6 +9,12 @@ export interface Offer {
   /** Conditional side-price (e.g. TMS whole-PC deal). Never the min price. */
   promo_price?: number | null;
   promo_kind?: string;
+  /** The only price held needs a whole-PC purchase; ranks after plain offers. */
+  bundle_only?: boolean;
+  /** Plain price, plus a cheaper whole-PC deal (promo_price when known). */
+  new_pc_deal?: boolean;
+  /** Same store's cheaper clearance listing of this part ("מציאון ועודפים"). */
+  clearance_price?: number | null;
 }
 
 /**
@@ -72,7 +78,8 @@ export interface QaCase {
     | "identity_merge"
     | "packaging_conflict"
     | "variant_conflict"
-    | "split_candidate";
+    | "split_candidate"
+    | "unflagged_deal";
   product_id: string;
   category: string;
   vendor: string;

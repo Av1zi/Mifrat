@@ -22,14 +22,15 @@ import re
 
 from . import schema
 from .derive import expected_microarchitecture, zen_generation
+from .witness import GPU_MEMORY_TYPES
 from .schema import FieldSpec
 
 # Tier preference for cross-field fights (lower number = stronger source).
 # Mirrors merge.TIER_NAMES. Every source label the merge can write must be here:
 # an unlisted label ranked 99, so until Oct 2026 a manufacturer-page socket lost
 # a cross-check to a title-parsed chipset.
-_TIER_ORDER = {"override": 0, "reference": 1, "manufacturer": 1.5, "catalog": 1.75,
-               "vendor": 2, "extracted": 2.5, "title": 3, "weak": 4}
+_TIER_ORDER = {"override": 0, "witness": 0.5, "reference": 1, "manufacturer": 1.5,
+               "catalog": 1.75, "vendor": 2, "extracted": 2.5, "title": 3, "weak": 4}
 # `derived:<rule>` values were inferred after the merge from other fields: they
 # lose to every sourced value.
 _DERIVED_RANK = 5
@@ -162,6 +163,11 @@ def validate_fact(category: str | None, field: FieldSpec, value) -> str | None:
     if field.name == "microarchitecture" and category == "cpu" and isinstance(value, str):
         if _GPU_ARCH.search(value):
             return f"microarchitecture {value!r} is a GPU architecture"
+    if field.name == "memory_type" and category == "gpu" and isinstance(value, str):
+        # GDDR4 never shipped on a card ("4GD4" is plain DDR4); DDR6 is a
+        # dropped G, not a standard (audit 2026-11-10 G).
+        if value.strip().upper() not in GPU_MEMORY_TYPES:
+            return f"GPU memory {value!r} is not a real memory standard"
     return None
 
 
@@ -177,12 +183,15 @@ def _tier_rank(sources: dict, field: str) -> float:
     return _TIER_ORDER.get(label, 99)
 
 
-def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:
+def cross_check(category: str | None, specs: dict, sources: dict,
+                *, title_supported: frozenset[str] | set[str] = frozenset()) -> list[dict]:
     """Mutates `specs`/`sources` in place; returns the list of QA issues.
 
     Each issue: {"kind": "spec_conflict"|"spec_note", "field": ..., "detail":
     ..., "kept": ..., "dropped": ...}. Conflicts drop a value; notes are
-    informational only (never change data).
+    informational only (never change data). `title_supported` names the
+    fields a product title agrees with (specs/witness.py): in a socket/chipset
+    fight the side no title supports is dropped, whatever its tier.
     """
     issues: list[dict] = []
 
@@ -200,11 +209,24 @@ def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:
     if category == "motherboard":
         chipset = specs.get("chipset")
         info = schema.CHIPSET_INFO.get(str(chipset or "").upper())
+        successor = schema.CHIPSET_INFO.get(f"{str(chipset or '').upper()}A")
+        if (info and successor and specs.get("socket") and info[0] != specs.get("socket")
+                and successor[0] == specs.get("socket")):
+            # Vendors print the Ice Lake-SP PCH as plain "C621" (audit
+            # 2026-11-10 M): on its own socket it is the A part, not a conflict.
+            chipset = specs["chipset"] = f"{str(chipset).upper()}A"
+            info = successor
         if info:
             known_socket, known_memory = info
             socket = specs.get("socket")
             if known_socket and socket and socket != known_socket:
-                if _tier_rank(sources, "socket") <= _tier_rank(sources, "chipset"):
+                socket_backed = "socket" in title_supported
+                chipset_backed = "chipset" in title_supported
+                if socket_backed != chipset_backed:
+                    socket_wins = socket_backed
+                else:
+                    socket_wins = _tier_rank(sources, "socket") <= _tier_rank(sources, "chipset")
+                if socket_wins:
                     drop("chipset", f"chipset {chipset} implies socket {known_socket}", "socket")
                 else:
                     drop("socket", f"socket {socket} contradicts chipset {chipset}", "chipset")
@@ -277,6 +299,17 @@ def cross_check(category: str | None, specs: dict, sources: dict) -> list[dict]:
                 drop_weaker("type", "nvme",
                             "NVMe storage is solid-state, not HDD",
                             prefer="nvme")
+
+    if category == "cpu":
+        cores, threads = specs.get("core_count"), specs.get("thread_count")
+        if isinstance(cores, int) and isinstance(threads, int) and threads < cores:
+            # A core runs at least one thread. The weaker source goes; on a tie
+            # the thread count (the field retailers mistype more).
+            detail = f"{threads} threads < {cores} cores"
+            if _tier_rank(sources, "core_count") <= _tier_rank(sources, "thread_count"):
+                drop("thread_count", detail, "core_count")
+            else:
+                drop("core_count", detail, "thread_count")
 
     if category == "cpu" and specs.get("packaging") == "tray" and specs.get("includes_cooler"):
         drop("includes_cooler", "tray CPUs never include a cooler", "packaging")

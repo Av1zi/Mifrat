@@ -16,7 +16,8 @@ Order inside the product pass matters and is deliberate:
 1. collect per-offer facts (tier 1-3) and the post-match bridge values;
 2. provisional merge (no Tier 0) -> anchors + the legacy view;
 3. reference matching with those anchors (plan §5), plus overrides;
-4. final merge with all tiers -> the authoritative sheet;
+4. final merge with all tiers -> the authoritative sheet, then the title
+   witness (specs/witness.py) against the product's own titles;
 5. cross-field checks, fill derived fields, projection to `attributes`.
 """
 
@@ -26,6 +27,7 @@ import re
 
 from . import legacy
 from . import text as text_module
+from . import witness
 from .derive import infer_specs
 from .merge import TIER_REFERENCE, Fact, merge_facts
 from .resolvers import reference, title_parse, vendor_struct, weak_vendor
@@ -75,6 +77,8 @@ def listing_facts(category: str | None, listing: dict,
         facts.setdefault(key, []).extend(value)
     for key, value in vendor_struct.parse_listing_identity(category, listing).items():
         facts.setdefault(key, []).extend(value)
+    witness.refine_chipset_suffix(category, facts)
+    witness.resolve_cpu_packaging(category, listing, facts)
     return facts
 
 
@@ -178,6 +182,7 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
 
     if report is None:
         report = CoverageReport()
+    vendor_struct.SCHEMA_MISSES.clear()
 
     by_product: dict[str, list[dict]] = {}
     for listing in listings or []:
@@ -192,8 +197,11 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         facts: dict[str, list[Fact]] = {}
 
         label_gaps: dict[str, int] = {}
+        per_listing: list[tuple[dict, dict[str, list[Fact]]]] = []
         for listing in by_product.get(str(product.get("product_id")), []):
-            for key, value in listing_facts(category, listing, gaps=label_gaps).items():
+            own = listing_facts(category, listing, gaps=label_gaps)
+            per_listing.append((listing, own))
+            for key, value in own.items():
                 facts.setdefault(key, []).extend(value)
 
         # Post-match bridge: `attributes` computed during matching (brand,
@@ -255,6 +263,10 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         if "part_numbers" in merged.specs:
             merged.specs["part_numbers"] = with_model_code(
                 merged.specs.get("part_numbers"), offers)
+        # The product's own titles witness the merged value (audit 2026-11-10
+        # F/G): two independent sources against it replace it, one flags it.
+        issues, title_supported = witness.apply_title_witness(
+            category, merged.specs, merged.sources, per_listing, facts)
         fill_derived(category, merged.specs, merged.sources)
         # cross_check FIRST, then inference. The order matters: a consistency
         # rule may null a contradictory value (a tray CPU that claims a bundled
@@ -262,7 +274,8 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         # drop left those fields empty even though the rule that emptied them
         # implies the answer. Inference reads packaging/socket/etc., never the
         # fields cross_check drops, so nothing it writes is checked afterwards.
-        issues = cross_check(category, merged.specs, merged.sources)
+        issues.extend(cross_check(category, merged.specs, merged.sources,
+                                  title_supported=title_supported))
         derived_fields = infer_specs(
             category, merged.specs, merged.sources,
             context=_evidence_context(by_product.get(str(product.get("product_id")), [])))
@@ -270,7 +283,8 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         # individual values and any new cross-field relationships.
         issues.extend(revalidate_derived(
             category, merged.specs, merged.sources))
-        issues.extend(cross_check(category, merged.specs, merged.sources))
+        issues.extend(cross_check(category, merged.specs, merged.sources,
+                                  title_supported=title_supported))
         derived_total += len(derived_fields)
 
         product["specs"] = merged.specs
@@ -296,6 +310,9 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
                         in sorted(label_gaps.items(), key=lambda item: -item[1])],
         )
 
+    report.schema_misses = [
+        {"category": category, "field": field, "value": value, "count": count}
+        for (category, field, value), count in sorted(vendor_struct.SCHEMA_MISSES.items())]
     if verbose:
         report.print_summary()
         if derived_total:

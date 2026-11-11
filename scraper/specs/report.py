@@ -36,6 +36,8 @@ class CoverageReport:
         # vocabulary that mapped to no schema field. This is the queue for
         # specs/labels.py, kept in the report so growth is evidence-driven.
         self.label_gaps: dict[tuple[str, str], dict] = {}
+        # Vendor values an enum refused (vendor_struct.SCHEMA_MISSES).
+        self.schema_misses: list[dict] = []
 
     # -- collection --------------------------------------------------------
 
@@ -135,6 +137,7 @@ class CoverageReport:
             "issues": self.issues,
             "label_gaps": sorted(self.label_gaps.values(),
                                  key=lambda slot: -slot["count"]),
+            "schema_misses": self.schema_misses,
         }
 
     def core_coverage(self) -> dict[str, float]:
@@ -196,8 +199,11 @@ def _bare_value(payload):
     return payload
 
 
-def qa_cases(report_dict: dict, limit: int = 200) -> list[dict]:
-    """spec_conflict + core_gap cases for data/site/qa.json (public #/qa page)."""
+def qa_cases(report_dict: dict, limit: int | None = 200) -> list[dict]:
+    """spec_conflict + core_gap cases for data/site/qa.json (public #/qa page).
+
+    `limit=None` returns every case. The cut runs after the category sort, so
+    any finite limit below the conflict count drops whole categories."""
     cases: list[dict] = []
     for conflict in report_dict.get("conflicts", []):
         cases.append({
@@ -224,6 +230,7 @@ def qa_cases(report_dict: dict, limit: int = 200) -> list[dict]:
             "kept": issue.get("kept"),
             "detail": issue.get("detail"),
             "offers": [],
+            **({"rule": issue["rule"]} if issue.get("rule") else {}),
         })
 
     # Core-compatibility gaps (plan todo #7): one case per product, listing

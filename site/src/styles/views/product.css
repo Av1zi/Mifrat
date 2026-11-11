@@ -126,6 +126,22 @@
   transform: translateY(1px);
 }
 
+/* Bundle-only: still a link to the store, but muted — the part cannot be
+   bought alone at this price. */
+.buy-cta--bundle {
+  border: 1px dashed var(--line-strong);
+  background: var(--surface-3);
+  color: var(--text-3);
+  box-shadow: none;
+}
+
+.buy-cta--bundle:hover {
+  border-color: var(--text-3);
+  background: var(--surface-3);
+  color: var(--text-2);
+  box-shadow: none;
+}
+
 .buy-cta__text {
   display: flex;
   flex: 1;

@@ -1,12 +1,13 @@
 import { formatPrice } from "../../format";
 import { lastSeenText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, sortOffers } from "../../offers";
+import { bestOffer, isBundleOffer, sortOffers } from "../../offers";
 import type { Currency, Lang, Product } from "../../types";
 import { safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { card } from "../../ui/card";
 import { chip } from "../../ui/chip";
+import { dealChip } from "../../ui/deal";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
 import { compareButton, saveButton } from "../../ui/pick";
@@ -33,6 +34,9 @@ export function buyBoxMarkup(
   const offer = bestOffer(product);
   const price = positivePrice(offer?.price ?? product.min_price);
   const url = offer ? safeUrl(offer.url) : null;
+  // Every priced offer needs a whole-PC purchase: the part cannot be bought
+  // alone, so the buy button is shown muted and says so.
+  const bundle = isBundleOffer(offer);
   return html`<aside class="card card--flush buybox">
     <div class="buybox__photo">${thumb(product.image, initialsOf(product.brand, name), "xl", name, true)}</div>
     <div class="buybox__body">
@@ -41,14 +45,15 @@ export function buyBoxMarkup(
         <div class="buybox__price">
           ${priceCell(price, currency, lang, "lg")}
           ${offer && price !== null ? html`<span class="buybox__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+          ${price !== null ? dealChip(offer, currency, lang) : ""}
         </div>
         <div class="buybox__signals" id="pdp-signals"></div>
         <p class="buybox__meta">${stockLine(product.in_stock, lang)}<span aria-hidden="true">·</span><span>${vendorsCount(lang, product.vendor_count)}</span></p>
       </div>
       ${url && price !== null && offer
-        ? html`<a class="buy-cta" href="${url}" target="_blank" rel="noopener noreferrer">
-            ${icon("cart", 20)}
-            <span class="buy-cta__text"><span>${t(lang, "buyLabel")}</span><small>${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</small></span>
+        ? html`<a class="buy-cta${bundle ? " buy-cta--bundle" : ""}" href="${url}" target="_blank" rel="noopener noreferrer">
+            ${icon(bundle ? "tower" : "cart", 20)}
+            <span class="buy-cta__text"><span>${t(lang, bundle ? "bundleOnlyCta" : "buyLabel")}</span><small>${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</small></span>
             <span class="buy-cta__price">${formatPrice(price, currency, lang)}</span>
           </a>`
         : ""}
@@ -78,7 +83,7 @@ export function offersCard(product: Product, lang: Lang, currency: Currency): Ht
     const seen = lastSeenText(lang, offer.last_seen);
     return html`<tr class="${isBest ? "is-best" : offer.in_stock ? "" : "is-out"}">
       <th scope="row"><span class="offer-store">${vendorMono(offer.vendor)}<b>${vendorLabel(offer.vendor)}</b></span></th>
-      <td><span class="offer-price">${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}</span></td>
+      <td><span class="offer-price">${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}</span></td>
       ${showShipping
         ? html`<td>${offer.shipping === null || offer.shipping === undefined
             ? emptyValue(lang)
@@ -90,7 +95,7 @@ export function offersCard(product: Product, lang: Lang, currency: Currency): Ht
       ${showTotal ? html`<td>${price !== null ? formatPrice(total, currency, lang) : emptyValue(lang)}</td>` : ""}
       <td class="offer-seen">${seen}${offer.stale ? html`<span class="offer-stale" title="${t(lang, "staleData")}">${icon("clock", 14)}<span class="visually-hidden">${t(lang, "staleData")}</span></span>` : ""}</td>
       <td class="col-action">${url && price !== null
-        ? button({ label: t(lang, "toStore"), icon: icon("external", 14), variant: "buy", size: "sm", href: url, external: true, ariaLabel: `${t(lang, "toStore")}: ${vendorLabel(offer.vendor)}` })
+        ? button({ label: t(lang, "toStore"), icon: icon("external", 14), variant: isBundleOffer(offer) ? "outline" : "buy", size: "sm", href: url, external: true, ariaLabel: `${t(lang, "toStore")}: ${vendorLabel(offer.vendor)}` })
         : emptyValue(lang)}</td>
     </tr>`;
   });

@@ -276,6 +276,60 @@ with tempfile.TemporaryDirectory() as tmp:
 offline = client_module.Extractor(offline=True)
 check("offline miss asks nothing", offline.facts("aio", ["pump_rpm"], "not cached " * 20), None)
 
+
+def check_store_reach() -> None:
+    """Audit 2026-11-10 K: a fact extracted under a retired pid still reaches
+    its product through `pid_aliases` (hard), and the store holds few entries
+    that no live product reaches (budget; prune per owner Q9)."""
+    catalog_path = ROOT / "data" / "catalog.json"
+    if not catalog_path.exists():
+        print("[check-extract] no catalog, store reach skipped")
+        return
+    from collections import defaultdict
+
+    from scraper.extract import store
+    from scraper.extract.verify import normalize
+
+    runner.TRUST = runner.OUT_DIR / "trust.json"  # the trust test above swapped it
+    catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    entries = store._entries()
+    sources = defaultdict(list)
+    for old_pid, target in (catalog.get("pid_aliases") or {}).items():
+        sources[target].append(old_pid)
+    by_pid = defaultdict(list)
+    for listing in catalog.get("listings") or []:
+        if listing.get("product_id"):
+            by_pid[listing["product_id"]].append(listing)
+    trusted = store._trusted()
+    reached: set[str] = set()
+    for product in catalog.get("products") or []:
+        pid, category = product["product_id"], product.get("category")
+        listings = by_pid[pid]
+        candidates = store._candidate_ids(pid, category, listings)
+        reached.update(candidates)
+        text = None
+        for old_pid in sources.get(pid, ()):
+            entry = entries.get(old_pid)
+            check(f"alias {old_pid} -> {pid} is a candidate", old_pid in candidates, True)
+            if not entry or entry.get("category") != category:
+                continue
+            for field, value in (entry.get("specs") or {}).items():
+                if (entry.get("model"), category, field) not in trusted:
+                    continue
+                text = text if text is not None else normalize(product_text(listings))
+                quote = normalize((entry.get("quotes") or {}).get(field) or "")
+                if quote and quote in text:
+                    got = store.facts_for(pid, category, listings).get(field) or []
+                    check(f"trusted alias fact {old_pid}.{field} reaches {pid}",
+                          bool(got), True)
+    unreached = sorted(key for key in entries if key not in reached)
+    check(f"unreached extract entries within budget ({len(unreached)}: {unreached[:5]})",
+          len(unreached) <= UNREACHED_BUDGET, True)
+
+
+UNREACHED_BUDGET = 25
+check_store_reach()
+
 if failures:
     print(f"[check-extract] {failures} failure(s)")
     sys.exit(1)

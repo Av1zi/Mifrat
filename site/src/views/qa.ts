@@ -74,6 +74,8 @@ export async function renderQa(
         return "qaKindVariant";
       case "split_candidate":
         return "qaKindSplit";
+      case "unflagged_deal":
+        return "qaKindDeal";
       default:
         return "qaKindDuplicate";
     }

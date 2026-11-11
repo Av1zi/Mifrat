@@ -27,7 +27,14 @@ category, not totals:
      catalog's, i.e. the same run wrote both;
   4. `data/site/spec_report.json` describes the catalog's products, in total
      and per category (the coverage dashboard and `check_spec_coverage.py`'s
-     stale-report guard read it).
+     stale-report guard read it);
+  5. a bundle-only offer (price only with a whole PC) is never the best offer
+     or the site min_price while a plain offer is priced, and it ships to the
+     site still flagged (owner answer Q1, audit 2026-11-10 cluster H);
+  6. one site offer per vendor per part: a vendor twin (`alias_of`) never sets
+     the best offer or ships as an offer, a priced whole-PC twin reaches its
+     offer as the deal chip, and a vendor shown twice is flagged in
+     `duplicate_vendors` (audit 2026-11-10 cluster P).
 
 Pure stdlib + the repo's own site_category map, no network. Exit 0 = the set
 is coherent; exit 1 = a mismatch (every trip printed with sample product ids).
@@ -194,6 +201,133 @@ def check(catalog: dict, files: dict[str, list[str]], index_ids: list[str],
     return problems
 
 
+def _priced(price) -> bool:
+    return isinstance(price, (int, float)) and not isinstance(price, bool) and price > 0
+
+
+def check_conditional_offers(catalog: dict, site_rows: dict[str, dict]) -> list[str]:
+    """Owner Q1 (audit 2026-11-10 H): a bundle-only price never outranks a
+    plain one, and every bundle-only offer reaches the site still flagged.
+
+    `site_rows` maps a product id to its data/site row. Pure, like `check`.
+    """
+    problems: list[str] = []
+    best_wins: list[str] = []
+    min_wins: list[str] = []
+    lost_flag: list[str] = []
+    for product in catalog.get("products") or []:
+        pid = str(product.get("product_id"))
+        offers = product.get("offers") or []
+        has_plain = any(_priced(o.get("price_ils")) and not o.get("bundle_only")
+                        for o in offers)
+        best = product.get("best_offer") or {}
+        if has_plain and best.get("bundle_only"):
+            best_wins.append(pid)
+        row = site_rows.get(pid)
+        if row is None:
+            continue
+        site_offers = row.get("offers") or []
+        flagged = {(o.get("vendor"), o.get("url")) for o in site_offers if o.get("bundle_only")}
+        for offer in offers:
+            # A vendor twin (alias_of) ships as its offer's chip instead:
+            # check_vendor_twins covers it.
+            if offer.get("alias_of"):
+                continue
+            if offer.get("bundle_only") and (offer.get("vendor_id"), offer.get("url")) not in flagged:
+                lost_flag.append(f"{pid} [{offer.get('listing_key')}]")
+        plain_prices = [o.get("price") for o in site_offers
+                        if _priced(o.get("price")) and not o.get("bundle_only")]
+        min_price = row.get("min_price")
+        if plain_prices and _priced(min_price) and min_price < min(plain_prices):
+            min_wins.append(pid)
+    if best_wins:
+        problems.append(
+            f"{len(best_wins)} product(s) have a bundle-only best offer while a "
+            f"plain offer is priced (e.g. {_sample(best_wins)}) — "
+            "matching.choose_best_offer must rank plain offers first")
+    if min_wins:
+        problems.append(
+            f"{len(min_wins)} site row(s) take min_price from a bundle-only offer "
+            f"below every plain price (e.g. {_sample(min_wins)})")
+    if lost_flag:
+        problems.append(
+            f"{len(lost_flag)} bundle-only offer(s) reach data/site without their "
+            f"flag (e.g. {_sample(lost_flag)}) — site_data._trim_offer must keep it")
+    return problems
+
+
+def check_vendor_twins(catalog: dict, site_rows: dict[str, dict]) -> list[str]:
+    """Audit 2026-11-10 P: one site offer per vendor per part.
+
+    A listing marked `alias_of` (matching.collapse_vendor_twins) never sets
+    the best offer and never ships as an offer of its own; a priced whole-PC
+    twin reaches its offer as the new-PC deal chip. A vendor shown twice
+    must be one the row still lists in `duplicate_vendors`.
+    """
+    problems: list[str] = []
+    best_alias: list[str] = []
+    shipped: list[str] = []
+    lost_deal: list[str] = []
+    twice: list[str] = []
+    for product in catalog.get("products") or []:
+        pid = str(product.get("product_id"))
+        offers = product.get("offers") or []
+        if (product.get("best_offer") or {}).get("alias_of"):
+            best_alias.append(pid)
+        row = site_rows.get(pid)
+        if row is None:
+            continue
+        site_offers = row.get("offers") or []
+        urls = {(o.get("vendor"), o.get("url")) for o in site_offers}
+        by_key = {o.get("listing_key"): o for o in offers}
+        for offer in offers:
+            if not offer.get("alias_of"):
+                continue
+            primary = by_key.get(offer["alias_of"]) or {}
+            if (offer.get("vendor_id"), offer.get("url")) in urls and offer.get("url") != primary.get("url"):
+                shipped.append(f"{pid} [{offer.get('listing_key')}]")
+            if offer.get("alias_kind") == "bundle" and _priced(offer.get("price_ils")):
+                target = next((o for o in site_offers
+                               if (o.get("vendor"), o.get("url")) == (primary.get("vendor_id"), primary.get("url"))), {})
+                if not (target.get("bundle_only") or target.get("new_pc_deal")):
+                    lost_deal.append(f"{pid} [{offer.get('listing_key')}]")
+        seen: dict[str, int] = defaultdict(int)
+        for o in site_offers:
+            seen[o.get("vendor")] += 1
+        allowed = set(row.get("duplicate_vendors") or [])
+        for vendor, count in seen.items():
+            if count > 1 and vendor not in allowed:
+                twice.append(f"{pid} [{vendor}]")
+    if best_alias:
+        problems.append(f"{len(best_alias)} product(s) take their best offer from a vendor "
+                        f"twin (e.g. {_sample(best_alias)}) — choose_best_offer must skip alias_of")
+    if shipped:
+        problems.append(f"{len(shipped)} vendor twin(s) ship as their own site offer "
+                        f"(e.g. {_sample(shipped)}) — site_data._site_offers must drop them")
+    if lost_deal:
+        problems.append(f"{len(lost_deal)} whole-PC twin(s) lost their deal chip "
+                        f"(e.g. {_sample(lost_deal)})")
+    if twice:
+        problems.append(f"{len(twice)} site row(s) show one vendor twice without a "
+                        f"duplicate_vendors flag (e.g. {_sample(twice)})")
+    return problems
+
+
+def load_site_rows() -> dict[str, dict]:
+    """Product id -> data/site row, across every category file."""
+    rows_by_id: dict[str, dict] = {}
+    for path in sorted(SITE_DIR.glob("*.json")):
+        if path.name in NON_CATEGORY_FILES:
+            continue
+        rows = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if isinstance(row, dict):
+                rows_by_id[str(row.get("id"))] = row
+    return rows_by_id
+
+
 def load() -> tuple[dict, dict[str, list[str]], list[str], dict | None, dict | None]:
     """Read the committed publish set off disk."""
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
@@ -312,7 +446,56 @@ def self_test() -> int:
     detail = trips(catalog, files, index_ids, meta, None)
     check_case("missing report trips", "spec_report.json is missing" in detail, detail)
 
-    total_checks = 10
+    # Owner Q1: a bundle-only price never outranks a plain one, and its flag
+    # survives into the site files.
+    plain = {"vendor_id": "ksp", "url": "k", "price_ils": 500, "listing_key": "ksp:1"}
+    bundle = {"vendor_id": "tms", "url": "t", "price_ils": 400, "bundle_only": True,
+              "listing_key": "tms:1"}
+    conditional = {"products": [{"product_id": "gpu:0", "offers": [plain, bundle],
+                                 "best_offer": plain}]}
+    good_row = {"gpu:0": {"min_price": 500, "offers": [
+        {"vendor": "ksp", "url": "k", "price": 500},
+        {"vendor": "tms", "url": "t", "price": 400, "bundle_only": True}]}}
+    detail = " | ".join(check_conditional_offers(conditional, good_row))
+    check_case("plain-first set passes", not detail, detail)
+    conditional["products"][0]["best_offer"] = bundle
+    detail = " | ".join(check_conditional_offers(conditional, good_row))
+    check_case("bundle best offer trips", "bundle-only best offer" in detail, detail)
+    conditional["products"][0]["best_offer"] = plain
+    bad_row = {"gpu:0": {"min_price": 400, "offers": [
+        {"vendor": "ksp", "url": "k", "price": 500},
+        {"vendor": "tms", "url": "t", "price": 400}]}}
+    detail = " | ".join(check_conditional_offers(conditional, bad_row))
+    check_case("dropped flag trips", "without their flag" in detail, detail)
+    bad_row["gpu:0"]["offers"][1]["bundle_only"] = True
+    detail = " | ".join(check_conditional_offers(conditional, bad_row))
+    check_case("bundle min_price trips", "take min_price" in detail, detail)
+    only_bundle = {"products": [{"product_id": "gpu:1", "offers": [bundle],
+                                 "best_offer": bundle}]}
+    only_row = {"gpu:1": {"min_price": 400, "offers": [
+        {"vendor": "tms", "url": "t", "price": 400, "bundle_only": True}]}}
+    detail = " | ".join(check_conditional_offers(only_bundle, only_row))
+    check_case("bundle-only product passes", not detail, detail)
+
+    # Audit 2026-11-10 P: a vendor twin ships as a chip, never as an offer.
+    yahav = {"vendor_id": "yahav", "url": "y1", "price_ils": 620, "listing_key": "yahav:1"}
+    twin = {"vendor_id": "yahav", "url": "y2", "price_ils": 590, "bundle_only": True,
+            "listing_key": "yahav:2", "alias_of": "yahav:1", "alias_kind": "bundle"}
+    twins = {"products": [{"product_id": "aio:0", "offers": [yahav, twin], "best_offer": yahav}]}
+    good = {"aio:0": {"offers": [{"vendor": "yahav", "url": "y1", "price": 620,
+                                  "new_pc_deal": True, "promo_price": 590}]}}
+    detail = " | ".join(check_vendor_twins(twins, good))
+    check_case("folded twin passes", not detail, detail)
+    both = {"aio:0": {"offers": [{"vendor": "yahav", "url": "y1", "price": 620},
+                                 {"vendor": "yahav", "url": "y2", "price": 590, "bundle_only": True}]}}
+    detail = " | ".join(check_vendor_twins(twins, both))
+    check_case("shipped twin trips", "ship as their own" in detail and "lost their deal" in detail
+               and "one vendor twice" in detail, detail)
+    twins["products"][0]["best_offer"] = twin
+    detail = " | ".join(check_vendor_twins(twins, good))
+    check_case("twin best offer trips", "best offer from a vendor twin" in detail, detail)
+
+    total_checks = 18
     if problems:
         print(f"[publish-set] self-test FAILED — {len(problems)} of ~{total_checks} checks:")
         for problem in problems:
@@ -335,6 +518,9 @@ def main(argv: list[str] | None = None) -> int:
 
     catalog, files, index_ids, meta, report = load()
     problems = check(catalog, files, index_ids, meta, report)
+    site_rows = load_site_rows()
+    problems += check_conditional_offers(catalog, site_rows)
+    problems += check_vendor_twins(catalog, site_rows)
     if problems:
         print(f"[publish-set] FAIL — {len(problems)} incoherence(s) in the published data set:")
         for problem in problems:

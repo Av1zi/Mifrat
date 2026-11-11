@@ -21,6 +21,7 @@ import json
 import re
 import sys
 import unicodedata
+from datetime import datetime, timezone
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from typing import Any
@@ -406,7 +407,10 @@ AIO_TITLE_RE = re.compile(
     r"(aio|all[\s\-]*in[\s\-]*one|liquid|water[\s\-]*cool|"
     r"hydroshift|pure loop|kraken|eisbaer|eiswolf|nucleus|masterliquid|"
     r"coreliquid|navis|levante|silent loop|ryujin|ryuo|liquid freezer|"
-    r"galahad|ek-aio|coolit|alphacool)",
+    r"galahad|ek-aio|coolit|alphacool|"
+    # Cooler Master liquid part codes (MLW/MLX/MLY/MLZ/ELW-D<rad>M-...):
+    # 1PC titles carry only "קירור למעבד" + the code (audit 2026-11-10 I).
+    r"\b(?:ml[a-z]|elw)-d(?:12|24|28|36|42)m\b)",
     re.I,
 )
 AIR_TITLE_RE = re.compile(
@@ -543,7 +547,7 @@ _THERMAL_COMPOUND_RE = re.compile(
 
 # Hebrew category hints (TMS/1PC/Ivory titles carry the category in Hebrew;
 # _clean strips Hebrew entirely, so check the raw title first).
-_HEBREW_LIQUID_RE = re.compile(r"נוזלי")
+_HEBREW_LIQUID_RE = re.compile(r"נוזלי|קירור\s*מים")
 # "מיסב דינמי נוזלי" = fluid-dynamic BEARING — a fan spec on AIR coolers
 # ("Arctic Freezer 8A ... מיסב דינמי נוזלי"), never a liquid-cooling hint.
 _HEBREW_BEARING_RE = re.compile(r"מיסב")
@@ -577,7 +581,7 @@ _HEBREW_ACCESSORY_LEAD = (
 )
 _HEBREW_COOLER_ACCESSORY_RE = re.compile(
     _HEBREW_ACCESSORY_LEAD
-    + r"(?:רפידות|תושבות|פדים|מתא(?:ם|מי)|כבל(?:ים|י)?|"
+    + r"(?:רפידות|תושבות|תושבת|פדים|מתא(?:ם|מי)|כבל(?:ים|י)?|"
     r"הרחבה|התקנה|הרכבה|הסטה|שדרוג|כבלים|תעלת\s*אוויר)\b",
     re.I,
 )
@@ -615,6 +619,40 @@ def _hebrew_category_hint(title_raw: str) -> str | None:
         return "case_fan"
     if _HEBREW_CPU_COOLER_RE.search(title_raw):
         return "cooler_air"
+    return None
+
+
+# What the title says the item IS, as opposed to what it fits (audit
+# 2026-11-10 I): "panel only" for a case, a fan unit with a frame, a screen
+# module for an AIO, a drive cage, a custom-loop block, a server barebone.
+# Each rule is definitive and beats both the vendor bucket and the coarse
+# Hebrew/English cooler-fan words. Order matters only between rules that can
+# share a title (none in the Nov 2026 snapshot).
+_IS_A_RULES: tuple[tuple[re.Pattern, str], ...] = (
+    (re.compile(r"(?:פאנל|זכוכית)[^|]{0,40}?בלבד|\b(?:glass|panel)\s+only\b", re.I),
+     "case_accessory"),
+    (re.compile(r"^\s*(?:ערכת|יחידת)\s+מאווררים"), "case_fan"),
+    (re.compile(r"^\s*מודול\s+(?:מסך|תצוגה)|\b(?:lcd|screen|display)\s+module\b", re.I),
+     "cooler_accessory"),
+    (re.compile(r"כלוב\s*כוננים|\b(?:drive|hdd)\s*cages?\b", re.I), "case_accessory"),
+    (re.compile(r"בלוק\s*(?:מעבד|מים)|\b(?:water|cpu)\s*blocks?\b|\bcustom\s*loop\b", re.I),
+     "cooler_accessory"),
+    (re.compile(r"\bbarebones?\b|\bsuperserver\b|\bSYS-\d{3,4}", re.I), "other"),
+)
+_HEBREW_LIGHTING_NODE_RE = re.compile(r"לייטינג\s*נוד")
+_FAN_WORD_RE = re.compile(r"מאוורר|\bfans?\b", re.I)
+
+
+def _is_a_category(title_raw: str) -> str | None:
+    """Definitive category from an is-a phrase in the raw title, else None."""
+    title_raw = str(title_raw or "")
+    for pattern, category in _IS_A_RULES:
+        if pattern.search(title_raw):
+            return category
+    # Corsair's Hebrew transliteration of its Lighting Node controller; with a
+    # fan word the node is the bundled extra of a fan kit.
+    if _HEBREW_LIGHTING_NODE_RE.search(title_raw) and not _FAN_WORD_RE.search(title_raw):
+        return "rgb_lighting"
     return None
 
 
@@ -1034,6 +1072,9 @@ def title_category(raw_title: str, title_clean: str | None = None) -> str | None
     alone: "קירור נוזלי למעבד ... Corsair iCUE H150i ... 360mm RGB 75CFM"
     then lost its liquid word and 19 AIOs shipped as case fans (Oct 2026).
     """
+    is_a = _is_a_category(raw_title)
+    if is_a:
+        return is_a
     if title_clean is None:
         title_clean = _clean(str(raw_title or "")).lower()
     hebrew_cat = _hebrew_category_hint(str(raw_title or ""))
@@ -1126,6 +1167,10 @@ def canonical_category(
     if _is_junk_listing(title_clean, guess_base, url):
         return "other"
 
+    is_a = _is_a_category(raw_title)
+    if is_a:
+        return "accessories" if is_a in ACCESSORY_CATEGORIES else is_a
+
     # Hebrew-first: TMS/Ivory titles carry the category in Hebrew
     # ("קירור נוזלי"=liquid, "מארז"=enclosure, "קירור למעבד"=CPU cooler).
     # _clean strips Hebrew entirely, so consult the raw title before the
@@ -1147,6 +1192,13 @@ def canonical_category(
     # case_accessory) merge here; the old value is preserved in
     # attributes.accessory_type.
     if category in ACCESSORY_CATEGORIES:
+        return "accessories"
+
+    # A case "Kit" with nothing case-like and no fans is a conversion kit
+    # for a case (Lian Li O11D EVO "Upright GPU Black Kit", "Front Mesh Kit").
+    if (category == "case" and re.search(r"\bkit\b", title_clean)
+            and not _CASE_LOOK_RE.search(title_clean)
+            and not _FAN_WORD_RE.search(raw_title)):
         return "accessories"
 
     # Plonter sometimes puts accessory items under COMPUTER CASES (and 1PC
@@ -1695,6 +1747,12 @@ _GUESS_ACCESSORY_SUBTYPE = {
 #: its category_guess suffix instead (see _split_category_flags). Keeping the
 #: tail splits one physical part across two products (audit R6).
 PC_BUNDLE_TITLE_RE = re.compile(r"מחשב\s+שלם")
+# A title that states a conditional price. Never sets the flag on its own
+# (220 flagged TMS tiles carry no phrase); an unflagged hit is a QA case.
+DEAL_PHRASE_RE = re.compile(
+    r"מחשב\s+שלם|ברכישת\s+מחשב|בקניית\s+מחשב|with\s+(?:a\s+)?pc\b|bundle\s+only",
+    re.IGNORECASE,
+)
 PC_BUNDLE_MPN_RE = re.compile(r"[\s-]+PC$", re.IGNORECASE)
 
 
@@ -1745,6 +1803,27 @@ def _accessory_subtype(title: str, title_cat: str | None) -> str:
     if re.search(r"\bfan\b", t):
         return "fan_accessory"
     return "other_accessory"
+
+
+def _accessory_type(title_raw: str, guess_base: str) -> str:
+    """accessory_type for a listing already routed to `accessories`."""
+    tc = _is_a_category(title_raw) or _category_from_title(_clean(title_raw).lower())
+    if tc not in ACCESSORY_CATEGORIES:
+        # Hebrew-only accessory titles ("תושבת מתאם ...") name nothing in
+        # English; the hint is a fallback so English subtypes keep priority.
+        hint = _hebrew_category_hint(title_raw)
+        if hint in ACCESSORY_CATEGORIES:
+            tc = hint
+    if tc not in ACCESSORY_CATEGORIES:
+        # Title gives no granular hint (e.g. "Kryonaut 1g" without the
+        # words "thermal paste") — fall back to the vendor guess itself,
+        # which may be the old granular id ("thermal paste").
+        tc = _GUESS_ACCESSORY_SUBTYPE.get(_compact_key(guess_base), tc)
+    subtype = _accessory_subtype(title_raw, tc)
+    # Whatever a case bucket peels off fits a case (O11D EVO conversion kits).
+    if subtype == "other_accessory" and canonical_category(guess_base) == "case":
+        return "case_accessory"
+    return subtype
 
 
 def enrich_listing(listing: dict) -> dict:
@@ -1808,16 +1887,9 @@ def enrich_listing(listing: dict) -> dict:
     enriched["attributes"] = extract_attributes(enriched)
 
     if enriched.get("category_normalized") == "accessories":
-        _tc = _category_from_title(_clean(listing.get("title_raw", "")).lower())
-        if _tc not in ACCESSORY_CATEGORIES:
-            # Title gives no granular hint (e.g. "Kryonaut 1g" without the
-            # words "thermal paste") — fall back to the vendor guess itself,
-            # which may be the old granular id ("thermal paste").
-            _tc = _GUESS_ACCESSORY_SUBTYPE.get(
-                _compact_key(_guess_base), _tc)
         enriched["attributes"].setdefault(
             "accessory_type",
-            _accessory_subtype(str(listing.get("title_raw") or ""), _tc),
+            _accessory_type(str(listing.get("title_raw") or ""), _guess_base),
         )
 
     # Attribute-level brand: the title parsers only set brand for some
@@ -1899,11 +1971,21 @@ def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
     """
     Deduplicate listings with the same listing_key.
 
-    If the same listing_key appears multiple times, keep the best offer:
-    lowest known price, in-stock preferred, non-stale preferred. Exact
-    rank ties (same product filed under two categories) fall through to
-    the title-agreement tiebreak so the survivor is deterministic.
+    Only rows of the key's newest crawl compete (rows within
+    `_SAME_CRAWL_HOURS` of its newest `scraped_at`); among them the old
+    ranking picks the row whose title/category survive: lowest known
+    price, in-stock preferred, then the title-agreement tiebreak (same
+    product filed under two categories). Price, stock and promo fields
+    always come from the newest row (audit 2026-11-10 E, owner Q2: a
+    second TMS crawl appended to 2026-11-09 and the lowest, superseded
+    price won on 25 offers).
     """
+    newest: dict[str, dict] = {}
+    for e in enriched_listings:
+        k = e["listing_key"]
+        if k not in newest or _scraped_at(e) >= _scraped_at(newest[k]):
+            newest[k] = e
+
     best: dict[str, dict] = {}
 
     def date_num(e: dict) -> int:
@@ -1925,12 +2007,43 @@ def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
 
     for e in enriched_listings:
         k = e["listing_key"]
+        if not _same_crawl(e, newest[k]):
+            continue
         if k not in best or rank(e) < rank(best[k]):
             best[k] = e
         elif rank(e) == rank(best[k]) and _wins_title_tiebreak(e, best[k]):
             best[k] = e
 
-    return list(best.values())
+    out = []
+    for k, e in best.items():
+        latest = newest[k]
+        if latest is not e:
+            e = dict(e)
+            for field in _NEWEST_ROW_FIELDS:
+                if field in latest:
+                    e[field] = latest[field]
+                else:
+                    e.pop(field, None)
+        out.append(e)
+    return out
+
+
+_SAME_CRAWL_HOURS = 6
+# The offer itself: price, stock and the condition the price is under.
+_NEWEST_ROW_FIELDS = ("price_ils", "in_stock", "price_promo_ils", "promo_kind",
+                      "promo_text_raw", "bundle_only", "new_pc_deal", "scraped_at")
+
+
+def _scraped_at(e: dict) -> datetime:
+    try:
+        stamp = datetime.fromisoformat(str(e.get("scraped_at") or "").replace("Z", "+00:00"))
+    except ValueError:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    return stamp if stamp.tzinfo else stamp.replace(tzinfo=timezone.utc)
+
+
+def _same_crawl(e: dict, latest: dict) -> bool:
+    return (_scraped_at(latest) - _scraped_at(e)).total_seconds() <= _SAME_CRAWL_HOURS * 3600
 
 
 # --------------------------------------------------------------------------
@@ -2233,6 +2346,77 @@ def flag_identity_collisions(products: list[dict],
     return cases
 
 
+def flag_title_axis_conflicts(products: list[dict],
+                              existing_cases: list[dict]) -> list[dict]:
+    """`identity_merge` QA cases for a product whose titles disagree on an axis.
+
+    Audit 2026-11-10 A2: two offers whose raw titles state different values
+    on one axis (`identity.title_axis_values`: colour, lighting, GPU chip)
+    are two parts, unless they share a maker PN (the RX 9070 whose TMS
+    title says "XT" under `90YV0L71-M0NA00`). Two offers of one vendor
+    differ when only one title states the value (`title_axis_differs`),
+    unless both print one code. A flag, never a split. A product that
+    already has an `identity_merge` case gets the reason on that case
+    (mutated in place); otherwise a new case is returned.
+    """
+    shared = identity.shared_part_numbers(
+        offer for product in products for offer in product.get("offers") or [])
+    merge_case = {str(case.get("product_id")): case for case in existing_cases
+                  if case.get("kind") == "identity_merge"}
+    cases: list[dict] = []
+    for product in products:
+        pid = str(product.get("product_id") or "")
+        category = str(product.get("category") or "")
+        if not pid or product.get("matched_by") == "manual" or category not in identity.TITLE_AXES:
+            continue
+        offers = list(product.get("offers") or [])
+        if len(offers) < 2:
+            continue
+        values = [identity.title_axis_values(category, o.get("title_raw")) for o in offers]
+
+        def _pn(offer: dict):
+            if identity.part_number_class(offer.get("mpn"), offer, shared.get(category, ())) \
+                    != "manufacturer":
+                return None
+            return identity.part_number_key(offer.get("mpn"))
+
+        clash: dict[str, set[str]] = {}
+        for i, a in enumerate(offers):
+            for j in range(i + 1, len(offers)):
+                b = offers[j]
+                if a.get("vendor_id") and a.get("vendor_id") == b.get("vendor_id"):
+                    code = _offer_code(a)
+                    if code and code == _offer_code(b):
+                        continue
+                    axes = identity.title_axis_differs(category, a, b)
+                else:
+                    pn = _pn(a)
+                    if pn and pn == _pn(b):
+                        continue
+                    axes = [axis for axis in values[i].keys() & values[j].keys()
+                            if identity.title_values_conflict(axis, values[i][axis], values[j][axis])]
+                unstated = identity.TITLE_AXIS_DEFAULTS
+                for axis in axes:
+                    clash.setdefault(axis, set()).update(
+                        (values[i].get(axis, unstated.get(axis)), values[j].get(axis, unstated.get(axis))))
+        if not clash:
+            continue
+        conflicts = {axis: sorted(found) for axis, found in sorted(clash.items())}
+        reason = "title-axis conflict: " + "; ".join(
+            f"{axis} {' vs '.join(found)}" for axis, found in conflicts.items())
+        case = merge_case.get(pid)
+        if case is not None:
+            case["reason"] = f"{case['reason']}; {reason}" if case.get("reason") else reason
+            case["axis_conflicts"] = conflicts
+            continue
+        codes = sorted({code for code in (identity.model_code(category, o) for o in offers) if code})
+        cases.append(_identity_qr_case(
+            category, offers, kind="identity_merge", pid=pid,
+            extra={"model_code": codes[0] if codes else pid.rsplit(":", 1)[-1],
+                   "reason": reason, "axis_conflicts": conflicts}))
+    return cases
+
+
 def offer_from_listing(enriched: dict) -> dict:
     offer = {
         "vendor_id": enriched.get("vendor_id"),
@@ -2265,6 +2449,9 @@ def offer_from_listing(enriched: dict) -> dict:
         offer["promo_text_raw"] = enriched.get("promo_text_raw")
     if enriched.get("new_pc_deal"):
         offer["new_pc_deal"] = True
+    if enriched.get("packaging_basis"):
+        # CPU: which evidence set the packaging (specs/witness.py); catalog only.
+        offer["packaging_basis"] = enriched["packaging_basis"]
     return offer
 
 
@@ -4533,8 +4720,12 @@ def build_description(group: list) -> str | None:
     whitespace-collapsed and capped. The short canonical name carries
     identity; this preserves everything the scrub drops. Returns None when
     there is nothing worth keeping."""
-    titles = [(e.get("vendor_id"), str(e.get("title_raw") or ""))
-              for e in group]
+    # A vendor's decorated twin (clearance prefix, whole-PC suffix) never
+    # writes the prose while a plain listing can (audit 2026-11-10 P).
+    plain = [e for e in group if offer_decoration(e) is None]
+    titles = [(e.get("vendor_id"),
+               CLEARANCE_TITLE_RE.sub("", str(e.get("title_raw") or "")))
+              for e in plain or group]
     titles = [(v, t) for v, t in titles if t.strip()]
     if not titles:
         return None
@@ -4715,10 +4906,25 @@ def best_name(enriched_listings: list[dict]) -> str:
     return "unknown"
 
 
+def is_conditional_offer(offer: dict) -> bool:
+    """The offer's only price needs a whole-PC purchase (vendor flag, owner Q1).
+
+    A `new_pc_deal` offer is not conditional: its `price_ils` is the regular
+    price and the deal amount sits apart in `price_promo_ils`.
+    """
+    return bool(offer.get("bundle_only"))
+
+
 def choose_best_offer(offers: list[dict]) -> dict | None:
-    priced = [o for o in offers if isinstance(o.get("price_ils"), (int, float))]
+    priced = [o for o in offers if isinstance(o.get("price_ils"), (int, float))
+              and not o.get("alias_of")]
     if not priced:
         return None
+    # A conditional price never outranks a plain one; it wins only when the
+    # product has nothing else (and then ships with its flag).
+    plain = [o for o in priced if not is_conditional_offer(o)]
+    if plain:
+        priced = plain
 
     known_in_stock = [o for o in priced if o.get("in_stock") is True]
     unknown_stock = [o for o in priced if o.get("in_stock") is None]
@@ -5087,6 +5293,8 @@ def _split_packaging_subgroups(
 
     for e in group:
         pack = (e.get("attributes") or {}).get("packaging")
+        if not pack and e.get("packaging_basis") == "default":
+            pack = "Box"
         if pack in ("Box", "Tray"):
             known.setdefault(pack, []).append(e)
         else:
@@ -5468,11 +5676,10 @@ def match_listings(
         if any(_is_blocked_pair(enriched["listing_key"], m["listing_key"])
                for m in members):
             continue
-        own_pack = (identity.variant_values("cpu", enriched).get("packaging")
-                    if category == "cpu" else None)
+        # A listing with no packaging evidence of its own takes the curated one.
+        own_pack = identity.stated_packaging(enriched) if category == "cpu" else None
         if own_pack and any(
-                identity.variant_values("cpu", m).get("packaging")
-                not in (None, own_pack) for m in members):
+                identity.stated_packaging(m) not in (None, own_pack) for m in members):
             _manual_pn_cases.append(_identity_qr_case(
                 category, members + [enriched],
                 kind="packaging_conflict", pid=pid,
@@ -5599,7 +5806,18 @@ def match_listings(
             continue
 
         shared = shared_pns.get(category, frozenset())
-        for sub in identity.variant_subgroups(category, group):
+        # One code under two makers is two parts (audit 2026-11-10 C).
+        brand_split = identity.brand_subgroups(category, group)
+        subgroups = [sub for brand_group in brand_split
+                     for sub in identity.variant_subgroups(category, brand_group)]
+        if len(brand_split) > 1:
+            # Keep the order the subgroups had before the brand split, so the
+            # one that held the bare pid keeps it (no pid swap between makers).
+            rank = {e["listing_key"]: index for index, e in enumerate(
+                e for sub in identity.variant_subgroups(category, group) for e in sub)}
+            subgroups.sort(key=lambda sub: min(rank.get(e["listing_key"], len(rank))
+                                               for e in sub))
+        for sub in subgroups:
             clusters = identity.part_number_subgroups(list(sub), shared)
             made: list[tuple[str, list[dict]]] = []
             for cluster in clusters:
@@ -5631,6 +5849,10 @@ def match_listings(
                         token = _identity_token(axis, value or "") or ""
                         if token:
                             break
+                    family = next((f for f in (identity.listing_brand_family(category, e)
+                                               for e in accepted) if f), None)
+                    if not token and len(brand_split) > 1 and family:
+                        token = identity.code_slug(family) or ""
                     base = f"{pid}-{token}" if token else pid
                     candidate, index = base, 2
                     while candidate in _identity_info:
@@ -5998,6 +6220,8 @@ def match_listings(
                 if any(identity.variant_conflict(_category, a, b)
                        for a in _members for b in _target_members):
                     continue
+                if identity.brands_conflict(_category, _members, _target_members):
+                    continue
                 _pns = {identity.part_number_key(e.get("mpn"))
                         for e in _members + _target_members
                         if identity.part_number_class(
@@ -6196,19 +6420,14 @@ def match_listings(
                 _code_members.setdefault(survivor, []).append(_lk)
             product_meta.pop(pid, None)
 
-    # 6. Vendor packaging-conflict resolution (plan §3.3 — the KSP case).
+    # 6. Vendor packaging conflicts (plan §3.3 — the KSP case), flag only.
     #
     # One vendor occasionally lists a single part twice and labels one copy
     # Box and the other Tray (KSP 340400/340404, both 690 NIS, identical
-    # spec tags). D1 keeps Box and Tray as two products — but only when the
-    # labels are real. A vendor's own two records cannot both be right when
-    # their price and every other spec tag agree, so the mislabelled one
-    # joins the better-supported product, and the case is public in the QA
-    # page. Corroboration is required: an identical price AND an identical
-    # vendor tag fingerprint (minus the packaging tag), or a shared
-    # manufacturer part number. Two genuine twins (a real boxed and a real
-    # tray SKU) carry different manufacturer part numbers and are never
-    # moved — they are only flagged.
+    # spec tags). Box and Tray are two products and a CPU offer sits where
+    # its own vendor's label puts it (audit 2026-11-10 D, owner Q3): equal
+    # price and tags, or one shared maker PN, only make the pair suspect, so
+    # it goes to the QA page and nothing moves.
     _packaging_cases: list[dict] = []
     if "packaging" in identity.variant_axes("cpu"):
         _vendor_code: dict[tuple[str, str, str], list[dict]] = {}
@@ -6223,10 +6442,6 @@ def match_listings(
                  str(enriched.get("category_normalized")), code),
                 [],
             ).append(enriched)
-
-        _pack_members: dict[str, list[str]] = {}
-        for _lk, _pid in assignments.items():
-            _pack_members.setdefault(_pid, []).append(_lk)
 
         def _packaging_tag_fingerprint(listing: dict) -> tuple | None:
             """The vendor's own spec tags, minus the ones that name packaging."""
@@ -6282,63 +6497,52 @@ def match_listings(
                 same_tags = bool(left_tags) and left_tags == right_tags
                 corroborated = shared_pn or (same_price and same_tags)
 
-                left_pid = assignments.get(left["listing_key"])
-                right_pid = assignments.get(right["listing_key"])
-
-                if corroborated and not contradicting_pn and left_pid and right_pid:
-                    # The mislabelled copy joins the product with more
-                    # independent offers; the pair itself is excluded from
-                    # both counts so the decision is not self-referential.
-                    left_others = len([lk for lk in _pack_members.get(left_pid, [])
-                                       if lk not in (left["listing_key"],
-                                                     right["listing_key"])])
-                    right_others = len([lk for lk in _pack_members.get(right_pid, [])
-                                        if lk not in (left["listing_key"],
-                                                      right["listing_key"])])
-                    if left_others == right_others:
-                        continue  # no evidence which label is the wrong one
-                    source, source_pid, target_pid = (
-                        (left, left_pid, right_pid)
-                        if left_others < right_others
-                        else (right, right_pid, left_pid))
-                    # Only the mislabelled *listing* moves (§3.3); any other
-                    # listing of its product (a genuine twin, or a vendor
-                    # whose label is not in question) stays where it is. The
-                    # source product is retired only if it becomes empty.
-                    _lk = source["listing_key"]
-                    _pack_members[source_pid] = [
-                        other for other in _pack_members.get(source_pid, [])
-                        if other != _lk
-                    ]
-                    assignments[_lk] = target_pid
-                    _pack_members.setdefault(target_pid, []).append(_lk)
-                    if not _pack_members.get(source_pid):
-                        product_meta.pop(source_pid, None)
-                        _pid_aliases[source_pid] = target_pid
-                    _packaging_cases.append(_identity_qr_case(
-                        category, [left, right],
-                        kind="packaging_conflict", pid=target_pid,
-                        extra={
-                            "vendor": vendor,
-                            "model_code": code,
-                            "resolved": True,
-                            "moved": source.get("vendor_sku"),
-                        },
-                    ))
+                if contradicting_pn:
+                    reason = "different manufacturer part numbers"
+                elif corroborated:
+                    reason = ("same part number" if shared_pn else "same price and spec tags") + (
+                        ": one label may be wrong; each stays where its own label puts it")
                 else:
-                    _packaging_cases.append(_identity_qr_case(
-                        category, [left, right],
-                        kind="packaging_conflict",
-                        pid=assignments.get(left["listing_key"]),
-                        extra={
-                            "vendor": vendor,
-                            "model_code": code,
-                            "resolved": False,
-                            "reason": ("different manufacturer part numbers"
-                                       if contradicting_pn
-                                       else "price/spec tags disagree"),
-                        },
-                    ))
+                    reason = "price/spec tags disagree"
+                _packaging_cases.append(_identity_qr_case(
+                    category, [left, right],
+                    kind="packaging_conflict",
+                    pid=assignments.get(left["listing_key"]),
+                    extra={
+                        "vendor": vendor,
+                        "model_code": code,
+                        "resolved": False,
+                        "reason": reason,
+                    },
+                ))
+
+        # A placement on weak evidence is public too: the retailer's code
+        # letter, no packaging at all (Box by default), or a title that beat
+        # its own vendor attribute. One case per product.
+        _weak_basis = {
+            "title_over_attribute": "the title beats its own vendor attribute",
+            "retailer_code": "packaging read from the retailer code letter",
+            "default": "no packaging stated: Box by default",
+        }
+        _weak_by_pid: dict[str, list[dict]] = {}
+        for enriched in enriched_listings:
+            if (enriched.get("category_normalized") == "cpu"
+                    and enriched.get("packaging_basis") in _weak_basis
+                    and assignments.get(enriched["listing_key"])):
+                _weak_by_pid.setdefault(assignments[enriched["listing_key"]], []).append(enriched)
+        for _pid, _weak in sorted(_weak_by_pid.items()):
+            _packaging_cases.append(_identity_qr_case(
+                "cpu", _weak,
+                kind="packaging_conflict", pid=_pid,
+                extra={
+                    "model_code": identity.model_code("cpu", _weak[0]) or _pid.rsplit(":", 1)[-1],
+                    "resolved": False,
+                    "reason": "; ".join(
+                        f"{e['listing_key']}: {_weak_basis[e['packaging_basis']]}"
+                        for e in _weak),
+                    "packaging_basis": {e["listing_key"]: e["packaging_basis"] for e in _weak},
+                },
+            ))
 
     # Build product objects (indexed once — was a full listings scan per
     # product, i.e. O(products × listings)).
@@ -6515,6 +6719,7 @@ def match_listings(
         # twins landing together). Same-SKU dedupe in
         # dedupe_enriched_listings stays unflagged — only genuinely distinct
         # listings trip this.
+        collapse_vendor_twins(offers, category)
         dup_vendors: list[str] = []
         by_vendor: dict[str, list[dict]] = {}
         for o in offers:
@@ -6533,6 +6738,15 @@ def match_listings(
         # decision; surfaced for human review via qa.json.
         if pid in _naming_flagged:
             product["naming_conflict"] = True
+
+        unflagged = sorted(
+            str(o.get("listing_key"))
+            for o in offers
+            if not is_conditional_offer(o)
+            and DEAL_PHRASE_RE.search(str(o.get("title_raw") or ""))
+        )
+        if unflagged:
+            product["unflagged_deals"] = unflagged
 
         product["best_offer"] = choose_best_offer(offers)
         products.append(product)
@@ -6554,6 +6768,156 @@ def match_listings(
         # variant_conflict, split_candidate, packaging_conflict).
         "identity_cases": list(_identity_cases) + list(_packaging_cases),
     }
+
+
+CLEARANCE_TITLE_RE = re.compile(r"^\s*מציאון\s+ועודפים\s*[-–:|]?\s*")
+_PC_SKU_SUFFIX_RE = re.compile(r"-PC$", re.I)
+
+
+def offer_decoration(offer: dict) -> str | None:
+    """How a vendor marks a second listing of a part it already sells.
+
+    ``"bundle"``: the price needs a whole PC (Yahav's ``-PC`` SKU twins).
+    ``"clearance"``: KSP/Ivory "מציאון ועודפים" outlet listings. None: plain.
+    """
+    if is_conditional_offer(offer) or _PC_SKU_SUFFIX_RE.search(str(offer.get("vendor_sku") or "")):
+        return "bundle"
+    if CLEARANCE_TITLE_RE.search(str(offer.get("title_raw") or "")):
+        return "clearance"
+    return None
+
+
+def _offer_code(offer: dict) -> str | None:
+    """`identity._listing_code` with the vendor's ``-PC`` decoration removed."""
+    mpn = _PC_SKU_SUFFIX_RE.sub("", str(offer.get("mpn") or "").strip())
+    if mpn:
+        return identity.part_number_key(mpn) or None
+    sku = _PC_SKU_SUFFIX_RE.sub("", str(offer.get("vendor_sku") or "").strip())
+    return identity.sku_part_number_key(sku) if sku else None
+
+
+def _twin_rank(offer: dict) -> tuple:
+    price = offer.get("price_ils")
+    priced = isinstance(price, (int, float))
+    return (
+        not priced,
+        offer_decoration(offer) is not None,
+        bool(offer.get("stale")),
+        offer.get("in_stock") is not True,
+        price if priced else 0,
+        str(offer.get("listing_key") or ""),
+    )
+
+
+def collapse_vendor_twins(offers: list[dict], category) -> None:
+    """One offer per vendor per part (audit 2026-11-10 P, owner 2026-11-10).
+
+    A vendor's listings inside one product that differ in no identifier (no
+    two maker PNs / EANs of one kind, ``-PC`` stripped) and no variant axis
+    are one part listed twice: a ``-PC`` whole-PC twin, a clearance copy, or
+    a re-listing. The best plain listing stays the offer; every other one
+    gets ``alias_of`` = its listing key. Aliases stay in the catalog (and in
+    the `duplicate_vendor` QA case) but never set the best offer; the site
+    shows their price as a chip on the offer (`site_data._trim_product`).
+    """
+    by_vendor: dict[str, list[dict]] = {}
+    for offer in offers:
+        offer.pop("alias_of", None)
+        offer.pop("alias_kind", None)
+        vendor = str(offer.get("vendor_id") or "")
+        if vendor:
+            by_vendor.setdefault(vendor, []).append(offer)
+    for olist in by_vendor.values():
+        if len(olist) < 2:
+            continue
+        codes: dict[str, set[str]] = {}
+        for offer in olist:
+            code = _offer_code(offer)
+            kind = code and identity._code_kind(code, category)
+            if kind:
+                codes.setdefault(kind, set()).add(code)
+        if any(len(found) > 1 for found in codes.values()):
+            continue
+        if any(identity.variant_conflict(category, a, b)
+               for i, a in enumerate(olist) for b in olist[i + 1:]):
+            continue
+        # One vendor's titles differing on a colour / lighting / GPU chip
+        # word are two items (A2) unless both print one code.
+        if any(identity.title_axis_differs(category, a, b)
+               and not (_offer_code(a) and _offer_code(a) == _offer_code(b))
+               for i, a in enumerate(olist) for b in olist[i + 1:]):
+            continue
+        primary = min(olist, key=_twin_rank)
+        for offer in olist:
+            if offer is not primary:
+                offer["alias_of"] = primary.get("listing_key")
+                offer["alias_kind"] = offer_decoration(offer) or "relisting"
+
+
+def find_cross_product_twin_cases(products: list[dict]) -> list[dict]:
+    """`duplicate_vendor` QA cases for vendor twins split across products.
+
+    Same vendor, same code once its ``-PC`` decoration is stripped (codes of
+    5+ characters), or same title once the clearance prefix is stripped, but
+    two products. Flag only: sellers reuse one title for two parts (a 14600K
+    Tray at 1188 and 1938 under one title), so a title never merges.
+    """
+    keyed: dict[tuple, list[tuple[dict, dict]]] = {}
+    for product in products:
+        for offer in product.get("offers") or []:
+            vendor = str(offer.get("vendor_id") or "")
+            if not vendor:
+                continue
+            decoration = offer_decoration(offer)
+            code = _offer_code(offer)
+            if code and len(code) >= 5 and decoration:
+                keyed.setdefault((vendor, "code", code), []).append((product, offer))
+            if decoration == "clearance":
+                title = re.sub(r"\s+", " ", CLEARANCE_TITLE_RE.sub("", offer.get("title_raw") or "")).strip().lower()
+                keyed.setdefault((vendor, "title", title), []).append((product, offer))
+    plain_twins: dict[tuple, list[tuple[dict, dict]]] = {}
+    title_keys = {key for key in keyed if key[1] == "title"}
+    code_keys = {key for key in keyed if key[1] == "code"}
+    for product in products:
+        for offer in product.get("offers") or []:
+            if offer_decoration(offer):
+                continue
+            vendor = str(offer.get("vendor_id") or "")
+            title = re.sub(r"\s+", " ", offer.get("title_raw") or "").strip().lower()
+            code = _offer_code(offer)
+            for key in ((vendor, "title", title), (vendor, "code", code)):
+                if key in title_keys or key in code_keys:
+                    plain_twins.setdefault(key, []).append((product, offer))
+    cases: list[dict] = []
+    seen: set[frozenset] = set()
+    for key in sorted(keyed, key=lambda k: (k[0], k[1], str(k[2]))):
+        members = keyed[key] + plain_twins.get(key, [])
+        pids = {p.get("product_id") for p, _ in members}
+        if len(pids) < 2:
+            continue
+        listing_keys = frozenset(o.get("listing_key") for _, o in members)
+        if listing_keys in seen:
+            continue
+        seen.add(listing_keys)
+        cases.append({
+            "kind": "duplicate_vendor",
+            "product_id": sorted(pids)[0],
+            "product_ids": sorted(pids),
+            "category": members[0][0].get("category"),
+            "vendor": key[0],
+            "reason": f"same vendor, same {key[1]} without decoration, {len(pids)} products",
+            "offers": [
+                {
+                    "listing_key": o.get("listing_key"),
+                    "product_id": p.get("product_id"),
+                    "vendor_sku": o.get("vendor_sku"),
+                    "title": o.get("title_raw"),
+                    "price": o.get("price_ils"),
+                }
+                for p, o in sorted(members, key=lambda m: str(m[1].get("listing_key")))
+            ],
+        })
+    return cases
 
 
 def find_duplicate_vendor_cases(products: list[dict]) -> list[dict]:
@@ -6579,12 +6943,15 @@ def find_duplicate_vendor_cases(products: list[dict]) -> list[dict]:
                     "product_id": product.get("product_id"),
                     "category": product.get("category"),
                     "vendor": vendor,
+                    # collapse_vendor_twins folded them into one offer.
+                    "collapsed": sum(1 for o in olist if not o.get("alias_of")) == 1,
                     "offers": [
                         {
                             "listing_key": o.get("listing_key"),
                             "vendor_sku": o.get("vendor_sku"),
                             "title": o.get("title_raw"),
                             "price": o.get("price_ils"),
+                            **({"alias_of": o["alias_of"]} if o.get("alias_of") else {}),
                         }
                         for o in olist
                     ],

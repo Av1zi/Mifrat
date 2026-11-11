@@ -254,9 +254,9 @@ def parse_cpu(text_input: str) -> list[tuple]:
         pairs.append(("integrated_graphics", "No", 0.7))
 
 
-    if text.CPU_COOLER_EXCLUDED_RE.search(text_value):
+    if text.CPU_COOLER_EXCLUDED_RE.search(packaging_text):
         pairs.append(("includes_cooler", False, 0.8))
-    elif text.CPU_COOLER_INCLUDED_RE.search(text_value):
+    elif text.CPU_COOLER_INCLUDED_RE.search(packaging_text):
         pairs.append(("includes_cooler", True, 0.8))
     return pairs
 

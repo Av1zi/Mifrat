@@ -1,7 +1,7 @@
 import { slotForCategory } from "../../build";
 import { attributeLabel, showingText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, sortOffers } from "../../offers";
+import { bestOffer, isBundleOffer, sortOffers } from "../../offers";
 import { addToBuild, categoriesHash, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
 import { clearAllFilters } from "./filters";
 import type { Lang, Product, SortKey } from "../../types";
@@ -10,6 +10,7 @@ import { button } from "../../ui/button";
 import { compareCheck, saveButton, syncPickControls } from "../../ui/pick";
 import { signalBadges } from "../../ui/signal";
 import { chip } from "../../ui/chip";
+import { dealChip } from "../../ui/deal";
 import { emptyBox } from "../../ui/emptyBox";
 import { html, mount, type Html } from "../../ui/html";
 import { priceCell, positivePrice } from "../../ui/price";
@@ -33,7 +34,7 @@ function storesMarkup(ctx: CategoryCtx, p: Product, popover = true): Html {
         const name = vendorLabel(o.vendor);
         return html`<li class="${o.in_stock ? "" : "is-out"}">
           ${url ? html`<a href="${url}" target="_blank" rel="noopener noreferrer">${name}${icon("external", 12)}</a>` : html`<span>${name}</span>`}
-          ${priceCell(o.price, currency, lang)}
+          <span>${priceCell(o.price, currency, lang)}${isBundleOffer(o) ? html` <span class="row__from">${t(lang, "dealBundle")}</span>` : ""}</span>
         </li>`;
       })}
     </ul>
@@ -86,6 +87,7 @@ function priceBlock(ctx: CategoryCtx, p: Product, size: "md" | "lg"): Html {
   return html`<span class="row__price">
     ${priceCell(p.min_price, currency, lang, size)}
     ${offer && positivePrice(p.min_price) !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+    ${positivePrice(p.min_price) !== null && isBundleOffer(offer) ? dealChip(offer, currency, lang, { alignEnd: true }) : ""}
     ${p.in_stock ? "" : html`<span class="row__out">${t(lang, "outOfStock")}</span>`}
     ${signalBadges(ctx.signals.get(p.id), lang)}
   </span>`;

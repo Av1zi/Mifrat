@@ -872,6 +872,22 @@ PAIR_CASES = [
         "expect_gaps": (),
     },
     {
+        # Audit 2026-11-10 O (05 F01): the "5" of 2.5" is not a 3.5" count.
+        "name": "Drive-bay counts never come from a decimal size (case)",
+        "category": "case",
+        "rows": {"מקום לכוננים": '• 2 כונני SSD (2.5") או HDD (3.5") בכלוב הכוננים '
+                                 '• 2 כונני SSD (2.5") מאחורי לוח האם'},
+        "expect_specs": {"drive_bays_35": 1, "drive_bays_25": 4},
+        "expect_gaps": (),
+    },
+    {
+        "name": "Drive-bay counts beside decimal sizes (case)",
+        "category": "case",
+        "rows": {"מקום לכוננים": '1 x 3.5" | 2 x 2.5"'},
+        "expect_specs": {"drive_bays_35": 1, "drive_bays_25": 2},
+        "expect_gaps": (),
+    },
+    {
         "name": "WINDFORCE marketing line is air cooling (gpu)",
         "category": "gpu",
         "rows": {"עיצוב תרמי": "WINDFORCE cooling system"},

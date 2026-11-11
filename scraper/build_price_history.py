@@ -66,12 +66,21 @@ def _load_snapshot_prices(
 ]:
     """
     Per date: (norm_vendor, identity) -> price, where identity is both the
-    vendor_sku key and the url key for every listing.
+    vendor_sku key and the url key for every listing. A key seen twice in a
+    day takes its newest `scraped_at` row (audit 2026-11-10 E: a second TMS
+    crawl appended to 2026-11-09 and the first row's superseded price won).
     """
     per_date: dict[str, dict[tuple[str, str], float | int | None]] = {}
     scrape_times: dict[str, str] = {}
     for date in dates:
         index: dict[tuple[str, str], float | int | None] = {}
+        seen_at: dict[tuple[str, str], str] = {}
+
+        def put(key: tuple[str, str], price, at: str) -> None:
+            if key not in index or at >= seen_at[key]:
+                index[key] = price
+                seen_at[key] = at
+
         for vendor_file in SNAPSHOT_VENDORS:
             path = RAW_DIR / date / f"{vendor_file}.jsonl"
             if not path.exists():
@@ -91,18 +100,21 @@ def _load_snapshot_prices(
                         try:
                             price = float(price.replace(",", "").strip())
                         except ValueError:
-                            continue
+                            price = None
                     if not isinstance(price, (int, float)):
-                        continue
+                        # Still recorded: a newer unpriced row supersedes
+                        # an older price (no point that day).
+                        price = None
                     scraped_at = item.get("scraped_at")
                     if date not in scrape_times and isinstance(scraped_at, str) and scraped_at:
                         scrape_times[date] = scraped_at
+                    at = scraped_at if isinstance(scraped_at, str) else ""
                     sku = str(item.get("vendor_sku") or "").strip()
                     url = str(item.get("url") or "").strip()
                     if sku:
-                        index.setdefault((vendor, f"sku:{sku}"), price)
+                        put((vendor, f"sku:{sku}"), price, at)
                     if url:
-                        index.setdefault((vendor, f"url:{url}"), price)
+                        put((vendor, f"url:{url}"), price, at)
         per_date[date] = index
     return per_date, scrape_times
 
@@ -219,6 +231,10 @@ def build_price_history(
             category = "cpu_cooler"
         series: dict[str, list] = {}
         for offer in product.get("offers", []):
+            # A vendor's twin listing (matching.collapse_vendor_twins) is
+            # not its offer, so it never draws the vendor's line.
+            if offer.get("alias_of"):
+                continue
             vendor = _norm_vendor(offer.get("vendor_id"))
             if not vendor or vendor in series:
                 continue

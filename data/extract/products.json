@@ -191,28 +191,6 @@
     "fan_front": "מאוורר קידמי: ללא - לא ניתן להוסיף"
    }
   },
-  "case:tms:tms-a3w": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "41f1463cc392a195",
-   "specs": {
-    "max_gpu_length_mm": 415
-   },
-   "quotes": {
-    "max_gpu_length_mm": "תאימות לכרטיס מסך 415 מ\"מ"
-   }
-  },
-  "case:tms:tms-a3x": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "f9d3b34fcb6734eb",
-   "specs": {
-    "max_gpu_length_mm": 415
-   },
-   "quotes": {
-    "max_gpu_length_mm": "תאימות לכרטיס מסך 415 מ\"מ"
-   }
-  },
   "case:tms:tms-b4w": {
    "category": "case",
    "model": "intern-latest",
@@ -233,17 +211,6 @@
    },
    "quotes": {
     "lighting": "סוג תאורה: לד כחול"
-   }
-  },
-  "gpu:1pc:1pc-221469": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "bac88f3482d7d3ae",
-   "specs": {
-    "boost_clock_mhz": 2692
-   },
-   "quotes": {
-    "boost_clock_mhz": "מהירות ליבה: 2692MHz"
    }
   },
   "gpu:1pc:1pc-221471": {
@@ -13204,25 +13171,6 @@
     "audio": "HD 7.1: v"
    }
   },
-  "motherboard:1pc:1pc-203138": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "e26cf95216e03ead",
-   "specs": {
-    "memory_slots": 4,
-    "pcie_x16_slots": 2,
-    "pcie_x1_slots": 1,
-    "audio": "8-Channel (7.1) HD Audio with Audio Boost",
-    "onboard_video": "1x DisplayPort"
-   },
-   "quotes": {
-    "memory_slots": "חריצים פנויים: 4",
-    "pcie_x16_slots": "PCI-E X16: 2",
-    "pcie_x1_slots": "PCI-E X1: 1",
-    "audio": "HD 7.1: 8-Channel (7.1) HD Audio with Audio Boost",
-    "onboard_video": "DISPLAY PORT: 1x DisplayPort"
-   }
-  },
   "motherboard:1pc:1pc-213828": {
    "category": "motherboard",
    "model": "intern-latest",
@@ -13716,40 +13664,6 @@
     "lighting": "תמיכה בסנכרון RGB של לוח אם"
    }
   },
-  "mpn:aio:4711514503111": {
-   "category": "aio",
-   "model": "intern-latest",
-   "text_hash": "093510229f14ec9e",
-   "specs": {
-    "radiator_length_mm": 120,
-    "noise_db": 10.0,
-    "connectors": [
-     "4 Pin PWM / 9-Pin USB"
-    ]
-   },
-   "quotes": {
-    "radiator_length_mm": "גודל רדיאטור: 120",
-    "noise_db": "רמת רעש: 10–32 dBA",
-    "connectors": "חיבור: 4 Pin PWM / 9-Pin USB"
-   }
-  },
-  "mpn:aio:4712960139343": {
-   "category": "aio",
-   "model": "intern-latest",
-   "text_hash": "cf842496c8d221b0",
-   "specs": {
-    "radiator_length_mm": 360,
-    "radiator_thickness_mm": 27,
-    "connectors": [
-     "4 pin"
-    ]
-   },
-   "quotes": {
-    "radiator_length_mm": "גודל רדיאטור: 360mm",
-    "radiator_thickness_mm": "מידות: 396x120x27 mm",
-    "connectors": "חיבור משאבה: 4 pin"
-   }
-  },
   "mpn:aio:4712960139374": {
    "category": "aio",
    "model": "intern-latest",
@@ -14031,17 +13945,6 @@
     "fan_rpm_min": "1500RPM"
    }
   },
-  "mpn:aio:bw009": {
-   "category": "aio",
-   "model": "intern-latest",
-   "text_hash": "623f9442e89713bb",
-   "specs": {
-    "radiator_size_mm": 120
-   },
-   "quotes": {
-    "radiator_size_mm": "120mm"
-   }
-  },
   "mpn:aio:bw015": {
    "category": "aio",
    "model": "intern-latest",
@@ -14095,21 +13998,6 @@
    },
    "quotes": {
     "radiator_length_mm": "W=140 H=120 L=457mm"
-   }
-  },
-  "mpn:aio:cw9060072ww": {
-   "category": "aio",
-   "model": "intern-latest",
-   "text_hash": "bd92bbc30e88fa59",
-   "specs": {
-    "radiator_length_mm": 277,
-    "radiator_thickness_mm": 27,
-    "fan_rpm_min": 2400
-   },
-   "quotes": {
-    "radiator_length_mm": "אורך: 277 מ\"מ",
-    "radiator_thickness_mm": "עומק: 27 מ\"מ",
-    "fan_rpm_min": "מהירות מאוורר: 2400RPM"
    }
   },
   "mpn:aio:cw9060076ww": {
@@ -14399,14 +14287,10 @@
    "text_hash": "90a5f79892000209",
    "specs": {
     "radiator_length_mm": 360,
-    "connectors": [
-     "USB"
-    ],
     "color": "WT"
    },
    "quotes": {
     "radiator_length_mm": "Coolleo ICE Apex Vision PRO 360 WT",
-    "connectors": "ממשק: USB",
     "color": "Coolleo ICE Apex Vision PRO 360 WT"
    }
   },
@@ -14530,17 +14414,6 @@
    "quotes": {
     "radiator_length_mm": "360MM",
     "fan_rpm_min": "1750RPM"
-   }
-  },
-  "mpn:aio:mlxd36ma18pkt1": {
-   "category": "aio",
-   "model": "intern-latest",
-   "text_hash": "24987d92ebc82103",
-   "specs": {
-    "lighting": "ARGB"
-   },
-   "quotes": {
-    "lighting": "סוג תאורה: ARGB | ללא תאורה"
    }
   },
   "mpn:aio:mlyl24ma18pkr1": {
@@ -14918,62 +14791,6 @@
     "fan_side": "Side: 3 x 120 mm"
    }
   },
-  "mpn:case:4711377293181": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "74d28fac2387ec5b",
-   "specs": {
-    "drive_bays_35": 2,
-    "drive_bays_25": 2,
-    "front_usb": [
-     "1 x USB 20Gbs (Type-C)",
-     "2 x USB 5Gbs (Type-A)"
-    ],
-    "fan_top": "3 x 120 mm / 2 x 140 mm",
-    "fan_rear": "1 x 120 mm",
-    "fan_side": "3 x 120 mm / 2 x 140 mm",
-    "lighting": "ARGB"
-   },
-   "quotes": {
-    "drive_bays_35": "2 x 3.5“",
-    "drive_bays_25": "2 x 2.5“",
-    "front_usb": "1 x USB 20Gbs (Type-C), 2 x USB 5Gbs (Type-A)",
-    "fan_top": "Top: 3 x 120 mm / 2 x 140 mm",
-    "fan_rear": "Rear: 1 x 120 mm",
-    "fan_side": "Side: 3 x 120 mm / 2 x 140 mm",
-    "lighting": "Side: 3 x ARGB Fan (Reverse-blade) Rear: 1 x ARGB Fan"
-   }
-  },
-  "mpn:case:4711377365758": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "2b413cda5bcc882e",
-   "specs": {
-    "drive_bays_35": 2,
-    "drive_bays_25": 3,
-    "front_usb": [
-     "USB 3.2",
-     "USB-C"
-    ],
-    "dimensions_mm": "460x232x490",
-    "fan_top": "3 x 120 mm / 2 x 140 mm",
-    "fan_rear": "1 x 120 mm",
-    "fan_side": "3 x 120 mm",
-    "fan_bottom": "3 x 120 mm",
-    "lighting": "ARGB"
-   },
-   "quotes": {
-    "drive_bays_35": "Up to 2 x 3.5” HDD",
-    "drive_bays_25": "Up to 3 x 2.5” SSD",
-    "front_usb": "ממשק: USB 3.2, USB-C",
-    "dimensions_mm": "מידות mm: 460x232x490",
-    "fan_top": "Top: 3 x 120 mm / 2 x 140 mm",
-    "fan_rear": "Rear: 1 x 120 mm",
-    "fan_side": "Side: 3 x 120 mm",
-    "fan_bottom": "Bottom: 3 x 120 mm",
-    "lighting": "תאורת ARGB מובנית"
-   }
-  },
   "mpn:case:4711377373302": {
    "category": "case",
    "model": "intern-latest",
@@ -15181,32 +14998,6 @@
     "side_panel": "דלת צד: SPCC & ABS & Tempered glass"
    }
   },
-  "mpn:case:4711514503166": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "9a1d540b59e867e6",
-   "specs": {
-    "drive_bays_35": 1,
-    "drive_bays_25": 3,
-    "front_usb": [
-     "Type C x1",
-     "USB 2.0 x1"
-    ],
-    "fan_top": "3 x 120mm, 2 x 140mm",
-    "fan_rear": "1 x 120mm, 1 x 140mm",
-    "fan_side": "2 x 120mm, 2 x 140mm",
-    "fan_bottom": "3 x 120mm, 2 x 140mm"
-   },
-   "quotes": {
-    "drive_bays_35": "1 * 3.5\" or 1 x 2.5\"(HDD Cage)",
-    "drive_bays_25": "3 x 2.5",
-    "front_usb": "ממשק: Type C x1, USB 2.0 x1, HD Audio x1, LED Switch Button x1",
-    "fan_top": "Top: 3 x 120mm, 2 x 140mm",
-    "fan_rear": "Rear: 1 x 120mm, 1 x 140mm",
-    "fan_side": "Side: 2 x 120mm, 2 x 140mm",
-    "fan_bottom": "Bottom: 3 x 120mm, 2 x 140mm"
-   }
-  },
   "mpn:case:4711514503807": {
    "category": "case",
    "model": "intern-latest",
@@ -15409,19 +15200,6 @@
     "fan_rear": "מאווררים מותקנים mm: Side : 2 x 120mm ARGB PWM Fans / Rear : 1 x 120mm ARGB PWM Fan"
    }
   },
-  "mpn:case:90dc00p0b19000": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "be839f5979ad5d69",
-   "specs": {
-    "fan_front": "ללא - לא ניתן להוסיף",
-    "fan_bottom": "ללא - לא ניתן להוסיף"
-   },
-   "quotes": {
-    "fan_front": "מאוורר קידמי: ללא - לא ניתן להוסיף",
-    "fan_bottom": "מאוורר תחתון: ללא - לא ניתן להוסיף"
-   }
-  },
   "mpn:case:a3w": {
    "category": "case",
    "model": "intern-latest",
@@ -15527,19 +15305,6 @@
     "fan_front": "עיצוב תרמי: Includes Pre-Installed Fans 2x120mm"
    }
   },
-  "mpn:case:bo400": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "6744b6b4aeb7abfe",
-   "specs": {
-    "fan_front": "ללא - לא ניתן להוסיף",
-    "fan_rear": "ללא - ניתן להוסיף מאוורר 12 ס\"מ"
-   },
-   "quotes": {
-    "fan_front": "מאוורר קידמי: ללא - לא ניתן להוסיף",
-    "fan_rear": "מאוורר אחורי: ללא - ניתן להוסיף מאוורר 12 ס\"מ"
-   }
-  },
   "mpn:case:c5argbwhite": {
    "category": "case",
    "model": "intern-latest",
@@ -15571,25 +15336,6 @@
    },
    "quotes": {
     "fan_front": "4X120MM Argb Fans Included"
-   }
-  },
-  "mpn:case:c6black": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "064970b1745449cc",
-   "specs": {
-    "fan_front": "ללא - ניתן להוסיף מאוורר 12 ס\"מ",
-    "fan_top": "ללא - ניתן להוסיף מאוורר 12/14 ס\"מ",
-    "fan_rear": "ללא - לא ניתן להוסיף",
-    "fan_side": "ללא - לא ניתן להוסיף",
-    "fan_bottom": "ללא - ניתן להוסיף מאוורר 12/14 ס\"מ"
-   },
-   "quotes": {
-    "fan_front": "ללא - ניתן להוסיף מאוורר 12 ס\"מ",
-    "fan_top": "ללא - ניתן להוסיף מאוורר 12/14 ס\"מ",
-    "fan_rear": "ללא - לא ניתן להוסיף",
-    "fan_side": "ללא - לא ניתן להוסיף",
-    "fan_bottom": "ללא - ניתן להוסיף מאוורר 12/14 ס\"מ"
    }
   },
   "mpn:case:c6white": {
@@ -15635,19 +15381,6 @@
     "drive_bays_25": "Hard Drive 2.5: 4"
    }
   },
-  "mpn:case:ca1z300m6wn00": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "b93a673cebf98d21",
-   "specs": {
-    "fan_side": "ללא",
-    "fan_bottom": "ללא"
-   },
-   "quotes": {
-    "fan_side": "מאוורר צד: ללא - לא ניתן להוסיף",
-    "fan_bottom": "מאוורר תחתון: ללא - לא ניתן להוסיף"
-   }
-  },
   "mpn:case:ca1z300mewn00": {
    "category": "case",
    "model": "intern-latest",
@@ -15658,19 +15391,6 @@
    },
    "quotes": {
     "fan_side": "מאוורר צד: ללא - לא ניתן להוסיף",
-    "fan_bottom": "מאוורר תחתון: ללא - לא ניתן להוסיף"
-   }
-  },
-  "mpn:case:cc9011218ww": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "75ececca345fd929",
-   "specs": {
-    "fan_rear": "ללא - ניתן להוסיף מאוורר 12/14 ס\"מ",
-    "fan_bottom": "ללא - לא ניתן להוסיף"
-   },
-   "quotes": {
-    "fan_rear": "מאוורר אחורי: ללא - ניתן להוסיף מאוורר 12/14 ס\"מ",
     "fan_bottom": "מאוורר תחתון: ללא - לא ניתן להוסיף"
    }
   },
@@ -15698,19 +15418,6 @@
    "quotes": {
     "fan_rear": "מאוורר אחורי: ללא - ניתן להוסיף מאוורר 12/14 ס\"מ",
     "fan_side": "מאוורר צד: ללא - לא ניתן להוסיף"
-   }
-  },
-  "mpn:case:cc9011269ww": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "7f9040c2aa214a95",
-   "specs": {
-    "mb_form_factors": [
-     "ATX"
-    ]
-   },
-   "quotes": {
-    "mb_form_factors": "ATX"
    }
   },
   "mpn:case:cmt223s": {
@@ -15950,19 +15657,6 @@
    "quotes": {
     "fan_rear": "מאוורר אחורי: ללא - ניתן להוסיף מאוורר 12 ס\"מ או מאוורר 14 ס\"מ",
     "fan_side": "מאוורר צד: ללא - לא ניתן להוסיף"
-   }
-  },
-  "mpn:case:d33woodblack": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "014554116cf96a6f",
-   "specs": {
-    "fan_rear": "ללא - ניתן להוסיף מאוורר 12 ס\"מ",
-    "fan_side": "ללא - לא ניתן להוסיף"
-   },
-   "quotes": {
-    "fan_rear": "ללא - ניתן להוסיף מאוורר 12 ס\"מ",
-    "fan_side": "ללא - לא ניתן להוסיף"
    }
   },
   "mpn:case:d33woodwhite": {
@@ -16262,19 +15956,6 @@
    },
    "quotes": {
     "lighting": "Included ARGB PWM Front Fans 2x140mm"
-   }
-  },
-  "mpn:case:p1argbblack": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "af8929b7e7419c3d",
-   "specs": {
-    "fan_front": "ללא - לא ניתן להוסיף",
-    "fan_bottom": "ללא - לא ניתן להוסיף"
-   },
-   "quotes": {
-    "fan_front": "מאוורר קידמי: ללא - לא ניתן להוסיף",
-    "fan_bottom": "מאוורר תחתון: ללא - לא ניתן להוסיף"
    }
   },
   "mpn:case:p1argbwhite": {
@@ -16623,19 +16304,6 @@
     "fan_front": "3x120mm ARGB"
    }
   },
-  "mpn:case:v100black": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "9ea31a607f69b5e4",
-   "specs": {
-    "fan_front": "ללא - לא ניתן להוסיף",
-    "fan_rear": "ללא - ניתן להוסיף מאוורר 12/14 ס\"מ"
-   },
-   "quotes": {
-    "fan_front": "מאוורר קידמי: ללא - לא ניתן להוסיף",
-    "fan_rear": "מאוורר אחורי: ללא - ניתן להוסיף מאוורר 12/14 ס\"מ"
-   }
-  },
   "mpn:case:v100rmix": {
    "category": "case",
    "model": "intern-latest",
@@ -16888,17 +16556,6 @@
    },
    "quotes": {
     "rpm_min": "מהירות מאוורר: 2100 RPM"
-   }
-  },
-  "mpn:case_fan:12rsl1w1w": {
-   "category": "case_fan",
-   "model": "intern-latest",
-   "text_hash": "0947384569d55ed7",
-   "specs": {
-    "rpm_min": 2000
-   },
-   "quotes": {
-    "rpm_min": "מהירות מאוורר: 2000 RPM"
    }
   },
   "mpn:case_fan:12rslin1f1b": {
@@ -17631,17 +17288,6 @@
     "rpm_min": "מהירות מאוורר: 1100 RPM"
    }
   },
-  "mpn:case_fan:bl098": {
-   "category": "case_fan",
-   "model": "intern-latest",
-   "text_hash": "9150786e0c7870af",
-   "specs": {
-    "rpm_min": 3000
-   },
-   "quotes": {
-    "rpm_min": "מהירות מאוורר: 3000 RPM"
-   }
-  },
   "mpn:case_fan:bl099": {
    "category": "case_fan",
    "model": "intern-latest",
@@ -17783,17 +17429,6 @@
    },
    "quotes": {
     "rpm_min": "מהירות מאוורר: 1800 RPM"
-   }
-  },
-  "mpn:case_fan:cl9011109ww": {
-   "category": "case_fan",
-   "model": "intern-latest",
-   "text_hash": "4802b97a9413d6e0",
-   "specs": {
-    "color": "White"
-   },
-   "quotes": {
-    "color": "צבע לבן"
    }
   },
   "mpn:case_fan:clc25": {
@@ -18811,17 +18446,6 @@
     "rpm_min": "1500RPM"
    }
   },
-  "mpn:cooler_air:0761345752879": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "c8470ef7d0a3e1b7",
-   "specs": {
-    "fan_rpm_min": 1000
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1000 RPM"
-   }
-  },
   "mpn:cooler_air:076134575694": {
    "category": "cooler_air",
    "model": "intern-latest",
@@ -18868,26 +18492,6 @@
     "fan_rpm_max": "מהירות משאבה: 800-2000",
     "airflow_cfm": "זרימת אוויר: 70.2 CFM",
     "height_mm": "מידות: 92"
-   }
-  },
-  "mpn:cooler_air:4712960139466": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "077db9db6f4d084b",
-   "specs": {
-    "fan_rpm_min": 800,
-    "fan_rpm_max": 2000,
-    "airflow_cfm": 80.8,
-    "sockets": [
-     "LGA1851",
-     "AM5"
-    ]
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות משאבה: 800-2000",
-    "fan_rpm_max": "מהירות משאבה: 800-2000",
-    "airflow_cfm": "זרימת אוויר: 80.8 CFM",
-    "sockets": "תמיכה במעבדים תלוי הוראת יצרן: \"up to 1851/ AM5 \""
    }
   },
   "mpn:cooler_air:a301700": {
@@ -19043,28 +18647,6 @@
     "tdp_w": "250W TDP"
    }
   },
-  "mpn:cooler_air:c120argb3pk": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "1167d05e5fc2b387",
-   "specs": {
-    "fan_rpm_min": 3200
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 3200 RPM"
-   }
-  },
-  "mpn:cooler_air:c120argb3pkw": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "16d8cc4e96f61663",
-   "specs": {
-    "fan_rpm_min": 1500
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1500 RPM"
-   }
-  },
   "mpn:cooler_air:c40": {
    "category": "cooler_air",
    "model": "intern-latest",
@@ -19188,39 +18770,6 @@
     "tdp_w": "65W"
    }
   },
-  "mpn:cooler_air:f12racing5pk": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "b553ea3d675a6911",
-   "specs": {
-    "fan_rpm_min": 1500
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1500 RPM"
-   }
-  },
-  "mpn:cooler_air:f12racingargb5pack": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "dfc6945d4a978149",
-   "specs": {
-    "fan_rpm_min": 1500
-   },
-   "quotes": {
-    "fan_rpm_min": "PWM 1500RPM"
-   }
-  },
-  "mpn:cooler_air:f12rgb5pk": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "644430f49d9f9f3a",
-   "specs": {
-    "fan_rpm_min": 1000
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1000 RPM"
-   }
-  },
   "mpn:cooler_air:fnt1cl1001002": {
    "category": "cooler_air",
    "model": "intern-latest",
@@ -19315,85 +18864,6 @@
    },
    "quotes": {
     "fan_rpm_min": "1800RPM"
-   }
-  },
-  "mpn:cooler_air:mflb2dn183par1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "3e69091cba777de0",
-   "specs": {
-    "fan_rpm_min": 1800
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1800 RPM"
-   }
-  },
-  "mpn:cooler_air:mfxb2d218npar1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "77e31d29db030ffe",
-   "specs": {
-    "height_mm": 240,
-    "fan_rpm_min": 1800
-   },
-   "quotes": {
-    "height_mm": "240x120x25mm",
-    "fan_rpm_min": "מהירות מאוורר: 1800 RPM"
-   }
-  },
-  "mpn:cooler_air:mfxb2d318npar1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "e8c4d8b5466964ca",
-   "specs": {
-    "fan_rpm_min": 1800
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1800 RPM"
-   }
-  },
-  "mpn:cooler_air:mfxb2dn183par1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "15ca8b597f35d163",
-   "specs": {
-    "fan_rpm_min": 1800
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 1800 RPM"
-   }
-  },
-  "mpn:cooler_air:mfxb8nn25npkr1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "2f613012abb93ac0",
-   "specs": {
-    "fan_rpm_min": 2500
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 2500 RPM"
-   }
-  },
-  "mpn:cooler_air:mfyb2dn203par1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "6c7f5718bcbcd6dc",
-   "specs": {
-    "fan_rpm_min": 2000
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 2000 RPM"
-   }
-  },
-  "mpn:cooler_air:mfyb2dn20npar1": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "dbc273dbf415429e",
-   "specs": {
-    "fan_rpm_min": 2000
-   },
-   "quotes": {
-    "fan_rpm_min": "מהירות מאוורר: 2000 RPM"
    }
   },
   "mpn:cooler_air:nhd15": {
@@ -19600,36 +19070,6 @@
    },
    "quotes": {
     "fan_rpm_min": "2000RPM"
-   }
-  },
-  "mpn:cooler_air:rak620bkadmng": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "69952a26344587eb",
-   "specs": {
-    "fan_size_mm": 120,
-    "fan_rpm_min": 1850,
-    "tdp_w": 260
-   },
-   "quotes": {
-    "fan_size_mm": "2X120MM",
-    "fan_rpm_min": "1850RPM",
-    "tdp_w": "260W TDP"
-   }
-  },
-  "mpn:cooler_air:rak620whadmng": {
-   "category": "cooler_air",
-   "model": "intern-latest",
-   "text_hash": "644ad4cc28db4e84",
-   "specs": {
-    "fan_size_mm": 120,
-    "fan_rpm_min": 1850,
-    "tdp_w": 260
-   },
-   "quotes": {
-    "fan_size_mm": "2X120MM",
-    "fan_rpm_min": "1850RPM",
-    "tdp_w": "260W TDP"
    }
   },
   "mpn:cooler_air:rctn120w1": {
@@ -20110,34 +19550,6 @@
     "external_power": "חיבור לספק כח: 8PINx1"
    }
   },
-  "mpn:gpu:4711377301060": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "05f9269d05b6c67a",
-   "specs": {
-    "core_clock_mhz": 2580,
-    "boost_clock_mhz": 2572,
-    "length_mm": 338
-   },
-   "quotes": {
-    "core_clock_mhz": "Extreme Performance: ‎2580 MHz (דרך MSI Center)",
-    "boost_clock_mhz": "Boost: ‎2572 MHz (מצבי Gaming & Silent)",
-    "length_mm": "‎338 × 140 × 50 מ״מ"
-   }
-  },
-  "mpn:gpu:4711377303965": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "caabf6f582565c1e",
-   "specs": {
-    "external_power": [
-     "16-pin"
-    ]
-   },
-   "quotes": {
-    "external_power": "חיבור לספק כח: 16-pin x 1"
-   }
-  },
   "mpn:gpu:4711377337649": {
    "category": "gpu",
    "model": "intern-latest",
@@ -20155,21 +19567,6 @@
     "interface": "ממשק: PCI Express® Gen 5 x16 (משתמש ב-x8)",
     "length_mm": "מידות כרטיס (מ״מ): 304 x 121 x 44",
     "external_power": "מחברי כוח: 8-pin x1"
-   }
-  },
-  "mpn:gpu:4711377379946": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "c015940002a2907c",
-   "specs": {
-    "boost_clock_mhz": 2632,
-    "length_mm": 202,
-    "tdp_w": 130
-   },
-   "quotes": {
-    "boost_clock_mhz": "תדר ליבה (Core Clocks): Extreme: 2647 MHz / Boost: 2632 MHz",
-    "length_mm": "מידות כרטיס: 202 × 120 × 41 מ\"מ",
-    "tdp_w": "צריכת חשמל: 130W"
    }
   },
   "mpn:gpu:4711377379960": {
@@ -20224,34 +19621,6 @@
     "tdp_w": "הספק כח: 70W"
    }
   },
-  "mpn:gpu:9005g1332240000": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "2145c10f378a3dbe",
-   "specs": {
-    "max_resolution": "4096x2160",
-    "tdp_w": 285
-   },
-   "quotes": {
-    "max_resolution": "רזולוציה: 4x4096x2160 | 4x5120x2880 | 2x7680x4320",
-    "tdp_w": "Recommended PSU: 285W"
-   }
-  },
-  "mpn:gpu:9005g1472250000": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "5ce09b92bb1bc991",
-   "specs": {
-    "max_displays": 4,
-    "tdp_w": 200,
-    "cooling": "פעיל, בתצורה דו־חריצית"
-   },
-   "quotes": {
-    "max_displays": "4 × DisplayPort 2.1b",
-    "tdp_w": "הספק מרבי: 200W",
-    "cooling": "קירור: פעיל, בתצורה דו־חריצית"
-   }
-  },
   "mpn:gpu:90ga5jzz00uanf": {
    "category": "gpu",
    "model": "intern-latest",
@@ -20294,17 +19663,6 @@
    },
    "quotes": {
     "core_clock_mhz": "מהירות ליבה מקסימלית: 902MHz"
-   }
-  },
-  "mpn:gpu:90yv0alam0na00": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "c115fb6d455ad15c",
-   "specs": {
-    "core_clock_mhz": 954
-   },
-   "quotes": {
-    "core_clock_mhz": "מהירות ליבה מקסימלית: 954MHz"
    }
   },
   "mpn:gpu:90yv0h20m0na00": {
@@ -20399,23 +19757,6 @@
    "quotes": {
     "max_resolution": "רזולוציה: 3840 x 2160@120Hz (DisplayPort), 2560 x 1600@60Hz (DVI), 3840 x 2160 @60Hz (HDMI)",
     "boost_clock_mhz": "מהירות ליבה: 1125MHz"
-   }
-  },
-  "mpn:gpu:dpz4cwwp01": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "183185f293c31104",
-   "specs": {
-    "max_displays": 4,
-    "max_resolution": "7680x4320",
-    "tdp_w": 185,
-    "recommended_psu_w": 600
-   },
-   "quotes": {
-    "max_displays": "Simultaneous Display: 4",
-    "max_resolution": "Digital Max Resolution: 7680 x 4320",
-    "tdp_w": "Total Board Power: 185W",
-    "recommended_psu_w": "הספק כח: 600 W"
    }
   },
   "mpn:gpu:n1030d42gl": {
@@ -20785,17 +20126,6 @@
     "tdp_w": "Recommended PSU: 200W"
    }
   },
-  "mpn:gpu:r9060xtgamingoc16": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "c9aa47b70a4e154d",
-   "specs": {
-    "boost_clock_mhz": 3320
-   },
-   "quotes": {
-    "boost_clock_mhz": "Boost Clock עד 3320MHz"
-   }
-  },
   "mpn:gpu:r906xgamingocice16gd": {
    "category": "gpu",
    "model": "intern-latest",
@@ -20884,17 +20214,6 @@
    },
    "quotes": {
     "boost_clock_mhz": "מהירות ליבה: 2520MHz"
-   }
-  },
-  "mpn:gpu:rx9070xt16gloc": {
-   "category": "gpu",
-   "model": "intern-latest",
-   "text_hash": "8bda1928c57a666b",
-   "specs": {
-    "boost_clock_mhz": 2460
-   },
-   "quotes": {
-    "boost_clock_mhz": "מהירות ליבה: 2460MHz"
    }
   },
   "mpn:gpu:rx9070xt16glocres": {
@@ -21096,17 +20415,6 @@
     "module_size_gb": "נפח זיכרון: 32GB"
    }
   },
-  "mpn:memory:ad4u2666j4g19r": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "d66320befe002589",
-   "specs": {
-    "speed": "2666"
-   },
-   "quotes": {
-    "speed": "מהירות: 2666MHz"
-   }
-  },
   "mpn:memory:ad4u320016g22sgn": {
    "category": "memory",
    "model": "intern-latest",
@@ -21208,17 +20516,6 @@
    },
    "quotes": {
     "voltage_v": "מתח VDD: 1.35V"
-   }
-  },
-  "mpn:memory:ax5u6000c3016gclanrsg": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "d1ab10249b3924ad",
-   "specs": {
-    "voltage_v": 1.35
-   },
-   "quotes": {
-    "voltage_v": "מתח עבודה: 1.35-1.45V"
    }
   },
   "mpn:memory:ax5u6000c3016gslabrbk": {
@@ -21414,19 +20711,6 @@
     "module_size_gb": "נפח: 32GB"
    }
   },
-  "mpn:memory:jm3200hle16g": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "e6d48fc272d19d1c",
-   "specs": {
-    "speed": "3200",
-    "module_size_gb": 16
-   },
-   "quotes": {
-    "speed": "מהירות (RPM): 3200",
-    "module_size_gb": "נפח זיכרון: 16GB"
-   }
-  },
   "mpn:memory:jm3200hle32g": {
    "category": "memory",
    "model": "intern-latest",
@@ -21559,19 +20843,6 @@
     "module_size_gb": "נפח זיכרון: 16GB"
    }
   },
-  "mpn:memory:jm5600ase32g": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "dc6782da25998ae3",
-   "specs": {
-    "speed": "5600",
-    "module_size_gb": 32
-   },
-   "quotes": {
-    "speed": "מהירות (RPM): 5600",
-    "module_size_gb": "נפח זיכרון: 32GB"
-   }
-  },
   "mpn:memory:kf432c16bb16x2": {
    "category": "memory",
    "model": "intern-latest",
@@ -21698,19 +20969,6 @@
     "module_size_gb": "16GBX2"
    }
   },
-  "mpn:memory:kf564c32bbe32x2": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "93dbefdcb3d745f3",
-   "specs": {
-    "module_count": 2,
-    "module_size_gb": 32
-   },
-   "quotes": {
-    "module_count": "32GBX2",
-    "module_size_gb": "32GBX2"
-   }
-  },
   "mpn:memory:ld4as032gb3200gsst": {
    "category": "memory",
    "model": "intern-latest",
@@ -21785,19 +21043,6 @@
     "module_size_gb": "נפח זיכרון: 16GB"
    }
   },
-  "mpn:memory:ld5u16g56c46stbgsx2": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "f54fd890c07eb35b",
-   "specs": {
-    "module_count": 2,
-    "module_size_gb": 16
-   },
-   "quotes": {
-    "module_count": "16GBX2",
-    "module_size_gb": "16GBX2"
-   }
-  },
   "mpn:memory:m321raja0mb0cwm": {
    "category": "memory",
    "model": "intern-latest",
@@ -21820,17 +21065,6 @@
     "module_size_gb": "8GB"
    }
   },
-  "mpn:memory:p2008gb3200": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "bb53860cdbcfc4bb",
-   "specs": {
-    "module_size_gb": 8
-   },
-   "quotes": {
-    "module_size_gb": "נפח: 8GB"
-   }
-  },
   "mpn:memory:psd38g16002s": {
    "category": "memory",
    "model": "intern-latest",
@@ -21851,21 +21085,6 @@
    },
    "quotes": {
     "module_size_gb": "נפח: 32GB"
-   }
-  },
-  "mpn:memory:pvsr432g360c8k": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "f882783ae4174a2f",
-   "specs": {
-    "speed": "3600",
-    "module_count": 2,
-    "module_size_gb": 16
-   },
-   "quotes": {
-    "speed": "מהירות (RPM): 3600",
-    "module_count": "(16GBx2)",
-    "module_size_gb": "(16GBx2)"
    }
   },
   "mpn:memory:pvvr532g640c32k": {
@@ -21901,17 +21120,6 @@
    },
    "quotes": {
     "voltage_v": "מתח עבודה: 1.1V"
-   }
-  },
-  "mpn:memory:ted3l8g1600c1101": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "6acb47d61bc43429",
-   "specs": {
-    "module_size_gb": 8
-   },
-   "quotes": {
-    "module_size_gb": "בנפח 8GB"
    }
   },
   "mpn:memory:ted416g3200c2201": {
@@ -22057,17 +21265,6 @@
     "module_size_gb": "נפח: 8GB"
    }
   },
-  "mpn:memory:tpbd516g5600hc4601": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "78987de3960e4cf6",
-   "specs": {
-    "module_size_gb": 16
-   },
-   "quotes": {
-    "module_size_gb": "בנפח 16GB"
-   }
-  },
   "mpn:memory:tpbd532g5600hc4601": {
    "category": "memory",
    "model": "intern-latest",
@@ -22079,17 +21276,6 @@
     "module_size_gb": "32GB"
    }
   },
-  "mpn:memory:tpbd58g5600hc4601": {
-   "category": "memory",
-   "model": "intern-latest",
-   "text_hash": "dccaa928eaabf336",
-   "specs": {
-    "module_size_gb": 8
-   },
-   "quotes": {
-    "module_size_gb": "8GB"
-   }
-  },
   "mpn:memory:tra5128g56q438q": {
    "category": "memory",
    "model": "intern-latest",
@@ -22099,20 +21285,6 @@
    },
    "quotes": {
     "color": "v-color DDR5 512GB (4x128GB) 5600 CL38 OC EXPO R-DIMM Workstation"
-   }
-  },
-  "mpn:motherboard:4711377010191": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "7a5c503f86e7f296",
-   "specs": {
-    "storage_interface": [
-     "M.2",
-     "SATA III"
-    ]
-   },
-   "quotes": {
-    "storage_interface": "M.2, SATA III"
    }
   },
   "mpn:motherboard:4711377026383": {
@@ -22207,30 +21379,6 @@
     "usb_ports": "אחורי: 2×USB 2.0 ו־4×USB 5Gbps Type-A"
    }
   },
-  "mpn:motherboard:4711377253536": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "87d9f2ea19f8a809",
-   "specs": {
-    "audio": "Realtek® ALC4080 Codec",
-    "lighting": "4x EZ Debug LED 1x EZ Digit Debug LED 1x EZ LED Control switch"
-   },
-   "quotes": {
-    "audio": "Realtek® ALC4080 Codec",
-    "lighting": "LED FEATURE: 4x EZ Debug LED 1x EZ Digit Debug LED 1x EZ LED Control switch"
-   }
-  },
-  "mpn:motherboard:4711377260794": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "be091c8a729f9d5d",
-   "specs": {
-    "pcie_x1_slots": 0
-   },
-   "quotes": {
-    "pcie_x1_slots": "PCI-E x1: 0"
-   }
-  },
   "mpn:motherboard:4711377286572": {
    "category": "motherboard",
    "model": "intern-latest",
@@ -22274,17 +21422,6 @@
     "expansion_slots": "PCI-E x16: 4"
    }
   },
-  "mpn:motherboard:4711377290623": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "8c5c0a20ccdfc757",
-   "specs": {
-    "expansion_slots": "3x PCI-E x16 slot"
-   },
-   "quotes": {
-    "expansion_slots": "PCI-E x16: 3x PCI-E x16 slot"
-   }
-  },
   "mpn:motherboard:4711377337977": {
    "category": "motherboard",
    "model": "intern-latest",
@@ -22311,28 +21448,6 @@
     "lighting": "נורות: 4× EZ Debug LED, 1× EZ Memory Detection LED"
    }
   },
-  "mpn:motherboard:4711377347594": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "73d1e75a5821df51",
-   "specs": {
-    "lighting": "4× EZ Debug LED, 1× EZ Memory Detection LED"
-   },
-   "quotes": {
-    "lighting": "נורות: 4× EZ Debug LED, 1× EZ Memory Detection LED"
-   }
-  },
-  "mpn:motherboard:4711377347600": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "d6ff91cd2a5418f2",
-   "specs": {
-    "expansion_slots": "PCIe 5.0 x16 / PCIe 4.0 x4 / PCIe 3.0 x1"
-   },
-   "quotes": {
-    "expansion_slots": "חריצי הרחבה: PCIe 5.0 x16 / PCIe 4.0 x4 / PCIe 3.0 x1 בהתאם למעבד"
-   }
-  },
   "mpn:motherboard:4711377358651": {
    "category": "motherboard",
    "model": "intern-latest",
@@ -22348,43 +21463,6 @@
     "bluetooth": "wifi + BT: Wi-Fi 6E module",
     "usb_ports": "ממשק: 1x USB C 20Gbps, 1x USB C 10Gbps, 4x USB 5G, 8x USB 2.0",
     "audio": "HD 7.1: v"
-   }
-  },
-  "mpn:motherboard:4711377360166": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "f1e5e4a391d5cddb",
-   "specs": {
-    "lighting": "4× EZ Debug LED, 1× EZ Memory Detection LED"
-   },
-   "quotes": {
-    "lighting": "נורות: 4× EZ Debug LED, 1× EZ Memory Detection LED"
-   }
-  },
-  "mpn:motherboard:4711377365338": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "c77d09ccb0acd046",
-   "specs": {
-    "pcie_x1_slots": 1
-   },
-   "quotes": {
-    "pcie_x1_slots": "PCI-E x1: חריץ אחד"
-   }
-  },
-  "mpn:motherboard:4711377391276": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "bc15e225511470a0",
-   "specs": {
-    "memory_slots": 4,
-    "sata_ports": 4,
-    "audio": "8-Channel (7.1) HD Audio with Audio Boost"
-   },
-   "quotes": {
-    "memory_slots": "חריצים פנויים: 4",
-    "sata_ports": "SATA III: 4",
-    "audio": "HD 7.1: 8-Channel (7.1) HD Audio with Audio Boost"
    }
   },
   "mpn:motherboard:4711377402842": {
@@ -22421,19 +21499,6 @@
     "memory_slots": "2× DDR5 UDIMM",
     "memory_max_gb": "Maximum 128GB",
     "sata_ports": "4× SATA 6G"
-   }
-  },
-  "mpn:motherboard:4711377412230": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "5cb22108121811bf",
-   "specs": {
-    "pcie_x16_slots": 2,
-    "pcie_x1_slots": 1
-   },
-   "quotes": {
-    "pcie_x16_slots": "2x PCI-E x16",
-    "pcie_x1_slots": "1x PCI-E x1"
    }
   },
   "mpn:motherboard:4711377415156": {
@@ -22810,23 +21875,6 @@
     "lighting": "3 x מחברי תאורה Addressable RGB Gen 2"
    }
   },
-  "mpn:motherboard:90mb1mw0m0eay0": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "198e5c2e39b81929",
-   "specs": {
-    "chipset": "W890",
-    "cpu_support": "4710",
-    "memory_speeds": [
-     "DDR5 ECC REG 3DS"
-    ]
-   },
-   "quotes": {
-    "chipset": "ערכת שבבים: Intel W890",
-    "cpu_support": "תושבת מעבד (Socket): 4710",
-    "memory_speeds": "סוג זכרון: DDR5 ECC REG 3DS"
-   }
-  },
   "mpn:motherboard:90mb1n90m0eay0": {
    "category": "motherboard",
    "model": "intern-latest",
@@ -23042,28 +22090,6 @@
    },
    "quotes": {
     "bluetooth": "קישוריות: Bluetooth, Wi-Fi, Wired LAN"
-   }
-  },
-  "mpn:motherboard:b650emaxgamingwifiw": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "0c81a5065d59aefa",
-   "specs": {
-    "bluetooth": "Bluetooth"
-   },
-   "quotes": {
-    "bluetooth": "קישוריות: Bluetooth, Wi-Fi, Wired LAN"
-   }
-  },
-  "mpn:motherboard:b650emaxgamingwifiwpc": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "ae950fd2f3484a2c",
-   "specs": {
-    "bluetooth": "Bluetooth"
-   },
-   "quotes": {
-    "bluetooth": "קישוריות: Wired LAN, Bluetooth, Wi-Fi"
    }
   },
   "mpn:motherboard:b650gamingpluswifi": {
@@ -23394,17 +22420,6 @@
    },
    "quotes": {
     "bluetooth": "קישוריות: Bluetooth, Wired LAN, Wi-Fi"
-   }
-  },
-  "mpn:motherboard:gz890aoruselitexice": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "361b16c33155d5f0",
-   "specs": {
-    "thunderbolt_ports": 1
-   },
-   "quotes": {
-    "thunderbolt_ports": "1x Intel Thunderbolt 4* (USB Type-C) port"
    }
   },
   "mpn:motherboard:gz890aorusproice": {
@@ -24448,19 +23463,6 @@
     "sata_connectors": "SATA 15PIN: 5"
    }
   },
-  "mpn:psu:4711377142243": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "ecd92e9e0abf0075",
-   "specs": {
-    "eps8_connectors": 2,
-    "sata_connectors": 8
-   },
-   "quotes": {
-    "eps8_connectors": "EPS 4+4PIN: 2",
-    "sata_connectors": "SATA 15PIN: 8"
-   }
-  },
   "mpn:psu:4711377364317": {
    "category": "psu",
    "model": "intern-latest",
@@ -24767,27 +23769,6 @@
     "atx_version": "תצורת ספק: ATX"
    }
   },
-  "mpn:psu:gpp750gm": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "5c5baee5ae08fe80",
-   "specs": {
-    "series_wattage_range": "650-1100W",
-    "atx_version": "ATX PS/2",
-    "eps8_connectors": 2,
-    "pcie16_connectors": 4,
-    "sata_connectors": 8,
-    "molex4_connectors": 3
-   },
-   "quotes": {
-    "series_wattage_range": "קבוצת הספק 650W - 1100W",
-    "atx_version": "תצורת ספק ATX PS/2",
-    "eps8_connectors": "EPS 12V 8 pin 2",
-    "pcie16_connectors": "PCI-E Connectors 8 pin 4",
-    "sata_connectors": "חיבורי SATA 8",
-    "molex4_connectors": "Molex 4 pin 3"
-   }
-  },
   "mpn:psu:gpud1000gmpg5v2": {
    "category": "psu",
    "model": "intern-latest",
@@ -24955,17 +23936,6 @@
     "color": "צבע ברונזה"
    }
   },
-  "mpn:psu:mpe8501afaagwo": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "27ee451d3ed51420",
-   "specs": {
-    "atx_version": "ATX"
-   },
-   "quotes": {
-    "atx_version": "תצורת ספק: ATX"
-   }
-  },
   "mpn:psu:mpec501afcageu": {
    "category": "psu",
    "model": "intern-latest",
@@ -24988,17 +23958,6 @@
    },
    "quotes": {
     "atx_version": "תצורת ספק: ATX"
-   }
-  },
-  "mpn:psu:mpwc001afagbwo": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "2580c6e9b489e309",
-   "specs": {
-    "series_wattage_range": "1200W"
-   },
-   "quotes": {
-    "series_wattage_range": "1200W"
    }
   },
   "mpn:psu:mpy750vafbagwo": {
@@ -25739,23 +24698,6 @@
     "write_speed_mbs": "Write 6800MB/s"
    }
   },
-  "mpn:storage:agammixs70b8000gcs": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "33d9b89dba1c9c3f",
-   "specs": {
-    "pcie_gen": 4,
-    "read_speed_mbs": 7300,
-    "write_speed_mbs": 6300,
-    "warranty_years": 5
-   },
-   "quotes": {
-    "pcie_gen": "PCIe Gen4x4",
-    "read_speed_mbs": "Read 7300/s",
-    "write_speed_mbs": "Write 6300MB/s",
-    "warranty_years": "5 שנים יבואן רישמי"
-   }
-  },
   "mpn:storage:aleg7101tcs": {
    "category": "storage",
    "model": "intern-latest",
@@ -25971,12 +24913,10 @@
    "model": "intern-latest",
    "text_hash": "d1770fa48dbf2346",
    "specs": {
-    "dimensions_mm": "2280",
-    "warranty_years": 5
+    "dimensions_mm": "2280"
    },
    "quotes": {
-    "dimensions_mm": "M.2 2280",
-    "warranty_years": "5 years."
+    "dimensions_mm": "M.2 2280"
    }
   },
   "mpn:storage:cssdf4000gbmp700pnh": {
@@ -26095,30 +25035,6 @@
     "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
    }
   },
-  "mpn:storage:ct1000t710ssd8": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "680aa689a559d850",
-   "specs": {
-    "dimensions_mm": "M.2 2280"
-   },
-   "quotes": {
-    "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
-   }
-  },
-  "mpn:storage:ct1000x10ssd9": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "7383e422f68736e4",
-   "specs": {
-    "read_speed_mbs": 2100,
-    "write_speed_mbs": 2000
-   },
-   "quotes": {
-    "read_speed_mbs": "R/W Speed: 2100/2000",
-    "write_speed_mbs": "R/W Speed: 2100/2000"
-   }
-  },
   "mpn:storage:ct2000e100ssd8": {
    "category": "storage",
    "model": "intern-latest",
@@ -26193,17 +25109,6 @@
    "text_hash": "c7b79374052a4a35",
    "specs": {
     "dimensions_mm": "M.2 2280"
-   },
-   "quotes": {
-    "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
-   }
-  },
-  "mpn:storage:ct4000t710ssd8": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "509d88f942e9e556",
-   "specs": {
-    "dimensions_mm": "2280"
    },
    "quotes": {
     "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
@@ -26296,23 +25201,6 @@
     "weight_g": "משקל: 9 גרם"
    }
   },
-  "mpn:storage:lnm710x001trnnng": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "bf2ca51d271af2dd",
-   "specs": {
-    "pcie_gen": 4,
-    "read_speed_mbs": 5000,
-    "write_speed_mbs": 4500,
-    "dimensions_mm": "2280"
-   },
-   "quotes": {
-    "pcie_gen": "interface: PCIe Gen4x4",
-    "read_speed_mbs": "R/W Speed: 5000/4500/MB/s",
-    "write_speed_mbs": "R/W Speed: 5000/4500/MB/s",
-    "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
-   }
-  },
   "mpn:storage:lnm790x001trnnng": {
    "category": "storage",
    "model": "intern-latest",
@@ -26382,17 +25270,6 @@
     "weight_g": "משקל: 6 גרם"
    }
   },
-  "mpn:storage:lnm990x004trnnng": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "2c7693687165a943",
-   "specs": {
-    "dimensions_mm": "M.2 2280"
-   },
-   "quotes": {
-    "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
-   }
-  },
   "mpn:storage:lnq780x512grnnng": {
    "category": "storage",
    "model": "intern-latest",
@@ -26447,17 +25324,6 @@
    },
    "quotes": {
     "dimensions_mm": "Form Factor 2280"
-   }
-  },
-  "mpn:storage:mg11aca24tev": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "b0686e74208a387f",
-   "specs": {
-    "write_speed_mbs": 309
-   },
-   "quotes": {
-    "write_speed_mbs": "מהירות העברה: עד 309MB לשניה"
    }
   },
   "mpn:storage:ms1tbnm300a2280": {
@@ -26604,23 +25470,6 @@
     "read_speed_mbs": "מהירות קריאה מקסימלית: עד ‎6200MB/s",
     "write_speed_mbs": "מהירות כתיבה מקסימלית: עד ‎5200MB/s",
     "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
-   }
-  },
-  "mpn:storage:s1201y031t92p022t0400": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "49ff92e7be4df7b3",
-   "specs": {
-    "read_speed_mbs": 530,
-    "write_speed_mbs": 500,
-    "dimensions_mm": "69.85x100x7",
-    "weight_g": 60
-   },
-   "quotes": {
-    "read_speed_mbs": "מהירות קריאה מקסימלית: 530MB/s",
-    "write_speed_mbs": "מהירות כתיבה מקסימלית: 500MB/s",
-    "dimensions_mm": "מידות: 69.85x100x7 מ\"מ",
-    "weight_g": "משקל: 60 גרם"
    }
   },
   "mpn:storage:s1201y033t84p024t0900": {
@@ -26838,17 +25687,6 @@
     "write_speed_mbs": "מהירות העברה: עד 220MB לשניה"
    }
   },
-  "mpn:storage:st4000vn006": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "43e2c6d2f10685ba",
-   "specs": {
-    "write_speed_mbs": 202
-   },
-   "quotes": {
-    "write_speed_mbs": "מהירות העברה: עד 202MB לשניה"
-   }
-  },
   "mpn:storage:t253tz512g0c101": {
    "category": "storage",
    "model": "intern-latest",
@@ -26928,50 +25766,6 @@
     "series_wattage_range": "הספק: 650W"
    }
   },
-  "psu:1pc:1pc-222398": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "9b29f9505a2388a1",
-   "specs": {
-    "series_wattage_range": "750W"
-   },
-   "quotes": {
-    "series_wattage_range": "750W"
-   }
-  },
-  "psu:1pc:1pc-222399": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "2132b6dab7b15042",
-   "specs": {
-    "series_wattage_range": "850W"
-   },
-   "quotes": {
-    "series_wattage_range": "850W"
-   }
-  },
-  "psu:1pc:1pc-222402": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "55f4e1a3d0843a79",
-   "specs": {
-    "series_wattage_range": "1200W"
-   },
-   "quotes": {
-    "series_wattage_range": "1200W"
-   }
-  },
-  "psu:1pc:1pc-222416": {
-   "category": "psu",
-   "model": "intern-latest",
-   "text_hash": "31dc0658b59337d0",
-   "specs": {
-    "series_wattage_range": "650W"
-   },
-   "quotes": {
-    "series_wattage_range": "650W"
-   }
-  },
   "sku:case:814256022279": {
    "category": "case",
    "model": "intern-latest",
@@ -26989,19 +25783,6 @@
    "category": "case",
    "model": "intern-latest",
    "text_hash": "44a66c9e049a77d9",
-   "specs": {
-    "fan_front": "ללא - לא ניתן להוסיף",
-    "fan_top": "ללא - לא ניתן להוסיף"
-   },
-   "quotes": {
-    "fan_front": "מאוורר קידמי: ללא - לא ניתן להוסיף",
-    "fan_top": "מאוורר עליון: ללא - לא ניתן להוסיף"
-   }
-  },
-  "sku:case:814256022293": {
-   "category": "case",
-   "model": "intern-latest",
-   "text_hash": "4495661f484f8ef0",
    "specs": {
     "fan_front": "ללא - לא ניתן להוסיף",
     "fan_top": "ללא - לא ניתן להוסיף"
@@ -27155,21 +25936,6 @@
     "storage_interface": "1x M.2_1 Source (From CPU) supports up to PCIe 4.0 x4 , supports 2280/2260/2242 devices 1x M.2_2 Source (From Chipset) supports up to PCIe 4.0 x4 / SATA mode, supports 2280/2260/2242 devices 4x SATA 6G"
    }
   },
-  "sku:motherboard:4711377254557": {
-   "category": "motherboard",
-   "model": "intern-latest",
-   "text_hash": "04207e46283496a5",
-   "specs": {
-    "pcie_x16_slots": 3,
-    "pcie_x1_slots": 1,
-    "bios": "Flash BIOS Button"
-   },
-   "quotes": {
-    "pcie_x16_slots": "3x PCI-E x16 slot",
-    "pcie_x1_slots": "PCI_E2 Gen PCIe 3.0 supports up to x1",
-    "bios": "1x Flash BIOS Button"
-   }
-  },
   "sku:motherboard:4711377290616": {
    "category": "motherboard",
    "model": "intern-latest",
@@ -27303,17 +26069,6 @@
     "read_speed_mbs": "מהירות קריאה רציפה: עד 7100MB/s",
     "write_speed_mbs": "מהירות כתיבה רציפה: עד 6000MB/s",
     "dimensions_mm": "פקטור צורה: M.2 2280"
-   }
-  },
-  "storage:1pc:1pc-222482": {
-   "category": "storage",
-   "model": "intern-latest",
-   "text_hash": "07674f1e4d6e36d0",
-   "specs": {
-    "dimensions_mm": "M.2 2280"
-   },
-   "quotes": {
-    "dimensions_mm": "גודל הפיזי של הכונן: M.2 2280"
    }
   },
   "storage:1pc:1pc-222535": {

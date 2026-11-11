@@ -179,6 +179,13 @@ def _packaging(value) -> str | None:
     return None
 
 
+def stated_packaging(listing: dict) -> str | None:
+    """The packaging a CPU listing's own evidence gives; None for the default."""
+    if listing.get("packaging_basis") == "default":
+        return None
+    return _packaging(_attr(listing, *_AXIS_ALIASES["packaging"]))
+
+
 def _socket(value) -> str | None:
     text = re.sub(r"[^A-Za-z0-9]+", "", _text(value).upper())
     if not text:
@@ -550,6 +557,10 @@ def _axis_value(category: str, axis: str, listing: dict) -> str | None:
     raw = _attr(listing, *keys)
 
     if axis == "packaging":
+        # A CPU listing that states nothing at all joins the Box product, the
+        # retail default (audit 2026-11-10 D; specs/witness.py sets the basis).
+        if listing.get("packaging_basis") == "default" and category == "cpu":
+            return _packaging(raw) or "box"
         return _packaging(raw)
     if axis == "socket":
         return _socket(raw)
@@ -694,6 +705,201 @@ def variant_conflict(category: str | None, a: dict, b: dict) -> bool:
     return False
 
 
+# --------------------------------------------------------------------------
+# Title axis words (audit 2026-11-10 A2). The attribute view misses colour
+# and finish words it has no field value for (אגוז, Aventurine, בז'), and
+# the GPU chip suffix (9070 vs 9070 XT). Read straight from the raw title:
+# explicit words only, absence is never a value. QA signal, never a split.
+# --------------------------------------------------------------------------
+
+_HE = "\u0590-\u05ff"
+
+
+def _he_word(*words: str) -> str:
+    return rf"(?<![{_HE}])[בו]?(?:{'|'.join(words)})(?![{_HE}])"
+
+
+_TITLE_COLOURS: tuple[tuple[str, re.Pattern], ...] = tuple(
+    (name, re.compile(rx, re.I)) for name, rx in (
+        ("white", r"\bwhite\b|\bsnow\b|" + _he_word("לבן", "לבנה")),
+        ("black", r"\bblack\b|" + _he_word("שחור", "שחורה")),
+        ("silver", r"\bsilver\b|" + _he_word("כסוף", "כסופה")),
+        ("grey", r"\bgr[ae]y\b|" + _he_word("אפור", "אפורה")),
+        ("pink", r"\bpink\b|" + _he_word("ורוד", "ורודה")),
+        ("blue", r"\bblue\b|" + _he_word("כחול", "כחולה")),
+        ("red", r"\bred\b|" + _he_word("אדום", "אדומה")),
+        ("green", r"\bgreen\b|" + _he_word("ירוק", "ירוקה")),
+        ("beige", r"\bbeige\b|" + _he_word("בז['׳]")),
+        ("wood", r"\bwood\b|\bwalnut\b|" + _he_word("אגוז", "עץ")),
+        ("aventurine", r"\baventurine\b"),
+    ))
+# "80 PLUS White/Silver/Gold" is an efficiency grade; "Red Devil" a GPU line.
+_NOT_COLOUR_RE = re.compile(
+    r"80\s*(?:\+|plus)\s*(?:white|silver|gold|bronze|platinum|titanium)|\bred\s+devil\b",
+    re.I)
+_LIGHT_NONE_RE = re.compile(r"non[\s-]?rgb|no\s+rgb|ללא\s+(?:תאורה|rgb)", re.I)
+_LIGHT_LIT_RE = re.compile(r"\b[ad]?rgb\b|תאורה", re.I)
+_GPU_CHIP_RE = re.compile(
+    r"\b(?:RTX|GTX|RX|ARC)\s?([2-9]\d{3}|[AB]\d{3})\s?(XTX|XT|TI|SUPER|GRE)?\b", re.I)
+
+#: Which title axes each category reads (its AXES carry a colour/lighting).
+TITLE_AXES: dict[str, tuple[str, ...]] = {
+    "memory": ("color", "lighting"),
+    "gpu": ("color", "chipset"),
+    "case": ("color",),
+    "psu": ("color",),
+    "case_fan": ("color", "lighting"),
+    "aio": ("color", "lighting"),
+    "cooler_air": ("color", "lighting"),
+}
+
+
+def title_axis_values(category: str | None, title) -> dict[str, str]:
+    """The axis values a raw title states outright.
+
+    Colour is every colour/finish word, joined ("black+wood"): see
+    `title_values_conflict` for how two sets compare. Lighting lit/none; the
+    GPU chip with its suffix.
+    """
+    axes = TITLE_AXES.get(str(category or ""), ())
+    text = html.unescape(_text(title))
+    out: dict[str, str] = {}
+    if "color" in axes:
+        plain = _NOT_COLOUR_RE.sub(" ", text)
+        colours = {name for name, rx in _TITLE_COLOURS if rx.search(plain)}
+        if colours:
+            out["color"] = "+".join(sorted(colours))
+    if "lighting" in axes:
+        if _LIGHT_NONE_RE.search(text):
+            out["lighting"] = "none"
+        elif _LIGHT_LIT_RE.search(text):
+            out["lighting"] = "lit"
+    if "chipset" in axes:
+        chips = {f"{m.group(1)}{(m.group(2) or '').upper()}".upper()
+                 for m in _GPU_CHIP_RE.finditer(text)}
+        if len(chips) == 1:
+            out["chipset"] = next(iter(chips))
+    return out
+
+
+def title_values_conflict(axis: str, left: str, right: str) -> bool:
+    """Two stated title values name two parts.
+
+    Colours conflict only when neither set holds the other: a two-tone
+    "שחור/לבן" title next to a plain "לבן" one is no evidence, "לבן ועץ
+    אלון" next to "שחור אגוז" is (two Corsair 4000D Wood finishes).
+    """
+    if axis == "color":
+        a, b = set(left.split("+")), set(right.split("+"))
+        return not (a <= b or b <= a)
+    return left != right
+
+
+def title_axis_conflict(category: str | None, a: dict, b: dict) -> bool:
+    """Two listings' raw titles state conflicting values on one axis."""
+    va = title_axis_values(category, a.get("title_raw"))
+    vb = title_axis_values(category, b.get("title_raw"))
+    return any(title_values_conflict(axis, va[axis], vb[axis])
+               for axis in va.keys() & vb.keys())
+
+
+# --------------------------------------------------------------------------
+# Brand families (audit 2026-11-10 C). A model code is only unique inside one
+# maker: Antec F12/P14 and Arctic F12/P14 are different fans. Two listings
+# join on a code only when their brands agree after mapping a sub-brand to
+# its maker. On a GPU the chip vendor (NVIDIA/AMD/Intel) is no brand: vendors
+# print it for a PNY or ASUS card.
+# --------------------------------------------------------------------------
+
+BRAND_FAMILY = {
+    "lancool": "lianli",
+    "aorus": "gigabyte",
+    "xpg": "adata",
+    "rog": "asus",
+    "tuf": "asus",
+    "proart": "asus",
+    "tforce": "teamgroup",
+    "tcreate": "teamgroup",
+    "wd": "westerndigital",
+    "wdblack": "westerndigital",
+    "kioxiabytoshiba": "kioxia",
+    "chromax": "noctua",
+    "furybeast": "kingston",
+    "hyperx": "kingston",
+}
+_CHIP_BRANDS = frozenset({"nvidia", "amd", "intel", "ati"})
+
+
+def brand_family(value) -> str | None:
+    """`"LIAN-LI"`, `"Lancool"` -> `"lianli"`; None for no brand."""
+    key = re.sub(r"[^a-z0-9]", "", _text(value).lower())
+    return BRAND_FAMILY.get(key, key) or None
+
+
+def listing_brand_family(category: str | None, listing: dict) -> str | None:
+    attrs = listing.get("attributes") or {}
+    family = brand_family(listing.get("brand") or attrs.get("brand"))
+    if family in _CHIP_BRANDS and category == "gpu":
+        return None
+    return family
+
+
+def brand_subgroups(category: str | None, listings: list[dict]) -> list[list[dict]]:
+    """Split a code group by brand family, largest family first.
+
+    A listing with no brand rides with the largest family. A part number
+    printed under two families keeps them together: the PN is stronger
+    evidence than a vendor's brand field.
+    """
+    families: dict[str, list[dict]] = {}
+    brandless: list[dict] = []
+    for listing in listings:
+        family = listing_brand_family(category, listing)
+        (families.setdefault(family, []) if family else brandless).append(listing)
+    if len(families) < 2:
+        return [listings]
+    pns: dict[str, set[str]] = {}
+    for family, members in families.items():
+        for member in members:
+            key = part_number_key(member.get("mpn"))
+            if key:
+                pns.setdefault(key, set()).add(family)
+    if any(len(found) > 1 for found in pns.values()):
+        return [listings]
+    ordered = sorted(families.items(), key=lambda item: (-len(item[1]), item[0]))
+    ordered[0][1].extend(brandless)
+    return [members for _, members in ordered]
+
+
+def brands_conflict(category: str | None, left: list[dict], right: list[dict]) -> bool:
+    """Both sides name a brand and no family is shared."""
+    a = {listing_brand_family(category, e) for e in left} - {None}
+    b = {listing_brand_family(category, e) for e in right} - {None}
+    return bool(a and b and not (a & b))
+
+
+#: What one vendor's title means when it leaves the axis word out.
+TITLE_AXIS_DEFAULTS = {"color": "black", "lighting": "none"}
+
+
+def title_axis_differs(category: str | None, a: dict, b: dict) -> list[str]:
+    """Axes on which two titles OF ONE VENDOR are not the same part.
+
+    One vendor writes its own listings the same way, so a word only one of
+    them carries is a value: KSP's "FURY BEAST" next to "FURY BEAST RGB",
+    or "RX 9070 XT" next to "RX 9070 XT White", are two items. An unstated
+    colour is black and unstated lighting none (1PC relists black parts
+    with "שחור" added); an unstated GPU chip stays unknown. Across vendors
+    absence stays unknown (`title_axis_conflict`).
+    """
+    va = title_axis_values(category, a.get("title_raw"))
+    vb = title_axis_values(category, b.get("title_raw"))
+    default = TITLE_AXIS_DEFAULTS
+    return sorted(axis for axis in va.keys() | vb.keys()
+                  if (axis in default or (axis in va and axis in vb))
+                  and va.get(axis, default.get(axis)) != vb.get(axis, default.get(axis)))
+
+
 def _listing_keys(listing: dict) -> set[str]:
     """Part-number keys a listing carries (MPN first, then its vendor SKU)."""
     keys: set[str] = set()
@@ -821,6 +1027,21 @@ def variant_subgroups(category: str | None,
         return _cluster(category, listings)
 
     seeds = [by_part_number[key] for key in sorted(by_part_number)]
+    if "packaging" in variant_axes(category):
+        # A shared code does not outrank a listing's own packaging (audit
+        # 2026-11-10 D, owner Q3): 1PC copies TMS's C-code onto its Box
+        # listing of a part TMS sells Tray, so the seed splits by packaging.
+        split: list[list[dict]] = []
+        for seed in seeds:
+            by_pack: dict[str | None, list[dict]] = {}
+            for enriched in seed:
+                by_pack.setdefault(_axis_value(category, "packaging", enriched),
+                                   []).append(enriched)
+            unstated = by_pack.pop(None, [])
+            parts = [by_pack[key] for key in sorted(by_pack)] or [[]]
+            parts[0].extend(unstated)
+            split.extend(parts)
+        seeds = split
     return _cluster(category, rest, seeds=seeds)
 
 
@@ -980,6 +1201,68 @@ def _part_number_shape_class(value, listing: dict | None) -> str | None:
     return "vendor"
 
 
+_TMS_CPU_RETAIL_RE = re.compile(r"^C(?:\d{3,5}|ULTRA)\w*[TB]$")
+
+
+def _listing_code(enriched: dict) -> str | None:
+    """The identifier a listing carries: its printed mpn, else a maker-shaped SKU."""
+    mpn = enriched.get("mpn")
+    if mpn not in _EMPTY:
+        return part_number_key(mpn) or None
+    return sku_part_number_key(enriched.get("vendor_sku"))
+
+
+def _code_shape(key: str) -> str:
+    return re.sub(r"[A-Z]", "A", re.sub(r"\d", "9", key))
+
+
+def _sibling_codes(group: list[dict]) -> set[str]:
+    """Printed part numbers of one shape that differ: sibling SKUs.
+
+    Makers number colour/edition siblings in one series (Corsair
+    CC-9011288-WW vs CC-9011268-WW), and a code only one vendor prints is
+    "vendor" class, so the manufacturer-PN split misses the pair. Two codes
+    of the same length and letter/digit pattern (>= 8 characters, letters
+    and digits) that differ are two parts; both become split keys."""
+    by_shape: dict[str, set[str]] = {}
+    for enriched in group:
+        mpn = enriched.get("mpn")
+        key = part_number_key(mpn) if mpn not in _EMPTY else ""
+        if key and len(key) >= 8 and re.search(r"[A-Z]", key) and re.search(r"\d", key):
+            by_shape.setdefault(_code_shape(key), set()).add(key)
+    return {key for keys in by_shape.values() if len(keys) > 1 for key in keys}
+
+
+def _code_kind(code: str, category) -> str | None:
+    """``"ean"`` / ``"pn"`` for identity codes, None for retailer numbers."""
+    if len(code) < 4:
+        return None
+    if code.isdigit():
+        return "ean" if len(code) in (8, 12, 13, 14) else None
+    if category == "cpu" and _TMS_CPU_RETAIL_RE.match(code):
+        return None
+    return "pn"
+
+
+def _same_vendor_codes(group: list[dict]) -> set[str]:
+    """Codes one vendor prints two different ones of, of one kind.
+
+    A vendor lists one part once, so two of its listings with two maker PNs
+    (or two EANs) are two parts, whatever their shape says (audit 2026-11-10
+    A: DeepCool LE520 black/white at Yahav, Antec Performance 1 M Black and
+    Aventurine at TMS).
+    """
+    seen: dict[tuple, set[str]] = {}
+    for enriched in group:
+        code = _listing_code(enriched)
+        if not code:
+            continue
+        kind = _code_kind(code, enriched.get("category_normalized"))
+        if kind:
+            seen.setdefault((enriched.get("vendor_id"), kind), set()).add(code)
+    return {code for codes in seen.values() if len(codes) > 1 for code in codes}
+
+
 def part_number_subgroups(group: list[dict],
                           shared: Collection[str] = ()) -> list[list[dict]]:
     """Split a group that carries two *different* manufacturer part numbers.
@@ -987,20 +1270,28 @@ def part_number_subgroups(group: list[dict],
     Same manufacturer PN (in any spelling) is the strongest identity
     evidence, so those listings always merge. Two different manufacturer PNs
     mean two variants of the model (G.Skill's RGB ``...TZ5RK`` vs the
-    non-RGB ``...TZ5RS``), so they must stay apart. Listings without a
-    manufacturer PN cannot contradict anything and ride with the largest
+    non-RGB ``...TZ5RS``), so they must stay apart. Codes shaped like a
+    retailer's also split when one vendor prints two different ones of one
+    kind (`_same_vendor_codes`). Listings without a split code cannot
+    contradict anything and ride with the largest
     cluster (deterministic; ties resolve lexicographically). `shared` is
     passed through to `part_number_class`.
     """
     if len(group) < 2:
         return [list(group)]
 
+    split_keys = {part_number_key(enriched.get("mpn")) for enriched in group
+                  if part_number_class(enriched.get("mpn"), enriched, shared)
+                  == "manufacturer"}
+    split_keys |= _same_vendor_codes(group)
+    split_keys |= _sibling_codes(group)
+
     clusters: dict[str, list[dict]] = {}
     unclassified: list[dict] = []
     for enriched in group:
-        mpn = enriched.get("mpn")
-        if part_number_class(mpn, enriched, shared) == "manufacturer":
-            clusters.setdefault(part_number_key(mpn), []).append(enriched)
+        key = _listing_code(enriched)
+        if key in split_keys:
+            clusters.setdefault(key, []).append(enriched)
         else:
             unclassified.append(enriched)
 
