@@ -138,6 +138,46 @@ PRICE_RE = re.compile(r"([\d,]+)")
 # Anchored variant for scanning the whole price block on deal tiles.
 SHEKEL_RE = re.compile(r"₪\s*([\d,]+)")
 
+
+# Stamped on every row; scripts/check_snapshot_rows.py makes a misread deal
+# row a hard failure only on files the fixed parser (2) wrote.
+TILE_PARSER_VERSION = 2
+
+
+def parse_tile_prices(sticker_text: str, normal_text: str | None,
+                      block_text: str) -> dict:
+    """Read one tile's price block (owner live check, 2026-11-12).
+
+    Two tile shapes carry two ₪ amounts:
+    - a "הנחת New PC" sticker: the regular price everyone pays, then the
+      cheaper price that needs a new-PC purchase (5600J3636D32GX2-RS5K:
+      4437 / 3993). `price_ils` = regular, `price_promo_ils` = deal.
+    - a "-N%" sticker: a store-wide sale. The crossed-out old price and the
+      current price everyone pays (CW-9061018-WW: 843 -> 745). `price_ils`
+      = current, `price_was_ils` = old; this is NOT a new-PC deal.
+    Only the sticker's New PC words make a deal; two amounts alone do not.
+    """
+    out: dict = {"price_ils": None, "new_pc_deal": any(m in sticker_text for m in NEW_PC_MARKERS)}
+    current = None
+    if normal_text:
+        m = PRICE_RE.search(normal_text)
+        if m:
+            current = int(m.group(1).replace(",", ""))
+    amounts = [int(a.replace(",", "")) for a in SHEKEL_RE.findall(block_text or "")]
+    if out["new_pc_deal"]:
+        regular = current if current is not None else (max(amounts) if amounts else None)
+        out["price_ils"] = regular
+        cheaper = [a for a in amounts if regular is not None and a < regular]
+        if cheaper:
+            out["price_promo_ils"] = min(cheaper)
+        return out
+    out["price_ils"] = current if current is not None else (min(amounts) if amounts else None)
+    higher = [a for a in amounts if out["price_ils"] is not None and a > out["price_ils"]]
+    if higher:
+        out["price_was_ils"] = max(higher)
+    return out
+
+
 # TMS's own results footer, e.g. "תוצאות 1 - 30 מתוך 205 (7 עמודים)"
 # ("results 1-30 of 205 (7 pages)") — plain visible text, present on every
 # category page regardless of pagination-widget markup details.
@@ -263,39 +303,17 @@ class TmsSpider(scrapy.Spider):
             sticker_text = " ".join(
                 header.css(".stickers-product-wrapper ::text").getall()
             ).strip()
-            new_pc_deal = any(m in sticker_text for m in NEW_PC_MARKERS)
-
-            # --- Price: normal span first (regular standalone price);
-            # deal tiles lack it, so fall back to the first ₪ amount in the
-            # price block (the struck-through regular price). The second ₪
-            # amount, when present, is the conditional whole-PC deal price —
-            # captured separately, never as the display/min price. Ordering
-            # assumption (regular first, deal second) matches the tile
-            # markup (struck-through regular precedes the deal amount);
-            # flag for a Nano live-check if the tile layout ever changes.
-            price_ils = None
-            price_promo_ils = None
-            price_raw = header.css(
-                ".product-card__price .product-card__price-normal::text"
-            ).get()
-            if price_raw:
-                m = PRICE_RE.search(price_raw)
-                if m:
-                    price_ils = int(m.group(1).replace(",", ""))
-
-            amounts = SHEKEL_RE.findall(
-                " ".join(header.css(".product-card__price ::text").getall())
+            # --- Price: a New PC sticker = regular + deal price, a "-N%"
+            # sticker = old (crossed out) + current sale price
+            # (parse_tile_prices; owner live check 2026-11-12).
+            prices = parse_tile_prices(
+                sticker_text,
+                header.css(".product-card__price .product-card__price-normal::text").get(),
+                " ".join(header.css(".product-card__price ::text").getall()),
             )
-            if price_ils is None and amounts:
-                price_ils = int(amounts[0].replace(",", ""))
-            if len(amounts) > 1:
-                # Regular + deal price present => deal tile even if the
-                # sticker markup ever changes.
-                new_pc_deal = True
-                try:
-                    price_promo_ils = int(amounts[1].replace(",", ""))
-                except (ValueError, IndexError):
-                    price_promo_ils = None
+            new_pc_deal = prices["new_pc_deal"]
+            price_ils = prices["price_ils"]
+            price_promo_ils = prices.get("price_promo_ils")
 
             tile_text = " ".join(tile.css("*::text").getall())
             bundle_only = BUNDLE_ONLY_MARKER in tile_text
@@ -329,6 +347,7 @@ class TmsSpider(scrapy.Spider):
                 category_guess=cat,
                 image_url=image_url,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
+                tile_parser=TILE_PARSER_VERSION,
             )
             if price_promo_ils is not None:
                 item["price_promo_ils"] = price_promo_ils
@@ -336,6 +355,11 @@ class TmsSpider(scrapy.Spider):
             if new_pc_deal and sticker_text:
                 item["promo_text_raw"] = sticker_text
                 item.setdefault("promo_kind", "tms-new-pc")
+            if prices.get("price_was_ils") is not None:
+                item["price_was_ils"] = prices["price_was_ils"]
+                item["promo_kind"] = "tms-sale"
+                if sticker_text:
+                    item["promo_text_raw"] = sticker_text
 
             claris_code = self._claris_key(
                 tile.css(".info-storage-button::attr(data-claris-code)").get()

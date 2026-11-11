@@ -1768,6 +1768,24 @@ def _strip_pc_bundle_suffix(mpn: str | None) -> str | None:
     return stripped or None
 
 
+# A store-wide sale sticker ("-12%"), as opposed to "הנחת New PC".
+_SALE_STICKER_RE = re.compile(r"-?\s*\d{1,2}\s*%")
+
+
+def is_store_sale(listing: dict) -> bool:
+    """The row is a store-wide sale everyone pays (owner live check 2026-11-12).
+
+    The fixed TMS spider says so (`promo_kind` "tms-sale"). Rows written
+    before it carry the sticker text only: a bare "-N%" sticker is a sale
+    (CW-9061018-WW 843 -> 745), never the new-PC condition, whatever deal
+    flag the old spider set.
+    """
+    if listing.get("promo_kind") == "tms-sale":
+        return True
+    text = str(listing.get("promo_text_raw") or "").strip()
+    return bool(text) and bool(_SALE_STICKER_RE.fullmatch(text))
+
+
 def apply_bundle_mpn(enriched: dict) -> None:
     """Fold a bundle row onto the plain part it is a bundle of.
 
@@ -1871,18 +1889,36 @@ def enrich_listing(listing: dict) -> dict:
 
     enriched["bundle_only"] = "bundle-only" in _guess_flags
     enriched["new_pc_deal"] = "new-pc-deal" in _guess_flags
+    sale = is_store_sale(listing)
+    if sale:
+        # A store-wide sale everyone pays, not a new-PC deal (owner live
+        # check 2026-11-12): the pre-fix TMS spider flagged every "-N%" tile
+        # as a deal with the deal price equal to the price.
+        enriched["new_pc_deal"] = False
     # A "-PC" tail is a "must buy a full build" promo marker (Yahav prints
     # the deal in the title, TMS in the guess suffix), never a maker suffix:
     # drop it so the bundle row lands on the same part as the plain listing.
     apply_bundle_mpn(enriched)
     # TMS promo side-column (Phase 1): regular price stays price_ils; the
     # conditional deal price rides along and must never set min/sorting.
-    if listing.get("price_promo_ils") is not None:
-        enriched["price_promo_ils"] = normalize_price(listing.get("price_promo_ils"))
+    promo = normalize_price(listing.get("price_promo_ils"))
+    price = enriched.get("price_ils")
+    # A deal price is cheaper than the price, or it is no deal price.
+    if promo is not None and not sale and (price is None or promo < price):
+        enriched["price_promo_ils"] = promo
     if listing.get("promo_kind"):
         enriched["promo_kind"] = str(listing.get("promo_kind"))
     if listing.get("promo_text_raw"):
         enriched["promo_text_raw"] = str(listing.get("promo_text_raw"))
+    if sale:
+        enriched["promo_kind"] = "tms-sale"
+        enriched.pop("price_promo_ils", None)
+        was = normalize_price(listing.get("price_was_ils"))
+        if was is not None and price is not None and was > price:
+            enriched["price_was_ils"] = was
+    elif not enriched.get("new_pc_deal") and enriched.get("promo_kind") == "tms-new-pc" \
+            and "price_promo_ils" not in enriched:
+        enriched.pop("promo_kind", None)
 
     enriched["attributes"] = extract_attributes(enriched)
 
@@ -2030,7 +2066,7 @@ def dedupe_enriched_listings(enriched_listings: list[dict]) -> list[dict]:
 
 _SAME_CRAWL_HOURS = 6
 # The offer itself: price, stock and the condition the price is under.
-_NEWEST_ROW_FIELDS = ("price_ils", "in_stock", "price_promo_ils", "promo_kind",
+_NEWEST_ROW_FIELDS = ("price_ils", "in_stock", "price_promo_ils", "price_was_ils", "promo_kind",
                       "promo_text_raw", "bundle_only", "new_pc_deal", "scraped_at")
 
 
@@ -2447,6 +2483,8 @@ def offer_from_listing(enriched: dict) -> dict:
         offer["promo_kind"] = enriched.get("promo_kind")
     if enriched.get("promo_text_raw"):
         offer["promo_text_raw"] = enriched.get("promo_text_raw")
+    if enriched.get("price_was_ils") is not None:
+        offer["price_was_ils"] = enriched.get("price_was_ils")
     if enriched.get("new_pc_deal"):
         offer["new_pc_deal"] = True
     if enriched.get("packaging_basis"):

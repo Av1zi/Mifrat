@@ -2,7 +2,7 @@ import { BUILD_SLOTS, type BuildSlot } from "../../build";
 import { formatPrice } from "../../format";
 import { buildFootNote, t, vendorLabel } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, effectivePrice, isBundleOffer } from "../../offers";
+import { bestOffer, effectivePrice } from "../../offers";
 import { categoryHash, MULTI_SLOTS, productHash } from "../../state";
 import type { Product } from "../../types";
 import { dealChip } from "../../ui/deal";
@@ -42,7 +42,7 @@ function partRow(ctx: BuilderCtx, slot: BuildSlot, product: Product, first: bool
         <span class="bt-part__sub">${specs.length > 0 ? specs : product.brand ?? ""}${product.in_stock ? "" : html` <span class="row__out">· ${t(lang, "outOfStock")}</span>`}</span>
       </span>
     </td>
-    <td class="bt-price">${price !== null ? html`${formatPrice(price, currency, lang)}${isBundleOffer(offer) ? html` ${dealChip(offer, currency, lang, { alignEnd: true })}` : ""}` : emptyValue(lang)}</td>
+    <td class="bt-price">${price !== null ? html`${formatPrice(price, currency, lang)} ${dealChip(offer, currency, lang, { alignEnd: true })}` : emptyValue(lang)}</td>
     <td class="bt-store">${offer ? vendorTag(offer.vendor) : ""}</td>
     <td class="bt-buy">${buy && price !== null && offer
       ? html`<a class="btn btn--buy btn--sm" href="${buy}" target="_blank" rel="noopener noreferrer" aria-label="${t(lang, "toStore")}: ${vendorLabel(offer.vendor)}">${t(lang, "toStore")}</a>`

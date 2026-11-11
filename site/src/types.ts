@@ -15,6 +15,10 @@ export interface Offer {
   new_pc_deal?: boolean;
   /** Same store's cheaper clearance listing of this part ("מציאון ועודפים"). */
   clearance_price?: number | null;
+  /** Store-wide sale: the old, crossed-out price (price is what everyone pays now). */
+  was_price?: number | null;
+  /** Store-wide sale sticker text, e.g. "-12%". */
+  sale_text?: string;
 }
 
 /**

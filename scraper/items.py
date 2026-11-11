@@ -45,7 +45,12 @@ class ListingItem(scrapy.Item):
     # conditional deal amount. Downstream min_price/sorting/history must use
     # the regular price only.
     price_promo_ils = scrapy.Field()
+    # Store-wide sale (TMS "-N%" sticker): price_ils is the current price
+    # everyone pays, price_was_ils the crossed-out old price (2026-11-12).
+    price_was_ils = scrapy.Field()
     promo_kind = scrapy.Field()
+    # TMS tile-price parser version (spiders/tms.TILE_PARSER_VERSION).
+    tile_parser = scrapy.Field()
     promo_text_raw = scrapy.Field()
 
     # Best-effort category guess from the vendor's own site structure

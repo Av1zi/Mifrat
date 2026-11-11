@@ -31,8 +31,28 @@ export function dealChip(
     const tip = promo !== null ? `${formatPrice(promo, currency, lang)} ${t(lang, "dealPcTip")}` : t(lang, "dealPcTipNoPrice");
     deal = tipChip(t(lang, "dealPc"), tip, opts.alignEnd);
   }
+  const was = positivePrice(offer.was_price);
+  const price = positivePrice(offer.price);
+  const sale: Html =
+    !offer.bundle_only && (was !== null || offer.sale_text)
+      ? tipChip(
+          offer.sale_text ? `${t(lang, "dealSale")} ${offer.sale_text}` : t(lang, "dealSale"),
+          was !== null && price !== null && was > price
+            ? `${t(lang, "dealSaleWas")} ${formatPrice(was, currency, lang)}`
+            : t(lang, "dealSaleTip"),
+          opts.alignEnd
+        )
+      : html``;
   const clearance = positivePrice(offer.clearance_price);
-  if (clearance === null) return deal;
+  if (clearance === null) return html`${sale}${deal}`;
   const clearanceTip = `${formatPrice(clearance, currency, lang)} · ${t(lang, "dealClearanceTip")}`;
-  return html`${deal}${tipChip(t(lang, "dealClearance"), clearanceTip, opts.alignEnd)}`;
+  return html`${sale}${deal}${tipChip(t(lang, "dealClearance"), clearanceTip, opts.alignEnd)}`;
+}
+
+/** The crossed-out old price of a store-wide sale, or nothing. */
+export function wasPrice(offer: Offer | null | undefined, currency: Currency, lang: Lang): Html {
+  const was = positivePrice(offer?.was_price);
+  const price = positivePrice(offer?.price);
+  if (was === null || price === null || was <= price) return html``;
+  return html`<s class="price-was">${formatPrice(was, currency, lang)}</s>`;
 }

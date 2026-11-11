@@ -166,3 +166,12 @@ button.pill:hover {
   border-color: var(--text);
   color: var(--surface);
 }
+
+/* Store-wide sale: the old price, crossed out, before the current one. */
+.price-was {
+  margin-inline-end: var(--sp-1);
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: line-through;
+}

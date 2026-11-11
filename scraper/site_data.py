@@ -489,6 +489,15 @@ def _trim_offer(offer: dict) -> dict:
         trimmed["bundle_only"] = True
     if offer.get("new_pc_deal"):
         trimmed["new_pc_deal"] = True
+    # Store-wide sale (owner 2026-11-12): the price is what everyone pays;
+    # the chip carries the sticker and, when known, the crossed-out price.
+    if offer.get("promo_kind") == "tms-sale":
+        if offer.get("promo_text_raw"):
+            trimmed["sale_text"] = str(offer["promo_text_raw"]).strip()
+        was = offer.get("price_was_ils")
+        price = offer.get("price_ils")
+        if isinstance(was, (int, float)) and isinstance(price, (int, float)) and was > price:
+            trimmed["was_price"] = int(was)
     return trimmed
 
 

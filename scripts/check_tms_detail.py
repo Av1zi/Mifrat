@@ -1271,9 +1271,43 @@ def check_mapped_fields_exist(failures: list[str]) -> int:
     return checked
 
 
+def check_tile_prices(failures: list[str]) -> int:
+    """TMS listing-tile price shapes (owner live check 2026-11-12, audit H).
+
+    Text-level cases from the owner's browser check; the HTML fixture of a
+    real category page is a Nano TODO (scraper/fixtures/tms/, decisions.md).
+    """
+    from scraper.spiders.tms import parse_tile_prices
+    cases = (
+        # -N% sticker: crossed-out old price + current price = store-wide sale.
+        ("-12%", "₪ 745", "₪ 843 ₪ 745",
+         {"price_ils": 745, "price_was_ils": 843, "new_pc_deal": False}),
+        ("-12%", None, "₪ 474 ₪ 415",
+         {"price_ils": 415, "price_was_ils": 474, "new_pc_deal": False}),
+        # New PC sticker: regular price + cheaper new-PC deal price.
+        ("הנחת New PC", "₪ 4,437", "₪ 4,437 ₪ 3,993",
+         {"price_ils": 4437, "price_promo_ils": 3993, "new_pc_deal": True}),
+        ("הנחת New PC", None, "₪ 4,437 ₪ 3,993",
+         {"price_ils": 4437, "price_promo_ils": 3993, "new_pc_deal": True}),
+        ("הנחת New PC", None, "₪ 3,993 ₪ 4,437",
+         {"price_ils": 4437, "price_promo_ils": 3993, "new_pc_deal": True}),
+        ("-8%", None, "₪ 1,782 ₪ 1,920",
+         {"price_ils": 1782, "price_was_ils": 1920, "new_pc_deal": False}),
+        # Plain tile.
+        ("", "₪ 1,920", "₪ 1,920", {"price_ils": 1920, "new_pc_deal": False}),
+    )
+    for sticker, normal, block, want in cases:
+        got = parse_tile_prices(sticker, normal, block)
+        if got != want:
+            failures.append(f"parse_tile_prices({sticker!r}, {normal!r}, {block!r}) = {got}, "
+                            f"expected {want}")
+    return len(cases)
+
+
 def main() -> int:
     failures: list[str] = []
     checked = 0
+    checked += check_tile_prices(failures)
     checked += check_spider_cases(failures)
     checked += check_pair_cases(failures)
     checked += check_template_fallbacks(failures)

@@ -12,6 +12,10 @@ superseded price on 25). Owner Q2: never drop a crawl's data; the newest
   2. the price-history point for that day is the newest row's price
      (`build_price_history._load_snapshot_prices`).
 
+Also (audit H, 2026-11-12): a TMS new-PC deal row whose deal price is at or
+above its price is a misread tile; hard on the newest day once the fixed
+tile parser (`tile_parser` >= 2) wrote it, a warning otherwise.
+
 A vendor-day whose repeats come from two separate runs (more than
 `matching._SAME_CRAWL_HOURS` apart) is reported as a warning: the cause is
 the Nano run honouring its success marker (`nano/run_tms.sh`).
@@ -153,8 +157,73 @@ def check_history(failures: list[str], warnings: list[str], seen: set[str]) -> i
     return checked
 
 
+def deal_parse_errors(path: Path) -> tuple[list[str], bool]:
+    """TMS new-PC deal rows whose deal price is not below the price (audit H).
+
+    A real "הנחת New PC" tile holds the regular price and a cheaper deal
+    price. A deal row with promo >= price is a misread tile: on 2026-11-09..11
+    the old spider read every "-N%" store-wide sale tile (crossed-out old
+    price + current price) as a new-PC deal with promo == price. Returns the
+    bad keys and whether the file was written by the fixed tile parser
+    (`tile_parser` >= 2 on its rows), which makes the errors hard.
+    """
+    bad: list[str] = []
+    fixed = False
+    for key, rows in _rows(path).items():
+        for row in rows:
+            if (row.get("tile_parser") or 0) >= 2:
+                fixed = True
+            deal = (row.get("promo_kind") == "tms-new-pc"
+                    or "new-pc-deal" in str(row.get("category_guess") or ""))
+            price, promo = _price(row.get("price_ils")), _price(row.get("price_promo_ils"))
+            if deal and price is not None and promo is not None and promo >= price:
+                bad.append(f"{key} (price {price:g}, deal {promo:g}, "
+                           f"sticker {row.get('promo_text_raw')!r})")
+                break
+    return bad, fixed
+
+
+def check_deal_rows(failures: list[str], warnings: list[str]) -> int:
+    """Newest TMS day: misread deal rows fail once the fixed spider wrote it;
+    older days (and the newest one before the Nano pulls the fix) warn."""
+    days = sorted(p for p in RAW.glob("*/tms.jsonl") if p.parent.name[:2] == "20")
+    checked = 0
+    for path in days[-14:]:
+        bad, fixed = deal_parse_errors(path)
+        checked += 1
+        if not bad:
+            continue
+        line = (f"{path.parent.name}/tms.jsonl: {len(bad)} new-PC deal row(s) with the deal "
+                f"price at or above the price (misread sale tile), e.g. {bad[0]}")
+        if path == days[-1] and fixed:
+            failures.append(line)
+        else:
+            warnings.append(line + (" [old spider; normalize reads them as sales]"
+                                    if not fixed else ""))
+    return checked
+
+
 def self_test() -> list[str]:
     errors: list[str] = []
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "tms.jsonl"
+        sale = {"vendor_id": "tms", "vendor_sku": "CC-9011296-WW", "url": "u1",
+                "price_ils": 415, "price_promo_ils": 415, "promo_text_raw": "-12%",
+                "promo_kind": "tms-new-pc", "category_guess": "case:new-pc-deal"}
+        deal = {"vendor_id": "tms", "vendor_sku": "5600J3636D32GX2-RS5K", "url": "u2",
+                "price_ils": 4437, "price_promo_ils": 3993, "promo_text_raw": "הנחת New PC",
+                "promo_kind": "tms-new-pc", "category_guess": "ram:new-pc-deal"}
+        for rows, want_bad, want_fixed in (
+                ([sale, deal], 1, False),
+                ([dict(sale, tile_parser=2), dict(deal, tile_parser=2)], 1, True),
+                ([deal, dict(sale, price_promo_ils=None, promo_kind="tms-sale",
+                             price_was_ils=474, category_guess="case", tile_parser=2)], 0, True)):
+            path.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n",
+                            encoding="utf-8")
+            bad, fixed = deal_parse_errors(path)
+            if (len(bad), fixed) != (want_bad, want_fixed):
+                errors.append(f"deal_parse_errors {len(bad)} bad, fixed={fixed}; "
+                              f"want {want_bad}, {want_fixed}")
     base = {"vendor_id": "tms", "vendor_sku": "CW-9061018-WW", "category_guess": "cpu cooler",
             "url": "https://tms.co.il/x", "title_raw": "Corsair iCUE LINK TITAN 360 RX"}
     first = dict(base, price_ils=843, in_stock=True, scraped_at="2026-11-09T03:37:01+00:00")
@@ -213,6 +282,7 @@ def main() -> int:
     warnings: list[str] = []
     n_catalog = check_catalog(catalog, failures, warnings)
     n_history = check_history(failures, warnings, set(warnings))
+    check_deal_rows(failures, warnings)
     for warning in warnings:
         print(f"[warn] {warning}")
     if failures:

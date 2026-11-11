@@ -7,7 +7,7 @@ import { safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { card } from "../../ui/card";
 import { chip } from "../../ui/chip";
-import { dealChip } from "../../ui/deal";
+import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
 import { compareButton, saveButton } from "../../ui/pick";
@@ -43,7 +43,7 @@ export function buyBoxMarkup(
       <div>
         <p class="buybox__label">${t(lang, "cheapest")}</p>
         <div class="buybox__price">
-          ${priceCell(price, currency, lang, "lg")}
+          ${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang, "lg")}
           ${offer && price !== null ? html`<span class="buybox__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
           ${price !== null ? dealChip(offer, currency, lang) : ""}
         </div>
@@ -83,7 +83,7 @@ export function offersCard(product: Product, lang: Lang, currency: Currency): Ht
     const seen = lastSeenText(lang, offer.last_seen);
     return html`<tr class="${isBest ? "is-best" : offer.in_stock ? "" : "is-out"}">
       <th scope="row"><span class="offer-store">${vendorMono(offer.vendor)}<b>${vendorLabel(offer.vendor)}</b></span></th>
-      <td><span class="offer-price">${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}</span></td>
+      <td><span class="offer-price">${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}</span></td>
       ${showShipping
         ? html`<td>${offer.shipping === null || offer.shipping === undefined
             ? emptyValue(lang)

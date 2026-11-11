@@ -256,6 +256,78 @@ def check_conditional_offers(catalog: dict, site_rows: dict[str, dict]) -> list[
     return problems
 
 
+def check_sale_offers(catalog: dict, site_rows: dict[str, dict]) -> list[str]:
+    """Audit 2026-11-10 H (owner live check 2026-11-12): a store-wide sale
+    is a plain offer, not a new-PC deal.
+
+    A TMS "-N%" tile is a sale everyone pays (`promo_kind` "tms-sale"), so
+    its offer carries no `new_pc_deal` flag and no deal price equal to its
+    own price, and its sticker reaches the site as the sale chip. A deal
+    price at or above the offer's price is never shipped.
+    """
+    problems: list[str] = []
+    flagged: list[str] = []
+    no_chip: list[str] = []
+    fake: list[str] = []
+    for product in catalog.get("products") or []:
+        pid = str(product.get("product_id"))
+        row = site_rows.get(pid) or {}
+        site = {(o.get("vendor"), o.get("url")): o for o in row.get("offers") or []}
+        for offer in product.get("offers") or []:
+            if offer.get("alias_of"):
+                continue
+            if offer.get("promo_kind") == "tms-sale":
+                if offer.get("new_pc_deal") or offer.get("price_promo_ils") is not None:
+                    flagged.append(f"{pid} [{offer.get('listing_key')}]")
+                shipped = site.get((offer.get("vendor_id"), offer.get("url")))
+                if shipped is not None and not (shipped.get("sale_text") or shipped.get("was_price")):
+                    no_chip.append(f"{pid} [{offer.get('listing_key')}]")
+        for o in row.get("offers") or []:
+            promo = o.get("promo_price")
+            if _priced(promo) and _priced(o.get("price")) and promo >= o["price"]:
+                fake.append(f"{pid} [{o.get('vendor')}]")
+    if flagged:
+        problems.append(f"{len(flagged)} store-wide sale offer(s) still carry a new-PC deal "
+                        f"flag or price (e.g. {_sample(flagged)}) — matching.enrich_listing")
+    if no_chip:
+        problems.append(f"{len(no_chip)} sale offer(s) reach data/site without their sale chip "
+                        f"(e.g. {_sample(no_chip)}) — site_data._trim_offer")
+    if fake:
+        problems.append(f"{len(fake)} site offer(s) ship a deal price at or above their own price "
+                        f"(e.g. {_sample(fake)})")
+    return problems
+
+
+def check_history_conditional(catalog: dict) -> list[str]:
+    """Owner Q1 in the price chart: a vendor line whose only offer in the
+    product is conditional is absent while a plain priced offer exists."""
+    history_dir = SITE_DIR / "history"
+    if not history_dir.is_dir():
+        return []
+    series: dict[str, dict] = {}
+    for path in history_dir.glob("*.json"):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for pid, entry in payload.items():
+            if isinstance(entry, dict):
+                series[pid] = entry.get("v") or {}
+    bad: list[str] = []
+    for product in catalog.get("products") or []:
+        pid = str(product.get("product_id"))
+        offers = [o for o in product.get("offers") or [] if not o.get("alias_of")]
+        if not any(_priced(o.get("price_ils")) and not o.get("bundle_only") for o in offers):
+            continue
+        vendors: dict[str, list[dict]] = defaultdict(list)
+        for o in offers:
+            vendors["onepc" if o.get("vendor_id") == "1pc" else str(o.get("vendor_id"))].append(o)
+        for vendor, own in vendors.items():
+            if all(o.get("bundle_only") for o in own) and vendor in series.get(pid, {}):
+                bad.append(f"{pid} [{vendor}]")
+    if not bad:
+        return []
+    return [f"{len(bad)} price-history line(s) drawn from a conditional (bundle-only) offer "
+            f"while a plain offer is priced (e.g. {_sample(bad)}) — build_price_history"]
+
+
 def check_vendor_twins(catalog: dict, site_rows: dict[str, dict]) -> list[str]:
     """Audit 2026-11-10 P: one site offer per vendor per part.
 
@@ -495,7 +567,30 @@ def self_test() -> int:
     detail = " | ".join(check_vendor_twins(twins, good))
     check_case("twin best offer trips", "best offer from a vendor twin" in detail, detail)
 
-    total_checks = 18
+    # Audit H (owner live check 2026-11-12): a "-N%" tile is a sale.
+    sale = {"vendor_id": "tms", "url": "s", "price_ils": 745, "listing_key": "tms:s",
+            "promo_kind": "tms-sale", "promo_text_raw": "-12%", "price_was_ils": 843}
+    sales = {"products": [{"product_id": "aio:9", "offers": [sale], "best_offer": sale}]}
+    good_sale = {"aio:9": {"offers": [{"vendor": "tms", "url": "s", "price": 745,
+                                       "sale_text": "-12%", "was_price": 843}]}}
+    detail = " | ".join(check_sale_offers(sales, good_sale))
+    check_case("sale offer passes", not detail, detail)
+    bad_sale = {"aio:9": {"offers": [{"vendor": "tms", "url": "s", "price": 745,
+                                      "new_pc_deal": True, "promo_price": 745}]}}
+    sales["products"][0]["offers"][0] = dict(sale, new_pc_deal=True, price_promo_ils=745)
+    detail = " | ".join(check_sale_offers(sales, bad_sale))
+    check_case("sale read as a deal trips", "still carry a new-PC deal" in detail
+               and "without their sale chip" in detail and "at or above" in detail, detail)
+    # Price history drops conditional prices while a plain one exists, with
+    # the same rule as matching (the history module mirrors it).
+    from scraper import build_price_history
+    from scraper.matching import is_conditional_offer
+    probes = [{}, {"bundle_only": True}, {"new_pc_deal": True}, {"promo_kind": "tms-sale"}]
+    check_case("history conditional rule mirrors matching",
+               all(build_price_history.is_conditional_offer(o) == is_conditional_offer(o)
+                   for o in probes), "build_price_history.is_conditional_offer drifted")
+
+    total_checks = 21
     if problems:
         print(f"[publish-set] self-test FAILED — {len(problems)} of ~{total_checks} checks:")
         for problem in problems:
@@ -521,6 +616,8 @@ def main(argv: list[str] | None = None) -> int:
     site_rows = load_site_rows()
     problems += check_conditional_offers(catalog, site_rows)
     problems += check_vendor_twins(catalog, site_rows)
+    problems += check_sale_offers(catalog, site_rows)
+    problems += check_history_conditional(catalog)
     if problems:
         print(f"[publish-set] FAIL — {len(problems)} incoherence(s) in the published data set:")
         for problem in problems:

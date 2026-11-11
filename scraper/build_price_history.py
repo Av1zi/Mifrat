@@ -37,6 +37,12 @@ HISTORY_DIR = REPO_ROOT / "data" / "site" / "history"
 SNAPSHOT_VENDORS = ("tms", "onepc", "ivory", "yahav", "ksp")
 
 
+def is_conditional_offer(offer: dict) -> bool:
+    """Mirror of `matching.is_conditional_offer` (kept import-light; the
+    publish-set self-test pins the two together)."""
+    return bool(offer.get("bundle_only"))
+
+
 def _norm_vendor(vendor_id: str | None) -> str:
     return "onepc" if vendor_id in ("1pc", "onepc") else (vendor_id or "")
 
@@ -230,10 +236,19 @@ def build_price_history(
         if category in ("aio", "cooler_air"):
             category = "cpu_cooler"
         series: dict[str, list] = {}
+        # A conditional price (only with a whole PC, owner Q1) never draws a
+        # line while the product has a plain priced offer: the chart's
+        # "lowest" would otherwise be a price nobody pays for the part alone.
+        has_plain = any(
+            not offer.get("alias_of") and not is_conditional_offer(offer)
+            and isinstance(offer.get("price_ils"), (int, float))
+            for offer in product.get("offers", []))
         for offer in product.get("offers", []):
             # A vendor's twin listing (matching.collapse_vendor_twins) is
             # not its offer, so it never draws the vendor's line.
             if offer.get("alias_of"):
+                continue
+            if has_plain and is_conditional_offer(offer):
                 continue
             vendor = _norm_vendor(offer.get("vendor_id"))
             if not vendor or vendor in series:
