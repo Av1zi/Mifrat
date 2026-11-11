@@ -327,7 +327,26 @@ def check_store_reach() -> None:
           len(unreached) <= UNREACHED_BUDGET, True)
 
 
+def check_run_aliases() -> None:
+    """Review 2 (2026-11-12): a pid retired IN this run still gets its facts.
+    The store reads the run's own `pid_aliases` (set_run_aliases), chained
+    through the previous build's, not only last build's meta.json."""
+    from scraper.extract import store
+
+    store.set_run_aliases({"model:gpu:retired-this-run": "model:gpu:live",
+                           "model:gpu:older": "model:gpu:retired-this-run"})
+    try:
+        ids = store._candidate_ids("model:gpu:live", None, [])
+        check("run alias is a candidate", "model:gpu:retired-this-run" in ids, True)
+        check("chained run alias is a candidate", "model:gpu:older" in ids, True)
+    finally:
+        store.set_run_aliases({})
+    check("cleared run aliases", "model:gpu:retired-this-run"
+          in store._candidate_ids("model:gpu:live", None, []), False)
+
+
 UNREACHED_BUDGET = 25
+check_run_aliases()
 check_store_reach()
 
 if failures:

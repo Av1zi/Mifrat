@@ -5645,9 +5645,27 @@ def strip_colour_word_mpns(enriched_listings: list[dict]) -> None:
         enriched["mpn"] = mpn
 
 
+def order_split_clusters(category: str, code_slug: str, clusters: list[list[dict]],
+                         previous_assignments: dict[str, str]) -> list[list[dict]]:
+    """After a part-number split, the cluster that held the bare pid in the
+    previous build comes first, so it keeps that pid (review 2, 2026-11-12;
+    the brand split already does this): a URL and its price history never
+    switch to another part. Otherwise largest-first, as before."""
+    if len(clusters) < 2 or not previous_assignments:
+        return clusters
+
+    def held(cluster: list[dict]) -> int:
+        bare = f"model:{category}:{code_slug}{identity_pid_suffix(category, cluster)}"
+        return sum(1 for e in cluster if previous_assignments.get(e["listing_key"]) == bare)
+
+    order = {id(c): i for i, c in enumerate(clusters)}
+    return sorted(clusters, key=lambda c: (-held(c), order[id(c)]))
+
+
 def match_listings(
     enriched_listings: list[dict],
     manual_path: Path | str | None = None,
+    previous_assignments: dict[str, str] | None = None,
 ) -> dict:
     """
     Build canonical products.
@@ -5666,7 +5684,11 @@ def match_listings(
     - EAN/barcode unification (last: never churns an already-named pid)
     - Manufacturer model-code unification (Gigabyte distributor codes)
     - Vendor packaging-conflict resolution (one vendor, two labels)
+
+    `previous_assignments` (listing key -> pid of the last build) only orders
+    split clusters so the one that held a bare pid keeps it.
     """
+    previous_assignments = previous_assignments or {}
     manual_key_to_pid, manual_products, blocked_pairs = load_manual(manual_path)
 
     # Part-number repairs first (every tier reads `mpn`), then the codes
@@ -5890,6 +5912,8 @@ def match_listings(
                                                for e in sub))
         for sub in subgroups:
             clusters = identity.part_number_subgroups(list(sub), shared)
+            clusters = order_split_clusters(category, code_slug, clusters,
+                                            previous_assignments)
             made: list[tuple[str, list[dict]]] = []
             for cluster in clusters:
                 # Blocked-pair veto: a human not_match verdict keeps these

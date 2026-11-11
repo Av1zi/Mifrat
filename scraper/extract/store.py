@@ -38,21 +38,45 @@ def _entries() -> dict:
     return data.get("entries") or {}
 
 
+_RUN_ALIASES: dict[str, str] = {}
+
+
+def set_run_aliases(aliases: dict | None) -> None:
+    """This run's pid renames (`match_listings` `pid_aliases`), read before
+    the build writes them (review 2, 2026-11-12): a pid retired IN this run
+    is not yet in the previous build's meta.json, so its facts were lost
+    for one build."""
+    _RUN_ALIASES.clear()
+    _RUN_ALIASES.update({str(k): str(v) for k, v in (aliases or {}).items()})
+    _alias_sources.cache_clear()
+
+
+def _resolve(target: str, aliases: dict[str, str]) -> str:
+    seen = {target}
+    while target in aliases and aliases[target] not in seen:
+        target = aliases[target]
+        seen.add(target)
+    return target
+
+
 @lru_cache(maxsize=1)
 def _alias_sources() -> dict[str, tuple[str, ...]]:
     """Live pid -> the retired pids that alias to it (audit 2026-11-10 K).
 
-    Read from the last build's `data/site/meta.json` `pid_aliases` (chains
-    already resolved and carried forward by `_carry_pid_aliases`), so an
-    entry extracted under a pid that a rework retired still reaches its
-    product without rekeying the git-tracked store."""
+    The previous build's `data/site/meta.json` `pid_aliases` (chains already
+    resolved by `_carry_pid_aliases`) plus this run's own renames
+    (`set_run_aliases`), chains followed through both, so an entry extracted
+    under a pid that a rework retired still reaches its product without
+    rekeying the git-tracked store."""
     try:
         meta = json.loads(ALIASES.read_text(encoding="utf-8"))
     except (OSError, ValueError):
-        return {}
+        meta = {}
+    aliases = {str(k): str(v) for k, v in (meta.get("pid_aliases") or {}).items()}
+    aliases.update(_RUN_ALIASES)
     sources: dict[str, list[str]] = {}
-    for old_pid, target in (meta.get("pid_aliases") or {}).items():
-        sources.setdefault(str(target), []).append(str(old_pid))
+    for old_pid in aliases:
+        sources.setdefault(_resolve(old_pid, aliases), []).append(old_pid)
     return {target: tuple(sorted(olds)) for target, olds in sources.items()}
 
 

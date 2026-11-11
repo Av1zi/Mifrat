@@ -377,7 +377,19 @@ def check_i4_unit() -> int:
         got = identity._code_kind(code, "cpu" if code.startswith("100") else "case")
         if got != kind:
             fail("I4: _code_kind(%r) = %r, expected %r" % (code, got, kind))
-    return len(SPLIT_FIXTURES) + 3
+    # Pid stability: the smaller cluster that held the bare pid keeps it.
+    from scraper.matching import order_split_clusters
+    small = [{"listing_key": "ivory:1", "category_normalized": "case"}]
+    large = [{"listing_key": "yahav:2", "category_normalized": "case"},
+             {"listing_key": "ksp:3", "category_normalized": "case"}]
+    suffix = __import__("scraper.matching", fromlist=["identity_pid_suffix"]).identity_pid_suffix
+    bare = "model:case:2500x" + suffix("case", small)
+    got = order_split_clusters("case", "2500x", [large, small], {"ivory:1": bare})
+    if got[0] is not small:
+        fail("I4: order_split_clusters gave the bare pid to the cluster that did not hold it")
+    if order_split_clusters("case", "2500x", [large, small], {})[0] is not large:
+        fail("I4: order_split_clusters without history must keep largest-first")
+    return len(SPLIT_FIXTURES) + 5
 
 
 TITLE_AXIS_FIXTURES = [

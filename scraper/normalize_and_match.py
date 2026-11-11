@@ -687,7 +687,18 @@ def build_catalog(today: datetime):
     # Stable output ordering.
     enriched.sort(key=lambda e: (e.get("vendor_id", ""), e.get("listing_key", "")))
 
-    match_result = match_listings(enriched, manual_path=MANUAL_PATH)
+    # The last build's listing -> pid map, so a split keeps the bare pid on
+    # the part that held it (pid stability, review 2 2026-11-12).
+    previous_assignments: dict[str, str] = {}
+    try:
+        with open(OUTPUT_PATH, encoding="utf-8") as previous_file:
+            for row in json.load(previous_file).get("listings") or []:
+                if row.get("listing_key") and row.get("product_id"):
+                    previous_assignments[str(row["listing_key"])] = str(row["product_id"])
+    except (OSError, ValueError):
+        previous_assignments = {}
+    match_result = match_listings(enriched, manual_path=MANUAL_PATH,
+                                  previous_assignments=previous_assignments)
 
     assignments = match_result["assignments"]
     product_sizes = match_result["product_sizes"]
@@ -699,6 +710,12 @@ def build_catalog(today: datetime):
     # manual overrides and cross-field validation, then re-derive the legacy
     # `attributes` view from the merged sheet (scraper/specs/). Products end
     # up with `specs` (fixed key set, nulls included) + `spec_sources`.
+    # Pid-keyed stores read THIS run's renames too (audit K follow-up).
+    try:
+        from scraper.extract import store as extract_store
+    except ImportError:  # script-path run
+        from extract import store as extract_store  # type: ignore[no-redef]
+    extract_store.set_run_aliases(match_result.get("pid_aliases"))
     spec_report = build_product_specs(match_result["products"], enriched)
     _recompute_canonical_names(match_result["products"], enriched)
     _disambiguate_duplicate_names(match_result["products"])
