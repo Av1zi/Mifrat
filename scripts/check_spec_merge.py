@@ -254,6 +254,18 @@ def check_title_witness(c: Checks) -> None:
     c.eq((specs["chipset"], specs["socket"]), ("C621A", "LGA4189"),
          "two C621A titles never flip a C621A board to C621")
 
+    # includes_cooler reads a cooler IN THE BOX, not advice (review 2).
+    from scraper.specs.resolvers.title_parse import parse_title
+    for title, want in (
+            ("מעבד AMD Ryzen 7 9800X3D מומלץ לשלב עם קירור נוזלי", None),
+            ("Intel Core i9-14900K - recommended with liquid cooling", None),
+            ("מעבד AMD Ryzen 5 9600 עם קירור Wraith Stealth", True),
+            ("מעבד AMD Ryzen 7 7700 כולל קירור", True),
+            ("Intel Core i5-14400F Box - ללא קירור באריזה", False)):
+        facts = parse_title("cpu", title).get("includes_cooler") or []
+        got = facts[0].value if facts else None
+        c.eq(got, want, f"includes_cooler from {title!r}")
+
     specs = {"socket": "LGA1851", "chipset": "B760", "memory_type": None}
     sources = {"socket": "vendor", "chipset": "reference"}
     cross_check("motherboard", specs, sources, title_supported={"socket"})

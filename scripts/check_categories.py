@@ -79,6 +79,25 @@ LISTINGS = [
     # liquid cooler named "קירור מים" already in aio stays there.
     ("case_fans", "ערכת מאווררים Corsairi CUE SP140 RGB PRO 140ממ עם Lighting Node CORE CO-9050096-WW", "case_fan"),
     ("cpu_cooling", "קירור מים Corsair iCUE H115i RGB PRO XT צבע שחור", "aio"),
+    # Review 2 (2026-11-12): an is-a word that only names what the product
+    # comes WITH is no is-a word. Anchored like the Hebrew rules.
+    ("case", "Fractal Design Dark Base 900 with HDD cage", "case"),
+    ("case", "מארז be quiet! Dark Base 900 with HDD cage", "case"),
+    ("cpu_cooling", "NZXT Kraken Elite 360 AIO with LCD screen module", "aio"),
+    ("cpu_cooling", "Corsair iCUE LINK TITAN 360 RX AIO with LCD screen module", "aio"),
+    ("cpu_cooling", "ROG Ryujin III 360 ARGB AIO, custom loop ready", "aio"),
+    # A case with a glass side panel is a case ("only on the side").
+    ("case", "מארז Lian Li O11 Vision פאנל זכוכית בלבד בצד", "case"),
+    ("case", "מארז Corsair 4000D Airflow פאנל זכוכית בלבד בצד שמאל", "case"),
+    # ...while the item itself still moves.
+    ("cpu_cooling", "Corsair iCUE LINK LCD Screen Module", "accessories"),
+    ("case", "SilverStone drive cage for 4x 2.5\" U.2", "accessories"),
+    ("cpu_cooling", "EK-Quantum Velocity2 CPU water block", "accessories"),
+    ("case", "Antec P20C Tempered Glass panel only", "accessories"),
+    # Bracket and controller are is-a words in the classifier too (README I).
+    ("storage", "Fractal Design FD-A-BRKT-001 HDD bracket", "accessories"),
+    ("case_fans", "Corsair iCUE Commander CORE XT fan controller", "accessories"),
+    ("case_fans", "Lian Li UNI FAN SL120 V2 3-pack with controller", "case_fan"),
 ]
 
 # Accessory subtype for rows routed to `accessories` (raw title, guess, subtype).

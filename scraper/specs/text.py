@@ -140,9 +140,13 @@ XEON_RE = re.compile(
 CPU_PACKAGING_TRAY_RE = re.compile(r"\b(?:tray|oem|mpk|bulk)\b|\bטריי?\b", re.I)
 CPU_PACKAGING_BOX_RE = re.compile(
     r"\b(?:box|boxed|retail|wraith|wrapper)\b|(?:אריזת|צבע)\s+(?:קופסה|קרטון)", re.I)
+# A cooler IN THE BOX. Advice is not ("מומלץ לשלב עם קירור נוזלי" =
+# recommended to pair with liquid cooling; review 2, 2026-11-12): no
+# "recommend"/"מומלץ"/"לשלב" before the phrase, and no liquid/water word after.
 CPU_COOLER_INCLUDED_RE = re.compile(
-    r"\b(?:with|includes?)\s+(?:a\s+)?(?:wraith|stock\s+)?cooler\b"
-    r"|(?:כולל|עם)\s*(?:קירור|מאוורר|קולר)", re.I
+    r"(?<!recommended )(?<!pair )\b(?:with|includes?)\s+(?:a\s+)?(?:wraith|stock\s+)?cooler\b"
+    r"|(?<!לשלב )(?<!בשילוב )(?:כולל|עם)\s*(?:קירור|מאוורר|קולר)(?!\s*(?:נוזלי|מים|אוויר\s+חזק))",
+    re.I,
 )
 # Hebrew alternatives only match the RAW title (clean_text strips Hebrew):
 # KSP "Box - ללא קירור באריזה" (audit 2026-11-10 F12).

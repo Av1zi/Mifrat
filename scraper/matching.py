@@ -628,8 +628,15 @@ def _hebrew_category_hint(title_raw: str) -> str | None:
 # Each rule is definitive and beats both the vendor bucket and the coarse
 # Hebrew/English cooler-fan words. Order matters only between rules that can
 # share a title (none in the Nov 2026 snapshot).
+#
+# English phrases are anchored the way the Hebrew ones are (review 2,
+# 2026-11-12): a phrase the item comes WITH ("Dark Base 900 with HDD cage",
+# "AIO with LCD screen module", "+ Controller") or is READY for ("custom
+# loop ready") names an extra, not the item. A Hebrew panel phrase saying
+# where the glass is ("פאנל זכוכית בלבד בצד", glass on the side only) on a
+# title that starts "מארז" (case) is a case.
 _IS_A_RULES: tuple[tuple[re.Pattern, str], ...] = (
-    (re.compile(r"(?:פאנל|זכוכית)[^|]{0,40}?בלבד|\b(?:glass|panel)\s+only\b", re.I),
+    (re.compile(r"(?:פאנל|זכוכית)[^|]{0,40}?בלבד(?!\s*ב?צד)|\b(?:glass|panel)\s+only\b", re.I),
      "case_accessory"),
     (re.compile(r"^\s*(?:ערכת|יחידת)\s+מאווררים"), "case_fan"),
     (re.compile(r"^\s*מודול\s+(?:מסך|תצוגה)|\b(?:lcd|screen|display)\s+module\b", re.I),
@@ -638,17 +645,43 @@ _IS_A_RULES: tuple[tuple[re.Pattern, str], ...] = (
     (re.compile(r"בלוק\s*(?:מעבד|מים)|\b(?:water|cpu)\s*blocks?\b|\bcustom\s*loop\b", re.I),
      "cooler_accessory"),
     (re.compile(r"\bbarebones?\b|\bsuperserver\b|\bSYS-\d{3,4}", re.I), "other"),
+    # README I is-a words the classifier lacked (they were gate-only):
+    # a bracket for a drive/GPU is a case part, any other a cooler mount;
+    # a fan/RGB controller on its own is a fan controller.
+    (re.compile(r"\b(?:hdd|ssd|drive|gpu|vga)\s+(?:mounting\s+)?brackets?\b", re.I), "case_accessory"),
+    (re.compile(r"\bbrackets?\b", re.I), "cooler_accessory"),
+    (re.compile(r"\b(?:fan|rgb|argb|led|pwm)?\s*controller\b", re.I), "fan_controller"),
 )
 _HEBREW_LIGHTING_NODE_RE = re.compile(r"לייטינג\s*נוד")
 _FAN_WORD_RE = re.compile(r"מאוורר|\bfans?\b", re.I)
+# An extra the item ships with, or a part it is ready for.
+_WITH_BEFORE_RE = re.compile(
+    r"(?:\bwith|\bw/|\bincl(?:uding|udes?)?\.?|\+|&|\bplus|\band|עם|כולל)\s*(?:\S+\s+){0,2}$", re.I)
+_READY_AFTER_RE = re.compile(r"^\W*(?:ready|compatible|support(?:ed)?)\b", re.I)
+_CASE_TITLE_RE = re.compile(r"^\s*מארז(?!\s+\d)")
+# Rules whose phrase an item can come with (all but panel/fan-unit/server).
+_ACCOMPANIED = frozenset({2, 3, 4, 6, 7, 8})
+_FAN_PACK_RE = re.compile(r"מאוורר|\bfans?\b|\b\d\s*x\s*1[24]0|\b(?:triple|3)\s*pack\b", re.I)
 
 
 def _is_a_category(title_raw: str) -> str | None:
     """Definitive category from an is-a phrase in the raw title, else None."""
     title_raw = str(title_raw or "")
-    for pattern, category in _IS_A_RULES:
-        if pattern.search(title_raw):
-            return category
+    for index, (pattern, category) in enumerate(_IS_A_RULES):
+        match = pattern.search(title_raw)
+        if not match:
+            continue
+        if index == 0 and _CASE_TITLE_RE.search(title_raw) and not re.search(
+                r"\b(?:glass|panel)\s+only\b", title_raw, re.I):
+            continue
+        if index in _ACCOMPANIED and (
+                _WITH_BEFORE_RE.search(title_raw[:match.start()])
+                or _READY_AFTER_RE.search(title_raw[match.end():])):
+            continue
+        if category == "fan_controller" and _FAN_PACK_RE.search(
+                title_raw[:match.start()].replace("fan controller", "")):
+            continue
+        return category
     # Corsair's Hebrew transliteration of its Lighting Node controller; with a
     # fan word the node is the bundled extra of a fan kit.
     if _HEBREW_LIGHTING_NODE_RE.search(title_raw) and not _FAN_WORD_RE.search(title_raw):
