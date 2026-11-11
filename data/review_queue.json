@@ -20321,58 +20321,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:c500-ice-panoramic-stealth-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207719",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C500PI-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE בצבע לבן",
-        "price": 501
-      },
-      {
-        "listing_key": "tms:GB-C500PI-ST",
-        "vendor": "tms",
-        "vendor_sku": "GB-C500PI-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE",
-        "price": 484
-      }
-    ],
-    "model_code": "c500-ice-panoramic-stealth",
-    "manufacturer_pn": [
-      "GBC500PIST"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:c500-panoramic-stealth-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207720",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C500P-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth בצבע שחור",
-        "price": 486
-      },
-      {
-        "listing_key": "tms:GB-C500P-ST",
-        "vendor": "tms",
-        "vendor_sku": "GB-C500P-ST",
-        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth",
-        "price": 470
-      }
-    ],
-    "model_code": "c500-panoramic-stealth",
-    "manufacturer_pn": [
-      "GBC500PST"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:c201-ice-panoramic-white",
     "vendor": "",
     "offers": [
@@ -20420,6 +20368,58 @@
     "model_code": "c201-panoramic",
     "manufacturer_pn": [
       "GBC201P"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c500-ice-panoramic-stealth-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207719",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C500PI-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE בצבע לבן",
+        "price": 501
+      },
+      {
+        "listing_key": "tms:GB-C500PI-ST",
+        "vendor": "tms",
+        "vendor_sku": "GB-C500PI-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE",
+        "price": 484
+      }
+    ],
+    "model_code": "c500-ice-panoramic-stealth",
+    "manufacturer_pn": [
+      "GBC500PIST"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c500-panoramic-stealth-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207720",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C500P-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth בצבע שחור",
+        "price": 486
+      },
+      {
+        "listing_key": "tms:GB-C500P-ST",
+        "vendor": "tms",
+        "vendor_sku": "GB-C500P-ST",
+        "title": "מארז מחשב Gigabyte C500 Panoramic Stealth",
+        "price": 470
+      }
+    ],
+    "model_code": "c500-panoramic-stealth",
+    "manufacturer_pn": [
+      "GBC500PST"
     ]
   },
   {
@@ -20979,72 +20979,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208029",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
-        "price": 216
-      },
-      {
-        "listing_key": "tms:12SLIN1W1B",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
-        "price": 136
-      },
-      {
-        "listing_key": "yahav:10987",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
-        "price": 130
-      }
-    ],
-    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208007",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
-        "price": 419
-      },
-      {
-        "listing_key": "tms:12SLIN1W3B",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
-        "price": 422
-      },
-      {
-        "listing_key": "yahav:10993",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 410
-      }
-    ],
-    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
     "vendor": "",
     "offers": [
@@ -21111,6 +21045,72 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208029",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
+        "price": 216
+      },
+      {
+        "listing_key": "tms:12SLIN1W1B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
+        "price": 136
+      },
+      {
+        "listing_key": "yahav:10987",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
+        "price": 130
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208007",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
+        "price": 419
+      },
+      {
+        "listing_key": "tms:12SLIN1W3B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
+        "price": 422
+      },
+      {
+        "listing_key": "yahav:10993",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 410
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:140mm-1600rpm-4-7cfm-82-bl117-pwm-silent-white-wings-140mm-white",
     "vendor": "",
     "offers": [
@@ -21158,6 +21158,79 @@
     "model_code": "3-high-pwm-silent-speed-wings",
     "manufacturer_pn": [
       "BL070"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:2-2x140mm-core-dual-icue-node-pack-ql140-rgb-series-140mm-2-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:75965",
+        "vendor": "1pc",
+        "vendor_sku": "CO-9050100-WW",
+        "title": "מאוורר Corsair iCUE QL140 RGB 140mm PWM 2 יחידות בצבע RGB",
+        "price": 458
+      },
+      {
+        "listing_key": "tms:CO-9050100-WW",
+        "vendor": "tms",
+        "vendor_sku": "CO-9050100-WW",
+        "title": "Corsair iCUE QL140 RGB 140mm PWM Single Fan 2 Pack",
+        "price": 236
+      },
+      {
+        "listing_key": "yahav:5530",
+        "vendor": "yahav",
+        "vendor_sku": "CO-9050100-WW",
+        "title": "סט 2 מאווררים חברת Corsair דגם QL140 iCue Series with Node Core RGB 2X140MM Dual Pack צבע שחור",
+        "price": 350
+      }
+    ],
+    "model_code": "2-2x140mm-core-dual-icue-node-pack-ql140-rgb-series",
+    "manufacturer_pn": [
+      "CO9050100WW"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:icue-ql140-series-single-140mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:75969",
+        "vendor": "1pc",
+        "vendor_sku": "CO-9050099-WW",
+        "title": "מאוורר RGB Corsair iCUE QL140 140mm CO-9050099-WW",
+        "price": 271
+      },
+      {
+        "listing_key": "ivory:173194",
+        "vendor": "ivory",
+        "vendor_sku": "CO-9050099-WW",
+        "title": "מאווררים למארז 14 ס\"מ Corsair iCUE QL140 RGB PWM בצבע שחור",
+        "price": 115
+      },
+      {
+        "listing_key": "tms:CO-9050099-WW",
+        "vendor": "tms",
+        "vendor_sku": "CO-9050099-WW",
+        "title": "Corsair iCUE QL140 RGB 140mm PWM Single Fan",
+        "price": 130
+      },
+      {
+        "listing_key": "yahav:5532",
+        "vendor": "yahav",
+        "vendor_sku": "CO-9050099-WW",
+        "title": "מאוורר חברת Corsair דגם QL140 iCue Series RGB 140MM Single Pack צבע שחור",
+        "price": 210
+      }
+    ],
+    "model_code": "9050099-co-icue-ql140-ww",
+    "manufacturer_pn": [
+      "CO9050099WW"
     ]
   },
   {
@@ -21341,79 +21414,6 @@
     "model_code": "2-led-pwm-rs140-support",
     "manufacturer_pn": [
       "CO9050187WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:2-2x140mm-core-dual-icue-node-pack-ql140-rgb-series-140mm-2-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:75965",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050100-WW",
-        "title": "מאוורר Corsair iCUE QL140 RGB 140mm PWM 2 יחידות בצבע RGB",
-        "price": 458
-      },
-      {
-        "listing_key": "tms:CO-9050100-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050100-WW",
-        "title": "Corsair iCUE QL140 RGB 140mm PWM Single Fan 2 Pack",
-        "price": 236
-      },
-      {
-        "listing_key": "yahav:5530",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050100-WW",
-        "title": "סט 2 מאווררים חברת Corsair דגם QL140 iCue Series with Node Core RGB 2X140MM Dual Pack צבע שחור",
-        "price": 350
-      }
-    ],
-    "model_code": "2-2x140mm-core-dual-icue-node-pack-ql140-rgb-series",
-    "manufacturer_pn": [
-      "CO9050100WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:icue-ql140-series-single-140mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:75969",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050099-WW",
-        "title": "מאוורר RGB Corsair iCUE QL140 140mm CO-9050099-WW",
-        "price": 271
-      },
-      {
-        "listing_key": "ivory:173194",
-        "vendor": "ivory",
-        "vendor_sku": "CO-9050099-WW",
-        "title": "מאווררים למארז 14 ס\"מ Corsair iCUE QL140 RGB PWM בצבע שחור",
-        "price": 115
-      },
-      {
-        "listing_key": "tms:CO-9050099-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050099-WW",
-        "title": "Corsair iCUE QL140 RGB 140mm PWM Single Fan",
-        "price": 130
-      },
-      {
-        "listing_key": "yahav:5532",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050099-WW",
-        "title": "מאוורר חברת Corsair דגם QL140 iCue Series RGB 140MM Single Pack צבע שחור",
-        "price": 210
-      }
-    ],
-    "model_code": "9050099-co-icue-ql140-ww",
-    "manufacturer_pn": [
-      "CO9050099WW"
     ]
   },
   {
@@ -21658,40 +21658,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:3-f120-mag-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:419677",
-        "vendor": "ksp",
-        "vendor_sku": "419677",
-        "title": "מאווררים למארז עם להבים הפוכים MSI MAG F120 ARGB - צבע לבן - 3 יחידות",
-        "price": 95
-      }
-    ],
-    "model_code": "3-f120-mag",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:f120-mag-120mm-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:419672",
-        "vendor": "ksp",
-        "vendor_sku": "419672",
-        "title": "מאוורר למארז MSI MAG F120 ARGB - צבע שחור",
-        "price": 33
-      }
-    ],
-    "model_code": "f120-mag",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:3-d12tf-duo-f120-fans-rf-triple-w1-120mm-3-rgb-white",
     "vendor": "",
     "offers": [
@@ -21740,6 +21706,40 @@
     "manufacturer_pn": [
       "RFD12SFW1"
     ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:3-f120-mag-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:419677",
+        "vendor": "ksp",
+        "vendor_sku": "419677",
+        "title": "מאווררים למארז עם להבים הפוכים MSI MAG F120 ARGB - צבע לבן - 3 יחידות",
+        "price": 95
+      }
+    ],
+    "model_code": "3-f120-mag",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:f120-mag-120mm-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:419672",
+        "vendor": "ksp",
+        "vendor_sku": "419672",
+        "title": "מאוורר למארז MSI MAG F120 ARGB - צבע שחור",
+        "price": 33
+      }
+    ],
+    "model_code": "f120-mag",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -22510,6 +22510,39 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172013",
+        "vendor": "1pc",
+        "vendor_sku": "GZ890AORUSELITEWF7ICE",
+        "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+        "price": 1316
+      },
+      {
+        "listing_key": "tms:GZ890AORUSELITEWF7ICE",
+        "vendor": "tms",
+        "vendor_sku": "GZ890AORUSELITEWF7ICE",
+        "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+        "price": 1275
+      },
+      {
+        "listing_key": "yahav:10326",
+        "vendor": "yahav",
+        "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
+        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
+        "price": 1105
+      }
+    ],
+    "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
+    "manufacturer_pn": [
+      "GZ890AORUSELITEWF7ICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
     "product_id": "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx",
     "vendor": "",
     "offers": [
@@ -22564,39 +22597,6 @@
     "model_code": "1851-aorus-atx-b860m-ddr5-dp-elite-hdmi-ice-lga-micro-wifi6e",
     "manufacturer_pn": [
       "GB860MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172013",
-        "vendor": "1pc",
-        "vendor_sku": "GZ890AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1316
-      },
-      {
-        "listing_key": "tms:GZ890AORUSELITEWF7ICE",
-        "vendor": "tms",
-        "vendor_sku": "GZ890AORUSELITEWF7ICE",
-        "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1275
-      },
-      {
-        "listing_key": "yahav:10326",
-        "vendor": "yahav",
-        "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
-        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
-        "price": 1105
-      }
-    ],
-    "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
-    "manufacturer_pn": [
-      "GZ890AORUSELITEWF7ICE"
     ]
   },
   {
@@ -22708,334 +22708,6 @@
     "model_code": "gaming-max-wifi7-x870",
     "manufacturer_pn": [
       "90MB1LY0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-pro-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:171448",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPRO",
-        "title": "לוח אם Gigabyte X870E AORUS PRO",
-        "price": 1949
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPRO",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPRO",
-        "title": "Gigabyte X870E AORUS PRO",
-        "price": 1671
-      },
-      {
-        "listing_key": "yahav:9957",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1635
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPRO"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207707",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPROX3DICE",
-        "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
-        "price": 1965
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPROX3DICE",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPROX3DICE",
-        "title": "Gigabyte X870E AORUS PRO X3D ICE",
-        "price": 1913
-      },
-      {
-        "listing_key": "yahav:10918",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1850
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPROX3DICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209975",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPROX3D",
-        "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
-        "price": 1928
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPROX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPROX3D",
-        "title": "Gigabyte X870E AORUS PRO X3D",
-        "price": 1877
-      },
-      {
-        "listing_key": "yahav:11665",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO-X3D",
-        "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1750
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPROX3D"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207718",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2592
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3DI",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2575
-      },
-      {
-        "listing_key": "yahav:10919",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 2190
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3DI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:216436",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-        "price": 2501
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2440
-      }
-    ],
-    "model_code": "aorus-master-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3D"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170330",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170331",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207716",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1561
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1545
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170329",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-        "price": 1481
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7",
-        "price": 1438
-      },
-      {
-        "listing_key": "yahav:10175",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1380
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177652",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 1023
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6EICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 989
-      },
-      {
-        "listing_key": "yahav:10288",
-        "vendor": "yahav",
-        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-        "price": 1130
-      }
-    ],
-    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207713",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 1009
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6E",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 989
-      }
-    ],
-    "model_code": "aorus-b850m-elite-wifi6e",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6E"
     ]
   },
   {
@@ -23161,6 +22833,334 @@
     "model_code": "aorus-b850-stealth",
     "manufacturer_pn": [
       "GB850AORUSSTEALTH"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177652",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 1023
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6EICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 989
+      },
+      {
+        "listing_key": "yahav:10288",
+        "vendor": "yahav",
+        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
+        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
+        "price": 1130
+      }
+    ],
+    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6EICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207713",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 1009
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6E",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 989
+      }
+    ],
+    "model_code": "aorus-b850m-elite-wifi6e",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6E"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170330",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1360
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1319
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170331",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1360
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1319
+      }
+    ],
+    "model_code": "aorus-elite-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207716",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1561
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1545
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7I"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170329",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
+        "price": 1481
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7",
+        "price": 1438
+      },
+      {
+        "listing_key": "yahav:10175",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1380
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207718",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2592
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3DI",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2575
+      },
+      {
+        "listing_key": "yahav:10919",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 2190
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3DI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:216436",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
+        "price": 2501
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "Gigabyte X870E AORUS MASTER X3D",
+        "price": 2440
+      }
+    ],
+    "model_code": "aorus-master-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-pro-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:171448",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPRO",
+        "title": "לוח אם Gigabyte X870E AORUS PRO",
+        "price": 1949
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPRO",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPRO",
+        "title": "Gigabyte X870E AORUS PRO",
+        "price": 1671
+      },
+      {
+        "listing_key": "yahav:9957",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1635
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPRO"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207707",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPROX3DICE",
+        "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
+        "price": 1965
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPROX3DICE",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPROX3DICE",
+        "title": "Gigabyte X870E AORUS PRO X3D ICE",
+        "price": 1913
+      },
+      {
+        "listing_key": "yahav:10918",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1850
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPROX3DICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:209975",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPROX3D",
+        "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
+        "price": 1928
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPROX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPROX3D",
+        "title": "Gigabyte X870E AORUS PRO X3D",
+        "price": 1877
+      },
+      {
+        "listing_key": "yahav:11665",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO-X3D",
+        "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1750
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPROX3D"
     ]
   },
   {
