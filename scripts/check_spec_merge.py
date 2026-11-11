@@ -241,6 +241,19 @@ def check_title_witness(c: Checks) -> None:
     refine_chipset_suffix("motherboard", facts)
     c.eq(facts["chipset"][0].value, "B650", "a plain B650 board stays B650")
 
+    # A chipset's trailing letter is part of it (review 2, 2026-11-12): C621A
+    # titles state C621A, not C621, so two of them never flip a C621A board.
+    from scraper.specs.witness import title_chipsets
+    c.eq(title_chipsets("Supermicro X12SPi-TF C621A ATX"), {"C621A"},
+         "a title's C621A reads as C621A")
+    c.eq(title_chipsets("MSI PRO B650M-A WIFI"), {"B650"}, "a form-factor M is not a chipset letter")
+    c.eq(title_chipsets("ASUS TUF GAMING B650E-E"), {"B650E"}, "B650E stays B650E")
+    pairs = [board("1pc", "Supermicro X12SPi-TF C621A"), board("tms", "Supermicro X12SPi-TF C621A")]
+    specs, sources = {"chipset": "C621A", "socket": "LGA4189"}, {"chipset": "vendor", "socket": "vendor"}
+    apply_title_witness("motherboard", specs, sources, pairs, {})
+    c.eq((specs["chipset"], specs["socket"]), ("C621A", "LGA4189"),
+         "two C621A titles never flip a C621A board to C621")
+
     specs = {"socket": "LGA1851", "chipset": "B760", "memory_type": None}
     sources = {"socket": "vendor", "chipset": "reference"}
     cross_check("motherboard", specs, sources, title_supported={"socket"})

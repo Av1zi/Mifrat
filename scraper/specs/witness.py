@@ -32,8 +32,11 @@ WITNESS_SOURCE = "witness"
 # QA issue tag: site_data lifts these cases ahead of the spec_conflict cap.
 RULE = "title_witness"
 
+# A chipset with its trailing letter (B650E, X570S, C621A); the letter is
+# read only when that spelling is a CHIPSET_INFO key (`title_chipsets`), so
+# a form-factor "M" (B650M) still reads as B650.
 _CHIP_RE = re.compile(
-    r"(?<![A-Z0-9])([ABHZQWXC]\d{3}E?S?|TRX\d{2}|WRX\d{2})(?=[A-Z]{0,3}\b|-|\b)", re.I)
+    r"(?<![A-Z0-9])([ABHZQWXC]\d{3}[A-Z]?|TRX\d{2}|WRX\d{2})(?=[A-Z]{0,3}\b|-|\b)", re.I)
 _SOCK_RE = re.compile(
     r"\b(AM4|AM5|TR4|sTRX4|sTR5|LGA\s?-?\d{4}|s?(?:1150|1151|1155|1200|1700|1851|2011|2066"
     r"|3647|4189|4677))\b", re.I)
@@ -180,8 +183,14 @@ def _socket_value(key: str) -> str:
 
 
 def title_chipsets(title: str) -> set[str]:
-    return {m.upper() for m in _CHIP_RE.findall(title or "")
-            if m.upper() in schema.CHIPSET_INFO}
+    out: set[str] = set()
+    for match in _CHIP_RE.findall(title or ""):
+        chip = match.upper()
+        if chip in schema.CHIPSET_INFO:
+            out.add(chip)
+        elif chip[:-1] in schema.CHIPSET_INFO and chip[-1].isalpha():
+            out.add(chip[:-1])
+    return out
 
 
 def title_sockets(title: str) -> set[str]:
