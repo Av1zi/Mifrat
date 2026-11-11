@@ -81,7 +81,7 @@ USER_AGENT = (
 # regexes below. Guessing by tag alone made the split depend on which page
 # answered first (the tag that claimed a uin won it).
 CATEGORIES = (
-    ("2", "cpu"),                     # מעבדים — 53
+    ("2", "cpu"),                     # מעבדים — 45 (was 53; rebaselined 2026-11-11)
     ("3", "motherboard"),             # לוחות אם — 158
     ("1038", "ram"),                  # זכרונות למחשב — 156
     ("35", "gpu"),                    # כרטיסי מסך — 104
@@ -96,7 +96,7 @@ CATEGORIES = (
     ("188", "accessories"),           # בקרים למאווררים — 18
 )
 CATEGORY_COUNTS = {tag: count for tag, count in (
-    ("2", 53), ("3", 158), ("1038", 156), ("35", 104), ("130", 130),
+    ("2", 45), ("3", 158), ("1038", 156), ("35", 104), ("130", 130),
     ("140", 65), ("152", 99), ("145", 18), ("182", 94), ("1329", 63),
     ("186", 107), ("187", 22), ("188", 18),
 )}
@@ -104,7 +104,11 @@ CATEGORY_COUNTS = {tag: count for tag, count in (
 # (the uin dedupe across cooling tags accounts for ~5%). This is deliberately
 # a hard gate, not the warning-only run_spider floor.
 MIN_TOTAL_ITEMS = int(sum(CATEGORY_COUNTS.values()) * 0.80)
-MIN_CATEGORY_SHARE = 0.85
+# Per-category floor on page-1 products_total. 0.85 was too tight for normal
+# catalog churn: 2026-11-08..11 the CPU tag listed 43-45 of its 53 baseline
+# (< 45.05) and four nights of all-200 crawls were thrown away. 0.70 still
+# fails a category that collapses; truncation is MIN_FETCHED_SHARE's job.
+MIN_CATEGORY_SHARE = 0.70
 MIN_FETCHED_SHARE = 0.95
 MAX_UNKNOWN_STOCK_SHARE = 0.05
 # Small categories get absolute slack instead of a pure percentage. A tiny
