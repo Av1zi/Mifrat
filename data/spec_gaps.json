@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T09:57:22.559024+00:00",
+  "generated_at": "2026-11-11T18:29:35.797399+00:00",
   "gaps": [
     {
       "category": "case",
@@ -54,7 +54,7 @@
     {
       "category": "case",
       "label": "Bays 5.25",
-      "count": 44,
+      "count": 43,
       "products": [
         "model:case:0-htpc-milo-ml03-slim-usb3-black",
         "model:case:01-c-fd-pop-pos1x-silent-xl-black",
@@ -67,8 +67,8 @@
       "count": 37,
       "products": [
         "model:case:0-3-761345-80100-flux-p10",
-        "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white"
+        "model:case:100r-mag-pano-pz",
+        "model:case:100r-mag-pano-pz-white"
       ]
     },
     {
@@ -266,9 +266,9 @@
       "label": "תמיכה במאווררים mm",
       "count": 19,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white",
-        "model:case:130r-mag-midi-pano-pz-tower-white"
+        "model:case:110r-mag-pano-pz-white"
       ]
     },
     {
@@ -276,9 +276,9 @@
       "label": "מאווררים מותקנים mm",
       "count": 19,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white",
-        "model:case:130r-mag-midi-pano-pz-tower-white"
+        "model:case:110r-mag-pano-pz-white"
       ]
     },
     {
@@ -286,9 +286,9 @@
       "label": "חיבורים",
       "count": 19,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white",
-        "model:case:130r-mag-midi-pano-pz-tower-white"
+        "model:case:110r-mag-pano-pz-white"
       ]
     },
     {
@@ -296,9 +296,9 @@
       "label": "\"2.5/3.5\"",
       "count": 19,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white",
-        "model:case:130r-mag-midi-pano-pz-tower-white"
+        "model:case:110r-mag-pano-pz-white"
       ]
     },
     {
@@ -306,9 +306,9 @@
       "label": "דלת צד",
       "count": 19,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white",
-        "model:case:130r-mag-midi-pano-pz-tower-white"
+        "model:case:110r-mag-pano-pz-white"
       ]
     },
     {
@@ -336,9 +336,9 @@
       "label": "תמיכה בספק mm",
       "count": 18,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white",
-        "model:case:3-e-m3-mesh-mid-talos-tower"
+        "model:case:110r-mag-pano-pz-white"
       ]
     },
     {
@@ -512,36 +512,6 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "מק\"ט יצרן",
-      "count": 16,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מספר מאוררים",
-      "count": 16,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "TDP בW",
-      "count": 16,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "ממשק זיכרון",
       "count": 16,
@@ -626,9 +596,9 @@
       "label": "שטח תצוגה פעיל (mm)",
       "count": 15,
       "products": [
+        "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
-        "model:case:130r-mag-midi-pano-pz-tower-white",
-        "model:case:3-e-m3-mesh-mid-talos-tower"
+        "model:case:130r-mag-midi-pano-pz-tower-white"
       ]
     },
     {
@@ -736,9 +706,9 @@
       "label": "דור מעבד",
       "count": 14,
       "products": [
-        "model:cpu:14600k",
-        "model:cpu:14600k-2",
-        "model:cpu:14600kf-2"
+        "model:cpu:14600k-tray-2",
+        "model:cpu:14600kf-tray-2",
+        "model:cpu:14700f-tray"
       ]
     },
     {
@@ -863,6 +833,26 @@
     },
     {
       "category": "cooler_air",
+      "label": "מק\"ט יצרן",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מספר מאוררים",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "תאימות למעבדי AMD",
       "count": 12,
       "products": [
@@ -874,6 +864,16 @@
     {
       "category": "cooler_air",
       "label": "גובה Clearance במ\"מ",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "TDP בW",
       "count": 12,
       "products": [
         "model:cooler_air:0761345400817-f400-black",
@@ -1303,16 +1303,6 @@
     },
     {
       "category": "aio",
-      "label": "ממשק",
-      "count": 10,
-      "products": [
-        "model:aio:240-5cfm-73-aio-icue-lcd-link-rx-titan-240mm-black",
-        "model:aio:240-a13-coreliquid-mag-240mm-white",
-        "model:aio:3-eu-loop-lx-pure-360mm-black"
-      ]
-    },
-    {
-      "category": "aio",
       "label": "רזולוציה",
       "count": 10,
       "products": [
@@ -1499,6 +1489,16 @@
         "other:1pc:1pc-188068",
         "other:1pc:1pc-192555",
         "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "ממשק",
+      "count": 9,
+      "products": [
+        "model:aio:240-5cfm-73-aio-icue-lcd-link-rx-titan-240mm-black",
+        "model:aio:240-a13-coreliquid-mag-240mm-white",
+        "model:aio:3-eu-loop-lx-pure-360mm-black"
       ]
     },
     {
@@ -1829,6 +1829,46 @@
         "model:storage:0-2280-4-p310-1000gb-pcie4-m22280",
         "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
         "model:storage:5100-optimus-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "חלון צד",
+      "count": 7,
+      "products": [
+        "mpn:accessories:antecax61temperedglass",
+        "mpn:accessories:antecp20temperedglass",
+        "mpn:accessories:cc8900548"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "גודל מארז",
+      "count": 7,
+      "products": [
+        "mpn:accessories:antecax61temperedglass",
+        "mpn:accessories:antecp20temperedglass",
+        "mpn:accessories:cc8900548"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "תאורה",
+      "count": 7,
+      "products": [
+        "mpn:accessories:antecax61temperedglass",
+        "mpn:accessories:antecp20temperedglass",
+        "mpn:accessories:cc8900548"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "וואט / WATT / אמפר",
+      "count": 7,
+      "products": [
+        "mpn:accessories:antecax61temperedglass",
+        "mpn:accessories:antecp20temperedglass",
+        "mpn:accessories:cc8900548"
       ]
     },
     {
@@ -2252,53 +2292,73 @@
       ]
     },
     {
-      "category": "other",
-      "label": "סוג קירור",
-      "count": 5,
+      "category": "aio",
+      "label": "מק\"ט יצרן",
+      "count": 4,
       "products": [
-        "other:tms:tms-mlx-d36m-a18p2-r1",
-        "other:tms:tms-mly-d24m-a20pa-r1",
-        "other:tms:tms-mly-d24m-a23pz-r1"
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
       ]
     },
     {
-      "category": "other",
-      "label": "סוג תאורה",
-      "count": 5,
+      "category": "aio",
+      "label": "מספר מאוררים",
+      "count": 4,
       "products": [
-        "other:tms:tms-mlx-d36m-a18p2-r1",
-        "other:tms:tms-mly-d24m-a20pa-r1",
-        "other:tms:tms-mly-d24m-a23pz-r1"
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
       ]
     },
     {
-      "category": "other",
-      "label": "תושבת מעבד",
-      "count": 5,
+      "category": "aio",
+      "label": "תאימות מעבדים INTEL",
+      "count": 4,
       "products": [
-        "other:tms:tms-mlx-d36m-a18p2-r1",
-        "other:tms:tms-mly-d24m-a20pa-r1",
-        "other:tms:tms-mly-d24m-a23pz-r1"
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
       ]
     },
     {
-      "category": "other",
-      "label": "רדיאטורים",
-      "count": 5,
+      "category": "aio",
+      "label": "TDP בW",
+      "count": 4,
       "products": [
-        "other:tms:tms-mlx-d36m-a18p2-r1",
-        "other:tms:tms-mly-d24m-a20pa-r1",
-        "other:tms:tms-mly-d24m-a23pz-r1"
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
       ]
     },
     {
-      "category": "other",
-      "label": "מאוורר מובנה (ממ)",
-      "count": 5,
+      "category": "aio",
+      "label": "תאימות מעבדי AMD",
+      "count": 4,
       "products": [
-        "other:tms:tms-mlx-d36m-a18p2-r1",
-        "other:tms:tms-mly-d24m-a20pa-r1",
-        "other:tms:tms-mly-d24m-a23pz-r1"
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "גודל מאוורר במ\"מ",
+      "count": 4,
+      "products": [
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "גודל רדיאטור במ\"מ",
+      "count": 4,
+      "products": [
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
       ]
     },
     {
@@ -2449,46 +2509,6 @@
         "model:case_fan:1201-aeolus-p2-wh-120mm-black",
         "model:case_fan:1201-aeolus-p2-wh-120mm-white",
         "model:case_fan:1201-argb-notus-120mm-rgb-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות מעבדים INTEL",
-      "count": 4,
-      "products": [
-        "model:cooler_air:a18pa-d36m-mlw-r1",
-        "model:cooler_air:a18pa-d36m-mlw-rw",
-        "model:cooler_air:a18pa-d36m-mlx-rd"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות מעבדי AMD",
-      "count": 4,
-      "products": [
-        "model:cooler_air:a18pa-d36m-mlw-r1",
-        "model:cooler_air:a18pa-d36m-mlw-rw",
-        "model:cooler_air:a18pa-d36m-mlx-rd"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל מאוורר במ\"מ",
-      "count": 4,
-      "products": [
-        "model:cooler_air:a18pa-d36m-mlw-r1",
-        "model:cooler_air:a18pa-d36m-mlw-rw",
-        "model:cooler_air:a18pa-d36m-mlx-rd"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל רדיאטור במ\"מ",
-      "count": 4,
-      "products": [
-        "model:cooler_air:a18pa-d36m-mlw-r1",
-        "model:cooler_air:a18pa-d36m-mlw-rw",
-        "model:cooler_air:a18pa-d36m-mlx-rd"
       ]
     },
     {
@@ -2952,36 +2972,6 @@
       ]
     },
     {
-      "category": "accessories",
-      "label": "גודל מאוורר",
-      "count": 4,
-      "products": [
-        "mpn:accessories:co9051059ww",
-        "mpn:accessories:co9051060ww",
-        "mpn:accessories:co9051061ww"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "סוג תאורה",
-      "count": 4,
-      "products": [
-        "mpn:accessories:co9051059ww",
-        "mpn:accessories:co9051060ww",
-        "mpn:accessories:co9051061ww"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "מהירות מאוורר",
-      "count": 4,
-      "products": [
-        "mpn:accessories:co9051059ww",
-        "mpn:accessories:co9051060ww",
-        "mpn:accessories:co9051061ww"
-      ]
-    },
-    {
       "category": "other",
       "label": "כרטיס מסך",
       "count": 4,
@@ -3003,6 +2993,16 @@
     },
     {
       "category": "aio",
+      "label": "גודל משאבה במ\"מ",
+      "count": 3,
+      "products": [
+        "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
+        "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
+        "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
+      ]
+    },
+    {
+      "category": "aio",
       "label": "סוג מיסב",
       "count": 3,
       "products": [
@@ -3017,6 +3017,7 @@
       "count": 3,
       "products": [
         "model:aio:240-a13-coreliquid-mag-240mm-white",
+        "model:aio:360-a13-coreliquid-mag-360mm",
         "model:aio:360-a13-coreliquid-mag-360mm-white"
       ]
     },
@@ -3098,16 +3099,6 @@
         "model:cooler_air:410-boreas-e1-120mm",
         "model:cooler_air:410wh-boreas-e1-120mm-white",
         "model:cooler_air:aa13-corefrozr-mag-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל משאבה במ\"מ",
-      "count": 3,
-      "products": [
-        "model:cooler_air:a18pa-d36m-mlw-r1",
-        "model:cooler_air:a18pa-d36m-mlw-rw",
-        "model:cooler_air:a18pa-d36m-mlx-rd"
       ]
     },
     {
@@ -3597,7 +3588,7 @@
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
         "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -3607,7 +3598,7 @@
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
         "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -3617,7 +3608,7 @@
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
         "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -3627,7 +3618,7 @@
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
         "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -3898,6 +3889,26 @@
         "model:storage:c715-cras-1000gb-nvme",
         "model:storage:c715-cras-512gb-nvme",
         "model:storage:m461-spatium-1000gb-pciexpress40"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "סוג קירור",
+      "count": 3,
+      "products": [
+        "mpn:accessories:cw9061029ww",
+        "mpn:accessories:cw9061030ww",
+        "mpn:accessories:galga1700"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מידות",
+      "count": 3,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:tms:tms-sys-420gp-tnr",
+        "other:tms:tms-sys-740gp-tnrt"
       ]
     },
     {
@@ -4796,7 +4807,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4805,7 +4816,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4814,7 +4825,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4823,7 +4834,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4832,7 +4843,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4841,7 +4852,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4850,7 +4861,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4859,7 +4870,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4868,7 +4879,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4877,7 +4888,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4886,7 +4897,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4895,7 +4906,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4904,7 +4915,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4913,7 +4924,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4922,7 +4933,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4931,7 +4942,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4940,7 +4951,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4949,7 +4960,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4958,7 +4969,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4967,7 +4978,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4985,7 +4996,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -4994,7 +5005,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5003,7 +5014,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5012,7 +5023,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5021,7 +5032,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5030,7 +5041,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5039,7 +5050,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5048,7 +5059,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5057,7 +5068,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5066,7 +5077,7 @@
       "count": 2,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx",
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -5399,7 +5410,7 @@
       "count": 2,
       "products": [
         "model:psu:1-atx3-gsk750-750w-full",
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -5417,7 +5428,7 @@
       "count": 2,
       "products": [
         "model:psu:500-e1-helios-pro-black",
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -5611,11 +5622,38 @@
     },
     {
       "category": "accessories",
+      "label": "מידות",
+      "count": 2,
+      "products": [
+        "mpn:accessories:011de4w",
+        "mpn:accessories:011de4x"
+      ]
+    },
+    {
+      "category": "accessories",
       "label": "אורך",
       "count": 2,
       "products": [
         "mpn:accessories:bxatxsbc",
         "mpn:accessories:bxatxsbc2"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "ממשק",
+      "count": 2,
+      "products": [
+        "mpn:accessories:cw9061029ww",
+        "mpn:accessories:sstfs204bus"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "סוג תאורה",
+      "count": 2,
+      "products": [
+        "mpn:accessories:cw9061029ww",
+        "mpn:accessories:cw9061030ww"
       ]
     },
     {
@@ -5661,6 +5699,33 @@
       "products": [
         "other:1pc:1pc-216337",
         "other:1pc:1pc-216346"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג מארז",
+      "count": 2,
+      "products": [
+        "other:tms:tms-sys-420gp-tnr",
+        "other:tms:tms-sys-740gp-tnrt"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ספק כח",
+      "count": 2,
+      "products": [
+        "other:tms:tms-sys-420gp-tnr",
+        "other:tms:tms-sys-740gp-tnrt"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "Hard Drive 2.5",
+      "count": 2,
+      "products": [
+        "other:tms:tms-sys-420gp-tnr",
+        "other:tms:tms-sys-740gp-tnrt"
       ]
     },
     {
@@ -7468,7 +7533,7 @@
       "label": "PCI-E x8",
       "count": 1,
       "products": [
-        "model:motherboard:2l2t-asrockrack-turind8"
+        "model:motherboard:2l2t-asrockrack-turind8-ssiceb"
       ]
     },
     {
@@ -8524,7 +8589,7 @@
       "label": "USB 3.2 Gen 2 (3.1 Gen 2) connectors",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8532,7 +8597,7 @@
       "label": "Front panel connector",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8540,7 +8605,7 @@
       "label": "RGB LED pin header",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8548,7 +8613,7 @@
       "label": "PS/2 ports quantity",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8556,7 +8621,7 @@
       "label": "WiFi-AP antenna jack",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8564,7 +8629,7 @@
       "label": "Cables included",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8572,7 +8637,7 @@
       "label": "Antenna included",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8580,7 +8645,7 @@
       "label": "Drivers included",
       "count": 1,
       "products": [
-        "model:motherboard:crosshair-extreme-rog-x870e-atx"
+        "model:motherboard:crosshair-extreme-rog-x870e-eatx"
       ]
     },
     {
@@ -8852,7 +8917,7 @@
       "label": "סוג PFC",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8860,7 +8925,7 @@
       "label": "סוג מיסב מאוורר",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8868,7 +8933,7 @@
       "label": "טווח מתח כניסה",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8876,7 +8941,7 @@
       "label": "תדר קלט",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8884,7 +8949,7 @@
       "label": "חיבור ATX (24 פין)",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8892,7 +8957,7 @@
       "label": "חיבור EPS (4+4 פין)",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8900,7 +8965,7 @@
       "label": "PCI-E 5.1 (16 פין)",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8908,7 +8973,7 @@
       "label": "PCI-E (6+2 פין)",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -8916,7 +8981,7 @@
       "label": "חיבורי PERIPHERAL (4 פין)",
       "count": 1,
       "products": [
-        "model:psu:a750bn-mag-pcie5-750w"
+        "model:psu:a750bn-mag-pcie5-750w-2"
       ]
     },
     {
@@ -9857,14 +9922,6 @@
     },
     {
       "category": "accessories",
-      "label": "סוג קירור",
-      "count": 1,
-      "products": [
-        "mpn:accessories:galga1700"
-      ]
-    },
-    {
-      "category": "accessories",
       "label": "תושבת מעבד",
       "count": 1,
       "products": [
@@ -9888,11 +9945,27 @@
       ]
     },
     {
-      "category": "other",
-      "label": "מידות",
+      "category": "accessories",
+      "label": "סוג חיבור - ממשק",
       "count": 1,
       "products": [
-        "other:1pc:1pc-133260"
+        "mpn:accessories:sstfs204bus"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "סוג דיסק",
+      "count": 1,
+      "products": [
+        "mpn:accessories:sstfs204bus"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "סוג אחסון",
+      "count": 1,
+      "products": [
+        "mpn:accessories:sstfs204bus"
       ]
     },
     {
@@ -9973,6 +10046,38 @@
       "count": 1,
       "products": [
         "other:1pc:1pc-216327"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "Rackmount",
+      "count": 1,
+      "products": [
+        "other:tms:tms-sys-420gp-tnr"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "Bays 5.25",
+      "count": 1,
+      "products": [
+        "other:tms:tms-sys-740gp-tnrt"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "Hard Drive 3.5",
+      "count": 1,
+      "products": [
+        "other:tms:tms-sys-740gp-tnrt"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "יציאות קדמיות",
+      "count": 1,
+      "products": [
+        "other:tms:tms-sys-740gp-tnrt"
       ]
     },
     {
