@@ -1206,14 +1206,19 @@ def _part_number_shape_class(value, listing: dict | None) -> str | None:
 
 
 _TMS_CPU_RETAIL_RE = re.compile(r"^C(?:\d{3,5}|ULTRA)\w*[TB]$")
+_AMD_OPN_DIGITS_RE = re.compile(r"^100\d{9,10}$")
+# A retailer's whole-PC bundle tail on a part's code (Yahav/TMS "-PC").
+_PC_TAIL_RE = re.compile(r"[\s-]+PC$", re.I)
 
 
 def _listing_code(enriched: dict) -> str | None:
-    """The identifier a listing carries: its printed mpn, else a maker-shaped SKU."""
+    """The identifier a listing carries: its printed mpn, else a maker-shaped
+    SKU; a "-PC" bundle tail is no part of it (review 2, 2026-11-12)."""
     mpn = enriched.get("mpn")
     if mpn not in _EMPTY:
-        return part_number_key(mpn) or None
-    return sku_part_number_key(enriched.get("vendor_sku"))
+        return part_number_key(_PC_TAIL_RE.sub("", str(mpn))) or None
+    sku = enriched.get("vendor_sku")
+    return sku_part_number_key(_PC_TAIL_RE.sub("", str(sku)) if sku not in _EMPTY else sku)
 
 
 def _code_shape(key: str) -> str:
@@ -1228,13 +1233,55 @@ def _sibling_codes(group: list[dict]) -> set[str]:
     "vendor" class, so the manufacturer-PN split misses the pair. Two codes
     of the same length and letter/digit pattern (>= 8 characters, letters
     and digits) that differ are two parts; both become split keys."""
-    by_shape: dict[str, set[str]] = {}
+    by_shape: dict[str, dict[str, str]] = {}  # shape -> key -> printed mpn
     for enriched in group:
         mpn = enriched.get("mpn")
         key = part_number_key(mpn) if mpn not in _EMPTY else ""
         if key and len(key) >= 8 and re.search(r"[A-Z]", key) and re.search(r"\d", key):
-            by_shape.setdefault(_code_shape(key), set()).add(key)
-    return {key for keys in by_shape.values() if len(keys) > 1 for key in keys}
+            by_shape.setdefault(_code_shape(key), {}).setdefault(key, str(mpn))
+    out: set[str] = set()
+    for printed in by_shape.values():
+        keys = sorted(printed)
+        for i, a in enumerate(keys):
+            for b in keys[i + 1:]:
+                if _series_differs(printed[a], printed[b]):
+                    out |= {a, b}
+    return out
+
+
+#: Sales-region tails makers append to one part's code (Corsair -WW/-EU/-UK).
+_REGION_TAILS = frozenset({"WW", "EU", "UK", "US", "NA", "AP", "AS", "IL", "CN", "JP",
+                           "KR", "AU", "EUR", "GLOBAL"})
+
+
+def _same_part_spelling(x: str, y: str) -> bool:
+    """Two last segments that are one part: two region tails, or a revision
+    step (the same letters, one digit apart: M0NA00 / M0NA10)."""
+    if x in _REGION_TAILS and y in _REGION_TAILS:
+        return True
+    if len(x) == len(y) and re.sub(r"\d", "", x) == re.sub(r"\d", "", y) and re.search(r"[A-Z]", x):
+        return sum(1 for p, q in zip(x, y) if p != q) == 1
+    return False
+
+
+def _series_differs(a: str, b: str) -> bool:
+    """Two printed codes of one shape name two series members, not one part
+    spelled twice (review 2, 2026-11-12). Same part: a different sales-region
+    tail (CW-9061018-WW / -EU), a revision step in the last segment
+    (90YV0L71-M0NA00 / -M0NA10), or - undashed - a one-character slip. Any
+    other difference is a sibling (CC-9011268-WW vs CC-9011288-WW; CC-H51FW-01
+    vs CC-H52FW-01; FD-C-TOR1C-01 vs -02; MLW-...-R1 vs -RW).
+    """
+    pa = [p for p in re.split(r"[-/\s]+", a.upper()) if p]
+    pb = [p for p in re.split(r"[-/\s]+", b.upper()) if p]
+    if len(pa) == len(pb) and len(pa) > 1:
+        if pa[:-1] == pb[:-1] and _same_part_spelling(pa[-1], pb[-1]):
+            return False
+        return True
+    ka, kb = part_number_key(a), part_number_key(b)
+    if len(ka) != len(kb):
+        return True
+    return sum(1 for x, y in zip(ka, kb) if x != y) > 1
 
 
 def _code_kind(code: str, category) -> str | None:
@@ -1242,6 +1289,10 @@ def _code_kind(code: str, category) -> str | None:
     if len(code) < 4:
         return None
     if code.isdigit():
+        # AMD's ordering code "100-100000910" compacts to 12 digits, the
+        # UPC length; it is a part number, not a barcode (review 2).
+        if category == "cpu" and _AMD_OPN_DIGITS_RE.match(code):
+            return "pn"
         return "ean" if len(code) in (8, 12, 13, 14) else None
     if category == "cpu" and _TMS_CPU_RETAIL_RE.match(code):
         return None

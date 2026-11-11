@@ -340,6 +340,46 @@ def check_i4(catalog: dict) -> int:
     return checked
 
 
+SPLIT_FIXTURES = [
+    # (category, [(vendor, mpn)], expected subgroup count) for part_number_subgroups
+    # Sibling series codes split (2500X RGB vs 2500X; H5 Flow 2022 vs 2024).
+    ("case", [("yahav", "CC-9011268-WW"), ("ivory", "CC-9011288-WW")], 2),
+    ("case", [("tms", "CC-H51FW-01"), ("ksp", "CC-H52FW-01")], 2),
+    # A region suffix is one part (-WW / -EU / -UK).
+    ("aio", [("tms", "CW-9061018-WW"), ("ivory", "CW-9061018-EU")], 1),
+    # A revision step in the last segment is one part (A00 vs A10).
+    ("case", [("tms", "LL-O11DEW-A00"), ("ksp", "LL-O11DEW-A10")], 1),
+    # A one-character slip of an undashed code is one part...
+    ("psu", [("tms", "RPS0167RM850E"), ("ksp", "RPS0167RM850F")], 1),
+    # ...but two codes ONE vendor prints are two parts (A rule).
+    ("psu", [("tms", "RPS0167RM850E"), ("tms", "RPS0167RM850F")], 2),
+    # A 12-digit AMD part number is a part number, not an EAN, and the TMS
+    # "-PC" bundle tail is no second code.
+    ("cpu", [("tms", "100-100000910"), ("tms", "100-100000910-PC")], 1),
+]
+
+
+def check_i4_unit() -> int:
+    """part_number_subgroups on synthetic groups (review 2, 2026-11-12).
+
+    Each row prints its code as both mpn and vendor SKU (TMS/Yahav shape),
+    so the code is vendor class and only the sibling / same-vendor rules can
+    split; two different maker-class PNs always split by design."""
+    for category, rows, expected in SPLIT_FIXTURES:
+        group = [{"vendor_id": vendor, "mpn": mpn, "vendor_sku": mpn,
+                  "listing_key": f"{vendor}:{i}", "category_normalized": category}
+                 for i, (vendor, mpn) in enumerate(rows)]
+        actual = len(identity.part_number_subgroups(group))
+        if actual != expected:
+            fail("I4: part_number_subgroups(%s %r) = %d group(s), expected %d"
+                 % (category, [m for _, m in rows], actual, expected))
+    for code, kind in (("100100000910", "pn"), ("0761345101684", "ean"), ("731855145082", "ean")):
+        got = identity._code_kind(code, "cpu" if code.startswith("100") else "case")
+        if got != kind:
+            fail("I4: _code_kind(%r) = %r, expected %r" % (code, got, kind))
+    return len(SPLIT_FIXTURES) + 3
+
+
 TITLE_AXIS_FIXTURES = [
     # (category, title, expected title_axis_values)
     ("case", "מארז Corsair 4000D Wood RS - צבע לבן ועץ אלון", {"color": "white+wood"}),
@@ -499,6 +539,7 @@ def main() -> int:
         "I2 identities": check_i2(catalog, frozenset({"cpu"})),
         "I3 fixtures": check_i3_unit(),
         "I3 cpu products": check_i3_catalog(catalog),
+        "I4 fixtures": check_i4_unit(),
         "I4 products": check_i4(catalog),
         "I5 fixtures": check_i5_unit(),
         "I5 twin aliases": check_i5_catalog(catalog),
