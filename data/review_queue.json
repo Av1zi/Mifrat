@@ -286,17 +286,6 @@
     "match_text_b": "CP-9020337-EU Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum"
   },
   {
-    "score": 100,
-    "category": "motherboard",
-    "brand": "MAXSUN",
-    "listing_a": "1pc:211275",
-    "listing_b": "tms:MODT-13650HX-D5-WIFI",
-    "title_a": "לוח אם MAXSUN MoDT 13650HX D5 WiFi, MODT-13650HX-D5-WIFI",
-    "title_b": "MAXSUN MoDT 13650HX D5 WiFi",
-    "match_text_a": "211275 MAXSUN MoDT 13650HX D5 WiFi MODT-13650HX-D5-WIFI",
-    "match_text_b": "MODT-13650HX-D5-WIFI MAXSUN MoDT 13650HX D5 WiFi"
-  },
-  {
     "score": 98,
     "category": "memory",
     "brand": "Corsair",
@@ -7541,26 +7530,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:memory:3200mt-amd-cl16-d35-expo-gammix-s-xpg-32gb-3200mhz-cl16-black",
-    "category": "memory",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:178537",
-        "vendor_sku": "AX4U320032G16A-SBKD35P",
-        "title": "מציאון - זכרון למחשב XPG Gammix D35 DDR4 – מהירות 3200MT/s – נפח 32GB – זמן אחזור CL16 – תואם AMD EXPO – צבע שחור - מוחדש",
-        "price": 990
-      },
-      {
-        "listing_key": "ivory:162571",
-        "vendor_sku": "AX4U320032G16A-SBKD35",
-        "title": "זכרון למחשב XPG Gammix D35 DDR4 – מהירות 3200MT/s – נפח 32GB – זמן אחזור CL16 – תואם AMD EXPO – צבע שחור",
-        "price": 1065
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:memory:6000mt-beast-cl36-fury-s-32gb-6000mhz-cl36-rgb-black-dimm",
     "category": "memory",
     "vendor": "ksp",
@@ -8049,13 +8018,13 @@
         "listing_key": "yahav:11546",
         "vendor_sku": "49369-PC",
         "title": "כונן SSD חברת Verbatim דגם Vi7000G Series with Heatsink and DRAM Cache Gen4 4TB 4096GB 7000MB M.2 NVMe - מבצע ברכישת מחשב שלם בלבד",
-        "price": 1650
+        "price": 1850
       },
       {
         "listing_key": "yahav:11118",
         "vendor_sku": "11118",
         "title": "כונן SSD חברת Verbatim דגם Vi7000G Series with Heatsink and DRAM Cache Gen4 4TB 4096GB 7000MB M.2 NVMe",
-        "price": 1720
+        "price": 1950
       }
     ]
   },
@@ -9215,6 +9184,29 @@
   {
     "kind": "identity_merge",
     "category": "case",
+    "product_id": "model:case:2500x-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:9506",
+        "vendor": "yahav",
+        "vendor_sku": "CC-9011268-WW",
+        "title": "מארז חברת Corsair דגם 2500X RGB 2X120MM RGB Fans Dual Chamber Tempered Glass Mid Tower ATX צבע לבן",
+        "price": 1010
+      },
+      {
+        "listing_key": "ivory:126558",
+        "vendor": "ivory",
+        "vendor_sku": "CC-9011288-WW",
+        "title": "מארז מחשב 2500X Mid Tower Dual Chamber mATX בצבע לבן עץ",
+        "price": 650
+      }
+    ],
+    "model_code": "2500x"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
     "product_id": "model:case:2800x-argb-r-rs-black",
     "vendor": "",
     "offers": [
@@ -9270,13 +9262,6 @@
         "vendor_sku": "CC-9011296-WW",
         "title": "מארז גיימינג מודולרי CORSAIR FRAME 4000D RS ARGB בגודל Mid-Tower",
         "price": 638
-      },
-      {
-        "listing_key": "ivory:160657",
-        "vendor": "ivory",
-        "vendor_sku": "CC-9011296-WW",
-        "title": "מארז מחשב Corsair FRAME 4000D RS ARGB – צבע שחור",
-        "price": 349
       },
       {
         "listing_key": "tms:CC-9011296-WW",
@@ -11596,13 +11581,6 @@
         "vendor_sku": "T120",
         "title": "קירור למעבד Antec T120 RGB",
         "price": 50
-      },
-      {
-        "listing_key": "tms:T120",
-        "vendor": "tms",
-        "vendor_sku": "T120",
-        "title": "מאוורר למעבד Antec T120 Chromatic CPU Air",
-        "price": 51
       },
       {
         "listing_key": "yahav:8375",
@@ -13982,46 +13960,6 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:138333",
-        "vendor": "1pc",
-        "vendor_sku": "CMK48GX5M2B7000C40",
-        "title": "זיכרון RAM Corsair Vengeance DDR5 48GB (24GBx2) 7000 CL40",
-        "price": 3604
-      },
-      {
-        "listing_key": "ivory:148399",
-        "vendor": "ivory",
-        "vendor_sku": "CMK48GX5M2B7000C40",
-        "title": "זכרון למחשב CORSAIR VENGEANCE DDR5 – מהירות 7000MT/s – נפח 2x24GB – זמן אחזור CL40",
-        "price": 3250
-      },
-      {
-        "listing_key": "tms:CMK48GX5M2B7000C40",
-        "vendor": "tms",
-        "vendor_sku": "CMK48GX5M2B7000C40",
-        "title": "Corsair Vengeance DDR5 48GB (2x24GB) 7000 CL40 XMP 3.0",
-        "price": 3175
-      },
-      {
-        "listing_key": "ksp:430608",
-        "vendor": "ksp",
-        "vendor_sku": "430608",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x24GB DDR5 7000MT / s CL40 - צבע אפור",
-        "price": 2690
-      }
-    ],
-    "model_code": "0-2x24gb-3-7000-cl40-vengeance-xmp",
-    "manufacturer_pn": [
-      "CMK48GX5M2B7000C40"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
     "product_id": "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black",
     "vendor": "",
     "offers": [
@@ -14043,6 +13981,32 @@
     "model_code": "0-2x24gb-3-7000-cl40-vengeance-xmp",
     "manufacturer_pn": [
       "CMH48GX5M2B7000C40"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:138333",
+        "vendor": "1pc",
+        "vendor_sku": "CMK48GX5M2B7000C40",
+        "title": "זיכרון RAM Corsair Vengeance DDR5 48GB (24GBx2) 7000 CL40",
+        "price": 3604
+      },
+      {
+        "listing_key": "tms:CMK48GX5M2B7000C40",
+        "vendor": "tms",
+        "vendor_sku": "CMK48GX5M2B7000C40",
+        "title": "Corsair Vengeance DDR5 48GB (2x24GB) 7000 CL40 XMP 3.0",
+        "price": 3175
+      }
+    ],
+    "model_code": "0-2x24gb-3-7000-cl40-vengeance-xmp",
+    "manufacturer_pn": [
+      "CMK48GX5M2B7000C40"
     ]
   },
   {
@@ -14243,7 +14207,7 @@
         "vendor": "tms",
         "vendor_sku": "GAVG532GB6000C36CDC",
         "title": "זיכרון GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V מהדורת AMD בצבע אפור",
-        "price": 2061
+        "price": 2082
       }
     ],
     "model_code": "2x16gb-6000-amd-cl36-orion-v",
@@ -14262,7 +14226,7 @@
         "vendor": "tms",
         "vendor_sku": "GAVSG532GB6000C36CDC",
         "title": "GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V RGB AMD מהדורה אפורה",
-        "price": 2082
+        "price": 2103
       }
     ],
     "model_code": "2x16gb-6000-amd-cl36-orion-v",
@@ -14281,7 +14245,7 @@
         "vendor": "tms",
         "vendor_sku": "KD5BGUA80-64A320G",
         "title": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
-        "price": 4836
+        "price": 5047
       },
       {
         "listing_key": "1pc:221538",
@@ -15784,7 +15748,7 @@
         "vendor": "yahav",
         "vendor_sku": "MZ-VAP1T0BW",
         "title": "כונן SSD חברת Samsung דגם MZ-VAP1T0BW 9100 Pro Series 14700MB 1TB Gen5 1024GB M.2 NVMe",
-        "price": 1050
+        "price": 1070
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -15843,14 +15807,14 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP2T0BW",
         "title": "Samsung SSD 2TB 9100 PRO PCIe 5.0 NVMe M.2",
-        "price": 1956
+        "price": 2019
       },
       {
         "listing_key": "yahav:10505",
         "vendor": "yahav",
         "vendor_sku": "MZ-VAP2T0BW",
         "title": "כונן SSD חברת Samsung דגם MZ-VAP2T0BW 9100 Pro Series 14700MB 2TB Gen5 2048GB M.2 NVMe",
-        "price": 1930
+        "price": 2050
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -15876,7 +15840,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP2T0CW",
         "title": "Samsung 9100 PRO SSD 2TB PCIe 5.0 NVMe M.2 with Heatsink",
-        "price": 1977
+        "price": 2061
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -17041,31 +17005,6 @@
       }
     ],
     "model_code": "12700f",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:14400-tray",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:85515",
-        "vendor": "ivory",
-        "vendor_sku": "I5-14400",
-        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | כולל ליבה גרפית | אריזת Tray",
-        "price": 740
-      },
-      {
-        "listing_key": "ivory:85518",
-        "vendor": "ivory",
-        "vendor_sku": "I5-14400B",
-        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | אריזת Box",
-        "price": 790
-      }
-    ],
-    "model_code": "14400",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -18825,36 +18764,75 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:a70-argb-white",
+    "product_id": "model:case:7000x-full-icue-series-tower-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "ivory:155101",
+        "listing_key": "1pc:105169",
+        "vendor": "1pc",
+        "vendor_sku": "CC-9011226-WW",
+        "title": "מארז מחשב Corsair ICUE 7000X RGB TG בצבע שחור",
+        "price": 1443
+      },
+      {
+        "listing_key": "ivory:69506",
         "vendor": "ivory",
-        "vendor_sku": "81425602230-9",
-        "title": "מארז מחשב THERMALRIGHT A70 ARGB – פס תאורה ARGB – חלון צד – צבע לבן",
-        "price": 545
+        "vendor_sku": "CC-9011226-WW",
+        "title": "מארז מחשב Corsair iCUE 7000X RGB Full Tower ATX בצבע שחור",
+        "price": 1190
+      },
+      {
+        "listing_key": "tms:CC-9011226-WW",
+        "vendor": "tms",
+        "vendor_sku": "CC-9011226-WW",
+        "title": "מארז מחשב Corsair ICUE 7000X RGB",
+        "price": 1270
+      },
+      {
+        "listing_key": "yahav:7553",
+        "vendor": "yahav",
+        "vendor_sku": "CC-9011226-WW",
+        "title": "מארז חברת Corsair דגם iCue Series 7000X Tempered Glass Full Tower צבע שחור",
+        "price": 1570
       }
     ],
-    "model_code": "a70-argb",
-    "manufacturer_pn": []
+    "model_code": "7000x-full-icue-series-tower",
+    "manufacturer_pn": [
+      "CC9011226WW"
+    ]
   },
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:a70-black",
+    "product_id": "model:case:7000x-full-icue-series-tower-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "ivory:155092",
-        "vendor": "ivory",
-        "vendor_sku": "81425602227-9",
-        "title": "מארז מחשב THERMALRIGHT A70 – חלון צד – צבע שחור",
-        "price": 490
+        "listing_key": "1pc:108616",
+        "vendor": "1pc",
+        "vendor_sku": "CC-9011227-WW",
+        "title": "מארז מחשב Corsair ICUE 7000X RGB TG בצבע לבן",
+        "price": 1566
+      },
+      {
+        "listing_key": "tms:CC-9011227-WW",
+        "vendor": "tms",
+        "vendor_sku": "CC-9011227-WW",
+        "title": "מארז מחשב Corsair ICUE 7000X RGB White",
+        "price": 1252
+      },
+      {
+        "listing_key": "yahav:7554",
+        "vendor": "yahav",
+        "vendor_sku": "CC-9011227-WW",
+        "title": "מארז חברת Corsair דגם iCue Series 7000X  White Tempered Glass Full Tower צבע לבן",
+        "price": 1570
       }
     ],
-    "model_code": "a70",
-    "manufacturer_pn": []
+    "model_code": "7000x-full-icue-series-tower",
+    "manufacturer_pn": [
+      "CC9011227WW"
+    ]
   },
   {
     "kind": "variant_conflict",
@@ -19551,72 +19529,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208029",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
-        "price": 216
-      },
-      {
-        "listing_key": "tms:12SLIN1W1B",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
-        "price": 136
-      },
-      {
-        "listing_key": "yahav:10987",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
-        "price": 130
-      }
-    ],
-    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208007",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
-        "price": 419
-      },
-      {
-        "listing_key": "tms:12SLIN1W3B",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
-        "price": 422
-      },
-      {
-        "listing_key": "yahav:10993",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 410
-      }
-    ],
-    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
     "vendor": "",
     "offers": [
@@ -19678,6 +19590,72 @@
     "model_code": "120mm-fan-inf-pack-sl-triple-uni-white-wireless",
     "manufacturer_pn": [
       "12SLIN1W3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208029",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
+        "price": 216
+      },
+      {
+        "listing_key": "tms:12SLIN1W1B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
+        "price": 136
+      },
+      {
+        "listing_key": "yahav:10987",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
+        "price": 130
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208007",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
+        "price": 419
+      },
+      {
+        "listing_key": "tms:12SLIN1W3B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
+        "price": 422
+      },
+      {
+        "listing_key": "yahav:10993",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 410
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W3B"
     ]
   },
   {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T23:44:00.829353+00:00",
+  "generated_at": "2026-11-11T01:42:02.130089+00:00",
   "gaps": [
     {
       "category": "case",
@@ -104,7 +104,7 @@
     {
       "category": "aio",
       "label": "מידות משאבה",
-      "count": 27,
+      "count": 26,
       "products": [
         "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
         "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
@@ -312,16 +312,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 19,
-      "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "DISPLAY PORT",
       "count": 19,
@@ -353,12 +343,12 @@
     },
     {
       "category": "cpu",
-      "label": "תכונות נוספות",
+      "label": "מהירות זכרון נתמכת",
       "count": 18,
       "products": [
-        "model:cpu:5700x-tray",
-        "model:cpu:5800x3d",
-        "model:cpu:7500x3d"
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray",
+        "model:cpu:250k"
       ]
     },
     {
@@ -409,6 +399,16 @@
         "model:storage:001-a-brkt-fd",
         "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
         "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 17,
+      "products": [
+        "model:cpu:5700x-tray",
+        "model:cpu:5800x3d",
+        "model:cpu:8400f-tray"
       ]
     },
     {
@@ -509,6 +509,36 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-a13-coreliquid-mag-240mm-white",
         "model:aio:240-chione-e4-240mm"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מק\"ט יצרן",
+      "count": 16,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מספר מאוררים",
+      "count": 16,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "TDP בW",
+      "count": 16,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
       ]
     },
     {
@@ -772,6 +802,26 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "DisplayPorts quantity",
+      "count": 13,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Cooling technology",
+      "count": 13,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "TPM-HEADER",
       "count": 13,
@@ -799,6 +849,46 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-a13-coreliquid-mag-240mm-white",
         "model:aio:240-chione-e4-240mm"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גודל מאורר",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות למעבדי AMD",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גובה Clearance במ\"מ",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות למעבדי INTEL",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
       ]
     },
     {
@@ -863,22 +953,42 @@
     },
     {
       "category": "gpu",
-      "label": "DisplayPorts quantity",
+      "label": "HDMI version",
       "count": 12,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb"
       ]
     },
     {
       "category": "gpu",
-      "label": "Cooling technology",
+      "label": "DisplayPort version",
       "count": 12,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Dual Link DVI",
+      "count": 12,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "CUDA",
+      "count": 12,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb"
       ]
     },
     {
@@ -899,6 +1009,16 @@
         "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
         "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
         "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "תקנים",
+      "count": 12,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
       ]
     },
     {
@@ -929,36 +1049,6 @@
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מק\"ט יצרן",
-      "count": 11,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מספר מאוררים",
-      "count": 11,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "TDP בW",
-      "count": 11,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
       ]
     },
     {
@@ -1003,20 +1093,30 @@
     },
     {
       "category": "gpu",
-      "label": "HDMI version",
+      "label": "HDMI ports quantity",
       "count": 11,
       "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
       ]
     },
     {
       "category": "gpu",
-      "label": "DisplayPort version",
+      "label": "Parallel processing technology support",
       "count": 11,
       "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Number of slots",
+      "count": 11,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
       ]
@@ -1024,26 +1124,6 @@
     {
       "category": "gpu",
       "label": "Weight",
-      "count": 11,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Dual Link DVI",
-      "count": 11,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "CUDA",
       "count": 11,
       "products": [
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
@@ -1143,12 +1223,72 @@
     },
     {
       "category": "psu",
-      "label": "תקנים",
+      "label": "WATT",
       "count": 11,
       "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
         "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:1-atx3-gsk750-750w-full"
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "SILENT",
+      "count": 11,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "חיבורי MOLEX",
+      "count": 11,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מק\"ט יצרן",
+      "count": 11,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "גודל מאוורר בס\"מ",
+      "count": 11,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "חיבור לכרטיס מסך",
+      "count": 11,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "CPU 12V EPS",
+      "count": 11,
+      "products": [
+        "model:psu:0-20035-6-761345-atom-g750-black",
+        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
+        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
       ]
     },
     {
@@ -1293,37 +1433,7 @@
     },
     {
       "category": "gpu",
-      "label": "Parallel processing technology support",
-      "count": 10,
-      "products": [
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDMI ports quantity",
-      "count": 10,
-      "products": [
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "Cooling type",
-      "count": 10,
-      "products": [
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Number of slots",
       "count": 10,
       "products": [
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
@@ -1379,76 +1489,6 @@
         "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
         "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black",
         "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "מק\"ט יצרן",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "WATT",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "חיבור לכרטיס מסך",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "גודל מאוורר בס\"מ",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "SILENT",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "חיבורי MOLEX",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "CPU 12V EPS",
-      "count": 10,
-      "products": [
-        "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
-        "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
-        "model:psu:85f4-afg-c3b0cnp-mpm"
       ]
     },
     {
@@ -1622,6 +1662,26 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "רוחב",
+      "count": 8,
+      "products": [
+        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:a-b550m-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "עומק",
+      "count": 8,
+      "products": [
+        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:a-b550m-pro-microatx"
+      ]
+    },
+    {
       "category": "other",
       "label": "חיבורי תקשורת",
       "count": 8,
@@ -1682,46 +1742,6 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "תאימות למעבדי AMD",
-      "count": 7,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות למעבדי INTEL",
-      "count": 7,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל מאורר",
-      "count": 7,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גובה Clearance במ\"מ",
-      "count": 7,
-      "products": [
-        "model:cooler_air:1cfm-212-3dhp-63-hyper-tdp-120mm-black",
-        "model:cooler_air:217pk-maz-r1-t2hp",
-        "model:cooler_air:225pk-map-r1-t6pn"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "ממשק",
       "count": 7,
@@ -1729,6 +1749,26 @@
         "model:cpu:245kf-tray",
         "model:cpu:250k-tray",
         "model:cpu:265k-tray"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "NVIDIA G-SYNC",
+      "count": 7,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "SFF ready",
+      "count": 7,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
       ]
     },
     {
@@ -1759,26 +1799,6 @@
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
         "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "רוחב",
-      "count": 7,
-      "products": [
-        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:a-b550m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "עומק",
-      "count": 7,
-      "products": [
-        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:a-b550m-pro-microatx"
       ]
     },
     {
@@ -1922,6 +1942,16 @@
       ]
     },
     {
+      "category": "cooler_air",
+      "label": "הערה",
+      "count": 6,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "Processor frequency (OC mode)",
       "count": 6,
@@ -1929,26 +1959,6 @@
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "NVIDIA G-SYNC",
-      "count": 6,
-      "products": [
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "SFF ready",
-      "count": 6,
-      "products": [
-        "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour"
       ]
     },
     {
@@ -2079,6 +2089,26 @@
         "model:case:atlas-m3m-black",
         "model:case:aura-elite-gc107-black",
         "model:case:aura-gc101m-black"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "עומק",
+      "count": 5,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "גובה",
+      "count": 5,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
       ]
     },
     {
@@ -2473,22 +2503,12 @@
     },
     {
       "category": "gpu",
-      "label": "עומק",
+      "label": "אפיק זיכרון",
       "count": 4,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "גובה",
-      "count": 4,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
       ]
     },
     {
@@ -2623,6 +2643,16 @@
     },
     {
       "category": "motherboard",
+      "label": "מספר יציאות HDMI",
+      "count": 4,
+      "products": [
+        "model:motherboard:a-b550m-pro-microatx",
+        "model:motherboard:a620am-b-evo-pro-microatx",
+        "model:motherboard:b550-gaming-mpg-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "משפחת ערכות השבבים של לוח האם",
       "count": 4,
       "products": [
@@ -2709,6 +2739,16 @@
         "model:motherboard:a-b760m-pro-wifi-microatx",
         "model:motherboard:a-b760m-pro-wifi-microatx-ddr5",
         "model:motherboard:e-h610m-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "גרסת HDMI",
+      "count": 4,
+      "products": [
+        "model:motherboard:a620am-b-evo-pro-microatx",
+        "model:motherboard:b550m-pro-vdh-microatx",
+        "model:motherboard:b850-creator-neo-proart-wifi-atx"
       ]
     },
     {
@@ -3082,11 +3122,31 @@
     },
     {
       "category": "gpu",
-      "label": "אפיק זיכרון",
+      "label": "פקטור צורה",
       "count": 3,
       "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "אורך",
+      "count": 3,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "קצב העברת נתונים",
+      "count": 3,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
         "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
       ]
     },
@@ -3412,6 +3472,16 @@
     },
     {
       "category": "motherboard",
+      "label": "תקני Wi-Fi",
+      "count": 3,
+      "products": [
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:b850-creator-neo-proart-wifi-atx",
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "אחסון",
       "count": 3,
       "products": [
@@ -3448,16 +3518,6 @@
         "model:motherboard:a-b550m-pro-microatx",
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מספר יציאות HDMI",
-      "count": 3,
-      "products": [
-        "model:motherboard:a-b550m-pro-microatx",
-        "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b550-gaming-mpg-atx"
       ]
     },
     {
@@ -3572,12 +3632,12 @@
     },
     {
       "category": "motherboard",
-      "label": "גרסת HDMI",
+      "label": "מספר יציאות USB 3.2 Gen 1 (3.1 Gen 1) Type-A",
       "count": 3,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b550m-pro-vdh-microatx",
-        "model:motherboard:b850-creator-neo-proart-wifi-atx"
+        "model:motherboard:b550-gaming-mpg-atx",
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -4210,34 +4270,25 @@
     },
     {
       "category": "gpu",
-      "label": "פקטור צורה",
+      "label": "תדר מעבד",
       "count": 2,
       "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
         "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "CUDA Cores",
+      "count": 2,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb"
       ]
     },
     {
       "category": "gpu",
       "label": "מספר יציאות HDMI",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "אורך",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "קצב העברת נתונים",
       "count": 2,
       "products": [
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
@@ -4579,6 +4630,15 @@
     },
     {
       "category": "memory",
+      "label": "פרופיל ביצועים",
+      "count": 2,
+      "products": [
+        "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm",
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מתח VDD",
       "count": 2,
       "products": [
@@ -4593,6 +4653,33 @@
       "products": [
         "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
         "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מבנה המודול",
+      "count": 2,
+      "products": [
+        "model:memory:line-psd532g56002-signature-32gb",
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תצורת הערכה",
+      "count": 2,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black",
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מפזר חום",
+      "count": 2,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black",
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
       ]
     },
     {
@@ -4642,6 +4729,15 @@
     },
     {
       "category": "motherboard",
+      "label": "גרסת Bluetooth",
+      "count": 2,
+      "products": [
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "יציאות USB-C 3.2 Gen 2",
       "count": 2,
       "products": [
@@ -4660,20 +4756,20 @@
     },
     {
       "category": "motherboard",
-      "label": "תקני Wi-Fi",
-      "count": 2,
-      "products": [
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:b850-creator-neo-proart-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "USB אחורי",
       "count": 2,
       "products": [
         "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
         "model:motherboard:e-h810m-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מחברי תאורה",
+      "count": 2,
+      "products": [
+        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -4993,11 +5089,20 @@
     },
     {
       "category": "motherboard",
-      "label": "מספר יציאות USB 3.2 Gen 1 (3.1 Gen 1) Type-A",
+      "label": "תקן ה-Wi-Fi המתקדם ביותר",
       "count": 2,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx",
-        "model:motherboard:b550-gaming-mpg-atx"
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "לוח אם צ'יפסט",
+      "count": 2,
+      "products": [
+        "model:motherboard:a620am-b-evo-pro-microatx",
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -5115,6 +5220,15 @@
       "products": [
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "צבע המוצר",
+      "count": 2,
+      "products": [
+        "model:motherboard:b550-gaming-mpg-atx",
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
@@ -6039,14 +6153,6 @@
     },
     {
       "category": "cooler_air",
-      "label": "הערה",
-      "count": 1,
-      "products": [
-        "model:cooler_air:ak620-g-r-whadmn"
-      ]
-    },
-    {
-      "category": "cooler_air",
       "label": "ממשק",
       "count": 1,
       "products": [
@@ -6200,14 +6306,6 @@
     {
       "category": "gpu",
       "label": "Default Mode",
-      "count": 1,
-      "products": [
-        "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "CUDA Cores",
       "count": 1,
       "products": [
         "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb"
@@ -6560,14 +6658,6 @@
     {
       "category": "gpu",
       "label": "תדר המעבד",
-      "count": 1,
-      "products": [
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תדר מעבד",
       "count": 1,
       "products": [
         "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
@@ -6999,14 +7089,6 @@
     },
     {
       "category": "memory",
-      "label": "פרופיל ביצועים",
-      "count": 1,
-      "products": [
-        "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מספר פינים",
       "count": 1,
       "products": [
@@ -7071,14 +7153,6 @@
     },
     {
       "category": "memory",
-      "label": "מבנה המודול",
-      "count": 1,
-      "products": [
-        "model:memory:line-psd532g56002-signature-32gb"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "ניטור מתח וטמפרטורה",
       "count": 1,
       "products": [
@@ -7103,15 +7177,79 @@
     },
     {
       "category": "memory",
-      "label": "קיבולת כוללת",
+      "label": "קצב העברת נתונים שנבדק",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
       ]
     },
     {
       "category": "memory",
-      "label": "תצורת הערכה",
+      "label": "זמן השהיית CAS שנבדק",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מתח שנבדק",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קצב העברת נתונים של SPD",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מתח SPD",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "זמן השהיית CAS של SPD",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "שליטה בתאורה",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "ויסות מתח מובנה",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מאוורר קירור כלול",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קיבולת כוללת",
       "count": 1,
       "products": [
         "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
@@ -7152,14 +7290,6 @@
     {
       "category": "memory",
       "label": "פרופיל המהרה",
-      "count": 1,
-      "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מפזר חום",
       "count": 1,
       "products": [
         "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
@@ -7343,14 +7473,6 @@
     },
     {
       "category": "motherboard",
-      "label": "גרסת Bluetooth",
-      "count": 1,
-      "products": [
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "דגם / קוד יצרן",
       "count": 1,
       "products": [
@@ -7416,14 +7538,6 @@
     {
       "category": "motherboard",
       "label": "מחברי מאווררים",
-      "count": 1,
-      "products": [
-        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מחברי תאורה",
       "count": 1,
       "products": [
         "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx"
@@ -7639,14 +7753,6 @@
     },
     {
       "category": "motherboard",
-      "label": "תקן ה-Wi-Fi המתקדם ביותר",
-      "count": 1,
-      "products": [
-        "model:motherboard:a620am-b-evo-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "מיועד ל",
       "count": 1,
       "products": [
@@ -7664,14 +7770,6 @@
     {
       "category": "motherboard",
       "label": "HDMI version",
-      "count": 1,
-      "products": [
-        "model:motherboard:a620am-b-evo-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "לוח אם צ'יפסט",
       "count": 1,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx"
@@ -7816,14 +7914,6 @@
     {
       "category": "motherboard",
       "label": "מספר מחברי מאווררי המארז",
-      "count": 1,
-      "products": [
-        "model:motherboard:b550-gaming-mpg-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "צבע המוצר",
       "count": 1,
       "products": [
         "model:motherboard:b550-gaming-mpg-atx"
@@ -8099,6 +8189,222 @@
       "count": 1,
       "products": [
         "model:motherboard:b850-gaming-max-plus-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מספר יציאות Ethernet LAN ‏(RJ-45)",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מיועד עבור",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מערכות הפעלה נתמכות של Windows",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תאימות למעבדים",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "שיתוף נתיבים",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מערכי RAID ל-NVMe",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "יציאת HDMI",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "יציאות USB-A אחוריות",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "יציאות USB-C אחוריות",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תמיכה ב-USB קדמי",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "בקר Ethernet",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מודול אלחוטי",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מגבלות אלחוטיות",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות שמע",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "נפח זיכרון מרבי",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מחברי קירור",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מחברי חשמל",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות אבחון והתקנה",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "התקנת M.2 וכרטיס גרפי",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מעגל מודפס ותכנון אספקת חשמל",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "פרופילי זיכרון",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "קיבולת ROM של BIOS",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חריצי הרחבה PCIe",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חריץ גרפי התלוי במעבד",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אחסון M.2",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "גדלים נתמכים לכונני M.2",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אחסון SATA",
+      "count": 1,
+      "products": [
+        "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
       ]
     },
     {
