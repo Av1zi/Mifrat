@@ -450,6 +450,16 @@ def overrides_for(product: dict) -> dict[str, list[Fact]]:
     overrides = load_overrides()
     entry = overrides.get(str(product.get("product_id") or ""))
     if not isinstance(entry, dict):
+        # A retired pid that aliases to this product (review 2, 2026-11-12):
+        # the same resolver the extract store uses (previous build + this run).
+        try:
+            from ...extract import store as _store
+            olds = _store._alias_sources().get(str(product.get("product_id") or ""), ())
+        except ImportError:  # pragma: no cover
+            olds = ()
+        entry = next((overrides[old] for old in olds if isinstance(overrides.get(old), dict)),
+                     None)
+    if not isinstance(entry, dict):
         entry = None
         if category:
             raws: list[str] = []

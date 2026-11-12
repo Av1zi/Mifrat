@@ -40,6 +40,11 @@ def self_test() -> list[str]:
     errors: list[str] = []
     for raw, want in {"LIAN-LI": "lianli", "Lancool": "lianli", "ROG": "asus",
                       "T-Force": "teamgroup", "Team Group": "teamgroup", "WD": "westerndigital",
+                      # Review 2 (2026-11-12) families and two-name strings.
+                      "Micron": "crucial", "Crucial": "crucial", "Hynix": "skhynix",
+                      "SK Hynix": "skhynix", "Kingston FURY": "kingston", "Toshiba": "kioxia",
+                      "Kioxia": "kioxia", "Crucial by Micron": "crucial",
+                      "KIOXIA (Toshiba)": "kioxia",
                       "": None, None: None}.items():
         got = identity.brand_family(raw)
         if got != want:
@@ -57,6 +62,9 @@ def self_test() -> list[str]:
         ("case_fan", [row("a", "Antec", "0-761345-75287-9"), row("c", "Arctic", "0-761345-75287-9")],
          [["a", "c"]]),
         ("gpu", [row("a", "PNY"), row("b", "NVIDIA")], [["a", "b"]]),
+        ("motherboard", [row("a", "ASUS"), row("b", "AMD")], [["a", "b"]]),
+        ("memory", [row("a", "Crucial"), row("b", "Micron")], [["a", "b"]]),
+        ("storage", [row("a", "Toshiba"), row("b", "Kioxia")], [["a", "b"]]),
         ("case", [row("a", "Lian Li"), row("b", "Lancool")], [["a", "b"]]),
         ("motherboard", [row("a", "ASUS"), row("b", "ROG"), row("c", "MSI")], [["a", "b"], ["c"]]),
     ]

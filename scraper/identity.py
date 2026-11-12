@@ -733,14 +733,18 @@ _TITLE_COLOURS: tuple[tuple[str, re.Pattern], ...] = tuple(
         ("wood", r"\bwood\b|\bwalnut\b|" + _he_word("אגוז", "עץ")),
         ("aventurine", r"\baventurine\b"),
     ))
-# "80 PLUS White/Silver/Gold" is an efficiency grade; "Red Devil" a GPU line.
+# "80 PLUS White/Silver/Gold" is an efficiency grade; "Red Devil" a GPU line,
+# "Red Dragon" a brand (Redragon). Only the grade word right after 80+ goes:
+# in "Silver 80+ White" the colour is Silver (review 2, 2026-11-12).
 _NOT_COLOUR_RE = re.compile(
-    r"80\s*(?:\+|plus)\s*(?:white|silver|gold|bronze|platinum|titanium)|\bred\s+devil\b",
+    r"80\s*(?:\+|plus)\s*(?:white|silver|gold|bronze|platinum|titanium)"
+    r"|\bred\s+(?:devil|dragon)\b",
     re.I)
-_LIGHT_NONE_RE = re.compile(r"non[\s-]?rgb|no\s+rgb|ללא\s+(?:תאורה|rgb)", re.I)
+_LIGHT_NONE_RE = re.compile(r"non[\s-]?[ad]?rgb|no\s+[ad]?rgb|ללא\s+(?:תאורה|[ad]?rgb)", re.I)
 _LIGHT_LIT_RE = re.compile(r"\b[ad]?rgb\b|תאורה", re.I)
+# GTX 1xxx is a GPU chip too; "RTX™" carries a trademark sign.
 _GPU_CHIP_RE = re.compile(
-    r"\b(?:RTX|GTX|RX|ARC)\s?([2-9]\d{3}|[AB]\d{3})\s?(XTX|XT|TI|SUPER|GRE)?\b", re.I)
+    r"\b(?:RTX|GTX|RX|ARC)[™®]?\s?(1\d{3}|[2-9]\d{3}|[AB]\d{3})\s?(XTX|XT|TI|SUPER|GRE)?\b", re.I)
 
 #: Which title axes each category reads (its AXES carry a colour/lighting).
 TITLE_AXES: dict[str, tuple[str, ...]] = {
@@ -826,6 +830,15 @@ BRAND_FAMILY = {
     "chromax": "noctua",
     "furybeast": "kingston",
     "hyperx": "kingston",
+    # Review 2 (2026-11-12): one maker, two names.
+    "kingstonfury": "kingston",
+    "fury": "kingston",
+    "micron": "crucial",
+    "crucialbymicron": "crucial",
+    "hynix": "skhynix",
+    "skhynix": "skhynix",
+    "toshiba": "kioxia",
+    "kioxia": "kioxia",
 }
 _CHIP_BRANDS = frozenset({"nvidia", "amd", "intel", "ati"})
 CHIP_MAKERS = _CHIP_BRANDS
@@ -835,15 +848,28 @@ BOARD_PARTNER_CATEGORIES = frozenset({"motherboard", "gpu"})
 
 
 def brand_family(value) -> str | None:
-    """`"LIAN-LI"`, `"Lancool"` -> `"lianli"`; None for no brand."""
-    key = re.sub(r"[^a-z0-9]", "", _text(value).lower())
+    """`"LIAN-LI"`, `"Lancool"` -> `"lianli"`; None for no brand. A string of
+    two names ("Crucial by Micron", "Kioxia (Toshiba)") is the family of the
+    first one that is a known family."""
+    text = _text(value).lower()
+    key = re.sub(r"[^a-z0-9]", "", text)
+    if key in BRAND_FAMILY or not re.search(r"[\s/()|]|\bby\b", text):
+        return BRAND_FAMILY.get(key, key) or None
+    words = [re.sub(r"[^a-z0-9]", "", w) for w in re.split(r"[\s/()|,]+|\bby\b", text)]
+    for part in words:
+        if part in BRAND_FAMILY:
+            return BRAND_FAMILY[part]
+    # "Corsair Vengeance" is still Corsair: a two-word string whose words
+    # are not two families keeps the whole-string key.
     return BRAND_FAMILY.get(key, key) or None
 
 
 def listing_brand_family(category: str | None, listing: dict) -> str | None:
     attrs = listing.get("attributes") or {}
     family = brand_family(listing.get("brand") or attrs.get("brand"))
-    if family in _CHIP_BRANDS and category == "gpu":
+    # The chip maker is no brand where board partners build the part
+    # (GPU, motherboard; review 2 extends the GPU-only exemption).
+    if family in _CHIP_BRANDS and category in BOARD_PARTNER_CATEGORIES:
         return None
     return family
 

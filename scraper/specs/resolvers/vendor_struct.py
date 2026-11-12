@@ -327,7 +327,7 @@ def _emit_psu_conn_string(facts: dict, category: str, value, source: str) -> Non
     """
     text = str(value or "")
     conns: list[str] = []
-    for match in re.finditer(r"(\d+)\s*x\s*(\d+)\s*-?pin", text, re.I):
+    for match in re.finditer(r"(?<![\d.])(\d+)\s*x\s*(\d+)\s*-?pin", text, re.I):
         rendered = f"{int(match.group(1))}x{int(match.group(2))}-pin"
         if rendered not in conns:
             conns.append(rendered)
@@ -907,7 +907,7 @@ def _emit_memory_support(facts: dict, category: str, value, source: str) -> None
     # words may intervene for English word order ("2 DDR5 slots"); Hebrew
     # cells ("4 סלוטים DDR5") match directly.
     match = re.search(
-        r"(?<!DDR)(?<![\d.])(\d{1,2})\s*(?:[A-Za-z0-9.]+\s+){0,2}(?:חריצי|סלוטי|slots?)",
+        r"(?<!DDR)(?<![\d.xX])(\d{1,2})(?![.\d])\s*(?:[A-Za-z0-9.]+\s+){0,2}(?:חריצי|סלוטי|slots?)",
         text)
     if match:
         _emit(facts, category, "memory_slots", int(match.group(1)), source, 0.8)
@@ -1454,7 +1454,7 @@ def _emit_m2_spec_cell(facts: dict, category: str, value, source: str) -> None:
         _emit(facts, category, "m2_slots", int(match.group(1)), source, 0.8)
 
 
-_DISPLAY_COUNT_RE = re.compile(r"(?<![\d.])(\d{1,2})")
+_DISPLAY_COUNT_RE = re.compile(r"(?<![\d.])(\d{1,2})(?![.\d])")
 
 
 def _emit_display_count(facts: dict, category: str, value, source: str) -> None:

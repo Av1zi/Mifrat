@@ -406,6 +406,15 @@ TITLE_AXIS_FIXTURES = [
     ("memory", "Kingston FURY BEAST 2x16GB DDR5 6000MHz", {}),
     ("memory", "G.Skill Trident Z5 Non-RGB 2x16GB", {"lighting": "none"}),
     ("cpu", "Intel Core i5 14600K White", {}),
+    # Review 2 (2026-11-12) vocabulary.
+    ("memory", "G.Skill Trident Z5 Non-ARGB 2x16GB", {"lighting": "none"}),
+    ("memory", "Kingston FURY Beast non ARGB 16GB", {"lighting": "none"}),
+    ("psu", "Corsair RM850 Silver 80+ White", {"color": "silver"}),
+    ("psu", "be quiet Pure Power 12 80+ Silver", {}),
+    ("memory", "Redragon Red Dragon DDR4 16GB", {}),
+    ("gpu", "MSI GeForce RTX™ 5060 Ti 16G", {"chipset": "5060TI"}),
+    ("gpu", "Gigabyte GTX 1650 4GB", {"chipset": "1650"}),
+    ("gpu", "ASUS GTX 1660 SUPER 6GB", {"chipset": "1660SUPER"}),
 ]
 TITLE_AXIS_PAIRS = [
     # (category, same vendor?, title a, title b, two parts?)
@@ -488,6 +497,34 @@ PACKAGING_FIXTURES = [
 ]
 
 
+RESOLVE_FIXTURES = [
+    # (mpn/sku, title, expected (packaging fact, basis)) for resolve_cpu_packaging.
+    # A retailer catalogue code is not packaging evidence (decisions.md
+    # "retailer codes are not identity", owner Q3 default Box + flag).
+    ("C14600KT", "Intel Core i5 14600K / 1700", (None, "default")),
+    ("C10700KB-A", "Intel Core i7 10700K", (None, "default")),
+    ("BX8071514600K", "Intel Core i5 14600K", ("boxed", "part_number")),
+    ("CM8071504821015", "Intel Core i5 14600K", ("tray", "part_number")),
+    # AMD OPN printed without its dash still reads.
+    ("100100000910WOF", "AMD Ryzen 7 7800X3D", ("boxed", "part_number")),
+    ("100000000910", "AMD Ryzen 7 7800X3D", ("tray", "part_number")),
+    ("C14600KT", "Intel Core i5 14600K Tray", ("tray", "title")),
+]
+
+
+def check_i6_resolve() -> int:
+    from scraper.specs import witness
+    for code, title, expected in RESOLVE_FIXTURES:
+        listing = {"mpn": code, "vendor_sku": code, "title_raw": title}
+        facts: dict = {}
+        witness.resolve_cpu_packaging("cpu", listing, facts)
+        values = [f.value for f in facts.get("packaging") or []]
+        got = (values[-1] if values else None, listing.get("packaging_basis"))
+        if got != expected:
+            fail("I6: resolve_cpu_packaging(%r, %r) = %r, expected %r" % (code, title, got, expected))
+    return len(RESOLVE_FIXTURES)
+
+
 def check_i6_unit() -> int:
     """The packaging readers (audit 2026-11-10 D, owner Q3)."""
     from scraper.specs import witness
@@ -555,7 +592,7 @@ def main() -> int:
         "I4 products": check_i4(catalog),
         "I5 fixtures": check_i5_unit(),
         "I5 twin aliases": check_i5_catalog(catalog),
-        "I6 fixtures": check_i6_unit(),
+        "I6 fixtures": check_i6_unit() + check_i6_resolve(),
         "I6 cpu products": check_i6_catalog(catalog),
     }
     for label, count in checked.items():

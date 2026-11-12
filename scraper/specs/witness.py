@@ -26,7 +26,7 @@ from dataclasses import replace
 
 from . import schema
 from . import text as text_module
-from .merge import TIER_CATALOG, TIER_TITLE, TIER_VENDOR, TIER_WEAK, Fact
+from .merge import TIER_CATALOG, TIER_TITLE, TIER_VENDOR, Fact
 
 WITNESS_SOURCE = "witness"
 # QA issue tag: site_data lifts these cases ahead of the spec_conflict cap.
@@ -81,8 +81,9 @@ def refine_chipset_suffix(category: str | None, facts: dict) -> None:
 # nothing at all = basis "default" (identity reads it as Box, never a spec).
 _INTEL_BOX_PN = re.compile(r"^BX8\d")
 _INTEL_TRAY_PN = re.compile(r"^CM8\d")
-_AMD_BOX_PN = re.compile(r"^100-\d{9,10}(?:BOX|WOF|WOZ|POF)$")
-_AMD_TRAY_PN = re.compile(r"^100-\d{9,10}(?:MPK|TRAY)?$")
+# AMD OPNs, with or without the dash after "100" (vendors print both).
+_AMD_BOX_PN = re.compile(r"^100-?\d{9,10}(?:BOX|WOF|WOZ|POF)$")
+_AMD_TRAY_PN = re.compile(r"^100-?\d{9,10}(?:MPK|TRAY)?$")
 # TMS "C245KFT" / "C10700KB-A" / "C7500T-P" / "C250KFPLUST": the last letter
 # before an optional one-letter tail is the packaging (T = Tray, B = Box).
 _RETAILER_CODE = re.compile(r"^C\d{3,5}[A-Z]{0,7}?([TB])(?:-[A-Z])?$")
@@ -156,14 +157,15 @@ def resolve_cpu_packaging(category: str | None, listing: dict, facts: dict) -> N
                 confidence=0.85)]
             listing["packaging_basis"] = "part_number"
             return
-    for value in codes:
-        pack = retailer_code_packaging(value)
-        if pack:
-            facts["packaging"] = current + [Fact(
-                value=pack, tier=TIER_WEAK, source="weak:retailer_code", confidence=0.6)]
-            listing["packaging_basis"] = "retailer_code"
-            return
+    # A retailer catalogue code (TMS C...T / C...B, copied by 1PC) is not
+    # packaging evidence (decisions.md: retailer codes are not identity; owner
+    # Q3: otherwise Box + flag; cautious default 2026-11-12, owner to
+    # confirm). The code is named in the listing's QA case instead.
     listing["packaging_basis"] = "default"
+    for value in codes:
+        if retailer_code_packaging(value):
+            listing["packaging_retailer_code"] = str(value)
+            break
 
 
 def socket_key(value) -> str:
@@ -232,10 +234,31 @@ def title_capacity_gb(title: str) -> set[int]:
     return {int(round(number * 1000)) if match.group(2).upper() == "TB" else int(number)}
 
 
+_CACHE_RE = re.compile(r"(?<![\d.,])(\d{1,4})\s*MB\b(\s*(?:cache|מטמון|buffer))?", re.I)
+_HDD_TITLE_RE = re.compile(r"\b\d{4,5}\s*RPM\b|\bHDD\b|דיסק\s+קשיח|כונן\s+קשיח", re.I)
+_CACHE_SIZES = frozenset({8, 16, 32, 64, 128, 256, 512, 1024, 2048})
+
+
+def title_cache_mb(title: str) -> set[int]:
+    """Drive cache a title states (audit 05 F07): a power-of-two MB value
+    followed by "cache", or any on an HDD title (an SSD's "7450MB" is a
+    speed in MB/s and is never read)."""
+    title = title or ""
+    hdd = bool(_HDD_TITLE_RE.search(title))
+    out: set[int] = set()
+    for match in _CACHE_RE.finditer(title):
+        value = int(match.group(1))
+        if value in _CACHE_SIZES and (match.group(2) or hdd):
+            out.add(value)
+    return out if len(out) == 1 else set()
+
+
 def capacity_agrees(shipped, stated: int) -> bool:
-    """A 1.024x binary/decimal gap and rounding are the same drive."""
+    """A 1.024x binary/decimal gap and rounding are the same drive, whichever
+    side carries the binary number (1000 vs a "1024GB" title, or 1024 vs 1000)."""
     return (abs(shipped - stated) <= max(1, 0.002 * stated)
-            or abs(shipped - stated * 1.024) <= 1)
+            or abs(shipped - stated * 1.024) <= 1
+            or abs(stated - shipped * 1.024) <= 1)
 
 
 def title_includes_cooler(title: str) -> set[bool]:
@@ -267,7 +290,8 @@ def _readers(category: str | None) -> dict:
     if category == "gpu":
         return {"memory_type": (title_gpu_memory, gpu_memory_family, False)}
     if category == "storage":
-        return {"capacity_gb": (title_capacity_gb, None, False)}
+        return {"capacity_gb": (title_capacity_gb, None, False),
+                "cache_mb": (title_cache_mb, lambda value: int(value), False)}
     if category == "cpu":
         return {"includes_cooler": (title_includes_cooler, lambda value: bool(value), True),
                 "packaging": (title_packaging, lambda value: str(value).lower(), True)}
@@ -288,7 +312,8 @@ def _schema_value(field: str, category: str | None, stated):
 
 def apply_title_witness(category: str | None, specs: dict, sources: dict,
                         listing_facts: list[tuple[dict, dict]],
-                        facts: dict) -> tuple[list[dict], set[str]]:
+                        facts: dict, only: set[str] | None = None
+                        ) -> tuple[list[dict], set[str]]:
     """Check every witnessed field; mutate `specs`/`sources` on a 2-source fix.
 
     `listing_facts` is one (listing, tier 1-3 facts) pair per offer; `facts`
@@ -301,6 +326,8 @@ def apply_title_witness(category: str | None, specs: dict, sources: dict,
     supported: set[str] = set()
     fields = schema.field_map(category)
     for field, (reader, key, unanimous) in _readers(category).items():
+        if only is not None and field not in only:
+            continue
         shipped = specs.get(field)
         stated_by: dict[str, set] = {}  # vendor -> stated values
         for listing, _ in listing_facts:

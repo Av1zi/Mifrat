@@ -254,6 +254,40 @@ def check_title_witness(c: Checks) -> None:
     c.eq((specs["chipset"], specs["socket"]), ("C621A", "LGA4189"),
          "two C621A titles never flip a C621A board to C621")
 
+    from scraper.specs.witness import capacity_agrees
+    for shipped, stated in ((1000, 1024), (1024, 1000), (2000, 2048), (4096, 4000), (2000, 2000)):
+        c.ok(capacity_agrees(shipped, stated),
+             f"capacity {shipped} vs title {stated}: the 1.024x gap counts both ways")
+    c.ok(not capacity_agrees(1000, 2000), "1 TB is not 2 TB")
+    c.ok(not capacity_agrees(8000, 7680), "8 TB is not 7.68 TB")
+
+    # `only=` re-checks just the fields inference filled (witness after derive).
+    pairs = [board("1pc", "Gigabyte Z890 AORUS ELITE"), board("tms", "Gigabyte Z890 AORUS ELITE")]
+    specs = {"chipset": "Z790", "socket": "LGA1851"}
+    sources = {"chipset": "derived:mb.example", "socket": "vendor"}
+    apply_title_witness("motherboard", specs, sources, pairs, {}, only={"socket"})
+    c.eq(specs["chipset"], "Z790", "only= leaves the other fields alone")
+    apply_title_witness("motherboard", specs, sources, pairs, {}, only={"chipset"})
+    c.eq(specs["chipset"], "Z890", "a derived value two titles contradict is replaced")
+
+    # Drive cache against the titles (audit 05 F07).
+    from scraper.specs.witness import title_cache_mb
+    c.eq(title_cache_mb('Seagate BarraCuda ST20000DM001 20TB 7200RPM 256MB SATA 3.5"'), {256},
+         "an HDD title's MB value is its cache")
+    c.eq(title_cache_mb("Samsung 990 Pro Series 7450MB 1TB M.2 NVMe"), set(),
+         "an SSD speed in MB is no cache")
+    c.eq(title_cache_mb("Sandisk Optimus 5100 500GB 6,600Mbs M.2 NVMe"), set(), "6,600 is no 600")
+    c.eq(title_cache_mb('Seagate 2.5" 16MB Cache'), {16}, "an explicit cache word")
+    pairs = [({"vendor_id": "ksp", "title_raw": "Seagate HDD 900GB 10K 16MB SAS 6G 2.5"}, {}),
+             ({"vendor_id": "ivory", "title_raw": 'כונן קשיח פנימי Seagate 2.5" 16MB Cache'}, {})]
+    specs, sources = {"cache_mb": 64}, {"cache_mb": "catalog"}
+    apply_title_witness("storage", specs, sources, pairs, {})
+    c.eq(specs["cache_mb"], 16, "two vendors' titles correct a catalog cache size")
+    pairs = pairs[:1]
+    specs, sources = {"cache_mb": 64}, {"cache_mb": "catalog"}
+    issues, _ = apply_title_witness("storage", specs, sources, pairs, {})
+    c.eq(specs["cache_mb"], 64, "one title against the cache size is a QA flag only")
+
     # includes_cooler reads a cooler IN THE BOX, not advice (review 2).
     from scraper.specs.resolvers.title_parse import parse_title
     for title, want in (

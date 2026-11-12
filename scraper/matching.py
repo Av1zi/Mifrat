@@ -2523,6 +2523,8 @@ def offer_from_listing(enriched: dict) -> dict:
     if enriched.get("packaging_basis"):
         # CPU: which evidence set the packaging (specs/witness.py); catalog only.
         offer["packaging_basis"] = enriched["packaging_basis"]
+    if enriched.get("packaging_retailer_code"):
+        offer["packaging_retailer_code"] = enriched["packaging_retailer_code"]
     return offer
 
 
@@ -5654,10 +5656,17 @@ def order_split_clusters(category: str, code_slug: str, clusters: list[list[dict
     if len(clusters) < 2 or not previous_assignments:
         return clusters
 
+    # The suffix (axis words) differs per listing; the shared pid is the one
+    # the clusters would compete for, so judge by the suffix of the union.
+    union = [e for cluster in clusters for e in cluster]
+    bare = f"model:{category}:{code_slug}{identity_pid_suffix(category, union)}"
+
     def held(cluster: list[dict]) -> int:
-        bare = f"model:{category}:{code_slug}{identity_pid_suffix(category, cluster)}"
         return sum(1 for e in cluster if previous_assignments.get(e["listing_key"]) == bare)
 
+    holders = [c for c in clusters if held(c)]
+    if not holders:
+        return clusters
     order = {id(c): i for i, c in enumerate(clusters)}
     return sorted(clusters, key=lambda c: (-held(c), order[id(c)]))
 
@@ -5928,7 +5937,16 @@ def match_listings(
                 if not accepted:
                     continue
 
-                pid = f"model:{category}:{code_slug}{identity_pid_suffix(category, accepted)}"
+                # A split cluster is named after its OWN code when it has one
+                # (I3: a pid names its code). 2026-11-12: 1PC "3240T" and TMS
+                # "3240" shared the copied code C3240T-P; split by packaging,
+                # the 3240T side must not take the "3240" slug.
+                # CPU only: there the code is the full model incl. its letter
+                # suffix (I3); other categories keep the group slug.
+                own = _dominant_code(category, accepted) if category == "cpu" else None
+                own_slug = (identity.code_slug(own) or own) if own else code_slug
+                pid_slug = own_slug if len(clusters) > 1 or len(subgroups) > 1 else code_slug
+                pid = f"model:{category}:{pid_slug}{identity_pid_suffix(category, accepted)}"
                 # Two clusters of one code can only collide when they split on
                 # an axis that is not in the pid (socket, generation, ...).
                 # Disambiguate with the first differing value, then an index.
@@ -6634,6 +6652,8 @@ def match_listings(
                     "resolved": False,
                     "reason": "; ".join(
                         f"{e['listing_key']}: {_weak_basis[e['packaging_basis']]}"
+                        + (f" (retailer code {e['packaging_retailer_code']} not read as packaging)"
+                           if e.get("packaging_retailer_code") else "")
                         for e in _weak),
                     "packaging_basis": {e["listing_key"]: e["packaging_basis"] for e in _weak},
                 },

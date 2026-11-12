@@ -105,6 +105,11 @@ def check_report(report: dict) -> list[str]:
     """Pure: schema misses in a spec report that no SCHEMA_UNKNOWN_VALUES entry explains."""
     if "schema_misses" not in report:
         return ["spec_report.json has no schema_misses: re-run scraper/normalize_and_match.py"]
+    total = (report.get("counts") or {}).get("schema_misses")
+    if isinstance(total, int) and total > len(report.get("schema_misses") or []):
+        return [f"spec_report.json lists {len(report['schema_misses'])} of {total} schema misses "
+                "(site_data.SCHEMA_MISS_CAP cut the list): the unlisted ones are unchecked - "
+                "fix the top misses or raise the cap"]
     unexplained: list[str] = []
     for miss in report.get("schema_misses") or []:
         category, field, value = miss.get("category"), miss.get("field"), miss.get("value")
@@ -185,6 +190,12 @@ def self_test() -> int:
                 "motherboard.chipset='Intel B85'")
     report_case("report without schema_misses trips", {"products": 1},
                 "has no schema_misses")
+    report_case("a cut schema_misses list trips",
+                {"schema_misses": [miss("psu", "efficiency", "Cybenetics Platinum")],
+                 "counts": {"schema_misses": 301}}, "cut the list")
+    report_case("an uncut list passes",
+                {"schema_misses": [miss("psu", "efficiency", "Cybenetics Platinum")],
+                 "counts": {"schema_misses": 1}}, None)
 
     total = 18
     if failures:

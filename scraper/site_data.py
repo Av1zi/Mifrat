@@ -631,6 +631,9 @@ def _trim_product(product: dict) -> dict:
     return trimmed
 
 
+SCHEMA_MISS_CAP = 300
+
+
 def _trim_spec_report(report: dict) -> dict:
     """Compact the spec coverage report for the browser (data/site/spec_report.json).
 
@@ -692,7 +695,7 @@ def _trim_spec_report(report: dict) -> dict:
         # Vendor labels that mapped to no schema field, by frequency — the
         # evidence queue for specs/labels.py.
         "label_gaps": (report.get("label_gaps") or [])[:300],
-        "schema_misses": sorted(misses.values(), key=lambda m: -m["count"])[:300],
+        "schema_misses": sorted(misses.values(), key=lambda m: -m["count"])[:SCHEMA_MISS_CAP],
         "categories": categories,
         "counts": {
             "conflicts": len(report.get("conflicts") or []),
@@ -700,6 +703,9 @@ def _trim_spec_report(report: dict) -> dict:
             "issues": len(report.get("issues") or []),
             "unknown": len(report.get("unknown") or []),
             "core_gaps": len(report.get("core_gaps") or []),
+            # The shipped schema_misses list is capped; the gate compares
+            # this total with it so a cut is reported, never silent.
+            "schema_misses": len(misses),
         },
         "invalid_reasons": invalid_reasons,
         "conflicts": (report.get("conflicts") or [])[:500],

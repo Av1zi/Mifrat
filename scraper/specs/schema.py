@@ -174,7 +174,7 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "B75": ("LGA1155", "DDR3"), "H81": ("LGA1150", "DDR3"),
     "HM65": (None, "DDR3"), "HM770": (None, None),
     # HEDT / legacy
-    "X99": ("LGA2011-v3", "DDR4"), "X299": ("LGA2066", "DDR4"),
+    "X99": ("LGA2011-3", "DDR4"), "X299": ("LGA2066", "DDR4"),
     "X399": ("TR4", "DDR4"), "TRX40": ("sTRX4", "DDR4"),
     "C422": ("LGA2066", "DDR4"), "C621": ("LGA3647", "DDR4"),
     # Ice Lake-SP (Supermicro X12SP*): vendors print it as plain "C621".
@@ -182,7 +182,7 @@ CHIPSET_INFO: dict[str, tuple[str | None, str | None]] = {
     "W790": ("LGA4677", "DDR5"),
     # Server chipsets (Sep 2026: seen on TMS server-board details;
     # canon_chipset recovers these from concatenated vendor cells).
-    "C602": ("LGA2011", "DDR3"), "C612": ("LGA2011-v3", "DDR4"),
+    "C602": ("LGA2011", "DDR3"), "C612": ("LGA2011-3", "DDR4"),
     # Sapphire Rapids (LGA4677, DDR5): Supermicro X13 boards print C741.
     "C741": ("LGA4677", "DDR5"),
 }
@@ -222,7 +222,7 @@ SOCKET_MEMORY: dict[str, str] = {
     "AM4": "DDR4", "AM5": "DDR5", "sTR5": "DDR5", "sWRX8": "DDR4",
     "TR4": "DDR4", "sTRX4": "DDR4",
     "LGA1151": "DDR4", "LGA1200": "DDR4", "LGA2066": "DDR4",
-    "LGA2011": "DDR4", "LGA2011-v3": "DDR4", "LGA3647": "DDR4",
+    "LGA2011": "DDR4", "LGA2011-3": "DDR4", "LGA3647": "DDR4",
     "LGA1155": "DDR3", "LGA1150": "DDR3", "LGA4189": "DDR4",
     "LGA1700": "DDR4",  # both flavours exist; a hint only
     "LGA1851": "DDR5", "LGA4677": "DDR5", "LGA4710": "DDR5", "LGA7529": "DDR5",

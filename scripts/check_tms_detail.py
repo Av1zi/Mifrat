@@ -1193,6 +1193,12 @@ def check_socket_canon(failures: list[str]) -> int:
         # Xeon 6 (TMS prints the bare number, 2026-11-12).
         ("4710", "LGA4710"),
         ("LGA 4710", "LGA4710"),
+        # The schema spelling round-trips (review 2: X99/C612 boards carry
+        # CHIPSET_INFO's "LGA2011-v3", which canonicalized to plain LGA2011).
+        ("LGA2011-v3", "LGA2011-3"),
+        ("LGA 2011 v3", "LGA2011-3"),
+        ("LGA2011V3", "LGA2011-3"),
+        ("LGA2011-3", "LGA2011-3"),
         ("", ""),
     ):
         checked += 1
@@ -1271,6 +1277,63 @@ def check_mapped_fields_exist(failures: list[str]) -> int:
     return checked
 
 
+def check_enum_canon(failures: list[str]) -> int:
+    """Review 2 (2026-11-12): a multi-value cell is refused, not its first
+    value; a bare "80" is no 80 PLUS grade."""
+    from scraper.specs import schema
+    from scraper.specs.values import InvalidValue, coerce
+
+    def run(category: str, field: str, value: str):
+        try:
+            return coerce(schema.field_map(category)[field], value, category)
+        except InvalidValue:
+            return None
+
+    cases = (
+        ("motherboard", "form_factor", "ATX/EATX", None),
+        ("motherboard", "form_factor", "ATX / E-ATX", None),
+        ("motherboard", "form_factor", "ATX", "ATX"),
+        ("motherboard", "form_factor", "ATX – 243.84 × 304.8", "ATX"),
+        ("psu", "efficiency", "80", None),
+        ("psu", "efficiency", "80+", "80+ White"),
+        ("psu", "efficiency", "80 PLUS", "80+ White"),
+        ("psu", "efficiency", "80 PLUS Bronze", "80+ Bronze"),
+    )
+    for category, field, value, want in cases:
+        got = run(category, field, value)
+        if got != want:
+            failures.append(f"coerce({category}.{field}, {value!r}) = {got!r}, expected {want!r}")
+    return len(cases)
+
+
+def check_decimal_counts(failures: list[str]) -> int:
+    """Counts never come from a decimal (audit O, review 2 2026-11-12):
+    the "2" of "1.2x8-pin" or "2.0 DIMM" is no count."""
+    from scraper.specs.resolvers import vendor_struct as vs
+
+    def run(fn: str, category: str, value: str) -> dict:
+        facts: dict = {}
+        getattr(vs, fn)(facts, category, value, "vendor")
+        return {k: [f.value for f in v] for k, v in facts.items()}
+
+    cases = (
+        ("_emit_psu_conn_string", "gpu", "Power Connector 1.2x8-pin", "external_power", None),
+        ("_emit_psu_conn_string", "gpu", "Power Connector 2x8-pin", "external_power", [["2x8-pin"]]),
+        ("_emit_psu_conn_string", "gpu", "3 x 8-pin", "external_power", [["3x8-pin"]]),
+        ("_emit_memory_support", "motherboard", "2.0 DIMM slots", "memory_slots", None),
+        ("_emit_memory_support", "motherboard", "PCIe 2.0 x4 slots", "memory_slots", None),
+        ("_emit_memory_support", "motherboard", "4 x DDR5 slots", "memory_slots", [4]),
+        ("_emit_memory_support", "motherboard", "2 DDR5 slots", "memory_slots", [2]),
+        ("_emit_display_count", "gpu", "DisplayPort 1.4a", "max_displays", None),
+        ("_emit_display_count", "gpu", "2.5", "max_displays", None),
+    )
+    for fn, category, value, field, want in cases:
+        got = run(fn, category, value).get(field)
+        if got != want:
+            failures.append(f"{fn}({value!r}).{field} = {got!r}, expected {want!r}")
+    return len(cases)
+
+
 def check_tile_prices(failures: list[str]) -> int:
     """TMS listing-tile price shapes (owner live check 2026-11-12, audit H).
 
@@ -1308,6 +1371,8 @@ def main() -> int:
     failures: list[str] = []
     checked = 0
     checked += check_tile_prices(failures)
+    checked += check_decimal_counts(failures)
+    checked += check_enum_canon(failures)
     checked += check_spider_cases(failures)
     checked += check_pair_cases(failures)
     checked += check_template_fallbacks(failures)

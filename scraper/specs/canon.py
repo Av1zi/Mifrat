@@ -164,6 +164,11 @@ def canon_form_factor_mb(value) -> str:
     key = re.sub(r"\s+", " ", str(value).strip().lower()).replace("_", "-")
     if key in _MB_FORM_FACTORS:
         return _MB_FORM_FACTORS[key]
+    # "ATX/EATX", "ATX / E-ATX": two form factors in one cell are no single
+    # value; returned whole, the enum refuses it (review 2, 2026-11-12).
+    if re.search(r"\s*[/|,]\s*(?:extended atx|e-?atx|xl-atx|micro|m-?atx|mini|itx|atx|ssi|ceb|eeb)",
+                 key):
+        return str(value).strip()
     lead = _MB_FORM_FACTOR_LEAD.match(key)
     if lead:
         token = lead.group(1)
@@ -262,6 +267,9 @@ def canon_efficiency(value) -> str:
     if tier:
         return _EFFICIENCY_CANON.get(tier.group(1).lower(), text)
     key = text.lower()
+    # A bare "80" is a number, not the 80 PLUS mark: it needs "+" or "plus".
+    if re.fullmatch(r"80", key):
+        return text
     key = re.sub(r"^80\s?\+?\s*", "80+ ", key).strip() if key.startswith("80") else key
     return _EFFICIENCY_CANON.get(key, text)
 
@@ -412,6 +420,9 @@ def canon_socket(value) -> str:
         text = text[count.end():]
     text = _SOCKET_FILLER_RE.sub(" ", re.sub(r"\([^)]*\)", " ", text))
     text = re.sub(r"\s+", " ", text).strip()
+    # "LGA2011-v3" / "LGA 2011 v3" / "LGA2011V3" are Intel's names for the
+    # canonical LGA2011-3 (review 2, 2026-11-12: the v3 was dropped).
+    text = re.sub(r"\b(?:LGA\s?)?2011\s*-?\s*V3\b", "LGA2011-3", text)
     text = re.sub(r"\bLGA\s?115\s?X\b", "LGA115X", text)
     text = re.sub(r"\b115\s?X\b", "LGA115X", text)
     if re.search(r"\bLGA115X\b", text):

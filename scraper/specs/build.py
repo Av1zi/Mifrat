@@ -283,6 +283,15 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
         # individual values and any new cross-field relationships.
         issues.extend(revalidate_derived(
             category, merged.specs, merged.sources))
+        # Derived values face the titles too (review 2, 2026-11-12): the first
+        # witness pass ran before inference filled them. Only the fields a
+        # rule wrote are re-checked, so a merged value is witnessed once.
+        if derived_fields:
+            more, supported_now = witness.apply_title_witness(
+                category, merged.specs, merged.sources, per_listing, facts,
+                only=set(derived_fields))
+            issues.extend(more)
+            title_supported |= supported_now
         issues.extend(cross_check(category, merged.specs, merged.sources,
                                   title_supported=title_supported))
         derived_total += len(derived_fields)

@@ -45,6 +45,10 @@ BUDGETS = {
     "qa_dismissed keys with no case": 4,
     "image blocklist entries matching nothing": 3,
     "cover files no listing uses": 900,
+    # 2026-11-12 baseline: 1549 (993 SilverStone, 276 Antec maker pages for
+    # products no Israeli vendor lists) and 19.
+    "enrichment entries no listing reaches": 1700,
+    "detail ledger drift": 40,
 }
 
 
@@ -153,6 +157,20 @@ def self_test() -> int:
         ok = got == want
         fails += not ok
         print(f"  [{'ok' if ok else 'FAIL'}] override effect, {label}: {got} flag(s), want {want}")
+    # overrides_for follows pid aliases (the gate's "reached via alias" must
+    # be how the code applies it, review 2 2026-11-12).
+    from scraper.extract import store
+    saved = reference._OVERRIDES_CACHE
+    store.set_run_aliases({"model:gpu:retired-pid": pid})
+    reference._OVERRIDES_CACHE = {"model:gpu:retired-pid": {"memory_type": other}}
+    try:
+        got = reference.overrides_for(dict(product, offers=[]))
+    finally:
+        reference._OVERRIDES_CACHE = saved
+        store.set_run_aliases({})
+    ok = [f.value for f in got.get("memory_type") or []] == [other]
+    fails += not ok
+    print(f"  [{'ok' if ok else 'FAIL'}] overrides_for reaches an alias-keyed entry: {got}")
     print("[check-ledgers] self-test %s" % ("passed" if not fails else "FAILED"))
     return 1 if fails else 0
 
@@ -216,6 +234,48 @@ def check_budgets(catalog: dict) -> dict[str, list[str]]:
         and not any(vendor == item.split("/", 1)[0] and item.split("/", 1)[1] in url
                     for vendor, url in images)
     ]
+
+    # Audit F10: enrichment entries (manufacturer pages, Icecat sheets) whose
+    # keys no listing's part number, SKU or EAN carries.
+    import re as _re
+    codes: set[str] = set()
+    for e in catalog.get("listings") or []:
+        for value in (e.get("mpn"), e.get("vendor_sku"), (e.get("attributes") or {}).get("ean")):
+            key = _re.sub(r"[^A-Z0-9]", "", str(value or "").upper())
+            if key:
+                codes.add(key)
+                codes.add(key.lstrip("0"))
+    orphans = []
+    for folder in ("mfr", "icecat"):
+        for path in sorted((ROOT / "data" / folder).glob("*.json")):
+            for url, entry in ((_read(path, {}).get("entries")) or {}).items():
+                keys = {_re.sub(r"[^A-Z0-9]", "", str(k).upper()) for k in entry.get("keys") or []}
+                if keys and not any(k in codes or k.lstrip("0") in codes for k in keys):
+                    orphans.append(f"{folder}/{path.stem}: {url}")
+    out["enrichment entries no listing reaches"] = orphans
+
+    # Audit F12: detail ledgers out of step - a SKU both pending and scraped,
+    # or a raw detail row its vendor's scraped ledger does not list.
+    drift = []
+    for vendor in ("tms", "onepc", "ivory", "yahav"):
+        pending = _read(ROOT / "data" / "detail_pending" / f"{vendor}.json", [])
+        scraped = {str(s) for s in _read(ROOT / "data" / "detail_scraped" / f"{vendor}.json", [])}
+        for row in pending if isinstance(pending, list) else []:
+            sku = str((row or {}).get("vendor_sku") or "")
+            if sku and sku in scraped:
+                drift.append(f"{vendor}: pending and scraped {sku}")
+        raw = ROOT / "data" / "raw" / "detail" / f"{vendor}.jsonl"
+        if raw.exists() and scraped:
+            seen = set()
+            for line in raw.read_text(encoding="utf-8", errors="replace").splitlines():
+                try:
+                    sku = str(json.loads(line).get("vendor_sku") or "")
+                except ValueError:
+                    continue
+                if sku and sku not in scraped and sku not in seen:
+                    seen.add(sku)
+                    drift.append(f"{vendor}: raw detail row not in scraped ledger {sku}")
+    out["detail ledger drift"] = drift
 
     used = {
         f"{_image_vendor_key(e.get('vendor_id'))}/{_safe_image_stem(str(e['vendor_sku']))}.webp"

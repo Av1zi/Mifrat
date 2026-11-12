@@ -59,7 +59,7 @@ PLONTER_TREE_TOKENS: dict[str, dict] = {
     "B1151v2ATX": {"socket": "LGA1151", "form_factor": "ATX"},
     "B11514ATX": {"socket": "LGA1151", "form_factor": "ATX"},
     "B1200ATX": {"socket": "LGA1200", "form_factor": "ATX"},
-    "B20113ATX": {"socket": "LGA2011-v3", "form_factor": "ATX"},
+    "B20113ATX": {"socket": "LGA2011-3", "form_factor": "ATX"},
     # Memory
     "CDDR5D": {"memory_type": "DDR5"},
     "CDDR5DRDECC": {"memory_type": "DDR5", "ecc": True, "registered": True},
