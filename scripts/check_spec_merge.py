@@ -317,6 +317,10 @@ def check_title_witness(c: Checks) -> None:
     c.ok(validate_fact("gpu", memory, "DDR6") is not None, "DDR6 is not a GPU memory standard")
     c.ok(validate_fact("gpu", memory, "DDR4") is None, "a DDR4 card is valid")
 
+    speed = field_map("memory")["speed_mhz"]
+    c.ok(validate_fact("memory", speed, 5066) is None, "DDR4-5066 is a sold XMP step")
+    c.ok(validate_fact("memory", speed, 5067) is not None, "an arbitrary speed is still refused")
+
 
 def check_applicability_gates(c: Checks) -> None:
     from scraper.specs.schema import applies

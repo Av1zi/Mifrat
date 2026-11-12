@@ -175,6 +175,22 @@ def _join_aliased_history(
         return 0
 
     category_of: dict[str, str] = {}
+    # A vendor whose only offer in the successor is conditional draws no line
+    # while the product has a plain priced offer (owner Q1). The old pid's
+    # series must not bring it back: a merge can make a bundle-only line
+    # (the retired product's only offer) sit beside plain ones.
+    conditional_only: dict[str, set[str]] = {}
+    for product in catalog.get("products") or []:
+        offers = [o for o in product.get("offers") or [] if not o.get("alias_of")]
+        if not any(not is_conditional_offer(o) and isinstance(o.get("price_ils"), (int, float))
+                   for o in offers):
+            continue
+        by_vendor: dict[str, list[dict]] = defaultdict(list)
+        for o in offers:
+            by_vendor[_norm_vendor(o.get("vendor_id"))].append(o)
+        conditional_only[str(product.get("product_id"))] = {
+            vendor for vendor, own in by_vendor.items()
+            if vendor and all(is_conditional_offer(o) for o in own)}
     for product in catalog.get("products") or []:
         pid = product.get("product_id")
         category = product.get("category")
@@ -201,6 +217,8 @@ def _join_aliased_history(
         entry.setdefault("v", {})
         for vendor, points in (old_entry.get("v") or {}).items():
             if not isinstance(points, list) or len(points) != len(dates):
+                continue
+            if vendor in conditional_only.get(str(new_pid), set()):
                 continue
             current = entry["v"].get(vendor)
             if current is None:

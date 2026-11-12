@@ -409,6 +409,49 @@ def _fill_empty_brands(products: list[dict]) -> None:
         print(f"  chip-maker brand: {partner} board/card product(s) take the partner their titles name")
 
 
+def _sync_partner_manufacturer(products: list[dict], enriched: list[dict]) -> None:
+    """A board/card whose brand is now its partner drops the chip maker from
+    its spec, attributes and name (audit 2026-11-12 RC-002).
+
+    `_fill_empty_brands` repairs `product.brand` AFTER the spec sheet and the
+    canonical name were built from a chip-maker `manufacturer` (an MSI X870E
+    board read "AMD X870E ...", PNY cards "NVIDIA GeForce ..."). A product
+    still branded with the chip maker (NVIDIA RTX PRO, AMD FirePro) keeps it.
+    """
+    groups: dict[str, list[dict]] = {}
+    for e in enriched:
+        if e.get("product_id"):
+            groups.setdefault(str(e["product_id"]), []).append(e)
+    synced = 0
+    for product in products:
+        if product.get("category") not in identity.BOARD_PARTNER_CATEGORIES:
+            continue
+        brand = str(product.get("brand") or "").strip()
+        if not brand or identity.brand_family(brand) in identity.CHIP_MAKERS:
+            continue
+        specs = product.get("specs") or {}
+        attrs = product.get("attributes") or {}
+        stale = {str(specs.get("manufacturer") or ""), str(attrs.get("brand") or "")}
+        if not any(identity.brand_family(value) in identity.CHIP_MAKERS for value in stale if value):
+            continue
+        if identity.brand_family(specs.get("manufacturer")) in identity.CHIP_MAKERS:
+            specs["manufacturer"] = brand
+            sources = product.get("spec_sources")
+            if isinstance(sources, dict):
+                sources["manufacturer"] = "derived:board_partner_from_brand"
+        for key in ("manufacturer", "brand", "maker", "vendor_brand"):
+            if identity.brand_family(attrs.get(key)) in identity.CHIP_MAKERS:
+                attrs[key] = brand
+        if product.get("matched_by") != "manual" or product.get("category") == "gpu":
+            rebuilt = name_from_attributes(product["category"], dict(attrs),
+                                           groups.get(str(product.get("product_id")), []))
+            if rebuilt:
+                product["canonical_name"] = rebuilt
+        synced += 1
+    if synced:
+        print(f"  partner brand: {synced} board/card spec manufacturer(s) and names synced")
+
+
 def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
     """Load detail-scraped specs from data/raw/detail/<vendor>.jsonl and
     merge into each enriched listing's vendor_meta under a 'detail_specs'
@@ -720,6 +763,7 @@ def build_catalog(today: datetime):
     _recompute_canonical_names(match_result["products"], enriched)
     _disambiguate_duplicate_names(match_result["products"])
     _fill_empty_brands(match_result["products"])
+    _sync_partner_manufacturer(match_result["products"], enriched)
 
     exclude_multi_keys = {
         listing_key_value

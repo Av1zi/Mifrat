@@ -5839,6 +5839,19 @@ def match_listings(
     _identity_keys: dict[tuple[str, str, str], list[str]] = {}
     _identity_listing: dict[str, dict] = {}
 
+    # Part numbers each vendor PRINTS as `mpn`, per category. A letters-only
+    # code ("FLUX-PRO", "CXMIRROR", "ERA-ITX-BU") fails the SKU bridge's
+    # letter+digit shape test, so TMS's SKU never met Yahav/1PC's printed MPN
+    # and one case shipped as two products (audit 2026-11-12 RC-004). Another
+    # vendor printing the code as the maker's number is the corroboration;
+    # brand and variant axes still split the group below.
+    _printed_by: dict[tuple[str, str], set] = {}
+    for enriched in enriched_listings:
+        if enriched.get("mpn"):
+            _printed_by.setdefault(
+                (str(enriched.get("category_normalized") or ""),
+                 identity.part_number_key(enriched["mpn"])), set()).add(enriched.get("vendor_id"))
+
     for enriched in enriched_listings:
         if enriched["listing_key"] in assignments:
             continue
@@ -5860,6 +5873,11 @@ def match_listings(
             keys.append(("pn", category, identity.part_number_key(mpn)))
         sku_key = identity.sku_part_number_key(enriched.get("vendor_sku"),
                                                enriched)
+        if not sku_key:
+            letters = identity.part_number_key(enriched.get("vendor_sku"))
+            if (len(letters) >= 6 and letters.isalpha()
+                    and _printed_by.get((category, letters), set()) - {enriched.get("vendor_id")}):
+                sku_key = letters
         if sku_key and ("pn", category,
                         identity.part_number_key(mpn)) not in keys:
             # A vendor SKU that IS a part number ("GB760DS3HDDR4", an EAN)

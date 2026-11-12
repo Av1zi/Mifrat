@@ -367,7 +367,13 @@ def _emit_rpm_range(facts: dict, category: str, value, source: str) -> None:
     min shipped inverted pairs once a second source supplied the real
     max (be quiet! BL070: min 2200 over reference max 1500). Same lone-
     as-max convention as _emit_fan_rpm_cell below.
+
+    A tolerance ('900RPM ~ 1800RPM(±10%)', '2000RPM ±10%') is no endpoint:
+    read as one it shipped min 10 and the low end as the max (audit
+    2026-11-12 RC-001, 27 products).
     """
+    if isinstance(value, str):
+        value = _RPM_TOLERANCE_RE.sub(" ", value)
     span = parse_range(value)
     if not span:
         return

@@ -960,6 +960,27 @@ NEGATIVE_CASES = [
         "expect_absent": ("rpm_min",),
     },
     {
+        # Audit 2026-11-12 RC-001: the RPM_RANGE label read the 10 of ±10%
+        # as an endpoint (min 10, and the low end as the max).
+        "name": "a tolerance after an RPM range is no endpoint (aio)",
+        "category": "aio",
+        "rows": {"מהירות מאוורר": "900RPM ~ 1800RPM(±10%)"},
+        "expect_specs": {"fan_rpm_min": 900, "fan_rpm_max": 1800},
+    },
+    {
+        "name": "a tolerance after a lone RPM rating states no minimum (aio)",
+        "category": "aio",
+        "rows": {"מהירות מאוורר": "2000RPM ±10%"},
+        "expect_specs": {"fan_rpm_max": 2000},
+        "expect_absent": ("fan_rpm_min",),
+    },
+    {
+        "name": "a tolerance after an en-dash RPM range is no endpoint (case_fan)",
+        "category": "case_fan",
+        "rows": {"מהירות מאוורר": "1000–2400 RPM ±10%"},
+        "expect_specs": {"rpm_min": 1000, "rpm_max": 2400},
+    },
+    {
         "name": "warranty rows are bookkeeping, not specs and not gaps",
         "category": "motherboard",
         "rows": {"Warranty / Importer": "3 שנים", "אחריות": "36 חודשים"},

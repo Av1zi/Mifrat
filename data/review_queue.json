@@ -353,17 +353,6 @@
   },
   {
     "score": 100,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "tms:FLUX-PRO",
-    "listing_b": "yahav:10034",
-    "title_a": "מארז מחשב Antec FLUX PRO",
-    "title_b": "מארז חברת Antec דגם FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM צבע שחור",
-    "match_text_a": "FLUX-PRO Antec FLUX PRO",
-    "match_text_b": "FLUX-PRO Antec FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM"
-  },
-  {
-    "score": 100,
     "category": "aio",
     "brand": "Antec",
     "listing_a": "1pc:221407",
@@ -383,28 +372,6 @@
     "title_b": "Antec C40 CPU Cooler",
     "match_text_a": "C40 Antec C40",
     "match_text_b": "C40 Antec C40 CPU Cooler"
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "Fractal Design",
-    "listing_a": "1pc:84138",
-    "listing_b": "tms:ERA-ITX-CHP",
-    "title_a": "מארז מחשב Fractal Design Era ITX Gold TG ERA-ITX-CHP בצבע שחור",
-    "title_b": "מארז מחשב Fractal Design Era ITX Gold TG",
-    "match_text_a": "ERA-ITX-CHP Fractal Design Era ITX Gold TG ERA-ITX-CHP",
-    "match_text_b": "ERA-ITX-CHP Fractal Design Era ITX Gold TG"
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "Fractal Design",
-    "listing_a": "1pc:95750",
-    "listing_b": "tms:ERA-ITX-BU",
-    "title_a": "מארז מחשב Fractal Design Era ITX Cobalt TG ERA-ITX-BU בצבע קובלט",
-    "title_b": "מארז מחשב Fractal Design Era ITX Cobalt",
-    "match_text_a": "ERA-ITX-BU Fractal Design Era ITX Cobalt TG ERA-ITX-BU",
-    "match_text_b": "ERA-ITX-BU Fractal Design Era ITX Cobalt"
   },
   {
     "score": 100,
@@ -4951,28 +4918,6 @@
   },
   {
     "score": 88,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:214258",
-    "listing_b": "tms:CXMIRROR",
-    "title_a": "מארז מחשב Antec CX Mirror Mini Tower בצבע שחור",
-    "title_b": "מארז מחשב Antec CX Mirror Black",
-    "match_text_a": "CXMIRROR Antec CX Mirror Mini Tower",
-    "match_text_b": "CXMIRROR Antec CX Mirror Black"
-  },
-  {
-    "score": 88,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "tms:CXMIRROR",
-    "listing_b": "yahav:11386",
-    "title_a": "מארז מחשב Antec CX Mirror Black",
-    "title_b": "מארז חברת Antec דגם CX Mirror ARGB 7X120MM ARGB Fans Mid Tower צבע שחור",
-    "match_text_a": "CXMIRROR Antec CX Mirror Black",
-    "match_text_b": "CXMIRROR Antec CX Mirror ARGB 7X120MM ARGB Fans Mid Tower"
-  },
-  {
-    "score": 88,
     "category": "memory",
     "brand": "Corsair",
     "listing_a": "ksp:480431",
@@ -8740,6 +8685,29 @@
     "model_code": "120mmx4-600-base-fans-light-lx"
   },
   {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:1x140mm-2x120mm-3x140mm-fans-flux-full-pro-reverse-tower-tranquil-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:10034",
+        "vendor": "yahav",
+        "vendor_sku": "FLUX-PRO",
+        "title": "מארז חברת Antec דגם FLUX PRO FULL TOWER 3X140MM Tranquil Fans + 2X120MM Reverse + 1X140MM צבע שחור",
+        "price": 680
+      },
+      {
+        "listing_key": "tms:FLUX-PRO",
+        "vendor": "tms",
+        "vendor_sku": "FLUX-PRO",
+        "title": "מארז מחשב Antec FLUX PRO",
+        "price": 725
+      }
+    ],
+    "model_code": "1x140mm-2x120mm-3x140mm-fans-flux-full-pro-reverse-tower-tranquil"
+  },
+  {
     "kind": "variant_conflict",
     "category": "case",
     "product_id": "model:case:2-pop-vision-black",
@@ -9007,6 +8975,29 @@
     ],
     "model_code": "2u-case-performance-rackmount",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:3-bifrost-rainbow-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:52238",
+        "vendor": "1pc",
+        "vendor_sku": "BIFROST",
+        "title": "מארז מחשב IPPON BIFROST עם זכוכית מחוסמת ו-3 מאווררי Rainbow",
+        "price": 329
+      },
+      {
+        "listing_key": "tms:BIFROST",
+        "vendor": "tms",
+        "vendor_sku": "BIFROST",
+        "title": "מארז מחשב IPPON BIFROST Glass RGB",
+        "price": 257
+      }
+    ],
+    "model_code": "3-bifrost-rainbow"
   },
   {
     "kind": "identity_merge",
@@ -9736,6 +9727,13 @@
         "vendor_sku": "CXMIRROR",
         "title": "מארז חברת Antec דגם CX Mirror ARGB 7X120MM ARGB Fans Mid Tower צבע שחור",
         "price": 405
+      },
+      {
+        "listing_key": "tms:CXMIRROR",
+        "vendor": "tms",
+        "vendor_sku": "CXMIRROR",
+        "title": "מארז מחשב Antec CX Mirror Black",
+        "price": 321
       }
     ],
     "model_code": "7x120mm-cx-fans-mid-mirror-tower"
@@ -10011,6 +10009,29 @@
   {
     "kind": "identity_merge",
     "category": "case",
+    "product_id": "model:case:argb-chimera-tg-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:143650",
+        "vendor": "1pc",
+        "vendor_sku": "CHIMERA",
+        "title": "תיבת מחשב IPPON CHIMERA TG ARGB בצבע שחור",
+        "price": 224
+      },
+      {
+        "listing_key": "tms:CHIMERA",
+        "vendor": "tms",
+        "vendor_sku": "CHIMERA",
+        "title": "מארז מחשב IPPON CHIMERA",
+        "price": 255
+      }
+    ],
+    "model_code": "argb-chimera-tg"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
     "product_id": "model:case:ax1000-black",
     "vendor": "",
     "offers": [
@@ -10060,6 +10081,29 @@
       }
     ],
     "model_code": "ax90"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:bu-cobalt-era-era-itx-itx-tg",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:95750",
+        "vendor": "1pc",
+        "vendor_sku": "ERA-ITX-BU",
+        "title": "מארז מחשב Fractal Design Era ITX Cobalt TG ERA-ITX-BU בצבע קובלט",
+        "price": 696
+      },
+      {
+        "listing_key": "tms:ERA-ITX-BU",
+        "vendor": "tms",
+        "vendor_sku": "ERA-ITX-BU",
+        "title": "מארז מחשב Fractal Design Era ITX Cobalt",
+        "price": 682
+      }
+    ],
+    "model_code": "bu-cobalt-era-era-itx-itx-tg"
   },
   {
     "kind": "identity_merge",
@@ -10230,6 +10274,29 @@
       }
     ],
     "model_code": "c8-c8w-case"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:chp-era-era-gold-itx-itx-tg-gold",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:84138",
+        "vendor": "1pc",
+        "vendor_sku": "ERA-ITX-CHP",
+        "title": "מארז מחשב Fractal Design Era ITX Gold TG ERA-ITX-CHP בצבע שחור",
+        "price": 696
+      },
+      {
+        "listing_key": "tms:ERA-ITX-CHP",
+        "vendor": "tms",
+        "vendor_sku": "ERA-ITX-CHP",
+        "title": "מארז מחשב Fractal Design Era ITX Gold TG",
+        "price": 682
+      }
+    ],
+    "model_code": "chp-era-era-gold-itx-itx-tg"
   },
   {
     "kind": "identity_merge",

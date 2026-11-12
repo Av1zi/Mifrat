@@ -58,10 +58,12 @@ _BOARD_MAX_MEM_GB = frozenset({
     3072, 4096, 6144, 8192,
 })
 
-# Plausible memory clock steps (JEDEC + XMP/EXPO common values).
+# Plausible memory clock steps (JEDEC + XMP/EXPO common values). 5066 is the
+# G.Skill DDR4 XMP step (KSP 148642 "Ripjaws V ... 5066Mhz CL20"; audit
+# 2026-11-12 RC-003): refused, the kit shipped DDR4-5066 with no speed.
 _MEMORY_SPEEDS = frozenset({
     1066, 1333, 1600, 1866, 2133, 2400, 2666, 2800, 2933, 3000, 3200, 3333,
-    3466, 3600, 3733, 3800, 4000, 4133, 4200, 4266, 4400, 4600, 4800, 5000,
+    3466, 3600, 3733, 3800, 4000, 4133, 4200, 4266, 4400, 4600, 4800, 5000, 5066,
     5200, 5400, 5600, 5800, 6000, 6200, 6400, 6600, 6800, 7000, 7200, 7400,
     7600, 7800, 8000, 8200, 8400, 8600, 8800, 9000, 9200, 9400, 9600, 9800,
     10000,
