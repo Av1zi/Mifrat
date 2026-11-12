@@ -63,8 +63,8 @@ cpSync(src, dest, { recursive: true });
 console.log(`[copy-data] copied ${src} -> ${dest}`);
 
 // Scrape-console data (scraper/ops/report.py): status + changes only, under
-// /admin/data/ so the same Cloudflare Access rule that guards /admin/ guards
-// it. memory.json is pipeline state, never shipped. Missing files are not an
+// /admin/data/, which the Worker serves only after the ADMIN_PASSWORD check
+// (run_worker_first covers /admin/*). memory.json is pipeline state, never shipped. Missing files are not an
 // error (a fresh clone before the first ops run); the console says so.
 const opsSrc = path.resolve(here, "..", "..", "data", "ops");
 const opsDest = path.resolve(here, "..", "public", "admin", "data");

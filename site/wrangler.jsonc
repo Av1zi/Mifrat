@@ -20,7 +20,10 @@
 		"binding": "ASSETS",
 		"run_worker_first": [
 			"/api/*",
-			"/list/*"
+			"/list/*",
+			// Scrape console: the Worker checks ADMIN_PASSWORD before serving it.
+			"/admin",
+			"/admin/*"
 		]
 	},
 	// Ops alert cron (ops-worker.ts): every 30 minutes it checks the scrape
@@ -37,7 +40,7 @@
 	// (migrations/0002_ops.sql) live in the same database.
 	//
 	// Ops secrets (set in the dashboard or `wrangler secret put`, NEVER here):
-	// NTFY_TOPIC_URL, NTFY_TOKEN, OPS_INGEST_TOKEN, HEALTHCHECK_URL.
+	// NTFY_TOPIC_URL, NTFY_TOKEN, OPS_INGEST_TOKEN, HEALTHCHECK_URL, ADMIN_PASSWORD.
 	"d1_databases": [
 		{
 			"binding": "LISTS_DB",

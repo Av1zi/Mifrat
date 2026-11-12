@@ -14,7 +14,8 @@
  * <long random topic>), NTFY_TOKEN (ntfy access token, optional but
  * recommended: ntfy.sh limits anonymous publishers per IP and Workers share
  * egress IPs), OPS_INGEST_TOKEN (the Nano's bearer token), HEALTHCHECK_URL
- * (optional heartbeat pinged after each daily report).
+ * (optional heartbeat pinged after each daily report), ADMIN_PASSWORD (the
+ * console login; without it /admin/ stays locked).
  */
 
 import { alertMessage, dailyReport, type PushMessage } from "./src/ops/report";
@@ -44,6 +45,8 @@ export interface OpsEnv {
   NTFY_TOKEN?: string;
   OPS_INGEST_TOKEN?: string;
   HEALTHCHECK_URL?: string;
+  /** Password for /admin/ and /api/admin/* (HTTP Basic, any username). */
+  ADMIN_PASSWORD?: string;
   /** Public origin for notification links (default: the request/asset origin). */
   SITE_ORIGIN?: string;
 }
@@ -372,14 +375,70 @@ export async function handleEvent(request: Request, env: OpsEnv, now: Date, fetc
   return json({ ok: true }, 201);
 }
 
-/**
- * GET /api/admin/{runs,alerts}. Cloudflare Access sits in front of
- * /api/admin/*; this also refuses a request without the Access JWT header,
- * so a missing Access rule never exposes the data.
- */
+// ---- admin login (HTTP Basic, no Cloudflare Access) ---------------------------
+// Owner 2026-11-12: Zero Trust asks for a card, so the Worker guards /admin/*
+// and /api/admin/* itself. The browser asks for the password once and
+// remembers it for the session. No ADMIN_PASSWORD secret = everything
+// refused (locked by default). Wrong guesses are rate-limited per IP.
+
+const REALM = 'Basic realm="Mifrat scrape console", charset="UTF-8"';
+const MAX_FAILS_PER_10_MIN = 10;
+const failures = new Map<string, number[]>();
+
+function tooManyFailures(ip: string, now: number): boolean {
+  const recent = (failures.get(ip) ?? []).filter((t) => t > now - 600_000);
+  failures.set(ip, recent);
+  if (failures.size > 5000) failures.clear();
+  return recent.length >= MAX_FAILS_PER_10_MIN;
+}
+
+/** null = authorized; otherwise the refusal to send. */
+export function adminAuth(request: Request, env: OpsEnv, now = Date.now()): Response | null {
+  const password = env.ADMIN_PASSWORD || "";
+  const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
+  if (!password) return new Response("Admin is locked: set the ADMIN_PASSWORD Worker secret.", { status: 403, headers: { "cache-control": "no-store" } });
+  if (tooManyFailures(ip, now)) return new Response("Too many attempts, try again in 10 minutes.", { status: 429, headers: { "cache-control": "no-store", "retry-after": "600" } });
+  const header = request.headers.get("authorization") || "";
+  let given = "";
+  if (header.startsWith("Basic ")) {
+    try {
+      const decoded = atob(header.slice(6).trim());
+      given = decoded.slice(decoded.indexOf(":") + 1); // any username
+    } catch {
+      given = "";
+    }
+  }
+  if (sameToken(given, password)) return null;
+  if (header) failures.set(ip, [...(failures.get(ip) ?? []), now]);
+  return new Response("Password required.", {
+    status: 401,
+    headers: { "www-authenticate": REALM, "cache-control": "no-store" },
+  });
+}
+
+/** GET /admin/* (the console page + its data): password, then the static asset. */
+export async function handleAdminPage(request: Request, url: URL, env: OpsEnv): Promise<Response> {
+  if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method not allowed" }, 405);
+  const refused = adminAuth(request, env);
+  if (refused) return refused;
+  // Never hand memory/other files out: only the page, its two data files.
+  const path = url.pathname;
+  const allowed = path === "/admin" || path === "/admin/" || path === "/admin/index.html" ||
+    path === "/admin/data/status.json" || path === "/admin/data/changes.json";
+  if (!allowed) return new Response("Not found", { status: 404 });
+  const target = path === "/admin" ? new URL("/admin/", url) : url;
+  const res = await env.ASSETS.fetch(new Request(target.toString(), { method: request.method }));
+  const headers = new Headers(res.headers);
+  headers.set("cache-control", "private, no-store");
+  headers.set("x-robots-tag", "noindex, nofollow");
+  return new Response(res.body, { status: res.status, headers });
+}
+
+/** GET /api/admin/{runs,alerts}, same password as the page. */
 export async function handleAdmin(path: string, request: Request, env: OpsEnv): Promise<Response> {
   if (request.method !== "GET") return json({ error: "method not allowed" }, 405);
-  if (!request.headers.get("cf-access-jwt-assertion")) return json({ error: "forbidden" }, 403);
+  const refused = adminAuth(request, env);
+  if (refused) return refused;
   if (!env.LISTS_DB) return json({ error: "storage unavailable" }, 500);
   if (path === "/api/admin/runs") {
     const { results } = await env.LISTS_DB.prepare(

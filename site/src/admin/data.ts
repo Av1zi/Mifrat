@@ -1,6 +1,7 @@
 // Data access for the admin console. The ops files are static assets under
-// /admin/data/ (copied by scripts/copy-data.mjs, protected by Cloudflare
-// Access with the page); runs and alerts come from the Worker's admin API.
+// /admin/data/ (copied by scripts/copy-data.mjs); the Worker serves them,
+// and the page, only after the ADMIN_PASSWORD check. Runs and alerts come
+// from the Worker's admin API (same password; the browser resends it).
 
 import type { OpsChanges, OpsStatus } from "../ops/types";
 import { OPS_SCHEMA } from "../ops/types";

@@ -5,8 +5,8 @@ and secrets). No secret ever goes into git or a GitHub workflow.
 
 ## What you get
 
-- **`/admin/`**: the scrape console on the live site, behind Cloudflare
-  Access (your email only). It has these tabs:
+- **`/admin/`**: the scrape console on the live site, behind a password
+  the Worker checks (no Cloudflare Access, no card). It has these tabs:
   - Tonight: open problems, last night on an Israel-time timeline, one card
     per vendor with a 14-crawl sparkline
   - Calendar: 35 nights × vendor
@@ -28,7 +28,7 @@ and secrets). No secret ever goes into git or a GitHub workflow.
 ```
 data/raw/** + catalog ──normalize-and-deploy──► python -m scraper.ops.report
                                                 ──► data/ops/status.json, changes.json, memory.json
-site build (copy-data.mjs) ──► /admin/data/{status,changes}.json   (behind Access)
+site build (copy-data.mjs) ──► /admin/data/{status,changes}.json   (Worker checks ADMIN_PASSWORD)
 
 Worker cron */30 ──► rules.ts evaluate() ──► ops_alerts (D1) ──► ntfy
                 └──► 10:xx Israel, once a day ──► daily report ──► ntfy ──► Healthchecks ping
@@ -59,19 +59,20 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
    - `NTFY_TOKEN` = the `tk_...` token. Recommended: Workers share outgoing
      IPs, and ntfy.sh rate-limits anonymous senders per IP.
    - `OPS_INGEST_TOKEN` = a long random string. The Nano uses the same value.
+   - `ADMIN_PASSWORD` = the password for `/admin/`. Use a long one; the
+     browser remembers it. Any username works. Without this secret
+     `/admin/` stays locked for everyone, and 10 wrong tries lock an IP out
+     for 10 minutes.
    - `HEALTHCHECK_URL` = optional, from step 5.
 3. **D1 tables.** From `site/`, with your own wrangler login, run
    `npx wrangler d1 migrations apply mifrat-lists --remote`. This applies
    `migrations/0002_ops.sql`. The tables go in the existing short-link
    database.
-4. **Cloudflare Access.** In Zero Trust (free for up to 50 users), go to
-   Access → Applications → Add → Self-hosted. Set the domain to
-   `mifrat.avizi.workers.dev` with paths `admin` and `api/admin`. Policy:
-   Allow, Emails = your address. Login method: one-time PIN. The Worker
-   also refuses `/api/admin/*` without the Access header, so a missing rule
-   never exposes the data. The page itself is a static asset, though, so
-   until Access is on, `/admin/` is readable by anyone. Its data is the
-   same as the public `data/raw/` in git.
+4. **Log in.** Open `https://mifrat.avizi.workers.dev/admin/`. The browser
+   asks for a username and password: type anything as the username and
+   your `ADMIN_PASSWORD`. Add it to your phone's home screen. (Cloudflare
+   Access was the first plan; Zero Trust asks for a card, so the Worker
+   does the login itself.)
 5. **Healthchecks.io (optional).** Free account. Create a check with period
    1 day and grace 1 hour, and add ntfy as an integration (same topic and
    token). Put its ping URL in `HEALTHCHECK_URL`. If the 10:00 report ever

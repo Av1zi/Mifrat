@@ -402,7 +402,7 @@ export function catalogView(d: Data): Html {
 export function logView(d: Data, now: Date): Html {
   const runs = d.runs;
   const alerts = d.alerts;
-  const unavailable = html`<p class="panel__lede">Not available here. The Worker's admin API answers only behind Cloudflare Access on the deployed site.</p>`;
+  const unavailable = html`<p class="panel__lede">Not available here. Alerts and Nano runs come from the Worker on the deployed site (after the D1 migration in docs/ops-alerts.md).</p>`;
   return html`
     <section class="panel">
       <h2 class="panel__title">Alerts</h2>
@@ -431,7 +431,7 @@ export function logView(d: Data, now: Date): Html {
       <h2 class="panel__title">Links</h2>
       <ul class="links">
         <li><a href="https://github.com/Av1zi/Mifrat/actions" target="_blank" rel="noopener noreferrer">GitHub Actions runs</a></li>
-        <li><a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare dashboard (Worker logs, analytics, Access)</a></li>
+        <li><a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare dashboard (Worker logs, analytics, secrets)</a></li>
         <li><a href="/#/qa" target="_blank" rel="noopener">Public QA page</a></li>
       </ul>
     </section>`;

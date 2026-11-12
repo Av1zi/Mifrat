@@ -1,5 +1,5 @@
-// Admin console entry (site/admin/index.html, served at /admin/ behind
-// Cloudflare Access). Tabs are hash routes so a push notification or a
+// Admin console entry (site/admin/index.html, served at /admin/ by the
+// Worker after the ADMIN_PASSWORD check). Tabs are hash routes so a push notification or a
 // bookmark can open one directly: /admin/#gone?vendor=ksp&days=7.
 
 import "../styles/index.css";

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   handleAdmin,
+  handleAdminPage,
   handleEvent,
   isQuietHour,
   push,
@@ -352,26 +353,65 @@ describe("POST /api/ops/event", () => {
   });
 });
 
-describe("GET /api/admin/*", () => {
-  it("refuses a request without the Cloudflare Access JWT", async () => {
+describe("admin password", () => {
+  let ipSeq = 0;
+  const basic = (password: string) => `Basic ${btoa(`admin:${password}`)}`;
+  const req = (path: string, auth?: string, ip = `198.51.100.${++ipSeq}`) =>
+    new Request(`https://x${path}`, {
+      headers: { "cf-connecting-ip": ip, ...(auth ? { authorization: auth } : {}) },
+    });
+  const withPassword = () => {
     const t = setup();
-    const res = await handleAdmin("/api/admin/runs", new Request("https://x/api/admin/runs"), t.env);
-    expect(res.status).toBe(403);
+    t.env.ADMIN_PASSWORD = "correct horse battery";
+    return t;
+  };
+
+  it("is locked (403) when no ADMIN_PASSWORD is set", async () => {
+    const t = setup();
+    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("x")), t.env)).status).toBe(403);
+    const page = await handleAdminPage(req("/admin/"), new URL("https://x/admin/"), t.env);
+    expect(page.status).toBe(403);
   });
 
-  it("serves runs and alerts behind Access", async () => {
-    const t = setup();
-    const req = (p: string) => new Request(`https://x${p}`, { headers: { "cf-access-jwt-assertion": "jwt" } });
-    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs"), t.env)).status).toBe(200);
-    expect((await handleAdmin("/api/admin/alerts", req("/api/admin/alerts"), t.env)).status).toBe(200);
-    expect((await handleAdmin("/api/admin/nope", req("/api/admin/nope"), t.env)).status).toBe(404);
+  it("asks for the password (401 + Basic challenge), then serves", async () => {
+    const t = withPassword();
+    const none = await handleAdmin("/api/admin/runs", req("/api/admin/runs"), t.env);
+    expect(none.status).toBe(401);
+    expect(none.headers.get("www-authenticate")).toContain("Basic");
+    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("wrong")), t.env)).status).toBe(401);
+    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("correct horse battery")), t.env)).status).toBe(200);
+    expect((await handleAdmin("/api/admin/alerts", req("/api/admin/alerts", basic("correct horse battery")), t.env)).status).toBe(200);
+    expect((await handleAdmin("/api/admin/nope", req("/api/admin/nope", basic("correct horse battery")), t.env)).status).toBe(404);
   });
 
-  it("routes through the Worker with security headers", async () => {
-    const t = setup();
+  it("serves only the page and its two data files", async () => {
+    const t = withPassword();
+    const ok = basic("correct horse battery");
+    const page = (p: string) => handleAdminPage(req(p, ok), new URL(`https://x${p}`), t.env);
+    expect((await page("/admin/data/status.json")).status).toBe(200);
+    expect((await page("/admin/data/status.json")).headers.get("cache-control")).toBe("private, no-store");
+    expect((await page("/admin/data/memory.json")).status).toBe(404);
+    expect((await page("/admin/../wrangler.jsonc")).status).toBe(404);
+    expect((await handleAdminPage(req("/admin/data/status.json"), new URL("https://x/admin/data/status.json"), t.env)).status).toBe(401);
+  });
+
+  it("locks an IP out after 10 wrong passwords", async () => {
+    const t = withPassword();
+    const ip = "203.0.113.77";
+    for (let i = 0; i < 10; i++) {
+      expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic(`guess${i}`), ip), t.env)).status).toBe(401);
+    }
+    const locked = await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("correct horse battery"), ip), t.env);
+    expect(locked.status).toBe(429);
+  });
+
+  it("routes /admin/ and /api/admin/* through the Worker with security headers", async () => {
+    const t = withPassword();
     const env = { ...t.env, LISTS_DB: t.db } as Parameters<typeof worker.fetch>[1];
-    const res = await worker.fetch(new Request("https://x/api/admin/runs"), env, { waitUntil() {} });
-    expect(res.status).toBe(403);
-    expect(res.headers.get("x-frame-options")).toBe("DENY");
+    for (const p of ["/admin/", "/admin", "/admin/data/changes.json", "/api/admin/runs"]) {
+      const res = await worker.fetch(req(p), env, { waitUntil() {} });
+      expect(res.status).toBe(401);
+      expect(res.headers.get("x-frame-options")).toBe("DENY");
+    }
   });
 });

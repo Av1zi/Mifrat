@@ -14,12 +14,12 @@
  * Identical builds dedupe to one row via the build_hash unique column.
  *
  * Ops (ops-worker.ts): POST /api/ops/event (Nano run reports, bearer
- * token), GET /api/admin/* (behind Cloudflare Access) and the scheduled()
+ * token), /admin/* and GET /api/admin/* (password, ADMIN_PASSWORD) and the scheduled()
  * alert cron that sends phone pushes and the 10:00 daily scrape report.
  */
 
 import { BUILD_SLOTS } from "./src/build";
-import { handleAdmin, handleEvent, recordAbuse, runCron, type OpsEnv } from "./ops-worker";
+import { handleAdmin, handleAdminPage, handleEvent, recordAbuse, runCron, type OpsEnv } from "./ops-worker";
 import {
   canonicalizeListBuild,
   generateListId,
@@ -445,6 +445,10 @@ export default {
     }
     if (path.startsWith("/api/admin/")) {
       return withSecurityHeaders(await handleAdmin(path, request, opsEnv(env)));
+    }
+    // The scrape console: password-protected here (no Cloudflare Access).
+    if (path === "/admin" || url.pathname.startsWith("/admin/")) {
+      return withSecurityHeaders(await handleAdminPage(request, url, opsEnv(env)));
     }
 
     if (path === "/api/lists") {
