@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T21:46:26.593660+00:00",
+  "generated_at": "2026-11-12T00:11:28.631379+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 100,
+      "count": 101,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:10100-tray",
@@ -34,7 +34,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 69,
+      "count": 68,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -64,7 +64,7 @@
     {
       "category": "case",
       "label": "מפרט",
-      "count": 37,
+      "count": 36,
       "products": [
         "model:case:0-3-761345-80100-flux-p10",
         "model:case:100r-mag-pano-pz",
@@ -392,16 +392,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "צבע",
-      "count": 18,
-      "products": [
-        "model:storage:001-a-brkt-fd",
-        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
-        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "תכונות נוספות",
       "count": 17,
@@ -409,26 +399,6 @@
         "model:cpu:5700x-tray",
         "model:cpu:5800x3d",
         "model:cpu:8400f-tray"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "כרטיס גרפי",
-      "count": 17,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
-        "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
-        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "רזולוציה דיגיטלית מקסימלית",
-      "count": 17,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
-        "model:gpu:2-5060-geforce-infinity-oc-rtx-8gb"
       ]
     },
     {
@@ -459,6 +429,16 @@
         "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
         "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
         "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צבע",
+      "count": 17,
+      "products": [
+        "model:storage:001-a-brkt-fd",
+        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
+        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
       ]
     },
     {
@@ -522,6 +502,26 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "כרטיס גרפי",
+      "count": 16,
+      "products": [
+        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
+        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
+        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מקסימלית",
+      "count": 16,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
+        "model:gpu:2-5060-geforce-infinity-oc-rtx-8gb",
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "HDMI",
       "count": 16,
@@ -539,26 +539,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "ביצועים",
-      "count": 16,
-      "products": [
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Shock Resistance",
-      "count": 16,
-      "products": [
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
-        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
       ]
     },
     {
@@ -639,6 +619,26 @@
         "model:motherboard:a520m-pro-s-microatx",
         "model:motherboard:b-b650m-pro-microatx",
         "model:motherboard:b760m-bomber-wifi-microatx"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "ביצועים",
+      "count": 15,
+      "products": [
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Shock Resistance",
+      "count": 15,
+      "products": [
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
+        "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
+        "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
       ]
     },
     {
@@ -4056,15 +4056,6 @@
     },
     {
       "category": "case",
-      "label": "פילטר אבק",
-      "count": 2,
-      "products": [
-        "model:case:360-bf-flow-white",
-        "model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "חיבור USB 3.1/2 - usb Type-C",
       "count": 2,
       "products": [
@@ -4097,6 +4088,33 @@
       "products": [
         "model:case:aura-elite-gc107-black",
         "model:case:aura-gc101m-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תאימות לוח אם",
+      "count": 2,
+      "products": [
+        "model:case:br-ca-h510i-h510i-black",
+        "model:case:dark-dp501-phantom-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מאווררים",
+      "count": 2,
+      "products": [
+        "model:case:br-ca-h510i-h510i-black",
+        "model:case:dark-dp501-phantom-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "כניסות / יציאות",
+      "count": 2,
+      "products": [
+        "model:case:br-ca-h510i-h510i-black",
+        "model:case:dark-dp501-phantom-black"
       ]
     },
     {
@@ -5640,6 +5658,15 @@
     },
     {
       "category": "accessories",
+      "label": "יציאות קדמיות",
+      "count": 2,
+      "products": [
+        "mpn:accessories:cl9011109ww",
+        "mpn:accessories:mfxacbnnnunnr1"
+      ]
+    },
+    {
+      "category": "accessories",
       "label": "ממשק",
       "count": 2,
       "products": [
@@ -5806,6 +5833,14 @@
       "count": 1,
       "products": [
         "model:case:130r-mag-midi-pano-pz-tower-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "פילטר אבק",
+      "count": 1,
+      "products": [
+        "model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black"
       ]
     },
     {
@@ -9926,14 +9961,6 @@
       "count": 1,
       "products": [
         "mpn:accessories:galga1700"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "יציאות קדמיות",
-      "count": 1,
-      "products": [
-        "mpn:accessories:mfxacbnnnunnr1"
       ]
     },
     {
