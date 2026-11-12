@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T05:21:58.661142+00:00",
+  "generated_at": "2026-11-12T10:31:11.080762+00:00",
   "gaps": [
     {
       "category": "case",
@@ -142,6 +142,26 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 23,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 23,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
       "category": "memory",
       "label": "מק\"ט יצרן",
       "count": 22,
@@ -169,26 +189,6 @@
         "model:storage:0-3-nm610-pro-500gb-nvme-m22280",
         "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
         "model:storage:2-m-nm790-4000gb-pciegen4x4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 22,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 22,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -312,6 +312,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 19,
+      "products": [
+        "model:cpu:225",
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "DISPLAY PORT",
       "count": 19,
@@ -339,16 +349,6 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:110r-mag-pano-pz-white"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 18,
-      "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
       ]
     },
     {
@@ -1422,6 +1422,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "יכולות AI",
+      "count": 10,
+      "products": [
+        "model:cpu:225",
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "Cooling type",
       "count": 10,
@@ -1509,16 +1519,6 @@
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "יכולות AI",
-      "count": 9,
-      "products": [
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray",
-        "model:cpu:250k"
       ]
     },
     {

@@ -1453,17 +1453,6 @@
   },
   {
     "score": 93,
-    "category": "cooler_air",
-    "brand": "Antec",
-    "listing_a": "yahav:11797",
-    "listing_b": "yahav:11798",
-    "title_a": "קירור אוויר למעבד חברת Antec דגם F600 ARGB Infinity Mirror Effect 6 Heat Pipes Black 220W TDP 120MM 1700RPM 63CFM",
-    "title_b": "קירור אוויר למעבד חברת Antec דגם F600 ARGB Infinity Mirror Effect 6 Heat Pipes White 220W TDP 120MM 1700RPM 63CFM",
-    "match_text_a": "11797 Antec F600 ARGB Infinity Mirror Effect 6 Heat Pipes Black 220W TDP 120MM 1700RPM 63CFM",
-    "match_text_b": "11798 Antec F600 ARGB Infinity Mirror Effect 6 Heat Pipes White 220W TDP 120MM 1700RPM 63CFM"
-  },
-  {
-    "score": 93,
     "category": "gpu",
     "brand": "ASUS",
     "listing_a": "ksp:474522",
@@ -11391,6 +11380,74 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:145145",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00318A",
+        "title": "מאוורר למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן",
+        "price": 69
+      }
+    ],
+    "model_code": "a-p14-pro-rgb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-1-rgb-white-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:179269",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00318AP",
+        "title": "מציאון - מאוורר למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
+        "price": 55
+      }
+    ],
+    "model_code": "a-p14-pro-rgb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:145148",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00321A",
+        "title": "3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן",
+        "price": 195
+      }
+    ],
+    "model_code": "a-p14-pro-rgb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-3-rgb-white-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:179272",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00321AP",
+        "title": "מציאון - 3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
+        "price": 156
+      }
+    ],
+    "model_code": "a-p14-pro-rgb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:elite-icue-ml140-premium-pwm-140mm-rgb-white",
     "vendor": "",
     "offers": [
@@ -12059,40 +12116,6 @@
     "manufacturer_pn": [
       "F400ARGBW"
     ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "cooler_air",
-    "product_id": "model:cooler_air:f600-150mm-120mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:F600ARGB",
-        "vendor": "tms",
-        "vendor_sku": "F600ARGB",
-        "title": "Antec F600 ARGB מצנן מעבד",
-        "price": 120
-      }
-    ],
-    "model_code": "f600",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "cooler_air",
-    "product_id": "model:cooler_air:f600-150mm-120mm-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:F600ARGB-W",
-        "vendor": "tms",
-        "vendor_sku": "F600ARGB-W",
-        "title": "Antec F600 ARGB מצנן מעבד לבן",
-        "price": 124
-      }
-    ],
-    "model_code": "f600",
-    "manufacturer_pn": []
   },
   {
     "kind": "identity_merge",
@@ -17458,6 +17481,31 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:14400f-tray",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:85509",
+        "vendor": "ivory",
+        "vendor_sku": "I5-14400F",
+        "title": "מעבד Intel Core i5-14400F up to 4.70GHz 20MB Cache Raptor Lake Tray",
+        "price": 690
+      },
+      {
+        "listing_key": "ivory:85512",
+        "vendor": "ivory",
+        "vendor_sku": "I5-14400FB",
+        "title": "מעבד Intel Core i5-14400F up to 4.70GHz 20MB Cache Raptor Lake Box",
+        "price": 750
+      }
+    ],
+    "model_code": "14400f",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:14700f-tray",
     "vendor": "ivory",
     "offers": [
@@ -21136,40 +21184,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:14-3-a-p14-pro-140mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:179272",
-        "vendor": "ivory",
-        "vendor_sku": "ACFAN00321AP",
-        "title": "מציאון - 3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
-        "price": 156
-      }
-    ],
-    "model_code": "14-3-a-p14-pro",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:14-a-p14-pro-140mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:179269",
-        "vendor": "ivory",
-        "vendor_sku": "ACFAN00318AP",
-        "title": "מציאון - מאוורר למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
-        "price": 55
-      }
-    ],
-    "model_code": "14-a-p14-pro",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:140mm-1600rpm-4-7cfm-82-bl117-pwm-silent-white-wings-140mm-white",
     "vendor": "",
     "offers": [
@@ -21968,40 +21982,6 @@
       }
     ],
     "model_code": "a-p14-pro",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:145145",
-        "vendor": "ivory",
-        "vendor_sku": "ACFAN00318A",
-        "title": "מאוורר למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן",
-        "price": 69
-      }
-    ],
-    "model_code": "a-p14-pro-rgb",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:145148",
-        "vendor": "ivory",
-        "vendor_sku": "ACFAN00321A",
-        "title": "3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן",
-        "price": 195
-      }
-    ],
-    "model_code": "a-p14-pro-rgb",
     "manufacturer_pn": []
   },
   {
