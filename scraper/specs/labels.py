@@ -110,6 +110,7 @@ GENERATION_CELL = "__generation__"            # "דור 14" / "Series 2" -> Gen 
 STORAGE_TYPE_CELL = "__storage_type_cell__"   # 1PC "Storage / Storage Type", per category
 M2_SPEC_CELL = "__m2_spec_cell__"             # 1PC board "מפרט": "חיבורי M.2 PCIe: 2"
 PSU_PCIE_CELL = "__psu_pcie_cell__"           # "1x 12VHPWR" / "2x PCIe 6+2" -> counts
+MEMORY_MODULE_CELL = "__memory_module__"      # "UDIMM עם 288 פינים" -> DIMM
 
 SPECIAL_TOKENS = frozenset({
     CLOCK_RANGE, CACHE_TIER, MEMORY_KIT, RPM_RANGE, GPU_DIMENSIONS,
@@ -126,7 +127,7 @@ SPECIAL_TOKENS = frozenset({
     MEMORY_SPEED_GBPS, MEMORY_BUS_BIT, RADIATOR_DIMS,
     CONNECTORS_CELL, PACKAGING_CELL, DISPLAY_COUNT,
     GENERATION_CELL, STORAGE_TYPE_CELL, COMBINED_SPEED, MTBF_CELL,
-    M2_SPEC_CELL, PSU_PCIE_CELL,
+    M2_SPEC_CELL, PSU_PCIE_CELL, MEMORY_MODULE_CELL,
 })
 
 # --------------------------------------------------------------------------
@@ -611,6 +612,13 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         # YahavPC (Oct 2026) prints a bare "memory" row holding the kit
         # capacity ("128GB"/"64GB"/"32GB") — the same fact as the rows above.
         "זיכרון": "total_gb",
+        # 1PC module-type rows ("UDIMM עם 288 פינים", "SODIMM", "CSODIMM");
+        # 13 kits had no form factor without them (2026-11-13). A value
+        # without a DIMM word yields nothing.
+        "module type": MEMORY_MODULE_CELL,
+        "סוג מודול": MEMORY_MODULE_CELL,
+        "מבנה": MEMORY_MODULE_CELL,
+        "תצורה": MEMORY_MODULE_CELL,
     },
     "storage": {
         "נפח דיסק": "capacity_gb",

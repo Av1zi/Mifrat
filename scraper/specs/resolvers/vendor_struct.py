@@ -1740,6 +1740,15 @@ def _apply_special(facts: dict, category: str, token: str, value, source: str,
     if token == labels.STORAGE_FORM_FACTOR:
         _emit_storage_form_factor(facts, category, value, source)
         return True
+    if token == labels.MEMORY_MODULE_CELL:
+        # The module word inside a Hebrew cell; CSODIMM/CUDIMM are clocked
+        # SO-DIMM/DIMM.
+        match = re.search(r"\b(C?SO-?DIMM|C?U-?DIMM|DIMM)\b", str(value or ""), re.I)
+        if match:
+            word = match.group(1).upper()
+            _emit(facts, category, "form_factor",
+                  "SO-DIMM" if "SO" in word else "DIMM", source, 0.9)
+        return True
     if token == labels.INTERFACE_CONNECTIVITY:
         _emit_interface_connectivity(facts, category, value, source)
         return True

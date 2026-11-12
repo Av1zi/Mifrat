@@ -165,6 +165,9 @@ def validate_fact(category: str | None, field: FieldSpec, value) -> str | None:
     if field.name == "microarchitecture" and category == "cpu" and isinstance(value, str):
         if _GPU_ARCH.search(value):
             return f"microarchitecture {value!r} is a GPU architecture"
+    if field.name == "form_factor" and category == "memory" and isinstance(value, str):
+        if value.strip() not in ("DIMM", "SO-DIMM", "CAMM2"):
+            return f"memory form factor {value!r} is not a module type"
     if field.name == "memory_type" and category == "gpu" and isinstance(value, str):
         # GDDR4 never shipped on a card ("4GD4" is plain DDR4); DDR6 is a
         # dropped G, not a standard (audit 2026-11-10 G).

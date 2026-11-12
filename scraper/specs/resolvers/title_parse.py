@@ -587,7 +587,7 @@ def parse_memory(text_input: str) -> list[tuple]:
     elif re.search(r"\bDIMM\b", text_value, re.I):
         pairs.append(("form_factor", "DIMM", 0.8))
     elif ((re.search(r"laptop|notebook", text_value, re.I)
-           or re.search("לנייד|לפטופ", str(text_input or "")))
+           or re.search("לנייד|לפטופ|מחשב\\s+נייד", str(text_input or "")))
           and not re.search(r"\bCAMM\d?\b", text_value, re.I)):
         # Laptop memory is SODIMM by construction; CAMM2 modules are the
         # documented exception (different form sharing laptop titles).

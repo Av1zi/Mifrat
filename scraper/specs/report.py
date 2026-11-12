@@ -13,6 +13,9 @@ for the public #/qa page (site_data.py reads them from the catalog).
 
 from __future__ import annotations
 
+import json
+import re
+
 from . import schema
 
 CORE_FIELDS = ("socket", "chipset", "memory_type", "wattage_w", "form_factor")
@@ -199,28 +202,75 @@ def _bare_value(payload):
     return payload
 
 
-def qa_cases(report_dict: dict, limit: int | None = 200) -> list[dict]:
+# Name-like fields where a value that only adds words to the other ("ASETEK
+# 510LC 120" vs "510LC 120", "ARGB | LCD" vs "ARGB") is the same answer in more
+# detail, not a contradiction a human must settle.
+_WORDY_FIELDS = frozenset({"model", "series", "lighting", "color"})
+
+
+def _tokens(value) -> frozenset:
+    return frozenset(re.findall(r"[a-z0-9]+", str(value).lower()))
+
+
+def _wording_only(field, kept, dropped) -> bool:
+    if field not in _WORDY_FIELDS or not isinstance(kept, str) or not isinstance(dropped, str):
+        return False
+    a, b = _tokens(kept), _tokens(dropped)
+    return bool(a and b) and (a <= b or b <= a)
+
+
+def _case_key(case: dict) -> str:
+    return json.dumps([case.get("kind"), case.get("product_id"), case.get("field"),
+                       case.get("kept"), case.get("dropped"), case.get("detail")],
+                      sort_keys=True, ensure_ascii=False, default=str)
+
+
+def qa_cases(report_dict: dict, limit: int | None = 200,
+             per_category: int | None = None) -> list[dict]:
     """spec_conflict + core_gap cases for data/site/qa.json (public #/qa page).
 
-    `limit=None` returns every case. The cut runs after the category sort, so
-    any finite limit below the conflict count drops whole categories."""
+    One case per distinct (product, field, kept, dropped): the merge records a
+    conflict per losing fact, so one disagreement arrives once per source.
+    `per_category` caps the merge conflicts of each category, so a cap cannot
+    fill up with the alphabetically first category. `limit=None` returns every
+    case; a finite `limit` cuts after the category sort."""
     cases: list[dict] = []
+    seen: set[str] = set()
+    taken: dict[str, int] = {}
+
+    def add(case: dict) -> None:
+        key = _case_key(case)
+        if key in seen:
+            return
+        seen.add(key)
+        cases.append(case)
+
     for conflict in report_dict.get("conflicts", []):
-        cases.append({
+        kept, dropped = _bare_value(conflict.get("kept")), _bare_value(conflict.get("dropped"))
+        if _wording_only(conflict.get("field"), kept, dropped):
+            continue
+        category = str(conflict.get("category") or "")
+        case = {
             "kind": "spec_conflict",
             "product_id": conflict.get("product_id"),
             "category": conflict.get("category"),
             "vendor": "",
             "field": conflict.get("field"),
             "titles": [],
-            "kept": _bare_value(conflict.get("kept")),
-            "dropped": _bare_value(conflict.get("dropped")),
+            "kept": kept,
+            "dropped": dropped,
             "offers": [],
-        })
+        }
+        if _case_key(case) in seen:
+            continue
+        if per_category is not None and taken.get(category, 0) >= per_category:
+            continue
+        taken[category] = taken.get(category, 0) + 1
+        add(case)
     for issue in report_dict.get("issues", []):
         if issue.get("kind") != "spec_conflict":
             continue
-        cases.append({
+        add({
             "kind": "spec_conflict",
             "product_id": issue.get("product_id"),
             "category": issue.get("category"),

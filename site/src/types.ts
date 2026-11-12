@@ -111,11 +111,15 @@ export interface QaCase {
   reason?: string;
   /** packaging_conflict: the vendor SKU that moved. */
   moved?: string | null;
+  /** duplicate_vendor: the vendor's listings already fold into one offer. */
+  collapsed?: boolean;
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;
     title: string | null;
     price: number | null;
+    /** duplicate_vendor: the primary listing this one folds into. */
+    alias_of?: string;
   }>;
 }
 

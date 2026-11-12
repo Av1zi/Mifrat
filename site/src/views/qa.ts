@@ -96,6 +96,7 @@ export async function renderQa(
       html`<h2><a href="${productHash(c.category, c.product_id)}">${c.product_id}</a></h2>
         <p class="qa-meta">
           ${chip(t(lang, kindKey(c.kind)), { tone: c.kind === "core_gap" ? "warn" : "brand" })}
+          ${c.collapsed ? html`${chip(t(lang, "qaCollapsed"))} ` : ""}
           <a href="${categoryHash(c.category)}">${categoryLabel(c.category, lang)}</a>${c.vendor ? ` · ${vendorLabel(c.vendor)}` : ""}
         </p>
         ${c.kind === "naming_conflict" && c.titles && c.titles.length > 0 ? html`<p class="qa-note">${c.titles.map((x) => html`${x}<br>`)}</p>` : ""}
@@ -110,7 +111,7 @@ export async function renderQa(
           : ""}
         ${c.offers.length > 0
           ? html`<ul class="qa-offers">${c.offers.map(
-              (o) => html`<li><code>${o.vendor_sku ?? o.listing_key}</code><span class="text-dim">${o.title ?? ""}</span>${o.price === null || o.price === undefined ? emptyValue(lang) : html`<b class="num">${formatPrice(o.price, currency, lang)}</b>`}</li>`
+              (o) => html`<li><code>${o.vendor_sku ?? o.listing_key}</code><span class="text-dim">${o.alias_of ? "↳ " : ""}${o.title ?? ""}</span>${o.price === null || o.price === undefined ? emptyValue(lang) : html`<b class="num">${formatPrice(o.price, currency, lang)}</b>`}</li>`
             )}</ul>`
           : ""}`,
       { className: "qa-case", tag: "article" }

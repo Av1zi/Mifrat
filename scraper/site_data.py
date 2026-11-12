@@ -928,19 +928,30 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         # Title-witness flags (audit 2026-11-10 F/G) are few and each one is a
         # value a human should check, so the 200-case cap never hides them.
         qa_cases.extend(c for c in all_spec_cases if c.get("rule") == "title_witness")
-        qa_cases.extend(c for c in spec_qa_cases(spec_report) if c.get("rule") != "title_witness")
+        # Merge conflicts are capped per category: one global cap after the
+        # category sort showed only `aio` (2026-11-13).
+        qa_cases.extend(c for c in spec_qa_cases(spec_report, limit=None, per_category=30)
+                        if c.get("rule") != "title_witness" and c.get("kind") != "core_gap")
         qa_cases.sort(
             key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
         )
         _write_json_atomic(site_dir / "spec_report.json", _trim_spec_report(spec_report))
+    # Per-kind totals for the page's filter buttons: every kind, plus the
+    # identity cases the cap above left out. Counting only identity kinds made
+    # "duplicate_vendor (1)" sit over 80 rendered cases (2026-11-13).
+    kind_counts: dict[str, int] = {}
+    for case in qa_cases:
+        kind_counts[case["kind"]] = kind_counts.get(case["kind"], 0) + 1
+    for kind, total in identity_counts.items():
+        kind_counts[kind] = kind_counts.get(kind, 0) + max(0, total - identity_cap)
     _write_json_atomic(
         site_dir / "qa.json",
         {
             "generated_at": catalog["generated_at"],
             "cases": qa_cases,
-            # How many identity cases of each kind exist, before the per-kind
+            # How many cases of each kind exist, before the identity per-kind
             # cap above — the page shows the number it did not render.
-            "identity_counts": identity_counts,
+            "identity_counts": kind_counts,
         },
     )
 

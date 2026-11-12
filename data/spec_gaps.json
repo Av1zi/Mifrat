@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T21:36:21.142098+00:00",
+  "generated_at": "2026-11-12T22:31:45.867012+00:00",
   "gaps": [
     {
       "category": "case",
@@ -106,7 +106,7 @@
       "label": "תאימות",
       "count": 27,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
         "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
         "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
       ]
@@ -997,7 +997,7 @@
       "count": 12,
       "products": [
         "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
         "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
       ]
     },
@@ -1007,7 +1007,7 @@
       "count": 12,
       "products": [
         "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
         "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
       ]
     },
@@ -1153,20 +1153,10 @@
     },
     {
       "category": "memory",
-      "label": "Module Type",
-      "count": 11,
-      "products": [
-        "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-        "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
-        "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מתח עבודה",
       "count": 11,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm"
       ]
@@ -1193,16 +1183,6 @@
     },
     {
       "category": "memory",
-      "label": "מבנה",
-      "count": 11,
-      "products": [
-        "model:memory:2-ct2k16g56c46u5-32gb-x2-5600mhz-cl46-black-dimm",
-        "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
-        "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מק\"ט בינ\"ל",
       "count": 11,
       "products": [
@@ -1218,7 +1198,7 @@
       "products": [
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
-        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black"
+        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -1477,8 +1457,8 @@
       "count": 10,
       "products": [
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
-        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black"
+        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -1486,9 +1466,9 @@
       "label": "מידות",
       "count": 10,
       "products": [
-        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black",
-        "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black"
+        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm",
+        "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -1548,7 +1528,7 @@
       "products": [
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
-        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black"
+        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -1798,7 +1778,7 @@
       "products": [
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
-        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black"
+        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -2173,16 +2153,6 @@
     },
     {
       "category": "memory",
-      "label": "תצורה",
-      "count": 5,
-      "products": [
-        "model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm",
-        "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green",
-        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "סוג קירור",
       "count": 5,
       "products": [
@@ -2196,9 +2166,9 @@
       "label": "תזמונים",
       "count": 5,
       "products": [
-        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black",
-        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white",
-        "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white"
+        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
+        "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
       ]
     },
     {
@@ -2598,7 +2568,7 @@
       "products": [
         "model:memory:1x16gb-5600-cl38-orion-v-16gb-x1-5600mhz-cl38-black-dimm",
         "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -2626,9 +2596,9 @@
       "label": "מתח הפעלה",
       "count": 4,
       "products": [
-        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-        "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black",
-        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white"
+        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+        "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm",
+        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm"
       ]
     },
     {
@@ -3347,7 +3317,7 @@
       "count": 3,
       "products": [
         "model:memory:3200-3rd-party-16gb-3200mhz-black",
-        "model:memory:b3200gsst-ld4as032g-32gb-3200mhz",
+        "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
         "model:memory:ct32g4dfd832a-dimm-32gb-3200mhz-black-dimm"
       ]
     },
@@ -4640,7 +4610,7 @@
       "label": "תצורת זיכרון",
       "count": 2,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
         "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
       ]
     },
@@ -4658,8 +4628,8 @@
       "label": "תוכנת גיבוי אוטומטי",
       "count": 2,
       "products": [
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -4667,8 +4637,8 @@
       "label": "Vibration resistance",
       "count": 2,
       "products": [
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -4676,8 +4646,8 @@
       "label": "Shock resistance",
       "count": 2,
       "products": [
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -4685,8 +4655,8 @@
       "label": "Password Protected",
       "count": 2,
       "products": [
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -4694,8 +4664,8 @@
       "label": "אטימות למים ואבק",
       "count": 2,
       "products": [
-        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+        "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+        "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -4704,7 +4674,7 @@
       "count": 2,
       "products": [
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -4713,7 +4683,7 @@
       "count": 2,
       "products": [
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -4739,8 +4709,8 @@
       "label": "תצורת המודול",
       "count": 2,
       "products": [
-        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black"
+        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -4748,7 +4718,7 @@
       "label": "מבנה המודול",
       "count": 2,
       "products": [
-        "model:memory:line-psd532g56002-signature-32gb",
+        "model:memory:line-psd532g56002-signature-32gb-dimm",
         "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
       ]
     },
@@ -4758,7 +4728,7 @@
       "count": 2,
       "products": [
         "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -4767,7 +4737,7 @@
       "count": 2,
       "products": [
         "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7093,18 +7063,10 @@
     },
     {
       "category": "memory",
-      "label": "סוג מודול",
-      "count": 1,
-      "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מיועד עבור",
       "count": 1,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22"
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
       ]
     },
     {
@@ -7160,7 +7122,7 @@
       "label": "נפח איחסון",
       "count": 1,
       "products": [
-        "model:memory:32g-jm3200hse-32gb-3200mhz-cl22"
+        "model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm"
       ]
     },
     {
@@ -7256,7 +7218,7 @@
       "label": "מספר פינים",
       "count": 1,
       "products": [
-        "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green"
+        "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm"
       ]
     },
     {
@@ -7296,7 +7258,7 @@
       "label": "מספר חלק",
       "count": 1,
       "products": [
-        "model:memory:line-psd532g56002-signature-32gb"
+        "model:memory:line-psd532g56002-signature-32gb-dimm"
       ]
     },
     {
@@ -7304,7 +7266,7 @@
       "label": "קצב נתונים מדורג",
       "count": 1,
       "products": [
-        "model:memory:line-psd532g56002-signature-32gb"
+        "model:memory:line-psd532g56002-signature-32gb-dimm"
       ]
     },
     {
@@ -7312,7 +7274,7 @@
       "label": "תיקון שגיאות",
       "count": 1,
       "products": [
-        "model:memory:line-psd532g56002-signature-32gb"
+        "model:memory:line-psd532g56002-signature-32gb-dimm"
       ]
     },
     {
@@ -7320,7 +7282,7 @@
       "label": "ניטור מתח וטמפרטורה",
       "count": 1,
       "products": [
-        "model:memory:line-psd532g56002-signature-32gb"
+        "model:memory:line-psd532g56002-signature-32gb-dimm"
       ]
     },
     {
@@ -7328,7 +7290,7 @@
       "label": "טמפרטורת פעולה",
       "count": 1,
       "products": [
-        "model:memory:line-psd532g56002-signature-32gb"
+        "model:memory:line-psd532g56002-signature-32gb-dimm"
       ]
     },
     {
@@ -7416,7 +7378,7 @@
       "label": "קיבולת כוללת",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7424,7 +7386,7 @@
       "label": "קצב נתונים שנבדק",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7432,7 +7394,7 @@
       "label": "סיווג רוחב פס שנבדק",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7440,7 +7402,7 @@
       "label": "מתח בסיס",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7448,7 +7410,7 @@
       "label": "מתח XMP שנבדק",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7456,7 +7418,7 @@
       "label": "פרופיל המהרה",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7464,7 +7426,7 @@
       "label": "תיקון שגיאות ברמת השבב",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7472,7 +7434,7 @@
       "label": "ניטור טמפרטורה",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -7480,7 +7442,7 @@
       "label": "גימור",
       "count": 1,
       "products": [
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T21:36:21.142098+00:00",
+  "generated_at": "2026-11-12T22:31:45.867012+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -1109,6 +1109,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "SO-DIMM",
+        "dimm_type": "SO-DIMM",
+        "memory_form_factor": "SO-DIMM",
         "total_gb": 32,
         "capacity_gb": 32,
         "capacity": "32GB",
@@ -1125,7 +1128,7 @@
           "נותן האחריות": "הספק/יבואן CMS"
         }
       },
-      "product_id": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz"
+      "product_id": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm"
     },
     {
       "vendor_id": "1pc",
@@ -34548,6 +34551,9 @@
         "speed_rating_mhz": 5600,
         "speed_rating": 5600,
         "memory_speed_mhz": 5600,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 32,
         "capacity_gb": 32,
         "capacity": "32GB",
@@ -34584,7 +34590,7 @@
           "תקופת ותנאי האחריות": "שנה"
         }
       },
-      "product_id": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46"
+      "product_id": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -34811,6 +34817,9 @@
         "speed_rating_mhz": 4800,
         "speed_rating": 4800,
         "memory_speed_mhz": 4800,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
@@ -34843,7 +34852,7 @@
           "תקופת ותנאי האחריות": "אחריות לכל החיים על ידי קבוצת ח.י. היבואנית הרשמית של Transcend בישראל"
         }
       },
-      "product_id": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40"
+      "product_id": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -34952,6 +34961,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 32,
         "capacity_gb": 32,
         "capacity": "32GB",
@@ -34987,7 +34999,7 @@
           "תקופת ותנאי האחריות": "שנה"
         }
       },
-      "product_id": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22"
+      "product_id": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -35026,6 +35038,9 @@
         "speed_rating_mhz": 4800,
         "speed_rating": 4800,
         "memory_speed_mhz": 4800,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -35057,7 +35072,7 @@
           "תקופת ותנאי האחריות": "שנה"
         }
       },
-      "product_id": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40"
+      "product_id": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -41822,6 +41837,9 @@
         "speed_rating_mhz": 1600,
         "speed_rating": 1600,
         "memory_speed_mhz": 1600,
+        "form_factor": "SO-DIMM",
+        "dimm_type": "SO-DIMM",
+        "memory_form_factor": "SO-DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
@@ -41836,7 +41854,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:psd38g16002s-signature-8gb-1600mhz"
+      "product_id": "model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm"
     },
     {
       "vendor_id": "1pc",
@@ -82903,6 +82921,9 @@
         "speed_rating_mhz": 6000,
         "speed_rating": 6000,
         "memory_speed_mhz": 6000,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -82925,7 +82946,7 @@
           "תקופת ותנאי האחריות": "שנה"
         }
       },
-      "product_id": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb"
+      "product_id": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -94235,6 +94256,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
@@ -94262,7 +94286,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:3200-udimm-8gb-3200mhz"
+      "product_id": "model:memory:3200-udimm-8gb-3200mhz-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -138159,6 +138183,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -138192,7 +138219,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:16g21-es-psh-16gb-3200mhz-cl22"
+      "product_id": "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -153252,6 +153279,9 @@
         "speed_rating_mhz": 6400,
         "speed_rating": 6400,
         "memory_speed_mhz": 6400,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "module_count": 2,
         "modules": "2x16GB",
         "modules_count": 2,
@@ -153302,7 +153332,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb"
+      "product_id": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -153964,6 +153994,9 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 32,
         "capacity_gb": 32,
         "capacity": "32GB",
@@ -153995,7 +154028,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:line-psd532g56002-signature-32gb"
+      "product_id": "model:memory:line-psd532g56002-signature-32gb-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -157639,6 +157672,9 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "module_count": 1,
         "modules": 1,
         "modules_count": 1,
@@ -157678,7 +157714,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green"
+      "product_id": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158000,6 +158036,9 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158032,7 +158071,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black"
+      "product_id": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158067,6 +158106,9 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158099,7 +158141,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white"
+      "product_id": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158257,6 +158299,9 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158289,7 +158334,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black"
+      "product_id": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158324,6 +158369,9 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158356,7 +158404,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black"
+      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158391,6 +158439,9 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158423,7 +158474,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white"
+      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158520,6 +158571,9 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
@@ -158552,7 +158606,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black"
+      "product_id": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158587,6 +158641,9 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
@@ -158619,7 +158676,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white"
+      "product_id": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158776,6 +158833,9 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158808,7 +158868,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black"
+      "product_id": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -158843,6 +158903,9 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
@@ -158875,7 +158938,7 @@
           "תקופת ותנאי האחריות": "אחריות מוגבלת לכל החיים"
         }
       },
-      "product_id": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black"
+      "product_id": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm"
     },
     {
       "vendor_id": "1pc",
@@ -159762,6 +159825,9 @@
         "speed_rating_mhz": 5600,
         "speed_rating": 5600,
         "memory_speed_mhz": 5600,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "module_count": 2,
         "modules": "2x16GB",
         "modules_count": 2,
@@ -174490,6 +174556,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "SO-DIMM",
+        "dimm_type": "SO-DIMM",
+        "memory_form_factor": "SO-DIMM",
         "total_gb": 32,
         "capacity_gb": 32,
         "capacity": "32GB",
@@ -174519,7 +174588,7 @@
           "תקופת ותנאי האחריות": "שלוש שנים"
         }
       },
-      "product_id": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22"
+      "product_id": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm"
     },
     {
       "vendor_id": "1pc",
@@ -1092306,8 +1092375,8 @@
         "manufacturer": "vendor",
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
-        "cas_latency": "vendor",
         "form_factor": "vendor",
+        "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
@@ -1092319,7 +1092388,7 @@
       }
     },
     {
-      "product_id": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+      "product_id": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
       "canonical_name": "Transcend 16GB DDR5 (1x16GB) 4800MHz CL40 (JM4800ALE-16G)",
       "description": "זיכרון למחשב DDR5 UDIMM בנפח 16GB מבית Transcend דגם JM4800ALE-16G",
       "category": "memory",
@@ -1092408,6 +1092477,9 @@
             "speed_rating_mhz": 4800,
             "speed_rating": 4800,
             "memory_speed_mhz": 4800,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1092460,6 +1092532,9 @@
           "speed_rating_mhz": 4800,
           "speed_rating": 4800,
           "memory_speed_mhz": 4800,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1092506,13 +1092581,13 @@
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
         "first_word_latency_ns": "derived:memory.latency_math",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
@@ -1092704,8 +1092779,8 @@
         "manufacturer": "vendor",
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
-        "cas_latency": "vendor",
         "form_factor": "vendor",
+        "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
@@ -1093054,8 +1093129,8 @@
         "manufacturer": "vendor",
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
-        "cas_latency": "vendor",
         "form_factor": "vendor",
+        "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
@@ -1093067,7 +1093142,7 @@
       }
     },
     {
-      "product_id": "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+      "product_id": "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
       "canonical_name": "Apacer 16GB DDR4 (1x16GB) 3200MHz CL22",
       "description": null,
       "category": "memory",
@@ -1093154,6 +1093229,9 @@
             "speed_rating_mhz": 3200,
             "speed_rating": 3200,
             "memory_speed_mhz": 3200,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1093204,6 +1093282,9 @@
           "speed_rating_mhz": 3200,
           "speed_rating": 3200,
           "memory_speed_mhz": 3200,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1093250,12 +1093331,12 @@
         "speed_mhz": "vendor",
         "cas_latency": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "speed": "vendor",
         "first_word_latency_ns": "vendor",
         "part_numbers": "vendor",
         "module_count": "extracted",
         "module_size_gb": "extracted",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
@@ -1100655,9 +1100736,9 @@
         "speed_mhz": "vendor",
         "color": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "memory_type": "vendor",
         "lighting": "vendor",
-        "form_factor": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "module_count": "extracted",
@@ -1104102,6 +1104183,9 @@
             "speed_rating_mhz": 5600,
             "speed_rating": 5600,
             "memory_speed_mhz": 5600,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "module_count": 2,
             "modules": "2x16GB",
             "modules_count": 2,
@@ -1104285,6 +1104369,7 @@
         "module_count": "vendor",
         "module_size_gb": "vendor",
         "speed_mhz": "vendor",
+        "form_factor": "vendor",
         "voltage_v": "vendor",
         "manufacturer": "vendor",
         "model": "vendor",
@@ -1104294,7 +1104379,6 @@
         "speed": "vendor",
         "cas_latency": "vendor",
         "first_word_latency_ns": "vendor",
-        "form_factor": "vendor",
         "ecc": "derived:memory.no_ecc_marker"
       }
     },
@@ -1146493,7 +1146577,7 @@
       }
     },
     {
-      "product_id": "model:memory:3200-udimm-8gb-3200mhz",
+      "product_id": "model:memory:3200-udimm-8gb-3200mhz-dimm",
       "canonical_name": "Transcend 8GB DDR4 (1x8GB) 3200MHz",
       "description": null,
       "category": "memory",
@@ -1146578,6 +1146662,9 @@
             "speed_rating_mhz": 3200,
             "speed_rating": 3200,
             "memory_speed_mhz": 3200,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 8,
             "capacity_gb": 8,
             "capacity": "8GB",
@@ -1146626,6 +1146713,9 @@
           "speed_rating_mhz": 3200,
           "speed_rating": 3200,
           "memory_speed_mhz": 3200,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 8,
           "capacity_gb": 8,
           "capacity": "8GB",
@@ -1146669,12 +1146759,12 @@
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "speed": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
@@ -1147492,7 +1147582,7 @@
       }
     },
     {
-      "product_id": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+      "product_id": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
       "canonical_name": "Transcend 32GB DDR4 (1x32GB) 3200MHz CL22 (JM3200HLE-32G)",
       "description": "זיכרון למחשב DDR4 UDIMM בנפח 32GB מבית Transcend דגם JM3200HLE-32G",
       "category": "memory",
@@ -1147581,6 +1147671,9 @@
             "speed_rating_mhz": 3200,
             "speed_rating": 3200,
             "memory_speed_mhz": 3200,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 32,
             "capacity_gb": 32,
             "capacity": "32GB",
@@ -1147633,6 +1147726,9 @@
           "speed_rating_mhz": 3200,
           "speed_rating": 3200,
           "memory_speed_mhz": 3200,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 32,
           "capacity_gb": 32,
           "capacity": "32GB",
@@ -1147678,6 +1147774,7 @@
         "manufacturer": "vendor",
         "speed_mhz": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "voltage_v": "vendor",
         "cas_latency": "vendor",
         "model": "vendor",
@@ -1147685,13 +1147782,12 @@
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
         "first_word_latency_ns": "derived:memory.latency_math",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
     },
     {
-      "product_id": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22",
+      "product_id": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
       "canonical_name": "Transcend 32GB DDR4 (1x32GB) 3200MHz CL22 (JM3200HSE-32G)",
       "description": null,
       "category": "memory",
@@ -1147714,6 +1147810,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "SO-DIMM",
+        "dimm_type": "SO-DIMM",
+        "memory_form_factor": "SO-DIMM",
         "module_count": 1,
         "modules": "1x32GB",
         "modules_count": 1,
@@ -1147732,6 +1147831,11 @@
         "voltage_v": 1.2,
         "voltage": "1.2V",
         "memory_voltage": 1.2,
+        "ecc": "No",
+        "ecc_support": "No",
+        "registered": "No",
+        "ecc_registered": "No",
+        "buffered": "No",
         "lighting": "No",
         "rgb_lighting": "No",
         "memory": "32GB"
@@ -1147772,6 +1147876,9 @@
             "speed_rating_mhz": 3200,
             "speed_rating": 3200,
             "memory_speed_mhz": 3200,
+            "form_factor": "SO-DIMM",
+            "dimm_type": "SO-DIMM",
+            "memory_form_factor": "SO-DIMM",
             "total_gb": 32,
             "capacity_gb": 32,
             "capacity": "32GB",
@@ -1147821,6 +1147928,9 @@
           "speed_rating_mhz": 3200,
           "speed_rating": 3200,
           "memory_speed_mhz": 3200,
+          "form_factor": "SO-DIMM",
+          "dimm_type": "SO-DIMM",
+          "memory_form_factor": "SO-DIMM",
           "total_gb": 32,
           "capacity_gb": 32,
           "capacity": "32GB",
@@ -1147844,15 +1147954,15 @@
         "memory_type": "DDR4",
         "speed": null,
         "speed_mhz": 3200,
-        "form_factor": null,
+        "form_factor": "SO-DIMM",
         "module_count": 1,
         "module_size_gb": 32,
         "total_gb": 32,
         "first_word_latency_ns": 13.8,
         "cas_latency": 22,
         "voltage_v": 1.2,
-        "ecc": null,
-        "registered": null,
+        "ecc": false,
+        "registered": false,
         "heat_spreader": null,
         "lighting": "No",
         "color": null
@@ -1147863,17 +1147973,20 @@
         "manufacturer": "vendor",
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
+        "form_factor": "vendor",
         "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
         "first_word_latency_ns": "derived:memory.latency_math",
+        "ecc": "derived:memory.no_ecc_marker",
+        "registered": "derived:memory.no_registered_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
     },
     {
-      "product_id": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46",
+      "product_id": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm",
       "canonical_name": "Transcend 32GB DDR5 (1x32GB) 5600MHz CL46",
       "description": "זיכרון למחשב DDR5 UDIMM בנפח 32GB מבית Transcend דגם JM5600ALE-32G",
       "category": "memory",
@@ -1147962,6 +1148075,9 @@
             "speed_rating_mhz": 5600,
             "speed_rating": 5600,
             "memory_speed_mhz": 5600,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 32,
             "capacity_gb": 32,
             "capacity": "32GB",
@@ -1148014,6 +1148130,9 @@
           "speed_rating_mhz": 5600,
           "speed_rating": 5600,
           "memory_speed_mhz": 5600,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 32,
           "capacity_gb": 32,
           "capacity": "32GB",
@@ -1148059,6 +1148178,7 @@
         "registered": "vendor",
         "manufacturer": "vendor",
         "speed_mhz": "vendor",
+        "form_factor": "vendor",
         "voltage_v": "vendor",
         "cas_latency": "vendor",
         "model": "vendor",
@@ -1148066,7 +1148186,6 @@
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
         "first_word_latency_ns": "derived:memory.latency_math",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
@@ -1152316,7 +1152435,7 @@
       }
     },
     {
-      "product_id": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb",
+      "product_id": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm",
       "canonical_name": "Patriot Viper RGB DDR5 16GB (1x16GB) 6000MHz",
       "description": null,
       "category": "memory",
@@ -1152396,6 +1152515,9 @@
             "speed_rating_mhz": 6000,
             "speed_rating": 6000,
             "memory_speed_mhz": 6000,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1152438,6 +1152560,9 @@
           "speed_rating_mhz": 6000,
           "speed_rating": 6000,
           "memory_speed_mhz": 6000,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1152475,13 +1152600,13 @@
         "memory_type": "vendor",
         "manufacturer": "vendor",
         "speed_mhz": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
         "heat_spreader": "derived:memory.rgb_kit_has_spreader",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "registered": "derived:memory.no_registered_marker"
       }
@@ -1161842,7 +1161967,7 @@
       }
     },
     {
-      "product_id": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40",
+      "product_id": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm",
       "canonical_name": "Transcend 8GB DDR5 (1x8GB) 4800MHz CL40 (JM4800ALG-8G)",
       "description": "זיכרון למחשב DDR5 UDIMM בנפח 8GB מבית Transcend דגם JM4800ALG-8G",
       "category": "memory",
@@ -1161931,6 +1162056,9 @@
             "speed_rating_mhz": 4800,
             "speed_rating": 4800,
             "memory_speed_mhz": 4800,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 8,
             "capacity_gb": 8,
             "capacity": "8GB",
@@ -1161983,6 +1162111,9 @@
           "speed_rating_mhz": 4800,
           "speed_rating": 4800,
           "memory_speed_mhz": 4800,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 8,
           "capacity_gb": 8,
           "capacity": "8GB",
@@ -1162029,13 +1162160,13 @@
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
         "module_count": "derived:memory.module_arithmetic",
         "first_word_latency_ns": "derived:memory.latency_math",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
@@ -1162227,8 +1162358,8 @@
         "manufacturer": "vendor",
         "voltage_v": "vendor",
         "speed_mhz": "vendor",
-        "cas_latency": "vendor",
         "form_factor": "vendor",
+        "cas_latency": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "module_size_gb": "extracted",
@@ -1163020,7 +1163151,7 @@
     },
     {
       "product_id": "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm",
-      "canonical_name": "ADATA 16GB DDR4 (1x16GB) 3200MHz CL22 (AD4U320016G22-SGN)",
+      "canonical_name": "ADATA 16GB DDR4 (1x16GB) 3200MHz CL22",
       "description": "זיכרון למחשב ADATA DDR4 U-DIMM 16GB 3200MHz AD4U320016G22-SGN",
       "category": "memory",
       "brand": "ADATA",
@@ -1163215,8 +1163346,8 @@
       }
     },
     {
-      "product_id": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green",
-      "canonical_name": "ADATA 16GB DDR4 (1x16GB) 3200MHz CL22 (AD4U3200316G22-SGN)",
+      "product_id": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm",
+      "canonical_name": "ADATA Premier DDR4 16GB",
       "description": "זיכרון למחשב ADATA Premier DDR4 16GB AD4U3200316G22-SGN ירוק",
       "category": "memory",
       "brand": "ADATA",
@@ -1163234,10 +1163365,6 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
-        "speed_mhz": 3200,
-        "speed_rating_mhz": 3200,
-        "speed_rating": 3200,
-        "memory_speed_mhz": 3200,
         "form_factor": "DIMM",
         "dimm_type": "DIMM",
         "memory_form_factor": "DIMM",
@@ -1163251,8 +1163378,6 @@
         "capacity_gb": 16,
         "capacity": "16GB",
         "kit": "1x16GB",
-        "first_word_latency_ns": 13.8,
-        "first_word_latency": "13.8 ns",
         "cas_latency": 22,
         "cas": 22,
         "cl": 22,
@@ -1163302,6 +1163427,9 @@
             "memory_type": "DDR4",
             "ram_type": "DDR4",
             "memory_support": "DDR4",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "module_count": 1,
             "modules": 1,
             "modules_count": 1,
@@ -1163356,6 +1163484,9 @@
           "memory_type": "DDR4",
           "ram_type": "DDR4",
           "memory_support": "DDR4",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "module_count": 1,
           "modules": 1,
           "modules_count": 1,
@@ -1163387,12 +1163518,12 @@
         ],
         "memory_type": "DDR4",
         "speed": null,
-        "speed_mhz": 3200,
+        "speed_mhz": null,
         "form_factor": "DIMM",
         "module_count": 1,
         "module_size_gb": 16,
         "total_gb": 16,
-        "first_word_latency_ns": 13.8,
+        "first_word_latency_ns": null,
         "cas_latency": 22,
         "voltage_v": 1.2,
         "ecc": false,
@@ -1163408,14 +1163539,12 @@
         "voltage_v": "vendor",
         "cas_latency": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "module_count": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
         "module_size_gb": "derived:memory.module_arithmetic",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "form_factor": "derived:memory.no_laptop_marker",
         "ecc": "derived:memory.no_ecc_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
@@ -1165898,8 +1166027,8 @@
       }
     },
     {
-      "product_id": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-      "canonical_name": "ADATA RGB 16GB DDR5 (1x16GB) 5600MHz CL46",
+      "product_id": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+      "canonical_name": "ADATA XPG ARMAX RGB DDR5 16GB AX5U5600C4616G SAMRBK",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1165917,25 +1166046,15 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
-        "speed_mhz": 5600,
-        "speed_rating_mhz": 5600,
-        "speed_rating": 5600,
-        "memory_speed_mhz": 5600,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 16.4,
-        "first_word_latency": "16.4 ns",
-        "cas_latency": 46,
-        "cas": 46,
-        "cl": 46,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1165979,6 +1166098,9 @@
             "memory_type": "DDR5",
             "ram_type": "DDR5",
             "memory_support": "DDR5",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1166025,6 +1166147,9 @@
           "memory_type": "DDR5",
           "ram_type": "DDR5",
           "memory_support": "DDR5",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1166048,15 +1166173,15 @@
         ],
         "memory_type": "DDR5",
         "speed": null,
-        "speed_mhz": 5600,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 16.4,
-        "cas_latency": 46,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1166067,21 +1166192,18 @@
         "memory_type": "vendor",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black",
-      "canonical_name": "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30 (AX5U6000C3016G-SAMRBK)",
+      "product_id": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm",
+      "canonical_name": "ADATA XPG ARMAX RGB DDR5 16GB AX5U6000C3016G SAMRBK",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1166099,25 +1166221,15 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
-        "speed_mhz": 6000,
-        "speed_rating_mhz": 6000,
-        "speed_rating": 6000,
-        "memory_speed_mhz": 6000,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 30,
-        "cas": 30,
-        "cl": 30,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1166161,6 +1166273,9 @@
             "memory_type": "DDR5",
             "ram_type": "DDR5",
             "memory_support": "DDR5",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1166207,6 +1166322,9 @@
           "memory_type": "DDR5",
           "ram_type": "DDR5",
           "memory_support": "DDR5",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1166230,15 +1166348,15 @@
         ],
         "memory_type": "DDR5",
         "speed": null,
-        "speed_mhz": 6000,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 30,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1166249,21 +1166367,18 @@
         "memory_type": "vendor",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black",
-      "canonical_name": "ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32 (AX5U6400C3216G-SAMRBK)",
+      "product_id": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm",
+      "canonical_name": "ADATA XPG ARMAX RGB DDR5 16GB AX5U6400C3216G SAMRBK",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1166281,25 +1166396,15 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
-        "speed_mhz": 6400,
-        "speed_rating_mhz": 6400,
-        "speed_rating": 6400,
-        "memory_speed_mhz": 6400,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 32,
-        "cas": 32,
-        "cl": 32,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1166343,6 +1166448,9 @@
             "memory_type": "DDR5",
             "ram_type": "DDR5",
             "memory_support": "DDR5",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1166389,6 +1166497,9 @@
           "memory_type": "DDR5",
           "ram_type": "DDR5",
           "memory_support": "DDR5",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1166412,15 +1166523,15 @@
         ],
         "memory_type": "DDR5",
         "speed": null,
-        "speed_mhz": 6400,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 32,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1166431,21 +1166542,18 @@
         "memory_type": "vendor",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black",
-      "canonical_name": "ADATA Spectrix D35G RGB D35G DDR4 16GB (1x16GB) 3200MHz CL16 (AX4U320016G16A-SBKD35G)",
+      "product_id": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+      "canonical_name": "ADATA XPG SPECTRIX D35G RGB DDR4 16GB AX4U320016G16A SBKD35G",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1166463,25 +1166571,15 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
-        "speed_mhz": 3200,
-        "speed_rating_mhz": 3200,
-        "speed_rating": 3200,
-        "memory_speed_mhz": 3200,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 16,
-        "cas": 16,
-        "cl": 16,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1166525,6 +1166623,9 @@
             "memory_type": "DDR4",
             "ram_type": "DDR4",
             "memory_support": "DDR4",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1166571,6 +1166672,9 @@
           "memory_type": "DDR4",
           "ram_type": "DDR4",
           "memory_support": "DDR4",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1166594,15 +1166698,15 @@
         ],
         "memory_type": "DDR4",
         "speed": null,
-        "speed_mhz": 3200,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 16,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1166613,21 +1166717,18 @@
         "memory_type": "reference",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white",
-      "canonical_name": "ADATA Spectrix D35G RGB D35G DDR4 16GB (1x16GB) 3200MHz CL16 (AX4U320016G16A-SWHD35G)",
+      "product_id": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
+      "canonical_name": "ADATA XPG SPECTRIX D35G RGB DDR4 16GB AX4U320016G16A SWHD35G",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1166645,25 +1166746,15 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
-        "speed_mhz": 3200,
-        "speed_rating_mhz": 3200,
-        "speed_rating": 3200,
-        "memory_speed_mhz": 3200,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 16,
-        "cas": 16,
-        "cl": 16,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1166707,6 +1166798,9 @@
             "memory_type": "DDR4",
             "ram_type": "DDR4",
             "memory_support": "DDR4",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1166753,6 +1166847,9 @@
           "memory_type": "DDR4",
           "ram_type": "DDR4",
           "memory_support": "DDR4",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1166776,15 +1166873,15 @@
         ],
         "memory_type": "DDR4",
         "speed": null,
-        "speed_mhz": 3200,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 16,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1166795,21 +1166892,18 @@
         "memory_type": "reference",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black",
-      "canonical_name": "ADATA Spectrix D35G RGB D35G DDR4 8GB (1x8GB) 3200MHz CL16 (AX4U32008G16A-SBKD35G)",
+      "product_id": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm",
+      "canonical_name": "ADATA XPG SPECTRIX D35G RGB DDR4 8GB AX4U32008G16A SBKD35G",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1166827,25 +1166921,15 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
-        "speed_mhz": 3200,
-        "speed_rating_mhz": 3200,
-        "speed_rating": 3200,
-        "memory_speed_mhz": 3200,
-        "module_count": 1,
-        "modules": "1x8GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 8,
-        "module_capacity_gb": 8,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
-        "kit": "1x8GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 16,
-        "cas": 16,
-        "cl": 16,
+        "kit": 8,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1166889,6 +1166973,9 @@
             "memory_type": "DDR4",
             "ram_type": "DDR4",
             "memory_support": "DDR4",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 8,
             "capacity_gb": 8,
             "capacity": "8GB",
@@ -1166935,6 +1167022,9 @@
           "memory_type": "DDR4",
           "ram_type": "DDR4",
           "memory_support": "DDR4",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 8,
           "capacity_gb": 8,
           "capacity": "8GB",
@@ -1166958,15 +1167048,15 @@
         ],
         "memory_type": "DDR4",
         "speed": null,
-        "speed_mhz": 3200,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 8,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 8,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 16,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1166977,21 +1167067,18 @@
         "memory_type": "reference",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white",
-      "canonical_name": "ADATA Spectrix D35G RGB D35G DDR4 8GB (1x8GB) 3200MHz CL16 (AX4U32008G16A-SWHD35G)",
+      "product_id": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm",
+      "canonical_name": "ADATA XPG SPECTRIX D35G RGB DDR4 8GB AX4U32008G16A SWHD35G",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1167009,25 +1167096,15 @@
         "memory_type": "DDR4",
         "ram_type": "DDR4",
         "memory_support": "DDR4",
-        "speed_mhz": 3200,
-        "speed_rating_mhz": 3200,
-        "speed_rating": 3200,
-        "memory_speed_mhz": 3200,
-        "module_count": 1,
-        "modules": "1x8GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 8,
-        "module_capacity_gb": 8,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 8,
         "capacity_gb": 8,
         "capacity": "8GB",
-        "kit": "1x8GB",
-        "first_word_latency_ns": 10.0,
-        "first_word_latency": "10.0 ns",
-        "cas_latency": 16,
-        "cas": 16,
-        "cl": 16,
+        "kit": 8,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1167071,6 +1167148,9 @@
             "memory_type": "DDR4",
             "ram_type": "DDR4",
             "memory_support": "DDR4",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 8,
             "capacity_gb": 8,
             "capacity": "8GB",
@@ -1167117,6 +1167197,9 @@
           "memory_type": "DDR4",
           "ram_type": "DDR4",
           "memory_support": "DDR4",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 8,
           "capacity_gb": 8,
           "capacity": "8GB",
@@ -1167140,15 +1167223,15 @@
         ],
         "memory_type": "DDR4",
         "speed": null,
-        "speed_mhz": 3200,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 8,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 8,
-        "first_word_latency_ns": 10.0,
-        "cas_latency": 16,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1167159,16 +1167242,13 @@
         "memory_type": "reference",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
@@ -1167569,8 +1167649,8 @@
       }
     },
     {
-      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black",
-      "canonical_name": "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL36 (AX5U6000C3616G-SLABRBK)",
+      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm",
+      "canonical_name": "ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G SLABRBK",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1167588,25 +1167668,15 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
-        "speed_mhz": 6000,
-        "speed_rating_mhz": 6000,
-        "speed_rating": 6000,
-        "memory_speed_mhz": 6000,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 12.0,
-        "first_word_latency": "12.0 ns",
-        "cas_latency": 36,
-        "cas": 36,
-        "cl": 36,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1167650,6 +1167720,9 @@
             "memory_type": "DDR5",
             "ram_type": "DDR5",
             "memory_support": "DDR5",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1167696,6 +1167769,9 @@
           "memory_type": "DDR5",
           "ram_type": "DDR5",
           "memory_support": "DDR5",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1167719,15 +1167795,15 @@
         ],
         "memory_type": "DDR5",
         "speed": null,
-        "speed_mhz": 6000,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 12.0,
-        "cas_latency": 36,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1167738,21 +1167814,18 @@
         "memory_type": "vendor",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
-      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white",
-      "canonical_name": "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL36 (AX5U6000C3616G-SLABRWH)",
+      "product_id": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm",
+      "canonical_name": "ADATA XPG LANCER BLADE RGB DDR5 16GB AX5U6000C3616G SLABRWH",
       "description": null,
       "category": "memory",
       "brand": "ADATA",
@@ -1167770,25 +1167843,15 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
-        "speed_mhz": 6000,
-        "speed_rating_mhz": 6000,
-        "speed_rating": 6000,
-        "memory_speed_mhz": 6000,
-        "module_count": 1,
-        "modules": "1x16GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 16,
-        "module_capacity_gb": 16,
+        "form_factor": "DIMM",
+        "dimm_type": "DIMM",
+        "memory_form_factor": "DIMM",
         "total_gb": 16,
         "capacity_gb": 16,
         "capacity": "16GB",
-        "kit": "1x16GB",
-        "first_word_latency_ns": 12.0,
-        "first_word_latency": "12.0 ns",
-        "cas_latency": 36,
-        "cas": 36,
-        "cl": 36,
+        "kit": 16,
+        "ecc": "No",
+        "ecc_support": "No",
         "registered": "No",
         "ecc_registered": "No",
         "buffered": "No",
@@ -1167832,6 +1167895,9 @@
             "memory_type": "DDR5",
             "ram_type": "DDR5",
             "memory_support": "DDR5",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 16,
             "capacity_gb": 16,
             "capacity": "16GB",
@@ -1167878,6 +1167944,9 @@
           "memory_type": "DDR5",
           "ram_type": "DDR5",
           "memory_support": "DDR5",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 16,
           "capacity_gb": 16,
           "capacity": "16GB",
@@ -1167901,15 +1167970,15 @@
         ],
         "memory_type": "DDR5",
         "speed": null,
-        "speed_mhz": 6000,
-        "form_factor": null,
-        "module_count": 1,
-        "module_size_gb": 16,
+        "speed_mhz": null,
+        "form_factor": "DIMM",
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 16,
-        "first_word_latency_ns": 12.0,
-        "cas_latency": 36,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
+        "ecc": false,
         "registered": false,
         "heat_spreader": true,
         "lighting": "RGB",
@@ -1167920,16 +1167989,13 @@
         "memory_type": "vendor",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "color": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
-        "speed_mhz": "extracted",
-        "module_count": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
+        "ecc": "derived:memory.no_ecc_marker"
       }
     },
     {
@@ -1168337,7 +1168403,7 @@
       }
     },
     {
-      "product_id": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz",
+      "product_id": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
       "canonical_name": "Lexar LD4AS032G-B3200GSST DDR4 32GB (1x32GB) 3200MHz CL22",
       "description": null,
       "category": "memory",
@@ -1168362,6 +1168428,9 @@
         "speed_rating_mhz": 3200,
         "speed_rating": 3200,
         "memory_speed_mhz": 3200,
+        "form_factor": "SO-DIMM",
+        "dimm_type": "SO-DIMM",
+        "memory_form_factor": "SO-DIMM",
         "module_count": 1,
         "modules": "1x32GB",
         "modules_count": 1,
@@ -1168377,6 +1168446,11 @@
         "cas_latency": 22,
         "cas": 22,
         "cl": 22,
+        "ecc": "No",
+        "ecc_support": "No",
+        "registered": "No",
+        "ecc_registered": "No",
+        "buffered": "No",
         "memory": "32GB"
       },
       "matched_by": "identity",
@@ -1168417,6 +1168491,9 @@
             "speed_rating_mhz": 3200,
             "speed_rating": 3200,
             "memory_speed_mhz": 3200,
+            "form_factor": "SO-DIMM",
+            "dimm_type": "SO-DIMM",
+            "memory_form_factor": "SO-DIMM",
             "total_gb": 32,
             "capacity_gb": 32,
             "capacity": "32GB",
@@ -1168462,6 +1168539,9 @@
           "speed_rating_mhz": 3200,
           "speed_rating": 3200,
           "memory_speed_mhz": 3200,
+          "form_factor": "SO-DIMM",
+          "dimm_type": "SO-DIMM",
+          "memory_form_factor": "SO-DIMM",
           "total_gb": 32,
           "capacity_gb": 32,
           "capacity": "32GB",
@@ -1168479,15 +1168559,15 @@
         "memory_type": "DDR4",
         "speed": "DDR4-3200",
         "speed_mhz": 3200,
-        "form_factor": null,
+        "form_factor": "SO-DIMM",
         "module_count": 1,
         "module_size_gb": 32,
         "total_gb": 32,
         "first_word_latency_ns": 13.8,
         "cas_latency": 22,
         "voltage_v": null,
-        "ecc": null,
-        "registered": null,
+        "ecc": false,
+        "registered": false,
         "heat_spreader": null,
         "lighting": null,
         "color": null
@@ -1168497,13 +1168577,16 @@
         "memory_type": "vendor",
         "speed_mhz": "vendor",
         "speed": "vendor",
+        "form_factor": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "module_size_gb": "extracted",
         "cas_latency": "extracted",
         "module_count": "derived:memory.module_arithmetic",
-        "first_word_latency_ns": "derived:memory.latency_math"
+        "first_word_latency_ns": "derived:memory.latency_math",
+        "ecc": "derived:memory.no_ecc_marker",
+        "registered": "derived:memory.no_registered_marker"
       }
     },
     {
@@ -1178114,8 +1178197,8 @@
       }
     },
     {
-      "product_id": "model:memory:line-psd532g56002-signature-32gb",
-      "canonical_name": "Patriot 32GB DDR5 (1x32GB) 5600MHz CL46",
+      "product_id": "model:memory:line-psd532g56002-signature-32gb-dimm",
+      "canonical_name": "Patriot Signature Line DDR5 32GB",
       "description": null,
       "category": "memory",
       "brand": "Patriot",
@@ -1178133,28 +1178216,13 @@
         "memory_type": "DDR5",
         "ram_type": "DDR5",
         "memory_support": "DDR5",
-        "speed_mhz": 5600,
-        "speed_rating_mhz": 5600,
-        "speed_rating": 5600,
-        "memory_speed_mhz": 5600,
         "form_factor": "DIMM",
         "dimm_type": "DIMM",
         "memory_form_factor": "DIMM",
-        "module_count": 1,
-        "modules": "1x32GB",
-        "modules_count": 1,
-        "number_of_modules": 1,
-        "module_size_gb": 32,
-        "module_capacity_gb": 32,
         "total_gb": 32,
         "capacity_gb": 32,
         "capacity": "32GB",
-        "kit": "1x32GB",
-        "first_word_latency_ns": 16.4,
-        "first_word_latency": "16.4 ns",
-        "cas_latency": 46,
-        "cas": 46,
-        "cl": 46,
+        "kit": 32,
         "ecc": "No",
         "ecc_support": "No",
         "registered": "No",
@@ -1178196,6 +1178264,9 @@
             "memory_type": "DDR5",
             "ram_type": "DDR5",
             "memory_support": "DDR5",
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "total_gb": 32,
             "capacity_gb": 32,
             "capacity": "32GB",
@@ -1178240,6 +1178311,9 @@
           "memory_type": "DDR5",
           "ram_type": "DDR5",
           "memory_support": "DDR5",
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "total_gb": 32,
           "capacity_gb": 32,
           "capacity": "32GB",
@@ -1178261,13 +1178335,13 @@
         ],
         "memory_type": "DDR5",
         "speed": null,
-        "speed_mhz": 5600,
+        "speed_mhz": null,
         "form_factor": "DIMM",
-        "module_count": 1,
-        "module_size_gb": 32,
+        "module_count": null,
+        "module_size_gb": null,
         "total_gb": 32,
-        "first_word_latency_ns": 16.4,
-        "cas_latency": 46,
+        "first_word_latency_ns": null,
+        "cas_latency": null,
         "voltage_v": null,
         "ecc": false,
         "registered": false,
@@ -1178280,15 +1178354,10 @@
         "manufacturer": "vendor",
         "model": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "ecc": "vendor",
         "total_gb": "vendor",
         "part_numbers": "vendor",
-        "speed_mhz": "extracted",
-        "module_size_gb": "extracted",
-        "cas_latency": "extracted",
-        "module_count": "derived:memory.module_arithmetic",
-        "first_word_latency_ns": "derived:memory.latency_math",
-        "form_factor": "derived:memory.no_laptop_marker",
         "lighting": "derived:memory.no_lighting_mention"
       }
     },
@@ -1179344,7 +1179413,7 @@
       }
     },
     {
-      "product_id": "model:memory:psd38g16002s-signature-8gb-1600mhz",
+      "product_id": "model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm",
       "canonical_name": "Patriot 8GB DDR3 (1x8GB) 1600MHz",
       "description": "זיכרון למחשב נייד Patriot Signature 8GB DDR3 1600MHz PSD38G16002S",
       "category": "memory",
@@ -1179369,6 +1179438,9 @@
         "speed_rating_mhz": 1600,
         "speed_rating": 1600,
         "memory_speed_mhz": 1600,
+        "form_factor": "SO-DIMM",
+        "dimm_type": "SO-DIMM",
+        "memory_form_factor": "SO-DIMM",
         "module_count": 1,
         "modules": "1x8GB",
         "modules_count": 1,
@@ -1179379,6 +1179451,11 @@
         "capacity_gb": 8,
         "capacity": "8GB",
         "kit": "1x8GB",
+        "ecc": "No",
+        "ecc_support": "No",
+        "registered": "No",
+        "ecc_registered": "No",
+        "buffered": "No",
         "memory": "8GB"
       },
       "matched_by": "identity",
@@ -1179419,6 +1179496,9 @@
             "speed_rating_mhz": 1600,
             "speed_rating": 1600,
             "memory_speed_mhz": 1600,
+            "form_factor": "SO-DIMM",
+            "dimm_type": "SO-DIMM",
+            "memory_form_factor": "SO-DIMM",
             "total_gb": 8,
             "capacity_gb": 8,
             "capacity": "8GB",
@@ -1179464,6 +1179544,9 @@
           "speed_rating_mhz": 1600,
           "speed_rating": 1600,
           "memory_speed_mhz": 1600,
+          "form_factor": "SO-DIMM",
+          "dimm_type": "SO-DIMM",
+          "memory_form_factor": "SO-DIMM",
           "total_gb": 8,
           "capacity_gb": 8,
           "capacity": "8GB",
@@ -1179481,15 +1179564,15 @@
         "memory_type": "DDR3",
         "speed": "DDR3-1600",
         "speed_mhz": 1600,
-        "form_factor": null,
+        "form_factor": "SO-DIMM",
         "module_count": 1,
         "module_size_gb": 8,
         "total_gb": 8,
         "first_word_latency_ns": null,
         "cas_latency": null,
         "voltage_v": null,
-        "ecc": null,
-        "registered": null,
+        "ecc": false,
+        "registered": false,
         "heat_spreader": null,
         "lighting": null,
         "color": null
@@ -1179499,11 +1179582,14 @@
         "memory_type": "vendor",
         "speed_mhz": "vendor",
         "speed": "vendor",
+        "form_factor": "vendor",
         "model": "vendor",
         "part_numbers": "vendor",
         "manufacturer": "vendor",
         "module_size_gb": "extracted",
-        "module_count": "derived:memory.module_arithmetic"
+        "module_count": "derived:memory.module_arithmetic",
+        "ecc": "derived:memory.no_ecc_marker",
+        "registered": "derived:memory.no_registered_marker"
       }
     },
     {
@@ -1181244,7 +1181330,7 @@
       }
     },
     {
-      "product_id": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb",
+      "product_id": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
       "canonical_name": "Patriot Viper RGB PVVR532G640C32K DDR5 32GB (2x16GB) 6400MHz CL32",
       "description": null,
       "category": "memory",
@@ -1181336,6 +1181422,9 @@
             "speed_rating_mhz": 6400,
             "speed_rating": 6400,
             "memory_speed_mhz": 6400,
+            "form_factor": "DIMM",
+            "dimm_type": "DIMM",
+            "memory_form_factor": "DIMM",
             "module_count": 2,
             "modules": "2x16GB",
             "modules_count": 2,
@@ -1181399,6 +1181488,9 @@
           "speed_rating_mhz": 6400,
           "speed_rating": 6400,
           "memory_speed_mhz": 6400,
+          "form_factor": "DIMM",
+          "dimm_type": "DIMM",
+          "memory_form_factor": "DIMM",
           "module_count": 2,
           "modules": "2x16GB",
           "modules_count": 2,
@@ -1181452,6 +1181544,7 @@
         "model": "vendor",
         "memory_type": "vendor",
         "registered": "vendor",
+        "form_factor": "vendor",
         "lighting": "vendor",
         "ecc": "vendor",
         "module_count": "vendor",
@@ -1181462,8 +1181555,7 @@
         "cas_latency": "vendor",
         "first_word_latency_ns": "vendor",
         "part_numbers": "vendor",
-        "heat_spreader": "derived:memory.rgb_kit_has_spreader",
-        "form_factor": "derived:memory.no_laptop_marker"
+        "heat_spreader": "derived:memory.rgb_kit_has_spreader"
       }
     },
     {
@@ -1613011,6 +1613103,28 @@
     "model:cpu:14600k-tray": "model:cpu:corei514600k-tray",
     "model:cpu:14700kf-tray": "model:cpu:corei714700kf-tray",
     "model:cpu:14900k-tray": "model:cpu:corei914900k-tray",
+    "model:memory:line-psd532g56002-signature-32gb": "model:memory:line-psd532g56002-signature-32gb-dimm",
+    "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm",
+    "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+    "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
+    "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm",
+    "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm",
+    "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm",
+    "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:b3200gsst-ld4as032g-32gb-3200mhz": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
+    "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm",
+    "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm",
+    "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+    "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
+    "model:memory:psd38g16002s-signature-8gb-1600mhz": "model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm",
+    "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm",
+    "model:memory:3200-udimm-8gb-3200mhz": "model:memory:3200-udimm-8gb-3200mhz-dimm",
+    "model:memory:16g21-es-psh-16gb-3200mhz-cl22": "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
+    "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
+    "model:memory:32g-jm3200hse-32gb-3200mhz-cl22": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
     "model:case:bifrost-glass-rgb-black": "model:case:3-bifrost-rainbow-black",
     "sku:case:chimera": "model:case:argb-chimera-tg-black",
     "model:case:black-cx-mirror-black": "model:case:7x120mm-cx-fans-mid-mirror-tower-black",
@@ -1613220,7 +1613334,7 @@
     "model:psu:8506-acag-bwo-mpe": "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
     "model:psu:afbp-k001-mps-nbwo": "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
     "model:memory:ad4u320038g22-premier-sgn-8gb": "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm",
-    "model:memory:ad4u3200316g22-premier-sgn-16gb": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green",
+    "model:memory:ad4u3200316g22-premier-sgn-16gb": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm",
     "model:psu:a1000gl-mag-pcie5": "model:psu:a1000gl-mag-pcie5-white",
     "model:case:aura-elite-gc4-black": "model:case:argb-aura-elite-gc4-black",
     "model:psu:500-e1-helios-pro": "model:psu:500-e1-helios-pro-black",
@@ -1613296,7 +1613410,7 @@
     "model:psu:dark-power-12-750w": "model:psu:12-bn314-dark-power-750w",
     "model:motherboard:h410m-s2h-v2-microatx": "model:motherboard:gh410ms2hv2-h410m-s2h-v2-microatx",
     "model:storage:983dct-1920gb-nvme-m222110": "model:storage:22110-983dct-1920gb-nvme-m222110",
-    "model:memory:ld4as032g-b3200gsst-32gb-3200mhz": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz",
+    "model:memory:ld4as032g-b3200gsst-32gb-3200mhz": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
     "model:psu:atom-apfc-atom-b650-650w": "model:psu:apfc-atom-atom-b650-650w",
     "mpn:gpu:n307tgamingoc8gd": "model:gpu:3070-8gd-geforce-gv-n307tgaming-oc-rtx-ti-8gb",
     "model:psu:coolermaster-v1000-fully-modular-1000w-full": "model:psu:coolermaster-fully-modular-v1000-1000w-full",
@@ -1613563,14 +1613677,14 @@
     "model:case_fan:3-megacool-120mm-3-black": "model:case_fan:3-3p-bk-megacool-pf121-sf-120mm-3-black",
     "model:psu:zillion-sf-650z12db-650w": "model:psu:650w-bronze-zillion-650w",
     "model:memory:sodimm-jm5600ase-16g-16gb-5600mhz-cl46-sodimm": "model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm",
-    "model:memory:udimm-jm5600ale-32g-32gb-5600mhz-cl46": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46",
+    "model:memory:udimm-jm5600ale-32g-32gb-5600mhz-cl46": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm",
     "model:memory:udimm-jm5600ale-16g-16gb": "model:memory:16g-jm5600ale-udimm-16gb",
     "model:memory:sodimm-jm4800asg-8g-8gb-4800mhz-cl40-sodimm": "model:memory:8g-jm4800asg-sodimm-8gb-4800mhz-cl40-sodimm",
     "model:memory:sodimm-jm4800ase-16g-16gb-4800mhz-cl40-sodimm": "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm",
-    "model:memory:udimm-jm4800alg-8g-8gb-4800mhz-cl40": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40",
+    "model:memory:udimm-jm4800alg-8g-8gb-4800mhz-cl40": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm",
     "model:memory:sodimm-jm3200hse-16g-16gb-3200mhz-cl22-sodimm": "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-    "model:memory:udimm-jm3200hle-32g-32gb-3200mhz-cl22": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-    "model:memory:udimm-jm4800ale-16g-16gb-4800mhz-cl40": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+    "model:memory:udimm-jm3200hle-32g-32gb-3200mhz-cl22": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+    "model:memory:udimm-jm4800ale-16g-16gb-4800mhz-cl40": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
     "model:psu:leadex-vii-pro-atx3-1-1200w-full-black": "model:psu:1-atx3-leadex-pro-vii-1200w-full-black",
     "model:motherboard:z790-d-atx": "model:motherboard:d-z790-atx",
     "model:psu:regulator-3-0-1200w": "model:psu:0-3-regulator-1200w",
@@ -1613626,7 +1613740,7 @@
     "model:motherboard:b650-ud-ax-atx": "model:motherboard:ax-b650-ud-atx",
     "model:motherboard:x870e-aorus-master-atx": "model:motherboard:aorus-master-x870e-atx",
     "model:storage:t5-evo-usb3-2-mu-ph2t0s-2000gb-usb": "model:storage:2-evo-mu-ph2t0s-t5-usb3-2000gb-usb",
-    "model:memory:signature-psd38g16002s-8gb-1600mhz": "model:memory:psd38g16002s-signature-8gb-1600mhz",
+    "model:memory:signature-psd38g16002s-8gb-1600mhz": "model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm",
     "model:cooler_air:boreas-e1-410-120mm": "model:cooler_air:410-boreas-e1-120mm",
     "model:aio:chione-e4-360-wh-360mm-white": "model:aio:360-chione-e4-wh-360mm-white",
     "model:aio:chione-e4-360-360mm": "model:aio:360-chione-e4-360mm",
@@ -1613976,7 +1614090,7 @@
     "model:memory:trident-z5-neo-2x16gb-6000-cl30-expo-32gb-x2-6000mhz-cl30-rgb-blackwhite": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
     "model:memory:trident-z5-royal-neo-2x16gb-6000-cl28-32gb-x2-6000mhz-cl28-rgb-silver": "model:memory:2x16gb-32gb-6000-cl28-ddr5-expo-g-neo-royal-silver-trident-z5-32gb-x2-6000mhz-cl28-rgb-silver",
     "model:memory:trident-z5-royal-neo-2x16gb-6400-cl30-32gb-x2-6400mhz-cl30-rgb-gold": "model:memory:2x16gb-32gb-6400-cl30-ddr5-expo-g-gold-neo-royal-trident-z5-32gb-x2-6400mhz-cl30-rgb-gold",
-    "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb",
+    "model:memory:ram-viper-elite-5-pver516g60c42w-16gb-6000mhz-rgb": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm",
     "model:storage:wd-purple-pro-wd102purp-10000gb-sata-35": "model:storage:purple-wd-10000gb-sata-35",
     "model:memory:trident-z5-2x16gb-6400-cl30-32gb-x2-6400mhz-cl30-rgb-blackwhite": "model:memory:0-2x16gb-3-6400-cl30-trident-xmp-z5-32gb-x2-6400mhz-cl30-rgb-blackwhite",
     "model:memory:trident-z5-royal-2x16gb-6000-cl28-32gb-x2-6000mhz-cl28-rgb-silver": "model:memory:0-2x16gb-3-32gb-6000-cl28-ddr5-g-royal-silver-trident-xmp-z5-32gb-x2-6000mhz-cl28-rgb-silver",
@@ -1614463,7 +1614577,7 @@
     "model:motherboard:challenger-b760m-h-wifi-microatx": "model:motherboard:b760m-challenger-h-wifi-microatx",
     "model:motherboard:challenger-b760m-h-microatx": "model:motherboard:b760m-challenger-h-microatx",
     "model:motherboard:icraft-b850m-wifi-microatx": "model:motherboard:am5-b850m-icraft-wifi-microatx",
-    "model:memory:es-16g21-psh-16gb-3200mhz-cl22": "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+    "model:memory:es-16g21-psh-16gb-3200mhz-cl22": "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
     "model:memory:6400-rdimm-ecc-48gb-x1-6400mhz": "model:memory:6400-ecc-rdimm-48gb-x1-6400mhz",
     "mpn:storage:ms1tbx8": "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25",
     "model:cooler_air:dark-rock-6-165mm-135mm": "model:cooler_air:6-dark-rock-165mm-135mm",
@@ -1614589,14 +1614703,14 @@
     "model:motherboard:pro-a620am-b-evo-microatx": "model:motherboard:a620am-b-evo-pro-microatx",
     "model:storage:optimus-5100-500gb-pcie4-m22280": "model:storage:5100-optimus-500gb-pcie4-m22280",
     "model:motherboard:mpg-x870e-carbon-max-wifi-atx": "model:motherboard:carbon-max-mpg-wifi-x870e-atx",
-    "model:memory:viper-venom-rgb-32gb-x2-6400mhz-cl32-rgb": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb",
+    "model:memory:viper-venom-rgb-32gb-x2-6400mhz-cl32-rgb": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
     "model:motherboard:prime-b760m-a-wifi-ii-microatx": "model:motherboard:a-b760m-ii-prime-wifi-microatx",
     "model:gpu:prime-rx-9070-evo-oc-gddr6-16gb": "model:gpu:9070-evo-gddr6-oc-prime-rx-16gb",
     "model:gpu:t1-rtx-5070-gddr7-oc-12gb": "model:gpu:5070-gddr7-oc-rtx-t1-12gb",
     "model:gpu:prime-rx-9070-xt-oc-gddr6-16gb": "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb-radeonrx9070xt",
     "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-grey": "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-rgb-grey-dimm",
     "memory:1pc:1pc-222765": "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-    "model:memory:signature-line-psd532g56002-32gb": "model:memory:line-psd532g56002-signature-32gb",
+    "model:memory:signature-line-psd532g56002-32gb": "model:memory:line-psd532g56002-signature-32gb-dimm",
     "model:motherboard:h610m-k-2-0-microatx": "model:motherboard:0-2-h610m-k-microatx",
     "model:gpu:gv-n5050wf2oc-8gd-8gb": "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb",
     "model:gpu:gv-n506twf2max-oc-8gd": "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
@@ -1614646,26 +1614760,26 @@
     "model:psu:mps-k001-afbp-nbwo": "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
     "model:memory:premier-ad4u320038g22-sgn-8gb": "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm",
     "model:motherboard:b760m-aorus-elite-wifi6e-b760m-a-e-wf6e-microatx": "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-    "model:memory:premier-ad4u3200316g22-sgn-16gb": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green",
+    "model:memory:premier-ad4u3200316g22-sgn-16gb": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm",
     "model:psu:mag-a1000gl-pcie5": "model:psu:a1000gl-mag-pcie5-white",
     "model:cooler_air:mag-corefrozr-aa13-white": "model:cooler_air:aa13-corefrozr-mag-white",
     "model:case:aura-gc4-elite-black": "model:case:argb-aura-elite-gc4-black",
     "model:psu:helios-e1-500-pro": "model:psu:500-e1-helios-pro-black",
     "model:psu:helios-e1-600-pro": "model:psu:600-e1-helios-pro-black",
-    "model:memory:xpg-spectrix-d35g-ax4u320016g16a-sbkd35g-16gb-rgb-black": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black",
-    "model:memory:xpg-spectrix-d35g-ax4u320016g16a-swhd35g-16gb-rgb-white": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white",
+    "model:memory:xpg-spectrix-d35g-ax4u320016g16a-sbkd35g-16gb-rgb-black": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+    "model:memory:xpg-spectrix-d35g-ax4u320016g16a-swhd35g-16gb-rgb-white": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
     "model:storage:spatium-m450-v1-1000gb": "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
     "model:memory:so-dimm-ad5s56008g-s-8gb-sodimm": "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
-    "model:memory:xpg-armax-ax5u5600c4616g-samrbk-16gb-rgb-black": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-    "model:memory:xpg-lancer-blade-ax5u6000c3616g-slabrbk-16gb-rgb-black": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black",
-    "model:memory:xpg-lancer-blade-ax5u6000c3616g-slabrwh-16gb-rgb-white": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white",
+    "model:memory:xpg-armax-ax5u5600c4616g-samrbk-16gb-rgb-black": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:xpg-lancer-blade-ax5u6000c3616g-slabrbk-16gb-rgb-black": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:xpg-lancer-blade-ax5u6000c3616g-slabrwh-16gb-rgb-white": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm",
     "model:storage:xpg-mars-980-pro-smar-980p-2tci-2000gb": "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme",
-    "model:memory:xpg-spectrix-d35g-ax4u32008g16a-sbkd35g-8gb-rgb-black": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black",
-    "model:memory:xpg-spectrix-d35g-ax4u32008g16a-swhd35g-8gb-rgb-white": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white",
+    "model:memory:xpg-spectrix-d35g-ax4u32008g16a-sbkd35g-8gb-rgb-black": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm",
+    "model:memory:xpg-spectrix-d35g-ax4u32008g16a-swhd35g-8gb-rgb-white": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm",
     "model:storage:xpg-mars-980-pro-smar-980p-1tci-1000gb": "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
     "model:memory:csodimm-ad5cs640032g-s-32gb-sodimm": "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
-    "model:memory:xpg-armax-ax5u6000c3016g-samrbk-16gb-rgb-black": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black",
-    "model:memory:xpg-armax-ax5u6400c3216g-samrbk-16gb-rgb-black": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black",
+    "model:memory:xpg-armax-ax5u6000c3016g-samrbk-16gb-rgb-black": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm",
+    "model:memory:xpg-armax-ax5u6400c3216g-samrbk-16gb-rgb-black": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm",
     "model:gpu:geforce-rtx-5080-16g-ventus-3x-oc-16gb-grey": "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
     "model:storage:spatium-m450-v1-500gb": "model:storage:500gb-m450-spatium-v1-500gb-pcie4",
     "model:storage:spatium-s270-960gb-sata-25": "model:storage:s270-spatium-960gb-sata-25",
@@ -1614779,7 +1614893,7 @@
     "model:case:coolermaster-masterbox-lite-5-black": "model:case:05-5-argb-coolermaster-kgnn-l5s3-lite-masterbox-mcw-black",
     "model:gpu:amd-firepro-2270-512m-pci-ex1": "model:gpu:2270-512m-amd-ex1-firepro-pci",
     "model:motherboard:z590-aorus-ultra-atx": "model:motherboard:aorus-gz590aorusu-ultra-z590-atx",
-    "model:memory:jm3200hse-32g-32gb-3200mhz-cl22": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22",
+    "model:memory:jm3200hse-32g-32gb-3200mhz-cl22": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
     "model:psu:pfc-gp-p1000gm-1000w": "model:psu:1000w-80-gold-modular-pfc-psu-1000w",
     "model:storage:lns100-lns100-128rb-128gb-sata-25": "model:storage:128rb-lns100-lns100-128gb-sata-25",
     "model:storage:lnm620-pcie3-lnm620x256g-rnnng-256gb-pcie3-m2": "model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2",
@@ -1616746,7 +1616860,7 @@
     "mpn:psu:bn314": "model:psu:12-bn314-dark-power-750w",
     "mpn:motherboard:gh410ms2hv2": "model:motherboard:gh410ms2hv2-h410m-s2h-v2-microatx",
     "mpn:storage:mz1lb1t9ne": "model:storage:22110-983dct-1920gb-nvme-m222110",
-    "mpn:memory:ld4as032gb3200gsst": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz",
+    "mpn:memory:ld4as032gb3200gsst": "model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
     "mpn:psu:atomb650": "model:psu:apfc-atom-atom-b650-650w",
     "model:cpu:corei310105f-tray": "model:cpu:10105f-tray",
     "mpn:psu:rsa00afbag1wo": "model:psu:coolermaster-fully-modular-v1000-1000w-full",
@@ -1617080,14 +1617194,14 @@
     "mpn:case_fan:sfpf121bk3p": "model:case_fan:3-3p-bk-megacool-pf121-sf-120mm-3-black",
     "mpn:psu:sf650z12db": "model:psu:650w-bronze-zillion-650w",
     "mpn:memory:jm5600ase16g": "model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm",
-    "mpn:memory:jm5600ale32g": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46",
+    "mpn:memory:jm5600ale32g": "model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm",
     "mpn:memory:jm5600ale16g": "model:memory:16g-jm5600ale-udimm-16gb",
     "mpn:memory:jm4800asg8g": "model:memory:8g-jm4800asg-sodimm-8gb-4800mhz-cl40-sodimm",
     "mpn:memory:jm4800ase16g": "model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm",
-    "mpn:memory:jm4800alg8g": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40",
+    "mpn:memory:jm4800alg8g": "model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm",
     "mpn:memory:jm3200hse16g": "model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-    "mpn:memory:jm3200hle32g": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
-    "mpn:memory:jm4800ale16g": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+    "mpn:memory:jm3200hle32g": "model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
+    "mpn:memory:jm4800ale16g": "model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
     "mpn:psu:sf1200f14xp": "model:psu:1-atx3-leadex-pro-vii-1200w-full-black",
     "mpn:motherboard:gz790d": "model:motherboard:d-z790-atx",
     "mpn:psu:klr1200fg": "model:psu:0-3-regulator-1200w",
@@ -1617143,7 +1617257,7 @@
     "mpn:motherboard:gb650udax": "model:motherboard:ax-b650-ud-atx",
     "mpn:motherboard:gx870eaorusmaster": "model:motherboard:aorus-master-x870e-atx",
     "mpn:storage:muph2t0s": "model:storage:2-evo-mu-ph2t0s-t5-usb3-2000gb-usb",
-    "mpn:memory:psd38g16002s": "model:memory:psd38g16002s-signature-8gb-1600mhz",
+    "mpn:memory:psd38g16002s": "model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm",
     "mpn:cooler_air:4712960135888": "model:cooler_air:410-boreas-e1-120mm",
     "mpn:aio:4712960139343": "model:aio:6cfm-73-aura-gl360-v2-360mm-black",
     "mpn:aio:4712960139374": "model:aio:aura-gl360-v2-wh-360mm-white",
@@ -1617529,7 +1617643,7 @@
     "mpn:memory:6000j3036f16gx2tz5nrw": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-blackwhite",
     "mpn:memory:6000j2836g16gx2tr5ns": "model:memory:2x16gb-32gb-6000-cl28-ddr5-expo-g-neo-royal-silver-trident-z5-32gb-x2-6000mhz-cl28-rgb-silver",
     "mpn:memory:6400j3039g16gx2tr5ng": "model:memory:2x16gb-32gb-6400-cl30-ddr5-expo-g-gold-neo-royal-trident-z5-32gb-x2-6400mhz-cl30-rgb-gold",
-    "mpn:memory:04711378425451": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb",
+    "mpn:memory:04711378425451": "model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm",
     "mpn:storage:718037901275": "model:storage:purple-wd-10000gb-sata-35",
     "mpn:memory:6400j3039g16gx2tz5rw": "model:memory:0-2x16gb-3-6400-cl30-trident-xmp-z5-32gb-x2-6400mhz-cl30-rgb-blackwhite",
     "mpn:memory:6000j3040f16gx2tz5rk": "model:memory:0-2x16gb-3-6000-cl30-trident-xmp-z5-32gb-x2-6000mhz-cl30-rgb-black",
@@ -1617645,7 +1617759,7 @@
     "mpn:motherboard:gb860meaglev2": "model:motherboard:b860m-eagle-v2-microatx",
     "mpn:memory:f43600c18d32gtzr": "model:memory:2x16gb-3600-cl18-trident-z-32gb-x2-3600mhz-cl18-rgb-black",
     "mpn:motherboard:gb760mds3hwifi6egen5": "model:motherboard:b760m-ds3h-wifi6e-microatx",
-    "mpn:memory:760557848332": "model:memory:3200-udimm-8gb-3200mhz",
+    "mpn:memory:760557848332": "model:memory:3200-udimm-8gb-3200mhz-dimm",
     "mpn:memory:cmt32gx5m2e6200c36": "model:memory:0-2x16gb-3-6200-cl36-dominator-xmp-32gb-x2-6200mhz-cl36-rgb-black",
     "mpn:case:4711514503159": "model:case:aura-gc10m-v2-white",
     "mpn:case:4712960138865": "model:case:neso-p1-white",
@@ -1618102,7 +1618216,7 @@
     "mpn:motherboard:mschab760mhwifi": "model:motherboard:b760m-challenger-h-wifi-microatx",
     "mpn:motherboard:mschab760mh": "model:motherboard:b760m-challenger-h-microatx",
     "mpn:motherboard:msicraftb850mwifi": "model:motherboard:am5-b850m-icraft-wifi-microatx",
-    "mpn:memory:4712389908124": "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+    "mpn:memory:4712389908124": "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
     "model:cpu:coreultra5225f": "model:cpu:225f",
     "mpn:memory:hmcgy4mhbrb492n": "model:memory:6400-ecc-rdimm-48gb-x1-6400mhz",
     "mpn:cpu:100000000743-tray": "model:cpu:ryzen75700-tray",
@@ -1618251,13 +1618365,13 @@
     "motherboard:1pc:1pc-222536": "model:motherboard:a620am-b-evo-pro-microatx",
     "mpn:storage:sdsp51500gan000e0": "model:storage:5100-optimus-500gb-pcie4-m22280",
     "mpn:motherboard:4711377415156": "model:motherboard:carbon-max-mpg-wifi-x870e-atx",
-    "mpn:memory:pvvr532g640c32k": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb",
+    "mpn:memory:pvvr532g640c32k": "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
     "mpn:motherboard:90mb1nf0m0eay0": "model:motherboard:a-b760m-ii-prime-wifi-microatx",
     "mpn:gpu:90yv0mq0m0na00": "model:gpu:9070-evo-gddr6-oc-prime-rx-16gb",
     "mpn:gpu:90yv0m1gm0na00": "model:gpu:5070-gddr7-oc-rtx-t1-12gb",
     "mpn:gpu:90yv0l75m0na00": "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb-radeonrx9070xt",
     "mpn:memory:gaog432gb3200c16bdc": "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-rgb-grey-dimm",
-    "memory:1pc:1pc-222778": "model:memory:line-psd532g56002-signature-32gb",
+    "memory:1pc:1pc-222778": "model:memory:line-psd532g56002-signature-32gb-dimm",
     "motherboard:1pc:1pc-222802": "model:motherboard:0-2-h610m-k-microatx",
     "mpn:gpu:n5050wf2oc8gd": "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb",
     "mpn:gpu:n506twf2max": "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
@@ -1618316,26 +1618430,26 @@
     "psu:1pc:1pc-222875": "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black",
     "memory:1pc:1pc-222925": "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm",
     "motherboard:1pc:1pc-222947": "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-    "memory:1pc:1pc-222978": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green",
+    "memory:1pc:1pc-222978": "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm",
     "psu:1pc:1pc-222983": "model:psu:a1000gl-mag-pcie5-white",
     "cooler_air:1pc:1pc-222984": "model:cooler_air:aa13-corefrozr-mag-white",
     "case:1pc:1pc-222987": "model:case:argb-aura-elite-gc4-black",
     "psu:1pc:1pc-222989": "model:psu:500-e1-helios-pro-black",
     "psu:1pc:1pc-222991": "model:psu:600-e1-helios-pro-black",
-    "memory:1pc:1pc-223007": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black",
-    "memory:1pc:1pc-223008": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white",
+    "memory:1pc:1pc-223007": "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+    "memory:1pc:1pc-223008": "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
     "storage:1pc:1pc-223009": "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
     "memory:1pc:1pc-223011": "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
-    "memory:1pc:1pc-223012": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-    "memory:1pc:1pc-223013": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black",
-    "memory:1pc:1pc-223014": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white",
+    "memory:1pc:1pc-223012": "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+    "memory:1pc:1pc-223013": "model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm",
+    "memory:1pc:1pc-223014": "model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm",
     "storage:1pc:1pc-223017": "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme",
-    "memory:1pc:1pc-223019": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black",
-    "memory:1pc:1pc-223020": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white",
+    "memory:1pc:1pc-223019": "model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm",
+    "memory:1pc:1pc-223020": "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm",
     "storage:1pc:1pc-223021": "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
     "memory:1pc:1pc-223024": "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
-    "memory:1pc:1pc-223025": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black",
-    "memory:1pc:1pc-223027": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black",
+    "memory:1pc:1pc-223025": "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm",
+    "memory:1pc:1pc-223027": "model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm",
     "gpu:1pc:1pc-223030": "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
     "storage:1pc:1pc-223031": "model:storage:500gb-m450-spatium-v1-500gb-pcie4",
     "storage:1pc:1pc-223032": "model:storage:s270-spatium-960gb-sata-25",
@@ -1618472,7 +1618586,7 @@
     "mpn:gpu:310041840a": "model:gpu:2270-512m-amd-ex1-firepro-pci",
     "mpn:motherboard:gz590aorusu": "model:motherboard:aorus-gz590aorusu-ultra-z590-atx",
     "model:cpu:corei511400f-tray": "model:cpu:11400f-tray",
-    "mpn:memory:jm3200hse32g": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22",
+    "mpn:memory:jm3200hse32g": "model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
     "mpn:psu:gpp1000gm": "model:psu:1000w-80-gold-modular-pfc-psu-1000w",
     "mpn:storage:lns100128rb": "model:storage:128rb-lns100-lns100-128gb-sata-25",
     "mpn:storage:lnm620x256grnnng": "model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2",
@@ -1632941,58 +1633055,6 @@
     {
       "kind": "variant_conflict",
       "category": "case",
-      "product_id": "model:case:c201-ice-panoramic-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207721",
-          "vendor": "1pc",
-          "vendor_sku": "GB-C201PI",
-          "title": "מארז מחשב Gigabyte C201 Panoramic ICE בצבע לבן",
-          "price": 297
-        },
-        {
-          "listing_key": "tms:GB-C201PI",
-          "vendor": "tms",
-          "vendor_sku": "GB-C201PI",
-          "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
-          "price": 349
-        }
-      ],
-      "model_code": "c201-ice-panoramic",
-      "manufacturer_pn": [
-        "GBC201PI"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case",
-      "product_id": "model:case:c201-panoramic-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207722",
-          "vendor": "1pc",
-          "vendor_sku": "GB-C201P",
-          "title": "מארז מחשב Gigabyte C201 Panoramic בצבע שחור",
-          "price": 352
-        },
-        {
-          "listing_key": "tms:GB-C201P",
-          "vendor": "tms",
-          "vendor_sku": "GB-C201P",
-          "title": "מארז מחשב Gigabyte C201 Panoramic",
-          "price": 336
-        }
-      ],
-      "model_code": "c201-panoramic",
-      "manufacturer_pn": [
-        "GBC201P"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case",
       "product_id": "model:case:c500-ice-panoramic-stealth-white",
       "vendor": "",
       "offers": [
@@ -1633040,6 +1633102,58 @@
       "model_code": "c500-panoramic-stealth",
       "manufacturer_pn": [
         "GBC500PST"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case",
+      "product_id": "model:case:c201-ice-panoramic-white",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207721",
+          "vendor": "1pc",
+          "vendor_sku": "GB-C201PI",
+          "title": "מארז מחשב Gigabyte C201 Panoramic ICE בצבע לבן",
+          "price": 297
+        },
+        {
+          "listing_key": "tms:GB-C201PI",
+          "vendor": "tms",
+          "vendor_sku": "GB-C201PI",
+          "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
+          "price": 349
+        }
+      ],
+      "model_code": "c201-ice-panoramic",
+      "manufacturer_pn": [
+        "GBC201PI"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case",
+      "product_id": "model:case:c201-panoramic-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207722",
+          "vendor": "1pc",
+          "vendor_sku": "GB-C201P",
+          "title": "מארז מחשב Gigabyte C201 Panoramic בצבע שחור",
+          "price": 352
+        },
+        {
+          "listing_key": "tms:GB-C201P",
+          "vendor": "tms",
+          "vendor_sku": "GB-C201P",
+          "title": "מארז מחשב Gigabyte C201 Panoramic",
+          "price": 336
+        }
+      ],
+      "model_code": "c201-panoramic",
+      "manufacturer_pn": [
+        "GBC201P"
       ]
     },
     {
@@ -1633363,6 +1633477,110 @@
     {
       "kind": "variant_conflict",
       "category": "case_fan",
+      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221445",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F3B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
+          "price": 602
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F3B",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F3B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+          "price": 538
+        }
+      ],
+      "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F3B"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221441",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F1B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+          "price": 235
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F1B",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F1B",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+          "price": 213
+        }
+      ],
+      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F1B"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221442",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F1W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+          "price": 241
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F1W",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F1W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+          "price": 218
+        }
+      ],
+      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F1W"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:221446",
+          "vendor": "1pc",
+          "vendor_sku": "12RTLLCD1F3W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+          "price": 564
+        },
+        {
+          "listing_key": "tms:12RTLLCD1F3W",
+          "vendor": "tms",
+          "vendor_sku": "12RTLLCD1F3W",
+          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+          "price": 548
+        }
+      ],
+      "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+      "manufacturer_pn": [
+        "12RTLLCD1F3W"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
       "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
       "vendor": "",
       "offers": [
@@ -1633495,105 +1633713,67 @@
     {
       "kind": "variant_conflict",
       "category": "case_fan",
-      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
+      "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:221445",
+          "listing_key": "1pc:208029",
           "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F3B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
-          "price": 602
+          "vendor_sku": "12SLIN1W1B",
+          "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
+          "price": 216
         },
         {
-          "listing_key": "tms:12RTLLCD1F3B",
+          "listing_key": "tms:12SLIN1W1B",
           "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F3B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
-          "price": 538
+          "vendor_sku": "12SLIN1W1B",
+          "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
+          "price": 136
+        },
+        {
+          "listing_key": "yahav:10987",
+          "vendor": "yahav",
+          "vendor_sku": "12SLIN1W1B",
+          "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
+          "price": 130
         }
       ],
-      "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+      "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
       "manufacturer_pn": [
-        "12RTLLCD1F3B"
+        "12SLIN1W1B"
       ]
     },
     {
       "kind": "variant_conflict",
       "category": "case_fan",
-      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
+      "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
       "vendor": "",
       "offers": [
         {
-          "listing_key": "1pc:221441",
+          "listing_key": "1pc:208007",
           "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F1B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-          "price": 235
+          "vendor_sku": "12SLIN1W3B",
+          "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
+          "price": 419
         },
         {
-          "listing_key": "tms:12RTLLCD1F1B",
+          "listing_key": "tms:12SLIN1W3B",
           "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F1B",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-          "price": 213
-        }
-      ],
-      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
-      "manufacturer_pn": [
-        "12RTLLCD1F1B"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:221442",
-          "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F1W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-          "price": 241
+          "vendor_sku": "12SLIN1W3B",
+          "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
+          "price": 422
         },
         {
-          "listing_key": "tms:12RTLLCD1F1W",
-          "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F1W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-          "price": 218
+          "listing_key": "yahav:10993",
+          "vendor": "yahav",
+          "vendor_sku": "12SLIN1W3B",
+          "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
+          "price": 410
         }
       ],
-      "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+      "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
       "manufacturer_pn": [
-        "12RTLLCD1F1W"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:221446",
-          "vendor": "1pc",
-          "vendor_sku": "12RTLLCD1F3W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-          "price": 564
-        },
-        {
-          "listing_key": "tms:12RTLLCD1F3W",
-          "vendor": "tms",
-          "vendor_sku": "12RTLLCD1F3W",
-          "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-          "price": 548
-        }
-      ],
-      "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
-      "manufacturer_pn": [
-        "12RTLLCD1F3W"
+        "12SLIN1W3B"
       ]
     },
     {
@@ -1633660,72 +1633840,6 @@
       "model_code": "120mm-fan-inf-pack-sl-triple-uni-white-wireless",
       "manufacturer_pn": [
         "12SLIN1W3W"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:208029",
-          "vendor": "1pc",
-          "vendor_sku": "12SLIN1W1B",
-          "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
-          "price": 216
-        },
-        {
-          "listing_key": "tms:12SLIN1W1B",
-          "vendor": "tms",
-          "vendor_sku": "12SLIN1W1B",
-          "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
-          "price": 136
-        },
-        {
-          "listing_key": "yahav:10987",
-          "vendor": "yahav",
-          "vendor_sku": "12SLIN1W1B",
-          "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
-          "price": 130
-        }
-      ],
-      "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
-      "manufacturer_pn": [
-        "12SLIN1W1B"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:208007",
-          "vendor": "1pc",
-          "vendor_sku": "12SLIN1W3B",
-          "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
-          "price": 419
-        },
-        {
-          "listing_key": "tms:12SLIN1W3B",
-          "vendor": "tms",
-          "vendor_sku": "12SLIN1W3B",
-          "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
-          "price": 422
-        },
-        {
-          "listing_key": "yahav:10993",
-          "vendor": "yahav",
-          "vendor_sku": "12SLIN1W3B",
-          "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
-          "price": 410
-        }
-      ],
-      "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
-      "manufacturer_pn": [
-        "12SLIN1W3B"
       ]
     },
     {
@@ -1634600,6 +1634714,58 @@
     {
       "kind": "variant_conflict",
       "category": "case_fan",
+      "product_id": "model:case_fan:fan-h14-140mm-black",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207632",
+          "vendor": "1pc",
+          "vendor_sku": "PGW-AC-HVN-018",
+          "title": "מאוורר HAVN H14 140mm בצבע שחור",
+          "price": 79
+        },
+        {
+          "listing_key": "tms:PGW-AC-HVN-018",
+          "vendor": "tms",
+          "vendor_sku": "PGW-AC-HVN-018",
+          "title": "HAVN H14 Black 140mm Fan",
+          "price": 65
+        }
+      ],
+      "model_code": "fan-h14",
+      "manufacturer_pn": [
+        "PGWACHVN018"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
+      "product_id": "model:case_fan:fans-h14-triple-x3-140mm-3-white",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207631",
+          "vendor": "1pc",
+          "vendor_sku": "PGW-AC-HVN-024",
+          "title": "מאווררי HAVN H14 Triple Pack 140mm בצבע לבן",
+          "price": 214
+        },
+        {
+          "listing_key": "tms:PGW-AC-HVN-024",
+          "vendor": "tms",
+          "vendor_sku": "PGW-AC-HVN-024",
+          "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
+          "price": 161
+        }
+      ],
+      "model_code": "fans-h14-triple-x3",
+      "manufacturer_pn": [
+        "PGWACHVN024"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "case_fan",
       "product_id": "model:case_fan:fan-h12-120mm-black",
       "vendor": "",
       "offers": [
@@ -1634699,58 +1634865,6 @@
       "model_code": "fan-h12",
       "manufacturer_pn": [
         "PGWACHVN015"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:fan-h14-140mm-black",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207632",
-          "vendor": "1pc",
-          "vendor_sku": "PGW-AC-HVN-018",
-          "title": "מאוורר HAVN H14 140mm בצבע שחור",
-          "price": 79
-        },
-        {
-          "listing_key": "tms:PGW-AC-HVN-018",
-          "vendor": "tms",
-          "vendor_sku": "PGW-AC-HVN-018",
-          "title": "HAVN H14 Black 140mm Fan",
-          "price": 65
-        }
-      ],
-      "model_code": "fan-h14",
-      "manufacturer_pn": [
-        "PGWACHVN018"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "case_fan",
-      "product_id": "model:case_fan:fans-h14-triple-x3-140mm-3-white",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207631",
-          "vendor": "1pc",
-          "vendor_sku": "PGW-AC-HVN-024",
-          "title": "מאווררי HAVN H14 Triple Pack 140mm בצבע לבן",
-          "price": 214
-        },
-        {
-          "listing_key": "tms:PGW-AC-HVN-024",
-          "vendor": "tms",
-          "vendor_sku": "PGW-AC-HVN-024",
-          "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
-          "price": 161
-        }
-      ],
-      "model_code": "fans-h14-triple-x3",
-      "manufacturer_pn": [
-        "PGWACHVN024"
       ]
     },
     {
@@ -1635169,39 +1635283,6 @@
     {
       "kind": "variant_conflict",
       "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:172013",
-          "vendor": "1pc",
-          "vendor_sku": "GZ890AORUSELITEWF7ICE",
-          "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-          "price": 1107
-        },
-        {
-          "listing_key": "tms:GZ890AORUSELITEWF7ICE",
-          "vendor": "tms",
-          "vendor_sku": "GZ890AORUSELITEWF7ICE",
-          "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-          "price": 1275
-        },
-        {
-          "listing_key": "yahav:10326",
-          "vendor": "yahav",
-          "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
-          "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
-          "price": 1105
-        }
-      ],
-      "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
-      "manufacturer_pn": [
-        "GZ890AORUSELITEWF7ICE"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
       "product_id": "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx",
       "vendor": "",
       "offers": [
@@ -1635261,6 +1635342,39 @@
     {
       "kind": "variant_conflict",
       "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:172013",
+          "vendor": "1pc",
+          "vendor_sku": "GZ890AORUSELITEWF7ICE",
+          "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+          "price": 1107
+        },
+        {
+          "listing_key": "tms:GZ890AORUSELITEWF7ICE",
+          "vendor": "tms",
+          "vendor_sku": "GZ890AORUSELITEWF7ICE",
+          "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+          "price": 1275
+        },
+        {
+          "listing_key": "yahav:10326",
+          "vendor": "yahav",
+          "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
+          "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
+          "price": 1105
+        }
+      ],
+      "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
+      "manufacturer_pn": [
+        "GZ890AORUSELITEWF7ICE"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
       "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
       "vendor": "",
       "offers": [
@@ -1635308,6 +1635422,334 @@
       "model_code": "b650e-gaming-max-wifi",
       "manufacturer_pn": [
         "90MB1LD0M0EAY0"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-pro-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:171448",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSPRO",
+          "title": "לוח אם Gigabyte X870E AORUS PRO",
+          "price": 1949
+        },
+        {
+          "listing_key": "tms:GX870EAORUSPRO",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSPRO",
+          "title": "Gigabyte X870E AORUS PRO",
+          "price": 1671
+        },
+        {
+          "listing_key": "yahav:9957",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-PRO",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 1635
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSPRO"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207707",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSPROX3DICE",
+          "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
+          "price": 1651
+        },
+        {
+          "listing_key": "tms:GX870EAORUSPROX3DICE",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSPROX3DICE",
+          "title": "Gigabyte X870E AORUS PRO X3D ICE",
+          "price": 1913
+        },
+        {
+          "listing_key": "yahav:10918",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 1850
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSPROX3DICE"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:209975",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSPROX3D",
+          "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
+          "price": 1638
+        },
+        {
+          "listing_key": "tms:GX870EAORUSPROX3D",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSPROX3D",
+          "title": "Gigabyte X870E AORUS PRO X3D",
+          "price": 1877
+        },
+        {
+          "listing_key": "yahav:11665",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-PRO-X3D",
+          "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 1750
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSPROX3D"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207718",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSMASTERX3DI",
+          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
+          "price": 2592
+        },
+        {
+          "listing_key": "tms:GX870EAORUSMASTERX3DI",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSMASTERX3DI",
+          "title": "Gigabyte X870E AORUS MASTER X3D ICE",
+          "price": 2575
+        },
+        {
+          "listing_key": "yahav:10919",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 2190
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSMASTERX3DI"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:216436",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSMASTERX3D",
+          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
+          "price": 2501
+        },
+        {
+          "listing_key": "tms:GX870EAORUSMASTERX3D",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSMASTERX3D",
+          "title": "Gigabyte X870E AORUS MASTER X3D",
+          "price": 2440
+        }
+      ],
+      "model_code": "aorus-master-x3d-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSMASTERX3D"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:170330",
+          "vendor": "1pc",
+          "vendor_sku": "GX870AORUSELITEWIFI7",
+          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
+          "price": 1360
+        },
+        {
+          "listing_key": "tms:GX870AORUSELITEWIFI7",
+          "vendor": "tms",
+          "vendor_sku": "GX870AORUSELITEWIFI7",
+          "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
+          "price": 1319
+        }
+      ],
+      "model_code": "aorus-elite-ice-wifi7-x870",
+      "manufacturer_pn": [
+        "GX870AORUSELITEWIFI7"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:170331",
+          "vendor": "1pc",
+          "vendor_sku": "GX870AORUSELITEWIFI",
+          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
+          "price": 1360
+        },
+        {
+          "listing_key": "tms:GX870AORUSELITEWIFI",
+          "vendor": "tms",
+          "vendor_sku": "GX870AORUSELITEWIFI",
+          "title": "Gigabyte X870 AORUS ELITE WIFI7",
+          "price": 1319
+        }
+      ],
+      "model_code": "aorus-elite-wifi7-x870",
+      "manufacturer_pn": [
+        "GX870AORUSELITEWIFI"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207716",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSELITEWIFI7I",
+          "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
+          "price": 1561
+        },
+        {
+          "listing_key": "tms:GX870EAORUSELITEWIFI7I",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSELITEWIFI7I",
+          "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
+          "price": 1545
+        }
+      ],
+      "model_code": "aorus-elite-ice-wifi7-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSELITEWIFI7I"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:170329",
+          "vendor": "1pc",
+          "vendor_sku": "GX870EAORUSELITEWIFI7",
+          "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
+          "price": 1308
+        },
+        {
+          "listing_key": "tms:GX870EAORUSELITEWIFI7",
+          "vendor": "tms",
+          "vendor_sku": "GX870EAORUSELITEWIFI7",
+          "title": "Gigabyte X870E AORUS ELITE WiFi7",
+          "price": 1438
+        },
+        {
+          "listing_key": "yahav:10175",
+          "vendor": "yahav",
+          "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
+          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+          "price": 1380
+        }
+      ],
+      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
+      "manufacturer_pn": [
+        "GX870EAORUSELITEWIFI7"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:177652",
+          "vendor": "1pc",
+          "vendor_sku": "GB850MAORUSELTWF6EICE",
+          "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
+          "price": 875
+        },
+        {
+          "listing_key": "tms:GB850MAORUSELTWF6EICE",
+          "vendor": "tms",
+          "vendor_sku": "GB850MAORUSELTWF6EICE",
+          "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
+          "price": 989
+        },
+        {
+          "listing_key": "yahav:10288",
+          "vendor": "yahav",
+          "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
+          "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
+          "price": 1130
+        }
+      ],
+      "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
+      "manufacturer_pn": [
+        "GB850MAORUSELTWF6EICE"
+      ]
+    },
+    {
+      "kind": "variant_conflict",
+      "category": "motherboard",
+      "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
+      "vendor": "",
+      "offers": [
+        {
+          "listing_key": "1pc:207713",
+          "vendor": "1pc",
+          "vendor_sku": "GB850MAORUSELTWF6E",
+          "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
+          "price": 1160
+        },
+        {
+          "listing_key": "tms:GB850MAORUSELTWF6E",
+          "vendor": "tms",
+          "vendor_sku": "GB850MAORUSELTWF6E",
+          "title": "Gigabyte B850M AORUS ELITE WiFi6E",
+          "price": 989
+        }
+      ],
+      "model_code": "aorus-b850m-elite-wifi6e",
+      "manufacturer_pn": [
+        "GB850MAORUSELTWF6E"
       ]
     },
     {
@@ -1635433,334 +1635875,6 @@
       "model_code": "aorus-b850-stealth",
       "manufacturer_pn": [
         "GB850AORUSSTEALTH"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:177652",
-          "vendor": "1pc",
-          "vendor_sku": "GB850MAORUSELTWF6EICE",
-          "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-          "price": 875
-        },
-        {
-          "listing_key": "tms:GB850MAORUSELTWF6EICE",
-          "vendor": "tms",
-          "vendor_sku": "GB850MAORUSELTWF6EICE",
-          "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-          "price": 989
-        },
-        {
-          "listing_key": "yahav:10288",
-          "vendor": "yahav",
-          "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-          "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-          "price": 1130
-        }
-      ],
-      "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-      "manufacturer_pn": [
-        "GB850MAORUSELTWF6EICE"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207713",
-          "vendor": "1pc",
-          "vendor_sku": "GB850MAORUSELTWF6E",
-          "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-          "price": 1160
-        },
-        {
-          "listing_key": "tms:GB850MAORUSELTWF6E",
-          "vendor": "tms",
-          "vendor_sku": "GB850MAORUSELTWF6E",
-          "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-          "price": 989
-        }
-      ],
-      "model_code": "aorus-b850m-elite-wifi6e",
-      "manufacturer_pn": [
-        "GB850MAORUSELTWF6E"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:170330",
-          "vendor": "1pc",
-          "vendor_sku": "GX870AORUSELITEWIFI7",
-          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-          "price": 1360
-        },
-        {
-          "listing_key": "tms:GX870AORUSELITEWIFI7",
-          "vendor": "tms",
-          "vendor_sku": "GX870AORUSELITEWIFI7",
-          "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-          "price": 1319
-        }
-      ],
-      "model_code": "aorus-elite-ice-wifi7-x870",
-      "manufacturer_pn": [
-        "GX870AORUSELITEWIFI7"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:170331",
-          "vendor": "1pc",
-          "vendor_sku": "GX870AORUSELITEWIFI",
-          "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-          "price": 1360
-        },
-        {
-          "listing_key": "tms:GX870AORUSELITEWIFI",
-          "vendor": "tms",
-          "vendor_sku": "GX870AORUSELITEWIFI",
-          "title": "Gigabyte X870 AORUS ELITE WIFI7",
-          "price": 1319
-        }
-      ],
-      "model_code": "aorus-elite-wifi7-x870",
-      "manufacturer_pn": [
-        "GX870AORUSELITEWIFI"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207716",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSELITEWIFI7I",
-          "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-          "price": 1561
-        },
-        {
-          "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSELITEWIFI7I",
-          "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-          "price": 1545
-        }
-      ],
-      "model_code": "aorus-elite-ice-wifi7-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSELITEWIFI7I"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:170329",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSELITEWIFI7",
-          "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-          "price": 1308
-        },
-        {
-          "listing_key": "tms:GX870EAORUSELITEWIFI7",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSELITEWIFI7",
-          "title": "Gigabyte X870E AORUS ELITE WiFi7",
-          "price": 1438
-        },
-        {
-          "listing_key": "yahav:10175",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 1380
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSELITEWIFI7"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207718",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSMASTERX3DI",
-          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-          "price": 2592
-        },
-        {
-          "listing_key": "tms:GX870EAORUSMASTERX3DI",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSMASTERX3DI",
-          "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-          "price": 2575
-        },
-        {
-          "listing_key": "yahav:10919",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 2190
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSMASTERX3DI"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:216436",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSMASTERX3D",
-          "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-          "price": 2501
-        },
-        {
-          "listing_key": "tms:GX870EAORUSMASTERX3D",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSMASTERX3D",
-          "title": "Gigabyte X870E AORUS MASTER X3D",
-          "price": 2440
-        }
-      ],
-      "model_code": "aorus-master-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSMASTERX3D"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-pro-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:171448",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSPRO",
-          "title": "לוח אם Gigabyte X870E AORUS PRO",
-          "price": 1949
-        },
-        {
-          "listing_key": "tms:GX870EAORUSPRO",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSPRO",
-          "title": "Gigabyte X870E AORUS PRO",
-          "price": 1671
-        },
-        {
-          "listing_key": "yahav:9957",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-PRO",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 1635
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSPRO"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:207707",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSPROX3DICE",
-          "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
-          "price": 1651
-        },
-        {
-          "listing_key": "tms:GX870EAORUSPROX3DICE",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSPROX3DICE",
-          "title": "Gigabyte X870E AORUS PRO X3D ICE",
-          "price": 1913
-        },
-        {
-          "listing_key": "yahav:10918",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
-          "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 1850
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSPROX3DICE"
-      ]
-    },
-    {
-      "kind": "variant_conflict",
-      "category": "motherboard",
-      "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
-      "vendor": "",
-      "offers": [
-        {
-          "listing_key": "1pc:209975",
-          "vendor": "1pc",
-          "vendor_sku": "GX870EAORUSPROX3D",
-          "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
-          "price": 1638
-        },
-        {
-          "listing_key": "tms:GX870EAORUSPROX3D",
-          "vendor": "tms",
-          "vendor_sku": "GX870EAORUSPROX3D",
-          "title": "Gigabyte X870E AORUS PRO X3D",
-          "price": 1877
-        },
-        {
-          "listing_key": "yahav:11665",
-          "vendor": "yahav",
-          "vendor_sku": "X870E-AORUS-PRO-X3D",
-          "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-          "price": 1750
-        }
-      ],
-      "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
-      "manufacturer_pn": [
-        "GX870EAORUSPROX3D"
       ]
     },
     {
