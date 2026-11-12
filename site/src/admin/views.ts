@@ -6,7 +6,7 @@ import type { OpsAbsent, OpsChanges, OpsCrawl, OpsEvent, OpsStatus } from "../op
 import { html, type Html } from "../ui/html";
 import { safeUrl } from "../utils";
 import type { AlertRow, RunRow } from "./data";
-import { ago, ilDateKey, ilDateTime, ilDay, ilShortDay, ilTime, ils, n, pct } from "./format";
+import { ago, ilDateKey, ilDateTime, ilDay, ilTime, ils, n, pct } from "./format";
 
 export interface Data {
   status: OpsStatus;
@@ -50,45 +50,68 @@ function productLink(e: { pid?: string | null; product?: string; category?: stri
 
 // ---- Tonight -------------------------------------------------------------------
 
-/** Night band: 22:00 UTC the evening before (= the axis start) to 07:00 UTC. */
-function nightTimeline(health: VendorHealth[], now: Date): Html {
-  const night = nightStart(now);
-  const start = night.getTime() - 3_600_000; // 20:00 UTC: show early starts too
-  const end = night.getTime() + 11 * 3_600_000; // 08:00 UTC
+/**
+ * The last 30 hours on one Israel-time axis, so last night AND a night in
+ * progress both show: every crawl that started in the span is a bar at its
+ * real time, each scrape window is a shaded band, a blue line marks now.
+ */
+function nightTimeline(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, now: Date): Html {
+  const HOUR = 3_600_000;
+  // Axis: from 2h before the previous night window opens, to now (+1h).
+  const thisNight = nightStart(now);
+  const start = thisNight.getTime() - 24 * HOUR - 2 * HOUR;
+  const end = Math.max(now.getTime() + HOUR, thisNight.getTime() - 24 * HOUR + 14 * HOUR);
   const span = end - start;
-  const pos = (t: number) => Math.max(0, Math.min(100, ((t - start) / span) * 100));
-  const windowStart = pos(night.getTime());
-  const windowEnd = pos(night.getTime() + 7 * 3_600_000);
-  const ticks: Html[] = [];
-  for (let t = start; t <= end; t += 2 * 3_600_000) {
-    ticks.push(html`<span class="tl__tick" style="${`inset-inline-start:${pos(t)}%`}">${ilTime(new Date(t).toISOString())}</span>`);
+  const pos = (t: number) => ((t - start) / span) * 100;
+  const windows: Html[] = [];
+  for (let n0 = thisNight.getTime() - 24 * HOUR; n0 <= end; n0 += 24 * HOUR) {
+    const a = Math.max(0, pos(n0));
+    const b = Math.min(100, pos(n0 + 7 * HOUR));
+    if (b > a) windows.push(html`<span class="tl__window" style="${`inset-inline-start:${a}%;width:${b - a}%`}"></span>`);
   }
-  const nowPos = now.getTime() < end ? pos(now.getTime()) : null;
+  const ticks: Html[] = [];
+  const firstTick = Math.ceil(start / (3 * HOUR)) * 3 * HOUR;
+  for (let t = firstTick; t <= end; t += 3 * HOUR) {
+    const at = new Date(t).toISOString();
+    const label = ilTime(at);
+    ticks.push(html`<span class="tl__tick" style="${`inset-inline-start:${pos(t)}%`}">${label === "00:00" ? ilDay(at).split(",")[0] : label}</span>`);
+  }
+  const nowPos = pos(now.getTime());
   const lanes = health.filter((h) => h.vendor.active).map((h) => {
-    const c = h.tonight;
-    let bar: Html;
-    if (c) {
+    const inSpan = (crawls[h.vendor.id] ?? []).filter((c) => {
+      const t = new Date(c.start).getTime();
+      return t >= start && t <= end;
+    });
+    const bars = inSpan.map((c) => {
       const left = pos(new Date(c.start).getTime());
-      const width = Math.max(0.8, pos(new Date(c.end).getTime()) - left);
-      bar = html`<span class="tl__bar tl__bar--${h.state}" style="${`inset-inline-start:${left}%;width:${width}%`}" title="${`${ilTime(c.start)}–${ilTime(c.end)} · ${n(c.keys)} items`}"></span>`;
-    } else {
-      bar = html`<span class="tl__empty">${h.state === "late" ? "waiting for tonight's run" : "no crawl"}</span>`;
-    }
+      const width = Math.max(0.5, Math.min(100, pos(new Date(c.end).getTime())) - left);
+      const time = `${ilTime(c.start)}${c.start.slice(0, 16) === c.end.slice(0, 16) ? "" : `–${ilTime(c.end)}`}`;
+      const cls = c.suspect ? "partial" : "fresh";
+      // Past ~75% of the axis the label goes on the bar's left side.
+      const labelPos = left > 75
+        ? `inset-inline-end:${100 - left}%;padding-inline:0 var(--sp-2)`
+        : `inset-inline-start:${left + width}%`;
+      return html`<span class="tl__bar tl__bar--${cls}" style="${`inset-inline-start:${left}%;width:${width}%`}" title="${`${ilDay(c.start)} ${time} · ${n(c.keys)} items`}"></span>
+        <span class="tl__label" style="${labelPos}">${time} · ${n(c.keys)}</span>`;
+    });
+    const empty = inSpan.length
+      ? ""
+      : html`<span class="tl__empty">${h.last ? `no crawl in the last 30 hours (last ${ilDateTime(h.last.start)})` : "never scraped"}</span>`;
     return html`<div class="tl__lane">
       <span class="tl__name">${h.vendor.label}</span>
-      <span class="tl__track">${bar}</span>
+      <span class="tl__track">${bars}${empty}</span>
     </div>`;
   });
-  return html`<figure class="tl" aria-label="Last night's crawls on an Israel-time axis">
+  return html`<figure class="tl" aria-label="Crawls in the last 30 hours, Israel time">
     <div class="tl__plot">
       <div class="tl__overlay" aria-hidden="true">
-        <span class="tl__window" style="${`inset-inline-start:${windowStart}%;width:${windowEnd - windowStart}%`}"></span>
-        ${nowPos !== null ? html`<span class="tl__now" style="${`inset-inline-start:${nowPos}%`}"></span>` : ""}
+        ${windows}
+        <span class="tl__now" style="${`inset-inline-start:${nowPos}%`}"></span>
       </div>
       <div class="tl__lane tl__lane--axis"><span></span><span class="tl__axis">${ticks}</span></div>
       ${lanes}
     </div>
-    <figcaption class="tl__caption">Shaded band: the 23:00–07:00 scrape window, Israel time (${ilDay(night.toISOString())} night).</figcaption>
+    <figcaption class="tl__caption">Israel time. Shaded: the night scrape window (21:00–04:00 UTC). Blue line: now. Hover a bar for the item count.</figcaption>
   </figure>`;
 }
 
@@ -153,8 +176,8 @@ export function tonightView(d: Data, now: Date): Html {
       ${findingList(findings)}
     </section>
     <section class="panel">
-      <h2 class="panel__title">Last night</h2>
-      ${nightTimeline(activeHealth, now)}
+      <h2 class="panel__title">Last 30 hours</h2>
+      ${nightTimeline(activeHealth, d.status.crawls, now)}
     </section>
     <section class="vcards">${activeHealth.map((h) => vendorCard(h, d.status.crawls[h.vendor.id] ?? [], now))}</section>
     <section class="panel panel--row">
@@ -167,60 +190,167 @@ export function tonightView(d: Data, now: Date): Html {
 }
 
 // ---- Calendar ------------------------------------------------------------------
+// A month grid (Sun-Sat weeks, like a wall calendar): each day is one NIGHT,
+// the evening of that date; a crawl after midnight counts for the evening
+// before (the Israel date of start - 12h). Each day shows one chip per
+// vendor; clicking a day opens its crawls below the grid.
 
-type CellState = "ok" | "partial" | "double" | "none" | "future";
+type CellState = "ok" | "partial" | "double" | "none";
 
-function cellFor(crawls: OpsCrawl[]): { state: CellState; title: string; label: string } {
-  if (!crawls.length) return { state: "none", title: "no crawl", label: "" };
-  const c = crawls[crawls.length - 1];
-  const parts = crawls.map((x) => `${ilTime(x.start)} ${n(x.keys)} items${x.suspect ? ` (partial: ${x.suspect})` : ""}`);
-  const title = `${parts.join("\n")}\n+${c.new} new −${c.gone} gone`;
-  const label = c.keys >= 1000 ? `${(c.keys / 1000).toFixed(1)}k` : String(c.keys);
-  if (crawls.length > 1 || c.crawls_in_file > 1) return { state: "double", title, label };
-  if (c.suspect) return { state: "partial", title, label };
-  return { state: "ok", title, label };
+/** The night (Israel date, YYYY-MM-DD) a crawl belongs to. */
+export function nightKey(iso: string): string {
+  return ilDateKey(new Date(new Date(iso).getTime() - 12 * 3_600_000));
 }
 
-export function calendarView(d: Data, now: Date, days = 35): Html {
-  // A crawl belongs to the night it started in: the Israel date of
-  // (start - 12h) makes a 02:00 crawl count for the evening before.
-  const nightKey = (iso: string) => ilDateKey(new Date(new Date(iso).getTime() - 12 * 3_600_000));
-  const lastNight = nightKey(now.toISOString());
-  const keys: string[] = [];
-  for (let i = days - 1; i >= 0; i--) {
-    keys.push(nightKey(new Date(now.getTime() - i * 86_400_000).toISOString()));
-  }
-  const uniqueKeys = [...new Set(keys)];
-  const vendors = d.status.vendors.filter((v) => v.active || (d.status.crawls[v.id] ?? []).length);
-  const head = html`<tr><th scope="col">Vendor</th>${uniqueKeys.map((k) => {
-    const date = new Date(`${k}T12:00:00Z`);
-    return html`<th scope="col" class="cal__day${k === lastNight ? " is-today" : ""}" title="${`Night of ${ilDay(date.toISOString())}`}">${ilShortDay(date)}</th>`;
-  })}</tr>`;
-  const rows = vendors.map((v) => {
-    const byNight = new Map<string, OpsCrawl[]>();
-    for (const c of d.status.crawls[v.id] ?? []) {
+function cellState(crawls: OpsCrawl[]): CellState {
+  if (!crawls.length) return "none";
+  const c = crawls[crawls.length - 1];
+  if (crawls.length > 1 || c.crawls_in_file > 1) return "double";
+  return c.suspect ? "partial" : "ok";
+}
+
+function crawlsByNight(d: Data): Map<string, Map<string, OpsCrawl[]>> {
+  const out = new Map<string, Map<string, OpsCrawl[]>>();
+  for (const [vendor, list] of Object.entries(d.status.crawls)) {
+    for (const c of list) {
       const k = nightKey(c.start);
-      byNight.set(k, [...(byNight.get(k) ?? []), c]);
+      const day = out.get(k) ?? new Map<string, OpsCrawl[]>();
+      day.set(vendor, [...(day.get(vendor) ?? []), c]);
+      out.set(k, day);
     }
-    return html`<tr><th scope="row">${v.label}${v.active ? "" : html` <span class="text-dim">(dropped)</span>`}</th>${uniqueKeys.map((k) => {
-      const cell = cellFor(byNight.get(k) ?? []);
-      return html`<td class="cal__cell cal__cell--${cell.state}" title="${cell.title}">${cell.label}</td>`;
-    })}</tr>`;
+  }
+  return out;
+}
+
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function ymd(y: number, m: number, day: number): string {
+  return `${y}-${String(m + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+export interface CalendarState {
+  /** "YYYY-MM" shown; default = the current Israel month. */
+  month: string;
+  /** Selected night "YYYY-MM-DD", or "". */
+  day: string;
+}
+
+function dayDetail(d: Data, key: string, nights: Map<string, Map<string, OpsCrawl[]>>): Html {
+  const day = nights.get(key);
+  const vendors = d.status.vendors.filter((v) => v.active || day?.has(v.id));
+  const date = new Date(`${key}T12:00:00Z`);
+  const rows = vendors.map((v) => {
+    const crawls = day?.get(v.id) ?? [];
+    if (!crawls.length) {
+      return html`<tr><th scope="row">${v.label}</th><td colspan="6"><span class="down">Not scraped</span></td></tr>`;
+    }
+    return crawls.map((c, i) => html`<tr>
+      <th scope="row">${i === 0 ? v.label : ""}</th>
+      <td class="nowrap">${ilTime(c.start)}${c.start.slice(0, 16) === c.end.slice(0, 16) ? "" : `–${ilTime(c.end)}`}</td>
+      <td class="num">${n(c.keys)}</td>
+      <td class="num up">${c.baseline ? "–" : `+${c.new}`}</td>
+      <td class="num down">${c.baseline ? "–" : `−${c.gone}`}</td>
+      <td class="num">${c.baseline ? "–" : c.missing}</td>
+      <td>${[
+        c.suspect ? `partial: ${c.suspect}` : "",
+        c.crawls_in_file > 1 ? `${c.crawls_in_file} crawls in ${c.file_day} file` : "",
+        c.misfiled ? `in the ${c.file_day} file` : "",
+        c.outside_window ? "late start" : "",
+        c.baseline ? "first crawl in the window" : "",
+      ].filter(Boolean).join(" · ")}</td>
+    </tr>`);
   });
-  return html`<section class="panel">
-    <h2 class="panel__title">Scrape calendar</h2>
-    <p class="panel__lede">One column per night (a crawl after midnight counts for the evening it belongs to). Numbers are items scraped. Hover a cell for the crawl times.</p>
-    <div class="table-wrap"><table class="cal">
-      <thead>${head}</thead>
+  return html`<section class="panel" id="cal-day">
+    <h2 class="panel__title">Night of ${ilDay(date.toISOString())}</h2>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Vendor</th><th>Time (Israel)</th><th class="num">Items</th><th class="num">New</th><th class="num">Gone</th><th class="num">Missing</th><th>Notes</th></tr></thead>
       <tbody>${rows}</tbody>
     </table></div>
-    <p class="legend">
-      <span class="legend__item"><span class="cal__swatch cal__cell--ok"></span>Scraped</span>
-      <span class="legend__item"><span class="cal__swatch cal__cell--partial"></span>Partial (under the floor or the vendor's typical size)</span>
-      <span class="legend__item"><span class="cal__swatch cal__cell--double"></span>Two crawls in one night</span>
-      <span class="legend__item"><span class="cal__swatch cal__cell--none"></span>Not scraped</span>
-    </p>
   </section>`;
+}
+
+export function calendarView(d: Data, now: Date, state: CalendarState): Html {
+  const nights = crawlsByNight(d);
+  const today = nightKey(now.toISOString());
+  const [y, m] = (state.month || today.slice(0, 7)).split("-").map(Number);
+  const month = m - 1;
+  const first = new Date(Date.UTC(y, month, 1));
+  const daysIn = new Date(Date.UTC(y, month + 1, 0)).getUTCDate();
+  const lead = first.getUTCDay(); // Sunday-first weeks, like an Israeli calendar
+  const vendors = d.status.vendors.filter((v) => v.active);
+  const windowStart = nightKey(new Date(now.getTime() - d.status.window_days * 86_400_000).toISOString());
+
+  const prev = month === 0 ? `${y - 1}-12` : `${y}-${String(month).padStart(2, "0")}`;
+  const next = month === 11 ? `${y + 1}-01` : `${y}-${String(month + 2).padStart(2, "0")}`;
+  // Months before the report window hold no data; months after today none yet.
+  const canPrev = ymd(y, month, 1) > windowStart;
+  const canNext = next <= today.slice(0, 7);
+
+  let okNights = 0;
+  let badNights = 0;
+  const cells: Html[] = [];
+  for (let i = 0; i < lead; i++) cells.push(html`<div class="mcal__day mcal__day--pad" aria-hidden="true"></div>`);
+  for (let day = 1; day <= daysIn; day++) {
+    const key = ymd(y, month, day);
+    const future = key > today;
+    const outside = key < windowStart;
+    const night = nights.get(key);
+    // Tonight is still running: a vendor with no crawl yet is pending, not missing.
+    const inProgress = key === today;
+    const stateOf = (id: string): CellState | "pending" => {
+      const s = cellState(night?.get(id) ?? []);
+      return s === "none" && inProgress ? "pending" : s;
+    };
+    const chips = vendors.map((v) => {
+      const s = stateOf(v.id);
+      const c = night?.get(v.id)?.at(-1);
+      const tip = c ? `${v.label}: ${n(c.keys)} items at ${ilTime(c.start)}` : `${v.label}: ${s === "pending" ? "not run yet tonight" : "not scraped"}`;
+      return html`<span class="mchip mchip--${s}" title="${tip}"><span>${v.label}</span></span>`;
+    });
+    const states = vendors.map((v) => stateOf(v.id));
+    if (!future && !outside && !(inProgress && states.includes("pending"))) {
+      if (states.every((s) => s === "ok")) okNights++;
+      else badNights++;
+    }
+    const allOk = states.every((s) => s === "ok");
+    const missing = states.filter((s) => s === "none").length;
+    const pending = states.filter((s) => s === "pending").length;
+    const summary = future ? "" : outside ? "before the report window" : allOk ? "all scraped"
+      : missing ? `${missing} not scraped` : pending ? `in progress, ${pending} still to run` : "check";
+    const cls = `mcal__day${key === today ? " is-today" : ""}${key === state.day ? " is-selected" : ""}${future ? " is-future" : ""}${outside ? " is-outside" : ""}`;
+    const body = html`<span class="mcal__num">${day}</span>
+      ${future || outside ? "" : html`<span class="mcal__chips">${chips}</span>`}
+      <span class="visually-hidden">${summary}</span>`;
+    cells.push(future || outside
+      ? html`<div class="${cls}">${body}</div>`
+      : html`<a class="${cls}" href="${`#calendar?month=${y}-${String(month + 1).padStart(2, "0")}&day=${key}`}" aria-label="${`${day} ${MONTHS[month]}: ${summary}`}">${body}</a>`);
+  }
+
+  return html`<section class="panel mcal">
+    <header class="mcal__head">
+      <h2 class="mcal__title">${MONTHS[month]} ${y}</h2>
+      <p class="mcal__sum">${okNights} night${okNights === 1 ? "" : "s"} all scraped${badNights ? html`, <span class="warn">${badNights} with a problem</span>` : ""}</p>
+      <nav class="mcal__nav" aria-label="Month">
+        ${canPrev ? html`<a class="mcal__btn" href="${`#calendar?month=${prev}`}" aria-label="Previous month">‹</a>` : html`<span class="mcal__btn is-off" aria-hidden="true">‹</span>`}
+        <a class="mcal__btn mcal__btn--today" href="#calendar">Today</a>
+        ${canNext ? html`<a class="mcal__btn" href="${`#calendar?month=${next}`}" aria-label="Next month">›</a>` : html`<span class="mcal__btn is-off" aria-hidden="true">›</span>`}
+      </nav>
+    </header>
+    <div class="mcal__grid" role="grid">
+      ${WEEKDAYS.map((w) => html`<div class="mcal__wd" role="columnheader">${w}</div>`)}
+      ${cells}
+    </div>
+    <p class="legend">
+      <span class="legend__item"><span class="cal__swatch mchip--ok"></span>Scraped</span>
+      <span class="legend__item"><span class="cal__swatch mchip--partial"></span>Partial crawl</span>
+      <span class="legend__item"><span class="cal__swatch mchip--double"></span>Two crawls in one night or file</span>
+      <span class="legend__item"><span class="cal__swatch mchip--none"></span>Not scraped</span>
+      <span class="legend__item"><span class="cal__swatch mchip--pending"></span>Tonight, not run yet</span>
+      <span class="legend__item">Each day is one night (a crawl after midnight counts for the evening before). Click a day for its crawls.</span>
+    </p>
+  </section>
+  ${state.day ? dayDetail(d, state.day, nights) : ""}`;
 }
 
 // ---- Event lists (New / No longer sold / Prices) ----------------------------------
@@ -363,38 +493,117 @@ export function pricesView(d: Data, f: Filters, now: Date): Html {
 }
 
 // ---- Catalog ---------------------------------------------------------------------
+// What the published catalog holds: per vendor (how much it contributes,
+// stale offers), per category (size, how many vendors sell each product -
+// the comparison value of the site - and the price range), and the quality
+// queue. Bars, not tables of numbers.
+
+const CATEGORY_NAMES: Record<string, string> = {
+  cpu: "Processors", motherboard: "Motherboards", memory: "Memory", gpu: "Graphics cards",
+  storage: "Storage", psu: "Power supplies", case: "Cases", case_fan: "Case fans",
+  cooler_air: "Air coolers", aio: "Liquid coolers", accessories: "Accessories", other: "Other (review bucket)",
+};
+
+const QA_NAMES: Record<string, string> = {
+  variant_conflict: "Variant conflicts", spec_conflict: "Spec conflicts", identity_merge: "Identity merges",
+  packaging_conflict: "Box / tray conflicts", duplicate_vendor: "Vendor listed twice", core_gap: "Core spec gaps",
+  split_candidate: "Split candidates", unflagged_deal: "Unflagged deals",
+};
+
+function categoryName(id: string): string {
+  return CATEGORY_NAMES[id] ?? id.replace(/_/g, " ");
+}
+
+function bar(parts: { value: number; cls: string; label: string }[], total: number): Html {
+  return html`<span class="sbar" role="img" aria-label="${parts.map((p) => `${p.label}: ${n(p.value)}`).join(", ")}">${parts
+    .filter((p) => p.value > 0)
+    .map((p) => html`<span class="sbar__seg ${p.cls}" style="${`width:${(100 * p.value) / (total || 1)}%`}" title="${`${p.label}: ${n(p.value)}`}"></span>`)}</span>`;
+}
 
 export function catalogView(d: Data): Html {
   const cat = d.status.catalog;
-  const vendorRows = d.status.vendors.filter((v) => v.active).map((v) => {
+  const vendors = d.status.vendors.filter((v) => v.active);
+  const detail = cat.category_detail ?? {};
+  const multi = Object.values(detail).reduce((s, c) => s + c.sellers["2"] + c.sellers["3+"], 0);
+  const qaTotal = Object.values(cat.qa).reduce((a, b) => a + b, 0);
+  const stale = Object.values(cat.vendors).reduce((a, v) => a + v.stale, 0);
+
+  const tiles = html`<section class="tiles">
+    <div class="tile"><span class="tile__v">${n(cat.products)}</span><span class="tile__k">products</span></div>
+    <div class="tile"><span class="tile__v">${n(cat.listings)}</span><span class="tile__k">offers from ${vendors.length} vendors</span></div>
+    <div class="tile"><span class="tile__v">${cat.products ? Math.round((100 * multi) / cat.products) : 0}%</span><span class="tile__k">sold by 2+ vendors (comparable)</span></div>
+    <div class="tile${stale ? " tile--warn" : ""}"><span class="tile__v">${n(stale)}</span><span class="tile__k">stale offers</span></div>
+    <div class="tile"><span class="tile__v">${n(qaTotal)}</span><span class="tile__k">open quality cases</span></div>
+  </section>`;
+
+  const maxListings = Math.max(1, ...vendors.map((v) => cat.vendors[v.id]?.listings ?? 0));
+  const vendorRows = vendors.map((v) => {
     const cv = cat.vendors[v.id];
-    return html`<tr><th scope="row">${v.label}</th><td class="num">${n(cv?.listings)}</td>
-      <td class="num">${cv?.stale ? html`<span class="warn">${n(cv.stale)}</span>` : "0"}</td><td>${cv?.last_seen ?? "–"}</td></tr>`;
+    const listings = cv?.listings ?? 0;
+    const staleN = cv?.stale ?? 0;
+    return html`<li class="hrow">
+      <span class="hrow__name">${v.label}</span>
+      <span class="hrow__bar">${bar([
+        { value: listings - staleN, cls: "sbar__seg--ok", label: "fresh" },
+        { value: staleN, cls: "sbar__seg--warn", label: "stale" },
+      ], maxListings)}</span>
+      <span class="hrow__v">${n(listings)}</span>
+      <span class="hrow__note">${staleN ? html`<span class="warn">${n(staleN)} stale · snapshot ${cv?.last_seen}</span>` : html`snapshot ${cv?.last_seen ?? "–"}`}</span>
+    </li>`;
   });
-  const categories = Object.entries(cat.categories).sort((a, b) => b[1] - a[1]);
+
+  const cats = Object.entries(cat.categories).sort((a, b) => b[1] - a[1]);
+  const maxCat = Math.max(1, ...cats.map(([, v]) => v));
+  const catCards = cats.map(([id, count]) => {
+    const c = detail[id];
+    const warn = id === "other" && count > 25;
+    return html`<article class="ccard${warn ? " ccard--warn" : ""}">
+      <header class="ccard__head">
+        <h3>${categoryName(id)}</h3>
+        <span class="ccard__count">${n(count)}</span>
+      </header>
+      <span class="ccard__size" style="${`width:${(100 * count) / maxCat}%`}" aria-hidden="true"></span>
+      ${c ? html`
+        <p class="ccard__k">Sold by</p>
+        ${bar([
+          { value: c.sellers["3+"], cls: "sbar__seg--s3", label: "3+ vendors" },
+          { value: c.sellers["2"], cls: "sbar__seg--s2", label: "2 vendors" },
+          { value: c.sellers["1"], cls: "sbar__seg--s1", label: "1 vendor" },
+        ], c.products)}
+        <p class="ccard__legend"><span>${n(c.sellers["3+"])} by 3+</span><span>${n(c.sellers["2"])} by 2</span><span>${n(c.sellers["1"])} by 1</span></p>
+        <p class="ccard__k">Vendors</p>
+        <p class="ccard__vendors">${vendors.filter((v) => c.by_vendor[v.id]).map((v) => html`<span class="vchip"><span class="vdot vdot--${v.id}"></span>${v.label} ${n(c.by_vendor[v.id])}</span>`)}</p>
+        <p class="ccard__price">${c.min_price != null ? `${ils(c.min_price)} – ${ils(c.max_price)}` : ""} · ${Math.round((100 * c.in_stock) / (c.products || 1))}% in stock</p>`
+        : ""}
+      ${warn ? html`<p class="warn ccard__price">Should stay near-empty: the classifier needs a rule.</p>` : ""}
+    </article>`;
+  });
+
   const qa = Object.entries(cat.qa).sort((a, b) => b[1] - a[1]);
-  const spec = Object.entries(cat.spec_counts);
+  const maxQa = Math.max(1, ...qa.map(([, v]) => v));
+  const qaRows = qa.map(([k, v]) => html`<li class="hrow">
+    <span class="hrow__name">${QA_NAMES[k] ?? k.replace(/_/g, " ")}</span>
+    <span class="hrow__bar">${bar([{ value: v, cls: "sbar__seg--brand", label: k }], maxQa)}</span>
+    <span class="hrow__v">${n(v)}</span>
+  </li>`);
+
   return html`
+    ${tiles}
     <section class="panel">
-      <h2 class="panel__title">Offers per vendor in the published catalog</h2>
-      <p class="panel__lede">Stale offers are reused from an earlier snapshot because the vendor had none for the latest build (14-day limit).</p>
-      <div class="table-wrap"><table class="table">
-        <thead><tr><th>Vendor</th><th class="num">Listings</th><th class="num">Stale</th><th>Snapshot day</th></tr></thead>
-        <tbody>${vendorRows}</tbody>
-      </table></div>
+      <h2 class="panel__title">Offers per vendor</h2>
+      <p class="panel__lede">Stale offers (amber) are reused from an earlier snapshot because the vendor had none for the latest build; the site shows them as stale for up to 14 days.</p>
+      <ul class="hbars">${vendorRows}</ul>
     </section>
-    <div class="grid2">
-      <section class="panel">
-        <h2 class="panel__title">Products per category</h2>
-        <table class="table"><tbody>${categories.map(([k, v]) => html`<tr><th scope="row">${k}${k === "other" && v > 25 ? html` <span class="warn">(review bucket is growing)</span>` : ""}</th><td class="num">${n(v)}</td></tr>`)}</tbody></table>
-      </section>
-      <section class="panel">
-        <h2 class="panel__title">Quality cases</h2>
-        <p class="panel__lede"><a href="/#/qa" target="_blank" rel="noopener">Open the QA page</a>, or run <code>python -m scraper.qa_tool</code> to fix them.</p>
-        <table class="table"><tbody>${qa.map(([k, v]) => html`<tr><th scope="row">${k.replace(/_/g, " ")}</th><td class="num">${n(v)}</td></tr>`)}</tbody></table>
-        ${spec.length ? html`<h3 class="panel__sub">Spec report</h3><table class="table"><tbody>${spec.map(([k, v]) => html`<tr><th scope="row">${k.replace(/_/g, " ")}</th><td class="num">${n(v)}</td></tr>`)}</tbody></table>` : ""}
-      </section>
-    </div>`;
+    <section class="panel">
+      <h2 class="panel__title">Categories</h2>
+      <p class="panel__lede">The grey bar is the category's size. "Sold by" is how many vendors offer each product: the darker the bar, the more parts a visitor can actually compare.</p>
+      <div class="ccards">${catCards}</div>
+    </section>
+    <section class="panel">
+      <h2 class="panel__title">Quality queue</h2>
+      <p class="panel__lede"><a href="/#/qa" target="_blank" rel="noopener">Open the QA page</a>, or run <code>python -m scraper.qa_tool</code> locally to fix cases.</p>
+      <ul class="hbars">${qaRows}</ul>
+    </section>`;
 }
 
 // ---- Log -------------------------------------------------------------------------

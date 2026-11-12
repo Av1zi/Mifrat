@@ -7,13 +7,18 @@ and secrets). No secret ever goes into git or a GitHub workflow.
 
 - **`/admin/`**: the scrape console on the live site, behind a password
   the Worker checks (no Cloudflare Access, no card). It has these tabs:
-  - Tonight: open problems, last night on an Israel-time timeline, one card
-    per vendor with a 14-crawl sparkline
-  - Calendar: 35 nights × vendor
+  - Tonight: open problems, the last 30 hours of crawls on an Israel-time
+    timeline, one card per vendor with a 14-crawl sparkline
+  - Calendar: a month grid (‹ › to page through the last 120 days); each
+    day is one night with a chip per vendor; click a day for its crawls
   - New: new products, a vendor started selling, back on sale
   - No longer sold: gone everywhere, a vendor stopped, missing once
   - Prices: moves of 5% or more over 14 days
-  - Catalog: stale offers, categories, QA counts
+  - Catalog: offers per vendor (fresh vs stale), one card per category
+    (how many products 1 / 2 / 3+ vendors sell, vendor split, price range,
+    stock), the quality queue
+  - Header: **Reload** fetches the newest deployed report; **Rebuild report**
+    regenerates it from the latest scrapes (needs `GH_DISPATCH_TOKEN`)
   - Alerts & runs
 - **Phone pushes (ntfy)** when something breaks. Urgent ones (site down,
   API flood, a vendor blocking the scraper) push at any hour. The rest
@@ -63,6 +68,13 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
      browser remembers it. Any username works. Without this secret
      `/admin/` stays locked for everyone, and 10 wrong tries lock an IP out
      for 10 minutes.
+   - `GH_DISPATCH_TOKEN` = optional, for the **Rebuild report** button.
+     On GitHub go to Settings → Developer settings → Fine-grained tokens →
+     Generate. Repository access: only `Av1zi/Mifrat`. Permissions:
+     Actions → Read and write (nothing else). The button starts the
+     `ops-report` workflow, which regenerates `data/ops` and redeploys the
+     site; the page waits and reloads itself (about 3-5 minutes). Without
+     the token the button says how to set it.
    - `HEALTHCHECK_URL` = optional, from step 5.
 3. **D1 tables.** From `site/`, with your own wrangler login, run
    `npx wrangler d1 migrations apply mifrat-lists --remote`. This applies

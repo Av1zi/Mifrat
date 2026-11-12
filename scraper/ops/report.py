@@ -48,7 +48,9 @@ OPS = DATA / "ops"
 CATALOG = DATA / "catalog.json"
 SITE = DATA / "site"
 SCHEMA_VERSION = 1
-WINDOW_DAYS = 60
+# 120 days of crawls for the month calendar; weekly-downsample only thins
+# day folders older than 90 days, so the oldest month is partly weekly.
+WINDOW_DAYS = 120
 EVENT_DAYS = 30
 # Price moves are the bulkiest events (~2k in 30 days) and only recent ones
 # matter on the panel.
@@ -105,8 +107,30 @@ def catalog_facts(catalog: dict) -> dict:
         if seen and (entry["last_seen"] is None or seen > entry["last_seen"]):
             entry["last_seen"] = seen
     categories: dict[str, int] = {}
+    # Per category: how many products each vendor sells, how many are sold by
+    # 1 / 2 / 3+ vendors (the comparison value of the catalog), price range.
+    detail: dict[str, dict] = {}
     for product in catalog.get("products") or []:
-        categories[str(product.get("category"))] = categories.get(str(product.get("category")), 0) + 1
+        cat = str(product.get("category"))
+        categories[cat] = categories.get(cat, 0) + 1
+        entry = detail.setdefault(cat, {"products": 0, "by_vendor": {}, "sellers": {"1": 0, "2": 0, "3+": 0},
+                                        "in_stock": 0, "min_price": None, "max_price": None})
+        entry["products"] += 1
+        vendors = {("onepc" if o.get("vendor_id") == "1pc" else str(o.get("vendor_id")))
+                   for o in product.get("offers") or []}
+        for v in vendors:
+            entry["by_vendor"][v] = entry["by_vendor"].get(v, 0) + 1
+        bucket = "3+" if len(vendors) >= 3 else str(max(1, len(vendors)))
+        entry["sellers"][bucket] += 1
+        best = product.get("best_offer") or {}
+        if best.get("in_stock"):
+            entry["in_stock"] += 1
+        price = best.get("price_ils")
+        if isinstance(price, (int, float)) and price > 0:
+            entry["min_price"] = price if entry["min_price"] is None else min(entry["min_price"], price)
+            entry["max_price"] = price if entry["max_price"] is None else max(entry["max_price"], price)
+    for entry in detail.values():
+        entry["by_vendor"] = dict(sorted(entry["by_vendor"].items()))
     qa = _read_json(SITE / "qa.json", {})
     qa_counts: dict[str, int] = {}
     for case in qa.get("cases") or []:
@@ -121,6 +145,7 @@ def catalog_facts(catalog: dict) -> dict:
         "review_queue": catalog.get("review_queue_count"),
         "vendors": per_vendor,
         "categories": dict(sorted(categories.items())),
+        "category_detail": dict(sorted(detail.items())),
         "qa": dict(sorted(qa_counts.items())),
         "spec_counts": spec.get("counts") or {},
     }

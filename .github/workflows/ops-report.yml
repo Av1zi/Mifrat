@@ -1,0 +1,75 @@
+name: ops-report
+# Rebuild only the scrape-console report (data/ops) from data/raw/ + the
+# committed catalog, on demand: the "Rebuild report" button on /admin/ (the
+# Worker dispatches this with its own fine-grained token; no secret here) or
+# "Run workflow" on GitHub. normalize-and-deploy rebuilds it too after every
+# scrape; this is the fast path (~1 min, stdlib + scraper code, no
+# normalize). Its push touches only data/ops/, so it never wakes normalize
+# (path filter data/raw/**) but does redeploy the site.
+#
+# Build / publish split like every pushing workflow (decisions.md, Tools).
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: ops-report
+  cancel-in-progress: false
+
+env:
+  PUBLISH_PATHS: data/ops
+
+jobs:
+  report:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      packed: ${{ steps.pack.outputs.packed }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt --break-system-packages
+      - name: Ops report (data/ops)
+        run: |
+          python scripts/check_ops_report.py --self-test
+          python -m scraper.ops.report --print
+          python scripts/check_ops_report.py
+      - name: Bundle data/ops for the publish job
+        id: pack
+        run: |
+          read -ra paths <<< "$PUBLISH_PATHS"
+          REQUIRE_CLEAN_TREE=1 bash scripts/ci_bundle.sh pack "$RUNNER_TEMP/bundle" "${paths[@]}"
+      - if: steps.pack.outputs.packed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: publish-ops-report
+          path: ${{ runner.temp }}/bundle
+          retention-days: 1
+          if-no-files-found: error
+
+  publish:
+    permissions:
+      contents: write
+    needs: report
+    if: needs.report.outputs.packed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+        with:
+          name: publish-ops-report
+          path: ${{ runner.temp }}/bundle
+      - run: |
+          read -ra paths <<< "$PUBLISH_PATHS"
+          bash scripts/ci_bundle.sh unpack "$RUNNER_TEMP/bundle" "${paths[@]}"
+          git config user.email "bot@users.noreply.github.com"
+          git config user.name "pc-parts-il-bot"
+          REQUIRE_CLEAN_TREE=1 bash scripts/git_commit_push.sh \
+            "ops-report: data/ops for $(date -u +%F)" "${paths[@]}"

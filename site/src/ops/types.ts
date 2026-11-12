@@ -39,6 +39,17 @@ export interface OpsCatalogVendor {
   last_seen: string | null;
 }
 
+export interface OpsCategoryDetail {
+  products: number;
+  /** Products each vendor offers in this category. */
+  by_vendor: Record<string, number>;
+  /** Products sold by 1, 2, 3+ vendors. */
+  sellers: { "1": number; "2": number; "3+": number };
+  in_stock: number;
+  min_price: number | null;
+  max_price: number | null;
+}
+
 export interface OpsCatalog {
   generated_at: string | null;
   products: number;
@@ -47,6 +58,8 @@ export interface OpsCatalog {
   review_queue: number | null;
   vendors: Record<string, OpsCatalogVendor>;
   categories: Record<string, number>;
+  /** Added in the Nov 13 report; absent in older status files. */
+  category_detail?: Record<string, OpsCategoryDetail>;
   qa: Record<string, number>;
   spec_counts: Record<string, number>;
 }

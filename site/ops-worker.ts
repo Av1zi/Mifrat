@@ -47,6 +47,8 @@ export interface OpsEnv {
   HEALTHCHECK_URL?: string;
   /** Password for /admin/ and /api/admin/* (HTTP Basic, any username). */
   ADMIN_PASSWORD?: string;
+  /** Fine-grained GitHub token (this repo, Actions: write) for "Rebuild report". */
+  GH_DISPATCH_TOKEN?: string;
   /** Public origin for notification links (default: the request/asset origin). */
   SITE_ORIGIN?: string;
 }
@@ -434,8 +436,67 @@ export async function handleAdminPage(request: Request, url: URL, env: OpsEnv): 
   return new Response(res.body, { status: res.status, headers });
 }
 
-/** GET /api/admin/{runs,alerts}, same password as the page. */
-export async function handleAdmin(path: string, request: Request, env: OpsEnv): Promise<Response> {
+// ---- "Rebuild report" button --------------------------------------------------
+export const GH_REPO = "Av1zi/Mifrat";
+export const GH_WORKFLOW = "ops-report.yml";
+/** One rebuild per this long (a run takes ~2 min, the deploy after it ~2). */
+export const REBUILD_COOLDOWN_MS = 5 * 60_000;
+let lastRebuild = 0;
+
+/** Test hook: forget the cooldown. */
+export function resetRebuildCooldown(): void {
+  lastRebuild = 0;
+}
+
+/**
+ * POST /api/admin/rebuild: dispatch ops-report.yml (it regenerates data/ops
+ * and pushes; the push redeploys the site). Needs GH_DISPATCH_TOKEN, a
+ * fine-grained token for this repo only with "Actions: Read and write".
+ */
+async function handleRebuild(request: Request, env: OpsEnv, fetcher: typeof fetch): Promise<Response> {
+  const origin = request.headers.get("origin");
+  const site = request.headers.get("sec-fetch-site");
+  if ((site !== null && site !== "same-origin") || (origin !== null && origin !== new URL(request.url).origin)) {
+    return json({ error: "cross-site request" }, 403);
+  }
+  if (!env.GH_DISPATCH_TOKEN) {
+    return json({ error: "Set the GH_DISPATCH_TOKEN Worker secret to enable this button (docs/ops-alerts.md)." }, 501);
+  }
+  const now = Date.now();
+  if (now - lastRebuild < REBUILD_COOLDOWN_MS) {
+    return json({ error: "A rebuild was started less than 5 minutes ago.", retry_in_s: Math.ceil((REBUILD_COOLDOWN_MS - (now - lastRebuild)) / 1000) }, 429);
+  }
+  let res: Response;
+  try {
+    res = await fetcher(`https://api.github.com/repos/${GH_REPO}/actions/workflows/${GH_WORKFLOW}/dispatches`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`,
+        accept: "application/vnd.github+json",
+        "x-github-api-version": "2022-11-28",
+        "user-agent": "mifrat-worker",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ ref: "main" }),
+    });
+  } catch {
+    return json({ error: "GitHub did not answer." }, 502);
+  }
+  if (res.status !== 204 && res.status !== 200) {
+    return json({ error: `GitHub refused the dispatch (HTTP ${res.status}). Check the token's repository and Actions permission.` }, 502);
+  }
+  lastRebuild = now;
+  return json({ ok: true, started_at: new Date(now).toISOString() }, 202);
+}
+
+/** /api/admin/{runs,alerts} (GET) and /api/admin/rebuild (POST), same password as the page. */
+export async function handleAdmin(path: string, request: Request, env: OpsEnv, fetcher: typeof fetch = fetch): Promise<Response> {
+  if (path === "/api/admin/rebuild") {
+    if (request.method !== "POST") return json({ error: "method not allowed" }, 405);
+    const refused = adminAuth(request, env);
+    if (refused) return refused;
+    return handleRebuild(request, env, fetcher);
+  }
   if (request.method !== "GET") return json({ error: "method not allowed" }, 405);
   const refused = adminAuth(request, env);
   if (refused) return refused;

@@ -6,6 +6,7 @@ import {
   isQuietHour,
   push,
   recordAbuse,
+  resetRebuildCooldown,
   runCron,
   takeAbuseHits,
   type OpsEnv,
@@ -393,6 +394,52 @@ describe("admin password", () => {
     expect((await page("/admin/data/memory.json")).status).toBe(404);
     expect((await page("/admin/../wrangler.jsonc")).status).toBe(404);
     expect((await handleAdminPage(req("/admin/data/status.json"), new URL("https://x/admin/data/status.json"), t.env)).status).toBe(401);
+  });
+
+  it("Rebuild report dispatches ops-report.yml once per 5 minutes", async () => {
+    const t = withPassword();
+    resetRebuildCooldown();
+    const calls: { url: string; init?: RequestInit }[] = [];
+    const gh = (async (url: RequestInfo | URL, init?: RequestInit) => {
+      calls.push({ url: String(url), init });
+      return new Response(null, { status: 204 });
+    }) as typeof fetch;
+    const post = (headers: Record<string, string> = {}) =>
+      new Request("https://x/api/admin/rebuild", {
+        method: "POST",
+        headers: { "cf-connecting-ip": `198.51.100.${++ipSeq}`, authorization: basic("correct horse battery"), ...headers },
+      });
+    // No token configured: a clear 501, nothing sent.
+    expect((await handleAdmin("/api/admin/rebuild", post(), t.env, gh)).status).toBe(501);
+    t.env.GH_DISPATCH_TOKEN = "github_pat_test";
+    // Cross-site POST refused before anything is sent.
+    expect((await handleAdmin("/api/admin/rebuild", post({ "sec-fetch-site": "cross-site" }), t.env, gh)).status).toBe(403);
+    expect(calls).toHaveLength(0);
+    const ok = await handleAdmin("/api/admin/rebuild", post({ "sec-fetch-site": "same-origin" }), t.env, gh);
+    expect(ok.status).toBe(202);
+    expect(calls[0].url).toBe("https://api.github.com/repos/Av1zi/Mifrat/actions/workflows/ops-report.yml/dispatches");
+    expect(new Headers(calls[0].init?.headers).get("authorization")).toBe("Bearer github_pat_test");
+    expect(JSON.parse(String(calls[0].init?.body))).toEqual({ ref: "main" });
+    expect((await handleAdmin("/api/admin/rebuild", post(), t.env, gh)).status).toBe(429);
+    expect(calls).toHaveLength(1);
+    // Needs the password and POST.
+    resetRebuildCooldown();
+    const noAuth = new Request("https://x/api/admin/rebuild", { method: "POST", headers: { "cf-connecting-ip": "198.51.100.250" } });
+    expect((await handleAdmin("/api/admin/rebuild", noAuth, t.env, gh)).status).toBe(401);
+    expect((await handleAdmin("/api/admin/rebuild", req("/api/admin/rebuild", basic("correct horse battery")), t.env, gh)).status).toBe(405);
+    expect(calls).toHaveLength(1);
+  });
+
+  it("reports a GitHub refusal instead of pretending", async () => {
+    const t = withPassword();
+    t.env.GH_DISPATCH_TOKEN = "github_pat_test";
+    resetRebuildCooldown();
+    const gh = (async () => new Response("{}", { status: 403 })) as unknown as typeof fetch;
+    const res = await handleAdmin("/api/admin/rebuild", new Request("https://x/api/admin/rebuild", {
+      method: "POST", headers: { "cf-connecting-ip": "198.51.100.251", authorization: basic("correct horse battery") },
+    }), t.env, gh);
+    expect(res.status).toBe(502);
+    expect(((await res.json()) as { error: string }).error).toContain("HTTP 403");
   });
 
   it("locks an IP out after 10 wrong passwords", async () => {

@@ -130,6 +130,9 @@ export function vendorHealth(status: OpsStatus, vendor: OpsVendor, now: Date): V
     return { vendor, state: "dropped", last, tonight: null, ageHours, staleInCatalog, notes };
   }
 
+  // The newest crawl since the expected night began. Between 21:00 UTC and
+  // a vendor's due time that includes a crawl of the night now running
+  // (TMS at 23:19 Israel): it is newer, so it counts; last night's is done.
   const night = expectedNight(vendor, now);
   const tonightCrawls = crawls.filter((c) => new Date(c.start).getTime() >= night.getTime());
   const tonight = tonightCrawls.length ? tonightCrawls[tonightCrawls.length - 1] : null;

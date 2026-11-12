@@ -87,13 +87,86 @@ function body(tab: Tab, f: Filters, now: Date): Html {
   }
   if (!data) return html`<div class="state"><span class="state__spinner" aria-hidden="true"></span><p>Loading the scrape report…</p></div>`;
   switch (tab) {
-    case "calendar": return calendarView(data, now);
+    case "calendar": {
+      const params = new URLSearchParams(location.hash.split("?")[1] ?? "");
+      const month = /^\d{4}-\d{2}$/.test(params.get("month") ?? "") ? params.get("month")! : "";
+      const day = /^\d{4}-\d{2}-\d{2}$/.test(params.get("day") ?? "") ? params.get("day")! : "";
+      return calendarView(data, now, { month, day });
+    }
     case "new": return newView(data, f, now);
     case "gone": return goneView(data, f, now);
     case "prices": return pricesView(data, f, now);
     case "catalog": return catalogView(data);
     case "log": return logView(data, now);
     default: return tonightView(data, now);
+  }
+}
+
+// ---- "Rebuild report" -------------------------------------------------------
+// The report is a file the pipeline writes; a new one exists only after
+// GitHub reruns scraper.ops.report and the site redeploys (~3-5 min). The
+// button asks the Worker to start that run, then this page polls
+// status.json until its generated_at changes and reloads in place.
+type Rebuild = { state: "idle" } | { state: "running"; since: number; from: string } | { state: "error"; message: string };
+let rebuild: Rebuild = { state: "idle" };
+const REBUILD_KEY = "mifrat:ops-rebuild";
+const POLL_MS = 20_000;
+const GIVE_UP_MS = 12 * 60_000;
+
+function rebuildLabel(now: Date): Html {
+  if (rebuild.state === "running") {
+    const s = Math.round((now.getTime() - rebuild.since) / 1000);
+    return html`<span class="ahead__meta ahead__meta--busy" role="status"><span class="state__spinner state__spinner--sm" aria-hidden="true"></span>Rebuilding… ${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}</span>`;
+  }
+  if (rebuild.state === "error") return html`<span class="ahead__meta ahead__meta--err" role="alert">${rebuild.message}</span>`;
+  return html`<span class="ahead__meta">${data ? `Report built ${ago(data.status.generated_at, now)}` : ""}</span>`;
+}
+
+async function startRebuild(): Promise<void> {
+  if (!data || rebuild.state === "running") return;
+  const from = data.status.generated_at;
+  let res: Response;
+  try {
+    res = await fetch("/api/admin/rebuild", { method: "POST", credentials: "same-origin" });
+  } catch {
+    rebuild = { state: "error", message: "Could not reach the Worker." };
+    render();
+    return;
+  }
+  if (res.status === 202 || res.status === 429) {
+    // 429 = one already started in the last 5 minutes: wait for that one.
+    rebuild = { state: "running", since: Date.now(), from };
+    sessionStorage.setItem(REBUILD_KEY, JSON.stringify(rebuild));
+    render();
+    void pollRebuild();
+    return;
+  }
+  const body = (await res.json().catch(() => ({}))) as { error?: string };
+  rebuild = { state: "error", message: body.error ?? `Rebuild refused (HTTP ${res.status}).` };
+  render();
+}
+
+async function pollRebuild(): Promise<void> {
+  while (rebuild.state === "running") {
+    await new Promise((r) => window.setTimeout(r, POLL_MS));
+    if (rebuild.state !== "running") return;
+    const started = rebuild.since;
+    try {
+      const status = await loadStatus();
+      if (status.generated_at !== rebuild.from) {
+        rebuild = { state: "idle" };
+        sessionStorage.removeItem(REBUILD_KEY);
+        await load();
+        return;
+      }
+    } catch {
+      // Mid-deploy 404/5xx: keep waiting.
+    }
+    if (Date.now() - started > GIVE_UP_MS) {
+      rebuild = { state: "error", message: "No new report after 12 minutes: check the ops-report run on GitHub (Alerts & runs → Links)." };
+      sessionStorage.removeItem(REBUILD_KEY);
+    }
+    render();
   }
 }
 
@@ -105,8 +178,9 @@ function render(): void {
     <header class="ahead">
       <div class="ahead__inner">
         <a class="ahead__brand" href="/admin/"><span class="ahead__mark" aria-hidden="true"></span>Mifrat <span>scrape console</span></a>
-        <span class="ahead__meta">${data ? `Report ${ago(data.status.generated_at, now)}` : ""}</span>
-        <button type="button" class="ahead__btn" id="refresh">Refresh</button>
+        ${rebuildLabel(now)}
+        <button type="button" class="ahead__btn" id="reload" title="Load the newest deployed report">Reload</button>
+        <button type="button" class="ahead__btn ahead__btn--primary" id="rebuild" title="Regenerate the report from the latest scrapes (about 3-5 minutes)"${rebuild.state === "running" ? " disabled" : ""}>Rebuild report</button>
         <button type="button" class="ahead__btn" id="theme" aria-pressed="${theme === "dark" ? "true" : "false"}">${theme === "dark" ? "Light" : "Dark"}</button>
         <a class="ahead__btn" href="/">Site</a>
       </div>
@@ -122,7 +196,8 @@ function render(): void {
 }
 
 function bind(tab: Tab): void {
-  document.getElementById("refresh")?.addEventListener("click", () => void load());
+  document.getElementById("reload")?.addEventListener("click", () => void load());
+  document.getElementById("rebuild")?.addEventListener("click", () => void startRebuild());
   document.getElementById("theme")?.addEventListener("click", () => {
     setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
     render();
@@ -159,7 +234,13 @@ function bind(tab: Tab): void {
 
 async function load(): Promise<void> {
   loadError = null;
-  render();
+  // Keep showing the current data while the new one loads.
+  if (!data) render();
+  const btn = document.getElementById("reload") as HTMLButtonElement | null;
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Loading…";
+  }
   try {
     const [status, changes, runs, alerts] = await Promise.all([
       loadStatus(),
@@ -177,4 +258,13 @@ async function load(): Promise<void> {
 
 applyStoredTheme();
 window.addEventListener("hashchange", render);
-void load();
+// A rebuild started before a page reload keeps being waited for.
+try {
+  const saved = JSON.parse(sessionStorage.getItem(REBUILD_KEY) ?? "null") as Rebuild | null;
+  if (saved?.state === "running" && Date.now() - saved.since < GIVE_UP_MS) rebuild = saved;
+} catch {
+  // ignore a corrupt entry
+}
+void load().then(() => {
+  if (rebuild.state === "running") void pollRebuild();
+});
