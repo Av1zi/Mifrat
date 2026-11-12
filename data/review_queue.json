@@ -319,28 +319,6 @@
     "match_text_b": "CP-9020337-EU Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum"
   },
   {
-    "score": 100,
-    "category": "case",
-    "brand": "HAVN",
-    "listing_a": "1pc:223290",
-    "listing_b": "tms:HVN-CA-HS360-01",
-    "title_a": "מארז מחשב HAVN HS 360 HVN-CA-HS360-01 לבן",
-    "title_b": "מארז מחשב HAVN HS 360 לבן",
-    "match_text_a": "223290 HAVN HS 360 HVN-CA-HS360-01",
-    "match_text_b": "HVN-CA-HS360-01 HAVN HS 360"
-  },
-  {
-    "score": 100,
-    "category": "case",
-    "brand": "HAVN",
-    "listing_a": "1pc:223291",
-    "listing_b": "tms:HVN-CA-HS360-02",
-    "title_a": "מארז מחשב HAVN HS 360 HVN-CA-HS360-02 שחור",
-    "title_b": "מארז מחשב HAVN HS 360 שחור",
-    "match_text_a": "223291 HAVN HS 360 HVN-CA-HS360-02",
-    "match_text_b": "HVN-CA-HS360-02 HAVN HS 360"
-  },
-  {
     "score": 98,
     "category": "memory",
     "brand": "Corsair",
@@ -1112,17 +1090,6 @@
   },
   {
     "score": 94,
-    "category": "case",
-    "brand": "HAVN",
-    "listing_a": "1pc:223290",
-    "listing_b": "1pc:223291",
-    "title_a": "מארז מחשב HAVN HS 360 HVN-CA-HS360-01 לבן",
-    "title_b": "מארז מחשב HAVN HS 360 HVN-CA-HS360-02 שחור",
-    "match_text_a": "223290 HAVN HS 360 HVN-CA-HS360-01",
-    "match_text_b": "223291 HAVN HS 360 HVN-CA-HS360-02"
-  },
-  {
-    "score": 94,
     "category": "memory",
     "brand": "G.Skill",
     "listing_a": "ksp:313425",
@@ -1483,6 +1450,17 @@
     "title_b": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX120 RGB 120mm PWM - צבע לבן",
     "match_text_a": "360253 3 Corsair iCUE LINK LX120 RGB 120mm PWM -",
     "match_text_b": "360307 Corsair iCUE LINK LX120 RGB 120mm PWM -"
+  },
+  {
+    "score": 93,
+    "category": "cooler_air",
+    "brand": "Antec",
+    "listing_a": "yahav:11797",
+    "listing_b": "yahav:11798",
+    "title_a": "קירור אוויר למעבד חברת Antec דגם F600 ARGB Infinity Mirror Effect 6 Heat Pipes Black 220W TDP 120MM 1700RPM 63CFM",
+    "title_b": "קירור אוויר למעבד חברת Antec דגם F600 ARGB Infinity Mirror Effect 6 Heat Pipes White 220W TDP 120MM 1700RPM 63CFM",
+    "match_text_a": "11797 Antec F600 ARGB Infinity Mirror Effect 6 Heat Pipes Black 220W TDP 120MM 1700RPM 63CFM",
+    "match_text_b": "11798 Antec F600 ARGB Infinity Mirror Effect 6 Heat Pipes White 220W TDP 120MM 1700RPM 63CFM"
   },
   {
     "score": 93,
@@ -3488,17 +3466,6 @@
   },
   {
     "score": 90,
-    "category": "case",
-    "brand": "HAVN",
-    "listing_a": "1pc:223292",
-    "listing_b": "tms:HVN-CA-HS420-MAPF1",
-    "title_a": "מארז מחשב HAVN HS 420 Mercedes-AMG PETRONAS F1 Team Edition HVN-CA-HS420-MAPF1 שחור",
-    "title_b": "מארז מחשב HAVN HS 420 Mercedes F1 Edition",
-    "match_text_a": "223292 HAVN HS 420 Mercedes-AMG PETRONAS F1 Team Edition HVN-CA-HS420-MAPF1",
-    "match_text_b": "HVN-CA-HS420-MAPF1 HAVN HS 420 Mercedes F1 Edition"
-  },
-  {
-    "score": 90,
     "category": "storage",
     "brand": "Sandisk",
     "listing_a": "1pc:222328",
@@ -5435,17 +5402,6 @@
   },
   {
     "score": 88,
-    "category": "case_fan",
-    "brand": "HAVN",
-    "listing_a": "1pc:207630",
-    "listing_b": "tms:PGW-AC-HVN-023",
-    "title_a": "מאווררי HAVN H12 Triple Pack 120mm בצבע שחור",
-    "title_b": "HAVN H12 Black Triple Pack 120mm x3 Fans",
-    "match_text_a": "207630 HAVN H12 Triple Pack 120mm",
-    "match_text_b": "PGW-AC-HVN-023 HAVN H12 Black Triple Pack 120mm x3 Fans"
-  },
-  {
-    "score": 88,
     "category": "memory",
     "brand": "Kingston",
     "listing_a": "ksp:288707",
@@ -6140,48 +6096,6 @@
         "vendor_sku": "482954",
         "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע בז'",
         "price": 699
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case_fan:fan-h12-120mm-white",
-    "category": "case_fan",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:207627",
-        "vendor_sku": "PGW-AC-HVN-015",
-        "title": "מאוורר HAVN H12 120mm בצבע לבן",
-        "price": 70
-      },
-      {
-        "listing_key": "1pc:207628",
-        "vendor_sku": "207628",
-        "title": "מאוורר HAVN H12 120mm בצבע שחור",
-        "price": 70
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case_fan:fans-h12-triple-x3-120mm-3-white",
-    "category": "case_fan",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:207629",
-        "vendor_sku": "PGW-AC-HVN-022",
-        "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע לבן",
-        "price": 155
-      },
-      {
-        "listing_key": "1pc:207630",
-        "vendor_sku": "207630",
-        "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע שחור",
-        "price": 155
       }
     ]
   },
@@ -16169,7 +16083,7 @@
         "vendor": "yahav",
         "vendor_sku": "SNV3S/1000G",
         "title": "כונן SSD חברת Kingston דגם NV3 Series 1TB 1024GB Gen4 6000MB\\s M.2 NVMe",
-        "price": 730
+        "price": 760
       }
     ],
     "model_code": "0-2280-4-nv3",
@@ -17519,6 +17433,31 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:14400-tray",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:85515",
+        "vendor": "ivory",
+        "vendor_sku": "I5-14400",
+        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | כולל ליבה גרפית | אריזת Tray",
+        "price": 740
+      },
+      {
+        "listing_key": "ivory:85518",
+        "vendor": "ivory",
+        "vendor_sku": "I5-14400B",
+        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | אריזת Box",
+        "price": 790
+      }
+    ],
+    "model_code": "14400",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:14700f-tray",
     "vendor": "ivory",
     "offers": [
@@ -17538,6 +17477,31 @@
       }
     ],
     "model_code": "14700f",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:225-tray",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:126192",
+        "vendor": "ivory",
+        "vendor_sku": "ULTRA-5-225",
+        "title": "מעבד Intel Core Ultra 5 225 20M Cache, up to 4.90GHz Tray",
+        "price": 780
+      },
+      {
+        "listing_key": "ivory:126195",
+        "vendor": "ivory",
+        "vendor_sku": "ULTRA-5-225B",
+        "title": "מעבד Intel Core Ultra 5 225 20M Cache, up to 4.90GHz Box",
+        "price": 850
+      }
+    ],
+    "model_code": "225",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -20314,6 +20278,40 @@
   {
     "kind": "variant_conflict",
     "category": "case",
+    "product_id": "model:case:a70-argb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:155098",
+        "vendor": "ivory",
+        "vendor_sku": "81425602229-3",
+        "title": "מארז מחשב THERMALRIGHT A70 ARGB – פס תאורה ARGB – חלון צד – צבע שחור",
+        "price": 545
+      }
+    ],
+    "model_code": "a70-argb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:a70-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:155095",
+        "vendor": "ivory",
+        "vendor_sku": "81425602228-6",
+        "title": "מארז מחשב THERMALRIGHT A70 – חלון צד – צבע לבן",
+        "price": 490
+      }
+    ],
+    "model_code": "a70",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
     "product_id": "model:case:argb-cx800-white",
     "vendor": "",
     "offers": [
@@ -21006,6 +21004,72 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208029",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
+        "price": 216
+      },
+      {
+        "listing_key": "tms:12SLIN1W1B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
+        "price": 136
+      },
+      {
+        "listing_key": "yahav:10987",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
+        "price": 130
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208007",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
+        "price": 419
+      },
+      {
+        "listing_key": "tms:12SLIN1W3B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
+        "price": 422
+      },
+      {
+        "listing_key": "yahav:10993",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 410
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
     "vendor": "",
     "offers": [
@@ -21072,68 +21136,36 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
+    "product_id": "model:case_fan:14-3-a-p14-pro-140mm-3-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:208029",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
-        "price": 216
-      },
-      {
-        "listing_key": "tms:12SLIN1W1B",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
-        "price": 136
-      },
-      {
-        "listing_key": "yahav:10987",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
-        "price": 130
+        "listing_key": "ivory:179272",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00321AP",
+        "title": "מציאון - 3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
+        "price": 156
       }
     ],
-    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W1B"
-    ]
+    "model_code": "14-3-a-p14-pro",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
+    "product_id": "model:case_fan:14-a-p14-pro-140mm-1-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:208007",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
-        "price": 419
-      },
-      {
-        "listing_key": "tms:12SLIN1W3B",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
-        "price": 422
-      },
-      {
-        "listing_key": "yahav:10993",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W3B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 410
+        "listing_key": "ivory:179269",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00318AP",
+        "title": "מציאון - מאוורר למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
+        "price": 55
       }
     ],
-    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W3B"
-    ]
+    "model_code": "14-a-p14-pro",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -21453,63 +21485,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172716",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050181-WW",
-        "title": "ערכת מאווררים Corsair RS120 ARGB 120mm PWM - Triple Pack",
-        "price": 247
-      },
-      {
-        "listing_key": "ivory:126564",
-        "vendor": "ivory",
-        "vendor_sku": "CO-9050181-WW",
-        "title": "3 מאווררים למארז 12 ס\"מ Corsair RS120 ARGB PWM בצבע שחור",
-        "price": 119
-      },
-      {
-        "listing_key": "tms:CO-9050181-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050181-WW",
-        "title": "Corsair RS120 ARGB 120mm PWM 3x Fans - Triple Pack",
-        "price": 152
-      },
-      {
-        "listing_key": "yahav:10110",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050181-WW",
-        "title": "סט 3 מאווררים חברת Corsair דגם RS120 RGB LED with PWM support 120MM 3X Fans Pack - צבע שחור",
-        "price": 225
-      }
-    ],
-    "model_code": "3-3x-fans-led-pwm-rs120-support",
-    "manufacturer_pn": [
-      "CO9050181WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-rs120-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:343400",
-        "vendor": "ksp",
-        "vendor_sku": "343400",
-        "title": "מאוורר למארז Corsair RS120 ARGB - צבע לבן - 3 יחידות",
-        "price": 219
-      }
-    ],
-    "model_code": "3-rs120",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-white",
     "vendor": "",
     "offers": [
@@ -21563,6 +21538,39 @@
     ],
     "model_code": "3-rs120",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172716",
+        "vendor": "1pc",
+        "vendor_sku": "CO-9050181-WW",
+        "title": "ערכת מאווררים Corsair RS120 ARGB 120mm PWM - Triple Pack",
+        "price": 247
+      },
+      {
+        "listing_key": "tms:CO-9050181-WW",
+        "vendor": "tms",
+        "vendor_sku": "CO-9050181-WW",
+        "title": "Corsair RS120 ARGB 120mm PWM 3x Fans - Triple Pack",
+        "price": 152
+      },
+      {
+        "listing_key": "yahav:10110",
+        "vendor": "yahav",
+        "vendor_sku": "CO-9050181-WW",
+        "title": "סט 3 מאווררים חברת Corsair דגם RS120 RGB LED with PWM support 120MM 3X Fans Pack - צבע שחור",
+        "price": 225
+      }
+    ],
+    "model_code": "3-3x-fans-led-pwm-rs120-support",
+    "manufacturer_pn": [
+      "CO9050181WW"
+    ]
   },
   {
     "kind": "variant_conflict",
@@ -22065,34 +22073,53 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:fan-h12-120mm-white",
+    "product_id": "model:case_fan:fan-h12-120mm-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:207627",
-        "vendor": "1pc",
-        "vendor_sku": "PGW-AC-HVN-015",
-        "title": "מאוורר HAVN H12 120mm בצבע לבן",
-        "price": 70
-      },
-      {
         "listing_key": "1pc:207628",
         "vendor": "1pc",
-        "vendor_sku": "207628",
+        "vendor_sku": "PGW-AC-HVN-016",
         "title": "מאוורר HAVN H12 120mm בצבע שחור",
         "price": 70
       },
       {
-        "listing_key": "tms:PGW-AC-HVN-015",
+        "listing_key": "tms:PGW-AC-HVN-016",
         "vendor": "tms",
-        "vendor_sku": "PGW-AC-HVN-015",
-        "title": "HAVN H12 White 120mm Fan",
+        "vendor_sku": "PGW-AC-HVN-016",
+        "title": "HAVN H12 Black 120mm Fan",
         "price": 56
       }
     ],
     "model_code": "fan-h12",
     "manufacturer_pn": [
-      "PGWACHVN015"
+      "PGWACHVN016"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fans-h12-triple-x3-120mm-3-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207630",
+        "vendor": "1pc",
+        "vendor_sku": "PGW-AC-HVN-023",
+        "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע שחור",
+        "price": 155
+      },
+      {
+        "listing_key": "tms:PGW-AC-HVN-023",
+        "vendor": "tms",
+        "vendor_sku": "PGW-AC-HVN-023",
+        "title": "HAVN H12 Black Triple Pack 120mm x3 Fans",
+        "price": 143
+      }
+    ],
+    "model_code": "fans-h12-triple-x3",
+    "manufacturer_pn": [
+      "PGWACHVN023"
     ]
   },
   {
@@ -22109,13 +22136,6 @@
         "price": 155
       },
       {
-        "listing_key": "1pc:207630",
-        "vendor": "1pc",
-        "vendor_sku": "207630",
-        "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע שחור",
-        "price": 155
-      },
-      {
         "listing_key": "tms:PGW-AC-HVN-022",
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-022",
@@ -22126,6 +22146,32 @@
     "model_code": "fans-h12-triple-x3",
     "manufacturer_pn": [
       "PGWACHVN022"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-h12-120mm-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207627",
+        "vendor": "1pc",
+        "vendor_sku": "PGW-AC-HVN-015",
+        "title": "מאוורר HAVN H12 120mm בצבע לבן",
+        "price": 70
+      },
+      {
+        "listing_key": "tms:PGW-AC-HVN-015",
+        "vendor": "tms",
+        "vendor_sku": "PGW-AC-HVN-015",
+        "title": "HAVN H12 White 120mm Fan",
+        "price": 56
+      }
+    ],
+    "model_code": "fan-h12",
+    "manufacturer_pn": [
+      "PGWACHVN015"
     ]
   },
   {
@@ -22178,6 +22224,58 @@
     "model_code": "fans-h14-triple-x3",
     "manufacturer_pn": [
       "PGWACHVN024"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-h14-140mm-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208733",
+        "vendor": "1pc",
+        "vendor_sku": "PGW-AC-HVN-017",
+        "title": "מאוורר HAVN H14 140 מ\"מ בצבע לבן",
+        "price": 79
+      },
+      {
+        "listing_key": "tms:PGW-AC-HVN-017",
+        "vendor": "tms",
+        "vendor_sku": "PGW-AC-HVN-017",
+        "title": "HAVN H14 White 140mm Fan",
+        "price": 65
+      }
+    ],
+    "model_code": "140-h14",
+    "manufacturer_pn": [
+      "PGWACHVN017"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fans-h14-triple-x3-140mm-3-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207633",
+        "vendor": "1pc",
+        "vendor_sku": "PGW-AC-HVN-025",
+        "title": "מאווררי HAVN H14 שחור חבילה של 3 בגודל 140 מ\"מ",
+        "price": 172
+      },
+      {
+        "listing_key": "tms:PGW-AC-HVN-025",
+        "vendor": "tms",
+        "vendor_sku": "PGW-AC-HVN-025",
+        "title": "HAVN H14 Black Triple Pack 140mm x3 Fans",
+        "price": 161
+      }
+    ],
+    "model_code": "140-3-h14",
+    "manufacturer_pn": [
+      "PGWACHVN025"
     ]
   },
   {
@@ -22683,65 +22781,6 @@
     "model_code": "b650e-gaming-max-wifi",
     "manufacturer_pn": [
       "90MB1LD0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:am5-gaming-max-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:195912",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1LZ0-M0EAY0",
-        "title": "לוח אם גיימינג ASUS X870 MAX GAMING WIFI7 לתושבת AM5",
-        "price": 1708
-      },
-      {
-        "listing_key": "tms:90MB1LZ0-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1LZ0-M0EAY0",
-        "title": "Asus X870 MAX GAMING WiFi7 W",
-        "price": 1693
-      }
-    ],
-    "model_code": "am5-gaming-max-wifi7-x870",
-    "manufacturer_pn": [
-      "90MB1LZ0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:gaming-max-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:194029",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1LY0-M0EAY0",
-        "title": "לוח אם ASUS X870 MAX GAMING WIFI7",
-        "price": 1613
-      },
-      {
-        "listing_key": "ivory:134865",
-        "vendor": "ivory",
-        "vendor_sku": "90MB1LY0-M0EAY0",
-        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
-        "price": 1415
-      },
-      {
-        "listing_key": "tms:90MB1LY0-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1LY0-M0EAY0",
-        "title": "Asus X870 MAX GAMING WiFi7",
-        "price": 1406
-      }
-    ],
-    "model_code": "gaming-max-wifi7-x870",
-    "manufacturer_pn": [
-      "90MB1LY0M0EAY0"
     ]
   },
   {
@@ -23535,6 +23574,72 @@
   },
   {
     "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:gaming-max-w-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:195912",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1LZ0-M0EAY0",
+        "title": "לוח אם גיימינג ASUS X870 MAX GAMING WIFI7 לתושבת AM5",
+        "price": 1708
+      },
+      {
+        "listing_key": "ivory:134868",
+        "vendor": "ivory",
+        "vendor_sku": "90MB1LZ0-M0EAY0",
+        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD - לבן",
+        "price": 1290
+      },
+      {
+        "listing_key": "tms:90MB1LZ0-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1LZ0-M0EAY0",
+        "title": "Asus X870 MAX GAMING WiFi7 W",
+        "price": 1693
+      }
+    ],
+    "model_code": "am5-gaming-max-wifi7-x870",
+    "manufacturer_pn": [
+      "90MB1LZ0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:gaming-max-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:194029",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1LY0-M0EAY0",
+        "title": "לוח אם ASUS X870 MAX GAMING WIFI7",
+        "price": 1613
+      },
+      {
+        "listing_key": "ivory:134865",
+        "vendor": "ivory",
+        "vendor_sku": "90MB1LY0-M0EAY0",
+        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
+        "price": 1415
+      },
+      {
+        "listing_key": "tms:90MB1LY0-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1LY0-M0EAY0",
+        "title": "Asus X870 MAX GAMING WiFi7",
+        "price": 1406
+      }
+    ],
+    "model_code": "gaming-max-wifi7-x870",
+    "manufacturer_pn": [
+      "90MB1LY0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
     "category": "psu",
     "product_id": "model:psu:0-5-elite-ice-modular-p1000w-1000w-full-white",
     "vendor": "",
@@ -24033,80 +24138,6 @@
       "color": [
         "beige+wood",
         "black+wood"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fan-h12-120mm-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207627",
-        "vendor": "1pc",
-        "vendor_sku": "PGW-AC-HVN-015",
-        "title": "מאוורר HAVN H12 120mm בצבע לבן",
-        "price": 70
-      },
-      {
-        "listing_key": "1pc:207628",
-        "vendor": "1pc",
-        "vendor_sku": "207628",
-        "title": "מאוורר HAVN H12 120mm בצבע שחור",
-        "price": 70
-      },
-      {
-        "listing_key": "tms:PGW-AC-HVN-015",
-        "vendor": "tms",
-        "vendor_sku": "PGW-AC-HVN-015",
-        "title": "HAVN H12 White 120mm Fan",
-        "price": 56
-      }
-    ],
-    "model_code": "fan-h12",
-    "reason": "title-axis conflict: color black vs white",
-    "axis_conflicts": {
-      "color": [
-        "black",
-        "white"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fans-h12-triple-x3-120mm-3-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207629",
-        "vendor": "1pc",
-        "vendor_sku": "PGW-AC-HVN-022",
-        "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע לבן",
-        "price": 155
-      },
-      {
-        "listing_key": "1pc:207630",
-        "vendor": "1pc",
-        "vendor_sku": "207630",
-        "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע שחור",
-        "price": 155
-      },
-      {
-        "listing_key": "tms:PGW-AC-HVN-022",
-        "vendor": "tms",
-        "vendor_sku": "PGW-AC-HVN-022",
-        "title": "HAVN H12 White Triple Pack 120mm x3 Fans",
-        "price": 143
-      }
-    ],
-    "model_code": "fans-h12-triple-x3",
-    "reason": "title-axis conflict: color black vs white",
-    "axis_conflicts": {
-      "color": [
-        "black",
-        "white"
       ]
     }
   },

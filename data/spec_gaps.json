@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T01:08:52.818762+00:00",
+  "generated_at": "2026-11-12T05:21:58.661142+00:00",
   "gaps": [
     {
       "category": "case",
@@ -92,23 +92,23 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "תאימות",
-      "count": 28,
-      "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
-        "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
-        "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
-      ]
-    },
-    {
       "category": "aio",
       "label": "מידות משאבה",
-      "count": 26,
+      "count": 27,
       "products": [
         "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
         "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
         "model:aio:240-a-freezer-liquid-240mm-white"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 27,
+      "products": [
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+        "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
+        "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
       ]
     },
     {
@@ -169,6 +169,26 @@
         "model:storage:0-3-nm610-pro-500gb-nvme-m22280",
         "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
         "model:storage:2-m-nm790-4000gb-pciegen4x4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 22,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 22,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -239,26 +259,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 20,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 20,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -1813,6 +1813,16 @@
     },
     {
       "category": "storage",
+      "label": "סוג זכרון",
+      "count": 7,
+      "products": [
+        "model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:2-2000gm-p31-shgp31-2000gb-m2pcie-m22280"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "מהירות כתיבה רציפה",
       "count": 7,
       "products": [
@@ -2053,16 +2063,6 @@
     },
     {
       "category": "storage",
-      "label": "סוג זכרון",
-      "count": 6,
-      "products": [
-        "model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
-        "model:storage:2-2000gm-p31-shgp31-2000gb-m2pcie-m22280",
-        "model:storage:990-heatsink-pro-1000gb-m2-m22280"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מהירות",
       "count": 6,
       "products": [
@@ -2239,6 +2239,26 @@
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:500-e1-helios-pro-black",
         "model:psu:600-e1-helios-pro-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "גובה",
+      "count": 5,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מק\"ט יצרן",
+      "count": 5,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme"
       ]
     },
     {
@@ -2843,6 +2863,26 @@
     },
     {
       "category": "storage",
+      "label": "רוחב",
+      "count": 4,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "עומק",
+      "count": 4,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "מידע על המוצר",
       "count": 4,
       "products": [
@@ -2952,26 +2992,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "גובה",
-      "count": 4,
-      "products": [
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme",
-        "model:storage:m461-spatium-1000gb-pciexpress40"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מק\"ט יצרן",
-      "count": 4,
-      "products": [
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme",
-        "model:storage:nm990-1000gb-pciecard-m22280"
-      ]
-    },
-    {
       "category": "other",
       "label": "כרטיס מסך",
       "count": 4,
@@ -3033,6 +3053,16 @@
     },
     {
       "category": "case",
+      "label": "האורך המרבי של כרטיס גרפי",
+      "count": 3,
+      "products": [
+        "model:case:360-hs-black",
+        "model:case:360-hs-white",
+        "model:case:420-amg-ca-f1-hs-hs420-hvn-mapf1-mercedes-petronas-team-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "סוג פאנל",
       "count": 3,
       "products": [
@@ -3089,6 +3119,16 @@
         "model:case_fan:120mm-1600rpm-argb-fdb-120mm-rgb-white",
         "model:case_fan:120mm-light-lx-pack-pwm-triple-white-wings-120mm-3-rgb-white",
         "model:case_fan:dual-duo-f140-fan-sided-140mm-rgb-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "זרימת אוויר",
+      "count": 3,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:410-boreas-e1-120mm",
+        "model:cooler_air:410wh-boreas-e1-120mm-white"
       ]
     },
     {
@@ -3763,6 +3803,26 @@
     },
     {
       "category": "storage",
+      "label": "קבוצת נפח",
+      "count": 3,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה מקסימלית ב- MB/s",
+      "count": 3,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:c715-cras-1000gb-nvme",
+        "model:storage:c715-cras-512gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "נפח זיכרון",
       "count": 3,
       "products": [
@@ -3869,26 +3929,6 @@
         "model:storage:512gcs-710-710-aleg-legend-512gb-pciegen3x4-m22280",
         "model:storage:lns100-1000gb-sata-25",
         "model:storage:pm883-960gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "רוחב",
-      "count": 3,
-      "products": [
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme",
-        "model:storage:m461-spatium-1000gb-pciexpress40"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "עומק",
-      "count": 3,
-      "products": [
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme",
-        "model:storage:m461-spatium-1000gb-pciexpress40"
       ]
     },
     {
@@ -4227,6 +4267,24 @@
     },
     {
       "category": "cooler_air",
+      "label": "צינורות חום",
+      "count": 2,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:aa13-corefrozr-mag-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מאוורר",
+      "count": 2,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:aa13-corefrozr-mag-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "גודל רדיאטור",
       "count": 2,
       "products": [
@@ -4255,15 +4313,6 @@
     {
       "category": "cooler_air",
       "label": "מהירות משאבה",
-      "count": 2,
-      "products": [
-        "model:cooler_air:410-boreas-e1-120mm",
-        "model:cooler_air:410wh-boreas-e1-120mm-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "זרימת אוויר",
       "count": 2,
       "products": [
         "model:cooler_air:410-boreas-e1-120mm",
@@ -5577,24 +5626,6 @@
     },
     {
       "category": "storage",
-      "label": "קבוצת נפח",
-      "count": 2,
-      "products": [
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה מקסימלית ב- MB/s",
-      "count": 2,
-      "products": [
-        "model:storage:c715-cras-1000gb-nvme",
-        "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מהירות כתיבה מקסימלית ב-MB/s",
       "count": 2,
       "products": [
@@ -6125,6 +6156,62 @@
     },
     {
       "category": "cooler_air",
+      "label": "מיסב מאוורר",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבור מאוורר",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבור תאורה",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות המצנן",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תושבות Intel",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תושבות AMD",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "דירוג TDP",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "רמקולים",
       "count": 1,
       "products": [
@@ -6206,22 +6293,6 @@
     {
       "category": "cooler_air",
       "label": "תושבות מעבד",
-      "count": 1,
-      "products": [
-        "model:cooler_air:aa13-corefrozr-mag-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "צינורות חום",
-      "count": 1,
-      "products": [
-        "model:cooler_air:aa13-corefrozr-mag-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מאוורר",
       "count": 1,
       "products": [
         "model:cooler_air:aa13-corefrozr-mag-white"
@@ -9153,6 +9224,14 @@
       "count": 1,
       "products": [
         "model:psu:hx1200i-1200w-full-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "הערה",
+      "count": 1,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
       ]
     },
     {
