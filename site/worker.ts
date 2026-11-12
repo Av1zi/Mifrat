@@ -8,13 +8,18 @@
  *                         wrangler.jsonc) — static assets serve directly.
  *
  * Storage: D1 table `lists` (site/migrations/0001_lists.sql). Rows are
- * insert-only — never updated or deleted — so links stay permanent and a
+ * insert-only - never updated or deleted - so links stay permanent and a
  * fetched build is served as immutable (browser cache, plus the edge Cache
  * API, which only takes effect on a custom domain, not on workers.dev).
  * Identical builds dedupe to one row via the build_hash unique column.
+ *
+ * Ops (ops-worker.ts): POST /api/ops/event (Nano run reports, bearer
+ * token), GET /api/admin/* (behind Cloudflare Access) and the scheduled()
+ * alert cron that sends phone pushes and the 10:00 daily scrape report.
  */
 
 import { BUILD_SLOTS } from "./src/build";
+import { handleAdmin, handleEvent, recordAbuse, runCron, type OpsEnv } from "./ops-worker";
 import {
   canonicalizeListBuild,
   generateListId,
@@ -53,10 +58,20 @@ interface WorkerContext {
   waitUntil(promise: Promise<unknown>): void;
 }
 
-interface Env {
+interface Env extends Omit<OpsEnv, "LISTS_DB" | "ASSETS"> {
   LISTS_DB: D1Database;
   ASSETS: AssetBinding;
   LISTS_RATE_LIMITER?: RateLimitBinding;
+}
+
+/** The real D1 binding has `all()` too; the ops routes need it. */
+function opsEnv(env: Env): OpsEnv {
+  return env as unknown as OpsEnv;
+}
+
+interface ScheduledController {
+  scheduledTime: number;
+  cron: string;
 }
 
 const SLOT_ORDER = BUILD_SLOTS.map((s) => s.id);
@@ -287,6 +302,7 @@ async function handleCreate(request: Request, url: URL, env: Env): Promise<Respo
   }
 
   if (await isOverRateLimit(rateLimitKey(clientIp(request)), env)) {
+    recordAbuse();
     return json({ error: "try again later" }, 429);
   }
 
@@ -424,6 +440,13 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
 
+    if (path === "/api/ops/event") {
+      return withSecurityHeaders(await handleEvent(request, opsEnv(env), new Date()));
+    }
+    if (path.startsWith("/api/admin/")) {
+      return withSecurityHeaders(await handleAdmin(path, request, opsEnv(env)));
+    }
+
     if (path === "/api/lists") {
       if (request.method !== "POST") {
         return json({ error: "method not allowed" }, 405);
@@ -463,5 +486,11 @@ export default {
     }
 
     return plain("Not found", 404);
+  },
+
+  // Cron Triggers (wrangler.jsonc): health checks, phone alerts and the
+  // 10:00 Israel daily report. One function, so a missed tick only delays.
+  async scheduled(controller: ScheduledController, env: Env, ctx: WorkerContext): Promise<void> {
+    ctx.waitUntil(runCron(opsEnv(env), new Date(controller.scheduledTime)).then(() => undefined));
   },
 };

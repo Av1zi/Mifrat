@@ -199,6 +199,40 @@ If the first run is blocked, leave it alone for several days: the normalizer
 stale-forwards the previous KSP snapshot for up to 14 days. Do not add
 proxies, retries or a different TLS profile.
 
+## Phone alerts (Nov 2026)
+
+Every scrape unit reports its run to the site's Worker, which pushes to the
+owner's phone (ntfy) on a block, a partial crawl or a failure, and lists every
+run on `/admin/` under "Alerts & runs". A failed run reports through
+`OnFailure=pc-parts-il-notify@%n.service`, a successful one through
+`ExecStartPost=-.../ops_notify.sh %n success` (systemd 237 here has no
+`OnSuccess=`; the leading `-` means a notify failure never fails the scrape).
+If the Worker cannot be reached, `ops_notify.sh` pushes straight to ntfy.
+Setup of the Worker side: `docs/ops-alerts.md`.
+
+```bash
+cd /home/avizi/pc-parts-il && git pull
+mkdir -p ~/.config/pc-parts-il && chmod 700 ~/.config/pc-parts-il
+cat > ~/.config/pc-parts-il/notify.env <<'EOF'
+OPS_EVENT_URL=https://mifrat.avizi.workers.dev/api/ops/event
+OPS_INGEST_TOKEN=<same value as the Worker secret>
+NTFY_TOPIC_URL=https://ntfy.sh/<your topic>
+NTFY_TOKEN=<tk_... , optional>
+EOF
+chmod 600 ~/.config/pc-parts-il/notify.env
+sudo cp nano/pc-parts-il-notify@.service nano/pc-parts-il-tms.service \
+  nano/pc-parts-il-tms-fallback.service nano/pc-parts-il-onepc.service \
+  nano/pc-parts-il-onepc-fallback.service nano/pc-parts-il-ksp.service \
+  /etc/systemd/system/
+sudo systemctl daemon-reload
+# Test: posts an "ok" run (shows up on /admin/ under Alerts & runs).
+nano/ops_notify.sh pc-parts-il-ksp.service success
+```
+
+The token file never leaves the Nano (gitignored path outside the repo).
+`run_ksp.sh` now dates its snapshot by UTC like `run_tms.sh` and
+`run_onepc.sh` (a local date misfiled crawls around midnight).
+
 ## Reading logs later
 
 ```bash

@@ -23,9 +23,21 @@
 			"/list/*"
 		]
 	},
+	// Ops alert cron (ops-worker.ts): every 30 minutes it checks the scrape
+	// report, the deployed site and the Nano run events, pushes alerts to
+	// ntfy, and on the first tick of 10:xx Israel time (07:00 or 08:00 UTC,
+	// DST-aware in code) sends the daily scrape report. Free plan: 5 cron
+	// triggers per account; this uses one.
+	"triggers": {
+		"crons": ["*/30 * * * *"]
+	},
 	// D1 table `lists` (site/migrations/0001_lists.sql): short-id -> build
 	// mapping. Create it with `wrangler d1 create mifrat-lists` and apply the
-	// migration (see site/README.md, "Build sharing").
+	// migration (see site/README.md, "Build sharing"). The ops alert tables
+	// (migrations/0002_ops.sql) live in the same database.
+	//
+	// Ops secrets (set in the dashboard or `wrangler secret put`, NEVER here):
+	// NTFY_TOPIC_URL, NTFY_TOKEN, OPS_INGEST_TOKEN, HEALTHCHECK_URL.
 	"d1_databases": [
 		{
 			"binding": "LISTS_DB",

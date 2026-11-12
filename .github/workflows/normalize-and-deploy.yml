@@ -58,7 +58,10 @@ env:
   # Everything normalize_and_match.py writes: catalog.json, review_queue.json,
   # spec_gaps.json and the whole data/site tree (category files, history,
   # meta/index/qa/spec_report); data/images is this run's downloaded covers.
-  PUBLISH_PATHS: data/catalog.json data/review_queue.json data/spec_gaps.json data/site data/images
+  # data/ops: the scrape console report (scraper/ops/report.py), rebuilt from
+  # data/raw/ + the new catalog every run; the admin page and the Worker's
+  # alert cron read it.
+  PUBLISH_PATHS: data/catalog.json data/review_queue.json data/spec_gaps.json data/site data/images data/ops
 
 jobs:
   # Skip when nothing under data/raw/ changed since the last normalize
@@ -303,6 +306,15 @@ jobs:
         # exceeds 1MB or the category payload grows >15% without
         # proportional product growth. Pure stdlib, no deps.
         run: python scraper/check_site_size.py
+      - name: Scrape console report (data/ops, Nov 2026)
+        # What was scraped and when, new / gone / returned listings and
+        # products, price moves: recomputed from the last 60 days of
+        # data/raw/ and the catalog this run just wrote. Facts only; the
+        # admin page and the Worker cron decide "missing" against the clock.
+        run: |
+          python scripts/check_ops_report.py --self-test
+          python -m scraper.ops.report --print
+          python scripts/check_ops_report.py
       - name: Publish set coherence (one run, one product set)
         # catalog.json, data/site/*.json and data/site/spec_report.json are
         # written by this run but committed as separate files, and three

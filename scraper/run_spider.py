@@ -30,29 +30,19 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+sys.path.insert(0, str(DATA_DIR.parent))
 
-# Per-vendor minimum-item warning thresholds (plan §17 open item, Sep 2026).
-# Calibrated at ~80% of the Sep 20-27 steady-state baselines (tms ~2260,
-# onepc ~2000, plonter ~2310, ivory ~635) so a one-day degradation like
-# onepc's -26% drop on 2026-09-28 (2010 → 1486) warns in the job log BEFORE
-# it becomes a zero. Warning only — the zero-items hard failure below stays
-# the gate; a new-vendor onboarding day must never fail on a threshold.
-VENDOR_MIN_COUNTS = {
-    "tms": 1800,
-    "onepc": 1600,
-    "plonter": 1800,
-    "ivory": 500,
-    # YahavPC onboarding baseline 2026-10-14: 1,079 rows from its 11
-    # in-scope builder slots (live API totals for those slots, per-slot
-    # parity verified). Floor at ~75% of that, same headroom rule as the
-    # others, so a partial-block day warns without failing.
-    "yahav": 800,
-    # KSP onboarding baseline 2026-10-30: 13 catalog tags returned 1,087
-    # listings (~800 B each), before uin dedupe. Floor at ~75% so Cloudflare
-    # retries/a partial API day warn without failing; the spider itself is
-    # all-or-nothing, so this floor is a degradation alarm, not the gate.
-    "ksp": 800,
-}
+from scraper.ops.registry import min_counts  # noqa: E402
+
+# Per-vendor minimum-item warning thresholds (plan §17 open item, Sep 2026),
+# kept in scraper/ops/registry.py so the ops report flags the same crawls.
+# Calibrated at ~75-80% of each vendor's steady state (tms ~2260, onepc
+# ~2000, plonter ~2310, ivory ~635, YahavPC 1,079 on 2026-10-14, KSP 1,087
+# on 2026-10-30) so a one-day degradation like onepc's -26% drop on
+# 2026-09-28 (2010 → 1486) warns in the job log BEFORE it becomes a zero.
+# Warning only — the zero-items hard failure below stays the gate; a
+# new-vendor onboarding day must never fail on a threshold.
+VENDOR_MIN_COUNTS = min_counts()
 
 
 def build_output_path(spider_name: str, run_date: str) -> Path:

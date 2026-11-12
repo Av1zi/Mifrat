@@ -11,7 +11,8 @@ local vendors merge into one catalog; a static site serves it with no backend
 - `scraper/specs/README.md` — how the typed spec pipeline works (schema, tiers, merge, validation).
 - `scraper/mfr/README.md`, `scraper/icecat/README.md`, `scraper/extract/README.md` — the manufacturer, Open Icecat and verified-AI spec sources.
 - `site/README.md` — frontend dev + Cloudflare deploy.
-- `nano/NANO_README.md` — Jetson Nano setup (TMS, 1PC, KSP).
+- `nano/NANO_README.md` - Jetson Nano setup (TMS, 1PC, KSP).
+- `docs/ops-alerts.md` - scrape console (`/admin/`), phone alerts (ntfy) and the 10:00 daily report: how it works and the one-time setup.
 - `data/raw/RAW_README.md` — raw snapshot convention.
 - `docs/` — design plans and audits (`merge-identity-plan.md` is the product-identity design) and agent tooling config (`docs/agents/`).
 - `AGENTS.md` + `decisions.md` (both local-only, gitignored) — agent operating rules + running decision log.

@@ -62,6 +62,20 @@ cpSync(src, dest, { recursive: true });
 
 console.log(`[copy-data] copied ${src} -> ${dest}`);
 
+// Scrape-console data (scraper/ops/report.py): status + changes only, under
+// /admin/data/ so the same Cloudflare Access rule that guards /admin/ guards
+// it. memory.json is pipeline state, never shipped. Missing files are not an
+// error (a fresh clone before the first ops run); the console says so.
+const opsSrc = path.resolve(here, "..", "..", "data", "ops");
+const opsDest = path.resolve(here, "..", "public", "admin", "data");
+rmSync(opsDest, { recursive: true, force: true });
+mkdirSync(opsDest, { recursive: true });
+for (const name of ["status.json", "changes.json"]) {
+  const from = path.join(opsSrc, name);
+  if (existsSync(from)) cpSync(from, path.join(opsDest, name));
+  else console.warn(`[copy-data] ${from} missing - the scrape console will show no data`);
+}
+
 // Collect every /images/<vendor>/<file> referenced by the site JSON layer
 // (category files + per-category history files). Strings that are not
 // image paths of the shape the pipeline writes are skipped, never joined

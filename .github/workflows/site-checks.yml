@@ -29,6 +29,9 @@ on:
       - 'scraper/image_urls.py'
       - 'scraper/qa_tool.py'
       - 'scraper/spiders/**'
+      - 'scraper/ops/**'
+      - 'nano/ops_notify.sh'
+      - 'scripts/check_ops_notify.sh'
   pull_request:
     paths:
       - 'site/**'
@@ -44,6 +47,9 @@ on:
       - 'scraper/image_urls.py'
       - 'scraper/qa_tool.py'
       - 'scraper/spiders/**'
+      - 'scraper/ops/**'
+      - 'nano/ops_notify.sh'
+      - 'scripts/check_ops_notify.sh'
   workflow_dispatch: {}
 
 concurrency:
@@ -140,3 +146,7 @@ jobs:
         run: python scripts/check_image_fetch.py
       - name: QA tool refuses cross-site and rebinding writes
         run: python scripts/check_qa_tool.py
+      - name: Ops report rules (crawls, new / gone / returned)
+        run: python scripts/check_ops_report.py --self-test
+      - name: Nano run notifier (stubbed systemd / curl)
+        run: bash scripts/check_ops_notify.sh

@@ -57,6 +57,29 @@ An offer reused from an earlier snapshot because the vendor had none today. Alwa
 **Skipped vendor**:
 A vendor with no usable snapshot inside the lookback window for a catalog build.
 
+## Operations
+
+**Crawl**:
+One run of a vendor's spider: the rows of a snapshot file scraped together (gaps under 6 h). A file can hold two crawls when a run appended to it.
+_Avoid_: scrape (as a noun for one run), snapshot (that is the file)
+
+**Partial crawl**:
+A crawl with fewer items than the vendor's floor or than 85% of its typical size; its absences never count.
+_Avoid_: suspect crawl (internal name)
+
+**Missing listing**:
+A listing absent from the vendor's latest valid crawl only; often noise.
+
+**Gone listing**:
+A listing absent from two valid crawls at least 36 hours apart. Seen again later, it is back on sale.
+_Avoid_: delisted, removed
+
+**Finding**:
+One current problem the alert rules see (scrape not done, site down, partial crawl); an alert opens, reminds and resolves per finding.
+
+**Daily report**:
+The 10:00 Israel-time phone message with one line per vendor; silent when every line is OK.
+
 ## Identity
 
 **Model code**:

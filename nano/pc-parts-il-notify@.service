@@ -1,0 +1,12 @@
+[Unit]
+Description=Report a failed %i run to the Mifrat Worker (phone alerts)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=avizi
+WorkingDirectory=/home/avizi/pc-parts-il
+ExecStart=/home/avizi/pc-parts-il/nano/ops_notify.sh %i
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=90

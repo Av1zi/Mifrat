@@ -2,6 +2,9 @@
 Description=Retry TMS scrape if the overnight run did not complete
 After=network-online.target
 Wants=network-online.target
+# Phone alerts (nano/ops_notify.sh): a failed run reports itself here, a
+# successful one through ExecStartPost below (OnSuccess= needs systemd 249).
+OnFailure=pc-parts-il-notify@%n.service
 
 [Service]
 Type=oneshot
@@ -9,6 +12,8 @@ User=avizi
 WorkingDirectory=/home/avizi/pc-parts-il
 Environment=RUN_TMS_FALLBACK=1
 ExecStart=/home/avizi/pc-parts-il/nano/run_tms.sh
+# '-': a notify failure never fails the scrape.
+ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
 StandardOutput=journal
 StandardError=journal
 TimeoutStartSec=1800
