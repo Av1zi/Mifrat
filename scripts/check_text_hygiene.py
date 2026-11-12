@@ -51,6 +51,11 @@ def scan(value, path: str, hits: Counter, samples: dict, key: str = "") -> None:
                 samples.setdefault(where, value[max(0, match.start() - 30): match.end() + 20])
     elif isinstance(value, dict):
         for k, v in value.items():
+            for name, rx in PATTERNS:
+                if isinstance(k, str) and rx.search(k):
+                    where = (name, re.sub(r"\[\d+\]", "[]", path) + ".<key>")
+                    hits[where] += 1
+                    samples.setdefault(where, k[:60])
             scan(v, f"{path}.{k}", hits, samples, str(k))
     elif isinstance(value, list):
         for i, v in enumerate(value):
@@ -68,6 +73,10 @@ def self_test() -> list[str]:
         "Solidigm D3-S4520 \u200e \u200e \u200e": "Solidigm D3-S4520",
         "Intel\xa0Xeon Gold 6530": "Intel Xeon Gold 6530",
         "Be Quiet! Pure Rock & Co": "Be Quiet! Pure Rock & Co",
+        # Only the matched entities decode (review 2, 2026-11-12): html.unescape
+        # also turned "&amplifier" into "&lifier" and "&copy" into "©".
+        "Speaker &amplifier 3&#34;": 'Speaker &amplifier 3"',
+        "Brand &copy kit &amp; hub": "Brand &copy kit & hub",
     }
     for raw, want in cases.items():
         got = clean_text(raw)
@@ -77,10 +86,18 @@ def self_test() -> list[str]:
                        "specs": {"Size": ["\u200f120 מ״מ"]}})
     if tree != {"title_raw": 'a"b', "url": "https://x/?a=1&lt=2", "specs": {"Size": ["120 מ״מ"]}}:
         errors.append(f"clean_tree = {tree!r}")
+    # Dict keys are text too (4 1PC detail labels carry U+200E).
+    tree = clean_tree({"detail_specs": {"\u200eנפח": "1TB"}})
+    if tree != {"detail_specs": {"נפח": "1TB"}}:
+        errors.append(f"clean_tree keys = {tree!r}")
     hits: Counter = Counter()
     scan({"products": [{"model": "x &#34", "image": "a&amp;b"}]}, "catalog", hits, {})
     if dict(hits) != {("entity", "catalog.products[].model"): 1}:
         errors.append(f"scan = {dict(hits)!r}")
+    hits = Counter()
+    scan({"specs": {"\u200eLabel": "v"}}, "catalog", hits, {})
+    if dict(hits) != {("bidi", "catalog.specs.<key>"): 1}:
+        errors.append(f"scan keys = {dict(hits)!r}")
     return errors
 
 

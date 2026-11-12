@@ -216,17 +216,23 @@ jobs:
       - name: One maker per product, every product branded (Nov 2026)
         # A model code joins only inside one brand family (Antec F12 is not
         # Arctic F12); an empty brand is filled from the manufacturer spec.
-        run: python scripts/check_brands.py
+        run: |
+          python scripts/check_brands.py --self-test
+          python scripts/check_brands.py
       - name: Repeated snapshot rows (Nov 2026)
         # A listing seen twice in one vendor-day (two crawls appended, or two
         # category pages) shows its NEWEST row's price and stock, in the
         # offer and in the price history; never the lowest or the first.
-        run: python scripts/check_snapshot_rows.py
+        run: |
+          python scripts/check_snapshot_rows.py --self-test
+          python scripts/check_snapshot_rows.py
       - name: Shipped text hygiene (Nov 2026)
         # No HTML entity (&#34; with or without the ;), bidi mark or NBSP in
         # any string of the catalog or data/site: they leaked into model
         # names and part numbers, and a marked SKU never matches.
-        run: python scripts/check_text_hygiene.py
+        run: |
+          python scripts/check_text_hygiene.py --self-test
+          python scripts/check_text_hygiene.py
       - name: KSP listing-tag mapper (offline, Nov 2026)
         # KSP's Hebrew tags are its only structured spec source. Pins the
         # generation / warranty readers: an unparseable tag is no fact.
@@ -244,7 +250,9 @@ jobs:
         # A spec override no product reaches fails; stale manual products,
         # blocked pairs, QA dismissals, blocklist entries and unused covers
         # are reported against a budget (pruning is an owner call).
-        run: python scripts/check_ledgers.py
+        run: |
+          python scripts/check_ledgers.py --self-test
+          python scripts/check_ledgers.py
       - name: Inference-rule backtest (offline, Oct 2026)
         # Shadow-runs every derive/title rule against the products where a
         # real source states the same field. Fails on a new rule below 99%

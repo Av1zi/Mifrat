@@ -3,11 +3,16 @@ set -euo pipefail
 
 REPO_DIR="/home/avizi/pc-parts-il"
 SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
-TODAY="$(date +%F)"
+# UTC day, the same day run_spider/normalize date the snapshot by (a local
+# date drifts from the file name around midnight).
+TODAY="$(date -u +%F)"
 OUT_DIR="$REPO_DIR/data/raw/$TODAY"
 OUT_FILE="$OUT_DIR/tms.jsonl"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
 SUCCESS_MARKER="$STATE_DIR/tms-$TODAY.success"
+# Set once the day's snapshot is upstream: a failed detail push must not
+# make the next timer crawl TMS a second time the same day.
+SNAPSHOT_MARKER="$STATE_DIR/tms-$TODAY.snapshot"
 
 if ! timedatectl status | grep -q "synchronized: yes"; then
     echo "[warn] system clock not NTP-synchronized" >&2
@@ -27,8 +32,8 @@ fi
 # One crawl per day (audit 2026-11-10 E): a second run on 2026-11-09 appended
 # to the day's file, 18h after the first, and normalize then showed 25
 # superseded prices. Any run honours today's marker; RUN_TMS_FORCE=1 overrides.
-if [ "${RUN_TMS_FORCE:-0}" != "1" ] && [ -f "$SUCCESS_MARKER" ]; then
-    echo "[run_tms] today's scrape already completed ($SUCCESS_MARKER); set RUN_TMS_FORCE=1 to re-run"
+if [ "${RUN_TMS_FORCE:-0}" != "1" ] && { [ -f "$SUCCESS_MARKER" ] || [ -f "$SNAPSHOT_MARKER" ]; }; then
+    echo "[run_tms] today's snapshot already pushed ($SNAPSHOT_MARKER / $SUCCESS_MARKER); set RUN_TMS_FORCE=1 to re-run"
     exit 0
 fi
 
@@ -77,6 +82,8 @@ for attempt in 1 2 3; do
     if git push; then
         echo "[run_tms] snapshot pushed successfully"
         PUSHED_SNAPSHOT=1
+        mkdir -p "$STATE_DIR"
+        touch "$SNAPSHOT_MARKER"
         break
     fi
     echo "[warn] snapshot push failed (attempt $attempt), retrying..." >&2
@@ -185,4 +192,4 @@ fi
 
 mkdir -p "$STATE_DIR"
 touch "$SUCCESS_MARKER"
-find "$STATE_DIR" -name 'tms-*.success' -type f -mtime +14 -delete
+find "$STATE_DIR" \( -name 'tms-*.success' -o -name 'tms-*.snapshot' \) -type f -mtime +14 -delete

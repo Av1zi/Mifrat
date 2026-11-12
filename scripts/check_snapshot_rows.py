@@ -46,6 +46,7 @@ from scraper.matching import (  # noqa: E402
     listing_key,
     normalize_price,
 )
+from scraper.text_hygiene import clean_tree  # noqa: E402
 
 RAW = ROOT / "data" / "raw"
 CATALOG = ROOT / "data" / "catalog.json"
@@ -66,7 +67,9 @@ def _rows(path: Path) -> dict[str, list[dict]]:
             except json.JSONDecodeError:
                 continue
             row.setdefault("vendor_id", vendor)
-            out[listing_key(row)].append(row)
+            # Keyed the way normalize keys it: after text cleaning (a U+200E
+            # inside a SKU is a different raw key but the same listing).
+            out[listing_key(clean_tree(row))].append(row)
     return out
 
 
@@ -79,8 +82,9 @@ def _newest(rows: list[dict]) -> dict:
 
 
 def _price(value):
+    # Rounded like the catalog stores it ("1,782.00" and 1782 are one price).
     price = normalize_price(value)
-    return float(price) if isinstance(price, (int, float)) else None
+    return float(round(price)) if isinstance(price, (int, float)) else None
 
 
 def _repeats(path: Path) -> tuple[dict[str, list[dict]], float]:
@@ -205,6 +209,17 @@ def check_deal_rows(failures: list[str], warnings: list[str]) -> int:
 
 def self_test() -> list[str]:
     errors: list[str] = []
+    # Rows keyed after text cleaning; prices compared rounded (review 2).
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "yahav.jsonl"
+        rows = [{"vendor_id": "yahav", "vendor_sku": "\u200eCO-9050139-WW", "price_ils": "1,199.00"},
+                {"vendor_id": "yahav", "vendor_sku": "CO-9050139-WW", "price_ils": 1199}]
+        path.write_text("\n".join(json.dumps(r) for r in rows) + "\n", encoding="utf-8")
+        keyed = _rows(path)
+        if len(keyed) != 1 or len(next(iter(keyed.values()))) != 2:
+            errors.append(f"_rows keyed {list(keyed)} - a bidi mark split one listing")
+        if _price("1,199.00") != _price(1199) or _price(1199.4) != 1199.0:
+            errors.append("prices are not compared rounded")
     with tempfile.TemporaryDirectory() as tmp:
         path = Path(tmp) / "tms.jsonl"
         sale = {"vendor_id": "tms", "vendor_sku": "CC-9011296-WW", "url": "u1",

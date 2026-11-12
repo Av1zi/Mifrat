@@ -813,8 +813,12 @@ def _carry_pid_aliases(catalog: dict, previous: dict | None) -> None:
         for old_pid, targets in moves.items():
             if len(targets) == 1:
                 aliases.setdefault(old_pid, next(iter(targets)))
+        live = {str(p.get("product_id")) for p in catalog.get("products") or []}
         for old_pid, target in (previous.get("pid_aliases") or {}).items():
-            aliases.setdefault(str(old_pid), str(target))
+            # A pid that ships again is no longer retired: its old alias
+            # would loop back through the pid it replaced (2026-11-12).
+            if str(old_pid) not in live:
+                aliases.setdefault(str(old_pid), str(target))
 
     current = {str(p.get("product_id")) for p in catalog.get("products") or []}
     resolved: dict[str, str] = {}

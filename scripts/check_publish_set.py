@@ -358,7 +358,10 @@ def check_vendor_twins(catalog: dict, site_rows: dict[str, dict]) -> list[str]:
             primary = by_key.get(offer["alias_of"]) or {}
             if (offer.get("vendor_id"), offer.get("url")) in urls and offer.get("url") != primary.get("url"):
                 shipped.append(f"{pid} [{offer.get('listing_key')}]")
-            if offer.get("alias_kind") == "bundle" and _priced(offer.get("price_ils")):
+            # Only a CHEAPER bundle twin becomes the deal chip (site_data._site_offers).
+            cheaper = not _priced(primary.get("price_ils")) or (
+                _priced(offer.get("price_ils")) and offer["price_ils"] < primary["price_ils"])
+            if offer.get("alias_kind") == "bundle" and _priced(offer.get("price_ils")) and cheaper:
                 target = next((o for o in site_offers
                                if (o.get("vendor"), o.get("url")) == (primary.get("vendor_id"), primary.get("url"))), {})
                 if not (target.get("bundle_only") or target.get("new_pc_deal")):
@@ -566,6 +569,13 @@ def self_test() -> int:
     twins["products"][0]["best_offer"] = twin
     detail = " | ".join(check_vendor_twins(twins, good))
     check_case("twin best offer trips", "best offer from a vendor twin" in detail, detail)
+    # A bundle twin at or above the plain price is no deal (site_data ships
+    # no chip for it), so its missing chip is no failure (review 2).
+    dear = dict(twin, price_ils=650)
+    pricey = {"products": [{"product_id": "aio:0", "offers": [yahav, dear], "best_offer": yahav}]}
+    plain_row = {"aio:0": {"offers": [{"vendor": "yahav", "url": "y1", "price": 620}]}}
+    detail = " | ".join(check_vendor_twins(pricey, plain_row))
+    check_case("dearer bundle twin without a chip passes", not detail, detail)
 
     # Audit H (owner live check 2026-11-12): a "-N%" tile is a sale.
     sale = {"vendor_id": "tms", "url": "s", "price_ils": 745, "listing_key": "tms:s",
@@ -590,7 +600,19 @@ def self_test() -> int:
                all(build_price_history.is_conditional_offer(o) == is_conditional_offer(o)
                    for o in probes), "build_price_history.is_conditional_offer drifted")
 
-    total_checks = 21
+    # A pid that comes back (was an alias, ships again) is no chain hop: the
+    # pid it replaced must alias to it (2026-11-12: model:cpu:2100 returned
+    # while 2100-tray retired, and the old 2100 -> 2100-tray alias looped).
+    from scraper.normalize_and_match import _carry_pid_aliases
+    previous = {"listings": [{"listing_key": "tms:a", "product_id": "cpu:x-tray"}],
+                "pid_aliases": {"cpu:x": "cpu:x-tray"}}
+    current = {"listings": [{"listing_key": "tms:a", "product_id": "cpu:x"}],
+               "products": [{"product_id": "cpu:x"}], "pid_aliases": {}}
+    _carry_pid_aliases(current, previous)
+    check_case("returning pid gets the retired pid's alias",
+               current["pid_aliases"] == {"cpu:x-tray": "cpu:x"}, str(current["pid_aliases"]))
+
+    total_checks = 23
     if problems:
         print(f"[publish-set] self-test FAILED — {len(problems)} of ~{total_checks} checks:")
         for problem in problems:
