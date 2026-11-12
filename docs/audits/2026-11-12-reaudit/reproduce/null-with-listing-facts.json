@@ -1,0 +1,182 @@
+[
+  {
+    "product_id": "model:motherboard:b650m-challenger-v2-microatx",
+    "listing_key": "1pc:207698",
+    "category": "motherboard",
+    "field": "ethernet",
+    "value": "אופציונלי",
+    "source": "vendor:detail",
+    "tier": 1
+  },
+  {
+    "product_id": "model:motherboard:el-h81m-vs-microatx",
+    "listing_key": "1pc:217314",
+    "category": "motherboard",
+    "field": "chipset",
+    "value": "H610",
+    "source": "vendor:detail",
+    "tier": 1
+  },
+  {
+    "product_id": "model:memory:2x8gb-cl20-ripjaws-v-16gb-x2-5066mhz-cl20-dimm",
+    "listing_key": "ksp:148642",
+    "category": "memory",
+    "field": "speed_mhz",
+    "value": 5066,
+    "source": "vendor:meta",
+    "tier": 1
+  },
+  {
+    "product_id": "model:memory:2x8gb-cl20-ripjaws-v-16gb-x2-5066mhz-cl20-dimm",
+    "listing_key": "ksp:148642",
+    "category": "memory",
+    "field": "speed_mhz",
+    "value": 5066,
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "accessories:ksp:ksp-429800",
+    "listing_key": "ksp:429800",
+    "category": "accessories",
+    "field": "model",
+    "value": "COMMANDER DUO מבית Corsair",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "model:case:brown-glass-mid-pa602-panel-proart-retro-tempered-tower-wood",
+    "listing_key": "ksp:483224",
+    "category": "case",
+    "field": "color",
+    "value": "אגוז",
+    "source": "vendor:meta",
+    "tier": 1
+  },
+  {
+    "product_id": "model:case:brown-metal-mid-pa602-panel-proart-retro-tower-wood",
+    "listing_key": "ksp:483225",
+    "category": "case",
+    "field": "color",
+    "value": "אגוז",
+    "source": "vendor:meta",
+    "tier": 1
+  },
+  {
+    "product_id": "model:motherboard:el-h81m-vs-microatx",
+    "listing_key": "tms:AK-H81MEL-VS",
+    "category": "motherboard",
+    "field": "chipset",
+    "value": "H81",
+    "source": "vendor:detail",
+    "tier": 1
+  },
+  {
+    "product_id": "model:motherboard:b650m-challenger-v2-microatx",
+    "listing_key": "tms:MS-CHA-B650MV2",
+    "category": "motherboard",
+    "field": "ethernet",
+    "value": "אופציונלי",
+    "source": "vendor:detail",
+    "tier": 1
+  },
+  {
+    "product_id": "mpn:accessories:bxatxsbc",
+    "listing_key": "yahav:2001",
+    "category": "accessories",
+    "field": "model",
+    "value": "BXAT-XS-BC מחיבור מאוורר 4 PIN PWM FAN ל3 חיבורי 4 PIN PWM FAN צבע שחור כולל שרוול איכותי חזק",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:phndc",
+    "listing_key": "yahav:5190",
+    "category": "accessories",
+    "field": "model",
+    "value": "PH-NDC Pack of 2 units 2G- שתי יחידות",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:rgicfcwr3gp",
+    "listing_key": "yahav:5749",
+    "category": "accessories",
+    "field": "model",
+    "value": "40 גרם Ice Fusion V2 40G 5W/mK",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:nx410temperedglassonly",
+    "listing_key": "yahav:7999",
+    "category": "accessories",
+    "field": "model",
+    "value": "Antec NX410 RGB Tempered Glass Only צבע שחור",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:bxatxsbc2",
+    "listing_key": "yahav:8240",
+    "category": "accessories",
+    "field": "model",
+    "value": "BXAT-XS-BC-2 מחיבור מאוורר 3 PIN FAN ל2 חיבורי 3 PIN FAN צבע שחור כולל שרוול איכותי חזק",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:antecp20temperedglass",
+    "listing_key": "yahav:9148",
+    "category": "accessories",
+    "field": "model",
+    "value": "Antec P20\\P20C\\P20CE\\P20C-W Tempered Glass Only צבע שחור",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:antecax61temperedglass",
+    "listing_key": "yahav:9347",
+    "category": "accessories",
+    "field": "model",
+    "value": "Antec AX61 Tempered Glass Only צבע שחור",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:performance1ftleftsidepanelonly",
+    "listing_key": "yahav:9358",
+    "category": "accessories",
+    "field": "model",
+    "value": "Performance 1 FT צבע שחור",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:cc9011168wwpanel",
+    "listing_key": "yahav:9360",
+    "category": "accessories",
+    "field": "model",
+    "value": "Crystal 680X Tempered Glass Only צבע שחור",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:performance1ftrightsidepanelonly",
+    "listing_key": "yahav:9361",
+    "category": "accessories",
+    "field": "model",
+    "value": "Performance 1 FT צבע שחור",
+    "source": "title",
+    "tier": 2
+  },
+  {
+    "product_id": "mpn:accessories:cc8900548",
+    "listing_key": "yahav:9577",
+    "category": "accessories",
+    "field": "model",
+    "value": "7000D \\ 7000D Airflow \\ 7000X Tempered Glass Only צבע לבן",
+    "source": "title",
+    "tier": 2
+  }
+]

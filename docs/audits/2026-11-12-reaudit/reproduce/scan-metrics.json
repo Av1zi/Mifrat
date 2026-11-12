@@ -1,0 +1,47 @@
+{
+  "candidate_count": 4661,
+  "kinds": {
+    "same_vendor_within_product": 80,
+    "board_partner_spec": 8,
+    "cross_product_exact_code": 8,
+    "cross_product_title_fingerprint": 353,
+    "cross_product_model": 635,
+    "model_token_overlap": 3522,
+    "scope_category_candidate": 16,
+    "null_with_typed_listing_fact": 17,
+    "extract_quote_semantic_candidate": 22
+  },
+  "token_pair_comparisons": 27275,
+  "listing_typed_facts_for_nulls": 20,
+  "null_product_fields_with_facts": 17,
+  "extract_claims_reached": 3656,
+  "extract_entries_total": 2010,
+  "extract_unreached": [
+    "cooler_air:tms:tms-c40",
+    "model:case:argb-omnyx-black",
+    "model:case_fan:140mm-core-cue-dual-fan-kit-lighting-node-performance-pro-rgb-sp140-140mm-rgb-black",
+    "model:case_fan:140mm-high-led-package-performance-pro-retail-rgb-sp140-140mm-rgb-black",
+    "model:case_fan:3-high-pwm-silent-speed-wings-120mm-black",
+    "model:cooler_air:a40-pro-140mm-92mm",
+    "model:cooler_air:c400-160mm-120mm",
+    "model:motherboard:a-b760m-ddr4-ii-pro-microatx",
+    "mpn:gpu:n5070212d7195064n",
+    "mpn:gpu:vcnrtx2000adapb",
+    "mpn:motherboard:90mb1nw0m0eay0",
+    "mpn:storage:agammixs70b1tcs",
+    "mpn:storage:ct4000p310ssd5",
+    "sku:case:814256022279",
+    "sku:case:omnyxblack",
+    "sku:motherboard:4711377120562",
+    "storage:ivory:ivory-170095"
+  ],
+  "detail_rows": {
+    "tms": 4767,
+    "onepc": 2641,
+    "ivory": 1309,
+    "yahav": 1111,
+    "plonter": 11243
+  },
+  "image_refs": 8760,
+  "published_products": 4402
+}

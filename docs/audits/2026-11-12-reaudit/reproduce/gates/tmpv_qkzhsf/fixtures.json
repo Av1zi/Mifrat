@@ -1,0 +1,33 @@
+{
+  "schema_version": 3,
+  "cases": [
+    {
+      "product_id": "mpn:motherboard:aaa1",
+      "category": "motherboard",
+      "name": "Test board",
+      "expect": {
+        "manufacturer": "MSI",
+        "chipset": "B850"
+      },
+      "anchors": {
+        "ids": [
+          "mpn:motherboard:aaa1",
+          "mpn:motherboard:gone"
+        ],
+        "listing_keys": [
+          "1pc:1",
+          "yahav:2",
+          "yahav:dead"
+        ],
+        "part_numbers": [
+          "AAA-1",
+          "B850 BOARD"
+        ],
+        "manufacturer": "MSI",
+        "models": [
+          "B850 Board"
+        ]
+      }
+    }
+  ]
+}

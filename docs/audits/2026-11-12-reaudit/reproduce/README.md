@@ -1,0 +1,3 @@
+# Reproduction
+
+Audit-only scripts expect a matching `tmp/data-audit/2026-11-12-reaudit/snapshot` and write only this new audit directory/scratch. Restore the pinned git archive and optional inputs matching input-hashes.json; do not run normal normalize entrypoint. `pin.py` refuses an existing run. `inventory.py`, `scan.py`, `adjudicate.py`, then `finish_partial.py` produce this checkpoint. `scan.py` overwrites candidate registry: preserve adjudications before rerunning, or replay adjudicate afterward. `gates.py` is in scratch; exact commands/logs in gate-results.json. Raw/evidence records are public data, no cookies/headers/secrets. Archive .cache page content and production API/extraction jobs were not run.

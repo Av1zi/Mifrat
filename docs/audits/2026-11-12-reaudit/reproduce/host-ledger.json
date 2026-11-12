@@ -1,0 +1,62 @@
+{
+  "utc_recorded": "2026-11-12T14:33:18.629408+00:00",
+  "requests": [],
+  "total_requests": 0,
+  "location_class": "Windows local checkout; residential-home eligibility unestablished",
+  "hosts": {
+    "tms.co.il": {
+      "eligible": false,
+      "prior_run_state": "unknown",
+      "block_state": "unknown",
+      "request_ceiling_for_this_audit": 0,
+      "actual_requests": 0,
+      "delay_seconds": "vendor delay",
+      "rule": "Nano only, once/day, sequential night window21:00–04:00UTC, robots; no block retries"
+    },
+    "1pc.co.il": {
+      "eligible": false,
+      "prior_run_state": "unknown",
+      "block_state": "unknown",
+      "request_ceiling_for_this_audit": 0,
+      "actual_requests": 0,
+      "delay_seconds": 2,
+      "rule": "Listing Nano/home; detail cloud accepted, but this machine eligibility/window unknown; no probe"
+    },
+    "ksp.co.il": {
+      "eligible": false,
+      "prior_run_state": "unknown",
+      "block_state": "unknown",
+      "request_ceiling_for_this_audit": 0,
+      "actual_requests": 0,
+      "delay_seconds": 6,
+      "rule": "Home stable chrome146/robots, no detail; stricter first403/429stop used despite README/code429retry discrepancy"
+    },
+    "www.ivory.co.il": {
+      "eligible": false,
+      "prior_run_state": "unknown",
+      "block_state": "unknown",
+      "request_ceiling_for_this_audit": 0,
+      "actual_requests": 0,
+      "delay_seconds": "global throttle",
+      "rule": "Cloud source; targeted traffic not performed; no prior-run state known"
+    },
+    "www.yahavpc.co.il": {
+      "eligible": false,
+      "prior_run_state": "unknown",
+      "block_state": "unknown",
+      "request_ceiling_for_this_audit": 0,
+      "actual_requests": 0,
+      "delay_seconds": "global throttle",
+      "rule": "Cloud source; targeted traffic not performed"
+    },
+    "manufacturer hosts": {
+      "eligible": false,
+      "prior_run_state": "unknown",
+      "block_state": "unknown",
+      "request_ceiling_for_this_audit": 0,
+      "actual_requests": 0,
+      "delay_seconds": 1,
+      "rule": "Home/local with robots; previously blocked Gigabyte/MSI/Intel/Noctua/Kingston/Cougar and declined sources not retested. No manufacturer cache page fetched or parsed live."
+    }
+  }
+}

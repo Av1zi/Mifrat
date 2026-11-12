@@ -1,0 +1,542 @@
+[
+  {
+    "key": "1pc:212392",
+    "pid": "model:case_fan:1201-aeolus-p2-wh-120mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "1000–2400 RPM ±10%",
+    "expected_min": 1000.0,
+    "expected_max": 2400.0,
+    "helper_span": [
+      10.0,
+      1000.0
+    ],
+    "helper_facts": {
+      "rpm_min": [
+        10
+      ],
+      "rpm_max": [
+        1000
+      ]
+    }
+  },
+  {
+    "key": "1pc:212394",
+    "pid": "model:case_fan:1203-argb-notus-120mm-rgb-white",
+    "label": "מהירות מאוורר",
+    "raw": "400–1600 RPM ±10%",
+    "expected_min": 400.0,
+    "expected_max": 1600.0,
+    "helper_span": [
+      10.0,
+      400.0
+    ],
+    "helper_facts": {
+      "rpm_min": [
+        10
+      ],
+      "rpm_max": [
+        400
+      ]
+    }
+  },
+  {
+    "key": "1pc:212395",
+    "pid": "model:case_fan:1201-aeolus-p2-wh-120mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "1000–2400 RPM ±10%",
+    "expected_min": 1000.0,
+    "expected_max": 2400.0,
+    "helper_span": [
+      10.0,
+      1000.0
+    ],
+    "helper_facts": {
+      "rpm_min": [
+        10
+      ],
+      "rpm_max": [
+        1000
+      ]
+    }
+  },
+  {
+    "key": "1pc:212396",
+    "pid": "model:case_fan:1201-argb-notus-120mm-rgb-black",
+    "label": "מהירות מאוורר",
+    "raw": "400–1600 RPM ±10%",
+    "expected_min": 400.0,
+    "expected_max": 1600.0,
+    "helper_span": [
+      10.0,
+      400.0
+    ],
+    "helper_facts": {
+      "rpm_min": [
+        10
+      ],
+      "rpm_max": [
+        400
+      ]
+    }
+  },
+  {
+    "key": "1pc:223329",
+    "pid": "model:cooler_air:0761345400848-argb-f600-white-white",
+    "label": "מהירות מאוורר",
+    "raw": "600–1700 RPM ±10%",
+    "expected_min": 600.0,
+    "expected_max": 1700.0,
+    "helper_span": [
+      10.0,
+      600.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        600
+      ]
+    }
+  },
+  {
+    "key": "ivory:116527",
+    "pid": "model:aio:240-tg-240mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "900RPM ~ 1800RPM(±10%)",
+    "expected_min": 900.0,
+    "expected_max": 1800.0,
+    "helper_span": [
+      10.0,
+      900.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        900
+      ]
+    }
+  },
+  {
+    "key": "ivory:116529",
+    "pid": "model:aio:360-tg-360mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "900RPM ~ 1800RPM(±10%)",
+    "expected_min": 900.0,
+    "expected_max": 1800.0,
+    "helper_span": [
+      10.0,
+      900.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        900
+      ]
+    }
+  },
+  {
+    "key": "ivory:117271",
+    "pid": "model:aio:360-aio-icue-link-rx-titan-360mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "300RPM ~ 2100RPM ±10%",
+    "expected_min": 300.0,
+    "expected_max": 2100.0,
+    "helper_span": [
+      10.0,
+      300.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        300
+      ]
+    }
+  },
+  {
+    "key": "ivory:117273",
+    "pid": "model:aio:360-aio-icue-link-rx-titan-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "300RPM ~ 2100RPM ±10%",
+    "expected_min": 300.0,
+    "expected_max": 2100.0,
+    "helper_span": [
+      10.0,
+      300.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        300
+      ]
+    }
+  },
+  {
+    "key": "ivory:130950",
+    "pid": "model:aio:240-aio-icue-link-rx-titan-240mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "300RPM ~ 2100RPM ±10%",
+    "expected_min": 300.0,
+    "expected_max": 2100.0,
+    "helper_span": [
+      10.0,
+      300.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        300
+      ]
+    }
+  },
+  {
+    "key": "ivory:130953",
+    "pid": "model:aio:240-aio-icue-link-rx-titan-240mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "300RPM ~ 2100RPM ±10%",
+    "expected_min": 300.0,
+    "expected_max": 2100.0,
+    "helper_span": [
+      10.0,
+      300.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        300
+      ]
+    }
+  },
+  {
+    "key": "ivory:134937",
+    "pid": "model:aio:360-frozen-pro-warframe-360mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "2000RPM ±10%",
+    "expected_min": null,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      2000.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2000
+      ]
+    }
+  },
+  {
+    "key": "ivory:135831",
+    "pid": "model:aio:360-icue-lcd-link-rx-titan-360mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "300RPM ~ 2100RPM ±10%",
+    "expected_min": 300.0,
+    "expected_max": 2100.0,
+    "helper_span": [
+      10.0,
+      300.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        300
+      ]
+    }
+  },
+  {
+    "key": "ivory:141818",
+    "pid": "model:aio:240-argb-black-core-matrix-vision-240mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "2000RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      2000.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2000
+      ]
+    }
+  },
+  {
+    "key": "ivory:141821",
+    "pid": "model:aio:240-argb-core-matrix-vision-white-240mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "2000RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      2000.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2000
+      ]
+    }
+  },
+  {
+    "key": "ivory:141827",
+    "pid": "model:aio:360-argb-core-matrix-vision-white-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "2000RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      2000.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2000
+      ]
+    }
+  },
+  {
+    "key": "ivory:141833",
+    "pid": "model:aio:360-argb-frozen-se-v2-warframe-white-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "2000RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      2000.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2000
+      ]
+    }
+  },
+  {
+    "key": "ivory:141839",
+    "pid": "model:aio:360-stream-vision-white-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "2400RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2400.0,
+    "helper_span": [
+      10.0,
+      2400.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2400
+      ]
+    }
+  },
+  {
+    "key": "ivory:141845",
+    "pid": "model:aio:360-argb-black-trofeo-vision-360mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "2150RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2150.0,
+    "helper_span": [
+      10.0,
+      2150.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2150
+      ]
+    }
+  },
+  {
+    "key": "ivory:150454",
+    "pid": "model:aio:360-icue-lcd-link-rx-titan-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "300RPM ~ 2100RPM ±10%",
+    "expected_min": 300.0,
+    "expected_max": 2100.0,
+    "helper_span": [
+      10.0,
+      300.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        300
+      ]
+    }
+  },
+  {
+    "key": "ivory:155071",
+    "pid": "model:aio:360-argb-magic-qube-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "2000RPM(±10%)",
+    "expected_min": null,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      2000.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        2000
+      ]
+    }
+  },
+  {
+    "key": "ivory:163612",
+    "pid": "model:aio:240-a24-alpha2-se-240mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "800RPM – 2000RPM ±10%",
+    "expected_min": 800.0,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      800.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        800
+      ]
+    }
+  },
+  {
+    "key": "ivory:163618",
+    "pid": "model:aio:240-a24-alpha2-se-240mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "800RPM – 2000RPM ±10%",
+    "expected_min": 800.0,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      800.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        800
+      ]
+    }
+  },
+  {
+    "key": "ivory:163621",
+    "pid": "model:aio:360-a36-alpha2-se-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "800RPM – 2000RPM ±10%",
+    "expected_min": 800.0,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      800.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        800
+      ]
+    }
+  },
+  {
+    "key": "ivory:173245",
+    "pid": "model:aio:aio-cooler-cpu-h100i-icue-link-liquid-240mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "480RPM – 2400RPM ±10%",
+    "expected_min": 480.0,
+    "expected_max": 2400.0,
+    "helper_span": [
+      10.0,
+      480.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        480
+      ]
+    }
+  },
+  {
+    "key": "ivory:80666",
+    "pid": "model:aio:h115i-icue-link-rgb-280mm-black",
+    "label": "מהירות מאוורר",
+    "raw": "400RPM – 2000RPM ±10%",
+    "expected_min": 400.0,
+    "expected_max": 2000.0,
+    "helper_span": [
+      10.0,
+      400.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        400
+      ]
+    }
+  },
+  {
+    "key": "ivory:95205",
+    "pid": "model:aio:360-tg-360mm-white",
+    "label": "מהירות מאוורר",
+    "raw": "900RPM ~ 1800RPM(±10%)",
+    "expected_min": 900.0,
+    "expected_max": 1800.0,
+    "helper_span": [
+      10.0,
+      900.0
+    ],
+    "helper_facts": {
+      "fan_rpm_min": [
+        10
+      ],
+      "fan_rpm_max": [
+        900
+      ]
+    }
+  }
+]

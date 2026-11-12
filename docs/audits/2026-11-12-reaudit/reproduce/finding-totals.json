@@ -1,0 +1,35 @@
+{
+  "RC-001": {
+    "instances": 71,
+    "products": 27,
+    "listing_keys": 27,
+    "severity": {
+      "S2": 46,
+      "S1": 25
+    }
+  },
+  "RC-002": {
+    "instances": 8,
+    "products": 8,
+    "listing_keys": 15,
+    "severity": {
+      "S1": 8
+    }
+  },
+  "RC-003": {
+    "instances": 1,
+    "products": 1,
+    "listing_keys": 1,
+    "severity": {
+      "S2": 1
+    }
+  },
+  "RC-004": {
+    "instances": 3,
+    "products": 6,
+    "listing_keys": 7,
+    "severity": {
+      "S2": 3
+    }
+  }
+}

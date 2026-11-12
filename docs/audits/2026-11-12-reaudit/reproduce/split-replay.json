@@ -1,0 +1,112 @@
+[
+  {
+    "keys": [
+      "tms:FLUX-PRO",
+      "yahav:10034"
+    ],
+    "code": "FLUX-PRO",
+    "assignments": {
+      "yahav:10034": "model:case:1x140mm-2x120mm-3x140mm-fans-flux-full-pro-reverse-tower-tranquil-black",
+      "tms:FLUX-PRO": "model:case:flux-pro-black"
+    },
+    "axes": [
+      {
+        "key": "tms:FLUX-PRO",
+        "axes": {
+          "type": "fulltower",
+          "color": "black",
+          "rackmount": null
+        }
+      },
+      {
+        "key": "yahav:10034",
+        "axes": {
+          "type": "fulltower",
+          "color": "black",
+          "rackmount": null
+        }
+      }
+    ],
+    "sku_bridges": [
+      null,
+      null
+    ]
+  },
+  {
+    "keys": [
+      "tms:CXMIRROR",
+      "1pc:214258",
+      "yahav:11386"
+    ],
+    "code": "CXMIRROR",
+    "assignments": {
+      "1pc:214258": "model:case:7x120mm-cx-fans-mid-mirror-tower-black",
+      "yahav:11386": "model:case:7x120mm-cx-fans-mid-mirror-tower-black",
+      "tms:CXMIRROR": "model:case:black-cx-mirror-black"
+    },
+    "axes": [
+      {
+        "key": "tms:CXMIRROR",
+        "axes": {
+          "type": "minitower",
+          "color": "black",
+          "rackmount": null
+        }
+      },
+      {
+        "key": "1pc:214258",
+        "axes": {
+          "type": "minitower",
+          "color": "black",
+          "rackmount": null
+        }
+      },
+      {
+        "key": "yahav:11386",
+        "axes": {
+          "type": "midtower",
+          "color": "black",
+          "rackmount": null
+        }
+      }
+    ],
+    "sku_bridges": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "keys": [
+      "tms:ERA-ITX-BU",
+      "1pc:95750"
+    ],
+    "code": "ERA-ITX-BU",
+    "assignments": {
+      "1pc:95750": "model:case:bu-cobalt-era-era-itx-itx-tg",
+      "tms:ERA-ITX-BU": "model:case:cobalt-era-itx"
+    },
+    "axes": [
+      {
+        "key": "tms:ERA-ITX-BU",
+        "axes": {
+          "type": "minitower",
+          "color": null,
+          "rackmount": null
+        }
+      },
+      {
+        "key": "1pc:95750",
+        "axes": {
+          "type": "minitower",
+          "color": null,
+          "rackmount": null
+        }
+      }
+    ],
+    "sku_bridges": [
+      null,
+      null
+    ]
+  }
+]
