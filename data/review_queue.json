@@ -14,6 +14,94 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:105172",
+    "listing_b": "tms:C6700T",
+    "title_a": "מעבד Intel Core i7 6700 צבע ללא",
+    "title_b": "Intel Core i7 6700 / 1151 Tray",
+    "match_text_a": "C6700T Intel Core i7 6700",
+    "match_text_b": "C6700T Intel Core i7 6700 / 1151 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:107271",
+    "listing_b": "tms:C9100TT",
+    "title_a": "מעבד Intel Core i3 9100T צבע שחור",
+    "title_b": "Intel Core i3 9100T / 1151 Tray",
+    "match_text_a": "C9100TT Intel Core i3 9100T",
+    "match_text_b": "C9100TT Intel Core i3 9100T / 1151 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:108836",
+    "listing_b": "tms:C12900KT",
+    "title_a": "מעבד Intel Core i9 12900K צבע שחור",
+    "title_b": "Intel Core i9 12900K / 1700 Tray",
+    "match_text_a": "C12900KT Intel Core i9 12900K",
+    "match_text_b": "C12900KT Intel Core i9 12900K / 1700 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:121569",
+    "listing_b": "tms:C12900KFT",
+    "title_a": "מעבד Intel Core i9 12900KF צבע שחור",
+    "title_b": "Intel Core i9 12900KF / 1700 Tray",
+    "match_text_a": "C12900KFT Intel Core i9 12900KF",
+    "match_text_b": "C12900KFT Intel Core i9 12900KF / 1700 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:121961",
+    "listing_b": "tms:C4170T-P",
+    "title_a": "מעבד Intel Core i3 4170 צבע שחור",
+    "title_b": "Intel Core i3 4170 with Graphics Tray Pull",
+    "match_text_a": "C4170T-P Intel Core i3 4170",
+    "match_text_b": "C4170T-P Intel Core i3 4170 with Graphics Tray Pull"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:121962",
+    "listing_b": "tms:C7400T-P",
+    "title_a": "מעבד Intel Core i5 7400 בצבע כסף",
+    "title_b": "Intel Core i5 7400 / 1151 Tray Pull",
+    "match_text_a": "C7400T-P Intel Core i5 7400",
+    "match_text_b": "C7400T-P Intel Core i5 7400 / 1151 Tray Pull"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:121966",
+    "listing_b": "tms:C6700TT",
+    "title_a": "מעבד Intel Core i7 6700T 35W צבע כסף",
+    "title_b": "Intel Core i7 6700T 35W / 1151 Tray",
+    "match_text_a": "C6700TT Intel Core i7 6700T 35W",
+    "match_text_b": "C6700TT Intel Core i7 6700T 35W / 1151 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:126898",
+    "listing_b": "tms:C13700KT",
+    "title_a": "מעבד אינטל Core i7 13700K צבע כסף",
+    "title_b": "Intel Core i7 13700K / 1700 Tray",
+    "match_text_a": "C13700KT Core i7 13700K",
+    "match_text_b": "C13700KT Intel Core i7 13700K / 1700 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "1pc:134718",
     "listing_b": "tms:C7500T-P",
     "title_a": "מעבד Intel Core i5 7500 צבע קופסה",
@@ -25,12 +113,45 @@
     "score": 100,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:189657",
+    "listing_b": "tms:C265KT",
+    "title_a": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
+    "title_b": "Intel Core Ultra 7 265K / 1851 Tray",
+    "match_text_a": "C265KT Intel Core Ultra 7 265K 1851",
+    "match_text_b": "C265KT Intel Core Ultra 7 265K / 1851 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "1pc:32632",
     "listing_b": "tms:G4400T",
     "title_a": "מעבד Intel Pentium Dual Core G4400 צבע שחור",
     "title_b": "Intel Pentium Dual Core G4400 / 1151 Tray",
     "match_text_a": "G4400T Intel Pentium Dual Core G4400",
     "match_text_b": "G4400T Intel Pentium Dual Core G4400 / 1151 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:32633",
+    "listing_b": "tms:C7100T",
+    "title_a": "מעבד Intel Core i3 7100 צבע כסף",
+    "title_b": "Intel Core i3 7100 / 1151 Tray",
+    "match_text_a": "C7100T Intel Core i3 7100",
+    "match_text_b": "C7100T Intel Core i3 7100 / 1151 Tray"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:67263",
+    "listing_b": "tms:C9700FT",
+    "title_a": "מעבד Intel Core i7 9700F צבע כסף",
+    "title_b": "Intel Core i7 9700F / 1151 Tray",
+    "match_text_a": "C9700FT Intel Core i7 9700F",
+    "match_text_b": "C9700FT Intel Core i7 9700F / 1151 Tray"
   },
   {
     "score": 100,
@@ -1362,17 +1483,6 @@
     "title_b": "מעבד אינטל Intel Core i9 14900KS 3.2GHz 36MB Cache s1700 - Box",
     "match_text_a": "280968 Intel Core i9 14900KF 3.2GHz 36MB Cache s1700 - Box",
     "match_text_b": "301967 Intel Core i9 14900KS 3.2GHz 36MB Cache s1700 - Box"
-  },
-  {
-    "score": 93,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ksp:340388",
-    "listing_b": "ksp:340400",
-    "title_a": "מעבד Intel Core Ultra 5 245K 24MB Cache LGA1851 - Box",
-    "title_b": "מעבד Intel Core Ultra 5 245KF 24MB Cache LGA1851 - Box",
-    "match_text_a": "340388 Intel Core Ultra 5 245K 24MB Cache LGA1851 - Box",
-    "match_text_b": "340400 Intel Core Ultra 5 245KF 24MB Cache LGA1851 - Box"
   },
   {
     "score": 93,
@@ -2957,17 +3067,6 @@
     "title_b": "מעבד אינטל Intel Core i9 14900KF 3.2GHz 36MB Cache s1700 - Box",
     "match_text_a": "280956 Intel Core i7 14700K 3.4GHz 33MB Cache s1700 - Box",
     "match_text_b": "280968 Intel Core i9 14900KF 3.2GHz 36MB Cache s1700 - Box"
-  },
-  {
-    "score": 90,
-    "category": "cpu",
-    "brand": "Intel",
-    "listing_a": "ksp:340388",
-    "listing_b": "ksp:340399",
-    "title_a": "מעבד Intel Core Ultra 5 245K 24MB Cache LGA1851 - Box",
-    "title_b": "מעבד Intel Core Ultra 5 245K 24MB Cache LGA1851 - Tray",
-    "match_text_a": "340388 Intel Core Ultra 5 245K 24MB Cache LGA1851 - Box",
-    "match_text_b": "340399 Intel Core Ultra 5 245K 24MB Cache LGA1851 - Tray"
   },
   {
     "score": 90,
@@ -4832,6 +4931,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "Intel",
+    "listing_a": "1pc:121958",
+    "listing_b": "tms:C3240T-P",
+    "title_a": "מעבד Intel Core i3 3240T צבע שחור",
+    "title_b": "מעבד Intel Core i3 3240 with Graphics Tray Pull",
+    "match_text_a": "C3240T-P Intel Core i3 3240T",
+    "match_text_b": "C3240T-P Intel Core i3 3240 with Graphics Tray Pull"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "Intel",
     "listing_a": "ksp:280959",
     "listing_b": "ksp:280964",
     "title_a": "מעבד אינטל Intel Core i9 14900K 3.2GHz 36MB Cache s1700 - Box",
@@ -6244,111 +6354,23 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:cpu:245k-tray",
+    "product_id": "model:cpu:265kf",
     "category": "cpu",
     "vendor": "1pc",
     "collapsed": true,
     "offers": [
       {
-        "listing_key": "1pc:171974",
-        "vendor_sku": "AT807680640F",
-        "title": "מעבד Intel Core Ultra 5 245K 5.2GHz 24MB Cache S1851 - Tray",
-        "price": 824
-      },
-      {
-        "listing_key": "1pc:189994",
-        "vendor_sku": "C245KT",
-        "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
-        "price": 940,
-        "alias_of": "1pc:171974"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:245kf-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:171975",
-        "vendor_sku": "AT8076806414",
-        "title": "מעבד Intel Core Ultra 5 245KF 5.2GHz 24MB Cache S1851 - Tray",
-        "price": 783
-      },
-      {
-        "listing_key": "1pc:189655",
-        "vendor_sku": "C245KFT",
-        "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
-        "price": 892,
-        "alias_of": "1pc:171975"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:265k-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:171972",
-        "vendor_sku": "AT8076806412",
-        "title": "מעבד Intel Core Ultra 7 265K 5.5GHz 30MB Cache S1851 - Tray",
-        "price": 1255
-      },
-      {
-        "listing_key": "1pc:189657",
-        "vendor_sku": "C265KT",
-        "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
-        "price": 1968,
-        "alias_of": "1pc:171972"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:265kf-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:171978",
-        "vendor_sku": "AT8076806410",
-        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - Tray",
-        "price": 1165
+        "listing_key": "1pc:171977",
+        "vendor_sku": "BX80768265KF",
+        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX",
+        "price": 1183
       },
       {
         "listing_key": "1pc:189658",
         "vendor_sku": "C265KFT",
         "title": "מעבד Intel Core Ultra 7 265KF תושבת 1851",
         "price": 1428,
-        "alias_of": "1pc:171978"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:cpu:285k-tray",
-    "category": "cpu",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:189660",
-        "vendor_sku": "C285KT",
-        "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
-        "price": 2199
-      },
-      {
-        "listing_key": "1pc:171970",
-        "vendor_sku": "AT8076806419",
-        "title": "מעבד Intel Core Ultra 9 285K 5.7GHz 36MB Cache S1851 - Tray",
-        "price": 2221,
-        "alias_of": "1pc:189660"
+        "alias_of": "1pc:171977"
       }
     ]
   },
@@ -6371,6 +6393,28 @@
         "vendor_sku": "100-000001973",
         "title": "מעבד חברת AMD דגם Ryzen 7 9850X3D Boost 5.6Ghz 96MB Cache AM5 TRAY Thermal solution not included",
         "price": 1920
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:cpu:corei712700f",
+    "category": "cpu",
+    "vendor": "1pc",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "1pc:109579",
+        "vendor_sku": "C12700FB",
+        "title": "מעבד Intel Core i7 12700F צבע שחור",
+        "price": 1362
+      },
+      {
+        "listing_key": "1pc:116096",
+        "vendor_sku": "C12700FT",
+        "title": "מעבד Intel Core i7 12700F צבע שחור",
+        "price": 1374,
+        "alias_of": "1pc:109579"
       }
     ]
   },
@@ -7462,23 +7506,6 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:17-2dba-85-85cfm-le520-240mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "yahav:9343",
-        "vendor": "yahav",
-        "vendor_sku": "R-LE520-BKAMMN-G-1",
-        "title": "קירור נוזלי למעבד חברת DeepCool דגם LE520 240MM 85.85CFM 2250RPM 17.2DBA",
-        "price": 395
-      }
-    ],
-    "model_code": "17-2dba-85-85cfm-le520",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
     "product_id": "model:aio:17-2dba-85-85cfm-le520-240mm-white",
     "vendor": "",
     "offers": [
@@ -7496,18 +7523,18 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:1cfm-63-aio-h150i-icue-lcd-link-360mm",
+    "product_id": "model:aio:17-2dba-85-85cfm-le520-240mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "yahav:9499",
+        "listing_key": "yahav:9343",
         "vendor": "yahav",
-        "vendor_sku": "CW-9061008-WW",
-        "title": "קירור נוזלי למעבד חברת Corsair דגם Corsair iCUE Link LCD RGB AIO H150i 360mm RGB 63.1CFM",
-        "price": 1690
+        "vendor_sku": "R-LE520-BKAMMN-G-1",
+        "title": "קירור נוזלי למעבד חברת DeepCool דגם LE520 240MM 85.85CFM 2250RPM 17.2DBA",
+        "price": 395
       }
     ],
-    "model_code": "1cfm-63-aio-h150i-icue-lcd-link",
+    "model_code": "17-2dba-85-85cfm-le520",
     "manufacturer_pn": []
   },
   {
@@ -7522,6 +7549,23 @@
         "vendor_sku": "CW-9061010-WW",
         "title": "קירור נוזלי למעבד חברת Corsair דגם Corsair iCUE Link LCD White RGB AIO H150i 360mm RGB 63.1CFM",
         "price": 1635
+      }
+    ],
+    "model_code": "1cfm-63-aio-h150i-icue-lcd-link",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:1cfm-63-aio-h150i-icue-lcd-link-360mm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:9499",
+        "vendor": "yahav",
+        "vendor_sku": "CW-9061008-WW",
+        "title": "קירור נוזלי למעבד חברת Corsair דגם Corsair iCUE Link LCD RGB AIO H150i 360mm RGB 63.1CFM",
+        "price": 1690
       }
     ],
     "model_code": "1cfm-63-aio-h150i-icue-lcd-link",
@@ -7645,14 +7689,14 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:240-omni-240mm",
+    "product_id": "model:aio:240-omni-240mm-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:OMNI240ARGB",
+        "listing_key": "tms:OMNI240ARGB-W",
         "vendor": "tms",
-        "vendor_sku": "OMNI240ARGB",
-        "title": "קירור נוזלי Antec Omni 240 ARGB",
+        "vendor_sku": "OMNI240ARGB-W",
+        "title": "קירור נוזלי Antec Omni 240 ARGB לבן",
         "price": 193
       }
     ],
@@ -7662,14 +7706,14 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:240-omni-240mm-white",
+    "product_id": "model:aio:240-omni-240mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:OMNI240ARGB-W",
+        "listing_key": "tms:OMNI240ARGB",
         "vendor": "tms",
-        "vendor_sku": "OMNI240ARGB-W",
-        "title": "קירור נוזלי Antec Omni 240 ARGB לבן",
+        "vendor_sku": "OMNI240ARGB",
+        "title": "קירור נוזלי Antec Omni 240 ARGB",
         "price": 193
       }
     ],
@@ -7762,23 +7806,6 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:32-85-85cfm-9dba-ls520-se-280mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "yahav:9342",
-        "vendor": "yahav",
-        "vendor_sku": "R-LS520-BKAMMM-G-1",
-        "title": "קירור נוזלי למעבד חברת DeepCool דגם LS520 SE 280MM 85.85CFM 2250RPM 32.9DBA",
-        "price": 630
-      }
-    ],
-    "model_code": "32-85-85cfm-9dba-ls520-se",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
     "product_id": "model:aio:32-85-85cfm-9dba-ls520-se-280mm-white",
     "vendor": "",
     "offers": [
@@ -7796,18 +7823,18 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-a13-coreliquid-mag-360mm",
+    "product_id": "model:aio:32-85-85cfm-9dba-ls520-se-280mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:192580",
-        "vendor": "1pc",
-        "vendor_sku": "192580",
-        "title": "קירור נוזלי MSI MAG CORELIQUID A13 360 ARGB",
-        "price": 413
+        "listing_key": "yahav:9342",
+        "vendor": "yahav",
+        "vendor_sku": "R-LS520-BKAMMM-G-1",
+        "title": "קירור נוזלי למעבד חברת DeepCool דגם LS520 SE 280MM 85.85CFM 2250RPM 32.9DBA",
+        "price": 630
       }
     ],
-    "model_code": "360-a13-coreliquid-mag",
+    "model_code": "32-85-85cfm-9dba-ls520-se",
     "manufacturer_pn": []
   },
   {
@@ -7822,6 +7849,23 @@
         "vendor_sku": "192581",
         "title": "קירור נוזלי MSI MAG CORELIQUID A13 360 בצבע לבן",
         "price": 530
+      }
+    ],
+    "model_code": "360-a13-coreliquid-mag",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:360-a13-coreliquid-mag-360mm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:192580",
+        "vendor": "1pc",
+        "vendor_sku": "192580",
+        "title": "קירור נוזלי MSI MAG CORELIQUID A13 360 ARGB",
+        "price": 413
       }
     ],
     "model_code": "360-a13-coreliquid-mag",
@@ -7853,14 +7897,14 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-aio-lc-lcd-rog-strix-360mm",
+    "product_id": "model:aio:360-aio-lc-lcd-rog-strix-360mm-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "yahav:10507",
+        "listing_key": "yahav:10140",
         "vendor": "yahav",
-        "vendor_sku": "ROG-STRIX-LC-III-360-ARGB-LCD",
-        "title": "קירור נוזלי למעבד חברת Asus דגם ROG Strix LC III 360 RGB LCD AIO 360MM 2800RPM",
+        "vendor_sku": "ROG-STRIX-LC-III-360-ARGB-LCD-White-Edition",
+        "title": "קירור נוזלי למעבד חברת Asus דגם ROG Strix LC III 360 RGB LCD White Edition AIO 360MM 2800RPM",
         "price": 1430
       }
     ],
@@ -7870,14 +7914,14 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-aio-lc-lcd-rog-strix-360mm-white",
+    "product_id": "model:aio:360-aio-lc-lcd-rog-strix-360mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "yahav:10140",
+        "listing_key": "yahav:10507",
         "vendor": "yahav",
-        "vendor_sku": "ROG-STRIX-LC-III-360-ARGB-LCD-White-Edition",
-        "title": "קירור נוזלי למעבד חברת Asus דגם ROG Strix LC III 360 RGB LCD White Edition AIO 360MM 2800RPM",
+        "vendor_sku": "ROG-STRIX-LC-III-360-ARGB-LCD",
+        "title": "קירור נוזלי למעבד חברת Asus דגם ROG Strix LC III 360 RGB LCD AIO 360MM 2800RPM",
         "price": 1430
       }
     ],
@@ -8006,23 +8050,6 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-ts4-360mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:TS4-360-BK",
-        "vendor": "tms",
-        "vendor_sku": "TS4-360-BK",
-        "title": "קירור נוזלי למעבד 1StPlayer TS4 360",
-        "price": 264
-      }
-    ],
-    "model_code": "360-ts4",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
     "product_id": "model:aio:360-ts4-360mm-white",
     "vendor": "",
     "offers": [
@@ -8040,18 +8067,18 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-ultra-360mm",
+    "product_id": "model:aio:360-ts4-360mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:ULTRA360ARGB",
+        "listing_key": "tms:TS4-360-BK",
         "vendor": "tms",
-        "vendor_sku": "ULTRA360ARGB",
-        "title": "קירור נוזלי למעבד Antec Ultra 360 ARGB",
-        "price": 207
+        "vendor_sku": "TS4-360-BK",
+        "title": "קירור נוזלי למעבד 1StPlayer TS4 360",
+        "price": 264
       }
     ],
-    "model_code": "360-ultra",
+    "model_code": "360-ts4",
     "manufacturer_pn": []
   },
   {
@@ -8072,27 +8099,21 @@
     "manufacturer_pn": []
   },
   {
-    "kind": "identity_merge",
+    "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360mm-io-lcd-light-loop-360mm",
+    "product_id": "model:aio:360-ultra-360mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:218659",
-        "vendor": "1pc",
-        "vendor_sku": "BW032",
-        "title": "קירור נוזלי be quiet! LIGHT LOOP IO LCD 360mm",
-        "price": 849
-      },
-      {
-        "listing_key": "tms:BW032",
+        "listing_key": "tms:ULTRA360ARGB",
         "vendor": "tms",
-        "vendor_sku": "BW032",
-        "title": "be quiet! LIGHT LOOP IO LCD 360mm",
-        "price": 833
+        "vendor_sku": "ULTRA360ARGB",
+        "title": "קירור נוזלי למעבד Antec Ultra 360 ARGB",
+        "price": 207
       }
     ],
-    "model_code": "360mm-io-lcd-light-loop"
+    "model_code": "360-ultra",
+    "manufacturer_pn": []
   },
   {
     "kind": "identity_merge",
@@ -8118,7 +8139,7 @@
     "model_code": "360mm-io-lcd-light-loop"
   },
   {
-    "kind": "variant_conflict",
+    "kind": "identity_merge",
     "category": "aio",
     "product_id": "model:aio:360mm-io-lcd-light-loop-360mm",
     "vendor": "",
@@ -8136,6 +8157,29 @@
         "vendor_sku": "BW032",
         "title": "be quiet! LIGHT LOOP IO LCD 360mm",
         "price": 833
+      }
+    ],
+    "model_code": "360mm-io-lcd-light-loop"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:360mm-io-lcd-light-loop-360mm-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:218657",
+        "vendor": "1pc",
+        "vendor_sku": "BW033",
+        "title": "קירור נוזלי be quiet! LIGHT LOOP IO LCD 360mm",
+        "price": 868
+      },
+      {
+        "listing_key": "tms:BW033",
+        "vendor": "tms",
+        "vendor_sku": "BW033",
+        "title": "be quiet! LIGHT LOOP IO LCD 360mm לבן",
+        "price": 851
       }
     ],
     "model_code": "360mm-io-lcd-light-loop",
@@ -8144,22 +8188,22 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360mm-io-lcd-light-loop-360mm-white",
+    "product_id": "model:aio:360mm-io-lcd-light-loop-360mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:218657",
+        "listing_key": "1pc:218659",
         "vendor": "1pc",
-        "vendor_sku": "BW033",
+        "vendor_sku": "BW032",
         "title": "קירור נוזלי be quiet! LIGHT LOOP IO LCD 360mm",
-        "price": 868
+        "price": 849
       },
       {
-        "listing_key": "tms:BW033",
+        "listing_key": "tms:BW032",
         "vendor": "tms",
-        "vendor_sku": "BW033",
-        "title": "be quiet! LIGHT LOOP IO LCD 360mm לבן",
-        "price": 851
+        "vendor_sku": "BW032",
+        "title": "be quiet! LIGHT LOOP IO LCD 360mm",
+        "price": 833
       }
     ],
     "model_code": "360mm-io-lcd-light-loop",
@@ -8604,23 +8648,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:100r-mag-pano-pz",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:179941",
-        "vendor": "1pc",
-        "vendor_sku": "179941",
-        "title": "מארז מחשב MSI MAG PANO 100R PZ",
-        "price": 545
-      }
-    ],
-    "model_code": "100r-mag-pano-pz",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:100r-mag-pano-pz-white",
     "vendor": "",
     "offers": [
@@ -8630,6 +8657,23 @@
         "vendor_sku": "179942",
         "title": "מארז מחשב MSI MAG PANO 100R PZ WHITE",
         "price": 604
+      }
+    ],
+    "model_code": "100r-mag-pano-pz",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:100r-mag-pano-pz",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:179941",
+        "vendor": "1pc",
+        "vendor_sku": "179941",
+        "title": "מארז מחשב MSI MAG PANO 100R PZ",
+        "price": 545
       }
     ],
     "model_code": "100r-mag-pano-pz",
@@ -11228,14 +11272,14 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:3-3x120mm-c120-connect-pwm-reverse-120mm-3-rgb",
+    "product_id": "model:case_fan:3-3x120mm-c120-connect-pwm-reverse-120mm-3-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "yahav:10321",
+        "listing_key": "yahav:10783",
         "vendor": "yahav",
-        "vendor_sku": "C120ARGB-REVERSE-3PK",
-        "title": "מארז 3 מאווררים חברת Antec דגם Connect C120 Reverse ARGB PWM 3X120MM בצבע שחור",
+        "vendor_sku": "C120ARGB-REVERSE-3PK-WHITE",
+        "title": "מארז 3 מאווררים חברת Antec דגם Connect C120 Reverse ARGB PWM 3X120MM בצבע לבן",
         "price": 160
       }
     ],
@@ -11245,14 +11289,14 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:3-3x120mm-c120-connect-pwm-reverse-120mm-3-rgb-white",
+    "product_id": "model:case_fan:3-3x120mm-c120-connect-pwm-reverse-120mm-3-rgb",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "yahav:10783",
+        "listing_key": "yahav:10321",
         "vendor": "yahav",
-        "vendor_sku": "C120ARGB-REVERSE-3PK-WHITE",
-        "title": "מארז 3 מאווררים חברת Antec דגם Connect C120 Reverse ARGB PWM 3X120MM בצבע לבן",
+        "vendor_sku": "C120ARGB-REVERSE-3PK",
+        "title": "מארז 3 מאווררים חברת Antec דגם Connect C120 Reverse ARGB PWM 3X120MM בצבע שחור",
         "price": 160
       }
     ],
@@ -11771,39 +11815,6 @@
   {
     "kind": "variant_conflict",
     "category": "cooler_air",
-    "product_id": "model:cooler_air:3-rock-shadow-165mm-120mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:124089",
-        "vendor": "1pc",
-        "vendor_sku": "BK004",
-        "title": "מאוורר קירור מעבד be quiet! Shadow Rock 3 BK004 בצבע אלומיניום מוברש",
-        "price": 295
-      },
-      {
-        "listing_key": "tms:BK004",
-        "vendor": "tms",
-        "vendor_sku": "BK004",
-        "title": "קירור אוויר למעבד be quiet! Shadow Rock 3",
-        "price": 233
-      },
-      {
-        "listing_key": "yahav:5032",
-        "vendor": "yahav",
-        "vendor_sku": "BK004",
-        "title": "קירור אוויר למעבד חברת Be Quiet דגם Shadow Rock 3 BK004 1X120MM 1600RPM LGA1700 Gen 12 Compatible",
-        "price": 280
-      }
-    ],
-    "model_code": "3-rock-shadow",
-    "manufacturer_pn": [
-      "BK004"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "cooler_air",
     "product_id": "model:cooler_air:3-rock-shadow-165mm-120mm-white",
     "vendor": "",
     "offers": [
@@ -11832,6 +11843,39 @@
     "model_code": "3-rock-shadow",
     "manufacturer_pn": [
       "BK005"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:3-rock-shadow-165mm-120mm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:124089",
+        "vendor": "1pc",
+        "vendor_sku": "BK004",
+        "title": "מאוורר קירור מעבד be quiet! Shadow Rock 3 BK004 בצבע אלומיניום מוברש",
+        "price": 295
+      },
+      {
+        "listing_key": "tms:BK004",
+        "vendor": "tms",
+        "vendor_sku": "BK004",
+        "title": "קירור אוויר למעבד be quiet! Shadow Rock 3",
+        "price": 233
+      },
+      {
+        "listing_key": "yahav:5032",
+        "vendor": "yahav",
+        "vendor_sku": "BK004",
+        "title": "קירור אוויר למעבד חברת Be Quiet דגם Shadow Rock 3 BK004 1X120MM 1600RPM LGA1700 Gen 12 Compatible",
+        "price": 280
+      }
+    ],
+    "model_code": "3-rock-shadow",
+    "manufacturer_pn": [
+      "BK004"
     ]
   },
   {
@@ -12048,23 +12092,6 @@
   {
     "kind": "variant_conflict",
     "category": "cooler_air",
-    "product_id": "model:cooler_air:digital-f620-pro-155mm-120mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:F620DIGITALPRO",
-        "vendor": "tms",
-        "vendor_sku": "F620DIGITALPRO",
-        "title": "קירור למעבד Antec F620 Digital Pro",
-        "price": 171
-      }
-    ],
-    "model_code": "digital-f620-pro",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "cooler_air",
     "product_id": "model:cooler_air:digital-f620-pro-155mm-120mm-white",
     "vendor": "",
     "offers": [
@@ -12082,21 +12109,19 @@
   {
     "kind": "variant_conflict",
     "category": "cooler_air",
-    "product_id": "model:cooler_air:f400-155mm-120mm",
+    "product_id": "model:cooler_air:digital-f620-pro-155mm-120mm",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:F400ARGB",
+        "listing_key": "tms:F620DIGITALPRO",
         "vendor": "tms",
-        "vendor_sku": "F400ARGB",
-        "title": "Antec F400 ARGB מצנן מעבד",
-        "price": 85
+        "vendor_sku": "F620DIGITALPRO",
+        "title": "קירור למעבד Antec F620 Digital Pro",
+        "price": 171
       }
     ],
-    "model_code": "f400",
-    "manufacturer_pn": [
-      "F400ARGB"
-    ]
+    "model_code": "digital-f620-pro",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -12115,6 +12140,25 @@
     "model_code": "f400",
     "manufacturer_pn": [
       "F400ARGBW"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:f400-155mm-120mm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:F400ARGB",
+        "vendor": "tms",
+        "vendor_sku": "F400ARGB",
+        "title": "Antec F400 ARGB מצנן מעבד",
+        "price": 85
+      }
+    ],
+    "model_code": "f400",
+    "manufacturer_pn": [
+      "F400ARGB"
     ]
   },
   {
@@ -12394,7 +12438,7 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:12700f-tray",
+    "product_id": "model:cpu:corei712700f",
     "vendor": "",
     "offers": [
       {
@@ -12404,6 +12448,22 @@
         "title": "מעבד Intel Core i7 12700F צבע שחור",
         "price": 1374
       },
+      {
+        "listing_key": "ivory:43099",
+        "vendor": "ivory",
+        "vendor_sku": "I7-12700FB",
+        "title": "מעבד אינטל Intel Core i7-12700F | דור 12 Alder Lake | ללא ליבה גרפית | אריזת Box",
+        "price": 1249
+      }
+    ],
+    "model_code": "12700f"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:12700f-tray",
+    "vendor": "",
+    "offers": [
       {
         "listing_key": "tms:C12700FT",
         "vendor": "tms",
@@ -12443,75 +12503,6 @@
       }
     ],
     "model_code": "12700kf"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:12900k-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:108836",
-        "vendor": "1pc",
-        "vendor_sku": "C12900KT",
-        "title": "מעבד Intel Core i9 12900K צבע שחור",
-        "price": 1702
-      },
-      {
-        "listing_key": "tms:C12900KT",
-        "vendor": "tms",
-        "vendor_sku": "C12900KT",
-        "title": "Intel Core i9 12900K / 1700 Tray",
-        "price": 1625
-      }
-    ],
-    "model_code": "12900k"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:12900kf-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:121569",
-        "vendor": "1pc",
-        "vendor_sku": "C12900KFT",
-        "title": "מעבד Intel Core i9 12900KF צבע שחור",
-        "price": 1613
-      },
-      {
-        "listing_key": "tms:C12900KFT",
-        "vendor": "tms",
-        "vendor_sku": "C12900KFT",
-        "title": "Intel Core i9 12900KF / 1700 Tray",
-        "price": 1539
-      }
-    ],
-    "model_code": "12900kf"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:13700k-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:126898",
-        "vendor": "1pc",
-        "vendor_sku": "C13700KT",
-        "title": "מעבד אינטל Core i7 13700K צבע כסף",
-        "price": 1498
-      },
-      {
-        "listing_key": "tms:C13700KT",
-        "vendor": "tms",
-        "vendor_sku": "C13700KT",
-        "title": "Intel Core i7 13700K / 1700 Tray",
-        "price": 1417
-      }
-    ],
-    "model_code": "13700k"
   },
   {
     "kind": "identity_merge",
@@ -12760,6 +12751,29 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
+    "product_id": "model:cpu:245k",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:189994",
+        "vendor": "1pc",
+        "vendor_sku": "C245KT",
+        "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
+        "price": 940
+      },
+      {
+        "listing_key": "ksp:340388",
+        "vendor": "ksp",
+        "vendor_sku": "340388",
+        "title": "מעבד Intel Core Ultra 5 245K 24MB Cache LGA1851 - Box",
+        "price": 890
+      }
+    ],
+    "model_code": "245k"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
     "product_id": "model:cpu:250kf",
     "vendor": "",
     "offers": [
@@ -12806,25 +12820,25 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:3240-tray",
+    "product_id": "model:cpu:285k",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:121958",
+        "listing_key": "1pc:189660",
         "vendor": "1pc",
-        "vendor_sku": "C3240T-P",
-        "title": "מעבד Intel Core i3 3240T צבע שחור",
-        "price": 211
+        "vendor_sku": "C285KT",
+        "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
+        "price": 2199
       },
       {
-        "listing_key": "tms:C3240T-P",
-        "vendor": "tms",
-        "vendor_sku": "C3240T-P",
-        "title": "מעבד Intel Core i3 3240 with Graphics Tray Pull",
-        "price": 151
+        "listing_key": "ivory:113311",
+        "vendor": "ivory",
+        "vendor_sku": "ULTRA-9-285KB",
+        "title": "מעבד אינטל Intel Core Ultra 9 285K | תדר עד 5.70GHz | זיכרון מטמון 36MB | אריזת Box",
+        "price": 2220
       }
     ],
-    "model_code": "3240"
+    "model_code": "285k"
   },
   {
     "kind": "identity_merge",
@@ -12848,29 +12862,6 @@
       }
     ],
     "model_code": "3300x"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:3470-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:121972",
-        "vendor": "1pc",
-        "vendor_sku": "C3470T-P",
-        "title": "מעבד Intel Core i5 3470 צבע שחור",
-        "price": 252
-      },
-      {
-        "listing_key": "tms:C3470T-P",
-        "vendor": "tms",
-        "vendor_sku": "C3470T-P",
-        "title": "Core i5 3470 With Graphics Tray - Pull משומש",
-        "price": 227
-      }
-    ],
-    "model_code": "3470"
   },
   {
     "kind": "identity_merge",
@@ -12917,29 +12908,6 @@
       }
     ],
     "model_code": "4100"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:4170-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:121961",
-        "vendor": "1pc",
-        "vendor_sku": "C4170T-P",
-        "title": "מעבד Intel Core i3 4170 צבע שחור",
-        "price": 250
-      },
-      {
-        "listing_key": "tms:C4170T-P",
-        "vendor": "tms",
-        "vendor_sku": "C4170T-P",
-        "title": "Intel Core i3 4170 with Graphics Tray Pull",
-        "price": 189
-      }
-    ],
-    "model_code": "4170"
   },
   {
     "kind": "identity_merge",
@@ -13188,98 +13156,6 @@
     "manufacturer_pn": [
       "100100000651WOF"
     ]
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:6700-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:105172",
-        "vendor": "1pc",
-        "vendor_sku": "C6700T",
-        "title": "מעבד Intel Core i7 6700 צבע ללא",
-        "price": 1258
-      },
-      {
-        "listing_key": "tms:C6700T",
-        "vendor": "tms",
-        "vendor_sku": "C6700T",
-        "title": "Intel Core i7 6700 / 1151 Tray",
-        "price": 1208
-      }
-    ],
-    "model_code": "6700"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:6700t-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:121966",
-        "vendor": "1pc",
-        "vendor_sku": "C6700TT",
-        "title": "מעבד Intel Core i7 6700T 35W צבע כסף",
-        "price": 595
-      },
-      {
-        "listing_key": "tms:C6700TT",
-        "vendor": "tms",
-        "vendor_sku": "C6700TT",
-        "title": "Intel Core i7 6700T 35W / 1151 Tray",
-        "price": 568
-      }
-    ],
-    "model_code": "6700t"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:7100-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:32633",
-        "vendor": "1pc",
-        "vendor_sku": "C7100T",
-        "title": "מעבד Intel Core i3 7100 צבע כסף",
-        "price": 309
-      },
-      {
-        "listing_key": "tms:C7100T",
-        "vendor": "tms",
-        "vendor_sku": "C7100T",
-        "title": "Intel Core i3 7100 / 1151 Tray",
-        "price": 239
-      }
-    ],
-    "model_code": "7100"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:7400-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:121962",
-        "vendor": "1pc",
-        "vendor_sku": "C7400T-P",
-        "title": "מעבד Intel Core i5 7400 בצבע כסף",
-        "price": 437
-      },
-      {
-        "listing_key": "tms:C7400T-P",
-        "vendor": "tms",
-        "vendor_sku": "C7400T-P",
-        "title": "Intel Core i5 7400 / 1151 Tray Pull",
-        "price": 360
-      }
-    ],
-    "model_code": "7400"
   },
   {
     "kind": "identity_merge",
@@ -13637,29 +13513,6 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:9100t-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:107271",
-        "vendor": "1pc",
-        "vendor_sku": "C9100TT",
-        "title": "מעבד Intel Core i3 9100T צבע שחור",
-        "price": 312
-      },
-      {
-        "listing_key": "tms:C9100TT",
-        "vendor": "tms",
-        "vendor_sku": "C9100TT",
-        "title": "Intel Core i3 9100T / 1151 Tray",
-        "price": 282
-      }
-    ],
-    "model_code": "9100t"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
     "product_id": "model:cpu:9300t-tray",
     "vendor": "",
     "offers": [
@@ -13739,29 +13592,6 @@
       }
     ],
     "model_code": "9600x"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:9700f-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:67263",
-        "vendor": "1pc",
-        "vendor_sku": "C9700FT",
-        "title": "מעבד Intel Core i7 9700F צבע כסף",
-        "price": 698
-      },
-      {
-        "listing_key": "tms:C9700FT",
-        "vendor": "tms",
-        "vendor_sku": "C9700FT",
-        "title": "Intel Core i7 9700F / 1151 Tray",
-        "price": 572
-      }
-    ],
-    "model_code": "9700f"
   },
   {
     "kind": "identity_merge",
@@ -14478,6 +14308,25 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
+    "product_id": "model:memory:2x16gb-6000-amd-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:GAVSG532GB6000C36CDC",
+        "vendor": "tms",
+        "vendor_sku": "GAVSG532GB6000C36CDC",
+        "title": "GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V RGB AMD מהדורה אפורה",
+        "price": 2103
+      }
+    ],
+    "model_code": "2x16gb-6000-amd-cl36-orion-v",
+    "manufacturer_pn": [
+      "GAVSG532GB6000C36CDC"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
     "product_id": "model:memory:2x16gb-6000-amd-cl36-orion-v-32gb-x2-6000mhz-cl36-grey",
     "vendor": "",
     "offers": [
@@ -14497,21 +14346,19 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:2x16gb-6000-amd-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey",
+    "product_id": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:GAVSG532GB6000C36CDC",
+        "listing_key": "tms:6000J3038F16GX2-TZ5NR",
         "vendor": "tms",
-        "vendor_sku": "GAVSG532GB6000C36CDC",
-        "title": "GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V RGB AMD מהדורה אפורה",
-        "price": 2103
+        "vendor_sku": "6000J3038F16GX2-TZ5NR",
+        "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
+        "price": 2843
       }
     ],
-    "model_code": "2x16gb-6000-amd-cl36-orion-v",
-    "manufacturer_pn": [
-      "GAVSG532GB6000C36CDC"
-    ]
+    "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -14538,23 +14385,6 @@
     "manufacturer_pn": [
       "6000J3038F16GX2TZ5N"
     ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000-cl30-expo-neo-trident-z5-32gb-x2-6000mhz-cl30-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:6000J3038F16GX2-TZ5NR",
-        "vendor": "tms",
-        "vendor_sku": "6000J3038F16GX2-TZ5NR",
-        "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-        "price": 2843
-      }
-    ],
-    "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
-    "manufacturer_pn": []
   },
   {
     "kind": "identity_merge",
@@ -15419,32 +15249,6 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:eagle-wifi7-z890",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172007",
-        "vendor": "1pc",
-        "vendor_sku": "GZ890EAGLEWIFI7",
-        "title": "לוח אם Gigabyte Z890 EAGLE WiFi7",
-        "price": 1022
-      },
-      {
-        "listing_key": "tms:GZ890EAGLEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GZ890EAGLEWIFI7",
-        "title": "Gigabyte Z890 EAGLE WiFi7",
-        "price": 1064
-      }
-    ],
-    "model_code": "eagle-wifi7-z890",
-    "manufacturer_pn": [
-      "GZ890EAGLEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
     "product_id": "model:motherboard:eagle-wifi7-z890-atx",
     "vendor": "",
     "offers": [
@@ -15471,27 +15275,27 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:eagle-z890",
+    "product_id": "model:motherboard:eagle-wifi7-z890",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:173489",
+        "listing_key": "1pc:172007",
         "vendor": "1pc",
-        "vendor_sku": "GZ890EAGLE",
-        "title": "לוח אם Gigabyte Z890 EAGLE",
-        "price": 964
+        "vendor_sku": "GZ890EAGLEWIFI7",
+        "title": "לוח אם Gigabyte Z890 EAGLE WiFi7",
+        "price": 1022
       },
       {
-        "listing_key": "tms:GZ890EAGLE",
+        "listing_key": "tms:GZ890EAGLEWIFI7",
         "vendor": "tms",
-        "vendor_sku": "GZ890EAGLE",
-        "title": "Gigabyte Z890 EAGLE",
-        "price": 1011
+        "vendor_sku": "GZ890EAGLEWIFI7",
+        "title": "Gigabyte Z890 EAGLE WiFi7",
+        "price": 1064
       }
     ],
-    "model_code": "eagle-z890",
+    "model_code": "eagle-wifi7-z890",
     "manufacturer_pn": [
-      "GZ890EAGLE"
+      "GZ890EAGLEWIFI7"
     ]
   },
   {
@@ -15518,6 +15322,32 @@
     "model_code": "eagle-z890",
     "manufacturer_pn": [
       "GZ890EAGLEPLUS"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:eagle-z890",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:173489",
+        "vendor": "1pc",
+        "vendor_sku": "GZ890EAGLE",
+        "title": "לוח אם Gigabyte Z890 EAGLE",
+        "price": 964
+      },
+      {
+        "listing_key": "tms:GZ890EAGLE",
+        "vendor": "tms",
+        "vendor_sku": "GZ890EAGLE",
+        "title": "Gigabyte Z890 EAGLE",
+        "price": 1011
+      }
+    ],
+    "model_code": "eagle-z890",
+    "manufacturer_pn": [
+      "GZ890EAGLE"
     ]
   },
   {
@@ -15605,32 +15435,6 @@
   {
     "kind": "variant_conflict",
     "category": "psu",
-    "product_id": "model:psu:1-1000rz-3-triton-1000w-full",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:203975",
-        "vendor": "1pc",
-        "vendor_sku": "SST-TR1000R-GM",
-        "title": "ספק כוח SilverStone Triton 1000Rz Gold ATX 3.1 מודולרי מלא 1000W",
-        "price": 620
-      },
-      {
-        "listing_key": "tms:SST-TR1000R-GM",
-        "vendor": "tms",
-        "vendor_sku": "SST-TR1000R-GM",
-        "title": "SilverStone 1000W Triton 1000Rz Gold ATX 3.1 Fully Modular Power Supply",
-        "price": 627
-      }
-    ],
-    "model_code": "1-1000rz-3-triton",
-    "manufacturer_pn": [
-      "SSTTR1000RGM"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
     "product_id": "model:psu:1-1000rz-3-triton-1000w-full-white",
     "vendor": "",
     "offers": [
@@ -15657,19 +15461,28 @@
   {
     "kind": "variant_conflict",
     "category": "psu",
-    "product_id": "model:psu:1-1200-3-gx-vertex-1200w",
+    "product_id": "model:psu:1-1000rz-3-triton-1000w-full",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:12122GXAFS",
+        "listing_key": "1pc:203975",
+        "vendor": "1pc",
+        "vendor_sku": "SST-TR1000R-GM",
+        "title": "ספק כוח SilverStone Triton 1000Rz Gold ATX 3.1 מודולרי מלא 1000W",
+        "price": 620
+      },
+      {
+        "listing_key": "tms:SST-TR1000R-GM",
         "vendor": "tms",
-        "vendor_sku": "12122GXAFS",
-        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
-        "price": 1091
+        "vendor_sku": "SST-TR1000R-GM",
+        "title": "SilverStone 1000W Triton 1000Rz Gold ATX 3.1 Fully Modular Power Supply",
+        "price": 627
       }
     ],
-    "model_code": "1-1200-3-gx-vertex",
-    "manufacturer_pn": []
+    "model_code": "1-1000rz-3-triton",
+    "manufacturer_pn": [
+      "SSTTR1000RGM"
+    ]
   },
   {
     "kind": "variant_conflict",
@@ -15691,18 +15504,18 @@
   {
     "kind": "variant_conflict",
     "category": "psu",
-    "product_id": "model:psu:1-850-atx3-full-gsk-modular-v2-850w-full",
+    "product_id": "model:psu:1-1200-3-gx-vertex-1200w",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "tms:GSK850V2",
+        "listing_key": "tms:12122GXAFS",
         "vendor": "tms",
-        "vendor_sku": "GSK850V2",
-        "title": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular",
-        "price": 426
+        "vendor_sku": "12122GXAFS",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+        "price": 1091
       }
     ],
-    "model_code": "1-850-atx3-full-gsk-modular-v2",
+    "model_code": "1-1200-3-gx-vertex",
     "manufacturer_pn": []
   },
   {
@@ -15717,6 +15530,23 @@
         "vendor_sku": "GSK850V2-W",
         "title": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular White",
         "price": 444
+      }
+    ],
+    "model_code": "1-850-atx3-full-gsk-modular-v2",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "psu",
+    "product_id": "model:psu:1-850-atx3-full-gsk-modular-v2-850w-full",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:GSK850V2",
+        "vendor": "tms",
+        "vendor_sku": "GSK850V2",
+        "title": "ספק כוח Antec GSK 850 V2 850W ATX3.1 80+ Gold Full Modular",
+        "price": 426
       }
     ],
     "model_code": "1-850-atx3-full-gsk-modular-v2",
@@ -15886,32 +15716,6 @@
   {
     "kind": "variant_conflict",
     "category": "psu",
-    "product_id": "model:psu:750-csk-dc-750w",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:205215",
-        "vendor": "1pc",
-        "vendor_sku": "CSK750DC",
-        "title": "ספק כוח Antec CSK750DC 750W 80+ Bronze בצבע שחור",
-        "price": 284
-      },
-      {
-        "listing_key": "tms:CSK750DC",
-        "vendor": "tms",
-        "vendor_sku": "CSK750DC",
-        "title": "ספק כוח Antec PSU 750W CSK 750 DC 80+ Bronze",
-        "price": 269
-      }
-    ],
-    "model_code": "750-csk-dc",
-    "manufacturer_pn": [
-      "CSK750DC"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
     "product_id": "model:psu:750-csk-dc-750w-white",
     "vendor": "",
     "offers": [
@@ -15933,6 +15737,32 @@
     "model_code": "750-csk-dc",
     "manufacturer_pn": [
       "CSK750DCW"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "psu",
+    "product_id": "model:psu:750-csk-dc-750w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:205215",
+        "vendor": "1pc",
+        "vendor_sku": "CSK750DC",
+        "title": "ספק כוח Antec CSK750DC 750W 80+ Bronze בצבע שחור",
+        "price": 284
+      },
+      {
+        "listing_key": "tms:CSK750DC",
+        "vendor": "tms",
+        "vendor_sku": "CSK750DC",
+        "title": "ספק כוח Antec PSU 750W CSK 750 DC 80+ Bronze",
+        "price": 269
+      }
+    ],
+    "model_code": "750-csk-dc",
+    "manufacturer_pn": [
+      "CSK750DC"
     ]
   },
   {
@@ -17243,6 +17073,13 @@
         "price": 1362
       },
       {
+        "listing_key": "1pc:116096",
+        "vendor": "1pc",
+        "vendor_sku": "C12700FT",
+        "title": "מעבד Intel Core i7 12700F צבע שחור",
+        "price": 1374
+      },
+      {
         "listing_key": "ivory:43099",
         "vendor": "ivory",
         "vendor_sku": "I7-12700FB",
@@ -17281,31 +17118,6 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:corei712700f",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:109579",
-        "vendor": "1pc",
-        "vendor_sku": "C12700FB",
-        "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1362
-      },
-      {
-        "listing_key": "1pc:116096",
-        "vendor": "1pc",
-        "vendor_sku": "C12700FT",
-        "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1374
-      }
-    ],
-    "model_code": "12700f",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
     "product_id": "model:cpu:225f-tray",
     "vendor": "1pc",
     "offers": [
@@ -17325,6 +17137,81 @@
       }
     ],
     "model_code": "225f",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:245k-tray",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:171974",
+        "vendor": "1pc",
+        "vendor_sku": "AT807680640F",
+        "title": "מעבד Intel Core Ultra 5 245K 5.2GHz 24MB Cache S1851 - Tray",
+        "price": 824
+      },
+      {
+        "listing_key": "1pc:189994",
+        "vendor": "1pc",
+        "vendor_sku": "C245KT",
+        "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
+        "price": 940
+      }
+    ],
+    "model_code": "245k",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:245kf-tray",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:171975",
+        "vendor": "1pc",
+        "vendor_sku": "AT8076806414",
+        "title": "מעבד Intel Core Ultra 5 245KF 5.2GHz 24MB Cache S1851 - Tray",
+        "price": 783
+      },
+      {
+        "listing_key": "1pc:189655",
+        "vendor": "1pc",
+        "vendor_sku": "C245KFT",
+        "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
+        "price": 892
+      }
+    ],
+    "model_code": "245kf",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:265k-tray",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:171972",
+        "vendor": "1pc",
+        "vendor_sku": "AT8076806412",
+        "title": "מעבד Intel Core Ultra 7 265K 5.5GHz 30MB Cache S1851 - Tray",
+        "price": 1255
+      },
+      {
+        "listing_key": "1pc:189657",
+        "vendor": "1pc",
+        "vendor_sku": "C265KT",
+        "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
+        "price": 1968
+      }
+    ],
+    "model_code": "265k",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -17356,15 +17243,15 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:265kf",
+    "product_id": "model:cpu:265kf-tray",
     "vendor": "1pc",
     "offers": [
       {
-        "listing_key": "1pc:171977",
+        "listing_key": "1pc:171978",
         "vendor": "1pc",
-        "vendor_sku": "BX80768265KF",
-        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - BOX",
-        "price": 1183
+        "vendor_sku": "AT8076806410",
+        "title": "מעבד Intel Core Ultra 7 265KF 5.5GHz 30MB Cache S1851 - Tray",
+        "price": 1165
       },
       {
         "listing_key": "1pc:189658",
@@ -17375,6 +17262,31 @@
       }
     ],
     "model_code": "265kf",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:285k-tray",
+    "vendor": "1pc",
+    "offers": [
+      {
+        "listing_key": "1pc:171970",
+        "vendor": "1pc",
+        "vendor_sku": "AT8076806419",
+        "title": "מעבד Intel Core Ultra 9 285K 5.7GHz 36MB Cache S1851 - Tray",
+        "price": 2221
+      },
+      {
+        "listing_key": "1pc:189660",
+        "vendor": "1pc",
+        "vendor_sku": "C285KT",
+        "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
+        "price": 2199
+      }
+    ],
+    "model_code": "285k",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -18569,36 +18481,15 @@
     ],
     "model_code": "10700k",
     "resolved": false,
-    "reason": "1pc:88496: packaging read from the retailer code letter",
+    "reason": "1pc:88496: no packaging stated: Box by default (retailer code C10700KB-A not read as packaging)",
     "packaging_basis": {
-      "1pc:88496": "retailer_code"
+      "1pc:88496": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:12700f-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:116096",
-        "vendor": "1pc",
-        "vendor_sku": "C12700FT",
-        "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1374
-      }
-    ],
-    "model_code": "12700f",
-    "resolved": false,
-    "reason": "1pc:116096: packaging read from the retailer code letter",
-    "packaging_basis": {
-      "1pc:116096": "retailer_code"
-    }
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:12900k-tray",
+    "product_id": "model:cpu:12900k",
     "vendor": "",
     "offers": [
       {
@@ -18611,15 +18502,15 @@
     ],
     "model_code": "12900k",
     "resolved": false,
-    "reason": "1pc:108836: packaging read from the retailer code letter",
+    "reason": "1pc:108836: no packaging stated: Box by default (retailer code C12900KT not read as packaging)",
     "packaging_basis": {
-      "1pc:108836": "retailer_code"
+      "1pc:108836": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:12900kf-tray",
+    "product_id": "model:cpu:12900kf",
     "vendor": "",
     "offers": [
       {
@@ -18632,15 +18523,15 @@
     ],
     "model_code": "12900kf",
     "resolved": false,
-    "reason": "1pc:121569: packaging read from the retailer code letter",
+    "reason": "1pc:121569: no packaging stated: Box by default (retailer code C12900KFT not read as packaging)",
     "packaging_basis": {
-      "1pc:121569": "retailer_code"
+      "1pc:121569": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:13700k-tray",
+    "product_id": "model:cpu:13700k",
     "vendor": "",
     "offers": [
       {
@@ -18653,9 +18544,9 @@
     ],
     "model_code": "13700k",
     "resolved": false,
-    "reason": "1pc:126898: packaging read from the retailer code letter",
+    "reason": "1pc:126898: no packaging stated: Box by default (retailer code C13700KT not read as packaging)",
     "packaging_basis": {
-      "1pc:126898": "retailer_code"
+      "1pc:126898": "default"
     }
   },
   {
@@ -18724,7 +18615,7 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:2100-tray",
+    "product_id": "model:cpu:2100",
     "vendor": "",
     "offers": [
       {
@@ -18737,15 +18628,15 @@
     ],
     "model_code": "2100",
     "resolved": false,
-    "reason": "tms:C2100T-P: packaging read from the retailer code letter",
+    "reason": "tms:C2100T-P: no packaging stated: Box by default (retailer code C2100T-P not read as packaging)",
     "packaging_basis": {
-      "tms:C2100T-P": "retailer_code"
+      "tms:C2100T-P": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:245k-tray",
+    "product_id": "model:cpu:245k",
     "vendor": "",
     "offers": [
       {
@@ -18758,15 +18649,15 @@
     ],
     "model_code": "245k",
     "resolved": false,
-    "reason": "1pc:189994: packaging read from the retailer code letter",
+    "reason": "1pc:189994: no packaging stated: Box by default (retailer code C245KT not read as packaging)",
     "packaging_basis": {
-      "1pc:189994": "retailer_code"
+      "1pc:189994": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:245kf-tray",
+    "product_id": "model:cpu:245kf",
     "vendor": "",
     "offers": [
       {
@@ -18779,9 +18670,9 @@
     ],
     "model_code": "245kf",
     "resolved": false,
-    "reason": "1pc:189655: packaging read from the retailer code letter",
+    "reason": "1pc:189655: no packaging stated: Box by default (retailer code C245KFT not read as packaging)",
     "packaging_basis": {
-      "1pc:189655": "retailer_code"
+      "1pc:189655": "default"
     }
   },
   {
@@ -18808,7 +18699,7 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:265k-tray",
+    "product_id": "model:cpu:265k",
     "vendor": "",
     "offers": [
       {
@@ -18821,15 +18712,15 @@
     ],
     "model_code": "265k",
     "resolved": false,
-    "reason": "1pc:189657: packaging read from the retailer code letter",
+    "reason": "1pc:189657: no packaging stated: Box by default (retailer code C265KT not read as packaging)",
     "packaging_basis": {
-      "1pc:189657": "retailer_code"
+      "1pc:189657": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:265kf-tray",
+    "product_id": "model:cpu:265kf",
     "vendor": "",
     "offers": [
       {
@@ -18842,15 +18733,15 @@
     ],
     "model_code": "265kf",
     "resolved": false,
-    "reason": "1pc:189658: packaging read from the retailer code letter",
+    "reason": "1pc:189658: no packaging stated: Box by default (retailer code C265KFT not read as packaging)",
     "packaging_basis": {
-      "1pc:189658": "retailer_code"
+      "1pc:189658": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:285k-tray",
+    "product_id": "model:cpu:285k",
     "vendor": "",
     "offers": [
       {
@@ -18863,15 +18754,15 @@
     ],
     "model_code": "285k",
     "resolved": false,
-    "reason": "1pc:189660: packaging read from the retailer code letter",
+    "reason": "1pc:189660: no packaging stated: Box by default (retailer code C285KT not read as packaging)",
     "packaging_basis": {
-      "1pc:189660": "retailer_code"
+      "1pc:189660": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:3240-tray",
+    "product_id": "model:cpu:3240t",
     "vendor": "",
     "offers": [
       {
@@ -18884,15 +18775,15 @@
     ],
     "model_code": "3240t",
     "resolved": false,
-    "reason": "1pc:121958: packaging read from the retailer code letter",
+    "reason": "1pc:121958: no packaging stated: Box by default (retailer code C3240T-P not read as packaging)",
     "packaging_basis": {
-      "1pc:121958": "retailer_code"
+      "1pc:121958": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:3470-tray",
+    "product_id": "model:cpu:3470",
     "vendor": "",
     "offers": [
       {
@@ -18905,15 +18796,15 @@
     ],
     "model_code": "3470",
     "resolved": false,
-    "reason": "1pc:121972: packaging read from the retailer code letter",
+    "reason": "1pc:121972: no packaging stated: Box by default (retailer code C3470T-P not read as packaging)",
     "packaging_basis": {
-      "1pc:121972": "retailer_code"
+      "1pc:121972": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:4170-tray",
+    "product_id": "model:cpu:4170",
     "vendor": "",
     "offers": [
       {
@@ -18926,9 +18817,9 @@
     ],
     "model_code": "4170",
     "resolved": false,
-    "reason": "1pc:121961: packaging read from the retailer code letter",
+    "reason": "1pc:121961: no packaging stated: Box by default (retailer code C4170T-P not read as packaging)",
     "packaging_basis": {
-      "1pc:121961": "retailer_code"
+      "1pc:121961": "default"
     }
   },
   {
@@ -19081,7 +18972,7 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:6700-tray",
+    "product_id": "model:cpu:6700",
     "vendor": "",
     "offers": [
       {
@@ -19094,15 +18985,15 @@
     ],
     "model_code": "6700",
     "resolved": false,
-    "reason": "1pc:105172: packaging read from the retailer code letter",
+    "reason": "1pc:105172: no packaging stated: Box by default (retailer code C6700T not read as packaging)",
     "packaging_basis": {
-      "1pc:105172": "retailer_code"
+      "1pc:105172": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:6700t-tray",
+    "product_id": "model:cpu:6700t",
     "vendor": "",
     "offers": [
       {
@@ -19115,9 +19006,9 @@
     ],
     "model_code": "6700t",
     "resolved": false,
-    "reason": "1pc:121966: packaging read from the retailer code letter",
+    "reason": "1pc:121966: no packaging stated: Box by default (retailer code C6700TT not read as packaging)",
     "packaging_basis": {
-      "1pc:121966": "retailer_code"
+      "1pc:121966": "default"
     }
   },
   {
@@ -19144,7 +19035,7 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:7100-tray",
+    "product_id": "model:cpu:7100",
     "vendor": "",
     "offers": [
       {
@@ -19157,9 +19048,9 @@
     ],
     "model_code": "7100",
     "resolved": false,
-    "reason": "1pc:32633: packaging read from the retailer code letter",
+    "reason": "1pc:32633: no packaging stated: Box by default (retailer code C7100T not read as packaging)",
     "packaging_basis": {
-      "1pc:32633": "retailer_code"
+      "1pc:32633": "default"
     }
   },
   {
@@ -19186,7 +19077,7 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:7400-tray",
+    "product_id": "model:cpu:7400",
     "vendor": "",
     "offers": [
       {
@@ -19199,9 +19090,9 @@
     ],
     "model_code": "7400",
     "resolved": false,
-    "reason": "1pc:121962: packaging read from the retailer code letter",
+    "reason": "1pc:121962: no packaging stated: Box by default (retailer code C7400T-P not read as packaging)",
     "packaging_basis": {
-      "1pc:121962": "retailer_code"
+      "1pc:121962": "default"
     }
   },
   {
@@ -19312,7 +19203,7 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:9100t-tray",
+    "product_id": "model:cpu:9100t",
     "vendor": "",
     "offers": [
       {
@@ -19325,15 +19216,15 @@
     ],
     "model_code": "9100t",
     "resolved": false,
-    "reason": "1pc:107271: packaging read from the retailer code letter",
+    "reason": "1pc:107271: no packaging stated: Box by default (retailer code C9100TT not read as packaging)",
     "packaging_basis": {
-      "1pc:107271": "retailer_code"
+      "1pc:107271": "default"
     }
   },
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:9700f-tray",
+    "product_id": "model:cpu:9700f",
     "vendor": "",
     "offers": [
       {
@@ -19346,9 +19237,9 @@
     ],
     "model_code": "9700f",
     "resolved": false,
-    "reason": "1pc:67263: packaging read from the retailer code letter",
+    "reason": "1pc:67263: no packaging stated: Box by default (retailer code C9700FT not read as packaging)",
     "packaging_basis": {
-      "1pc:67263": "retailer_code"
+      "1pc:67263": "default"
     }
   },
   {
@@ -19405,13 +19296,21 @@
         "vendor_sku": "C12700FB",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
         "price": 1362
+      },
+      {
+        "listing_key": "1pc:116096",
+        "vendor": "1pc",
+        "vendor_sku": "C12700FT",
+        "title": "מעבד Intel Core i7 12700F צבע שחור",
+        "price": 1374
       }
     ],
     "model_code": "12700f",
     "resolved": false,
-    "reason": "1pc:109579: packaging read from the retailer code letter",
+    "reason": "1pc:109579: no packaging stated: Box by default (retailer code C12700FB not read as packaging); 1pc:116096: no packaging stated: Box by default (retailer code C12700FT not read as packaging)",
     "packaging_basis": {
-      "1pc:109579": "retailer_code"
+      "1pc:109579": "default",
+      "1pc:116096": "default"
     }
   },
   {
@@ -20394,58 +20293,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:c201-ice-panoramic-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207721",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C201PI",
-        "title": "מארז מחשב Gigabyte C201 Panoramic ICE בצבע לבן",
-        "price": 297
-      },
-      {
-        "listing_key": "tms:GB-C201PI",
-        "vendor": "tms",
-        "vendor_sku": "GB-C201PI",
-        "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
-        "price": 349
-      }
-    ],
-    "model_code": "c201-ice-panoramic",
-    "manufacturer_pn": [
-      "GBC201PI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:c201-panoramic-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207722",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C201P",
-        "title": "מארז מחשב Gigabyte C201 Panoramic בצבע שחור",
-        "price": 352
-      },
-      {
-        "listing_key": "tms:GB-C201P",
-        "vendor": "tms",
-        "vendor_sku": "GB-C201P",
-        "title": "מארז מחשב Gigabyte C201 Panoramic",
-        "price": 336
-      }
-    ],
-    "model_code": "c201-panoramic",
-    "manufacturer_pn": [
-      "GBC201P"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:c500-ice-panoramic-stealth-white",
     "vendor": "",
     "offers": [
@@ -20493,6 +20340,58 @@
     "model_code": "c500-panoramic-stealth",
     "manufacturer_pn": [
       "GBC500PST"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c201-ice-panoramic-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207721",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C201PI",
+        "title": "מארז מחשב Gigabyte C201 Panoramic ICE בצבע לבן",
+        "price": 297
+      },
+      {
+        "listing_key": "tms:GB-C201PI",
+        "vendor": "tms",
+        "vendor_sku": "GB-C201PI",
+        "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
+        "price": 349
+      }
+    ],
+    "model_code": "c201-ice-panoramic",
+    "manufacturer_pn": [
+      "GBC201PI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c201-panoramic-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207722",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C201P",
+        "title": "מארז מחשב Gigabyte C201 Panoramic בצבע שחור",
+        "price": 352
+      },
+      {
+        "listing_key": "tms:GB-C201P",
+        "vendor": "tms",
+        "vendor_sku": "GB-C201P",
+        "title": "מארז מחשב Gigabyte C201 Panoramic",
+        "price": 336
+      }
+    ],
+    "model_code": "c201-panoramic",
+    "manufacturer_pn": [
+      "GBC201P"
     ]
   },
   {
@@ -20816,6 +20715,110 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221445",
+        "vendor": "1pc",
+        "vendor_sku": "12RTLLCD1F3B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
+        "price": 602
+      },
+      {
+        "listing_key": "tms:12RTLLCD1F3B",
+        "vendor": "tms",
+        "vendor_sku": "12RTLLCD1F3B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+        "price": 538
+      }
+    ],
+    "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+    "manufacturer_pn": [
+      "12RTLLCD1F3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221441",
+        "vendor": "1pc",
+        "vendor_sku": "12RTLLCD1F1B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+        "price": 235
+      },
+      {
+        "listing_key": "tms:12RTLLCD1F1B",
+        "vendor": "tms",
+        "vendor_sku": "12RTLLCD1F1B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+        "price": 213
+      }
+    ],
+    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+    "manufacturer_pn": [
+      "12RTLLCD1F1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221442",
+        "vendor": "1pc",
+        "vendor_sku": "12RTLLCD1F1W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+        "price": 241
+      },
+      {
+        "listing_key": "tms:12RTLLCD1F1W",
+        "vendor": "tms",
+        "vendor_sku": "12RTLLCD1F1W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+        "price": 218
+      }
+    ],
+    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+    "manufacturer_pn": [
+      "12RTLLCD1F1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221446",
+        "vendor": "1pc",
+        "vendor_sku": "12RTLLCD1F3W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 564
+      },
+      {
+        "listing_key": "tms:12RTLLCD1F3W",
+        "vendor": "tms",
+        "vendor_sku": "12RTLLCD1F3W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 548
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+    "manufacturer_pn": [
+      "12RTLLCD1F3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -20943,110 +20946,6 @@
     "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
     "manufacturer_pn": [
       "12RSLIN1F3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221445",
-        "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F3B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
-        "price": 602
-      },
-      {
-        "listing_key": "tms:12RTLLCD1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F3B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
-        "price": 538
-      }
-    ],
-    "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
-    "manufacturer_pn": [
-      "12RTLLCD1F3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221441",
-        "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F1B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-        "price": 235
-      },
-      {
-        "listing_key": "tms:12RTLLCD1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F1B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-        "price": 213
-      }
-    ],
-    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
-    "manufacturer_pn": [
-      "12RTLLCD1F1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221442",
-        "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F1W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-        "price": 241
-      },
-      {
-        "listing_key": "tms:12RTLLCD1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F1W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-        "price": 218
-      }
-    ],
-    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
-    "manufacturer_pn": [
-      "12RTLLCD1F1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221446",
-        "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F3W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 564
-      },
-      {
-        "listing_key": "tms:12RTLLCD1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F3W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 548
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
-    "manufacturer_pn": [
-      "12RTLLCD1F3W"
     ]
   },
   {
@@ -22053,6 +21952,58 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:fan-h14-140mm-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207632",
+        "vendor": "1pc",
+        "vendor_sku": "PGW-AC-HVN-018",
+        "title": "מאוורר HAVN H14 140mm בצבע שחור",
+        "price": 79
+      },
+      {
+        "listing_key": "tms:PGW-AC-HVN-018",
+        "vendor": "tms",
+        "vendor_sku": "PGW-AC-HVN-018",
+        "title": "HAVN H14 Black 140mm Fan",
+        "price": 65
+      }
+    ],
+    "model_code": "fan-h14",
+    "manufacturer_pn": [
+      "PGWACHVN018"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fans-h14-triple-x3-140mm-3-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207631",
+        "vendor": "1pc",
+        "vendor_sku": "PGW-AC-HVN-024",
+        "title": "מאווררי HAVN H14 Triple Pack 140mm בצבע לבן",
+        "price": 214
+      },
+      {
+        "listing_key": "tms:PGW-AC-HVN-024",
+        "vendor": "tms",
+        "vendor_sku": "PGW-AC-HVN-024",
+        "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
+        "price": 161
+      }
+    ],
+    "model_code": "fans-h14-triple-x3",
+    "manufacturer_pn": [
+      "PGWACHVN024"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:fan-h12-120mm-black",
     "vendor": "",
     "offers": [
@@ -22152,58 +22103,6 @@
     "model_code": "fan-h12",
     "manufacturer_pn": [
       "PGWACHVN015"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fan-h14-140mm-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207632",
-        "vendor": "1pc",
-        "vendor_sku": "PGW-AC-HVN-018",
-        "title": "מאוורר HAVN H14 140mm בצבע שחור",
-        "price": 79
-      },
-      {
-        "listing_key": "tms:PGW-AC-HVN-018",
-        "vendor": "tms",
-        "vendor_sku": "PGW-AC-HVN-018",
-        "title": "HAVN H14 Black 140mm Fan",
-        "price": 65
-      }
-    ],
-    "model_code": "fan-h14",
-    "manufacturer_pn": [
-      "PGWACHVN018"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fans-h14-triple-x3-140mm-3-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207631",
-        "vendor": "1pc",
-        "vendor_sku": "PGW-AC-HVN-024",
-        "title": "מאווררי HAVN H14 Triple Pack 140mm בצבע לבן",
-        "price": 214
-      },
-      {
-        "listing_key": "tms:PGW-AC-HVN-024",
-        "vendor": "tms",
-        "vendor_sku": "PGW-AC-HVN-024",
-        "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
-        "price": 161
-      }
-    ],
-    "model_code": "fans-h14-triple-x3",
-    "manufacturer_pn": [
-      "PGWACHVN024"
     ]
   },
   {
@@ -22622,39 +22521,6 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172013",
-        "vendor": "1pc",
-        "vendor_sku": "GZ890AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1107
-      },
-      {
-        "listing_key": "tms:GZ890AORUSELITEWF7ICE",
-        "vendor": "tms",
-        "vendor_sku": "GZ890AORUSELITEWF7ICE",
-        "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1275
-      },
-      {
-        "listing_key": "yahav:10326",
-        "vendor": "yahav",
-        "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
-        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
-        "price": 1105
-      }
-    ],
-    "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
-    "manufacturer_pn": [
-      "GZ890AORUSELITEWF7ICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
     "product_id": "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx",
     "vendor": "",
     "offers": [
@@ -22714,6 +22580,39 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172013",
+        "vendor": "1pc",
+        "vendor_sku": "GZ890AORUSELITEWF7ICE",
+        "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+        "price": 1107
+      },
+      {
+        "listing_key": "tms:GZ890AORUSELITEWF7ICE",
+        "vendor": "tms",
+        "vendor_sku": "GZ890AORUSELITEWF7ICE",
+        "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+        "price": 1275
+      },
+      {
+        "listing_key": "yahav:10326",
+        "vendor": "yahav",
+        "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
+        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
+        "price": 1105
+      }
+    ],
+    "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
+    "manufacturer_pn": [
+      "GZ890AORUSELITEWF7ICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
     "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
     "vendor": "",
     "offers": [
@@ -22761,6 +22660,334 @@
     "model_code": "b650e-gaming-max-wifi",
     "manufacturer_pn": [
       "90MB1LD0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-pro-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:171448",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPRO",
+        "title": "לוח אם Gigabyte X870E AORUS PRO",
+        "price": 1949
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPRO",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPRO",
+        "title": "Gigabyte X870E AORUS PRO",
+        "price": 1671
+      },
+      {
+        "listing_key": "yahav:9957",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1635
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPRO"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207707",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPROX3DICE",
+        "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
+        "price": 1651
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPROX3DICE",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPROX3DICE",
+        "title": "Gigabyte X870E AORUS PRO X3D ICE",
+        "price": 1913
+      },
+      {
+        "listing_key": "yahav:10918",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1850
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPROX3DICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:209975",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPROX3D",
+        "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
+        "price": 1638
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPROX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPROX3D",
+        "title": "Gigabyte X870E AORUS PRO X3D",
+        "price": 1877
+      },
+      {
+        "listing_key": "yahav:11665",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO-X3D",
+        "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1750
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPROX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207718",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2592
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3DI",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2575
+      },
+      {
+        "listing_key": "yahav:10919",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 2190
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3DI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:216436",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
+        "price": 2501
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "Gigabyte X870E AORUS MASTER X3D",
+        "price": 2440
+      }
+    ],
+    "model_code": "aorus-master-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170330",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1360
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1319
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170331",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1360
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1319
+      }
+    ],
+    "model_code": "aorus-elite-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207716",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1561
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1545
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7I"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170329",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
+        "price": 1308
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7",
+        "price": 1438
+      },
+      {
+        "listing_key": "yahav:10175",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1380
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177652",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 875
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6EICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 989
+      },
+      {
+        "listing_key": "yahav:10288",
+        "vendor": "yahav",
+        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
+        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
+        "price": 1130
+      }
+    ],
+    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6EICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207713",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 1160
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6E",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 989
+      }
+    ],
+    "model_code": "aorus-b850m-elite-wifi6e",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6E"
     ]
   },
   {
@@ -22886,334 +23113,6 @@
     "model_code": "aorus-b850-stealth",
     "manufacturer_pn": [
       "GB850AORUSSTEALTH"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177652",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 875
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6EICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 989
-      },
-      {
-        "listing_key": "yahav:10288",
-        "vendor": "yahav",
-        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-        "price": 1130
-      }
-    ],
-    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207713",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 1160
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6E",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 989
-      }
-    ],
-    "model_code": "aorus-b850m-elite-wifi6e",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6E"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170330",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170331",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207716",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1561
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1545
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170329",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-        "price": 1308
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7",
-        "price": 1438
-      },
-      {
-        "listing_key": "yahav:10175",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1380
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207718",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2592
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3DI",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2575
-      },
-      {
-        "listing_key": "yahav:10919",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 2190
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3DI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:216436",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-        "price": 2501
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2440
-      }
-    ],
-    "model_code": "aorus-master-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3D"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-pro-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:171448",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPRO",
-        "title": "לוח אם Gigabyte X870E AORUS PRO",
-        "price": 1949
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPRO",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPRO",
-        "title": "Gigabyte X870E AORUS PRO",
-        "price": 1671
-      },
-      {
-        "listing_key": "yahav:9957",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1635
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPRO"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207707",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPROX3DICE",
-        "title": "לוח אם Gigabyte X870E AORUS PRO X3D ICE",
-        "price": 1651
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPROX3DICE",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPROX3DICE",
-        "title": "Gigabyte X870E AORUS PRO X3D ICE",
-        "price": 1913
-      },
-      {
-        "listing_key": "yahav:10918",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1850
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPROX3DICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209975",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPROX3D",
-        "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
-        "price": 1638
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPROX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPROX3D",
-        "title": "Gigabyte X870E AORUS PRO X3D",
-        "price": 1877
-      },
-      {
-        "listing_key": "yahav:11665",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO-X3D",
-        "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1750
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPROX3D"
     ]
   },
   {
