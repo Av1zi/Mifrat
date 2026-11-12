@@ -138,6 +138,18 @@ def canon_brand(value) -> str:
     return text
 
 
+_CHIP_MAKERS = {"nvidia": "NVIDIA", "amd": "AMD", "ati": "AMD", "intel": "Intel"}
+
+
+def canon_chip_maker(value) -> str:
+    """'nVidia' / 'NVIDIA Corporation' / 'AMD, Inc.' -> the one spelling per maker."""
+    text = str(value).strip()
+    word = re.match(r"[A-Za-z]+", text)
+    if word and word.group(0).lower() in _CHIP_MAKERS:
+        return _CHIP_MAKERS[word.group(0).lower()]
+    return text
+
+
 # --------------------------------------------------------------------------
 # Form factors (per category: the same field name means different things)
 # --------------------------------------------------------------------------
@@ -738,6 +750,7 @@ def canon_resolution(value):
 _GENERIC_RULES = {
     "max_resolution": canon_resolution,
     "manufacturer": canon_brand,
+    "chip_manufacturer": canon_chip_maker,
     "color": canon_color,
     "series": canon_series,
     "socket": canon_socket,

@@ -49,7 +49,7 @@ try:
         prefer_longer_mpn,
         suggest_fuzzy_matches,
     )
-    from scraper.specs import build_product_specs, extract_attributes
+    from scraper.specs import build_product_specs, extract_attributes, schema
     from scraper.site_data import write_site_data
     from scraper.build_price_history import build_price_history
     from scraper.image_urls import best_of, candidate_urls
@@ -71,7 +71,7 @@ except ImportError:
         prefer_longer_mpn,
         suggest_fuzzy_matches,
     )
-    from specs import build_product_specs, extract_attributes
+    from specs import build_product_specs, extract_attributes, schema
     from site_data import write_site_data
     from image_urls import best_of, candidate_urls  # type: ignore[no-redef]
     from build_price_history import build_price_history
@@ -407,6 +407,77 @@ def _fill_empty_brands(products: list[dict]) -> None:
               f"{ambiguous} left (name holds two brands)")
     if partner:
         print(f"  chip-maker brand: {partner} board/card product(s) take the partner their titles name")
+
+
+def _unify_spelling_variants(products: list[dict]) -> None:
+    """One filter value per spelling (NVIDIA / nVidia, GAMDIAS / Gamdias).
+
+    Within a category, filterable text values (and product brands, which share
+    the `manufacturer` vocabulary) that differ only by case, spaces, hyphens or
+    underscores take the spelling most products use. Dots and digits stay in the
+    key, so "LAN 2.5 Gb/s" and "LAN 25 Gb/s" remain two values.
+    """
+    def key(text: str) -> str:
+        return re.sub(r"[\s\-_]+", "", text.lower())
+
+    by_category: dict[str, list[dict]] = {}
+    for product in products:
+        by_category.setdefault(str(product.get("category") or ""), []).append(product)
+
+    changed = 0
+    for category, group in by_category.items():
+        fields = [name for name in schema.filterable_fields(category)
+                  if schema.field_map(category)[name].type in ("str", "list_str")]
+        counts: dict[str, dict[str, Counter]] = {}
+
+        def vocabulary(field: str) -> dict[str, Counter]:
+            return counts.setdefault("manufacturer" if field == "brand" else field, {})
+
+        def strings(value):
+            if isinstance(value, str):
+                return [value]
+            if isinstance(value, list):
+                return [item for item in value if isinstance(item, str)]
+            return []
+
+        for product in group:
+            specs = product.get("specs") or {}
+            for field in fields + ["brand"]:
+                source = product if field == "brand" else specs
+                for text in strings(source.get(field)):
+                    if text.strip():
+                        vocabulary(field).setdefault(key(text), Counter())[text] += 1
+
+        winners = {
+            field: {k: sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+                    for k, c in vocab.items() if len(c) > 1}
+            for field, vocab in counts.items()
+        }
+
+        def fix(value, field: str):
+            table = winners.get("manufacturer" if field == "brand" else field) or {}
+            if isinstance(value, str):
+                return table.get(key(value), value) if value.strip() else value
+            if isinstance(value, list):
+                fixed = []
+                for item in value:
+                    item = fix(item, field)
+                    if item not in fixed:
+                        fixed.append(item)
+                return fixed
+            return value
+
+        for product in group:
+            specs = product.get("specs") or {}
+            for field in fields + ["brand"]:
+                holder = product if field == "brand" else specs
+                before = holder.get(field)
+                after = fix(before, field)
+                if after != before:
+                    holder[field] = after
+                    changed += 1
+    if changed:
+        print(f"  unified {changed} spelling-only filter value variant(s)")
 
 
 def _sync_partner_manufacturer(products: list[dict], enriched: list[dict]) -> None:
@@ -764,6 +835,7 @@ def build_catalog(today: datetime):
     _disambiguate_duplicate_names(match_result["products"])
     _fill_empty_brands(match_result["products"])
     _sync_partner_manufacturer(match_result["products"], enriched)
+    _unify_spelling_variants(match_result["products"])
 
     exclude_multi_keys = {
         listing_key_value
