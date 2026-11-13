@@ -72,7 +72,7 @@ body.has-tray #app {
   gap: var(--sp-3);
   max-width: var(--container);
   margin-inline: auto;
-  padding: var(--sp-2) var(--gutter);
+  padding: var(--sp-2) var(--gutter) max(var(--sp-2), env(safe-area-inset-bottom));
 }
 
 .compare-tray__count {
@@ -113,8 +113,8 @@ body.has-tray #app {
 }
 
 .compare-tray__x {
-  min-width: 1.75rem;
-  min-height: 1.75rem;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
   border-color: transparent;
   background: none;
 }

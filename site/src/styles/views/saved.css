@@ -10,10 +10,28 @@
 
 .stabs {
   display: inline-flex;
+  max-width: 100%;
   gap: 4px;
   padding: 4px;
   background: var(--surface-3);
   border-radius: var(--radius-lg);
+}
+
+/* Narrow phones: the three tabs share the row instead of overflowing it. */
+@media (max-width: 479px) {
+  .stabs {
+    display: flex;
+    width: 100%;
+  }
+
+  .stab {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    padding-inline: var(--sp-2);
+    font-size: var(--fs-sm);
+    white-space: nowrap;
+  }
 }
 
 .stab {

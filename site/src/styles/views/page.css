@@ -126,6 +126,49 @@
   color: var(--text);
 }
 
+/* Phones: the band is a compact title bar and the crumbs collapse to the
+   parent link (a back step), so the content starts in the first screen. */
+@media (max-width: 639px) {
+  .page-hero {
+    margin-bottom: var(--sp-4);
+  }
+
+  .page-hero__inner {
+    gap: var(--sp-1);
+    padding-block: var(--sp-3) var(--sp-4);
+  }
+
+  .crumbs > :not(:nth-last-child(3)) {
+    display: none;
+  }
+
+  .crumbs > a:nth-last-child(3)::before {
+    content: "‹ ";
+  }
+
+  [dir="rtl"] .crumbs > a:nth-last-child(3)::before {
+    content: "› ";
+  }
+
+  .page-hero h1 {
+    font-size: var(--fs-xl);
+  }
+
+  .page-hero__sub {
+    font-size: var(--fs-sm);
+  }
+
+  /* On catalog and product pages the subtitle restates the title and the
+     result count shown right under it. */
+  .page-hero:has(~ .catalog, ~ .pdp) .page-hero__sub {
+    display: none;
+  }
+
+  .page-tabs {
+    margin-top: var(--sp-2);
+  }
+}
+
 /* Section header used on home and saved. */
 .sec-head {
   display: flex;

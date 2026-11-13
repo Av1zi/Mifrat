@@ -167,6 +167,14 @@ export function bindShare(ctx: BuilderCtx): void {
       }
     });
     menu.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => window.setTimeout(() => (menu.open = false), 900)));
+    // Where the button wraps to depends on the width: open toward the side with room.
+    menu.addEventListener("toggle", () => {
+      if (!menu.open) return;
+      menu.classList.remove("is-flipped");
+      const list = menu.querySelector<HTMLElement>(".export-menu__list");
+      const r = list?.getBoundingClientRect();
+      if (r && (r.left < 0 || r.right > document.documentElement.clientWidth)) menu.classList.add("is-flipped");
+    });
   }
   const input = root.querySelector<HTMLInputElement>('[data-role="share-link"]');
   input?.addEventListener("click", () => input.select());

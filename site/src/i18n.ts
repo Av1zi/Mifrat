@@ -282,6 +282,8 @@ const STRINGS = {
     sortLabel: "מיון",
     sortPriceAsc: "מחיר: מהזול ליקר",
     sortPriceDesc: "מחיר: מהיקר לזול",
+    sortPriceAscShort: "הזול ביותר",
+    sortPriceDescShort: "היקר ביותר",
     sortVendorsDesc: "הכי הרבה חנויות",
     sortName: "שם",
     sortNameDesc: "שם (יורד)",
@@ -605,6 +607,8 @@ const STRINGS = {
     sortLabel: "Sort",
     sortPriceAsc: "Price: low to high",
     sortPriceDesc: "Price: high to low",
+    sortPriceAscShort: "Lowest price",
+    sortPriceDescShort: "Highest price",
     sortVendorsDesc: "Most vendors",
     sortName: "Name",
     sortNameDesc: "Name (Z–A)",
@@ -910,6 +914,13 @@ export function productMetaDesc(lang: Lang, name: string, vendors: number, price
   return price
     ? `${name} — from ${price}, ${vendorsCount(lang, vendors)}. Specs and price history.`
     : `${name} — specs and store comparison.`;
+}
+
+/** Filter sheet's apply button, with the live result count. */
+export function showResultsCount(lang: Lang, n: number): string {
+  const count = n.toLocaleString(lang === "he" ? "he-IL" : "en-US");
+  if (lang === "he") return n === 0 ? "אין תוצאות" : n === 1 ? "הצגת תוצאה אחת" : `הצגת ${count} תוצאות`;
+  return n === 0 ? "No results" : n === 1 ? "Show 1 result" : `Show ${count} results`;
 }
 
 export function vendorsCount(lang: Lang, n: number): string {

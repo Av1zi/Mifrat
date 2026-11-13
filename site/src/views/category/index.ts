@@ -40,7 +40,7 @@ import {
 import { bindMobileSheet } from "./mobileSheet";
 import { pickBannerMarkup } from "./picker";
 import { bindList, pagerMarkup, renderList } from "./table";
-import { bindToolbar, buildCardMarkup, toolbarMarkup, updateResultsBar } from "./toolbar";
+import { bindStickyControls, bindToolbar, buildCardMarkup, toolbarMarkup, updateResultsBar } from "./toolbar";
 
 export async function renderCategory(
   container: HTMLElement,
@@ -226,6 +226,7 @@ export async function renderCategory(
   resize.observe(listEl);
 
   bindToolbar(ctx, actions);
+  const unbindSticky = bindStickyControls(container);
   bindList(ctx, listEl, actions);
   bindActiveChips(ctx, actions);
   for (const role of ["sheet-clear", "rail-clear"]) {
@@ -249,6 +250,7 @@ export async function renderCategory(
       resize.disconnect();
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
+      unbindSticky();
       sheet.dispose();
     },
     { once: true }

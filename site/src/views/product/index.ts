@@ -18,7 +18,7 @@ import { errorState, loadingState } from "../../ui/state";
 import { bindThumbs } from "../../ui/thumb";
 import { displayName, skuOf } from "../../utils";
 import { chipText, pickColumns } from "../category/columns";
-import { buyBoxMarkup, offersCard } from "./buybox";
+import { buyBarMarkup, buyBoxMarkup, offersCard } from "./buybox";
 import { renderPriceHistory } from "./history";
 import { similarMarkup } from "./similar";
 import { specsCard } from "./specs";
@@ -120,17 +120,21 @@ export async function renderProduct(
       ],
     })}
     <div class="pdp" id="pdp-top">
-      ${buyBoxMarkup(product, lang, currency, slot !== null, variantsMarkup(product, products, lang), name)}
+      <div class="pdp__buy">
+        ${buyBoxMarkup(product, lang, currency, slot !== null, variantsMarkup(product, products, lang), name)}
+        ${buyBarMarkup(product, lang, currency)}
+        ${specsCard(product, lang, products)}
+      </div>
       <div class="pdp__main">
         ${offersCard(product, lang, currency)}
         <section class="card" id="pdp-history" hidden></section>
         ${similar ? card(similar, { title: t(lang, "similarHeading") }) : ""}
       </div>
-      ${specsCard(product, lang, products)}
     </div>`
   );
   bindThumbs(container);
   syncPickControls();
+  bindBuyBar(container);
 
   const add = container.querySelector<HTMLButtonElement>("#pdp-add");
   if (add && slot) {
@@ -152,4 +156,50 @@ export async function renderProduct(
     });
   }
   bindPageTabs(container);
+}
+
+/**
+ * Shows the buy bar once the buy box's own buy link (or, without one, the
+ * price) is above the viewport. On phones and tablets it is pinned to the
+ * bottom edge and steps aside while the offers card (a store link per row)
+ * is on screen; on desktop it docks in the buy column beside the offers.
+ */
+function bindBuyBar(container: HTMLElement): void {
+  const bar = container.querySelector<HTMLElement>('[data-role="buybar"]');
+  const anchor = container.querySelector<HTMLElement>(".buy-cta, .buybox__price");
+  const offers = container.querySelector<HTMLElement>("#pdp-offers");
+  if (!bar || !anchor) return;
+  const desktop = window.matchMedia("(min-width: 1024px)");
+  let pastAnchor = false;
+  let offersVisible = false;
+  const sync = (): void => {
+    const show = pastAnchor && (desktop.matches || !offersVisible);
+    bar.classList.toggle("is-concealed", !show);
+    // Concealed is still laid out on desktop: keep it out of reach then.
+    bar.toggleAttribute("inert", !show);
+    bar.setAttribute("aria-hidden", String(!show));
+    document.body.classList.toggle("has-buybar", show && !desktop.matches);
+  };
+  desktop.addEventListener("change", sync);
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.target === anchor) pastAnchor = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      else offersVisible = entry.isIntersecting;
+    }
+    sync();
+  });
+  // A reload can land mid-page: match the state before the first callback.
+  pastAnchor = anchor.getBoundingClientRect().bottom < 0;
+  sync();
+  observer.observe(anchor);
+  if (offers) observer.observe(offers);
+  window.addEventListener(
+    "hashchange",
+    () => {
+      observer.disconnect();
+      desktop.removeEventListener("change", sync);
+      document.body.classList.remove("has-buybar");
+    },
+    { once: true }
+  );
 }

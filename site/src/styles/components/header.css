@@ -205,6 +205,18 @@ main:focus {
   display: none;
 }
 
+/* Phones: a fade at the end edge hints that the nav scrolls on (mask
+   alpha only, so no colour leaves the token file). */
+@media (max-width: 639px) {
+  .hdr-nav__inner {
+    mask-image: linear-gradient(to left, transparent, black 2.5rem);
+  }
+
+  [dir="rtl"] .hdr-nav__inner {
+    mask-image: linear-gradient(to right, transparent, black 2.5rem);
+  }
+}
+
 .nav-link {
   display: inline-flex;
   align-items: center;
@@ -269,6 +281,19 @@ main:focus {
 
   .nav-link > .ic {
     display: none;
+  }
+}
+
+/* Phones: a catalog page has its own search for the category; a second
+   search box above it would push the list down and blur which one to use.
+   (From 640px up the site search shares the brand row, so it costs no height.) */
+@media (max-width: 639px) {
+  body:has(main > .catalog) .site-search {
+    display: none;
+  }
+
+  body:has(main > .catalog) .hdr-top__inner {
+    grid-template-areas: "brand controls";
   }
 }
 
