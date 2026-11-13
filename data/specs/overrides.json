@@ -298,6 +298,21 @@
     },
     "model:storage:blue-wd-2000gb-sata-25": {
       "cache_mb": 128
+    },
+    "model:motherboard:afhm65-eth8ex-mining-motherboard": {
+      "form_factor": "Micro-ATX"
+    },
+    "model:motherboard:afb250-eth12ex-mining-motherboard": {
+      "form_factor": "Micro-ATX"
+    },
+    "model:motherboard:13650hx-13650hx-d5-d5-modt-modt-wifi-wifi-microatx": {
+      "socket": "LGA1700"
+    },
+    "model:motherboard:230h-d4-modt-wifi-microatx": {
+      "socket": "LGA1700"
+    },
+    "model:motherboard:7945hx-9-bd790i-itx-mini-minisforum-motherboard-ryzen-miniitx": {
+      "chipset": "SoC"
     }
   }
 }
