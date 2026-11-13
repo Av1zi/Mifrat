@@ -313,6 +313,27 @@
     },
     "model:motherboard:7945hx-9-bd790i-itx-mini-minisforum-motherboard-ryzen-miniitx": {
       "chipset": "SoC"
+    },
+    "model:storage:1tb-7100-gx-nvme-optimus-1000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:1tb-7100m-gx-nvme-optimus-1000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:1tb-e10-1000gb": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:2tb-5100-nvme-optimus-2000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:2tb-7100-gx-nvme-optimus-2000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:4tb-8100-gx-nvme-optimus-pro-4000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:500gb-5100-nvme-optimus-500gb-nvme": {
+      "form_factor": "M.2-2280"
     }
   }
 }
