@@ -35,3 +35,21 @@ describe("bundle-only offers (owner Q1)", () => {
     expect(sortOffers([bundle, plain])).toEqual([plain, bundle]);
   });
 });
+
+describe("equal prices (mirrors matching.choose_best_offer)", () => {
+  const stale = offer("ivory", 899, { stale: true, last_seen: "2026-11-12" });
+  const fresh = offer("ksp", 899, { last_seen: "2026-11-13" });
+
+  it("credit today's price over a stale one", () => {
+    expect(bestOffer(product("cpu:1", "CPU", {}, { offers: [stale, fresh] }))).toBe(fresh);
+  });
+
+  it("list today's price first", () => {
+    expect(sortOffers([stale, fresh])).toEqual([fresh, stale]);
+  });
+
+  it("still let a cheaper stale price win", () => {
+    const cheaper = offer("ivory", 850, { stale: true });
+    expect(bestOffer(product("cpu:2", "CPU", {}, { offers: [fresh, cheaper] }))).toBe(cheaper);
+  });
+});

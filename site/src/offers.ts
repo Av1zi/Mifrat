@@ -6,12 +6,17 @@ export function isBundleOffer(offer: Offer | null | undefined): boolean {
   return offer?.bundle_only === true;
 }
 
+/** Equal prices: today's offer ahead of a stale one (mirrors matching.choose_best_offer). */
+function byPriceThenFresh(a: Offer, b: Offer): number {
+  return (positivePrice(a.price) ?? Infinity) - (positivePrice(b.price) ?? Infinity) || Number(a.stale) - Number(b.stale);
+}
+
 /** Offers cheapest first, in-stock ahead of out-of-stock, bundle prices after plain ones, unpriced last. */
 export function sortOffers(offers: Offer[]): Offer[] {
   return [...offers].sort((a, b) => {
     if (a.in_stock !== b.in_stock) return a.in_stock ? -1 : 1;
     if (isBundleOffer(a) !== isBundleOffer(b)) return isBundleOffer(a) ? 1 : -1;
-    return (positivePrice(a.price) ?? Infinity) - (positivePrice(b.price) ?? Infinity);
+    return byPriceThenFresh(a, b);
   });
 }
 
@@ -26,7 +31,7 @@ export function bestOffer(product: Product): Offer | null {
   const ranked = plain.length > 0 ? plain : priced;
   const inStock = ranked.filter((o) => o.in_stock);
   const pool = inStock.length > 0 ? inStock : ranked;
-  return pool.slice().sort((a, b) => (a.price ?? 0) - (b.price ?? 0))[0] ?? null;
+  return pool.slice().sort(byPriceThenFresh)[0] ?? null;
 }
 
 /** The price a product contributes to totals and sorting (null = no price). */
