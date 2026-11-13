@@ -1,0 +1,16 @@
+[Unit]
+Description=KSP detail scrape (maker part numbers) for the PC Part Picker (IL) pipeline
+After=network-online.target
+Wants=network-online.target
+OnFailure=pc-parts-il-notify@%n.service
+
+[Service]
+Type=oneshot
+User=avizi
+WorkingDirectory=/home/avizi/pc-parts-il
+ExecStart=/home/avizi/pc-parts-il/nano/run_ksp_detail.sh
+ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
+StandardOutput=journal
+StandardError=journal
+# 150 requests at 3-9s plus bounded 429 retries.
+TimeoutStartSec=2400

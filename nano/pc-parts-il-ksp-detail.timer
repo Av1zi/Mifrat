@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily timer for the KSP detail scrape (PC Part Picker IL)
+
+[Timer]
+# Afternoon window, far from every night scrape on this home IP (TMS 21:15,
+# 1PC 23:20, KSP listing 00:55-02:35, extract 02:40 UTC): 12:00-13:00 UTC.
+# The first probe (2026-11-13) ran at this time of day and answered 200.
+OnCalendar=*-*-* 12:00:00 UTC
+RandomizedDelaySec=3600
+
+[Install]
+WantedBy=timers.target

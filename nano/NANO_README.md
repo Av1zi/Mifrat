@@ -180,8 +180,8 @@ TLS clients; a browser-shaped TLS handshake from the home IP gets the public
 catalog). Same home-IP rules as TMS/1PC, but stricter: one request at a time,
 3-9s apart (6s base with Scrapy's randomization; tuned after 1.5s produced
 HTTP 429s), and the **first 403 ends the run** (no retry, no rotation).
-Listing-only — the detail endpoint is blocked, so there is no KSP detail or
-image phase.
+The listing run has no detail phase; the KSP detail scrape is its own job
+(below).
 
 One-time dependency install in the same venv (`curl-cffi` and
 `scrapy-curl-cffi` are pinned there; never install other versions by hand):
@@ -204,6 +204,30 @@ journalctl -u pc-parts-il-ksp.service -n 50
 If the first run is blocked, leave it alone for several days: the normalizer
 stale-forwards the previous KSP snapshot for up to 14 days. Do not add
 proxies, retries or a different TLS profile.
+
+### KSP detail (part numbers, Nov 2026)
+
+`nano/run_ksp_detail.sh` reads KSP's item JSON (`/m_action/api/item/<uin>`)
+for up to 150 uins a day, KSP-only products first, and pushes
+`data/raw/detail/ksp.jsonl`. The `דגם` row is the maker part number on many
+parts (Kingston "KF556C40BBK2-32") and only a model name on others (Intel
+"i5-14600K"); the normalizer adopts it only when another vendor prints the
+same code. It runs 12:00-13:00 UTC, far from the night scrapes, once a day
+(a marker in the state dir), one request at a time, and stops at the first
+403/429; whatever arrived is still pushed.
+
+```bash
+sudo cp nano/pc-parts-il-ksp-detail.service nano/pc-parts-il-ksp-detail.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now pc-parts-il-ksp-detail.timer
+KSP_DETAIL_LIMIT=10 nano/run_ksp_detail.sh   # first run by hand, small
+journalctl -u pc-parts-il-ksp-detail.service -n 50
+```
+
+A block here does not touch the listing run's data, but it is the same home
+IP: if `ksp_detail` reports a block, disable the timer
+(`sudo systemctl disable --now pc-parts-il-ksp-detail.timer`) and check the
+next night's KSP listing run before turning it back on.
 
 ## Phone alerts (Nov 2026)
 
