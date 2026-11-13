@@ -80,7 +80,7 @@ If the detail endpoint answers 200:
 
 ## Outcome (fill in after Phase 0)
 
-- Detail endpoint: _pending_ (probe script ready, owner runs it on the Nano)
+- Detail endpoint: **open** (2026-11-13, owner on the Nano, uin 280943: HTTP 200, no `cf-mitigated`, `application/json`, 44,558 bytes, 407 keys). The probe's key-name scan found no part-number-like key, so where (or whether) the maker part number sits in the payload is still to be read from the saved sample.
 - Product page structured data: none (2026-11-13, see Phase 0 step 2)
 - Affiliate / feed answer: _pending_
 - Chosen path: _pending_
