@@ -4579,6 +4579,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "ivory:178270",
+    "listing_b": "tms:100-000000158",
+    "title_a": "מעבד AMD Ryzen 5 5500 | תושבת AM4 | בעל 6 ליבות | אריזת Tray",
+    "title_b": "AMD Ryzen 5 3500X AM4 Tray",
+    "match_text_a": "100-000000457 AMD Ryzen 5 5500 AM4 6 Tray",
+    "match_text_b": "100-000000158 AMD Ryzen 5 3500X AM4 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "tms:100-000000158",
     "listing_b": "tms:100-000000927",
     "title_a": "AMD Ryzen 5 3500X AM4 Tray",
@@ -5676,7 +5687,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:aio:360-nautilus-rs-360mm-black-rgb",
+    "product_id": "model:aio:360-nautilus-rs-360mm-black",
     "category": "aio",
     "vendor": "1pc",
     "collapsed": true,
@@ -12810,6 +12821,13 @@
         "price": 350
       },
       {
+        "listing_key": "ivory:178270",
+        "vendor": "ivory",
+        "vendor_sku": "100-000000457",
+        "title": "מעבד AMD Ryzen 5 5500 | תושבת AM4 | בעל 6 ליבות | אריזת Tray",
+        "price": 385
+      },
+      {
         "listing_key": "tms:100-000000457",
         "vendor": "tms",
         "vendor_sku": "100-000000457",
@@ -14572,32 +14590,6 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-pro-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:171449",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPROICE",
-        "title": "לוח אם Gigabyte X870E AORUS PRO ICE",
-        "price": 1561
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPROICE",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPROICE",
-        "title": "Gigabyte X870E AORUS PRO ICE",
-        "price": 1649
-      }
-    ],
-    "model_code": "aorus-ice-pro-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPROICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
     "product_id": "model:motherboard:b550m-k-prime-microatx",
     "vendor": "",
     "offers": [
@@ -16091,44 +16083,6 @@
     "model_code": "24-7-ironwolf-nas",
     "manufacturer_pn": [
       "ST12000VN0008"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "storage",
-    "product_id": "model:storage:512gb-fa100-512gb-pciegen30-m22280",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:167230",
-        "vendor": "ivory",
-        "vendor_sku": "BL.9BWWA.119",
-        "title": "כונן Acer FA100 M.2 PCIe NVMe SSD – נפח 512GB – ממשק PCIe Gen 3.0",
-        "price": 365
-      }
-    ],
-    "model_code": "512gb-fa100",
-    "manufacturer_pn": [
-      "BL9BWWA119"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "storage",
-    "product_id": "model:storage:512gb-fa100-512gb-pciegen30-m22280-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:175675",
-        "vendor": "ivory",
-        "vendor_sku": "BL.9BWWA.119P",
-        "title": "מציאון - כונן Acer FA100 M.2 PCIe NVMe SSD – נפח 512GB – ממשק PCIe Gen 3.0 - מוחדש",
-        "price": 345
-      }
-    ],
-    "model_code": "512gb-fa100",
-    "manufacturer_pn": [
-      "BL9BWWA119P"
     ]
   },
   {
@@ -19671,7 +19625,7 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-nautilus-rs-360mm-black",
+    "product_id": "model:aio:360-nautilus-rs-360mm",
     "vendor": "",
     "offers": [
       {
@@ -19680,13 +19634,6 @@
         "vendor_sku": "CW-9060089-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS 360mm",
         "price": 509
-      },
-      {
-        "listing_key": "ivory:149485",
-        "vendor": "ivory",
-        "vendor_sku": "CW-9060089-WW",
-        "title": "קירור נוזלי למעבד CORSAIR NAUTILUS 360 RS – גודל 360 מ''מ – צבע שחור",
-        "price": 369
       },
       {
         "listing_key": "tms:CW-9060089-WW",
@@ -19711,7 +19658,7 @@
   {
     "kind": "variant_conflict",
     "category": "aio",
-    "product_id": "model:aio:360-nautilus-rs-360mm-black-rgb",
+    "product_id": "model:aio:360-nautilus-rs-360mm-black",
     "vendor": "",
     "offers": [
       {
@@ -19917,13 +19864,6 @@
         "price": 341
       },
       {
-        "listing_key": "ivory:104978",
-        "vendor": "ivory",
-        "vendor_sku": "C3-ARGB-BLACK",
-        "title": "מארז מחשב Antec C3 Black ARGB בצבע שחור עם מאווררי ARGB",
-        "price": 370
-      },
-      {
         "listing_key": "tms:C3ARGB",
         "vendor": "tms",
         "vendor_sku": "C3ARGB",
@@ -20055,74 +19995,6 @@
     "manufacturer_pn": [
       "CC9011227WW"
     ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:a70-argb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:155098",
-        "vendor": "ivory",
-        "vendor_sku": "81425602229-3",
-        "title": "מארז מחשב THERMALRIGHT A70 ARGB – פס תאורה ARGB – חלון צד – צבע שחור",
-        "price": 545
-      }
-    ],
-    "model_code": "a70-argb",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:a70-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:155095",
-        "vendor": "ivory",
-        "vendor_sku": "81425602228-6",
-        "title": "מארז מחשב THERMALRIGHT A70 – חלון צד – צבע לבן",
-        "price": 490
-      }
-    ],
-    "model_code": "a70",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:argb-cx800-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:128835",
-        "vendor": "ivory",
-        "vendor_sku": "CX800-ARGB-WHITE",
-        "title": "מארז מחשב Antec CX800 ARGB בצבע לבן",
-        "price": 299
-      }
-    ],
-    "model_code": "argb-cx800",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:cx800-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:0-761345-10170-7",
-        "vendor": "tms",
-        "vendor_sku": "0-761345-10170-7",
-        "title": "מארז מחשב Antec CX800 ARGB Black",
-        "price": 255
-      }
-    ],
-    "model_code": "cx800",
-    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -20417,138 +20289,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221429",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
-        "price": 652
-      },
-      {
-        "listing_key": "tms:12RSLIND1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
-        "price": 583
-      },
-      {
-        "listing_key": "yahav:11695",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F3B",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 580
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221425",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור 12RSLIND1F1B",
-        "price": 261
-      },
-      {
-        "listing_key": "tms:12RSLIND1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור",
-        "price": 233
-      },
-      {
-        "listing_key": "yahav:11688",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
-        "price": 235
-      }
-    ],
-    "model_code": "120mm-12rslind1f1b-blade-fan-flex-inf-lcd-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221426",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
-        "price": 270
-      },
-      {
-        "listing_key": "tms:12RSLIND1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
-        "price": 244
-      },
-      {
-        "listing_key": "yahav:11689",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F1W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Single Pack צבע לבן",
-        "price": 245
-      }
-    ],
-    "model_code": "120mm-blade-fan-flex-inf-lcd-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221430",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 610
-      },
-      {
-        "listing_key": "tms:12RSLIND1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 599
-      },
-      {
-        "listing_key": "yahav:11697",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F3W",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
-        "price": 590
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -20676,6 +20416,138 @@
     "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
     "manufacturer_pn": [
       "12RSLIN1F3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221429",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
+        "price": 652
+      },
+      {
+        "listing_key": "tms:12RSLIND1F3B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
+        "price": 583
+      },
+      {
+        "listing_key": "yahav:11695",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F3B",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 580
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221425",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור 12RSLIND1F1B",
+        "price": 261
+      },
+      {
+        "listing_key": "tms:12RSLIND1F1B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור",
+        "price": 233
+      },
+      {
+        "listing_key": "yahav:11688",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+        "price": 235
+      }
+    ],
+    "model_code": "120mm-12rslind1f1b-blade-fan-flex-inf-lcd-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221426",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
+        "price": 270
+      },
+      {
+        "listing_key": "tms:12RSLIND1F1W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
+        "price": 244
+      },
+      {
+        "listing_key": "yahav:11689",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F1W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Single Pack צבע לבן",
+        "price": 245
+      }
+    ],
+    "model_code": "120mm-blade-fan-flex-inf-lcd-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221430",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 610
+      },
+      {
+        "listing_key": "tms:12RSLIND1F3W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 599
+      },
+      {
+        "listing_key": "yahav:11697",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F3W",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
+        "price": 590
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F3W"
     ]
   },
   {
@@ -22814,6 +22686,39 @@
     "model_code": "aorus-master-x3d-x870e",
     "manufacturer_pn": [
       "GX870EAORUSMASTERX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-pro-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:171449",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPROICE",
+        "title": "לוח אם Gigabyte X870E AORUS PRO ICE",
+        "price": 1561
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPROICE",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPROICE",
+        "title": "Gigabyte X870E AORUS PRO ICE",
+        "price": 1649
+      },
+      {
+        "listing_key": "yahav:9956",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-PRO-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro ICE Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1810
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-ice-pro-wi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPROICE"
     ]
   },
   {

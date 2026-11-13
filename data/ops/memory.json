@@ -907,7 +907,7 @@
 "1pc:179078":"model:psu:1-3-modular-rm750x-750w-black",
 "1pc:179079":"model:psu:1-3-modular-rm850x-850w",
 "1pc:179081":"model:aio:240-nautilus-rs-240mm-black",
-"1pc:179082":"model:aio:360-nautilus-rs-360mm-black",
+"1pc:179082":"model:aio:360-nautilus-rs-360mm",
 "1pc:179679":"model:motherboard:a-b760m-csm-prime-microatx-2",
 "1pc:179730":"model:motherboard:b860-gaming-i-rog-strix-wifi-miniitx",
 "1pc:179731":"model:motherboard:b860-g-gaming-rog-strix-wifi-microatx",
@@ -1368,7 +1368,7 @@
 "1pc:206389":"model:psu:rm1000e-1000w-full-white",
 "1pc:206390":"model:psu:1-3-hx1500i-low-modular-noise-ultra-1500w-full-black",
 "1pc:206391":"model:aio:240-nautilus-rs-240mm-black-rgb",
-"1pc:206392":"model:aio:360-nautilus-rs-360mm-black-rgb",
+"1pc:206392":"model:aio:360-nautilus-rs-360mm-black",
 "1pc:206393":"model:aio:240-nautilus-rs-240mm-white",
 "1pc:206394":"model:aio:360-nautilus-rs-360mm-white",
 "1pc:206395":"model:aio:360-aio-icue-link-rx-titan-360mm-white",
@@ -2221,7 +2221,7 @@
 "1pc:222389":"model:psu:750w-fully-modular-rm750e-rme-series-750w-full-white",
 "1pc:222390":"model:psu:850w-fully-modular-rm850e-rme-series-850w-full-white",
 "1pc:222391":"model:aio:360-nautilus-rs-360mm-black",
-"1pc:222392":"model:aio:360-nautilus-rs-360mm-black-rgb",
+"1pc:222392":"model:aio:360-nautilus-rs-360mm-black",
 "1pc:222395":"model:case_fan:120mm-icue-link-lx120-r-rgb-120mm-rgb-black",
 "1pc:222396":"model:case:6500x-bamboo-chamber-dual-finish-white",
 "1pc:222397":"model:case:2500x-atx-bamboo-chamber-dual-finish-micro",
@@ -2386,7 +2386,7 @@
 "1pc:223291":"model:case:360-hs-black",
 "1pc:223292":"model:case:420-amg-ca-f1-hs-hs420-hvn-mapf1-mercedes-petronas-team-black",
 "1pc:223329":"model:cooler_air:0761345400848-argb-f600-white-white",
-"1pc:223332":"model:gpu:32g-32gd-ai-ai-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
+"1pc:223332":"model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"model:cpu:g4400",
 "1pc:32633":"model:cpu:7100",
@@ -2766,7 +2766,7 @@
 "ivory:126567":"model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-white",
 "ivory:126576":"model:cooler_air:1600rpm-270w-2x120mm-5cfm-84-a115-af-dual-elite-fan-to-up-170mm-140mm-black",
 "ivory:126582":"model:aio:240-nautilus-rs-240mm-black-rgb",
-"ivory:126585":"model:aio:360-nautilus-rs-360mm-black-rgb",
+"ivory:126585":"model:aio:360-nautilus-rs-360mm-black",
 "ivory:126588":"model:aio:240-nautilus-rs-240mm-white",
 "ivory:126591":"model:aio:360-nautilus-rs-360mm-white",
 "ivory:127155":"model:cooler_air:bk037-dark-elite-rock-165mm-135mm-black",
@@ -2900,7 +2900,7 @@
 "ivory:138129":"mpn:case:lc217black",
 "ivory:138135":"mpn:case:v100black",
 "ivory:138147":"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-black-2",
-"ivory:138150":"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-white",
+"ivory:138150":"model:case_fan:120mm-fan-lcd-pack-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
 "ivory:138156":"mpn:case_fan:slinf1203w",
 "ivory:138231":"model:gpu:5060-8g-geforce-rtx-ti-windforce-8gb",
 "ivory:138237":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
@@ -3094,6 +3094,7 @@
 "ivory:159781":"mpn:memory:f43600c16d32gvkc",
 "ivory:159784":"model:motherboard:icraft-x870m-microatx",
 "ivory:159787":"model:motherboard:b850m-dark-pro-terminator-wifi-microatx",
+"ivory:159796":"model:storage:2280-innovation-it-performance-512gb-nvme-m22280",
 "ivory:159958":"model:memory:32gb-5600mt-cl46-classic-ct32g56c46u5-ddr5-s-32gb-5600mhz-cl46-black-dimm",
 "ivory:159961":"model:storage:exceria-ltc10z480gg8-480gb-sata-25inch",
 "ivory:159964":"model:storage:exceria-ltc10z960gg8-960gb-sata-25inch",
@@ -3312,6 +3313,7 @@
 "ivory:177574":"mpn:cpu:100100001368wofp",
 "ivory:177613":"model:case_fan:fan-inf-sl-uni-120mm-3-rgb-black",
 "ivory:178252":"model:cpu:5700x-tray",
+"ivory:178270":"model:cpu:5500-tray",
 "ivory:178279":"model:cpu:ryzen78700f-tray",
 "ivory:178282":"model:cpu:ryzen55600-tray",
 "ivory:178297":"model:motherboard:a520m-prime-r-microatx",
@@ -3404,7 +3406,7 @@
 "ivory:80666":"model:aio:h115i-icue-link-rgb-280mm-black",
 "ivory:80678":"mpn:case_fan:co9050167ww",
 "ivory:80681":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
-"ivory:80684":"model:case_fan:3x120mm-ar120-digital-led-pwm-rgb-support-white-120mm-3-rgb-white",
+"ivory:80684":"model:case_fan:9050169-co-ww-120mm-3-rgb-white",
 "ivory:81585":"model:motherboard:a-b760m-ddr4-ii-pro-microatx",
 "ivory:81693":"model:psu:750-hd2-750w-no-black",
 "ivory:82101":"model:case_fan:3-3x120mm-core-elite-icue-included-node-pack-rgb-series-sp120-triple-white-120mm-3-rgb-white",
@@ -5289,7 +5291,7 @@
 "plonter:CO-9050139-WW":"mpn:case_fan:co9050139ww",
 "plonter:CO-9050167-WW":"mpn:case_fan:co9050167ww",
 "plonter:CO-9050168-WW":"mpn:case_fan:co9050168ww",
-"plonter:CO-9050169-WW":"model:case_fan:3x120mm-ar120-digital-led-pwm-rgb-support-white-120mm-3-rgb-white",
+"plonter:CO-9050169-WW":"model:case_fan:9050169-co-ww-120mm-3-rgb-white",
 "plonter:CO-9050180-WW":"mpn:case_fan:co9050180ww",
 "plonter:CO-9050184-WW":"mpn:case_fan:co9050184ww",
 "plonter:CO-9050185-WW":"mpn:case_fan:co9050185ww",
@@ -5406,7 +5408,7 @@
 "plonter:CW-9060077-WW":"mpn:aio:cw9060077ww",
 "plonter:CW-9060078-WW":"mpn:aio:cw9060078ww",
 "plonter:CW-9060092-WW":"model:aio:240-nautilus-rs-240mm-black-rgb",
-"plonter:CW-9060093-WW":"model:aio:360-nautilus-rs-360mm-black-rgb",
+"plonter:CW-9060093-WW":"model:aio:360-nautilus-rs-360mm",
 "plonter:CW-9060094-WW":"model:aio:240-nautilus-rs-240mm-white",
 "plonter:CW-9060095-WW":"model:aio:360-nautilus-rs-360mm-white",
 "plonter:CW-9061001-WW":"mpn:aio:cw9061001ww",
@@ -7899,9 +7901,9 @@
 "tms:CW-9060078-WW":"model:aio:cooler-cpu-elite-h100i-icue-liquid-240mm-white",
 "tms:CW-9060079-WW":"model:aio:1cfm-63-aio-elite-h150i-icue-360mm-white",
 "tms:CW-9060088-WW":"model:aio:240-nautilus-rs-240mm-black",
-"tms:CW-9060089-WW":"model:aio:360-nautilus-rs-360mm-black",
+"tms:CW-9060089-WW":"model:aio:360-nautilus-rs-360mm",
 "tms:CW-9060092-WW":"model:aio:240-nautilus-rs-240mm-black-rgb",
-"tms:CW-9060093-WW":"model:aio:360-nautilus-rs-360mm-black-rgb",
+"tms:CW-9060093-WW":"model:aio:360-nautilus-rs-360mm-black",
 "tms:CW-9060094-WW":"model:aio:240-nautilus-rs-240mm-white",
 "tms:CW-9060095-WW":"model:aio:360-nautilus-rs-360mm-white",
 "tms:CW-9061001-WW":"model:aio:aio-cooler-cpu-h100i-icue-link-liquid-240mm",
@@ -8918,7 +8920,7 @@
 "tms:R9070XTGAMINGOC16":"model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
 "tms:R907GREGAMINGOC12GD":"model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb",
 "tms:R907XGAMINGOCICE16GD":"model:gpu:16g-9070-gaming-ice-oc-radeon-rx-xt-16gb",
-"tms:R9700AITOP32GD":"model:gpu:32g-32gd-ai-ai-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
+"tms:R9700AITOP32GD":"model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
 "tms:RB0550B":"model:psu:550w-80-bronze-rb-550w",
 "tms:RB0650B":"model:psu:650w-80-bronze-rb-650w",
 "tms:RB0750B":"model:psu:750w-80-bronze-rb-750w",
@@ -9376,8 +9378,8 @@
 "yahav:10388":"model:cpu:225",
 "yahav:10394":"model:gpu:16gb-1xhdmi-3xdp-5080-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-16gb",
 "yahav:10396":"model:aio:240-nautilus-rs-240mm-black",
-"yahav:10397":"model:aio:360-nautilus-rs-360mm-black",
-"yahav:10404":"model:aio:360-nautilus-rs-360mm-black-rgb",
+"yahav:10397":"model:aio:360-nautilus-rs-360mm",
+"yahav:10404":"model:aio:360-nautilus-rs-360mm-black",
 "yahav:10405":"model:aio:360-nautilus-rs-360mm-white",
 "yahav:10407":"model:aio:360mm-aio-argb-lum-vortex-360mm-white",
 "yahav:10409":"model:gpu:16g-5070-geforce-oc-rtx-sff-ti-windforce-16gb",
@@ -9574,7 +9576,7 @@
 "yahav:10979":"model:case_fan:3-cl-fan-fans-reverse-uni-wireless-x3-120mm-3-rgb-white",
 "yahav:10980":"model:case_fan:cl-fan-fans-uni-wireless-x3-120mm-3-rgb-white",
 "yahav:10981":"model:case_fan:120mm-fan-pack-reverse-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
-"yahav:10982":"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-white",
+"yahav:10982":"model:case_fan:120mm-fan-lcd-pack-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
 "yahav:10983":"model:case_fan:120mm-fan-pack-reverse-rgb-sl-triple-uni-white-wireless-120mm-3-rgb-white",
 "yahav:10984":"model:case_fan:120mm-black-fan-inf-pack-reverse-single-sl-uni-wireless-120mm-1-rgb-black",
 "yahav:10985":"model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
@@ -10169,7 +10171,7 @@
 "yahav:9118":"model:case:4x120mm-ax20-case-elite-fans-fixed-gaming-mid-rgb-tower-black",
 "yahav:9128":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
 "yahav:9129":"model:case_fan:3-3x120mm-ar120-digital-led-pack-pwm-rgb-support-120mm-3-rgb",
-"yahav:9130":"model:case_fan:3x120mm-ar120-digital-led-pwm-rgb-support-white-120mm-3-rgb-white",
+"yahav:9130":"model:case_fan:9050169-co-ww-120mm-3-rgb-white",
 "yahav:9134":"model:motherboard:1700-atx-b760-ddr4-displayport-fi-hdmi-lga-p-pro-wi-atx",
 "yahav:9144":"model:storage:990-pro-4000gb-m2-m22280",
 "yahav:9148":"mpn:accessories:antecp20temperedglass",
@@ -11574,11 +11576,11 @@
 "Antec Omni Matrix 360mm ARGB White",
 "aio"
 ],
-"model:aio:360-nautilus-rs-360mm-black":[
-"Corsair Nautilus RS 360mm Black",
+"model:aio:360-nautilus-rs-360mm":[
+"Corsair Nautilus RS CFM 360mm",
 "aio"
 ],
-"model:aio:360-nautilus-rs-360mm-black-rgb":[
+"model:aio:360-nautilus-rs-360mm-black":[
 "Corsair Nautilus RS 360mm ARGB Black",
 "aio"
 ],
@@ -14219,7 +14221,7 @@
 "case"
 ],
 "model:case:e600-kgnn-s02":[
-"Cooler Master E600-Kgnn-S02 Black",
+"Cooler Master E600-Kgnn-S02",
 "case"
 ],
 "model:case:e600-s02-wgnn":[
@@ -14790,12 +14792,8 @@
 "Lian Li UNI SL Wireless 120mm PWM ARGB Black",
 "case_fan"
 ],
-"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-white":[
-"Lian Li UNI SL Wireless 120mm PWM ARGB LCD White",
-"case_fan"
-],
 "model:case_fan:12-fan-tl-uni-wireless-120mm-1-rgb-white":[
-"Lian Li UNI TL Wireless 120mm PWM ARGB White (12RTLLCD1W1W)",
+"Lian Li UNI TL Wireless 120mm PWM ARGB White",
 "case_fan"
 ],
 "model:case_fan:12-gt120-120mm-1-rgb-black":[
@@ -15276,6 +15274,10 @@
 ],
 "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white":[
 "Lian Li UNI SL-INF Wireless 120mm ARGB White",
+"case_fan"
+],
+"model:case_fan:120mm-fan-lcd-pack-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white":[
+"Lian Li UNI SL Wireless 120mm ARGB LCD White",
 "case_fan"
 ],
 "model:case_fan:120mm-fan-led-oem-red-120mm-rgb-red":[
@@ -15978,10 +15980,6 @@
 "Corsair LX120 Starter 120mm PWM ARGB x3 White",
 "case_fan"
 ],
-"model:case_fan:3x120mm-ar120-digital-led-pwm-rgb-support-white-120mm-3-rgb-white":[
-"Corsair AR120 Digital Support 120mm PWM ARGB x3 White",
-"case_fan"
-],
 "model:case_fan:3x140mm-argb-black-chain-daisy-fan-pwm-storm-support-t3-140mm-3-rgb-black":[
 "Antec Storm T3 3X140MM 140mm PWM ARGB x3 Black",
 "case_fan"
@@ -16131,7 +16129,11 @@
 "case_fan"
 ],
 "model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white":[
-"Corsair AR120 Digital Support 120mm PWM ARGB White",
+"Corsair AR120 Digital 120mm PWM ARGB White",
+"case_fan"
+],
+"model:case_fan:9050169-co-ww-120mm-3-rgb-white":[
+"Corsair AR120 Digital 120mm PWM ARGB x3 White",
 "case_fan"
 ],
 "model:case_fan:9050188-co-ww-120mm-1-black":[
@@ -19502,16 +19504,16 @@
 "Gigabyte Aorus GeForce RTX 5090 32GB (N5090AORUSMICE32GD)",
 "gpu"
 ],
-"model:gpu:32g-32gd-ai-ai-gv-pro-r9700-r9700ai-radeon-top-top-32gb":[
-"Gigabyte Radeon AI PRO R9700 32GB",
-"gpu"
-],
 "model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb":[
 "Gigabyte Aorus GeForce RTX 5090 32GB (N5090AORUSXW32GD)",
 "gpu"
 ],
 "model:gpu:32g-5090-geforce-rtx-soc-suprim-32gb":[
 "MSI Suprim GeForce RTX 5090 32GB",
+"gpu"
+],
+"model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb":[
+"Gigabyte Radeon AI PRO R9700 32GB",
 "gpu"
 ],
 "model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb":[
@@ -20891,7 +20893,7 @@
 "memory"
 ],
 "model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm":[
-"ADATA RGB 48GB DDR5 (2x24GB) 8400MHz CL42",
+"ADATA RGB 48GB DDR5 8400MHz",
 "memory"
 ],
 "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black":[
@@ -20899,7 +20901,7 @@
 "memory"
 ],
 "model:memory:2-32-kf568c34bbek2-32gb-cl34-black":[
-"Kingston 32GB DDR5 (2x16GB) 6800MHz CL34",
+"Kingston DDR5 32GB KF568C34BBEK2 32",
 "memory"
 ],
 "model:memory:2-32-kf568c34bweak2-32gb-cl34-rgb-black":[
@@ -20915,7 +20917,7 @@
 "memory"
 ],
 "model:memory:2-60a300g-kd5agua80-32gb-cl30":[
-"Klevv 32GB DDR5 (2x16GB) 6000MHz CL30 (KD5AGUA80-60A300G)",
+"KLEVV DDR5 32GB KD5AGUA80 60A300G",
 "memory"
 ],
 "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white":[
@@ -20931,19 +20933,19 @@
 "memory"
 ],
 "model:memory:2-cmh32gx5m2d6000z38-vengeance-32gb-rgb-grey":[
-"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL38 (CMH32GX5M2D6000Z38)",
+"Corsair VENGEANCE RGB DDR5 32GB (CMH32GX5M2D6000Z38)",
 "memory"
 ],
 "model:memory:2-cmh32gx5m2d6000z38w-vengeance-32gb-rgb-white":[
-"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL38 (CMH32GX5M2D6000Z38W)",
+"Corsair VENGEANCE RGB DDR5 32GB (CMH32GX5M2D6000Z38W)",
 "memory"
 ],
 "model:memory:2-cmk32gx5m2b6400z32-32gb-cl32-grey":[
-"Corsair 32GB DDR5 (2x16GB) 6400MHz CL32",
+"Corsair DDR5 32GB",
 "memory"
 ],
 "model:memory:2-cmk32gx5m2d6000z38-vengeance-32gb-grey":[
-"Corsair Vengeance 32GB DDR5 (2x16GB) 6000MHz CL38",
+"Corsair VENGEANCE DDR5 32GB",
 "memory"
 ],
 "model:memory:2-cmp32gx5m2b6400c32-32gb-cl32-rgb-black":[
@@ -21171,7 +21173,7 @@
 "memory"
 ],
 "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white":[
-"Klevv 32GB DDR5 (2x16GB) 6000MHz CL30 (KD5AGU880-60A300F)",
+"Klevv 32GB DDR5 (2x16GB) 6000MHz CL30",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm":[
@@ -21783,7 +21785,7 @@
 "memory"
 ],
 "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm":[
-"Crucial 32GB DDR5 (1x32GB) 5600MHz CL46 (SK-CT32G56C46S5)",
+"Crucial 32GB DDR5 (1x32GB) 5600MHz",
 "memory"
 ],
 "model:memory:32gbx2-6000mhz-64gb-amd-beast-cl30-ddr5-dual-expo-fury-intel-packs-single-xmp-64gb-6000mhz-cl30-black":[
@@ -21975,7 +21977,7 @@
 "memory"
 ],
 "model:memory:6000mt-cl30-dimm-lancer-neon-s-u-xpg-16gb-6000mhz-cl30-rgb-grey-dimm":[
-"ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30",
+"ADATA RGB 16GB DDR5 6000MHz CL30",
 "memory"
 ],
 "model:memory:6000mt-cl38-s-vengeance-16gb-6000mhz-cl38-grey-dimm":[
@@ -22023,7 +22025,7 @@
 "memory"
 ],
 "model:memory:6400mt-beast-cl32-fury-s-32gb-6400mhz-cl32-rgb-white-dimm":[
-"Kingston Fury Beast RGB DDR5 32GB (1x32GB) 6400MHz CL32",
+"Kingston Fury Beast RGB DDR5 32GB 6400MHz CL32",
 "memory"
 ],
 "model:memory:6400mt-cl32-cp16g64c32u5w-pro-s-16gb-6400mhz-cl32-white-dimm":[
@@ -22051,11 +22053,11 @@
 "memory"
 ],
 "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm":[
-"ADATA 8GB DDR4 (1x8GB) 3200MHz CL22 (AD4S320038G22-SGN)",
+"ADATA 8GB DDR4 3200MHz CL22 (AD4S320038G22-SGN)",
 "memory"
 ],
 "model:memory:ad4s32008g22-dimm-sgn-so-8gb-3200mhz-cl22-sodimm":[
-"ADATA 8GB DDR4 (1x8GB) 3200MHz CL22 (AD4S32008G22-SGN)",
+"ADATA 8GB DDR4 3200MHz CL22 (AD4S32008G22-SGN)",
 "memory"
 ],
 "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm":[
@@ -22071,11 +22073,11 @@
 "memory"
 ],
 "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm":[
-"ADATA 8GB DDR4 (1x8GB) 3200MHz CL22 (AD4U320038G22-SGN)",
+"ADATA 8GB DDR4 (1x8GB) 3200MHz CL22",
 "memory"
 ],
 "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm":[
-"ADATA 32GB DDR5 (1x32GB) 6400MHz CL52",
+"ADATA DDR5 32GB CSODIMM AD5CS640032G S",
 "memory"
 ],
 "model:memory:ad5s480016g-dimm-s-so-16gb-4800mhz-cl40-sodimm":[
@@ -22091,7 +22093,7 @@
 "memory"
 ],
 "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm":[
-"ADATA 8GB DDR5 (1x8GB) 5600MHz CL46",
+"ADATA DDR5 8GB SO AD5S56008G S",
 "memory"
 ],
 "model:memory:ad5u480016g-dimm-s-u-16gb-4800mhz-dimm":[
@@ -25503,7 +25505,7 @@
 "psu"
 ],
 "model:psu:0-20035-6-761345-atom-g750-black":[
-"Antec Atom G750 0-761345-20035-6 750W 80 PLUS Gold Black",
+"ANTEC Atom G750 0 761345 20035 6 Black",
 "psu"
 ],
 "model:psu:0-3-active-hx1000i-hxi-pcie5-pfc-series-1000w-full-black":[
@@ -26303,7 +26305,7 @@
 "psu"
 ],
 "model:psu:500-e1-helios-pro-black":[
-"GAMDIAS Helios E1-500 PRO 500W Black",
+"GAMDIAS HELIOS E1 500 PRO",
 "psu"
 ],
 "model:psu:500fl-au-aurum-pfc-xilenser-500w":[
@@ -26335,7 +26337,7 @@
 "psu"
 ],
 "model:psu:600-e1-helios-pro-black":[
-"GAMDIAS Helios E1-600 PRO 600W Black",
+"GAMDIAS HELIOS E1 600 PRO",
 "psu"
 ],
 "model:psu:600w-80-black-sir-600w-black":[
@@ -26551,7 +26553,7 @@
 "psu"
 ],
 "model:psu:85f4-afg-c3b0cnp-mpm":[
-"Cooler Master MPM-85F4-AFG-C3B0CNP 850W 80 PLUS Gold",
+"COOLER MASTER MPM 85F4 AFG C3B0CNP",
 "psu"
 ],
 "model:psu:900a-gemini-redundant-900w":[
@@ -26579,7 +26581,7 @@
 "psu"
 ],
 "model:psu:a0f4-afg-mpm":[
-"Cooler Master MPM-A0F4-AFG 1000W 80 PLUS Gold",
+"COOLER MASTER MPM A0F4 AFG",
 "psu"
 ],
 "model:psu:a1000g-mpg-1000w":[
@@ -26767,19 +26769,19 @@
 "psu"
 ],
 "model:psu:gme1000gm-gp-ice-pg5":[
-"Gigabyte GP-GME1000GM PG5 ICE 1000W 80 PLUS Gold",
+"GIGABYTE GP GME1000GM PG5 ICE",
 "psu"
 ],
 "model:psu:gme750gm-gp-ice-pg5":[
-"Gigabyte GP-GME750GM PG5 ICE 750W 80 PLUS Gold",
+"GIGABYTE GP GME750GM PG5 ICE",
 "psu"
 ],
 "model:psu:gme750gm-gp-pg5":[
-"Gigabyte GP-GME750GM PG5 750W 80 PLUS Gold",
+"GIGABYTE GP GME750GM PG5",
 "psu"
 ],
 "model:psu:gme850gm-gp-ice-pg5":[
-"Gigabyte GP-GME850GM PG5 ICE 850W 80 PLUS Gold",
+"GIGABYTE GP GME850GM PG5 ICE",
 "psu"
 ],
 "model:psu:gp-p650g-p650g-650w":[
@@ -26787,7 +26789,7 @@
 "psu"
 ],
 "model:psu:gp-p750bs":[
-"Gigabyte GP-P750BS 750W 80 PLUS Bronze",
+"GIGABYTE GP P750BS",
 "psu"
 ],
 "model:psu:hx1000i-modular-1000w-full-black":[
@@ -27574,6 +27576,10 @@
 "Corsair MP600 GS 1TB NVMe M.2-2280",
 "storage"
 ],
+"model:storage:2280-innovation-it-performance-512gb-nvme-m22280":[
+"Innovation IT Performance M.2 SSD 512GB PCIe Gen3 2280",
+"storage"
+],
 "model:storage:2280-lpx-mp600-pro-2000gb-nvme-m22280":[
 "Corsair MP600 PRO LPX 2TB NVMe M.2-2280",
 "storage"
@@ -27835,7 +27841,7 @@
 "storage"
 ],
 "model:storage:512gb-fa100-512gb-pciegen30-m22280":[
-"Acer GEN 512GB NVMe Gen3 M.2-2280 (BL.9BWWA.119)",
+"Acer GEN 512GB NVMe Gen3 M.2-2280",
 "storage"
 ],
 "model:storage:512gb-fa100-512gb-pciegen30-m22280-2":[
@@ -28043,11 +28049,11 @@
 "storage"
 ],
 "model:storage:c715-cras-1000gb-nvme":[
-"Klevv K01TBM2SP0-C7T 1TB NVMe Gen3 Ssd",
+"Klevv K01TBM2SP0-C7T 1TB NVMe Ssd",
 "storage"
 ],
 "model:storage:c715-cras-512gb-nvme":[
-"Klevv K512GM2SP0-C7T 512GB NVMe Gen3 Ssd",
+"Klevv K512GM2SP0-C7T 512GB NVMe Ssd",
 "storage"
 ],
 "model:storage:cache-dc-hc320-ultrastar-8000gb-sata-35":[

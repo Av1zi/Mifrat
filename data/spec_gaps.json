@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T01:31:38.284859+00:00",
+  "generated_at": "2026-11-13T09:03:51.514859+00:00",
   "gaps": [
     {
       "category": "case",
@@ -92,16 +92,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "מידות משאבה",
-      "count": 27,
-      "products": [
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
-        "model:aio:240-a-freezer-liquid-240mm-white"
-      ]
-    },
-    {
       "category": "memory",
       "label": "תאימות",
       "count": 27,
@@ -109,6 +99,16 @@
         "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
         "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
         "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מידות משאבה",
+      "count": 26,
+      "products": [
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
+        "model:aio:240-a-freezer-liquid-240mm-white"
       ]
     },
     {
@@ -139,26 +139,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 23,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 23,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -249,6 +229,26 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 20,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 20,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -2113,6 +2113,16 @@
     },
     {
       "category": "gpu",
+      "label": "אפיק זיכרון",
+      "count": 5,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Overclocked (OC) edition",
       "count": 5,
       "products": [
@@ -2493,22 +2503,22 @@
     },
     {
       "category": "gpu",
-      "label": "אפיק זיכרון",
-      "count": 4,
-      "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "Stream processors",
       "count": 4,
       "products": [
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
         "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ספק כוח מומלץ למערכת",
+      "count": 4,
+      "products": [
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
       ]
     },
     {
@@ -3159,16 +3169,6 @@
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
         "model:gpu:9070-bo7-cod-gaming-oc-rx-special-tuf-xt-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ספק כוח מומלץ למערכת",
-      "count": 3,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
-        "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
       ]
     },
     {
@@ -4399,6 +4399,15 @@
     },
     {
       "category": "gpu",
+      "label": "מספר צגים מרבי",
+      "count": 2,
+      "products": [
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "תמיכת DirectX",
       "count": 2,
       "products": [
@@ -4548,6 +4557,33 @@
       "products": [
         "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
         "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מרבית",
+      "count": 2,
+      "products": [
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יציאות תצוגה",
+      "count": 2,
+      "products": [
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ארכיטקטורה",
+      "count": 2,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
       ]
     },
     {
@@ -6363,14 +6399,6 @@
     },
     {
       "category": "gpu",
-      "label": "מספר צגים מרבי",
-      "count": 1,
-      "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "מחבר חשמל",
       "count": 1,
       "products": [
@@ -6563,22 +6591,6 @@
     },
     {
       "category": "gpu",
-      "label": "רזולוציה דיגיטלית מרבית",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "יציאות תצוגה",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "חיבורי מתח",
       "count": 1,
       "products": [
@@ -6667,15 +6679,151 @@
     },
     {
       "category": "gpu",
-      "label": "דגם מלא",
+      "label": "תדר Boost מרבי",
       "count": 1,
       "products": [
-        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
       ]
     },
     {
       "category": "gpu",
-      "label": "ארכיטקטורה",
+      "label": "מעבדי זרימה",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יחידות חישוב",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מאיצי בינה מלאכותית",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מאיצי קרניים",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ביצועי FP32 תאורטיים מרביים",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ביצועי FP16 תאורטיים מרביים",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ביצועי INT8 תאורטיים מרביים",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ביצועי INT4 תאורטיים מרביים",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רוחב בחריצי הרחבה",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "כניסת מתח",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מיסב מאוורר",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מתאם מתח כלול",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "קודקי וידאו",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשקי תכנות גרפיים",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תדר זיכרון",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "רוחב פס מרבי של הזיכרון",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תדר Game Clock",
+      "count": 1,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דגם מלא",
       "count": 1,
       "products": [
         "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
