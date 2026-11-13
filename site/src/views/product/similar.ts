@@ -90,8 +90,8 @@ export function similarMarkup(
 
   return html`<div class="similar">${cards.map(
     ({ p, name, disc }) => html`<a class="similar__card" href="${productHash(p.category, p.id)}">
-      ${thumb(p.image, initialsOf(p.brand, p.name), "lg", name)}
-      <span class="similar__name">${name}</span>
+      ${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "lg", name)}
+      <span class="similar__name" dir="auto">${name}</span>
       ${disc ? html`<span class="similar__disc">${disc}</span>` : ""}
       ${priceCell(p.min_price, currency, lang)}
     </a>`

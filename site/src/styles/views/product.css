@@ -499,3 +499,49 @@
   color: var(--text-3);
   font-size: var(--fs-xs);
 }
+
+/* Phones and narrow columns: small tiles side by side (photo, two lines of
+   name, price), so eight suggestions are two short rows of scrolling, not
+   eight full-width cards between the history and the spec sheet. */
+@media (max-width: 1023px) {
+  /* At least two a row on any phone (a 9rem minimum left a 360px phone at
+     one), more as the column widens. */
+  .similar {
+    grid-template-columns: repeat(auto-fill, minmax(min(calc(50% - var(--sp-1)), 9rem), 1fr));
+    gap: var(--sp-2);
+  }
+
+  .similar__card {
+    gap: var(--sp-1);
+    padding: var(--sp-2);
+  }
+
+  .similar__card .thumb--lg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .similar__name {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: var(--fs-xs);
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .similar__disc {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: var(--fs-2xs);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .similar__card .price {
+    margin-top: auto;
+    font-size: var(--fs-md);
+  }
+}
+

@@ -90,11 +90,26 @@
   position: relative;
 }
 
+/* Clipped to the plot: nothing in the chart (an edge label, the tooltip) may
+   reach past the card and widen the page, which made it shift sideways. */
 .ph-chart {
+  display: block;
+  /* Time runs left to right in both languages; text-anchor follows the SVG's
+     direction, so an RTL page would push the edge dates outside the plot. */
+  direction: ltr;
   width: 100%;
   height: auto;
-  overflow: visible;
+  overflow: hidden;
+  /* Vertical swipes still scroll the page; history.ts claims a sideways drag
+     for scrubbing the line. */
   touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ph-wrap {
+  overflow: hidden;
 }
 
 .ph-chart:focus-visible {
@@ -167,4 +182,103 @@
 
 .ph-tip__price {
   font-variant-numeric: tabular-nums;
+}
+
+/* ---- phones and touch: the readout is a strip docked above the plot ----
+   It keeps its height while empty (a hint line), so a tap never pushes the
+   chart down, and it lays the stores out in a row instead of a stack. */
+.ph-wrap.is-docked .ph-tip {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px var(--sp-3);
+  min-width: 0;
+  /* Sized for every store at once (two a line under the date), so the strip
+     never grows mid-drag and the plot never jumps under the finger. */
+  --ph-lines: calc(1 + round(up, var(--ph-stores, 1) / 2, 1));
+  /* A fixed height (not a minimum): with mixed fonts a line can be a pixel
+     taller than its neighbour, and even that nudged the plot. */
+  height: calc(var(--ph-lines) * 1.35rem + var(--sp-4));
+  overflow: hidden;
+  align-content: flex-start;
+  margin-bottom: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--surface-2);
+  border-color: var(--line-soft);
+  box-shadow: none;
+  font-size: var(--fs-sm);
+}
+
+.ph-wrap.is-docked .ph-tip[data-empty]::before {
+  content: attr(data-hint);
+  color: var(--text-3);
+}
+
+.ph-wrap.is-docked .ph-tip__date {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: var(--fs-xs);
+}
+
+.ph-wrap.is-docked .ph-tip__row {
+  flex: 0 0 calc(50% - var(--sp-3) / 2);
+  gap: 6px;
+  min-width: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.ph-wrap.is-docked .ph-tip__vendor {
+  flex: none;
+  color: var(--text-2);
+}
+
+/* Narrow charts: labels at full reading size (the SVG is 1:1 with CSS px). */
+.ph-wrap.is-compact .ph-tick {
+  font-size: 12px;
+}
+
+.ph-wrap.is-compact .ph-line {
+  stroke-width: 2.5;
+}
+
+/* Phones: the three stat boxes become one compact row. */
+@media (max-width: 639px) {
+  .ph-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-3);
+  }
+
+  .ph-stat {
+    min-width: 0;
+    padding: var(--sp-2);
+  }
+
+  .ph-stat span {
+    font-size: var(--fs-2xs);
+  }
+
+  .ph-stat b {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-md);
+    line-height: 1.25;
+  }
+
+  .ph-stat small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ph-legend {
+    gap: 6px;
+  }
+
+  .ph-legend__item {
+    min-height: 2.25rem;
+  }
 }

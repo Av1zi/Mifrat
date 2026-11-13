@@ -13,6 +13,31 @@ let resizeObserver: ResizeObserver | null = null;
 /** Series class: each store keeps its own colour (--v-<vendor> tokens in chart.css). */
 const seriesClass = (vendor: string): string => `ph-v-${vendorKey(vendor)}`;
 
+let measureCtx: CanvasRenderingContext2D | null | undefined;
+/** Widest of `texts` in `font`, so the price axis takes only the room its labels need. */
+function textWidth(texts: string[], font: string): number {
+  if (measureCtx === undefined) {
+    try {
+      measureCtx = document.createElement("canvas").getContext?.("2d") ?? null;
+    } catch {
+      measureCtx = null;
+    }
+  }
+  // No canvas (an old engine, a test DOM): ~7px a character at 11-12px.
+  if (!measureCtx) return texts.reduce((w, s) => Math.max(w, s.length * 7), 0);
+  measureCtx.font = font;
+  return texts.reduce((w, s) => Math.max(w, measureCtx!.measureText(s).width), 0);
+}
+
+/** The host's content-box width and font, tolerating a DOM without layout APIs. */
+function plotBox(host: HTMLElement): { width: number; font: string } {
+  const style = typeof getComputedStyle === "function" ? getComputedStyle(host) : null;
+  const pad = style ? (parseFloat(style.paddingLeft) || 0) + (parseFloat(style.paddingRight) || 0) : 0;
+  return { width: (host.clientWidth || 0) - pad, font: style?.fontFamily || "system-ui, sans-serif" };
+}
+
+const coarsePointer = (): boolean => typeof matchMedia === "function" && matchMedia("(pointer: coarse)").matches;
+
 export async function renderPriceHistory(
   host: HTMLElement,
   lang: Lang,
@@ -59,13 +84,17 @@ export async function renderPriceHistory(
   const draw = (restoreFocusId?: string): void => {
     const end = dates.length;
     const start = Math.max(0, end - dayWindow);
-    const visDates = dates.slice(start, end);
-
     const shown = visible();
+    // Days before any shown store has a price would be blank space on the
+    // left: the plot starts at the first priced day (the stats keep the window).
+    let from = start;
+    while (from < end - 1 && !shown.some((v) => series[v][from] !== null && series[v][from] !== undefined)) from++;
+    const visDates = dates.slice(from, end);
+
     let lo = Infinity;
     let hi = -Infinity;
     for (const v of shown) {
-      for (const p of series[v].slice(start, end)) {
+      for (const p of series[v].slice(from, end)) {
         if (p === null || p === undefined) continue;
         if (p < lo) lo = p;
         if (p > hi) hi = p;
@@ -81,30 +110,44 @@ export async function renderPriceHistory(
     lo = Math.max(0, lo - pad);
     hi += pad;
 
-    // Match the viewBox to the card's pixel width so 1 SVG unit stays ~1 CSS
-    // pixel (a stretched fixed viewBox scales the axis labels with it).
-    const measured = host.clientWidth > 0 ? host.clientWidth : Math.max(320, (host.parentElement?.clientWidth ?? 940) - 44);
-    const W = Math.max(320, Math.min(1400, Math.round(measured)));
-    const H = Math.max(200, Math.min(340, Math.round(W * 0.32)));
-    const L = 88;
-    const R = 18;
+    // Match the viewBox to the chart's real pixel width (the card's content
+    // box) so 1 SVG unit stays 1 CSS pixel: a viewBox wider than the space
+    // it gets shrinks every label and line with it. Measured after unhiding,
+    // since a hidden card has no width.
+    host.hidden = false;
+    const box = plotBox(host);
+    const W = Math.max(240, Math.min(1400, Math.round(box.width > 0 ? box.width : 320)));
+    // Narrow charts get taller (a 0.32 ratio is a strip on a phone) and a
+    // readout above the plot instead of a tooltip over it; so do touch screens,
+    // where a floating tooltip sits under the finger.
+    const compact = W < 560;
+    const docked = compact || coarsePointer();
+    const H = compact ? Math.max(220, Math.min(300, Math.round(W * 0.75))) : Math.max(200, Math.min(340, Math.round(W * 0.32)));
+    const ticks = 4;
+    const tickValues = Array.from({ length: ticks + 1 }, (_, g) => lo + ((hi - lo) * g) / ticks);
+    const tickLabels = tickValues.map((value) => formatPrice(Math.round(value), currency, lang));
+    // The price axis is as wide as its widest label, not a fixed 88px.
+    const L = Math.ceil(textWidth(tickLabels, `${compact ? 12 : 11}px ${box.font}`)) + 12;
+    const R = compact ? 6 : 18;
     const T = 12;
     const B = 30;
     const n = visDates.length;
     const x = (i: number): number => (n === 1 ? (L + W - R) / 2 : L + (W - L - R) * (i / (n - 1)));
     const y = (v: number): number => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
 
-    const ticks = 4;
     let grid = "";
-    for (let g = 0; g <= ticks; g++) {
-      const value = lo + ((hi - lo) * g) / ticks;
+    tickValues.forEach((value, g) => {
       const gy = y(value);
       grid += `<line x1="${L}" y1="${gy}" x2="${W - R}" y2="${gy}" class="ph-grid"/>`;
-      grid += `<text x="${L - 8}" y="${gy + 4}" text-anchor="end" class="ph-tick">${esc(formatPrice(Math.round(value), currency, lang))}</text>`;
-    }
-    const xLabels = [0, Math.floor((n - 1) / 2), n - 1]
-      .filter((v, i, a) => a.indexOf(v) === i)
-      .map((i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="ph-tick">${esc(shortDate(visDates[i]))}</text>`)
+      grid += `<text x="${L - 6}" y="${gy + 4}" text-anchor="end" class="ph-tick">${esc(tickLabels[g])}</text>`;
+    });
+    // Edge dates align to the plot's edges so they never hang outside it.
+    const xIdx = [0, Math.floor((n - 1) / 2), n - 1].filter((v, i, a) => a.indexOf(v) === i);
+    const xLabels = xIdx
+      .map((i) => {
+        const anchor = n === 1 ? "middle" : i === 0 ? "start" : i === n - 1 ? "end" : "middle";
+        return `<text x="${x(i)}" y="${H - 8}" text-anchor="${anchor}" class="ph-tick">${esc(shortDate(visDates[i]))}</text>`;
+      })
       .join("");
 
     // Step lines: a price holds until the next change. A lone point (one day
@@ -113,7 +156,7 @@ export async function renderPriceHistory(
     let dots = "";
     const paths = shown
       .map((vendor) => {
-        const points = series[vendor].slice(start, end);
+        const points = series[vendor].slice(from, end);
         let d = "";
         let penDown = false;
         const present: number[] = [];
@@ -196,7 +239,6 @@ export async function renderPriceHistory(
 
     // Preserve focus across redraws (the range select keeps keyboard context).
     const activeId = restoreFocusId ?? (host.contains(document.activeElement) ? (document.activeElement as HTMLElement).id || "" : "");
-    host.hidden = false;
     mount(
       host,
       html`<header class="card__head"><h2 class="card__title">${t(lang, "priceHistory")}</h2>${rangeControl}</header>
@@ -205,10 +247,10 @@ export async function renderPriceHistory(
           const off = hidden.has(vendor);
           return html`<button type="button" class="ph-legend__item${off ? " is-off" : ""}" data-vendor="${vendor}" aria-pressed="${off ? "false" : "true"}" title="${t(lang, "toggleSeries")}"><span class="ph-swatch ${seriesClass(vendor)}"></span>${vendorLabel(vendor)}</button>`;
         })}</div>
-        <div class="ph-wrap">
-          <svg class="ph-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(lang, "priceHistory")}" tabindex="0">
+        <div class="ph-wrap${compact ? " is-compact" : ""}${docked ? " is-docked" : ""}" style="--ph-stores: ${shown.length}">
+          <div class="ph-tip" data-hint="${t(lang, "historyScrubHint")}" data-empty${docked ? "" : html` hidden`}></div>
+          <svg class="ph-chart" viewBox="0 0 ${W} ${H}" direction="ltr" role="img" aria-label="${t(lang, "priceHistory")}" tabindex="0">
           </svg>
-          <div class="ph-tip" hidden></div>
         </div>`
     );
     // The SVG body holds trusted, already-escaped chart markup built above.
@@ -220,7 +262,7 @@ export async function renderPriceHistory(
     const wrap = host.querySelector<HTMLElement>(".ph-wrap")!;
     const tip = wrap.querySelector<HTMLElement>(".ph-tip")!;
     const cross = svg.querySelector<SVGLineElement>(".ph-cross")!;
-    const visibleSeries = shown.map((v) => series[v].slice(start, end));
+    const visibleSeries = shown.map((v) => series[v].slice(from, end));
 
     host.querySelectorAll<HTMLButtonElement>(".ph-legend__item").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -234,7 +276,7 @@ export async function renderPriceHistory(
     });
 
     const fmtDay = (index: number): string => {
-      const d = new Date(timestamps[start + index] ?? visDates[index]);
+      const d = new Date(timestamps[from + index] ?? visDates[index]);
       return Number.isNaN(d.getTime())
         ? shortDate(visDates[index])
         : new Intl.DateTimeFormat(locale, { day: "numeric", month: "numeric", year: "numeric" }).format(d);
@@ -254,7 +296,11 @@ export async function renderPriceHistory(
       return best;
     };
     const hide = (): void => {
-      tip.hidden = true;
+      // Docked, the strip stays in place showing its hint, so nothing below it moves.
+      if (docked) {
+        tip.replaceChildren();
+        tip.dataset.empty = "";
+      } else tip.hidden = true;
       cross.setAttribute("visibility", "hidden");
     };
     const showAt = (best: number, anchorX?: number, anchorY?: number): void => {
@@ -276,6 +322,14 @@ export async function renderPriceHistory(
         )}`
       );
       tip.hidden = false;
+      delete tip.dataset.empty;
+      // Docked (phones, touch): the readout is a strip above the plot, so it
+      // never covers the lines and is never under the finger.
+      if (docked) {
+        tip.style.left = "";
+        tip.style.top = "";
+        return;
+      }
       const wrapRect = wrap.getBoundingClientRect();
       let lx = anchorX !== undefined ? anchorX - wrapRect.left + 14 : (x(best) / W) * wrapRect.width;
       let ly = anchorY !== undefined ? anchorY - wrapRect.top - 10 : 20;
@@ -293,22 +347,62 @@ export async function renderPriceHistory(
     };
 
     let focusIdx = n - 1;
-    svg.addEventListener("mousemove", (e) => {
-      focusIdx = nearest(e.clientX);
-      showAt(focusIdx, e.clientX, e.clientY);
+    const point = (clientX: number, clientY: number): void => {
+      focusIdx = nearest(clientX);
+      showAt(focusIdx, clientX, clientY);
+    };
+    // Mouse and pen: hover reads the day under the pointer.
+    svg.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "touch") point(e.clientX, e.clientY);
     });
-    svg.addEventListener("mouseleave", hide);
-    // Touch + keyboard: focus the chart and arrow through points.
+    svg.addEventListener("pointerleave", (e) => {
+      if (e.pointerType === "mouse") hide();
+    });
+    // Touch: a finger on the chart scrubs it. Touch events, not pointer
+    // events: browsers stop sending pointermove for a touch they might turn
+    // into a scroll, so the reading froze on the first tap. Once the finger
+    // has moved more sideways than up/down it owns the gesture (the page
+    // does not scroll); a mostly vertical swipe stays a page scroll.
+    let touchStart: { x: number; y: number } | null = null;
+    let scrubbing = false;
     svg.addEventListener(
       "touchstart",
       (e) => {
         const touch = e.touches[0];
-        if (!touch) return;
-        focusIdx = nearest(touch.clientX);
-        showAt(focusIdx, touch.clientX, touch.clientY);
+        if (!touch || e.touches.length > 1) return;
+        touchStart = { x: touch.clientX, y: touch.clientY };
+        scrubbing = false;
+        point(touch.clientX, touch.clientY);
       },
       { passive: true }
     );
+    svg.addEventListener(
+      "touchmove",
+      (e) => {
+        const touch = e.touches[0];
+        if (!touch || !touchStart) return;
+        if (!scrubbing) {
+          const dx = Math.abs(touch.clientX - touchStart.x);
+          const dy = Math.abs(touch.clientY - touchStart.y);
+          if (dy > dx && dy > 8) {
+            touchStart = null;
+            return;
+          }
+          scrubbing = dx > 4;
+        }
+        if (scrubbing && e.cancelable) e.preventDefault();
+        point(touch.clientX, touch.clientY);
+      },
+      { passive: false }
+    );
+    const endTouch = (): void => {
+      touchStart = null;
+      scrubbing = false;
+      // The last reading stays up on a phone; the docked strip has room for it.
+      if (!docked) hide();
+    };
+    svg.addEventListener("touchend", endTouch);
+    svg.addEventListener("touchcancel", endTouch);
     svg.addEventListener("keydown", (e) => {
       if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
       e.preventDefault();
@@ -317,7 +411,9 @@ export async function renderPriceHistory(
       else focusIdx = e.key === "Home" ? 0 : n - 1;
       showAt(focusIdx);
     });
-    svg.addEventListener("blur", hide);
+    svg.addEventListener("blur", () => {
+      if (!scrubbing && !docked) hide();
+    });
 
     host.querySelector(".ph-range")?.addEventListener("change", (e) => {
       const days = Number((e.target as HTMLSelectElement).value);
@@ -326,21 +422,25 @@ export async function renderPriceHistory(
     });
   };
 
-  // Redraw when the card's width changes (window resize, sidebar collapse),
-  // guarded by width so draws never loop.
+  // Redraw when the chart's width changes (rotation, window resize), guarded
+  // by width so draws never loop. It compares like with like: lastDrawnWidth
+  // is the plot width (content box), so this must be too. Comparing the
+  // card's outer width against it re-drew the chart on every height change
+  // in the column, mid-gesture, which dropped the reading under the finger.
   resizeObserver?.disconnect();
-  if (typeof ResizeObserver !== "undefined" && host.parentElement) {
+  if (typeof ResizeObserver !== "undefined") {
+    const plotWidth = (): number => plotBox(host).width;
     let pending = false;
     resizeObserver = new ResizeObserver(() => {
-      if (pending || Math.abs((host.clientWidth || 0) - lastDrawnWidth) < 24) return;
+      if (pending || Math.abs(plotWidth() - lastDrawnWidth) < 24) return;
       pending = true;
       requestAnimationFrame(() => {
         pending = false;
-        if (Math.abs((host.clientWidth || 0) - lastDrawnWidth) < 24) return;
+        if (Math.abs(plotWidth() - lastDrawnWidth) < 24) return;
         draw(document.activeElement?.id);
       });
     });
-    resizeObserver.observe(host.parentElement);
+    resizeObserver.observe(host);
   }
 
   draw();
