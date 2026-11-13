@@ -80,7 +80,7 @@ If the detail endpoint answers 200:
 
 ## Outcome (fill in after Phase 0)
 
-- Detail endpoint: **open** (2026-11-13, owner on the Nano, uin 280943: HTTP 200, no `cf-mitigated`, `application/json`, 44,558 bytes, 407 keys). The probe's key-name scan found no part-number-like key, so where (or whether) the maker part number sits in the payload is still to be read from the saved sample.
+- Detail endpoint: **open** (2026-11-13, owner on the Nano, uin 280943: HTTP 200, no `cf-mitigated`, `application/json`, 44,558 bytes, 407 keys). The probe's key-name scan found no part-number-like key. Read from the saved sample (owner, same day): `result` holds `data` (listing fields plus `modalName: "i5-14600K"`), `tags`, `images`, `stock` and `specification.items`, a head/body HTML table copied from the maker (Intel's full ark sheet here) with a `דגם` (model) row of `i5-14600K`. No maker part number (`BX8071514600K`), no barcode, nowhere in the payload. One CPU sample only: whether `דגם` carries the maker code for memory/PSU/case/GPU rows decides Phase 2's value; next probe is one non-CPU item.
 - Product page structured data: none (2026-11-13, see Phase 0 step 2)
 - Affiliate / feed answer: _pending_
 - Chosen path: _pending_
