@@ -255,17 +255,6 @@
       ]
     },
     {
-      "product_id": "manual:cpu:1pc-134718-tms-c7500t-p",
-      "category": "cpu",
-      "brand": "Intel",
-      "model": "Core i5 7500",
-      "attributes": {},
-      "listing_keys": [
-        "1pc:134718",
-        "tms:C7500T-P"
-      ]
-    },
-    {
       "product_id": "manual:cpu:1pc-189657-tms-c265kt",
       "category": "cpu",
       "brand": "Intel",
@@ -307,50 +296,6 @@
       "listing_keys": [
         "1pc:67263",
         "tms:C9700FT"
-      ]
-    },
-    {
-      "product_id": "manual:cpu:ksp-280959-ksp-281032",
-      "category": "cpu",
-      "brand": "Intel",
-      "model": "Core i9 14900K",
-      "attributes": {},
-      "listing_keys": [
-        "ksp:280959",
-        "ksp:281032"
-      ]
-    },
-    {
-      "product_id": "manual:cpu:ksp-280964-ksp-281030",
-      "category": "cpu",
-      "brand": "Intel",
-      "model": "Core i7 14700KF",
-      "attributes": {},
-      "listing_keys": [
-        "ksp:280964",
-        "ksp:281030"
-      ]
-    },
-    {
-      "product_id": "manual:memory:ksp-489119-ksp-489121",
-      "category": "memory",
-      "brand": "G.Skill",
-      "model": null,
-      "attributes": {},
-      "listing_keys": [
-        "ksp:489119",
-        "ksp:489121"
-      ]
-    },
-    {
-      "product_id": "manual:memory:ksp-489120-ksp-489126",
-      "category": "memory",
-      "brand": "G.Skill",
-      "model": null,
-      "attributes": {},
-      "listing_keys": [
-        "ksp:489120",
-        "ksp:489126"
       ]
     },
     {
@@ -889,6 +834,10 @@
     [
       "1pc:132269",
       "tms:C40"
+    ],
+    [
+      "1pc:134718",
+      "tms:C7500T-P"
     ],
     [
       "1pc:145922",
@@ -1484,11 +1433,19 @@
     ],
     [
       "ksp:280959",
+      "ksp:281032"
+    ],
+    [
+      "ksp:280959",
       "ksp:301967"
     ],
     [
       "ksp:280964",
       "ksp:280968"
+    ],
+    [
+      "ksp:280964",
+      "ksp:281030"
     ],
     [
       "ksp:280968",
@@ -2872,7 +2829,15 @@
     ],
     [
       "ksp:489119",
+      "ksp:489121"
+    ],
+    [
+      "ksp:489119",
       "ksp:489126"
+    ],
+    [
+      "ksp:489119",
+      "ksp:489129"
     ],
     [
       "ksp:489119",
@@ -2884,11 +2849,23 @@
     ],
     [
       "ksp:489120",
+      "ksp:489126"
+    ],
+    [
+      "ksp:489120",
       "ksp:489129"
+    ],
+    [
+      "ksp:489120",
+      "ksp:489142"
     ],
     [
       "ksp:489121",
       "ksp:489126"
+    ],
+    [
+      "ksp:489121",
+      "ksp:489129"
     ],
     [
       "ksp:489121",
@@ -2897,6 +2874,10 @@
     [
       "ksp:489126",
       "ksp:489129"
+    ],
+    [
+      "ksp:489126",
+      "ksp:489142"
     ],
     [
       "ksp:489129",
