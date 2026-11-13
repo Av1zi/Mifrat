@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # KSP detail scrape on the Nano (home IP only; docs/ksp-detail-plan.md Phase 2).
 # Reads the maker part number from KSP's item JSON for a bounded chunk of
-# uins a night, KSP-only products first. Runs in its own window, well after
-# the KSP listing run, so a block here never costs the night's prices.
+# uins a night, KSP-only products first. Runs after the night's KSP listing
+# run (03:00 UTC timer) and only when that run succeeded, so the prices are
+# already pushed and a block here never costs them.
 # Rules: one request at a time, 3-9s apart (spiders/ksp_detail.py), stop on
 # the first 403/429, never retry against a block, no second run the same day.
 set -euo pipefail
@@ -13,6 +14,8 @@ SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
 TODAY="$(date -u +%F)"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
 DONE_MARKER="$STATE_DIR/ksp-detail-$TODAY.done"
+# Written by run_ksp.sh once tonight's listing snapshot is pushed.
+LISTING_MARKER="$STATE_DIR/ksp-$TODAY.success"
 DETAIL_FILE="data/raw/detail/ksp.jsonl"
 # 150 uins at ~6s is ~15 minutes; the whole KSP catalog (~900) takes a week.
 KSP_DETAIL_LIMIT="${KSP_DETAIL_LIMIT:-150}"
@@ -22,6 +25,17 @@ mkdir -p "$STATE_DIR"
 
 if [ -f "$DONE_MARKER" ]; then
     echo "[run_ksp_detail] already ran today ($DONE_MARKER) - one run per day"
+    exit 0
+fi
+# Never on top of the listing run, and never after a night KSP refused it:
+# no success marker means blocked, failed, or still running.
+if systemctl is-active --quiet pc-parts-il-ksp.service; then
+    echo "[run_ksp_detail] KSP listing run still active - skipping tonight"
+    exit 0
+fi
+if [ ! -f "$LISTING_MARKER" ] && [ "${KSP_DETAIL_FORCE:-0}" != "1" ]; then
+    echo "[run_ksp_detail] no KSP listing success tonight ($LISTING_MARKER) -" \
+         "skipping, so a block is not followed by more requests"
     exit 0
 fi
 # Mark BEFORE the crawl: a crash or a block must not lead to a retry today.

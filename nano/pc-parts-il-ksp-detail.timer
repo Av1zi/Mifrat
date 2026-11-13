@@ -1,12 +1,14 @@
 [Unit]
-Description=Daily timer for the KSP detail scrape (PC Part Picker IL)
+Description=Nightly timer for the KSP detail scrape (PC Part Picker IL)
 
 [Timer]
-# Afternoon window, far from every night scrape on this home IP (TMS 21:15,
-# 1PC 23:20, KSP listing 00:55-02:35, extract 02:40 UTC): 12:00-13:00 UTC.
-# The first probe (2026-11-13) ran at this time of day and answered 200.
-OnCalendar=*-*-* 12:00:00 UTC
-RandomizedDelaySec=3600
+# Night window (21:00-04:00 UTC = 23:00-07:00 Israel), when KSP sees the
+# least traffic. After the KSP listing run (00:55-01:55 start, done by 02:35
+# UTC) with a gap, because KSP rate-limits per IP over a window: starts
+# 03:00-03:30 UTC, ~15 minutes for 150 items, done before 04:00 UTC.
+# run_ksp_detail.sh skips the night when the listing run did not succeed.
+OnCalendar=*-*-* 03:00:00 UTC
+RandomizedDelaySec=1800
 
 [Install]
 WantedBy=timers.target

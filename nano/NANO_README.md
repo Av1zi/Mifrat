@@ -212,17 +212,21 @@ for up to 150 uins a day, KSP-only products first, and pushes
 `data/raw/detail/ksp.jsonl`. The `דגם` row is the maker part number on many
 parts (Kingston "KF556C40BBK2-32") and only a model name on others (Intel
 "i5-14600K"); the normalizer adopts it only when another vendor prints the
-same code. It runs 12:00-13:00 UTC, far from the night scrapes, once a day
-(a marker in the state dir), one request at a time, and stops at the first
-403/429; whatever arrived is still pushed.
+same code. It runs at night, 03:00-03:30 UTC start (05:00-06:30 Israel),
+after the KSP listing run and only when that run succeeded the same night;
+once a day (a marker in the state dir), one request at a time, and it stops
+at the first 403/429; whatever arrived is still pushed.
 
 ```bash
 sudo cp nano/pc-parts-il-ksp-detail.service nano/pc-parts-il-ksp-detail.timer /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now pc-parts-il-ksp-detail.timer
-KSP_DETAIL_LIMIT=10 nano/run_ksp_detail.sh   # first run by hand, small
-journalctl -u pc-parts-il-ksp-detail.service -n 50
+systemctl list-timers pc-parts-il-ksp-detail.timer
+journalctl -u pc-parts-il-ksp-detail.service -n 50   # the morning after
 ```
+
+`KSP_DETAIL_FORCE=1` skips the listing-success check for a hand run (only
+when the listing run is not due); `KSP_DETAIL_LIMIT=N` sizes the chunk.
 
 A block here does not touch the listing run's data, but it is the same home
 IP: if `ksp_detail` reports a block, disable the timer
