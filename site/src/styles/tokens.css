@@ -64,14 +64,15 @@
   --v-onepc: #c2410c;
   --v-ivory: #0f766e;
   --v-yahav: #7c3aed;
-  --v-ksp: #0b63ce;
+  /* KSP was a second cobalt, unreadable beside TMS: deep pink keeps every pair apart. */
+  --v-ksp: #be185d;
   --v-plonter: #a16207;
   --v-other: #64748b;
   --v-tms-soft: #e8eefc;
   --v-onepc-soft: #fbede6;
   --v-ivory-soft: #e2f2ef;
   --v-yahav-soft: #efe8fd;
-  --v-ksp-soft: #e6effc;
+  --v-ksp-soft: #fce7f3;
   --v-plonter-soft: #f8efd9;
   --v-other-soft: #eef1f5;
 
@@ -211,14 +212,14 @@
   --v-onepc: #fb8a4b;
   --v-ivory: #2dc3b3;
   --v-yahav: #a98bfa;
-  --v-ksp: #66a9ff;
+  --v-ksp: #f472b6;
   --v-plonter: #e3b34a;
   --v-other: #94a3b8;
   --v-tms-soft: #1a2a52;
   --v-onepc-soft: #3a2014;
   --v-ivory-soft: #0f2f2c;
   --v-yahav-soft: #271c45;
-  --v-ksp-soft: #15294a;
+  --v-ksp-soft: #3b1530;
   --v-plonter-soft: #33280f;
   --v-other-soft: #1b2741;
 

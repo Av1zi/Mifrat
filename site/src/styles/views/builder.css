@@ -306,6 +306,7 @@
 .split-bar__seg--onepc { background: var(--v-onepc); }
 .split-bar__seg--ivory { background: var(--v-ivory); }
 .split-bar__seg--yahav { background: var(--v-yahav); }
+.split-bar__seg--ksp { background: var(--v-ksp); }
 .split-bar__seg--plonter { background: var(--v-plonter); }
 
 .split-list {

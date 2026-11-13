@@ -3,6 +3,7 @@
 .ph-v-onepc { --series: var(--v-onepc); }
 .ph-v-ivory { --series: var(--v-ivory); }
 .ph-v-yahav { --series: var(--v-yahav); }
+.ph-v-ksp { --series: var(--v-ksp); }
 .ph-v-plonter { --series: var(--v-plonter); }
 .ph-v-other { --series: var(--v-other); }
 

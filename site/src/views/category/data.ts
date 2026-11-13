@@ -13,6 +13,7 @@ import type { PriceSignal } from "../../signals";
 import type { Currency, Lang, Product, SortKey } from "../../types";
 import { normSearch, searchScore, searchTokens, skuOf } from "../../utils";
 import { positivePrice } from "../../ui/price";
+import { facetFor, facetsFor, normalizeOption, optionComparator, replacedFields } from "./facets";
 
 export const PAGE_SIZE = 60;
 
@@ -96,55 +97,83 @@ export function specOptionValues(product: Product, field: string, list: boolean)
   return text ? [text] : [];
 }
 
+/**
+ * Option values one product contributes for any rail key: store, derived
+ * filter or spec field. Spellings are folded here (facets.ts), so the counts,
+ * the URL and the matching all see one value per meaning.
+ */
+export function optionValues(product: Product, key: string, category: string): string[] {
+  if (key === "vendor") return [...new Set(product.offers.map((o) => o.vendor))];
+  const facet = facetFor(category, key);
+  if (facet) return facet.values(product);
+  const raw = specOptionValues(product, key, listFieldsFor(category).has(key));
+  return [...new Set(raw.flatMap((value) => normalizeOption(category, key, value, product)))];
+}
+
 // ---- filter universe ---------------------------------------------------------
+
+/**
+ * Whole-number fields with this many values or fewer are checkboxes ("8 GB,
+ * 16 GB, 32 GB"), as PCPartPicker lists memory sizes. Wider ones stay sliders.
+ */
+const DISCRETE_MAX = 12;
 
 const filterableCache = new WeakMap<Product[], Map<string, OptionCounts>>();
 
+/** Every checkbox group the rail can show, with per-value product counts. */
 export function computeFilterable(products: Product[], category: string): Map<string, OptionCounts> {
   const cached = filterableCache.get(products);
   if (cached) return cached;
 
   const fields = specFieldMap(category);
-  const listFields = listFieldsFor(category);
-  const counts = new Map<string, Map<string, number>>();
+  const replaced = replacedFields(category);
+  const keys = [
+    "vendor",
+    ...facetsFor(category).map((facet) => facet.key),
+    ...filterableSpecs(category).filter((field) => !replaced.has(field)),
+  ];
+  const counts = new Map<string, Map<string, number>>(keys.map((key) => [key, new Map()]));
 
-  // Schema order is rail order (identity -> core -> power -> physical -> io).
-  // Only fields the schema flags `filterable` become checkbox filters.
   for (const p of products) {
-    for (const field of filterableSpecs(category)) {
-      if (isNumericSpec(fields.get(field))) continue;
-      let values = counts.get(field);
-      if (!values) {
-        values = new Map();
-        counts.set(field, values);
-      }
-      for (const value of specOptionValues(p, field, listFields.has(field))) {
-        values.set(value, (values.get(value) ?? 0) + 1);
-      }
-    }
-    const vendors = new Set(p.offers.map((o) => o.vendor));
-    if (vendors.size > 0 && !counts.has("vendor")) counts.set("vendor", new Map());
-    for (const v of vendors) {
-      const values = counts.get("vendor")!;
-      values.set(v, (values.get(v) ?? 0) + 1);
+    for (const key of keys) {
+      const values = counts.get(key)!;
+      for (const value of optionValues(p, key, category)) values.set(value, (values.get(value) ?? 0) + 1);
     }
   }
 
   const out = new Map<string, OptionCounts>();
   for (const [key, values] of counts) {
+    const field = fields.get(key);
+    if (isNumericSpec(field) && (field?.type !== "int" || values.size > DISCRETE_MAX)) continue;
     // Long lists collapse behind "show more"; the cap only stops runaway
     // free-text keys.
     const max = key === "vendor" ? 30 : 70;
     if (values.size < 2 || values.size > max) continue;
-    out.set(key, Array.from(values.entries()).sort((a, b) => b[1] - a[1]));
+    // Stores stay most-listings-first; every other list is in a fixed,
+    // PCPartPicker-style order so one line-up's options sit together.
+    const entries = Array.from(values.entries());
+    if (key === "vendor") entries.sort((a, b) => b[1] - a[1]);
+    else {
+      const compare = optionComparator(category, key, field?.type);
+      entries.sort((a, b) => compare(a[0], b[0]));
+    }
+    out.set(key, entries);
   }
   filterableCache.set(products, out);
   return out;
 }
 
-export function computeRanges(products: Product[], category: string): Map<string, Range> {
+/** Slider bounds for numeric fields that are not already checkbox groups. */
+export function computeRanges(
+  products: Product[],
+  category: string,
+  filterable: Map<string, OptionCounts> = new Map()
+): Map<string, Range> {
   const fields = specFieldMap(category);
-  const numeric = filterableSpecs(category).filter((field) => isNumericSpec(fields.get(field)));
+  const replaced = replacedFields(category);
+  const numeric = filterableSpecs(category).filter(
+    (field) => isNumericSpec(fields.get(field)) && !filterable.has(field) && !replaced.has(field)
+  );
   const ranges = new Map<string, Range>();
   const widen = (key: string, value: number): void => {
     const range = ranges.get(key) ?? { min: Infinity, max: -Infinity };
@@ -192,7 +221,8 @@ function numericValue(p: Product, field: string): number | null {
 
 function applyFilters(products: Product[], params: CategoryParams, query: string): Product[] {
   const tokens = searchTokens(query);
-  const listFields = listFieldsFor(products[0]?.category ?? "");
+  const category = products[0]?.category ?? "";
+  const listFields = listFieldsFor(category);
 
   return products.filter((p) => {
     if (params.stockOnly && !p.in_stock) return false;
@@ -200,10 +230,9 @@ function applyFilters(products: Product[], params: CategoryParams, query: string
 
     for (const [key, values] of Object.entries(params.filters)) {
       if (values.length === 0) continue;
-      if (key === "vendor") {
-        if (!p.offers.some((o) => values.includes(o.vendor))) return false;
-        continue;
-      }
+      if (optionValues(p, key, category).some((v) => values.includes(v))) continue;
+      if (key === "vendor" || facetFor(category, key)) return false;
+      // Links saved before spellings were folded carry the raw value.
       const text = canonicalSpecText(p, key);
       if (text && values.includes(text)) continue;
       const own = listFields.has(key)

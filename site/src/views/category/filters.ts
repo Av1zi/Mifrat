@@ -1,22 +1,48 @@
 import { impliedFilterValues, isProductCompatibleWithBuild, optionMatchesTokens } from "../../build";
 import { formatPrice } from "../../format";
 import { attributeLabel, t, vendorLabel } from "../../i18n";
-import { isNumericSpec, specFieldMap } from "../../specs";
+import { filterableSpecs, isNumericSpec, specFieldMap, specUnit } from "../../specs";
 import { categoryHash, replaceRoute } from "../../state";
 import { chip } from "../../ui/chip";
 import { button } from "../../ui/button";
 import { html, type Html } from "../../ui/html";
 import { vendorDot } from "../../ui/vendor";
 import {
-  listFieldsFor,
-  specOptionValues,
+  optionValues,
   type CategoryActions,
   type CategoryCtx,
   type OptionCounts,
   type Range,
 } from "./data";
+import { facetFor, optionDisplay, railKeys } from "./facets";
 
 const OPTIONS_SHOWN = 6;
+
+/** Group heading: the derived filter's own label, else the schema label. */
+function keyLabel(ctx: CategoryCtx, key: string): string {
+  if (key === "vendor") return t(ctx.lang, "merchantsTitle");
+  if (key === "price") return t(ctx.lang, "priceRange");
+  return facetFor(ctx.category, key)?.label[ctx.lang] ?? attributeLabel(key, ctx.lang, ctx.category);
+}
+
+/** Display text for one stored option value ("16" -> "16 GB", "Yes" -> "כן"). */
+export function optionLabel(ctx: CategoryCtx, key: string, value: string): string {
+  if (key === "vendor") return vendorLabel(value);
+  const facet = facetFor(ctx.category, key);
+  if (facet) return facet.optionLabel?.(value, ctx.lang) ?? value;
+  const field = specFieldMap(ctx.category).get(key);
+  if (field?.type === "bool") return value === "Yes" ? t(ctx.lang, "yesLabel") : value === "No" ? t(ctx.lang, "noLabel") : value;
+  if (isNumericSpec(field)) {
+    const unit = specUnit(key);
+    return unit ? `${value} ${unit}` : value;
+  }
+  return optionDisplay(ctx.category, key, value, ctx.lang) ?? value;
+}
+
+/** Unit for a slider's edge labels ("mm", "W"), "" for counts. */
+function rangeUnit(key: string): string {
+  return key === "price" ? "" : specUnit(key);
+}
 
 export function activeFilterCount(ctx: CategoryCtx): number {
   return (
@@ -34,7 +60,7 @@ export function activeFilterChips(ctx: CategoryCtx): Html {
     // Compat-applied values stay locked until the compat filter is turned off.
     const locked = ctx.compatOn && ctx.compatAutoKeys.has(key);
     for (const value of values) {
-      const label = html`${attributeLabel(key, lang, ctx.category)}: ${key === "vendor" ? vendorLabel(value) : value}`;
+      const label = html`${keyLabel(ctx, key)}: ${optionLabel(ctx, key, value)}`;
       chips.push(
         locked
           ? chip(label, { tone: "brand", locked: true, title: t(lang, "compatLocked") })
@@ -44,13 +70,15 @@ export function activeFilterChips(ctx: CategoryCtx): Html {
   }
   for (const [key, range] of Object.entries(params.ranges)) {
     if (range.min === null && range.max === null) continue;
+    const unit = rangeUnit(key);
+    const fmt = (n: number): string => (key === "price" ? formatPrice(n, ctx.currency, lang) : unit ? `${n} ${unit}` : String(n));
     const text =
       range.min !== null && range.max !== null
-        ? `${range.min} – ${range.max}`
+        ? `${fmt(range.min)} – ${fmt(range.max)}`
         : range.min !== null
-          ? `${t(lang, "min")}: ${range.min}`
-          : `${t(lang, "max")}: ${range.max}`;
-    chips.push(chip(html`${attributeLabel(key, lang, ctx.category)}: ${text}`, { tone: "brand", removable: true, data: { "range-key": key } }));
+          ? `${t(lang, "min")}: ${fmt(range.min)}`
+          : `${t(lang, "max")}: ${fmt(range.max!)}`;
+    chips.push(chip(html`${keyLabel(ctx, key)}: ${text}`, { tone: "brand", removable: true, data: { "range-key": key } }));
   }
   if (chips.length === 0) return html``;
   return html`${chips}${button({ label: t(lang, "clearFilters"), variant: "ghost", size: "sm", data: { role: "clear-all" } })}`;
@@ -79,7 +107,6 @@ export function applyImpliedFilters(ctx: CategoryCtx): void {
 function compatibleOptions(ctx: CategoryCtx): Map<string, Set<string>> {
   const good = new Map<string, Set<string>>();
   if (ctx.build.items.length === 0 || !ctx.targetSlotId) return good;
-  const listFields = listFieldsFor(ctx.category);
   for (const p of ctx.products) {
     if (!isProductCompatibleWithBuild(p, ctx.targetSlotId, ctx.build.first)) continue;
     for (const key of ctx.filterable.keys()) {
@@ -88,8 +115,7 @@ function compatibleOptions(ctx: CategoryCtx): Map<string, Set<string>> {
         set = new Set();
         good.set(key, set);
       }
-      if (key === "vendor") for (const offer of p.offers) set.add(offer.vendor);
-      else for (const value of specOptionValues(p, key, listFields.has(key))) set.add(value);
+      for (const value of optionValues(p, key, ctx.category)) set.add(value);
     }
   }
   return good;
@@ -99,7 +125,7 @@ function optionMarkup(ctx: CategoryCtx, good: Map<string, Set<string>>, key: str
   const dead = good.size > 0 && !(good.get(key)?.has(value) ?? false);
   const state = dead ? (ctx.compatOn ? " is-off" : " is-soft-off") : "";
   const checked = (ctx.params.filters[key] ?? []).includes(value);
-  return html`<label class="check${state}"><input type="checkbox" data-attr="${key}" value="${value}"${checked ? html` checked` : ""}${dead && ctx.compatOn ? html` disabled` : ""}>${key === "vendor" ? html`${vendorDot(value)}${vendorLabel(value)}` : html`<bdi>${value}</bdi>`}<span class="check__count">${count}</span></label>`;
+  return html`<label class="check${state}"><input type="checkbox" data-attr="${key}" value="${value}"${checked ? html` checked` : ""}${dead && ctx.compatOn ? html` disabled` : ""}>${key === "vendor" ? html`${vendorDot(value)}${vendorLabel(value)}` : html`<bdi>${optionLabel(ctx, key, value)}</bdi>`}<span class="check__count">${count}</span></label>`;
 }
 
 function group(label: string, body: Html, open: boolean, selected = 0): Html {
@@ -109,15 +135,23 @@ function group(label: string, body: Html, open: boolean, selected = 0): Html {
   </details>`;
 }
 
+/** PCPartPicker's "All" row: checked while nothing in the group is, and clears the group. */
+function allOption(ctx: CategoryCtx, key: string): Html {
+  const none = (ctx.params.filters[key] ?? []).length === 0;
+  return html`<label class="check check--all"><input type="checkbox" data-all="${key}"${none ? html` checked` : ""}>${t(ctx.lang, "allLabel")}</label>`;
+}
+
 function rangeMarkup(ctx: CategoryCtx, key: string, range: Range): Html {
   const span = range.max - range.min;
-  const step = key === "price" ? Math.max(1, Math.floor(span / 100)) : key.includes("ghz") || key.includes("clock") ? 0.1 : 1;
+  const isFloat = specFieldMap(ctx.category).get(key)?.type === "float";
+  const step = key === "price" ? Math.max(1, Math.floor(span / 100)) : isFloat ? 0.1 : 1;
   const lo = ctx.params.ranges[key]?.min ?? range.min;
   const hi = ctx.params.ranges[key]?.max ?? range.max;
-  const label = key === "price" ? t(ctx.lang, "priceRange") : attributeLabel(key, ctx.lang, ctx.category);
+  const label = keyLabel(ctx, key);
   const minAria = key === "price" ? t(ctx.lang, "priceMinAria") : `${label} ${t(ctx.lang, "min")}`;
   const maxAria = key === "price" ? t(ctx.lang, "priceMaxAria") : `${label} ${t(ctx.lang, "max")}`;
-  const edge = (n: number): string => (key === "price" ? formatPrice(n, ctx.currency, ctx.lang) : String(n));
+  const unit = rangeUnit(key);
+  const edge = (n: number): string => (key === "price" ? formatPrice(n, ctx.currency, ctx.lang) : unit ? `${n} ${unit}` : String(n));
   return html`<div class="range-wrap" data-range="${key}">
     <div class="range-ends"><span>${edge(range.min)}</span><span>${edge(range.max)}</span></div>
     <div class="range">
@@ -133,45 +167,59 @@ function rangeMarkup(ctx: CategoryCtx, key: string, range: Range): Html {
 }
 
 function checkGroup(ctx: CategoryCtx, good: Map<string, Set<string>>, key: string, values: OptionCounts, open: boolean): Html {
-  const shown = values.slice(0, OPTIONS_SHOWN);
-  const extra = values.slice(OPTIONS_SHOWN);
-  const label = key === "vendor" ? t(ctx.lang, "merchantsTitle") : attributeLabel(key, ctx.lang, ctx.category);
-  const body = html`${shown.map(([v, n]) => optionMarkup(ctx, good, key, v, n))}
+  // A filter in use never hides its checked values behind "show more".
+  const active = (ctx.params.filters[key] ?? []).length > 0;
+  const limit = active ? values.length : OPTIONS_SHOWN;
+  const shown = values.slice(0, limit);
+  const extra = values.slice(limit);
+  const body = html`${allOption(ctx, key)}${shown.map(([v, n]) => optionMarkup(ctx, good, key, v, n))}
     ${extra.length > 0
       ? html`<div data-extra hidden>${extra.map(([v, n]) => optionMarkup(ctx, good, key, v, n))}</div>
         <button type="button" class="link-btn" data-more data-label-more="${t(ctx.lang, "showMore")} (${extra.length})" data-label-less="${t(ctx.lang, "showLess")}">${t(ctx.lang, "showMore")} (${extra.length})</button>`
       : ""}`;
-  return group(label, body, open, (ctx.params.filters[key] ?? []).length);
+  return group(keyLabel(ctx, key), body, open || active, (ctx.params.filters[key] ?? []).length);
 }
 
-/** Rail body: merchants, price, numeric ranges, then checkbox groups in schema order. */
+function rangeGroup(ctx: CategoryCtx, key: string, open: boolean): Html | null {
+  const range = ctx.ranges.get(key);
+  if (!range || range.min === range.max) return null;
+  const active = ctx.params.ranges[key] !== undefined;
+  return group(keyLabel(ctx, key), rangeMarkup(ctx, key, range), open || active, active ? 1 : 0);
+}
+
+/** Category filters open by default after the fixed head: the ones a buyer narrows by first. */
+const OPEN_FIRST = 2;
+
+/**
+ * Rail body: stores, manufacturer and price always lead (in that order), then
+ * every filter in the category's order (facets.ts), each drawn as checkboxes
+ * or a slider by what its values allow. The head and the first category
+ * filters open; the rest stay folded until clicked.
+ */
 export function filtersMarkup(ctx: CategoryCtx): Html {
   const good = compatibleOptions(ctx);
-  const fields = specFieldMap(ctx.category);
-  const sections: Html[] = [];
-  let first = true;
-  const open = (): boolean => {
-    const was = first;
-    first = false;
-    return was;
+  const section = (key: string, open: boolean): Html | null => {
+    const values = ctx.filterable.get(key);
+    return values ? checkGroup(ctx, good, key, values, open) : rangeGroup(ctx, key, open);
   };
+  const sections: Array<Html | null> = [section("vendor", true), section("manufacturer", true), rangeGroup(ctx, "price", true)];
 
-  const vendors = ctx.filterable.get("vendor");
-  if (vendors) sections.push(checkGroup(ctx, good, "vendor", vendors, open()));
-
-  const price = ctx.ranges.get("price");
-  if (price) sections.push(group(t(ctx.lang, "priceRange"), rangeMarkup(ctx, "price", price), open(), ctx.params.ranges.price ? 1 : 0));
-
-  for (const [key, range] of ctx.ranges) {
-    if (key === "price" || range.min === range.max) continue;
-    sections.push(group(attributeLabel(key, ctx.lang, ctx.category), rangeMarkup(ctx, key, range), false, ctx.params.ranges[key] ? 1 : 0));
-  }
-
-  for (const [key, values] of ctx.filterable) {
-    if (key === "vendor" || isNumericSpec(fields.get(key))) continue;
-    sections.push(checkGroup(ctx, good, key, values, false));
+  let opened = 0;
+  for (const key of railKeys(ctx.category, filterableSpecs(ctx.category))) {
+    if (key === "manufacturer") continue;
+    const next = section(key, opened < OPEN_FIRST);
+    if (!next) continue;
+    sections.push(next);
+    opened++;
   }
   return html`${sections}`;
+}
+
+/** "All" stays checked exactly while its group has nothing selected. */
+function syncAllOptions(rail: Element, ctx: CategoryCtx): void {
+  rail.querySelectorAll<HTMLInputElement>("input[data-all]").forEach((input) => {
+    input.checked = (ctx.params.filters[input.dataset.all!] ?? []).length === 0;
+  });
 }
 
 /** Keeps checkbox states in sync without rebuilding the rail (open groups stay open). */
@@ -188,6 +236,7 @@ export function refreshRailStates(ctx: CategoryCtx): void {
     input.disabled = dead && ctx.compatOn;
     input.checked = (ctx.params.filters[key] ?? []).includes(input.value);
   });
+  syncAllOptions(rail, ctx);
 }
 
 function bindRange(ctx: CategoryCtx, actions: CategoryActions, wrap: HTMLElement): void {
@@ -281,6 +330,20 @@ export function bindFilters(ctx: CategoryCtx, actions: CategoryActions): void {
   });
 
   rail.querySelectorAll<HTMLElement>("[data-range]").forEach((wrap) => bindRange(ctx, actions, wrap));
+
+  // "All" clears its group; unticking it while nothing is chosen does nothing.
+  rail.querySelectorAll<HTMLInputElement>("input[data-all]").forEach((input) => {
+    input.addEventListener("change", () => {
+      const key = input.dataset.all!;
+      if (ctx.compatOn && ctx.compatAutoKeys.has(key)) {
+        syncAllOptions(rail, ctx);
+        return;
+      }
+      delete ctx.params.filters[key];
+      ctx.compatAutoKeys.delete(key);
+      actions.update();
+    });
+  });
 }
 
 /** Clearing is explicit intent to see everything: it also drops the compat filter. */

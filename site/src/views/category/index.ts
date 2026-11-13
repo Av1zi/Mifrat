@@ -104,7 +104,7 @@ export async function renderCategory(
     view: getListView(),
     page: 0,
     filterable: computeFilterable(products, category),
-    ranges: computeRanges(products, category),
+    ranges: computeRanges(products, category, computeFilterable(products, category)),
     columns: pickColumns(products, category),
     signals: new Map(),
   };
