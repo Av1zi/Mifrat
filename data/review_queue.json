@@ -374,39 +374,6 @@
     "match_text_b": "C40 Antec C40 CPU Cooler"
   },
   {
-    "score": 100,
-    "category": "memory",
-    "brand": "Samsung",
-    "listing_a": "1pc:221510",
-    "listing_b": "tms:M333R4GA3EB1-CCP",
-    "title_a": "Samsung DDR5 32GB 6400 CL52 CUDIMM M333R4GA3EB1-CCP",
-    "title_b": "Samsung DDR5 32GB 6400 CL52 CUDIMM",
-    "match_text_a": "221510 Samsung DDR5 32GB 6400 CL52 CUDIMM M333R4GA3EB1-CCP",
-    "match_text_b": "M333R4GA3EB1-CCP Samsung DDR5 32GB 6400 CL52 CUDIMM"
-  },
-  {
-    "score": 100,
-    "category": "psu",
-    "brand": "Corsair",
-    "listing_a": "1pc:221408",
-    "listing_b": "tms:CP-9020336-EU",
-    "title_a": "ספק כוח Corsair RM850e 850W ATX 3.1 Cybenetics Platinum מודולרי מלא CP-9020336-EU",
-    "title_b": "ספק כוח Corsair RM850e 850W ATX 3.1 Cybenetics Platinum מודולרי מלא",
-    "match_text_a": "221408 Corsair RM850e 850W ATX 3.1 Cybenetics Platinum CP-9020336-EU",
-    "match_text_b": "CP-9020336-EU Corsair RM850e 850W ATX 3.1 Cybenetics Platinum"
-  },
-  {
-    "score": 100,
-    "category": "psu",
-    "brand": "Corsair",
-    "listing_a": "1pc:221409",
-    "listing_b": "tms:CP-9020337-EU",
-    "title_a": "ספק כוח Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum מודולרי מלא CP-9020337-EU",
-    "title_b": "ספק כוח Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum מודולרי מלא",
-    "match_text_a": "221409 Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum CP-9020337-EU",
-    "match_text_b": "CP-9020337-EU Corsair RM1000e 1000W ATX 3.1 Cybenetics Platinum"
-  },
-  {
     "score": 98,
     "category": "memory",
     "brand": "Corsair",
@@ -647,17 +614,6 @@
     "title_b": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
     "match_text_a": "491305 GIGABYTE Radeon RX 9060 XT GAMING OC ICE 16GB",
     "match_text_b": "491352 GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB"
-  },
-  {
-    "score": 96,
-    "category": "memory",
-    "brand": "ADATA",
-    "listing_a": "ksp:290077",
-    "listing_b": "ksp:290079",
-    "title_a": "זכרון למחשב Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRWH",
-    "title_b": "זכרון למחשב Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRBK",
-    "match_text_a": "290077 Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRWH",
-    "match_text_b": "290079 Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRBK"
   },
   {
     "score": 96,
@@ -1147,17 +1103,6 @@
     "score": 94,
     "category": "motherboard",
     "brand": "ASUS",
-    "listing_a": "ksp:355813",
-    "listing_b": "ksp:355825",
-    "title_a": "לוח אם Asus ROG STRIX B860-G Gaming WiFi LGA1851 B860 DDR5",
-    "title_b": "לוח אם Asus ROG STRIX B860-F Gaming WiFi LGA1851 B860 DDR5",
-    "match_text_a": "355813 Asus ROG STRIX B860-G Gaming WiFi LGA1851 B860 DDR5",
-    "match_text_b": "355825 Asus ROG STRIX B860-F Gaming WiFi LGA1851 B860 DDR5"
-  },
-  {
-    "score": 94,
-    "category": "motherboard",
-    "brand": "ASUS",
     "listing_a": "ksp:435410",
     "listing_b": "ksp:435425",
     "title_a": "לוח אם ASUS TUF GAMING B850M-PLUS WIFI 7 AM5 DDR5",
@@ -1538,6 +1483,17 @@
     "title_b": "כונן SSD פנימי דגם Legend 960 בנפח 4TB מבית Adata",
     "match_text_a": "290026 SSD Legend 960 2TB Adata",
     "match_text_b": "290028 SSD Legend 960 4TB Adata"
+  },
+  {
+    "score": 93,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "ksp:393712",
+    "listing_b": "ksp:393815",
+    "title_a": "לוח אם ASUS X870 GAMING MAX WIFI7 AM5 AMD X870 DDR5",
+    "title_b": "לוח אם ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
+    "match_text_a": "393712 ASUS X870 GAMING MAX WIFI7 AM5 AMD X870 DDR5",
+    "match_text_b": "393815 ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 -"
   },
   {
     "score": 93,
@@ -2000,6 +1956,17 @@
     "title_b": "מאוורר למארז Arctic P12 Pro PST CO 120mm - צבע שחור",
     "match_text_a": "421742 Arctic P12 Pro PST 120mm -",
     "match_text_b": "421747 Arctic P12 Pro PST CO 120mm -"
+  },
+  {
+    "score": 92,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "ivory:134868",
+    "listing_b": "ksp:393815",
+    "title_a": "לוח אם ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD - לבן",
+    "title_b": "לוח אם ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
+    "match_text_a": "90MB1LZ0-M0EAY0 ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD -",
+    "match_text_b": "393815 ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 -"
   },
   {
     "score": 92,
@@ -3401,17 +3368,6 @@
   {
     "score": 90,
     "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "ksp:343369",
-    "listing_b": "ksp:343523",
-    "title_a": "לוח אם Asus ROG STRIX Z890-E GAMING WIFI LGA1851 Z890 DDR5",
-    "title_b": "לוח אם Asus ROG STRIX Z890-A GAMING WIFI LGA1851 DDR5",
-    "match_text_a": "343369 Asus ROG STRIX Z890-E GAMING WIFI LGA1851 Z890 DDR5",
-    "match_text_b": "343523 Asus ROG STRIX Z890-A GAMING WIFI LGA1851 DDR5"
-  },
-  {
-    "score": 90,
-    "category": "motherboard",
     "brand": "MSI",
     "listing_a": "ksp:490483",
     "listing_b": "ksp:490786",
@@ -3962,13 +3918,13 @@
   {
     "score": 89,
     "category": "motherboard",
-    "brand": "MSI",
-    "listing_a": "1pc:222692",
-    "listing_b": "ksp:461737",
-    "title_a": "לוח אם MSI MPG X870E CARBON MAX WIFI",
-    "title_b": "לוח אם MSI MPG X870E CARBON MAX WIFI AM5 DDR5",
-    "match_text_a": "222692 MSI MPG X870E CARBON MAX WIFI",
-    "match_text_b": "461737 MSI MPG X870E CARBON MAX WIFI AM5 DDR5"
+    "brand": "ASUS",
+    "listing_a": "ivory:134865",
+    "listing_b": "ksp:393815",
+    "title_a": "לוח אם ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
+    "title_b": "לוח אם ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
+    "match_text_a": "90MB1LY0-M0EAY0 ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
+    "match_text_b": "393815 ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 -"
   },
   {
     "score": 89,
@@ -4299,28 +4255,6 @@
     "title_b": "קירור נוזלי למעבד Arctic Liquid Freezer III Pro 280 A-RGB - צבע לבן",
     "match_text_a": "406037 Arctic Liquid Freezer III Pro 420 A-RGB -",
     "match_text_b": "421810 Arctic Liquid Freezer III Pro 280 A-RGB -"
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "Sapphire",
-    "listing_a": "ivory:148825",
-    "listing_b": "ksp:418978",
-    "title_a": "לוח אם SAPPHIRE PULSE B850M WIFI 6 mATX AM5 AMD",
-    "title_b": "לוח אם SAPPHIRE PULSE B850M WIFI AM5",
-    "match_text_a": "52123-04-40G SAPPHIRE PULSE B850M WIFI 6 mATX AM5 AMD",
-    "match_text_b": "418978 SAPPHIRE PULSE B850M WIFI AM5"
-  },
-  {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "Sapphire",
-    "listing_a": "ivory:148831",
-    "listing_b": "ksp:418991",
-    "title_a": "לוח אם SAPPHIRE NITRO+ B850M WIFI 6 mATX AM5 AMD",
-    "title_b": "לוח אם SAPPHIRE NITRO+ B850M WIFI AM5",
-    "match_text_a": "52123-01-40G SAPPHIRE NITRO+ B850M WIFI 6 mATX AM5 AMD",
-    "match_text_b": "418991 SAPPHIRE NITRO+ B850M WIFI AM5"
   },
   {
     "score": 89,
@@ -5058,39 +4992,6 @@
     "title_b": "לוח אם Asus PRIME B860M-A-CSM LGA1851 B860 DDR5",
     "match_text_a": "355862 Asus PRIME B860M-K LGA1851 B860 DDR5",
     "match_text_b": "355897 Asus PRIME B860M-A-CSM LGA1851 B860 DDR5"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "ksp:368258",
-    "listing_b": "ksp:370265",
-    "title_a": "לוח אם ASUS PRIME B860M-A WiFi LGA1851 DDR5",
-    "title_b": "לוח אם ASUS PRIME H810M-A WiFi LGA1851 DDR5",
-    "match_text_a": "368258 ASUS PRIME B860M-A WiFi LGA1851 DDR5",
-    "match_text_b": "370265 ASUS PRIME H810M-A WiFi LGA1851 DDR5"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "ASUS",
-    "listing_a": "ksp:464667",
-    "listing_b": "ksp:480123",
-    "title_a": "לוח אם ASUS ROG STRIX B850-A GAMING WIFI7 NEO AM5 DDR5",
-    "title_b": "לוח אם ASUS ROG STRIX B850-F GAMING WIFI7 NEO DDR5 AM5",
-    "match_text_a": "464667 ASUS ROG STRIX B850-A GAMING WIFI7 NEO AM5 DDR5",
-    "match_text_b": "480123 ASUS ROG STRIX B850-F GAMING WIFI7 NEO DDR5 AM5"
-  },
-  {
-    "score": 88,
-    "category": "motherboard",
-    "brand": "MSI",
-    "listing_a": "1pc:222511",
-    "listing_b": "ksp:479284",
-    "title_a": "לוח אם MSI B860M GAMING PLUS WIFI6E",
-    "title_b": "לוח אם MSI B860M GAMING PLUS WIFI6E LGA1851 DDR5",
-    "match_text_a": "222511 MSI B860M GAMING PLUS WIFI6E",
-    "match_text_b": "479284 MSI B860M GAMING PLUS WIFI6E LGA1851 DDR5"
   },
   {
     "score": 88,
@@ -6742,28 +6643,6 @@
         "vendor_sku": "B850M-MAX-GAMING-WIFI",
         "title": "לוח אם חברת Asus דגם B850M Max Gaming WIfi DDR5 1xHDMI 1xDisplayPort ATX",
         "price": 870
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:am5-amd-gaming-max-wifi7-x870-x870-atx",
-    "category": "motherboard",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:393815",
-        "vendor_sku": "393815",
-        "title": "לוח אם ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
-        "price": 1290
-      },
-      {
-        "listing_key": "ksp:393712",
-        "vendor_sku": "393712",
-        "title": "לוח אם ASUS X870 GAMING MAX WIFI7 AM5 AMD X870 DDR5",
-        "price": 1415,
-        "alias_of": "ksp:393815"
       }
     ]
   },
@@ -14383,6 +14262,29 @@
     "model_code": "230h-d4-modt-wifi"
   },
   {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:7-b850a-nitro-wifi-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:148837",
+        "vendor": "ivory",
+        "vendor_sku": "52123-03-40G",
+        "title": "לוח אם SAPPHIRE NITRO+ B850A WIFI 7 ATX AM5 AMD",
+        "price": 799
+      },
+      {
+        "listing_key": "ksp:428902",
+        "vendor": "ksp",
+        "vendor_sku": "428902",
+        "title": "לוח אם Sapphire NITRO+ B850A WIFI 7 AM5",
+        "price": 769
+      }
+    ],
+    "model_code": "7-b850a-nitro-wifi"
+  },
+  {
     "kind": "variant_conflict",
     "category": "motherboard",
     "product_id": "model:motherboard:a-b760m-csm-prime-microatx",
@@ -14489,6 +14391,29 @@
   {
     "kind": "identity_merge",
     "category": "motherboard",
+    "product_id": "model:motherboard:a-pro-wifi-z890-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:188725",
+        "vendor": "1pc",
+        "vendor_sku": "188725",
+        "title": "לוח אם MSI PRO Z890-A WIFI",
+        "price": 1734
+      },
+      {
+        "listing_key": "ksp:348061",
+        "vendor": "ksp",
+        "vendor_sku": "348061",
+        "title": "לוח אם MSI PRO Z890-A WIFI 1851 DDR5",
+        "price": 1190
+      }
+    ],
+    "model_code": "a-pro-wifi-z890"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
     "product_id": "model:motherboard:a520m-challenger-k-wifi-microatx",
     "vendor": "",
     "offers": [
@@ -14508,6 +14433,29 @@
       }
     ],
     "model_code": "a520m-challenger-k-wifi"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:a620am-pulse-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:161206",
+        "vendor": "ivory",
+        "vendor_sku": "52118-03-40G",
+        "title": "לוח אם SAPPHIRE PULSE A620AM mATX AM5 AMD",
+        "price": 379
+      },
+      {
+        "listing_key": "ksp:428879",
+        "vendor": "ksp",
+        "vendor_sku": "428879",
+        "title": "לוח אם Sapphire PULSE A620AM AM5",
+        "price": 379
+      }
+    ],
+    "model_code": "a620am-pulse"
   },
   {
     "kind": "variant_conflict",
@@ -14668,6 +14616,29 @@
       }
     ],
     "model_code": "b550m-pro-vdh"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b550m-pulse-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:161212",
+        "vendor": "ivory",
+        "vendor_sku": "52103-05-40G",
+        "title": "לוח אם SAPPHIRE PULSE B550M mATX AM4 AMD",
+        "price": 475
+      },
+      {
+        "listing_key": "ksp:510165",
+        "vendor": "ksp",
+        "vendor_sku": "510165",
+        "title": "לוח אם Sapphire PULSE B550M AM4",
+        "price": 445
+      }
+    ],
+    "model_code": "b550m-pulse"
   },
   {
     "kind": "variant_conflict",
@@ -14980,6 +14951,29 @@
   {
     "kind": "identity_merge",
     "category": "motherboard",
+    "product_id": "model:motherboard:b850m-nitro-wifi-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:148831",
+        "vendor": "ivory",
+        "vendor_sku": "52123-01-40G",
+        "title": "לוח אם SAPPHIRE NITRO+ B850M WIFI 6 mATX AM5 AMD",
+        "price": 679
+      },
+      {
+        "listing_key": "ksp:418991",
+        "vendor": "ksp",
+        "vendor_sku": "418991",
+        "title": "לוח אם SAPPHIRE NITRO+ B850M WIFI AM5",
+        "price": 619
+      }
+    ],
+    "model_code": "b850m-nitro-wifi"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
     "product_id": "model:motherboard:b850m-p-pro-wifi-microatx",
     "vendor": "",
     "offers": [
@@ -14999,6 +14993,52 @@
       }
     ],
     "model_code": "b850m-p-pro-wifi"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b850m-pulse-wifi-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:148825",
+        "vendor": "ivory",
+        "vendor_sku": "52123-04-40G",
+        "title": "לוח אם SAPPHIRE PULSE B850M WIFI 6 mATX AM5 AMD",
+        "price": 599
+      },
+      {
+        "listing_key": "ksp:418978",
+        "vendor": "ksp",
+        "vendor_sku": "418978",
+        "title": "לוח אם SAPPHIRE PULSE B850M WIFI AM5",
+        "price": 569
+      }
+    ],
+    "model_code": "b850m-pulse-wifi"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b850m-pure-wifi-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:148828",
+        "vendor": "ivory",
+        "vendor_sku": "52123-02-40G",
+        "title": "לוח אם SAPPHIRE PURE B850M WIFI 6 mATX AM5 AMD",
+        "price": 699
+      },
+      {
+        "listing_key": "ksp:428910",
+        "vendor": "ksp",
+        "vendor_sku": "428910",
+        "title": "לוח אם Sapphire PURE B850M WIFI AM5",
+        "price": 639
+      }
+    ],
+    "model_code": "b850m-pure-wifi"
   },
   {
     "kind": "variant_conflict",
@@ -15053,6 +15093,52 @@
     ]
   },
   {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b860m-e-pro-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:217671",
+        "vendor": "1pc",
+        "vendor_sku": "217671",
+        "title": "לוח אם MSI PRO B860M-E צבע שחור",
+        "price": 483
+      },
+      {
+        "listing_key": "ksp:490483",
+        "vendor": "ksp",
+        "vendor_sku": "490483",
+        "title": "לוח אם MSI PRO B860M-E LGA1851",
+        "price": 480
+      }
+    ],
+    "model_code": "b860m-e-pro"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b860m-gaming-plus-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:222511",
+        "vendor": "1pc",
+        "vendor_sku": "222511",
+        "title": "לוח אם MSI B860M GAMING PLUS WIFI6E",
+        "price": 776
+      },
+      {
+        "listing_key": "ksp:479284",
+        "vendor": "ksp",
+        "vendor_sku": "479284",
+        "title": "לוח אם MSI B860M GAMING PLUS WIFI6E LGA1851 DDR5",
+        "price": 755
+      }
+    ],
+    "model_code": "b860m-gaming-plus-wifi6e"
+  },
+  {
     "kind": "variant_conflict",
     "category": "motherboard",
     "product_id": "model:motherboard:b860m-gaming-tuf-wifi-microatx",
@@ -15078,6 +15164,13 @@
         "vendor_sku": "90MB1JV0-M0EAY0",
         "title": "Asus TUF GAMING B860M-PLUS WIFI",
         "price": 971
+      },
+      {
+        "listing_key": "ksp:355875",
+        "vendor": "ksp",
+        "vendor_sku": "355875",
+        "title": "לוח אם Asus TUF Gaming B860M-Plus WiFi LGA1851 B860",
+        "price": 899
       }
     ],
     "model_code": "b860m-gaming-tuf-wifi",
@@ -15117,6 +15210,52 @@
     "manufacturer_pn": [
       "90MB1JW0M0EAY0"
     ]
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:carbon-max-mpg-wifi-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:222692",
+        "vendor": "1pc",
+        "vendor_sku": "222692",
+        "title": "לוח אם MSI MPG X870E CARBON MAX WIFI",
+        "price": 2066
+      },
+      {
+        "listing_key": "ksp:461737",
+        "vendor": "ksp",
+        "vendor_sku": "461737",
+        "title": "לוח אם MSI MPG X870E CARBON MAX WIFI AM5 DDR5",
+        "price": 2090
+      }
+    ],
+    "model_code": "carbon-max-mpg-wifi-x870e"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:e-h810m-pro-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:212399",
+        "vendor": "1pc",
+        "vendor_sku": "212399",
+        "title": "לוח אם MSI PRO H810M-E בצבע שחור",
+        "price": 443
+      },
+      {
+        "listing_key": "ksp:479263",
+        "vendor": "ksp",
+        "vendor_sku": "479263",
+        "title": "לוח אם MSI PRO H810M-E LGA1851 DDR5",
+        "price": 399
+      }
+    ],
+    "model_code": "e-h810m-pro"
   },
   {
     "kind": "variant_conflict",
@@ -15273,6 +15412,52 @@
     "manufacturer_pn": [
       "GH810MGAMINGWIFI6GEN5"
     ]
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:gaming-h810m-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:204175",
+        "vendor": "1pc",
+        "vendor_sku": "204175",
+        "title": "לוח אם MSI H810M GAMING WIFI6E DDR5",
+        "price": 554
+      },
+      {
+        "listing_key": "ksp:416574",
+        "vendor": "ksp",
+        "vendor_sku": "416574",
+        "title": "לוח אם MSI H810M GAMING WIFI6E LGA1851",
+        "price": 595
+      }
+    ],
+    "model_code": "gaming-h810m-wifi6e"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:p-pro-wifi6e-z890-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:219570",
+        "vendor": "1pc",
+        "vendor_sku": "219570",
+        "title": "לוח אם MSI PRO Z890-P WIFI6E ATX בצבע שחור",
+        "price": 1014
+      },
+      {
+        "listing_key": "ksp:479231",
+        "vendor": "ksp",
+        "vendor_sku": "479231",
+        "title": "לוח אם MSI PRO Z890-P WIFI6E LGA1851 DDR5",
+        "price": 980
+      }
+    ],
+    "model_code": "p-pro-wifi6e-z890"
   },
   {
     "kind": "identity_merge",
@@ -22193,7 +22378,7 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890-atx",
     "vendor": "",
     "offers": [
       {
@@ -22202,6 +22387,13 @@
         "vendor_sku": "GZ890AORUSELITEWF7ICE",
         "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
         "price": 1107
+      },
+      {
+        "listing_key": "ksp:343512",
+        "vendor": "ksp",
+        "vendor_sku": "343512",
+        "title": "לוח אם GIGABYTE Z890 AORUS ELITE WIFI7 ICE LGA 1851 DDR5",
+        "price": 1060
       },
       {
         "listing_key": "tms:GZ890AORUSELITEWF7ICE",
@@ -22261,6 +22453,13 @@
         "vendor_sku": "GB860MAORUSELTWF6EICE",
         "title": "לוח אם GIGABYTE B860M AORUS ELITE WIFI6E ICE",
         "price": 918
+      },
+      {
+        "listing_key": "ksp:370282",
+        "vendor": "ksp",
+        "vendor_sku": "370282",
+        "title": "לוח אם GIGABYTE B860M AORUS ELITE WiFi 6E ICE LGA 1851 DDR5",
+        "price": 885
       },
       {
         "listing_key": "tms:GB860MAORUSELTWF6EICE",
@@ -23207,6 +23406,13 @@
         "vendor": "ivory",
         "vendor_sku": "90MB1LY0-M0EAY0",
         "title": "לוח אם ASUS X870 MAX GAMING WIFI7 DDR5 ATX AM5 AMD",
+        "price": 1415
+      },
+      {
+        "listing_key": "ksp:393712",
+        "vendor": "ksp",
+        "vendor_sku": "393712",
+        "title": "לוח אם ASUS X870 GAMING MAX WIFI7 AM5 AMD X870 DDR5",
         "price": 1415
       },
       {

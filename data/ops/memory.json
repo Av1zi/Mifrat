@@ -425,10 +425,10 @@
 "1pc:158245":"model:motherboard:b760-d4-prime-atx",
 "1pc:158399":"model:memory:ax5u6400c3232g-clarbk-dimm-lancer-u-32gb-6400mhz-cl32-rgb-black-dimm",
 "1pc:158401":"model:memory:ax5u6000c3032g-clarwh-dimm-lancer-u-32gb-6000mhz-cl40-rgb-white-dimm",
-"1pc:158403":"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6400mhz-cl32-rgb-white-dimm",
+"1pc:158403":"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6400mhz-cl32-rgb-white-dimm",
 "1pc:158407":"mpn:memory:ax4u360016g18isw50",
 "1pc:158409":"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6400mhz-cl32-rgb-black-dimm",
-"1pc:158410":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm",
+"1pc:158410":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm",
 "1pc:158414":"model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
 "1pc:158416":"model:memory:ad5u560032g-dimm-s-u-32gb-5600mhz-dimm",
 "1pc:158417":"mpn:memory:ad5s560016gs",
@@ -471,9 +471,9 @@
 "1pc:160800":"model:cpu:14900ks-tray",
 "1pc:160850":"other:1pc:1pc-160850",
 "1pc:160982":"model:case:case-elite-nx500m-black",
-"1pc:161183":"model:memory:ax5u6000c3032g-clarbk-dimm-lancer-u-32gb-6000mhz-cl30-rgb-dimm",
+"1pc:161183":"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarbk-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-black-dimm",
 "1pc:161184":"model:memory:ax5u6400c3232g-clarwh-dimm-lancer-u-32gb-6400mhz-cl32-rgb-white-dimm",
-"1pc:161185":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm",
+"1pc:161185":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
 "1pc:161257":"model:psu:a850gl-mag-pcie5-white-850w-black",
 "1pc:161258":"model:psu:a750bn-mag-pcie5-750w",
 "1pc:161856":"model:memory:rgb-vengeance-64gb-x2-6400mhz-cl32-rgb-black",
@@ -699,7 +699,7 @@
 "1pc:171977":"model:cpu:265kf",
 "1pc:171978":"model:cpu:265kf-tray",
 "1pc:171981":"model:motherboard:p-prime-wifi-z890-atx",
-"1pc:171982":"model:motherboard:p-p-prime-prime-z890-z890-atx",
+"1pc:171982":"model:motherboard:p-prime-z890-atx",
 "1pc:171983":"model:motherboard:plus-prime-wifi-z890m-atx",
 "1pc:171987":"model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
 "1pc:171988":"model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -712,7 +712,7 @@
 "1pc:172009":"model:motherboard:aorus-ice-pro-z890",
 "1pc:172010":"model:motherboard:aorus-master-z890-atx",
 "1pc:172011":"model:motherboard:aorus-elite-ice-x-z890",
-"1pc:172013":"model:motherboard:aorus-elite-ice-wifi7-z890",
+"1pc:172013":"model:motherboard:aorus-elite-ice-wifi7-z890-atx",
 "1pc:172014":"model:motherboard:aero-g-z890-atx",
 "1pc:172015":"model:motherboard:gaming-wifi6-x870-atx",
 "1pc:172016":"model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
@@ -884,7 +884,7 @@
 "1pc:177667":"model:motherboard:b860m-gaming-wifi6e-x-microatx",
 "1pc:178028":"model:cpu:245-tray",
 "1pc:178340":"model:gpu:16g-16gd-5080-geforce-gv-n5080wf3oc-oc-rtx-sff-windforce-16gb",
-"1pc:178341":"model:motherboard:aorus-b860i-core-ice-intel-pro-ultra-miniitx",
+"1pc:178341":"model:motherboard:aorus-b860i-ice-pro-miniitx",
 "1pc:178342":"model:motherboard:b860-core-ds3h-intel-ultra-atx",
 "1pc:178343":"model:motherboard:a520m-amd-k-ryzen-v2-microatx",
 "1pc:178344":"model:motherboard:a520m-amd-ds3h-ryzen-v2-microatx",
@@ -894,7 +894,7 @@
 "1pc:178606":"model:motherboard:b850m-gaming-tuf-microatx",
 "1pc:178608":"model:motherboard:a-b860m-csm-prime-atx",
 "1pc:178609":"model:motherboard:b860m-k-prime-microatx",
-"1pc:178610":"model:motherboard:b860-prime-wifi-atx",
+"1pc:178610":"model:motherboard:b860-plus-prime-wifi-atx",
 "1pc:178611":"model:motherboard:b860-csm-prime-atx",
 "1pc:178612":"model:motherboard:a-h810m-prime-wifi-microatx",
 "1pc:178613":"model:motherboard:a-csm-h810m-prime-microatx",
@@ -1045,7 +1045,7 @@
 "1pc:188656":"model:case:4000d-frame-modular-rs-black",
 "1pc:188657":"model:case_fan:fan-icue-link-lx120-pwm-r-reverse-120mm-rgb-black",
 "1pc:188658":"model:case_fan:120-icue-link-lx120-r-120mm-3-rgb-black",
-"1pc:188725":"model:motherboard:a-pro-wifi-z890",
+"1pc:188725":"model:motherboard:a-pro-wifi-z890-atx",
 "1pc:188735":"model:aio:coreliquid-i360-mag-360mm-white",
 "1pc:189263":"model:storage:ap2tbas2280p4u-x4-2000gb-m2pcie-m22280",
 "1pc:189275":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
@@ -1772,7 +1772,7 @@
 "1pc:214771":"mpn:motherboard:90mb1gx0m0eay0",
 "1pc:214799":"model:gpu:9070-bo7-cod-gaming-oc-rx-special-tuf-xt-16gb",
 "1pc:214800":"model:motherboard:b850-g-gaming-rog-strix-wifi-microatx",
-"1pc:214801":"model:motherboard:am5-amd-b850m-gaming-ii-tuf-microatx",
+"1pc:214801":"model:motherboard:b850m-gaming-ii-plus-tuf-microatx",
 "1pc:214810":"mpn:motherboard:90mb1lc0m0eayc",
 "1pc:214812":"model:motherboard:b850m-gaming-tuf-wifi7-microatx-b760",
 "1pc:214813":"mpn:motherboard:90mb1my0m0eayc",
@@ -2157,7 +2157,7 @@
 "1pc:221507":"model:motherboard:b550-eagle-wifi6e-x-atx",
 "1pc:221508":"model:motherboard:aorus-b550m-elite-wifi7-x-microatx",
 "1pc:221509":"model:motherboard:aorus-b550m-elite-x-microatx",
-"1pc:221510":"model:memory:32gb-6400-ccp-cl52-cudimm-ddr5-m333r4ga3eb1-32gb-x1-6400mhz-cl52-dimm",
+"1pc:221510":"model:memory:6400-cl52-cudimm-32gb-x1-6400mhz-cl52-dimm",
 "1pc:221512":"model:motherboard:b550-gaming-x-atx",
 "1pc:221513":"model:storage:0-4-sn5100-wd-4000gb-nvme-m22280",
 "1pc:221514":"model:gpu:ai-gddr6-pro-r9700-radeon-32gb-radeonr9700",
@@ -2665,7 +2665,7 @@
 "ivory:113309":"model:cpu:285k-tray",
 "ivory:113311":"model:cpu:285k",
 "ivory:113313":"model:motherboard:plus-prime-wifi-z890m-atx",
-"ivory:113315":"model:motherboard:p-p-prime-prime-z890-z890-atx",
+"ivory:113315":"model:motherboard:p-prime-z890-atx",
 "ivory:113317":"model:motherboard:p-prime-wifi-z890-atx",
 "ivory:113319":"model:motherboard:e-gaming-rog-strix-wifi-z890-atx",
 "ivory:113327":"model:motherboard:a-gaming-rog-strix-wifi-z890-atx",
@@ -2813,7 +2813,7 @@
 "ivory:130788":"model:motherboard:b860m-gaming-tuf-wifi-microatx-2",
 "ivory:130791":"model:motherboard:a-b860m-prime-wifi-microatx",
 "ivory:130794":"model:motherboard:a-b860m-csm-prime-atx",
-"ivory:130797":"model:motherboard:b860-prime-wifi-atx",
+"ivory:130797":"model:motherboard:b860-plus-prime-wifi-atx",
 "ivory:130800":"model:cpu:9900x-tray",
 "ivory:130830":"model:gpu:5070-fan-geforce-overclocked-rtx-triple-12gb",
 "ivory:130938":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
@@ -3256,7 +3256,7 @@
 "ivory:173236":"model:case_fan:2-2x140mm-core-elite-icue-included-node-pack-rgb-series-sp140-triple-140mm-2-rgb-black",
 "ivory:173245":"model:aio:aio-cooler-cpu-h100i-icue-link-liquid-240mm-white",
 "ivory:173281":"model:motherboard:gaming-h-rog-strix-wifi-z890-atx",
-"ivory:173284":"model:motherboard:am5-amd-b850m-gaming-ii-tuf-microatx",
+"ivory:173284":"model:motherboard:b850m-gaming-ii-plus-tuf-microatx",
 "ivory:173287":"model:motherboard:b850m-f-prime-wifi-microatx",
 "ivory:173290":"model:motherboard:b850m-f-prime-microatx",
 "ivory:173293":"model:motherboard:b850-f-gaming-neo-rog-strix-wifi7-atx",
@@ -3514,7 +3514,7 @@
 "ksp:178003":"model:memory:2x16gb-beast-cl40-fury-32gb-x2-5200mhz-cl40-rgb-dimm",
 "ksp:185272":"model:case:7000d-airflow-icue-black",
 "ksp:188295":"model:motherboard:a-am4-amd-b550-b550m-ii-prime-wifi-microatx",
-"ksp:188399":"model:motherboard:d4-h610-h610m-k-lga1700-prime-microatx",
+"ksp:188399":"model:motherboard:d4-h610m-k-prime-microatx",
 "ksp:192953":"model:case_fan:0db-a-p14-pst-pwm-140mm-rgb-black",
 "ksp:192969":"model:case_fan:f12-120mm-black",
 "ksp:193189":"model:memory:beast-cl40-fury-16gb-5600mhz-cl40-dimm",
@@ -3560,8 +3560,8 @@
 "ksp:236040":"model:case_fan:p8-pst-pwm-80mm-black",
 "ksp:236684":"model:storage:2280-990-pro-1000gb-nvme-m22280",
 "ksp:236718":"model:storage:2280-990-pro-2000gb-nvme-m22280",
-"ksp:237649":"model:motherboard:a-am5-amd-b650-b650-ddr5-gaming-rog-strix-wifi-atx",
-"ksp:237931":"model:motherboard:lga1700-mag-tomahawk-wifi-z790-z790-atx",
+"ksp:237649":"model:motherboard:a-b650-gaming-rog-strix-wifi-atx",
+"ksp:237931":"model:motherboard:mag-tomahawk-wifi-z790-atx",
 "ksp:238578":"model:storage:2280-sn850x-1000gb-nvme-m22280",
 "ksp:240987":"model:case:forge-m100r-mag-tower-black",
 "ksp:241077":"model:case:mag-forge-112r-mid-tower-black",
@@ -3630,7 +3630,7 @@
 "ksp:281396":"model:motherboard:e-h610-h610m-lga1700-pro-microatx",
 "ksp:281439":"model:motherboard:b760m-ii-lga1700-mag-mortar-wifi-microatx",
 "ksp:281494":"model:storage:s3-vi550-1000gb-sata-25",
-"ksp:281626":"model:motherboard:a-csm-h610-h610m-lga1700-prime-microatx",
+"ksp:281626":"model:motherboard:a-csm-h610m-prime-microatx",
 "ksp:281633":"model:motherboard:b760m-ii-lga1700-mag-mortar-microatx",
 "ksp:281646":"model:motherboard:z790-gaming-wifi-lga1700-atx",
 "ksp:281670":"model:storage:s3-vi550-512gb-sata-25",
@@ -3675,9 +3675,9 @@
 "ksp:290026":"model:storage:960-legend-2000gb-m22280",
 "ksp:290028":"model:storage:960-legend-4000gb-m22280",
 "ksp:290045":"model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280",
-"ksp:290061":"model:memory:1x16gb-6400mhz-ax5u6400c3216g-blade-cl32-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6400mhz-cl32-rgb-white-dimm",
-"ksp:290077":"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6000mhz-cl30-rgb-white-dimm",
-"ksp:290079":"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrbk-xpg-16gb-x1-6000mhz-cl30-rgb-black-dimm",
+"ksp:290061":"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6400mhz-cl32-rgb-white-dimm",
+"ksp:290077":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm",
+"ksp:290079":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
 "ksp:290103":"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-white-dimm",
 "ksp:290107":"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarbk-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-black-dimm",
 "ksp:290121":"model:motherboard:b760-b760m-k-lga1700-prime-microatx",
@@ -3788,8 +3788,8 @@
 "ksp:337185":"model:memory:2x16gb-cl38-neo-trident-z5-32gb-x2-8000mhz-cl38-rgb-black-dimm",
 "ksp:337558":"model:gpu:710-evo-geforce-gt-silent-2gb",
 "ksp:338263":"model:motherboard:am5-crosshair-hero-rog-x870e-atx",
-"ksp:338298":"model:motherboard:am5-p-prime-wifi-x870-atx",
-"ksp:338307":"model:motherboard:am5-creator-proart-wifi-x870e-atx",
+"ksp:338298":"model:motherboard:p-prime-wifi-x870-atx",
+"ksp:338307":"model:motherboard:creator-proart-wifi-x870e-atx",
 "ksp:338309":"model:memory:2x16gb-beast-cl36-fury-32gb-x2-6000mhz-cl36-dimm",
 "ksp:338315":"model:memory:2x16gb-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-dimm",
 "ksp:338316":"model:memory:2x16gb-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-dimm",
@@ -3811,22 +3811,22 @@
 "ksp:342643":"model:aio:coreliquid-i360-mag-360mm-black",
 "ksp:343066":"model:case:3500x-icue-link-black",
 "ksp:343367":"model:motherboard:lga1851-prime-wifi-z890-z890m-microatx",
-"ksp:343369":"model:motherboard:ddr5-e-gaming-lga1851-rog-strix-wifi-z890-z890-atx",
+"ksp:343369":"model:motherboard:e-gaming-rog-strix-wifi-z890-atx",
 "ksp:343400":"model:case_fan:3-rs120-120mm-3-rgb-white",
-"ksp:343512":"model:motherboard:1851-aorus-elite-ice-lga-wifi7-z890-atx",
+"ksp:343512":"model:motherboard:aorus-elite-ice-wifi7-z890-atx",
 "ksp:343515":"model:motherboard:1851-aorus-elite-ice-lga-x-z890-atx",
-"ksp:343523":"model:motherboard:a-gaming-lga1851-rog-strix-wifi-z890-atx",
-"ksp:343530":"model:motherboard:apex-lga1851-maximus-rog-z890-atx",
-"ksp:343534":"model:motherboard:lga1851-p-prime-wifi-z890-atx",
-"ksp:343565":"model:motherboard:lga1851-p-prime-z890-atx",
-"ksp:343572":"model:motherboard:gaming-lga1851-pro-tuf-wifi-z890-atx",
-"ksp:344576":"model:motherboard:f-gaming-lga1851-rog-strix-wifi-z890-atx",
-"ksp:345344":"model:motherboard:1851-aorus-lga-ultra-z890i-miniitx",
-"ksp:345347":"model:motherboard:1851-gaming-lga-x-z890m-microatx",
-"ksp:345348":"model:motherboard:1851-aero-g-lga-z890-atx",
+"ksp:343523":"model:motherboard:a-gaming-rog-strix-wifi-z890-atx",
+"ksp:343530":"model:motherboard:apex-maximus-rog-z890-atx",
+"ksp:343534":"model:motherboard:p-prime-wifi-z890-atx",
+"ksp:343565":"model:motherboard:p-prime-z890-atx",
+"ksp:343572":"model:motherboard:gaming-pro-tuf-wifi-z890-atx",
+"ksp:344576":"model:motherboard:f-gaming-rog-strix-wifi-z890-atx",
+"ksp:345344":"model:motherboard:aorus-ultra-z890i-miniitx",
+"ksp:345347":"model:motherboard:gaming-x-z890m-microatx",
+"ksp:345348":"model:motherboard:aero-g-z890-atx",
 "ksp:346916":"model:memory:2x24gb-8400mt-cl40-cudimm-ddr5-fury-renegade-s-silver-silver-48gb-x2-8400mhz-cl40-silver-dimm",
 "ksp:347940":"model:storage:2280-s3-vi560-2000gb-nvme-m22280",
-"ksp:348061":"model:motherboard:1851-a-pro-wifi-z890-atx",
+"ksp:348061":"model:motherboard:a-pro-wifi-z890-atx",
 "ksp:348119":"model:motherboard:1851-ace-meg-z890-atx",
 "ksp:348145":"model:gpu:1030-4gd4-gt-lp-oc-oc-4gb",
 "ksp:348147":"accessories:ksp:ksp-348147",
@@ -3851,11 +3851,11 @@
 "ksp:354421":"model:storage:0-4-990-evo-4000gb-pcie4-m22280",
 "ksp:355776":"model:storage:2280-sn5000-1000gb-nvme-m22280",
 "ksp:355804":"model:motherboard:h610-h610m-k-lga1700-prime-microatx",
-"ksp:355813":"model:motherboard:b860-b860-ddr5-g-gaming-lga1851-rog-strix-wifi-microatx",
-"ksp:355825":"model:motherboard:b860-b860-ddr5-f-gaming-lga1851-rog-strix-wifi-atx",
+"ksp:355813":"model:motherboard:b860-g-gaming-rog-strix-wifi-microatx",
+"ksp:355825":"model:motherboard:b860-f-gaming-rog-strix-wifi-atx",
 "ksp:355844":"model:motherboard:b860-b860-gaming-lga1851-tuf-wifi-atx",
-"ksp:355862":"model:motherboard:b860-b860m-k-lga1851-prime-microatx",
-"ksp:355875":"model:motherboard:b860-b860m-gaming-lga1851-tuf-wifi-microatx",
+"ksp:355862":"model:motherboard:b860m-k-prime-microatx",
+"ksp:355875":"model:motherboard:b860m-gaming-tuf-wifi-microatx",
 "ksp:355887":"model:motherboard:b860-b860m-gaming-lga1851-tuf-microatx",
 "ksp:355897":"model:motherboard:a-b860-b860m-csm-lga1851-prime-microatx",
 "ksp:359920":"model:cpu:225f",
@@ -3879,8 +3879,8 @@
 "ksp:363354":"model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-black-dimm",
 "ksp:363360":"model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm",
 "ksp:363702":"model:motherboard:gaming-i-lga1851-rog-strix-wifi-z890-miniitx",
-"ksp:363762":"model:motherboard:am5-b850-e-gaming-rog-strix-wifi-atx",
-"ksp:363779":"model:motherboard:b860-gaming-i-lga1851-rog-strix-wifi-miniitx",
+"ksp:363762":"model:motherboard:b850-e-gaming-rog-strix-wifi-atx",
+"ksp:363779":"model:motherboard:b860-gaming-i-rog-strix-wifi-miniitx",
 "ksp:366557":"model:storage:2280-green-sn3000-1000gb-nvme-m22280",
 "ksp:366562":"model:storage:2280-green-sn3000-2000gb-nvme-m22280",
 "ksp:367665":"model:case:ak5g-black",
@@ -3890,8 +3890,8 @@
 "ksp:367823":"model:case:mk6-white",
 "ksp:368049":"model:memory:beast-cl36-fury-16gb-6000mhz-cl36-rgb-dimm",
 "ksp:368079":"model:motherboard:b860-ds3h-lga1851-microatx",
-"ksp:368106":"model:motherboard:b860-lga1851-prime-wifi-atx",
-"ksp:368258":"model:motherboard:a-b860m-lga1851-prime-wifi-microatx",
+"ksp:368106":"model:motherboard:b860-plus-prime-wifi-atx",
+"ksp:368258":"model:motherboard:a-b860m-prime-wifi-microatx",
 "ksp:368551":"model:cpu:265",
 "ksp:368564":"model:cpu:265f",
 "ksp:369203":"model:gpu:9070-gddr6-oc-pure-radeon-rx-xt-16gb",
@@ -3900,16 +3900,16 @@
 "ksp:369222":"model:gpu:9070-gddr6-pulse-radeon-rx-16gb",
 "ksp:369231":"model:gpu:9070-gddr6-nitro-oc-radeon-rx-xt-16gb",
 "ksp:369854":"model:aio:360-nautilus-rs-360mm-white",
-"ksp:370265":"model:motherboard:a-h810m-lga1851-prime-wifi-microatx",
-"ksp:370282":"model:motherboard:1851-6e-aorus-b860m-elite-ice-lga-wifi-microatx",
-"ksp:370285":"model:motherboard:1851-7-aorus-b860-elite-ice-lga-wifi-atx",
-"ksp:370296":"model:motherboard:1851-aorus-b860i-ice-lga-pro-miniitx",
-"ksp:370315":"model:motherboard:6e-b860-eagle-lga1851-wifi-atx",
-"ksp:370317":"model:motherboard:6e-b860-ds3h-lga1851-wifi-atx",
-"ksp:370338":"model:motherboard:6e-b860-gaming-lga1851-wifi-x-atx",
+"ksp:370265":"model:motherboard:a-h810m-prime-wifi-microatx",
+"ksp:370282":"model:motherboard:aorus-b860m-elite-ice-wifi6e-microatx",
+"ksp:370285":"model:motherboard:aorus-b860-elite-ice-wifi7-atx",
+"ksp:370296":"model:motherboard:aorus-b860i-ice-pro-miniitx",
+"ksp:370315":"model:motherboard:b860-eagle-wifi6e-atx",
+"ksp:370317":"model:motherboard:b860-ds3h-wifi6e-atx",
+"ksp:370338":"model:motherboard:b860-gaming-wifi6e-x-atx",
 "ksp:370345":"model:gpu:3x-5070-gddr7-oc-rtx-ti-ventus-16gb",
-"ksp:370962":"model:motherboard:0-1-1851-6e-b860m-ds3h-lga-rev-wifi-microatx",
-"ksp:371031":"model:motherboard:0-1-1851-b860m-ds3h-lga-rev-microatx",
+"ksp:370962":"model:motherboard:b860m-ds3h-wifi6e-microatx",
+"ksp:371031":"model:motherboard:b860m-ds3h-microatx",
 "ksp:371274":"model:cpu:9900x3d",
 "ksp:371313":"model:cpu:9950x3d",
 "ksp:371759":"model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb",
@@ -3928,8 +3928,8 @@
 "ksp:376410":"model:gpu:5070-epic-fan-gddr7-oc-rtx-triple-x-12gb",
 "ksp:376634":"model:motherboard:a-am5-b840m-prime-wifi-microatx",
 "ksp:376649":"model:motherboard:am5-b850-prime-wifi-atx",
-"ksp:376663":"model:motherboard:a-am5-b840m-csm-prime-microatx",
-"ksp:376671":"model:motherboard:am5-b850-gaming-tuf-wifi-atx",
+"ksp:376663":"model:motherboard:a-b840m-csm-prime-microatx",
+"ksp:376671":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
 "ksp:376700":"model:motherboard:am5-b840-prime-wifi-atx",
 "ksp:378814":"model:gpu:5070-eagle-gddr7-ice-oc-rtx-sff-12gb",
 "ksp:378818":"model:gpu:5070-eagle-gddr7-oc-rtx-sff-12gb",
@@ -3953,7 +3953,7 @@
 "ksp:380655":"model:psu:a650bnl-mag-650w-white",
 "ksp:380681":"model:psu:a1000gs-mpg-pcie5-1000w",
 "ksp:381249":"case_fan:ksp:ksp-381249",
-"ksp:381751":"model:motherboard:a-csm-h810m-lga1851-prime-microatx",
+"ksp:381751":"model:motherboard:a-csm-h810m-prime-microatx",
 "ksp:381777":"motherboard:ksp:ksp-381777",
 "ksp:382020":"model:storage:0-0-2-2280-5-9100-pro-4000gb-pcie5-m22280",
 "ksp:382086":"model:storage:0-0-2-2280-5-9100-pro-1000gb-pcie5-m22280",
@@ -3976,7 +3976,7 @@
 "ksp:383464":"model:aio:12-360-aio-lc-prime-360mm-white",
 "ksp:383477":"model:aio:360-aio-lc-prime-360mm-black",
 "ksp:383495":"model:aio:360-aio-lc-proart-360mm-black",
-"ksp:383551":"model:motherboard:am5-b850-e-gaming-tuf-wifi-atx",
+"ksp:383551":"model:motherboard:b850-e-gaming-tuf-wifi-atx",
 "ksp:384611":"model:gpu:5070-gddr7-oc-rtx-sff-ti-windforce-16gb",
 "ksp:385362":"model:storage:0-0-2-2280-5-9100-pro-4000gb-pcie5-m22280",
 "ksp:385563":"model:case:cx800-mid-tower-white",
@@ -4019,7 +4019,7 @@
 "ksp:392904":"model:case:a23-white",
 "ksp:392918":"model:case:a23-black",
 "ksp:393703":"model:gpu:7600-dual-evo-gddr6-oc-radeon-rx-8gb",
-"ksp:393712":"model:motherboard:am5-amd-gaming-max-wifi7-x870-x870-atx",
+"ksp:393712":"model:motherboard:gaming-max-wifi7-x870-atx",
 "ksp:393732":"model:motherboard:am5-b850m-k-prime-microatx",
 "ksp:393750":"model:motherboard:am5-amd-b650e-tuf-wifi-atx",
 "ksp:393815":"model:motherboard:am5-amd-gaming-max-wifi7-x870-x870-atx",
@@ -4102,10 +4102,10 @@
 "ksp:407972":"model:motherboard:a620-a620m-am5-amd-gaming-tuf-microatx",
 "ksp:408275":"model:motherboard:am5-b850m-gaming-max-prime-wifi-microatx",
 "ksp:408286":"model:motherboard:a-am5-b850m-prime-wifi-microatx",
-"ksp:408296":"model:motherboard:a-am5-b850m-csm-prime-microatx",
+"ksp:408296":"model:motherboard:a-b850m-csm-prime-microatx",
 "ksp:408958":"model:storage:2280-sn8100-1000gb-nvme-m22280",
 "ksp:408989":"model:motherboard:crosshair-extreme-rog-x870e-eatx",
-"ksp:408991":"model:motherboard:am5-b850m-e-gaming-tuf-wifi-wifi-microatx",
+"ksp:408991":"model:motherboard:b850m-e-gaming-tuf-wifi-microatx",
 "ksp:409001":"model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "ksp:409002":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb",
 "ksp:409003":"model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb",
@@ -4147,15 +4147,15 @@
 "ksp:415440":"model:gpu:5050-dual-fan-gddr6-rtx-8gb",
 "ksp:415721":"model:psu:10cm-fan-fully-modular-sf850-sfx-850w-full-black",
 "ksp:416532":"model:motherboard:b-h810m-lga1851-pro-microatx",
-"ksp:416574":"model:motherboard:gaming-h810m-lga1851-wifi6e-microatx",
+"ksp:416574":"model:motherboard:gaming-h810m-wifi6e-microatx",
 "ksp:416603":"motherboard:ksp:ksp-416603",
 "ksp:416673":"model:case:3500x-argb-r-rs-black",
 "ksp:416766":"model:case:4500x-argb-r-rs-black",
 "ksp:417000":"model:cpu:ryzen59500f-tray",
 "ksp:417715":"model:psu:1600w-iii-rog-thor-titanium-1600w-black",
 "ksp:418681":"model:memory:2x16gb-6800mt-beast-cl34-fury-s-32gb-x2-6800mhz-cl34-rgb-white-dimm",
-"ksp:418978":"model:motherboard:am5-b850m-pulse-wifi-microatx",
-"ksp:418991":"model:motherboard:am5-b850m-nitro-wifi-microatx",
+"ksp:418978":"model:motherboard:b850m-pulse-wifi-microatx",
+"ksp:418991":"model:motherboard:b850m-nitro-wifi-microatx",
 "ksp:418994":"model:motherboard:am5-b650m-e-microatx",
 "ksp:419669":"model:case_fan:f120-mag-120mm-rgb-white",
 "ksp:419672":"model:case_fan:f120-mag-120mm-rgb-black",
@@ -4194,9 +4194,9 @@
 "ksp:426908":"storage:ksp:ksp-426908",
 "ksp:427509":"model:memory:2x24gb-6000mt-cl36-s-vengeance-48gb-x2-6000mhz-cl36-black-dimm",
 "ksp:428520":"cooler_air:ksp:ksp-428520",
-"ksp:428879":"model:motherboard:a620am-am5-pulse-microatx",
-"ksp:428902":"model:motherboard:7-am5-b850a-nitro-wifi-atx",
-"ksp:428910":"model:motherboard:am5-b850m-pure-wifi-microatx",
+"ksp:428879":"model:motherboard:a620am-pulse-microatx",
+"ksp:428902":"model:motherboard:7-b850a-nitro-wifi-atx",
+"ksp:428910":"model:motherboard:b850m-pure-wifi-microatx",
 "ksp:429800":"accessories:ksp:ksp-429800",
 "ksp:430608":"model:memory:2x24gb-7000mt-cl40-s-vengeance-48gb-x2-7000mhz-cl40-rgb-black-dimm",
 "ksp:430613":"model:aio:360-hydro-icue-link-rx-series-x-xh505i-360mm-black",
@@ -4220,7 +4220,7 @@
 "ksp:435287":"model:motherboard:7-am5-gaming-tuf-wifi-x870e-atx",
 "ksp:435332":"model:motherboard:ax-b860m-gaming-lga1851-max-wifi-microatx",
 "ksp:435357":"model:motherboard:a620am-am5-gaming-tuf-wifi-microatx",
-"ksp:435400":"model:motherboard:am5-b850m-gaming-ii-tuf-microatx",
+"ksp:435400":"model:motherboard:b850m-gaming-ii-plus-tuf-microatx",
 "ksp:435410":"model:motherboard:7-am5-b850m-gaming-tuf-wifi-microatx",
 "ksp:435425":"model:motherboard:am5-b850m-gaming-tuf-wifi-microatx",
 "ksp:435433":"model:motherboard:a-a620am-am5-csm-prime-microatx",
@@ -4301,7 +4301,7 @@
 "ksp:461699":"model:motherboard:gaming-lga1851-wifi6e-z890-atx",
 "ksp:461715":"motherboard:ksp:ksp-461715",
 "ksp:461726":"model:motherboard:ace-am5-max-meg-x870e-atx",
-"ksp:461737":"model:motherboard:am5-carbon-max-mpg-wifi-x870e-atx",
+"ksp:461737":"model:motherboard:carbon-max-mpg-wifi-x870e-atx",
 "ksp:461748":"motherboard:ksp:ksp-461748",
 "ksp:461756":"model:motherboard:am5-gaming-mag-max-wifi-x870e-atx",
 "ksp:461849":"model:case_fan:ln-p12-pro-120mm-black",
@@ -4310,10 +4310,10 @@
 "ksp:462148":"model:gpu:5080-dual-fan-gddr7-oc-rtx-slim-16gb",
 "ksp:462403":"model:cpu:270k",
 "ksp:464142":"model:storage:512e-enterprise-mg-series-10000gb-sata-35",
-"ksp:464636":"model:motherboard:am5-gaming-neo-pro-tuf-wifi-x870-atx",
-"ksp:464667":"model:motherboard:a-am5-b850-gaming-neo-rog-strix-wifi7-atx",
+"ksp:464636":"model:motherboard:gaming-neo-pro-tuf-w-wifi7-x870-atx",
+"ksp:464667":"model:motherboard:a-b850-gaming-neo-rog-strix-wifi7-atx",
 "ksp:464683":"model:motherboard:am5-b850-gaming-neo-pro-tuf-wifi-atx",
-"ksp:464718":"model:motherboard:am5-b840m-k-prime-microatx",
+"ksp:464718":"model:motherboard:b840m-k-prime-microatx",
 "ksp:465121":"model:psu:750b-prime-prime-750w-white",
 "ksp:465126":"model:psu:1200w-iii-platinum-rog-thor-1200w-white",
 "ksp:465131":"model:case:ap303-mesh-panel-prime-white",
@@ -4371,15 +4371,15 @@
 "ksp:478931":"model:storage:0-5100-optimus-pcie4-500gb-pcie4-m22280",
 "ksp:478960":"model:memory:6000mt-beast-cl30-fury-s-32gb-6000mhz-cl30-rgb-black-dimm",
 "ksp:478962":"model:storage:0-5100-optimus-pcie4-1000gb-pcie4-m22280",
-"ksp:479231":"model:motherboard:lga1851-p-pro-wifi6e-z890-atx",
+"ksp:479231":"model:motherboard:p-pro-wifi6e-z890-atx",
 "ksp:479248":"model:motherboard:am5-godlike-max-meg-x870e-eatx",
-"ksp:479263":"model:motherboard:e-h810m-lga1851-pro-microatx",
+"ksp:479263":"model:motherboard:e-h810m-pro-microatx",
 "ksp:479274":"model:motherboard:b760m-gaming-lga1700-wifi-microatx",
-"ksp:479284":"model:motherboard:b860m-gaming-lga1851-wifi6e-microatx",
-"ksp:479521":"model:motherboard:am5-b850m-f-prime-wifi-microatx",
+"ksp:479284":"model:motherboard:b860m-gaming-plus-wifi6e-microatx",
+"ksp:479521":"model:motherboard:b850m-f-prime-wifi-microatx",
 "ksp:479539":"model:motherboard:am5-b850m-f-prime-microatx",
 "ksp:479567":"model:motherboard:h810m-k-lga1851-prime-microatx",
-"ksp:480123":"model:motherboard:am5-b850-f-gaming-neo-rog-strix-wifi7-atx",
+"ksp:480123":"model:motherboard:b850-f-gaming-neo-rog-strix-wifi7-atx",
 "ksp:480178":"model:psu:850g-prime-prime-850w-black",
 "ksp:480428":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
 "ksp:480430":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
@@ -4411,7 +4411,7 @@
 "ksp:489142":"model:memory:2x16gb-6000a2836g16gx2-6000mt-cl28-ddr5-f5-g-neo-rgb-s-trident-tz5nxrw-x-z5-32gb-x2-6000mhz-cl28-rgb-white-dimm",
 "ksp:489149":"model:memory:6000j3038f8gh1-6000mt-8gb-cl30-ddr5-f5-flare-fx5-g-s-x5-8gb-6000mhz-cl30-black-dimm",
 "ksp:489162":"model:memory:2x8gb-6000j3038f8gh2-6000mt-cl30-ddr5-f5-flare-fx5-g-s-x5-16gb-x2-6000mhz-cl30-black-dimm",
-"ksp:490483":"model:motherboard:b860m-e-lga1851-pro-microatx",
+"ksp:490483":"model:motherboard:b860m-e-pro-microatx",
 "ksp:490505":"model:motherboard:a-ii-lga1700-pro-wifi-z790-atx",
 "ksp:490522":"motherboard:ksp:ksp-490522",
 "ksp:490774":"model:motherboard:a-b860m-lga1851-pro-wifi6e-microatx",
@@ -4421,7 +4421,7 @@
 "ksp:491315":"model:motherboard:am5-aorus-pro-x3d-x870e-atx",
 "ksp:491352":"model:gpu:9070-gaming-ice-oc-radeon-rx-xt-16gb",
 "ksp:491356":"model:gpu:9070-gaming-radeon-rx-16gb",
-"ksp:491358":"model:gpu:9070-gaming-gre-oc-radeon-rx-12gb",
+"ksp:491358":"model:gpu:12gd-gv-oc-r907gregaming-12gb",
 "ksp:491362":"model:gpu:radeon-rx-9060-xt-gaming-16gb",
 "ksp:491364":"model:gpu:5060-max-oc-rtx-ti-windforce-16gb",
 "ksp:491366":"model:gpu:5060-eagle-max-oc-rtx-ti-16gb",
@@ -4459,7 +4459,7 @@
 "ksp:502208":"model:gpu:5070-dual-fan-gddr7-oc-rtx-slim-ti-16gb",
 "ksp:502505":"model:motherboard:ii-lga1851-mag-tomahawk-wifi-z890-atx",
 "ksp:502509":"model:motherboard:am5-gaming-max-s-wifi-x870e-atx",
-"ksp:502511":"model:motherboard:h610m-ii-lga1700-pro-s-microatx",
+"ksp:502511":"model:motherboard:ddr4-h610m-ii-pro-s-microatx",
 "ksp:502516":"model:motherboard:am5-b850m-gaming-wifi-microatx",
 "ksp:502630":"model:case_fan:3-eurux-gr120-reverse-rog-120mm-3-rgb-white",
 "ksp:502719":"model:case:cronox-full-gr801-rog-tower-black",
@@ -4471,7 +4471,7 @@
 "ksp:503035":"gpu:ksp:ksp-503035",
 "ksp:503076":"model:psu:20-prog-thor-titanium-3000w",
 "ksp:503789":"accessories:ksp:ksp-503789",
-"ksp:504876":"model:motherboard:a520-a520m-am4-amd-e-pci-prime-r-microatx",
+"ksp:504876":"model:motherboard:a520m-prime-r-microatx-a520",
 "ksp:505073":"model:cpu:5500f-tray",
 "ksp:505096":"model:storage:1-2280-3-3x4-ai298l-512gb-pcie3-m22280",
 "ksp:505102":"model:storage:1-2280-3-3x4-ai198r-256gb-pcie3-m22280",
@@ -4491,7 +4491,7 @@
 "ksp:509823":"model:gpu:20-20-5090-astral-gddr7-rog-rtx-32gb",
 "ksp:50988":"model:storage:0gbps-6-barracuda-st8000dm004-8000gb-sata-35",
 "ksp:50990":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
-"ksp:510165":"model:motherboard:am4-b550m-pulse-microatx",
+"ksp:510165":"model:motherboard:b550m-pulse-microatx",
 "ksp:510234":"model:gpu:12gb-9070-evo-gddr6-gre-oc-prime-radeon-rx-12gb",
 "ksp:511473":"model:case:a23-black",
 "ksp:52696":"model:case:case-vs7-window-black",
@@ -7200,7 +7200,7 @@
 "tms:90MB1HD0-M0EAY0":"model:motherboard:b760m-gaming-ii-tuf-microatx",
 "tms:90MB1HE0-M0EAY0":"model:motherboard:b760m-gaming-ii-tuf-wifi-microatx",
 "tms:90MB1I40-M0EAY0":"model:motherboard:f-gaming-rog-strix-wifi-z890-atx",
-"tms:90MB1I50-M0EAY0":"model:motherboard:p-p-prime-prime-z890-z890-atx",
+"tms:90MB1I50-M0EAY0":"model:motherboard:p-prime-z890-atx",
 "tms:90MB1I70-M0EAY0":"model:motherboard:p-prime-wifi-z890-atx",
 "tms:90MB1I90-M0EAY0":"model:motherboard:a-gaming-rog-strix-wifi-z890-atx",
 "tms:90MB1IA0-M0EAY0":"mpn:motherboard:90mb1ia0m0eay0",
@@ -7237,7 +7237,7 @@
 "tms:90MB1K00-M0EAYC":"model:motherboard:a-b860m-csm-prime-atx",
 "tms:90MB1K20-M0EAY0":"model:motherboard:gaming-h-rog-strix-wifi-z890-atx",
 "tms:90MB1K30-M0EAY0":"mpn:motherboard:90mb1k30m0eay0",
-"tms:90MB1K50-M0EAY0":"model:motherboard:b860-prime-wifi-atx",
+"tms:90MB1K50-M0EAY0":"model:motherboard:b860-plus-prime-wifi-atx",
 "tms:90MB1KA0-M0EAYC":"model:motherboard:b860-csm-prime-atx",
 "tms:90MB1KG0-M0EAY0":"model:motherboard:btf-hero-maximus-rog-wifi-z890-atx",
 "tms:90MB1KJ0-M0EAY0":"model:motherboard:a-h810m-prime-wifi-microatx",
@@ -7264,7 +7264,7 @@
 "tms:90MB1M70-M0EAY0":"model:motherboard:gaming-tuf-wifi7-x870e-atx",
 "tms:90MB1M90-M0EAY0":"model:motherboard:gaming-h-rog-strix-wifi7-x870e-atx",
 "tms:90MB1MD0-M0EAY0":"model:motherboard:b850m-gaming-tuf-wifi7-microatx",
-"tms:90MB1MT0-M0EAY0":"model:motherboard:am5-amd-b850m-gaming-ii-tuf-microatx",
+"tms:90MB1MT0-M0EAY0":"model:motherboard:b850m-gaming-ii-plus-tuf-microatx",
 "tms:90MB1MU0-M0EAY0":"model:motherboard:b850m-gaming-tuf-wifi7-microatx-b760",
 "tms:90MB1MX0-M0EAY0":"model:motherboard:am5-btf-crosshair-hero-rog-x870e-atx",
 "tms:90MB1N00-M0EAY0":"model:motherboard:b760m-f-prime-wifi-microatx",
@@ -7827,8 +7827,8 @@
 "tms:CP-9020312-EU":"model:psu:1-3-fully-modular-ws3000-3000w-full",
 "tms:CP-9020316-EU":"model:psu:1-atx3-rm1200e-1200w-full",
 "tms:CP-9020329-EU":"model:psu:1-3-cx750-low-noise-750w",
-"tms:CP-9020336-EU":"model:psu:1-3-cybenetics-rm850e-850w-full",
-"tms:CP-9020337-EU":"model:psu:1-3-cybenetics-rm1000e-1000w-full",
+"tms:CP-9020336-EU":"model:psu:1-3-9020336-cp-cybenetics-eu-rm850e-850w-full",
+"tms:CP-9020337-EU":"model:psu:1-3-9020337-cp-cybenetics-eu-rm1000e-1000w-full",
 "tms:CP-9020338-EU":"model:psu:1-atx3-fully-modular-rm850e-850w-full-white",
 "tms:CP-9020339-EU":"model:psu:1-atx3-cybenetics-rm1000e-1000w-full",
 "tms:CP2K16G64C32U5B":"mpn:memory:cp2k16g64c32u5b",
@@ -8210,7 +8210,7 @@
 "tms:GB860DS3HWIFI6E":"model:motherboard:b860-ds3h-wifi6e-atx",
 "tms:GB860EAGLEWIFI6E":"model:motherboard:b860-eagle-wifi6e-atx",
 "tms:GB860GAMINGXWIFI6E":"model:motherboard:b860-gaming-wifi6e-x-atx",
-"tms:GB860IAORUSPROICE":"model:motherboard:aorus-b860i-core-ice-intel-pro-ultra-miniitx",
+"tms:GB860IAORUSPROICE":"model:motherboard:aorus-b860i-ice-pro-miniitx",
 "tms:GB860MAORUSELITEWIFI6E":"mpn:motherboard:gb860maoruselitewifi6e",
 "tms:GB860MAORUSELTWF6EICE":"model:motherboard:aorus-b860m-elite-ice-wifi6e-microatx",
 "tms:GB860MD3HP":"model:motherboard:b860m-d3hp-microatx",
@@ -8345,7 +8345,7 @@
 "tms:GZ790EAGLE":"model:motherboard:eagle-z790-atx",
 "tms:GZ790EAGLEAX":"model:motherboard:ax-eagle-z790-atx",
 "tms:GZ890AEROG":"model:motherboard:aero-g-z890-atx",
-"tms:GZ890AORUSELITEWF7ICE":"model:motherboard:aorus-elite-ice-wifi7-z890",
+"tms:GZ890AORUSELITEWF7ICE":"model:motherboard:aorus-elite-ice-wifi7-z890-atx",
 "tms:GZ890AORUSELITEWIFI7":"model:motherboard:1851-7-aorus-atx-ddr5-dp-elite-lga-thunderbolt-wifi-z890-atx",
 "tms:GZ890AORUSELITEWIFI7P":"model:motherboard:aorus-elite-wifi7-z890-atx",
 "tms:GZ890AORUSELITEXICE":"model:motherboard:aorus-elite-ice-x-z890",
@@ -9355,7 +9355,7 @@
 "yahav:10321":"model:case_fan:3-3x120mm-c120-connect-pwm-reverse-120mm-3-rgb",
 "yahav:10322":"model:cooler_air:63-6cfm-ma824-masterair-stealth-120mm",
 "yahav:10325":"model:cpu:ryzen57500f-tray",
-"yahav:10326":"model:motherboard:aorus-elite-ice-wifi7-z890",
+"yahav:10326":"model:motherboard:aorus-elite-ice-wifi7-z890-atx",
 "yahav:10328":"model:cooler_air:33-4cfm-a30-fan-pro-92mm",
 "yahav:10335":"model:storage:990-evo-1000gb-pcie4-m22280",
 "yahav:10336":"model:storage:990-evo-2000gb-pcie4-m22280",
@@ -19012,6 +19012,10 @@
 "Gigabyte GeForce RTX 5070 12GB (GV-N5070AORUS IF-12GD)",
 "gpu"
 ],
+"model:gpu:12gd-gv-oc-r907gregaming-12gb":[
+"Gigabyte Radeon RX 9070 12GB",
+"gpu"
+],
 "model:gpu:16-300-e-nvs-pci-quadro-x":[
 "PNY Quadro",
 "gpu"
@@ -20116,10 +20120,6 @@
 "Sapphire Pulse Radeon RX 9070 12GB",
 "gpu"
 ],
-"model:gpu:9070-gaming-gre-oc-radeon-rx-12gb":[
-"Gigabyte Radeon RX 9070 12GB",
-"gpu"
-],
 "model:gpu:9070-gaming-ice-oc-radeon-rx-xt-16gb":[
 "Gigabyte Radeon RX 9070 XT 16GB",
 "gpu"
@@ -20768,11 +20768,11 @@
 "Lexar 16GB DDR5 (1x16GB) 5600MHz CL46 (LD5S16G56C46ST-BGS)",
 "memory"
 ],
-"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm":[
+"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30 (AX5U6000C3016G-SLABRBK)",
 "memory"
 ],
-"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm":[
+"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30 (AX5U6000C3016G-SLABRWH)",
 "memory"
 ],
@@ -20792,7 +20792,7 @@
 "ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32 (AX5U6400C3216G-SLABRBK)",
 "memory"
 ],
-"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6400mhz-cl32-rgb-white-dimm":[
+"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6400mhz-cl32-rgb-white-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32 (AX5U6400C3216G-SLABRWH)",
 "memory"
 ],
@@ -20868,20 +20868,8 @@
 "GeIL 16GB DDR5 (1x16GB) 5600MHz CL38",
 "memory"
 ],
-"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrbk-xpg-16gb-x1-6000mhz-cl30-rgb-black-dimm":[
-"ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30",
-"memory"
-],
-"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6000mhz-cl30-rgb-white-dimm":[
-"ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30",
-"memory"
-],
-"model:memory:1x16gb-6400mhz-ax5u6400c3216g-blade-cl32-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6400mhz-cl32-rgb-white-dimm":[
-"ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32",
-"memory"
-],
 "model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarbk-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-black-dimm":[
-"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30",
+"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30 (AX5U6000C3032G-CLARBK)",
 "memory"
 ],
 "model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-white-dimm":[
@@ -21776,10 +21764,6 @@
 "TeamGroup T-Force Delta RGB DDR5 32GB (1x32GB) 6000MHz CL38 (FF4D532G6000HC38A01)",
 "memory"
 ],
-"model:memory:32gb-6400-ccp-cl52-cudimm-ddr5-m333r4ga3eb1-32gb-x1-6400mhz-cl52-dimm":[
-"Samsung 32GB DDR5 (1x32GB) 6400MHz CL52",
-"memory"
-],
 "model:memory:32gb-6400mhz-ddr5-dimm-lancer-rgb-u-xpg-32gb-6400mhz-rgb-white-dimm":[
 "ADATA RGB 32GB DDR5 (1x32GB) 6400MHz",
 "memory"
@@ -22005,7 +21989,7 @@
 "memory"
 ],
 "model:memory:6400-cl52-cudimm-32gb-x1-6400mhz-cl52-dimm":[
-"Samsung 32GB DDR5 (1x32GB) 6400MHz CL52 (M333R4GA3EB1-CCP)",
+"Samsung 32GB DDR5 (1x32GB) 6400MHz CL52",
 "memory"
 ],
 "model:memory:6400-cl52-cudimm-64gb-x1-6400mhz-cl52-black-dimm":[
@@ -22150,10 +22134,6 @@
 ],
 "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm":[
 "ADATA Spectrix D35G RGB D35G DDR4 8GB (1x8GB) 3200MHz CL16 (AX4U32008G16A-SWHD35G)",
-"memory"
-],
-"model:memory:ax5u6000c3032g-clarbk-dimm-lancer-u-32gb-6000mhz-cl30-rgb-dimm":[
-"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30 (AX5U6000C3032G-CLARBK)",
 "memory"
 ],
 "model:memory:ax5u6000c3032g-clarwh-dimm-lancer-u-32gb-6000mhz-cl40-rgb-white-dimm":[
@@ -22472,14 +22452,6 @@
 "TeamGroup T-Force 3200MT DDR4 8GB (1x8GB) 3200MT/s CL16",
 "memory"
 ],
-"model:motherboard:0-1-1851-6e-b860m-ds3h-lga-rev-wifi-microatx":[
-"Gigabyte B860M DS3H 6E LGA WIFI6E",
-"motherboard"
-],
-"model:motherboard:0-1-1851-b860m-ds3h-lga-rev-microatx":[
-"Gigabyte B860M DS3H LGA",
-"motherboard"
-],
 "model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx":[
 "Gigabyte X870E Aorus Xtreme AI TOP WIFI7",
 "motherboard"
@@ -22589,15 +22561,15 @@
 "motherboard"
 ],
 "model:motherboard:1851-1xdp-1xhdmi-2xthunderbolt-a-atx-ddr5-gaming-lga-rog-strix-wifi-z890-atx":[
-"ASUS ROG Strix Z890-A Gaming WiFi (ROG-STRIX-Z890-A-GAMING-WIFI)",
+"ASUS ROG Strix Z890-A Gaming WiFi",
 "motherboard"
 ],
 "model:motherboard:1851-1xdp-1xhdmi-2xthunderbolt-atx-ddr5-e-gaming-lga-rog-strix-wifi-z890-atx":[
-"ASUS ROG Strix Z890-E Gaming WiFi (ROG-STRIX-Z890-E-GAMING-WIFI)",
+"ASUS ROG Strix Z890-E Gaming WiFi",
 "motherboard"
 ],
 "model:motherboard:1851-1xdp-1xhdmi-2xthunderbolt-atx-ddr5-f-gaming-lga-rog-strix-wifi-z890-atx":[
-"ASUS ROG Strix Z890-F Gaming WiFi (ROG-STRIX-Z890-F-GAMING-WIFI)",
+"ASUS ROG Strix Z890-F Gaming WiFi",
 "motherboard"
 ],
 "model:motherboard:1851-1xdp-1xhdmi-2xthunderbolt-atx-ddr5-gaming-lga-pro-tuf-wifi-z890-atx":[
@@ -22632,16 +22604,8 @@
 "ASUS Z890 ROG Maximus Apex LGA WiFi",
 "motherboard"
 ],
-"model:motherboard:1851-6e-aorus-b860m-elite-ice-lga-wifi-microatx":[
-"Gigabyte B860M Aorus Elite 6E WIFI6E",
-"motherboard"
-],
 "model:motherboard:1851-7-aorus-atx-ddr5-dp-elite-lga-thunderbolt-wifi-z890-atx":[
 "Gigabyte Z890 Aorus Elite WIFI7",
-"motherboard"
-],
-"model:motherboard:1851-7-aorus-b860-elite-ice-lga-wifi-atx":[
-"Gigabyte B860 Aorus Elite ICE LGA WIFI7",
 "motherboard"
 ],
 "model:motherboard:1851-a-atx-b860m-csm-ddr5-displayport-hdmi-lga-micro-prime-microatx":[
@@ -22652,36 +22616,16 @@
 "MSI PRO B860M-A LGA Displayport WiFi",
 "motherboard"
 ],
-"model:motherboard:1851-a-pro-wifi-z890-atx":[
-"MSI PRO Z890-A WiFi",
-"motherboard"
-],
 "model:motherboard:1851-ace-meg-z890-atx":[
 "MSI Z890 MEG ACE WiFi",
-"motherboard"
-],
-"model:motherboard:1851-aero-g-lga-z890-atx":[
-"Gigabyte Z890 Aero G LGA WiFi",
 "motherboard"
 ],
 "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx":[
 "Gigabyte B860M Aorus Elite WIFI6E",
 "motherboard"
 ],
-"model:motherboard:1851-aorus-b860i-ice-lga-pro-miniitx":[
-"Gigabyte B860I Aorus PRO ICE WiFi",
-"motherboard"
-],
-"model:motherboard:1851-aorus-elite-ice-lga-wifi7-z890-atx":[
-"Gigabyte Z890 Aorus Elite ICE LGA WIFI7",
-"motherboard"
-],
 "model:motherboard:1851-aorus-elite-ice-lga-x-z890-atx":[
 "Gigabyte Z890 Aorus Elite X ICE WiFi",
-"motherboard"
-],
-"model:motherboard:1851-aorus-lga-ultra-z890i-miniitx":[
-"Gigabyte Z890I Aorus Ultra LGA WiFi",
 "motherboard"
 ],
 "model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx":[
@@ -22714,10 +22658,6 @@
 ],
 "model:motherboard:1851-ddr5-gaming-hdmi-itx-lga-mini-rog-strix-thunderbolt-wifi-z890i-miniitx":[
 "ASUS ROG Strix Z890I Gaming WiFi",
-"motherboard"
-],
-"model:motherboard:1851-gaming-lga-x-z890m-microatx":[
-"Gigabyte Z890M Gaming X LGA",
 "motherboard"
 ],
 "model:motherboard:1xdisplayport-1xhdmi-2xtype-7-atx-c-ddr5-gaming-h-rog-strix-wifi-x870e-atx":[
@@ -22864,28 +22804,12 @@
 "Maxsun Terminator B760M D5 6E WIFI6",
 "motherboard"
 ],
-"model:motherboard:6e-b860-ds3h-lga1851-wifi-atx":[
-"Gigabyte B860 DS3H 6E WIFI6E",
-"motherboard"
-],
-"model:motherboard:6e-b860-eagle-lga1851-wifi-atx":[
-"Gigabyte B860 Eagle 6E WIFI6E",
-"motherboard"
-],
-"model:motherboard:6e-b860-gaming-lga1851-wifi-x-atx":[
-"Gigabyte B860 Gaming X 6E WIFI6E",
-"motherboard"
-],
 "model:motherboard:7-ai-am5-b850-hdmi-top-wifi-atx":[
 "Gigabyte B850 AI TOP WIFI7",
 "motherboard"
 ],
 "model:motherboard:7-am5-b840-hdmi-p-pro-wifi-atx":[
 "MSI PRO B840-P WIFI7",
-"motherboard"
-],
-"model:motherboard:7-am5-b850a-nitro-wifi-atx":[
-"Sapphire Nitro+ B850A WIFI7",
 "motherboard"
 ],
 "model:motherboard:7-am5-b850a-pure-wifi-atx":[
@@ -22901,7 +22825,7 @@
 "motherboard"
 ],
 "model:motherboard:7-b850a-nitro-wifi-atx":[
-"Sapphire Nitro+ B850A WIFI7 (52123-03-40G)",
+"Sapphire Nitro+ B850A WIFI7",
 "motherboard"
 ],
 "model:motherboard:7-b850a-pure-wifi-atx":[
@@ -22940,24 +22864,8 @@
 "ASUS Prime B550M-A II WiFi",
 "motherboard"
 ],
-"model:motherboard:a-am5-amd-b650-b650-ddr5-gaming-rog-strix-wifi-atx":[
-"ASUS ROG Strix B650-A Gaming WiFi",
-"motherboard"
-],
-"model:motherboard:a-am5-b840m-csm-prime-microatx":[
-"ASUS Prime B840M-A-CSM",
-"motherboard"
-],
 "model:motherboard:a-am5-b840m-prime-wifi-microatx":[
 "ASUS Prime B840M-A WiFi",
-"motherboard"
-],
-"model:motherboard:a-am5-b850-gaming-neo-rog-strix-wifi7-atx":[
-"ASUS ROG Strix B850-A Gaming WIFI7",
-"motherboard"
-],
-"model:motherboard:a-am5-b850m-csm-prime-microatx":[
-"ASUS Prime B850M-A-CSM",
 "motherboard"
 ],
 "model:motherboard:a-am5-b850m-prime-wifi-microatx":[
@@ -23045,7 +22953,7 @@
 "motherboard"
 ],
 "model:motherboard:a-b840m-csm-prime-microatx":[
-"ASUS Prime B840M-A-CSM (90MB1J10-M0EAYC)",
+"ASUS Prime B840M-A-CSM",
 "motherboard"
 ],
 "model:motherboard:a-b850-gaming-neo-rog-strix-wifi7-atx":[
@@ -23076,10 +22984,6 @@
 "ASUS Prime B860M-A-CSM WIFI6E",
 "motherboard"
 ],
-"model:motherboard:a-b860m-lga1851-prime-wifi-microatx":[
-"ASUS Prime B860M-A WiFi",
-"motherboard"
-],
 "model:motherboard:a-b860m-lga1851-pro-wifi6e-microatx":[
 "MSI PRO B860M-A WIFI6E",
 "motherboard"
@@ -23092,24 +22996,12 @@
 "ASUS Prime H610M-A D4-CSM",
 "motherboard"
 ],
-"model:motherboard:a-csm-h610-h610m-lga1700-prime-microatx":[
-"ASUS Prime H610M-A-CSM",
-"motherboard"
-],
 "model:motherboard:a-csm-h610m-prime-microatx":[
-"ASUS Prime H610M-A-CSM (90MB1G20-M0EAYC)",
-"motherboard"
-],
-"model:motherboard:a-csm-h810m-lga1851-prime-microatx":[
-"ASUS Prime H810M-A-CSM",
+"ASUS Prime H610M-A-CSM",
 "motherboard"
 ],
 "model:motherboard:a-csm-h810m-prime-microatx":[
 "ASUS Prime H810M-A-CSM WIFI6",
-"motherboard"
-],
-"model:motherboard:a-gaming-lga1851-rog-strix-wifi-z890-atx":[
-"ASUS ROG Strix Z890-A Gaming WiFi",
 "motherboard"
 ],
 "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx":[
@@ -23124,10 +23016,6 @@
 "ASUS ROG Strix Z890-A Gaming WIFI7",
 "motherboard"
 ],
-"model:motherboard:a-h810m-lga1851-prime-wifi-microatx":[
-"ASUS Prime H810M-A WiFi",
-"motherboard"
-],
 "model:motherboard:a-h810m-prime-wifi-microatx":[
 "ASUS Prime H810M-A WIFI6",
 "motherboard"
@@ -23136,7 +23024,7 @@
 "MSI PRO Z790-A II WiFi",
 "motherboard"
 ],
-"model:motherboard:a-pro-wifi-z890":[
+"model:motherboard:a-pro-wifi-z890-atx":[
 "MSI PRO Z890-A WIFI7",
 "motherboard"
 ],
@@ -23146,10 +23034,6 @@
 ],
 "model:motherboard:a-terminator-z890-atx":[
 "Maxsun Terminator Z890-A",
-"motherboard"
-],
-"model:motherboard:a520-a520m-am4-amd-e-pci-prime-r-microatx":[
-"ASUS Prime A520M-R PCI-E",
 "motherboard"
 ],
 "model:motherboard:a520-aorus-elite-atx":[
@@ -23192,6 +23076,10 @@
 "ASUS Prime A520M-R",
 "motherboard"
 ],
+"model:motherboard:a520m-prime-r-microatx-a520":[
+"ASUS Prime A520M-R PCI-E",
+"motherboard"
+],
 "model:motherboard:a520m-pro-s-microatx":[
 "MSI PRO A520M-S",
 "motherboard"
@@ -23212,16 +23100,12 @@
 "ASUS Prime A620AM-K",
 "motherboard"
 ],
-"model:motherboard:a620am-am5-pulse-microatx":[
-"Sapphire Pulse A620AM",
-"motherboard"
-],
 "model:motherboard:a620am-b-evo-pro-microatx":[
 "MSI PRO A620AM-B EVO",
 "motherboard"
 ],
 "model:motherboard:a620am-pulse-microatx":[
-"Sapphire Pulse A620AM (52118-03-40G)",
+"Sapphire Pulse A620AM",
 "motherboard"
 ],
 "model:motherboard:a620m-ds3h-microatx":[
@@ -23344,10 +23228,6 @@
 "Gigabyte B550M DS3H DVI",
 "motherboard"
 ],
-"model:motherboard:am4-b550m-pulse-microatx":[
-"Sapphire Pulse B550M",
-"motherboard"
-],
 "model:motherboard:am5-amd-b650-b650-pro-s-wifi-atx":[
 "MSI PRO B650-S WiFi",
 "motherboard"
@@ -23360,12 +23240,8 @@
 "MSI B840 Gaming Plus WiFi",
 "motherboard"
 ],
-"model:motherboard:am5-amd-b850m-gaming-ii-tuf-microatx":[
-"ASUS TUF Gaming B850M-Plus II (90MB1MT0-M0EAY0)",
-"motherboard"
-],
 "model:motherboard:am5-amd-gaming-max-wifi7-x870-x870-atx":[
-"ASUS X870 Gaming MAX WIFI7",
+"ASUS X870 MAX Gaming WIFI7",
 "motherboard"
 ],
 "model:motherboard:am5-aorus-master-x3d-x870e-atx":[
@@ -23428,28 +23304,12 @@
 "MSI B840M Gaming WIFI6E",
 "motherboard"
 ],
-"model:motherboard:am5-b840m-k-prime-microatx":[
-"ASUS Prime B840M-K",
-"motherboard"
-],
 "model:motherboard:am5-b850-csm-prime-atx":[
 "ASUS Prime B850-Plus-CSM",
 "motherboard"
 ],
 "model:motherboard:am5-b850-displayport-e-hdmi-tuf-wifi-atx":[
 "ASUS TUF B850-E Displayport WiFi",
-"motherboard"
-],
-"model:motherboard:am5-b850-e-gaming-rog-strix-wifi-atx":[
-"ASUS ROG Strix B850-E Gaming WiFi",
-"motherboard"
-],
-"model:motherboard:am5-b850-e-gaming-tuf-wifi-atx":[
-"ASUS TUF Gaming B850-E WiFi",
-"motherboard"
-],
-"model:motherboard:am5-b850-f-gaming-neo-rog-strix-wifi7-atx":[
-"ASUS ROG Strix B850-F Gaming WIFI7",
 "motherboard"
 ],
 "model:motherboard:am5-b850-g-gaming-rog-strix-wifi-microatx":[
@@ -23460,28 +23320,12 @@
 "ASUS TUF Gaming B850-PRO W WIFI7",
 "motherboard"
 ],
-"model:motherboard:am5-b850-gaming-tuf-wifi-atx":[
-"ASUS TUF Gaming B850-Plus WiFi",
-"motherboard"
-],
 "model:motherboard:am5-b850-prime-wifi-atx":[
 "ASUS Prime B850-Plus WIFI6E",
 "motherboard"
 ],
-"model:motherboard:am5-b850m-e-gaming-tuf-wifi-wifi-microatx":[
-"ASUS TUF Gaming B850M-E WiFi",
-"motherboard"
-],
 "model:motherboard:am5-b850m-f-prime-microatx":[
 "ASUS Prime B850M-F",
-"motherboard"
-],
-"model:motherboard:am5-b850m-f-prime-wifi-microatx":[
-"ASUS Prime B850M-F WiFi",
-"motherboard"
-],
-"model:motherboard:am5-b850m-gaming-ii-tuf-microatx":[
-"ASUS TUF Gaming B850M-Plus II",
 "motherboard"
 ],
 "model:motherboard:am5-b850m-gaming-max-prime-wifi-microatx":[
@@ -23508,28 +23352,8 @@
 "ASUS Prime B850M-K",
 "motherboard"
 ],
-"model:motherboard:am5-b850m-nitro-wifi-microatx":[
-"Sapphire Nitro+ B850M WiFi",
-"motherboard"
-],
-"model:motherboard:am5-b850m-pulse-wifi-microatx":[
-"Sapphire Pulse B850M WiFi",
-"motherboard"
-],
-"model:motherboard:am5-b850m-pure-wifi-microatx":[
-"Sapphire Pure B850M WiFi",
-"motherboard"
-],
 "model:motherboard:am5-btf-crosshair-hero-rog-x870e-atx":[
 "ASUS X870E ROG Crosshair Hero BTF WIFI7",
-"motherboard"
-],
-"model:motherboard:am5-carbon-max-mpg-wifi-x870e-atx":[
-"MSI X870E MPG Carbon MAX WiFi",
-"motherboard"
-],
-"model:motherboard:am5-creator-proart-wifi-x870e-atx":[
-"ASUS Proart X870E-Creator WiFi",
 "motherboard"
 ],
 "model:motherboard:am5-crosshair-glacial-rog-x870e-atx":[
@@ -23556,10 +23380,6 @@
 "MSI X870E Gaming Plus MAX S WiFi",
 "motherboard"
 ],
-"model:motherboard:am5-gaming-neo-pro-tuf-wifi-x870-atx":[
-"ASUS TUF Gaming X870-PRO W WIFI7",
-"motherboard"
-],
 "model:motherboard:am5-godlike-max-meg-x870e-eatx":[
 "MSI X870E MEG Godlike MAX WiFi",
 "motherboard"
@@ -23570,10 +23390,6 @@
 ],
 "model:motherboard:am5-nitro-phantomlink-x870ea-atx":[
 "Sapphire Nitro+ X870EA Phantomlink Edition",
-"motherboard"
-],
-"model:motherboard:am5-p-prime-wifi-x870-atx":[
-"ASUS Prime X870-P WiFi",
 "motherboard"
 ],
 "model:motherboard:am5-pure-wifi7-x870a-atx":[
@@ -23684,7 +23500,7 @@
 "Gigabyte B860 Aorus Elite ICE WIFI7",
 "motherboard"
 ],
-"model:motherboard:aorus-b860i-core-ice-intel-pro-ultra-miniitx":[
+"model:motherboard:aorus-b860i-ice-pro-miniitx":[
 "Gigabyte B860I Aorus PRO ICE WIFI7",
 "motherboard"
 ],
@@ -23704,7 +23520,7 @@
 "Gigabyte X870E Aorus Elite ICE WIFI7",
 "motherboard"
 ],
-"model:motherboard:aorus-elite-ice-wifi7-z890":[
+"model:motherboard:aorus-elite-ice-wifi7-z890-atx":[
 "Gigabyte Z890 Aorus Elite ICE WIFI7",
 "motherboard"
 ],
@@ -23826,10 +23642,6 @@
 ],
 "model:motherboard:apex-crosshair-rog-x870e-atx":[
 "ASUS X870E ROG Crosshair Apex WIFI7",
-"motherboard"
-],
-"model:motherboard:apex-lga1851-maximus-rog-z890-atx":[
-"ASUS Z890 ROG Maximus Apex WiFi",
 "motherboard"
 ],
 "model:motherboard:apex-maximus-rog-xii-atx":[
@@ -24001,7 +23813,7 @@
 "motherboard"
 ],
 "model:motherboard:b550m-pulse-microatx":[
-"Sapphire Pulse B550M (52103-05-40G)",
+"Sapphire Pulse B550M",
 "motherboard"
 ],
 "model:motherboard:b650-dp-edge-hdmi-lga1700-mpg-wifi-atx":[
@@ -24457,7 +24269,7 @@
 "motherboard"
 ],
 "model:motherboard:b840m-k-prime-microatx":[
-"ASUS Prime B840M-K (90MB1PK0-M0EAY0)",
+"ASUS Prime B840M-K",
 "motherboard"
 ],
 "model:motherboard:b850-btf-gaming-tuf-w-wifi-atx":[
@@ -24609,7 +24421,7 @@
 "motherboard"
 ],
 "model:motherboard:b850m-f-prime-microatx":[
-"ASUS Prime B850M-F WiFi (90MB1N90-M0EAY0)",
+"ASUS Prime B850M-F WiFi",
 "motherboard"
 ],
 "model:motherboard:b850m-f-prime-wifi-microatx":[
@@ -24622,6 +24434,10 @@
 ],
 "model:motherboard:b850m-force-wifi6e-microatx":[
 "Gigabyte B850M Force WIFI6",
+"motherboard"
+],
+"model:motherboard:b850m-gaming-ii-plus-tuf-microatx":[
+"ASUS TUF Gaming B850M-Plus II",
 "motherboard"
 ],
 "model:motherboard:b850m-gaming-max-wifi-microatx":[
@@ -24672,14 +24488,6 @@
 "Sapphire Pure B850M WIFI6",
 "motherboard"
 ],
-"model:motherboard:b860-b860-ddr5-f-gaming-lga1851-rog-strix-wifi-atx":[
-"ASUS ROG Strix B860-F Gaming WiFi",
-"motherboard"
-],
-"model:motherboard:b860-b860-ddr5-g-gaming-lga1851-rog-strix-wifi-microatx":[
-"ASUS ROG Strix B860-G Gaming WiFi",
-"motherboard"
-],
 "model:motherboard:b860-b860-gaming-lga1851-tuf-wifi-atx":[
 "ASUS TUF Gaming B860-Plus WiFi",
 "motherboard"
@@ -24690,14 +24498,6 @@
 ],
 "model:motherboard:b860-b860m-gaming-lga1851-tuf-microatx":[
 "ASUS TUF Gaming B860M-Plus",
-"motherboard"
-],
-"model:motherboard:b860-b860m-gaming-lga1851-tuf-wifi-microatx":[
-"ASUS TUF Gaming B860M-Plus WiFi",
-"motherboard"
-],
-"model:motherboard:b860-b860m-k-lga1851-prime-microatx":[
-"ASUS Prime B860M-K",
 "motherboard"
 ],
 "model:motherboard:b860-core-ds3h-intel-ultra-atx":[
@@ -24728,10 +24528,6 @@
 "ASUS ROG Strix B860-G Gaming WIFI7",
 "motherboard"
 ],
-"model:motherboard:b860-gaming-i-lga1851-rog-strix-wifi-miniitx":[
-"ASUS ROG Strix B860-I Gaming WiFi",
-"motherboard"
-],
 "model:motherboard:b860-gaming-i-rog-strix-wifi-miniitx":[
 "ASUS ROG Strix B860-I Gaming WIFI7",
 "motherboard"
@@ -24748,10 +24544,6 @@
 "Gigabyte B860 Gaming X WIFI6E",
 "motherboard"
 ],
-"model:motherboard:b860-lga1851-prime-wifi-atx":[
-"ASUS Prime B860-Plus WiFi",
-"motherboard"
-],
 "model:motherboard:b860-p-pro":[
 "MSI PRO B860-P",
 "motherboard"
@@ -24760,7 +24552,7 @@
 "MSI PRO B860-P WIFI7",
 "motherboard"
 ],
-"model:motherboard:b860-prime-wifi-atx":[
+"model:motherboard:b860-plus-prime-wifi-atx":[
 "ASUS Prime B860-Plus WIFI6E",
 "motherboard"
 ],
@@ -24792,10 +24584,6 @@
 "Gigabyte B860M DS3H WIFI6E",
 "motherboard"
 ],
-"model:motherboard:b860m-e-lga1851-pro-microatx":[
-"MSI PRO B860M-E",
-"motherboard"
-],
 "model:motherboard:b860m-e-microatx":[
 "Gigabyte B860M E",
 "motherboard"
@@ -24805,7 +24593,7 @@
 "motherboard"
 ],
 "model:motherboard:b860m-e-pro-microatx":[
-"MSI PRO B860M-E (4711377410458)",
+"MSI PRO B860M-E",
 "motherboard"
 ],
 "model:motherboard:b860m-e-terminator-microatx":[
@@ -24822,10 +24610,6 @@
 ],
 "model:motherboard:b860m-esport-sniper-wifi-microatx":[
 "Maxsun Esport B860M Sniper WIFI6",
-"motherboard"
-],
-"model:motherboard:b860m-gaming-lga1851-wifi6e-microatx":[
-"MSI B860M Gaming Plus WIFI6E",
 "motherboard"
 ],
 "model:motherboard:b860m-gaming-plus-wifi6e-microatx":[
@@ -24849,7 +24633,7 @@
 "motherboard"
 ],
 "model:motherboard:b860m-k-prime-microatx":[
-"ASUS Prime B860M-K (90MB1JT0-M0EAY0)",
+"ASUS Prime B860M-K",
 "motherboard"
 ],
 "model:motherboard:b860m-lga1851-mag-mortar-wifi-microatx":[
@@ -24873,7 +24657,7 @@
 "motherboard"
 ],
 "model:motherboard:carbon-max-mpg-wifi-x870e-atx":[
-"MSI X870E MPG Carbon MAX WiFi (4711377415156)",
+"MSI X870E MPG Carbon MAX WiFi",
 "motherboard"
 ],
 "model:motherboard:cha-challenger-h810m-h810m-k-k-ms-wifi-wifi-microatx":[
@@ -24964,10 +24748,6 @@
 "Gigabyte H610M D3W WIFI6",
 "motherboard"
 ],
-"model:motherboard:d4-h610-h610m-k-lga1700-prime-microatx":[
-"ASUS Prime H610M-K D4",
-"motherboard"
-],
 "model:motherboard:d4-h610m-k-prime-microatx":[
 "ASUS Prime H610M-K D4 Micro",
 "motherboard"
@@ -24976,12 +24756,12 @@
 "MSI PRO H610M-G",
 "motherboard"
 ],
-"model:motherboard:ddr4-h610m-s2h-v3-microatx":[
-"Gigabyte H610M S2H Micro",
+"model:motherboard:ddr4-h610m-ii-pro-s-microatx":[
+"MSI PRO H610M-S II",
 "motherboard"
 ],
-"model:motherboard:ddr5-e-gaming-lga1851-rog-strix-wifi-z890-z890-atx":[
-"ASUS ROG Strix Z890-E Gaming WiFi",
+"model:motherboard:ddr4-h610m-s2h-v3-microatx":[
+"Gigabyte H610M S2H Micro",
 "motherboard"
 ],
 "model:motherboard:dp-dvi-h610m-hdmi-lga1700-s2h-vga-microatx":[
@@ -25012,12 +24792,8 @@
 "MSI PRO H610M-E (4711377125147)",
 "motherboard"
 ],
-"model:motherboard:e-h810m-lga1851-pro-microatx":[
-"MSI PRO H810M-E",
-"motherboard"
-],
 "model:motherboard:e-h810m-pro-microatx":[
-"MSI PRO H810M-E (4711377424028)",
+"MSI PRO H810M-E",
 "motherboard"
 ],
 "model:motherboard:eagle-wifi7-x3d-x870e-atx":[
@@ -25092,10 +24868,6 @@
 "ASRock WRX90 WS EVO",
 "motherboard"
 ],
-"model:motherboard:f-gaming-lga1851-rog-strix-wifi-z890-atx":[
-"ASUS ROG Strix Z890-F Gaming WiFi",
-"motherboard"
-],
 "model:motherboard:f-gaming-rog-strix-wifi-x870-atx":[
 "ASUS ROG Strix X870-F Gaming WIFI7",
 "motherboard"
@@ -25116,10 +24888,6 @@
 "ASUS ROG Strix X870E-H Gaming WIFI7 (90MB1M90-M0EAY0)",
 "motherboard"
 ],
-"model:motherboard:gaming-h810m-lga1851-wifi6e-microatx":[
-"MSI H810M Gaming WIFI6E",
-"motherboard"
-],
 "model:motherboard:gaming-h810m-wifi6-microatx":[
 "Gigabyte H810M Gaming WIFI6",
 "motherboard"
@@ -25129,7 +24897,7 @@
 "motherboard"
 ],
 "model:motherboard:gaming-h810m-wifi6e-microatx":[
-"MSI H810M Gaming WIFI6E (4711377358651)",
+"MSI H810M Gaming WIFI6E",
 "motherboard"
 ],
 "model:motherboard:gaming-i-lga1851-rog-strix-wifi-z890-miniitx":[
@@ -25144,10 +24912,6 @@
 "ASUS ROG Strix X870-I Gaming WIFI7",
 "motherboard"
 ],
-"model:motherboard:gaming-lga1851-pro-tuf-wifi-z890-atx":[
-"ASUS TUF Gaming Z890-PRO WiFi",
-"motherboard"
-],
 "model:motherboard:gaming-lga1851-wifi6e-z890-atx":[
 "MSI Z890 Gaming Plus WIFI6E",
 "motherboard"
@@ -25157,11 +24921,11 @@
 "motherboard"
 ],
 "model:motherboard:gaming-max-wifi7-x870-atx":[
-"ASUS X870 MAX Gaming WIFI7",
+"ASUS X870 MAX Gaming WIFI7 (90MB1LY0-M0EAY0)",
 "motherboard"
 ],
 "model:motherboard:gaming-neo-pro-tuf-w-wifi7-x870-atx":[
-"ASUS TUF Gaming X870-PRO W WIFI7 (90MB1NY0-M0EAY0)",
+"ASUS TUF Gaming X870-PRO W WIFI7",
 "motherboard"
 ],
 "model:motherboard:gaming-plus-wifi-z890-atx":[
@@ -25268,10 +25032,6 @@
 "Gigabyte GH610IDDR4",
 "motherboard"
 ],
-"model:motherboard:h610m-ii-lga1700-pro-s-microatx":[
-"MSI PRO H610M-S II",
-"motherboard"
-],
 "model:motherboard:h610m-k-prime-microatx":[
 "ASUS Prime H610M-K ARGB",
 "motherboard"
@@ -25332,28 +25092,16 @@
 "MSI Z890 MAG Tomahawk II WiFi",
 "motherboard"
 ],
-"model:motherboard:lga1700-mag-tomahawk-wifi-z790-z790-atx":[
-"MSI Z790 MAG Tomahawk WiFi",
-"motherboard"
-],
-"model:motherboard:lga1851-p-prime-wifi-z890-atx":[
-"ASUS Prime Z890-P WiFi",
-"motherboard"
-],
-"model:motherboard:lga1851-p-prime-z890-atx":[
-"ASUS Prime Z890-P",
-"motherboard"
-],
-"model:motherboard:lga1851-p-pro-wifi6e-z890-atx":[
-"MSI PRO Z890-P WIFI6E",
-"motherboard"
-],
 "model:motherboard:lga1851-prime-wifi-z890-z890m-microatx":[
 "ASUS Prime Z890M-Plus WiFi",
 "motherboard"
 ],
 "model:motherboard:m12swa-mb-tf-eatx":[
 "Supermicro WRX80 MB M12SWA-TF",
+"motherboard"
+],
+"model:motherboard:mag-tomahawk-wifi-z790-atx":[
+"MSI Z790 MAG Tomahawk WiFi",
 "motherboard"
 ],
 "model:motherboard:mag-tomahawk-wifi-z890-atx":[
@@ -25396,10 +25144,6 @@
 "Sapphire Nitro+ X870EA Phantomlink Edition WIFI7",
 "motherboard"
 ],
-"model:motherboard:p-p-prime-prime-z890-z890-atx":[
-"ASUS Prime Z890-P (90MB1I50-M0EAY0)",
-"motherboard"
-],
 "model:motherboard:p-prime-wifi-x670-atx":[
 "ASUS Prime X670-P WIFI6",
 "motherboard"
@@ -25420,6 +25164,10 @@
 "ASUS Prime X870-P",
 "motherboard"
 ],
+"model:motherboard:p-prime-z890-atx":[
+"ASUS Prime Z890-P",
+"motherboard"
+],
 "model:motherboard:p-pro-wifi-x870e-atx":[
 "MSI PRO X870E-P WIFI7",
 "motherboard"
@@ -25429,7 +25177,7 @@
 "motherboard"
 ],
 "model:motherboard:p-pro-wifi6e-z890-atx":[
-"MSI PRO Z890-P WIFI6E (4711377429627)",
+"MSI PRO Z890-P WIFI6E",
 "motherboard"
 ],
 "model:motherboard:plus-prime-wifi-z890m-atx":[
@@ -25794,14 +25542,6 @@
 ],
 "model:psu:1-3-cx750-low-noise-750w":[
 "Corsair CX750 ATX 3.1 Low Noise 80+ Gold",
-"psu"
-],
-"model:psu:1-3-cybenetics-rm1000e-1000w-full":[
-"Corsair RM1000E 3.1 1000W 80 PLUS Platinum (CP-9020337-EU)",
-"psu"
-],
-"model:psu:1-3-cybenetics-rm850e-850w-full":[
-"Corsair RM850E 3.1 850W 80 PLUS Platinum (CP-9020336-EU)",
 "psu"
 ],
 "model:psu:1-3-fully-modular-rm750e-750w-full-black":[

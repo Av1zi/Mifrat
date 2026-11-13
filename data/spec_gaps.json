@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T09:03:51.514859+00:00",
+  "generated_at": "2026-11-13T17:11:02.516777+00:00",
   "gaps": [
     {
       "category": "case",
@@ -1147,8 +1147,8 @@
       "count": 11,
       "products": [
         "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm",
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm"
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm"
       ]
     },
     {
@@ -1156,8 +1156,8 @@
       "label": "טמפרטורת עבודה",
       "count": 11,
       "products": [
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm",
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c4816g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl48-rgb-white-dimm"
       ]
     },
@@ -1166,8 +1166,8 @@
       "label": "יחידת תפקוד",
       "count": 11,
       "products": [
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6000mhz-cl30-rgb-dimm",
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl30-rgb-white-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm",
         "model:memory:16gb-6000mhz-ax5u6000c4816g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-xpg-16gb-6000mhz-cl48-rgb-dimm"
       ]
     },
@@ -1613,6 +1613,26 @@
     },
     {
       "category": "motherboard",
+      "label": "P/N",
+      "count": 8,
+      "products": [
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:a520m-prime-r-microatx-a520",
+        "model:motherboard:b850m-nitro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מידע מהיצרן",
+      "count": 8,
+      "products": [
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:a520m-prime-r-microatx-a520",
+        "model:motherboard:b850m-nitro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "רוחב",
       "count": 8,
       "products": [
@@ -1779,6 +1799,16 @@
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
         "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מפרט טכני",
+      "count": 7,
+      "products": [
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:a520m-prime-r-microatx-a520",
+        "model:motherboard:b850m-nitro-wifi-microatx"
       ]
     },
     {
@@ -2159,6 +2189,26 @@
         "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
         "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
         "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "סקירה",
+      "count": 5,
+      "products": [
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:a520m-prime-r-microatx-a520",
+        "model:motherboard:b850m-nitro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "זיכרון",
+      "count": 5,
+      "products": [
+        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
+        "model:motherboard:b-h810m-pro-wifi6e-microatx",
+        "model:motherboard:b860m-e-pro-microatx"
       ]
     },
     {
@@ -2618,7 +2668,7 @@
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890"
+        "model:motherboard:a-pro-wifi-z890-atx"
       ]
     },
     {
@@ -2628,7 +2678,7 @@
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890"
+        "model:motherboard:a-pro-wifi-z890-atx"
       ]
     },
     {
@@ -2638,17 +2688,17 @@
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890"
+        "model:motherboard:a-pro-wifi-z890-atx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "זיכרון",
+      "label": "אחסון",
       "count": 4,
       "products": [
         "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-        "model:motherboard:b-h810m-pro-wifi6e-microatx",
-        "model:motherboard:b860m-e-pro-microatx"
+        "model:motherboard:b850-gaming-max-plus-wifi-atx",
+        "model:motherboard:d4-h610m-k-prime-microatx"
       ]
     },
     {
@@ -3328,7 +3378,7 @@
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890"
+        "model:motherboard:a-pro-wifi-z890-atx"
       ]
     },
     {
@@ -3479,16 +3529,6 @@
         "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx",
         "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אחסון",
-      "count": 3,
-      "products": [
-        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-        "model:motherboard:b850-gaming-max-plus-wifi-atx",
-        "model:motherboard:e-h810m-pro-microatx"
       ]
     },
     {
@@ -3679,6 +3719,16 @@
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים פנימיים",
+      "count": 3,
+      "products": [
+        "model:motherboard:b850-gaming-max-plus-wifi-atx",
+        "model:motherboard:d4-h610m-k-prime-microatx",
+        "model:motherboard:e-h810m-pro-microatx"
       ]
     },
     {
@@ -5158,7 +5208,7 @@
       "label": "רזולוציה",
       "count": 2,
       "products": [
-        "model:motherboard:a-pro-wifi-z890",
+        "model:motherboard:a-pro-wifi-z890-atx",
         "model:motherboard:ax-d-z790-atx"
       ]
     },
@@ -5435,15 +5485,6 @@
     {
       "category": "motherboard",
       "label": "גרפיקה מובנית",
-      "count": 2,
-      "products": [
-        "model:motherboard:b850-gaming-max-plus-wifi-atx",
-        "model:motherboard:e-h810m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורים פנימיים",
       "count": 2,
       "products": [
         "model:motherboard:b850-gaming-max-plus-wifi-atx",
@@ -6327,10 +6368,90 @@
     },
     {
       "category": "cpu",
+      "label": "הערה",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מזהה מוצר",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט כללי",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "קישוריות",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "גרפיקה",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תכונות עיקריות",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מידע מהיצרן",
+      "count": 1,
+      "products": [
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "Spec / Specifications / Processor series (CPU)",
       "count": 1,
       "products": [
         "model:cpu:ryzen59600x-tray"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "סקירה",
+      "count": 1,
+      "products": [
+        "model:gpu:12gd-gv-oc-r907gregaming-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מפרט טכני",
+      "count": 1,
+      "products": [
+        "model:gpu:12gd-gv-oc-r907gregaming-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מידע מהיצרן",
+      "count": 1,
+      "products": [
+        "model:gpu:12gd-gv-oc-r907gregaming-12gb"
       ]
     },
     {
@@ -7975,6 +8096,14 @@
     },
     {
       "category": "motherboard",
+      "label": "תכולה",
+      "count": 1,
+      "products": [
+        "model:motherboard:a520m-prime-r-microatx-a520"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "AMD A520",
       "count": 1,
       "products": [
@@ -8775,6 +8904,14 @@
     },
     {
       "category": "motherboard",
+      "label": "דגם 2",
+      "count": 1,
+      "products": [
+        "model:motherboard:carbon-max-mpg-wifi-x870e-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "Spec / Specifications / News & Updates",
       "count": 1,
       "products": [
@@ -8851,6 +8988,78 @@
       "count": 1,
       "products": [
         "model:motherboard:crosshair-hero-rog-x870e-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "גרפיקה",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תקשורת אלחוטית",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים ויציאות",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות מיוחדות",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות תוכנה",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "ניהוליות",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אביזרים",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מערכות הפעלה תומכות",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תצורה",
+      "count": 1,
+      "products": [
+        "model:motherboard:d4-h610m-k-prime-microatx"
       ]
     },
     {
