@@ -28,8 +28,8 @@ Written 2026-11-09. Status: Phase 1 steps 1, 2 (partly) and 4 done on 2026-11-09
 
 Goal: find out which of these KSP actually allows, before writing any parser.
 
-1. **Re-test the detail endpoint once**, with the existing `chrome146` profile and client hints, for ONE known `uin` (e.g. 280943). Record status, `cf-mitigated`, body size. A 200 with JSON means Phase 2 is open. A 403 ends this route and is recorded in `decisions.md` with the date. Do not try variants.
-2. **Check the public product page** `/web/item/<uin>` for server-rendered data (schema.org `Product` JSON-LD, `__NEXT_DATA__`-style blobs). The earlier note says it is an empty shell, so expect nothing, but one fetch settles it.
+1. **Re-test the detail endpoint once**, with the existing `chrome146` profile and client hints, for ONE known `uin` (e.g. 280943). Record status, `cf-mitigated`, body size. A 200 with JSON means Phase 2 is open. A 403 ends this route and is recorded in `decisions.md` with the date. Do not try variants. Ready to run on the Nano: `python scripts/ksp_detail_probe.py` (one request, refuses a second run the same day, writes nothing into the repo).
+2. **Check the public product page** `/web/item/<uin>` for server-rendered data (schema.org `Product` JSON-LD, `__NEXT_DATA__`-style blobs). The earlier note says it is an empty shell, so expect nothing, but one fetch settles it. Done 2026-11-13 in a normal browser: the page renders ~870 characters of site chrome and requests only `new-config`, `header-menu` and an SSE stream; no product data, no part number, no `/api/item` call.
 3. **Ask KSP for a sanctioned feed.** `robots.txt` references `affkey` and `appkey` URL parameters, which suggests an affiliate / app-key programme exists. An affiliate product feed (usually XML/CSV with MPN, EAN, specs, images) would be the cleanest answer and needs no scraping. This is an email or form from the owner, not code.
 4. Write the outcome in the plan's "Outcome" section below and pick the phase.
 
@@ -80,7 +80,7 @@ If the detail endpoint answers 200:
 
 ## Outcome (fill in after Phase 0)
 
-- Detail endpoint: _pending_
-- Product page structured data: _pending_
+- Detail endpoint: _pending_ (probe script ready, owner runs it on the Nano)
+- Product page structured data: none (2026-11-13, see Phase 0 step 2)
 - Affiliate / feed answer: _pending_
 - Chosen path: _pending_
