@@ -258,128 +258,175 @@
   .finding--warn { border-color: var(--warn); }
   .finding--warn .finding__sev { color: var(--warn); }
 
-  /* ---- night timeline ----
-     Lanes are a 4.5rem label column + a track; the overlay (window band,
-     now line) covers the track column of every lane at once. */
-  .tl {
-    margin: 0;
+  /* ---- night board ----
+     Two night panels side by side (stacked on phones). Each row is a
+     vendor; a pill sits at its crawl's start time (--at) and grows to the
+     right, or to the left past ~60% (--end), so labels never leave the
+     track. */
+  .nboard {
+    display: grid;
+    gap: var(--sp-4);
   }
 
-  .tl__plot {
-    --tl-label: 4.5rem;
-    position: relative;
+  .nb {
+    --nb-name: 4.75rem;
     display: flex;
     flex-direction: column;
     gap: var(--sp-2);
+    min-width: 0;
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    background: var(--surface-2);
   }
 
-  .tl__overlay {
-    position: absolute;
-    inset-block: 0;
-    inset-inline: var(--tl-label) 0;
-    pointer-events: none;
+  .nb--live {
+    border-color: var(--brand-line);
+    background: color-mix(in srgb, var(--brand) 4%, var(--surface));
   }
 
-  .tl__lane {
+  .nb__head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
+  }
+
+  .nb__head h3 {
+    font-size: var(--fs-md);
+  }
+
+  .nb__head span {
+    color: var(--text-3);
+    font-size: var(--fs-sm);
+  }
+
+  .nb__plot,
+  .nb__row {
     display: grid;
-    grid-template-columns: var(--tl-label) 1fr;
+    grid-template-columns: var(--nb-name) 1fr;
     align-items: center;
+    gap: var(--sp-2);
   }
 
-  .tl__axis,
-  .tl__track {
-    position: relative;
-  }
-
-  .tl__axis {
-    height: 1.25rem;
-  }
-
-  .tl__name {
+  .nb__name {
     font-size: var(--fs-sm);
     font-weight: var(--fw-semibold);
   }
 
-  .tl__track {
-    height: 1.5rem;
-    overflow: hidden;
-    border-radius: var(--radius-sm);
-    background: var(--surface-3);
+  .nb__axis {
+    position: relative;
+    height: 1.1rem;
+    border-bottom: 1px solid var(--line);
   }
 
-  .tl__axis {
-    overflow: hidden;
-  }
-
-  @media (max-width: 639px) {
-    /* Phones: bars only; times are in the vendor cards below. */
-    .tl__label {
-      display: none;
-    }
-  }
-
-  .tl__window {
+  .nb__tick {
     position: absolute;
-    inset-block: 0;
-    border-inline: 1px dashed var(--line-strong);
-    background: color-mix(in srgb, var(--brand) 7%, transparent);
-  }
-
-  .tl__now {
-    position: absolute;
-    inset-block: 0;
-    width: 2px;
-    background: var(--brand);
-  }
-
-
-
-  .tl__tick {
-    position: absolute;
-    top: 0;
+    bottom: 3px;
     transform: translateX(-50%);
     color: var(--text-3);
     font-size: var(--fs-2xs);
-  }
-
-  .tl__bar {
-    position: absolute;
-    top: 0.2rem;
-    bottom: 0.2rem;
-    min-width: 6px;
-    border-radius: 3px;
-    background: var(--ok-solid);
-  }
-
-  .tl__bar--partial { background: var(--warn); }
-
-  .tl__label {
-    position: absolute;
-    top: 50%;
-    padding-inline-start: var(--sp-2);
-    transform: translateY(-50%);
-    color: var(--text-2);
-    font-size: var(--fs-xs);
     white-space: nowrap;
   }
 
-  .tl__empty--off {
-    color: var(--text-3);
+  .nb__tick--first { transform: none; }
+  .nb__tick--last { transform: translateX(-100%); }
+
+  .nb__now {
+    position: absolute;
+    bottom: -0.35rem;
+    inset-inline-start: var(--at);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--brand);
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 25%, transparent);
   }
 
-  .tl__empty {
+  .nb__track {
+    position: relative;
+    height: 1.75rem;
+    border-radius: var(--radius-sm);
+    background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 7 - 1px), var(--line-soft) calc(100% / 7 - 1px) calc(100% / 7));
+  }
+
+  .nb__due {
+    position: absolute;
+    inset-block: 0.2rem;
+    inset-inline-start: var(--at);
+    width: 2px;
+    border-radius: 1px;
+    background: var(--line-strong);
+  }
+
+  .nb__pill {
+    position: absolute;
+    top: 50%;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 1.5rem;
+    padding: 0 var(--sp-2);
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-xs);
+    white-space: nowrap;
+    transform: translateY(-50%);
+  }
+
+  .nb__pill--start { inset-inline-start: calc(var(--at) - 0.4rem); }
+  .nb__pill--end { inset-inline-end: calc(100% - var(--at) - 0.4rem); flex-direction: row-reverse; }
+
+  .nb__pill strong {
+    font-weight: var(--fw-semibold);
+  }
+
+  .nb__n {
+    opacity: 0.8;
+  }
+
+  .nb__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .nb__pill--ok { background: var(--ok-soft); color: var(--ok); }
+  .nb__pill--partial { background: var(--warn-soft); color: var(--warn); }
+  .nb__pill--double { background: var(--warn-soft); color: var(--warn); box-shadow: inset 0 0 0 1px var(--warn); }
+  .nb__pill--pending { background: var(--surface-3); color: var(--text-3); box-shadow: inset 0 0 0 1px var(--line); }
+
+  .nb__miss {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
-    height: 100%;
-    padding-inline-start: var(--sp-2);
+    justify-content: center;
+    border: 1px dashed var(--err);
+    border-radius: var(--radius-sm);
+    background: var(--err-soft);
     color: var(--err);
     font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
   }
 
   .tl__caption {
     margin-top: var(--sp-3);
     color: var(--text-3);
     font-size: var(--fs-xs);
+  }
+
+  @media (min-width: 1024px) {
+    .nboard {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .nb { --nb-name: 3.5rem; padding-inline: var(--sp-3); }
+    .nb__n { display: none; }
+    /* Every other hour label only, so they do not run into each other. */
+    .nb__tick:nth-child(even) { display: none; }
   }
 
   /* ---- vendor cards ---- */

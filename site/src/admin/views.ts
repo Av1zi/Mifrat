@@ -51,68 +51,97 @@ function productLink(e: { pid?: string | null; product?: string; category?: stri
 // ---- Tonight -------------------------------------------------------------------
 
 /**
- * The last 30 hours on one Israel-time axis, so last night AND a night in
- * progress both show: every crawl that started in the span is a bar at its
- * real time, each scrape window is a shaded band, a blue line marks now.
+ * The two most recent nights side by side, each on its own night-only axis
+ * (21:00 UTC - 1h to + 13h, i.e. 22:00-10:00 Israel in winter). A crawl is a
+ * pill at its start time carrying its own label, a thin tick marks when the
+ * vendor's run is due, and a night without a crawl says so in place:
+ * "not scraped" once the due time passed, "due HH:MM" while it can still run.
  */
-function nightTimeline(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, now: Date): Html {
-  const HOUR = 3_600_000;
-  // Axis: from 2h before the previous night window opens, to now (+1h).
-  const thisNight = nightStart(now);
-  const start = thisNight.getTime() - 24 * HOUR - 2 * HOUR;
-  const end = Math.max(now.getTime() + HOUR, thisNight.getTime() - 24 * HOUR + 14 * HOUR);
-  const span = end - start;
-  const pos = (t: number) => ((t - start) / span) * 100;
-  const windows: Html[] = [];
-  for (let n0 = thisNight.getTime() - 24 * HOUR; n0 <= end; n0 += 24 * HOUR) {
-    const a = Math.max(0, pos(n0));
-    const b = Math.min(100, pos(n0 + 7 * HOUR));
-    if (b > a) windows.push(html`<span class="tl__window" style="${`inset-inline-start:${a}%;width:${b - a}%`}"></span>`);
-  }
+const HOUR = 3_600_000;
+const NIGHT_BEFORE_H = 1;
+const NIGHT_AFTER_H = 13;
+
+function dueOf(h: VendorHealth, night: Date): Date {
+  const [dh, dm] = h.vendor.due_utc.split(":").map(Number);
+  const due = new Date(night.getTime());
+  due.setUTCHours(dh || 0, dm || 0, 0, 0);
+  if (due.getTime() <= night.getTime()) due.setUTCDate(due.getUTCDate() + 1);
+  return due;
+}
+
+function nightPanel(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, night: Date, now: Date, title: string): Html {
+  const start = night.getTime() - NIGHT_BEFORE_H * HOUR;
+  const end = night.getTime() + NIGHT_AFTER_H * HOUR;
+  const pos = (t: number) => Math.max(0, Math.min(100, ((t - start) / (end - start)) * 100));
+  // In progress until the latest vendor due time has passed.
+  const lastDue = Math.max(...health.map((h) => dueOf(h, night).getTime()));
+  const live = now.getTime() >= night.getTime() && now.getTime() < lastDue;
   const ticks: Html[] = [];
-  const firstTick = Math.ceil(start / (3 * HOUR)) * 3 * HOUR;
-  for (let t = firstTick; t <= end; t += 3 * HOUR) {
-    const at = new Date(t).toISOString();
-    const label = ilTime(at);
-    ticks.push(html`<span class="tl__tick" style="${`inset-inline-start:${pos(t)}%`}">${label === "00:00" ? ilDay(at).split(",")[0] : label}</span>`);
+  for (let t = start; t <= end; t += 2 * HOUR) {
+    const edge = t === start ? " nb__tick--first" : t + 2 * HOUR > end ? " nb__tick--last" : "";
+    ticks.push(html`<span class="${`nb__tick${edge}`}" style="${`inset-inline-start:${pos(t)}%`}">${ilTime(new Date(t).toISOString())}</span>`);
   }
-  const nowPos = pos(now.getTime());
-  const lanes = health.filter((h) => h.vendor.active).map((h) => {
-    const inSpan = (crawls[h.vendor.id] ?? []).filter((c) => {
+  const rows = health.map((h) => {
+    const mine = (crawls[h.vendor.id] ?? []).filter((c) => {
       const t = new Date(c.start).getTime();
-      return t >= start && t <= end;
+      return t >= start && t < end;
     });
-    const bars = inSpan.map((c) => {
-      const left = pos(new Date(c.start).getTime());
-      const width = Math.max(0.5, Math.min(100, pos(new Date(c.end).getTime())) - left);
-      const time = `${ilTime(c.start)}${c.start.slice(0, 16) === c.end.slice(0, 16) ? "" : `–${ilTime(c.end)}`}`;
-      const cls = c.suspect ? "partial" : "fresh";
-      // Past ~75% of the axis the label goes on the bar's left side.
-      const labelPos = left > 75
-        ? `inset-inline-end:${100 - left}%;padding-inline:0 var(--sp-2)`
-        : `inset-inline-start:${left + width}%`;
-      return html`<span class="tl__bar tl__bar--${cls}" style="${`inset-inline-start:${left}%;width:${width}%`}" title="${`${ilDay(c.start)} ${time} · ${n(c.keys)} items`}"></span>
-        <span class="tl__label" style="${labelPos}">${time} · ${n(c.keys)}</span>`;
+    const due = dueOf(h, night);
+    const dueAt = pos(due.getTime());
+    const pills = mine.map((c) => {
+      const at = pos(new Date(c.start).getTime());
+      const tone = c.suspect ? "partial" : mine.length > 1 || c.crawls_in_file > 1 ? "double" : "ok";
+      const anchor = at > 62 ? "end" : "start";
+      const tip = `${ilDateTime(c.start)}${c.start.slice(0, 16) === c.end.slice(0, 16) ? "" : `–${ilTime(c.end)}`} · ${n(c.keys)} items · +${c.new} new −${c.gone} gone${c.suspect ? ` · partial: ${c.suspect}` : ""}`;
+      return html`<span class="nb__pill nb__pill--${tone} nb__pill--${anchor}" style="${`--at:${at}%`}" title="${tip}">
+        <span class="nb__dot" aria-hidden="true"></span><strong>${ilTime(c.start)}</strong><span class="nb__n">${n(c.keys)}</span>
+      </span>`;
     });
-    const empty = inSpan.length
-      ? ""
-      : html`<span class="tl__empty">${h.last ? `no crawl in the last 30 hours (last ${ilDateTime(h.last.start)})` : "never scraped"}</span>`;
-    return html`<div class="tl__lane">
-      <span class="tl__name">${h.vendor.label}</span>
-      <span class="tl__track">${bars}${empty}</span>
+    let empty: Html = html``;
+    if (!mine.length) {
+      if (now.getTime() < due.getTime()) {
+        empty = html`<span class="nb__pill nb__pill--pending nb__pill--${dueAt > 62 ? "end" : "start"}" style="${`--at:${dueAt}%`}">due ${ilTime(due.toISOString())}</span>`;
+      } else {
+        empty = html`<span class="nb__miss">Not scraped</span>`;
+      }
+    }
+    return html`<div class="nb__row">
+      <span class="nb__name">${h.vendor.label}</span>
+      <span class="nb__track">
+        <span class="nb__due" style="${`--at:${dueAt}%`}" title="${`Due by ${ilTime(due.toISOString())}`}" aria-hidden="true"></span>
+        ${pills}${empty}
+      </span>
     </div>`;
   });
-  return html`<figure class="tl" aria-label="Crawls in the last 30 hours, Israel time">
-    <div class="tl__plot">
-      <div class="tl__overlay" aria-hidden="true">
-        ${windows}
-        <span class="tl__now" style="${`inset-inline-start:${nowPos}%`}"></span>
-      </div>
-      <div class="tl__lane tl__lane--axis"><span></span><span class="tl__axis">${ticks}</span></div>
-      ${lanes}
+  const nowLine = live ? html`<span class="nb__now" style="${`--at:${pos(now.getTime())}%`}" aria-hidden="true"></span>` : "";
+  // Name the night by its evening: 18:00 UTC is 20:00/21:00 Israel, the same
+  // calendar date in both seasons (21:00 UTC is already midnight in summer).
+  const label = ilDay(new Date(night.getTime() - 3 * HOUR).toISOString());
+  return html`<section class="nb${live ? " nb--live" : ""}" aria-label="${`Night of ${label}`}">
+    <header class="nb__head">
+      <h3>${title}</h3>
+      <span>${label} evening${live ? " · in progress" : ""}</span>
+    </header>
+    <div class="nb__plot">
+      <span class="nb__name" aria-hidden="true"></span>
+      <span class="nb__axis">${ticks}${nowLine}</span>
     </div>
-    <figcaption class="tl__caption">Israel time. Shaded: the night scrape window (21:00–04:00 UTC). Blue line: now. Hover a bar for the item count.</figcaption>
-  </figure>`;
+    ${rows}
+  </section>`;
+}
+
+function nightBoard(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, now: Date): Html {
+  // The newest night that has started, and the one before it. During the
+  // night the newer one is "Tonight"; by morning it is "Last night".
+  const current = nightStart(now);
+  const lastDue = Math.max(...health.map((h) => dueOf(h, current).getTime()));
+  const running = now.getTime() < lastDue;
+  const previous = new Date(current.getTime() - 24 * HOUR);
+  return html`<div class="nboard">
+      ${nightPanel(health, crawls, previous, now, running ? "Last night" : "Night before")}
+      ${nightPanel(health, crawls, current, now, running ? "Tonight" : "Last night")}
+    </div>
+    <p class="tl__caption">Israel time. A pill is one crawl (start time · items; hover for details). The thin mark is when that vendor's run is due.</p>`;
 }
 
 /** Item counts of the last 14 crawls as an inline SVG polyline. */
@@ -176,8 +205,8 @@ export function tonightView(d: Data, now: Date): Html {
       ${findingList(findings)}
     </section>
     <section class="panel">
-      <h2 class="panel__title">Last 30 hours</h2>
-      ${nightTimeline(activeHealth, d.status.crawls, now)}
+      <h2 class="panel__title">Nights</h2>
+      ${nightBoard(activeHealth, d.status.crawls, now)}
     </section>
     <section class="vcards">${activeHealth.map((h) => vendorCard(h, d.status.crawls[h.vendor.id] ?? [], now))}</section>
     <section class="panel panel--row">

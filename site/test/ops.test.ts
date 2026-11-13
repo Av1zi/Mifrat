@@ -138,6 +138,15 @@ describe("vendor health", () => {
     expect(vendorHealth(s, VENDORS[1], TEN_AM).state).toBe("partial");
   });
 
+  it("a stale flag from a crawl just before midnight UTC is no note; 2+ days behind is", () => {
+    const fresh = status({}, { catalog: catalog({ generated_at: "2026-11-13T03:31:00+00:00",
+      vendors: { onepc: { listings: 2281, stale: 2281, last_seen: "2026-11-12" } } }) });
+    expect(vendorHealth(fresh, VENDORS[1], TEN_AM).notes.join(" ")).not.toContain("stale");
+    const behind = status({}, { catalog: catalog({ generated_at: "2026-11-13T03:31:00+00:00",
+      vendors: { onepc: { listings: 2281, stale: 2281, last_seen: "2026-11-10" } } }) });
+    expect(vendorHealth(behind, VENDORS[1], TEN_AM).notes.join(" ")).toContain("2026-11-10 snapshot");
+  });
+
   it("a dropped vendor is never missing", () => {
     expect(vendorHealth(status(), VENDORS[5], TEN_AM).state).toBe("dropped");
   });

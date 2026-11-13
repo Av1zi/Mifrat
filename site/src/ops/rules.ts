@@ -122,7 +122,14 @@ export function vendorHealth(status: OpsStatus, vendor: OpsVendor, now: Date): V
   const crawls = status.crawls[vendor.id] ?? [];
   const last = crawls.length ? crawls[crawls.length - 1] : null;
   const catalogVendor = status.catalog.vendors[vendor.id];
-  const staleInCatalog = !!catalogVendor && catalogVendor.stale > 0;
+  // normalize marks offers stale whenever the snapshot day is not the build
+  // day, so a 23:50 UTC crawl is "stale" at 03:31 UTC. Only a catalog that is
+  // 2+ days behind the vendor is worth a note.
+  const builtDay = (status.catalog.generated_at ?? "").slice(0, 10);
+  const lagDays = catalogVendor?.last_seen && builtDay
+    ? (Date.parse(builtDay) - Date.parse(catalogVendor.last_seen)) / 86_400_000
+    : 0;
+  const staleInCatalog = !!catalogVendor && catalogVendor.stale > 0 && lagDays >= 2;
   const notes: string[] = [];
   const ageHours = last ? hoursBetween(new Date(last.start), now) : null;
 
@@ -156,7 +163,7 @@ export function vendorHealth(status: OpsStatus, vendor: OpsVendor, now: Date): V
   }
   if (tonight?.misfiled) notes.push(`written to the ${tonight.file_day} file`);
   if (tonight?.outside_window) notes.push("ran outside the night window");
-  if (staleInCatalog) notes.push(`catalog shows ${catalogVendor!.stale} stale offers`);
+  if (staleInCatalog) notes.push(`catalog still shows the ${catalogVendor!.last_seen} snapshot (${catalogVendor!.stale} stale offers)`);
   return { vendor, state, last, tonight, ageHours, staleInCatalog, notes };
 }
 
