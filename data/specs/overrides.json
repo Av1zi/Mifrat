@@ -8,5 +8,9 @@
     "Use one entry per corrected product, e.g.:",
     "  \"products\": { \"abc123def\": { \"tdp_w\": 120, \"socket\": \"AM5\" } }"
   ],
-  "products": {}
+  "products": {
+    "model:memory:0-2x24gb-3-8800-cl42-manta-xfinity-xmp-48gb-x2-8800mhz-cl42-rgb-black": {
+      "total_gb": 48
+    }
+  }
 }
