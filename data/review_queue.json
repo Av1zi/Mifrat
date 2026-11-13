@@ -487,17 +487,6 @@
     "score": 98,
     "category": "aio",
     "brand": "ASUS",
-    "listing_a": "ksp:471018",
-    "listing_b": "ksp:471183",
-    "title_a": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 240 ARGB Liquid CPU Cooler - צבע שחור",
-    "title_b": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 240 ARGB Liquid CPU Cooler - צבע לבן",
-    "match_text_a": "471018 12 Asus TUF LC III 240 ARGB Liquid CPU Cooler -",
-    "match_text_b": "471183 12 Asus TUF LC III 240 ARGB Liquid CPU Cooler -"
-  },
-  {
-    "score": 98,
-    "category": "aio",
-    "brand": "ASUS",
     "listing_a": "ksp:471578",
     "listing_b": "ksp:471584",
     "title_a": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 360 ARGB Liquid CPU Cooler - צבע שחור",
@@ -658,6 +647,17 @@
     "title_b": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
     "match_text_a": "491305 GIGABYTE Radeon RX 9060 XT GAMING OC ICE 16GB",
     "match_text_b": "491352 GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB"
+  },
+  {
+    "score": 96,
+    "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "ksp:290077",
+    "listing_b": "ksp:290079",
+    "title_a": "זכרון למחשב Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRWH",
+    "title_b": "זכרון למחשב Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRBK",
+    "match_text_a": "290077 Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRWH",
+    "match_text_b": "290079 Adata XPG LANCER BLADE RGB 1x16GB DDR5 6000MHz CL30 AX5U6000C3016G-SLABRBK"
   },
   {
     "score": 96,
@@ -892,6 +892,17 @@
   },
   {
     "score": 95,
+    "category": "memory",
+    "brand": "ADATA",
+    "listing_a": "ksp:290103",
+    "listing_b": "ksp:290107",
+    "title_a": "זכרון למחשב Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARWH",
+    "title_b": "זכרון למחשב Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARBK",
+    "match_text_a": "290103 Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARWH",
+    "match_text_b": "290107 Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARBK"
+  },
+  {
+    "score": 95,
     "category": "storage",
     "brand": "Corsair",
     "listing_a": "ksp:500632",
@@ -900,17 +911,6 @@
     "title_b": "כונן SSD פנימי לקונסולות CORSAIR MP600 ELITE 2TB M.2 NVMe PCIe 4.0 PS5 / PS5 Pro עם גוף קירור",
     "match_text_a": "500632 SSD CORSAIR MP600 ELITE 1TB M.2 NVMe PCIe 4.0 PS5 / PS5 Pro",
     "match_text_b": "500644 SSD CORSAIR MP600 ELITE 2TB M.2 NVMe PCIe 4.0 PS5 / PS5 Pro"
-  },
-  {
-    "score": 95,
-    "category": "case",
-    "brand": "MSI",
-    "listing_a": "ksp:311100",
-    "listing_b": "ksp:311128",
-    "title_a": "מארז מחשב ללא ספק MSI MAG PANO M100R PZ Micro ATX Tower - צבע שחור",
-    "title_b": "מארז מחשב ללא ספק MSI MAG PANO M100R PZ Micro ATX Tower - צבע לבן",
-    "match_text_a": "311100 MSI MAG PANO M100R PZ Micro ATX Tower -",
-    "match_text_b": "311128 MSI MAG PANO M100R PZ Micro ATX Tower -"
   },
   {
     "score": 95,
@@ -1035,17 +1035,6 @@
   },
   {
     "score": 95,
-    "category": "aio",
-    "brand": "ASUS",
-    "listing_a": "ksp:383151",
-    "listing_b": "ksp:383436",
-    "title_a": "קירור נוזלי למעבד Asus ROG RYUJIN III 360 ARGB Extreme AIO Liquid CPU Cooler - צבע שחור",
-    "title_b": "קירור נוזלי למעבד Asus ROG RYUJIN III 360 ARGB Extreme AIO Liquid CPU Cooler - צבע לבן",
-    "match_text_a": "383151 Asus ROG RYUJIN III 360 ARGB Extreme AIO Liquid CPU Cooler -",
-    "match_text_b": "383436 Asus ROG RYUJIN III 360 ARGB Extreme AIO Liquid CPU Cooler -"
-  },
-  {
-    "score": 95,
     "category": "accessories",
     "brand": "ASUS",
     "listing_a": "ksp:327344",
@@ -1146,13 +1135,13 @@
   {
     "score": 94,
     "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "ksp:402166",
-    "listing_b": "ksp:402171",
-    "title_a": "כונן Corsair MP600 MICRO 1TB PCIe 4.0 NVMe M.2 2242 SSD",
-    "title_b": "כונן Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD",
-    "match_text_a": "402166 Corsair MP600 MICRO 1TB PCIe 4.0 NVMe M.2 2242 SSD",
-    "match_text_b": "402171 Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242 SSD"
+    "brand": "ADATA",
+    "listing_a": "ksp:447059",
+    "listing_b": "ksp:447064",
+    "title_a": "כונן PCIe Gen4 x4 M.2 2280 SSD פנימי דגם Legend 860 בנפח 2TB מבית ADATA",
+    "title_b": "כונן PCIe Gen4 x4 M.2 2280 SSD פנימי דגם Legend 860 בנפח 1TB מבית ADATA",
+    "match_text_a": "447059 PCIe Gen4 x4 M.2 2280 SSD Legend 860 2TB ADATA",
+    "match_text_b": "447064 PCIe Gen4 x4 M.2 2280 SSD Legend 860 1TB ADATA"
   },
   {
     "score": 94,
@@ -1354,17 +1343,6 @@
   },
   {
     "score": 94,
-    "category": "aio",
-    "brand": "ASUS",
-    "listing_a": "ksp:471809",
-    "listing_b": "ksp:471826",
-    "title_a": "קירור נוזלי למעבד Asus ROG Ryuo IV SLC 360 ARGB - צבע לבן",
-    "title_b": "קירור נוזלי למעבד Asus ROG Ryuo IV SLC 360 ARGB - צבע שחור",
-    "match_text_a": "471809 Asus ROG Ryuo IV SLC 360 ARGB -",
-    "match_text_b": "471826 Asus ROG Ryuo IV SLC 360 ARGB -"
-  },
-  {
-    "score": 94,
     "category": "case_fan",
     "brand": "ASUS",
     "listing_a": "ksp:471047",
@@ -1552,6 +1530,17 @@
   },
   {
     "score": 93,
+    "category": "storage",
+    "brand": "ADATA",
+    "listing_a": "ksp:290026",
+    "listing_b": "ksp:290028",
+    "title_a": "כונן SSD פנימי דגם Legend 960 בנפח 2TB מבית Adata",
+    "title_b": "כונן SSD פנימי דגם Legend 960 בנפח 4TB מבית Adata",
+    "match_text_a": "290026 SSD Legend 960 2TB Adata",
+    "match_text_b": "290028 SSD Legend 960 4TB Adata"
+  },
+  {
+    "score": 93,
     "category": "psu",
     "brand": "Corsair",
     "listing_a": "1pc:206390",
@@ -1609,17 +1598,6 @@
     "score": 93,
     "category": "gpu",
     "brand": "Sapphire",
-    "listing_a": "ksp:369203",
-    "listing_b": "ksp:369212",
-    "title_a": "כרטיס מסך Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "title_b": "כרטיס מסך Sapphire Radeon RX 9070 PURE OC 16GB GDDR6",
-    "match_text_a": "369203 Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "match_text_b": "369212 Sapphire Radeon RX 9070 PURE OC 16GB GDDR6"
-  },
-  {
-    "score": 93,
-    "category": "gpu",
-    "brand": "Sapphire",
     "listing_a": "ksp:369231",
     "listing_b": "ksp:448105",
     "title_a": "כרטיס מסך Sapphire Radeon RX 9070 XT NITRO+ OC 16GB GDDR6",
@@ -1648,6 +1626,17 @@
     "title_b": "כרטיס מסך Sapphire Radeon RX 9070 XT NITRO+ OC 16GB GDDR6 - מהדורת Valor Mortis",
     "match_text_a": "369231 Sapphire Radeon RX 9070 XT NITRO+ OC 16GB GDDR6",
     "match_text_b": "508044 Sapphire Radeon RX 9070 XT NITRO+ OC 16GB GDDR6 - Valor Mortis"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "ksp:313463",
+    "listing_b": "ksp:497417",
+    "title_a": "זיכרון למחשב G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 - צבע לבן",
+    "title_b": "מציאון ועודפים - זיכרון למחשב G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 - צבע שחור",
+    "match_text_a": "313463 G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 -",
+    "match_text_b": "497417 - G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 -"
   },
   {
     "score": 93,
@@ -2291,28 +2280,6 @@
     "score": 92,
     "category": "aio",
     "brand": "ASUS",
-    "listing_a": "ksp:471018",
-    "listing_b": "ksp:471578",
-    "title_a": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 240 ARGB Liquid CPU Cooler - צבע שחור",
-    "title_b": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 360 ARGB Liquid CPU Cooler - צבע שחור",
-    "match_text_a": "471018 12 Asus TUF LC III 240 ARGB Liquid CPU Cooler -",
-    "match_text_b": "471578 12 Asus TUF LC III 360 ARGB Liquid CPU Cooler -"
-  },
-  {
-    "score": 92,
-    "category": "aio",
-    "brand": "ASUS",
-    "listing_a": "ksp:471018",
-    "listing_b": "ksp:471584",
-    "title_a": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 240 ARGB Liquid CPU Cooler - צבע שחור",
-    "title_b": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 360 ARGB Liquid CPU Cooler - צבע לבן",
-    "match_text_a": "471018 12 Asus TUF LC III 240 ARGB Liquid CPU Cooler -",
-    "match_text_b": "471584 12 Asus TUF LC III 360 ARGB Liquid CPU Cooler -"
-  },
-  {
-    "score": 92,
-    "category": "aio",
-    "brand": "ASUS",
     "listing_a": "ksp:471183",
     "listing_b": "ksp:471578",
     "title_a": "קירור נוזלי למעבד 12 ס''מ Asus TUF LC III 240 ARGB Liquid CPU Cooler - צבע לבן",
@@ -2341,17 +2308,6 @@
     "title_b": "מאוורר למארז MSI MAG F120 ARGB - צבע שחור",
     "match_text_a": "419669 MSI MAG F120 ARGB -",
     "match_text_b": "419672 MSI MAG F120 ARGB -"
-  },
-  {
-    "score": 92,
-    "category": "case_fan",
-    "brand": "MSI",
-    "listing_a": "ksp:419672",
-    "listing_b": "ksp:419677",
-    "title_a": "מאוורר למארז MSI MAG F120 ARGB - צבע שחור",
-    "title_b": "מאווררים למארז עם להבים הפוכים MSI MAG F120 ARGB - צבע לבן - 3 יחידות",
-    "match_text_a": "419672 MSI MAG F120 ARGB -",
-    "match_text_b": "419677 MSI MAG F120 ARGB - - 3"
   },
   {
     "score": 92,
@@ -2984,28 +2940,6 @@
     "score": 90,
     "category": "gpu",
     "brand": "Gigabyte",
-    "listing_a": "ksp:387926",
-    "listing_b": "ksp:396264",
-    "title_a": "כרטיס מסך GIGABYTE RTX 5060 Ti EAGLE OC 8GB GDDR7",
-    "title_b": "כרטיס מסך GIGABYTE RTX 5060 Ti AERO OC 8GB GDDR7",
-    "match_text_a": "387926 GIGABYTE RTX 5060 Ti EAGLE OC 8GB GDDR7",
-    "match_text_b": "396264 GIGABYTE RTX 5060 Ti AERO OC 8GB GDDR7"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "ksp:396264",
-    "listing_b": "ksp:398493",
-    "title_a": "כרטיס מסך GIGABYTE RTX 5060 Ti AERO OC 8GB GDDR7",
-    "title_b": "כרטיס מסך GIGABYTE RTX 5060 AERO OC 8GB GDDR7",
-    "match_text_a": "396264 GIGABYTE RTX 5060 Ti AERO OC 8GB GDDR7",
-    "match_text_b": "398493 GIGABYTE RTX 5060 AERO OC 8GB GDDR7"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "Gigabyte",
     "listing_a": "ksp:491352",
     "listing_b": "ksp:491356",
     "title_a": "כרטיס מסך GIGABYTE Radeon RX 9070 XT GAMING OC ICE 16GB",
@@ -3034,28 +2968,6 @@
     "title_b": "מעבד אינטל Intel Core i9 14900KF 3.2GHz 36MB Cache s1700 - Box",
     "match_text_a": "280956 Intel Core i7 14700K 3.4GHz 33MB Cache s1700 - Box",
     "match_text_b": "280968 Intel Core i9 14900KF 3.2GHz 36MB Cache s1700 - Box"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "ksp:444397",
-    "listing_b": "ksp:444426",
-    "title_a": "מארז מחשב ללא ספק Antec AX26 RGB Elite ATX Mid Tower - צבע שחור",
-    "title_b": "מארז מחשב ללא ספק Antec AX27 RGB Elite ATX Mid Tower - צבע שחור",
-    "match_text_a": "444397 Antec AX26 RGB Elite ATX Mid Tower -",
-    "match_text_b": "444426 Antec AX27 RGB Elite ATX Mid Tower -"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "ASUS",
-    "listing_a": "ksp:382308",
-    "listing_b": "ksp:382318",
-    "title_a": "כרטיס מסך ASUS PRIME GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "title_b": "כרטיס מסך ASUS DUAL GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "match_text_a": "382308 ASUS PRIME GeForce RTX 5060 Ti 8GB GDDR7 OC Edition",
-    "match_text_b": "382318 ASUS DUAL GeForce RTX 5060 Ti 8GB GDDR7 OC Edition"
   },
   {
     "score": 90,
@@ -3529,28 +3441,6 @@
     "title_b": "כונן SSD SanDisk Optimus 5100 NVMe 500GB",
     "match_text_a": "222328 SSD SanDisk Optimus 5100 NVMe 2TB",
     "match_text_b": "222329 SSD SanDisk Optimus 5100 NVMe 500GB"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "Sapphire",
-    "listing_a": "ksp:369203",
-    "listing_b": "ksp:369217",
-    "title_a": "כרטיס מסך Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "title_b": "כרטיס מסך Sapphire Radeon RX 9070 XT PULSE 16GB GDDR6",
-    "match_text_a": "369203 Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "match_text_b": "369217 Sapphire Radeon RX 9070 XT PULSE 16GB GDDR6"
-  },
-  {
-    "score": 90,
-    "category": "gpu",
-    "brand": "Sapphire",
-    "listing_a": "ksp:369203",
-    "listing_b": "ksp:369231",
-    "title_a": "כרטיס מסך Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "title_b": "כרטיס מסך Sapphire Radeon RX 9070 XT NITRO+ OC 16GB GDDR6",
-    "match_text_a": "369203 Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "match_text_b": "369231 Sapphire Radeon RX 9070 XT NITRO+ OC 16GB GDDR6"
   },
   {
     "score": 90,
@@ -4071,17 +3961,6 @@
   },
   {
     "score": 89,
-    "category": "storage",
-    "brand": "Corsair",
-    "listing_a": "1pc:210591",
-    "listing_b": "ksp:402166",
-    "title_a": "כונן SSD Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242",
-    "title_b": "כונן Corsair MP600 MICRO 1TB PCIe 4.0 NVMe M.2 2242 SSD",
-    "match_text_a": "CSSD-F2000GBMP600MCR2 SSD Corsair MP600 MICRO 2TB PCIe 4.0 NVMe M.2 2242",
-    "match_text_b": "402166 Corsair MP600 MICRO 1TB PCIe 4.0 NVMe M.2 2242 SSD"
-  },
-  {
-    "score": 89,
     "category": "motherboard",
     "brand": "MSI",
     "listing_a": "1pc:222692",
@@ -4189,17 +4068,6 @@
     "title_b": "מארז מחשב ללא ספק MSI MPG VELOX 300R AIRFLOW PZ Mid Tower - צבע לבן",
     "match_text_a": "192575 MSI MPG VELOX 300R AIRFLOW PZ",
     "match_text_b": "380406 MSI MPG VELOX 300R AIRFLOW PZ Mid Tower -"
-  },
-  {
-    "score": 89,
-    "category": "gpu",
-    "brand": "Sapphire",
-    "listing_a": "ksp:369203",
-    "listing_b": "ksp:390910",
-    "title_a": "כרטיס מסך Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "title_b": "כרטיס מסך Sapphire Radeon RX 9060 XT PURE 16GB GDDR6",
-    "match_text_a": "369203 Sapphire Radeon RX 9070 XT PURE OC 16GB GDDR6",
-    "match_text_b": "390910 Sapphire Radeon RX 9060 XT PURE 16GB GDDR6"
   },
   {
     "score": 89,
@@ -4480,23 +4348,12 @@
     "score": 89,
     "category": "case",
     "brand": "ASUS",
-    "listing_a": "ksp:392879",
-    "listing_b": "ksp:435827",
-    "title_a": "מארז ללא ספק Asus A21 PLUS ARGB Micro ATX - צבע לבן",
-    "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
-    "match_text_a": "392879 Asus A21 PLUS ARGB Micro ATX -",
-    "match_text_b": "435827 - Asus A23 PLUS ARGB Micro ATX -"
-  },
-  {
-    "score": 89,
-    "category": "case",
-    "brand": "ASUS",
     "listing_a": "ksp:392904",
-    "listing_b": "ksp:435827",
+    "listing_b": "ksp:511473",
     "title_a": "מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע לבן",
     "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
     "match_text_a": "392904 Asus A23 PLUS ARGB Micro ATX -",
-    "match_text_b": "435827 - Asus A23 PLUS ARGB Micro ATX -"
+    "match_text_b": "511473 - Asus A23 PLUS ARGB Micro ATX -"
   },
   {
     "score": 89,
@@ -4541,17 +4398,6 @@
     "title_b": "קירור נוזלי למעבד Asus PRIME LC 360 ARGB AIO - צבע שחור",
     "match_text_a": "383438 Asus PRIME LC 360 ARGB LCD AIO -",
     "match_text_b": "383477 Asus PRIME LC 360 ARGB AIO -"
-  },
-  {
-    "score": 89,
-    "category": "case_fan",
-    "brand": "MSI",
-    "listing_a": "ksp:419677",
-    "listing_b": "ksp:419699",
-    "title_a": "מאווררים למארז עם להבים הפוכים MSI MAG F120 ARGB - צבע לבן - 3 יחידות",
-    "title_b": "מאווררים למארז MSI MPG F120 ARGB - צבע לבן - 3 יחידות",
-    "match_text_a": "419677 MSI MAG F120 ARGB - - 3",
-    "match_text_b": "419699 MSI MPG F120 ARGB - - 3"
   },
   {
     "score": 89,
@@ -5658,17 +5504,6 @@
     "category": "case_fan",
     "brand": "MSI",
     "listing_a": "ksp:419669",
-    "listing_b": "ksp:419677",
-    "title_a": "מאוורר למארז MSI MAG F120 ARGB - צבע לבן",
-    "title_b": "מאווררים למארז עם להבים הפוכים MSI MAG F120 ARGB - צבע לבן - 3 יחידות",
-    "match_text_a": "419669 MSI MAG F120 ARGB -",
-    "match_text_b": "419677 MSI MAG F120 ARGB - - 3"
-  },
-  {
-    "score": 88,
-    "category": "case_fan",
-    "brand": "MSI",
-    "listing_a": "ksp:419669",
     "listing_b": "ksp:419689",
     "title_a": "מאוורר למארז MSI MAG F120 ARGB - צבע לבן",
     "title_b": "מאווררים למארז MSI MPG F120 ARGB - צבע לבן - 2 יחידות",
@@ -6000,8 +5835,8 @@
     "collapsed": true,
     "offers": [
       {
-        "listing_key": "ksp:435827",
-        "vendor_sku": "435827",
+        "listing_key": "ksp:511473",
+        "vendor_sku": "511473",
         "title": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
         "price": 319,
         "alias_of": "ksp:392918"
@@ -6625,6 +6460,28 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+    "category": "memory",
+    "vendor": "ksp",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "ksp:497417",
+        "vendor_sku": "497417",
+        "title": "מציאון ועודפים - זיכרון למחשב G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 - צבע שחור",
+        "price": 2490,
+        "alias_of": "ksp:313461"
+      },
+      {
+        "listing_key": "ksp:313461",
+        "vendor_sku": "313461",
+        "title": "זיכרון למחשב G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 - צבע שחור",
+        "price": 2830
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:memory:2x32gb-5200mt-beast-cl40-fury-s-64gb-x2-5200mhz-cl40-rgb-black-dimm",
     "category": "memory",
     "vendor": "ksp",
@@ -6940,28 +6797,6 @@
         "title": "לוח אם ASUS ProArt B760-CREATOR WIFI Intel LGA1700 B760 DDR5",
         "price": 1030,
         "alias_of": "ksp:277276"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:b760-b760-ddr5-f-gaming-intel-lga1700-rog-strix-wifi-atx",
-    "category": "motherboard",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:458339",
-        "vendor_sku": "458339",
-        "title": "מציאון ועודפים - לוח אם ASUS ROG Strix B760-F Gaming WiFi Intel LGA1700 B760 DDR5",
-        "price": 899,
-        "alias_of": "ksp:241505"
-      },
-      {
-        "listing_key": "ksp:241505",
-        "vendor_sku": "241505",
-        "title": "לוח אם ASUS ROG Strix B760-F Gaming WiFi Intel LGA1700 B760 DDR5",
-        "price": 1195
       }
     ]
   },
@@ -20950,72 +20785,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208031",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W1W",
-        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע לבן",
-        "price": 216
-      },
-      {
-        "listing_key": "tms:12SLIN1W1W",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless White",
-        "price": 136
-      },
-      {
-        "listing_key": "yahav:10985",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W1W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm White Single Pack צבע לבן",
-        "price": 135
-      }
-    ],
-    "model_code": "120mm-fan-inf-pack-single-sl-uni-white-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208012",
-        "vendor": "1pc",
-        "vendor_sku": "12SLIN1W3W",
-        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless White x3",
-        "price": 529
-      },
-      {
-        "listing_key": "tms:12SLIN1W3W",
-        "vendor": "tms",
-        "vendor_sku": "12SLIN1W3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless White x3 Fans",
-        "price": 422
-      },
-      {
-        "listing_key": "yahav:10992",
-        "vendor": "yahav",
-        "vendor_sku": "12SLIN1W3W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm White Triple Pack צבע לבן",
-        "price": 410
-      }
-    ],
-    "model_code": "120mm-fan-inf-pack-sl-triple-uni-white-wireless",
-    "manufacturer_pn": [
-      "12SLIN1W3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
     "vendor": "",
     "offers": [
@@ -21077,6 +20846,72 @@
     "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
     "manufacturer_pn": [
       "12SLIN1W3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208031",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W1W",
+        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע לבן",
+        "price": 216
+      },
+      {
+        "listing_key": "tms:12SLIN1W1W",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless White",
+        "price": 136
+      },
+      {
+        "listing_key": "yahav:10985",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W1W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm White Single Pack צבע לבן",
+        "price": 135
+      }
+    ],
+    "model_code": "120mm-fan-inf-pack-single-sl-uni-white-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208012",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W3W",
+        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless White x3",
+        "price": 529
+      },
+      {
+        "listing_key": "tms:12SLIN1W3W",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless White x3 Fans",
+        "price": 422
+      },
+      {
+        "listing_key": "yahav:10992",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W3W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm White Triple Pack צבע לבן",
+        "price": 410
+      }
+    ],
+    "model_code": "120mm-fan-inf-pack-sl-triple-uni-white-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W3W"
     ]
   },
   {
@@ -21660,40 +21495,6 @@
     "manufacturer_pn": [
       "RFD12SFW1"
     ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-f120-mag-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:419677",
-        "vendor": "ksp",
-        "vendor_sku": "419677",
-        "title": "מאווררים למארז עם להבים הפוכים MSI MAG F120 ARGB - צבע לבן - 3 יחידות",
-        "price": 95
-      }
-    ],
-    "model_code": "3-f120-mag",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:f120-mag-120mm-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:419672",
-        "vendor": "ksp",
-        "vendor_sku": "419672",
-        "title": "מאוורר למארז MSI MAG F120 ARGB - צבע שחור",
-        "price": 33
-      }
-    ],
-    "model_code": "f120-mag",
-    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",

@@ -3576,6 +3576,7 @@
 "ksp:260027":"model:aio:240-rog-ryuo-240mm-white",
 "ksp:260030":"model:aio:240-rog-ryuo-240mm-black",
 "ksp:261997":"model:motherboard:b760-b760-gaming-lga1700-wifi-atx",
+"ksp:263451":"model:storage:purple-wd23purz-2000gb-sata-35",
 "ksp:263911":"model:storage:nas-wd60efpx-6000gb-sata-35",
 "ksp:264505":"model:gpu:3xdp-7600-amd-gddr6-hdmi-pulse-radeon-rx-8gb",
 "ksp:265361":"model:motherboard:a-b760-b760m-csm-lga1700-prime-microatx",
@@ -3657,20 +3658,33 @@
 "ksp:288707":"model:memory:beast-cl16-fury-16gb-3200mhz-cl16-rgb-dimm",
 "ksp:289070":"model:storage:2242-410s-ts512gmte410s-x4-512gb-pcie4-m22242",
 "ksp:289073":"model:storage:2242-410s-ts2tmte410s-x4-2000gb-pcie4-m22242",
+"ksp:289627":"model:storage:256mb-6tb-iii-purple-sata-surveillance-6000gb-sata-35",
 "ksp:289845":"model:memory:cl11-ddr3l-premier-8gb-1600mhz-cl11-dimm",
+"ksp:289874":"model:memory:cl46-premier-16gb-5600mhz-cl46-dimm",
 "ksp:289884":"model:memory:cl40-premier-32gb-4800mhz-cl40-dimm",
 "ksp:289938":"model:storage:su630-1920gb-25",
 "ksp:289975":"model:cpu:14100f",
 "ksp:289984":"model:storage:710-legend-1000gb-m22280",
+"ksp:289985":"model:storage:710-legend-2000gb-m22280",
 "ksp:289988":"model:cpu:14400f",
+"ksp:290015":"model:storage:960-legend-1000gb-m22280",
 "ksp:290018":"model:cpu:14700f",
 "ksp:290022":"model:cpu:14900",
+"ksp:290026":"model:storage:960-legend-2000gb-m22280",
+"ksp:290028":"model:storage:960-legend-4000gb-m22280",
 "ksp:290045":"model:storage:2-2280-4t-4tb-agammixs70b-blade-cs-gammix-m-nvme-pcie-s70-ssd-xpg-4000gb-pciegen4x4-m22280",
 "ksp:290061":"model:memory:1x16gb-6400mhz-ax5u6400c3216g-blade-cl32-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6400mhz-cl32-rgb-white-dimm",
+"ksp:290077":"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6000mhz-cl30-rgb-white-dimm",
+"ksp:290079":"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrbk-xpg-16gb-x1-6000mhz-cl30-rgb-black-dimm",
+"ksp:290103":"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-white-dimm",
+"ksp:290107":"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarbk-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-black-dimm",
 "ksp:290121":"model:motherboard:b760-b760m-k-lga1700-prime-microatx",
 "ksp:290127":"model:motherboard:prime-b760m-a-d4-csm-lga1700-b760-microatx",
 "ksp:290134":"model:motherboard:b760-b760-lga1700-prime-atx",
 "ksp:290937":"model:cpu:14700f-tray",
+"ksp:290945":"model:memory:cl22-dimm-premier-u-8gb-3200mhz-cl22-dimm",
+"ksp:290949":"model:memory:cl22-dimm-premier-u-16gb-3200mhz-cl22-dimm",
+"ksp:290951":"model:memory:cl22-dimm-premier-u-32gb-3200mhz-cl22-dimm",
 "ksp:290964":"model:memory:cl18-d35g-dimm-spectrix-u-xpg-8gb-3600mhz-cl18-black-dimm",
 "ksp:291383":"model:case:vs8-black",
 "ksp:291448":"model:case:vs8-white",
@@ -3761,6 +3775,9 @@
 "ksp:335400":"model:memory:cl46-valueram-16gb-5600mhz-cl46-dimm",
 "ksp:335404":"model:storage:gammix-s60-xpg-1000gb-m22280",
 "ksp:335434":"model:storage:gammix-s60-xpg-2000gb-m22280",
+"ksp:335437":"model:storage:su680-1000gb-25",
+"ksp:335450":"model:storage:su680-256gb-25",
+"ksp:335451":"model:storage:su680-512gb-25",
 "ksp:337145":"model:memory:2x16gb-cl30-flare-x5-32gb-x2-6000mhz-cl30-black-dimm",
 "ksp:337151":"model:memory:2x16gb-cl32-flare-x5-32gb-x2-6400mhz-cl32-black-dimm",
 "ksp:337162":"model:memory:2x16gb-cl30-neo-trident-z5-32gb-x2-6400mhz-cl30-rgb-black-dimm",
@@ -4216,6 +4233,7 @@
 "ksp:437643":"model:memory:cl16-lpx-vengeance-16gb-2666mhz-cl16-black-dimm",
 "ksp:438071":"model:aio:420-a-freezer-liquid-pro-420mm-white",
 "ksp:438145":"psu:ksp:ksp-438145",
+"ksp:441157":"model:storage:128mb-3tb-iii-purple-sata-surveillance-3000gb-sata-35",
 "ksp:441175":"model:cpu:ryzen79850x3d",
 "ksp:441639":"model:storage:2280-260s-x4-1000gb-pcie5-m22280",
 "ksp:441644":"model:storage:2280-260s-x4-4000gb-pcie5-m22280",
@@ -4234,7 +4252,9 @@
 "ksp:446935":"model:case_fan:p14-pro-pwm-reverse-140mm-black",
 "ksp:446950":"model:case_fan:a-p14-pro-pwm-reverse-140mm-rgb-black",
 "ksp:446954":"model:case_fan:a-p14-pro-pwm-reverse-140mm-rgb-white",
+"ksp:446982":"model:memory:2x-9200mt-cl42-cudimm-lancer-s-xpg-16gb-x2-6000mhz-cl42-rgb-white-dimm",
 "ksp:446986":"model:memory:6000mt-cl30-dimm-lancer-neon-s-u-xpg-16gb-6000mhz-cl30-rgb-grey-dimm",
+"ksp:447059":"model:storage:2280-860-legend-x4-2000gb-pcie4-m22280",
 "ksp:447064":"model:storage:2280-860-legend-x4-1000gb-pcie4-m22280",
 "ksp:448105":"model:gpu:16gb-9070-btf-gc-gddr6-hpwr-nitro-oc-phantomlink-radeon-rx-xt-16gb",
 "ksp:448109":"model:gpu:16gb-9070-btf-gc-gddr6-hpwr-nitro-oc-phantomlink-polar-radeon-rx-xt-16gb",
@@ -4471,6 +4491,7 @@
 "ksp:50990":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
 "ksp:510165":"model:motherboard:am4-b550m-pulse-microatx",
 "ksp:510234":"model:gpu:12gb-9070-evo-gddr6-gre-oc-prime-radeon-rx-12gb",
+"ksp:511473":"model:case:a23-black",
 "ksp:52696":"model:case:case-vs7-window-black",
 "ksp:54176":"model:gpu:1030-dp-e-gddr5-gt-hdmi-low-pci-profile-2gb",
 "ksp:56334":"model:case_fan:p12-120mm-black",
@@ -18886,7 +18907,7 @@
 "gpu"
 ],
 "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb":[
-"Sapphire Pure Radeon RX 9070 XT 16GB (11348-02-20G)",
+"Sapphire Pure Radeon RX 9070 XT 16GB",
 "gpu"
 ],
 "model:gpu:1030-2g-2gl-d4-gt-gv-low-n1030d4-profile-2gb":[
@@ -19574,7 +19595,7 @@
 "gpu"
 ],
 "model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb":[
-"Gigabyte Aero GeForce RTX 5060 Ti 8GB (N506TAEROOC8GD)",
+"Gigabyte Aero GeForce RTX 5060 Ti 8GB",
 "gpu"
 ],
 "model:gpu:5060-8g-8gd-aorus-e-elite-geforce-gv-n5060aorus-rtx-8gb":[
@@ -20845,8 +20866,24 @@
 "GeIL 16GB DDR5 (1x16GB) 5600MHz CL38",
 "memory"
 ],
+"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrbk-xpg-16gb-x1-6000mhz-cl30-rgb-black-dimm":[
+"ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30",
+"memory"
+],
+"model:memory:1x16gb-6000mhz-ax5u6000c3016g-blade-cl30-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6000mhz-cl30-rgb-white-dimm":[
+"ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30",
+"memory"
+],
 "model:memory:1x16gb-6400mhz-ax5u6400c3216g-blade-cl32-ddr5-lancer-rgb-slabrwh-xpg-16gb-x1-6400mhz-cl32-rgb-white-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32",
+"memory"
+],
+"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarbk-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-black-dimm":[
+"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30",
+"memory"
+],
+"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl30-rgb-white-dimm":[
+"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30",
 "memory"
 ],
 "model:memory:1x8gb-3200-cl22-pristine-8gb-x1-3200mhz-cl22-black-dimm":[
@@ -20963,6 +21000,10 @@
 ],
 "model:memory:2nd-2x32gb-6000mhz-64gb-amd-black-cl40-ddr4-dual-expo-heatsink-intel-packs-single-support-thor-xmp-64gb-x2-6000mhz-cl40-black":[
 "Lexar 64GB DDR5 (2x32GB) 6000MHz CL40",
+"memory"
+],
+"model:memory:2x-9200mt-cl42-cudimm-lancer-s-xpg-16gb-x2-6000mhz-cl42-rgb-white-dimm":[
+"ADATA RGB 48GB DDR5 (2x24GB) 6000MHz CL42",
 "memory"
 ],
 "model:memory:2x16g-32gb-6000-cl30-cmh32gx5m2b6000c30w-ddr5-rgb-vengeance-white-32gb-6000mhz-cl30-rgb-white":[
@@ -22110,7 +22151,7 @@
 "memory"
 ],
 "model:memory:ax5u6000c3032g-clarbk-dimm-lancer-u-32gb-6000mhz-cl30-rgb-dimm":[
-"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30",
+"ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL30 (AX5U6000C3032G-CLARBK)",
 "memory"
 ],
 "model:memory:ax5u6000c3032g-clarwh-dimm-lancer-u-32gb-6000mhz-cl40-rgb-white-dimm":[
@@ -22189,6 +22230,18 @@
 "G.Skill 8GB DDR4 2666MHz CL19",
 "memory"
 ],
+"model:memory:cl22-dimm-premier-u-16gb-3200mhz-cl22-dimm":[
+"ADATA 16GB DDR4 3200MHz CL22",
+"memory"
+],
+"model:memory:cl22-dimm-premier-u-32gb-3200mhz-cl22-dimm":[
+"ADATA 32GB DDR4 3200MHz CL22",
+"memory"
+],
+"model:memory:cl22-dimm-premier-u-8gb-3200mhz-cl22-dimm":[
+"ADATA 8GB DDR4 3200MHz CL22",
+"memory"
+],
 "model:memory:cl22-valueram-16gb-3200mhz-cl22-dimm":[
 "Kingston 16GB DDR4 3200MHz CL22",
 "memory"
@@ -22227,6 +22280,10 @@
 ],
 "model:memory:cl46-elite-tpbd532g5600hc4601-32gb-5600mhz-cl46-black":[
 "Team Group ELITE PLUS DDR5 5600MHz 32GB CL46",
+"memory"
+],
+"model:memory:cl46-premier-16gb-5600mhz-cl46-dimm":[
+"ADATA 16GB DDR5 5600MHz CL46",
 "memory"
 ],
 "model:memory:cl46-valueram-16gb-5600mhz-cl46-dimm":[
@@ -24086,7 +24143,7 @@
 "motherboard"
 ],
 "model:motherboard:b760-b760-ddr5-f-gaming-intel-lga1700-rog-strix-wifi-atx":[
-"ASUS ROG Strix B760-F Gaming WiFi",
+"ASUS ROG Strix B760 F Gaming WiFi Intel LGA1700 B760 DDR5",
 "motherboard"
 ],
 "model:motherboard:b760-b760-ddr5-g-gaming-intel-lga1700-rog-strix-wifi-microatx":[
@@ -27161,6 +27218,10 @@
 "Seagate 256MB Exos 7E10 Enterprise 10TB 3.5\" Hdd",
 "storage"
 ],
+"model:storage:128mb-3tb-iii-purple-sata-surveillance-3000gb-sata-35":[
+"Western Digital Purple Surveillance 3TB 128MB SATA III",
+"storage"
+],
 "model:storage:128mb-4tb-iii-purple-sata-surveillance-4000gb-sata-35":[
 "Western Digital Purple Surveillance 4TB 128MB SATA III",
 "storage"
@@ -27449,6 +27510,10 @@
 "ADATA X4 Legend 1TB NVMe Gen4 M.2-2280",
 "storage"
 ],
+"model:storage:2280-860-legend-x4-2000gb-pcie4-m22280":[
+"ADATA X4 Legend 2TB NVMe Gen4 M.2-2280",
+"storage"
+],
 "model:storage:2280-990-pro-1000gb-nvme-m22280":[
 "Samsung PRO 1TB NVMe M.2-2280",
 "storage"
@@ -27633,6 +27698,10 @@
 "Seagate IronWolf NAS 6TB 256MB Sata III",
 "storage"
 ],
+"model:storage:256mb-6tb-iii-purple-sata-surveillance-6000gb-sata-35":[
+"Western Digital Purple Surveillance 6TB 256MB SATA III",
+"storage"
+],
 "model:storage:256mb-7200rpm-8tb-iii-pro-purple-sata-surveillance-wd8002purp-8000gb-sata-35":[
 "Western Digital Purple PRO Surveillance 256MB 8TB 3.5'' Hdd",
 "storage"
@@ -27789,6 +27858,10 @@
 "ADATA Legend 1TB M.2-2280 Ssd",
 "storage"
 ],
+"model:storage:710-legend-2000gb-m22280":[
+"ADATA Legend 2TB M.2-2280 Ssd",
+"storage"
+],
 "model:storage:750-series-400gb-pciex4-pciecard":[
 "Intel 400GB NVMe Gen3 PCI-E Card",
 "storage"
@@ -27811,6 +27884,18 @@
 ],
 "model:storage:8tb-pro-purple-smart-video-wd-8000gb":[
 "Western Digital WD Purple PRO Smart 8TB 3.5",
+"storage"
+],
+"model:storage:960-legend-1000gb-m22280":[
+"ADATA Legend 1TB M.2-2280 Ssd",
+"storage"
+],
+"model:storage:960-legend-2000gb-m22280":[
+"ADATA Legend 2TB M.2-2280 Ssd",
+"storage"
+],
+"model:storage:960-legend-4000gb-m22280":[
+"ADATA Legend 4TB M.2-2280 Ssd",
 "storage"
 ],
 "model:storage:960g-a400-sa400s37-960gb-sata-25":[
@@ -28285,6 +28370,10 @@
 "Western Digital WD11PURZ 1TB 3.5'' Hdd",
 "storage"
 ],
+"model:storage:purple-wd23purz-2000gb-sata-35":[
+"Western Digital Purple 2TB 256MB 5400RPM SATA III",
+"storage"
+],
 "model:storage:red-wd-4000gb-sata-35":[
 "Western Digital RED III 4TB 3.5\" Hdd",
 "storage"
@@ -28343,6 +28432,18 @@
 ],
 "model:storage:su630-1920gb-25":[
 "ADATA SU630 1.92TB 1920GB 2.5'' Ssd",
+"storage"
+],
+"model:storage:su680-1000gb-25":[
+"ADATA SU680 1TB 2.5'' Ssd",
+"storage"
+],
+"model:storage:su680-256gb-25":[
+"ADATA SU680 256GB 2.5'' Ssd",
+"storage"
+],
+"model:storage:su680-512gb-25":[
+"ADATA SU680 512GB 2.5'' Ssd",
 "storage"
 ],
 "model:storage:t253tz512g0c101-512gb-sata-25inch":[
