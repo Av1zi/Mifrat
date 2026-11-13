@@ -133,6 +133,19 @@ button.chip {
   padding: 0;
 }
 
+/* A long spec value ("PCI Express 3.0 x16 (uses x4) DisplayPort x 1, ...")
+   wraps inside its chip instead of widening the row past the screen. */
+.chip-list > li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.chip-list .chip {
+  padding-block: 3px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 /* Pill toggles: category filters, variant pickers. */
 .pills {
   display: flex;

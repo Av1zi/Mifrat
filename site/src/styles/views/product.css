@@ -11,6 +11,13 @@
   gap: 1.25rem;
 }
 
+/* Below lg the buy column's children are grid items of .pdp, so the specs
+   can drop below the offers; from lg up it is one column that the docked
+   buy bar can stick inside. */
+.pdp__buy {
+  display: contents;
+}
+
 .buybox {
   grid-area: buy;
 }
@@ -22,18 +29,24 @@
   min-width: 0;
 }
 
-.pdp > .specs {
+.pdp__buy > .specs {
   grid-area: specs;
 }
 
 @media (min-width: 1024px) {
   .pdp {
     grid-template-columns: minmax(20rem, 25rem) minmax(0, 1fr);
-    grid-template-areas:
-      "buy main"
-      "specs main";
-    grid-template-rows: auto 1fr;
+    grid-template-areas: "buy main";
     gap: 1.25rem 1.75rem;
+  }
+
+  .pdp__buy {
+    grid-area: buy;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-self: stretch;
+    min-width: 0;
   }
 }
 
@@ -204,6 +217,193 @@
   margin-inline-start: 6px;
   vertical-align: middle;
   color: var(--warn);
+}
+
+/* Phones: each offer is a two-line block (store + price, then stock, freshness
+   and the store link) instead of a table that has to be scrolled sideways
+   to reach the button. Shipping/total columns are rare; they wrap in line. */
+@media (max-width: 639px) {
+  .offers-table,
+  .offers-table tbody {
+    display: block;
+  }
+
+  .offers-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .offers-table tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* Half the row gap: the zero-height line break adds a second one. */
+    gap: var(--sp-1) var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .offers-table tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .offers-table .is-best {
+    background: var(--surface-hover);
+  }
+
+  .offers-table tr > * {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .offers-table .is-best > * {
+    background: none;
+  }
+
+  /* Line one: store, price. Then a break, then every other cell in order. */
+  .offers-table th[scope="row"] {
+    flex: 1 1 auto;
+    order: 0;
+    min-width: 0;
+  }
+
+  .offers-table th[scope="row"] + td {
+    flex: none;
+    order: 1;
+  }
+
+  .offers-table tbody tr::after {
+    content: "";
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  .offers-table td {
+    order: 3;
+  }
+
+  .offers-table .col-action {
+    order: 4;
+    margin-inline-start: auto;
+  }
+
+  .offers-table .col-action .btn {
+    min-height: 2.5rem;
+  }
+}
+
+/* ---- buy bar: pinned to the bottom on phones/tablets, docked on desktop ---- */
+.buybar {
+  display: none;
+}
+
+/* Desktop: once the price has scrolled away, a compact price + store link
+   stays docked under the nav bar beside the offers and history. It keeps
+   its slot in the column while concealed, so showing it never changes the
+   page height (that would move the trigger point and make it flicker). */
+@media (min-width: 1024px) {
+  .buybar {
+    position: sticky;
+    top: calc(var(--sticky-top) + var(--sp-4));
+    z-index: var(--z-sticky);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: opacity 0.15s, visibility 0.15s;
+  }
+
+  .buybar.is-concealed {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .buybar__price {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.2;
+  }
+
+  .buybar__where {
+    color: var(--text-3);
+    font-size: var(--fs-xs);
+  }
+}
+
+@media (max-width: 1023px) {
+  .buybar {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--z-sticky);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-2) var(--gutter) max(var(--sp-2), env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--line-strong);
+    box-shadow: var(--shadow-pop);
+    animation: buybar-in 0.2s var(--ease-out);
+  }
+
+  .buybar.is-concealed {
+    display: none;
+  }
+
+  .buybar__price {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.2;
+  }
+
+  .buybar__price .price--md {
+    font-size: var(--fs-xl);
+  }
+
+  .buybar__where {
+    overflow: hidden;
+    color: var(--text-3);
+    font-size: var(--fs-xs);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .buybar__cta {
+    flex: none;
+    min-height: 2.75rem;
+    padding-inline: 1.25rem;
+  }
+
+  body.has-buybar #app {
+    padding-block-end: 4.5rem;
+  }
+
+  /* The compare tray takes the same edge; the buy bar sits above it. */
+  body.has-buybar.has-tray .buybar {
+    inset-block-end: 3.75rem;
+  }
+
+  body.has-buybar.has-tray #app {
+    padding-block-end: 8.25rem;
+  }
+}
+
+@keyframes buybar-in {
+  from {
+    transform: translateY(100%);
+  }
 }
 
 /* ---- spec sheet ---- */

@@ -26,7 +26,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Pinned while a sheet is open; mobileSheet.ts sets `top` to keep the
+   scroll position and restores it on close. */
 body.is-locked {
+  position: fixed;
+  inset-inline: 0;
   overflow: hidden;
 }
 

@@ -1,6 +1,6 @@
 import { knownPartWattage } from "../../build";
 import { formatPrice } from "../../format";
-import { ACTIVE_VENDORS, categoryLabel, inStockCount, storesCount, t } from "../../i18n";
+import { ACTIVE_VENDORS, categoryLabel, inStockCount, showResultsCount, storesCount, t } from "../../i18n";
 import { icon } from "../../icons";
 import { setListView, type ListView } from "../../state";
 import type { Product, SortKey } from "../../types";
@@ -9,10 +9,13 @@ import { effectivePrice } from "../../offers";
 import { activeFilterChips, activeFilterCount } from "./filters";
 import { type CategoryActions, type CategoryCtx } from "./data";
 
+/* The price labels are the short forms ("Lowest price"): the full ones do
+   not fit the half-width sort box on a 320px phone, and a select cannot
+   show a different label once closed. */
 const SORTS: Array<{ key: SortKey; label: Parameters<typeof t>[1] }> = [
   { key: "relevance", label: "sortRelevance" },
-  { key: "price_asc", label: "sortPriceAsc" },
-  { key: "price_desc", label: "sortPriceDesc" },
+  { key: "price_asc", label: "sortPriceAscShort" },
+  { key: "price_desc", label: "sortPriceDescShort" },
   { key: "vendors_desc", label: "sortVendorsDesc" },
   { key: "name", label: "sortName" },
   { key: "name_desc", label: "sortNameDesc" },
@@ -57,20 +60,22 @@ export function toolbarMarkup(ctx: CategoryCtx): Html {
         <span data-role="count-sub"></span>
       </div>
       <div class="toolbar">
-        <button type="button" class="btn btn--ghost toolbar__filters" data-role="filters-open" aria-controls="filter-rail" aria-expanded="false">
-          ${icon("sliders", 16)}<span>${t(lang, "filtersHeading")}</span><span class="badge" data-role="filters-count" hidden></span>
-        </button>
         <label class="search-field toolbar__search">
           ${icon("search", 16)}
           <input data-role="search" type="search" placeholder="${t(lang, "searchInCategory").replace("{c}", categoryLabel(ctx.category, lang))}" aria-label="${t(lang, "searchAriaLabel")}" value="${ctx.query}">
         </label>
-        <select class="select toolbar__sort" data-role="sort" aria-label="${t(lang, "sortAriaLabel")}">
-          ${SORTS.map((s) => html`<option value="${s.key}"${ctx.params.sort === s.key ? html` selected` : ""}>${t(lang, s.label)}</option>`)}
-        </select>
-        <div class="seg toolbar__view" role="group" aria-label="${t(lang, "viewLabel")}">
-          ${VIEWS.map(
-            (v) => html`<button type="button" class="seg__btn" data-view="${v.view}" aria-pressed="${ctx.view === v.view ? "true" : "false"}" title="${t(lang, v.label)}" aria-label="${t(lang, v.label)}">${icon(v.glyph, 17)}</button>`
-          )}
+        <div class="toolbar__controls">
+          <button type="button" class="btn btn--ghost toolbar__filters" data-role="filters-open" aria-controls="filter-rail" aria-expanded="false">
+            ${icon("sliders", 16)}<span>${t(lang, "filtersHeading")}</span><span class="badge" data-role="filters-count" hidden></span>
+          </button>
+          <select class="select toolbar__sort" data-role="sort" aria-label="${t(lang, "sortAriaLabel")}">
+            ${SORTS.map((s) => html`<option value="${s.key}"${ctx.params.sort === s.key ? html` selected` : ""}>${t(lang, s.label)}</option>`)}
+          </select>
+          <div class="seg toolbar__view" role="group" aria-label="${t(lang, "viewLabel")}">
+            ${VIEWS.map(
+              (v) => html`<button type="button" class="seg__btn" data-view="${v.view}" aria-pressed="${ctx.view === v.view ? "true" : "false"}" title="${t(lang, v.label)}" aria-label="${t(lang, v.label)}">${icon(v.glyph, 17)}</button>`
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -88,6 +93,9 @@ export function updateResultsBar(ctx: CategoryCtx, filtered: Product[]): void {
     const inStock = filtered.filter((p) => p.in_stock).length;
     subEl.textContent = `${inStockCount(ctx.lang, inStock.toLocaleString(locale))} · ${t(ctx.lang, "pricesFrom")}${storesCount(ctx.lang, ACTIVE_VENDORS.length)}`;
   }
+
+  const apply = root.querySelector<HTMLElement>('[data-role="filters-apply"] > span');
+  if (apply) apply.textContent = showResultsCount(ctx.lang, filtered.length);
 
   const chips = root.querySelector<HTMLElement>('[data-role="active-filters"]');
   if (chips) mount(chips, activeFilterChips(ctx));
@@ -157,4 +165,44 @@ export function bindToolbar(ctx: CategoryCtx, actions: CategoryActions): void {
   });
 
   root.querySelector('[data-role="filters-open"]')!.addEventListener("click", () => actions.openSheet(true));
+}
+
+/**
+ * Marks the pinned toolbar while it sits over the list, so it only draws
+ * its shadow then. Phones-to-tablets pin the filter/sort bar, desktop the
+ * whole results head; each gets a marker just above it in the flow, and
+ * only the one CSS shows for the current width is in play. Returns cleanup.
+ */
+export function bindStickyControls(root: HTMLElement): () => void {
+  const pairs: Array<{ bar: HTMLElement; marker: HTMLElement }> = [];
+  for (const [selector, markerClass] of [
+    [".toolbar__controls", "toolbar__sentinel"],
+    [".list-head", "list-head__sentinel"],
+  ] as const) {
+    const bar = root.querySelector<HTMLElement>(selector);
+    if (!bar) continue;
+    const marker = document.createElement("div");
+    marker.className = markerClass;
+    marker.setAttribute("aria-hidden", "true");
+    bar.before(marker);
+    pairs.push({ bar, marker });
+  }
+  const sync = (): void => {
+    for (const { bar, marker } of pairs) {
+      // A hidden marker means this bar is not the sticky one at this width.
+      const top = parseFloat(getComputedStyle(bar).top);
+      const stuck = marker.offsetParent !== null && !Number.isNaN(top) && marker.getBoundingClientRect().top < top;
+      bar.classList.toggle("is-stuck", stuck);
+    }
+  };
+  // Scroll can come from the document or (programmatic jumps, restored
+  // positions) without a scroll event reaching window in some engines;
+  // listening in the capture phase on document catches both.
+  document.addEventListener("scroll", sync, { passive: true, capture: true });
+  window.addEventListener("resize", sync, { passive: true });
+  sync();
+  return () => {
+    document.removeEventListener("scroll", sync, { capture: true });
+    window.removeEventListener("resize", sync);
+  };
 }

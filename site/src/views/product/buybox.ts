@@ -64,6 +64,33 @@ export function buyBoxMarkup(
   </aside>`;
 }
 
+/**
+ * Phone-only bar pinned to the bottom of the product page once the buy box
+ * has scrolled away: best price, where, and the same store link.
+ */
+export function buyBarMarkup(product: Product, lang: Lang, currency: Currency): Html {
+  const offer = bestOffer(product);
+  const price = positivePrice(offer?.price ?? product.min_price);
+  const url = offer ? safeUrl(offer.url) : null;
+  if (!offer || !url || price === null) return html``;
+  const bundle = isBundleOffer(offer);
+  return html`<div class="buybar is-concealed" data-role="buybar" aria-hidden="true">
+    <div class="buybar__price">
+      ${priceCell(price, currency, lang, "md")}
+      <span class="buybar__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>
+    </div>
+    ${button({
+      label: t(lang, bundle ? "bundleOnlyCta" : "toStore"),
+      icon: icon(bundle ? "tower" : "external", 16),
+      variant: bundle ? "outline" : "buy",
+      href: url,
+      external: true,
+      className: "buybar__cta",
+      ariaLabel: `${t(lang, "toStore")}: ${vendorLabel(offer.vendor)}`,
+    })}
+  </div>`;
+}
+
 /** Offers table, cheapest in-stock first, the best price highlighted. */
 export function offersCard(product: Product, lang: Lang, currency: Currency): Html {
   const offers = sortOffers(product.offers);

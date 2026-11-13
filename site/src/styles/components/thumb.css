@@ -1,5 +1,9 @@
+/* The single grid track is pinned to the frame (minmax(0, 1fr)): an
+   auto-sized track grows to the photo, so a percentage height resolves
+   against the photo itself and a non-square one spills out of the frame. */
 .thumb {
   display: inline-grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   flex: none;
   overflow: hidden;

@@ -59,20 +59,24 @@
   --hero-line: #cbd3e0;
   --hero-deco: #2457d6;
 
-  /* Vendor identity: dots, monograms, chart series, split bars. */
-  --v-tms: #2457d6;
+  /* Vendor identity: dots, monograms, chart series, split bars.
+     One hue family per store, none of them the brand cobalt, so a dot never
+     reads as "a link" and no two stores share a hue (TMS and KSP were both
+     blue). Pairs stay apart under deuteranopia/protanopia too: yahav and
+     ksp differ mostly in lightness, which those viewers still see. */
+  --v-tms: #be185d;
   --v-onepc: #c2410c;
   --v-ivory: #0f766e;
-  --v-yahav: #7c3aed;
-  --v-ksp: #0b63ce;
-  --v-plonter: #a16207;
+  --v-yahav: #6b21a8;
+  --v-ksp: #0369a1;
+  --v-plonter: #4d7c0f;
   --v-other: #64748b;
-  --v-tms-soft: #e8eefc;
-  --v-onepc-soft: #fbede6;
-  --v-ivory-soft: #e2f2ef;
-  --v-yahav-soft: #efe8fd;
-  --v-ksp-soft: #e6effc;
-  --v-plonter-soft: #f8efd9;
+  --v-tms-soft: #faedf2;
+  --v-onepc-soft: #faf0ec;
+  --v-ivory-soft: #ecf4f3;
+  --v-yahav-soft: #f3edf8;
+  --v-ksp-soft: #ebf3f7;
+  --v-plonter-soft: #f1f5ec;
   --v-other-soft: #eef1f5;
 
   /* Product photos are shot on white; keep their frame white in both themes. */
@@ -207,19 +211,19 @@
   --hero-line: #1c2840;
   --hero-deco: #6e95ff;
 
-  --v-tms: #6e95ff;
-  --v-onepc: #fb8a4b;
-  --v-ivory: #2dc3b3;
-  --v-yahav: #a98bfa;
-  --v-ksp: #66a9ff;
-  --v-plonter: #e3b34a;
+  --v-tms: #f9a8d4;
+  --v-onepc: #fb923c;
+  --v-ivory: #14b8a6;
+  --v-yahav: #a78bfa;
+  --v-ksp: #7dd3fc;
+  --v-plonter: #a3e635;
   --v-other: #94a3b8;
-  --v-tms-soft: #1a2a52;
-  --v-onepc-soft: #3a2014;
-  --v-ivory-soft: #0f2f2c;
-  --v-yahav-soft: #271c45;
-  --v-ksp-soft: #15294a;
-  --v-plonter-soft: #33280f;
+  --v-tms-soft: #363146;
+  --v-onepc-soft: #362d2e;
+  --v-ivory-soft: #11333f;
+  --v-yahav-soft: #292c4c;
+  --v-ksp-soft: #22384c;
+  --v-plonter-soft: #283b2d;
   --v-other-soft: #1b2741;
 
   --scrim: rgb(0 0 0 / 0.6);

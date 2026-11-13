@@ -12,7 +12,7 @@
 - Look: ink-navy chrome (header, page heroes, footer), cobalt for actions, emerald for prices, savings and buy buttons.
 - Colour: `--bg --surface --surface-2 --surface-3 --surface-hover --line --line-soft --line-strong --text --text-2 --text-3 --brand --brand-strong --brand-soft --brand-line --on-brand`. Status: `--ok/--ok-soft`, `--ok-solid/--ok-solid-hover/--on-ok` (green buy buttons), `--warn/--warn-soft --err/--err-soft`.
 - Ink (dark in both themes): `--ink-900 --ink-800 --ink-700 --ink-600 --ink-line --ink-line-2 --ink-white --ink-text --ink-text-1 --ink-text-2 --ink-text-3 --ink-text-4 --ink-accent --ink-live`. Home hero: `--hero-bg --hero-line --hero-deco`.
-- Vendors: `--v-tms --v-onepc --v-ivory --v-yahav --v-plonter --v-other`, each with a `-soft` background. Charts: `--chart-1`…`--chart-8`, `--chart-grid --chart-cursor`.
+- Vendors: `--v-tms --v-onepc --v-ivory --v-yahav --v-ksp --v-plonter --v-other`, each with a `-soft` background. Charts: `--chart-1`…`--chart-8`, `--chart-grid --chart-cursor`.
 - Type: `--font-sans --font-mono`, `--fs-2xs --fs-xs --fs-sm --fs-base --fs-md --fs-lg --fs-xl --fs-2xl --fs-3xl --fs-hero`, `--fw-regular --fw-medium --fw-semibold --fw-bold`, `--lh-tight --lh-base`.
 - Space (4px grid): `--sp-1`…`--sp-8`. Shape: `--radius --radius-sm --radius-lg --radius-pill --shadow-sm --shadow --shadow-lift --shadow-pop --ring --ease-out`.
 - Layout: `--container --container-narrow --gutter --hdr-top-h --hdr-nav-h --rail-w --sticky-top`. Z-index: `--z-sticky --z-header --z-dropdown --z-sheet`.

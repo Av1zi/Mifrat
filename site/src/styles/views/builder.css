@@ -53,6 +53,8 @@
   display: none;
 }
 
+/* Anchored to the button's end edge; share.ts flips it to the start edge
+   when the button wraps to a spot where that would leave the screen. */
 .export-menu__list {
   position: absolute;
   inset-inline-end: 0;
@@ -66,6 +68,12 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-pop);
+}
+
+/* The list is wider than the button, so it can overhang either side; the
+   flipped state pins it to the start edge instead. */
+.export-menu.is-flipped .export-menu__list {
+  inset-inline: 0 auto;
 }
 
 .export-menu__list .btn {
@@ -306,6 +314,7 @@
 .split-bar__seg--onepc { background: var(--v-onepc); }
 .split-bar__seg--ivory { background: var(--v-ivory); }
 .split-bar__seg--yahav { background: var(--v-yahav); }
+.split-bar__seg--ksp { background: var(--v-ksp); }
 .split-bar__seg--plonter { background: var(--v-plonter); }
 
 .split-list {
