@@ -11,6 +11,172 @@
   "products": {
     "model:memory:0-2x24gb-3-8800-cl42-manta-xfinity-xmp-48gb-x2-8800mhz-cl42-rgb-black": {
       "total_gb": 48
+    },
+    "model:aio:240-a-freezer-liquid-240mm-white": {
+      "model": "Liquid Freezer III 240 A-RGB"
+    },
+    "case:lian-li:a4-h2o-pcie4": {
+      "model": "A4-H2O"
+    },
+    "model:case:0-10232-2-761345-black": {
+      "model": "VX310"
+    },
+    "model:case_fan:1-12-3-za-120mm-3-rgb-black": {
+      "model": "ZA-360B"
+    },
+    "model:case_fan:1-12-3-za-120mm-3-rgb-white": {
+      "model": "ZA-360W"
+    },
+    "model:case_fan:12-af120-120mm-1-black": {
+      "model": "AF120"
+    },
+    "model:case_fan:12-af120-120mm-1-white": {
+      "model": "AF120"
+    },
+    "model:case_fan:12-gt120-120mm-1-rgb-black": {
+      "model": "GT120"
+    },
+    "model:case_fan:12-gt120-120mm-1-rgb-white": {
+      "model": "GT120"
+    },
+    "model:case_fan:12-hf3-120mm-1-white": {
+      "model": "HF3-120W"
+    },
+    "model:case_fan:12-ix120-120mm-1-rgb-black": {
+      "model": "IX120"
+    },
+    "model:case_fan:12-ix120-120mm-1-rgb-white": {
+      "model": "IX120"
+    },
+    "model:case_fan:12-xa-120mm-1-rgb-white": {
+      "model": "XA-120W"
+    },
+    "model:case_fan:120-4-a12x25-chromax-g2-nf-pwm-120mm-1-black": {
+      "model": "NF-A12x25 G2 PWM chromax.black"
+    },
+    "memory:1pc:1pc-222245": {
+      "model": "ORION RGB",
+      "total_gb": 32
+    },
+    "model:memory:0-2-2x16gb-3200-cl16-rs-vengeance-xmp-32gb-x2-3200mhz-cl16-rgb-black": {
+      "model": "Vengeance RGB RS"
+    },
+    "model:memory:0-2-2x32gb-3200-cl16-pro-vengeance-xmp-64gb-x2-3200mhz-cl16-rgb-black-dimm": {
+      "model": "Vengeance RGB PRO"
+    },
+    "memory:1pc:1pc-222239": {
+      "total_gb": 32
+    },
+    "memory:1pc:1pc-222243": {
+      "total_gb": 16
+    },
+    "memory:ksp:ksp-164158": {
+      "total_gb": 16
+    },
+    "memory:ksp:ksp-178003": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-193193": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-338315": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-390472": {
+      "total_gb": 64
+    },
+    "memory:ksp:ksp-390476": {
+      "total_gb": 64
+    },
+    "memory:ksp:ksp-390479": {
+      "total_gb": 64
+    },
+    "memory:ksp:ksp-431632": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-456281": {
+      "total_gb": 16
+    },
+    "memory:ksp:ksp-456282": {
+      "total_gb": 16
+    },
+    "memory:ksp:ksp-480431": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-480433": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-483232": {
+      "total_gb": 32
+    },
+    "memory:ksp:ksp-493649": {
+      "total_gb": 32
+    },
+    "model:memory:0-2-2x16gb-3200-cl16-trident-xmp-z-32gb-x2-3200mhz-cl16-rgb-black": {
+      "total_gb": 32
+    },
+    "model:memory:2x-9200mt-cl42-cudimm-lancer-s-xpg-16gb-x2-6000mhz-cl42-rgb-white-dimm": {
+      "total_gb": 48
+    },
+    "model:memory:2x16gb-5600mhz-cp2k16g56c46u5-ddr5-pro-udimm-2gb-x2-5600mhz-cl46-black": {
+      "total_gb": 32
+    },
+    "model:memory:2x16gb-6000j3636f16gx2-f5-neo-trident-z5-2gb-x2-6000mhz-cl36-rgb-black": {
+      "total_gb": 32
+    },
+    "model:memory:2x32gb-5600mhz-classic-create-ctccd564g5600hc46dc01-ddr5-t-2gb-x2-5600mhz-cl46-black": {
+      "total_gb": 64
+    },
+    "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb": {
+      "interface": "PCIe 5.0 x16"
+    },
+    "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb": {
+      "interface": "PCIe 5.0 x16"
+    },
+    "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb": {
+      "interface": "PCIe 5.0 x16"
+    },
+    "model:gpu:128bit-gddr6-gtx1650-4gb": {
+      "interface": "PCIe 3.0 x16"
+    },
+    "model:gpu:128bit-gt740-low-profile-4gb": {
+      "interface": "PCIe 3.0 x16"
+    },
+    "model:storage:0-2-3-7300-pro-u-x4-7680gb-u2-25": {
+      "interface": "PCIe 3.0 x4"
+    },
+    "model:storage:0-2230-4-nv3-2000gb-usb-m22230": {
+      "interface": "PCIe 4.0 x4"
+    },
+    "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb": {
+      "chipset": "GeForce GT 1030"
+    },
+    "model:motherboard:el-h81m-vs-microatx": {
+      "chipset": "H81"
+    },
+    "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx": {
+      "storage_interface": [
+        "SATA3",
+        "M.2 PCIe"
+      ]
+    },
+    "model:storage:enterprise-pm893-sed-8000gb-sata-25": {
+      "capacity_gb": 7680
+    },
+    "model:storage:wd23purz-1000gb-sata": {
+      "capacity_gb": 2000
+    },
+    "model:storage:vi560-512gb-sata-m2sata": {
+      "nvme": false
+    },
+    "model:cpu:14700-tray": {
+      "includes_cooler": false
+    },
+    "model:case_fan:120-a12x25-g2-nf-pp-pull-push-pwm-sx2-120mm-2-black": {
+      "model": "NF-A12x25 G2 PWM Sx2-PP chromax.black"
+    },
+    "model:case_fan:120-chromax-f12-nf-pwm-swap-120mm-1-black": {
+      "model": "NF-F12 chromax.black.swap"
     }
   }
 }
