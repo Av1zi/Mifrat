@@ -476,6 +476,84 @@ def check_i5_catalog(catalog: dict) -> int:
     return checked
 
 
+def _board(key: str, title: str, brand: str, mpn: str | None = None) -> dict:
+    vendor = key.split(":")[0]
+    return {"listing_key": key, "vendor_id": vendor, "vendor_sku": key.split(":")[1],
+            "title_raw": title, "brand": brand, "mpn": mpn,
+            "category_normalized": "motherboard", "attributes": {},
+            "match_text": title}
+
+
+# (KSP title, other vendor's board, bridged?) for bridge_board_title_codes:
+# a board title with no part number joins the code it spells once its
+# platform words (socket, repeated chipset, DDR5, maker of the chip) go.
+BOARD_BRIDGE_FIXTURES = [
+    # 2026-11-13: KSP's B860-F sat alone beside 1PC/TMS "ROG STRIX B860-F".
+    ("Asus ROG STRIX B860-F Gaming WiFi LGA1851 B860 DDR5",
+     ("ROG STRIX B860-F GAMING WIFI", "ASUS", "90MB1JG0-M0EAY0"), True),
+    ("GIGABYTE B860M DS3H WiFi 6E LGA 1851 DDR5 (rev. 1.0)",
+     ("GIGABYTE B860M DS3H WIFI6E", "Gigabyte", "GB860MDS3HWIFI6E"), True),
+    # The other title adds a word that may name a sibling: no join.
+    ("Asus PRIME H610M-K LGA1700 H610 DDR5",
+     ("ASUS PRIME H610M-K ARGB", "ASUS", None), False),
+    # A stated finish the other board does not state: no join.
+    ("ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
+     ("ASUS X870 MAX GAMING WIFI7", "ASUS", "90MB1P60-M0EAY0"), False),
+    # Two makers, one code: no join.
+    ("MSI B840M GAMING WIFI6E AM5",
+     ("Gigabyte B840M GAMING WIFI6E", "Gigabyte", None), False),
+    # A DDR4 board is its own part; DDR4 is no platform word.
+    ("ASUS PRIME H610M-K D4 LGA1700 Intel H610 DDR4",
+     ("ASUS PRIME H610M-K", "ASUS", None), False),
+]
+
+
+def check_board_bridge() -> int:
+    """KSP-shaped board titles meet the other vendors' code (2026-11-13)."""
+    from scraper.matching import bridge_board_title_codes
+    for title, (other_title, brand, mpn), expected in BOARD_BRIDGE_FIXTURES:
+        ksp = _board("ksp:1", f"לוח אם {title}", brand)
+        other = _board("tms:2", other_title, brand, mpn)
+        bridged = bridge_board_title_codes([ksp, other])
+        got = bool(bridged) and identity.model_code("motherboard", ksp) == \
+            identity.model_code("motherboard", other)
+        if got != expected:
+            fail("I1: board bridge %r -> %r = %r, expected %r"
+                 % (title, other_title, got, expected))
+    # A curated listing is never re-coded.
+    ksp = _board("ksp:1", "לוח אם Asus ROG STRIX B860-F Gaming WiFi LGA1851 B860 DDR5", "ASUS")
+    other = _board("tms:2", "ROG STRIX B860-F GAMING WIFI", "ASUS", "90MB1JG0-M0EAY0")
+    if bridge_board_title_codes([ksp, other], skip={"ksp:1"}) or ksp.get("bridged_model_code"):
+        fail("I1: board bridge re-coded a listing it was told to skip")
+    return len(BOARD_BRIDGE_FIXTURES) + 1 + check_title_part_number()
+
+
+def check_title_part_number() -> int:
+    """A code 1PC prints as mpn AND its own SKU reads as a retailer id; KSP
+    printing it in a title corroborates it (2026-11-13, Adata XPG Lancer)."""
+    from scraper.matching import adopt_title_part_numbers
+    def memory(key: str, title: str, mpn: str | None) -> dict:
+        vendor, sku = key.split(":")
+        return {"listing_key": key, "vendor_id": vendor, "vendor_sku": sku,
+                "title_raw": title, "mpn": mpn, "category_normalized": "memory",
+                "attributes": {}}
+    onepc = memory("1pc:AX5U6400C3216G-SLABRWH",
+                   "XPG LANCER Blade RGB DDR5 16GB 6400MHz AX5U6400C3216G-SLABRWH",
+                   "AX5U6400C3216G-SLABRWH")
+    ksp = memory("ksp:290061",
+                 "זכרון Adata XPG LANCER BLADE RGB 1x16GB DDR5 6400MHz CL32 AX5U6400C3216G-SLABRWH",
+                 None)
+    listings = [onepc, ksp]
+    adopt_title_part_numbers(listings, identity.shared_part_numbers(listings))
+    if ksp.get("mpn") != "AX5U6400C3216G-SLABRWH":
+        fail("I1: KSP title part number not adopted (got %r)" % ksp.get("mpn"))
+    lone = memory("ksp:1", "זכרון XPG LANCER 16GB AX5U6400C3216G-SLABRWH", None)
+    adopt_title_part_numbers([lone], {})
+    if lone.get("mpn"):
+        fail("I1: a title code no other vendor prints was adopted")
+    return 2
+
+
 PACKAGING_FIXTURES = [
     # (reader, value, expected)
     ("title", "מעבד Intel Core i5-14600KF Tray", "tray"),
@@ -585,6 +663,7 @@ def main() -> int:
 
     checked = {
         "I1 products": check_i1(catalog),
+        "I1 board bridge": check_board_bridge(),
         "I2 identities": check_i2(catalog, frozenset({"cpu"})),
         "I3 fixtures": check_i3_unit(),
         "I3 cpu products": check_i3_catalog(catalog),

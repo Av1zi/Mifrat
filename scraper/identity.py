@@ -404,6 +404,71 @@ def generic_model_code(listing: dict) -> str | None:
     return _model_code_from(listing, listing.get("title_raw"))
 
 
+# Board titles with no model row (KSP prints "Asus ROG STRIX B860-F Gaming
+# WiFi LGA1851 B860 DDR5") repeat the chipset and add the platform; the other
+# vendors' model rows ("ROG STRIX B860-F GAMING WIFI") do not, so the two
+# codes never meet. The title code drops those words; the matcher only uses
+# it to join an existing code of another vendor, under guards.
+_BOARD_WIFI_RE = re.compile(r"\bwi-?fi\s*(7|6e|6)(?![a-z0-9])", re.I)
+_BOARD_REV_RE = re.compile(r"\(\s*rev\.?\s*\d+(?:\.\d+)?\s*\)|\brev\.?\s*\d+\.\d+\b", re.I)
+_BOARD_PLATFORM_TOKEN = re.compile(
+    r"^(?:am[45]|lga|f?c?lga\d{4}|1151|1200|1700|1851|ddr5|amd|intel)$")
+_BOARD_CHIPSET_TOKEN = re.compile(r"^[abhxzq]\d{3}e?$")
+_BOARD_FORM_TOKENS = frozenset({
+    "atx", "matx", "microatx", "micro", "mini", "itx", "miniitx", "mitx", "eatx",
+})
+
+
+def board_title_tokens(listing: dict) -> list[str]:
+    """Model tokens of a motherboard title without its platform words.
+
+    "WiFi 7" reads as one token ("wifi7"), a revision tag goes, and a bare
+    chipset that a model token already starts with ("b860" beside "b860m")
+    is the repeat. DDR4 stays: a D4 board is its own part.
+    """
+    title = _BOARD_WIFI_RE.sub(lambda m: "wifi" + m.group(1).lower(),
+                               _text(listing.get("title_raw")))
+    code = _model_code_from(listing, _BOARD_REV_RE.sub(" ", title))
+    if not code:
+        return []
+    tokens = [t for t in dict.fromkeys(code.split("-"))
+              if not _BOARD_PLATFORM_TOKEN.match(t)]
+    return [t for t in tokens
+            if not (_BOARD_CHIPSET_TOKEN.match(t)
+                    and any(o != t and o.startswith(t) for o in tokens))]
+
+
+def board_title_code(listing: dict) -> str | None:
+    """`board_title_tokens` as a code, or None when too little is left."""
+    tokens = board_title_tokens(listing)
+    if len(tokens) < 2 or not re.search(r"\d", "".join(tokens)):
+        return None
+    return "-".join(sorted(tokens))
+
+
+def board_title_extra_harmless(extra: Iterable[str], own: Iterable[str],
+                               part_number: str | None = None) -> bool:
+    """Words another vendor's board title adds that name no other variant.
+
+    A form factor, the target's own part number, or the WiFi generation
+    when this title says only "WiFi". Anything else ("ARGB", "PLUS", a
+    second WiFi word) may be a sibling board, so it blocks the bridge.
+    """
+    own = set(own)
+    pn = part_number_key(part_number).lower()
+    bare_wifi = "wifi" in own and not any(
+        re.fullmatch(r"wifi(?:7|6e|6)", t) for t in own)
+    for token in extra:
+        if token in _BOARD_FORM_TOKENS:
+            continue
+        if bare_wifi and re.fullmatch(r"wifi(?:7|6e|6)", token):
+            continue
+        if pn and len(token) >= 4 and token in pn:
+            continue
+        return False
+    return True
+
+
 def code_slug(code: str | None) -> str:
     """Filesystem/URL-safe form of a model code."""
     return re.sub(r"-{2,}", "-", re.sub(r"[^a-z0-9]+", "-",
@@ -415,9 +480,16 @@ def code_slug(code: str | None) -> str:
 # --------------------------------------------------------------------------
 
 def model_code(category: str | None, listing: dict) -> str | None:
-    """Canonical model code for one listing, or None when unknowable."""
+    """Canonical model code for one listing, or None when unknowable.
+
+    A code the matcher bridged from a board title
+    (``matching.bridge_board_title_codes``) wins: it is another vendor's
+    code that this listing's title spells with platform words added.
+    """
     if category not in IDENTITY_CATEGORIES:
         return None
+    if category == "motherboard" and listing.get("bridged_model_code"):
+        return str(listing["bridged_model_code"])
     if category == "cpu":
         attrs = listing.get("attributes") or {}
         brand = attrs.get("brand") or listing.get("brand")
@@ -784,6 +856,12 @@ def title_axis_values(category: str | None, title) -> dict[str, str]:
         if len(chips) == 1:
             out["chipset"] = next(iter(chips))
     return out
+
+
+def title_colours(title) -> set[str]:
+    """Every colour/finish word a raw title states, in any category."""
+    plain = _NOT_COLOUR_RE.sub(" ", html.unescape(_text(title)))
+    return {name for name, rx in _TITLE_COLOURS if rx.search(plain)}
 
 
 def title_values_conflict(axis: str, left: str, right: str) -> bool:

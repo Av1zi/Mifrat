@@ -21,6 +21,7 @@ import json
 import re
 import sys
 import unicodedata
+from collections.abc import Collection
 from datetime import datetime, timezone
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
@@ -2525,6 +2526,9 @@ def offer_from_listing(enriched: dict) -> dict:
         offer["packaging_basis"] = enriched["packaging_basis"]
     if enriched.get("packaging_retailer_code"):
         offer["packaging_retailer_code"] = enriched["packaging_retailer_code"]
+    if enriched.get("bridged_model_code"):
+        # Catalog only: identity.model_code reads it on offers too.
+        offer["bridged_model_code"] = enriched["bridged_model_code"]
     return offer
 
 
@@ -5548,6 +5552,38 @@ def complete_gigabyte_mpn(enriched: dict) -> None:
         enriched["mpn"] = f"{mpn} {match.group(1)}"
 
 
+_TITLE_TOKEN_SPLIT_RE = re.compile(r"[\s/,()\[\]|]+")
+
+
+def _title_corroborated_part_numbers(enriched_listings: list[dict],
+                                     shared: dict[str, frozenset[str]]
+                                     ) -> dict[str, set[str]]:
+    """`shared` plus the long codes one vendor prints as `mpn` and another
+    prints in a title (letters and digits, >= 10 characters, no retailer
+    shape)."""
+    printers: dict[tuple[str, str], set] = {}
+    for enriched in enriched_listings:
+        category = str(enriched.get("category_normalized") or "")
+        if category in identity.IDENTITY_CATEGORIES and enriched.get("mpn"):
+            printers.setdefault(
+                (category, identity.part_number_key(enriched["mpn"])), set()
+            ).add(enriched.get("vendor_id"))
+    out = {category: set(keys) for category, keys in shared.items()}
+    for enriched in enriched_listings:
+        category = str(enriched.get("category_normalized") or "")
+        if category not in identity.IDENTITY_CATEGORIES:
+            continue
+        for token in _TITLE_TOKEN_SPLIT_RE.split(str(enriched.get("title_raw") or "")):
+            key = identity.part_number_key(token)
+            if (len(key) < 10 or not re.search(r"[A-Z]", key)
+                    or not re.search(r"\d", key)
+                    or any(p.match(key) for p in identity._VENDOR_CODE_RES)):
+                continue
+            if printers.get((category, key), set()) - {enriched.get("vendor_id")}:
+                out.setdefault(category, set()).add(key)
+    return out
+
+
 def adopt_title_part_numbers(enriched_listings: list[dict],
                              shared: dict[str, frozenset[str]]) -> None:
     """A listing with no part number (KSP) or only a barcode (1PC) whose
@@ -5558,7 +5594,15 @@ def adopt_title_part_numbers(enriched_listings: list[dict],
     contradict another listing that carries or adopts it (Noctua's
     "NH-L9I-17XX" printed on both the brown and the chromax black cooler):
     there the printed code is the model's stem, not the full part number.
+
+    A code one vendor prints as its `mpn` and another vendor prints in its
+    title is corroborated like a code two vendors print as `mpn`
+    (identity.shared_part_numbers): 1PC uses the maker's code as its own SKU,
+    so "AX5U6400C3216G-SLABRWH" read as 1PC's catalogue id and KSP's title
+    copy of it never joined (2026-11-13).
     """
+    shared = {category: frozenset(keys) for category, keys in
+              _title_corroborated_part_numbers(enriched_listings, shared).items()}
     maker_keys: dict[str, set[str]] = {}
     holders: dict[tuple[str, str], list[dict]] = {}
     for enriched in enriched_listings:
@@ -5580,7 +5624,7 @@ def adopt_title_part_numbers(enriched_listings: list[dict],
         if mpn and not own_key.isdigit():
             continue
         found: dict[str, set[str]] = {}
-        for token in re.split(r"[\s/,()\[\]|]+", str(enriched.get("title_raw") or "")):
+        for token in _TITLE_TOKEN_SPLIT_RE.split(str(enriched.get("title_raw") or "")):
             key = identity.part_number_key(token)
             if (len(key) >= 7 and re.search(r"[A-Z]", key) and re.search(r"\d", key)
                     and key in maker_keys[category] and key != own_key):
@@ -5645,6 +5689,112 @@ def strip_colour_word_mpns(enriched_listings: list[dict]) -> None:
                 rewrites.append((enriched, printed.group(1)))
     for enriched, mpn in rewrites:
         enriched["mpn"] = mpn
+
+
+def bridge_board_title_codes(enriched_listings: list[dict],
+                             skip: Collection[str] = ()) -> list[str]:
+    """Give a board with no part number the code its title spells (KSP).
+
+    KSP prints no part number and no model row, so its board code comes from
+    the title, platform words and all: "Asus ROG STRIX B860-F Gaming WiFi
+    LGA1851 B860 DDR5" never meets 1PC/TMS "ROG STRIX B860-F GAMING WIFI",
+    and the KSP offer sat alone on its own product (2026-11-13: 3 of 131 KSP
+    boards shared a product). With the platform words gone the title spells
+    the other vendors' code exactly; the listing then carries that code as
+    `bridged_model_code` (identity.model_code reads it).
+
+    Only when nothing argues against the join, judged against the whole
+    product the targets will form (their part-number and verified-model-code
+    twins too, which later tiers pull in): one brand family, no conflicting
+    variant axis and no hard title conflict (critical_conflict) with any of
+    them, at most one maker part number on the code's side, and no target
+    title word that may name a sibling board
+    (identity.board_title_extra_harmless). Returns the bridged listing keys.
+    """
+    category = "motherboard"
+    boards = [e for e in enriched_listings
+              if e.get("category_normalized") == category]
+    for enriched in boards:
+        enriched.pop("bridged_model_code", None)
+    by_code: dict[str, list[dict]] = {}
+    by_pn: dict[str, list[dict]] = {}
+    by_maker: dict[str, list[dict]] = {}
+    for enriched in boards:
+        code = identity.model_code(category, enriched)
+        if code:
+            by_code.setdefault(code, []).append(enriched)
+        if enriched.get("mpn"):
+            by_pn.setdefault(identity.part_number_key(enriched["mpn"]), []).append(enriched)
+        if enriched.get("model_code"):
+            by_maker.setdefault(
+                f"{enriched.get('brand')}|{model_code_key(enriched['model_code'])}",
+                []).append(enriched)
+
+    def _linked(seed: list[dict], *, maker: bool) -> list[dict]:
+        found = {e["listing_key"]: e for e in seed}
+        queue = list(seed)
+        while queue:
+            current = queue.pop()
+            near = list(by_pn.get(identity.part_number_key(current.get("mpn")), [])
+                        if current.get("mpn") else [])
+            if maker and current.get("model_code"):
+                near += by_maker.get(
+                    f"{current.get('brand')}|{model_code_key(current['model_code'])}", [])
+            for other in near:
+                if other["listing_key"] not in found:
+                    found[other["listing_key"]] = other
+                    queue.append(other)
+        return list(found.values())
+
+    plans: list[tuple[dict, str]] = []
+    for enriched in boards:
+        if enriched.get("mpn") or enriched.get("listing_key") in skip:
+            continue
+        vendor = enriched.get("vendor_id")
+        own = identity.model_code(category, enriched)
+        if own and any(e.get("vendor_id") != vendor for e in by_code.get(own, [])):
+            continue
+        bridged = identity.board_title_code(enriched)
+        if not bridged or bridged == own:
+            continue
+        targets = [e for e in by_code.get(bridged, []) if e.get("vendor_id") != vendor]
+        if not targets:
+            continue
+        # The identity tier joins the code's part-number twins; tier 5c
+        # then joins their verified-maker-code twins (yahav's Wi-Fi 7 board
+        # row beside TMS's plain code). Judge the join against all of them.
+        tier_side = _linked(targets, maker=False)
+        product = _linked(targets, maker=True)
+        family = identity.listing_brand_family(category, enriched)
+        if family is None or {identity.listing_brand_family(category, e)
+                              for e in product} != {family}:
+            continue
+        group = [enriched] + product
+        if any(identity.variant_conflict(category, a, b)
+               for index, a in enumerate(group) for b in group[index + 1:]):
+            continue
+        if any(critical_conflict(enriched, e) for e in product):
+            continue
+        # Boards carry no colour axis: KSP's "X870 MAX GAMING WIFI7 - צבע
+        # לבן" is the white edition, so a stated finish must be in a target.
+        colours = identity.title_colours(enriched.get("title_raw")) - {"black"}
+        if colours and not any(colours <= identity.title_colours(e.get("title_raw"))
+                               for e in product):
+            continue
+        part_numbers = {identity.part_number_key(e.get("mpn"))
+                        for e in tier_side if e.get("mpn")}
+        if len(part_numbers) > 1:
+            continue
+        own_tokens = bridged.split("-")
+        if not all(identity.board_title_extra_harmless(
+                set(identity.board_title_tokens(e)) - set(own_tokens),
+                own_tokens, e.get("mpn")) for e in targets):
+            continue
+        plans.append((enriched, bridged))
+
+    for enriched, bridged in plans:
+        enriched["bridged_model_code"] = bridged
+    return [str(enriched["listing_key"]) for enriched, _ in plans]
 
 
 def order_split_clusters(category: str, code_slug: str, clusters: list[list[dict]],
@@ -5795,6 +5945,10 @@ def match_listings(
             continue
         assignments[enriched["listing_key"]] = pid
         members.append(enriched)
+
+    # A board title that spells another vendor's code once its platform
+    # words go joins that code (KSP prints no part number or model row).
+    bridge_board_title_codes(enriched_listings, skip=assignments)
 
     # 2. Identity tier.
     #
