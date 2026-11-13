@@ -123,6 +123,28 @@
       ]
     },
     {
+      "product_id": "manual:case:ksp-471940-ksp-471964",
+      "category": "case",
+      "brand": "ASUS",
+      "model": null,
+      "attributes": {},
+      "listing_keys": [
+        "ksp:471940",
+        "ksp:471964"
+      ]
+    },
+    {
+      "product_id": "manual:case:ksp-483224-ksp-483225",
+      "category": "case",
+      "brand": "ASUS",
+      "model": null,
+      "attributes": {},
+      "listing_keys": [
+        "ksp:483224",
+        "ksp:483225"
+      ]
+    },
+    {
       "product_id": "manual:cpu:1pc-105172-tms-c6700t",
       "category": "cpu",
       "brand": "Intel",
@@ -288,6 +310,50 @@
       ]
     },
     {
+      "product_id": "manual:cpu:ksp-280959-ksp-281032",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i9 14900K",
+      "attributes": {},
+      "listing_keys": [
+        "ksp:280959",
+        "ksp:281032"
+      ]
+    },
+    {
+      "product_id": "manual:cpu:ksp-280964-ksp-281030",
+      "category": "cpu",
+      "brand": "Intel",
+      "model": "Core i7 14700KF",
+      "attributes": {},
+      "listing_keys": [
+        "ksp:280964",
+        "ksp:281030"
+      ]
+    },
+    {
+      "product_id": "manual:memory:ksp-489119-ksp-489121",
+      "category": "memory",
+      "brand": "G.Skill",
+      "model": null,
+      "attributes": {},
+      "listing_keys": [
+        "ksp:489119",
+        "ksp:489121"
+      ]
+    },
+    {
+      "product_id": "manual:memory:ksp-489120-ksp-489126",
+      "category": "memory",
+      "brand": "G.Skill",
+      "model": null,
+      "attributes": {},
+      "listing_keys": [
+        "ksp:489120",
+        "ksp:489126"
+      ]
+    },
+    {
       "product_id": "manual:motherboard:1pc-221505-tms-gb550aorusewf7",
       "category": "motherboard",
       "brand": "Gigabyte",
@@ -318,6 +384,17 @@
       "listing_keys": [
         "1pc:221403",
         "tms:NE1200P"
+      ]
+    },
+    {
+      "product_id": "manual:storage:1pc-222482-tms-wds200t4g0e-00cps0",
+      "category": "storage",
+      "brand": "Western Digital",
+      "model": "WD Green SN3000",
+      "attributes": {},
+      "listing_keys": [
+        "1pc:222482",
+        "tms:WDS200T4G0E-00CPS0"
       ]
     },
     {
@@ -1258,6 +1335,18 @@
       "ksp:235491"
     ],
     [
+      "ksp:112545",
+      "ksp:112549"
+    ],
+    [
+      "ksp:112545",
+      "ksp:112550"
+    ],
+    [
+      "ksp:112549",
+      "ksp:112550"
+    ],
+    [
       "ksp:128581",
       "ksp:235273"
     ],
@@ -1272,6 +1361,10 @@
     [
       "ksp:164158",
       "ksp:278724"
+    ],
+    [
+      "ksp:170230",
+      "ksp:170236"
     ],
     [
       "ksp:177983",
@@ -1304,6 +1397,22 @@
     [
       "ksp:235491",
       "ksp:235492"
+    ],
+    [
+      "ksp:235499",
+      "ksp:235514"
+    ],
+    [
+      "ksp:235499",
+      "ksp:235516"
+    ],
+    [
+      "ksp:235499",
+      "ksp:491604"
+    ],
+    [
+      "ksp:235514",
+      "ksp:235516"
     ],
     [
       "ksp:235548",
@@ -1344,6 +1453,10 @@
     [
       "ksp:277069",
       "ksp:328212"
+    ],
+    [
+      "ksp:278916",
+      "ksp:299681"
     ],
     [
       "ksp:278918",
@@ -1414,8 +1527,20 @@
       "ksp:290107"
     ],
     [
+      "ksp:299648",
+      "ksp:299651"
+    ],
+    [
+      "ksp:299651",
+      "ksp:299657"
+    ],
+    [
       "ksp:299661",
       "ksp:299677"
+    ],
+    [
+      "ksp:299721",
+      "ksp:396383"
     ],
     [
       "ksp:311527",
@@ -2194,6 +2319,18 @@
       "ksp:413797"
     ],
     [
+      "ksp:413709",
+      "ksp:413725"
+    ],
+    [
+      "ksp:413709",
+      "ksp:413748"
+    ],
+    [
+      "ksp:413725",
+      "ksp:413748"
+    ],
+    [
       "ksp:413744",
       "ksp:413748"
     ],
@@ -2562,6 +2699,10 @@
       "ksp:482959"
     ],
     [
+      "ksp:474522",
+      "ksp:510234"
+    ],
+    [
       "ksp:480428",
       "ksp:480430"
     ],
@@ -2774,6 +2915,18 @@
       "ksp:491356"
     ],
     [
+      "ksp:491599",
+      "ksp:491604"
+    ],
+    [
+      "ksp:491599",
+      "ksp:491607"
+    ],
+    [
+      "ksp:491604",
+      "ksp:491607"
+    ],
+    [
       "ksp:493648",
       "ksp:493649"
     ],
@@ -2812,6 +2965,10 @@
     [
       "ksp:506733",
       "ksp:506756"
+    ],
+    [
+      "ksp:60096",
+      "ksp:60097"
     ],
     [
       "tms:100-000000050",
