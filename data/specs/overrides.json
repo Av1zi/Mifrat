@@ -164,7 +164,8 @@
       "capacity_gb": 7680
     },
     "model:storage:wd23purz-1000gb-sata": {
-      "capacity_gb": 2000
+      "capacity_gb": 2000,
+      "form_factor": "3.5\""
     },
     "model:storage:vi560-512gb-sata-m2sata": {
       "nvme": false
@@ -177,6 +178,75 @@
     },
     "model:case_fan:120-chromax-f12-nf-pwm-swap-120mm-1-black": {
       "model": "NF-F12 chromax.black.swap"
+    },
+    "model:psu:0-20035-6-761345-atom-g750-black": {
+      "wattage_w": 750
+    },
+    "model:psu:12-atom-v550": {
+      "wattage_w": 550
+    },
+    "model:psu:500-e1-helios-pro-black": {
+      "wattage_w": 500
+    },
+    "model:psu:600-e1-helios-pro-black": {
+      "wattage_w": 600
+    },
+    "model:psu:85f4-afg-c3b0cnp-mpm": {
+      "wattage_w": 850
+    },
+    "model:psu:a0f4-afg-mpm": {
+      "wattage_w": 1000
+    },
+    "model:psu:gme1000gm-gp-ice-pg5": {
+      "wattage_w": 1000
+    },
+    "model:psu:gme750gm-gp-ice-pg5": {
+      "wattage_w": 750
+    },
+    "model:psu:gme750gm-gp-pg5": {
+      "wattage_w": 750
+    },
+    "model:psu:gme850gm-gp-ice-pg5": {
+      "wattage_w": 850
+    },
+    "model:psu:gp-p750bs": {
+      "wattage_w": 750
+    },
+    "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme": {
+      "form_factor": "M.2 2280"
+    },
+    "model:storage:1tb-m450-spatium-v1-1000gb-pcie4": {
+      "form_factor": "M.2 2280"
+    },
+    "model:storage:500gb-m450-spatium-v1-500gb-pcie4": {
+      "form_factor": "M.2 2280"
+    },
+    "model:storage:1tr-ault-su680-su680-1000gb-sata": {
+      "form_factor": "2.5\""
+    },
+    "model:storage:512gr-ault-su680-su680-512gb-sata": {
+      "form_factor": "2.5\""
+    },
+    "model:storage:4tb-hdd-hdwt840uzsva-s300-smr-surveillance-4000gb": {
+      "form_factor": "3.5\""
+    },
+    "model:storage:hdwt860uzsva-s300-6000gb-sata": {
+      "form_factor": "3.5\""
+    },
+    "model:storage:skyhawq-st8000vx010-surveillance-8000gb-sata": {
+      "form_factor": "3.5\""
+    },
+    "model:storage:c715-cras-1000gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:storage:c715-cras-512gb-nvme": {
+      "form_factor": "M.2-2280"
+    },
+    "model:motherboard:b760bkb-d5-terminator-wifi-miniitx": {
+      "socket": "LGA1700"
+    },
+    "model:memory:8g-8gb-d4es03-ddr4-ram-8gb": {
+      "form_factor": "SO-DIMM"
     }
   }
 }
