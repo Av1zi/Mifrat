@@ -118,7 +118,7 @@ describe("case fit: form factor, GPU length, cooler height, radiator", () => {
       mb_form_factors: ["ATX", "Micro-ATX", "Mini-ITX"],
     });
     const issues = checkCompatibility({ motherboard: board, case: case_ }, 0);
-    expect(issues).toEqual([{ level: "err", code: "boardForm", params: { form: "EATX" } }]);
+    expect(issues).toEqual([{ level: "err", code: "boardForm", params: { form: "E-ATX" } }]);
   });
 
   it("normalises form-factor spellings (mATX == Micro-ATX)", () => {

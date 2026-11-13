@@ -1,3 +1,4 @@
+import { boardSize, supportedBoardSizes } from "./formFactors";
 import type { Product } from "./types";
 
 export interface BuildSlot {
@@ -386,32 +387,18 @@ conflicts are raised.
 ============================================================================
 */
 
-/** Canonical form-factor token ("Micro-ATX", "mATX", "uATX" -> MICROATX). */
-function normFormFactor(value: string): string {
-  const v = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
-  if (v === "MATX" || v === "MICROATX" || v === "UATX") return "MICROATX";
-  if (v === "ITX" || v === "MINIITX") return "MINIITX";
-  if (v === "EATX" || v === "EXTENDEDATX") return "EATX";
-  if (v === "XLATX") return "XLATX";
-  if (v === "MINIDTX") return "MINIDTX";
-  if (v === "SSIEEB") return "SSIEEB";
-  return v;
-}
-
+/** The board's size in canonical spelling ("mATX" -> "Micro-ATX"). */
 function boardFormFactor(p: Product): string | null {
-  const raw = specText(p, "form_factor");
-  return raw ? normFormFactor(raw) : null;
+  return boardSize(specText(p, "form_factor"));
 }
 
-function caseFormFactors(p: Product): string[] {
-  const value = p.specs?.mb_form_factors;
-  if (!Array.isArray(value)) return [];
-  return unique(value.map((item) => normFormFactor(String(item))));
-}
-
+/**
+ * A case that lists ATX also takes Micro-ATX and Mini-ITX (same mounting
+ * holes), so only a board larger than every listed size is a conflict.
+ */
 function boardFitsCase(board: Product, case_: Product): boolean {
-  const boardFactor = boardFormFactor(board);
-  const supported = caseFormFactors(case_);
+  const boardFactor = boardSize(specText(board, "form_factor"));
+  const supported = supportedBoardSizes(case_.specs?.mb_form_factors);
   if (!boardFactor || supported.length === 0) return true;
   return supported.includes(boardFactor);
 }
