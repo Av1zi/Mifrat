@@ -19,7 +19,7 @@
  */
 
 import { alertMessage, dailyReport, type PushMessage } from "./src/ops/report";
-import { evaluate, israelParts, type Finding, type LiveFacts, type NanoRun } from "./src/ops/rules";
+import { evaluate, israelParts, type Finding, type LiveFacts, type NanoRun, type PipelineRun } from "./src/ops/rules";
 import type { OpsStatus } from "./src/ops/types";
 import { OPS_SCHEMA } from "./src/ops/types";
 
@@ -158,6 +158,51 @@ async function readStatus(env: OpsEnv): Promise<OpsStatus | null> {
   }
 }
 
+export const NORMALIZE_WORKFLOW = "normalize-and-deploy.yml";
+
+/**
+ * The newest completed normalize-and-deploy run on main, from the public
+ * Actions API (the repo is public: no token; 2 calls per 30-min tick, well
+ * under the 60/hour anonymous limit). null when GitHub does not answer, so a
+ * GitHub hiccup never reads as a pipeline failure.
+ */
+export async function latestNormalizeRun(env: OpsEnv, fetcher: typeof fetch): Promise<PipelineRun | null> {
+  const headers: Record<string, string> = {
+    accept: "application/vnd.github+json",
+    "x-github-api-version": "2022-11-28",
+    "user-agent": "mifrat-worker",
+  };
+  if (env.GH_DISPATCH_TOKEN) headers.authorization = `Bearer ${env.GH_DISPATCH_TOKEN}`;
+  const api = `https://api.github.com/repos/${GH_REPO}/actions`;
+  try {
+    const res = await fetcher(`${api}/workflows/${NORMALIZE_WORKFLOW}/runs?branch=main&status=completed&per_page=1`, { headers });
+    if (!res.ok) return null;
+    const body = (await res.json()) as {
+      workflow_runs?: { id: number; conclusion: string | null; updated_at: string; html_url: string }[];
+    };
+    const latest = body.workflow_runs?.[0];
+    if (!latest?.conclusion) return null;
+    const run: PipelineRun = { conclusion: latest.conclusion, at: latest.updated_at, url: latest.html_url };
+    if (latest.conclusion === "failure") {
+      try {
+        const jobs = await fetcher(`${api}/runs/${latest.id}/jobs`, { headers });
+        if (jobs.ok) {
+          const data = (await jobs.json()) as {
+            jobs?: { conclusion: string | null; steps?: { name: string; conclusion: string | null }[] }[];
+          };
+          const step = data.jobs?.flatMap((j) => j.steps ?? []).find((s) => s.conclusion === "failure");
+          if (step) run.failedStep = step.name;
+        }
+      } catch {
+        // The step name is a nicety; the failure itself is known.
+      }
+    }
+    return run;
+  } catch {
+    return null;
+  }
+}
+
 async function liveFacts(env: OpsEnv, fetcher: typeof fetch): Promise<LiveFacts> {
   const facts: LiveFacts = { abuseHits: takeAbuseHits() };
   // The public site, over the network: the same path a visitor takes.
@@ -171,6 +216,7 @@ async function liveFacts(env: OpsEnv, fetcher: typeof fetch): Promise<LiveFacts>
   } catch {
     facts.siteOk = false;
   }
+  facts.normalizeRun = await latestNormalizeRun(env, fetcher);
   if (env.LISTS_DB) {
     try {
       const { results } = await env.LISTS_DB.prepare(

@@ -31,6 +31,18 @@ export interface LiveFacts {
   abuseHits?: number | null;
   /** Latest Nano run report per vendor (POST /api/ops/event). */
   nanoRuns?: Record<string, NanoRun>;
+  /** Latest completed normalize-and-deploy run on main (GitHub API). */
+  normalizeRun?: PipelineRun | null;
+}
+
+export interface PipelineRun {
+  /** GitHub conclusion: "success" | "failure" | "cancelled" | ... */
+  conclusion: string;
+  /** When the run finished (ISO). */
+  at: string;
+  url: string;
+  /** Name of the step that failed, when known. */
+  failedStep?: string;
 }
 
 export interface NanoRun {
@@ -193,6 +205,23 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
     });
   }
 
+  // A failed normalize publishes nothing: no catalog, no data/ops. Scrapes
+  // that landed after the report was built are then invisible here, so a
+  // vendor reads "not scraped" when its prices are only unpublished
+  // (2026-11-13: Ivory and Yahav, check_extract budget trip).
+  const normalize = live.normalizeRun;
+  const blockedSinceReport = normalize?.conclusion === "failure" &&
+    Date.parse(normalize.at) > Date.parse(status.generated_at);
+  if (normalize?.conclusion === "failure") {
+    findings.push({
+      key: "normalize-failed",
+      severity: "high",
+      title: "Normalize failed: new scrapes are not on the site",
+      detail: `normalize-and-deploy failed${normalize.failedStep ? ` at "${normalize.failedStep}"` : ""} ` +
+        `(${ago(hoursBetween(new Date(normalize.at), now))}). Fix it, then run the workflow manually: ${normalize.url}`,
+    });
+  }
+
   const health = allVendorHealth(status, now).filter((h) => h.vendor.active);
   const home = health.filter((h) => h.vendor.host === "home");
   const homeAllMissing = home.length > 0 && home.every((h) => h.state === "missing");
@@ -233,7 +262,8 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
         severity: "high",
         vendor: h.vendor.id,
         title: `${label} was not scraped last night`,
-        detail: `Last crawl ${ago(h.ageHours)}${h.last ? ` (${h.last.keys} items)` : ""}; due by ${h.vendor.due_utc} UTC.`,
+        detail: `Last crawl ${ago(h.ageHours)}${h.last ? ` (${h.last.keys} items)` : ""}; due by ${h.vendor.due_utc} UTC.` +
+          (blockedSinceReport ? " Unverified: normalize failed after this report was built, so a newer crawl may exist unpublished." : ""),
       });
     }
     if (h.state === "partial") {

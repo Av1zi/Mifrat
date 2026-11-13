@@ -154,6 +154,12 @@ it already got (cached under `data/extract/.cache`, local to the Nano) and the
 next day continues. The committed files are `data/extract/products.json` and
 `trust.json`; the cloud's next normalize run merges them.
 
+Before pushing, `run_extract.sh` runs `python -m scraper.extract --sweep`: an
+entry no product of the pulled catalog reaches gets `unreached_since`, and one
+unreached for more than 14 days is dropped (a delisted product can come back
+inside normalize's stale-forward window). The script pulls first, so the Nano
+picks this up with no reinstall.
+
 ## 1PC listing scrape (also on the Nano)
 
 1PC moved here 2026-10-24 (its site answers datacenter IPs with a CAPTCHA

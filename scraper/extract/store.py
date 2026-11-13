@@ -142,6 +142,69 @@ def _candidate_ids(product_id, category: str | None, listings: list[dict]) -> li
     return ids
 
 
+def reach(catalog: dict) -> set[str]:
+    """Store keys some live product of `catalog` tries (`_candidate_ids`)."""
+    by_pid: dict[str, list[dict]] = {}
+    for listing in catalog.get("listings") or []:
+        if listing.get("product_id"):
+            by_pid.setdefault(str(listing["product_id"]), []).append(listing)
+    reached: set[str] = set()
+    for product in catalog.get("products") or []:
+        pid = str(product["product_id"])
+        reached.update(_candidate_ids(pid, product.get("category"), by_pid.get(pid, [])))
+    return reached
+
+
+# An entry no live product reaches is inert, so it only costs space; a delisted
+# listing can return, so it is kept as long as normalize's stale-forward window.
+UNREACHED_MAX_DAYS = 14
+
+
+def sweep(entries: dict, reached: set[str], today: str) -> tuple[dict, list[str]]:
+    """Stamp, unstamp and drop entries by reach (decisions.md 2026-11-13).
+
+    An unreached entry gets `unreached_since` = today (kept if already set); a
+    reached one loses the stamp; one unreached for more than
+    UNREACHED_MAX_DAYS is dropped. Only reach changes touch an entry, so a
+    quiet day writes no diff. Returns (kept entries, dropped keys)."""
+    from datetime import date
+
+    day = date.fromisoformat(today)
+    kept: dict = {}
+    dropped: list[str] = []
+    for key, entry in entries.items():
+        entry = dict(entry)
+        if key in reached:
+            entry.pop("unreached_since", None)
+        else:
+            since = entry.setdefault("unreached_since", today)
+            if (day - date.fromisoformat(since)).days > UNREACHED_MAX_DAYS:
+                dropped.append(key)
+                continue
+        kept[key] = entry
+    return kept, sorted(dropped)
+
+
+def sweep_store(catalog_path=None, today: str | None = None) -> dict:
+    """`python -m scraper.extract --sweep`: sweep data/extract/products.json
+    against the committed catalog (the Nano, before it pushes). Writes only
+    when an entry changed."""
+    from datetime import datetime, timezone
+
+    from .runner import CATALOG, _load_entries, _write_entries
+
+    today = today or datetime.now(timezone.utc).date().isoformat()
+    catalog = json.loads((catalog_path or CATALOG).read_text(encoding="utf-8"))
+    entries = _load_entries()
+    kept, dropped = sweep(entries, reach(catalog), today)
+    unreached = sum(1 for e in kept.values() if "unreached_since" in e)
+    if kept != entries:
+        _write_entries(kept)
+        _entries.cache_clear()
+    return {"entries": len(kept), "unreached": unreached, "dropped": len(dropped),
+            "dropped_keys": dropped, "written": kept != entries}
+
+
 def facts_for(product_id, category: str | None, listings: list[dict]) -> dict[str, list[Fact]]:
     if os.environ.get("MIFRAT_NO_EXTRACT"):
         return {}

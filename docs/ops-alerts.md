@@ -22,8 +22,8 @@ and secrets). No secret ever goes into git or a GitHub workflow.
   - Alerts & runs
 - **Phone pushes (ntfy)** when something breaks. Urgent ones (site down,
   API flood, a vendor blocking the scraper) push at any hour. The rest
-  (scrape missing, Nano down, normalize stuck, partial crawl, double crawl,
-  delisting spike) wait until 07:00 Israel time. An alert is pushed once,
+  (scrape missing, Nano down, normalize stuck or failed, partial crawl, double
+  crawl, delisting spike) wait until 07:00 Israel time. An alert is pushed once,
   reminded after 24 h, and you get a "Resolved" push when it clears.
 - **A daily scrape report at 10:00 Israel time**, one line per vendor. It is
   silent when every line is ✅ and buzzes once when anything is ⚠️ or ❌.
@@ -45,6 +45,13 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   gone, missing, partial, misfiled, two crawls in one file). "Not scraped" and
   "late" depend on the clock, so `site/src/ops/rules.ts` decides them when
   read. A report that stopped updating is itself an alert.
+- Each cron tick also reads the newest completed `normalize-and-deploy` run
+  on main from the public GitHub Actions API (no token needed; it uses
+  `GH_DISPATCH_TOKEN` when set). A failure opens "Normalize failed" with the
+  failed step and the run link. A failed normalize publishes no new
+  `data/ops`, so a crawl that landed after the last report is invisible:
+  a "not scraped" alert then says it is unverified (2026-11-13: Ivory and
+  Yahav were scraped but unpublished).
 - Lifecycle rules (owner, 2026-11-12): a listing absent from one crawl is
   *missing*. One absent from two crawls, at least 36 h apart, is *gone*. A
   partial crawl never counts an absence.

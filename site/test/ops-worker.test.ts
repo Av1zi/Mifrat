@@ -149,7 +149,13 @@ interface Sent {
   body: Record<string, unknown>;
 }
 
-function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: boolean } = {}) {
+interface FakeRun {
+  conclusion: string;
+  updated_at: string;
+  failedStep?: string;
+}
+
+function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: boolean; normalize?: FakeRun | "down" } = {}) {
   const db = fakeDb();
   const pushes: Sent[] = [];
   const pings: string[] = [];
@@ -186,6 +192,17 @@ function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: bool
     if (url === "https://hc-ping.example/abc") {
       pings.push(String(init?.body));
       return new Response("OK");
+    }
+    const actions = "https://api.github.com/repos/Av1zi/Mifrat/actions";
+    if (url.startsWith(`${actions}/workflows/normalize-and-deploy.yml/runs?`)) {
+      if (opts.normalize === "down") return new Response("rate limited", { status: 403 });
+      const run = opts.normalize ?? { conclusion: "success", updated_at: "2026-11-12T05:28:00Z" };
+      return new Response(JSON.stringify({ workflow_runs: [{ id: 7, html_url: "https://github.com/run/7", ...run }] }));
+    }
+    if (url === `${actions}/runs/7/jobs`) {
+      const step = opts.normalize !== "down" ? opts.normalize?.failedStep : undefined;
+      return new Response(JSON.stringify({ jobs: [{ conclusion: "failure", steps: [
+        { name: "Set up job", conclusion: "success" }, { name: step ?? "?", conclusion: "failure" }] }] }));
     }
     throw new Error(`unexpected fetch ${url}`);
   }) as typeof fetch;
@@ -296,6 +313,21 @@ describe("ops cron: alerts", () => {
     await t.cron("2026-11-12T12:00:00Z");
     expect(t.pushes.map((p) => p.body.title)).toContain("API flood (possible attack)");
     expect(takeAbuseHits()).toBe(0);
+  });
+
+  it("a failed normalize is an alert naming the step; a GitHub outage is none", async () => {
+    const failed = setup(healthyStatus(), {
+      normalize: { conclusion: "failure", updated_at: "2026-11-12T06:41:00Z", failedStep: "AI-extraction verifier (offline, Oct 2026)" },
+    });
+    const r = await failed.cron("2026-11-12T07:00:00Z");
+    const f = r.findings.find((x) => x.key === "normalize-failed");
+    expect(f?.severity).toBe("high");
+    expect(f?.detail).toContain('at "AI-extraction verifier (offline, Oct 2026)"');
+    expect(f?.detail).toContain("https://github.com/run/7");
+    expect(failed.pushes.map((p) => p.body.title)).toContain("Normalize failed: new scrapes are not on the site");
+
+    const down = setup(healthyStatus(), { normalize: "down" });
+    expect((await down.cron("2026-11-12T07:00:00Z")).findings).toEqual([]);
   });
 
   it("no status file on the site is itself an alert", async () => {

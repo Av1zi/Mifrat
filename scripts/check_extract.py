@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import sys
 import tempfile
+from datetime import date, datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -279,8 +280,8 @@ check("offline miss asks nothing", offline.facts("aio", ["pump_rpm"], "not cache
 
 def check_store_reach() -> None:
     """Audit 2026-11-10 K: a fact extracted under a retired pid still reaches
-    its product through `pid_aliases` (hard), and the store holds few entries
-    that no live product reaches (budget; prune per owner Q9)."""
+    its product through `pid_aliases` (hard). Entries no live product reaches
+    are reported, never a failure (the Nano's sweep drops them)."""
     catalog_path = ROOT / "data" / "catalog.json"
     if not catalog_path.exists():
         print("[check-extract] no catalog, store reach skipped")
@@ -322,9 +323,44 @@ def check_store_reach() -> None:
                     got = store.facts_for(pid, category, listings).get(field) or []
                     check(f"trusted alias fact {old_pid}.{field} reaches {pid}",
                           bool(got), True)
+    check("store.reach agrees with the per-product candidates", store.reach(catalog), reached)
+    # An unreached entry is inert (no product asks for it) and a delisting
+    # makes one any night, so the count never blocks a deploy (2026-11-13: 28
+    # > 25 held back two vendors' fresh prices). The Nano's sweep stamps and
+    # drops them; one stamped longer ago than the window means it stopped.
     unreached = sorted(key for key in entries if key not in reached)
-    check(f"unreached extract entries within budget ({len(unreached)}: {unreached[:5]})",
-          len(unreached) <= UNREACHED_BUDGET, True)
+    today = datetime.now(timezone.utc).date()
+    overdue = [key for key in unreached if entries[key].get("unreached_since") and
+               (today - date.fromisoformat(entries[key]["unreached_since"])).days
+               > store.UNREACHED_MAX_DAYS + SWEEP_GRACE_DAYS]
+    print(f"[check-extract] {len(unreached)} store entries no product reaches "
+          f"(inert; the Nano sweep drops them after {store.UNREACHED_MAX_DAYS} days)")
+    if overdue:
+        print(f"::warning::{len(overdue)} extract entries unreached for more than "
+              f"{store.UNREACHED_MAX_DAYS + SWEEP_GRACE_DAYS} days: is the Nano's "
+              f"`python -m scraper.extract --sweep` running? {overdue[:5]}")
+
+
+def check_sweep() -> None:
+    """The sweep's stamp / unstamp / drop rule (decisions.md 2026-11-13)."""
+    from scraper.extract import store
+
+    entries = {
+        "live": {"specs": {}, "unreached_since": "2026-11-01"},
+        "new-gone": {"specs": {}},
+        "recent": {"specs": {}, "unreached_since": "2026-11-05"},
+        "old": {"specs": {}, "unreached_since": "2026-10-20"},
+    }
+    kept, dropped = store.sweep(entries, {"live"}, "2026-11-13")
+    check("sweep: a reached entry loses its stamp", "unreached_since" in kept["live"], False)
+    check("sweep: a newly unreached entry is stamped today",
+          kept["new-gone"].get("unreached_since"), "2026-11-13")
+    check("sweep: a stamp is never moved forward", kept["recent"]["unreached_since"], "2026-11-05")
+    check("sweep: older than the window is dropped", dropped, ["old"])
+    check("sweep: the input is not mutated", "unreached_since" in entries["new-gone"], False)
+    edge = {"edge": {"unreached_since": "2026-10-30"}}
+    check("sweep: exactly the window is kept",
+          store.sweep(edge, set(), "2026-11-13")[1], [])
 
 
 def check_run_aliases() -> None:
@@ -345,9 +381,9 @@ def check_run_aliases() -> None:
           in store._candidate_ids("model:gpu:live", None, []), False)
 
 
-# Temporary (2026-11-13): 28 after the night's delistings blocked the deploy.
-# Replaced by the last_reached sweep (decisions.md, 2026-11-13).
-UNREACHED_BUDGET = 40
+# Days a missed Nano sweep may lag before the stamped entries warn.
+SWEEP_GRACE_DAYS = 3
+check_sweep()
 check_run_aliases()
 check_store_reach()
 

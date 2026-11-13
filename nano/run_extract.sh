@@ -33,6 +33,10 @@ else
     echo "[run_extract] per-day quota spent; skipping the fill until tomorrow" >&2
 fi
 
+# Stamp entries no product of the pulled catalog reaches; drop those
+# unreached for 14+ days (decisions.md 2026-11-13). Never blocks the push.
+"$PYTHON" -m scraper.extract --sweep || echo "[run_extract] sweep failed (exit $?)" >&2
+
 files=()
 for f in data/extract/products.json data/extract/trust.json; do [ -f "$f" ] && files+=("$f"); done
 if [ "${#files[@]}" -eq 0 ]; then

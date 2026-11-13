@@ -15,12 +15,16 @@ name: scrape-cloud
 # third-party code, just apply the bundle and push with
 # scripts/git_commit_push.sh.
 #
-# Night window (Nov 2026): every scheduled run must land between 23:00 and
+# Night window (Nov 2026): every scheduled run should land between 23:00 and
 # 07:00 Israel time. Israel is UTC+2 in winter and UTC+3 in summer, so the
 # only UTC span that is inside that window in BOTH seasons is 21:00-04:00.
 # Primary: gate opens 21:07 UTC, random start up to 3h later, scrape + detail
 # finish well before 04:00. Fallback: 02:47 UTC (still night), skipped when
-# the primary already left a snapshot younger than 18h.
+# the primary already left a snapshot younger than 18h. GitHub fires these
+# crons hours late (2026-11-12: fallback at 12:20 Israel), so
+# scripts/scrape_window.py caps the random delay at 06:00 Israel and skips a
+# scheduled run that starts at or after the 09:00 hard cutoff (owner
+# 2026-11-13: 07:00-09:00 tolerated, never later).
 on:
   schedule:
     - cron: '7 21 * * *'   # gate opens 21:07 UTC (23:07 winter / 00:07 summer Israel)
@@ -49,7 +53,13 @@ jobs:
     outputs:
       fallback: ${{ steps.mode.outputs.fallback }}
       spiders: ${{ steps.spiders.outputs.list }}
+      run: ${{ steps.spiders.outputs.run }}
     steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+        with:
+          sparse-checkout: scripts/scrape_window.py
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
       - id: spiders
         # The cloud vendor list, read by both the scrape and the publish-scrape
         # matrix so they can never drift apart.
@@ -71,8 +81,23 @@ jobs:
         # Nano next to TMS.
         # 1PC moved to the Nano 2026-10-24 (CAPTCHA page for datacenter IPs;
         # see decisions.md, nano/run_onepc.sh). Its detail scrape stays below.
-        run: echo 'list=["ivory","yahav"]' >> "$GITHUB_OUTPUT"
+        # A scheduled run that GitHub started after the 09:00 Israel hard
+        # cutoff scrapes nothing (run=false skips every later job); manual
+        # dispatch always runs.
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          python3 scripts/scrape_window.py --self-test
+          if [ "$EVENT" = "schedule" ] && ! python3 scripts/scrape_window.py allowed; then
+            echo "::warning::started after the 09:00 Israel cutoff; skipping (vendors stale-forward)"
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'list=["ivory","yahav"]' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo 'run=true' >> "$GITHUB_OUTPUT"
+          echo 'list=["ivory","yahav"]' >> "$GITHUB_OUTPUT"
       - id: mode
+        if: steps.spiders.outputs.run == 'true'
         shell: bash
         env:
           SCHEDULE: ${{ github.event.schedule }}
@@ -84,14 +109,18 @@ jobs:
           echo "fallback=false" >> "$GITHUB_OUTPUT"
           # Spread load across the first part of the night window. This is
           # for reliability and load distribution, not for bypassing site
-          # defenses. 3h keeps the scrape + detail jobs done well before the
-          # 04:00 UTC window end (and the 02:47 fallback behind them).
-          sleep "$((RANDOM % 10800))"
+          # defenses. Up to 3h, but never past 06:00 Israel: a cron GitHub
+          # started hours late (2026-11-13: 21:07 fired 01:46 UTC, then slept
+          # 2h37m) still finishes before 07:00.
+          cap="$(python3 scripts/scrape_window.py sleep-cap)"
+          max=$(( cap < 10800 ? cap : 10800 ))
+          if [ "$max" -gt 0 ]; then sleep "$((RANDOM % max))"; fi
 
   scrape:
     permissions:
       contents: read
     needs: schedule-gate
+    if: needs.schedule-gate.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     strategy:
@@ -168,7 +197,7 @@ jobs:
     permissions:
       contents: write
     needs: [schedule-gate, scrape]
-    if: "!cancelled()"
+    if: "!cancelled() && needs.schedule-gate.outputs.run == 'true'"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -222,7 +251,7 @@ jobs:
     # The failed vendor is covered by normalize's 14-day stale-forward.
     # (Plonter dropped 2026-09-29 — its detail loop entries are removed
     # below, but its committed detail file + images stay as history.)
-    if: "!cancelled()"
+    if: "!cancelled() && needs.schedule-gate.outputs.run == 'true'"
     runs-on: ubuntu-latest
     timeout-minutes: 120
     outputs:

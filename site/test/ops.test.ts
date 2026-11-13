@@ -206,6 +206,25 @@ describe("findings", () => {
     expect(keys).toEqual(["delist-spike:ivory:2026-11-12", "double:ivory:2026-11-12"]);
   });
 
+  it("a failed normalize after the report: 'missing' says it is unverified (2026-11-13)", () => {
+    // Report built 05:30, Ivory scraped later but normalize failed 06:41, so
+    // the report never saw the crawl.
+    const s = status({ ivory: [crawl("ivory", "2026-11-11T02:10:00+00:00", { keys: 620 })] });
+    const f = evaluate(s, TEN_AM, {
+      normalizeRun: { conclusion: "failure", at: "2026-11-12T06:41:00Z", url: "https://github.com/run/1", failedStep: "check_extract" },
+    });
+    expect(f.map((x) => x.key)).toEqual(["missing:ivory", "normalize-failed"]);
+    expect(f[0].detail).toContain("Unverified");
+    expect(f[1].detail).toContain('at "check_extract"');
+
+    // A failure older than the report adds the finding but no caveat.
+    const old = evaluate(s, TEN_AM, {
+      normalizeRun: { conclusion: "failure", at: "2026-11-12T05:00:00Z", url: "u" },
+    });
+    expect(old.find((x) => x.key === "missing:ivory")?.detail).not.toContain("Unverified");
+    expect(evaluate(status(), TEN_AM, { normalizeRun: { conclusion: "success", at: "2026-11-12T05:28:00Z", url: "u" } })).toEqual([]);
+  });
+
   it("a skipped active vendor is high", () => {
     const s = status({}, { catalog: catalog({ skipped_vendors: ["yahav", "plonter"] }) });
     expect(evaluate(s, TEN_AM).map((f) => f.key)).toContain("skipped:yahav");
