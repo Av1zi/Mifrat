@@ -128,13 +128,31 @@
       "total_gb": 64
     },
     "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb": {
-      "interface": "PCIe 5.0 x16"
+      "interface": "PCIe 5.0 x16",
+      "hdmi_outputs": {
+        "HDMI": 2
+      },
+      "dp_outputs": {
+        "DisplayPort": 2
+      }
     },
     "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb": {
-      "interface": "PCIe 5.0 x16"
+      "interface": "PCIe 5.0 x16",
+      "hdmi_outputs": {
+        "HDMI": 2
+      },
+      "dp_outputs": {
+        "DisplayPort": 2
+      }
     },
     "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb": {
-      "interface": "PCIe 5.0 x16"
+      "interface": "PCIe 5.0 x16",
+      "hdmi_outputs": {
+        "HDMI": 2
+      },
+      "dp_outputs": {
+        "DisplayPort": 2
+      }
     },
     "model:gpu:128bit-gddr6-gtx1650-4gb": {
       "interface": "PCIe 3.0 x16"
@@ -247,6 +265,39 @@
     },
     "model:memory:8g-8gb-d4es03-ddr4-ram-8gb": {
       "form_factor": "SO-DIMM"
+    },
+    "model:cpu:14500": {
+      "thread_count": 20
+    },
+    "model:cpu:14600k": {
+      "thread_count": 20
+    },
+    "model:cpu:14600kf": {
+      "thread_count": 20
+    },
+    "model:cpu:225-tray": {
+      "thread_count": 10
+    },
+    "model:cpu:225f-tray": {
+      "thread_count": 10
+    },
+    "model:cpu:245-tray": {
+      "thread_count": 14
+    },
+    "model:cpu:245kf": {
+      "thread_count": 14
+    },
+    "model:cpu:265-tray": {
+      "thread_count": 20
+    },
+    "model:cpu:265kf": {
+      "thread_count": 20
+    },
+    "model:cpu:285-tray": {
+      "thread_count": 24
+    },
+    "model:storage:blue-wd-2000gb-sata-25": {
+      "cache_mb": 128
     }
   }
 }

@@ -866,5 +866,20 @@
   "spec_conflict|model:case_fan:12-gt120-120mm-1-rgb-black|manufacturer": true,
   "spec_conflict|model:case_fan:12-gt120-120mm-1-rgb-white|manufacturer": true,
   "spec_conflict|model:case_fan:12-ix120-120mm-1-rgb-black|manufacturer": true,
-  "spec_conflict|model:case_fan:12-ix120-120mm-1-rgb-white|manufacturer": true
+  "spec_conflict|model:case_fan:12-ix120-120mm-1-rgb-white|manufacturer": true,
+  "spec_conflict|model:aio:109-3000rpm-360-360mm-6cfm-galahad-ii-performance-trinity-360mm-black|lighting": true,
+  "spec_conflict|model:aio:109-3000rpm-360-360mm-6cfm-galahad-ii-performance-trinity-360mm-white|lighting": true,
+  "spec_conflict|model:aio:14cfm-360mm-360s-3800rpm-73-black-cooler-hydroshift-lcd-water-360mm-black|lighting": true,
+  "spec_conflict|model:aio:14cfm-360mm-360s-3800rpm-73-black-cooler-hydroshift-lcd-water-360mm-black|fan_rpm_max": true,
+  "spec_conflict|model:aio:14cfm-360mm-360s-3800rpm-73-cooler-hydroshift-lcd-water-white-360mm-white|fan_rpm_max": true,
+  "spec_conflict|model:aio:240-a-freezer-liquid-240mm-white|fan_rpm_max": true,
+  "spec_conflict|model:aio:15cfm-22-36-360mm-5dba-63-aio-asetek-emma-lc1-nl-v2-360mm-blackbrown|sockets": true,
+  "spec_conflict|model:aio:24-240-lc1-nl-240mm-blackbrown|sockets": true,
+  "spec_conflict|model:aio:12-240-cooler-cpu-lcd-liquid-rog-ryujin-360mm-black|radiator_size_mm": true,
+  "spec_conflict|model:case:0-10221-6-761345-black|lighting": true,
+  "spec_conflict|memory:1pc:1pc-222245|lighting": true,
+  "spec_conflict|model:memory:0-2-2x16gb-3200-cl16-trident-xmp-z-32gb-x2-3200mhz-cl16-rgb-black|lighting": true,
+  "spec_conflict|case:tms:tms-c8|mb_form_factors": true,
+  "spec_conflict|model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx|form_factor": true,
+  "spec_conflict|model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35|cache_mb": true
 }
