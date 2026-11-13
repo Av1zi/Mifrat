@@ -377,6 +377,17 @@
     "score": 98,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "ksp:480431",
+    "listing_b": "ksp:480433",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "480433 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -"
+  },
+  {
+    "score": 98,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:480435",
     "listing_b": "ksp:480438",
     "title_a": "זיכרון למחשב Corsair Dominator Titanium RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
@@ -617,6 +628,39 @@
   },
   {
     "score": 96,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:456281",
+    "listing_b": "ksp:456282",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
+    "match_text_a": "456281 Corsair Vengeance 2x8GB DDR5 5200MT / s CL40 -",
+    "match_text_b": "456282 Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 -"
+  },
+  {
+    "score": 96,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:456283",
+    "listing_b": "ksp:456284",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
+    "match_text_a": "456283 Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 -",
+    "match_text_b": "456284 Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 -"
+  },
+  {
+    "score": 96,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480428",
+    "listing_b": "ksp:480430",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "match_text_a": "480428 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "480430 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -"
+  },
+  {
+    "score": 96,
     "category": "case",
     "brand": "Corsair",
     "listing_a": "ksp:330369",
@@ -729,12 +773,34 @@
     "score": 96,
     "category": "memory",
     "brand": "Kingston",
+    "listing_a": "ksp:390472",
+    "listing_b": "ksp:390476",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
+    "match_text_a": "390472 Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
+    "match_text_b": "390476 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40"
+  },
+  {
+    "score": 96,
+    "category": "memory",
+    "brand": "Kingston",
     "listing_a": "ksp:390519",
     "listing_b": "ksp:390599",
     "title_a": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL36",
     "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
     "match_text_a": "390519 Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL36",
     "match_text_b": "390599 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36"
+  },
+  {
+    "score": 96,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390585",
+    "listing_b": "ksp:390589",
+    "title_a": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
+    "match_text_a": "390585 Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
+    "match_text_b": "390589 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40"
   },
   {
     "score": 96,
@@ -856,6 +922,28 @@
     "title_b": "זכרון למחשב Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARBK",
     "match_text_a": "290103 Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARWH",
     "match_text_b": "290107 Adata XPG LANCER RGB 1x32GB DDR5 6000MHz CL30 AX5U6000C3032G-CLARBK"
+  },
+  {
+    "score": 95,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "ksp:360444",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 95,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "ksp:360488",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -"
   },
   {
     "score": 95,
@@ -1059,6 +1147,28 @@
     "score": 94,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "ksp:480430",
+    "listing_b": "ksp:480431",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "match_text_a": "480430 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480433",
+    "listing_b": "ksp:483232",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480433 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483232 Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:483232",
     "listing_b": "ksp:483233",
     "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
@@ -1147,6 +1257,17 @@
     "score": 94,
     "category": "memory",
     "brand": "Kingston",
+    "listing_a": "ksp:390476",
+    "listing_b": "ksp:390479",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390476 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
+    "match_text_b": "390479 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "Kingston",
     "listing_a": "ksp:390479",
     "listing_b": "ksp:390484",
     "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
@@ -1186,6 +1307,17 @@
     "title_b": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
     "match_text_a": "390519 Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL36",
     "match_text_b": "390523 Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390589",
+    "listing_b": "ksp:390599",
+    "title_a": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390589 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
+    "match_text_b": "390599 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36"
   },
   {
     "score": 94,
@@ -1379,11 +1511,44 @@
     "category": "memory",
     "brand": "Corsair",
     "listing_a": "ksp:480428",
+    "listing_b": "ksp:480433",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "match_text_a": "480428 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "480433 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480428",
     "listing_b": "ksp:483233",
     "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
     "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע לבן",
     "match_text_a": "480428 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
     "match_text_b": "483233 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480428",
+    "listing_b": "ksp:483234",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480428 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483234 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480428",
+    "listing_b": "ksp:493649",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "match_text_a": "480428 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "493649 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -"
   },
   {
     "score": 93,
@@ -1395,6 +1560,17 @@
     "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע לבן",
     "match_text_a": "480430 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
     "match_text_b": "483233 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480430",
+    "listing_b": "ksp:483234",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480430 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483234 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
   },
   {
     "score": 93,
@@ -1422,6 +1598,17 @@
     "score": 93,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "ksp:480431",
+    "listing_b": "ksp:493649",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "493649 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:480433",
     "listing_b": "ksp:493648",
     "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
@@ -1439,6 +1626,17 @@
     "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע שחור",
     "match_text_a": "483234 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -",
     "match_text_b": "493648 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:483234",
+    "listing_b": "ksp:493649",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "match_text_a": "483234 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -",
+    "match_text_b": "493649 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -"
   },
   {
     "score": 93,
@@ -1741,6 +1939,17 @@
     "score": 93,
     "category": "case",
     "brand": "ASUS",
+    "listing_a": "ksp:482954",
+    "listing_b": "ksp:482957",
+    "title_a": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע בז'",
+    "title_b": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע שחור",
+    "match_text_a": "482954 Asus ProArt PA401 Wood Edition Metal Panel ATX -",
+    "match_text_b": "482957 Asus ProArt PA401 Wood Edition Mesh Panel ATX -"
+  },
+  {
+    "score": 93,
+    "category": "case",
+    "brand": "ASUS",
     "listing_a": "ksp:502719",
     "listing_b": "ksp:506753",
     "title_a": "מארז Full Tower ללא ספק Asus GR801 ROG Cronox ARGB - צבע שחור",
@@ -1890,6 +2099,39 @@
     "title_b": "זיכרון למחשב Corsair Vengeance LPX 2x16GB DDR4 2666MHz CL16 - צבע שחור",
     "match_text_a": "437643 Corsair Vengeance LPX 16GB DDR4 2666MHz CL16 -",
     "match_text_b": "456370 Corsair Vengeance LPX 2x16GB DDR4 2666MHz CL16 -"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:456281",
+    "listing_b": "ksp:456284",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
+    "match_text_a": "456281 Corsair Vengeance 2x8GB DDR5 5200MT / s CL40 -",
+    "match_text_b": "456284 Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 -"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:456282",
+    "listing_b": "ksp:456283",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
+    "match_text_a": "456282 Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 -",
+    "match_text_b": "456283 Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 -"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480431",
+    "listing_b": "ksp:483232",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483232 Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 -"
   },
   {
     "score": 92,
@@ -2093,6 +2335,28 @@
     "score": 92,
     "category": "memory",
     "brand": "Kingston",
+    "listing_a": "ksp:390454",
+    "listing_b": "ksp:390479",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
+    "title_b": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390454 Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
+    "match_text_b": "390479 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390472",
+    "listing_b": "ksp:390479",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390472 Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
+    "match_text_b": "390479 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Kingston",
     "listing_a": "ksp:390512",
     "listing_b": "ksp:390523",
     "title_a": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL40",
@@ -2121,6 +2385,17 @@
     "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
     "match_text_a": "390519 Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL36",
     "match_text_b": "390589 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390523",
+    "listing_b": "ksp:390599",
+    "title_a": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390523 Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
+    "match_text_b": "390599 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36"
   },
   {
     "score": 92,
@@ -2434,6 +2709,17 @@
     "score": 91,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "ksp:480433",
+    "listing_b": "ksp:483234",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480433 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483234 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:483233",
     "listing_b": "ksp:493648",
     "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע לבן",
@@ -2462,6 +2748,72 @@
     "title_b": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX120 RGB 120mm PWM - צבע לבן",
     "match_text_a": "360253 3 Corsair iCUE LINK LX120 RGB 120mm PWM -",
     "match_text_b": "477113 - Corsair iCUE LINK LX120 RGB 120mm PWM -"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051032-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051032-WW Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360444",
+    "listing_b": "ksp:453184",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360444",
+    "listing_b": "tms:CO-9051032-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White",
+    "match_text_a": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051032-WW Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360488",
+    "listing_b": "ksp:453184",
+    "title_a": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360488",
+    "listing_b": "tms:CO-9051032-WW",
+    "title_a": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White",
+    "match_text_a": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051032-WW Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White"
+  },
+  {
+    "score": 91,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:453184",
+    "listing_b": "tms:CO-9051032-WW",
+    "title_a": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White",
+    "match_text_a": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051032-WW Corsair iCUE LINK LX140 RGB 140mm PWM 2x Fans Starter Kit - White"
   },
   {
     "score": 91,
@@ -2572,6 +2924,17 @@
     "title_b": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL30",
     "match_text_a": "390523 Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
     "match_text_b": "478960 Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL30"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390585",
+    "listing_b": "ksp:390599",
+    "title_a": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390585 Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
+    "match_text_b": "390599 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36"
   },
   {
     "score": 91,
@@ -2726,6 +3089,17 @@
     "title_b": "מארז ללא ספק Asus Prime AP303 Mesh Panel Micro-ATX - צבע שחור",
     "match_text_a": "465131 Asus Prime AP303 Mesh Panel Micro-ATX -",
     "match_text_b": "471840 Asus Prime AP303 Mesh Panel Micro-ATX -"
+  },
+  {
+    "score": 91,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:472465",
+    "listing_b": "ksp:472502",
+    "title_a": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע שחור",
+    "title_b": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע בז'",
+    "match_text_a": "472465 Asus ProArt PA401 Wood Edition Metal Panel ATX -",
+    "match_text_b": "472502 Asus ProArt PA401 Wood Edition Mesh Panel ATX -"
   },
   {
     "score": 91,
@@ -3820,12 +4194,265 @@
     "score": 89,
     "category": "memory",
     "brand": "Corsair",
+    "listing_a": "ksp:480428",
+    "listing_b": "ksp:483232",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480428 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483232 Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480430",
+    "listing_b": "ksp:483232",
+    "title_a": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+    "title_b": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480430 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483232 Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Corsair",
     "listing_a": "ksp:480431",
     "listing_b": "ksp:483233",
     "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
     "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע לבן",
     "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
     "match_text_b": "483233 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "ksp:480431",
+    "listing_b": "ksp:483234",
+    "title_a": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
+    "match_text_a": "480431 Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 -",
+    "match_text_b": "483234 Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172709",
+    "listing_b": "ksp:360417",
+    "title_a": "ערכת מאווררים Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit בצבע שחור",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit",
+    "match_text_b": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172709",
+    "listing_b": "ksp:360444",
+    "title_a": "ערכת מאווררים Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit בצבע שחור",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit",
+    "match_text_b": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172709",
+    "listing_b": "ksp:360488",
+    "title_a": "ערכת מאווררים Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit בצבע שחור",
+    "title_b": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit",
+    "match_text_b": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172709",
+    "listing_b": "ksp:453184",
+    "title_a": "ערכת מאווררים Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit בצבע שחור",
+    "title_b": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Starter Kit",
+    "match_text_b": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172710",
+    "listing_b": "ksp:360417",
+    "title_a": "מאוורר Corsair iCUE LINK LX140 RGB PWM 140mm Expansion בצבע לבן",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Expansion",
+    "match_text_b": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172710",
+    "listing_b": "ksp:360444",
+    "title_a": "מאוורר Corsair iCUE LINK LX140 RGB PWM 140mm Expansion בצבע לבן",
+    "title_b": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Expansion",
+    "match_text_b": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172710",
+    "listing_b": "ksp:360488",
+    "title_a": "מאוורר Corsair iCUE LINK LX140 RGB PWM 140mm Expansion בצבע לבן",
+    "title_b": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Expansion",
+    "match_text_b": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172710",
+    "listing_b": "ksp:453184",
+    "title_a": "מאוורר Corsair iCUE LINK LX140 RGB PWM 140mm Expansion בצבע לבן",
+    "title_b": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "match_text_a": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Expansion",
+    "match_text_b": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051027-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051027-WW Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051028-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360417",
+    "listing_b": "tms:CO-9051031-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White",
+    "match_text_a": "360417 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360444",
+    "listing_b": "tms:CO-9051027-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan",
+    "match_text_a": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051027-WW Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360444",
+    "listing_b": "tms:CO-9051028-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit",
+    "match_text_a": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360444",
+    "listing_b": "tms:CO-9051031-WW",
+    "title_a": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White",
+    "match_text_a": "360444 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360488",
+    "listing_b": "tms:CO-9051027-WW",
+    "title_a": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan",
+    "match_text_a": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051027-WW Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360488",
+    "listing_b": "tms:CO-9051028-WW",
+    "title_a": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit",
+    "match_text_a": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360488",
+    "listing_b": "tms:CO-9051031-WW",
+    "title_a": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White",
+    "match_text_a": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:453184",
+    "listing_b": "tms:CO-9051027-WW",
+    "title_a": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan",
+    "match_text_a": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051027-WW Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:453184",
+    "listing_b": "tms:CO-9051028-WW",
+    "title_a": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit",
+    "match_text_a": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051028-WW Corsair iCUE LINK LX140 RGB PWM 140mm 2x Fans Starter Kit"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:453184",
+    "listing_b": "tms:CO-9051031-WW",
+    "title_a": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White",
+    "match_text_a": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White"
   },
   {
     "score": 89,
@@ -4062,6 +4689,17 @@
     "score": 89,
     "category": "memory",
     "brand": "Kingston",
+    "listing_a": "ksp:390454",
+    "listing_b": "ksp:390599",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
+    "match_text_a": "390454 Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
+    "match_text_b": "390599 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Kingston",
     "listing_a": "ksp:390472",
     "listing_b": "ksp:390512",
     "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
@@ -4073,12 +4711,45 @@
     "score": 89,
     "category": "memory",
     "brand": "Kingston",
+    "listing_a": "ksp:390472",
+    "listing_b": "ksp:390589",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
+    "match_text_a": "390472 Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
+    "match_text_b": "390589 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Kingston",
     "listing_a": "ksp:390476",
     "listing_b": "ksp:390512",
     "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
     "title_b": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL40",
     "match_text_a": "390476 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
     "match_text_b": "390512 Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL40"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390476",
+    "listing_b": "ksp:390585",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
+    "match_text_a": "390476 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
+    "match_text_b": "390585 Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390479",
+    "listing_b": "ksp:390589",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
+    "match_text_a": "390479 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
+    "match_text_b": "390589 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40"
   },
   {
     "score": 89,
@@ -4134,6 +4805,17 @@
     "title_b": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL30",
     "match_text_a": "390519 Kingston FURY BEAST RGB 32GB DDR5 5600MT / s CL36",
     "match_text_b": "478960 Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL30"
+  },
+  {
+    "score": 89,
+    "category": "memory",
+    "brand": "Kingston",
+    "listing_a": "ksp:390523",
+    "listing_b": "ksp:390589",
+    "title_a": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
+    "title_b": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
+    "match_text_a": "390523 Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
+    "match_text_b": "390589 Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40"
   },
   {
     "score": 89,
@@ -4288,6 +4970,28 @@
     "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
     "match_text_a": "392904 Asus A23 PLUS ARGB Micro ATX -",
     "match_text_b": "511473 - Asus A23 PLUS ARGB Micro ATX -"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:472465",
+    "listing_b": "ksp:482957",
+    "title_a": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע שחור",
+    "title_b": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע שחור",
+    "match_text_a": "472465 Asus ProArt PA401 Wood Edition Metal Panel ATX -",
+    "match_text_b": "482957 Asus ProArt PA401 Wood Edition Mesh Panel ATX -"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:472502",
+    "listing_b": "ksp:482954",
+    "title_a": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע בז'",
+    "title_b": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע בז'",
+    "match_text_a": "472502 Asus ProArt PA401 Wood Edition Mesh Panel ATX -",
+    "match_text_b": "482954 Asus ProArt PA401 Wood Edition Metal Panel ATX -"
   },
   {
     "score": 89,
@@ -5250,6 +5954,17 @@
     "score": 88,
     "category": "memory",
     "brand": "Kingston",
+    "listing_a": "ksp:390454",
+    "listing_b": "ksp:390476",
+    "title_a": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
+    "title_b": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
+    "match_text_a": "390454 Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
+    "match_text_b": "390476 Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "Kingston",
     "listing_a": "ksp:390472",
     "listing_b": "ksp:390484",
     "title_a": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
@@ -5567,27 +6282,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:aio:360-lc-rog-strix-360mm-black",
-    "category": "aio",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:471596",
-        "vendor_sku": "471596",
-        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 - צבע שחור",
-        "price": 990
-      },
-      {
-        "listing_key": "ksp:327106",
-        "vendor_sku": "327106",
-        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 ARGB - שחור",
-        "price": 1090
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:aio:360-nautilus-rs-360mm-black",
     "category": "aio",
     "vendor": "1pc",
@@ -5649,27 +6343,6 @@
         "title": "מארז מחשב Antec Performance 1 FT",
         "price": 572,
         "alias_of": "tms:PERFORMANCE1FTARGB"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case:3500x-mid-tower-white",
-    "category": "case",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:222387",
-        "vendor_sku": "222387",
-        "title": "מארז מחשב Corsair 3500X Mid-Tower לבן",
-        "price": 439
-      },
-      {
-        "listing_key": "1pc:221784",
-        "vendor_sku": "221784",
-        "title": "מארז מחשב Corsair 3500X Mid-Tower – עם פאנלים מזכוכית ועיצוב מותאם לבנייה מודרנית",
-        "price": 439
       }
     ]
   },
@@ -5807,48 +6480,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:case:glass-mid-pa401-panel-proart-tempered-tower-wood-black",
-    "category": "case",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:395986",
-        "vendor_sku": "395986",
-        "title": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Tempered Glass Panel - צבע שחור",
-        "price": 699
-      },
-      {
-        "listing_key": "ksp:482946",
-        "vendor_sku": "482946",
-        "title": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Tempered Glass Panel - צבע בז'",
-        "price": 699
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case:mesh-pa401-panel-proart-wood-black",
-    "category": "case",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:482957",
-        "vendor_sku": "482957",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע שחור",
-        "price": 699
-      },
-      {
-        "listing_key": "ksp:472502",
-        "vendor_sku": "472502",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע בז'",
-        "price": 699
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:case:metal-mid-pa401-proart-tower-wood-black",
     "category": "case",
     "vendor": "ksp",
@@ -5871,27 +6502,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:case:metal-pa401-panel-proart-wood-black",
-    "category": "case",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:472465",
-        "vendor_sku": "472465",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע שחור",
-        "price": 699
-      },
-      {
-        "listing_key": "ksp:482954",
-        "vendor_sku": "482954",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע בז'",
-        "price": 699
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:case_fan:icue-link-lx120-pwm-120mm-rgb-white",
     "category": "case_fan",
     "vendor": "ksp",
@@ -5909,50 +6519,6 @@
         "vendor_sku": "360307",
         "title": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX120 RGB 120mm PWM - צבע לבן",
         "price": 159
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case_fan:icue-link-lx140-pwm-140mm-rgb-black",
-    "category": "case_fan",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:453184",
-        "vendor_sku": "453184",
-        "title": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
-        "price": 135,
-        "alias_of": "ksp:360417"
-      },
-      {
-        "listing_key": "ksp:360417",
-        "vendor_sku": "360417",
-        "title": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
-        "price": 399
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case_fan:icue-link-lx140-pwm-140mm-rgb-white",
-    "category": "case_fan",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:360488",
-        "vendor_sku": "360488",
-        "title": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
-        "price": 160
-      },
-      {
-        "listing_key": "ksp:360444",
-        "vendor_sku": "360444",
-        "title": "זוג מאווררים למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
-        "price": 335,
-        "alias_of": "ksp:360488"
       }
     ]
   },
@@ -6156,222 +6722,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb",
-    "category": "gpu",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:371860",
-        "vendor_sku": "371860",
-        "title": "כרטיס מסך Asus Prime Radeon RX 9070 XT 16GB GDDR6 OC Edition",
-        "price": 3815
-      },
-      {
-        "listing_key": "ksp:503022",
-        "vendor_sku": "503022",
-        "title": "כרטיס מסך Asus Prime Radeon RX 9070 XT 16GB GDDR6 White OC Edition",
-        "price": 3890
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:222754",
-        "vendor_sku": "GAOG432GB3200C16BDC",
-        "title": "זיכרון למחשב GeIL ORION AMD Edition DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1100
-      },
-      {
-        "listing_key": "1pc:222245",
-        "vendor_sku": "222245",
-        "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1130
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:222239",
-        "vendor_sku": "222239",
-        "title": "זיכרון למחשב נייח GeIL ORION V DDR5 32GB (2x16GB) 6000 CL36 אפור",
-        "price": 2137
-      },
-      {
-        "listing_key": "1pc:222240",
-        "vendor_sku": "222240",
-        "title": "זיכרון למחשב נייח GeIL ORION V RGB DDR5 32GB (2x16GB) 6000 CL36 אפור",
-        "price": 2157
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:480431",
-        "vendor_sku": "480431",
-        "title": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
-        "price": 2450
-      },
-      {
-        "listing_key": "ksp:480428",
-        "vendor_sku": "480428",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
-        "price": 2490
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:480433",
-        "vendor_sku": "480433",
-        "title": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2335
-      },
-      {
-        "listing_key": "ksp:493649",
-        "vendor_sku": "493649",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2360
-      },
-      {
-        "listing_key": "ksp:480430",
-        "vendor_sku": "480430",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2490
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:483232",
-        "vendor_sku": "483232",
-        "title": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
-        "price": 2190
-      },
-      {
-        "listing_key": "ksp:483234",
-        "vendor_sku": "483234",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
-        "price": 2295
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-6800mt-beast-cl34-fury-s-32gb-x2-6800mhz-cl34-rgb-black-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:431632",
-        "vendor_sku": "431632",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 6800MT / s CL34 - צבע שחור",
-        "price": 2330
-      },
-      {
-        "listing_key": "ksp:405931",
-        "vendor_sku": "405931",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 6800MT / s CL34 - צבע שחור",
-        "price": 2390
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:338316",
-        "vendor_sku": "338316",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 6000MHz CL30",
-        "price": 2750
-      },
-      {
-        "listing_key": "ksp:338315",
-        "vendor_sku": "338315",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 6000MHz CL30",
-        "price": 2890
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-beast-cl40-fury-32gb-x2-5200mhz-cl40-rgb-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:178003",
-        "vendor_sku": "178003",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 5200MHz CL40",
-        "price": 2210
-      },
-      {
-        "listing_key": "ksp:211775",
-        "vendor_sku": "211775",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 5200MHz CL40",
-        "price": 2240
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x16gb-beast-cl40-fury-32gb-x2-5600mhz-cl40-rgb-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:211777",
-        "vendor_sku": "211777",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 5600MHz CL40",
-        "price": 2250
-      },
-      {
-        "listing_key": "ksp:193193",
-        "vendor_sku": "193193",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 5600MHz CL40",
-        "price": 2510
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-6400mhz-cl32-rgb-black-dimm",
     "category": "memory",
     "vendor": "ksp",
@@ -6394,69 +6744,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x32gb-5200mt-beast-cl40-fury-s-64gb-x2-5200mhz-cl40-rgb-black-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:390585",
-        "vendor_sku": "390585",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
-        "price": 3450
-      },
-      {
-        "listing_key": "ksp:390472",
-        "vendor_sku": "390472",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
-        "price": 3590
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x32gb-5600mt-beast-cl36-fury-s-64gb-x2-5600mhz-cl36-rgb-black-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:390599",
-        "vendor_sku": "390599",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
-        "price": 3540
-      },
-      {
-        "listing_key": "ksp:390479",
-        "vendor_sku": "390479",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
-        "price": 3545
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x32gb-5600mt-beast-cl40-fury-s-64gb-x2-5600mhz-cl40-rgb-black-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:390476",
-        "vendor_sku": "390476",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
-        "price": 3630
-      },
-      {
-        "listing_key": "ksp:390589",
-        "vendor_sku": "390589",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
-        "price": 3720
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:memory:2x64gb-beast-cl36-dram-fury-module-128gb-x2-5600mhz-cl36-rgb",
     "category": "memory",
     "vendor": "yahav",
@@ -6474,153 +6761,6 @@
         "vendor_sku": "KF556C36BBEAK2-128",
         "title": "זיכרון חברת Kingston דגם Fury Beast RGB DRAM Module 128GB 2X64GB DDR5 5600Mhz CL36 - זמין במלאי מיידי",
         "price": 9200
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x8gb-3200-cl16-orion-16gb-x2-3200mhz-cl16-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:222243",
-        "vendor_sku": "222243",
-        "title": "זיכרון למחשב נייח GeIL ORION DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 616
-      },
-      {
-        "listing_key": "1pc:222244",
-        "vendor_sku": "222244",
-        "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 653
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x8gb-5200mt-cl40-s-vengeance-16gb-x2-5200mhz-cl40-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:456283",
-        "vendor_sku": "456283",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
-        "price": 1170
-      },
-      {
-        "listing_key": "ksp:456281",
-        "vendor_sku": "456281",
-        "title": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
-        "price": 1180
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x8gb-5600mt-cl40-s-vengeance-16gb-x2-5600mhz-cl40-rgb-grey-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:456282",
-        "vendor_sku": "456282",
-        "title": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
-        "price": 1130
-      },
-      {
-        "listing_key": "ksp:456284",
-        "vendor_sku": "456284",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
-        "price": 1140
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:2x8gb-beast-cl16-fury-16gb-x2-3200mhz-cl16-rgb-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:278724",
-        "vendor_sku": "278724",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x8GB DDR4 3200MHz CL16",
-        "price": 840
-      },
-      {
-        "listing_key": "ksp:164158",
-        "vendor_sku": "164158",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x8GB DDR4 3200MHz CL16",
-        "price": 860
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:6000mt-beast-cl36-fury-s-32gb-6000mhz-cl36-rgb-black-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:390454",
-        "vendor_sku": "390454",
-        "title": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
-        "price": 2030
-      },
-      {
-        "listing_key": "ksp:390523",
-        "vendor_sku": "390523",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
-        "price": 2160
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:6400mt-beast-cl32-fury-s-32gb-6400mhz-cl32-rgb-white-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:431635",
-        "vendor_sku": "431635",
-        "title": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6400MT / s CL32 - צבע לבן",
-        "price": 1950
-      },
-      {
-        "listing_key": "ksp:423257",
-        "vendor_sku": "423257",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6400MT / s CL32 - צבע לבן",
-        "price": 2090
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:memory:beast-cl16-fury-16gb-3200mhz-cl16-rgb-dimm",
-    "category": "memory",
-    "vendor": "ksp",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "ksp:288707",
-        "vendor_sku": "288707",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 16GB DDR4 3200MHz CL16",
-        "price": 790
-      },
-      {
-        "listing_key": "ksp:208539",
-        "vendor_sku": "208539",
-        "title": "זכרון למחשב Kingston FURY BEAST 16GB DDR4 3200MHz CL16",
-        "price": 819
       }
     ]
   },
@@ -6802,48 +6942,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:psu:750w-fully-modular-rm750e-rme-series-750w-full-white",
-    "category": "psu",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:222389",
-        "vendor_sku": "222389",
-        "title": "ספק כוח Corsair RM750e RMe Series - 750W - Fully Modular לבן",
-        "price": 625
-      },
-      {
-        "listing_key": "1pc:222398",
-        "vendor_sku": "222398",
-        "title": "ספק כוח Corsair RM750e RMe Series - 750W Fully Modular",
-        "price": 626
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:psu:850w-fully-modular-rm850e-rme-series-850w-full-white",
-    "category": "psu",
-    "vendor": "1pc",
-    "collapsed": false,
-    "offers": [
-      {
-        "listing_key": "1pc:222390",
-        "vendor_sku": "222390",
-        "title": "ספק כוח Corsair RM850e RMe Series - 850W - Fully Modular לבן",
-        "price": 693
-      },
-      {
-        "listing_key": "1pc:222399",
-        "vendor_sku": "222399",
-        "title": "ספק כוח Corsair RM850e RMe Series - 850W Fully Modular",
-        "price": 693
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:psu:fully-modular-rm1000x-shift-1000w-full-black",
     "category": "psu",
     "vendor": "1pc",
@@ -6932,28 +7030,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:storage:0-0-2-2280-5-9100-pro-4000gb-pcie5-m22280",
-    "category": "storage",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:382020",
-        "vendor_sku": "382020",
-        "title": "כונן עם גוף קירור Samsung 9100 PRO 4TB PCIe 5.0 NVMe 2.0 M.2 2280",
-        "price": 3459
-      },
-      {
-        "listing_key": "ksp:385362",
-        "vendor_sku": "385362",
-        "title": "כונן Samsung 9100 PRO 4TB PCIe 5.0 NVMe 2.0 M.2 2280",
-        "price": 3650,
-        "alias_of": "ksp:382020"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
     "category": "storage",
     "vendor": "yahav",
@@ -6993,28 +7069,6 @@
         "vendor_sku": "11118",
         "title": "כונן SSD חברת Verbatim דגם Vi7000G Series with Heatsink and DRAM Cache Gen4 4TB 4096GB 7000MB M.2 NVMe",
         "price": 1950
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:storage:2280-990-pro-2000gb-nvme-m22280",
-    "category": "storage",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:236718",
-        "vendor_sku": "236718",
-        "title": "כונן Samsung 990 PRO NVMe M.2 2280 2TB SSD",
-        "price": 1559
-      },
-      {
-        "listing_key": "ksp:288622",
-        "vendor_sku": "288622",
-        "title": "כונן SSD עם גוף קירור Samsung 990 PRO NVMe M.2 2280 2TB",
-        "price": 1790,
-        "alias_of": "ksp:236718"
       }
     ]
   },
@@ -14033,7 +14087,7 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-rgb-grey-dimm",
+    "product_id": "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-grey",
     "vendor": "",
     "offers": [
       {
@@ -14049,13 +14103,6 @@
         "vendor_sku": "GAOG432GB3200C16BDC",
         "title": "GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION Edition Gray",
         "price": 1064
-      },
-      {
-        "listing_key": "1pc:222245",
-        "vendor": "1pc",
-        "vendor_sku": "222245",
-        "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1130
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -14205,13 +14252,6 @@
         "vendor_sku": "222244",
         "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
         "price": 653
-      },
-      {
-        "listing_key": "1pc:222243",
-        "vendor": "1pc",
-        "vendor_sku": "222243",
-        "title": "זיכרון למחשב נייח GeIL ORION DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 616
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -20184,58 +20224,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:c201-ice-panoramic-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207721",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C201PI",
-        "title": "מארז מחשב Gigabyte C201 Panoramic ICE בצבע לבן",
-        "price": 297
-      },
-      {
-        "listing_key": "tms:GB-C201PI",
-        "vendor": "tms",
-        "vendor_sku": "GB-C201PI",
-        "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
-        "price": 349
-      }
-    ],
-    "model_code": "c201-ice-panoramic",
-    "manufacturer_pn": [
-      "GBC201PI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:c201-panoramic-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207722",
-        "vendor": "1pc",
-        "vendor_sku": "GB-C201P",
-        "title": "מארז מחשב Gigabyte C201 Panoramic בצבע שחור",
-        "price": 352
-      },
-      {
-        "listing_key": "tms:GB-C201P",
-        "vendor": "tms",
-        "vendor_sku": "GB-C201P",
-        "title": "מארז מחשב Gigabyte C201 Panoramic",
-        "price": 336
-      }
-    ],
-    "model_code": "c201-panoramic",
-    "manufacturer_pn": [
-      "GBC201P"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:c500-ice-panoramic-stealth-white",
     "vendor": "",
     "offers": [
@@ -20283,6 +20271,58 @@
     "model_code": "c500-panoramic-stealth",
     "manufacturer_pn": [
       "GBC500PST"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c201-ice-panoramic-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207721",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C201PI",
+        "title": "מארז מחשב Gigabyte C201 Panoramic ICE בצבע לבן",
+        "price": 297
+      },
+      {
+        "listing_key": "tms:GB-C201PI",
+        "vendor": "tms",
+        "vendor_sku": "GB-C201PI",
+        "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
+        "price": 349
+      }
+    ],
+    "model_code": "c201-ice-panoramic",
+    "manufacturer_pn": [
+      "GBC201PI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:c201-panoramic-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207722",
+        "vendor": "1pc",
+        "vendor_sku": "GB-C201P",
+        "title": "מארז מחשב Gigabyte C201 Panoramic בצבע שחור",
+        "price": 352
+      },
+      {
+        "listing_key": "tms:GB-C201P",
+        "vendor": "tms",
+        "vendor_sku": "GB-C201P",
+        "title": "מארז מחשב Gigabyte C201 Panoramic",
+        "price": 336
+      }
+    ],
+    "model_code": "c201-panoramic",
+    "manufacturer_pn": [
+      "GBC201P"
     ]
   },
   {
@@ -20474,133 +20514,105 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221421",
+        "listing_key": "1pc:221445",
         "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
-        "price": 500
+        "vendor_sku": "12RTLLCD1F3B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
+        "price": 602
       },
       {
-        "listing_key": "tms:12RSLIN1F3B",
+        "listing_key": "tms:12RTLLCD1F3B",
         "vendor": "tms",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
-        "price": 441
-      },
-      {
-        "listing_key": "yahav:11691",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 440
+        "vendor_sku": "12RTLLCD1F3B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
+        "price": 538
       }
     ],
-    "model_code": "120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni",
+    "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
     "manufacturer_pn": [
-      "12RSLIN1F3B"
+      "12RTLLCD1F3B"
     ]
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-black",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221417",
+        "listing_key": "1pc:221441",
         "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור 12RSLIN1F1B",
-        "price": 163
+        "vendor_sku": "12RTLLCD1F1B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+        "price": 235
       },
       {
-        "listing_key": "tms:12RSLIN1F1B",
+        "listing_key": "tms:12RTLLCD1F1B",
         "vendor": "tms",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור",
-        "price": 142
-      },
-      {
-        "listing_key": "yahav:11685",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
-        "price": 145
+        "vendor_sku": "12RTLLCD1F1B",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
+        "price": 213
       }
     ],
-    "model_code": "120mm-12rslin1f1b-blade-fan-flex-inf-reverse-sl-uni",
+    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
     "manufacturer_pn": [
-      "12RSLIN1F1B"
+      "12RTLLCD1F1B"
     ]
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-white",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221418",
+        "listing_key": "1pc:221442",
         "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
-        "price": 168
+        "vendor_sku": "12RTLLCD1F1W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+        "price": 241
       },
       {
-        "listing_key": "tms:12RSLIN1F1W",
+        "listing_key": "tms:12RTLLCD1F1W",
         "vendor": "tms",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
-        "price": 147
-      },
-      {
-        "listing_key": "yahav:11687",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Single Pack צבע לבן",
-        "price": 150
+        "vendor_sku": "12RTLLCD1F1W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
+        "price": 218
       }
     ],
-    "model_code": "120mm-blade-fan-flex-inf-reverse-sl-uni",
+    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
     "manufacturer_pn": [
-      "12RSLIN1F1W"
+      "12RTLLCD1F1W"
     ]
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-white",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221422",
+        "listing_key": "1pc:221446",
         "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן 12RSLIN1F3W",
-        "price": 485
+        "vendor_sku": "12RTLLCD1F3W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 564
       },
       {
-        "listing_key": "tms:12RSLIN1F3W",
+        "listing_key": "tms:12RTLLCD1F3W",
         "vendor": "tms",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן",
-        "price": 457
-      },
-      {
-        "listing_key": "yahav:11693",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
-        "price": 440
+        "vendor_sku": "12RTLLCD1F3W",
+        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 548
       }
     ],
-    "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
+    "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
     "manufacturer_pn": [
-      "12RSLIN1F3W"
+      "12RTLLCD1F3W"
     ]
   },
   {
@@ -20738,105 +20750,133 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-black",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221445",
+        "listing_key": "1pc:221421",
         "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F3B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור 12RTLLCD1F3B",
-        "price": 602
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
+        "price": 500
       },
       {
-        "listing_key": "tms:12RTLLCD1F3B",
+        "listing_key": "tms:12RSLIN1F3B",
         "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F3B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack שחור",
-        "price": 538
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
+        "price": 441
+      },
+      {
+        "listing_key": "yahav:11691",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 440
       }
     ],
-    "model_code": "120mm-12rtllcd1f3b-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+    "model_code": "120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni",
     "manufacturer_pn": [
-      "12RTLLCD1F3B"
+      "12RSLIN1F3B"
     ]
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-black",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-black",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221441",
+        "listing_key": "1pc:221417",
         "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F1B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-        "price": 235
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור 12RSLIN1F1B",
+        "price": 163
       },
       {
-        "listing_key": "tms:12RTLLCD1F1B",
+        "listing_key": "tms:12RSLIN1F1B",
         "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F1B",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade שחור",
-        "price": 213
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור",
+        "price": 142
+      },
+      {
+        "listing_key": "yahav:11685",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+        "price": 145
       }
     ],
-    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+    "model_code": "120mm-12rslin1f1b-blade-fan-flex-inf-reverse-sl-uni",
     "manufacturer_pn": [
-      "12RTLLCD1F1B"
+      "12RSLIN1F1B"
     ]
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-lcd-reverse-tl-uni-120mm-rgb-white",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221442",
+        "listing_key": "1pc:221418",
         "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F1W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-        "price": 241
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
+        "price": 168
       },
       {
-        "listing_key": "tms:12RTLLCD1F1W",
+        "listing_key": "tms:12RSLIN1F1W",
         "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F1W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade לבן",
-        "price": 218
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
+        "price": 147
+      },
+      {
+        "listing_key": "yahav:11687",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Single Pack צבע לבן",
+        "price": 150
       }
     ],
-    "model_code": "120mm-blade-fan-flex-lcd-reverse-tl-uni",
+    "model_code": "120mm-blade-fan-flex-inf-reverse-sl-uni",
     "manufacturer_pn": [
-      "12RTLLCD1F1W"
+      "12RSLIN1F1W"
     ]
   },
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni-120mm-3-rgb-white",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-white",
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:221446",
+        "listing_key": "1pc:221422",
         "vendor": "1pc",
-        "vendor_sku": "12RTLLCD1F3W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 564
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן 12RSLIN1F3W",
+        "price": 485
       },
       {
-        "listing_key": "tms:12RTLLCD1F3W",
+        "listing_key": "tms:12RSLIN1F3W",
         "vendor": "tms",
-        "vendor_sku": "12RTLLCD1F3W",
-        "title": "Lian-Li 120mm UNI FAN TL LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 548
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן",
+        "price": 457
+      },
+      {
+        "listing_key": "yahav:11693",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
+        "price": 440
       }
     ],
-    "model_code": "120mm-3-blade-fan-flex-lcd-pack-reverse-tl-uni",
+    "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
     "manufacturer_pn": [
-      "12RTLLCD1F3W"
+      "12RSLIN1F3W"
     ]
   },
   {
@@ -22378,46 +22418,6 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172013",
-        "vendor": "1pc",
-        "vendor_sku": "GZ890AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1107
-      },
-      {
-        "listing_key": "ksp:343512",
-        "vendor": "ksp",
-        "vendor_sku": "343512",
-        "title": "לוח אם GIGABYTE Z890 AORUS ELITE WIFI7 ICE LGA 1851 DDR5",
-        "price": 1060
-      },
-      {
-        "listing_key": "tms:GZ890AORUSELITEWF7ICE",
-        "vendor": "tms",
-        "vendor_sku": "GZ890AORUSELITEWF7ICE",
-        "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1275
-      },
-      {
-        "listing_key": "yahav:10326",
-        "vendor": "yahav",
-        "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
-        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
-        "price": 1105
-      }
-    ],
-    "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
-    "manufacturer_pn": [
-      "GZ890AORUSELITEWF7ICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
     "product_id": "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx",
     "vendor": "",
     "offers": [
@@ -22484,6 +22484,46 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-z890-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172013",
+        "vendor": "1pc",
+        "vendor_sku": "GZ890AORUSELITEWF7ICE",
+        "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+        "price": 1107
+      },
+      {
+        "listing_key": "ksp:343512",
+        "vendor": "ksp",
+        "vendor_sku": "343512",
+        "title": "לוח אם GIGABYTE Z890 AORUS ELITE WIFI7 ICE LGA 1851 DDR5",
+        "price": 1060
+      },
+      {
+        "listing_key": "tms:GZ890AORUSELITEWF7ICE",
+        "vendor": "tms",
+        "vendor_sku": "GZ890AORUSELITEWF7ICE",
+        "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
+        "price": 1275
+      },
+      {
+        "listing_key": "yahav:10326",
+        "vendor": "yahav",
+        "vendor_sku": "Z890-AORUS-ELITE-WIFI7-ICE",
+        "title": "לוח אם חברת Gigabyte דגם Z890 AORUS ELITE Wi-Fi 7 ICE LGA 1851 DDR5 2xThunderbolt ATX",
+        "price": 1105
+      }
+    ],
+    "model_code": "1851-2xthunderbolt-7-aorus-atx-ddr5-elite-fi-ice-lga-wi-z890",
+    "manufacturer_pn": [
+      "GZ890AORUSELITEWF7ICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
     "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
     "vendor": "",
     "offers": [
@@ -22531,360 +22571,6 @@
     "model_code": "b650e-gaming-max-wifi",
     "manufacturer_pn": [
       "90MB1LD0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177646",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1091
-      },
-      {
-        "listing_key": "tms:GB850AORUSELITEWF7ICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1055
-      },
-      {
-        "listing_key": "yahav:10278",
-        "vendor": "yahav",
-        "vendor_sku": "B850-AORUS-ELITE-WIFI7-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 Ice AM5 DDR5 DP ATX",
-        "price": 1040
-      }
-    ],
-    "model_code": "7-am5-aorus-b850-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850AORUSELITEWF7ICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177647",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 964
-      },
-      {
-        "listing_key": "ivory:125172",
-        "vendor": "ivory",
-        "vendor_sku": "B850AELITEWF7",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 DDR5 ATX AMD בצבע שחור",
-        "price": 1050
-      },
-      {
-        "listing_key": "tms:GB850AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSELITEWIFI7",
-        "title": "Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 1099
-      },
-      {
-        "listing_key": "yahav:10280",
-        "vendor": "yahav",
-        "vendor_sku": "B850-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 AM5 DDR5 DP ATX",
-        "price": 1050
-      }
-    ],
-    "model_code": "7-am5-aorus-b850-dp-elite-wifi",
-    "manufacturer_pn": [
-      "GB850AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-ice-stealth-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:204045",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSSTEALTHICE",
-        "title": "לוח אם Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1606
-      },
-      {
-        "listing_key": "tms:GB850AORUSSTEALTHICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSSTEALTHICE",
-        "title": "Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1561
-      }
-    ],
-    "model_code": "aorus-b850-ice-stealth",
-    "manufacturer_pn": [
-      "GB850AORUSSTEALTHICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-stealth-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209505",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSSTEALTH",
-        "title": "לוח אם Gigabyte B850 AORUS STEALTH",
-        "price": 1295
-      },
-      {
-        "listing_key": "tms:GB850AORUSSTEALTH",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSSTEALTH",
-        "title": "Gigabyte B850 AORUS STEALTH",
-        "price": 1702
-      }
-    ],
-    "model_code": "aorus-b850-stealth",
-    "manufacturer_pn": [
-      "GB850AORUSSTEALTH"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177652",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 875
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6EICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 989
-      },
-      {
-        "listing_key": "yahav:10288",
-        "vendor": "yahav",
-        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-        "price": 1130
-      }
-    ],
-    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207713",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 1160
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6E",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 989
-      }
-    ],
-    "model_code": "aorus-b850m-elite-wifi6e",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6E"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170330",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170331",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207716",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1561
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1545
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170329",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-        "price": 1308
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7",
-        "price": 1438
-      },
-      {
-        "listing_key": "yahav:10175",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1380
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207718",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2592
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3DI",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2575
-      },
-      {
-        "listing_key": "yahav:10919",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 2190
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3DI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:216436",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-        "price": 2501
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2440
-      }
-    ],
-    "model_code": "aorus-master-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3D"
     ]
   },
   {
@@ -23017,6 +22703,360 @@
     "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
     "manufacturer_pn": [
       "GX870EAORUSPROX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207718",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2592
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3DI",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3DI",
+        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
+        "price": 2575
+      },
+      {
+        "listing_key": "yahav:10919",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 2190
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3DI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:216436",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
+        "price": 2501
+      },
+      {
+        "listing_key": "tms:GX870EAORUSMASTERX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSMASTERX3D",
+        "title": "Gigabyte X870E AORUS MASTER X3D",
+        "price": 2440
+      }
+    ],
+    "model_code": "aorus-master-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSMASTERX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170330",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1360
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI7",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
+        "price": 1319
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170331",
+        "vendor": "1pc",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1360
+      },
+      {
+        "listing_key": "tms:GX870AORUSELITEWIFI",
+        "vendor": "tms",
+        "vendor_sku": "GX870AORUSELITEWIFI",
+        "title": "Gigabyte X870 AORUS ELITE WIFI7",
+        "price": 1319
+      }
+    ],
+    "model_code": "aorus-elite-wifi7-x870",
+    "manufacturer_pn": [
+      "GX870AORUSELITEWIFI"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207716",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1561
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7I",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
+        "price": 1545
+      }
+    ],
+    "model_code": "aorus-elite-ice-wifi7-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7I"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:170329",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
+        "price": 1308
+      },
+      {
+        "listing_key": "tms:GX870EAORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSELITEWIFI7",
+        "title": "Gigabyte X870E AORUS ELITE WiFi7",
+        "price": 1438
+      },
+      {
+        "listing_key": "yahav:10175",
+        "vendor": "yahav",
+        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
+        "price": 1380
+      }
+    ],
+    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177652",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 875
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6EICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6EICE",
+        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
+        "price": 989
+      },
+      {
+        "listing_key": "yahav:10288",
+        "vendor": "yahav",
+        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
+        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
+        "price": 1130
+      }
+    ],
+    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6EICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207713",
+        "vendor": "1pc",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 1160
+      },
+      {
+        "listing_key": "tms:GB850MAORUSELTWF6E",
+        "vendor": "tms",
+        "vendor_sku": "GB850MAORUSELTWF6E",
+        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
+        "price": 989
+      }
+    ],
+    "model_code": "aorus-b850m-elite-wifi6e",
+    "manufacturer_pn": [
+      "GB850MAORUSELTWF6E"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177646",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSELITEWF7ICE",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
+        "price": 1091
+      },
+      {
+        "listing_key": "tms:GB850AORUSELITEWF7ICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSELITEWF7ICE",
+        "title": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
+        "price": 1055
+      },
+      {
+        "listing_key": "yahav:10278",
+        "vendor": "yahav",
+        "vendor_sku": "B850-AORUS-ELITE-WIFI7-ICE",
+        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 Ice AM5 DDR5 DP ATX",
+        "price": 1040
+      }
+    ],
+    "model_code": "7-am5-aorus-b850-dp-elite-ice-wifi",
+    "manufacturer_pn": [
+      "GB850AORUSELITEWF7ICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-elite-wifi7-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177647",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSELITEWIFI7",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7",
+        "price": 964
+      },
+      {
+        "listing_key": "ivory:125172",
+        "vendor": "ivory",
+        "vendor_sku": "B850AELITEWF7",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 DDR5 ATX AMD בצבע שחור",
+        "price": 1050
+      },
+      {
+        "listing_key": "tms:GB850AORUSELITEWIFI7",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSELITEWIFI7",
+        "title": "Gigabyte B850 AORUS ELITE WIFI7",
+        "price": 1099
+      },
+      {
+        "listing_key": "yahav:10280",
+        "vendor": "yahav",
+        "vendor_sku": "B850-AORUS-ELITE-WIFI7",
+        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 AM5 DDR5 DP ATX",
+        "price": 1050
+      }
+    ],
+    "model_code": "7-am5-aorus-b850-dp-elite-wifi",
+    "manufacturer_pn": [
+      "GB850AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-ice-stealth-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:204045",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSSTEALTHICE",
+        "title": "לוח אם Gigabyte B850 AORUS STEALTH ICE",
+        "price": 1606
+      },
+      {
+        "listing_key": "tms:GB850AORUSSTEALTHICE",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSSTEALTHICE",
+        "title": "Gigabyte B850 AORUS STEALTH ICE",
+        "price": 1561
+      }
+    ],
+    "model_code": "aorus-b850-ice-stealth",
+    "manufacturer_pn": [
+      "GB850AORUSSTEALTHICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-stealth-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:209505",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSSTEALTH",
+        "title": "לוח אם Gigabyte B850 AORUS STEALTH",
+        "price": 1295
+      },
+      {
+        "listing_key": "tms:GB850AORUSSTEALTH",
+        "vendor": "tms",
+        "vendor_sku": "GB850AORUSSTEALTH",
+        "title": "Gigabyte B850 AORUS STEALTH",
+        "price": 1702
+      }
+    ],
+    "model_code": "aorus-b850-stealth",
+    "manufacturer_pn": [
+      "GB850AORUSSTEALTH"
     ]
   },
   {
@@ -23783,186 +23823,6 @@
   },
   {
     "kind": "identity_merge",
-    "category": "aio",
-    "product_id": "model:aio:360-lc-rog-strix-360mm-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:471596",
-        "vendor": "ksp",
-        "vendor_sku": "471596",
-        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 - צבע שחור",
-        "price": 990
-      },
-      {
-        "listing_key": "ksp:327106",
-        "vendor": "ksp",
-        "vendor_sku": "327106",
-        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 ARGB - שחור",
-        "price": 1090
-      }
-    ],
-    "model_code": "360-lc-rog-strix",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
-    "product_id": "model:case:3500x-mid-tower-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222387",
-        "vendor": "1pc",
-        "vendor_sku": "222387",
-        "title": "מארז מחשב Corsair 3500X Mid-Tower לבן",
-        "price": 439
-      },
-      {
-        "listing_key": "1pc:221784",
-        "vendor": "1pc",
-        "vendor_sku": "221784",
-        "title": "מארז מחשב Corsair 3500X Mid-Tower – עם פאנלים מזכוכית ועיצוב מותאם לבנייה מודרנית",
-        "price": 439
-      }
-    ],
-    "model_code": "3500x-mid-tower",
-    "reason": "title-axis conflict: color black vs white",
-    "axis_conflicts": {
-      "color": [
-        "black",
-        "white"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
-    "product_id": "model:case:glass-mid-pa401-panel-proart-tempered-tower-wood-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:395986",
-        "vendor": "ksp",
-        "vendor_sku": "395986",
-        "title": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Tempered Glass Panel - צבע שחור",
-        "price": 699
-      },
-      {
-        "listing_key": "ksp:482946",
-        "vendor": "ksp",
-        "vendor_sku": "482946",
-        "title": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Tempered Glass Panel - צבע בז'",
-        "price": 699
-      }
-    ],
-    "model_code": "glass-mid-pa401-panel-proart-tempered-tower-wood",
-    "reason": "title-axis conflict: color beige+wood vs black+wood",
-    "axis_conflicts": {
-      "color": [
-        "beige+wood",
-        "black+wood"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
-    "product_id": "model:case:mesh-pa401-panel-proart-wood-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:482957",
-        "vendor": "ksp",
-        "vendor_sku": "482957",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע שחור",
-        "price": 699
-      },
-      {
-        "listing_key": "ksp:472502",
-        "vendor": "ksp",
-        "vendor_sku": "472502",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Mesh Panel ATX - צבע בז'",
-        "price": 699
-      }
-    ],
-    "model_code": "mesh-pa401-panel-proart-wood",
-    "reason": "title-axis conflict: color beige+wood vs black+wood",
-    "axis_conflicts": {
-      "color": [
-        "beige+wood",
-        "black+wood"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
-    "product_id": "model:case:metal-pa401-panel-proart-wood-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:472465",
-        "vendor": "ksp",
-        "vendor_sku": "472465",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע שחור",
-        "price": 699
-      },
-      {
-        "listing_key": "ksp:482954",
-        "vendor": "ksp",
-        "vendor_sku": "482954",
-        "title": "מארז ללא ספק Asus ProArt PA401 Wood Edition Metal Panel ATX - צבע בז'",
-        "price": 699
-      }
-    ],
-    "model_code": "metal-pa401-panel-proart-wood",
-    "reason": "title-axis conflict: color beige+wood vs black+wood",
-    "axis_conflicts": {
-      "color": [
-        "beige+wood",
-        "black+wood"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "gpu",
-    "product_id": "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:371860",
-        "vendor": "ksp",
-        "vendor_sku": "371860",
-        "title": "כרטיס מסך Asus Prime Radeon RX 9070 XT 16GB GDDR6 OC Edition",
-        "price": 3815
-      },
-      {
-        "listing_key": "ksp:503022",
-        "vendor": "ksp",
-        "vendor_sku": "503022",
-        "title": "כרטיס מסך Asus Prime Radeon RX 9070 XT 16GB GDDR6 White OC Edition",
-        "price": 3890
-      }
-    ],
-    "model_code": "9070-gddr6-oc-prime-radeon-rx-xt",
-    "reason": "title-axis conflict: color black vs white",
-    "axis_conflicts": {
-      "color": [
-        "black",
-        "white"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
     "category": "gpu",
     "product_id": "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb",
     "vendor": "",
@@ -23995,657 +23855,6 @@
       "chipset": [
         "9070",
         "9070XT"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222754",
-        "vendor": "1pc",
-        "vendor_sku": "GAOG432GB3200C16BDC",
-        "title": "זיכרון למחשב GeIL ORION AMD Edition DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1100
-      },
-      {
-        "listing_key": "1pc:222245",
-        "vendor": "1pc",
-        "vendor_sku": "222245",
-        "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1130
-      },
-      {
-        "listing_key": "tms:GAOG432GB3200C16BDC",
-        "vendor": "tms",
-        "vendor_sku": "GAOG432GB3200C16BDC",
-        "title": "GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION Edition Gray",
-        "price": 1064
-      }
-    ],
-    "model_code": "2x16gb-3200-amd-cl16-orion",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222239",
-        "vendor": "1pc",
-        "vendor_sku": "222239",
-        "title": "זיכרון למחשב נייח GeIL ORION V DDR5 32GB (2x16GB) 6000 CL36 אפור",
-        "price": 2137
-      },
-      {
-        "listing_key": "1pc:222240",
-        "vendor": "1pc",
-        "vendor_sku": "222240",
-        "title": "זיכרון למחשב נייח GeIL ORION V RGB DDR5 32GB (2x16GB) 6000 CL36 אפור",
-        "price": 2157
-      }
-    ],
-    "model_code": "2x16gb-6000-cl36-orion-v",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:480431",
-        "vendor": "ksp",
-        "vendor_sku": "480431",
-        "title": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
-        "price": 2450
-      },
-      {
-        "listing_key": "ksp:480428",
-        "vendor": "ksp",
-        "vendor_sku": "480428",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
-        "price": 2490
-      }
-    ],
-    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:480433",
-        "vendor": "ksp",
-        "vendor_sku": "480433",
-        "title": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2335
-      },
-      {
-        "listing_key": "ksp:493649",
-        "vendor": "ksp",
-        "vendor_sku": "493649",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2360
-      },
-      {
-        "listing_key": "ksp:480430",
-        "vendor": "ksp",
-        "vendor_sku": "480430",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2490
-      }
-    ],
-    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:483232",
-        "vendor": "ksp",
-        "vendor_sku": "483232",
-        "title": "זיכרון למחשב Corsair Vengeance 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
-        "price": 2190
-      },
-      {
-        "listing_key": "ksp:483234",
-        "vendor": "ksp",
-        "vendor_sku": "483234",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL38 - צבע אפור",
-        "price": 2295
-      }
-    ],
-    "model_code": "2x16gb-6000mt-cl38-s-vengeance",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6800mt-beast-cl34-fury-s-32gb-x2-6800mhz-cl34-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:431632",
-        "vendor": "ksp",
-        "vendor_sku": "431632",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 6800MT / s CL34 - צבע שחור",
-        "price": 2330
-      },
-      {
-        "listing_key": "ksp:405931",
-        "vendor": "ksp",
-        "vendor_sku": "405931",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 6800MT / s CL34 - צבע שחור",
-        "price": 2390
-      }
-    ],
-    "model_code": "2x16gb-6800mt-beast-cl34-fury-s",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-beast-cl30-fury-32gb-x2-6000mhz-cl30-rgb-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:338316",
-        "vendor": "ksp",
-        "vendor_sku": "338316",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 6000MHz CL30",
-        "price": 2750
-      },
-      {
-        "listing_key": "ksp:338315",
-        "vendor": "ksp",
-        "vendor_sku": "338315",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 6000MHz CL30",
-        "price": 2890
-      }
-    ],
-    "model_code": "2x16gb-beast-cl30-fury",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-beast-cl40-fury-32gb-x2-5200mhz-cl40-rgb-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:178003",
-        "vendor": "ksp",
-        "vendor_sku": "178003",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 5200MHz CL40",
-        "price": 2210
-      },
-      {
-        "listing_key": "ksp:211775",
-        "vendor": "ksp",
-        "vendor_sku": "211775",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 5200MHz CL40",
-        "price": 2240
-      }
-    ],
-    "model_code": "2x16gb-beast-cl40-fury",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-beast-cl40-fury-32gb-x2-5600mhz-cl40-rgb-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:211777",
-        "vendor": "ksp",
-        "vendor_sku": "211777",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x16GB DDR5 5600MHz CL40",
-        "price": 2250
-      },
-      {
-        "listing_key": "ksp:193193",
-        "vendor": "ksp",
-        "vendor_sku": "193193",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x16GB DDR5 5600MHz CL40",
-        "price": 2510
-      }
-    ],
-    "model_code": "2x16gb-beast-cl40-fury",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x32gb-5200mt-beast-cl40-fury-s-64gb-x2-5200mhz-cl40-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:390585",
-        "vendor": "ksp",
-        "vendor_sku": "390585",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5200MT / s CL40",
-        "price": 3450
-      },
-      {
-        "listing_key": "ksp:390472",
-        "vendor": "ksp",
-        "vendor_sku": "390472",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5200MT / s CL40",
-        "price": 3590
-      }
-    ],
-    "model_code": "2x32gb-5200mt-beast-cl40-fury-s",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x32gb-5600mt-beast-cl36-fury-s-64gb-x2-5600mhz-cl36-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:390599",
-        "vendor": "ksp",
-        "vendor_sku": "390599",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL36",
-        "price": 3540
-      },
-      {
-        "listing_key": "ksp:390479",
-        "vendor": "ksp",
-        "vendor_sku": "390479",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL36",
-        "price": 3545
-      }
-    ],
-    "model_code": "2x32gb-5600mt-beast-cl36-fury-s",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x32gb-5600mt-beast-cl40-fury-s-64gb-x2-5600mhz-cl40-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:390476",
-        "vendor": "ksp",
-        "vendor_sku": "390476",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x32GB DDR5 5600MT / s CL40",
-        "price": 3630
-      },
-      {
-        "listing_key": "ksp:390589",
-        "vendor": "ksp",
-        "vendor_sku": "390589",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x32GB DDR5 5600MT / s CL40",
-        "price": 3720
-      }
-    ],
-    "model_code": "2x32gb-5600mt-beast-cl40-fury-s",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x8gb-3200-cl16-orion-16gb-x2-3200mhz-cl16-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222243",
-        "vendor": "1pc",
-        "vendor_sku": "222243",
-        "title": "זיכרון למחשב נייח GeIL ORION DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 616
-      },
-      {
-        "listing_key": "1pc:222244",
-        "vendor": "1pc",
-        "vendor_sku": "222244",
-        "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 653
-      },
-      {
-        "listing_key": "tms:GAOG416GB3200C16BDC",
-        "vendor": "tms",
-        "vendor_sku": "GAOG416GB3200C16BDC",
-        "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION מהדורת בצבע אפור",
-        "price": 564
-      }
-    ],
-    "model_code": "2x8gb-3200-cl16-orion",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x8gb-5200mt-cl40-s-vengeance-16gb-x2-5200mhz-cl40-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:456283",
-        "vendor": "ksp",
-        "vendor_sku": "456283",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
-        "price": 1170
-      },
-      {
-        "listing_key": "ksp:456281",
-        "vendor": "ksp",
-        "vendor_sku": "456281",
-        "title": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5200MT / s CL40 - צבע אפור",
-        "price": 1180
-      }
-    ],
-    "model_code": "2x8gb-5200mt-cl40-s-vengeance",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x8gb-5600mt-cl40-s-vengeance-16gb-x2-5600mhz-cl40-rgb-grey-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:456282",
-        "vendor": "ksp",
-        "vendor_sku": "456282",
-        "title": "זיכרון למחשב Corsair Vengeance 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
-        "price": 1130
-      },
-      {
-        "listing_key": "ksp:456284",
-        "vendor": "ksp",
-        "vendor_sku": "456284",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x8GB DDR5 5600MT / s CL40 - צבע אפור",
-        "price": 1140
-      }
-    ],
-    "model_code": "2x8gb-5600mt-cl40-s-vengeance",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:2x8gb-beast-cl16-fury-16gb-x2-3200mhz-cl16-rgb-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:278724",
-        "vendor": "ksp",
-        "vendor_sku": "278724",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 2x8GB DDR4 3200MHz CL16",
-        "price": 840
-      },
-      {
-        "listing_key": "ksp:164158",
-        "vendor": "ksp",
-        "vendor_sku": "164158",
-        "title": "זכרון למחשב Kingston FURY BEAST 2x8GB DDR4 3200MHz CL16",
-        "price": 860
-      }
-    ],
-    "model_code": "2x8gb-beast-cl16-fury",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:6000mt-beast-cl36-fury-s-32gb-6000mhz-cl36-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:390454",
-        "vendor": "ksp",
-        "vendor_sku": "390454",
-        "title": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6000MT / s CL36",
-        "price": 2030
-      },
-      {
-        "listing_key": "ksp:390523",
-        "vendor": "ksp",
-        "vendor_sku": "390523",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6000MT / s CL36",
-        "price": 2160
-      }
-    ],
-    "model_code": "6000mt-beast-cl36-fury-s",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:6400mt-beast-cl32-fury-s-32gb-6400mhz-cl32-rgb-white-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:431635",
-        "vendor": "ksp",
-        "vendor_sku": "431635",
-        "title": "זכרון למחשב Kingston FURY BEAST 32GB DDR5 6400MT / s CL32 - צבע לבן",
-        "price": 1950
-      },
-      {
-        "listing_key": "ksp:423257",
-        "vendor": "ksp",
-        "vendor_sku": "423257",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 32GB DDR5 6400MT / s CL32 - צבע לבן",
-        "price": 2090
-      }
-    ],
-    "model_code": "6400mt-beast-cl32-fury-s",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "memory",
-    "product_id": "model:memory:beast-cl16-fury-16gb-3200mhz-cl16-rgb-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:288707",
-        "vendor": "ksp",
-        "vendor_sku": "288707",
-        "title": "זכרון למחשב Kingston FURY BEAST RGB 16GB DDR4 3200MHz CL16",
-        "price": 790
-      },
-      {
-        "listing_key": "ksp:208539",
-        "vendor": "ksp",
-        "vendor_sku": "208539",
-        "title": "זכרון למחשב Kingston FURY BEAST 16GB DDR4 3200MHz CL16",
-        "price": 819
-      }
-    ],
-    "model_code": "beast-cl16-fury",
-    "reason": "title-axis conflict: lighting lit vs none",
-    "axis_conflicts": {
-      "lighting": [
-        "lit",
-        "none"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "psu",
-    "product_id": "model:psu:750w-fully-modular-rm750e-rme-series-750w-full-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222389",
-        "vendor": "1pc",
-        "vendor_sku": "222389",
-        "title": "ספק כוח Corsair RM750e RMe Series - 750W - Fully Modular לבן",
-        "price": 625
-      },
-      {
-        "listing_key": "1pc:222398",
-        "vendor": "1pc",
-        "vendor_sku": "222398",
-        "title": "ספק כוח Corsair RM750e RMe Series - 750W Fully Modular",
-        "price": 626
-      }
-    ],
-    "model_code": "750w-fully-modular-rm750e-rme-series",
-    "reason": "title-axis conflict: color black vs white",
-    "axis_conflicts": {
-      "color": [
-        "black",
-        "white"
-      ]
-    }
-  },
-  {
-    "kind": "identity_merge",
-    "category": "psu",
-    "product_id": "model:psu:850w-fully-modular-rm850e-rme-series-850w-full-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222390",
-        "vendor": "1pc",
-        "vendor_sku": "222390",
-        "title": "ספק כוח Corsair RM850e RMe Series - 850W - Fully Modular לבן",
-        "price": 693
-      },
-      {
-        "listing_key": "1pc:222399",
-        "vendor": "1pc",
-        "vendor_sku": "222399",
-        "title": "ספק כוח Corsair RM850e RMe Series - 850W Fully Modular",
-        "price": 693
-      }
-    ],
-    "model_code": "850w-fully-modular-rm850e-rme-series",
-    "reason": "title-axis conflict: color black vs white",
-    "axis_conflicts": {
-      "color": [
-        "black",
-        "white"
       ]
     }
   }

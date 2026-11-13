@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T17:11:02.516777+00:00",
+  "generated_at": "2026-11-13T20:12:51.048105+00:00",
   "gaps": [
     {
       "category": "case",
@@ -2322,6 +2322,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "קצב נתונים בסיסי",
+      "count": 4,
+      "products": [
+        "memory:1pc:1pc-222239",
+        "model:memory:1x16gb-5600-cl38-orion-v-16gb-x1-5600mhz-cl38-black-dimm",
+        "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm"
+      ]
+    },
+    {
       "category": "aio",
       "label": "מק\"ט יצרן",
       "count": 4,
@@ -2599,16 +2609,6 @@
         "model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6400mhz-cl32-rgb-black-dimm",
         "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm",
         "model:memory:ad5u480016g-dimm-s-u-16gb-4800mhz-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "קצב נתונים בסיסי",
-      "count": 4,
-      "products": [
-        "model:memory:1x16gb-5600-cl38-orion-v-16gb-x1-5600mhz-cl38-black-dimm",
-        "model:memory:2x16gb-6000-cl36-orion-v-32gb-x2-6000mhz-cl36-rgb-grey-dimm",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -6435,7 +6435,7 @@
       "label": "סקירה",
       "count": 1,
       "products": [
-        "model:gpu:12gd-gv-oc-r907gregaming-12gb"
+        "model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb"
       ]
     },
     {
@@ -6443,7 +6443,7 @@
       "label": "מפרט טכני",
       "count": 1,
       "products": [
-        "model:gpu:12gd-gv-oc-r907gregaming-12gb"
+        "model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb"
       ]
     },
     {
@@ -6451,7 +6451,7 @@
       "label": "מידע מהיצרן",
       "count": 1,
       "products": [
-        "model:gpu:12gd-gv-oc-r907gregaming-12gb"
+        "model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb"
       ]
     },
     {
