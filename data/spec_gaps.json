@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T22:04:35.731036+00:00",
+  "generated_at": "2026-11-13T22:11:18.614830+00:00",
   "gaps": [
     {
       "category": "case",
@@ -54,7 +54,7 @@
     {
       "category": "case",
       "label": "Bays 5.25",
-      "count": 43,
+      "count": 42,
       "products": [
         "model:case:0-htpc-milo-ml03-slim-usb3-black",
         "model:case:01-c-fd-pop-pos1x-silent-xl-black",
@@ -9163,7 +9163,7 @@
       "label": "מחברי Molex בעלי 4 פינים",
       "count": 1,
       "products": [
-        "model:psu:1-3-9020336-cp-cybenetics-eu-rm850e-850w-full"
+        "model:psu:1-3-cybenetics-rm850e-850w-full"
       ]
     },
     {
@@ -9171,7 +9171,7 @@
       "label": "מחברי PCI-E בעלי 8 פינים",
       "count": 1,
       "products": [
-        "model:psu:1-3-9020336-cp-cybenetics-eu-rm850e-850w-full"
+        "model:psu:1-3-cybenetics-rm850e-850w-full"
       ]
     },
     {
