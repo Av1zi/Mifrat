@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T20:12:51.048105+00:00",
+  "generated_at": "2026-11-13T22:04:35.731036+00:00",
   "gaps": [
     {
       "category": "case",
@@ -17,8 +17,8 @@
       "count": 100,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:10100-tray",
-        "model:cpu:10105f"
+        "manual:cpu:1pc-105172-tms-c6700t",
+        "manual:cpu:1pc-107271-tms-c9100tt"
       ]
     },
     {
@@ -797,8 +797,8 @@
       "count": 12,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:245k",
-        "model:cpu:245kf"
+        "manual:cpu:1pc-189657-tms-c265kt",
+        "model:cpu:245k"
       ]
     },
     {
@@ -1562,6 +1562,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "נפח זיכרון",
+      "count": 8,
+      "products": [
+        "manual:cpu:1pc-126898-tms-c13700kt",
+        "model:cpu:14900ks-tray",
+        "model:cpu:245k-tray"
+      ]
+    },
+    {
       "category": "case",
       "label": "חיבורי USB 3.0",
       "count": 8,
@@ -1579,16 +1589,6 @@
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "נפח זיכרון",
-      "count": 8,
-      "products": [
-        "model:cpu:13700k",
-        "model:cpu:14900ks-tray",
-        "model:cpu:245k-tray"
       ]
     },
     {
