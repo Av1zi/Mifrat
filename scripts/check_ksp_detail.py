@@ -98,12 +98,33 @@ def main() -> int:
     eq("cpu model name not adopted", ksp_cpu.get("mpn"), None)
     eq("uncorroborated code not adopted", ksp_lone.get("mpn"), None)
 
+    # Read from the saved spec table (vendor_meta.detail_specs), so rows
+    # scraped before `model_row` existed count, and a code with a space in it
+    # ("GV-R907GREGAMING OC-12GD") still meets the code 1PC/TMS print.
+    def with_specs(sku, category, model):
+        item = listing("ksp", sku, category)
+        item["vendor_meta"] = {"detail_specs": {"דגם": model}}
+        return item
+    arctic = with_specs("1", "aio", "ACFRE00182A")
+    gpu = with_specs("2", "gpu", "GV-R907GREGAMING OC-12GD")
+    cpu = with_specs("3", "cpu", "Ryzen 7 9800X3D")
+    short = with_specs("4", "psu", "RM850e")
+    printed_by_others = [listing("ivory", "a", "aio", "ACFRE00182A"),
+                         listing("tms", "b", "gpu", "GV-R907GREGAMING OC-12GD"),
+                         listing("tms", "c", "psu", "RM850e")]
+    adopted = _adopt_ksp_model_rows([arctic, gpu, cpu, short, *printed_by_others], {})
+    eq("spec-table adopted count", adopted, 2)
+    eq("arctic adopted", arctic.get("mpn"), "ACFRE00182A")
+    eq("gpu code with a space adopted", gpu.get("mpn"), "GV-R907GREGAMING OC-12GD")
+    eq("cpu name not printed elsewhere", cpu.get("mpn"), None)
+    eq("too short to name a part", short.get("mpn"), None)
+
     if failures:
         for line in failures:
             print("  [fail]", line)
         print(f"[ksp-detail] FAIL - {len(failures)} case(s)")
         return 1
-    print(f"[ksp-detail] pass - {12 + len(PART_NUMBER_CASES)} cases")
+    print(f"[ksp-detail] pass - {17 + len(PART_NUMBER_CASES)} cases")
     return 0
 
 

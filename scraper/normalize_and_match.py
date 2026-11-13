@@ -727,10 +727,19 @@ def _adopt_ksp_model_rows(enriched: list[dict],
     for e in enriched:
         if e.get("vendor_id") != "ksp" or e.get("mpn"):
             continue
-        extra = extra_index.get(("ksp", str(e.get("vendor_sku") or "").strip())) or {}
-        row = str(extra.get("model_row") or "").strip()
+        # The saved spec table is the source (rows scraped before the spider
+        # wrote `model_row` count too); `extra.model_row` is the fallback.
+        specs = (e.get("vendor_meta") or {}).get("detail_specs")
+        row = str((specs or {}).get("דגם") or "").strip()
+        if not row:
+            extra = extra_index.get(("ksp", str(e.get("vendor_sku") or "").strip())) or {}
+            row = str(extra.get("model_row") or "").strip()
         key = identity.part_number_key(row)
-        if row and (str(e.get("category_normalized") or ""), key) in printed:
+        # Letters and digits, long enough to name something. The shape is no
+        # judge of "model name" vs "part number" ("GV-R907GREGAMING OC-12GD"
+        # has a space); another vendor printing the same code is.
+        if (len(key) >= 7 and re.search(r"[A-Z]", key) and re.search(r"\d", key)
+                and (str(e.get("category_normalized") or ""), key) in printed):
             e["mpn"] = row
             adopted += 1
     return adopted
