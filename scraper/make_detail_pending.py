@@ -46,6 +46,8 @@ from pathlib import Path
 # queued or marked. Explicit `plonter` args still work (no validation against
 # this list) for a possible future re-scrape; existing plonter ledgers/files
 # on disk are left untouched.
+# KSP (home IP) is queued only by name from nano/run_ksp_detail.sh, never by
+# the no-argument default the cloud job could reach.
 VENDORS = ["onepc", "ivory", "tms", "yahav"]
 VENDOR_ALIASES = {
     "onepc": ["onepc", "1pc"],
@@ -214,8 +216,35 @@ def _usable_spec_skus(v: str) -> set:
     return skus
 
 
+def _ksp_alone_priorities() -> dict[tuple[str, str], int]:
+    """KSP listings whose product has no other vendor go first (score 100).
+
+    KSP's detail page is fetched for its part number, and the part number
+    only matters where KSP sits alone; a shared product already matched.
+    """
+    path = Path("data/catalog.json")
+    if not path.exists():
+        return {}
+    try:
+        products = json.loads(path.read_text(encoding="utf-8")).get("products") or []
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return {}
+    out: dict[tuple[str, str], int] = {}
+    for product in products:
+        offers = product.get("offers") or []
+        if {o.get("vendor_id") for o in offers} != {"ksp"}:
+            continue
+        for offer in offers:
+            if offer.get("url"):
+                out[("ksp", str(offer["url"]))] = 100
+    return out
+
+
 def make(vendors: list, limit: int | None) -> None:
     priorities = _core_gap_priorities()
+    if "ksp" in vendors:
+        for key, score in _ksp_alone_priorities().items():
+            priorities[key] = priorities.get(key, 0) + score
     for v in vendors:
         done = _load_ledger(v)
         have_specs = _usable_spec_skus(v)

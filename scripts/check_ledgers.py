@@ -257,7 +257,7 @@ def check_budgets(catalog: dict) -> dict[str, list[str]]:
     # Audit F12: detail ledgers out of step - a SKU both pending and scraped,
     # or a raw detail row its vendor's scraped ledger does not list.
     drift = []
-    for vendor in ("tms", "onepc", "ivory", "yahav"):
+    for vendor in ("tms", "onepc", "ivory", "yahav", "ksp"):
         pending = _read(ROOT / "data" / "detail_pending" / f"{vendor}.json", [])
         scraped = {str(s) for s in _read(ROOT / "data" / "detail_scraped" / f"{vendor}.json", [])}
         for row in pending if isinstance(pending, list) else []:

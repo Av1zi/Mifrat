@@ -93,8 +93,8 @@ VENDOR_SPIDER_NAMES = ["tms", "onepc", "ivory", "yahav", "ksp"]
 # instead of a part number, and whose product pages therefore have to hand
 # the real SKU over through detail `extra` (see _merge_detail_specs).
 # 1PC: /web/builder/candidates ids. YahavPC: /api/BuildSearch ids.
-# KSP: numeric uin only and no detail feed, so the real-SKU substitution below
-# never fires for it; it stays in the set to document the numeric-id shape.
+# KSP: numeric uin; its detail feed (spiders/ksp_detail.py) carries the maker
+# part number as extra.mpn, which fills `mpn` but never replaces the uin.
 # Matching already refuses pure-numeric MPNs, so a uin cannot merge products.
 NUMERIC_ID_VENDORS = {"onepc", "yahav", "ksp"}
 
@@ -604,7 +604,10 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         vendor_key = "onepc" if vendor_id in ("1pc", "onepc") else str(vendor_id or "")
         key = (vendor_key, sku)
         detail_extra = extra_index.get(key)
-        if vendor_key in NUMERIC_ID_VENDORS and isinstance(detail_extra, dict):
+        # KSP's uin is its listing key (history, saved builds); its detail
+        # part number goes to `mpn` below, never over the uin.
+        if (vendor_key in NUMERIC_ID_VENDORS and vendor_key != "ksp"
+                and isinstance(detail_extra, dict)):
             real_sku = str(
                 detail_extra.get("real_sku") or detail_extra.get("mpn") or ""
             ).strip()
@@ -695,11 +698,42 @@ def _merge_detail_specs(enriched: list[dict]) -> list[dict]:
         print(f"  merged detail images for {merged_images} listings")
     if merged_extra:
         print(f"  merged real MPNs for {merged_extra} listings")
+    adopted = _adopt_ksp_model_rows(enriched, extra_index)
+    if adopted:
+        print(f"  KSP detail part numbers confirmed by another vendor: {adopted}")
     # The detail page can restore a retailer's "-PC" bundle tail after
     # enrich_listing already dropped it; re-apply once the MPN is final.
     for e in enriched:
         apply_bundle_mpn(e)
     return enriched
+
+
+def _adopt_ksp_model_rows(enriched: list[dict],
+                          extra_index: dict[tuple[str, str], dict]) -> int:
+    """A KSP detail `דגם` row becomes the listing's `mpn` when another vendor
+    of the same category prints that exact code as its `mpn`.
+
+    The row is the maker part number on a Kingston kit ("KF556C40BBK2-32")
+    but only the model name on an Intel CPU ("i5-14600K"), and the two have
+    the same shape; another vendor printing the code is what tells them
+    apart (identity.shared_part_numbers uses the same corroboration).
+    """
+    printed: set[tuple[str, str]] = set()
+    for e in enriched:
+        if e.get("vendor_id") != "ksp" and e.get("mpn"):
+            printed.add((str(e.get("category_normalized") or ""),
+                         identity.part_number_key(e["mpn"])))
+    adopted = 0
+    for e in enriched:
+        if e.get("vendor_id") != "ksp" or e.get("mpn"):
+            continue
+        extra = extra_index.get(("ksp", str(e.get("vendor_sku") or "").strip())) or {}
+        row = str(extra.get("model_row") or "").strip()
+        key = identity.part_number_key(row)
+        if row and (str(e.get("category_normalized") or ""), key) in printed:
+            e["mpn"] = row
+            adopted += 1
+    return adopted
 
 
 def _drop_included_builder_options(listings: list[dict]) -> list[dict]:

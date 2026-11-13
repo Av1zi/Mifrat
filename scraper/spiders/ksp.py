@@ -254,7 +254,9 @@ class KspFingerprintMiddleware:
 
     def process_request(self, request):
         spider = self.crawler.spider
-        if spider is None or spider.name != VENDOR_ID:
+        # The listing spider and ksp_detail (spiders/ksp_detail.py) share the
+        # one fingerprint: same site, same home IP, same edge.
+        if spider is None or not spider.name.startswith(VENDOR_ID):
             return None
         request.meta["curl_cffi_options"] = {"impersonate": self.IMPERSONATE}
         if request.url.endswith("/robots.txt"):
