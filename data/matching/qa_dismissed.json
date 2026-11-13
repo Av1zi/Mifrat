@@ -881,5 +881,9 @@
   "spec_conflict|model:memory:0-2-2x16gb-3200-cl16-trident-xmp-z-32gb-x2-3200mhz-cl16-rgb-black|lighting": true,
   "spec_conflict|case:tms:tms-c8|mb_form_factors": true,
   "spec_conflict|model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx|form_factor": true,
-  "spec_conflict|model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35|cache_mb": true
+  "spec_conflict|model:storage:0gbps-6-barracuda-st20000dm001-20000gb-sata-35|cache_mb": true,
+  "spec_conflict|model:motherboard:16c-8945hx-9-bd895i-minisforum-ryzen-se-miniitx|m2_slots": true,
+  "spec_conflict|model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx|m2_slots": true,
+  "spec_conflict|model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-1xtype-atx-c-ddr5-gaming-lga-plus-tuf-wifi-z890-atx|wireless": true,
+  "spec_conflict|model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-white|pcie8_connectors": true
 }
