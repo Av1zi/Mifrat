@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T22:31:45.867012+00:00",
+  "generated_at": "2026-11-12T23:58:35.694949+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 101,
+      "count": 100,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "model:cpu:10100-tray",
@@ -44,7 +44,7 @@
     {
       "category": "motherboard",
       "label": "נפח זיכרון",
-      "count": 50,
+      "count": 49,
       "products": [
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -122,16 +122,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "חריצים פנויים",
-      "count": 25,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
       "category": "aio",
       "label": "הספק תרמי מירבי",
       "count": 24,
@@ -139,6 +129,16 @@
         "model:aio:120-510lc-120mm-black",
         "model:aio:1cfm-63-aio-elite-h150i-icue-360mm-white",
         "model:aio:1stpalyer-a-f-lcd-s-t-360mm-black"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חריצים פנויים",
+      "count": 23,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
       ]
     },
     {
@@ -252,16 +252,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "PCIe 5.0 x16",
-      "count": 20,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
       "category": "case",
       "label": "תמיכה במאווררים mm",
       "count": 19,
@@ -322,26 +312,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "DISPLAY PORT",
-      "count": 19,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "wifi + BT",
-      "count": 19,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
       "category": "case",
       "label": "תמיכה בספק mm",
       "count": 18,
@@ -363,27 +333,7 @@
     },
     {
       "category": "motherboard",
-      "label": "SATA III",
-      "count": 18,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "HDMI 2.1",
-      "count": 18,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 4.0 x16",
+      "label": "PCIe 5.0 x16",
       "count": 18,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -403,7 +353,17 @@
     },
     {
       "category": "motherboard",
-      "label": "PCIe 3.0 x1",
+      "label": "DISPLAY PORT",
+      "count": 17,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "wifi + BT",
       "count": 17,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -439,26 +399,6 @@
         "model:storage:001-a-brkt-fd",
         "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
         "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח זיכרון",
-      "count": 17,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ממשק",
-      "count": 17,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
       ]
     },
     {
@@ -523,7 +463,7 @@
     },
     {
       "category": "motherboard",
-      "label": "HDMI",
+      "label": "SATA III",
       "count": 16,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -533,7 +473,17 @@
     },
     {
       "category": "motherboard",
-      "label": "HD 7.1",
+      "label": "HDMI 2.1",
+      "count": 16,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCIe 4.0 x16",
       "count": 16,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -543,22 +493,22 @@
     },
     {
       "category": "other",
-      "label": "מעבד",
+      "label": "נפח זיכרון",
       "count": 16,
       "products": [
         "other:1pc:1pc-133260",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
       ]
     },
     {
       "category": "other",
-      "label": "סוג זכרון",
+      "label": "ממשק",
       "count": 16,
       "products": [
+        "other:1pc:1pc-133260",
         "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
+        "other:1pc:1pc-160850"
       ]
     },
     {
@@ -593,32 +543,12 @@
     },
     {
       "category": "motherboard",
-      "label": "קירור",
+      "label": "PCIe 3.0 x1",
       "count": 15,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תמיכה ב AMD® CrossFire",
-      "count": 15,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "קדמי ואחורי",
-      "count": 15,
-      "products": [
-        "model:motherboard:a520m-pro-s-microatx",
-        "model:motherboard:b-b650m-pro-microatx",
-        "model:motherboard:b760m-bomber-wifi-microatx"
       ]
     },
     {
@@ -643,12 +573,22 @@
     },
     {
       "category": "other",
-      "label": "סוג האחסון",
+      "label": "מעבד",
       "count": 15,
       "products": [
         "other:1pc:1pc-133260",
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554"
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג זכרון",
+      "count": 15,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
       ]
     },
     {
@@ -732,6 +672,26 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "HDMI",
+      "count": 14,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "HD 7.1",
+      "count": 14,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
       "category": "psu",
       "label": "ממשק",
       "count": 14,
@@ -743,32 +703,12 @@
     },
     {
       "category": "other",
-      "label": "מעבד גרפי",
+      "label": "סוג האחסון",
       "count": 14,
       "products": [
         "other:1pc:1pc-133260",
         "other:1pc:1pc-188068",
         "other:1pc:1pc-192554"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח אחסון",
-      "count": 14,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "ערכת שבבים",
-      "count": 13,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:245k",
-        "model:cpu:245kf"
       ]
     },
     {
@@ -793,12 +733,72 @@
     },
     {
       "category": "motherboard",
+      "label": "קירור",
+      "count": 13,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "TPM-HEADER",
       "count": 13,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תמיכה ב AMD® CrossFire",
+      "count": 13,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "קדמי ואחורי",
+      "count": 13,
+      "products": [
+        "model:motherboard:a520m-pro-s-microatx",
+        "model:motherboard:b-b650m-pro-microatx",
+        "model:motherboard:b760m-bomber-wifi-microatx"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מעבד גרפי",
+      "count": 13,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "נפח אחסון",
+      "count": 13,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "ערכת שבבים",
+      "count": 12,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:245k",
+        "model:cpu:245kf"
       ]
     },
     {
@@ -1019,16 +1019,6 @@
         "model:psu:0-20035-6-761345-atom-g750-black",
         "model:psu:1-1-3-5-850w-active-atx-gold-modular-mwe-non-pcie-pfc-ready-v3-850w-no-black",
         "model:psu:1-1-3-5-active-full-mighty-modular-pfc-x-2000w-full-black"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "כרטיס רשת",
-      "count": 12,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-206632"
       ]
     },
     {
@@ -1282,6 +1272,16 @@
       ]
     },
     {
+      "category": "other",
+      "label": "כרטיס רשת",
+      "count": 11,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-206632"
+      ]
+    },
+    {
       "category": "aio",
       "label": "רזולוציה",
       "count": 10,
@@ -1472,16 +1472,6 @@
       ]
     },
     {
-      "category": "other",
-      "label": "כרטיס גרפי",
-      "count": 10,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206634"
-      ]
-    },
-    {
       "category": "aio",
       "label": "ממשק",
       "count": 9,
@@ -1563,32 +1553,12 @@
     },
     {
       "category": "other",
-      "label": "אחסון",
+      "label": "כרטיס גרפי",
       "count": 9,
       "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "יציאות וחיבורים",
-      "count": 9,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "זיכרון",
-      "count": 9,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206634"
       ]
     },
     {
@@ -1669,6 +1639,36 @@
         "other:1pc:1pc-133260",
         "other:1pc:1pc-192554",
         "other:1pc:1pc-192555"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "אחסון",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "יציאות וחיבורים",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "זיכרון",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
       ]
     },
     {
@@ -1793,16 +1793,6 @@
     },
     {
       "category": "storage",
-      "label": "סוג זכרון",
-      "count": 7,
-      "products": [
-        "model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:2-2000gm-p31-shgp31-2000gb-m2pcie-m22280"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "מהירות כתיבה רציפה",
       "count": 7,
       "products": [
@@ -1859,36 +1849,6 @@
         "mpn:accessories:antecax61temperedglass",
         "mpn:accessories:antecp20temperedglass",
         "mpn:accessories:cc8900548"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "רזולוציה",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216315",
-        "other:1pc:1pc-216327"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "קישוריות",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216315",
-        "other:1pc:1pc-216327"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "משקל המוצר",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216315",
-        "other:1pc:1pc-216327"
       ]
     },
     {
@@ -2013,16 +1973,6 @@
     },
     {
       "category": "motherboard",
-      "label": "Intel® Core™ Ultra",
-      "count": 6,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "12h Gen Intel",
       "count": 6,
       "products": [
@@ -2039,6 +1989,16 @@
         "model:psu:85f4-afg-c3b0cnp-mpm",
         "model:psu:gme1000gm-gp-ice-pg5",
         "model:psu:gme750gm-gp-ice-pg5"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "סוג זכרון",
+      "count": 6,
+      "products": [
+        "model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:990-heatsink-pro-1000gb-m2-m22280"
       ]
     },
     {
@@ -2063,22 +2023,42 @@
     },
     {
       "category": "other",
+      "label": "רזולוציה",
+      "count": 6,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "קישוריות",
+      "count": 6,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "משקל המוצר",
+      "count": 6,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
+      ]
+    },
+    {
+      "category": "other",
       "label": "סדרת מעבד (CPU)",
       "count": 6,
       "products": [
         "other:1pc:1pc-192554",
         "other:1pc:1pc-206610",
         "other:1pc:1pc-206632"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ערכת שבבים",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-216315",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
       ]
     },
     {
@@ -2169,16 +2149,6 @@
         "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
         "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
         "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Internal IO",
-      "count": 5,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890"
       ]
     },
     {
@@ -2279,6 +2249,16 @@
         "other:1pc:1pc-206610",
         "other:1pc:1pc-206632",
         "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ערכת שבבים",
+      "count": 5,
+      "products": [
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337",
+        "other:1pc:1pc-216340"
       ]
     },
     {
@@ -2624,6 +2604,26 @@
     {
       "category": "motherboard",
       "label": "USB",
+      "count": 4,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-pro-wifi-z890"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Internal IO",
+      "count": 4,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-pro-wifi-z890"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Intel® Core™ Ultra",
       "count": 4,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -3679,16 +3679,6 @@
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Type-C DisplayPort",
-      "count": 3,
-      "products": [
-        "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:b860-p-pro",
-        "model:motherboard:b860-p-pro-wifi"
       ]
     },
     {
@@ -5422,24 +5412,6 @@
       "products": [
         "model:motherboard:b850-gaming-max-plus-wifi-atx",
         "model:motherboard:e-h810m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורים",
-      "count": 2,
-      "products": [
-        "model:motherboard:b860-p-pro",
-        "model:motherboard:b860-p-pro-wifi"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Thunderbolt4 ports",
-      "count": 2,
-      "products": [
-        "model:motherboard:b860-p-pro",
-        "model:motherboard:b860-p-pro-wifi"
       ]
     },
     {
@@ -8551,10 +8523,26 @@
     },
     {
       "category": "motherboard",
-      "label": "פאנל פנימי Internal IO",
+      "label": "חיבורים",
       "count": 1,
       "products": [
-        "model:motherboard:b860-gaming-wifi"
+        "model:motherboard:b860-p-pro"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Type-C DisplayPort",
+      "count": 1,
+      "products": [
+        "model:motherboard:b860-p-pro"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Thunderbolt4 ports",
+      "count": 1,
+      "products": [
+        "model:motherboard:b860-p-pro"
       ]
     },
     {
@@ -9355,14 +9343,6 @@
       "count": 1,
       "products": [
         "model:storage:2-2-3-pocket-usb-2000gb-usb-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "Spec / Color",
-      "count": 1,
-      "products": [
-        "model:storage:2230-lnmplay001t-play-rnnng-1000gb-nvme-m22230"
       ]
     },
     {

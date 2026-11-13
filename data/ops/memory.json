@@ -18,7 +18,7 @@
 "1pc:100519":"model:motherboard:gh410ms2hv2-h410m-s2h-v2-microatx",
 "1pc:100542":"model:storage:22110-983dct-1920gb-nvme-m222110",
 "1pc:101202":"model:aio:240-aorus-cooler-lcd-liquid-waterforce-x-240mm",
-"1pc:101245":"model:memory:b3200gsst-ld4as032g-32gb-3200mhz",
+"1pc:101245":"model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
 "1pc:101268":"mpn:memory:ld4au016gb3200gsst",
 "1pc:102394":"model:cooler_air:ch-chromax-cooler-cpu-d15-d15-nh-nh-black",
 "1pc:102406":"mpn:psu:atomg750",
@@ -523,15 +523,15 @@
 "1pc:164029":"model:storage:exos-enterprise-st6000nm019b-seagate-6000gb",
 "1pc:164051":"mpn:memory:jm5600ase32g",
 "1pc:164052":"model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm",
-"1pc:164053":"model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46",
+"1pc:164053":"model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm",
 "1pc:164054":"model:memory:16g-jm5600ale-udimm-16gb",
 "1pc:164061":"model:memory:8g-jm4800asg-sodimm-8gb-4800mhz-cl40-sodimm",
 "1pc:164062":"model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm",
-"1pc:164063":"model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40",
+"1pc:164063":"model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm",
 "1pc:164064":"model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-"1pc:164066":"model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+"1pc:164066":"model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
 "1pc:164067":"model:memory:udimm-jm3200hle-16g-16gb-3200mhz-cl22",
-"1pc:164070":"model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40",
+"1pc:164070":"model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm",
 "1pc:164594":"model:psu:1-atx3-leadex-pro-vii-1200w-full-black",
 "1pc:164597":"model:motherboard:d-z790-atx",
 "1pc:164608":"model:psu:0-3-regulator-1200w",
@@ -562,7 +562,7 @@
 "1pc:165979":"model:psu:1-atx3-hcg1200-hcg1200prop-pro-1200w",
 "1pc:165980":"model:psu:1-atx3-hcg850-hcg850prop-pro-850w",
 "1pc:165981":"model:psu:1-1-3-5-active-pfc-series-sf850x-sfx-850w-black",
-"1pc:166030":"model:storage:t705-1000gb-nvme-m22280",
+"1pc:166030":"model:storage:t705-1000gb-m2pcie-m22280",
 "1pc:166033":"model:memory:ddr5-pro-32gb-x1-5600mhz-cl46-black-dimm",
 "1pc:166034":"mpn:storage:ct1000t500ssd8",
 "1pc:166036":"model:memory:ddr5-pro-16gb-6000mhz-cl36-dimm",
@@ -634,7 +634,7 @@
 "1pc:170903":"model:case_fan:120mm-argb-black-fan-pwm-120mm-rgb-black",
 "1pc:170906":"mpn:storage:skc3000d4096g",
 "1pc:170914":"model:storage:2-evo-mu-ph2t0s-t5-usb3-2000gb-usb",
-"1pc:170997":"model:memory:psd38g16002s-signature-8gb-1600mhz",
+"1pc:170997":"model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm",
 "1pc:171353":"model:cooler_air:410-boreas-e1-120mm",
 "1pc:171358":"model:aio:6cfm-73-aura-gl360-v2-360mm-black",
 "1pc:171359":"model:aio:aura-gl360-v2-wh-360mm-white",
@@ -1209,7 +1209,7 @@
 "1pc:200270":"model:memory:2x16gb-32gb-6000-cl28-ddr5-expo-g-neo-royal-silver-trident-z5-32gb-x2-6000mhz-cl28-rgb-silver",
 "1pc:200274":"model:memory:2x16gb-32gb-6400-cl30-ddr5-expo-g-gold-neo-royal-trident-z5-32gb-x2-6400mhz-cl30-rgb-gold",
 "1pc:200295":"mpn:psu:mw2m3zma",
-"1pc:200409":"model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb",
+"1pc:200409":"model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm",
 "1pc:200417":"model:storage:purple-wd-10000gb-sata-35",
 "1pc:201283":"model:memory:0-2x16gb-3-6400-cl30-trident-xmp-z5-32gb-x2-6400mhz-cl30-rgb-blackwhite",
 "1pc:201724":"model:memory:0-2x16gb-3-6000-cl30-trident-xmp-z5-32gb-x2-6000mhz-cl30-rgb-black-2",
@@ -1388,7 +1388,7 @@
 "1pc:206664":"model:motherboard:b760m-ds3h-wifi6e-microatx",
 "1pc:206666":"mpn:motherboard:4711377369879",
 "1pc:206667":"model:motherboard:pro-b850m-p-atx",
-"1pc:206678":"model:memory:3200-udimm-8gb-3200mhz",
+"1pc:206678":"model:memory:3200-udimm-8gb-3200mhz-dimm",
 "1pc:206863":"model:memory:0-2x16gb-3-6200-cl36-dominator-xmp-32gb-x2-6200mhz-cl36-rgb-black",
 "1pc:207201":"model:case:aura-gc10m-v2-white",
 "1pc:207202":"mpn:case:4711514503166",
@@ -1742,7 +1742,7 @@
 "1pc:214268":"model:gpu:9060-amd-oc-pulse-radeon-rx-xt-16gb",
 "1pc:214270":"mpn:memory:cmh16gx5m2e6000z36",
 "1pc:214271":"mpn:memory:cmh32gx5m2b6000z38",
-"1pc:214326":"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb",
+"1pc:214326":"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
 "1pc:214329":"model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
 "1pc:214330":"model:case:130r-mag-midi-pano-pz-tower-white",
 "1pc:214350":"model:case:bv7-white",
@@ -2022,7 +2022,7 @@
 "1pc:218523":"model:motherboard:b760m-challenger-h-wifi-microatx",
 "1pc:218524":"model:motherboard:b760m-challenger-h-microatx",
 "1pc:218526":"model:motherboard:am5-b850m-icraft-wifi-microatx",
-"1pc:218548":"model:memory:16g21-es-psh-16gb-3200mhz-cl22",
+"1pc:218548":"model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
 "1pc:218557":"model:cpu:225f",
 "1pc:218558":"model:memory:6400-ecc-rdimm-48gb-x1-6400mhz",
 "1pc:218572":"model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25",
@@ -2257,7 +2257,7 @@
 "1pc:222536":"model:motherboard:a620am-b-evo-pro-microatx",
 "1pc:222538":"model:storage:5100-optimus-500gb-pcie4-m22280",
 "1pc:222692":"model:motherboard:carbon-max-mpg-wifi-x870e-atx",
-"1pc:222698":"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb",
+"1pc:222698":"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
 "1pc:222748":"model:motherboard:a-b760m-ii-prime-wifi-microatx",
 "1pc:222749":"model:gpu:9070-evo-gddr6-oc-prime-rx-16gb",
 "1pc:222750":"model:gpu:5070-gddr7-oc-rtx-t1-12gb",
@@ -2265,7 +2265,7 @@
 "1pc:222752":"model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
 "1pc:222754":"model:memory:2x16gb-3200-cl16-orion-32gb-x2-3200mhz-cl16-rgb-grey-dimm",
 "1pc:222765":"model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-"1pc:222778":"model:memory:line-psd532g56002-signature-32gb",
+"1pc:222778":"model:memory:line-psd532g56002-signature-32gb-dimm",
 "1pc:222788":"memory:1pc:1pc-222788",
 "1pc:222802":"model:motherboard:0-2-h610m-k-microatx",
 "1pc:222803":"mpn:gpu:n710d32gl",
@@ -2337,27 +2337,27 @@
 "1pc:222925":"model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm",
 "1pc:222947":"model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
 "1pc:222948":"model:psu:elite-1200-mpw-c001-afag-bwo",
-"1pc:222978":"model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green",
+"1pc:222978":"model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm",
 "1pc:222983":"model:psu:a1000gl-mag-pcie5-white",
 "1pc:222984":"model:cooler_air:aa13-corefrozr-mag-white",
 "1pc:222987":"model:case:argb-aura-elite-gc4-black",
 "1pc:222989":"model:psu:500-e1-helios-pro-black",
 "1pc:222991":"model:psu:600-e1-helios-pro-black",
-"1pc:223007":"model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black",
-"1pc:223008":"model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white",
+"1pc:223007":"model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+"1pc:223008":"model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
 "1pc:223009":"model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
 "1pc:223011":"model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
-"1pc:223012":"model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black",
-"1pc:223013":"model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black",
-"1pc:223014":"model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white",
+"1pc:223012":"model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
+"1pc:223013":"model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm",
+"1pc:223014":"model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm",
 "1pc:223017":"model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme",
-"1pc:223019":"model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black",
-"1pc:223020":"model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white",
+"1pc:223019":"model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm",
+"1pc:223020":"model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm",
 "1pc:223021":"model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
 "1pc:223024":"model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
-"1pc:223025":"model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black",
+"1pc:223025":"model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm",
 "1pc:223026":"model:memory:armax-ax5u6000c3032g-samrbk-xpg-32gb-rgb-black",
-"1pc:223027":"model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black",
+"1pc:223027":"model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm",
 "1pc:223030":"model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
 "1pc:223031":"model:storage:500gb-m450-spatium-v1-500gb-pcie4",
 "1pc:223032":"model:storage:960gb-s270-spatium-960gb-sata",
@@ -2386,6 +2386,7 @@
 "1pc:223291":"model:case:360-hs-black",
 "1pc:223292":"model:case:420-amg-ca-f1-hs-hs420-hvn-mapf1-mercedes-petronas-team-black",
 "1pc:223329":"model:cooler_air:0761345400848-argb-f600-white-white",
+"1pc:223332":"model:gpu:32g-32gd-ai-ai-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"model:cpu:g4400",
 "1pc:32633":"model:cpu:7100",
@@ -2613,7 +2614,7 @@
 "1pc:98825":"model:motherboard:aorus-gz590aorusu-ultra-z590-atx",
 "1pc:98831":"model:case:011-011dmini-atx-case-dynamic-mini-pc-pc-s-snow-white",
 "1pc:99114":"model:cpu:11400f-tray",
-"1pc:99384":"model:memory:32g-jm3200hse-32gb-3200mhz-cl22",
+"1pc:99384":"model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
 "1pc:99464":"model:psu:1000w-80-gold-modular-pfc-psu-1000w",
 "1pc:99837":"model:storage:128rb-lns100-lns100-128gb-sata-25",
 "1pc:99843":"model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2",
@@ -5681,10 +5682,10 @@
 "plonter:IS-30":"mpn:cooler_air:is30",
 "plonter:IS-60-EVO-ARGB":"mpn:cooler_air:is60evoargb",
 "plonter:Intel-Original-All-Black":"sku:cooling_other:inteloriginalallblack",
-"plonter:JM3200HLE-32G":"model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22",
+"plonter:JM3200HLE-32G":"model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm",
 "plonter:JM3200HSB-8G":"mpn:memory:jm3200hsb8g",
 "plonter:JM3200HSE-16G":"model:memory:16g-jm3200hse-sodimm-16gb-3200mhz-cl22-sodimm",
-"plonter:JM3200HSE-32G":"model:memory:32g-jm3200hse-32gb-3200mhz-cl22",
+"plonter:JM3200HSE-32G":"model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
 "plonter:JM4800ASE-16G":"model:memory:16g-jm4800ase-sodimm-16gb-4800mhz-cl40-sodimm",
 "plonter:JM4800ASG-8G":"model:memory:8g-jm4800asg-sodimm-8gb-4800mhz-cl40-sodimm",
 "plonter:JM5600ASE-16G":"model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm",
@@ -5967,7 +5968,7 @@
 "plonter:KVR64V52BS8-32":"mpn:memory:kvr64v52bs832",
 "plonter:LD4AS008G-B3200GSST":"mpn:memory:ld4as008gb3200gsst",
 "plonter:LD4AS016G-B3200GSST":"mpn:memory:ld4as016gb3200gsst",
-"plonter:LD4AS032G-B3200GSST":"model:memory:b3200gsst-ld4as032g-32gb-3200mhz",
+"plonter:LD4AS032G-B3200GSST":"model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
 "plonter:LD4AU008G-B3200GSSTx2":"mpn:memory:ld4au008gb3200gsstx2",
 "plonter:LD4AU016G-B3200GSST":"mpn:memory:ld4au016gb3200gsst",
 "plonter:LD5S08G56C46ST-BGS":"model:memory:1-1v-262pin-blister-cl46-sodimm-8gb-5600mhz-cl46-sodimm",
@@ -7855,7 +7856,7 @@
 "tms:CT1000E100SSD8-T":"model:storage:0-1tb-2-2280-4-bulk-ct1000e100ssd8-e100-gen4-m-nvme-pcie-ssd-t-1000gb-m2pcie-m22280",
 "tms:CT1000P510SSD5":"model:storage:2280-ct1000p510ssd5-p510-1000gb-m2pcie-m22280",
 "tms:CT1000P510SSD8":"model:storage:2280-ct1000p510ssd8-p510-1000gb-pcie5-m22280",
-"tms:CT1000T705SSD3":"model:storage:t705-1000gb-nvme-m22280",
+"tms:CT1000T705SSD3":"model:storage:t705-1000gb-m2pcie-m22280",
 "tms:CT2000E100SSD8":"model:storage:0-2280-4-e100-2000gb-pcie4-m22280",
 "tms:CT2000P310SSD8":"mpn:storage:ct2000p310ssd8",
 "tms:CT2000P510SSD8":"model:storage:2280-ct2000p510ssd8-p510-2000gb-m22280-m22280",
@@ -8896,7 +8897,7 @@
 "tms:R9070XTGAMINGOC16":"model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
 "tms:R907GREGAMINGOC12GD":"model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb",
 "tms:R907XGAMINGOCICE16GD":"model:gpu:16g-9070-gaming-ice-oc-radeon-rx-xt-16gb",
-"tms:R9700AITOP32GD":"model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
+"tms:R9700AITOP32GD":"model:gpu:32g-32gd-ai-ai-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
 "tms:RB0550B":"model:psu:550w-80-bronze-rb-550w",
 "tms:RB0650B":"model:psu:650w-80-bronze-rb-650w",
 "tms:RB0750B":"model:psu:750w-80-bronze-rb-750w",
@@ -18969,7 +18970,7 @@
 "gpu"
 ],
 "model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb":[
-"PNY GeForce RTX 5070 12GB",
+"PNY GeForce RTX 5070 12GB (VCG507012TFXXPB1-O)",
 "gpu"
 ],
 "model:gpu:12gb-3-5070-gb2050s-geforce-infinity-ne75070019k9-rtx-12gb":[
@@ -19480,16 +19481,16 @@
 "Gigabyte Aorus GeForce RTX 5090 32GB (N5090AORUSMICE32GD)",
 "gpu"
 ],
+"model:gpu:32g-32gd-ai-ai-gv-pro-r9700-r9700ai-radeon-top-top-32gb":[
+"Gigabyte Radeon AI PRO R9700 32GB",
+"gpu"
+],
 "model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb":[
 "Gigabyte Aorus GeForce RTX 5090 32GB (N5090AORUSXW32GD)",
 "gpu"
 ],
 "model:gpu:32g-5090-geforce-rtx-soc-suprim-32gb":[
 "MSI Suprim GeForce RTX 5090 32GB",
-"gpu"
-],
-"model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb":[
-"Gigabyte Radeon AI PRO R9700 32GB",
 "gpu"
 ],
 "model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb":[
@@ -20692,7 +20693,7 @@
 "Transcend 16GB DDR4 (1x16GB) 3200MHz CL22",
 "memory"
 ],
-"model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40":[
+"model:memory:16g-jm4800ale-udimm-16gb-4800mhz-cl40-dimm":[
 "Transcend 16GB DDR5 (1x16GB) 4800MHz CL40 (JM4800ALE-16G)",
 "memory"
 ],
@@ -20708,7 +20709,7 @@
 "Transcend 16GB DDR5 (1x16GB) 5600MHz CL46",
 "memory"
 ],
-"model:memory:16g21-es-psh-16gb-3200mhz-cl22":[
+"model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm":[
 "Apacer 16GB DDR4 (1x16GB) 3200MHz CL22",
 "memory"
 ],
@@ -21684,7 +21685,7 @@
 "Samsung 64GB DDR4 (1x64GB) 3200MHz",
 "memory"
 ],
-"model:memory:3200-udimm-8gb-3200mhz":[
+"model:memory:3200-udimm-8gb-3200mhz-dimm":[
 "Transcend 8GB DDR4 (1x8GB) 3200MHz",
 "memory"
 ],
@@ -21704,15 +21705,15 @@
 "ADATA 3200MT DDR4 32GB (1x32GB) 3200MT/s CL16",
 "memory"
 ],
-"model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22":[
+"model:memory:32g-jm3200hle-udimm-32gb-3200mhz-cl22-dimm":[
 "Transcend 32GB DDR4 (1x32GB) 3200MHz CL22 (JM3200HLE-32G)",
 "memory"
 ],
-"model:memory:32g-jm3200hse-32gb-3200mhz-cl22":[
+"model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm":[
 "Transcend 32GB DDR4 (1x32GB) 3200MHz CL22 (JM3200HSE-32G)",
 "memory"
 ],
-"model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46":[
+"model:memory:32g-jm5600ale-udimm-32gb-5600mhz-cl46-dimm":[
 "Transcend 32GB DDR5 (1x32GB) 5600MHz CL46",
 "memory"
 ],
@@ -21812,7 +21813,7 @@
 "Patriot RGB 16GB DDR5 5600MHz",
 "memory"
 ],
-"model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb":[
+"model:memory:5-elite-pver516g60c42w-ram-viper-16gb-6000mhz-rgb-dimm":[
 "Patriot Viper RGB DDR5 16GB (1x16GB) 6000MHz",
 "memory"
 ],
@@ -21992,7 +21993,7 @@
 "Synology DDR4 8GB D4ES03 8G",
 "memory"
 ],
-"model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40":[
+"model:memory:8g-jm4800alg-udimm-8gb-4800mhz-cl40-dimm":[
 "Transcend 8GB DDR5 (1x8GB) 4800MHz CL40 (JM4800ALG-8G)",
 "memory"
 ],
@@ -22020,7 +22021,7 @@
 "ADATA 16GB DDR4 (1x16GB) 3200MHz CL22 (AD4U320016G22-SGN)",
 "memory"
 ],
-"model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green":[
+"model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm":[
 "ADATA 16GB DDR4 (1x16GB) 3200MHz CL22 (AD4U3200316G22-SGN)",
 "memory"
 ],
@@ -22076,11 +22077,11 @@
 "GeIL ARGB 32GB DDR5 (2x16GB) 6000MHz CL36",
 "memory"
 ],
-"model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black":[
+"model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 5600MHz CL46",
 "memory"
 ],
-"model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black":[
+"model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL30 (AX5U6000C3016G-SAMRBK)",
 "memory"
 ],
@@ -22088,23 +22089,23 @@
 "ADATA XPG ARMAX RGB DDR5 32GB AX5U6000C3032G SAMRBK",
 "memory"
 ],
-"model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black":[
+"model:memory:armax-ax5u6400c3216g-samrbk-xpg-16gb-rgb-black-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6400MHz CL32 (AX5U6400C3216G-SAMRBK)",
 "memory"
 ],
-"model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black":[
+"model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm":[
 "ADATA Spectrix D35G RGB D35G DDR4 16GB (1x16GB) 3200MHz CL16 (AX4U320016G16A-SBKD35G)",
 "memory"
 ],
-"model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white":[
+"model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm":[
 "ADATA Spectrix D35G RGB D35G DDR4 16GB (1x16GB) 3200MHz CL16 (AX4U320016G16A-SWHD35G)",
 "memory"
 ],
-"model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black":[
+"model:memory:ax4u32008g16a-d35g-sbkd35g-spectrix-xpg-8gb-rgb-black-dimm":[
 "ADATA Spectrix D35G RGB D35G DDR4 8GB (1x8GB) 3200MHz CL16 (AX4U32008G16A-SBKD35G)",
 "memory"
 ],
-"model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white":[
+"model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm":[
 "ADATA Spectrix D35G RGB D35G DDR4 8GB (1x8GB) 3200MHz CL16 (AX4U32008G16A-SWHD35G)",
 "memory"
 ],
@@ -22116,11 +22117,11 @@
 "ADATA RGB 32GB DDR5 (1x32GB) 6000MHz CL40",
 "memory"
 ],
-"model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black":[
+"model:memory:ax5u6000c3616g-blade-lancer-slabrbk-xpg-16gb-rgb-black-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL36 (AX5U6000C3616G-SLABRBK)",
 "memory"
 ],
-"model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white":[
+"model:memory:ax5u6000c3616g-blade-lancer-slabrwh-xpg-16gb-rgb-white-dimm":[
 "ADATA RGB 16GB DDR5 (1x16GB) 6000MHz CL36 (AX5U6000C3616G-SLABRWH)",
 "memory"
 ],
@@ -22132,7 +22133,7 @@
 "ADATA RGB 32GB DDR5 (1x32GB) 6400MHz CL32 (AX5U6400C3232G-CLARWH)",
 "memory"
 ],
-"model:memory:b3200gsst-ld4as032g-32gb-3200mhz":[
+"model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm":[
 "Lexar LD4AS032G-B3200GSST DDR4 32GB (1x32GB) 3200MHz CL22",
 "memory"
 ],
@@ -22344,7 +22345,7 @@
 "Kingston 32GB DDR5 (1x32GB) 5600MHz CL46",
 "memory"
 ],
-"model:memory:line-psd532g56002-signature-32gb":[
+"model:memory:line-psd532g56002-signature-32gb-dimm":[
 "Patriot 32GB DDR5 (1x32GB) 5600MHz CL46",
 "memory"
 ],
@@ -22364,7 +22365,7 @@
 "GeILDDR5 32GB 5600 CL38 ORION V RGB AMD Edition",
 "memory"
 ],
-"model:memory:psd38g16002s-signature-8gb-1600mhz":[
+"model:memory:psd38g16002s-signature-8gb-1600mhz-sodimm":[
 "Patriot 8GB DDR3 (1x8GB) 1600MHz",
 "memory"
 ],
@@ -22396,7 +22397,7 @@
 "Corsair Vengeance ARGB 96GB DDR5 (2x48GB) 7000MHz CL40",
 "memory"
 ],
-"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb":[
+"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm":[
 "Patriot Viper RGB PVVR532G640C32K DDR5 32GB (2x16GB) 6400MHz CL32",
 "memory"
 ],
@@ -26317,7 +26318,7 @@
 "psu"
 ],
 "model:psu:650w-bronze-zillion-650w":[
-"Super Flower Zillion SF-650Z12DB 650W 80 PLUS Bronze",
+"Super Flower Zillion 650W 80 PLUS Bronze Black",
 "psu"
 ],
 "model:psu:650w-g12-gm-650w-semi-black":[
@@ -28348,7 +28349,7 @@
 "Team Group T-Force Vulcan Z III 512GB SATA SSD 2.5-inch",
 "storage"
 ],
-"model:storage:t705-1000gb-nvme-m22280":[
+"model:storage:t705-1000gb-m2pcie-m22280":[
 "Crucial T705 1TB NVMe Gen5 M.2-2280",
 "storage"
 ],
