@@ -210,6 +210,15 @@
     },
     "model:storage:500gb-5100-nvme-optimus-500gb-nvme": {
       "form_factor": "M.2-2280"
+    },
+    "model:aio:240mm-light-loop-240mm-black": {
+      "fan_rpm_max": 2100
+    },
+    "model:case:0-4-case-q58-black": {
+      "psu_included": "Not included"
+    },
+    "model:cooler_air:2000rpm-250w-2x120mm-3-61-8cfm-argb-bk043-black-lx-pro-pure-rock-tdp-155mm-120mm-black": {
+      "lighting": "ARGB"
     }
   }
 }
