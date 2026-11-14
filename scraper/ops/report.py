@@ -134,6 +134,8 @@ def catalog_facts(catalog: dict) -> dict:
     qa = _read_json(SITE / "qa.json", {})
     qa_counts: dict[str, int] = {}
     for case in qa.get("cases") or []:
+        if case.get("dismissed"):
+            continue
         kind = str(case.get("kind") or "other")
         qa_counts[kind] = qa_counts.get(kind, 0) + 1
     spec = _read_json(SITE / "spec_report.json", {})

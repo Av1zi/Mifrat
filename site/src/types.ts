@@ -113,6 +113,8 @@ export interface QaCase {
   moved?: string | null;
   /** duplicate_vendor: the vendor's listings already fold into one offer. */
   collapsed?: boolean;
+  /** Reviewed and marked "looks fine" in the local QA tool; the page skips it. */
+  dismissed?: boolean;
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;

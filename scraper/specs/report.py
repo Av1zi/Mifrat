@@ -225,15 +225,25 @@ def _case_key(case: dict) -> str:
                       sort_keys=True, ensure_ascii=False, default=str)
 
 
+def case_id(case: dict) -> str:
+    """The key `data/matching/qa_dismissed.json` stores a case under."""
+    return f"{case.get('kind')}|{case.get('product_id')}|{case.get('field') or case.get('vendor') or ''}"
+
+
 def qa_cases(report_dict: dict, limit: int | None = 200,
-             per_category: int | None = None) -> list[dict]:
+             per_category: int | None = None,
+             dismissed: frozenset | set | None = None) -> list[dict]:
     """spec_conflict + core_gap cases for data/site/qa.json (public #/qa page).
 
     One case per distinct (product, field, kept, dropped): the merge records a
     conflict per losing fact, so one disagreement arrives once per source.
     `per_category` caps the merge conflicts of each category, so a cap cannot
     fill up with the alphabetically first category. `limit=None` returns every
-    case; a finite `limit` cuts after the category sort."""
+    case; a finite `limit` cuts after the category sort. A case whose
+    `case_id` is in `dismissed` is kept but flagged `dismissed`, and no cap
+    counts it: the local QA tool still lists it (to reopen it), the public
+    page and the counts skip it."""
+    dismissed = dismissed or frozenset()
     cases: list[dict] = []
     seen: set[str] = set()
     taken: dict[str, int] = {}
@@ -263,6 +273,9 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
         }
         if _case_key(case) in seen:
             continue
+        if case_id(case) in dismissed:
+            add({**case, "dismissed": True})
+            continue
         if per_category is not None and taken.get(category, 0) >= per_category:
             continue
         taken[category] = taken.get(category, 0) + 1
@@ -270,7 +283,7 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
     for issue in report_dict.get("issues", []):
         if issue.get("kind") != "spec_conflict":
             continue
-        add({
+        case = {
             "kind": "spec_conflict",
             "product_id": issue.get("product_id"),
             "category": issue.get("category"),
@@ -281,7 +294,10 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
             "detail": issue.get("detail"),
             "offers": [],
             **({"rule": issue["rule"]} if issue.get("rule") else {}),
-        })
+        }
+        if case_id(case) in dismissed:
+            case["dismissed"] = True
+        add(case)
 
     # Core-compatibility gaps (plan todo #7): one case per product, listing
     # every missing core field. These are the products that cannot answer
@@ -302,7 +318,10 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
         field = str(gap.get("field") or "")
         if field and field not in slot["fields"]:
             slot["fields"].append(field)
-    cases.extend(by_product.values())
+    for gap_case in by_product.values():
+        if case_id(gap_case) in dismissed:
+            gap_case["dismissed"] = True
+        cases.append(gap_case)
 
     cases.sort(key=lambda c: (str(c.get("category") or ""),
                               str(c.get("product_id") or "")))

@@ -25,7 +25,7 @@ export async function renderQa(
   let identityCounts: Record<string, number> = {};
   try {
     const [qa, report] = await Promise.all([loadQa(), loadSpecReport()]);
-    cases = qa.cases ?? [];
+    cases = (qa.cases ?? []).filter((c) => !c.dismissed);
     specReport = report;
     identityCounts = qa.identity_counts ?? {};
   } catch (err) {

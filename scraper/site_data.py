@@ -49,6 +49,7 @@ except ImportError:
     from image_score import blocklist as _image_blocklist  # type: ignore[no-redef]
 
 try:
+    from scraper.specs.report import case_id as qa_case_id
     from scraper.specs.report import qa_cases as spec_qa_cases
 except ImportError:
     # Script-path invocation (`python scraper/normalize_and_match.py` puts
@@ -56,9 +57,24 @@ except ImportError:
     # site_data loads as a top-level module): import via the top-level
     # `specs` package instead. A bare relative `from .specs...` breaks that
     # path with "attempted relative import with no known parent package".
+    from specs.report import case_id as qa_case_id
     from specs.report import qa_cases as spec_qa_cases
 
 SITE_DIR = Path(__file__).resolve().parent.parent / "data" / "site"
+QA_DISMISSED_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "matching" / "qa_dismissed.json"
+)
+
+
+def _load_qa_dismissed(path: Path = QA_DISMISSED_PATH) -> frozenset[str]:
+    """Case ids a human marked "looks fine" in the local QA tool."""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return frozenset()
+    if not isinstance(data, dict):
+        return frozenset()
+    return frozenset(k for k, v in data.items() if v and not str(k).startswith("fuzzy|"))
 IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -714,7 +730,8 @@ def _trim_spec_report(report: dict) -> dict:
 
 
 def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
-                    spec_report: dict | None = None) -> dict:
+                    spec_report: dict | None = None,
+                    qa_dismissed: frozenset[str] | None = None) -> dict:
     """
     Writes data/site/<category>.json + data/site/meta.json from an
     already-built catalog dict (as returned by normalize_and_match.build_catalog).
@@ -725,6 +742,8 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     the spec coverage dashboard — and its conflict cases to qa.json.
     """
     _DROPPED_REMOTES.clear()
+    if qa_dismissed is None:
+        qa_dismissed = _load_qa_dismissed()
     by_category: dict[str, list[dict]] = defaultdict(list)
 
     for product in catalog["products"]:
@@ -882,9 +901,13 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         kind = str(case.get("kind") or "")
         if not kind:
             continue
-        identity_counts[kind] = identity_counts.get(kind, 0) + 1
-        if identity_counts[kind] > identity_cap:
-            continue
+        # A dismissed case is kept (the local tool reopens it, check_ledgers
+        # matches its key) but flagged, and no cap or count sees it.
+        if qa_case_id({"kind": kind, "product_id": case.get("product_id"),
+                       "vendor": case.get("vendor") or ""}) not in qa_dismissed:
+            identity_counts[kind] = identity_counts.get(kind, 0) + 1
+            if identity_counts[kind] > identity_cap:
+                continue
         qa_cases.append(
             {
                 "kind": kind,
@@ -922,15 +945,19 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         # Uncapped: the 19k merge conflicts sort ahead of `motherboard`, so a
         # finite limit silently cut every later category's core gaps and
         # witness cases (Nov 2026).
-        all_spec_cases = spec_qa_cases(spec_report, limit=None)
-        core_gap_cases = [c for c in all_spec_cases if c.get("kind") == "core_gap"][:300]
+        all_spec_cases = spec_qa_cases(spec_report, limit=None, dismissed=qa_dismissed)
+        core_gap_cases = [c for c in all_spec_cases if c.get("kind") == "core_gap"
+                          and not c.get("dismissed")][:300]
+        core_gap_cases += [c for c in all_spec_cases
+                           if c.get("kind") == "core_gap" and c.get("dismissed")]
         qa_cases.extend(core_gap_cases)
         # Title-witness flags (audit 2026-11-10 F/G) are few and each one is a
         # value a human should check, so the 200-case cap never hides them.
         qa_cases.extend(c for c in all_spec_cases if c.get("rule") == "title_witness")
         # Merge conflicts are capped per category: one global cap after the
         # category sort showed only `aio` (2026-11-13).
-        qa_cases.extend(c for c in spec_qa_cases(spec_report, limit=None, per_category=30)
+        qa_cases.extend(c for c in spec_qa_cases(spec_report, limit=None, per_category=30,
+                                                 dismissed=qa_dismissed)
                         if c.get("rule") != "title_witness" and c.get("kind") != "core_gap")
         qa_cases.sort(
             key=lambda c: (str(c.get("category") or ""), str(c.get("product_id") or ""))
@@ -939,8 +966,15 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     # Per-kind totals for the page's filter buttons: every kind, plus the
     # identity cases the cap above left out. Counting only identity kinds made
     # "duplicate_vendor (1)" sit over 80 rendered cases (2026-11-13).
+    # Dismissed cases are flagged here, once, for every kind (duplicate_vendor
+    # and naming_conflict are built above without knowing the ledger), then
+    # left out of the counts: the public page and the ops queue show open work.
     kind_counts: dict[str, int] = {}
     for case in qa_cases:
+        if qa_case_id(case) in qa_dismissed:
+            case["dismissed"] = True
+        if case.get("dismissed"):
+            continue
         kind_counts[case["kind"]] = kind_counts.get(case["kind"], 0) + 1
     for kind, total in identity_counts.items():
         kind_counts[kind] = kind_counts.get(kind, 0) + max(0, total - identity_cap)
