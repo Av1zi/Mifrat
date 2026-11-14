@@ -219,6 +219,9 @@
     },
     "model:cooler_air:2000rpm-250w-2x120mm-3-61-8cfm-argb-bk043-black-lx-pro-pure-rock-tdp-155mm-120mm-black": {
       "lighting": "ARGB"
+    },
+    "model:case_fan:120mm-light-lx-pack-pwm-triple-wings-120mm-3-rgb-black": {
+      "rpm_max": 1600
     }
   }
 }
