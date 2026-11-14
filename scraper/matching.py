@@ -2496,6 +2496,7 @@ def offer_from_listing(enriched: dict) -> dict:
         "price_ils": enriched.get("price_ils"),
         "in_stock": enriched.get("in_stock"),
         "last_seen": enriched.get("last_seen"),
+        "seen_day": enriched.get("seen_day"),
         "stale": enriched.get("stale", False),
         "title_raw": enriched.get("title_raw"),
         "category_guess": enriched.get("category_guess"),

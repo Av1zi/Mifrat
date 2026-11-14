@@ -484,7 +484,9 @@ def _trim_offer(offer: dict) -> dict:
         "url": offer.get("url"),
         "price": offer.get("price_ils"),
         "in_stock": bool(offer.get("in_stock")),
-        "last_seen": offer.get("last_seen"),
+        # The Israeli day of the crawl, not the UTC snapshot folder (a TMS
+        # run at 00:03 Israel time sits in the previous UTC day's folder).
+        "last_seen": offer.get("seen_day") or offer.get("last_seen"),
         "stale": bool(offer.get("stale")),
     }
     # Local first so the None-guard narrows the type for the checker

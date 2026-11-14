@@ -106,9 +106,41 @@ VENDOR_FILE_ALIASES = {
 
 STALE_LOOKBACK_DAYS = 14
 
+try:
+    from zoneinfo import ZoneInfo
+    SHOP_TZ = ZoneInfo("Asia/Jerusalem")
+except Exception:  # no tz database: fall back to the UTC snapshot day
+    SHOP_TZ = None
+
 
 def _date_str(d: datetime) -> str:
     return d.strftime("%Y-%m-%d")
+
+
+def local_day(moment: datetime) -> str | None:
+    """The Israeli calendar day of a moment (None without a tz database)."""
+    if SHOP_TZ is None:
+        return None
+    return _date_str(moment.astimezone(SHOP_TZ))
+
+
+def crawl_local_day(listings: list[dict]) -> str | None:
+    """Israeli day the file's newest crawl row was scraped.
+
+    Snapshot folders are UTC days, so the TMS night run (00:03 Israel time)
+    lands in the previous day's folder; the site shows this day instead.
+    """
+    newest = None
+    for listing in listings:
+        try:
+            stamp = datetime.fromisoformat(str(listing.get("scraped_at")))
+        except (TypeError, ValueError):
+            continue
+        if stamp.tzinfo is None:
+            stamp = stamp.replace(tzinfo=timezone.utc)
+        if newest is None or stamp > newest:
+            newest = stamp
+    return local_day(newest) if newest else None
 
 
 def find_latest_snapshot(vendor_spider_name: str, today: datetime):
@@ -815,13 +847,17 @@ def build_catalog(today: datetime):
             continue
 
         path, snapshot_date = found
-        is_stale = snapshot_date != today_str
-
         listings = load_listings(path)
         listings = _drop_included_builder_options(listings)
 
+        seen_day = crawl_local_day(listings) or snapshot_date
+        # Fresh if it sits in today's UTC folder, or was crawled today in Israel
+        # (the TMS night run is in yesterday's UTC folder).
+        is_stale = snapshot_date != today_str and seen_day != local_day(today)
+
         for listing in listings:
             listing["last_seen"] = snapshot_date
+            listing["seen_day"] = seen_day
             listing["stale"] = is_stale
 
             if not listing.get("vendor_id"):
