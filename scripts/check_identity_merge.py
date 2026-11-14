@@ -6,7 +6,7 @@ invariants are executable:
 
     I1  no product contains two offers with different canonical model codes
     I2  no two products share (category, model code, variant axes) unless a
-        QA case already flags the pair
+        QA case already flags the pair or a human blocked pair keeps them apart
     I3  CPU suffix separation: for one numeric core the suffixes across
         products are a partition, and ``245k`` / ``245kf`` never share a pid.
         A shared part number can still join two spellings of one part (a
@@ -47,6 +47,8 @@ from scraper.matching import (  # noqa: E402
     mpn_affix_related,
     normalize_sku,
 )
+
+MANUAL_PRODUCTS = ROOT / "data" / "matching" / "manual_products.json"
 
 FAILURES: list[str] = []
 
@@ -184,6 +186,26 @@ def check_i2(catalog: dict, manual_categories: frozenset[str] = frozenset()) -> 
         if pid:
             flagged.add(str(pid))
 
+    # A human not_match verdict (data/matching/manual_products.json
+    # blocked_pairs) is a decision the matcher enforces as a hard veto, so
+    # two products it keeps apart are explained, as a manual split is. The
+    # axes cannot say why for a pair vs a single fan or a drive with vs
+    # without its heatsink: neither is an identity axis yet.
+    blocked: set[frozenset[str]] = set()
+    try:
+        manual = json.loads(MANUAL_PRODUCTS.read_text(encoding="utf-8"))
+        blocked = {frozenset(p) for p in manual.get("blocked_pairs") or [] if len(p) == 2}
+    except (OSError, ValueError):
+        pass
+    pid_keys = {
+        str(p.get("product_id")): {o.get("listing_key") for o in p.get("offers") or []}
+        for p in catalog.get("products") or []
+    }
+
+    def _vetoed(pid_a: str, pid_b: str) -> bool:
+        return any(frozenset((a, b)) in blocked
+                   for a in pid_keys.get(pid_a, ()) for b in pid_keys.get(pid_b, ()))
+
     buckets: dict[tuple, list[tuple[str, tuple]]] = defaultdict(list)
     for product in catalog.get("products") or []:
         # A human curator is itself the evidence (as for I1): a manual
@@ -211,6 +233,10 @@ def check_i2(catalog: dict, manual_categories: frozenset[str] = frozenset()) -> 
         # packaging pair). A code that appears in several *different* keys is
         # fine: the axes, not the code, are the identity.
         if all(pid in flagged for pid, _ in products):
+            continue
+        pids = [pid for pid, _ in products]
+        if all(pid in flagged or any(_vetoed(pid, other) for other in pids if other != pid)
+               for pid in pids):
             continue
         fail(
             "I2: %s / %s held by %d products %s"

@@ -69,11 +69,6 @@
     "listing_a": "1pc:67263",
     "listing_b": "tms:C9700FT"
   },
-  "14": {
-    "decision": "not_match",
-    "listing_a": "1pc:157901",
-    "listing_b": "tms:C8"
-  },
   "15": {
     "decision": "not_match",
     "listing_a": "1pc:157902",
@@ -158,16 +153,6 @@
     "decision": "not_match",
     "listing_a": "tms:C8",
     "listing_b": "yahav:9740"
-  },
-  "32": {
-    "decision": "not_match",
-    "listing_a": "1pc:221407",
-    "listing_b": "tms:ULTRA360ARGB-W"
-  },
-  "33": {
-    "decision": "not_match",
-    "listing_a": "1pc:59363",
-    "listing_b": "tms:C40"
   },
   "34": {
     "decision": "not_match",
@@ -729,16 +714,6 @@
     "listing_a": "ksp:393712",
     "listing_b": "ksp:393815"
   },
-  "154": {
-    "decision": "not_match",
-    "listing_a": "1pc:206390",
-    "listing_b": "1pc:222424"
-  },
-  "155": {
-    "decision": "not_match",
-    "listing_a": "1pc:222424",
-    "listing_b": "tms:CP-9020309-EU"
-  },
   "156": {
     "decision": "not_match",
     "listing_a": "1pc:222502",
@@ -944,11 +919,6 @@
     "listing_a": "ksp:421742",
     "listing_b": "ksp:421747"
   },
-  "200": {
-    "decision": "not_match",
-    "listing_a": "ivory:134868",
-    "listing_b": "ksp:393815"
-  },
   "201": {
     "decision": "not_match",
     "listing_a": "ksp:363702",
@@ -958,11 +928,6 @@
     "decision": "not_match",
     "listing_a": "1pc:208955",
     "listing_b": "1pc:222423"
-  },
-  "203": {
-    "decision": "not_match",
-    "listing_a": "ivory:71600",
-    "listing_b": "ksp:177988"
   },
   "204": {
     "decision": "not_match",
@@ -1023,11 +988,6 @@
     "decision": "not_match",
     "listing_a": "ksp:390523",
     "listing_b": "ksp:390599"
-  },
-  "219": {
-    "decision": "not_match",
-    "listing_a": "1pc:221526",
-    "listing_b": "tms:RX-96TS316B7"
   },
   "224": {
     "decision": "not_match",
@@ -1198,11 +1158,6 @@
     "decision": "not_match",
     "listing_a": "ksp:421720",
     "listing_b": "ksp:421770"
-  },
-  "258": {
-    "decision": "not_match",
-    "listing_a": "ksp:338414",
-    "listing_b": "yahav:10002"
   },
   "259": {
     "decision": "not_match",
@@ -1424,25 +1379,10 @@
     "listing_a": "1pc:172761",
     "listing_b": "1pc:222383"
   },
-  "303": {
-    "decision": "not_match",
-    "listing_a": "1pc:172761",
-    "listing_b": "1pc:222385"
-  },
-  "304": {
-    "decision": "not_match",
-    "listing_a": "1pc:172762",
-    "listing_b": "1pc:222383"
-  },
   "305": {
     "decision": "not_match",
     "listing_a": "1pc:172762",
     "listing_b": "1pc:222385"
-  },
-  "306": {
-    "decision": "not_match",
-    "listing_a": "1pc:172763",
-    "listing_b": "1pc:222384"
   },
   "307": {
     "decision": "not_match",
@@ -1454,11 +1394,6 @@
     "listing_a": "1pc:206395",
     "listing_b": "1pc:222384"
   },
-  "309": {
-    "decision": "not_match",
-    "listing_a": "1pc:206395",
-    "listing_b": "1pc:222386"
-  },
   "310": {
     "decision": "not_match",
     "listing_a": "1pc:221523",
@@ -1469,40 +1404,20 @@
     "listing_a": "1pc:221523",
     "listing_b": "1pc:222386"
   },
-  "312": {
-    "decision": "not_match",
-    "listing_a": "1pc:222383",
-    "listing_b": "ivory:130950"
-  },
   "313": {
     "decision": "not_match",
     "listing_a": "1pc:222383",
     "listing_b": "ivory:130953"
-  },
-  "314": {
-    "decision": "not_match",
-    "listing_a": "1pc:222383",
-    "listing_b": "tms:CW-9061016-WW"
   },
   "315": {
     "decision": "not_match",
     "listing_a": "1pc:222383",
     "listing_b": "tms:CW-9061020-WW"
   },
-  "316": {
-    "decision": "not_match",
-    "listing_a": "1pc:222384",
-    "listing_b": "ivory:117271"
-  },
   "317": {
     "decision": "not_match",
     "listing_a": "1pc:222384",
     "listing_b": "ivory:117273"
-  },
-  "318": {
-    "decision": "not_match",
-    "listing_a": "1pc:222384",
-    "listing_b": "tms:CW-9061018-WW"
   },
   "319": {
     "decision": "not_match",
@@ -1524,40 +1439,20 @@
     "listing_a": "1pc:222385",
     "listing_b": "ivory:130950"
   },
-  "323": {
-    "decision": "not_match",
-    "listing_a": "1pc:222385",
-    "listing_b": "ivory:130953"
-  },
   "324": {
     "decision": "not_match",
     "listing_a": "1pc:222385",
     "listing_b": "tms:CW-9061016-WW"
-  },
-  "325": {
-    "decision": "not_match",
-    "listing_a": "1pc:222385",
-    "listing_b": "tms:CW-9061020-WW"
   },
   "326": {
     "decision": "not_match",
     "listing_a": "1pc:222386",
     "listing_b": "ivory:117271"
   },
-  "327": {
-    "decision": "not_match",
-    "listing_a": "1pc:222386",
-    "listing_b": "ivory:117273"
-  },
   "328": {
     "decision": "not_match",
     "listing_a": "1pc:222386",
     "listing_b": "tms:CW-9061018-WW"
-  },
-  "329": {
-    "decision": "not_match",
-    "listing_a": "1pc:222386",
-    "listing_b": "tms:CW-9061021-WW"
   },
   "330": {
     "decision": "not_match",
@@ -1824,11 +1719,6 @@
     "listing_a": "1pc:172710",
     "listing_b": "ksp:360444"
   },
-  "391": {
-    "decision": "not_match",
-    "listing_a": "1pc:172710",
-    "listing_b": "ksp:360488"
-  },
   "392": {
     "decision": "not_match",
     "listing_a": "1pc:172710",
@@ -1874,16 +1764,6 @@
     "listing_a": "ksp:360488",
     "listing_b": "tms:CO-9051028-WW"
   },
-  "401": {
-    "decision": "not_match",
-    "listing_a": "ksp:360488",
-    "listing_b": "tms:CO-9051031-WW"
-  },
-  "402": {
-    "decision": "not_match",
-    "listing_a": "ksp:453184",
-    "listing_b": "tms:CO-9051027-WW"
-  },
   "403": {
     "decision": "not_match",
     "listing_a": "ksp:453184",
@@ -1893,11 +1773,6 @@
     "decision": "not_match",
     "listing_a": "ksp:453184",
     "listing_b": "tms:CO-9051031-WW"
-  },
-  "405": {
-    "decision": "not_match",
-    "listing_a": "1pc:222407",
-    "listing_b": "ksp:448641"
   },
   "406": {
     "decision": "not_match",
@@ -1939,11 +1814,6 @@
     "listing_a": "ivory:134865",
     "listing_b": "ksp:393815"
   },
-  "414": {
-    "decision": "not_match",
-    "listing_a": "ksp:380080",
-    "listing_b": "yahav:11160"
-  },
   "415": {
     "decision": "not_match",
     "listing_a": "1pc:173275",
@@ -1959,25 +1829,10 @@
     "listing_a": "1pc:174980",
     "listing_b": "ksp:325682"
   },
-  "418": {
-    "decision": "not_match",
-    "listing_a": "ksp:325682",
-    "listing_b": "tms:SNV3S-1000G"
-  },
   "419": {
     "decision": "not_match",
     "listing_a": "ksp:325682",
     "listing_b": "tms:SNV3S-1000G-B"
-  },
-  "420": {
-    "decision": "not_match",
-    "listing_a": "ksp:325683",
-    "listing_b": "tms:SNV3S-2000G"
-  },
-  "421": {
-    "decision": "not_match",
-    "listing_a": "ksp:338323",
-    "listing_b": "tms:SNV3S-4000G"
   },
   "422": {
     "decision": "not_match",
@@ -2074,11 +1929,6 @@
     "listing_a": "ksp:283810",
     "listing_b": "ksp:299657"
   },
-  "441": {
-    "decision": "not_match",
-    "listing_a": "1pc:221469",
-    "listing_b": "yahav:11053"
-  },
   "442": {
     "decision": "not_match",
     "listing_a": "ksp:406013",
@@ -2113,11 +1963,6 @@
     "decision": "not_match",
     "listing_a": "ksp:406037",
     "listing_b": "ksp:421810"
-  },
-  "449": {
-    "decision": "not_match",
-    "listing_a": "ivory:148834",
-    "listing_b": "ksp:421032"
   },
   "450": {
     "decision": "not_match",
@@ -2459,41 +2304,6 @@
     "listing_a": "ksp:355862",
     "listing_b": "ksp:355897"
   },
-  "518": {
-    "decision": "not_match",
-    "listing_a": "1pc:222371",
-    "listing_b": "ivory:113511"
-  },
-  "519": {
-    "decision": "not_match",
-    "listing_a": "1pc:222371",
-    "listing_b": "ksp:299807"
-  },
-  "520": {
-    "decision": "not_match",
-    "listing_a": "1pc:222372",
-    "listing_b": "ivory:86640"
-  },
-  "521": {
-    "decision": "not_match",
-    "listing_a": "1pc:222372",
-    "listing_b": "ksp:299817"
-  },
-  "522": {
-    "decision": "not_match",
-    "listing_a": "1pc:222372",
-    "listing_b": "yahav:9151"
-  },
-  "523": {
-    "decision": "not_match",
-    "listing_a": "ivory:177031",
-    "listing_b": "ksp:235486"
-  },
-  "524": {
-    "decision": "not_match",
-    "listing_a": "ivory:71621",
-    "listing_b": "ksp:235491"
-  },
   "525": {
     "decision": "not_match",
     "listing_a": "ksp:235486",
@@ -2663,11 +2473,6 @@
     "decision": "not_match",
     "listing_a": "ksp:299651",
     "listing_b": "ksp:299657"
-  },
-  "543": {
-    "decision": "not_match",
-    "listing_a": "ksp:299721",
-    "listing_b": "ksp:396383"
   },
   "120": {
     "decision": "not_match",
