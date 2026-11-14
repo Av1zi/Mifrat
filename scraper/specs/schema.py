@@ -204,7 +204,10 @@ SCHEMA_UNKNOWN_VALUES: dict[tuple[str, str], tuple[str, ...]] = {
     ("motherboard", "form_factor"): (r"mining board",),
     # Capacity / buffering rows filed under the memory standard.
     ("motherboard", "memory_type"): (r"\d+\s*GB",),
-    ("memory", "memory_type"): (r"\d+\s*GB", r"(?:un)?registered\b.*"),
+    # KSP detail "סוג" rows hold the module pin count ("288-Pin DIMM"), not
+    # the DDR generation; the generation comes from the title and tags.
+    ("memory", "memory_type"): (r"\d+\s*GB", r"(?:un)?registered\b.*",
+                                r"\d{3}-?\s*pin\b.*"),
     # Interface, form factor, NAND or enclosure words filed under SSD/HDD.
     ("storage", "type"): (r"PCI-?E.*", r"M\.2.*", r"MVMe M\.2", r"USB.*", r"3\.5\"?",
                           r"(?:3D |V-NAND )?TLC(?: NAND)?", r"V-NAND TLC", r"(?:hanging )?box"),
