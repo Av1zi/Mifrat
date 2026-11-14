@@ -1162,5 +1162,6 @@
   "spec_conflict|model:motherboard:1851-b860m-displayport-hdmi-k-lga-prime-microatx|ethernet": true,
   "spec_conflict|model:motherboard:1851-a-atx-b860m-ddr5-displayport-fi-hdmi-lga-pro-thunderbolt-wi-microatx|form_factor": true,
   "spec_conflict|model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx|form_factor": true,
-  "spec_conflict|model:motherboard:1851-b860m-displayport-e-hdmi-lga-pro-microatx|form_factor": true
+  "spec_conflict|model:motherboard:1851-b860m-displayport-e-hdmi-lga-pro-microatx|form_factor": true,
+  "split_candidate|model:case:c8-case-white|": true
 }
