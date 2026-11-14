@@ -1034,6 +1034,10 @@ _IGNORED_LABELS = frozenset({
         "pfc", "pfc פעיל", "active pfc",
         "מסב מאוורר",
         "פרופיל זיכרון",
+        # G.Skill tables on KSP (Nov 2026): the JEDEC fallback a kit boots at,
+        # not its rated speed. Through the `speed` alias it shipped "2133MHz"
+        # on DDR4-3200 kits and failed the title backtest.
+        "spd speed", "spd voltage",
         "דרישות ותאימות", "תוכנות ואפליקציות", "עמידות",
         "תצוגה ותאורה", "פאנל תצוגה (מסך)", "חיבור סיריאלי com",
         "spec / specifications", "spec / operating system",
