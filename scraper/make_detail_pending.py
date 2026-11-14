@@ -316,11 +316,34 @@ def mark(vendors: list) -> None:
                 json.dumps(sorted(done), ensure_ascii=False, indent=1),
                 encoding="utf-8",
             )
+        dropped = _prune_pending(v, done)
         print(
             f"{v}: +{added} marked done ({len(done)} total in ledger; "
             f"{rejected} rows rejected: {empty_pages} with no spec rows, "
-            f"{unmapped_pages} with rows that mapped to nothing)"
+            f"{unmapped_pages} with rows that mapped to nothing; "
+            f"{dropped} dropped from pending)"
         )
+
+
+def _prune_pending(v: str, done: set) -> int:
+    """Drop SKUs the ledger now lists from the pending file.
+
+    `make` writes the pending list before the crawl and `mark` runs after it;
+    without this the committed pending file still names every SKU the run just
+    scraped, and scripts/check_ledgers.py counts each as ledger drift."""
+    path = _pending(v)
+    if not path.exists():
+        return 0
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return 0
+    if not isinstance(rows, list):
+        return 0
+    keep = [r for r in rows if str((r or {}).get("vendor_sku") or "") not in done]
+    if len(keep) != len(rows):
+        path.write_text(json.dumps(keep, ensure_ascii=False, indent=1), encoding="utf-8")
+    return len(rows) - len(keep)
 
 
 if __name__ == "__main__":
