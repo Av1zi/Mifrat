@@ -1,5 +1,434 @@
 [
   {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:157901",
+    "listing_b": "tms:C8",
+    "title_a": "מארז Antec C8 Case",
+    "title_b": "מארז מחשב Antec C8",
+    "match_text_a": "C8 Antec C8 Case",
+    "match_text_b": "C8 Antec C8"
+  },
+  {
+    "score": 100,
+    "category": "aio",
+    "brand": "Antec",
+    "listing_a": "1pc:221407",
+    "listing_b": "tms:ULTRA360ARGB-W",
+    "title_a": "קירור נוזלי למעבד Antec Ultra 360 ARGB לבן ULTRA360ARGB-W",
+    "title_b": "קירור נוזלי למעבד Antec Ultra 360 ARGB לבן",
+    "match_text_a": "221407 Antec Ultra 360 ARGB ULTRA360ARGB-W",
+    "match_text_b": "ULTRA360ARGB-W Antec Ultra 360 ARGB"
+  },
+  {
+    "score": 100,
+    "category": "cooler_air",
+    "brand": "Antec",
+    "listing_a": "1pc:59363",
+    "listing_b": "tms:C40",
+    "title_a": "מאוורר מעבד Antec C40 צבע שחור",
+    "title_b": "Antec C40 CPU Cooler",
+    "match_text_a": "C40 Antec C40",
+    "match_text_b": "C40 Antec C40 CPU Cooler"
+  },
+  {
+    "score": 93,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:206390",
+    "listing_b": "1pc:222424",
+    "title_a": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "title_b": "ספק כוח Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
+    "match_text_a": "CP-9020309-EU Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "match_text_b": "222424 Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W"
+  },
+  {
+    "score": 93,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222424",
+    "listing_b": "tms:CP-9020309-EU",
+    "title_a": "ספק כוח Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
+    "title_b": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
+    "match_text_a": "222424 Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
+    "match_text_b": "CP-9020309-EU Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular"
+  },
+  {
+    "score": 92,
+    "category": "motherboard",
+    "brand": "ASUS",
+    "listing_a": "ivory:134868",
+    "listing_b": "ksp:393815",
+    "title_a": "לוח אם ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD - לבן",
+    "title_b": "לוח אם ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 - צבע לבן",
+    "match_text_a": "90MB1LZ0-M0EAY0 ASUS X870 MAX GAMING WIFI7 W DDR5 ATX AM5 AMD -",
+    "match_text_b": "393815 ASUS X870 MAX GAMING WIFI7 AM5 AMD X870 DDR5 -"
+  },
+  {
+    "score": 92,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "ivory:71600",
+    "listing_b": "ksp:177988",
+    "title_a": "כונן Kingston 2TB KC3000 SKC3000D/2048G PCIe 4.0 NVMe SSD M.2",
+    "title_b": "כונן Kingston KC3000 2TB PCIe 4.0 NVMe M.2 SSD",
+    "match_text_a": "SKC3000D/2048G Kingston 2TB KC3000 SKC3000D/2048G PCIe 4.0 NVMe SSD M.2",
+    "match_text_b": "177988 Kingston KC3000 2TB PCIe 4.0 NVMe M.2 SSD"
+  },
+  {
+    "score": 92,
+    "category": "gpu",
+    "brand": "XFX",
+    "listing_a": "1pc:221526",
+    "listing_b": "tms:RX-96TS316B7",
+    "title_a": "כרטיס מסך XFX Swift RX 9060 XT OC Gaming Edition 16GB",
+    "title_b": "כרטיס מסך XFX Swift RX 9060 XT OC Triple Fan Gaming Edition 16GB",
+    "match_text_a": "221526 XFX Swift RX 9060 XT OC Gaming Edition 16GB",
+    "match_text_b": "RX-96TS316B7 XFX Swift RX 9060 XT OC Triple Fan Gaming Edition 16GB"
+  },
+  {
+    "score": 91,
+    "category": "motherboard",
+    "brand": "MSI",
+    "listing_a": "ksp:338414",
+    "listing_b": "yahav:10002",
+    "title_a": "לוח אם MSI MPG Z890 CARBON WIFI LGA 1851 DDR5",
+    "title_b": "לוח אם חברת MSI דגם MPG Z890 CARBON WIFI LGA 1851 DDR5 1xHDMI 2xThunderbolt ATX",
+    "match_text_a": "338414 MSI MPG Z890 CARBON WIFI LGA 1851 DDR5",
+    "match_text_b": "MPG-Z890-CARBON-WIFI MSI MPG Z890 CARBON WIFI LGA 1851 DDR5 1xHDMI 2xThunderbolt ATX"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172761",
+    "listing_b": "1pc:222385",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "match_text_a": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222385 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172762",
+    "listing_b": "1pc:222383",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "match_text_a": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO",
+    "match_text_b": "222383 Corsair iCUE LINK TITAN 240 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:172763",
+    "listing_b": "1pc:222384",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "match_text_a": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222384 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:206395",
+    "listing_b": "1pc:222386",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO בצבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "match_text_a": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO",
+    "match_text_b": "222386 Corsair iCUE LINK TITAN 360 RX RGB"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "ivory:130950",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע שחור",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222383",
+    "listing_b": "tms:CW-9061016-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222383 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061016-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "ivory:117271",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע שחור",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222384",
+    "listing_b": "tms:CW-9061018-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB שחור",
+    "title_b": "Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler",
+    "match_text_a": "222384 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061018-WW Corsair iCUE LINK TITAN 360 RX RGB AIO Liquid CPU Cooler"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "ivory:130953",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB 240mm בצבע לבן",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB 240mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222385",
+    "listing_b": "tms:CW-9061020-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 240 RX RGB לבן",
+    "title_b": "Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White",
+    "match_text_a": "222385 Corsair iCUE LINK TITAN 240 RX RGB",
+    "match_text_b": "CW-9061020-WW Corsair iCUE LINK TITAN 240 RX RGB AIO Liquid CPU Cooler White"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "ivory:117273",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB 360mm בצבע לבן",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB 360mm"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222386",
+    "listing_b": "tms:CW-9061021-WW",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK TITAN 360 RX RGB AIO White",
+    "match_text_a": "222386 Corsair iCUE LINK TITAN 360 RX RGB",
+    "match_text_b": "CW-9061021-WW Corsair iCUE LINK TITAN 360 RX RGB AIO White"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "1pc:172710",
+    "listing_b": "ksp:360488",
+    "title_a": "מאוורר Corsair iCUE LINK LX140 RGB PWM 140mm Expansion בצבע לבן",
+    "title_b": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "match_text_a": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Expansion",
+    "match_text_b": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:360488",
+    "listing_b": "tms:CO-9051031-WW",
+    "title_a": "מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע לבן",
+    "title_b": "Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White",
+    "match_text_a": "360488 Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051031-WW Corsair iCUE LINK LX140 RGB PWM 140mm Fan Expansion White"
+  },
+  {
+    "score": 89,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:453184",
+    "listing_b": "tms:CO-9051027-WW",
+    "title_a": "מציאון ועודפים - מאוורר למארז עם בקר תאורה Corsair iCUE LINK  LX140 RGB 140mm PWM - צבע שחור",
+    "title_b": "Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan",
+    "match_text_a": "453184 - Corsair iCUE LINK LX140 RGB 140mm PWM -",
+    "match_text_b": "CO-9051027-WW Corsair iCUE LINK LX140 RGB 140mm PWM Single Fan"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222407",
+    "listing_b": "ksp:448641",
+    "title_a": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
+    "title_b": "מארז ללא ספק Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+    "match_text_a": "222407 Corsair FRAME 4000D LCD RS ARGB",
+    "match_text_b": "448641 Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX -"
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "MSI",
+    "listing_a": "ksp:380080",
+    "listing_b": "yahav:11160",
+    "title_a": "כרטיס מסך MSI RTX 5070 12GB GDDR7 GAMING TRIO OC - צבע שחור",
+    "title_b": "כרטיס מסך חברת MSI דגם GAMING TRIO OC RTX 5070 12GB GDDR7 HDMI 3xDP",
+    "match_text_a": "380080 MSI RTX 5070 12GB GDDR7 GAMING TRIO OC -",
+    "match_text_b": "GeForce-RTX-5070-12G-GAMING-TRIO-OC MSI GAMING TRIO OC RTX 5070 12GB GDDR7 HDMI 3xDP"
+  },
+  {
+    "score": 89,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "ksp:325682",
+    "listing_b": "tms:SNV3S-1000G",
+    "title_a": "כונן Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 1TB SSD",
+    "title_b": "Kingston 1TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
+    "match_text_a": "325682 Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 1TB SSD",
+    "match_text_b": "SNV3S-1000G Kingston 1TB SSD NV3 M.2 2280 PCIe 4.0 NVMe"
+  },
+  {
+    "score": 89,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "ksp:325683",
+    "listing_b": "tms:SNV3S-2000G",
+    "title_a": "כונן Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 2TB SSD",
+    "title_b": "Kingston 2TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
+    "match_text_a": "325683 Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 2TB SSD",
+    "match_text_b": "SNV3S-2000G Kingston 2TB SSD NV3 M.2 2280 PCIe 4.0 NVMe"
+  },
+  {
+    "score": 89,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "ksp:338323",
+    "listing_b": "tms:SNV3S-4000G",
+    "title_a": "כונן Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 4TB SSD",
+    "title_b": "Kingston 4TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
+    "match_text_a": "338323 Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 4TB SSD",
+    "match_text_b": "SNV3S-4000G Kingston 4TB SSD NV3 M.2 2280 PCIe 4.0 NVMe"
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "PNY",
+    "listing_a": "1pc:221469",
+    "listing_b": "yahav:11053",
+    "title_a": "PNY RTX 5060Ti 8GB OC Dual Fan",
+    "title_b": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
+    "match_text_a": "221469 PNY RTX 5060Ti 8GB OC Dual Fan",
+    "match_text_b": "VCG5060T8DFXPB1-O-PC PNY Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP -"
+  },
+  {
+    "score": 89,
+    "category": "motherboard",
+    "brand": "Sapphire",
+    "listing_a": "ivory:148834",
+    "listing_b": "ksp:421032",
+    "title_a": "לוח אם SAPPHIRE PURE B850A WIFI 7 ATX AM5 AMD",
+    "title_b": "לוח אם SAPPHIRE PURE B850A WIFI 7 AM5",
+    "match_text_a": "52123-11-40G SAPPHIRE PURE B850A WIFI 7 ATX AM5 AMD",
+    "match_text_b": "421032 SAPPHIRE PURE B850A WIFI 7 AM5"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222371",
+    "listing_b": "ivory:113511",
+    "title_a": "ספק כוח Corsair CX550 80 PLUS Bronze - 550W",
+    "title_b": "ספק כוח למחשב Corsair CX550 80 PLUS Bronze 550W",
+    "match_text_a": "222371 Corsair CX550 80 PLUS Bronze - 550W",
+    "match_text_b": "CP-9020277-EU Corsair CX550 80 PLUS Bronze 550W"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222371",
+    "listing_b": "ksp:299807",
+    "title_a": "ספק כוח Corsair CX550 80 PLUS Bronze - 550W",
+    "title_b": "ספק כח Corsair CX550 550W 80 PLUS Bronze ATX 12cm Fan",
+    "match_text_a": "222371 Corsair CX550 80 PLUS Bronze - 550W",
+    "match_text_b": "299807 Corsair CX550 550W 80 PLUS Bronze ATX 12cm Fan"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222372",
+    "listing_b": "ivory:86640",
+    "title_a": "ספק כוח Corsair CX650 80 PLUS Bronze - 650W",
+    "title_b": "ספק כוח למחשב Corsair CX650 80 PLUS Bronze 650W",
+    "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
+    "match_text_b": "CP-9020278-EU Corsair CX650 80 PLUS Bronze 650W"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222372",
+    "listing_b": "ksp:299817",
+    "title_a": "ספק כוח Corsair CX650 80 PLUS Bronze - 650W",
+    "title_b": "ספק כח Corsair CX650 650W 80 PLUS Bronze ATX 12cm Fan",
+    "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
+    "match_text_b": "299817 Corsair CX650 650W 80 PLUS Bronze ATX 12cm Fan"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Corsair",
+    "listing_a": "1pc:222372",
+    "listing_b": "yahav:9151",
+    "title_a": "ספק כוח Corsair CX650 80 PLUS Bronze - 650W",
+    "title_b": "ספק כוח למחשב חברת Corsair דגם CX650 CX Series 650W 80 PLUS Bronze ACTIVE PFC כולל מאוורר 120MM",
+    "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
+    "match_text_b": "CP-9020278-EU Corsair CX650 CX Series 650W 80 PLUS Bronze ACTIVE PFC 120MM"
+  },
+  {
+    "score": 88,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "ivory:177031",
+    "listing_b": "ksp:235486",
+    "title_a": "כונן Kingston FURY Renegade PCIe 4.0 NVMe M.2 SSD | נפח 1TB | כולל גוף קירור",
+    "title_b": "כונן עם גוף קירור Kingston FURY Renegade 1TB PCIe 4.0 NVMe M.2 SSD SFYRSK / 1000G",
+    "match_text_a": "SFYRSK/1000G Kingston FURY Renegade PCIe 4.0 NVMe M.2 SSD 1TB",
+    "match_text_b": "235486 Kingston FURY Renegade 1TB PCIe 4.0 NVMe M.2 SSD SFYRSK / 1000G"
+  },
+  {
+    "score": 88,
+    "category": "storage",
+    "brand": "Kingston",
+    "listing_a": "ivory:71621",
+    "listing_b": "ksp:235491",
+    "title_a": "כונן Kingston FURY Renegade PCIe 4.0 NVMe M.2 SSD | נפח 2TB | כולל גוף קירור",
+    "title_b": "כונן עם גוף קירור Kingston FURY Renegade 2TB PCIe 4.0 NVMe M.2 SSD SFYRDK / 2000G",
+    "match_text_a": "SFYRDK/2000G Kingston FURY Renegade PCIe 4.0 NVMe M.2 SSD 2TB",
+    "match_text_b": "235491 Kingston FURY Renegade 2TB PCIe 4.0 NVMe M.2 SSD SFYRDK / 2000G"
+  },
+  {
+    "score": 88,
+    "category": "accessories",
+    "brand": "Corsair",
+    "listing_a": "ksp:299721",
+    "listing_b": "ksp:396383",
+    "title_a": "ערכת כבלים Corsair iCUE LINK Cable Kit",
+    "title_b": "מציאון ועודפים - ערכת כבלים Corsair iCUE LINK Cable Kit",
+    "match_text_a": "299721 Corsair iCUE LINK Cable Kit",
+    "match_text_b": "396383 - Corsair iCUE LINK Cable Kit"
+  },
+  {
     "kind": "duplicate_vendor",
     "product_id": "manual:case:ksp-471940-ksp-471964",
     "category": "case",
@@ -150,6 +579,27 @@
         "title": "קירור נוזלי למעבד Corsair iCUE LINK TITAN RX 360 LCD שחור",
         "price": 1131,
         "alias_of": "1pc:175129"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:aio:360-lc-rog-strix-360mm-black",
+    "category": "aio",
+    "vendor": "ksp",
+    "collapsed": false,
+    "offers": [
+      {
+        "listing_key": "ksp:471596",
+        "vendor_sku": "471596",
+        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 - צבע שחור",
+        "price": 990
+      },
+      {
+        "listing_key": "ksp:327106",
+        "vendor_sku": "327106",
+        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 ARGB - שחור",
+        "price": 1090
       }
     ]
   },
@@ -590,6 +1040,28 @@
         "vendor_sku": "TUF-RTX5060-O8G-GAMING",
         "title": "כרטיס מסך חברת Asus דגם TUF OC Gaming RTX 5060 8GB GDDR7 1xHDMI 3xDP",
         "price": 2150
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+    "category": "memory",
+    "vendor": "ksp",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "ksp:493649",
+        "vendor_sku": "493649",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+        "price": 2360
+      },
+      {
+        "listing_key": "ksp:480430",
+        "vendor_sku": "480430",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+        "price": 2490,
+        "alias_of": "ksp:493649"
       }
     ]
   },
@@ -2671,40 +3143,6 @@
       }
     ],
     "model_code": "3-bifrost-rainbow"
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:360-bf-flow-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:HVN-CA-BF360-03",
-        "vendor": "tms",
-        "vendor_sku": "HVN-CA-BF360-03",
-        "title": "מארז מחשב HAVN BF 360 Flow White",
-        "price": 756
-      }
-    ],
-    "model_code": "360-bf-flow",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:360-bf-flow",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:HVN-CA-BF360-04",
-        "vendor": "tms",
-        "vendor_sku": "HVN-CA-BF360-04",
-        "title": "מארז מחשב HAVN BF 360 Flow",
-        "price": 756
-      }
-    ],
-    "model_code": "360-bf-flow",
-    "manufacturer_pn": []
   },
   {
     "kind": "identity_merge",
@@ -4866,7 +5304,7 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-reverse-sl-uni-120mm",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-reverse-sl-uni-120mm-rgb-black",
     "vendor": "",
     "offers": [
       {
@@ -4883,7 +5321,7 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-reverse-sl-uni-120mm-2",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-reverse-sl-uni-120mm-rgb-black-2",
     "vendor": "",
     "offers": [
       {
@@ -4895,74 +5333,6 @@
       }
     ],
     "model_code": "120mm-blade-fan-flex-reverse-sl-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-cl-fan-flex-uni-120mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12CL1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12CL1F1B",
-        "title": "מאוורר Lian-Li 120mm UNI FAN CL FLEX שחור",
-        "price": 80
-      }
-    ],
-    "model_code": "120mm-cl-fan-flex-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-cl-fan-flex-uni-120mm-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12CL1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12CL1F1W",
-        "title": "מאוורר Lian-Li 120mm UNI FAN CL FLEX לבן",
-        "price": 80
-      }
-    ],
-    "model_code": "120mm-cl-fan-flex-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-flex-sl-uni-120mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12SL1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12SL1F1B",
-        "title": "מאוורר Lian-Li 120mm UNI FAN SL FLEX שחור",
-        "price": 104
-      }
-    ],
-    "model_code": "120mm-fan-flex-sl-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-flex-sl-uni-120mm-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12SL1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12SL1F1W",
-        "title": "מאוורר Lian-Li 120mm UNI FAN SL FLEX לבן",
-        "price": 104
-      }
-    ],
-    "model_code": "120mm-fan-flex-sl-uni",
     "manufacturer_pn": []
   },
   {
@@ -5177,142 +5547,6 @@
       }
     ],
     "model_code": "3-3x120mm-c120-connect-pwm-reverse",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-blade-fan-flex-reverse-sl-uni-120mm-3",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RSL1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RSL1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL FLEX Reverse Blade שחור מארז 3 מאווררים",
-        "price": 321
-      }
-    ],
-    "model_code": "3-blade-fan-flex-reverse-sl-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-blade-fan-flex-reverse-sl-uni-120mm-3-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RSL1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RSL1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL FLEX Reverse Blade לבן מארז 3 מאווררים",
-        "price": 321
-      }
-    ],
-    "model_code": "3-blade-fan-flex-reverse-sl-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-cl-fan-flex-reverse-uni-120mm-3-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RCL1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RCL1F3B",
-        "title": "Lian-Li 120mm UNI FAN CL FLEX Reverse Black מארז 3 מאווררים",
-        "price": 250
-      }
-    ],
-    "model_code": "3-cl-fan-flex-reverse-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-cl-fan-flex-reverse-uni-120mm-3",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RCL1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RCL1F3W",
-        "title": "Lian-Li 120mm UNI FAN CL FLEX Reverse לבן מארז 3 מאווררים",
-        "price": 250
-      }
-    ],
-    "model_code": "3-cl-fan-flex-reverse-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-cl-fan-flex-uni-120mm-3-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12CL1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12CL1F3B",
-        "title": "Lian-Li 120mm UNI FAN CL FLEX Black מארז 3 מאווררים",
-        "price": 250
-      }
-    ],
-    "model_code": "3-cl-fan-flex-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-cl-fan-flex-uni-120mm-3",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12CL1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12CL1F3W",
-        "title": "Lian-Li 120mm UNI FAN CL FLEX לבן מארז 3 מאווררים",
-        "price": 250
-      }
-    ],
-    "model_code": "3-cl-fan-flex-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-fan-flex-sl-uni-120mm-3",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12SL1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12SL1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL FLEX שחור מארז 3 מאווררים",
-        "price": 321
-      }
-    ],
-    "model_code": "3-fan-flex-sl-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-fan-flex-sl-uni-120mm-3-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12SL1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12SL1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL FLEX לבן מארז 3 מאווררים",
-        "price": 321
-      }
-    ],
-    "model_code": "3-fan-flex-sl-uni",
     "manufacturer_pn": []
   },
   {
@@ -15334,6 +15568,65 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:120mm-fan-pack-reverse-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:12RSL1W1W",
+        "vendor": "tms",
+        "vendor_sku": "12RSL1W1W",
+        "title": "Lian-Li UNI SL Wireless 120mm Reverse White Fan",
+        "price": 121
+      },
+      {
+        "listing_key": "yahav:10981",
+        "vendor": "yahav",
+        "vendor_sku": "12RSL1W1W",
+        "title": "מאוורר חברת Lian Li דגם White Uni Fan SL Wireless Reverse RGB 120MM Single Pack",
+        "price": 120
+      }
+    ],
+    "model_code": "120mm-fan-pack-reverse-rgb-single-sl-uni-white-wireless",
+    "manufacturer_pn": [
+      "12RSL1W1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fans-reverse-sl-uni-wireless-x3-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208032",
+        "vendor": "1pc",
+        "vendor_sku": "12RSL1W3W",
+        "title": "מאווררי Lian-Li UNI SL Wireless 120mm Reverse White x3",
+        "price": 402
+      },
+      {
+        "listing_key": "tms:12RSL1W3W",
+        "vendor": "tms",
+        "vendor_sku": "12RSL1W3W",
+        "title": "Lian-Li UNI SL Wireless 120mm Reverse White x3 Fans",
+        "price": 392
+      },
+      {
+        "listing_key": "yahav:10983",
+        "vendor": "yahav",
+        "vendor_sku": "12RSL1W3W",
+        "title": "מאווררים חברת Lian Li דגם White Uni Fan SL Wireless Reverse RGB 120MM Triple Pack",
+        "price": 390
+      }
+    ],
+    "model_code": "120mm-fan-pack-reverse-rgb-sl-triple-uni-white-wireless",
+    "manufacturer_pn": [
+      "12RSL1W3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
     "vendor": "",
     "offers": [
@@ -15395,65 +15688,6 @@
     "model_code": "120mm-fan-inf-pack-sl-triple-uni-white-wireless",
     "manufacturer_pn": [
       "12SLIN1W3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-fan-pack-reverse-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RSL1W1W",
-        "vendor": "tms",
-        "vendor_sku": "12RSL1W1W",
-        "title": "Lian-Li UNI SL Wireless 120mm Reverse White Fan",
-        "price": 121
-      },
-      {
-        "listing_key": "yahav:10981",
-        "vendor": "yahav",
-        "vendor_sku": "12RSL1W1W",
-        "title": "מאוורר חברת Lian Li דגם White Uni Fan SL Wireless Reverse RGB 120MM Single Pack",
-        "price": 120
-      }
-    ],
-    "model_code": "120mm-fan-pack-reverse-rgb-single-sl-uni-white-wireless",
-    "manufacturer_pn": [
-      "12RSL1W1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:fans-reverse-sl-uni-wireless-x3-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:208032",
-        "vendor": "1pc",
-        "vendor_sku": "12RSL1W3W",
-        "title": "מאווררי Lian-Li UNI SL Wireless 120mm Reverse White x3",
-        "price": 402
-      },
-      {
-        "listing_key": "tms:12RSL1W3W",
-        "vendor": "tms",
-        "vendor_sku": "12RSL1W3W",
-        "title": "Lian-Li UNI SL Wireless 120mm Reverse White x3 Fans",
-        "price": 392
-      },
-      {
-        "listing_key": "yahav:10983",
-        "vendor": "yahav",
-        "vendor_sku": "12RSL1W3W",
-        "title": "מאווררים חברת Lian Li דגם White Uni Fan SL Wireless Reverse RGB 120MM Triple Pack",
-        "price": 390
-      }
-    ],
-    "model_code": "120mm-fan-pack-reverse-rgb-sl-triple-uni-white-wireless",
-    "manufacturer_pn": [
-      "12RSL1W3W"
     ]
   },
   {
@@ -17021,360 +17255,6 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177646",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1091
-      },
-      {
-        "listing_key": "tms:GB850AORUSELITEWF7ICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1055
-      },
-      {
-        "listing_key": "yahav:10278",
-        "vendor": "yahav",
-        "vendor_sku": "B850-AORUS-ELITE-WIFI7-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 Ice AM5 DDR5 DP ATX",
-        "price": 1040
-      }
-    ],
-    "model_code": "7-am5-aorus-b850-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850AORUSELITEWF7ICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177647",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 964
-      },
-      {
-        "listing_key": "ivory:125172",
-        "vendor": "ivory",
-        "vendor_sku": "B850AELITEWF7",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 DDR5 ATX AMD בצבע שחור",
-        "price": 1050
-      },
-      {
-        "listing_key": "tms:GB850AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSELITEWIFI7",
-        "title": "Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 1055
-      },
-      {
-        "listing_key": "yahav:10280",
-        "vendor": "yahav",
-        "vendor_sku": "B850-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם B850 Aorus Elite Wifi 7 AM5 DDR5 DP ATX",
-        "price": 1050
-      }
-    ],
-    "model_code": "7-am5-aorus-b850-dp-elite-wifi",
-    "manufacturer_pn": [
-      "GB850AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-ice-stealth-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:204045",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSSTEALTHICE",
-        "title": "לוח אם Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1606
-      },
-      {
-        "listing_key": "tms:GB850AORUSSTEALTHICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSSTEALTHICE",
-        "title": "Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1561
-      }
-    ],
-    "model_code": "aorus-b850-ice-stealth",
-    "manufacturer_pn": [
-      "GB850AORUSSTEALTHICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-stealth-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209505",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSSTEALTH",
-        "title": "לוח אם Gigabyte B850 AORUS STEALTH",
-        "price": 1295
-      },
-      {
-        "listing_key": "tms:GB850AORUSSTEALTH",
-        "vendor": "tms",
-        "vendor_sku": "GB850AORUSSTEALTH",
-        "title": "Gigabyte B850 AORUS STEALTH",
-        "price": 1702
-      }
-    ],
-    "model_code": "aorus-b850-stealth",
-    "manufacturer_pn": [
-      "GB850AORUSSTEALTH"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177652",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 875
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6EICE",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6EICE",
-        "title": "Gigabyte B850M AORUS ELITE WIFI6E ICE",
-        "price": 989
-      },
-      {
-        "listing_key": "yahav:10288",
-        "vendor": "yahav",
-        "vendor_sku": "B850M-AORUS-ELITE-WIFI6E-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B850M Aorus Elite Wifi 6E Ice AM5 DDR5 DP ATX",
-        "price": 1130
-      }
-    ],
-    "model_code": "6e-am5-aorus-b850m-dp-elite-ice-wifi",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850m-elite-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207713",
-        "vendor": "1pc",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "לוח אם Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 1160
-      },
-      {
-        "listing_key": "tms:GB850MAORUSELTWF6E",
-        "vendor": "tms",
-        "vendor_sku": "GB850MAORUSELTWF6E",
-        "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 945
-      }
-    ],
-    "model_code": "aorus-b850m-elite-wifi6e",
-    "manufacturer_pn": [
-      "GB850MAORUSELTWF6E"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170330",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI7",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170331",
-        "vendor": "1pc",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "לוח אם Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1360
-      },
-      {
-        "listing_key": "tms:GX870AORUSELITEWIFI",
-        "vendor": "tms",
-        "vendor_sku": "GX870AORUSELITEWIFI",
-        "title": "Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1319
-      }
-    ],
-    "model_code": "aorus-elite-wifi7-x870",
-    "manufacturer_pn": [
-      "GX870AORUSELITEWIFI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-ice-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207716",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1561
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7I",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7I",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1545
-      }
-    ],
-    "model_code": "aorus-elite-ice-wifi7-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-elite-wifi7-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:170329",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "לוח אם Gigabyte X870E AORUS ELITE WIFI7",
-        "price": 1308
-      },
-      {
-        "listing_key": "tms:GX870EAORUSELITEWIFI7",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSELITEWIFI7",
-        "title": "Gigabyte X870E AORUS ELITE WiFi7",
-        "price": 1438
-      },
-      {
-        "listing_key": "yahav:10175",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-ELITE-WIFI7",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Elite WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1380
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-elite-wifi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-ice-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:207718",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2592
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3DI",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3DI",
-        "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2575
-      },
-      {
-        "listing_key": "yahav:10919",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-MASTER-X3D-ICE",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Master X3D ICE WiFi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 2190
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-master-wifi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3DI"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-master-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:216436",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-        "price": 2501
-      },
-      {
-        "listing_key": "tms:GX870EAORUSMASTERX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSMASTERX3D",
-        "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2440
-      }
-    ],
-    "model_code": "aorus-master-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSMASTERX3D"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
     "product_id": "model:motherboard:aorus-ice-pro-x870e-atx",
     "vendor": "",
     "offers": [
@@ -17725,7 +17605,7 @@
         "vendor": "tms",
         "vendor_sku": "GB850MAORUSELTWF6E",
         "title": "Gigabyte B850M AORUS ELITE WiFi6E",
-        "price": 989
+        "price": 945
       }
     ],
     "model_code": "aorus-b850m-elite-wifi6e",
@@ -17791,7 +17671,7 @@
         "vendor": "tms",
         "vendor_sku": "GB850AORUSELITEWIFI7",
         "title": "Gigabyte B850 AORUS ELITE WIFI7",
-        "price": 1099
+        "price": 1055
       },
       {
         "listing_key": "yahav:10280",
@@ -18619,6 +18499,36 @@
         "price": 106
       }
     ]
+  },
+  {
+    "kind": "identity_merge",
+    "category": "aio",
+    "product_id": "model:aio:360-lc-rog-strix-360mm-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:471596",
+        "vendor": "ksp",
+        "vendor_sku": "471596",
+        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 - צבע שחור",
+        "price": 990
+      },
+      {
+        "listing_key": "ksp:327106",
+        "vendor": "ksp",
+        "vendor_sku": "327106",
+        "title": "קירור נוזלי למעבד Asus ROG STRIX LC III 360 ARGB - שחור",
+        "price": 1090
+      }
+    ],
+    "model_code": "360-lc-rog-strix",
+    "reason": "title-axis conflict: lighting lit vs none",
+    "axis_conflicts": {
+      "lighting": [
+        "lit",
+        "none"
+      ]
+    }
   },
   {
     "kind": "identity_merge",
