@@ -2608,5 +2608,60 @@
     "decision": "not_match",
     "listing_a": "ksp:280964",
     "listing_b": "ksp:281030"
+  },
+  "561": {
+    "decision": "match",
+    "listing_a": "1pc:157901",
+    "listing_b": "tms:C8"
+  },
+  "562": {
+    "decision": "match",
+    "listing_a": "1pc:59363",
+    "listing_b": "tms:C40"
+  },
+  "563": {
+    "decision": "not_match",
+    "listing_a": "ksp:416673",
+    "listing_b": "ksp:416746"
+  },
+  "564": {
+    "decision": "not_match",
+    "listing_a": "ksp:416766",
+    "listing_b": "ksp:416792"
+  },
+  "565": {
+    "decision": "not_match",
+    "listing_a": "ksp:387614",
+    "listing_b": "ksp:448641"
+  },
+  "566": {
+    "decision": "not_match",
+    "listing_a": "ksp:387614",
+    "listing_b": "ksp:448674"
+  },
+  "567": {
+    "decision": "not_match",
+    "listing_a": "ksp:387614",
+    "listing_b": "ksp:492602"
+  },
+  "568": {
+    "decision": "not_match",
+    "listing_a": "1pc:222419",
+    "listing_b": "ksp:387614"
+  },
+  "569": {
+    "decision": "not_match",
+    "listing_a": "ksp:416673",
+    "listing_b": "ksp:416792"
+  },
+  "570": {
+    "decision": "not_match",
+    "listing_a": "ksp:416746",
+    "listing_b": "ksp:416766"
+  },
+  "571": {
+    "decision": "not_match",
+    "listing_a": "ksp:416746",
+    "listing_b": "ksp:416792"
   }
 }
