@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T09:59:31.697905+00:00",
+  "generated_at": "2026-11-14T10:32:00.982904+00:00",
   "gaps": [
     {
       "category": "case",
@@ -32,6 +32,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "מידע מהיצרן",
+      "count": 69,
+      "products": [
+        "model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:7-pure-wifi-x870a-atx"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "רזולוציה",
       "count": 68,
@@ -39,6 +49,26 @@
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
         "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מידע מהיצרן",
+      "count": 66,
+      "products": [
+        "memory:ksp:ksp-480433",
+        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
+        "model:memory:0-3-6000-beast-cl30-expo-fury-xmp-16gb-x1-6000mhz-cl30-black-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "P/N",
+      "count": 55,
+      "products": [
+        "model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:7-b850a-pure-wifi-atx"
       ]
     },
     {
@@ -62,6 +92,46 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "מפרט טכני",
+      "count": 41,
+      "products": [
+        "model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:7-b850a-pure-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "סקירה",
+      "count": 40,
+      "products": [
+        "model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
+        "model:motherboard:7-b850a-nitro-wifi-atx",
+        "model:motherboard:7-b850a-pure-wifi-atx"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סקירה",
+      "count": 39,
+      "products": [
+        "memory:ksp:ksp-456282",
+        "memory:ksp:ksp-480433",
+        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "זיכרון",
+      "count": 37,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx"
+      ]
+    },
+    {
       "category": "case",
       "label": "מפרט",
       "count": 36,
@@ -69,6 +139,36 @@
         "model:case:0-3-761345-80100-flux-p10",
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אחסון",
+      "count": 34,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "גרפיקה",
+      "count": 33,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מפרט טכני",
+      "count": 32,
+      "products": [
+        "memory:ksp:ksp-456282",
+        "memory:ksp:ksp-480433",
+        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm"
       ]
     },
     {
@@ -89,6 +189,26 @@
         "model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black",
         "model:case_fan:120-icue-link-lx120-r-120mm-3-rgb-black",
         "model:case_fan:120-icue-link-max-rx120-120mm-1-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "ערוצים",
+      "count": 28,
+      "products": [
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "USB",
+      "count": 28,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
       ]
     },
     {
@@ -114,11 +234,21 @@
     {
       "category": "gpu",
       "label": "סוג האחסון",
-      "count": 25,
+      "count": 26,
       "products": [
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
         "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb",
         "model:gpu:12g-12gd-5070-aorus-gv-m-master-n5070aorus-rtx-12gb"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מערכות הפעלה תומכות",
+      "count": 25,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-b860m-csm-prime-microatx"
       ]
     },
     {
@@ -142,6 +272,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "חיבורים פנימיים",
+      "count": 23,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2"
+      ]
+    },
+    {
       "category": "memory",
       "label": "מק\"ט יצרן",
       "count": 22,
@@ -162,6 +302,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "תצורה",
+      "count": 22,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2"
+      ]
+    },
+    {
       "category": "storage",
       "label": "R/W Speed",
       "count": 22,
@@ -173,12 +323,22 @@
     },
     {
       "category": "memory",
-      "label": "ערוצים",
+      "label": "תכונות",
       "count": 21,
       "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תקשורת אלחוטית",
+      "count": 21,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-csm-d4-h610m-prime-microatx"
       ]
     },
     {
@@ -229,26 +389,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 20,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 20,
-      "products": [
-        "model:storage:0-4-990-1000gb-pciegen40-m22280",
-        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
-        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
       ]
     },
     {
@@ -312,6 +452,26 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 19,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 19,
+      "products": [
+        "model:storage:0-4-990-1000gb-pciegen40-m22280",
+        "model:storage:0-4-fury-renegade-1000gb-pcie4-m22280",
+        "model:storage:0-4-fury-renegade-2000gb-pcie4-m22280"
+      ]
+    },
+    {
       "category": "case",
       "label": "תמיכה בספק mm",
       "count": 18,
@@ -326,9 +486,9 @@
       "label": "ממשק",
       "count": 18,
       "products": [
-        "model:memory:0-2x16gb-3-6000-cl30-expo-vengeance-xmp-32gb-x2-6000mhz-cl30-rgb-black-dimm",
         "model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
-        "model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm"
+        "model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
+        "model:memory:0-3-4x16gb-5600-cl36-dominator-expo-xmp-64gb-x4-5600mhz-cl36-rgb-grey-dimm"
       ]
     },
     {
@@ -346,9 +506,9 @@
       "label": "תכונות נוספות",
       "count": 17,
       "products": [
+        "model:cpu:5500-tray",
         "model:cpu:5700x-tray",
-        "model:cpu:5800x3d",
-        "model:cpu:8400f-tray"
+        "model:cpu:5800x3d"
       ]
     },
     {
@@ -459,6 +619,16 @@
         "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
         "model:gpu:2-5060-geforce-infinity-oc-rtx-8gb",
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "גובה",
+      "count": 16,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white"
       ]
     },
     {
@@ -712,6 +882,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "מידע מהיצרן",
+      "count": 13,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900k",
+        "model:cpu:14900kf"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "DisplayPorts quantity",
       "count": 13,
@@ -759,6 +939,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים ויציאות",
+      "count": 13,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-csm-d4-h610m-prime-microatx"
       ]
     },
     {
@@ -1012,6 +1202,46 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "תכונות מיוחדות",
+      "count": 12,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-b860m-csm-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות תוכנה",
+      "count": 12,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-b860m-csm-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "ניהוליות",
+      "count": 12,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-b860m-csm-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "יציאות פאנל אחורי",
+      "count": 12,
+      "products": [
+        "model:motherboard:aorus-elite-ice-x-z890-atx",
+        "model:motherboard:b650-pro-s-wifi-atx",
+        "model:motherboard:b760-gaming-plus-wifi-atx"
+      ]
+    },
+    {
       "category": "psu",
       "label": "תקנים",
       "count": 12,
@@ -1133,12 +1363,12 @@
     },
     {
       "category": "memory",
-      "label": "גובה",
+      "label": "מתח SPD",
       "count": 11,
       "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
-        "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white"
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm"
       ]
     },
     {
@@ -1173,6 +1403,16 @@
     },
     {
       "category": "memory",
+      "label": "Tested Latency",
+      "count": 11,
+      "products": [
+        "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
+        "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm",
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מק\"ט בינ\"ל",
       "count": 11,
       "products": [
@@ -1189,6 +1429,26 @@
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
         "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מחברים פנימיים",
+      "count": 11,
+      "products": [
+        "model:motherboard:aorus-elite-ice-x-z890-atx",
+        "model:motherboard:b650-pro-s-wifi-atx",
+        "model:motherboard:b760-gaming-plus-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מימדים",
+      "count": 11,
+      "products": [
+        "model:motherboard:aorus-elite-ice-x-z890-atx",
+        "model:motherboard:b650-pro-s-wifi-atx",
+        "model:motherboard:b760-gaming-plus-wifi-atx"
       ]
     },
     {
@@ -1472,6 +1732,26 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "תכולה",
+      "count": 10,
+      "products": [
+        "model:motherboard:a-a620am-am5-csm-prime-microatx",
+        "model:motherboard:a520m-prime-r-microatx-a520",
+        "model:motherboard:a620am-am5-gaming-tuf-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אביזרים",
+      "count": 10,
+      "products": [
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2",
+        "model:motherboard:a-b860m-csm-prime-microatx"
+      ]
+    },
+    {
       "category": "aio",
       "label": "ממשק",
       "count": 9,
@@ -1513,6 +1793,16 @@
     },
     {
       "category": "memory",
+      "label": "פרופיל ביצועים",
+      "count": 9,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-2666mhz-cl16-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "תצורת מודול",
       "count": 9,
       "products": [
@@ -1529,6 +1819,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:aorus-ultra-z890i-miniitx",
         "model:motherboard:b860-gaming-wifi6e-x-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות LED",
+      "count": 9,
+      "products": [
+        "model:motherboard:b650-pro-s-wifi-atx",
+        "model:motherboard:b760-gaming-plus-wifi-atx",
+        "model:motherboard:b760m-ii-mag-mortar-microatx"
       ]
     },
     {
@@ -1592,6 +1892,26 @@
       ]
     },
     {
+      "category": "case",
+      "label": "מאווררים מותקנים מראש",
+      "count": 8,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white",
+        "model:case:atlas-m3m-black"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "הערה",
+      "count": 8,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900kf",
+        "model:cpu:235-tray"
+      ]
+    },
+    {
       "category": "memory",
       "label": "מפרט",
       "count": 8,
@@ -1609,26 +1929,6 @@
         "model:memory:2-ct2k16g56c46u5-32gb-x2-5600mhz-cl46-black-dimm",
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "P/N",
-      "count": 8,
-      "products": [
-        "model:motherboard:7-b850a-nitro-wifi-atx",
-        "model:motherboard:a520m-prime-r-microatx-a520",
-        "model:motherboard:b850m-nitro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מידע מהיצרן",
-      "count": 8,
-      "products": [
-        "model:motherboard:7-b850a-nitro-wifi-atx",
-        "model:motherboard:a520m-prime-r-microatx-a520",
-        "model:motherboard:b850m-nitro-wifi-microatx"
       ]
     },
     {
@@ -1782,6 +2082,46 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "מפרט",
+      "count": 7,
+      "products": [
+        "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb",
+        "model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb",
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "גודל",
+      "count": 7,
+      "products": [
+        "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
+        "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm",
+        "model:memory:2x8gb-3000mhz-aegis-cl16-ddr4-g-kit-16gb-x2-3000mhz-cl16-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Registered/Unbuffered",
+      "count": 7,
+      "products": [
+        "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
+        "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm",
+        "model:memory:2x8gb-3000mhz-aegis-cl16-ddr4-g-kit-16gb-x2-3000mhz-cl16-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Error Checking",
+      "count": 7,
+      "products": [
+        "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
+        "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm",
+        "model:memory:2x8gb-3000mhz-aegis-cl16-ddr4-g-kit-16gb-x2-3000mhz-cl16-dimm"
+      ]
+    },
+    {
       "category": "memory",
       "label": "מהירות זיכרון בסיסית",
       "count": 7,
@@ -1793,22 +2133,72 @@
     },
     {
       "category": "memory",
+      "label": "מהירות בדוקה",
+      "count": 7,
+      "products": [
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "זמן אחזור",
+      "count": 7,
+      "products": [
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מתח נבדק",
+      "count": 7,
+      "products": [
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "רישום/לא מאוחסן",
+      "count": 7,
+      "products": [
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "בדיקת שגיאות",
+      "count": 7,
+      "products": [
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מאוורר כלול",
+      "count": 7,
+      "products": [
+        "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מתח פעולה",
       "count": 7,
       "products": [
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm",
         "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מפרט טכני",
-      "count": 7,
-      "products": [
-        "model:motherboard:7-b850a-nitro-wifi-atx",
-        "model:motherboard:a520m-prime-r-microatx-a520",
-        "model:motherboard:b850m-nitro-wifi-microatx"
       ]
     },
     {
@@ -1942,16 +2332,6 @@
       ]
     },
     {
-      "category": "case",
-      "label": "מאווררים מותקנים מראש",
-      "count": 6,
-      "products": [
-        "model:case:atlas-m3m-black",
-        "model:case:atlas-m5-black",
-        "model:case:aura-elite-gc107-black"
-      ]
-    },
-    {
       "category": "case_fan",
       "label": "זרימת אוויר",
       "count": 6,
@@ -1982,16 +2362,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "מפרט",
-      "count": 6,
-      "products": [
-        "model:gpu:16gb-5080-gddr7-geforce-oc-prime-rtx-16gb",
-        "model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb",
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
       "category": "memory",
       "label": "DRAM spec/VCC",
       "count": 6,
@@ -2003,12 +2373,52 @@
     },
     {
       "category": "motherboard",
+      "label": "חיבורי רשת",
+      "count": 6,
+      "products": [
+        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
+        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תכונות",
+      "count": 6,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:b-h810m-pro-microatx",
+        "model:motherboard:gaming-max-white-wifi7-x870-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "12h Gen Intel",
       "count": 6,
       "products": [
         "model:motherboard:a-b760m-pro-wifi-microatx",
         "model:motherboard:a-b760m-pro-wifi-microatx-ddr5",
         "model:motherboard:b760m-bomber-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "דגם 2",
+      "count": 6,
+      "products": [
+        "model:motherboard:a-b860m-pro-wifi6e-microatx",
+        "model:motherboard:a-ii-pro-wifi-z790-atx",
+        "model:motherboard:b860m-pro-s-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים אחוריים",
+      "count": 6,
+      "products": [
+        "model:motherboard:b760-plus-prime-atx",
+        "model:motherboard:b760m-k-prime-microatx",
+        "model:motherboard:b850-gaming-max-plus-wifi-atx"
       ]
     },
     {
@@ -2122,6 +2532,26 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "אפשרויות הרחבה",
+      "count": 5,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900k",
+        "model:cpu:14900kf"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט טכני",
+      "count": 5,
+      "products": [
+        "model:cpu:235-tray",
+        "model:cpu:7900",
+        "model:cpu:8400f"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "עומק",
       "count": 5,
@@ -2173,6 +2603,16 @@
     },
     {
       "category": "memory",
+      "label": "תצורת זיכרון",
+      "count": 5,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
+        "model:memory:64-kf432c16bbk2-64gb-x2-3200mhz-cl17-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "סוג קירור",
       "count": 5,
       "products": [
@@ -2183,32 +2623,32 @@
     },
     {
       "category": "memory",
+      "label": "P\\N",
+      "count": 5,
+      "products": [
+        "model:memory:2x16gb-6000a3038f16gx2-6000mt-cl30-ddr5-f5-g-neo-rgb-s-trident-tz5nxrk-x-z5-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+        "model:memory:2x16gb-6000a3038f16gx2-6000mt-cl30-ddr5-f5-g-neo-rgb-s-trident-tz5nxrw-x-z5-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+        "model:memory:2x32gb-6800mt-cl34-m5-ripjaws-s-64gb-x2-6800mhz-cl34-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Fan lncluded",
+      "count": 5,
+      "products": [
+        "model:memory:2x8gb-3000mhz-aegis-cl16-ddr4-g-kit-16gb-x2-3000mhz-cl16-dimm",
+        "model:memory:neo-trident-z-32gb-x2-3600mhz-cl18-rgb-dimm",
+        "model:memory:rgb-trident-z-32gb-x2-3200mhz-cl16-rgb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "תזמונים",
       "count": 5,
       "products": [
         "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
         "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
         "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "סקירה",
-      "count": 5,
-      "products": [
-        "model:motherboard:7-b850a-nitro-wifi-atx",
-        "model:motherboard:a520m-prime-r-microatx-a520",
-        "model:motherboard:b850m-nitro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "זיכרון",
-      "count": 5,
-      "products": [
-        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-        "model:motherboard:b-h810m-pro-wifi6e-microatx",
-        "model:motherboard:b860m-e-pro-microatx"
       ]
     },
     {
@@ -2413,6 +2853,16 @@
     },
     {
       "category": "case",
+      "label": "תמיכה בספק כוח",
+      "count": 4,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white",
+        "model:case:m110r-mag-pano-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "חיבורים קדמיים (I/O)",
       "count": 4,
       "products": [
@@ -2553,6 +3003,16 @@
     },
     {
       "category": "cpu",
+      "label": "P/N",
+      "count": 4,
+      "products": [
+        "model:cpu:235-tray",
+        "model:cpu:7900",
+        "model:cpu:8400f"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "רזולוציה",
       "count": 4,
       "products": [
@@ -2597,8 +3057,38 @@
       "count": 4,
       "products": [
         "model:memory:0-2x16gb-3-6400-cl36-vengeance-xmp-32gb-x2-6400mhz-cl36-rgb-black",
-        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black",
+        "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
         "model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מהירות SPD",
+      "count": 4,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm",
+        "model:memory:64-kf432c16bbk2-64gb-x2-3200mhz-cl17-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "דירוג מהירות",
+      "count": 4,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:64-kf432c16bbk2-64gb-x2-3200mhz-cl17-black-dimm",
+        "model:memory:8-kf432c16bb-8gb-3200mhz-cl16-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סוג חיבור",
+      "count": 4,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:64-kf432c16bbk2-64gb-x2-3200mhz-cl17-black-dimm",
+        "model:memory:8-kf432c16bb-8gb-3200mhz-cl16-dimm"
       ]
     },
     {
@@ -2613,12 +3103,72 @@
     },
     {
       "category": "memory",
+      "label": "Multi-Channel",
+      "count": 4,
+      "products": [
+        "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
+        "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm",
+        "model:memory:neo-trident-z-32gb-x2-3600mhz-cl18-rgb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "סוג חציצה בזיכרון",
       "count": 4,
       "products": [
         "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey",
         "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white",
         "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "פיזור חום",
+      "count": 4,
+      "products": [
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-2666mhz-cl16-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-3200mhz-cl16-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קונפיגורצית זיכרון",
+      "count": 4,
+      "products": [
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-2666mhz-cl16-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-3200mhz-cl16-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Package - Memory Pin",
+      "count": 4,
+      "products": [
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-2666mhz-cl16-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-3200mhz-cl16-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Package - Memory Format",
+      "count": 4,
+      "products": [
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-2666mhz-cl16-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-3200mhz-cl16-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "SPD Latency",
+      "count": 4,
+      "products": [
+        "model:memory:2x16gb-cl16-lpx-vengeance-32gb-x2-3200mhz-cl16-black-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-2666mhz-cl16-dimm",
+        "model:memory:2x8gb-cl16-lpx-vengeance-16gb-x2-3200mhz-cl16-black-dimm"
       ]
     },
     {
@@ -2663,16 +3213,6 @@
     },
     {
       "category": "motherboard",
-      "label": "USB",
-      "count": 4,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "Internal IO",
       "count": 4,
       "products": [
@@ -2689,16 +3229,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-pro-wifi-z890-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אחסון",
-      "count": 4,
-      "products": [
-        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-        "model:motherboard:b850-gaming-max-plus-wifi-atx",
-        "model:motherboard:d4-h610m-k-prime-microatx"
       ]
     },
     {
@@ -2819,6 +3349,16 @@
         "model:motherboard:a620am-b-evo-pro-microatx",
         "model:motherboard:b550m-pro-vdh-microatx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "ריבוי GPU",
+      "count": 4,
+      "products": [
+        "model:motherboard:b650-pro-s-wifi-atx",
+        "model:motherboard:b760-gaming-plus-wifi-atx",
+        "model:motherboard:b760m-ii-mag-mortar-microatx"
       ]
     },
     {
@@ -3083,6 +3623,26 @@
     },
     {
       "category": "case",
+      "label": "מבנה",
+      "count": 3,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white",
+        "model:case:argb-aura-elite-gc4-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "חיבורים קדמיים",
+      "count": 3,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white",
+        "model:case:argb-aura-elite-gc4-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "האורך המרבי של כרטיס גרפי",
       "count": 3,
       "products": [
@@ -3173,12 +3733,62 @@
     },
     {
       "category": "cpu",
+      "label": "כללי",
+      "count": 3,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900k",
+        "model:cpu:14900kf"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "נתוני מעבד",
+      "count": 3,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900k",
+        "model:cpu:14900kf"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "נתוני זיכרונות",
+      "count": 3,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900k",
+        "model:cpu:14900kf"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "כרטיס גרפי",
       "count": 3,
       "products": [
         "model:cpu:245k-tray",
         "model:cpu:265k-tray",
         "model:cpu:8500g-tray-ryzen5"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "סקירה",
+      "count": 3,
+      "products": [
+        "model:cpu:265",
+        "model:cpu:265f",
+        "model:cpu:9900x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מעבדי AMD Ryzen",
+      "count": 3,
+      "products": [
+        "model:cpu:7900",
+        "model:cpu:8400f",
+        "model:cpu:8700g"
       ]
     },
     {
@@ -3313,6 +3923,26 @@
     },
     {
       "category": "memory",
+      "label": "זמן השהייה",
+      "count": 3,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:64-kf432c16bbk2-64gb-x2-3200mhz-cl17-black-dimm",
+        "model:memory:8-kf432c16bb-8gb-3200mhz-cl16-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "זמן השהייה SPD",
+      "count": 3,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:64-kf432c16bbk2-64gb-x2-3200mhz-cl17-black-dimm",
+        "model:memory:8-kf432c16bb-8gb-3200mhz-cl16-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "משקל",
       "count": 3,
       "products": [
@@ -3327,8 +3957,8 @@
       "count": 3,
       "products": [
         "model:memory:2-cmh32gx5m2d6000z38-vengeance-32gb-rgb-grey",
-        "model:memory:2-cmh32gx5m2d6000z38w-vengeance-32gb-rgb-white",
-        "model:memory:2-cmk32gx5m2d6000z38-vengeance-32gb-grey"
+        "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
+        "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm"
       ]
     },
     {
@@ -3337,8 +3967,8 @@
       "count": 3,
       "products": [
         "model:memory:2-cmh32gx5m2d6000z38-vengeance-32gb-rgb-grey",
-        "model:memory:2-cmh32gx5m2d6000z38w-vengeance-32gb-rgb-white",
-        "model:memory:2-cmk32gx5m2d6000z38-vengeance-32gb-grey"
+        "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
+        "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm"
       ]
     },
     {
@@ -3347,8 +3977,8 @@
       "count": 3,
       "products": [
         "model:memory:2-cmh32gx5m2d6000z38-vengeance-32gb-rgb-grey",
-        "model:memory:2-cmh32gx5m2d6000z38w-vengeance-32gb-rgb-white",
-        "model:memory:2-cmk32gx5m2d6000z38-vengeance-32gb-grey"
+        "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
+        "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm"
       ]
     },
     {
@@ -3454,16 +4084,6 @@
     {
       "category": "motherboard",
       "label": "יציאות USB 3.2",
-      "count": 3,
-      "products": [
-        "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
-        "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
-        "model:motherboard:b850-creator-neo-proart-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורי רשת",
       "count": 3,
       "products": [
         "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
@@ -3693,6 +4313,36 @@
     },
     {
       "category": "motherboard",
+      "label": "הערה חשובה",
+      "count": 3,
+      "products": [
+        "model:motherboard:a620m-gaming-plus-tuf-microatx",
+        "model:motherboard:b760-g-gaming-rog-strix-wifi-microatx",
+        "model:motherboard:h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "הערה חשובה!",
+      "count": 3,
+      "products": [
+        "model:motherboard:a620m-gaming-plus-tuf-microatx",
+        "model:motherboard:b760-g-gaming-rog-strix-wifi-microatx",
+        "model:motherboard:h610m-k-prime-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Networks",
+      "count": 3,
+      "products": [
+        "model:motherboard:am5-ddr5-eagle-wifi7-x870-atx",
+        "model:motherboard:aorus-pro-x870e-atx",
+        "model:motherboard:carbon-mpg-wifi-z890-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "IO",
       "count": 3,
       "products": [
@@ -3713,22 +4363,22 @@
     },
     {
       "category": "motherboard",
+      "label": "מערכות הפעלה נתמכות",
+      "count": 3,
+      "products": [
+        "model:motherboard:b-h810m-pro-wifi6e-microatx",
+        "model:motherboard:b860m-e-pro-microatx",
+        "model:motherboard:gaming-i-rog-strix-wifi-z890-miniitx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "רזולוציה מרבית",
       "count": 3,
       "products": [
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חיבורים פנימיים",
-      "count": 3,
-      "products": [
-        "model:motherboard:b850-gaming-max-plus-wifi-atx",
-        "model:motherboard:d4-h610m-k-prime-microatx",
-        "model:motherboard:e-h810m-pro-microatx"
       ]
     },
     {
@@ -4116,6 +4766,51 @@
     },
     {
       "category": "case",
+      "label": "תצורת אחסון",
+      "count": 2,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תאימות ללוחות אם",
+      "count": 2,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווח למצנן מעבד",
+      "count": 2,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "בקרת מאווררים",
+      "count": 2,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווח לכרטיס מסך",
+      "count": 2,
+      "products": [
+        "model:case:360-bf-flow-black",
+        "model:case:360-bf-flow-white"
+      ]
+    },
+    {
+      "category": "case",
       "label": "חיבור USB 3.1/2 - usb Type-C",
       "count": 2,
       "products": [
@@ -4207,15 +4902,6 @@
     {
       "category": "case",
       "label": "תמיכה בכוננים",
-      "count": 2,
-      "products": [
-        "model:case:m110r-mag-pano-black",
-        "model:case:m110r-mag-pano-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תמיכה בספק כוח",
       "count": 2,
       "products": [
         "model:case:m110r-mag-pano-black",
@@ -4364,6 +5050,69 @@
       "products": [
         "model:cpu:10100-tray",
         "model:cpu:11400f-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "סדרה ודגם",
+      "count": 2,
+      "products": [
+        "model:cpu:265",
+        "model:cpu:265f"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט מעבד",
+      "count": 2,
+      "products": [
+        "model:cpu:265",
+        "model:cpu:265f"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט זכרון",
+      "count": 2,
+      "products": [
+        "model:cpu:265",
+        "model:cpu:265f"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט NPU",
+      "count": 2,
+      "products": [
+        "model:cpu:265",
+        "model:cpu:265f"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "טכנולוגיות מתקדמות",
+      "count": 2,
+      "products": [
+        "model:cpu:265",
+        "model:cpu:265f"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט כללי",
+      "count": 2,
+      "products": [
+        "model:cpu:5700",
+        "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "גרפיקה",
+      "count": 2,
+      "products": [
+        "model:cpu:5700",
+        "model:cpu:9800x3d"
       ]
     },
     {
@@ -4629,6 +5378,87 @@
     },
     {
       "category": "gpu",
+      "label": "Graphics Processing",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "CUDA® Cores",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Memory Clock",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Card Bus",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Multi-view Support",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "Card Size",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "PCB Form Factor",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPort 2.1a",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "HDMI 2.1b",
+      "count": 2,
+      "products": [
+        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
+        "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "ארכיטקטורה",
       "count": 2,
       "products": [
@@ -4683,20 +5513,29 @@
     },
     {
       "category": "memory",
-      "label": "תצורת זיכרון",
-      "count": 2,
-      "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
-        "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "סוג הזיכרון",
       "count": 2,
       "products": [
         "model:memory:16gbit-cl46-ct16g56c46s5-sodimm-16gb-5600mhz-cl46-sodimm",
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Features",
+      "count": 2,
+      "products": [
+        "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
+        "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "הערה",
+      "count": 2,
+      "products": [
+        "model:memory:2x8gb-6000j3038f8gh2-6000mt-cl30-ddr5-f5-flare-fx5-g-s-x5-16gb-x2-6000mhz-cl30-black-dimm",
+        "model:memory:6000j3038f8gh1-6000mt-8gb-cl30-ddr5-f5-flare-fx5-g-s-x5-8gb-6000mhz-cl30-black-dimm"
       ]
     },
     {
@@ -4760,15 +5599,6 @@
       "products": [
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
         "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "פרופיל ביצועים",
-      "count": 2,
-      "products": [
-        "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm",
-        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
       ]
     },
     {
@@ -4922,6 +5752,15 @@
       "products": [
         "model:motherboard:a-b550m-pro-microatx",
         "model:motherboard:b550-gaming-mpg-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים ויציאות מלוח אחורי",
+      "count": 2,
+      "products": [
+        "model:motherboard:a-b860m-csm-prime-microatx",
+        "model:motherboard:b860-gaming-plus-tuf-atx"
       ]
     },
     {
@@ -5223,6 +6062,15 @@
     },
     {
       "category": "motherboard",
+      "label": "תכולת אריזה",
+      "count": 2,
+      "products": [
+        "model:motherboard:a620-gaming-pro-tuf-wifi-atx",
+        "model:motherboard:a620m-gaming-plus-tuf-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "תקן ה-Wi-Fi המתקדם ביותר",
       "count": 2,
       "products": [
@@ -5259,20 +6107,29 @@
     },
     {
       "category": "motherboard",
+      "label": "בקר",
+      "count": 2,
+      "products": [
+        "model:motherboard:am5-ddr5-eagle-wifi7-x870-atx",
+        "model:motherboard:aorus-pro-x870e-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "רשתות",
+      "count": 2,
+      "products": [
+        "model:motherboard:aorus-elite-ice-x-z890-atx",
+        "model:motherboard:plus-prime-wifi-z890m-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "core ultra",
       "count": 2,
       "products": [
         "model:motherboard:b-core-h810m-pro-ultra-microatx",
         "model:motherboard:gaming-h810m-wifi6e-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכות הפעלה נתמכות",
-      "count": 2,
-      "products": [
-        "model:motherboard:b-h810m-pro-wifi6e-microatx",
-        "model:motherboard:b860m-e-pro-microatx"
       ]
     },
     {
@@ -5912,14 +6769,6 @@
     },
     {
       "category": "case",
-      "label": "מבנה",
-      "count": 1,
-      "products": [
-        "model:case:argb-aura-elite-gc4-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "פאנל קדמי",
       "count": 1,
       "products": [
@@ -5969,14 +6818,6 @@
     {
       "category": "case",
       "label": "אורך מרבי של ספק הכוח",
-      "count": 1,
-      "products": [
-        "model:case:argb-aura-elite-gc4-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חיבורים קדמיים",
       "count": 1,
       "products": [
         "model:case:argb-aura-elite-gc4-black"
@@ -6360,6 +7201,70 @@
     },
     {
       "category": "cpu",
+      "label": "נתוני כרטיסי מסך",
+      "count": 1,
+      "products": [
+        "model:cpu:14900k"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "Essentials",
+      "count": 1,
+      "products": [
+        "model:cpu:14900ks"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "CPU Specifications",
+      "count": 1,
+      "products": [
+        "model:cpu:14900ks"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "Memory Specifications",
+      "count": 1,
+      "products": [
+        "model:cpu:14900ks"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "GPU Specifications",
+      "count": 1,
+      "products": [
+        "model:cpu:14900ks"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "Expansion Options",
+      "count": 1,
+      "products": [
+        "model:cpu:14900ks"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מעבדי Intel Core",
+      "count": 1,
+      "products": [
+        "model:cpu:235-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מפרט כרטיס גרפי",
+      "count": 1,
+      "products": [
+        "model:cpu:265"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "קצב רענון",
       "count": 1,
       "products": [
@@ -6368,23 +7273,79 @@
     },
     {
       "category": "cpu",
-      "label": "הערה",
+      "label": "מספר דגם",
       "count": 1,
       "products": [
-        "model:cpu:9800x3d"
+        "model:cpu:5700"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "סוג תושבת",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מאיץ גרפי מובנה",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "ליבות גרפיות",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מהירות מעבד מקסימלית",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מטמון L2",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מטמון L3",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "פיזור חום",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מאוורר",
+      "count": 1,
+      "products": [
+        "model:cpu:5700g"
       ]
     },
     {
       "category": "cpu",
       "label": "מזהה מוצר",
-      "count": 1,
-      "products": [
-        "model:cpu:9800x3d"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מפרט כללי",
       "count": 1,
       "products": [
         "model:cpu:9800x3d"
@@ -6400,14 +7361,6 @@
     },
     {
       "category": "cpu",
-      "label": "גרפיקה",
-      "count": 1,
-      "products": [
-        "model:cpu:9800x3d"
-      ]
-    },
-    {
-      "category": "cpu",
       "label": "תכונות עיקריות",
       "count": 1,
       "products": [
@@ -6416,10 +7369,10 @@
     },
     {
       "category": "cpu",
-      "label": "מידע מהיצרן",
+      "label": "Product ID",
       "count": 1,
       "products": [
-        "model:cpu:9800x3d"
+        "model:cpu:9900x3d"
       ]
     },
     {
@@ -6724,78 +7677,6 @@
       "count": 1,
       "products": [
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Graphics Processing",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "CUDA® Cores",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Memory Clock",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Card Bus",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Multi-view Support",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "Card Size",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "PCB Form Factor",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "DisplayPort 2.1a",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "HDMI 2.1b",
-      "count": 1,
-      "products": [
-        "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb"
       ]
     },
     {
@@ -7360,6 +8241,14 @@
     },
     {
       "category": "memory",
+      "label": "פרופיל OC נתמך",
+      "count": 1,
+      "products": [
+        "model:memory:2x32gb-6000mt-cl28-m5-ripjaws-s-64gb-x2-6000mhz-cl28-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "נפח איחסון",
       "count": 1,
       "products": [
@@ -7424,6 +8313,14 @@
     },
     {
       "category": "memory",
+      "label": "נתונים טכניים",
+      "count": 1,
+      "products": [
+        "model:memory:48-kf584cu40rsk2-48gb-x2-8400mhz-cl40-silver-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "CAS Latencies",
       "count": 1,
       "products": [
@@ -7432,23 +8329,7 @@
     },
     {
       "category": "memory",
-      "label": "סוג חיבור",
-      "count": 1,
-      "products": [
-        "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "סוג אריזה",
-      "count": 1,
-      "products": [
-        "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "דירוג מהירות",
       "count": 1,
       "products": [
         "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
@@ -7569,14 +8450,6 @@
     {
       "category": "memory",
       "label": "קצב העברת נתונים של SPD",
-      "count": 1,
-      "products": [
-        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מתח SPD",
       "count": 1,
       "products": [
         "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
@@ -7840,6 +8713,14 @@
     },
     {
       "category": "motherboard",
+      "label": "חיבורים ויציאות אחוריים",
+      "count": 1,
+      "products": [
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "דגם / קוד יצרן",
       "count": 1,
       "products": [
@@ -8092,14 +8973,6 @@
       "count": 1,
       "products": [
         "model:motherboard:a-gaming-neo-rog-strix-wifi7-x870e-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תכולה",
-      "count": 1,
-      "products": [
-        "model:motherboard:a520m-prime-r-microatx-a520"
       ]
     },
     {
@@ -8560,14 +9433,6 @@
     },
     {
       "category": "motherboard",
-      "label": "חיבורים אחוריים",
-      "count": 1,
-      "products": [
-        "model:motherboard:b850-gaming-max-plus-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "מספר יציאות Ethernet LAN (RJ-45)",
       "count": 1,
       "products": [
@@ -8904,14 +9769,6 @@
     },
     {
       "category": "motherboard",
-      "label": "דגם 2",
-      "count": 1,
-      "products": [
-        "model:motherboard:carbon-max-mpg-wifi-x870e-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "Spec / Specifications / News & Updates",
       "count": 1,
       "products": [
@@ -8992,74 +9849,42 @@
     },
     {
       "category": "motherboard",
-      "label": "גרפיקה",
+      "label": "חיבורי חשמל",
       "count": 1,
       "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
+        "model:motherboard:e-h610m-pro-microatx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "תקשורת אלחוטית",
+      "label": "Fan Connectors",
       "count": 1,
       "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
+        "model:motherboard:e-h610m-pro-microatx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "חיבורים ויציאות",
+      "label": "System Connectors",
       "count": 1,
       "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
+        "model:motherboard:e-h610m-pro-microatx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "תכונות מיוחדות",
+      "label": "Jumpers",
       "count": 1,
       "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
+        "model:motherboard:e-h610m-pro-microatx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "תכונות תוכנה",
+      "label": "LED Features",
       "count": 1,
       "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "ניהוליות",
-      "count": 1,
-      "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אביזרים",
-      "count": 1,
-      "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מערכות הפעלה תומכות",
-      "count": 1,
-      "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תצורה",
-      "count": 1,
-      "products": [
-        "model:motherboard:d4-h610m-k-prime-microatx"
+        "model:motherboard:e-h610m-pro-microatx"
       ]
     },
     {
@@ -9089,14 +9914,6 @@
     {
       "category": "motherboard",
       "label": "חיבורי פנימי",
-      "count": 1,
-      "products": [
-        "model:motherboard:e-h810m-pro-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תכונות LED",
       "count": 1,
       "products": [
         "model:motherboard:e-h810m-pro-microatx"

@@ -33,37 +33,48 @@
     "match_text_b": "C40 Antec C40 CPU Cooler"
   },
   {
-    "score": 93,
-    "category": "memory",
+    "score": 96,
+    "category": "case",
     "brand": "Corsair",
-    "listing_a": "1pc:175452",
-    "listing_b": "1pc:175453",
-    "title_a": "זיכרון למחשב Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 CMH32GX5M2E6000Z36W",
-    "title_b": "זיכרון Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 בצבע שחור",
-    "match_text_a": "175452 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 CMH32GX5M2E6000Z36W",
-    "match_text_b": "175453 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36"
+    "listing_a": "ksp:416673",
+    "listing_b": "ksp:416746",
+    "title_a": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+    "match_text_a": "416673 Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower -",
+    "match_text_b": "416746 Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower -"
   },
   {
-    "score": 93,
-    "category": "memory",
+    "score": 96,
+    "category": "case",
     "brand": "Corsair",
-    "listing_a": "1pc:175453",
-    "listing_b": "tms:CMH32GX5M2E6000Z36",
-    "title_a": "זיכרון Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 בצבע שחור",
-    "title_b": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0",
-    "match_text_a": "175453 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36",
-    "match_text_b": "CMH32GX5M2E6000Z36 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 EXPO/XMP 3.0"
+    "listing_a": "ksp:416766",
+    "listing_b": "ksp:416792",
+    "title_a": "מארז ללא ספק Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+    "match_text_a": "416766 Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower -",
+    "match_text_b": "416792 Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower -"
   },
   {
-    "score": 93,
-    "category": "memory",
+    "score": 94,
+    "category": "case",
     "brand": "Corsair",
-    "listing_a": "1pc:175453",
-    "listing_b": "tms:CMH32GX5M2E6000Z36W",
-    "title_a": "זיכרון Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 בצבע שחור",
-    "title_b": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 White EXPO/XMP 3.0",
-    "match_text_a": "175453 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36",
-    "match_text_b": "CMH32GX5M2E6000Z36W Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 White EXPO/XMP 3.0"
+    "listing_a": "ksp:387614",
+    "listing_b": "ksp:448641",
+    "title_a": "מארז ללא ספק Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+    "title_b": "מארז ללא ספק Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+    "match_text_a": "387614 Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX -",
+    "match_text_b": "448641 Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX -"
+  },
+  {
+    "score": 94,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "ksp:387614",
+    "listing_b": "ksp:448674",
+    "title_a": "מארז ללא ספק Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+    "title_b": "מארז ללא ספק Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע לבן",
+    "match_text_a": "387614 Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX -",
+    "match_text_b": "448674 Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX -"
   },
   {
     "score": 93,
@@ -86,17 +97,6 @@
     "title_b": "ספק כוח Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular",
     "match_text_a": "222424 Corsair HX1500i Ultra-Low Noise Platinum ATX 3.1 1500W",
     "match_text_b": "CP-9020309-EU Corsair HX1500i 1500W Ultra-Low Noise ATX 3.1 Platinum Modular"
-  },
-  {
-    "score": 92,
-    "category": "gpu",
-    "brand": "Gigabyte",
-    "listing_a": "1pc:177022",
-    "listing_b": "tms:N5090WF3OC32GD",
-    "title_a": "כרטיס מסך Gigabyte GeForce RTX 5090 WINDFORCE OC 32G",
-    "title_b": "Gigabyte GeForce RTX 5090 WINDFORCE OC 32G GV-N5090WF3OC-32GD",
-    "match_text_a": "177022 Gigabyte GeForce RTX 5090 WINDFORCE OC 32G",
-    "match_text_b": "N5090WF3OC32GD Gigabyte GeForce RTX 5090 WINDFORCE OC 32G GV-N5090WF3OC-32GD"
   },
   {
     "score": 92,
@@ -320,6 +320,17 @@
   },
   {
     "score": 89,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "ksp:387614",
+    "listing_b": "ksp:492602",
+    "title_a": "מארז ללא ספק Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+    "title_b": "מארז ללא ספק Corsair 4000D Wood RS FRAME Tempered Glass Mid Tower ATX - צבע שחור אגוז",
+    "match_text_a": "387614 Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX -",
+    "match_text_b": "492602 Corsair 4000D Wood RS FRAME Tempered Glass Mid Tower ATX -"
+  },
+  {
+    "score": 89,
     "category": "gpu",
     "brand": "MSI",
     "listing_a": "ksp:380080",
@@ -374,48 +385,48 @@
     "match_text_b": "VCG5060T8DFXPB1-O-PC PNY Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP -"
   },
   {
-    "score": 89,
-    "category": "motherboard",
-    "brand": "Sapphire",
-    "listing_a": "ivory:148834",
-    "listing_b": "ksp:421032",
-    "title_a": "לוח אם SAPPHIRE PURE B850A WIFI 7 ATX AM5 AMD",
-    "title_b": "לוח אם SAPPHIRE PURE B850A WIFI 7 AM5",
-    "match_text_a": "52123-11-40G SAPPHIRE PURE B850A WIFI 7 ATX AM5 AMD",
-    "match_text_b": "421032 SAPPHIRE PURE B850A WIFI 7 AM5"
+    "score": 88,
+    "category": "case",
+    "brand": "Corsair",
+    "listing_a": "1pc:222419",
+    "listing_b": "ksp:387614",
+    "title_a": "מארז מחשב Corsair FRAME 4000D RS ARGB לבן",
+    "title_b": "מארז ללא ספק Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+    "match_text_a": "222419 Corsair FRAME 4000D RS ARGB",
+    "match_text_b": "387614 Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX -"
   },
   {
     "score": 88,
-    "category": "memory",
+    "category": "case",
     "brand": "Corsair",
-    "listing_a": "1pc:175453",
-    "listing_b": "tms:CMH32GX5M2B6000Z30K",
-    "title_a": "זיכרון Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 בצבע שחור",
-    "title_b": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
-    "match_text_a": "175453 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36",
-    "match_text_b": "CMH32GX5M2B6000Z30K Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0"
+    "listing_a": "ksp:416673",
+    "listing_b": "ksp:416792",
+    "title_a": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+    "match_text_a": "416673 Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower -",
+    "match_text_b": "416792 Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower -"
   },
   {
     "score": 88,
-    "category": "memory",
+    "category": "case",
     "brand": "Corsair",
-    "listing_a": "1pc:175453",
-    "listing_b": "tms:CMH32GX5M2B6200C36",
-    "title_a": "זיכרון Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 בצבע שחור",
-    "title_b": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6200 CL36 XMP 3.0",
-    "match_text_a": "175453 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36",
-    "match_text_b": "CMH32GX5M2B6200C36 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6200 CL36 XMP 3.0"
+    "listing_a": "ksp:416746",
+    "listing_b": "ksp:416766",
+    "title_a": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+    "title_b": "מארז ללא ספק Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע שחור",
+    "match_text_a": "416746 Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower -",
+    "match_text_b": "416766 Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower -"
   },
   {
     "score": 88,
-    "category": "memory",
+    "category": "case",
     "brand": "Corsair",
-    "listing_a": "1pc:175453",
-    "listing_b": "tms:CMH32GX5M2B6400C36",
-    "title_a": "זיכרון Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36 בצבע שחור",
-    "title_b": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6400 CL36 XMP 3.0",
-    "match_text_a": "175453 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL36",
-    "match_text_b": "CMH32GX5M2B6400C36 Corsair Vengeance RGB DDR5 32GB (2x16GB) 6400 CL36 XMP 3.0"
+    "listing_a": "ksp:416746",
+    "listing_b": "ksp:416792",
+    "title_a": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+    "title_b": "מארז ללא ספק Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+    "match_text_a": "416746 Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower -",
+    "match_text_b": "416792 Corsair 4500X RS-R Tempered Glass ARGB ATX Mid-Tower -"
   },
   {
     "score": 88,
@@ -1166,6 +1177,28 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:memory:2x32gb-cl32-m5-ripjaws-64gb-x2-4800mhz-cl32-rgb-white-dimm",
+    "category": "memory",
+    "vendor": "ksp",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "ksp:313458",
+        "vendor_sku": "313458",
+        "title": "זיכרון למחשב G.Skill Ripjaws M5 RGB 2x32GB DDR5 6400Mhz CL32 - צבע לבן",
+        "price": 3970
+      },
+      {
+        "listing_key": "ksp:313443",
+        "vendor_sku": "313443",
+        "title": "זיכרון למחשב G.Skill Ripjaws M5 RGB 2x32GB DDR5 6000Mhz CL32 - צבע לבן",
+        "price": 3990,
+        "alias_of": "ksp:313458"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:memory:2x64gb-beast-cl36-dram-fury-module-128gb-x2-5600mhz-cl36-rgb",
     "category": "memory",
     "vendor": "yahav",
@@ -1210,6 +1243,28 @@
   },
   {
     "kind": "duplicate_vendor",
+    "product_id": "model:motherboard:aero-wood-x3d-x870e-atx",
+    "category": "motherboard",
+    "vendor": "ksp",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "ksp:491368",
+        "vendor_sku": "491368",
+        "title": "לוח אם GIGABYTE X870E AERO X3D WOOD AM5 DDR5",
+        "price": 1760
+      },
+      {
+        "listing_key": "ksp:491372",
+        "vendor_sku": "491372",
+        "title": "לוח אם GIGABYTE X870E AORUS MASTER X3D AM5 DDR5",
+        "price": 2195,
+        "alias_of": "ksp:491368"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
     "product_id": "model:motherboard:am5-atx-b650e-ddr5-displayport-e-gaming-gaming-hdmi-tuf-wifi-atx",
     "category": "motherboard",
     "vendor": "yahav",
@@ -1232,7 +1287,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:b760-b760-creator-ddr5-intel-lga1700-proart-wifi-atx",
+    "product_id": "model:motherboard:b760-creator-proart-wifi-atx",
     "category": "motherboard",
     "vendor": "ksp",
     "collapsed": true,
@@ -1254,7 +1309,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:b760-b760-ddr5-g-gaming-intel-lga1700-rog-strix-wifi-microatx",
+    "product_id": "model:motherboard:b760-g-gaming-rog-strix-wifi-microatx",
     "category": "motherboard",
     "vendor": "ksp",
     "collapsed": true,
@@ -1298,7 +1353,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:h610-h610m-k-lga1700-prime-microatx",
+    "product_id": "model:motherboard:h610m-k-prime-microatx",
     "category": "motherboard",
     "vendor": "ksp",
     "collapsed": true,
@@ -1315,6 +1370,28 @@
         "vendor_sku": "355804",
         "title": "לוח אם Asus PRIME H610M-K LGA1700 H610 DDR5",
         "price": 369
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:psu:1-14cm-3-rm850x-shift-850w-full-black",
+    "category": "psu",
+    "vendor": "ksp",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "ksp:502160",
+        "vendor_sku": "502160",
+        "title": "מציאון ועודפים - ספק כוח מודולרי Corsair RM850x SHIFT 850W Gold 14cm ATX 3.1",
+        "price": 479,
+        "alias_of": "ksp:451321"
+      },
+      {
+        "listing_key": "ksp:451321",
+        "vendor_sku": "451321",
+        "title": "ספק כוח מודולרי Corsair RM850x SHIFT 850W Gold 14cm ATX 3.1",
+        "price": 566
       }
     ]
   },
@@ -4231,6 +4308,29 @@
   {
     "kind": "identity_merge",
     "category": "case",
+    "product_id": "model:case:airflow-rs-warthog-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:176281",
+        "vendor": "ivory",
+        "vendor_sku": "CC-9011351-WW",
+        "title": "מארז מחשב Corsair WARTHOG RS Airflow שחור",
+        "price": 789
+      },
+      {
+        "listing_key": "ksp:500288",
+        "vendor": "ksp",
+        "vendor_sku": "500288",
+        "title": "מארז ללא ספק Corsair Warthog RS Airflow ATX Mid-Tower - צבע Olive Drab",
+        "price": 789
+      }
+    ],
+    "model_code": "airflow-rs-warthog"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
     "product_id": "model:case:argb-chimera-tg-black",
     "vendor": "",
     "offers": [
@@ -6980,6 +7080,51 @@
     "model_code": "14700k"
   },
   {
+    "kind": "variant_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:corei914900k-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:8762",
+        "vendor": "yahav",
+        "vendor_sku": "CM8071505094017",
+        "title": "מעבד חברת Intel דגם Raptor Lake 14th Gen LGA1700 Core i9 14900K Turbo 6Ghz 24MB Cache TRAY",
+        "price": 1890
+      },
+      {
+        "listing_key": "ksp:281032",
+        "vendor": "ksp",
+        "vendor_sku": "281032",
+        "title": "מעבד אינטל Intel Core i9 14900K 3.2GHz 36MB Cache s1700 - Tray",
+        "price": 1999
+      }
+    ],
+    "model_code": "14900k",
+    "manufacturer_pn": [
+      "CM8071505094017"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:14900k-tray-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:80282",
+        "vendor": "ivory",
+        "vendor_sku": "I9-14900K",
+        "title": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Tray",
+        "price": 1999
+      }
+    ],
+    "model_code": "14900k",
+    "manufacturer_pn": [
+      "I914900K"
+    ]
+  },
+  {
     "kind": "identity_merge",
     "category": "cpu",
     "product_id": "model:cpu:14900ks-tray",
@@ -7389,13 +7534,6 @@
         "price": 639
       },
       {
-        "listing_key": "ksp:495903",
-        "vendor": "ksp",
-        "vendor_sku": "495903",
-        "title": "מעבד AMD Ryzen 7 5700X 3.4Ghz AM4 - Tray",
-        "price": 639
-      },
-      {
         "listing_key": "tms:100-000000926",
         "vendor": "tms",
         "vendor_sku": "100-000000926",
@@ -7447,13 +7585,6 @@
         "vendor_sku": "100-100000651POF",
         "title": "מעבד חברת AMD דגם Ryzen 7 5800X3D 10th Anniversary 3.4Ghz 4.5Ghz 96MB Cache AM4 BOX Thermal Solution not included",
         "price": 1450
-      },
-      {
-        "listing_key": "ksp:474265",
-        "vendor": "ksp",
-        "vendor_sku": "474265",
-        "title": "מעבד AMD Ryzen 7 5800X3D 3.4Ghz AM4 - Box כולל פד תרמי Carbice Ice Pad ייחודי למהדורת 10 שנים לתושבת AM4",
-        "price": 1540
       }
     ],
     "model_code": "5800x3d",
@@ -8503,7 +8634,7 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black",
+    "product_id": "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
     "vendor": "",
     "offers": [
       {
@@ -8512,6 +8643,13 @@
         "vendor_sku": "CMH48GX5M2B7000C40",
         "title": "זיכרון RAM Corsair Vengeance RGB DDR5 48G (24Gx2) 7000 CL40",
         "price": 3604
+      },
+      {
+        "listing_key": "ksp:430608",
+        "vendor": "ksp",
+        "vendor_sku": "430608",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x24GB DDR5 7000MT / s CL40 - צבע אפור",
+        "price": 2690
       },
       {
         "listing_key": "tms:CMH48GX5M2B7000C40",
@@ -8762,6 +8900,65 @@
     ]
   },
   {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:222839",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000C30",
+        "title": "זיכרון למחשב Corsair DDR5 32GB (2×16GB) CMH32GX5M2B6000C30 RGB/BLACK",
+        "price": 2573
+      },
+      {
+        "listing_key": "ksp:493648",
+        "vendor": "ksp",
+        "vendor_sku": "493648",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע שחור",
+        "price": 2490
+      }
+    ],
+    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000C30"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:131353",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000Z30K",
+        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
+        "price": 2567
+      },
+      {
+        "listing_key": "ksp:480428",
+        "vendor": "ksp",
+        "vendor_sku": "480428",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+        "price": 2490
+      },
+      {
+        "listing_key": "tms:CMH32GX5M2B6000Z30K",
+        "vendor": "tms",
+        "vendor_sku": "CMH32GX5M2B6000Z30K",
+        "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
+        "price": 2755
+      }
+    ],
+    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000Z30K"
+    ]
+  },
+  {
     "kind": "identity_merge",
     "category": "memory",
     "product_id": "model:memory:2x32gb-6400-cl32-cras-v-64gb-x2-6400mhz-cl32-rgb-black",
@@ -8876,6 +9073,52 @@
     "model_code": "7-b850a-nitro-wifi"
   },
   {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:7-b850a-pure-wifi-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:148834",
+        "vendor": "ivory",
+        "vendor_sku": "52123-11-40G",
+        "title": "לוח אם SAPPHIRE PURE B850A WIFI 7 ATX AM5 AMD",
+        "price": 859
+      },
+      {
+        "listing_key": "ksp:421032",
+        "vendor": "ksp",
+        "vendor_sku": "421032",
+        "title": "לוח אם SAPPHIRE PURE B850A WIFI 7 AM5",
+        "price": 829
+      }
+    ],
+    "model_code": "7-b850a-pure-wifi"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:7-pure-wifi-x870a-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:156820",
+        "vendor": "ivory",
+        "vendor_sku": "52122-02-40G",
+        "title": "לוח אם SAPPHIRE PURE X870A WIFI 7 ATX AM5 AMD",
+        "price": 1090
+      },
+      {
+        "listing_key": "ksp:444483",
+        "vendor": "ksp",
+        "vendor_sku": "444483",
+        "title": "לוח אם SAPPHIRE PURE X870A WIFI7 AM5",
+        "price": 990
+      }
+    ],
+    "model_code": "7-pure-wifi-x870a"
+  },
+  {
     "kind": "variant_conflict",
     "category": "motherboard",
     "product_id": "model:motherboard:a-b760m-csm-prime-microatx",
@@ -8905,6 +9148,32 @@
     "kind": "variant_conflict",
     "category": "motherboard",
     "product_id": "model:motherboard:a-b760m-csm-prime-microatx-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:265361",
+        "vendor": "ksp",
+        "vendor_sku": "265361",
+        "title": "לוח אם ASUS PRIME B760M-A-CSM Intel LGA1700 B760 DDR5",
+        "price": 616
+      },
+      {
+        "listing_key": "yahav:11135",
+        "vendor": "yahav",
+        "vendor_sku": "PRIME B760M-A-CSM",
+        "title": "לוח אם חברת Asus דגם Prime Series B760M-A-CSM DDR5 LGA1700 (Gen 12th + 13th + 14th) 2xHDMI DP",
+        "price": 620
+      }
+    ],
+    "model_code": "a-b760m-csm-prime",
+    "manufacturer_pn": [
+      "PRIMEB760MACSM"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:a-b760m-csm-prime-microatx-3",
     "vendor": "",
     "offers": [
       {
@@ -9051,6 +9320,39 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
+    "product_id": "model:motherboard:aero-wood-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:175075",
+        "vendor": "ivory",
+        "vendor_sku": "X870EAEROX3DWOOD",
+        "title": "לוח אם Gigabyte X870E AERO X3D WOOD",
+        "price": 1760
+      },
+      {
+        "listing_key": "ksp:491368",
+        "vendor": "ksp",
+        "vendor_sku": "491368",
+        "title": "לוח אם GIGABYTE X870E AERO X3D WOOD AM5 DDR5",
+        "price": 1760
+      },
+      {
+        "listing_key": "ksp:491372",
+        "vendor": "ksp",
+        "vendor_sku": "491372",
+        "title": "לוח אם GIGABYTE X870E AORUS MASTER X3D AM5 DDR5",
+        "price": 2195
+      }
+    ],
+    "model_code": "aero-wood-x3d-x870e",
+    "manufacturer_pn": [
+      "X870EAEROX3DWOOD"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
     "product_id": "model:motherboard:aorus-elite-wifi7-x870m-microatx",
     "vendor": "",
     "offers": [
@@ -9124,6 +9426,58 @@
     "model_code": "aorus-elite-wifi7-z890",
     "manufacturer_pn": [
       "GZ890AORUSELITEWIFI7P"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:209975",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPROX3D",
+        "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
+        "price": 1638
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPROX3D",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPROX3D",
+        "title": "Gigabyte X870E AORUS PRO X3D",
+        "price": 1877
+      }
+    ],
+    "model_code": "aorus-pro-x3d-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPROX3D"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-pro-x870e-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:171448",
+        "vendor": "1pc",
+        "vendor_sku": "GX870EAORUSPRO",
+        "title": "לוח אם Gigabyte X870E AORUS PRO",
+        "price": 1949
+      },
+      {
+        "listing_key": "tms:GX870EAORUSPRO",
+        "vendor": "tms",
+        "vendor_sku": "GX870EAORUSPRO",
+        "title": "Gigabyte X870E AORUS PRO",
+        "price": 1671
+      }
+    ],
+    "model_code": "aorus-pro-x870e",
+    "manufacturer_pn": [
+      "GX870EAORUSPRO"
     ]
   },
   {
@@ -9207,29 +9561,6 @@
       }
     ],
     "model_code": "b550m-pro-vdh"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "motherboard",
-    "product_id": "model:motherboard:b550m-pulse-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:161212",
-        "vendor": "ivory",
-        "vendor_sku": "52103-05-40G",
-        "title": "לוח אם SAPPHIRE PULSE B550M mATX AM4 AMD",
-        "price": 475
-      },
-      {
-        "listing_key": "ksp:510165",
-        "vendor": "ksp",
-        "vendor_sku": "510165",
-        "title": "לוח אם Sapphire PULSE B550M AM4",
-        "price": 445
-      }
-    ],
-    "model_code": "b550m-pulse"
   },
   {
     "kind": "variant_conflict",
@@ -9438,6 +9769,13 @@
         "vendor_sku": "90MB1FI0-M0EAY0",
         "title": "Asus PRIME B760M-K",
         "price": 607
+      },
+      {
+        "listing_key": "ksp:290121",
+        "vendor": "ksp",
+        "vendor_sku": "290121",
+        "title": "לוח אם ASUS PRIME B760M-K Intel LGA1700 B760 DDR5",
+        "price": 499
       }
     ],
     "model_code": "b760m-k-prime",
@@ -9828,6 +10166,29 @@
   {
     "kind": "identity_merge",
     "category": "motherboard",
+    "product_id": "model:motherboard:e-h610m-pro-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172045",
+        "vendor": "1pc",
+        "vendor_sku": "172045",
+        "title": "לוח אם MSI PRO H610M-E DDR5",
+        "price": 428
+      },
+      {
+        "listing_key": "ksp:281396",
+        "vendor": "ksp",
+        "vendor_sku": "281396",
+        "title": "לוח אם MSI PRO H610M-E DDR5 LGA1700 Intel H610",
+        "price": 365
+      }
+    ],
+    "model_code": "e-h610m-pro"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
     "product_id": "model:motherboard:e-h810m-pro-microatx",
     "vendor": "",
     "offers": [
@@ -10026,6 +10387,52 @@
       }
     ],
     "model_code": "gaming-h810m-wifi6e"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:nitro-phantomlink-polar-x870ea-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:156817",
+        "vendor": "ivory",
+        "vendor_sku": "52122-11-40G",
+        "title": "לוח אם SAPPHIRE NITRO+ X870EA PhantomLink Polar Edition WIFI7 ATX AM5 AMD",
+        "price": 1740
+      },
+      {
+        "listing_key": "ksp:469370",
+        "vendor": "ksp",
+        "vendor_sku": "469370",
+        "title": "לוח אם Sapphire NITRO+ X870EA PhantomLink Polar Edition AM5",
+        "price": 1510
+      }
+    ],
+    "model_code": "nitro-phantomlink-polar-x870ea"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "motherboard",
+    "product_id": "model:motherboard:nitro-phantomlink-x870ea-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:156814",
+        "vendor": "ivory",
+        "vendor_sku": "52122-01-40G",
+        "title": "לוח אם SAPPHIRE NITRO+ X870EA PhantomLink Edition WIFI7 ATX AM5 AMD",
+        "price": 1685
+      },
+      {
+        "listing_key": "ksp:469349",
+        "vendor": "ksp",
+        "vendor_sku": "469349",
+        "title": "לוח אם Sapphire NITRO+ X870EA PhantomLink Edition AM5",
+        "price": 1450
+      }
+    ],
+    "model_code": "nitro-phantomlink-x870ea"
   },
   {
     "kind": "identity_merge",
@@ -11362,44 +11769,6 @@
     "model_code": "green-sn3000-wd"
   },
   {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:ryzen79800x3d-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:119039",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
-        "price": 1659
-      },
-      {
-        "listing_key": "tms:100-000001084",
-        "vendor": "tms",
-        "vendor_sku": "100-000001084",
-        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
-        "price": 1837
-      },
-      {
-        "listing_key": "1pc:175540",
-        "vendor": "1pc",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 1729
-      },
-      {
-        "listing_key": "yahav:10143",
-        "vendor": "yahav",
-        "vendor_sku": "100-1000001084",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1690
-      }
-    ],
-    "model_code": "9800x3d",
-    "merged_from": "model:cpu:9800x3d-tray"
-  },
-  {
     "kind": "split_candidate",
     "category": "case",
     "product_id": "model:case:dynamic-o11-v2-black",
@@ -11654,6 +12023,37 @@
     ],
     "model_code": "5600",
     "merged_from": "model:cpu:5600-tray"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:ryzen79800x3d-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000001084",
+        "vendor": "tms",
+        "vendor_sku": "100-000001084",
+        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
+        "price": 1837
+      },
+      {
+        "listing_key": "1pc:175540",
+        "vendor": "1pc",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+        "price": 1729
+      },
+      {
+        "listing_key": "yahav:10143",
+        "vendor": "yahav",
+        "vendor_sku": "100-1000001084",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
+        "price": 1690
+      }
+    ],
+    "model_code": "9800x3d",
+    "merged_from": "model:cpu:9800x3d-tray"
   },
   {
     "kind": "split_candidate",
@@ -14114,6 +14514,49 @@
   },
   {
     "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b840m-gaming-wifi6e-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:216439",
+        "vendor": "1pc",
+        "vendor_sku": "GB840MGAMINGPLUSWIFI6E",
+        "title": "לוח אם Gigabyte B840M GAMING PLUS WiFi6E",
+        "price": 702
+      },
+      {
+        "listing_key": "tms:GB840MGAMINGPLUSWIFI6E",
+        "vendor": "tms",
+        "vendor_sku": "GB840MGAMINGPLUSWIFI6E",
+        "title": "Gigabyte B840M GAMING PLUS WiFi6E",
+        "price": 685
+      }
+    ],
+    "model_code": "b840m-gaming-wifi6e",
+    "manufacturer_pn": [
+      "GB840MGAMINGPLUSWIFI6E"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b840m-gaming-wifi6e-microatx-msi",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:474505",
+        "vendor": "ksp",
+        "vendor_sku": "474505",
+        "title": "לוח אם MSI B840M GAMING WIFI6E AM5",
+        "price": 590
+      }
+    ],
+    "model_code": "b840m-gaming-wifi6e",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
     "category": "storage",
     "product_id": "model:storage:2-256gb-5-sata3-ssd-256gb-sata-25",
     "vendor": "",
@@ -14276,13 +14719,6 @@
         "vendor": "ivory",
         "vendor_sku": "CW-9060094-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 240 RS ARGB 240mm בצבע לבן",
-        "price": 369
-      },
-      {
-        "listing_key": "ksp:360133",
-        "vendor": "ksp",
-        "vendor_sku": "360133",
-        "title": "קירור נוזלי למעבד Corsair NAUTILUS 240 RS ARGB 240mm - צבע לבן",
         "price": 369
       },
       {
@@ -14770,6 +15206,63 @@
     "model_code": "3500x-r-rs",
     "manufacturer_pn": [
       "CC9011323WW"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:3500x-argb-r-rs-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:416746",
+        "vendor": "ksp",
+        "vendor_sku": "416746",
+        "title": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
+        "price": 329
+      }
+    ],
+    "model_code": "3500x-argb-r-rs",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:3500x-r-rs-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:209148",
+        "vendor": "1pc",
+        "vendor_sku": "CC-9011322-WW",
+        "title": "מארז מחשב Corsair 3500X RS-R ARGB בצבע שחור",
+        "price": 612
+      },
+      {
+        "listing_key": "ivory:157402",
+        "vendor": "ivory",
+        "vendor_sku": "CC-9011322-WW",
+        "title": "מארז מחשב Corsair 3500X RS-R ARGB – תאורת ARGB – צבע שחור",
+        "price": 394
+      },
+      {
+        "listing_key": "tms:CC-9011322-WW",
+        "vendor": "tms",
+        "vendor_sku": "CC-9011322-WW",
+        "title": "מארז מחשב Corsair 3500X RS-R ARGB",
+        "price": 432
+      },
+      {
+        "listing_key": "yahav:11608",
+        "vendor": "yahav",
+        "vendor_sku": "CC-9011322-WW",
+        "title": "מארז חברת Corsair דגם 3500X RS-R ARGB Black Dual Chamber Tempered Glass 3X120mm Mid Tower ATX - צבע שחור",
+        "price": 380
+      }
+    ],
+    "model_code": "3500x-3x120mm-argb-atx-black-chamber-dual-glass-mid-r-rs-tempered-tower",
+    "manufacturer_pn": [
+      "CC9011322WW"
     ]
   },
   {
@@ -16085,63 +16578,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172717",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050185-WW",
-        "title": "ערכת מאווררים Corsair RS120 ARGB 120mm PWM - Triple Pack בצבע לבן",
-        "price": 241
-      },
-      {
-        "listing_key": "ivory:126567",
-        "vendor": "ivory",
-        "vendor_sku": "CO-9050185-WW",
-        "title": "3 מאווררים למארז 12 ס\"מ Corsair RS120 ARGB PWM בצבע לבן",
-        "price": 219
-      },
-      {
-        "listing_key": "tms:CO-9050185-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050185-WW",
-        "title": "Corsair RS120 ARGB 120mm PWM Fans - Triple Pack - White",
-        "price": 164
-      },
-      {
-        "listing_key": "yahav:11611",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050185-WW",
-        "title": "סט 3 מאווררים חברת Corsair דגם RS120 RGB LED with PWM support 120MM 3X Fans Pack - צבע לבן",
-        "price": 225
-      }
-    ],
-    "model_code": "3-3x-fans-led-pwm-rs120-support",
-    "manufacturer_pn": [
-      "CO9050185WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:3-rs120-120mm-3-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:387881",
-        "vendor": "ksp",
-        "vendor_sku": "387881",
-        "title": "מאוורר למארז Corsair RS120 - צבע שחור - 3 יחידות",
-        "price": 99
-      }
-    ],
-    "model_code": "3-rs120",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -16236,6 +16672,46 @@
     "model_code": "fan-pwm-rs120",
     "manufacturer_pn": [
       "CO9050184WW"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:172717",
+        "vendor": "1pc",
+        "vendor_sku": "CO-9050185-WW",
+        "title": "ערכת מאווררים Corsair RS120 ARGB 120mm PWM - Triple Pack בצבע לבן",
+        "price": 241
+      },
+      {
+        "listing_key": "ivory:126567",
+        "vendor": "ivory",
+        "vendor_sku": "CO-9050185-WW",
+        "title": "3 מאווררים למארז 12 ס\"מ Corsair RS120 ARGB PWM בצבע לבן",
+        "price": 219
+      },
+      {
+        "listing_key": "tms:CO-9050185-WW",
+        "vendor": "tms",
+        "vendor_sku": "CO-9050185-WW",
+        "title": "Corsair RS120 ARGB 120mm PWM Fans - Triple Pack - White",
+        "price": 164
+      },
+      {
+        "listing_key": "yahav:11611",
+        "vendor": "yahav",
+        "vendor_sku": "CO-9050185-WW",
+        "title": "סט 3 מאווררים חברת Corsair דגם RS120 RGB LED with PWM support 120MM 3X Fans Pack - צבע לבן",
+        "price": 225
+      }
+    ],
+    "model_code": "3-3x-fans-led-pwm-rs120-support",
+    "manufacturer_pn": [
+      "CO9050185WW"
     ]
   },
   {
@@ -17365,39 +17841,6 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:aorus-pro-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:171448",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPRO",
-        "title": "לוח אם Gigabyte X870E AORUS PRO",
-        "price": 1949
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPRO",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPRO",
-        "title": "Gigabyte X870E AORUS PRO",
-        "price": 1671
-      },
-      {
-        "listing_key": "yahav:9957",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO",
-        "title": "לוח אם חברת Gigabyte דגם X870E Aorus Pro Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1635
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-fi-pro-wi-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPRO"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
     "product_id": "model:motherboard:aorus-ice-pro-x3d-x870e-atx",
     "vendor": "",
     "offers": [
@@ -17426,39 +17869,6 @@
     "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-ice-pro-wifi-x3d-x870e",
     "manufacturer_pn": [
       "GX870EAORUSPROX3DICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-pro-x3d-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209975",
-        "vendor": "1pc",
-        "vendor_sku": "GX870EAORUSPROX3D",
-        "title": "לוח אם Gigabyte X870E AORUS PRO X3D",
-        "price": 1638
-      },
-      {
-        "listing_key": "tms:GX870EAORUSPROX3D",
-        "vendor": "tms",
-        "vendor_sku": "GX870EAORUSPROX3D",
-        "title": "Gigabyte X870E AORUS PRO X3D",
-        "price": 1877
-      },
-      {
-        "listing_key": "yahav:11665",
-        "vendor": "yahav",
-        "vendor_sku": "X870E-AORUS-PRO-X3D",
-        "title": "לוח אם חברת Gigabyte דגם X870E AORUS PRO X3D Wi-Fi 7 ATX DDR5 1xHDMI 2xUSB 4.0",
-        "price": 1750
-      }
-    ],
-    "model_code": "0-1xhdmi-2xusb-4-7-aorus-atx-ddr5-fi-pro-wi-x3d-x870e",
-    "manufacturer_pn": [
-      "GX870EAORUSPROX3D"
     ]
   },
   {
@@ -18054,6 +18464,13 @@
         "price": 1405
       },
       {
+        "listing_key": "ksp:435425",
+        "vendor": "ksp",
+        "vendor_sku": "435425",
+        "title": "לוח אם ASUS TUF GAMING B850M-PLUS WIFI 7 W AM5 DDR5",
+        "price": 985
+      },
+      {
         "listing_key": "tms:90MB1MD0-M0EAY0",
         "vendor": "tms",
         "vendor_sku": "90MB1MD0-M0EAY0",
@@ -18061,7 +18478,7 @@
         "price": 1363
       }
     ],
-    "model_code": "b850m-gaming-tuf-w-wifi7",
+    "model_code": "am5-b850m-gaming-tuf-wifi",
     "manufacturer_pn": [
       "90MB1MD0M0EAY0"
     ]
@@ -18087,6 +18504,13 @@
         "price": 1099
       },
       {
+        "listing_key": "ksp:435410",
+        "vendor": "ksp",
+        "vendor_sku": "435410",
+        "title": "לוח אם ASUS TUF GAMING B850M-PLUS WIFI 7 AM5 DDR5",
+        "price": 990
+      },
+      {
         "listing_key": "tms:90MB1MU0-M0EAY0",
         "vendor": "tms",
         "vendor_sku": "90MB1MU0-M0EAY0",
@@ -18094,7 +18518,7 @@
         "price": 1275
       }
     ],
-    "model_code": "b850m-gaming-plus-tuf-wifi7",
+    "model_code": "7-am5-b850m-gaming-tuf-wifi",
     "manufacturer_pn": [
       "90MB1MU0M0EAY0"
     ]
