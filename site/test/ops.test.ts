@@ -1,13 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { alertMessage, dailyReport } from "../src/ops/report";
 import {
+  checkFindings,
   evaluate,
   expectedNight,
   israelParts,
   nightStart,
   vendorHealth,
 } from "../src/ops/rules";
-import type { OpsCrawl, OpsStatus, OpsVendor } from "../src/ops/types";
+import type { OpsCheck, OpsChecks, OpsCrawl, OpsStatus, OpsVendor } from "../src/ops/types";
 
 const VENDORS: OpsVendor[] = [
   { id: "tms", label: "TMS", host: "home", active: true, min_rows: 1800, due_utc: "04:00", dropped: null },
@@ -228,6 +229,71 @@ describe("findings", () => {
   it("a skipped active vendor is high", () => {
     const s = status({}, { catalog: catalog({ skipped_vendors: ["yahav", "plonter"] }) });
     expect(evaluate(s, TEN_AM).map((f) => f.key)).toContain("skipped:yahav");
+  });
+});
+
+function check(name: string, extra: Partial<OpsCheck> = {}): OpsCheck {
+  return {
+    name,
+    level: "quality",
+    title: name,
+    status: "pass",
+    exit: 0,
+    seconds: 1,
+    since: null,
+    nights: 0,
+    detail: "",
+    ...extra,
+  };
+}
+
+function checks(rows: OpsCheck[]): OpsChecks {
+  return {
+    schema: 1,
+    generated_at: "2026-11-12T05:28:00+00:00",
+    night: "2026-11-12",
+    suite: "publish",
+    escalate_nights: 3,
+    blocked: false,
+    checks: rows,
+  };
+}
+
+describe("check warnings (scripts/run_checks.py)", () => {
+  it("passing checks and no checks file add nothing", () => {
+    expect(checkFindings(null)).toEqual([]);
+    expect(checkFindings(checks([check("ledgers")]))).toEqual([]);
+    expect(evaluate(status(), TEN_AM, { checks: checks([check("ledgers")]) })).toEqual([]);
+  });
+
+  it("a quality warning is a warn finding with a key that survives nights", () => {
+    const warn = check("ledgers", {
+      title: "Ledgers point at live data",
+      status: "warn",
+      exit: 1,
+      since: "2026-11-12T05:28:00+00:00",
+      nights: 1,
+      detail: "line one\n  [fail] qa_dismissed keys with no case: 299 > budget 10\n[check-ledgers] 4 failure(s)",
+    });
+    const [f] = evaluate(status(), TEN_AM, { checks: checks([warn]) });
+    expect(f).toMatchObject({ key: "check:ledgers", severity: "warn", title: "Check warning: Ledgers point at live data" });
+    expect(f.detail).toContain("The site still published.");
+    expect(f.detail).toContain("299 > budget 10");
+    expect(f.detail).not.toContain("line one");
+  });
+
+  it("is urgent once open for escalate_nights nights, never before", () => {
+    const at = (nights: number) =>
+      checkFindings(checks([check("golden", { status: "warn", exit: 1, nights, since: "2026-11-10T05:00:00+00:00" })]))[0];
+    expect(at(2).severity).toBe("warn");
+    expect(at(3).severity).toBe("urgent");
+    expect(at(3).detail).toContain("for 3 nights (since 2026-11-10)");
+    expect(at(5).severity).toBe("urgent");
+  });
+
+  it("a failed (blocking) check is not a warning finding: normalize-failed covers it", () => {
+    const blocked = check("population", { level: "integrity", status: "fail", exit: 1, nights: 1 });
+    expect(checkFindings(checks([blocked]))).toEqual([]);
   });
 });
 

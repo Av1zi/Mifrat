@@ -20,8 +20,8 @@
 
 import { alertMessage, dailyReport, type PushMessage } from "./src/ops/report";
 import { evaluate, israelParts, type Finding, type LiveFacts, type NanoRun, type PipelineRun } from "./src/ops/rules";
-import type { OpsStatus } from "./src/ops/types";
-import { OPS_SCHEMA } from "./src/ops/types";
+import type { OpsChecks, OpsStatus } from "./src/ops/types";
+import { CHECKS_SCHEMA, OPS_SCHEMA } from "./src/ops/types";
 
 interface D1PreparedStatement {
   bind(...values: unknown[]): D1PreparedStatement;
@@ -153,6 +153,18 @@ async function readStatus(env: OpsEnv): Promise<OpsStatus | null> {
     if (!res.ok) return null;
     const status = (await res.json()) as OpsStatus;
     return status && status.schema === OPS_SCHEMA ? status : null;
+  } catch {
+    return null;
+  }
+}
+
+/** data/ops/checks.json of the deployed build; null before the first one. */
+export async function readChecks(env: OpsEnv): Promise<OpsChecks | null> {
+  try {
+    const res = await env.ASSETS.fetch(new Request(`${origin(env)}/admin/data/checks.json`));
+    if (!res.ok) return null;
+    const checks = (await res.json()) as OpsChecks;
+    return checks && checks.schema === CHECKS_SCHEMA && Array.isArray(checks.checks) ? checks : null;
   } catch {
     return null;
   }
@@ -362,7 +374,7 @@ export async function runCron(env: OpsEnv, now: Date, fetcher: typeof fetch = fe
   report: PushMessage | null;
 }> {
   const status = await readStatus(env);
-  const live = await liveFacts(env, fetcher);
+  const live = { ...(await liveFacts(env, fetcher)), checks: await readChecks(env) };
   const findings = status ? evaluate(status, now, live) : [NO_STATUS];
   const sent = await syncAlerts(env, findings, now, fetcher);
   const report = status ? await maybeDailyReport(env, status, findings, now, fetcher) : null;
@@ -469,10 +481,11 @@ export async function handleAdminPage(request: Request, url: URL, env: OpsEnv): 
   if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method not allowed" }, 405);
   const refused = adminAuth(request, env);
   if (refused) return refused;
-  // Never hand memory/other files out: only the page, its two data files.
+  // Never hand memory/other files out: only the page, its three data files.
   const path = url.pathname;
   const allowed = path === "/admin" || path === "/admin/" || path === "/admin/index.html" ||
-    path === "/admin/data/status.json" || path === "/admin/data/changes.json";
+    path === "/admin/data/status.json" || path === "/admin/data/changes.json" ||
+    path === "/admin/data/checks.json";
   if (!allowed) return new Response("Not found", { status: 404 });
   const target = path === "/admin" ? new URL("/admin/", url) : url;
   const res = await env.ASSETS.fetch(new Request(target.toString(), { method: request.method }));

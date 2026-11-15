@@ -9,7 +9,7 @@ import "@fontsource/ibm-plex-sans-hebrew/600.css";
 import "@fontsource/jetbrains-mono/400.css";
 import { applyStoredTheme, setTheme } from "../state";
 import { html, mount, type Html } from "../ui/html";
-import { loadAlerts, loadChanges, loadRuns, loadStatus } from "./data";
+import { loadAlerts, loadChanges, loadChecks, loadRuns, loadStatus } from "./data";
 import { ago } from "./format";
 import {
   calendarView,
@@ -242,13 +242,14 @@ async function load(): Promise<void> {
     btn.textContent = "Loading…";
   }
   try {
-    const [status, changes, runs, alerts] = await Promise.all([
+    const [status, changes, checks, runs, alerts] = await Promise.all([
       loadStatus(),
       loadChanges().catch(() => null),
+      loadChecks(),
       loadRuns(),
       loadAlerts(),
     ]);
-    data = { status, changes, runs, alerts };
+    data = { status, changes, checks, runs, alerts };
   } catch (err) {
     data = null;
     loadError = err instanceof Error ? err.message : String(err);

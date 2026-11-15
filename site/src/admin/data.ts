@@ -3,8 +3,8 @@
 // and the page, only after the ADMIN_PASSWORD check. Runs and alerts come
 // from the Worker's admin API (same password; the browser resends it).
 
-import type { OpsChanges, OpsStatus } from "../ops/types";
-import { OPS_SCHEMA } from "../ops/types";
+import type { OpsChanges, OpsChecks, OpsStatus } from "../ops/types";
+import { CHECKS_SCHEMA, OPS_SCHEMA } from "../ops/types";
 
 export interface RunRow {
   vendor: string;
@@ -39,6 +39,16 @@ export async function loadStatus(): Promise<OpsStatus> {
 
 export async function loadChanges(): Promise<OpsChanges> {
   return getJson<OpsChanges>("/admin/data/changes.json");
+}
+
+/** The last publish's check results; null before the first run_checks.py publish. */
+export async function loadChecks(): Promise<OpsChecks | null> {
+  try {
+    const checks = await getJson<OpsChecks>("/admin/data/checks.json");
+    return checks.schema === CHECKS_SCHEMA ? checks : null;
+  } catch {
+    return null;
+  }
 }
 
 /** Runs/alerts live in D1; unavailable locally (vite dev) or before setup. */

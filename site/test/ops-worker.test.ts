@@ -11,7 +11,7 @@ import {
   takeAbuseHits,
   type OpsEnv,
 } from "../ops-worker";
-import type { OpsCrawl, OpsStatus } from "../src/ops/types";
+import type { OpsChecks, OpsCrawl, OpsStatus } from "../src/ops/types";
 import worker from "../worker";
 
 // ---- fakes -----------------------------------------------------------------
@@ -160,6 +160,7 @@ function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: bool
   const pushes: Sent[] = [];
   const pings: string[] = [];
   let currentStatus = status;
+  let currentChecks: OpsChecks | null = null;
   const env: OpsEnv = {
     LISTS_DB: db,
     NTFY_TOPIC_URL: "https://ntfy.sh/mifrat-test-topic-0123456789",
@@ -168,8 +169,12 @@ function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: bool
     HEALTHCHECK_URL: "https://hc-ping.example/abc",
     ASSETS: {
       async fetch(request: Request) {
-        if (new URL(request.url).pathname === "/admin/data/status.json" && currentStatus) {
+        const asset = new URL(request.url).pathname;
+        if (asset === "/admin/data/status.json" && currentStatus) {
           return new Response(JSON.stringify(currentStatus));
+        }
+        if (asset === "/admin/data/checks.json" && currentChecks) {
+          return new Response(JSON.stringify(currentChecks));
         }
         return new Response("not found", { status: 404 });
       },
@@ -210,6 +215,9 @@ function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: bool
     db, env, pushes, pings, fetcher,
     setStatus(s: OpsStatus | null) {
       currentStatus = s;
+    },
+    setChecks(c: OpsChecks | null) {
+      currentChecks = c;
     },
     cron(at: string) {
       return runCron(env, new Date(at), fetcher);
@@ -330,6 +338,32 @@ describe("ops cron: alerts", () => {
     expect((await down.cron("2026-11-12T07:00:00Z")).findings).toEqual([]);
   });
 
+  it("a check warning opens a normal alert, and on its 3rd night pushes as urgent", async () => {
+    const ledgers = (nights: number): OpsChecks => ({
+      schema: 1, generated_at: "2026-11-12T05:28:00+00:00", night: "2026-11-12", suite: "publish",
+      escalate_nights: 3, blocked: false,
+      checks: [{ name: "ledgers", level: "quality", title: "Ledgers point at live data", status: "warn",
+        exit: 1, seconds: 1, since: "2026-11-10T05:28:00+00:00", nights,
+        detail: "[fail] qa_dismissed keys with no case: 299 > budget 10" }],
+    });
+    const t = setup();
+    t.setChecks(ledgers(1));
+    const first = await t.cron("2026-11-12T07:00:00Z");
+    expect(first.findings.map((f) => `${f.severity}:${f.key}`)).toEqual(["warn:check:ledgers"]);
+    expect(t.pushes.map((p) => p.body.priority)).toEqual([3]);
+
+    // Quiet hours: a warn waits; the escalated one pushes at once, urgent.
+    t.setChecks(ledgers(3));
+    const night = await t.cron("2026-11-13T22:00:00Z");
+    expect(night.findings[0]).toMatchObject({ key: "check:ledgers", severity: "urgent" });
+    expect(t.pushes.at(-1)?.body).toMatchObject({ priority: 5, title: "Still open: Check warning: Ledgers point at live data" });
+
+    // Fixed: the alert resolves.
+    t.setChecks({ ...ledgers(0), checks: [{ ...ledgers(0).checks[0], status: "pass", since: null, detail: "" }] });
+    await t.cron("2026-11-14T08:00:00Z");
+    expect(t.db.alerts.get("check:ledgers")!.closed_at).not.toBeNull();
+  });
+
   it("no status file on the site is itself an alert", async () => {
     const t = setup(null);
     const r = await t.cron("2026-11-12T12:00:00Z");
@@ -417,11 +451,14 @@ describe("admin password", () => {
     expect((await handleAdmin("/api/admin/nope", req("/api/admin/nope", basic("correct horse battery")), t.env)).status).toBe(404);
   });
 
-  it("serves only the page and its two data files", async () => {
+  it("serves only the page and its three data files", async () => {
     const t = withPassword();
+    t.setChecks({ schema: 1, generated_at: "x", night: "x", suite: "publish", escalate_nights: 3, blocked: false, checks: [] });
     const ok = basic("correct horse battery");
     const page = (p: string) => handleAdminPage(req(p, ok), new URL(`https://x${p}`), t.env);
     expect((await page("/admin/data/status.json")).status).toBe(200);
+    expect((await page("/admin/data/checks.json")).status).toBe(200);
+    expect((await handleAdminPage(req("/admin/data/checks.json"), new URL("https://x/admin/data/checks.json"), t.env)).status).toBe(401);
     expect((await page("/admin/data/status.json")).headers.get("cache-control")).toBe("private, no-store");
     expect((await page("/admin/data/memory.json")).status).toBe(404);
     expect((await page("/admin/../wrangler.jsonc")).status).toBe(404);

@@ -7,7 +7,7 @@
 // on the clock and is decided here. A report that stopped updating is itself
 // a finding, so a dead pipeline cannot look healthy.
 
-import type { OpsCrawl, OpsStatus, OpsVendor } from "./types";
+import type { OpsChecks, OpsCrawl, OpsStatus, OpsVendor } from "./types";
 
 export type Severity = "urgent" | "high" | "warn" | "info";
 
@@ -33,6 +33,8 @@ export interface LiveFacts {
   nanoRuns?: Record<string, NanoRun>;
   /** Latest completed normalize-and-deploy run on main (GitHub API). */
   normalizeRun?: PipelineRun | null;
+  /** data/ops/checks.json of the last publish (null = not available). */
+  checks?: OpsChecks | null;
 }
 
 export interface PipelineRun {
@@ -84,6 +86,8 @@ export const DEPLOY_LAG_HOURS = 6;
 export const ABUSE_THRESHOLD = 300;
 /** The night window starts 21:00 UTC (23:00/00:00 Israel). */
 export const NIGHT_START_UTC_HOUR = 21;
+/** A quality warning open this many nights is urgent (scripts/run_checks.py). */
+export const CHECK_ESCALATE_NIGHTS = 3;
 
 export const SEVERITY_RANK: Record<Severity, number> = { urgent: 0, high: 1, warn: 2, info: 3 };
 
@@ -327,6 +331,8 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
       });
     }
   }
+  findings.push(...checkFindings(live.checks));
+
   if (live.abuseHits != null && live.abuseHits >= ABUSE_THRESHOLD) {
     findings.push({
       key: "abuse",
@@ -338,6 +344,33 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
 
   findings.sort((a, b) => SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity] || a.key.localeCompare(b.key));
   return findings;
+}
+
+/**
+ * Quality warnings from the last publish's checks (scripts/run_checks.py).
+ * They no longer stop a publish, so this is where they stay loud: one finding
+ * per check (the key survives across nights, so the alert reminds instead of
+ * reopening), urgent once open CHECK_ESCALATE_NIGHTS nights. A blocked run
+ * publishes no checks.json; "normalize-failed" covers that.
+ */
+export function checkFindings(checks: OpsChecks | null | undefined): Finding[] {
+  if (!checks?.checks) return [];
+  const escalate = checks.escalate_nights || CHECK_ESCALATE_NIGHTS;
+  return checks.checks
+    .filter((c) => c.status === "warn")
+    .map((c) => {
+      const nights = Math.max(1, c.nights || 1);
+      const last = (c.detail || "").split("\n").filter(Boolean).slice(-2).join(" / ");
+      return {
+        key: `check:${c.name}`,
+        severity: nights >= escalate ? "urgent" : "warn",
+        title: `Check warning: ${c.title}`,
+        detail: `${c.name} has warned ${nights === 1 ? "since tonight's publish" : `for ${nights} nights`}` +
+          `${c.since ? ` (since ${c.since.slice(0, 10)})` : ""}. The site still published.` +
+          (nights >= escalate ? " Open too long: fix the data or the check." : "") +
+          (last ? ` ${last}` : ""),
+      } satisfies Finding;
+    });
 }
 
 /** Israel wall clock for `at` ("HH:MM"), DST-correct. */

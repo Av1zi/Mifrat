@@ -62,7 +62,8 @@ cpSync(src, dest, { recursive: true });
 
 console.log(`[copy-data] copied ${src} -> ${dest}`);
 
-// Scrape-console data (scraper/ops/report.py): status + changes only, under
+// Scrape-console data (scraper/ops/report.py, scripts/run_checks.py): status,
+// changes and checks only, under
 // /admin/data/, which the Worker serves only after the ADMIN_PASSWORD check
 // (run_worker_first covers /admin/*). memory.json is pipeline state, never shipped. Missing files are not an
 // error (a fresh clone before the first ops run); the console says so.
@@ -70,7 +71,7 @@ const opsSrc = path.resolve(here, "..", "..", "data", "ops");
 const opsDest = path.resolve(here, "..", "public", "admin", "data");
 rmSync(opsDest, { recursive: true, force: true });
 mkdirSync(opsDest, { recursive: true });
-for (const name of ["status.json", "changes.json"]) {
+for (const name of ["status.json", "changes.json", "checks.json"]) {
   const from = path.join(opsSrc, name);
   if (existsSync(from)) cpSync(from, path.join(opsDest, name));
   else console.warn(`[copy-data] ${from} missing - the scrape console will show no data`);

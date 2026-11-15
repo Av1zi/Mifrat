@@ -74,6 +74,35 @@ export interface OpsStatus {
   catalog: OpsCatalog;
 }
 
+/** data/ops/checks.json (scripts/run_checks.py, its own SCHEMA_VERSION 1). */
+export const CHECKS_SCHEMA = 1;
+
+export interface OpsCheck {
+  name: string;
+  /** code / integrity block the publish; quality only warns. */
+  level: "code" | "integrity" | "quality";
+  title: string;
+  status: "pass" | "warn" | "fail";
+  exit: number;
+  seconds: number;
+  /** When this result started (ISO), carried across runs; null on a pass. */
+  since: string | null;
+  /** Scrape nights the result has been open, this one included. */
+  nights: number;
+  /** Last lines of the check's output (empty on a pass). */
+  detail: string;
+}
+
+export interface OpsChecks {
+  schema: number;
+  generated_at: string;
+  night: string;
+  suite: string;
+  escalate_nights: number;
+  blocked: boolean;
+  checks: OpsCheck[];
+}
+
 export type OpsEventType =
   | "new"
   | "gone"

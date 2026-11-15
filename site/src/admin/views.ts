@@ -2,7 +2,7 @@
 // shell in main.ts owns routing, loading and filters.
 
 import { allVendorHealth, evaluate, nightStart, type Finding, type VendorHealth } from "../ops/rules";
-import type { OpsAbsent, OpsChanges, OpsCrawl, OpsEvent, OpsStatus } from "../ops/types";
+import type { OpsAbsent, OpsChanges, OpsChecks, OpsCrawl, OpsEvent, OpsStatus } from "../ops/types";
 import { html, type Html } from "../ui/html";
 import { safeUrl } from "../utils";
 import type { AlertRow, RunRow } from "./data";
@@ -11,6 +11,8 @@ import { ago, ilDateKey, ilDateTime, ilDay, ilTime, ils, n, pct } from "./format
 export interface Data {
   status: OpsStatus;
   changes: OpsChanges | null;
+  /** data/ops/checks.json; null before the first run_checks.py publish. */
+  checks: OpsChecks | null;
   runs: RunRow[] | null;
   alerts: AlertRow[] | null;
 }
@@ -196,7 +198,7 @@ function findingList(findings: Finding[]): Html {
 
 export function tonightView(d: Data, now: Date): Html {
   const health = allVendorHealth(d.status, now);
-  const findings = evaluate(d.status, now);
+  const findings = evaluate(d.status, now, { checks: d.checks });
   const cat = d.status.catalog;
   const activeHealth = health.filter((h) => h.vendor.active);
   return html`
@@ -628,11 +630,38 @@ export function catalogView(d: Data): Html {
       <p class="panel__lede">The grey bar is the category's size. "Sold by" is how many vendors offer each product: the darker the bar, the more parts a visitor can actually compare.</p>
       <div class="ccards">${catCards}</div>
     </section>
+    ${checksPanel(d.checks)}
     <section class="panel">
       <h2 class="panel__title">Quality queue</h2>
       <p class="panel__lede"><a href="/#/qa" target="_blank" rel="noopener">Open the QA page</a>, or run <code>python -m scraper.qa_tool</code> locally to fix cases.</p>
       <ul class="hbars">${qaRows}</ul>
     </section>`;
+}
+
+const CHECK_LEVEL_LABEL: Record<string, string> = { code: "Code", integrity: "Integrity", quality: "Quality" };
+
+/** The last publish's checks: warnings first, then a one-line pass count. */
+export function checksPanel(checks: OpsChecks | null): Html {
+  if (!checks) {
+    return html`<section class="panel">
+      <h2 class="panel__title">Publish checks</h2>
+      <p class="panel__lede">No <code>data/ops/checks.json</code> yet: it is written by <code>python scripts/run_checks.py --suite publish</code> on the next normalize.</p>
+    </section>`;
+  }
+  const open = checks.checks.filter((c) => c.status !== "pass");
+  const passed = checks.checks.length - open.length;
+  return html`<section class="panel">
+    <h2 class="panel__title">Publish checks <span class="count">${open.length}</span></h2>
+    <p class="panel__lede">From the build of night ${checks.night}. Quality checks only warn: the site still publishes, and a warning open ${checks.escalate_nights}+ nights is pushed as urgent. Code and integrity checks block the publish. ${passed} of ${checks.checks.length} passed.</p>
+    ${open.length
+      ? html`<ul class="findings">${open.map((c) => html`<li class="finding finding--${c.status === "fail" ? "high" : c.nights >= checks.escalate_nights ? "urgent" : "warn"}">
+          <span class="finding__sev">${CHECK_LEVEL_LABEL[c.level] ?? c.level}</span>
+          <div><strong>${c.title}</strong> <code>${c.name}</code>
+            <p>${c.status === "fail" ? "Blocked the publish" : `Warning for ${c.nights} night${c.nights === 1 ? "" : "s"}`}${c.since ? `, since ${ilDateTime(c.since)}` : ""}.</p>
+            ${c.detail ? html`<pre class="finding__detail">${c.detail}</pre>` : ""}</div>
+        </li>`)}</ul>`
+      : html`<p class="allclear">Every check passed.</p>`}
+  </section>`;
 }
 
 // ---- Log -------------------------------------------------------------------------

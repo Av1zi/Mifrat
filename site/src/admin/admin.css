@@ -258,6 +258,16 @@
   .finding--warn { border-color: var(--warn); }
   .finding--warn .finding__sev { color: var(--warn); }
 
+  .finding__detail {
+    margin-block-start: var(--sp-2);
+    max-height: 10rem;
+    overflow: auto;
+    font-size: var(--fs-xs);
+    color: var(--text-2);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
   /* ---- night board ----
      Two night panels side by side (stacked on phones). Each row is a
      vendor; a pill sits at its crawl's start time (--at) and grows to the
