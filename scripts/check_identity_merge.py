@@ -23,6 +23,11 @@ invariants are executable:
         (unstated) offer sits in a tray product; manual CPU products join I2
 
     python scripts/check_identity_merge.py [--catalog data/catalog.json]
+    python scripts/check_identity_merge.py --self-test   # reader fixtures only
+    python scripts/check_identity_merge.py --data        # catalog only
+
+The fixtures pin code and block a publish; the catalog half grades nightly
+data and only warns (scripts/run_checks.py). No flag runs both.
 
 Exit 0 = every invariant holds; exit 1 = at least one broke (each printed).
 No test framework by design (PROJECT_OVERVIEW), so this is a plain script.
@@ -677,29 +682,40 @@ def check_i6_catalog(catalog: dict) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--catalog", default=str(ROOT / "data" / "catalog.json"))
+    part = parser.add_mutually_exclusive_group()
+    part.add_argument("--self-test", action="store_true",
+                      help="reader fixtures only (no catalog): the code half")
+    part.add_argument("--data", action="store_true",
+                      help="catalog invariants only: the nightly-data half")
     args = parser.parse_args()
+    fixtures, data = not args.data, not args.self_test
 
-    path = Path(args.catalog)
-    if not path.exists():
-        print("[error] %s not found — run the normalizer first" % path,
-              file=sys.stderr)
-        return 1
-    with path.open(encoding="utf-8") as f:
-        catalog = json.load(f)
+    catalog: dict = {}
+    if data:
+        path = Path(args.catalog)
+        if not path.exists():
+            print("[error] %s not found — run the normalizer first" % path,
+                  file=sys.stderr)
+            return 1
+        with path.open(encoding="utf-8") as f:
+            catalog = json.load(f)
 
-    checked = {
-        "I1 products": check_i1(catalog),
-        "I1 board bridge": check_board_bridge(),
-        "I2 identities": check_i2(catalog, frozenset({"cpu"})),
-        "I3 fixtures": check_i3_unit(),
-        "I3 cpu products": check_i3_catalog(catalog),
-        "I4 fixtures": check_i4_unit(),
-        "I4 products": check_i4(catalog),
-        "I5 fixtures": check_i5_unit(),
-        "I5 twin aliases": check_i5_catalog(catalog),
-        "I6 fixtures": check_i6_unit() + check_i6_resolve(),
-        "I6 cpu products": check_i6_catalog(catalog),
-    }
+    # (label, half, check); the order is the report order of a full run.
+    plan = [
+        ("I1 products", "data", lambda: check_i1(catalog)),
+        ("I1 board bridge", "fixtures", check_board_bridge),
+        ("I2 identities", "data", lambda: check_i2(catalog, frozenset({"cpu"}))),
+        ("I3 fixtures", "fixtures", check_i3_unit),
+        ("I3 cpu products", "data", lambda: check_i3_catalog(catalog)),
+        ("I4 fixtures", "fixtures", check_i4_unit),
+        ("I4 products", "data", lambda: check_i4(catalog)),
+        ("I5 fixtures", "fixtures", check_i5_unit),
+        ("I5 twin aliases", "data", lambda: check_i5_catalog(catalog)),
+        ("I6 fixtures", "fixtures", lambda: check_i6_unit() + check_i6_resolve()),
+        ("I6 cpu products", "data", lambda: check_i6_catalog(catalog)),
+    ]
+    checked = {label: run() for label, half, run in plan
+               if (fixtures if half == "fixtures" else data)}
     for label, count in checked.items():
         print("  %-16s %d checked" % (label, count))
 

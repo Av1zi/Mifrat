@@ -12,7 +12,9 @@ number sits in one category (I-1), and no product's titles say it is
 something its category is not (I-3r: panel only, fan kit, module, bracket,
 drive cage, water block, barebone, controller, water-cooling words).
 
-Run: python scripts/check_categories.py
+Run: python scripts/check_categories.py              # both halves
+     python scripts/check_categories.py --self-test  # title fixtures (code, blocks)
+     python scripts/check_categories.py --data       # catalog pass (nightly data, warns)
 """
 from __future__ import annotations
 
@@ -214,7 +216,8 @@ def catalog_violations(products: list[dict]) -> list[str]:
     return out
 
 
-def main() -> int:
+def fixture_failures() -> tuple[list[str], int]:
+    """(failures, fixture count): the code half, no catalog read."""
     failures = []
     for guess, title, expected in LISTINGS:
         got = canonical_category(guess, title)
@@ -242,11 +245,23 @@ def main() -> int:
         {"title_raw": "Antec NX410 side panel", "mpn": "0-761345-81041-8"}]}]
     if len(catalog_violations(probe)) != 2:
         failures.append("catalog pass self-test: expected 2 violations (I-1 + I-3r)")
+    return failures, count
+
+
+def catalog_failures_now() -> list[str]:
+    """The data half: data/catalog.json against I-1 / I-3r."""
     catalog_path = ROOT / "data" / "catalog.json"
-    catalog_failures: list[str] = []
-    if catalog_path.exists():
-        products = json.loads(catalog_path.read_text(encoding="utf-8")).get("products") or []
-        catalog_failures = catalog_violations(products)
+    if not catalog_path.exists():
+        return []
+    products = json.loads(catalog_path.read_text(encoding="utf-8")).get("products") or []
+    return catalog_violations(products)
+
+
+def main(argv: list[str]) -> int:
+    fixtures = "--data" not in argv
+    data = "--self-test" not in argv
+    failures, count = fixture_failures() if fixtures else ([], 0)
+    catalog_failures = catalog_failures_now() if data else []
 
     if failures or catalog_failures:
         print(f"[categories] FAIL - {len(failures)} of {count} fixtures, "
@@ -254,9 +269,14 @@ def main() -> int:
         for failure in failures + catalog_failures:
             print(f"  - {failure}")
         return 1
-    print(f"[categories] pass - {count} titles; catalog clean (I-1 one PN one category, I-3r is-a words)")
+    if not data:
+        print(f"[categories] pass - {count} titles")
+    elif not fixtures:
+        print("[categories] pass - catalog clean (I-1 one PN one category, I-3r is-a words)")
+    else:
+        print(f"[categories] pass - {count} titles; catalog clean (I-1 one PN one category, I-3r is-a words)")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
