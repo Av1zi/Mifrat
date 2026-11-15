@@ -197,6 +197,14 @@ class OnePcSpider(scrapy.Spider):
     # sequential, throttled, robots.txt obeyed (it allows /web/), and a hard
     # stop after two block responses. No retries against blocks.
     custom_settings = {
+        # Plain HTTP(S), never Playwright: settings.py registers the
+        # scrapy-playwright handler project-wide for Plonter, which launches a
+        # browser at crawl-open that the Nano cannot run. Same override as
+        # TmsSpider and NON_PLAYWRIGHT_DOWNLOAD_HANDLERS in detail_pages.py.
+        "DOWNLOAD_HANDLERS": {
+            "http": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
+            "https": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
+        },
         "ROBOTSTXT_OBEY": True,
         "CONCURRENT_REQUESTS": 1,
         "DOWNLOAD_DELAY": 2,

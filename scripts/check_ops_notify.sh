@@ -74,4 +74,20 @@ WORKER_DOWN=1 run "worker down -> ntfy direct" pc-parts-il-ksp.service "" \
 
 # Never leak the secret detail when scrubbing failed.
 if grep -q ghp_secret "$TMP/curl.log"; then echo "[ops-notify] FAIL secret leaked"; fail=1; fi
+
+# notify.env is data, not a script: quoted values (the owner's format since
+# 2026-11-15), CRLF, comments, `export` and unknown keys parse; a command
+# substitution or a `;` in the file is never executed.
+printf '%s\n' \
+  '# comment line' \
+  "export OPS_EVENT_URL='https://worker.example/api/ops/event'" \
+  $'OPS_INGEST_TOKEN="quoted-token"\r' \
+  "NTFY_TOPIC_URL='https://ntfy.sh/\$(touch $TMP/pwned)'" \
+  "UNRELATED=\$(touch $TMP/pwned2); touch $TMP/pwned3" \
+  > "$TMP/home/.config/pc-parts-il/notify.env"
+run "quoted values parse" pc-parts-il-onepc.service success "1 items" success 'Authorization: Bearer quoted-token'
+for marker in pwned pwned2 pwned3; do
+  if [ -e "$TMP/$marker" ]; then echo "[ops-notify] FAIL notify.env was executed ($marker)"; fail=1; fi
+done
+[ "$fail" = 0 ] && echo "[ops-notify] ok   notify.env is never executed"
 exit "$fail"

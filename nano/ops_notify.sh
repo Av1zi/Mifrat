@@ -20,6 +20,9 @@
 #   OPS_INGEST_TOKEN=<same value as the Worker secret>
 #   NTFY_TOPIC_URL=https://ntfy.sh/<topic>   # fallback when the Worker is down
 #   NTFY_TOKEN=tk_...                         # optional
+# The file is read as KEY=VALUE text, never run as shell code: only the four
+# keys above are taken, one pair of surrounding quotes is stripped, and
+# nothing in a value ($(...), backticks, ;) is ever evaluated.
 # Missing config = log and exit 0: notifications must never break a scrape.
 set -uo pipefail
 
@@ -34,8 +37,32 @@ if [ ! -r "$CONF" ]; then
     echo "[ops_notify] no $CONF - skipping" >&2
     exit 0
 fi
-# shellcheck disable=SC1090
-. "$CONF"
+OPS_EVENT_URL=""
+OPS_INGEST_TOKEN=""
+NTFY_TOPIC_URL=""
+NTFY_TOKEN=""
+while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%$'\r'}"
+    line="${line#"${line%%[![:space:]]*}"}"
+    case "$line" in ''|'#'*) continue ;; esac
+    line="${line#export }"
+    key="${line%%=*}"
+    [ "$key" = "$line" ] && continue
+    value="${line#*=}"
+    value="${value%"${value##*[![:space:]]}"}"
+    if [ "${#value}" -ge 2 ]; then
+        first="${value:0:1}"; last="${value: -1}"
+        if { [ "$first" = "'" ] || [ "$first" = '"' ]; } && [ "$first" = "$last" ]; then
+            value="${value:1:${#value}-2}"
+        fi
+    fi
+    case "$key" in
+        OPS_EVENT_URL) OPS_EVENT_URL="$value" ;;
+        OPS_INGEST_TOKEN) OPS_INGEST_TOKEN="$value" ;;
+        NTFY_TOPIC_URL) NTFY_TOPIC_URL="$value" ;;
+        NTFY_TOKEN) NTFY_TOKEN="$value" ;;
+    esac
+done < "$CONF"
 
 # pc-parts-il-tms-fallback.service -> tms
 VENDOR="$(echo "$UNIT" | sed -E 's/^pc-parts-il-//; s/(-fallback)?\.service$//')"
