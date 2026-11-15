@@ -96,7 +96,15 @@ CATALOG = ROOT / "data" / "catalog.json"
 # 3,504 gap rows (it already failed this check) and this branch at 3,079 after
 # Icecat / maker data; 4,000 is the measured total + ~30% headroom. The labels
 # are cooler / board detail rows with no schema column, not a broken mapping.
-LABEL_GAP_BUDGET = 4000
+#
+# 2026-11-15: 4000 -> 5300. KSP's detail scrape (150 products a night) added
+# ~1,800 unmapped-label rows over the week; 560 of the jump were section
+# containers (maker link, review, flattened table), now ignored in labels.py.
+# The rest is real vendor labels with no schema column (GPU resolution and
+# recommended PSU, memory SPD voltage and tested latency, board prose), i.e.
+# gap evidence, not a broken mapping. Measured 4,045 + ~30% headroom. It is a
+# warning now (scripts/run_checks.py), so it escalates instead of freezing.
+LABEL_GAP_BUDGET = 5300
 
 # Mean field-fill % per category, minus 2pp tolerance.
 #

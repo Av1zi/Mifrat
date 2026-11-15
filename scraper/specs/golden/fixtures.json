@@ -131,7 +131,7 @@
       }
     },
     {
-      "product_id": "mpn:storage:mzv9p2t0bw",
+      "product_id": "model:storage:990-pro-2000gb-m2pcie-m22280",
       "category": "storage",
       "name": "Samsung 2TB 990 PRO NVMe M.2 SSD",
       "_pins": "Printed MPN spelling. Samsung/Plonter print 'MZ-V9P2T0BW'; the product id stays the compact key (mzv9p2t0bw). This case used to be reproducible only while a 1PC listing that carried a printed MPN existed — Plonter's 403 day (Sep 2026) dropped it and the piped value flipped to 'MZV9P2T0BW', which is exactly the flake this pins down.",
@@ -151,6 +151,7 @@
       },
       "anchors": {
         "ids": [
+          "model:storage:990-pro-2000gb-m2pcie-m22280",
           "mpn:storage:mzv9p2t0bw"
         ],
         "listing_keys": [
@@ -168,7 +169,7 @@
       }
     },
     {
-      "product_id": "mpn:storage:mzv9p1t0bw",
+      "product_id": "model:storage:990-pro-1000gb-nvme-m2",
       "category": "storage",
       "name": "Samsung 1TB 990 PRO NVMe M.2 SSD",
       "expect": {
@@ -183,6 +184,7 @@
       },
       "anchors": {
         "ids": [
+          "model:storage:990-pro-1000gb-nvme-m2",
           "mpn:storage:mzv9p1t0bw"
         ],
         "listing_keys": [
@@ -235,11 +237,12 @@
       }
     },
     {
-      "product_id": "mpn:motherboard:gb850aoruselitewifi7",
+      "product_id": "model:motherboard:aorus-b850-elite-wifi7-atx",
       "category": "motherboard",
       "name": "Gigabyte B850 Aorus Elite WIFI7",
       "anchors": {
         "ids": [
+          "model:motherboard:aorus-b850-elite-wifi7-atx",
           "mpn:motherboard:gb850aoruselitewifi7"
         ],
         "listing_keys": [
@@ -299,7 +302,7 @@
       }
     },
     {
-      "product_id": "mpn:gpu:90yv0m17m0na00",
+      "product_id": "model:gpu:5070-dual-gddr7-geforce-oc-rtx-12gb",
       "category": "gpu",
       "name": "ASUS GeForce RTX 5070 12GB OC",
       "_pins": "GPU chipset canonical form. The board rule for chipset used to reject every multi-word GPU chip, which was 87% of the catalogue. Re-pinned 2026-10-21 to a 3-vendor product (1PC/Ivory/TMS): the previous pins, MSI mpn:gpu:4711377303927 and then mpn:gpu:4711377308175, left the catalogue when their only listings (1PC sold out, then ivory:135057 / 1pc:203118 delisted) disappeared.",
@@ -310,6 +313,7 @@
       },
       "anchors": {
         "ids": [
+          "model:gpu:5070-dual-gddr7-geforce-oc-rtx-12gb",
           "mpn:gpu:90yv0m17m0na00"
         ],
         "listing_keys": [
@@ -322,6 +326,7 @@
         ],
         "manufacturer": "ASUS",
         "models": [
+          "Dual GeForce RTX 5070 GDDR7 OC Edition",
           "Dual GeForce RTX 5070 12GB GDDR7 OC Edition"
         ]
       }
@@ -351,7 +356,7 @@
       }
     },
     {
-      "product_id": "sku:cooler_air:814256022149",
+      "product_id": "model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white",
       "category": "cooler_air",
       "name": "Thermalright Peerless Assassin Vision MAX White ARGB",
       "_pins": "Oct 2026 coverage pass: Ivory prints 'מידות כ-: גובה 164 רוחב 110 עומק 125' (consistent across scrapes since Sep 2026), which the new DIMS_CELL mapping reads as height_mm 164. The previous 170 came from no surviving source (title has no height, Tier-0 has no entry) and was stale. 2026-10-24: Ivory dropped the Black listing (81425602213-2), so the pin moved to the White sibling (same page layout, same cooler).",
@@ -368,6 +373,7 @@
       ],
       "anchors": {
         "ids": [
+          "model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white",
           "sku:cooler_air:814256022149"
         ],
         "listing_keys": [
@@ -411,7 +417,7 @@
       }
     },
     {
-      "product_id": "mpn:case:cc9011242ww",
+      "product_id": "model:case:120mm-3x120mm-5000d-airflow-glass-icue-mid-rgb-rgb-series-tempered-tower-black",
       "category": "case",
       "name": "Corsair iCUE 5000D Airflow RGB Black",
       "_pins": "Phase 1d: second manufacturer-sourced case (5000D clears 420mm GPUs / 170mm coolers per corsair.com).",
@@ -422,6 +428,7 @@
       },
       "anchors": {
         "ids": [
+          "model:case:120mm-3x120mm-5000d-airflow-glass-icue-mid-rgb-rgb-series-tempered-tower-black",
           "mpn:case:cc9011242ww"
         ],
         "listing_keys": [
@@ -439,7 +446,7 @@
       }
     },
     {
-      "product_id": "mpn:motherboard:90mb14u0m0eay0",
+      "product_id": "model:motherboard:b550-prime-atx",
       "category": "motherboard",
       "name": "ASUS Prime B550-Plus",
       "_pins": "Phase 1c/1d: no Wi-Fi/Bluetooth board is recorded as \"No\" (never null, never \"None\" - a coerce placeholder).",
@@ -450,6 +457,7 @@
       },
       "anchors": {
         "ids": [
+          "model:motherboard:b550-prime-atx",
           "mpn:motherboard:90mb14u0m0eay0"
         ],
         "listing_keys": [
