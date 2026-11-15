@@ -240,6 +240,12 @@
     },
     "model:psu:1200w-80-modular-pfc-platinum-psu-retail-1200w": {
       "efficiency": "80+ Platinum"
+    },
+    "model:gpu:12g-9070-gaming-gre-oc-radeon-rx-12gb": {
+      "chipset": "Radeon RX 9070 GRE"
+    },
+    "manual:gpu:1pc-221469-yahav-11053": {
+      "manufacturer": "PNY"
     }
   }
 }
