@@ -54,6 +54,7 @@ try:
     from scraper.build_price_history import build_price_history
     from scraper.image_urls import best_of, candidate_urls
     from scraper.text_hygiene import clean_tree
+    from scraper.night import scrape_night
     from scraper import identity
 except ImportError:
     from matching import (
@@ -76,6 +77,7 @@ except ImportError:
     from image_urls import best_of, candidate_urls  # type: ignore[no-redef]
     from build_price_history import build_price_history
     from text_hygiene import clean_tree  # type: ignore[no-redef]
+    from night import scrape_night  # type: ignore[no-redef]
     import identity  # type: ignore[no-redef]
 
 
@@ -147,11 +149,16 @@ def find_latest_snapshot(vendor_spider_name: str, today: datetime):
     """
     Return (path, date_str) for the most recent available raw file for
     this vendor within the lookback window, or None if there isn't one.
+
+    The search starts at tonight's scrape night (scraper/night.py), which is
+    tomorrow's UTC date after 21:00 UTC: a crawl that started then sits in
+    that folder.
     """
     base_names = VENDOR_FILE_ALIASES.get(vendor_spider_name, [vendor_spider_name])
+    newest = datetime.combine(scrape_night(today), datetime.min.time(), tzinfo=timezone.utc)
 
     for offset in range(STALE_LOOKBACK_DAYS + 1):
-        day = today - timedelta(days=offset)
+        day = newest - timedelta(days=offset)
         day_str = _date_str(day)
 
         for name in base_names:
@@ -828,7 +835,9 @@ def _remap_identity_cases(cases, aliases: dict[str, str],
 
 
 def build_catalog(today: datetime):
-    today_str = _date_str(today)
+    # A snapshot in today's UTC folder (before the 2026-11-15 switch) or in
+    # tonight's scrape-night folder is this build's.
+    current_folders = {_date_str(today), scrape_night(today).isoformat()}
 
     all_listings = []
     skipped_vendors = []
@@ -851,9 +860,9 @@ def build_catalog(today: datetime):
         listings = _drop_included_builder_options(listings)
 
         seen_day = crawl_local_day(listings) or snapshot_date
-        # Fresh if it sits in today's UTC folder, or was crawled today in Israel
-        # (the TMS night run is in yesterday's UTC folder).
-        is_stale = snapshot_date != today_str and seen_day != local_day(today)
+        # Fresh if it sits in this build's folder, or was crawled today in
+        # Israel (an old TMS night run is in yesterday's UTC folder).
+        is_stale = snapshot_date not in current_folders and seen_day != local_day(today)
 
         for listing in listings:
             listing["last_seen"] = snapshot_date

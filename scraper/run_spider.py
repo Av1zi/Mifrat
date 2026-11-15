@@ -6,9 +6,14 @@ so the two execution environments (GitHub Actions for cloud vendors, the
 Jetson Nano for TMS) can never drift into writing different layouts. Both
 call this exact script; nothing execution-environment-specific lives here.
 
-Date is UTC, matching the rest of the pipeline (GitHub Actions cron is
-UTC-only per §3, and the Nano syncs NTP per §4) — using local time here
-would make "today's" folder ambiguous between the two writers.
+The folder is the scrape night (scraper/night.py, GLOSSARY.md): the crawl's
+START time in UTC plus 3 hours, so a run that starts at 23:51 UTC and one
+that starts at 00:17 UTC are two nights, never one folder. MIFRAT_NIGHT pins
+it (the Nano wrappers set it so their commit paths match). Until 2026-11-15
+it was the UTC start date, which put two 1PC nights in one folder.
+
+A second crawl the same night replaces the file only when it is at least as
+complete (scraper/night.py `install`); a thinner one is dropped.
 
 Usage:
   python scraper/run_spider.py <spider_name>
@@ -23,7 +28,6 @@ check here; per-vendor minimum-item-count thresholds are an open item
 (plan §17) once there's a baseline from real runs to calibrate against.
 """
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 from scrapy.crawler import CrawlerProcess
@@ -32,6 +36,7 @@ from scrapy.utils.project import get_project_settings
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 sys.path.insert(0, str(DATA_DIR.parent))
 
+from scraper.night import install, tonight  # noqa: E402
 from scraper.ops.registry import min_counts  # noqa: E402
 
 # Per-vendor minimum-item warning thresholds (plan §17 open item, Sep 2026),
@@ -57,7 +62,7 @@ def main():
         sys.exit(1)
 
     spider_name = sys.argv[1]
-    run_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    run_date = tonight()
     output_path = build_output_path(spider_name, run_date)
 
     # Write next to the final file, then rename only on success. A re-run
@@ -98,9 +103,20 @@ def main():
         )
         sys.exit(1)
 
-    part_path.replace(output_path)
-    line_count = sum(1 for _ in output_path.open(encoding="utf-8"))
-    print(f"[ok] {spider_name}: wrote {line_count} items to {output_path}")
+    action, line_count, earlier = install(part_path, output_path)
+    if action == "empty":
+        print(f"[error] {spider_name}: {part_path} held no rows; "
+              f"{output_path.name} was left untouched.", file=sys.stderr)
+        sys.exit(1)
+    if action == "kept":
+        print(
+            f"[warn] {spider_name}: this crawl has {line_count} items, tonight's "
+            f"{output_path} already has {earlier}; kept the fuller one.",
+            file=sys.stderr,
+        )
+        return
+    print(f"[ok] {spider_name}: wrote {line_count} items to {output_path}"
+          + (f" (replaced tonight's {earlier})" if earlier else ""))
 
     floor = VENDOR_MIN_COUNTS.get(spider_name)
     if floor and line_count < floor:

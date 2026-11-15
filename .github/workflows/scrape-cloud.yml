@@ -148,14 +148,19 @@ jobs:
       - name: Scrape vendor unless today's fallback artifact exists
         env:
           FALLBACK: ${{ needs.schedule-gate.outputs.fallback }}
-        # The overnight window (21:07-00:07 UTC starts) straddles the UTC date
-        # change, so last night's snapshot is often dated YESTERDAY. Checking
-        # only today's file made the fallback re-scrape every vendor (and
-        # re-normalize) around noon most days. Read scraped_at instead: any
-        # snapshot from the last 18h counts as current.
+        # Folders are scrape nights (scraper/night.py: start UTC + 3 h), so
+        # tonight's primary run and the 02:47 fallback share one folder. The
+        # UTC days stay in the loop for folders written before the switch.
+        # Read scraped_at, not the name: any snapshot from the last 18h counts.
+        # MIFRAT_NIGHT is pinned here, once: run_spider.py and the bundle step
+        # read it, so a crawl that crosses 21:00 UTC is bundled where it was
+        # written.
         run: |
+          night="$(python scraper/night.py)"
+          export MIFRAT_NIGHT="$night"
+          echo "MIFRAT_NIGHT=$night" >> "$GITHUB_ENV"
           if [ "$FALLBACK" = "true" ]; then
-            for d in "$(date -u +%F)" "$(date -u -d yesterday +%F)"; do
+            for d in "$night" "$(date -u +%F)" "$(date -u -d yesterday +%F)"; do
               f="data/raw/$d/$SPIDER.jsonl"
               [ -s "$f" ] || continue
               if head -n 1 "$f" | python -c "import json,sys,datetime as t; s=json.loads(sys.stdin.readline())['scraped_at']; sys.exit(0 if t.datetime.now(t.timezone.utc)-t.datetime.fromisoformat(s) < t.timedelta(hours=18) else 1)"; then
@@ -169,18 +174,15 @@ jobs:
       # matrix jobs run in parallel on stale checkouts, and `git add` on a
       # shared directory stages the siblings' files as DELETED (Sep 2026
       # wiped 5 days of plonter/ivory snapshots exactly this way).
-      # A fallback skip on yesterday-dated data writes no file today.
-      # run_spider.py dates the file when the crawl STARTS, so a crawl that
-      # crosses UTC midnight writes yesterday's name: offer both, only the
-      # one that differs from HEAD gets bundled.
+      # A fallback skip writes no file. run_spider.py names the folder by the
+      # scrape night of the crawl's START (scraper/night.py), so the file is
+      # tonight's; only a file that differs from HEAD gets bundled.
       - name: Bundle the snapshot for publish-scrape
         id: pack
         run: |
           outputs=()
-          for d in "$(date -u +%F)" "$(date -u -d yesterday +%F)"; do
-            f="data/raw/$d/$SPIDER.jsonl"
-            if [ -e "$f" ]; then outputs+=("$f"); fi
-          done
+          f="data/raw/$MIFRAT_NIGHT/$SPIDER.jsonl"
+          if [ -e "$f" ]; then outputs+=("$f"); fi
           if [ "${#outputs[@]}" -eq 0 ]; then echo "no new snapshot to publish"; exit 0; fi
           bash scripts/ci_bundle.sh pack "$RUNNER_TEMP/bundle" "${outputs[@]}"
       - if: steps.pack.outputs.packed == 'true'

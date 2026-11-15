@@ -20,8 +20,12 @@ The company that makes a part; its own product pages are a spec source, never a 
 _Avoid_: brand site, maker (in prose about sources)
 
 **Snapshot**:
-Everything one vendor showed on one day, kept as one raw file.
+Everything one vendor showed on one scrape night, kept as one raw file.
 _Avoid_: dump, scrape
+
+**Scrape night**:
+The 24 hours from 21:00 UTC to the next 21:00 UTC, named by the UTC date they end on: a crawl starting 23:51 UTC on the 14th belongs to the night of the 15th. Snapshot folders are named by the night a crawl started in, one file per vendor-night (folders before 2026-11-15 use the UTC start date).
+_Avoid_: day, UTC day (for a snapshot's date)
 
 ## Catalog
 
@@ -75,7 +79,11 @@ A listing absent from two valid crawls at least 36 hours apart. Seen again later
 _Avoid_: delisted, removed
 
 **Finding**:
-One current problem the alert rules see (scrape not done, site down, partial crawl); an alert opens, reminds and resolves per finding.
+One current problem the alert rules see (scrape not done, site down, partial crawl, a check warning); an alert opens, reminds and resolves per finding.
+
+**Check level**:
+Whether a pipeline check stops the publish. Code and integrity checks block; quality checks grade the night's data and only warn, escalating to urgent after 3 nights open.
+_Avoid_: gate (for a check that only warns)
 
 **Daily report**:
 The 10:00 Israel-time phone message with one line per vendor; silent when every line is OK.

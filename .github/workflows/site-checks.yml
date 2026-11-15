@@ -34,6 +34,8 @@ on:
       - 'scraper/ops/**'
       - 'nano/ops_notify.sh'
       - 'scripts/check_ops_notify.sh'
+      - 'scripts/check_nano_night.sh'
+      - 'nano/run_*.sh'
   pull_request:
     paths:
       - 'site/**'
@@ -54,6 +56,8 @@ on:
       - 'scraper/ops/**'
       - 'nano/ops_notify.sh'
       - 'scripts/check_ops_notify.sh'
+      - 'scripts/check_nano_night.sh'
+      - 'nano/run_*.sh'
   workflow_dispatch: {}
 
 concurrency:

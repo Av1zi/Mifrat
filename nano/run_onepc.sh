@@ -8,7 +8,13 @@ set -euo pipefail
 
 REPO_DIR="/home/avizi/pc-parts-il"
 SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
-TODAY="$(date -u +%F)"
+PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
+# The scrape night (scraper/night.py), not the UTC date: the 23:20 UTC (+1 h)
+# timer used to name the folder by whichever UTC day the run started on, so
+# 23:51 on 11-14 and 00:17 on 11-14 were two nights in one folder and the
+# second overwrote the first (1PC lost 11-11, 11-13, 11-15).
+TODAY="$("$PYTHON" "$REPO_DIR/scraper/night.py")"
+export MIFRAT_NIGHT="$TODAY"
 OUT_DIR="$REPO_DIR/data/raw/$TODAY"
 OUT_FILE="$OUT_DIR/onepc.jsonl"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
@@ -32,19 +38,25 @@ git pull --rebase --autostash
 echo "[run_onepc] code revision: $(git rev-parse --short HEAD)"
 
 mkdir -p "$OUT_DIR"
-rm -f "$OUT_FILE"
+# Crawl into a .part; the night's file is replaced only by a crawl at least
+# as complete (a thinner fallback run never wipes a good night).
+PART_FILE="$OUT_FILE.part"
+rm -f "$PART_FILE"
 "$SCRAPY" crawl onepc \
-    -s "FEEDS={\"$OUT_FILE\":{\"format\":\"jsonl\",\"encoding\":\"utf-8\"}}"
+    -s "FEEDS={\"$PART_FILE\":{\"format\":\"jsonl\",\"encoding\":\"utf-8\",\"overwrite\":true}}"
 
-ITEM_COUNT="$( [ -f "$OUT_FILE" ] && wc -l < "$OUT_FILE" || echo 0 )"
-echo "[run_onepc] $ITEM_COUNT items written to $OUT_FILE"
-if [ "$ITEM_COUNT" -eq 0 ]; then
+PART_COUNT="$( [ -f "$PART_FILE" ] && wc -l < "$PART_FILE" || echo 0 )"
+echo "[run_onepc] $PART_COUNT items written to $PART_FILE"
+if [ "$PART_COUNT" -eq 0 ]; then
     echo "[error] zero items scraped - not committing empty file" >&2
+    rm -f "$PART_FILE"
     exit 1
 fi
-if [ "$ITEM_COUNT" -lt 1600 ]; then
-    echo "[warn] only $ITEM_COUNT items (floor 1600) - possible partial block" >&2
+if [ "$PART_COUNT" -lt 1600 ]; then
+    echo "[warn] only $PART_COUNT items (floor 1600) - possible partial block" >&2
 fi
+"$PYTHON" scraper/night.py install "$PART_FILE" "$OUT_FILE"
+ITEM_COUNT="$(wc -l < "$OUT_FILE")"
 
 # Narrow path only: never a shared directory (Sep 2026 wipeout).
 bash scripts/git_commit_push.sh "scrape(onepc): $TODAY ($ITEM_COUNT items)" "data/raw/$TODAY/onepc.jsonl"

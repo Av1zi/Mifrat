@@ -11,7 +11,8 @@ set -euo pipefail
 REPO_DIR="/home/avizi/pc-parts-il"
 PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
 SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
-TODAY="$(date -u +%F)"
+# The scrape night, the date run_ksp.sh keys its success marker by.
+TODAY="$("$PYTHON" "$REPO_DIR/scraper/night.py")"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
 DONE_MARKER="$STATE_DIR/ksp-detail-$TODAY.done"
 # Written by run_ksp.sh once tonight's listing snapshot is pushed.

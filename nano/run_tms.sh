@@ -3,9 +3,11 @@ set -euo pipefail
 
 REPO_DIR="/home/avizi/pc-parts-il"
 SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
-# UTC day, the same day run_spider/normalize date the snapshot by (a local
-# date drifts from the file name around midnight).
-TODAY="$(date -u +%F)"
+PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
+# The scrape night (scraper/night.py), the same date run_spider.py names the
+# folder by: 21:15 UTC and 02:50 UTC (the fallback) are one night, one file.
+TODAY="$("$PYTHON" "$REPO_DIR/scraper/night.py")"
+export MIFRAT_NIGHT="$TODAY"
 OUT_DIR="$REPO_DIR/data/raw/$TODAY"
 OUT_FILE="$OUT_DIR/tms.jsonl"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
@@ -67,7 +69,9 @@ if [ "$ITEM_COUNT" -eq 0 ]; then
     rm -f "$PART_FILE"
     exit 1
 fi
-mv -f "$PART_FILE" "$OUT_FILE"
+# Replaces tonight's file only when this crawl is at least as complete.
+"$PYTHON" scraper/night.py install "$PART_FILE" "$OUT_FILE"
+ITEM_COUNT="$(wc -l < "$OUT_FILE")"
 
 git add "data/raw/$TODAY/tms.jsonl"
 git diff --cached --quiet || git commit -m "tms snapshot $TODAY ($ITEM_COUNT items)"

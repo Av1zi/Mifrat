@@ -3,7 +3,8 @@
 Offline, synthetic fixtures only (no data/raw needed):
 
   1. a file holding two crawls >6h apart is two crawls; the first is
-     `misfiled` when its UTC day is not the file's day (TMS 2026-11-11);
+     `misfiled` when the file is named for neither its scrape night nor its
+     UTC start day (TMS 2026-11-11);
   2. a crawl starting outside 21:00-04:00 UTC is `outside_window`;
   3. a vendor's first crawl is its baseline: no `new` events;
   4. one absence is `missing`, not gone (1PC flaps ~50 rows a day);
@@ -115,9 +116,17 @@ def self_test() -> int:
     rows = _rows("tms", first, big[:5]) + _rows("tms", second, big[:5])
     crawls = split_crawls("tms", "2026-11-11", rows)
     check("1 double crawl", len(crawls) == 2, f"{len(crawls)} crawls")
-    check("1 misfiled", crawls[0].misfiled and not crawls[1].misfiled,
+    # 22:23 UTC 11-10 is the 11-11 scrape night and 21:30 UTC 11-11 its UTC
+    # day: both are filed (it was "misfiled" under the UTC-only rule).
+    check("1 filed by night or UTC day", not crawls[0].misfiled and not crawls[1].misfiled,
           f"{[c.misfiled for c in crawls]}")
     check("1 crawls_in_file", all(c.crawls_in_file == 2 for c in crawls), "")
+    # A scrape-night folder (2026-11-15 switch) is not misfiled: 23:51 UTC on
+    # 11-14 is the 11-15 night. The old UTC name still reads as filed too.
+    night = datetime(2026, 11, 14, 23, 51, tzinfo=timezone.utc)
+    check("1 night folder", not split_crawls("onepc", "2026-11-15", _rows("onepc", night, ["a"]))[0].misfiled, "")
+    check("1 UTC folder", not split_crawls("onepc", "2026-11-14", _rows("onepc", night, ["a"]))[0].misfiled, "")
+    check("1 wrong folder", split_crawls("onepc", "2026-11-13", _rows("onepc", night, ["a"]))[0].misfiled, "")
     late = split_crawls("ivory", "2026-11-12",
                         _rows("ivory", datetime(2026, 11, 12, 5, 10, tzinfo=timezone.utc), ["a"]))
     check("2 outside window", late[0].outside_window, "05:10 UTC is outside")

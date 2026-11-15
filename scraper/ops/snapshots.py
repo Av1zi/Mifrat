@@ -22,6 +22,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from scraper.matching import _SAME_CRAWL_HOURS, listing_key, normalize_price
+from scraper.night import scrape_night
 from scraper.ops.registry import NIGHT_END_UTC_HOUR, NIGHT_START_UTC_HOUR, VENDORS
 from scraper.text_hygiene import clean_text
 
@@ -59,8 +60,10 @@ class Crawl:
 
     @property
     def misfiled(self) -> bool:
-        """The file is named for another day than the crawl started (UTC)."""
-        return self.start.strftime("%Y-%m-%d") != self.file_day
+        """The file is named for neither the crawl's scrape night nor (before
+        the 2026-11-15 switch) the UTC day it started."""
+        return self.file_day not in (scrape_night(self.start).isoformat(),
+                                     self.start.strftime("%Y-%m-%d"))
 
     @property
     def outside_window(self) -> bool:

@@ -8,9 +8,10 @@ set -euo pipefail
 
 REPO_DIR="/home/avizi/pc-parts-il"
 PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
-# UTC day, the one run_spider.py names the snapshot by (a local date drifts
-# from the file name around midnight; run_tms.sh / run_onepc.sh do the same).
-TODAY="$(date -u +%F)"
+# The scrape night (scraper/night.py), pinned for run_spider.py below so the
+# file it writes is the one committed here.
+TODAY="$("$PYTHON" "$REPO_DIR/scraper/night.py")"
+export MIFRAT_NIGHT="$TODAY"
 OUT_FILE="$REPO_DIR/data/raw/$TODAY/ksp.jsonl"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
 SUCCESS_MARKER="$STATE_DIR/ksp-$TODAY.success"
