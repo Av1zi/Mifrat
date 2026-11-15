@@ -19,6 +19,8 @@ on:
       - 'site/**'
       - 'scraper/specs/**'
       - 'scripts/check_*.py'
+      - 'scripts/run_checks.py'
+      - 'scraper/night.py'
       - 'data/catalog.json'
       - 'data/site/**'
       - 'data/spec_gaps.json'
@@ -37,6 +39,8 @@ on:
       - 'site/**'
       - 'scraper/specs/**'
       - 'scripts/check_*.py'
+      - 'scripts/run_checks.py'
+      - 'scraper/night.py'
       - 'data/catalog.json'
       - 'data/site/**'
       - 'data/spec_gaps.json'
@@ -122,31 +126,9 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Spec schema <-> frontend drift
-        run: python scripts/check_spec_sync.py
-      - name: Spec merge-layer regressions
-        run: python scripts/check_spec_merge.py
-      - name: Spec coverage floors
-        run: python scripts/check_spec_coverage.py
-      - name: Publish set coherence (self-test + gate)
-        # The catalog, data/site/*.json, index.json, meta.json and
-        # spec_report.json must describe ONE run and ONE product set. This is
-        # the gate for a data commit assembled by hand, by an interrupted run
-        # or by two boxes: 2026-11-01 shipped a 4,697-product catalog beside
-        # site files describing 4,678 (19 products lost from the site).
-        run: |
-          python scripts/check_publish_set.py --self-test
-          python scripts/check_publish_set.py
-      - name: Photo pipeline regressions
-        run: python scripts/check_image_pick.py
-      - name: Cover corpus
-        run: python scripts/check_image_files.py
-      - name: Image fetch limits (host allowlist, redirects, size, formats)
-        # Local 127.0.0.1 server only; no vendor traffic.
-        run: python scripts/check_image_fetch.py
-      - name: QA tool refuses cross-site and rebinding writes
-        run: python scripts/check_qa_tool.py
-      - name: Ops report rules (crawls, new / gone / returned)
-        run: python scripts/check_ops_report.py --self-test
-      - name: Nano run notifier (stubbed systemd / curl)
-        run: bash scripts/check_ops_notify.sh
+      - name: Code checks (scripts/run_checks.py --suite code)
+        # Every check that reads no nightly data (fixtures, self-tests,
+        # schema sync, the notifier stub test) plus the committed publish set
+        # and cover corpus. The same list normalize-and-deploy runs, so a
+        # code check cannot be added to one workflow and forgotten in the other.
+        run: python scripts/run_checks.py --suite code

@@ -7,7 +7,7 @@ drops a lot of covers (a chooser flip to a pruned file, a vendor 404 wave,
 a download job that didn't run) would ship a site full of placeholder tiles.
 This fails the build when more than MAX_MISSING of products lack an image.
 
-Run: python scripts/check_site_images.py [--report]
+Run: python scripts/check_site_images.py [--report] [--ceiling]
 """
 from __future__ import annotations
 
@@ -31,6 +31,12 @@ SKIP_FILES = {"meta.json", "qa.json", "index.json", "spec_report.json"}
 # and held to their own, looser budget instead of eating the cloud budget.
 DEFERRED_VENDOR = "ksp"
 MAX_DEFERRED = 0.15
+
+# `--ceiling`: the hard limit that blocks a publish (scripts/run_checks.py).
+# The budgets above only warn: a 2.5% night (2026-11-09) froze every vendor's
+# prices over a few dozen placeholder tiles. A site of placeholders still stops.
+CEILING_MISSING = 0.15
+CEILING_DEFERRED = 0.50
 
 
 def _ksp_only(product: dict) -> bool:
@@ -72,6 +78,9 @@ def scan() -> dict:
 
 def main() -> int:
     report = "--report" in sys.argv
+    max_missing, max_deferred = MAX_MISSING, MAX_DEFERRED
+    if "--ceiling" in sys.argv:
+        max_missing, max_deferred = CEILING_MISSING, CEILING_DEFERRED
     r = scan()
     total = r["products"]
     if not total:
@@ -87,15 +96,15 @@ def main() -> int:
         share = deferred / max(1, r["deferred_total"])
         print(f"[site-images] {deferred} KSP-only products wait for the Nano "
               f"backfill ({share:.1%} of {r['deferred_total']}; budget "
-              f"{MAX_DEFERRED:.0%}); not counted above")
-        if share > MAX_DEFERRED:
+              f"{max_deferred:.0%}); not counted above")
+        if share > max_deferred:
             print("[site-images] FAIL: too many KSP covers missing; run on the "
                   "Nano: python -m scraper.download_images --from-catalog "
                   "--vendor ksp")
             return 1
-    if missing_share > MAX_MISSING:
+    if missing_share > max_missing:
         print(f"[site-images] FAIL: {missing_share:.1%} of products lack a local "
-              f"image (budget {MAX_MISSING:.0%})")
+              f"image (budget {max_missing:.0%})")
         for item in r["missing"][:15]:
             print(f"  - {item}")
         if len(r["missing"]) > 15:

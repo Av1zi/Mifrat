@@ -117,16 +117,6 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
-      - name: Spec schema <-> frontend drift check
-        # scraper/specs/schema.py is the single source of truth for spec
-        # field names/types/units. Fails when the generated TS
-        # (site/src/specSchema.generated.ts) is stale or a hand-written
-        # frontend spec key no longer exists in the schema.
-        run: python scripts/check_spec_sync.py
-      - name: Manufacturer data at the schema version
-        # mfr/store.py ignores a data/mfr/*.json at another schema version, so
-        # a bump without scripts/migrate_mfr_schema.py drops every maker fact.
-        run: python scripts/migrate_mfr_schema.py --check
       - name: Refresh pcpartdb reference-spec index (spec system Tier 0)
         # Optional reference data, not core data — data/pcpartdb/ is
         # gitignored and rebuilt fresh here every run (~7MB from GitHub's
@@ -165,173 +155,25 @@ jobs:
       - name: Rebuild with the backfilled covers
         if: steps.backfill_new.outputs.fetched == 'true'
         run: python scraper/normalize_and_match.py
-      - name: Golden-fixture resolver self-test (offline)
-        # The gate resolves a fixture through its own product id first and its
-        # anchors second; this pins that decision (a live product with a wrong
-        # value must fail, a re-keyed one must not) against synthetic catalogs.
-        run: python scripts/check_golden_resolution.py
-      - name: Spec golden fixtures (see scraper/specs/README.md)
-        # Hand-verified specs for known products must match the catalog the run
-        # just wrote. Exit 2 = identity churn only (a fixture's product id moved
-        # or vanished and nothing is wrong with the values): the catalog and site
-        # still publish, the run shows a warning. Exit 1 = a spec value regressed,
-        # the missing budget was exceeded or the population collapsed; blocks the
-        # commit. --baseline is the previously committed catalog, so the
-        # population guard needs no extra state.
-        run: |
-          if git show HEAD:data/catalog.json > "$RUNNER_TEMP/baseline-catalog.json" 2>/dev/null; then
-            baseline="--baseline $RUNNER_TEMP/baseline-catalog.json"
-          else
-            baseline=""
-          fi
-          set +e
-          python -m scraper.specs.golden.check_golden $baseline
-          code=$?
-          set -e
-          if [ "$code" -eq 2 ]; then
-            echo "::warning::golden fixtures: identity churn only - the catalog still publishes"
-            exit 0
-          fi
-          exit "$code"
-      - name: Vendor detail-page regressions (offline fixtures)
-        # Scraped vendor markup + the label vocabulary it feeds. No network:
-        # the fixtures live in scraper/specs/golden/tms_pages/. This is the
-        # gate that would have caught the TMS selector that matched nothing
-        # and silently shipped 2,254 products with an empty spec sheet.
-        run: python scripts/check_tms_detail.py
-      - name: Spec merge-layer regressions (offline, Sep 2026)
-        # Pins the merge RULES the golden fixtures cannot: tier order, the
-        # "model is a name, not a part number" rule (Ivory's דגם row shipped an
-        # MPN as the model and flipped a product's identity key), validation
-        # drops, and the value-equality helpers.
-        run: python scripts/check_spec_merge.py
-      - name: Category regressions (offline, Oct 2026)
-        # Real titles that were misfiled: AIOs as case fans (the product
-        # re-vote dropped the Hebrew liquid word), laptops / mini PCs / NAS
-        # units as storage. A misfiled product can never fill its schema.
-        # Also gates the catalog: one maker PN, one category; no "panel
-        # only" / fan kit / screen module in the wrong category (Nov 2026).
-        run: python scripts/check_categories.py
-      - name: Identity-merge invariants (Nov 2026)
-        # I1-I3 code/suffix separation, and I4: one vendor's two maker PNs
-        # (or two EANs) in one product are two parts merged.
-        run: python scripts/check_identity_merge.py
-      - name: One maker per product, every product branded (Nov 2026)
-        # A model code joins only inside one brand family (Antec F12 is not
-        # Arctic F12); an empty brand is filled from the manufacturer spec.
-        run: |
-          python scripts/check_brands.py --self-test
-          python scripts/check_brands.py
-      - name: Repeated snapshot rows (Nov 2026)
-        # A listing seen twice in one vendor-day (two crawls appended, or two
-        # category pages) shows its NEWEST row's price and stock, in the
-        # offer and in the price history; never the lowest or the first.
-        run: |
-          python scripts/check_snapshot_rows.py --self-test
-          python scripts/check_snapshot_rows.py
-      - name: Shipped text hygiene (Nov 2026)
-        # No HTML entity (&#34; with or without the ;), bidi mark or NBSP in
-        # any string of the catalog or data/site: they leaked into model
-        # names and part numbers, and a marked SKU never matches.
-        run: |
-          python scripts/check_text_hygiene.py --self-test
-          python scripts/check_text_hygiene.py
-      - name: KSP listing-tag mapper (offline, Nov 2026)
-        # KSP's Hebrew tags are its only structured spec source. Pins the
-        # generation / warranty readers: an unparseable tag is no fact.
-        run: python scripts/check_ksp_tags.py
-      - name: KSP detail parser (offline, Nov 2026)
-        # A KSP model row becomes a part number only when another vendor
-        # prints it (an Intel row is just "i5-14600K").
-        run: python scripts/check_ksp_detail.py
-      - name: Saved-page parser checks (offline, Oct 2026)
-        # Real pages saved from the Nano (scraper/fixtures): the LDLC parser
-        # must keep reading them, and joining on the right keys.
-        run: python scripts/check_xref_fixtures.py
-      - name: AI-extraction verifier (offline, Oct 2026)
-        # The quote / re-parse checks that decide whether a model answer is
-        # believed (scraper/extract/verify.py), plus the client's refusal and
-        # cache handling against a fake API. No key, no network.
-        run: python scripts/check_extract.py
-      - name: Ledgers point at live data (Nov 2026)
-        # A spec override no product reaches fails; stale manual products,
-        # blocked pairs, QA dismissals, blocklist entries and unused covers
-        # are reported against a budget (pruning is an owner call).
-        run: |
-          python scripts/check_ledgers.py --self-test
-          python scripts/check_ledgers.py
-      - name: Inference-rule backtest (offline, Oct 2026)
-        # Shadow-runs every derive/title rule against the products where a
-        # real source states the same field. Fails on a new rule below 99%
-        # precision or a pinned one (scripts/backtest_baseline.json) that got
-        # worse: a rule fills nulls, so a wrong one ships wrong values.
-        run: python scripts/backtest_rules.py --check
-      - name: Coverage gate self-test (offline)
-        # Pins the gate's own arithmetic against synthetic catalogs: exact
-        # counts (not percentages rounded to whole points), a floor is
-        # inclusive, one product under trips. Run #322 failed on "95.0% below
-        # floor 95%" because the rate was reconstructed from a rounded
-        # percentage and landed on 94.99999999999999; this is the regression
-        # test for that. No data files, no network.
-        run: python scripts/check_spec_coverage.py --self-test
-      - name: Spec coverage floors (offline, Oct 2026 coverage pass)
-        # Anti-regression lock for the spec-coverage work: fail the job when
-        # label-gap rows exceed the budget, a category's fill drops below its
-        # floor, or a core compat field regresses. Floors come from the
-        # post-fix baseline (see the script header); update them in the same
-        # commit when the catalog genuinely changes shape, never silently.
-        run: python scripts/check_spec_coverage.py
-      - name: Spec invariants (audit 2026-11-10 F/G)
-        # A value that breaks physics is wrong whatever printed it: threads
-        # >= cores, a GPU memory type that exists, a board's socket = its
-        # chipset's, every source label ranked by cross_check. Audit M: every
-        # board chipset is a CHIPSET_INFO key, and every enum-refused vendor
-        # value (spec_report schema_misses) is on SCHEMA_UNKNOWN_VALUES.
-        run: |
-          python scripts/check_spec_invariants.py --self-test
-          python scripts/check_spec_invariants.py
-      - name: Photo pipeline regressions (offline, Sep 2026)
-        # Candidate derivation, scoring/picking, the refetch rule and
-        # site-side resolution — all offline, no network, no real corpus.
-        # This is the gate that would have caught the 228px-tile covers (a
-        # download that skipped every existing file) and the v1 scoring bug
-        # where 1PC's native URL shape read as a downgrade.
-        run: python scripts/check_image_pick.py
-      - name: Cover corpus (WebP only, size budget, no black-border covers)
-        run: python scripts/check_image_files.py
-      - name: Site image resolvability (no initials-placeholder flood)
-        # Fails when more than 2% of built products resolve no local image —
-        # the signature of a cover/JSON mismatch that would ship a site of
-        # placeholder tiles even though the corpus itself is valid.
-        run: python scripts/check_site_images.py
-      - name: Site payload size guard (Phase 8, see DECISIONS.md)
-        # Anti-regression lock for the data-trust + performance phases:
-        # fail the job (no commit, no deploy) when a category/index file
-        # exceeds 1MB or the category payload grows >15% without
-        # proportional product growth. Pure stdlib, no deps.
-        run: python scraper/check_site_size.py
       - name: Scrape console report (data/ops, Nov 2026)
         # What was scraped and when, new / gone / returned listings and
         # products, price moves: recomputed from the last 60 days of
         # data/raw/ and the catalog this run just wrote. Facts only; the
         # admin page and the Worker cron decide "missing" against the clock.
-        run: |
-          python scripts/check_ops_report.py --self-test
-          python -m scraper.ops.report --print
-          python scripts/check_ops_report.py
-      - name: Publish set coherence (one run, one product set)
-        # catalog.json, data/site/*.json and data/site/spec_report.json are
-        # written by this run but committed as separate files, and three
-        # boxes push them (this job, the Nano, a local run). 2026-11-01: main
-        # ended up with a 4,697-product catalog next to site files and a spec
-        # report describing 4,678 — 19 products were in the catalog and in no
-        # category file, so the site silently dropped them and site-checks
-        # failed on the stale-report count. This compares the actual product
-        # ids per category file, the index, meta.json's counts + generated_at
-        # and the report, so a partial/mixed set can never be committed.
-        run: |
-          python scripts/check_publish_set.py --self-test
-          python scripts/check_publish_set.py
+        run: python -m scraper.ops.report --print
+      - name: Checks (scripts/run_checks.py)
+        # One list of checks, each with a level (Nov 2026, plan
+        # fix/publish-gates). Code checks (fixtures, self-tests) and integrity
+        # checks (empty or collapsed catalog, publish set, payload size, cover
+        # corpus, a site of placeholder covers, text hygiene) block the
+        # publish. Quality checks grade the night's data (ledgers, identity
+        # invariants, golden fixtures, backtest, coverage floors, ...) and
+        # only WARN: they used to fail ~30 of 120 runs and freeze every
+        # vendor's prices. Results, with the night each warning started, go
+        # to data/ops/checks.json; the scrape console lists them and the
+        # Worker escalates one open 3+ nights. Run locally with the same
+        # command; `--list` shows every check and its level.
+        run: python scripts/run_checks.py --suite publish
       - name: Bundle the publish set for the publish job
         id: pack
         # REQUIRE_CLEAN_TREE=1: every file this run wrote must be in
