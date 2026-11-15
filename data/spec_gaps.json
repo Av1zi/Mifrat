@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-11-15T17:05:47.153212+00:00",
+  "generated_at": "2026-11-15T17:45:17.695689+00:00",
   "gaps": [
-    {
-      "category": "memory",
-      "label": "מידע מהיצרן",
-      "count": 123,
-      "products": [
-        "memory:ksp:ksp-313458",
-        "memory:ksp:ksp-456281",
-        "memory:ksp:ksp-480430"
-      ]
-    },
     {
       "category": "case",
       "label": "ממשק",
@@ -42,26 +32,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "סקירה",
-      "count": 75,
-      "products": [
-        "memory:ksp:ksp-456281",
-        "memory:ksp:ksp-456282",
-        "memory:ksp:ksp-480430"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מידע מהיצרן",
-      "count": 72,
-      "products": [
-        "manual:motherboard:ivory-134868-ksp-393815",
-        "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "סוג האחסון",
       "count": 70,
@@ -69,36 +39,6 @@
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מידע מהיצרן",
-      "count": 67,
-      "products": [
-        "gpu:ksp:ksp-371860",
-        "manual:gpu:ksp-380080-yahav-11160",
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "סקירה",
-      "count": 64,
-      "products": [
-        "gpu:ksp:ksp-371860",
-        "gpu:ksp:ksp-420767",
-        "manual:gpu:ksp-380080-yahav-11160"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מפרט טכני",
-      "count": 61,
-      "products": [
-        "memory:ksp:ksp-456281",
-        "memory:ksp:ksp-456282",
-        "memory:ksp:ksp-480430"
       ]
     },
     {
@@ -143,42 +83,12 @@
     },
     {
       "category": "motherboard",
-      "label": "סקירה",
-      "count": 41,
-      "products": [
-        "manual:motherboard:ivory-134868-ksp-393815",
-        "model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
-        "model:motherboard:7-b850a-nitro-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מפרט טכני",
-      "count": 41,
-      "products": [
-        "manual:motherboard:ivory-134868-ksp-393815",
-        "model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
-        "model:motherboard:7-b850a-nitro-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "זיכרון",
       "count": 40,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
         "model:motherboard:a-am5-b840m-prime-wifi-microatx"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מפרט טכני",
-      "count": 38,
-      "products": [
-        "gpu:ksp:ksp-420767",
-        "manual:gpu:ksp-380080-yahav-11160",
-        "model:gpu:12g-12gd-5070-gaming-gv-n5070gaming-oc-oc-rtx-12gb"
       ]
     },
     {
@@ -1082,16 +992,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "מידע מהיצרן",
-      "count": 13,
-      "products": [
-        "model:cpu:14700kf",
-        "model:cpu:14900k",
-        "model:cpu:14900kf"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "מאיץ גרפי",
       "count": 13,
@@ -1529,16 +1429,6 @@
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מידע מהיצרן",
-      "count": 11,
-      "products": [
-        "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:9011280-cc-ww-black"
       ]
     },
     {
@@ -2583,16 +2473,6 @@
     },
     {
       "category": "case",
-      "label": "סקירה",
-      "count": 6,
-      "products": [
-        "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:9011280-cc-ww-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "חריצי הרחבה וכוננים",
       "count": 6,
       "products": [
@@ -2809,16 +2689,6 @@
         "model:cpu:14700kf",
         "model:cpu:14900k",
         "model:cpu:14900kf"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מפרט טכני",
-      "count": 5,
-      "products": [
-        "model:cpu:235-tray",
-        "model:cpu:7900",
-        "model:cpu:8400f"
       ]
     },
     {
@@ -4139,16 +4009,6 @@
         "model:cpu:245k-tray",
         "model:cpu:265k-tray",
         "model:cpu:8500g-tray-ryzen5"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "סקירה",
-      "count": 3,
-      "products": [
-        "model:cpu:265",
-        "model:cpu:265f",
-        "model:cpu:9900x3d"
       ]
     },
     {
@@ -7233,14 +7093,6 @@
       "count": 1,
       "products": [
         "model:case:argb-aura-elite-gc4-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מפרט טכני",
-      "count": 1,
-      "products": [
-        "model:case:argb-cronox-gr801-rog-black"
       ]
     },
     {

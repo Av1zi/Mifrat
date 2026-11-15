@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-15T17:08:14+00:00",
+ "generated_at": "2026-11-15T17:48:42+00:00",
  "night": "2026-11-15",
  "suite": "publish",
  "escalate_nights": 3,
@@ -12,7 +12,7 @@
    "title": "Spec schema <-> frontend drift",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -23,7 +23,7 @@
    "title": "Manufacturer data at the schema version",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -56,7 +56,7 @@
    "title": "Spec merge-layer rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -67,7 +67,7 @@
    "title": "Category assignment fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -122,7 +122,7 @@
    "title": "KSP listing-tag mapper",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -133,7 +133,7 @@
    "title": "KSP detail parser",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -144,7 +144,7 @@
    "title": "Saved-page parsers",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -155,7 +155,7 @@
    "title": "AI-extraction verifier and client",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -166,7 +166,7 @@
    "title": "Ledger rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -188,7 +188,7 @@
    "title": "Spec invariants self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +199,7 @@
    "title": "Photo pipeline rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -210,7 +210,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 1.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -254,7 +254,7 @@
    "title": "Catalog not empty, no category collapsed",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -265,7 +265,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.8,
+   "seconds": 2.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -276,7 +276,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 14.5,
+   "seconds": 18.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -287,7 +287,7 @@
    "title": "Site is not a wall of placeholder covers",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.0,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -320,7 +320,7 @@
    "title": "Publish set coherence",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -331,10 +331,10 @@
    "title": "Spec golden fixtures",
    "status": "warn",
    "exit": 2,
-   "seconds": 1.0,
+   "seconds": 1.2,
    "since": "2026-11-15T17:08:14+00:00",
    "nights": 1,
-   "detail": "...50 Aorus Elite WIFI7): its product id is gone; an anchor still resolves it to model:motherboard:aorus-b850-elite-wifi7-atx\n::warning::mpn:storage:49354 (Verbatim VI550 S3 2TB 2.5\" SSD): its product id is gone; an anchor still resolves it to model:storage:iii-sata-vi550-2000gb-sata-25\n::warning::mpn:gpu:90yv0m17m0na00 (ASUS GeForce RTX 5070 12GB OC): its product id is gone; an anchor still resolves it to model:gpu:5070-dual-gddr7-geforce-oc-rtx-12gb\n::warning::sku:cooler_air:814256022149 (Thermalright Peerless Assassin Vision MAX White ARGB): its product id is gone; an anchor still resolves it to model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white\n::warning::mpn:case:cc9011291ww (Corsair Frame 4000D White): its product id is gone; an anchor still resolves it to model:case:4000d-frame-white\n::warning::mpn:case:cc9011242ww (Corsair iCUE 5000D Airflow RGB Black): its product id is gone; an anchor still resolves it to model:case:120mm-3x120mm-5000d-airflow-glass-icue-mid-rgb-rgb-series-tempered-tower-black\n::warning::mpn:motherboard:90mb14u0m0eay0 (ASUS Prime B550-Plus): its product id is gone; an anchor still resolves it to model:motherboard:b550-prime-atx"
+   "detail": "...arn: mpn:memory:6000j2836g16gx2fx5 (G.Skill Flare X5 DDR5 32GB (2x16GB) 6000MHz CL28): its product id is gone; an anchor still resolves it to model:memory:2x16gb-6000-cl28-expo-flare-x5-32gb-x2-6000mhz-cl28-black\n[golden] warn: mpn:storage:49354 (Verbatim VI550 S3 2TB 2.5\" SSD): its product id is gone; an anchor still resolves it to model:storage:iii-sata-vi550-2000gb-sata-25\n[golden] warn: mpn:case:cc9011291ww (Corsair Frame 4000D White): its product id is gone; an anchor still resolves it to model:case:4000d-frame-white\n[golden] pass (identity churn) — 91 assertions over 13 product(s)\n[golden] 3 case(s) resolved through an anchor (identity churn, not a failure)\n::warning::mpn:memory:6000j2836g16gx2fx5 (G.Skill Flare X5 DDR5 32GB (2x16GB) 6000MHz CL28): its product id is gone; an anchor still resolves it to model:memory:2x16gb-6000-cl28-expo-flare-x5-32gb-x2-6000mhz-cl28-black\n::warning::mpn:storage:49354 (Verbatim VI550 S3 2TB 2.5\" SSD): its product id is gone; an anchor still resolves it to model:storage:iii-sata-vi550-2000gb-sata-25\n::warning::mpn:case:cc9011291ww (Corsair Frame 4000D White): its product id is gone; an anchor still resolves it to model:case:4000d-frame-white"
   },
   {
    "name": "identity",
@@ -342,7 +342,7 @@
    "title": "Identity-merge invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -353,7 +353,7 @@
    "title": "One maker PN per category, is-a words",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -364,7 +364,7 @@
    "title": "One maker per product, every product branded",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -375,7 +375,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 7.1,
+   "seconds": 9.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -386,7 +386,7 @@
    "title": "Extract store reach",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Ledgers point at live data",
    "status": "pass",
    "exit": 0,
-   "seconds": 4.3,
+   "seconds": 6.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -408,7 +408,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 4.3,
+   "seconds": 6.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -417,12 +417,12 @@
    "name": "coverage",
    "level": "quality",
    "title": "Spec coverage floors",
-   "status": "warn",
-   "exit": 1,
-   "seconds": 0.7,
-   "since": "2026-11-15T17:08:14+00:00",
-   "nights": 1,
-   "detail": "[spec-coverage] FAIL — 1 trip(s):\n  - label-gap rows 4608 exceed budget 4000 (300 labels) — a vendor renamed labels or a mapping broke; see scripts/diagnose_spec_coverage.py --suggest"
+   "status": "pass",
+   "exit": 0,
+   "seconds": 0.9,
+   "since": null,
+   "nights": 0,
+   "detail": ""
   },
   {
    "name": "spec_invariants",
@@ -430,7 +430,7 @@
    "title": "Spec invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -441,7 +441,7 @@
    "title": "Site image resolvability (2% budget)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.0,
+   "seconds": 0.1,
    "since": null,
    "nights": 0,
    "detail": ""
