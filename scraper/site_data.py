@@ -75,6 +75,26 @@ def _load_qa_dismissed(path: Path = QA_DISMISSED_PATH) -> frozenset[str]:
     if not isinstance(data, dict):
         return frozenset()
     return frozenset(k for k, v in data.items() if v and not str(k).startswith("fuzzy|"))
+
+
+def follow_aliases(dismissed: frozenset[str], aliases: dict | None) -> frozenset[str]:
+    """`dismissed` plus each key re-pointed at its product's current pid.
+
+    A dismissal is keyed `kind|product_id|field-or-vendor`; a pid that was
+    re-keyed or merged (`catalog["pid_aliases"]`) would otherwise reopen the
+    case the human already settled (2026-11-15: 4 of 9 stale dismissals)."""
+    if not aliases:
+        return dismissed
+    out = set(dismissed)
+    for key in dismissed:
+        kind, _, rest = key.partition("|")
+        pid, _, extra = rest.partition("|")
+        target = aliases.get(pid)
+        if target and target != pid:
+            out.add(f"{kind}|{target}|{extra}")
+    return frozenset(out)
+
+
 IMAGES_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -746,6 +766,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     _DROPPED_REMOTES.clear()
     if qa_dismissed is None:
         qa_dismissed = _load_qa_dismissed()
+    qa_dismissed = follow_aliases(qa_dismissed, catalog.get("pid_aliases"))
     by_category: dict[str, list[dict]] = defaultdict(list)
 
     for product in catalog["products"]:

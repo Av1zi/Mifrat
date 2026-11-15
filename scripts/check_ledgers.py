@@ -12,8 +12,9 @@ where a dead entry is certainly dead:
     warn    an override reached only through an alias or that fallback (it
             applies; rekey it to the live pid when convenient)
     budget  curated manual products none of whose listings is in the
-            catalog, blocked pairs naming a key no snapshot carries,
-            `qa_dismissed` keys whose case is gone, image blocklist entries
+            catalog, blocked pairs naming a key no crawl of the last 14 days
+            carries, `qa_dismissed` keys whose case is gone (after following
+            pid aliases), image blocklist entries
             that match no listing image, cover files no listing uses
 
     python scripts/check_ledgers.py [--catalog data/catalog.json] [--verbose]
@@ -31,18 +32,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from scraper.site_data import _image_vendor_key, _safe_image_stem  # noqa: E402
+from scraper.site_data import _image_vendor_key, _safe_image_stem, follow_aliases  # noqa: E402
 from scraper.specs.resolvers import reference  # noqa: E402
 
 MATCHING = ROOT / "data" / "matching"
 IMAGES = ROOT / "data" / "images"
+RAW = ROOT / "data" / "raw"
 
 # Counts at the 2026-11-11 baseline plus headroom; raise them only with a
 # decisions.md line saying why the entries are kept.
 BUDGETS = {
     "manual products with no live listing": 6,
-    "blocked pairs naming a gone key": 3,
-    "qa_dismissed keys with no case": 4,
+    # 2026-11-15: CI counted 15 pairs (5 keys, 10 on ksp:480433, absent from the
+    # 11-15 crawl only) and 9 dismissals (pids re-keyed or merged). Both causes
+    # are now handled in check_budgets (a key seen in the last 14 days is not
+    # gone; a dismissal follows its pid alias), which leaves 2 and 5.
+    "blocked pairs naming a gone key": 8,
+    "qa_dismissed keys with no case": 10,
     "image blocklist entries matching nothing": 3,
     "cover files no listing uses": 900,
     # 2026-11-12 baseline: 1549 (993 SilverStone, 276 Antec maker pages for
@@ -171,8 +177,36 @@ def self_test() -> int:
     ok = [f.value for f in got.get("memory_type") or []] == [other]
     fails += not ok
     print(f"  [{'ok' if ok else 'FAIL'}] overrides_for reaches an alias-keyed entry: {got}")
+    fails += _self_test_churn()
     print("[check-ledgers] self-test %s" % ("passed" if not fails else "FAILED"))
     return 1 if fails else 0
+
+
+def _self_test_churn() -> int:
+    """A key seen in the last 14 days is not gone; a dismissal follows a pid alias."""
+    import tempfile
+
+    fails = 0
+    with tempfile.TemporaryDirectory() as tmp:
+        raw = Path(tmp)
+        # Newest folder 11-15: 11-01 is exactly 14 days back (in), 10-31 is 15 (out).
+        for day, rows in (("2026-10-31", ["ksp:old"]), ("2026-11-01", ["ksp:edge"]),
+                          ("2026-11-14", ["ksp:recent"]), ("2026-11-15", [])):
+            (raw / day).mkdir()
+            (raw / day / "ksp.jsonl").write_text(
+                "".join(json.dumps({"vendor_id": "ksp", "vendor_sku": k.split(":")[1]}) + "\n"
+                        for k in rows), encoding="utf-8")
+        got = _seen_recently({"ksp:old", "ksp:edge", "ksp:recent", "ksp:never"}, raw)
+        ok = got == {"ksp:edge", "ksp:recent"}
+        fails += not ok
+        print(f"  [{'ok' if ok else 'FAIL'}] seen in the last {ABSENT_DAYS} days only: {sorted(got)}")
+    keys = follow_aliases(frozenset({"variant_conflict|model:a|", "spec_conflict|model:b|color"}),
+                          {"model:a": "model:a2"})
+    ok = keys == {"variant_conflict|model:a|", "variant_conflict|model:a2|",
+                  "spec_conflict|model:b|color"}
+    fails += not ok
+    print(f"  [{'ok' if ok else 'FAIL'}] dismissal follows its pid alias: {sorted(keys)}")
+    return fails
 
 
 def _entry_of(product: dict):
@@ -202,6 +236,41 @@ def _entry_of(product: dict):
     return None
 
 
+ABSENT_DAYS = 14
+
+
+def _seen_recently(keys: set[str], raw: Path | None = None) -> set[str]:
+    """The `keys` some crawl in the last ABSENT_DAYS day folders carried.
+
+    A listing absent for under 14 days can come back (the stale-forward
+    window, `decisions.md`), so a blocked pair naming one is not dead yet.
+    Days count back from the newest folder, not the clock, so the verdict is
+    the same on any machine for the same data."""
+    from datetime import date, timedelta
+
+    raw = RAW if raw is None else raw
+    days = sorted(p for p in raw.glob("*") if p.is_dir() and p.name[:4].isdigit()
+                  and len(p.name) == 10)
+    if not days or not keys:
+        return set()
+    newest = date.fromisoformat(days[-1].name)
+    cutoff = (newest - timedelta(days=ABSENT_DAYS)).isoformat()
+    seen: set[str] = set()
+    for day in days:
+        if day.name < cutoff:
+            continue
+        for path in day.glob("*.jsonl"):
+            for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+                try:
+                    row = json.loads(line)
+                except ValueError:
+                    continue
+                key = f"{row.get('vendor_id') or path.stem}:{row.get('vendor_sku')}"
+                if key in keys:
+                    seen.add(key)
+    return seen
+
+
 def check_budgets(catalog: dict) -> dict[str, list[str]]:
     listing_keys = {str(e.get("listing_key")) for e in catalog.get("listings") or []}
     manual = _read(MATCHING / "manual_products.json", {})
@@ -211,9 +280,12 @@ def check_budgets(catalog: dict) -> dict[str, list[str]]:
         str(p.get("product_id")) for p in manual.get("products") or []
         if not any(k in listing_keys for k in p.get("listing_keys") or [])
     ]
+    gone = {k for pair in manual.get("blocked_pairs") or [] for k in pair
+            if k not in listing_keys}
+    dead = gone - _seen_recently(gone)
     out["blocked pairs naming a gone key"] = [
         " / ".join(pair) for pair in manual.get("blocked_pairs") or []
-        if any(k not in listing_keys for k in pair)
+        if any(k in dead for k in pair)
     ]
 
     qa = _read(ROOT / "data" / "site" / "qa.json", {})
@@ -221,9 +293,13 @@ def check_budgets(catalog: dict) -> dict[str, list[str]]:
         f"{c.get('kind')}|{c.get('product_id')}|{c.get('field') or c.get('vendor') or ''}"
         for c in qa.get("cases") or []
     }
+    # Same rule as the site build: a dismissal follows its product's pid alias.
+    dismissed = {key for key, value in (_read(MATCHING / "qa_dismissed.json", {}) or {}).items()
+                 if value and not key.startswith("fuzzy|")}
+    aliases = catalog.get("pid_aliases")
     out["qa_dismissed keys with no case"] = [
-        key for key, value in (_read(MATCHING / "qa_dismissed.json", {}) or {}).items()
-        if value and not key.startswith("fuzzy|") and key not in case_ids
+        key for key in sorted(dismissed)
+        if not (follow_aliases(frozenset({key}), aliases) & case_ids)
     ]
 
     images = [(_image_vendor_key(e.get("vendor_id")), str(e.get("image_url") or ""))
