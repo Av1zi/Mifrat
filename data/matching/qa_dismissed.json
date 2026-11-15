@@ -1285,5 +1285,20 @@
   "spec_conflict|manual:motherboard:ksp-338414-yahav-10002|ethernet": true,
   "spec_conflict|model:gpu:16g-16gd-5060-aero-geforce-gv-n506taero-oc-oc-rtx-ti-16gb|interface": true,
   "spec_conflict|model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb|interface": true,
-  "spec_conflict|model:gpu:16g-16gd-5070-aero-gv-n507taero-oc-oc-rtx-ti-16gb|interface": true
+  "spec_conflict|model:gpu:16g-16gd-5070-aero-gv-n507taero-oc-oc-rtx-ti-16gb|interface": true,
+  "spec_conflict|model:case:14-sugo-black|mb_form_factors": true,
+  "spec_conflict|model:case:14-sugo-black|max_cooler_height_mm": true,
+  "spec_conflict|model:case:14-sugo-black|fan_rear": true,
+  "spec_conflict|model:case:14-sugo-black|volume_l": true,
+  "spec_conflict|model:case:16-sg16b-sst-sugo-black|mb_form_factors": true,
+  "spec_conflict|model:case:16-sg16b-sst-sugo-black|max_cooler_height_mm": true,
+  "spec_conflict|model:case:03-c-fd-nor1c-north-white|fan_front": true,
+  "spec_conflict|model:case:120mm-3x120mm-5000d-airflow-glass-icue-mid-rgb-rgb-series-tempered-tower-black|side_panel": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl30-expo-fury-xmp-32gb-x2-6000mhz-cl30-white|speed_mhz": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl36-ripjaws-s5-xmp-32gb-x2-5600mhz-cl36-black|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl40-ripjaws-s5-xmp-32gb-x2-5600mhz-cl40-black|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl40-ripjaws-s5-xmp-32gb-x2-5600mhz-cl40-black|speed_mhz": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl40-ripjaws-s5-xmp-32gb-x2-5600mhz-cl40-white|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl40-ripjaws-s5-xmp-32gb-x2-5600mhz-cl40-white|speed_mhz": true
 }

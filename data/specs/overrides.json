@@ -225,6 +225,12 @@
     },
     "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black": {
       "lighting": "RGB"
+    },
+    "memory:ksp:ksp-313458": {
+      "speed_mhz": 6400
+    },
+    "model:memory:0-2x16gb-3-32gb-6400-cl32-ddr5-g-royal-silver-trident-xmp-z5-32gb-x2-6000mhz-cl32-rgb-silver": {
+      "speed_mhz": 6400
     }
   }
 }
