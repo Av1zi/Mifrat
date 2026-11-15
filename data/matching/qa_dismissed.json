@@ -1290,5 +1290,13 @@
   "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl36-expo-fury-xmp-32gb-x2-6000mhz-cl36-white|total_gb": true,
   "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl36-expo-fury-xmp-32gb-x2-6000mhz-cl36-white|speed_mhz": true,
   "identity_merge|model:case:ax90-black|": true,
-  "duplicate_vendor|model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-6400mhz-cl32-rgb-black-dimm|ksp": true
+  "duplicate_vendor|model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-6400mhz-cl32-rgb-black-dimm|ksp": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl36-trident-xmp-z5-32gb-x2-5600mhz-cl36-rgb-black|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl36-trident-xmp-z5-32gb-x2-5600mhz-cl36-rgb-blacksilver|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-5600-cl40-trident-xmp-z5-32gb-x2-5600mhz-cl40-rgb-blacksilver|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-cl28-ripjaws-s5-xmp-32gb-x2-6000mhz-cl28-black|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-black-2|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-cl30-ripjaws-s5-xmp-32gb-x2-6000mhz-cl30-white|total_gb": true,
+  "spec_conflict|model:memory:0-2x16gb-3-6000-cl30-trident-xmp-z5-32gb-x2-6000mhz-cl30-black|total_gb": true
 }

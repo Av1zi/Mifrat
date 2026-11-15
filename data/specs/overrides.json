@@ -231,6 +231,15 @@
     },
     "model:memory:0-2x16gb-3-32gb-6400-cl32-ddr5-g-royal-silver-trident-xmp-z5-32gb-x2-6000mhz-cl32-rgb-silver": {
       "speed_mhz": 6400
+    },
+    "model:psu:1000w-platinum-rog-strix-1000w-black": {
+      "efficiency": "80+ Platinum"
+    },
+    "model:psu:1200w-platinum-rog-strix-1200w-black": {
+      "efficiency": "80+ Platinum"
+    },
+    "model:psu:1200w-80-modular-pfc-platinum-psu-retail-1200w": {
+      "efficiency": "80+ Platinum"
     }
   }
 }
