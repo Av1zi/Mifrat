@@ -1288,5 +1288,7 @@
   "spec_conflict|model:memory:0-2x16gb-3-5600-cl40-ripjaws-s5-xmp-32gb-x2-5600mhz-cl40-white|speed_mhz": true,
   "spec_conflict|model:cooler_air:8a-amd-co-freezer-136mm-100mm-blacksilver|height_mm": true,
   "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl36-expo-fury-xmp-32gb-x2-6000mhz-cl36-white|total_gb": true,
-  "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl36-expo-fury-xmp-32gb-x2-6000mhz-cl36-white|speed_mhz": true
+  "spec_conflict|model:memory:0-2x16gb-3-6000-beast-cl36-expo-fury-xmp-32gb-x2-6000mhz-cl36-white|speed_mhz": true,
+  "identity_merge|model:case:ax90-black|": true,
+  "duplicate_vendor|model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-6400mhz-cl32-rgb-black-dimm|ksp": true
 }
