@@ -203,7 +203,7 @@
       }
     },
     {
-      "product_id": "mpn:memory:6000j2836g16gx2fx5",
+      "product_id": "model:memory:2x16gb-6000-cl28-expo-flare-x5-32gb-x2-6000mhz-cl28-black",
       "category": "memory",
       "name": "G.Skill Flare X5 DDR5 32GB (2x16GB) 6000MHz CL28",
       "expect": {
@@ -221,6 +221,7 @@
       },
       "anchors": {
         "ids": [
+          "model:memory:2x16gb-6000-cl28-expo-flare-x5-32gb-x2-6000mhz-cl28-black",
           "mpn:memory:6000j2836g16gx2fx5"
         ],
         "listing_keys": [
@@ -277,7 +278,7 @@
       "_pins": "2026-10-29: replaces the MSI MAG B850 Tomahawk MAX WiFi case, whose only source (1pc:179926) delisted. That listing also carried the EAN-as-part-number assertion, which is not pinned here any more: the board is sold by four vendors, so one vendor's churn cannot retire the case. `expect.part_numbers` is containment, so the model code joining the list is not a regression."
     },
     {
-      "product_id": "mpn:storage:49354",
+      "product_id": "model:storage:iii-sata-vi550-2000gb-sata-25",
       "category": "storage",
       "name": "Verbatim VI550 S3 2TB 2.5\" SSD",
       "_pins": "TB -> GB scaling: the vendor cell reads '2TB', so a naive number parse shipped 2GB (and the <16GB guard then dropped it).",
@@ -287,6 +288,7 @@
       },
       "anchors": {
         "ids": [
+          "model:storage:iii-sata-vi550-2000gb-sata-25",
           "mpn:storage:49354"
         ],
         "listing_keys": [
@@ -387,7 +389,7 @@
       }
     },
     {
-      "product_id": "mpn:case:cc9011291ww",
+      "product_id": "model:case:4000d-frame-white",
       "category": "case",
       "name": "Corsair Frame 4000D White",
       "_pins": "Phase 1d: Tier 0.5 manufacturer page (corsair.com) states the clearances; a retailer value must never outrank it.",
@@ -399,10 +401,12 @@
       },
       "anchors": {
         "ids": [
+          "model:case:4000d-frame-white",
           "mpn:case:cc9011291ww"
         ],
         "listing_keys": [
           "1pc:188431",
+          "1pc:222415",
           "ivory:130947",
           "tms:CC-9011291-WW",
           "yahav:10544"
@@ -412,6 +416,7 @@
         ],
         "manufacturer": "Corsair",
         "models": [
+          "Corsair FRAME 4000D - Mid-Tower",
           "FRAME 4000D"
         ]
       }

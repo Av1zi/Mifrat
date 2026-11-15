@@ -179,33 +179,47 @@ def resolve_case(case: dict, indexes: Indexes) -> tuple[list[dict], str]:
 
     anchors = case.get("anchors") or {}
     category = str(case.get("category") or "")
-    found: list[dict] = []
 
-    for anchor_id in anchors.get("ids") or []:
-        product = indexes.by_id.get(str(anchor_id))
-        if product is not None:
-            found.append(product)
+    # Levels 2-5, most specific first, and the FIRST one that finds anything
+    # wins (the "otherwise" in the module docstring). Pooling them let the
+    # loosest level, manufacturer + model name, pull in the sibling colour or
+    # size of the same model (Flare X5 black + white, Vi550 2TB + 512GB,
+    # Frame 4000D white + black), so a case resolved by its own listing keys
+    # still read as "2 candidates" and could never be re-anchored.
+    def by_ids() -> list[dict]:
+        return [p for p in (indexes.by_id.get(str(i)) for i in anchors.get("ids") or [])
+                if p is not None]
 
-    for listing_key in anchors.get("listing_keys") or []:
-        found.extend(indexes.by_listing.get(str(listing_key), []))
+    def by_listings() -> list[dict]:
+        found: list[dict] = []
+        for listing_key in anchors.get("listing_keys") or []:
+            found.extend(indexes.by_listing.get(str(listing_key), []))
+        return found
 
-    part_anchors = list(anchors.get("part_numbers") or [])
-    part_anchors += list((case.get("expect") or {}).get("part_numbers") or [])
-    for value in part_anchors:
-        key = part_key(value)
-        if key:
-            found.extend(indexes.by_part.get((category, key), []))
+    def by_parts() -> list[dict]:
+        part_anchors = list(anchors.get("part_numbers") or [])
+        part_anchors += list((case.get("expect") or {}).get("part_numbers") or [])
+        found: list[dict] = []
+        for value in part_anchors:
+            key = part_key(value)
+            if key:
+                found.extend(indexes.by_part.get((category, key), []))
+        return found
 
-    manufacturer = anchors.get("manufacturer")
-    if manufacturer:
-        for model in anchors.get("models") or []:
-            found.extend(
-                indexes.by_model.get(
-                    (category, part_key(manufacturer), part_key(model)), []
-                )
-            )
+    def by_models() -> list[dict]:
+        manufacturer = anchors.get("manufacturer")
+        found: list[dict] = []
+        if manufacturer:
+            for model in anchors.get("models") or []:
+                found.extend(indexes.by_model.get(
+                    (category, part_key(manufacturer), part_key(model)), []))
+        return found
 
-    return _dedupe(found), "anchors"
+    for level in (by_ids, by_listings, by_parts, by_models):
+        found = _dedupe(level())
+        if found:
+            return found, "anchors"
+    return [], "anchors"
 
 
 # --------------------------------------------------------------------------

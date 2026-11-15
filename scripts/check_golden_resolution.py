@@ -35,10 +35,12 @@ from scraper.specs.golden.check_golden import (  # noqa: E402
     EXIT_CHURN,
     EXIT_FAIL,
     EXIT_OK,
+    build_indexes,
     check,
     moved_products,
     part_key,
     report,
+    resolve_case,
     update_anchors,
     write_step_summary,
 )
@@ -221,6 +223,34 @@ def main() -> int:
     )
     expect("live primary wins over sibling: exit", result.exit_code, EXIT_FAIL)
     expect_in("live primary wins over sibling: message", result.failures, "chipset")
+
+    # The anchor levels are "otherwise", not a pool: a case whose listing keys
+    # find exactly one product is that product, even though its manufacturer +
+    # model name also matches the sibling colour (G.Skill Flare X5 black and
+    # white, Verbatim Vi550 2TB and 512GB, Frame 4000D white and black). Pooled,
+    # these read as "2 candidates" for ever and could not be re-anchored.
+    black = product("model:memory:flare-black", "memory",
+                    {**BOARD_SPECS, "model": "Flare X5 2x16GB 6000 CL28"}, ("1pc:200231",))
+    white = product("model:memory:flare-white", "memory",
+                    {**BOARD_SPECS, "model": "Flare X5 2x16GB 6000 CL28"}, ("1pc:200233",))
+    flare_case = board_case(
+        "mpn:memory:flare-gone",
+        category="memory",
+        anchors={"listing_keys": ["1pc:200231"], "manufacturer": "MSI",
+                 "models": ["Flare X5 2x16GB 6000 CL28"]},
+    )
+    result = run([flare_case], [black, white])
+    expect("listing key beats model name: exit", result.exit_code, EXIT_CHURN)
+    expect("listing key beats model name: resolved", result.resolved, 1)
+    expect("listing key beats model name: no failure", result.failures, [])
+    # The point of "first level wins": two candidates make the case
+    # un-re-anchorable (update_anchors needs exactly one), one does not.
+    candidates, _ = resolve_case(flare_case, build_indexes({"products": [black, white]}))
+    expect("listing key beats model name: one candidate", len(candidates), 1)
+    # With no listing key left, the looser level still finds the model.
+    loose = {**flare_case, "anchors": {"manufacturer": "MSI", "models": ["Flare X5 2x16GB 6000 CL28"]}}
+    result = run([loose], [black])
+    expect("model fallback still resolves: resolved", result.resolved, 1)
 
     # Two anchor candidates, neither carries the expected values.
     other_one = product(
