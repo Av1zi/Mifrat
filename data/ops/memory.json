@@ -385,7 +385,7 @@
 "1pc:155469":"model:storage:3d-a58-ace-nand-sp001tbss3a58a25-1000gb-sata-25",
 "1pc:155473":"mpn:motherboard:90mb1ga0m0eay0",
 "1pc:155476":"model:motherboard:1700-a-atx-b760-b760m-intel-lga-micro-prime-wifi-microatx",
-"1pc:155556":"model:case_fan:cooler-fan-reverse-sl120v2-uni-120mm-1-rgb-white",
+"1pc:155556":"model:case_fan:fan-reverse-single-sl120-uni-v2-120mm-1-rgb-white",
 "1pc:155603":"model:case_fan:14-al-prisma-pwm-140mm-rgb-white",
 "1pc:155607":"model:case:0-4-mitx-ridge-white",
 "1pc:155610":"mpn:case:fdcter1n02",
@@ -7017,7 +7017,7 @@
 "tms:12RSLLCD1W1W":"model:case_fan:120mm-12rsllcd1w1w-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white",
 "tms:12RSLLCD1W3B":"model:case_fan:120mm-black-fans-lcd-reverse-sl-uni-wireless-x3-120mm-3-rgb-black",
 "tms:12RSLLCD1W3W":"model:case_fan:120mm-3xfans-lcd-reverse-sl-uni-white-wireless-wireless-120mm-3-rgb-white",
-"tms:12RSLV21W":"model:case_fan:cooler-fan-reverse-sl120v2-uni-120mm-1-rgb-white",
+"tms:12RSLV21W":"model:case_fan:fan-reverse-single-sl120-uni-v2-120mm-1-rgb-white",
 "tms:12RTL1F1B":"model:case_fan:120mm-blade-fan-flex-reverse-tl-uni-120mm-rgb-black",
 "tms:12RTL1F1W":"model:case_fan:120mm-blade-fan-flex-reverse-tl-uni-120mm-rgb-white",
 "tms:12RTL1F3B":"model:case_fan:3-blade-fan-flex-reverse-tl-uni-120mm-3-rgb-black",
@@ -9455,7 +9455,7 @@
 "yahav:10460":"model:gpu:16g-16gd-5080-aorus-geforce-gv-ice-ice-master-n5080aorusm-rtx-16gb",
 "yahav:10463":"model:case:4x120mm-ax85-case-fans-gaming-mid-tower-black",
 "yahav:10482":"model:case_fan:fan-single-sl120-uni-v2-120mm-1-rgb-white",
-"yahav:10483":"model:case_fan:cooler-fan-reverse-sl120v2-uni-120mm-1-rgb-white",
+"yahav:10483":"model:case_fan:fan-reverse-single-sl120-uni-v2-120mm-1-rgb-white",
 "yahav:10490":"model:memory:32gbx2-6000mhz-64gb-amd-beast-cl30-ddr5-dual-expo-fury-intel-packs-single-xmp-64gb-6000mhz-cl30-black",
 "yahav:10497":"model:gpu:16g-16gd-5070-aorus-geforce-gv-m-master-n507taorus-rtx-ti-16gb",
 "yahav:10498":"model:gpu:16g-16gd-5070-aero-gv-n507taero-oc-oc-rtx-ti-16gb",
@@ -16684,10 +16684,6 @@
 "ARCTIC P9 PST CO 92mm PWM Black",
 "case_fan"
 ],
-"model:case_fan:cooler-fan-reverse-sl120v2-uni-120mm-1-rgb-white":[
-"Lian Li UNI SL120 V2 120mm PWM ARGB White (12RSLV21W)",
-"case_fan"
-],
 "model:case_fan:cooler-fan-sl140v2-uni-140mm-rgb-white":[
 "Lian Li Cooler SL140V2-1W UNI 140mm ARGB White",
 "case_fan"
@@ -16874,6 +16870,10 @@
 ],
 "model:case_fan:fan-pwm-rs140-140mm-rgb-white":[
 "Corsair RS140 Support 140mm PWM ARGB White",
+"case_fan"
+],
+"model:case_fan:fan-reverse-single-sl120-uni-v2-120mm-1-rgb-white":[
+"Lian Li UNI SL120 V2 120mm PWM ARGB White (12RSLV21W)",
 "case_fan"
 ],
 "model:case_fan:fan-single-sl120-uni-v2-120mm-1-rgb-white":[
