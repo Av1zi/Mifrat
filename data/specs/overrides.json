@@ -222,6 +222,9 @@
     },
     "model:case_fan:120mm-light-lx-pack-pwm-triple-wings-120mm-3-rgb-black": {
       "rpm_max": 1600
+    },
+    "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black": {
+      "lighting": "RGB"
     }
   }
 }
