@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-15T22:10:58+00:00",
+ "generated_at": "2026-11-15T23:48:54+00:00",
  "night": "2026-11-16",
  "suite": "publish",
  "escalate_nights": 3,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -166,7 +166,7 @@
    "title": "Ledger rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +199,7 @@
    "title": "Photo pipeline rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -210,7 +210,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -254,7 +254,7 @@
    "title": "Catalog not empty, no category collapsed",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -265,7 +265,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 2.1,
+   "seconds": 2.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -276,7 +276,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 20.1,
+   "seconds": 19.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -320,7 +320,7 @@
    "title": "Publish set coherence",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -331,7 +331,7 @@
    "title": "Spec golden fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -342,7 +342,7 @@
    "title": "Identity-merge invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -353,7 +353,7 @@
    "title": "One maker PN per category, is-a words",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 1.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -375,7 +375,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 8.5,
+   "seconds": 10.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -386,7 +386,7 @@
    "title": "Extract store reach",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Ledgers point at live data",
    "status": "pass",
    "exit": 0,
-   "seconds": 5.3,
+   "seconds": 6.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -408,7 +408,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 5.5,
+   "seconds": 6.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -430,7 +430,7 @@
    "title": "Spec invariants",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.6,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""

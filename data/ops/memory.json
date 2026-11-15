@@ -16,7 +16,7 @@
 "1pc:100483":"model:psu:12-bn314-dark-power-750w",
 "1pc:100514":"model:case_fan:2-fan-masterfan-sf240r-120mm-2-rgb-black",
 "1pc:100519":"model:motherboard:gh410ms2hv2-h410m-s2h-v2-microatx",
-"1pc:100542":"model:storage:22110-983dct-1920gb-nvme-m222110",
+"1pc:100542":"model:storage:22110-983dct-2000gb-m2pcie-m222110",
 "1pc:101202":"model:aio:240-aorus-cooler-lcd-liquid-waterforce-x-240mm",
 "1pc:101245":"model:memory:b3200gsst-ld4as032g-32gb-3200mhz-sodimm",
 "1pc:101268":"mpn:memory:ld4au016gb3200gsst",
@@ -643,7 +643,7 @@
 "1pc:171360":"model:aio:360-chione-e4-wh-360mm-white",
 "1pc:171361":"model:aio:360-chione-e4-360mm",
 "1pc:171377":"model:memory:3rd-5600-cl46-32gb-x1-5600mhz-cl46",
-"1pc:171382":"model:gpu:dual-o6g-rtx3050-6gb",
+"1pc:171382":"model:gpu:3050-dual-gddr6-geforce-oc-rtx-6gb",
 "1pc:171389":"model:motherboard:eagle-wifi7-x870-atx",
 "1pc:171390":"model:motherboard:gaming-wifi7-x-x870-atx",
 "1pc:171391":"model:motherboard:b760m-d4-k-prime-microatx",
@@ -767,8 +767,8 @@
 "1pc:173298":"model:case_fan:fan-pwm-rs140-140mm-rgb-black",
 "1pc:173303":"model:case:420-base-hs-white",
 "1pc:173304":"model:case:420-base-hs-black",
-"1pc:173305":"model:case:420-hs-vgpu-white",
-"1pc:173306":"model:case:420-hs-vgpu-black",
+"1pc:173305":"model:case:420-hs-mid-tower-vgpu-window-white",
+"1pc:173306":"model:case:420-hs-mid-tower-vgpu-window-black",
 "1pc:173309":"model:case:205m-lancool-mesh-oe744ms-snow-white",
 "1pc:173477":"model:memory:1-1v-262pin-blister-cl46-sodimm-8gb-5600mhz-cl46-sodimm",
 "1pc:173478":"model:memory:1-1v-262pin-blister-cl46-dimm-8gb-5600mhz-cl46-dimm",
@@ -1050,7 +1050,7 @@
 "1pc:188656":"model:case:4000d-frame-modular-rs-black",
 "1pc:188657":"model:case_fan:fan-icue-link-lx120-pwm-r-reverse-120mm-rgb-black",
 "1pc:188658":"model:case_fan:120-icue-link-lx120-r-120mm-3-rgb-black",
-"1pc:188725":"model:motherboard:a-pro-wifi-z890-atx",
+"1pc:188725":"model:motherboard:1851-a-pro-wifi-z890-atx",
 "1pc:188735":"model:aio:coreliquid-i360-mag-360mm-white",
 "1pc:189263":"model:storage:ap2tbas2280p4u-x4-2000gb-m2pcie-m22280",
 "1pc:189275":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
@@ -3489,7 +3489,7 @@
 "ivory:95103":"model:cooler_air:1000-black-color-cr-evo-154mm-120mm-black",
 "ivory:95109":"model:cooler_air:1000-color-cr-evo-white-154mm-120mm-white",
 "ivory:95205":"model:aio:360-tg-360mm-white",
-"ivory:95469":"model:gpu:dual-o6g-rtx3050-6gb",
+"ivory:95469":"model:gpu:3050-dual-gddr6-geforce-oc-rtx-6gb",
 "ivory:95580":"mpn:memory:tpbd58g5600hc4601",
 "ivory:95583":"mpn:memory:tpbd516g5600hc4601",
 "ksp:112515":"accessories:ksp:ksp-112515",
@@ -3833,7 +3833,7 @@
 "ksp:345348":"model:motherboard:aero-g-z890-atx",
 "ksp:346916":"model:memory:48-kf584cu40rsk2-48gb-x2-8400mhz-cl40-silver-dimm",
 "ksp:347940":"model:storage:2280-s3-vi560-2000gb-nvme-m22280",
-"ksp:348061":"model:motherboard:a-pro-wifi-z890-atx",
+"ksp:348061":"model:motherboard:1851-a-pro-wifi-z890-atx",
 "ksp:348119":"model:motherboard:1851-ace-meg-z890-atx",
 "ksp:348145":"model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030",
 "ksp:348147":"accessories:ksp:ksp-348147",
@@ -8680,7 +8680,7 @@
 "tms:MTFDKBG3T8TDZ-1AZ1ZABY":"mpn:storage:mtfdkbg3t8tdz1az1zaby",
 "tms:MTFDKBG960TFR-1BC1ZABY":"model:storage:22110-7450-pro-960gb-m2pcie-m222110",
 "tms:MTIS-360-WH":"model:aio:infinite-mt360-space-360mm-white",
-"tms:MZ-1LB1T9NE":"model:storage:22110-983dct-1920gb-nvme-m222110",
+"tms:MZ-1LB1T9NE":"model:storage:22110-983dct-2000gb-m2pcie-m222110",
 "tms:MZ-V9P1T0BW":"model:storage:990-pro-1000gb-nvme-m2",
 "tms:MZ-V9P1T0CW":"model:storage:990-heatsink-pro-1000gb-m2-m22280",
 "tms:MZ-V9P2T0BW":"model:storage:990-pro-2000gb-m2pcie-m22280",
@@ -8936,8 +8936,8 @@
 "tms:PGW-AC-HVN-025":"model:case_fan:fans-h14-triple-x3-140mm-3-black",
 "tms:PGW-CH-HVN-005":"model:case:420-base-hs-white",
 "tms:PGW-CH-HVN-006":"model:case:420-base-hs-black",
-"tms:PGW-CH-HVN-007":"model:case:420-hs-vgpu-white",
-"tms:PGW-CH-HVN-008":"model:case:420-hs-vgpu-black",
+"tms:PGW-CH-HVN-007":"model:case:420-hs-mid-tower-vgpu-window-white",
+"tms:PGW-CH-HVN-008":"model:case:420-hs-mid-tower-vgpu-window-black",
 "tms:PGW-CH-HVN-012":"model:case:360-bf-flow-white",
 "tms:PGW-CH-HVN-013":"model:case:360-bf-flow-black",
 "tms:PK8071305081600":"model:cpu:3475x-tray",
@@ -9519,8 +9519,8 @@
 "yahav:10639":"model:aio:5cfm-82-aio-h170i-icue-lcd-link-420mm",
 "yahav:10640":"model:case:420-base-hs-white",
 "yahav:10641":"model:case:420-base-hs-black",
-"yahav:10642":"model:case:420-hs-vgpu-white",
-"yahav:10643":"model:case:420-hs-vgpu-black",
+"yahav:10642":"model:case:420-hs-mid-tower-vgpu-window-white",
+"yahav:10643":"model:case:420-hs-mid-tower-vgpu-window-black",
 "yahav:10644":"model:case_fan:fan-link-pwm-qx140-series-single-140mm-1-rgb",
 "yahav:10645":"model:case:a3-wood-black-2",
 "yahav:10647":"model:case:217-case-mid-tower-black",
@@ -12845,11 +12845,11 @@
 "case"
 ],
 "model:case:360-bf-flow-black":[
-"HAVN BF 360 Flow HVN-CA-BF360-04 Black",
+"HAVN BF 360 Flow Black",
 "case"
 ],
 "model:case:360-bf-flow-white":[
-"HAVN BF 360 Flow HVN-CA-BF360-03 White",
+"HAVN BF 360 Flow White",
 "case"
 ],
 "model:case:360-hs-black":[
@@ -13056,11 +13056,11 @@
 "Havn HS 420 Base Edition White",
 "case"
 ],
-"model:case:420-hs-vgpu-black":[
+"model:case:420-hs-mid-tower-vgpu-window-black":[
 "Havn HS 420 Vgpu Edition Black",
 "case"
 ],
-"model:case:420-hs-vgpu-white":[
+"model:case:420-hs-mid-tower-vgpu-window-white":[
 "Havn HS 420 Vgpu Edition White",
 "case"
 ],
@@ -19632,6 +19632,10 @@
 "Gigabyte Windforce GeForce RTX 3050 6GB",
 "gpu"
 ],
+"model:gpu:3050-dual-gddr6-geforce-oc-rtx-6gb":[
+"ASUS Dual GeForce RTX 3050 6GB (90YV0K60-M0NA00)",
+"gpu"
+],
 "model:gpu:3050-geforce-pegasus-rtx-6gb":[
 "Gainward GeForce RTX 3050 6GB",
 "gpu"
@@ -20238,10 +20242,6 @@
 ],
 "model:gpu:arc-b50-pro-16gb":[
 "Intel Arc PRO B50 16GB",
-"gpu"
-],
-"model:gpu:dual-o6g-rtx3050-6gb":[
-"ASUS Dual GeForce RTX 3050 6GB (90YV0K60-M0NA00)",
 "gpu"
 ],
 "model:gpu:dual-o8g-rx7600-v2-8gb":[
@@ -22596,6 +22596,10 @@
 "MSI PRO B860M-A LGA Displayport WiFi",
 "motherboard"
 ],
+"model:motherboard:1851-a-pro-wifi-z890-atx":[
+"MSI PRO Z890-A WiFi",
+"motherboard"
+],
 "model:motherboard:1851-ace-meg-z890-atx":[
 "MSI Z890 MEG ACE WiFi",
 "motherboard"
@@ -22982,10 +22986,6 @@
 ],
 "model:motherboard:a-ii-pro-wifi-z790-atx":[
 "MSI PRO Z790-A II WiFi",
-"motherboard"
-],
-"model:motherboard:a-pro-wifi-z890-atx":[
-"MSI PRO Z890-A WIFI7",
 "motherboard"
 ],
 "model:motherboard:a-terminator-wifi-z890-atx":[
@@ -27064,7 +27064,7 @@
 "Micron 960GB SSD M.2 22110 7450 PRO NVMe",
 "storage"
 ],
-"model:storage:22110-983dct-1920gb-nvme-m222110":[
+"model:storage:22110-983dct-2000gb-m2pcie-m222110":[
 "Samsung SSD 1.92TB 983DCT M.2 NVMe",
 "storage"
 ],

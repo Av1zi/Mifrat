@@ -4137,7 +4137,7 @@
         "vendor": "1pc",
         "vendor_sku": "221405",
         "title": "מארז Antec C6 WOOD שחור",
-        "price": 407
+        "price": 397
       }
     ],
     "model_code": "c6-wood"
@@ -4160,7 +4160,7 @@
         "vendor": "1pc",
         "vendor_sku": "221406",
         "title": "מארז Antec C6 WOOD לבן",
-        "price": 437
+        "price": 411
       }
     ],
     "model_code": "c6-wood"
@@ -7677,7 +7677,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001084",
         "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 1729
+        "price": 1702
       },
       {
         "listing_key": "yahav:10143",
@@ -8867,29 +8867,6 @@
     "manufacturer_pn": [
       "90MB1CX0M0EAY0"
     ]
-  },
-  {
-    "kind": "identity_merge",
-    "category": "motherboard",
-    "product_id": "model:motherboard:a-pro-wifi-z890-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:188725",
-        "vendor": "1pc",
-        "vendor_sku": "188725",
-        "title": "לוח אם MSI PRO Z890-A WIFI",
-        "price": 1734
-      },
-      {
-        "listing_key": "ksp:348061",
-        "vendor": "ksp",
-        "vendor_sku": "348061",
-        "title": "לוח אם MSI PRO Z890-A WIFI 1851 DDR5",
-        "price": 1190
-      }
-    ],
-    "model_code": "a-pro-wifi-z890"
   },
   {
     "kind": "identity_merge",
@@ -10724,7 +10701,7 @@
         "vendor": "1pc",
         "vendor_sku": "MZ-VAP1T0BW",
         "title": "כונן SSD Samsung 9100 PRO 1TB PCIe 5.0 NVMe M.2 MZ-VAP1T0BW",
-        "price": 1107
+        "price": 1053
       },
       {
         "listing_key": "ivory:131358",
@@ -11153,7 +11130,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000910",
         "title": "מעבד AMD Ryzen 7 7800X3D AM5 צבע שחור",
-        "price": 1197
+        "price": 1183
       },
       {
         "listing_key": "tms:100-000000910",
@@ -11836,7 +11813,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001084",
         "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 1729
+        "price": 1702
       },
       {
         "listing_key": "yahav:10143",
@@ -12076,7 +12053,7 @@
         "vendor": "1pc",
         "vendor_sku": "C225FT",
         "title": "מעבד Intel Core Ultra 5 225F דגם 1851",
-        "price": 553
+        "price": 660
       },
       {
         "listing_key": "1pc:218557",
@@ -12151,7 +12128,7 @@
         "vendor": "1pc",
         "vendor_sku": "AT8076806412",
         "title": "מעבד Intel Core Ultra 7 265K 5.5GHz 30MB Cache S1851 - Tray",
-        "price": 1255
+        "price": 1227
       },
       {
         "listing_key": "1pc:189657",
@@ -12201,7 +12178,7 @@
         "vendor": "1pc",
         "vendor_sku": "AT8076806419",
         "title": "מעבד Intel Core Ultra 9 285K 5.7GHz 36MB Cache S1851 - Tray",
-        "price": 2221
+        "price": 2287
       },
       {
         "listing_key": "1pc:189660",
@@ -15559,138 +15536,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221421",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
-        "price": 500
-      },
-      {
-        "listing_key": "tms:12RSLIN1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
-        "price": 441
-      },
-      {
-        "listing_key": "yahav:11691",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 440
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221417",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור 12RSLIN1F1B",
-        "price": 163
-      },
-      {
-        "listing_key": "tms:12RSLIN1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור",
-        "price": 142
-      },
-      {
-        "listing_key": "yahav:11685",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
-        "price": 145
-      }
-    ],
-    "model_code": "120mm-12rslin1f1b-blade-fan-flex-inf-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221418",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
-        "price": 168
-      },
-      {
-        "listing_key": "tms:12RSLIN1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
-        "price": 147
-      },
-      {
-        "listing_key": "yahav:11687",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Single Pack צבע לבן",
-        "price": 150
-      }
-    ],
-    "model_code": "120mm-blade-fan-flex-inf-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221422",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן 12RSLIN1F3W",
-        "price": 485
-      },
-      {
-        "listing_key": "tms:12RSLIN1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן",
-        "price": 457
-      },
-      {
-        "listing_key": "yahav:11693",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
-        "price": 440
-      }
-    ],
-    "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -15818,6 +15663,138 @@
     "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
     "manufacturer_pn": [
       "12RSLIND1F3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221421",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
+        "price": 500
+      },
+      {
+        "listing_key": "tms:12RSLIN1F3B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
+        "price": 441
+      },
+      {
+        "listing_key": "yahav:11691",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 440
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221417",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור 12RSLIN1F1B",
+        "price": 163
+      },
+      {
+        "listing_key": "tms:12RSLIN1F1B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור",
+        "price": 142
+      },
+      {
+        "listing_key": "yahav:11685",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+        "price": 145
+      }
+    ],
+    "model_code": "120mm-12rslin1f1b-blade-fan-flex-inf-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221418",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
+        "price": 168
+      },
+      {
+        "listing_key": "tms:12RSLIN1F1W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
+        "price": 147
+      },
+      {
+        "listing_key": "yahav:11687",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Single Pack צבע לבן",
+        "price": 150
+      }
+    ],
+    "model_code": "120mm-blade-fan-flex-inf-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221422",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן 12RSLIN1F3W",
+        "price": 485
+      },
+      {
+        "listing_key": "tms:12RSLIN1F3W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן",
+        "price": 457
+      },
+      {
+        "listing_key": "yahav:11693",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
+        "price": 440
+      }
+    ],
+    "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F3W"
     ]
   },
   {
@@ -17244,7 +17221,7 @@
         "vendor": "1pc",
         "vendor_sku": "N5080AORUSM16GD",
         "title": "כרטיס מסך Gigabyte AORUS GeForce RTX 5080 MASTER 16G",
-        "price": 8452
+        "price": 9100
       },
       {
         "listing_key": "tms:N5080AORUSM16GD",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T22:07:50.240163+00:00",
+  "generated_at": "2026-11-15T23:45:15.334910+00:00",
   "gaps": [
     {
       "category": "case",
@@ -24,7 +24,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 79,
+      "count": 78,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -54,7 +54,7 @@
     {
       "category": "motherboard",
       "label": "נפח זיכרון",
-      "count": 49,
+      "count": 50,
       "products": [
         "manual:motherboard:ivory-134868-ksp-393815",
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
@@ -162,16 +162,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "USB",
-      "count": 29,
-      "products": [
-        "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "מפרט",
       "count": 28,
@@ -179,6 +169,16 @@
         "gpu:ksp:ksp-371860",
         "model:gpu:10p-b50800j2-zt-16gb",
         "model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "USB",
+      "count": 28,
+      "products": [
+        "manual:motherboard:ksp-338414-yahav-10002",
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx"
       ]
     },
     {
@@ -232,16 +232,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
-      "count": 25,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "תצורה",
       "count": 25,
@@ -252,13 +242,33 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "הספק תרמי מירבי",
+      "category": "gpu",
+      "label": "ממשק זיכרון",
       "count": 24,
       "products": [
-        "model:aio:120-510lc-120mm-black",
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חריצים פנויים",
+      "count": 24,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "הספק תרמי מירבי",
+      "count": 23,
+      "products": [
         "model:aio:1cfm-63-aio-elite-h150i-icue-360mm-white",
-        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-black"
+        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-black",
+        "model:aio:1stpalyer-a-f-lcd-s-t-360mm-white"
       ]
     },
     {
@@ -269,26 +279,6 @@
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
         "model:motherboard:a-b760m-csm-prime-microatx-2"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "חריצים פנויים",
-      "count": 23,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "משקל",
-      "count": 22,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -322,6 +312,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "משקל",
+      "count": 21,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
       "category": "cooler_air",
       "label": "פרופיל קירור",
       "count": 20,
@@ -329,26 +329,6 @@
         "model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
         "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
         "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "צריכת חשמל",
-      "count": 20,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ספק כח מומלץ",
-      "count": 20,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -379,16 +359,6 @@
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
         "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
         "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "D-SUB",
-      "count": 20,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
       ]
     },
     {
@@ -472,6 +442,26 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "צריכת חשמל",
+      "count": 19,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ספק כח מומלץ",
+      "count": 19,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
       "category": "memory",
       "label": "Tested Latency",
       "count": 19,
@@ -479,6 +469,26 @@
         "model:memory:2666mhz-2x8gb-aegis-cl19-ddr4-g-kit-16gb-x2-2666mhz-cl19-dimm",
         "model:memory:2666mhz-2x8gb-cl19-ddr4-g-kit-value-16gb-x2-2666mhz-cl19-dimm",
         "model:memory:2666mhz-8gb-cl19-ddr4-g-value-8gb-2666mhz-cl19-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "D-SUB",
+      "count": 19,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCIe 5.0 x16",
+      "count": 19,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
       ]
     },
     {
@@ -513,7 +523,7 @@
     },
     {
       "category": "motherboard",
-      "label": "PCIe 5.0 x16",
+      "label": "DISPLAY PORT",
       "count": 18,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -523,7 +533,17 @@
     },
     {
       "category": "motherboard",
-      "label": "DISPLAY PORT",
+      "label": "wifi + BT",
+      "count": 18,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "SATA III",
       "count": 17,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -533,7 +553,17 @@
     },
     {
       "category": "motherboard",
-      "label": "wifi + BT",
+      "label": "HDMI 2.1",
+      "count": 17,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCIe 4.0 x16",
       "count": 17,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -613,16 +643,6 @@
     },
     {
       "category": "gpu",
-      "label": "כרטיס גרפי",
-      "count": 16,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
-        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "רזולוציה דיגיטלית מקסימלית",
       "count": 16,
       "products": [
@@ -633,27 +653,7 @@
     },
     {
       "category": "motherboard",
-      "label": "SATA III",
-      "count": 16,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "HDMI 2.1",
-      "count": 16,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 4.0 x16",
+      "label": "PCIe 3.0 x1",
       "count": 16,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -702,6 +702,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "כרטיס גרפי",
+      "count": 15,
+      "products": [
+        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
+        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
+        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
+      ]
+    },
+    {
       "category": "memory",
       "label": "Registered/Unbuffered",
       "count": 15,
@@ -733,12 +743,32 @@
     },
     {
       "category": "motherboard",
-      "label": "PCIe 3.0 x1",
+      "label": "HDMI",
       "count": 15,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "HD 7.1",
+      "count": 15,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "קדמי ואחורי",
+      "count": 15,
+      "products": [
+        "model:motherboard:a520m-pro-s-microatx",
+        "model:motherboard:b-b650m-pro-microatx",
+        "model:motherboard:b760m-bomber-wifi-microatx"
       ]
     },
     {
@@ -893,7 +923,7 @@
     },
     {
       "category": "motherboard",
-      "label": "HDMI",
+      "label": "קירור",
       "count": 14,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -903,7 +933,7 @@
     },
     {
       "category": "motherboard",
-      "label": "HD 7.1",
+      "label": "תמיכה ב AMD® CrossFire",
       "count": 14,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -1062,46 +1092,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "קירור",
-      "count": 13,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "TPM-HEADER",
-      "count": 13,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "תמיכה ב AMD® CrossFire",
-      "count": 13,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "קדמי ואחורי",
-      "count": 13,
-      "products": [
-        "model:motherboard:a520m-pro-s-microatx",
-        "model:motherboard:b-b650m-pro-microatx",
-        "model:motherboard:b760m-bomber-wifi-microatx"
-      ]
-    },
-    {
       "category": "other",
       "label": "מעבד גרפי",
       "count": 13,
@@ -1243,56 +1233,6 @@
     },
     {
       "category": "gpu",
-      "label": "HDMI",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "DisplayPort",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ממשק חיבור",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ליבות מעבד גרפי",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ברזולוציה",
-      "count": 12,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "HDMI version",
       "count": 12,
       "products": [
@@ -1382,6 +1322,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "TPM-HEADER",
+      "count": 12,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
       "category": "psu",
       "label": "תקנים",
       "count": 12,
@@ -1422,18 +1372,8 @@
       ]
     },
     {
-      "category": "case",
-      "label": "צבע מארז",
-      "count": 11,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
       "category": "gpu",
-      "label": "D-SUB",
+      "label": "HDMI",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -1443,7 +1383,7 @@
     },
     {
       "category": "gpu",
-      "label": "תמיכה ב G-SYNC",
+      "label": "DisplayPort",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -1453,7 +1393,7 @@
     },
     {
       "category": "gpu",
-      "label": "dvi",
+      "label": "ממשק חיבור",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -1463,12 +1403,22 @@
     },
     {
       "category": "gpu",
-      "label": "חיבור לספק כח",
+      "label": "ליבות מעבד גרפי",
       "count": 11,
       "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb",
-        "model:gpu:16g-2x-5060-geforce-oc-plus-rtx-shadow-ti-16gb"
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ברזולוציה",
+      "count": 11,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
       ]
     },
     {
@@ -1693,107 +1643,7 @@
     },
     {
       "category": "case",
-      "label": "רוחב",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מק\"ט יצרן",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "כמות דיסקים 3.5 פנימיים",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "כמות דיסקים 2.5 פנימיים",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "גודל לוח נתמך",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "גובה במ\"מ",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "אורך במ\"מ",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מקום לקירור נוזלי",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "גודל מקסימלי לכרטיס מסך במ\"מ",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "גובה מקסימלי לקירור מעבד במ\"מ",
-      "count": 10,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מיקום ספק כוח",
+      "label": "צבע מארז",
       "count": 10,
       "products": [
         "model:case:0-0-10236-761345",
@@ -1819,6 +1669,46 @@
         "model:cpu:225",
         "model:cpu:225-tray",
         "model:cpu:225f-tray"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "D-SUB",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ב G-SYNC",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "dvi",
+      "count": 10,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבור לספק כח",
+      "count": 10,
+      "products": [
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb",
+        "model:gpu:16g-2x-5060-geforce-oc-plus-rtx-shadow-ti-16gb"
       ]
     },
     {
@@ -1913,7 +1803,107 @@
     },
     {
       "category": "case",
-      "label": "חיבור",
+      "label": "רוחב",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מק\"ט יצרן",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "כמות דיסקים 3.5 פנימיים",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "כמות דיסקים 2.5 פנימיים",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "גודל לוח נתמך",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "גובה במ\"מ",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "אורך במ\"מ",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מקום לקירור נוזלי",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "גודל מקסימלי לכרטיס מסך במ\"מ",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "גובה מקסימלי לקירור מעבד במ\"מ",
+      "count": 9,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מיקום ספק כוח",
       "count": 9,
       "products": [
         "model:case:0-0-10236-761345",
@@ -2063,32 +2053,12 @@
     },
     {
       "category": "case",
-      "label": "חיבורי USB 3.0",
+      "label": "חיבור",
       "count": 8,
       "products": [
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מקום לצורב",
-      "count": 8,
-      "products": [
-        "model:case:0-0-10236-761345",
-        "model:case:0-10221-6-761345-black",
-        "model:case:0-10232-2-761345-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מאווררים מותקנים מראש",
-      "count": 8,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white",
-        "model:case:atlas-m3m-black"
       ]
     },
     {
@@ -2213,7 +2183,7 @@
     },
     {
       "category": "case",
-      "label": "חיבורי 2.0 USB",
+      "label": "חיבורי USB 3.0",
       "count": 7,
       "products": [
         "model:case:0-0-10236-761345",
@@ -2223,22 +2193,12 @@
     },
     {
       "category": "case",
-      "label": "מאווררים 12 ס\"מ במארז",
+      "label": "מקום לצורב",
       "count": 7,
       "products": [
-        "model:case:0-10232-2-761345-black",
-        "model:case:0-10285-761345-8",
-        "model:case:3200d-argb-rs-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מקום לתוספת מאוררים 120/140",
-      "count": 7,
-      "products": [
-        "model:case:0-10232-2-761345-black",
-        "model:case:0-10285-761345-8",
-        "model:case:3200d-argb-rs-black"
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
       ]
     },
     {
@@ -2463,6 +2423,36 @@
     },
     {
       "category": "case",
+      "label": "חיבורי 2.0 USB",
+      "count": 6,
+      "products": [
+        "model:case:0-0-10236-761345",
+        "model:case:0-10221-6-761345-black",
+        "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מאווררים 12 ס\"מ במארז",
+      "count": 6,
+      "products": [
+        "model:case:0-10232-2-761345-black",
+        "model:case:3200d-argb-rs-black",
+        "model:case:3200d-argb-rs-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מקום לתוספת מאוררים 120/140",
+      "count": 6,
+      "products": [
+        "model:case:0-10232-2-761345-black",
+        "model:case:3200d-argb-rs-black",
+        "model:case:3200d-argb-rs-white"
+      ]
+    },
+    {
+      "category": "case",
       "label": "הערה",
       "count": 6,
       "products": [
@@ -2479,6 +2469,16 @@
         "model:case:argb-cx800-white",
         "model:case:argb-vcx10m-black",
         "model:case:argb-vx310-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מאווררים מותקנים מראש",
+      "count": 6,
+      "products": [
+        "model:case:atlas-m3m-black",
+        "model:case:atlas-m5-black",
+        "model:case:aura-elite-gc107-black"
       ]
     },
     {
@@ -2783,6 +2783,16 @@
     },
     {
       "category": "motherboard",
+      "label": "Intel® Core™ Ultra",
+      "count": 5,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:b860-gaming-wifi"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "Micro-ATX",
       "count": 5,
       "products": [
@@ -2979,16 +2989,6 @@
         "model:case:216-lancool-black-2",
         "model:case:2500x-black",
         "model:case:3x120mm-fans-flow-h6-included-mid-tower-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תמיכה בספק כוח",
-      "count": 4,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white",
-        "model:case:m110r-mag-pano-black"
       ]
     },
     {
@@ -3428,17 +3428,7 @@
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Intel® Core™ Ultra",
-      "count": 4,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890-atx"
+        "model:motherboard:b860-gaming-wifi"
       ]
     },
     {
@@ -3863,26 +3853,6 @@
     },
     {
       "category": "case",
-      "label": "מבנה",
-      "count": 3,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white",
-        "model:case:argb-aura-elite-gc4-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חיבורים קדמיים",
-      "count": 3,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white",
-        "model:case:argb-aura-elite-gc4-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "האורך המרבי של כרטיס גרפי",
       "count": 3,
       "products": [
@@ -4063,16 +4033,6 @@
     },
     {
       "category": "gpu",
-      "label": "נפח אחסון",
-      "count": 3,
-      "products": [
-        "model:gpu:16g-2x-5060-oc-plus-rtx-ti-ventus-16gb",
-        "model:gpu:16g-3x-5080-oc-rtx-shadow-16gb",
-        "model:gpu:2x-5060-8g-geforce-oc-plus-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "ליבות CUDA®",
       "count": 3,
       "products": [
@@ -4237,16 +4197,6 @@
         "model:memory:rgb-trident-z5-48gb-x2-6400mhz-cl32-rgb-black-dimm",
         "model:memory:rgb-trident-z5-48gb-x2-8000mhz-cl40-rgb-white-dimm",
         "model:memory:rgb-trident-z5-48gb-x2-8400mhz-cl40-rgb-black-dimm"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Thunderbolt Type-C DisplayPort",
-      "count": 3,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-pro-wifi-z890-atx"
       ]
     },
     {
@@ -4587,6 +4537,16 @@
         "model:motherboard:b550-gaming-mpg-atx",
         "model:motherboard:b550m-pro-vdh-microatx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Type-C DisplayPort",
+      "count": 3,
+      "products": [
+        "model:motherboard:b860-gaming-wifi",
+        "model:motherboard:b860-p-pro",
+        "model:motherboard:b860-p-pro-wifi"
       ]
     },
     {
@@ -4974,51 +4934,6 @@
     },
     {
       "category": "case",
-      "label": "תצורת אחסון",
-      "count": 2,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תאימות ללוחות אם",
-      "count": 2,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מרווח למצנן מעבד",
-      "count": 2,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "בקרת מאווררים",
-      "count": 2,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מרווח לכרטיס מסך",
-      "count": 2,
-      "products": [
-        "model:case:360-bf-flow-black",
-        "model:case:360-bf-flow-white"
-      ]
-    },
-    {
-      "category": "case",
       "label": "חיבור USB 3.1/2 - usb Type-C",
       "count": 2,
       "products": [
@@ -5128,6 +5043,15 @@
     {
       "category": "case",
       "label": "תמיכה בכוננים",
+      "count": 2,
+      "products": [
+        "model:case:m110r-mag-pano-black",
+        "model:case:m110r-mag-pano-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תמיכה בספק כוח",
       "count": 2,
       "products": [
         "model:case:m110r-mag-pano-black",
@@ -5438,6 +5362,15 @@
       "products": [
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
         "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "נפח אחסון",
+      "count": 2,
+      "products": [
+        "model:gpu:16g-2x-5060-oc-plus-rtx-ti-ventus-16gb",
+        "model:gpu:2x-5060-8g-geforce-oc-plus-rtx-ti-ventus-8gb"
       ]
     },
     {
@@ -5910,6 +5843,15 @@
     },
     {
       "category": "motherboard",
+      "label": "Thunderbolt Type-C DisplayPort",
+      "count": 2,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "יציאות אוזניות",
       "count": 2,
       "products": [
@@ -6315,15 +6257,6 @@
     },
     {
       "category": "motherboard",
-      "label": "רזולוציה",
-      "count": 2,
-      "products": [
-        "model:motherboard:a-pro-wifi-z890-atx",
-        "model:motherboard:ax-d-z790-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "מעבדי AMD Ryzen™",
       "count": 2,
       "products": [
@@ -6626,6 +6559,24 @@
       "products": [
         "model:motherboard:b850-gaming-max-plus-wifi-atx",
         "model:motherboard:e-h810m-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים",
+      "count": 2,
+      "products": [
+        "model:motherboard:b860-p-pro",
+        "model:motherboard:b860-p-pro-wifi"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Thunderbolt4 ports",
+      "count": 2,
+      "products": [
+        "model:motherboard:b860-p-pro",
+        "model:motherboard:b860-p-pro-wifi"
       ]
     },
     {
@@ -7049,6 +7000,14 @@
     },
     {
       "category": "case",
+      "label": "מבנה",
+      "count": 1,
+      "products": [
+        "model:case:argb-aura-elite-gc4-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "פאנל צדדי",
       "count": 1,
       "products": [
@@ -7082,6 +7041,14 @@
     {
       "category": "case",
       "label": "אורך מרבי של ספק הכוח",
+      "count": 1,
+      "products": [
+        "model:case:argb-aura-elite-gc4-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "חיבורים קדמיים",
       "count": 1,
       "products": [
         "model:case:argb-aura-elite-gc4-black"
@@ -9401,6 +9368,14 @@
     },
     {
       "category": "motherboard",
+      "label": "רזולוציה",
+      "count": 1,
+      "products": [
+        "model:motherboard:ax-d-z790-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "נורות",
       "count": 1,
       "products": [
@@ -9985,26 +9960,10 @@
     },
     {
       "category": "motherboard",
-      "label": "חיבורים",
+      "label": "פאנל פנימי Internal IO",
       "count": 1,
       "products": [
-        "model:motherboard:b860-p-pro"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Type-C DisplayPort",
-      "count": 1,
-      "products": [
-        "model:motherboard:b860-p-pro"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Thunderbolt4 ports",
-      "count": 1,
-      "products": [
-        "model:motherboard:b860-p-pro"
+        "model:motherboard:b860-gaming-wifi"
       ]
     },
     {
