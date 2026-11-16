@@ -1,4 +1,4 @@
-# Mifrat — PC Part Picker (Israel)
+# Mifrat Israeli PC Part Picker
 
 Live price comparison for PC components sold in Israel. Daily scrapes from
 local vendors merge into one catalog; a static site serves it with no backend
@@ -145,3 +145,6 @@ npm --prefix site test                                  # vitest
 Verifying a change: a single-spider test crawl, a local normalize run, the
 `scripts/check_*.py` gates that cover what you touched (PROJECT_OVERVIEW §11),
 and the site build.
+
+
+Special thanks to Devansh Awatramani for giving me a lot of AI usage for free <3
