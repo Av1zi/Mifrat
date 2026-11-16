@@ -22,7 +22,7 @@
 "1pc:101268":"mpn:memory:ld4au016gb3200gsst",
 "1pc:102394":"model:cooler_air:ch-chromax-cooler-cpu-d15-d15-nh-nh-black",
 "1pc:102406":"mpn:psu:atomg750",
-"1pc:102408":"model:psu:apfc-atom-atom-b650-650w",
+"1pc:102408":"model:psu:atom-b650-650w",
 "1pc:102669":"model:gpu:3070-8gd-geforce-gv-n307tgaming-oc-rtx-ti-8gb",
 "1pc:102820":"model:cpu:10105f-tray",
 "1pc:102826":"model:psu:coolermaster-fully-modular-v1000-1000w-full",
@@ -464,7 +464,7 @@
 "1pc:159860":"model:cooler_air:1600rpm-270w-2x120mm-5cfm-84-a115-af-dual-elite-fan-to-up-170mm-140mm-black",
 "1pc:159861":"model:cooler_air:b1-cooler-cpu-rc-t120-tr120-160mm-120mm-black",
 "1pc:160175":"model:case:216-lancool-black-2",
-"1pc:160188":"model:psu:0-3-active-hx1000i-hxi-pcie5-pfc-series-1000w-full-black",
+"1pc:160188":"model:psu:hx1000i-1000w-full-black",
 "1pc:160241":"model:memory:0-2x48gb-3-5600-96gb-black-cl46-ddr5-expo-pro-xmp-96gb-x2-5600mhz-cl46-black",
 "1pc:160266":"model:storage:2-m-nvme-pcie-vi3000-512gb-nvme-m2",
 "1pc:160272":"mpn:storage:49351",
@@ -482,7 +482,7 @@
 "1pc:161860":"model:memory:rgb-vengeance-64gb-x2-6600mhz-cl32-rgb-black",
 "1pc:161862":"model:memory:0-2x24gb-3-48gb-8000-cl38-ddr5-dominator-rgb-titanium-xmp-48gb-x2-8000mhz-cl38-rgb-black",
 "1pc:161864":"model:memory:rgb-vengeance-48gb-x2-8200mhz-cl40-rgb-black",
-"1pc:161888":"model:psu:9020279-cp-cx750-eu-750w-no-black",
+"1pc:161888":"model:psu:9020279-cp-eu-750w-no-black",
 "1pc:161889":"manual:psu:1pc-222372-ivory-86640",
 "1pc:161907":"model:motherboard:ax-b650-gaming-v2-x-atx",
 "1pc:162043":"model:case:3x120mm-argb-case-fan-gaming-mid-nx292-tg-tower",
@@ -1050,7 +1050,7 @@
 "1pc:188656":"model:case:4000d-frame-modular-rs-black",
 "1pc:188657":"model:case_fan:fan-icue-link-lx120-pwm-r-reverse-120mm-rgb-black",
 "1pc:188658":"model:case_fan:120-icue-link-lx120-r-120mm-3-rgb-black",
-"1pc:188725":"model:motherboard:1851-a-pro-wifi-z890-atx",
+"1pc:188725":"model:motherboard:a-pro-wifi-z890-atx",
 "1pc:188735":"model:aio:coreliquid-i360-mag-360mm-white",
 "1pc:189263":"model:storage:ap2tbas2280p4u-x4-2000gb-m2pcie-m22280",
 "1pc:189275":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
@@ -1657,8 +1657,8 @@
 "1pc:212341":"model:motherboard:b840-eagle-wifi6e-atx",
 "1pc:212342":"model:motherboard:b860m-e-microatx",
 "1pc:212343":"model:motherboard:b650e-eagle-wifi6e-atx",
-"1pc:212367":"model:psu:fully-modular-rm850x-shift-850w-full-black",
-"1pc:212368":"model:psu:fully-modular-rm1000x-shift-1000w-full-black",
+"1pc:212367":"model:psu:rm850x-shift-850w-full-black",
+"1pc:212368":"model:psu:rm1000x-shift-1000w-full-black",
 "1pc:212369":"model:psu:fully-modular-rm750x-shift-750w-full",
 "1pc:212370":"model:motherboard:b860m-challenger-k-microatx",
 "1pc:212372":"model:motherboard:challenger-h810m-lga1851-ms-r-microatx",
@@ -1814,8 +1814,8 @@
 "1pc:215082":"model:cpu:9600",
 "1pc:215453":"model:case:7000x-icue-rgb-black",
 "1pc:215456":"model:psu:rm1000e-1000w-full-white",
-"1pc:215462":"model:psu:fully-modular-rm850x-shift-850w-full-black",
-"1pc:215463":"model:psu:fully-modular-rm1000x-shift-1000w-full-black",
+"1pc:215462":"model:psu:rm850x-shift-850w-full-black",
+"1pc:215463":"model:psu:rm1000x-shift-1000w-full-black",
 "1pc:215496":"model:cpu:5500x3d-tray",
 "1pc:215497":"model:cpu:9950x3d2-tray",
 "1pc:215502":"mpn:case:fdcpoa2a02",
@@ -3119,9 +3119,9 @@
 "ivory:160432":"model:case_fan:blade-fan-inf-reverse-sl-uni-120mm-1-rgb-white",
 "ivory:160657":"model:case:4000d-frame-modular-rs-black",
 "ivory:160660":"model:case:4000d-frame-modular-rs-white",
-"ivory:160687":"model:psu:fully-modular-rm1000x-shift-1000w-full-black",
+"ivory:160687":"model:psu:rm1000x-shift-1000w-full-black",
 "ivory:160690":"model:psu:rm1000e-1000w-full-white",
-"ivory:160693":"model:psu:fully-modular-rm850x-shift-850w-full-black",
+"ivory:160693":"model:psu:rm850x-shift-850w-full-black",
 "ivory:160780":"mpn:case:ax1000",
 "ivory:161206":"model:motherboard:a620am-pulse-microatx",
 "ivory:161212":"model:motherboard:b550m-pulse-microatx",
@@ -3391,7 +3391,7 @@
 "ivory:69566":"model:cpu:ryzen77800x3d",
 "ivory:69731":"model:cooler_air:1700-1851-a4-77mm-90mm-black",
 "ivory:71540":"model:case:3000d-9011256-airflow-case-cc-mid-pc-rgb-tower-white-ww-white",
-"ivory:71552":"model:psu:0-3-active-hx1000i-hxi-pcie5-pfc-series-1000w-full-black",
+"ivory:71552":"model:psu:hx1000i-1000w-full-black",
 "ivory:71576":"model:aio:capellix-cooler-cpu-elite-h100i-icue-liquid-white-xt-240mm-black",
 "ivory:71597":"mpn:storage:skc3000s1024g",
 "ivory:71600":"manual:storage:ivory-71600-ksp-177988",
@@ -3442,7 +3442,7 @@
 "ivory:85536":"model:cpu:14700-tray",
 "ivory:86256":"mpn:motherboard:90mb19p0m0eayc",
 "ivory:86640":"manual:psu:1pc-222372-ivory-86640",
-"ivory:86643":"model:psu:9020279-cp-cx750-eu-750w-no-black",
+"ivory:86643":"model:psu:9020279-cp-eu-750w-no-black",
 "ivory:86892":"model:cpu:8500g",
 "ivory:86895":"model:cpu:5600gt",
 "ivory:87645":"mpn:cooler_air:clp117ca14bla",
@@ -3502,8 +3502,8 @@
 "ksp:124736":"model:cooler_air:am4-ryzen-stealth-wraith-100mm",
 "ksp:128429":"accessories:ksp:ksp-128429",
 "ksp:128581":"model:case_fan:bionix-p120-pwm-120mm-white",
-"ksp:130439":"model:psu:12cm-atom-b550-retail-550w",
-"ksp:130443":"model:psu:12cm-atom-b650-retail-650w",
+"ksp:130439":"model:psu:atom-b550-550w",
+"ksp:130443":"model:psu:atom-b650-650w",
 "ksp:131846":"model:storage:870-evo-250gb-sata-25inch",
 "ksp:148642":"model:memory:ripjaws-v-16gb-x2-5066mhz-cl20-dimm",
 "ksp:164088":"model:memory:8-kf432c16bb-8gb-3200mhz-cl16-dimm",
@@ -3519,14 +3519,14 @@
 "ksp:177988":"manual:storage:ivory-71600-ksp-177988",
 "ksp:177999":"model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
 "ksp:178003":"model:memory:32-kf552c40bbk2-32gb-x2-5200mhz-cl40-dimm",
-"ksp:185272":"model:case:7000d-airflow-icue-black",
+"ksp:185272":"model:case:9011218-cc-ww-black",
 "ksp:188295":"model:motherboard:a-am4-amd-b550-b550m-ii-prime-wifi-microatx",
 "ksp:188399":"model:motherboard:d4-h610m-k-prime-microatx",
 "ksp:192953":"model:case_fan:0db-a-p14-pst-pwm-140mm-rgb-black",
 "ksp:192969":"model:case_fan:f12-120mm-black",
 "ksp:193189":"model:memory:16-kf556c40bb-16gb-5600mhz-cl40-dimm",
 "ksp:193193":"model:memory:32-kf556c40bbk2-32gb-x2-5600mhz-cl40-dimm",
-"ksp:202902":"model:case:100m-forge-mag-mid-tower-black",
+"ksp:202902":"model:case:306-7g03m21-809-black",
 "ksp:202969":"model:case:110r-gungnir-mid-mpg-tower-white",
 "ksp:208539":"model:memory:16-kf432c16bb-16gb-3200mhz-cl16-dimm",
 "ksp:211772":"model:memory:8-kf552c40bba-8gb-5200mhz-cl40-rgb-dimm",
@@ -3541,9 +3541,9 @@
 "ksp:223270":"model:storage:ssd225s-ts500gssd225s-500gb-sata-25",
 "ksp:223271":"model:storage:ssd225s-ts1tssd225s-1000gb-sata-25",
 "ksp:223300":"model:memory:16-kf564c32rsa-16gb-6400mhz-cl32-rgb-dimm",
-"ksp:228152":"model:storage:s270-spatium-240gb-sata-25",
-"ksp:233648":"model:case:ap201-prime-small-tower-black",
-"ksp:233670":"model:case:ap201-prime-small-tower-white",
+"ksp:228152":"model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+"ksp:233648":"model:case:ap201-prime-black",
+"ksp:233670":"model:case:ap201-prime-white",
 "ksp:235150":"model:storage:2280-mp600-nh-pro-2000gb-nvme-m22280",
 "ksp:235173":"model:storage:2280-gs-mp600-1000gb-nvme-m22280",
 "ksp:235217":"model:case_fan:bionix-p140-pst-pwm-140mm-red",
@@ -3570,7 +3570,7 @@
 "ksp:237649":"model:motherboard:a-b650-gaming-rog-strix-wifi-atx",
 "ksp:237931":"model:motherboard:mag-tomahawk-wifi-z790-atx",
 "ksp:238578":"model:storage:2280-sn850x-1000gb-nvme-m22280",
-"ksp:240987":"model:case:forge-m100r-mag-tower-black",
+"ksp:240987":"model:case:306-7g20r21-809-black",
 "ksp:241077":"model:case:mag-forge-112r-mid-tower-black",
 "ksp:241444":"model:motherboard:a-csm-d4-h610m-prime-microatx",
 "ksp:241505":"model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -3591,17 +3591,17 @@
 "ksp:265361":"model:motherboard:a-b760m-csm-prime-microatx-2",
 "ksp:265682":"model:memory:rgb-trident-z5-48gb-x2-6400mhz-cl32-rgb-black-dimm",
 "ksp:268981":"model:memory:cl16-lpx-vengeance-16gb-x1-3200mhz-cl16-black-dimm",
-"ksp:270194":"model:psu:a650bn-mag-650w",
+"ksp:270194":"model:psu:a650bn-active-mag-pfc-series-650w-no-black",
 "ksp:270322":"model:memory:rgb-trident-z5-48gb-x2-8000mhz-cl40-rgb-white-dimm",
 "ksp:270380":"model:motherboard:b760-creator-proart-atx",
 "ksp:272054":"model:case:ax20-elite-black",
 "ksp:272144":"accessories:ksp:ksp-272144",
-"ksp:273038":"model:case:gr701-hyperion-rog-tower-black",
-"ksp:273082":"model:case:ap201-prime-small-tower-black",
-"ksp:273104":"model:case:ap201-prime-small-tower-white",
+"ksp:273038":"model:case:gr701-hyperion-rog-black",
+"ksp:273082":"model:case:ap201-glass-prime-tempered-black",
+"ksp:273104":"model:case:ap201-glass-prime-tempered-white",
 "ksp:273131":"accessories:ksp:ksp-273131",
-"ksp:274013":"model:psu:12cm-atom-v2-v650-650w",
-"ksp:274026":"model:psu:12cm-atom-v2-v750-750w",
+"ksp:274013":"model:psu:atom-v2-v650-650w-no",
+"ksp:274026":"model:psu:atom-v2-v750-750w-no",
 "ksp:275423":"model:aio:aio-liquid-s90-360mm-white",
 "ksp:275435":"model:aio:aio-liquid-s90-360mm-black",
 "ksp:275437":"aio:ksp:ksp-275437",
@@ -3621,7 +3621,7 @@
 "ksp:278714":"model:memory:32-kf436c18bb2ak2-32gb-x2-3600mhz-cl18-rgb-dimm",
 "ksp:278724":"model:memory:16-kf432c16bb2ak2-16gb-x2-3200mhz-cl16-rgb-dimm",
 "ksp:278729":"model:memory:16-kf436c17bb2ak2-2gb-x2-3600mhz-cl17-rgb-black-dimm",
-"ksp:278760":"model:psu:hx1000i-modular-1000w-full-black",
+"ksp:278760":"model:psu:hx1000i-1000w-full-black",
 "ksp:278794":"accessories:ksp:ksp-278794",
 "ksp:278916":"accessories:ksp:ksp-278916",
 "ksp:278918":"accessories:ksp:ksp-278918",
@@ -3653,11 +3653,11 @@
 "ksp:284337":"model:psu:a550bn-mag-550w",
 "ksp:284340":"model:psu:a750gl-mag-pcie5-750w",
 "ksp:284467":"model:storage:2280-990-pro-4000gb-nvme-m22280",
-"ksp:284482":"model:case:300r-airflow-gungnir-mid-mpg-tower-black",
+"ksp:284482":"model:case:300r-airflow-gungnir-mpg-black",
 "ksp:284493":"model:case:300p-airflow-gungnir-mid-mpg-tower-black",
 "ksp:285708":"model:memory:16-kf436c18bb2a-16gb-3600mhz-cl18-rgb-dimm",
 "ksp:285711":"model:memory:64-kf436c18bb2ak2-64gb-x2-3600mhz-cl18-rgb-dimm",
-"ksp:286321":"model:case:gr701-hyperion-rog-tower-white",
+"ksp:286321":"model:case:gr701-hyperion-rog-white",
 "ksp:286624":"model:memory:rgb-trident-z5-48gb-x2-8400mhz-cl40-rgb-black-dimm",
 "ksp:287074":"model:storage:vi5000-512gb-nvme-m22280",
 "ksp:287091":"model:storage:vi5000-2000gb-nvme-m22280",
@@ -3712,9 +3712,9 @@
 "ksp:299677":"accessories:ksp:ksp-299677",
 "ksp:299681":"accessories:ksp:ksp-299681",
 "ksp:299721":"manual:accessories:ksp-299721-ksp-396383",
-"ksp:299807":"model:psu:12cm-cx550-fan-550w",
-"ksp:299817":"model:psu:12cm-cx650-fan-650w",
-"ksp:299818":"model:psu:12cm-cx750-fan-750w",
+"ksp:299807":"manual:psu:1pc-222371-ivory-113511",
+"ksp:299817":"manual:psu:1pc-222372-ivory-86640",
+"ksp:299818":"model:psu:9020279-cp-eu-750w-no-black",
 "ksp:300783":"model:memory:ax5u6400c3232g-clarbk-dimm-lancer-u-32gb-6400mhz-cl32-rgb-black-dimm",
 "ksp:300786":"model:memory:ax5u6400c3232g-clarwh-32gb-6400mhz-cl32-rgb-white-dimm",
 "ksp:301768":"model:storage:256mb-3-5-8tb-iii-sata-skyhawk-8000gb-sata-35",
@@ -3733,14 +3733,14 @@
 "ksp:306389":"model:motherboard:am5-b650-e-gaming-tuf-wifi-atx",
 "ksp:306455":"model:storage:purple-wd11purz-1000gb-sata-35",
 "ksp:309792":"model:aio:coreliquid-e360-mag-360mm-black",
-"ksp:310691":"model:case:gaming-gt502-tuf-white",
+"ksp:310691":"model:case:gaming-gt502-plus-tuf-white",
 "ksp:311100":"model:case:m100r-mag-pano-pz-tower-black",
-"ksp:311128":"model:case:m100r-mag-pano-pz-tower-white",
+"ksp:311128":"model:case:m100r-mag-pano-pz-white",
 "ksp:311308":"model:gpu:lp-o6g-rtx3050-6gb",
 "ksp:311371":"model:gpu:lp-o6g-rtx3050-6gb",
 "ksp:311451":"model:motherboard:b760-creator-proart-wifi-atx",
-"ksp:311495":"model:psu:1200w-l-loki-platinum-rog-sfx-1200w-black",
-"ksp:311527":"model:psu:850w-l-loki-platinum-rog-sfx-white-850w-white",
+"ksp:311495":"model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black",
+"ksp:311527":"model:psu:850g-aura-gaming-rog-strix-white-850w-white",
 "ksp:311714":"model:cpu:ryzen78700f-tray",
 "ksp:313403":"model:memory:2x16gb-cl40-m5-ripjaws-32gb-x2-5200mhz-cl40-rgb-white-dimm",
 "ksp:313414":"model:memory:2x32gb-cl40-m5-ripjaws-64gb-x2-4800mhz-cl40-rgb-black-dimm",
@@ -3753,7 +3753,7 @@
 "ksp:313461":"model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
 "ksp:313463":"model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-white-dimm",
 "ksp:313833":"model:cpu:5700",
-"ksp:325661":"model:storage:0-2280-4-nv3-x4-500gb-pcie4-m22280",
+"ksp:325661":"model:storage:nv3-s-series-500gb-pcie4-m22280",
 "ksp:325682":"manual:storage:ksp-325682-tms-snv3s-1000g",
 "ksp:325683":"manual:storage:ksp-325683-tms-snv3s-2000g",
 "ksp:326438":"model:cpu:9600x",
@@ -3769,17 +3769,17 @@
 "ksp:327401":"accessories:ksp:ksp-327401",
 "ksp:327403":"model:aio:420-lc-proart-420mm-black",
 "ksp:327451":"model:cpu:9950x",
-"ksp:328033":"model:case:e-pa602-proart-black",
+"ksp:328033":"model:case:pa602-proart-black",
 "ksp:328212":"model:aio:12-240-cooler-cpu-lcd-liquid-rog-ryujin-360mm-black",
 "ksp:329654":"accessories:ksp:ksp-329654",
 "ksp:330302":"model:storage:purple-wd-8000gb-sata-35",
-"ksp:330369":"model:case:2500x-silver",
+"ksp:330369":"model:case:9011289-cc-ww-silver",
 "ksp:330373":"model:case:2500x-black",
 "ksp:333878":"model:case:gaming-gt302-mid-tower-tuf-black",
-"ksp:334039":"model:case:gaming-gt302-mid-tower-tuf-white",
+"ksp:334039":"model:case:argb-gaming-gt302-tuf-white",
 "ksp:334142":"model:aio:360mm-aio-icue-link-rgb-rx-titan-360mm-white",
-"ksp:334181":"model:psu:1000w-l-loki-platinum-rog-sfx-1000w-black",
-"ksp:334184":"model:psu:850w-l-loki-platinum-rog-sfx-850w-black",
+"ksp:334181":"model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+"ksp:334184":"model:psu:850p-gaming-l-loki-rog-sfx-850w-black",
 "ksp:335377":"aio:ksp:ksp-335377",
 "ksp:335398":"model:memory:16-kf560c36bbeak2-16gb-x2-6000mhz-cl36-rgb-dimm",
 "ksp:335400":"model:memory:16-kvr56u46bs8-16gb-5600mhz-cl46-dimm",
@@ -3834,22 +3834,22 @@
 "ksp:345348":"model:motherboard:aero-g-z890-atx",
 "ksp:346916":"model:memory:48-kf584cu40rsk2-48gb-x2-8400mhz-cl40-silver-dimm",
 "ksp:347940":"model:storage:2280-s3-vi560-2000gb-nvme-m22280",
-"ksp:348061":"model:motherboard:1851-a-pro-wifi-z890-atx",
+"ksp:348061":"model:motherboard:a-pro-wifi-z890-atx",
 "ksp:348119":"model:motherboard:1851-ace-meg-z890-atx",
 "ksp:348145":"model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030",
 "ksp:348147":"accessories:ksp:ksp-348147",
 "ksp:348190":"model:storage:2280-245s-x4-2000gb-pcie4-m22280",
 "ksp:348197":"model:psu:a1250gl-mag-pcie5-1250w",
-"ksp:348248":"model:psu:10cm-fan-fully-modular-sf850-sfx-850w-full-black",
-"ksp:348262":"model:psu:10cm-fan-fully-modular-sf1000-sfx-1000w-full-black",
+"ksp:348248":"model:psu:sf850-850w-full-black",
+"ksp:348262":"model:psu:sf1000-1000w-full-black",
 "ksp:349156":"model:storage:0-4-990-evo-1000gb-pcie4-m22280",
 "ksp:349243":"model:storage:2280-245s-x4-4000gb-pcie4-m22280",
 "ksp:349249":"model:storage:2280-245s-x4-1000gb-pcie4-m22280",
 "ksp:349267":"model:storage:2280-245s-x4-500gb-pcie4-m22280",
 "ksp:349268":"model:storage:2280-245s-x4-250gb-pcie4-m22280",
-"ksp:352248":"model:psu:12cm-atom-b750-750w",
-"ksp:352258":"model:psu:12cm-atom-g750-750w",
-"ksp:352267":"model:case:9000d-airflow-full-icue-super-tower-white",
+"ksp:352248":"model:psu:atom-b750w-750w",
+"ksp:352258":"model:psu:atom-g750w-750w",
+"ksp:352267":"model:case:9011274-cc-ww-white",
 "ksp:353022":"model:psu:12cm-atom-g850-850w",
 "ksp:353101":"model:motherboard:aorus-elite-ice-wifi7-z890m-microatx",
 "ksp:353665":"psu:ksp:ksp-353665",
@@ -3892,11 +3892,11 @@
 "ksp:363779":"model:motherboard:b860-gaming-i-rog-strix-wifi-miniitx",
 "ksp:366557":"model:storage:2280-green-sn3000-1000gb-nvme-m22280",
 "ksp:366562":"model:storage:2280-green-sn3000-2000gb-nvme-m22280",
-"ksp:367665":"model:case:ak5g-black",
-"ksp:367676":"model:case:ak5g-white",
-"ksp:367687":"model:case:ak5m-black",
-"ksp:367813":"model:case:mk6-black",
-"ksp:367823":"model:case:mk6-white",
+"ksp:367665":"model:case:ak5g-rgb-black",
+"ksp:367676":"model:case:ak5g-rgb-white",
+"ksp:367687":"model:case:ak5m-rgb-black",
+"ksp:367813":"model:case:mk6-rgb-black",
+"ksp:367823":"model:case:mk6-rgb-white",
 "ksp:368049":"model:memory:16-kf560c36bbe2a-16gb-6000mhz-cl36-rgb-dimm",
 "ksp:368079":"model:motherboard:b860-ds3h-lga1851-microatx",
 "ksp:368106":"model:motherboard:b860-plus-prime-wifi-atx",
@@ -3934,13 +3934,13 @@
 "ksp:376306":"model:case:cx700-black",
 "ksp:376313":"model:case:1m-performance-black",
 "ksp:376325":"model:case:1m-performance-green",
-"ksp:376410":"model:gpu:5070-epic-fan-gddr7-oc-rtx-triple-x-12gb",
+"ksp:376410":"model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
 "ksp:376634":"model:motherboard:a-am5-b840m-prime-wifi-microatx",
 "ksp:376649":"model:motherboard:am5-b850-prime-wifi-atx",
 "ksp:376663":"model:motherboard:a-b840m-csm-prime-microatx",
 "ksp:376671":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
 "ksp:376700":"model:motherboard:am5-b840-prime-wifi-atx",
-"ksp:378814":"model:gpu:5070-eagle-gddr7-ice-oc-rtx-sff-12gb",
+"ksp:378814":"model:gpu:12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff-12gb",
 "ksp:378818":"model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
 "ksp:378830":"model:gpu:rtx-5080-aero-oc-sff-gddr7-16gb",
 "ksp:379382":"model:storage:5-9100pro-2000gb-pcie5-m22280",
@@ -3949,15 +3949,15 @@
 "ksp:379656":"model:storage:1-2280-3-3x4-ai298-512gb-pcie3-m22280",
 "ksp:379659":"model:storage:1-2280-3-3x4-ai298-1000gb-pcie3-m22280",
 "ksp:379789":"model:gpu:12g-12gd-5070-gaming-gv-n5070gaming-oc-oc-rtx-12gb",
-"ksp:379947":"model:storage:s270-spatium-960gb-sata-25",
+"ksp:379947":"model:storage:2-5-s270-sata-spatium-960gb-sata-25",
 "ksp:379963":"storage:msi:spatium-s270-480gb",
 "ksp:380080":"manual:gpu:ksp-380080-yahav-11160",
 "ksp:380096":"model:gpu:2x-5070-gddr7-oc-rtx-ventus-12gb",
 "ksp:380112":"model:gpu:2x-5070-gddr7-oc-rtx-shadow-12gb",
 "ksp:380164":"model:gpu:3x-5090-gddr7-oc-rtx-ventus-32gb",
-"ksp:380406":"model:case:300r-airflow-mid-mpg-pz-tower-velox-white",
+"ksp:380406":"model:case:300r-airflow-mpg-pz-velox-white",
 "ksp:380414":"model:aio:360-a15-coreliquid-mag-360mm-black",
-"ksp:380416":"model:case:100r-mag-mid-pano-pz-tower-black",
+"ksp:380416":"model:case:100r-mag-pano-pz-black",
 "ksp:380422":"aio:ksp:ksp-380422",
 "ksp:380655":"model:psu:a650bnl-mag-650w-white",
 "ksp:380681":"model:psu:a1000gs-mpg-pcie5-1000w",
@@ -3975,7 +3975,7 @@
 "ksp:382858":"model:case_fan:p8-pst-pwm-slim-80mm-black",
 "ksp:382868":"model:case_fan:co-p9-pst-pwm-92mm-black",
 "ksp:382911":"model:case_fan:p9-silent-92mm-1-black",
-"ksp:382964":"model:gpu:5070-gddr7-oc-rtx-sff-windforce-12gb",
+"ksp:382964":"model:gpu:12g-12gd-5070-geforce-gv-n5070wf3oc-oc-rtx-sff-windforce-12gb",
 "ksp:382972":"model:gpu:16g-16gd-5070-aero-gv-n507taero-oc-oc-rtx-ti-16gb",
 "ksp:382996":"model:gpu:10p-b50800j2-zt-16gb",
 "ksp:383151":"model:aio:360-aio-argb-cooler-cpu-extreme-iii-liquid-rog-ryujin-360mm-black",
@@ -3986,12 +3986,12 @@
 "ksp:383477":"model:aio:360-aio-lc-prime-360mm-black",
 "ksp:383495":"model:aio:360-aio-lc-proart-360mm-black",
 "ksp:383551":"model:motherboard:b850-e-gaming-tuf-wifi-atx",
-"ksp:384611":"model:gpu:5070-gddr7-oc-rtx-sff-ti-windforce-16gb",
+"ksp:384611":"model:gpu:16g-5070-geforce-oc-rtx-sff-ti-windforce-16gb",
 "ksp:385362":"storage:ksp:ksp-385362",
 "ksp:385563":"model:case:argb-cx800-white",
 "ksp:387026":"model:cpu:9900x-tray",
 "ksp:387228":"model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
-"ksp:387614":"model:case:4000d-argb-rs-black",
+"ksp:387614":"model:case:4000d-frame-modular-rs-black",
 "ksp:387881":"model:case_fan:3-rs120-120mm-3-black",
 "ksp:387926":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
 "ksp:389384":"model:gpu:16gb-9060-amd-gpu-pulse-radeon-rx-xt-16gb",
@@ -4003,7 +4003,7 @@
 "ksp:390393":"model:memory:32-kf552c40bb2-32gb-5200mhz-cl40-black-dimm",
 "ksp:390409":"memory:ksp:ksp-390409",
 "ksp:390454":"model:memory:32-kf560c36bbe2-32gb-6000mhz-cl36-black-dimm",
-"ksp:390461":"model:memory:5600mt-beast-cl36-fury-s-64gb-5600mhz-cl36-black-dimm",
+"ksp:390461":"model:memory:64-kf556c36bbe-64gb-5600mhz-cl36-black-dimm",
 "ksp:390472":"model:memory:64-kf552c40bb2k2-64gb-x2-5200mhz-cl40-black-dimm",
 "ksp:390476":"model:memory:64-kf556c40bb2k2-64gb-x2-5600mhz-cl40-black-dimm",
 "ksp:390479":"model:memory:64-kf556c36bbe2k2-64gb-x2-5600mhz-cl36-black-dimm",
@@ -4022,26 +4022,26 @@
 "ksp:390910":"model:gpu:16gb-9060-gddr6-pure-radeon-rx-xt-16gb",
 "ksp:391055":"model:gpu:5060-dual-fan-gddr7-rtx-ti-8gb",
 "ksp:391180":"model:gpu:5060-epic-fan-geforce-overclocked-rgb-rtx-ti-triple-x-8gb",
-"ksp:391188":"model:psu:14cm-fan-fully-modular-rm650e-650w-full-black",
+"ksp:391188":"model:psu:1-1-120mm-3-5-650w-active-atx-fully-gold-modular-pcie-pfc-rm650e-rme-series-650w-full-black",
 "ksp:391686":"model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-"ksp:392879":"model:case:a21-white",
-"ksp:392898":"model:case:a21-black",
-"ksp:392904":"model:case:a23-white",
-"ksp:392918":"model:case:a23-black",
+"ksp:392879":"model:case:a21-plus-white",
+"ksp:392898":"model:case:a21-plus-black",
+"ksp:392904":"model:case:a23-plus-white",
+"ksp:392918":"model:case:a23-plus-black",
 "ksp:393703":"model:gpu:dual-o8g-rx7600-v2-8gb",
 "ksp:393712":"model:motherboard:gaming-max-wifi7-x870-atx",
 "ksp:393732":"model:motherboard:b850m-k-prime-microatx",
 "ksp:393750":"model:motherboard:gaming-plus-tuf-wifi-x670e-atx",
 "ksp:393815":"manual:motherboard:ivory-134868-ksp-393815",
-"ksp:393818":"model:psu:1000g-gaming-gaming-tuf-tuf-1000w-white",
+"ksp:393818":"model:psu:1000w-gaming-tuf-white-1000w-white",
 "ksp:393842":"model:psu:1000g-gaming-gaming-tuf-tuf-1000w-black",
-"ksp:393914":"model:psu:1000w-platinum-rog-strix-1000w-black",
-"ksp:393939":"model:psu:850w-platinum-rog-strix-850w-black",
-"ksp:393947":"model:psu:1200w-platinum-rog-strix-1200w-black",
-"ksp:393957":"model:psu:1000w-platinum-rog-strix-1000w-white",
-"ksp:393964":"model:psu:1000w-iii-platinum-rog-thor-1000w-black",
-"ksp:393982":"model:psu:750g-ap-prime-prime-750w-white",
-"ksp:393986":"model:psu:850g-ap-prime-prime-850w-white",
+"ksp:393914":"model:psu:1000p-gaming-rog-strix-1000w-black",
+"ksp:393939":"model:psu:850p-gaming-rog-strix-850w-black",
+"ksp:393947":"model:psu:1200p-gaming-rog-strix-1200w-black",
+"ksp:393957":"model:psu:1000p-gaming-rog-strix-white-1000w-white",
+"ksp:393964":"model:psu:1000p3-gaming-rog-thor-1000w-black",
+"ksp:393982":"model:psu:750g-ap-prime-750w-white",
+"ksp:393986":"model:psu:850g-ap-prime-850w-white",
 "ksp:395086":"model:gpu:5060-dual-fan-gddr7-rtx-ti-16gb",
 "ksp:395093":"model:storage:0-1t0-2230-4-nv3-snv3sm3-1000gb-pcie4-m22230",
 "ksp:39519":"model:gpu:2g-brk-gt1030-sl-2gb",
@@ -4049,24 +4049,24 @@
 "ksp:395795":"model:memory:2x32gb-6800mt-cl34-m5-ripjaws-s-64gb-x2-6800mhz-cl34-rgb-white-dimm",
 "ksp:395804":"model:memory:2x16gb-8000mt-cl38-s-trident-z5-32gb-x2-8000mhz-cl38-rgb-black-dimm",
 "ksp:395932":"model:case:a31-argb-plus-black",
-"ksp:395945":"model:case:a31-mid-tower-white",
+"ksp:395945":"model:case:a31-argb-plus-white",
 "ksp:395947":"model:memory:2x16gb-8000mt-cl38-s-trident-z5-32gb-x2-8000mhz-cl38-rgb-white-dimm",
-"ksp:395955":"model:case:metal-mid-pa401-proart-tower-wood-black",
+"ksp:395955":"model:case:metal-pa401-proart-wood-black",
 "ksp:395959":"memory:ksp:ksp-395959",
-"ksp:395986":"model:case:glass-mid-pa401-panel-proart-tempered-tower-wood-black",
+"ksp:395986":"model:case:glass-pa401-panel-proart-tempered-wood-black",
 "ksp:396264":"model:gpu:5060-aero-gddr7-oc-rtx-ti-8gb",
 "ksp:396276":"model:gpu:16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt-16gb",
-"ksp:396308":"model:psu:ai1600t-meg-modular-pcie5-titanium-1600w-full",
+"ksp:396308":"model:psu:ai1600t-meg-pcie5-1600w-full",
 "ksp:396383":"manual:accessories:ksp-299721-ksp-396383",
-"ksp:396920":"model:case:glass-mid-pa602-panel-proart-tempered-tower-wood-black",
-"ksp:396930":"model:case:metal-mid-pa602-proart-tower-wood-black",
-"ksp:396945":"model:case:gaming-gt502-horizon-tuf-white",
-"ksp:396958":"model:case:gaming-gt502-horizon-tuf-black",
+"ksp:396920":"model:case:pa602-proart-wood-black",
+"ksp:396930":"model:case:pa602-proart-wood-black",
+"ksp:396945":"model:case:argb-gaming-gt502-horizon-tuf-white",
+"ksp:396958":"model:case:argb-gaming-gt502-horizon-tuf-black",
 "ksp:397070":"model:gpu:5070-oc-rtx-ti-16gb",
 "ksp:397083":"mpn:gpu:vcg5070t16tfxxpb1o",
 "ksp:397130":"manual:psu:1pc-206390-1pc-222424",
 "ksp:397145":"model:gpu:16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti-16gb",
-"ksp:397495":"model:psu:750b-ap-prime-prime-750w-black",
+"ksp:397495":"model:psu:750b-ap-prime-750w-black",
 "ksp:397851":"model:cooler_air:8i-freezer-black",
 "ksp:397908":"model:cooler_air:8i-co-freezer-black",
 "ksp:397944":"model:cooler_air:8a-amd-freezer-black",
@@ -4076,7 +4076,7 @@
 "ksp:398280":"model:cooler_air:50-freezer-tr-120mm",
 "ksp:398486":"model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb",
 "ksp:398493":"model:gpu:5060-8g-8gd-aero-geforce-gv-n5060aero-oc-oc-rtx-8gb",
-"ksp:398500":"model:gpu:5060-eagle-gddr7-oc-rtx-8gb",
+"ksp:398500":"model:gpu:5060-8g-8gd-eagle-geforce-gv-n5060eagle-oc-oc-rtx-8gb",
 "ksp:398985":"model:aio:360-a-freezer-liquid-pro-360mm-black",
 "ksp:398991":"model:aio:360-a-freezer-liquid-pro-360mm-white",
 "ksp:401377":"model:storage:sa510-2000gb-sata-25",
@@ -4092,9 +4092,9 @@
 "ksp:402171":"model:storage:0-2242-4-mp600-2000gb-m2pcie-m22242",
 "ksp:402184":"model:gpu:1xhdmi-3xdp-5060-gaming-gddr7-oc-rtx-tuf-8gb",
 "ksp:402369":"model:memory:0-3-6000-beast-cl30-expo-fury-xmp-16gb-x1-6000mhz-cl30-black-dimm",
-"ksp:403057":"model:gpu:10p-16gb-5070-b50710j3-gaming-gddr7-oc-rtx-sff-solid-ti-zt-16gb",
+"ksp:403057":"model:gpu:10p-b50710j3-zt-16gb",
 "ksp:403267":"model:storage:0-1-2280-4-4-ai818-x4-1000gb-pcie4-m22280",
-"ksp:403810":"model:psu:1200w-iii-platinum-rog-thor-1200w-black",
+"ksp:403810":"model:psu:1200p3-gaming-rog-thor-1200w-black",
 "ksp:40576":"model:storage:0gbps-6-barracuda-st4000dm004-4000gb-sata-35",
 "ksp:405931":"model:memory:32-kf568c34bbeak2-32gb-x2-6800mhz-cl34-rgb-black-dimm",
 "ksp:405984":"model:aio:240-freezer-liquid-pro-240mm-black",
@@ -4142,9 +4142,9 @@
 "ksp:413675":"model:case_fan:12cm-700-nf-redux-s12b-120mm-grey",
 "ksp:413682":"model:case_fan:14cm-a15-nf-pwm-140mm-brown",
 "ksp:413684":"model:case_fan:a15-black-chromax-hs-nf-pwm-swap-140mm-black",
-"ksp:413690":"model:case:m110a-pag-pano-tower-black",
+"ksp:413690":"model:case:m110a-pag-pano-black",
 "ksp:413697":"accessories:ksp:ksp-413697",
-"ksp:413699":"model:case:110r-forge-mag-mid-tower-black",
+"ksp:413699":"model:case:110r-forge-mag-black",
 "ksp:413709":"accessories:ksp:ksp-413709",
 "ksp:413725":"accessories:ksp:ksp-413725",
 "ksp:413744":"accessories:ksp:ksp-413744",
@@ -4155,16 +4155,16 @@
 "ksp:413816":"accessories:ksp:ksp-413816",
 "ksp:414424":"model:gpu:rtx-5050-single-fan-gddr6-8gb",
 "ksp:415440":"model:gpu:5050-dual-fan-gddr6-rtx-8gb",
-"ksp:415721":"model:psu:10cm-fan-fully-modular-sf850-sfx-850w-full-black",
+"ksp:415721":"model:psu:sf850-850w-full-black",
 "ksp:416532":"model:motherboard:b-h810m-pro-microatx",
 "ksp:416574":"model:motherboard:gaming-h810m-wifi6e-microatx",
 "ksp:416603":"motherboard:ksp:ksp-416603",
 "ksp:416673":"model:case:3500x-r-rs-black",
-"ksp:416746":"model:case:3500x-argb-r-rs-white",
+"ksp:416746":"model:case:3500x-r-rs-white",
 "ksp:416766":"model:case:4500x-frame-rs-black",
-"ksp:416792":"model:case:4500x-argb-r-rs-white",
+"ksp:416792":"model:case:4500x-frame-rs-white",
 "ksp:417000":"model:cpu:ryzen59500f-tray",
-"ksp:417715":"model:psu:1600w-iii-rog-thor-titanium-1600w-black",
+"ksp:417715":"model:psu:1600t3-gaming-rog-thor-1600w-black",
 "ksp:418681":"model:memory:2-32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-black-dimm",
 "ksp:418978":"model:motherboard:b850m-pulse-wifi-microatx",
 "ksp:418991":"model:motherboard:b850m-nitro-wifi-microatx",
@@ -4212,16 +4212,16 @@
 "ksp:429800":"accessories:ksp:ksp-429800",
 "ksp:430608":"model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
 "ksp:430613":"model:aio:360-hydro-icue-link-rx-series-x-xh505i-360mm-black",
-"ksp:430622":"model:case:ap202-prime-black",
-"ksp:430632":"model:case:ap202-prime-white",
-"ksp:431457":"model:case:5000d-mid-rs-tower-white",
+"ksp:430622":"model:case:ap202-argb-prime-black",
+"ksp:430632":"model:case:ap202-argb-prime-white",
+"ksp:431457":"model:case:5000d-frame-rs-white",
 "ksp:431581":"model:case_fan:3-gaming-tr120-tuf-120mm-3-rgb-black",
 "ksp:431603":"model:case_fan:3-gaming-tr120-tuf-120mm-3-rgb-white",
 "ksp:431610":"model:case_fan:3-mr120-prime-120mm-3-rgb-black",
 "ksp:431617":"model:case_fan:3-mr120-prime-120mm-3-rgb-white",
 "ksp:431632":"model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm",
 "ksp:431635":"model:memory:32-kf564c32bwe-32gb-6400mhz-cl32-white-dimm",
-"ksp:433185":"model:case:5400-air-argb-atx-chamber-mid-r-rs-tower-triple-white",
+"ksp:433185":"model:case:5400-air-argb-chamber-r-rs-triple-white",
 "ksp:433214":"case:ksp:ksp-433214",
 "ksp:433340":"model:cpu:8400f",
 "ksp:433343":"model:cpu:8600g-tray",
@@ -4258,11 +4258,11 @@
 "ksp:441658":"model:storage:2230-310s-x4-1000gb-pcie4-m22230",
 "ksp:441753":"model:aio:360-hydro-icue-link-rx-series-x-xh505i-360mm-white",
 "ksp:444054":"model:case:argb-vcx10m-black",
-"ksp:444364":"model:case:cx60m-tower-black",
-"ksp:444397":"model:case:ax26-elite-mid-tower-black",
+"ksp:444364":"model:case:cx60m-black",
+"ksp:444397":"model:case:ax26-elite-rgb-black",
 "ksp:444426":"model:case:ax27-elite-mid-tower-black",
 "ksp:444483":"model:motherboard:7-pure-wifi-x870a-atx",
-"ksp:444809":"model:psu:hx1000i-modular-1000w-full-black",
+"ksp:444809":"model:psu:hx1000i-1000w-full-black",
 "ksp:446902":"model:case_fan:p12-pro-reverse-a-pwm-120mm-rgb-white",
 "ksp:446919":"model:case_fan:p12-pro-pwm-reverse-120mm-black",
 "ksp:446935":"model:case_fan:p14-pro-pwm-reverse-140mm-black",
@@ -4276,10 +4276,10 @@
 "ksp:448109":"model:gpu:16gb-9070-gddr6-nitro-oc-phantomlink-polar-radeon-rx-xt-16gb",
 "ksp:448160":"model:gpu:16gb-1xhdmi-3xdp-5060ti-eagle-gddr7-geforce-ice-oc-rtx-16gb",
 "ksp:448641":"manual:case:1pc-222407-ksp-448641",
-"ksp:448674":"model:case:4000d-argb-lcd-rs-white",
-"ksp:451282":"model:psu:14cm-hx1000i-shift-1000w-full-black",
-"ksp:451298":"model:psu:1-14cm-3-rm1000x-shift-1000w-full-black",
-"ksp:451321":"model:psu:1-14cm-3-rm850x-shift-850w-full-black",
+"ksp:448674":"model:case:4000d-frame-lcd-premium-rs-white",
+"ksp:451282":"model:psu:hx1000i-shift-1000w-full-black",
+"ksp:451298":"model:psu:rm1000x-shift-1000w-full-black",
+"ksp:451321":"model:psu:rm850x-shift-850w-full-black",
 "ksp:451326":"model:storage:128mb-4tb-iii-purple-sata-surveillance-4000gb-sata-35",
 "ksp:451327":"model:storage:purple-wd-10000gb-sata-35",
 "ksp:453184":"manual:case-fan:ksp-453184-tms-co-9051027-ww",
@@ -4297,8 +4297,8 @@
 "ksp:458339":"model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
 "ksp:458481":"model:cpu:9950x3d2-tray",
 "ksp:458655":"model:cpu:8700g",
-"ksp:458692":"model:case:mk7-black",
-"ksp:458741":"model:case:j1000-black",
+"ksp:458692":"model:case:argb-mk7-black",
+"ksp:458741":"model:case:argb-j1000-black",
 "ksp:458753":"model:case:ca500-elite-shark-black",
 "ksp:458762":"model:case:vs4-w-black",
 "ksp:458928":"cooler_air:ksp:ksp-458928",
@@ -4329,10 +4329,10 @@
 "ksp:464683":"model:motherboard:am5-b850-gaming-neo-pro-tuf-wifi-atx",
 "ksp:464718":"model:motherboard:b840m-k-prime-microatx",
 "ksp:465121":"model:psu:750b-prime-prime-750w-white",
-"ksp:465126":"model:psu:1200w-iii-platinum-rog-thor-1200w-white",
+"ksp:465126":"model:psu:1200p3-gaming-rog-thor-white-1200w-white",
 "ksp:465131":"model:case:ap303-mesh-panel-prime-white",
-"ksp:465151":"model:case:gx601s-helios-ii-mid-rog-strix-tower-white",
-"ksp:465183":"model:case:gx601s-helios-ii-mid-rog-strix-tower-black",
+"ksp:465151":"model:case:gx601s-helios-ii-rog-strix-white",
+"ksp:465183":"model:case:gx601s-helios-ii-rog-strix-black",
 "ksp:465273":"model:case:ap303-panel-prime-white",
 "ksp:466965":"model:storage:ai238-256gb-sata-25",
 "ksp:466979":"model:storage:ai238-512gb-sata-25",
@@ -4350,7 +4350,7 @@
 "ksp:469349":"model:motherboard:nitro-phantomlink-x870ea-atx",
 "ksp:469370":"model:motherboard:nitro-phantomlink-polar-x870ea-atx",
 "ksp:46962":"model:storage:960g-a400-sa400s37-960gb-sata-25",
-"ksp:470279":"model:psu:750w-80-evo-gold-gold-plus-tuf-750w",
+"ksp:470279":"model:psu:750g-evo-gaming-tuf-750w",
 "ksp:471018":"model:aio:12-240-cooler-cpu-lc-liquid-tuf-240mm-black",
 "ksp:471047":"model:case_fan:pf120-proart-pwm-120mm-white",
 "ksp:471091":"model:case_fan:pf120-proart-pwm-120mm-black",
@@ -4362,8 +4362,8 @@
 "ksp:471596":"model:aio:360-lc-rog-strix-360mm-black",
 "ksp:471809":"model:aio:360-iv-rog-ryuo-slc-360mm-white",
 "ksp:471826":"model:aio:360-iv-rog-ryuo-slc-360mm-black",
-"ksp:471840":"model:case:ap303-mesh-panel-prime-black",
-"ksp:471842":"model:case:ap303-panel-prime-black",
+"ksp:471840":"model:case:ap303-prime-black",
+"ksp:471842":"model:case:ap303-prime-black",
 "ksp:471851":"case:ksp:ksp-471851",
 "ksp:471871":"model:aio:360-iv-rog-ryuo-360mm-black",
 "ksp:471879":"model:aio:360-iv-rog-ryuo-360mm-white",
@@ -4373,8 +4373,8 @@
 "ksp:472502":"case:ksp:ksp-472502",
 "ksp:472524":"model:cpu:7900",
 "ksp:47270":"model:case_fan:120mm-3-led-levitation-magnetic-ml120-premium-pwm-rgb-120mm-rgb",
-"ksp:473389":"model:psu:750w-80-ats-gold-plus-750w",
-"ksp:473407":"model:psu:80-850w-ats-gold-plus-850w",
+"ksp:473389":"model:psu:750w-ats-gold-750w",
+"ksp:473407":"model:psu:850w-ats-gold-850w",
 "ksp:474265":"model:cpu:5800x3d",
 "ksp:474464":"model:gpu:2x-5060-oc-rtx-v1-ventus-8gb",
 "ksp:474505":"model:motherboard:b840m-gaming-wifi6e-microatx-msi",
@@ -4401,7 +4401,7 @@
 "ksp:480433":"memory:ksp:ksp-480433",
 "ksp:480435":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "ksp:480438":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm",
-"ksp:480492":"model:storage:0-4-m452-spatium-500gb-pcie4-m22280",
+"ksp:480492":"model:storage:0-2-4-m-m452-nvme-pcie-spatium-500gb-pcie4-m22280",
 "ksp:480511":"model:storage:0-4-m452-spatium-1000gb-pcie4-m22280",
 "ksp:480604":"model:motherboard:a-am5-gaming-neo-rog-strix-wifi7-x870e-atx",
 "ksp:482946":"case:ksp:ksp-482946",
@@ -4415,7 +4415,7 @@
 "ksp:483233":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm",
 "ksp:483234":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
 "ksp:485615":"case_fan:ksp:ksp-485615",
-"ksp:486578":"model:psu:80-850w-evo-gold-gold-plus-tuf-850w",
+"ksp:486578":"model:psu:850g-evo-gaming-tuf-850w",
 "ksp:487901":"model:storage:0-4-990-1000gb-pciegen40-m22280",
 "ksp:489119":"model:memory:2x16gb-6000a3636f16gx2-6000mt-cl36-ddr5-f5-g-neo-rgb-s-trident-tz5nxrk-x-z5-32gb-x2-6000mhz-cl36-rgb-black-dimm",
 "ksp:489120":"model:memory:2x16gb-6000a3636f16gx2-6000mt-cl36-ddr5-f5-g-neo-rgb-s-trident-tz5nxrw-x-z5-32gb-x2-6000mhz-cl36-rgb-white-dimm",
@@ -4469,7 +4469,7 @@
 "ksp:500644":"model:storage:0-4-elite-mp600-pro-ps5-ps5-2000gb-pcie4-m22280",
 "ksp:500649":"model:memory:6000mt-cl38-s-vengeance-16gb-6000mhz-cl38-grey-dimm",
 "ksp:502151":"model:gpu:90yv0m1g-gaming-m0na00-o12g-rtx5070-t1-12gb",
-"ksp:502160":"model:psu:1-14cm-3-rm850x-shift-850w-full-black",
+"ksp:502160":"model:psu:rm850x-shift-850w-full-black",
 "ksp:502173":"model:gpu:90yv0nt4-gaming-m0na00-o8g-rtx5060ti-t1-8gb",
 "ksp:502205":"model:gpu:5060-8gb-advanced-dual-gddr7-geforce-oc-rtx-8gb",
 "ksp:502208":"model:gpu:o-vcg5070t16dfsxpb1-16gb",
@@ -4481,28 +4481,28 @@
 "ksp:502719":"model:case:argb-cronox-gr801-rog-black",
 "ksp:502971":"model:case_fan:3-eurux-gr120-reverse-rog-120mm-3-rgb-black",
 "ksp:502972":"model:case_fan:3-eurux-gr120-rog-120mm-3-rgb-white",
-"ksp:502973":"model:psu:1600w-80-platinum-plus-pro-ws-1600w",
-"ksp:502976":"model:psu:2200w-80-platinum-plus-pro-ws-2200w",
+"ksp:502973":"model:psu:1600p-pro-ws-1600w",
+"ksp:502976":"model:psu:2200p-pro-ws-2200w",
 "ksp:503012":"model:case_fan:3-icue-ii-link-pwm-rx360-rgb-white",
 "ksp:503016":"model:case_fan:3-icue-ii-link-pwm-rx360-rgb-black",
 "ksp:503022":"model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb",
 "ksp:503035":"gpu:ksp:ksp-503035",
 "ksp:503065":"model:aio:360mm-aio-icue-ii-link-rgb-rx-titan-360mm-black",
-"ksp:503076":"model:psu:20-prog-thor-titanium-3000w",
+"ksp:503076":"model:psu:20th-3000t3-gaming-rog-thor-3000w",
 "ksp:503789":"accessories:ksp:ksp-503789",
 "ksp:504876":"model:motherboard:a520m-prime-r-microatx-a520",
 "ksp:505073":"model:cpu:5500f-tray",
 "ksp:505096":"model:storage:1-2280-3-3x4-ai298l-512gb-pcie3-m22280",
 "ksp:505102":"model:storage:1-2280-3-3x4-ai198r-256gb-pcie3-m22280",
 "ksp:505823":"model:storage:2280-5-cs2341-playstation-1000gb-nvme-m22280",
-"ksp:506570":"model:psu:1200w-iii-platinum-rog-thor-1200w-black",
+"ksp:506570":"model:psu:1200p3-gaming-rog-thor-1200w-black",
 "ksp:506575":"model:case:metal-mid-pa401-proart-tower-wood-black",
 "ksp:506597":"storage:ksp:ksp-506597",
 "ksp:506598":"model:motherboard:b760-g-gaming-rog-strix-wifi-microatx",
 "ksp:506599":"motherboard:ksp:ksp-506599",
-"ksp:506733":"model:case:ap304-prime-white",
-"ksp:506753":"model:case:cronox-full-gr801-rog-tower-white",
-"ksp:506756":"model:case:ap304-prime-black",
+"ksp:506733":"model:case:ap304-argb-prime-white",
+"ksp:506753":"model:case:argb-cronox-gr801-rog-white",
+"ksp:506756":"model:case:ap304-argb-prime-black",
 "ksp:507933":"case:ksp:ksp-507933",
 "ksp:507946":"gpu:ksp:ksp-507946",
 "ksp:508044":"model:gpu:9070-amd-mortis-nitro-oc-radeon-rx-valor-xt-16gb",
@@ -4511,9 +4511,9 @@
 "ksp:50988":"model:storage:0gbps-6-barracuda-st8000dm004-8000gb-sata-35",
 "ksp:50990":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
 "ksp:510165":"model:motherboard:b550m-pulse-microatx",
-"ksp:510234":"model:gpu:12gb-9070-evo-gddr6-gre-oc-prime-radeon-rx-12gb",
+"ksp:510234":"model:gpu:evo-o12g-prime-rx9070gre-12gb",
 "ksp:511473":"model:case:a23-black",
-"ksp:52696":"model:case:case-vs7-window-black",
+"ksp:52696":"model:case:vs7-black",
 "ksp:54176":"model:gpu:2g-brk-gt1030-2gb",
 "ksp:56334":"model:case_fan:p12-120mm-black",
 "ksp:56465":"model:storage:pro-wd2002ffsx-2000gb-sata-35",
@@ -5348,15 +5348,15 @@
 "plonter:CP-9020273-EU":"model:psu:fully-modular-rm750x-shift-750w-full-black",
 "plonter:CP-9020277-EU":"manual:psu:1pc-222371-ivory-113511",
 "plonter:CP-9020278-EU":"manual:psu:1pc-222372-ivory-86640",
-"plonter:CP-9020279-EU":"model:psu:9020279-cp-cx750-eu-750w-no-black",
+"plonter:CP-9020279-EU":"model:psu:9020279-cp-eu-750w-no-black",
 "plonter:CP-9020292-EU":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
 "plonter:CP-9020293-EU":"model:psu:1-3-fully-modular-rm850e-850w-full-white",
 "plonter:CP-9020294-EU":"model:psu:rm1000e-1000w-full-white",
 "plonter:CP-9020295-EU":"model:psu:1-3-fully-modular-rm750e-750w-full-black",
 "plonter:CP-9020296-EU":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
 "plonter:CP-9020297-EU":"model:psu:rm1000e-1000w-full-black",
-"plonter:CP-9020299-EU":"model:psu:fully-modular-rm850x-shift-850w-full-black",
-"plonter:CP-9020300-EU":"model:psu:fully-modular-rm1000x-shift-1000w-full-black",
+"plonter:CP-9020299-EU":"model:psu:rm850x-shift-850w-full-black",
+"plonter:CP-9020300-EU":"model:psu:rm1000x-shift-1000w-full-black",
 "plonter:CP-9020302-EU":"mpn:psu:cp9020302eu",
 "plonter:CP-9020307-EU":"model:psu:hx1200i-1200w-full-black",
 "plonter:CP-9020309-EU":"manual:psu:1pc-206390-1pc-222424",
@@ -7397,7 +7397,7 @@
 "tms:AP1TBAS350-1":"mpn:storage:ap1tbas3501",
 "tms:AP2TBAS2280P4U":"model:storage:ap2tbas2280p4u-x4-2000gb-m2pcie-m22280",
 "tms:ARC-B580-MILESTONE-12G":"mpn:gpu:arcb580milestone12g",
-"tms:ATOM-B650":"model:psu:apfc-atom-atom-b650-650w",
+"tms:ATOM-B650":"model:psu:atom-b650-650w",
 "tms:ATOM-G750":"mpn:psu:atomg750",
 "tms:ATOM-G850":"model:psu:atom-g850-850w-semi",
 "tms:ATOM-V650":"model:psu:atom-atom-v650-v650-650w",
@@ -7857,8 +7857,8 @@
 "tms:CP-9020296-EU":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
 "tms:CP-9020297-EU":"model:psu:rm1000e-1000w-full-black",
 "tms:CP-9020298-EU":"model:psu:fully-modular-rm750x-shift-750w-full",
-"tms:CP-9020299-EU":"model:psu:fully-modular-rm850x-shift-850w-full-black",
-"tms:CP-9020300-EU":"model:psu:fully-modular-rm1000x-shift-1000w-full-black",
+"tms:CP-9020299-EU":"model:psu:rm850x-shift-850w-full-black",
+"tms:CP-9020300-EU":"model:psu:rm1000x-shift-1000w-full-black",
 "tms:CP-9020302-EU":"model:psu:1-1-120mm-3-5-650w-active-atx-fully-gold-modular-pcie-pfc-rm650e-rme-series-650w-full-black",
 "tms:CP-9020307-EU":"model:psu:hx1200i-1200w-full-black",
 "tms:CP-9020309-EU":"manual:psu:1pc-206390-1pc-222424",
@@ -9494,7 +9494,7 @@
 "yahav:10567":"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb",
 "yahav:10568":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "yahav:10570":"model:psu:750dc-csk-modular-non-750w-no-white",
-"yahav:10573":"model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
+"yahav:10573":"mpn:gpu:vcg507012tfxxpb1o",
 "yahav:10582":"model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb",
 "yahav:10586":"manual:aio:1pc-206395-1pc-222386",
 "yahav:10587":"manual:aio:1pc-172763-1pc-222384",
@@ -9541,7 +9541,7 @@
 "yahav:10681":"model:aio:14cfm-360mm-360s-3800rpm-73-cooler-hydroshift-lcd-water-white-360mm-white",
 "yahav:10683":"model:case_fan:3xfans-lcd-tl120-uni-wireless-120mm-3-rgb-white",
 "yahav:10687":"model:aio:360-aio-oled-rog-ryujin-360mm-white",
-"yahav:10692":"model:psu:1-1-atx3-modular-oled-rog-thor-1200w",
+"yahav:10692":"model:psu:1200p3-gaming-rog-thor-1200w-black",
 "yahav:10702":"model:case_fan:fan-lcd-single-tl120-uni-wireless-120mm-1-rgb-white",
 "yahav:10705":"model:gpu:32g-5090-aorus-geforce-rtx-waterforce-xtreme-32gb",
 "yahav:10706":"mpn:gpu:n5090aorusm32gd",
@@ -9857,7 +9857,7 @@
 "yahav:11674":"model:storage:2-2048gb-2tb-7300mb-basic-exceria-gen4-m-nvme-retail-series-ssd-2000gb-m2pcie-m2",
 "yahav:11675":"model:memory:2nd-2x32gb-6000mhz-64gb-amd-black-cl40-ddr4-dual-expo-heatsink-intel-packs-single-support-thor-xmp-64gb-x2-6000mhz-cl40-black",
 "yahav:11677":"model:case:5000d-frame-rs-white",
-"yahav:11678":"model:psu:fully-modular-rm1000x-shift-1000w-full-black",
+"yahav:11678":"model:psu:rm1000x-shift-1000w-full-black",
 "yahav:11680":"model:case:21-3l-b4-case-compact-mesh-black",
 "yahav:11681":"model:case:21-3l-b4-case-compact-mesh-white",
 "yahav:11682":"model:case:21-3l-b4-case-compact-wood-black",
@@ -10161,7 +10161,7 @@
 "yahav:8601":"model:aio:420mm-9061004-aio-cooler-cpu-cw-h170i-icue-link-liquid-rgb-ww-420mm-black",
 "yahav:8602":"model:aio:1cfm-63-aio-h150i-icue-link-360mm",
 "yahav:8604":"model:aio:1cfm-63-aio-elite-h150i-icue-360mm-white",
-"yahav:8610":"model:psu:0-3-active-hx1000i-hxi-pcie5-pfc-series-1000w-full-black",
+"yahav:8610":"model:psu:hx1000i-1000w-full-black",
 "yahav:8627":"model:cpu:7600x-tray",
 "yahav:8628":"model:cpu:7700-tray",
 "yahav:8630":"model:cpu:7700x-tray",
@@ -10228,7 +10228,7 @@
 "yahav:9144":"model:storage:990-pro-4000gb-m2-m22280",
 "yahav:9148":"mpn:accessories:antecp20temperedglass",
 "yahav:9151":"manual:psu:1pc-222372-ivory-86640",
-"yahav:9152":"model:psu:9020279-cp-cx750-eu-750w-no-black",
+"yahav:9152":"model:psu:9020279-cp-eu-750w-no-black",
 "yahav:9154":"model:case:2x-3x-700-berserker-haf-mastercase-black",
 "yahav:9163":"model:cooler_air:120-120mm-1550rpm-17cfm-66-assassin-king-se-120mm",
 "yahav:9172":"model:case:1x120mm-3x140mm-fans-mid-mx600-tower-black",
@@ -12320,23 +12320,19 @@
 "Cooler Master Deepcool Mater Antec CG530 White",
 "case"
 ],
-"model:case:100m-forge-mag-mid-tower-black":[
-"MSI MAG Forge 100M Black",
-"case"
-],
-"model:case:100r-mag-mid-pano-pz-tower-black":[
-"MSI MAG Pano 100R PZ Black",
-"case"
-],
 "model:case:100r-mag-pano-pz":[
 "MSI MAG Pano 100R PZ Black (4711377231565)",
+"case"
+],
+"model:case:100r-mag-pano-pz-black":[
+"MSI MAG Pano 100R PZ Black",
 "case"
 ],
 "model:case:100r-mag-pano-pz-white":[
 "MSI MAG Pano 100R PZ White",
 "case"
 ],
-"model:case:110r-forge-mag-mid-tower-black":[
+"model:case:110r-forge-mag-black":[
 "MSI MAG Forge 110R Black",
 "case"
 ],
@@ -12632,10 +12628,6 @@
 "Corsair 2500X White (CC-9011266-WW)",
 "case"
 ],
-"model:case:2500x-silver":[
-"Corsair 2500X Micro Silver",
-"case"
-],
 "model:case:2500x-white":[
 "Corsair 2500X RGB 2X120MM White",
 "case"
@@ -12776,20 +12768,28 @@
 "MSI MPG Gungnir 300P Airflow Black",
 "case"
 ],
-"model:case:300r-airflow-gungnir-mid-mpg-tower-black":[
+"model:case:300r-airflow-gungnir-mpg-black":[
 "MSI MPG Gungnir 300R Airflow Black",
-"case"
-],
-"model:case:300r-airflow-mid-mpg-pz-tower-velox-white":[
-"MSI MPG Velox 300R Airflow White",
 "case"
 ],
 "model:case:300r-airflow-mpg-pz-velox-black":[
 "MSI MPG VELOX 300R AIRFLOW PZ",
 "case"
 ],
+"model:case:300r-airflow-mpg-pz-velox-white":[
+"MSI MPG Velox 300R Airflow White",
+"case"
+],
 "model:case:304-node-black":[
 "Fractal Design Node 304 Black",
+"case"
+],
+"model:case:306-7g03m21-809-black":[
+"MSI MAG Forge 100M Black",
+"case"
+],
+"model:case:306-7g20r21-809-black":[
+"MSI MAG Forge M100R Micro Black",
 "case"
 ],
 "model:case:313-fara-black":[
@@ -12816,10 +12816,6 @@
 "Corsair 3500X RS-R ARGB 4X120MM Black",
 "case"
 ],
-"model:case:3500x-argb-r-rs-white":[
-"Corsair 3500X RS-R ARGB White",
-"case"
-],
 "model:case:3500x-black":[
 "Corsair 3500X Black",
 "case"
@@ -12841,7 +12837,7 @@
 "case"
 ],
 "model:case:3500x-r-rs-white":[
-"Corsair 3500X RS-R ARGB White (CC-9011323-WW)",
+"Corsair 3500X RS-R ARGB White",
 "case"
 ],
 "model:case:3500x-white":[
@@ -13004,14 +13000,6 @@
 "Jonsbo TK-4 Wood Black",
 "case"
 ],
-"model:case:4000d-argb-lcd-rs-white":[
-"Corsair 4000D LCD RS Frame White",
-"case"
-],
-"model:case:4000d-argb-rs-black":[
-"Corsair 4000D RS Frame ARGB Black",
-"case"
-],
 "model:case:4000d-frame-black":[
 "Corsair Frame 4000D Black",
 "case"
@@ -13070,10 +13058,6 @@
 ],
 "model:case:420-hs-mid-tower-vgpu-window-white":[
 "Havn HS 420 Vgpu Edition White",
-"case"
-],
-"model:case:4500x-argb-r-rs-white":[
-"Corsair 4500X RS-R ARGB White",
 "case"
 ],
 "model:case:4500x-frame-link-lx-black":[
@@ -13316,10 +13300,6 @@
 "Corsair Frame 5000D RS ARGB White",
 "case"
 ],
-"model:case:5000d-mid-rs-tower-white":[
-"Corsair 5000D RS White",
-"case"
-],
 "model:case:5000d-tg-white":[
 "Corsair 5000D TG White",
 "case"
@@ -13400,16 +13380,12 @@
 "SilverStone Fara 513 USB-C Black",
 "case"
 ],
-"model:case:5400-air-argb-atx-chamber-mid-r-rs-tower-triple-white":[
-"Corsair AIR RS-R ARGB Triple White",
-"case"
-],
 "model:case:5400-air-argb-chamber-r-rs-triple-black":[
 "Corsair AIR RS-R ARGB Triple Black",
 "case"
 ],
 "model:case:5400-air-argb-chamber-r-rs-triple-white":[
-"Corsair AIR RS-R ARGB Triple White (CC-9011319-WW)",
+"Corsair AIR RS-R ARGB Triple White",
 "case"
 ],
 "model:case:5400-air-chamber-icue-link-lx-r-rgb-triple-black":[
@@ -13500,10 +13476,6 @@
 "Corsair Icue 7000D Airflow White",
 "case"
 ],
-"model:case:7000d-airflow-icue-black":[
-"Corsair 7000D Airflow Black",
-"case"
-],
 "model:case:7000x-full-icue-series-tower-black":[
 "Corsair Icue 7000X Black",
 "case"
@@ -13560,12 +13532,12 @@
 "Antec ANTEC900 Black",
 "case"
 ],
-"model:case:9000d-airflow-full-icue-super-tower-white":[
-"Corsair Icue 9000D RGB Airflow White",
-"case"
-],
 "model:case:901-base-bgw50-dark-pro-black":[
 "Be Quiet Dark Base Pro 901 BGW50",
+"case"
+],
+"model:case:9011218-cc-ww-black":[
+"Corsair 7000D Airflow Black",
 "case"
 ],
 "model:case:9011257-cc-ww-black":[
@@ -13584,8 +13556,16 @@
 "Corsair Icue Link 6500X RGB White",
 "case"
 ],
+"model:case:9011274-cc-ww-white":[
+"Corsair Icue 9000D RGB Airflow White",
+"case"
+],
 "model:case:9011280-cc-ww-black":[
 "Corsair Icue Link 3500X RGB Black",
+"case"
+],
+"model:case:9011289-cc-ww-silver":[
+"Corsair 2500X Micro Silver",
 "case"
 ],
 "model:case:9011340-cc-ww":[
@@ -13600,11 +13580,11 @@
 "Corsair (CC-9011350-WW)",
 "case"
 ],
-"model:case:a21-black":[
+"model:case:a21-plus-black":[
 "Asus A21 PLUS ARGB Micro ATX",
 "case"
 ],
-"model:case:a21-white":[
+"model:case:a21-plus-white":[
 "Asus A21 PLUS ARGB Micro ATX",
 "case"
 ],
@@ -13612,7 +13592,11 @@
 "Asus A23 PLUS ARGB Micro ATX",
 "case"
 ],
-"model:case:a23-white":[
+"model:case:a23-plus-black":[
+"Asus A23 PLUS ARGB Micro ATX",
+"case"
+],
+"model:case:a23-plus-white":[
 "Asus A23 PLUS ARGB Micro ATX",
 "case"
 ],
@@ -13648,7 +13632,7 @@
 "ASUS A31 Plus ARGB Black",
 "case"
 ],
-"model:case:a31-mid-tower-white":[
+"model:case:a31-argb-plus-white":[
 "ASUS A31 Plus ARGB White",
 "case"
 ],
@@ -13704,15 +13688,15 @@
 "Corsair Warthog RS Airflow Olive drab",
 "case"
 ],
-"model:case:ak5g-black":[
+"model:case:ak5g-rgb-black":[
 "Sharkoon AK5G RGB ATX",
 "case"
 ],
-"model:case:ak5g-white":[
+"model:case:ak5g-rgb-white":[
 "Sharkoon AK5G RGB ATX",
 "case"
 ],
-"model:case:ak5m-black":[
+"model:case:ak5m-rgb-black":[
 "Sharkoon AK5M RGB ATX",
 "case"
 ],
@@ -13756,47 +13740,47 @@
 "Gigabyte Aorus C400 Black",
 "case"
 ],
-"model:case:ap201-prime-small-tower-black":[
+"model:case:ap201-glass-prime-tempered-black":[
 "ASUS Prime AP201 Small Black",
 "case"
 ],
-"model:case:ap201-prime-small-tower-white":[
+"model:case:ap201-glass-prime-tempered-white":[
+"ASUS Prime AP201 Small White",
+"case"
+],
+"model:case:ap201-prime-black":[
+"ASUS Prime AP201 Small Black",
+"case"
+],
+"model:case:ap201-prime-white":[
 "ASUS Prime AP201 Small White",
 "case"
 ],
 "model:case:ap202-argb-prime-black":[
-"ASUS Prime AP202 ARGB Black",
-"case"
-],
-"model:case:ap202-prime-black":[
 "Asus Prime AP202 ARGB Micro ATX",
 "case"
 ],
-"model:case:ap202-prime-white":[
+"model:case:ap202-argb-prime-white":[
 "Asus Prime AP202 ARGB Micro ATX",
-"case"
-],
-"model:case:ap303-mesh-panel-prime-black":[
-"ASUS Prime AP303 Black",
 "case"
 ],
 "model:case:ap303-mesh-panel-prime-white":[
 "ASUS Prime AP303 White",
 "case"
 ],
-"model:case:ap303-panel-prime-black":[
-"ASUS Prime AP303 Black",
-"case"
-],
 "model:case:ap303-panel-prime-white":[
 "ASUS Prime AP303 White",
 "case"
 ],
-"model:case:ap304-prime-black":[
+"model:case:ap303-prime-black":[
+"ASUS Prime AP303 Black",
+"case"
+],
+"model:case:ap304-argb-prime-black":[
 "Asus Prime AP304 ARGB ATX",
 "case"
 ],
-"model:case:ap304-prime-white":[
+"model:case:ap304-argb-prime-white":[
 "Asus Prime AP304 ARGB ATX",
 "case"
 ],
@@ -13832,6 +13816,10 @@
 "ASUS GR801 ROG Cronox ARGB Black",
 "case"
 ],
+"model:case:argb-cronox-gr801-rog-white":[
+"ASUS GR801 ROG Cronox ARGB White",
+"case"
+],
 "model:case:argb-cx800-white":[
 "Antec CX800 ARGB White",
 "case"
@@ -13840,8 +13828,28 @@
 "Ivory Gaming G2 ARGB Black",
 "case"
 ],
+"model:case:argb-gaming-gt302-tuf-white":[
+"ASUS TUF GT302 ARGB White",
+"case"
+],
+"model:case:argb-gaming-gt502-horizon-tuf-black":[
+"ASUS TUF GT502 Horizon ARGB Black",
+"case"
+],
+"model:case:argb-gaming-gt502-horizon-tuf-white":[
+"ASUS TUF GT502 Horizon ARGB White",
+"case"
+],
 "model:case:argb-hatlen-black":[
 "Ivory Gaming Hatlen ARGB Black",
+"case"
+],
+"model:case:argb-j1000-black":[
+"Sharkoon J1000 ARGB Black",
+"case"
+],
+"model:case:argb-mk7-black":[
+"Sharkoon MK7 ARGB Black",
 "case"
 ],
 "model:case:argb-omnyx-black":[
@@ -13940,7 +13948,7 @@
 "Antec AX20 Elite 4X120MM Fixed Black",
 "case"
 ],
-"model:case:ax26-elite-mid-tower-black":[
+"model:case:ax26-elite-rgb-black":[
 "Antec AX26 RGB Elite Black",
 "case"
 ],
@@ -14212,10 +14220,6 @@
 "1stPlayer PB8 2FH7R W 1FH7 White",
 "case"
 ],
-"model:case:case-vs7-window-black":[
-"Sharkoon VS7 Black",
-"case"
-],
 "model:case:case-wd8-black":[
 "1stPlayer WD8 2FH7R 1FH7 Black",
 "case"
@@ -14296,10 +14300,6 @@
 "CoolerMaster MasterCase SL600M",
 "case"
 ],
-"model:case:cronox-full-gr801-rog-tower-white":[
-"ASUS GR801 ROG Cronox ARGB White",
-"case"
-],
 "model:case:crystal-p120-black":[
 "Antec Performance P120 Crystal Black",
 "case"
@@ -14350,10 +14350,6 @@
 ],
 "model:case:cx60m-black":[
 "Antec CX CX60M ARGB 3X120MM Black",
-"case"
-],
-"model:case:cx60m-tower-black":[
-"Antec CX60M ARGB Black",
 "case"
 ],
 "model:case:cx700-black":[
@@ -14440,10 +14436,6 @@
 "Lian Li O11 Dynamic V2 Black",
 "case"
 ],
-"model:case:e-pa602-proart-black":[
-"ASUS Proart PA602 Black",
-"case"
-],
 "model:case:e600-kgnn-s02":[
 "Cooler Master E600-Kgnn-S02",
 "case"
@@ -14500,10 +14492,6 @@
 "Antec Flux 3X120MM White",
 "case"
 ],
-"model:case:forge-m100r-mag-tower-black":[
-"MSI MAG Forge M100R Micro Black",
-"case"
-],
 "model:case:gaming-gt301-mid-tower-tuf-black":[
 "ASUS GT301 TUF Black",
 "case"
@@ -14512,23 +14500,7 @@
 "ASUS TUF GT302 ARGB Black",
 "case"
 ],
-"model:case:gaming-gt302-mid-tower-tuf-white":[
-"ASUS TUF GT302 ARGB White",
-"case"
-],
-"model:case:gaming-gt502-horizon-tuf-black":[
-"ASUS TUF GT502 Horizon ARGB Black",
-"case"
-],
-"model:case:gaming-gt502-horizon-tuf-white":[
-"ASUS TUF GT502 Horizon ARGB White",
-"case"
-],
 "model:case:gaming-gt502-plus-tuf-white":[
-"ASUS TUF GT502 Plus White (90DC0093-B19000)",
-"case"
-],
-"model:case:gaming-gt502-tuf-white":[
 "ASUS TUF GT502 Plus White",
 "case"
 ],
@@ -14536,19 +14508,15 @@
 "SilverStone GD09 SST Black",
 "case"
 ],
-"model:case:glass-mid-pa401-panel-proart-tempered-tower-wood-black":[
+"model:case:glass-pa401-panel-proart-tempered-wood-black":[
 "ASUS Proart PA401 Wood Edition Black",
 "case"
 ],
-"model:case:glass-mid-pa602-panel-proart-tempered-tower-wood-black":[
-"ASUS Proart PA602 Wood Edition Black",
-"case"
-],
-"model:case:gr701-hyperion-rog-tower-black":[
+"model:case:gr701-hyperion-rog-black":[
 "ASUS ROG Hyperion GR701 Black",
 "case"
 ],
-"model:case:gr701-hyperion-rog-tower-white":[
+"model:case:gr701-hyperion-rog-white":[
 "ASUS ROG Hyperion GR701 White",
 "case"
 ],
@@ -14560,11 +14528,11 @@
 "Jonsbo X400 Gray",
 "case"
 ],
-"model:case:gx601s-helios-ii-mid-rog-strix-tower-black":[
+"model:case:gx601s-helios-ii-rog-strix-black":[
 "ASUS GX601S ROG Strix Helios Black",
 "case"
 ],
-"model:case:gx601s-helios-ii-mid-rog-strix-tower-white":[
+"model:case:gx601s-helios-ii-rog-strix-white":[
 "ASUS GX601S ROG Strix Helios White",
 "case"
 ],
@@ -14602,10 +14570,6 @@
 ],
 "model:case:itx-mini-qbx-tower-black":[
 "Cougar QBX Mini ITX Tower",
-"case"
-],
-"model:case:j1000-black":[
-"Sharkoon J1000 ARGB Black",
 "case"
 ],
 "model:case:light-nano-tg-tint-torrent-white-white":[
@@ -14652,11 +14616,11 @@
 "MSI MAG Pano M100R PZ Black",
 "case"
 ],
-"model:case:m100r-mag-pano-pz-tower-white":[
+"model:case:m100r-mag-pano-pz-white":[
 "MSI MAG Pano M100R PZ White",
 "case"
 ],
-"model:case:m110a-pag-pano-tower-black":[
+"model:case:m110a-pag-pano-black":[
 "MSI PAG Pano M110A Micro Black",
 "case"
 ],
@@ -14696,10 +14660,6 @@
 "Mid Tower Asus ProArt PA401 Wood Edition Metal",
 "case"
 ],
-"model:case:metal-mid-pa602-proart-tower-wood-black":[
-"ASUS Proart PA602 Wood Edition Black",
-"case"
-],
 "model:case:metal-pa401-panel-proart-black":[
 "ASUS Proart PA401 Metal Black",
 "case"
@@ -14708,16 +14668,16 @@
 "ASUS Proart PA401 Wood Edition Black",
 "case"
 ],
-"model:case:mk6-black":[
+"model:case:metal-pa401-proart-wood-black":[
+"ASUS Proart PA401 Wood Edition Black",
+"case"
+],
+"model:case:mk6-rgb-black":[
 "Sharkoon MK6 RGB Black",
 "case"
 ],
-"model:case:mk6-white":[
+"model:case:mk6-rgb-white":[
 "Sharkoon MK6 RGB White",
-"case"
-],
-"model:case:mk7-black":[
-"Sharkoon MK7 ARGB Black",
 "case"
 ],
 "model:case:momentum-north-black":[
@@ -14802,6 +14762,14 @@
 ],
 "model:case:p30-black":[
 "Antec P30 ARGB Black",
+"case"
+],
+"model:case:pa602-proart-black":[
+"ASUS Proart PA602 Black",
+"case"
+],
+"model:case:pa602-proart-wood-black":[
+"ASUS Proart PA602 Wood Edition Black",
 "case"
 ],
 "model:case:ps13-black":[
@@ -14894,6 +14862,10 @@
 ],
 "model:case:vs4-w-black":[
 "Sharkoon VS4 W ATX",
+"case"
+],
+"model:case:vs7-black":[
+"Sharkoon VS7 Black",
 "case"
 ],
 "model:case:vs8-black":[
@@ -19108,7 +19080,7 @@
 "MSI GeForce GT 1030 4GB OC",
 "gpu"
 ],
-"model:gpu:10p-16gb-5070-b50710j3-gaming-gddr7-oc-rtx-sff-solid-ti-zt-16gb":[
+"model:gpu:10p-b50710j3-zt-16gb":[
 "ZOTAC Solid GeForce RTX 5070 Ti 16GB",
 "gpu"
 ],
@@ -19153,7 +19125,7 @@
 "gpu"
 ],
 "model:gpu:12g-12gd-5070-geforce-gv-n5070wf3oc-oc-rtx-sff-windforce-12gb":[
-"Gigabyte Windforce GeForce RTX 5070 12GB (GV-N5070WF3OC-12GD)",
+"Gigabyte Windforce GeForce RTX 5070 12GB",
 "gpu"
 ],
 "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb":[
@@ -19174,10 +19146,6 @@
 ],
 "model:gpu:12gb-3-5070-gb2050s-geforce-infinity-ne75070019k9-rtx-12gb":[
 "Palit Infinity GeForce RTX 5070 12GB (NE75070019K9-GB2050S)",
-"gpu"
-],
-"model:gpu:12gb-9070-evo-gddr6-gre-oc-prime-radeon-rx-12gb":[
-"ASUS Prime Radeon RX 9070 12GB OC",
 "gpu"
 ],
 "model:gpu:12gd-5070-gv-if-infinity-n5070aorus-rtx-12gb":[
@@ -19892,10 +19860,6 @@
 "Palit Dual GeForce RTX 5060 Ti 8GB",
 "gpu"
 ],
-"model:gpu:5060-eagle-gddr7-oc-rtx-8gb":[
-"Gigabyte Eagle GeForce RTX 5060 8GB",
-"gpu"
-],
 "model:gpu:5060-edge-gaming-oc-rtx-ti-twin-8gb":[
 "ZOTAC Twin Edge GeForce RTX 5060 Ti 8GB TWIN EDGE (ZT-B50610H-10M)",
 "gpu"
@@ -19924,14 +19888,6 @@
 "ASUS Dual GeForce RTX 5070 12GB OC",
 "gpu"
 ],
-"model:gpu:5070-eagle-gddr7-ice-oc-rtx-sff-12gb":[
-"Gigabyte Eagle GeForce RTX 5070 12GB",
-"gpu"
-],
-"model:gpu:5070-epic-fan-gddr7-oc-rtx-triple-x-12gb":[
-"PNY GeForce RTX 5070 12GB",
-"gpu"
-],
 "model:gpu:5070-fan-geforce-overclocked-rtx-triple-12gb":[
 "PNY GeForce RTX 5070 12GB (VCG507012TFXPB1-O)",
 "gpu"
@@ -19954,14 +19910,6 @@
 ],
 "model:gpu:5070-gddr7-geforce-oc-prime-rtx-12gb-white":[
 "ASUS Prime GeForce RTX 5070 12GB (90YV0M19-M0NA00)",
-"gpu"
-],
-"model:gpu:5070-gddr7-oc-rtx-sff-ti-windforce-16gb":[
-"Gigabyte Windforce GeForce RTX 5070 Ti 16GB",
-"gpu"
-],
-"model:gpu:5070-gddr7-oc-rtx-sff-windforce-12gb":[
-"Gigabyte Windforce GeForce RTX 5070 12GB",
 "gpu"
 ],
 "model:gpu:5070-gddr7-oc-rtx-t1-12gb":[
@@ -20266,6 +20214,10 @@
 ],
 "model:gpu:dual-o8g-rx7600-v2-8gb":[
 "ASUS Dual Radeon RX 7600 8GB",
+"gpu"
+],
+"model:gpu:evo-o12g-prime-rx9070gre-12gb":[
+"ASUS Prime Radeon RX 9070 12GB OC",
 "gpu"
 ],
 "model:gpu:geforce-rtx-5080-windforce-sff-16g-16gb":[
@@ -21896,10 +21848,6 @@
 "Samsung 128GB DDR5 (1x128GB) 5600MHz CL46",
 "memory"
 ],
-"model:memory:5600mt-beast-cl36-fury-s-64gb-5600mhz-cl36-black-dimm":[
-"Kingston Fury Beast DDR5 64GB 5600MHz CL36",
-"memory"
-],
 "model:memory:5600mt-cl30-fit-s-v-16gb-5600mhz-cl30-white":[
 "Klevv 5600MT DDR5 16GB (1x16GB) 5600MT/s CL30",
 "memory"
@@ -21962,6 +21910,10 @@
 ],
 "model:memory:64-kf552c40bb2k2-64gb-x2-5200mhz-cl40-black-dimm":[
 "Kingston Fury Beast DDR5 64GB (2x32GB) 5200MHz CL40",
+"memory"
+],
+"model:memory:64-kf556c36bbe-64gb-5600mhz-cl36-black-dimm":[
+"Kingston Fury Beast DDR5 64GB 5600MHz CL36",
 "memory"
 ],
 "model:memory:64-kf556c36bbe2ak2-64gb-x2-5600mhz-cl36-rgb-black-dimm":[
@@ -22620,10 +22572,6 @@
 "MSI PRO B860M-A LGA Displayport WiFi",
 "motherboard"
 ],
-"model:motherboard:1851-a-pro-wifi-z890-atx":[
-"MSI PRO Z890-A WiFi",
-"motherboard"
-],
 "model:motherboard:1851-ace-meg-z890-atx":[
 "MSI Z890 MEG ACE WiFi",
 "motherboard"
@@ -23010,6 +22958,10 @@
 ],
 "model:motherboard:a-ii-pro-wifi-z790-atx":[
 "MSI PRO Z790-A II WiFi",
+"motherboard"
+],
+"model:motherboard:a-pro-wifi-z890-atx":[
+"MSI PRO Z890-A WiFi",
 "motherboard"
 ],
 "model:motherboard:a-terminator-wifi-z890-atx":[
@@ -25188,10 +25140,6 @@
 "Antec Atom G750 0-761345-20035-6 750W Black",
 "psu"
 ],
-"model:psu:0-3-active-hx1000i-hxi-pcie5-pfc-series-1000w-full-black":[
-"Corsair HX1000I HXI PCIE5 3.0 1000W 80 PLUS Platinum Black",
-"psu"
-],
 "model:psu:0-3-m-modular-ne1300g-neoeco-1300w":[
 "Antec NE1300G M 3.0 Neoeco 1300W 80 PLUS Gold",
 "psu"
@@ -25360,10 +25308,6 @@
 "Lian Li SX 1200W Platinum White",
 "psu"
 ],
-"model:psu:1-1-atx3-modular-oled-rog-thor-1200w":[
-"ASUS ROG Thor III OLED 1200W 80 PLUS Platinum Black",
-"psu"
-],
 "model:psu:1-1000-3-focus-gx-1000w-full-white":[
 "Seasonic Focus GX 3.1 1000W 80 PLUS Gold White",
 "psu"
@@ -25410,14 +25354,6 @@
 ],
 "model:psu:1-1300-atx3-prime-titanium-tx-1300w":[
 "Seasonic Prime TX-1300 ATX3.1 1300W 80 PLUS Titanium Black",
-"psu"
-],
-"model:psu:1-14cm-3-rm1000x-shift-1000w-full-black":[
-"Corsair RM1000x SHIFT 1000W Gold 14cm ATX 3.1",
-"psu"
-],
-"model:psu:1-14cm-3-rm850x-shift-850w-full-black":[
-"Corsair RM850x SHIFT 850W Gold 14cm ATX 3.1",
 "psu"
 ],
 "model:psu:1-1600-atx3-prime-px-1600w":[
@@ -25664,8 +25600,20 @@
 "ASUS TUF Gaming 1000W 80 PLUS Gold Black",
 "psu"
 ],
-"model:psu:1000g-gaming-gaming-tuf-tuf-1000w-white":[
-"ASUS TUF Gaming 1000W 80 PLUS Gold White",
+"model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black":[
+"Asus ROG Loki SFX L 1000W Platinum",
+"psu"
+],
+"model:psu:1000p-gaming-rog-strix-1000w-black":[
+"Asus ROG STRIX 1000W Platinum",
+"psu"
+],
+"model:psu:1000p-gaming-rog-strix-white-1000w-white":[
+"ASUS ROG Strix 1000W 80 PLUS Platinum White",
+"psu"
+],
+"model:psu:1000p3-gaming-rog-thor-1000w-black":[
+"ASUS ROG Thor III 1000W 80 PLUS Platinum Black",
 "psu"
 ],
 "model:psu:1000rz-extreme-1000w-full":[
@@ -25692,36 +25640,16 @@
 "Corsair RM1000E RME 1000W Black",
 "psu"
 ],
+"model:psu:1000w-gaming-tuf-white-1000w-white":[
+"ASUS TUF Gaming 1000W 80 PLUS Gold White",
+"psu"
+],
 "model:psu:1000w-gm-vita-1000w-full-black":[
 "1000W FSP VITA GM 80 PLUS GOLD",
 "psu"
 ],
 "model:psu:1000w-gold-hub-rs-white-1000w-white":[
 "Lian Li RS 1000W Gold with HUB White",
-"psu"
-],
-"model:psu:1000w-iii-platinum-rog-thor-1000w-black":[
-"ASUS ROG Thor III 1000W 80 PLUS Platinum Black",
-"psu"
-],
-"model:psu:1000w-l-loki-platinum-rog-sfx-1000w-black":[
-"Asus ROG Loki SFX L 1000W Platinum",
-"psu"
-],
-"model:psu:1000w-platinum-rog-strix-1000w-black":[
-"ASUS ROG Strix 1000W 80 PLUS Platinum Black",
-"psu"
-],
-"model:psu:1000w-platinum-rog-strix-1000w-white":[
-"ASUS ROG Strix 1000W 80 PLUS Platinum White",
-"psu"
-],
-"model:psu:10cm-fan-fully-modular-sf1000-sfx-1000w-full-black":[
-"Corsair SF1000 1000W 80 PLUS Platinum Black",
-"psu"
-],
-"model:psu:10cm-fan-fully-modular-sf850-sfx-850w-full-black":[
-"Corsair SF850 850W 80 PLUS Platinum 10cm Fully Modular SFX",
 "psu"
 ],
 "model:psu:11-bn306-power-straight-650w":[
@@ -25764,8 +25692,24 @@
 "ASUS TUF 1200W 80 PLUS Gold",
 "psu"
 ],
+"model:psu:1200p-gaming-rog-strix-1200w-black":[
+"Asus ROG STRIX 1200W Platinum",
+"psu"
+],
+"model:psu:1200p3-gaming-rog-thor-1200w-black":[
+"ASUS ROG Thor III OLED 1200W 80 PLUS Platinum Black",
+"psu"
+],
+"model:psu:1200p3-gaming-rog-thor-white-1200w-white":[
+"ASUS ROG Thor III 1200W 80 PLUS Platinum White",
+"psu"
+],
 "model:psu:1200r-extreme-l-sfx-1200w":[
 "SilverStone Extreme 1200R 1200W Platinum SFX L",
+"psu"
+],
+"model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black":[
+"Asus ROG Loki SFX L 1200W Platinum",
 "psu"
 ],
 "model:psu:1200w-80-modular-pfc-platinum-psu-retail-1200w":[
@@ -25804,22 +25748,6 @@
 "FSP HPT3 1200M 1200W 80 PLUS Platinum White",
 "psu"
 ],
-"model:psu:1200w-iii-platinum-rog-thor-1200w-black":[
-"Asus ROG Thor 1200W Platinum III",
-"psu"
-],
-"model:psu:1200w-iii-platinum-rog-thor-1200w-white":[
-"ASUS ROG Thor III 1200W 80 PLUS Platinum White",
-"psu"
-],
-"model:psu:1200w-l-loki-platinum-rog-sfx-1200w-black":[
-"Asus ROG Loki SFX L 1200W Platinum",
-"psu"
-],
-"model:psu:1200w-platinum-rog-strix-1200w-black":[
-"ASUS ROG Strix 1200W 80 PLUS Platinum Black",
-"psu"
-],
 "model:psu:120mm-500w-500w-no-silver":[
 "Sunn SN560PN 500W Silver",
 "psu"
@@ -25832,44 +25760,8 @@
 "CoolerMaster 1250W MWE Gold Fully Modular",
 "psu"
 ],
-"model:psu:12cm-atom-b550-retail-550w":[
-"Antec Atom B550 Retail 550W 80 PLUS Bronze",
-"psu"
-],
-"model:psu:12cm-atom-b650-retail-650w":[
-"Antec Atom B650 Retail 650W 80 PLUS Bronze",
-"psu"
-],
-"model:psu:12cm-atom-b750-750w":[
-"Antec Atom B750 750W",
-"psu"
-],
-"model:psu:12cm-atom-g750-750w":[
-"Antec Atom G750 750W",
-"psu"
-],
 "model:psu:12cm-atom-g850-850w":[
 "Antec Atom G850 850W",
-"psu"
-],
-"model:psu:12cm-atom-v2-v650-650w":[
-"Antec Atom V2 V650 650W",
-"psu"
-],
-"model:psu:12cm-atom-v2-v750-750w":[
-"Antec Atom V2 V750 750W",
-"psu"
-],
-"model:psu:12cm-cx550-fan-550w":[
-"Corsair CX550 550W 80 PLUS Bronze",
-"psu"
-],
-"model:psu:12cm-cx650-fan-650w":[
-"Corsair CX650 650W 80 PLUS Bronze",
-"psu"
-],
-"model:psu:12cm-cx750-fan-750w":[
-"Corsair CX750 750W 80 PLUS Bronze",
 "psu"
 ],
 "model:psu:12cm-sama-500w-no":[
@@ -25884,14 +25776,6 @@
 "CoolerMaster 1300W V1300 Platinum",
 "psu"
 ],
-"model:psu:14cm-fan-fully-modular-rm650e-650w-full-black":[
-"Corsair RM650E 650W 80 PLUS Gold Black",
-"psu"
-],
-"model:psu:14cm-hx1000i-shift-1000w-full-black":[
-"Corsair HX1000i SHIFT 1000W Platinum ATX 14cm",
-"psu"
-],
 "model:psu:14cm-hx1200i-shift-1200w-full-black":[
 "Corsair HX1200i SHIFT 1200W Platinum ATX 14cm",
 "psu"
@@ -25900,16 +25784,16 @@
 "Seasonic Prime TX-1600 Noctua 1600W 80 PLUS Titanium",
 "psu"
 ],
-"model:psu:1600w-80-leadex-platinum-1600w":[
-"Super Flower Leadex 1600W 80 PLUS Platinum Black",
-"psu"
-],
-"model:psu:1600w-80-platinum-plus-pro-ws-1600w":[
+"model:psu:1600p-pro-ws-1600w":[
 "ASUS PRO WS 1600W 80 PLUS Platinum",
 "psu"
 ],
-"model:psu:1600w-iii-rog-thor-titanium-1600w-black":[
+"model:psu:1600t3-gaming-rog-thor-1600w-black":[
 "ASUS ROG Thor III 1600W 80 PLUS Titanium Black",
+"psu"
+],
+"model:psu:1600w-80-leadex-platinum-1600w":[
+"Super Flower Leadex 1600W 80 PLUS Platinum Black",
 "psu"
 ],
 "model:psu:1600w-leadex-titanium-1600w":[
@@ -25920,10 +25804,6 @@
 "SilverStone Zeus 1650R 1650W 80 PLUS Titanium Black",
 "psu"
 ],
-"model:psu:20-prog-thor-titanium-3000w":[
-"ASUS Prog Thor III 20 3000W 80 PLUS Platinum",
-"psu"
-],
 "model:psu:2000w-80-a-crps-module-pfc-platinum-2000w":[
 "CHENBRO Crps Module A.pfc 2000W 80 PLUS Platinum",
 "psu"
@@ -25932,7 +25812,11 @@
 "SilverStone PSU 2050W HELA Platinum",
 "psu"
 ],
-"model:psu:2200w-80-platinum-plus-pro-ws-2200w":[
+"model:psu:20th-3000t3-gaming-rog-thor-3000w":[
+"ASUS Prog Thor III 20 3000W 80 PLUS Platinum",
+"psu"
+],
+"model:psu:2200p-pro-ws-2200w":[
 "ASUS PRO WS 2200W 80 PLUS Platinum",
 "psu"
 ],
@@ -26084,7 +25968,7 @@
 "1stPlayer Armour PS-750AR 750W 80 PLUS Gold",
 "psu"
 ],
-"model:psu:750b-ap-prime-prime-750w-black":[
+"model:psu:750b-ap-prime-750w-black":[
 "ASUS Prime AP-750B 750W 80 PLUS Bronze Black",
 "psu"
 ],
@@ -26096,8 +25980,12 @@
 "Antec CSK 750DC 750W 80 PLUS Bronze White",
 "psu"
 ],
-"model:psu:750g-ap-prime-prime-750w-white":[
+"model:psu:750g-ap-prime-750w-white":[
 "ASUS Prime AP-750G 750W 80 PLUS Gold White",
+"psu"
+],
+"model:psu:750g-evo-gaming-tuf-750w":[
+"ASUS TUF EVO 750W 80 PLUS Gold",
 "psu"
 ],
 "model:psu:750rx-triton-750w":[
@@ -26108,20 +25996,16 @@
 "CoolerMaster 750W V750 GOLD V2 FULL MODULAR",
 "psu"
 ],
-"model:psu:750w-80-ats-gold-plus-750w":[
-"ASUS 750W-ATS 750W 80 PLUS Gold",
-"psu"
-],
 "model:psu:750w-80-bronze-rb-750w":[
 "Lian Li RB 750W 80 PLUS Bronze",
 "psu"
 ],
-"model:psu:750w-80-evo-gold-gold-plus-tuf-750w":[
-"ASUS TUF EVO 750W 80 PLUS Gold",
-"psu"
-],
 "model:psu:750w-80-platinum-sfx-750w-white":[
 "1StPlayer SFX 750W 80+ Platinum White",
+"psu"
+],
+"model:psu:750w-ats-gold-750w":[
+"ASUS 750W-ATS 750W 80 PLUS Gold",
 "psu"
 ],
 "model:psu:750w-black-edge-gold-750w-black":[
@@ -26148,14 +26032,6 @@
 "750W FSP VITA GM 80 PLUS GOLD",
 "psu"
 ],
-"model:psu:80-850w-ats-gold-plus-850w":[
-"ASUS 850W-ATS 850W 80 PLUS Gold",
-"psu"
-],
-"model:psu:80-850w-evo-gold-gold-plus-tuf-850w":[
-"ASUS TUF EVO 850W 80 PLUS Gold",
-"psu"
-],
 "model:psu:80-850w-fully-gold-modular-pfc-psu-850w-full":[
 "Gigabyte GP-P850GM 850W 80 PLUS Gold Black",
 "psu"
@@ -26164,8 +26040,16 @@
 "CoolerMaster 850W V850 Gold Fully Modular",
 "psu"
 ],
-"model:psu:850g-ap-prime-prime-850w-white":[
+"model:psu:850g-ap-prime-850w-white":[
 "ASUS Prime AP-850G 850W 80 PLUS Gold White",
+"psu"
+],
+"model:psu:850g-aura-gaming-rog-strix-white-850w-white":[
+"ASUS ROG Loki 850W 80 PLUS Platinum White",
+"psu"
+],
+"model:psu:850g-evo-gaming-tuf-850w":[
+"ASUS TUF EVO 850W 80 PLUS Gold",
 "psu"
 ],
 "model:psu:850g-gaming-modular-tuf-tuf-850w":[
@@ -26174,6 +26058,18 @@
 ],
 "model:psu:850g-prime-prime-850w-black":[
 "Asus Prime 850W 80 Plus Gold PSU PRIME 850G",
+"psu"
+],
+"model:psu:850p-gaming-l-loki-rog-sfx-850w-black":[
+"Asus ROG Loki SFX L 850W Platinum",
+"psu"
+],
+"model:psu:850p-gaming-rog-strix-850w-black":[
+"Asus ROG STRIX 850W Platinum",
+"psu"
+],
+"model:psu:850w-ats-gold-850w":[
+"ASUS 850W-ATS 850W 80 PLUS Gold",
 "psu"
 ],
 "model:psu:850w-black-edge-gold-850w-black":[
@@ -26204,18 +26100,6 @@
 "850W FSP VITA GM 80 PLUS GOLD (VITA-850GM-WHITE)",
 "psu"
 ],
-"model:psu:850w-l-loki-platinum-rog-sfx-850w-black":[
-"Asus ROG Loki SFX L 850W Platinum",
-"psu"
-],
-"model:psu:850w-l-loki-platinum-rog-sfx-white-850w-white":[
-"ASUS ROG Loki 850W 80 PLUS Platinum White",
-"psu"
-],
-"model:psu:850w-platinum-rog-strix-850w-black":[
-"Asus ROG STRIX 850W Platinum",
-"psu"
-],
 "model:psu:850w-platinum-sx-850w-white":[
 "Lian Li SX 850W 80 PLUS Platinum White",
 "psu"
@@ -26232,7 +26116,7 @@
 "Corsair SF450 450W 80 PLUS Platinum",
 "psu"
 ],
-"model:psu:9020279-cp-cx750-eu-750w-no-black":[
+"model:psu:9020279-cp-eu-750w-no-black":[
 "Corsair CX750 80+ Bronze 750W CP",
 "psu"
 ],
@@ -26273,10 +26157,6 @@
 "psu"
 ],
 "model:psu:a650bn-active-mag-pfc-series-650w-no-black":[
-"MSI MAG A650BN 650W 80 PLUS Bronze Black (MAG-A650BN)",
-"psu"
-],
-"model:psu:a650bn-mag-650w":[
 "MSI MAG A650BN 650W 80 PLUS Bronze Black",
 "psu"
 ],
@@ -26352,16 +26232,28 @@
 "Corsair RM850X Shift 850W 80 PLUS Gold Black",
 "psu"
 ],
-"model:psu:ai1600t-meg-modular-pcie5-titanium-1600w-full":[
+"model:psu:ai1600t-meg-pcie5-1600w-full":[
 "MSI MEG AI1600T PCIE5 1600W 80 PLUS Titanium",
-"psu"
-],
-"model:psu:apfc-atom-atom-b650-650w":[
-"Antec Atom Apfc Atom-B650 650W 80 PLUS Bronze Black",
 "psu"
 ],
 "model:psu:atom-atom-v650-v650-650w":[
 "Antec Atom V650 Atom-V650 650W",
+"psu"
+],
+"model:psu:atom-b550-550w":[
+"Antec Atom B550 Retail 550W 80 PLUS Bronze",
+"psu"
+],
+"model:psu:atom-b650-650w":[
+"Antec Atom Apfc Atom-B650 650W 80 PLUS Bronze Black",
+"psu"
+],
+"model:psu:atom-b750w-750w":[
+"Antec Atom B750 750W 80 PLUS Bronze",
+"psu"
+],
+"model:psu:atom-g750w-750w":[
+"Antec Atom G750 750W 80 PLUS Gold",
 "psu"
 ],
 "model:psu:atom-g850-12cm-850w":[
@@ -26370,6 +26262,14 @@
 ],
 "model:psu:atom-g850-850w-semi":[
 "Antec Atom G850 850W 80 PLUS Gold",
+"psu"
+],
+"model:psu:atom-v2-v650-650w-no":[
+"Antec Atom V2 V650 650W",
+"psu"
+],
+"model:psu:atom-v2-v750-750w-no":[
+"Antec Atom V2 V750 750W",
 "psu"
 ],
 "model:psu:aura-gp550-400w-black":[
@@ -26432,20 +26332,12 @@
 "Corsair CP 1500W 80 PLUS Platinum Black (CP-9020269-EU)",
 "psu"
 ],
-"model:psu:fully-modular-rm1000x-shift-1000w-full-black":[
-"Corsair RM1000X Shift 1000W 80 PLUS Gold Black",
-"psu"
-],
 "model:psu:fully-modular-rm750x-shift-750w-full":[
 "Corsair RM750X Shift 750W 80 PLUS Gold",
 "psu"
 ],
 "model:psu:fully-modular-rm750x-shift-750w-full-black":[
 "Corsair RM750X Shift 750W 80 PLUS Gold Black",
-"psu"
-],
-"model:psu:fully-modular-rm850x-shift-850w-full-black":[
-"Corsair CP 850W 80 PLUS Gold Black",
 "psu"
 ],
 "model:psu:fully-modular-sf1000-sfx-1000w-full":[
@@ -26476,8 +26368,12 @@
 "Gigabyte GP-P750BS 750W",
 "psu"
 ],
-"model:psu:hx1000i-modular-1000w-full-black":[
-"Corsair HX1000i 1000W Platinum Modular ATX",
+"model:psu:hx1000i-1000w-full-black":[
+"Corsair HX1000I HXI PCIE5 3.0 1000W 80 PLUS Platinum Black",
+"psu"
+],
+"model:psu:hx1000i-shift-1000w-full-black":[
+"Corsair HX1000i SHIFT 1000W Platinum ATX 14cm",
 "psu"
 ],
 "model:psu:hx1200i-1200w-full-black":[
@@ -26508,12 +26404,20 @@
 "Corsair RM1000X 1000W 80 PLUS Gold Black",
 "psu"
 ],
+"model:psu:rm1000x-shift-1000w-full-black":[
+"Corsair RM1000X Shift 1000W 80 PLUS Gold Black",
+"psu"
+],
 "model:psu:rm1200e-1200w-full-black":[
 "Corsair RM1200E 1200W 80 PLUS Gold Black",
 "psu"
 ],
 "model:psu:rm850x-14cm-fan-fully-modular-850w-full-black":[
 "Corsair RM850X 850W 80 PLUS Gold Black",
+"psu"
+],
+"model:psu:rm850x-shift-850w-full-black":[
+"Corsair CP 850W 80 PLUS Gold Black",
 "psu"
 ],
 "model:psu:s12iii-500w-no-black":[
@@ -26526,6 +26430,14 @@
 ],
 "model:psu:s12iii-650w-no-black":[
 "Seasonic S12III 650W 80 PLUS Bronze Black",
+"psu"
+],
+"model:psu:sf1000-1000w-full-black":[
+"Corsair SF1000 1000W 80 PLUS Platinum Black",
+"psu"
+],
+"model:psu:sf850-850w-full-black":[
+"Corsair SF850 850W 80 PLUS Platinum 10cm Fully Modular SFX",
 "psu"
 ],
 "model:psu:sfx-sp1000p-1000w-white":[
@@ -26596,6 +26508,10 @@
 "SSD Micron 7300 PRO 7.68TB U.2 PCIe 3.0 x4 NVMe",
 "storage"
 ],
+"model:storage:0-2-4-m-m452-nvme-pcie-spatium-500gb-pcie4-m22280":[
+"MSI Spatium M452 500GB NVMe Gen4 M.2-2280",
+"storage"
+],
 "model:storage:0-2-cssd-f4000gbmp700pnh-mp700-pro-x4-4000gb-nvme-m22280":[
 "Corsair MP700 PRO X4 4TB NVMe Gen5 M.2-2280",
 "storage"
@@ -26648,10 +26564,6 @@
 "Kingston NV3 6000MB S 2TB NVMe Gen4 M.2",
 "storage"
 ],
-"model:storage:0-2280-4-nv3-x4-500gb-pcie4-m22280":[
-"Kingston NV3 X4 500GB NVMe Gen4 M.2-2280",
-"storage"
-],
 "model:storage:0-2280-4-p310-1000gb-pcie4-m22280":[
 "Crucial P310 1TB NVMe Gen4 M.2-2280",
 "storage"
@@ -26698,10 +26610,6 @@
 ],
 "model:storage:0-4-m452-spatium-1000gb-pcie4-m22280":[
 "MSI Spatium M452 1TB NVMe Gen4 M.2-2280",
-"storage"
-],
-"model:storage:0-4-m452-spatium-500gb-pcie4-m22280":[
-"MSI Spatium M452 500GB NVMe Gen4 M.2-2280",
 "storage"
 ],
 "model:storage:0-4-m470-pro-spatium-1000gb-pcie4-m22280":[
@@ -27014,6 +26922,14 @@
 ],
 "model:storage:2-5-512gb-sata3-ssd-512gb-sata-25":[
 "Maxsun 512GB SATA SSD 2.5\"",
+"storage"
+],
+"model:storage:2-5-s270-sata-spatium-240gb-sata-25":[
+"MSI Spatium S270 Inch III 240GB SATA SSD 2.5''",
+"storage"
+],
+"model:storage:2-5-s270-sata-spatium-960gb-sata-25":[
+"MSI Spatium S270 Inch III 960GB SATA SSD 2.5''",
 "storage"
 ],
 "model:storage:2-512gb-iii-m-sata-ssd-top-512gb-sata-m22280":[
@@ -28042,14 +27958,6 @@
 ],
 "model:storage:red-wd-4000gb-sata-35":[
 "Western Digital RED III 4TB 3.5\" Hdd",
-"storage"
-],
-"model:storage:s270-spatium-240gb-sata-25":[
-"MSI Spatium S270 Inch III 240GB SATA SSD 2.5''",
-"storage"
-],
-"model:storage:s270-spatium-960gb-sata-25":[
-"MSI Spatium S270 Inch III 960GB SATA SSD 2.5''",
 "storage"
 ],
 "model:storage:s3-vi550-1000gb-sata-25":[
@@ -31729,7 +31637,7 @@
 "gpu"
 ],
 "mpn:gpu:vcg507012tfxxpb1o":[
-"NVIDIA GeForce RTX 5070 12GB",
+"PNY GeForce RTX 5070 12GB (VCG507012TFXXPB1-O)",
 "gpu"
 ],
 "mpn:gpu:vcg5070t16tfxpb1":[

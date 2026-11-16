@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T01:28:18.650411+00:00",
+  "generated_at": "2026-11-16T03:37:07.628741+00:00",
   "gaps": [
     {
       "category": "case",
@@ -44,7 +44,7 @@
     {
       "category": "motherboard",
       "label": "P/N",
-      "count": 55,
+      "count": 56,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -64,11 +64,31 @@
     {
       "category": "memory",
       "label": "תכונות",
-      "count": 47,
+      "count": 48,
       "products": [
         "memory:ksp:ksp-313458",
         "model:memory:2666mhz-2x8gb-aegis-cl19-ddr4-g-kit-16gb-x2-2666mhz-cl19-dimm",
         "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "נתונים טכניים",
+      "count": 46,
+      "products": [
+        "case:ksp:ksp-472502",
+        "case:ksp:ksp-482946",
+        "case:ksp:ksp-482954"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "P/N",
+      "count": 44,
+      "products": [
+        "case:ksp:ksp-472502",
+        "case:ksp:ksp-482946",
+        "case:ksp:ksp-482954"
       ]
     },
     {
@@ -84,7 +104,27 @@
     {
       "category": "motherboard",
       "label": "זיכרון",
+      "count": 40,
+      "products": [
+        "manual:motherboard:ksp-338414-yahav-10002",
+        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תכונות",
       "count": 39,
+      "products": [
+        "model:case:100r-mag-pano-pz-black",
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "אחסון",
+      "count": 37,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -103,18 +143,8 @@
     },
     {
       "category": "motherboard",
-      "label": "אחסון",
-      "count": 36,
-      "products": [
-        "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
-        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "גרפיקה",
-      "count": 35,
+      "count": 36,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -132,6 +162,26 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "מפרט",
+      "count": 33,
+      "products": [
+        "gpu:ksp:ksp-371860",
+        "model:gpu:10p-b50710j3-zt-16gb",
+        "model:gpu:10p-b50800j2-zt-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "P/N",
+      "count": 32,
+      "products": [
+        "gpu:ksp:ksp-371860",
+        "gpu:ksp:ksp-420767",
+        "manual:gpu:ksp-380080-yahav-11160"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "רמקולים",
       "count": 32,
@@ -142,13 +192,13 @@
       ]
     },
     {
-      "category": "gpu",
+      "category": "psu",
       "label": "P/N",
-      "count": 31,
+      "count": 32,
       "products": [
-        "gpu:ksp:ksp-371860",
-        "gpu:ksp:ksp-420767",
-        "manual:gpu:ksp-380080-yahav-11160"
+        "model:psu:1000g-gaming-gaming-tuf-tuf-1000w-black",
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1000p-gaming-rog-strix-1000w-black"
       ]
     },
     {
@@ -162,19 +212,19 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "מפרט",
-      "count": 28,
+      "category": "psu",
+      "label": "תכונות",
+      "count": 30,
       "products": [
-        "gpu:ksp:ksp-371860",
-        "model:gpu:10p-b50800j2-zt-16gb",
-        "model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb"
+        "model:psu:1000g-gaming-gaming-tuf-tuf-1000w-black",
+        "model:psu:1000p-gaming-rog-strix-1000w-black",
+        "model:psu:1000p-gaming-rog-strix-white-1000w-white"
       ]
     },
     {
       "category": "motherboard",
       "label": "USB",
-      "count": 27,
+      "count": 28,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -184,7 +234,7 @@
     {
       "category": "motherboard",
       "label": "מערכות הפעלה תומכות",
-      "count": 27,
+      "count": 28,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -199,6 +249,16 @@
         "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
         "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
         "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "הערה",
+      "count": 26,
+      "products": [
+        "case:ksp:ksp-472502",
+        "case:ksp:ksp-482946",
+        "case:ksp:ksp-482954"
       ]
     },
     {
@@ -232,6 +292,16 @@
       ]
     },
     {
+      "category": "case",
+      "label": "חיבורים",
+      "count": 24,
+      "products": [
+        "model:case:100r-mag-pano-pz",
+        "model:case:100r-mag-pano-pz-white",
+        "model:case:110r-mag-pano-pz-white"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "ממשק זיכרון",
       "count": 24,
@@ -262,6 +332,16 @@
       ]
     },
     {
+      "category": "psu",
+      "label": "תכולה",
+      "count": 23,
+      "products": [
+        "manual:psu:1pc-222371-ivory-113511",
+        "manual:psu:1pc-222372-ivory-86640",
+        "model:psu:1200p3-gaming-rog-thor-1200w-black"
+      ]
+    },
+    {
       "category": "aio",
       "label": "הספק תרמי מירבי",
       "count": 23,
@@ -279,6 +359,16 @@
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
         "model:motherboard:a-b760m-csm-prime-microatx-2"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מערכת קירור",
+      "count": 22,
+      "products": [
+        "model:case:300r-airflow-gungnir-mpg-black",
+        "model:case:306-7g03m21-809-black",
+        "model:case:306-7g20r21-809-black"
       ]
     },
     {
@@ -423,16 +513,6 @@
     },
     {
       "category": "case",
-      "label": "חיבורים",
-      "count": 19,
-      "products": [
-        "model:case:100r-mag-pano-pz",
-        "model:case:100r-mag-pano-pz-white",
-        "model:case:110r-mag-pano-pz-white"
-      ]
-    },
-    {
-      "category": "case",
       "label": "\"2.5/3.5\"",
       "count": 19,
       "products": [
@@ -522,6 +602,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "תכונות",
+      "count": 18,
+      "products": [
+        "model:gpu:10p-b50710j3-zt-16gb",
+        "model:gpu:10p-b50800j2-zt-16gb",
+        "model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb"
+      ]
+    },
+    {
       "category": "memory",
       "label": "ממשק",
       "count": 18,
@@ -549,6 +639,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תכולה",
+      "count": 17,
+      "products": [
+        "model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
+        "model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb",
+        "model:gpu:16g-5070-geforce-oc-rtx-sff-ti-windforce-16gb"
       ]
     },
     {
@@ -659,6 +759,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "הגנות",
+      "count": 16,
+      "products": [
+        "model:psu:1-atx3-gsk750-750w-full",
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
       ]
     },
     {
@@ -852,6 +962,26 @@
       ]
     },
     {
+      "category": "case",
+      "label": "תאימות לוחות אם",
+      "count": 14,
+      "products": [
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green",
+        "model:case:300r-airflow-gungnir-mpg-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תכולה",
+      "count": 14,
+      "products": [
+        "model:case:3500x-r-rs-black",
+        "model:case:3500x-r-rs-white",
+        "model:case:4500x-frame-rs-black"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "דור מעבד",
       "count": 14,
@@ -869,16 +999,6 @@
         "model:cpu:14900ks-tray",
         "model:cpu:245k-tray",
         "model:cpu:245kf-tray"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תכולה",
-      "count": 14,
-      "products": [
-        "model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb",
-        "model:gpu:5050-dual-fan-gddr6-rtx-8gb",
-        "model:gpu:5070-oc-rtx-ti-16gb"
       ]
     },
     {
@@ -962,6 +1082,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "יציאות פאנל אחורי",
+      "count": 13,
+      "products": [
+        "manual:motherboard:ksp-338414-yahav-10002",
+        "model:motherboard:a-pro-wifi-z890-atx",
+        "model:motherboard:aorus-elite-ice-x-z890-atx"
+      ]
+    },
+    {
       "category": "memory",
       "label": "מהירות בדוקה",
       "count": 13,
@@ -1029,16 +1159,6 @@
         "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030",
         "model:gpu:2g-brk-gt1030-2gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תכונות",
-      "count": 13,
-      "products": [
-        "model:gpu:10p-b50800j2-zt-16gb",
-        "model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb",
-        "model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb"
       ]
     },
     {
@@ -1123,12 +1243,22 @@
     },
     {
       "category": "motherboard",
-      "label": "יציאות פאנל אחורי",
+      "label": "מחברים פנימיים",
       "count": 12,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:aorus-elite-ice-x-z890-atx",
-        "model:motherboard:b650-pro-s-wifi-atx"
+        "model:motherboard:a-pro-wifi-z890-atx",
+        "model:motherboard:aorus-elite-ice-x-z890-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מימדים",
+      "count": 12,
+      "products": [
+        "manual:motherboard:ksp-338414-yahav-10002",
+        "model:motherboard:a-pro-wifi-z890-atx",
+        "model:motherboard:aorus-elite-ice-x-z890-atx"
       ]
     },
     {
@@ -1149,6 +1279,26 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-a13-coreliquid-mag-240mm-white",
         "model:aio:240-chione-e4-240mm"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מפרצי כוננים",
+      "count": 12,
+      "products": [
+        "model:case:300r-airflow-gungnir-mpg-black",
+        "model:case:306-7g03m21-809-black",
+        "model:case:306-7g20r21-809-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווחים",
+      "count": 12,
+      "products": [
+        "model:case:ak5g-rgb-black",
+        "model:case:ak5g-rgb-white",
+        "model:case:ak5m-rgb-black"
       ]
     },
     {
@@ -1272,6 +1422,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "דרישות מערכת",
+      "count": 12,
+      "products": [
+        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
+        "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb",
+        "model:gpu:5050-dual-fan-gddr6-rtx-8gb"
+      ]
+    },
+    {
       "category": "memory",
       "label": "פרופיל ביצועים",
       "count": 12,
@@ -1342,26 +1502,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "מחברים פנימיים",
-      "count": 11,
-      "products": [
-        "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:aorus-elite-ice-x-z890-atx",
-        "model:motherboard:b650-pro-s-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מימדים",
-      "count": 11,
-      "products": [
-        "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:aorus-elite-ice-x-z890-atx",
-        "model:motherboard:b650-pro-s-wifi-atx"
-      ]
-    },
-    {
       "category": "aio",
       "label": "אורך כבל PWM",
       "count": 11,
@@ -1369,6 +1509,16 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-chione-e4-240mm",
         "model:aio:360-chione-e4-360mm"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תאימות",
+      "count": 11,
+      "products": [
+        "model:case:ak5g-rgb-black",
+        "model:case:ak5g-rgb-white",
+        "model:case:ak5m-rgb-black"
       ]
     },
     {
@@ -1459,16 +1609,6 @@
         "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:16gb-9070-gaming-gddr6-oc-radeon-rx-tuf-xt-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "דרישות מערכת",
-      "count": 11,
-      "products": [
-        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
-        "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb",
-        "model:gpu:5050-dual-fan-gddr6-rtx-8gb"
       ]
     },
     {
@@ -1653,12 +1793,22 @@
     },
     {
       "category": "case",
-      "label": "נתונים טכניים",
+      "label": "מדריך למשתמש",
       "count": 10,
       "products": [
         "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:9011280-cc-ww-black"
+        "model:case:3500x-r-rs-white",
+        "model:case:4500x-frame-rs-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מפרצים לכוננים",
+      "count": 10,
+      "products": [
+        "model:case:ak5g-rgb-black",
+        "model:case:ak5g-rgb-white",
+        "model:case:ak5m-rgb-black"
       ]
     },
     {
@@ -1913,12 +2063,12 @@
     },
     {
       "category": "case",
-      "label": "תכונות",
+      "label": "מפרט מארז",
       "count": 9,
       "products": [
-        "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:9011280-cc-ww-black"
+        "model:case:ak5g-rgb-black",
+        "model:case:ak5g-rgb-white",
+        "model:case:ak5m-rgb-black"
       ]
     },
     {
@@ -2062,6 +2212,36 @@
       ]
     },
     {
+      "category": "case",
+      "label": "פאנל חיבורים ויציאות",
+      "count": 8,
+      "products": [
+        "model:case:9011218-cc-ww-black",
+        "model:case:9011274-cc-ww-white",
+        "model:case:ap201-glass-prime-tempered-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מימדים ומשקל",
+      "count": 8,
+      "products": [
+        "model:case:ak5g-rgb-black",
+        "model:case:ak5g-rgb-white",
+        "model:case:ak5m-rgb-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "חריצי הרחבה וכוננים",
+      "count": 8,
+      "products": [
+        "model:case:argb-cx800-white",
+        "model:case:argb-vcx10m-black",
+        "model:case:argb-vx310-black"
+      ]
+    },
+    {
       "category": "memory",
       "label": "מהירות SPD",
       "count": 8,
@@ -2099,6 +2279,36 @@
         "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
         "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
         "model:motherboard:a-b550m-pro-microatx"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מאוורר",
+      "count": 8,
+      "products": [
+        "model:psu:1-atx3-gsk750-750w-full",
+        "model:psu:500-e1-helios-pro-black",
+        "model:psu:600-e1-helios-pro-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "חיבורים",
+      "count": 8,
+      "products": [
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מימדים",
+      "count": 8,
+      "products": [
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
       ]
     },
     {
@@ -2189,6 +2399,26 @@
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תמיכת מאווררים",
+      "count": 7,
+      "products": [
+        "model:case:argb-cx800-white",
+        "model:case:argb-vcx10m-black",
+        "model:case:argb-vx310-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תמיכת רדיאטור",
+      "count": 7,
+      "products": [
+        "model:case:argb-cx800-white",
+        "model:case:argb-vcx10m-black",
+        "model:case:argb-vx310-black"
       ]
     },
     {
@@ -2303,6 +2533,16 @@
     },
     {
       "category": "storage",
+      "label": "הערה חשובה!",
+      "count": 7,
+      "products": [
+        "model:storage:0-2-4-m-m452-nvme-pcie-spatium-500gb-pcie4-m22280",
+        "model:storage:0-4-elite-mp600-pro-ps5-ps5-1000gb-pcie4-m22280",
+        "model:storage:0-4-elite-mp600-pro-ps5-ps5-2000gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "מהירות כתיבה רציפה",
       "count": 7,
       "products": [
@@ -2319,6 +2559,36 @@
         "model:storage:0-2280-4-p310-1000gb-pcie4-m22280",
         "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
         "model:storage:5100-optimus-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "בקר",
+      "count": 7,
+      "products": [
+        "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
+        "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "קריאה רציפה",
+      "count": 7,
+      "products": [
+        "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
+        "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "כתיבה רציפה",
+      "count": 7,
+      "products": [
+        "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
+        "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25"
       ]
     },
     {
@@ -2453,20 +2723,10 @@
     },
     {
       "category": "case",
-      "label": "הערה",
+      "label": "מאווררים כלולים",
       "count": 6,
       "products": [
-        "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:9011280-cc-ww-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חריצי הרחבה וכוננים",
-      "count": 6,
-      "products": [
-        "model:case:argb-cx800-white",
+        "model:case:argb-aura-elite-gc4-black",
         "model:case:argb-vcx10m-black",
         "model:case:argb-vx310-black"
       ]
@@ -2582,6 +2842,26 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "תצורה",
+      "count": 6,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
+        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מימדים",
+      "count": 6,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
+        "model:storage:3d-a58-ace-nand-sp001tbss3a58a25-1000gb-sata-25"
+      ]
+    },
+    {
       "category": "other",
       "label": "רזולוציה",
       "count": 6,
@@ -2633,6 +2913,26 @@
     },
     {
       "category": "case",
+      "label": "חומרים",
+      "count": 5,
+      "products": [
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green",
+        "model:case:9011218-cc-ww-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מאווררים",
+      "count": 5,
+      "products": [
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green",
+        "model:case:br-ca-h510i-h510i-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תמיכה בחיבור כבלי חשמל ללוח אחוריים BACK CONNECT",
       "count": 5,
       "products": [
@@ -2643,22 +2943,12 @@
     },
     {
       "category": "case",
-      "label": "תמיכת מאווררים",
+      "label": "תאימות RGB",
       "count": 5,
       "products": [
-        "model:case:argb-cx800-white",
-        "model:case:argb-vcx10m-black",
-        "model:case:argb-vx310-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תמיכת רדיאטור",
-      "count": 5,
-      "products": [
-        "model:case:argb-cx800-white",
-        "model:case:argb-vcx10m-black",
-        "model:case:argb-vx310-black"
+        "model:case:ak5g-rgb-black",
+        "model:case:ak5g-rgb-white",
+        "model:case:ak5m-rgb-black"
       ]
     },
     {
@@ -2813,12 +3103,12 @@
     },
     {
       "category": "psu",
-      "label": "הגנות",
+      "label": "ATX 3.0",
       "count": 5,
       "products": [
-        "model:psu:1-atx3-gsk750-750w-full",
-        "model:psu:500-e1-helios-pro-black",
-        "model:psu:600-e1-helios-pro-black"
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
       ]
     },
     {
@@ -2843,32 +3133,12 @@
     },
     {
       "category": "storage",
-      "label": "בקר",
+      "label": "זיכרון פלאש",
       "count": 5,
       "products": [
         "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
-        "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
-        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "קריאה רציפה",
-      "count": 5,
-      "products": [
-        "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
-        "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
-        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "כתיבה רציפה",
-      "count": 5,
-      "products": [
-        "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
-        "model:storage:1tb-m450-spatium-v1-1000gb-pcie4",
-        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme"
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
       ]
     },
     {
@@ -2993,32 +3263,12 @@
     },
     {
       "category": "case",
-      "label": "P/N",
+      "label": "ספק כח אופציונלי",
       "count": 4,
       "products": [
-        "model:case:a31-argb-plus-black",
-        "model:case:argb-cronox-gr801-rog-black",
-        "model:case:argb-vx310-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מאווררים כלולים",
-      "count": 4,
-      "products": [
-        "model:case:argb-aura-elite-gc4-black",
-        "model:case:argb-vcx10m-black",
-        "model:case:argb-vx310-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תאימות",
-      "count": 4,
-      "products": [
-        "model:case:argb-cx800-white",
-        "model:case:argb-vcx10m-black",
-        "model:case:argb-vx310-black"
+        "model:case:9011218-cc-ww-black",
+        "model:case:9011274-cc-ww-white",
+        "model:case:gr701-hyperion-rog-black"
       ]
     },
     {
@@ -3049,6 +3299,16 @@
         "model:case:atlas-m3m-black",
         "model:case:atlas-m5-black",
         "model:case:aura-elite-gc107-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "אביזרים",
+      "count": 4,
+      "products": [
+        "model:case:vs8-black",
+        "model:case:vs8-white",
+        "model:case:vs9-black"
       ]
     },
     {
@@ -3573,12 +3833,62 @@
     },
     {
       "category": "psu",
-      "label": "מאוורר",
+      "label": "הספקים וחשמל",
       "count": 4,
       "products": [
-        "model:psu:1-atx3-gsk750-750w-full",
-        "model:psu:500-e1-helios-pro-black",
-        "model:psu:600-e1-helios-pro-black"
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black",
+        "model:psu:850g-aura-gaming-rog-strix-white-850w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "דירוגים",
+      "count": 4,
+      "products": [
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black",
+        "model:psu:850g-aura-gaming-rog-strix-white-850w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "כלול באריזה",
+      "count": 4,
+      "products": [
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black",
+        "model:psu:850g-aura-gaming-rog-strix-white-850w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "AURA SYNC",
+      "count": 4,
+      "products": [
+        "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
+        "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black",
+        "model:psu:850g-aura-gaming-rog-strix-white-850w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "80 Plus",
+      "count": 4,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
+        "model:psu:750g-ap-prime-750w-white",
+        "model:psu:850g-ap-prime-850w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "עומס מירבי",
+      "count": 4,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w",
+        "model:psu:750g-ap-prime-750w-white",
+        "model:psu:850g-ap-prime-850w-white"
       ]
     },
     {
@@ -3733,6 +4043,16 @@
     },
     {
       "category": "storage",
+      "label": "טמפרטורת הפעלה",
+      "count": 4,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
+        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "SSD Endurance (TBW)",
       "count": 4,
       "products": [
@@ -3823,32 +4143,32 @@
     },
     {
       "category": "case",
+      "label": "מרווח",
+      "count": 3,
+      "products": [
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green",
+        "model:case:cx700-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "חיבורים ויציאות",
+      "count": 3,
+      "products": [
+        "model:case:300r-airflow-gungnir-mpg-black",
+        "model:case:306-7g03m21-809-black",
+        "model:case:306-7g20r21-809-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "חיבור USB 3.2",
       "count": 3,
       "products": [
         "model:case:3200d-argb-rs-black",
         "model:case:3200d-argb-rs-white",
         "model:case:9011350-cc-ww"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תכולה",
-      "count": 3,
-      "products": [
-        "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:9011280-cc-ww-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מדריך למשתמש",
-      "count": 3,
-      "products": [
-        "model:case:3500x-r-rs-black",
-        "model:case:4500x-frame-rs-black",
-        "model:case:argb-vcx10m-black"
       ]
     },
     {
@@ -4581,6 +4901,26 @@
     },
     {
       "category": "psu",
+      "label": "הערה חשובה",
+      "count": 3,
+      "products": [
+        "model:psu:1200p3-gaming-rog-thor-1200w-black",
+        "model:psu:hx1000i-1000w-full-black",
+        "model:psu:sf850-850w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "הערה חשובה!",
+      "count": 3,
+      "products": [
+        "model:psu:1200p3-gaming-rog-thor-1200w-black",
+        "model:psu:hx1000i-1000w-full-black",
+        "model:psu:sf850-850w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
       "label": "הספק נקוב",
       "count": 3,
       "products": [
@@ -4627,6 +4967,26 @@
         "model:psu:500-e1-helios-pro-black",
         "model:psu:600-e1-helios-pro-black",
         "model:psu:a1000gl-mag-pcie5-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "טווח כניסת AC",
+      "count": 3,
+      "products": [
+        "model:psu:750g-ap-prime-750w-white",
+        "model:psu:850g-ap-prime-850w-white",
+        "model:psu:850g-gaming-modular-tuf-tuf-850w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מתח יציאה DC",
+      "count": 3,
+      "products": [
+        "model:psu:750g-ap-prime-750w-white",
+        "model:psu:850g-ap-prime-850w-white",
+        "model:psu:850g-gaming-modular-tuf-tuf-850w"
       ]
     },
     {
@@ -4681,16 +5041,6 @@
     },
     {
       "category": "storage",
-      "label": "זיכרון פלאש",
-      "count": 3,
-      "products": [
-        "model:storage:1tb-1tci-980-980p-mars-pro-smar-xpg-1000gb-nvme",
-        "model:storage:500gb-m450-spatium-v1-500gb-pcie4",
-        "model:storage:960gb-s270-spatium-960gb-sata"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "קריאה אקראית",
       "count": 3,
       "products": [
@@ -4731,22 +5081,22 @@
     },
     {
       "category": "storage",
-      "label": "תצורה",
+      "label": "תאימות",
       "count": 3,
       "products": [
-        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme",
-        "model:storage:500gb-m450-spatium-v1-500gb-pcie4",
-        "model:storage:512gcs-710-710-aleg-legend-512gb-pciegen3x4-m22280"
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
+        "model:storage:p210-512gb-sata-25"
       ]
     },
     {
       "category": "storage",
-      "label": "מימדים",
+      "label": "טמפרטורה",
       "count": 3,
       "products": [
-        "model:storage:3d-a58-ace-nand-sp001tbss3a58a25-1000gb-sata-25",
-        "model:storage:5100-optimus-500gb-pcie4-m22280",
-        "model:storage:lns100-1000gb-sata-25"
+        "model:storage:2t00-g26-sdssde30-2000gb-usb",
+        "model:storage:nv3-s-series-500gb-pcie4-m22280",
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
       ]
     },
     {
@@ -4757,6 +5107,16 @@
         "model:storage:512gcs-710-710-aleg-legend-512gb-pciegen3x4-m22280",
         "model:storage:lns100-1000gb-sata-25",
         "model:storage:pm883-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צריכת חשמל",
+      "count": 3,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280",
+        "model:storage:sa53p-3840gb-sata-25",
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
       ]
     },
     {
@@ -4925,11 +5285,65 @@
     },
     {
       "category": "case",
+      "label": "תכונות 2",
+      "count": 2,
+      "products": [
+        "model:case:100r-mag-pano-pz-black",
+        "model:case:300r-airflow-mpg-pz-velox-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תצורת מארז",
+      "count": 2,
+      "products": [
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green"
+      ]
+    },
+    {
+      "category": "case",
       "label": "נפח אחסון",
       "count": 2,
       "products": [
         "model:case:2-era-midnight-blue",
         "model:case:2-era-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "שטח רכיבים",
+      "count": 2,
+      "products": [
+        "model:case:300r-airflow-gungnir-mpg-black",
+        "model:case:306-7g20r21-809-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "חריצי הרחבה 2",
+      "count": 2,
+      "products": [
+        "model:case:306-7g03m21-809-black",
+        "model:case:m100r-mag-pano-pz-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תמיכת תצורת לוח אם",
+      "count": 2,
+      "products": [
+        "model:case:9011218-cc-ww-black",
+        "model:case:9011274-cc-ww-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "כרטיסי הרחבה",
+      "count": 2,
+      "products": [
+        "model:case:9011218-cc-ww-black",
+        "model:case:9011274-cc-ww-white"
       ]
     },
     {
@@ -4943,11 +5357,29 @@
     },
     {
       "category": "case",
+      "label": "סקירת וידאו",
+      "count": 2,
+      "products": [
+        "model:case:ap201-prime-black",
+        "model:case:ap201-prime-white"
+      ]
+    },
+    {
+      "category": "case",
       "label": "פאנל קדמי",
       "count": 2,
       "products": [
         "model:case:argb-aura-elite-gc4-black",
         "model:case:ax20-elite-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "חיבורים קדמיים",
+      "count": 2,
+      "products": [
+        "model:case:argb-aura-elite-gc4-black",
+        "model:case:vs7-black"
       ]
     },
     {
@@ -4979,25 +5411,7 @@
     },
     {
       "category": "case",
-      "label": "תאימות לוחות אם",
-      "count": 2,
-      "products": [
-        "model:case:ax20-elite-black",
-        "model:case:cx700-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "תאימות לוח אם",
-      "count": 2,
-      "products": [
-        "model:case:br-ca-h510i-h510i-black",
-        "model:case:dark-dp501-phantom-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מאווררים",
       "count": 2,
       "products": [
         "model:case:br-ca-h510i-h510i-black",
@@ -6257,6 +6671,15 @@
     },
     {
       "category": "motherboard",
+      "label": "רשתות",
+      "count": 2,
+      "products": [
+        "model:motherboard:a-pro-wifi-z890-atx",
+        "model:motherboard:aorus-elite-ice-x-z890-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "מעבדי AMD Ryzen™",
       "count": 2,
       "products": [
@@ -6616,6 +7039,85 @@
       ]
     },
     {
+      "category": "psu",
+      "label": "מדריך להתחלה מהירה",
+      "count": 2,
+      "products": [
+        "model:psu:750g-ap-prime-750w-white",
+        "model:psu:850g-ap-prime-850w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "דירוג 80 Plus",
+      "count": 2,
+      "products": [
+        "model:psu:atom-b550-550w",
+        "model:psu:atom-b650-650w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "עוצמה",
+      "count": 2,
+      "products": [
+        "model:psu:atom-b750w-750w",
+        "model:psu:atom-g750w-750w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מאווררים",
+      "count": 2,
+      "products": [
+        "model:psu:atom-b750w-750w",
+        "model:psu:atom-g750w-750w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "אקטיבי",
+      "count": 2,
+      "products": [
+        "model:psu:atom-b750w-750w",
+        "model:psu:atom-g750w-750w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "קלט",
+      "count": 2,
+      "products": [
+        "model:psu:atom-v2-v650-650w-no",
+        "model:psu:atom-v2-v750-750w-no"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "תוחלת חיים",
+      "count": 2,
+      "products": [
+        "model:psu:hx1000i-1000w-full-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מידות ספק הכוח",
+      "count": 2,
+      "products": [
+        "model:psu:hx1000i-1000w-full-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "תכולה",
+      "count": 2,
+      "products": [
+        "model:storage:0-4-elite-mp600-pro-ps5-ps5-1000gb-pcie4-m22280",
+        "model:storage:0-4-elite-mp600-pro-ps5-ps5-2000gb-pcie4-m22280"
+      ]
+    },
+    {
       "category": "storage",
       "label": "קירור",
       "count": 2,
@@ -6640,6 +7142,87 @@
       "products": [
         "model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
         "model:storage:32261-usb-m2"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "P/N",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "קריאה רנדומלית 4KB",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "כתיבה רנדומלית 4KB",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "הספק מקסימלי",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "הספק Idle Power PS3",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "הספק Low Power L1.2",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "טפמרטורת אחסון",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "Terabytes Written (TBW)",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "תכונות מתקדמות",
+      "count": 2,
+      "products": [
+        "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
+        "model:storage:2-5-s270-sata-spatium-960gb-sata-25"
       ]
     },
     {
@@ -6671,11 +7254,11 @@
     },
     {
       "category": "storage",
-      "label": "טמפרטורת הפעלה",
+      "label": "רעידות",
       "count": 2,
       "products": [
-        "model:storage:2tb-2tci-980-980p-mars-pro-smar-xpg-2000gb-nvme",
-        "model:storage:960gb-s270-spatium-960gb-sata"
+        "model:storage:2t00-g26-sdssde30-2000gb-usb",
+        "model:storage:nv3-s-series-500gb-pcie4-m22280"
       ]
     },
     {
@@ -6757,6 +7340,15 @@
       "products": [
         "model:storage:lns100-1000gb-sata-25",
         "model:storage:pm883-960gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "סוג זיכרון",
+      "count": 2,
+      "products": [
+        "model:storage:m461-spatium-1000gb-pciexpress40",
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
       ]
     },
     {
@@ -7039,14 +7631,6 @@
     },
     {
       "category": "case",
-      "label": "חיבורים קדמיים",
-      "count": 1,
-      "products": [
-        "model:case:argb-aura-elite-gc4-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "חיבור תאורה",
       "count": 1,
       "products": [
@@ -7175,30 +7759,6 @@
     },
     {
       "category": "case",
-      "label": "חומרים",
-      "count": 1,
-      "products": [
-        "model:case:ax20-elite-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מערכת קירור",
-      "count": 1,
-      "products": [
-        "model:case:ax20-elite-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מרווחים",
-      "count": 1,
-      "products": [
-        "model:case:ax20-elite-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "רזולוציה",
       "count": 1,
       "products": [
@@ -7207,7 +7767,7 @@
     },
     {
       "category": "case",
-      "label": "מרווח",
+      "label": "כיסוי אבק",
       "count": 1,
       "products": [
         "model:case:cx700-black"
@@ -7215,10 +7775,18 @@
     },
     {
       "category": "case",
-      "label": "כיסוי אבק",
+      "label": "קישוריות",
       "count": 1,
       "products": [
-        "model:case:cx700-black"
+        "model:case:m100r-mag-pano-pz-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מגבלות",
+      "count": 1,
+      "products": [
+        "model:case:vs7-black"
       ]
     },
     {
@@ -7635,6 +8203,14 @@
       "count": 1,
       "products": [
         "model:cpu:ryzen59600x-tray"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תכונות בולטות",
+      "count": 1,
+      "products": [
+        "model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb"
       ]
     },
     {
@@ -9343,14 +9919,6 @@
     },
     {
       "category": "motherboard",
-      "label": "רשתות",
-      "count": 1,
-      "products": [
-        "model:motherboard:aorus-elite-ice-x-z890-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "Spec / Specifications / Graphics Card",
       "count": 1,
       "products": [
@@ -10327,6 +10895,54 @@
     },
     {
       "category": "psu",
+      "label": "מטפרט טכני",
+      "count": 1,
+      "products": [
+        "model:psu:1000w-gaming-tuf-white-1000w-white"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "הגנה",
+      "count": 1,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "טווח קלט AC",
+      "count": 1,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מתח פלט DC",
+      "count": 1,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "תפוקה כוללת",
+      "count": 1,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "אביזרים",
+      "count": 1,
+      "products": [
+        "model:psu:1200g-gaming-modular-tuf-tuf-1200w"
+      ]
+    },
+    {
+      "category": "psu",
       "label": "מחבר מעבד",
       "count": 1,
       "products": [
@@ -10791,23 +11407,7 @@
     },
     {
       "category": "storage",
-      "label": "טמפרטורה",
-      "count": 1,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "זעזועים",
-      "count": 1,
-      "products": [
-        "model:storage:2t00-g26-sdssde30-2000gb-usb"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "רעידות",
       "count": 1,
       "products": [
         "model:storage:2t00-g26-sdssde30-2000gb-usb"
@@ -11175,14 +11775,6 @@
     },
     {
       "category": "storage",
-      "label": "סוג זיכרון",
-      "count": 1,
-      "products": [
-        "model:storage:m461-spatium-1000gb-pciexpress40"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "רכיב עבור",
       "count": 1,
       "products": [
@@ -11279,6 +11871,38 @@
     },
     {
       "category": "storage",
+      "label": "בקר שליטה",
+      "count": 1,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה מקסמלית",
+      "count": 1,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "סיבולת",
+      "count": 1,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "תוחלת חיים",
+      "count": 1,
+      "products": [
+        "model:storage:nv3-s-series-500gb-pcie4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "גורם צורה",
       "count": 1,
       "products": [
@@ -11296,14 +11920,6 @@
     {
       "category": "storage",
       "label": "ממדים",
-      "count": 1,
-      "products": [
-        "model:storage:p210-512gb-sata-25"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "תאימות",
       "count": 1,
       "products": [
         "model:storage:p210-512gb-sata-25"
@@ -11375,7 +11991,7 @@
     },
     {
       "category": "storage",
-      "label": "צריכת חשמל",
+      "label": "סוג אריזה",
       "count": 1,
       "products": [
         "model:storage:sa53p-3840gb-sata-25"
@@ -11383,10 +11999,34 @@
     },
     {
       "category": "storage",
-      "label": "סוג אריזה",
+      "label": "מהירות קריאה רנדומלית 4K",
       "count": 1,
       "products": [
-        "model:storage:sa53p-3840gb-sata-25"
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה רנדומלית 4K",
+      "count": 1,
+      "products": [
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה Sequential",
+      "count": 1,
+      "products": [
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה Sequential",
+      "count": 1,
+      "products": [
+        "model:storage:ssd225s-ts250gssd225s-250gb-sata-25"
       ]
     },
     {

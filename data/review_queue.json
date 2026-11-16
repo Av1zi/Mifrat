@@ -22,6 +22,39 @@
     "match_text_b": "503016 3 Corsair iCUE LINK RX360 II RGB 360mm PWM -"
   },
   {
+    "score": 96,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:273082",
+    "listing_b": "ksp:273104",
+    "title_a": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע לבן",
+    "match_text_a": "273082 Asus Prime AP201 Tempered Glass Small Tower -",
+    "match_text_b": "273104 Asus Prime AP201 Tempered Glass Small Tower -"
+  },
+  {
+    "score": 94,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:233648",
+    "listing_b": "ksp:233670",
+    "title_a": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע לבן",
+    "match_text_a": "233648 Asus Prime AP201 Small Tower -",
+    "match_text_b": "233670 Asus Prime AP201 Small Tower -"
+  },
+  {
+    "score": 94,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:395955",
+    "listing_b": "ksp:506575",
+    "title_a": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
+    "title_b": "מציאון ועודפים - מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
+    "match_text_a": "395955 Mid Tower Asus ProArt PA401 Wood Edition Metal -",
+    "match_text_b": "506575 - Mid Tower Asus ProArt PA401 Wood Edition Metal -"
+  },
+  {
     "score": 92,
     "category": "aio",
     "brand": "Corsair",
@@ -55,6 +88,61 @@
     "match_text_b": "SNV3S/1000G SSD Kingston NV3 Series 1TB 1024GB Gen4 6000MB s M.2 NVMe"
   },
   {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:233648",
+    "listing_b": "ksp:273082",
+    "title_a": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע שחור",
+    "match_text_a": "233648 Asus Prime AP201 Small Tower -",
+    "match_text_b": "273082 Asus Prime AP201 Tempered Glass Small Tower -"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:233648",
+    "listing_b": "ksp:273104",
+    "title_a": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע שחור",
+    "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע לבן",
+    "match_text_a": "233648 Asus Prime AP201 Small Tower -",
+    "match_text_b": "273104 Asus Prime AP201 Tempered Glass Small Tower -"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:233670",
+    "listing_b": "ksp:273082",
+    "title_a": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע לבן",
+    "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע שחור",
+    "match_text_a": "233670 Asus Prime AP201 Small Tower -",
+    "match_text_b": "273082 Asus Prime AP201 Tempered Glass Small Tower -"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:233670",
+    "listing_b": "ksp:273104",
+    "title_a": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע לבן",
+    "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע לבן",
+    "match_text_a": "233670 Asus Prime AP201 Small Tower -",
+    "match_text_b": "273104 Asus Prime AP201 Tempered Glass Small Tower -"
+  },
+  {
+    "score": 89,
+    "category": "case",
+    "brand": "ASUS",
+    "listing_a": "ksp:392918",
+    "listing_b": "ksp:511473",
+    "title_a": "מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
+    "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
+    "match_text_a": "392918 Asus A23 PLUS ARGB Micro ATX -",
+    "match_text_b": "511473 - Asus A23 PLUS ARGB Micro ATX -"
+  },
+  {
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
@@ -75,28 +163,6 @@
     "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
     "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
     "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Corsair",
-    "listing_a": "1pc:222371",
-    "listing_b": "ksp:299807",
-    "title_a": "ספק כוח Corsair CX550 80 PLUS Bronze - 550W",
-    "title_b": "ספק כח Corsair CX550 550W 80 PLUS Bronze ATX 12cm Fan",
-    "match_text_a": "222371 Corsair CX550 80 PLUS Bronze - 550W",
-    "match_text_b": "299807 Corsair CX550 550W 80 PLUS Bronze ATX 12cm Fan"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Corsair",
-    "listing_a": "1pc:222372",
-    "listing_b": "ksp:299817",
-    "title_a": "ספק כוח Corsair CX650 80 PLUS Bronze - 650W",
-    "title_b": "ספק כח Corsair CX650 650W 80 PLUS Bronze ATX 12cm Fan",
-    "match_text_a": "222372 Corsair CX650 80 PLUS Bronze - 650W",
-    "match_text_b": "299817 Corsair CX650 650W 80 PLUS Bronze ATX 12cm Fan"
   },
   {
     "kind": "duplicate_vendor",
@@ -539,89 +605,45 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:case:a23-black",
+    "product_id": "model:case:ap303-prime-black",
     "category": "case",
     "vendor": "ksp",
     "collapsed": true,
     "offers": [
       {
-        "listing_key": "ksp:511473",
-        "vendor_sku": "511473",
-        "title": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
-        "price": 319,
-        "alias_of": "ksp:392918"
+        "listing_key": "ksp:471840",
+        "vendor_sku": "471840",
+        "title": "מארז ללא ספק Asus Prime AP303 Mesh Panel Micro-ATX - צבע שחור",
+        "price": 489
       },
       {
-        "listing_key": "ksp:392918",
-        "vendor_sku": "392918",
-        "title": "מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
-        "price": 449
+        "listing_key": "ksp:471842",
+        "vendor_sku": "471842",
+        "title": "מארז ללא ספק Asus Prime AP303 Tempered Glass Panel Micro-ATX - צבע שחור",
+        "price": 489,
+        "alias_of": "ksp:471840"
       }
     ]
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:case:ap201-prime-small-tower-black",
+    "product_id": "model:case:pa602-proart-wood-black",
     "category": "case",
     "vendor": "ksp",
     "collapsed": true,
     "offers": [
       {
-        "listing_key": "ksp:273082",
-        "vendor_sku": "273082",
-        "title": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע שחור",
-        "price": 395
+        "listing_key": "ksp:396920",
+        "vendor_sku": "396920",
+        "title": "מארז Mid Tower ללא ספק Asus ProArt PA602 Wood Edition Tempered Glass Panel - צבע שחור",
+        "price": 1250
       },
       {
-        "listing_key": "ksp:233648",
-        "vendor_sku": "233648",
-        "title": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע שחור",
-        "price": 399,
-        "alias_of": "ksp:273082"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case:ap201-prime-small-tower-white",
-    "category": "case",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:273104",
-        "vendor_sku": "273104",
-        "title": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע לבן",
-        "price": 395
-      },
-      {
-        "listing_key": "ksp:233670",
-        "vendor_sku": "233670",
-        "title": "מארז ללא ספק Asus Prime AP201 Small Tower - צבע לבן",
-        "price": 399,
-        "alias_of": "ksp:273104"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:case:metal-mid-pa401-proart-tower-wood-black",
-    "category": "case",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:506575",
-        "vendor_sku": "506575",
-        "title": "מציאון ועודפים - מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
-        "price": 499,
-        "alias_of": "ksp:395955"
-      },
-      {
-        "listing_key": "ksp:395955",
-        "vendor_sku": "395955",
-        "title": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
-        "price": 599
+        "listing_key": "ksp:396930",
+        "vendor_sku": "396930",
+        "title": "מארז Mid Tower ללא ספק Asus ProArt PA602 Wood Edition Metal - צבע שחור",
+        "price": 1250,
+        "alias_of": "ksp:396920"
       }
     ]
   },
@@ -1074,29 +1096,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:psu:10cm-fan-fully-modular-sf850-sfx-850w-full-black",
-    "category": "psu",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:415721",
-        "vendor_sku": "415721",
-        "title": "מציאון ועודפים - ספק כוח מודולרי Corsair SF850 850W 80 PLUS Platinum 10cm Fan Fully Modular SFX",
-        "price": 699,
-        "alias_of": "ksp:348248"
-      },
-      {
-        "listing_key": "ksp:348248",
-        "vendor_sku": "348248",
-        "title": "ספק כוח מודולרי Corsair SF850 850W 80 PLUS Platinum 10cm Fan Fully Modular SFX",
-        "price": 899
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:psu:1200w-iii-platinum-rog-thor-1200w-black",
+    "product_id": "model:psu:1200p3-gaming-rog-thor-1200w-black",
     "category": "psu",
     "vendor": "ksp",
     "collapsed": true,
@@ -1118,51 +1118,7 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:psu:fully-modular-rm1000x-shift-1000w-full-black",
-    "category": "psu",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:212368",
-        "vendor_sku": "CP-9020300-EU",
-        "title": "ספק כוח Corsair RM1000x SHIFT 1000W 80+ Gold מודולרי מלא",
-        "price": 754
-      },
-      {
-        "listing_key": "1pc:215463",
-        "vendor_sku": "215463",
-        "title": "ספק כוח Corsair RM1000x Shift 80 PLUS Gold Fully Modular ATX בצבע שחור",
-        "price": 963,
-        "alias_of": "1pc:212368"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:psu:fully-modular-rm850x-shift-850w-full-black",
-    "category": "psu",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:212367",
-        "vendor_sku": "CP-9020299-EU",
-        "title": "ספק כוח Corsair RM850x SHIFT 850W 80+ Gold מודולרי מלא",
-        "price": 661
-      },
-      {
-        "listing_key": "1pc:215462",
-        "vendor_sku": "215462",
-        "title": "ספק כוח Corsair RM850x Shift 80 PLUS Gold Fully Modular ATX בצבע שחור",
-        "price": 793,
-        "alias_of": "1pc:212367"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:psu:hx1000i-modular-1000w-full-black",
+    "product_id": "model:psu:hx1000i-1000w-full-black",
     "category": "psu",
     "vendor": "ksp",
     "collapsed": true,
@@ -1201,6 +1157,72 @@
         "title": "ספק כוח CORSAIR RM1000e מודולרי מלא בצבע לבן",
         "price": 793,
         "alias_of": "1pc:206389"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:psu:rm1000x-shift-1000w-full-black",
+    "category": "psu",
+    "vendor": "1pc",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "1pc:212368",
+        "vendor_sku": "CP-9020300-EU",
+        "title": "ספק כוח Corsair RM1000x SHIFT 1000W 80+ Gold מודולרי מלא",
+        "price": 754
+      },
+      {
+        "listing_key": "1pc:215463",
+        "vendor_sku": "215463",
+        "title": "ספק כוח Corsair RM1000x Shift 80 PLUS Gold Fully Modular ATX בצבע שחור",
+        "price": 963,
+        "alias_of": "1pc:212368"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:psu:rm850x-shift-850w-full-black",
+    "category": "psu",
+    "vendor": "1pc",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "1pc:212367",
+        "vendor_sku": "CP-9020299-EU",
+        "title": "ספק כוח Corsair RM850x SHIFT 850W 80+ Gold מודולרי מלא",
+        "price": 661
+      },
+      {
+        "listing_key": "1pc:215462",
+        "vendor_sku": "215462",
+        "title": "ספק כוח Corsair RM850x Shift 80 PLUS Gold Fully Modular ATX בצבע שחור",
+        "price": 793,
+        "alias_of": "1pc:212367"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:psu:sf850-850w-full-black",
+    "category": "psu",
+    "vendor": "ksp",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "ksp:415721",
+        "vendor_sku": "415721",
+        "title": "מציאון ועודפים - ספק כוח מודולרי Corsair SF850 850W 80 PLUS Platinum 10cm Fan Fully Modular SFX",
+        "price": 699,
+        "alias_of": "ksp:348248"
+      },
+      {
+        "listing_key": "ksp:348248",
+        "vendor_sku": "348248",
+        "title": "ספק כוח מודולרי Corsair SF850 850W 80 PLUS Platinum 10cm Fan Fully Modular SFX",
+        "price": 899
       }
     ]
   },
@@ -2978,6 +3000,13 @@
         "price": 577
       },
       {
+        "listing_key": "ksp:387614",
+        "vendor": "ksp",
+        "vendor_sku": "387614",
+        "title": "מארז ללא ספק Corsair 4000D RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
+        "price": 349
+      },
+      {
         "listing_key": "tms:CC-9011296-WW",
         "vendor": "tms",
         "vendor_sku": "CC-9011296-WW",
@@ -3355,6 +3384,13 @@
         "vendor": "ivory",
         "vendor_sku": "CC-9011308-WW",
         "title": "מארז מחשב Corsair FRAME 5000D RS – פס תאורה ARGB – צבע לבן",
+        "price": 440
+      },
+      {
+        "listing_key": "ksp:431457",
+        "vendor": "ksp",
+        "vendor_sku": "431457",
+        "title": "מארז ללא ספק Corsair 5000D RS ATX Mid-Tower - צבע לבן",
         "price": 440
       },
       {
@@ -11372,29 +11408,6 @@
   },
   {
     "kind": "split_candidate",
-    "category": "case",
-    "product_id": "model:case:4000d-argb-lcd-rs-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222407",
-        "vendor": "1pc",
-        "vendor_sku": "222407",
-        "title": "מארז מחשב Corsair FRAME 4000D LCD RS ARGB שחור",
-        "price": 1298
-      },
-      {
-        "listing_key": "ksp:448641",
-        "vendor": "ksp",
-        "vendor_sku": "448641",
-        "title": "מארז ללא ספק Corsair 4000D LCD RS FRAME ARGB Tempered Glass Mid Tower ATX - צבע שחור",
-        "price": 1149
-      }
-    ],
-    "model_code": "4000d-argb-frame-lcd-rs"
-  },
-  {
-    "kind": "split_candidate",
     "category": "storage",
     "product_id": "model:storage:green-sn3000-wd-2000gb-pciegen4x4-m22280",
     "vendor": "",
@@ -11540,30 +11553,7 @@
   {
     "kind": "split_candidate",
     "category": "storage",
-    "product_id": "model:storage:0-2280-4-nv3-x4-500gb-pcie4-m22280",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:325682",
-        "vendor": "ksp",
-        "vendor_sku": "325682",
-        "title": "כונן Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 1TB SSD",
-        "price": 649
-      },
-      {
-        "listing_key": "tms:SNV3S-1000G",
-        "vendor": "tms",
-        "vendor_sku": "SNV3S-1000G",
-        "title": "Kingston 1TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
-        "price": 715
-      }
-    ],
-    "model_code": "0-2280-4-nv3"
-  },
-  {
-    "kind": "split_candidate",
-    "category": "storage",
-    "product_id": "model:storage:0-2280-4-nv3-x4-500gb-pcie4-m22280",
+    "product_id": "model:storage:nv3-s-series-1000gb-pciem2-m2",
     "vendor": "",
     "offers": [
       {
@@ -11586,29 +11576,6 @@
         "vendor_sku": "SNV3S/2000G",
         "title": "כונן SSD חברת Kingston דגם NV3 Series 2TB 2048GB Gen4 6000MB\\s M.2 NVMe",
         "price": 990
-      }
-    ],
-    "model_code": "0-2280-4-nv3"
-  },
-  {
-    "kind": "split_candidate",
-    "category": "storage",
-    "product_id": "model:storage:0-2280-4-nv3-x4-500gb-pcie4-m22280",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:338323",
-        "vendor": "ksp",
-        "vendor_sku": "338323",
-        "title": "כונן Kingston NV3 PCIe 4.0 x4 NVMe M.2 2280 4TB SSD",
-        "price": 2070
-      },
-      {
-        "listing_key": "tms:SNV3S-4000G",
-        "vendor": "tms",
-        "vendor_sku": "SNV3S-4000G",
-        "title": "Kingston 4TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
-        "price": 2376
       }
     ],
     "model_code": "0-2280-4-nv3"
@@ -12029,6 +11996,22 @@
     ],
     "model_code": "12700f",
     "merged_from": "model:cpu:12700f"
+  },
+  {
+    "kind": "split_candidate",
+    "category": "gpu",
+    "product_id": "model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:10573",
+        "vendor": "yahav",
+        "vendor_sku": "VCG507012TFXXPB1-O",
+        "title": "כרטיס מסך חברת PNY דגם Geforce RTX 5070 ARGB EPIC-X RGB Triple Fan OC 12GB GDDR7 1xHDMI 3xDP",
+        "price": 3690
+      }
+    ],
+    "model_code": "12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x"
   },
   {
     "kind": "packaging_conflict",
@@ -14988,70 +14971,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:3500x-argb-r-rs-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:416746",
-        "vendor": "ksp",
-        "vendor_sku": "416746",
-        "title": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע לבן",
-        "price": 329
-      }
-    ],
-    "model_code": "3500x-argb-r-rs",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:3500x-r-rs-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:209148",
-        "vendor": "1pc",
-        "vendor_sku": "CC-9011322-WW",
-        "title": "מארז מחשב Corsair 3500X RS-R ARGB בצבע שחור",
-        "price": 612
-      },
-      {
-        "listing_key": "ivory:157402",
-        "vendor": "ivory",
-        "vendor_sku": "CC-9011322-WW",
-        "title": "מארז מחשב Corsair 3500X RS-R ARGB – תאורת ARGB – צבע שחור",
-        "price": 394
-      },
-      {
-        "listing_key": "ksp:416673",
-        "vendor": "ksp",
-        "vendor_sku": "416673",
-        "title": "מארז ללא ספק Corsair 3500X RS-R Tempered Glass ARGB ATX Mid-Tower - צבע שחור",
-        "price": 394
-      },
-      {
-        "listing_key": "tms:CC-9011322-WW",
-        "vendor": "tms",
-        "vendor_sku": "CC-9011322-WW",
-        "title": "מארז מחשב Corsair 3500X RS-R ARGB",
-        "price": 432
-      },
-      {
-        "listing_key": "yahav:11608",
-        "vendor": "yahav",
-        "vendor_sku": "CC-9011322-WW",
-        "title": "מארז חברת Corsair דגם 3500X RS-R ARGB Black Dual Chamber Tempered Glass 3X120mm Mid Tower ATX - צבע שחור",
-        "price": 380
-      }
-    ],
-    "model_code": "3500x-3x120mm-argb-atx-black-chamber-dual-glass-mid-r-rs-tempered-tower",
-    "manufacturer_pn": [
-      "CC9011322WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:4x120mm-argb-argb-c3-constellation-fans-included-mid-series-tower-black",
     "vendor": "",
     "offers": [
@@ -17104,6 +17023,13 @@
         "price": 4104
       },
       {
+        "listing_key": "ksp:378814",
+        "vendor": "ksp",
+        "vendor_sku": "378814",
+        "title": "כרטיס מסך GIGABYTE RTX 5070 EAGLE OC ICE SFF 12GB GDDR7",
+        "price": 4150
+      },
+      {
         "listing_key": "tms:N5070EAGLEOCICE12GD",
         "vendor": "tms",
         "vendor_sku": "N5070EAGLEOCICE12GD",
@@ -17465,6 +17391,13 @@
         "vendor_sku": "N5060EAGLEOC8GD",
         "title": "כרטיס מסך Gigabyte GeForce RTX 5060 EAGLE OC 8G GV-N5060EAGLE OC-8GD",
         "price": 2387
+      },
+      {
+        "listing_key": "ksp:398500",
+        "vendor": "ksp",
+        "vendor_sku": "398500",
+        "title": "כרטיס מסך GIGABYTE RTX 5060 EAGLE OC 8GB GDDR7",
+        "price": 2370
       },
       {
         "listing_key": "tms:N5060EAGLEOC8GD",
@@ -18738,6 +18671,60 @@
     "model_code": "gme750gm-gp-pg5",
     "manufacturer_pn": [
       "GPGME750GMPG5"
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:case:metal-mid-pa401-proart-tower-wood-black",
+    "product_ids": [
+      "model:case:metal-mid-pa401-proart-tower-wood-black",
+      "model:case:metal-pa401-proart-wood-black"
+    ],
+    "category": "case",
+    "vendor": "ksp",
+    "reason": "same vendor, same title without decoration, 2 products",
+    "offers": [
+      {
+        "listing_key": "ksp:395955",
+        "product_id": "model:case:metal-pa401-proart-wood-black",
+        "vendor_sku": "395955",
+        "title": "מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
+        "price": 599
+      },
+      {
+        "listing_key": "ksp:506575",
+        "product_id": "model:case:metal-mid-pa401-proart-tower-wood-black",
+        "vendor_sku": "506575",
+        "title": "מציאון ועודפים - מארז Mid Tower ללא ספק Asus ProArt PA401 Wood Edition Metal - צבע שחור",
+        "price": 499
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:case:a23-black",
+    "product_ids": [
+      "model:case:a23-black",
+      "model:case:a23-plus-black"
+    ],
+    "category": "case",
+    "vendor": "ksp",
+    "reason": "same vendor, same title without decoration, 2 products",
+    "offers": [
+      {
+        "listing_key": "ksp:392918",
+        "product_id": "model:case:a23-plus-black",
+        "vendor_sku": "392918",
+        "title": "מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
+        "price": 449
+      },
+      {
+        "listing_key": "ksp:511473",
+        "product_id": "model:case:a23-black",
+        "vendor_sku": "511473",
+        "title": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
+        "price": 319
+      }
     ]
   },
   {
