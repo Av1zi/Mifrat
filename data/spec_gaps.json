@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T23:45:15.334910+00:00",
+  "generated_at": "2026-11-16T01:14:08.490023+00:00",
   "gaps": [
     {
       "category": "case",
@@ -202,16 +202,6 @@
       ]
     },
     {
-      "category": "aio",
-      "label": "מידות משאבה",
-      "count": 26,
-      "products": [
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
-        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
-        "model:aio:240-a-freezer-liquid-240mm-white"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "סוג האחסון",
       "count": 26,
@@ -229,6 +219,16 @@
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
         "model:motherboard:a-am5-b840m-prime-wifi-microatx",
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "מידות משאבה",
+      "count": 25,
+      "products": [
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
+        "model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-white",
+        "model:aio:240-a-freezer-liquid-240mm-white"
       ]
     },
     {
@@ -329,6 +329,16 @@
         "model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
         "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
         "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 20,
+      "products": [
+        "model:cpu:225",
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray"
       ]
     },
     {
@@ -503,12 +513,12 @@
     },
     {
       "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
+      "label": "תכונות נוספות",
       "count": 18,
       "products": [
-        "model:cpu:225",
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray"
+        "model:cpu:5500-tray",
+        "model:cpu:5700x-tray",
+        "model:cpu:5800x3d"
       ]
     },
     {
@@ -629,16 +639,6 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-a13-coreliquid-mag-240mm-white",
         "model:aio:240-chione-e4-240mm"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 16,
-      "products": [
-        "model:cpu:5500-tray",
-        "model:cpu:5700x-tray",
-        "model:cpu:5800x3d"
       ]
     },
     {
@@ -7379,7 +7379,7 @@
       "label": "מפרט Product Dimension Fan Rated Voltage Socket Compatibility",
       "count": 1,
       "products": [
-        "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black"
+        "model:cooler_air:60cfm-fan-led-t120-120mm"
       ]
     },
     {
@@ -7387,7 +7387,7 @@
       "label": "Dimensions",
       "count": 1,
       "products": [
-        "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black"
+        "model:cooler_air:60cfm-fan-led-t120-120mm"
       ]
     },
     {
@@ -7395,7 +7395,7 @@
       "label": "Type",
       "count": 1,
       "products": [
-        "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black"
+        "model:cooler_air:60cfm-fan-led-t120-120mm"
       ]
     },
     {
@@ -7403,7 +7403,7 @@
       "label": "Noise",
       "count": 1,
       "products": [
-        "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black"
+        "model:cooler_air:60cfm-fan-led-t120-120mm"
       ]
     },
     {
@@ -7411,7 +7411,7 @@
       "label": "Connector",
       "count": 1,
       "products": [
-        "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black"
+        "model:cooler_air:60cfm-fan-led-t120-120mm"
       ]
     },
     {

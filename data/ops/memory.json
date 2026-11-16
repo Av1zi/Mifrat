@@ -146,7 +146,7 @@
 "1pc:122136":"model:case:1x120mm-2x200mm-500-haf-mid-tower-white",
 "1pc:123001":"model:gpu:a4500-rtx-sb-vcnrtxa4500-20gb",
 "1pc:123361":"model:storage:mp600-pcie4-pro-x4-4000gb-m2pcie-m22280",
-"1pc:124085":"model:cooler_air:nh-redux-u12s-160mm-120mm-black",
+"1pc:124085":"model:cooler_air:cooler-cpu-nh-redux-u12s-160mm-120mm-black",
 "1pc:124089":"model:cooler_air:3-rock-shadow-165mm-120mm",
 "1pc:124103":"model:cooler_air:nh-u12s-160mm-120mm",
 "1pc:124110":"model:cooler_air:cooler-cpu-d12l-nh-145mm-120mm-black",
@@ -211,7 +211,7 @@
 "1pc:132195":"model:case:03-c-fd-nor1c-north-white",
 "1pc:132196":"model:case:02-c-charcoal-fd-nor1c-north-black",
 "1pc:132197":"model:case:01-c-charcoal-fd-nor1c-north-black",
-"1pc:132269":"model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black",
+"1pc:132269":"model:cooler_air:60cfm-fan-led-t120-120mm",
 "1pc:132538":"model:case:01-c-fd-pop-pos1x-silent-xl-black",
 "1pc:132738":"model:motherboard:b760m-ds3h-microatx",
 "1pc:132741":"model:case:ax90-black",
@@ -687,7 +687,7 @@
 "1pc:171800":"model:aio:360-bk-dig-fairy-ice-lite-360mm",
 "1pc:171801":"model:cooler_air:b60-bk-cooler-cpu-dig-v2-160mm-120mm-black",
 "1pc:171809":"model:case_fan:2xfans-a14x25r-g2-nf-pp-pwm-sx2-140mm-2",
-"1pc:171810":"model:case_fan:a14x25r-g2-nf-pwm-140mm-1-brown",
+"1pc:171810":"model:case_fan:a14x25r-g2-nf-pwm-140mm",
 "1pc:171811":"model:case_fan:a12x25-chromax-fan-nf-pwm-swap-120mm-black",
 "1pc:171813":"model:cooler_air:chromax-cooler-cpu-l9x65-nh-65mm-92mm-black",
 "1pc:171814":"model:cooler_air:91cfm-d15-g2-lbc-nh-170mm-140mm",
@@ -2474,7 +2474,7 @@
 "1pc:65311":"model:case_fan:9050073-co-ll140-ww-140mm-rgb-black",
 "1pc:65316":"model:case_fan:140-9050096-co-core-corsairi-cue-lighting-node-pro-rgb-sp140-ww-140mm-rgb-black",
 "1pc:65318":"model:case_fan:led-ml140-pro-pwm-140mm-rgb-black-2",
-"1pc:65325":"model:cooler_air:nh-u12a-160mm-120mm",
+"1pc:65325":"model:cooler_air:cooler-cpu-nh-u12a-160mm-120mm",
 "1pc:65352":"model:case:br-ca-h510i-h510i-black",
 "1pc:65370":"model:case:br-ca-h510-h510b-blackred",
 "1pc:65541":"model:case:bko-blackout-def-define-rgb-rgb-s2-s2v-tgd-vision-black",
@@ -2654,7 +2654,7 @@
 "ivory:110677":"model:motherboard:h-h610m-v3-microatx",
 "ivory:110727":"model:motherboard:b550m-k-prime-microatx",
 "ivory:111449":"model:case:1x140mm-2x160mm-argb-argb-argb-c8-constellation-fan-fans-full-series-tower-black",
-"ivory:112283":"model:case_fan:a14x25r-g2-nf-pwm-140mm-1-brown",
+"ivory:112283":"model:case_fan:140-a14x25r-g2-g2-nf-pwm-140mm-1-brown",
 "ivory:112285":"model:cooler_air:d15-g2-nh-170mm-140mm-brown",
 "ivory:112289":"model:cooler_air:91cfm-d15-g2-hbc-nh-170mm-140mm",
 "ivory:112679":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-168mm-120mm-black",
@@ -2883,7 +2883,7 @@
 "ivory:135492":"model:aio:240-a-freezer-iii-liquid-pro-rgb-240mm-black",
 "ivory:135495":"model:aio:liquid-freezer-iii-pro-360-360mm-black",
 "ivory:135498":"model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-black",
-"ivory:135501":"model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-white",
+"ivory:135501":"model:aio:77cfm-freezer-liquid-pro-360mm-white",
 "ivory:135828":"model:psu:rm1200e-1200w-full-black",
 "ivory:135831":"model:aio:360-icue-lcd-link-rx-titan-360mm-black",
 "ivory:135837":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
@@ -3090,9 +3090,9 @@
 "ivory:157417":"model:case:4000d-frame-lcd-premium-rs-black",
 "ivory:157423":"model:case:4000d-frame-lcd-premium-rs-white",
 "ivory:157516":"mpn:case:cfv235visionw",
-"ivory:158056":"model:case_fan:a14x25r-g2-nf-pwm-140mm-2-brown",
+"ivory:158056":"model:case_fan:140-a14x25r-g2-nf-pp-pull-push-pwm-sx2-140mm-2-brown",
 "ivory:158068":"model:case_fan:a14x25r-black-chromax-g2-nf-pwm-140mm-1-black",
-"ivory:158071":"model:case_fan:a14x25r-black-chromax-g2-nf-pwm-140mm-2-black",
+"ivory:158071":"model:case_fan:140-a14x25r-chromax-g2-g2-nf-pwm-140mm-2-black",
 "ivory:158143":"model:case_fan:120-4-a12x25-g2-nf-pwm-120mm-2-brown",
 "ivory:159523":"mpn:motherboard:4711377347594",
 "ivory:159634":"model:motherboard:b850m-p-pro-wifi-microatx",
@@ -3336,8 +3336,8 @@
 "ivory:23562":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "ivory:27045":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
 "ivory:30398":"model:cpu:3200g",
-"ivory:31784":"model:cooler_air:black-chromax-d15-nh-170mm-140mm-black",
-"ivory:31811":"model:cooler_air:black-chromax-nh-u12s-158mm-120mm-black",
+"ivory:31784":"model:cooler_air:chromax-d15-nh-170mm-140mm-black",
+"ivory:31811":"model:cooler_air:120-chromax-nh-ram-u12s-158mm-120mm-black",
 "ivory:32776":"model:psu:s12iii-500w-no-black",
 "ivory:32777":"model:psu:s12iii-550w-black",
 "ivory:32778":"model:psu:s12iii-650w-no-black",
@@ -3354,7 +3354,7 @@
 "ivory:39983":"mpn:cpu:100100000263box",
 "ivory:40030":"model:cooler_air:pure-rock-slim-2-bk030-135mm-92mm-black",
 "ivory:40326":"model:psu:450-h3-450w-no-black",
-"ivory:42676":"model:cooler_air:black-chromax-nh-u12a-158mm-120mm-black",
+"ivory:42676":"model:cooler_air:120-chromax-nh-u12a-158mm-120mm-black",
 "ivory:42702":"model:gpu:2gd5-4h-730-geforce-gt-gt730-sl-2gb",
 "ivory:43029":"mpn:case:df800f",
 "ivory:43060":"mpn:memory:kf556c40bb16",
@@ -3369,7 +3369,7 @@
 "ivory:45329":"model:cpu:corei512400f-tray",
 "ivory:45386":"mpn:memory:kf556c40bba16",
 "ivory:45398":"mpn:memory:kf552c40bba32",
-"ivory:46352":"model:cooler_air:nh-redux-u12s-158mm-120mm-brown",
+"ivory:46352":"model:cooler_air:120-nh-ram-redux-u12s-158mm-120mm-brown",
 "ivory:57254":"model:cpu:7700x",
 "ivory:57257":"model:cpu:7900x",
 "ivory:59024":"model:memory:2x16gb-6000j3636f16gx2-f5-neo-trident-z5-2gb-x2-6000mhz-cl36-rgb-black",
@@ -3405,7 +3405,7 @@
 "ivory:77630":"model:memory:2x16gb-5600mhz-cp2k16g56c46u5-ddr5-pro-udimm-2gb-x2-5600mhz-cl46-black",
 "ivory:78119":"model:memory:48-kf560c32rsa-48gb-6000mhz-cl40-rgb-blacksilver",
 "ivory:79655":"model:aio:5v-h150-lga1700-ready-support-360mm",
-"ivory:80024":"model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black",
+"ivory:80024":"model:cooler_air:60cfm-fan-led-t120-120mm",
 "ivory:80270":"mpn:cpu:i714700k-tray",
 "ivory:80276":"model:cpu:14900kf-tray",
 "ivory:80279":"mpn:cpu:i914900kfb",
@@ -3426,9 +3426,9 @@
 "ivory:84810":"model:memory:ripjaws-v-32gb-x2-3200mhz-cl16-black-dimm",
 "ivory:84816":"mpn:cpu:100100001015box",
 "ivory:84822":"mpn:cpu:100100000590box",
-"ivory:84984":"model:cooler_air:black-chromax-d9l-nh-110mm-92mm-black",
-"ivory:84987":"model:cooler_air:nh-u12a-158mm-120mm-brown",
-"ivory:85068":"model:case_fan:a14-black-chromax-nf-swap-140mm-1-black",
+"ivory:84984":"model:cooler_air:110-92-chromax-d9l-nh-110mm-92mm-black",
+"ivory:84987":"model:cooler_air:120-140-nh-ram-u12a-158mm-120mm-brown",
+"ivory:85068":"model:case_fan:140-a14-chromax-nf-pwm-swap-140mm-1-black",
 "ivory:85071":"model:case_fan:120-chromax-f12-nf-pwm-swap-120mm-1-black",
 "ivory:85182":"model:cpu:7700-tray",
 "ivory:85449":"model:case:cmt223s-black",
@@ -4123,7 +4123,7 @@
 "ksp:411449":"model:storage:2280-sn7100-1000gb-nvme-m22280",
 "ksp:411830":"accessories:ksp:ksp-411830",
 "ksp:411996":"model:cooler_air:c14s-nh",
-"ksp:412455":"model:case_fan:a14x25r-g2-nf-pwm-140mm-1-brown",
+"ksp:412455":"model:case_fan:a14x25r-g2-nf-pwm-140mm",
 "ksp:412699":"model:case_fan:8cm-a8-fan-nf-uln-80mm-brown",
 "ksp:413116":"model:case_fan:5v-6cm-a6x15-fan-nf-60mm-brown",
 "ksp:413138":"model:case_fan:black-chromax-nf-pwm-s12a-swap-120mm-black",
@@ -8804,7 +8804,7 @@
 "tms:NF-A14X25G2PWM":"model:case_fan:a14x25-fan-g2-nf-pwm-140mm",
 "tms:NF-A14X25G2PWMCH.BK":"model:case_fan:a14x25-chromax-fan-g2-nf-pwm-140mm-black",
 "tms:NF-A14X25G2PWMSX2PPCHB":"model:case_fan:a14x25-chromax-fans-g2-nf-pp-pwm-sx2-x2-140mm-2-black",
-"tms:NF-A14X25RG2PWM":"model:case_fan:a14x25r-g2-nf-pwm-140mm-1-brown",
+"tms:NF-A14X25RG2PWM":"model:case_fan:a14x25r-g2-nf-pwm-140mm",
 "tms:NF-A14X25RG2PWMSX2-PP":"model:case_fan:2xfans-a14x25r-g2-nf-pp-pwm-sx2-140mm-2",
 "tms:NF-A15PWMCH-BK-S":"model:case_fan:a15-bk-ch-chromax-fan-nf-pwm-s-swap-140mm-blackred",
 "tms:NF-A20PWMCH.BK.S":"model:case_fan:200-a20-chromax-nf-pwm-swap-200mm-black",
@@ -8847,11 +8847,11 @@
 "tms:NH-L9X65":"model:cooler_air:cooler-cpu-l9x65-nh-65mm-92mm",
 "tms:NH-L9X65CH.BK":"model:cooler_air:chromax-cooler-cpu-l9x65-nh-65mm-92mm-black",
 "tms:NH-P1":"model:cooler_air:nh-p1-160mm-black",
-"tms:NH-U12A":"model:cooler_air:nh-u12a-160mm-120mm",
+"tms:NH-U12A":"model:cooler_air:cooler-cpu-nh-u12a-160mm-120mm",
 "tms:NH-U12ACH.BK":"model:cooler_air:chromax-nh-u12a-160mm-120mm-black",
 "tms:NH-U12S":"model:cooler_air:nh-u12s-160mm-120mm",
 "tms:NH-U12SCH.BK":"model:cooler_air:chromax-cooler-cpu-nh-u12s-160mm-120mm-black",
-"tms:NH-U12SREDUX":"model:cooler_air:nh-redux-u12s-160mm-120mm-black",
+"tms:NH-U12SREDUX":"model:cooler_air:cooler-cpu-nh-redux-u12s-160mm-120mm-black",
 "tms:NH-U14S":"model:cooler_air:cooler-cpu-nh-u14s-165mm-140mm",
 "tms:NH-U9SCH-BK":"model:cooler_air:bk-chromax-cooler-cpu-nh-nh-u9s-u9sch-125mm-92mm-black",
 "tms:NL-LC1-24":"model:aio:24-240-lc1-nl-240mm-blackbrown",
@@ -9198,7 +9198,7 @@
 "tms:SX1200P-W":"model:psu:1-1-3-active-modular-pcie5-pfc-sx1200p-1200w-white",
 "tms:SYS-420GP-TNR":"other:tms:tms-sys-420gp-tnr",
 "tms:SYS-740GP-TNRT":"other:tms:tms-sys-740gp-tnrt",
-"tms:T120":"model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black",
+"tms:T120":"model:cooler_air:60cfm-fan-led-t120-120mm",
 "tms:T5-BK-4F7":"model:case:argb-t5-black",
 "tms:T5-WH-4F7":"model:case:argb-t5-white",
 "tms:TB360-BTCE":"model:motherboard:0-2-btc-expert-tb360-atx",
@@ -9750,8 +9750,8 @@
 "yahav:11457":"model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
 "yahav:11458":"model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
 "yahav:11459":"mpn:gpu:4711377301541",
-"yahav:11461":"model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-white",
-"yahav:11462":"model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-white",
+"yahav:11461":"model:aio:77cfm-freezer-liquid-pro-360mm-white",
+"yahav:11462":"model:aio:77cfm-freezer-liquid-pro-360mm-white",
 "yahav:11464":"model:cpu:9850x3d-tray",
 "yahav:11465":"model:psu:1-1-3-5-active-elite-fan-pfc-ready-1200w-black",
 "yahav:11466":"model:case_fan:120mm-3xfans-lcd-reverse-sl-uni-white-wireless-wireless-120mm-3-rgb-white",
@@ -10114,7 +10114,7 @@
 "yahav:8296":"model:cooler_air:120-120mm-1550rpm-17cfm-245w-66-argb-assassin-burst-tdp-120mm",
 "yahav:8311":"model:motherboard:2xdp-2xhdmi-a-b760m-lga1700-pro-wifi-microatx",
 "yahav:8362":"model:case:01-c-fd-pop-pos1x-silent-xl-black",
-"yahav:8375":"model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black",
+"yahav:8375":"model:cooler_air:60cfm-fan-led-t120-120mm",
 "yahav:8378":"model:case:304-node-black",
 "yahav:8380":"model:case:7-clear-compact-define-tg-tint-white",
 "yahav:8387":"model:case:black-ridge-black",
@@ -11512,10 +11512,6 @@
 "ARCTIC Liquid Freezer III PRO A-RGB 360mm Black",
 "aio"
 ],
-"model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-white":[
-"ARCTIC Liquid Freezer III PRO White 360mm ARGB",
-"aio"
-],
 "model:aio:360-a-freezer-liquid-pro-360mm-black":[
 "ARCTIC Liquid Freezer III PRO A-RGB 360mm RGB Black",
 "aio"
@@ -11994,6 +11990,10 @@
 ],
 "model:aio:6cfm-73-aura-gl360-v2-360mm-black":[
 "Gamdias Aura GL360 V2 360mm ARGB Black",
+"aio"
+],
+"model:aio:77cfm-freezer-liquid-pro-360mm-white":[
+"ARCTIC Liquid Freezer III PRO White 360mm ARGB",
 "aio"
 ],
 "model:aio:9060069-capellix-cw-elite-h115i-icue-ww-xt-280mm-black":[
@@ -15640,8 +15640,24 @@
 "Corsair Corsairi CUE SP140 140mm ARGB Black",
 "case_fan"
 ],
+"model:case_fan:140-a14-chromax-nf-pwm-swap-140mm-1-black":[
+"Noctua NF-A14 Chromax.black.swap 140mm PWM Black",
+"case_fan"
+],
+"model:case_fan:140-a14x25r-chromax-g2-g2-nf-pwm-140mm-2-black":[
+"Noctua NF-A14X25R G2 Chromax.black 140mm PWM Black (FNT1-FN1-0129)",
+"case_fan"
+],
 "model:case_fan:140-a14x25r-chromax-g2-nf-pwm-140mm-black":[
 "Noctua NF A14x25r G2 PWM chromax.black 140",
+"case_fan"
+],
+"model:case_fan:140-a14x25r-g2-g2-nf-pwm-140mm-1-brown":[
+"Noctua NF-A14X25R G2 140mm PWM Brown (FNT1-FN1-0115)",
+"case_fan"
+],
+"model:case_fan:140-a14x25r-g2-nf-pp-pull-push-pwm-sx2-140mm-2-brown":[
+"Noctua NF-A14X25R G2 SX2-PP 140mm PWM Brown (FNT1-FN1-0116)",
 "case_fan"
 ],
 "model:case_fan:140-coolermaster-fan-sickleflow-140mm-rgb-black":[
@@ -15889,7 +15905,7 @@
 "case_fan"
 ],
 "model:case_fan:2xfans-a14x25r-g2-nf-pp-pwm-sx2-140mm-2":[
-"Noctua NF-A14X25R G2 SX2-PP 140mm PWM Brown",
+"Noctua NF-A14X25R G2 SX2-PP 140mm PWM Brown (NF-A14X25RG2PWMSX2-PP)",
 "case_fan"
 ],
 "model:case_fan:3-3-cooler-fan-st120-120mm-3-rgb-black":[
@@ -16536,10 +16552,6 @@
 "Noctua NF-A12X25 120mm PWM",
 "case_fan"
 ],
-"model:case_fan:a14-black-chromax-nf-swap-140mm-1-black":[
-"Noctua NF-A14 Chromax.black.swap 140mm PWM Black",
-"case_fan"
-],
 "model:case_fan:a14pwm-chromax-fan-nf-swap-140mm-blackred":[
 "Noctua NF-A14PWM Chromax Swap 140mm Black",
 "case_fan"
@@ -16557,19 +16569,11 @@
 "case_fan"
 ],
 "model:case_fan:a14x25r-black-chromax-g2-nf-pwm-140mm-1-black":[
-"Noctua NF-A14X25R G2 Chromax.black 140mm PWM Black",
+"Noctua NF-A14X25R G2 Chromax.black 140mm PWM Black (FNT1-FN1-0128)",
 "case_fan"
 ],
-"model:case_fan:a14x25r-black-chromax-g2-nf-pwm-140mm-2-black":[
-"Noctua NF-A14X25R G2 Chromax.black 140mm PWM x2 Black",
-"case_fan"
-],
-"model:case_fan:a14x25r-g2-nf-pwm-140mm-1-brown":[
-"Noctua NF-A14X25R G2 140mm PWM Brown",
-"case_fan"
-],
-"model:case_fan:a14x25r-g2-nf-pwm-140mm-2-brown":[
-"Noctua NF-A14X25R G2 140mm PWM x2 Brown",
+"model:case_fan:a14x25r-g2-nf-pwm-140mm":[
+"Noctua NF-A14X25R G2 140mm PWM Brown (NF-A14X25RG2PWM)",
 "case_fan"
 ],
 "model:case_fan:a15-bk-ch-chromax-fan-nf-pwm-s-swap-140mm-blackred":[
@@ -17204,6 +17208,10 @@
 "ARCTIC Alpine Passive Black",
 "cooler_air"
 ],
+"model:cooler_air:110-92-chromax-d9l-nh-110mm-92mm-black":[
+"Noctua NH-D9L Chromax.black",
+"cooler_air"
+],
 "model:cooler_air:115x-1200-34-bulk-cooling-freezer-intel-160mm-120mm-black":[
 "ARCTIC Freezer 115X Bulk Black",
 "cooler_air"
@@ -17252,6 +17260,10 @@
 "Thermalright Assassin Spirit 120 EVO White 120mm ARGB",
 "cooler_air"
 ],
+"model:cooler_air:120-140-nh-ram-u12a-158mm-120mm-brown":[
+"Noctua NH-U12A RAM Brown",
+"cooler_air"
+],
 "model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white":[
 "Thermalright Peerless Assassin 120 Vision MAX ARGB White",
 "cooler_air"
@@ -17264,12 +17276,24 @@
 "Thermalright Royal Knight 120 Black 2",
 "cooler_air"
 ],
+"model:cooler_air:120-chromax-nh-ram-u12s-158mm-120mm-black":[
+"Noctua NH-U12S Chromax.black RAM Black",
+"cooler_air"
+],
+"model:cooler_air:120-chromax-nh-u12a-158mm-120mm-black":[
+"Noctua NH-U12A Chromax.black (FNT1-CL1-0053-02)",
+"cooler_air"
+],
 "model:cooler_air:120-digital-knight-royal-white-162mm-120mm-white":[
 "Thermalright Royal Knight 120 Digital White ARGB",
 "cooler_air"
 ],
 "model:cooler_air:120-knight-royal-white-156mm-120mm-white":[
 "Thermalright Royal Knight 120 White 2",
+"cooler_air"
+],
+"model:cooler_air:120-nh-ram-redux-u12s-158mm-120mm-brown":[
+"Noctua NH-U12S Redux RAM Brown",
 "cooler_air"
 ],
 "model:cooler_air:120mm-130-130mm-1750rpm-250w-81-88cfm-argb-black-pretor-royal-tdp-ultra-120mm-black":[
@@ -17672,8 +17696,8 @@
 "be quiet! Dark Rock 6 Black",
 "cooler_air"
 ],
-"model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black":[
-"Antec T120 Chromatic",
+"model:cooler_air:60cfm-fan-led-t120-120mm":[
+"Antec T120 120mm RGB",
 "cooler_air"
 ],
 "model:cooler_air:620-71cfm-frost-mage-tdp-155mm-120mm":[
@@ -17912,24 +17936,8 @@
 "Jonsbo CC90 Black",
 "cooler_air"
 ],
-"model:cooler_air:black-chromax-d15-nh-170mm-140mm-black":[
-"Noctua NH-D15 Chromax.black",
-"cooler_air"
-],
 "model:cooler_air:black-chromax-d15s-nh-160mm-140mm-black":[
 "Noctua NH-D15S Chromax.black",
-"cooler_air"
-],
-"model:cooler_air:black-chromax-d9l-nh-110mm-92mm-black":[
-"Noctua NH-D9L Chromax.black",
-"cooler_air"
-],
-"model:cooler_air:black-chromax-nh-u12a-158mm-120mm-black":[
-"Noctua NH-U12A Chromax Black",
-"cooler_air"
-],
-"model:cooler_air:black-chromax-nh-u12s-158mm-120mm-black":[
-"Noctua NH-U12S Chromax.black (FNT1-CL1-0041-02)",
 "cooler_air"
 ],
 "model:cooler_air:black-chromax-nh-u9s-125mm-92mm-black":[
@@ -17973,7 +17981,11 @@
 "cooler_air"
 ],
 "model:cooler_air:chromax-cooler-cpu-nh-u12s-160mm-120mm-black":[
-"Noctua NH-U12S Chromax.black (NH-U12SCH.BK)",
+"Noctua NH-U12S Chromax.black",
+"cooler_air"
+],
+"model:cooler_air:chromax-d15-nh-170mm-140mm-black":[
+"Noctua NH-D15 Chromax.black",
 "cooler_air"
 ],
 "model:cooler_air:chromax-l9i-nh-40mm-92mm-black":[
@@ -17981,7 +17993,7 @@
 "cooler_air"
 ],
 "model:cooler_air:chromax-nh-u12a-160mm-120mm-black":[
-"Noctua NH-U12A Chromax.black",
+"Noctua NH-U12A Chromax.black (NH-U12ACH.BK)",
 "cooler_air"
 ],
 "model:cooler_air:controller-coolermaster-ma620p-masterair-rgb-170mm-120mm-black":[
@@ -18006,6 +18018,14 @@
 ],
 "model:cooler_air:cooler-cpu-l9x65-nh-65mm-92mm":[
 "Noctua NH-L9X65 Brown",
+"cooler_air"
+],
+"model:cooler_air:cooler-cpu-nh-redux-u12s-160mm-120mm-black":[
+"Noctua NH-U12S Redux Black",
+"cooler_air"
+],
+"model:cooler_air:cooler-cpu-nh-u12a-160mm-120mm":[
+"Noctua NH-U12A Brown",
 "cooler_air"
 ],
 "model:cooler_air:cooler-cpu-nh-u14s-165mm-140mm":[
@@ -18102,22 +18122,6 @@
 ],
 "model:cooler_air:nh-p1-160mm-black":[
 "Noctua NH-P1 Black",
-"cooler_air"
-],
-"model:cooler_air:nh-redux-u12s-158mm-120mm-brown":[
-"Noctua NH-U12S Redux Brown",
-"cooler_air"
-],
-"model:cooler_air:nh-redux-u12s-160mm-120mm-black":[
-"Noctua NH-U12S Redux Black",
-"cooler_air"
-],
-"model:cooler_air:nh-u12a-158mm-120mm-brown":[
-"Noctua NH-U12A Brown (FNT1-CL1-0036-02)",
-"cooler_air"
-],
-"model:cooler_air:nh-u12a-160mm-120mm":[
-"Noctua NH-U12A Brown",
 "cooler_air"
 ],
 "model:cooler_air:nh-u12s-160mm-120mm":[
