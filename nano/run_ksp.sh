@@ -56,6 +56,21 @@ bash scripts/git_commit_push.sh \
 mkdir -p "$STATE_DIR"
 touch "$SUCCESS_MARKER"
 
+# Eilat prices (scraper/eilat.py): KSP's live-price call for tonight's uins.
+# Best-effort, like the covers below: the regular snapshot is already pushed,
+# and a missed Eilat night only stale-forwards the Eilat prices. A block
+# still stops here (no covers either), as the home-IP rules require.
+EILAT_STATUS=0
+bash nano/run_eilat.sh ksp || EILAT_STATUS=$?
+if [ "$EILAT_STATUS" -eq 3 ]; then
+    # Exit 3 = blocked (run_eilat.sh). The log line keeps ops_notify's
+    # "ksp blocked" classification; no more requests to KSP tonight.
+    echo "[error] ksp blocked the Eilat crawl — skipping covers tonight" >&2
+    exit 1
+elif [ "$EILAT_STATUS" -ne 0 ]; then
+    echo "[warn] KSP Eilat crawl failed — regular snapshot already pushed" >&2
+fi
+
 # Cover backfill (best-effort; the snapshot is already pushed and the success
 # marker written, so nothing below may fail the run). KSP's image host shares
 # the Cloudflare edge with the API: home IP only, 3s between downloads, and

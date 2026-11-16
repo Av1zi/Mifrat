@@ -2,8 +2,8 @@ import { checkCompatibility, numSpec, type CompatCode, type CompatIssue } from "
 import { formatPrice } from "../../format";
 import { compatMessage, compatOkMessage, issuesSummary, partsCount, t, vendorLabel, wattOf } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, effectivePrice } from "../../offers";
-import { buildItemCount } from "../../state";
+import { bestRegionOffer, regionPrice } from "../../offers";
+import { buildItemCount, getRegion } from "../../state";
 import type { Product } from "../../types";
 import { html, type Html } from "../../ui/html";
 import { vendorDot, vendorKey } from "../../ui/vendor";
@@ -106,9 +106,10 @@ export function checksMarkup(ctx: BuilderCtx, summary: Summary): Html {
 export function splitMarkup(ctx: BuilderCtx): Html {
   const { lang, currency } = ctx;
   const groups = new Map<string, { vendor: string; total: number; count: number }>();
+  const region = getRegion();
   for (const product of [...ctx.parts.values()].flat() as Product[]) {
-    const offer = bestOffer(product);
-    const price = effectivePrice(product);
+    const offer = bestRegionOffer(product, region);
+    const price = regionPrice(product, region);
     if (!offer || price === null) continue;
     const key = vendorKey(offer.vendor);
     const g = groups.get(key) ?? { vendor: offer.vendor, total: 0, count: 0 };

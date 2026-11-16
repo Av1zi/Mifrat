@@ -2,7 +2,7 @@ import { loadCategory, loadMeta } from "../api";
 import { formatPrice } from "../format";
 import { categoryLabel, CATEGORY_ORDER, dropsCount, savingText, t } from "../i18n";
 import { icon } from "../icons";
-import { bestOffer } from "../offers";
+import { bestOffer, eilatPrice } from "../offers";
 import { MIN_DROP_PCT, SIGNAL_WINDOW_DAYS, loadSignals, type PriceSignal } from "../signals";
 import { categoriesHash, dropsHash, productHash } from "../state";
 import { partRef } from "../storage";
@@ -11,7 +11,7 @@ import type { CategoryMeta, Currency, Lang, Product } from "../types";
 import { html, mount, type Html } from "../ui/html";
 import { pageHero } from "../ui/pageHero";
 import { saveButtonRef, syncPickControls } from "../ui/pick";
-import { positivePrice } from "../ui/price";
+import { altPriceLine, positivePrice } from "../ui/price";
 import { emptyBox } from "../ui/emptyBox";
 import { errorState, loadingState } from "../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
@@ -76,7 +76,12 @@ export async function findDrops(
   return picks;
 }
 
-/** Drop card: badge, photo, category, name, price against the usual price, cheapest store, savings. */
+/**
+ * Drop card: badge, photo, category, name, price against the usual price,
+ * cheapest store, savings. Drops are measured on regular prices (the history
+ * holds no Eilat line), so the card always shows the regular price; in Eilat
+ * mode the Eilat price rides along as the small line.
+ */
 export function dropCard(pick: DropPick, lang: Lang, currency: Currency, decorative = false): Html {
   const { product, signal, category } = pick;
   const href = productHash(category, product.id);
@@ -98,6 +103,7 @@ export function dropCard(pick: DropPick, lang: Lang, currency: Currency, decorat
         <s title="${t(lang, "signalTypicalTitle")}"
           >${formatPrice(signal.typical, currency, lang)}</s
         >
+        ${altPriceLine(now, eilatPrice(product), false, "main", currency, lang)}
       </div>
       <div class="dcard__meta">
         ${offer ? vendorTag(offer.vendor) : html`<span></span>`}

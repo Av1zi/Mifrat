@@ -73,5 +73,10 @@ class ListingItem(scrapy.Item):
     # coverage from ~10% (detail-only) to near-100% for free.
     image_url = scrapy.Field()
 
+    # Which counter the price is from: absent (or "main") for the normal
+    # stores, "eilat" for the VAT-free Eilat price scraped by the *_eilat
+    # spiders (scraper/eilat.py). Additive + optional: old rows are "main".
+    channel = scrapy.Field()
+
     # Bookkeeping
     scraped_at = scrapy.Field()  # ISO 8601 UTC timestamp, set by the spider/pipeline

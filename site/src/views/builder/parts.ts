@@ -2,11 +2,12 @@ import { loadCategory, resolveProductAlias } from "../../api";
 import { BUILD_SLOTS, knownPartWattage } from "../../build";
 import { formatPrice } from "../../format";
 import { t, vendorLabel } from "../../i18n";
-import { bestOffer, effectivePrice } from "../../offers";
+import { bestRegionOffer, regionPrice } from "../../offers";
 import {
   appUrl,
   buildHash,
   exitListRoute,
+  getRegion,
   MULTI_SLOTS,
   onListPath,
   productHash,
@@ -135,9 +136,11 @@ export function buildWatts(ctx: BuilderCtx): number {
   return watts;
 }
 
+/** Sum of each part's price in the active region (a part not sold there adds nothing). */
 export function buildTotal(ctx: BuilderCtx): number {
+  const region = getRegion();
   let total = 0;
-  for (const list of ctx.parts.values()) for (const p of list) total += effectivePrice(p) ?? 0;
+  for (const list of ctx.parts.values()) for (const p of list) total += regionPrice(p, region) ?? 0;
   return total;
 }
 
@@ -150,12 +153,13 @@ export function exportLines(ctx: BuilderCtx, mode: "markdown" | "text"): string 
     mode === "markdown"
       ? [`${t(lang, "componentHeading")}|${t(lang, "markdownItem")}|${t(lang, "priceHeading")}`, ":----|:----|:----"]
       : [];
+  const region = getRegion();
   for (const slot of BUILD_SLOTS) {
     for (const product of ctx.parts.get(slot.id) ?? []) {
-      const price = effectivePrice(product);
-      const priceText = price === null ? t(lang, "notListed") : formatPrice(price, currency, lang);
+      const price = regionPrice(product, region);
+      const priceText = price === null ? t(lang, region === "eilat" ? "notInEilat" : "notListed") : formatPrice(price, currency, lang);
       if (mode === "markdown") {
-        const offer = bestOffer(product);
+        const offer = bestRegionOffer(product, region);
         const where = offer ? ` @ ${vendorLabel(offer.vendor)}` : "";
         const url = origin + productHash(product.category, product.id);
         lines.push(`**${slot.label[lang]}** | [${displayName(product)}](${url}) | ${priceText}${where}`);

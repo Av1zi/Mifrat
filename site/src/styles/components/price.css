@@ -13,6 +13,22 @@
   line-height: 1;
 }
 
+/* The second, smaller price under the main one: the Eilat price in regular
+   mode, the regular price in Eilat mode. */
+.price-alt {
+  display: block;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.price-alt--none {
+  font-style: italic;
+}
+
 /* The single empty-value look. */
 .empty-val {
   color: var(--text-3);

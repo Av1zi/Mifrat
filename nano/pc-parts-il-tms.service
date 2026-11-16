@@ -15,5 +15,6 @@ ExecStart=/home/avizi/pc-parts-il/nano/run_tms.sh
 ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
 StandardOutput=journal
 StandardError=journal
-# Give the spider up to 30 minutes before killing it.
-TimeoutStartSec=1800
+# Regular crawl (~8 min) + Eilat crawl (~8 min, nano/run_eilat.sh) + the
+# 50-item detail chunk: 50 minutes before killing it.
+TimeoutStartSec=3000

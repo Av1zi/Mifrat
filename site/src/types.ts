@@ -19,6 +19,13 @@ export interface Offer {
   was_price?: number | null;
   /** Store-wide sale sticker text, e.g. "-12%". */
   sale_text?: string;
+  /** The vendor's Eilat-store (VAT-free) price, scraped; absent = not sold there. */
+  eilat_price?: number;
+  eilat_in_stock?: boolean;
+  /** The Eilat price is from an earlier Eilat crawl. */
+  eilat_stale?: boolean;
+  /** Sold only at the vendor's Eilat store: `price` is null. */
+  eilat_only?: boolean;
 }
 
 /**
@@ -67,6 +74,10 @@ export interface Product {
   specs?: ProductSpecs;
   vendor_count: number;
   min_price: number | null;
+  /** Cheapest Eilat price (in-stock first), absent when no offer has one. */
+  eilat_min_price?: number;
+  /** Every offer is Eilat-only: no regular price anywhere. */
+  eilat_only?: boolean;
   in_stock: boolean;
   offers: Offer[];
   /** Vendors with ≥2 distinct listings on this product (under review). */
@@ -195,8 +206,9 @@ export interface SpecReport {
 
 /**
  * One row of data/site/index.json: [id, category, min_price, brand,
- * name]. Compact global lookup — match searches and resolve build-part
- * categories without fetching any per-category file.
+ * name, eilat_min_price]. Compact global lookup — match searches and resolve
+ * build-part categories without fetching any per-category file. Older files
+ * have no sixth column.
  */
 export type IndexRow = [
   id: string,
@@ -204,7 +216,14 @@ export type IndexRow = [
   min_price: number | null,
   brand: string | null,
   name: string | null,
+  eilat_min_price?: number | null,
 ];
+
+/** Whose prices the site shows: the regular stores, or the Eilat stores. */
+export type Region = "main" | "eilat";
+
+/** Per-vendor Eilat data state (scraper/eilat.py). */
+export type EilatVendorState = "fresh" | "stale" | "partial" | "missing" | "no_store";
 
 export interface CategoryMeta {
   id: string;
@@ -225,6 +244,8 @@ export interface SiteMeta {
    * an unknown id is resolved through this map before it is treated as gone.
    */
   pid_aliases?: Record<string, string>;
+  /** Per-vendor Eilat data state; absent on deploys before Eilat prices. */
+  eilat?: { vendors: Record<string, { state: EilatVendorState; last_seen: string | null }> };
 }
 
 export type Lang = "he" | "en";

@@ -15,7 +15,7 @@ import {
   termsHash,
   type Theme,
 } from "./state";
-import type { Currency, Lang } from "./types";
+import type { Currency, Lang, Region } from "./types";
 import { button } from "./ui/button";
 import { syncCompareTray } from "./ui/compareTray";
 import { html, type Html } from "./ui/html";
@@ -40,17 +40,19 @@ const MEGA_SIDE = ["case_fan", "accessories", "other"];
 interface ShellState {
   lang: Lang;
   currency: Currency;
+  region: Region;
   theme: Theme;
 }
 
 interface ShellHandlers {
   onLang(lang: Lang): void;
   onCurrency(currency: Currency): void;
+  onRegion(region: Region): void;
   onTheme(theme: Theme): void;
 }
 
 function dropdown(
-  id: "currency" | "lang",
+  id: "currency" | "lang" | "region",
   label: string,
   glyph: Html,
   current: string,
@@ -95,7 +97,7 @@ function megaMarkup(lang: Lang): Html {
 }
 
 function headerMarkup(state: ShellState): Html {
-  const { lang, currency, theme } = state;
+  const { lang, currency, region, theme } = state;
   const route = parseRoute();
   const isBuild = route.view === "build";
   const isProducts = route.view === "categories" || route.view === "category" || route.view === "product";
@@ -127,6 +129,10 @@ function headerMarkup(state: ShellState): Html {
             data: { nav: "saved" },
             title: t(lang, "savedNav"),
           })}
+          ${dropdown("region", t(lang, "regionToggle"), icon("sun", 15), region, [
+            { value: "main", text: t(lang, "regionMain") },
+            { value: "eilat", text: t(lang, "regionEilat") },
+          ])}
           ${dropdown("currency", t(lang, "currencyToggle"), icon("coin", 15), currency, [
             { value: "ILS", text: "₪ ILS" },
             { value: "USD", text: "$ USD" },
@@ -199,6 +205,9 @@ export function renderShell(app: HTMLElement, state: ShellState, handlers: Shell
 
   wireDropdown(app.querySelector('[data-dropdown="lang"]')!, (value) => handlers.onLang(value as Lang));
   wireDropdown(app.querySelector('[data-dropdown="currency"]')!, (value) => handlers.onCurrency(value as Currency));
+  wireDropdown(app.querySelector('[data-dropdown="region"]')!, (value) =>
+    handlers.onRegion(value === "eilat" ? "eilat" : "main")
+  );
   document.getElementById("theme-toggle")!.addEventListener("click", () => {
     handlers.onTheme(state.theme === "light" ? "dark" : "light");
   });

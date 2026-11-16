@@ -1,6 +1,7 @@
 import { loadCategory, loadIndex } from "./api";
 import { categoryLabel, t } from "./i18n";
-import { navigate, productHash, searchHash } from "./state";
+import { regionMinPrice } from "./offers";
+import { getRegion, navigate, productHash, searchHash } from "./state";
 import type { Currency, IndexRow, Lang, Product } from "./types";
 import { displayName, normSearch, searchScore, searchTokens } from "./utils";
 import { html, mount, type Html } from "./ui/html";
@@ -68,7 +69,8 @@ function hitMarkup(
 }
 
 function interimHit(row: IndexRow, box: SearchBox): Html {
-  return hitMarkup(row[1], row[0], row[4] ?? row[0], row[3], null, row[2], box);
+  const price = getRegion() === "eilat" ? row[5] ?? null : row[2];
+  return hitMarkup(row[1], row[0], row[4] ?? row[0], row[3], null, price, box);
 }
 
 function fullHit(product: Product, box: SearchBox): Html {
@@ -78,7 +80,7 @@ function fullHit(product: Product, box: SearchBox): Html {
     displayName(product),
     product.brand,
     product.thumb ?? product.image,
-    product.min_price,
+    regionMinPrice(product, getRegion()),
     box
   );
 }

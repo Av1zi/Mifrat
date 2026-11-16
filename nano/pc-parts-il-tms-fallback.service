@@ -16,4 +16,5 @@ ExecStart=/home/avizi/pc-parts-il/nano/run_tms.sh
 ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
 StandardOutput=journal
 StandardError=journal
-TimeoutStartSec=1800
+# Same run as pc-parts-il-tms.service: regular + Eilat crawl + detail chunk.
+TimeoutStartSec=3000

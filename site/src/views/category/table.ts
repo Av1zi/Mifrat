@@ -1,8 +1,8 @@
 import { slotForCategory } from "../../build";
 import { attributeLabel, showingText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, sortOffers } from "../../offers";
-import { addToBuild, categoriesHash, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
+import { bestRegionOffer, eilatPrice, isEilatOnly, regionInStock, regionMinPrice, regionOffers, sortOffers } from "../../offers";
+import { addToBuild, categoriesHash, getRegion, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
 import { clearAllFilters } from "./filters";
 import type { Lang, Product, SortKey } from "../../types";
 import { displayName, safeUrl } from "../../utils";
@@ -13,7 +13,7 @@ import { chip } from "../../ui/chip";
 import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyBox } from "../../ui/emptyBox";
 import { html, mount, type Html } from "../../ui/html";
-import { priceCell, positivePrice } from "../../ui/price";
+import { altPriceLine, notInEilatLine, priceCell, positivePrice } from "../../ui/price";
 import { specCell } from "../../ui/spec";
 import { bindThumbs, initialsOf, thumb } from "../../ui/thumb";
 import { specValue } from "../../specs";
@@ -25,11 +25,13 @@ import { addPickedPart } from "./picker";
 /** "N stores" with a popover listing every offer, cheapest first. */
 function storesMarkup(ctx: CategoryCtx, p: Product, popover = true): Html {
   const { lang, currency } = ctx;
-  if (!popover || p.offers.length <= 1) return html`<span class="row__stores">${vendorsCount(lang, p.vendor_count)}</span>`;
+  const offers = regionOffers(p, getRegion());
+  const count = new Set(offers.map((o) => vendorKey(o.vendor))).size;
+  if (!popover || offers.length <= 1) return html`<span class="row__stores">${vendorsCount(lang, count)}</span>`;
   return html`<details class="stores">
-    <summary>${vendorsCount(lang, p.vendor_count)}</summary>
+    <summary>${vendorsCount(lang, count)}</summary>
     <ul class="stores__pop">
-      ${sortOffers(p.offers).map((o) => {
+      ${sortOffers(offers).map((o) => {
         const url = safeUrl(o.url);
         const name = vendorLabel(o.vendor);
         return html`<li class="${o.in_stock ? "" : "is-out"}">
@@ -77,19 +79,26 @@ function titleMarkup(p: Product, lang: Lang, href: string): Html {
 /** Stores that list the part, cheapest first, one entry per store. */
 function vendorsOf(p: Product): string[] {
   const seen = new Map<string, string>();
-  for (const o of sortOffers(p.offers)) if (!seen.has(vendorKey(o.vendor))) seen.set(vendorKey(o.vendor), o.vendor);
+  for (const o of sortOffers(regionOffers(p, getRegion())))
+    if (!seen.has(vendorKey(o.vendor))) seen.set(vendorKey(o.vendor), o.vendor);
   return [...seen.values()];
 }
 
 function priceBlock(ctx: CategoryCtx, p: Product, size: "md" | "lg"): Html {
   const { lang, currency } = ctx;
-  const offer = bestOffer(p);
+  const region = getRegion();
+  const offer = bestRegionOffer(p, region);
+  const price = regionMinPrice(p, region);
+  const inStock = region === "main" ? p.in_stock : regionInStock(p, region);
   return html`<span class="row__price">
-    ${priceCell(p.min_price, currency, lang, size)}
-    ${offer && positivePrice(p.min_price) !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
-    ${positivePrice(p.min_price) !== null ? dealChip(offer, currency, lang, { alignEnd: true }) : ""}
-    ${p.in_stock ? "" : html`<span class="row__out">${t(lang, "outOfStock")}</span>`}
-    ${signalBadges(ctx.signals.get(p.id), lang)}
+    ${priceCell(price, currency, lang, size)}
+    ${offer && price !== null ? html`<span class="row__from">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
+    ${price !== null ? dealChip(offer, currency, lang, { alignEnd: true }) : ""}
+    ${region === "eilat" && price === null
+      ? notInEilatLine(p.min_price, currency, lang)
+      : altPriceLine(p.min_price, eilatPrice(p), isEilatOnly(p), region, currency, lang)}
+    ${inStock || price === null ? "" : html`<span class="row__out">${t(lang, "outOfStock")}</span>`}
+    ${region === "main" ? signalBadges(ctx.signals.get(p.id), lang) : ""}
   </span>`;
 }
 

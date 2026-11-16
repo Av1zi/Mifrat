@@ -3,16 +3,16 @@ import { COMPARE_MAX, getCompare, removeCompare } from "../compare";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, specGroupLabel, t, vendorsCount } from "../i18n";
 import { icon } from "../icons";
-import { bestOffer } from "../offers";
+import { bestRegionOffer, isEilatOnly, regionInStock, regionMinPrice, regionOffers } from "../offers";
 import { displaySpecFields, formatSpecValue, specApplies, specFieldMap, specValue } from "../specs";
-import { categoriesHash, categoryHash, compareHash, productHash, replaceRoute, savedHash } from "../state";
+import { categoriesHash, categoryHash, compareHash, getRegion, productHash, replaceRoute, savedHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { button } from "../ui/button";
 import { emptyValue } from "../ui/empty";
 import { html, mount, type Html } from "../ui/html";
 import { pageHero } from "../ui/pageHero";
-import { positivePrice, priceCell } from "../ui/price";
+import { altPriceLine, positivePrice, priceCell } from "../ui/price";
 import { specCell } from "../ui/spec";
 import { emptyBox } from "../ui/emptyBox";
 import { errorState, loadingState } from "../ui/state";
@@ -60,12 +60,13 @@ function specRows(items: Product[], category: string, lang: Lang): SpecRow[] {
 function headCell(p: Product, category: string, lang: Lang, currency: Currency): Html {
   const name = displayName(p);
   const href = productHash(category, p.id);
-  const offer = bestOffer(p);
+  const region = getRegion();
+  const offer = bestRegionOffer(p, region);
   return html`<th scope="col" class="cmp-head">
     ${button({ label: `${t(lang, "compareRemoveItem")}: ${name}`, icon: icon("close", 14), size: "sm", iconOnly: true, className: "cmp-head__x", data: { remove: p.id } })}
     <a class="cmp-head__img" href="${href}" tabindex="-1" aria-hidden="true">${thumb(p.image ?? p.thumb, initialsOf(p.brand, p.name), "lg")}</a>
     <a class="cmp-head__name" href="${href}" dir="auto">${name}</a>
-    <span class="cmp-head__price">${priceCell(p.min_price, currency, lang)}${offer ? vendorTag(offer.vendor) : ""}</span>
+    <span class="cmp-head__price">${priceCell(regionMinPrice(p, region), currency, lang)}${offer ? vendorTag(offer.vendor) : ""}${altPriceLine(p.min_price, p.eilat_min_price, isEilatOnly(p), region, currency, lang)}</span>
     <a class="btn btn--primary btn--sm btn--block" href="${href}">${t(lang, "allPrices")}</a>
   </th>`;
 }
@@ -79,22 +80,25 @@ function addCell(category: string, lang: Lang): Html {
 }
 
 function overviewRows(items: Product[], lang: Lang, currency: Currency, pad: Html): Html {
-  const prices = items.map((p) => positivePrice(p.min_price));
+  const region = getRegion();
+  const prices = items.map((p) => regionMinPrice(p, region));
   const known = prices.filter((price): price is number => price !== null);
   const lowest = known.length > 1 && new Set(known).size > 1 ? Math.min(...known) : null;
   const differs = (values: unknown[]): string => (new Set(values).size > 1 ? "is-diff" : "");
+  const stock = items.map((p) => (region === "main" ? p.in_stock : regionInStock(p, region)));
+  const vendors = items.map((p) => new Set(regionOffers(p, region).map((o) => o.vendor)).size);
   const range = (p: Product): Html => {
-    const all = p.offers.map((o) => positivePrice(o.price)).filter((n): n is number => n !== null);
+    const all = regionOffers(p, region).map((o) => positivePrice(o.price)).filter((n): n is number => n !== null);
     if (all.length === 0) return emptyValue(lang);
     const lo = Math.min(...all);
     const hi = Math.max(...all);
     return html`<bdi dir="ltr">${lo === hi ? formatPrice(lo, currency, lang) : `${formatPrice(lo, currency, lang)} – ${formatPrice(hi, currency, lang)}`}</bdi>`;
   };
   return html`
-    <tr class="${differs(prices)}"><th scope="row">${t(lang, "cheapest")}</th>${items.map((p, i) => html`<td class="${prices[i] !== null && prices[i] === lowest ? "is-best" : ""}">${priceCell(p.min_price, currency, lang)}</td>`)}${pad}</tr>
+    <tr class="${differs(prices)}"><th scope="row">${t(lang, "cheapest")}</th>${items.map((_p, i) => html`<td class="${prices[i] !== null && prices[i] === lowest ? "is-best" : ""}">${prices[i] === null && region === "eilat" ? t(lang, "notInEilat") : priceCell(prices[i], currency, lang)}</td>`)}${pad}</tr>
     <tr><th scope="row">${t(lang, "priceRangeLabel")}</th>${items.map((p) => html`<td>${range(p)}</td>`)}${pad}</tr>
-    <tr class="${differs(items.map((p) => p.vendor_count))}"><th scope="row">${t(lang, "storesHeading")}</th>${items.map((p) => html`<td>${vendorsCount(lang, p.vendor_count)}</td>`)}${pad}</tr>
-    <tr class="${differs(items.map((p) => p.in_stock))}"><th scope="row">${t(lang, "availability")}</th>${items.map((p) => html`<td><span class="stock"><span class="status-dot ${p.in_stock ? "status-dot--ok" : "status-dot--err"}" aria-hidden="true"></span>${p.in_stock ? t(lang, "inStock") : t(lang, "outOfStock")}</span></td>`)}${pad}</tr>`;
+    <tr class="${differs(vendors)}"><th scope="row">${t(lang, "storesHeading")}</th>${vendors.map((n) => html`<td>${vendorsCount(lang, n)}</td>`)}${pad}</tr>
+    <tr class="${differs(stock)}"><th scope="row">${t(lang, "availability")}</th>${stock.map((on) => html`<td><span class="stock"><span class="status-dot ${on ? "status-dot--ok" : "status-dot--err"}" aria-hidden="true"></span>${on ? t(lang, "inStock") : t(lang, "outOfStock")}</span></td>`)}${pad}</tr>`;
 }
 
 function tableMarkup(items: Product[], category: string, lang: Lang, currency: Currency, onlyDiffs: boolean): Html {

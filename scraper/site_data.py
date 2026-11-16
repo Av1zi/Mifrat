@@ -536,6 +536,16 @@ def _trim_offer(offer: dict) -> dict:
         price = offer.get("price_ils")
         if isinstance(was, (int, float)) and isinstance(price, (int, float)) and was > price:
             trimmed["was_price"] = int(was)
+    # The vendor's Eilat-store price (scraper/eilat.py). `price` above stays
+    # the regular price; an Eilat-only offer has none.
+    eilat_price = _positive_price(offer.get("eilat_price_ils"))
+    if eilat_price is not None:
+        trimmed["eilat_price"] = int(eilat_price)
+        trimmed["eilat_in_stock"] = bool(offer.get("eilat_in_stock"))
+        if offer.get("eilat_stale"):
+            trimmed["eilat_stale"] = True
+    if offer.get("eilat_only"):
+        trimmed["eilat_only"] = True
     return trimmed
 
 
@@ -590,6 +600,21 @@ def _site_offers(raw_offers: list[dict]) -> list[dict]:
     return list(primaries.values())
 
 
+def eilat_min_price(offers: list[dict]) -> int | None:
+    """Cheapest Eilat price over site offers, in-stock first (like min_price).
+
+    Bundle-only offers rank after plain ones, mirroring the regular minimum.
+    """
+    priced = [o for o in offers if o.get("eilat_price")]
+    plain = [o for o in priced if not o.get("bundle_only")]
+    ranked = plain or priced
+    in_stock = [o["eilat_price"] for o in ranked if o.get("eilat_in_stock")]
+    every = [o["eilat_price"] for o in ranked]
+    if in_stock:
+        return min(in_stock)
+    return min(every) if every else None
+
+
 def _trim_product(product: dict) -> dict:
     offers = _site_offers(product.get("offers", []))
     offers.sort(key=lambda o: (o["price"] is None, o["price"]))
@@ -601,6 +626,7 @@ def _trim_product(product: dict) -> dict:
     in_stock_prices = [o["price"] for o in ranked if o["in_stock"] and o["price"] is not None]
     any_prices = [o["price"] for o in ranked if o["price"] is not None]
     min_price = min(in_stock_prices) if in_stock_prices else (min(any_prices) if any_prices else None)
+    eilat_min = eilat_min_price(offers)
 
     # 128px list-thumbnail derivative (local-only, like image above).
     # Omitted when the thumb file hasn't been generated yet — callers
@@ -635,6 +661,11 @@ def _trim_product(product: dict) -> dict:
         "in_stock": any(o["in_stock"] for o in offers),
         "offers": offers,
     }
+    if eilat_min is not None:
+        trimmed["eilat_min_price"] = eilat_min
+    # Sold only at a vendor's Eilat store: no regular offer is priced.
+    if offers and all(o.get("eilat_only") for o in offers):
+        trimmed["eilat_only"] = True
     covered = {key: value for key, value in specs.items() if value is not None}
     if covered:
         trimmed["specs"] = covered
@@ -812,6 +843,8 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
                 item["min_price"],
                 item.get("brand"),
                 item.get("name"),
+                # Cheapest Eilat price (scraper/eilat.py), null when none.
+                item.get("eilat_min_price"),
             ])
     index_rows.sort(key=lambda row: str(row[0]))
     _write_json_atomic(site_dir / "index.json", index_rows)
@@ -824,6 +857,10 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
         # pid resolves through this map (site/src/state.ts); index.json stays
         # the search-row list it always was.
         "pid_aliases": dict(catalog.get("pid_aliases") or {}),
+        # Per-vendor Eilat data state: fresh / stale / partial / missing /
+        # no_store (scraper/eilat.py). The site tells "not sold in Eilat"
+        # from "no data" with it.
+        "eilat": catalog.get("eilat") or {"vendors": {}},
     }
 
     _write_json_atomic(site_dir / "meta.json", meta)

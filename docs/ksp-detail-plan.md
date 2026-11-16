@@ -19,7 +19,7 @@ Written 2026-11-09. Status: Phase 1 steps 1, 2 (partly) and 4 done on 2026-11-09
 | Listing API (`/m_action/api/category/<tag>?page=<n>`) works from the Nano and is the only KSP source today | `scraper/spiders/ksp.py` |
 | Detail endpoint `/m_action/api/item/<uin>` returned 403 under every impersonation, and the product page is an empty SPA shell | docstring in `ksp.py`, last tested before 2026-11-04 |
 | 923 listings carry 36 distinct Hebrew tags (top: manufacturer, catalog, importer, warranty, type, colour, size, connections, features, memory type, socket, chipset, wattage) | `data/raw/2026-11-07/ksp.jsonl` |
-| Listing `vendor_meta` also holds `eilat_price`, `labels`, `family_id`, `dynamic_parent`, `min_price`, `brand` | same file |
+| Listing `vendor_meta` also holds `eilat_price` (always 0; the real Eilat price comes from `/m_action/api/bms`, see `scraper/spiders/ksp_eilat.py`), `labels`, `family_id`, `dynamic_parent`, `min_price`, `brand` | same file |
 | KSP-only products have no MPN, so they cannot merge with other vendors (946 KSP-only at onboarding) | `decisions.md`, KSP onboarding |
 | `nano/run_ksp.sh` is listing-only: **no cover-image step exists**, so KSP covers are backfilled by hand | `nano/run_ksp.sh` |
 | Sitemap sub-pages (`/sitemap/siteMapItems.xml?page=1`) returned 403 to a plain client on 2026-11-09, so do not build on them without a browser-shaped test from the Nano | one request, then stopped |

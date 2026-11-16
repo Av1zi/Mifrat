@@ -3,7 +3,7 @@ import { BUILD_SLOTS, checkCompatibility, knownPartWattage, slotForCategory } fr
 import { formatPrice } from "../format";
 import { categoryLabel, partsCount, t } from "../i18n";
 import { icon } from "../icons";
-import { bestOffer, effectivePrice } from "../offers";
+import { bestRegionOffer, effectivePrice, eilatPrice, isEilatOnly, regionPrice } from "../offers";
 import { getSaved, onSavedChange } from "../saved";
 import {
   duplicateSavedBuild,
@@ -12,7 +12,7 @@ import {
   renameSavedBuild,
   type SavedBuild,
 } from "../savedBuilds";
-import { addToBuild, buildHash, categoriesHash, compareHash, getStoredBuild, navigate, parseRoute, productHash, setStoredBuild } from "../state";
+import { addToBuild, buildHash, categoriesHash, compareHash, getRegion, getStoredBuild, navigate, parseRoute, productHash, setStoredBuild } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, Product } from "../types";
 import { html, mount, type Html } from "../ui/html";
@@ -20,6 +20,7 @@ import { pageHero } from "../ui/pageHero";
 import { emptyBox } from "../ui/emptyBox";
 import { saveButtonRef, syncPickControls } from "../ui/pick";
 import { emptyValue } from "../ui/empty";
+import { altPriceLine } from "../ui/price";
 import { loadingState } from "../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
 import { vendorTag } from "../ui/vendor";
@@ -49,8 +50,9 @@ async function resolve(ids: string[]): Promise<Map<string, Product>> {
 
 function productCard(ref: SavedPart, product: Product | undefined, lang: Lang, currency: Currency): Html {
   const href = productHash(ref.category, ref.id);
-  const price = product ? effectivePrice(product) : null;
-  const offer = product ? bestOffer(product) : null;
+  const region = getRegion();
+  const price = product ? regionPrice(product, region) : null;
+  const offer = product ? bestRegionOffer(product, region) : null;
   const canAdd = slotForCategory(ref.category) !== null && product !== undefined;
   return html`<article class="card pcard">
     <span class="pcard__heart">${saveButtonRef(ref, lang)}</span>
@@ -61,6 +63,7 @@ function productCard(ref: SavedPart, product: Product | undefined, lang: Lang, c
       <div class="pcard__price">
         <b>${price !== null ? formatPrice(price, currency, lang) : emptyValue(lang)}</b>
         ${offer ? vendorTag(offer.vendor) : product ? "" : html`<span class="pcard__gone">${t(lang, "savedGone")}</span>`}
+        ${product ? altPriceLine(effectivePrice(product), eilatPrice(product), isEilatOnly(product), region, currency, lang) : ""}
       </div>
       <div class="pcard__actions">
         <a class="btn btn--primary btn--sm" href="${href}">${t(lang, "allPrices")}</a>
@@ -97,7 +100,8 @@ function buildTitle(b: ResolvedBuild, lang: Lang): string {
 function buildCard(b: ResolvedBuild, lang: Lang, currency: Currency): Html {
   const { saved, rows } = b;
   const title = buildTitle(b, lang);
-  const total = rows.reduce((sum, r) => sum + (effectivePrice(r.product) ?? 0), 0);
+  const region = getRegion();
+  const total = rows.reduce((sum, r) => sum + (regionPrice(r.product, region) ?? 0), 0);
   const first: Record<string, Product> = {};
   for (const r of rows) first[r.slot] ??= r.product;
   const watts = rows.reduce((sum, r) => sum + knownPartWattage(r.slot, r.product), 0);
@@ -126,7 +130,7 @@ function buildCard(b: ResolvedBuild, lang: Lang, currency: Currency): Html {
     </header>
     <div class="bcard__thumbs">${rows.map((r) => html`<a class="bcard__thumb" href="${productHash(r.product.category, r.product.id)}" title="${displayName(r.product)}">${thumb(r.product.thumb ?? r.product.image, initialsOf(r.product.brand, r.product.name), "sm")}</a>`)}</div>
     <ul class="bcard__parts">${key.map((r) => {
-      const price = effectivePrice(r.product);
+      const price = regionPrice(r.product, region);
       return html`<li><span class="bcard__k">${label(r.slot)}</span><span class="bcard__v" dir="auto">${displayName(r.product)}</span><span class="bcard__pr">${price !== null ? formatPrice(price, currency, lang) : ""}</span></li>`;
     })}</ul>
     ${more > 0 ? html`<p class="bcard__more">${t(lang, "andMoreParts").replace("{n}", String(more))}</p>` : ""}

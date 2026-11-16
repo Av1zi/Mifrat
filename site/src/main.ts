@@ -12,9 +12,11 @@ import {
   applyStoredTheme,
   getCurrency,
   getLang,
+  getRegion,
   parseRoute,
   setCurrency,
   setLang,
+  setRegion,
   setTheme,
   type Theme,
 } from "./state";
@@ -56,11 +58,15 @@ function renderApp(): void {
   document.documentElement.dataset.theme = theme;
   renderShell(
     app,
-    { lang, currency, theme },
+    { lang, currency, region: getRegion(), theme },
     {
       onLang(next) {
         lang = next;
         setLang(lang);
+        renderApp();
+      },
+      onRegion(next) {
+        setRegion(next);
         renderApp();
       },
       onCurrency(next) {

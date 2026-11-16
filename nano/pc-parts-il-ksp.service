@@ -15,5 +15,6 @@ ExecStart=/home/avizi/pc-parts-il/nano/run_ksp.sh
 ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
 StandardOutput=journal
 StandardError=journal
-# ~90 requests at 3-9s plus bounded 429 retries; 40 minutes is ample.
-TimeoutStartSec=2400
+# ~90 listing requests + ~76 Eilat price requests (nano/run_eilat.sh) at
+# 3-9s plus bounded 429 retries and the cover backfill: 60 minutes.
+TimeoutStartSec=3600

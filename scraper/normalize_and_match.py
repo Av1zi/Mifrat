@@ -42,6 +42,7 @@ try:
         find_naming_conflict_cases,
         flag_identity_collisions,
         flag_title_axis_conflicts,
+        listing_key,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -55,6 +56,7 @@ try:
     from scraper.image_urls import best_of, candidate_urls
     from scraper.text_hygiene import clean_tree
     from scraper.night import scrape_night
+    from scraper import eilat
     from scraper import identity
 except ImportError:
     from matching import (
@@ -65,6 +67,7 @@ except ImportError:
         find_duplicate_vendor_cases,
         find_naming_conflict_cases,
         flag_title_axis_conflicts,
+        listing_key,
         match_listings,
         match_text,
         mpn_affix_related,
@@ -78,6 +81,7 @@ except ImportError:
     from build_price_history import build_price_history
     from text_hygiene import clean_tree  # type: ignore[no-redef]
     from night import scrape_night  # type: ignore[no-redef]
+    import eilat  # type: ignore[no-redef]
     import identity  # type: ignore[no-redef]
 
 
@@ -834,13 +838,62 @@ def _remap_identity_cases(cases, aliases: dict[str, str],
     return kept
 
 
-def build_catalog(today: datetime):
+def _snapshot_freshness(listings: list[dict], snapshot_date: str,
+                        today: datetime) -> tuple[str, bool]:
+    """(seen_day, is_stale) of one loaded snapshot."""
     # A snapshot in today's UTC folder (before the 2026-11-15 switch) or in
     # tonight's scrape-night folder is this build's.
     current_folders = {_date_str(today), scrape_night(today).isoformat()}
+    seen_day = crawl_local_day(listings) or snapshot_date
+    # Fresh if it sits in this build's folder, or was crawled today in
+    # Israel (an old TMS night run is in yesterday's UTC folder).
+    return seen_day, snapshot_date not in current_folders and seen_day != local_day(today)
 
+
+def _attach_eilat(enriched: list[dict], main_state: dict[str, dict],
+                  today: datetime) -> tuple[list[dict], dict[str, dict]]:
+    """Join each vendor's Eilat snapshot onto its regular listings.
+
+    Returns the Eilat-only raw rows (to enrich like any listing) and the
+    per-vendor Eilat state for meta.json (scraper/eilat.py).
+    """
+    by_vendor: dict[str, list[dict]] = {}
+    for e in enriched:
+        by_vendor.setdefault(str(e.get("vendor_id") or ""), []).append(e)
+    eilat_only: list[dict] = []
+    states: dict[str, dict] = {}
+    for vendor, source in eilat.SOURCES.items():
+        found = find_latest_snapshot(source.spider, today)
+        if found is None:
+            states[vendor] = {"state": eilat.MISSING, "last_seen": None}
+            print(f"[info] {source.spider}: no Eilat snapshot in the last "
+                  f"{STALE_LOOKBACK_DAYS} days", file=sys.stderr)
+            continue
+        path, snapshot_date = found
+        rows = [r for r in load_listings(path) if r.get("channel") == eilat.EILAT_CHANNEL]
+        for row in rows:
+            row.setdefault("vendor_id", vendor)
+        seen_day, is_stale = _snapshot_freshness(rows, snapshot_date, today)
+        latest = eilat.newest_rows(rows, listing_key)
+        main = main_state.get(vendor) or {}
+        result = eilat.attach(
+            vendor, by_vendor.get(vendor, []), latest,
+            eilat_stale=is_stale, main_stale=bool(main.get("stale", True)),
+            seen_day=seen_day, snapshot_day=snapshot_date)
+        states[vendor] = {"state": result.state, "last_seen": seen_day}
+        eilat_only.extend(result.eilat_only)
+        level = "warn" if result.state != eilat.FRESH else "ok"
+        print(f"[{level}] {source.spider}: {len(latest)} Eilat rows from {snapshot_date} "
+              f"({result.state}); {result.matched} on regular listings, "
+              f"{len(result.eilat_only)} Eilat-only, "
+              f"{result.implausible} dropped as implausible")
+    return eilat_only, states
+
+
+def build_catalog(today: datetime):
     all_listings = []
     skipped_vendors = []
+    main_state: dict[str, dict] = {}
 
     for vendor_spider_name in VENDOR_SPIDER_NAMES:
         found = find_latest_snapshot(vendor_spider_name, today)
@@ -858,11 +911,13 @@ def build_catalog(today: datetime):
         path, snapshot_date = found
         listings = load_listings(path)
         listings = _drop_included_builder_options(listings)
+        # A regular snapshot carries no Eilat rows; a stray one would be read
+        # as the regular price.
+        listings = [r for r in listings if r.get("channel") in (None, "main")]
 
-        seen_day = crawl_local_day(listings) or snapshot_date
-        # Fresh if it sits in this build's folder, or was crawled today in
-        # Israel (an old TMS night run is in yesterday's UTC folder).
-        is_stale = snapshot_date not in current_folders and seen_day != local_day(today)
+        seen_day, is_stale = _snapshot_freshness(listings, snapshot_date, today)
+        main_state["1pc" if vendor_spider_name == "onepc" else vendor_spider_name] = {
+            "stale": is_stale}
 
         for listing in listings:
             listing["last_seen"] = snapshot_date
@@ -884,6 +939,10 @@ def build_catalog(today: datetime):
 
     enriched = [enrich_listing(listing) for listing in all_listings]
     enriched = dedupe_enriched_listings(enriched)
+    # Eilat prices ride on the regular listing of the same key; only an item
+    # the vendor sells in Eilat alone becomes a listing of its own.
+    eilat_only, eilat_states = _attach_eilat(enriched, main_state, today)
+    enriched.extend(enrich_listing(row) for row in eilat_only)
     enriched = _merge_detail_specs(enriched)
 
     # Stable output ordering.
@@ -986,6 +1045,8 @@ def build_catalog(today: datetime):
         "identity_cases": identity_cases,
         "review_queue_count": len(review_queue),
         "skipped_vendors": skipped_vendors,
+        # Per-vendor Eilat data state (scraper/eilat.py), shipped in meta.json.
+        "eilat": eilat.site_meta(eilat_states),
     }
 
     return catalog, review_queue, spec_report

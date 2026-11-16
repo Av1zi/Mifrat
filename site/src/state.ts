@@ -1,8 +1,9 @@
 import { readItem, writeItem } from "./storage";
-import type { Currency, Lang, SortKey } from "./types";
+import type { Currency, Lang, Region, SortKey } from "./types";
 
 const LANG_KEY = "mifrat:lang";
 const CURRENCY_KEY = "mifrat:currency";
+const REGION_KEY = "mifrat:region";
 const BUILD_KEY = "mifrat:build";
 const THEME_KEY = "mifrat:theme";
 const VIEW_KEY = "mifrat:view";
@@ -58,6 +59,19 @@ export function getCurrency(): Currency {
 
 export function setCurrency(currency: Currency): void {
   writeItem(CURRENCY_KEY, currency);
+}
+
+/**
+ * Eilat mode: every price on the site is the vendors' Eilat-store price, the
+ * regular price becomes the small line under it. Site-wide like the currency;
+ * read at render time, so callers never thread it through.
+ */
+export function getRegion(): Region {
+  return readItem(REGION_KEY) === "eilat" ? "eilat" : "main";
+}
+
+export function setRegion(region: Region): void {
+  writeItem(REGION_KEY, region);
 }
 
 /**

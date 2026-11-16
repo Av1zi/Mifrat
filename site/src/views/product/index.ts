@@ -1,8 +1,9 @@
-import { loadCategory, resolveProductAlias } from "../../api";
+import { loadCategory, loadMeta, resolveProductAlias } from "../../api";
+import { regionPrice } from "../../offers";
 import { slotForCategory } from "../../build";
 import { categoryLabel, productMetaDesc, t } from "../../i18n";
 import { icon } from "../../icons";
-import { addToBuild, buildHash, categoriesHash, categoryHash, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
+import { addToBuild, buildHash, categoriesHash, categoryHash, getRegion, getStoredBuild, navigate, productHash, setStoredBuild } from "../../state";
 import type { Currency, Lang } from "../../types";
 import { formatPrice } from "../../format";
 import { loadSignals } from "../../signals";
@@ -10,7 +11,6 @@ import { setPageTitle } from "../../titles";
 import { card } from "../../ui/card";
 import { bindPageTabs, pageHero } from "../../ui/pageHero";
 import { syncPickControls } from "../../ui/pick";
-import { positivePrice } from "../../ui/price";
 import { signalBadges } from "../../ui/signal";
 import { html, mount } from "../../ui/html";
 import { emptyBox } from "../../ui/emptyBox";
@@ -35,8 +35,14 @@ export async function renderProduct(
   mount(container, loadingState(lang));
 
   let products;
+  let noStore: string[];
   try {
-    products = await loadCategory(category);
+    const [loaded, meta] = await Promise.all([loadCategory(category), loadMeta().catch(() => null)]);
+    products = loaded;
+    // Vendors with no Eilat branch, named under the Eilat offers table.
+    noStore = Object.entries(meta?.eilat?.vendors ?? {})
+      .filter(([, v]) => v.state === "no_store")
+      .map(([vendor]) => vendor);
   } catch (err) {
     mount(container, errorState(lang, err));
     return;
@@ -70,7 +76,8 @@ export async function renderProduct(
   }
 
   const name = displayName(product);
-  const bestPrice = positivePrice(product.min_price);
+  const region = getRegion();
+  const bestPrice = regionPrice(product, region);
   setPageTitle(
     lang,
     name,
@@ -126,7 +133,7 @@ export async function renderProduct(
         ${specsCard(product, lang, products)}
       </div>
       <div class="pdp__main">
-        ${offersCard(product, lang, currency)}
+        ${offersCard(product, lang, currency, noStore)}
         <section class="card" id="pdp-history" hidden></section>
         ${similar ? card(similar, { title: t(lang, "similarHeading") }) : ""}
       </div>
@@ -149,8 +156,9 @@ export async function renderProduct(
   const historyHost = container.querySelector<HTMLElement>("#pdp-history");
   if (historyHost) void renderPriceHistory(historyHost, lang, currency, category, product.id);
 
+  // Price-drop signals read the regular price history only.
   const signalHost = container.querySelector<HTMLElement>("#pdp-signals");
-  if (signalHost) {
+  if (signalHost && region === "main") {
     void loadSignals(category).then((signals) => {
       if (signalHost.isConnected) mount(signalHost, signalBadges(signals.get(product.id), lang));
     });

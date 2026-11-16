@@ -2,12 +2,13 @@ import { BUILD_SLOTS, type BuildSlot } from "../../build";
 import { formatPrice } from "../../format";
 import { buildFootNote, t, vendorLabel } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, effectivePrice } from "../../offers";
-import { categoryHash, MULTI_SLOTS, productHash } from "../../state";
+import { bestRegionOffer, effectivePrice, eilatPrice, isEilatOnly, regionInStock, regionPrice } from "../../offers";
+import { categoryHash, getRegion, MULTI_SLOTS, productHash } from "../../state";
 import type { Product } from "../../types";
 import { dealChip } from "../../ui/deal";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
+import { altPriceLine, notInEilatLine } from "../../ui/price";
 import { initialsOf, thumb } from "../../ui/thumb";
 import { vendorTag } from "../../ui/vendor";
 import { displayName, safeUrl } from "../../utils";
@@ -27,8 +28,10 @@ function partSpecs(product: Product, lang: BuilderCtx["lang"]): Html[] {
 
 function partRow(ctx: BuilderCtx, slot: BuildSlot, product: Product, first: boolean): Html {
   const { lang, currency } = ctx;
-  const offer = bestOffer(product);
-  const price = effectivePrice(product);
+  const region = getRegion();
+  const offer = bestRegionOffer(product, region);
+  const price = regionPrice(product, region);
+  const inStock = region === "main" ? product.in_stock : regionInStock(product, region);
   const buy = offer ? safeUrl(offer.url) : null;
   const href = productHash(product.category, product.id);
   const name = displayName(product);
@@ -39,10 +42,14 @@ function partRow(ctx: BuilderCtx, slot: BuildSlot, product: Product, first: bool
       <a class="bt-part__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(product.thumb ?? product.image, initialsOf(product.brand, product.name), "sm")}</a>
       <span class="bt-part__text">
         <a class="bt-part__name" href="${href}" dir="auto">${name}</a>
-        <span class="bt-part__sub">${specs.length > 0 ? specs : product.brand ?? ""}${product.in_stock ? "" : html` <span class="row__out">· ${t(lang, "outOfStock")}</span>`}</span>
+        <span class="bt-part__sub">${specs.length > 0 ? specs : product.brand ?? ""}${inStock || price === null ? "" : html` <span class="row__out">· ${t(lang, "outOfStock")}</span>`}</span>
       </span>
     </td>
-    <td class="bt-price">${price !== null ? html`${formatPrice(price, currency, lang)} ${dealChip(offer, currency, lang, { alignEnd: true })}` : emptyValue(lang)}</td>
+    <td class="bt-price">${price !== null
+      ? html`${formatPrice(price, currency, lang)} ${dealChip(offer, currency, lang, { alignEnd: true })}${altPriceLine(effectivePrice(product), eilatPrice(product), isEilatOnly(product), region, currency, lang)}`
+      : region === "eilat"
+        ? notInEilatLine(effectivePrice(product), currency, lang)
+        : html`${emptyValue(lang)}${altPriceLine(null, eilatPrice(product), isEilatOnly(product), region, currency, lang)}`}</td>
     <td class="bt-store">${offer ? vendorTag(offer.vendor) : ""}</td>
     <td class="bt-buy">${buy && price !== null && offer
       ? html`<a class="btn btn--buy btn--sm" href="${buy}" target="_blank" rel="noopener noreferrer" aria-label="${t(lang, "toStore")}: ${vendorLabel(offer.vendor)}">${t(lang, "toStore")}</a>`
@@ -73,7 +80,8 @@ function slotRows(ctx: BuilderCtx, slot: BuildSlot): Html {
 export function slotsMarkup(ctx: BuilderCtx): Html {
   const { lang, currency } = ctx;
   const items = [...ctx.parts.values()].flat();
-  const stores = new Set(items.map((p) => bestOffer(p)?.vendor).filter(Boolean)).size;
+  const region = getRegion();
+  const stores = new Set(items.map((p) => bestRegionOffer(p, region)?.vendor).filter(Boolean)).size;
   return html`<section class="card card--flush build-table-card" aria-label="${t(lang, "builderTitle")}">
     <div class="table-wrap"><table class="table build-table">
       <thead><tr>

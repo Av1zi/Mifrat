@@ -35,6 +35,10 @@ HISTORY_DIR = REPO_ROOT / "data" / "site" / "history"
 # tuple only controls which raw files get scanned). History files on disk keep
 # old plonter points until the next rebuild prunes them.
 SNAPSHOT_VENDORS = ("tms", "onepc", "ivory", "yahav", "ksp")
+# Eilat prices never draw a line (owner, 2026-11-16): the `<vendor>_eilat`
+# files are not in SNAPSHOT_VENDORS, an Eilat-only offer is skipped below,
+# and a stray Eilat row inside a regular file is ignored.
+EILAT_CHANNEL = "eilat"
 
 
 def is_conditional_offer(offer: dict) -> bool:
@@ -99,6 +103,8 @@ def _load_snapshot_prices(
                     try:
                         item = json.loads(line)
                     except json.JSONDecodeError:
+                        continue
+                    if not isinstance(item, dict) or item.get("channel") == EILAT_CHANNEL:
                         continue
                     vendor = _norm_vendor(item.get("vendor_id") or vendor_file)
                     price = item.get("price_ils")
@@ -264,7 +270,7 @@ def build_price_history(
         for offer in product.get("offers", []):
             # A vendor's twin listing (matching.collapse_vendor_twins) is
             # not its offer, so it never draws the vendor's line.
-            if offer.get("alias_of"):
+            if offer.get("alias_of") or offer.get("eilat_only"):
                 continue
             if has_plain and is_conditional_offer(offer):
                 continue

@@ -58,6 +58,16 @@ _Avoid_: listing (once merged)
 **Stale**:
 An offer reused from an earlier snapshot because the vendor had none today. Always shown as stale, never hidden.
 
+**Eilat price**:
+A vendor's VAT-free price at its Eilat stores, scraped from the vendor (never calculated) by a second crawl, the Eilat snapshot. It rides on the offer beside the regular price and never sets a regular minimum, sort, total or price-history line.
+_Avoid_: tax-free price, Eilat discount
+
+**Eilat-only offer**:
+An offer a vendor sells only at its Eilat stores: it has an Eilat price and no regular price.
+
+**Eilat mode**:
+The site-wide setting that shows every price as its Eilat price, with the regular price as the small second line.
+
 **Skipped vendor**:
 A vendor with no usable snapshot inside the lookback window for a catalog build.
 

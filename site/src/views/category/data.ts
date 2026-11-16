@@ -12,7 +12,8 @@ import type { BuildMap, CategoryParams, ListView } from "../../state";
 import type { PriceSignal } from "../../signals";
 import type { Currency, Lang, Product, SortKey } from "../../types";
 import { normSearch, searchScore, searchTokens, skuOf } from "../../utils";
-import { positivePrice } from "../../ui/price";
+import { regionInStock, regionMinPrice, regionOffers } from "../../offers";
+import { getRegion } from "../../state";
 import { facetFor, facetsFor, normalizeOption, optionComparator, replacedFields } from "./facets";
 
 export const PAGE_SIZE = 60;
@@ -103,7 +104,8 @@ export function specOptionValues(product: Product, field: string, list: boolean)
  * the URL and the matching all see one value per meaning.
  */
 export function optionValues(product: Product, key: string, category: string): string[] {
-  if (key === "vendor") return [...new Set(product.offers.map((o) => o.vendor))];
+  // Stores that sell it in the active region (Eilat mode: only Eilat sellers).
+  if (key === "vendor") return [...new Set(regionOffers(product, getRegion()).map((o) => o.vendor))];
   const facet = facetFor(category, key);
   if (facet) return facet.values(product);
   const raw = specOptionValues(product, key, listFieldsFor(category).has(key));
@@ -186,7 +188,7 @@ export function computeRanges(
       const value = specValue(p, field);
       if (typeof value === "number" && Number.isFinite(value)) widen(field, value);
     }
-    const price = positivePrice(p.min_price);
+    const price = regionMinPrice(p, getRegion());
     if (price !== null) widen("price", price);
   }
   for (const [key, range] of ranges) {
@@ -214,7 +216,7 @@ function productSearchHay(p: Product): {
 }
 
 function numericValue(p: Product, field: string): number | null {
-  if (field === "price") return positivePrice(p.min_price);
+  if (field === "price") return regionMinPrice(p, getRegion());
   const value = specValue(p, field);
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
@@ -224,8 +226,9 @@ function applyFilters(products: Product[], params: CategoryParams, query: string
   const category = products[0]?.category ?? "";
   const listFields = listFieldsFor(category);
 
+  const region = getRegion();
   return products.filter((p) => {
-    if (params.stockOnly && !p.in_stock) return false;
+    if (params.stockOnly && !(region === "main" ? p.in_stock : regionInStock(p, region))) return false;
     if (tokens.length > 0 && searchScore(tokens, productSearchHay(p)) < 0) return false;
 
     for (const [key, values] of Object.entries(params.filters)) {
@@ -255,8 +258,9 @@ function applyFilters(products: Product[], params: CategoryParams, query: string
 
 function sortProducts(products: Product[], sort: SortKey, query = ""): Product[] {
   const arr = [...products];
-  // Unknown prices sort last in both directions.
-  const asc = (p: Product): number => positivePrice(p.min_price) ?? Infinity;
+  // Unknown prices sort last in both directions (in Eilat mode: not sold there).
+  const region = getRegion();
+  const asc = (p: Product): number => regionMinPrice(p, region) ?? Infinity;
 
   switch (sort) {
     case "relevance": {

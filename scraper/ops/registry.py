@@ -47,8 +47,15 @@ VENDOR_OF_ID = {"1pc": "onepc", "onepc": "onepc"}
 
 
 def min_counts() -> dict[str, int]:
-    """Per-spider minimum-item warning floors (run_spider.py)."""
-    return {v.id: v.min_rows for v in VENDORS.values()}
+    """Per-spider minimum-item warning floors (run_spider.py).
+
+    The `<vendor>_eilat` spiders (scraper/eilat.py) are a second crawl of a
+    vendor, not vendors: they get a floor here but no VENDORS entry, so the
+    ops report and alert rules keep one row per shop.
+    """
+    from scraper.eilat import min_counts as eilat_min_counts
+
+    return {**{v.id: v.min_rows for v in VENDORS.values()}, **eilat_min_counts()}
 
 
 def as_json() -> list[dict]:

@@ -2530,6 +2530,14 @@ def offer_from_listing(enriched: dict) -> dict:
     if enriched.get("bridged_model_code"):
         # Catalog only: identity.model_code reads it on offers too.
         offer["bridged_model_code"] = enriched["bridged_model_code"]
+    # The vendor's Eilat-store price (scraper/eilat.py). Never price_ils:
+    # every regular minimum, sort, total and history line ignores it.
+    if enriched.get("eilat_price_ils") is not None:
+        offer["eilat_price_ils"] = enriched["eilat_price_ils"]
+        offer["eilat_in_stock"] = enriched.get("eilat_in_stock")
+        offer["eilat_stale"] = bool(enriched.get("eilat_stale"))
+    if enriched.get("eilat_only"):
+        offer["eilat_only"] = True
     return offer
 
 
@@ -7113,7 +7121,9 @@ def collapse_vendor_twins(offers: list[dict], category) -> None:
         offer.pop("alias_of", None)
         offer.pop("alias_kind", None)
         vendor = str(offer.get("vendor_id") or "")
-        if vendor:
+        # An Eilat-only listing has no regular price to fold into a chip; it
+        # stays its own offer (the site shows it as "Eilat only").
+        if vendor and not offer.get("eilat_only"):
             by_vendor.setdefault(vendor, []).append(offer)
     for olist in by_vendor.values():
         if len(olist) < 2:

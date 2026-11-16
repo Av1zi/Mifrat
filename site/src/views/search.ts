@@ -2,9 +2,9 @@ import { loadCategory } from "../api";
 import { formatPrice } from "../format";
 import { categoryLabel, CATEGORY_ORDER, searchResultsCount, t } from "../i18n";
 import { icon } from "../icons";
-import { bestOffer, effectivePrice } from "../offers";
+import { bestRegionOffer, effectivePrice, eilatPrice, isEilatOnly, regionPrice } from "../offers";
 import { searchIndex } from "../search";
-import { categoriesHash, categoryHash, productHash, searchHash } from "../state";
+import { categoriesHash, categoryHash, getRegion, productHash, searchHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, IndexRow, Lang, Product } from "../types";
 import { emptyBox, fillQuickCats, quickCats } from "../ui/emptyBox";
@@ -12,6 +12,7 @@ import { html, mount, type Html } from "../ui/html";
 import { pageHero } from "../ui/pageHero";
 import { saveButton, syncPickControls } from "../ui/pick";
 import { emptyValue } from "../ui/empty";
+import { altPriceLine } from "../ui/price";
 import { errorState, loadingState } from "../ui/state";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
 import { vendorTag } from "../ui/vendor";
@@ -39,11 +40,13 @@ async function suggestions(lang: Lang, query: string): Promise<string[]> {
 }
 
 function resultRow(row: IndexRow, product: Product | undefined, lang: Lang, currency: Currency): Html {
-  const [id, category, minPrice, brand, name] = row;
+  const [id, category, minPrice, brand, name, eilatMin] = row;
   const href = productHash(category, id);
   const label = product ? displayName(product) : name ?? id;
-  const price = product ? effectivePrice(product) : minPrice && minPrice > 0 ? minPrice : null;
-  const offer = product ? bestOffer(product) : null;
+  const region = getRegion();
+  const rowPrice = region === "eilat" ? eilatMin : minPrice;
+  const price = product ? regionPrice(product, region) : rowPrice && rowPrice > 0 ? rowPrice : null;
+  const offer = product ? bestRegionOffer(product, region) : null;
   return html`<article class="sr-row">
     <a class="sr-row__thumb" href="${href}" tabindex="-1" aria-hidden="true">${thumb(product?.thumb ?? product?.image, initialsOf(brand, label), "md")}</a>
     <div class="sr-row__main">
@@ -54,6 +57,7 @@ function resultRow(row: IndexRow, product: Product | undefined, lang: Lang, curr
     <div class="sr-row__buy">
       <b>${price !== null ? formatPrice(price, currency, lang) : emptyValue(lang)}</b>
       ${offer ? vendorTag(offer.vendor) : ""}
+      ${product ? altPriceLine(effectivePrice(product), eilatPrice(product), isEilatOnly(product), region, currency, lang) : ""}
     </div>
     <div class="sr-row__tools">${product ? saveButton(product, lang) : ""}<a class="btn btn--primary btn--sm" href="${href}">${t(lang, "allPrices")}</a></div>
   </article>`;

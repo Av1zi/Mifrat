@@ -1,6 +1,7 @@
 import { attributeLabel } from "../../i18n";
 import { formatSpecValue, specPriority, specValue, VARIANT_IDENTITY_KEYS } from "../../specs";
-import { productHash } from "../../state";
+import { regionMinPrice } from "../../offers";
+import { getRegion, productHash } from "../../state";
 import type { Currency, Lang, Product } from "../../types";
 import { html, type Html } from "../../ui/html";
 import { priceCell } from "../../ui/price";
@@ -25,7 +26,8 @@ function similarProducts(product: Product, all: Product[]): Product[] {
     }
     scored.push({ p, score });
   }
-  const price = (p: Product): number => (p.min_price !== null && p.min_price > 0 ? p.min_price : Infinity);
+  const region = getRegion();
+  const price = (p: Product): number => regionMinPrice(p, region) ?? Infinity;
   scored.sort((a, b) => b.score - a.score || price(a.p) - price(b.p));
   // Unrelated items must not fill every slot.
   return scored.filter((s) => s.score >= 6).slice(0, 8).map((s) => s.p);
@@ -93,7 +95,7 @@ export function similarMarkup(
       ${thumb(p.thumb ?? p.image, initialsOf(p.brand, p.name), "lg", name)}
       <span class="similar__name" dir="auto">${name}</span>
       ${disc ? html`<span class="similar__disc">${disc}</span>` : ""}
-      ${priceCell(p.min_price, currency, lang)}
+      ${priceCell(regionMinPrice(p, getRegion()), currency, lang)}
     </a>`
   )}</div>`;
 }

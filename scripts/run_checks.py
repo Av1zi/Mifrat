@@ -160,6 +160,7 @@ CHECKS: list[Check] = [
           py("scripts/check_text_hygiene.py", "--self-test"), BOTH),
     Check("ksp_tags", CODE, "KSP listing-tag mapper", py("scripts/check_ksp_tags.py"), BOTH),
     Check("ksp_detail", CODE, "KSP detail parser", py("scripts/check_ksp_detail.py"), BOTH),
+    Check("eilat", CODE, "Eilat price parsers, attach and history rules", py("scripts/check_eilat.py"), BOTH),
     Check("xref_fixtures", CODE, "Saved-page parsers", py("scripts/check_xref_fixtures.py"), BOTH),
     Check("extract_selftest", CODE, "AI-extraction verifier and client",
           py("scripts/check_extract.py", "--self-test"), BOTH),

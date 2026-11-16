@@ -3,8 +3,8 @@ import { BUILD_SLOTS, isProductCompatibleWithBuild, knownPartWattage, numSpec } 
 import { formatPrice } from "../format";
 import { t } from "../i18n";
 import { icon } from "../icons";
-import { bestOffer, effectivePrice } from "../offers";
-import { buildHash, buildItemCount, categoryHash, getStoredBuild, productHash, type BuildMap } from "../state";
+import { bestRegionOffer, regionInStock, regionPrice } from "../offers";
+import { buildHash, buildItemCount, categoryHash, getRegion, getStoredBuild, productHash, type BuildMap } from "../state";
 import type { Currency, Lang, Product } from "../types";
 import { html, mount, type Html } from "../ui/html";
 import { bindThumbs, initialsOf, thumb } from "../ui/thumb";
@@ -36,8 +36,9 @@ interface Row {
 }
 
 function nearestToPercentile(pool: Product[], pct: number): Product | null {
+  const region = getRegion();
   const priced = pool
-    .map((p) => ({ p, price: effectivePrice(p) }))
+    .map((p) => ({ p, price: regionPrice(p, region) }))
     .filter((x): x is { p: Product; price: number } => x.price !== null)
     .sort((a, b) => a.price - b.price || a.p.id.localeCompare(b.p.id));
   if (priced.length === 0) return null;
@@ -49,8 +50,12 @@ async function sampleBuild(): Promise<Row[]> {
   const rows: Row[] = [];
   for (const step of SAMPLE_PLAN) {
     const products = await loadCategory(step.category).catch(() => [] as Product[]);
+    const region = getRegion();
     let pool = products.filter(
-      (p) => p.in_stock && effectivePrice(p) !== null && isProductCompatibleWithBuild(p, step.slot, chosen)
+      (p) =>
+        (region === "main" ? p.in_stock : regionInStock(p, region)) &&
+        regionPrice(p, region) !== null &&
+        isProductCompatibleWithBuild(p, step.slot, chosen)
     );
     if (step.slot === "storage") {
       // A sample build boots from an NVMe drive, not a 3.5" archive disk.
@@ -90,8 +95,9 @@ async function storedRows(build: BuildMap): Promise<Row[]> {
 function rowMarkup(row: Row, lang: Lang, currency: Currency): Html {
   const slot = BUILD_SLOTS.find((s) => s.id === row.slot);
   const { product } = row;
-  const price = effectivePrice(product);
-  const offer = bestOffer(product);
+  const region = getRegion();
+  const price = regionPrice(product, region);
+  const offer = bestRegionOffer(product, region);
   const href = productHash(product.category, product.id);
   return html`<li class="hb__row">
     <a class="hb__slot" href="${categoryHash(product.category)}">${slot ? slot.label[lang] : product.category}</a>
@@ -128,9 +134,10 @@ export async function fillHomeBuild(host: HTMLElement, lang: Lang, currency: Cur
 
   const map: BuildMap = {};
   for (const row of rows) map[row.slot] = [...(map[row.slot] ?? []), row.product.id];
-  const total = rows.reduce((sum, row) => sum + (effectivePrice(row.product) ?? 0), 0);
+  const region = getRegion();
+  const total = rows.reduce((sum, row) => sum + (regionPrice(row.product, region) ?? 0), 0);
   const extra = rows.length - MAX_ROWS;
-  const vendors = new Set(rows.map((row) => bestOffer(row.product)?.vendor).filter(Boolean)).size;
+  const vendors = new Set(rows.map((row) => bestRegionOffer(row.product, region)?.vendor).filter(Boolean)).size;
 
   mount(
     host,

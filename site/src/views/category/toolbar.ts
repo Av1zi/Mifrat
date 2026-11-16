@@ -2,10 +2,10 @@ import { knownPartWattage } from "../../build";
 import { formatPrice } from "../../format";
 import { ACTIVE_VENDORS, categoryLabel, inStockCount, showResultsCount, storesCount, t } from "../../i18n";
 import { icon } from "../../icons";
-import { setListView, type ListView } from "../../state";
+import { getRegion, setListView, type ListView } from "../../state";
 import type { Product, SortKey } from "../../types";
 import { html, mount, type Html } from "../../ui/html";
-import { effectivePrice } from "../../offers";
+import { regionInStock, regionPrice } from "../../offers";
 import { activeFilterChips, activeFilterCount } from "./filters";
 import { type CategoryActions, type CategoryCtx } from "./data";
 
@@ -33,7 +33,8 @@ const VIEWS: Array<{ view: ListView; glyph: "rows" | "table"; label: Parameters<
 export function buildCardMarkup(ctx: CategoryCtx): Html {
   const { lang, currency, build } = ctx;
   if (build.items.length === 0) return html``;
-  const total = build.items.reduce((sum, { product }) => sum + (effectivePrice(product) ?? 0), 0);
+  const region = getRegion();
+  const total = build.items.reduce((sum, { product }) => sum + (regionPrice(product, region) ?? 0), 0);
   const watts = build.items.reduce((sum, { slotId, product }) => sum + knownPartWattage(slotId, product), 0);
   const showCompat = ctx.targetSlotId !== null;
   return html`<section class="card rail-build" aria-label="${t(lang, "yourBuildTitle")}">
@@ -90,7 +91,8 @@ export function updateResultsBar(ctx: CategoryCtx, filtered: Product[]): void {
   if (countEl) countEl.textContent = `${filtered.length.toLocaleString(locale)} ${categoryLabel(ctx.category, ctx.lang)}`;
   const subEl = root.querySelector<HTMLElement>('[data-role="count-sub"]');
   if (subEl) {
-    const inStock = filtered.filter((p) => p.in_stock).length;
+    const region = getRegion();
+    const inStock = filtered.filter((p) => (region === "main" ? p.in_stock : regionInStock(p, region))).length;
     subEl.textContent = `${inStockCount(ctx.lang, inStock.toLocaleString(locale))} · ${t(ctx.lang, "pricesFrom")}${storesCount(ctx.lang, ACTIVE_VENDORS.length)}`;
   }
 

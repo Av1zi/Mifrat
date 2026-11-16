@@ -233,6 +233,26 @@ IP: if `ksp_detail` reports a block, disable the timer
 (`sudo systemctl disable --now pc-parts-il-ksp-detail.timer`) and check the
 next night's KSP listing run before turning it back on.
 
+## Eilat prices (Nov 2026)
+
+TMS and KSP have Eilat stores with their own VAT-free prices (and, at TMS,
+their own catalogue). `nano/run_eilat.sh <tms|ksp>` crawls them into
+`data/raw/<night>/<vendor>_eilat.jsonl` (`scraper/eilat.py`). There is no
+extra unit or timer: `run_tms.sh` and `run_ksp.sh` call it right after
+their regular snapshot is pushed, inside the same night slot, so the
+home-IP sequence and the phone alerts are unchanged. The service timeouts
+were raised for the second crawl (TMS 50 min, KSP 60 min): after pulling
+this change, copy the two `.service` / `.timer` files again and
+`sudo systemctl daemon-reload`.
+
+- TMS: the same category pages with `?eilat=1` (TMS's own Eilat switch),
+  Eilat-branch stock from the Claris widget.
+- KSP: the storefront's live-price call for tonight's uins, 12 per request.
+
+An Eilat failure never touches the regular snapshot (normalize shows the
+last Eilat prices marked stale). A block (exit 3) ends that vendor's night
+like any block. `RUN_EILAT_FORCE=1` re-runs a night by hand.
+
 ## Phone alerts (Nov 2026)
 
 Every scrape unit reports its run to the site's Worker, which pushes to the

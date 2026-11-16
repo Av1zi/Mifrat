@@ -1,8 +1,19 @@
 import { formatPrice } from "../../format";
 import { lastSeenText, t, vendorLabel, vendorsCount } from "../../i18n";
 import { icon } from "../../icons";
-import { bestOffer, isBundleOffer, sortOffers } from "../../offers";
-import type { Currency, Lang, Product } from "../../types";
+import {
+  bestRegionOffer,
+  effectivePrice,
+  eilatPrice,
+  isBundleOffer,
+  isEilatOnly,
+  regionInStock,
+  regionOffers,
+  regionPrice,
+  sortOffers,
+} from "../../offers";
+import { getRegion } from "../../state";
+import type { Currency, Lang, Offer, Product, Region } from "../../types";
 import { safeUrl } from "../../utils";
 import { button } from "../../ui/button";
 import { card } from "../../ui/card";
@@ -11,7 +22,7 @@ import { dealChip, wasPrice } from "../../ui/deal";
 import { emptyValue } from "../../ui/empty";
 import { html, type Html } from "../../ui/html";
 import { compareButton, saveButton } from "../../ui/pick";
-import { positivePrice, priceCell } from "../../ui/price";
+import { altPriceLine, notInEilatLine, positivePrice, priceCell } from "../../ui/price";
 import { initialsOf, thumb } from "../../ui/thumb";
 import { vendorMono } from "../../ui/vendor";
 
@@ -31,24 +42,30 @@ export function buyBoxMarkup(
   variants: Html,
   name: string
 ): Html {
-  const offer = bestOffer(product);
-  const price = positivePrice(offer?.price ?? product.min_price);
+  const region = getRegion();
+  const offer = bestRegionOffer(product, region);
+  const price = regionPrice(product, region);
   const url = offer ? safeUrl(offer.url) : null;
   // Every priced offer needs a whole-PC purchase: the part cannot be bought
   // alone, so the buy button is shown muted and says so.
   const bundle = isBundleOffer(offer);
+  const inStock = region === "main" ? product.in_stock : regionInStock(product, region);
+  const vendors = new Set(regionOffers(product, region).map((o) => o.vendor)).size;
   return html`<aside class="card card--flush buybox">
     <div class="buybox__photo">${thumb(product.image, initialsOf(product.brand, name), "xl", name, true)}</div>
     <div class="buybox__body">
       <div>
-        <p class="buybox__label">${t(lang, "cheapest")}</p>
+        <p class="buybox__label">${t(lang, "cheapest")}${region === "eilat" ? html` · ${t(lang, "regionEilat")}` : ""}</p>
         <div class="buybox__price">
           ${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang, "lg")}
           ${offer && price !== null ? html`<span class="buybox__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>` : ""}
           ${price !== null ? dealChip(offer, currency, lang) : ""}
+          ${region === "eilat" && price === null
+            ? notInEilatLine(effectivePrice(product), currency, lang)
+            : altPriceLine(effectivePrice(product), eilatPrice(product), isEilatOnly(product), region, currency, lang)}
         </div>
         <div class="buybox__signals" id="pdp-signals"></div>
-        <p class="buybox__meta">${stockLine(product.in_stock, lang)}<span aria-hidden="true">·</span><span>${vendorsCount(lang, product.vendor_count)}</span></p>
+        <p class="buybox__meta">${stockLine(inStock, lang)}<span aria-hidden="true">·</span><span>${vendorsCount(lang, vendors)}</span></p>
       </div>
       ${url && price !== null && offer
         ? html`<a class="buy-cta${bundle ? " buy-cta--bundle" : ""}" href="${url}" target="_blank" rel="noopener noreferrer">
@@ -69,8 +86,9 @@ export function buyBoxMarkup(
  * has scrolled away: best price, where, and the same store link.
  */
 export function buyBarMarkup(product: Product, lang: Lang, currency: Currency): Html {
-  const offer = bestOffer(product);
-  const price = positivePrice(offer?.price ?? product.min_price);
+  const region = getRegion();
+  const offer = bestRegionOffer(product, region);
+  const price = regionPrice(product, region);
   const url = offer ? safeUrl(offer.url) : null;
   if (!offer || !url || price === null) return html``;
   const bundle = isBundleOffer(offer);
@@ -91,10 +109,22 @@ export function buyBarMarkup(product: Product, lang: Lang, currency: Currency): 
   </div>`;
 }
 
+const offerKey = (o: Offer): string => `${o.vendor}|${o.url}`;
+
+/** The small second price on one offer row (the other region's price). */
+function offerAltLine(original: Offer | undefined, region: Region, currency: Currency, lang: Lang): Html {
+  if (!original) return html``;
+  return altPriceLine(original.price, original.eilat_price, original.eilat_only === true, region, currency, lang);
+}
+
 /** Offers table, cheapest in-stock first, the best price highlighted. */
-export function offersCard(product: Product, lang: Lang, currency: Currency): Html {
-  const offers = sortOffers(product.offers);
-  const best = bestOffer(product);
+export function offersCard(product: Product, lang: Lang, currency: Currency, noStore: string[] = []): Html {
+  const region = getRegion();
+  const offers = sortOffers(regionOffers(product, region));
+  const best = bestRegionOffer(product, region);
+  // Each shown row's original offer: its other-region price is the small
+  // line (an Eilat-only offer's row shows only "Eilat only").
+  const originalOf = new Map(product.offers.map((o) => [offerKey(o), o]));
   // Shipping is rarely published (currently none of the ~6k listings): show
   // the column only when an offer supplies it, and the total only when
   // shipping can change it.
@@ -110,7 +140,7 @@ export function offersCard(product: Product, lang: Lang, currency: Currency): Ht
     const seen = lastSeenText(lang, offer.last_seen);
     return html`<tr class="${isBest ? "is-best" : offer.in_stock ? "" : "is-out"}">
       <th scope="row"><span class="offer-store">${vendorMono(offer.vendor)}<b>${vendorLabel(offer.vendor)}</b></span></th>
-      <td><span class="offer-price">${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}</span></td>
+      <td><span class="offer-price">${wasPrice(offer, currency, lang)}${priceCell(price, currency, lang)}${isBest && offers.length > 1 ? chip(t(lang, "cheapest"), { tone: "ok" }) : ""}${price !== null ? dealChip(offer, currency, lang) : ""}${offerAltLine(originalOf.get(offerKey(offer)), region, currency, lang)}</span></td>
       ${showShipping
         ? html`<td>${offer.shipping === null || offer.shipping === undefined
             ? emptyValue(lang)
@@ -138,12 +168,15 @@ export function offersCard(product: Product, lang: Lang, currency: Currency): Ht
           <th scope="col">${t(lang, "lastUpdated")}</th>
           <th scope="col"><span class="visually-hidden">${t(lang, "buyHeaderLabel")}</span></th>
         </tr></thead>
-        <tbody>${rows}</tbody>
+        <tbody>${rows.length > 0 ? rows : html`<tr><td colspan="9">${emptyValue(lang)} ${t(lang, "notInEilat")}</td></tr>`}</tbody>
       </table></div>
+      ${region === "eilat"
+        ? html`<p class="card__foot">${t(lang, "eilatNote")}${noStore.length > 0 ? html` ${t(lang, "eilatNoStore")}: ${noStore.map((v) => vendorLabel(v)).join(", ")}.` : ""}</p>`
+        : ""}
       <p class="card__foot">${t(lang, "disclaimer")}</p>`,
     {
-      title: t(lang, "pricesHeading"),
-      sub: html`${vendorsCount(lang, product.vendor_count)}${latest ? html` · ${lastSeenText(lang, latest)}` : ""}`,
+      title: region === "eilat" ? `${t(lang, "pricesHeading")} · ${t(lang, "regionEilat")}` : t(lang, "pricesHeading"),
+      sub: html`${vendorsCount(lang, new Set(offers.map((o) => o.vendor)).size)}${latest ? html` · ${lastSeenText(lang, latest)}` : ""}`,
       flush: true,
       id: "pdp-offers",
     }

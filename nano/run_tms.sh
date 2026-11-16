@@ -98,6 +98,21 @@ if [ "$PUSHED_SNAPSHOT" -eq 0 ]; then
     echo "[warn] snapshot push failed after 3 attempts — continuing to detail steps anyway; final push below will retry" >&2
 fi
 
+# --- Eilat prices (scraper/eilat.py): the same category pages in TMS's Eilat
+# mode. Best-effort: the regular snapshot is already committed, and a missed
+# Eilat night only stale-forwards the Eilat prices. A block (exit 3) ends all
+# TMS traffic tonight, so the detail step is skipped too.
+EILAT_STATUS=0
+if [ "$PUSHED_SNAPSHOT" -eq 1 ]; then
+    bash nano/run_eilat.sh tms || EILAT_STATUS=$?
+fi
+if [ "$EILAT_STATUS" -eq 3 ]; then
+    echo "[error] TMS blocked the Eilat crawl (blocked_1x) — skipping detail tonight" >&2
+    exit 1
+elif [ "$EILAT_STATUS" -ne 0 ]; then
+    echo "[warn] TMS Eilat crawl failed — regular snapshot already pushed" >&2
+fi
+
 # --- Detail page scraping (specs + cover images) ---
 # At ~5 new items/day, limit the initial backfill chunk to avoid
 # hammering TMS from the home IP (README.md "Scraping rules"). Once the ledger catches up

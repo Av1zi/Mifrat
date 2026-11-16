@@ -4,8 +4,9 @@ Description=Daily timer for the TMS scraper (PC Part Picker IL)
 [Timer]
 # Night window: every scheduled run stays inside 23:00-07:00 Israel time in
 # BOTH seasons (UTC+2 winter / UTC+3 summer), i.e. 21:00-04:00 UTC.
-# TMS goes first: 21:15 UTC + up to 90 min of jitter (starts 21:15-22:45 UTC,
-# finishes by 23:15 UTC under the 30 min service timeout).
+# TMS goes first: 21:15 UTC + up to 90 min of jitter (starts 21:15-22:45 UTC).
+# The regular + Eilat crawls take ~16 min (done by ~23:05 UTC, before 1PC at
+# 23:20); the 50 min service timeout also covers the detail chunk.
 OnCalendar=*-*-* 21:15:00 UTC
 RandomizedDelaySec=5400
 # No Persistent=: a catch-up run after downtime would land in daytime, outside
