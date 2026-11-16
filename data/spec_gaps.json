@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T22:39:44.693321+00:00",
+  "generated_at": "2026-11-16T23:44:26.837683+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 100,
+      "count": 99,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -54,7 +54,7 @@
     {
       "category": "motherboard",
       "label": "נפח זיכרון",
-      "count": 50,
+      "count": 49,
       "products": [
         "manual:motherboard:ivory-134868-ksp-393815",
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
@@ -152,16 +152,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "ערוצים",
-      "count": 34,
-      "products": [
-        "memory:ksp:ksp-313458",
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "מפרט",
       "count": 33,
@@ -179,6 +169,16 @@
         "gpu:ksp:ksp-371860",
         "gpu:ksp:ksp-420767",
         "manual:gpu:ksp-380080-yahav-11160"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "ערוצים",
+      "count": 32,
+      "products": [
+        "memory:ksp:ksp-313458",
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white"
       ]
     },
     {
@@ -322,16 +322,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "חריצים פנויים",
-      "count": 24,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
       "category": "psu",
       "label": "תכולה",
       "count": 23,
@@ -362,6 +352,16 @@
       ]
     },
     {
+      "category": "motherboard",
+      "label": "חריצים פנויים",
+      "count": 23,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
       "category": "case",
       "label": "מערכת קירור",
       "count": 22,
@@ -369,26 +369,6 @@
         "model:case:300r-airflow-gungnir-mpg-black",
         "model:case:306-7g03m21-809-black",
         "model:case:306-7g20r21-809-black"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מק\"ט יצרן",
-      "count": 22,
-      "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תדר שעון",
-      "count": 22,
-      "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
       ]
     },
     {
@@ -433,17 +413,7 @@
     },
     {
       "category": "memory",
-      "label": "גובה",
-      "count": 20,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
-        "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תאימות INTEL/AMD",
+      "label": "מק\"ט יצרן",
       "count": 20,
       "products": [
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
@@ -453,7 +423,7 @@
     },
     {
       "category": "memory",
-      "label": "נפח זיכרון מודול",
+      "label": "תדר שעון",
       "count": 20,
       "products": [
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
@@ -553,6 +523,16 @@
     },
     {
       "category": "memory",
+      "label": "גובה",
+      "count": 19,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "Tested Latency",
       "count": 19,
       "products": [
@@ -564,16 +544,6 @@
     {
       "category": "motherboard",
       "label": "D-SUB",
-      "count": 19,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 5.0 x16",
       "count": 19,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -622,18 +592,28 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "DISPLAY PORT",
+      "category": "memory",
+      "label": "תאימות INTEL/AMD",
       "count": 18,
       "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "נפח זיכרון מודול",
+      "count": 18,
+      "products": [
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
       ]
     },
     {
       "category": "motherboard",
-      "label": "wifi + BT",
+      "label": "PCIe 5.0 x16",
       "count": 18,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -653,7 +633,7 @@
     },
     {
       "category": "motherboard",
-      "label": "SATA III",
+      "label": "DISPLAY PORT",
       "count": 17,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -663,17 +643,7 @@
     },
     {
       "category": "motherboard",
-      "label": "HDMI 2.1",
-      "count": 17,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "PCIe 4.0 x16",
+      "label": "wifi + BT",
       "count": 17,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -699,16 +669,6 @@
         "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
         "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
         "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "צבע",
-      "count": 17,
-      "products": [
-        "model:storage:001-a-brkt-fd",
-        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
-        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
       ]
     },
     {
@@ -742,18 +702,28 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "רזולוציה דיגיטלית מקסימלית",
+      "category": "motherboard",
+      "label": "SATA III",
       "count": 16,
       "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:2-5060-geforce-infinity-oc-rtx-8gb",
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
       ]
     },
     {
       "category": "motherboard",
-      "label": "PCIe 3.0 x1",
+      "label": "HDMI 2.1",
+      "count": 16,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCIe 4.0 x16",
       "count": 16,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -769,6 +739,16 @@
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
         "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צבע",
+      "count": 16,
+      "products": [
+        "model:storage:001-a-brkt-fd",
+        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
+        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
       ]
     },
     {
@@ -822,6 +802,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מקסימלית",
+      "count": 15,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
+      ]
+    },
+    {
       "category": "memory",
       "label": "Registered/Unbuffered",
       "count": 15,
@@ -843,32 +833,12 @@
     },
     {
       "category": "motherboard",
-      "label": "HDMI",
+      "label": "PCIe 3.0 x1",
       "count": 15,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "HD 7.1",
-      "count": 15,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "קדמי ואחורי",
-      "count": 15,
-      "products": [
-        "model:motherboard:a520m-pro-s-microatx",
-        "model:motherboard:b-b650m-pro-microatx",
-        "model:motherboard:b760m-bomber-wifi-microatx"
       ]
     },
     {
@@ -1043,7 +1013,7 @@
     },
     {
       "category": "motherboard",
-      "label": "קירור",
+      "label": "HDMI",
       "count": 14,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -1053,12 +1023,22 @@
     },
     {
       "category": "motherboard",
-      "label": "תמיכה ב AMD® CrossFire",
+      "label": "HD 7.1",
       "count": 14,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "קדמי ואחורי",
+      "count": 14,
+      "products": [
+        "model:motherboard:a520m-pro-s-microatx",
+        "model:motherboard:b-b650m-pro-microatx",
+        "model:motherboard:b760m-bomber-wifi-microatx"
       ]
     },
     {
@@ -1209,6 +1189,26 @@
         "model:memory:2x16gb-6000a2836g16gx2-6000mt-cl28-ddr5-f5-g-neo-rgb-s-trident-tz5nxrk-x-z5-32gb-x2-6000mhz-cl28-rgb-black-dimm",
         "model:memory:2x16gb-6000a2836g16gx2-6000mt-cl28-ddr5-f5-g-neo-rgb-s-trident-tz5nxrw-x-z5-32gb-x2-6000mhz-cl28-rgb-white-dimm",
         "model:memory:2x16gb-6000a3038f16gx2-6000mt-cl30-ddr5-f5-g-neo-rgb-s-trident-tz5nxrk-x-z5-32gb-x2-6000mhz-cl30-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "קירור",
+      "count": 13,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תמיכה ב AMD® CrossFire",
+      "count": 13,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:a-b760m-pro-wifi-microatx"
       ]
     },
     {
@@ -1613,16 +1613,6 @@
     },
     {
       "category": "memory",
-      "label": "רוחב",
-      "count": 11,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
-        "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מתח עבודה",
       "count": 11,
       "products": [
@@ -1893,22 +1883,22 @@
     },
     {
       "category": "memory",
+      "label": "רוחב",
+      "count": 10,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "תצורת זיכרון",
       "count": 10,
       "products": [
         "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
         "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
         "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "עומק",
-      "count": 10,
-      "products": [
-        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
-        "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white",
-        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black"
       ]
     },
     {
@@ -2129,6 +2119,16 @@
         "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
         "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
         "model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl40-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "עומק",
+      "count": 9,
+      "products": [
+        "model:memory:2-60a300g-kd5agua80-32gb-cl30",
+        "model:memory:2-64b300g-kd5agua80-32gb-x2-6400mhz-cl30-rgb-black",
+        "model:memory:2x16gb-6000-bolt-cl30-v-32gb-x2-6000mhz-cl30-rgb-grey"
       ]
     },
     {
@@ -2732,16 +2732,6 @@
       ]
     },
     {
-      "category": "case",
-      "label": "מאווררים מותקנים מראש",
-      "count": 6,
-      "products": [
-        "model:case:atlas-m3m-black",
-        "model:case:atlas-m5-black",
-        "model:case:aura-elite-gc107-black"
-      ]
-    },
-    {
       "category": "case_fan",
       "label": "זרימת אוויר",
       "count": 6,
@@ -2962,6 +2952,16 @@
       ]
     },
     {
+      "category": "case",
+      "label": "מאווררים מותקנים מראש",
+      "count": 5,
+      "products": [
+        "model:case:atlas-m3m-black",
+        "model:case:aura-elite-gc107-black",
+        "model:case:aura-gc101m-black"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "אפשרויות הרחבה",
       "count": 5,
@@ -3059,16 +3059,6 @@
         "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
         "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
         "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Intel® Core™ Ultra",
-      "count": 5,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:b860-gaming-wifi"
       ]
     },
     {
@@ -3279,26 +3269,6 @@
         "model:case:atlas-m3m-black",
         "model:case:aura-elite-gc107-black",
         "model:case:m110r-mag-pano-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "סנכרון תאורה",
-      "count": 4,
-      "products": [
-        "model:case:atlas-m3m-black",
-        "model:case:atlas-m5-black",
-        "model:case:aura-elite-gc107-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חלונות",
-      "count": 4,
-      "products": [
-        "model:case:atlas-m3m-black",
-        "model:case:atlas-m5-black",
-        "model:case:aura-elite-gc107-black"
       ]
     },
     {
@@ -3683,12 +3653,12 @@
     },
     {
       "category": "motherboard",
-      "label": "Internal IO",
+      "label": "Intel® Core™ Ultra",
       "count": 4,
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
-        "model:motherboard:b860-gaming-wifi"
+        "model:motherboard:b860-p-pro"
       ]
     },
     {
@@ -4193,42 +4163,22 @@
     },
     {
       "category": "case",
-      "label": "חומר",
+      "label": "סנכרון תאורה",
       "count": 3,
       "products": [
-        "model:case:atlas-m5-black",
+        "model:case:atlas-m3m-black",
         "model:case:aura-elite-gc107-black",
         "model:case:aura-gc101m-black"
       ]
     },
     {
       "category": "case",
-      "label": "אורך מקסימלי לכרטיס מסך",
+      "label": "חלונות",
       "count": 3,
       "products": [
-        "model:case:atlas-m5-black",
-        "model:case:m110r-mag-pano-black",
-        "model:case:m110r-mag-pano-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "גובה מקסימלי לקירור מעבד",
-      "count": 3,
-      "products": [
-        "model:case:atlas-m5-black",
-        "model:case:m110r-mag-pano-black",
-        "model:case:m110r-mag-pano-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "אורך מקסימלי לספק כוח",
-      "count": 3,
-      "products": [
-        "model:case:atlas-m5-black",
-        "model:case:m110r-mag-pano-black",
-        "model:case:m110r-mag-pano-white"
+        "model:case:atlas-m3m-black",
+        "model:case:aura-elite-gc107-black",
+        "model:case:aura-gc101m-black"
       ]
     },
     {
@@ -4451,16 +4401,6 @@
     },
     {
       "category": "memory",
-      "label": "משקל",
-      "count": 3,
-      "products": [
-        "model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm",
-        "model:memory:2-60b280f-kd5agu880-32gb-x2-6000mhz-cl28-white",
-        "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "תקנים ואישורים",
       "count": 3,
       "products": [
@@ -4517,6 +4457,16 @@
         "model:memory:rgb-trident-z5-48gb-x2-6400mhz-cl32-rgb-black-dimm",
         "model:memory:rgb-trident-z5-48gb-x2-8000mhz-cl40-rgb-white-dimm",
         "model:memory:rgb-trident-z5-48gb-x2-8400mhz-cl40-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Internal IO",
+      "count": 3,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
+        "model:motherboard:b860m-e-pro-microatx"
       ]
     },
     {
@@ -4861,16 +4811,6 @@
     },
     {
       "category": "motherboard",
-      "label": "Type-C DisplayPort",
-      "count": 3,
-      "products": [
-        "model:motherboard:b860-gaming-wifi",
-        "model:motherboard:b860-p-pro",
-        "model:motherboard:b860-p-pro-wifi"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "תמיכה במעבד",
       "count": 3,
       "products": [
@@ -5007,26 +4947,6 @@
         "model:storage:0-4-990-1000gb-pciegen40-m22280",
         "model:storage:c715-cras-1000gb-nvme",
         "model:storage:c715-cras-512gb-nvme"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "נפח זיכרון",
-      "count": 3,
-      "products": [
-        "model:storage:128rb-lns100-lns100-128gb-sata-25",
-        "model:storage:512rb-lns100-lns100-512gb-sata-25",
-        "model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "כרטיס גרפי",
-      "count": 3,
-      "products": [
-        "model:storage:128rb-lns100-lns100-128gb-sata-25",
-        "model:storage:512rb-lns100-lns100-512gb-sata-25",
-        "model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2"
       ]
     },
     {
@@ -5393,6 +5313,15 @@
     },
     {
       "category": "case",
+      "label": "חומר",
+      "count": 2,
+      "products": [
+        "model:case:aura-elite-gc107-black",
+        "model:case:aura-gc101m-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "חריצי אחסון",
       "count": 2,
       "products": [
@@ -5465,7 +5394,34 @@
     },
     {
       "category": "case",
+      "label": "אורך מקסימלי לכרטיס מסך",
+      "count": 2,
+      "products": [
+        "model:case:m110r-mag-pano-black",
+        "model:case:m110r-mag-pano-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "גובה מקסימלי לקירור מעבד",
+      "count": 2,
+      "products": [
+        "model:case:m110r-mag-pano-black",
+        "model:case:m110r-mag-pano-white"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תמיכה בספק כוח",
+      "count": 2,
+      "products": [
+        "model:case:m110r-mag-pano-black",
+        "model:case:m110r-mag-pano-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "אורך מקסימלי לספק כוח",
       "count": 2,
       "products": [
         "model:case:m110r-mag-pano-black",
@@ -5659,6 +5615,15 @@
       "products": [
         "model:cpu:265",
         "model:cpu:265f"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "Spec / Specifications / Processor series (CPU)",
+      "count": 2,
+      "products": [
+        "model:cpu:270k",
+        "model:cpu:ryzen59600x-tray"
       ]
     },
     {
@@ -6109,6 +6074,15 @@
       "products": [
         "model:memory:16gbit-cl46-ct16g56c46s5-sodimm-16gb-5600mhz-cl46-sodimm",
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "משקל",
+      "count": 2,
+      "products": [
+        "model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm",
+        "model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white"
       ]
     },
     {
@@ -6986,11 +6960,29 @@
     },
     {
       "category": "motherboard",
+      "label": "Type-C DisplayPort",
+      "count": 2,
+      "products": [
+        "model:motherboard:b860-p-pro",
+        "model:motherboard:b860-p-pro-wifi"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "Thunderbolt4 ports",
       "count": 2,
       "products": [
         "model:motherboard:b860-p-pro",
         "model:motherboard:b860-p-pro-wifi"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "Spec / Specifications / Graphic connection",
+      "count": 2,
+      "products": [
+        "model:motherboard:crosshair-hero-rog-x870e-atx",
+        "model:motherboard:gaming-i-rog-strix-wifi-x870-miniitx"
       ]
     },
     {
@@ -7304,6 +7296,24 @@
       "products": [
         "model:storage:4xb7a82290-max-thinksystem-960gb-serialataiii-25",
         "model:storage:4xb7a90874-hs-thinksystem-v2-960gb-serialataiii-25"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "נפח זיכרון",
+      "count": 2,
+      "products": [
+        "model:storage:512rb-lns100-lns100-512gb-sata-25",
+        "model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "כרטיס גרפי",
+      "count": 2,
+      "products": [
+        "model:storage:512rb-lns100-lns100-512gb-sata-25",
+        "model:storage:lnm620-lnm620x256g-pcie3-rnnng-256gb-pcie3-m2"
       ]
     },
     {
@@ -7671,78 +7681,6 @@
     },
     {
       "category": "case",
-      "label": "תמיכה במאווררים תחתונים",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חיבור USB 3.0",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תמיכה במאווררים צדדיים",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תמיכה במאווררים עליוניים",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חיבור אודיו HD",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תמיכה במאוורר אחורי",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "כפתור בקרת תאורה",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "חיבור USB Type-C",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מפרצי אחסון",
-      "count": 1,
-      "products": [
-        "model:case:atlas-m5-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "משקל נקי",
       "count": 1,
       "products": [
@@ -8103,6 +8041,14 @@
     },
     {
       "category": "cpu",
+      "label": "Spec / Interface Connectivity",
+      "count": 1,
+      "products": [
+        "model:cpu:270k"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "מספר דגם",
       "count": 1,
       "products": [
@@ -8195,14 +8141,6 @@
       "count": 1,
       "products": [
         "model:cpu:9800x3d"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "Spec / Specifications / Processor series (CPU)",
-      "count": 1,
-      "products": [
-        "model:cpu:ryzen59600x-tray"
       ]
     },
     {
@@ -10519,14 +10457,6 @@
     },
     {
       "category": "motherboard",
-      "label": "פאנל פנימי Internal IO",
-      "count": 1,
-      "products": [
-        "model:motherboard:b860-gaming-wifi"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "תצורת לוח אם",
       "count": 1,
       "products": [
@@ -10667,14 +10597,6 @@
       "count": 1,
       "products": [
         "model:motherboard:crosshair-extreme-rog-x870e-eatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "Spec / Specifications / Graphic connection",
-      "count": 1,
-      "products": [
-        "model:motherboard:crosshair-hero-rog-x870e-atx"
       ]
     },
     {
