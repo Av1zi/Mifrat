@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-16T03:41:40+00:00",
- "night": "2026-11-16",
+ "generated_at": "2026-11-16T22:34:45+00:00",
+ "night": "2026-11-17",
  "suite": "publish",
  "escalate_nights": 3,
  "blocked": false,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -139,6 +139,17 @@
    "detail": ""
   },
   {
+   "name": "eilat",
+   "level": "code",
+   "title": "Eilat price parsers, attach and history rules",
+   "status": "pass",
+   "exit": 0,
+   "seconds": 1.1,
+   "since": null,
+   "nights": 0,
+   "detail": ""
+  },
+  {
    "name": "xref_fixtures",
    "level": "code",
    "title": "Saved-page parsers",
@@ -166,7 +177,7 @@
    "title": "Ledger rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.4,
+   "seconds": 1.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -199,7 +210,7 @@
    "title": "Photo pipeline rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -210,7 +221,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.9,
+   "seconds": 2.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -254,7 +265,7 @@
    "title": "Catalog not empty, no category collapsed",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.5,
+   "seconds": 1.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -265,7 +276,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.2,
+   "seconds": 3.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -276,7 +287,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 25.2,
+   "seconds": 25.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -375,7 +386,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 13.2,
+   "seconds": 13.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -386,7 +397,7 @@
    "title": "Extract store reach",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,9 +408,9 @@
    "title": "Ledgers point at live data",
    "status": "warn",
    "exit": 1,
-   "seconds": 8.3,
+   "seconds": 8.6,
    "since": "2026-11-16T03:41:40+00:00",
-   "nights": 1,
+   "nights": 2,
    "detail": "      spec_conflict|model:gpu:2xdp-2xhdmi-5050-8gb-gddr7-geforce-low-oc-profile-rtx-8gb|memory_type\n      split_candidate|model:case:4000d-argb-lcd-rs-white|\n      split_candidate|model:storage:0-2280-4-nv3-x4-500gb-pcie4-m22280|\n      variant_conflict|model:case:3500x-r-rs-black|\n      variant_conflict|model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black|\n      variant_conflict|model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1556 (budget 1700)\n  detail ledger drift                          12 (budget 40)\n  cover files no listing uses                 745 (budget 900)\n  [fail] qa_dismissed keys with no case: 15 > budget 10\n[check-ledgers] 1 failure(s)"
   },
   {
@@ -408,7 +419,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 8.3,
+   "seconds": 8.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -432,7 +443,7 @@
    "exit": 1,
    "seconds": 0.8,
    "since": "2026-11-16T03:41:40+00:00",
-   "nights": 1,
+   "nights": 2,
    "detail": "[spec-invariants] FAIL - 1 invariant breach(es):\n  - 2 vendor value(s) refused by the schema and not on schema.SCHEMA_UNKNOWN_VALUES (add a canon spelling or an enum value): psu.efficiency='• 80PLUS® Platinum Certified | • Cybernetics Efficiency Leve' x2, psu.type='ATX12V Version 3.0' x2\n  fix the source rule in scraper/specs/validate.py, witness.py or canon.py, the enum in schema.py, or the override in data/specs/overrides.json — never this gate"
   },
   {
