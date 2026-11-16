@@ -147,4 +147,6 @@ Verifying a change: a single-spider test crawl, a local normalize run, the
 and the site build.
 
 
-Special thanks to Devansh Awatramani for giving me a lot of AI usage for free <3
+### Special thanks
+
+* Devansh Awatramani for giving me a lot of AI usage for free <3
