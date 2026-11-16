@@ -149,4 +149,4 @@ and the site build.
 
 ### Special thanks
 
-* Devansh Awatramani for giving me a lot of AI usage for free <3
+* [Devansh Awatramani](https://github.com/Devansh-awat) for giving me a lot of AI usage for free <3
