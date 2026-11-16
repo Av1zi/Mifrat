@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T01:14:08.490023+00:00",
+  "generated_at": "2026-11-16T01:28:18.650411+00:00",
   "gaps": [
     {
       "category": "case",
@@ -44,7 +44,7 @@
     {
       "category": "motherboard",
       "label": "P/N",
-      "count": 57,
+      "count": 55,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -84,17 +84,7 @@
     {
       "category": "motherboard",
       "label": "זיכרון",
-      "count": 40,
-      "products": [
-        "manual:motherboard:ksp-338414-yahav-10002",
-        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
-        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "אחסון",
-      "count": 37,
+      "count": 39,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -113,8 +103,18 @@
     },
     {
       "category": "motherboard",
-      "label": "גרפיקה",
+      "label": "אחסון",
       "count": 36,
+      "products": [
+        "manual:motherboard:ksp-338414-yahav-10002",
+        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "גרפיקה",
+      "count": 35,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -174,7 +174,7 @@
     {
       "category": "motherboard",
       "label": "USB",
-      "count": 28,
+      "count": 27,
       "products": [
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -212,16 +212,6 @@
       ]
     },
     {
-      "category": "motherboard",
-      "label": "חיבורים פנימיים",
-      "count": 26,
-      "products": [
-        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
-        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
-        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx"
-      ]
-    },
-    {
       "category": "aio",
       "label": "מידות משאבה",
       "count": 25,
@@ -233,7 +223,7 @@
     },
     {
       "category": "motherboard",
-      "label": "תצורה",
+      "label": "חיבורים פנימיים",
       "count": 25,
       "products": [
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
@@ -249,6 +239,16 @@
         "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "תצורה",
+      "count": 24,
+      "products": [
+        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
+        "model:motherboard:a-am5-b840m-prime-wifi-microatx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx"
       ]
     },
     {
@@ -733,16 +733,6 @@
     },
     {
       "category": "motherboard",
-      "label": "חיבורים ויציאות",
-      "count": 15,
-      "products": [
-        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
-        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
-        "model:motherboard:a-b760m-csm-prime-microatx-2"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "HDMI",
       "count": 15,
       "products": [
@@ -889,6 +879,16 @@
         "model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb",
         "model:gpu:5050-dual-fan-gddr6-rtx-8gb",
         "model:gpu:5070-oc-rtx-ti-16gb"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבורים ויציאות",
+      "count": 14,
+      "products": [
+        "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
+        "model:motherboard:a-b760-gaming-rog-strix-wifi-atx",
+        "model:motherboard:a-b760m-csm-prime-microatx-2"
       ]
     },
     {
@@ -2062,16 +2062,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "הערה",
-      "count": 8,
-      "products": [
-        "model:cpu:14700kf",
-        "model:cpu:14900kf",
-        "model:cpu:235-tray"
-      ]
-    },
-    {
       "category": "memory",
       "label": "מהירות SPD",
       "count": 8,
@@ -2199,6 +2189,16 @@
         "model:case:0-0-10236-761345",
         "model:case:0-10221-6-761345-black",
         "model:case:0-10232-2-761345-black"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "הערה",
+      "count": 7,
+      "products": [
+        "model:cpu:14700kf",
+        "model:cpu:14900kf",
+        "model:cpu:235-tray"
       ]
     },
     {
@@ -2533,16 +2533,6 @@
     },
     {
       "category": "motherboard",
-      "label": "דגם 2",
-      "count": 6,
-      "products": [
-        "model:motherboard:a-b860m-pro-wifi6e-microatx",
-        "model:motherboard:a-ii-pro-wifi-z790-atx",
-        "model:motherboard:b860m-pro-s-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "חיבורים אחוריים",
       "count": 6,
       "products": [
@@ -2789,6 +2779,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:b860-gaming-wifi"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "דגם 2",
+      "count": 5,
+      "products": [
+        "model:motherboard:a-b860m-pro-wifi6e-microatx",
+        "model:motherboard:a-ii-pro-wifi-z790-atx",
+        "model:motherboard:b860m-pro-s-microatx"
       ]
     },
     {
@@ -6329,15 +6329,6 @@
     },
     {
       "category": "motherboard",
-      "label": "רשתות",
-      "count": 2,
-      "products": [
-        "model:motherboard:aorus-elite-ice-x-z890-atx",
-        "model:motherboard:plus-prime-wifi-z890m-microatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "core ultra",
       "count": 2,
       "products": [
@@ -7636,14 +7627,6 @@
       "count": 1,
       "products": [
         "model:cpu:9800x3d"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "Product ID",
-      "count": 1,
-      "products": [
-        "model:cpu:9900x3d"
       ]
     },
     {
@@ -9356,6 +9339,14 @@
       "count": 1,
       "products": [
         "model:motherboard:a620am-b-evo-pro-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "רשתות",
+      "count": 1,
+      "products": [
+        "model:motherboard:aorus-elite-ice-x-z890-atx"
       ]
     },
     {

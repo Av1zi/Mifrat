@@ -11,6 +11,28 @@
     "match_text_b": "SNV3S-2000G Kingston 2TB SSD NV3 M.2 2280 PCIe 4.0 NVMe"
   },
   {
+    "score": 98,
+    "category": "case_fan",
+    "brand": "Corsair",
+    "listing_a": "ksp:503012",
+    "listing_b": "ksp:503016",
+    "title_a": "מערך 3 מאווררים למארז Corsair iCUE LINK RX360 II RGB 360mm PWM - צבע לבן",
+    "title_b": "מערך 3 מאווררים למארז Corsair iCUE LINK RX360 II RGB 360mm PWM - צבע שחור",
+    "match_text_a": "503012 3 Corsair iCUE LINK RX360 II RGB 360mm PWM -",
+    "match_text_b": "503016 3 Corsair iCUE LINK RX360 II RGB 360mm PWM -"
+  },
+  {
+    "score": 92,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "ksp:334142",
+    "listing_b": "ksp:503065",
+    "title_a": "קירור נוזלי למעבד Corsair iCUE LINK Titan RGB RX AIO 360mm - צבע לבן",
+    "title_b": "קירור נוזלי למעבד Corsair iCUE LINK Titan II RGB RX AIO 360mm - צבע שחור",
+    "match_text_a": "334142 Corsair iCUE LINK Titan RGB RX AIO 360mm -",
+    "match_text_b": "503065 Corsair iCUE LINK Titan II RGB RX AIO 360mm -"
+  },
+  {
     "score": 92,
     "category": "gpu",
     "brand": "XFX",
@@ -1047,28 +1069,6 @@
         "vendor_sku": "355804",
         "title": "לוח אם Asus PRIME H610M-K LGA1700 H610 DDR5",
         "price": 369
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:psu:1-14cm-3-rm850x-shift-850w-full-black",
-    "category": "psu",
-    "vendor": "ksp",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "ksp:502160",
-        "vendor_sku": "502160",
-        "title": "מציאון ועודפים - ספק כוח מודולרי Corsair RM850x SHIFT 850W Gold 14cm ATX 3.1",
-        "price": 479,
-        "alias_of": "ksp:451321"
-      },
-      {
-        "listing_key": "ksp:451321",
-        "vendor_sku": "451321",
-        "title": "ספק כוח מודולרי Corsair RM850x SHIFT 850W Gold 14cm ATX 3.1",
-        "price": 566
       }
     ]
   },
@@ -7198,6 +7198,13 @@
         "vendor_sku": "100-100000651POF",
         "title": "מעבד חברת AMD דגם Ryzen 7 5800X3D 10th Anniversary 3.4Ghz 4.5Ghz 96MB Cache AM4 BOX Thermal Solution not included",
         "price": 1450
+      },
+      {
+        "listing_key": "ksp:474265",
+        "vendor": "ksp",
+        "vendor_sku": "474265",
+        "title": "מעבד AMD Ryzen 7 5800X3D 3.4Ghz AM4 - Box כולל פד תרמי Carbice Ice Pad ייחודי למהדורת 10 שנים לתושבת AM4",
+        "price": 1540
       }
     ],
     "model_code": "5800x3d",
@@ -7609,7 +7616,7 @@
         "vendor": "ksp",
         "vendor_sku": "417000",
         "title": "מעבד AMD Ryzen 5 9500F 3.8GHz AM5 - Tray",
-        "price": 750
+        "price": 660
       }
     ],
     "model_code": "9500f"
@@ -9785,29 +9792,6 @@
   {
     "kind": "identity_merge",
     "category": "motherboard",
-    "product_id": "model:motherboard:carbon-max-mpg-wifi-x870e-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222692",
-        "vendor": "1pc",
-        "vendor_sku": "222692",
-        "title": "לוח אם MSI MPG X870E CARBON MAX WIFI",
-        "price": 2066
-      },
-      {
-        "listing_key": "ksp:461737",
-        "vendor": "ksp",
-        "vendor_sku": "461737",
-        "title": "לוח אם MSI MPG X870E CARBON MAX WIFI AM5 DDR5",
-        "price": 2090
-      }
-    ],
-    "model_code": "carbon-max-mpg-wifi-x870e"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "motherboard",
     "product_id": "model:motherboard:e-h610m-pro-microatx",
     "vendor": "",
     "offers": [
@@ -11957,7 +11941,7 @@
         "vendor": "ksp",
         "vendor_sku": "417000",
         "title": "מעבד AMD Ryzen 5 9500F 3.8GHz AM5 - Tray",
-        "price": 750
+        "price": 660
       }
     ],
     "model_code": "9500f",
