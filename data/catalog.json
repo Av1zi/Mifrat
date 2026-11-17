@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T21:48:17.348231+00:00",
+  "generated_at": "2026-11-17T21:56:47.801936+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -356025,7 +356025,12 @@
       "eilat_price_ils": 376,
       "eilat_in_stock": true,
       "eilat_stale": false,
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "3 שנים"
+        }
+      },
       "product_id": "model:aio:3-eu-loop-lx-pure-360mm-black"
     },
     {
@@ -381475,7 +381480,12 @@
         "part_number": "CSE-846BE1C-R1K23B",
         "mpn": "CSE-846BE1C-R1K23B"
       },
-      "vendor_meta": {},
+      "vendor_meta": {
+        "detail_specs": {
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "3 שנים"
+        }
+      },
       "product_id": "model:case:24-4u-case-hot-redundant-swap"
     },
     {
@@ -388293,7 +388303,9 @@
           "עיצוב תרמי": "Optional Fan 2x80mm, 2x60mm",
           "מידות": "W=483 H=133 D=429mm",
           "הערות": "לרכישה עם מערכת מלאה מורכבת בלבד",
-          "Rackmount": "כן"
+          "Rackmount": "כן",
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "3 שנים"
         }
       },
       "product_id": "model:case:3u-microatx-ps2-rackmount"
@@ -461456,7 +461468,9 @@
           "יציאות קדמיות": "USB 3.0 | Earphone/Mic",
           "עיצוב תרמי": "Included ARGB PWM Front Fans 2x140mm",
           "מידות": "W=210 H=400 D=403mm",
-          "צבע": "לבן"
+          "צבע": "לבן",
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "שנה אחת"
         }
       },
       "product_id": "model:case:205m-lancool-mesh-oe744ms-snow-white"

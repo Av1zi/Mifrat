@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T21:48:17.348231+00:00",
+  "generated_at": "2026-11-17T21:56:47.801936+00:00",
   "gaps": [
     {
       "category": "case",
@@ -4143,6 +4143,16 @@
     },
     {
       "category": "case",
+      "label": "יבואן",
+      "count": 3,
+      "products": [
+        "model:case:205m-lancool-mesh-oe744ms-snow-white",
+        "model:case:24-4u-case-hot-redundant-swap",
+        "model:case:3u-microatx-ps2-rackmount"
+      ]
+    },
+    {
+      "category": "case",
       "label": "חיבורים ויציאות",
       "count": 3,
       "products": [
@@ -7541,6 +7551,14 @@
       "count": 1,
       "products": [
         "model:aio:1stpalyer-a-f-lcd-s-t-360mm-white"
+      ]
+    },
+    {
+      "category": "aio",
+      "label": "יבואן",
+      "count": 1,
+      "products": [
+        "model:aio:3-eu-loop-lx-pure-360mm-black"
       ]
     },
     {
