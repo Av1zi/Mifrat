@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T23:44:26.837683+00:00",
+  "generated_at": "2026-11-17T04:03:47.511523+00:00",
   "gaps": [
     {
       "category": "case",
@@ -113,6 +113,16 @@
     },
     {
       "category": "case",
+      "label": "מפרט",
+      "count": 39,
+      "products": [
+        "manual:case:1pc-157901-tms-c8",
+        "model:case:0-3-761345-80100-flux-p10",
+        "model:case:01-7-c-compact-def7c-define-fd-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תכונות",
       "count": 39,
       "products": [
@@ -129,16 +139,6 @@
         "manual:motherboard:ksp-338414-yahav-10002",
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
         "model:motherboard:a-am5-b840m-prime-wifi-microatx"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מפרט",
-      "count": 36,
-      "products": [
-        "manual:case:1pc-157901-tms-c8",
-        "model:case:0-3-761345-80100-flux-p10",
-        "model:case:100r-mag-pano-pz"
       ]
     },
     {
@@ -282,6 +282,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "ממשק זיכרון",
+      "count": 25,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "חיבורים פנימיים",
       "count": 25,
@@ -299,16 +309,6 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:110r-mag-pano-pz-white"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
-      "count": 24,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -392,6 +392,26 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 20,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 20,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
       "category": "cooler_air",
       "label": "פרופיל קירור",
       "count": 20,
@@ -399,16 +419,6 @@
         "model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
         "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
         "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 20,
-      "products": [
-        "model:cpu:225",
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray"
       ]
     },
     {
@@ -429,26 +439,6 @@
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
         "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
         "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 19,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 19,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
       ]
     },
     {
@@ -499,6 +489,16 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:110r-mag-pano-pz-white"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 19,
+      "products": [
+        "model:cpu:225",
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray"
       ]
     },
     {
@@ -562,16 +562,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 18,
-      "products": [
-        "model:cpu:5500-tray",
-        "model:cpu:5700x-tray",
-        "model:cpu:5800x3d"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "תכונות",
       "count": 18,
@@ -622,6 +612,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "תכונות נוספות",
+      "count": 17,
+      "products": [
+        "model:cpu:5500-tray",
+        "model:cpu:5700x-tray",
+        "model:cpu:5800x3d"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "תכולה",
       "count": 17,
@@ -669,6 +669,16 @@
         "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
         "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
         "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "צבע",
+      "count": 17,
+      "products": [
+        "model:storage:001-a-brkt-fd",
+        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
+        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
       ]
     },
     {
@@ -739,16 +749,6 @@
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
         "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "צבע",
-      "count": 16,
-      "products": [
-        "model:storage:001-a-brkt-fd",
-        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
-        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
       ]
     },
     {
@@ -1853,6 +1853,16 @@
     },
     {
       "category": "gpu",
+      "label": "ליבות CUDA",
+      "count": 10,
+      "products": [
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:2g-brk-gt1030-2gb",
+        "model:gpu:2g-brk-gt1030-sl-2gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Cooling type",
       "count": 10,
       "products": [
@@ -2069,16 +2079,6 @@
         "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030",
         "model:gpu:2g-brk-gt1030-2gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ליבות CUDA",
-      "count": 9,
-      "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
-        "model:gpu:2g-brk-gt1030-2gb",
-        "model:gpu:2g-brk-gt1030-sl-2gb"
       ]
     },
     {
@@ -2723,6 +2723,16 @@
     },
     {
       "category": "case",
+      "label": "מאווררים",
+      "count": 6,
+      "products": [
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:1m-performance-black",
+        "model:case:1m-performance-green"
+      ]
+    },
+    {
+      "category": "case",
       "label": "מאווררים כלולים",
       "count": 6,
       "products": [
@@ -2909,16 +2919,6 @@
         "model:case:1m-performance-black",
         "model:case:1m-performance-green",
         "model:case:9011218-cc-ww-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "מאווררים",
-      "count": 5,
-      "products": [
-        "model:case:1m-performance-black",
-        "model:case:1m-performance-green",
-        "model:case:br-ca-h510i-h510i-black"
       ]
     },
     {
@@ -3239,6 +3239,16 @@
         "model:aio:1750rpm-280w-360-360mm-70cfm-argb-core-ii-masterliquid-tdp-white-360mm-white",
         "model:aio:1750rpm-280w-360-360mm-71-9cfm-core-digital-masterliquid-nex-tdp-360mm-black",
         "model:aio:360-70cfm-core-ii-masterliquid-tdp-360mm-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "תאימות לוח אם",
+      "count": 4,
+      "products": [
+        "model:case:01-7-c-compact-def7c-define-fd-black",
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:br-ca-h510i-h510i-black"
       ]
     },
     {
@@ -4113,6 +4123,16 @@
     },
     {
       "category": "case",
+      "label": "כניסות / יציאות",
+      "count": 3,
+      "products": [
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:br-ca-h510i-h510i-black",
+        "model:case:dark-dp501-phantom-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "מרווח",
       "count": 3,
       "products": [
@@ -4347,6 +4367,26 @@
       "products": [
         "model:gpu:2gd5-brk-evo-gt710-sl-2gb",
         "model:gpu:lp-o6g-rtx3050-6gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יציאות תצוגה",
+      "count": 3,
+      "products": [
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ארכיטקטורה",
+      "count": 3,
+      "products": [
+        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
+        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
+        "model:gpu:a400-pny-rtx-4gb"
       ]
     },
     {
@@ -5205,6 +5245,15 @@
     },
     {
       "category": "case",
+      "label": "פילטר אבק",
+      "count": 2,
+      "products": [
+        "model:case:01-c-fd-pop-pos1m-silent-black",
+        "model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תכונות 2",
       "count": 2,
       "products": [
@@ -5336,24 +5385,6 @@
       "products": [
         "model:case:aura-elite-gc107-black",
         "model:case:aura-gc101m-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "תאימות לוח אם",
-      "count": 2,
-      "products": [
-        "model:case:br-ca-h510i-h510i-black",
-        "model:case:dark-dp501-phantom-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "כניסות / יציאות",
-      "count": 2,
-      "products": [
-        "model:case:br-ca-h510i-h510i-black",
-        "model:case:dark-dp501-phantom-black"
       ]
     },
     {
@@ -5506,6 +5537,24 @@
       "count": 2,
       "products": [
         "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:aa13-corefrozr-mag-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות המצנן",
+      "count": 2,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תושבות מעבד",
+      "count": 2,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black",
         "model:cooler_air:aa13-corefrozr-mag-white"
       ]
     },
@@ -5916,16 +5965,16 @@
     },
     {
       "category": "gpu",
-      "label": "רזולוציה דיגיטלית מרבית",
+      "label": "מידות הכרטיס",
       "count": 2,
       "products": [
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
-        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb"
+        "model:gpu:a400-pny-rtx-4gb"
       ]
     },
     {
       "category": "gpu",
-      "label": "יציאות תצוגה",
+      "label": "רזולוציה דיגיטלית מרבית",
       "count": 2,
       "products": [
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
@@ -6011,15 +6060,6 @@
       "products": [
         "model:gpu:32g-32gd-5090-gaming-geforce-gv-n5090gaming-oc-oc-rtx-32gb",
         "model:gpu:32g-32gd-5090-geforce-gv-n5090wf3oc-oc-rtx-windforce-32gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ארכיטקטורה",
-      "count": 2,
-      "products": [
-        "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb",
-        "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb"
       ]
     },
     {
@@ -7545,6 +7585,14 @@
     },
     {
       "category": "case",
+      "label": "5.25Bays",
+      "count": 1,
+      "products": [
+        "model:case:01-c-fd-pop-pos1m-silent-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תמיכה ברדיאטור mm",
       "count": 1,
       "products": [
@@ -7565,14 +7613,6 @@
       "count": 1,
       "products": [
         "model:case:130r-mag-midi-pano-pz-tower-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "פילטר אבק",
-      "count": 1,
-      "products": [
-        "model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black"
       ]
     },
     {
@@ -7801,14 +7841,6 @@
     },
     {
       "category": "cooler_air",
-      "label": "מידות המצנן",
-      "count": 1,
-      "products": [
-        "model:cooler_air:0761345400848-argb-f600-white-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
       "label": "תושבות Intel",
       "count": 1,
       "products": [
@@ -7829,6 +7861,78 @@
       "count": 1,
       "products": [
         "model:cooler_air:0761345400848-argb-f600-white-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "משקל",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מהירות המאווררים",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאורת RGB ניתנת לכתובת",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מאווררי קירור",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חיבור התצוגה",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "GTIN",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "רעש המאווררים",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מצנן אוויר למעבד",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מבנה המצנן",
+      "count": 1,
+      "products": [
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
       ]
     },
     {
@@ -7909,14 +8013,6 @@
       "count": 1,
       "products": [
         "model:cooler_air:60cfm-fan-led-t120-120mm"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תושבות מעבד",
-      "count": 1,
-      "products": [
-        "model:cooler_air:aa13-corefrozr-mag-white"
       ]
     },
     {
@@ -8393,14 +8489,6 @@
     },
     {
       "category": "gpu",
-      "label": "מידות הכרטיס",
-      "count": 1,
-      "products": [
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "תמיכה ב-DirectX",
       "count": 1,
       "products": [
@@ -8773,6 +8861,62 @@
       "count": 1,
       "products": [
         "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "קוד תצורה",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות Tensor",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות RT",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צגים בו-זמניים",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צריכת חשמל מרבית",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מחבר חשמל נוסף",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דרישת ספק כוח לפי הספק",
+      "count": 1,
+      "products": [
+        "model:gpu:a400-pny-rtx-4gb"
       ]
     },
     {
