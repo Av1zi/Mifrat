@@ -892,6 +892,7 @@ def _attach_eilat(enriched: list[dict], main_state: dict[str, dict],
 
 def build_catalog(today: datetime):
     all_listings = []
+    source_listing_keys = set()
     skipped_vendors = []
     main_state: dict[str, dict] = {}
 
@@ -910,6 +911,8 @@ def build_catalog(today: datetime):
 
         path, snapshot_date = found
         listings = load_listings(path)
+        source_listing_keys.update(listing_key(row) for row in listings
+                                   if row.get("channel") in (None, "main"))
         listings = _drop_included_builder_options(listings)
         # A regular snapshot carries no Eilat rows; a stray one would be read
         # as the regular price.
@@ -1049,6 +1052,7 @@ def build_catalog(today: datetime):
         "eilat": eilat.site_meta(eilat_states),
     }
 
+    catalog["source_listing_keys"] = sorted(source_listing_keys)
     return catalog, review_queue, spec_report
 
 

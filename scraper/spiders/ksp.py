@@ -33,10 +33,9 @@ IMPERSONATE: the edge risk-scores the whole fingerprint, not just TLS.
 12 items per page, `result.products_total` and `result.next` are present on
 every page. Tag ids and their canonical category guesses are in CATEGORIES.
 
-The detail endpoint (`/m_action/api/item/<uin>`) is WAF-blocked (403 under
-every impersonation, including an in-page browser fetch), and the product
-page is an empty SPA shell, so this spider is listing-only. The listing
-`tags` dict is preserved in `vendor_meta` for a future typed-spec mapping.
+The separate detail job became available on the Nano on 2026-11-13 (see
+docs/ksp-detail-plan.md). This spider only reads listings; `tags` are
+preserved in `vendor_meta` for the typed-spec mapper.
 
 ## All-or-nothing
 
@@ -54,6 +53,7 @@ import scrapy
 from scrapy.exceptions import CloseSpider
 
 from scraper.items import ListingItem
+from scraper.crawl_outcome import mark_blocked, stop_failure
 
 VENDOR_ID = "ksp"
 API_URL = "https://ksp.co.il/m_action/api/category/{tag}?page={page}"
@@ -272,6 +272,7 @@ class KspFingerprintMiddleware:
 class KspSpider(scrapy.Spider):
     name = VENDOR_ID
     allowed_domains = ["ksp.co.il"]
+    handle_httpstatus_list = [403, 429]
 
     custom_settings = {
         # Keep Playwright out of this spider: the Nano has no browser, and
@@ -283,14 +284,15 @@ class KspSpider(scrapy.Spider):
         },
         "DOWNLOADER_MIDDLEWARES": {
             "scraper.spiders.ksp.KspFingerprintMiddleware": 543,
+            "scraper.crawl_outcome.StopOnBlockMiddleware": 950,
         },
         "CONCURRENT_REQUESTS": 1,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
         # Randomized 3-9s (Scrapy randomizes 0.5x-1.5x). KSP rate-limits per
         # IP over a window, not just per second: 90 pages at 1.5s produced 17
         # HTTP 429s, and a 3s retry after that hit the limit twice more. Six
-        # seconds keeps a daily run around 10-15 minutes, well inside the
-        # Nano's 40-minute timeout, and leaves 429 retries room to recover.
+        # seconds keeps the listing run around 10-15 minutes. The first 429
+        # is still a stop signal, not a cue to retry.
         "DOWNLOAD_DELAY": 6.0,
         "RANDOMIZE_DOWNLOAD_DELAY": True,
         "AUTOTHROTTLE_TARGET_CONCURRENCY": 1.0,
@@ -299,10 +301,8 @@ class KspSpider(scrapy.Spider):
         # it through the same downloader chain (the middleware above adds the
         # TLS options and referer), verified 200 in the onboarding crawl.
         "ROBOTSTXT_OBEY": True,
-        # 403 is a WAF verdict, never retried (the run stops instead).
-        # 429 is a rate limit; four retries at the 6s floor covers the
-        # observed per-window cap without probing the WAF.
-        "RETRY_HTTP_CODES": [408, 425, 429, 500, 502, 503, 504, 522, 524],
+        # Both 403 and 429 end the run (README, Scraping rules 6).
+        "RETRY_HTTP_CODES": [408, 425, 500, 502, 503, 504, 522, 524],
         "RETRY_TIMES": 4,
         "DOWNLOAD_TIMEOUT": 60,
     }
@@ -345,7 +345,7 @@ class KspSpider(scrapy.Spider):
             )
 
     def parse_page(self, response, tag, guess, page):
-        # 403 is the WAF verdict and 429 (after Scrapy's bounded retries) is a
+        # 403 is the WAF verdict and 429 is a
         # rate-limit stop signal. Both end the run: the home-IP exception is
         # not worth probing.
         if response.status in (403, 429):
@@ -358,7 +358,7 @@ class KspSpider(scrapy.Spider):
         try:
             payload = json.loads(response.text)
         except (json.JSONDecodeError, TypeError):
-            self._fail(tag, f"page {page}: non-JSON response (possible challenge)")
+            self._block(tag, f"page {page}: non-JSON response (possible challenge)")
             return
 
         result = payload.get("result") if isinstance(payload, dict) else None
@@ -617,12 +617,14 @@ class KspSpider(scrapy.Spider):
         yielded, so the day stays missing and the normalizer stale-forwards.
         """
         self._failed = True
+        mark_blocked(self)
         self.logger.error(
             "[ksp] BLOCKED (%s): %s — stopping; no snapshot written", tag, reason
         )
         raise CloseSpider("ksp blocked — no snapshot written")
 
     def _request_failed(self, failure):
+        stop_failure(self, failure)
         request = failure.request
         tag = request.meta.get("tag", "?")
         page = request.meta.get("page", "?")

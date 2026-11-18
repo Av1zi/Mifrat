@@ -56,6 +56,24 @@ export interface NanoRun {
   detail?: string;
 }
 
+/** Phase keys use underscores in ops_runs, preserving the existing D1 schema. */
+export function runFinding(run: NanoRun): Finding | null {
+  if (run.ok) return null;
+  const [vendor, phase = "listing"] = run.vendor.split("_");
+  const label = vendor === "onepc" ? "1PC" : vendor.toUpperCase();
+  const phaseLabel = phase === "listing" ? "" : ` ${phase === "eilat" ? "Eilat" : phase}`;
+  const blocked = run.outcome === "blocked";
+  return {
+    key: `${blocked ? "blocked" : "run-failed"}:${run.vendor}`,
+    severity: blocked ? "urgent" : "high",
+    vendor,
+    title: `${label}${phaseLabel} ${blocked ? "blocked the scraper" : "run failed"}`,
+    detail: `${run.outcome}${run.detail ? `: ${run.detail}` : ""} at ${run.at}.` +
+      (phase !== "listing" ? " Regular prices are a separate snapshot." : "") +
+      (blocked ? " A block is a stop signal; decide before the next run." : ""),
+  };
+}
+
 export type VendorState =
   | "fresh"
   | "partial"
@@ -242,24 +260,6 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
 
   for (const h of health) {
     const label = h.vendor.label;
-    const run = live.nanoRuns?.[h.vendor.id];
-    if (run && !run.ok && run.outcome === "blocked") {
-      findings.push({
-        key: `blocked:${h.vendor.id}`,
-        severity: "urgent",
-        vendor: h.vendor.id,
-        title: `${label} blocked the scraper`,
-        detail: `${run.detail || "HTTP 403/429 or a challenge page"} at ${run.at}. Scraping rules: a block is a stop signal; decide before the next run.`,
-      });
-    } else if (run && !run.ok) {
-      findings.push({
-        key: `run-failed:${h.vendor.id}`,
-        severity: "high",
-        vendor: h.vendor.id,
-        title: `${label} run failed`,
-        detail: `${run.outcome}${run.detail ? `: ${run.detail}` : ""} at ${run.at}`,
-      });
-    }
     if (h.state === "missing" && !(homeAllMissing && h.vendor.host === "home")) {
       findings.push({
         key: `missing:${h.vendor.id}`,
@@ -296,6 +296,23 @@ export function evaluate(status: OpsStatus, now: Date, live: LiveFacts = {}): Fi
         vendor: h.vendor.id,
         title: `${label} delisted ${h.tonight.gone} items at once`,
         detail: `${((100 * h.tonight.gone) / keys).toFixed(1)}% of its ${keys} listings: a catalog change or a broken parser.`,
+      });
+    }
+  }
+  for (const run of Object.values(live.nanoRuns ?? {})) {
+    const finding = runFinding(run);
+    if (finding) findings.push(finding);
+  }
+  for (const [vendor, channel] of Object.entries(status.catalog.eilat ?? {})) {
+    const regular = health.find((h) => h.vendor.id === vendor);
+    if (!regular || channel.state === "no_store") continue;
+    if (channel.paused || (regular.state === "fresh" &&
+        now.getTime() >= dueAt(regular.vendor, nightStart(now)).getTime() &&
+        ["missing", "partial", "stale"].includes(channel.state))) {
+      findings.push({ key: `eilat:${vendor}`, severity: "warn", vendor,
+        title: `${regular.vendor.label} Eilat ${channel.paused ? "fetch paused" : `prices ${channel.state}`}`,
+        detail: channel.paused ?? `Regular prices are fresh; Eilat prices are ${channel.state}` +
+          `${channel.last_seen ? ` (last ${channel.last_seen})` : " (no snapshot)"}.`,
       });
     }
   }

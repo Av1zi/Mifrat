@@ -4,6 +4,8 @@ set -euo pipefail
 REPO_DIR="/home/avizi/pc-parts-il"
 SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
 PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
+source "$REPO_DIR/nano/run_state.sh"
+nano_lock
 # The scrape night (scraper/night.py), the same date run_spider.py names the
 # folder by: 21:15 UTC and 02:50 UTC (the fallback) are one night, one file.
 TODAY="$("$PYTHON" "$REPO_DIR/scraper/night.py")"

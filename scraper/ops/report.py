@@ -41,6 +41,7 @@ sys.path.insert(0, str(ROOT))
 from scraper.ops import lifecycle  # noqa: E402
 from scraper.ops.registry import VENDORS, as_json  # noqa: E402
 from scraper.ops.snapshots import DAY_RE, load_crawls  # noqa: E402
+from scraper import eilat  # noqa: E402
 
 DATA = ROOT / "data"
 RAW = DATA / "raw"
@@ -150,6 +151,7 @@ def catalog_facts(catalog: dict) -> dict:
         "category_detail": dict(sorted(detail.items())),
         "qa": dict(sorted(qa_counts.items())),
         "spec_counts": spec.get("counts") or {},
+        "eilat": eilat.site_meta((catalog.get("eilat") or {}).get("vendors") or {})["vendors"],
     }
 
 

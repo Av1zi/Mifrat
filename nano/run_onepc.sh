@@ -9,6 +9,8 @@ set -euo pipefail
 REPO_DIR="/home/avizi/pc-parts-il"
 SCRAPY="/home/avizi/miniforge3/envs/pc-parts-il/bin/scrapy"
 PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
+source "$REPO_DIR/nano/run_state.sh"
+nano_lock
 # The scrape night (scraper/night.py), not the UTC date: the 23:20 UTC (+1 h)
 # timer used to name the folder by whichever UTC day the run started on, so
 # 23:51 on 11-14 and 00:17 on 11-14 were two nights in one folder and the

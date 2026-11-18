@@ -2,7 +2,10 @@
 
 Owner goal: get the rich product info KSP shows on its site (specs, manufacturer part number, descriptions) into the catalog. KSP is a reliable source and 815 products are KSP-only today.
 
-Written 2026-11-09. Status: Phase 1 steps 1, 2 (partly) and 4 done on 2026-11-09 (see "Phase 1 progress"); Phase 0 and Phases 2-3 not started.
+Written 2026-11-09. Phase 2 detail scraping shipped on 2026-11-13 (see
+Outcome). The earlier feasibility table is historical, not current status.
+Nov 18 reliability fixes: first 403/429 stops without retry; all phases
+share a persistent owner-reviewed pause and credential-free crawl results.
 
 ## Ground rules for whoever picks this up
 
@@ -21,7 +24,7 @@ Written 2026-11-09. Status: Phase 1 steps 1, 2 (partly) and 4 done on 2026-11-09
 | 923 listings carry 36 distinct Hebrew tags (top: manufacturer, catalog, importer, warranty, type, colour, size, connections, features, memory type, socket, chipset, wattage) | `data/raw/2026-11-07/ksp.jsonl` |
 | Listing `vendor_meta` also holds `eilat_price` (always 0; the real Eilat price comes from `/m_action/api/bms`, see `scraper/spiders/ksp_eilat.py`), `labels`, `family_id`, `dynamic_parent`, `min_price`, `brand` | same file |
 | KSP-only products have no MPN, so they cannot merge with other vendors (946 KSP-only at onboarding) | `decisions.md`, KSP onboarding |
-| `nano/run_ksp.sh` is listing-only: **no cover-image step exists**, so KSP covers are backfilled by hand | `nano/run_ksp.sh` |
+| The listing run publishes first, then Eilat/covers; the separate detail job requires a listing-success marker and no shared block/pause | `nano/run_ksp.sh`, `nano/run_ksp_detail.sh` |
 | Sitemap sub-pages (`/sitemap/siteMapItems.xml?page=1`) returned 403 to a plain client on 2026-11-09, so do not build on them without a browser-shaped test from the Nano | one request, then stopped |
 
 ## Phase 0: feasibility (one short session, on the Nano, owner present)

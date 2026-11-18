@@ -62,6 +62,8 @@ export interface OpsCatalog {
   category_detail?: Record<string, OpsCategoryDetail>;
   qa: Record<string, number>;
   spec_counts: Record<string, number>;
+  /** Optional channels are distinct from regular listing health. */
+  eilat?: Record<string, { state: string; last_seen: string | null; paused?: string }>;
 }
 
 export interface OpsStatus {

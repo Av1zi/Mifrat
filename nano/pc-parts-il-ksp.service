@@ -16,5 +16,5 @@ ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
 StandardOutput=journal
 StandardError=journal
 # ~90 listing requests + ~76 Eilat price requests (nano/run_eilat.sh) at
-# 3-9s plus bounded 429 retries and the cover backfill: 60 minutes.
+# 3-9s and the cover backfill: 60 minutes; first 403/429 stops the night.
 TimeoutStartSec=3600

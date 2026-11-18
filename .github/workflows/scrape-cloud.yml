@@ -86,18 +86,19 @@ jobs:
         # dispatch always runs.
         env:
           EVENT: ${{ github.event_name }}
-        # ivory_eilat (Nov 2026, scraper/eilat.py): Ivory's Eilat-store
-        # prices from its category pages, a second snapshot file of its own.
+        # ivory_eilat is paused after the 2026-11-17 category-page block.
         run: |
           python3 scripts/scrape_window.py --self-test
           if [ "$EVENT" = "schedule" ] && ! python3 scripts/scrape_window.py allowed; then
             echo "::warning::started after the 09:00 Israel cutoff; skipping (vendors stale-forward)"
             echo 'run=false' >> "$GITHUB_OUTPUT"
-            echo 'list=["ivory","yahav","ivory_eilat"]' >> "$GITHUB_OUTPUT"
+            echo 'list=["ivory","yahav"]' >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo 'run=true' >> "$GITHUB_OUTPUT"
-          echo 'list=["ivory","yahav","ivory_eilat"]' >> "$GITHUB_OUTPUT"
+          # Ivory Eilat category pages returned 13x403 on 2026-11-17.
+          # Paused, not moved/proxied/retried. Regular Ivory remains active.
+          echo 'list=["ivory","yahav"]' >> "$GITHUB_OUTPUT"
       - id: mode
         if: steps.spiders.outputs.run == 'true'
         shell: bash

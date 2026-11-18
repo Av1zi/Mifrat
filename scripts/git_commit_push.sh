@@ -7,8 +7,8 @@
 # Usage:
 #   scripts/git_commit_push.sh "<commit message>" <path> [<path> ...]
 #
-# Exits 0 with no commit made if there's nothing staged to commit (a vendor
-# producing byte-identical output to yesterday is not an error).
+# No new commit is made if the bytes are already committed. Still push with
+# retries: the previous invocation may have committed and then failed to push.
 #
 # CRITICAL INVARIANT (Sep 2026 wipeout, 5 days of plonter/ivory snapshots
 # deleted): the retry path MUST NEVER `git add` a broad directory from a
@@ -93,11 +93,10 @@ fi
 git add -- "${PATHS[@]}"
 
 if git diff --cached --quiet; then
-  echo "[ok] nothing to commit (no changes in: ${PATHS[*]})"
-  exit 0
+  echo "[ok] nothing new to commit; checking push (paths: ${PATHS[*]})"
+else
+  git commit -m "$COMMIT_MSG"
 fi
-
-git commit -m "$COMMIT_MSG"
 
 MAX_ATTEMPTS=5
 for attempt in $(seq 1 "$MAX_ATTEMPTS"); do

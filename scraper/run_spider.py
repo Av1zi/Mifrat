@@ -38,6 +38,7 @@ sys.path.insert(0, str(DATA_DIR.parent))
 
 from scraper.night import install, tonight  # noqa: E402
 from scraper.ops.registry import min_counts  # noqa: E402
+from scraper.crawl_outcome import outcome, write_result  # noqa: E402
 
 # Per-vendor minimum-item warning thresholds (plan §17 open item, Sep 2026),
 # kept in scraper/ops/registry.py so the ops report flags the same crawls.
@@ -75,6 +76,7 @@ def main():
         part_path.unlink()
 
     settings = get_project_settings()
+    settings.set("TELNETCONSOLE_ENABLED", False, priority="cmdline")
     settings.set(
         "FEEDS",
         {
@@ -82,14 +84,24 @@ def main():
                 "format": "jsonlines",
                 "encoding": "utf8",
                 "store_empty": False,
+                "overwrite": True,
             }
         },
         priority="cmdline",
     )
 
     process = CrawlerProcess(settings)
-    process.crawl(spider_name)
+    crawler = process.create_crawler(spider_name)
+    process.crawl(crawler)
     process.start()  # blocks until the crawl finishes
+
+    stats = crawler.stats.get_stats() if crawler.stats else {}
+    result = outcome(stats, int(stats.get("item_scraped_count", 0)))
+    write_result(spider_name, result, int(stats.get("item_scraped_count", 0)))
+    if result in ("blocked", "failed", "partial"):
+        part_path.unlink(missing_ok=True)
+        print(f"[error] {spider_name}: {result}; existing snapshot left untouched", file=sys.stderr)
+        sys.exit(3 if result == "blocked" else 1)
 
     if not part_path.exists() or part_path.stat().st_size == 0:
         if part_path.exists():

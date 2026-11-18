@@ -12,5 +12,5 @@ ExecStart=/home/avizi/pc-parts-il/nano/run_ksp_detail.sh
 ExecStartPost=-/home/avizi/pc-parts-il/nano/ops_notify.sh %n success
 StandardOutput=journal
 StandardError=journal
-# 150 requests at 3-9s plus bounded 429 retries.
+# 150 requests at 3-9s, no retries against blocks.
 TimeoutStartSec=2400

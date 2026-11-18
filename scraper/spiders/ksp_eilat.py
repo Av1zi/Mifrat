@@ -35,6 +35,7 @@ from scrapy.exceptions import CloseSpider
 
 from scraper.eilat import EILAT_CHANNEL
 from scraper.items import ListingItem
+from scraper.crawl_outcome import mark_blocked
 from scraper.night import tonight
 from scraper.spiders.ksp import HEADERS, PRODUCT_URL, VENDOR_ID, KspSpider, _as_int
 
@@ -157,7 +158,8 @@ class KspEilatSpider(scrapy.Spider):
             # "Error Code: 851" (no session) or a changed shape: never read
             # as "not sold in Eilat".
             self._failed = True
-            raise CloseSpider(f"ksp_eilat: bad bms answer ({response.text[:80]!r})")
+            # Response bodies can contain session data; never log a sample.
+            raise CloseSpider("ksp_eilat: bad bms answer")
         self._rows.update({uin: row for uin, row in rows.items() if uin in batch})
         self._pending -= 1
         if self._pending == 0 and not self._failed:
@@ -179,6 +181,7 @@ class KspEilatSpider(scrapy.Spider):
 
     def _block(self, reason: str):
         self._failed = True
+        mark_blocked(self)
         self.logger.error("[ksp_eilat] BLOCKED: %s - stopping; no snapshot written", reason)
         raise CloseSpider("ksp blocked - no snapshot written")
 

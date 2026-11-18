@@ -68,6 +68,9 @@ MAX_RATIO = 1.0
 
 # Vendor freshness states shipped to the site (meta.json `eilat_vendors`).
 FRESH, STALE, PARTIAL, MISSING = "fresh", "stale", "partial", "missing"
+# Scheduled fetch suspended after an observed block; existing prices remain
+# eligible for stale-forwarding. This is not a "no Eilat store" claim.
+PAUSED = {"ivory": "Category pages returned HTTP 403 on 2026-11-17; scheduled Eilat fetch paused."}
 
 
 def spider_names() -> list[str]:
@@ -188,6 +191,8 @@ def site_meta(states: dict[str, dict]) -> dict:
     """meta.json `eilat`: per-vendor Eilat data state for the site."""
     vendors = {vendor: {"state": s.get("state", MISSING), "last_seen": s.get("last_seen")}
                for vendor, s in sorted(states.items())}
+    for vendor, reason in PAUSED.items():
+        vendors.setdefault(vendor, {"state": MISSING, "last_seen": None})["paused"] = reason
     for vendor in NO_EILAT_STORE:
         vendors[vendor] = {"state": "no_store", "last_seen": None}
     return {"vendors": vendors}

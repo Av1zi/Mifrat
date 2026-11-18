@@ -19,7 +19,7 @@
  */
 
 import { alertMessage, dailyReport, type PushMessage } from "./src/ops/report";
-import { evaluate, israelParts, type Finding, type LiveFacts, type NanoRun, type PipelineRun } from "./src/ops/rules";
+import { evaluate, israelParts, runFinding, type Finding, type LiveFacts, type NanoRun, type PipelineRun } from "./src/ops/rules";
 import type { OpsChecks, OpsStatus } from "./src/ops/types";
 import { CHECKS_SCHEMA, OPS_SCHEMA } from "./src/ops/types";
 
@@ -63,7 +63,7 @@ export const QUIET_START_HOUR = 23;
 export const QUIET_END_HOUR = 7;
 const RUN_RETENTION_DAYS = 60;
 const MAX_EVENT_BYTES = 2048;
-const VENDOR_RE = /^[a-z0-9]{2,16}$/;
+const EVENT_VENDORS = new Set(["tms", "onepc", "ksp", "tms_eilat", "ksp_eilat", "ksp_detail", "ksp_covers"]);
 const OUTCOMES = new Set(["ok", "blocked", "failed", "partial"]);
 
 // ---- abuse counter ----------------------------------------------------------
@@ -264,7 +264,8 @@ export async function syncAlerts(
   env: OpsEnv,
   findings: Finding[],
   now: Date,
-  fetcher: typeof fetch = fetch
+  fetcher: typeof fetch = fetch,
+  resolveMissing = true
 ): Promise<PushMessage[]> {
   const sent: PushMessage[] = [];
   if (!env.LISTS_DB) return sent;
@@ -315,7 +316,7 @@ export async function syncAlerts(
   }
 
   // Whatever is still open was not found this tick: resolved.
-  for (const row of openByKey.values()) {
+  for (const row of resolveMissing ? openByKey.values() : []) {
     if (row.last_push && !quiet) {
       const msg = alertMessage(
         { key: row.key, severity: row.severity as Finding["severity"], title: row.title, detail: "" },
@@ -410,7 +411,7 @@ export async function handleEvent(request: Request, env: OpsEnv, now: Date, fetc
   }
   const vendor = String(body.vendor ?? "");
   const outcome = String(body.outcome ?? "");
-  if (!VENDOR_RE.test(vendor) || !OUTCOMES.has(outcome)) return json({ error: "bad event" }, 400);
+  if (!EVENT_VENDORS.has(vendor) || !OUTCOMES.has(outcome)) return json({ error: "bad event" }, 400);
   const ok = outcome === "ok";
   const detail = typeof body.detail === "string" ? body.detail.slice(0, 500) : null;
   const items = Number.isFinite(Number(body.items)) ? Math.trunc(Number(body.items)) : null;
@@ -423,14 +424,10 @@ export async function handleEvent(request: Request, env: OpsEnv, now: Date, fetc
   // A block is urgent and should not wait for the next cron tick.
   if (outcome === "blocked") {
     const run: NanoRun = { vendor, at, ok, outcome, detail: detail ?? undefined };
-    const finding: Finding = {
-      key: `blocked:${vendor}`,
-      severity: "urgent",
-      vendor,
-      title: `${vendor.toUpperCase()} blocked the scraper`,
-      detail: `${run.detail || "HTTP 403/429 or a challenge page"} at ${at}. A block is a stop signal; decide before the next run.`,
-    };
-    await syncAlerts(env, [finding], now, fetcher).catch(() => []);
+    const finding = runFinding(run)!;
+    // This is one event, not a full health evaluation: do not resolve other
+    // vendors' open alerts merely because they were absent from this request.
+    await syncAlerts(env, [finding], now, fetcher, false).catch(() => []);
   }
   return json({ ok: true }, 201);
 }

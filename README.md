@@ -86,9 +86,15 @@ connection, so the defence is behaving like one person, not volume):
 **KSP** is the one logged exception (2026-10-30): its public catalog only
 answers a browser-shaped TLS handshake, so the spider uses one fixed Chrome
 profile per run with matching client hints, from the home IP, 3-9s between
-requests, and the first 403 ends the run (429 is retried 4x, then stops).
-Its detail endpoint is blocked, so KSP is listing-only. If KSP escalates or
-objects, the vendor is dropped.
+requests, and the first 403/429 ends the run without retry. A block pauses
+all KSP phases until the owner reviews it; no Eilat, detail or cover request
+may follow it. The Nano's separate detail job became available on 2026-11-13
+(see `docs/ksp-detail-plan.md`); it uses the same stop/pacing rules. If KSP
+escalates or objects, the vendor is dropped.
+
+Ivory's regular builder feed remains active. Its **Eilat category-page
+scrape is paused** after 13 HTTP 403s on 2026-11-17; a green regular-price
+run does not mean Eilat prices were collected.
 
 **Manufacturer fetchers** (`scraper/mfr/`): robots obeyed, 1 request/s,
 browser headers, no retries, the first 403/429 stops that brand.

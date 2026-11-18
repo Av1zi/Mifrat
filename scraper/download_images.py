@@ -553,6 +553,9 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
     print(f"[backfill] {len(pending)} products need an image "
           f"({skipped_no_url} have no usable vendor photo at all)")
     if not pending:
+        if vendors == ["ksp"]:
+            from scraper.crawl_outcome import write_result
+            write_result("ksp_covers", "ok", 0)
         return
 
     import time
@@ -570,6 +573,10 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
         else:
             failed += 1
             if LAST_HTTP_STATUS in (403, 429):
+                if folder == "ksp":
+                    from scraper.crawl_outcome import write_result
+                    write_result("ksp_covers", "blocked", succeeded)
+                    sys.exit(3)
                 blocked_streak += 1
                 if blocked_streak >= 2:
                     print(
@@ -589,6 +596,9 @@ def _backfill_from_catalog(limit: int = 200, vendors: list[str] | None = None,
     )
     if failed:
         print(f"[backfill] {failed} failed — retried automatically next run")
+    if vendors == ["ksp"]:
+        from scraper.crawl_outcome import write_result
+        write_result("ksp_covers", "failed" if failed else "ok", succeeded)
 
 
 def _upgrade_low_res(limit: int = 0, vendors: list[str] | None = None,

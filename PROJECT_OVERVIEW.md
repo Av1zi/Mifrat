@@ -150,7 +150,7 @@ Blocking behavior: if every request in a run is blocked, that is treated as a da
 
 Purpose: collect PC-part slots from YahavPC through the store's own builder JSON API (a slot-list call, then one search call per category group). Each response carries the whole category, so there is no pagination. Scope is only the builder's PC-part slots; software, monitors and peripherals are left out. Onboarded 2026-10-14.
 
-### 4.8b KSP — home-run, listing-only (added 2026-10-30)
+### 4.8b KSP — home-run (added 2026-10-30)
 
 Purpose: collect core components from KSP through its own public catalog JSON API.
 
@@ -172,24 +172,26 @@ fixed browser-shaped TLS handshake (the `curl_cffi` `chrome146` profile, via
 normal browser. The spider therefore runs from the home IP, one
 request at a time, 3–9 seconds apart (6 s base, after 1.5 s produced HTTP
 429s), with no proxies, no CAPTCHA solving and no retry against a 403: the
-first block stops the run. A `429` after four retries stops it too.
+first 403/429 stops the run without retry. All phases share a persistent
+pause that the owner must review before requests resume.
 `robots.txt` is obeyed (it allows the catalog).
 
-Listing-only: KSP's `/m_action/api/item/<uin>` detail endpoint returns 403
-under every impersonation, including an in-page browser fetch, and the product
-page is an empty single-page-app shell. There is no KSP detail spider. The
+Detail: the item endpoint became available on the Nano on 2026-11-13.
+A separate, bounded detail job runs after a successful listing night and
+only if no earlier phase blocked. Rows fetched before a block stay saved;
+unfetched items stay pending. The product page is still an empty shell. The
 listing `tags` dict (Hebrew label → value, e.g. socket, chipset, capacity,
 wattage) is preserved raw in `vendor_meta` and mapped into Tier-1 facts by
 `parse_ksp_tags` (`scraper/specs/resolvers/vendor_struct.py`). Because the
 listing feed carries no manufacturer part number, only 24 of 970 KSP products
 merged with another vendor on the 2026-10-29 snapshot (21 of 52 CPUs); the
-other 946 stay KSP-only until an official API or a working detail path exists.
-That is an accepted limitation, not something title-based auto-merging is
-allowed to paper over.
+other 946 were KSP-only at onboarding. Detail model rows now supply a part
+number only when another vendor prints that same code. A CPU model name is
+not a manufacturer part number; fuzzy matching remains review-only.
 
 Data integrity: the spider buffers every category and yields nothing unless
 all 13 categories completed, each category fetched at least 95% of its
-`products_total` and at least 85% of its verified baseline (a small category,
+`products_total` and at least 70% of its verified baseline (a small category,
 baseline under 25, may instead fall at most 5 items short), and the whole run
 cleared 80% of the verified item baseline. A partial day therefore fails the
 runner instead of shipping, and the previous snapshot stale-forwards.
@@ -212,7 +214,22 @@ Cloud scraping runs on hosted automation on a matrix of the cloud-safe vendors (
 
 Home scraping runs on the Nano for TMS, 1PC and KSP. A system service runs each home script with a time limit and logs to the system journal. Every home run lands inside the night window (21:00–04:00 UTC, night in Israel in both seasons). TMS fires first with a large randomized delay; 1PC fires later and sequentially behind it on the same IP, so the two runs never overlap; KSP fires after the 1PC window and is the slowest of the three (≈100 requests at 3–9 s, plus bounded 429 retries). Timers do not catch up after downtime, because a catch-up would run in daytime; fallback timers for TMS and 1PC run only if no success marker is under 18 hours old, and stale-forwarding covers a missed night. Exact times are in `nano/NANO_README.md`. Each home script pulls latest code, runs its spider, refuses to commit an empty output (and warns below a per-vendor item floor), and commits and pushes the snapshot first with retries — failing loudly if that push fails, because a silent push failure looks exactly like a dead box. TMS then does best-effort detail enrichment and image downloading before a second push. A separate daily timer runs the verified AI extraction helper after the night's scrapes and normalize have refreshed the catalog, using a gitignored key file, and commits only its own output.
 
-The binding home-IP rules (one run per day, sequential, hard stop on blocks, never escalate) are the README's "Scraping rules". KSP has the same rules with a stricter stop: any 403 ends the run immediately; only `429`/5xx are retried, four times.
+The binding home-IP rules (one run per night, sequential, hard stop on blocks,
+never escalate) are the README's "Scraping rules". KSP's first 403/429 stops
+all later phases and pauses future requests until the owner reviews it.
+Nano jobs share a checkout lock; KSP publication retries reuse validated
+snapshots rather than initiating a second crawl. Ivory Eilat category pages
+are paused after the 2026-11-17 block; regular Ivory remains active.
+
+Population protection distinguishes source disappearance from loss inside
+normalization: the catalog records listing keys at the raw-loader boundary.
+For a vendor above its normal crawl floor and 85% of its previous size,
+products whose every listing is absent from that input may explain a
+category's reduction. The reduction is a quality warning, not a freeze of
+every vendor's prices. No input evidence, surviving listings collapsing,
+empty categories and a large overall catalog reduction still block. This
+does not declare the absent products permanently gone or prove that a
+vendor's feed is complete; the crawl/lifecycle checks remain necessary.
 
 ### 4.10 Outputs and hygiene of scraping
 

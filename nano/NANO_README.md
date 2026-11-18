@@ -179,7 +179,7 @@ KSP added 2026-10-30 (its Cloudflare edge blocks datacenter IPs and plain
 TLS clients; a browser-shaped TLS handshake from the home IP gets the public
 catalog). Same home-IP rules as TMS/1PC, but stricter: one request at a time,
 3-9s apart (6s base with Scrapy's randomization; tuned after 1.5s produced
-HTTP 429s), and the **first 403 ends the run** (no retry, no rotation).
+HTTP 429s), and the **first 403/429 ends the run** (no retry, no rotation).
 The listing run has no detail phase; the KSP detail scrape is its own job
 (below).
 
@@ -204,6 +204,41 @@ journalctl -u pc-parts-il-ksp.service -n 50
 If the first run is blocked, leave it alone for several days: the normalizer
 stale-forwards the previous KSP snapshot for up to 14 days. Do not add
 proxies, retries or a different TLS profile.
+
+### Failure state and safe recovery
+
+All scheduled Nano jobs share `~/.local/state/pc-parts-il/checkout.lock`,
+so a scrape/detail/extract job cannot pull/rebase another job's checkout
+while it is writing. KSP refuses an unrelated dirty tree rather than
+autostashing or aborting an unfamiliar rebase.
+
+KSP writes one `attempted` marker before a listing crawl, `validated` after
+the item checks, and `success` only after the snapshot is pushed. Re-running
+the script may retry publication of validated output, but never recrawls
+that night. Detail uses `done` / `ready` / `pushed` for the same distinction.
+
+A listing, Eilat, detail or cover block creates `ksp-<night>.blocked` **and
+`ksp.paused`**. The pause survives the next night; even force flags do not
+bypass it. It must be reviewed by the owner, with several days' cooldown
+when blocked, before the owner removes `ksp.paused`. Never delete an attempt
+marker to retry against a block. Existing regular prices stale-forward.
+
+Read-only diagnostics (no raw journal or credential values printed):
+
+```bash
+python scripts/diagnose_nano_scrapes.py --since 2026-11-16
+```
+
+That command requires the script to be present on the Nano. Local-only
+development does not update the box. For diagnosis before rollout, copy only
+the collector (not the unverified scraper changes) to a private temporary
+path and run `python3 /path/to/diagnose_nano_scrapes.py --repo "$HOME/pc-parts-il"`.
+The collector works with the Nano's older system Python and needs no packages.
+
+The structured phase results under the state directory contain only the
+spider name, outcome and item count. Phone events distinguish regular
+listing publication from Eilat, detail and cover failures. Skipped detail
+jobs do not claim to have fetched anything.
 
 ### KSP detail (part numbers, Nov 2026)
 

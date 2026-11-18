@@ -110,6 +110,26 @@ def population_check(catalog: dict, baseline: dict | None, problems_fn) -> list[
     return problems
 
 
+def population_source_churn() -> tuple[int, list[str]]:
+    """Keep source-caused category reductions visible without freezing prices."""
+    from scraper.specs.golden.check_golden import population_source_losses, POPULATION_CATEGORY_DROP
+    if not CATALOG.exists():
+        return 1, ["[source-churn] catalog missing"]
+    catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
+    baseline = _baseline_catalog()
+    if not baseline:
+        return 0, ["[source-churn] no baseline"]
+    from collections import Counter
+    before = Counter(p.get("category") for p in baseline.get("products") or [])
+    after = Counter(p.get("category") for p in catalog.get("products") or [])
+    lost = population_source_losses(catalog, baseline)
+    lines = [f"[source-churn] {category}: {before[category]} -> {after[category]}, "
+             f"{count} products absent from vendor input (not confirmed gone)"
+             for category, count in sorted(lost.items())
+             if after[category] < before[category] * (1 - POPULATION_CATEGORY_DROP)]
+    return (1, lines) if lines else (0, ["[source-churn] no large source-caused category reduction"])
+
+
 _BASELINE: dict = {}
 
 
@@ -160,6 +180,10 @@ CHECKS: list[Check] = [
           py("scripts/check_text_hygiene.py", "--self-test"), BOTH),
     Check("ksp_tags", CODE, "KSP listing-tag mapper", py("scripts/check_ksp_tags.py"), BOTH),
     Check("ksp_detail", CODE, "KSP detail parser", py("scripts/check_ksp_detail.py"), BOTH),
+    Check("scrape_outcomes", CODE, "Scrape block stops and runner outcomes",
+          py("scripts/check_scrape_outcomes.py"), BOTH),
+    Check("population_selftest", CODE, "Population loss attribution",
+          py("scripts/check_population.py"), BOTH),
     Check("eilat", CODE, "Eilat price parsers, attach and history rules", py("scripts/check_eilat.py"), BOTH),
     Check("xref_fixtures", CODE, "Saved-page parsers", py("scripts/check_xref_fixtures.py"), BOTH),
     Check("extract_selftest", CODE, "AI-extraction verifier and client",
@@ -183,6 +207,8 @@ CHECKS: list[Check] = [
     Check("ops_notify", CODE, "Nano run notifier", ["bash", "scripts/check_ops_notify.sh"], (CODE_SUITE,)),
     Check("nano_night", CODE, "Nano 1PC run: one folder per scrape night",
           ["bash", "scripts/check_nano_night.sh"], (CODE_SUITE,)),
+    Check("nano_ksp", CODE, "Nano KSP phase state and push recovery",
+          ["bash", "scripts/check_nano_ksp.sh"], BOTH),
     # --- integrity: the site would be broken -------------------------------
     Check("population", INTEGRITY, "Catalog not empty, no category collapsed", func=population),
     Check("text_hygiene", INTEGRITY, "Shipped text hygiene", py("scripts/check_text_hygiene.py")),
@@ -194,6 +220,7 @@ CHECKS: list[Check] = [
     Check("ops_report", INTEGRITY, "Ops report files", py("scripts/check_ops_report.py")),
     Check("publish_set", INTEGRITY, "Publish set coherence", py("scripts/check_publish_set.py"), BOTH),
     # --- quality: nightly data, warns --------------------------------------
+    Check("source_churn", QUALITY, "Category reduction from source absences", func=population_source_churn),
     Check("golden", QUALITY, "Spec golden fixtures",
           [sys.executable, "-m", "scraper.specs.golden.check_golden", "--baseline", "{baseline}"],
           codes=GOLDEN_CODES),

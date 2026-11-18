@@ -52,6 +52,13 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   `data/ops`, so a crawl that landed after the last report is invisible:
   a "not scraped" alert then says it is unverified (2026-11-13: Ivory and
   Yahav were scraped but unpublished).
+- Nano events use `ksp_eilat`, `ksp_detail` and `ksp_covers` as phase keys
+  in the existing run table. A successful regular snapshot cannot clear an
+  optional phase's block. Crawler results, not Scrapy's process exit status,
+  identify blocks/crashes. The report also shows missing/stale/partial Eilat
+  prices and Ivory's paused Eilat source; neither means regular prices failed.
+- Immediate block-event ingestion updates that alert only. Unrelated open
+  alerts are resolved only by the cron's full health evaluation.
 - Lifecycle rules (owner, 2026-11-12): a listing absent from one crawl is
   *missing*. One absent from two crawls, at least 36 h apart, is *gone*. A
   partial crawl never counts an absence.

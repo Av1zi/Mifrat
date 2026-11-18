@@ -1,6 +1,7 @@
 # data/raw/
 
-One folder per UTC date, one JSONL file per vendor spider, written by
+One folder per scrape night (UTC start + 3h), one JSONL file per vendor
+spider, written by
 `scraper/run_spider.py`:
 
 ```
@@ -15,15 +16,15 @@ data/raw/2026-10-29/ksp.jsonl      # first KSP snapshot (vendor added 2026-10-30
   workflow (21:07 UTC + up to 3h spread, i.e. inside the 23:00-07:00 Israel
   night window).
 - `tms`, `onepc` and `ksp` are written by the Jetson Nano (`nano/`), once a
-  day. KSP was added 2026-10-30; it is listing-only (its detail endpoint is
-  WAF-blocked) and its raw rows carry KSP's Hebrew `tags` table in
+  night. KSP was added 2026-10-30; its raw rows carry the Hebrew `tags` table in
   `vendor_meta`.
 - `plonter` was dropped on 2026-09-29 (datacenter-IP block). Its last
   snapshot is 2026-09-27; the spider and its older snapshots stay in the
   repo in case it is re-enabled.
 - `detail/` holds the per-vendor detail-page enrichment
   (`scrapy crawl <vendor>_detail`), merged by `normalize_and_match.py`.
-  There is no KSP detail file or ledger.
+  KSP detail has run separately on the Nano since 2026-11-13; rows fetched
+  before a block are retained, while all later KSP requests are stopped.
 - `scraper/normalize_and_match.py` reads the latest file per vendor, falling
   back to the most recent prior day for up to 14 days (the stale-forward
   rule), and builds `data/catalog.json` and `data/site/*.json`.

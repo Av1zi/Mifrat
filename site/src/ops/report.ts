@@ -83,7 +83,8 @@ export function dailyReport(status: OpsStatus, findings: Finding[], now: Date): 
 
   // Findings that are not already a vendor line (site, deploy, pipeline).
   const vendorKeys = new Set(health.map((h) => h.vendor.id));
-  const other = findings.filter((f) => !f.vendor || !vendorKeys.has(f.vendor));
+  const other = findings.filter((f) => !f.vendor || !vendorKeys.has(f.vendor) ||
+    f.key.startsWith("blocked:") || f.key.startsWith("run-failed:") || f.key.startsWith("eilat:"));
   if (other.length) {
     body.push("", "Open problems:");
     for (const f of other) body.push(`• ${f.title}`);

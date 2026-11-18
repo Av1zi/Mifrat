@@ -317,6 +317,36 @@ def moved_products(catalog: dict, baseline: dict) -> list[str]:
     return moved
 
 
+def population_source_losses(catalog: dict, baseline: dict) -> Counter:
+    # A product whose listings all disappeared from an otherwise healthy
+    # vendor input is source churn, not a matcher collapsing surviving rows.
+    # Never excuse missing evidence, an empty category, or an overall collapse.
+    # The source loss is still reported separately as a quality warning.
+    # Record at the raw-loader boundary, before filters/enrichment/matching.
+    # Normalizer-dropped rows must never be excused as source disappearance.
+    source_keys = catalog.get("source_listing_keys")
+    if not isinstance(source_keys, list):
+        return Counter()
+    live_keys = {str(key) for key in source_keys}
+    def vendor(key: str) -> str:
+        name = key.split(":", 1)[0]
+        return "onepc" if name == "1pc" else name
+    fresh_vendor = Counter(vendor(key) for key in live_keys)
+    old_keys = {str(r.get("listing_key")) for r in baseline.get("listings") or [] if r.get("listing_key")}
+    old_vendor = Counter(vendor(key) for key in old_keys)
+    from scraper.ops.lifecycle import SUSPECT_SHARE
+    from scraper.ops.registry import VENDORS
+    healthy = {name for name, count in old_vendor.items()
+               if name in VENDORS and count and
+               fresh_vendor[name] >= max(VENDORS[name].min_rows, count * SUSPECT_SHARE)}
+    source_losses = Counter()
+    for product in baseline.get("products") or []:
+        keys = {str(o.get("listing_key")) for o in product.get("offers") or [] if o.get("listing_key")}
+        if keys and not keys & live_keys and all(vendor(key) in healthy for key in keys):
+            source_losses[str(product.get("category") or "")] += 1
+    return source_losses
+
+
 def population_problems(catalog: dict, baseline: dict) -> list[str]:
     problems: list[str] = []
     fresh_counts = Counter(
@@ -325,15 +355,18 @@ def population_problems(catalog: dict, baseline: dict) -> list[str]:
     base_counts = Counter(
         str(p.get("category") or "") for p in baseline.get("products") or []
     )
+    source_losses = population_source_losses(catalog, baseline)
 
     for category, before in base_counts.items():
         after = fresh_counts.get(category, 0)
         if before < POPULATION_MIN_CATEGORY:
             continue
-        if after < before * (1 - POPULATION_CATEGORY_DROP):
+        expected = before - source_losses[category] if after else before
+        if after < expected * (1 - POPULATION_CATEGORY_DROP):
             problems.append(
                 f"category {category!r}: {before} -> {after} products "
-                f"(drop > {POPULATION_CATEGORY_DROP:.0%}; matching collapse?)"
+                f"(drop > {POPULATION_CATEGORY_DROP:.0%} after "
+                f"{source_losses[category]} source-absent products; matching collapse?)"
             )
 
     before_total = sum(base_counts.values())

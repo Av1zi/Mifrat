@@ -18,7 +18,7 @@ the listing's `mpn` only when another vendor prints the same code.
 Rules (home IP only, never CI, same as the listing spider):
 - the listing spider's TLS profile and client hints (KspFingerprintMiddleware),
   one request at a time, 6s +-50% between requests;
-- the first 403 or 429 (after Scrapy's bounded 429 retries) stops the run;
+- the first 403 or 429 stops the run, with no retry;
   nothing already fetched is lost (rows are yielded as they arrive) and the
   rest stays pending for tomorrow;
 - the pending list (data/detail_pending/ksp.json, make_detail_pending)
@@ -39,6 +39,7 @@ import scrapy
 from scrapy.exceptions import CloseSpider
 
 from scraper.items import DetailItem
+from scraper.crawl_outcome import mark_blocked, stop_failure
 from scraper.spiders.ksp import HEADERS, USER_AGENT, VENDOR_ID
 
 ITEM_URL = "https://ksp.co.il/m_action/api/item/{uin}"
@@ -106,6 +107,7 @@ class KspDetailSpider(scrapy.Spider):
         },
         "DOWNLOADER_MIDDLEWARES": {
             "scraper.spiders.ksp.KspFingerprintMiddleware": 543,
+            "scraper.crawl_outcome.StopOnBlockMiddleware": 950,
         },
         "CONCURRENT_REQUESTS": 1,
         "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
@@ -113,9 +115,7 @@ class KspDetailSpider(scrapy.Spider):
         "RANDOMIZE_DOWNLOAD_DELAY": True,
         "USER_AGENT": USER_AGENT,
         "ROBOTSTXT_OBEY": True,
-        # 429 gets Scrapy's bounded retries first; whatever still answers
-        # 429 or 403 reaches parse_item and stops the run.
-        "RETRY_HTTP_CODES": [408, 425, 429, 500, 502, 503, 504, 522, 524],
+        "RETRY_HTTP_CODES": [408, 425, 500, 502, 503, 504, 522, 524],
         "RETRY_TIMES": 2,
         "DOWNLOAD_TIMEOUT": 60,
     }
@@ -165,6 +165,10 @@ class KspDetailSpider(scrapy.Spider):
         raise CloseSpider(reason)
 
     def _request_failed(self, failure):
+        stop_failure(self, failure)
+        if getattr(self, "_blocked", False):
+            return
+        self.crawler.stats.set_value("crawl/failed", True)
         self.logger.warning("[ksp_detail] uin %s: request failed: %r",
                             failure.request.meta.get("vendor_sku"), failure.value)
         yield from self._next_request()
@@ -172,10 +176,12 @@ class KspDetailSpider(scrapy.Spider):
     def parse_item(self, response):
         uin = response.meta["vendor_sku"]
         if response.status in (403, 429):
+            mark_blocked(self)
             self.logger.error("[ksp_detail] BLOCKED (HTTP %s) on uin %s - stopping; "
                               "the rest stays pending", response.status, uin)
             self._stop(f"ksp_detail blocked {response.status}")
         if response.status != 200:
+            self.crawler.stats.set_value("crawl/failed", True)
             self.logger.warning("[ksp_detail] uin %s: HTTP %s", uin, response.status)
             yield from self._next_request()
             return
@@ -184,7 +190,8 @@ class KspDetailSpider(scrapy.Spider):
         except (json.JSONDecodeError, TypeError):
             # A 200 that is not JSON is a challenge page: same verdict as 403.
             self.logger.error("[ksp_detail] uin %s: non-JSON 200 (challenge?) - stopping", uin)
-            self._stop("ksp_detail non-JSON response")
+            mark_blocked(self)
+            self._stop("ksp_detail blocked non-JSON response")
 
         specs = parse_specification(payload)
         self.fetched += 1

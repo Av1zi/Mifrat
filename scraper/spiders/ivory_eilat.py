@@ -75,6 +75,14 @@ def parse_tiles(response) -> list[dict]:
 class IvoryEilatSpider(scrapy.Spider):
     name = "ivory_eilat"
     allowed_domains = ["ivory.co.il"]
+    custom_settings = {
+        "CONCURRENT_REQUESTS": 1,
+        "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
+        "DOWNLOADER_MIDDLEWARES": {
+            "scraper.crawl_outcome.StopOnBlockMiddleware": 950,
+        },
+        "RETRY_HTTP_CODES": [408, 500, 502, 503, 504],
+    }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

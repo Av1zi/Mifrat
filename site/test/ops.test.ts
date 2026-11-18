@@ -11,12 +11,60 @@ import {
 import type { OpsCheck, OpsChecks, OpsCrawl, OpsStatus, OpsVendor } from "../src/ops/types";
 
 const VENDORS: OpsVendor[] = [
-  { id: "tms", label: "TMS", host: "home", active: true, min_rows: 1800, due_utc: "04:00", dropped: null },
-  { id: "onepc", label: "1PC", host: "home", active: true, min_rows: 1600, due_utc: "04:00", dropped: null },
-  { id: "ksp", label: "KSP", host: "home", active: true, min_rows: 800, due_utc: "04:00", dropped: null },
-  { id: "ivory", label: "Ivory", host: "cloud", active: true, min_rows: 500, due_utc: "06:00", dropped: null },
-  { id: "yahav", label: "YahavPC", host: "cloud", active: true, min_rows: 800, due_utc: "06:00", dropped: null },
-  { id: "plonter", label: "Plonter", host: "cloud", active: false, min_rows: 1800, due_utc: "06:00", dropped: "2026-09-29" },
+  {
+    id: "tms",
+    label: "TMS",
+    host: "home",
+    active: true,
+    min_rows: 1800,
+    due_utc: "04:00",
+    dropped: null,
+  },
+  {
+    id: "onepc",
+    label: "1PC",
+    host: "home",
+    active: true,
+    min_rows: 1600,
+    due_utc: "04:00",
+    dropped: null,
+  },
+  {
+    id: "ksp",
+    label: "KSP",
+    host: "home",
+    active: true,
+    min_rows: 800,
+    due_utc: "04:00",
+    dropped: null,
+  },
+  {
+    id: "ivory",
+    label: "Ivory",
+    host: "cloud",
+    active: true,
+    min_rows: 500,
+    due_utc: "06:00",
+    dropped: null,
+  },
+  {
+    id: "yahav",
+    label: "YahavPC",
+    host: "cloud",
+    active: true,
+    min_rows: 800,
+    due_utc: "06:00",
+    dropped: null,
+  },
+  {
+    id: "plonter",
+    label: "Plonter",
+    host: "cloud",
+    active: false,
+    min_rows: 1800,
+    due_utc: "06:00",
+    dropped: "2026-09-29",
+  },
 ];
 
 function crawl(vendor: string, start: string, extra: Partial<OpsCrawl> = {}): OpsCrawl {
@@ -87,8 +135,12 @@ const TEN_AM = new Date("2026-11-12T08:00:00Z");
 
 describe("night window", () => {
   it("a night starts at 21:00 UTC", () => {
-    expect(nightStart(new Date("2026-11-12T08:00:00Z")).toISOString()).toBe("2026-11-11T21:00:00.000Z");
-    expect(nightStart(new Date("2026-11-12T22:00:00Z")).toISOString()).toBe("2026-11-12T21:00:00.000Z");
+    expect(nightStart(new Date("2026-11-12T08:00:00Z")).toISOString()).toBe(
+      "2026-11-11T21:00:00.000Z"
+    );
+    expect(nightStart(new Date("2026-11-12T22:00:00Z")).toISOString()).toBe(
+      "2026-11-12T21:00:00.000Z"
+    );
   });
 
   it("before a vendor's due time the previous night is the one expected", () => {
@@ -112,7 +164,11 @@ describe("vendor health", () => {
   it("judges by crawl time, not file name: TMS in the 11-11 file is last night's", () => {
     const s = status({
       tms: [
-        crawl("tms", "2026-11-10T22:23:00+00:00", { file_day: "2026-11-11", misfiled: true, crawls_in_file: 2 }),
+        crawl("tms", "2026-11-10T22:23:00+00:00", {
+          file_day: "2026-11-11",
+          misfiled: true,
+          crawls_in_file: 2,
+        }),
         crawl("tms", "2026-11-11T21:30:00+00:00", { file_day: "2026-11-11", crawls_in_file: 2 }),
       ],
     });
@@ -135,17 +191,35 @@ describe("vendor health", () => {
   });
 
   it("a suspect crawl is partial", () => {
-    const s = status({ onepc: [crawl("onepc", "2026-11-12T00:04:00+00:00", { suspect: "900 items, floor 1600" })] });
+    const s = status({
+      onepc: [crawl("onepc", "2026-11-12T00:04:00+00:00", { suspect: "900 items, floor 1600" })],
+    });
     expect(vendorHealth(s, VENDORS[1], TEN_AM).state).toBe("partial");
   });
 
   it("a stale flag from a crawl just before midnight UTC is no note; 2+ days behind is", () => {
-    const fresh = status({}, { catalog: catalog({ generated_at: "2026-11-13T03:31:00+00:00",
-      vendors: { onepc: { listings: 2281, stale: 2281, last_seen: "2026-11-12" } } }) });
+    const fresh = status(
+      {},
+      {
+        catalog: catalog({
+          generated_at: "2026-11-13T03:31:00+00:00",
+          vendors: { onepc: { listings: 2281, stale: 2281, last_seen: "2026-11-12" } },
+        }),
+      }
+    );
     expect(vendorHealth(fresh, VENDORS[1], TEN_AM).notes.join(" ")).not.toContain("stale");
-    const behind = status({}, { catalog: catalog({ generated_at: "2026-11-13T03:31:00+00:00",
-      vendors: { onepc: { listings: 2281, stale: 2281, last_seen: "2026-11-10" } } }) });
-    expect(vendorHealth(behind, VENDORS[1], TEN_AM).notes.join(" ")).toContain("2026-11-10 snapshot");
+    const behind = status(
+      {},
+      {
+        catalog: catalog({
+          generated_at: "2026-11-13T03:31:00+00:00",
+          vendors: { onepc: { listings: 2281, stale: 2281, last_seen: "2026-11-10" } },
+        }),
+      }
+    );
+    expect(vendorHealth(behind, VENDORS[1], TEN_AM).notes.join(" ")).toContain(
+      "2026-11-10 snapshot"
+    );
   });
 
   it("a dropped vendor is never missing", () => {
@@ -185,9 +259,59 @@ describe("findings", () => {
 
   it("a blocked Nano run is urgent", () => {
     const f = evaluate(status(), TEN_AM, {
-      nanoRuns: { ksp: { vendor: "ksp", at: "2026-11-12T01:00:00Z", ok: false, outcome: "blocked", detail: "HTTP 403" } },
+      nanoRuns: {
+        ksp: {
+          vendor: "ksp",
+          at: "2026-11-12T01:00:00Z",
+          ok: false,
+          outcome: "blocked",
+          detail: "HTTP 403",
+        },
+      },
     });
     expect(f[0]).toMatchObject({ key: "blocked:ksp", severity: "urgent" });
+  });
+  it("Eilat/detail failures remain separate from successful regular prices", () => {
+    const findings = evaluate(status(), TEN_AM, {
+      nanoRuns: {
+        ksp: { vendor: "ksp", at: "2026-11-12T01:00:00Z", ok: true, outcome: "ok" },
+        ksp_eilat: {
+          vendor: "ksp_eilat",
+          at: "2026-11-12T01:20:00Z",
+          ok: false,
+          outcome: "blocked",
+        },
+        ksp_detail: {
+          vendor: "ksp_detail",
+          at: "2026-11-12T03:00:00Z",
+          ok: false,
+          outcome: "failed",
+        },
+      },
+    });
+    expect(findings.map((f) => f.key)).toEqual(["blocked:ksp_eilat", "run-failed:ksp_detail"]);
+    expect(findings[0].title).toBe("KSP Eilat blocked the scraper");
+    expect(findings[0].detail).toContain("Regular prices are a separate snapshot");
+    expect(dailyReport(status(), findings, TEN_AM).message).toContain("KSP Eilat blocked");
+  });
+  it("reports paused and missing Eilat prices without calling regular scrapes missing", () => {
+    const s = status(
+      {},
+      {
+        catalog: catalog({
+          eilat: {
+            ivory: { state: "missing", last_seen: null, paused: "HTTP 403; paused" },
+            ksp: { state: "missing", last_seen: null },
+          },
+        }),
+      }
+    );
+    const findings = evaluate(s, TEN_AM);
+    expect(findings.map((f) => f.key)).toEqual(["eilat:ivory", "eilat:ksp"]);
+    expect(dailyReport(s, findings, TEN_AM).message).toContain("Ivory Eilat fetch paused");
+    // Before this night's due time the absent channel has time to run.
+    const pending = evaluate(s, new Date("2026-11-12T01:00:00Z"));
+    expect(pending.map((f) => f.key)).not.toContain("eilat:ksp");
   });
 
   it("site down and API flood are urgent; deploy lag is high", () => {
@@ -201,7 +325,9 @@ describe("findings", () => {
 
   it("a double crawl and a delisting spike warn", () => {
     const s = status({
-      ivory: [crawl("ivory", "2026-11-12T02:10:00+00:00", { keys: 600, gone: 40, crawls_in_file: 2 })],
+      ivory: [
+        crawl("ivory", "2026-11-12T02:10:00+00:00", { keys: 600, gone: 40, crawls_in_file: 2 }),
+      ],
     });
     const keys = evaluate(s, TEN_AM).map((f) => f.key);
     expect(keys).toEqual(["delist-spike:ivory:2026-11-12", "double:ivory:2026-11-12"]);
@@ -212,7 +338,12 @@ describe("findings", () => {
     // the report never saw the crawl.
     const s = status({ ivory: [crawl("ivory", "2026-11-11T02:10:00+00:00", { keys: 620 })] });
     const f = evaluate(s, TEN_AM, {
-      normalizeRun: { conclusion: "failure", at: "2026-11-12T06:41:00Z", url: "https://github.com/run/1", failedStep: "check_extract" },
+      normalizeRun: {
+        conclusion: "failure",
+        at: "2026-11-12T06:41:00Z",
+        url: "https://github.com/run/1",
+        failedStep: "check_extract",
+      },
     });
     expect(f.map((x) => x.key)).toEqual(["missing:ivory", "normalize-failed"]);
     expect(f[0].detail).toContain("Unverified");
@@ -223,7 +354,11 @@ describe("findings", () => {
       normalizeRun: { conclusion: "failure", at: "2026-11-12T05:00:00Z", url: "u" },
     });
     expect(old.find((x) => x.key === "missing:ivory")?.detail).not.toContain("Unverified");
-    expect(evaluate(status(), TEN_AM, { normalizeRun: { conclusion: "success", at: "2026-11-12T05:28:00Z", url: "u" } })).toEqual([]);
+    expect(
+      evaluate(status(), TEN_AM, {
+        normalizeRun: { conclusion: "success", at: "2026-11-12T05:28:00Z", url: "u" },
+      })
+    ).toEqual([]);
   });
 
   it("a skipped active vendor is high", () => {
@@ -273,10 +408,15 @@ describe("check warnings (scripts/run_checks.py)", () => {
       exit: 1,
       since: "2026-11-12T05:28:00+00:00",
       nights: 1,
-      detail: "line one\n  [fail] qa_dismissed keys with no case: 299 > budget 10\n[check-ledgers] 4 failure(s)",
+      detail:
+        "line one\n  [fail] qa_dismissed keys with no case: 299 > budget 10\n[check-ledgers] 4 failure(s)",
     });
     const [f] = evaluate(status(), TEN_AM, { checks: checks([warn]) });
-    expect(f).toMatchObject({ key: "check:ledgers", severity: "warn", title: "Check warning: Ledgers point at live data" });
+    expect(f).toMatchObject({
+      key: "check:ledgers",
+      severity: "warn",
+      title: "Check warning: Ledgers point at live data",
+    });
     expect(f.detail).toContain("The site still published.");
     expect(f.detail).toContain("299 > budget 10");
     expect(f.detail).not.toContain("line one");
@@ -284,7 +424,11 @@ describe("check warnings (scripts/run_checks.py)", () => {
 
   it("is urgent once open for escalate_nights nights, never before", () => {
     const at = (nights: number) =>
-      checkFindings(checks([check("golden", { status: "warn", exit: 1, nights, since: "2026-11-10T05:00:00+00:00" })]))[0];
+      checkFindings(
+        checks([
+          check("golden", { status: "warn", exit: 1, nights, since: "2026-11-10T05:00:00+00:00" }),
+        ])
+      )[0];
     expect(at(2).severity).toBe("warn");
     expect(at(3).severity).toBe("urgent");
     expect(at(3).detail).toContain("for 3 nights (since 2026-11-10)");
@@ -318,7 +462,9 @@ describe("daily report", () => {
 
   it("a double crawl is not OK", () => {
     const s = status({
-      tms: [crawl("tms", "2026-11-11T21:30:00+00:00", { crawls_in_file: 2, file_day: "2026-11-11" })],
+      tms: [
+        crawl("tms", "2026-11-11T21:30:00+00:00", { crawls_in_file: 2, file_day: "2026-11-11" }),
+      ],
     });
     const msg = dailyReport(s, evaluate(s, TEN_AM), TEN_AM);
     expect(msg.priority).toBe(3);
@@ -335,14 +481,20 @@ describe("daily report", () => {
 
   it("shows Israel time, DST-correct", () => {
     // 2026-08-12 is summer (UTC+3): a 21:30 UTC crawl reads 00:30.
-    const summer = status({ tms: [crawl("tms", "2026-08-11T21:30:00+00:00")] }, { generated_at: "2026-08-12T05:00:00+00:00" });
+    const summer = status(
+      { tms: [crawl("tms", "2026-08-11T21:30:00+00:00")] },
+      { generated_at: "2026-08-12T05:00:00+00:00" }
+    );
     const msg = dailyReport(summer, [], new Date("2026-08-12T07:00:00Z"));
     expect(msg.message).toContain("00:30");
   });
 
   it("stays under ntfy's message cap", () => {
     const many = Array.from({ length: 400 }, (_, i) => ({
-      key: `x${i}`, severity: "warn" as const, title: "a long problem title ".repeat(4), detail: "",
+      key: `x${i}`,
+      severity: "warn" as const,
+      title: "a long problem title ".repeat(4),
+      detail: "",
     }));
     expect(dailyReport(status(), many, TEN_AM).message.length).toBeLessThanOrEqual(3500);
   });
@@ -354,7 +506,10 @@ describe("alerts", () => {
     expect(alertMessage(f, "open").priority).toBe(5);
     expect(alertMessage({ ...f, severity: "high" }, "open").priority).toBe(4);
     expect(alertMessage(f, "remind").title).toBe("Still open: Site is down");
-    expect(alertMessage(f, "resolved")).toMatchObject({ priority: 2, title: "Resolved: Site is down" });
+    expect(alertMessage(f, "resolved")).toMatchObject({
+      priority: 2,
+      title: "Resolved: Site is down",
+    });
   });
 });
 

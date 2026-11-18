@@ -10,6 +10,8 @@ set -euo pipefail
 
 REPO_DIR="/home/avizi/pc-parts-il"
 PYTHON="/home/avizi/miniforge3/envs/pc-parts-il/bin/python"
+source "$REPO_DIR/nano/run_state.sh"
+nano_lock
 
 cd "$REPO_DIR"
 if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then

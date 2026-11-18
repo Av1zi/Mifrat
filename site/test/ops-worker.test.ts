@@ -29,17 +29,37 @@ interface AlertRow {
 /** In-memory D1 implementing exactly the statements ops-worker issues. */
 function fakeDb() {
   const alerts = new Map<string, AlertRow>();
-  const runs: { id: number; vendor: string; at: string; ok: number; outcome: string; detail: string | null; items: number | null }[] = [];
+  const runs: {
+    id: number;
+    vendor: string;
+    at: string;
+    ok: number;
+    outcome: string;
+    detail: string | null;
+    items: number | null;
+  }[] = [];
   const meta = new Map<string, string>();
   const sql: string[] = [];
 
   function exec(query: string, args: unknown[]): { first?: unknown; all?: unknown[] } {
-    if (query.startsWith("SELECT key, severity, title, detail, opened_at, last_push, closed_at FROM ops_alerts WHERE closed_at IS NULL")) {
+    if (
+      query.startsWith(
+        "SELECT key, severity, title, detail, opened_at, last_push, closed_at FROM ops_alerts WHERE closed_at IS NULL"
+      )
+    ) {
       return { all: [...alerts.values()].filter((a) => a.closed_at === null) };
     }
     if (query.startsWith("INSERT INTO ops_alerts")) {
       const [key, severity, title, detail, opened_at, last_push] = args as string[];
-      alerts.set(key, { key, severity, title, detail, opened_at, last_push: last_push ?? null, closed_at: null });
+      alerts.set(key, {
+        key,
+        severity,
+        title,
+        detail,
+        opened_at,
+        last_push: last_push ?? null,
+        closed_at: null,
+      });
       return {};
     }
     if (query.startsWith("UPDATE ops_alerts SET last_push")) {
@@ -58,7 +78,14 @@ function fakeDb() {
       return { all: [...latest.values()] };
     }
     if (query.startsWith("INSERT INTO ops_runs")) {
-      const [vendor, at, ok, outcome, detail, items] = args as [string, string, number, string, string | null, number | null];
+      const [vendor, at, ok, outcome, detail, items] = args as [
+        string,
+        string,
+        number,
+        string,
+        string | null,
+        number | null,
+      ];
       runs.push({ id: runs.length + 1, vendor, at, ok, outcome, detail, items });
       return {};
     }
@@ -78,7 +105,11 @@ function fakeDb() {
     if (query.startsWith("SELECT vendor, at, ok, outcome, detail, items FROM ops_runs ORDER BY")) {
       return { all: [...runs].reverse() };
     }
-    if (query.startsWith("SELECT key, severity, title, detail, opened_at, last_push, closed_at FROM ops_alerts ORDER BY")) {
+    if (
+      query.startsWith(
+        "SELECT key, severity, title, detail, opened_at, last_push, closed_at FROM ops_alerts ORDER BY"
+      )
+    ) {
       return { all: [...alerts.values()] };
     }
     throw new Error(`unexpected SQL: ${query}`);
@@ -115,9 +146,24 @@ function fakeDb() {
 
 function crawl(vendor: string, start: string, extra: Partial<OpsCrawl> = {}): OpsCrawl {
   return {
-    vendor, file_day: start.slice(0, 10), start, end: start, rows: 2000, keys: 2000,
-    crawls_in_file: 1, misfiled: false, outside_window: false, suspect: null, baseline: false,
-    onboarding: false, new: 1, missing: 0, gone: 0, returned: 0, price_changes: 0, ...extra,
+    vendor,
+    file_day: start.slice(0, 10),
+    start,
+    end: start,
+    rows: 2000,
+    keys: 2000,
+    crawls_in_file: 1,
+    misfiled: false,
+    outside_window: false,
+    suspect: null,
+    baseline: false,
+    onboarding: false,
+    new: 1,
+    missing: 0,
+    gone: 0,
+    returned: 0,
+    price_changes: 0,
+    ...extra,
   };
 }
 
@@ -127,8 +173,24 @@ function healthyStatus(overrides: Partial<Record<string, OpsCrawl[]>> = {}): Ops
     generated_at: "2026-11-12T05:30:00+00:00",
     window_days: 60,
     vendors: [
-      { id: "tms", label: "TMS", host: "home", active: true, min_rows: 1800, due_utc: "04:00", dropped: null },
-      { id: "ivory", label: "Ivory", host: "cloud", active: true, min_rows: 500, due_utc: "06:00", dropped: null },
+      {
+        id: "tms",
+        label: "TMS",
+        host: "home",
+        active: true,
+        min_rows: 1800,
+        due_utc: "04:00",
+        dropped: null,
+      },
+      {
+        id: "ivory",
+        label: "Ivory",
+        host: "cloud",
+        active: true,
+        min_rows: 500,
+        due_utc: "06:00",
+        dropped: null,
+      },
     ],
     first_snapshot: {},
     crawls: {
@@ -137,8 +199,15 @@ function healthyStatus(overrides: Partial<Record<string, OpsCrawl[]>> = {}): Ops
       ...overrides,
     } as Record<string, OpsCrawl[]>,
     catalog: {
-      generated_at: "2026-11-12T05:25:00+00:00", products: 4396, listings: 7075, skipped_vendors: [],
-      review_queue: 0, vendors: {}, categories: {}, qa: {}, spec_counts: {},
+      generated_at: "2026-11-12T05:25:00+00:00",
+      products: 4396,
+      listings: 7075,
+      skipped_vendors: [],
+      review_queue: 0,
+      vendors: {},
+      categories: {},
+      qa: {},
+      spec_counts: {},
     },
   };
 }
@@ -155,7 +224,10 @@ interface FakeRun {
   failedStep?: string;
 }
 
-function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: boolean; normalize?: FakeRun | "down" } = {}) {
+function setup(
+  status: OpsStatus | null = healthyStatus(),
+  opts: { siteOk?: boolean; normalize?: FakeRun | "down" } = {}
+) {
   const db = fakeDb();
   const pushes: Sent[] = [];
   const pings: string[] = [];
@@ -202,17 +274,34 @@ function setup(status: OpsStatus | null = healthyStatus(), opts: { siteOk?: bool
     if (url.startsWith(`${actions}/workflows/normalize-and-deploy.yml/runs?`)) {
       if (opts.normalize === "down") return new Response("rate limited", { status: 403 });
       const run = opts.normalize ?? { conclusion: "success", updated_at: "2026-11-12T05:28:00Z" };
-      return new Response(JSON.stringify({ workflow_runs: [{ id: 7, html_url: "https://github.com/run/7", ...run }] }));
+      return new Response(
+        JSON.stringify({ workflow_runs: [{ id: 7, html_url: "https://github.com/run/7", ...run }] })
+      );
     }
     if (url === `${actions}/runs/7/jobs`) {
       const step = opts.normalize !== "down" ? opts.normalize?.failedStep : undefined;
-      return new Response(JSON.stringify({ jobs: [{ conclusion: "failure", steps: [
-        { name: "Set up job", conclusion: "success" }, { name: step ?? "?", conclusion: "failure" }] }] }));
+      return new Response(
+        JSON.stringify({
+          jobs: [
+            {
+              conclusion: "failure",
+              steps: [
+                { name: "Set up job", conclusion: "success" },
+                { name: step ?? "?", conclusion: "failure" },
+              ],
+            },
+          ],
+        })
+      );
     }
     throw new Error(`unexpected fetch ${url}`);
   }) as typeof fetch;
   return {
-    db, env, pushes, pings, fetcher,
+    db,
+    env,
+    pushes,
+    pings,
+    fetcher,
     setStatus(s: OpsStatus | null) {
       currentStatus = s;
     },
@@ -266,7 +355,9 @@ describe("ops cron: daily report", () => {
   });
 
   it("a missing scrape makes the report buzz (priority 3)", async () => {
-    const t = setup(healthyStatus({ ivory: [crawl("ivory", "2026-11-09T02:10:00+00:00", { keys: 620 })] }));
+    const t = setup(
+      healthyStatus({ ivory: [crawl("ivory", "2026-11-09T02:10:00+00:00", { keys: 620 })] })
+    );
     const r = await t.cron(TEN_AM);
     expect(r.report?.priority).toBe(3);
     expect(String(r.report?.message)).toContain("❌ Ivory");
@@ -288,16 +379,22 @@ describe("ops cron: alerts", () => {
     expect(t.pushes.filter((p) => String(p.body.title).includes("Ivory"))).toHaveLength(1);
 
     await t.cron("2026-11-13T07:00:00Z");
-    expect(t.pushes.map((p) => p.body.title)).toContain("Still open: Ivory was not scraped last night");
+    expect(t.pushes.map((p) => p.body.title)).toContain(
+      "Still open: Ivory was not scraped last night"
+    );
 
     expect(t.db.alerts.get("missing:ivory")!.closed_at).toBeNull();
     // Ivory scraped again; the report was rebuilt today.
-    const fresh = healthyStatus({ ivory: [crawl("ivory", "2026-11-14T02:10:00+00:00", { keys: 620 })],
-      tms: [crawl("tms", "2026-11-13T21:40:00+00:00")] });
+    const fresh = healthyStatus({
+      ivory: [crawl("ivory", "2026-11-14T02:10:00+00:00", { keys: 620 })],
+      tms: [crawl("tms", "2026-11-13T21:40:00+00:00")],
+    });
     fresh.generated_at = "2026-11-14T05:30:00+00:00";
     t.setStatus(fresh);
     await t.cron("2026-11-14T07:00:00Z");
-    expect(t.pushes.map((p) => p.body.title)).toContain("Resolved: Ivory was not scraped last night");
+    expect(t.pushes.map((p) => p.body.title)).toContain(
+      "Resolved: Ivory was not scraped last night"
+    );
     expect(t.db.alerts.get("missing:ivory")!.closed_at).not.toBeNull();
   });
 
@@ -325,14 +422,20 @@ describe("ops cron: alerts", () => {
 
   it("a failed normalize is an alert naming the step; a GitHub outage is none", async () => {
     const failed = setup(healthyStatus(), {
-      normalize: { conclusion: "failure", updated_at: "2026-11-12T06:41:00Z", failedStep: "AI-extraction verifier (offline, Oct 2026)" },
+      normalize: {
+        conclusion: "failure",
+        updated_at: "2026-11-12T06:41:00Z",
+        failedStep: "AI-extraction verifier (offline, Oct 2026)",
+      },
     });
     const r = await failed.cron("2026-11-12T07:00:00Z");
     const f = r.findings.find((x) => x.key === "normalize-failed");
     expect(f?.severity).toBe("high");
     expect(f?.detail).toContain('at "AI-extraction verifier (offline, Oct 2026)"');
     expect(f?.detail).toContain("https://github.com/run/7");
-    expect(failed.pushes.map((p) => p.body.title)).toContain("Normalize failed: new scrapes are not on the site");
+    expect(failed.pushes.map((p) => p.body.title)).toContain(
+      "Normalize failed: new scrapes are not on the site"
+    );
 
     const down = setup(healthyStatus(), { normalize: "down" });
     expect((await down.cron("2026-11-12T07:00:00Z")).findings).toEqual([]);
@@ -340,11 +443,25 @@ describe("ops cron: alerts", () => {
 
   it("a check warning opens a normal alert, and on its 3rd night pushes as urgent", async () => {
     const ledgers = (nights: number): OpsChecks => ({
-      schema: 1, generated_at: "2026-11-12T05:28:00+00:00", night: "2026-11-12", suite: "publish",
-      escalate_nights: 3, blocked: false,
-      checks: [{ name: "ledgers", level: "quality", title: "Ledgers point at live data", status: "warn",
-        exit: 1, seconds: 1, since: "2026-11-10T05:28:00+00:00", nights,
-        detail: "[fail] qa_dismissed keys with no case: 299 > budget 10" }],
+      schema: 1,
+      generated_at: "2026-11-12T05:28:00+00:00",
+      night: "2026-11-12",
+      suite: "publish",
+      escalate_nights: 3,
+      blocked: false,
+      checks: [
+        {
+          name: "ledgers",
+          level: "quality",
+          title: "Ledgers point at live data",
+          status: "warn",
+          exit: 1,
+          seconds: 1,
+          since: "2026-11-10T05:28:00+00:00",
+          nights,
+          detail: "[fail] qa_dismissed keys with no case: 299 > budget 10",
+        },
+      ],
     });
     const t = setup();
     t.setChecks(ledgers(1));
@@ -356,10 +473,16 @@ describe("ops cron: alerts", () => {
     t.setChecks(ledgers(3));
     const night = await t.cron("2026-11-13T22:00:00Z");
     expect(night.findings[0]).toMatchObject({ key: "check:ledgers", severity: "urgent" });
-    expect(t.pushes.at(-1)?.body).toMatchObject({ priority: 5, title: "Still open: Check warning: Ledgers point at live data" });
+    expect(t.pushes.at(-1)?.body).toMatchObject({
+      priority: 5,
+      title: "Still open: Check warning: Ledgers point at live data",
+    });
 
     // Fixed: the alert resolves.
-    t.setChecks({ ...ledgers(0), checks: [{ ...ledgers(0).checks[0], status: "pass", since: null, detail: "" }] });
+    t.setChecks({
+      ...ledgers(0),
+      checks: [{ ...ledgers(0).checks[0], status: "pass", since: null, detail: "" }],
+    });
     await t.cron("2026-11-14T08:00:00Z");
     expect(t.db.alerts.get("check:ledgers")!.closed_at).not.toBeNull();
   });
@@ -376,8 +499,20 @@ describe("ops cron: alerts", () => {
     t.env.NTFY_TOPIC_URL = undefined;
     await t.cron("2026-11-12T07:00:00Z");
     expect(t.pushes).toHaveLength(0);
-    expect(await push({ ...t.env, NTFY_TOPIC_URL: "http://ntfy.sh/x" }, { title: "t", message: "m", priority: 3, tags: [], click: "/" }, t.fetcher)).toBe(false);
-    expect(await push({ ...t.env, NTFY_TOPIC_URL: "https://ntfy.sh/a/b" }, { title: "t", message: "m", priority: 3, tags: [], click: "/" }, t.fetcher)).toBe(false);
+    expect(
+      await push(
+        { ...t.env, NTFY_TOPIC_URL: "http://ntfy.sh/x" },
+        { title: "t", message: "m", priority: 3, tags: [], click: "/" },
+        t.fetcher
+      )
+    ).toBe(false);
+    expect(
+      await push(
+        { ...t.env, NTFY_TOPIC_URL: "https://ntfy.sh/a/b" },
+        { title: "t", message: "m", priority: 3, tags: [], click: "/" },
+        t.fetcher
+      )
+    ).toBe(false);
   });
 });
 
@@ -391,17 +526,44 @@ describe("POST /api/ops/event", () => {
 
   it("needs the bearer token", async () => {
     const t = setup();
-    expect((await handleEvent(event({ vendor: "tms", outcome: "ok" }, "wrong"), t.env, new Date(), t.fetcher)).status).toBe(401);
-    expect((await handleEvent(event({ vendor: "tms", outcome: "ok" }, ""), t.env, new Date(), t.fetcher)).status).toBe(401);
+    expect(
+      (
+        await handleEvent(
+          event({ vendor: "tms", outcome: "ok" }, "wrong"),
+          t.env,
+          new Date(),
+          t.fetcher
+        )
+      ).status
+    ).toBe(401);
+    expect(
+      (await handleEvent(event({ vendor: "tms", outcome: "ok" }, ""), t.env, new Date(), t.fetcher))
+        .status
+    ).toBe(401);
     const noToken = { ...t.env, OPS_INGEST_TOKEN: undefined };
-    expect((await handleEvent(event({ vendor: "tms", outcome: "ok" }), noToken, new Date(), t.fetcher)).status).toBe(401);
+    expect(
+      (await handleEvent(event({ vendor: "tms", outcome: "ok" }), noToken, new Date(), t.fetcher))
+        .status
+    ).toBe(401);
     expect(t.db.runs).toHaveLength(0);
   });
 
   it("validates vendor and outcome", async () => {
     const t = setup();
-    expect((await handleEvent(event({ vendor: "TMS!", outcome: "ok" }), t.env, new Date(), t.fetcher)).status).toBe(400);
-    expect((await handleEvent(event({ vendor: "tms", outcome: "exploded" }), t.env, new Date(), t.fetcher)).status).toBe(400);
+    expect(
+      (await handleEvent(event({ vendor: "TMS!", outcome: "ok" }), t.env, new Date(), t.fetcher))
+        .status
+    ).toBe(400);
+    expect(
+      (
+        await handleEvent(
+          event({ vendor: "tms", outcome: "exploded" }),
+          t.env,
+          new Date(),
+          t.fetcher
+        )
+      ).status
+    ).toBe(400);
     const big = event({ vendor: "tms", outcome: "failed", detail: "x".repeat(5000) });
     expect((await handleEvent(big, t.env, new Date(), t.fetcher)).status).toBe(413);
   });
@@ -409,7 +571,12 @@ describe("POST /api/ops/event", () => {
   it("records a run; a block pushes an urgent alert at once", async () => {
     const t = setup();
     const at = new Date("2026-11-12T01:00:00Z"); // quiet hours: urgent still goes
-    const res = await handleEvent(event({ vendor: "ksp", outcome: "blocked", detail: "HTTP 403 cf-mitigated" }), t.env, at, t.fetcher);
+    const res = await handleEvent(
+      event({ vendor: "ksp", outcome: "blocked", detail: "HTTP 403 cf-mitigated" }),
+      t.env,
+      at,
+      t.fetcher
+    );
     expect(res.status).toBe(201);
     expect(t.db.runs[0]).toMatchObject({ vendor: "ksp", ok: 0, outcome: "blocked" });
     expect(t.pushes).toHaveLength(1);
@@ -417,6 +584,33 @@ describe("POST /api/ops/event", () => {
     // The next cron keeps it open (same key) instead of re-pushing.
     await runCron(t.env, new Date("2026-11-12T01:30:00Z"), t.fetcher);
     expect(t.pushes.filter((p) => String(p.body.title).includes("blocked"))).toHaveLength(1);
+  });
+  it("records phase events without resolving unrelated alerts", async () => {
+    const t = setup();
+    t.db.alerts.set("site-down", {
+      key: "site-down",
+      severity: "urgent",
+      title: "Site is down",
+      detail: "",
+      opened_at: "2026-11-12T00:00:00Z",
+      last_push: null,
+      closed_at: null,
+    });
+    const at = new Date("2026-11-12T01:00:00Z");
+    expect(
+      (await handleEvent(event({ vendor: "ksp_eilat", outcome: "blocked" }), t.env, at, t.fetcher))
+        .status
+    ).toBe(201);
+    expect(t.db.alerts.get("site-down")!.closed_at).toBeNull();
+    expect(t.db.runs[0]).toMatchObject({ vendor: "ksp_eilat", ok: 0 });
+    expect(t.pushes[0].body.title).toBe("KSP Eilat blocked the scraper");
+    expect(
+      (await handleEvent(event({ vendor: "ksp_detail", outcome: "failed" }), t.env, at, t.fetcher))
+        .status
+    ).toBe(201);
+    expect(
+      (await handleEvent(event({ vendor: "madeup", outcome: "ok" }), t.env, at, t.fetcher)).status
+    ).toBe(400);
   });
 });
 
@@ -435,7 +629,9 @@ describe("admin password", () => {
 
   it("is locked (403) when no ADMIN_PASSWORD is set", async () => {
     const t = setup();
-    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("x")), t.env)).status).toBe(403);
+    expect(
+      (await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("x")), t.env)).status
+    ).toBe(403);
     const page = await handleAdminPage(req("/admin/"), new URL("https://x/admin/"), t.env);
     expect(page.status).toBe(403);
   });
@@ -445,24 +641,76 @@ describe("admin password", () => {
     const none = await handleAdmin("/api/admin/runs", req("/api/admin/runs"), t.env);
     expect(none.status).toBe(401);
     expect(none.headers.get("www-authenticate")).toContain("Basic");
-    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("wrong")), t.env)).status).toBe(401);
-    expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("correct horse battery")), t.env)).status).toBe(200);
-    expect((await handleAdmin("/api/admin/alerts", req("/api/admin/alerts", basic("correct horse battery")), t.env)).status).toBe(200);
-    expect((await handleAdmin("/api/admin/nope", req("/api/admin/nope", basic("correct horse battery")), t.env)).status).toBe(404);
+    expect(
+      (await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("wrong")), t.env)).status
+    ).toBe(401);
+    expect(
+      (
+        await handleAdmin(
+          "/api/admin/runs",
+          req("/api/admin/runs", basic("correct horse battery")),
+          t.env
+        )
+      ).status
+    ).toBe(200);
+    expect(
+      (
+        await handleAdmin(
+          "/api/admin/alerts",
+          req("/api/admin/alerts", basic("correct horse battery")),
+          t.env
+        )
+      ).status
+    ).toBe(200);
+    expect(
+      (
+        await handleAdmin(
+          "/api/admin/nope",
+          req("/api/admin/nope", basic("correct horse battery")),
+          t.env
+        )
+      ).status
+    ).toBe(404);
   });
 
   it("serves only the page and its three data files", async () => {
     const t = withPassword();
-    t.setChecks({ schema: 1, generated_at: "x", night: "x", suite: "publish", escalate_nights: 3, blocked: false, checks: [] });
+    t.setChecks({
+      schema: 1,
+      generated_at: "x",
+      night: "x",
+      suite: "publish",
+      escalate_nights: 3,
+      blocked: false,
+      checks: [],
+    });
     const ok = basic("correct horse battery");
     const page = (p: string) => handleAdminPage(req(p, ok), new URL(`https://x${p}`), t.env);
     expect((await page("/admin/data/status.json")).status).toBe(200);
     expect((await page("/admin/data/checks.json")).status).toBe(200);
-    expect((await handleAdminPage(req("/admin/data/checks.json"), new URL("https://x/admin/data/checks.json"), t.env)).status).toBe(401);
-    expect((await page("/admin/data/status.json")).headers.get("cache-control")).toBe("private, no-store");
+    expect(
+      (
+        await handleAdminPage(
+          req("/admin/data/checks.json"),
+          new URL("https://x/admin/data/checks.json"),
+          t.env
+        )
+      ).status
+    ).toBe(401);
+    expect((await page("/admin/data/status.json")).headers.get("cache-control")).toBe(
+      "private, no-store"
+    );
     expect((await page("/admin/data/memory.json")).status).toBe(404);
     expect((await page("/admin/../wrangler.jsonc")).status).toBe(404);
-    expect((await handleAdminPage(req("/admin/data/status.json"), new URL("https://x/admin/data/status.json"), t.env)).status).toBe(401);
+    expect(
+      (
+        await handleAdminPage(
+          req("/admin/data/status.json"),
+          new URL("https://x/admin/data/status.json"),
+          t.env
+        )
+      ).status
+    ).toBe(401);
   });
 
   it("Rebuild report dispatches ops-report.yml once per 5 minutes", async () => {
@@ -476,26 +724,52 @@ describe("admin password", () => {
     const post = (headers: Record<string, string> = {}) =>
       new Request("https://x/api/admin/rebuild", {
         method: "POST",
-        headers: { "cf-connecting-ip": `198.51.100.${++ipSeq}`, authorization: basic("correct horse battery"), ...headers },
+        headers: {
+          "cf-connecting-ip": `198.51.100.${++ipSeq}`,
+          authorization: basic("correct horse battery"),
+          ...headers,
+        },
       });
     // No token configured: a clear 501, nothing sent.
     expect((await handleAdmin("/api/admin/rebuild", post(), t.env, gh)).status).toBe(501);
     t.env.GH_DISPATCH_TOKEN = "github_pat_test";
     // Cross-site POST refused before anything is sent.
-    expect((await handleAdmin("/api/admin/rebuild", post({ "sec-fetch-site": "cross-site" }), t.env, gh)).status).toBe(403);
+    expect(
+      (await handleAdmin("/api/admin/rebuild", post({ "sec-fetch-site": "cross-site" }), t.env, gh))
+        .status
+    ).toBe(403);
     expect(calls).toHaveLength(0);
-    const ok = await handleAdmin("/api/admin/rebuild", post({ "sec-fetch-site": "same-origin" }), t.env, gh);
+    const ok = await handleAdmin(
+      "/api/admin/rebuild",
+      post({ "sec-fetch-site": "same-origin" }),
+      t.env,
+      gh
+    );
     expect(ok.status).toBe(202);
-    expect(calls[0].url).toBe("https://api.github.com/repos/Av1zi/Mifrat/actions/workflows/ops-report.yml/dispatches");
+    expect(calls[0].url).toBe(
+      "https://api.github.com/repos/Av1zi/Mifrat/actions/workflows/ops-report.yml/dispatches"
+    );
     expect(new Headers(calls[0].init?.headers).get("authorization")).toBe("Bearer github_pat_test");
     expect(JSON.parse(String(calls[0].init?.body))).toEqual({ ref: "main" });
     expect((await handleAdmin("/api/admin/rebuild", post(), t.env, gh)).status).toBe(429);
     expect(calls).toHaveLength(1);
     // Needs the password and POST.
     resetRebuildCooldown();
-    const noAuth = new Request("https://x/api/admin/rebuild", { method: "POST", headers: { "cf-connecting-ip": "198.51.100.250" } });
+    const noAuth = new Request("https://x/api/admin/rebuild", {
+      method: "POST",
+      headers: { "cf-connecting-ip": "198.51.100.250" },
+    });
     expect((await handleAdmin("/api/admin/rebuild", noAuth, t.env, gh)).status).toBe(401);
-    expect((await handleAdmin("/api/admin/rebuild", req("/api/admin/rebuild", basic("correct horse battery")), t.env, gh)).status).toBe(405);
+    expect(
+      (
+        await handleAdmin(
+          "/api/admin/rebuild",
+          req("/api/admin/rebuild", basic("correct horse battery")),
+          t.env,
+          gh
+        )
+      ).status
+    ).toBe(405);
     expect(calls).toHaveLength(1);
   });
 
@@ -504,9 +778,18 @@ describe("admin password", () => {
     t.env.GH_DISPATCH_TOKEN = "github_pat_test";
     resetRebuildCooldown();
     const gh = (async () => new Response("{}", { status: 403 })) as unknown as typeof fetch;
-    const res = await handleAdmin("/api/admin/rebuild", new Request("https://x/api/admin/rebuild", {
-      method: "POST", headers: { "cf-connecting-ip": "198.51.100.251", authorization: basic("correct horse battery") },
-    }), t.env, gh);
+    const res = await handleAdmin(
+      "/api/admin/rebuild",
+      new Request("https://x/api/admin/rebuild", {
+        method: "POST",
+        headers: {
+          "cf-connecting-ip": "198.51.100.251",
+          authorization: basic("correct horse battery"),
+        },
+      }),
+      t.env,
+      gh
+    );
     expect(res.status).toBe(502);
     expect(((await res.json()) as { error: string }).error).toContain("HTTP 403");
   });
@@ -515,9 +798,21 @@ describe("admin password", () => {
     const t = withPassword();
     const ip = "203.0.113.77";
     for (let i = 0; i < 10; i++) {
-      expect((await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic(`guess${i}`), ip), t.env)).status).toBe(401);
+      expect(
+        (
+          await handleAdmin(
+            "/api/admin/runs",
+            req("/api/admin/runs", basic(`guess${i}`), ip),
+            t.env
+          )
+        ).status
+      ).toBe(401);
     }
-    const locked = await handleAdmin("/api/admin/runs", req("/api/admin/runs", basic("correct horse battery"), ip), t.env);
+    const locked = await handleAdmin(
+      "/api/admin/runs",
+      req("/api/admin/runs", basic("correct horse battery"), ip),
+      t.env
+    );
     expect(locked.status).toBe(429);
   });
 

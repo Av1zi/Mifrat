@@ -6,7 +6,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
-mkdir -p "$TMP/bin" "$TMP/home/.config/pc-parts-il"
+mkdir -p "$TMP/bin" "$TMP/home/.config/pc-parts-il" "$TMP/state/pc-parts-il"
 cat > "$TMP/home/.config/pc-parts-il/notify.env" <<'EOF'
 OPS_EVENT_URL=https://worker.example/api/ops/event
 OPS_INGEST_TOKEN=test-token
@@ -38,11 +38,13 @@ fail=0
 run() {
   local name="$1" unit="$2" mode="$3" log="$4" result="$5" want="$6"
   : > "$TMP/curl.log"
-  HOME="$TMP/home" XDG_CONFIG_HOME="$TMP/home/.config" PATH="$TMP/bin:$PATH" \
+  HOME="$TMP/home" XDG_CONFIG_HOME="$TMP/home/.config" XDG_STATE_HOME="$TMP/state" \
+    MSYS2_ENV_CONV_EXCL=XDG_STATE_HOME MIFRAT_NIGHT=2026-11-18 PATH="$TMP/bin:$PATH" \
     CURL_LOG="$TMP/curl.log" FAKE_LOG="$log" FAKE_RESULT="$result" \
     FAKE_WORKER_DOWN="${WORKER_DOWN:-0}" \
     bash "$ROOT/nano/ops_notify.sh" "$unit" $mode > /dev/null 2>&1 || true
-  if grep -q -- "$want" "$TMP/curl.log"; then
+  if { [ "$want" = no-event ] && [ ! -s "$TMP/curl.log" ]; } || \
+     { [ "$want" != no-event ] && grep -q -- "$want" "$TMP/curl.log"; }; then
     echo "[ops-notify] ok   $name"
   else
     echo "[ops-notify] FAIL $name: wanted '$want' in:"; sed 's/^/    /' "$TMP/curl.log"
@@ -60,6 +62,21 @@ CloseSpider: blocked_2x" exit-code '"outcome":"blocked"'
 run "ksp block" pc-parts-il-ksp.service "" \
   "[ksp] HTTP 403 cf-mitigated: challenge
 ksp blocked - no snapshot written" exit-code '"outcome":"blocked"'
+run "detail unit maps to phase" pc-parts-il-ksp-detail.service "" \
+  "ksp_detail blocked 403" exit-code '"vendor":"ksp_detail"'
+printf '{"outcome":"blocked","items":7}\n' > "$TMP/state/pc-parts-il/ksp-2026-11-18.detail.json"
+run "structured detail block beats exit zero" pc-parts-il-ksp-detail.service success \
+  "spider closed finished" success '"outcome":"blocked","items":7'
+rm "$TMP/state/pc-parts-il/ksp-2026-11-18.detail.json"
+run "skipped detail is not a successful crawl" pc-parts-il-ksp-detail.service success \
+  "[run_ksp_detail] no KSP listing success tonight - skipping" success no-event
+# No event is the expected result; unlike the generic run helper, assert it
+# explicitly rather than searching for a payload.
+if [ -s "$TMP/curl.log" ]; then echo '[ops-notify] FAIL skipped detail sent an event'; fail=1; fi
+touch "$TMP/state/pc-parts-il/ksp-2026-11-18.success"
+run "optional failure does not undo listing publication" pc-parts-il-ksp.service "" \
+  "ksp blocked the Eilat crawl" exit-code '"vendor":"ksp","outcome":"ok"'
+rm "$TMP/state/pc-parts-il/ksp-2026-11-18.success"
 run "partial" pc-parts-il-ksp.service "" \
   "[ksp] category 2: 43 of 53
 ksp incomplete - item floor" exit-code '"outcome":"partial"'
@@ -68,7 +85,7 @@ run "crash" pc-parts-il-onepc.service "" \
 run "timeout" pc-parts-il-tms.service "" "" timeout '"outcome":"failed","items":null,"detail":"timeout'
 run "bearer token sent" pc-parts-il-onepc.service success "1 items" success 'Authorization: Bearer test-token'
 run "credentials scrubbed" pc-parts-il-onepc.service "" \
-  "[error] fatal: https://user:ghp_secret@github.com/x" exit-code 'https://\*\*\*@github.com'
+  "[error] fatal: https://user:ghp_secret@github.com/x" exit-code 'inspect the redacted Nano diagnostics'
 WORKER_DOWN=1 run "worker down -> ntfy direct" pc-parts-il-ksp.service "" \
   "ksp blocked - no snapshot written" exit-code 'Priority: 5'
 

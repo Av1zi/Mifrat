@@ -10,7 +10,8 @@ trap 'rm -rf "$TMP"' EXIT
 PYTHON_BIN="$(command -v python3 || command -v python)"
 
 REPO="$TMP/repo"
-mkdir -p "$REPO/scraper" "$REPO/scripts" "$TMP/bin" "$TMP/state"
+mkdir -p "$REPO/scraper" "$REPO/scripts" "$REPO/nano" "$TMP/bin" "$TMP/state"
+cp "$ROOT/nano/run_state.sh" "$REPO/nano/run_state.sh"
 cp "$ROOT/scraper/night.py" "$REPO/scraper/night.py"
 cat > "$REPO/scripts/git_commit_push.sh" <<'EOF'
 #!/usr/bin/env bash
@@ -30,6 +31,12 @@ case "$1" in rev-parse) echo deadbeef ;; esac
 exit 0
 EOF
 chmod +x "$TMP/bin/"* "$REPO/scripts/git_commit_push.sh"
+if ! command -v flock >/dev/null; then
+    # Git Bash has no flock; the KSP state check exercises contention with a
+    # stub there. On Linux this fixture uses the actual shared checkout lock.
+    printf '#!/usr/bin/env bash\nexit 0\n' > "$TMP/bin/flock"
+    chmod +x "$TMP/bin/flock"
+fi
 
 # The script hard-codes the Nano's paths; point them at the sandbox.
 sed -e "s#/home/avizi/pc-parts-il#$REPO#" \
