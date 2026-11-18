@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T21:56:47.801936+00:00",
+  "generated_at": "2026-11-18T15:11:46.267781+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 99,
+      "count": 98,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -24,7 +24,7 @@
     {
       "category": "gpu",
       "label": "רזולוציה",
-      "count": 78,
+      "count": 79,
       "products": [
         "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb",
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
@@ -242,13 +242,13 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "תאימות",
+      "category": "gpu",
+      "label": "ממשק זיכרון",
       "count": 27,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
-        "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
-        "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white"
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -282,16 +282,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
-      "count": 25,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
       "category": "motherboard",
       "label": "חיבורים פנימיים",
       "count": 25,
@@ -312,6 +302,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "תאימות",
+      "count": 24,
+      "products": [
+        "model:memory:2x16gb-3600mt-cl18-ripjaws-s-v-32gb-x2-3600mhz-cl18-black",
+        "model:memory:2x16gb-5600mt-cl30-fit-s-v-32gb-x2-5600mhz-cl30-white",
+        "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "תצורה",
       "count": 24,
@@ -319,6 +319,16 @@
         "model:motherboard:12th-13th-b760-ddr5-dp-f-gaming-hdmi-lga1700-rog-series-strix-strix-wifi-atx",
         "model:motherboard:a-am5-b840m-prime-wifi-microatx",
         "model:motherboard:a-b760-gaming-rog-strix-wifi-atx"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 23,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:225",
+        "model:cpu:225-tray"
       ]
     },
     {
@@ -377,8 +387,28 @@
       "count": 22,
       "products": [
         "model:storage:0-3-nm610-pro-500gb-nvme-m22280",
-        "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
-        "model:storage:2-m-nm790-4000gb-pciegen4x4-m22280"
+        "model:storage:14-5-heatsink-no-s-series-t710-1000gb-nvme-m22280",
+        "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 21,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 21,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
       ]
     },
     {
@@ -392,23 +422,13 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
+      "category": "cpu",
+      "label": "תכונות נוספות",
       "count": 20,
       "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 20,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:5500-tray",
+        "model:cpu:5700x-tray"
       ]
     },
     {
@@ -419,6 +439,16 @@
         "model:cooler_air:1700-coolermaster-i70c-lga-70mm-120mm",
         "model:cooler_air:17xx-cooler-cpu-l9i-nh-40mm-92mm",
         "model:cooler_air:1u-775-cl-low-p0172-passive-profile-black"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צריכת חשמל",
+      "count": 20,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -489,26 +519,6 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:110r-mag-pano-pz-white"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 19,
-      "products": [
-        "model:cpu:225",
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "צריכת חשמל",
-      "count": 19,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -612,16 +622,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "תכונות נוספות",
-      "count": 17,
-      "products": [
-        "model:cpu:5500-tray",
-        "model:cpu:5700x-tray",
-        "model:cpu:5800x3d"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "תכולה",
       "count": 17,
@@ -677,8 +677,8 @@
       "count": 17,
       "products": [
         "model:storage:001-a-brkt-fd",
-        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
-        "model:storage:1tb-2-5-iii-sata-ssd-x8-1000gb-sata-25"
+        "model:storage:14-5-heatsink-no-s-series-t710-1000gb-nvme-m22280",
+        "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280"
       ]
     },
     {
@@ -709,6 +709,16 @@
         "model:aio:04cfm-240mm-75-argb-coreliquid-e240-light-mag-mystic-white-240mm-black",
         "model:aio:240-a13-coreliquid-mag-240mm-white",
         "model:aio:240-chione-e4-240mm"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "כרטיס גרפי",
+      "count": 16,
+      "products": [
+        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
+        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
+        "model:gpu:2x-5060-8g-geforce-plus-rtx-ti-ventus-8gb"
       ]
     },
     {
@@ -752,26 +762,6 @@
       ]
     },
     {
-      "category": "other",
-      "label": "נפח זיכרון",
-      "count": 16,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ממשק",
-      "count": 16,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
       "category": "aio",
       "label": "מאווררים",
       "count": 15,
@@ -789,26 +779,6 @@
         "model:case:100r-mag-pano-pz",
         "model:case:100r-mag-pano-pz-white",
         "model:case:130r-mag-midi-pano-pz-tower-white"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "כרטיס גרפי",
-      "count": 15,
-      "products": [
-        "model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
-        "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "רזולוציה דיגיטלית מקסימלית",
-      "count": 15,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -859,26 +829,6 @@
         "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280",
         "model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
         "model:storage:1t92q-asu630ss-r-su630-1920gb-sata-25"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מעבד",
-      "count": 15,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סוג זכרון",
-      "count": 15,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
       ]
     },
     {
@@ -972,6 +922,16 @@
       ]
     },
     {
+      "category": "gpu",
+      "label": "רזולוציה דיגיטלית מקסימלית",
+      "count": 14,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:2xdp-2xhdmi-5050-8gb-gaming-gddr7-geforce-oc-rtx-8gb"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "חיבורים ויציאות",
       "count": 14,
@@ -1049,16 +1009,6 @@
         "model:psu:0-5-elite-ice-modular-p1000w-1000w-full-white",
         "model:psu:0-5-elite-modular-p1000w-1000w-full-black",
         "model:psu:1-1-1000w-140mm-3-5-active-atx-gold-pcie-pfc-ready-rm1000x-rmx-series-1000w-black"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סוג האחסון",
-      "count": 14,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554"
       ]
     },
     {
@@ -1209,26 +1159,6 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מעבד גרפי",
-      "count": 13,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח אחסון",
-      "count": 13,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
       ]
     },
     {
@@ -1383,6 +1313,56 @@
     },
     {
       "category": "gpu",
+      "label": "HDMI",
+      "count": 12,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "DisplayPort",
+      "count": 12,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק חיבור",
+      "count": 12,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ליבות מעבד גרפי",
+      "count": 12,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכה ברזולוציה",
+      "count": 12,
+      "products": [
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "HDMI version",
       "count": 12,
       "products": [
@@ -1426,9 +1406,9 @@
       "label": "דרישות מערכת",
       "count": 12,
       "products": [
+        "model:gpu:16gb-1xhdmi-3xdp-5060ti-dual-fan-gddr7-geforce-rtx-16gb",
         "model:gpu:2000-4x61t95638-lenovo-pro-rtx-16gb",
-        "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb",
-        "model:gpu:5050-dual-fan-gddr6-rtx-8gb"
+        "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb"
       ]
     },
     {
@@ -1522,8 +1502,18 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "יכולות AI",
+      "count": 11,
+      "products": [
+        "model:cpu:225",
+        "model:cpu:225-tray",
+        "model:cpu:225f-tray"
+      ]
+    },
+    {
       "category": "gpu",
-      "label": "HDMI",
+      "label": "תמיכה ב G-SYNC",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -1533,7 +1523,7 @@
     },
     {
       "category": "gpu",
-      "label": "DisplayPort",
+      "label": "dvi",
       "count": 11,
       "products": [
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
@@ -1543,32 +1533,12 @@
     },
     {
       "category": "gpu",
-      "label": "ממשק חיבור",
+      "label": "חיבור לספק כח",
       "count": 11,
       "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ליבות מעבד גרפי",
-      "count": 11,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ברזולוציה",
-      "count": 11,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
+        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb",
+        "model:gpu:16g-2x-5060-geforce-oc-plus-rtx-shadow-ti-16gb"
       ]
     },
     {
@@ -1612,13 +1582,13 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "מתח עבודה",
+      "category": "gpu",
+      "label": "ליבות CUDA",
       "count": 11,
       "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm",
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
-        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm"
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:2g-brk-gt1030-2gb",
+        "model:gpu:2g-brk-gt1030-sl-2gb"
       ]
     },
     {
@@ -1752,16 +1722,6 @@
       ]
     },
     {
-      "category": "other",
-      "label": "כרטיס רשת",
-      "count": 11,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-206632"
-      ]
-    },
-    {
       "category": "aio",
       "label": "רזולוציה",
       "count": 10,
@@ -1802,16 +1762,6 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "יכולות AI",
-      "count": 10,
-      "products": [
-        "model:cpu:225",
-        "model:cpu:225-tray",
-        "model:cpu:225f-tray"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "D-SUB",
       "count": 10,
@@ -1819,46 +1769,6 @@
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
         "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכה ב G-SYNC",
-      "count": 10,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "dvi",
-      "count": 10,
-      "products": [
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "חיבור לספק כח",
-      "count": 10,
-      "products": [
-        "model:gpu:12g-2x-5070-oc-rtx-ventus-12gb",
-        "model:gpu:12g-3x-5070-geforce-oc-rtx-shadow-12gb",
-        "model:gpu:16g-2x-5060-geforce-oc-plus-rtx-shadow-ti-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "ליבות CUDA",
-      "count": 10,
-      "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
-        "model:gpu:2g-brk-gt1030-2gb",
-        "model:gpu:2g-brk-gt1030-sl-2gb"
       ]
     },
     {
@@ -1903,12 +1813,12 @@
     },
     {
       "category": "memory",
-      "label": "תצורת זיכרון",
+      "label": "מתח עבודה",
       "count": 10,
       "products": [
-        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
-        "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-x1-6000mhz-cl30-rgb-black-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm",
+        "model:memory:16gb-6000mhz-ax5u6000c4816g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-6000mhz-cl48-rgb-white-dimm"
       ]
     },
     {
@@ -2113,6 +2023,16 @@
     },
     {
       "category": "memory",
+      "label": "תצורת זיכרון",
+      "count": 9,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
+        "model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl40-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "סוג חיבור",
       "count": 9,
       "products": [
@@ -2179,16 +2099,6 @@
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:500-e1-helios-pro-black",
         "model:psu:600-e1-helios-pro-black"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "כרטיס גרפי",
-      "count": 9,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206634"
       ]
     },
     {
@@ -2313,7 +2223,7 @@
     },
     {
       "category": "other",
-      "label": "חיבורי תקשורת",
+      "label": "מעבד",
       "count": 8,
       "products": [
         "other:1pc:1pc-133260",
@@ -2323,32 +2233,42 @@
     },
     {
       "category": "other",
-      "label": "אחסון",
+      "label": "נפח זיכרון",
       "count": 8,
       "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
       ]
     },
     {
       "category": "other",
-      "label": "יציאות וחיבורים",
+      "label": "סוג האחסון",
       "count": 8,
       "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
       ]
     },
     {
       "category": "other",
-      "label": "זיכרון",
+      "label": "ממשק",
       "count": 8,
       "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850",
-        "other:1pc:1pc-188068"
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "חיבורי תקשורת",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
       ]
     },
     {
@@ -2543,26 +2463,6 @@
     },
     {
       "category": "storage",
-      "label": "מהירות כתיבה רציפה",
-      "count": 7,
-      "products": [
-        "model:storage:0-2280-4-p310-1000gb-pcie4-m22280",
-        "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
-        "model:storage:5100-optimus-500gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה רציפה",
-      "count": 7,
-      "products": [
-        "model:storage:0-2280-4-p310-1000gb-pcie4-m22280",
-        "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
-        "model:storage:5100-optimus-500gb-pcie4-m22280"
-      ]
-    },
-    {
-      "category": "storage",
       "label": "בקר",
       "count": 7,
       "products": [
@@ -2629,6 +2529,36 @@
         "mpn:accessories:antecax61temperedglass",
         "mpn:accessories:antecp20temperedglass",
         "mpn:accessories:cc8900548"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מעבד גרפי",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג זכרון",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "נפח אחסון",
+      "count": 7,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206610"
       ]
     },
     {
@@ -2768,7 +2698,7 @@
       "products": [
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb"
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
       ]
     },
     {
@@ -2823,6 +2753,26 @@
     },
     {
       "category": "storage",
+      "label": "מהירות כתיבה רציפה",
+      "count": 6,
+      "products": [
+        "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
+        "model:storage:5100-optimus-500gb-pcie4-m22280",
+        "model:storage:960gb-s270-spatium-960gb-sata"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה רציפה",
+      "count": 6,
+      "products": [
+        "model:storage:0-2280-4-p310-tray-2000gb-pcie4-m22280",
+        "model:storage:5100-optimus-500gb-pcie4-m22280",
+        "model:storage:960gb-s270-spatium-960gb-sata"
+      ]
+    },
+    {
+      "category": "storage",
       "label": "מהירות",
       "count": 6,
       "products": [
@@ -2859,36 +2809,6 @@
         "model:storage:2-5-s270-sata-spatium-240gb-sata-25",
         "model:storage:2-5-s270-sata-spatium-960gb-sata-25",
         "model:storage:3d-a58-ace-nand-sp001tbss3a58a25-1000gb-sata-25"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "רזולוציה",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "קישוריות",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "משקל המוצר",
-      "count": 6,
-      "products": [
-        "other:1pc:1pc-188068",
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337"
       ]
     },
     {
@@ -3017,7 +2937,7 @@
       "count": 5,
       "products": [
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
-        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb",
+        "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white",
         "model:gpu:5060-dual-gddr7-oc-rtx-ti-8gb-multicolour"
       ]
     },
@@ -3133,6 +3053,16 @@
     },
     {
       "category": "other",
+      "label": "כרטיס רשת",
+      "count": 5,
+      "products": [
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-206632",
+        "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "other",
       "label": "USB 2.0",
       "count": 5,
       "products": [
@@ -3149,16 +3079,6 @@
         "other:1pc:1pc-206610",
         "other:1pc:1pc-206632",
         "other:1pc:1pc-206634"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ערכת שבבים",
-      "count": 5,
-      "products": [
-        "other:1pc:1pc-216327",
-        "other:1pc:1pc-216337",
-        "other:1pc:1pc-216340"
       ]
     },
     {
@@ -4333,16 +4253,6 @@
     },
     {
       "category": "gpu",
-      "label": "ליבות CUDA®",
-      "count": 3,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
       "label": "קצב רענון",
       "count": 3,
       "products": [
@@ -5120,6 +5030,16 @@
       ]
     },
     {
+      "category": "other",
+      "label": "כרטיס גרפי",
+      "count": 3,
+      "products": [
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206634",
+        "other:1pc:1pc-209884"
+      ]
+    },
+    {
       "category": "aio",
       "label": "גובה (ממ)",
       "count": 2,
@@ -5813,6 +5733,15 @@
     },
     {
       "category": "gpu",
+      "label": "יציאות וידאו",
+      "count": 2,
+      "products": [
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb",
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "מספר צגים מרבי",
       "count": 2,
       "products": [
@@ -5822,65 +5751,11 @@
     },
     {
       "category": "gpu",
-      "label": "תמיכת DirectX",
+      "label": "ליבות CUDA®",
       "count": 2,
       "products": [
         "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "תמיכת OpenGL",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מספר מסכים מקסימלי",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "פורטים",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "צריכת כוח",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מחברי כוח",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מידות כרטיס (מ״מ)",
-      "count": 2,
-      "products": [
-        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
-        "model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb"
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
       ]
     },
     {
@@ -7476,38 +7351,11 @@
     },
     {
       "category": "other",
-      "label": "תכונות נוספות",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ממדי המוצר",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-140488",
-        "other:1pc:1pc-160850"
-      ]
-    },
-    {
-      "category": "other",
       "label": "דגם מעבד",
       "count": 2,
       "products": [
         "other:1pc:1pc-206634",
         "other:1pc:1pc-209884"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "גודל מסך מסונן",
-      "count": 2,
-      "products": [
-        "other:1pc:1pc-216337",
-        "other:1pc:1pc-216346"
       ]
     },
     {
@@ -8323,7 +8171,7 @@
     },
     {
       "category": "gpu",
-      "label": "יציאות וידאו",
+      "label": "מחבר חשמל",
       "count": 1,
       "products": [
         "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
@@ -8331,10 +8179,58 @@
     },
     {
       "category": "gpu",
-      "label": "מחבר חשמל",
+      "label": "תמיכת DirectX",
       "count": 1,
       "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תמיכת OpenGL",
+      "count": 1,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מספר מסכים מקסימלי",
+      "count": 1,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "פורטים",
+      "count": 1,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צריכת כוח",
+      "count": 1,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מחברי כוח",
+      "count": 1,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מידות כרטיס (מ״מ)",
+      "count": 1,
+      "products": [
+        "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb"
       ]
     },
     {
@@ -8543,6 +8439,14 @@
       "count": 1,
       "products": [
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "d-sub",
+      "count": 1,
+      "products": [
+        "model:gpu:2x-5060-8g-geforce-plus-rtx-ti-ventus-8gb"
       ]
     },
     {
@@ -8854,7 +8758,7 @@
       "label": "Stream Processors",
       "count": 1,
       "products": [
-        "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb"
+        "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb"
       ]
     },
     {
@@ -8862,7 +8766,7 @@
       "label": "NVlink/ Crossfire Support",
       "count": 1,
       "products": [
-        "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb"
+        "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb"
       ]
     },
     {
@@ -8870,7 +8774,7 @@
       "label": "Accessories",
       "count": 1,
       "products": [
-        "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb"
+        "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb"
       ]
     },
     {
@@ -8878,7 +8782,87 @@
       "label": "Slot",
       "count": 1,
       "products": [
-        "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb"
+        "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "נפח זיכרון הווידאו",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "קצב העברת נתוני הזיכרון",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "סוג זיכרון הווידאו",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "קישוריות ממשק",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מק״ט יצרן",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מסכים ורזולוציה דיגיטלית מרבית",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מחבר מתח וספק כוח מומלץ למערכת",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "דגם כרטיס המסך",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "טכנולוגיית גיימינג",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "תדר Boost",
+      "count": 1,
+      "products": [
+        "model:gpu:a-dual-o8g-rtx5060-8gb"
       ]
     },
     {
@@ -9111,14 +9095,6 @@
       "count": 1,
       "products": [
         "model:memory:16g-jm5600ale-udimm-16gb"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מיועד עבור",
-      "count": 1,
-      "products": [
-        "model:memory:16g21-es-psh-16gb-3200mhz-cl22-dimm"
       ]
     },
     {
@@ -11918,7 +11894,7 @@
       "label": "מותאם ל-NAS עם NASware™",
       "count": 1,
       "products": [
-        "model:storage:nas-wd80efpx-8000gb-35"
+        "model:storage:nas-wd80efpx-8000gb-sata-35"
       ]
     },
     {
@@ -11926,7 +11902,7 @@
       "label": "תוכנן לפעולה רציפה",
       "count": 1,
       "products": [
-        "model:storage:nas-wd80efpx-8000gb-35"
+        "model:storage:nas-wd80efpx-8000gb-sata-35"
       ]
     },
     {
@@ -11934,7 +11910,7 @@
       "label": "מותאם ל-TCO נמוך",
       "count": 1,
       "products": [
-        "model:storage:nas-wd80efpx-8000gb-35"
+        "model:storage:nas-wd80efpx-8000gb-sata-35"
       ]
     },
     {
@@ -11942,7 +11918,7 @@
       "label": "ביצועים חזקים",
       "count": 1,
       "products": [
-        "model:storage:nas-wd80efpx-8000gb-35"
+        "model:storage:nas-wd80efpx-8000gb-sata-35"
       ]
     },
     {
@@ -11950,7 +11926,7 @@
       "label": "מאוזנים לאמינות מוגברת",
       "count": 1,
       "products": [
-        "model:storage:nas-wd80efpx-8000gb-35"
+        "model:storage:nas-wd80efpx-8000gb-sata-35"
       ]
     },
     {
@@ -12179,30 +12155,6 @@
     },
     {
       "category": "other",
-      "label": "קצב רענון",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "גודל תצוגה",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "רזולוציית תצוגה",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-188068"
-      ]
-    },
-    {
-      "category": "other",
       "label": "רמקולים",
       "count": 1,
       "products": [
@@ -12231,14 +12183,6 @@
       "count": 1,
       "products": [
         "other:1pc:1pc-215610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "מסך מגע",
-      "count": 1,
-      "products": [
-        "other:1pc:1pc-216327"
       ]
     },
     {
