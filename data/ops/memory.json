@@ -2372,7 +2372,7 @@
 "1pc:223031":"model:storage:500gb-m450-spatium-v1-500gb-pcie4",
 "1pc:223032":"model:storage:960gb-s270-spatium-960gb-sata",
 "1pc:223033":"model:gpu:32g-5090-geforce-rtx-soc-suprim-32gb",
-"1pc:223066":"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
+"1pc:223066":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm",
 "1pc:223067":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
 "1pc:223068":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm",
 "1pc:223069":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
@@ -7036,6 +7036,7 @@
 "tms:12CL1W3W":"model:case_fan:cl-fan-fans-uni-wireless-x3-120mm-3-rgb-white",
 "tms:12P283W":"model:case_fan:3-cooler-fan-p28-p28120-uni-120mm-3-white",
 "tms:12RCL1F1B":"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black",
+"tms:12RCL1F1W":"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm",
 "tms:12RCL1F3B":"model:case_fan:3-cl-fan-flex-reverse-uni-120mm-3-rgb-black",
 "tms:12RCL1F3W":"model:case_fan:3-cl-fan-flex-reverse-uni-120mm-3-rgb-white",
 "tms:12RCL1W1B":"model:case_fan:120mm-blade-cl-fan-reverse-uni-wireless-120mm-1-rgb-black",
@@ -7206,6 +7207,7 @@
 "tms:90-SXGF00-A0UAYF":"model:motherboard:2l2t-asrockrack-turind8-ssiceb",
 "tms:90-SXGF60-A0UAYF":"model:motherboard:2t-motherboard-rack-turind8x-ssieeb",
 "tms:90-SXGFK0-A0XBNZ":"model:motherboard:2l2t-rack-w890d8-ssiceb",
+"tms:900-14933-2502-000":"model:gpu:4-nvlink-rtx-slot-titan",
 "tms:900-5G132-2240-000":"mpn:gpu:9005g1322240000",
 "tms:900-5G133-2240-000":"mpn:gpu:9005g1332240000",
 "tms:900-5G133-2250-000":"mpn:gpu:9005g1332250000",
@@ -7591,6 +7593,7 @@
 "tms:C14100T":"model:cpu:14100-tray",
 "tms:C14400FT":"model:cpu:14400f-tray",
 "tms:C14400T":"model:cpu:14400-tray",
+"tms:C14600KFT":"model:cpu:14600kf-tray",
 "tms:C14600KT":"model:cpu:corei514600k-tray",
 "tms:C14700FT":"model:cpu:14700f-tray",
 "tms:C14700KB":"model:cpu:14700k",
@@ -7610,7 +7613,7 @@
 "tms:C245T":"model:cpu:245-tray",
 "tms:C250KFPLUST":"model:cpu:250kf-tray",
 "tms:C250KPLUST":"model:cpu:250k-tray",
-"tms:C265FT":"mpn:cpu:c265ft-tray",
+"tms:C265FT":"model:cpu:265f-tray",
 "tms:C265KFT":"model:cpu:265kf-tray",
 "tms:C265KT":"manual:cpu:1pc-189657-tms-c265kt",
 "tms:C265T":"model:cpu:265-tray",
@@ -7733,7 +7736,7 @@
 "tms:CMG64GX4M4E3200C16":"model:memory:0-2-3200-4x16gb-cl16-rs-vengeance-xmp-64gb-x4-3200mhz-cl16-rgb-black",
 "tms:CMH16GX4M2E3200C16":"model:memory:3200-8gbx2-cl16-pro-ram-sl-vengeance-16gb-3200mhz-cl16-rgb",
 "tms:CMH16GX5M1B5600C40":"model:memory:5600-cl40-vengeance-16gb-x1-5600mhz-cl40-rgb-black",
-"tms:CMH16GX5M1D6000Z38":"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
+"tms:CMH16GX5M1D6000Z38":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm",
 "tms:CMH16GX5M1D6000Z38W":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-white-dimm",
 "tms:CMH16GX5M2E6000Z36":"mpn:memory:cmh16gx5m2e6000z36",
 "tms:CMH32GX5M1D6000Z40-B":"model:memory:6000-bulk-cl40-cmh5x32g1d60z40a2-32gb-x1-6000mhz-cl40-black",
@@ -7884,6 +7887,11 @@
 "tms:CO-9051061-WW":"model:case_fan:9051061-black-co-expansion-frame-icue-ii-link-pwm-rgb-rx360-unified-ww-120mm-rgb-black",
 "tms:CO-9051062-WW":"model:case_fan:frame-icue-ii-link-pwm-rx360-unified-120mm-rgb-white-2",
 "tms:CO-9051063-WW":"model:case_fan:icue-ii-link-pwm-rx140-140mm-rgb-black",
+"tms:CO-9051065-WW":"mpn:accessories:co9051065ww",
+"tms:CO-9051066-WW":"mpn:accessories:co9051066ww",
+"tms:CO-9051067-WW":"mpn:accessories:co9051067ww",
+"tms:CO-9051068-WW":"mpn:accessories:co9051068ww",
+"tms:CO-9051071-WW":"mpn:accessories:co9051071ww",
 "tms:CP-9020087-EU":"mpn:psu:cp9020087eu",
 "tms:CP-9020257-EU":"model:psu:fully-modular-sf1000-sfx-1000w-full",
 "tms:CP-9020265-EU":"model:psu:fully-hx1000i-modular-shift-1000w-full",
@@ -7964,7 +7972,7 @@
 "tms:CT2000P310SSD8":"mpn:storage:ct2000p310ssd8",
 "tms:CT2000P510SSD8":"model:storage:2280-ct2000p510ssd8-p510-2000gb-m22280-m22280",
 "tms:CT2000T705SSD3":"mpn:storage:ct2000t705ssd3",
-"tms:CT2000T710SSD8":"mpn:storage:ct2000t710ssd8",
+"tms:CT2000T710SSD8":"model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
 "tms:CT4000T705SSD3":"model:storage:t705-4000gb-nvme-m22280",
 "tms:CT4000T705SSD5":"model:storage:t705-4000gb-nvme-m22280-2",
 "tms:CT64G64C52CU5":"model:memory:6400-cl52-cudimm-64gb-x1-6400mhz-cl52-black-dimm",
@@ -8002,6 +8010,7 @@
 "tms:CW-9061038-WW":"model:aio:360-aio-icue-ii-link-rx-titan-360mm-white",
 "tms:CW-9061045-WW":"model:aio:360-aio-icue-ii-lcd-link-rx-titan-360mm-black",
 "tms:CW-9061046-WW":"model:aio:360-aio-icue-ii-lcd-link-rx-titan-360mm-white",
+"tms:CW-9061049-WW":"model:aio:360-ii-nautilus-rs-360mm-black",
 "tms:CX200MARGB":"model:case:cx200m-black",
 "tms:CX200MRGBELITEW":"model:case:cx200m-cx200mrgbelitew-elite-black",
 "tms:CX300ARGB":"model:case:cx300-black",
@@ -8097,6 +8106,8 @@
 "tms:FB12S-6-WH":"model:cooler_air:6-cooler-cpu-fb12s-155mm-120mm-white",
 "tms:FBL09A12M2CX":"model:case_fan:90mm-case-fan-oem-panasonic-pwm-vapochill-90mm-black",
 "tms:FC7-BK-1IN1":"model:case_fan:fan-fc7-120mm-rgb-black",
+"tms:FD-C-DEF7A-01":"model:case:01-7-c-def7a-define-fd-black",
+"tms:FD-C-DEF7C-01":"model:case:01-7-c-compact-def7c-define-fd-black",
 "tms:FD-C-DEF7C-04":"model:case:7-clear-compact-define-tg-tint-white",
 "tms:FD-C-DEF7X-01":"model:case:7-define-xl-black",
 "tms:FD-C-EPO1A-04":"model:case:3x120mm-black-epoch-fans-included-light-momentum-rgb-rgb-tg-tint-black",
@@ -8128,6 +8139,7 @@
 "tms:FD-C-POA2A-03":"model:case:2-air-pop-tg-black",
 "tms:FD-C-POA2A-04":"model:case:2-air-pop-tg-white",
 "tms:FD-C-POR1X-06":"model:case:air-black-clear-pop-rgb-tg-tint-xl-black",
+"tms:FD-C-POS1M-01":"model:case:01-c-fd-pop-pos1m-silent-black",
 "tms:FD-C-POS1X-01":"model:case:01-c-fd-pop-pos1x-silent-xl-black",
 "tms:FD-C-POV2A-01":"mpn:case:fdcpov2a01",
 "tms:FD-C-POV2A-02":"model:case:2-pop-vision-black",
@@ -8144,6 +8156,9 @@
 "tms:FD-C-TOR1C-04":"model:case:04-c-compact-fd-solid-tor1c-torrent-black",
 "tms:FD-C-TOR1N-01":"model:case:01-c-dark-fd-nano-tg-tint-tor1n-torrent-black",
 "tms:FD-C-TOR1N-03":"model:case:light-nano-tg-tint-torrent-white-white",
+"tms:FD-F-DR3-1201":"model:case_fan:12-3-dynamic-rgb-black",
+"tms:FD-F-DR3-1204":"model:case_fan:12-3-dynamic-reverse-rgb-black",
+"tms:FD-F-DR3-1401":"model:case_fan:14-3-dynamic-rgb-black",
 "tms:FD-FAN-PRI-AL14-PWM":"model:case_fan:14-al-prisma-pwm-140mm-rgb-black",
 "tms:FD-FAN-PRI-AL14-PWM-WT":"model:case_fan:14-al-prisma-pwm-140mm-rgb-white",
 "tms:FD-W-2-S3602":"model:aio:2-celsius-fd-prisma-s36-s3602-w-360mm",
@@ -8213,6 +8228,7 @@
 "tms:GB550MKWIFI6E":"model:motherboard:b550m-k-wifi6e-microatx",
 "tms:GB550MXAORUSEL":"model:motherboard:aorus-b550m-elite-x-microatx",
 "tms:GB550MXAORUSELWF7":"model:motherboard:aorus-b550m-elite-wifi7-x-microatx",
+"tms:GB550XEAGLE":"model:motherboard:b550-eagle-x",
 "tms:GB550XEAGLEWF6E":"model:motherboard:b550-eagle-wifi6e-x-atx",
 "tms:GB550XGAMING":"model:motherboard:b550-gaming-x-atx",
 "tms:GB550XGAMINGWF7":"model:motherboard:b550-gaming-wifi7-x-atx",
@@ -8747,6 +8763,7 @@
 "tms:N1030D42GL":"model:gpu:1030-2g-2gl-d4-gt-gv-low-n1030d4-profile-2gb",
 "tms:N3050WF2OCV26GD":"model:gpu:3050-6g-6gd-geforce-gv-n3050wf2ocv2-oc-rtx-v2-windforce-6gb",
 "tms:N3060GAMINGOC8GD":"mpn:gpu:n3060gamingoc8gd",
+"tms:N3060GAMINGOC8GD2.0":"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx",
 "tms:N3060WF2OC12GD2.0":"mpn:gpu:n3060wf2oc12gd20",
 "tms:N307TGAMINGOC8GD":"model:gpu:3070-8gd-geforce-gv-n307tgaming-oc-rtx-ti-8gb",
 "tms:N3090TURBO24GD":"model:gpu:24gd-3090-gv-n3090turbo-rtx-24gb",
@@ -11791,6 +11808,10 @@
 ],
 "model:aio:360-icue-lcd-link-rx-titan-360mm-white":[
 "Corsair Titan RX White 360mm RGB LCD",
+"aio"
+],
+"model:aio:360-ii-nautilus-rs-360mm-black":[
+"Corsair Nautilus II RS 360mm ARGB Black",
 "aio"
 ],
 "model:aio:360-iv-rog-ryuo-360mm-black":[
@@ -15017,6 +15038,14 @@
 "Jonsbo XA-120B 120mm PWM ARGB Black",
 "case_fan"
 ],
+"model:case_fan:12-3-dynamic-reverse-rgb-black":[
+"Fractal Design Reverse RGB Black",
+"case_fan"
+],
+"model:case_fan:12-3-dynamic-rgb-black":[
+"Fractal Design FD DR3 1201 RGB Black",
+"case_fan"
+],
 "model:case_fan:12-af120-120mm-1-black":[
 "Ivory Gaming AF120 120mm PWM Black",
 "case_fan"
@@ -15481,6 +15510,10 @@
 "Ippon 120mm ARGB Blue",
 "case_fan"
 ],
+"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm":[
+"Lian Li UNI CL Flex 120mm White",
+"case_fan"
+],
 "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black":[
 "Lian Li 120mm UNI CL FLEX Reverse",
 "case_fan"
@@ -15671,6 +15704,10 @@
 ],
 "model:case_fan:12tl1w3w-3xfans-led-tl120-uni-white-wireless-120mm-3-rgb-white":[
 "Lian Li UNI TL120 Wireless 120mm ARGB White",
+"case_fan"
+],
+"model:case_fan:14-3-dynamic-rgb-black":[
+"Fractal Design FD DR3 1401 RGB Black",
 "case_fan"
 ],
 "model:case_fan:14-al-prisma-pwm-140mm-rgb-black":[
@@ -18318,7 +18355,7 @@
 "cpu"
 ],
 "model:cpu:14600kf-tray":[
-"Intel Core i5 14600KF Tray (CM8071504821014)",
+"Intel Core i5 14600KF Tray (C14600KFT)",
 "cpu"
 ],
 "model:cpu:14600kf-tray-2":[
@@ -18463,6 +18500,10 @@
 ],
 "model:cpu:265f":[
 "Intel Core Ultra 7 265F Box",
+"cpu"
+],
+"model:cpu:265f-tray":[
+"Intel Core Ultra 7 265F Tray",
 "cpu"
 ],
 "model:cpu:265k-tray":[
@@ -19120,6 +19161,10 @@
 "model:cpu:threadripperpro7985wx-tray":[
 "AMD Threadripper PRO 7985WX Tray",
 "cpu"
+],
+"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx":[
+"Gigabyte GeForce RTX 3060",
+"gpu"
 ],
 "model:gpu:000-14933-2502-4-900-nvlink-rtx-slot-titan":[
 "Nvidia NVLINK for TITAN RTX 4 slot 900 14933 2502 000",
@@ -19791,6 +19836,10 @@
 ],
 "model:gpu:3x-5090-gddr7-oc-rtx-ventus-32gb":[
 "MSI Ventus 3X GeForce RTX 5090 32GB",
+"gpu"
+],
+"model:gpu:4-nvlink-rtx-slot-titan":[
+"NVLINK for TITAN RTX 4 slot",
 "gpu"
 ],
 "model:gpu:4000-blackwell-pro-rtx-24gb":[
@@ -21961,6 +22010,10 @@
 "Corsair Vengeance 16GB DDR5 (1x16GB) 6000MHz CL36",
 "memory"
 ],
+"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm":[
+"Corsair Vengeance RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
+"memory"
+],
 "model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-white-dimm":[
 "Corsair RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
 "memory"
@@ -22271,10 +22324,6 @@
 ],
 "model:memory:cmg8gx4m1e3200c16-8gb-cl16-rgb-black":[
 "Corsair RGB 8GB DDR4 (1x8GB) 3200MHz CL16",
-"memory"
-],
-"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey":[
-"Corsair Vengeance RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
 "memory"
 ],
 "model:memory:crucial-cp32g4dfra32a-32gb-black":[
@@ -23723,6 +23772,10 @@
 ],
 "model:motherboard:b550-eagle-wifi6e-x-atx":[
 "Gigabyte B550 X Eagle WIFI6",
+"motherboard"
+],
+"model:motherboard:b550-eagle-x":[
+"Gigabyte B550 X Eagle",
 "motherboard"
 ],
 "model:motherboard:b550-f-gaming-rog-strix-atx":[
@@ -26926,7 +26979,7 @@
 "storage"
 ],
 "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280":[
-"SSD Crucial T710 2TB NVMe M.2 PCIe Gen5",
+"Crucial T710 2TB PCIe Gen5 NVMe M.2 SSD",
 "storage"
 ],
 "model:storage:14-5-heatsink-no-s-series-t710-2000gb-nvme-m22280":[
@@ -28383,6 +28436,26 @@
 ],
 "mpn:accessories:cl9011136ww":[
 "iCUE LINK LS430 Aurora RGB Light Strips 430mm Kit",
+"accessories"
+],
+"mpn:accessories:co9051065ww":[
+"Corsair LX360 RGB Unified Frame (CO-9051065-WW)",
+"accessories"
+],
+"mpn:accessories:co9051066ww":[
+"Corsair LX360 RGB Unified Frame (CO-9051066-WW)",
+"accessories"
+],
+"mpn:accessories:co9051067ww":[
+"Corsair LX360 R RGB Unified Frame (CO-9051067-WW)",
+"accessories"
+],
+"mpn:accessories:co9051068ww":[
+"Corsair LX360 R RGB Unified Frame (CO-9051068-WW)",
+"accessories"
+],
+"mpn:accessories:co9051071ww":[
+"Corsair RS360 II ARGB Unified Frame PWM",
 "accessories"
 ],
 "mpn:accessories:ct9010001ww":[
@@ -31215,10 +31288,6 @@
 ],
 "mpn:cpu:c13700kft-tray":[
 "Intel Core i7 13700KF Tray",
-"cpu"
-],
-"mpn:cpu:c265ft-tray":[
-"Intel Core Ultra 7 265F Tray",
 "cpu"
 ],
 "mpn:cpu:c6100ttp-tray":[

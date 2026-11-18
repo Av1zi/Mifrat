@@ -242,6 +242,28 @@
     "match_text_b": "371860 Asus Prime Radeon RX 9070 XT 16GB GDDR6 OC Edition"
   },
   {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:221795",
+    "listing_b": "tms:CW-9061049-WW",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
+    "title_b": "קירור נוזלי Corsair NAUTILUS II 360 RS ARGB בגודל 360mm שחור",
+    "match_text_a": "221795 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9061049-WW Corsair NAUTILUS II 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "aio",
+    "brand": "Corsair",
+    "listing_a": "1pc:222392",
+    "listing_b": "tms:CW-9061049-WW",
+    "title_a": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB שחור",
+    "title_b": "קירור נוזלי Corsair NAUTILUS II 360 RS ARGB בגודל 360mm שחור",
+    "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
+    "match_text_b": "CW-9061049-WW Corsair NAUTILUS II 360 RS ARGB 360mm"
+  },
+  {
     "kind": "duplicate_vendor",
     "product_id": "manual:accessories:ksp-299721-ksp-396383",
     "category": "accessories",
@@ -4189,6 +4211,29 @@
   {
     "kind": "identity_merge",
     "category": "case",
+    "product_id": "model:case:ax90-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:132741",
+        "vendor": "1pc",
+        "vendor_sku": "AX90",
+        "title": "מארז Antec AX90 צבע שחור",
+        "price": 347
+      },
+      {
+        "listing_key": "tms:AX90",
+        "vendor": "tms",
+        "vendor_sku": "AX90",
+        "title": "מארז מחשב Antec AX90",
+        "price": 282
+      }
+    ],
+    "model_code": "ax90"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
     "product_id": "model:case:bu-cobalt-era-era-itx-itx-tg",
     "vendor": "",
     "offers": [
@@ -5292,6 +5337,40 @@
       }
     ],
     "model_code": "120mm-blade-fan-flex-reverse-sl-uni",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:12RCL1F1B",
+        "vendor": "tms",
+        "vendor_sku": "12RCL1F1B",
+        "title": "מאוורר Lian-Li 120mm UNI FAN CL FLEX Reverse שחור",
+        "price": 80
+      }
+    ],
+    "model_code": "120mm-cl-fan-flex-reverse-uni",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:12RCL1F1W",
+        "vendor": "tms",
+        "vendor_sku": "12RCL1F1W",
+        "title": "מאוורר Lian-Li 120mm UNI FAN CL FLEX Reverse לבן",
+        "price": 80
+      }
+    ],
+    "model_code": "120mm-cl-fan-flex-reverse-uni",
     "manufacturer_pn": []
   },
   {
@@ -6407,7 +6486,7 @@
         "vendor": "tms",
         "vendor_sku": "C10105FB",
         "title": "Intel Core i3 10105F / 1200 Box",
-        "price": 193
+        "price": 202
       }
     ],
     "model_code": "10105f"
@@ -6430,7 +6509,7 @@
         "vendor": "tms",
         "vendor_sku": "C10105FT",
         "title": "Intel Core i3 10105F / 1200 Tray",
-        "price": 193
+        "price": 202
       }
     ],
     "model_code": "10105f"
@@ -6453,7 +6532,7 @@
         "vendor": "tms",
         "vendor_sku": "C10400T",
         "title": "Intel Core i5 10400 / 1200 Tray",
-        "price": 543
+        "price": 567
       }
     ],
     "model_code": "10400"
@@ -6476,7 +6555,7 @@
         "vendor": "tms",
         "vendor_sku": "C10400FT",
         "title": "Intel Core i5 10400F / 1200 Tray",
-        "price": 387
+        "price": 404
       }
     ],
     "model_code": "10400f"
@@ -6499,7 +6578,7 @@
         "vendor": "tms",
         "vendor_sku": "C10600KT",
         "title": "Intel Core i5 10600K / 1200 Tray",
-        "price": 640
+        "price": 669
       }
     ],
     "model_code": "10600k"
@@ -6522,7 +6601,7 @@
         "vendor": "tms",
         "vendor_sku": "C10700KB-A",
         "title": "Intel Core i7 10700K / 1200 Box Avengers Edition",
-        "price": 879
+        "price": 919
       }
     ],
     "model_code": "10700k"
@@ -6545,7 +6624,7 @@
         "vendor": "tms",
         "vendor_sku": "C11400FT",
         "title": "Intel Core i5 11400F / 1200 Tray",
-        "price": 450
+        "price": 470
       }
     ],
     "model_code": "11400f"
@@ -6568,7 +6647,7 @@
         "vendor": "tms",
         "vendor_sku": "C12100T",
         "title": "Intel Core i3 12100 / 1700 Tray",
-        "price": 544
+        "price": 569
       },
       {
         "listing_key": "ivory:43970",
@@ -6598,7 +6677,7 @@
         "vendor": "tms",
         "vendor_sku": "C12600KFT",
         "title": "Intel Core i5 12600KF / 1700 Tray",
-        "price": 729
+        "price": 762
       }
     ],
     "model_code": "12600kf"
@@ -6621,7 +6700,7 @@
         "vendor": "tms",
         "vendor_sku": "C12700T",
         "title": "Intel Core i7 12700 / 1700 Tray",
-        "price": 1300
+        "price": 1359
       },
       {
         "listing_key": "ivory:43097",
@@ -6667,7 +6746,7 @@
         "vendor": "tms",
         "vendor_sku": "C12700FT",
         "title": "Intel Core i7 12700F / 1700 Tray",
-        "price": 1287
+        "price": 1345
       },
       {
         "listing_key": "ivory:43412",
@@ -6697,7 +6776,7 @@
         "vendor": "tms",
         "vendor_sku": "C12700KFT",
         "title": "Intel Core i7 12700KF / 1700 Tray",
-        "price": 1341
+        "price": 1402
       }
     ],
     "model_code": "12700kf"
@@ -6720,7 +6799,7 @@
         "vendor": "tms",
         "vendor_sku": "C13900FB",
         "title": "Intel Core i9 13900F / 1700 Box",
-        "price": 1750
+        "price": 1830
       }
     ],
     "model_code": "13900f"
@@ -6743,7 +6822,7 @@
         "vendor": "tms",
         "vendor_sku": "C13900KT",
         "title": "Intel Core i9 13900K / 1700 Tray",
-        "price": 1922
+        "price": 2009
       }
     ],
     "model_code": "13900k"
@@ -6798,6 +6877,13 @@
         "vendor_sku": "CM8071504821014",
         "title": "מעבד חברת Intel דגם Raptor Lake 14th Gen LGA1700 Core i5 14600KF Turbo 5.3Ghz 24MB Cache Tray",
         "price": 955
+      },
+      {
+        "listing_key": "tms:C14600KFT",
+        "vendor": "tms",
+        "vendor_sku": "C14600KFT",
+        "title": "Intel Core i5 14600KF / 1700 Tray",
+        "price": 945
       }
     ],
     "model_code": "14600kf",
@@ -6842,7 +6928,7 @@
         "vendor": "tms",
         "vendor_sku": "C14700KB",
         "title": "Intel Core i7 14700K / 1700 Box no Fan",
-        "price": 1494
+        "price": 1562
       },
       {
         "listing_key": "ksp:280956",
@@ -6917,7 +7003,7 @@
         "vendor": "tms",
         "vendor_sku": "C14900KST",
         "title": "Intel Core i9 14900KS / 1700 Tray",
-        "price": 3140
+        "price": 3282
       }
     ],
     "model_code": "14900ks"
@@ -6940,7 +7026,7 @@
         "vendor": "tms",
         "vendor_sku": "C2130T-P",
         "title": "Intel Core i3 2130 / 1155 Tray - Pull משומש",
-        "price": 84
+        "price": 88
       }
     ],
     "model_code": "2130"
@@ -6963,7 +7049,7 @@
         "vendor": "tms",
         "vendor_sku": "C2400ST-P",
         "title": "Intel Core i5-2400S / 1155 Tray - Pull משומש",
-        "price": 122
+        "price": 128
       }
     ],
     "model_code": "2400s"
@@ -6986,7 +7072,7 @@
         "vendor": "tms",
         "vendor_sku": "C245T",
         "title": "Intel Core Ultra 5 245 / 1851 Tray",
-        "price": 1208
+        "price": 1263
       }
     ],
     "model_code": "245"
@@ -7055,7 +7141,7 @@
         "vendor": "tms",
         "vendor_sku": "C265T",
         "title": "Intel Core Ultra 7 265 / 1851 Tray",
-        "price": 1667
+        "price": 1742
       }
     ],
     "model_code": "265"
@@ -7101,7 +7187,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000159",
         "title": "AMD Ryzen 3 3300X AM4 Tray",
-        "price": 181
+        "price": 189
       }
     ],
     "model_code": "3300x"
@@ -7124,7 +7210,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000050",
         "title": "AMD Ryzen 5 3500 AM4 Tray",
-        "price": 198
+        "price": 207
       }
     ],
     "model_code": "3500"
@@ -7161,7 +7247,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000457",
         "title": "AMD Ryzen 5 5500 AM4 Tray",
-        "price": 349
+        "price": 365
       }
     ],
     "model_code": "5500"
@@ -7184,7 +7270,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001504",
         "title": "AMD Ryzen 5 5500X3D AM4 Tray",
-        "price": 837
+        "price": 875
       }
     ],
     "model_code": "5500x3d"
@@ -7237,7 +7323,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001488",
         "title": "AMD Ryzen 5 5600GT AM4 Tray",
-        "price": 646
+        "price": 675
       }
     ],
     "model_code": "5600gt"
@@ -7267,7 +7353,7 @@
         "vendor": "tms",
         "vendor_sku": "100-100000065",
         "title": "AMD Ryzen 5 5600X AM4 Tray",
-        "price": 547
+        "price": 572
       }
     ],
     "model_code": "5600x"
@@ -7297,7 +7383,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000926",
         "title": "AMD Ryzen 7 5700X AM4 Tray",
-        "price": 664
+        "price": 695
       }
     ],
     "model_code": "5700x"
@@ -7320,7 +7406,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001748",
         "title": "AMD Ryzen 7 PRO 5755G AM4 Tray",
-        "price": 755
+        "price": 790
       }
     ],
     "model_code": "5755g"
@@ -7376,7 +7462,7 @@
         "vendor": "tms",
         "vendor_sku": "100-100000651WOF",
         "title": "AMD Ryzen 7 5800X3D AM4 Box",
-        "price": 1589
+        "price": 1661
       }
     ],
     "model_code": "5800x3d",
@@ -7446,7 +7532,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000593",
         "title": "AMD Ryzen 5 7600X AM5 Tray",
-        "price": 757
+        "price": 791
       }
     ],
     "model_code": "7600x"
@@ -7483,7 +7569,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000592",
         "title": "AMD Ryzen 7 7700 AM5 Tray",
-        "price": 837
+        "price": 875
       }
     ],
     "model_code": "7700"
@@ -7520,7 +7606,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000591",
         "title": "מעבד AMD Ryzen 7 7700X AM5 Tray",
-        "price": 988
+        "price": 1033
       }
     ],
     "model_code": "7700x"
@@ -7543,7 +7629,7 @@
         "vendor": "tms",
         "vendor_sku": "C7740XB",
         "title": "Intel Core i7 7740X / 2066 Box",
-        "price": 619
+        "price": 647
       }
     ],
     "model_code": "7740x"
@@ -7589,7 +7675,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000514",
         "title": "AMD Ryzen 9 7950X AM5 Tray",
-        "price": 2097
+        "price": 2192
       }
     ],
     "model_code": "7950x"
@@ -7619,7 +7705,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001591",
         "title": "AMD Ryzen 5 8400F AM5 Tray",
-        "price": 475
+        "price": 497
       },
       {
         "listing_key": "ivory:154048",
@@ -7649,7 +7735,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001183",
         "title": "AMD Ryzen 5 PRO 8500G AM5 Tray",
-        "price": 610
+        "price": 638
       }
     ],
     "model_code": "8500g"
@@ -7755,7 +7841,7 @@
         "vendor": "tms",
         "vendor_sku": "C9300TT",
         "title": "Intel Core i3 9300T / 1151 Tray",
-        "price": 378
+        "price": 396
       }
     ],
     "model_code": "9300t"
@@ -7845,7 +7931,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001404",
         "title": "AMD Ryzen 7 9700X AM5 Tray",
-        "price": 1093
+        "price": 1143
       },
       {
         "listing_key": "ivory:109064",
@@ -7912,7 +7998,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001973",
         "title": "AMD Ryzen 7 9850X3D AM5 Tray",
-        "price": 2019
+        "price": 2110
       },
       {
         "listing_key": "ivory:155827",
@@ -7956,7 +8042,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000662",
         "title": "AMD Ryzen 9 9900X AM5 Tray",
-        "price": 1682
+        "price": 1759
       },
       {
         "listing_key": "ivory:130800",
@@ -7993,7 +8079,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001368",
         "title": "AMD Ryzen 9 9900X3D AM5 Tray",
-        "price": 2208
+        "price": 2309
       },
       {
         "listing_key": "ivory:147253",
@@ -8030,7 +8116,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001277",
         "title": "AMD Ryzen 9 9950X AM5 Tray",
-        "price": 2021
+        "price": 2113
       },
       {
         "listing_key": "ivory:150286",
@@ -8090,7 +8176,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001978",
         "title": "AMD Ryzen 9 9950X3D2 Dual Edition AM5 Tray",
-        "price": 4000
+        "price": 4182
       },
       {
         "listing_key": "ivory:161527",
@@ -8143,7 +8229,7 @@
         "vendor": "tms",
         "vendor_sku": "KF560C30BWEAK2-32",
         "title": "Kingston FURY Beast RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-        "price": 2481
+        "price": 2594
       },
       {
         "listing_key": "yahav:10209",
@@ -8169,7 +8255,7 @@
         "vendor": "tms",
         "vendor_sku": "KF560C30BWEK2-32",
         "title": "Kingston FURY Beast DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
-        "price": 2734
+        "price": 2858
       }
     ],
     "model_code": "0-2x16gb-3-6000-beast-cl30-expo-fury-xmp",
@@ -8195,7 +8281,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3036F16GX2-RS5K",
         "title": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-        "price": 2797
+        "price": 2924
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-ripjaws-s5-xmp",
@@ -8221,7 +8307,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3040F16GX2-RS5K",
         "title": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-        "price": 2801
+        "price": 2928
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-ripjaws-s5-xmp",
@@ -8247,7 +8333,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3036F16GX2-TZ5RK",
         "title": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-        "price": 2893
+        "price": 3025
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
@@ -8273,7 +8359,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3040F16GX2-TZ5K",
         "title": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-        "price": 2893
+        "price": 3025
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
@@ -8299,7 +8385,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3040F16GX2-TZ5RK",
         "title": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0",
-        "price": 2797
+        "price": 2924
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
@@ -8325,7 +8411,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3040F16GX2-TZ5RS",
         "title": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-        "price": 2797
+        "price": 2924
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
@@ -8351,7 +8437,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3040F16GX2-TZ5S",
         "title": "G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 Silver XMP 3.0",
-        "price": 2893
+        "price": 3025
       }
     ],
     "model_code": "0-2x16gb-3-6000-cl30-trident-xmp-z5",
@@ -8377,7 +8463,7 @@
         "vendor": "tms",
         "vendor_sku": "CMT32GX5M2E6200C36",
         "title": "Corsair Dominator Platinum RGB DDR5 32GB (2x16GB) 6200 CL36 XMP 3.0",
-        "price": 2373
+        "price": 2481
       }
     ],
     "model_code": "0-2x16gb-3-6200-cl36-dominator-xmp",
@@ -8403,7 +8489,7 @@
         "vendor": "tms",
         "vendor_sku": "CMT32GX5M2X6200C36",
         "title": "Corsair Dominator Platinum RGB DDR5 32GB (2x16GB) 6200 CL36 XMP 3.0",
-        "price": 2523
+        "price": 2638
       }
     ],
     "model_code": "0-2x16gb-3-6200-cl36-dominator-xmp",
@@ -8436,7 +8522,7 @@
         "vendor": "tms",
         "vendor_sku": "CMH48GX5M2B7000C40",
         "title": "Corsair DDR5 48GB (2x24GB) 7000 CL40 Vengeance RGB XMP 3.0 זיכרון למחשב",
-        "price": 3175
+        "price": 3319
       }
     ],
     "model_code": "0-2x24gb-3-7000-cl40-vengeance-xmp",
@@ -8462,7 +8548,7 @@
         "vendor": "tms",
         "vendor_sku": "CMK48GX5M2B7000C40",
         "title": "Corsair Vengeance DDR5 48GB (2x24GB) 7000 CL40 XMP 3.0",
-        "price": 3175
+        "price": 3319
       }
     ],
     "model_code": "0-2x24gb-3-7000-cl40-vengeance-xmp",
@@ -8488,7 +8574,7 @@
         "vendor": "tms",
         "vendor_sku": "CMH64GX5M4B5600Z36",
         "title": "Corsair Vengeance RGB DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0",
-        "price": 4206
+        "price": 4397
       }
     ],
     "model_code": "0-3-4x16gb-5600-cl36-expo-vengeance-xmp",
@@ -8507,7 +8593,7 @@
         "vendor": "tms",
         "vendor_sku": "CMK64GX5M4B5600Z36",
         "title": "Corsair Vengeance DDR5 64GB (4x16GB) 5600 CL36 EXPO/XMP 3.0",
-        "price": 4710
+        "price": 4924
       }
     ],
     "model_code": "0-3-4x16gb-5600-cl36-expo-vengeance-xmp",
@@ -8526,7 +8612,7 @@
         "vendor": "tms",
         "vendor_sku": "CMH64GX5M4B6400C32",
         "title": "Corsair Vengeance RGB DDR5 64GB (4x16GB) 6400 CL32 XMP 3.0",
-        "price": 5131
+        "price": 5364
       }
     ],
     "model_code": "0-3-4x16gb-6400-cl32-vengeance-xmp",
@@ -8545,7 +8631,7 @@
         "vendor": "tms",
         "vendor_sku": "CMK64GX5M4B6400C32",
         "title": "Corsair Vengeance DDR5 64GB (4x16GB) 6400 CL32 XMP 3.0",
-        "price": 5131
+        "price": 5364
       }
     ],
     "model_code": "0-3-4x16gb-6400-cl32-vengeance-xmp",
@@ -8571,7 +8657,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOG432GB3200C16BDC",
         "title": "GeIL DDR4 32GB (2x16GB) 3200 CL16 ORION Edition Gray",
-        "price": 1064
+        "price": 1112
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -8590,7 +8676,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG432GB3200C16BDC",
         "title": "GEIL DDR4 32GB (2x16GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 1093
+        "price": 1143
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -8609,7 +8695,7 @@
         "vendor": "tms",
         "vendor_sku": "GAVSG532GB6000C36CDC",
         "title": "GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V RGB AMD מהדורה אפורה",
-        "price": 2103
+        "price": 2198
       }
     ],
     "model_code": "2x16gb-6000-amd-cl36-orion-v",
@@ -8628,7 +8714,7 @@
         "vendor": "tms",
         "vendor_sku": "GAVG532GB6000C36CDC",
         "title": "זיכרון GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V מהדורת AMD בצבע אפור",
-        "price": 2082
+        "price": 2176
       }
     ],
     "model_code": "2x16gb-6000-amd-cl36-orion-v",
@@ -8647,7 +8733,7 @@
         "vendor": "tms",
         "vendor_sku": "KD5AGUA80-60A300H",
         "title": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
-        "price": 2313
+        "price": 2418
       },
       {
         "listing_key": "1pc:221534",
@@ -8670,7 +8756,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3038F16GX2-TZ5NR",
         "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-        "price": 2843
+        "price": 2972
       }
     ],
     "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
@@ -8694,7 +8780,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3038F16GX2-TZ5N",
         "title": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-        "price": 2797
+        "price": 2924
       }
     ],
     "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
@@ -8765,7 +8851,7 @@
         "vendor": "tms",
         "vendor_sku": "KD5BGUA80-64A320G",
         "title": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
-        "price": 5047
+        "price": 5276
       },
       {
         "listing_key": "1pc:221538",
@@ -8788,7 +8874,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOG416GB3200C16BDC",
         "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION מהדורת בצבע אפור",
-        "price": 564
+        "price": 589
       },
       {
         "listing_key": "1pc:222244",
@@ -8814,7 +8900,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG416GB3200C16BDC",
         "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 597
+        "price": 624
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -8847,7 +8933,7 @@
         "vendor": "tms",
         "vendor_sku": "CMH32GX5M2B6000Z30K",
         "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
-        "price": 2755
+        "price": 2880
       }
     ],
     "model_code": "rgb-vengeance",
@@ -9330,7 +9416,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSPROX3D",
         "title": "Gigabyte X870E AORUS PRO X3D",
-        "price": 1877
+        "price": 1904
       }
     ],
     "model_code": "aorus-pro-x3d-x870e",
@@ -10953,7 +11039,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP1T0BW",
         "title": "Samsung SSD 1TB 9100 PRO PCIe 5.0 NVMe M.2",
-        "price": 1064
+        "price": 1112
       },
       {
         "listing_key": "yahav:10503",
@@ -10986,7 +11072,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP1T0CW",
         "title": "Samsung 9100 PRO SSD 1TB PCIe 5.0 NVMe M.2 with Heatsink",
-        "price": 1127
+        "price": 1178
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -11019,7 +11105,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP2T0BW",
         "title": "Samsung SSD 2TB 9100 PRO PCIe 5.0 NVMe M.2",
-        "price": 2019
+        "price": 2110
       },
       {
         "listing_key": "yahav:10505",
@@ -11052,7 +11138,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP2T0CW",
         "title": "Samsung 9100 PRO SSD 2TB PCIe 5.0 NVMe M.2 with Heatsink",
-        "price": 2061
+        "price": 2154
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -11078,7 +11164,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP8T0BW",
         "title": "Samsung SSD 8TB 9100 PRO PCIe 5.0 NVMe M.2",
-        "price": 9252
+        "price": 9673
       },
       {
         "listing_key": "yahav:11276",
@@ -11111,7 +11197,7 @@
         "vendor": "tms",
         "vendor_sku": "MZ-VAP8T0CW",
         "title": "Samsung 9100 PRO 8TB SSD PCIe 5.0 NVMe M.2 with Heatsink",
-        "price": 10219
+        "price": 10684
       }
     ],
     "model_code": "0-5-9100-pro",
@@ -11138,6 +11224,13 @@
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן פנימי Crucial T710 PCIe Gen5 NVMe 2280 M.2 SSD | נפח 2TB | דור 5 לביצועי קצה",
         "price": 1599
+      },
+      {
+        "listing_key": "tms:CT2000T710SSD8",
+        "vendor": "tms",
+        "vendor_sku": "CT2000T710SSD8",
+        "title": "Crucial T710 2TB PCIe Gen5 NVMe M.2 SSD",
+        "price": 1781
       },
       {
         "listing_key": "yahav:11457",
@@ -11359,7 +11452,7 @@
         "vendor": "tms",
         "vendor_sku": "49353",
         "title": "Verbatim Vi550 S3 1TB 2.5\" SSD",
-        "price": 592
+        "price": 619
       }
     ],
     "model_code": "s3-vi550"
@@ -11382,7 +11475,7 @@
         "vendor": "tms",
         "vendor_sku": "CT4000T705SSD3",
         "title": "Crucial T705 4TB PCIe Gen5 NVMe M.2 SSD",
-        "price": 2792
+        "price": 2918
       }
     ],
     "model_code": "t705",
@@ -11408,7 +11501,7 @@
         "vendor": "tms",
         "vendor_sku": "CT4000T705SSD5",
         "title": "Crucial T705 4TB PCIe Gen5 NVMe M.2 SSD with Heatsink",
-        "price": 2792
+        "price": 2918
       }
     ],
     "model_code": "t705",
@@ -11434,7 +11527,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000910",
         "title": "AMD Ryzen 7 7800X3D AM5 Tray",
-        "price": 1283
+        "price": 1341
       },
       {
         "listing_key": "yahav:8631",
@@ -11563,7 +11656,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000719",
         "title": "AMD Ryzen 9 9950X3D AM5 Tray",
-        "price": 2903
+        "price": 3035
       },
       {
         "listing_key": "yahav:10512",
@@ -11594,7 +11687,7 @@
         "vendor": "tms",
         "vendor_sku": "C265KT",
         "title": "Intel Core Ultra 7 265K / 1851 Tray",
-        "price": 1250
+        "price": 1307
       }
     ],
     "model_code": "265k"
@@ -11693,7 +11786,7 @@
         "vendor": "tms",
         "vendor_sku": "WDS200T4G0E-00CPS0",
         "title": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
-        "price": 1081
+        "price": 1130
       }
     ],
     "model_code": "green-sn3000-wd"
@@ -11716,7 +11809,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001084",
         "title": "AMD Ryzen 7 9800X3D AM5 Tray",
-        "price": 1837
+        "price": 1920
       },
       {
         "listing_key": "1pc:175540",
@@ -11837,7 +11930,7 @@
         "vendor": "tms",
         "vendor_sku": "SNV3S-2000G",
         "title": "Kingston 2TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
-        "price": 1262
+        "price": 1319
       },
       {
         "listing_key": "yahav:9747",
@@ -11922,7 +12015,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000589",
         "title": "AMD Ryzen 9 7900X AM5 Tray",
-        "price": 1486
+        "price": 1553
       },
       {
         "listing_key": "1pc:127416",
@@ -11946,7 +12039,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000597",
         "title": "AMD Ryzen 5 7500F AM5 Tray",
-        "price": 562
+        "price": 588
       },
       {
         "listing_key": "1pc:154854",
@@ -11984,7 +12077,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000651",
         "title": "AMD Ryzen 7 5800X3D AM4 Tray",
-        "price": 1589
+        "price": 1661
       },
       {
         "listing_key": "1pc:155797",
@@ -12008,7 +12101,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000743",
         "title": "AMD Ryzen 7 5700 AM4 Tray",
-        "price": 587
+        "price": 613
       }
     ],
     "model_code": "5700"
@@ -12040,7 +12133,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000000927",
         "title": "AMD Ryzen 5 5600 AM4 Tray",
-        "price": 521
+        "price": 545
       },
       {
         "listing_key": "1pc:163368",
@@ -12078,7 +12171,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001350",
         "title": "AMD Ryzen Threadripper 7980X 64-core Tray",
-        "price": 14007
+        "price": 14643
       }
     ],
     "model_code": "7980x"
@@ -12094,7 +12187,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001352",
         "title": "AMD Ryzen Threadripper 7960X 24-core Tray",
-        "price": 7068
+        "price": 7389
       }
     ],
     "model_code": "7960x"
@@ -12110,7 +12203,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001405",
         "title": "AMD Ryzen 5 9600X AM5 Tray",
-        "price": 812
+        "price": 849
       },
       {
         "listing_key": "1pc:169701",
@@ -12148,7 +12241,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001406",
         "title": "AMD Ryzen 5 9500F AM5 Tray",
-        "price": 662
+        "price": 692
       },
       {
         "listing_key": "yahav:11047",
@@ -12186,7 +12279,7 @@
         "vendor": "tms",
         "vendor_sku": "100-000001590",
         "title": "AMD Ryzen 7 8700F AM5 Tray",
-        "price": 694
+        "price": 725
       },
       {
         "listing_key": "1pc:207742",
@@ -12231,7 +12324,7 @@
         "vendor": "tms",
         "vendor_sku": "C12700FB",
         "title": "Intel Core i7 12700F / 1700 Box",
-        "price": 1287
+        "price": 1345
       },
       {
         "listing_key": "1pc:109579",
@@ -13110,14 +13203,14 @@
         "vendor": "tms",
         "vendor_sku": "C10105FB",
         "title": "Intel Core i3 10105F / 1200 Box",
-        "price": 193
+        "price": 202
       },
       {
         "listing_key": "tms:C10105FT",
         "vendor": "tms",
         "vendor_sku": "C10105FT",
         "title": "Intel Core i3 10105F / 1200 Tray",
-        "price": 193
+        "price": 202
       }
     ],
     "model_code": "10105f",
@@ -13135,14 +13228,14 @@
         "vendor": "tms",
         "vendor_sku": "C12700FB",
         "title": "Intel Core i7 12700F / 1700 Box",
-        "price": 1287
+        "price": 1345
       },
       {
         "listing_key": "tms:C12700FT",
         "vendor": "tms",
         "vendor_sku": "C12700FT",
         "title": "Intel Core i7 12700F / 1700 Tray",
-        "price": 1287
+        "price": 1345
       }
     ],
     "model_code": "12700f",
@@ -13160,14 +13253,14 @@
         "vendor": "tms",
         "vendor_sku": "C225FB",
         "title": "Intel Core Ultra 5 225F / 1851 Box",
-        "price": 687
+        "price": 719
       },
       {
         "listing_key": "tms:C225FT",
         "vendor": "tms",
         "vendor_sku": "C225FT",
         "title": "Intel Core Ultra 5 225F / 1851 Tray",
-        "price": 604
+        "price": 632
       }
     ],
     "model_code": "225f",
@@ -13185,14 +13278,14 @@
         "vendor": "tms",
         "vendor_sku": "C270KPLUSB",
         "title": "Intel Core Ultra 7 270K Plus / 1851 Box",
-        "price": 1548
+        "price": 1618
       },
       {
         "listing_key": "tms:C270KPLUST",
         "vendor": "tms",
         "vendor_sku": "C270KPLUST",
         "title": "Intel Core Ultra 7 270K Plus / 1851 Tray",
-        "price": 1486
+        "price": 1553
       }
     ],
     "model_code": "270k",
@@ -13210,14 +13303,14 @@
         "vendor": "tms",
         "vendor_sku": "C285B",
         "title": "Intel Core Ultra 9 285 / 1851 Box",
-        "price": 2458
+        "price": 2570
       },
       {
         "listing_key": "tms:C285T",
         "vendor": "tms",
         "vendor_sku": "C285T",
         "title": "Intel Core Ultra 9 285 / 1851 Tray",
-        "price": 2458
+        "price": 2570
       }
     ],
     "model_code": "285",
@@ -13235,14 +13328,14 @@
         "vendor": "tms",
         "vendor_sku": "100-000000651",
         "title": "AMD Ryzen 7 5800X3D AM4 Tray",
-        "price": 1589
+        "price": 1661
       },
       {
         "listing_key": "tms:100-100000651WOF",
         "vendor": "tms",
         "vendor_sku": "100-100000651WOF",
         "title": "AMD Ryzen 7 5800X3D AM4 Box",
-        "price": 1589
+        "price": 1661
       }
     ],
     "model_code": "5800x3d",
@@ -13260,14 +13353,14 @@
         "vendor": "tms",
         "vendor_sku": "100-000000589",
         "title": "AMD Ryzen 9 7900X AM5 Tray",
-        "price": 1486
+        "price": 1553
       },
       {
         "listing_key": "tms:100-100000589WOF",
         "vendor": "tms",
         "vendor_sku": "100-100000589WOF",
         "title": "AMD Ryzen 9 7900X AM5 Box",
-        "price": 1521
+        "price": 1590
       }
     ],
     "model_code": "7900x",
@@ -14088,7 +14181,7 @@
         "vendor": "tms",
         "vendor_sku": "C2100T-P",
         "title": "מעבד Intel Core i3 2100 1155",
-        "price": 84
+        "price": 88
       }
     ],
     "model_code": "2100",
@@ -14151,7 +14244,7 @@
         "vendor": "tms",
         "vendor_sku": "PK8071305502300",
         "title": "מעבד Intel Xeon w3-2535",
-        "price": 6542
+        "price": 6839
       }
     ],
     "model_code": "2535",
@@ -14214,7 +14307,7 @@
         "vendor": "tms",
         "vendor_sku": "XES4210",
         "title": "Intel XEON Silver 4210",
-        "price": 2200
+        "price": 2300
       }
     ],
     "model_code": "4210",
@@ -14235,7 +14328,7 @@
         "vendor": "tms",
         "vendor_sku": "XES4214",
         "title": "Intel XEON Silver 4214",
-        "price": 2979
+        "price": 3114
       }
     ],
     "model_code": "4214",
@@ -14298,7 +14391,7 @@
         "vendor": "tms",
         "vendor_sku": "XEG5215",
         "title": "XEON Gold 5215",
-        "price": 29088
+        "price": 30410
       }
     ],
     "model_code": "5215",
@@ -14319,7 +14412,7 @@
         "vendor": "tms",
         "vendor_sku": "XEG6230",
         "title": "XEON Gold 6230",
-        "price": 8684
+        "price": 9078
       }
     ],
     "model_code": "6230",
@@ -14340,7 +14433,7 @@
         "vendor": "tms",
         "vendor_sku": "XEG6240M",
         "title": "Intel XEON Gold 6240M",
-        "price": 29088
+        "price": 30410
       }
     ],
     "model_code": "6240m",
@@ -14361,7 +14454,7 @@
         "vendor": "tms",
         "vendor_sku": "PK8072007045600",
         "title": "מעבד Intel Xeon 674X",
-        "price": 15673
+        "price": 16386
       }
     ],
     "model_code": "674x",
@@ -14382,7 +14475,7 @@
         "vendor": "tms",
         "vendor_sku": "EP7302",
         "title": "AMD EPYC 7302 16-Core (32-Threads)",
-        "price": 2500
+        "price": 2614
       }
     ],
     "model_code": "7302",
@@ -14424,7 +14517,7 @@
         "vendor": "tms",
         "vendor_sku": "EP7402P",
         "title": "AMD EPYC 7402P 24-Core (48-Threads)",
-        "price": 3333
+        "price": 3485
       }
     ],
     "model_code": "7402p",
@@ -14579,7 +14672,7 @@
         "vendor": "tms",
         "vendor_sku": "EP9654",
         "title": "AMD EPYC 9654 96-Core (192-Threads)",
-        "price": 16577
+        "price": 17330
       }
     ],
     "model_code": "9654",
@@ -15340,7 +15433,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011227-WW",
         "title": "מארז מחשב Corsair ICUE 7000X RGB White",
-        "price": 1252
+        "price": null
       },
       {
         "listing_key": "yahav:7554",
@@ -16109,6 +16202,72 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208029",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר Lian-Li 120mm UNI FAN SL-INF Wireless בצבע שחור",
+        "price": 216
+      },
+      {
+        "listing_key": "tms:12SLIN1W1B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black",
+        "price": 136
+      },
+      {
+        "listing_key": "yahav:10987",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Single Pack צבע שחור",
+        "price": 130
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-single-sl-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208007",
+        "vendor": "1pc",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאווררי Lian-Li 120mm UNI FAN SL-INF Wireless שחורים x3",
+        "price": 419
+      },
+      {
+        "listing_key": "tms:12SLIN1W3B",
+        "vendor": "tms",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF Wireless Black x3 Fans",
+        "price": 422
+      },
+      {
+        "listing_key": "yahav:10993",
+        "vendor": "yahav",
+        "vendor_sku": "12SLIN1W3B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 410
+      }
+    ],
+    "model_code": "120mm-black-fan-inf-pack-sl-triple-uni-wireless",
+    "manufacturer_pn": [
+      "12SLIN1W3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
     "vendor": "",
     "offers": [
@@ -16654,7 +16813,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050184-WW",
         "title": "Corsair RS120 ARGB PWM 120mm Fan White",
-        "price": 45
+        "price": null
       },
       {
         "listing_key": "yahav:10103",
@@ -18195,7 +18354,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSMASTERX3D",
         "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2440
+        "price": 2484
       }
     ],
     "model_code": "aorus-master-x3d-x870e",
