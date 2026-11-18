@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T22:40:04.274793+00:00",
+  "generated_at": "2026-11-18T22:53:35.319760+00:00",
   "gaps": [
     {
       "category": "case",
@@ -94,11 +94,11 @@
     {
       "category": "case",
       "label": "Bays 5.25",
-      "count": 42,
+      "count": 44,
       "products": [
         "model:case:0-htpc-milo-ml03-slim-usb3-black",
-        "model:case:01-c-fd-pop-pos1x-silent-xl-black",
-        "model:case:14-sugo-black"
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:01-c-fd-pop-pos1m-silent-black"
       ]
     },
     {
@@ -2532,6 +2532,16 @@
       ]
     },
     {
+      "category": "accessories",
+      "label": "סוג תאורה",
+      "count": 7,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
       "category": "other",
       "label": "מעבד גרפי",
       "count": 7,
@@ -2649,6 +2659,16 @@
         "model:case:0-10232-2-761345-black",
         "model:case:3200d-argb-rs-black",
         "model:case:3200d-argb-rs-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "יבואן",
+      "count": 6,
+      "products": [
+        "model:case:01-7-c-compact-def7c-define-fd-black",
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:01-c-fd-pop-pos1m-silent-black"
       ]
     },
     {
@@ -3052,6 +3072,36 @@
       ]
     },
     {
+      "category": "accessories",
+      "label": "גודל מאוורר",
+      "count": 5,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "מהירות מאוורר",
+      "count": 5,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "יבואן",
+      "count": 5,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
       "category": "other",
       "label": "כרטיס רשת",
       "count": 5,
@@ -3209,6 +3259,16 @@
         "model:case:vs8-black",
         "model:case:vs8-white",
         "model:case:vs9-black"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "יבואן",
+      "count": 4,
+      "products": [
+        "model:case_fan:12-3-dynamic-120mm-rgb-black",
+        "model:case_fan:12-3-dynamic-reverse-120mm-rgb-black",
+        "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-white"
       ]
     },
     {
@@ -4059,16 +4119,6 @@
         "model:case:1m-performance-black",
         "model:case:1m-performance-green",
         "model:case:cx700-black"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "יבואן",
-      "count": 3,
-      "products": [
-        "model:case:205m-lancool-mesh-oe744ms-snow-white",
-        "model:case:24-4u-case-hot-redundant-swap",
-        "model:case:3u-microatx-ps2-rackmount"
       ]
     },
     {
@@ -5058,6 +5108,15 @@
     },
     {
       "category": "aio",
+      "label": "יבואן",
+      "count": 2,
+      "products": [
+        "model:aio:3-eu-loop-lx-pure-360mm-black",
+        "model:aio:360-ii-nautilus-rs-360mm-black"
+      ]
+    },
+    {
+      "category": "aio",
       "label": "מעבד",
       "count": 2,
       "products": [
@@ -5621,6 +5680,15 @@
       "products": [
         "model:cpu:5700",
         "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יבואן",
+      "count": 2,
+      "products": [
+        "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+        "model:gpu:4-nvlink-rtx-slot-titan"
       ]
     },
     {
@@ -6912,15 +6980,6 @@
     },
     {
       "category": "psu",
-      "label": "Spec / Interface Connectivity",
-      "count": 2,
-      "products": [
-        "model:psu:1-3-fully-modular-rm750e-750w-full-black",
-        "model:psu:750-csk-dc-750w-white"
-      ]
-    },
-    {
-      "category": "psu",
       "label": "תדר כניסה",
       "count": 2,
       "products": [
@@ -6953,6 +7012,15 @@
       "products": [
         "model:psu:500-e1-helios-pro-black",
         "model:psu:600-e1-helios-pro-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "Spec / Interface Connectivity",
+      "count": 2,
+      "products": [
+        "model:psu:750-csk-dc-750w-white",
+        "model:psu:rm750e-750w-full-black"
       ]
     },
     {
@@ -7333,15 +7401,6 @@
     },
     {
       "category": "accessories",
-      "label": "סוג תאורה",
-      "count": 2,
-      "products": [
-        "mpn:accessories:cw9061029ww",
-        "mpn:accessories:cw9061030ww"
-      ]
-    },
-    {
-      "category": "accessories",
       "label": "משקל",
       "count": 2,
       "products": [
@@ -7399,14 +7458,6 @@
       "count": 1,
       "products": [
         "model:aio:1stpalyer-a-f-lcd-s-t-360mm-white"
-      ]
-    },
-    {
-      "category": "aio",
-      "label": "יבואן",
-      "count": 1,
-      "products": [
-        "model:aio:3-eu-loop-lx-pure-360mm-black"
       ]
     },
     {
@@ -7927,6 +7978,14 @@
       "count": 1,
       "products": [
         "model:cpu:12600kf-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "יבואן",
+      "count": 1,
+      "products": [
+        "model:cpu:14600kf-tray"
       ]
     },
     {
@@ -10031,6 +10090,14 @@
       "count": 1,
       "products": [
         "model:motherboard:b-h810m-pro-wifi6e-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "יבואן",
+      "count": 1,
+      "products": [
+        "model:motherboard:b550-eagle-x-atx"
       ]
     },
     {

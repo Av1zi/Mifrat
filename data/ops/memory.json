@@ -253,7 +253,7 @@
 "1pc:140855":"model:case_fan:10k-2k-80x38mm-fan-fhs-industrial-pwm-rpm-80mm-black",
 "1pc:140858":"model:psu:1300r-hela-1300w",
 "1pc:140887":"model:memory:2x32gb-5200-cl40-dominator-expo-64gb-x2-5200mhz-cl40-rgb-grey",
-"1pc:140888":"model:storage:mp600-pcie4-pro-x4-xt-8000gb-m2pcie-m22280",
+"1pc:140888":"model:storage:mp600-pro-s-series-xt-8000gb-m2pcie-m22280",
 "1pc:140889":"model:psu:0-atx3-1300w",
 "1pc:140890":"model:aio:360-kraken-360mm-black",
 "1pc:140898":"model:case_fan:120-f120rgb-120mm-3-rgb-white",
@@ -404,7 +404,7 @@
 "1pc:156763":"model:motherboard:aorus-ax-b650-elite-ice-atx",
 "1pc:156764":"model:motherboard:aorus-ax-b650m-elite-ice-microatx",
 "1pc:156765":"model:motherboard:b650m-d3hp-microatx",
-"1pc:156993":"model:storage:mp600-pcie4-pro-x4-xt-4000gb-m2pcie-m22280",
+"1pc:156993":"model:storage:mp600-pro-s-series-xt-4000gb-m2pcie-m2",
 "1pc:156995":"model:case_fan:3-84-8cfm-bl105-pure-wings-120mm-black",
 "1pc:156996":"model:cooler_air:bk037-dark-elite-rock-165mm-135mm-black",
 "1pc:157138":"model:motherboard:b760m-bomber-wifi-microatx",
@@ -739,8 +739,8 @@
 "1pc:172715":"model:case_fan:icue-link-rgb-rx140-140mm-1-rgb-black",
 "1pc:172716":"model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-black",
 "1pc:172717":"model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-white",
-"1pc:172718":"model:case_fan:fan-pwm-rs120-120mm-rgb-white",
-"1pc:172719":"model:case_fan:fan-pwm-rs120-120mm-rgb-black",
+"1pc:172718":"model:case_fan:led-pwm-rs120-support-120mm-rgb-white",
+"1pc:172719":"model:case_fan:led-pwm-rs120-support-120mm-rgb-black",
 "1pc:172721":"model:case_fan:fan-pwm-rs140-140mm-rgb-white",
 "1pc:172723":"model:case_fan:2-led-pwm-rs140-support-140mm-2-rgb-black",
 "1pc:172724":"model:case_fan:2-led-pwm-rs140-support-140mm-2-rgb-white",
@@ -1043,7 +1043,7 @@
 "1pc:188427":"model:case:5000t-high-icue-link-lx-performance-black",
 "1pc:188431":"model:case:4000d-frame-white",
 "1pc:188432":"model:psu:1-1-120mm-3-5-650w-active-atx-fully-gold-modular-pcie-pfc-rm650e-rme-series-650w-full-black",
-"1pc:188433":"model:psu:1-3-fully-modular-rm750e-750w-full-black",
+"1pc:188433":"model:psu:rm750e-750w-full-black",
 "1pc:188434":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
 "1pc:188435":"model:psu:rm1000e-1000w-full-black",
 "1pc:188440":"model:psu:0-5-elite-ice-modular-p1000w-1000w-full-white",
@@ -1372,7 +1372,7 @@
 "1pc:206384":"model:case:4500x-frame-link-lx-black",
 "1pc:206385":"model:case:4500x-frame-link-lx-white",
 "1pc:206386":"model:case:4500x-frame-rs-black",
-"1pc:206387":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
+"1pc:206387":"model:psu:rm750e-750w-full-white",
 "1pc:206388":"model:psu:1-3-fully-modular-rm850e-850w-full-white",
 "1pc:206389":"model:psu:rm1000e-1000w-full-white",
 "1pc:206390":"manual:psu:1pc-206390-1pc-222424",
@@ -1975,7 +1975,7 @@
 "1pc:217256":"model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
 "1pc:217309":"model:motherboard:eg-h310m-microatx",
 "1pc:217310":"model:gpu:64bit-gt1030-4gb",
-"1pc:217311":"model:gpu:128bit-gt740-low-profile-4gb",
+"1pc:217311":"model:gpu:gddr5-gt740-low-profile-4gb",
 "1pc:217312":"model:gpu:64bit-gddr5-gt1030-2gb",
 "1pc:217313":"model:gpu:128bit-gddr6-gtx1650-4gb",
 "1pc:217314":"model:motherboard:el-h81m-vs-microatx",
@@ -2813,7 +2813,7 @@
 "ivory:127449":"mpn:memory:ff4d532g5600hc36bdc01",
 "ivory:127458":"model:storage:cx2-1000gb-sata-25inch",
 "ivory:127635":"model:gpu:16gb-1xhdmi-3xdp-5080-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-16gb",
-"ivory:127689":"model:psu:1-3-fully-modular-rm750e-750w-full-black",
+"ivory:127689":"model:psu:rm750e-750w-full-black",
 "ivory:127857":"model:case_fan:3b-sl120v2-uf-120mm-3-rgb-black",
 "ivory:127860":"model:case_fan:3w-sl120v2-uf-120mm-3-rgb-white",
 "ivory:127875":"model:memory:6000j3238f16gx2-f5-fx5-32gb-x2-6000mhz-cl32-black",
@@ -2908,7 +2908,7 @@
 "ivory:135501":"model:aio:360-a-freezer-iii-liquid-pro-rgb-360mm-white",
 "ivory:135828":"model:psu:rm1200e-1200w-full-black",
 "ivory:135831":"model:aio:360-icue-lcd-link-rx-titan-360mm-black",
-"ivory:135837":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
+"ivory:135837":"model:psu:rm750e-750w-full-white",
 "ivory:135948":"model:psu:1-1-120mm-3-5-650w-active-atx-fully-gold-modular-pcie-pfc-rm650e-rme-series-650w-full-black",
 "ivory:136239":"mpn:psu:hpt21650m",
 "ivory:136242":"model:psu:1200w-hydro-pro-ptm-white-x-1200w-full-white",
@@ -5390,10 +5390,10 @@
 "plonter:CP-9020277-EU":"manual:psu:1pc-222371-ivory-113511",
 "plonter:CP-9020278-EU":"manual:psu:1pc-222372-ivory-86640",
 "plonter:CP-9020279-EU":"model:psu:9020279-cp-eu-750w-no-black",
-"plonter:CP-9020292-EU":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
+"plonter:CP-9020292-EU":"model:psu:rm750e-750w-full-white",
 "plonter:CP-9020293-EU":"model:psu:1-3-fully-modular-rm850e-850w-full-white",
 "plonter:CP-9020294-EU":"model:psu:rm1000e-1000w-full-white",
-"plonter:CP-9020295-EU":"model:psu:1-3-fully-modular-rm750e-750w-full-black",
+"plonter:CP-9020295-EU":"model:psu:rm750e-750w-full-black",
 "plonter:CP-9020296-EU":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
 "plonter:CP-9020297-EU":"model:psu:rm1000e-1000w-full-black",
 "plonter:CP-9020299-EU":"model:psu:rm850x-shift-850w-full-black",
@@ -7036,7 +7036,7 @@
 "tms:12CL1W3W":"model:case_fan:cl-fan-fans-uni-wireless-x3-120mm-3-rgb-white",
 "tms:12P283W":"model:case_fan:3-cooler-fan-p28-p28120-uni-120mm-3-white",
 "tms:12RCL1F1B":"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black",
-"tms:12RCL1F1W":"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm",
+"tms:12RCL1F1W":"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-white",
 "tms:12RCL1F3B":"model:case_fan:3-cl-fan-flex-reverse-uni-120mm-3-rgb-black",
 "tms:12RCL1F3W":"model:case_fan:3-cl-fan-flex-reverse-uni-120mm-3-rgb-white",
 "tms:12RCL1W1B":"model:case_fan:120mm-blade-cl-fan-reverse-uni-wireless-120mm-1-rgb-black",
@@ -7434,7 +7434,7 @@
 "tms:AKN1660TID6S6GH1":"model:gpu:1660ti-192bit-6g-gtx-6gb",
 "tms:AKN610D3S2GL1":"model:gpu:2g-64bit-akn610d3s2gl1-gt610-low-profile-2gb",
 "tms:AKN730D3S4GL1":"model:gpu:128bit-4g-gt730-4gb",
-"tms:AKN740D3S4GL1":"model:gpu:128bit-gt740-low-profile-4gb",
+"tms:AKN740D3S4GL1":"model:gpu:gddr5-gt740-low-profile-4gb",
 "tms:AKR580D5S8GH1":"model:gpu:256bit-580-akr580d5s8gh1-rx-8gb",
 "tms:ANTEC900":"model:case:900-case-black",
 "tms:AP1TBAS350-1":"mpn:storage:ap1tbas3501",
@@ -7843,11 +7843,11 @@
 "tms:CO-9050138-WW":"model:case_fan:elite-icue-performance-pwm-sp140-140mm-rgb-white",
 "tms:CO-9050157-WW":"model:case_fan:9050157-af120-co-elite-fan-icue-pwm-ww-120mm-rgb-white",
 "tms:CO-9050168-WW":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
-"tms:CO-9050180-WW":"model:case_fan:fan-pwm-rs120-120mm-rgb-black",
+"tms:CO-9050180-WW":"model:case_fan:led-pwm-rs120-support-120mm-rgb-black",
 "tms:CO-9050181-WW":"model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-black",
 "tms:CO-9050182-WW":"model:case_fan:fan-pwm-rs140-140mm-rgb-black",
 "tms:CO-9050183-WW":"model:case_fan:2-led-pwm-rs140-support-140mm-2-rgb-black",
-"tms:CO-9050184-WW":"model:case_fan:fan-pwm-rs120-120mm-rgb-white",
+"tms:CO-9050184-WW":"model:case_fan:led-pwm-rs120-support-120mm-rgb-white",
 "tms:CO-9050185-WW":"model:case_fan:3-3x-fans-led-pwm-rs120-support-120mm-3-rgb-white",
 "tms:CO-9050186-WW":"model:case_fan:fan-pwm-rs140-140mm-rgb-white",
 "tms:CO-9050187-WW":"model:case_fan:2-led-pwm-rs140-support-140mm-2-rgb-white",
@@ -7899,10 +7899,10 @@
 "tms:CP-9020271-EU":"model:psu:1-1-1000w-140mm-3-5-active-atx-gold-pcie-pfc-ready-rm1000x-rmx-series-1000w-black",
 "tms:CP-9020273-EU":"model:psu:fully-modular-rm750x-shift-750w-full-black",
 "tms:CP-9020285-EU":"model:psu:1-3-modular-rm750x-750w-black",
-"tms:CP-9020292-EU":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
+"tms:CP-9020292-EU":"model:psu:rm750e-750w-full-white",
 "tms:CP-9020293-EU":"model:psu:1-3-fully-modular-rm850e-850w-full-white",
 "tms:CP-9020294-EU":"model:psu:rm1000e-1000w-full-white",
-"tms:CP-9020295-EU":"model:psu:1-3-fully-modular-rm750e-750w-full-black",
+"tms:CP-9020295-EU":"model:psu:rm750e-750w-full-black",
 "tms:CP-9020296-EU":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
 "tms:CP-9020297-EU":"model:psu:rm1000e-1000w-full-black",
 "tms:CP-9020298-EU":"model:psu:fully-modular-rm750x-shift-750w-full",
@@ -7951,7 +7951,7 @@
 "tms:CSSD-F2000GBMP700PRO":"model:storage:air-cooler-mp700-pcie5x4-pro-2000gb-m2pcie-m22280",
 "tms:CSSD-F2000GBMP700PROS":"model:storage:gen5x4-mp700-pro-se-2000gb-pciegen5-m22280",
 "tms:CSSD-F4000GBMP600PRO":"model:storage:mp600-pcie4-pro-x4-4000gb-m2pcie-m22280",
-"tms:CSSD-F4000GBMP600PXT":"model:storage:mp600-pcie4-pro-x4-xt-4000gb-m2pcie-m22280",
+"tms:CSSD-F4000GBMP600PXT":"model:storage:mp600-pro-s-series-xt-4000gb-m2pcie-m2",
 "tms:CSSD-F4000GBMP700EHS":"model:storage:elite-gen5x4-mp700-4000gb-m2pcie-m22280",
 "tms:CSSD-F4000GBMP700ENH":"model:storage:0-5-elite-gen5x4-mp700-4000gb-m2pcie-m22280",
 "tms:CSSD-F4000GBMP700PHXS":"model:storage:0tb-4-cssd-f4000gbmp700phxs-hydro-mp700-pro-se-series-ssd-x-4000gb-m2-m22280",
@@ -7960,7 +7960,7 @@
 "tms:CSSD-F4000GBMP700PROS":"model:storage:gen5x4-mp700-pro-se-4000gb-m2-m22280",
 "tms:CSSD-F40GBMP700PXNH":"model:storage:0-5-mp700-pro-xt-4000gb-m2pcie-m22280",
 "tms:CSSD-F8000GBMP600PLP":"model:storage:cssd-f8000gbmp600plp-lpx-mp600-pro-8000gb-pciex4m2-m22280",
-"tms:CSSD-F8000GBMP600PXT":"model:storage:mp600-pcie4-pro-x4-xt-8000gb-m2pcie-m22280",
+"tms:CSSD-F8000GBMP600PXT":"model:storage:mp600-pro-s-series-xt-8000gb-m2pcie-m22280",
 "tms:CT-9010003-WW":"model:cooler_air:a500-170mm-120mm-black",
 "tms:CT-9010011-WW":"model:cooler_air:1600rpm-270w-2x120mm-5cfm-84-a115-af-dual-elite-fan-to-up-170mm-140mm-black",
 "tms:CT1000E100SSD8":"model:storage:0-2280-4-e100-1000gb-nvme-m22280",
@@ -8156,9 +8156,9 @@
 "tms:FD-C-TOR1C-04":"model:case:04-c-compact-fd-solid-tor1c-torrent-black",
 "tms:FD-C-TOR1N-01":"model:case:01-c-dark-fd-nano-tg-tint-tor1n-torrent-black",
 "tms:FD-C-TOR1N-03":"model:case:light-nano-tg-tint-torrent-white-white",
-"tms:FD-F-DR3-1201":"model:case_fan:12-3-dynamic-rgb-black",
-"tms:FD-F-DR3-1204":"model:case_fan:12-3-dynamic-reverse-rgb-black",
-"tms:FD-F-DR3-1401":"model:case_fan:14-3-dynamic-rgb-black",
+"tms:FD-F-DR3-1201":"model:case_fan:12-3-dynamic-120mm-rgb-black",
+"tms:FD-F-DR3-1204":"model:case_fan:12-3-dynamic-reverse-120mm-rgb-black",
+"tms:FD-F-DR3-1401":"model:case_fan:14-3-dynamic-140mm-rgb-black",
 "tms:FD-FAN-PRI-AL14-PWM":"model:case_fan:14-al-prisma-pwm-140mm-rgb-black",
 "tms:FD-FAN-PRI-AL14-PWM-WT":"model:case_fan:14-al-prisma-pwm-140mm-rgb-white",
 "tms:FD-W-2-S3602":"model:aio:2-celsius-fd-prisma-s36-s3602-w-360mm",
@@ -8228,7 +8228,7 @@
 "tms:GB550MKWIFI6E":"model:motherboard:b550m-k-wifi6e-microatx",
 "tms:GB550MXAORUSEL":"model:motherboard:aorus-b550m-elite-x-microatx",
 "tms:GB550MXAORUSELWF7":"model:motherboard:aorus-b550m-elite-wifi7-x-microatx",
-"tms:GB550XEAGLE":"model:motherboard:b550-eagle-x",
+"tms:GB550XEAGLE":"model:motherboard:b550-eagle-x-atx",
 "tms:GB550XEAGLEWF6E":"model:motherboard:b550-eagle-wifi6e-x-atx",
 "tms:GB550XGAMING":"model:motherboard:b550-gaming-x-atx",
 "tms:GB550XGAMINGWF7":"model:motherboard:b550-gaming-wifi7-x-atx",
@@ -8763,7 +8763,7 @@
 "tms:N1030D42GL":"model:gpu:1030-2g-2gl-d4-gt-gv-low-n1030d4-profile-2gb",
 "tms:N3050WF2OCV26GD":"model:gpu:3050-6g-6gd-geforce-gv-n3050wf2ocv2-oc-rtx-v2-windforce-6gb",
 "tms:N3060GAMINGOC8GD":"mpn:gpu:n3060gamingoc8gd",
-"tms:N3060GAMINGOC8GD2.0":"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx",
+"tms:N3060GAMINGOC8GD2.0":"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
 "tms:N3060WF2OC12GD2.0":"mpn:gpu:n3060wf2oc12gd20",
 "tms:N307TGAMINGOC8GD":"model:gpu:3070-8gd-geforce-gv-n307tgaming-oc-rtx-ti-8gb",
 "tms:N3090TURBO24GD":"model:gpu:24gd-3090-gv-n3090turbo-rtx-24gb",
@@ -9384,9 +9384,9 @@
 "yahav:10035":"model:case:1x140mm-2x120mm-3x140mm-fans-flux-full-pro-reverse-tower-tranquil-white",
 "yahav:10100":"manual:aio:1pc-172761-1pc-222385",
 "yahav:10101":"manual:aio:1pc-172762-1pc-222383",
-"yahav:10103":"model:case_fan:fan-pwm-rs120-120mm-rgb-white",
+"yahav:10103":"model:case_fan:led-pwm-rs120-support-120mm-rgb-white",
 "yahav:10104":"model:case_fan:fan-pwm-rs140-140mm-rgb-white",
-"yahav:10105":"model:case_fan:fan-pwm-rs120-120mm-rgb-black",
+"yahav:10105":"model:case_fan:led-pwm-rs120-support-120mm-rgb-black",
 "yahav:10106":"model:case_fan:fan-pwm-rs140-140mm-rgb-black",
 "yahav:10107":"model:case_fan:2-led-pwm-rs140-support-140mm-2-rgb-black",
 "yahav:10108":"model:case_fan:2-led-pwm-rs140-support-140mm-2-rgb-white",
@@ -9511,7 +9511,7 @@
 "yahav:10445":"model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070gaming-rx-16gb",
 "yahav:10446":"model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
 "yahav:10447":"model:gpu:16g-16gd-9070-aorus-e-elite-gv-r9070xtaorus-radeon-rx-xt-16gb",
-"yahav:10450":"model:storage:mp600-pcie4-pro-x4-xt-4000gb-m2pcie-m22280",
+"yahav:10450":"model:storage:mp600-pro-s-series-xt-4000gb-m2pcie-m2",
 "yahav:10451":"model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx",
 "yahav:10457":"model:cpu:9900x3d-tray",
 "yahav:10460":"model:gpu:16g-16gd-5080-aorus-geforce-gv-ice-ice-master-n5080aorusm-rtx-16gb",
@@ -9531,7 +9531,7 @@
 "yahav:10512":"cpu:amd:ryzen-9-9950x3d-tray",
 "yahav:10513":"model:psu:1-1-3-5-active-modular-pfc-rm850x-850w-black",
 "yahav:10514":"model:psu:1-1-120mm-3-5-850w-atx-cybenetics-fully-gold-modular-pcie-rm850e-rme-series-850w-full-black",
-"yahav:10515":"model:psu:1-3-fully-modular-rm750e-750w-full-black",
+"yahav:10515":"model:psu:rm750e-750w-full-black",
 "yahav:10516":"model:psu:1-1-120mm-3-5-650w-active-atx-fully-gold-modular-pcie-pfc-rm650e-rme-series-650w-full-black",
 "yahav:10517":"model:cooler_air:212-70cfm-hyper-pro-120mm",
 "yahav:10518":"model:psu:rm1000e-1000w-full-black",
@@ -9649,7 +9649,7 @@
 "yahav:10900":"model:psu:hx1200i-1200w-full-black",
 "yahav:10902":"model:psu:rm1000e-1000w-full-white",
 "yahav:10903":"model:psu:1-1-1000w-140mm-3-5-active-atx-gold-pcie-pfc-ready-rm1000x-rmx-series-1000w-black",
-"yahav:10904":"model:psu:1-3-fully-modular-rm750e-750w-full-white",
+"yahav:10904":"model:psu:rm750e-750w-full-white",
 "yahav:10905":"model:psu:1-3-fully-modular-rm850e-850w-full-white",
 "yahav:10906":"model:motherboard:0-1xhdmi-2xusb-4-7-aorus-elite-wifi-x870-atx",
 "yahav:10907":"model:psu:1-1-3-5-active-pfc-series-sf850x-sfx-850w-black",
@@ -10409,7 +10409,7 @@
 "yahav:9744":"model:storage:nv3-s-series-500gb-pcie4-m22280",
 "yahav:9746":"model:storage:nv3-s-series-1000gb-pciem2-m2",
 "yahav:9747":"manual:storage:ksp-325683-tms-snv3s-2000g",
-"yahav:9750":"model:storage:mp600-pcie4-pro-x4-xt-8000gb-m2pcie-m22280",
+"yahav:9750":"model:storage:mp600-pro-s-series-xt-8000gb-m2pcie-m22280",
 "yahav:9789":"model:case:3x120mm-cx-cx300m-fixed-mini-mode-rgb-rgb-series-tower-black",
 "yahav:9790":"model:cpu:ryzen59600x-tray",
 "yahav:9792":"model:cpu:9600x",
@@ -15038,12 +15038,12 @@
 "Jonsbo XA-120B 120mm PWM ARGB Black",
 "case_fan"
 ],
-"model:case_fan:12-3-dynamic-reverse-rgb-black":[
-"Fractal Design Reverse RGB Black",
+"model:case_fan:12-3-dynamic-120mm-rgb-black":[
+"Fractal Design FD DR3 1201 120mm ARGB Black",
 "case_fan"
 ],
-"model:case_fan:12-3-dynamic-rgb-black":[
-"Fractal Design FD DR3 1201 RGB Black",
+"model:case_fan:12-3-dynamic-reverse-120mm-rgb-black":[
+"Fractal Design Reverse 120mm ARGB Black",
 "case_fan"
 ],
 "model:case_fan:12-af120-120mm-1-black":[
@@ -15515,7 +15515,11 @@
 "case_fan"
 ],
 "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black":[
-"Lian Li 120mm UNI CL FLEX Reverse",
+"Lian Li 120mm UNI CL FLEX Reverse (12RCL1F1B)",
+"case_fan"
+],
+"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-white":[
+"Lian Li 120mm UNI CL FLEX Reverse (12RCL1F1W)",
 "case_fan"
 ],
 "model:case_fan:120mm-cl-fan-flex-uni-120mm-rgb-black":[
@@ -15706,8 +15710,8 @@
 "Lian Li UNI TL120 Wireless 120mm ARGB White",
 "case_fan"
 ],
-"model:case_fan:14-3-dynamic-rgb-black":[
-"Fractal Design FD DR3 1401 RGB Black",
+"model:case_fan:14-3-dynamic-140mm-rgb-black":[
+"Fractal Design FD DR3 1401 140mm ARGB Black",
 "case_fan"
 ],
 "model:case_fan:14-al-prisma-pwm-140mm-rgb-black":[
@@ -16946,14 +16950,6 @@
 "Antec P12R Reverse 120mm PWM ARGB White",
 "case_fan"
 ],
-"model:case_fan:fan-pwm-rs120-120mm-rgb-black":[
-"Corsair RS120 Support 120mm PWM ARGB Black",
-"case_fan"
-],
-"model:case_fan:fan-pwm-rs120-120mm-rgb-white":[
-"Corsair RS120 Support 120mm PWM ARGB White",
-"case_fan"
-],
 "model:case_fan:fan-pwm-rs140-140mm-rgb-black":[
 "Corsair RS140 Support 140mm PWM ARGB Black",
 "case_fan"
@@ -17112,6 +17108,14 @@
 ],
 "model:case_fan:led-ml140-pro-pwm-140mm-rgb-black-2":[
 "Corsair ML140 PRO Lighting 140mm PWM RGB Black",
+"case_fan"
+],
+"model:case_fan:led-pwm-rs120-support-120mm-rgb-black":[
+"Corsair RS120 Support 120mm PWM ARGB Black",
+"case_fan"
+],
+"model:case_fan:led-pwm-rs120-support-120mm-rgb-white":[
+"Corsair RS120 Support 120mm PWM ARGB White",
 "case_fan"
 ],
 "model:case_fan:ln-p12-pro-120mm-black":[
@@ -19162,8 +19166,8 @@
 "AMD Threadripper PRO 7985WX Tray",
 "cpu"
 ],
-"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx":[
-"Gigabyte GeForce RTX 3060",
+"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb":[
+"Gigabyte GeForce RTX 3060 8GB",
 "gpu"
 ],
 "model:gpu:000-14933-2502-4-900-nvlink-rtx-slot-titan":[
@@ -19216,10 +19220,6 @@
 ],
 "model:gpu:128bit-gddr6-gtx1650-4gb":[
 "ARKTEK GeForce GTX 1650 4GB",
-"gpu"
-],
-"model:gpu:128bit-gt740-low-profile-4gb":[
-"ARKTEK GeForce GT 740 4GB Low Profile",
 "gpu"
 ],
 "model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb":[
@@ -20368,6 +20368,10 @@
 ],
 "model:gpu:evo-o12g-prime-rx9070gre-12gb":[
 "ASUS Prime Radeon RX 9070 12GB OC",
+"gpu"
+],
+"model:gpu:gddr5-gt740-low-profile-4gb":[
+"ARKTEK GeForce GT 740 4GB Low Profile",
 "gpu"
 ],
 "model:gpu:geforce-rtx-5080-windforce-sff-16g-16gb":[
@@ -23774,7 +23778,7 @@
 "Gigabyte B550 X Eagle WIFI6",
 "motherboard"
 ],
-"model:motherboard:b550-eagle-x":[
+"model:motherboard:b550-eagle-x-atx":[
 "Gigabyte B550 X Eagle",
 "motherboard"
 ],
@@ -25602,14 +25606,6 @@
 "Corsair RM850E 3.1 850W 80 PLUS Platinum White",
 "psu"
 ],
-"model:psu:1-3-fully-modular-rm750e-750w-full-black":[
-"Corsair RM750e 750W ATX 3.1 Gold Modular",
-"psu"
-],
-"model:psu:1-3-fully-modular-rm750e-750w-full-white":[
-"Corsair RM750e 750W ATX 3.1 Gold Fully Modular White",
-"psu"
-],
 "model:psu:1-3-fully-modular-rm850e-850w-full-white":[
 "Corsair RM850e 850W ATX 3.1 Gold Fully Modular White",
 "psu"
@@ -26583,7 +26579,7 @@
 "psu"
 ],
 "model:psu:rm1000e-1000w-full-white":[
-"Corsair RM1000e 1000W ATX 3.1 Gold Fully Modular White",
+"Corsair RM1000e 1000W ATX 3.1 Gold Fully Modular",
 "psu"
 ],
 "model:psu:rm1000x-14cm-fan-fully-modular-1000w-full-black":[
@@ -26596,6 +26592,14 @@
 ],
 "model:psu:rm1200e-1200w-full-black":[
 "Corsair RM1200E 1200W 80 PLUS Gold Black",
+"psu"
+],
+"model:psu:rm750e-750w-full-black":[
+"Corsair RM750e 750W ATX 3.1 Gold Modular",
+"psu"
+],
+"model:psu:rm750e-750w-full-white":[
+"Corsair RM750e 750W ATX 3.1 Gold Fully Modular",
 "psu"
 ],
 "model:psu:rm850x-14cm-fan-fully-modular-850w-full-black":[
@@ -28066,11 +28070,11 @@
 "Corsair MP600 PRO X4 4TB NVMe Gen4 M.2-2280",
 "storage"
 ],
-"model:storage:mp600-pcie4-pro-x4-xt-4000gb-m2pcie-m22280":[
+"model:storage:mp600-pro-s-series-xt-4000gb-m2pcie-m2":[
 "Corsair MP600 PRO XT 7100MB 4TB NVMe Gen4 M.2",
 "storage"
 ],
-"model:storage:mp600-pcie4-pro-x4-xt-8000gb-m2pcie-m22280":[
+"model:storage:mp600-pro-s-series-xt-8000gb-m2pcie-m22280":[
 "Corsair SSD 8TB MP600 Pro XT NVMe PCIe4 x4 M.2",
 "storage"
 ],

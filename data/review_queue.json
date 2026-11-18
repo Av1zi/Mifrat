@@ -100,28 +100,6 @@
   },
   {
     "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "1pc:92773",
-    "listing_b": "tms:100-000000510",
-    "title_a": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
-    "title_b": "AMD Ryzen 3 4100 AM4 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000000510 AMD Ryzen 3 4100 AM4 Tray"
-  },
-  {
-    "score": 89,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000050",
-    "listing_b": "tms:100-000000510",
-    "title_a": "AMD Ryzen 5 3500 AM4 Tray",
-    "title_b": "AMD Ryzen 3 4100 AM4 Tray",
-    "match_text_a": "100-000000050 AMD Ryzen 5 3500 AM4 Tray",
-    "match_text_b": "100-000000510 AMD Ryzen 3 4100 AM4 Tray"
-  },
-  {
-    "score": 89,
     "category": "case",
     "brand": "ASUS",
     "listing_a": "ksp:233648",
@@ -207,17 +185,6 @@
     "title_b": "AMD Ryzen 7 5700 AM4 Tray",
     "match_text_a": "100-000000926 AMD Ryzen 7 5700X AM4 8 Tray",
     "match_text_b": "100-000000743 AMD Ryzen 7 5700 AM4 Tray"
-  },
-  {
-    "score": 88,
-    "category": "cpu",
-    "brand": "AMD",
-    "listing_a": "tms:100-000000159",
-    "listing_b": "tms:100-000000510",
-    "title_a": "AMD Ryzen 3 3300X AM4 Tray",
-    "title_b": "AMD Ryzen 3 4100 AM4 Tray",
-    "match_text_a": "100-000000159 AMD Ryzen 3 3300X AM4 Tray",
-    "match_text_b": "100-000000510 AMD Ryzen 3 4100 AM4 Tray"
   },
   {
     "score": 88,
@@ -15385,72 +15352,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:7000x-full-icue-series-tower-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:105169",
-        "vendor": "1pc",
-        "vendor_sku": "CC-9011226-WW",
-        "title": "מארז מחשב Corsair ICUE 7000X RGB TG בצבע שחור",
-        "price": 1443
-      },
-      {
-        "listing_key": "ivory:69506",
-        "vendor": "ivory",
-        "vendor_sku": "CC-9011226-WW",
-        "title": "מארז מחשב Corsair iCUE 7000X RGB Full Tower ATX בצבע שחור",
-        "price": 1190
-      },
-      {
-        "listing_key": "tms:CC-9011226-WW",
-        "vendor": "tms",
-        "vendor_sku": "CC-9011226-WW",
-        "title": "מארז מחשב Corsair ICUE 7000X RGB",
-        "price": 1270
-      },
-      {
-        "listing_key": "yahav:7553",
-        "vendor": "yahav",
-        "vendor_sku": "CC-9011226-WW",
-        "title": "מארז חברת Corsair דגם iCue Series 7000X Tempered Glass Full Tower צבע שחור",
-        "price": 1570
-      }
-    ],
-    "model_code": "7000x-full-icue-series-tower",
-    "manufacturer_pn": [
-      "CC9011226WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:7000x-full-icue-series-tower-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:CC-9011227-WW",
-        "vendor": "tms",
-        "vendor_sku": "CC-9011227-WW",
-        "title": "מארז מחשב Corsair ICUE 7000X RGB White",
-        "price": null
-      },
-      {
-        "listing_key": "yahav:7554",
-        "vendor": "yahav",
-        "vendor_sku": "CC-9011227-WW",
-        "title": "מארז חברת Corsair דגם iCue Series 7000X  White Tempered Glass Full Tower צבע לבן",
-        "price": 1570
-      }
-    ],
-    "model_code": "7000x-full-icue-series-tower",
-    "manufacturer_pn": [
-      "CC9011227WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:argb-cx800-white",
     "vendor": "",
     "offers": [
@@ -16765,7 +16666,7 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:fan-pwm-rs120-120mm-rgb-black",
+    "product_id": "model:case_fan:led-pwm-rs120-support-120mm-rgb-black",
     "vendor": "",
     "offers": [
       {
@@ -16798,7 +16699,7 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:fan-pwm-rs120-120mm-rgb-white",
+    "product_id": "model:case_fan:led-pwm-rs120-support-120mm-rgb-white",
     "vendor": "",
     "offers": [
       {
@@ -16809,13 +16710,6 @@
         "price": 99
       },
       {
-        "listing_key": "tms:CO-9050184-WW",
-        "vendor": "tms",
-        "vendor_sku": "CO-9050184-WW",
-        "title": "Corsair RS120 ARGB PWM 120mm Fan White",
-        "price": null
-      },
-      {
         "listing_key": "yahav:10103",
         "vendor": "yahav",
         "vendor_sku": "CO-9050184-WW",
@@ -16823,7 +16717,7 @@
         "price": 85
       }
     ],
-    "model_code": "fan-pwm-rs120",
+    "model_code": "led-pwm-rs120-support",
     "manufacturer_pn": [
       "CO9050184WW"
     ]
