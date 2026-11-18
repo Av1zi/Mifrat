@@ -43,7 +43,12 @@ def main() -> int:
             facts[key] = value if re.fullmatch(r"[\w :+./-]{0,100}", value) else "unavailable"
         installed = Path("/etc/systemd/system") / unit
         source = root / "nano" / unit
-        facts["matches_repo"] = installed.read_bytes() == source.read_bytes() if installed.is_file() and source.is_file() else None
+        try:
+            facts["matches_repo"] = installed.read_bytes() == source.read_bytes() if installed.is_file() and source.is_file() else None
+        except OSError as error:
+            facts["matches_repo"] = None
+            # Fixed exception class only: paths/messages can contain user data.
+            facts["unit_read_error"] = type(error).__name__
         print(unit, json.dumps(facts))
         if not unit.endswith(".service"):
             continue

@@ -184,6 +184,8 @@ CHECKS: list[Check] = [
           py("scripts/check_scrape_outcomes.py"), BOTH),
     Check("population_selftest", CODE, "Population loss attribution",
           py("scripts/check_population.py"), BOTH),
+    Check("nano_diagnostics", CODE, "Read-only Nano diagnostics survive unreadable units",
+          py("scripts/check_nano_diagnostics.py"), BOTH),
     Check("eilat", CODE, "Eilat price parsers, attach and history rules", py("scripts/check_eilat.py"), BOTH),
     Check("xref_fixtures", CODE, "Saved-page parsers", py("scripts/check_xref_fixtures.py"), BOTH),
     Check("extract_selftest", CODE, "AI-extraction verifier and client",
