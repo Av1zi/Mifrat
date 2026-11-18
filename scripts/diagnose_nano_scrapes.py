@@ -83,9 +83,33 @@ def main() -> int:
     print("paused", (state / "ksp.paused").exists())
     python = Path.home() / "miniforge3/envs/pc-parts-il/bin/python"
     if python.is_file():
-        print("crawler_dependencies", read_command(str(python), "-c",
-              "import importlib.metadata as m; "
-              "print({n:m.version(n) for n in ['Scrapy','scrapy-curl-cffi','curl-cffi']})").strip())
+        packages = read_command(str(python), "-c",
+              "import json,importlib.metadata as m; "
+              "print(json.dumps({n:m.version(n) for n in ['Scrapy','scrapy-curl-cffi','curl-cffi']}))").strip()
+        print("crawler_dependencies", packages or "unavailable")
+        try:
+            installed = json.loads(packages)
+            pins = dict(re.findall(r"^([A-Za-z0-9_-]+)==([^\s#]+)",
+                                  (root / "requirements.txt").read_text(), re.M))
+            print("dependency_drift", json.dumps({name: {"installed": value, "repo": pins.get(name)}
+                  for name, value in installed.items() if pins.get(name) != value}))
+        except (ValueError, OSError):
+            print("dependency_drift", "unavailable")
+        # Check the configured profile in the actual Nano environment, not
+        # the development machine. Importing these modules opens no sockets.
+        print("ksp_runtime", read_command(str(python), "-c",
+              "import json,re,sys; sys.path.insert(0,sys.argv[1]); "
+              "from curl_cffi.requests.impersonate import BrowserType; "
+              "from scraper.spiders.ksp import KspSpider,IMPERSONATE,USER_AGENT,CLIENT_HINTS; "
+              "print(json.dumps({'profile':IMPERSONATE, "
+              "'profile_supported':IMPERSONATE in [p.value for p in BrowserType], "
+              "'fixed_ua_major':USER_AGENT.split('Chrome/')[1].split('.')[0], "
+              "'matching_client_hints':set(re.findall(r'v=\"(\\d+)\"',CLIENT_HINTS['sec-ch-ua'])) "
+              "- {'24'} == {USER_AGENT.split('Chrome/')[1].split('.')[0]}, "
+              "'concurrency':KspSpider.custom_settings.get('CONCURRENT_REQUESTS'), "
+              "'delay_seconds':KspSpider.custom_settings.get('DOWNLOAD_DELAY'), "
+              "'block_retry_codes':[c for c in KspSpider.custom_settings.get('RETRY_HTTP_CODES',[]) if c in (403,429)]}))",
+              str(root)).strip())
     return 0
 
 
