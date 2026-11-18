@@ -40,8 +40,10 @@ except ImportError:
 
 try:
     from scraper.image_pixels import load_pixels, rgb_at
+    from scraper.ksp_schedule import snapshot_times
 except ImportError:
     from image_pixels import load_pixels, rgb_at  # type: ignore[no-redef]
+    from ksp_schedule import snapshot_times  # type: ignore[no-redef]
 
 try:
     from scraper.image_score import blocklist as _image_blocklist
@@ -850,6 +852,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     _write_json_atomic(site_dir / "index.json", index_rows)
 
     meta = {
+        "vendor_updated_at": snapshot_times(catalog.get("listings", [])),
         "generated_at": catalog["generated_at"],
         "skipped_vendors": catalog.get("skipped_vendors", []),
         "categories": categories_meta,

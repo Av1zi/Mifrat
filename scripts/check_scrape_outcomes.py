@@ -201,7 +201,8 @@ if __name__ == "__main__":
 
         class FixtureProcess(CrawlerProcess):
             def create_crawler(self, spider):
-                return super().create_crawler(FixtureSpider if isinstance(spider, str) else spider)
+                from scraper.spiders.ksp_stream import KspStreamSpider
+                return super().create_crawler(FixtureSpider if isinstance(spider, str) or spider is KspStreamSpider else spider)
 
         with tempfile.TemporaryDirectory() as tmp:
             temp = Path(tmp)
@@ -226,7 +227,9 @@ if __name__ == "__main__":
                 final.write_text('{"existing": true}\n')
                 sys.argv = ["run_spider.py", "ksp"]
                 try:
-                    run_spider.main()
+                    from unittest.mock import patch
+                    with patch("scraper.ksp_schedule.ready", return_value=True):
+                        run_spider.main()
                     code = 0
                 except SystemExit as exc:
                     code = exc.code

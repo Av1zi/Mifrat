@@ -207,6 +207,15 @@ proxies, retries or a different TLS profile.
 
 ### Failure state and safe recovery
 
+Owner-approved Nov 18 recovery: after pulling the update, run
+`bash nano/install_ksp_recovery.sh` as `avizi` (not sudo bash). This performs
+offline checks, keeps the ordinary KSP listing/detail timers disabled and
+arms the one-time `pc-parts-il-ksp-resume.timer` for Nov 22 at
+01:00–01:30 UTC (03:00–03:30 Israel), the first night slot after 72 hours.
+No live request runs during installation. A failed recovery restores the
+pause; only a successful complete run re-enables the daily listing timer.
+Detail remains disabled. See `docs/ksp-stream-transport.md`.
+
 All scheduled Nano jobs share `~/.local/state/pc-parts-il/checkout.lock`,
 so a scrape/detail/extract job cannot pull/rebase another job's checkout
 while it is writing. KSP refuses an unrelated dirty tree rather than

@@ -63,6 +63,11 @@ def main():
         sys.exit(1)
 
     spider_name = sys.argv[1]
+    if spider_name == "ksp":
+        from scraper.ksp_schedule import ready
+        if not ready():
+            print("[error] KSP recovery date has not arrived; no requests made", file=sys.stderr)
+            sys.exit(1)
     run_date = tonight()
     output_path = build_output_path(spider_name, run_date)
 
@@ -91,8 +96,13 @@ def main():
     )
 
     process = CrawlerProcess(settings)
-    crawler = process.create_crawler(spider_name)
-    process.crawl(crawler)
+    if spider_name == "ksp":
+        from scraper.spiders.ksp_stream import KspStreamSpider
+        crawler = process.create_crawler(KspStreamSpider)
+        process.crawl(crawler, routes=str(Path(__file__).with_name("ksp_category_routes.json")))
+    else:
+        crawler = process.create_crawler(spider_name)
+        process.crawl(crawler)
     process.start()  # blocks until the crawl finishes
 
     stats = crawler.stats.get_stats() if crawler.stats else {}

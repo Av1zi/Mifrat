@@ -1,0 +1,528 @@
+{
+  "source": "owner Chromium, CPU category first page, sanitized product fields only",
+  "request": {
+    "components": [
+      {
+        "key": "cat.categoryListing",
+        "params": {
+          "categoryPath": "31635..2..61615",
+          "withSuggestion": 1,
+          "sort": 1,
+          "number": 12,
+          "tags_size": 30
+        }
+      }
+    ]
+  },
+  "listing": {
+    "requestId": "r1",
+    "key": "cat.categoryListing",
+    "ok": true,
+    "data": {
+      "result": {
+        "products_total": 45,
+        "next": 2,
+        "items": [
+          {
+            "uin": 505073,
+            "uinsql": "445612",
+            "name": "מעבד AMD Ryzen 5 5500F 3.0GHz AM4 - Tray",
+            "price": 349,
+            "min_price": 349,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/505073.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 5",
+              "יצרן": "AMD",
+              "כמות ליבות": "6",
+              "זכרון מטמון": "16MB",
+              "תושבת": "AM4",
+              "תכונות": "Tray",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "זמין בסניף": "עפולה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 289975,
+            "uinsql": "286539",
+            "name": "מעבד אינטל Intel Core i3 14100F 3.5GHz 12MB Cache s1700 - Box",
+            "price": 425,
+            "min_price": 425,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "Intel",
+            "img": "https://ksp.co.il/shop/items/289975.jpg?v=5",
+            "tags": {
+              "מעבד": "Intel Core i3",
+              "דור המעבד": "מעבד Intel Raptor Lake Refresh 14th Gen",
+              "יצרן": "Intel",
+              "כמות ליבות": "4",
+              "זכרון מטמון": "12MB",
+              "תושבת": "1700",
+              "תכונות": "Box",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "עפולה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 433340,
+            "uinsql": "389418",
+            "name": "מעבד AMD Ryzen 5 8400F 4.2GHz AM5 - Box",
+            "price": 575,
+            "min_price": 575,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/433340.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 5",
+              "יצרן": "AMD",
+              "כמות ליבות": "6",
+              "זכרון מטמון": "16MB",
+              "תושבת": "AM5",
+              "תכונות": "Box",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "חיפה רוממה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 417000,
+            "uinsql": "377385",
+            "name": "מעבד AMD Ryzen 5 9500F 3.8GHz AM5 - Tray",
+            "price": 660,
+            "min_price": 660,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/417000.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 5",
+              "יצרן": "AMD",
+              "כמות ליבות": "6",
+              "זכרון מטמון": "32MB",
+              "תושבת": "AM5",
+              "תכונות": "Tray",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "עפולה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 359920,
+            "uinsql": "336393",
+            "name": "מעבד Intel Core Ultra 5 225F 20MB Cache LGA1851 - Box",
+            "price": 665,
+            "min_price": 665,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "Intel",
+            "img": "https://ksp.co.il/shop/items/359920.jpg?v=5",
+            "tags": {
+              "מעבד": "Intel Core Ultra 5",
+              "דור המעבד": "מעבד - Intel Arrow Lake Series 2",
+              "יצרן": "Intel",
+              "כמות ליבות": "10",
+              "זכרון מטמון": "20MB",
+              "תושבת": "1851",
+              "תכונות": "Box",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "חיפה רוממה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 311714,
+            "uinsql": "305090",
+            "name": "מעבד AMD Ryzen 7 8700F 4.1GHz AM5 - Tray",
+            "price": 670,
+            "min_price": 670,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/311714.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 7",
+              "יצרן": "AMD",
+              "כמות ליבות": "8",
+              "זכרון מטמון": "24MB",
+              "תושבת": "AM5",
+              "תכונות": "Tray",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "באר שבע רמות",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 340404,
+            "uinsql": "324980",
+            "name": "מעבד Intel Core Ultra 5 245KF 24MB Cache LGA1851 - Tray",
+            "price": 690,
+            "min_price": 690,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "Intel",
+            "img": "https://ksp.co.il/shop/items/340404.jpg?v=5",
+            "tags": {
+              "מעבד": "Intel Core Ultra 5 - 245KF",
+              "דור המעבד": "מעבד - Intel Arrow Lake Series 2",
+              "יצרן": "Intel",
+              "כמות ליבות": "14",
+              "זכרון מטמון": "24MB",
+              "תושבת": "1851",
+              "תכונות": "Tray",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "חיפה רוממה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 340400,
+            "uinsql": "324979",
+            "name": "מעבד Intel Core Ultra 5 245KF 24MB Cache LGA1851 - Box",
+            "price": 690,
+            "min_price": 690,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "Intel",
+            "img": "https://ksp.co.il/shop/items/340400.jpg?v=5",
+            "tags": {
+              "מעבד": "Intel Core Ultra 5 - 245KF",
+              "דור המעבד": "מעבד - Intel Arrow Lake Series 2",
+              "יצרן": "Intel",
+              "כמות ליבות": "14",
+              "זכרון מטמון": "24MB",
+              "תושבת": "1851",
+              "תכונות": "Box",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "חיפה רוממה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 433343,
+            "uinsql": "389419",
+            "name": "מעבד AMD Ryzen 5 8600G 4.3GHz AM5 - Tray",
+            "price": 699,
+            "min_price": 699,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/433343.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 5",
+              "יצרן": "AMD",
+              "כמות ליבות": "6",
+              "זכרון מטמון": "16MB",
+              "תושבת": "AM5",
+              "תכונות": "Tray",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "מודיעין מער",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 164453,
+            "uinsql": "171970",
+            "name": "מעבד AMD Ryzen 7 5700G 3.8Ghz AM4 - Box",
+            "price": 715,
+            "min_price": 715,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/164453.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 7",
+              "יצרן": "AMD",
+              "כמות ליבות": "8",
+              "זכרון מטמון": "16MB",
+              "תושבת": "AM4",
+              "תכונות": "Box",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "AMD SALE",
+              "זמין בסניף": "פתח תקווה קניון סירקין",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "2 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 289988,
+            "uinsql": "286541",
+            "name": "מעבד אינטל Intel Core i5 14400F 2.5GHz 20MB Cache s1700 - Box",
+            "price": 750,
+            "min_price": 750,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "Intel",
+            "img": "https://ksp.co.il/shop/items/289988.jpg?v=5",
+            "tags": {
+              "מעבד": "Intel Core i5",
+              "דור המעבד": "מעבד Intel Raptor Lake Refresh 14th Gen",
+              "יצרן": "Intel",
+              "כמות ליבות": "10",
+              "זכרון מטמון": "20MB",
+              "תושבת": "1700",
+              "תכונות": "Box",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "חיפה רוממה",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "3 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          },
+          {
+            "uin": 326440,
+            "uinsql": "316657",
+            "name": "מעבד AMD Ryzen 5 9600X 3.9GHz AM5 - Tray",
+            "price": 811,
+            "min_price": 811,
+            "eilatPrice": 0,
+            "outOfStock": false,
+            "addToCart": true,
+            "brandName": "AMD",
+            "img": "https://ksp.co.il/shop/items/326440.jpg?v=5",
+            "tags": {
+              "מעבד": "AMD Ryzen 5",
+              "יצרן": "AMD",
+              "כמות ליבות": "6",
+              "זכרון מטמון": "32MB",
+              "תושבת": "AM5",
+              "תכונות": "Tray",
+              "משך אחריות": "3 שנים",
+              "יבואן": "יבואן רשמי",
+              "מבצעים": "משתתף בקופון הטלגרם 2026",
+              "זמין בסניף": "מודיעין מער",
+              "עולם": "מחשבים וסלולר",
+              "קטלוג": "רכיבי חומרה ותוכנות",
+              "קטלוג משני": "מעבדים"
+            },
+            "labels": [
+              {
+                "msg": "3 תשלומים ללא ריבית",
+                "type": "Payment"
+              }
+            ],
+            "is_dynamic_parent": false,
+            "main_family_id": 0
+          }
+        ]
+      }
+    }
+  },
+  "prices": {
+    "requestId": "r1",
+    "key": "item.bms",
+    "ok": true,
+    "data": {
+      "result": {
+        "164453": {
+          "uin": 164453,
+          "price": 715,
+          "eilat_price": 606,
+          "is_eilat": true
+        },
+        "289975": {
+          "uin": 289975,
+          "price": 425,
+          "eilat_price": 360,
+          "is_eilat": true
+        },
+        "289988": {
+          "uin": 289988,
+          "price": 750,
+          "eilat_price": 636,
+          "is_eilat": true
+        },
+        "311714": {
+          "uin": 311714,
+          "price": 670,
+          "eilat_price": 568,
+          "is_eilat": true
+        },
+        "326440": {
+          "uin": 326440,
+          "price": 811,
+          "eilat_price": 687,
+          "is_eilat": true
+        },
+        "340400": {
+          "uin": 340400,
+          "price": 690,
+          "eilat_price": 585,
+          "is_eilat": true
+        },
+        "340404": {
+          "uin": 340404,
+          "price": 690,
+          "eilat_price": 585,
+          "is_eilat": true
+        },
+        "359920": {
+          "uin": 359920,
+          "price": 665,
+          "eilat_price": 564,
+          "is_eilat": true
+        },
+        "417000": {
+          "uin": 417000,
+          "price": 660,
+          "eilat_price": 559,
+          "is_eilat": true
+        },
+        "433340": {
+          "uin": 433340,
+          "price": 575,
+          "eilat_price": 487,
+          "is_eilat": true
+        },
+        "433343": {
+          "uin": 433343,
+          "price": 699,
+          "eilat_price": 592,
+          "is_eilat": true
+        },
+        "505073": {
+          "uin": 505073,
+          "price": 349,
+          "eilat_price": 296,
+          "is_eilat": true
+        }
+      }
+    }
+  },
+  "done": {
+    "status": "completed"
+  }
+}

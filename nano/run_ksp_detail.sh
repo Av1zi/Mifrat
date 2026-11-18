@@ -28,6 +28,12 @@ KSP_DETAIL_LIMIT="${KSP_DETAIL_LIMIT:-150}"
 
 cd "$REPO_DIR"
 mkdir -p "$STATE_DIR"
+# Listing recovery is the priority; detail remains disabled until separately
+# reviewed, even if somebody starts this service manually.
+if [ -f "$REPO_DIR/scraper/ksp_schedule.json" ]; then
+    echo "[run_ksp_detail] detail disabled during listing recovery"
+    exit 0
+fi
 
 if ksp_blocked; then
     if [ -f "$READY_MARKER" ] && [ ! -f "$PUSH_MARKER" ]; then

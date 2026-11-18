@@ -1,0 +1,11 @@
+[Unit]
+Description=Resume KSP once after at least 72 hours, in the night window
+
+[Timer]
+OnCalendar=2026-11-22 01:00:00 UTC
+RandomizedDelaySec=1800
+Unit=pc-parts-il-ksp-resume.service
+# No Persistent: a missed slot must not catch up in daytime.
+
+[Install]
+WantedBy=timers.target

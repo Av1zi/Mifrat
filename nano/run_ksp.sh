@@ -28,6 +28,10 @@ if ! timedatectl status | grep -q "synchronized: yes"; then
 fi
 
 cd "$REPO_DIR"
+if ! "$PYTHON" scraper/ksp_schedule.py ready; then
+    echo "[run_ksp] recovery date has not arrived; no requests tonight"
+    exit 0
+fi
 
 if ksp_blocked; then
     echo "[error] ksp blocked earlier tonight; leaving it alone" >&2
@@ -86,17 +90,9 @@ touch "$SUCCESS_MARKER"
 # Best-effort, like the covers below: the regular snapshot is already pushed,
 # and a missed Eilat night only stale-forwards the Eilat prices. A block
 # still stops here (no covers either), as the home-IP rules require.
-EILAT_STATUS=0
-bash nano/run_eilat.sh ksp || EILAT_STATUS=$?
-if [ "$EILAT_STATUS" -eq 3 ]; then
-    # Exit 3 = blocked (run_eilat.sh). The log line keeps ops_notify's
-    # "ksp blocked" classification; no more requests to KSP tonight.
-    echo "[error] ksp blocked the Eilat crawl — skipping covers tonight" >&2
-    ksp_mark_blocked
-    exit 3
-elif [ "$EILAT_STATUS" -ne 0 ]; then
-    echo "[warn] KSP Eilat crawl failed — regular snapshot already pushed" >&2
-fi
+# New listing transport already captures current Eilat prices. Do not call
+# the rejected legacy Eilat endpoint during recovery.
+echo "[run_ksp] legacy Eilat phase disabled during stream recovery"
 
 # Cover backfill (best-effort; the snapshot is already pushed and the success
 # marker written). KSP's image host shares the Cloudflare edge with the API:

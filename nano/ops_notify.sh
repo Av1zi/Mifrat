@@ -69,6 +69,7 @@ done < "$CONF"
 # pc-parts-il-tms-fallback.service -> tms
 VENDOR="$(echo "$UNIT" | sed -E 's/^pc-parts-il-//; s/(-fallback)?\.service$//')"
 if [ "$VENDOR" = "ksp-detail" ]; then VENDOR=ksp; PHASE=detail; fi
+if [ "$VENDOR" = "ksp-resume" ]; then VENDOR=ksp; fi
 case "$VENDOR" in
     tms|onepc|ksp) ;;
     *) echo "[ops_notify] $UNIT is not a scrape unit - skipping" >&2; exit 0 ;;
@@ -131,7 +132,7 @@ elif [ -r "$RESULT_FILE" ]; then
             DETAIL="$PHASE crawled but publication/service failed ($RESULT)"
         fi
     fi
-elif [ "$PHASE" != listing ] && echo "$LOG" | grep -qE '\[run_ksp_detail\] (already ran|no KSP listing|nothing pending|KSP listing run still active)'; then
+elif [ "$PHASE" != listing ] && echo "$LOG" | grep -qE '\[run_ksp_detail\] (already ran|no KSP listing|nothing pending|KSP listing run still active|detail disabled)'; then
     echo "[ops_notify] $VENDOR skipped; no successful crawl to report"
     exit 0
 fi

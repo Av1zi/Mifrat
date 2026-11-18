@@ -20,6 +20,7 @@ cat > "$TMP/bin/python" <<'EOF'
 #!/usr/bin/env bash
 case "$*" in
     *scraper/night.py*) exec "$REAL_PYTHON" "$@" ;;
+    *scraper/ksp_schedule.py*) exit 0 ;;
     *scraper/run_spider.py*)
         echo crawl >> "$CALLS"
         mkdir -p "data/raw/$MIFRAT_NIGHT"
@@ -27,8 +28,9 @@ case "$*" in
         for _ in $(seq 1 900); do echo '{"x":1}'; done > "data/raw/$MIFRAT_NIGHT/ksp.jsonl"
         exit 0 ;;
     *scraper/run_ksp_detail.py*) echo detail >> "$CALLS"; exit 0 ;;
+    *scraper.download_images*) echo covers >> "$CALLS"; exit "${FAKE_COVER_STATUS:-0}" ;;
     *-m*) exit 0 ;;
-    *-c*) if [[ "$*" == *detail_pending* ]]; then echo "${DETAIL_COUNT:-0}"; exit 0; fi; exit 1 ;;
+    *-c*) if [[ "$*" == *detail_pending* ]]; then echo "${DETAIL_COUNT:-0}"; exit 0; fi; if [ "${COVER_PHASE:-0}" = 1 ]; then exit 0; fi; exit 1 ;;
 esac
 EOF
 cat > "$TMP/bin/git" <<'EOF'
@@ -79,7 +81,7 @@ check() {
     fi
 }
 run run_ksp.sh
-check 'regular publish precedes optional Eilat' '[ "$(tr "\n" " " < "$CALLS")" = "crawl publish eilat " ]'
+check 'regular publish omits rejected legacy Eilat endpoint' '[ "$(tr "\n" " " < "$CALLS")" = "crawl publish " ]'
 check 'validated and pushed markers' '[ -f "$STATE/ksp-2026-11-18.validated" ] && [ -f "$STATE/ksp-2026-11-18.success" ]'
 run run_ksp.sh
 check 'second invocation does not crawl' '[ "$CODE" = 0 ] && [ ! -s "$CALLS" ]'
@@ -89,8 +91,9 @@ check 'push failure never recrawls validated output' '[ "$CODE" = 1 ] && ! grep 
 run run_ksp.sh
 check 'push recovery publishes existing snapshot' '[ "$CODE" = 0 ] && ! grep -q crawl "$CALLS" && [ -f "$STATE/ksp-2026-11-18.success" ]'
 rm "$STATE/ksp-2026-11-18.success"
-FAKE_EILAT_STATUS=3 run run_ksp.sh
-check 'Eilat block keeps regular publication but blocks the night' '[ "$CODE" = 3 ] && [ -f "$STATE/ksp-2026-11-18.success" ] && [ -f "$STATE/ksp-2026-11-18.blocked" ]'
+echo '{}' > "$REPO/data/catalog.json"
+COVER_PHASE=1 FAKE_COVER_STATUS=3 run run_ksp.sh
+check 'cover block keeps regular publication but blocks the night' '[ "$CODE" = 3 ] && [ -f "$STATE/ksp-2026-11-18.success" ] && [ -f "$STATE/ksp-2026-11-18.blocked" ]'
 KSP_DETAIL_FORCE=1 run run_ksp_detail.sh
 check 'force cannot bypass blocked-night detail guard' '[ "$CODE" = 3 ] && [ ! -s "$CALLS" ]'
 run run_ksp.sh

@@ -20,6 +20,7 @@ import { button } from "./ui/button";
 import { syncCompareTray } from "./ui/compareTray";
 import { html, type Html } from "./ui/html";
 import { syncPickControls } from "./ui/pick";
+import { kspNotice } from "./ui/vendorNotice";
 import { safeImageUrl } from "./utils";
 
 /** Big photo tiles in the products menu; the cooling tile spans air + liquid. */
@@ -198,7 +199,11 @@ function footerMarkup(lang: Lang): Html {
 
 /** Header + empty <main> + footer. Returns after wiring the header controls. */
 export function renderShell(app: HTMLElement, state: ShellState, handlers: ShellHandlers): void {
-  app.innerHTML = html`<a class="skip-link" href="#main-content">${t(state.lang, "skipToContent")}</a>${headerMarkup(state)}<main id="main-content" tabindex="-1"></main>${footerMarkup(state.lang)}<aside class="compare-tray" id="compare-tray" aria-label="${t(state.lang, "compareTitle")}" hidden></aside>`.value;
+  app.innerHTML = html`<a class="skip-link" href="#main-content">${t(state.lang, "skipToContent")}</a>${headerMarkup(state)}<div data-vendor-notice>${kspNotice(state.lang)}</div><main id="main-content" tabindex="-1"></main>${footerMarkup(state.lang)}<aside class="compare-tray" id="compare-tray" aria-label="${t(state.lang, "compareTitle")}" hidden></aside>`.value;
+  const noticeHost = app.querySelector("[data-vendor-notice]");
+  void loadMeta().then((meta) => {
+    if (noticeHost?.isConnected) noticeHost.innerHTML = kspNotice(state.lang, meta.vendor_updated_at?.ksp).value;
+  }).catch(() => {});
   openDropdown = null;
 
   fillMenuData(app, state.lang);

@@ -4,6 +4,8 @@
 nano_lock() {
     STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pc-parts-il"
     mkdir -p "$STATE_DIR"
+    # Recovery wrapper and its child share one open lock descriptor.
+    if [ "${MIFRAT_CHECKOUT_LOCK:-0}" = 1 ] && flock -n 9 2>/dev/null; then return 0; fi
     exec 9>"$STATE_DIR/checkout.lock"
     if ! flock -w 300 9; then
         echo "[error] another Nano job holds the checkout lock; no crawl started" >&2

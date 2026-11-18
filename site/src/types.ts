@@ -235,6 +235,7 @@ export interface CategoryMeta {
 }
 
 export interface SiteMeta {
+  vendor_updated_at?: Record<string, string>;
   generated_at: string;
   skipped_vendors: string[];
   categories: CategoryMeta[];
