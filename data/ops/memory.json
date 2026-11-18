@@ -105,7 +105,7 @@
 "1pc:110916":"model:cooler_air:chromax-nh-u12a-160mm-120mm-black",
 "1pc:110918":"model:cooler_air:chromax-cooler-cpu-nh-u12s-160mm-120mm-black",
 "1pc:110960":"mpn:storage:mtfdkbg3t8tdz1az1zaby",
-"1pc:111298":"model:case:5000t-icue-white",
+"1pc:111298":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-white",
 "1pc:111308":"model:aio:cooler-cpu-display-elite-h100i-icue-lcd-liquid-240mm-black",
 "1pc:111317":"model:case_fan:elite-icue-ml140-premium-pwm-140mm-rgb-white",
 "1pc:111318":"model:case_fan:elite-icue-ml140-premium-pwm-140mm-rgb-white-2",
@@ -152,7 +152,7 @@
 "1pc:124110":"model:cooler_air:cooler-cpu-d12l-nh-145mm-120mm-black",
 "1pc:124124":"model:gpu:2g-64bit-akn610d3s2gl1-gt610-low-profile-2gb",
 "1pc:124138":"model:cooler_air:cooler-cpu-nh-u14s-165mm-140mm",
-"1pc:124456":"model:case:5000t-icue-black",
+"1pc:124456":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-black",
 "1pc:124462":"model:case:5000d-tg-white",
 "1pc:124478":"model:cooler_air:a500-170mm-120mm-black",
 "1pc:124491":"model:cpu:10600k-tray",
@@ -197,7 +197,7 @@
 "1pc:130793":"model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm",
 "1pc:130799":"model:memory:ad5s480032g-dimm-s-so-32gb-4800mhz-cl40-sodimm",
 "1pc:131314":"model:cpu:corei512400f-tray",
-"1pc:131353":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"1pc:131353":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "1pc:131354":"model:memory:16gx2-32g-6400-cl32-vengeance-32gb-6400mhz-cl32-rgb-dimm",
 "1pc:131355":"model:memory:0-2x16gb-3-6400-cl32-vengeance-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
 "1pc:131356":"model:memory:0-2x16gb-3-6400-cl32-dominator-xmp-32gb-x2-6400mhz-cl32-rgb-black-dimm",
@@ -236,7 +236,7 @@
 "1pc:138338":"mpn:storage:g325e500g",
 "1pc:138340":"model:psu:650w-80-bronze-csk-psu-650w",
 "1pc:138341":"model:case:3x120mm-fans-included-mid-no-p20ce-tower-window-black",
-"1pc:138346":"model:case:ax61-ax61elite-elite-black",
+"1pc:138346":"model:case:ax61-elite-black",
 "1pc:138359":"model:case_fan:elite-icue-performance-pwm-sp120-120mm-1-rgb-black",
 "1pc:139894":"model:storage:001-a-brkt-fd",
 "1pc:139915":"model:memory:0-1-3-5600-bulk-cl36-stick-vengeance-xmp-32gb-x1-5600mhz-cl36-black",
@@ -426,7 +426,7 @@
 "1pc:157903":"model:case:1x120mm-2x160mm-case-fans-gaming-nx416l-black",
 "1pc:158239":"model:motherboard:b760-gaming-tuf-wifi-atx",
 "1pc:158242":"model:motherboard:p-prime-wifi-z790-atx",
-"1pc:158245":"model:motherboard:b760-d4-prime-atx",
+"1pc:158245":"model:motherboard:b760-d4-plus-prime-atx",
 "1pc:158399":"model:memory:ax5u6400c3232g-clarbk-dimm-lancer-u-32gb-6400mhz-cl32-rgb-black-dimm",
 "1pc:158401":"model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl40-rgb-white-dimm",
 "1pc:158403":"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6400mhz-cl32-rgb-white-dimm",
@@ -589,7 +589,7 @@
 "1pc:167550":"model:motherboard:6-666-h610m-wifi-microatx",
 "1pc:167551":"model:motherboard:6-666-d5-h610m-wifi-microatx",
 "1pc:167954":"mpn:memory:cmp32gx5m2b6000c30w",
-"1pc:167956":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+"1pc:167956":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "1pc:167972":"model:motherboard:b760m-d3hp-microatx-ddr4",
 "1pc:167982":"model:case:c8-wood-black",
 "1pc:168334":"model:memory:ad5s560032g-dimm-s-so-32gb-5600mhz-cl46-sodimm",
@@ -829,11 +829,11 @@
 "1pc:175349":"mpn:aio:90rc00w1m0uay0",
 "1pc:175446":"model:memory:0-2x24gb-3-6000-cl30-vengeance-xmp-48gb-x2-6000mhz-cl30-white",
 "1pc:175449":"model:memory:lpx-vengeance-16gb-x1-3600mhz-cl18-black",
-"1pc:175451":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2",
-"1pc:175452":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-white",
-"1pc:175453":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-black",
-"1pc:175454":"model:memory:rgb-vengeance-96gb-x2-7000mhz-cl40-rgb-black",
-"1pc:175463":"model:motherboard:aorus-ice-pro-x870i-miniitx",
+"1pc:175451":"memory:ksp:ksp-480430",
+"1pc:175452":"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-white",
+"1pc:175453":"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-black",
+"1pc:175454":"model:memory:0-2x48gb-3-7000-cl40-vengeance-xmp-96gb-x2-7000mhz-cl40-rgb-black",
+"1pc:175463":"model:motherboard:0-1xhdmi-1xusb-4-7-aorus-ddr5-fi-ice-itx-mini-pro-wi-x870i-miniitx",
 "1pc:175464":"model:motherboard:7945hx-9-bd790i-itx-mini-minisforum-motherboard-ryzen-miniitx",
 "1pc:175465":"model:case_fan:9051034-co-ww-120mm-3-rgb-black",
 "1pc:175466":"model:case_fan:120mm-9051041-co-fan-icue-link-max-rx120-thick-ww-120mm-black",
@@ -870,12 +870,12 @@
 "1pc:177174":"model:storage:1tr-ault-su680-su680-1000gb-sata",
 "1pc:177176":"model:storage:2t-agammixs60-cs-gammix-s60-2000gb-pciegen4x4-m22280",
 "1pc:177177":"model:storage:1t-agammixs60-cs-gammix-s60-1000gb-pciegen4x4-m22280",
-"1pc:177646":"model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+"1pc:177646":"model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx",
 "1pc:177647":"model:motherboard:aorus-b850-elite-wifi7-atx",
 "1pc:177648":"model:motherboard:b850-eagle-wifi6e-atx",
 "1pc:177649":"model:motherboard:b850-gaming-wifi6-atx",
 "1pc:177650":"model:motherboard:b850-gaming-wifi6e-x-atx",
-"1pc:177651":"model:motherboard:aorus-b850i-pro-miniitx",
+"1pc:177651":"model:motherboard:7-am5-aorus-b850i-fi-hdmi-pro-wi-miniitx",
 "1pc:177652":"model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
 "1pc:177653":"model:motherboard:b850m-d3hp-microatx",
 "1pc:177654":"model:motherboard:b850m-ds3h-microatx",
@@ -953,14 +953,14 @@
 "1pc:179941":"model:case:100r-mag-pano-pz",
 "1pc:179942":"model:case:100r-mag-pano-pz-white",
 "1pc:180203":"model:case_fan:3xfans-lcd-tl120-uni-wireless-120mm-3-rgb-white",
-"1pc:180207":"model:case_fan:12tl1w3b-1black-3xfans-led-tl120-uni-wireless-120mm-3-rgb-black",
-"1pc:180208":"model:case_fan:12tl1w1b-black-fan-led-tl120-uni-wireless-120mm-rgb-black",
-"1pc:180209":"model:case_fan:12tl1w3w-3xfans-led-tl120-uni-white-wireless-120mm-3-rgb-white",
-"1pc:180211":"model:case_fan:120mm-12rsl1w1b-black-fan-reverse-sl-uni-wireless-120mm-1-rgb-black",
+"1pc:180207":"model:case_fan:1black-3xfans-led-tl120-uni-wireless-120mm-3-rgb-black",
+"1pc:180208":"model:case_fan:fan-led-tl120-uni-wireless-120mm-rgb-black",
+"1pc:180209":"model:case_fan:3-fan-tl120-uni-wireless-120mm-3-rgb-white",
+"1pc:180211":"model:case_fan:120mm-black-fan-pack-reverse-rgb-single-sl-uni-wireless-120mm-1-rgb-black",
 "1pc:180212":"mpn:case_fan:12rsl1w1w",
-"1pc:180214":"model:case_fan:12sl1w3b-3xfans-sl-uni-wireless-120mm-3-rgb-black",
+"1pc:180214":"model:case_fan:3xfans-sl-uni-wireless-120mm-3-rgb-black",
 "1pc:180217":"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-black",
-"1pc:180218":"model:case_fan:120mm-12rsllcd1w1w-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white",
+"1pc:180218":"model:case_fan:120mm-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white",
 "1pc:180219":"model:case_fan:3xfans-lcd-sl-uni-wireless-120mm-3-rgb-white",
 "1pc:180222":"mpn:case:lan207rx",
 "1pc:180224":"model:case:a3-case-black",
@@ -990,7 +990,7 @@
 "1pc:182687":"model:storage:2t00-g26-sdssde30-2000gb-usb",
 "1pc:183242":"mpn:case:ax63woodargb",
 "1pc:183243":"model:case:1-m-performance-black",
-"1pc:183246":"model:case:1-m-performance-black-2",
+"1pc:183246":"model:case:1-aventurine-m-performance-black",
 "1pc:183247":"psu:1pc:1pc-183247",
 "1pc:183298":"model:gpu:16g-16gd-9070-gaming-gv-oc-oc-r9070xtgaming-rx-xt-16gb",
 "1pc:183306":"model:gpu:16g-16gd-9070-aorus-e-elite-gv-r9070xtaorus-radeon-rx-xt-16gb",
@@ -1006,7 +1006,7 @@
 "1pc:183320":"model:gpu:12g-12gd-5070-geforce-gv-n5070wf3oc-oc-rtx-sff-windforce-12gb",
 "1pc:183465":"model:gpu:5070-gddr7-geforce-oc-prime-rtx-12gb",
 "1pc:184584":"model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
-"1pc:184587":"model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black",
+"1pc:184587":"model:case_fan:120x38mm-4krpm-ball-bearing-black-dual-j20-pwm-x-120mm-black",
 "1pc:184588":"model:case:argb-t5-black",
 "1pc:184589":"mpn:case:bs2bk3f7",
 "1pc:184591":"model:case:rt7-black",
@@ -1170,7 +1170,7 @@
 "1pc:200047":"model:case:217-case-mid-tower-black",
 "1pc:200048":"model:case:a3-wood-black-2",
 "1pc:200049":"model:case:207-digital-lancool-black",
-"1pc:200050":"model:case:a3-wood-white-midtower",
+"1pc:200050":"model:case:a3-wood-white-2",
 "1pc:200053":"mpn:aio:ghslcd36sb",
 "1pc:200056":"model:memory:2x32gb-6000-cl30-vengeance-64gb-x2-6000mhz-cl30-black",
 "1pc:200212":"model:gpu:5070-gamingpro-geforce-rtx-s-ti-16gb",
@@ -2311,10 +2311,10 @@
 "1pc:222833":"model:memory:2-cp2k16g64c32u5w-32gb-x2-6400mhz-cl32-white",
 "1pc:222834":"mpn:memory:cmk32gx5m2x7000c34",
 "1pc:222835":"model:memory:32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-white-dimm",
-"1pc:222836":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"1pc:222836":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
 "1pc:222837":"model:memory:2-cmk32gx5m2b6400z32-32gb-cl32-grey",
 "1pc:222838":"model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
-"1pc:222839":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
+"1pc:222839":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
 "1pc:222840":"model:memory:2-cmp32gx5m2b6400c32-32gb-cl32-rgb-black",
 "1pc:222843":"model:storage:c715-cras-512gb-nvme",
 "1pc:222848":"model:storage:c715-cras-1000gb-nvme",
@@ -2401,13 +2401,15 @@
 "1pc:223352":"model:case:360-bf-flow-black",
 "1pc:223406":"model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black",
 "1pc:223443":"model:gpu:a-dual-o8g-rtx5060-8gb",
+"1pc:223447":"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
+"1pc:223448":"model:motherboard:b550-eagle-x-atx",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
 "1pc:33178":"model:cooler_air:2-rock-shadow-tf-115mm-140mm-black",
 "1pc:33186":"model:cooler_air:l12s-nh-90mm-120mm",
 "1pc:33191":"model:cooler_air:82cfm-d15-nh-170mm-140mm",
-"1pc:35557":"model:storage:240g-a400-sa400s37-240gb-sata-25",
+"1pc:35557":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "1pc:36046":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "1pc:38928":"model:psu:750w-current-gamer-gold-high-psu-750w",
 "1pc:44086":"model:motherboard:gx299ud4pro-pro-ud4-x299-atx",
@@ -2753,7 +2755,7 @@
 "ivory:125154":"mpn:motherboard:b850gxwifi6e",
 "ivory:125160":"model:motherboard:a-b850-gaming-rog-strix-wifi-atx",
 "ivory:125166":"model:motherboard:b850-e-gaming-rog-strix-wifi-atx",
-"ivory:125169":"model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+"ivory:125169":"model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx",
 "ivory:125172":"model:motherboard:aorus-b850-elite-wifi7-atx",
 "ivory:125175":"model:motherboard:b850-eagle-wifi6e-atx",
 "ivory:125187":"model:motherboard:b850m-ds3h-microatx",
@@ -3135,7 +3137,7 @@
 "ivory:159961":"model:storage:exceria-ltc10z480gg8-480gb-sata-25inch",
 "ivory:159964":"model:storage:exceria-ltc10z960gg8-960gb-sata-25inch",
 "ivory:160306":"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-black",
-"ivory:160312":"model:case_fan:120mm-12rsl1w1b-black-fan-reverse-sl-uni-wireless-120mm-1-rgb-black",
+"ivory:160312":"model:case_fan:120mm-black-fan-pack-reverse-rgb-single-sl-uni-wireless-120mm-1-rgb-black",
 "ivory:160315":"mpn:case_fan:ufslin1201w",
 "ivory:160318":"mpn:case_fan:12tl1w1b",
 "ivory:160321":"model:case_fan:12rtl1w1w-120mm-1-rgb-white",
@@ -3366,7 +3368,7 @@
 "ivory:179746":"model:storage:14-5-heatsink-no-s-series-t710-1000gb-nvme-m22280",
 "ivory:179749":"model:storage:14-5-heatsink-no-s-series-t710-2000gb-nvme-m22280",
 "ivory:22001":"model:gpu:2g-brk-gt1030-sl-2gb",
-"ivory:22070":"model:storage:240g-a400-sa400s37-240gb-sata-25",
+"ivory:22070":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "ivory:22993":"mpn:storage:wd10purz",
 "ivory:23562":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "ivory:27045":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
@@ -3506,7 +3508,7 @@
 "ivory:87930":"mpn:storage:t253tz001t0c101",
 "ivory:87942":"mpn:storage:tm8fpd512g0c101",
 "ivory:87945":"mpn:storage:tm8fpd002t0c101",
-"ivory:88449":"model:motherboard:b760-d4-prime-atx",
+"ivory:88449":"model:motherboard:b760-d4-plus-prime-atx",
 "ivory:88467":"model:motherboard:b760m-k-prime-microatx-2",
 "ivory:88674":"model:memory:6000j3636f16gx2-f5-fx5-32gb-x2-6000mhz-cl36-black",
 "ivory:88911":"sku:motherboard:4711377028363",
@@ -4112,7 +4114,7 @@
 "ksp:397908":"model:cooler_air:8i-co-freezer-black",
 "ksp:397944":"model:cooler_air:8a-amd-freezer-black",
 "ksp:398028":"model:cooler_air:8a-amd-co-freezer-black",
-"ksp:39823":"model:storage:240g-a400-sa400s37-240gb-sata-25",
+"ksp:39823":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "ksp:39824":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "ksp:398280":"model:cooler_air:50-freezer-tr-120mm",
 "ksp:398486":"model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb",
@@ -4436,11 +4438,11 @@
 "ksp:479567":"model:motherboard:h810m-k-prime-microatx",
 "ksp:480123":"model:motherboard:b850-f-gaming-neo-rog-strix-wifi7-atx",
 "ksp:480178":"model:psu:850g-prime-prime-850w-black",
-"ksp:480428":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
-"ksp:480430":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2",
-"ksp:480431":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-grey-dimm",
+"ksp:480428":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"ksp:480430":"memory:ksp:ksp-480430",
+"ksp:480431":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-grey-dimm",
 "ksp:480433":"memory:ksp:ksp-480433",
-"ksp:480435":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"ksp:480435":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
 "ksp:480438":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "ksp:480492":"model:storage:0-2-4-m-m452-nvme-pcie-spatium-500gb-pcie4-m22280",
 "ksp:480511":"model:storage:0-4-m452-spatium-1000gb-pcie4-m22280",
@@ -4496,8 +4498,8 @@
 "ksp:492605":"model:case:9011340-cc-ww",
 "ksp:492608":"model:case:2800x-argb-r-rs-black",
 "ksp:493613":"model:psu:atom-g850-12cm-850w",
-"ksp:493648":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
-"ksp:493649":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+"ksp:493648":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
+"ksp:493649":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "ksp:495903":"model:cpu:5700x-tray",
 "ksp:497417":"model:memory:2x16gb-cl32-m5-ripjaws-32gb-x2-4800mhz-cl32-rgb-black-dimm",
 "ksp:497448":"model:motherboard:h610m-k-prime-microatx",
@@ -4924,7 +4926,7 @@
 "plonter:AX5U6400C3216G-SAMRBKx2":"mpn:memory:ax5u6400c3216gsamrbkx2",
 "plonter:AX5U6400C3216G-SLABRBKx2":"sku:memory:ax5u6400c3216gslabrbkx2",
 "plonter:AX5U6400C3232G-CLARWHx2":"mpn:memory:ax5u6400c3232gclarwhx2",
-"plonter:AX61-Elite":"model:case:ax61-ax61elite-elite-black",
+"plonter:AX61-Elite":"model:case:ax61-elite-black",
 "plonter:AX83-RGB-Extreme":"mpn:case:ax83rgbextreme",
 "plonter:AX85-ARGB":"model:case:ax85-black",
 "plonter:Alpha2-A24-WHITE":"mpn:aio:alpha2a24white",
@@ -5294,7 +5296,7 @@
 "plonter:CMH32GX5M2D6000Z38":"mpn:memory:cmh32gx5m2d6000z38",
 "plonter:CMH32GX5M2D6000Z38W":"mpn:memory:cmh32gx5m2d6000z38w",
 "plonter:CMH32GX5M2E6000C36W":"mpn:memory:cmh32gx5m2e6000c36w",
-"plonter:CMH32GX5M2E6000Z36W":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-white",
+"plonter:CMH32GX5M2E6000Z36W":"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-white",
 "plonter:CMH32GX5M2X7000C34":"mpn:memory:cmh32gx5m2x7000c34",
 "plonter:CMH64GX5M2B5600Z40":"mpn:memory:cmh64gx5m2b5600z40",
 "plonter:CMH64GX5M2B6000C30":"mpn:memory:cmh64gx5m2b6000c30",
@@ -6593,7 +6595,7 @@
 "plonter:S340-BA":"mpn:case:s340ba",
 "plonter:S340-WA":"mpn:case:s340wa",
 "plonter:S380-BA":"mpn:case:s380ba",
-"plonter:SA400S37-240G":"model:storage:240g-a400-sa400s37-240gb-sata-25",
+"plonter:SA400S37-240G":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "plonter:SA400S37-480G":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
 "plonter:SA400S37-960G":"mpn:storage:sa400s37960g",
 "plonter:SAT5210-3840G":"mpn:storage:sat52103840g",
@@ -6917,7 +6919,7 @@
 "tms:0-761345-10090-8":"mpn:case:0761345100908",
 "tms:0-761345-10104-2":"model:case:isk110-u3-vesa-black",
 "tms:0-761345-10168-4":"model:case:1-m-performance-black",
-"tms:0-761345-10169-1":"model:case:1-m-performance-black-2",
+"tms:0-761345-10169-1":"model:case:1-aventurine-m-performance-black",
 "tms:0-761345-10170-7":"model:case:cx800-black",
 "tms:0-761345-10207-0":"model:case:ax67-black",
 "tms:0-761345-10225-4":"model:case:c5-curve-white",
@@ -7047,7 +7049,7 @@
 "tms:12RSL1F1W":"model:case_fan:120mm-blade-fan-flex-reverse-sl-uni-120mm-rgb-black-2",
 "tms:12RSL1F3B":"model:case_fan:3-blade-fan-flex-reverse-sl-uni-120mm-3-rgb-black",
 "tms:12RSL1F3W":"model:case_fan:3-blade-fan-flex-reverse-sl-uni-120mm-3-rgb-white",
-"tms:12RSL1W1B":"model:case_fan:120mm-12rsl1w1b-black-fan-reverse-sl-uni-wireless-120mm-1-rgb-black",
+"tms:12RSL1W1B":"model:case_fan:120mm-black-fan-pack-reverse-rgb-single-sl-uni-wireless-120mm-1-rgb-black",
 "tms:12RSL1W1W":"model:case_fan:120mm-fan-pack-reverse-rgb-single-sl-uni-white-wireless-120mm-1-rgb-white",
 "tms:12RSL1W3B":"model:case_fan:fans-reverse-sl-uni-wireless-x3-120mm-3-rgb-black",
 "tms:12RSL1W3W":"model:case_fan:fans-reverse-sl-uni-wireless-x3-120mm-3-rgb-white",
@@ -7060,7 +7062,7 @@
 "tms:12RSLIND1F3B":"model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
 "tms:12RSLIND1F3W":"model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
 "tms:12RSLLCD1W1B":"model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-black",
-"tms:12RSLLCD1W1W":"model:case_fan:120mm-12rsllcd1w1w-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white",
+"tms:12RSLLCD1W1W":"model:case_fan:120mm-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white",
 "tms:12RSLLCD1W3B":"model:case_fan:120mm-black-fans-lcd-reverse-sl-uni-wireless-x3-120mm-3-rgb-black",
 "tms:12RSLLCD1W3W":"model:case_fan:120mm-3xfans-lcd-reverse-sl-uni-white-wireless-wireless-120mm-3-rgb-white",
 "tms:12RSLV21W":"model:case_fan:fan-reverse-single-sl120-uni-v2-120mm-1-rgb-white",
@@ -7076,7 +7078,7 @@
 "tms:12SL1F1W":"model:case_fan:120mm-fan-flex-sl-uni-120mm-rgb-white",
 "tms:12SL1F3B":"model:case_fan:3-fan-flex-sl-uni-120mm-3-rgb-black",
 "tms:12SL1F3W":"model:case_fan:3-fan-flex-sl-uni-120mm-3-rgb-white",
-"tms:12SL1W3B":"model:case_fan:12sl1w3b-3xfans-sl-uni-wireless-120mm-3-rgb-black",
+"tms:12SL1W3B":"model:case_fan:3xfans-sl-uni-wireless-120mm-3-rgb-black",
 "tms:12SLIN1F1B":"model:case_fan:120mm-fan-flex-inf-sl-uni-120mm-1-rgb-black",
 "tms:12SLIN1F1W":"model:case_fan:120mm-fan-flex-inf-sl-uni-120mm-1-rgb-white",
 "tms:12SLIN1F3B":"model:case_fan:3-fan-flex-inf-sl-uni-120mm-3-rgb-black",
@@ -7098,9 +7100,9 @@
 "tms:12TL1F1W":"model:case_fan:120mm-fan-flex-tl-uni-120mm-rgb-white",
 "tms:12TL1F3B":"model:case_fan:3-fan-flex-tl-uni-120mm-3-rgb-black",
 "tms:12TL1F3W":"model:case_fan:3-fan-flex-tl-uni-120mm-3-rgb-white",
-"tms:12TL1W1B":"model:case_fan:12tl1w1b-black-fan-led-tl120-uni-wireless-120mm-rgb-black",
-"tms:12TL1W3B":"model:case_fan:12tl1w3b-1black-3xfans-led-tl120-uni-wireless-120mm-3-rgb-black",
-"tms:12TL1W3W":"model:case_fan:12tl1w3w-3xfans-led-tl120-uni-white-wireless-120mm-3-rgb-white",
+"tms:12TL1W1B":"model:case_fan:fan-led-tl120-uni-wireless-120mm-rgb-black",
+"tms:12TL1W3B":"model:case_fan:1black-3xfans-led-tl120-uni-wireless-120mm-3-rgb-black",
+"tms:12TL1W3W":"model:case_fan:3-fan-tl120-uni-wireless-120mm-3-rgb-white",
 "tms:12TLLCD1F1B":"model:case_fan:120mm-fan-flex-lcd-tl-uni-120mm-rgb-black",
 "tms:12TLLCD1F1W":"model:case_fan:120mm-fan-flex-lcd-tl-uni-120mm-rgb-white",
 "tms:12TLLCD1F3B":"model:case_fan:3-fan-flex-lcd-tl-uni-120mm-3-rgb-black",
@@ -7248,7 +7250,7 @@
 "tms:90MB1BY0-M0EAY0":"model:motherboard:b650-gaming-tuf-atx",
 "tms:90MB1BZ0-M0EAY0":"model:motherboard:b650-gaming-tuf-wifi-atx",
 "tms:90MB1CJ0-M1EAY0":"model:motherboard:p-prime-wifi-z790-atx",
-"tms:90MB1CW0-M1EAY0":"model:motherboard:b760-d4-prime-atx",
+"tms:90MB1CW0-M1EAY0":"model:motherboard:b760-d4-plus-prime-atx",
 "tms:90MB1CX0-M0EAY0":"model:motherboard:a-b760m-d4-prime-wifi-microatx-2",
 "tms:90MB1CX0-M1EAY0":"model:motherboard:a-b760m-d4-prime-wifi-microatx",
 "tms:90MB1D00-M1EAYC":"model:motherboard:a-b760m-csm-d4-prime-microatx",
@@ -7397,7 +7399,7 @@
 "tms:A35FRGB":"model:cooler_air:a35-cooler-cpu-frgb-130mm-120mm",
 "tms:A3W":"model:case:a3-case-white",
 "tms:A3W-WD":"model:case:a3-wood-white",
-"tms:A3W-WDG":"model:case:a3-wood-white-midtower",
+"tms:A3W-WDG":"model:case:a3-wood-white-2",
 "tms:A3X":"model:case:a3-case-black",
 "tms:A3X-WD":"model:case:a3-wood-black",
 "tms:A3X-WDG":"model:case:a3-wood-black-2",
@@ -7448,7 +7450,7 @@
 "tms:AU-500FL":"model:psu:500fl-au-aurum-pfc-xilenser-500w",
 "tms:AX1000ARGBLILE":"model:case:ax1000-lite-black",
 "tms:AX20ELITE":"model:case:ax20-elite-black",
-"tms:AX61ELITE":"model:case:ax61-ax61elite-elite-black",
+"tms:AX61ELITE":"model:case:ax61-elite-black",
 "tms:AX65ARGB":"model:case:ax65-black",
 "tms:AX83RGBELITE":"model:case:ax83-ax83rgbelite-elite-black",
 "tms:AX85-ARGB":"model:case:ax85-black",
@@ -7677,8 +7679,8 @@
 "tms:CC-9011213-WW":"model:case:5000x-icue-icue-mid-series-tower-white",
 "tms:CC-9011226-WW":"model:case:7000x-full-icue-series-tower-black",
 "tms:CC-9011227-WW":"model:case:7000x-full-icue-series-tower-white",
-"tms:CC-9011230-WW":"model:case:5000t-icue-black",
-"tms:CC-9011231-WW":"model:case:5000t-icue-white",
+"tms:CC-9011230-WW":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-black",
+"tms:CC-9011231-WW":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-white",
 "tms:CC-9011233-WW":"model:case:5000x-icue-ql-black",
 "tms:CC-9011242-WW":"model:case:120mm-3x120mm-5000d-airflow-glass-icue-mid-rgb-rgb-series-tempered-tower-black",
 "tms:CC-9011267-WW":"model:case:2500x-black",
@@ -7742,15 +7744,15 @@
 "tms:CMH32GX5M1D6000Z40-B":"model:memory:6000-bulk-cl40-cmh5x32g1d60z40a2-32gb-x1-6000mhz-cl40-black",
 "tms:CMH32GX5M2B5200C40W":"mpn:memory:cmh32gx5m2b5200c40w",
 "tms:CMH32GX5M2B5600C40W":"mpn:memory:cmh32gx5m2b5600c40w",
-"tms:CMH32GX5M2B6000C30W":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
-"tms:CMH32GX5M2B6000Z30K":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"tms:CMH32GX5M2B6000C30W":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+"tms:CMH32GX5M2B6000Z30K":"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "tms:CMH32GX5M2B6000Z38":"mpn:memory:cmh32gx5m2b6000z38",
 "tms:CMH32GX5M2B6200C36":"model:memory:0-2x16gb-3-6200-cl36-vengeance-xmp-32gb-x2-6200mhz-cl36-rgb-black",
 "tms:CMH32GX5M2B6400C36":"model:memory:0-2x16gb-3-6400-cl36-vengeance-xmp-32gb-x2-6400mhz-cl36-rgb-black",
 "tms:CMH32GX5M2E6000C36":"mpn:memory:cmh32gx5m2e6000c36",
 "tms:CMH32GX5M2E6000C36W":"mpn:memory:cmh32gx5m2e6000c36w",
-"tms:CMH32GX5M2E6000Z36":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-black",
-"tms:CMH32GX5M2E6000Z36W":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-white",
+"tms:CMH32GX5M2E6000Z36":"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-black",
+"tms:CMH32GX5M2E6000Z36W":"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-white",
 "tms:CMH32GX5M2X7200C34":"model:memory:rgb-vengeance-32gb-x2-7200mhz-cl34-rgb-black",
 "tms:CMH48GX5M2B5600C40":"model:memory:24gx2-48g-5600-cl40-vengeance-48gb-x2-5600mhz-cl40-rgb-black",
 "tms:CMH48GX5M2B7000C40":"model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
@@ -7769,7 +7771,7 @@
 "tms:CMH64GX5M4B5600Z36":"model:memory:0-3-4x16gb-5600-cl36-expo-vengeance-xmp-64gb-x4-5600mhz-cl36-rgb-black-dimm",
 "tms:CMH64GX5M4B6400C32":"model:memory:0-3-4x16gb-6400-cl32-vengeance-xmp-64gb-x4-6400mhz-cl32-rgb-black",
 "tms:CMH96GX5M2B5200C38":"mpn:memory:cmh96gx5m2b5200c38",
-"tms:CMH96GX5M2B7000C40":"model:memory:rgb-vengeance-96gb-x2-7000mhz-cl40-rgb-black",
+"tms:CMH96GX5M2B7000C40":"model:memory:0-2x48gb-3-7000-cl40-vengeance-xmp-96gb-x2-7000mhz-cl40-rgb-black",
 "tms:CMK16GX4M1E3200C16":"model:memory:cl16-lpx-vengeance-16gb-x1-3200mhz-cl16-black-dimm",
 "tms:CMK16GX4M1Z3600C18":"model:memory:0-2-3600-cl18-lpx-vengeance-xmp-16gb-x1-3600mhz-cl18-black",
 "tms:CMK16GX4M1Z3600C18-B":"model:memory:lpx-vengeance-16gb-x1-3600mhz-cl18-black",
@@ -7798,7 +7800,7 @@
 "tms:CMK8GX4M1E3200C16":"model:memory:lpx-vengeance-8gb-x1-3200mhz-cl16-black",
 "tms:CMK96GX5M2B5200C38":"model:memory:0-2x48gb-3-5200-cl38-vengeance-xmp-96gb-x2-5200mhz-cl38-black",
 "tms:CMP32GX5M2B6000C30W":"mpn:memory:cmp32gx5m2b6000c30w",
-"tms:CMP32GX5M2B6000Z30":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"tms:CMP32GX5M2B6000Z30":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
 "tms:CMP32GX5M2B6000Z30W":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "tms:CMP32GX5M2X7200C34":"model:memory:dominator-rgb-titanium-32gb-x2-7200mhz-cl34-rgb-black",
 "tms:CMP48GX5M2X7200C36":"model:memory:dominator-rgb-titanium-48gb-x2-7200mhz-cl36-rgb-black",
@@ -8286,7 +8288,7 @@
 "tms:GB840MH":"model:motherboard:b840m-h-microatx",
 "tms:GB850AITOP":"model:motherboard:7-ai-am5-b850-hdmi-top-wifi-atx",
 "tms:GB850AORUSELITE-PICE":"model:motherboard:aorus-b850-elite-ice-p-atx",
-"tms:GB850AORUSELITEWF7ICE":"model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+"tms:GB850AORUSELITEWF7ICE":"model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx",
 "tms:GB850AORUSELITEWIFI7":"model:motherboard:aorus-b850-elite-wifi7-atx",
 "tms:GB850AORUSELITEX3D":"model:motherboard:aorus-b850-elite-x3d-atx",
 "tms:GB850AORUSSTEALTH":"model:motherboard:aorus-b850-stealth-atx",
@@ -8296,7 +8298,7 @@
 "tms:GB850EAGLEWIFI7ICE":"model:motherboard:b850-eagle-ice-wifi7-atx",
 "tms:GB850GAMINGWIFI6":"model:motherboard:b850-gaming-wifi6-atx",
 "tms:GB850GAMINGXWIFI6E":"model:motherboard:b850-gaming-wifi6e-x-atx",
-"tms:GB850IAORUSPRO":"model:motherboard:aorus-b850i-pro-miniitx",
+"tms:GB850IAORUSPRO":"model:motherboard:7-am5-aorus-b850i-fi-hdmi-pro-wi-miniitx",
 "tms:GB850MAORUSELTWF6E":"model:motherboard:aorus-b850m-elite-wifi6e-microatx",
 "tms:GB850MAORUSELTWF6EICE":"model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
 "tms:GB850MAORUSSTEALTH":"model:motherboard:aorus-b850m-stealth-microatx",
@@ -8431,7 +8433,7 @@
 "tms:GX870EEAGLEX3DWIFI7":"model:motherboard:eagle-wifi7-x3d-x870e-atx",
 "tms:GX870GAMINGWIFI6":"model:motherboard:gaming-wifi6-x870-atx",
 "tms:GX870GAMINGXWIFI7":"model:motherboard:gaming-wifi7-x-x870-atx",
-"tms:GX870IAORUSPROICE":"model:motherboard:aorus-ice-pro-x870i-miniitx",
+"tms:GX870IAORUSPROICE":"model:motherboard:0-1xhdmi-1xusb-4-7-aorus-ddr5-fi-ice-itx-mini-pro-wi-x870i-miniitx",
 "tms:GX870MAORUSELITEWIFI7":"model:motherboard:aorus-elite-wifi7-x870m-microatx",
 "tms:GX870MAORUSELITEWIFI7I":"model:motherboard:aorus-elite-wifi7-x870m-microatx-2",
 "tms:GZ490AORUSM":"model:motherboard:aorus-gz490aorusm-master-z490-atx",
@@ -9088,7 +9090,7 @@
 "tms:RX9070XT16G-LOCREVA":"model:gpu:16gb-9070-gddr6-hellhound-radeon-reva-rx-xt-16gb",
 "tms:RX9070XT16G-LOCWHITE":"model:gpu:16gb-9070-alphyn-am10-gddr6-hellhound-rx-spectral-white-xt-16gb",
 "tms:SA16G16ECR":"model:memory:1600-ecc-reg-16gb-x1-1600mhz-cl9-black",
-"tms:SA400S37-240G":"model:storage:240g-a400-sa400s37-240gb-sata-25",
+"tms:SA400S37-240G":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "tms:SA8G16ECR":"model:memory:1600-bulk-ecc-reg-8gb-x1-1600mhz-cl9",
 "tms:SF-1000F14GE":"model:psu:1-atx3-leadex-1000w",
 "tms:SF-1000F14SP":"model:psu:1-atx3-leadex-pro-viii-1000w-black",
@@ -9339,7 +9341,7 @@
 "tms:WUS4BA176DSP3X3":"model:storage:dc-enterprise-sn840-ultrastar-wd-7680gb-u2-25",
 "tms:X-360-BK":"model:aio:360-x-360mm-black",
 "tms:X-360-WH":"model:aio:360-x-360mm-white",
-"tms:X-FAN-1IN1-B":"model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black",
+"tms:X-FAN-1IN1-B":"model:case_fan:120x38mm-4krpm-ball-bearing-black-dual-j20-pwm-x-120mm-black",
 "tms:X12SPA-TF":"model:motherboard:mb-tf-x12spa-eatx",
 "tms:X12SPI-TF":"model:motherboard:mb-tf-x12spi-atx",
 "tms:X12SPM-TF":"model:motherboard:mb-tf-x12spm-microatx",
@@ -9435,7 +9437,7 @@
 "yahav:10264":"model:cpu:7980x",
 "yahav:10276":"model:motherboard:b860-ds3h-wifi6e-atx",
 "yahav:10277":"model:motherboard:7-ai-am5-b850-hdmi-top-wifi-atx",
-"yahav:10278":"model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+"yahav:10278":"model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx",
 "yahav:10279":"model:motherboard:b860-eagle-wifi6e-atx",
 "yahav:10280":"model:motherboard:aorus-b850-elite-wifi7-atx",
 "yahav:10281":"model:motherboard:b850-eagle-wifi6e-atx",
@@ -9444,7 +9446,7 @@
 "yahav:10284":"model:motherboard:b850-gaming-wifi6e-x-atx",
 "yahav:10285":"model:motherboard:b850-gaming-wifi6-atx",
 "yahav:10286":"model:motherboard:aorus-b860-elite-ice-wifi7-atx",
-"yahav:10287":"model:motherboard:aorus-b850i-pro-miniitx",
+"yahav:10287":"model:motherboard:7-am5-aorus-b850i-fi-hdmi-pro-wi-miniitx",
 "yahav:10288":"model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx",
 "yahav:10289":"model:motherboard:b860m-ds3h-microatx",
 "yahav:10290":"model:motherboard:b850m-d3hp-microatx",
@@ -9576,7 +9578,7 @@
 "yahav:10627":"model:gpu:16g-5080-aorus-geforce-master-n5080aorusm16gd-rtx-16gb",
 "yahav:10630":"mpn:gpu:r9060xtgamingoc8gd",
 "yahav:10631":"model:gpu:16g-9060-gaming-gv-oc-r9060xtgaming-radeon-rx-xt-16gb",
-"yahav:10633":"model:case_fan:12tl1w3w-3xfans-led-tl120-uni-white-wireless-120mm-3-rgb-white",
+"yahav:10633":"model:case_fan:3-fan-tl120-uni-wireless-120mm-3-rgb-white",
 "yahav:10634":"mpn:gpu:n5090aorusmice32gdpc",
 "yahav:10639":"model:aio:5cfm-82-aio-h170i-icue-lcd-link-420mm",
 "yahav:10640":"model:case:420-base-hs-white",
@@ -9690,7 +9692,7 @@
 "yahav:10983":"model:case_fan:fans-reverse-sl-uni-wireless-x3-120mm-3-rgb-white",
 "yahav:10984":"model:case_fan:120mm-black-fan-inf-pack-reverse-single-sl-uni-wireless-120mm-1-rgb-black",
 "yahav:10985":"model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-white",
-"yahav:10986":"model:case_fan:120mm-12rsl1w1b-black-fan-reverse-sl-uni-wireless-120mm-1-rgb-black",
+"yahav:10986":"model:case_fan:120mm-black-fan-pack-reverse-rgb-single-sl-uni-wireless-120mm-1-rgb-black",
 "yahav:10987":"model:case_fan:120mm-fan-inf-sl-uni-wireless-120mm-1-rgb-black",
 "yahav:10992":"model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-white",
 "yahav:10993":"model:case_fan:fan-fans-inf-sl-uni-wireless-x3-120mm-3-rgb-black",
@@ -9796,7 +9798,7 @@
 "yahav:11422":"model:motherboard:1xdisplayport-1xhdmi-2xtype-7-atx-c-ddr5-gaming-h-rog-strix-wifi-x870e-atx",
 "yahav:11423":"model:cooler_air:120mm-130-130mm-1750rpm-250w-81-88cfm-argb-black-pretor-royal-tdp-ultra-120mm-black",
 "yahav:11424":"model:cooler_air:120mm-130-130mm-1750rpm-250w-81-88cfm-argb-pretor-royal-tdp-ultra-white-120mm-white",
-"yahav:11428":"model:motherboard:aorus-ice-pro-x870i-miniitx",
+"yahav:11428":"model:motherboard:0-1xhdmi-1xusb-4-7-aorus-ddr5-fi-ice-itx-mini-pro-wi-x870i-miniitx",
 "yahav:11433":"model:case:3x140mm-4-701-base-bgw59-dark-fans-included-silent-white-wings-white",
 "yahav:11435":"model:case:4x140mm-c700m-cosmos-full-tower-black",
 "yahav:11436":"model:case:2x120mm-3x120mm-aorus-c700-fans-tg-black",
@@ -10101,8 +10103,8 @@
 "yahav:6633":"model:aio:5v-h150-lga1700-ready-support-360mm",
 "yahav:6640":"model:cpu:corei512400f-tray",
 "yahav:6645":"model:cpu:5500-tray",
-"yahav:6690":"model:case:5000t-icue-white",
-"yahav:6691":"model:case:5000t-icue-black",
+"yahav:6690":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-white",
+"yahav:6691":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-black",
 "yahav:6694":"model:case_fan:3-3x120mm-core-elite-lighting-ml120-node-pack-rgb-rgb-triple-120mm-3-rgb",
 "yahav:6710":"model:case:011dew-case-dynamic-evo-mid-o11-pc-rgb-tower-white",
 "yahav:6726":"model:case:3x120mm-fans-mid-nx290-side-tower-black",
@@ -11104,6 +11106,10 @@
 ],
 "memory:ksp:ksp-456282":[
 "Corsair Vengeance 16GB DDR5 (2x8GB) 5600MHz CL40",
+"memory"
+],
+"memory:ksp:ksp-480430":[
+"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL30",
 "memory"
 ],
 "memory:ksp:ksp-480433":[
@@ -12378,16 +12384,16 @@
 "Antec Performance FT Temp Display White",
 "case"
 ],
+"model:case:1-aventurine-m-performance-black":[
+"Antec Performance M Aventurine Black",
+"case"
+],
 "model:case:1-ft-performance-black":[
 "Antec Performance FT ARGB Black",
 "case"
 ],
 "model:case:1-m-performance-black":[
 "Antec Performance M Black",
-"case"
-],
-"model:case:1-m-performance-black-2":[
-"Antec Performance M Aventurine Black",
 "case"
 ],
 "model:case:1000w-4f-4x120mm-argb-argb-black-black-cg530-core-csk-fans-ii-infinity-mater-mid-mirror-pro-tower-black":[
@@ -12958,6 +12964,14 @@
 "Corsair Airflow RGB 4000D 3X120MM White",
 "case"
 ],
+"model:case:3x120mm-5000t-fans-icue-mid-series-tower-black":[
+"Corsair Icue 5000T RGB 3X120MM Black",
+"case"
+],
+"model:case:3x120mm-5000t-fans-icue-mid-series-tower-white":[
+"Corsair Icue 5000T RGB 3X120MM White",
+"case"
+],
 "model:case:3x120mm-512z-argb-argb-case-fans-fara-gaming-mesh-mid-tower-black":[
 "SilverStone Fara 512Z ARGB 3X120MM Black",
 "case"
@@ -13370,14 +13384,6 @@
 "Corsair Icue Link 5000T LX Black",
 "case"
 ],
-"model:case:5000t-icue-black":[
-"Corsair Icue 5000T RGB 3X120MM Black",
-"case"
-],
-"model:case:5000t-icue-white":[
-"Corsair Icue 5000T RGB 3X120MM White",
-"case"
-],
 "model:case:5000x-icue-icue-mid-series-tower-black":[
 "Corsair Icue 5000X RGB Black",
 "case"
@@ -13706,7 +13712,7 @@
 "Lian Li A3 Wood White",
 "case"
 ],
-"model:case:a3-wood-white-midtower":[
+"model:case:a3-wood-white-2":[
 "Lian Li A3 Wood Edition White (A3W-WDG)",
 "case"
 ],
@@ -13947,7 +13953,7 @@
 "case"
 ],
 "model:case:argb-t5-black":[
-"1stPlayer 1ST Player T5-BK-4F7 Black",
+"1stPlayer T5 ARGB Black",
 "case"
 ],
 "model:case:argb-t5-white":[
@@ -14038,8 +14044,8 @@
 "Antec AX27 RGB Elite Black",
 "case"
 ],
-"model:case:ax61-ax61elite-elite-black":[
-"Antec AX61 Elite AX61ELITE Black",
+"model:case:ax61-elite-black":[
+"Antec AX61 Elite Black",
 "case"
 ],
 "model:case:ax65-black":[
@@ -14871,11 +14877,11 @@
 "case"
 ],
 "model:case:rt7-black":[
-"1StPlayer RT7 Black",
+"1stPlayer RT7 3FC7R 1FC7 Black",
 "case"
 ],
 "model:case:rt7-white":[
-"1StPlayer RT7 White",
+"1stPlayer RT7 3FC7R W 1FC7 White",
 "case"
 ],
 "model:case:s120-black":[
@@ -14895,11 +14901,11 @@
 "case"
 ],
 "model:case:sup01-black":[
-"Lian Li SUP01 SUP01X Black",
+"Lian Li SUP01 Black",
 "case"
 ],
 "model:case:sup01-white":[
-"Lian Li SUP01 SUP01W White",
+"Lian Li SUP01 White",
 "case"
 ],
 "model:case:torque-x2-black":[
@@ -15094,10 +15100,6 @@
 "Jonsbo XA-120W 120mm PWM ARGB White",
 "case_fan"
 ],
-"model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black":[
-"1stPlayer 1ST Player XF7 120mm PWM ARGB Black",
-"case_fan"
-],
 "model:case_fan:120-27dba-62cfm-sickleflow-single-120mm-1-rgb":[
 "Cooler Master Sickleflow Single 120mm ARGB",
 "case_fan"
@@ -15282,14 +15284,6 @@
 "be quiet! Light Wings High-Speed 120mm PWM ARGB Black",
 "case_fan"
 ],
-"model:case_fan:120mm-12rsl1w1b-black-fan-reverse-sl-uni-wireless-120mm-1-rgb-black":[
-"Lian Li UNI SL Wireless 120mm Reverse Black",
-"case_fan"
-],
-"model:case_fan:120mm-12rsllcd1w1w-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white":[
-"Lian Li UNI SL Wireless 120mm LCD White",
-"case_fan"
-],
 "model:case_fan:120mm-12slin3w-3-3w-cooler-fan-inf-sl-slin120-uf-uni-white-120mm-3-rgb-white":[
 "Lian Li Cooler 120mm SL INF UNI White 3",
 "case_fan"
@@ -15454,6 +15448,10 @@
 "Lian Li UNI SL-INF Wireless 120mm ARGB Black (12RSLIN1W1B)",
 "case_fan"
 ],
+"model:case_fan:120mm-black-fan-pack-reverse-rgb-single-sl-uni-wireless-120mm-1-rgb-black":[
+"Lian Li UNI SL Wireless 120mm Reverse Black",
+"case_fan"
+],
 "model:case_fan:120mm-black-fans-lcd-reverse-sl-uni-wireless-x3-120mm-3-rgb-black":[
 "Lian Li UNI SL Wireless 120mm PWM LCD x3 Black (12RSLLCD1W3B)",
 "case_fan"
@@ -15508,10 +15506,6 @@
 ],
 "model:case_fan:120mm-blue-fan-led-oem-120mm-rgb-blue":[
 "Ippon 120mm ARGB Blue",
-"case_fan"
-],
-"model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm":[
-"Lian Li UNI CL Flex 120mm White",
 "case_fan"
 ],
 "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black":[
@@ -15594,6 +15588,10 @@
 "Lian Li UNI SL Wireless 120mm ARGB LCD White",
 "case_fan"
 ],
+"model:case_fan:120mm-fan-lcd-reverse-sl-uni-white-wireless-120mm-rgb-white":[
+"Lian Li UNI SL Wireless 120mm LCD White",
+"case_fan"
+],
 "model:case_fan:120mm-fan-led-oem-red-120mm-rgb-red":[
 "Ippon 120mm ARGB RED",
 "case_fan"
@@ -15670,6 +15668,10 @@
 "SilverStone FHS 120X 120mm PWM Black",
 "case_fan"
 ],
+"model:case_fan:120x38mm-4krpm-ball-bearing-black-dual-j20-pwm-x-120mm-black":[
+"1stPlayer X-J20 120X38MM Dual 120mm PWM Black",
+"case_fan"
+],
 "model:case_fan:12cm-700-nf-redux-s12b-120mm-grey":[
 "Noctua NF-S12B Redux-700 120mm Gray",
 "case_fan"
@@ -15692,22 +15694,6 @@
 ],
 "model:case_fan:12rtl1w1w-120mm-1-rgb-white":[
 "Lian Li UNI TL Wireless 120mm PWM ARGB White (12RTL1W1W)",
-"case_fan"
-],
-"model:case_fan:12sl1w3b-3xfans-sl-uni-wireless-120mm-3-rgb-black":[
-"Lian Li UNI SL Wireless Black 120mm 3xFans",
-"case_fan"
-],
-"model:case_fan:12tl1w1b-black-fan-led-tl120-uni-wireless-120mm-rgb-black":[
-"Lian Li TL120 UNI Wireless 120mm ARGB Black",
-"case_fan"
-],
-"model:case_fan:12tl1w3b-1black-3xfans-led-tl120-uni-wireless-120mm-3-rgb-black":[
-"Lian Li TL120 UNI Wireless LED 1Black 3xFans",
-"case_fan"
-],
-"model:case_fan:12tl1w3w-3xfans-led-tl120-uni-white-wireless-120mm-3-rgb-white":[
-"Lian Li UNI TL120 Wireless 120mm ARGB White",
 "case_fan"
 ],
 "model:case_fan:14-3-dynamic-140mm-rgb-black":[
@@ -15892,6 +15878,10 @@
 ],
 "model:case_fan:1b-cooler-fan-sl120v2-uni-120mm-rgb-black":[
 "Lian Li Cooler SL120V2-1B UNI 120mm ARGB Black",
+"case_fan"
+],
+"model:case_fan:1black-3xfans-led-tl120-uni-wireless-120mm-3-rgb-black":[
+"Lian Li TL120 UNI Wireless LED 1Black 3xFans",
 "case_fan"
 ],
 "model:case_fan:2-2cfm-61-bl047-pure-wings-140mm-black":[
@@ -16242,6 +16232,10 @@
 "Ippon PIN OR Molex 120mm White",
 "case_fan"
 ],
+"model:case_fan:3-fan-tl120-uni-wireless-120mm-3-rgb-white":[
+"Lian Li UNI TL120 Wireless 120mm ARGB White",
+"case_fan"
+],
 "model:case_fan:3-gaming-reverse-tr120-tuf-120mm-3-rgb-white":[
 "Asus TUF Gaming TR120 ARGB Reverse 3",
 "case_fan"
@@ -16372,6 +16366,10 @@
 ],
 "model:case_fan:3xfans-neon-140mm-3-rgb-black":[
 "Super Flower Neon 3XFANS 140mm ARGB x3 Black",
+"case_fan"
+],
+"model:case_fan:3xfans-sl-uni-wireless-120mm-3-rgb-black":[
+"Lian Li UNI SL Wireless Black 120mm 3xFans",
 "case_fan"
 ],
 "model:case_fan:4-pro-pwm-silent-wings-140mm-black":[
@@ -16928,6 +16926,10 @@
 ],
 "model:case_fan:fan-lcd-single-tl120-uni-wireless-120mm-1-rgb-white":[
 "Lian Li UNI TL120 Wireless 120mm ARGB LCD White",
+"case_fan"
+],
+"model:case_fan:fan-led-tl120-uni-wireless-120mm-rgb-black":[
+"Lian Li TL120 UNI Wireless 120mm ARGB Black",
 "case_fan"
 ],
 "model:case_fan:fan-link-pwm-qx140-series-single-140mm-1-rgb":[
@@ -20562,6 +20564,14 @@
 "G.Skill Ripjaws M5 ARGB DDR5 32GB (2x16GB) 6000MHz CL36",
 "memory"
 ],
+"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-black":[
+"Corsair Vengeance ARGB 32GB DDR5 (2x16GB) 6000MHz CL36 (CMH32GX5M2E6000Z36)",
+"memory"
+],
+"model:memory:0-2x16gb-3-6000-cl36-expo-vengeance-xmp-32gb-x2-6000mhz-cl36-rgb-white":[
+"Corsair Vengeance ARGB 32GB DDR5 (2x16GB) 6000MHz CL36 (CMH32GX5M2E6000Z36W)",
+"memory"
+],
 "model:memory:0-2x16gb-3-6200-cl36-dominator-xmp-32gb-x2-6200mhz-cl36-rgb-black":[
 "Corsair Dominator ARGB DDR5 32GB (2x16GB) 6200MHz CL36",
 "memory"
@@ -20784,6 +20794,10 @@
 ],
 "model:memory:0-2x48gb-3-5600-96gb-black-cl46-ddr5-expo-pro-xmp-96gb-x2-5600mhz-cl46-black":[
 "Crucial 96GB DDR5 (2x48GB) 5600MHz CL46",
+"memory"
+],
+"model:memory:0-2x48gb-3-7000-cl40-vengeance-xmp-96gb-x2-7000mhz-cl40-rgb-black":[
+"Corsair Vengeance ARGB 96GB DDR5 (2x48GB) 7000MHz CL40",
 "memory"
 ],
 "model:memory:0-3-32x2-5200-cl40-vengeance-xmp-64gb-x2-5200mhz-cl40-white":[
@@ -21310,12 +21324,12 @@
 "Klevv ARGB 32GB DDR5 (2x16GB) 6000MT/s CL30",
 "memory"
 ],
-"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm":[
-"Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30)",
+"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm":[
+"Corsair Dominator RGB DDR5 32GB (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30)",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm":[
-"Corsair Dominator RGB DDR5 32GB (2x16GB) 6000MHz CL30",
+"Corsair Dominator RGB DDR5 32GB (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30W)",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl30-expo-flare-x5-32gb-x2-6000mhz-cl30-black":[
@@ -21388,6 +21402,22 @@
 ],
 "model:memory:2x16gb-6000mt-cl28-s-vengeance-32gb-x2-6000mhz-cl28-black":[
 "Corsair Vengeance 32GB DDR5 (2x16GB) 6000MT/s CL28",
+"memory"
+],
+"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-grey-dimm":[
+"Corsair Vengeance 32GB DDR5 (2x16GB) 6000MHz CL30",
+"memory"
+],
+"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm":[
+"Corsair Vengeance RGB 16GX2 DDR5 32GB (2x16GB) 6000MHz CL30",
+"memory"
+],
+"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2":[
+"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMH32GX5M2B6000C30)",
+"memory"
+],
+"model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm":[
+"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMH32GX5M2B6000C30W)",
 "memory"
 ],
 "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm":[
@@ -22175,7 +22205,7 @@
 "memory"
 ],
 "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm":[
-"ADATA 16GB DDR4 (1x16GB) 3200MHz CL22 (AD4U320016G22-SGN)",
+"ADATA 16GB DDR4 (1x16GB) 3200MHz CL22",
 "memory"
 ],
 "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm":[
@@ -22379,7 +22409,7 @@
 "memory"
 ],
 "model:memory:dominator-rgb-titanium-32gb-x2-6000mhz-cl30-rgb-black":[
-"Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000C30)",
+"Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30",
 "memory"
 ],
 "model:memory:dominator-rgb-titanium-32gb-x2-7200mhz-cl34-rgb-black":[
@@ -22494,34 +22524,6 @@
 "G.Skill Trident Z5 RGB DDR5 48GB (2x24GB) 8400MHz CL40",
 "memory"
 ],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-grey-dimm":[
-"Corsair Vengeance 32GB DDR5 (2x16GB) 6000MHz CL30",
-"memory"
-],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm":[
-"Corsair Vengeance RGB 16GX2 DDR5 32GB (2x16GB) 6000MHz CL30",
-"memory"
-],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2":[
-"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMH32GX5M2B6000C30)",
-"memory"
-],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm":[
-"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMH32GX5M2B6000C30W)",
-"memory"
-],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2":[
-"Corsair Vengeance RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMH32GX5M2B6000Z30W)",
-"memory"
-],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-black":[
-"Corsair Vengeance ARGB 32GB DDR5 (2x16GB) 6000MHz CL36 (CMH32GX5M2E6000Z36)",
-"memory"
-],
-"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl36-rgb-white":[
-"Corsair Vengeance ARGB 32GB DDR5 (2x16GB) 6000MHz CL36 (CMH32GX5M2E6000Z36W)",
-"memory"
-],
 "model:memory:rgb-vengeance-32gb-x2-7200mhz-cl34-rgb-black":[
 "Corsair Vengeance RGB 32GB DDR5 (2x16GB) 7200MHz CL34",
 "memory"
@@ -22540,10 +22542,6 @@
 ],
 "model:memory:rgb-vengeance-64gb-x2-6600mhz-cl32-rgb-black":[
 "Corsair Vengeance RGB 64GB DDR5 (2x32GB) 6600MHz CL32",
-"memory"
-],
-"model:memory:rgb-vengeance-96gb-x2-7000mhz-cl40-rgb-black":[
-"Corsair Vengeance ARGB 96GB DDR5 (2x48GB) 7000MHz CL40",
 "memory"
 ],
 "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm":[
@@ -22580,6 +22578,10 @@
 ],
 "model:motherboard:0-1851-1xhdmi-1xusb-4-7-aorus-atx-ddr5-elite-ice-lga-wifi-x-z890-atx":[
 "Gigabyte Z890 Aorus Elite X ICE WIFI7",
+"motherboard"
+],
+"model:motherboard:0-1xhdmi-1xusb-4-7-aorus-ddr5-fi-ice-itx-mini-pro-wi-x870i-miniitx":[
+"Gigabyte X870I Aorus PRO ICE WIFI7",
 "motherboard"
 ],
 "model:motherboard:0-1xhdmi-2xusb-4-7-ai-aorus-atx-ddr5-top-wifi-x870e-xtreme-eatx":[
@@ -22747,7 +22749,7 @@
 "motherboard"
 ],
 "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx":[
-"Gigabyte B860M Aorus Elite WIFI6E",
+"Gigabyte B860M Aorus Elite LGA WIFI6E",
 "motherboard"
 ],
 "model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx":[
@@ -22928,6 +22930,14 @@
 ],
 "model:motherboard:7-ai-am5-b850-hdmi-top-wifi-atx":[
 "Gigabyte B850 AI TOP WIFI7",
+"motherboard"
+],
+"model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx":[
+"Gigabyte B850 Aorus Elite ICE WIFI7",
+"motherboard"
+],
+"model:motherboard:7-am5-aorus-b850i-fi-hdmi-pro-wi-miniitx":[
+"Gigabyte B850I Aorus PRO WIFI7",
 "motherboard"
 ],
 "model:motherboard:7-am5-b840-hdmi-p-pro-wifi-atx":[
@@ -23490,10 +23500,6 @@
 "Gigabyte B850 Aorus Elite-P ICE WIFI7",
 "motherboard"
 ],
-"model:motherboard:aorus-b850-elite-ice-wifi7-atx":[
-"Gigabyte B850 Aorus Elite ICE WIFI7",
-"motherboard"
-],
 "model:motherboard:aorus-b850-elite-wifi7-atx":[
 "Gigabyte B850 Aorus Elite WIFI7",
 "motherboard"
@@ -23508,10 +23514,6 @@
 ],
 "model:motherboard:aorus-b850-stealth-atx":[
 "Gigabyte B850 Aorus Stealth WIFI7",
-"motherboard"
-],
-"model:motherboard:aorus-b850i-pro-miniitx":[
-"Gigabyte B850I Aorus PRO WIFI7",
 "motherboard"
 ],
 "model:motherboard:aorus-b850m-elite-ice-wifi6e-microatx":[
@@ -23624,10 +23626,6 @@
 ],
 "model:motherboard:aorus-ice-pro-x870e-atx":[
 "Gigabyte X870E Aorus PRO ICE WIFI7",
-"motherboard"
-],
-"model:motherboard:aorus-ice-pro-x870i-miniitx":[
-"Gigabyte X870I Aorus PRO ICE WIFI7",
 "motherboard"
 ],
 "model:motherboard:aorus-ice-pro-z890":[
@@ -24006,7 +24004,7 @@
 "ASUS Proart B760-Creator WIFI6",
 "motherboard"
 ],
-"model:motherboard:b760-d4-prime-atx":[
+"model:motherboard:b760-d4-plus-prime-atx":[
 "ASUS Prime B760-Plus D4",
 "motherboard"
 ],
@@ -27422,7 +27420,7 @@
 "Western Digital WD Purple WD34PURZ 3TB",
 "storage"
 ],
-"model:storage:240g-a400-sa400s37-240gb-sata-25":[
+"model:storage:240g-a400-sa400s37-240gb-sata-25inch":[
 "Kingston A400 SA400S37 III 240GB SATA SSD SATA",
 "storage"
 ],

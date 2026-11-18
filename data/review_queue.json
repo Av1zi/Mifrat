@@ -1353,7 +1353,7 @@
         "listing_key": "1pc:198620",
         "vendor_sku": "198620",
         "title": "כונן  WD Purple Pro 12TB מבית Western Digital דגם WD122PURP",
-        "price": 3070,
+        "price": 3091,
         "alias_of": "1pc:216257"
       }
     ]
@@ -1397,7 +1397,7 @@
         "listing_key": "1pc:200417",
         "vendor_sku": "200417",
         "title": "כונן WD Purple Pro בנפח 10TB מבית Western Digital דגם WD102PURP",
-        "price": 2607,
+        "price": 2626,
         "alias_of": "1pc:216274"
       }
     ]
@@ -2482,100 +2482,6 @@
       }
     ],
     "model_code": "0-3-761345-81046-description-nx420-product-short"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
-    "product_id": "model:case:1-m-performance-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:183243",
-        "vendor": "1pc",
-        "vendor_sku": "0-761345-10168-4",
-        "title": "מארז מחשב Antec Performance 1 M שחור",
-        "price": 912
-      },
-      {
-        "listing_key": "tms:0-761345-10168-4",
-        "vendor": "tms",
-        "vendor_sku": "0-761345-10168-4",
-        "title": "מארז מחשב Antec Performance 1 M Black",
-        "price": 879
-      }
-    ],
-    "model_code": "1-m-performance"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
-    "product_id": "model:case:1-m-performance-black-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:183246",
-        "vendor": "1pc",
-        "vendor_sku": "0-761345-10169-1",
-        "title": "מארז מחשב Antec Performance 1 M אוונטורין",
-        "price": 912
-      },
-      {
-        "listing_key": "tms:0-761345-10169-1",
-        "vendor": "tms",
-        "vendor_sku": "0-761345-10169-1",
-        "title": "מארז מחשב Antec Performance 1 M Aventurine",
-        "price": 879
-      }
-    ],
-    "model_code": "1-m-performance"
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:1-m-performance-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:183243",
-        "vendor": "1pc",
-        "vendor_sku": "0-761345-10168-4",
-        "title": "מארז מחשב Antec Performance 1 M שחור",
-        "price": 912
-      },
-      {
-        "listing_key": "tms:0-761345-10168-4",
-        "vendor": "tms",
-        "vendor_sku": "0-761345-10168-4",
-        "title": "מארז מחשב Antec Performance 1 M Black",
-        "price": 879
-      }
-    ],
-    "model_code": "1-m-performance",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:1-m-performance-black-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:183246",
-        "vendor": "1pc",
-        "vendor_sku": "0-761345-10169-1",
-        "title": "מארז מחשב Antec Performance 1 M אוונטורין",
-        "price": 912
-      },
-      {
-        "listing_key": "tms:0-761345-10169-1",
-        "vendor": "tms",
-        "vendor_sku": "0-761345-10169-1",
-        "title": "מארז מחשב Antec Performance 1 M Aventurine",
-        "price": 879
-      }
-    ],
-    "model_code": "1-m-performance",
-    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -3981,13 +3887,6 @@
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:180226",
-        "vendor": "1pc",
-        "vendor_sku": "A3W-WD",
-        "title": "מארז מחשב Lian-Li A3 Wood White A3W-WD",
-        "price": 433
-      },
-      {
         "listing_key": "tms:A3W-WD",
         "vendor": "tms",
         "vendor_sku": "A3W-WD",
@@ -4010,7 +3909,7 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:a3-wood-white-midtower",
+    "product_id": "model:case:a3-wood-white-2",
     "vendor": "",
     "offers": [
       {
@@ -4255,7 +4154,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10226-1",
         "title": "מארז מחשב Antec C5 CURVE ARGB לבן",
-        "price": 326
+        "price": 432
       },
       {
         "listing_key": "tms:0-761345-10226-1",
@@ -4302,7 +4201,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10226-1",
         "title": "מארז מחשב Antec C5 CURVE ARGB לבן",
-        "price": 326
+        "price": 432
       },
       {
         "listing_key": "tms:0-761345-10226-1",
@@ -5054,13 +4953,6 @@
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:180217",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLLCD1W1B",
-        "title": "מאוורר Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B",
-        "price": 256
-      },
-      {
         "listing_key": "ivory:160306",
         "vendor": "ivory",
         "vendor_sku": "12RSLLCD1W1B",
@@ -5304,40 +5196,6 @@
       }
     ],
     "model_code": "120mm-blade-fan-flex-reverse-sl-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RCL1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12RCL1F1B",
-        "title": "מאוורר Lian-Li 120mm UNI FAN CL FLEX Reverse שחור",
-        "price": 80
-      }
-    ],
-    "model_code": "120mm-cl-fan-flex-reverse-uni",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:12RCL1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12RCL1F1W",
-        "title": "מאוורר Lian-Li 120mm UNI FAN CL FLEX Reverse לבן",
-        "price": 80
-      }
-    ],
-    "model_code": "120mm-cl-fan-flex-reverse-uni",
     "manufacturer_pn": []
   },
   {
@@ -7032,7 +6890,7 @@
         "vendor": "1pc",
         "vendor_sku": "C245T",
         "title": "מעבד Intel Core Ultra 5 245 / 1851 Tray",
-        "price": 1428
+        "price": 1493
       },
       {
         "listing_key": "tms:C245T",
@@ -7101,7 +6959,7 @@
         "vendor": "1pc",
         "vendor_sku": "C265T",
         "title": "מעבד Intel Core Ultra 7 265 1851 Tray",
-        "price": 1963
+        "price": 2052
       },
       {
         "listing_key": "tms:C265T",
@@ -7230,7 +7088,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001504",
         "title": "מעבד AMD Ryzen 5 5500X3D AM4 Tray",
-        "price": 916
+        "price": 956
       },
       {
         "listing_key": "tms:100-000001504",
@@ -7366,7 +7224,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001748",
         "title": "מעבד AMD Ryzen 7 PRO 5755G AM4 Tray",
-        "price": 800
+        "price": 835
       },
       {
         "listing_key": "tms:100-000001748",
@@ -7695,7 +7553,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001183",
         "title": "מעבד AMD Ryzen™ 5 PRO 8500G AM5 עם גרפיקה מובנית Tray",
-        "price": 638
+        "price": 664
       },
       {
         "listing_key": "tms:100-000001183",
@@ -7831,7 +7689,7 @@
         "vendor": "1pc",
         "vendor_sku": "221475",
         "title": "AMD Ryzen 5 9500F AM5 Tray",
-        "price": 742
+        "price": 774
       },
       {
         "listing_key": "ksp:417000",
@@ -8032,7 +7890,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001368",
         "title": "מעבד AMD Ryzen 9 9900X3D AM5 Tray",
-        "price": 2308
+        "price": 2412
       },
       {
         "listing_key": "yahav:10457",
@@ -8241,7 +8099,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3036F16GX2-RS5K",
         "title": "זיכרון G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0 בצבע שחור",
-        "price": 2866
+        "price": 2993
       },
       {
         "listing_key": "tms:6000J3036F16GX2-RS5K",
@@ -8267,7 +8125,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3040F16GX2-RS5K",
         "title": "זיכרון G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 6000 CL30 בצבע שחור",
-        "price": 2869
+        "price": 2999
       },
       {
         "listing_key": "tms:6000J3040F16GX2-RS5K",
@@ -8293,7 +8151,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3036F16GX2-TZ5RK",
         "title": "זיכרון G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 XMP 3.0 בצבע שחור",
-        "price": 2962
+        "price": 3098
       },
       {
         "listing_key": "tms:6000J3036F16GX2-TZ5RK",
@@ -8319,7 +8177,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3040F16GX2-TZ5K",
         "title": "זיכרון G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 בצבע שחור",
-        "price": 2962
+        "price": 3098
       },
       {
         "listing_key": "tms:6000J3040F16GX2-TZ5K",
@@ -8345,7 +8203,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3040F16GX2-TZ5RK",
         "title": "זיכרון G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע שחור",
-        "price": 2866
+        "price": 2993
       },
       {
         "listing_key": "tms:6000J3040F16GX2-TZ5RK",
@@ -8371,7 +8229,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3040F16GX2-TZ5RS",
         "title": "זיכרון G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000 CL30 בצבע כסוף",
-        "price": 2866
+        "price": 2993
       },
       {
         "listing_key": "tms:6000J3040F16GX2-TZ5RS",
@@ -8397,7 +8255,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3040F16GX2-TZ5S",
         "title": "זיכרון G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000 CL30 בצבע כסוף",
-        "price": 2962
+        "price": 3098
       },
       {
         "listing_key": "tms:6000J3040F16GX2-TZ5S",
@@ -8423,7 +8281,7 @@
         "vendor": "1pc",
         "vendor_sku": "CMT32GX5M2E6200C36",
         "title": "זיכרון Corsair Dominator Platinum RGB DDR5 32GB (2x16GB) 6200 CL36 XMP 3.0",
-        "price": 2479
+        "price": 2592
       },
       {
         "listing_key": "tms:CMT32GX5M2E6200C36",
@@ -8617,7 +8475,7 @@
         "vendor": "1pc",
         "vendor_sku": "GAOG432GB3200C16BDC",
         "title": "זיכרון למחשב GeIL ORION AMD Edition DDR4 32GB (2x16GB) 3200 CL16 אפור",
-        "price": 1100
+        "price": 1150
       },
       {
         "listing_key": "tms:GAOG432GB3200C16BDC",
@@ -8707,7 +8565,7 @@
         "vendor": "1pc",
         "vendor_sku": "221534",
         "title": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
-        "price": 2372
+        "price": 2479
       }
     ],
     "model_code": "2x16gb-6000-bolt-cl30-v"
@@ -8740,7 +8598,7 @@
         "vendor": "1pc",
         "vendor_sku": "6000J3038F16GX2-TZ5N",
         "title": "זיכרון G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 בצבע שחור",
-        "price": 2866
+        "price": 2993
       },
       {
         "listing_key": "tms:6000J3038F16GX2-TZ5N",
@@ -8753,6 +8611,65 @@
     "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
     "manufacturer_pn": [
       "6000J3038F16GX2TZ5N"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:131353",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000Z30K",
+        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
+        "price": 2567
+      },
+      {
+        "listing_key": "ksp:480428",
+        "vendor": "ksp",
+        "vendor_sku": "480428",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+        "price": 2490
+      },
+      {
+        "listing_key": "tms:CMH32GX5M2B6000Z30K",
+        "vendor": "tms",
+        "vendor_sku": "CMH32GX5M2B6000Z30K",
+        "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
+        "price": 2880
+      }
+    ],
+    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000Z30K"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:222839",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000C30",
+        "title": "זיכרון למחשב Corsair DDR5 32GB (2×16GB) CMH32GX5M2B6000C30 RGB/BLACK",
+        "price": 2573
+      },
+      {
+        "listing_key": "ksp:493648",
+        "vendor": "ksp",
+        "vendor_sku": "493648",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע שחור",
+        "price": 2490
+      }
+    ],
+    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000C30"
     ]
   },
   {
@@ -8825,7 +8742,7 @@
         "vendor": "1pc",
         "vendor_sku": "221538",
         "title": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
-        "price": 5156
+        "price": 5390
       }
     ],
     "model_code": "2x32gb-6400-cl32-cras-v"
@@ -8848,7 +8765,7 @@
         "vendor": "1pc",
         "vendor_sku": "222244",
         "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 653
+        "price": 681
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -8873,117 +8790,6 @@
     "model_code": "2x8gb-3200-cl16-orion",
     "manufacturer_pn": [
       "GAOSG416GB3200C16BDC"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:131353",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000Z30K",
-        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
-        "price": 2567
-      },
-      {
-        "listing_key": "ksp:480428",
-        "vendor": "ksp",
-        "vendor_sku": "480428",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
-        "price": 2490
-      },
-      {
-        "listing_key": "tms:CMH32GX5M2B6000Z30K",
-        "vendor": "tms",
-        "vendor_sku": "CMH32GX5M2B6000Z30K",
-        "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
-        "price": 2880
-      }
-    ],
-    "model_code": "rgb-vengeance",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000Z30K"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222839",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000C30",
-        "title": "זיכרון למחשב Corsair DDR5 32GB (2×16GB) CMH32GX5M2B6000C30 RGB/BLACK",
-        "price": 2573
-      },
-      {
-        "listing_key": "ksp:493648",
-        "vendor": "ksp",
-        "vendor_sku": "493648",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע שחור",
-        "price": 2490
-      }
-    ],
-    "model_code": "rgb-vengeance",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000C30"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:167956",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000C30W",
-        "title": "זיכרון Corsair DDR5 32GB (2x16G) 6000 CL30 Vengeance RGB White CMH32GX5M2B6000C30W",
-        "price": 2547
-      },
-      {
-        "listing_key": "ksp:493649",
-        "vendor": "ksp",
-        "vendor_sku": "493649",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2360
-      }
-    ],
-    "model_code": "rgb-vengeance",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000C30W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:175451",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000Z30W",
-        "title": "זיכרון למחשב Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 CMH32GX5M2B6000Z30W",
-        "price": 2801
-      },
-      {
-        "listing_key": "ksp:480430",
-        "vendor": "ksp",
-        "vendor_sku": "480430",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2490
-      }
-    ],
-    "model_code": "rgb-vengeance",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000Z30W"
     ]
   },
   {
@@ -11098,7 +10904,7 @@
         "vendor": "1pc",
         "vendor_sku": "MZ-VAP2T0CW",
         "title": "כונן SSD Samsung 9100 PRO 2TB PCIe 5.0 NVMe M.2 עם קירור",
-        "price": 2115
+        "price": 2211
       },
       {
         "listing_key": "tms:MZ-VAP2T0CW",
@@ -11124,7 +10930,7 @@
         "vendor": "1pc",
         "vendor_sku": "MZ-VAP8T0BW",
         "title": "כונן SSD Samsung 8TB 9100 PRO PCIe 5.0 NVMe M.2 MZ-VAP8T0BW",
-        "price": 9268
+        "price": 9689
       },
       {
         "listing_key": "tms:MZ-VAP8T0BW",
@@ -11157,7 +10963,7 @@
         "vendor": "1pc",
         "vendor_sku": "MZ-VAP8T0CW",
         "title": "כונן SSD Samsung 9100 PRO 8TB PCIe 5.0 M.2 עם heatsink דגם MZ-VAP8T0CW",
-        "price": 10803
+        "price": 11295
       },
       {
         "listing_key": "tms:MZ-VAP8T0CW",
@@ -11183,7 +10989,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן SSD Crucial T710 2TB NVMe M.2 PCIe Gen5 בצבע שחור CT2000T710SSD8",
-        "price": 1579
+        "price": 1598
       },
       {
         "listing_key": "ivory:173788",
@@ -11405,7 +11211,7 @@
         "vendor": "1pc",
         "vendor_sku": "152798",
         "title": "כונן VERBATIM Vi550 S3 2.5\" SSD 1TB",
-        "price": 991
+        "price": 1002
       },
       {
         "listing_key": "ksp:281494",
@@ -11461,7 +11267,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD5",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2 עם גוף קירור",
-        "price": 2393
+        "price": 2422
       },
       {
         "listing_key": "tms:CT4000T705SSD5",
@@ -11609,7 +11415,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000719",
         "title": "מעבד AMD Ryzen 9 9950X3D AM5 Tray",
-        "price": 3472
+        "price": 3629
       },
       {
         "listing_key": "ivory:129267",
@@ -11746,7 +11552,7 @@
         "vendor": "1pc",
         "vendor_sku": "222482",
         "title": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
-        "price": 1267
+        "price": 1324
       },
       {
         "listing_key": "tms:WDS200T4G0E-00CPS0",
@@ -12222,7 +12028,7 @@
         "vendor": "1pc",
         "vendor_sku": "221475",
         "title": "AMD Ryzen 5 9500F AM5 Tray",
-        "price": 742
+        "price": 774
       },
       {
         "listing_key": "ksp:417000",
@@ -12377,7 +12183,7 @@
         "vendor": "1pc",
         "vendor_sku": "C225FB",
         "title": "מעבד Intel Core Ultra 5 225F 1851 Box",
-        "price": 724
+        "price": 755
       }
     ],
     "model_code": "225f",
@@ -12495,42 +12301,17 @@
         "vendor": "1pc",
         "vendor_sku": "C270KPLUST",
         "title": "מעבד Intel® Core™ Ultra 7 270K Plus תושבת LGA1851 - TRAY",
-        "price": 1558
+        "price": 1628
       },
       {
         "listing_key": "1pc:216288",
         "vendor": "1pc",
         "vendor_sku": "C270KPLUSB",
         "title": "מעבד Intel® Core™ Ultra 7 270K Plus תושבת FCLGA1851 - BOX",
-        "price": 1623
+        "price": 1695
       }
     ],
     "model_code": "270k",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:285k-tray",
-    "vendor": "1pc",
-    "offers": [
-      {
-        "listing_key": "1pc:171970",
-        "vendor": "1pc",
-        "vendor_sku": "AT8076806419",
-        "title": "מעבד Intel Core Ultra 9 285K 5.7GHz 36MB Cache S1851 - Tray",
-        "price": 2287
-      },
-      {
-        "listing_key": "1pc:189660",
-        "vendor": "1pc",
-        "vendor_sku": "C285KT",
-        "title": "מעבד Intel Core Ultra 9 285K בתושבת 1851",
-        "price": 2199
-      }
-    ],
-    "model_code": "285k",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -14651,6 +14432,49 @@
   },
   {
     "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "memory:ksp:ksp-480430",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:480430",
+        "vendor": "ksp",
+        "vendor_sku": "480430",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+        "price": 2490
+      }
+    ],
+    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:167956",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000C30W",
+        "title": "זיכרון Corsair DDR5 32GB (2x16G) 6000 CL30 Vengeance RGB White CMH32GX5M2B6000C30W",
+        "price": 2547
+      },
+      {
+        "listing_key": "ksp:493649",
+        "vendor": "ksp",
+        "vendor_sku": "493649",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+        "price": 2360
+      }
+    ],
+    "model_code": "2x16g-32gb-6000-cl30-cmh32gx5m2b6000c30w-ddr5-rgb-vengeance-white",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000C30W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
     "category": "motherboard",
     "product_id": "model:motherboard:1851-7-aorus-atx-ddr5-dp-elite-lga-thunderbolt-wifi-z890-atx",
     "vendor": "",
@@ -15287,7 +15111,7 @@
         "vendor": "1pc",
         "vendor_sku": "C3ARGB",
         "title": "מארז מחשב Antec C3 ARGB C3ARGB",
-        "price": 341
+        "price": 389
       },
       {
         "listing_key": "tms:C3ARGB",
@@ -17787,134 +17611,9 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx",
+    "product_id": "model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx",
     "vendor": "",
     "offers": [
-      {
-        "listing_key": "1pc:177662",
-        "vendor": "1pc",
-        "vendor_sku": "GB860MAORUSELITEWIFI6E",
-        "title": "לוח אם GIGABYTE B860M AORUS ELITE WIFI6E",
-        "price": 932
-      },
-      {
-        "listing_key": "yahav:10293",
-        "vendor": "yahav",
-        "vendor_sku": "B860M-AORUS-ELITE-WIFI6E",
-        "title": "לוח אם חברת Gigabyte דגם B860M AORUS ELITE WIFI6E DDR5 LGA 1851 HDMI DP USB Type-C Micro-ATX",
-        "price": 895
-      }
-    ],
-    "model_code": "1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e",
-    "manufacturer_pn": [
-      "GB860MAORUSELITEWIFI6E"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b860m-elite-ice-wifi6e-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177661",
-        "vendor": "1pc",
-        "vendor_sku": "GB860MAORUSELTWF6EICE",
-        "title": "לוח אם GIGABYTE B860M AORUS ELITE WIFI6E ICE",
-        "price": 918
-      },
-      {
-        "listing_key": "ksp:370282",
-        "vendor": "ksp",
-        "vendor_sku": "370282",
-        "title": "לוח אם GIGABYTE B860M AORUS ELITE WiFi 6E ICE LGA 1851 DDR5",
-        "price": 885
-      },
-      {
-        "listing_key": "tms:GB860MAORUSELTWF6EICE",
-        "vendor": "tms",
-        "vendor_sku": "GB860MAORUSELTWF6EICE",
-        "title": "Gigabyte B860M AORUS ELITE WIFI6E ICE",
-        "price": 967
-      },
-      {
-        "listing_key": "yahav:10292",
-        "vendor": "yahav",
-        "vendor_sku": "B860M-AORUS-ELITE-WIFI6E-ICE",
-        "title": "לוח אם חברת Gigabyte דגם B860M AORUS ELITE WIFI6E ICE DDR5 LGA 1851 HDMI DP Micro-ATX",
-        "price": 895
-      }
-    ],
-    "model_code": "1851-aorus-atx-b860m-ddr5-dp-elite-hdmi-ice-lga-micro-wifi6e",
-    "manufacturer_pn": [
-      "GB860MAORUSELTWF6EICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:195919",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1M00-M0EAY0",
-        "title": "לוח אם ASUS B650E MAX GAMING WIFI AM5",
-        "price": 1046
-      },
-      {
-        "listing_key": "tms:90MB1M00-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1M00-M0EAY0",
-        "title": "Asus B650E MAX GAMING WiFi W",
-        "price": 983
-      }
-    ],
-    "model_code": "am5-b650e-gaming-max-wifi",
-    "manufacturer_pn": [
-      "90MB1M00M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:b650e-gaming-max-wifi-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:189473",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1LD0-M0EAY0",
-        "title": "לוח אם Asus B650E MAX GAMING WIFI",
-        "price": 957
-      },
-      {
-        "listing_key": "tms:90MB1LD0-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1LD0-M0EAY0",
-        "title": "Asus B650E MAX GAMING WIFI",
-        "price": 898
-      }
-    ],
-    "model_code": "b650e-gaming-max-wifi",
-    "manufacturer_pn": [
-      "90MB1LD0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177646",
-        "vendor": "1pc",
-        "vendor_sku": "GB850AORUSELITEWF7ICE",
-        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1091
-      },
       {
         "listing_key": "tms:GB850AORUSELITEWF7ICE",
         "vendor": "tms",
@@ -17973,6 +17672,58 @@
     "model_code": "7-am5-aorus-b850-dp-elite-wifi",
     "manufacturer_pn": [
       "GB850AORUSELITEWIFI7"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:195919",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1M00-M0EAY0",
+        "title": "לוח אם ASUS B650E MAX GAMING WIFI AM5",
+        "price": 1046
+      },
+      {
+        "listing_key": "tms:90MB1M00-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1M00-M0EAY0",
+        "title": "Asus B650E MAX GAMING WiFi W",
+        "price": 983
+      }
+    ],
+    "model_code": "am5-b650e-gaming-max-wifi",
+    "manufacturer_pn": [
+      "90MB1M00M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b650e-gaming-max-wifi-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:189473",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1LD0-M0EAY0",
+        "title": "לוח אם Asus B650E MAX GAMING WIFI",
+        "price": 957
+      },
+      {
+        "listing_key": "tms:90MB1LD0-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1LD0-M0EAY0",
+        "title": "Asus B650E MAX GAMING WIFI",
+        "price": 898
+      }
+    ],
+    "model_code": "b650e-gaming-max-wifi",
+    "manufacturer_pn": [
+      "90MB1LD0M0EAY0"
     ]
   },
   {
@@ -18618,58 +18369,6 @@
     "model_code": "7-am5-b850m-gaming-tuf-wifi",
     "manufacturer_pn": [
       "90MB1MU0M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:challenger-ice-wifi-z890m-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:179764",
-        "vendor": "1pc",
-        "vendor_sku": "MS-CHA-Z890M-WIFI-ICE",
-        "title": "לוח אם MAXSUN Challenger Z890M WIFI ICE",
-        "price": 670
-      },
-      {
-        "listing_key": "tms:MS-CHA-Z890M-WIFI-ICE",
-        "vendor": "tms",
-        "vendor_sku": "MS-CHA-Z890M-WIFI-ICE",
-        "title": "MAXSUN Challenger Z890M WIFI ICE",
-        "price": 642
-      }
-    ],
-    "model_code": "challenger-ice-wifi-z890m",
-    "manufacturer_pn": [
-      "MSCHAZ890MWIFIICE"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:challenger-wifi-z890m-microatx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:179763",
-        "vendor": "1pc",
-        "vendor_sku": "MS-CHA-Z890M-WIFI",
-        "title": "לוח אם MAXSUN Challenger Z890M WIFI",
-        "price": 670
-      },
-      {
-        "listing_key": "tms:MS-CHA-Z890M-WIFI",
-        "vendor": "tms",
-        "vendor_sku": "MS-CHA-Z890M-WIFI",
-        "title": "MAXSUN Challenger Z890M WIFI",
-        "price": 642
-      }
-    ],
-    "model_code": "challenger-wifi-z890m",
-    "manufacturer_pn": [
-      "MSCHAZ890MWIFI"
     ]
   },
   {

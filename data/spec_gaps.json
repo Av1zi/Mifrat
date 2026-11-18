@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T22:53:35.319760+00:00",
+  "generated_at": "2026-11-18T23:35:52.551764+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 98,
+      "count": 97,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -34,7 +34,7 @@
     {
       "category": "motherboard",
       "label": "סוג האחסון",
-      "count": 70,
+      "count": 67,
       "products": [
         "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
@@ -113,22 +113,22 @@
     },
     {
       "category": "case",
-      "label": "מפרט",
-      "count": 39,
-      "products": [
-        "manual:case:1pc-157901-tms-c8",
-        "model:case:0-3-761345-80100-flux-p10",
-        "model:case:01-7-c-compact-def7c-define-fd-black"
-      ]
-    },
-    {
-      "category": "case",
       "label": "תכונות",
       "count": 39,
       "products": [
         "model:case:100r-mag-pano-pz-black",
         "model:case:1m-performance-black",
         "model:case:1m-performance-green"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מפרט",
+      "count": 38,
+      "products": [
+        "manual:case:1pc-157901-tms-c8",
+        "model:case:0-3-761345-80100-flux-p10",
+        "model:case:01-7-c-compact-def7c-define-fd-black"
       ]
     },
     {
@@ -172,26 +172,6 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "ערוצים",
-      "count": 32,
-      "products": [
-        "memory:ksp:ksp-313458",
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "רמקולים",
-      "count": 32,
-      "products": [
-        "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
-        "model:motherboard:6-666-d5-h610m-wifi-microatx",
-        "model:motherboard:a-b860-gaming-rog-strix-wifi-atx"
-      ]
-    },
-    {
       "category": "psu",
       "label": "P/N",
       "count": 32,
@@ -202,13 +182,23 @@
       ]
     },
     {
-      "category": "case_fan",
-      "label": "ממשק",
+      "category": "memory",
+      "label": "ערוצים",
       "count": 30,
       "products": [
-        "manual:case-fan:1pc-172710-ksp-360488",
-        "manual:case-fan:ksp-453184-tms-co-9051027-ww",
-        "model:case_fan:120-1in1-1st-b-fan-player-pwm-x-xf7-120mm-black"
+        "memory:ksp:ksp-313458",
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "רמקולים",
+      "count": 30,
+      "products": [
+        "model:motherboard:12450h-aio-h45-sk-t2c-thin-miniitx",
+        "model:motherboard:6-666-d5-h610m-wifi-microatx",
+        "model:motherboard:a-b860-gaming-rog-strix-wifi-atx"
       ]
     },
     {
@@ -219,6 +209,16 @@
         "model:psu:1000g-gaming-gaming-tuf-tuf-1000w-black",
         "model:psu:1000p-gaming-rog-strix-1000w-black",
         "model:psu:1000p-gaming-rog-strix-white-1000w-white"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "ממשק",
+      "count": 29,
+      "products": [
+        "manual:case-fan:1pc-172710-ksp-360488",
+        "manual:case-fan:ksp-453184-tms-co-9051027-ww",
+        "model:case_fan:120-icue-link-lx120-r-120mm-3-rgb-black"
       ]
     },
     {
@@ -242,16 +242,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "ממשק זיכרון",
-      "count": 27,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
       "category": "case",
       "label": "הערה",
       "count": 26,
@@ -269,6 +259,16 @@
         "model:gpu:01-11349-20g-9070-gaming-nitro-oc-rx-16gb",
         "model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb",
         "model:gpu:12g-12gd-5070-aorus-gv-m-master-n5070aorus-rtx-12gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק זיכרון",
+      "count": 26,
+      "products": [
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -412,16 +412,6 @@
       ]
     },
     {
-      "category": "gpu",
-      "label": "משקל",
-      "count": 21,
-      "products": [
-        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
-        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "תכונות נוספות",
       "count": 20,
@@ -443,7 +433,7 @@
     },
     {
       "category": "gpu",
-      "label": "צריכת חשמל",
+      "label": "משקל",
       "count": 20,
       "products": [
         "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
@@ -452,23 +442,13 @@
       ]
     },
     {
-      "category": "memory",
-      "label": "מק\"ט יצרן",
+      "category": "gpu",
+      "label": "צריכת חשמל",
       "count": 20,
       "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תדר שעון",
-      "count": 20,
-      "products": [
-        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
-        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
-        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
+        "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
+        "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
       ]
     },
     {
@@ -593,7 +573,7 @@
     },
     {
       "category": "memory",
-      "label": "תאימות INTEL/AMD",
+      "label": "מק\"ט יצרן",
       "count": 18,
       "products": [
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
@@ -603,7 +583,7 @@
     },
     {
       "category": "memory",
-      "label": "נפח זיכרון מודול",
+      "label": "תדר שעון",
       "count": 18,
       "products": [
         "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
@@ -629,6 +609,16 @@
         "model:gpu:12gb-1xhdmi-3xdp-5070-argb-epic-fan-gddr7-geforce-oc-rgb-rtx-triple-x-12gb",
         "model:gpu:16g-16gd-5070-gaming-gv-n507tgaming-oc-oc-rtx-ti-16gb",
         "model:gpu:16g-5070-geforce-oc-rtx-sff-ti-windforce-16gb"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "נפח זיכרון מודול",
+      "count": 17,
+      "products": [
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
       ]
     },
     {
@@ -659,16 +649,6 @@
         "model:motherboard:7945hx-9-bd790i-itx-mini-minisforum-motherboard-ryzen-miniitx",
         "model:motherboard:90mb1500-a520m-k-m0eay0-prime-microatx",
         "model:motherboard:a-a520m-prime-microatx"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מפרט",
-      "count": 17,
-      "products": [
-        "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
-        "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
-        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
       ]
     },
     {
@@ -722,6 +702,16 @@
       ]
     },
     {
+      "category": "memory",
+      "label": "תאימות INTEL/AMD",
+      "count": 16,
+      "products": [
+        "model:memory:16-kf564c32bbea-16gb-cl32-rgb-black",
+        "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white",
+        "model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black"
+      ]
+    },
+    {
       "category": "motherboard",
       "label": "SATA III",
       "count": 16,
@@ -759,6 +749,36 @@
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:1000p-gaming-l-loki-psu-rog-sfx-1000w-black",
         "model:psu:1200t-gaming-l-loki-rog-sfx-1200w-black"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מפרט",
+      "count": 16,
+      "products": [
+        "model:storage:0-4-p400-p400vp1tbm28h-v4-1000gb-pciecard-m22280",
+        "model:storage:0-5-9100-pro-1000gb-nvme-m22280",
+        "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "נפח זיכרון",
+      "count": 16,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ממשק",
+      "count": 16,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
       ]
     },
     {
@@ -832,6 +852,26 @@
       ]
     },
     {
+      "category": "other",
+      "label": "מעבד",
+      "count": 15,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "סוג זכרון",
+      "count": 15,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
       "category": "aio",
       "label": "PWM",
       "count": 14,
@@ -899,26 +939,6 @@
         "model:case:3500x-r-rs-black",
         "model:case:3500x-r-rs-white",
         "model:case:4500x-frame-rs-black"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "דור מעבד",
-      "count": 14,
-      "products": [
-        "model:cpu:14600k-tray-2",
-        "model:cpu:14600kf-tray-2",
-        "model:cpu:14700f-tray"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "סוג זכרון",
-      "count": 14,
-      "products": [
-        "model:cpu:14900ks-tray",
-        "model:cpu:245k-tray",
-        "model:cpu:245kf-tray"
       ]
     },
     {
@@ -1002,13 +1022,13 @@
       ]
     },
     {
-      "category": "psu",
-      "label": "ממשק",
+      "category": "other",
+      "label": "סוג האחסון",
       "count": 14,
       "products": [
-        "model:psu:0-5-elite-ice-modular-p1000w-1000w-full-white",
-        "model:psu:0-5-elite-modular-p1000w-1000w-full-black",
-        "model:psu:1-1-1000w-140mm-3-5-active-atx-gold-pcie-pfc-ready-rm1000x-rmx-series-1000w-black"
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554"
       ]
     },
     {
@@ -1079,6 +1099,26 @@
         "memory:ksp:ksp-313458",
         "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-black-dimm",
         "model:memory:2x16gb-cl30-m5-ripjaws-32gb-x2-4800mhz-cl30-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "דור מעבד",
+      "count": 13,
+      "products": [
+        "model:cpu:14600k-tray-2",
+        "model:cpu:14600kf-tray-2",
+        "model:cpu:14700f-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "סוג זכרון",
+      "count": 13,
+      "products": [
+        "model:cpu:14900ks-tray",
+        "model:cpu:245k-tray",
+        "model:cpu:245kf-tray"
       ]
     },
     {
@@ -1162,6 +1202,26 @@
       ]
     },
     {
+      "category": "other",
+      "label": "מעבד גרפי",
+      "count": 13,
+      "products": [
+        "other:1pc:1pc-133260",
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "נפח אחסון",
+      "count": 13,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-192555"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "ערכת שבבים",
       "count": 12,
@@ -1229,76 +1289,6 @@
         "model:case:ak5g-rgb-black",
         "model:case:ak5g-rgb-white",
         "model:case:ak5m-rgb-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל מאורר",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מק\"ט יצרן",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מספר מאוררים",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות למעבדי AMD",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גובה Clearance במ\"מ",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "TDP בW",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות למעבדי INTEL",
-      "count": 12,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
       ]
     },
     {
@@ -1482,6 +1472,16 @@
       ]
     },
     {
+      "category": "psu",
+      "label": "ממשק",
+      "count": 12,
+      "products": [
+        "model:psu:0-5-elite-ice-modular-p1000w-1000w-full-white",
+        "model:psu:0-5-elite-modular-p1000w-1000w-full-black",
+        "model:psu:1-1-1000w-140mm-3-5-active-atx-gold-pcie-pfc-ready-rm1000x-rmx-series-1000w-black"
+      ]
+    },
+    {
       "category": "aio",
       "label": "אורך כבל PWM",
       "count": 11,
@@ -1499,6 +1499,76 @@
         "model:case:ak5g-rgb-black",
         "model:case:ak5g-rgb-white",
         "model:case:ak5m-rgb-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גודל מאורר",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מק\"ט יצרן",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מספר מאוררים",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות למעבדי AMD",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גובה Clearance במ\"מ",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "TDP בW",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות למעבדי INTEL",
+      "count": 11,
+      "products": [
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white",
+        "model:cooler_air:0761345400831-f600-black"
       ]
     },
     {
@@ -1719,6 +1789,16 @@
         "model:psu:1-atx3-full-modular-ne850-neoeco-850w-full",
         "model:psu:1-atx3-gsk750-750w-full",
         "model:psu:12-atom-v550"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "כרטיס רשת",
+      "count": 11,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192554",
+        "other:1pc:1pc-206632"
       ]
     },
     {
@@ -2063,16 +2143,6 @@
     },
     {
       "category": "motherboard",
-      "label": "נפח אחסון",
-      "count": 9,
-      "products": [
-        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
-        "model:motherboard:aorus-ultra-z890i-miniitx",
-        "model:motherboard:b860-gaming-wifi6e-x-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "תכונות LED",
       "count": 9,
       "products": [
@@ -2102,13 +2172,13 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "נפח זיכרון",
-      "count": 8,
+      "category": "other",
+      "label": "כרטיס גרפי",
+      "count": 9,
       "products": [
-        "manual:cpu:1pc-126898-tms-c13700kt",
-        "model:cpu:14900ks-tray",
-        "model:cpu:245k-tray"
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-192555",
+        "other:1pc:1pc-206634"
       ]
     },
     {
@@ -2173,6 +2243,16 @@
     },
     {
       "category": "motherboard",
+      "label": "נפח אחסון",
+      "count": 8,
+      "products": [
+        "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
+        "model:motherboard:aorus-ultra-z890i-miniitx",
+        "model:motherboard:b860-gaming-wifi6e-x-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "רוחב",
       "count": 8,
       "products": [
@@ -2223,52 +2303,52 @@
     },
     {
       "category": "other",
-      "label": "מעבד",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח זיכרון",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סוג האחסון",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "ממשק",
-      "count": 8,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "other",
       "label": "חיבורי תקשורת",
       "count": 8,
       "products": [
         "other:1pc:1pc-133260",
         "other:1pc:1pc-192554",
         "other:1pc:1pc-192555"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "אחסון",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "יציאות וחיבורים",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "זיכרון",
+      "count": 8,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850",
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "נפח זיכרון",
+      "count": 7,
+      "products": [
+        "manual:cpu:1pc-126898-tms-c13700kt",
+        "model:cpu:14900ks-tray",
+        "model:cpu:245k-tray"
       ]
     },
     {
@@ -2349,16 +2429,6 @@
         "model:cpu:14700kf",
         "model:cpu:14900kf",
         "model:cpu:235-tray"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "ממשק",
-      "count": 7,
-      "products": [
-        "model:cpu:245kf-tray",
-        "model:cpu:250k-tray",
-        "model:cpu:265k-tray"
       ]
     },
     {
@@ -2543,36 +2613,6 @@
     },
     {
       "category": "other",
-      "label": "מעבד גרפי",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-133260",
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "סוג זכרון",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
-      "label": "נפח אחסון",
-      "count": 7,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206610"
-      ]
-    },
-    {
-      "category": "other",
       "label": "חיבור גרפי",
       "count": 7,
       "products": [
@@ -2712,6 +2752,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "ממשק",
+      "count": 6,
+      "products": [
+        "model:cpu:245kf-tray",
+        "model:cpu:250k-tray",
+        "model:cpu:265k-tray"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "Processor frequency (OC mode)",
       "count": 6,
@@ -2833,6 +2883,36 @@
     },
     {
       "category": "other",
+      "label": "רזולוציה",
+      "count": 6,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "קישוריות",
+      "count": 6,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "משקל המוצר",
+      "count": 6,
+      "products": [
+        "other:1pc:1pc-188068",
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337"
+      ]
+    },
+    {
+      "category": "other",
       "label": "סדרת מעבד (CPU)",
       "count": 6,
       "products": [
@@ -2909,26 +2989,6 @@
         "model:cpu:14700kf",
         "model:cpu:14900k",
         "model:cpu:14900kf"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "עומק",
-      "count": 5,
-      "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "גובה",
-      "count": 5,
-      "products": [
-        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
-        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
       ]
     },
     {
@@ -3103,16 +3163,6 @@
     },
     {
       "category": "other",
-      "label": "כרטיס רשת",
-      "count": 5,
-      "products": [
-        "other:1pc:1pc-192554",
-        "other:1pc:1pc-206632",
-        "other:1pc:1pc-206634"
-      ]
-    },
-    {
-      "category": "other",
       "label": "USB 2.0",
       "count": 5,
       "products": [
@@ -3129,6 +3179,16 @@
         "other:1pc:1pc-206610",
         "other:1pc:1pc-206632",
         "other:1pc:1pc-206634"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ערכת שבבים",
+      "count": 5,
+      "products": [
+        "other:1pc:1pc-216327",
+        "other:1pc:1pc-216337",
+        "other:1pc:1pc-216340"
       ]
     },
     {
@@ -3392,13 +3452,23 @@
       ]
     },
     {
-      "category": "cpu",
-      "label": "רזולוציה",
+      "category": "gpu",
+      "label": "עומק",
       "count": 4,
       "products": [
-        "model:cpu:245k-tray",
-        "model:cpu:265k-tray",
-        "model:cpu:285k-tray"
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "גובה",
+      "count": 4,
+      "products": [
+        "model:gpu:16g-16gd-5080-black-geforce-gv-n5080wf3ocv2-oc-rtx-sff-v2-windforce-16gb",
+        "model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
       ]
     },
     {
@@ -4153,16 +4223,6 @@
     },
     {
       "category": "case",
-      "label": "סוג פאנל",
-      "count": 3,
-      "products": [
-        "model:case:argb-t5-black",
-        "model:case:case-digital-m-o11-vision-black",
-        "model:case:case-digital-m-o11-vision-white"
-      ]
-    },
-    {
-      "category": "case",
       "label": "סנכרון תאורה",
       "count": 3,
       "products": [
@@ -4249,6 +4309,16 @@
         "model:cpu:245k-tray",
         "model:cpu:265k-tray",
         "model:cpu:8500g-tray-ryzen5"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "רזולוציה",
+      "count": 3,
+      "products": [
+        "model:cpu:245k-tray",
+        "model:cpu:265k-tray",
+        "model:cpu:corei712700f"
       ]
     },
     {
@@ -5080,16 +5150,6 @@
       ]
     },
     {
-      "category": "other",
-      "label": "כרטיס גרפי",
-      "count": 3,
-      "products": [
-        "other:1pc:1pc-192555",
-        "other:1pc:1pc-206634",
-        "other:1pc:1pc-209884"
-      ]
-    },
-    {
       "category": "aio",
       "label": "גובה (ממ)",
       "count": 2,
@@ -5379,6 +5439,15 @@
     {
       "category": "case",
       "label": "קצב רענון",
+      "count": 2,
+      "products": [
+        "model:case:case-digital-m-o11-vision-black",
+        "model:case:case-digital-m-o11-vision-white"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "סוג פאנל",
       "count": 2,
       "products": [
         "model:case:case-digital-m-o11-vision-black",
@@ -5824,78 +5893,6 @@
       "products": [
         "model:gpu:16g-3x-5080-inspire-oc-rtx-8gb",
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מק\"ט יצרן",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מנוע גרפי",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "חיבורים לספק כוח",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מהירות מעבד ב-MHZ",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "כמה מסכים ניתן לחבר בו זמנית",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "יציאות Display Port",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מינימום דרישת ספק כוח",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "אורך כרטיס (במ\"מ)",
-      "count": 2,
-      "products": [
-        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb",
-        "model:gpu:2xdp-2xhdmi-5050-8gb-gddr6-geforce-oc-rtx-windforce-8gb"
       ]
     },
     {
@@ -7410,11 +7407,38 @@
     },
     {
       "category": "other",
+      "label": "תכונות נוספות",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "ממדי המוצר",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-140488",
+        "other:1pc:1pc-160850"
+      ]
+    },
+    {
+      "category": "other",
       "label": "דגם מעבד",
       "count": 2,
       "products": [
         "other:1pc:1pc-206634",
         "other:1pc:1pc-209884"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "גודל מסך מסונן",
+      "count": 2,
+      "products": [
+        "other:1pc:1pc-216337",
+        "other:1pc:1pc-216346"
       ]
     },
     {
@@ -8390,7 +8414,71 @@
     },
     {
       "category": "gpu",
+      "label": "מק\"ט יצרן",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מנוע גרפי",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "חיבורים לספק כוח",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מהירות מעבד ב-MHZ",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Single-Precision TFLOPS",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "כמה מסכים ניתן לחבר בו זמנית",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "יציאות Display Port",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מינימום דרישת ספק כוח",
+      "count": 1,
+      "products": [
+        "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "אורך כרטיס (במ\"מ)",
       "count": 1,
       "products": [
         "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb"
@@ -9326,14 +9414,6 @@
     },
     {
       "category": "memory",
-      "label": "מספר פינים",
-      "count": 1,
-      "products": [
-        "model:memory:ad4u3200316g22-premier-sgn-16gb-x1-cl22-green-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "קצב נתונים",
       "count": 1,
       "products": [
@@ -9402,14 +9482,6 @@
       "count": 1,
       "products": [
         "model:memory:line-psd532g56002-signature-32gb-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "סוג האחסון",
-      "count": 1,
-      "products": [
-        "model:memory:lpx-vengeance-16gb-x1-3600mhz-cl18-black"
       ]
     },
     {
@@ -12222,6 +12294,30 @@
     },
     {
       "category": "other",
+      "label": "קצב רענון",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "גודל תצוגה",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "רזולוציית תצוגה",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-188068"
+      ]
+    },
+    {
+      "category": "other",
       "label": "רמקולים",
       "count": 1,
       "products": [
@@ -12250,6 +12346,14 @@
       "count": 1,
       "products": [
         "other:1pc:1pc-215610"
+      ]
+    },
+    {
+      "category": "other",
+      "label": "מסך מגע",
+      "count": 1,
+      "products": [
+        "other:1pc:1pc-216327"
       ]
     },
     {
