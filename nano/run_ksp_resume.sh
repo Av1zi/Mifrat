@@ -30,6 +30,11 @@ touch "$STATE_DIR/ksp-resume.attempted"
 rm -f "$STATE_DIR/ksp.paused"
 STATUS=0
 bash nano/run_ksp.sh || STATUS=$?
+NIGHT="$("$PYTHON" scraper/night.py)"
+if [ "$STATUS" -eq 0 ] && [ ! -f "$STATE_DIR/ksp-$NIGHT.success" ]; then
+    STATUS=1
+    echo '[ksp-resume] no published snapshot-success marker; not enabling daily timer'
+fi
 if [ "$STATUS" -ne 0 ]; then
     touch "$STATE_DIR/ksp.paused"
     echo "[ksp-resume] recovery failed; paused, daily timer stays disabled"

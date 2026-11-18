@@ -37,11 +37,11 @@ def main():
         (state / "ksp.paused").touch()
         calls = temp / "calls"
         (repo / "nano/run_state.sh").write_text('nano_lock() { export MIFRAT_CHECKOUT_LOCK=1; }\n')
-        (repo / "nano/run_ksp.sh").write_text('echo crawl >> "$CALLS"\nexit "${CRAWL_STATUS:-0}"\n')
+        (repo / "nano/run_ksp.sh").write_text('echo crawl >> "$CALLS"\nif [ "${CRAWL_STATUS:-0}" = 0 ] && [ "${NO_SNAPSHOT:-0}" != 1 ]; then touch "$XDG_STATE_HOME/pc-parts-il/ksp-2026-11-22.success"; fi\nexit "${CRAWL_STATUS:-0}"\n')
         bin = temp / "bin"
         bin.mkdir()
         for name, text in {
-            "python": '#!/usr/bin/env bash\nexit "${EARLY:-0}"\n',
+            "python": '#!/usr/bin/env bash\nif [[ "$*" == *night.py* ]]; then echo 2026-11-22; exit 0; fi\nexit "${EARLY:-0}"\n',
             "date": '#!/usr/bin/env bash\necho "${HOUR:-01}"\n',
             "flock": '#!/usr/bin/env bash\nexit 0\n',
         }.items():
@@ -73,6 +73,10 @@ def main():
         assert not (state / 'ksp.paused').exists()
         assert run() != 0, "second invocation must not claim successful recovery"
         assert calls.read_text().splitlines() == ['crawl', 'crawl']
+        (state / 'ksp-resume.attempted').unlink()
+        (state / 'ksp-2026-11-22.success').unlink()
+        assert run(NO_SNAPSHOT='1') != 0, 'empty/skipped run enabled the daily timer'
+        assert (state / 'ksp.paused').exists()
     # Actual runner rejects an early start before constructing CrawlerProcess.
     from scraper import run_spider
     with patch('scraper.ksp_schedule.ready', return_value=False), \
