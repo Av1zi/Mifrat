@@ -153,6 +153,8 @@
     font-size: var(--fs-sm);
   }
 
+  .panel__lede--notice { margin-top: var(--sp-3); }
+
   .panel .table-wrap {
     margin-inline: calc(-1 * var(--sp-4));
   }
@@ -240,6 +242,8 @@
     border-radius: var(--radius-sm);
     background: var(--surface-2);
   }
+
+  .finding > div { min-width: 0; overflow-wrap: anywhere; }
 
   .finding p {
     color: var(--text-2);
@@ -371,7 +375,7 @@
 
   .nb__pill {
     position: absolute;
-    top: 50%;
+    top: calc(var(--row, 0) * 1.75rem + 0.875rem);
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -442,7 +446,7 @@
   /* ---- vendor cards ---- */
   .vcards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
     gap: var(--sp-3);
   }
 
@@ -837,7 +841,7 @@
 
   .ccards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
     gap: var(--sp-3);
   }
 

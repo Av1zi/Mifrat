@@ -38,14 +38,17 @@ export async function loadStatus(): Promise<OpsStatus> {
 }
 
 export async function loadChanges(): Promise<OpsChanges> {
-  return getJson<OpsChanges>("/admin/data/changes.json");
+  const changes = await getJson<OpsChanges>("/admin/data/changes.json");
+  if (changes.schema !== OPS_SCHEMA) throw new Error(`changes.json schema ${changes.schema}, expected ${OPS_SCHEMA}`);
+  if (!Array.isArray(changes.events) || !Array.isArray(changes.absent)) throw new Error("changes.json is missing event history");
+  return changes;
 }
 
 /** The last publish's check results; null before the first run_checks.py publish. */
 export async function loadChecks(): Promise<OpsChecks | null> {
   try {
     const checks = await getJson<OpsChecks>("/admin/data/checks.json");
-    return checks.schema === CHECKS_SCHEMA ? checks : null;
+    return checks.schema === CHECKS_SCHEMA && Array.isArray(checks.checks) ? checks : null;
   } catch {
     return null;
   }
@@ -54,7 +57,8 @@ export async function loadChecks(): Promise<OpsChecks | null> {
 /** Runs/alerts live in D1; unavailable locally (vite dev) or before setup. */
 export async function loadRuns(): Promise<RunRow[] | null> {
   try {
-    return (await getJson<{ runs: RunRow[] }>("/api/admin/runs")).runs;
+    const { runs } = await getJson<{ runs: RunRow[] }>("/api/admin/runs");
+    return Array.isArray(runs) ? runs : null;
   } catch {
     return null;
   }
@@ -62,7 +66,8 @@ export async function loadRuns(): Promise<RunRow[] | null> {
 
 export async function loadAlerts(): Promise<AlertRow[] | null> {
   try {
-    return (await getJson<{ alerts: AlertRow[] }>("/api/admin/alerts")).alerts;
+    const { alerts } = await getJson<{ alerts: AlertRow[] }>("/api/admin/alerts");
+    return Array.isArray(alerts) ? alerts : null;
   } catch {
     return null;
   }

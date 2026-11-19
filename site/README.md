@@ -77,6 +77,13 @@ npm run format:check # Prettier, scoped to test/ + tooling; existing src/ is not
   375/768/1280 screenshot matrix into `site/screenshots/<label>/`
   (`--routes`, `--langs`, `--widths` narrow it).
 
+- **Admin browser regressions**: after a build, run
+  `python site/scripts/admin_smoke.py` from the repo root. It checks all seven
+  admin tabs at 320/375/768/1280px in light/dark themes, plus search, reload
+  and rebuild interactions. APIs are stubbed and the clock is fixed; it never
+  dispatches a real workflow or needs an admin password. Pure admin view and
+  data-loading regressions also run in `npm test` (`test/admin.test.ts`).
+
 ## Deploying
 
 Cloudflare Workers Builds deploys on every push to `main` (a code change in

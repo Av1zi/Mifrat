@@ -38,6 +38,10 @@ const FILTERED: ReadonlySet<Tab> = new Set(["new", "gone", "prices"]);
 const root = document.getElementById("admin")!;
 let data: Data | null = null;
 let loadError: string | null = null;
+let refreshError: string | null = null;
+let loading = false;
+let loadVersion = 0;
+let filterTimer: number | undefined;
 
 function parseHash(): { tab: Tab; filters: Filters } {
   const [name, query = ""] = location.hash.replace(/^#/, "").split("?");
@@ -107,13 +111,23 @@ function body(tab: Tab, f: Filters, now: Date): Html {
 // GitHub reruns scraper.ops.report and the site redeploys (~3-5 min). The
 // button asks the Worker to start that run, then this page polls
 // status.json until its generated_at changes and reloads in place.
-type Rebuild = { state: "idle" } | { state: "running"; since: number; from: string } | { state: "error"; message: string };
+type Rebuild = { state: "idle" } | { state: "starting" } | { state: "running"; since: number; from: string } | { state: "error"; message: string };
 let rebuild: Rebuild = { state: "idle" };
 const REBUILD_KEY = "mifrat:ops-rebuild";
 const POLL_MS = 20_000;
 const GIVE_UP_MS = 12 * 60_000;
 
+function saveRebuild(): void {
+  try {
+    if (rebuild.state === "running") sessionStorage.setItem(REBUILD_KEY, JSON.stringify(rebuild));
+    else sessionStorage.removeItem(REBUILD_KEY);
+  } catch {
+    // Storage is optional; a denied write must not interrupt a dispatched run.
+  }
+}
+
 function rebuildLabel(now: Date): Html {
+  if (rebuild.state === "starting") return html`<span class="ahead__meta ahead__meta--busy" role="status">Starting rebuild…</span>`;
   if (rebuild.state === "running") {
     const s = Math.round((now.getTime() - rebuild.since) / 1000);
     return html`<span class="ahead__meta ahead__meta--busy" role="status"><span class="state__spinner state__spinner--sm" aria-hidden="true"></span>Rebuilding… ${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}</span>`;
@@ -123,8 +137,10 @@ function rebuildLabel(now: Date): Html {
 }
 
 async function startRebuild(): Promise<void> {
-  if (!data || rebuild.state === "running") return;
+  if (!data || rebuild.state === "running" || rebuild.state === "starting") return;
   const from = data.status.generated_at;
+  rebuild = { state: "starting" };
+  render();
   let res: Response;
   try {
     res = await fetch("/api/admin/rebuild", { method: "POST", credentials: "same-origin" });
@@ -133,15 +149,16 @@ async function startRebuild(): Promise<void> {
     render();
     return;
   }
-  if (res.status === 202 || res.status === 429) {
-    // 429 = one already started in the last 5 minutes: wait for that one.
+  const body = (await res.json().catch(() => ({}))) as { error?: string; retry_in_s?: number };
+  if (res.status === 202 || (res.status === 429 && typeof body.retry_in_s === "number")) {
+    // Only the dispatch cooldown means another rebuild is running. Auth rate
+    // limiting also returns 429 and must be shown as an error, not success.
     rebuild = { state: "running", since: Date.now(), from };
-    sessionStorage.setItem(REBUILD_KEY, JSON.stringify(rebuild));
+    saveRebuild();
     render();
     void pollRebuild();
     return;
   }
-  const body = (await res.json().catch(() => ({}))) as { error?: string };
   rebuild = { state: "error", message: body.error ?? `Rebuild refused (HTTP ${res.status}).` };
   render();
 }
@@ -153,9 +170,9 @@ async function pollRebuild(): Promise<void> {
     const started = rebuild.since;
     try {
       const status = await loadStatus();
-      if (status.generated_at !== rebuild.from) {
+      if (Date.parse(status.generated_at) > Date.parse(rebuild.from)) {
         rebuild = { state: "idle" };
-        sessionStorage.removeItem(REBUILD_KEY);
+        saveRebuild();
         await load();
         return;
       }
@@ -164,13 +181,18 @@ async function pollRebuild(): Promise<void> {
     }
     if (Date.now() - started > GIVE_UP_MS) {
       rebuild = { state: "error", message: "No new report after 12 minutes: check the ops-report run on GitHub (Alerts & runs → Links)." };
-      sessionStorage.removeItem(REBUILD_KEY);
+      saveRebuild();
     }
     render();
   }
 }
 
 function render(): void {
+  // A filter callback belongs to the form that scheduled it, never to a new tab.
+  window.clearTimeout(filterTimer);
+  const focused = document.activeElement as HTMLInputElement | HTMLSelectElement | null;
+  const focusedName = focused?.closest("#filters") ? focused.name : "";
+  const selection = focused instanceof HTMLInputElement ? [focused.selectionStart, focused.selectionEnd] : null;
   const { tab, filters } = parseHash();
   const now = new Date();
   const theme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
@@ -179,8 +201,8 @@ function render(): void {
       <div class="ahead__inner">
         <a class="ahead__brand" href="/admin/"><span class="ahead__mark" aria-hidden="true"></span>Mifrat <span>scrape console</span></a>
         ${rebuildLabel(now)}
-        <button type="button" class="ahead__btn" id="reload" title="Load the newest deployed report">Reload</button>
-        <button type="button" class="ahead__btn ahead__btn--primary" id="rebuild" title="Regenerate the report from the latest scrapes (about 3-5 minutes)"${rebuild.state === "running" ? " disabled" : ""}>Rebuild report</button>
+        <button type="button" class="ahead__btn" id="reload" title="Load the newest deployed report"${loading ? " disabled" : ""}>${loading ? "Loading…" : "Reload"}</button>
+        <button type="button" class="ahead__btn ahead__btn--primary" id="rebuild" title="Regenerate the report from the latest scrapes (about 3-5 minutes)"${!data || rebuild.state === "running" || rebuild.state === "starting" ? " disabled" : ""}>Rebuild report</button>
         <button type="button" class="ahead__btn" id="theme" aria-pressed="${theme === "dark" ? "true" : "false"}">${theme === "dark" ? "Light" : "Dark"}</button>
         <a class="ahead__btn" href="/">Site</a>
       </div>
@@ -189,10 +211,18 @@ function render(): void {
       </nav>
     </header>
     <main class="amain" id="main">
+      ${refreshError ? html`<p class="panel" role="alert">Reload failed: ${refreshError}. Still showing the previously loaded report; try Reload again.</p>` : ""}
       ${filterBar(tab, filters)}
       ${body(tab, filters, now)}
     </main>`);
   bind(tab);
+  if (focusedName) {
+    const next = document.querySelector<HTMLInputElement | HTMLSelectElement>(`#filters [name="${focusedName}"]`);
+    next?.focus();
+    if (next instanceof HTMLInputElement && selection?.[0] != null && selection[1] != null) {
+      next.setSelectionRange(selection[0], selection[1]);
+    }
+  }
 }
 
 function bind(tab: Tab): void {
@@ -205,42 +235,40 @@ function bind(tab: Tab): void {
   const form = document.getElementById("filters") as HTMLFormElement | null;
   if (!form) return;
   const apply = () => {
+    if (!form.isConnected || parseHash().tab !== tab) return;
     const fd = new FormData(form);
     const next: Filters = {
       vendor: String(fd.get("vendor") ?? ""),
       category: String(fd.get("category") ?? ""),
-      q: String(fd.get("q") ?? "").trim(),
+      q: String(fd.get("q") ?? ""),
       days: Number(fd.get("days") ?? 7),
     };
     history.replaceState(null, "", hashFor(tab, next));
-    const focused = document.activeElement as HTMLInputElement | null;
-    const caret = focused?.name === "q" ? focused.selectionStart : null;
     render();
-    if (caret !== null) {
-      const input = document.querySelector<HTMLInputElement>('#filters input[name="q"]');
-      input?.focus();
-      input?.setSelectionRange(caret, caret);
-    }
   };
-  form.addEventListener("change", apply);
-  let timer: number | undefined;
+  form.addEventListener("change", (e) => {
+    // A search input's blur fires change before a tab link's click. Replacing
+    // the header there destroys the click target and strands the user.
+    if ((e.target as HTMLElement).tagName === "SELECT") apply();
+  });
   form.addEventListener("input", (e) => {
     if ((e.target as HTMLElement).tagName !== "INPUT") return;
-    window.clearTimeout(timer);
-    timer = window.setTimeout(apply, 200);
+    window.clearTimeout(filterTimer);
+    filterTimer = window.setTimeout(apply, 200);
   });
-  form.addEventListener("submit", (e) => e.preventDefault());
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    apply();
+  });
 }
 
 async function load(): Promise<void> {
+  const version = ++loadVersion;
+  loading = true;
   loadError = null;
+  refreshError = null;
   // Keep showing the current data while the new one loads.
-  if (!data) render();
-  const btn = document.getElementById("reload") as HTMLButtonElement | null;
-  if (btn) {
-    btn.disabled = true;
-    btn.textContent = "Loading…";
-  }
+  render();
   try {
     const [status, changes, checks, runs, alerts] = await Promise.all([
       loadStatus(),
@@ -249,11 +277,15 @@ async function load(): Promise<void> {
       loadRuns(),
       loadAlerts(),
     ]);
+    if (version !== loadVersion) return;
     data = { status, changes, checks, runs, alerts };
   } catch (err) {
-    data = null;
-    loadError = err instanceof Error ? err.message : String(err);
+    if (version !== loadVersion) return;
+    const message = err instanceof Error ? err.message : String(err);
+    if (data) refreshError = message;
+    else loadError = message;
   }
+  loading = false;
   render();
 }
 
@@ -262,7 +294,9 @@ window.addEventListener("hashchange", render);
 // A rebuild started before a page reload keeps being waited for.
 try {
   const saved = JSON.parse(sessionStorage.getItem(REBUILD_KEY) ?? "null") as Rebuild | null;
-  if (saved?.state === "running" && Date.now() - saved.since < GIVE_UP_MS) rebuild = saved;
+  if (saved?.state === "running" && typeof saved.since === "number" &&
+      typeof saved.from === "string" && Number.isFinite(Date.parse(saved.from)) &&
+      Date.now() >= saved.since && Date.now() - saved.since < GIVE_UP_MS) rebuild = saved;
 } catch {
   // ignore a corrupt entry
 }

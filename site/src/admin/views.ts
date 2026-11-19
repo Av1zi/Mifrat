@@ -1,7 +1,7 @@
 // Admin console views. Each view is a pure (data, now) -> Html function; the
 // shell in main.ts owns routing, loading and filters.
 
-import { allVendorHealth, evaluate, nightStart, type Finding, type VendorHealth } from "../ops/rules";
+import { allVendorHealth, dueAt, evaluate, nightStart, SEVERITY_RANK, type Finding, type NanoRun, type VendorHealth } from "../ops/rules";
 import type { OpsAbsent, OpsChanges, OpsChecks, OpsCrawl, OpsEvent, OpsStatus } from "../ops/types";
 import { html, type Html } from "../ui/html";
 import { safeUrl } from "../utils";
@@ -35,7 +35,10 @@ const STATE_LABEL: Record<string, string> = {
 const SEVERITY_LABEL: Record<string, string> = { urgent: "Urgent", high: "High", warn: "Check", info: "Info" };
 
 function vendorLabel(status: OpsStatus, id: string | undefined): string {
-  return status.vendors.find((v) => v.id === id)?.label ?? id ?? "";
+  if (!id) return "";
+  const [vendor, phase] = id.split("_");
+  const label = status.vendors.find((v) => v.id === vendor)?.label ?? vendor;
+  return `${label}${phase ? ` ${phase === "eilat" ? "Eilat" : phase}` : ""}`;
 }
 
 function link(url: string | undefined, text: string): Html {
@@ -64,16 +67,17 @@ const NIGHT_BEFORE_H = 1;
 const NIGHT_AFTER_H = 13;
 
 function dueOf(h: VendorHealth, night: Date): Date {
-  const [dh, dm] = h.vendor.due_utc.split(":").map(Number);
-  const due = new Date(night.getTime());
-  due.setUTCHours(dh || 0, dm || 0, 0, 0);
-  if (due.getTime() <= night.getTime()) due.setUTCDate(due.getUTCDate() + 1);
-  return due;
+  return dueAt(h.vendor, night);
 }
 
 function nightPanel(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, night: Date, now: Date, title: string): Html {
   const start = night.getTime() - NIGHT_BEFORE_H * HOUR;
-  const end = night.getTime() + NIGHT_AFTER_H * HOUR;
+  const byVendor = new Map(health.map((h) => [h.vendor.id, (crawls[h.vendor.id] ?? []).filter((c) =>
+    nightStart(new Date(c.start)).getTime() === night.getTime() && Date.parse(c.start) <= now.getTime()
+  )]));
+  // Delayed crawls still belong to this night; expand the axis to show them.
+  const end = Math.max(night.getTime() + NIGHT_AFTER_H * HOUR,
+    ...[...byVendor.values()].flat().map((c) => Date.parse(c.start) + HOUR));
   const pos = (t: number) => Math.max(0, Math.min(100, ((t - start) / (end - start)) * 100));
   // In progress until the latest vendor due time has passed.
   const lastDue = Math.max(...health.map((h) => dueOf(h, night).getTime()));
@@ -84,18 +88,15 @@ function nightPanel(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, 
     ticks.push(html`<span class="${`nb__tick${edge}`}" style="${`inset-inline-start:${pos(t)}%`}">${ilTime(new Date(t).toISOString())}</span>`);
   }
   const rows = health.map((h) => {
-    const mine = (crawls[h.vendor.id] ?? []).filter((c) => {
-      const t = new Date(c.start).getTime();
-      return t >= start && t < end;
-    });
+    const mine = byVendor.get(h.vendor.id) ?? [];
     const due = dueOf(h, night);
     const dueAt = pos(due.getTime());
-    const pills = mine.map((c) => {
+    const pills = mine.map((c, i) => {
       const at = pos(new Date(c.start).getTime());
       const tone = c.suspect ? "partial" : mine.length > 1 || c.crawls_in_file > 1 ? "double" : "ok";
       const anchor = at > 62 ? "end" : "start";
       const tip = `${ilDateTime(c.start)}${c.start.slice(0, 16) === c.end.slice(0, 16) ? "" : `–${ilTime(c.end)}`} · ${n(c.keys)} items · +${c.new} new −${c.gone} gone${c.suspect ? ` · partial: ${c.suspect}` : ""}`;
-      return html`<span class="nb__pill nb__pill--${tone} nb__pill--${anchor}" style="${`--at:${at}%`}" title="${tip}">
+      return html`<span class="nb__pill nb__pill--${tone} nb__pill--${anchor}" style="${`--at:${at}%;--row:${i}`}" title="${tip}">
         <span class="nb__dot" aria-hidden="true"></span><strong>${ilTime(c.start)}</strong><span class="nb__n">${n(c.keys)}</span>
       </span>`;
     });
@@ -109,7 +110,7 @@ function nightPanel(health: VendorHealth[], crawls: Record<string, OpsCrawl[]>, 
     }
     return html`<div class="nb__row">
       <span class="nb__name">${h.vendor.label}</span>
-      <span class="nb__track">
+      <span class="nb__track" style="${`height:${Math.max(1, mine.length) * 1.75}rem`}">
         <span class="nb__due" style="${`--at:${dueAt}%`}" title="${`Due by ${ilTime(due.toISOString())}`}" aria-hidden="true"></span>
         ${pills}${empty}
       </span>
@@ -180,14 +181,14 @@ function vendorCard(h: VendorHealth, crawls: OpsCrawl[], now: Date): Html {
           ${!c.baseline
             ? html`<p class="vcard__delta"><span class="up">+${c.new} new</span> <span class="down">−${c.gone} gone</span> <span>${c.missing} missing</span> <span>${c.price_changes} repriced</span></p>`
             : html`<p class="vcard__delta">First crawl in the window</p>`}`
-      : html`<p class="vcard__big">–</p><p class="vcard__meta">No crawl in the last 60 days</p>`}
+      : html`<p class="vcard__big">–</p><p class="vcard__meta">No crawl in the report window</p>`}
     ${sparkline(crawls, h.vendor.min_rows)}
     ${h.notes.length ? html`<ul class="vcard__notes">${h.notes.map((note) => html`<li>${note}</li>`)}</ul>` : ""}
   </article>`;
 }
 
 function findingList(findings: Finding[]): Html {
-  if (!findings.length) return html`<p class="allclear">Nothing needs a look. Every vendor was scraped last night and the site is current.</p>`;
+  if (!findings.length) return html`<p class="allclear">No problems found in the available report and live alerts.</p>`;
   return html`<ul class="findings">${findings.map(
     (f) => html`<li class="finding finding--${f.severity}">
       <span class="finding__sev">${SEVERITY_LABEL[f.severity]}</span>
@@ -198,13 +199,30 @@ function findingList(findings: Finding[]): Html {
 
 export function tonightView(d: Data, now: Date): Html {
   const health = allVendorHealth(d.status, now);
-  const findings = evaluate(d.status, now, { checks: d.checks });
+  const nanoRuns: Record<string, NanoRun> = {};
+  for (const r of d.runs ?? []) {
+    if (!nanoRuns[r.vendor] || Date.parse(r.at) > Date.parse(nanoRuns[r.vendor].at)) {
+      nanoRuns[r.vendor] = { vendor: r.vendor, at: r.at, ok: !!r.ok,
+        outcome: r.outcome, detail: r.detail ?? undefined };
+    }
+  }
+  const byKey = new Map(evaluate(d.status, now, { checks: d.checks, nanoRuns }).map((f) => [f.key, f]));
+  // The cron sees facts the static report cannot (site/normalize failures).
+  // Open alerts supply those and their more specific explanations.
+  for (const a of d.alerts ?? []) {
+    if (a.closed_at) continue;
+    const severity = Object.hasOwn(SEVERITY_RANK, a.severity) ? a.severity as Finding["severity"] : "warn";
+    byKey.set(a.key, { key: a.key, severity, title: a.title, detail: a.detail });
+  }
+  const findings = [...byKey.values()].sort((a, b) =>
+    SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity] || a.key.localeCompare(b.key));
   const cat = d.status.catalog;
   const activeHealth = health.filter((h) => h.vendor.active);
   return html`
     <section class="panel">
       <h2 class="panel__title">Open problems</h2>
       ${findingList(findings)}
+      ${d.runs === null || d.alerts === null ? html`<p class="panel__lede panel__lede--notice">Live ${d.runs === null && d.alerts === null ? "runs and alerts are" : d.runs === null ? "runs are" : "alerts are"} unavailable; this is not a complete live health check. Try Reload on the deployed site.</p>` : ""}
     </section>
     <section class="panel">
       <h2 class="panel__title">Nights</h2>
@@ -222,15 +240,14 @@ export function tonightView(d: Data, now: Date): Html {
 
 // ---- Calendar ------------------------------------------------------------------
 // A month grid (Sun-Sat weeks, like a wall calendar): each day is one NIGHT,
-// the evening of that date; a crawl after midnight counts for the evening
-// before (the Israel date of start - 12h). Each day shows one chip per
-// vendor; clicking a day opens its crawls below the grid.
+// the evening of that date, using the same 21:00 UTC boundary as the rules.
+// Each day shows one chip per vendor; clicking a day opens its crawls below the grid.
 
 type CellState = "ok" | "partial" | "double" | "none";
 
 /** The night (Israel date, YYYY-MM-DD) a crawl belongs to. */
 export function nightKey(iso: string): string {
-  return ilDateKey(new Date(new Date(iso).getTime() - 12 * 3_600_000));
+  return ilDateKey(new Date(nightStart(new Date(iso)).getTime() - 3 * HOUR));
 }
 
 function cellState(crawls: OpsCrawl[]): CellState {
@@ -267,13 +284,18 @@ export interface CalendarState {
   day: string;
 }
 
-function dayDetail(d: Data, key: string, nights: Map<string, Map<string, OpsCrawl[]>>): Html {
+function dayDetail(d: Data, key: string, nights: Map<string, Map<string, OpsCrawl[]>>, now: Date): Html {
   const day = nights.get(key);
   const vendors = d.status.vendors.filter((v) => v.active || day?.has(v.id));
   const date = new Date(`${key}T12:00:00Z`);
   const rows = vendors.map((v) => {
     const crawls = day?.get(v.id) ?? [];
     if (!crawls.length) {
+      const night = new Date(`${key}T21:00:00Z`);
+      const due = dueAt(v, night);
+      if (now.getTime() < due.getTime()) {
+        return html`<tr><th scope="row">${v.label}</th><td colspan="6"><span class="text-dim">Not run yet; due ${ilTime(due.toISOString())}</span></td></tr>`;
+      }
       return html`<tr><th scope="row">${v.label}</th><td colspan="6"><span class="down">Not scraped</span></td></tr>`;
     }
     return crawls.map((c, i) => html`<tr>
@@ -304,13 +326,19 @@ function dayDetail(d: Data, key: string, nights: Map<string, Map<string, OpsCraw
 export function calendarView(d: Data, now: Date, state: CalendarState): Html {
   const nights = crawlsByNight(d);
   const today = nightKey(now.toISOString());
-  const [y, m] = (state.month || today.slice(0, 7)).split("-").map(Number);
+  const windowStart = nightKey(new Date(now.getTime() - d.status.window_days * 86_400_000).toISOString());
+  const validMonth = /^\d{4}-(?:0[1-9]|1[0-2])$/.test(state.month) &&
+    state.month >= windowStart.slice(0, 7) && state.month <= today.slice(0, 7);
+  const [y, m] = (validMonth ? state.month : today.slice(0, 7)).split("-").map(Number);
   const month = m - 1;
   const first = new Date(Date.UTC(y, month, 1));
   const daysIn = new Date(Date.UTC(y, month + 1, 0)).getUTCDate();
   const lead = first.getUTCDay(); // Sunday-first weeks, like an Israeli calendar
   const vendors = d.status.vendors.filter((v) => v.active);
-  const windowStart = nightKey(new Date(now.getTime() - d.status.window_days * 86_400_000).toISOString());
+  const selected = /^\d{4}-\d{2}-\d{2}$/.test(state.day) &&
+    !Number.isNaN(Date.parse(state.day)) && new Date(state.day).toISOString().slice(0, 10) === state.day &&
+    state.day >= windowStart && state.day <= today && state.day.startsWith(ymd(y, month, 1).slice(0, 7))
+    ? state.day : "";
 
   const prev = month === 0 ? `${y - 1}-12` : `${y}-${String(month).padStart(2, "0")}`;
   const next = month === 11 ? `${y + 1}-01` : `${y}-${String(month + 2).padStart(2, "0")}`;
@@ -328,10 +356,11 @@ export function calendarView(d: Data, now: Date, state: CalendarState): Html {
     const outside = key < windowStart;
     const night = nights.get(key);
     // Tonight is still running: a vendor with no crawl yet is pending, not missing.
-    const inProgress = key === today;
+    const inProgress = key === today && vendors.some((v) => now.getTime() < dueAt(v, new Date(`${key}T21:00:00Z`)).getTime());
     const stateOf = (id: string): CellState | "pending" => {
       const s = cellState(night?.get(id) ?? []);
-      return s === "none" && inProgress ? "pending" : s;
+      const vendor = vendors.find((v) => v.id === id)!;
+      return s === "none" && inProgress && now.getTime() < dueAt(vendor, new Date(`${key}T21:00:00Z`)).getTime() ? "pending" : s;
     };
     const chips = vendors.map((v) => {
       const s = stateOf(v.id);
@@ -349,7 +378,7 @@ export function calendarView(d: Data, now: Date, state: CalendarState): Html {
     const pending = states.filter((s) => s === "pending").length;
     const summary = future ? "" : outside ? "before the report window" : allOk ? "all scraped"
       : missing ? `${missing} not scraped` : pending ? `in progress, ${pending} still to run` : "check";
-    const cls = `mcal__day${key === today ? " is-today" : ""}${key === state.day ? " is-selected" : ""}${future ? " is-future" : ""}${outside ? " is-outside" : ""}`;
+    const cls = `mcal__day${key === today ? " is-today" : ""}${key === selected ? " is-selected" : ""}${future ? " is-future" : ""}${outside ? " is-outside" : ""}`;
     const body = html`<span class="mcal__num">${day}</span>
       ${future || outside ? "" : html`<span class="mcal__chips">${chips}</span>`}
       <span class="visually-hidden">${summary}</span>`;
@@ -381,22 +410,23 @@ export function calendarView(d: Data, now: Date, state: CalendarState): Html {
       <span class="legend__item">Each day is one night (a crawl after midnight counts for the evening before). Click a day for its crawls.</span>
     </p>
   </section>
-  ${state.day ? dayDetail(d, state.day, nights) : ""}`;
+  ${selected ? dayDetail(d, selected, nights, now) : ""}`;
 }
 
 // ---- Event lists (New / No longer sold / Prices) ----------------------------------
 
 function inWindow(e: { at?: string; since?: string }, f: Filters, now: Date): boolean {
   const at = e.at ?? e.since ?? "";
-  return now.getTime() - new Date(at).getTime() <= f.days * 86_400_000;
+  const age = now.getTime() - new Date(at).getTime();
+  return age >= 0 && age <= f.days * 86_400_000;
 }
 
 function matches(e: OpsEvent | OpsAbsent, f: Filters): boolean {
   if (f.vendor && e.vendor !== f.vendor && !(("vendors" in e) && e.vendors?.includes(f.vendor))) return false;
   if (f.category && e.category !== f.category) return false;
   if (f.q) {
-    const hay = `${e.title ?? ""} ${e.product ?? ""} ${e.key ?? ""}`.toLowerCase();
-    if (!hay.includes(f.q.toLowerCase())) return false;
+    const hay = `${e.title ?? ""} ${e.product ?? ""} ${e.key ?? ""} ${e.pid ?? ""}`.toLowerCase();
+    if (!hay.includes(f.q.trim().toLowerCase())) return false;
   }
   return true;
 }
@@ -406,7 +436,7 @@ function emptyRow(cols: number, text: string): Html {
 }
 
 function noChanges(): Html {
-  return html`<section class="panel"><p class="allclear">changes.json did not load, so there is no change history to show. Run <code>python -m scraper.ops.report</code> and rebuild the site.</p></section>`;
+  return html`<section class="panel"><h2 class="panel__title">Change history unavailable</h2><p class="warn">changes.json did not load or is incompatible. This does not mean there were no changes. Try Reload; if it persists, run <code>python -m scraper.ops.report</code> and rebuild the site.</p></section>`;
 }
 
 export function newView(d: Data, f: Filters, now: Date): Html {
@@ -456,7 +486,7 @@ export function goneView(d: Data, f: Filters, now: Date): Html {
   const events = d.changes.events.filter((e) => inWindow(e, f, now) && matches(e, f));
   const products = events.filter((e) => e.type === "product_gone");
   const lost = events.filter((e) => e.type === "vendor_lost");
-  const missing = d.changes.absent.filter((a) => a.state === "missing" && matches(a, f));
+  const missing = d.changes.absent.filter((a) => a.state === "missing" && inWindow(a, f, now) && matches(a, f));
   const s = d.status;
   return html`
     <section class="panel">
@@ -483,7 +513,7 @@ export function goneView(d: Data, f: Filters, now: Date): Html {
     </section>
     <section class="panel">
       <h2 class="panel__title">Missing from the latest crawl <span class="count">${missing.length}</span></h2>
-      <p class="panel__lede">Absent once so far. One absence is often noise (1PC drops and re-adds dozens of rows a day); a second absence 36 hours later moves it up.</p>
+      <p class="panel__lede">First absent within the selected period, and still missing. One absence is often noise (1PC drops and re-adds dozens of rows a day); a second absence 36 hours later moves it up.</p>
       <div class="table-wrap"><table class="table">
         <thead><tr><th>Last seen</th><th>Vendor</th><th>Listing</th><th>Product</th><th class="num">Price</th></tr></thead>
         <tbody>${missing.length ? missing.map((a) => html`<tr>
@@ -496,6 +526,8 @@ export function goneView(d: Data, f: Filters, now: Date): Html {
 
 export function pricesView(d: Data, f: Filters, now: Date): Html {
   if (!d.changes) return noChanges();
+  // report.py retains other events for event_days, but prices for at most 14.
+  const retainedDays = Math.min(d.changes.event_days, 14);
   const moves = d.changes.events
     .filter((e) => e.type === "price" && inWindow(e, f, now) && matches(e, f) && e.old && e.price)
     .map((e) => ({ e, delta: (e.price as number) - (e.old as number) }));
@@ -510,11 +542,11 @@ export function pricesView(d: Data, f: Filters, now: Date): Html {
       <td class="num">${ils(e.old)}</td><td class="num">${ils(e.price)}</td>
       <td class="num ${delta < 0 ? "down" : "up"}">${pct(delta, e.old as number)}</td>
     </tr>`) : emptyRow(6, empty)}</tbody>
-  </table></div>`;
+  </table></div>${rows.length > 200 ? html`<p class="panel__lede panel__lede--notice">Showing 200 of ${rows.length} moves. Narrow the filters to see other results.</p>` : ""}`;
   return html`
     <section class="panel">
       <h2 class="panel__title">Biggest drops <span class="count">${drops.length}</span></h2>
-      <p class="panel__lede">Moves of 5% or more, last 14 days. Smaller moves are counted on each crawl (Calendar, hover) but not listed.</p>
+      <p class="panel__lede">Moves of 5% or more, ${f.days === 1 ? "last day" : `last ${f.days} days`}. Smaller moves are counted on each crawl but not listed.${f.days > retainedDays ? ` The report only retains ${retainedDays} days of price moves.` : ""}</p>
       ${table(drops, "No price drops of 5% or more.")}
     </section>
     <section class="panel">
