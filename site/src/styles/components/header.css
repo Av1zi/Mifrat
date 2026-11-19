@@ -161,6 +161,47 @@ main:focus {
   color: var(--ink-white);
 }
 
+/* Phones: one centered glyph per control, not an icon squeezed beside an
+   arrow. Match the saved/theme buttons and keep the existing listboxes. */
+@media (max-width: 639px) {
+  .site-controls {
+    gap: var(--sp-1);
+  }
+
+  .site-controls .hdr-ctl,
+  .site-controls .select-menu__btn {
+    justify-content: center;
+    width: 2.5rem;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    flex: none;
+  }
+
+  .site-controls .ic {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: none;
+  }
+
+  .site-controls .ic-chevron {
+    display: none;
+  }
+
+  .site-header .select-menu__btn[aria-expanded="true"] {
+    background: var(--ink-600);
+    border-color: var(--ink-accent);
+    color: var(--ink-white);
+  }
+}
+
+/* Keep the name and all five controls on the same row on narrow phones. */
+@media (max-width: 359px) {
+  .hdr-top .brand__mark {
+    display: none;
+  }
+}
+
 .saved-link {
   position: relative;
 }

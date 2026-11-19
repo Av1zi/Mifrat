@@ -85,6 +85,11 @@
   background: var(--surface-hover);
 }
 
+/* Keep the SVG's square viewport when the header runs out of room. */
+.select-menu__btn > .ic {
+  flex: none;
+}
+
 .select-menu__value {
   display: none;
 }
