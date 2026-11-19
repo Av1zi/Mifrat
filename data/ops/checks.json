@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-19T02:51:05+00:00",
- "night": "2026-11-19",
+ "generated_at": "2026-11-19T22:08:40+00:00",
+ "night": "2026-11-20",
  "suite": "publish",
  "escalate_nights": 3,
  "blocked": false,
@@ -34,7 +34,7 @@
    "title": "Golden-fixture resolver self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.5,
+   "seconds": 2.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -67,7 +67,7 @@
    "title": "Category assignment fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -78,7 +78,18 @@
    "title": "Identity reader fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
+   "since": null,
+   "nights": 0,
+   "detail": ""
+  },
+  {
+   "name": "identity_connectivity",
+   "level": "code",
+   "title": "Identity evidence survives variant splits",
+   "status": "pass",
+   "exit": 0,
+   "seconds": 0.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -89,7 +100,7 @@
    "title": "Brand rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -100,7 +111,7 @@
    "title": "Repeated snapshot rows self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -122,7 +133,7 @@
    "title": "KSP listing-tag mapper",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -133,7 +144,7 @@
    "title": "KSP detail parser",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -155,7 +166,7 @@
    "title": "KSP stream transport offline integration",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.5,
+   "seconds": 2.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -166,7 +177,7 @@
    "title": "KSP delayed recovery and captured routes",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -177,7 +188,7 @@
    "title": "Scrape block stops and runner outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.8,
+   "seconds": 4.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -210,7 +221,7 @@
    "title": "Eilat price parsers, attach and history rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 1.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -243,7 +254,7 @@
    "title": "Ledger rules self-test",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -276,7 +287,7 @@
    "title": "Photo pipeline rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.4,
+   "seconds": 0.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -287,7 +298,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.5,
+   "seconds": 1.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -298,7 +309,7 @@
    "title": "Publish set rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -309,7 +320,7 @@
    "title": "Check levels and carry-over",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -331,7 +342,7 @@
    "title": "Nano KSP phase state and push recovery",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -342,7 +353,7 @@
    "title": "Catalog not empty, no category collapsed",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.3,
+   "seconds": 1.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -353,7 +364,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 2.3,
+   "seconds": 3.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -364,7 +375,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 18.8,
+   "seconds": 24.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +408,7 @@
    "title": "Ops report files",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.2,
+   "seconds": 0.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -408,7 +419,7 @@
    "title": "Publish set coherence",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -419,7 +430,7 @@
    "title": "Category reduction from source absences",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.0,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -430,7 +441,7 @@
    "title": "Spec golden fixtures",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.3,
+   "seconds": 1.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -439,23 +450,23 @@
    "name": "identity",
    "level": "quality",
    "title": "Identity-merge invariants",
-   "status": "warn",
-   "exit": 1,
-   "seconds": 1.1,
-   "since": "2026-11-18T15:14:43+00:00",
-   "nights": 2,
-   "detail": "  I1 products      1873 checked\n  I2 identities    4047 checked\n  I3 cpu products  218 checked\n  I4 products      1873 checked\n  I5 twin aliases  56 checked\n  I6 cpu products  218 checked\n  [fail] I1: product model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb holds unconnected code groups [['16gb-5060-dual-gddr7-geforce-oc-rtx-ti', '5060-dual-gddr7-geforce-oc-rtx-ti', '5060-dual-gddr7-rtx-ti'], ['5060-dual-gddr7-oc-rtx-ti']]\n[fail] 1 identity invariant(s) broken"
+   "status": "pass",
+   "exit": 0,
+   "seconds": 1.4,
+   "since": null,
+   "nights": 0,
+   "detail": ""
   },
   {
    "name": "categories",
    "level": "quality",
    "title": "One maker PN per category, is-a words",
-   "status": "warn",
-   "exit": 1,
-   "seconds": 0.9,
-   "since": "2026-11-18T22:57:58+00:00",
-   "nights": 1,
-   "detail": "[categories] FAIL - 0 of 0 fixtures, 1 catalog violation(s)\n  - I-3r fan_kit: mpn:accessories:co9051071ww in 'accessories': 'מערכת מאווררים Corsair RS360 II ARGB Unified Frame PWM שחורה'"
+   "status": "pass",
+   "exit": 0,
+   "seconds": 1.2,
+   "since": null,
+   "nights": 0,
+   "detail": ""
   },
   {
    "name": "brands",
@@ -463,7 +474,7 @@
    "title": "One maker per product, every product branded",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.7,
+   "seconds": 0.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -474,7 +485,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 10.5,
+   "seconds": 13.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -485,7 +496,7 @@
    "title": "Extract store reach",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -494,12 +505,12 @@
    "name": "ledgers",
    "level": "quality",
    "title": "Ledgers point at live data",
-   "status": "warn",
-   "exit": 1,
-   "seconds": 6.4,
-   "since": "2026-11-16T03:41:40+00:00",
-   "nights": 4,
-   "detail": "      variant_conflict|model:case:7000x-full-icue-series-tower-black|\n      variant_conflict|model:case:7000x-full-icue-series-tower-white|\n      variant_conflict|model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx|\n      variant_conflict|model:motherboard:aorus-b860m-elite-ice-wifi6e-microatx|\n      variant_conflict|model:motherboard:b760m-k-prime-microatx-2|\n      variant_conflict|model:motherboard:b760m-k-prime-microatx|\n  image blocklist entries matching nothing      1 (budget 3)\n  enrichment entries no listing reaches      1559 (budget 1700)\n  detail ledger drift                          10 (budget 40)\n  cover files no listing uses                 832 (budget 900)\n  [fail] qa_dismissed keys with no case: 44 > budget 10\n[check-ledgers] 1 failure(s)"
+   "status": "pass",
+   "exit": 0,
+   "seconds": 8.0,
+   "since": null,
+   "nights": 0,
+   "detail": ""
   },
   {
    "name": "backtest",
@@ -507,7 +518,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 6.1,
+   "seconds": 8.4,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -518,7 +529,7 @@
    "title": "Spec coverage floors",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -527,12 +538,12 @@
    "name": "spec_invariants",
    "level": "quality",
    "title": "Spec invariants",
-   "status": "warn",
-   "exit": 1,
-   "seconds": 0.7,
-   "since": "2026-11-16T03:41:40+00:00",
-   "nights": 4,
-   "detail": "[spec-invariants] FAIL - 1 invariant breach(es):\n  - 2 vendor value(s) refused by the schema and not on schema.SCHEMA_UNKNOWN_VALUES (add a canon spelling or an enum value): psu.efficiency='• 80PLUS® Platinum Certified | • Cybernetics Efficiency Leve' x2, psu.type='ATX12V Version 3.0' x2\n  fix the source rule in scraper/specs/validate.py, witness.py or canon.py, the enum in schema.py, or the override in data/specs/overrides.json — never this gate"
+   "status": "pass",
+   "exit": 0,
+   "seconds": 0.8,
+   "since": null,
+   "nights": 0,
+   "detail": ""
   },
   {
    "name": "site_images",

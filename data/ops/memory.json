@@ -4042,7 +4042,7 @@
 "ksp:389643":"model:gpu:o16g-prime-rx9060xt-16gb",
 "ksp:390235":"model:gpu:5060-8g-geforce-rtx-ti-windforce-8gb",
 "ksp:390256":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
-"ksp:390282":"model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb",
+"ksp:390282":"model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-2",
 "ksp:390337":"model:storage:5-9100pro-1000gb-pcie5-m22280",
 "ksp:390393":"model:memory:32-kf552c40bb2-32gb-5200mhz-cl40-black-dimm",
 "ksp:390409":"memory:ksp:ksp-390409",
@@ -4272,7 +4272,7 @@
 "ksp:433641":"model:cpu:235-tray",
 "ksp:434288":"model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb",
 "ksp:434681":"model:storage:256mb-8tb-iii-purple-sata-surveillance-8000gb-sata-35",
-"ksp:435010":"model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb",
+"ksp:435010":"model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-2",
 "ksp:435011":"model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-white",
 "ksp:435283":"model:motherboard:am5-b850-csm-prime-atx",
 "ksp:435287":"model:motherboard:gaming-tuf-wifi7-x870e-atx",
@@ -7894,7 +7894,7 @@
 "tms:CO-9051066-WW":"mpn:accessories:co9051066ww",
 "tms:CO-9051067-WW":"mpn:accessories:co9051067ww",
 "tms:CO-9051068-WW":"mpn:accessories:co9051068ww",
-"tms:CO-9051071-WW":"mpn:accessories:co9051071ww",
+"tms:CO-9051071-WW":"model:case_fan:frame-ii-pwm-rs360-unified-120mm-rgb-black",
 "tms:CP-9020087-EU":"mpn:psu:cp9020087eu",
 "tms:CP-9020257-EU":"model:psu:fully-modular-sf1000-sfx-1000w-full",
 "tms:CP-9020265-EU":"model:psu:fully-hx1000i-modular-shift-1000w-full",
@@ -10375,7 +10375,7 @@
 "yahav:9567":"model:case_fan:icue-link-rgb-rx140-140mm-1-rgb-white",
 "yahav:9568":"model:case_fan:icue-link-rgb-rx140-140mm-2-rgb-white",
 "yahav:9572":"model:case:cx300-black",
-"yahav:9573":"model:case:cx300-white",
+"yahav:9573":"model:case:cx300-white-2",
 "yahav:9577":"mpn:accessories:cc8900548",
 "yahav:9580":"model:case:4x120mm-duoface-mid-pro-tower-black",
 "yahav:9582":"model:case:4x120mm-mid-tower-uniface-white",
@@ -14423,6 +14423,10 @@
 "case"
 ],
 "model:case:cx300-white":[
+"Antec CX300 ARGB White",
+"case"
+],
+"model:case:cx300-white-2":[
 "Antec CX CX300 ARGB 4X120MM White",
 "case"
 ],
@@ -17016,6 +17020,10 @@
 ],
 "model:case_fan:frame-icue-ii-link-pwm-rx360-unified-120mm-rgb-white-2":[
 "Corsair RX360 II Unified 120mm PWM ARGB White (CO-9051062-WW)",
+"case_fan"
+],
+"model:case_fan:frame-ii-pwm-rs360-unified-120mm-rgb-black":[
+"Corsair RS360 II ARGB Unified Frame PWM",
 "case_fan"
 ],
 "model:case_fan:gaming-reverse-tr120-tuf-120mm-rgb-black":[
@@ -19982,6 +19990,10 @@
 "ASUS Dual GeForce RTX 5060 Ti 16GB OC (90YV0MH0-M0NA00)",
 "gpu"
 ],
+"model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-2":[
+"ASUS Dual GeForce RTX 5060 Ti 16GB",
+"gpu"
+],
 "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white":[
 "ASUS Dual GeForce RTX 5060 Ti 16GB OC (90YV0MH6-M0NA00)",
 "gpu"
@@ -20184,6 +20196,10 @@
 ],
 "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb":[
 "ASUS Dual Radeon RX 9060 XT 16GB (90YV0LG2-M0NA00)",
+"gpu"
+],
+"model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-2":[
+"ASUS Dual Radeon RX 9060 XT 16GB",
 "gpu"
 ],
 "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-white":[
@@ -28460,10 +28476,6 @@
 ],
 "mpn:accessories:co9051068ww":[
 "Corsair LX360 R RGB Unified Frame (CO-9051068-WW)",
-"accessories"
-],
-"mpn:accessories:co9051071ww":[
-"Corsair RS360 II ARGB Unified Frame PWM",
 "accessories"
 ],
 "mpn:accessories:ct9010001ww":[

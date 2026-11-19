@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T02:47:43.013911+00:00",
+  "generated_at": "2026-11-19T22:04:18.126198+00:00",
   "gaps": [
     {
       "category": "case",
@@ -2602,16 +2602,6 @@
       ]
     },
     {
-      "category": "accessories",
-      "label": "סוג תאורה",
-      "count": 7,
-      "products": [
-        "mpn:accessories:co9051065ww",
-        "mpn:accessories:co9051066ww",
-        "mpn:accessories:co9051067ww"
-      ]
-    },
-    {
       "category": "other",
       "label": "חיבור גרפי",
       "count": 7,
@@ -2892,6 +2882,16 @@
       ]
     },
     {
+      "category": "accessories",
+      "label": "סוג תאורה",
+      "count": 6,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
       "category": "other",
       "label": "רזולוציה",
       "count": 6,
@@ -2989,6 +2989,16 @@
         "model:case:atlas-m3m-black",
         "model:case:aura-elite-gc107-black",
         "model:case:aura-gc101m-black"
+      ]
+    },
+    {
+      "category": "case_fan",
+      "label": "יבואן",
+      "count": 5,
+      "products": [
+        "model:case_fan:12-3-dynamic-120mm-rgb-black",
+        "model:case_fan:12-3-dynamic-reverse-120mm-rgb-black",
+        "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-white"
       ]
     },
     {
@@ -3202,36 +3212,6 @@
       ]
     },
     {
-      "category": "accessories",
-      "label": "גודל מאוורר",
-      "count": 5,
-      "products": [
-        "mpn:accessories:co9051065ww",
-        "mpn:accessories:co9051066ww",
-        "mpn:accessories:co9051067ww"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "מהירות מאוורר",
-      "count": 5,
-      "products": [
-        "mpn:accessories:co9051065ww",
-        "mpn:accessories:co9051066ww",
-        "mpn:accessories:co9051067ww"
-      ]
-    },
-    {
-      "category": "accessories",
-      "label": "יבואן",
-      "count": 5,
-      "products": [
-        "mpn:accessories:co9051065ww",
-        "mpn:accessories:co9051066ww",
-        "mpn:accessories:co9051067ww"
-      ]
-    },
-    {
       "category": "other",
       "label": "USB 2.0",
       "count": 5,
@@ -3389,16 +3369,6 @@
         "model:case:vs8-black",
         "model:case:vs8-white",
         "model:case:vs9-black"
-      ]
-    },
-    {
-      "category": "case_fan",
-      "label": "יבואן",
-      "count": 4,
-      "products": [
-        "model:case_fan:12-3-dynamic-120mm-rgb-black",
-        "model:case_fan:12-3-dynamic-reverse-120mm-rgb-black",
-        "model:case_fan:120mm-cl-fan-flex-reverse-uni-120mm-rgb-white"
       ]
     },
     {
@@ -4219,6 +4189,36 @@
         "model:storage:2230-vp4000-2000gb-gen4x4-m22230",
         "model:storage:lite-vp4300-vp4300l2tbm28h-x4-2000gb-gen4x4-m22280",
         "model:storage:lite-vp4300-vp4300l4tbm28h-x4-4000gb-gen4x4-m22280"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "גודל מאוורר",
+      "count": 4,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "מהירות מאוורר",
+      "count": 4,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
+      ]
+    },
+    {
+      "category": "accessories",
+      "label": "יבואן",
+      "count": 4,
+      "products": [
+        "mpn:accessories:co9051065ww",
+        "mpn:accessories:co9051066ww",
+        "mpn:accessories:co9051067ww"
       ]
     },
     {

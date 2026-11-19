@@ -22,6 +22,17 @@
     "match_text_b": "503016 3 Corsair iCUE LINK RX360 II RGB 360mm PWM -"
   },
   {
+    "score": 97,
+    "category": "gpu",
+    "brand": "ASUS",
+    "listing_a": "ksp:435010",
+    "listing_b": "ksp:435011",
+    "title_a": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 - צבע שחור",
+    "title_b": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 - צבע לבן",
+    "match_text_a": "435010 ASUS Dual Radeon RX 9060 XT 16GB GDDR6 -",
+    "match_text_b": "435011 ASUS Dual Radeon RX 9060 XT 16GB GDDR6 -"
+  },
+  {
     "score": 96,
     "category": "case",
     "brand": "ASUS",
@@ -97,6 +108,28 @@
     "title_b": "כונן SSD חברת Kingston דגם NV3 Series 1TB 1024GB Gen4 6000MB\\s M.2 NVMe",
     "match_text_a": "SNV3S/1000G Kingston 1TB NV3 PCIe 4.0 NVMe SSD M.2",
     "match_text_b": "SNV3S/1000G SSD Kingston NV3 Series 1TB 1024GB Gen4 6000MB s M.2 NVMe"
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "ASUS",
+    "listing_a": "1pc:206067",
+    "listing_b": "ksp:435010",
+    "title_a": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 בצבע לבן",
+    "title_b": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 - צבע שחור",
+    "match_text_a": "90YV0LG3-M0NA00 ASUS Dual Radeon RX 9060 XT 16GB GDDR6",
+    "match_text_b": "435010 ASUS Dual Radeon RX 9060 XT 16GB GDDR6 -"
+  },
+  {
+    "score": 89,
+    "category": "gpu",
+    "brand": "ASUS",
+    "listing_a": "ivory:175549",
+    "listing_b": "ksp:435010",
+    "title_a": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6",
+    "title_b": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 - צבע שחור",
+    "match_text_a": "90YV0LG2-M0NA00 ASUS Dual Radeon RX 9060 XT 16GB GDDR6",
+    "match_text_b": "435010 ASUS Dual Radeon RX 9060 XT 16GB GDDR6 -"
   },
   {
     "score": 89,
@@ -4314,6 +4347,49 @@
     "model_code": "chp-era-era-gold-itx-itx-tg"
   },
   {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:cx300-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:176905",
+        "vendor": "1pc",
+        "vendor_sku": "CX300ARGB-W",
+        "title": "מארז מחשב Antec CX300 ARGB בצבע לבן",
+        "price": 293
+      },
+      {
+        "listing_key": "tms:CX300ARGB-W",
+        "vendor": "tms",
+        "vendor_sku": "CX300ARGB-W",
+        "title": "מארז מחשב Antec CX300 ARGB White",
+        "price": 242
+      }
+    ],
+    "model_code": "cx300",
+    "manufacturer_pn": [
+      "CX300ARGBW"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:cx300-white-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:9573",
+        "vendor": "yahav",
+        "vendor_sku": "CX300-ARGB-WHITE",
+        "title": "מארז חברת Antec דגם CX Series CX300 ARGB 4X120MM Mid Tower צבע לבן",
+        "price": 290
+      }
+    ],
+    "model_code": "cx300",
+    "manufacturer_pn": []
+  },
+  {
     "kind": "identity_merge",
     "category": "case",
     "product_id": "model:case:dark-dp501-phantom-black",
@@ -8014,6 +8090,56 @@
     "model_code": "9950x3d2"
   },
   {
+    "kind": "variant_conflict",
+    "category": "gpu",
+    "product_id": "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:193818",
+        "vendor": "1pc",
+        "vendor_sku": "90YV0MH0-M0NA00",
+        "title": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC",
+        "price": 3984
+      },
+      {
+        "listing_key": "ivory:133836",
+        "vendor": "ivory",
+        "vendor_sku": "90YV0MH0-M0NA00",
+        "title": "כרטיס מסך ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition",
+        "price": 3190
+      },
+      {
+        "listing_key": "tms:90YV0MH0-M0NA00",
+        "vendor": "tms",
+        "vendor_sku": "90YV0MH0-M0NA00",
+        "title": "Asus Dual RTX 5060 Ti 16GB GDDR7",
+        "price": 3825
+      }
+    ],
+    "model_code": "5060-dual-gddr7-oc-rtx-ti",
+    "manufacturer_pn": [
+      "90YV0MH0M0NA00"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "gpu",
+    "product_id": "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:390282",
+        "vendor": "ksp",
+        "vendor_sku": "390282",
+        "title": "כרטיס מסך Asus Dual RTX 5060 TI OC 16GB GDDR7",
+        "price": 2999
+      }
+    ],
+    "model_code": "5060-dual-gddr7-oc-rtx-ti",
+    "manufacturer_pn": []
+  },
+  {
     "kind": "identity_merge",
     "category": "gpu",
     "product_id": "model:gpu:7600-8g-f-rx-v2-8gb",
@@ -8035,6 +8161,56 @@
       }
     ],
     "model_code": "7600-8g-f-rx-v2"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "gpu",
+    "product_id": "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:207859",
+        "vendor": "1pc",
+        "vendor_sku": "90YV0LG2-M0NA00",
+        "title": "כרטיס מסך ASUS Dual Radeon RX9060XT 16G GDDR6 בצבע שחור",
+        "price": 3286
+      },
+      {
+        "listing_key": "ivory:175549",
+        "vendor": "ivory",
+        "vendor_sku": "90YV0LG2-M0NA00",
+        "title": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6",
+        "price": 2780
+      },
+      {
+        "listing_key": "tms:90YV0LG2-M0NA00",
+        "vendor": "tms",
+        "vendor_sku": "90YV0LG2-M0NA00",
+        "title": "כרטיס מסך Asus Dual RX 9060 XT 16GB GDDR6",
+        "price": 3210
+      }
+    ],
+    "model_code": "9060-dual-gddr6-radeon-rx-xt",
+    "manufacturer_pn": [
+      "90YV0LG2M0NA00"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "gpu",
+    "product_id": "model:gpu:9060-dual-gddr6-radeon-rx-xt-16gb-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ksp:435010",
+        "vendor": "ksp",
+        "vendor_sku": "435010",
+        "title": "כרטיס מסך ASUS Dual Radeon RX 9060 XT 16GB GDDR6 - צבע שחור",
+        "price": 2650
+      }
+    ],
+    "model_code": "9060-dual-gddr6-radeon-rx-xt",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
