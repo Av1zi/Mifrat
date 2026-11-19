@@ -1,6 +1,94 @@
 [
   {
     "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:138342",
+    "listing_b": "tms:P20C",
+    "title_a": "מארז מחשב Antec Performance Series P20C בצבע שחור",
+    "title_b": "מארז מחשב Antec P20C",
+    "match_text_a": "138342 Antec Performance Series P20C",
+    "match_text_b": "P20C Antec P20C"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:144687",
+    "listing_b": "tms:P20C",
+    "title_a": "מארז Antec P20C בצבע לבן",
+    "title_b": "מארז מחשב Antec P20C",
+    "match_text_a": "144687 Antec P20C",
+    "match_text_b": "P20C Antec P20C"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:144688",
+    "listing_b": "tms:P20C",
+    "title_a": "מארז Antec P20C ARGB",
+    "title_b": "מארז מחשב Antec P20C",
+    "match_text_a": "144688 Antec P20C ARGB",
+    "match_text_b": "P20C Antec P20C"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:183244",
+    "listing_b": "tms:FLUX-SE",
+    "title_a": "מארז מחשב Antec FLUX SE FLUX-SE",
+    "title_b": "מארז מחשב Antec FLUX SE",
+    "match_text_a": "183244 Antec FLUX SE FLUX-SE",
+    "match_text_b": "FLUX-SE Antec FLUX SE"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "SilverStone",
+    "listing_a": "1pc:140856",
+    "listing_b": "tms:SST-SEQ1B",
+    "title_a": "מארז SilverStone SETA Q1 SST-SEQ1B בצבע שחור",
+    "title_b": "מארז מחשב SilverStone SETA Q1",
+    "match_text_a": "140856 SilverStone SETA Q1 SST-SEQ1B",
+    "match_text_b": "SST-SEQ1B SilverStone SETA Q1"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "SilverStone",
+    "listing_a": "1pc:164662",
+    "listing_b": "tms:SST-CS382",
+    "title_a": "מארז מחשב SilverStone CS382 Black Case SST-CS382",
+    "title_b": "SilverStone CS382 Black Case",
+    "match_text_a": "164662 SilverStone CS382 Black Case SST-CS382",
+    "match_text_b": "SST-CS382 SilverStone CS382 Black Case"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "SilverStone",
+    "listing_a": "1pc:203964",
+    "listing_b": "tms:SST-ALF2B-G",
+    "title_a": "מארז מחשב SilverStone ALTA F2 SST-ALF2B-G",
+    "title_b": "מארז מחשב SilverStone ALTA F2",
+    "match_text_a": "203964 SilverStone ALTA F2 SST-ALF2B-G",
+    "match_text_b": "SST-ALF2B-G SilverStone ALTA F2"
+  },
+  {
+    "score": 100,
+    "category": "case",
+    "brand": "SilverStone",
+    "listing_a": "1pc:203968",
+    "listing_b": "tms:SST-SEH2-B",
+    "title_a": "מארז מחשב SilverStone SETA H2 SST-SEH2-B",
+    "title_b": "מארז מחשב SilverStone SETA H2",
+    "match_text_a": "203968 SilverStone SETA H2 SST-SEH2-B",
+    "match_text_b": "SST-SEH2-B SilverStone SETA H2"
+  },
+  {
+    "score": 100,
     "category": "storage",
     "brand": "Kingston",
     "listing_a": "1pc:174979",
@@ -20,6 +108,17 @@
     "title_b": "מערך 3 מאווררים למארז Corsair iCUE LINK RX360 II RGB 360mm PWM - צבע שחור",
     "match_text_a": "503012 3 Corsair iCUE LINK RX360 II RGB 360mm PWM -",
     "match_text_b": "503016 3 Corsair iCUE LINK RX360 II RGB 360mm PWM -"
+  },
+  {
+    "score": 98,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200232",
+    "listing_b": "1pc:200234",
+    "title_a": "זיכרון G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 בצבע שחור",
+    "title_b": "זיכרון G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 בצבע לבן",
+    "match_text_a": "200232 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36",
+    "match_text_b": "200234 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36"
   },
   {
     "score": 97,
@@ -44,6 +143,116 @@
     "match_text_b": "273104 Asus Prime AP201 Tempered Glass Small Tower -"
   },
   {
+    "score": 95,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201725",
+    "listing_b": "1pc:201726",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32 בצבע כסוף",
+    "title_b": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+    "match_text_a": "201725 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "201726 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:178338",
+    "listing_b": "tms:CMP96GX5M2B7000C40",
+    "title_a": "זיכרון למחשב Corsair DDR5 96GB (2x48GB) 7000 CL40 Dominator Titanium RGB בצבע שחור",
+    "title_b": "Corsair Dominator Titanium RGB DDR5 96GB (2x48GB) 7000 CL40 XMP 3.0",
+    "match_text_a": "178338 Corsair DDR5 96GB (2x48GB) 7000 CL40 Dominator Titanium RGB",
+    "match_text_b": "CMP96GX5M2B7000C40 Corsair Dominator Titanium RGB DDR5 96GB (2x48GB) 7000 CL40 XMP 3.0"
+  },
+  {
+    "score": 94,
+    "category": "case",
+    "brand": "be quiet!",
+    "listing_a": "1pc:155236",
+    "listing_b": "1pc:155237",
+    "title_a": "be quiet! Shadow Base 800 Black Midi Tower שחור",
+    "title_b": "be quiet! Shadow Base 800 DX Black Midi Tower שחור",
+    "match_text_a": "155236 be quiet Shadow Base 800 Black Midi Tower",
+    "match_text_b": "155237 be quiet Shadow Base 800 DX Black Midi Tower"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "1pc:200256",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200249",
+    "listing_b": "1pc:200250",
+    "title_a": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע שחור",
+    "title_b": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע לבן",
+    "match_text_a": "6000J2836G32GX2-RM5NRK G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200250",
+    "listing_b": "tms:6000J2836G32GX2-RM5NRK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO",
+    "match_text_a": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J2836G32GX2-RM5NRK G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200250",
+    "listing_b": "tms:6000J2836G32GX2-RM5NRW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 White EXPO",
+    "match_text_a": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J2836G32GX2-RM5NRW G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 White EXPO"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200271",
+    "listing_b": "tms:6000J3036G32GX2-TR5NS",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע כסוף",
+    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 Silver EXPO",
+    "match_text_a": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "6000J3036G32GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 Silver EXPO"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:203847",
+    "listing_b": "tms:6000J3444F64GX2-TZ5NR",
+    "title_a": "זיכרון G.Skill Trident Z5 Neo RGB DDR5 128GB (2x64GB) 6000 CL34 בצבע שחור",
+    "title_b": "G.Skill Trident Z5 Neo RGB DDR5 128GB (2x64GB) 6000 CL34 EXPO/XMP 3.0",
+    "match_text_a": "203847 G.Skill Trident Z5 Neo RGB DDR5 128GB (2x64GB) 6000 CL34",
+    "match_text_b": "6000J3444F64GX2-TZ5NR G.Skill Trident Z5 Neo RGB DDR5 128GB (2x64GB) 6000 CL34 EXPO/XMP 3.0"
+  },
+  {
+    "score": 94,
+    "category": "memory",
+    "brand": "V-Color",
+    "listing_a": "1pc:209159",
+    "listing_b": "1pc:209160",
+    "title_a": "זיכרון v-color DDR5 512GB (4x128GB) 6000 CL38 OC R-DIMM לתחנות עבודה",
+    "title_b": "זיכרון v-color DDR5 512GB (4x128GB) 5600 CL38 OC R-DIMM לתחנות עבודה",
+    "match_text_a": "209159 v-color DDR5 512GB (4x128GB) 6000 CL38 OC R-DIMM",
+    "match_text_b": "209160 v-color DDR5 512GB (4x128GB) 5600 CL38 OC R-DIMM"
+  },
+  {
     "score": 94,
     "category": "case",
     "brand": "ASUS",
@@ -66,6 +275,248 @@
     "match_text_b": "506575 - Mid Tower Asus ProArt PA401 Wood Edition Metal -"
   },
   {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:176971",
+    "listing_b": "tms:CMH64GX5M2B6000Z30W",
+    "title_a": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0",
+    "match_text_a": "176971 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "CMH64GX5M2B6000Z30W Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30 White EXPO/XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:216647",
+    "listing_b": "tms:CMH64GX5M2D5600Z40",
+    "title_a": "ערכת זיכרון Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB בצבע אפור",
+    "title_b": "Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB",
+    "match_text_a": "216647 Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB",
+    "match_text_b": "CMH64GX5M2D5600Z40 Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200243",
+    "listing_b": "1pc:200244",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע לבן",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "match_text_a": "6400J3239G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "tms:6400J3239G32GX2-RM5RK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "6400J3239G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "tms:6400J3239G32GX2-RM5RW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 White XMP 3.0",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "6400J3239G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 White XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200250",
+    "listing_b": "1pc:200256",
+    "title_a": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע לבן",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "match_text_a": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "1pc:200268",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע שחור",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J3238G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6000J3238G32GX2-RM5RK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 XMP 3.0",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J3238G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6000J3238G32GX2-RM5RW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J3238G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201284",
+    "listing_b": "1pc:201725",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+    "title_b": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32 בצבע כסוף",
+    "match_text_a": "201284 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "201725 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201284",
+    "listing_b": "tms:6000J2836G32GX2-TR5G",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+    "title_b": "זיכרון G.Skill DDR5 64GB (2x32GB) 6000 CL28 Trident Z5 Royal Gold XMP 3.0",
+    "match_text_a": "201284 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J2836G32GX2-TR5G G.Skill DDR5 64GB (2x32GB) 6000 CL28 Trident Z5 Royal Gold XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201284",
+    "listing_b": "tms:6000J2836G32GX2-TR5S",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+    "title_b": "G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 Silver XMP 3.0",
+    "match_text_a": "201284 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J2836G32GX2-TR5S G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 Silver XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201725",
+    "listing_b": "tms:6400J3239G32GX2-TR5S",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32 בצבע כסוף",
+    "title_b": "G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32 Silver XMP 3.0",
+    "match_text_a": "201725 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "6400J3239G32GX2-TR5S G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32 Silver XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201726",
+    "listing_b": "tms:6000J2836G32GX2-TR5G",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+    "title_b": "זיכרון G.Skill DDR5 64GB (2x32GB) 6000 CL28 Trident Z5 Royal Gold XMP 3.0",
+    "match_text_a": "201726 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J2836G32GX2-TR5G G.Skill DDR5 64GB (2x32GB) 6000 CL28 Trident Z5 Royal Gold XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201726",
+    "listing_b": "tms:6000J2836G32GX2-TR5S",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+    "title_b": "G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 Silver XMP 3.0",
+    "match_text_a": "201726 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J2836G32GX2-TR5S G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 Silver XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:203764",
+    "listing_b": "tms:F4-3200C16D-32GTZRX",
+    "title_a": "זיכרון G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 בצבע שחור",
+    "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0",
+    "match_text_a": "203764 G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16",
+    "match_text_b": "F4-3200C16D-32GTZRX G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 XMP 2.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:205724",
+    "listing_b": "1pc:205725",
+    "title_a": "זיכרון G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0 בצבע שחור",
+    "title_b": "זיכרון G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 בצבע לבן",
+    "match_text_a": "5600J3636D32GX2-RS5K G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0",
+    "match_text_b": "205725 G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:205725",
+    "listing_b": "tms:5600J3636D32GX2-RS5K",
+    "title_a": "זיכרון G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 בצבע לבן",
+    "title_b": "G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0",
+    "match_text_a": "205725 G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36",
+    "match_text_b": "5600J3636D32GX2-RS5K G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:205725",
+    "listing_b": "tms:5600J3636D32GX2-RS5W",
+    "title_a": "זיכרון G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 בצבע לבן",
+    "title_b": "G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 White XMP 3.0",
+    "match_text_a": "205725 G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36",
+    "match_text_b": "5600J3636D32GX2-RS5W G.Skill Ripjaws S5 DDR5 64GB (2x32GB) 5600 CL36 White XMP 3.0"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "V-Color",
+    "listing_a": "1pc:209159",
+    "listing_b": "tms:TRA5128G60Q438Q",
+    "title_a": "זיכרון v-color DDR5 512GB (4x128GB) 6000 CL38 OC R-DIMM לתחנות עבודה",
+    "title_b": "v-color DDR5 512GB (4x128GB) 6000 CL38 OC EXPO R-DIMM Workstation",
+    "match_text_a": "209159 v-color DDR5 512GB (4x128GB) 6000 CL38 OC R-DIMM",
+    "match_text_b": "TRA5128G60Q438Q v-color DDR5 512GB (4x128GB) 6000 CL38 OC EXPO R-DIMM Workstation"
+  },
+  {
+    "score": 93,
+    "category": "memory",
+    "brand": "V-Color",
+    "listing_a": "1pc:209160",
+    "listing_b": "tms:TRA5128G56Q438Q",
+    "title_a": "זיכרון v-color DDR5 512GB (4x128GB) 5600 CL38 OC R-DIMM לתחנות עבודה",
+    "title_b": "v-color DDR5 512GB (4x128GB) 5600 CL38 OC EXPO R-DIMM Workstation",
+    "match_text_a": "209160 v-color DDR5 512GB (4x128GB) 5600 CL38 OC R-DIMM",
+    "match_text_b": "TRA5128G56Q438Q v-color DDR5 512GB (4x128GB) 5600 CL38 OC EXPO R-DIMM Workstation"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:138319",
+    "listing_b": "1pc:138320",
+    "title_a": "זיכרון DDR5 Corsair Vengeance RGB 64G (16Gx4) 6400 CL32",
+    "title_b": "זיכרון Corsair Vengeance DDR5 64GB (16x4) 6400 CL32",
+    "match_text_a": "138319 DDR5 Corsair Vengeance RGB 64G (16Gx4) 6400 CL32",
+    "match_text_b": "138320 Corsair Vengeance DDR5 64GB (16x4) 6400 CL32"
+  },
+  {
     "score": 92,
     "category": "aio",
     "brand": "Corsair",
@@ -75,6 +526,83 @@
     "title_b": "קירור נוזלי למעבד Corsair iCUE LINK Titan II RGB RX AIO 360mm - צבע שחור",
     "match_text_a": "334142 Corsair iCUE LINK Titan RGB RX AIO 360mm -",
     "match_text_b": "503065 Corsair iCUE LINK Titan II RGB RX AIO 360mm -"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200232",
+    "listing_b": "tms:6000J3636F32GX2-FX5",
+    "title_a": "זיכרון G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 בצבע שחור",
+    "title_b": "G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "200232 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36",
+    "match_text_b": "6000J3636F32GX2-FX5 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200232",
+    "listing_b": "tms:6000J3636F32GX2-FX5W",
+    "title_a": "זיכרון G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 בצבע שחור",
+    "title_b": "G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 White EXPO/XMP 3.0",
+    "match_text_a": "200232 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36",
+    "match_text_b": "6000J3636F32GX2-FX5W G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 White EXPO/XMP 3.0"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200234",
+    "listing_b": "tms:6000J3636F32GX2-FX5",
+    "title_a": "זיכרון G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 בצבע לבן",
+    "title_b": "G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "200234 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36",
+    "match_text_b": "6000J3636F32GX2-FX5 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200234",
+    "listing_b": "tms:6000J3636F32GX2-FX5W",
+    "title_a": "זיכרון G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 בצבע לבן",
+    "title_b": "G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 White EXPO/XMP 3.0",
+    "match_text_a": "200234 G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36",
+    "match_text_b": "6000J3636F32GX2-FX5W G.Skill Flare X5 DDR5 64GB (2x32GB) 6000 CL36 White EXPO/XMP 3.0"
+  },
+  {
+    "score": 92,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200241",
+    "listing_b": "tms:6000J3636F32GX2-IS",
+    "title_a": "זיכרון G.Skill Aegis 5 DDR5 64GB (2x32GB) 6000 CL36 בצבע שחור",
+    "title_b": "G.Skill Aegis 5 DDR5 64GB (2x32GB) 6000 CL36 EXPO/XMP 3.0",
+    "match_text_a": "200241 G.Skill Aegis 5 DDR5 64GB (2x32GB) 6000 CL36",
+    "match_text_b": "6000J3636F32GX2-IS G.Skill Aegis 5 DDR5 64GB (2x32GB) 6000 CL36 EXPO/XMP 3.0"
+  },
+  {
+    "score": 92,
+    "category": "psu",
+    "brand": "Seasonic",
+    "listing_a": "1pc:212420",
+    "listing_b": "tms:12122GXAFS-W",
+    "title_a": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+    "title_b": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold White",
+    "match_text_a": "212420 Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+    "match_text_b": "12122GXAFS-W Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold White"
+  },
+  {
+    "score": 92,
+    "category": "psu",
+    "brand": "Seasonic",
+    "listing_a": "1pc:212421",
+    "listing_b": "tms:12122GXAFS-W",
+    "title_a": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold בצבע לבן",
+    "title_b": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold White",
+    "match_text_a": "212421 Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+    "match_text_b": "12122GXAFS-W Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold White"
   },
   {
     "score": 92,
@@ -99,6 +627,105 @@
     "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
   },
   {
+    "score": 91,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:128511",
+    "listing_b": "1pc:161856",
+    "title_a": "זיכרון Corsair Vengeance DDR5 64GB (32GBx2) בצבע RGB",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB DDR5 64GB (32GBx2) 6400 CL32 CMH64GX5M2B6400C32",
+    "match_text_a": "128511 Corsair Vengeance DDR5 64GB (32GBx2) RGB",
+    "match_text_b": "CMH64GX5M2B6400C32 Corsair Vengeance RGB DDR5 64GB (32GBx2) 6400 CL32 CMH64GX5M2B6400C32"
+  },
+  {
+    "score": 91,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:128511",
+    "listing_b": "1pc:161860",
+    "title_a": "זיכרון Corsair Vengeance DDR5 64GB (32GBx2) בצבע RGB",
+    "title_b": "זיכרון למחשב Corsair Vengeance RGB DDR5 64GB (32GBx2) 6600 CL32 CMH64GX5M2B6600C32",
+    "match_text_a": "128511 Corsair Vengeance DDR5 64GB (32GBx2) RGB",
+    "match_text_b": "CMH64GX5M2B6600C32 Corsair Vengeance RGB DDR5 64GB (32GBx2) 6600 CL32 CMH64GX5M2B6600C32"
+  },
+  {
+    "score": 91,
+    "category": "psu",
+    "brand": "SilverStone",
+    "listing_a": "1pc:212153",
+    "listing_b": "tms:SST-HA2500R-PM",
+    "title_a": "ספק כוח SilverStone HELA 2500Rz 2500W Platinum מודולרי מלא",
+    "title_b": "ספק כוח SilverStone HELA 2500Rz 2500W Platinum Fully Modular",
+    "match_text_a": "212153 SilverStone HELA 2500Rz 2500W Platinum",
+    "match_text_b": "SST-HA2500R-PM SilverStone HELA 2500Rz 2500W Platinum Fully Modular"
+  },
+  {
+    "score": 91,
+    "category": "case",
+    "brand": "Lian Li",
+    "listing_a": "1pc:155612",
+    "listing_b": "1pc:155613",
+    "title_a": "מארז מחשב Lian-Li Full Tower O11 Dynamic EVO XL בצבע שחור",
+    "title_b": "מארז מחשב Lian-Li Full Tower O11 Dynamic EVO XL בצבע לבן",
+    "match_text_a": "155612 Lian-Li Full Tower O11 Dynamic EVO XL",
+    "match_text_b": "O11DEXL-W Lian-Li Full Tower O11 Dynamic EVO XL"
+  },
+  {
+    "score": 91,
+    "category": "case",
+    "brand": "Cooler Master",
+    "listing_a": "1pc:78104",
+    "listing_b": "1pc:85172",
+    "title_a": "מארז מחשב Cooler Master MasterCase SL600M צבע שחור",
+    "title_b": "מארז מחשב Cooler Master MasterCase SL600M צבע שחור",
+    "match_text_a": "78104 Cooler Master MasterCase SL600M",
+    "match_text_b": "MCM-SL600M-SGNN-S00 Cooler Master MasterCase SL600M"
+  },
+  {
+    "score": 91,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:172732",
+    "listing_b": "tms:FD-C-NOR1X-02",
+    "title_a": "מארז מחשב Fractal Design North XL בצבע שחור פחם Charcoal Black",
+    "title_b": "מארז מחשב Fractal Design North XL Charcoal Black TG Dark",
+    "match_text_a": "172732 Fractal Design North XL Charcoal Black",
+    "match_text_b": "FD-C-NOR1X-02 Fractal Design North XL Charcoal Black TG Dark"
+  },
+  {
+    "score": 90,
+    "category": "aio",
+    "brand": "be quiet!",
+    "listing_a": "1pc:218654",
+    "listing_b": "tms:BW025",
+    "title_a": "קירור מים AIO be quiet! Silent Loop 3 360mm",
+    "title_b": "be quiet! Silent Loop 3 360mm",
+    "match_text_a": "218654 AIO be quiet Silent Loop 3 360mm",
+    "match_text_b": "BW025 be quiet Silent Loop 3 360mm"
+  },
+  {
+    "score": 90,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:131358",
+    "listing_b": "1pc:138319",
+    "title_a": "זיכרון למחשב נייח Corsair Vengeance DDR5 64G (16Gx4) בצבע שחור",
+    "title_b": "זיכרון DDR5 Corsair Vengeance RGB 64G (16Gx4) 6400 CL32",
+    "match_text_a": "131358 Corsair Vengeance DDR5 64G (16Gx4)",
+    "match_text_b": "138319 DDR5 Corsair Vengeance RGB 64G (16Gx4) 6400 CL32"
+  },
+  {
+    "score": 90,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:131358",
+    "listing_b": "1pc:150295",
+    "title_a": "זיכרון למחשב נייח Corsair Vengeance DDR5 64G (16Gx4) בצבע שחור",
+    "title_b": "זכרון Corsair Vengeance DDR5 64G (16Gx4) 6200 CL32 בצבע שחור",
+    "match_text_a": "131358 Corsair Vengeance DDR5 64G (16Gx4)",
+    "match_text_b": "CMK64GX5M4B6200C32 Corsair Vengeance DDR5 64G (16Gx4) 6200 CL32"
+  },
+  {
     "score": 90,
     "category": "storage",
     "brand": "Kingston",
@@ -108,6 +735,28 @@
     "title_b": "כונן SSD חברת Kingston דגם NV3 Series 1TB 1024GB Gen4 6000MB\\s M.2 NVMe",
     "match_text_a": "SNV3S/1000G Kingston 1TB NV3 PCIe 4.0 NVMe SSD M.2",
     "match_text_b": "SNV3S/1000G SSD Kingston NV3 Series 1TB 1024GB Gen4 6000MB s M.2 NVMe"
+  },
+  {
+    "score": 90,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "1pc:200250",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע לבן",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "200250 G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28"
+  },
+  {
+    "score": 90,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:207661",
+    "listing_b": "tms:6000J3238G32GX2-RM5RW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0 בצבע שחור",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0",
+    "match_text_a": "207661 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0",
+    "match_text_b": "6000J3238G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0"
   },
   {
     "score": 89,
@@ -190,6 +839,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:208482",
+    "listing_b": "1pc:208484",
+    "title_a": "מעבד AMD EPYC™ 9575F – 64 ליבות ו-128 תהליכים, ארכיטקטורת Zen 5 Turin, תושבת SP5",
+    "title_b": "מעבד AMD EPYC™ 9655P – 96 ליבות ו-192 תהליכים, ארכיטקטורת Zen 5 Turin, תושבת SP5",
+    "match_text_a": "208482 AMD EPYC 9575F 64 -128 Zen 5 Turin SP5",
+    "match_text_b": "208484 AMD EPYC 9655P 96 -192 Zen 5 Turin SP5"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "ivory:119039",
     "listing_b": "tms:100-000000908",
     "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
@@ -232,6 +892,72 @@
   },
   {
     "score": 88,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:138341",
+    "listing_b": "1pc:138342",
+    "title_a": "מארז מחשב Antec Performance Series P20CE בצבע מתכת",
+    "title_b": "מארז מחשב Antec Performance Series P20C בצבע שחור",
+    "match_text_a": "P20CE Antec Performance Series P20CE",
+    "match_text_b": "138342 Antec Performance Series P20C"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:214258",
+    "listing_b": "1pc:214713",
+    "title_a": "מארז מחשב Antec CX Mirror Mini Tower בצבע שחור",
+    "title_b": "מארז מחשב Antec CX Mirror Mini Tower בצבע לבן",
+    "match_text_a": "CXMIRROR Antec CX Mirror Mini Tower",
+    "match_text_b": "214713 Antec CX Mirror Mini Tower"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:176971",
+    "listing_b": "tms:CMH64GX5M2B6000Z28",
+    "title_a": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO/XMP 3.0",
+    "match_text_a": "176971 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "CMH64GX5M2B6000Z28 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO/XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:176971",
+    "listing_b": "tms:CMH64GX5M2D6000Z40",
+    "title_a": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+    "title_b": "ערכת זיכרון Corsair DDR5 64GB (2x32GB) 6000 CL40 Vengeance RGB",
+    "match_text_a": "176971 Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "CMH64GX5M2D6000Z40 Corsair DDR5 64GB (2x32GB) 6000 CL40 Vengeance RGB"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:216647",
+    "listing_b": "tms:CMH64GX5M2B5600C36",
+    "title_a": "ערכת זיכרון Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB בצבע אפור",
+    "title_b": "Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0",
+    "match_text_a": "216647 Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB",
+    "match_text_b": "CMH64GX5M2B5600C36 Corsair Vengeance RGB DDR5 64GB (2x32GB) 5600 CL36 XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "Corsair",
+    "listing_a": "1pc:216647",
+    "listing_b": "tms:CMH64GX5M2D6000Z40",
+    "title_a": "ערכת זיכרון Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB בצבע אפור",
+    "title_b": "ערכת זיכרון Corsair DDR5 64GB (2x32GB) 6000 CL40 Vengeance RGB",
+    "match_text_a": "216647 Corsair DDR5 64GB (2x32GB) 5600 CL40 Vengeance RGB",
+    "match_text_b": "CMH64GX5M2D6000Z40 Corsair DDR5 64GB (2x32GB) 6000 CL40 Vengeance RGB"
+  },
+  {
+    "score": 88,
     "category": "gpu",
     "brand": "ASUS",
     "listing_a": "ivory:128658",
@@ -262,6 +988,270 @@
     "title_b": "קירור נוזלי Corsair NAUTILUS II 360 RS ARGB בגודל 360mm שחור",
     "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
     "match_text_b": "CW-9061049-WW Corsair NAUTILUS II 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "Fractal Design",
+    "listing_a": "1pc:208796",
+    "listing_b": "tms:FD-C-MES3X-01",
+    "title_a": "מארז מחשב Fractal Design Meshify 3 XL",
+    "title_b": "מארז מחשב Fractal Design Meshify 3 XL Black Solid",
+    "match_text_a": "208796 Fractal Design Meshify 3 XL",
+    "match_text_b": "FD-C-MES3X-01 Fractal Design Meshify 3 XL Black Solid"
+  },
+  {
+    "score": 88,
+    "category": "case",
+    "brand": "be quiet!",
+    "listing_a": "1pc:162133",
+    "listing_b": "tms:BGW60",
+    "title_a": "מארז מחשב be quiet! SHADOW BASE 800 FX White",
+    "title_b": "מארז מחשב be quiet! SHADOW BASE 800",
+    "match_text_a": "162133 be quiet SHADOW BASE 800 FX White",
+    "match_text_b": "BGW60 be quiet SHADOW BASE 800"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200242",
+    "listing_b": "1pc:200271",
+    "title_a": "זיכרון G.Skill Trident Z5 Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע שחור",
+    "title_b": "זיכרון G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע כסוף",
+    "match_text_a": "6000J3040G32GX2-TZ5N G.Skill Trident Z5 Neo DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200243",
+    "listing_b": "1pc:200256",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע לבן",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "match_text_a": "6400J3239G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "1pc:200268",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע שחור",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "6000J3238G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "tms:6000J3238G32GX2-RM5RK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 XMP 3.0",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "6000J3238G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200244",
+    "listing_b": "tms:6000J3238G32GX2-RM5RW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0",
+    "match_text_a": "200244 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32",
+    "match_text_b": "6000J3238G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200249",
+    "listing_b": "1pc:200256",
+    "title_a": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע שחור",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "match_text_a": "6000J2836G32GX2-RM5NRK G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "1pc:207660",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 בצבע לבן",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J3040G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "1pc:207661",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0 בצבע שחור",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "207661 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6000J2836G32GX2-RM5NRK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J2836G32GX2-RM5NRK G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 EXPO"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6000J2836G32GX2-RM5NRW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 White EXPO",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J2836G32GX2-RM5NRW G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 White EXPO"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6000J3040G32GX2-RM5RK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J3040G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6000J3040G32GX2-RM5RW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6000J3040G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 White XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6400J3239G32GX2-RM5RK",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6400J3239G32GX2-RM5RK G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200256",
+    "listing_b": "tms:6400J3239G32GX2-RM5RW",
+    "title_a": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+    "title_b": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 White XMP 3.0",
+    "match_text_a": "200256 G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32",
+    "match_text_b": "6400J3239G32GX2-RM5RW G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 White XMP 3.0"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200271",
+    "listing_b": "1pc:201284",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע כסוף",
+    "title_b": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+    "match_text_a": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "201284 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200271",
+    "listing_b": "1pc:201725",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע כסוף",
+    "title_b": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32 בצבע כסוף",
+    "match_text_a": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "201725 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6400 CL32"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200271",
+    "listing_b": "1pc:201726",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע כסוף",
+    "title_b": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+    "match_text_a": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "201726 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:200271",
+    "listing_b": "tms:6000J3040G32GX2-TZ5N",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 בצבע כסוף",
+    "title_b": "G.Skill Trident Z5 Neo DDR5 64GB (2x32GB) 6000 CL30 EXPO",
+    "match_text_a": "200271 G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30",
+    "match_text_b": "6000J3040G32GX2-TZ5N G.Skill Trident Z5 Neo DDR5 64GB (2x32GB) 6000 CL30 EXPO"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201284",
+    "listing_b": "tms:6000J3036G32GX2-TR5NS",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 Silver EXPO",
+    "match_text_a": "201284 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J3036G32GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 Silver EXPO"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:201726",
+    "listing_b": "tms:6000J3036G32GX2-TR5NS",
+    "title_a": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+    "title_b": "G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 Silver EXPO",
+    "match_text_a": "201726 G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28",
+    "match_text_b": "6000J3036G32GX2-TR5NS G.Skill Trident Z5 Royal Neo DDR5 64GB (2x32GB) 6000 CL30 Silver EXPO"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:203763",
+    "listing_b": "1pc:203764",
+    "title_a": "זיכרון G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 בצבע שחור",
+    "title_b": "זיכרון G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 בצבע שחור",
+    "match_text_a": "F4-3600C16D-32GTZRC G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16",
+    "match_text_b": "203764 G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16"
+  },
+  {
+    "score": 88,
+    "category": "memory",
+    "brand": "G.Skill",
+    "listing_a": "1pc:203764",
+    "listing_b": "tms:F4-3600C16D-32GTZRC",
+    "title_a": "זיכרון G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16 בצבע שחור",
+    "title_b": "G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0",
+    "match_text_a": "203764 G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3200 CL16",
+    "match_text_b": "F4-3600C16D-32GTZRC G.Skill Trident Z RGB DDR4 32GB (2x16GB) 3600 CL16 XMP 2.0"
   },
   {
     "kind": "duplicate_vendor",
@@ -625,7 +1615,7 @@
         "listing_key": "1pc:206394",
         "vendor_sku": "CW-9060095-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB בצבע לבן",
-        "price": 523
+        "price": 612
       },
       {
         "listing_key": "1pc:221795",
@@ -633,6 +1623,28 @@
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB – לבן",
         "price": 693,
         "alias_of": "1pc:206394"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:case:1-ft-performance-black",
+    "category": "case",
+    "vendor": "1pc",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "1pc:161897",
+        "vendor_sku": "161897",
+        "title": "מארז מחשב Antec Performance 1 FT ARGB",
+        "price": 575
+      },
+      {
+        "listing_key": "1pc:144691",
+        "vendor_sku": "144691",
+        "title": "מארז מחשב Antec Performance 1 FT צבע שחור",
+        "price": 598,
+        "alias_of": "1pc:161897"
       }
     ]
   },
@@ -675,7 +1687,7 @@
         "listing_key": "1pc:188426",
         "vendor_sku": "CC-9011297-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB מודולרי בצבע לבן",
-        "price": 501,
+        "price": 562,
         "alias_of": "1pc:222419"
       }
     ]
@@ -851,7 +1863,7 @@
         "listing_key": "1pc:152191",
         "vendor_sku": "C14900KFT",
         "title": "מעבד Intel Core i9 14900KF / 1700 Tray",
-        "price": 2255,
+        "price": 2357,
         "alias_of": "1pc:199721"
       }
     ]
@@ -889,13 +1901,13 @@
         "listing_key": "1pc:109579",
         "vendor_sku": "C12700FB",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1362
+        "price": 1425
       },
       {
         "listing_key": "1pc:116096",
         "vendor_sku": "C12700FT",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1374,
+        "price": 1437,
         "alias_of": "1pc:109579"
       }
     ]
@@ -1014,6 +2026,48 @@
         "title": "זיכרון למחשב G.Skill Ripjaws M5 RGB 2x16GB DDR5 6400Mhz CL32 - צבע שחור",
         "price": 2830,
         "alias_of": "ksp:313433"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:memory:2x32gb-6000-cl28-royal-trident-z5-64gb-x2-6000mhz-cl28-silver",
+    "category": "memory",
+    "vendor": "1pc",
+    "collapsed": false,
+    "offers": [
+      {
+        "listing_key": "1pc:201726",
+        "vendor_sku": "201726",
+        "title": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+        "price": 7405
+      },
+      {
+        "listing_key": "1pc:201284",
+        "vendor_sku": "201284",
+        "title": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+        "price": 7495
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:memory:2x32gb-6000-cl30-vengeance-64gb-x2-6000mhz-cl30-rgb-black-dimm",
+    "category": "memory",
+    "vendor": "1pc",
+    "collapsed": false,
+    "offers": [
+      {
+        "listing_key": "1pc:200056",
+        "vendor_sku": "CMK64GX5M2B6000Z30",
+        "title": "זיכרון DDR5 Corsair Vengeance 64GB (2x32GB) 6000 CL30 בצבע שחור",
+        "price": 5117
+      },
+      {
+        "listing_key": "1pc:176971",
+        "vendor_sku": "176971",
+        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+        "price": 5927
       }
     ]
   },
@@ -1190,6 +2244,27 @@
         "vendor_sku": "355804",
         "title": "לוח אם Asus PRIME H610M-K LGA1700 H610 DDR5",
         "price": 369
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:psu:1-1200-3-gx-vertex-1200w",
+    "category": "psu",
+    "vendor": "1pc",
+    "collapsed": false,
+    "offers": [
+      {
+        "listing_key": "1pc:212421",
+        "vendor_sku": "212421",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold בצבע לבן",
+        "price": 1103
+      },
+      {
+        "listing_key": "1pc:212420",
+        "vendor_sku": "212420",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+        "price": 1202
       }
     ]
   },
@@ -2517,6 +3592,137 @@
     "model_code": "0-3-761345-81046-description-nx420-product-short"
   },
   {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:1-ft-performance-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:PERFORMANCE1FTARGB",
+        "vendor": "tms",
+        "vendor_sku": "PERFORMANCE1FTARGB",
+        "title": "מארז מחשב Antec Performance 1 FT ARGB",
+        "price": 550
+      },
+      {
+        "listing_key": "tms:0-761345-10088-5",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10088-5",
+        "title": "מארז מחשב Antec Performance 1 FT",
+        "price": 572
+      },
+      {
+        "listing_key": "1pc:144691",
+        "vendor": "1pc",
+        "vendor_sku": "144691",
+        "title": "מארז מחשב Antec Performance 1 FT צבע שחור",
+        "price": 598
+      },
+      {
+        "listing_key": "1pc:161897",
+        "vendor": "1pc",
+        "vendor_sku": "161897",
+        "title": "מארז מחשב Antec Performance 1 FT ARGB",
+        "price": 575
+      }
+    ],
+    "model_code": "1-ft-performance"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:1-m-performance-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:183243",
+        "vendor": "1pc",
+        "vendor_sku": "0-761345-10168-4",
+        "title": "מארז מחשב Antec Performance 1 M שחור",
+        "price": 912
+      },
+      {
+        "listing_key": "tms:0-761345-10168-4",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10168-4",
+        "title": "מארז מחשב Antec Performance 1 M Black",
+        "price": 879
+      }
+    ],
+    "model_code": "1-m-performance"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:1-m-performance-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:183246",
+        "vendor": "1pc",
+        "vendor_sku": "0-761345-10169-1",
+        "title": "מארז מחשב Antec Performance 1 M אוונטורין",
+        "price": 912
+      },
+      {
+        "listing_key": "tms:0-761345-10169-1",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10169-1",
+        "title": "מארז מחשב Antec Performance 1 M Aventurine",
+        "price": 879
+      }
+    ],
+    "model_code": "1-m-performance"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:1-m-performance-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:183243",
+        "vendor": "1pc",
+        "vendor_sku": "0-761345-10168-4",
+        "title": "מארז מחשב Antec Performance 1 M שחור",
+        "price": 912
+      },
+      {
+        "listing_key": "tms:0-761345-10168-4",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10168-4",
+        "title": "מארז מחשב Antec Performance 1 M Black",
+        "price": 879
+      }
+    ],
+    "model_code": "1-m-performance",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:1-m-performance-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:183246",
+        "vendor": "1pc",
+        "vendor_sku": "0-761345-10169-1",
+        "title": "מארז מחשב Antec Performance 1 M אוונטורין",
+        "price": 912
+      },
+      {
+        "listing_key": "tms:0-761345-10169-1",
+        "vendor": "tms",
+        "vendor_sku": "0-761345-10169-1",
+        "title": "מארז מחשב Antec Performance 1 M Aventurine",
+        "price": 879
+      }
+    ],
+    "model_code": "1-m-performance",
+    "manufacturer_pn": []
+  },
+  {
     "kind": "variant_conflict",
     "category": "case",
     "product_id": "model:case:100r-mag-pano-pz-white",
@@ -2768,13 +3974,6 @@
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:160175",
-        "vendor": "1pc",
-        "vendor_sku": "PC-LAN216X",
-        "title": "מארז Lancool 216 Black Case PC-LAN216X",
-        "price": 466
-      },
-      {
         "listing_key": "tms:PC-LAN216X",
         "vendor": "tms",
         "vendor_sku": "PC-LAN216X",
@@ -2942,7 +4141,7 @@
         "vendor": "1pc",
         "vendor_sku": "CC-9011296-WW",
         "title": "מארז גיימינג מודולרי CORSAIR FRAME 4000D RS ARGB בגודל Mid-Tower",
-        "price": 577
+        "price": 648
       },
       {
         "listing_key": "ksp:387614",
@@ -3008,7 +4207,7 @@
         "vendor": "1pc",
         "vendor_sku": "CC-9011297-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB מודולרי בצבע לבן",
-        "price": 501
+        "price": 562
       },
       {
         "listing_key": "ivory:160660",
@@ -3690,36 +4889,6 @@
   {
     "kind": "identity_merge",
     "category": "case",
-    "product_id": "model:case:7x120mm-cx-fans-mid-mirror-tower-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:214258",
-        "vendor": "1pc",
-        "vendor_sku": "CXMIRROR",
-        "title": "מארז מחשב Antec CX Mirror Mini Tower בצבע שחור",
-        "price": 383
-      },
-      {
-        "listing_key": "yahav:11386",
-        "vendor": "yahav",
-        "vendor_sku": "CXMIRROR",
-        "title": "מארז חברת Antec דגם CX Mirror ARGB 7X120MM ARGB Fans Mid Tower צבע שחור",
-        "price": 405
-      },
-      {
-        "listing_key": "tms:CXMIRROR",
-        "vendor": "tms",
-        "vendor_sku": "CXMIRROR",
-        "title": "מארז מחשב Antec CX Mirror Black",
-        "price": 321
-      }
-    ],
-    "model_code": "7x120mm-cx-fans-mid-mirror-tower"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "case",
     "product_id": "model:case:800-base-bgw60-shadow-black",
     "vendor": "",
     "offers": [
@@ -3759,6 +4928,29 @@
         "vendor_sku": "BGW61",
         "title": "מארז חברת Be Quiet דגם SHADOW BASE 800DX BGW61 3x140mm Fans צבע שחור",
         "price": 890
+      }
+    ],
+    "model_code": "800dx-base-shadow"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:800dx-base-shadow-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:164603",
+        "vendor": "1pc",
+        "vendor_sku": "164603",
+        "title": "מארז מחשב be quiet! SHADOW BASE 800 DX White BGW62",
+        "price": 696
+      },
+      {
+        "listing_key": "tms:BGW62",
+        "vendor": "tms",
+        "vendor_sku": "BGW62",
+        "title": "מארז מחשב be quiet! SHADOW BASE 800DX White",
+        "price": 681
       }
     ],
     "model_code": "800dx-base-shadow"
@@ -3807,6 +4999,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:171780",
+        "vendor": "1pc",
+        "vendor_sku": "171780",
+        "title": "מארז מחשב be quiet! LIGHT BASE 900 FX BGW71",
+        "price": 912
+      },
+      {
         "listing_key": "tms:BGW71",
         "vendor": "tms",
         "vendor_sku": "BGW71",
@@ -3829,6 +5028,13 @@
     "product_id": "model:case:900-base-fx-light-white",
     "vendor": "",
     "offers": [
+      {
+        "listing_key": "1pc:171779",
+        "vendor": "1pc",
+        "vendor_sku": "171779",
+        "title": "מארז מחשב be quiet! LIGHT BASE 900 FX White BGW72",
+        "price": 1044
+      },
       {
         "listing_key": "ivory:125577",
         "vendor": "ivory",
@@ -3920,6 +5126,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:180226",
+        "vendor": "1pc",
+        "vendor_sku": "A3W-WD",
+        "title": "מארז מחשב Lian-Li A3 Wood White A3W-WD",
+        "price": 433
+      },
+      {
         "listing_key": "tms:A3W-WD",
         "vendor": "tms",
         "vendor_sku": "A3W-WD",
@@ -3942,7 +5155,7 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:a3-wood-white-2",
+    "product_id": "model:case:a3-wood-white-midtower",
     "vendor": "",
     "offers": [
       {
@@ -4057,6 +5270,52 @@
   {
     "kind": "identity_merge",
     "category": "case",
+    "product_id": "model:case:alta-d1-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SST-ALD1B",
+        "vendor": "tms",
+        "vendor_sku": "SST-ALD1B",
+        "title": "מארז מחשב SilverStone ALTA D1",
+        "price": 3721
+      },
+      {
+        "listing_key": "1pc:203962",
+        "vendor": "1pc",
+        "vendor_sku": "203962",
+        "title": "מארז מחשב SilverStone ALTA D1 צבע שחור",
+        "price": 3554
+      }
+    ],
+    "model_code": "alta-d1"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:antec-flux-pro-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:FLUX-PRO-NOCTUA",
+        "vendor": "tms",
+        "vendor_sku": "FLUX-PRO-NOCTUA",
+        "title": "מארז מחשב Antec FLUX PRO - Noctua Edition",
+        "price": 1671
+      },
+      {
+        "listing_key": "1pc:216698",
+        "vendor": "1pc",
+        "vendor_sku": "216698",
+        "title": "מארז מחשב Antec FLUX PRO במהדורת Noctua",
+        "price": 1717
+      }
+    ],
+    "model_code": "antec-flux-pro"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
     "product_id": "model:case:argb-chimera-tg-black",
     "vendor": "",
     "offers": [
@@ -4065,7 +5324,7 @@
         "vendor": "1pc",
         "vendor_sku": "CHIMERA",
         "title": "תיבת מחשב IPPON CHIMERA TG ARGB בצבע שחור",
-        "price": 224
+        "price": 263
       },
       {
         "listing_key": "tms:CHIMERA",
@@ -4076,6 +5335,29 @@
       }
     ],
     "model_code": "argb-chimera-tg"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:automobili-evo-lamborghini-o11d-rgb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:O11DERGBL",
+        "vendor": "tms",
+        "vendor_sku": "O11DERGBL",
+        "title": "מארז מחשב Lian-Li O11D EVO RGB Automobili Lamborghini Edition",
+        "price": 1491
+      },
+      {
+        "listing_key": "1pc:179058",
+        "vendor": "1pc",
+        "vendor_sku": "179058",
+        "title": "מארז מחשב Lian-Li O11D EVO RGB Automobili Lamborghini Edition",
+        "price": 1680
+      }
+    ],
+    "model_code": "automobili-evo-lamborghini-o11d-rgb"
   },
   {
     "kind": "identity_merge",
@@ -4129,6 +5411,29 @@
       }
     ],
     "model_code": "ax90"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:black-charcoal-north-xl-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:FD-C-NOR1X-01",
+        "vendor": "tms",
+        "vendor_sku": "FD-C-NOR1X-01",
+        "title": "Fractal Design North XL Charcoal Black",
+        "price": 983
+      },
+      {
+        "listing_key": "1pc:172732",
+        "vendor": "1pc",
+        "vendor_sku": "172732",
+        "title": "מארז מחשב Fractal Design North XL בצבע שחור פחם Charcoal Black",
+        "price": 1085
+      }
+    ],
+    "model_code": "black-charcoal-north-xl"
   },
   {
     "kind": "identity_merge",
@@ -4187,7 +5492,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10226-1",
         "title": "מארז מחשב Antec C5 CURVE ARGB לבן",
-        "price": 432
+        "price": 326
       },
       {
         "listing_key": "tms:0-761345-10226-1",
@@ -4234,7 +5539,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10226-1",
         "title": "מארז מחשב Antec C5 CURVE ARGB לבן",
-        "price": 432
+        "price": 326
       },
       {
         "listing_key": "tms:0-761345-10226-1",
@@ -4326,6 +5631,52 @@
   {
     "kind": "identity_merge",
     "category": "case",
+    "product_id": "model:case:chalk-clear-north-tg-white-xl-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:FD-C-NOR1X-04",
+        "vendor": "tms",
+        "vendor_sku": "FD-C-NOR1X-04",
+        "title": "Fractal Design North XL Chalk White TG Clear",
+        "price": 983
+      },
+      {
+        "listing_key": "1pc:172729",
+        "vendor": "1pc",
+        "vendor_sku": "172729",
+        "title": "מארז מחשב Fractal Design North XL בצבע לבן ושקוף Chalk White TG Clear",
+        "price": 1085
+      }
+    ],
+    "model_code": "chalk-clear-north-tg-white-xl"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:chalk-north-white-xl-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:FD-C-NOR1X-03",
+        "vendor": "tms",
+        "vendor_sku": "FD-C-NOR1X-03",
+        "title": "Fractal Design North XL Chalk White",
+        "price": 983
+      },
+      {
+        "listing_key": "1pc:172730",
+        "vendor": "1pc",
+        "vendor_sku": "172730",
+        "title": "מארז מחשב Fractal Design North XL בצבע לבן Chalk White",
+        "price": 1085
+      }
+    ],
+    "model_code": "chalk-north-white-xl"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
     "product_id": "model:case:chp-era-era-gold-itx-itx-tg-gold",
     "vendor": "",
     "offers": [
@@ -4345,6 +5696,70 @@
       }
     ],
     "model_code": "chp-era-era-gold-itx-itx-tg"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:coolermaster-mastercase-sl600m-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:MCM-SL600M-KGNN-S00",
+        "vendor": "tms",
+        "vendor_sku": "MCM-SL600M-KGNN-S00",
+        "title": "מארז מחשב CoolerMaster MasterCase SL600M Black Edition",
+        "price": 990
+      }
+    ],
+    "model_code": "coolermaster-mastercase-sl600m",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:coolermaster-mastercase-sl600m-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:78104",
+        "vendor": "1pc",
+        "vendor_sku": "78104",
+        "title": "מארז מחשב Cooler Master MasterCase SL600M צבע שחור",
+        "price": 1042
+      }
+    ],
+    "model_code": "coolermaster-mastercase-sl600m",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:cx-mini-mirror-tower-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:214258",
+        "vendor": "1pc",
+        "vendor_sku": "CXMIRROR",
+        "title": "מארז מחשב Antec CX Mirror Mini Tower בצבע שחור",
+        "price": 383
+      },
+      {
+        "listing_key": "yahav:11386",
+        "vendor": "yahav",
+        "vendor_sku": "CXMIRROR",
+        "title": "מארז חברת Antec דגם CX Mirror ARGB 7X120MM ARGB Fans Mid Tower צבע שחור",
+        "price": 405
+      },
+      {
+        "listing_key": "tms:CXMIRROR",
+        "vendor": "tms",
+        "vendor_sku": "CXMIRROR",
+        "title": "מארז מחשב Antec CX Mirror Black",
+        "price": 321
+      }
+    ],
+    "model_code": "cx-mini-mirror-tower"
   },
   {
     "kind": "variant_conflict",
@@ -4434,6 +5849,40 @@
       }
     ],
     "model_code": "dp502-flux"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:dynamic-evo-full-o11-tower-xl-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:O11DEXL-X",
+        "vendor": "tms",
+        "vendor_sku": "O11DEXL-X",
+        "title": "מארז מחשב Lian-Li O11 Dynamic EVO XL Black",
+        "price": 1147
+      }
+    ],
+    "model_code": "dynamic-evo-full-o11-tower-xl",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case",
+    "product_id": "model:case:dynamic-evo-full-o11-tower-xl-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:155612",
+        "vendor": "1pc",
+        "vendor_sku": "155612",
+        "title": "מארז מחשב Lian-Li Full Tower O11 Dynamic EVO XL בצבע שחור",
+        "price": 1313
+      }
+    ],
+    "model_code": "dynamic-evo-full-o11-tower-xl",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -4674,6 +6123,29 @@
     ],
     "model_code": "m10-tl-vision",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:momentum-north-xl-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:FD-C-NOR1X-07",
+        "vendor": "tms",
+        "vendor_sku": "FD-C-NOR1X-07",
+        "title": "Fractal Design North XL Momentum Edition",
+        "price": 1098
+      },
+      {
+        "listing_key": "1pc:215509",
+        "vendor": "1pc",
+        "vendor_sku": "215509",
+        "title": "מארז מחשב Fractal Design North XL Momentum Edition",
+        "price": 1068
+      }
+    ],
+    "model_code": "momentum-north-xl"
   },
   {
     "kind": "identity_merge",
@@ -4945,6 +6417,13 @@
         "vendor_sku": "P20C-ARGB",
         "title": "מארז חברת Antec דגם P20C ARGB 3X120MM ARGB Fans Included Tempered Glass Window Mid Tower צבע שחור",
         "price": 445
+      },
+      {
+        "listing_key": "1pc:144688",
+        "vendor": "1pc",
+        "vendor_sku": "144688",
+        "title": "מארז Antec P20C ARGB",
+        "price": 438
       }
     ],
     "model_code": "p20c",
@@ -4968,6 +6447,29 @@
     ],
     "model_code": "p20c",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "case",
+    "product_id": "model:case:p20c-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:P20CW",
+        "vendor": "tms",
+        "vendor_sku": "P20CW",
+        "title": "מארז מחשב Antec P20C White",
+        "price": 321
+      },
+      {
+        "listing_key": "1pc:144687",
+        "vendor": "1pc",
+        "vendor_sku": "144687",
+        "title": "מארז Antec P20C בצבע לבן",
+        "price": 397
+      }
+    ],
+    "model_code": "p20c"
   },
   {
     "kind": "identity_merge",
@@ -5028,6 +6530,13 @@
     "product_id": "model:case_fan:12-fan-sl-uni-wireless-120mm-1-rgb-black",
     "vendor": "",
     "offers": [
+      {
+        "listing_key": "1pc:180217",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLLCD1W1B",
+        "title": "מאוורר Lian-Li UNI SL Wireless LCD 120mm Reverse Black Fan 12RSLLCD1W1B",
+        "price": 256
+      },
       {
         "listing_key": "ivory:160306",
         "vendor": "ivory",
@@ -6380,7 +7889,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10105FB",
         "title": "מעבד Intel Core i3 10105F צבע אריזת קופסה",
-        "price": 249
+        "price": 260
       },
       {
         "listing_key": "tms:C10105FB",
@@ -6403,7 +7912,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10105FT",
         "title": "מעבד Intel Core i3 10105F צבע טרי",
-        "price": 258
+        "price": 269
       },
       {
         "listing_key": "tms:C10105FT",
@@ -6426,7 +7935,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10400T",
         "title": "מעבד Intel Core i5 10400 צבע טריי",
-        "price": 619
+        "price": 647
       },
       {
         "listing_key": "tms:C10400T",
@@ -6449,7 +7958,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10400FT",
         "title": "מעבד Intel Core i5 10400F / 1200 Tray",
-        "price": 511
+        "price": 533
       },
       {
         "listing_key": "tms:C10400FT",
@@ -6472,7 +7981,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10600KT",
         "title": "מעבד Intel Core i5 10600K צבע טריי",
-        "price": 681
+        "price": 711
       },
       {
         "listing_key": "tms:C10600KT",
@@ -6495,7 +8004,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10700KB-A",
         "title": "מעבד Intel Core i7 10700K צבע Avengers Edition",
-        "price": 988
+        "price": 1032
       },
       {
         "listing_key": "tms:C10700KB-A",
@@ -6518,7 +8027,7 @@
         "vendor": "1pc",
         "vendor_sku": "C11400FT",
         "title": "מעבד Intel Core i5 11400F צבע טריי",
-        "price": 542
+        "price": 567
       },
       {
         "listing_key": "tms:C11400FT",
@@ -6541,7 +8050,7 @@
         "vendor": "1pc",
         "vendor_sku": "C12100T",
         "title": "מעבד Intel Core i3 12100 Tray",
-        "price": 609
+        "price": 636
       },
       {
         "listing_key": "tms:C12100T",
@@ -6571,7 +8080,7 @@
         "vendor": "1pc",
         "vendor_sku": "C12600KFT",
         "title": "מעבד Intel Core i5 12600KF צבע שחור",
-        "price": 869
+        "price": 907
       },
       {
         "listing_key": "tms:C12600KFT",
@@ -6594,7 +8103,7 @@
         "vendor": "1pc",
         "vendor_sku": "C12700T",
         "title": "מעבד Intel Core i7 12700 צבע טרי",
-        "price": 1550
+        "price": 1619
       },
       {
         "listing_key": "tms:C12700T",
@@ -6624,7 +8133,7 @@
         "vendor": "1pc",
         "vendor_sku": "C12700FT",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1374
+        "price": 1437
       },
       {
         "listing_key": "ivory:43099",
@@ -6693,7 +8202,7 @@
         "vendor": "1pc",
         "vendor_sku": "C13900FB",
         "title": "מעבד אינטל Intel Core i9 13900F 2.0GHz 36MB Cache s1700 - Box",
-        "price": 2060
+        "price": 2153
       },
       {
         "listing_key": "tms:C13900FB",
@@ -6716,7 +8225,7 @@
         "vendor": "1pc",
         "vendor_sku": "C13900KT",
         "title": "Intel Core i9 13900K / 1700 Tray",
-        "price": 2121
+        "price": 2217
       },
       {
         "listing_key": "tms:C13900KT",
@@ -6897,7 +8406,7 @@
         "vendor": "1pc",
         "vendor_sku": "C14900KST",
         "title": "מעבד Intel Core i9 14900KS / 1700 Tray",
-        "price": 3584
+        "price": 3747
       },
       {
         "listing_key": "tms:C14900KST",
@@ -6920,7 +8429,7 @@
         "vendor": "1pc",
         "vendor_sku": "C2130T-P",
         "title": "Intel Core i3 2130 / 1155 Tray - Pull משומש C2130T-P",
-        "price": 101
+        "price": 106
       },
       {
         "listing_key": "tms:C2130T-P",
@@ -6943,7 +8452,7 @@
         "vendor": "1pc",
         "vendor_sku": "C2400ST-P",
         "title": "Intel Core i5 2400S / 1155 Tray - Pull משומש C2400ST-P",
-        "price": 141
+        "price": 145
       },
       {
         "listing_key": "tms:C2400ST-P",
@@ -6989,7 +8498,7 @@
         "vendor": "1pc",
         "vendor_sku": "C245KT",
         "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
-        "price": 940
+        "price": 984
       },
       {
         "listing_key": "ksp:340388",
@@ -7081,7 +8590,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000159",
         "title": "מעבד AMD Ryzen 3 3300X AM4 צבע טרי",
-        "price": 200
+        "price": 208
       },
       {
         "listing_key": "tms:100-000000159",
@@ -7104,7 +8613,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000050",
         "title": "מעבד AMD Ryzen 5 3500 AM4 Tray צבע שקוף",
-        "price": 217
+        "price": 227
       },
       {
         "listing_key": "tms:100-000000050",
@@ -7127,7 +8636,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000457",
         "title": "מעבד AMD Ryzen 5 5500 AM4 Tray צבע שחור",
-        "price": 427
+        "price": 445
       },
       {
         "listing_key": "yahav:6645",
@@ -7217,7 +8726,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000001488",
         "title": "מעבד AMD Ryzen™ 5 5600GT AM4 Tray",
-        "price": 826
+        "price": 862
       },
       {
         "listing_key": "tms:100-000001488",
@@ -7356,7 +8865,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-100000651WOF",
         "title": "מעבד AMD Ryzen 7 5800X3D AM4 Box",
-        "price": 1823
+        "price": 1905
       },
       {
         "listing_key": "tms:100-100000651WOF",
@@ -7374,6 +8883,52 @@
   {
     "kind": "identity_merge",
     "category": "cpu",
+    "product_id": "model:cpu:7302",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:EP7302",
+        "vendor": "tms",
+        "vendor_sku": "EP7302",
+        "title": "AMD EPYC 7302 16-Core (32-Threads)",
+        "price": 2614
+      },
+      {
+        "listing_key": "1pc:208480",
+        "vendor": "1pc",
+        "vendor_sku": "208480",
+        "title": "מעבד AMD EPYC™ 7302 לתצורת שרתים – Socket SP3",
+        "price": 2703
+      }
+    ],
+    "model_code": "7302"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:7402p",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:EP7402P",
+        "vendor": "tms",
+        "vendor_sku": "EP7402P",
+        "title": "AMD EPYC 7402P 24-Core (48-Threads)",
+        "price": 3485
+      },
+      {
+        "listing_key": "1pc:208481",
+        "vendor": "1pc",
+        "vendor_sku": "208481",
+        "title": "מעבד AMD EPYC™ 7402P לתצורת שרתים – 24 ליבות ו-48 תהליכים, תושבת SP3",
+        "price": 3598
+      }
+    ],
+    "model_code": "7402p"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
     "product_id": "model:cpu:ryzen57500f-tray",
     "vendor": "",
     "offers": [
@@ -7382,7 +8937,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000597",
         "title": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-        "price": 643
+        "price": 670
       },
       {
         "listing_key": "yahav:10325",
@@ -7412,7 +8967,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000593",
         "title": "מעבד AMD Ryzen 5 7600X AM5 צבע שקוף",
-        "price": 674
+        "price": 873
       },
       {
         "listing_key": "yahav:8627",
@@ -7486,7 +9041,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000591",
         "title": "מעבד AMD Ryzen 7 7700X AM5 צבע לא ידוע",
-        "price": 1069
+        "price": 1116
       },
       {
         "listing_key": "yahav:8630",
@@ -7523,7 +9078,7 @@
         "vendor": "1pc",
         "vendor_sku": "C7740XB",
         "title": "מעבד Intel Core i7 7740X צבע אריזת קופסה",
-        "price": 712
+        "price": 744
       },
       {
         "listing_key": "tms:C7740XB",
@@ -7569,7 +9124,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000514",
         "title": "מעבד AMD Ryzen 9 7950X AM5 בצבע שחור",
-        "price": 2211
+        "price": 2312
       },
       {
         "listing_key": "tms:100-000000514",
@@ -7580,6 +9135,29 @@
       }
     ],
     "model_code": "7950x"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:7970x-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000001351",
+        "vendor": "tms",
+        "vendor_sku": "100-000001351",
+        "title": "AMD Ryzen Threadripper 7970X 32-core Tray",
+        "price": 8061
+      },
+      {
+        "listing_key": "1pc:208448",
+        "vendor": "1pc",
+        "vendor_sku": "208448",
+        "title": "מעבד AMD Ryzen™ Threadripper™ 7970X TRAY",
+        "price": 8076
+      }
+    ],
+    "model_code": "7970x"
   },
   {
     "kind": "identity_merge",
@@ -7735,7 +9313,7 @@
         "vendor": "1pc",
         "vendor_sku": "C9300TT",
         "title": "מעבד Intel Core i3 9300T צבע Tray",
-        "price": 468
+        "price": 489
       },
       {
         "listing_key": "tms:C9300TT",
@@ -8088,6 +9666,29 @@
       }
     ],
     "model_code": "9950x3d2"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:9975wx-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000000723",
+        "vendor": "tms",
+        "vendor_sku": "100-000000723",
+        "title": "AMD Ryzen Threadripper PRO 9975WX 32-core Tray",
+        "price": 21943
+      },
+      {
+        "listing_key": "1pc:208453",
+        "vendor": "1pc",
+        "vendor_sku": "208453",
+        "title": "מעבד AMD Ryzen™ Threadripper™ PRO 9975WX TRAY",
+        "price": 21958
+      }
+    ],
+    "model_code": "9975wx"
   },
   {
     "kind": "variant_conflict",
@@ -8483,7 +10084,7 @@
         "vendor": "1pc",
         "vendor_sku": "CMT32GX5M2X6200C36",
         "title": "זיכרון RAM Corsair DDR5 32GB (16x2) 6200 Dominator Platinum RGB צבע כסף",
-        "price": 2820
+        "price": 2947
       },
       {
         "listing_key": "tms:CMT32GX5M2X6200C36",
@@ -8509,7 +10110,7 @@
         "vendor": "1pc",
         "vendor_sku": "CMH48GX5M2B7000C40",
         "title": "זיכרון RAM Corsair Vengeance RGB DDR5 48G (24Gx2) 7000 CL40",
-        "price": 3604
+        "price": 3766
       },
       {
         "listing_key": "ksp:430608",
@@ -8542,7 +10143,7 @@
         "vendor": "1pc",
         "vendor_sku": "CMK48GX5M2B7000C40",
         "title": "זיכרון RAM Corsair Vengeance DDR5 48GB (24GBx2) 7000 CL40",
-        "price": 3604
+        "price": 3766
       },
       {
         "listing_key": "tms:CMK48GX5M2B7000C40",
@@ -8558,6 +10159,97 @@
     ]
   },
   {
+    "kind": "identity_merge",
+    "category": "memory",
+    "product_id": "model:memory:0-2x32gb-3-6000-cl30-m5-ripjaws-xmp-64gb-x2-6000mhz-cl30-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:6000J3040G32GX2-RM5RK",
+        "vendor": "tms",
+        "vendor_sku": "6000J3040G32GX2-RM5RK",
+        "title": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0",
+        "price": 6287
+      },
+      {
+        "listing_key": "1pc:207661",
+        "vendor": "1pc",
+        "vendor_sku": "207661",
+        "title": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL30 XMP 3.0 בצבע שחור",
+        "price": 6421
+      }
+    ],
+    "model_code": "0-2x32gb-3-6000-cl30-m5-ripjaws-xmp"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:0-2x32gb-3-6000-cl32-m5-ripjaws-xmp-64gb-x2-6000mhz-cl32-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:6000J3238G32GX2-RM5RW",
+        "vendor": "tms",
+        "vendor_sku": "6000J3238G32GX2-RM5RW",
+        "title": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 White XMP 3.0",
+        "price": 5936
+      }
+    ],
+    "model_code": "0-2x32gb-3-6000-cl32-m5-ripjaws-xmp",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:0-2x32gb-3-6000-cl32-m5-ripjaws-xmp-64gb-x2-6000mhz-cl32-rgb-white-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:200256",
+        "vendor": "1pc",
+        "vendor_sku": "200256",
+        "title": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6000 CL32 בצבע לבן",
+        "price": 6062
+      }
+    ],
+    "model_code": "0-2x32gb-3-6000-cl32-m5-ripjaws-xmp",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:0-2x32gb-3-6400-cl32-m5-ripjaws-xmp-64gb-x2-6400mhz-cl32-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:6400J3239G32GX2-RM5RK",
+        "vendor": "tms",
+        "vendor_sku": "6400J3239G32GX2-RM5RK",
+        "title": "G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 XMP 3.0",
+        "price": 7342
+      }
+    ],
+    "model_code": "0-2x32gb-3-6400-cl32-m5-ripjaws-xmp",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:0-2x32gb-3-6400-cl32-m5-ripjaws-xmp-64gb-x2-6400mhz-cl32-rgb-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:200244",
+        "vendor": "1pc",
+        "vendor_sku": "200244",
+        "title": "זיכרון G.Skill Ripjaws M5 RGB DDR5 64GB (2x32GB) 6400 CL32 בצבע שחור",
+        "price": 7495
+      }
+    ],
+    "model_code": "0-2x32gb-3-6400-cl32-m5-ripjaws-xmp",
+    "manufacturer_pn": []
+  },
+  {
     "kind": "variant_conflict",
     "category": "memory",
     "product_id": "model:memory:0-3-4x16gb-5600-cl36-expo-vengeance-xmp-64gb-x4-5600mhz-cl36-rgb-black-dimm",
@@ -8568,7 +10260,7 @@
         "vendor": "1pc",
         "vendor_sku": "CMH64GX5M4B5600Z36",
         "title": "זיכרון למחשב נייח CORSAIR Vengeance RGB DDR5 64G (16Gx4) 5600 CL36 בצבע שחור",
-        "price": 4766
+        "price": 4982
       },
       {
         "listing_key": "tms:CMH64GX5M4B5600Z36",
@@ -8792,65 +10484,6 @@
   {
     "kind": "variant_conflict",
     "category": "memory",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:131353",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000Z30K",
-        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
-        "price": 2567
-      },
-      {
-        "listing_key": "ksp:480428",
-        "vendor": "ksp",
-        "vendor_sku": "480428",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
-        "price": 2490
-      },
-      {
-        "listing_key": "tms:CMH32GX5M2B6000Z30K",
-        "vendor": "tms",
-        "vendor_sku": "CMH32GX5M2B6000Z30K",
-        "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
-        "price": 2880
-      }
-    ],
-    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000Z30K"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:222839",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000C30",
-        "title": "זיכרון למחשב Corsair DDR5 32GB (2×16GB) CMH32GX5M2B6000C30 RGB/BLACK",
-        "price": 2573
-      },
-      {
-        "listing_key": "ksp:493648",
-        "vendor": "ksp",
-        "vendor_sku": "493648",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע שחור",
-        "price": 2490
-      }
-    ],
-    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000C30"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
     "product_id": "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
     "vendor": "",
     "offers": [
@@ -8899,6 +10532,40 @@
     "manufacturer_pn": [
       "CMK32GX5M2D6000Z38"
     ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x32gb-6000-cl28-expo-m5-neo-ripjaws-64gb-x2-6000mhz-cl28-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:6000J2836G32GX2-RM5NRW",
+        "vendor": "tms",
+        "vendor_sku": "6000J2836G32GX2-RM5NRW",
+        "title": "G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 White EXPO",
+        "price": 7342
+      }
+    ],
+    "model_code": "2x32gb-6000-cl28-expo-m5-neo-ripjaws",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:2x32gb-6000-cl28-expo-m5-neo-ripjaws-64gb-x2-6000mhz-cl28-rgb-white-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:200250",
+        "vendor": "1pc",
+        "vendor_sku": "200250",
+        "title": "זיכרון G.Skill Ripjaws M5 Neo RGB DDR5 64GB (2x32GB) 6000 CL28 בצבע לבן",
+        "price": 7495
+      }
+    ],
+    "model_code": "2x32gb-6000-cl28-expo-m5-neo-ripjaws",
+    "manufacturer_pn": []
   },
   {
     "kind": "identity_merge",
@@ -8966,6 +10633,117 @@
     "model_code": "2x8gb-3200-cl16-orion",
     "manufacturer_pn": [
       "GAOSG416GB3200C16BDC"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:131353",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000Z30K",
+        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 32G (16Gx2) 6000 CL30 בצבע שחור",
+        "price": 2567
+      },
+      {
+        "listing_key": "ksp:480428",
+        "vendor": "ksp",
+        "vendor_sku": "480428",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע אפור",
+        "price": 2490
+      },
+      {
+        "listing_key": "tms:CMH32GX5M2B6000Z30K",
+        "vendor": "tms",
+        "vendor_sku": "CMH32GX5M2B6000Z30K",
+        "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO/XMP 3.0",
+        "price": 2880
+      }
+    ],
+    "model_code": "rgb-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000Z30K"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:222839",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000C30",
+        "title": "זיכרון למחשב Corsair DDR5 32GB (2×16GB) CMH32GX5M2B6000C30 RGB/BLACK",
+        "price": 2573
+      },
+      {
+        "listing_key": "ksp:493648",
+        "vendor": "ksp",
+        "vendor_sku": "493648",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע שחור",
+        "price": 2490
+      }
+    ],
+    "model_code": "rgb-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000C30"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:167956",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000C30W",
+        "title": "זיכרון Corsair DDR5 32GB (2x16G) 6000 CL30 Vengeance RGB White CMH32GX5M2B6000C30W",
+        "price": 2547
+      },
+      {
+        "listing_key": "ksp:493649",
+        "vendor": "ksp",
+        "vendor_sku": "493649",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+        "price": 2360
+      }
+    ],
+    "model_code": "rgb-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000C30W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "memory",
+    "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:175451",
+        "vendor": "1pc",
+        "vendor_sku": "CMH32GX5M2B6000Z30W",
+        "title": "זיכרון למחשב Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 CMH32GX5M2B6000Z30W",
+        "price": 2927
+      },
+      {
+        "listing_key": "ksp:480430",
+        "vendor": "ksp",
+        "vendor_sku": "480430",
+        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
+        "price": 2490
+      }
+    ],
+    "model_code": "rgb-vengeance",
+    "manufacturer_pn": [
+      "CMH32GX5M2B6000Z30W"
     ]
   },
   {
@@ -10381,6 +12159,52 @@
     "model_code": "1-1-3-5-850-active-full-gsk-modular-pfc"
   },
   {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-1000-3-gx-vertex-1000w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:12102GXAFS",
+        "vendor": "tms",
+        "vendor_sku": "12102GXAFS",
+        "title": "ספק כוח Seasonic Vertex GX-1000 1000W ATX 3.1 80+ Gold",
+        "price": 922
+      },
+      {
+        "listing_key": "1pc:212429",
+        "vendor": "1pc",
+        "vendor_sku": "212429",
+        "title": "ספק כוח Seasonic Vertex GX-1000 1000W ATX 3.1 80+ Gold",
+        "price": 899
+      }
+    ],
+    "model_code": "1-1000-3-gx-vertex"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-1000-3-px-vertex-1000w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:12102PXAFS",
+        "vendor": "tms",
+        "vendor_sku": "12102PXAFS",
+        "title": "ספק כוח Seasonic Vertex PX-1000 1000W ATX 3.1 80+ Platinum",
+        "price": 1063
+      },
+      {
+        "listing_key": "1pc:212422",
+        "vendor": "1pc",
+        "vendor_sku": "212422",
+        "title": "ספק כוח Seasonic Vertex PX-1000 1000W ATX 3.1 80+ Platinum",
+        "price": 1032
+      }
+    ],
+    "model_code": "1-1000-3-px-vertex"
+  },
+  {
     "kind": "variant_conflict",
     "category": "psu",
     "product_id": "model:psu:1-1000rz-3-triton-1000w-full-white",
@@ -10433,6 +12257,43 @@
     ]
   },
   {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-1200-3-gx-vertex-1200w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:12122GXAFS",
+        "vendor": "tms",
+        "vendor_sku": "12122GXAFS",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+        "price": 1091
+      },
+      {
+        "listing_key": "1pc:212420",
+        "vendor": "1pc",
+        "vendor_sku": "212420",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+        "price": 1202
+      },
+      {
+        "listing_key": "1pc:212421",
+        "vendor": "1pc",
+        "vendor_sku": "212421",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold בצבע לבן",
+        "price": 1103
+      }
+    ],
+    "model_code": "1-1200-3-gx-vertex",
+    "reason": "title-axis conflict: color black vs white",
+    "axis_conflicts": {
+      "color": [
+        "black",
+        "white"
+      ]
+    }
+  },
+  {
     "kind": "variant_conflict",
     "category": "psu",
     "product_id": "model:psu:1-1200-3-gx-vertex-1200w-white",
@@ -10461,10 +12322,93 @@
         "vendor_sku": "12122GXAFS",
         "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
         "price": 1091
+      },
+      {
+        "listing_key": "1pc:212420",
+        "vendor": "1pc",
+        "vendor_sku": "212420",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold",
+        "price": 1202
+      },
+      {
+        "listing_key": "1pc:212421",
+        "vendor": "1pc",
+        "vendor_sku": "212421",
+        "title": "ספק כוח Seasonic Vertex GX-1200 1200W ATX 3.1 80+ Gold בצבע לבן",
+        "price": 1103
       }
     ],
     "model_code": "1-1200-3-gx-vertex",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-1300-atx3-prime-titanium-tx-1300w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SSR-1300TR2",
+        "vendor": "tms",
+        "vendor_sku": "SSR-1300TR2",
+        "title": "ספק כוח Seasonic Prime TX-1300 1300W ATX3.1 80+ Titanium",
+        "price": 2027
+      },
+      {
+        "listing_key": "1pc:212427",
+        "vendor": "1pc",
+        "vendor_sku": "212427",
+        "title": "ספק כוח Seasonic Prime TX-1300 1300W ATX3.1 80+ Titanium",
+        "price": 1955
+      }
+    ],
+    "model_code": "1-1300-atx3-prime-titanium-tx"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-1600-atx3-prime-px-1600w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SSR-1600PD2",
+        "vendor": "tms",
+        "vendor_sku": "SSR-1600PD2",
+        "title": "ספק כוח Seasonic Prime PX-1600 1600W ATX3.1 80+ Platinum",
+        "price": 2013
+      },
+      {
+        "listing_key": "1pc:212426",
+        "vendor": "1pc",
+        "vendor_sku": "212426",
+        "title": "ספק כוח Seasonic Prime PX-1600 1600W ATX3.1 80+ Platinum",
+        "price": 1943
+      }
+    ],
+    "model_code": "1-1600-atx3-prime-px"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-1600-atx3-prime-titanium-tx-1600w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SSR-1600TR2",
+        "vendor": "tms",
+        "vendor_sku": "SSR-1600TR2",
+        "title": "ספק כוח Seasonic Prime TX-1600 1600W ATX3.1 80+ Titanium",
+        "price": 2411
+      },
+      {
+        "listing_key": "1pc:216769",
+        "vendor": "1pc",
+        "vendor_sku": "216769",
+        "title": "ספק כוח Seasonic Prime TX-1600 1600W ATX3.1 80+ Titanium",
+        "price": 2322
+      }
+    ],
+    "model_code": "1-1600-atx3-prime-titanium-tx"
   },
   {
     "kind": "variant_conflict",
@@ -10508,6 +12452,29 @@
     ],
     "model_code": "1-3-cybenetics-rm850e",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1-3-fully-modular-ws3000-3000w-full",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:CP-9020312-EU",
+        "vendor": "tms",
+        "vendor_sku": "CP-9020312-EU",
+        "title": "ספק כוח Corsair WS3000 3000W ATX 3.1 Fully Modular 80+ Platinum",
+        "price": 2440
+      },
+      {
+        "listing_key": "1pc:212365",
+        "vendor": "1pc",
+        "vendor_sku": "212365",
+        "title": "ספק כוח Corsair WS3000 3000W ATX 3.1 Fully Modular 80+ Platinum",
+        "price": 2501
+      }
+    ],
+    "model_code": "1-3-fully-modular-ws3000"
   },
   {
     "kind": "identity_merge",
@@ -10558,29 +12525,6 @@
   {
     "kind": "identity_merge",
     "category": "psu",
-    "product_id": "model:psu:11-dark-power-pro-750w",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:76016",
-        "vendor": "1pc",
-        "vendor_sku": "BN252",
-        "title": "ספק כוח be quiet! DARK POWER PRO 11 750W מק\"ט BN252",
-        "price": 977
-      },
-      {
-        "listing_key": "tms:BN252",
-        "vendor": "tms",
-        "vendor_sku": "BN252",
-        "title": "ספק כוח be quiet! DARK POWER PRO 11 750W",
-        "price": 649
-      }
-    ],
-    "model_code": "11-dark-power-pro"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "psu",
     "product_id": "model:psu:11-dark-power-pro-850w",
     "vendor": "",
     "offers": [
@@ -10627,6 +12571,29 @@
   {
     "kind": "identity_merge",
     "category": "psu",
+    "product_id": "model:psu:12-dark-power-pro-1500w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:BN312",
+        "vendor": "tms",
+        "vendor_sku": "BN312",
+        "title": "be quiet! PSU 1500W DARK POWER PRO 12",
+        "price": 1787
+      },
+      {
+        "listing_key": "1pc:90730",
+        "vendor": "1pc",
+        "vendor_sku": "90730",
+        "title": "ספק כוח be quiet! DARK POWER PRO 12 1500W צבע שחור",
+        "price": 2063
+      }
+    ],
+    "model_code": "12-dark-power-pro"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
     "product_id": "model:psu:120-atom-g650-modular-semi-650w-semi-black",
     "vendor": "",
     "offers": [
@@ -10646,6 +12613,52 @@
       }
     ],
     "model_code": "120-atom-g650-modular-semi"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:1650r-titanium-zeus-1650w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SST-ZU1650R-TM",
+        "vendor": "tms",
+        "vendor_sku": "SST-ZU1650R-TM",
+        "title": "ספק כוח SilverStone ZEUS 1650R 1650W 80+ Titanium",
+        "price": 2058
+      },
+      {
+        "listing_key": "1pc:203977",
+        "vendor": "1pc",
+        "vendor_sku": "203977",
+        "title": "ספק כוח SilverStone ZEUS 1650R 1650W 80+ Titanium",
+        "price": 1987
+      }
+    ],
+    "model_code": "1650r-titanium-zeus"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:2050-hela-2050w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SST-HA2050-PT",
+        "vendor": "tms",
+        "vendor_sku": "SST-HA2050-PT",
+        "title": "SilverStone PSU 2050W HELA 2050 Platinum",
+        "price": 2325
+      },
+      {
+        "listing_key": "1pc:109903",
+        "vendor": "1pc",
+        "vendor_sku": "109903",
+        "title": "ספק כוח SilverStone HELA 2050 Platinum צבע כסף",
+        "price": 2363
+      }
+    ],
+    "model_code": "2050-hela"
   },
   {
     "kind": "identity_merge",
@@ -10723,6 +12736,29 @@
     ]
   },
   {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:900a-gemini-redundant-900w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SST-GM900A-GF",
+        "vendor": "tms",
+        "vendor_sku": "SST-GM900A-GF",
+        "title": "ספק כוח SilverStone Gemini 900A 900W Redundant Gold",
+        "price": 3624
+      },
+      {
+        "listing_key": "1pc:203974",
+        "vendor": "1pc",
+        "vendor_sku": "203974",
+        "title": "ספק כוח SilverStone Gemini 900A 900W Redundant Gold",
+        "price": 3375
+      }
+    ],
+    "model_code": "900a-gemini-redundant"
+  },
+  {
     "kind": "variant_conflict",
     "category": "psu",
     "product_id": "model:psu:a750bn-mag-pcie5-750w",
@@ -10755,6 +12791,29 @@
     ],
     "model_code": "a750bn-mag-pcie5",
     "manufacturer_pn": []
+  },
+  {
+    "kind": "identity_merge",
+    "category": "psu",
+    "product_id": "model:psu:da1650-1650w",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:SST-DA1650-G",
+        "vendor": "tms",
+        "vendor_sku": "SST-DA1650-G",
+        "title": "SilverStone PSU 1650W DA1650 80+ Gold",
+        "price": 1528
+      },
+      {
+        "listing_key": "1pc:106314",
+        "vendor": "1pc",
+        "vendor_sku": "106314",
+        "title": "ספק כוח SilverStone DA1650 1650W צבע שחור",
+        "price": 1558
+      }
+    ],
+    "model_code": "da1650"
   },
   {
     "kind": "variant_conflict",
@@ -11165,7 +13224,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן SSD Crucial T710 2TB NVMe M.2 PCIe Gen5 בצבע שחור CT2000T710SSD8",
-        "price": 1598
+        "price": 1607
       },
       {
         "listing_key": "ivory:173788",
@@ -11387,7 +13446,7 @@
         "vendor": "1pc",
         "vendor_sku": "152798",
         "title": "כונן VERBATIM Vi550 S3 2.5\" SSD 1TB",
-        "price": 1002
+        "price": 1008
       },
       {
         "listing_key": "ksp:281494",
@@ -11417,7 +13476,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD3",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2",
-        "price": 2938
+        "price": 3072
       },
       {
         "listing_key": "tms:CT4000T705SSD3",
@@ -11443,7 +13502,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD5",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2 עם גוף קירור",
-        "price": 2422
+        "price": 2436
       },
       {
         "listing_key": "tms:CT4000T705SSD5",
@@ -11629,7 +13688,7 @@
         "vendor": "1pc",
         "vendor_sku": "C265KT",
         "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
-        "price": 1968
+        "price": 2056
       },
       {
         "listing_key": "tms:C265KT",
@@ -11686,36 +13745,6 @@
       }
     ],
     "model_code": "360-ultra"
-  },
-  {
-    "kind": "split_candidate",
-    "category": "gpu",
-    "product_id": "model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221469",
-        "vendor": "1pc",
-        "vendor_sku": "221469",
-        "title": "PNY RTX 5060Ti 8GB OC Dual Fan",
-        "price": 2479
-      },
-      {
-        "listing_key": "yahav:11053",
-        "vendor": "yahav",
-        "vendor_sku": "VCG5060T8DFXPB1-O-PC",
-        "title": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
-        "price": 2400
-      },
-      {
-        "listing_key": "tms:VCG5060T8DFXPB1-O",
-        "vendor": "tms",
-        "vendor_sku": "VCG5060T8DFXPB1-O",
-        "title": "PNY RTX 5060 Ti 8GB OC Dual Fan",
-        "price": 2396
-      }
-    ],
-    "model_code": "1xhdmi-3xdp-5060ti-8gb-dual-fan-gddr7-geforce-oc-rtx"
   },
   {
     "kind": "split_candidate",
@@ -11971,7 +14000,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000589",
         "title": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
-        "price": 1572
+        "price": 1643
       }
     ],
     "model_code": "7900x",
@@ -11995,7 +14024,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000597",
         "title": "מעבד AMD Ryzen 5 7500F AM5 Tray",
-        "price": 643
+        "price": 670
       },
       {
         "listing_key": "yahav:10325",
@@ -12033,7 +14062,7 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000651",
         "title": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
-        "price": 1760
+        "price": 1840
       }
     ],
     "model_code": "5800x3d",
@@ -12218,6 +14247,54 @@
     "merged_from": "model:cpu:9500f-tray"
   },
   {
+    "kind": "split_candidate",
+    "category": "cpu",
+    "product_id": "model:cpu:4564p",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000001476",
+        "vendor": "tms",
+        "vendor_sku": "100-000001476",
+        "title": "AMD EPYC 4564P 16-Core (32-Threads)",
+        "price": 4030
+      }
+    ],
+    "model_code": "4564p"
+  },
+  {
+    "kind": "split_candidate",
+    "category": "cpu",
+    "product_id": "model:cpu:9655p",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000001522",
+        "vendor": "tms",
+        "vendor_sku": "100-000001522",
+        "title": "AMD EPYC 9655P 96-Core (192-Threads)",
+        "price": 21344
+      }
+    ],
+    "model_code": "9655p"
+  },
+  {
+    "kind": "split_candidate",
+    "category": "cpu",
+    "product_id": "model:cpu:9575f",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "tms:100-000001554",
+        "vendor": "tms",
+        "vendor_sku": "100-000001554",
+        "title": "AMD EPYC 9575F 64-core (128-VC) Tray",
+        "price": 22215
+      }
+    ],
+    "model_code": "9575f"
+  },
+  {
     "kind": "identity_merge",
     "category": "cpu",
     "product_id": "model:cpu:ryzen78700f-tray",
@@ -12280,14 +14357,14 @@
         "vendor": "1pc",
         "vendor_sku": "C12700FB",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1362
+        "price": 1425
       },
       {
         "listing_key": "1pc:116096",
         "vendor": "1pc",
         "vendor_sku": "C12700FT",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1374
+        "price": 1437
       },
       {
         "listing_key": "ivory:43099",
@@ -12299,6 +14376,29 @@
     ],
     "model_code": "12700f",
     "merged_from": "model:cpu:12700f"
+  },
+  {
+    "kind": "split_candidate",
+    "category": "gpu",
+    "product_id": "model:gpu:5060-dual-fan-oc-rtx-ti-16gb",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "yahav:11053",
+        "vendor": "yahav",
+        "vendor_sku": "VCG5060T8DFXPB1-O-PC",
+        "title": "כרטיס מסך חברת PNY דגם Dual Fan OC Geforce RTX 5060Ti 8GB GDDR7 1xHDMI 3xDP - מבצע ברכישת מחשב שלם בלבד",
+        "price": 2400
+      },
+      {
+        "listing_key": "tms:VCG5060T8DFXPB1-O",
+        "vendor": "tms",
+        "vendor_sku": "VCG5060T8DFXPB1-O",
+        "title": "PNY RTX 5060 Ti 8GB OC Dual Fan",
+        "price": 2396
+      }
+    ],
+    "model_code": "1xhdmi-3xdp-5060ti-8gb-dual-fan-gddr7-geforce-oc-rtx"
   },
   {
     "kind": "split_candidate",
@@ -12327,14 +14427,14 @@
         "vendor": "1pc",
         "vendor_sku": "C10105FT",
         "title": "מעבד Intel Core i3 10105F צבע טרי",
-        "price": 258
+        "price": 269
       },
       {
         "listing_key": "1pc:104846",
         "vendor": "1pc",
         "vendor_sku": "C10105FB",
         "title": "מעבד Intel Core i3 10105F צבע אריזת קופסה",
-        "price": 249
+        "price": 260
       }
     ],
     "model_code": "10105f",
@@ -12384,7 +14484,7 @@
         "vendor": "1pc",
         "vendor_sku": "C245KT",
         "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
-        "price": 940
+        "price": 984
       }
     ],
     "model_code": "245k",
@@ -12409,7 +14509,7 @@
         "vendor": "1pc",
         "vendor_sku": "C245KFT",
         "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
-        "price": 892
+        "price": 932
       }
     ],
     "model_code": "245kf",
@@ -12434,7 +14534,7 @@
         "vendor": "1pc",
         "vendor_sku": "C265KT",
         "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
-        "price": 1968
+        "price": 2056
       }
     ],
     "model_code": "265k",
@@ -12502,14 +14602,14 @@
         "vendor": "1pc",
         "vendor_sku": "100-000000651",
         "title": "מעבד AMD Ryzen 7 5800X3D AM4 Tray",
-        "price": 1760
+        "price": 1840
       },
       {
         "listing_key": "1pc:164657",
         "vendor": "1pc",
         "vendor_sku": "100-100000651WOF",
         "title": "מעבד AMD Ryzen 7 5800X3D AM4 Box",
-        "price": 1823
+        "price": 1905
       }
     ],
     "model_code": "5800x3d",
@@ -12527,14 +14627,14 @@
         "vendor": "1pc",
         "vendor_sku": "100-100000589WOF",
         "title": "מעבד AMD Ryzen 9 7900X AM5 צבע שחור",
-        "price": 1608
+        "price": 1680
       },
       {
         "listing_key": "1pc:127416",
         "vendor": "1pc",
         "vendor_sku": "100-000000589",
         "title": "מעבד AMD Ryzen 9 7900X AM5 צבע טרי",
-        "price": 1572
+        "price": 1643
       }
     ],
     "model_code": "7900x",
@@ -13702,7 +15802,7 @@
         "vendor": "1pc",
         "vendor_sku": "C6700T",
         "title": "מעבד Intel Core i7 6700 צבע ללא",
-        "price": 1258
+        "price": 1316
       }
     ],
     "model_code": "6700",
@@ -13723,7 +15823,7 @@
         "vendor": "1pc",
         "vendor_sku": "A10-9700T",
         "title": "מעבד AMD A10-9700T AM4 צבע שטוח",
-        "price": 101
+        "price": 106
       }
     ],
     "model_code": "9700t",
@@ -13744,7 +15844,7 @@
         "vendor": "1pc",
         "vendor_sku": "C9100TT",
         "title": "מעבד Intel Core i3 9100T צבע שחור",
-        "price": 312
+        "price": 325
       }
     ],
     "model_code": "9100t",
@@ -13765,7 +15865,7 @@
         "vendor": "1pc",
         "vendor_sku": "C12900KT",
         "title": "מעבד Intel Core i9 12900K צבע שחור",
-        "price": 1702
+        "price": 1779
       }
     ],
     "model_code": "12900k",
@@ -13786,7 +15886,7 @@
         "vendor": "1pc",
         "vendor_sku": "C12900KFT",
         "title": "מעבד Intel Core i9 12900KF צבע שחור",
-        "price": 1613
+        "price": 1685
       }
     ],
     "model_code": "12900kf",
@@ -13807,7 +15907,7 @@
         "vendor": "1pc",
         "vendor_sku": "C3240T-P",
         "title": "מעבד Intel Core i3 3240T צבע שחור",
-        "price": 211
+        "price": 220
       }
     ],
     "model_code": "3240t",
@@ -13828,7 +15928,7 @@
         "vendor": "1pc",
         "vendor_sku": "C4170T-P",
         "title": "מעבד Intel Core i3 4170 צבע שחור",
-        "price": 250
+        "price": 259
       }
     ],
     "model_code": "4170",
@@ -13849,7 +15949,7 @@
         "vendor": "1pc",
         "vendor_sku": "C7400T-P",
         "title": "מעבד Intel Core i5 7400 בצבע כסף",
-        "price": 437
+        "price": 457
       }
     ],
     "model_code": "7400",
@@ -13870,7 +15970,7 @@
         "vendor": "1pc",
         "vendor_sku": "C6700TT",
         "title": "מעבד Intel Core i7 6700T 35W צבע כסף",
-        "price": 595
+        "price": 620
       }
     ],
     "model_code": "6700t",
@@ -13891,7 +15991,7 @@
         "vendor": "1pc",
         "vendor_sku": "C13700KT",
         "title": "מעבד אינטל Core i7 13700K צבע כסף",
-        "price": 1498
+        "price": 1567
       }
     ],
     "model_code": "13700k",
@@ -13912,7 +16012,7 @@
         "vendor": "1pc",
         "vendor_sku": "C265KT",
         "title": "מעבד Intel Core Ultra 7 265K בתושבת 1851",
-        "price": 1968
+        "price": 2056
       }
     ],
     "model_code": "265k",
@@ -13933,7 +16033,7 @@
         "vendor": "1pc",
         "vendor_sku": "G4400T",
         "title": "מעבד Intel Pentium Dual Core G4400 צבע שחור",
-        "price": 214
+        "price": 225
       }
     ],
     "model_code": "g4400",
@@ -13954,7 +16054,7 @@
         "vendor": "1pc",
         "vendor_sku": "C7100T",
         "title": "מעבד Intel Core i3 7100 צבע כסף",
-        "price": 309
+        "price": 322
       }
     ],
     "model_code": "7100",
@@ -13975,7 +16075,7 @@
         "vendor": "1pc",
         "vendor_sku": "C9700FT",
         "title": "מעבד Intel Core i7 9700F צבע כסף",
-        "price": 698
+        "price": 728
       }
     ],
     "model_code": "9700f",
@@ -13996,7 +16096,7 @@
         "vendor": "1pc",
         "vendor_sku": "C10700KB-A",
         "title": "מעבד Intel Core i7 10700K צבע Avengers Edition",
-        "price": 988
+        "price": 1032
       }
     ],
     "model_code": "10700k",
@@ -14101,7 +16201,7 @@
         "vendor": "1pc",
         "vendor_sku": "C245KT",
         "title": "מעבד Intel Core Ultra 5 245K בתושבת 1851",
-        "price": 940
+        "price": 984
       }
     ],
     "model_code": "245k",
@@ -14122,7 +16222,7 @@
         "vendor": "1pc",
         "vendor_sku": "C245KFT",
         "title": "מעבד Intel Core Ultra 5 245KF תושבת 1851",
-        "price": 892
+        "price": 932
       }
     ],
     "model_code": "245kf",
@@ -14185,7 +16285,7 @@
         "vendor": "1pc",
         "vendor_sku": "C3470T-P",
         "title": "מעבד Intel Core i5 3470 צבע שחור",
-        "price": 252
+        "price": 263
       }
     ],
     "model_code": "3470",
@@ -14282,6 +16382,27 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:4564p",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208483",
+        "vendor": "1pc",
+        "vendor_sku": "208483",
+        "title": "מעבד AMD EPYC™ 4564P – 16 ליבות ו-32 תהליכים, ארכיטקטורת Zen 4 Raphael, תושבת AM5",
+        "price": 4046
+      }
+    ],
+    "model_code": "4564p",
+    "resolved": false,
+    "reason": "1pc:208483: no packaging stated: Box by default",
+    "packaging_basis": {
+      "1pc:208483": "default"
+    }
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:5215",
     "vendor": "",
     "offers": [
@@ -14370,6 +16491,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:208480",
+        "vendor": "1pc",
+        "vendor_sku": "208480",
+        "title": "מעבד AMD EPYC™ 7302 לתצורת שרתים – Socket SP3",
+        "price": 2703
+      },
+      {
         "listing_key": "tms:EP7302",
         "vendor": "tms",
         "vendor_sku": "EP7302",
@@ -14379,8 +16507,9 @@
     ],
     "model_code": "7302",
     "resolved": false,
-    "reason": "tms:EP7302: no packaging stated: Box by default",
+    "reason": "1pc:208480: no packaging stated: Box by default; tms:EP7302: no packaging stated: Box by default",
     "packaging_basis": {
+      "1pc:208480": "default",
       "tms:EP7302": "default"
     }
   },
@@ -14412,6 +16541,13 @@
     "vendor": "",
     "offers": [
       {
+        "listing_key": "1pc:208481",
+        "vendor": "1pc",
+        "vendor_sku": "208481",
+        "title": "מעבד AMD EPYC™ 7402P לתצורת שרתים – 24 ליבות ו-48 תהליכים, תושבת SP3",
+        "price": 3598
+      },
+      {
         "listing_key": "tms:EP7402P",
         "vendor": "tms",
         "vendor_sku": "EP7402P",
@@ -14421,8 +16557,9 @@
     ],
     "model_code": "7402p",
     "resolved": false,
-    "reason": "tms:EP7402P: no packaging stated: Box by default",
+    "reason": "1pc:208481: no packaging stated: Box by default; tms:EP7402P: no packaging stated: Box by default",
     "packaging_basis": {
+      "1pc:208481": "default",
       "tms:EP7402P": "default"
     }
   },
@@ -14492,6 +16629,48 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:9575f",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208482",
+        "vendor": "1pc",
+        "vendor_sku": "208482",
+        "title": "מעבד AMD EPYC™ 9575F – 64 ליבות ו-128 תהליכים, ארכיטקטורת Zen 5 Turin, תושבת SP5",
+        "price": 22855
+      }
+    ],
+    "model_code": "9575f",
+    "resolved": false,
+    "reason": "1pc:208482: no packaging stated: Box by default",
+    "packaging_basis": {
+      "1pc:208482": "default"
+    }
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:9655p",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:208484",
+        "vendor": "1pc",
+        "vendor_sku": "208484",
+        "title": "מעבד AMD EPYC™ 9655P – 96 ליבות ו-192 תהליכים, ארכיטקטורת Zen 5 Turin, תושבת SP5",
+        "price": 21958
+      }
+    ],
+    "model_code": "9655p",
+    "resolved": false,
+    "reason": "1pc:208484: no packaging stated: Box by default",
+    "packaging_basis": {
+      "1pc:208484": "default"
+    }
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:corei514600k-tray",
     "vendor": "",
     "offers": [
@@ -14500,7 +16679,7 @@
         "vendor": "1pc",
         "vendor_sku": "C14600KT",
         "title": "מעבד Intel Core i5 14600K / 1700 Tray",
-        "price": 1188
+        "price": 1155
       }
     ],
     "model_code": "14600k",
@@ -14521,14 +16700,14 @@
         "vendor": "1pc",
         "vendor_sku": "C12700FB",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1362
+        "price": 1425
       },
       {
         "listing_key": "1pc:116096",
         "vendor": "1pc",
         "vendor_sku": "C12700FT",
         "title": "מעבד Intel Core i7 12700F צבע שחור",
-        "price": 1374
+        "price": 1437
       }
     ],
     "model_code": "12700f",
@@ -14580,49 +16759,6 @@
     "packaging_basis": {
       "tms:EP9654": "default"
     }
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "memory:ksp:ksp-480430",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ksp:480430",
-        "vendor": "ksp",
-        "vendor_sku": "480430",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2490
-      }
-    ],
-    "model_code": "2x16gb-6000mt-cl30-s-vengeance",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "memory",
-    "product_id": "model:memory:2x16gb-6000mt-cl30-s-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:167956",
-        "vendor": "1pc",
-        "vendor_sku": "CMH32GX5M2B6000C30W",
-        "title": "זיכרון Corsair DDR5 32GB (2x16G) 6000 CL30 Vengeance RGB White CMH32GX5M2B6000C30W",
-        "price": 2547
-      },
-      {
-        "listing_key": "ksp:493649",
-        "vendor": "ksp",
-        "vendor_sku": "493649",
-        "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
-        "price": 2360
-      }
-    ],
-    "model_code": "2x16g-32gb-6000-cl30-cmh32gx5m2b6000c30w-ddr5-rgb-vengeance-white",
-    "manufacturer_pn": [
-      "CMH32GX5M2B6000C30W"
-    ]
   },
   {
     "kind": "variant_conflict",
@@ -15164,7 +17300,7 @@
         "vendor": "1pc",
         "vendor_sku": "CW-9060095-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB בצבע לבן",
-        "price": 523
+        "price": 612
       },
       {
         "listing_key": "1pc:221795",
@@ -16649,7 +18785,7 @@
         "vendor": "1pc",
         "vendor_sku": "CO-9050180-WW",
         "title": "מאוורר Corsair RS120 ARGB PWM 120mm בצבע שחור",
-        "price": 107
+        "price": 141
       },
       {
         "listing_key": "tms:CO-9050180-WW",
@@ -16669,32 +18805,6 @@
     "model_code": "fan-pwm-rs120",
     "manufacturer_pn": [
       "CO9050180WW"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:led-pwm-rs120-support-120mm-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:172718",
-        "vendor": "1pc",
-        "vendor_sku": "CO-9050184-WW",
-        "title": "מאוורר Corsair RS120 ARGB PWM 120mm בצבע לבן",
-        "price": 99
-      },
-      {
-        "listing_key": "yahav:10103",
-        "vendor": "yahav",
-        "vendor_sku": "CO-9050184-WW",
-        "title": "מאוורר חברת Corsair דגם RS120 RGB LED with PWM support White 120MM - צבע לבן",
-        "price": 85
-      }
-    ],
-    "model_code": "led-pwm-rs120-support",
-    "manufacturer_pn": [
-      "CO9050184WW"
     ]
   },
   {
@@ -17112,7 +19222,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-016",
         "title": "מאוורר HAVN H12 120mm בצבע שחור",
-        "price": 70
+        "price": 77
       },
       {
         "listing_key": "tms:PGW-AC-HVN-016",
@@ -17138,7 +19248,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-023",
         "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע שחור",
-        "price": 155
+        "price": 171
       },
       {
         "listing_key": "tms:PGW-AC-HVN-023",
@@ -17164,7 +19274,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-022",
         "title": "מאווררי HAVN H12 Triple Pack 120mm בצבע לבן",
-        "price": 155
+        "price": 171
       },
       {
         "listing_key": "tms:PGW-AC-HVN-022",
@@ -17190,7 +19300,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-015",
         "title": "מאוורר HAVN H12 120mm בצבע לבן",
-        "price": 70
+        "price": 77
       },
       {
         "listing_key": "tms:PGW-AC-HVN-015",
@@ -17216,7 +19326,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-018",
         "title": "מאוורר HAVN H14 140mm בצבע שחור",
-        "price": 79
+        "price": 86
       },
       {
         "listing_key": "tms:PGW-AC-HVN-018",
@@ -17242,7 +19352,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-024",
         "title": "מאווררי HAVN H14 Triple Pack 140mm בצבע לבן",
-        "price": 214
+        "price": 238
       },
       {
         "listing_key": "tms:PGW-AC-HVN-024",
@@ -17268,7 +19378,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-017",
         "title": "מאוורר HAVN H14 140 מ\"מ בצבע לבן",
-        "price": 79
+        "price": 86
       },
       {
         "listing_key": "tms:PGW-AC-HVN-017",
@@ -17294,7 +19404,7 @@
         "vendor": "1pc",
         "vendor_sku": "PGW-AC-HVN-025",
         "title": "מאווררי HAVN H14 שחור חבילה של 3 בגודל 140 מ\"מ",
-        "price": 172
+        "price": 190
       },
       {
         "listing_key": "tms:PGW-AC-HVN-025",
@@ -17320,7 +19430,7 @@
         "vendor": "1pc",
         "vendor_sku": "N5070EAGLEOCICE12GD",
         "title": "כרטיס מסך Gigabyte RTX 5070 EAGLE OC ICE SFF 12G GV-N5070EAGLEOC ICE-12GD",
-        "price": 4104
+        "price": 4234
       },
       {
         "listing_key": "ksp:378814",
@@ -17360,7 +19470,7 @@
         "vendor": "1pc",
         "vendor_sku": "N5070EAGLEOC12GD",
         "title": "כרטיס מסך Gigabyte RTX 5070 EAGLE OC SFF 12G GV-N5070EAGLE OC-12GD",
-        "price": 4038
+        "price": 4168
       },
       {
         "listing_key": "ksp:378818",
@@ -17400,7 +19510,7 @@
         "vendor": "1pc",
         "vendor_sku": "N507TEAGLEOCICE16GD",
         "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G",
-        "price": 5715
+        "price": 5909
       },
       {
         "listing_key": "ksp:397145",
@@ -17433,7 +19543,7 @@
         "vendor": "1pc",
         "vendor_sku": "N507TEAGLEOC16GD",
         "title": "כרטיס מסך Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G",
-        "price": 5715
+        "price": 5855
       },
       {
         "listing_key": "tms:N507TEAGLEOC16GD",
@@ -17446,65 +19556,6 @@
     "model_code": "16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti",
     "manufacturer_pn": [
       "N507TEAGLEOC16GD"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "gpu",
-    "product_id": "model:gpu:16g-16gd-5080-aorus-geforce-gv-ice-ice-master-n5080aorusm-rtx-16gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177011",
-        "vendor": "1pc",
-        "vendor_sku": "N5080AORUSMICE16GD",
-        "title": "כרטיס מסך Gigabyte AORUS GeForce RTX 5080 MASTER ICE 16G",
-        "price": 9089
-      },
-      {
-        "listing_key": "tms:N5080AORUSMICE16GD",
-        "vendor": "tms",
-        "vendor_sku": "N5080AORUSMICE16GD",
-        "title": "Gigabyte AORUS GeForce RTX 5080 MASTER ICE 16G GV-N5080AORUSM ICE-16GD",
-        "price": 9453
-      }
-    ],
-    "model_code": "16g-16gd-5080-aorus-geforce-gv-ice-ice-master-n5080aorusm-rtx",
-    "manufacturer_pn": [
-      "N5080AORUSMICE16GD"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "gpu",
-    "product_id": "model:gpu:16g-5080-aorus-geforce-master-n5080aorusm16gd-rtx-16gb",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:177010",
-        "vendor": "1pc",
-        "vendor_sku": "N5080AORUSM16GD",
-        "title": "כרטיס מסך Gigabyte AORUS GeForce RTX 5080 MASTER 16G",
-        "price": 9100
-      },
-      {
-        "listing_key": "tms:N5080AORUSM16GD",
-        "vendor": "tms",
-        "vendor_sku": "N5080AORUSM16GD",
-        "title": "Gigabyte AORUS GeForce RTX 5080 MASTER 16G N5080AORUSM16GD",
-        "price": 9453
-      },
-      {
-        "listing_key": "yahav:10627",
-        "vendor": "yahav",
-        "vendor_sku": "GV-N5080AORUS-M-16GD",
-        "title": "כרטיס מסך חברת Gigabyte דגם Aorus Master GeForce RTX 5080 16GB GDDR7 3XDP HDMI",
-        "price": 8590
-      }
-    ],
-    "model_code": "16g-5080-aorus-geforce-master-n5080aorusm16gd-rtx",
-    "manufacturer_pn": [
-      "N5080AORUSM16GD"
     ]
   },
   {
@@ -17762,9 +19813,68 @@
   {
     "kind": "variant_conflict",
     "category": "motherboard",
-    "product_id": "model:motherboard:7-am5-aorus-b850-dp-elite-ice-wifi-atx",
+    "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
     "vendor": "",
     "offers": [
+      {
+        "listing_key": "1pc:195919",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1M00-M0EAY0",
+        "title": "לוח אם ASUS B650E MAX GAMING WIFI AM5",
+        "price": 1046
+      },
+      {
+        "listing_key": "tms:90MB1M00-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1M00-M0EAY0",
+        "title": "Asus B650E MAX GAMING WiFi W",
+        "price": 983
+      }
+    ],
+    "model_code": "am5-b650e-gaming-max-wifi",
+    "manufacturer_pn": [
+      "90MB1M00M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:b650e-gaming-max-wifi-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:189473",
+        "vendor": "1pc",
+        "vendor_sku": "90MB1LD0-M0EAY0",
+        "title": "לוח אם Asus B650E MAX GAMING WIFI",
+        "price": 957
+      },
+      {
+        "listing_key": "tms:90MB1LD0-M0EAY0",
+        "vendor": "tms",
+        "vendor_sku": "90MB1LD0-M0EAY0",
+        "title": "Asus B650E MAX GAMING WIFI",
+        "price": 898
+      }
+    ],
+    "model_code": "b650e-gaming-max-wifi",
+    "manufacturer_pn": [
+      "90MB1LD0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:aorus-b850-elite-ice-wifi7-atx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:177646",
+        "vendor": "1pc",
+        "vendor_sku": "GB850AORUSELITEWF7ICE",
+        "title": "לוח אם Gigabyte B850 AORUS ELITE WIFI7 ICE",
+        "price": 1091
+      },
       {
         "listing_key": "tms:GB850AORUSELITEWF7ICE",
         "vendor": "tms",
@@ -17823,58 +19933,6 @@
     "model_code": "7-am5-aorus-b850-dp-elite-wifi",
     "manufacturer_pn": [
       "GB850AORUSELITEWIFI7"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:am5-b650e-gaming-max-wifi-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:195919",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1M00-M0EAY0",
-        "title": "לוח אם ASUS B650E MAX GAMING WIFI AM5",
-        "price": 1046
-      },
-      {
-        "listing_key": "tms:90MB1M00-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1M00-M0EAY0",
-        "title": "Asus B650E MAX GAMING WiFi W",
-        "price": 983
-      }
-    ],
-    "model_code": "am5-b650e-gaming-max-wifi",
-    "manufacturer_pn": [
-      "90MB1M00M0EAY0"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "motherboard",
-    "product_id": "model:motherboard:b650e-gaming-max-wifi-atx",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:189473",
-        "vendor": "1pc",
-        "vendor_sku": "90MB1LD0-M0EAY0",
-        "title": "לוח אם Asus B650E MAX GAMING WIFI",
-        "price": 957
-      },
-      {
-        "listing_key": "tms:90MB1LD0-M0EAY0",
-        "vendor": "tms",
-        "vendor_sku": "90MB1LD0-M0EAY0",
-        "title": "Asus B650E MAX GAMING WIFI",
-        "price": 898
-      }
-    ],
-    "model_code": "b650e-gaming-max-wifi",
-    "manufacturer_pn": [
-      "90MB1LD0M0EAY0"
     ]
   },
   {
@@ -18143,7 +20201,7 @@
         "vendor": "1pc",
         "vendor_sku": "GX870EAORUSMASTERX3D",
         "title": "לוח אם Gigabyte X870E AORUS MASTER X3D",
-        "price": 2501
+        "price": 2545
       },
       {
         "listing_key": "tms:GX870EAORUSMASTERX3D",
@@ -18520,6 +20578,58 @@
     "model_code": "7-am5-b850m-gaming-tuf-wifi",
     "manufacturer_pn": [
       "90MB1MU0M0EAY0"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:challenger-ice-wifi-z890m-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:179764",
+        "vendor": "1pc",
+        "vendor_sku": "MS-CHA-Z890M-WIFI-ICE",
+        "title": "לוח אם MAXSUN Challenger Z890M WIFI ICE",
+        "price": 670
+      },
+      {
+        "listing_key": "tms:MS-CHA-Z890M-WIFI-ICE",
+        "vendor": "tms",
+        "vendor_sku": "MS-CHA-Z890M-WIFI-ICE",
+        "title": "MAXSUN Challenger Z890M WIFI ICE",
+        "price": 642
+      }
+    ],
+    "model_code": "challenger-ice-wifi-z890m",
+    "manufacturer_pn": [
+      "MSCHAZ890MWIFIICE"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "motherboard",
+    "product_id": "model:motherboard:challenger-wifi-z890m-microatx",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:179763",
+        "vendor": "1pc",
+        "vendor_sku": "MS-CHA-Z890M-WIFI",
+        "title": "לוח אם MAXSUN Challenger Z890M WIFI",
+        "price": 670
+      },
+      {
+        "listing_key": "tms:MS-CHA-Z890M-WIFI",
+        "vendor": "tms",
+        "vendor_sku": "MS-CHA-Z890M-WIFI",
+        "title": "MAXSUN Challenger Z890M WIFI",
+        "price": 642
+      }
+    ],
+    "model_code": "challenger-wifi-z890m",
+    "manufacturer_pn": [
+      "MSCHAZ890MWIFI"
     ]
   },
   {
@@ -18973,6 +21083,66 @@
       "chipset": [
         "9070",
         "9070XT"
+      ]
+    }
+  },
+  {
+    "kind": "identity_merge",
+    "category": "memory",
+    "product_id": "model:memory:2x32gb-6000-cl28-royal-trident-z5-64gb-x2-6000mhz-cl28-silver",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:201726",
+        "vendor": "1pc",
+        "vendor_sku": "201726",
+        "title": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע זהב",
+        "price": 7405
+      },
+      {
+        "listing_key": "1pc:201284",
+        "vendor": "1pc",
+        "vendor_sku": "201284",
+        "title": "זיכרון G.Skill Trident Z5 Royal DDR5 64GB (2x32GB) 6000 CL28 בצבע כסוף",
+        "price": 7495
+      }
+    ],
+    "model_code": "2x32gb-6000-cl28-royal-trident-z5",
+    "reason": "title-axis conflict: color black vs silver",
+    "axis_conflicts": {
+      "color": [
+        "black",
+        "silver"
+      ]
+    }
+  },
+  {
+    "kind": "identity_merge",
+    "category": "memory",
+    "product_id": "model:memory:2x32gb-6000-cl30-vengeance-64gb-x2-6000mhz-cl30-rgb-black-dimm",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:200056",
+        "vendor": "1pc",
+        "vendor_sku": "CMK64GX5M2B6000Z30",
+        "title": "זיכרון DDR5 Corsair Vengeance 64GB (2x32GB) 6000 CL30 בצבע שחור",
+        "price": 5117
+      },
+      {
+        "listing_key": "1pc:176971",
+        "vendor": "1pc",
+        "vendor_sku": "176971",
+        "title": "זיכרון למחשב נייח Corsair Vengeance RGB DDR5 64GB (2x32GB) 6000 CL30",
+        "price": 5927
+      }
+    ],
+    "model_code": "2x32gb-6000-cl30-vengeance",
+    "reason": "title-axis conflict: lighting lit vs none",
+    "axis_conflicts": {
+      "lighting": [
+        "lit",
+        "none"
       ]
     }
   }
