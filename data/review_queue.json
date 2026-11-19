@@ -1294,28 +1294,6 @@
   },
   {
     "kind": "duplicate_vendor",
-    "product_id": "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
-    "category": "storage",
-    "vendor": "yahav",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "yahav:11458",
-        "vendor_sku": "CT2000T710SSD8-PC",
-        "title": "כונן SSD חברת Crucial דגם T710 Series Gen 5 14,500MB/s 2TB M.2 NVMe NO Heatsink - מבצע ברכישת מחשב שלם בלבד",
-        "price": 1350,
-        "alias_of": "yahav:11457"
-      },
-      {
-        "listing_key": "yahav:11457",
-        "vendor_sku": "CT2000T710SSD8",
-        "title": "כונן SSD חברת Crucial דגם T710 Series Gen 5 14,500MB/s 2TB M.2 NVMe NO Heatsink",
-        "price": 1450
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
     "product_id": "model:storage:2-4096gb-4tb-7000mb-cache-dram-gen4-heatsink-m-nvme-series-ssd-vi7000g-4000gb-m2pcie-m2",
     "category": "storage",
     "vendor": "yahav",
@@ -1333,6 +1311,28 @@
         "vendor_sku": "11118",
         "title": "כונן SSD חברת Verbatim דגם Vi7000G Series with Heatsink and DRAM Cache Gen4 4TB 4096GB 7000MB M.2 NVMe",
         "price": 1950
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:storage:2280-5-t710-2000gb-m2pcie-m22280",
+    "category": "storage",
+    "vendor": "yahav",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "yahav:11458",
+        "vendor_sku": "CT2000T710SSD8-PC",
+        "title": "כונן SSD חברת Crucial דגם T710 Series Gen 5 14,500MB/s 2TB M.2 NVMe NO Heatsink - מבצע ברכישת מחשב שלם בלבד",
+        "price": 1390,
+        "alias_of": "yahav:11457"
+      },
+      {
+        "listing_key": "yahav:11457",
+        "vendor_sku": "CT2000T710SSD8",
+        "title": "כונן SSD חברת Crucial דגם T710 Series Gen 5 14,500MB/s 2TB M.2 NVMe NO Heatsink",
+        "price": 1450
       }
     ]
   },
@@ -7313,7 +7313,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000000597",
         "title": "מעבד חברת AMD דגם Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray",
-        "price": 690
+        "price": 610
       },
       {
         "listing_key": "ivory:126060",
@@ -10981,7 +10981,7 @@
   {
     "kind": "variant_conflict",
     "category": "storage",
-    "product_id": "model:storage:14-5-heatsink-no-s-series-t710-2000gb-m2pcie-m22280",
+    "product_id": "model:storage:2280-5-t710-2000gb-m2pcie-m22280",
     "vendor": "",
     "offers": [
       {
@@ -11017,10 +11017,10 @@
         "vendor": "yahav",
         "vendor_sku": "CT2000T710SSD8-PC",
         "title": "כונן SSD חברת Crucial דגם T710 Series Gen 5 14,500MB/s 2TB M.2 NVMe NO Heatsink - מבצע ברכישת מחשב שלם בלבד",
-        "price": 1350
+        "price": 1390
       }
     ],
-    "model_code": "14-5-heatsink-no-s-series-t710",
+    "model_code": "2280-5-t710",
     "manufacturer_pn": [
       "CT2000T710SSD8"
     ]
@@ -11028,7 +11028,7 @@
   {
     "kind": "variant_conflict",
     "category": "storage",
-    "product_id": "model:storage:14-5-heatsink-no-s-series-t710-2000gb-nvme-m22280",
+    "product_id": "model:storage:2280-5-t710-2000gb-pciegen50-m22280",
     "vendor": "",
     "offers": [
       {
@@ -11039,7 +11039,7 @@
         "price": 1699
       }
     ],
-    "model_code": "14-5-heatsink-no-s-series-t710",
+    "model_code": "2280-5-t710",
     "manufacturer_pn": [
       "CT2000T710SSD5"
     ]
@@ -11826,7 +11826,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000000597",
         "title": "מעבד חברת AMD דגם Ryzen 5 7500F Boost 5Ghz 32MB Cache AM5 Tray",
-        "price": 690
+        "price": 610
       },
       {
         "listing_key": "ivory:126060",
@@ -12518,31 +12518,6 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
-    "product_id": "model:cpu:270k-tray",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:161242",
-        "vendor": "ivory",
-        "vendor_sku": "ULTRA-7-270K",
-        "title": "מעבד Intel Core Ultra 7 270K Plus | מהירות עד 5.50GHz | זיכרון מטמון 36MB | גרסת Tray ללא קירור",
-        "price": 1490
-      },
-      {
-        "listing_key": "ivory:161245",
-        "vendor": "ivory",
-        "vendor_sku": "ULTRA-7-270KB",
-        "title": "מעבד Intel Core Ultra 7 270K Plus | מהירות עד 5.50GHz | זיכרון מטמון 36MB | אריזת Box",
-        "price": 1469
-      }
-    ],
-    "model_code": "270k",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
     "product_id": "model:cpu:285k-tray",
     "vendor": "ivory",
     "offers": [
@@ -13226,7 +13201,7 @@
         "vendor": "yahav",
         "vendor_sku": "CM8071505093011",
         "title": "מעבד חברת Intel דגם Raptor Lake 14th Gen LGA1700 Core i5 14400F Turbo 4.7Ghz 20MB Cache TRAY",
-        "price": 750
+        "price": 600
       },
       {
         "listing_key": "yahav:8958",
@@ -18784,7 +18759,7 @@
   {
     "kind": "identity_merge",
     "category": "gpu",
-    "product_id": "model:gpu:9070-gddr6-oc-prime-radeon-rx-xt-16gb",
+    "product_id": "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb",
     "vendor": "",
     "offers": [
       {
@@ -18816,7 +18791,7 @@
         "price": 4397
       }
     ],
-    "model_code": "9070-gddr6-oc-prime-radeon-rx",
+    "model_code": "16gb-9070-gddr6-oc-prime-radeon-rx-xt",
     "reason": "title-axis conflict: chipset 9070 vs 9070XT",
     "axis_conflicts": {
       "chipset": [
