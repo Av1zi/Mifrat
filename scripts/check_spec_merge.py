@@ -495,13 +495,29 @@ def check_model_codes(c: Checks) -> None:
          ["X"], "offers disagreeing on the code add nothing")
 
 
+def check_yahav_bundle_title(c: Checks) -> None:
+    """A literal whole-PC-only Yahav title is a condition, even without -PC."""
+    from scraper.matching import enrich_listing
+
+    for vendor, title, sku, want in (
+        ("yahav", "Kingston FURY Beast RGB DDR5 64GB - ברכישה עם 3 רכיבים נוספים\\מחשב שלם בלבד", "KF560C30BBEA-32X2", True),
+        ("yahav", "Kingston FURY Beast RGB DDR5 64GB מתאים למחשב שלם", "KF560C30BBEA-32X2", False),
+        ("tms", "Kingston FURY Beast RGB DDR5 64GB ברכישת מחשב שלם", "KF560C30BBEA-32X2", False),
+    ):
+        row = enrich_listing({"vendor_id": vendor, "vendor_sku": sku,
+                              "title_raw": title, "category_guess": "memory",
+                              "price_ils": 4790})
+        c.eq(row.get("bundle_only"), want, f"whole-PC-only title: {vendor} {title}")
+        c.eq(row.get("price_ils"), 4790, "bundle flag never invents a regular price")
+
+
 def main() -> int:
     checks = Checks()
     for group in (check_part_number_shape, check_model_prefers_a_name,
                   check_tier_order, check_title_witness, check_applicability_gates,
                   check_validation_and_unknowns,
                   check_curated_tables, check_equality_helpers,
-                  check_model_codes):
+                  check_model_codes, check_yahav_bundle_title):
         group(checks)
 
     if checks.failures:

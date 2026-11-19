@@ -67,6 +67,8 @@ LISTINGS = [
     ("cpu_cooling", "קירור למעבד COOLER MASTER ELW-D36M-A21DA-R1", "aio"),
     ("case_fans", "ערכת מאווררים Corsair iCUE LINK RX360 II Unified Frame RGB PWM CO-9051059-WW", "case_fan"),
     ("case_fans", "יחידת מאווררים Corsair iCUE LINK RX360 II Unified Frame RGB PWM Expansion", "case_fan"),
+    ("case fans", "מערכת מאווררים Corsair RS360 II ARGB Unified Frame PWM שחורה", "case_fan"),
+    ("accessories", "מערכת מאווררים Corsair RS360 II ARGB Unified Frame PWM לבנה", "case_fan"),
     ("case", "זכוכית למארז חברת Antec מותאמת לדגם Antec NX410 RGB Tempered Glass Only צבע שחור - פאנל זכוכית בלבד", "accessories"),
     ("case", "פאנל זכוכית צד שמאל למארז חברת Antec מותאמת לדגם Performance 1 FT צבע שחור - פאנל בלבד", "accessories"),
     ("case:bundle-only", "Supermicro SYS-420GP-TNR GPU Barebone", "other"),
@@ -173,7 +175,7 @@ _IS_A_WORDS = [
     ("server", r"\bbarebone\b|superserver|\bSYS-\d", {"case", "motherboard"}),
     ("controller", r"lighting\s+node|לייטינג\s+נוד|\bcontroller\b|בקר", {"case_fan"}),
     ("water_word", r"קירור\s+מים|קירור\s+נוזלי|\bliquid\b|\baio\b", {"other", "cooler_air", "accessories"}),
-    ("fan_kit", r"ערכת\s+מאווררים|יחידת\s+מאווררים|\bfan\s+kit\b", {"accessories"}),
+    ("fan_kit", r"(?:ערכת|יחידת|מערכת)\s+מאווררים|\bfan\s+kit\b", {"accessories"}),
 ]
 _SKIP_WHEN_FAN = {"controller", "kit_no_fan", "bracket"}
 

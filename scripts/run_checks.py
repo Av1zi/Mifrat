@@ -173,6 +173,8 @@ CHECKS: list[Check] = [
           py("scripts/check_categories.py", "--self-test"), BOTH),
     Check("identity_fixtures", CODE, "Identity reader fixtures",
           py("scripts/check_identity_merge.py", "--self-test"), BOTH),
+    Check("identity_connectivity", CODE, "Identity evidence survives variant splits",
+          py("scripts/check_identity_connectivity.py"), BOTH),
     Check("brands_selftest", CODE, "Brand rules self-test", py("scripts/check_brands.py", "--self-test"), BOTH),
     Check("snapshot_rows_selftest", CODE, "Repeated snapshot rows self-test",
           py("scripts/check_snapshot_rows.py", "--self-test"), BOTH),

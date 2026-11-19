@@ -126,6 +126,22 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
 
 ## Gates
 
+### Addressing open check warnings
+
+Read the full detail in `data/ops/checks.json`, then reproduce it using the
+named check under `scripts/`. Fix the source rule or the affected data,
+not the check level, budget or alert state. A quality warning does not stop
+other vendors' fresh prices from publishing.
+
+For historical QA dismissals whose cases no longer exist, the ledger is
+human-owned: obtain owner approval before cleanup. Normalize first, then
+preview `python scripts/clean_qa_dismissals.py`. With approval, apply using
+`--apply --archive <new-json-path>`; the archive is written before any
+decision is removed. Current cases (including dismissed ones), pid aliases,
+fuzzy decisions and inactive entries are preserved. Re-run normalize and
+`scripts/check_ledgers.py` afterwards. Never bulk-dismiss current cases to
+clear an operations warning.
+
 `python scripts/check_ops_report.py --self-test` (lifecycle rules,
 mutation-checked), `python scripts/check_ops_report.py` (file budgets,
 one run), `bash scripts/check_ops_notify.sh` (Nano notifier, stubbed),

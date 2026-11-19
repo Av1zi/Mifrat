@@ -639,7 +639,7 @@ def _hebrew_category_hint(title_raw: str) -> str | None:
 _IS_A_RULES: tuple[tuple[re.Pattern, str], ...] = (
     (re.compile(r"(?:פאנל|זכוכית)[^|]{0,40}?בלבד(?!\s*ב?צד)|\b(?:glass|panel)\s+only\b", re.I),
      "case_accessory"),
-    (re.compile(r"^\s*(?:ערכת|יחידת)\s+מאווררים"), "case_fan"),
+    (re.compile(r"^\s*(?:ערכת|יחידת|מערכת)\s+מאווררים"), "case_fan"),
     (re.compile(r"^\s*מודול\s+(?:מסך|תצוגה)|\b(?:lcd|screen|display)\s+module\b", re.I),
      "cooler_accessory"),
     (re.compile(r"כלוב\s*כוננים|\b(?:drive|hdd)\s*cages?\b", re.I), "case_accessory"),
@@ -1781,6 +1781,7 @@ _GUESS_ACCESSORY_SUBTYPE = {
 #: its category_guess suffix instead (see _split_category_flags). Keeping the
 #: tail splits one physical part across two products (audit R6).
 PC_BUNDLE_TITLE_RE = re.compile(r"מחשב\s+שלם")
+_YAHAV_BUNDLE_ONLY_TITLE_RE = re.compile(r"מחשב\s+שלם\s+בלבד")
 # A title that states a conditional price. Never sets the flag on its own
 # (220 flagged TMS tiles carry no phrase); an unflagged hit is a QA case.
 DEAL_PHRASE_RE = re.compile(
@@ -1830,6 +1831,12 @@ def apply_bundle_mpn(enriched: dict) -> None:
     if not (_is_pc_bundle_title(enriched) or enriched.get("bundle_only")
             or enriched.get("new_pc_deal")):
         return
+    # Yahav also prints the explicit condition without a -PC SKU tail
+    # (10617: three additional components / a whole PC only). Keep the
+    # captured price conditional; never invent its standalone price.
+    if enriched.get("vendor_id") == "yahav" and _YAHAV_BUNDLE_ONLY_TITLE_RE.search(
+            str(enriched.get("title_raw") or "")):
+        enriched["bundle_only"] = True
     stripped = _strip_pc_bundle_suffix(enriched.get("mpn"))
     if stripped != enriched.get("mpn"):
         enriched["mpn"] = stripped
@@ -6083,6 +6090,34 @@ def match_listings(
     _packaging_cases: list[dict] = []
     _pid_aliases: dict[str, str] = {}
 
+    # The full component may have been connected through a different colour
+    # or part number. Once that variant leaves, only evidence carried by
+    # the surviving listings can still connect them (I1).
+    _keys_by_listing: dict[str, list[tuple]] = {}
+    for evidence, members in _identity_keys.items():
+        for listing_key in members:
+            _keys_by_listing.setdefault(listing_key, []).append(evidence)
+
+    def _connected_cluster(members: list[dict]) -> list[list[dict]]:
+        parents = {e["listing_key"]: e["listing_key"] for e in members}
+
+        def root(key: str) -> str:
+            while parents[key] != key:
+                parents[key] = parents[parents[key]]
+                key = parents[key]
+            return key
+
+        first: dict[tuple, str] = {}
+        for e in members:
+            key = e["listing_key"]
+            for evidence in _keys_by_listing.get(key, []):
+                other = first.setdefault(evidence, key)
+                parents[root(key)] = root(other)
+        groups: dict[str, list[dict]] = {}
+        for e in members:
+            groups.setdefault(root(e["listing_key"]), []).append(e)
+        return list(groups.values())
+
     for (category, code_slug), group in sorted(identity_groups.items()):
         code = _dominant_code(category, group) or code_slug
         if not code_slug:
@@ -6102,6 +6137,8 @@ def match_listings(
                                                for e in sub))
         for sub in subgroups:
             clusters = identity.part_number_subgroups(list(sub), shared)
+            clusters = [connected for cluster in clusters
+                        for connected in _connected_cluster(cluster)]
             clusters = order_split_clusters(category, code_slug, clusters,
                                             previous_assignments)
             made: list[tuple[str, list[dict]]] = []

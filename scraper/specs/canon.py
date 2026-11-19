@@ -245,8 +245,8 @@ _PSU_TYPE_CANON = {
 
 def canon_psu_type(value) -> str:
     key = re.sub(r"\s+", " ", str(value).strip().lower())
-    # "ATX PS/2", "ATX 12V 3.1": the ATX form factor with its spec revision.
-    if re.match(r"^atx (?:ps/2|12v\b)", key):
+    # ATX12V is the ATX form factor, including a printed spec revision.
+    if re.fullmatch(r"atx\s*(?:ps/2|12v)(?:\s+(?:version\s+)?\d+(?:\.\d+)*)?", key):
         return "ATX"
     return _PSU_TYPE_CANON.get(key, str(value).strip())
 
@@ -268,7 +268,7 @@ _EFFICIENCY_CANON = {
 # to manufacturer, 115V)"). Requires the 80 PLUS lead so a bare "platinum"
 # (a legit spelling on its own) still takes the plain-key path.
 _EFFICIENCY_TIER_RE = re.compile(
-    r"80\s?\+?\s*(?:plus\s*)?(white|bronze|silver|gold|platinum|titanium)\b", re.I)
+    r"\b80\s?\+?\s*(?:plus\s*)?[®™]?\s*(white|bronze|silver|gold|platinum|titanium)\b", re.I)
 
 
 def canon_efficiency(value) -> str:

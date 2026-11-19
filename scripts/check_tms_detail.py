@@ -1319,6 +1319,14 @@ def check_enum_canon(failures: list[str]) -> int:
         ("psu", "efficiency", "80+", "80+ White"),
         ("psu", "efficiency", "80 PLUS", "80+ White"),
         ("psu", "efficiency", "80 PLUS Bronze", "80+ Bronze"),
+        ("psu", "efficiency", "• 80PLUS® Platinum Certified | • Cybernetics Efficiency Level", "80+ Platinum"),
+        ("psu", "efficiency", "80 PLUS™ Gold Certified", "80+ Gold"),
+        ("psu", "efficiency", "Cybenetics Platinum", None),
+        ("psu", "type", "ATX12V Version 3.0", "ATX"),
+        ("psu", "type", "ATX12V 3.1", "ATX"),
+        ("psu", "type", "ATX 12V 3.1", "ATX"),
+        ("psu", "type", "SFX", "SFX"),
+        ("psu", "type", "SFX / ATX12V Version 3.0", None),
     )
     for category, field, value, want in cases:
         got = run(category, field, value)

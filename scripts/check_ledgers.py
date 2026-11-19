@@ -206,6 +206,15 @@ def _self_test_churn() -> int:
                   "spec_conflict|model:b|color"}
     fails += not ok
     print(f"  [{'ok' if ok else 'FAIL'}] dismissal follows its pid alias: {sorted(keys)}")
+    cases = [{"kind": "spec_conflict", "product_id": "model:live", "field": "color"}]
+    ledger = {"spec_conflict|model:old|color": True,
+              "spec_conflict|model:live|color": True,
+              "spec_conflict|model:live|height_mm": True,
+              "fuzzy|0|": True, "spec_conflict|model:gone|color": False}
+    got = stale_dismissals(ledger, cases, {"model:old": "model:live"})
+    ok = got == ["spec_conflict|model:live|height_mm"]
+    fails += not ok
+    print(f"  [{'ok' if ok else 'FAIL'}] stale dismissals preserve live/aliased/fuzzy/inactive decisions: {got}")
     return fails
 
 
@@ -271,6 +280,16 @@ def _seen_recently(keys: set[str], raw: Path | None = None) -> set[str]:
     return seen
 
 
+def stale_dismissals(ledger: dict, cases: list[dict], aliases: dict | None) -> list[str]:
+    """Historical active decisions no current case reaches, without pruning."""
+    from scraper.specs.report import case_id
+
+    case_ids = {case_id(case) for case in cases}
+    return [key for key, value in sorted(ledger.items())
+            if value and not key.startswith("fuzzy|")
+            and not (follow_aliases(frozenset({key}), aliases) & case_ids)]
+
+
 def check_budgets(catalog: dict) -> dict[str, list[str]]:
     listing_keys = {str(e.get("listing_key")) for e in catalog.get("listings") or []}
     manual = _read(MATCHING / "manual_products.json", {})
@@ -289,18 +308,10 @@ def check_budgets(catalog: dict) -> dict[str, list[str]]:
     ]
 
     qa = _read(ROOT / "data" / "site" / "qa.json", {})
-    case_ids = {
-        f"{c.get('kind')}|{c.get('product_id')}|{c.get('field') or c.get('vendor') or ''}"
-        for c in qa.get("cases") or []
-    }
     # Same rule as the site build: a dismissal follows its product's pid alias.
-    dismissed = {key for key, value in (_read(MATCHING / "qa_dismissed.json", {}) or {}).items()
-                 if value and not key.startswith("fuzzy|")}
-    aliases = catalog.get("pid_aliases")
-    out["qa_dismissed keys with no case"] = [
-        key for key in sorted(dismissed)
-        if not (follow_aliases(frozenset({key}), aliases) & case_ids)
-    ]
+    out["qa_dismissed keys with no case"] = stale_dismissals(
+        _read(MATCHING / "qa_dismissed.json", {}) or {},
+        qa.get("cases") or [], catalog.get("pid_aliases"))
 
     images = [(_image_vendor_key(e.get("vendor_id")), str(e.get("image_url") or ""))
               for e in catalog.get("listings") or []]
