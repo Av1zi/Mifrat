@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:52:00.110836+00:00",
+  "generated_at": "2026-11-20T21:59:15.553515+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -317256,7 +317256,7 @@
         "cpu_generation": "Ryzen 7000"
       },
       "eilat_price_ils": 1317,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -331445,7 +331445,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 1975,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -365372,7 +365372,7 @@
         "cpu_tier": "I5"
       },
       "eilat_price_ils": 566,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -367066,7 +367066,7 @@
         "cpu_tier": "ULTRA5"
       },
       "eilat_price_ils": 701,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -368619,7 +368619,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 288,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -368698,7 +368698,7 @@
         "colour": "White"
       },
       "eilat_price_ils": 300,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -374982,12 +374982,12 @@
       "tile_parser": 2,
       "category_guess": "cpu cooler",
       "image_url": "https://tms.co.il/image/catalog/products/CL-A60-ARGB/c8Er1ZFtVI.jpg",
-      "scraped_at": "2026-11-19T22:03:38.623099+00:00",
+      "scraped_at": "2026-11-20T21:51:33.263814+00:00",
       "eilat_price_ils": 120,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "eilat_only": true,
-      "last_seen": "2026-11-20",
+      "last_seen": "2026-11-21",
       "seen_day": "2026-11-20",
       "stale": false,
       "listing_key": "tms:CL-A60-ARGB",
@@ -375977,7 +375977,7 @@
         "memory": "16GB"
       },
       "eilat_price_ils": 630,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -379031,7 +379031,7 @@
         "memory": "32GB"
       },
       "eilat_price_ils": 2180,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -391758,7 +391758,7 @@
         "led": "No"
       },
       "eilat_price_ils": 331,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -393313,7 +393313,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 171,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -393390,7 +393390,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 235,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -409332,12 +409332,12 @@
       "tile_parser": 2,
       "category_guess": "motherboard",
       "image_url": "https://tms.co.il/image/catalog/products/GB650EAGLEAX/4WOVVb3dnK.jpg",
-      "scraped_at": "2026-11-19T22:07:31.802556+00:00",
+      "scraped_at": "2026-11-20T21:55:29.095219+00:00",
       "eilat_price_ils": 596,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "eilat_only": true,
-      "last_seen": "2026-11-20",
+      "last_seen": "2026-11-21",
       "seen_day": "2026-11-20",
       "stale": false,
       "listing_key": "tms:GB650EAGLEAX",
@@ -413913,12 +413913,12 @@
       "tile_parser": 2,
       "category_guess": "motherboard",
       "image_url": "https://tms.co.il/image/catalog/products/GB840MD2H/Ys1LEWYugA.jpg",
-      "scraped_at": "2026-11-19T22:05:28.693361+00:00",
+      "scraped_at": "2026-11-20T21:53:25.250527+00:00",
       "eilat_price_ils": 428,
       "eilat_in_stock": false,
       "eilat_stale": false,
       "eilat_only": true,
-      "last_seen": "2026-11-20",
+      "last_seen": "2026-11-21",
       "seen_day": "2026-11-20",
       "stale": false,
       "listing_key": "tms:GB840MD2H",
@@ -422345,7 +422345,7 @@
         "colour": "White"
       },
       "eilat_price_ils": 232,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -423125,7 +423125,7 @@
         "led": "ARGB | LCD"
       },
       "eilat_price_ils": 915,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -424293,7 +424293,7 @@
         "molex": 6
       },
       "eilat_price_ils": 894,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -425077,7 +425077,7 @@
         "molex": 4
       },
       "eilat_price_ils": 313,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -430599,7 +430599,7 @@
         "expansion_slots": "PCIe 4.0 x16, mode x4 | PCIe 5.0 x16 slot | Trusted Platform Module (TPM)"
       },
       "eilat_price_ils": 1125,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -437653,7 +437653,7 @@
         "colour": "White"
       },
       "eilat_price_ils": 478,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -437874,7 +437874,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 201,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -443462,7 +443462,7 @@
         "molex": 4
       },
       "eilat_price_ils": 335,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -455559,7 +455559,7 @@
         "length": "281 mm"
       },
       "eilat_price_ils": 2049,
-      "eilat_in_stock": false,
+      "eilat_in_stock": true,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -459047,7 +459047,7 @@
         "power_connectors": "1x16-pin"
       },
       "eilat_price_ils": 8011,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -472769,7 +472769,7 @@
         "cpu_power_connectors": 2
       },
       "eilat_price_ils": 251,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -476292,7 +476292,7 @@
         "colour": "Black"
       },
       "eilat_price_ils": 284,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -479880,7 +479880,7 @@
         "colour": "White"
       },
       "eilat_price_ils": 103,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -480276,7 +480276,7 @@
         "family": "2280 PCIe"
       },
       "eilat_price_ils": 616,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -491505,7 +491505,7 @@
         "length": "245 mm"
       },
       "eilat_price_ils": 2030,
-      "eilat_in_stock": true,
+      "eilat_in_stock": false,
       "eilat_stale": false,
       "vendor_meta": {
         "detail_specs": {
@@ -574189,7 +574189,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2030,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -574355,7 +574355,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2030,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -607753,7 +607753,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 915,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -607799,7 +607799,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 915,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -616255,7 +616255,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 201,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -616365,7 +616365,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 201,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -617253,7 +617253,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 331,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -662130,7 +662130,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 478,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -682387,7 +682387,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 171,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         },
         {
@@ -682519,7 +682519,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 171,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -696007,7 +696007,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 232,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -696073,7 +696073,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 232,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -696302,7 +696302,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 288,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -696440,7 +696440,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 288,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -696749,7 +696749,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 300,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -770718,7 +770718,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 235,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -770777,7 +770777,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 235,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -798479,7 +798479,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 284,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -798548,7 +798548,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 284,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -930377,7 +930377,7 @@
           "url": "https://tms.co.il/cpu-cooling/coolleo-cl-a60-argb",
           "price_ils": null,
           "in_stock": false,
-          "last_seen": "2026-11-20",
+          "last_seen": "2026-11-21",
           "seen_day": "2026-11-20",
           "stale": false,
           "title_raw": "Coolleo Etian A60 ARGB CPU Cooler",
@@ -939823,7 +939823,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 103,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -939875,7 +939875,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 103,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -955765,7 +955765,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 566,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -966231,7 +966231,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 701,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         },
         {
@@ -1011408,7 +1011408,7 @@
           "model_code": null,
           "packaging_basis": "title",
           "eilat_price_ils": 1317,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1011498,7 +1011498,7 @@
         "model_code": null,
         "packaging_basis": "title",
         "eilat_price_ils": 1317,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1032445,7 +1032445,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 8011,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         },
         {
@@ -1063356,7 +1063356,7 @@
           },
           "model_code": "GV-N5060AERO OC-8GD",
           "eilat_price_ils": 2049,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         },
         {
@@ -1100759,7 +1100759,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 630,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -1102484,7 +1102484,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 1975,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1102559,7 +1102559,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 1975,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1112091,7 +1112091,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 2180,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -1112166,7 +1112166,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 2180,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -1309360,7 +1309360,7 @@
           },
           "model_code": "Z890 AORUS ELITE WIFI7 PLUS",
           "eilat_price_ils": 1125,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1309484,7 +1309484,7 @@
         },
         "model_code": "Z890 AORUS ELITE WIFI7 PLUS",
         "eilat_price_ils": 1125,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1322273,7 +1322273,7 @@
           "url": "https://tms.co.il/computer-hardware-components/motherboards/gigabyte-b650-eagle-ax",
           "price_ils": null,
           "in_stock": false,
-          "last_seen": "2026-11-20",
+          "last_seen": "2026-11-21",
           "seen_day": "2026-11-20",
           "stale": false,
           "title_raw": "Gigabyte B650 EAGLE AX",
@@ -1382381,7 +1382381,7 @@
           "url": "https://tms.co.il/computer-hardware-components/motherboards/gigabyte-gb840md2h",
           "price_ils": null,
           "in_stock": false,
-          "last_seen": "2026-11-20",
+          "last_seen": "2026-11-21",
           "seen_day": "2026-11-20",
           "stale": false,
           "title_raw": "Gigabyte B840M D2H",
@@ -1491010,7 +1491010,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 894,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1491080,7 +1491080,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 894,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1511619,7 +1511619,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 313,
-          "eilat_in_stock": false,
+          "eilat_in_stock": true,
           "eilat_stale": false
         }
       ],
@@ -1511681,7 +1511681,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 313,
-        "eilat_in_stock": false,
+        "eilat_in_stock": true,
         "eilat_stale": false
       },
       "specs": {
@@ -1535958,7 +1535958,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 251,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1536004,7 +1536004,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 251,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1537186,7 +1537186,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 335,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1537251,7 +1537251,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 335,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
@@ -1564964,7 +1564964,7 @@
           },
           "model_code": null,
           "eilat_price_ils": 616,
-          "eilat_in_stock": true,
+          "eilat_in_stock": false,
           "eilat_stale": false
         }
       ],
@@ -1565041,7 +1565041,7 @@
         },
         "model_code": null,
         "eilat_price_ils": 616,
-        "eilat_in_stock": true,
+        "eilat_in_stock": false,
         "eilat_stale": false
       },
       "specs": {
