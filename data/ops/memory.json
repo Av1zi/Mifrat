@@ -2411,7 +2411,7 @@
 "1pc:222833":"model:memory:2-cp2k16g64c32u5w-32gb-x2-6400mhz-cl32-white",
 "1pc:222834":"mpn:memory:cmk32gx5m2x7000c34",
 "1pc:222835":"model:memory:32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-white-dimm",
-"1pc:222836":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
+"1pc:222836":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "1pc:222837":"model:memory:2-cmk32gx5m2b6400z32-32gb-cl32-grey",
 "1pc:222838":"model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
 "1pc:222839":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm-2",
@@ -2503,6 +2503,11 @@
 "1pc:223443":"model:gpu:a-dual-o8g-rtx5060-8gb",
 "1pc:223447":"model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
 "1pc:223448":"model:motherboard:b550-eagle-x-atx",
+"1pc:223474":"model:cooler_air:0-0-10913-761345-a400i",
+"1pc:223475":"model:cooler_air:360-matrix-omni-white",
+"1pc:223476":"model:memory:32n2200-bulk-kd48gu880-klevv-standard-8gb",
+"1pc:223479":"model:cpu:threadripper7980x-tray",
+"1pc:223480":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
@@ -4552,7 +4557,7 @@
 "ksp:480430":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2",
 "ksp:480431":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-grey-dimm",
 "ksp:480433":"memory:ksp:ksp-480433",
-"ksp:480435":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
+"ksp:480435":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "ksp:480438":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "ksp:480492":"model:storage:0-2-4-m-m452-nvme-pcie-spatium-500gb-pcie4-m22280",
 "ksp:480511":"model:storage:0-4-m452-spatium-1000gb-pcie4-m22280",
@@ -7910,7 +7915,7 @@
 "tms:CMK8GX4M1E3200C16":"model:memory:lpx-vengeance-8gb-x1-3200mhz-cl16-black",
 "tms:CMK96GX5M2B5200C38":"model:memory:0-2x48gb-3-5200-cl38-vengeance-xmp-96gb-x2-5200mhz-cl38-black",
 "tms:CMP32GX5M2B6000C30W":"mpn:memory:cmp32gx5m2b6000c30w",
-"tms:CMP32GX5M2B6000Z30":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm",
+"tms:CMP32GX5M2B6000Z30":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "tms:CMP32GX5M2B6000Z30W":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "tms:CMP32GX5M2X7200C34":"model:memory:dominator-rgb-titanium-32gb-x2-7200mhz-cl34-rgb-black",
 "tms:CMP48GX5M2X7200C36":"model:memory:dominator-rgb-titanium-48gb-x2-7200mhz-cl36-rgb-black",
@@ -17365,6 +17370,10 @@
 "Corsair RS120 120mm PWM White",
 "case_fan"
 ],
+"model:cooler_air:0-0-10913-761345-a400i":[
+"Antec A400I RGB Black",
+"cooler_air"
+],
 "model:cooler_air:002-e41997":[
 "65W Intel E41997 002",
 "cooler_air"
@@ -17815,6 +17824,10 @@
 ],
 "model:cooler_air:36-freezer-s-black":[
 "ARCTIC Freezer 36-S Black",
+"cooler_air"
+],
+"model:cooler_air:360-matrix-omni-white":[
+"Antec Omni Matrix 360 ARGB White",
 "cooler_air"
 ],
 "model:cooler_air:3647-dx-nh-u12s-160mm-120mm":[
@@ -19299,6 +19312,10 @@
 ],
 "model:gpu:000-14933-2502-4-900-nvlink-rtx-slot-titan":[
 "Nvidia NVLINK for TITAN RTX 4 slot 900 14933 2502 000",
+"gpu"
+],
+"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb":[
+"NVIDIA RTX PRO 4500 Blackwell 32GB",
 "gpu"
 ],
 "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb":[
@@ -21441,12 +21458,12 @@
 "Klevv ARGB 32GB DDR5 (2x16GB) 6000MT/s CL30",
 "memory"
 ],
-"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-grey-dimm":[
-"Corsair Dominator RGB DDR5 32GB (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30)",
+"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm":[
+"Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30)",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-white-dimm":[
-"Corsair Dominator RGB DDR5 32GB (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000Z30W)",
+"Corsair Dominator RGB DDR5 32GB (2x16GB) 6000MHz CL30",
 "memory"
 ],
 "model:memory:2x16gb-6000-cl30-expo-flare-x5-32gb-x2-6000mhz-cl30-black":[
@@ -22025,6 +22042,10 @@
 "Corsair Vengeance 32GX2 DDR5 64GB (2x32GB) 6000MHz CL30",
 "memory"
 ],
+"model:memory:32n2200-bulk-kd48gu880-klevv-standard-8gb":[
+"KLEVV Standard DDR4 8GB KD48GU880 32N2200 Bulk",
+"memory"
+],
 "model:memory:32n220a-kd4bgua80-klevv-32gb":[
 "KLEVV DDR4 32GB KD4BGUA80 32N220A",
 "memory"
@@ -22530,7 +22551,7 @@
 "memory"
 ],
 "model:memory:dominator-rgb-titanium-32gb-x2-6000mhz-cl30-rgb-black":[
-"Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30",
+"Corsair RGB 32GB DDR5 (2x16GB) 6000MHz CL30 (CMP32GX5M2B6000C30)",
 "memory"
 ],
 "model:memory:dominator-rgb-titanium-32gb-x2-7200mhz-cl34-rgb-black":[

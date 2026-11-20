@@ -190,6 +190,17 @@
     "score": 88,
     "category": "cpu",
     "brand": "AMD",
+    "listing_a": "1pc:223479",
+    "listing_b": "tms:100-000001352",
+    "title_a": "מעבד AMD Ryzen Threadripper 7980X 100-000001350 Tray",
+    "title_b": "AMD Ryzen Threadripper 7960X 24-core Tray",
+    "match_text_a": "223479 AMD Ryzen Threadripper 7980X 100-000001350 Tray",
+    "match_text_b": "100-000001352 AMD Ryzen Threadripper 7960X 24-core Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
     "listing_a": "ivory:178252",
     "listing_b": "tms:100-000000743",
     "title_a": "מעבד AMD Ryzen 7 5700X | תושבת AM4 | בעל 8 ליבות | אריזת Tray",
@@ -908,17 +919,17 @@
     "collapsed": true,
     "offers": [
       {
-        "listing_key": "1pc:183298",
-        "vendor_sku": "R9070XTGAMINGOC16GD",
-        "title": "כרטיס מסך Gigabyte Radeon™ RX 9070 XT GAMING OC 16G",
-        "price": 4546
-      },
-      {
         "listing_key": "1pc:183308",
         "vendor_sku": "R9070XTGAMINGOC16",
         "title": "כרטיס מסך Gigabyte RX 9070 XT GAMING OC 16G GV-R9070XTGAMING-OC-16GD",
-        "price": 4762,
-        "alias_of": "1pc:183298"
+        "price": 4762
+      },
+      {
+        "listing_key": "1pc:183298",
+        "vendor_sku": "R9070XTGAMINGOC16GD",
+        "title": "כרטיס מסך Gigabyte Radeon™ RX 9070 XT GAMING OC 16G",
+        "price": 5013,
+        "alias_of": "1pc:183308"
       }
     ]
   },
@@ -1270,7 +1281,7 @@
         "listing_key": "1pc:212368",
         "vendor_sku": "CP-9020300-EU",
         "title": "ספק כוח Corsair RM1000x SHIFT 1000W 80+ Gold מודולרי מלא",
-        "price": 754
+        "price": 783
       },
       {
         "listing_key": "1pc:215463",
@@ -1386,7 +1397,7 @@
         "listing_key": "1pc:198620",
         "vendor_sku": "198620",
         "title": "כונן  WD Purple Pro 12TB מבית Western Digital דגם WD122PURP",
-        "price": 3091,
+        "price": 3115,
         "alias_of": "1pc:216257"
       }
     ]
@@ -1430,7 +1441,7 @@
         "listing_key": "1pc:200417",
         "vendor_sku": "200417",
         "title": "כונן WD Purple Pro בנפח 10TB מבית Western Digital דגם WD102PURP",
-        "price": 2626,
+        "price": 2647,
         "alias_of": "1pc:216274"
       }
     ]
@@ -4316,7 +4327,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10225-4",
         "title": "מארז מחשב Antec C5 CURVE ARGB בצבע שחור",
-        "price": 297
+        "price": 326
       },
       {
         "listing_key": "tms:0-761345-10225-4",
@@ -4339,7 +4350,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10226-1",
         "title": "מארז מחשב Antec C5 CURVE ARGB לבן",
-        "price": 326
+        "price": 341
       },
       {
         "listing_key": "tms:0-761345-10226-1",
@@ -4362,7 +4373,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10225-4",
         "title": "מארז מחשב Antec C5 CURVE ARGB בצבע שחור",
-        "price": 297
+        "price": 326
       },
       {
         "listing_key": "tms:0-761345-10225-4",
@@ -4386,7 +4397,7 @@
         "vendor": "1pc",
         "vendor_sku": "0-761345-10226-1",
         "title": "מארז מחשב Antec C5 CURVE ARGB לבן",
-        "price": 326
+        "price": 341
       },
       {
         "listing_key": "tms:0-761345-10226-1",
@@ -4509,7 +4520,7 @@
         "vendor": "1pc",
         "vendor_sku": "CXMIRROR",
         "title": "מארז מחשב Antec CX Mirror Mini Tower בצבע שחור",
-        "price": 383
+        "price": 343
       },
       {
         "listing_key": "yahav:11386",
@@ -10656,7 +10667,7 @@
         "vendor": "1pc",
         "vendor_sku": "GZ890EAGLE",
         "title": "לוח אם Gigabyte Z890 EAGLE",
-        "price": 964
+        "price": 1007
       },
       {
         "listing_key": "tms:GZ890EAGLE",
@@ -11457,7 +11468,7 @@
         "vendor": "1pc",
         "vendor_sku": "MZ-VAP1T0BW",
         "title": "כונן SSD Samsung 9100 PRO 1TB PCIe 5.0 NVMe M.2 MZ-VAP1T0BW",
-        "price": 1053
+        "price": 1080
       },
       {
         "listing_key": "ivory:131358",
@@ -11648,7 +11659,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT2000T710SSD8",
         "title": "כונן SSD Crucial T710 2TB NVMe M.2 PCIe Gen5 בצבע שחור CT2000T710SSD8",
-        "price": 1607
+        "price": 1627
       },
       {
         "listing_key": "ivory:173788",
@@ -11870,7 +11881,7 @@
         "vendor": "1pc",
         "vendor_sku": "152798",
         "title": "כונן VERBATIM Vi550 S3 2.5\" SSD 1TB",
-        "price": 1008
+        "price": 1020
       },
       {
         "listing_key": "ksp:281494",
@@ -11926,7 +11937,7 @@
         "vendor": "1pc",
         "vendor_sku": "CT4000T705SSD5",
         "title": "כונן SSD Crucial T705 4TB PCIe Gen5 NVMe M.2 עם גוף קירור",
-        "price": 2436
+        "price": 2466
       },
       {
         "listing_key": "tms:CT4000T705SSD5",
@@ -12556,9 +12567,9 @@
     "merged_from": "model:cpu:9800x3d-tray"
   },
   {
-    "kind": "split_candidate",
+    "kind": "identity_merge",
     "category": "cpu",
-    "product_id": "model:cpu:7980x",
+    "product_id": "model:cpu:threadripper7980x-tray",
     "vendor": "",
     "offers": [
       {
@@ -12567,9 +12578,17 @@
         "vendor_sku": "100-000001350",
         "title": "AMD Ryzen Threadripper 7980X 64-core Tray",
         "price": 14643
+      },
+      {
+        "listing_key": "1pc:223479",
+        "vendor": "1pc",
+        "vendor_sku": "223479",
+        "title": "מעבד AMD Ryzen Threadripper 7980X 100-000001350 Tray",
+        "price": 14660
       }
     ],
-    "model_code": "7980x"
+    "model_code": "7980x",
+    "merged_from": "model:cpu:7980x-tray"
   },
   {
     "kind": "split_candidate",
@@ -17918,18 +17937,18 @@
     "vendor": "",
     "offers": [
       {
-        "listing_key": "1pc:183298",
-        "vendor": "1pc",
-        "vendor_sku": "R9070XTGAMINGOC16GD",
-        "title": "כרטיס מסך Gigabyte Radeon™ RX 9070 XT GAMING OC 16G",
-        "price": 4546
-      },
-      {
         "listing_key": "1pc:183308",
         "vendor": "1pc",
         "vendor_sku": "R9070XTGAMINGOC16",
         "title": "כרטיס מסך Gigabyte RX 9070 XT GAMING OC 16G GV-R9070XTGAMING-OC-16GD",
         "price": 4762
+      },
+      {
+        "listing_key": "1pc:183298",
+        "vendor": "1pc",
+        "vendor_sku": "R9070XTGAMINGOC16GD",
+        "title": "כרטיס מסך Gigabyte Radeon™ RX 9070 XT GAMING OC 16G",
+        "price": 5013
       },
       {
         "listing_key": "tms:R9070XTGAMINGOC16",
@@ -18309,7 +18328,7 @@
         "vendor": "1pc",
         "vendor_sku": "GZ890AORUSELITEWF7ICE",
         "title": "לוח אם Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1172
+        "price": 1227
       },
       {
         "listing_key": "ksp:343512",
