@@ -168,7 +168,7 @@ _MB_FORM_FACTORS = {
 # A known form factor leading a longer cell ("ATX – 243.84 × 304.8",
 # "micro-ATX Form Factor9.6 inch x 8.7 inch"): the leading token is the fact.
 _MB_FORM_FACTOR_LEAD = re.compile(
-    r"^(extended atx|e-?atx|xl-atx|micro[- ]?atx|m-?atx|thin mini-itx|mini[- ]?itx|atx)"
+    r"^(extended atx|e-?atx|xl-atx|micro[- ]?atx|m-?atx|thin mini-itx|mini[- ]?itx|atx|ssi[- ](?:ceb|eeb)|ceb|eeb)"
     r"(?![a-z0-9-])")
 
 
@@ -273,6 +273,8 @@ _EFFICIENCY_TIER_RE = re.compile(
 
 def canon_efficiency(value) -> str:
     text = re.sub(r"\s+", " ", str(value).strip())
+    # Vendor typo in the explicitly named 80 PLUS grade, not a new rating.
+    text = re.sub(r"\bplatinium\b", "Platinum", text, flags=re.I)
     # "80 PLUS Gold (according to manufacturer, 115V), ETA-Gold (…)" — Plonter
     # wraps the tier in vendor commentary; the tier word is the fact.
     tier = _EFFICIENCY_TIER_RE.search(text)

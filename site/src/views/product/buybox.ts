@@ -96,6 +96,7 @@ export function buyBarMarkup(product: Product, lang: Lang, currency: Currency): 
     <div class="buybar__price">
       ${priceCell(price, currency, lang, "md")}
       <span class="buybar__where">${t(lang, "atVendor")} ${vendorLabel(offer.vendor)}</span>
+      ${altPriceLine(effectivePrice(product), eilatPrice(product), isEilatOnly(product), region, currency, lang)}
     </div>
     ${button({
       label: t(lang, bundle ? "bundleOnlyCta" : "toStore"),

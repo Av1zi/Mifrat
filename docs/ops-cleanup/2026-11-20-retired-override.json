@@ -1,0 +1,7 @@
+{
+  "catalog_generated_at": "2026-11-20T04:10:18.831676+00:00",
+  "reason": "No-op override: both independent vendor titles state 7.68TB and rebuilding without the override still yields 7680GB. Removed under owner's request to release necessary fixes and ignore unnecessary ones.",
+  "entries": {
+    "model:storage:enterprise-pm893-sed-8000gb-sata-25": {"capacity_gb": 7680}
+  }
+}

@@ -47,6 +47,13 @@ normal clone already has it.
 
 ## Checks (tests, lint, smoke)
 
+Eilat prices appear as a small second line even in regular browsing mode,
+including product prices, offer rows, the mobile buy bar, store popovers,
+search suggestions and similar-product cards. Only scraped Eilat prices
+are shown; they never change regular-mode sorts, filters or build totals.
+`python site/scripts/eilat_smoke.py` checks bilingual mobile/desktop display
+in both regions after a build; `test/eilat-display.test.ts` pins the markup.
+
 ```bash
 cd site
 npm test             # vitest: compat engine, routing, utils, list ids (test/)

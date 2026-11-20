@@ -1,0 +1,17 @@
+{
+  "catalog_generated_at": "2026-11-20T04:10:18.831676+00:00",
+  "reason": "Owner-approved removal: no current case after following pid aliases",
+  "entries": {
+    "identity_merge|model:psu:11-dark-power-pro-750w|": true,
+    "spec_conflict|model:cooler_air:120-argb-assassin-max-peerless-vision-white-164mm-120mm-white|height_mm": true,
+    "spec_conflict|model:cooler_air:3-pro-pure-rock-155mm-120mm-black|height_mm": true,
+    "spec_conflict|model:memory:0-2x16gb-3-5600-cl36-dominator-xmp-32gb-x2-5600mhz-cl36-rgb-black|total_gb": true,
+    "spec_conflict|model:storage:0-2242-4-mp600-2000gb-m2pcie-m22242|interface": true,
+    "spec_conflict|model:storage:0-2242-4-mp600-2000gb-m2pcie-m22242|model": true,
+    "variant_conflict|model:case:p20c-black-2|": true,
+    "variant_conflict|model:case:p20c-black|": true,
+    "variant_conflict|model:case_fan:fan-pwm-rs120-120mm-rgb-white|": true,
+    "variant_conflict|model:gpu:16g-16gd-5080-aorus-geforce-gv-ice-ice-master-n5080aorusm-rtx-16gb|": true,
+    "variant_conflict|model:gpu:16g-5080-aorus-geforce-master-n5080aorusm16gd-rtx-16gb|": true
+  }
+}

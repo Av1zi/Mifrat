@@ -29,6 +29,17 @@
   font-style: italic;
 }
 
+/* These price groups wrap badges inline; the secondary price is still a
+   separate, quiet line below the main amount in either region. */
+.buybox__price > .price-alt,
+.offer-price > .price-alt {
+  flex-basis: 100%;
+}
+
+.search-hit__prices {
+  text-align: end;
+}
+
 /* The single empty-value look. */
 .empty-val {
   color: var(--text-3);

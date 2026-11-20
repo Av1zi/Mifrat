@@ -1,10 +1,10 @@
 import { attributeLabel } from "../../i18n";
 import { formatSpecValue, specPriority, specValue, VARIANT_IDENTITY_KEYS } from "../../specs";
-import { regionMinPrice } from "../../offers";
+import { eilatPrice, isEilatOnly, regionMinPrice } from "../../offers";
 import { getRegion, productHash } from "../../state";
 import type { Currency, Lang, Product } from "../../types";
 import { html, type Html } from "../../ui/html";
-import { priceCell } from "../../ui/price";
+import { altPriceLine, priceCell } from "../../ui/price";
 import { initialsOf, thumb } from "../../ui/thumb";
 import { displayName } from "../../utils";
 import { NOISE_KEYS, normEcho, rawText } from "./text";
@@ -96,6 +96,7 @@ export function similarMarkup(
       <span class="similar__name" dir="auto">${name}</span>
       ${disc ? html`<span class="similar__disc">${disc}</span>` : ""}
       ${priceCell(regionMinPrice(p, getRegion()), currency, lang)}
+      ${altPriceLine(p.min_price, eilatPrice(p), isEilatOnly(p), getRegion(), currency, lang)}
     </a>`
   )}</div>`;
 }

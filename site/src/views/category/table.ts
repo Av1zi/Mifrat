@@ -26,6 +26,7 @@ import { addPickedPart } from "./picker";
 function storesMarkup(ctx: CategoryCtx, p: Product, popover = true): Html {
   const { lang, currency } = ctx;
   const offers = regionOffers(p, getRegion());
+  const originalOf = new Map(p.offers.map((o) => [`${o.vendor}|${o.url}`, o]));
   const count = new Set(offers.map((o) => vendorKey(o.vendor))).size;
   if (!popover || offers.length <= 1) return html`<span class="row__stores">${vendorsCount(lang, count)}</span>`;
   return html`<details class="stores">
@@ -34,9 +35,10 @@ function storesMarkup(ctx: CategoryCtx, p: Product, popover = true): Html {
       ${sortOffers(offers).map((o) => {
         const url = safeUrl(o.url);
         const name = vendorLabel(o.vendor);
+        const original = originalOf.get(`${o.vendor}|${o.url}`);
         return html`<li class="${o.in_stock ? "" : "is-out"}">
           ${url ? html`<a href="${url}" target="_blank" rel="noopener noreferrer">${name}${icon("external", 12)}</a>` : html`<span>${name}</span>`}
-          <span>${wasPrice(o, currency, lang)}${priceCell(o.price, currency, lang)}${positivePrice(o.price) !== null ? dealChip(o, currency, lang, { alignEnd: true }) : ""}</span>
+          <span>${wasPrice(o, currency, lang)}${priceCell(o.price, currency, lang)}${positivePrice(o.price) !== null ? dealChip(o, currency, lang, { alignEnd: true }) : ""}${original ? altPriceLine(original.price, original.eilat_price, original.eilat_only === true, getRegion(), currency, lang) : ""}</span>
         </li>`;
       })}
     </ul>

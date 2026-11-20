@@ -1,12 +1,12 @@
 import { loadCategory, loadIndex } from "./api";
 import { categoryLabel, t } from "./i18n";
-import { regionMinPrice } from "./offers";
+import { eilatPrice, isEilatOnly, regionMinPrice } from "./offers";
 import { getRegion, navigate, productHash, searchHash } from "./state";
 import type { Currency, IndexRow, Lang, Product } from "./types";
 import { displayName, normSearch, searchScore, searchTokens } from "./utils";
 import { html, mount, type Html } from "./ui/html";
 import { initialsOf, thumb } from "./ui/thumb";
-import { priceCell } from "./ui/price";
+import { altPriceLine, priceCell } from "./ui/price";
 
 /**
  * Site search over index.json (~500KB, one cached fetch) instead of every
@@ -59,18 +59,20 @@ function hitMarkup(
   brand: string | null,
   imageSrc: string | null | undefined,
   price: number | null,
-  box: SearchBox
+  box: SearchBox,
+  alternate: Html
 ): Html {
   return html`<a class="search-hit" role="option" aria-selected="false" href="${productHash(category, id)}">
     ${thumb(imageSrc, initialsOf(brand, name), "sm")}
     <span class="search-hit__name">${name}<span class="search-hit__cat">${categoryLabel(category, box.lang)}</span></span>
-    ${priceCell(price, box.currency, box.lang)}
+    <span class="search-hit__prices">${priceCell(price, box.currency, box.lang)}${alternate}</span>
   </a>`;
 }
 
 function interimHit(row: IndexRow, box: SearchBox): Html {
   const price = getRegion() === "eilat" ? row[5] ?? null : row[2];
-  return hitMarkup(row[1], row[0], row[4] ?? row[0], row[3], null, price, box);
+  return hitMarkup(row[1], row[0], row[4] ?? row[0], row[3], null, price, box,
+    altPriceLine(row[2], row[5], false, getRegion(), box.currency, box.lang));
 }
 
 function fullHit(product: Product, box: SearchBox): Html {
@@ -81,7 +83,8 @@ function fullHit(product: Product, box: SearchBox): Html {
     product.brand,
     product.thumb ?? product.image,
     regionMinPrice(product, getRegion()),
-    box
+    box,
+    altPriceLine(product.min_price, eilatPrice(product), isEilatOnly(product), getRegion(), box.currency, box.lang)
   );
 }
 
