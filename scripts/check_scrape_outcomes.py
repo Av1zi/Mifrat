@@ -22,6 +22,7 @@ from scraper.spiders.ksp import KspSpider
 from scraper.spiders.ksp_detail import KspDetailSpider
 from scraper.spiders.ksp_eilat import KspEilatSpider
 from scraper.spiders.ivory_eilat import IvoryEilatSpider
+from scraper.spiders.detail_pages import IvoryDetailSpider, OnePcDetailSpider, YahavDetailSpider
 from scraper.crawl_outcome import StopOnBlockMiddleware, outcome
 
 
@@ -69,7 +70,8 @@ def main() -> int:
     # RetryMiddleware and HttpErrorMiddleware, not just the spider callback.
     from scrapy.exceptions import IgnoreRequest
     from scrapy import Request
-    for cls in (KspSpider, KspDetailSpider, KspEilatSpider, IvoryEilatSpider):
+    for cls in (KspSpider, KspDetailSpider, KspEilatSpider, IvoryEilatSpider,
+                IvoryDetailSpider, OnePcDetailSpider, YahavDetailSpider):
         for status in (403, 429):
             crawler, spider = make_crawler(cls)
             engine = Engine()
@@ -91,6 +93,9 @@ def main() -> int:
                 failures.append(f"{cls.name} did not close/record the block")
             if status in cls.custom_settings.get("RETRY_HTTP_CODES", []):
                 failures.append(f"{cls.name} retries HTTP {status}")
+            configured = cls.custom_settings.get("DOWNLOADER_MIDDLEWARES", {})
+            if "scraper.crawl_outcome.StopOnBlockMiddleware" not in configured:
+                failures.append(f"{cls.name} has no downloader block stop")
     cases = [
         ({"finish_reason": "finished"}, 900, "ok"),
         ({"finish_reason": "finished", "crawl/blocked": True}, 900, "blocked"),

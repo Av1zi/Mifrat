@@ -96,6 +96,13 @@ Ivory's regular builder feed remains active. Its **Eilat category-page
 scrape is paused** after 13 HTTP 403s on 2026-11-17; a green regular-price
 run does not mean Eilat prices were collected.
 
+Prefer prices already observed together: KSP's current price response feeds
+regular and Eilat prices into one offer, without a second Eilat crawl. TMS
+still needs its Eilat view for Eilat-only listings and branch availability.
+Detail enrichment is bounded and normally fetched once per listing; it is
+not a nightly price-refresh substitute. Cloud detail vendors run separately,
+stop on a first block, and retain captured specs even when a phase fails.
+
 **Manufacturer fetchers** (`scraper/mfr/`): robots obeyed, 1 request/s,
 browser headers, no retries, the first 403/429 stops that brand.
 

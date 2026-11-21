@@ -31,18 +31,6 @@ on:
     - cron: '47 2 * * *'   # in-window fallback check (04:47 winter / 05:47 summer Israel)
   workflow_dispatch: {}
 
-env:
-  # Everything the detail job may publish. Per-vendor paths only (see the
-  # scrape job for why shared directories are forbidden): data/images/<vendor>/
-  # holds only that vendor's downloaded covers, so those three dirs are safe.
-  DETAIL_PATHS: >-
-    data/detail_pending/ivory.json data/raw/detail/ivory.jsonl
-    data/detail_scraped/ivory.json data/images/ivory/
-    data/detail_pending/onepc.json data/raw/detail/onepc.jsonl
-    data/detail_scraped/onepc.json data/images/onepc/
-    data/detail_pending/yahav.json data/raw/detail/yahav.jsonl
-    data/detail_scraped/yahav.json data/images/yahav/
-
 jobs:
   schedule-gate:
     permissions:
@@ -237,7 +225,7 @@ jobs:
           git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh "scrape($SPIDER): $day" "$output"
 
-  # Detail-page scrape: runs after all listing spiders succeed.
+  # Independent detail vendor legs: preserve useful rows if any phase fails.
   # Fetches each vendor's product detail pages for structured specs
   # and cover images. Steady state is a handful of new items/day; the
   # first runs after a ledger fix backfill in --limit chunks. Images are
@@ -259,8 +247,12 @@ jobs:
     if: "!cancelled() && needs.schedule-gate.outputs.run == 'true'"
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    outputs:
-      packed: ${{ steps.pack.outputs.packed }}
+    strategy:
+      fail-fast: false
+      matrix:
+        vendor: [ivory, onepc, yahav]
+    env:
+      VENDOR: ${{ matrix.vendor }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
@@ -269,34 +261,29 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt --break-system-packages
-      - run: python -m playwright install --with-deps chromium
       # Build pending lists: diff listing output vs the detail_scraped ledger
       # (TMS excluded — it's not cloud-run; the Nano handles it. Plonter
       # dropped 2026-09-29, see decisions.md).
-      - run: python -m scraper.make_detail_pending make ivory onepc yahav --limit 200
+      - run: python -m scraper.make_detail_pending make "$VENDOR" --limit 200
       # Run detail spiders, skipping vendors with nothing pending. `-o`
       # APPENDS — never `-O` overwrite: the committed detail file holds
       # the full history, and a small nightly chunk must not wipe it
       # (an -O + tiny-pending run would destroy thousands of rows).
-      - run: |
-          for v in ivory onepc yahav; do
-            n=$(python -c "import json;print(len(json.load(open('data/detail_pending/$v.json'))))")
-            if [ "$n" -gt 0 ]; then
-              echo "$v: $n pending — scraping"
-              scrapy crawl "${v}_detail" -o "data/raw/detail/$v.jsonl:jsonlines"
-            else
-              echo "$v: nothing pending — keeping existing detail file"
-            fi
-          done
+      - name: Crawl detail and inspect real outcome
+        id: crawl
+        continue-on-error: true
+        run: python -m scraper.run_cloud_detail "$VENDOR"
       # Download and resize cover images (files already on disk are
       # skipped, missing ones retried, imageless products skipped quietly)
-      - run: python -m scraper.download_images data/raw/detail/ivory.jsonl ivory
-      - run: python -m scraper.download_images data/raw/detail/onepc.jsonl onepc
-      - run: python -m scraper.download_images data/raw/detail/yahav.jsonl yahav
+      - if: steps.crawl.outcome == 'success'
+        continue-on-error: true
+        run: python -m scraper.download_images "data/raw/detail/$VENDOR.jsonl" "$VENDOR"
       # Mark spec-scraped items in the ledger. Image presence does NOT
       # gate marking (see make_detail_pending): imageless products would
       # otherwise re-scrape every day forever.
-      - run: python -m scraper.make_detail_pending mark ivory onepc yahav
+      # Mark only usable rows actually saved, including rows before a block.
+      # Do not let a missing image or failed sibling discard these specs.
+      - run: python -m scraper.make_detail_pending mark "$VENDOR"
       # Only paths that EXIST: a vendor with zero new rows has no ledger
       # file, and that must not fail the other vendors' commit (Sep 2026:
       # static path list + missing onepc ledger = exit 128, losing the whole
@@ -304,7 +291,8 @@ jobs:
       - name: Bundle the detail outputs for publish-detail
         id: pack
         run: |
-          read -ra paths <<< "$DETAIL_PATHS"
+          paths=("data/detail_pending/$VENDOR.json" "data/raw/detail/$VENDOR.jsonl"
+                 "data/detail_scraped/$VENDOR.json" "data/images/$VENDOR/")
           EXISTING=()
           for p in "${paths[@]}"; do
             if [ -e "$p" ]; then EXISTING+=("$p"); fi
@@ -314,26 +302,41 @@ jobs:
       - if: steps.pack.outputs.packed == 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         with:
-          name: publish-detail
+          name: publish-detail-${{ matrix.vendor }}
           path: ${{ runner.temp }}/bundle
           retention-days: 1
           if-no-files-found: error
+      - name: Report failed detail phase after preserving outputs
+        if: steps.crawl.outcome == 'failure'
+        run: |
+          echo "::error::$VENDOR detail failed or blocked; captured rows bundled, no follow-up image requests"
+          exit 1
 
   publish-detail:
     permissions:
       contents: write
     needs: detail-scrape
-    if: "!cancelled() && needs.detail-scrape.outputs.packed == 'true'"
+    if: "!cancelled() && needs.detail-scrape.result != 'skipped'"
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        vendor: [ivory, onepc, yahav]
+    env:
+      VENDOR: ${{ matrix.vendor }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
+      - id: download
+        continue-on-error: true
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333  # v8.0.2
         with:
-          name: publish-detail
+          name: publish-detail-${{ matrix.vendor }}
           path: ${{ runner.temp }}/bundle
-      - run: |
-          read -ra paths <<< "$DETAIL_PATHS"
+      - if: steps.download.outcome == 'success'
+        run: |
+          paths=("data/detail_pending/$VENDOR.json" "data/raw/detail/$VENDOR.jsonl"
+                 "data/detail_scraped/$VENDOR.json" "data/images/$VENDOR/")
           bash scripts/ci_bundle.sh unpack "$RUNNER_TEMP/bundle" "${paths[@]}"
           EXISTING=()
           for p in "${paths[@]}"; do
@@ -342,5 +345,5 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git config user.name "pc-parts-il-bot"
           bash scripts/git_commit_push.sh \
-            "detail-scrape: $(date -u +%F)" \
+            "detail-scrape($VENDOR): $(date -u +%F)" \
             "${EXISTING[@]}"

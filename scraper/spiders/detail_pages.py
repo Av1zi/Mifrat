@@ -11,10 +11,10 @@ Design:
   themselves, to keep "what's already scraped" logic in one place
   rather than duplicated per-spider.
 - Output: one DetailItem per product (see below), written to
-  data/raw/detail/<vendor>.jsonl via `-O <path>:jsonlines` (Scrapy's
+   data/raw/detail/<vendor>.jsonl via append-only `-o <path>:jsonlines` (Scrapy's
   modern colon syntax) — simpler and less quoting-fragile than the
   `-s "FEEDS={...}"` form used elsewhere in this project, e.g.:
-      scrapy crawl tms_detail -O data/raw/detail/tms.jsonl:jsonlines
+       scrapy crawl tms_detail -o tms_detail_test.jsonl:jsonlines
 - Image download is deliberately NOT done inside these spiders.
   At ~5 new items/day, a plain `requests`-based downloader
   (download_images.py, same folder) run once after the spider
@@ -68,6 +68,16 @@ NON_PLAYWRIGHT_DOWNLOAD_HANDLERS = {
         "http": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
         "https": "scrapy.core.downloader.handlers.http.HTTPDownloadHandler",
     },
+}
+
+# Cloud detail phases stop at the first block, including robots/redirect
+# responses, before retry/HTTP-error middleware can hide the verdict.
+CLOUD_DETAIL_SETTINGS = {
+    **NON_PLAYWRIGHT_DOWNLOAD_HANDLERS,
+    "DOWNLOADER_MIDDLEWARES": {"scraper.crawl_outcome.StopOnBlockMiddleware": 950},
+    "CONCURRENT_REQUESTS": 1,
+    "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
+    "RETRY_HTTP_CODES": [408, 425, 500, 502, 503, 504, 522, 524],
 }
 
 
@@ -210,7 +220,7 @@ def _gallery_images(response) -> list[str]:
 class IvoryDetailSpider(scrapy.Spider):
     name = "ivory_detail"
     allowed_domains = ["ivory.co.il"]
-    custom_settings = {**NON_PLAYWRIGHT_DOWNLOAD_HANDLERS}
+    custom_settings = {**CLOUD_DETAIL_SETTINGS}
 
     def start_requests(self):
         yield from self._build_requests()
@@ -493,7 +503,7 @@ class TmsDetailSpider(scrapy.Spider):
 class OnePcDetailSpider(scrapy.Spider):
     name = "onepc_detail"
     allowed_domains = ["1pc.co.il"]
-    custom_settings = {**NON_PLAYWRIGHT_DOWNLOAD_HANDLERS}
+    custom_settings = {**CLOUD_DETAIL_SETTINGS}
 
     # A line counts as a bare sub-group heading (like "מפרט זיכרון" /
     # "מאפייני גרפיקה" inside the packed "Specifications" cell — see
@@ -774,7 +784,7 @@ class YahavDetailSpider(scrapy.Spider):
 
     name = "yahav_detail"
     allowed_domains = ["yahavpc.co.il"]
-    custom_settings = {**NON_PLAYWRIGHT_DOWNLOAD_HANDLERS}
+    custom_settings = {**CLOUD_DETAIL_SETTINGS}
 
     # "מק"ט" — the Hebrew catalogue-number label, printed as
     # "מק"ט: <SKU>". The gershayim between ק and ט is U+05F4.

@@ -175,8 +175,10 @@ class KspStreamSpider(KspSpider):
         for row in data["items"]:
             price = current[str(row["uin"])]
             row["price"] = price["price"]
-            # Captured for future Eilat attachment, never regular min/history.
+            # Both counters arrive in this same price response. Preserve the
+            # availability verdict too: null alone is not evidence of absence.
             row["_stream_eilat_price"] = price.get("eilat_price")
+            row["_stream_is_eilat"] = price.get("is_eilat")
         yield from self._accept_page(response, data, tag, guess, page)
 
     def _accept_page(self, response, data, tag, guess, page):
@@ -202,6 +204,10 @@ class KspStreamSpider(KspSpider):
             item["vendor_meta"]["display_sku"] = raw.get("uinsql")
             if raw.get("_stream_eilat_price") is not None:
                 item["vendor_meta"]["stream_eilat_price"] = raw["_stream_eilat_price"]
+            item["vendor_meta"]["eilat"] = {
+                "price_ils": raw.get("_stream_eilat_price"),
+                "available": raw.get("_stream_is_eilat"),
+            }
         return item
 
     def _stop_incomplete(self, reason):

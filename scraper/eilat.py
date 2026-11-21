@@ -5,8 +5,10 @@ Scraped, never calculated: some vendors have no Eilat store, some items are
 sold only in Eilat (TMS) and some only outside it, and the discount is not a
 flat 1/1.18 (Ivory: no exemption on monitors over 25").
 
-Each vendor with an Eilat store has a second spider (`<vendor>_eilat`) whose
-snapshot is its own raw file, data/raw/<night>/<vendor>_eilat.jsonl, with
+Prefer an Eilat price observed alongside the regular listing; KSP's current
+price response contains both. A separate spider is needed only where the
+regular source lacks that price or a separate view discovers Eilat-only items.
+Legacy snapshots remain supported: data/raw/<night>/<vendor>_eilat.jsonl, with
 `channel: "eilat"` on every row and the Eilat price in `price_ils`:
 
   tms_eilat    TMS category pages in the site's Eilat mode (`?eilat=1`); stock
@@ -29,6 +31,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+import math
 
 EILAT_CHANNEL = "eilat"
 
@@ -86,8 +89,11 @@ def _price(value) -> int | None:
     if isinstance(value, bool) or value is None:
         return None
     try:
-        price = round(float(str(value).replace(",", "").strip()))
-    except ValueError:
+        number = float(str(value).replace(",", "").strip())
+        if not math.isfinite(number):
+            return None
+        price = round(number)
+    except (ValueError, OverflowError, TypeError):
         return None
     return price if price > 0 else None
 
@@ -107,6 +113,39 @@ def newest_rows(rows: list[dict], key_of) -> dict[str, dict]:
         key = key_of(row)
         if key not in out or _stamp(row) >= _stamp(out[key]):
             out[key] = row
+    return out
+
+
+def inline_rows(vendor: str, listings: list[dict]) -> dict[str, dict]:
+    """Observed prices at the listing seam, not VAT arithmetic or null guesses.
+
+    The canonical vendor_meta.eilat observation carries price_ils and a
+    boolean availability verdict. Read KSP's older positive metadata too;
+    its missing/null fields never establish that an item is not sold there.
+    Rows retain the listing's crawl stamp so newer separate observations win.
+    """
+    out = {}
+    for listing in listings:
+        meta = listing.get("vendor_meta") or {}
+        observation = meta.get("eilat")
+        available = None
+        if isinstance(observation, dict):
+            price = _price(observation.get("price_ils"))
+            available = observation.get("available")
+        elif vendor == "ksp":
+            price = _price(meta.get("stream_eilat_price")) or _price(meta.get("eilat_price"))
+        else:
+            continue
+        if available is False:
+            # Explicit negative beats an older positive observation; an
+            # unknown/malformed field does not erase a valid old price.
+            price = None
+        elif price is None or not plausible(price, listing.get("price_ils")):
+            continue
+        out[str(listing["listing_key"])] = {
+            **listing, "price_ils": price, "in_stock": listing.get("in_stock"),
+            "eilat_available": available, "_eilat_stale": bool(listing.get("stale")),
+        }
     return out
 
 
@@ -138,12 +177,19 @@ def attach(vendor: str, listings: list[dict], eilat_rows: dict[str, dict], *,
     source = SOURCES[vendor]
     by_key = {str(e.get("listing_key")): e for e in listings}
     out = Attached(state=STALE if eilat_stale else FRESH)
+    observed_absences = 0
     orphans: list[dict] = []
     for key, row in eilat_rows.items():
+        listing = by_key.get(key)
+        if row.get("eilat_available") is False:
+            if listing is not None:
+                for name in ("eilat_price_ils", "eilat_in_stock", "eilat_stale"):
+                    listing.pop(name, None)
+                observed_absences += 1
+            continue
         price = _price(row.get("price_ils"))
         if price is None:
             continue
-        listing = by_key.get(key)
         if listing is None:
             orphans.append(row)
             continue
@@ -155,10 +201,10 @@ def attach(vendor: str, listings: list[dict], eilat_rows: dict[str, dict], *,
         # Ivory and KSP publish no Eilat stock: their Eilat stores sell from
         # the same network stock, so the regular flag stands in.
         listing["eilat_in_stock"] = stock if isinstance(stock, bool) else listing.get("in_stock")
-        listing["eilat_stale"] = eilat_stale
+        listing["eilat_stale"] = row.get("_eilat_stale", eilat_stale)
         out.matched += 1
 
-    if listings and out.matched < MIN_COVERAGE * len(listings):
+    if listings and out.matched + observed_absences < MIN_COVERAGE * len(listings):
         out.state = PARTIAL
     if source.discovers_eilat_only and out.state == FRESH and not main_stale:
         for row in orphans:

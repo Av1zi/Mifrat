@@ -852,7 +852,7 @@ def _snapshot_freshness(listings: list[dict], snapshot_date: str,
 
 def _attach_eilat(enriched: list[dict], main_state: dict[str, dict],
                   today: datetime) -> tuple[list[dict], dict[str, dict]]:
-    """Join each vendor's Eilat snapshot onto its regular listings.
+    """Attach observed inline or separately captured Eilat prices.
 
     Returns the Eilat-only raw rows (to enrich like any listing) and the
     per-vendor Eilat state for meta.json (scraper/eilat.py).
@@ -863,27 +863,45 @@ def _attach_eilat(enriched: list[dict], main_state: dict[str, dict],
     eilat_only: list[dict] = []
     states: dict[str, dict] = {}
     for vendor, source in eilat.SOURCES.items():
+        vendor_listings = by_vendor.get(vendor, [])
+        inline = eilat.inline_rows(vendor, vendor_listings)
         found = find_latest_snapshot(source.spider, today)
-        if found is None:
+        if found is None and not inline:
             states[vendor] = {"state": eilat.MISSING, "last_seen": None}
             print(f"[info] {source.spider}: no Eilat snapshot in the last "
                   f"{STALE_LOOKBACK_DAYS} days", file=sys.stderr)
             continue
-        path, snapshot_date = found
-        rows = [r for r in load_listings(path) if r.get("channel") == eilat.EILAT_CHANNEL]
+        main = main_state.get(vendor) or {}
+        if found:
+            path, snapshot_date = found
+            rows = [r for r in load_listings(path) if r.get("channel") == eilat.EILAT_CHANNEL]
+        else:
+            snapshot_date = main.get("snapshot_date") or scrape_night(today).isoformat()
+            rows = []
         for row in rows:
             row.setdefault("vendor_id", vendor)
-        seen_day, is_stale = _snapshot_freshness(rows, snapshot_date, today)
-        latest = eilat.newest_rows(rows, listing_key)
-        main = main_state.get(vendor) or {}
+        _, separate_stale = _snapshot_freshness(rows, snapshot_date, today)
+        for row in rows:
+            row["_eilat_stale"] = separate_stale
+        latest = eilat.newest_rows([*rows, *inline.values()],
+                                  lambda row: row.get("listing_key") or listing_key(row))
+        selected = list(latest.values())
+        seen_day, _ = _snapshot_freshness(selected, snapshot_date, today)
+        # Mixed-age observations must not label old prices/unknown absences
+        # fresh just because some inline prices were captured tonight.
+        is_stale = any(row.get("_eilat_stale", True) for row in selected)
         result = eilat.attach(
-            vendor, by_vendor.get(vendor, []), latest,
+            vendor, vendor_listings, latest,
             eilat_stale=is_stale, main_stale=bool(main.get("stale", True)),
             seen_day=seen_day, snapshot_day=snapshot_date)
+        if inline and not rows and len(inline) < len(vendor_listings):
+            # Inline null/missing fields are unknown, unlike an explicitly
+            # absent item in a verified separate Eilat catalog crawl.
+            result.state = eilat.PARTIAL
         states[vendor] = {"state": result.state, "last_seen": seen_day}
         eilat_only.extend(result.eilat_only)
         level = "warn" if result.state != eilat.FRESH else "ok"
-        print(f"[{level}] {source.spider}: {len(latest)} Eilat rows from {snapshot_date} "
+        print(f"[{level}] {vendor} Eilat: {len(latest)} observations (inline={len(inline)}) "
               f"({result.state}); {result.matched} on regular listings, "
               f"{len(result.eilat_only)} Eilat-only, "
               f"{result.implausible} dropped as implausible")
@@ -920,7 +938,7 @@ def build_catalog(today: datetime):
 
         seen_day, is_stale = _snapshot_freshness(listings, snapshot_date, today)
         main_state["1pc" if vendor_spider_name == "onepc" else vendor_spider_name] = {
-            "stale": is_stale}
+            "stale": is_stale, "snapshot_date": snapshot_date}
 
         for listing in listings:
             listing["last_seen"] = snapshot_date

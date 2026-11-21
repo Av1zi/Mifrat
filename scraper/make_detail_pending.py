@@ -38,6 +38,7 @@ spider names and the _load_pending() keys in detail_pages.py; run
 download_images with the same key so image paths line up).
 """
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -176,8 +177,10 @@ def _core_gap_priorities() -> dict[tuple[str, str], int]:
 _CHALLENGE_MARKERS = (
     "access denied", "captcha", "challenge", "cloudflare", "forbidden",
     "incapsula", "just a moment", "robot check", "verify you are human",
-    "temporarily blocked", "too many requests", "403", "429",
+    "temporarily blocked", "too many requests",
 )
+_CHALLENGE_RE = re.compile(r"\b(?:" + "|".join(re.escape(marker) for marker in _CHALLENGE_MARKERS) + r")\b", re.I)
+_HTTP_ERROR_RE = re.compile(r"(?:http(?:\s+status)?|status(?:\s+code)?|error(?:\s+code)?)\s*[:=-]?\s*(?:403|429)\b", re.I)
 
 
 def _usable_specs(specs) -> bool:
@@ -187,8 +190,14 @@ def _usable_specs(specs) -> bool:
     values = [str(value).strip() for value in specs.values() if value is not None]
     if not any(values):
         return False
-    text = " ".join(values).casefold()
-    return not any(marker in text for marker in _CHALLENGE_MARKERS)
+    # Product codes/barcodes contain 403/429; radiator dimensions can be 403
+    # mm, and ASRock's model family is Challenger. Those are not block pages.
+    # Keep explicit error/status wording and standalone error payloads red.
+    errors = {"error", "status", "http status", "status code", "error code", "message"}
+    return not any(_CHALLENGE_RE.search(str(value).strip())
+                   or _HTTP_ERROR_RE.search(str(value).strip())
+                   or (str(key).strip().casefold() in errors and str(value).strip() in {"403", "429"})
+                   for key, value in specs.items() if value is not None)
 
 
 def _load_ledger(v: str) -> set:

@@ -86,8 +86,12 @@ At that time, the resume wrapper consumes a one-shot marker and clears the
 known pause once. It holds the shared checkout lock. A failed run re-pauses
 KSP; a second resume invocation cannot repeatedly unblock it. Only a
 successful full run enables the ordinary daily listing timer. Detail remains
-disabled. The old Eilat API is not called: current Eilat prices are captured
-as listing metadata, while attaching them to Eilat mode is deferred.
+disabled. The old Eilat API is not called: current Eilat prices and explicit
+availability arrive in the same price response as the regular price and are
+attached to offers by `scraper/eilat.py`. No second Eilat crawl is required.
+Unknown/null fields do not claim that a product is not sold in Eilat; old
+snapshots remain readable, and stale observations stay stale. Neither Eilat
+prices nor their availability alter regular minima or price history.
 
 `python scraper/run_spider.py ksp` uses the stream spider after the date,
 keeping the original `data/raw/<night>/ksp.jsonl` atomic publish path and

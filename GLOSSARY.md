@@ -59,7 +59,7 @@ _Avoid_: listing (once merged)
 An offer reused from an earlier snapshot because the vendor had none today. Always shown as stale, never hidden.
 
 **Eilat price**:
-A vendor's VAT-free price at its Eilat stores, scraped from the vendor (never calculated) by a second crawl, the Eilat snapshot. It rides on the offer beside the regular price and never sets a regular minimum, sort, total or price-history line.
+A vendor's VAT-free price at its Eilat stores, observed from the vendor (never calculated). It rides on the offer beside the regular price and never sets a regular minimum, sort, total or price-history line.
 _Avoid_: tax-free price, Eilat discount
 
 **Eilat-only offer**:

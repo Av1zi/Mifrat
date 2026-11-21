@@ -19,6 +19,8 @@ Offline (code level). Pins:
 from __future__ import annotations
 
 import json
+import contextlib
+import io
 import sys
 import tempfile
 from pathlib import Path
@@ -35,6 +37,8 @@ from scraper.site_data import _trim_product  # noqa: E402
 from scraper.spiders.ivory_eilat import parse_tiles  # noqa: E402
 from scraper.spiders.ksp_eilat import parse_bms  # noqa: E402
 from scraper.spiders.tms_eilat import eilat_branch_stock, eilat_url  # noqa: E402
+from datetime import datetime, timezone
+from unittest.mock import patch
 
 FIXTURES = ROOT / "scraper" / "fixtures" / "eilat"
 problems: list[str] = []
@@ -141,6 +145,74 @@ def check_attach() -> None:
     expect("partial crawl makes no Eilat-only", len(out.eilat_only or []), 0)
 
 
+def check_inline() -> None:
+    from scraper.normalize_and_match import _attach_eilat
+    now = datetime(2026, 11, 21, 4, tzinfo=timezone.utc)
+
+    def regular(price=847, available=True, stale=False):
+        e = listing("ksp", "123", 1000)
+        e.update(scraped_at="2026-11-21T01:00:00+00:00", stale=stale)
+        e["vendor_meta"] = {"eilat": {"price_ils": price, "available": available}}
+        return e
+
+    def attach(items, stale=False):
+        with patch("scraper.normalize_and_match.find_latest_snapshot", return_value=None), \
+             contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            return _attach_eilat(items, {"ksp": {"stale": stale}}, now)[1]["ksp"]
+
+    e = regular()
+    expect("inline source fresh without separate snapshot", attach([e])["state"], eilat.FRESH)
+    expect("inline positive reaches offer", offer_from_listing(e).get("eilat_price_ils"), 847)
+    expect("inline keeps regular price", e["price_ils"], 1000)
+    e = regular(stale=True)
+    expect("inline old listing state stays stale", attach([e], True)["state"], eilat.STALE)
+    expect("inline old offer stays stale", e.get("eilat_stale"), True)
+    e = regular(847, False)
+    expect("explicit no Eilat is a complete observation", attach([e])["state"], eilat.FRESH)
+    expect("explicit no Eilat ignores contradictory price", e.get("eilat_price_ils"), None)
+    e = regular(None, None)
+    expect("inline null is unknown", attach([e])["state"], eilat.MISSING)
+    unknown = regular(None, None)
+    unknown["listing_key"] = "ksp:456"
+    expect("inline partial must not imply unknown products unavailable",
+           attach([regular(), unknown])["state"], eilat.PARTIAL)
+    for value in (True, "nan", "inf", "-inf", 0, -1, 400, 1001):
+        e = regular(value)
+        expect(f"invalid inline price {value!r}", attach([e])["state"], eilat.MISSING)
+
+    # Same key, two sources: newest observation wins, including an explicit
+    # negative; a stale positive must not replace a newer inline negative.
+    older = {**eilat_row("ksp", "123", 850), "scraped_at": "2026-11-20T01:00:00+00:00"}
+    for main, separate, want, state in (
+        (regular(), older, 847, eilat.FRESH),
+        (regular(847, False), older, None, eilat.FRESH),
+        (regular(), {**older, "scraped_at": "2026-11-21T02:00:00+00:00", "price_ils": 849}, 849, eilat.FRESH),
+    ):
+        path = ROOT / "unused-test-snapshot"
+        def find(name, today):
+            return (path, separate["scraped_at"][:10]) if name == "ksp_eilat" else None
+        with patch("scraper.normalize_and_match.find_latest_snapshot", side_effect=find), \
+             patch("scraper.normalize_and_match.load_listings", return_value=[separate]), \
+             contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            _, states = _attach_eilat([main], {"ksp": {"stale": False}}, now)
+        expect("newest inline/separate price wins", main.get("eilat_price_ils"), want)
+        expect("newest inline/separate state", states["ksp"]["state"], state)
+    # A current inline price for one product cannot refresh another product's
+    # stale legacy price, or the vendor-wide absence verdict.
+    second = regular(None, None)
+    second.update(vendor_sku="456", listing_key="ksp:456")
+    older_second = {**older, "vendor_sku": "456"}
+    with patch("scraper.normalize_and_match.find_latest_snapshot", side_effect=lambda name, today:
+               (ROOT / "unused-test-snapshot", "2026-11-20") if name == "ksp_eilat" else None), \
+         patch("scraper.normalize_and_match.load_listings", return_value=[older, older_second]), \
+         contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        first = regular()
+        _, states = _attach_eilat([first, second], {"ksp": {"stale": False}}, now)
+    expect("fresh inline offer stays fresh in mixed age vendor", first.get("eilat_stale"), False)
+    expect("old legacy offer stays stale in mixed age vendor", second.get("eilat_stale"), True)
+    expect("mixed vendor cannot infer fresh absences", states["ksp"]["state"], eilat.STALE)
+
+
 def check_site_row() -> None:
     base = listing("tms", "X1", 1000)
     base.update(eilat_price_ils=847, eilat_in_stock=True, eilat_stale=False)
@@ -201,6 +273,7 @@ def check_history() -> None:
         day = Path(tmp) / "2026-11-16"
         day.mkdir()
         regular = {"vendor_id": "tms", "vendor_sku": "H1", "url": "u", "price_ils": 1000,
+                   "vendor_meta": {"eilat": {"price_ils": 847, "available": True}},
                    "scraped_at": "2026-11-16T01:00:00+00:00"}
         stray = dict(regular, price_ils=847, channel="eilat", scraped_at="2026-11-16T02:00:00+00:00")
         (day / "tms.jsonl").write_text("\n".join(json.dumps(r) for r in (regular, stray)) + "\n", encoding="utf-8")
@@ -219,7 +292,7 @@ def check_history() -> None:
 
 
 def main() -> int:
-    for check in (check_ivory, check_ksp, check_tms, check_attach, check_site_row, check_matching,
+    for check in (check_ivory, check_ksp, check_tms, check_attach, check_inline, check_site_row, check_matching,
                   check_history):
         try:
             check()

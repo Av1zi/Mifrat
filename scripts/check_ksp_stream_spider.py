@@ -79,6 +79,16 @@ def main():
     offers = [offer for product in matched["products"] for offer in product["offers"]]
     assert len(offers) == 12
     assert any(offer["vendor_sku"] == "505073" and offer["price_ils"] == 351 for offer in offers)
+    from datetime import datetime, timezone
+    from scraper.normalize_and_match import _attach_eilat
+    with patch("scraper.normalize_and_match.find_latest_snapshot", return_value=None):
+        _, states = _attach_eilat(enriched, {"ksp": {"stale": False}},
+                                  datetime(2026, 11, 18, 3, tzinfo=timezone.utc))
+    from scraper.matching import offer_from_listing
+    offer = offer_from_listing(enriched[0])
+    assert offer.get("eilat_price_ils") == 296, "observed inline Eilat price lost before offers"
+    assert offer["price_ils"] == 351, "inline Eilat price replaced regular price"
+    assert states["ksp"]["state"] == "fresh", "complete inline prices need no second snapshot"
     assert all(not offer.get("eilat_only") for offer in offers)
     assert json.loads(request.body)["components"][0]["key"] == "cat.categoryListing"
     assert json.loads(price_request[0].body)["components"][0]["key"] == "item.bms"

@@ -83,6 +83,15 @@ Every listing conceptually contains: which vendor it came from, the vendor own i
 
 A separate detail concept exists for deeper product pages: vendor, identifier, address, a table of specification labels and values, a main image, scrape time, and extras.
 
+Eilat prices are vendor observations, not a VAT calculation. When a listing
+price response already carries both regular and Eilat prices (KSP's current
+price stream), both ride on one offer without a second crawl. Separate Eilat
+snapshots are kept only for sources that need another view, including TMS's
+Eilat-only listings; old snapshots remain supported. Inline observations
+retain their crawl freshness, explicit absence is distinguished from an
+unknown field, and the newest observation wins. Regular minima, sorting,
+build totals and price history never use the Eilat side-price.
+
 ### 4.2 The only supported entrypoint for real runs
 
 For real daily data, there is one supported way to run a vendor spider. It takes the vendor name, runs that spider, and writes the dated output file for today, replacing today file if it already exists. It refuses to succeed silently on zero items — it exits with failure if the output is missing or empty so broken runs are visible instead of producing an empty day.
@@ -249,6 +258,15 @@ Lifecycle:
 - Crawl pending detail pages with per-vendor detail spiders and append results to the per-vendor detail file.
 - Download images for those detail results, creating a standard-size image and a small thumbnail, skipping items that already have images and skipping image addresses without a real filename.
 - Mark identifiers as done only if the detail result contained a non-empty specification table. An image alone does not count as done; an empty table means the page was likely a challenge or miss and stays pending for a future attempt.
+
+Cloud detail vendors run as independent workflow legs through
+`python -m scraper.run_cloud_detail <vendor>`. The runner checks actual
+crawler outcomes rather than trusting Scrapy's process exit code. A first
+403/429 stops further detail downloads and skips images for that vendor.
+Already captured rows remain append-only, usable specs are marked and
+bundled before failure is reported, and another vendor's outputs still
+publish. The acceptance check recognizes explicit block/error wording, not
+numbers inside dimensions/barcodes or model names such as Challenger.
 
 Per-vendor detail reading is tailored: one vendor uses labeled content rows with Hebrew label mapping, another uses definition and table structures plus structured metadata including brand, availability, and catalog number, another uses specification tables with subgroup handling plus real identifier and manufacturer number discovery from metadata and structured data, and the dropped Plonter source used browser automation over table rows with Hebrew labels and directional values. Everywhere, the detail main image is preferred over the listing thumbnail when present, and junk, empty, Hebrew-navigation, or mojibake-contaminated pairs are discarded. Detail tables are a Tier-1 source for the spec system (§6.5): they fill what reference data lacks but never override it.
 
