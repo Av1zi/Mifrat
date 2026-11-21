@@ -2877,65 +2877,6 @@
   {
     "kind": "variant_conflict",
     "category": "case",
-    "product_id": "model:case:216-lancool-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:130381",
-        "vendor": "1pc",
-        "vendor_sku": "PC-LAN216RX",
-        "title": "מארז מחשב Lancool 216R Black Case PC-LAN216RX",
-        "price": 555
-      },
-      {
-        "listing_key": "tms:PC-LAN216RX",
-        "vendor": "tms",
-        "vendor_sku": "PC-LAN216RX",
-        "title": "מארז מחשב Lian-Li Lancool 216 RGB Black",
-        "price": 453
-      },
-      {
-        "listing_key": "yahav:8749",
-        "vendor": "yahav",
-        "vendor_sku": "PC-LAN216RX",
-        "title": "מארז חברת Lancool דגם Lancool 216R RGB Mesh Black Mid Tower Case צבע שחור",
-        "price": 490
-      }
-    ],
-    "model_code": "216-lancool",
-    "manufacturer_pn": [
-      "PCLAN216RX"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
-    "product_id": "model:case:216-lancool-black-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:PC-LAN216X",
-        "vendor": "tms",
-        "vendor_sku": "PC-LAN216X",
-        "title": "מארז מחשב Lian-Li Lancool 216 שחור",
-        "price": null
-      },
-      {
-        "listing_key": "yahav:9371",
-        "vendor": "yahav",
-        "vendor_sku": "PC-LAN216X",
-        "title": "מארז חברת Lancool דגם Lancool 216 Mesh Black Mid Tower Case צבע שחור",
-        "price": 465
-      }
-    ],
-    "model_code": "216-lancool",
-    "manufacturer_pn": [
-      "PCLAN216X"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case",
     "product_id": "model:case:2500x-white",
     "vendor": "",
     "offers": [
@@ -15451,51 +15392,6 @@
     "model_code": "360-aorus-aoruswii360i-cooler-gp-gp-ice-ii-liquid-waterforce",
     "manufacturer_pn": [
       "GPAORUSWII360I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
-    "product_id": "model:aio:360-aorus-aoruswxii360i-cooler-gp-gp-ice-ii-liquid-waterforce-x-360mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:157399",
-        "vendor": "1pc",
-        "vendor_sku": "GP-AORUSWXII360I",
-        "title": "מערכת קירור מים Gigabyte GP-AORUS WATERFORCE X II 360 ICE Liquid Cooler GP-AORUSWXII360I",
-        "price": 1128
-      },
-      {
-        "listing_key": "tms:GP-AORUSWXII360I",
-        "vendor": "tms",
-        "vendor_sku": "GP-AORUSWXII360I",
-        "title": "Gigabyte GP-AORUS WATERFORCE X II 360 ICE Liquid Cooler",
-        "price": 1080
-      }
-    ],
-    "model_code": "360-aorus-aoruswxii360i-cooler-gp-gp-ice-ii-liquid-waterforce-x",
-    "manufacturer_pn": [
-      "GPAORUSWXII360I"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "aio",
-    "product_id": "model:aio:360-aorus-cooler-gp-ii-liquid-waterforce-x-360mm",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:GP-AORUSWXII360",
-        "vendor": "tms",
-        "vendor_sku": "GP-AORUSWXII360",
-        "title": "Gigabyte GP-AORUS WATERFORCE X II 360 Liquid Cooler",
-        "price": null
-      }
-    ],
-    "model_code": "360-aorus-cooler-gp-ii-liquid-waterforce-x",
-    "manufacturer_pn": [
-      "GPAORUSWXII360"
     ]
   },
   {

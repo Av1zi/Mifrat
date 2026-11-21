@@ -486,7 +486,7 @@
 "1pc:159859":"model:cooler_air:63-6cfm-ma824-masterair-stealth-120mm",
 "1pc:159860":"model:cooler_air:1600rpm-270w-2x120mm-5cfm-84-a115-af-dual-elite-fan-to-up-170mm-140mm-black",
 "1pc:159861":"model:cooler_air:b1-cooler-cpu-rc-t120-tr120-160mm-120mm-black",
-"1pc:160175":"model:case:216-lancool-black-2",
+"1pc:160175":"model:case:216-case-mesh-mid-tower-black",
 "1pc:160188":"model:psu:hx1000i-1000w-full-black",
 "1pc:160241":"model:memory:0-2x48gb-3-5600-96gb-black-cl46-ddr5-expo-pro-xmp-96gb-x2-5600mhz-cl46-black-dimm",
 "1pc:160266":"model:storage:2-m-nvme-pcie-vi3000-512gb-nvme-m2",
@@ -2472,7 +2472,7 @@
 "1pc:223031":"model:storage:500gb-m450-spatium-v1-500gb-pcie4",
 "1pc:223032":"model:storage:960gb-s270-spatium-960gb-sata",
 "1pc:223033":"model:gpu:32g-5090-geforce-rtx-soc-suprim-32gb",
-"1pc:223066":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm",
+"1pc:223066":"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
 "1pc:223067":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
 "1pc:223068":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm",
 "1pc:223069":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
@@ -3987,7 +3987,7 @@
 "ksp:343565":"model:motherboard:p-prime-z890-atx",
 "ksp:343572":"model:motherboard:gaming-pro-tuf-wifi-z890-atx",
 "ksp:344576":"model:motherboard:f-gaming-rog-strix-wifi-z890-atx",
-"ksp:345344":"model:motherboard:aorus-ultra-z890i-miniitx",
+"ksp:345344":"model:motherboard:1851-aorus-lga-ultra-z890i-miniitx",
 "ksp:345347":"model:motherboard:gaming-x-z890m-microatx",
 "ksp:345348":"model:motherboard:aero-g-z890-atx",
 "ksp:346916":"model:memory:48-kf584cu40rsk2-48gb-x2-8400mhz-cl40-silver-dimm",
@@ -7853,7 +7853,7 @@
 "tms:CMG64GX4M4E3200C16":"model:memory:0-2-3200-4x16gb-cl16-rs-vengeance-xmp-64gb-x4-3200mhz-cl16-rgb-black",
 "tms:CMH16GX4M2E3200C16":"model:memory:3200-8gbx2-cl16-pro-ram-sl-vengeance-16gb-3200mhz-cl16-rgb",
 "tms:CMH16GX5M1B5600C40":"model:memory:2x32gb-5600-cl40-vengeance-16gb-x1-5600mhz-cl40-rgb-black",
-"tms:CMH16GX5M1D6000Z38":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm",
+"tms:CMH16GX5M1D6000Z38":"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
 "tms:CMH16GX5M1D6000Z38W":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-white-dimm",
 "tms:CMH16GX5M2E6000Z36":"mpn:memory:cmh16gx5m2e6000z36",
 "tms:CMH32GX5M1D6000Z40-B":"model:memory:6000-bulk-cl40-cmh5x32g1d60z40a2-32gb-x1-6000mhz-cl40-black",
@@ -9100,7 +9100,7 @@
 "tms:PC-A4H2OX4":"model:case:0-4-a4-case-h2o-x4-black",
 "tms:PC-A76X":"model:case:a76x-black",
 "tms:PC-LAN216RX":"model:case:216-lancool-black",
-"tms:PC-LAN216X":"model:case:216-lancool-black-2",
+"tms:PC-LAN216X":"model:case:216-case-mesh-mid-tower-black",
 "tms:PC-TR01A":"model:case:01a-odyssey-tr-x-silver",
 "tms:PC-TU150":"model:case:aluminum-itx-mini-pc-solid-tu150-windowless",
 "tms:PC-TU150WA":"model:case:aluminum-case-pc-tg-tu150-silver",
@@ -9517,7 +9517,7 @@
 "yahav:10145":"model:motherboard:gaming-wifi7-x-z890",
 "yahav:10146":"model:motherboard:eagle-wifi7-z890",
 "yahav:10147":"model:motherboard:eagle-z890",
-"yahav:10148":"model:motherboard:aorus-ultra-z890i-miniitx",
+"yahav:10148":"model:motherboard:1851-aorus-ddr5-dp-itx-lga-mini-thunderbolt-ultra-z890i-miniitx",
 "yahav:10157":"model:case:a3-wood-black",
 "yahav:10159":"model:cooler_air:12cfm-69-cnps14x-duo-120mm-black",
 "yahav:10169":"model:motherboard:1xhdmi-2xtype-c-p-prime-x870-atx",
@@ -10442,7 +10442,7 @@
 "yahav:9364":"model:motherboard:atx-ax-b760m-ddr5-displayport-gaming-hdmi-lga1700-micro-x-microatx",
 "yahav:9368":"model:motherboard:ax-b650-gaming-v2-x-atx",
 "yahav:9370":"model:memory:0-2x32gb-3-6000-cl30-expo-vengeance-xmp-64gb-x2-6000mhz-cl30-rgb-black",
-"yahav:9371":"model:case:216-lancool-black-2",
+"yahav:9371":"model:case:216-case-mesh-mid-tower-black",
 "yahav:9372":"model:cpu:14100",
 "yahav:9373":"model:cpu:14100-tray",
 "yahav:9374":"model:cpu:14100f",
@@ -12780,12 +12780,12 @@
 "Lian Li Lancool 215 Black",
 "case"
 ],
-"model:case:216-lancool-black":[
-"Lancool 216R RGB Black",
+"model:case:216-case-mesh-mid-tower-black":[
+"Lancool LAN216X Black",
 "case"
 ],
-"model:case:216-lancool-black-2":[
-"Lian Li LAN216X Lancool Black",
+"model:case:216-lancool-black":[
+"Lancool 216R RGB Black",
 "case"
 ],
 "model:case:217-case-mid-tower-black":[
@@ -19737,7 +19737,7 @@
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060-8gb-dual-fan-gddr7-geforce-oc-rtx-8gb":[
-"PNY GeForce RTX 5060 8GB (VCG50608DFXPB1-O)",
+"PNY GeForce RTX 5060 8GB",
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb":[
@@ -20225,7 +20225,7 @@
 "gpu"
 ],
 "model:gpu:5070-geforce-oc-rtx-12gb":[
-"Palit GeForce RTX 5070 12GB (NE75070U19K9-GB2050W)",
+"Palit GeForce RTX 5070 12GB",
 "gpu"
 ],
 "model:gpu:5070-geforce-oc-rtx-twin-x2-12gb":[
@@ -21277,7 +21277,7 @@
 "memory"
 ],
 "model:memory:2-cp2k16g64c32u5w-32gb-x2-6400mhz-cl32-white":[
-"Crucial 32GB DDR5 (2x16GB) 6400MHz CL32 (CP2K16G64C32U5W)",
+"Crucial 32GB DDR5 (2x16GB) 6400MHz CL32",
 "memory"
 ],
 "model:memory:2-ntswd5p60dp-32gb-cl38-white":[
@@ -22188,10 +22188,6 @@
 "Corsair Vengeance 16GB DDR5 (1x16GB) 6000MHz CL36",
 "memory"
 ],
-"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm":[
-"Corsair Vengeance RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
-"memory"
-],
 "model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-white-dimm":[
 "Corsair RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
 "memory"
@@ -22502,6 +22498,10 @@
 ],
 "model:memory:cmg8gx4m1e3200c16-8gb-cl16-rgb-black":[
 "Corsair RGB 8GB DDR4 (1x8GB) 3200MHz CL16",
+"memory"
+],
+"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey":[
+"Corsair Vengeance RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
 "memory"
 ],
 "model:memory:crucial-cp32g4dfra32a-32gb-black":[
@@ -22914,6 +22914,14 @@
 ],
 "model:motherboard:1851-aorus-atx-b860m-c-ddr5-dp-elite-hdmi-lga-micro-type-usb-wifi6e-microatx":[
 "Gigabyte B860M Aorus Elite LGA WIFI6E",
+"motherboard"
+],
+"model:motherboard:1851-aorus-ddr5-dp-itx-lga-mini-thunderbolt-ultra-z890i-miniitx":[
+"Gigabyte Z890I Aorus Ultra LGA WIFI7",
+"motherboard"
+],
+"model:motherboard:1851-aorus-lga-ultra-z890i-miniitx":[
+"Gigabyte Z890I Aorus Ultra LGA WiFi",
 "motherboard"
 ],
 "model:motherboard:1851-atx-b860-ddr5-displayport-fi-gaming-hdmi-lga-plus-thunderbolt-wi-atx":[
@@ -28109,7 +28117,7 @@
 "storage"
 ],
 "model:storage:elite-gen5x4-mp700-1000gb-pcie5-m22280":[
-"Corsair SSD 1TB MP700 ELITE NVMe Gen5x4 M.2 (CSSD-F1000GBMP700EHS)",
+"Corsair SSD 1TB MP700 ELITE NVMe Gen5x4 M.2",
 "storage"
 ],
 "model:storage:elite-gen5x4-mp700-2000gb-pcie5-m22280":[
