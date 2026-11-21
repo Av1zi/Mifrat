@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T22:02:57.377504+00:00",
+  "generated_at": "2026-11-21T22:16:18.465640+00:00",
   "gaps": [
     {
       "category": "case",
@@ -2413,6 +2413,16 @@
     },
     {
       "category": "case",
+      "label": "יבואן",
+      "count": 7,
+      "products": [
+        "model:case:01-7-c-compact-def7c-define-fd-black",
+        "model:case:01-7-c-def7a-define-fd-black",
+        "model:case:01-c-fd-pop-pos1m-silent-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "תמיכת מאווררים",
       "count": 7,
       "products": [
@@ -2699,16 +2709,6 @@
         "model:case:0-10232-2-761345-black",
         "model:case:3200d-argb-rs-black",
         "model:case:3200d-argb-rs-white"
-      ]
-    },
-    {
-      "category": "case",
-      "label": "יבואן",
-      "count": 6,
-      "products": [
-        "model:case:01-7-c-compact-def7c-define-fd-black",
-        "model:case:01-7-c-def7a-define-fd-black",
-        "model:case:01-c-fd-pop-pos1m-silent-black"
       ]
     },
     {
@@ -9829,6 +9829,14 @@
       "count": 1,
       "products": [
         "model:memory:line-psd532g56002-signature-32gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "יבואן",
+      "count": 1,
+      "products": [
+        "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2"
       ]
     },
     {

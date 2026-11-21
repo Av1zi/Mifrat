@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T22:02:57.377504+00:00",
+  "generated_at": "2026-11-21T22:16:18.465640+00:00",
   "listings": [
     {
       "vendor_id": "1pc",
@@ -375780,7 +375780,7 @@
       "in_stock": true,
       "tile_parser": 2,
       "category_guess": "ram",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/CMH32GX5M2B6000Z30W/XzVGaoBwYo-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/CMH32GX5M2B6000Z30W/XzVGaoBwYo.jpg",
       "scraped_at": "2026-11-21T21:43:55.702815+00:00",
       "last_seen": "2026-11-22",
       "seen_day": "2026-11-21",
@@ -375827,8 +375827,8 @@
         "cas_latency": 30,
         "cas": 30,
         "cl": 30,
-        "lighting": "RGB",
-        "rgb_lighting": "RGB",
+        "lighting": "ARGB",
+        "rgb_lighting": "ARGB",
         "color": "White",
         "colour": "White",
         "memory": "32GB"
@@ -375836,6 +375836,21 @@
       "eilat_price_ils": 2422,
       "eilat_in_stock": false,
       "eilat_stale": false,
+      "vendor_meta": {
+        "detail_specs": {
+          "סוג זכרון": "DDR5",
+          "גודל זיכרון (RAM)": "32GB",
+          "סוג תאורה": "ARGB",
+          "פרופיל זיכרון": "AMD EXPO | Intel XMP",
+          "ערכת זיכרון": "2x16GB",
+          "מהירות זיכרון (Max)": "6000",
+          "זמן איחזור": "CL30",
+          "צבע": "לבן",
+          "סדרה": "Vengeance RGB",
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "שלוש שנים + לכל החיים - יצרן"
+        }
+      },
       "product_id": "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2"
     },
     {
@@ -489469,7 +489484,7 @@
       "in_stock": true,
       "tile_parser": 2,
       "category_guess": "case",
-      "image_url": "https://tms.co.il/image/cache/catalog/products/V100RW/0QERK2f3uN-228x228.jpg",
+      "image_url": "https://tms.co.il/image/catalog/products/V100RW/0QERK2f3uN.jpg",
       "scraped_at": "2026-11-21T21:44:54.367256+00:00",
       "last_seen": "2026-11-22",
       "seen_day": "2026-11-21",
@@ -489492,12 +489507,49 @@
         "part_numbers": "V100RW",
         "part_number": "V100RW",
         "mpn": "V100RW",
+        "type": "Mid Tower",
+        "form_factor": "Mid Tower",
+        "case_type": "Mid Tower",
+        "mb_form_factors": "ATX, Micro ATX, Mini ITX",
+        "supported_mb_form_factors": "ATX, Micro ATX, Mini ITX",
+        "motherboard_support": "ATX, Micro ATX, Mini ITX",
+        "max_cooler_height_mm": 175,
+        "cooler_max_height_mm": 175,
+        "drive_bays_35": 1,
+        "internal_35_bays": 1,
+        "drive_bays_25": 1,
+        "internal_25_bays": 1,
+        "front_usb": "Earphone/Mic, USB Type-C, USB 3.2",
+        "front_io": "Earphone/Mic, USB Type-C, USB 3.2",
+        "front_panel_usb": "Earphone/Mic, USB Type-C, USB 3.2",
+        "dimensions_mm": "W=236 H=485 D=446mm",
+        "dimensions": "W=236 H=485 D=446mm",
+        "volume_l": 51.0,
+        "external_volume_l": 51.0,
+        "external_volume": "51.0L",
+        "lighting": "ARGB",
+        "rgb_lighting": "ARGB",
         "color": "White",
         "colour": "White"
       },
       "eilat_price_ils": 284,
       "eilat_in_stock": false,
       "eilat_stale": false,
+      "vendor_meta": {
+        "detail_specs": {
+          "סוג מארז": "Mid Tower",
+          "תאימות ללוח אם": "ATX | Micro ATX | Mini ITX",
+          "סוג תאורה": "ARGB",
+          "Hard Drive 3.5": "1",
+          "Hard Drive 2.5": "1",
+          "גובה מקסימלי קירור למעבד (ממ)": "175",
+          "יציאות קדמיות": "Earphone/Mic | USB Type-C | USB 3.2",
+          "מידות": "W=236 H=485 D=446mm",
+          "צבע": "לבן",
+          "יבואן": "סי.די.לוג בע\"מ",
+          "אחריות": "שנה אחת"
+        }
+      },
       "product_id": "model:case:v100r-vector-white"
     },
     {
@@ -799903,7 +799955,7 @@
           "category_normalized": "case",
           "brand": "Lian Li",
           "mpn": "V100RW",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/V100RW/0QERK2f3uN-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/V100RW/0QERK2f3uN.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "Lian Li",
@@ -799915,6 +799967,28 @@
             "part_numbers": "V100RW",
             "part_number": "V100RW",
             "mpn": "V100RW",
+            "type": "Mid Tower",
+            "form_factor": "Mid Tower",
+            "case_type": "Mid Tower",
+            "mb_form_factors": "ATX, Micro ATX, Mini ITX",
+            "supported_mb_form_factors": "ATX, Micro ATX, Mini ITX",
+            "motherboard_support": "ATX, Micro ATX, Mini ITX",
+            "max_cooler_height_mm": 175,
+            "cooler_max_height_mm": 175,
+            "drive_bays_35": 1,
+            "internal_35_bays": 1,
+            "drive_bays_25": 1,
+            "internal_25_bays": 1,
+            "front_usb": "Earphone/Mic, USB Type-C, USB 3.2",
+            "front_io": "Earphone/Mic, USB Type-C, USB 3.2",
+            "front_panel_usb": "Earphone/Mic, USB Type-C, USB 3.2",
+            "dimensions_mm": "W=236 H=485 D=446mm",
+            "dimensions": "W=236 H=485 D=446mm",
+            "volume_l": 51.0,
+            "external_volume_l": 51.0,
+            "external_volume": "51.0L",
+            "lighting": "ARGB",
+            "rgb_lighting": "ARGB",
             "color": "White",
             "colour": "White"
           },
@@ -1213385,7 +1213459,7 @@
           "category_normalized": "memory",
           "brand": "Corsair",
           "mpn": "CMH32GX5M2B6000Z30W",
-          "image_url": "https://tms.co.il/image/cache/catalog/products/CMH32GX5M2B6000Z30W/XzVGaoBwYo-228x228.jpg",
+          "image_url": "https://tms.co.il/image/catalog/products/CMH32GX5M2B6000Z30W/XzVGaoBwYo.jpg",
           "bundle_only": false,
           "attributes": {
             "manufacturer": "Corsair",
@@ -1213421,8 +1213495,8 @@
             "cas_latency": 30,
             "cas": 30,
             "cl": 30,
-            "lighting": "RGB",
-            "rgb_lighting": "RGB",
+            "lighting": "ARGB",
+            "rgb_lighting": "ARGB",
             "color": "White",
             "colour": "White",
             "memory": "32GB"
@@ -1409532,7 +1409606,7 @@
         "colour": "Silver / Black"
       },
       "matched_by": "identity",
-      "vendor_count": 1,
+      "vendor_count": 2,
       "offers": [
         {
           "vendor_id": "1pc",
@@ -1409699,7 +1409773,41 @@
           "eilat_only": true
         }
       ],
-      "image_url": "https://1pc.co.il/media/catalog/v1/6b019a46cfd68c08a68f5016f122142838e21c58a7c4ef573be3cbbef9fe7c6b.webp",
+      "image_url": "https://tms.co.il/image/catalog/products/GB860DS3H/iRv6dfGFx0.jpg",
+      "attribute_conflicts": {
+        "model": [
+          "B860 DS3H Intel® Core™ Ultra",
+          "B860 DS3H"
+        ],
+        "model_name": [
+          "B860 DS3H Intel® Core™ Ultra",
+          "B860 DS3H"
+        ],
+        "storage_interface": [
+          "SATA3, M.2 PCIe",
+          "M.2 PCIe, SATA3"
+        ],
+        "storage_interfaces": [
+          "SATA3, M.2 PCIe",
+          "M.2 PCIe, SATA3"
+        ],
+        "drive_interfaces": [
+          "SATA3, M.2 PCIe",
+          "M.2 PCIe, SATA3"
+        ],
+        "usb_ports": [
+          "USB 2.0 | USB 3.2 | USB Type-C",
+          "USB Type-C | USB 3.2 | USB 2.0"
+        ],
+        "usb_a_ports": [
+          "USB 2.0 | USB 3.2 | USB Type-C",
+          "USB Type-C | USB 3.2 | USB 2.0"
+        ],
+        "usb_c_ports": [
+          "USB 2.0 | USB 3.2 | USB Type-C",
+          "USB Type-C | USB 3.2 | USB 2.0"
+        ]
+      },
       "best_offer": {
         "vendor_id": "1pc",
         "vendor_sku": "GB860DS3H",
@@ -1640722,6 +1640830,8 @@
     "model:cpu:14600k-tray": "model:cpu:corei514600k-tray",
     "model:cpu:14700kf-tray": "model:cpu:corei714700kf-tray",
     "model:cpu:14900k-tray": "model:cpu:corei914900k-tray",
+    "model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm": "model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
+    "model:case:216-lancool-black-2": "model:case:216-case-mesh-mid-tower-black",
     "model:gpu:gddr5-gt740-low-profile-4gb": "model:gpu:128bit-gt740-low-profile-4gb",
     "model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm": "model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
     "model:case:216-lancool-black-2": "model:case:216-case-mesh-mid-tower-black",
