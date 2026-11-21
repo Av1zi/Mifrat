@@ -2918,7 +2918,7 @@
         "vendor": "tms",
         "vendor_sku": "PC-LAN216X",
         "title": "מארז מחשב Lian-Li Lancool 216 שחור",
-        "price": 412
+        "price": null
       },
       {
         "listing_key": "yahav:9371",
@@ -3102,7 +3102,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011296-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
-        "price": 415
+        "price": 474
       },
       {
         "listing_key": "yahav:10543",
@@ -3168,7 +3168,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011297-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
-        "price": 427
+        "price": 488
       },
       {
         "listing_key": "yahav:10545",
@@ -8483,7 +8483,7 @@
         "vendor": "tms",
         "vendor_sku": "RX76008G-F-V2",
         "title": "PowerColor RX 7600 8G-F/V2",
-        "price": 1812
+        "price": 1856
       },
       {
         "listing_key": "1pc:221471",
@@ -8520,7 +8520,7 @@
         "vendor": "tms",
         "vendor_sku": "90YV0LG2-M0NA00",
         "title": "כרטיס מסך Asus Dual RX 9060 XT 16GB GDDR6",
-        "price": 3210
+        "price": 3254
       }
     ],
     "model_code": "9060-dual-gddr6-radeon-rx-xt",
@@ -9083,7 +9083,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG432GB3200C16BDC",
         "title": "GEIL DDR4 32GB (2x16GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 1143
+        "price": 1152
       }
     ],
     "model_code": "2x16gb-3200-cl16-orion",
@@ -9102,7 +9102,7 @@
         "vendor": "tms",
         "vendor_sku": "GAVSG532GB6000C36CDC",
         "title": "GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V RGB AMD מהדורה אפורה",
-        "price": 2198
+        "price": 2220
       }
     ],
     "model_code": "2x16gb-6000-amd-cl36-orion-v",
@@ -9121,7 +9121,7 @@
         "vendor": "tms",
         "vendor_sku": "GAVG532GB6000C36CDC",
         "title": "זיכרון GEIL DDR5 32GB (2x16GB) 6000 CL36 ORION V מהדורת AMD בצבע אפור",
-        "price": 2176
+        "price": 2198
       }
     ],
     "model_code": "2x16gb-6000-amd-cl36-orion-v",
@@ -9140,7 +9140,7 @@
         "vendor": "tms",
         "vendor_sku": "KD5AGUA80-60A300H",
         "title": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
-        "price": 2418
+        "price": 2440
       },
       {
         "listing_key": "1pc:221534",
@@ -9333,7 +9333,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOG416GB3200C16BDC",
         "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION מהדורת בצבע אפור",
-        "price": 589
+        "price": 598
       },
       {
         "listing_key": "1pc:222244",
@@ -9359,7 +9359,7 @@
         "vendor": "tms",
         "vendor_sku": "GAOSG416GB3200C16BDC",
         "title": "GEIL DDR4 16GB (2x8GB) 3200 CL16 ORION RGB מהדורת בצבע אפור",
-        "price": 624
+        "price": 633
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -9471,6 +9471,13 @@
         "vendor_sku": "480430",
         "title": "זיכרון למחשב Corsair Vengeance RGB 2x16GB DDR5 6000MT / s CL30 - צבע לבן",
         "price": 2490
+      },
+      {
+        "listing_key": "tms:CMH32GX5M2B6000Z30W",
+        "vendor": "tms",
+        "vendor_sku": "CMH32GX5M2B6000Z30W",
+        "title": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000 CL30 White EXPO/XMP 3.0",
+        "price": 2858
       }
     ],
     "model_code": "rgb-vengeance",
@@ -11707,7 +11714,7 @@
         "vendor": "tms",
         "vendor_sku": "CT2000T710SSD8",
         "title": "Crucial T710 2TB PCIe Gen5 NVMe M.2 SSD",
-        "price": 1781
+        "price": 1803
       },
       {
         "listing_key": "yahav:11457",
@@ -12233,7 +12240,7 @@
         "vendor": "tms",
         "vendor_sku": "WDS200T4G0E-00CPS0",
         "title": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
-        "price": 1130
+        "price": 1143
       }
     ],
     "model_code": "green-sn3000-wd"
@@ -12339,7 +12346,7 @@
         "vendor": "tms",
         "vendor_sku": "SNV3S-2000G",
         "title": "Kingston 2TB SSD NV3 M.2 2280 PCIe 4.0 NVMe",
-        "price": 1319
+        "price": 1345
       },
       {
         "listing_key": "yahav:9747",
@@ -12889,7 +12896,7 @@
         "vendor": "tms",
         "vendor_sku": "VCG5060T8DFXPB1-O",
         "title": "PNY RTX 5060 Ti 8GB OC Dual Fan",
-        "price": 2396
+        "price": 2439
       }
     ],
     "model_code": "1xhdmi-3xdp-5060ti-8gb-dual-fan-gddr7-geforce-oc-rtx"
@@ -15483,7 +15490,7 @@
         "vendor": "tms",
         "vendor_sku": "GP-AORUSWXII360",
         "title": "Gigabyte GP-AORUS WATERFORCE X II 360 Liquid Cooler",
-        "price": 1080
+        "price": null
       }
     ],
     "model_code": "360-aorus-cooler-gp-ii-liquid-waterforce-x",
@@ -15705,7 +15712,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060093-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB",
-        "price": 509
+        "price": 591
       },
       {
         "listing_key": "yahav:10404",
@@ -15752,7 +15759,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060095-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB White",
-        "price": 509
+        "price": 596
       },
       {
         "listing_key": "yahav:10405",
@@ -17223,7 +17230,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050180-WW",
         "title": "Corsair RS120 ARGB PWM 120mm Fan",
-        "price": 49
+        "price": 69
       },
       {
         "listing_key": "yahav:10105",
@@ -17660,7 +17667,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-016",
         "title": "HAVN H12 Black 120mm Fan",
-        "price": 56
+        "price": 66
       }
     ],
     "model_code": "fan-h12",
@@ -17686,7 +17693,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-023",
         "title": "HAVN H12 Black Triple Pack 120mm x3 Fans",
-        "price": 143
+        "price": 168
       }
     ],
     "model_code": "fans-h12-triple-x3",
@@ -17712,7 +17719,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-022",
         "title": "HAVN H12 White Triple Pack 120mm x3 Fans",
-        "price": 143
+        "price": 168
       }
     ],
     "model_code": "fans-h12-triple-x3",
@@ -17738,7 +17745,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-015",
         "title": "HAVN H12 White 120mm Fan",
-        "price": 56
+        "price": 66
       }
     ],
     "model_code": "fan-h12",
@@ -17764,7 +17771,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-018",
         "title": "HAVN H14 Black 140mm Fan",
-        "price": 65
+        "price": 76
       }
     ],
     "model_code": "fan-h14",
@@ -17790,7 +17797,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-024",
         "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
-        "price": 161
+        "price": 189
       }
     ],
     "model_code": "fans-h14-triple-x3",
@@ -17816,7 +17823,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-017",
         "title": "HAVN H14 White 140mm Fan",
-        "price": 65
+        "price": 76
       }
     ],
     "model_code": "140-h14",
@@ -17842,7 +17849,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-025",
         "title": "HAVN H14 Black Triple Pack 140mm x3 Fans",
-        "price": 161
+        "price": 189
       }
     ],
     "model_code": "140-3-h14",
@@ -17955,7 +17962,7 @@
         "vendor": "tms",
         "vendor_sku": "N507TEAGLEOCICE16GD",
         "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC ICE SFF 16G GV-N507TEAGLEOC ICE-16GD",
-        "price": 6360
+        "price": 6419
       }
     ],
     "model_code": "16g-16gd-5070-eagle-geforce-gv-ice-ice-n507teagleoc-oc-rtx-sff-ti",
@@ -17981,7 +17988,7 @@
         "vendor": "tms",
         "vendor_sku": "N507TEAGLEOC16GD",
         "title": "Gigabyte GeForce RTX 5070 Ti EAGLE OC SFF 16G GV-N507TEAGLE OC-16GD",
-        "price": 6316
+        "price": 6375
       }
     ],
     "model_code": "16g-16gd-5070-eagle-geforce-gv-n507teagle-oc-oc-rtx-sff-ti",
@@ -18014,7 +18021,7 @@
         "vendor": "tms",
         "vendor_sku": "R9070XTGAMINGOC16",
         "title": "Gigabyte RX 9070 XT GAMING OC 16G GV-R9070XTGAMING OC-16GD",
-        "price": 4531
+        "price": 4748
       },
       {
         "listing_key": "yahav:10446",
@@ -18054,7 +18061,7 @@
         "vendor": "tms",
         "vendor_sku": "R907XGAMINGOCICE16GD",
         "title": "Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G",
-        "price": 4531
+        "price": 4748
       },
       {
         "listing_key": "yahav:11421",
@@ -18134,7 +18141,7 @@
         "vendor": "tms",
         "vendor_sku": "R906XGAMINGOCICE16GD",
         "title": "Gigabyte Radeon RX 9060 XT GAMING OC ICE 16G",
-        "price": 3193
+        "price": 3319
       }
     ],
     "model_code": "16g-9060-gaming-ice-oc-radeon-rx-xt",
@@ -19680,7 +19687,7 @@
         "vendor": "tms",
         "vendor_sku": "90YV0L71-M0NA00",
         "title": "כרטיס מסך Asus Prime RX 9070 XT 16GB GDDR6 OC Edition",
-        "price": 4397
+        "price": 4748
       }
     ],
     "model_code": "16gb-9070-gddr6-oc-prime-radeon-rx-xt",

@@ -2072,7 +2072,7 @@
 "1pc:217256":"model:storage:2-2-3-pocket-usb-2000gb-usb-m2",
 "1pc:217309":"model:motherboard:eg-h310m-microatx",
 "1pc:217310":"model:gpu:64bit-gt1030-4gb",
-"1pc:217311":"model:gpu:gddr5-gt740-low-profile-4gb",
+"1pc:217311":"model:gpu:128bit-gt740-low-profile-4gb",
 "1pc:217312":"model:gpu:64bit-gddr5-gt1030-2gb",
 "1pc:217313":"model:gpu:128bit-gddr6-gtx1650-4gb",
 "1pc:217314":"model:motherboard:el-h81m-vs-microatx",
@@ -7551,7 +7551,7 @@
 "tms:AKN1660TID6S6GH1":"model:gpu:1660ti-192bit-6g-gtx-6gb",
 "tms:AKN610D3S2GL1":"model:gpu:2g-64bit-akn610d3s2gl1-gt610-low-profile-2gb",
 "tms:AKN730D3S4GL1":"model:gpu:128bit-4g-gt730-4gb",
-"tms:AKN740D3S4GL1":"model:gpu:gddr5-gt740-low-profile-4gb",
+"tms:AKN740D3S4GL1":"model:gpu:128bit-gt740-low-profile-4gb",
 "tms:AKR580D5S8GH1":"model:gpu:256bit-580-akr580d5s8gh1-rx-8gb",
 "tms:ANTEC900":"model:case:900-case-black",
 "tms:AP1TBAS350-1":"mpn:storage:ap1tbas3501",
@@ -7861,6 +7861,7 @@
 "tms:CMH32GX5M2B5600C40W":"mpn:memory:cmh32gx5m2b5600c40w",
 "tms:CMH32GX5M2B6000C30W":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm",
 "tms:CMH32GX5M2B6000Z30K":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-black-dimm",
+"tms:CMH32GX5M2B6000Z30W":"model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2",
 "tms:CMH32GX5M2B6000Z38":"mpn:memory:cmh32gx5m2b6000z38",
 "tms:CMH32GX5M2B6200C36":"model:memory:0-2x16gb-3-6200-cl36-vengeance-xmp-32gb-x2-6200mhz-cl36-rgb-black",
 "tms:CMH32GX5M2B6400C36":"model:memory:0-2x16gb-3-6400-cl36-vengeance-xmp-32gb-x2-6400mhz-cl36-rgb-black",
@@ -9407,6 +9408,7 @@
 "tms:UV6-BK-2FC7R-1FC7":"model:case:1fc7-2fc7r-bk-uv6-uv6-black",
 "tms:V100MIX":"model:case:v100-vector-black",
 "tms:V100RMIX":"model:case:v100r-vector-black",
+"tms:V100RW":"model:case:v100r-vector-white",
 "tms:V100RX":"model:case:v100r-vector-black-midtower",
 "tms:V150INFX":"model:case:1x120mm-2x140mm-black-case-fans-infinity-mini-rgb-tower-v150-vector-black",
 "tms:V531-092R":"model:gpu:3x-5070-geforce-oc-rtx-ti-ventus-16gb",
@@ -19366,6 +19368,10 @@
 "ARKTEK GeForce GTX 1650 4GB",
 "gpu"
 ],
+"model:gpu:128bit-gt740-low-profile-4gb":[
+"ARKTEK GeForce GT 740 4GB Low Profile",
+"gpu"
+],
 "model:gpu:12g-12gd-5070-aero-gv-n5070aero-oc-oc-rtx-12gb":[
 "Gigabyte Aero GeForce RTX 5070 12GB",
 "gpu"
@@ -20528,10 +20534,6 @@
 ],
 "model:gpu:evo-o12g-prime-rx9070gre-12gb":[
 "ASUS Prime Radeon RX 9070 12GB OC",
-"gpu"
-],
-"model:gpu:gddr5-gt740-low-profile-4gb":[
-"ARKTEK GeForce GT 740 4GB Low Profile",
 "gpu"
 ],
 "model:gpu:geforce-rtx-5080-windforce-sff-16g-16gb":[
