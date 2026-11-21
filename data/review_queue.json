@@ -194,7 +194,7 @@
     "listing_b": "tms:100-000001352",
     "title_a": "מעבד AMD Ryzen Threadripper 7980X 100-000001350 Tray",
     "title_b": "AMD Ryzen Threadripper 7960X 24-core Tray",
-    "match_text_a": "223479 AMD Ryzen Threadripper 7980X 100-000001350 Tray",
+    "match_text_a": "100-000001350 AMD Ryzen Threadripper 7980X 100-000001350 Tray",
     "match_text_b": "100-000001352 AMD Ryzen Threadripper 7960X 24-core Tray"
   },
   {
@@ -1695,6 +1695,40 @@
       }
     ],
     "model_code": "240-cooler-cpu-liquid-symphony"
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:240-freezer-iii-liquid-pro-240mm-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:135489",
+        "vendor": "ivory",
+        "vendor_sku": "ACFRE00178A",
+        "title": "קירור נוזלי למעבד ARCTIC Liquid Freezer III Pro | רדיאטור באורך 240 מ\"מ | מאוורר VRM ללוח האם | צבע שחור",
+        "price": 345
+      }
+    ],
+    "model_code": "240-freezer-iii-liquid-pro",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "aio",
+    "product_id": "model:aio:240-freezer-iii-liquid-pro-240mm-black-2",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:180022",
+        "vendor": "ivory",
+        "vendor_sku": "ACFRE00178AP",
+        "title": "מציאון - קירור נוזלי למעבד ARCTIC Liquid Freezer III Pro | רדיאטור באורך 240 מ\"מ | מאוורר VRM ללוח האם | צבע שחור - מוחדש",
+        "price": 276
+      }
+    ],
+    "model_code": "240-freezer-iii-liquid-pro",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",
@@ -12582,7 +12616,7 @@
       {
         "listing_key": "1pc:223479",
         "vendor": "1pc",
-        "vendor_sku": "223479",
+        "vendor_sku": "100-000001350",
         "title": "מעבד AMD Ryzen Threadripper 7980X 100-000001350 Tray",
         "price": 14660
       }
@@ -13123,6 +13157,31 @@
       }
     ],
     "model_code": "12700f",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
+    "product_id": "model:cpu:14400-tray",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:85515",
+        "vendor": "ivory",
+        "vendor_sku": "I5-14400",
+        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | כולל ליבה גרפית | אריזת Tray",
+        "price": 740
+      },
+      {
+        "listing_key": "ivory:85518",
+        "vendor": "ivory",
+        "vendor_sku": "I5-14400B",
+        "title": "מעבד אינטל Intel Core i5-14400 | תדר עד 4.70GHz | זיכרון מטמון 20MB | אריזת Box",
+        "price": 790
+      }
+    ],
+    "model_code": "14400",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },

@@ -1305,7 +1305,7 @@
 "1pc:203387":"mpn:gpu:rx9070xt16gloc",
 "1pc:203388":"model:memory:5600-cl40-ram-sodimm-32gb-x1-5600mhz-cl46-sodimm",
 "1pc:203389":"model:memory:5600-cl40-ram-sodimm-48gb-x1-5600mhz-cl40-sodimm",
-"1pc:203693":"model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb",
+"1pc:203693":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
 "1pc:203702":"model:case:c200-mid-tower-black",
 "1pc:203703":"mpn:aio:gpgigabytegme240",
 "1pc:203704":"model:aio:240-gaming-ice-240mm-white",
@@ -1766,7 +1766,7 @@
 "1pc:212397":"model:gpu:3x-5060-8g-oc-rtx-ti-ventus-8gb",
 "1pc:212399":"model:motherboard:e-h810m-pro-microatx",
 "1pc:212413":"model:psu:1-1-3-5-650-core-gx-gx-v2-650w-black",
-"1pc:212414":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-full-black",
+"1pc:212414":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-black",
 "1pc:212415":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-black",
 "1pc:212416":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-white",
 "1pc:212417":"model:psu:1-1-3-5-750-focus-gx-gx-v4-750w-black",
@@ -2505,7 +2505,7 @@
 "1pc:223448":"model:motherboard:b550-eagle-x-atx",
 "1pc:223474":"model:cooler_air:0-0-10913-761345-a400i",
 "1pc:223475":"model:cooler_air:360-matrix-omni-white",
-"1pc:223476":"model:memory:32n2200-bulk-kd48gu880-klevv-standard-8gb",
+"1pc:223476":"model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
 "1pc:223479":"model:cpu:threadripper7980x-tray",
 "1pc:223480":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
 "1pc:2836":"model:cooler_air:002-e41997",
@@ -3127,7 +3127,7 @@
 "ivory:147541":"case:lian-li:o11-dynamic-mini-v2-white",
 "ivory:147550":"model:aio:360-hydroshift-ii-lcd-s-tl-360mm-white",
 "ivory:147589":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-black",
-"ivory:147592":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-full-black",
+"ivory:147592":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-black",
 "ivory:147595":"model:psu:1-1000-3-focus-gx-1000w-full-white",
 "ivory:147598":"mpn:psu:srpfgx851a5a32sfw",
 "ivory:147601":"model:psu:1-3-750w-atx-focus-gx-white-750w-full-white",
@@ -3480,7 +3480,7 @@
 "ivory:179746":"model:storage:2280-5-t710-1000gb-nvme-m22280",
 "ivory:179749":"model:storage:2280-5-t710-2000gb-pciegen50-m22280",
 "ivory:179884":"model:storage:0-4-990-pro-ps5-1000gb-nvme-m22280",
-"ivory:180022":"model:aio:240-freezer-liquid-pro-vrm-240mm-black",
+"ivory:180022":"model:aio:240-freezer-iii-liquid-pro-240mm-black-2",
 "ivory:180025":"model:case_fan:140-a14-chromax-nf-pwm-swap-140mm-1-black-2",
 "ivory:22001":"model:gpu:2g-brk-gt1030-sl-2gb",
 "ivory:22070":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
@@ -4096,7 +4096,7 @@
 "ksp:376634":"model:motherboard:a-am5-b840m-prime-wifi-microatx",
 "ksp:376649":"model:motherboard:am5-b850-prime-wifi-atx",
 "ksp:376663":"model:motherboard:a-b840m-csm-prime-microatx",
-"ksp:376671":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
+"ksp:376671":"model:motherboard:am5-b850-gaming-tuf-wifi-atx",
 "ksp:376700":"model:motherboard:am5-b840-prime-wifi-atx",
 "ksp:378814":"model:gpu:12g-12gd-5070-eagle-gv-ice-ice-n5070eagleoc-oc-rtx-sff-12gb",
 "ksp:378818":"model:gpu:12g-12gd-5070-eagle-gv-n5070eagle-oc-oc-rtx-sff-12gb",
@@ -4898,7 +4898,7 @@
 "plonter:712-00A300":"mpn:cooler_air:71200a300",
 "plonter:900-5G132-2240-000":"mpn:gpu:9005g1322240000",
 "plonter:900-5G144-2200-000":"mpn:gpu:9005g1442200000",
-"plonter:900-5G147-2250-000":"model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb",
+"plonter:900-5G147-2250-000":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
 "plonter:900-5G147-2270-000":"model:gpu:4000-blackwell-pro-rtx-24gb",
 "plonter:900-5G153-2200-000":"model:gpu:4xmini-6000-96gb-blackwell-dp-ecc-gddr7-max-pro-q-rtx-workstation-48gb",
 "plonter:900-5G153-2250-000":"model:gpu:48gb-4xmini-5000-blackwell-dp-ecc-gddr7-pro-rtx-48gb",
@@ -7329,7 +7329,7 @@
 "tms:900-5G133-2240-000":"mpn:gpu:9005g1332240000",
 "tms:900-5G133-2250-000":"mpn:gpu:9005g1332250000",
 "tms:900-5G144-2200-000":"mpn:gpu:9005g1442200000",
-"tms:900-5G147-2250-000":"model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb",
+"tms:900-5G147-2250-000":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
 "tms:900-5G147-2270-000":"model:gpu:4000-blackwell-pro-rtx-24gb",
 "tms:900-5G153-2200-000":"model:gpu:4xmini-6000-96gb-blackwell-dp-ecc-gddr7-max-pro-q-rtx-workstation-48gb",
 "tms:900-5G153-2250-000":"model:gpu:48gb-4xmini-5000-blackwell-dp-ecc-gddr7-pro-rtx-48gb",
@@ -7415,7 +7415,7 @@
 "tms:90MB1IW0-M0EAY0":"model:motherboard:gaming-i-rog-strix-wifi-x870-miniitx",
 "tms:90MB1IX0-M0EAY0":"model:motherboard:b850m-gaming-tuf-microatx",
 "tms:90MB1IY0-M0EAY0":"model:motherboard:b850m-gaming-tuf-wifi-microatx",
-"tms:90MB1J30-M0EAY0":"model:motherboard:b850-gaming-plus-tuf-wifi-atx",
+"tms:90MB1J30-M0EAY0":"model:motherboard:b850-gaming-tuf-wifi-atx",
 "tms:90MB1J50-M0EAY0":"model:motherboard:a-b850-gaming-rog-strix-wifi-atx",
 "tms:90MB1J60-M0EAY0":"model:motherboard:b850-e-gaming-rog-strix-wifi-atx",
 "tms:90MB1J70-M0EAY0":"model:motherboard:b850-f-gaming-rog-strix-wifi-atx",
@@ -9256,7 +9256,7 @@
 "tms:SR1156901-01-929022":"model:case:2-25-3-4-4u-5-5-bay-bay-server-sr115-workstation",
 "tms:SRP-CBC751-A5A51JF":"model:psu:1-3-750-bc-core-750w",
 "tms:SRP-CGX651-A5A32SF":"model:psu:1-1-3-5-650-core-gx-gx-v2-650w-black",
-"tms:SRP-CGX751-A5A32SF":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-full-black",
+"tms:SRP-CGX751-A5A32SF":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-black",
 "tms:SRP-CGX751-A5A32SFW":"model:psu:1-3-750w-atx-core-gx-white-750w-full-white",
 "tms:SRP-CGX851-A5A32SF":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-black",
 "tms:SRP-CGX851-A5A32SF-W":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-white",
@@ -9887,7 +9887,7 @@
 "yahav:11329":"model:psu:sx1000p-1000w-white",
 "yahav:11330":"model:memory:2x16gb-cl30-expo-manta-xsky-32gb-x2-6000mhz-cl30-rgb-white",
 "yahav:11333":"model:psu:1-1-3-5-650-core-gx-gx-v2-650w-black",
-"yahav:11334":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-full-black",
+"yahav:11334":"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-black",
 "yahav:11335":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-black",
 "yahav:11336":"model:psu:1-1-3-5-750-focus-gx-gx-v4-750w-black",
 "yahav:11337":"model:psu:1-1-3-5-850-core-gx-gx-v2-850w-full-white",
@@ -10003,7 +10003,7 @@
 "yahav:11622":"model:gpu:16gb-2000-4xmini-blackwell-dp-gddr7-pro-rtx-16gb",
 "yahav:11623":"model:gpu:24gb-4000-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-24gb",
 "yahav:11624":"model:gpu:48gb-4xmini-5000-blackwell-dp-ecc-gddr7-pro-rtx-48gb",
-"yahav:11625":"model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb",
+"yahav:11625":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
 "yahav:11626":"model:gpu:4xmini-6000-96gb-blackwell-dp-ecc-gddr7-max-pro-q-rtx-workstation-48gb",
 "yahav:11627":"model:gpu:32gb-4xmini-5000-ada-dp-ecc-gddr6-generation-rtx-32gb",
 "yahav:11629":"model:memory:16gbx2-beast-cl30-dual-fury-packs-single-32gb-6000mhz-cl30-rgb-white",
@@ -10395,7 +10395,7 @@
 "yahav:9039":"model:case_fan:2-2cfm-61-bl047-pure-wings-140mm-black",
 "yahav:9052":"model:case_fan:120-3-3x120mm-al120-controller-fan-pack-rgb-rgb-series-triple-uni-uni-v2-white-120mm-3-rgb-white",
 "yahav:9060":"model:cpu:8600g",
-"yahav:9079":"model:storage:lnm790-series-4000gb-pcie4-m2",
+"yahav:9079":"model:storage:lnm790-series-4000gb-pciem2-m2",
 "yahav:9095":"model:motherboard:b760-dp-gaming-hdmi-lga1700-wifi-atx",
 "yahav:9104":"model:case:1-1x140mm-3x140mm-display-fans-ft-full-performance-temp-tower-white",
 "yahav:9105":"model:case:1-1x120mm-3x140mm-fans-full-performance-silent-tower-black",
@@ -11538,12 +11538,12 @@
 "ARCTIC Liquid Freezer III PRO VRM 240mm Black",
 "aio"
 ],
-"model:aio:240-freezer-liquid-pro-240mm-black":[
-"ARCTIC Liquid Freezer III PRO 240mm Black",
+"model:aio:240-freezer-iii-liquid-pro-240mm-black-2":[
+"ARCTIC Liquid Freezer III Pro 240 VRM",
 "aio"
 ],
-"model:aio:240-freezer-liquid-pro-vrm-240mm-black":[
-"ARCTIC Liquid Freezer III Pro 240 VRM",
+"model:aio:240-freezer-liquid-pro-240mm-black":[
+"ARCTIC Liquid Freezer III PRO 240mm Black",
 "aio"
 ],
 "model:aio:240-gaming-ice-240mm-white":[
@@ -19315,7 +19315,7 @@
 "gpu"
 ],
 "model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb":[
-"NVIDIA RTX PRO 4500 Blackwell 32GB",
+"PNY RTX PRO 4500 Blackwell 32GB ECC",
 "gpu"
 ],
 "model:gpu:01-11348-20g-9070-gaming-nitro-oc-rx-xt-16gb":[
@@ -19944,10 +19944,6 @@
 ],
 "model:gpu:32gb-32gd-ai-ai-gddr6-gv-pro-r9700-r9700ai-radeon-top-top-32gb":[
 "Gigabyte Radeon AI PRO R9700 32GB",
-"gpu"
-],
-"model:gpu:32gb-4500-4xmini-blackwell-dp-ecc-gddr7-pro-rtx-32gb":[
-"PNY RTX PRO 4500 Blackwell 32GB ECC",
 "gpu"
 ],
 "model:gpu:32gb-4xmini-5000-ada-dp-ecc-gddr6-generation-rtx-32gb":[
@@ -22042,7 +22038,7 @@
 "Corsair Vengeance 32GX2 DDR5 64GB (2x32GB) 6000MHz CL30",
 "memory"
 ],
-"model:memory:32n2200-bulk-kd48gu880-klevv-standard-8gb":[
+"model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm":[
 "KLEVV Standard DDR4 8GB KD48GU880 32N2200 Bulk",
 "memory"
 ],
@@ -23558,6 +23554,10 @@
 "ASUS TUF Gaming B850-PRO W WIFI7",
 "motherboard"
 ],
+"model:motherboard:am5-b850-gaming-tuf-wifi-atx":[
+"ASUS TUF Gaming B850-Plus WiFi",
+"motherboard"
+],
 "model:motherboard:am5-b850-prime-wifi-atx":[
 "ASUS Prime B850-Plus WIFI6E",
 "motherboard"
@@ -24563,6 +24563,10 @@
 "motherboard"
 ],
 "model:motherboard:b850-gaming-plus-tuf-wifi-atx":[
+"ASUS TUF Gaming B850-Plus WIFI7",
+"motherboard"
+],
+"model:motherboard:b850-gaming-tuf-wifi-atx":[
 "ASUS TUF Gaming B850-Plus WIFI7",
 "motherboard"
 ],
@@ -25606,7 +25610,7 @@
 "Antec GSK 3.1 Pcie 5.1 750W 80 PLUS Gold Black",
 "psu"
 ],
-"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-full-black":[
+"model:psu:1-1-3-5-750-core-gx-gx-v2-750w-black":[
 "Seasonic GX 750 750W CORE GX ATX 3.1 80+ Gold",
 "psu"
 ],
@@ -28250,7 +28254,7 @@
 "Lexar SSD LNM620 512GB m.2 NVME PCIe3",
 "storage"
 ],
-"model:storage:lnm790-series-4000gb-pcie4-m2":[
+"model:storage:lnm790-series-4000gb-pciem2-m2":[
 "Lexar LNM790 7400MB 4TB NVMe Gen4 M.2",
 "storage"
 ],

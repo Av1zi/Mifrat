@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T23:44:24.859357+00:00",
+  "generated_at": "2026-11-21T04:03:42.312715+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 104,
+      "count": 105,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -252,6 +252,26 @@
       ]
     },
     {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 26,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 26,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "סוג האחסון",
       "count": 26,
@@ -269,26 +289,6 @@
         "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 25,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 25,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
       ]
     },
     {
@@ -1292,6 +1292,76 @@
       ]
     },
     {
+      "category": "cooler_air",
+      "label": "גודל מאורר",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מק\"ט יצרן",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מספר מאוררים",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות למעבדי AMD",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "גובה Clearance במ\"מ",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "TDP בW",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תאימות למעבדי INTEL",
+      "count": 12,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "DisplayPorts quantity",
       "count": 12,
@@ -1469,76 +1539,6 @@
         "model:case:ak5g-rgb-black",
         "model:case:ak5g-rgb-white",
         "model:case:ak5m-rgb-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גודל מאורר",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מק\"ט יצרן",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מספר מאוררים",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות למעבדי AMD",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "גובה Clearance במ\"מ",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "TDP בW",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תאימות למעבדי INTEL",
-      "count": 11,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
       ]
     },
     {
@@ -1843,6 +1843,16 @@
     },
     {
       "category": "memory",
+      "label": "תצורת זיכרון",
+      "count": 10,
+      "products": [
+        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
+        "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
+        "model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl40-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "מתח עבודה",
       "count": 10,
       "products": [
@@ -2084,16 +2094,6 @@
     {
       "category": "memory",
       "label": "דירוג מהירות",
-      "count": 9,
-      "products": [
-        "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
-        "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
-        "model:memory:1x32gb-6000mhz-ax5u6000c3032g-cl30-clarwh-ddr5-lancer-rgb-xpg-32gb-x1-6000mhz-cl40-rgb-white-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תצורת זיכרון",
       "count": 9,
       "products": [
         "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
@@ -2432,6 +2432,16 @@
       ]
     },
     {
+      "category": "cooler_air",
+      "label": "הערה",
+      "count": 7,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400817-f400-black",
+        "model:cooler_air:0761345400824-f400-white"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "הערה",
       "count": 7,
@@ -2752,16 +2762,6 @@
       ]
     },
     {
-      "category": "cooler_air",
-      "label": "הערה",
-      "count": 6,
-      "products": [
-        "model:cooler_air:0761345400817-f400-black",
-        "model:cooler_air:0761345400824-f400-white",
-        "model:cooler_air:0761345400831-f600-black"
-      ]
-    },
-    {
       "category": "cpu",
       "label": "ממשק",
       "count": 6,
@@ -2789,6 +2789,16 @@
         "model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-8gb",
         "model:gpu:5060-dual-gddr7-oc-rtx-ti-16gb-white"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תזמונים",
+      "count": 6,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
+        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm"
       ]
     },
     {
@@ -3059,16 +3069,6 @@
         "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
         "model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-white",
         "model:memory:2x16gb-6000-cl30-cras-v-32gb-x2-6000mhz-cl30-rgb-white"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "תזמונים",
-      "count": 5,
-      "products": [
-        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
-        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm",
-        "model:memory:ax4u32008g16a-d35g-spectrix-swhd35g-xpg-8gb-rgb-white-dimm"
       ]
     },
     {
@@ -3462,6 +3462,16 @@
       ]
     },
     {
+      "category": "cooler_air",
+      "label": "מידות",
+      "count": 4,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:410-boreas-e1-120mm",
+        "model:cooler_air:410wh-boreas-e1-120mm-white"
+      ]
+    },
+    {
       "category": "cpu",
       "label": "P/N",
       "count": 4,
@@ -3589,6 +3599,16 @@
         "model:memory:0-2x24gb-3-7000-cl40-vengeance-xmp-48gb-x2-7000mhz-cl40-rgb-black-dimm",
         "model:memory:0-3-4x16gb-6400-cl32-vengeance-xmp-64gb-x4-6400mhz-cl32-black",
         "model:memory:16g-jm5600ase-sodimm-16gb-5600mhz-cl46-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "זיכרון פנימי",
+      "count": 4,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm"
       ]
     },
     {
@@ -4363,6 +4383,26 @@
     },
     {
       "category": "cooler_air",
+      "label": "צינורות חום",
+      "count": 3,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:aa13-corefrozr-mag-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מאוורר",
+      "count": 3,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i",
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:aa13-corefrozr-mag-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "זרימת אוויר",
       "count": 3,
       "products": [
@@ -4373,11 +4413,11 @@
     },
     {
       "category": "cooler_air",
-      "label": "מידות",
+      "label": "תושבות מעבד",
       "count": 3,
       "products": [
-        "model:cooler_air:410-boreas-e1-120mm",
-        "model:cooler_air:410wh-boreas-e1-120mm-white",
+        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black",
+        "model:cooler_air:360-matrix-omni-white",
         "model:cooler_air:aa13-corefrozr-mag-white"
       ]
     },
@@ -4453,6 +4493,16 @@
     },
     {
       "category": "gpu",
+      "label": "יציאות תצוגה",
+      "count": 3,
+      "products": [
+        "model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
+        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
+        "model:gpu:a400-pny-rtx-4gb"
+      ]
+    },
+    {
+      "category": "gpu",
       "label": "Stream processors",
       "count": 3,
       "products": [
@@ -4501,16 +4551,6 @@
     },
     {
       "category": "memory",
-      "label": "זיכרון פנימי",
-      "count": 3,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm",
-        "model:memory:ad5s480016g-dimm-s-so-16gb-4800mhz-cl40-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "Module configuration",
       "count": 3,
       "products": [
@@ -4537,6 +4577,26 @@
         "model:memory:1-3200-mt-s-technology-valueram-x-32gb-x1-3200mhz-cl22-sodimm",
         "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm",
         "model:memory:ad5s480016g-dimm-s-so-16gb-4800mhz-cl40-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Compliance certificates",
+      "count": 3,
+      "products": [
+        "model:memory:1-3200-mt-s-technology-valueram-x-32gb-x1-3200mhz-cl22-sodimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סוג הזיכרון",
+      "count": 3,
+      "products": [
+        "model:memory:16gbit-cl46-ct16g56c46s5-sodimm-16gb-5600mhz-cl46-sodimm",
+        "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
       ]
     },
     {
@@ -4577,6 +4637,16 @@
         "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
         "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
         "model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "השהיית CAS",
+      "count": 3,
+      "products": [
+        "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
       ]
     },
     {
@@ -5643,38 +5713,11 @@
     },
     {
       "category": "cooler_air",
-      "label": "צינורות חום",
-      "count": 2,
-      "products": [
-        "model:cooler_air:0761345400848-argb-f600-white-white",
-        "model:cooler_air:aa13-corefrozr-mag-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מאוורר",
-      "count": 2,
-      "products": [
-        "model:cooler_air:0761345400848-argb-f600-white-white",
-        "model:cooler_air:aa13-corefrozr-mag-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
       "label": "מידות המצנן",
       "count": 2,
       "products": [
         "model:cooler_air:0761345400848-argb-f600-white-white",
         "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תושבות מעבד",
-      "count": 2,
-      "products": [
-        "model:cooler_air:1850rpm-260w-2x120mm-68-99cfm-ak620-argb-digital-digital-screen-se-tdp-black",
-        "model:cooler_air:aa13-corefrozr-mag-white"
       ]
     },
     {
@@ -5813,6 +5856,24 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "מטמון L2",
+      "count": 2,
+      "products": [
+        "model:cpu:5700g",
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מטמון L3",
+      "count": 2,
+      "products": [
+        "model:cpu:5700g",
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
       "category": "gpu",
       "label": "מספר יציאות HDMI",
       "count": 2,
@@ -5891,6 +5952,15 @@
       "products": [
         "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb",
         "model:gpu:4-nvlink-rtx-slot-titan"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "מחבר חשמל",
+      "count": 2,
+      "products": [
+        "model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
+        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
       ]
     },
     {
@@ -6004,15 +6074,6 @@
     {
       "category": "gpu",
       "label": "מידות הכרטיס",
-      "count": 2,
-      "products": [
-        "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
-        "model:gpu:a400-pny-rtx-4gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "יציאות תצוגה",
       "count": 2,
       "products": [
         "model:gpu:2x-5060-8g-geforce-oc-rtx-v1-ventus-8gb",
@@ -6174,29 +6235,38 @@
     },
     {
       "category": "memory",
+      "label": "מתח הזיכרון",
+      "count": 2,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "רכיב עבור",
+      "count": 2,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סוג הזיכרון הפנימי",
+      "count": 2,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "Component for",
       "count": 2,
       "products": [
         "model:memory:1-3200-mt-s-technology-valueram-x-32gb-x1-3200mhz-cl22-sodimm",
         "model:memory:ad5s480016g-dimm-s-so-16gb-4800mhz-cl40-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "Compliance certificates",
-      "count": 2,
-      "products": [
-        "model:memory:1-3200-mt-s-technology-valueram-x-32gb-x1-3200mhz-cl22-sodimm",
-        "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "סוג הזיכרון",
-      "count": 2,
-      "products": [
-        "model:memory:16gbit-cl46-ct16g56c46s5-sodimm-16gb-5600mhz-cl46-sodimm",
-        "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm"
       ]
     },
     {
@@ -6273,7 +6343,7 @@
     },
     {
       "category": "memory",
-      "label": "השהיית CAS",
+      "label": "מספר חלק של היצרן",
       "count": 2,
       "products": [
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
@@ -6282,11 +6352,20 @@
     },
     {
       "category": "memory",
-      "label": "מספר חלק של היצרן",
+      "label": "מספר חלק",
       "count": 2,
       "products": [
-        "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
-        "model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm"
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:line-psd532g56002-signature-32gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קצב נתונים",
+      "count": 2,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm"
       ]
     },
     {
@@ -7978,6 +8057,46 @@
     },
     {
       "category": "cooler_air",
+      "label": "שקעים נתמכים",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "Antec A400i",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "זרימת אוויר מרבית",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "חומרים",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מחבר מאוורר",
+      "count": 1,
+      "products": [
+        "model:cooler_air:0-0-10913-761345-a400i"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "מיסב מאוורר",
       "count": 1,
       "products": [
@@ -8102,6 +8221,54 @@
       "count": 1,
       "products": [
         "model:cooler_air:2000rpm-250w-2x120mm-3-61-8cfm-argb-bk043-black-lx-pro-pure-rock-tdp-155mm-120mm-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות הרדיאטור",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "זרימת אוויר של המאוורר",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות המשאבה",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "סיווג הרדיאטור",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מהירות המשאבה",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מכלול המאווררים",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-matrix-omni-white"
       ]
     },
     {
@@ -8354,22 +8521,6 @@
     },
     {
       "category": "cpu",
-      "label": "מטמון L2",
-      "count": 1,
-      "products": [
-        "model:cpu:5700g"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מטמון L3",
-      "count": 1,
-      "products": [
-        "model:cpu:5700g"
-      ]
-    },
-    {
-      "category": "cpu",
       "label": "פיזור חום",
       "count": 1,
       "products": [
@@ -8406,6 +8557,70 @@
       "count": 1,
       "products": [
         "model:cpu:9800x3d"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "דגם המעבד",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "TDP כברירת מחדל",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תדר בסיס",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מטמון L2 / מטמון L3",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תדר Boost מרבי",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תושבת המעבד",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "ליבות מעבד",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תהליכונים",
+      "count": 1,
+      "products": [
+        "model:cpu:threadripper7980x-tray"
       ]
     },
     {
@@ -8454,6 +8669,22 @@
       "count": 1,
       "products": [
         "model:gpu:0-2-3060-8gd-gv-n3060gaming-oc-rtx-8gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "ממשק למערכת המארחת",
+      "count": 1,
+      "products": [
+        "model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb"
+      ]
+    },
+    {
+      "category": "gpu",
+      "label": "צריכת חשמל מרבית של הכרטיס",
+      "count": 1,
+      "products": [
+        "model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb"
       ]
     },
     {
@@ -8523,14 +8754,6 @@
     {
       "category": "gpu",
       "label": "מספר צגים מרבי",
-      "count": 1,
-      "products": [
-        "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
-      ]
-    },
-    {
-      "category": "gpu",
-      "label": "מחבר חשמל",
       "count": 1,
       "products": [
         "model:gpu:16g-3x-5080-geforce-oc-rtx-ventus-16gb"
@@ -9218,31 +9441,7 @@
     },
     {
       "category": "memory",
-      "label": "מתח הזיכרון",
-      "count": 1,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "רכיב עבור",
-      "count": 1,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "פריסת זיכרון (מודולים x גודל)",
-      "count": 1,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "סוג הזיכרון הפנימי",
       "count": 1,
       "products": [
         "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm"
@@ -9514,6 +9713,38 @@
     },
     {
       "category": "memory",
+      "label": "טמפרטורת הפעלה (T-T)",
+      "count": 1,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תצורת זיכרון (מודולים x גודל)",
+      "count": 1,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סוג זיכרון עם חוצץ",
+      "count": 1,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קצב העברת נתוני הזיכרון",
+      "count": 1,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "נתונים טכניים",
       "count": 1,
       "products": [
@@ -9546,14 +9777,6 @@
     },
     {
       "category": "memory",
-      "label": "קצב נתונים",
-      "count": 1,
-      "products": [
-        "model:memory:ad5s56008g-dimm-s-so-8gb-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מארז",
       "count": 1,
       "products": [
@@ -9574,14 +9797,6 @@
       "count": 1,
       "products": [
         "model:memory:addu1600w8g11-dimm-s-u-8gb-1600mhz-cl11-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "מספר חלק",
-      "count": 1,
-      "products": [
-        "model:memory:line-psd532g56002-signature-32gb-dimm"
       ]
     },
     {
