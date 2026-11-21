@@ -3,7 +3,6 @@ import {
   handleAdmin,
   handleAdminPage,
   handleEvent,
-  isQuietHour,
   push,
   recordAbuse,
   resetRebuildCooldown,
@@ -62,9 +61,9 @@ function fakeDb() {
       });
       return {};
     }
-    if (query.startsWith("UPDATE ops_alerts SET last_push")) {
-      const [at, severity, title, detail, key] = args as string[];
-      Object.assign(alerts.get(key)!, { last_push: at, severity, title, detail });
+    if (query.startsWith("UPDATE ops_alerts SET severity")) {
+      const [severity, title, detail, key] = args as string[];
+      Object.assign(alerts.get(key)!, { severity, title, detail });
       return {};
     }
     if (query.startsWith("UPDATE ops_alerts SET closed_at")) {
@@ -361,6 +360,76 @@ describe("ops cron: daily report", () => {
     const r = await t.cron(TEN_AM);
     expect(r.report?.priority).toBe(3);
     expect(String(r.report?.message)).toContain("❌ Ivory");
+    expect(t.pushes).toHaveLength(1);
+    await t.cron("2026-11-12T08:30:00Z");
+    expect(t.pushes).toHaveLength(1);
+  });
+
+  it("bundles urgent findings and check warnings into one daily message", async () => {
+    const t = setup(healthyStatus(), { siteOk: false });
+    t.setChecks({
+      schema: 1,
+      generated_at: "2026-11-12T05:28:00+00:00",
+      night: "2026-11-12",
+      suite: "publish",
+      escalate_nights: 3,
+      blocked: false,
+      checks: [
+        {
+          name: "ledgers",
+          level: "quality",
+          title: "Ledgers point at live data",
+          status: "warn",
+          exit: 1,
+          seconds: 1,
+          since: "2026-11-10T05:28:00+00:00",
+          nights: 3,
+          detail: "Ledger warning",
+        },
+      ],
+    });
+    await handleEvent(
+      new Request("https://x/api/ops/event", {
+        method: "POST",
+        headers: { authorization: "Bearer nano-secret-token" },
+        body: JSON.stringify({ vendor: "ksp", outcome: "blocked" }),
+      }),
+      t.env,
+      new Date("2026-11-12T01:00:00Z")
+    );
+    expect(t.pushes).toHaveLength(0);
+    const r = await t.cron(TEN_AM);
+    expect(r.sent).toEqual([]);
+    expect(t.pushes).toHaveLength(1);
+    expect(r.report?.message).toContain("Site is down");
+    expect(r.report?.message).toContain("KSP blocked the scraper");
+    expect(r.report?.message).toContain("Check warning: Ledgers point at live data");
+    await t.cron("2026-11-12T08:30:00Z");
+    expect(t.pushes).toHaveLength(1);
+  });
+
+  it("sends one report-unavailable message when the status asset is missing", async () => {
+    const t = setup(null);
+    const r = await t.cron(TEN_AM);
+    expect(r.report?.message).toContain("Ops report missing on the site");
+    expect(t.pushes).toHaveLength(1);
+    expect(t.pings).toEqual(["2026-11-12"]);
+    await t.cron("2026-11-12T08:30:00Z");
+    expect(t.pushes).toHaveLength(1);
+  });
+
+  it("retries an undelivered daily report without marking it sent or pinging", async () => {
+    const t = setup();
+    const failing = (async (input: RequestInfo | URL, init?: RequestInit) =>
+      String(input) === "https://ntfy.sh/"
+        ? new Response("unavailable", { status: 503 })
+        : t.fetcher(input, init)) as typeof fetch;
+    expect((await runCron(t.env, new Date(TEN_AM), failing)).report).toBeNull();
+    expect(t.db.meta.has("daily_report")).toBe(false);
+    expect(t.pings).toEqual([]);
+    await t.cron("2026-11-12T08:30:00Z");
+    expect(t.pushes).toHaveLength(1);
+    expect(t.pings).toEqual(["2026-11-12"]);
   });
 });
 
@@ -368,20 +437,21 @@ describe("ops cron: alerts", () => {
   const missingIvory = () =>
     healthyStatus({ ivory: [crawl("ivory", "2026-11-09T02:10:00+00:00", { keys: 620 })] });
 
-  it("opens an alert once, reminds after 24h, resolves when fixed", async () => {
+  it("tracks opening, persistence and resolution silently, even after 24h", async () => {
     const t = setup(missingIvory());
-    await t.cron("2026-11-12T07:00:00Z"); // 09:00 Israel, not quiet
-    const opened = t.pushes.filter((p) => String(p.body.title).includes("Ivory was not scraped"));
-    expect(opened).toHaveLength(1);
-    expect(opened[0].body.priority).toBe(4);
+    await t.cron("2026-11-12T07:00:00Z"); // 09:00 Israel
+    const openedAt = t.db.alerts.get("missing:ivory")!.opened_at;
+    expect(t.db.alerts.get("missing:ivory")!.last_push).toBeNull();
+    expect(t.pushes).toHaveLength(0);
 
     await t.cron("2026-11-12T07:30:00Z");
-    expect(t.pushes.filter((p) => String(p.body.title).includes("Ivory"))).toHaveLength(1);
+    expect(t.pushes).toHaveLength(0);
 
     await t.cron("2026-11-13T07:00:00Z");
-    expect(t.pushes.map((p) => p.body.title)).toContain(
-      "Still open: Ivory was not scraped last night"
-    );
+    expect(t.pushes).toHaveLength(0);
+    expect(t.db.alerts.get("missing:ivory")!.opened_at).toBe(openedAt);
+    // An alert previously pushed by the old policy also resolves silently.
+    t.db.alerts.get("missing:ivory")!.last_push = "2026-11-11T07:00:00Z";
 
     expect(t.db.alerts.get("missing:ivory")!.closed_at).toBeNull();
     // Ivory scraped again; the report was rebuilt today.
@@ -392,31 +462,32 @@ describe("ops cron: alerts", () => {
     fresh.generated_at = "2026-11-14T05:30:00+00:00";
     t.setStatus(fresh);
     await t.cron("2026-11-14T07:00:00Z");
-    expect(t.pushes.map((p) => p.body.title)).toContain(
-      "Resolved: Ivory was not scraped last night"
-    );
+    expect(t.pushes).toHaveLength(0);
     expect(t.db.alerts.get("missing:ivory")!.closed_at).not.toBeNull();
   });
 
-  it("quiet hours hold non-urgent alerts, urgent ones push", async () => {
-    expect(isQuietHour(new Date("2026-11-12T22:00:00Z"))).toBe(true); // 00:00 Israel
-    expect(isQuietHour(new Date("2026-11-12T08:00:00Z"))).toBe(false);
+  it("urgent findings stay silent both overnight and during the day", async () => {
     const t = setup(missingIvory(), { siteOk: false });
     await t.cron("2026-11-12T01:00:00Z"); // 03:00 Israel
-    const titles = t.pushes.map((p) => String(p.body.title));
-    expect(titles).toEqual(["Site is down"]);
-    expect(t.pushes[0].body.priority).toBe(5);
-    // The held alert goes out on the first tick after quiet hours.
+    expect(t.pushes).toHaveLength(0);
+    expect(t.db.alerts.get("site-down")!.severity).toBe("urgent");
     await t.cron("2026-11-12T05:30:00Z"); // 07:30 Israel
-    expect(t.pushes.map((p) => String(p.body.title))).toContain("Ivory was not scraped last night");
+    expect(t.pushes).toHaveLength(0);
+    expect(t.db.alerts.get("missing:ivory")!.closed_at).toBeNull();
   });
 
   it("an API flood is urgent", async () => {
     const t = setup();
     takeAbuseHits();
     for (let i = 0; i < 300; i++) recordAbuse();
-    await t.cron("2026-11-12T12:00:00Z");
-    expect(t.pushes.map((p) => p.body.title)).toContain("API flood (possible attack)");
+    const r = await t.cron("2026-11-12T12:00:00Z");
+    expect(r.findings).toContainEqual(
+      expect.objectContaining({
+        title: "API flood (possible attack)",
+        severity: "urgent",
+      })
+    );
+    expect(t.pushes).toHaveLength(0);
     expect(takeAbuseHits()).toBe(0);
   });
 
@@ -433,15 +504,14 @@ describe("ops cron: alerts", () => {
     expect(f?.severity).toBe("high");
     expect(f?.detail).toContain('at "AI-extraction verifier (offline, Oct 2026)"');
     expect(f?.detail).toContain("https://github.com/run/7");
-    expect(failed.pushes.map((p) => p.body.title)).toContain(
-      "Normalize failed: new scrapes are not on the site"
-    );
+    expect(failed.db.alerts.get("normalize-failed")!.closed_at).toBeNull();
+    expect(failed.pushes).toHaveLength(0);
 
     const down = setup(healthyStatus(), { normalize: "down" });
     expect((await down.cron("2026-11-12T07:00:00Z")).findings).toEqual([]);
   });
 
-  it("a check warning opens a normal alert, and on its 3rd night pushes as urgent", async () => {
+  it("a check warning updates in the console when escalated without pushing", async () => {
     const ledgers = (nights: number): OpsChecks => ({
       schema: 1,
       generated_at: "2026-11-12T05:28:00+00:00",
@@ -467,24 +537,25 @@ describe("ops cron: alerts", () => {
     t.setChecks(ledgers(1));
     const first = await t.cron("2026-11-12T07:00:00Z");
     expect(first.findings.map((f) => `${f.severity}:${f.key}`)).toEqual(["warn:check:ledgers"]);
-    expect(t.pushes.map((p) => p.body.priority)).toEqual([3]);
+    expect(t.pushes).toHaveLength(0);
+    const openedAt = t.db.alerts.get("check:ledgers")!.opened_at;
 
-    // Quiet hours: a warn waits; the escalated one pushes at once, urgent.
+    // Escalation updates console severity, not phone delivery.
     t.setChecks(ledgers(3));
     const night = await t.cron("2026-11-13T22:00:00Z");
     expect(night.findings[0]).toMatchObject({ key: "check:ledgers", severity: "urgent" });
-    expect(t.pushes.at(-1)?.body).toMatchObject({
-      priority: 5,
-      title: "Still open: Check warning: Ledgers point at live data",
-    });
+    expect(t.db.alerts.get("check:ledgers")!.severity).toBe("urgent");
+    expect(t.db.alerts.get("check:ledgers")!.opened_at).toBe(openedAt);
+    expect(t.pushes).toHaveLength(0);
 
     // Fixed: the alert resolves.
     t.setChecks({
       ...ledgers(0),
       checks: [{ ...ledgers(0).checks[0], status: "pass", since: null, detail: "" }],
     });
-    await t.cron("2026-11-14T08:00:00Z");
+    await t.cron("2026-11-14T07:00:00Z");
     expect(t.db.alerts.get("check:ledgers")!.closed_at).not.toBeNull();
+    expect(t.pushes).toHaveLength(0);
   });
 
   it("no status file on the site is itself an alert", async () => {
@@ -527,23 +598,15 @@ describe("POST /api/ops/event", () => {
   it("needs the bearer token", async () => {
     const t = setup();
     expect(
-      (
-        await handleEvent(
-          event({ vendor: "tms", outcome: "ok" }, "wrong"),
-          t.env,
-          new Date(),
-          t.fetcher
-        )
-      ).status
+      (await handleEvent(event({ vendor: "tms", outcome: "ok" }, "wrong"), t.env, new Date()))
+        .status
     ).toBe(401);
     expect(
-      (await handleEvent(event({ vendor: "tms", outcome: "ok" }, ""), t.env, new Date(), t.fetcher))
-        .status
+      (await handleEvent(event({ vendor: "tms", outcome: "ok" }, ""), t.env, new Date())).status
     ).toBe(401);
     const noToken = { ...t.env, OPS_INGEST_TOKEN: undefined };
     expect(
-      (await handleEvent(event({ vendor: "tms", outcome: "ok" }), noToken, new Date(), t.fetcher))
-        .status
+      (await handleEvent(event({ vendor: "tms", outcome: "ok" }), noToken, new Date())).status
     ).toBe(401);
     expect(t.db.runs).toHaveLength(0);
   });
@@ -551,39 +614,30 @@ describe("POST /api/ops/event", () => {
   it("validates vendor and outcome", async () => {
     const t = setup();
     expect(
-      (await handleEvent(event({ vendor: "TMS!", outcome: "ok" }), t.env, new Date(), t.fetcher))
-        .status
+      (await handleEvent(event({ vendor: "TMS!", outcome: "ok" }), t.env, new Date())).status
     ).toBe(400);
     expect(
-      (
-        await handleEvent(
-          event({ vendor: "tms", outcome: "exploded" }),
-          t.env,
-          new Date(),
-          t.fetcher
-        )
-      ).status
+      (await handleEvent(event({ vendor: "tms", outcome: "exploded" }), t.env, new Date())).status
     ).toBe(400);
     const big = event({ vendor: "tms", outcome: "failed", detail: "x".repeat(5000) });
-    expect((await handleEvent(big, t.env, new Date(), t.fetcher)).status).toBe(413);
+    expect((await handleEvent(big, t.env, new Date())).status).toBe(413);
   });
 
-  it("records a run; a block pushes an urgent alert at once", async () => {
+  it("records a block immediately without a separate phone message", async () => {
     const t = setup();
-    const at = new Date("2026-11-12T01:00:00Z"); // quiet hours: urgent still goes
+    const at = new Date("2026-11-12T01:00:00Z"); // 03:00 Israel
     const res = await handleEvent(
       event({ vendor: "ksp", outcome: "blocked", detail: "HTTP 403 cf-mitigated" }),
       t.env,
-      at,
-      t.fetcher
+      at
     );
     expect(res.status).toBe(201);
     expect(t.db.runs[0]).toMatchObject({ vendor: "ksp", ok: 0, outcome: "blocked" });
-    expect(t.pushes).toHaveLength(1);
-    expect(t.pushes[0].body).toMatchObject({ priority: 5, title: "KSP blocked the scraper" });
-    // The next cron keeps it open (same key) instead of re-pushing.
+    expect(t.pushes).toHaveLength(0);
+    expect(t.db.alerts.get("blocked:ksp")!.title).toBe("KSP blocked the scraper");
+    // The next cron keeps the finding open without pushing.
     await runCron(t.env, new Date("2026-11-12T01:30:00Z"), t.fetcher);
-    expect(t.pushes.filter((p) => String(p.body.title).includes("blocked"))).toHaveLength(1);
+    expect(t.pushes).toHaveLength(0);
   });
   it("records phase events without resolving unrelated alerts", async () => {
     const t = setup();
@@ -598,19 +652,18 @@ describe("POST /api/ops/event", () => {
     });
     const at = new Date("2026-11-12T01:00:00Z");
     expect(
-      (await handleEvent(event({ vendor: "ksp_eilat", outcome: "blocked" }), t.env, at, t.fetcher))
-        .status
+      (await handleEvent(event({ vendor: "ksp_eilat", outcome: "blocked" }), t.env, at)).status
     ).toBe(201);
     expect(t.db.alerts.get("site-down")!.closed_at).toBeNull();
     expect(t.db.runs[0]).toMatchObject({ vendor: "ksp_eilat", ok: 0 });
-    expect(t.pushes[0].body.title).toBe("KSP Eilat blocked the scraper");
+    expect(t.db.alerts.get("blocked:ksp_eilat")!.title).toBe("KSP Eilat blocked the scraper");
+    expect(t.pushes).toHaveLength(0);
     expect(
-      (await handleEvent(event({ vendor: "ksp_detail", outcome: "failed" }), t.env, at, t.fetcher))
-        .status
+      (await handleEvent(event({ vendor: "ksp_detail", outcome: "failed" }), t.env, at)).status
     ).toBe(201);
-    expect(
-      (await handleEvent(event({ vendor: "madeup", outcome: "ok" }), t.env, at, t.fetcher)).status
-    ).toBe(400);
+    expect((await handleEvent(event({ vendor: "madeup", outcome: "ok" }), t.env, at)).status).toBe(
+      400
+    );
   });
 });
 

@@ -1,5 +1,5 @@
 /**
- * Ops side of the Worker: alert cron, 10:00 daily report, Nano run events
+ * Ops side of the Worker: findings cron, 10:00 daily report, Nano run events
  * and the admin API. worker.ts routes here; all decisions come from
  * src/ops/rules.ts (shared with the admin page) and every push goes through
  * `push()`, the single ntfy sender.
@@ -18,7 +18,7 @@
  * console login; without it /admin/ stays locked).
  */
 
-import { alertMessage, dailyReport, type PushMessage } from "./src/ops/report";
+import { dailyReport, type PushMessage } from "./src/ops/report";
 import { evaluate, israelParts, runFinding, type Finding, type LiveFacts, type NanoRun, type PipelineRun } from "./src/ops/rules";
 import type { OpsChecks, OpsStatus } from "./src/ops/types";
 import { CHECKS_SCHEMA, OPS_SCHEMA } from "./src/ops/types";
@@ -56,11 +56,6 @@ export interface OpsEnv {
 export const DEFAULT_ORIGIN = "https://mifrat.avizi.workers.dev";
 /** The daily report goes out on the first cron tick in this Israel hour. */
 export const REPORT_HOUR_ISRAEL = 10;
-/** An open alert is pushed again after this long. */
-export const REMIND_AFTER_MS = 24 * 3_600_000;
-/** Quiet hours (Israel): only urgent alerts push; the rest wait. */
-export const QUIET_START_HOUR = 23;
-export const QUIET_END_HOUR = 7;
 const RUN_RETENTION_DAYS = 60;
 const MAX_EVENT_BYTES = 2048;
 const EVENT_VENDORS = new Set(["tms", "onepc", "ksp", "tms_eilat", "ksp_eilat", "ksp_detail", "ksp_covers"]);
@@ -93,11 +88,6 @@ export function abuseWindowStart(): number {
 
 function origin(env: OpsEnv): string {
   return (env.SITE_ORIGIN || DEFAULT_ORIGIN).replace(/\/+$/, "");
-}
-
-export function isQuietHour(now: Date): boolean {
-  const { hour } = israelParts(now);
-  return hour >= QUIET_START_HOUR || hour < QUIET_END_HOUR;
 }
 
 /** Constant-time string compare (token check). */
@@ -257,39 +247,27 @@ interface AlertRow {
 }
 
 /**
- * Open, remind and resolve alerts for this tick's findings. Returns the
- * pushes it sent (tests read this).
+ * Keep findings current in the admin console without sending notifications.
+ * The daily report is the only phone message, including for urgent findings.
  */
 export async function syncAlerts(
   env: OpsEnv,
   findings: Finding[],
   now: Date,
-  fetcher: typeof fetch = fetch,
   resolveMissing = true
-): Promise<PushMessage[]> {
-  const sent: PushMessage[] = [];
-  if (!env.LISTS_DB) return sent;
+): Promise<void> {
+  if (!env.LISTS_DB) return;
   const db = env.LISTS_DB;
   const { results: open } = await db
     .prepare("SELECT key, severity, title, detail, opened_at, last_push, closed_at FROM ops_alerts WHERE closed_at IS NULL")
     .all<AlertRow>();
   const openByKey = new Map(open.map((r) => [r.key, r]));
-  const quiet = isQuietHour(now);
   const at = now.toISOString();
 
   for (const f of findings) {
     const row = openByKey.get(f.key);
     openByKey.delete(f.key);
-    const mayPush = f.severity === "urgent" || !quiet;
     if (!row) {
-      let pushedAt: string | null = null;
-      if (mayPush) {
-        const msg = alertMessage(f, "open");
-        if (await push(env, msg, fetcher)) {
-          sent.push(msg);
-          pushedAt = at;
-        }
-      }
       await db
         .prepare(
           "INSERT INTO ops_alerts (key, severity, title, detail, opened_at, last_push, closed_at) " +
@@ -297,43 +275,29 @@ export async function syncAlerts(
             "title = excluded.title, detail = excluded.detail, opened_at = excluded.opened_at, " +
             "last_push = excluded.last_push, closed_at = NULL"
         )
-        .bind(f.key, f.severity, f.title, f.detail, at, pushedAt)
+        .bind(f.key, f.severity, f.title, f.detail, at, null)
         .run();
       continue;
     }
-    const lastPush = row.last_push ? Date.parse(row.last_push) : 0;
-    const due = !row.last_push || now.getTime() - lastPush >= REMIND_AFTER_MS;
-    if (due && mayPush) {
-      const msg = alertMessage(f, row.last_push ? "remind" : "open");
-      if (await push(env, msg, fetcher)) {
-        sent.push(msg);
-        await db
-          .prepare("UPDATE ops_alerts SET last_push = ?, severity = ?, title = ?, detail = ? WHERE key = ?")
-          .bind(at, f.severity, f.title, f.detail, f.key)
-          .run();
-      }
+    if (row.severity !== f.severity || row.title !== f.title || row.detail !== f.detail) {
+      await db
+        .prepare("UPDATE ops_alerts SET severity = ?, title = ?, detail = ? WHERE key = ?")
+        .bind(f.severity, f.title, f.detail, f.key)
+        .run();
     }
   }
 
   // Whatever is still open was not found this tick: resolved.
   for (const row of resolveMissing ? openByKey.values() : []) {
-    if (row.last_push && !quiet) {
-      const msg = alertMessage(
-        { key: row.key, severity: row.severity as Finding["severity"], title: row.title, detail: "" },
-        "resolved"
-      );
-      if (await push(env, msg, fetcher)) sent.push(msg);
-    }
-    // A quiet-hours resolve closes silently; one that was never pushed too.
+    // Close silently, including alerts pushed before the daily-only policy.
     await db.prepare("UPDATE ops_alerts SET closed_at = ? WHERE key = ?").bind(at, row.key).run();
   }
-  return sent;
 }
 
 /** The 10:00 report: once per Israel date, on the first tick in that hour. */
 export async function maybeDailyReport(
   env: OpsEnv,
-  status: OpsStatus,
+  status: OpsStatus | null,
   findings: Finding[],
   now: Date,
   fetcher: typeof fetch = fetch
@@ -343,7 +307,13 @@ export async function maybeDailyReport(
   const done = await env.LISTS_DB.prepare("SELECT value FROM ops_meta WHERE name = 'daily_report'")
     .first<{ value: string }>();
   if (done?.value === date) return null;
-  const msg = dailyReport(status, findings, now);
+  const msg: PushMessage = status ? dailyReport(status, findings, now) : {
+    title: `Mifrat daily report · ${date} · report unavailable`,
+    message: `${NO_STATUS.title}\n${NO_STATUS.detail}\nCheck the admin console for details.`,
+    priority: 3,
+    tags: ["warning"],
+    click: "/admin/",
+  };
   if (!(await push(env, msg, fetcher))) return null;
   await env.LISTS_DB.prepare(
     "INSERT INTO ops_meta (name, value) VALUES ('daily_report', ?) " +
@@ -377,8 +347,8 @@ export async function runCron(env: OpsEnv, now: Date, fetcher: typeof fetch = fe
   const status = await readStatus(env);
   const live = { ...(await liveFacts(env, fetcher)), checks: await readChecks(env) };
   const findings = status ? evaluate(status, now, live) : [NO_STATUS];
-  const sent = await syncAlerts(env, findings, now, fetcher);
-  const report = status ? await maybeDailyReport(env, status, findings, now, fetcher) : null;
+  await syncAlerts(env, findings, now);
+  const report = await maybeDailyReport(env, status, findings, now, fetcher);
   if (env.LISTS_DB) {
     const cutoff = new Date(now.getTime() - RUN_RETENTION_DAYS * 86_400_000).toISOString();
     try {
@@ -387,13 +357,13 @@ export async function runCron(env: OpsEnv, now: Date, fetcher: typeof fetch = fe
       // Retention is best-effort.
     }
   }
-  return { findings, sent, report };
+  return { findings, sent: [], report };
 }
 
 // ---- HTTP: Nano run events + admin API ----------------------------------------
 
 /** POST /api/ops/event from the Nano: {vendor, ok, outcome, detail?, items?}. */
-export async function handleEvent(request: Request, env: OpsEnv, now: Date, fetcher: typeof fetch = fetch): Promise<Response> {
+export async function handleEvent(request: Request, env: OpsEnv, now: Date): Promise<Response> {
   if (request.method !== "POST") return json({ error: "method not allowed" }, 405);
   const token = env.OPS_INGEST_TOKEN || "";
   const auth = request.headers.get("authorization") || "";
@@ -421,13 +391,13 @@ export async function handleEvent(request: Request, env: OpsEnv, now: Date, fetc
   )
     .bind(vendor, at, ok ? 1 : 0, outcome, detail, items)
     .run();
-  // A block is urgent and should not wait for the next cron tick.
+  // Show a block in the console immediately, but notify only in the daily report.
   if (outcome === "blocked") {
     const run: NanoRun = { vendor, at, ok, outcome, detail: detail ?? undefined };
     const finding = runFinding(run)!;
     // This is one event, not a full health evaluation: do not resolve other
     // vendors' open alerts merely because they were absent from this request.
-    await syncAlerts(env, [finding], now, fetcher, false).catch(() => []);
+    await syncAlerts(env, [finding], now, false).catch(() => undefined);
   }
   return json({ ok: true }, 201);
 }

@@ -1,4 +1,4 @@
-# Scrape console and phone alerts
+# Scrape console and daily phone report
 
 What runs where, and the one-time setup only the owner can do (dashboards
 and secrets). No secret ever goes into git or a GitHub workflow.
@@ -20,13 +20,13 @@ and secrets). No secret ever goes into git or a GitHub workflow.
   - Header: **Reload** fetches the newest deployed report; **Rebuild report**
     regenerates it from the latest scrapes (needs `GH_DISPATCH_TOKEN`)
   - Alerts & runs
-- **Phone pushes (ntfy)** when something breaks. Urgent ones (site down,
-  API flood, a vendor blocking the scraper) push at any hour. The rest
-  (scrape missing, Nano down, normalize stuck or failed, partial crawl, double
-  crawl, delisting spike) wait until 07:00 Israel time. An alert is pushed once,
-  reminded after 24 h, and you get a "Resolved" push when it clears.
 - **A daily scrape report at 10:00 Israel time**, one line per vendor. It is
   silent when every line is ✅ and buzzes once when anything is ⚠️ or ❌.
+  **This is the only phone message**: problems are included in this report,
+  not sent separately, even when urgent. No reminders or "Resolved" pushes.
+  If the report data is unavailable, the daily message says so instead.
+- **Live problems on `/admin/`**: half-hourly checks and Nano run events
+  still update the console without sending extra messages.
 
 ## How it works
 
@@ -35,10 +35,10 @@ data/raw/** + catalog ──normalize-and-deploy──► python -m scraper.ops.
                                                 ──► data/ops/status.json, changes.json, memory.json
 site build (copy-data.mjs) ──► /admin/data/{status,changes}.json   (Worker checks ADMIN_PASSWORD)
 
-Worker cron */30 ──► rules.ts evaluate() ──► ops_alerts (D1) ──► ntfy
+Worker cron */30 ──► rules.ts evaluate() ──► ops_alerts (D1) ──► /admin/
                 └──► 10:xx Israel, once a day ──► daily report ──► ntfy ──► Healthchecks ping
 Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ──► POST /api/ops/event
-                                                  (Worker down? straight to ntfy)
+                                                  (Worker down? local journal only)
 ```
 
 - `scraper/ops/` records facts only: every crawl (start, end, items, new,
@@ -59,6 +59,7 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   prices and Ivory's paused Eilat source; neither means regular prices failed.
 - Immediate block-event ingestion updates that alert only. Unrelated open
   alerts are resolved only by the cron's full health evaluation.
+  Neither ingestion nor evaluation sends individual phone notifications.
 - Lifecycle rules (owner, 2026-11-12): a listing absent from one crawl is
   *missing*. One absent from two crawls, at least 36 h apart, is *gone*. A
   partial crawl never counts an absence.
@@ -100,17 +101,15 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
    Access was the first plan; Zero Trust asks for a card, so the Worker
    does the login itself.)
 5. **Healthchecks.io (optional).** Free account. Create a check with period
-   1 day and grace 1 hour, and add ntfy as an integration (same topic and
-   token). Put its ping URL in `HEALTHCHECK_URL`. If the 10:00 report ever
-   fails to go out, Healthchecks pushes "down" by ~11:00.
+   1 day and grace 1 hour. Put its ping URL in `HEALTHCHECK_URL` to record
+   daily delivery, but do not attach an ntfy integration for daily-only messages.
 6. **Uptime (optional).** In UptimeRobot (free), add an HTTP monitor on
    `https://mifrat.avizi.workers.dev/data/site/meta.json` every 5 min, with
-   a webhook to ntfy (JSON to `https://ntfy.sh/`, see ntfy docs
-   "UptimeRobot"). This catches a site outage even when the Worker itself
-   is down.
-7. **GitHub Mobile.** Settings → Notifications → Actions → "Only failed
-   workflows". This covers normalize / scrape-cloud failures with no secret
-   in any workflow.
+   no ntfy webhook. This tracks outages independently without extra phone pushes.
+7. **Other notification sources.** If previously enabled, disable the ntfy
+   integrations in Healthchecks/UptimeRobot/Cloudflare and GitHub Mobile
+   Actions notifications. These are separate services, not controlled by the
+   Worker; changing this code cannot silence them.
 8. **Nano.** See `nano/NANO_README.md`, "Phone alerts".
 
 ## Test it
@@ -120,7 +119,7 @@ Nano scrape unit ──OnFailure / ExecStartPost──► nano/ops_notify.sh ─
   now), now)`.
 - Send a test push: in the Worker dashboard (Settings → Triggers → Cron),
   use "Trigger". At 10:xx Israel it sends the daily report. At other times
-  it pushes only real findings.
+  it updates console findings only and sends nothing.
 - Nano: `nano/ops_notify.sh pc-parts-il-ksp.service success` posts an `ok`
   run, which then shows under Alerts & runs.
 
@@ -146,4 +145,4 @@ clear an operations warning.
 mutation-checked), `python scripts/check_ops_report.py` (file budgets,
 one run), `bash scripts/check_ops_notify.sh` (Nano notifier, stubbed),
 `site/test/ops.test.ts` and `site/test/ops-worker.test.ts` (rules, report,
-quiet hours, dedupe, DST, auth).
+daily-only delivery, dedupe, DST, auth).

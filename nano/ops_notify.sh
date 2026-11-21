@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Report a Nano scrape run to the Mifrat Worker (POST /api/ops/event), which
-# stores it and pushes an alert to the owner's phone (ntfy) when it failed.
+# stores it for the admin console and the single 10:00 daily phone report.
 #
 #   nano/ops_notify.sh <unit>            # OnFailure= (pc-parts-il-notify@.service)
 #   nano/ops_notify.sh <unit> success    # ExecStartPost= of the scrape unit
@@ -18,9 +18,8 @@
 # Config (never in git): ~/.config/pc-parts-il/notify.env, chmod 600:
 #   OPS_EVENT_URL=https://mifrat.avizi.workers.dev/api/ops/event
 #   OPS_INGEST_TOKEN=<same value as the Worker secret>
-#   NTFY_TOPIC_URL=https://ntfy.sh/<topic>   # fallback when the Worker is down
-#   NTFY_TOKEN=tk_...                         # optional
-# The file is read as KEY=VALUE text, never run as shell code: only the four
+# Legacy NTFY_TOPIC_URL / NTFY_TOKEN entries are ignored: no direct pushes.
+# The file is read as KEY=VALUE text, never run as shell code: only the two
 # keys above are taken, one pair of surrounding quotes is stripped, and
 # nothing in a value ($(...), backticks, ;) is ever evaluated.
 # Missing config = log and exit 0: notifications must never break a scrape.
@@ -41,8 +40,6 @@ if [ ! -r "$CONF" ]; then
 fi
 OPS_EVENT_URL=""
 OPS_INGEST_TOKEN=""
-NTFY_TOPIC_URL=""
-NTFY_TOKEN=""
 while IFS= read -r line || [ -n "$line" ]; do
     line="${line%$'\r'}"
     line="${line#"${line%%[![:space:]]*}"}"
@@ -61,8 +58,6 @@ while IFS= read -r line || [ -n "$line" ]; do
     case "$key" in
         OPS_EVENT_URL) OPS_EVENT_URL="$value" ;;
         OPS_INGEST_TOKEN) OPS_INGEST_TOKEN="$value" ;;
-        NTFY_TOPIC_URL) NTFY_TOPIC_URL="$value" ;;
-        NTFY_TOKEN) NTFY_TOKEN="$value" ;;
     esac
 done < "$CONF"
 
@@ -158,18 +153,6 @@ if [ -n "${OPS_EVENT_URL:-}" ] && [ -n "${OPS_INGEST_TOKEN:-}" ] && \
     exit 0
 fi
 
-# Worker unreachable: push straight to ntfy so a failure is never silent.
-if [ "$OUTCOME" != "ok" ] && [ -n "${NTFY_TOPIC_URL:-}" ]; then
-    PRIORITY=4
-    [ "$OUTCOME" = "blocked" ] && PRIORITY=5
-    AUTH=()
-    [ -n "${NTFY_TOKEN:-}" ] && AUTH=(-H "Authorization: Bearer $NTFY_TOKEN")
-    curl -fsS --max-time 20 "${AUTH[@]}" \
-        -H "Title: Nano: $VENDOR $OUTCOME" \
-        -H "Priority: $PRIORITY" \
-        -H "Tags: warning" \
-        --data "${DETAIL:-$UNIT failed} (Worker unreachable, sent directly)" \
-        "$NTFY_TOPIC_URL" > /dev/null \
-        && echo "[ops_notify] $VENDOR: $OUTCOME pushed directly to ntfy"
-fi
+# Worker unreachable: log locally; never bypass the daily-only phone policy.
+echo "[ops_notify] $VENDOR: $OUTCOME event not delivered; inspect the Nano journal" >&2
 exit 0

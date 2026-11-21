@@ -299,13 +299,17 @@ like any block. `RUN_EILAT_FORCE=1` re-runs a night by hand.
 
 ## Phone alerts (Nov 2026)
 
-Every scrape unit reports its run to the site's Worker, which pushes to the
-owner's phone (ntfy) on a block, a partial crawl or a failure, and lists every
-run on `/admin/` under "Alerts & runs". A failed run reports through
+Every scrape unit reports its run to the site's Worker, which lists every
+run on `/admin/` under "Alerts & runs" and includes problems in the single
+10:00 Israel-time daily phone report (ntfy). No separate messages are sent
+for blocks, partial crawls, failures, reminders or resolutions. A failed run reports through
 `OnFailure=pc-parts-il-notify@%n.service`, a successful one through
 `ExecStartPost=-.../ops_notify.sh %n success` (systemd 237 here has no
 `OnSuccess=`; the leading `-` means a notify failure never fails the scrape).
-If the Worker cannot be reached, `ops_notify.sh` pushes straight to ntfy.
+If the Worker cannot be reached, `ops_notify.sh` logs locally without a
+direct phone fallback. Legacy ntfy entries in `notify.env` are ignored.
+After the code is published, the Nano must pull the new script to remove
+the old fallback; no systemd unit or secret changes are needed.
 Setup of the Worker side: `docs/ops-alerts.md`.
 
 ```bash
@@ -314,8 +318,6 @@ mkdir -p ~/.config/pc-parts-il && chmod 700 ~/.config/pc-parts-il
 cat > ~/.config/pc-parts-il/notify.env <<'EOF'
 OPS_EVENT_URL=https://mifrat.avizi.workers.dev/api/ops/event
 OPS_INGEST_TOKEN=<same value as the Worker secret>
-NTFY_TOPIC_URL=https://ntfy.sh/<your topic>
-NTFY_TOKEN=<tk_... , optional>
 EOF
 chmod 600 ~/.config/pc-parts-il/notify.env
 sudo cp nano/pc-parts-il-notify@.service nano/pc-parts-il-tms.service \

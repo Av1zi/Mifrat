@@ -89,14 +89,14 @@ A listing absent from two valid crawls at least 36 hours apart. Seen again later
 _Avoid_: delisted, removed
 
 **Finding**:
-One current problem the alert rules see (scrape not done, site down, partial crawl, a check warning); an alert opens, reminds and resolves per finding.
+One current problem the alert rules see (scrape not done, site down, partial crawl, a check warning); tracked in the console and included in the daily report, never pushed separately.
 
 **Check level**:
 Whether a pipeline check stops the publish. Code and integrity checks block; quality checks grade the night's data and only warn, escalating to urgent after 3 nights open.
 _Avoid_: gate (for a check that only warns)
 
 **Daily report**:
-The 10:00 Israel-time phone message with one line per vendor; silent when every line is OK.
+The only phone message: at 10:00 Israel time with one line per vendor and open problems; silent when every line is OK.
 
 ## Identity
 

@@ -492,8 +492,8 @@ export default {
     return plain("Not found", 404);
   },
 
-  // Cron Triggers (wrangler.jsonc): health checks, phone alerts and the
-  // 10:00 Israel daily report. One function, so a missed tick only delays.
+  // Cron Triggers (wrangler.jsonc): console health checks and the sole phone
+  // message, the 10:00 Israel daily report.
   async scheduled(controller: ScheduledController, env: Env, ctx: WorkerContext): Promise<void> {
     ctx.waitUntil(runCron(opsEnv(env), new Date(controller.scheduledTime)).then(() => undefined));
   },

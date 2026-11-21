@@ -11,6 +11,7 @@ cat > "$TMP/home/.config/pc-parts-il/notify.env" <<'EOF'
 OPS_EVENT_URL=https://worker.example/api/ops/event
 OPS_INGEST_TOKEN=test-token
 NTFY_TOPIC_URL=https://ntfy.sh/test-topic
+NTFY_TOKEN=test-legacy-token
 EOF
 
 cat > "$TMP/bin/systemctl" <<'EOF'
@@ -50,6 +51,14 @@ run() {
     echo "[ops-notify] FAIL $name: wanted '$want' in:"; sed 's/^/    /' "$TMP/curl.log"
     fail=1
   fi
+  if grep -q 'ntfy.sh\|test-legacy-token' "$TMP/curl.log"; then
+    echo "[ops-notify] FAIL $name: direct phone push attempted"
+    fail=1
+  fi
+  if [ "${WORKER_DOWN:-0}" = 1 ] && [ "$(wc -l < "$TMP/curl.log")" -ne 1 ]; then
+    echo "[ops-notify] FAIL $name: expected one event attempt, no fallback"
+    fail=1
+  fi
 }
 
 run "success" pc-parts-il-onepc.service success \
@@ -86,8 +95,14 @@ run "timeout" pc-parts-il-tms.service "" "" timeout '"outcome":"failed","items":
 run "bearer token sent" pc-parts-il-onepc.service success "1 items" success 'Authorization: Bearer test-token'
 run "credentials scrubbed" pc-parts-il-onepc.service "" \
   "[error] fatal: https://user:ghp_secret@github.com/x" exit-code 'inspect the redacted Nano diagnostics'
-WORKER_DOWN=1 run "worker down -> ntfy direct" pc-parts-il-ksp.service "" \
-  "ksp blocked - no snapshot written" exit-code 'Priority: 5'
+WORKER_DOWN=1 run "worker down: block logs locally, no direct push" pc-parts-il-ksp.service "" \
+  "ksp blocked - no snapshot written" exit-code '"outcome":"blocked"'
+WORKER_DOWN=1 run "worker down: failure has no direct push" pc-parts-il-onepc.service "" \
+  "[error] push failed" exit-code '"outcome":"failed"'
+WORKER_DOWN=1 run "worker down: partial has no direct push" pc-parts-il-ksp.service "" \
+  "ksp incomplete - item floor" exit-code '"outcome":"partial"'
+WORKER_DOWN=1 run "worker down: success has no direct push" pc-parts-il-onepc.service success \
+  "1 items" success '"outcome":"ok"'
 
 # Never leak the secret detail when scrubbing failed.
 if grep -q ghp_secret "$TMP/curl.log"; then echo "[ops-notify] FAIL secret leaked"; fail=1; fi
