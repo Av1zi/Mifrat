@@ -92,6 +92,17 @@ may follow it. The Nano's separate detail job became available on 2026-11-13
 (see `docs/ksp-detail-plan.md`); it uses the same stop/pacing rules. If KSP
 escalates or objects, the vendor is dropped.
 
+Owner-reviewed KSP header update (2026-11-22): one fixed Windows Chrome/158
+UA with aligned UA-hint versions, retaining the supported `chrome146` TLS
+profile. PC stream tests changed from 403 to 200 when only the UA changed;
+this does not prove a targeted blocklist or Nano/full-crawl acceptance. This
+is a one-time header exception, not permission to rotate identities after a
+block. Cookies, dynamic `tt`, pacing, completeness checks and pause rules
+are unchanged. The consumed Nov 22 recovery is not re-armed by this change.
+The isolated updated runner reached HTTP200 but failed the current-price
+payload check; a later native browser stream returned 403. KSP remains
+paused: the header patch alone has not restored end-to-end scraping.
+
 Ivory's regular builder feed remains active. Its **Eilat category-page
 scrape is paused** after 13 HTTP 403s on 2026-11-17; a green regular-price
 run does not mean Eilat prices were collected.

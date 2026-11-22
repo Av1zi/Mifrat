@@ -23,8 +23,10 @@ never performs the browser's "retry with the requested hints" step, so a
 plain impersonated request is now challenged while the identical request
 with the hints below answers 200 (verified on all 13 category tags). CLIENT_HINTS
 therefore goes on every KSP request, including Scrapy's own robots.txt
-fetch. Keep the UA and the `sec-ch-ua*` values on the same browser build as
-IMPERSONATE: the edge risk-scores the whole fingerprint, not just TLS.
+fetch. Keep the UA and the `sec-ch-ua*` version values aligned. The owner
+approved a fixed Chrome/158 header update on 2026-11-22 while retaining the
+supported chrome146 TLS profile after UA-dependent PC stream responses.
+This deliberate mismatch is not proof of Nano acceptance; no rotation on block.
 
 ## API
 
@@ -58,13 +60,15 @@ from scraper.crawl_outcome import mark_blocked, stop_failure
 VENDOR_ID = "ksp"
 API_URL = "https://ksp.co.il/m_action/api/category/{tag}?page={page}"
 PRODUCT_URL = "https://ksp.co.il/web/item/{uin}"
-# Pin the TLS profile instead of using the "chrome" alias: the alias follows
-# whatever curl-cffi ships last, but the UA and CLIENT_HINTS below are a fixed
-# build, and Cloudflare compares them. Bump all three together.
+# Pin the TLS profile instead of the moving "chrome" alias. Owner-approved
+# 2026-11-22 exception: Windows Chrome/146 UA returned 403 in PC stream tests;
+# Chrome/158 UA returned 200 with this SAME TLS profile and request body.
+# UA/client hints deliberately differ from TLS; Nano/full-crawl acceptance is
+# not implied. No profile/UA rotation or retry after a block.
 IMPERSONATE = "chrome146"
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+    "(KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36"
 )
 
 # KSP catalog tag id -> our pipeline category guess. Counts checked 2026-10-30.
@@ -179,18 +183,19 @@ CASE_FAN_TITLE_RE = re.compile(r"למארז|מאוורר(?:י|ים)?\s*מארז"
 # The high-entropy UA client hints the edge asks for via `Accept-CH` and
 # treats as `Critical-CH` (see the module docstring). A real browser resends
 # the same request with these after the first response; curl_cffi does not, so
-# we send them up front on every request. Values are the Windows Chrome 146
-# build named by IMPERSONATE/USER_AGENT above.
+# we send them up front on every request. Version values match USER_AGENT,
+# not the older fixed TLS profile (see the owner-reviewed exception above).
+# Use the reduced UA version; do not invent an unobserved full browser build.
 CLIENT_HINTS = {
-    "sec-ch-ua": '"Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"',
+    "sec-ch-ua": '"Chromium";v="158", "Not-A.Brand";v="24", "Google Chrome";v="158"',
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": '"Windows"',
     "sec-ch-ua-arch": '"x86"',
     "sec-ch-ua-bitness": '"64"',
-    "sec-ch-ua-full-version": '"146.0.7680.76"',
+    "sec-ch-ua-full-version": '"158.0.0.0"',
     "sec-ch-ua-full-version-list": (
-        '"Chromium";v="146.0.7680.76", "Not-A.Brand";v="24.0.0.0", '
-        '"Google Chrome";v="146.0.7680.76"'
+        '"Chromium";v="158.0.0.0", "Not-A.Brand";v="24.0.0.0", '
+        '"Google Chrome";v="158.0.0.0"'
     ),
     "sec-ch-ua-platform-version": '"19.0.0"',
     "sec-ch-ua-model": '""',

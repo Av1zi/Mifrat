@@ -124,6 +124,17 @@ def main():
         failures.append("mismatched price identity accepted")
     except StreamError:
         assertions += 1
+    # A live Nov22 response was HTTP200/completed but its unwrapped price
+    # payload was a string, not a price map. Completion never excuses that.
+    for invalid in ("SECRET_FIXTURE", None, [], {}):
+        bad_prices = {**prices, "data": {"result": invalid}}
+        try:
+            prices_payload(stream(("partial", bad_prices), ("done", done)), uins)
+            failures.append("non-map/empty price batch accepted")
+        except StreamError as error:
+            assertions += 1
+            if "SECRET_FIXTURE" in str(error):
+                failures.append("price-batch response content leaked into error")
     # This capture is data only. No opaque request credentials entered git.
     def private_fields(value):
         if isinstance(value, dict):

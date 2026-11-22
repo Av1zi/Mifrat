@@ -2,6 +2,7 @@
 from copy import deepcopy
 import json
 import os
+import re
 import subprocess
 from pathlib import Path
 import sys
@@ -17,7 +18,7 @@ from scrapy.statscollectors import MemoryStatsCollector
 from scrapy.exceptions import CloseSpider
 from scraper.spiders.ksp_stream import KspStreamSpider
 from scraper.spiders.ksp_stream import load_category_routes
-from scraper.spiders.ksp import CATEGORIES
+from scraper.spiders.ksp import CATEGORIES, CLIENT_HINTS, IMPERSONATE, KspSpider, USER_AGENT
 from tempfile import TemporaryDirectory
 
 FIXTURE = ROOT / "scraper/fixtures/ksp/cpu_stream.json"
@@ -28,6 +29,25 @@ def response(request, events):
                    for event, data in events)
     return TextResponse(request.url, request=request, body=body.encode(), encoding="utf-8",
                         headers={"Content-Type": "text/event-stream"})
+
+
+def check_client_headers(request):
+    # Pins the owner-approved configuration, NOT a prediction of WAF access.
+    # Check actual outgoing requests too: settings/middleware must not put the
+    # old UA back on robots, warmup, pagination or current-price requests.
+    ua = request.headers.get(b"User-Agent", b"").decode()
+    version = re.search(r"Chrome/(\d+\.\d+\.\d+\.\d+)", ua)
+    assert version and version.group(1) == "158.0.0.0", "old KSP UA reintroduced"
+    assert ua == USER_AGENT
+    assert IMPERSONATE == "chrome146", "TLS profile changed without owner review"
+    major = version.group(1).split(".")[0]
+    for brand in ("Chromium", "Google Chrome"):
+        assert f'"{brand}";v="{major}"' in request.headers[b"sec-ch-ua"].decode()
+        assert f'"{brand}";v="{version.group(1)}"' in request.headers[b"sec-ch-ua-full-version-list"].decode()
+    assert request.headers[b"sec-ch-ua-full-version"].decode() == f'"{version.group(1)}"'
+    for name, value in CLIENT_HINTS.items():
+        if name.startswith("sec-ch-ua"):
+            assert request.headers[name.encode()].decode() == value
 
 
 def main():
@@ -59,6 +79,9 @@ def main():
     listing["data"]["result"]["products_total"] = 12
     listing["data"]["result"]["next"] = None
     request = spider._page_request("2", "cpu", 1)
+    check_client_headers(request)
+    assert KspSpider.custom_settings["USER_AGENT"] == USER_AGENT
+    assert KspStreamSpider.custom_settings["USER_AGENT"] == USER_AGENT
     with patch("scraper.spiders.ksp.MIN_TOTAL_ITEMS", 1), \
          patch("scraper.spiders.ksp.CATEGORY_COUNTS", {"2": 12}):
         price_request = list(spider.parse_stream_page(response(request, [("partial", listing), ("done", fixture["done"])]), **request.cb_kwargs))
@@ -110,6 +133,7 @@ def main():
     assert len(next_request) == 1 and next_request[0].method == "POST"
     assert json.loads(next_request[0].body)["components"][0]["params"]["page"] == "2"
     assert second._pending_categories == 1, "partial page finalized category"
+    check_client_headers(next_request[0])
     # A missing done event must not map even one listing.
     with patch("scraper.spiders.ksp_stream.load_category_routes", return_value=manifest):
         broken = KspStreamSpider.from_crawler(crawler, routes="fixture")
@@ -131,6 +155,19 @@ def main():
         raise AssertionError("short price batch accepted")
     except CloseSpider:
         assert short._failed and not short._items
+    # A completed HTTP200 price component may contain a non-price string.
+    # Do not fall back to the category's potentially stale embedded price.
+    with patch("scraper.spiders.ksp_stream.load_category_routes", return_value=manifest):
+        non_map = KspStreamSpider.from_crawler(crawler, routes="fixture")
+    try:
+        non_price = {**fixture["prices"], "data": {"result": "SECRET_FIXTURE"}}
+        list(non_map.parse_stream_prices(
+            response(price_request[0], [("partial", non_price), ("done", fixture["done"])]),
+            **price_request[0].cb_kwargs))
+        raise AssertionError("non-map price component accepted")
+    except CloseSpider as error:
+        assert "SECRET_FIXTURE" not in str(error)
+        assert non_map._failed and not non_map._items
     with patch("scraper.spiders.ksp_stream.load_category_routes", return_value=manifest):
         blocked = KspStreamSpider.from_crawler(crawler, routes="fixture")
     block_request = blocked._page_request("2", "cpu", 1)
@@ -252,5 +289,9 @@ if __name__ == "__main__":
         assert rows[0]["vendor_sku"] == "505073"
         assert len(requests) == 4, "unexpected startup, retry or fallback requests"
         assert len([r for r in requests if r.method == "POST"]) == 2
+        for request in requests:
+            check_client_headers(request)
+            assert request.meta["curl_cffi_options"] == {"impersonate": IMPERSONATE}
+            assert not any(k in request.headers for k in (b"Cookie", b"Authorization"))
         assert not output.with_name(output.name + '.part').exists()
         print("[ksp-stream-spider] real engine passed, 12 fixture listings, robots+warmup+2 in-memory stream responses")

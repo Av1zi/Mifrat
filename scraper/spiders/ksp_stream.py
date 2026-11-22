@@ -1,7 +1,8 @@
 """Current-storefront transport with delayed recovery, never auto-fallback.
 
-The legacy API rejected the Nano. This implementation is an offline-tested
-candidate whose first live acceptance check is the delayed recovery run.
+The legacy API and Nov22 delayed stream recovery rejected the Nano. A fixed
+owner-reviewed UA update exists, but full-crawl acceptance is still unverified
+(see docs/ksp-stream-transport.md). No timers or pause markers change here.
 No copied browser credentials, dynamic tt replay, profile rotation or CAPTCHA.
 Uses the site's literal default tt=0; if that is insufficient, stop.
 

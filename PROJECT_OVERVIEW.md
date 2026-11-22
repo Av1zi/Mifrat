@@ -176,7 +176,7 @@ How it works: KSP sits behind Cloudflare Bot Management. Plain HTTP clients
 and datacenter IPs receive a 403 managed challenge, which also fires when a
 request omits the UA client hints the site asks for (since 2026-11-04). One
 fixed browser-shaped TLS handshake (the `curl_cffi` `chrome146` profile, via
-`scrapy-curl-cffi`), the matching client hints, and the storefront's
+`scrapy-curl-cffi`), fixed UA/client hints, and the storefront's
 `Referer`/`Origin`/`Accept-Language` headers get the same public catalog as a
 normal browser. The spider therefore runs from the home IP, one
 request at a time, 3–9 seconds apart (6 s base, after 1.5 s produced HTTP
@@ -184,6 +184,20 @@ request at a time, 3–9 seconds apart (6 s base, after 1.5 s produced HTTP
 first 403/429 stops the run without retry. All phases share a persistent
 pause that the owner must review before requests resume.
 `robots.txt` is obeyed (it allows the catalog).
+
+On 2026-11-22 the scheduled stream recovery failed with HTTP 403 on the Nano
+and restored its pause. Owner PC tests received 403 with the Windows Chrome/146
+UA and 200 with Chrome/158 using the same TLS profile and request body. The
+owner approved one fixed Chrome/158 UA/hint-version update, retaining the
+supported `chrome146` TLS profile. That mismatch is deliberate; the tests do
+not establish a targeted blocklist, complete-crawl success or Nano acceptance.
+No automatic UA rotation, cookie transfer, retry, timer re-arm or pause-marker
+removal accompanies the update. A further rejection stops the run as before.
+The isolated updated runner received HTTP200 at every request but stopped
+without a snapshot when its current-price component returned a non-map
+payload. A subsequent native browser stream returned 403, ending live tests.
+The existing strict parser and completeness floors are not relaxed; KSP
+remains paused and end-to-end recovery is still unresolved.
 
 Detail: the item endpoint became available on the Nano on 2026-11-13.
 A separate, bounded detail job runs after a successful listing night and

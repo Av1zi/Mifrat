@@ -2,15 +2,42 @@
 
 ## Status
 
-Owner-approved delayed recovery: **no live traffic before Nov 22, 01:00 UTC**,
-the first night slot after 72 hours from the Nov 18 request. KSP's Nano
-catalog requests returned 403 on Nov 18. The new transport is implemented
-and tested offline; acceptance without browser state remains unverified.
-The first scheduled run is a normal, bounded attempt, not a guarantee of
-access. First 403/429/challenge stops it and restores the pause; no variants,
-cookie transfer, CAPTCHA or retries against rejection.
+The owner-approved Nov 22, 01:00 UTC delayed recovery **ran and failed**:
+robots and category warmup returned 200, the stream POST returned 403, and
+no snapshot was written. The one-shot marker is consumed, KSP is paused and
+the daily timers remain disabled. Do not reinstall the past-date timer or
+delete attempt/block markers to retry it.
+
+Owner-approved header update (2026-11-22): fixed Windows Chrome/158 UA and
+aligned UA-hint versions, retaining the supported `chrome146` TLS profile.
+UA-dependent cookie-free stream responses were observed on the owner's PC;
+Nano acceptance and a complete crawl remain unverified. The header/TLS
+version mismatch is deliberate and potentially fragile. This is one reviewed
+configuration change, not automatic identity rotation. First
+403/429/challenge still stops the run and persists the pause; no cookies,
+dynamic `tt`, CAPTCHA, fallback or retry against rejection.
 
 ## Evidence
+
+Nov 22 PC diagnostics (not a published snapshot): cookie-free POSTs with
+literal `tt=0` and the script's body returned 403 using the Windows Chrome/146
+UA and 200 using Chrome/158, with the same `chrome146` TLS profile. Browser
+headers with the script body also returned 200; script headers with the browser
+body returned 403. These are UA-dependent responses, not proof of a deliberate
+scraper blocklist or a separate Nano IP restriction being absent. Earlier
+claims that TLS alone caused the block or that the Nano was definitively not
+blocked were too strong. No more header/version probing is part of this fix.
+
+Implementation validation on Nov 22: the updated **actual Scrapy runner**
+received four HTTP200 responses (robots, warmup, category, current-price
+batch), but stopped with zero rows because the price payload was not a map.
+A fixed listing/price diagnostic confirmed a completed price component whose
+unwrapped payload was a string. The parser correctly refuses it; embedded
+listing prices are not a fallback. A later native headed-browser category
+load also received a stream HTTP403, ending all live testing. Header access
+is intermittent; this change is not a recovered scrape and must not be used
+to enable timers. Full-price protocol diagnosis needs new sanitized native
+evidence after owner review/cooldown, not guessed parameters or relaxed checks.
 
 Observed through normal UI navigation in the owner's attached Chromium:
 
@@ -39,7 +66,7 @@ fixture, **not a complete snapshot and never publishable as one**.
   Rejects malformed/oversized/truncated input, failed components, duplicate
   responses, missing prices and identity mismatches. Supports UTF-8,
   multiline data, CRLF and comment heartbeats. Errors never echo the body.
-- `scraper/spiders/ksp_stream.py`: unscheduled experimental adapter. Reuses
+- `scraper/spiders/ksp_stream.py`: delayed-recovery adapter. Reuses
   the existing KSP product mapper and all category/total coverage checks.
   Resolves every page's current-price batch before accepting that page.
   Requests are sequential, the fixed profile/pacing stays unchanged, and
@@ -64,14 +91,19 @@ no vendor requests. They cover the actual mapper/completeness path, next-page
 requests, current prices, regular/Eilat separation, blocked components,
 missing batches, route validation and the pause guard.
 
-The parser currently passes 40 assertions. Integration includes a real
+The integration check also pins the approved UA/hint versions on actual
+robots, warmup, listing and price requests, and verifies the fixed TLS profile.
+This catches configuration regressions; it cannot predict vendor acceptance.
+
+The parser currently passes 44 assertions. Integration includes a real
 Scrapy engine with an in-memory downloader and the normal enrichment/matching
 path. A component-level rejection inside an HTTP-200 stream is still a block,
 not a partial crawl. The response never leaks into an exception message.
 
 ## Timer installation and safety
 
-After pulling the release on the Nano, as the normal user:
+Historical Nov 18 installation (already consumed on Nov 22; **do not rerun
+this to recover from the failed attempt**):
 
 ```bash
 bash nano/install_ksp_recovery.sh
@@ -102,7 +134,7 @@ The site's small bilingual notice remains until a successful KSP snapshot
 after the scheduled date is published; it doesn't vanish at a deadline if
 the attempt fails. Other vendors continue normally.
 
-Still unverified: cookie-free endpoint acceptance and a complete live crawl.
+Still unverified: cookie-free Nano acceptance and a complete live crawl.
 If the transport requires challenge/clearance state, do not emulate it;
 pursue KSP's sanctioned affiliate/product feed instead.
 
