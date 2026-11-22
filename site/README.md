@@ -1,128 +1,110 @@
 # Mifrat site
 
-Static frontend for the catalog in `data/site/*.json` (written by
-`scraper/site_data.py`, called from `normalize_and_match.py`), plus a tiny
-Cloudflare Worker for short build links only (`worker.ts` + D1 table
-`lists` — see "Build sharing" below). No build-time API calls; catalog
-reads, compatibility and filtering all run in the browser.
-
-Vite + TypeScript, no UI framework.
-
-## How it fits the rest of the repo
-
-- `scraper/normalize_and_match.py` builds `data/catalog.json` (full,
-  internal) **and** `data/site/<category>.json` + `data/site/meta.json`
-  (small, per-category, client-optimized — see `scraper/site_data.py`).
-- This site fetches those `data/site/*.json` files at runtime as plain
-  `fetch()` calls to same-origin relative paths (`/data/site/meta.json`
-  etc). It never talks to GitHub, a database, or any server — it's a
-  static file that reads static files.
-- Compatibility rules are a plain TS module over the product specs already
-  in this data — no separate backend. (The one exception: short build-link
-  storage, see "Build sharing" below.)
+Static Vite + TypeScript, no UI framework. Browsing, filtering and compatibility
+run in the browser over `data/site/*.json`. Worker + D1 handle short build
+links and private operations—not a dynamic catalog. [System map](../PROJECT_OVERVIEW.md)
+and [operations setup](../docs/ops-alerts.md) explain those boundaries.
 
 ## Local development
 
-The data files live outside this folder (`../data/site/`, i.e. the repo's
-`data/site/`), so they need to be copied in before the dev server can
-serve them. This happens automatically:
+From the repository root:
 
 ```bash
-cd site
-npm install
-npm run dev      # copies ../data/site -> public/data/site, then starts Vite
+npm --prefix site install
+npm --prefix site run dev
+npm --prefix site run build
 ```
 
-If `../data/site` doesn't exist yet (fresh clone with no catalog built
-locally), either run the pipeline first from the repo root:
+Dev/build copy `../data/site/` and referenced images into `public/`; build
+typechecks and writes `dist/`. A normal clone includes catalog data. If absent,
+obtain current data or run normalize in an appropriate validation environment.
+Do not regenerate a production catalog just to start the frontend.
+
+## Data and behaviour contracts
+
+- Fetch same-origin category JSON lazily; schema metadata is generated from
+  `scraper/specs/schema.py`, not discovered by the UI. New public fields need
+  `scraper/site_data.py`'s trimming allowlist.
+- Vendor images are local white-composited WebP; thumbnails are build-derived,
+  never committed. The UI does not hotlink vendor hosts.
+- Eilat prices appear as a small second line in regular mode, including mobile
+  buy bars, offer rows, store popovers, search and similar cards. Only observed
+  prices are displayed; regular sorts, filters and build totals are unchanged.
+- Opening a shared build is view-only until the visitor edits it; it must not
+  overwrite their draft. Old product ids resolve through aliases and legacy
+  `#/build?...` links remain valid.
+- Compatibility uses known product facts in `src/build.ts`; unknowns are not
+  conflicts. Currency conversion in `src/format.ts` is best-effort and cached;
+  failure falls back to ILS.
+
+## Checks
 
 ```bash
-python scraper/normalize_and_match.py
+npm --prefix site test
+npm --prefix site run lint
+npm --prefix site run format:check
+npm --prefix site run build # includes typecheck
 ```
 
-or just `git pull` — GitHub Actions commits `data/site/*.json` daily, so a
-normal clone already has it.
+Tests use Node with browser globals stubbed where needed. ESLint has a separate
+`tools/lint/` package because it needs the TypeScript JS API absent from the
+site compiler; the lint script installs it as needed. Formatting is scoped to
+tests/tooling, not a bulk reformat of existing `src/`. CI definitions live in
+`.github/workflows/site-checks.yml` and Python checks in `scripts/run_checks.py`;
+do not keep a second enumerated CI list here.
 
-`npm run build` does the same copy step, then builds to `site/dist/`.
+### Local browser checks
 
-## Checks (tests, lint, smoke)
-
-Eilat prices appear as a small second line even in regular browsing mode,
-including product prices, offer rows, the mobile buy bar, store popovers,
-search suggestions and similar-product cards. Only scraped Eilat prices
-are shown; they never change regular-mode sorts, filters or build totals.
-`python site/scripts/eilat_smoke.py` checks bilingual mobile/desktop display
-in both regions after a build; `test/eilat-display.test.ts` pins the markup.
+Install Playwright Chromium for these local-only checks, then build the site:
 
 ```bash
-cd site
-npm test             # vitest: compat engine, routing, utils, list ids (test/)
-npm run lint         # ESLint (typescript-eslint, flat config)
-npx tsc -b           # typecheck (also part of npm run build)
-npm run format:check # Prettier, scoped to test/ + tooling; existing src/ is not reformatted
+pip install playwright
+python -m playwright install chromium
+npm --prefix site run build
+npm --prefix site run smoke
+python site/scripts/eilat_smoke.py
+python site/scripts/admin_smoke.py
+python site/scripts/header_smoke.py
 ```
 
-- Tests are pure logic in the node environment; the ones that need `location`
-  stub the global (see `test/state.test.ts`).
-- ESLint lives in its own package, `tools/lint/`: typescript-eslint needs the
-  TypeScript JS API (TS 6.x) while the site compiles with TS 7, which ships
-  none. `npm run lint` runs `npm ci` there on first use; nothing else to set up.
-- CI (`.github/workflows/site-checks.yml`) runs tsc, lint, vitest, build and the
-  four `scripts/check_spec_*.py` / `check_image_pick.py` / `check_image_files.py` gates on any push or PR
-  touching `site/**` or `scraper/specs/**`.
-- **Browser smoke check** (local only, not in CI: needs a Playwright Chromium):
-
-  ```bash
-  pip install playwright && python -m playwright install chromium
-  cd site && npm run build
-  npm run smoke        # python scripts/screenshots.py --smoke
-  ```
-
-  Serves `dist/`, opens every route in he+en at 375px and 1280px, and fails on
-  any console error, horizontal scroll, empty page or unexpected 404 view.
-  Without `--smoke` the same script takes the full he/en x light/dark x
-  375/768/1280 screenshot matrix into `site/screenshots/<label>/`
-  (`--routes`, `--langs`, `--widths` narrow it).
-
-- **Admin browser regressions**: after a build, run
-  `python site/scripts/admin_smoke.py` from the repo root. It checks all seven
-  admin tabs at 320/375/768/1280px in light/dark themes, plus search, reload
-  and rebuild interactions. APIs are stubbed and the clock is fixed; it never
-  dispatches a real workflow or needs an admin password. Pure admin view and
-  data-loading regressions also run in `npm test` (`test/admin.test.ts`).
-
-- **Header browser regressions**: after a build, run
-  `python site/scripts/header_smoke.py` from the repo root. Checks dropdown
-  icon proportions, mobile button alignment, menu bounds and keyboard
-  selection in Hebrew/English and light/dark themes at 320–1280px.
-  Pass `--out <directory>` to save the 375px review screenshots.
+- Route smoke checks bilingual mobile/desktop routes for console errors,
+  overflow, empty pages and unexpected 404s. `scripts/screenshots.py` without
+  `--smoke` captures the screenshot matrix; its CLI narrows routes/languages/widths.
+- Eilat checks both regions and bilingual mobile/desktop markup.
+- Admin checks all tabs, layout, search, reload and rebuild/poll interactions
+  with stub APIs and a fixed clock: no live dispatch or admin password.
+- Header checks glyph proportions, menu bounds and keyboard selection across
+  languages/themes/widths; `--out <directory>` saves review screenshots.
 
 ## Deploying
 
-Cloudflare Workers Builds deploys on every push to `main` (a code change in
-`site/` or the daily `data/site/*.json` refresh). Its "Root directory" is
-`site`, so it reads `site/wrangler.jsonc`: the output is `site/dist`, served
-as static assets, and the Worker entry (`worker.ts`) handles only `/api/*`
-and `/list/*`. No environment variables or secrets are involved.
+Cloudflare Workers Builds deploys every `main` push, code or data. Dashboard
+root directory is `site`; `site/wrangler.jsonc` is the **only** config. Run
+Wrangler from `site/`, never add a shadow root config.
 
-`site/wrangler.jsonc` is the only Wrangler config. The repo root had a second
-one naming the same Worker (`mifrat`) with no `main` and no D1 binding; a
-`wrangler deploy` from the root would have replaced the Worker with static
-assets only, so it was removed (Nov 2026). Run `wrangler` from `site/`.
+Static assets serve directly; Worker-first routes include `/api/*`, `/list/*`
+and `/admin` + `/admin/*`. The operations cron runs every half hour. Public
+browsing needs no credential; private admin/event ingestion/notifications need
+Worker secrets, described in [operations](../docs/ops-alerts.md). The Worker
+stays locked without `ADMIN_PASSWORD`. Resource identifiers in config are public;
+credentials/session state are not.
 
-## Build sharing and other server-side pieces
+## Build sharing
 
-- **Build sharing**: implemented as short permanent links (`/list/<id>`,
-  6 chars) backed by a minimal Worker + D1 table (`worker.ts`,
-  `migrations/0001_lists.sql`, shared codec in `src/lists.ts`). A full
-  build carries ~110 bits of entropy, so fixed <=8-char ids REQUIRE a
-  server-side lookup — stateless URL encoding cannot do it. Legacy
-  `#/build?...` links keep working. The D1 database is already created and
-  its `database_id` is in `wrangler.jsonc`; to reproduce from scratch: `npx wrangler d1 create mifrat-lists`, paste the id, then
-  `npx wrangler d1 execute mifrat-lists --remote --file=migrations/0001_lists.sql`.
-- **Compatibility checking**: implemented client-side in `src/build.ts`
-  (socket, memory type, form factor, cooler height, radiator, PSU headroom).
-- **Currency conversion**: implemented (`src/format.ts`), using
-  api.frankfurter.dev, cached in localStorage for a day. Best-effort only
-  — if the fetch fails, the site just stays on ILS, which is why nothing
-  else in the app depends on it succeeding.
+Permanent six-character `/list/<id>` links need a server-side lookup; the codec
+in `src/lists.ts` validates/canonicalizes builds and D1 stores insert-only
+snapshots. API security covers same-origin JSON, body/id bounds, rate limiting,
+dedupe and daily/lifetime growth caps. Fixed short ids do not replace legacy
+long links or shorten product ids.
+
+To provision a new environment, from `site/` with the owner's Wrangler login:
+
+```bash
+npx wrangler d1 create mifrat-lists
+# Put the returned public database id in wrangler.jsonc, then:
+npx wrangler d1 migrations apply mifrat-lists --remote
+```
+
+The production database already exists; do not recreate it for normal
+development or deployment. Applying migrations also provisions ops tables.
+Credential setup and production changes require separate owner authorization.

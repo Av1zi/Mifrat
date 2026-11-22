@@ -1,10 +1,10 @@
 # data/raw/
 
-One folder per scrape night (UTC start + 3h), one JSONL file per vendor
+One folder per scrape night (UTC start + 3h), one atomic JSONL file per vendor
 spider, written by
 `scraper/run_spider.py`:
 
-```
+```text
 data/raw/2026-10-17/ivory.jsonl
 data/raw/2026-10-17/onepc.jsonl
 data/raw/2026-10-17/tms.jsonl
@@ -12,9 +12,14 @@ data/raw/2026-10-17/yahav.jsonl
 data/raw/2026-10-29/ksp.jsonl      # first KSP snapshot (vendor added 2026-10-30 UTC)
 ```
 
-- `ivory` and `yahav` are written by the `scrape-cloud` GitHub Actions
-  workflow (21:07 UTC + up to 3h spread, i.e. inside the 23:00-07:00 Israel
-  night window).
+Examples before Nov 15 use the historical UTC start-date convention. New
+folders use the night-ending date; `MIFRAT_NIGHT` pins it in wrappers. A
+second run can replace a snapshot only if it is at least as complete; never
+append nightly listings. None of this authorizes a second crawl after a block.
+
+- `ivory` and `yahav` are written by `scrape-cloud`. The schedule targets
+  Israel night hours, with a hard scheduled-start cutoff at 09:00 Israel;
+  workflows and `scripts/scrape_window.py` own exact timing.
 - `tms`, `onepc` and `ksp` are written by the Jetson Nano (`nano/`), once a
   night. KSP was added 2026-10-30; its raw rows carry the Hebrew `tags` table in
   `vendor_meta`.
@@ -23,8 +28,10 @@ data/raw/2026-10-29/ksp.jsonl      # first KSP snapshot (vendor added 2026-10-30
   repo in case it is re-enabled.
 - `detail/` holds the per-vendor detail-page enrichment
   (`scrapy crawl <vendor>_detail`), merged by `normalize_and_match.py`.
-  KSP detail has run separately on the Nano since 2026-11-13; rows fetched
-  before a block are retained, while all later KSP requests are stopped.
+  KSP detail was implemented Nov 13 but is currently disabled during listing
+  recovery. KSP is paused after Nov 22 rejection; historical success is not
+  permission to rerun. [Current status](../../docs/ksp-stream-transport.md).
+  Already fetched detail rows survive a block; later KSP requests stop.
 - `scraper/normalize_and_match.py` reads the latest file per vendor, falling
   back to the most recent prior day for up to 14 days (the stale-forward
   rule), and builds `data/catalog.json` and `data/site/*.json`.
@@ -52,9 +59,8 @@ snapshots' data, one folder per vendor: `data/images/<vendor>/<sku>.webp`.
   are deliberately skipped by the cloud `--from-catalog` run (its image host
   blocks datacenter IPs). The home-side
   `python -m scraper.download_images --from-catalog --vendor ksp` backfill
-  ran on 2026-10-31 (946/946 covers, 0 failures); re-run it on the home
-  connection whenever KSP-only products are added, or those products render a
-  placeholder.
+  ran on 2026-10-31 (946/946 covers, 0 failures). New products need a home-side
+  backfill when permitted, not while KSP is paused; otherwise they show a placeholder.
 - `python scripts/check_image_files.py` is the gate (WebP only, size budget,
   black-border detector; genuine dark-backdrop shots are listed in
   `data/matching/image_dark_ok.json`).

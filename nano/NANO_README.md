@@ -1,12 +1,19 @@
-# Jetson Nano setup (home vendors: TMS, 1PC, KSP)
+# Nano — home-vendor setup and operations
 
-One-time setup for the box that runs the home-IP spiders. The rules they run
-under are in the root `README.md`, "Scraping rules". Do these in order — step 1 is the most
-common failure point on this hardware.
+TMS, 1PC and KSP use the home connection. Follow the binding
+[scraping rules](../README.md#scraping-rules) before any live run. These are
+owner setup instructions, not commands to execute during unrelated work.
 
-## 1. Python via Miniforge (not the system Python)
+**Current KSP state (Nov 22): paused.** The delayed recovery ran and failed;
+its one-shot marker is consumed. Listing/detail timers remain disabled. Do
+not reinstall the old recovery timer, enable KSP timers or delete pause/attempt
+markers. The fixed header patch has not restored live-price collection.
+[Transport status and evidence](../docs/ksp-stream-transport.md).
 
-The stock Jetson image's system Python is too old for modern Scrapy.
+## Environment and checkout
+
+System Python on the stock Nano is too old for Scrapy. Use Miniforge/Python
+3.11 and the exact pinned dependencies in `requirements.txt`:
 
 ```bash
 wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh"
@@ -14,357 +21,158 @@ bash Miniforge3.sh -b
 source "$HOME/miniforge3/etc/profile.d/conda.sh"
 conda create -n pc-parts-il python=3.11 -y
 conda activate pc-parts-il
-```
-
-Pin the **exact same Scrapy version** here as in `requirements.txt` /
-GitHub Actions — version drift between the two environments is a known
-pitfall.
-
-## 2. Dedicated low-privilege user
-
-```bash
-sudo useradd -m pcparts
-sudo -iu pcparts
-```
-
-Do the rest of this setup as `pcparts`, not your everyday user or root.
-
-## 3. Clone the repo and install dependencies
-
-```bash
-git clone git@github.com:<you>/<repo>.git ~/pc-parts-il
+git clone git@github.com:Av1zi/Mifrat.git ~/pc-parts-il
 cd ~/pc-parts-il
-conda activate pc-parts-il
 pip install -r requirements.txt
+pip check
 ```
 
-Keep the dependency list lean here — no `scrapy-playwright` browser install
-unless a vendor genuinely needs it; it's a heavy ARM64 install on this
-hardware.
+Use an unprivileged service account. Existing units/scripts are configured for
+`avizi`, `/home/avizi/pc-parts-il` and its Miniforge environment; a different
+account requires updating those paths together, not just creating `pcparts`.
+Avoid a heavyweight browser install: no scheduled home spider needs one.
 
-## 4. SSH deploy key (repo-scoped)
+### Repo-scoped SSH key and clock
 
 ```bash
 ssh-keygen -t ed25519 -C "pc-parts-il-nano" -f ~/.ssh/pc_parts_il_deploy_key -N ""
-cat ~/.ssh/pc_parts_il_deploy_key.pub
+cat ~/.ssh/pc_parts_il_deploy_key.pub # public key only
 ```
 
-Add the public key on GitHub: repo → Settings → Deploy keys → Add deploy
-key → check **Allow write access**. Then point the repo's remote at that
-key specifically (don't rely on a default `~/.ssh/id_ed25519` that might
-have broader access elsewhere):
+Add that public key as a write-enabled deploy key for **this repo only**. Add
+a dedicated host to `~/.ssh/config`:
 
-```bash
-cat >> ~/.ssh/config << 'EOF'
+```text
 Host github.com-pc-parts-il
   HostName github.com
   User git
   IdentityFile ~/.ssh/pc_parts_il_deploy_key
   IdentitiesOnly yes
-EOF
-
-git remote set-url origin git@github.com-pc-parts-il:<you>/<repo>.git
 ```
-
-If this box is ever compromised, the blast radius is push access to this
-one repo — nothing else.
-
-## 5. NTP sync
 
 ```bash
-timedatectl status | grep "NTP service"
+git remote set-url origin git@github.com-pc-parts-il:Av1zi/Mifrat.git
+timedatectl status
 ```
 
-Should say `active`. `nano/run_tms.sh` warns (but doesn't block) if the
-clock isn't synchronized — wrong dates poison the daily-history data.
+NTP must be active. Wrong clocks misfile snapshots/history. Private keys and
+provider/notification credentials stay outside git and shared output.
 
-## 6. Install the systemd service + timer
+## Install active TMS and 1PC schedules
+
+Only after dependency/path/clock checks and owner approval:
 
 ```bash
 sudo cp nano/pc-parts-il-tms.service nano/pc-parts-il-tms.timer /etc/systemd/system/
 sudo cp nano/pc-parts-il-tms-fallback.service nano/pc-parts-il-tms-fallback.timer /etc/systemd/system/
+sudo cp nano/pc-parts-il-onepc*.service nano/pc-parts-il-onepc*.timer /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable --now pc-parts-il-tms.timer
-sudo systemctl enable --now pc-parts-il-tms-fallback.timer
+sudo systemctl enable --now pc-parts-il-tms.timer pc-parts-il-tms-fallback.timer
+sudo systemctl enable --now pc-parts-il-onepc.timer pc-parts-il-onepc-fallback.timer
+systemctl list-timers 'pc-parts-il-*'
 ```
 
-Check it's scheduled and see the next run time:
+Timers are the authority for exact times: TMS starts at 21:15 UTC with jitter,
+1PC at 23:20 UTC, fallbacks later at night. Every home scrape/publish stays in
+21:00–04:00 UTC. Timers have no persistent catch-up; fallback runs only when
+there is no recent success marker (18h). Stale-forward covers missed nights.
+Configured KSP times do **not** imply its timers are enabled or safe to enable.
+
+Scheduled jobs share `~/.local/state/pc-parts-il/checkout.lock`. Keep this
+checkout dedicated to automation: some non-KSP wrappers still pull with
+rebase/autostash. Do not leave human work in it or run another job's git
+commands while it is writing. KSP wrappers refuse unrelated dirt and use
+fast-forward-only pulls. Windows-authored shell scripts need git exec bits.
+
+A manual service start is a real crawl, not a diagnostic. Use one only with
+approval, in the permitted window, and when no attempt/block/success marker
+rules forbid it. Do not start another crawl merely to confirm timer setup.
+
+## Snapshots, detail and Eilat
+
+Wrappers pin `MIFRAT_NIGHT` using `scraper/night.py`: a night starts 21:00 UTC
+and is named by its ending date. One snapshot per vendor-night, atomic install;
+a thinner second crawl cannot overwrite a fuller file. Older UTC-named folders
+stay readable. [Raw storage](../data/raw/RAW_README.md).
+
+TMS publishes its listing snapshot before optional detail/images, so a later
+failure cannot hide collected prices. 1PC detail remains a cloud job. TMS
+detail normally caps at 50; `TMS_DETAIL_FULL_BACKFILL=1` is a separately
+approved one-time operation with the same pacing/stop rules, not routine
+verification. Missing usable specs stay pending.
+
+TMS's Eilat view uses `?eilat=1` and the branch-stock widget. KSP's stream is
+designed to capture regular/Eilat prices together; the legacy KSP Eilat leg
+is disabled during recovery. Eilat failures preserve regular observations,
+but a KSP block stops **all** later phases. Force flags never authorize retry
+against a block.
+
+## KSP state and diagnostics
+
+Listing markers distinguish `attempted`, `validated` and pushed `success`.
+Publication may reuse validated output without recrawling. Detail uses
+`done`/`ready`/`pushed`; skipped prerequisites never claim successful fetching.
+Any KSP phase block creates `ksp-<night>.blocked` and persistent `ksp.paused`.
+Only owner-reviewed cooldown/recovery may change that state; force flags do
+not bypass it.
+
+KSP detail was implemented Nov 13 (bounded 150-item chunks, same stop rules),
+but `run_ksp_detail.sh` currently returns without crawling while the listing
+recovery configuration exists. Its installation/probe history is not a new
+authorization. [Detail contract](../docs/ksp-detail-plan.md).
+
+Read-only collector on the Nano:
 
 ```bash
-systemctl list-timers pc-parts-il-tms.timer pc-parts-il-tms-fallback.timer
+python scripts/diagnose_nano_scrapes.py --since 2026-11-16
+journalctl -u pc-parts-il-tms.service --since today
 ```
 
-Every timer fires inside 21:00-04:00 UTC, which is night in Israel in both
-seasons, and the runs take turns on the one home IP: TMS 21:15 (+<=90 min),
-1PC 23:20 (+<=1 h), KSP 00:55 (+<=1 h), extract 02:40. The TMS and 1PC
-fallbacks (02:50, 03:20) run only when no success marker is under 18 h old.
-The timers have no `Persistent=`, so a night missed during downtime is not
-caught up in daytime; the fallback and the normalizer's 14-day stale-forward
-cover it.
+The collector prints fixed facts/redacted signal counts, not raw credentials.
+Local development does not install it on the Nano: copy just the collector to
+a private temporary path before rollout and use
+`python3 /path/to/diagnose_nano_scrapes.py --repo "$HOME/pc-parts-il"`.
+It supports older system Python without packages. Use latest-invocation
+evidence; aggregate counts or a working homepage do not prove catalog access.
+Share redacted diagnostics, not raw journals. Logging stays in journald.
 
-Run it once by hand to confirm the whole chain works before trusting the
-timer:
+## Optional verified extraction
 
-```bash
-sudo systemctl start pc-parts-il-tms.service
-journalctl -u pc-parts-il-tms.service -f
-```
+[Extraction guide](../scraper/extract/README.md) defines providers, trust, audit
+and cache rules. Keep keys in the Nano's ignored `.env` (mode 600); provider
+configuration comes from `.env.example`, never from copied real credentials.
 
-## 7. Verified AI extraction (optional, daily)
-
-Fills spec fields that are still empty by reading each product's own listing
-text (`scraper/extract/README.md`). It needs a model key, kept only on the Nano
-in the gitignored `.env`:
-
-```bash
-cd ~/pc-parts-il
-umask 077
-cat > .env <<'ENV'
-MIFRAT_EXTRACT_BACKEND=gemini
-GOOGLE_KEY=paste-your-key-here
-ENV
-chmod 600 .env
-git status --short .env        # prints nothing: .env is ignored
-~/miniforge3/envs/pc-parts-il/bin/pip install -r requirements.txt   # if the env lacks a dependency
-```
-
-First run, by hand (audit 300 products to measure accuracy, then fill):
-
-```bash
-AUDIT=300 bash nano/run_extract.sh
-```
-
-Then the daily timer:
+After an approved audit/fill trial, install the optional timer:
 
 ```bash
 sudo cp nano/pc-parts-il-extract.service nano/pc-parts-il-extract.timer /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now pc-parts-il-extract.timer
-systemctl list-timers pc-parts-il-extract.timer
-journalctl -u pc-parts-il-extract.service -n 50     # after a run
 ```
 
-More providers go into the same `.env` (see `.env.example`):
-`MIFRAT_EXTRACT_BACKEND=gemini,groq,intern`, `GROQ_KEY`, `INTERN_KEY`,
-`INTERN_BASE_URL`, and `MIFRAT_EXTRACT_MODEL_<NAME>`. Run the audit once so
-every model that answers gets its own accuracy table.
+`run_extract.sh` pulls current catalog data, retains cached answers and sweeps
+entries unreached for more than 14 days before publishing its own output.
+Use the model's audit before trusting a provider; no automatic source-policy
+exception follows from a missing spec.
 
-The free tier rate-limits (429 / 503): a run that is stopped keeps every answer
-it already got (cached under `data/extract/.cache`, local to the Nano) and the
-next day continues. The committed files are `data/extract/products.json` and
-`trust.json`; the cloud's next normalize run merges them.
+## Phone alerts
 
-Before pushing, `run_extract.sh` runs `python -m scraper.extract --sweep`: an
-entry no product of the pulled catalog reaches gets `unreached_since`, and one
-unreached for more than 14 days is dropped (a delisted product can come back
-inside normalize's stale-forward window). The script pulls first, so the Nano
-picks this up with no reinstall.
+Units POST run facts to the Worker via `OnFailure` and `ExecStartPost` (systemd
+237 has no `OnSuccess`). Live failures update `/admin/`; **the sole phone push
+is the 10:00 Israel daily report**. Failed delivery logs locally, never direct
+ntfy fallback. Pulling the current `ops_notify.sh` removes the old fallback;
+no new notification secrets or timer changes are needed for that update.
 
-## 1PC listing scrape (also on the Nano)
+[Worker setup](../docs/ops-alerts.md) explains `OPS_INGEST_TOKEN`. Store the
+same token with `OPS_EVENT_URL` in
+`~/.config/pc-parts-il/notify.env` (directory mode 700, file 600), never git.
+Install `nano/pc-parts-il-notify@.service` with the approved scrape units and
+reload systemd. `nano/ops_notify.sh <unit> success` posts an actual run event;
+it is a separately approved notification test, not a read-only check.
 
-1PC moved here 2026-10-24 (its site answers datacenter IPs with a CAPTCHA
-page). Same home-IP rules as TMS; it runs after the TMS window. The spider
-hard-stops after two 403/429 responses. Detail pages stay in the cloud job.
+## If a home vendor blocks
 
-```bash
-sudo cp nano/pc-parts-il-onepc*.service nano/pc-parts-il-onepc*.timer /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now pc-parts-il-onepc.timer pc-parts-il-onepc-fallback.timer
-sudo systemctl start pc-parts-il-onepc.service   # first run by hand
-```
-
-## KSP listing scrape (also on the Nano)
-
-KSP added 2026-10-30 (its Cloudflare edge blocks datacenter IPs and plain
-TLS clients; a browser-shaped TLS handshake from the home IP gets the public
-catalog). Same home-IP rules as TMS/1PC, but stricter: one request at a time,
-3-9s apart (6s base with Scrapy's randomization; tuned after 1.5s produced
-HTTP 429s), and the **first 403/429 ends the run** (no retry, no rotation).
-The listing run has no detail phase; the KSP detail scrape is its own job
-(below).
-
-One-time dependency install in the same venv (`curl-cffi` and
-`scrapy-curl-cffi` are pinned there; never install other versions by hand):
-
-```bash
-cd ~/pc-parts-il
-pip install -r requirements.txt
-```
-
-Install the timer (runs 00:55-01:55 UTC, after the 1PC window):
-
-```bash
-sudo cp nano/pc-parts-il-ksp.service nano/pc-parts-il-ksp.timer /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now pc-parts-il-ksp.timer
-sudo systemctl start pc-parts-il-ksp.service   # first run by hand
-journalctl -u pc-parts-il-ksp.service -n 50
-```
-
-If the first run is blocked, leave it alone for several days: the normalizer
-stale-forwards the previous KSP snapshot for up to 14 days. Do not add
-proxies, retries or a different TLS profile.
-
-### Failure state and safe recovery
-
-Owner-approved Nov 18 recovery: after pulling the update, run
-`bash nano/install_ksp_recovery.sh` as `avizi` (not sudo bash). This performs
-offline checks, keeps the ordinary KSP listing/detail timers disabled and
-arms the one-time `pc-parts-il-ksp-resume.timer` for Nov 22 at
-01:00–01:30 UTC (03:00–03:30 Israel), the first night slot after 72 hours.
-No live request runs during installation. A failed recovery restores the
-pause; only a successful complete run re-enables the daily listing timer.
-Detail remains disabled. See `docs/ksp-stream-transport.md`.
-
-All scheduled Nano jobs share `~/.local/state/pc-parts-il/checkout.lock`,
-so a scrape/detail/extract job cannot pull/rebase another job's checkout
-while it is writing. KSP refuses an unrelated dirty tree rather than
-autostashing or aborting an unfamiliar rebase.
-
-KSP writes one `attempted` marker before a listing crawl, `validated` after
-the item checks, and `success` only after the snapshot is pushed. Re-running
-the script may retry publication of validated output, but never recrawls
-that night. Detail uses `done` / `ready` / `pushed` for the same distinction.
-
-A listing, Eilat, detail or cover block creates `ksp-<night>.blocked` **and
-`ksp.paused`**. The pause survives the next night; even force flags do not
-bypass it. It must be reviewed by the owner, with several days' cooldown
-when blocked, before the owner removes `ksp.paused`. Never delete an attempt
-marker to retry against a block. Existing regular prices stale-forward.
-
-Read-only diagnostics (no raw journal or credential values printed):
-
-```bash
-python scripts/diagnose_nano_scrapes.py --since 2026-11-16
-```
-
-That command requires the script to be present on the Nano. Local-only
-development does not update the box. For diagnosis before rollout, copy only
-the collector (not the unverified scraper changes) to a private temporary
-path and run `python3 /path/to/diagnose_nano_scrapes.py --repo "$HOME/pc-parts-il"`.
-The collector works with the Nano's older system Python and needs no packages.
-
-The structured phase results under the state directory contain only the
-spider name, outcome and item count. Phone events distinguish regular
-listing publication from Eilat, detail and cover failures. Skipped detail
-jobs do not claim to have fetched anything.
-
-### KSP detail (part numbers, Nov 2026)
-
-`nano/run_ksp_detail.sh` reads KSP's item JSON (`/m_action/api/item/<uin>`)
-for up to 150 uins a day, KSP-only products first, and pushes
-`data/raw/detail/ksp.jsonl`. The `דגם` row is the maker part number on many
-parts (Kingston "KF556C40BBK2-32") and only a model name on others (Intel
-"i5-14600K"); the normalizer adopts it only when another vendor prints the
-same code. It runs at night, 03:00-03:30 UTC start (05:00-06:30 Israel),
-after the KSP listing run and only when that run succeeded the same night;
-once a day (a marker in the state dir), one request at a time, and it stops
-at the first 403/429; whatever arrived is still pushed.
-
-```bash
-sudo cp nano/pc-parts-il-ksp-detail.service nano/pc-parts-il-ksp-detail.timer /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now pc-parts-il-ksp-detail.timer
-systemctl list-timers pc-parts-il-ksp-detail.timer
-journalctl -u pc-parts-il-ksp-detail.service -n 50   # the morning after
-```
-
-`KSP_DETAIL_FORCE=1` skips the listing-success check for a hand run (only
-when the listing run is not due); `KSP_DETAIL_LIMIT=N` sizes the chunk.
-
-A block here does not touch the listing run's data, but it is the same home
-IP: if `ksp_detail` reports a block, disable the timer
-(`sudo systemctl disable --now pc-parts-il-ksp-detail.timer`) and check the
-next night's KSP listing run before turning it back on.
-
-## Eilat prices (Nov 2026)
-
-TMS and KSP have Eilat stores with their own VAT-free prices (and, at TMS,
-their own catalogue). `nano/run_eilat.sh <tms|ksp>` crawls them into
-`data/raw/<night>/<vendor>_eilat.jsonl` (`scraper/eilat.py`). There is no
-extra unit or timer: `run_tms.sh` and `run_ksp.sh` call it right after
-their regular snapshot is pushed, inside the same night slot, so the
-home-IP sequence and the phone alerts are unchanged. The service timeouts
-were raised for the second crawl (TMS 50 min, KSP 60 min): after pulling
-this change, copy the two `.service` / `.timer` files again and
-`sudo systemctl daemon-reload`.
-
-- TMS: the same category pages with `?eilat=1` (TMS's own Eilat switch),
-  Eilat-branch stock from the Claris widget.
-- KSP: the storefront's live-price call for tonight's uins, 12 per request.
-
-An Eilat failure never touches the regular snapshot (normalize shows the
-last Eilat prices marked stale). A block (exit 3) ends that vendor's night
-like any block. `RUN_EILAT_FORCE=1` re-runs a night by hand.
-
-## Phone alerts (Nov 2026)
-
-Every scrape unit reports its run to the site's Worker, which lists every
-run on `/admin/` under "Alerts & runs" and includes problems in the single
-10:00 Israel-time daily phone report (ntfy). No separate messages are sent
-for blocks, partial crawls, failures, reminders or resolutions. A failed run reports through
-`OnFailure=pc-parts-il-notify@%n.service`, a successful one through
-`ExecStartPost=-.../ops_notify.sh %n success` (systemd 237 here has no
-`OnSuccess=`; the leading `-` means a notify failure never fails the scrape).
-If the Worker cannot be reached, `ops_notify.sh` logs locally without a
-direct phone fallback. Legacy ntfy entries in `notify.env` are ignored.
-After the code is published, the Nano must pull the new script to remove
-the old fallback; no systemd unit or secret changes are needed.
-Setup of the Worker side: `docs/ops-alerts.md`.
-
-```bash
-cd /home/avizi/pc-parts-il && git pull
-mkdir -p ~/.config/pc-parts-il && chmod 700 ~/.config/pc-parts-il
-cat > ~/.config/pc-parts-il/notify.env <<'EOF'
-OPS_EVENT_URL=https://mifrat.avizi.workers.dev/api/ops/event
-OPS_INGEST_TOKEN=<same value as the Worker secret>
-EOF
-chmod 600 ~/.config/pc-parts-il/notify.env
-sudo cp nano/pc-parts-il-notify@.service nano/pc-parts-il-tms.service \
-  nano/pc-parts-il-tms-fallback.service nano/pc-parts-il-onepc.service \
-  nano/pc-parts-il-onepc-fallback.service nano/pc-parts-il-ksp.service \
-  /etc/systemd/system/
-sudo systemctl daemon-reload
-# Test: posts an "ok" run (shows up on /admin/ under Alerts & runs).
-nano/ops_notify.sh pc-parts-il-ksp.service success
-```
-
-The token file never leaves the Nano (gitignored path outside the repo).
-`run_ksp.sh` now dates its snapshot by UTC like `run_tms.sh` and
-`run_onepc.sh` (a local date misfiled crawls around midnight).
-
-## Reading logs later
-
-```bash
-journalctl -u pc-parts-il-tms.service --since today
-```
-
-Nothing is written to a log file on disk — journald only (keeps SD-card
-writes down).
-
-`run_tms.sh` refreshes the checkout with `git pull --rebase --autostash`
-before both the listing crawl and the detail crawl. Each phase commits and
-pushes its generated files immediately, so a later detail failure cannot
-delay publication of the daily listing snapshot.
-
-## One-time TMS detail backfill
-
-After deploying a parser change, run the full existing TMS detail queue once
-from the Nano home connection (never from a datacenter checkout):
-
-```bash
-cd ~/pc-parts-il
-TMS_DETAIL_FULL_BACKFILL=1 ./nano/run_tms.sh
-```
-
-This temporarily removes the normal 50-item daily cap. The spider still keeps
-one request at a time, a two-second delay, robots compliance, and the hard stop
-after two block responses. If it stops, leave the remaining SKUs pending and
-resume on a later day rather than retrying through a block.
-
-## If a vendor starts blocking the Nano
-
-That's Scraping rules, rule 7: pause several days, try slowing down further
-(`DOWNLOAD_DELAY` in `scraper/spiders/tms.py`'s `custom_settings`), and if
-still blocked, drop the vendor rather than escalating against active
-defenses. Nothing here should ever be modified to defeat a block.
+Stop, preserve any allowed collected output, leave failed parts pending and
+maintain the pause. Review cooldown/pacing with the owner; repeated rejection
+means drop the vendor. No profiles, proxies, automatic recrawls or marker
+deletion to defeat the block.

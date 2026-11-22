@@ -6,6 +6,11 @@ approved. Deviations from §2.3/§3.6: `color` became a gpu axis, and the pid
 alias map lives in `data/site/meta.json` (`pid_aliases`), not `index.json`.
 Later refinements (R1-R7 duplicate fixes) are summarized in
 `docs/duplicate-groups-audit.md`.
+This is the historical approved proposal, not the current implementation
+contract. In particular, later rules supersede its price-based packaging move,
+alias location and original invariant list. Read `PROJECT_OVERVIEW.md` §6,
+`scraper/identity.py` and `scripts/check_identity_merge.py` for current behaviour;
+do not execute the work breakdown below as new work.
 Author context: the "245" search on the site showed 10 rows for 3 chips; the
 catalogue holds 7,091 listings in 4,672 products, and **706 groups of
 listings that describe the same part are spread over more than one product

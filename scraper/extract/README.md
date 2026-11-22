@@ -1,7 +1,7 @@
 # `scraper/extract/` - verified AI extraction (tier 1.5, `extracted`)
 
 The last source. It runs after the parsers, curated tables, maker pages, Open
-Icecat and foreign retailers, and asks Claude only about the fields still empty
+Icecat and foreign retailers, and asks the configured model about fields still empty
 on products below the 90% target. It reads only that product's own listing
 text: titles, descriptions and detail rows. That is where facts sit in prose or
 under labels the parsers don't map.
@@ -14,10 +14,11 @@ python -m scraper.extract --offline        # re-verify cached answers, no reques
 MIFRAT_NO_EXTRACT=1 python -m scraper.normalize_and_match   # build without the tier
 ```
 
-The GitHub workflow `extract-specs` runs audit, then fill, and commits both files.
-It needs the `ANTHROPIC_API_KEY` secret. The model is `MIFRAT_EXTRACT_MODEL`,
-default `claude-haiku-5-5`. The Oct 2026 dry run estimated about $0.54 for
-2,690 products and 17,963 fields.
+Normal daily execution uses the Nano (`nano/run_extract.sh`); provider keys
+stay in its ignored `.env`. A legacy manual-only `extract-specs` workflow
+also exists with pre-existing `ANTHROPIC_API_KEY` wiring; this is not approval
+to add cloud secrets or dispatch it. Provider/model configuration is in
+`client.py` and `.env.example`; `--dry-run` estimates current work and cost.
 
 ## Why a model answer can be believed
 
