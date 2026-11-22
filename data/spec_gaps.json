@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T00:00:25.219534+00:00",
+  "generated_at": "2026-11-22T01:46:42.491152+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 105,
+      "count": 107,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -589,6 +589,16 @@
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
         "model:motherboard:a-b760m-pro-wifi-microatx"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מידות",
+      "count": 18,
+      "products": [
+        "model:psu:1-atx3-gsk750-750w-full",
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1-atx3-leadex-2200w"
       ]
     },
     {
@@ -1522,6 +1532,16 @@
       ]
     },
     {
+      "category": "psu",
+      "label": "הספק נקוב",
+      "count": 12,
+      "products": [
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1-atx3-leadex-2200w",
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w"
+      ]
+    },
+    {
       "category": "aio",
       "label": "אורך כבל PWM",
       "count": 11,
@@ -1659,6 +1679,16 @@
         "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
         "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
         "model:memory:ad4s32008g22-dimm-sgn-so-8gb-3200mhz-cl22-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קצב העברת נתונים",
+      "count": 11,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz",
+        "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
+        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm"
       ]
     },
     {
@@ -1863,16 +1893,6 @@
     },
     {
       "category": "memory",
-      "label": "קצב העברת נתונים",
-      "count": 10,
-      "products": [
-        "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
-        "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm",
-        "model:memory:armax-ax5u6000c3016g-samrbk-xpg-16gb-rgb-black-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מידות",
       "count": 10,
       "products": [
@@ -1889,6 +1909,16 @@
         "model:motherboard:a-a620am-am5-csm-prime-microatx",
         "model:motherboard:a520m-prime-r-microatx-a520",
         "model:motherboard:a620am-am5-gaming-tuf-wifi-microatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "חיבור USB קדמי",
+      "count": 10,
+      "products": [
+        "model:motherboard:a-b760m-d4-prime-wifi-microatx",
+        "model:motherboard:aero-d-trx50-eatx",
+        "model:motherboard:ai-top-trx50-eatx"
       ]
     },
     {
@@ -2143,16 +2173,6 @@
     },
     {
       "category": "motherboard",
-      "label": "חיבור USB קדמי",
-      "count": 9,
-      "products": [
-        "model:motherboard:a-b760m-d4-prime-wifi-microatx",
-        "model:motherboard:aero-d-trx50-eatx",
-        "model:motherboard:ai-top-trx50-eatx"
-      ]
-    },
-    {
-      "category": "motherboard",
       "label": "תכונות LED",
       "count": 9,
       "products": [
@@ -2173,12 +2193,22 @@
     },
     {
       "category": "psu",
-      "label": "מידות",
+      "label": "מחברי PCI-E 8 פינים",
       "count": 9,
       "products": [
-        "model:psu:1-atx3-gsk750-750w-full",
-        "model:psu:500-e1-helios-pro-black",
-        "model:psu:600-e1-helios-pro-black"
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1-atx3-leadex-2200w",
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "קירור",
+      "count": 9,
+      "products": [
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1-atx3-leadex-2200w",
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w"
       ]
     },
     {
@@ -2223,6 +2253,16 @@
     },
     {
       "category": "case",
+      "label": "מאווררים כלולים",
+      "count": 8,
+      "products": [
+        "model:case:argb-aura-elite-gc4-black",
+        "model:case:argb-vcx10m-black",
+        "model:case:argb-vx310-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "חריצי הרחבה וכוננים",
       "count": 8,
       "products": [
@@ -2259,6 +2299,16 @@
         "model:memory:16-kf432c16bbk2-16gb-x2-3200mhz-cl16-dimm",
         "model:memory:16-kf552c40bb-16gb-5200mhz-cl40-dimm",
         "model:memory:2x24gb-6000mt-cl30-ripjaws-s-s5-48gb-x2-6000mhz-cl30-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תזמונים",
+      "count": 8,
+      "products": [
+        "model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm",
+        "model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
       ]
     },
     {
@@ -2542,6 +2592,26 @@
       ]
     },
     {
+      "category": "psu",
+      "label": "תקן ספק הכוח",
+      "count": 7,
+      "products": [
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1-atx3-leadex-2200w",
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "כבלים",
+      "count": 7,
+      "products": [
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:500-e1-helios-pro-black",
+        "model:psu:600-e1-helios-pro-black"
+      ]
+    },
+    {
       "category": "storage",
       "label": "הערה חשובה!",
       "count": 7,
@@ -2742,16 +2812,6 @@
       ]
     },
     {
-      "category": "case",
-      "label": "מאווררים כלולים",
-      "count": 6,
-      "products": [
-        "model:case:argb-aura-elite-gc4-black",
-        "model:case:argb-vcx10m-black",
-        "model:case:argb-vx310-black"
-      ]
-    },
-    {
       "category": "case_fan",
       "label": "זרימת אוויר",
       "count": 6,
@@ -2793,16 +2853,6 @@
     },
     {
       "category": "memory",
-      "label": "תזמונים",
-      "count": 6,
-      "products": [
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
-        "model:memory:ax4u320016g16a-d35g-sbkd35g-spectrix-xpg-16gb-rgb-black-dimm",
-        "model:memory:ax4u320016g16a-d35g-spectrix-swhd35g-xpg-16gb-rgb-white-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "DRAM spec/VCC",
       "count": 6,
       "products": [
@@ -2839,6 +2889,26 @@
         "model:psu:85f4-afg-c3b0cnp-mpm",
         "model:psu:gme1000gm-gp-ice-pg5",
         "model:psu:gme750gm-gp-ice-pg5"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "תחזוקה",
+      "count": 6,
+      "products": [
+        "model:psu:edge-v2-1000w-black",
+        "model:psu:edge-v2-1000w-white",
+        "model:psu:edge-v2-1200w-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "עיצוב",
+      "count": 6,
+      "products": [
+        "model:psu:edge-v2-1000w-black",
+        "model:psu:edge-v2-1000w-white",
+        "model:psu:edge-v2-1200w-black"
       ]
     },
     {
@@ -3063,6 +3133,16 @@
     },
     {
       "category": "memory",
+      "label": "זיכרון פנימי",
+      "count": 5,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "זמן השהייה SPD",
       "count": 5,
       "products": [
@@ -3159,6 +3239,26 @@
         "model:motherboard:b760m-gaming-wifi-microatx",
         "model:motherboard:b860m-p-pro-wifi6e-microatx",
         "model:motherboard:carbon-max-mpg-wifi-x870e-atx"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "כניסת AC",
+      "count": 5,
+      "products": [
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1-atx3-leadex-2200w",
+        "model:psu:500-e1-helios-pro-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "חיווט",
+      "count": 5,
+      "products": [
+        "model:psu:1-atx3-leadex-2200w",
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w",
+        "model:psu:edge-v2-1200w-black"
       ]
     },
     {
@@ -3603,16 +3703,6 @@
     },
     {
       "category": "memory",
-      "label": "זיכרון פנימי",
-      "count": 4,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
-        "model:memory:ad4u320038g22-premier-sgn-8gb-cl22-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "מפרט סוג האחריות",
       "count": 4,
       "products": [
@@ -3769,6 +3859,16 @@
         "model:motherboard:90mb1jc0-ace-m0eay0-pro-se-ws-z890-atx",
         "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
         "model:motherboard:b550-eagle-x-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מידות",
+      "count": 4,
+      "products": [
+        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
+        "model:motherboard:b850-gaming-max-plus-wifi-atx",
+        "model:motherboard:e-h810m-pro-microatx"
       ]
     },
     {
@@ -3959,6 +4059,16 @@
         "model:motherboard:b760m-challenger-h-wifi-microatx",
         "model:motherboard:b760m-d4-terminator-v2-wifi-microatx",
         "model:motherboard:b850-gaming-max-plus-wifi-atx"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מספר החלק המדויק שסופק",
+      "count": 4,
+      "products": [
+        "model:psu:1-atx3-leadex-1700w",
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w",
+        "model:psu:edge-v2-1000w-white"
       ]
     },
     {
@@ -4473,6 +4583,26 @@
     },
     {
       "category": "cpu",
+      "label": "דגם המעבד",
+      "count": 3,
+      "products": [
+        "model:cpu:2535-tray",
+        "model:cpu:674x-tray",
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תדר בסיס",
+      "count": 3,
+      "products": [
+        "model:cpu:2535-tray",
+        "model:cpu:674x-tray",
+        "model:cpu:threadripper7980x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "מעבדי AMD Ryzen",
       "count": 3,
       "products": [
@@ -4551,6 +4681,26 @@
     },
     {
       "category": "memory",
+      "label": "מתח הזיכרון",
+      "count": 3,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "רכיב עבור",
+      "count": 3,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "Module configuration",
       "count": 3,
       "products": [
@@ -4597,6 +4747,26 @@
         "model:memory:16gbit-cl46-ct16g56c46s5-sodimm-16gb-5600mhz-cl46-sodimm",
         "model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
         "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קצב העברת נתונים שנבדק",
+      "count": 3,
+      "products": [
+        "model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm",
+        "model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
+        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "קיבולת זיכרון RAM",
+      "count": 3,
+      "products": [
+        "model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm",
+        "model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
       ]
     },
     {
@@ -4807,16 +4977,6 @@
         "model:motherboard:90mb1nt0-crosshair-dark-hero-m0eay0-rog-x870e-atx",
         "model:motherboard:b850-creator-neo-proart-wifi-atx",
         "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx"
-      ]
-    },
-    {
-      "category": "motherboard",
-      "label": "מידות",
-      "count": 3,
-      "products": [
-        "model:motherboard:a-aorus-b760m-b760m-e-elite-wf6e-wifi6e-microatx",
-        "model:motherboard:b850-gaming-max-plus-wifi-atx",
-        "model:motherboard:e-h810m-pro-microatx"
       ]
     },
     {
@@ -5061,37 +5221,7 @@
     },
     {
       "category": "psu",
-      "label": "הספק נקוב",
-      "count": 3,
-      "products": [
-        "model:psu:500-e1-helios-pro-black",
-        "model:psu:600-e1-helios-pro-black",
-        "model:psu:a1000gl-mag-pcie5-white"
-      ]
-    },
-    {
-      "category": "psu",
       "label": "תקן",
-      "count": 3,
-      "products": [
-        "model:psu:500-e1-helios-pro-black",
-        "model:psu:600-e1-helios-pro-black",
-        "model:psu:a1000gl-mag-pcie5-white"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "כבלים",
-      "count": 3,
-      "products": [
-        "model:psu:500-e1-helios-pro-black",
-        "model:psu:600-e1-helios-pro-black",
-        "model:psu:a1000gl-mag-pcie5-white"
-      ]
-    },
-    {
-      "category": "psu",
-      "label": "כניסת AC",
       "count": 3,
       "products": [
         "model:psu:500-e1-helios-pro-black",
@@ -5127,6 +5257,16 @@
         "model:psu:750g-ap-prime-750w-white",
         "model:psu:850g-ap-prime-850w-white",
         "model:psu:850g-gaming-modular-tuf-tuf-850w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מספר חלק מדויק שסופק",
+      "count": 3,
+      "products": [
+        "model:psu:edge-v2-1000w-black",
+        "model:psu:edge-v2-1200w-white",
+        "model:psu:edge-v2-1350w-white"
       ]
     },
     {
@@ -5578,6 +5718,15 @@
     },
     {
       "category": "case",
+      "label": "מרווח לספק כוח",
+      "count": 2,
+      "products": [
+        "model:case:case-cx-m2-black",
+        "model:case:case-cx-m3-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "קצב רענון",
       "count": 2,
       "products": [
@@ -5781,6 +5930,42 @@
       "products": [
         "model:cpu:10100-tray",
         "model:cpu:11400f-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "הספק בסיסי של המעבד",
+      "count": 2,
+      "products": [
+        "model:cpu:2535-tray",
+        "model:cpu:674x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "מספר החלק המדויק המסופק",
+      "count": 2,
+      "products": [
+        "model:cpu:2535-tray",
+        "model:cpu:674x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "אספקה",
+      "count": 2,
+      "products": [
+        "model:cpu:2535-tray",
+        "model:cpu:674x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
+      "label": "תדר טורבו מרבי",
+      "count": 2,
+      "products": [
+        "model:cpu:2535-tray",
+        "model:cpu:674x-tray"
       ]
     },
     {
@@ -6235,29 +6420,20 @@
     },
     {
       "category": "memory",
-      "label": "מתח הזיכרון",
-      "count": 2,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "רכיב עבור",
-      "count": 2,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "סוג הזיכרון הפנימי",
       "count": 2,
       "products": [
         "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
         "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מהירות שעון הזיכרון",
+      "count": 2,
+      "products": [
+        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm",
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
       ]
     },
     {
@@ -6361,6 +6537,15 @@
     },
     {
       "category": "memory",
+      "label": "סוג זיכרון עם חוצץ",
+      "count": 2,
+      "products": [
+        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "קצב נתונים",
       "count": 2,
       "products": [
@@ -6438,6 +6623,24 @@
       "products": [
         "model:motherboard:1851-1xdp-1xhdmi-1xthunderbolt-atx-ddr5-gaming-lga-plus-wifi-z890-atx",
         "model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "מספר החלק המדויק שסופק",
+      "count": 2,
+      "products": [
+        "model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb",
+        "model:motherboard:o-x10dai-eatx"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "PCI-E x8",
+      "count": 2,
+      "products": [
+        "model:motherboard:2l2t-asrockrack-turind8-ssiceb",
+        "model:motherboard:o-x10dai-eatx"
       ]
     },
     {
@@ -7270,6 +7473,15 @@
     },
     {
       "category": "psu",
+      "label": "תקן ספק כוח",
+      "count": 2,
+      "products": [
+        "model:psu:edge-v2-1200w-black",
+        "model:psu:edge-v2-1200w-white"
+      ]
+    },
+    {
+      "category": "psu",
       "label": "תוחלת חיים",
       "count": 2,
       "products": [
@@ -7977,6 +8189,54 @@
     },
     {
       "category": "case",
+      "label": "מספר חלק מדויק של המוצר שסופק",
+      "count": 1,
+      "products": [
+        "model:case:case-cx-m2-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווח לכרטיס מסך",
+      "count": 1,
+      "products": [
+        "model:case:case-cx-m2-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווח לקירור המעבד",
+      "count": 1,
+      "products": [
+        "model:case:case-cx-m2-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מספר חלק מדויק של המוצר המסופק",
+      "count": 1,
+      "products": [
+        "model:case:case-cx-m3-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווח לכרטיס גרפי",
+      "count": 1,
+      "products": [
+        "model:case:case-cx-m3-black"
+      ]
+    },
+    {
+      "category": "case",
+      "label": "מרווח למקרר מעבד",
+      "count": 1,
+      "products": [
+        "model:case:case-cx-m3-black"
+      ]
+    },
+    {
+      "category": "case",
       "label": "רזולוציה",
       "count": 1,
       "products": [
@@ -8457,6 +8717,14 @@
     },
     {
       "category": "cpu",
+      "label": "ליבות ותהליכונים",
+      "count": 1,
+      "products": [
+        "model:cpu:2535-tray"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "מפרט כרטיס גרפי",
       "count": 1,
       "products": [
@@ -8537,6 +8805,14 @@
     },
     {
       "category": "cpu",
+      "label": "ליבות ושרשורים",
+      "count": 1,
+      "products": [
+        "model:cpu:674x-tray"
+      ]
+    },
+    {
+      "category": "cpu",
       "label": "מזהה מוצר",
       "count": 1,
       "products": [
@@ -8561,23 +8837,7 @@
     },
     {
       "category": "cpu",
-      "label": "דגם המעבד",
-      "count": 1,
-      "products": [
-        "model:cpu:threadripper7980x-tray"
-      ]
-    },
-    {
-      "category": "cpu",
       "label": "TDP כברירת מחדל",
-      "count": 1,
-      "products": [
-        "model:cpu:threadripper7980x-tray"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "תדר בסיס",
       "count": 1,
       "products": [
         "model:cpu:threadripper7980x-tray"
@@ -9449,14 +9709,6 @@
     },
     {
       "category": "memory",
-      "label": "מהירות שעון הזיכרון",
-      "count": 1,
-      "products": [
-        "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "תצורת הזיכרון",
       "count": 1,
       "products": [
@@ -9601,6 +9853,22 @@
     },
     {
       "category": "memory",
+      "label": "מספר חלק מדויק שסופק",
+      "count": 1,
+      "products": [
+        "model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מספר החלק המדויק שסופק",
+      "count": 1,
+      "products": [
+        "model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black"
+      ]
+    },
+    {
+      "category": "memory",
       "label": "טמפרטורת_עבודה",
       "count": 1,
       "products": [
@@ -9729,14 +9997,6 @@
     },
     {
       "category": "memory",
-      "label": "סוג זיכרון עם חוצץ",
-      "count": 1,
-      "products": [
-        "model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "קצב העברת נתוני הזיכרון",
       "count": 1,
       "products": [
@@ -9757,6 +10017,62 @@
       "count": 1,
       "products": [
         "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "Backlight",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "תצורת זיכרון (מודולים × גודל)",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "סוג זיכרון פנימי",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מבנה פיזי של הזיכרון",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מספר החלק המדויק המסופק",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "דירוג זיכרון",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "ארגון",
+      "count": 1,
+      "products": [
+        "model:memory:5600-ecc-reg-32gb-x1-5600mhz"
       ]
     },
     {
@@ -9837,14 +10153,6 @@
       "count": 1,
       "products": [
         "model:memory:rgb-vengeance-32gb-x2-6000mhz-cl30-rgb-white-dimm-2"
-      ]
-    },
-    {
-      "category": "memory",
-      "label": "קצב העברת נתונים שנבדק",
-      "count": 1,
-      "products": [
-        "model:memory:rgb-vengeance-64gb-6000mhz-cl30-rgb-black"
       ]
     },
     {
@@ -10121,10 +10429,26 @@
     },
     {
       "category": "motherboard",
-      "label": "PCI-E x8",
+      "label": "מבנה",
       "count": 1,
       "products": [
-        "model:motherboard:2l2t-asrockrack-turind8-ssiceb"
+        "model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "הרחבה",
+      "count": 1,
+      "products": [
+        "model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb"
+      ]
+    },
+    {
+      "category": "motherboard",
+      "label": "ניהול",
+      "count": 1,
+      "products": [
+        "model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb"
       ]
     },
     {
@@ -10985,6 +11309,14 @@
     },
     {
       "category": "motherboard",
+      "label": "כרטיס מסך משולב",
+      "count": 1,
+      "products": [
+        "model:motherboard:b760-ds3h-atx-2"
+      ]
+    },
+    {
+      "category": "motherboard",
       "label": "Intel",
       "count": 1,
       "products": [
@@ -11625,6 +11957,14 @@
     },
     {
       "category": "psu",
+      "label": "מספר חלק מדויק של המוצר המסופק",
+      "count": 1,
+      "products": [
+        "model:psu:1-atx3-leadex-2200w"
+      ]
+    },
+    {
+      "category": "psu",
       "label": "מטפרט טכני",
       "count": 1,
       "products": [
@@ -11669,6 +12009,14 @@
       "count": 1,
       "products": [
         "model:psu:1200g-gaming-modular-tuf-tuf-1200w"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "חיבורי חשמל לכרטיס גרפי",
+      "count": 1,
+      "products": [
+        "model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w"
       ]
     },
     {
@@ -11877,6 +12225,14 @@
       "count": 1,
       "products": [
         "model:psu:aura-gp550-400w-black"
+      ]
+    },
+    {
+      "category": "psu",
+      "label": "מספר חלק מדויק כפי שסופק",
+      "count": 1,
+      "products": [
+        "model:psu:edge-v2-1200w-black"
       ]
     },
     {

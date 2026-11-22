@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22T00:04:58+00:00",
+ "generated_at": "2026-11-22T01:51:01+00:00",
  "night": "2026-11-22",
  "suite": "publish",
  "escalate_nights": 3,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.8,
+   "seconds": 0.7,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -56,7 +56,7 @@
    "title": "Spec merge-layer rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.3,
+   "seconds": 0.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -166,7 +166,7 @@
    "title": "KSP stream transport offline integration",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.9,
+   "seconds": 1.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -243,7 +243,7 @@
    "title": "Cloud detail runner isolation and outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 9.6,
+   "seconds": 9.5,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -364,7 +364,7 @@
    "title": "Nano KSP phase state and push recovery",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -386,7 +386,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.3,
+   "seconds": 3.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 25.4,
+   "seconds": 23.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -507,7 +507,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 14.0,
+   "seconds": 13.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -527,12 +527,12 @@
    "name": "ledgers",
    "level": "quality",
    "title": "Ledgers point at live data",
-   "status": "pass",
-   "exit": 0,
-   "seconds": 8.1,
-   "since": null,
-   "nights": 0,
-   "detail": ""
+   "status": "warn",
+   "exit": 1,
+   "seconds": 8.0,
+   "since": "2026-11-22T01:51:01+00:00",
+   "nights": 1,
+   "detail": "      ivory/90MB1K50-M0EAY0.webp\n      ivory/90MB1L80-M0EAY0.webp\n      ivory/90MB1LN0-M0EAY0.webp\n      ivory/90MB1M70-M0EAY0.webp\n      ivory/90MB1MD0-M0EAY0.webp\n      ivory/90MB1N90-M0EAY0.webp\n      ivory/90MB1NW0-M0EAY0.webp\n      ivory/90MB1P60-M0EAY0.webp\n      ivory/90MB1PI0-M0EAY0.webp\n  [fail] qa_dismissed keys with no case: 15 > budget 10\n  [fail] cover files no listing uses: 906 > budget 900\n[check-ledgers] 2 failure(s)"
   },
   {
    "name": "backtest",
@@ -540,7 +540,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 8.5,
+   "seconds": 7.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -551,7 +551,7 @@
    "title": "Spec coverage floors",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.2,
    "since": null,
    "nights": 0,
    "detail": ""

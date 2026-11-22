@@ -7,7 +7,7 @@
     "listing_b": "tms:PK8072007045600",
     "title_a": "מעבד Intel Xeon 674X PK8072007045600 Tray",
     "title_b": "מעבד Intel Xeon 674X",
-    "match_text_a": "223495 Intel Xeon 674X PK8072007045600 Tray",
+    "match_text_a": "PK8072007045600 Intel Xeon 674X PK8072007045600 Tray",
     "match_text_b": "PK8072007045600 Intel Xeon 674X"
   },
   {
@@ -18,7 +18,7 @@
     "listing_b": "tms:PK8071305502300",
     "title_a": "מעבד Intel Xeon w3-2535 PK8071305502300 Tray",
     "title_b": "מעבד Intel Xeon w3-2535",
-    "match_text_a": "223496 Intel Xeon w3-2535 PK8071305502300 Tray",
+    "match_text_a": "PK8071305502300 Intel Xeon w3-2535 PK8071305502300 Tray",
     "match_text_b": "PK8071305502300 Intel Xeon w3-2535"
   },
   {
@@ -64,39 +64,6 @@
     "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע לבן",
     "match_text_a": "273082 Asus Prime AP201 Tempered Glass Small Tower -",
     "match_text_b": "273104 Asus Prime AP201 Tempered Glass Small Tower -"
-  },
-  {
-    "score": 95,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223489",
-    "listing_b": "1pc:223490",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-B שחור",
-    "title_b": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-W לבן",
-    "match_text_a": "223489 LIAN-LI EDGE Platinum V2 1000W EG1000P-B",
-    "match_text_b": "223490 LIAN-LI EDGE Platinum V2 1000W EG1000P-W"
-  },
-  {
-    "score": 95,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223491",
-    "listing_b": "1pc:223492",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-B שחור",
-    "title_b": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-W לבן",
-    "match_text_a": "223491 LIAN-LI EDGE Platinum V2 1200W EG1200P-B",
-    "match_text_b": "223492 LIAN-LI EDGE Platinum V2 1200W EG1200P-W"
-  },
-  {
-    "score": 95,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223493",
-    "listing_b": "1pc:223494",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-B שחור",
-    "title_b": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-W לבן",
-    "match_text_a": "223493 LIAN-LI EDGE Platinum V2 1350W EG1350P-B",
-    "match_text_b": "223494 LIAN-LI EDGE Platinum V2 1350W EG1350P-W"
   },
   {
     "score": 94,
@@ -152,39 +119,6 @@
     "title_b": "AMD Ryzen 7 5700X AM4 Tray",
     "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
     "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:223485",
-    "listing_b": "1pc:223486",
-    "title_a": "מארז מחשב Antec CX M2 ARGB CXM2ARGB שחור",
-    "title_b": "מארז מחשב Antec CX M3 ARGB CXM3ARGB שחור",
-    "match_text_a": "223485 Antec CX M2 ARGB CXM2ARGB",
-    "match_text_b": "223486 Antec CX M3 ARGB CXM3ARGB"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:223485",
-    "listing_b": "tms:CXM2ARGB",
-    "title_a": "מארז מחשב Antec CX M2 ARGB CXM2ARGB שחור",
-    "title_b": "Antec CX M2 ARGB Case",
-    "match_text_a": "223485 Antec CX M2 ARGB CXM2ARGB",
-    "match_text_b": "CXM2ARGB Antec CX M2 ARGB Case"
-  },
-  {
-    "score": 90,
-    "category": "case",
-    "brand": "Antec",
-    "listing_a": "1pc:223486",
-    "listing_b": "tms:CXM3ARGB",
-    "title_a": "מארז מחשב Antec CX M3 ARGB CXM3ARGB שחור",
-    "title_b": "Antec CX M3 ARGB Case",
-    "match_text_a": "223486 Antec CX M3 ARGB CXM3ARGB",
-    "match_text_b": "CXM3ARGB Antec CX M3 ARGB Case"
   },
   {
     "score": 90,
@@ -339,72 +273,6 @@
     "title_b": "קירור נוזלי Corsair NAUTILUS II 360 RS ARGB בגודל 360mm שחור",
     "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
     "match_text_b": "CW-9061049-WW Corsair NAUTILUS II 360 RS ARGB 360mm"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223489",
-    "listing_b": "tms:EG1000P-B",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-B שחור",
-    "title_b": "ספק כוח Lian-Li EDGE Platinum V2 1000W שחור",
-    "match_text_a": "223489 LIAN-LI EDGE Platinum V2 1000W EG1000P-B",
-    "match_text_b": "EG1000P-B Lian-Li EDGE Platinum V2 1000W"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223490",
-    "listing_b": "tms:EG1000P-W",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-W לבן",
-    "title_b": "ספק כוח Lian-Li EDGE V2 1000W Platinum לבן",
-    "match_text_a": "223490 LIAN-LI EDGE Platinum V2 1000W EG1000P-W",
-    "match_text_b": "EG1000P-W Lian-Li EDGE V2 1000W Platinum"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223491",
-    "listing_b": "tms:EG1200P-B",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-B שחור",
-    "title_b": "ספק כוח Lian-Li EDGE V2 1200W Platinum שחור",
-    "match_text_a": "223491 LIAN-LI EDGE Platinum V2 1200W EG1200P-B",
-    "match_text_b": "EG1200P-B Lian-Li EDGE V2 1200W Platinum"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223492",
-    "listing_b": "tms:EG1200P-W",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-W לבן",
-    "title_b": "ספק כוח Lian-Li EDGE V2 1200W Platinum לבן",
-    "match_text_a": "223492 LIAN-LI EDGE Platinum V2 1200W EG1200P-W",
-    "match_text_b": "EG1200P-W Lian-Li EDGE V2 1200W Platinum"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223493",
-    "listing_b": "tms:EG1350P-B",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-B שחור",
-    "title_b": "ספק כוח Lian-Li EDGE V2 1350W Platinum שחור",
-    "match_text_a": "223493 LIAN-LI EDGE Platinum V2 1350W EG1350P-B",
-    "match_text_b": "EG1350P-B Lian-Li EDGE V2 1350W Platinum"
-  },
-  {
-    "score": 88,
-    "category": "psu",
-    "brand": "Lian Li",
-    "listing_a": "1pc:223494",
-    "listing_b": "tms:EG1350P-W",
-    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-W לבן",
-    "title_b": "ספק כוח Lian-Li EDGE V2 1350W Platinum לבן",
-    "match_text_a": "223494 LIAN-LI EDGE Platinum V2 1350W EG1350P-W",
-    "match_text_b": "EG1350P-W Lian-Li EDGE V2 1350W Platinum"
   },
   {
     "kind": "duplicate_vendor",
@@ -1289,28 +1157,6 @@
         "title": "לוח אם ASUS ProArt B760-CREATOR WIFI Intel LGA1700 B760 DDR5",
         "price": 1030,
         "alias_of": "ksp:277276"
-      }
-    ]
-  },
-  {
-    "kind": "duplicate_vendor",
-    "product_id": "model:motherboard:b760-ds3h-atx",
-    "category": "motherboard",
-    "vendor": "1pc",
-    "collapsed": true,
-    "offers": [
-      {
-        "listing_key": "1pc:207701",
-        "vendor_sku": "GB760DS3HGEN5",
-        "title": "לוח אם Gigabyte B760 DS3H GEN5",
-        "price": 544
-      },
-      {
-        "listing_key": "1pc:155070",
-        "vendor_sku": "155070",
-        "title": "לוח אם Gigabyte B760 DS3H",
-        "price": 675,
-        "alias_of": "1pc:207701"
       }
     ]
   },
@@ -10209,13 +10055,6 @@
         "vendor_sku": "GB760DS3HGEN5",
         "title": "Gigabyte B760 DS3H GEN5",
         "price": 629
-      },
-      {
-        "listing_key": "1pc:155070",
-        "vendor": "1pc",
-        "vendor_sku": "155070",
-        "title": "לוח אם Gigabyte B760 DS3H",
-        "price": 675
       }
     ],
     "model_code": "b760-ds3h",
@@ -10229,6 +10068,13 @@
     "product_id": "model:motherboard:b760-ds3h-atx-2",
     "vendor": "",
     "offers": [
+      {
+        "listing_key": "1pc:155070",
+        "vendor": "1pc",
+        "vendor_sku": "GB760DS3H",
+        "title": "לוח אם Gigabyte B760 DS3H",
+        "price": 675
+      },
       {
         "listing_key": "tms:GB760DS3H",
         "vendor": "tms",
@@ -11413,108 +11259,6 @@
       }
     ],
     "model_code": "a750bn-mag-pcie5",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
-    "product_id": "model:psu:edge-v2-1000w",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:EG1000P-B",
-        "vendor": "tms",
-        "vendor_sku": "EG1000P-B",
-        "title": "ספק כוח Lian-Li EDGE Platinum V2 1000W שחור",
-        "price": 761
-      }
-    ],
-    "model_code": "edge-v2",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
-    "product_id": "model:psu:edge-v2-1000w-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:EG1000P-W",
-        "vendor": "tms",
-        "vendor_sku": "EG1000P-W",
-        "title": "ספק כוח Lian-Li EDGE V2 1000W Platinum לבן",
-        "price": 761
-      }
-    ],
-    "model_code": "edge-v2",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
-    "product_id": "model:psu:edge-v2-1200w",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:EG1200P-B",
-        "vendor": "tms",
-        "vendor_sku": "EG1200P-B",
-        "title": "ספק כוח Lian-Li EDGE V2 1200W Platinum שחור",
-        "price": 844
-      }
-    ],
-    "model_code": "edge-v2",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
-    "product_id": "model:psu:edge-v2-1200w-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:EG1200P-W",
-        "vendor": "tms",
-        "vendor_sku": "EG1200P-W",
-        "title": "ספק כוח Lian-Li EDGE V2 1200W Platinum לבן",
-        "price": 844
-      }
-    ],
-    "model_code": "edge-v2",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
-    "product_id": "model:psu:edge-v2-1350w",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:EG1350P-B",
-        "vendor": "tms",
-        "vendor_sku": "EG1350P-B",
-        "title": "ספק כוח Lian-Li EDGE V2 1350W Platinum שחור",
-        "price": 1213
-      }
-    ],
-    "model_code": "edge-v2",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "psu",
-    "product_id": "model:psu:edge-v2-1350w-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:EG1350P-W",
-        "vendor": "tms",
-        "vendor_sku": "EG1350P-W",
-        "title": "ספק כוח Lian-Li EDGE V2 1350W Platinum לבן",
-        "price": 1213
-      }
-    ],
-    "model_code": "edge-v2",
     "manufacturer_pn": []
   },
   {

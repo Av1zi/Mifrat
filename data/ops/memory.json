@@ -399,7 +399,7 @@
 "1pc:154848":"model:case:ax20-elite-black",
 "1pc:154854":"model:cpu:ryzen57500f-tray",
 "1pc:155069":"model:motherboard:b650m-s2h-microatx",
-"1pc:155070":"model:motherboard:b760-ds3h-atx",
+"1pc:155070":"model:motherboard:b760-ds3h-atx-2",
 "1pc:155072":"model:case_fan:9050157-af120-co-elite-fan-icue-pwm-ww-120mm-rgb-white",
 "1pc:155075":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
 "1pc:155125":"model:motherboard:b550m-gaming-ii-tuf-wifi-microatx",
@@ -2509,23 +2509,23 @@
 "1pc:223476":"model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
 "1pc:223479":"model:cpu:threadripper7980x-tray",
 "1pc:223480":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
-"1pc:223481":"model:motherboard:o-x10dai",
+"1pc:223481":"model:motherboard:o-x10dai-eatx",
 "1pc:223482":"model:memory:5600-ecc-reg-32gb-x1-5600mhz",
 "1pc:223483":"model:psu:1-atx3-leadex-1700w",
 "1pc:223484":"model:psu:1-atx3-leadex-2200w",
-"1pc:223485":"model:case:cx-cxm2argb-m2-black",
-"1pc:223486":"model:case:cx-cxm3argb-m3-black",
+"1pc:223485":"model:case:case-cx-m2-black",
+"1pc:223486":"model:case:case-cx-m3-black",
 "1pc:223487":"model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb",
 "1pc:223488":"model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w",
-"1pc:223489":"model:psu:b-edge-eg1000p-v2-1000w",
-"1pc:223490":"model:psu:edge-eg1000p-v2-w-1000w",
-"1pc:223491":"model:psu:b-edge-eg1200p-v2-1200w",
-"1pc:223492":"model:psu:edge-eg1200p-v2-w-1200w",
-"1pc:223493":"model:psu:b-edge-eg1350p-v2-1350w",
-"1pc:223494":"model:psu:edge-eg1350p-v2-w-1350w",
+"1pc:223489":"model:psu:edge-v2-1000w-black",
+"1pc:223490":"model:psu:edge-v2-1000w-white",
+"1pc:223491":"model:psu:edge-v2-1200w-black",
+"1pc:223492":"model:psu:edge-v2-1200w-white",
+"1pc:223493":"model:psu:edge-v2-1350w-black",
+"1pc:223494":"model:psu:edge-v2-1350w-white",
 "1pc:223495":"model:cpu:674x-tray",
 "1pc:223496":"model:cpu:2535-tray",
-"1pc:223497":"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-sodimm",
+"1pc:223497":"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm",
 "1pc:223498":"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
@@ -8198,14 +8198,14 @@
 "tms:EG0850G-B":"model:psu:850w-black-edge-gold-850w-black",
 "tms:EG1000G-B":"model:psu:1000w-black-edge-gold-1000w-black",
 "tms:EG1000G-W":"mpn:psu:eg1000gw",
-"tms:EG1000P-B":"model:psu:edge-v2-1000w",
-"tms:EG1000P-W":"model:psu:edge-v2-1000w-2",
+"tms:EG1000P-B":"model:psu:edge-v2-1000w-black",
+"tms:EG1000P-W":"model:psu:edge-v2-1000w-white",
 "tms:EG1200G-B":"model:psu:1200w-black-edge-gold-1200w-black",
 "tms:EG1200G-W":"model:psu:1200w-edge-gold-white-1200w-white",
-"tms:EG1200P-B":"model:psu:edge-v2-1200w",
-"tms:EG1200P-W":"model:psu:edge-v2-1200w-2",
-"tms:EG1350P-B":"model:psu:edge-v2-1350w",
-"tms:EG1350P-W":"model:psu:edge-v2-1350w-2",
+"tms:EG1200P-B":"model:psu:edge-v2-1200w-black",
+"tms:EG1200P-W":"model:psu:edge-v2-1200w-white",
+"tms:EG1350P-B":"model:psu:edge-v2-1350w-black",
+"tms:EG1350P-W":"model:psu:edge-v2-1350w-white",
 "tms:EP7302":"model:cpu:7302",
 "tms:EP7402":"model:cpu:7402",
 "tms:EP7402P":"model:cpu:7402p",
@@ -14408,11 +14408,11 @@
 "case"
 ],
 "model:case:case-cx-m2-black":[
-"Antec CX M2 ARGB Black",
+"Antec CX M2 ARGB CXM2ARGB Black",
 "case"
 ],
 "model:case:case-cx-m3-black":[
-"Antec CX M3 ARGB Black",
+"Antec CX M3 ARGB CXM3ARGB Black",
 "case"
 ],
 "model:case:case-cypher-itx-mini-sff-thin-tiny-black":[
@@ -14541,14 +14541,6 @@
 ],
 "model:case:cs-ww-y70tti-white":[
 "HYTE Y70 Touch Infinite White",
-"case"
-],
-"model:case:cx-cxm2argb-m2-black":[
-"Antec CX M2 ARGB CXM2ARGB Black",
-"case"
-],
-"model:case:cx-cxm3argb-m3-black":[
-"Antec CX M3 ARGB CXM3ARGB Black",
 "case"
 ],
 "model:case:cx-mini-mirror-tower-black":[
@@ -21243,8 +21235,8 @@
 "VIPER ELITE RGB DDR5 32GB PATRIOT",
 "memory"
 ],
-"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-sodimm":[
-"G.SKILL Ripjaws DDR4 16GB SO F4 3200C22S 16GRS",
+"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm":[
+"G.Skill Ripjaws DDR4 16GB (1x16GB) 3200MHz CL22",
 "memory"
 ],
 "model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black":[
@@ -25443,8 +25435,8 @@
 "Sapphire Nitro+ X870EA Phantomlink Edition WIFI7",
 "motherboard"
 ],
-"model:motherboard:o-x10dai":[
-"SuperMicro X10DAi O",
+"model:motherboard:o-x10dai-eatx":[
+"Supermicro X10DAI O",
 "motherboard"
 ],
 "model:motherboard:p-prime-wifi-x670-atx":[
@@ -26687,18 +26679,6 @@
 "GAMDIAS Aura GP550 400W Black",
 "psu"
 ],
-"model:psu:b-edge-eg1000p-v2-1000w":[
-"LIAN LI EDGE Platinum V2 1000W EG1000P B",
-"psu"
-],
-"model:psu:b-edge-eg1200p-v2-1200w":[
-"LIAN LI EDGE Platinum V2 1200W EG1200P B",
-"psu"
-],
-"model:psu:b-edge-eg1350p-v2-1350w":[
-"LIAN LI EDGE Platinum V2 1350W EG1350P B",
-"psu"
-],
 "model:psu:coolermaster-fully-modular-v1000-1000w-full":[
 "CoolerMaster 1000W V1000 Fully Modular",
 "psu"
@@ -26711,39 +26691,27 @@
 "SilverStone PSU 1650W DA1650 80+ Gold",
 "psu"
 ],
-"model:psu:edge-eg1000p-v2-w-1000w":[
-"LIAN LI EDGE Platinum V2 1000W EG1000P W",
-"psu"
-],
-"model:psu:edge-eg1200p-v2-w-1200w":[
-"LIAN LI EDGE Platinum V2 1200W EG1200P W",
-"psu"
-],
-"model:psu:edge-eg1350p-v2-w-1350w":[
-"LIAN LI EDGE Platinum V2 1350W EG1350P W",
-"psu"
-],
-"model:psu:edge-v2-1000w":[
+"model:psu:edge-v2-1000w-black":[
 "Lian Li Edge V2 1000W 80 PLUS Platinum Black",
 "psu"
 ],
-"model:psu:edge-v2-1000w-2":[
+"model:psu:edge-v2-1000w-white":[
 "Lian Li Edge V2 1000W 80 PLUS Platinum White",
 "psu"
 ],
-"model:psu:edge-v2-1200w":[
+"model:psu:edge-v2-1200w-black":[
 "Lian Li Edge V2 1200W 80 PLUS Platinum Black",
 "psu"
 ],
-"model:psu:edge-v2-1200w-2":[
+"model:psu:edge-v2-1200w-white":[
 "Lian Li Edge V2 1200W 80 PLUS Platinum White",
 "psu"
 ],
-"model:psu:edge-v2-1350w":[
+"model:psu:edge-v2-1350w-black":[
 "Lian Li Edge V2 1350W 80 PLUS Platinum Black",
 "psu"
 ],
-"model:psu:edge-v2-1350w-2":[
+"model:psu:edge-v2-1350w-white":[
 "Lian Li Edge V2 1350W 80 PLUS Platinum White",
 "psu"
 ],
