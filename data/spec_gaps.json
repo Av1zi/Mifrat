@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T22:07:59.136353+00:00",
+  "generated_at": "2026-11-22T22:15:10.415589+00:00",
   "gaps": [
     {
       "category": "case",
@@ -1673,22 +1673,22 @@
     },
     {
       "category": "memory",
-      "label": "מק\"ט בינ\"ל",
-      "count": 11,
-      "products": [
-        "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
-        "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
-        "model:memory:ad4s32008g22-dimm-sgn-so-8gb-3200mhz-cl22-sodimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "קצב העברת נתונים",
       "count": 11,
       "products": [
         "model:memory:5600-ecc-reg-32gb-x1-5600mhz",
         "model:memory:ad5cs640032g-csodimm-s-32gb-sodimm",
         "model:memory:armax-ax5u5600c4616g-samrbk-xpg-16gb-rgb-black-dimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "מק\"ט בינ\"ל",
+      "count": 11,
+      "products": [
+        "model:memory:ad4s320032g22-dimm-sgn-so-32gb-3200mhz-cl22-sodimm",
+        "model:memory:ad4s32008g22-dimm-sgn-so-8gb-3200mhz-cl22-sodimm",
+        "model:memory:ad4u320016g22-dimm-sgn-u-16gb-3200mhz-cl22-dimm"
       ]
     },
     {
@@ -3786,9 +3786,9 @@
       "label": "DRAM spec",
       "count": 4,
       "products": [
-        "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
         "model:memory:ad5u480016g-dimm-s-u-16gb-4800mhz-dimm",
-        "model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm"
+        "model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm",
+        "model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -6558,8 +6558,8 @@
       "label": "מימדים",
       "count": 2,
       "products": [
-        "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
-        "model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm"
+        "model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm",
+        "model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm"
       ]
     },
     {
@@ -10013,14 +10013,6 @@
     },
     {
       "category": "memory",
-      "label": "CAS Latencies",
-      "count": 1,
-      "products": [
-        "model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm"
-      ]
-    },
-    {
-      "category": "memory",
       "label": "Backlight",
       "count": 1,
       "products": [
@@ -10089,6 +10081,14 @@
       "count": 1,
       "products": [
         "model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm"
+      ]
+    },
+    {
+      "category": "memory",
+      "label": "CAS Latencies",
+      "count": 1,
+      "products": [
+        "model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm"
       ]
     },
     {

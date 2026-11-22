@@ -455,7 +455,7 @@
 "1pc:158407":"mpn:memory:ax4u360016g18isw50",
 "1pc:158409":"model:memory:16gb-6400mhz-ax5u6400c3216g-blade-ddr5-dimm-lancer-rgb-slabrbk-u-16gb-6400mhz-cl32-rgb-black-dimm",
 "1pc:158410":"model:memory:16gb-6000mhz-ax5u6000c3016g-blade-ddr5-dimm-lancer-rgb-slabrwh-u-16gb-x1-6000mhz-cl30-rgb-white-dimm",
-"1pc:158414":"model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
+"1pc:158414":"model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm",
 "1pc:158416":"model:memory:ad5u560032g-dimm-s-u-32gb-5600mhz-dimm",
 "1pc:158417":"mpn:memory:ad5s560016gs",
 "1pc:158418":"model:memory:ad5s480016g-dimm-s-so-16gb-4800mhz-cl40-sodimm",
@@ -3847,7 +3847,7 @@
 "ksp:289073":"model:storage:2242-410s-ts2tmte410s-x4-2000gb-pcie4-m22242",
 "ksp:289627":"model:storage:256mb-6tb-iii-purple-sata-surveillance-6000gb-sata-35",
 "ksp:289845":"model:memory:cl11-ddr3l-premier-8gb-1600mhz-cl11-dimm",
-"ksp:289874":"model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
+"ksp:289874":"model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm",
 "ksp:289884":"model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm",
 "ksp:289938":"model:storage:su630-1920gb-25",
 "ksp:289975":"model:cpu:14100f",
@@ -4959,7 +4959,7 @@
 "plonter:AD5U480016G-S":"model:memory:ad5u480016g-dimm-s-u-16gb-4800mhz-dimm",
 "plonter:AD5U480016G-Sx2":"mpn:memory:ad5u480016gsx2",
 "plonter:AD5U480032G-S":"model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm",
-"plonter:AD5U560016G-S":"model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
+"plonter:AD5U560016G-S":"model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm",
 "plonter:AD5U560032G-S":"model:memory:ad5u560032g-dimm-s-u-32gb-5600mhz-dimm",
 "plonter:AEOLUS-M2-1204R-WH":"mpn:case_fan:aeolusm21204rwh",
 "plonter:AEOLUS-P2-1201":"mpn:case_fan:aeolusp21201",
@@ -7550,7 +7550,7 @@
 "tms:ACFAN00210A":"model:case_fan:12-co-f12-pst-pwm-120mm-black",
 "tms:ACFRE00086A":"model:cooler_air:34-am4-am5-amd-bulk-cooling-freezer-160mm-120mm-black",
 "tms:ACFRE00087A":"model:cooler_air:115x-1200-34-bulk-cooling-freezer-intel-160mm-120mm-black",
-"tms:AD5U560016G-S":"model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm",
+"tms:AD5U560016G-S":"model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm",
 "tms:AD5U560032G-S":"model:memory:ad5u560032g-dimm-s-u-32gb-5600mhz-dimm",
 "tms:AFB1212SH":"model:case_fan:0-12v-4-80a-cooling-fan-pin-pwm-120mm-black",
 "tms:AFB250-ETH12EX":"model:motherboard:afb250-eth12ex-mining-motherboard",
@@ -20113,7 +20113,7 @@
 "gpu"
 ],
 "model:gpu:5060-8gb-edge-gaming-geforce-rtx-ti-twin-8gb":[
-"ZOTAC Twin Edge GeForce RTX 5060 Ti 8GB TWIN EDGE (ZT-B50610E-10M)",
+"ZOTAC Twin Edge GeForce RTX 5060 Ti 8GB TWIN EDGE",
 "gpu"
 ],
 "model:gpu:5060-8gb-gddr7-geforce-oc-prime-rtx-ti-8gb":[
@@ -22156,10 +22156,6 @@
 "Patriot Viper RGB DDR5 32GB 6600MHz",
 "memory"
 ],
-"model:memory:5600-a-cl46-data-16gb-x1-5600mhz-cl46-black-dimm":[
-"ADATA 16GB DDR5 (1x16GB) 5600MHz CL46",
-"memory"
-],
 "model:memory:5600-amd-cl38-orion-v-16gb-x1-5600mhz-cl38-black":[
 "GeIL 16GB DDR5 (1x16GB) 5600MHz CL38 (GAVG516GB5600C38ASC)",
 "memory"
@@ -22430,6 +22426,10 @@
 ],
 "model:memory:ad5u480032g-dimm-s-u-32gb-4800mhz-cl46-dimm":[
 "ADATA 32GB DDR5 (1x32GB) 4800MHz CL46",
+"memory"
+],
+"model:memory:ad5u560016g-dimm-s-u-16gb-5600mhz-cl46-dimm":[
+"ADATA 16GB DDR5 (1x16GB) 5600MHz CL46",
 "memory"
 ],
 "model:memory:ad5u560032g-dimm-s-u-32gb-5600mhz-dimm":[
