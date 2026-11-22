@@ -2473,7 +2473,7 @@
 "1pc:223031":"model:storage:500gb-m450-spatium-v1-500gb-pcie4",
 "1pc:223032":"model:storage:960gb-s270-spatium-960gb-sata",
 "1pc:223033":"model:gpu:32g-5090-geforce-rtx-soc-suprim-32gb",
-"1pc:223066":"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
+"1pc:223066":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm",
 "1pc:223067":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-grey-dimm",
 "1pc:223068":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm",
 "1pc:223069":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
@@ -7872,7 +7872,7 @@
 "tms:CMG64GX4M4E3200C16":"model:memory:0-2-3200-4x16gb-cl16-rs-vengeance-xmp-64gb-x4-3200mhz-cl16-rgb-black",
 "tms:CMH16GX4M2E3200C16":"model:memory:3200-8gbx2-cl16-pro-ram-sl-vengeance-16gb-3200mhz-cl16-rgb",
 "tms:CMH16GX5M1B5600C40":"model:memory:2x32gb-5600-cl40-vengeance-16gb-x1-5600mhz-cl40-rgb-black",
-"tms:CMH16GX5M1D6000Z38":"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey",
+"tms:CMH16GX5M1D6000Z38":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm",
 "tms:CMH16GX5M1D6000Z38W":"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-white-dimm",
 "tms:CMH16GX5M2E6000Z36":"mpn:memory:cmh16gx5m2e6000z36",
 "tms:CMH32GX5M1D6000Z40-B":"model:memory:6000-bulk-cl40-cmh5x32g1d60z40a2-32gb-x1-6000mhz-cl40-black",
@@ -9497,6 +9497,7 @@
 "tms:Y7651GXSFS":"model:psu:650-focus-sgx-v2-650w",
 "tms:Y7751PXSFS":"model:psu:750-focus-spx-v2-750w",
 "tms:YD3000C6M2OFH":"model:cpu:3000g-tray",
+"tms:YD3200C5M4MFH":"model:cpu:3200g-tray",
 "tms:ZD4-SPR32C28-16GYB1":"model:memory:0-2-3200-cl16-spark-xmp-16gb-x1-3200mhz-cl16-rgb-blacksilver",
 "tms:ZT-B50610H-10M":"model:gpu:5060-edge-gaming-oc-rtx-ti-twin-8gb",
 "yahav:10000":"model:motherboard:1851-1xhdmi-2xthunderbolt-atx-ddr5-lga-mag-tomahawk-wifi-z890-atx",
@@ -18719,6 +18720,10 @@
 "AMD Ryzen 3 3200G Box",
 "cpu"
 ],
+"model:cpu:3200g-tray":[
+"AMD Ryzen 3 3200G Tray",
+"cpu"
+],
 "model:cpu:3300x-tray":[
 "AMD Ryzen 3 3300X Tray",
 "cpu"
@@ -22219,6 +22224,10 @@
 "Corsair Vengeance 16GB DDR5 (1x16GB) 6000MHz CL36",
 "memory"
 ],
+"model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-grey-dimm":[
+"Corsair Vengeance RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
+"memory"
+],
 "model:memory:6000-cl38-vengeance-16gb-x1-6000mhz-cl38-rgb-white-dimm":[
 "Corsair RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
 "memory"
@@ -22529,10 +22538,6 @@
 ],
 "model:memory:cmg8gx4m1e3200c16-8gb-cl16-rgb-black":[
 "Corsair RGB 8GB DDR4 (1x8GB) 3200MHz CL16",
-"memory"
-],
-"model:memory:cmh16gx5m1d6000z38-vengeance-16gb-cl38-rgb-grey":[
-"Corsair Vengeance RGB 16GB DDR5 (1x16GB) 6000MHz CL38",
 "memory"
 ],
 "model:memory:crucial-cp32g4dfra32a-32gb-black":[

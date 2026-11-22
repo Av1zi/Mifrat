@@ -680,14 +680,14 @@
         "listing_key": "tms:PERFORMANCE1FTARGB",
         "vendor_sku": "PERFORMANCE1FTARGB",
         "title": "מארז מחשב Antec Performance 1 FT ARGB",
-        "price": 550
+        "price": null,
+        "alias_of": "tms:0-761345-10088-5"
       },
       {
         "listing_key": "tms:0-761345-10088-5",
         "vendor_sku": "0-761345-10088-5",
         "title": "מארז מחשב Antec Performance 1 FT",
-        "price": 572,
-        "alias_of": "tms:PERFORMANCE1FTARGB"
+        "price": null
       }
     ]
   },
@@ -1621,7 +1621,7 @@
         "vendor": "tms",
         "vendor_sku": "BW013",
         "title": "be quiet! Pure Loop 2 FX 240mm",
-        "price": 546
+        "price": null
       }
     ],
     "model_code": "2-fx-loop-pure"
@@ -1667,7 +1667,7 @@
         "vendor": "tms",
         "vendor_sku": "BW010",
         "title": "מערכת קירור מים למעבד be quiet! Silent Loop 240mm",
-        "price": 565
+        "price": null
       }
     ],
     "model_code": "2-loop-silent"
@@ -1713,7 +1713,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-74043-2",
         "title": "Antec Symphony 240 ARGB CPU Liquid Cooler",
-        "price": 286
+        "price": null
       }
     ],
     "model_code": "240-cooler-cpu-liquid-symphony"
@@ -1804,7 +1804,7 @@
         "vendor": "tms",
         "vendor_sku": "BW020",
         "title": "be quiet! LIGHT LOOP 240mm",
-        "price": 479
+        "price": null
       },
       {
         "listing_key": "yahav:9945",
@@ -1834,7 +1834,7 @@
         "vendor": "tms",
         "vendor_sku": "BW021",
         "title": "be quiet! LIGHT LOOP 240mm White",
-        "price": 502
+        "price": null
       },
       {
         "listing_key": "yahav:9946",
@@ -1864,7 +1864,7 @@
         "vendor": "tms",
         "vendor_sku": "BW025",
         "title": "be quiet! Silent Loop 3 360mm",
-        "price": 661
+        "price": null
       },
       {
         "listing_key": "yahav:10761",
@@ -2019,7 +2019,7 @@
         "vendor": "tms",
         "vendor_sku": "RL-KR360-B1",
         "title": "NZXT Kraken 360 RGB Black Water Cooler",
-        "price": 910
+        "price": null
       },
       {
         "listing_key": "yahav:8469",
@@ -2052,7 +2052,7 @@
         "vendor": "tms",
         "vendor_sku": "RL-KR360-B2",
         "title": "קירור נוזלי למעבד NZXT Kraken Plus 360 RGB 360mm Black",
-        "price": 1011
+        "price": null
       }
     ],
     "model_code": "360-kraken",
@@ -2085,7 +2085,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-40066-4",
         "title": "קירור נוזלי למעבד Antec Skeleton 360 ARGB Black",
-        "price": 313
+        "price": null
       }
     ],
     "model_code": "360-skeleton"
@@ -2115,7 +2115,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-40067-1",
         "title": "קירור נוזלי למעבד Antec Skeleton 360 ARGB White",
-        "price": 336
+        "price": null
       }
     ],
     "model_code": "360-skeleton"
@@ -2195,7 +2195,7 @@
         "vendor": "tms",
         "vendor_sku": "BW032",
         "title": "be quiet! LIGHT LOOP IO LCD 360mm",
-        "price": 833
+        "price": null
       }
     ],
     "model_code": "360mm-io-lcd-light-loop"
@@ -2242,7 +2242,7 @@
         "vendor": "tms",
         "vendor_sku": "BW032",
         "title": "be quiet! LIGHT LOOP IO LCD 360mm",
-        "price": 833
+        "price": null
       }
     ],
     "model_code": "360mm-io-lcd-light-loop",
@@ -2273,7 +2273,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9061005-WW",
         "title": "Corsair iCUE LINK H100i RGB AIO 240mm White Liquid CPU Cooler",
-        "price": 578
+        "price": null
       }
     ],
     "model_code": "aio-cooler-cpu-h100i-icue-link-liquid",
@@ -2516,7 +2516,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-80034-1",
         "title": "מארז מחשב Antec Dark Cube",
-        "price": 869
+        "price": null
       }
     ],
     "model_code": "0-1-761345-80034-cube-dark"
@@ -2585,7 +2585,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-81046-3",
         "title": "מארז מחשב Antec NX420",
-        "price": 240
+        "price": null
       }
     ],
     "model_code": "0-3-761345-81046-description-nx420-product-short"
@@ -2631,7 +2631,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-10169-1",
         "title": "מארז מחשב Antec Performance 1 M Aventurine",
-        "price": 879
+        "price": null
       }
     ],
     "model_code": "1-m-performance"
@@ -2678,7 +2678,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-10169-1",
         "title": "מארז מחשב Antec Performance 1 M Aventurine",
-        "price": 879
+        "price": null
       }
     ],
     "model_code": "1-m-performance",
@@ -3028,7 +3028,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW64",
         "title": "מארז מחשב be quiet! SHADOW BASE 800FX White",
-        "price": 873
+        "price": null
       },
       {
         "listing_key": "yahav:9430",
@@ -3065,7 +3065,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011296-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular Black",
-        "price": 474
+        "price": null
       },
       {
         "listing_key": "yahav:10543",
@@ -3098,7 +3098,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011312-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS Modular צבע שחור",
-        "price": 436
+        "price": null
       }
     ],
     "model_code": "4000d-frame-modular-rs",
@@ -3131,7 +3131,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011297-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS ARGB Modular White",
-        "price": 488
+        "price": null
       },
       {
         "listing_key": "yahav:10545",
@@ -3171,7 +3171,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011313-WW",
         "title": "מארז מחשב Corsair FRAME 4000D RS Modular White צבע לבן",
-        "price": 436
+        "price": null
       }
     ],
     "model_code": "4000d-frame-modular-rs",
@@ -3227,7 +3227,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW35",
         "title": "מארז מחשב be quiet! PURE BASE 500",
-        "price": 389
+        "price": null
       },
       {
         "listing_key": "yahav:5950",
@@ -3257,7 +3257,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW83",
         "title": "be quiet! LIGHT BASE 500 Black",
-        "price": 470
+        "price": null
       }
     ],
     "model_code": "500-base-light"
@@ -3366,7 +3366,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011309-WW",
         "title": "מארז מחשב Corsair FRAME 5000D RS ARGB Black",
-        "price": 672
+        "price": null
       }
     ],
     "model_code": "5000d-frame-rs",
@@ -3406,7 +3406,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011308-WW",
         "title": "מארז מחשב Corsair FRAME 5000D RS White",
-        "price": 611
+        "price": null
       },
       {
         "listing_key": "yahav:11677",
@@ -3439,7 +3439,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-9011310-WW",
         "title": "מארז מחשב Corsair FRAME 5000D RS ARGB White",
-        "price": 672
+        "price": null
       }
     ],
     "model_code": "5000d-frame-rs",
@@ -3472,7 +3472,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW43",
         "title": "מארז מחשב be quiet! PURE BASE 500FX",
-        "price": 591
+        "price": null
       },
       {
         "listing_key": "yahav:8237",
@@ -3502,7 +3502,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW76",
         "title": "מארז מחשב be quiet! PURE BASE 501 DX Black",
-        "price": 484
+        "price": null
       },
       {
         "listing_key": "yahav:11097",
@@ -3576,7 +3576,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW78",
         "title": "מארז מחשב be quiet! PURE BASE 501 LX Black",
-        "price": 560
+        "price": null
       },
       {
         "listing_key": "yahav:11064",
@@ -3613,7 +3613,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW79",
         "title": "מארז מחשב be quiet! PURE BASE 501 LX White",
-        "price": 560
+        "price": null
       },
       {
         "listing_key": "yahav:11063",
@@ -3673,7 +3673,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW65",
         "title": "מארז מחשב be quiet! LIGHT BASE 600 DX",
-        "price": 560
+        "price": null
       },
       {
         "listing_key": "yahav:9942",
@@ -3747,7 +3747,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW67",
         "title": "מארז מחשב be quiet! LIGHT BASE 600 LX",
-        "price": 694
+        "price": null
       },
       {
         "listing_key": "yahav:9951",
@@ -3784,7 +3784,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW68",
         "title": "מארז מחשב be quiet! LIGHT BASE 600 LX White",
-        "price": 761
+        "price": null
       },
       {
         "listing_key": "yahav:9953",
@@ -3814,7 +3814,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW60",
         "title": "מארז מחשב be quiet! SHADOW BASE 800",
-        "price": 622
+        "price": null
       },
       {
         "listing_key": "yahav:9412",
@@ -3844,7 +3844,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW61",
         "title": "מארז מחשב be quiet! SHADOW BASE 800DX",
-        "price": 676
+        "price": null
       },
       {
         "listing_key": "yahav:9424",
@@ -3874,7 +3874,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW62",
         "title": "מארז מחשב be quiet! SHADOW BASE 800DX White",
-        "price": 681
+        "price": null
       }
     ],
     "model_code": "800dx-base-shadow"
@@ -3904,7 +3904,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW69",
         "title": "מארז מחשב be quiet! LIGHT BASE 900 DX",
-        "price": 681
+        "price": null
       },
       {
         "listing_key": "yahav:9952",
@@ -3934,7 +3934,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW71",
         "title": "מארז מחשב be quiet! LIGHT BASE 900 FX",
-        "price": 896
+        "price": null
       },
       {
         "listing_key": "yahav:9954",
@@ -3971,7 +3971,7 @@
         "vendor": "tms",
         "vendor_sku": "BGW72",
         "title": "מארז מחשב be quiet! LIGHT BASE 900 FX White",
-        "price": 905
+        "price": null
       },
       {
         "listing_key": "yahav:9955",
@@ -4209,7 +4209,7 @@
         "vendor": "tms",
         "vendor_sku": "FLUX-PRO-NOCTUA",
         "title": "מארז מחשב Antec FLUX PRO - Noctua Edition",
-        "price": 1671
+        "price": null
       }
     ],
     "model_code": "antec-flux-pro"
@@ -4285,7 +4285,7 @@
         "vendor": "tms",
         "vendor_sku": "AX90",
         "title": "מארז מחשב Antec AX90",
-        "price": 282
+        "price": null
       }
     ],
     "model_code": "ax90"
@@ -4478,7 +4478,7 @@
         "vendor": "tms",
         "vendor_sku": "C8W",
         "title": "מארז מחשב Antec C8 White",
-        "price": 374
+        "price": null
       }
     ],
     "model_code": "c8-c8w-case"
@@ -4620,7 +4620,7 @@
         "vendor": "tms",
         "vendor_sku": "DP501",
         "title": "מארז מחשב Antec DP501 ARGB Dark Phantom",
-        "price": 248
+        "price": null
       }
     ],
     "model_code": "dark-dp501-phantom"
@@ -4643,7 +4643,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-80051-8",
         "title": "מארז מחשב Antec DP502 Flux White",
-        "price": 365
+        "price": null
       }
     ],
     "model_code": "dp502-flux"
@@ -4666,7 +4666,7 @@
         "vendor": "tms",
         "vendor_sku": "CC-H51FW-01",
         "title": "מארז מחשב NZXT H5 Flow White",
-        "price": 392
+        "price": null
       }
     ],
     "model_code": "flow-h5",
@@ -4755,7 +4755,7 @@
         "vendor": "tms",
         "vendor_sku": "FLUX-PRO-W",
         "title": "מארז מחשב Antec FLUX PRO White",
-        "price": 699
+        "price": null
       }
     ],
     "model_code": "flux-pro-white"
@@ -4959,7 +4959,7 @@
         "vendor": "tms",
         "vendor_sku": "NX240",
         "title": "מארז מחשב Antec NX240",
-        "price": 246
+        "price": null
       },
       {
         "listing_key": "yahav:5602",
@@ -4989,7 +4989,7 @@
         "vendor": "tms",
         "vendor_sku": "NX280",
         "title": "מארז מחשב Antec NX280",
-        "price": 246
+        "price": null
       },
       {
         "listing_key": "yahav:6545",
@@ -5042,7 +5042,7 @@
         "vendor": "tms",
         "vendor_sku": "NX291",
         "title": "מארז מחשב Antec NX291",
-        "price": 175
+        "price": null
       }
     ],
     "model_code": "nx291"
@@ -5065,7 +5065,7 @@
         "vendor": "tms",
         "vendor_sku": "NX300",
         "title": "מארז מחשב Antec NX300",
-        "price": 193
+        "price": null
       }
     ],
     "model_code": "nx300"
@@ -5088,7 +5088,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-81041-8",
         "title": "מארז מחשב Antec NX410",
-        "price": 242
+        "price": null
       }
     ],
     "model_code": "nx410"
@@ -5111,7 +5111,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-81042-5",
         "title": "מארז מחשב Antec NX410 White",
-        "price": 273
+        "price": null
       }
     ],
     "model_code": "nx410"
@@ -5134,7 +5134,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-81082-1",
         "title": "מארז מחשב Antec NX800 White",
-        "price": 444
+        "price": null
       }
     ],
     "model_code": "nx800"
@@ -5157,7 +5157,7 @@
         "vendor": "tms",
         "vendor_sku": "NX800",
         "title": "מארז מחשב Antec NX800",
-        "price": 430
+        "price": null
       }
     ],
     "model_code": "nx800"
@@ -5556,7 +5556,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-40036-7",
         "title": "Antec TQ Tranquil 140mm ARGB PWM Fan",
-        "price": 58
+        "price": null
       }
     ],
     "model_code": "140mm-argb-argb-pwm-tranquil"
@@ -5654,7 +5654,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050086-WW",
         "title": "Corsair AF140 LED Red (2018) 140mm Fan",
-        "price": 90
+        "price": null
       }
     ],
     "model_code": "2018-af140-fan-led",
@@ -5680,7 +5680,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050087-WW",
         "title": "Corsair AF140 LED (2018) Blue 140mm Fan",
-        "price": 68
+        "price": null
       }
     ],
     "model_code": "2018-af140-fan-led",
@@ -5926,7 +5926,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050118-WW",
         "title": "Corsair iCUE ML140 RGB ELITE Premium 140mm PWM White",
-        "price": 118
+        "price": null
       }
     ],
     "model_code": "elite-icue-ml140-premium-pwm",
@@ -5952,7 +5952,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050119-WW",
         "title": "Corsair iCUE ML140 RGB ELITE Premium 140mm PWM לבן - שני מאווררים",
-        "price": 293
+        "price": null
       }
     ],
     "model_code": "elite-icue-ml140-premium-pwm",
@@ -6128,7 +6128,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050077-WW",
         "title": "מאוורר Corsair ML140 PRO RGB LED 140mm PWM עם מיסב Magnetic Levitation",
-        "price": 101
+        "price": null
       }
     ],
     "model_code": "led-ml140-pro-pwm",
@@ -6180,7 +6180,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-40038-1",
         "title": "Antec P14 ARGB 140mm PWM Fan",
-        "price": 40
+        "price": null
       }
     ],
     "model_code": "p14"
@@ -6361,7 +6361,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-74007-4",
         "title": "מאוורר למעבד Antec FRIGUSAIR 400 ARGB",
-        "price": 152
+        "price": null
       }
     ],
     "model_code": "400-frigusair"
@@ -6496,7 +6496,7 @@
         "vendor": "tms",
         "vendor_sku": "C400",
         "title": "מאוורר למעבד Antec C400",
-        "price": 133
+        "price": null
       }
     ],
     "model_code": "c400"
@@ -8760,7 +8760,7 @@
         "vendor": "tms",
         "vendor_sku": "CMT32GX5M2E6200C36",
         "title": "Corsair Dominator Platinum RGB DDR5 32GB (2x16GB) 6200 CL36 XMP 3.0",
-        "price": 2481
+        "price": null
       }
     ],
     "model_code": "0-2x16gb-3-6200-cl36-dominator-xmp",
@@ -9126,7 +9126,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3038F16GX2-TZ5NR",
         "title": "G.Skill Trident Z5 Neo RGB DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-        "price": 2972
+        "price": null
       }
     ],
     "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
@@ -9150,7 +9150,7 @@
         "vendor": "tms",
         "vendor_sku": "6000J3038F16GX2-TZ5N",
         "title": "G.Skill Trident Z5 Neo DDR5 32GB (2x16GB) 6000 CL30 EXPO",
-        "price": 2924
+        "price": null
       }
     ],
     "model_code": "2x16gb-6000-cl30-expo-neo-trident-z5",
@@ -9273,7 +9273,7 @@
         "vendor": "tms",
         "vendor_sku": "KD5BGUA80-64A320G",
         "title": "זיכרון Klevv DDR5 64GB (2x32GB) 6400 CL32 CRAS V RGB Black",
-        "price": 5276
+        "price": null
       },
       {
         "listing_key": "1pc:221538",
@@ -9459,7 +9459,7 @@
         "vendor": "tms",
         "vendor_sku": "MS-MODT-230HD4WIFI",
         "title": "MAXSUN MoDT 230H D4 WiFi",
-        "price": 1043
+        "price": null
       },
       {
         "listing_key": "1pc:221449",
@@ -9558,7 +9558,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1EK0-M0EAYC",
         "title": "Asus PRIME B760M-A-CSM",
-        "price": 827
+        "price": null
       }
     ],
     "model_code": "a-b760m-csm-prime",
@@ -9636,7 +9636,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1CX0-M1EAY0",
         "title": "Asus PRIME B760M-A WiFi D4",
-        "price": 725
+        "price": null
       }
     ],
     "model_code": "a-b760m-d4-prime-wifi",
@@ -9681,7 +9681,7 @@
         "vendor": "tms",
         "vendor_sku": "MS-CHA-A520MKWIFIARGB",
         "title": "MAXSUN Challenger A520M-K WiFi ARGB",
-        "price": 302
+        "price": 306
       },
       {
         "listing_key": "1pc:221413",
@@ -9767,7 +9767,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870MAORUSELITEWIFI7",
         "title": "Gigabyte X870M AORUS ELITE WiFi7",
-        "price": 1275
+        "price": null
       }
     ],
     "model_code": "aorus-elite-wifi7-x870m",
@@ -9793,7 +9793,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870MAORUSELITEWIFI7I",
         "title": "Gigabyte X870M AORUS ELITE WiFi7 ICE",
-        "price": 1275
+        "price": null
       }
     ],
     "model_code": "aorus-elite-wifi7-x870m",
@@ -9819,7 +9819,7 @@
         "vendor": "tms",
         "vendor_sku": "GZ890AORUSELITEWIFI7P",
         "title": "Gigabyte Z890 AORUS ELITE WiFi7 PLUS",
-        "price": 1328
+        "price": null
       }
     ],
     "model_code": "aorus-elite-wifi7-z890",
@@ -9845,7 +9845,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSPROX3D",
         "title": "Gigabyte X870E AORUS PRO X3D",
-        "price": 1904
+        "price": null
       }
     ],
     "model_code": "aorus-pro-x3d-x870e",
@@ -9904,7 +9904,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1GC0-M0EAY0",
         "title": "Asus Prime B550M-K ARGB",
-        "price": 523
+        "price": null
       }
     ],
     "model_code": "b550m-k-prime",
@@ -10028,7 +10028,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1LT0-M0EAY0",
         "title": "Asus TUF GAMING B650E-E WiFi",
-        "price": 1014
+        "price": null
       }
     ],
     "model_code": "b650-e-gaming-tuf-wifi",
@@ -10054,7 +10054,7 @@
         "vendor": "tms",
         "vendor_sku": "GB760DS3HGEN5",
         "title": "Gigabyte B760 DS3H GEN5",
-        "price": 629
+        "price": null
       }
     ],
     "model_code": "b760-ds3h",
@@ -10080,7 +10080,7 @@
         "vendor": "tms",
         "vendor_sku": "GB760DS3H",
         "title": "Gigabyte B760 DS3H",
-        "price": 598
+        "price": null
       }
     ],
     "model_code": "b760-ds3h",
@@ -10106,7 +10106,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1ER0-M1EAY0",
         "title": "Asus TUF GAMING B760-PLUS WIFI",
-        "price": 761
+        "price": null
       }
     ],
     "model_code": "b760-gaming-tuf-wifi",
@@ -10125,7 +10125,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1ER0-M0EAY0",
         "title": "Asus TUF GAMING B760-PLUS WiFi",
-        "price": 812
+        "price": null
       }
     ],
     "model_code": "b760-gaming-tuf-wifi",
@@ -10268,7 +10268,7 @@
         "vendor": "tms",
         "vendor_sku": "MS-ESP-B850M-WIFI6E",
         "title": "MAXSUN eSport B850M WiFi6E",
-        "price": 553
+        "price": null
       },
       {
         "listing_key": "1pc:221412",
@@ -10390,7 +10390,7 @@
         "vendor": "tms",
         "vendor_sku": "GB860ME",
         "title": "Gigabyte B860M E",
-        "price": 523
+        "price": null
       }
     ],
     "model_code": "b860m-e",
@@ -10416,7 +10416,7 @@
         "vendor": "tms",
         "vendor_sku": "GB860MEGEN5",
         "title": "Gigabyte B860M E GEN5",
-        "price": 541
+        "price": null
       }
     ],
     "model_code": "b860m-e",
@@ -10495,7 +10495,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1JV0-M0EAY0",
         "title": "Asus TUF GAMING B860M-PLUS WIFI",
-        "price": 971
+        "price": null
       },
       {
         "listing_key": "ksp:355875",
@@ -10659,7 +10659,7 @@
         "vendor": "tms",
         "vendor_sku": "GZ890EAGLEPLUS",
         "title": "Gigabyte Z890 EAGLE PLUS",
-        "price": 1077
+        "price": null
       }
     ],
     "model_code": "eagle-z890",
@@ -10685,7 +10685,7 @@
         "vendor": "tms",
         "vendor_sku": "GZ890EAGLE",
         "title": "לוח אם Gigabyte Z890 EAGLE",
-        "price": 1011
+        "price": null
       }
     ],
     "model_code": "eagle-z890",
@@ -10711,7 +10711,7 @@
         "vendor": "tms",
         "vendor_sku": "GH810MGAMINGWIFI6",
         "title": "Gigabyte H810M GAMING WiFi6",
-        "price": 585
+        "price": null
       }
     ],
     "model_code": "gaming-h810m-wifi6",
@@ -10737,7 +10737,7 @@
         "vendor": "tms",
         "vendor_sku": "GH810MGAMINGWIFI6GEN5",
         "title": "Gigabyte H810M GAMING WiFi6 GEN5",
-        "price": 602
+        "price": null
       }
     ],
     "model_code": "gaming-h810m-wifi6",
@@ -11032,7 +11032,7 @@
         "vendor": "tms",
         "vendor_sku": "BN330",
         "title": "be quiet! SYSTEM POWER 10 850W",
-        "price": 435
+        "price": null
       }
     ],
     "model_code": "10-power-system"
@@ -11170,7 +11170,7 @@
         "vendor": "tms",
         "vendor_sku": "CSK650",
         "title": "Antec PSU CSK 650W 80+ Bronze",
-        "price": 242
+        "price": null
       }
     ],
     "model_code": "650w-80-bronze-csk-psu"
@@ -11219,7 +11219,7 @@
         "vendor": "tms",
         "vendor_sku": "CSK750DC",
         "title": "ספק כוח Antec PSU 750W CSK 750 DC 80+ Bronze",
-        "price": 269
+        "price": null
       }
     ],
     "model_code": "750-csk-dc",
@@ -11338,7 +11338,7 @@
         "vendor": "tms",
         "vendor_sku": "0-761345-11724-1",
         "title": "ANTEC PSU 750W NE750 Platinum",
-        "price": 502
+        "price": null
       }
     ],
     "model_code": "ne750"
@@ -11667,7 +11667,7 @@
         "vendor": "tms",
         "vendor_sku": "ST12000VN0008",
         "title": "Seagate HDD 12TB 7200 256MB SATA3 NAS IronWolf",
-        "price": 2352
+        "price": null
       }
     ],
     "model_code": "24-7-ironwolf-nas",
@@ -11693,7 +11693,7 @@
         "vendor": "tms",
         "vendor_sku": "ST20000VE002",
         "title": "Seagate 20TB 256MB 7200 SATA3 3.5\" HDD Skyhawk AI HDD",
-        "price": 3737
+        "price": null
       }
     ],
     "model_code": "ai-skyhawk",
@@ -11771,7 +11771,7 @@
         "vendor": "tms",
         "vendor_sku": "WD40EZZX",
         "title": "WD 4TB 128MB 5400 3.5\" SATA3 Blue HDD",
-        "price": 923
+        "price": null
       }
     ],
     "model_code": "blue-wd",
@@ -11804,7 +11804,7 @@
         "vendor": "tms",
         "vendor_sku": "49353",
         "title": "Verbatim Vi550 S3 1TB 2.5\" SSD",
-        "price": 619
+        "price": null
       }
     ],
     "model_code": "s3-vi550"
@@ -11917,7 +11917,7 @@
         "vendor": "tms",
         "vendor_sku": "C8",
         "title": "מארז מחשב Antec C8",
-        "price": 364
+        "price": null
       }
     ],
     "model_code": "c8-case"
@@ -12085,7 +12085,7 @@
         "vendor": "tms",
         "vendor_sku": "ULTRA360ARGB-W",
         "title": "קירור נוזלי למעבד Antec Ultra 360 ARGB לבן",
-        "price": 229
+        "price": null
       }
     ],
     "model_code": "360-ultra"
@@ -15077,7 +15077,7 @@
         "vendor": "tms",
         "vendor_sku": "GZ890AORUSELITEWIFI7",
         "title": "Gigabyte Z890 AORUS ELITE WiFi7",
-        "price": 1231
+        "price": null
       },
       {
         "listing_key": "yahav:10144",
@@ -15110,7 +15110,7 @@
         "vendor": "tms",
         "vendor_sku": "GB840MGAMINGPLUSWIFI6E",
         "title": "Gigabyte B840M GAMING PLUS WiFi6E",
-        "price": 685
+        "price": null
       }
     ],
     "model_code": "b840m-gaming-wifi6e",
@@ -15254,7 +15254,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060094-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 240 RS ARGB White",
-        "price": 502
+        "price": null
       },
       {
         "listing_key": "yahav:10966",
@@ -15313,7 +15313,7 @@
         "vendor": "tms",
         "vendor_sku": "GP-AORUSWII360I",
         "title": "Gigabyte GP-AORUS WATERFORCE II 360 ICE Liquid Cooler",
-        "price": 519
+        "price": null
       }
     ],
     "model_code": "360-aorus-aoruswii360i-cooler-gp-gp-ice-ii-liquid-waterforce",
@@ -15377,7 +15377,7 @@
         "vendor": "tms",
         "vendor_sku": "GP-GIGABYTEEAGLE360",
         "title": "קירור נוזלי למעבד Gigabyte EAGLE 360",
-        "price": 396
+        "price": null
       }
     ],
     "model_code": "360-eagle",
@@ -15403,7 +15403,7 @@
         "vendor": "tms",
         "vendor_sku": "GP-GIGABYTEEAGLE360I",
         "title": "קירור נוזלי למעבד Gigabyte EAGLE 360 ICE",
-        "price": 396
+        "price": null
       }
     ],
     "model_code": "360-eagle-ice",
@@ -15429,7 +15429,7 @@
         "vendor": "tms",
         "vendor_sku": "GP-GIGABYTEGME360",
         "title": "קירור נוזלי למעבד Gigabyte GAMING 360",
-        "price": 426
+        "price": null
       }
     ],
     "model_code": "360-gaming",
@@ -15455,7 +15455,7 @@
         "vendor": "tms",
         "vendor_sku": "GP-GIGABYTEGME360I",
         "title": "קירור נוזלי למעבד Gigabyte GAMING 360 ICE",
-        "price": 426
+        "price": null
       }
     ],
     "model_code": "360-gaming-ice",
@@ -15535,7 +15535,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060093-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB",
-        "price": 591
+        "price": null
       },
       {
         "listing_key": "yahav:10404",
@@ -15582,7 +15582,7 @@
         "vendor": "tms",
         "vendor_sku": "CW-9060095-WW",
         "title": "קירור נוזלי למעבד Corsair NAUTILUS 360 RS ARGB White",
-        "price": 596
+        "price": null
       },
       {
         "listing_key": "yahav:10405",
@@ -15773,7 +15773,7 @@
         "vendor": "tms",
         "vendor_sku": "GB-C201PI",
         "title": "מארז מחשב Gigabyte C201 Panoramic ICE",
-        "price": 349
+        "price": null
       }
     ],
     "model_code": "c201-ice-panoramic",
@@ -15799,7 +15799,7 @@
         "vendor": "tms",
         "vendor_sku": "GB-C201P",
         "title": "מארז מחשב Gigabyte C201 Panoramic",
-        "price": 336
+        "price": null
       }
     ],
     "model_code": "c201-panoramic",
@@ -15825,7 +15825,7 @@
         "vendor": "tms",
         "vendor_sku": "GB-C500PI-ST",
         "title": "מארז מחשב Gigabyte C500 Panoramic Stealth ICE",
-        "price": 484
+        "price": null
       }
     ],
     "model_code": "c500-ice-panoramic-stealth",
@@ -15884,7 +15884,7 @@
         "vendor": "tms",
         "vendor_sku": "CX700ARGB",
         "title": "מארז מחשב Antec CX700 ARGB",
-        "price": 305
+        "price": null
       }
     ],
     "model_code": "argb-cx700",
@@ -16740,7 +16740,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050100-WW",
         "title": "Corsair iCUE QL140 RGB 140mm PWM Single Fan 2 Pack",
-        "price": 236
+        "price": null
       },
       {
         "listing_key": "yahav:5530",
@@ -16780,7 +16780,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050099-WW",
         "title": "Corsair iCUE QL140 RGB 140mm PWM Single Fan",
-        "price": 130
+        "price": null
       },
       {
         "listing_key": "yahav:5532",
@@ -17053,7 +17053,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050180-WW",
         "title": "Corsair RS120 ARGB PWM 120mm Fan",
-        "price": 69
+        "price": null
       },
       {
         "listing_key": "yahav:10105",
@@ -17119,7 +17119,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050098-WW",
         "title": "Corsair iCUE QL120 RGB 120mm PWM Single Fan 3 Pack",
-        "price": 322
+        "price": null
       },
       {
         "listing_key": "yahav:5509",
@@ -17152,7 +17152,7 @@
         "vendor": "tms",
         "vendor_sku": "CO-9050097-WW",
         "title": "Corsair iCUE QL120 RGB 120mm PWM Single Fan",
-        "price": 106
+        "price": null
       },
       {
         "listing_key": "yahav:6018",
@@ -17490,7 +17490,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-016",
         "title": "HAVN H12 Black 120mm Fan",
-        "price": 66
+        "price": null
       }
     ],
     "model_code": "fan-h12",
@@ -17516,7 +17516,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-023",
         "title": "HAVN H12 Black Triple Pack 120mm x3 Fans",
-        "price": 168
+        "price": null
       }
     ],
     "model_code": "fans-h12-triple-x3",
@@ -17542,7 +17542,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-022",
         "title": "HAVN H12 White Triple Pack 120mm x3 Fans",
-        "price": 168
+        "price": null
       }
     ],
     "model_code": "fans-h12-triple-x3",
@@ -17568,7 +17568,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-015",
         "title": "HAVN H12 White 120mm Fan",
-        "price": 66
+        "price": null
       }
     ],
     "model_code": "fan-h12",
@@ -17594,7 +17594,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-018",
         "title": "HAVN H14 Black 140mm Fan",
-        "price": 76
+        "price": null
       }
     ],
     "model_code": "fan-h14",
@@ -17620,7 +17620,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-024",
         "title": "HAVN H14 White Triple Pack 140mm x3 Fans",
-        "price": 189
+        "price": null
       }
     ],
     "model_code": "fans-h14-triple-x3",
@@ -17646,7 +17646,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-017",
         "title": "HAVN H14 White 140mm Fan",
-        "price": 76
+        "price": null
       }
     ],
     "model_code": "140-h14",
@@ -17672,7 +17672,7 @@
         "vendor": "tms",
         "vendor_sku": "PGW-AC-HVN-025",
         "title": "HAVN H14 Black Triple Pack 140mm x3 Fans",
-        "price": 189
+        "price": null
       }
     ],
     "model_code": "140-3-h14",
@@ -18120,7 +18120,7 @@
         "vendor": "tms",
         "vendor_sku": "CMP48GX5M2X7200C36",
         "title": "Corsair Dominator Titanium RGB DDR5 48GB (2x24GB) 7200 CL36 XMP 3.0",
-        "price": 3605
+        "price": null
       }
     ],
     "model_code": "dominator-rgb-titanium",
@@ -18231,7 +18231,7 @@
         "vendor": "tms",
         "vendor_sku": "GZ890AORUSELITEWF7ICE",
         "title": "Gigabyte Z890 AORUS ELITE WiFi7 ICE",
-        "price": 1275
+        "price": null
       },
       {
         "listing_key": "yahav:10326",
@@ -18290,7 +18290,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1LD0-M0EAY0",
         "title": "Asus B650E MAX GAMING WIFI",
-        "price": 898
+        "price": null
       }
     ],
     "model_code": "b650e-gaming-max-wifi",
@@ -18316,7 +18316,7 @@
         "vendor": "tms",
         "vendor_sku": "GB850AORUSELITEWF7ICE",
         "title": "Gigabyte B850 AORUS ELITE WIFI7 ICE",
-        "price": 1055
+        "price": null
       },
       {
         "listing_key": "yahav:10278",
@@ -18389,7 +18389,7 @@
         "vendor": "tms",
         "vendor_sku": "GB850AORUSSTEALTHICE",
         "title": "Gigabyte B850 AORUS STEALTH ICE",
-        "price": 1561
+        "price": null
       }
     ],
     "model_code": "aorus-b850-ice-stealth",
@@ -18415,7 +18415,7 @@
         "vendor": "tms",
         "vendor_sku": "GB850AORUSSTEALTH",
         "title": "Gigabyte B850 AORUS STEALTH",
-        "price": 1702
+        "price": null
       }
     ],
     "model_code": "aorus-b850-stealth",
@@ -18500,7 +18500,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870AORUSELITEWIFI7",
         "title": "Gigabyte X870 AORUS ELITE WIFI7 ICE",
-        "price": 1319
+        "price": null
       }
     ],
     "model_code": "aorus-elite-ice-wifi7-x870",
@@ -18526,7 +18526,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870AORUSELITEWIFI",
         "title": "Gigabyte X870 AORUS ELITE WIFI7",
-        "price": 1319
+        "price": null
       }
     ],
     "model_code": "aorus-elite-wifi7-x870",
@@ -18552,7 +18552,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSELITEWIFI7I",
         "title": "Gigabyte X870E AORUS ELITE WiFi7 ICE",
-        "price": 1545
+        "price": null
       }
     ],
     "model_code": "aorus-elite-ice-wifi7-x870e",
@@ -18611,7 +18611,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSMASTERX3DI",
         "title": "Gigabyte X870E AORUS MASTER X3D ICE",
-        "price": 2575
+        "price": null
       },
       {
         "listing_key": "yahav:10919",
@@ -18644,7 +18644,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSMASTERX3D",
         "title": "Gigabyte X870E AORUS MASTER X3D",
-        "price": 2484
+        "price": null
       }
     ],
     "model_code": "aorus-master-x3d-x870e",
@@ -18670,7 +18670,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSPROICE",
         "title": "Gigabyte X870E AORUS PRO ICE",
-        "price": 1649
+        "price": null
       },
       {
         "listing_key": "yahav:9956",
@@ -18703,7 +18703,7 @@
         "vendor": "tms",
         "vendor_sku": "GX870EAORUSPROX3DICE",
         "title": "Gigabyte X870E AORUS PRO X3D ICE",
-        "price": 1913
+        "price": null
       },
       {
         "listing_key": "yahav:10918",
@@ -18762,7 +18762,7 @@
         "vendor": "tms",
         "vendor_sku": "MS-B550MGAMINGWIFI",
         "title": "MAXSUN B550M GAMING WIFI",
-        "price": 383
+        "price": null
       }
     ],
     "model_code": "b550m-gaming-wifi",
@@ -18788,7 +18788,7 @@
         "vendor": "tms",
         "vendor_sku": "MS-CHA-B650MWIFIICEV2",
         "title": "MAXSUN Challenger B650M WiFi ICE V2",
-        "price": 497
+        "price": null
       }
     ],
     "model_code": "b650m-challenger-ice-v2-wifi",
@@ -18935,7 +18935,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1PR0-M0EAY0",
         "title": "Asus B850 MAX GAMING WiFi",
-        "price": 1014
+        "price": null
       }
     ],
     "model_code": "b850-gaming-max-wifi",
@@ -18968,7 +18968,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1MD0-M0EAY0",
         "title": "Asus TUF GAMING B850M-PLUS WIFI7 W",
-        "price": 1363
+        "price": null
       }
     ],
     "model_code": "am5-b850m-gaming-tuf-wifi",
@@ -19008,7 +19008,7 @@
         "vendor": "tms",
         "vendor_sku": "90MB1MU0-M0EAY0",
         "title": "Asus TUF GAMING B850M-PLUS WIFI7",
-        "price": 1275
+        "price": null
       }
     ],
     "model_code": "7-am5-b850m-gaming-tuf-wifi",
