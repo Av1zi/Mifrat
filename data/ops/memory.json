@@ -399,6 +399,7 @@
 "1pc:154848":"model:case:ax20-elite-black",
 "1pc:154854":"model:cpu:ryzen57500f-tray",
 "1pc:155069":"model:motherboard:b650m-s2h-microatx",
+"1pc:155070":"model:motherboard:b760-ds3h-atx",
 "1pc:155072":"model:case_fan:9050157-af120-co-elite-fan-icue-pwm-ww-120mm-rgb-white",
 "1pc:155075":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
 "1pc:155125":"model:motherboard:b550m-gaming-ii-tuf-wifi-microatx",
@@ -2508,6 +2509,24 @@
 "1pc:223476":"model:memory:32n2200-bulk-kd48gu880-standard-8gb-dimm",
 "1pc:223479":"model:cpu:threadripper7980x-tray",
 "1pc:223480":"model:gpu:000-2250-32gb-4500-5g147-900-blackwell-pro-rtx-workstation-32gb",
+"1pc:223481":"model:motherboard:o-x10dai",
+"1pc:223482":"model:memory:5600-ecc-reg-32gb-x1-5600mhz",
+"1pc:223483":"model:psu:1-atx3-leadex-1700w",
+"1pc:223484":"model:psu:1-atx3-leadex-2200w",
+"1pc:223485":"model:case:cx-cxm2argb-m2-black",
+"1pc:223486":"model:case:cx-cxm3argb-m3-black",
+"1pc:223487":"model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb",
+"1pc:223488":"model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w",
+"1pc:223489":"model:psu:b-edge-eg1000p-v2-1000w",
+"1pc:223490":"model:psu:edge-eg1000p-v2-w-1000w",
+"1pc:223491":"model:psu:b-edge-eg1200p-v2-1200w",
+"1pc:223492":"model:psu:edge-eg1200p-v2-w-1200w",
+"1pc:223493":"model:psu:b-edge-eg1350p-v2-1350w",
+"1pc:223494":"model:psu:edge-eg1350p-v2-w-1350w",
+"1pc:223495":"model:cpu:674x-tray",
+"1pc:223496":"model:cpu:2535-tray",
+"1pc:223497":"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-sodimm",
+"1pc:223498":"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
@@ -7323,7 +7342,7 @@
 "tms:90-SXGEP0-A0UAYZ":"model:motherboard:2q-motherboard-rack-w880d4id-miniitx",
 "tms:90-SXGF00-A0UAYF":"model:motherboard:2l2t-asrockrack-turind8-ssiceb",
 "tms:90-SXGF60-A0UAYF":"model:motherboard:2t-motherboard-rack-turind8x-ssieeb",
-"tms:90-SXGFK0-A0XBNZ":"model:motherboard:2l2t-rack-w890d8-ssiceb",
+"tms:90-SXGFK0-A0XBNZ":"model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb",
 "tms:900-14933-2502-000":"model:gpu:4-nvlink-rtx-slot-titan",
 "tms:900-5G132-2240-000":"mpn:gpu:9005g1322240000",
 "tms:900-5G133-2240-000":"mpn:gpu:9005g1332240000",
@@ -8210,7 +8229,7 @@
 "tms:F4-3200C16D-64GVK":"mpn:memory:f43200c16d64gvk",
 "tms:F4-3600C16D-16GTZRC":"mpn:memory:f43600c16d16gtzrc",
 "tms:F4-3600C16D-32GTZRC":"model:memory:0-2-2x16gb-3600-cl16-trident-xmp-z-32gb-x2-3600mhz-cl16-rgb-black",
-"tms:F4-3600C18D-16GTZRX":"model:memory:2x8gb-3600-cl18-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
+"tms:F4-3600C18D-16GTZRX":"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
 "tms:F4-3600C18D-32GTZR":"model:memory:2x16gb-3600-cl18-trident-z-32gb-x2-3600mhz-cl18-rgb-black",
 "tms:F400ARGB":"model:cooler_air:f400-155mm-120mm",
 "tms:F400ARGB-W":"model:cooler_air:f400-155mm-120mm-white",
@@ -9131,7 +9150,7 @@
 "tms:PK8072205512500":"model:cpu:6530-tray",
 "tms:PK8072205560000":"model:cpu:5512u-tray",
 "tms:PNVS300X16B":"model:gpu:16-300-e-nvs-pci-quadro-x",
-"tms:PRIMETX-1600-EU":"model:psu:1600-noctua-prime-titanium-tx-1600w",
+"tms:PRIMETX-1600-EU":"model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w",
 "tms:PS-600FK":"model:psu:600w-80-black-sir-600w-black",
 "tms:PS-750AR":"model:psu:750ar-armour-ps-750w",
 "tms:PS-750SFX-W":"model:psu:750w-80-platinum-sfx-750w-white",
@@ -14524,6 +14543,14 @@
 "HYTE Y70 Touch Infinite White",
 "case"
 ],
+"model:case:cx-cxm2argb-m2-black":[
+"Antec CX M2 ARGB CXM2ARGB Black",
+"case"
+],
+"model:case:cx-cxm3argb-m3-black":[
+"Antec CX M3 ARGB CXM3ARGB Black",
+"case"
+],
 "model:case:cx-mini-mirror-tower-black":[
 "Antec CX Mirror ARGB 7X120MM Black",
 "case"
@@ -18636,6 +18663,10 @@
 "Intel Xeon W3 2535",
 "cpu"
 ],
+"model:cpu:2535-tray":[
+"Intel Xeon W3 2535 Tray",
+"cpu"
+],
 "model:cpu:265":[
 "Intel Core Ultra 7 265 Box",
 "cpu"
@@ -18838,6 +18869,10 @@
 ],
 "model:cpu:674x":[
 "Intel Xeon 674X",
+"cpu"
+],
+"model:cpu:674x-tray":[
+"Intel Xeon 674X Tray",
 "cpu"
 ],
 "model:cpu:7302":[
@@ -21208,6 +21243,14 @@
 "VIPER ELITE RGB DDR5 32GB PATRIOT",
 "memory"
 ],
+"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-sodimm":[
+"G.SKILL Ripjaws DDR4 16GB SO F4 3200C22S 16GRS",
+"memory"
+],
+"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black":[
+"G.Skill Trident ARGB DDR4 16GB (2x8GB) 3600MHz CL18",
+"memory"
+],
 "model:memory:16gx2-32g-6400-cl32-vengeance-32gb-6400mhz-cl32-rgb-dimm":[
 "Corsair Vengeance RGB 16GX2 DDR5 32GB (2x16GB) 6400MHz CL32",
 "memory"
@@ -21770,10 +21813,6 @@
 ],
 "model:memory:2x8gb-3200-cl16-orion-16gb-x2-3200mhz-cl16-rgb-grey-dimm":[
 "GeIL ARGB 16GB DDR4 (2x8GB) 3200MHz CL16 (GAOG416GB3200C16BDC)",
-"memory"
-],
-"model:memory:2x8gb-3600-cl18-trident-z-16gb-x2-3600mhz-cl18-rgb-black":[
-"G.Skill ARGB 16GB DDR4 (2x8GB) 3600MHz CL18",
 "memory"
 ],
 "model:memory:2x8gb-5200mt-cl40-s-vengeance-16gb-x2-5200mhz-cl40-rgb-grey-dimm":[
@@ -23028,12 +23067,12 @@
 "Maxsun SOC Modt 230H D4 WIFI6",
 "motherboard"
 ],
-"model:motherboard:2l2t-asrockrack-turind8-ssiceb":[
-"ASRock Rack SOC Asrockrack TURIND8-2L2T",
+"model:motherboard:2l2t-90-a0xbnz-rack-sxgfk0-w890d8-ssiceb":[
+"ASRock Rack W890D8-2L2T 90-SXGFK0-A0XBNZ",
 "motherboard"
 ],
-"model:motherboard:2l2t-rack-w890d8-ssiceb":[
-"ASRock Rack W890D8-2L2T",
+"model:motherboard:2l2t-asrockrack-turind8-ssiceb":[
+"ASRock Rack SOC Asrockrack TURIND8-2L2T",
 "motherboard"
 ],
 "model:motherboard:2q-gnrd8ud-motherboard-rack-microatx":[
@@ -25404,6 +25443,10 @@
 "Sapphire Nitro+ X870EA Phantomlink Edition WIFI7",
 "motherboard"
 ],
+"model:motherboard:o-x10dai":[
+"SuperMicro X10DAi O",
+"motherboard"
+],
 "model:motherboard:p-prime-wifi-x670-atx":[
 "ASUS Prime X670-P WIFI6",
 "motherboard"
@@ -25909,11 +25952,11 @@
 "psu"
 ],
 "model:psu:1-atx3-leadex-1700w":[
-"Super Flower Leadex ATX3.1 1700W 80 PLUS Titanium",
+"Super Flower Leadex 1700W ATX3.1 Titanium",
 "psu"
 ],
 "model:psu:1-atx3-leadex-2200w":[
-"Super Flower Leadex ATX3.1 2200W 80 PLUS Titanium",
+"Super Flower Leadex 2200W ATX3.1 Titanium",
 "psu"
 ],
 "model:psu:1-atx3-leadex-2800w":[
@@ -26148,7 +26191,7 @@
 "Corsair HX1200i SHIFT 1200W Platinum ATX 14cm",
 "psu"
 ],
-"model:psu:1600-noctua-prime-titanium-tx-1600w":[
+"model:psu:1600-1600-eu-noctua-prime-primetx-tx-1600w":[
 "Seasonic Prime TX-1600 Noctua 1600W 80 PLUS Titanium",
 "psu"
 ],
@@ -26644,6 +26687,18 @@
 "GAMDIAS Aura GP550 400W Black",
 "psu"
 ],
+"model:psu:b-edge-eg1000p-v2-1000w":[
+"LIAN LI EDGE Platinum V2 1000W EG1000P B",
+"psu"
+],
+"model:psu:b-edge-eg1200p-v2-1200w":[
+"LIAN LI EDGE Platinum V2 1200W EG1200P B",
+"psu"
+],
+"model:psu:b-edge-eg1350p-v2-1350w":[
+"LIAN LI EDGE Platinum V2 1350W EG1350P B",
+"psu"
+],
 "model:psu:coolermaster-fully-modular-v1000-1000w-full":[
 "CoolerMaster 1000W V1000 Fully Modular",
 "psu"
@@ -26654,6 +26709,18 @@
 ],
 "model:psu:da1650-1650w":[
 "SilverStone PSU 1650W DA1650 80+ Gold",
+"psu"
+],
+"model:psu:edge-eg1000p-v2-w-1000w":[
+"LIAN LI EDGE Platinum V2 1000W EG1000P W",
+"psu"
+],
+"model:psu:edge-eg1200p-v2-w-1200w":[
+"LIAN LI EDGE Platinum V2 1200W EG1200P W",
+"psu"
+],
+"model:psu:edge-eg1350p-v2-w-1350w":[
+"LIAN LI EDGE Platinum V2 1350W EG1350P W",
 "psu"
 ],
 "model:psu:edge-v2-1000w":[

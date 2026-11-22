@@ -1,6 +1,28 @@
 [
   {
     "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:223495",
+    "listing_b": "tms:PK8072007045600",
+    "title_a": "מעבד Intel Xeon 674X PK8072007045600 Tray",
+    "title_b": "מעבד Intel Xeon 674X",
+    "match_text_a": "223495 Intel Xeon 674X PK8072007045600 Tray",
+    "match_text_b": "PK8072007045600 Intel Xeon 674X"
+  },
+  {
+    "score": 100,
+    "category": "cpu",
+    "brand": "Intel",
+    "listing_a": "1pc:223496",
+    "listing_b": "tms:PK8071305502300",
+    "title_a": "מעבד Intel Xeon w3-2535 PK8071305502300 Tray",
+    "title_b": "מעבד Intel Xeon w3-2535",
+    "match_text_a": "223496 Intel Xeon w3-2535 PK8071305502300 Tray",
+    "match_text_b": "PK8071305502300 Intel Xeon w3-2535"
+  },
+  {
+    "score": 100,
     "category": "storage",
     "brand": "Kingston",
     "listing_a": "1pc:174979",
@@ -42,6 +64,39 @@
     "title_b": "מארז ללא ספק Asus Prime AP201 Tempered Glass Small Tower - צבע לבן",
     "match_text_a": "273082 Asus Prime AP201 Tempered Glass Small Tower -",
     "match_text_b": "273104 Asus Prime AP201 Tempered Glass Small Tower -"
+  },
+  {
+    "score": 95,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223489",
+    "listing_b": "1pc:223490",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-B שחור",
+    "title_b": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-W לבן",
+    "match_text_a": "223489 LIAN-LI EDGE Platinum V2 1000W EG1000P-B",
+    "match_text_b": "223490 LIAN-LI EDGE Platinum V2 1000W EG1000P-W"
+  },
+  {
+    "score": 95,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223491",
+    "listing_b": "1pc:223492",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-B שחור",
+    "title_b": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-W לבן",
+    "match_text_a": "223491 LIAN-LI EDGE Platinum V2 1200W EG1200P-B",
+    "match_text_b": "223492 LIAN-LI EDGE Platinum V2 1200W EG1200P-W"
+  },
+  {
+    "score": 95,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223493",
+    "listing_b": "1pc:223494",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-B שחור",
+    "title_b": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-W לבן",
+    "match_text_a": "223493 LIAN-LI EDGE Platinum V2 1350W EG1350P-B",
+    "match_text_b": "223494 LIAN-LI EDGE Platinum V2 1350W EG1350P-W"
   },
   {
     "score": 94,
@@ -97,6 +152,39 @@
     "title_b": "AMD Ryzen 7 5700X AM4 Tray",
     "match_text_a": "100-000000743 AMD Ryzen 7 5700 AM4 Tray",
     "match_text_b": "100-000000926 AMD Ryzen 7 5700X AM4 Tray"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:223485",
+    "listing_b": "1pc:223486",
+    "title_a": "מארז מחשב Antec CX M2 ARGB CXM2ARGB שחור",
+    "title_b": "מארז מחשב Antec CX M3 ARGB CXM3ARGB שחור",
+    "match_text_a": "223485 Antec CX M2 ARGB CXM2ARGB",
+    "match_text_b": "223486 Antec CX M3 ARGB CXM3ARGB"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:223485",
+    "listing_b": "tms:CXM2ARGB",
+    "title_a": "מארז מחשב Antec CX M2 ARGB CXM2ARGB שחור",
+    "title_b": "Antec CX M2 ARGB Case",
+    "match_text_a": "223485 Antec CX M2 ARGB CXM2ARGB",
+    "match_text_b": "CXM2ARGB Antec CX M2 ARGB Case"
+  },
+  {
+    "score": 90,
+    "category": "case",
+    "brand": "Antec",
+    "listing_a": "1pc:223486",
+    "listing_b": "tms:CXM3ARGB",
+    "title_a": "מארז מחשב Antec CX M3 ARGB CXM3ARGB שחור",
+    "title_b": "Antec CX M3 ARGB Case",
+    "match_text_a": "223486 Antec CX M3 ARGB CXM3ARGB",
+    "match_text_b": "CXM3ARGB Antec CX M3 ARGB Case"
   },
   {
     "score": 90,
@@ -251,6 +339,72 @@
     "title_b": "קירור נוזלי Corsair NAUTILUS II 360 RS ARGB בגודל 360mm שחור",
     "match_text_a": "222392 Corsair NAUTILUS 360 RS ARGB",
     "match_text_b": "CW-9061049-WW Corsair NAUTILUS II 360 RS ARGB 360mm"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223489",
+    "listing_b": "tms:EG1000P-B",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-B שחור",
+    "title_b": "ספק כוח Lian-Li EDGE Platinum V2 1000W שחור",
+    "match_text_a": "223489 LIAN-LI EDGE Platinum V2 1000W EG1000P-B",
+    "match_text_b": "EG1000P-B Lian-Li EDGE Platinum V2 1000W"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223490",
+    "listing_b": "tms:EG1000P-W",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1000W EG1000P-W לבן",
+    "title_b": "ספק כוח Lian-Li EDGE V2 1000W Platinum לבן",
+    "match_text_a": "223490 LIAN-LI EDGE Platinum V2 1000W EG1000P-W",
+    "match_text_b": "EG1000P-W Lian-Li EDGE V2 1000W Platinum"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223491",
+    "listing_b": "tms:EG1200P-B",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-B שחור",
+    "title_b": "ספק כוח Lian-Li EDGE V2 1200W Platinum שחור",
+    "match_text_a": "223491 LIAN-LI EDGE Platinum V2 1200W EG1200P-B",
+    "match_text_b": "EG1200P-B Lian-Li EDGE V2 1200W Platinum"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223492",
+    "listing_b": "tms:EG1200P-W",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1200W EG1200P-W לבן",
+    "title_b": "ספק כוח Lian-Li EDGE V2 1200W Platinum לבן",
+    "match_text_a": "223492 LIAN-LI EDGE Platinum V2 1200W EG1200P-W",
+    "match_text_b": "EG1200P-W Lian-Li EDGE V2 1200W Platinum"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223493",
+    "listing_b": "tms:EG1350P-B",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-B שחור",
+    "title_b": "ספק כוח Lian-Li EDGE V2 1350W Platinum שחור",
+    "match_text_a": "223493 LIAN-LI EDGE Platinum V2 1350W EG1350P-B",
+    "match_text_b": "EG1350P-B Lian-Li EDGE V2 1350W Platinum"
+  },
+  {
+    "score": 88,
+    "category": "psu",
+    "brand": "Lian Li",
+    "listing_a": "1pc:223494",
+    "listing_b": "tms:EG1350P-W",
+    "title_a": "ספק כוח LIAN-LI EDGE Platinum V2 1350W EG1350P-W לבן",
+    "title_b": "ספק כוח Lian-Li EDGE V2 1350W Platinum לבן",
+    "match_text_a": "223494 LIAN-LI EDGE Platinum V2 1350W EG1350P-W",
+    "match_text_b": "EG1350P-W Lian-Li EDGE V2 1350W Platinum"
   },
   {
     "kind": "duplicate_vendor",
@@ -922,7 +1076,7 @@
         "listing_key": "1pc:183308",
         "vendor_sku": "R9070XTGAMINGOC16",
         "title": "כרטיס מסך Gigabyte RX 9070 XT GAMING OC 16G GV-R9070XTGAMING-OC-16GD",
-        "price": 4762
+        "price": 4896
       },
       {
         "listing_key": "1pc:183298",
@@ -1135,6 +1289,28 @@
         "title": "לוח אם ASUS ProArt B760-CREATOR WIFI Intel LGA1700 B760 DDR5",
         "price": 1030,
         "alias_of": "ksp:277276"
+      }
+    ]
+  },
+  {
+    "kind": "duplicate_vendor",
+    "product_id": "model:motherboard:b760-ds3h-atx",
+    "category": "motherboard",
+    "vendor": "1pc",
+    "collapsed": true,
+    "offers": [
+      {
+        "listing_key": "1pc:207701",
+        "vendor_sku": "GB760DS3HGEN5",
+        "title": "לוח אם Gigabyte B760 DS3H GEN5",
+        "price": 544
+      },
+      {
+        "listing_key": "1pc:155070",
+        "vendor_sku": "155070",
+        "title": "לוח אם Gigabyte B760 DS3H",
+        "price": 675,
+        "alias_of": "1pc:207701"
       }
     ]
   },
@@ -8431,7 +8607,7 @@
         "vendor": "1pc",
         "vendor_sku": "221471",
         "title": "PowerColor RX 7600 8G-F/V2",
-        "price": 1896
+        "price": 1943
       }
     ],
     "model_code": "7600-8g-f-rx-v2"
@@ -8447,7 +8623,7 @@
         "vendor": "1pc",
         "vendor_sku": "90YV0LG2-M0NA00",
         "title": "כרטיס מסך ASUS Dual Radeon RX9060XT 16G GDDR6 בצבע שחור",
-        "price": 3286
+        "price": 3330
       },
       {
         "listing_key": "ivory:175549",
@@ -9088,7 +9264,7 @@
         "vendor": "1pc",
         "vendor_sku": "221534",
         "title": "Klevv DDR5 32GB (2x16GB) 6000 CL30 BOLT V Grey",
-        "price": 2479
+        "price": 2501
       }
     ],
     "model_code": "2x16gb-6000-bolt-cl30-v"
@@ -9281,7 +9457,7 @@
         "vendor": "1pc",
         "vendor_sku": "222244",
         "title": "זיכרון למחשב נייח GeIL ORION RGB DDR4 16GB (2x8GB) 3200 CL16 אפור",
-        "price": 681
+        "price": 691
       }
     ],
     "model_code": "2x8gb-3200-cl16-orion",
@@ -10033,6 +10209,13 @@
         "vendor_sku": "GB760DS3HGEN5",
         "title": "Gigabyte B760 DS3H GEN5",
         "price": 629
+      },
+      {
+        "listing_key": "1pc:155070",
+        "vendor": "1pc",
+        "vendor_sku": "155070",
+        "title": "לוח אם Gigabyte B760 DS3H",
+        "price": 675
       }
     ],
     "model_code": "b760-ds3h",
@@ -12174,7 +12357,7 @@
         "vendor": "1pc",
         "vendor_sku": "222482",
         "title": "כונן WD Green SN3000 M.2 NVMe SSD בנפח 2TB",
-        "price": 1324
+        "price": 1339
       },
       {
         "listing_key": "tms:WDS200T4G0E-00CPS0",
@@ -16180,138 +16363,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221429",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
-        "price": 652
-      },
-      {
-        "listing_key": "tms:12RSLIND1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
-        "price": 583
-      },
-      {
-        "listing_key": "yahav:11695",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F3B",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 580
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221425",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור 12RSLIND1F1B",
-        "price": 261
-      },
-      {
-        "listing_key": "tms:12RSLIND1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור",
-        "price": 233
-      },
-      {
-        "listing_key": "yahav:11688",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
-        "price": 235
-      }
-    ],
-    "model_code": "120mm-12rslind1f1b-blade-fan-flex-inf-lcd-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221426",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
-        "price": 270
-      },
-      {
-        "listing_key": "tms:12RSLIND1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
-        "price": 244
-      },
-      {
-        "listing_key": "yahav:11689",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F1W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Single Pack צבע לבן",
-        "price": 245
-      }
-    ],
-    "model_code": "120mm-blade-fan-flex-inf-lcd-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221430",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIND1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 610
-      },
-      {
-        "listing_key": "tms:12RSLIND1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIND1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
-        "price": 599
-      },
-      {
-        "listing_key": "yahav:11697",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIND1F3W",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
-        "price": 590
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIND1F3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -16439,6 +16490,138 @@
     "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
     "manufacturer_pn": [
       "12RSLIN1F3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221429",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
+        "price": 652
+      },
+      {
+        "listing_key": "tms:12RSLIND1F3B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack שחור",
+        "price": 583
+      },
+      {
+        "listing_key": "yahav:11695",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F3B",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 580
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221425",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור 12RSLIND1F1B",
+        "price": 261
+      },
+      {
+        "listing_key": "tms:12RSLIND1F1B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade שחור",
+        "price": 233
+      },
+      {
+        "listing_key": "yahav:11688",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+        "price": 235
+      }
+    ],
+    "model_code": "120mm-12rslind1f1b-blade-fan-flex-inf-lcd-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-lcd-reverse-sl-uni-120mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221426",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
+        "price": 270
+      },
+      {
+        "listing_key": "tms:12RSLIND1F1W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade לבן",
+        "price": 244
+      },
+      {
+        "listing_key": "yahav:11689",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F1W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Single Pack צבע לבן",
+        "price": 245
+      }
+    ],
+    "model_code": "120mm-blade-fan-flex-inf-lcd-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221430",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIND1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 610
+      },
+      {
+        "listing_key": "tms:12RSLIND1F3W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIND1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF LCD FLEX Reverse Blade 3-Pack לבן",
+        "price": 599
+      },
+      {
+        "listing_key": "yahav:11697",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIND1F3W",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF LCD Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
+        "price": 590
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIND1F3W"
     ]
   },
   {
@@ -17903,7 +18086,7 @@
         "vendor": "1pc",
         "vendor_sku": "R9070XTGAMINGOC16",
         "title": "כרטיס מסך Gigabyte RX 9070 XT GAMING OC 16G GV-R9070XTGAMING-OC-16GD",
-        "price": 4762
+        "price": 4896
       },
       {
         "listing_key": "1pc:183298",
@@ -17943,7 +18126,7 @@
         "vendor": "1pc",
         "vendor_sku": "R907XGAMINGOCICE16GD",
         "title": "כרטיס מסך Gigabyte Radeon RX 9070 XT GAMING OC ICE 16G",
-        "price": 4719
+        "price": 4852
       },
       {
         "listing_key": "ksp:491352",
@@ -18023,7 +18206,7 @@
         "vendor": "1pc",
         "vendor_sku": "R906XGAMINGOCICE16GD",
         "title": "כרטיס מסך Gigabyte Radeon RX 9060 XT GAMING OC ICE 16G",
-        "price": 3330
+        "price": 3397
       },
       {
         "listing_key": "ksp:491305",
@@ -19562,7 +19745,7 @@
         "vendor": "1pc",
         "vendor_sku": "90YV0L71-M0NA00",
         "title": "כרטיס מסך ASUS Prime Radeon RX 9070 OC Edition 16GB GDDR6",
-        "price": 4494
+        "price": 4852
       },
       {
         "listing_key": "ivory:128658",
