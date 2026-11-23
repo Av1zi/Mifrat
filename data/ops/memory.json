@@ -267,7 +267,7 @@
 "1pc:140888":"model:storage:0tb-2-8-cssd-f8000gbmp600pxt-m-mp600-nvme-pcie4x4-pro-ssd-xt-8000gb-m2pcie-m22280",
 "1pc:140889":"model:psu:0-atx3-1300w",
 "1pc:140890":"model:aio:360-kraken-360mm-black",
-"1pc:140898":"model:case_fan:120-f120rgb-120mm-3-rgb-white",
+"1pc:140898":"model:case_fan:f120rgb-fans-triple-120mm-3-rgb-white",
 "1pc:140901":"model:case_fan:f140-fan-retail-single-140mm-1-rgb-black",
 "1pc:140902":"model:case_fan:f120rgb-120mm-rgb-white",
 "1pc:140904":"model:case:elite-h9-white",
@@ -465,7 +465,7 @@
 "1pc:158563":"model:cpu:5600gt-tray",
 "1pc:158569":"model:cpu:8500g-tray-ryzen5",
 "1pc:158572":"model:case_fan:120p-coolermaster-mobius-120mm-rgb-black",
-"1pc:158630":"model:storage:2-m-nm790-4000gb-pciegen4x4-m22280",
+"1pc:158630":"model:storage:lnm790-series-4000gb-pciem2-m2",
 "1pc:158631":"model:storage:790-lnm-2000gb-pciegen4x4-m22280",
 "1pc:158633":"model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
 "1pc:158634":"model:storage:2-m-nm710-1000gb-pciegen4x4-m22280",
@@ -593,7 +593,7 @@
 "1pc:165979":"model:psu:1-atx3-hcg1200-hcg1200prop-pro-1200w",
 "1pc:165980":"model:psu:1-atx3-hcg850-hcg850prop-pro-850w",
 "1pc:165981":"model:psu:1-1-3-5-active-pfc-series-sf850x-sfx-850w-black",
-"1pc:166030":"model:storage:t705-1000gb-m2pcie-m22280",
+"1pc:166030":"model:storage:t705-1000gb-nvme-m22280",
 "1pc:166033":"model:memory:ddr5-pro-32gb-x1-5600mhz-cl46-black-dimm",
 "1pc:166034":"mpn:storage:ct1000t500ssd8",
 "1pc:166036":"model:memory:ddr5-pro-16gb-6000mhz-cl36-dimm",
@@ -717,6 +717,7 @@
 "1pc:171792":"model:case_fan:140mm-light-lx-pack-pwm-triple-wings-140mm-3-rgb-black",
 "1pc:171793":"model:case_fan:120mm-light-lx-pack-pwm-triple-white-wings-120mm-3-rgb-white",
 "1pc:171794":"model:case_fan:bl120-light-lx-pwm-wings-120mm-rgb-black",
+"1pc:171796":"model:case_fan:b15-coolleo-n28-pwm-120mm",
 "1pc:171797":"mpn:accessories:clssdv3b",
 "1pc:171798":"mpn:accessories:clssdv1",
 "1pc:171800":"model:aio:360-bk-dig-fairy-ice-lite-360mm",
@@ -966,7 +967,7 @@
 "1pc:179736":"model:motherboard:a-b850-gaming-rog-strix-wifi-atx",
 "1pc:179737":"model:motherboard:b850-f-gaming-rog-strix-wifi-atx",
 "1pc:179738":"model:motherboard:b850-e-gaming-rog-strix-wifi-atx",
-"1pc:179756":"mpn:gpu:arcb580milestone12g",
+"1pc:179756":"model:gpu:arc-b580-12gb",
 "1pc:179759":"model:motherboard:a520m-challenger-k-microatx",
 "1pc:179760":"model:motherboard:b450m-challenger-microatx",
 "1pc:179761":"model:motherboard:b650itx-esport-ice-wifi-microatx",
@@ -1423,7 +1424,7 @@
 "1pc:206169":"model:aio:360-bk-ice-monarch-vision-360mm-black",
 "1pc:206170":"model:aio:360-ice-monarch-vision-wt-360mm-white",
 "1pc:206171":"model:aio:360-apex-bk-cooler-ice-pro-vision-water-360mm",
-"1pc:206172":"model:aio:ice-apex-vision-pro-360-wt-360mm",
+"1pc:206172":"model:aio:360-apex-cooler-ice-pro-vision-water-wt-360mm",
 "1pc:206173":"model:memory:5600-cl40-ram-sodimm-16gb-x1-5600mhz-cl40-sodimm",
 "1pc:206281":"model:motherboard:aorus-elite-wifi7-x870m-microatx",
 "1pc:206331":"model:case:011-case-dynamic-full-pc-tower-white",
@@ -2367,7 +2368,7 @@
 "1pc:222511":"model:motherboard:b860m-gaming-plus-wifi6e-microatx",
 "1pc:222535":"model:storage:m461-spatium-1000gb-pciexpress40",
 "1pc:222536":"model:motherboard:a620am-b-evo-pro-microatx",
-"1pc:222538":"model:storage:5100-optimus-500gb-pcie4-m22280",
+"1pc:222538":"model:storage:5100-optimus-500gb-pciegen40-m22280",
 "1pc:222692":"model:motherboard:carbon-max-mpg-wifi-x870e-atx",
 "1pc:222698":"model:memory:rgb-venom-viper-32gb-x2-6400mhz-cl32-rgb-dimm",
 "1pc:222748":"model:motherboard:a-b760m-ii-prime-wifi-microatx",
@@ -2412,7 +2413,7 @@
 "1pc:222832":"model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm",
 "1pc:222833":"model:memory:2-cp2k16g64c32u5w-32gb-x2-6400mhz-cl32-white",
 "1pc:222834":"mpn:memory:cmk32gx5m2x7000c34",
-"1pc:222835":"model:memory:32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-white-dimm",
+"1pc:222835":"model:memory:2-32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-black-dimm",
 "1pc:222836":"model:memory:2x16gb-6000-cl30-dominator-titanium-32gb-x2-6000mhz-cl30-rgb-black-dimm",
 "1pc:222837":"model:memory:2-cmk32gx5m2b6400z32-32gb-cl32-grey",
 "1pc:222838":"model:memory:2-32-kf564c32bweak2-32gb-cl32-rgb-black",
@@ -2479,7 +2480,7 @@
 "1pc:223068":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-white-dimm",
 "1pc:223069":"model:memory:2x16gb-6000mt-cl38-s-vengeance-32gb-x2-6000mhz-cl38-rgb-grey-dimm",
 "1pc:223075":"model:memory:2-24gb-48gb-ax5cu9200c4224g-cudimm-dclacrsg-ddr5-grey-lancer-rgb-silver-xpg-48gb-8400mhz-rgb-silver-dimm",
-"1pc:223086":"model:gpu:5060-8gd-gv-n506teaglemax-oc-rtx-ti-8gb",
+"1pc:223086":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
 "1pc:223087":"model:gpu:16g-16gd-9070-gaming-gv-r9070gaming-radeon-rx-16gb",
 "1pc:223096":"model:memory:ad4s320038g22-dimm-premier-sgn-so-8gb-3200mhz-cl22-sodimm",
 "1pc:223115":"model:memory:32gb-ct32g56c46s5-ct32g56c46s5-ddr5-dimm-sk-so-32gb-x1-5600mhz-sodimm",
@@ -2529,6 +2530,7 @@
 "1pc:223497":"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm",
 "1pc:223498":"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
 "1pc:223513":"model:cooler_air:360-argb-matrix-omni-black",
+"1pc:223523":"model:gpu:4gd3v2-730-geforce-gt-n730",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
@@ -2762,7 +2764,7 @@
 "1pc:97480":"model:case:05-5-argb-coolermaster-kgnn-l5s3-lite-masterbox-mcw-black",
 "1pc:97481":"model:case:2x120mm-3x120mm-aorus-c700-fans-tg-black",
 "1pc:98615":"model:gpu:2270-512m-amd-ex1-firepro-pci",
-"1pc:98825":"model:motherboard:aorus-ultra-z590-atx",
+"1pc:98825":"model:motherboard:aorus-gz590aorusu-ultra-z590-atx",
 "1pc:98831":"model:case:011-011dmini-atx-case-dynamic-mini-pc-pc-s-snow-white",
 "1pc:99114":"model:cpu:11400f-tray",
 "1pc:99384":"model:memory:32g-jm3200hse-32gb-3200mhz-cl22-sodimm",
@@ -3447,7 +3449,7 @@
 "ivory:173653":"model:memory:2x16gb-6000-cl28-urban-v-32gb-x2-6000mhz-cl28-rgb-black",
 "ivory:173656":"model:memory:2x16gb-6000-cl30-fit-v-32gb-x2-6000mhz-cl30-white",
 "ivory:173665":"model:gpu:5070-geforce-ichill-rtx-x3-12gb",
-"ivory:173740":"model:storage:5100-optimus-500gb-pcie4-m22280",
+"ivory:173740":"model:storage:5100-optimus-500gb-pciegen40-m22280",
 "ivory:173785":"mpn:storage:lnm620x001trnnng",
 "ivory:173788":"model:storage:2280-5-t710-2000gb-m2pcie-m22280",
 "ivory:175075":"model:motherboard:aero-wood-x3d-x870e-atx",
@@ -4346,7 +4348,7 @@
 "ksp:416792":"model:case:4500x-frame-rs-white",
 "ksp:417000":"model:cpu:ryzen59500f-tray",
 "ksp:417715":"model:psu:1600t3-gaming-rog-thor-1600w-black",
-"ksp:418681":"model:memory:32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-white-dimm",
+"ksp:418681":"model:memory:2-32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-black-dimm",
 "ksp:418978":"model:motherboard:b850m-pulse-wifi-microatx",
 "ksp:418991":"model:motherboard:b850m-nitro-wifi-microatx",
 "ksp:418994":"model:motherboard:b650m-e-microatx",
@@ -5784,7 +5786,7 @@
 "plonter:GV-N5060WF2MAX-OC-8GD":"model:gpu:5060-8g-8gd-geforce-gv-max-n5060wf2max-oc-oc-rtx-windforce-8gb",
 "plonter:GV-N5060WF2MAX-OCV2-8GD":"model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb",
 "plonter:GV-N5060WF2OC-8GD":"model:gpu:5060-8g-8gd-geforce-gv-n5060wf2oc-oc-rtx-windforce-8gb",
-"plonter:GV-N506TEAGLEMAX-OC-8GD":"model:gpu:5060-8gd-gv-n506teaglemax-oc-rtx-ti-8gb",
+"plonter:GV-N506TEAGLEMAX-OC-8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
 "plonter:GV-N506TEAGLEOC-8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
 "plonter:GV-N506TEAGLEOC-ICE-8GD":"model:gpu:5060-8g-eagle-geforce-ice-oc-rtx-ti-8gb",
 "plonter:GV-N506TGAMING-OC-8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
@@ -6081,7 +6083,7 @@
 "plonter:KF564S38IBK2-32":"mpn:memory:kf564s38ibk232",
 "plonter:KF568C34BBEAK2-32":"mpn:memory:kf568c34bbeak232",
 "plonter:KF568C34BBEK2-32":"model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm",
-"plonter:KF568C34BWEAK2-32":"model:memory:32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-white-dimm",
+"plonter:KF568C34BWEAK2-32":"model:memory:2-32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-black-dimm",
 "plonter:KF568C34BWEK2-32":"mpn:memory:kf568c34bwek232",
 "plonter:KF572C38RSAK2-32":"mpn:memory:kf572c38rsak232",
 "plonter:KF572C38RSK2-32":"mpn:memory:kf572c38rsk232",
@@ -6209,7 +6211,7 @@
 "plonter:LNM620X512G-RNNNG":"mpn:storage:lnm620x512grnnng",
 "plonter:LNM790X001T-RNNNG":"model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
 "plonter:LNM790X002T-RNNNG":"model:storage:790-lnm-2000gb-pciegen4x4-m22280",
-"plonter:LNM790X004T-RNNNG":"model:storage:2-m-nm790-4000gb-pciegen4x4-m22280",
+"plonter:LNM790X004T-RNNNG":"model:storage:lnm790-series-4000gb-pciem2-m2",
 "plonter:LNM790X008T-RNNNG":"model:storage:790-gen4x4-lnm-lnm790x008t-rnnng-8000gb-pcie4-m22280",
 "plonter:LNM990X001T-RNNNG":"model:storage:nm990-1000gb-pciecard-m22280",
 "plonter:LNM990X004T-RNNNG":"mpn:storage:lnm990x004trnnng",
@@ -6739,7 +6741,7 @@
 "plonter:SAT5210-3840G":"mpn:storage:sat52103840g",
 "plonter:SB-RKT4P-8TB":"mpn:storage:sbrkt4p8tb",
 "plonter:SDSP51100TAN-000E0":"model:storage:5100-optimus-1000gb-pciegen40-m22280",
-"plonter:SDSP51500GAN-000E0":"model:storage:5100-optimus-500gb-pcie4-m22280",
+"plonter:SDSP51500GAN-000E0":"model:storage:5100-optimus-500gb-pciegen40-m22280",
 "plonter:SE-207-XT-ADVANCED":"mpn:cooler_air:se207xtadvanced",
 "plonter:SE-207-XT-SLIM":"mpn:cooling_other:se207xtslim",
 "plonter:SE-214-XT":"mpn:cooler_air:se214xt",
@@ -8108,7 +8110,7 @@
 "tms:CT1000E100SSD8-T":"model:storage:0-1tb-2-2280-4-bulk-ct1000e100ssd8-e100-gen4-m-nvme-pcie-ssd-t-1000gb-m2pcie-m22280",
 "tms:CT1000P510SSD5":"model:storage:2280-ct1000p510ssd5-p510-1000gb-m2pcie-m22280",
 "tms:CT1000P510SSD8":"model:storage:2280-ct1000p510ssd8-p510-1000gb-pcie5-m22280",
-"tms:CT1000T705SSD3":"model:storage:t705-1000gb-m2pcie-m22280",
+"tms:CT1000T705SSD3":"model:storage:t705-1000gb-nvme-m22280",
 "tms:CT2000E100SSD8":"model:storage:0-2280-4-e100-2000gb-pcie4-m22280",
 "tms:CT2000P310SSD8":"mpn:storage:ct2000p310ssd8",
 "tms:CT2000P510SSD8":"model:storage:2280-ct2000p510ssd8-p510-2000gb-m22280-m22280",
@@ -8577,7 +8579,7 @@
 "tms:GX870MAORUSELITEWIFI7I":"model:motherboard:aorus-elite-wifi7-x870m-microatx-2",
 "tms:GZ490AORUSM":"model:motherboard:aorus-gz490aorusm-master-z490-atx",
 "tms:GZ490AORUSXT":"model:motherboard:aorus-gz490aorusxt-xtreme-z490-eatx",
-"tms:GZ590AORUSU":"model:motherboard:aorus-ultra-z590-atx",
+"tms:GZ590AORUSU":"model:motherboard:aorus-gz590aorusu-ultra-z590-atx",
 "tms:GZ690AORUSELITEDDR4":"model:motherboard:aorus-elite-gz690aoruseliteddr4-z690-atx",
 "tms:GZ690MDS3HDDR4":"model:motherboard:ds3h-z690m-microatx",
 "tms:GZ790AORUSELITEAX":"model:motherboard:aorus-ax-elite-z790-atx",
@@ -8921,7 +8923,7 @@
 "tms:N5060WF2OC8GD":"model:gpu:5060-8g-8gd-geforce-gv-n5060wf2oc-oc-rtx-windforce-8gb",
 "tms:N506TAEROOC16GD":"model:gpu:16g-16gd-5060-aero-geforce-gv-n506taero-oc-oc-rtx-ti-16gb",
 "tms:N506TAEROOC8GD":"model:gpu:5060-8g-8gd-aero-geforce-gv-n506taero-oc-oc-rtx-ti-8gb",
-"tms:N506TEAGLEMAXOC8GD":"model:gpu:5060-8gd-gv-n506teaglemax-oc-rtx-ti-8gb",
+"tms:N506TEAGLEMAXOC8GD":"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb",
 "tms:N506TEAGLEOC16GD":"model:gpu:16g-16gd-5060-eagle-geforce-gv-n506teagle-oc-oc-rtx-ti-16gb",
 "tms:N506TEAGLEOC8GD":"model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb",
 "tms:N506TEAGLEOCICE8G":"model:gpu:5060-8gd-eagle-geforce-gv-ice-n506teagleoc-oc-rtx-ti-8gb",
@@ -9183,7 +9185,7 @@
 "tms:RF-D14SF-W1":"model:case_fan:dual-duo-f140-fan-sided-140mm-rgb-white",
 "tms:RF-P12SF-W1":"model:case_fan:fan-fp120p-pressure-retail-single-static-120mm-1-white",
 "tms:RF-R12SF-W1":"model:case_fan:f120rgb-120mm-rgb-white",
-"tms:RF-R12TF-W1":"model:case_fan:120-f120rgb-120mm-3-rgb-white",
+"tms:RF-R12TF-W1":"model:case_fan:f120rgb-fans-triple-120mm-3-rgb-white",
 "tms:RF-R14SF-B1":"model:case_fan:f140-fan-retail-single-140mm-1-rgb-black",
 "tms:RL-KN240-B1":"model:aio:240-aio-display-kraken-lcd-240mm",
 "tms:RL-KR240-B1":"model:aio:240-aio-display-kraken-lcd-240mm-rgb",
@@ -10079,7 +10081,7 @@
 "yahav:11696":"model:case_fan:3-fan-flex-inf-lcd-sl-uni-120mm-3-rgb-white",
 "yahav:11697":"model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-white",
 "yahav:11700":"model:motherboard:1851-ddr5-gaming-hdmi-itx-lga-mini-rog-strix-thunderbolt-wifi-z890i-miniitx",
-"yahav:11701":"model:storage:5100-optimus-500gb-pcie4-m22280",
+"yahav:11701":"model:storage:5100-optimus-500gb-pciegen40-m22280",
 "yahav:11702":"model:case:501-base-bg073-pure-black",
 "yahav:11703":"model:gpu:16gb-2xdp-9060-gddr6-hdmi-hellhound-radeon-rx-spectral-white-xt-16gb",
 "yahav:11711":"model:gpu:02-11348-20g-9070-gaming-oc-pure-rx-xt-16gb",
@@ -10358,7 +10360,7 @@
 "yahav:8478":"model:case_fan:f120rgb-120mm-rgb-white",
 "yahav:8479":"model:case_fan:f140-fan-retail-single-140mm-1-rgb-black",
 "yahav:8480":"model:case_fan:f140-fan-retail-single-120mm-1-rgb-white",
-"yahav:8481":"model:case_fan:120-f120rgb-120mm-3-rgb-white",
+"yahav:8481":"model:case_fan:f120rgb-fans-triple-120mm-3-rgb-white",
 "yahav:8491":"model:case_fan:4pin-storm-120mm",
 "yahav:8492":"model:cooler_air:120-120mm-1550rpm-17cfm-245w-66-argb-assassin-peerless-se-tdp-white-120mm-white",
 "yahav:8507":"model:case_fan:3-bl066-pwm-shadow-wings-120mm-black",
@@ -10424,7 +10426,7 @@
 "yahav:9039":"model:case_fan:2-bl047-pure-wings-140mm-black",
 "yahav:9052":"model:case_fan:120-3-3x120mm-al120-controller-fan-pack-rgb-rgb-series-triple-uni-uni-v2-white-120mm-3-rgb-white",
 "yahav:9060":"model:cpu:8600g",
-"yahav:9079":"model:storage:2-m-nm790-4000gb-pciegen4x4-m22280",
+"yahav:9079":"model:storage:lnm790-series-4000gb-pciem2-m2",
 "yahav:9095":"model:motherboard:b760-dp-gaming-hdmi-lga1700-wifi-atx",
 "yahav:9104":"model:case:1-1x140mm-3x140mm-display-fans-ft-full-performance-temp-tower-white",
 "yahav:9105":"model:case:1-1x120mm-3x140mm-fans-full-performance-silent-tower-black",
@@ -12341,10 +12343,6 @@
 ],
 "model:aio:h115i-icue-pro-xt-280mm-black":[
 "Corsair H115I PRO XT 280mm RGB Black",
-"aio"
-],
-"model:aio:ice-apex-vision-pro-360-wt-360mm":[
-"Coolleo ICE Realm VIS 360mm White",
 "aio"
 ],
 "model:aio:illusion-ml240-240mm-black":[
@@ -15323,10 +15321,6 @@
 "Noctua NF-F12 Chromax.black.swap 120mm PWM Black",
 "case_fan"
 ],
-"model:case_fan:120-f120rgb-120mm-3-rgb-white":[
-"NZXT FP120 Retail 120mm ARGB x3 White",
-"case_fan"
-],
 "model:case_fan:120-fan-fusion-120mm-1-rgb-black":[
 "Antec Fusion Single Retail 120mm ARGB Black",
 "case_fan"
@@ -16831,8 +16825,12 @@
 "Lian Li Cooler AL140V2-1W UNI 140mm ARGB White",
 "case_fan"
 ],
-"model:case_fan:b15-fan-n28-pwm-120mm-black":[
+"model:case_fan:b15-coolleo-n28-pwm-120mm":[
 "Coolleo N28-B15 120mm PWM Black",
+"case_fan"
+],
+"model:case_fan:b15-fan-n28-pwm-120mm-black":[
+"Coolleo N28-B15 120mm PWM Black (CL-N28-B15)",
 "case_fan"
 ],
 "model:case_fan:bionix-p120-pst-pwm-120mm-white":[
@@ -17017,6 +17015,10 @@
 ],
 "model:case_fan:f120rgb-120mm-rgb-white":[
 "NZXT F120RGB 120mm RGB White",
+"case_fan"
+],
+"model:case_fan:f120rgb-fans-triple-120mm-3-rgb-white":[
+"NZXT FP120 Retail 120mm ARGB x3 White",
 "case_fan"
 ],
 "model:case_fan:f14-fans-x3-140mm-3-rgb-black":[
@@ -19724,7 +19726,7 @@
 "gpu"
 ],
 "model:gpu:16gb-9070-gddr6-hellhound-resonance-rx-xt-16gb":[
-"PowerColor Hellhound Radeon RX 9070 XT 16GB (RX9070XT16G-LOCRES)",
+"PowerColor Hellhound Radeon RX 9070 XT 16GB",
 "gpu"
 ],
 "model:gpu:16gb-9070-gddr6-nitro-oc-phantomlink-polar-radeon-rx-xt-16gb":[
@@ -19784,11 +19786,11 @@
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060ti-8gb-eagle-gddr7-geforce-oc-rtx-8gb":[
-"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (GV-N506TEAGLE OC-8GD)",
+"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (N506TEAGLEOC8GD)",
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060ti-8gb-gaming-gddr7-geforce-oc-rtx-8gb":[
-"Gigabyte GeForce RTX 5060 Ti 8GB (N506TGAMINGOC8GD)",
+"Gigabyte GeForce RTX 5060 Ti 8GB",
 "gpu"
 ],
 "model:gpu:1xhdmi-3xdp-5060ti-8gb-gddr7-geforce-max-oc-rtx-windforce-8gb":[
@@ -20031,6 +20033,10 @@
 "PNY RTX 6000 Ada 48GB ECC",
 "gpu"
 ],
+"model:gpu:4gd3v2-730-geforce-gt-n730":[
+"MSI GeForce GT 730",
+"gpu"
+],
 "model:gpu:4x61q73041-a1000-lenovo-rtx-8gb":[
 "Lenovo GeForce RTX A1000 8GB",
 "gpu"
@@ -20065,6 +20071,10 @@
 ],
 "model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n5060eaglemax-oc-oc-rtx-8gb":[
 "Gigabyte Eagle GeForce RTX 5060 8GB (N5060EAGLEMAXOC8GD)",
+"gpu"
+],
+"model:gpu:5060-8g-8gd-eagle-geforce-gv-max-n506teaglemax-oc-oc-rtx-ti-8gb":[
+"Gigabyte Eagle GeForce RTX 5060 Ti 8GB (N506TEAGLEMAXOC8GD)",
 "gpu"
 ],
 "model:gpu:5060-8g-8gd-eagle-geforce-gv-n5060eagle-oc-oc-rtx-8gb":[
@@ -20129,10 +20139,6 @@
 ],
 "model:gpu:5060-8gd-gv-n5060wf2max-ocv2-rtx-8gb":[
 "Gigabyte Windforce GeForce RTX 5060 8GB (GV-N5060WF2MAX OCV2-8GD)",
-"gpu"
-],
-"model:gpu:5060-8gd-gv-n506teaglemax-oc-rtx-ti-8gb":[
-"Gigabyte GeForce RTX 5060 Ti 8GB (N506TEAGLEMAXOC8GD)",
 "gpu"
 ],
 "model:gpu:5060-aero-gddr7-oc-rtx-ti-8gb":[
@@ -20517,6 +20523,10 @@
 ],
 "model:gpu:arc-b50-pro-16gb":[
 "Intel Arc PRO B50 16GB",
+"gpu"
+],
+"model:gpu:arc-b580-12gb":[
+"MAXSUN Arc B580 12GB",
 "gpu"
 ],
 "model:gpu:dual-o8g-rx7600-v2-8gb":[
@@ -20980,7 +20990,7 @@
 "memory"
 ],
 "model:memory:1-1v-262pin-blister-cl46-sodimm-8gb-5600mhz-cl46-sodimm":[
-"Lexar 8GB DDR5 (1x8GB) 5600MHz CL46 (LD5S08G56C46ST-BGS)",
+"Lexar 8GB DDR5 (1x8GB) 5600MHz CL46",
 "memory"
 ],
 "model:memory:1-1v-2gx8-3-32gb-44800-5600mhz-cl46-ddr5-dimm-ecc-k4rah086vr-pc5-ram-samsung-u32gb56-32gb-5600mhz-cl46-dimm":[
@@ -21204,7 +21214,7 @@
 "memory"
 ],
 "model:memory:16gbx2-cl16-lpx-vengeance-32gb-3200mhz-cl16-white":[
-"Corsair 32GB DDR4 (2x16GB) 3200MHz CL16",
+"Corsair Vengeance LPX DDR4 32GB (2x16GB) 3200MHz CL16",
 "memory"
 ],
 "model:memory:16gbx2-elite-pver532g66c34kt-viper-32gb-rgb":[
@@ -21257,6 +21267,10 @@
 ],
 "model:memory:2-32-kf568c34bbek2-32gb-x2-6800mhz-cl34-black-dimm":[
 "Kingston Fury Beast X16GB DDR5 32GB (2x16GB) 6800MHz CL34",
+"memory"
+],
+"model:memory:2-32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-black-dimm":[
+"Kingston Fury Beast RGB DDR5 32GB (2x16GB) 6800MHz CL34 (KF568C34BWEAK2-32)",
 "memory"
 ],
 "model:memory:2-32k-ntshd5p64dp-32gb-cl32-black":[
@@ -21888,10 +21902,6 @@
 "memory"
 ],
 "model:memory:32-kf568c34bbeak2-32gb-x2-6800mhz-cl34-rgb-black-dimm":[
-"Kingston Fury Beast RGB DDR5 32GB (2x16GB) 6800MHz CL34",
-"memory"
-],
-"model:memory:32-kf568c34bweak2-32gb-x2-6800mhz-cl34-rgb-white-dimm":[
 "Kingston Fury Beast RGB DDR5 32GB (2x16GB) 6800MHz CL34",
 "memory"
 ],
@@ -23779,6 +23789,10 @@
 "Gigabyte Z490 Aorus Xtreme WIFI6",
 "motherboard"
 ],
+"model:motherboard:aorus-gz590aorusu-ultra-z590-atx":[
+"Gigabyte Z590 Aorus Ultra WIFI6",
+"motherboard"
+],
 "model:motherboard:aorus-gz690iaorusultra-ultra-z690i-miniitx":[
 "Gigabyte Z690I Aorus Ultra WIFI6",
 "motherboard"
@@ -23837,10 +23851,6 @@
 ],
 "model:motherboard:aorus-tachyon-z790-eatx":[
 "Gigabyte Z790 Aorus Tachyon WIFI6E",
-"motherboard"
-],
-"model:motherboard:aorus-ultra-z590-atx":[
-"Gigabyte Z590 Aorus Ultra WIFI6",
 "motherboard"
 ],
 "model:motherboard:aorus-ultra-z890i-miniitx":[
@@ -27375,10 +27385,6 @@
 "Lexar SSD LNM 790 1TB M.2 NVMe High Speed PCIe Gen4X4",
 "storage"
 ],
-"model:storage:2-m-nm790-4000gb-pciegen4x4-m22280":[
-"Lexar SSD LNM790 4TB m.2 NVME PCIe4X4",
-"storage"
-],
 "model:storage:2-m-nvme-pcie-vi3000-1000gb-pciexpressgen3singleportx4lanes-m2":[
 "Verbatim VI3000 1TB NVMe Gen3 M.2",
 "storage"
@@ -27827,7 +27833,7 @@
 "SanDisk Optimus 100MB S 1TB NVMe Gen4 M.2-2280",
 "storage"
 ],
-"model:storage:5100-optimus-500gb-pcie4-m22280":[
+"model:storage:5100-optimus-500gb-pciegen40-m22280":[
 "SanDisk Optimus 600MBS 500GB NVMe Gen4 M.2-2280",
 "storage"
 ],
@@ -28271,6 +28277,10 @@
 "Lexar SSD LNM620 512GB m.2 NVME PCIe3",
 "storage"
 ],
+"model:storage:lnm790-series-4000gb-pciem2-m2":[
+"Lexar LNM790 7400MB 4TB NVMe Gen4 M.2",
+"storage"
+],
 "model:storage:lns100-1000gb-sata-25":[
 "Lexar NS100 III 1TB SATA SSD 2.5\"",
 "storage"
@@ -28447,7 +28457,7 @@
 "Team Group T-Force Vulcan Z III 512GB SATA SSD 2.5-inch",
 "storage"
 ],
-"model:storage:t705-1000gb-m2pcie-m22280":[
+"model:storage:t705-1000gb-nvme-m22280":[
 "Crucial T705 1TB NVMe Gen5 M.2-2280",
 "storage"
 ],
