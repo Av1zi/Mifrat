@@ -990,17 +990,17 @@ NEGATIVE_CASES = [
     # Oct 2026 completeness pass (batch 3): generation, drive weight, the
     # grouped "Storage / Storage Type" cell and the cooler/fan wiring cell.
     {
-        # Hebrew בניין and Intel's own "Series N" wording name the same fact.
+        # An explicit legacy generation keeps its normalized label.
         "name": "a generation row reads whichever way the vendor spells it",
         "category": "cpu",
         "rows": {"דור המעבד": "דור 14"},
         "expect_specs": {"generation": "Gen 14"},
     },
     {
-        "name": "Intel's Series N is the same column, same shape",
+        "name": "Intel's Series N is not legacy Core generation N",
         "category": "cpu",
         "rows": {"דור המעבד": "Series 2"},
-        "expect_specs": {"generation": "Gen 2"},
+        "expect_specs": {"generation": "Series 2"},
     },
     {
         # A bare number is not proof of a generation: reading it would put an

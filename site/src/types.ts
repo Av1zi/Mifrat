@@ -126,6 +126,8 @@ export interface QaCase {
   collapsed?: boolean;
   /** Reviewed and marked "looks fine" in the local QA tool; the page skips it. */
   dismissed?: boolean;
+  /** An effective human override already supplies the rebuilt answer. */
+  fixed?: boolean;
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;

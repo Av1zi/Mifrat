@@ -18,7 +18,7 @@ from __future__ import annotations
 import math
 import re
 
-from .schema import FieldSpec
+from .schema import FieldSpec, field_map
 
 
 class InvalidValue(ValueError):
@@ -112,6 +112,44 @@ def gb_magnitude(value) -> float | None:
         return None
     number = first_number(str(value))
     return None if number is None else number * TB_IN_GB
+
+
+MEMORY_KIT_FIELDS = frozenset({"total_gb", "module_count", "module_size_gb"})
+_MEMORY_KIT_RE = re.compile(r"(?i)(?<![\d.])(\d{1,2})\s*[x×*]\s*(\d{1,4})\s*gb")
+_MEMORY_KIT_ALT_RE = re.compile(r"(?i)(?<![\d.])(\d{1,4})\s*gb\s*[x×*]\s*(\d{1,2})(?![\d.])")
+_MEMORY_KIT_HINT_RE = re.compile(r"(?i)\d\s*(?:gb\s*)?[x×*]\s*\d")
+
+
+def memory_kit_dimensions(value) -> tuple[int, int] | None:
+    """Explicit (count, GB per module); absent notation is not a quantity.
+
+    Ambiguous, unitless or self-contradictory kits raise InvalidValue so no
+    consumer can rescue an unrelated number from the same cell/quote.
+    """
+    if not isinstance(value, str):
+        return None
+    text = value
+    if re.search(r"\b(?:not|no|without|max(?:imum)?|up\s+to)\b|לא|ללא", text, re.I):
+        raise InvalidValue("negative/qualified memory capacity")
+    matches = [(m, int(m.group(1)), int(m.group(2))) for m in _MEMORY_KIT_RE.finditer(text)]
+    matches += [(m, int(m.group(2)), int(m.group(1))) for m in _MEMORY_KIT_ALT_RE.finditer(text)]
+    if not matches:
+        if _MEMORY_KIT_HINT_RE.search(text):
+            raise InvalidValue("memory kit lacks an explicit GB unit")
+        return None
+    if len(matches) != 1:
+        raise InvalidValue("ambiguous memory kit")
+    match, count, module = matches[0]
+    if text[match.end():match.end() + 1].isalpha():
+        raise InvalidValue("GB fragment is not a memory capacity unit")
+    remaining = text[:match.start()] + text[match.end():]
+    declared = [int(v) for v in re.findall(r"(?i)(?<![\w.])(\d{1,4})\s*gb\b", remaining)]
+    if any(total != count * module for total in declared):
+        raise InvalidValue("printed memory total contradicts kit arithmetic")
+    fields = field_map("memory")
+    to_int(count, fields["module_count"].lo, fields["module_count"].hi)
+    to_int(module, fields["module_size_gb"].lo, fields["module_size_gb"].hi)
+    return count, module
 
 
 def _number_to_float(token: str) -> float | None:
@@ -303,6 +341,14 @@ def coerce(field: FieldSpec, value, category: str | None = None):
     value = canonicalize(field, value, category)
     if is_placeholder(value):
         raise InvalidValue(f"placeholder after canonicalization: {value!r}")
+
+    if category == "memory" and field.name in MEMORY_KIT_FIELDS:
+        kit = memory_kit_dimensions(value)
+        if kit is not None:
+            count, module = kit
+            roles = {"module_count": count, "module_size_gb": module,
+                     "total_gb": count * module}
+            return to_int(roles[field.name], field.lo, field.hi)
 
     # A TB value in a _gb field is a unit conversion, not a parse: 2TB -> 2000.
     if _GB_FIELD_RE.search(field.name):

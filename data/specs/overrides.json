@@ -173,7 +173,8 @@
       "cache_mb": 128
     },
     "model:motherboard:afhm65-eth8ex-mining-motherboard": {
-      "form_factor": "Micro-ATX"
+      "form_factor": "Micro-ATX",
+      "socket": "On-board"
     },
     "model:motherboard:afb250-eth12ex-mining-motherboard": {
       "form_factor": "Micro-ATX"
@@ -217,12 +218,6 @@
     "model:cooler_air:2000rpm-250w-2x120mm-3-61-8cfm-argb-bk043-black-lx-pro-pure-rock-tdp-155mm-120mm-black": {
       "lighting": "ARGB"
     },
-    "model:case_fan:120mm-light-lx-pack-pwm-triple-wings-120mm-3-rgb-black": {
-      "rpm_max": 1600
-    },
-    "model:cooler_air:60cfm-fan-led-t120-85mm-120mm-black": {
-      "lighting": "RGB"
-    },
     "memory:ksp:ksp-313458": {
       "speed_mhz": 6400
     },
@@ -243,6 +238,189 @@
     },
     "manual:gpu:1pc-221469-yahav-11053": {
       "manufacturer": "PNY"
+    },
+    "model:memory:0-2x16gb-3-6400-cl30-trident-xmp-z5-32gb-x2-6400mhz-cl32-rgb-black": {
+      "cas_latency": 30
+    },
+    "model:storage:wd40efzz-4000gb-sata": {
+      "form_factor": "3.5\""
+    },
+    "model:storage:wd34purz-3000gb-sata": {
+      "form_factor": "3.5\""
+    },
+    "model:storage:24-7-ironwolf-nas-st2000vn003-2000gb-sata": {
+      "form_factor": "3.5\""
+    },
+    "model:memory:0-2x24gb-3-8800-cl42-manta-xfinity-xmp-48gb-x2-8800mhz-cl42-rgb-black": {
+      "module_size_gb": 24
+    },
+    "model:memory:3200-cl22-sodimm-16gb-x1-3200mhz-cl22-sodimm": {
+      "module_size_gb": 16
+    },
+    "model:gpu:4000-blackwell-pro-rtx-24gb": {
+      "memory_type": "GDDR7"
+    },
+    "model:storage:gp-vsd1tb-1000gb-usb": {
+      "form_factor": "External"
+    },
+    "model:cooler_air:120-chromax-nh-ram-u12s-158mm-120mm-black": {
+      "model": "NH-U12S chromax.black"
+    },
+    "model:cooler_air:120-chromax-nh-u12a-158mm-120mm-black": {
+      "model": "NH-U12A chromax.black"
+    },
+    "model:cooler_air:110-92-chromax-d9l-nh-110mm-92mm-black": {
+      "model": "NH-D9L chromax.black"
+    },
+    "model:case_fan:140-a14-chromax-nf-pwm-swap-140mm-1-black": {
+      "model": "NF-A14 PWM chromax.black.swap"
+    },
+    "model:case_fan:140-a14-chromax-nf-pwm-swap-140mm-1-black-2": {
+      "model": "NF-A14 PWM chromax.black.swap"
+    },
+    "model:cpu:14400": {
+      "thread_count": 16,
+      "part_numbers": [
+        "BX8071514400"
+      ]
+    },
+    "model:case_fan:140-a14x25r-chromax-g2-g2-nf-pwm-140mm-2-black": {
+      "model": "NF-A14x25r G2 PWM chromax.black"
+    },
+    "model:cpu:14900kf-tray": {
+      "integrated_graphics": "No",
+      "part_numbers": [
+        "CM8071505094018"
+      ]
+    },
+    "model:cpu:225": {
+      "max_memory_gb": 256,
+      "integrated_graphics": "Intel Graphics",
+      "part_numbers": [
+        "BX80768225"
+      ],
+      "generation": "Ultra Series 2"
+    },
+    "model:cpu:225-tray": {
+      "max_memory_gb": 256,
+      "integrated_graphics": "Intel Graphics",
+      "part_numbers": [
+        "AT8076806415"
+      ],
+      "generation": "Ultra Series 2"
+    },
+    "model:cpu:225f": {
+      "max_memory_gb": 256,
+      "part_numbers": [
+        "BX80768225F"
+      ],
+      "generation": "Ultra Series 2"
+    },
+    "model:cpu:225f-tray": {
+      "max_memory_gb": 256,
+      "part_numbers": [
+        "AT8076806416"
+      ],
+      "generation": "Ultra Series 2"
+    },
+    "model:cpu:14900k-tray-2": {
+      "thread_count": 32,
+      "ecc_support": true
+    },
+    "model:cpu:14700-tray": {
+      "ecc_support": true
+    },
+    "model:cpu:265f-tray": {
+      "max_memory_gb": 256
+    },
+    "model:gpu:9070-gddr6-oc-prime-rx-xt-16gb": {
+      "chipset": "Radeon RX 9070 XT"
+    },
+    "model:cpu:14600kf-tray": {
+      "part_numbers": [
+        "CM8071504821014"
+      ]
+    },
+    "model:cpu:245k": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "integrated_graphics": "Intel Graphics",
+      "ecc_support": true
+    },
+    "model:cpu:245k-tray": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "integrated_graphics": "Intel Graphics",
+      "ecc_support": true
+    },
+    "model:cpu:245kf": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "part_numbers": [
+        "BX80768245KF"
+      ]
+    },
+    "model:cpu:245kf-tray": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256
+    },
+    "model:cpu:235-tray": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "integrated_graphics": "Intel Graphics",
+      "ecc_support": true,
+      "part_numbers": [
+        "AT80768063F6"
+      ]
+    },
+    "model:cpu:245-tray": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "ecc_support": true,
+      "base_clock_ghz": 3.5
+    },
+    "model:cpu:250k": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "ecc_support": true
+    },
+    "model:cpu:250k-tray": {
+      "generation": "Ultra Series 2",
+      "max_memory_gb": 256,
+      "ecc_support": true,
+      "base_clock_ghz": 4.2,
+      "part_numbers": [
+        "AT807683B9B4886"
+      ]
+    },
+    "model:cpu:14700k": {
+      "ecc_support": true
+    },
+    "model:cpu:14700k-tray": {
+      "thread_count": 28,
+      "ecc_support": true,
+      "part_numbers": [
+        "CM8071504820721"
+      ]
+    },
+    "model:cpu:14900kf": {
+      "thread_count": 32
+    },
+    "model:cpu:14600kf-tray-2": {
+      "part_numbers": [
+        "CM8071504821014"
+      ]
+    },
+    "model:cpu:14700f": {
+      "thread_count": 28
+    },
+    "model:cpu:14700f-tray": {
+      "part_numbers": [
+        "CM8071504820816"
+      ]
+    },
+    "model:cpu:2400s-tray": {
+      "ecc_support": false
     }
   }
 }

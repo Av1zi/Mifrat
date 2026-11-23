@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-22",
+  "authorization": "Owner approved archival removal of obsolete QA entries during continued resolution.",
+  "reason": "Warnings retired by verified identity/spec code fixes or absent after rebuilt input; no active case reaches these dismissals, aliases followed. BL121 is now correctly manufacturer-sourced with no override.",
+  "qa_dismissed": {
+    "duplicate_vendor|model:case:1-ft-performance-black|tms": true,
+    "duplicate_vendor|model:motherboard:b760-creator-proart-wifi-atx|ksp": true,
+    "identity_merge|model:motherboard:7-b850a-nitro-wifi-atx|": true,
+    "identity_merge|model:motherboard:7-b850a-pure-wifi-atx|": true,
+    "identity_merge|model:motherboard:7-pure-wifi-x870a-atx|": true,
+    "identity_merge|model:motherboard:b850m-nitro-wifi-microatx|": true,
+    "identity_merge|model:motherboard:b850m-pure-wifi-microatx|": true,
+    "identity_merge|model:motherboard:e-h610m-pro-microatx|": true,
+    "identity_merge|model:motherboard:nitro-phantomlink-polar-x870ea-atx|": true,
+    "identity_merge|model:motherboard:nitro-phantomlink-x870ea-atx|": true,
+    "spec_conflict|manual:motherboard:ksp-338414-yahav-10002|audio": true,
+    "spec_conflict|manual:motherboard:ksp-338414-yahav-10002|ethernet": true,
+    "spec_conflict|manual:motherboard:ksp-338414-yahav-10002|wireless": true,
+    "spec_conflict|model:aio:240-a24-alpha2-se-240mm-black|model": true,
+    "spec_conflict|model:cpu:14400f|core_count": true,
+    "spec_conflict|model:cpu:14400|core_count": true,
+    "spec_conflict|model:cpu:14400|integrated_graphics": true,
+    "spec_conflict|model:cpu:14500|core_count": true,
+    "spec_conflict|model:cpu:14600kf|core_count": true,
+    "spec_conflict|model:cpu:14600k|core_count": true,
+    "spec_conflict|model:cpu:245kf|thread_count": true,
+    "spec_conflict|model:memory:0-2x16gb-3-6000-cl32-ripjaws-s5-xmp-32gb-x2-6000mhz-cl32-white|speed_mhz": true,
+    "spec_conflict|model:memory:0-2x16gb-3-6000-cl32-ripjaws-s5-xmp-32gb-x2-6000mhz-cl32-white|total_gb": true,
+    "spec_conflict|model:motherboard:b650e-gaming-i-rog-strix-wifi-miniitx|chipset": true,
+    "split_candidate|model:cpu:7980x|": true,
+    "variant_conflict|model:aio:360-aorus-aoruswxii360i-cooler-gp-gp-ice-ii-liquid-waterforce-x-360mm|": true,
+    "variant_conflict|model:aio:360-aorus-cooler-gp-ii-liquid-waterforce-x-360mm|": true,
+    "variant_conflict|model:case:216-lancool-black-2|": true,
+    "variant_conflict|model:case:216-lancool-black|": true,
+    "variant_conflict|model:psu:edge-v2-1000w-2|": true,
+    "variant_conflict|model:psu:edge-v2-1000w|": true,
+    "variant_conflict|model:psu:edge-v2-1200w-2|": true,
+    "variant_conflict|model:psu:edge-v2-1200w|": true,
+    "variant_conflict|model:psu:edge-v2-1350w-2|": true,
+    "variant_conflict|model:psu:edge-v2-1350w|": true
+  },
+  "overrides": {
+    "model:case_fan:120mm-light-lx-pack-pwm-triple-wings-120mm-3-rgb-black": {
+      "rpm_max": 1600,
+      "airflow_cfm": 51.5,
+      "noise_db": 25.5
+    }
+  },
+  "preserved": "All active decisions, blocked pairs, images and raw data; no budget increases."
+}

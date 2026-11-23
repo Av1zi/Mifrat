@@ -28,7 +28,8 @@ from pathlib import Path
 
 from .. import canon, labels, schema
 from ..merge import TIER_VENDOR, Fact, add_fact
-from ..values import InvalidValue, coerce, first_number, parse_range, to_int
+from ..values import (InvalidValue, coerce, first_number, memory_kit_dimensions,
+                      parse_range, to_int)
 
 SOURCE_DETAIL = "vendor:detail"
 SOURCE_META = "vendor:meta"
@@ -114,6 +115,16 @@ def _emit_by_key(facts: dict, category: str, key: str, value, source: str,
     if field is None:
         _record_gap(gaps, key)
         return
+    if category == "memory" and field.name == "total_gb":
+        try:
+            kit = memory_kit_dimensions(value)
+        except InvalidValue:
+            return
+        if kit is not None:
+            # Capacity-labelled rows also carry whole kits (Ivory "נפח:
+            # 2x16GB"). A scalar first-number read would call that 2GB.
+            _emit_memory_kit(facts, category, value, source)
+            return
     if field.type == "list_str" and isinstance(value, str) and "|" in value:
         # "DDR5 ECC REG | DDR5 ECC REG 3DS" / "USB Type-C | USB 3.2": a list
         # field keeps every token, a scalar field keeps the whole string and
@@ -159,7 +170,6 @@ _CACHE_SEGMENT_RE = re.compile(
 # '36MB ... Intel Smart Cache'). Only consulted when no L3 segment
 # printed, so 'SmartCache 36MB | L2 32MB' still fills both tiers.
 _SMART_CACHE_RE = re.compile(r"(?i)smart\s*cache")
-_KIT_RE = re.compile(r"(?i)(?<![\d.])(\d{1,2})\s*[x×*]\s*(\d{1,4})\s*gb")
 _LENGTH_RE = re.compile(r"(?i)\bL\s*=\s*(\d+(?:[.,]\d+)?)")
 
 # SATA port counts as vendor cells print them: '4x SATA 6Gb/s ports' (TMS /
@@ -344,15 +354,14 @@ def _emit_psu_conn_string(facts: dict, category: str, value, source: str) -> Non
 
 def _emit_memory_kit(facts: dict, category: str, value, source: str) -> None:
     """'2x16GB' -> module_count 2 + module_size_gb 16 + total_gb 32."""
-    text = str(value or "")
-    match = _KIT_RE.search(text)
-    if not match:
-        total = first_number(text)
-        if total is not None:
-            _emit(facts, category, "total_gb", total, source, 0.8)
+    try:
+        kit = memory_kit_dimensions(value)
+    except InvalidValue:
         return
-    count = int(match.group(1))
-    module = int(match.group(2))
+    if kit is None:
+        _emit(facts, category, "total_gb", value, source, 0.8)
+        return
+    count, module = kit
     _emit(facts, category, "module_count", count, source, 0.85)
     _emit(facts, category, "module_size_gb", module, source, 0.85)
     _emit(facts, category, "total_gb", count * module, source, 0.85)
@@ -1536,7 +1545,7 @@ def _emit_connectors_cell(facts: dict, category: str, value, source: str) -> Non
 
 
 def _emit_generation(facts: dict, category: str, value, source: str) -> None:
-    """'דור 14' / 'Series 2' -> `generation` ('Gen 14' / 'Gen 2').
+    """'דור 14' / 'Series 2' -> `generation` ('Gen 14' / 'Series 2').
 
     The vendor's own word is what makes the cell a generation: a bare number
     is left alone, so the column never holds an unexplained digit.
@@ -2030,9 +2039,11 @@ _MODEL_FROM_TITLE_CATEGORIES = frozenset(
     {"storage", "psu", "case", "motherboard", "gpu", "memory", "case_fan",
      "aio", "cooler_air"})
 # Words that describe the product class or finish rather than name the model.
+# A token inside a dotted model (chromax.black) is not standalone finish
+# prose. Preserve the compound instead of corrupting it to "chromax.".
 _MODEL_NOISE_RE = re.compile(
-    r"\b(?:\d+(?:\.\d+)?\s?(?:GB|TB|MB|W|MM|MHZ|\"|INCH)|"
-    r"SSD|HDD|NVME|M\.2|SATA\d*|III|PCIE(?:X\d+)?|GEN\d?|2\.5|3\.5|\d+\s?RPM|"
+    r"(?<!\.)\b(?:\d+(?:\.\d+)?\s?(?:GB|TB|MB|W|MM|MHZ|CFM|\"|INCH)|"
+    r"SSD|HDD|NVME|M\.2|SATA(?:\s*III|\d*)|PCIE(?:X\d+)?|GEN\d?|2\.5|3\.5|\d+\s?RPM|"
     r"5400|7200|10000|15000|"
     r"BLACK|WHITE|SILVER|GREY|GRAY|RED|BLUE|PINK|RGB|ARGB|"
     r"ATX|MATX|MICRO|MINI|ITX|DDR\d|80\+?|PLUS|BRONZE|GOLD|PLATINUM|"
@@ -2143,15 +2154,18 @@ def _ksp_fan_size(value):
 
 
 def _ksp_generation(value) -> str | None:
-    """'מעבד Intel Raptor Lake Refresh 14th Gen' -> 'Gen 14'; '... Series 2' -> 'Gen 2'.
+    """Explicit Core generations and Ultra series retain their own labels.
 
     Only an explicit generation number is read; a codename alone ("Zen 5")
     stays unknown rather than being guessed into a number.
     """
     text = str(value or "")
-    match = (re.search(r"\b(\d{1,2})(?:st|nd|rd|th)\s+gen\b", text, re.I)
-             or re.search(r"\b(?:gen|generation|series)\s*(\d{1,2})\b", text, re.I))
-    return f"Gen {int(match.group(1))}" if match else None
+    ordinal = re.search(r"\b(\d{1,2})(?:st|nd|rd|th)\s+gen\b", text, re.I)
+    if ordinal:
+        return f"Gen {int(ordinal.group(1))}"
+    if re.search(r"\b(?:gen|generation|series)\s*\d{1,2}\b", text, re.I):
+        return canon.canon_generation(text)
+    return None
 
 
 def _ksp_warranty_years(value) -> int | None:

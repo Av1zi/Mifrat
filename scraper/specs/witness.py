@@ -81,6 +81,14 @@ def refine_chipset_suffix(category: str | None, facts: dict) -> None:
 # nothing at all = basis "default" (identity reads it as Box, never a spec).
 _INTEL_BOX_PN = re.compile(r"^BX8\d")
 _INTEL_TRAY_PN = re.compile(r"^CM8\d")
+# Exact code verified in Intel ordering/compliance, not a rule about PK
+# prefixes (other PK/AT codes remain unknown without their own evidence).
+_VERIFIED_PACKAGING_CODES = {
+    "PK8071305502300": "tray",  # Xeon w3-2535, Shipping Media TRAY:
+    # https://www.intel.com/content/www/us/en/products/sku/236880/intel-xeon-w32535-processor-26-25m-cache-3-50-ghz/ordering.html
+    "PK8072007045600": "tray",  # Xeon 674X, Shipping Media TRAY:
+    # https://www.intel.com/content/www/us/en/products/sku/244338/intel-xeon-674x-processor-144m-cache-3-00-ghz/ordering.html
+}
 # AMD OPNs, with or without the dash after "100" (vendors print both).
 _AMD_BOX_PN = re.compile(r"^100-?\d{9,10}(?:BOX|WOF|WOZ|POF)$")
 _AMD_TRAY_PN = re.compile(r"^100-?\d{9,10}(?:MPK|TRAY)?$")
@@ -114,6 +122,8 @@ def part_number_packaging(value) -> str | None:
     """The maker's ordering code: Intel BX = Box, CM = Tray; AMD 100-...BOX/WOF
     = Box, 100-... bare or MPK = Tray."""
     key = re.sub(r"\s+", "", str(value or "").upper())
+    if key in _VERIFIED_PACKAGING_CODES:
+        return _VERIFIED_PACKAGING_CODES[key]
     if _INTEL_BOX_PN.match(key) or _AMD_BOX_PN.match(key):
         return "boxed"
     if _INTEL_TRAY_PN.match(key) or _AMD_TRAY_PN.match(key):

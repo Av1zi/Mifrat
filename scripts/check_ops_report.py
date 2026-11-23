@@ -31,6 +31,7 @@ import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -107,6 +108,19 @@ def self_test() -> int:
     def check(name: str, ok: bool, detail: str = "") -> None:
         if not ok:
             failures.append(f"{name}: {detail}")
+
+    # Fixed cases remain public history, not open operations findings.
+    qa = {"cases": [
+        {"kind": "spec_conflict", "fixed": False},
+        {"kind": "spec_conflict", "fixed": True},
+        {"kind": "spec_conflict", "dismissed": True},
+        {"kind": "core_gap"},
+    ]}
+    with patch.object(report, "_read_json", side_effect=lambda path, default:
+                      qa if path == report.SITE / "qa.json" else {}):
+        facts = report.catalog_facts({})
+    check("QA counts only open cases", facts["qa"] == {"core_gap": 1, "spec_conflict": 1},
+          f"{facts['qa']}")
 
     big = _skus(2000)                      # over every registry floor
 

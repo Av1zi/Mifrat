@@ -1,6 +1,7 @@
 import { loadQa, loadSpecReport } from "../api";
 import { formatPrice } from "../format";
 import { attributeLabel, categoryLabel, resultsCount, t, vendorLabel } from "../i18n";
+import { openQaCases } from "../qaCases";
 import { categoryHash, productHash } from "../state";
 import { setPageTitle } from "../titles";
 import type { Currency, Lang, QaCase, SpecReport } from "../types";
@@ -25,7 +26,7 @@ export async function renderQa(
   let identityCounts: Record<string, number> = {};
   try {
     const [qa, report] = await Promise.all([loadQa(), loadSpecReport()]);
-    cases = (qa.cases ?? []).filter((c) => !c.dismissed);
+    cases = openQaCases(qa.cases ?? []);
     specReport = report;
     identityCounts = qa.identity_counts ?? {};
   } catch (err) {

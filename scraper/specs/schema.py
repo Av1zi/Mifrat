@@ -259,9 +259,8 @@ CPU = (
     _f("series", "str", filterable=True, group="core",
        aliases=("series", "family"), he="סדרה", en="Series"),
     # TMS and 1PC print the lineup generation as its own row ("דור 14",
-    # "Series 2") — 69 rows with no home until now. canon_generation folds
-    # the three vendor spellings into one shape ("Gen N"); the generation
-    # word is required, so a bare number is never read as one.
+    # "Series 2"). canon_generation keeps series and legacy generation labels
+    # distinct; the explicit label is required, never just a bare number.
     _f("generation", "str", group="core",
        aliases=("generation", "cpu_generation", "processor_generation"),
        he="דור", en="Generation"),

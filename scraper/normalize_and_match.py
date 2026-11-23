@@ -773,6 +773,15 @@ def _adopt_ksp_model_rows(enriched: list[dict],
         # The saved spec table is the source (rows scraped before the spider
         # wrote `model_row` count too); `extra.model_row` is the fallback.
         specs = (e.get("vendor_meta") or {}).get("detail_specs")
+        # An explicit manufacturer's P/N is stronger evidence than a generic
+        # model row; preserve retailer uin and read the printed PN verbatim.
+        explicit_pn = str((specs or {}).get("P/N") or "").strip()
+        pn_key = identity.part_number_key(explicit_pn)
+        if (len(pn_key) >= 7 and re.search(r"[A-Z]", pn_key)
+                and re.search(r"\d", pn_key)):
+            e["mpn"] = explicit_pn
+            adopted += 1
+            continue
         row = str((specs or {}).get("דגם") or "").strip()
         if not row:
             extra = extra_index.get(("ksp", str(e.get("vendor_sku") or "").strip())) or {}
@@ -972,13 +981,16 @@ def build_catalog(today: datetime):
     # The last build's listing -> pid map, so a split keeps the bare pid on
     # the part that held it (pid stability, review 2 2026-11-12).
     previous_assignments: dict[str, str] = {}
+    previous_catalog = None
     try:
         with open(OUTPUT_PATH, encoding="utf-8") as previous_file:
-            for row in json.load(previous_file).get("listings") or []:
+            previous_catalog = json.load(previous_file)
+            for row in previous_catalog.get("listings") or []:
                 if row.get("listing_key") and row.get("product_id"):
                     previous_assignments[str(row["listing_key"])] = str(row["product_id"])
     except (OSError, ValueError):
         previous_assignments = {}
+        previous_catalog = None
     match_result = match_listings(enriched, manual_path=MANUAL_PATH,
                                   previous_assignments=previous_assignments)
 
@@ -987,6 +999,16 @@ def build_catalog(today: datetime):
 
     for e in enriched:
         e["product_id"] = assignments.get(e["listing_key"])
+
+    # Matching's internal aliases omit model-key renames between builds.
+    # Resolve previous listing holders now, not only in main() after specs:
+    # an old-pid override/extraction must reach its renamed product on the
+    # first build. The same resolver still refuses ambiguous split holders.
+    alias_catalog = {"products": match_result["products"], "listings": enriched,
+                     "pid_aliases": match_result.get("pid_aliases") or {}}
+    _carry_pid_aliases(alias_catalog, previous_catalog)
+    match_result["pid_aliases"] = alias_catalog["pid_aliases"]
+    previous_catalog = None
 
     # Specs: merge every offer's typed facts with the Tier-0 reference data,
     # manual overrides and cross-field validation, then re-derive the legacy

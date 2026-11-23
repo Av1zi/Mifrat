@@ -169,6 +169,8 @@ CHECKS: list[Check] = [
           py("scripts/check_golden_resolution.py"), BOTH),
     Check("tms_detail", CODE, "TMS detail-page parser (fixtures)", py("scripts/check_tms_detail.py"), BOTH),
     Check("spec_merge", CODE, "Spec merge-layer rules", py("scripts/check_spec_merge.py"), BOTH),
+    Check("qa_resolution", CODE, "QA enrichment identity and workbench rules",
+          py("scripts/check_qa_resolution.py"), BOTH),
     Check("categories_fixtures", CODE, "Category assignment fixtures",
           py("scripts/check_categories.py", "--self-test"), BOTH),
     Check("identity_fixtures", CODE, "Identity reader fixtures",

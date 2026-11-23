@@ -138,7 +138,9 @@ class MergeResult:
 # sort lifts a standard ("Wi-Fi 6E") above an affirmative; "No" is NOT an
 # affirmative and keeps its tier position — a board that reports no wireless
 # must never lose that to a title mention of Wi-Fi.
-_BARE_AFFIRMATIVE_FIELDS = frozenset({"wireless"})
+# Lighting's presence-only "Yes" likewise cannot establish RGB vs ARGB.
+# Keep an explicit type ahead of that compatible, less informative claim.
+_BARE_AFFIRMATIVE_FIELDS = frozenset({"wireless", "lighting", "led"})
 _AFFIRMATIVE_VALUES = frozenset(
     {"yes", "y", "true", "1", "wifi", "wi-fi", "wireless", "\u05db\u05df",
      "\u05d9\u05e9"})
@@ -251,20 +253,23 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
         # ("Ryzen 9 9950X3D") on tier alone.
         if name == "model" and len(accepted) > 1 and any(
                 model_name_preference(fact) == 0 for fact in accepted):
-            accepted.sort(key=lambda fact: (model_name_preference(fact),
-                                            model_number_preference(fact)))
+            accepted.sort(key=lambda fact: (fact.tier != TIER_OVERRIDE,
+                                             model_name_preference(fact),
+                                             model_number_preference(fact)))
 
         # A standard beats a bare "Yes" in the fields listed above (tier
         # order stays intact inside both groups; see _BARE_AFFIRMATIVE_FIELDS).
         if name in _BARE_AFFIRMATIVE_FIELDS and len(accepted) > 1:
-            accepted.sort(key=_bare_affirmative_rank)
+            accepted.sort(key=lambda fact: (fact.tier != TIER_OVERRIDE,
+                                            _bare_affirmative_rank(fact)))
 
         # GPU VRAM: a vendor page row can be wrong (Yahav listed 48GB on a
         # 96GB card whose title says 96GB; two of three vendors gave 12GB
         # for a 16GB RX 9070 XT while every title said 16GB). The explicit
         # "NNGB" in a title is the more reliable read, so it goes first.
         if category == "gpu" and name == "memory_gb" and len(accepted) > 1:
-            accepted.sort(key=lambda fact: fact.tier != TIER_TITLE)
+            accepted.sort(key=lambda fact: (fact.tier != TIER_OVERRIDE,
+                                            fact.tier != TIER_TITLE))
 
         winner = accepted[0]
         result.specs[name] = winner.value

@@ -113,7 +113,8 @@ BRANDS = {
     "geil": "GeIL", "v-color": "V-Color", "vcolor": "V-Color",
     # cooling / cases / power / storage
     "noctua": "Noctua", "be quiet": "be quiet!", "bequiet": "be quiet!",
-    "arctic": "ARCTIC", "thermalright": "Thermalright", "deepcool": "DeepCool",
+    "arctic": "ARCTIC", "arctic cooling": "ARCTIC",
+    "thermalright": "Thermalright", "deepcool": "DeepCool",
     "cooler master": "Cooler Master", "coolermaster": "Cooler Master",
     "lian li": "Lian Li", "lianli": "Lian Li", "nzxt": "NZXT",
     "fractal design": "Fractal Design", "fractal": "Fractal Design",
@@ -426,6 +427,10 @@ def canon_socket(value) -> str:
     text = re.sub(r"\s+", " ", str(value).strip()).upper()
     if not text:
         return text
+    # A manufacturer-stated soldered processor has no interchangeable
+    # socket. Keep that explicit answer instead of presenting a missing fact.
+    if re.fullmatch(r"(?:ON[- ]?BOARD|SOLDERED)(?:\s*\(SOLDERED\))?", text):
+        return "On-board"
     prefix = ""
     count = re.match(r"^(\d)\s*X\s+", text)
     if count:
@@ -609,8 +614,10 @@ def canon_gpu_memory_type(value) -> str:
 
 
 def canon_lighting(value) -> str:
-    """Lighting is a string facet; 'yes'/'no' become 'ARGB'/'No' only when the
-    vendor gave no standard, so the filter never shows 'yes' next to 'RGB'.
+    """Lighting presence is not a control standard: 'yes' stays 'Yes'.
+
+    Only an explicit addressable designation becomes ARGB. A generic
+    affirmative can be refined by a source that actually states the type.
 
     The negative form is "No", NOT "None": values.coerce drops anything the
     placeholder table lists (and "none" is one of them) right after
@@ -619,7 +626,9 @@ def canon_lighting(value) -> str:
     every lighting field in the catalog was missing its negative rows.
     """
     low = str(value).strip().lower()
-    if low in ("yes", "y", "true", "1", "argb", "addressable rgb"):
+    if low in ("yes", "y", "true", "1"):
+        return "Yes"
+    if low in ("argb", "addressable rgb"):
         return "ARGB"
     if low in ("no", "n", "false", "0", "none", "without", "non-rgb"):
         return "No"
@@ -663,15 +672,12 @@ def canon_speed_string(generation: int | str | None, mhz: int | float | None) ->
     return f"DDR{digit}-{int(mhz)}"
 
 
-# "דור 14" / "Generation 4" / "Series 2" / "Gen 3" -> "Gen N".
-#
-# Three vendors spell the same fact three ways — Hebrew בניין (TMS), Intel's
-# own "Series N" wording for Core Ultra (TMS), and a bare "Gen" — so the
-# column holds one shape. The generation word is REQUIRED: a cell that is just
-# a number ("4") is not proof of a generation, and passing it through would
-# put an unknown 4 in the column.
-_GENERATION_RE = re.compile(r"(?:\u05d3\u05d5\u05e8|generation|gen|series)\s*(\d{1,2})\b",
-                            re.I)
+# "דור 14" / "Generation 4" / "Gen 3" -> "Gen N". Intel Core Ultra's
+# "Series N" is a different lineup axis, not legacy Core generation N.
+# The explicit label is required; a bare number is not generation evidence.
+_GENERATION_RE = re.compile(r"(?:\u05d3\u05d5\u05e8|generation|gen)\s*(\d{1,2})\b",
+                             re.I)
+_SERIES_NUMBER_RE = re.compile(r"\bseries\s*(\d{1,2})\b", re.I)
 
 # "650W - 1100W" -> "650-1100W" (one shape for the series range column).
 _WATTAGE_RANGE_RE = re.compile(
@@ -679,8 +685,12 @@ _WATTAGE_RANGE_RE = re.compile(
 
 
 def canon_generation(value) -> str:
-    """Fold every vendor spelling of a lineup generation into "Gen N"."""
+    """Canonical labels without conflating Core Ultra series with Core gens."""
     text = str(value or "").strip()
+    series = _SERIES_NUMBER_RE.search(text)
+    if series:
+        prefix = "Ultra Series" if re.search(r"\bUltra\b", text, re.I) else "Series"
+        return f"{prefix} {int(series.group(1))}"
     match = _GENERATION_RE.search(text)
     if match:
         return f"Gen {int(match.group(1))}"
@@ -813,6 +823,8 @@ def canonicalize(field, value, category: str | None = None):
     """
     if field.name == "sockets":
         return canon_socket_list(value)
+    if field.name in ("lighting", "led") and isinstance(value, bool):
+        return canon_lighting(value)
     if field.name == "external_power" and isinstance(value, (list, tuple)):
         return [canon_power_plug(item) for item in value]
     if isinstance(value, (list, tuple, dict, int, float, bool)):

@@ -437,8 +437,9 @@ def load_overrides() -> dict:
     return _OVERRIDES_CACHE
 
 
-def overrides_for(product: dict) -> dict[str, list[Fact]]:
-    """Manual override facts for one product (highest tier).
+def override_entry_for(product: dict, *, overrides: dict | None = None,
+                       aliases: dict | None = None) -> tuple[str | None, dict]:
+    """The effective ledger key and entry, shared by specs and the QA tool.
 
     Overrides are keyed by product id, so an identity rework that renames the
     pid would silently drop them (every identity rework moves thousands of
@@ -447,18 +448,23 @@ def overrides_for(product: dict) -> dict[str, list[Fact]]:
     uses when the exact id misses.
     """
     category = product.get("category")
-    overrides = load_overrides()
-    entry = overrides.get(str(product.get("product_id") or ""))
+    overrides = load_overrides() if overrides is None else overrides
+    entry_key = str(product.get("product_id") or "")
+    entry = overrides.get(entry_key)
     if not isinstance(entry, dict):
         # A retired pid that aliases to this product (review 2, 2026-11-12):
         # the same resolver the extract store uses (previous build + this run).
         try:
             from ...extract import store as _store
-            olds = _store._alias_sources().get(str(product.get("product_id") or ""), ())
+            if aliases is None:
+                olds = _store._alias_sources().get(str(product.get("product_id") or ""), ())
+            else:
+                olds = sorted(str(old) for old, target in aliases.items()
+                              if _store._resolve(str(target), aliases) == entry_key)
         except ImportError:  # pragma: no cover
             olds = ()
-        entry = next((overrides[old] for old in olds if isinstance(overrides.get(old), dict)),
-                     None)
+        entry_key = next((old for old in olds if isinstance(overrides.get(old), dict)), None)
+        entry = overrides.get(entry_key) if entry_key is not None else None
     if not isinstance(entry, dict):
         entry = None
         if category:
@@ -484,14 +490,23 @@ def overrides_for(product: dict) -> dict[str, list[Fact]]:
                 if not key:
                     continue
                 for prefix in ("mpn", "sku"):
-                    found = overrides.get(f"{prefix}:{category}:{key}")
+                    candidate_key = f"{prefix}:{category}:{key}"
+                    found = overrides.get(candidate_key)
                     if isinstance(found, dict):
+                        entry_key = candidate_key
                         entry = found
                         break
                 if entry is not None:
                     break
     if not isinstance(entry, dict):
-        return {}
+        return None, {}
+    return entry_key, entry
+
+
+def overrides_for(product: dict) -> dict[str, list[Fact]]:
+    """Typed manual override facts for one product (highest tier)."""
+    category = product.get("category")
+    _, entry = override_entry_for(product)
     facts: dict[str, list[Fact]] = {}
     for key, value in entry.items():
         field = schema.field_for_key(category, key) or schema.field_map(category).get(key)
@@ -627,8 +642,9 @@ def _intersect_rows(rows: list[dict]) -> dict:
         return {}
     shared: dict = {}
     for key, value in (rows[0].get("specs") or {}).items():
-        if all(_agree(value, (row.get("specs") or {}).get(key)) for row in rows[1:]
-               if (row.get("specs") or {}).get(key) is not None):
+        if value is not None and all(
+                (row.get("specs") or {}).get(key) is not None
+                and _agree(value, row["specs"][key]) for row in rows[1:]):
             shared[key] = value
     return {"name": rows[0].get("name"), "cat": rows[0].get("cat"),
             "specs": shared, "variants": len(rows)}
@@ -718,6 +734,14 @@ def match_reference_row(category: str | None, query: str, known: dict,
 # different product on the shelf). From the Oct 2026 audit of fuzzy links.
 _FUZZY_VARIANT_FIELDS = frozenset({"color", "efficiency", "modular", "lighting", "led"})
 
+# Fan family names omit colour, speed grade and revision part numbers.
+# Diameter alone cannot prove SKU-specific performance. Non-exact reference
+# performance fills gaps, but cannot outrank an exact manufacturer sheet.
+_FUZZY_CATEGORY_FIELDS = {
+    "case_fan": frozenset({"rpm_min", "rpm_max", "airflow_cfm", "noise_db",
+                           "static_pressure_mmh2o", "quantity"}),
+}
+
 
 def reference_facts(category: str | None, row: dict,
                     confidence: float = 1.0,
@@ -740,7 +764,8 @@ def reference_facts(category: str | None, row: dict,
             typed = coerce(field, value, category)
         except InvalidValue:
             continue
-        tier = (TIER_REFERENCE if exact or field.name not in _FUZZY_VARIANT_FIELDS
+        variant_fields = _FUZZY_VARIANT_FIELDS | _FUZZY_CATEGORY_FIELDS.get(category, frozenset())
+        tier = (TIER_REFERENCE if exact or field.name not in variant_fields
                 else TIER_REFERENCE_FUZZY)
         add_fact(facts, field.name, Fact(value=typed, tier=tier,
                                          source=SOURCE_REFERENCE,

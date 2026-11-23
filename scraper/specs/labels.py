@@ -236,7 +236,7 @@ _CATEGORY_RAW: dict[str, dict[str, str]] = {
         "סוג מעבד": "series",
         # TMS/1PC print the lineup generation as its own row ("דור 14",
         # "Series 2", 69 rows). Hebrew value: the token reads the RAW cell and
-        # canon_generation folds every spelling into "Gen N".
+        # canon_generation preserves "Series N" separately from "Gen N".
         "דור המעבד": GENERATION_CELL,
         # Oct 2026 completeness pass (Ivory, 113 rows): the chipsets this CPU
         # drops into — the actual "does it fit my board" answer.

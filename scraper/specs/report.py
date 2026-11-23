@@ -17,6 +17,7 @@ import json
 import re
 
 from . import schema
+from .merge import same_value
 
 CORE_FIELDS = ("socket", "chipset", "memory_type", "wattage_w", "form_factor")
 
@@ -65,6 +66,8 @@ class CoverageReport:
         invalid_fields = {str(item.get("field")) for item in invalid}
         issue_fields = {str(item.get("field")) for item in issues if item.get("field")}
         for field in schema.field_names(category):
+            if not schema.applies(category, field, specs) or schema.answered(category, field, specs):
+                continue
             slot = bucket["fields"].setdefault(
                 field, {"filled": 0, "null": 0, "tier0": 0,
                         "source_distribution": {}, "unknown_reasons": {}})
@@ -100,7 +103,7 @@ class CoverageReport:
             self.source_distribution[source_group] = (
                 self.source_distribution.get(source_group, 0) + 1)
         for field in CORE_FIELDS:
-            if specs.get(field) is not None:
+            if schema.applies(category, field, specs) and specs.get(field) is not None:
                 bucket["core"][field] = bucket["core"].get(field, 0) + 1
 
         for gap in label_gaps or []:
@@ -115,14 +118,29 @@ class CoverageReport:
                 slot["products"].append(product_id)
 
         for conflict in conflicts:
-            self.conflicts.append({"product_id": product_id, "category": category,
-                                   **conflict})
+            payload = {"product_id": product_id, "category": category, **conflict}
+            payload.pop("fixed", None)
+            field = conflict.get("field")
+            if (sources.get(field) == "override" and specs.get(field) is not None
+                    and same_value(specs[field], _bare_value(conflict.get("kept")))):
+                payload["fixed"] = True
+            self.conflicts.append(payload)
         for dropped in invalid:
             self.invalid.append({"product_id": product_id, "category": category,
                                  **dropped})
         for issue in issues:
-            self.issues.append({"product_id": product_id, "category": category,
-                                **issue})
+            payload = {"product_id": product_id, "category": category, **issue}
+            if issue.get("kept_field"):
+                # Cross-checks may drop a value before evidence-backed
+                # inference fills it. Report the actual final field answer,
+                # not the supporting field's name or value as that answer.
+                payload["kept"] = specs.get(issue.get("field"))
+            payload.pop("fixed", None)
+            field = issue.get("field")
+            if (sources.get(field) == "override" and specs.get(field) is not None
+                    and same_value(specs[field], payload.get("kept"))):
+                payload["fixed"] = True
+            self.issues.append(payload)
 
     # -- output ------------------------------------------------------------
 
@@ -213,6 +231,14 @@ def _tokens(value) -> frozenset:
 
 
 def _wording_only(field, kept, dropped) -> bool:
+    if field in ("lighting", "led") and isinstance(kept, str) and isinstance(dropped, str):
+        # Presence and an explicit positive lighting type are compatible,
+        # not two competing standards. Full source conflicts stay in the
+        # spec report; real RGB/ARGB and positive/negative fights stay in QA.
+        for presence, specific in ((kept, dropped), (dropped, kept)):
+            tokens = _tokens(specific)
+            if presence.strip().lower() == "yes" and tokens and tokens <= {"rgb", "argb", "lcd", "led"}:
+                return True
     if field not in _WORDY_FIELDS or not isinstance(kept, str) or not isinstance(dropped, str):
         return False
     a, b = _tokens(kept), _tokens(dropped)
@@ -270,11 +296,15 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
             "kept": kept,
             "dropped": dropped,
             "offers": [],
+            **({"fixed": True} if conflict.get("fixed") else {}),
         }
         if _case_key(case) in seen:
             continue
         if case_id(case) in dismissed:
             add({**case, "dismissed": True})
+            continue
+        if case.get("fixed"):
+            add(case)
             continue
         if per_category is not None and taken.get(category, 0) >= per_category:
             continue
@@ -291,9 +321,13 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
             "field": issue.get("field"),
             "titles": [],
             "kept": issue.get("kept"),
+            "dropped": issue.get("dropped"),
             "detail": issue.get("detail"),
             "offers": [],
+            **({"fixed": True} if issue.get("fixed") else {}),
             **({"rule": issue["rule"]} if issue.get("rule") else {}),
+            **({"kept_field": issue["kept_field"], "kept_value": issue.get("kept_value")}
+               if issue.get("kept_field") else {}),
         }
         if case_id(case) in dismissed:
             case["dismissed"] = True

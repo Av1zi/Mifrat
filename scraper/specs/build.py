@@ -103,7 +103,8 @@ def reference_query(product: dict, specs: dict, category: str | None) -> str:
     return str(product.get("canonical_name") or "")
 
 
-def _pckombo_facts(category: str | None, pckombo: dict) -> dict[str, list[Fact]]:
+def _pckombo_facts(category: str | None, pckombo: dict,
+                   known: dict | None = None) -> dict[str, list[Fact]]:
     """Exact-MPN reference facts from the PC Kombo dataset (Tier 0)."""
     specs = pckombo.get("specs") if isinstance(pckombo, dict) else None
     if not isinstance(specs, dict):
@@ -113,7 +114,14 @@ def _pckombo_facts(category: str | None, pckombo: dict) -> dict[str, list[Fact]]
         for fact in value:
             facts.setdefault(key, []).append(
                 Fact(value=fact.value, tier=TIER_REFERENCE,
-                     source="reference:pckombo", confidence=0.95))
+                      source="reference:pckombo", confidence=0.95))
+    # An exact PN joins the item, not every erroneous fact in the external
+    # sheet. Refuse the sheet when its physical anchors contradict facts we
+    # already have (e.g. six P-cores misreported as total cores on 14400F).
+    anchors = reference._anchors(str(category or ""), known or {})
+    typed_specs = {key: values[0].value for key, values in facts.items() if values}
+    if reference._anchor_check(str(category or ""), anchors, {"specs": typed_specs})[1]:
+        return {}
     return facts
 
 
@@ -225,7 +233,9 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
             for key, value in reference.reference_facts(
                     category, reference_row, confidence, method).items():
                 facts.setdefault(key, []).extend(value)
-        for key, value in _pckombo_facts(category, product.get("pckombo") or {}).items():
+        reference_anchors = merge_facts(category, facts).specs
+        for key, value in _pckombo_facts(
+                category, product.get("pckombo") or {}, reference_anchors).items():
             facts.setdefault(key, []).extend(value)
 
         # Tier 0.5 - the brand's own product page (data/mfr/<brand>.json).

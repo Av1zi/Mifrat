@@ -119,7 +119,7 @@ def validate_fact(category: str | None, field: FieldSpec, value) -> str | None:
 
     # ---- semantic guards (the good parts of the old extractors heuristics) --
     if field.name == "socket" and isinstance(value, str):
-        if not _SOCKET_SHAPE.match(value.strip()):
+        if not (category == "motherboard" and value == "On-board") and not _SOCKET_SHAPE.match(value.strip()):
             return f"socket {value!r} has an implausible shape"
     if field.name == "chipset" and isinstance(value, str):
         # Board chipsets are short codes ("B850"); GPU chips are chip names
@@ -204,7 +204,11 @@ def cross_check(category: str | None, specs: dict, sources: dict,
         issues.append({
             "kind": "spec_conflict",
             "field": field,
-            "kept": kept_field,
+            # The other field supports the consistency decision; it is not
+            # an answer to this field (24 cores does not mean 24 threads).
+            "kept": None,
+            "kept_field": kept_field,
+            "kept_value": specs.get(kept_field),
             "detail": reason,
             "dropped": specs.get(field),
         })
@@ -256,7 +260,8 @@ def cross_check(category: str | None, specs: dict, sources: dict,
                 if modules_rank <= _tier_rank(sources, "total_gb"):
                     issues.append({
                         "kind": "spec_conflict", "field": "total_gb",
-                        "kept": "module_count x module_size_gb",
+                        "kept": computed,
+                        "rule": "memory.module_arithmetic",
                         "detail": f"{count}x{size}GB = {computed}GB, not {total}GB",
                         "dropped": total,
                     })

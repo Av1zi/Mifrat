@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-23",
+  "catalog_generated_at": "2026-11-23T11:14:37.476108+00:00",
+  "base_main": "a5ab2a69b3410ae0a52ac6a38e8e5e69c4e3b6dd",
+  "current_input_baseline_sha256": "56956ad17477ff4ceff6c9446d21c8162bf33508fbe26896e9a6894ee8399f08",
+  "pinned_validated_catalog_sha256": "f75e9a0175b1273fe7c700089bb20b29404c40644991b41212b4d3d562a28465",
+  "inactive_source_absent_records": {
+    "spec_conflict|model:cooler_air:4u-tdp-ws-xed120-145mm-120mm|sockets": {
+      "product_id": "model:cooler_air:4u-tdp-ws-xed120-145mm-120mm",
+      "listing_keys": [
+        "1pc:203973"
+      ],
+      "manufacturer_part_number": "SST-XED120S-WS",
+      "field": "sockets",
+      "last_validated_value": [
+        "LGA4677",
+        "LGA4710",
+        "SP5",
+        "SP6",
+        "sTR5",
+        "SP3",
+        "TR4",
+        "sWRX8",
+        "sWRX9"
+      ],
+      "status": "absent from latest valid input; historical evidence retained, not confirmed gone"
+    },
+    "core_gap|model:gpu:4000-blackwell-pro-rtx-24gb|": {
+      "product_id": "model:gpu:4000-blackwell-pro-rtx-24gb",
+      "listing_keys": [
+        "1pc:209337"
+      ],
+      "manufacturer_part_number": "900-5G147-2270-000",
+      "field": "memory_type",
+      "last_validated_value": "GDDR7",
+      "status": "absent from latest valid input; historical evidence retained, not confirmed gone"
+    }
+  },
+  "equivalent_descriptive_models": {
+    "spec_conflict|model:memory:0-2x16gb-3-6400-cl36-vengeance-xmp-32gb-x2-6400mhz-cl36-rgb-black|model": {
+      "product_id": "model:memory:0-2x16gb-3-6400-cl36-vengeance-xmp-32gb-x2-6400mhz-cl36-rgb-black",
+      "field": "model",
+      "recorded_description": "Vengeance 16GBx2 6400 CL36",
+      "current_description": "Vengeance 2x16GB 6400 CL36 XMP 3.0",
+      "manufacturer_part_number": "CMH32GX5M2B6400C36",
+      "verified_specs": {
+        "total_gb": 32,
+        "module_count": 2,
+        "module_size_gb": 16,
+        "speed_mhz": 6400,
+        "cas_latency": 36,
+        "voltage_v": 1.35,
+        "form_factor": "DIMM",
+        "memory_type": "DDR5",
+        "lighting": "RGB",
+        "color": "Black"
+      },
+      "manufacturer_url": "https://www.corsair.com/us/en/p/ddr5-ram/cmh32gx5m2b6400c36/vengeance-rgb-32gb-2x16gb-ddr5-dram-6400mt-s-c36-memory-kit-black-cmh32gx5m2b6400c36",
+      "manufacturer_cache_file": "data/mfr/corsair.json",
+      "manufacturer_cache_sha256": "05c1e86859d0eb0e6418c0f8529ff3e17c9ee69adc264a97b81f47a706e32275",
+      "reason": "The 1PC member is absent in the latest input. The remaining TMS title writes 2x16GB instead of 16GBx2 and names XMP 3.0; the exact Corsair kit and every checked physical fact are unchanged. No model override is installed."
+    }
+  },
+  "source_absent_listing_references": {
+    "duplicate_vendor|model:case:1-ft-performance-black|1pc": {
+      "action": "split",
+      "source_absent_keys": [
+        "1pc:144691",
+        "1pc:161897"
+      ],
+      "live_listing_keys": [
+        "tms:0-761345-10088-5",
+        "tms:PERFORMANCE1FTARGB"
+      ],
+      "verification": "Both exact TMS editions remain separately shipped; all cross-edition blocked pairs and the pinned same-edition matches are preserved. The absent 1PC members cannot be verified as current offers."
+    },
+    "verified_packaging_code|PK8072007045600": {
+      "action": "code_fix",
+      "source_absent_keys": [
+        "1pc:223495"
+      ],
+      "live_listing_keys": [
+        "tms:PK8072007045600"
+      ],
+      "verification": "The remaining exact-code TMS Xeon 674X ships sourced Tray packaging; the exact PK-code regression still exercises the production reader. The absent 1PC member is historical."
+    },
+    "fuzzy-pair|1pc:223479|tms:100-000001352": {
+      "action": "not_match",
+      "source_absent_keys": [
+        "1pc:223479"
+      ],
+      "live_listing_keys": [
+        "tms:100-000001352"
+      ],
+      "verification": "The pair-keyed historical rejection and permanent blocked pair are preserved; the absent 1PC 7980X is not represented as a current offer."
+    }
+  },
+  "reactivated_archived_cases": [
+    "split_candidate|model:cpu:7980x|"
+  ],
+  "preservation": "All 203 append-only records retained. Current checks distinguish complete live records, mixed live/historical action references, descriptive equivalence and inactive source-absent records. Source absences are not a claim of permanent removal or a QA fix; the dormant RTX PRO 4000 GDDR7 override is retained for a returning SKU. The previously archived 7980X split case is present and open again; it is not re-dismissed.",
+  "current_input_baseline_generated_at": "2026-11-23T10:41:14.138808+00:00"
+}

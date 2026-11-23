@@ -652,6 +652,8 @@ _IS_A_RULES: tuple[tuple[re.Pattern, str], ...] = (
     (re.compile(r"\b(?:hdd|ssd|drive|gpu|vga)\s+(?:mounting\s+)?brackets?\b", re.I), "case_accessory"),
     (re.compile(r"\bbrackets?\b", re.I), "cooler_accessory"),
     (re.compile(r"\b(?:fan|rgb|argb|led|pwm)?\s*controller\b", re.I), "fan_controller"),
+    (re.compile(r"^\s*(?:NVIDIA\s+)?NVLINK\s+(?:bridge\b|for\b)", re.I), "case_accessory"),
+    (re.compile(r"^\s*קירור\s*(?:פסיבי\s*)?לכונן\s+SSD\b", re.I), "cooler_accessory"),
 )
 _HEBREW_LIGHTING_NODE_RE = re.compile(r"לייטינג\s*נוד")
 _FAN_WORD_RE = re.compile(r"מאוורר|\bfans?\b", re.I)
@@ -1188,6 +1190,12 @@ def canonical_category(
     )
     raw_title = str(title or "")
     title_clean = _clean(raw_title).lower()
+
+    # Manufacturer's exact accessory SKU, verified on its product page
+    # (JSON-LD sku FD-A-BRKT-001): 1PC wrongly labels the bracket as an SSD.
+    # Scoped to this code, never a generic substring guess about drive models.
+    if re.search(r"\bFD-A-BRKT-001\b", f"{raw_title} {sku}", re.I):
+        return "accessories"
 
     # GPU holders / brackets / anti-sag stands are accessories, never GPUs —
     # re-routed before the vendor guess can win. Bare holder/bracket needs
@@ -5325,26 +5333,10 @@ def enrich_products_with_pckombo(products: list[dict]) -> None:
         normalized_specs = normalize_pckombo_specs(row["specs"])
         if (product.get("category") or "") == "gpu":
             _drop_pckombo_vram_mismatch(normalized_specs, row)
-        product["attributes"].update(
-            (key, value)
-            for key, value in normalized_specs.items()
-            if key not in product["attributes"]
-        )
-        # PC Kombo rows are raw German vendor specs ("65 W", "2542 MHz",
-        # "256" for board max-memory) — run the same value canonicalization
-        # the title parsers get, or the rail shows dupes ("65W" + "65 W").
-        # _unify_duplicate_attributes folds keys pckombo introduces under
-        # legacy names ("gpu_length_mm" vs our max_gpu_length_mm) — without
-        # this the same fact lands under two keys again, one level up.
-        try:
-            _canonicalize_filter_values(
-                product["attributes"], product.get("category") or "")
-            _unify_duplicate_attributes(
-                product["attributes"], product.get("category") or "")
-            _canonicalize_filter_values(
-                product["attributes"], product.get("category") or "")
-        except Exception:
-            pass
+        # External specs must enter through specs/build.py's anchor-checked
+        # reference sidecar, never masquerade as a matching/vendor fact.
+        # Updating the bridge here echoed rejected CPU counts back at tier1
+        # after the sidecar was refused (14400: 6 P-cores / 12 threads).
         product["pckombo"] = {
             "mpn": row["mpn"],
             "url": row["url"],

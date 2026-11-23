@@ -23,7 +23,8 @@ from scraper.specs.resolvers.vendor_struct import (  # noqa: E402
 
 GENERATION = [
     ("מעבד Intel Raptor Lake Refresh 14th Gen", "Gen 14"),
-    ("מעבד - Intel Arrow Lake Series 2", "Gen 2"),
+    ("מעבד - Intel Arrow Lake Series 2", "Series 2"),
+    ("מעבד Intel Core Ultra Series 2", "Ultra Series 2"),
     ("מעבד Intel 12th Gen", "Gen 12"),
     # A codename or a bare number is not a generation.
     ("מעבד AMD Zen 5", None),

@@ -518,7 +518,7 @@ def _infer_memory(specs: dict, sources: dict) -> list[str]:
     return filled
 
 
-def _infer_storage(specs: dict, sources: dict) -> list[str]:
+def _infer_storage(specs: dict, sources: dict, context: dict | None = None) -> list[str]:
     """Storage fields that follow from the interface the drive already has.
 
     All of these are readings of one given spec, not new knowledge: a drive
@@ -526,6 +526,11 @@ def _infer_storage(specs: dict, sources: dict) -> list[str]:
     """
     filled: list[str] = []
     interface = str(specs.get("interface") or "")
+    title = str((context or {}).get("title") or "")
+    if (re.search(r"\busb\b|thunderbolt", interface, re.I)
+            and re.search(r"\b(?:external|portable)\b|כונן.*(?:חיצוני|נייד)", title, re.I)):
+        filled += _fill(specs, sources, "form_factor", "External",
+                        "storage.explicit_external")
     # A spinning disk is never NVMe, and neither is a drive whose only bus is
     # SATA (NVMe is a PCIe protocol). USB enclosures stay unknown: the drive
     # inside may be either.
@@ -713,8 +718,10 @@ def _infer_cpu_table(specs: dict, sources: dict) -> list[str]:
             filled += _fill(specs, sources, "ecc_support", False, "cpu.ryzen_apu_no_ecc")
         elif str(specs.get("socket") or "") in ("AM4", "AM5") and re.search(r"\b\d{4}", model):
             filled += _fill(specs, sources, "ecc_support", True, "cpu.ryzen_desktop_ecc")
-    elif re.search(r"\bCore\s?i[579]\b|\bi[579]\b", model, re.I):
-        filled += _fill(specs, sources, "ecc_support", False, "cpu.intel_core_i5_i9_no_ecc")
+    # Core i5/i7/i9 is not a no-ECC platform invariant: Intel explicitly
+    # supports ECC on models such as i7-14700 and i9-14900K. Leave an
+    # unsourced answer unknown; exact table/vendor/manufacturer facts above
+    # already supply the supported per-model answer when available.
     elif re.search(r"\bCore\s?i3\b|\bi3\b|\bPentium\b|\bCeleron\b", model, re.I):
         filled += _fill(specs, sources, "ecc_support", True, "cpu.intel_i3_pentium_ecc")
     return filled
@@ -1010,7 +1017,7 @@ def infer_specs(category: str | None, specs: dict, sources: dict,
     if category == "memory":
         return _infer_memory(specs, sources) + _infer_memory_text(specs, sources, context)
     if category == "storage":
-        return _infer_storage(specs, sources)
+        return _infer_storage(specs, sources, context)
     if category == "gpu":
         return (_infer_gpu(specs, sources) + _infer_gpu_table(specs, sources)
                 + _infer_gpu_board_line(specs, sources, context)

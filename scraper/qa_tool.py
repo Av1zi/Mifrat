@@ -84,6 +84,11 @@ def build_cases() -> list[dict]:
     blocked = {frozenset(p) for p in manual.get("blocked_pairs", [])}
     decisions = _read(DECISIONS, {})
     dismissed = _read(DISMISSED, {})
+    from scraper.site_data import follow_aliases
+    from scraper.specs.resolvers.reference import override_entry_for
+    dismissed_ids = follow_aliases(
+        frozenset(key for key, active in dismissed.items() if active),
+        catalog.get("pid_aliases"))
     cases: list[dict] = []
 
     for c in _read(QA, {}).get("cases", []):
@@ -100,8 +105,10 @@ def build_cases() -> list[dict]:
         }
         if kind == "spec_conflict":
             case.update(field=c["field"], kept=c.get("kept"), dropped=c.get("dropped"))
-            if c["field"] in (overrides.get(pid) or {}):
-                case["state"], case["fixed_value"] = "fixed", overrides[pid][c["field"]]
+            entry_key, entry = override_entry_for(
+                product, overrides=overrides, aliases=catalog.get("pid_aliases") or {})
+            if c["field"] in entry and (entry_key == pid or c.get("fixed")):
+                case["state"], case["fixed_value"] = "fixed", entry[c["field"]]
         elif kind == "core_gap":
             fields = c.get("fields") or []
             case["fields"] = fields
@@ -116,7 +123,7 @@ def build_cases() -> list[dict]:
             pairs = [frozenset(p) for p in combinations(keys, 2)]
             if pairs and all(p in blocked for p in pairs):
                 case["state"] = "fixed"
-        if dismissed.get(cid):
+        if cid in dismissed_ids or c.get("dismissed"):
             case["state"] = "dismissed"
         cases.append(case)
 
@@ -176,7 +183,19 @@ def act(body: dict) -> dict:
             _write(OVERRIDES, data)
         elif kind == "clear":
             data = _read(OVERRIDES, {"products": {}})
-            (data.get("products", {}).get(body["product_id"]) or {}).pop(body["field"], None)
+            pid = body["product_id"]
+            if pid not in data.get("products", {}):
+                from scraper.specs.resolvers.reference import override_entry_for
+                catalog = _read(CATALOG, {})
+                product = next((p for p in catalog.get("products", [])
+                                if p.get("product_id") == pid), {"product_id": pid})
+                entry_key, _ = override_entry_for(
+                    product, overrides=data.get("products", {}),
+                    aliases=catalog.get("pid_aliases") or {})
+                pid = entry_key or pid
+            (data.get("products", {}).get(pid) or {}).pop(body["field"], None)
+            if not data.get("products", {}).get(pid):
+                data.get("products", {}).pop(pid, None)
             _write(OVERRIDES, data)
         elif kind == "split":
             keys = [k for k in body.get("keys", []) if k]
@@ -186,13 +205,59 @@ def act(body: dict) -> dict:
                 if frozenset((a, b)) not in have:
                     manual["blocked_pairs"].append(sorted((a, b)))
             _write(MANUAL, manual)
+        elif kind == "repartition":
+            # Explicit correction of a curated merge. Unlike a blocked pair,
+            # this must update the manual members (manual grouping wins over
+            # old vetoes). Refuse any missing/duplicate member; never discard
+            # another curated product or silently move one of its listings.
+            import copy
+            from scraper.promote_decisions import _manual_product_id
+
+            manual = _read(MANUAL, {"products": [], "blocked_pairs": []})
+            product = next((p for p in manual.get("products", [])
+                            if p.get("product_id") == body["product_id"]), None)
+            if product is None:
+                raise ValueError("manual product not found")
+            groups = body.get("groups") or []
+            if len(groups) < 2 or any(not isinstance(g, list) or not g for g in groups):
+                raise ValueError("repartition needs at least two nonempty groups")
+            keys = [key for group in groups for key in group]
+            if (len(keys) != len(set(keys))
+                    or set(keys) != set(product.get("listing_keys") or [])):
+                raise ValueError("groups must preserve every manual listing exactly once")
+            new_products = []
+            have_ids = {p.get("product_id") for p in manual.get("products", [])}
+            for group in groups[1:]:
+                new = copy.deepcopy(product)
+                new["product_id"] = _manual_product_id(str(product.get("category") or ""), group)
+                if new["product_id"] in have_ids:
+                    raise ValueError("repartition product id already exists")
+                have_ids.add(new["product_id"])
+                new["listing_keys"] = group
+                new_products.append(new)
+            have = {frozenset(pair) for pair in manual.setdefault("blocked_pairs", [])}
+            for i, group in enumerate(groups):
+                for other in groups[i + 1:]:
+                    for a in group:
+                        for b in other:
+                            if frozenset((a, b)) not in have:
+                                manual["blocked_pairs"].append(sorted((a, b)))
+                                have.add(frozenset((a, b)))
+            product["listing_keys"] = groups[0]
+            manual["products"].extend(new_products)
+            _write(MANUAL, manual)
         elif kind in ("match", "not_match"):
             queue = _read(QUEUE, [])
             idx = int(body["index"])
             decisions = _read(DECISIONS, {})
-            decisions[str(idx)] = {"decision": kind,
-                                   "listing_a": queue[idx]["listing_a"],
-                                   "listing_b": queue[idx]["listing_b"]}
+            a, b = queue[idx]["listing_a"], queue[idx]["listing_b"]
+            pair = frozenset((a, b))
+            existing = next((key for key, decision in decisions.items()
+                             if frozenset((decision.get("listing_a"),
+                                           decision.get("listing_b"))) == pair), None)
+            key = existing if existing is not None else str(
+                max((int(key) for key in decisions if str(key).isdigit()), default=-1) + 1)
+            decisions[key] = {"decision": kind, "listing_a": a, "listing_b": b}
             _write(DECISIONS, decisions)
             subprocess.run([sys.executable, "-m", "scraper.promote_decisions"],
                            cwd=ROOT, capture_output=True, check=False)

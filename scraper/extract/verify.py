@@ -21,7 +21,8 @@ import re
 
 from ..specs import schema
 from ..specs.merge import same_value
-from ..specs.values import InvalidValue, coerce
+from ..specs.values import (InvalidValue, MEMORY_KIT_FIELDS, coerce,
+                            memory_kit_dimensions)
 
 # Identity fields come from the matcher and the part-number joins, never from
 # a model; dict fields have no single quotable value.
@@ -87,6 +88,15 @@ def _numbers(text: str) -> list[float]:
 
 def _carries(spec, category: str | None, typed, value, quote: str) -> bool:
     """Does the quote itself state `typed`?"""
+    if category == "memory" and spec.name in MEMORY_KIT_FIELDS:
+        try:
+            kit = memory_kit_dimensions(quote)
+            if kit is not None:
+                # "2x16GB" states 2 modules, 16GB each and 32GB total.
+                # A different role's number cannot rescue a wrong claim.
+                return same_value(coerce(spec, quote, category), typed)
+        except InvalidValue:
+            return False
     try:
         if same_value(coerce(spec, quote, category), typed):
             return True
