@@ -105,9 +105,12 @@ def build_cases() -> list[dict]:
         }
         if kind == "spec_conflict":
             case.update(field=c["field"], kept=c.get("kept"), dropped=c.get("dropped"))
-            entry_key, entry = override_entry_for(
+            _, entry = override_entry_for(
                 product, overrides=overrides, aliases=catalog.get("pid_aliases") or {})
-            if c["field"] in entry and (entry_key == pid or c.get("fixed")):
+            from scraper.specs.merge import same_value
+            if (c["field"] in entry and c.get("fixed")
+                    and (product.get("spec_sources") or {}).get(c["field"]) == "override"
+                    and same_value((product.get("specs") or {}).get(c["field"]), c.get("kept"), field=c["field"])):
                 case["state"], case["fixed_value"] = "fixed", entry[c["field"]]
         elif kind == "core_gap":
             fields = c.get("fields") or []
@@ -125,6 +128,9 @@ def build_cases() -> list[dict]:
                 case["state"] = "fixed"
         if cid in dismissed_ids or c.get("dismissed"):
             case["state"] = "dismissed"
+        elif case["state"] == "open" and c.get("auto_resolved"):
+            case["state"] = "auto_resolved"
+            case["resolution"] = c.get("resolution")
         cases.append(case)
 
     queue = _read(QUEUE, [])
@@ -300,7 +306,7 @@ button{cursor:pointer}button:hover{background:#343845}
 button.go{background:#1f5f3a;border-color:#2f8f58}button.no{background:#6a2b2b;border-color:#944}
 main{padding:10px 14px;max-width:1250px}
 .card{border:1px solid #333;border-radius:6px;margin:8px 0;padding:8px 10px;background:#1b1d23}
-.card.fixed{opacity:.45}.card.dismissed{opacity:.3}
+.card.fixed,.card.auto_resolved{opacity:.45}.card.dismissed{opacity:.3}
 .top{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
 .tag{font-size:11px;padding:1px 6px;border-radius:9px;background:#333}
 .k-spec_conflict{background:#4a3b12}.k-core_gap{background:#4a1f3a}.k-naming_conflict{background:#123a4a}
@@ -315,7 +321,7 @@ main{padding:10px 14px;max-width:1250px}
 <select id="kind"><option value="">all kinds</option></select>
 <select id="cat"><option value="">all categories</option></select>
 <select id="field"><option value="">all fields</option></select>
-<select id="state"><option value="open">open</option><option value="fixed">fixed</option><option value="dismissed">dismissed</option><option value="">all</option></select>
+<select id="state"><option value="open">open</option><option value="fixed">human-fixed</option><option value="auto_resolved">auto-resolved</option><option value="dismissed">human-dismissed</option><option value="">all</option></select>
 <input id="q" placeholder="search name / title / id" size="28">
 <span id="count"></span>
 <button id="rebuild" title="runs normalize_and_match.py (~3 min)">Rebuild data</button><span id="rb" class="dim"></span>
@@ -354,7 +360,8 @@ function acts(c){
  }else{
   h+=`<div class="acts">${d('Different products (block pairs)','split','no')}`;
  }
- if(c.state==='fixed'&&c.kind==='spec_conflict')h+=` ${d('Undo override','clear')} <span class="dim">now ${esc(show(c.fixed_value))}</span>`;
+  if(c.state==='fixed'&&c.kind==='spec_conflict')h+=` ${d('Undo override','clear')} <span class="dim">now ${esc(show(c.fixed_value))}</span>`;
+  if(c.state==='auto_resolved')h+=` <span class="dim">${esc(c.resolution?.reason||'')} · ${esc(c.resolution?.rule||'')} · proof ${esc(c.resolution?.evidence_ref||'')}</span>`;
  h+=c.state==='dismissed'?d('Reopen','undismiss'):d('Looks fine','dismiss');
  return h+'</div>'}
 function render(){const k=$('kind').value,cat=$('cat').value,f=$('field').value,st=$('state').value,q=$('q').value.toLowerCase();

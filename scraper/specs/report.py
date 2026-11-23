@@ -18,6 +18,7 @@ import re
 
 from . import schema
 from .merge import same_value
+from .resolution import fan_resolution
 
 CORE_FIELDS = ("socket", "chipset", "memory_type", "wattage_w", "form_factor")
 
@@ -48,7 +49,8 @@ class CoverageReport:
     def add_product(self, *, product_id: str, category: str | None, specs: dict,
                     sources: dict, conflicts: list[dict], invalid: list[dict],
                     reference: dict, issues: list[dict],
-                    label_gaps: list[dict] | None = None) -> None:
+                    label_gaps: list[dict] | None = None,
+                    identity_uncertain: bool = False) -> None:
         self.total += 1
         category = category or ""
         bucket = self.per_category.setdefault(
@@ -117,13 +119,29 @@ class CoverageReport:
             if len(slot["products"]) < 5 and product_id not in slot["products"]:
                 slot["products"].append(product_id)
 
+        decisions: dict[str, dict] = {}
+        by_field: dict[str, list[dict]] = {}
+        for conflict in conflicts:
+            by_field.setdefault(str(conflict.get("field") or ""), []).append(conflict)
+        for name, claims in by_field.items():
+            decision = fan_resolution(category, name, specs.get(name), sources.get(name), claims,
+                                      uncertain=identity_uncertain or name in invalid_fields or name in issue_fields)
+            if decision:
+                decisions[name] = decision
+
         for conflict in conflicts:
             payload = {"product_id": product_id, "category": category, **conflict}
             payload.pop("fixed", None)
+            payload.pop("auto_resolved", None)
+            payload.pop("resolution", None)
             field = conflict.get("field")
             if (sources.get(field) == "override" and specs.get(field) is not None
-                    and same_value(specs[field], _bare_value(conflict.get("kept")))):
+                    and same_value(specs[field], _bare_value(conflict.get("kept")), field=field)):
                 payload["fixed"] = True
+            elif field in decisions:
+                payload["resolution"] = decisions[field]
+                if decisions[field]["state"] == "auto_resolved":
+                    payload["auto_resolved"] = True
             self.conflicts.append(payload)
         for dropped in invalid:
             self.invalid.append({"product_id": product_id, "category": category,
@@ -138,7 +156,7 @@ class CoverageReport:
             payload.pop("fixed", None)
             field = issue.get("field")
             if (sources.get(field) == "override" and specs.get(field) is not None
-                    and same_value(specs[field], payload.get("kept"))):
+                    and same_value(specs[field], payload.get("kept"), field=field)):
                 payload["fixed"] = True
             self.issues.append(payload)
 
@@ -220,9 +238,8 @@ def _bare_value(payload):
     return payload
 
 
-# Name-like fields where a value that only adds words to the other ("ASETEK
-# 510LC 120" vs "510LC 120", "ARGB | LCD" vs "ARGB") is the same answer in more
-# detail, not a contradiction a human must settle.
+# Name-like fields compare representations, never arbitrary token subsets:
+# suffixes, editions, colours and numbers may distinguish physical SKUs.
 _WORDY_FIELDS = frozenset({"model", "series", "lighting", "color"})
 
 
@@ -241,8 +258,7 @@ def _wording_only(field, kept, dropped) -> bool:
                 return True
     if field not in _WORDY_FIELDS or not isinstance(kept, str) or not isinstance(dropped, str):
         return False
-    a, b = _tokens(kept), _tokens(dropped)
-    return bool(a and b) and (a <= b or b <= a)
+    return same_value(kept, dropped, field=field)
 
 
 def _case_key(case: dict) -> str:
@@ -265,7 +281,7 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
     conflict per losing fact, so one disagreement arrives once per source.
     `per_category` caps the merge conflicts of each category, so a cap cannot
     fill up with the alphabetically first category. `limit=None` returns every
-    case; a finite `limit` cuts after the category sort. A case whose
+    case; a finite `limit` caps open cases after the category sort. A case whose
     `case_id` is in `dismissed` is kept but flagged `dismissed`, and no cap
     counts it: the local QA tool still lists it (to reopen it), the public
     page and the counts skip it."""
@@ -297,13 +313,15 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
             "dropped": dropped,
             "offers": [],
             **({"fixed": True} if conflict.get("fixed") else {}),
+            **({"auto_resolved": True} if conflict.get("auto_resolved") else {}),
+            **({"resolution": conflict["resolution"]} if conflict.get("resolution") else {}),
         }
         if _case_key(case) in seen:
             continue
         if case_id(case) in dismissed:
             add({**case, "dismissed": True})
             continue
-        if case.get("fixed"):
+        if case.get("fixed") or case.get("auto_resolved"):
             add(case)
             continue
         if per_category is not None and taken.get(category, 0) >= per_category:
@@ -359,4 +377,16 @@ def qa_cases(report_dict: dict, limit: int | None = 200,
 
     cases.sort(key=lambda c: (str(c.get("category") or ""),
                               str(c.get("product_id") or "")))
-    return cases[:limit]
+    if limit is None:
+        return cases
+    # History is not open work, even when it sorts first. Category and global
+    # caps both count only unresolved cases.
+    visible: list[dict] = []
+    open_taken = 0
+    for case in cases:
+        if case.get("dismissed") or case.get("fixed") or case.get("auto_resolved"):
+            visible.append(case)
+        elif open_taken < limit:
+            visible.append(case)
+            open_taken += 1
+    return visible

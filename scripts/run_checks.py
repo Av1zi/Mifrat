@@ -171,6 +171,8 @@ CHECKS: list[Check] = [
     Check("spec_merge", CODE, "Spec merge-layer rules", py("scripts/check_spec_merge.py"), BOTH),
     Check("qa_resolution", CODE, "QA enrichment identity and workbench rules",
           py("scripts/check_qa_resolution.py"), BOTH),
+    Check("qa_automation", CODE, "Evidence-backed QA automation (offline pipeline corpus)",
+          py("scripts/check_qa_automation.py"), BOTH),
     Check("categories_fixtures", CODE, "Category assignment fixtures",
           py("scripts/check_categories.py", "--self-test"), BOTH),
     Check("identity_fixtures", CODE, "Identity reader fixtures",
@@ -519,7 +521,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--list", action="store_true")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args(argv)
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    reconfigure = getattr(sys.stdout, "reconfigure", None)
+    if callable(reconfigure):
+        reconfigure(encoding="utf-8", errors="replace")
     if args.self_test:
         return self_test()
     if args.list:

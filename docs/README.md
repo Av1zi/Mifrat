@@ -32,8 +32,9 @@ private backup/history must remain local-only.
   use the current overview and `scraper/identity.py` for present behaviour.
 - [Architecture deepening](architecture-deepening-plan.md): proposed work,
   not permission to implement it during another task.
-- [QA automation plan — Nov 23](qa-automation-plan-2026-11-23.md): proposed
-  evidence-based parsing, matching and QA automation; not implementation approval.
+- [QA automation plan — Nov 23](qa-automation-plan-2026-11-23.md): first staged
+  implementation and remaining proposals; later rule families and publication
+  need their own gates/authorization.
 - [Duplicate audit](duplicate-groups-audit.md): completed Nov 7–8 evidence.
 - [Nov 10 audit](audits/2026-11-10/README.md) and
   [Nov 12 re-audit](audits/2026-11-12-reaudit/README.md): pinned findings, not

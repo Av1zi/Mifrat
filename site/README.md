@@ -36,6 +36,9 @@ Do not regenerate a production catalog just to start the frontend.
 - Compatibility uses known product facts in `src/build.ts`; unknowns are not
   conflicts. Currency conversion in `src/format.ts` is best-effort and cached;
   failure falls back to ILS.
+- QA shows open work only. Human-fixed/dismissed cases and recomputed
+  `auto_resolved` proof history do not consume open-case caps or counts;
+  shadow proposals remain open. `src/qaCases.ts` owns the public filter.
 
 ## Checks
 

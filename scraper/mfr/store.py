@@ -16,6 +16,7 @@ a wrong manufacturer row would outrank the retailer's correct one.
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 from functools import lru_cache
 from pathlib import Path
@@ -57,6 +58,18 @@ def load_index(data_dir: Path) -> dict:
     schema version (shared by data/mfr and data/icecat)."""
     index: dict = {}
     ambiguous: set = set()
+
+    def put(slot: tuple, entry: dict) -> None:
+        if slot in index and _entry_key(index[slot]) != _entry_key(entry):
+            # First rollout: strict ambiguity refusal for fan sheets only.
+            # Other categories keep their existing selection behaviour until
+            # duplicate-cache/source rules pass a dedicated catalog diff.
+            fan_sheet = entry.get("category") == "case_fan" or index[slot].get("category") == "case_fan"
+            if fan_sheet or (not str(slot[1]).startswith("n:")
+                             and index[slot].get("url") != entry.get("url")):
+                ambiguous.add(slot)
+        index[slot] = entry
+
     for path in sorted(Path(data_dir).glob("*.json")):
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -70,19 +83,22 @@ def load_index(data_dir: Path) -> dict:
                 slot = (brand, "k:" + key)
                 # An identifier two different pages both claim (a multipack page
                 # that repeats the single fan's barcode) joins nothing.
-                if slot in index and index[slot].get("url") != entry.get("url"):
-                    ambiguous.add(slot)
-                index[slot] = entry
+                put(slot, entry)
             for alt in {alt_key(key) for key in entry.get("keys", [])} - {""}:
                 slot = (brand, "a:" + alt)
-                if slot in index and index[slot].get("url") != entry.get("url"):
-                    ambiguous.add(slot)
-                index[slot] = entry
+                put(slot, entry)
             for name in entry.get("names", []):
-                index[(brand, "n:" + name)] = entry
+                put((brand, "n:" + name), entry)
     for slot in ambiguous:
         index.pop(slot, None)
     return index
+
+
+def _entry_key(entry: dict) -> str:
+    """Two variants on one URL are still different sheets; never last-wins."""
+    return json.dumps({"url": entry.get("url"), "category": entry.get("category"),
+                       "keys": sorted(entry.get("keys") or []), "specs": entry.get("specs")},
+                      sort_keys=True, ensure_ascii=False)
 
 
 def facts_for(category: str | None, brand: str | None, part_numbers,
@@ -101,25 +117,52 @@ def facts_from(index: dict, category: str | None, brand: str | None, part_number
     if not index:
         return {}
     brand_key = str(brand).lower()
-    entry = None
+    matches: dict[str, tuple[dict, str, str]] = {}
+    last_match: tuple[dict, str, str] | None = None
+
+    def collect(key: str, method: str) -> None:
+        nonlocal last_match
+        entry = index.get((brand_key, key))
+        if entry is not None:
+            last_match = (entry, method, key[2:])
+            matches.setdefault(_entry_key(entry), (entry, method, key[2:]))
+
     for value in part_numbers or []:
-        for key in (norm_mpn(value), base_mpn(value), norm_upc(value)):
+        for key, method in ((norm_mpn(value), "exact_key"),
+                            (base_mpn(value), "base_key"),
+                            (norm_upc(value), "barcode")):
             if key:
-                entry = index.get((brand_key, "k:" + key)) or entry
-    if entry is None:
+                collect("k:" + key, "barcode" if key.isdigit() else method)
+    if not matches:
         for value in part_numbers or []:
             alt = alt_key(value)
             if alt:
-                entry = index.get((brand_key, "a:" + alt)) or entry
-    if entry is None and name:
-        entry = index.get((brand_key, "n:" + strict_name(name, brand_key)))
-    if not entry or entry.get("category") != category:
+                collect("a:" + alt, "alt_key")
+    if not matches and name:
+        collect("n:" + strict_name(name, brand_key), "name")
+    if not matches or (category == "case_fan" and len(matches) != 1):
         return {}
+    if len(matches) == 1:
+        entry, method, matched_key = next(iter(matches.values()))
+    else:
+        # Annotation-only outside the fan family; no automatic authority.
+        assert last_match is not None
+        entry, _, matched_key = last_match
+        method = "ambiguous_legacy"
+    if entry.get("category") != category:
+        return {}
+    fingerprint = hashlib.sha256(_entry_key(entry).encode("utf-8")).hexdigest()
     fields = schema.field_map(category)
     facts: dict[str, list[Fact]] = {}
     for field, value in (entry.get("specs") or {}).items():
         if field in fields and value is not None:
             facts.setdefault(field, []).append(Fact(
                 value=value, tier=tier,
-                source=f"{source}:{brand_key}", confidence=confidence))
+                source=f"{source}:{brand_key}", confidence=confidence,
+                evidence={"match_method": method, "matched_key": matched_key,
+                          "source_url": entry.get("url"), "fingerprint": fingerprint,
+                          "sku_keys": sorted(entry.get("keys") or []),
+                          "meaning": field, "unit": fields[field].unit,
+                          "origin": f"{source}:{entry.get('url')}",
+                          "complete": True}))
     return facts

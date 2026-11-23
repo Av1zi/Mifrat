@@ -33,4 +33,17 @@ describe("open QA cases", () => {
     const open = qaCase({ fixed: false, dismissed: false });
     expect(openQaCases([open])).toEqual([open]);
   });
+
+  it("excludes current proof resolutions but keeps shadow and reopened cases", () => {
+    const resolved = qaCase({ auto_resolved: true });
+    const shadow = qaCase({
+      resolution: {
+        state: "shadow",
+        reason: "exact_manufacturer_spec",
+        rule: "manufacturer_fan_performance",
+      },
+    });
+    const reopened = qaCase({ auto_resolved: false });
+    expect(openQaCases([resolved, shadow, reopened])).toEqual([shadow, reopened]);
+  });
 });

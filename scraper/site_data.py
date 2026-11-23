@@ -1036,7 +1036,7 @@ def write_site_data(catalog: dict, site_dir: Path = SITE_DIR,
     for case in qa_cases:
         if qa_case_id(case) in qa_dismissed:
             case["dismissed"] = True
-        if case.get("dismissed") or case.get("fixed"):
+        if case.get("dismissed") or case.get("fixed") or case.get("auto_resolved"):
             continue
         kind_counts[case["kind"]] = kind_counts.get(case["kind"], 0) + 1
     for kind, total in identity_counts.items():

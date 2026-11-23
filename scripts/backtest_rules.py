@@ -59,7 +59,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from scraper.specs.build import _evidence_context, listing_text  # noqa: E402
-from scraper.specs.derive import infer_specs  # noqa: E402
+from scraper.specs.derive import cpu_memory_platform_candidate, infer_specs  # noqa: E402
 from scraper.specs.merge import same_value  # noqa: E402
 from scraper.specs.resolvers import title_parse  # noqa: E402
 from scraper.specs.validate import fill_derived  # noqa: E402
@@ -197,6 +197,9 @@ def backtest_derived(products: list[dict], by_product: dict, tally: Tally) -> No
             infer_specs(category, shadow_specs, shadow_sources, context=context)
             label = str(shadow_sources.get(field) or "")
             predicted = shadow_specs.get(field)
+            if category == "cpu" and field == "max_memory_gb" and predicted is None:
+                predicted = cpu_memory_platform_candidate(shadow_specs)
+                label = "derived:cpu.socket_memory_platform [quarantined]"
             if predicted is None or not label.startswith("derived"):
                 continue
             tally.add(f"{label} -> {category}.{field}",

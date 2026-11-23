@@ -1102,6 +1102,8 @@ def build_catalog(today: datetime):
     }
 
     catalog["source_listing_keys"] = sorted(source_listing_keys)
+    from scraper.specs.resolution import reopen_uncertain
+    reopen_uncertain(spec_report, identity_cases)
     return catalog, review_queue, spec_report
 
 

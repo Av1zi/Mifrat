@@ -2,7 +2,7 @@
 
 **Date: 2026-11-23**
 
-**Status: Proposed — not implemented.** Implementation requires separate owner approval.
+**Status: First staged implementation verified (owner-authorized Nov 23); publication authorized Nov 24.** Later stages remain proposed.
 
 **Evidence baseline: `541cc6d65ee2f71f7cf00eaa775ceb791d4663be`.** Recheck current code before implementation.
 
@@ -22,7 +22,19 @@ The evidence reveals three distinct problems:
 2. **False conflicts** — the chosen answer is correct, but another source abbreviates it or describes a different metric.
 3. **Identity mistakes** — different editions merged together, or the same manufacturer code split across products.
 
-These need separate solutions. The existing QA fixes were published at the baseline commit; the additional automation below remains a proposal.
+These need separate solutions. The existing QA fixes were published at the baseline commit; the first rollout below is implemented locally. The remaining automation is still proposed.
+
+### First rollout scope
+
+- Blocking offline regression corpus: `scripts/check_qa_automation.py`, including pinned BL122 evidence through real normalization, matching, final specs and QA without human overrides or dismissals.
+- Strict boolean/vector/model comparisons; qualified sources retain precedence over model-digit and GPU-title shortcuts.
+- Unsupported CPU platform-memory inference is quarantined; its rejected candidate remains visible in rule-health backtests.
+- Additive cached-sheet match proof; ambiguous fan manufacturer keys/names or multiple different matching fan sheets are refused rather than using the last entry. Other categories retain existing source selection in this rollout; broader duplicate-cache handling needs separate fixtures and diff review.
+- Recomputed exact-manufacturer fan-performance resolution only, with off/shadow/enabled modes in `scraper/specs/resolution.py`. Final identity uncertainty, changed/unknown answers, validation issues and equally qualified contradictions veto resolution. Public QA, local workbench and operations distinguish it from human decisions; history does not consume open-case caps.
+
+This is **not** the full plan: Intel adapters, broader semantic parsing, general authoritative closure, identifier annotations and assignment-changing identity automation remain future stages. No new collection, ledger cleanup or publication is authorized by this implementation.
+
+**Nov 23 offline verification:** the enabled fan rule proves 18 distinct product/field decisions, including 15 previously open decisions and three already human-dismissed ones. Repeated fixed-clock builds under multiple hash seeds preserve all 7,031 listings, offers, assignments and aliases across 4,230 products. The only selected-spec changes are 106 unsupported inferred CPU memory limits becoming unknown and eight model names taking manufacturer evidence. Regression corpus, code checks, type checks, site tests/lint/build and publish integrity pass. The publish suite reports 51 passes, three quality warnings and zero blockers; ledger, quarantined-rule health and reduced CPU coverage warnings remain visible with unchanged thresholds. No live source behaviour was verified.
 
 ## 1. Establish the regression corpus first
 

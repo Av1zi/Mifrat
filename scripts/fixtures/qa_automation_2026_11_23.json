@@ -1,0 +1,13 @@
+{
+  "baseline": "541cc6d65ee2f71f7cf00eaa775ceb791d4663be",
+  "reason": "BL122: exact manufacturer sheet states 1600 RPM; TMS detail incorrectly states 1700 RPM. CPU neighbours pin full suffix and packaging distinctions, not manufacturer clock facts.",
+  "listings": [
+    {"vendor_id": "tms", "vendor_sku": "BL122", "url": "https://tms.co.il/case-fans?product_id=110659", "title_raw": "be quiet! Light Wings LX 120mm PWM White Triple-Pack", "price_ils": 195, "in_stock": true, "category_guess": "case fans", "scraped_at": "2026-11-22T22:05:24.128224+00:00", "vendor_meta": {"detail_specs": {"גודל מאוורר": "120mm", "סוג תאורה": "ARGB", "מהירות מאוורר": "1700 RPM", "צבע": "לבן", "מסב מאוורר": "Rifle"}}},
+    {"vendor_id": "tms", "vendor_sku": "C245KT", "url": "https://tms.co.il/computer-hardware-components/processor/intel-core-ultra-5-245k-1851-tray", "title_raw": "Intel Core Ultra 5 245K / 1851 Tray", "price_ils": 828, "in_stock": true, "category_guess": "cpu", "scraped_at": "2026-11-22T21:59:41.047310+00:00", "vendor_meta": {"detail_specs": {"סדרת מעבד (CPU)": "Intel Core Ultra 5", "דור המעבד": "Series 2", "תושבת מעבד": "1851", "כמות ליבות מעבד": "14 ליבות", "מעבד גרפי": "Intel Graphics", "Threads #": "14", "מהירות מעבד": "Base 3.6 GHz | Max Turbo 5.2 GHz"}}},
+    {"vendor_id": "tms", "vendor_sku": "C245KFT", "url": "https://tms.co.il/computer-hardware-components/processor/intel-core-ultra-5-245kf-1851-tray", "title_raw": "Intel Core Ultra 5 245KF / 1851 Tray", "price_ils": 784, "in_stock": true, "category_guess": "cpu", "scraped_at": "2026-11-22T21:59:41.013741+00:00", "vendor_meta": {"detail_specs": {"סדרת מעבד (CPU)": "Intel Core Ultra 5", "דור המעבד": "Series 2", "תושבת מעבד": "1851", "כמות ליבות מעבד": "14 ליבות", "Threads #": "14", "מהירות מעבד": "Base 3.6 GHz | Max Turbo 5.2 GHz"}}}
+  ],
+  "manufacturer": {
+    "brand": "be quiet!",
+    "entry": {"url": "https://www.bequiet.com/en/casefans/5316", "fetched": "2026-10-20", "category": "case_fan", "keys": ["BL122", "4260052191606", "id5316", "ID5316"], "names": [], "specs": {"model": "Light Wings LX 120mm PWM White Triple Pack", "color": "White", "size_mm": 120, "rpm_max": 1600, "noise_db": 25.5, "airflow_cfm": 51.5, "static_pressure_mmh2o": 1.34, "led": "ARGB", "connector": "4-pin", "pwm": true}}
+  }
+}

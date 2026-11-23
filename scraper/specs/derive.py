@@ -472,13 +472,20 @@ def _infer_cpu(specs: dict, sources: dict) -> list[str]:
             platform_socket = "LGA1700"
         fill("socket", platform_socket, "cpu.desktop_platform_socket")
 
-    socket = str(specs.get("socket") or "").upper()
-    generation = _generation_number(model)
-    fill("max_memory_gb", _SOCKET_MAX_MEMORY_GB.get(socket)
-         or _GENERATION_MAX_MEMORY_GB.get((socket, generation or 0)),
-         "cpu.socket_memory_platform")
+    # Quarantined 2026-11-23: socket/generation is not an exact-model memory
+    # limit (13/60 sourced counterexamples). Keep sourced/table answers;
+    # unsupported models stay unknown. The backtest still audits the old
+    # candidate through cpu_memory_platform_candidate(), without shipping it.
 
     return filled
+
+
+def cpu_memory_platform_candidate(specs: dict) -> int | None:
+    """Rejected fallback, retained ONLY for visible rule-health backtesting."""
+    socket = str(specs.get("socket") or "").upper()
+    generation = _generation_number(specs.get("model"))
+    return (_SOCKET_MAX_MEMORY_GB.get(socket)
+            or _GENERATION_MAX_MEMORY_GB.get((socket, generation or 0)))
 
 
 def _infer_memory(specs: dict, sources: dict) -> list[str]:

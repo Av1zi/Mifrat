@@ -212,7 +212,7 @@ def check_title_witness(c: Checks) -> None:
     issues, supported = apply_title_witness("motherboard", specs, sources, pairs, {})
     c.eq((specs["chipset"], sources["chipset"]), ("Z890", "witness"),
          "two vendors' titles correct a vendor chipset")
-    c.ok("chipset" in supported and issues and issues[0].get("rule") == "title_witness",
+    c.ok("chipset" in supported and bool(issues) and issues[0].get("rule") == "title_witness",
          "the correction is logged as a title-witness QA case")
 
     pairs = [board("1pc", "Gigabyte Z890 AORUS ELITE", "Z790")]
@@ -427,8 +427,10 @@ def check_curated_tables(c: Checks) -> None:
 
 def check_equality_helpers(c: Checks) -> None:
     c.ok(same_value("65W", "65 w"), "unit-case noise does not create a conflict")
-    c.ok(same_value(["A", "B"], ["B", "A"]),
-         "list order does not create a conflict")
+    c.ok(same_value(["AM4", "AM5"], ["AM5", "AM4"], field="sockets"),
+         "socket set order does not create a conflict")
+    c.ok(not same_value([120, 160, 70], [160, 120, 70], field="dimensions_mm"),
+         "dimension axis order stays meaningful")
     c.ok(not same_value("AM4", "AM5"), "different values are different")
     c.ok(same_value(1000, 1000.0), "int/float spelling compares equal")
 

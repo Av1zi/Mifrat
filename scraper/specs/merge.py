@@ -80,6 +80,9 @@ class Fact:
     source: str
     confidence: float = 1.0
     listing_key: str | None = None
+    # Optional cached-source proof. Old inputs retain their ranking, but a
+    # source tier alone never grants automatic QA-resolution authority.
+    evidence: dict | None = None
 
     @property
     def tier_name(self) -> str:
@@ -97,10 +100,8 @@ class Conflict:
         return {
             "field": self.field,
             "kind": self.kind,
-            "kept": {"value": self.kept.value, "tier": self.kept.tier_name,
-                     "source": self.kept.source},
-            "dropped": {"value": self.dropped.value, "tier": self.dropped.tier_name,
-                        "source": self.dropped.source},
+            "kept": _fact_payload(self.kept),
+            "dropped": _fact_payload(self.dropped),
         }
 
 
@@ -150,7 +151,7 @@ def _bare_affirmative_rank(fact: "Fact") -> int:
     return 1 if str(fact.value).strip().lower() in _AFFIRMATIVE_VALUES else 0
 
 
-def model_name_preference(fact: "Fact") -> int:
+def model_name_preference(fact: "Fact", *, category: str | None = None) -> int:
     """Sort key for the `model` field: 0 for a name, 1 for a part number.
 
     Kept as a named helper so the rule is greppable from values.py and the
@@ -158,6 +159,11 @@ def model_name_preference(fact: "Fact") -> int:
     """
     from .values import looks_like_part_number
 
+    # Non-CPU marketed model codes (NH-U12S, storage models, board codes)
+    # can legitimately have the same shape as a part number. A shape-only
+    # heuristic cannot demote a qualified source's model in those categories.
+    if category not in (None, "cpu") and fact.tier < TIER_VENDOR:
+        return 0
     return 1 if looks_like_part_number(fact.value) else 0
 
 
@@ -174,22 +180,49 @@ def model_number_preference(fact: "Fact") -> int:
     return 0 if re.search(r"\d{3,}", str(fact.value or "")) else 1
 
 
-def same_value(a, b) -> bool:
-    """Value equality that ignores representation noise ('65W' == '65 w',
-    ['A','B'] == ['B','A'] for lists)."""
+def _fact_payload(fact: Fact) -> dict:
+    payload = {"value": fact.value, "tier": fact.tier_name,
+               "rank": fact.tier, "source": fact.source}
+    if fact.evidence is not None:
+        payload["evidence"] = fact.evidence
+    return payload
+
+
+_SET_FIELDS = frozenset({"sockets", "part_numbers", "chipset_support", "storage_interface",
+                         "connectors", "memory_speeds", "m2_slots", "external_power",
+                         "mb_form_factors", "front_usb"})
+
+
+def same_value(a, b, *, field: str | None = None) -> bool:
+    """Strict equality, with unordered comparison only for declared set fields.
+
+    Resolvers coerce units before merging. This helper never equates unknown
+    with an explicit negative, reorders dimension/timing vectors, or rounds
+    nearby measurements into the same fact.
+    """
+    if a is None or b is None:
+        return a is None and b is None
     if isinstance(a, bool) or isinstance(b, bool):
-        return bool(a) == bool(b)
+        return isinstance(a, bool) and isinstance(b, bool) and a == b
     if isinstance(a, (int, float)) and isinstance(b, (int, float)):
-        return abs(float(a) - float(b)) < 1e-6
+        return a == b
     if isinstance(a, (int, float)) or isinstance(b, (int, float)):
         try:
-            return abs(float(a) - float(b)) < 1e-6
+            return float(a) == float(b)
         except (TypeError, ValueError):
             return False
     if isinstance(a, dict) and isinstance(b, dict):
-        return sorted(map(str, a.items())) == sorted(map(str, b.items()))
+        return a.keys() == b.keys() and all(same_value(a[key], b[key]) for key in a)
     if isinstance(a, (list, tuple)) and isinstance(b, (list, tuple)):
-        return sorted(map(str, a)) == sorted(map(str, b))
+        if field in _SET_FIELDS:
+            return {_eq_key(value) for value in a} == {_eq_key(value) for value in b}
+        return len(a) == len(b) and all(same_value(x, y) for x, y in zip(a, b))
+    if isinstance(a, (dict, list, tuple)) or isinstance(b, (dict, list, tuple)):
+        return False
+    if field in ("model", "series"):
+        # Hyphens between model words are formatting; words, suffixes, dots
+        # and digits remain meaningful. No token-subset comparisons.
+        return _model_key(a) == _model_key(b)
     # Whitespace is presentation, not content: "65 w" and "65W" are the same
     # claim, and treating them as different wrote a phantom conflict for every
     # product whose two sources spell the unit differently (the docstring has
@@ -199,6 +232,10 @@ def same_value(a, b) -> bool:
 
 def _eq_key(value) -> str:
     return re.sub(r"\s+", "", str(value)).lower()
+
+
+def _model_key(value) -> str:
+    return re.sub(r"[\s_-]+", " ", str(value).strip().lower())
 
 
 def _rank(fact: Fact, order: int) -> tuple:
@@ -248,14 +285,15 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
         # identity key. Stable sort: tier/confidence still order values of the
         # same kind, and a product whose only model value IS a part number
         # keeps it (nothing is dropped, the loser is recorded as a conflict).
-        # Same treatment one level down: a numberless lineup name ("AMD
-        # Ryzen 9 Processor") must not outrank a numbered precise name
-        # ("Ryzen 9 9950X3D") on tier alone.
+        # CPU ordering codes are not model names. Other categories can market
+        # code-shaped model names, so shape alone cannot demote qualified
+        # evidence. Extra vendor/title digits never displace a qualified name.
         if name == "model" and len(accepted) > 1 and any(
-                model_name_preference(fact) == 0 for fact in accepted):
+                model_name_preference(fact, category=category) == 0 for fact in accepted):
             accepted.sort(key=lambda fact: (fact.tier != TIER_OVERRIDE,
-                                             model_name_preference(fact),
-                                             model_number_preference(fact)))
+                                            model_name_preference(fact, category=category),
+                                            fact.tier >= TIER_VENDOR,
+                                            model_number_preference(fact) if fact.tier >= TIER_VENDOR else 0))
 
         # A standard beats a bare "Yes" in the fields listed above (tier
         # order stays intact inside both groups; see _BARE_AFFIRMATIVE_FIELDS).
@@ -266,17 +304,19 @@ def merge_facts(category: str | None, facts: dict[str, list[Fact]],
         # GPU VRAM: a vendor page row can be wrong (Yahav listed 48GB on a
         # 96GB card whose title says 96GB; two of three vendors gave 12GB
         # for a 16GB RX 9070 XT while every title said 16GB). The explicit
-        # "NNGB" in a title is the more reliable read, so it goes first.
+        # "NNGB" in a title goes ahead of vendor cells, but never reference,
+        # manufacturer, catalog or human evidence. Title witnesses still
+        # enforce their independent-source requirements after this merge.
         if category == "gpu" and name == "memory_gb" and len(accepted) > 1:
-            accepted.sort(key=lambda fact: (fact.tier != TIER_OVERRIDE,
-                                            fact.tier != TIER_TITLE))
+            accepted.sort(key=lambda fact: (fact.tier >= TIER_VENDOR,
+                                            fact.tier != TIER_TITLE if fact.tier >= TIER_VENDOR else False))
 
         winner = accepted[0]
         result.specs[name] = winner.value
         result.sources[name] = winner.tier_name
 
         for loser in accepted[1:]:
-            if same_value(winner.value, loser.value):
+            if same_value(winner.value, loser.value, field=name):
                 continue
             kind = "same_tier" if loser.tier == winner.tier else "cross_tier"
             result.conflicts.append(

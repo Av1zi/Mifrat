@@ -94,11 +94,11 @@ def _carries(spec, category: str | None, typed, value, quote: str) -> bool:
             if kit is not None:
                 # "2x16GB" states 2 modules, 16GB each and 32GB total.
                 # A different role's number cannot rescue a wrong claim.
-                return same_value(coerce(spec, quote, category), typed)
+                return same_value(coerce(spec, quote, category), typed, field=spec.name)
         except InvalidValue:
             return False
     try:
-        if same_value(coerce(spec, quote, category), typed):
+        if same_value(coerce(spec, quote, category), typed, field=spec.name):
             return True
     except InvalidValue:
         pass

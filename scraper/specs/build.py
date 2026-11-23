@@ -183,6 +183,11 @@ def _extras(product: dict) -> dict:
     return {key: attributes[key] for key in allowed if key in attributes}
 
 
+def _identity_uncertain(product: dict) -> bool:
+    """A caller's explicit uncertainty vetoes automatic spec resolution."""
+    return bool(product.get("identity_uncertain"))
+
+
 def build_product_specs(products: list[dict], listings: list[dict] | None = None,
                         *, report=None, verbose: bool = True) -> dict:
     """Merge and validate specs for every product (mutates `products`)."""
@@ -325,6 +330,7 @@ def build_product_specs(products: list[dict], listings: list[dict] | None = None
                        "score": round(score, 1) if score is not None else None,
                        "name": (reference_row or {}).get("name")},
             issues=issues,
+            identity_uncertain=_identity_uncertain(product),
             label_gaps=[{"label": label, "count": count} for label, count
                         in sorted(label_gaps.items(), key=lambda item: -item[1])],
         )

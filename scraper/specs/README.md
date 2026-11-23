@@ -59,6 +59,16 @@ validation and must be sourced and change output. Explicit negatives use
 "No", not "None" (a placeholder for unknown). Values inapplicable to a product
 are not coverage gaps.
 
+QA automation uses optional `Fact.evidence` from cached manufacturer sheets:
+match method/key, source URL, typed-sheet fingerprint, field meaning/unit and
+origin. Missing metadata retains normal source ranking but grants no automatic
+closure authority. `resolution.py` owns the off/shadow/enabled rollout; only
+exact-key fan-performance facts are in its first rule family. Final identity
+flags, equally qualified contradictions and invalid/changed final values keep
+cases open. Automatic decisions recompute each build and never write the human
+dismissal ledger. Strict comparisons preserve explicit negatives, vector order
+and meaningful model suffixes; only declared set fields ignore ordering.
+
 ### Reference identity
 
 An authoritative spec is unsafe if linked to the wrong product. Joins require
@@ -82,6 +92,9 @@ normalizes in memory and writes its report under ignored `tmp/`.
 - Inference fills nulls only, marks `derived:<rule>` and must have lineup,
   platform, curated-table or explicit evidence—not an assumed per-SKU value.
   Run `scripts/backtest_rules.py --check` when changing inference.
+- CPU socket/generation memory-limit inference is quarantined: unsupported
+  exact models stay unknown; sourced and curated values remain. The rejected
+  candidate is still measured, labelled `[quarantined]`, by rule-health backtests.
 - Curated tables must state only facts invariant for their anchor; variant
   ambiguity stays empty. `scripts/fill_report.py --check-tables` measures them
   against sourced catalog facts.

@@ -128,6 +128,14 @@ export interface QaCase {
   dismissed?: boolean;
   /** An effective human override already supplies the rebuilt answer. */
   fixed?: boolean;
+  /** Current evidence proves the final value; recomputed on every build. */
+  auto_resolved?: boolean;
+  resolution?: {
+    state: "auto_resolved" | "shadow";
+    reason: string;
+    rule: string;
+    evidence_ref?: string;
+  };
   offers: Array<{
     listing_key: string;
     vendor_sku: string | null;
