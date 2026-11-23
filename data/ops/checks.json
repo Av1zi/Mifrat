@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22T23:43:27+00:00",
+ "generated_at": "2026-11-23T02:28:14+00:00",
  "night": "2026-11-23",
  "suite": "publish",
  "escalate_nights": 3,
@@ -45,7 +45,7 @@
    "title": "TMS detail-page parser (fixtures)",
    "status": "pass",
    "exit": 0,
-   "seconds": 0.9,
+   "seconds": 0.6,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -166,7 +166,7 @@
    "title": "KSP stream transport offline integration",
    "status": "pass",
    "exit": 0,
-   "seconds": 2.0,
+   "seconds": 1.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -243,7 +243,7 @@
    "title": "Cloud detail runner isolation and outcomes",
    "status": "pass",
    "exit": 0,
-   "seconds": 9.2,
+   "seconds": 9.3,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -320,7 +320,7 @@
    "title": "Ops report rules",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.8,
+   "seconds": 1.9,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -386,7 +386,7 @@
    "title": "Shipped text hygiene",
    "status": "pass",
    "exit": 0,
-   "seconds": 3.3,
+   "seconds": 3.2,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -397,7 +397,7 @@
    "title": "Cover corpus (format, size, borders)",
    "status": "pass",
    "exit": 0,
-   "seconds": 25.1,
+   "seconds": 24.8,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -441,7 +441,7 @@
    "title": "Publish set coherence",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.1,
+   "seconds": 1.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -452,7 +452,7 @@
    "title": "Category reduction from source absences",
    "status": "pass",
    "exit": 0,
-   "seconds": 1.2,
+   "seconds": 1.1,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -507,7 +507,7 @@
    "title": "Repeated snapshot rows",
    "status": "pass",
    "exit": 0,
-   "seconds": 13.9,
+   "seconds": 14.0,
    "since": null,
    "nights": 0,
    "detail": ""
@@ -532,7 +532,7 @@
    "seconds": 8.0,
    "since": "2026-11-22T01:51:01+00:00",
    "nights": 2,
-   "detail": "      ivory/90MB1K50-M0EAY0.webp\n      ivory/90MB1L80-M0EAY0.webp\n      ivory/90MB1LN0-M0EAY0.webp\n      ivory/90MB1M70-M0EAY0.webp\n      ivory/90MB1MD0-M0EAY0.webp\n      ivory/90MB1N90-M0EAY0.webp\n      ivory/90MB1NW0-M0EAY0.webp\n      ivory/90MB1P60-M0EAY0.webp\n      ivory/90MB1PI0-M0EAY0.webp\n  [fail] qa_dismissed keys with no case: 22 > budget 10\n  [fail] cover files no listing uses: 936 > budget 900\n[check-ledgers] 2 failure(s)"
+   "detail": "      ivory/90MB1LN0-M0EAY0.webp\n      ivory/90MB1M70-M0EAY0.webp\n      ivory/90MB1MD0-M0EAY0.webp\n      ivory/90MB1N90-M0EAY0.webp\n      ivory/90MB1NW0-M0EAY0.webp\n      ivory/90MB1P60-M0EAY0.webp\n      ivory/90MB1PI0-M0EAY0.webp\n      ivory/90YV0ALA-M0NA00.webp\n      ivory/90YV0LX0-M0NA00.webp\n  [fail] qa_dismissed keys with no case: 26 > budget 10\n  [fail] cover files no listing uses: 936 > budget 900\n[check-ledgers] 2 failure(s)"
   },
   {
    "name": "backtest",
@@ -540,7 +540,7 @@
    "title": "Inference-rule backtest",
    "status": "pass",
    "exit": 0,
-   "seconds": 8.4,
+   "seconds": 8.2,
    "since": null,
    "nights": 0,
    "detail": ""

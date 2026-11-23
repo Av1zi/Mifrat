@@ -100,6 +100,17 @@
   },
   {
     "score": 90,
+    "category": "motherboard",
+    "brand": "MSI",
+    "listing_a": "1pc:223278",
+    "listing_b": "yahav:11813",
+    "title_a": "לוח אם MSI MAG B850 TOMAHAWK MAX WIFI II שחור",
+    "title_b": "לוח אם חברת MSI דגם MAG B850 TOMAHAWK MAX WIFI II AM5 DDR5 HDMI ATX",
+    "match_text_a": "223278 MSI MAG B850 TOMAHAWK MAX WIFI II",
+    "match_text_b": "11813 MSI MAG B850 TOMAHAWK MAX WIFI II AM5 DDR5 HDMI ATX"
+  },
+  {
+    "score": 90,
     "category": "storage",
     "brand": "Kingston",
     "listing_a": "ivory:107886",
@@ -185,6 +196,28 @@
     "title_b": "מציאון ועודפים - מארז ללא ספק Asus A23 PLUS ARGB Micro ATX - צבע שחור",
     "match_text_a": "392918 Asus A23 PLUS ARGB Micro ATX -",
     "match_text_b": "511473 - Asus A23 PLUS ARGB Micro ATX -"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000908",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 9 7950X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000000908 AMD Ryzen 9 7950X3D AM5 Tray"
+  },
+  {
+    "score": 88,
+    "category": "cpu",
+    "brand": "AMD",
+    "listing_a": "ivory:119039",
+    "listing_b": "tms:100-000000909",
+    "title_a": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+    "title_b": "AMD Ryzen 9 7900X3D AM5 Tray",
+    "match_text_a": "100-000001084 AMD Ryzen 7 9800X3D Tray AM5",
+    "match_text_b": "100-000000909 AMD Ryzen 9 7900X3D AM5 Tray"
   },
   {
     "score": 88,
@@ -5709,40 +5742,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:145148",
-        "vendor": "ivory",
-        "vendor_sku": "ACFAN00321A",
-        "title": "3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן",
-        "price": 195
-      }
-    ],
-    "model_code": "a-p14-pro-rgb",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-3-rgb-white-2",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "ivory:179272",
-        "vendor": "ivory",
-        "vendor_sku": "ACFAN00321AP",
-        "title": "מציאון - 3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן - מוחדש",
-        "price": 156
-      }
-    ],
-    "model_code": "a-p14-pro-rgb",
-    "manufacturer_pn": []
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:elite-icue-ml140-premium-pwm-140mm-rgb-white",
     "vendor": "",
     "offers": [
@@ -8077,13 +8076,6 @@
         "vendor_sku": "100-000001277",
         "title": "AMD Ryzen 9 9950X AM5 Tray",
         "price": 2113
-      },
-      {
-        "listing_key": "ivory:150286",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001277",
-        "title": "מעבד AMD Ryzen 9 9950X Tray",
-        "price": 1960
       }
     ],
     "model_code": "9950x"
@@ -11603,7 +11595,7 @@
         "vendor": "yahav",
         "vendor_sku": "100-000000719",
         "title": "מעבד חברת AMD דגם Ryzen 9 9950X3D Boost 5.7Ghz 128MB L3 Cache AM5 TRAY Thermal Solution Not Included",
-        "price": 2680
+        "price": 2750
       }
     ],
     "model_code": "9950x3d",
@@ -11700,6 +11692,44 @@
       }
     ],
     "model_code": "green-sn3000-wd"
+  },
+  {
+    "kind": "identity_merge",
+    "category": "cpu",
+    "product_id": "model:cpu:ryzen79800x3d-tray",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:119039",
+        "vendor": "ivory",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד גיימינג AMD Ryzen 7 9800X3D | גרסת Tray | תושבת AM5",
+        "price": 1840
+      },
+      {
+        "listing_key": "tms:100-000001084",
+        "vendor": "tms",
+        "vendor_sku": "100-000001084",
+        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
+        "price": 1920
+      },
+      {
+        "listing_key": "1pc:175540",
+        "vendor": "1pc",
+        "vendor_sku": "100-000001084",
+        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
+        "price": 1794
+      },
+      {
+        "listing_key": "yahav:10143",
+        "vendor": "yahav",
+        "vendor_sku": "100-1000001084",
+        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
+        "price": 1690
+      }
+    ],
+    "model_code": "9800x3d",
+    "merged_from": "model:cpu:9800x3d-tray"
   },
   {
     "kind": "split_candidate",
@@ -12031,37 +12061,6 @@
     ],
     "model_code": "5600",
     "merged_from": "model:cpu:5600-tray"
-  },
-  {
-    "kind": "identity_merge",
-    "category": "cpu",
-    "product_id": "model:cpu:ryzen79800x3d-tray",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "tms:100-000001084",
-        "vendor": "tms",
-        "vendor_sku": "100-000001084",
-        "title": "AMD Ryzen 7 9800X3D AM5 Tray",
-        "price": 1920
-      },
-      {
-        "listing_key": "1pc:175540",
-        "vendor": "1pc",
-        "vendor_sku": "100-000001084",
-        "title": "מעבד AMD Ryzen™ 7 9800X3D AM5 Tray",
-        "price": 1794
-      },
-      {
-        "listing_key": "yahav:10143",
-        "vendor": "yahav",
-        "vendor_sku": "100-1000001084",
-        "title": "מעבד חברת AMD דגם Ryzen 7 9800X3D Boost 5.2Ghz 96MB Cache AM5 TRAY Thermal solution not included",
-        "price": 1690
-      }
-    ],
-    "model_code": "9800x3d",
-    "merged_from": "model:cpu:9800x3d-tray"
   },
   {
     "kind": "split_candidate",
@@ -12621,6 +12620,31 @@
   {
     "kind": "packaging_conflict",
     "category": "cpu",
+    "product_id": "model:cpu:14900k-tray-2",
+    "vendor": "ivory",
+    "offers": [
+      {
+        "listing_key": "ivory:80282",
+        "vendor": "ivory",
+        "vendor_sku": "I9-14900K",
+        "title": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Tray",
+        "price": 1999
+      },
+      {
+        "listing_key": "ivory:80285",
+        "vendor": "ivory",
+        "vendor_sku": "I9-14900KB",
+        "title": "מעבד Intel Core i9-14900K up to 5.60GHz 36MB Cache Raptor Lake Box",
+        "price": 1899
+      }
+    ],
+    "model_code": "14900k",
+    "resolved": false,
+    "reason": "price/spec tags disagree"
+  },
+  {
+    "kind": "packaging_conflict",
+    "category": "cpu",
     "product_id": "model:cpu:225-tray",
     "vendor": "ivory",
     "offers": [
@@ -12840,31 +12864,6 @@
       }
     ],
     "model_code": "9900x",
-    "resolved": false,
-    "reason": "price/spec tags disagree"
-  },
-  {
-    "kind": "packaging_conflict",
-    "category": "cpu",
-    "product_id": "model:cpu:9950x",
-    "vendor": "ivory",
-    "offers": [
-      {
-        "listing_key": "ivory:105808",
-        "vendor": "ivory",
-        "vendor_sku": "100-100001277WOF",
-        "title": "מעבד AMD Ryzen 9 9950X Box",
-        "price": 2356
-      },
-      {
-        "listing_key": "ivory:150286",
-        "vendor": "ivory",
-        "vendor_sku": "100-000001277",
-        "title": "מעבד AMD Ryzen 9 9950X Tray",
-        "price": 1960
-      }
-    ],
-    "model_code": "9950x",
     "resolved": false,
     "reason": "price/spec tags disagree"
   },
@@ -15599,138 +15598,6 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221421",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
-        "price": 500
-      },
-      {
-        "listing_key": "tms:12RSLIN1F3B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
-        "price": 441
-      },
-      {
-        "listing_key": "yahav:11691",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F3B",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
-        "price": 440
-      }
-    ],
-    "model_code": "120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F3B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-black",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221417",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור 12RSLIN1F1B",
-        "price": 163
-      },
-      {
-        "listing_key": "tms:12RSLIN1F1B",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור",
-        "price": 142
-      },
-      {
-        "listing_key": "yahav:11685",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F1B",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
-        "price": 145
-      }
-    ],
-    "model_code": "120mm-12rslin1f1b-blade-fan-flex-inf-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F1B"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221418",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
-        "price": 168
-      },
-      {
-        "listing_key": "tms:12RSLIN1F1W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
-        "price": 147
-      },
-      {
-        "listing_key": "yahav:11687",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F1W",
-        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Single Pack צבע לבן",
-        "price": 150
-      }
-    ],
-    "model_code": "120mm-blade-fan-flex-inf-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F1W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
-    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-white",
-    "vendor": "",
-    "offers": [
-      {
-        "listing_key": "1pc:221422",
-        "vendor": "1pc",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן 12RSLIN1F3W",
-        "price": 485
-      },
-      {
-        "listing_key": "tms:12RSLIN1F3W",
-        "vendor": "tms",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן",
-        "price": 457
-      },
-      {
-        "listing_key": "yahav:11693",
-        "vendor": "yahav",
-        "vendor_sku": "12RSLIN1F3W",
-        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
-        "price": 440
-      }
-    ],
-    "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
-    "manufacturer_pn": [
-      "12RSLIN1F3W"
-    ]
-  },
-  {
-    "kind": "variant_conflict",
-    "category": "case_fan",
     "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -15858,6 +15725,138 @@
     "model_code": "120mm-3-blade-fan-flex-inf-lcd-pack-reverse-sl-uni",
     "manufacturer_pn": [
       "12RSLIND1F3W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221421",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
+        "price": 500
+      },
+      {
+        "listing_key": "tms:12RSLIN1F3B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack שחור",
+        "price": 441
+      },
+      {
+        "listing_key": "yahav:11691",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F3B",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Triple Pack צבע שחור",
+        "price": 440
+      }
+    ],
+    "model_code": "120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F3B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221417",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור 12RSLIN1F1B",
+        "price": 163
+      },
+      {
+        "listing_key": "tms:12RSLIN1F1B",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade שחור",
+        "price": 142
+      },
+      {
+        "listing_key": "yahav:11685",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F1B",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm Black Single Pack צבע שחור",
+        "price": 145
+      }
+    ],
+    "model_code": "120mm-12rslin1f1b-blade-fan-flex-inf-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F1B"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-blade-fan-flex-inf-reverse-sl-uni-120mm-1-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221418",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
+        "price": 168
+      },
+      {
+        "listing_key": "tms:12RSLIN1F1W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade לבן",
+        "price": 147
+      },
+      {
+        "listing_key": "yahav:11687",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F1W",
+        "title": "מאוורר חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Single Pack צבע לבן",
+        "price": 150
+      }
+    ],
+    "model_code": "120mm-blade-fan-flex-inf-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F1W"
+    ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
+    "product_id": "model:case_fan:120mm-3-blade-fan-flex-inf-pack-reverse-sl-uni-120mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:221422",
+        "vendor": "1pc",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן 12RSLIN1F3W",
+        "price": 485
+      },
+      {
+        "listing_key": "tms:12RSLIN1F3W",
+        "vendor": "tms",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "Lian-Li 120mm UNI FAN SL-INF FLEX Reverse Blade 3-Pack לבן",
+        "price": 457
+      },
+      {
+        "listing_key": "yahav:11693",
+        "vendor": "yahav",
+        "vendor_sku": "12RSLIN1F3W",
+        "title": "מאווררים חברת Lian Li דגם UNI FAN SL-INF Flex Reverse Wireless 120mm White Triple Pack צבע לבן",
+        "price": 440
+      }
+    ],
+    "model_code": "120mm-12rslin1f3w-3-blade-fan-flex-inf-pack-reverse-sl-uni",
+    "manufacturer_pn": [
+      "12RSLIN1F3W"
     ]
   },
   {
@@ -16901,6 +16900,23 @@
   {
     "kind": "variant_conflict",
     "category": "case_fan",
+    "product_id": "model:case_fan:a-p14-pro-rgb-140mm-3-rgb-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "ivory:145148",
+        "vendor": "ivory",
+        "vendor_sku": "ACFAN00321A",
+        "title": "3 מאווררים למארז 14 ס''מ ARCTIC P14 Pro A-RGB – צבע לבן",
+        "price": 195
+      }
+    ],
+    "model_code": "a-p14-pro-rgb",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "case_fan",
     "product_id": "model:case_fan:cl-fan-fans-uni-wireless-x3-120mm-3-rgb-black",
     "vendor": "",
     "offers": [
@@ -17171,6 +17187,40 @@
     "manufacturer_pn": [
       "PGWACHVN025"
     ]
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:360-argb-matrix-omni-black",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:223513",
+        "vendor": "1pc",
+        "vendor_sku": "223513",
+        "title": "קירור למעבד Antec OMNI MATRIX 360 ARGB שחור",
+        "price": 249
+      }
+    ],
+    "model_code": "360-argb-matrix-omni",
+    "manufacturer_pn": []
+  },
+  {
+    "kind": "variant_conflict",
+    "category": "cooler_air",
+    "product_id": "model:cooler_air:360-matrix-omni-white",
+    "vendor": "",
+    "offers": [
+      {
+        "listing_key": "1pc:223475",
+        "vendor": "1pc",
+        "vendor_sku": "223475",
+        "title": "קירור למעבד ANTEC Omni Matrix 360 ARGB לבן",
+        "price": 255
+      }
+    ],
+    "model_code": "360-matrix-omni",
+    "manufacturer_pn": []
   },
   {
     "kind": "variant_conflict",

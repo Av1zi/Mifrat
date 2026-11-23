@@ -1136,7 +1136,7 @@
 "1pc:191774":"model:gpu:1xhdmi-3xdp-5060-8gb-gaming-gddr7-geforce-oc-rtx-8gb",
 "1pc:191775":"model:gpu:1xhdmi-3xdp-5060-8gb-eagle-gddr7-geforce-ice-oc-rtx-8gb",
 "1pc:191776":"model:gpu:5060-8g-8gd-geforce-gv-n5060wf2oc-oc-rtx-windforce-8gb",
-"1pc:191954":"model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb",
+"1pc:191954":"model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb",
 "1pc:192334":"mpn:gpu:9005g1332240000",
 "1pc:192554":"other:1pc:1pc-192554",
 "1pc:192555":"other:1pc:1pc-192555",
@@ -1940,7 +1940,7 @@
 "1pc:216208":"model:storage:db35-400gb-ide-35",
 "1pc:216209":"model:storage:10k-6g-sas-900gb-sas-25",
 "1pc:216210":"model:storage:0gbps-6-barracuda-st4000dm004-4000gb-sata-35",
-"1pc:216211":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
+"1pc:216211":"model:storage:256mb-2tb-barracuda-hdd-sata3-2000gb-sata-35",
 "1pc:216213":"model:storage:blue-wd-2000gb-sata-25",
 "1pc:216214":"model:storage:red-wd-4000gb-sata-35",
 "1pc:216215":"model:storage:dc-hc550-ultrastar-16000gb-sata-35",
@@ -2119,8 +2119,8 @@
 "1pc:218347":"model:case:1x120mm-2x140mm-black-case-fans-infinity-mini-rgb-tower-v150-vector-black",
 "1pc:218348":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-black",
 "1pc:218349":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-white",
-"1pc:218350":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-black",
-"1pc:218353":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-white",
+"1pc:218350":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
+"1pc:218353":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-white",
 "1pc:218354":"model:case:case-digital-m-o11-vision-black",
 "1pc:218355":"model:case:case-digital-m-o11-vision-white",
 "1pc:218510":"model:storage:sa53p-3840gb-sata-25",
@@ -2528,7 +2528,7 @@
 "1pc:223496":"model:cpu:2535-tray",
 "1pc:223497":"model:memory:16grs-3200c22s-dimm-f4-ripjaws-so-16gb-x1-3200mhz-cl22-sodimm",
 "1pc:223498":"model:memory:16gtzrx-2x8gb-3600c18d-f4-trident-z-16gb-x2-3600mhz-cl18-rgb-black",
-"1pc:223513":"model:cooler_air:360-matrix-omni-black",
+"1pc:223513":"model:cooler_air:360-argb-matrix-omni-black",
 "1pc:2836":"model:cooler_air:002-e41997",
 "1pc:32632":"manual:cpu:1pc-32632-tms-g4400t",
 "1pc:32633":"manual:cpu:1pc-32633-tms-c7100t",
@@ -2802,7 +2802,7 @@
 "ivory:112283":"model:case_fan:140-a14x25r-g2-g2-nf-pwm-140mm-1-brown",
 "ivory:112285":"model:cooler_air:d15-g2-nh-170mm-140mm-brown",
 "ivory:112289":"model:cooler_air:91cfm-d15-g2-hbc-nh-170mm-140mm",
-"ivory:112679":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-168mm-120mm-black",
+"ivory:112679":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-170mm-120mm",
 "ivory:112783":"model:motherboard:eagle-wifi7-x870-atx",
 "ivory:112789":"mpn:motherboard:x870aelitewf7ice",
 "ivory:112793":"sku:motherboard:4711377254557",
@@ -3009,7 +3009,7 @@
 "ivory:133413":"model:motherboard:am5-b850-prime-wifi-atx",
 "ivory:133494":"model:motherboard:a-b550m-csm-prime-microatx",
 "ivory:133662":"mpn:motherboard:b860maeltwf6eice",
-"ivory:133680":"model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb",
+"ivory:133680":"model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb",
 "ivory:133686":"model:gpu:9060-gaming-oc-pure-radeon-rx-xt-16gb",
 "ivory:133689":"model:gpu:9060-amd-oc-pulse-radeon-rx-xt-16gb",
 "ivory:133692":"model:gpu:9060-amd-oc-pulse-radeon-rx-xt-8gb",
@@ -3353,8 +3353,8 @@
 "ivory:163612":"model:aio:240-a24-alpha2-se-240mm-white",
 "ivory:163618":"model:aio:240-a24-alpha2-se-240mm-black",
 "ivory:163621":"model:aio:360-a36-alpha2-se-360mm-white",
-"ivory:163732":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-black",
-"ivory:163735":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-white",
+"ivory:163732":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
+"ivory:163735":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-white",
 "ivory:165247":"model:motherboard:b850-gaming-neo-pro-tuf-w-wifi7-atx",
 "ivory:165256":"model:motherboard:gaming-neo-pro-tuf-w-wifi7-x870-atx",
 "ivory:165259":"model:motherboard:b840m-k-prime-microatx",
@@ -3503,11 +3503,12 @@
 "ivory:179884":"model:storage:0-4-990-pro-ps5-1000gb-nvme-m22280",
 "ivory:180022":"model:aio:240-freezer-iii-liquid-pro-240mm-black-2",
 "ivory:180025":"model:case_fan:140-a14-chromax-nf-pwm-swap-140mm-1-black-2",
+"ivory:180046":"model:aio:240-240-aqua-elite-v6-240mm-black",
 "ivory:22001":"model:gpu:2g-brk-gt1030-sl-2gb",
 "ivory:22070":"model:storage:240g-a400-sa400s37-240gb-sata-25inch",
 "ivory:22993":"mpn:storage:wd10purz",
 "ivory:23562":"model:storage:480g-a400-sa400s37-480gb-sata-25inch",
-"ivory:27045":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
+"ivory:27045":"model:storage:256mb-2tb-barracuda-hdd-sata3-2000gb-sata-35",
 "ivory:30398":"model:cpu:3200g",
 "ivory:31784":"model:cooler_air:black-chromax-d15-nh-170mm-140mm-black",
 "ivory:31811":"model:cooler_air:120-chromax-nh-ram-u12s-158mm-120mm-black",
@@ -3588,6 +3589,7 @@
 "ivory:80276":"model:cpu:14900kf-tray",
 "ivory:80279":"mpn:cpu:i914900kfb",
 "ivory:80282":"model:cpu:14900k-tray-2",
+"ivory:80285":"model:cpu:14900k",
 "ivory:80666":"model:aio:h115i-icue-link-rgb-280mm-black",
 "ivory:80678":"mpn:case_fan:co9050167ww",
 "ivory:80681":"model:case_fan:9050168-ar120-co-digital-fan-icue-pwm-ww-120mm-1-rgb-white",
@@ -4688,7 +4690,7 @@
 "ksp:509756":"model:motherboard:20-20-am5-crosshair-rog-x870e-eatx",
 "ksp:509823":"model:gpu:20-20-5090-astral-gddr7-rog-rtx-32gb",
 "ksp:50988":"model:storage:0gbps-6-barracuda-st8000dm004-8000gb-sata-35",
-"ksp:50990":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
+"ksp:50990":"model:storage:256mb-2tb-barracuda-hdd-sata3-2000gb-sata-35",
 "ksp:510165":"model:motherboard:b550m-pulse-microatx",
 "ksp:510234":"model:gpu:evo-o12g-prime-rx9070gre-12gb",
 "ksp:511473":"model:case:a23-black",
@@ -7526,7 +7528,7 @@
 "tms:90YV0MQ0-M0NA00":"model:gpu:9070-evo-gddr6-oc-prime-rx-16gb",
 "tms:90YV0N00-M0NA00":"mpn:gpu:90yv0n00m0na00",
 "tms:90YV0N10-M0NA00":"mpn:gpu:90yv0n10m0na00",
-"tms:90YV0N12-M0NA00":"model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb",
+"tms:90YV0N12-M0NA00":"model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb",
 "tms:90YV0N15-M0NA00":"model:gpu:5060-dual-gddr7-oc-rtx-8gb",
 "tms:90YV0N60-M0NA00":"mpn:gpu:90yv0n60m0na00",
 "tms:90YV0NR0-M0NA00":"model:gpu:16gb-5070-gddr7-geforce-oc-proart-rtx-ti-16gb",
@@ -7629,7 +7631,7 @@
 "tms:BK005":"model:cooler_air:3-rock-shadow-165mm-120mm-white",
 "tms:BK021":"model:cooler_air:4-bk021-dark-rock-160mm-135mm-black",
 "tms:BK034":"model:cooler_air:lp-pure-rock-45mm-92mm",
-"tms:BK036":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-168mm-120mm-black",
+"tms:BK036":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-170mm-120mm",
 "tms:BK037":"model:cooler_air:bk037-dark-elite-rock-165mm-135mm-black",
 "tms:BK039":"model:cooler_air:3-bk039-pure-rock-155mm-120mm-black",
 "tms:BK040":"model:cooler_air:3-bk040-lx-pure-rock-155mm-120mm-black",
@@ -8487,8 +8489,8 @@
 "tms:GHS2LCDS36CB":"model:aio:360cl-hydroshift-ii-lcd-s-360mm-black",
 "tms:GHS2LCDS36CW":"model:aio:360cl-hydroshift-ii-lcd-s-360mm-white",
 "tms:GHS2LCDS36TB":"model:aio:360tl-hydroshift-ii-lcd-s-360mm-black",
-"tms:GHS2OLDC36PB":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-black",
-"tms:GHS2OLDC36PW":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-white",
+"tms:GHS2OLDC36PB":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
+"tms:GHS2OLDC36PW":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-white",
 "tms:GHS2OLDC36TB":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-black",
 "tms:GHS2OLDC36TW":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-white",
 "tms:GHSLCD36SB":"model:aio:14cfm-360mm-360s-3800rpm-73-black-cooler-hydroshift-lcd-water-360mm-black",
@@ -9368,7 +9370,7 @@
 "tms:ST20000NM007D":"model:storage:enterprise-exos-x-20000gb-sata-35",
 "tms:ST20000VE002":"model:storage:ai-skyhawk-20000gb-sata-35",
 "tms:ST20000VE003":"model:storage:ai-skyhawk-20000gb-sata-35-2",
-"tms:ST2000DM008":"model:storage:barracuda-st2000dm008-2000gb-sata-35",
+"tms:ST2000DM008":"model:storage:256mb-2tb-barracuda-hdd-sata3-2000gb-sata-35",
 "tms:ST2000VX017":"model:storage:256mb-2tb-3-5-5400-hdd-sata3-skyhawk-2000gb-sata-35",
 "tms:ST20M":"case:antec:st20m",
 "tms:ST22000NM001E":"model:storage:enterprise-exos-x-22000gb-sata-35",
@@ -10010,8 +10012,8 @@
 "yahav:11585":"model:motherboard:b860m-gaming-wifi6-microatx",
 "yahav:11587":"model:gpu:12gd-5070-gv-if-infinity-n5070aorus-rtx-12gb",
 "yahav:11588":"mpn:gpu:n5080aorusif16gd",
-"yahav:11589":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-black",
-"yahav:11590":"model:aio:360p28-curved-hydroshift-ii-oled-360mm-white",
+"yahav:11589":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
+"yahav:11590":"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-white",
 "yahav:11591":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-black",
 "yahav:11592":"model:aio:1cfm-2800rpm-2k-360mm-360tl-6-60hz-67-90-curved-hydroshift-ii-oled-360mm-white",
 "yahav:11594":"model:case:case-digital-m-o11-vision-black",
@@ -10123,6 +10125,8 @@
 "yahav:11806":"model:case_fan:120mm-3-3x-fans-led-pack-pwm-r-reverse-rgb-rs120-support-120mm-3-rgb-white",
 "yahav:11807":"model:aio:2cfm-360-84-elite-liquid-tdp-360mm-black",
 "yahav:11809":"model:memory:16gb-6000mhz-amd-cl38-ddr5-expo-intel-nox-pack-rgb-single-support-xmp-16gb-6000mhz-cl38-rgb-black",
+"yahav:11812":"model:storage:10-by-exceria-g4-kioxia-series-toshiba-2048gb-pcie5-m2",
+"yahav:11813":"model:motherboard:am5-b850-hdmi-ii-mag-max-tomahawk-wifi-atx",
 "yahav:2001":"mpn:accessories:bxatxsbc",
 "yahav:289":"model:gpu:1030-2g-2gl-d4-gt-gv-low-n1030d4-profile-2gb",
 "yahav:3279":"model:case_fan:120mm-1800rpm-led-red-sickleflow-120mm-rgb-red",
@@ -10247,6 +10251,7 @@
 "yahav:6690":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-white",
 "yahav:6691":"model:case:3x120mm-5000t-fans-icue-mid-series-tower-black",
 "yahav:6694":"model:case_fan:3-3x120mm-core-elite-lighting-ml120-node-pack-rgb-rgb-triple-120mm-3-rgb",
+"yahav:6700":"model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-xpg-xpg-2048gb-pcie4-m2",
 "yahav:6710":"model:case:011dew-case-dynamic-evo-mid-o11-pc-rgb-tower-white",
 "yahav:6726":"model:case:3x120mm-fans-mid-nx290-side-tower-black",
 "yahav:6746":"model:cooler_air:3-rock-shadow-165mm-120mm-white",
@@ -10531,7 +10536,7 @@
 "yahav:9616":"model:cooler_air:bk037-dark-elite-rock-165mm-135mm-black",
 "yahav:9618":"model:cpu:8500g-tray-ryzen5",
 "yahav:9620":"model:cpu:8600g-tray",
-"yahav:9621":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-168mm-120mm-black",
+"yahav:9621":"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-170mm-120mm",
 "yahav:9625":"model:gpu:16gb-2000-4xmini-ada-dp-ecc-gddr6-generation-rtx-16gb",
 "yahav:9631":"model:case_fan:3-84-8cfm-bl105-pure-wings-120mm-black",
 "yahav:9643":"model:aio:coreliquid-e360-mag-360mm-white",
@@ -11274,6 +11279,14 @@
 "Lian Li Galahad II Trinity Performance 360mm White",
 "aio"
 ],
+"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black":[
+"Lian Li HydroShift II OLED Curved 360P28 Black",
+"aio"
+],
+"model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-white":[
+"Lian Li HydroShift II OLED Curved 360P28 White",
+"aio"
+],
 "model:aio:12-240-aio-cooler-cpu-lc-liquid-proart-240mm-black":[
 "ASUS Proart LC 240mm Black",
 "aio"
@@ -11460,6 +11473,10 @@
 ],
 "model:aio:24-alpha-white":[
 "Zalman Alpha 24 ARGB White",
+"aio"
+],
+"model:aio:240-240-aqua-elite-v6-240mm-black":[
+"THERMALRIGHT Aqua Elite 240 ARGB BLACK V6 240",
 "aio"
 ],
 "model:aio:240-5cfm-73-aio-icue-lcd-link-rx-titan-240mm-black":[
@@ -12126,14 +12143,6 @@
 "be quiet! BW033 360mm LCD White",
 "aio"
 ],
-"model:aio:360p28-curved-hydroshift-ii-oled-360mm-black":[
-"Lian Li HydroShift II OLED Curved 360P28 Black",
-"aio"
-],
-"model:aio:360p28-curved-hydroshift-ii-oled-360mm-white":[
-"Lian Li HydroShift II OLED Curved 360P28 White",
-"aio"
-],
 "model:aio:360r-72cfm-c-hydroshift-ii-lcd-360mm-black":[
 "Lian Li Hydroshift II 360R 360mm ARGB LCD Black",
 "aio"
@@ -12791,7 +12800,7 @@
 "case"
 ],
 "model:case:216-case-lan216x-lancool-pc-black":[
-"Lancool LAN216X Black",
+"Lian Li Lancool 216 Black",
 "case"
 ],
 "model:case:216-lancool-black":[
@@ -17670,7 +17679,7 @@
 "Thermaltake 1U LOW Profile Passive Black",
 "cooler_air"
 ],
-"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-168mm-120mm-black":[
+"model:cooler_air:1x120mm-1x135mm-2-2000pm-5-bk036-dark-fans-pro-rock-170mm-120mm":[
 "be quiet! Dark Rock PRO 5 BK036",
 "cooler_air"
 ],
@@ -17850,7 +17859,7 @@
 "ARCTIC Freezer 36-S Black",
 "cooler_air"
 ],
-"model:cooler_air:360-matrix-omni-black":[
+"model:cooler_air:360-argb-matrix-omni-black":[
 "Antec Omni Matrix 360 ARGB Black",
 "cooler_air"
 ],
@@ -20118,6 +20127,10 @@
 "ASUS Dual GeForce RTX 5060 8GB OC",
 "gpu"
 ],
+"model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb":[
+"ASUS Dual GeForce RTX 5060 8GB OC (90YV0N12-M0NA00)",
+"gpu"
+],
 "model:gpu:5060-8gb-edge-gaming-geforce-rtx-ti-twin-8gb":[
 "ZOTAC Twin Edge GeForce RTX 5060 Ti 8GB TWIN EDGE",
 "gpu"
@@ -20156,10 +20169,6 @@
 ],
 "model:gpu:5060-dual-fan-rtx-8gb":[
 "PNY GeForce RTX 5060 8GB (VCG50608DFXPB1)",
-"gpu"
-],
-"model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb":[
-"ASUS Dual GeForce RTX 5060 8GB OC (90YV0N12-M0NA00)",
 "gpu"
 ],
 "model:gpu:5060-dual-gddr7-oc-rtx-8gb":[
@@ -23610,6 +23619,10 @@
 "ASUS TUF Gaming B850-Plus WiFi",
 "motherboard"
 ],
+"model:motherboard:am5-b850-hdmi-ii-mag-max-tomahawk-wifi-atx":[
+"MSI B850 MAG Tomahawk MAX II WiFi",
+"motherboard"
+],
 "model:motherboard:am5-b850-prime-wifi-atx":[
 "ASUS Prime B850-Plus WIFI6E",
 "motherboard"
@@ -24631,7 +24644,7 @@
 "motherboard"
 ],
 "model:motherboard:b850-ii-mag-max-tomahawk-wifi-atx":[
-"MSI B850 MAG Tomahawk MAX II WiFi",
+"MSI B850 MAG Tomahawk MAX II WiFi (4711377424011)",
 "motherboard"
 ],
 "model:motherboard:b850bkb-terminator-wifi-miniitx":[
@@ -27190,6 +27203,10 @@
 "Verbatim VX500 External USB G2 480GB Ssd",
 "storage"
 ],
+"model:storage:10-by-exceria-g4-kioxia-series-toshiba-2048gb-pcie5-m2":[
+"Toshiba Kioxia BY Exceria Plus 2TB NVMe Gen5 M.2",
+"storage"
+],
 "model:storage:1000gcs-860-860-legend-sleg-1000gb-pciegen4x4-m22280":[
 "ADATA Legend 1TB NVMe Gen4 M.2",
 "storage"
@@ -27312,6 +27329,10 @@
 ],
 "model:storage:2-2000gm-p31-shgp31-2000gb-m2pcie-m22280":[
 "SK Hynix Gold P31 2TB NVMe Gen3 M.2-2280",
+"storage"
+],
+"model:storage:2-2048gb-2t-2tb-7400mb-agammixs70b-blade-cs-gammix-gen4-m-nvme-s70-ssd-xpg-xpg-2048gb-pcie4-m2":[
+"ADATA XPG AGAMMIXS70B-2T-CS Gammix S70 2TB NVMe Gen4 M.2",
 "storage"
 ],
 "model:storage:2-2048gb-2tb-7300mb-basic-exceria-gen4-m-nvme-retail-series-ssd-2000gb-m2pcie-m2":[
@@ -27702,6 +27723,10 @@
 "Seagate 2TB 256MB 5400 SATA3 3.5 SkyHawk HDD",
 "storage"
 ],
+"model:storage:256mb-2tb-barracuda-hdd-sata3-2000gb-sata-35":[
+"Seagate HDD 2TB 256MB SATA3 Barracuda",
+"storage"
+],
 "model:storage:256mb-3-4tb-5-5400-hdd-sata3-skyhawk-4000gb-sata-35":[
 "Seagate HDD 4TB 5400 256MB 3.5 SATA3 SkyHawk",
 "storage"
@@ -28032,10 +28057,6 @@
 ],
 "model:storage:ap2tbas2280p4u-x4-2000gb-m2pcie-m22280":[
 "Apacer X4 2TB NVMe Gen3 M.2-2280",
-"storage"
-],
-"model:storage:barracuda-st2000dm008-2000gb-sata-35":[
-"Seagate HDD 2TB 256MB SATA3 Barracuda",
 "storage"
 ],
 "model:storage:bk-cl-v3ssd":[

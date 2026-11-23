@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T23:39:08.961565+00:00",
+  "generated_at": "2026-11-23T02:23:56.770321+00:00",
   "gaps": [
     {
       "category": "case",
@@ -14,7 +14,7 @@
     {
       "category": "cpu",
       "label": "מעבד",
-      "count": 97,
+      "count": 98,
       "products": [
         "cpu:amd:ryzen-9-9950x3d-tray",
         "manual:cpu:1pc-105172-tms-c6700t",
@@ -252,26 +252,6 @@
       ]
     },
     {
-      "category": "storage",
-      "label": "מהירות קריאה אקראית",
-      "count": 26,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
-      "category": "storage",
-      "label": "מהירות כתיבה אקראית",
-      "count": 26,
-      "products": [
-        "manual:storage:ivory-177031-ksp-235486",
-        "manual:storage:ivory-71621-ksp-235491",
-        "model:storage:0-4-990-1000gb-pciegen40-m22280"
-      ]
-    },
-    {
       "category": "gpu",
       "label": "סוג האחסון",
       "count": 26,
@@ -289,6 +269,26 @@
         "model:gpu:1030-4gd4-aero-geforce-gt-itx-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb",
         "model:gpu:1030-4gd4-geforce-gt-lp-oc-4gb-geforcegt1030"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות קריאה אקראית",
+      "count": 25,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
+      ]
+    },
+    {
+      "category": "storage",
+      "label": "מהירות כתיבה אקראית",
+      "count": 25,
+      "products": [
+        "manual:storage:ivory-177031-ksp-235486",
+        "manual:storage:ivory-71621-ksp-235491",
+        "model:storage:0-4-990-1000gb-pciegen40-m22280"
       ]
     },
     {
@@ -382,6 +382,16 @@
       ]
     },
     {
+      "category": "cpu",
+      "label": "מהירות זכרון נתמכת",
+      "count": 22,
+      "products": [
+        "cpu:amd:ryzen-9-9950x3d-tray",
+        "model:cpu:225",
+        "model:cpu:225-tray"
+      ]
+    },
+    {
       "category": "case",
       "label": "מערכת קירור",
       "count": 22,
@@ -399,16 +409,6 @@
         "model:storage:0-3-nm610-pro-500gb-nvme-m22280",
         "model:storage:2-m-nm790-1000gb-pciegen4x4-m22280",
         "model:storage:2-m-nm790-4000gb-pciegen4x4-m22280"
-      ]
-    },
-    {
-      "category": "cpu",
-      "label": "מהירות זכרון נתמכת",
-      "count": 21,
-      "products": [
-        "cpu:amd:ryzen-9-9950x3d-tray",
-        "model:cpu:225",
-        "model:cpu:225-tray"
       ]
     },
     {
@@ -1786,9 +1786,9 @@
       "label": "רזולוציה",
       "count": 10,
       "products": [
+        "model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
         "model:aio:240mm-cooler-cpu-display-elite-h100i-icue-lcd-liquid-xt-240mm",
-        "model:aio:360-aio-view-vortex-360mm",
-        "model:aio:360-apex-bk-ice-vision-360mm-black"
+        "model:aio:360-aio-view-vortex-360mm"
       ]
     },
     {
@@ -1906,9 +1906,9 @@
       "label": "ממשק",
       "count": 9,
       "products": [
+        "model:aio:110-2800rpm-2k-360-360mm-5cfm-6-60hz-67-curved-hydroshift-ii-oled-p28-v2-360mm-black",
         "model:aio:240-5cfm-73-aio-icue-lcd-link-rx-titan-240mm-black",
-        "model:aio:240-a13-coreliquid-mag-240mm-white",
-        "model:aio:3-eu-loop-lx-pure-360mm-black"
+        "model:aio:240-a13-coreliquid-mag-240mm-white"
       ]
     },
     {
@@ -5701,6 +5701,42 @@
     },
     {
       "category": "cooler_air",
+      "label": "תושבות Intel",
+      "count": 2,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:360-argb-matrix-omni-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "תושבות AMD",
+      "count": 2,
+      "products": [
+        "model:cooler_air:0761345400848-argb-f600-white-white",
+        "model:cooler_air:360-argb-matrix-omni-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מהירות המשאבה",
+      "count": 2,
+      "products": [
+        "model:cooler_air:360-argb-matrix-omni-black",
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות הרדיאטור",
+      "count": 2,
+      "products": [
+        "model:cooler_air:360-argb-matrix-omni-black",
+        "model:cooler_air:360-matrix-omni-white"
+      ]
+    },
+    {
+      "category": "cooler_air",
       "label": "גודל רדיאטור",
       "count": 2,
       "products": [
@@ -6137,7 +6173,7 @@
       "count": 2,
       "products": [
         "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -6155,7 +6191,7 @@
       "count": 2,
       "products": [
         "model:gpu:32gb-5090-gaming-gddr7-geforce-oc-rtx-tuf-32gb",
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -8013,22 +8049,6 @@
     },
     {
       "category": "cooler_air",
-      "label": "תושבות Intel",
-      "count": 1,
-      "products": [
-        "model:cooler_air:0761345400848-argb-f600-white-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "תושבות AMD",
-      "count": 1,
-      "products": [
-        "model:cooler_air:0761345400848-argb-f600-white-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
       "label": "דירוג TDP",
       "count": 1,
       "products": [
@@ -8117,10 +8137,34 @@
     },
     {
       "category": "cooler_air",
-      "label": "מידות הרדיאטור",
+      "label": "משקל נטו",
       "count": 1,
       "products": [
-        "model:cooler_air:360-matrix-omni-white"
+        "model:cooler_air:360-argb-matrix-omni-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מהירות המאוורר",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-argb-matrix-omni-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "מידות מכלול המאווררים",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-argb-matrix-omni-black"
+      ]
+    },
+    {
+      "category": "cooler_air",
+      "label": "בקרת מאוורר",
+      "count": 1,
+      "products": [
+        "model:cooler_air:360-argb-matrix-omni-black"
       ]
     },
     {
@@ -8142,14 +8186,6 @@
     {
       "category": "cooler_air",
       "label": "סיווג הרדיאטור",
-      "count": 1,
-      "products": [
-        "model:cooler_air:360-matrix-omni-white"
-      ]
-    },
-    {
-      "category": "cooler_air",
-      "label": "מהירות המשאבה",
       "count": 1,
       "products": [
         "model:cooler_air:360-matrix-omni-white"
@@ -8944,7 +8980,7 @@
       "label": "תושבת / ממשק חיבור",
       "count": 1,
       "products": [
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -8952,7 +8988,7 @@
       "label": "מערכת קירור",
       "count": 1,
       "products": [
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -8960,7 +8996,7 @@
       "label": "עיצוב",
       "count": 1,
       "products": [
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -8968,7 +9004,7 @@
       "label": "טכנולוגיות נוספות",
       "count": 1,
       "products": [
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
@@ -8976,7 +9012,7 @@
       "label": "מיסבים",
       "count": 1,
       "products": [
-        "model:gpu:5060-dual-gddr7-geforce-oc-rtx-8gb"
+        "model:gpu:5060-8gb-dual-gddr7-geforce-oc-rtx-8gb"
       ]
     },
     {
